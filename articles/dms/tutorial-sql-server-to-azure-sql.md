@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: 75dacf053de595ae25f3b58ef33577e2723319f0
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: ff47246482bd0712ea4e741d44b12f2c6767380b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750759"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80298912"
 ---
 # <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-offline-using-dms"></a>Tutorial: Migración de SQL Server a una base de datos única o agrupada en Azure SQL Database sin conexión mediante DMS
 
@@ -38,7 +38,7 @@ En este tutorial, aprenderá a:
 
 En este artículo se describe una migración sin conexión desde SQL Server a una base de datos única o agrupada de Azure SQL Database. Para una migración en línea, consulte [Migración de SQL Server a Azure SQL Database en línea mediante DMS](tutorial-sql-server-azure-sql-online.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este tutorial, necesita:
 
@@ -220,7 +220,7 @@ Después de crear el servicio, búsquelo en Azure Portal, ábralo y cree un proy
     Si no hay ningún certificado de confianza instalado, SQL Server genera un certificado autofirmado cuando se inicia la instancia. Este certificado se usa para cifrar las credenciales de las conexiones del cliente.
 
     > [!CAUTION]
-    > Las conexiones SSL cifradas mediante un certificado autofirmado no proporcionan una gran seguridad. Son susceptibles de sufrir ataques de tipo "Man in the middle". No se debe confiar en SSL mediante certificados autofirmados en un entorno de producción o en servidores que están conectados a Internet.
+    > Las conexiones TLS cifradas con un certificado autofirmado no proporcionan una gran seguridad. Son susceptibles de sufrir ataques de tipo "Man in the middle". No debe confiar en TLS con certificados autofirmados en un entorno de producción, ni en servidores conectados a Internet.
 
    ![Detalles del origen](media/tutorial-sql-server-to-azure-sql/dms-source-details2.png)
 

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 05/16/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: feedce112110b1c944e3cb0af79e76fe1bda4778
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: d7eb01f3997ac4ab2e439c00f07990c51ec3e3d3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77365640"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80370363"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configuración de Workday para el aprovisionamiento automático de usuarios
 
@@ -132,7 +132,7 @@ Utilice la tabla de contenido para ir a la sección correspondiente de este tuto
 La solución de aprovisionamiento de usuarios para AD de Workday requiere la implementación de uno o varios agentes de aprovisionamiento en servidores que ejecutan Windows 2012 R2 o posterior con, al menos, 4 GB de RAM y .NET 4.7.1+ en tiempo de ejecución. Las siguientes consideraciones deben tenerse en cuenta antes de instalar el agente de aprovisionamiento:
 
 * Asegúrese de que el servidor host que ejecuta el agente de aprovisionamiento tiene acceso de red para el dominio de AD de destino.
-* El Asistente para configuración del agente de aprovisionamiento registra el agente con el inquilino de Azure AD y el proceso de registro requiere acceso a *.msappproxy.net a través del puerto SSL 443. Asegúrese de que las reglas de firewall de salida que permiten esta comunicación están en vigor. El agente admite la [configuración de proxy HTTPS saliente](#how-do-i-configure-the-provisioning-agent-to-use-a-proxy-server-for-outbound-http-communication).
+* El Asistente para configuración del agente de aprovisionamiento registra el agente con el inquilino de Azure AD y el proceso de registro requiere acceso a *.msappproxy.net a través del puerto TLS 443. Asegúrese de que las reglas de firewall de salida que permiten esta comunicación están en vigor. El agente admite la [configuración de proxy HTTPS saliente](#how-do-i-configure-the-provisioning-agent-to-use-a-proxy-server-for-outbound-http-communication).
 * El agente de aprovisionamiento usa una cuenta de servicio para comunicarse con los dominios de AD de la red local. Antes de la instalación del agente, se recomienda que cree una cuenta de servicio con permisos de administrador de dominio y una contraseña que no expire.  
 * Durante la configuración del agente de aprovisionamiento, puede seleccionar los controladores de dominio que deben controlar las solicitudes de aprovisionamiento. Si tiene varios controladores de dominio distribuidos geográficamente, instale al agente de aprovisionamiento en el mismo sitio que los controladores de dominio preferidos para mejorar la confiabilidad y el rendimiento de la solución de un extremo a otro.
 * Para lograr una alta disponibilidad, puede implementar más de un agente de aprovisionamiento y registrarlos para controlar el mismo conjunto de dominios de Active Directory locales.

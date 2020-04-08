@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7b431cee3b8e5fc168dec2766442d6f6b9869d1e
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74900373"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Identidad del dispositivo y virtualización del escritorio
@@ -44,19 +44,19 @@ Antes de configurar las identidades de dispositivo en Azure AD para el entorno 
 | Tipo de identidad del dispositivo | Infraestructura de identidad | Dispositivos Windows | Versión de la plataforma de VDI | Compatible |
 | --- | --- | --- | --- | --- |
 | Híbrido unido a Azure AD | Federada* | Windows actual*** y Windows de nivel inferior**** | Persistente | Sí |
-|   |   | Windows actual | No persistente | Sin |
+|   |   | Windows actual | No persistente | No |
 |   |   | Dispositivos de Windows de nivel inferior | No persistente | Sí |
 |   | Administrada** | Windows actual y Windows de nivel inferior | Persistente | Sí |
-|   |   | Windows actual | No persistente | Sin |
+|   |   | Windows actual | No persistente | No |
 |   |   | Dispositivos de Windows de nivel inferior | No persistente | Sí |
-| Unido a Azure AD | Federado | Windows actual | Persistente | Sin |
-|   |   |   | No persistente | Sin |
-|   | Administrado | Windows actual | Persistente | Sin |
-|   |   |   | No persistente | Sin |
-| Registrado en Azure AD | Federado | Windows actual | Persistente | Sin |
-|   |   |   | No persistente | Sin |
-|   | Administrado | Windows actual | Persistente | Sin |
-|   |   |   | No persistente | Sin |
+| Unido a Azure AD | Federado | Windows actual | Persistente | No |
+|   |   |   | No persistente | No |
+|   | Administrado | Windows actual | Persistente | No |
+|   |   |   | No persistente | No |
+| Registrado en Azure AD | Federado | Windows actual | Persistente | No |
+|   |   |   | No persistente | No |
+|   | Administrado | Windows actual | Persistente | No |
+|   |   |   | No persistente | No |
 
 \* Un entorno de infraestructura de identidad **federada** representa un entorno con un proveedor de identidades como AD FS u otro IdP de terceros.
 

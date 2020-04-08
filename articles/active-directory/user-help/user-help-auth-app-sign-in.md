@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: ac61c01c5e45b6e8e001a68781f93c3962cb581f
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 9b8c44f99953d4518f0bc3f558f396250657c632
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78297855"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79138950"
 ---
 # <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Inicio de sesión en sus cuentas mediante la aplicación Microsoft Authenticator
 
@@ -112,7 +112,7 @@ En un dispositivo iOS:
 
 ## <a name="sign-in-using-two-factor-verification-for-your-account"></a>Inicie sesión con la comprobación en dos fases en la cuenta
 
-El método de comprobación en dos fases estándar requiere que escriba su nombre de usuario y contraseña en el dispositivo en el que va a iniciar sesión y luego elija si la aplicación Microsoft Authenticator debe recibir la aplicación Microsoft Authenticator. En un dispositivo Android, estos códigos de verificación se pueden encontrar en la pantalla Cuentas. En un dispositivo iOS, estos códigos de verificación se pueden encontrar en la pantalla **cuentas** o en la vista de pantalla completa de una cuenta, en función del tipo de cuenta. Active la comprobación en dos fases en la cuenta como parte del proceso para agregar la cuenta a la aplicación Microsoft Authenticator.
+El método estándar de verificación en dos fases requiere que escriba el nombre de usuario y la contraseña en el dispositivo en el que va a iniciar sesión. Abra la aplicación Microsoft Authenticator y escriba el código generado aleatoriamente para la cuenta en el cuadro **Especificar el código**. En un dispositivo Android, estos códigos de verificación se pueden encontrar en la pantalla **Cuentas**. En un dispositivo iOS, estos códigos de verificación se pueden encontrar en la pantalla **Cuentas** o en la vista de pantalla completa de una cuenta, en función del tipo de cuenta. Active la comprobación en dos fases en la cuenta como parte del proceso para agregar la cuenta a la aplicación Microsoft Authenticator.
 
 >[!Note]
 >Si no ve su cuenta profesional o educativa, o su cuenta personal en la pantalla **Cuentas** de la aplicación Microsoft Authenticator, significa que no ha agregado la cuenta a la aplicación Microsoft Authenticator. Para agregar su cuenta, consulte [Adición de una cuenta profesional o educativa](user-help-auth-app-add-work-school-account.md) y [Adición de una cuenta Microsoft personal](user-help-auth-app-add-personal-ms-account.md).

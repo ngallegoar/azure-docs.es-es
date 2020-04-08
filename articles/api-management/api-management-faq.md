@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 21b46ba0012b71ed0e09dc09d041ceb020824843
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: c32fdc67c74e100e0e31dad3afde128c05c356d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75967451"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335967"
 ---
 # <a name="azure-api-management-faqs"></a>P+F de Azure API Management
 Obtenga respuestas a preguntas comunes, patrones y procedimientos recomendados para Azure API Management.
@@ -40,7 +40,7 @@ Obtenga respuestas a preguntas comunes, patrones y procedimientos recomendados p
 * [¿Se puede configurar un servidor de autorización de OAuth 2.0 con seguridad AD FS?](#can-i-configure-an-oauth-20-authorization-server-with-ad-fs-security)
 * [¿Qué método de enrutamiento utiliza API Management en implementaciones en varias ubicaciones geográficas?](#what-routing-method-does-api-management-use-in-deployments-to-multiple-geographic-locations)
 * [¿Se puede usar una plantilla de Azure Resource Manager para crear una instancia del servicio API Management?](#can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance)
-* [¿Se puede usar un certificado SSL autofirmado para un back-end?](#can-i-use-a-self-signed-ssl-certificate-for-a-back-end)
+* [¿Se puede usar un certificado TLS/SSL autofirmado para un back-end?](#can-i-use-a-self-signed-tlsssl-certificate-for-a-back-end)
 * [¿Por qué se obtiene un error de autenticación al intentar clonar un repositorio?](#why-do-i-get-an-authentication-failure-when-i-try-to-clone-a-git-repository)
 * [¿Funciona API Management con Azure ExpressRoute?](#does-api-management-work-with-azure-expressroute)
 * [¿Por qué es necesaria una subred dedicada en las redes virtuales de estilo Resource Manager cuando API Management está implementado en ellas?](#why-do-we-require-a-dedicated-subnet-in-resource-manager-style-vnets-when-api-management-is-deployed-into-them)
@@ -62,7 +62,7 @@ Cuando una característica está en su versión preliminar, significa que estamo
 Tiene varias opciones para proteger la conexión entre la puerta de enlace de API Management y mis servicios back-end. Puede:
 
 * Use la autenticación básica HTTP. Para más información, consulte [Importación y publicación de la primera API](import-and-publish.md).
-* Use la autenticación mutua de SSL como se describe en [Cómo asegurar servicios back-end con la autenticación de certificados de cliente en Azure API Management](api-management-howto-mutual-certificates.md).
+* Use la autenticación mutua de TLS como se describe en [Cómo asegurar servicios back-end con la autenticación de certificados de cliente en Azure API Management](api-management-howto-mutual-certificates.md).
 * Utilice la lista blanca IP en su servicio back-end. En todos los niveles de API Management, a excepción del nivel de consumo, la dirección IP de la puerta de enlace permanece constante, con algunas salvedades que se describen en [el artículo sobre la documentación de IP](api-management-howto-ip-addresses.md).
 * Conecte la instancia de API Management a Azure Virtual Network.
 
@@ -115,7 +115,7 @@ API Management usa el [método de enrutamiento de tráfico de rendimiento](../tr
 ### <a name="can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance"></a>¿Se puede usar una plantilla de Azure Resource Manager para crear una instancia del servicio API Management?
 Sí. Consulte las plantillas de inicio rápido del [servicio Azure API Management](https://aka.ms/apimtemplate).
 
-### <a name="can-i-use-a-self-signed-ssl-certificate-for-a-back-end"></a>¿Se puede usar un certificado SSL autofirmado para un back-end?
+### <a name="can-i-use-a-self-signed-tlsssl-certificate-for-a-back-end"></a>¿Se puede usar un certificado TLS/SSL autofirmado para un back-end?
 Sí. Puede hacerse a través de PowerShell o enviando el certificado directamente a la API. Esta operación deshabilitará la validación de la cadena de certificados y le permitirá usar certificados autofirmados o firmados de forma privada cuando se comunique con los servicios back-end desde API Management.
 
 #### <a name="powershell-method"></a>Método de Powershell ####

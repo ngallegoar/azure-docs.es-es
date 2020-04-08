@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2d6212692465270182db541889bed5f03a08a345
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74008286"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs"></a>Análisis de registros de actividad de Azure AD con registros de Azure Monitor
@@ -32,7 +32,7 @@ En este artículo, aprenderá a analizar registros de actividad de Azure AD en e
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>Requisitos previos 
+## <a name="prerequisites"></a>Prerrequisitos 
 
 Para continuar, necesita:
 
@@ -47,7 +47,7 @@ Para continuar, necesita:
     
 ## <a name="navigate-to-the-log-analytics-workspace"></a>Acceso al área de trabajo de Log Analytics
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com). 
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). 
 
 2. Seleccione **Azure Active Directory** y, después, **Registros** en la sección **Supervisión** para abrir el área de trabajo de Log Analytics. Se abre el área de trabajo con una consulta predeterminada.
 

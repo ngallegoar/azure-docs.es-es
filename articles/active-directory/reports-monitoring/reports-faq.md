@@ -1,6 +1,6 @@
 ---
 title: Preguntas frecuentes sobre los informes de Azure Active Directory | Microsoft Docs
-description: Preguntas frecuentes en torno a los informes de Azure Active Directory.
+description: Preguntas frecuentes sobre los informes de Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: cawrites
@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cbaf7d4e5a0dee82edf9b6b6bd65b91309e1344d
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 273fdb80475defb0576bcd29d1944c5f6c595cfc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74007694"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231788"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Preguntas frecuentes en torno a los informes de Azure Active Directory
 
@@ -37,7 +37,7 @@ Este artículo incluye respuestas a preguntas más frecuentes sobre los informes
 
 **P: Actualmente uso las API de punto de conexión `https://graph.windows.net/<tenant-name>/reports/`para extraer informes de seguridad de Azure AD (tipos específicos de detecciones, como credenciales perdidas o inicios de sesión desde direcciones IP anónimas) en nuestros sistemas de informes mediante programación. ¿A cuál debo cambiar?**
 
-**R:** Puede usar la  [API de detecciones de riesgo de Identity Protection](../identity-protection/graph-get-started.md)  para acceder a las detecciones de seguridad mediante Microsoft Graph. Este nuevo formato proporciona mayor flexibilidad en el modo en que permite consultar los datos, con filtrado avanzado, selección de campos y mucho más, y normaliza las detecciones de riesgo en un tipo para facilitar la integración en SIEM y otras herramientas de recolección de datos. Dado que los datos están en un formato diferente, no puede sustituir una nueva consulta para las consultas anteriores. Sin embargo, [la nueva API utiliza Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent), que es el estándar de Microsoft para estas API como Office 365 o Azure AD. Así, el trabajo necesario puede dilatar sus inversiones actuales en MS Graph o ayudarle a comenzar la transición a esta nueva plataforma estándar.
+**R:** Puede usar la  [API de detecciones de riesgo de Identity Protection](../identity-protection/graph-get-started.md)  para acceder a las detecciones de seguridad mediante Microsoft Graph. Este nuevo formato proporciona mayor flexibilidad en el modo en que permite consultar los datos, con filtrado avanzado, selección de campos y mucho más, y normaliza las detecciones de riesgo en un tipo para facilitar la integración en SIEM y otras herramientas de recolección de datos. Dado que los datos están en un formato diferente, no puede sustituir una nueva consulta para las consultas anteriores. Sin embargo, [la nueva API utiliza Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent), que es el estándar de Microsoft para estas API como Office 365 o Azure AD. Así, el trabajo necesario puede dilatar sus inversiones actuales en Microsoft Graph o ayudarle a comenzar la transición a esta nueva plataforma estándar.
 
 ---
 

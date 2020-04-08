@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3ce27c59ead4e126cb143d1831ece0e93e119ef
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: 26e52930211611673b6fe2309e2dca067a91ebc8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78672290"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80331780"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Solución de problemas de dispositivos híbridos unidos a Azure Active Directory 
 
@@ -277,7 +277,7 @@ Use los registros de Visor de eventos para buscar el código de error, el códig
    - Motivo: Se anuló la conexión con el punto de conexión de autenticación.
    - Resolución: Vuelva a intentarlo más tarde o intente conectarse desde una ubicación de red estable alternativa.
 - **ERROR_ADAL_INTERNET_SECURE_FAILURE** (0xcaa82f8f/-894947441)
-   - Motivo: No se pudo validar el certificado de Capa de sockets seguros (SSL) enviado por el servidor.
+   - Motivo: No se pudo validar el certificado de Seguridad de la capa de transporte (TLS), antes Capa de sockets seguros (SSL), enviado por el servidor.
    - Resolución: Compruebe el sesgo de tiempo del cliente. Vuelva a intentarlo más tarde o intente conectarse desde una ubicación de red estable alternativa. 
 - **ERROR_ADAL_INTERNET_CANNOT_CONNECT** (0xcaa82efd/-894947587)
    - Motivo: Error al intentar conectarse a `https://login.microsoftonline.com`.

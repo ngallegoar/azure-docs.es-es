@@ -3,12 +3,12 @@ title: Reducción de los costos de servicio con Azure Advisor
 description: Utilice Azure Advisor para optimizar el costo de las implementaciones de Azure.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: afa5a4068d2ec5f4730d261801760fe68d7a330e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0237feab59551ecab87d78b0d4d66b9fc7b47e90
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75443128"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79229692"
 ---
 # <a name="reduce-service-costs-using-azure-advisor"></a>Reducción de los costos de servicio con Azure Advisor
 
@@ -46,6 +46,9 @@ Azure Advisor detectará las canalizaciones de Azure Data Factory que produzcan 
 
 ## <a name="use-standard-snapshots-for-managed-disks"></a>Uso de instantáneas estándar para Managed Disks
 Para ahorrar el 60 % del costo, se recomienda almacenar las instantáneas en Standard Storage, independientemente del tipo de almacenamiento del disco principal. Esta opción es la predeterminada para las instantáneas de Managed Disks. Azure Advisor identificará las instantáneas de Premium Storage y se recomienda migrar la instantánea de Premium Storage a Standard Storage. [Más información sobre los precios de Managed Disks](https://aka.ms/aa_manageddisksnapshot_learnmore)
+
+## <a name="utilize-lifecycle-management"></a>Uso de la administración del ciclo de vida
+Azure Advisor utilizará la inteligencia relacionada con el recuento de objetos de Azure Blob Storage, el tamaño total y las transacciones para detectar si una o varias de sus cuentas de almacenamiento serían más adecuadas para habilitar la administración del ciclo de vida en los datos de niveles. Se le pedirá que cree reglas de administración del ciclo de vida para organizar automáticamente los datos en un nivel de acceso esporádico o el de archivo para optimizar los costos de almacenamiento, al tiempo que conserva los datos en Azure Blob Storage para que sean compatibles con las aplicaciones.
 
 ## <a name="how-to-access-cost-recommendations-in-azure-advisor"></a>Obtención de acceso a las recomendaciones sobre el costo en Azure Advisor
 

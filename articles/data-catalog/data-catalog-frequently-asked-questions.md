@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 3877648723a8866ec7d9c5f1987ae3a276114d5e
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 7dbb1b4a8b85350b8bf8a6df0c9035a19055444c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73152061"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79409026"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Preguntas frecuentes sobre Azure Data Catalog
 En este artículo se responden algunas de las preguntas más frecuentes relativas al servicio Azure Data Catalog.
@@ -34,11 +34,11 @@ Data Catalog está diseñado tanto para usuarios técnicos como para no técnico
 Actualmente, los servicios de Data Catalog están disponibles en los siguientes centros de datos:
 
 * Oeste de EE. UU.
-* East US
-* Europa occidental
-* Europa del Norte
+* Este de EE. UU.
+* Oeste de Europa
+* Norte de Europa
 * Este de Australia
-* Sudeste asiático
+* Sudeste de Asia
 
 ## <a name="what-are-its-limits-on-the-number-of-data-assets"></a>¿Cuáles son sus límites en cuanto al número de recursos de datos?
 La edición gratuita de Data Catalog está limitada a 5.000 recursos de datos registrados.
@@ -87,7 +87,7 @@ Las propiedades específicas varían de un origen de datos a otro, pero en gener
 >
 
 > [!NOTE]
-> En el caso de orígenes de datos como SQL Server Analysis Services que tienen una propiedad **Description** de primera clase, la herramienta de registro de orígenes de datos de Data Catalog extrae el valor de dicha propiedad. En el caso de las bases de datos relacionales de SQL Server *locales* que no tienen una propiedad **Description** de primera clase, la herramienta de registro de orígenes de datos de Data Catalog extrae el valor de la propiedad extendida **ms_description** de los objetos y columnas. Para más información, consulte [Usar propiedades extendidas en objetos de base de datos](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
+> En el caso de orígenes de datos como SQL Server Analysis Services que tienen una propiedad **Description** de primera clase, la herramienta de registro de orígenes de datos de Data Catalog extrae el valor de dicha propiedad. En el caso de las bases de datos relacionales de SQL Server *locales* que no tienen una propiedad **Description** de primera clase, la herramienta de registro de orígenes de datos de Data Catalog extrae el valor de la propiedad extendida **ms_description** de los objetos y columnas. Esta propiedad no es compatible con SQL Azure. Para más información, consulte [Usar propiedades extendidas en objetos de base de datos](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
 >
 >
 

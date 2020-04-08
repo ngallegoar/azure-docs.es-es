@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/3/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: b5bf5cc5c44226236f39a6e32c33ebe346e36eeb
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 76a96d36387f55889b65f16ea1ca6ec07359c377
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78942101"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79502438"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planeamiento de una implementación de Azure Files
 [Azure Files](storage-files-introduction.md) se puede implementar de dos formas principales: montando directamente los recursos compartidos de archivos de Azure sin servidor o almacenando en caché recursos compartidos de archivos de Azure localmente mediante Azure File Sync. La opción de implementación que elija cambiará todo aquello que debe tener en cuenta a la hora de planear la implementación. 
@@ -88,7 +88,7 @@ En general, las características de Azure Files y la interoperabilidad con otros
     - Los recursos compartidos de archivos estándar están disponibles para el almacenamiento con redundancia local, redundancia de zona, redundancia geográfica (GRS) y redundancia de zona geográfica (GZRS).
 - **Tamaño máximo de un recurso compartido de archivos**
     - Los recursos compartidos de archivos prémium se pueden aprovisionar hasta 100 TiB sin ningún trabajo adicional.
-    - De forma predeterminada, los recursos compartidos de archivos estándar solo pueden abarcar hasta 5 TiB, aunque se puede aumentar el límite de recursos compartidos hasta 100 TiB al optar por recibir la marca de la característica de cuenta de almacenamiento de *recurso compartido de archivos de gran tamaño*. Los recursos compartidos de archivos estándar solo pueden abarcar hasta 100 TiB para las cuentas de almacenamiento con redundancia local o redundancia de zona. Para obtener más información sobre el aumento de  
+    - De forma predeterminada, los recursos compartidos de archivos estándar solo pueden abarcar hasta 5 TiB, aunque se puede aumentar el límite de recursos compartidos hasta 100 TiB al optar por recibir la marca de la característica de cuenta de almacenamiento de *recurso compartido de archivos de gran tamaño*. Los recursos compartidos de archivos estándar solo pueden abarcar hasta 100 TiB para las cuentas de almacenamiento con redundancia local o redundancia de zona. Para más información sobre cómo aumentar los tamaños de los recursos compartidos de archivos, vea [Habilitación y creación de recursos compartidos de archivos grandes](https://docs.microsoft.com/azure/storage/files/storage-files-how-to-create-large-file-share).
 - **Disponibilidad regional**
     - Los recursos compartidos de archivos prémium no están disponibles en todas las regiones y la compatibilidad con la redundancia de zona está disponible en un subconjunto de regiones más pequeño. Para averiguar si los recursos compartidos de archivos prémium están disponibles actualmente en su región, consulte la página [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=storage) para Azure. Para averiguar qué regiones admiten ZRS, consulte la tabla de [soporte técnico para las zonas de disponibilidad de Azure por región](../../availability-zones/az-overview.md#services-support-by-region). Para ayudarnos a clasificar por orden de prioridad las nuevas regiones y características del nivel Premium, rellene esta [encuesta](https://aka.ms/pfsfeedback).
     - Los recursos compartidos de archivos estándar están disponibles en todas las regiones de Azure.

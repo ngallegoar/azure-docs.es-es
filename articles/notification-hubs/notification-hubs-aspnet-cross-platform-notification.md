@@ -16,14 +16,14 @@ ms.date: 09/30/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 8f4de88ed79ee802866579448681cfe6cee3e654
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: fc3cec348517244c8a7f54d2d3d17298c58e4262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72293418"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80127045"
 ---
-# <a name="send-cross-platform-notifications-to-users-with-notification-hubs"></a>Envío de notificaciones entre plataformas a los usuarios con Notification Hubs
+# <a name="send-cross-platform-notifications-with-azure-notification-hubs"></a>Envío de notificaciones entre plataformas con Azure Notification Hubs
 
 Este tutorial se basa en el anterior, [Envío de notificaciones a usuarios concretos mediante Azure Notification Hubs]. En ese tutorial se describe cómo insertar notificaciones en todos los dispositivos que están registrados en un usuario autenticado concreto. Ese enfoque requería que varias solicitudes enviaran una notificación a cada plataforma de cliente compatible. Azure Notification Hubs admite plantillas, que le permiten especificar cómo un dispositivo específico desea recibir notificaciones. Este método simplifica el envío de notificaciones entre plataformas.
 

@@ -8,10 +8,10 @@ ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
 ms.openlocfilehash: d06be85e4d18bc0867835a307b44ec8813c79d7d
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72245933"
 ---
 # <a name="azure-disk-encryption-with-azure-ad-for-windows-vms-previous-release"></a>Azure Disk Encryption con Azure AD para máquinas virtuales Windows (versión anterior)
@@ -52,7 +52,7 @@ Puede habilitar el cifrado de disco en nuevas máquinas virtuales IaaS de Window
 
 En la tabla siguiente figuran los parámetros de la plantilla de Resource Manager para nuevas máquinas virtuales en el escenario de Marketplace con el identificador de cliente de Azure AD:
 
-| Parámetro | DESCRIPCIÓN | 
+| Parámetro | Descripción | 
 | --- | --- |
 | adminUserName | Nombre de usuario administrador para la máquina virtual. |
 | adminPassword | Contraseña de usuario administrador para la máquina virtual. |
@@ -68,11 +68,11 @@ En la tabla siguiente figuran los parámetros de la plantilla de Resource Manage
 | vmName | Nombre de la máquina virtual en que se va a realizar la operación de cifrado. |
 
 
-## <a name="bkmk_RunningWinVM"></a> Habilitación del cifrado en máquinas virtuales IaaS de Windows existentes o en ejecución
+## <a name="enable-encryption-on-existing-or-running-iaas-windows-vms"></a><a name="bkmk_RunningWinVM"></a> Habilitación del cifrado en máquinas virtuales IaaS de Windows existentes o en ejecución
 En este escenario, puede habilitar el cifrado mediante una plantilla, los cmdlets de PowerShell o los comandos de la CLI. En las siguientes secciones se explica con más detalle cómo habilitar Azure Disk Encryption. 
 
 
-### <a name="bkmk_RunningWinVMPSH"></a> Habilitación del cifrado en máquinas virtuales existentes o en ejecución con Azure PowerShell 
+### <a name="enable-encryption-on-existing-or-running-vms-with-azure-powershell"></a><a name="bkmk_RunningWinVMPSH"></a> Habilitación del cifrado en máquinas virtuales existentes o en ejecución con Azure PowerShell 
 Use el cmdlet [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) para habilitar el cifrado en una máquina virtual IaaS en ejecución en Azure. Para obtener información acerca de cómo habilitar el cifrado con Azure Disk Encryption mediante el uso de cmdlets de PowerShell, vea las entradas de blog [Explore Azure Disk Encryption with Azure PowerShell - Part 1](https://blogs.msdn.com/b/azuresecurity/archive/2015/11/17/explore-azure-disk-encryption-with-azure-powershell.aspx) (Exploración de Azure Disk Encryption con Azure PowerShell - Parte 1) y [Explore Azure Disk Encryption with Azure PowerShell - Part 2](https://blogs.msdn.com/b/azuresecurity/archive/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2.aspx) (Exploración de Azure Disk Encryption con Azure PowerShell - Parte 2).
 
 -  **Cifrar una máquina virtual en ejecución mediante un secreto de cliente:** el siguiente script inicializa las variables y ejecuta el cmdlet Set-AzVMDiskEncryptionExtension. Ya se deben haber satisfecho los requisitos previos de crear el grupo de recursos, la máquina virtual, el almacén de claves, la aplicación de AAD y el secreto de cliente. Reemplace MyKeyVaultResourceGroup, MyVirtualMachineResourceGroup, MySecureVM, MySecureVault, My-AAD-client-ID y My-AAD-client-secret por sus propios valores.
@@ -121,7 +121,7 @@ Use el cmdlet [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/se
      Disable-AzVMDiskEncryption -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM'
      ```
 
-### <a name="bkmk_RunningWinVMCLI"></a>Habilitación del cifrado en máquinas virtuales existentes o en ejecución con la CLI de Azure
+### <a name="enable-encryption-on-existing-or-running-vms-with--azure-cli"></a><a name="bkmk_RunningWinVMCLI"></a>Habilitación del cifrado en máquinas virtuales existentes o en ejecución con la CLI de Azure
 Use el comando [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryption-enable) para habilitar el cifrado en una máquina virtual IaaS en ejecución en Azure.
 
 - **Cifrar una máquina virtual en ejecución mediante un secreto de cliente:**
@@ -151,7 +151,7 @@ Use el comando [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encrypti
      ```
 
 
-### <a name="bkmk_RunningWinVMwRM"> </a>Uso de la plantilla de Resource Manager
+### <a name="using-the-resource-manager-template"></a><a name="bkmk_RunningWinVMwRM"> </a>Uso de la plantilla de Resource Manager
 Puede habilitar el cifrado de disco en máquinas virtuales IaaS de Windows existentes o en ejecución en Azure mediante la [plantilla de Resource Manager para cifrar una máquina virtual Windows en ejecución](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm).
 
 
@@ -161,7 +161,7 @@ Puede habilitar el cifrado de disco en máquinas virtuales IaaS de Windows exist
 
 En la tabla siguiente figuran los parámetros de la plantilla de Resource Manager para máquinas virtuales existentes o en ejecución que usan un identificador de cliente de Azure AD:
 
-| Parámetro | DESCRIPCIÓN |
+| Parámetro | Descripción |
 | --- | --- |
 | AADClientID | Identificador de cliente de la aplicación de Azure AD que tiene permisos para escribir secretos en el almacén de claves. |
 | AADClientSecret | Secreto de cliente de la aplicación de Azure AD que tiene permisos para escribir secretos en el almacén de claves. |
@@ -172,7 +172,7 @@ En la tabla siguiente figuran los parámetros de la plantilla de Resource Manage
 | vmName | Nombre de la máquina virtual en que se va a realizar la operación de cifrado. |
 
 
-## <a name="bkmk_VHDpre"> </a>Máquinas virtuales IaaS creadas a partir de discos duros virtuales cifrados y claves de cifrado
+## <a name="new-iaas-vms-created-from-customer-encrypted-vhd-and-encryption-keys"></a><a name="bkmk_VHDpre"> </a>Nuevas máquinas virtuales IaaS creadas a partir de discos duros virtuales cifrados por el cliente y claves de cifrado
 En este escenario, se puede habilitar el cifrado mediante la plantilla de Resource Manager, cmdlets de PowerShell o comandos de la CLI. Las siguientes secciones explican con más detalle la plantilla de Resource Manager y los comandos de la CLI. 
 
 Use las instrucciones del apéndice para preparar imágenes previamente cifradas que se pueden usar en Azure. Una vez creada la imagen, puede seguir los pasos de la sección siguiente para crear una VM cifrada de Azure.
@@ -180,7 +180,7 @@ Use las instrucciones del apéndice para preparar imágenes previamente cifradas
 * [Preparación de un VHD con Windows precifrado](disk-encryption-sample-scripts.md#prepare-a-pre-encrypted-windows-vhd)
 
 
-### <a name="bkmk_VHDprePSH"> </a> Cifrado de máquinas virtuales con discos duros virtuales previamente cifrados con Azure PowerShell
+### <a name="encrypt-vms-with-pre-encrypted-vhds-with-azure-powershell"></a><a name="bkmk_VHDprePSH"> </a>Cifrado de máquinas virtuales con discos duros virtuales previamente cifrados con Azure PowerShell
 Puede habilitar el cifrado de disco en el disco duro virtual cifrado mediante el cmdlet [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk#examples) de PowerShell. En el ejemplo siguiente se proporcionan algunos parámetros comunes. 
 
 ```powershell

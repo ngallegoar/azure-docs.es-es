@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/19/2019
 ms.author: victorh
-ms.openlocfilehash: 64b90afd598b96604fc9c3ddc4bc10586e714363
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 9c4e6124acdbb35233f8e829f43d2665fd4a5176
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75657988"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80284813"
 ---
 # <a name="overview-of-ssl-termination-and-end-to-end-ssl-with-application-gateway"></a>Introducción a la terminación SSL y a SSL de extremo a extremo con Application Gateway
 
@@ -22,7 +22,7 @@ Capa de sockets seguros (SSL) es la tecnología de seguridad estándar para esta
 
 Application Gateway es compatible con la terminación SSL en la puerta de enlace; después, el tráfico fluye normalmente sin cifrar a los servidores back-end. Llevar a cabo la terminación SSL en la puerta de enlace de aplicaciones tiene una serie de ventajas:
 
-- **Rendimiento mejorado**: el mayor rendimiento al realizar el descifrado SSL es el protocolo de enlace inicial. Para mejorar el rendimiento, el servidor que realiza el descifrado almacena en caché los identificadores de sesión SSL y administra los vales de sesión TLS. Si esto se hace en la puerta de enlace de aplicaciones, todas las solicitudes del mismo cliente pueden usar los valores almacenados en caché. Si se hace en los servidores back-end, entonces cada vez que las solicitudes del cliente vayan a un servidor diferente, el cliente tendrá que volverse a autenticarse. El uso de tickets TLS puede ayudar a mitigar este problema, pero no todos los clientes los admiten y pueden resultar difícil de configurar y administrar.
+- **Rendimiento mejorado**: el mayor rendimiento al realizar el descifrado SSL es el protocolo de enlace inicial. Para mejorar el rendimiento, el servidor que realiza el descifrado almacena en caché los identificadores de sesión SSL y administra los vales de sesión TLS. Si esto se hace en la puerta de enlace de aplicaciones, todas las solicitudes del mismo cliente pueden usar los valores almacenados en caché. Si se hace en los servidores back-end, cada vez que las solicitudes del cliente vayan a un servidor diferente, el cliente tendrá que volver a autenticarse. El uso de tickets TLS puede ayudar a mitigar este problema, pero no todos los clientes los admiten y pueden resultar difícil de configurar y administrar.
 - **Mejor utilización de los servidores back-end**: el procesamiento SSL/TLS hace un uso intensivo de CPU, y este uso cada vez es mayor a medida que aumentan los tamaños de clave. La eliminación de este trabajo de los servidores back-end les permite centrarse en aquello en lo que son más eficientes: entregar contenido.
 - **Enrutamiento inteligente**: mediante el descifrado del tráfico, la puerta de enlace de aplicaciones tiene acceso al contenido de la solicitud, como encabezados, URI, etc., y puede utilizar estos datos para enrutar las solicitudes.
 - **Administración de certificados**: los certificados solo se deben comprar e instalar en la puerta de enlace de aplicaciones y no en todos los servidores back-end. Esto ahorra tiempo y dinero.
@@ -43,7 +43,7 @@ Para que la conexión SSL para funcione, deberá asegurarse de que el certificad
 Application Gateway admite los siguientes tipos de certificados:
 
 - Certificado CA (entidad de certificación): un certificado CA es un certificado digital emitido por una entidad de certificación (CA)
-- Certificado EV (validación extendida): un certificado EV contiene pautas de certificado estándar del sector. Esto cambiará a verde la barra del localizador del explorador y publicará también el nombre de la compañía.
+- Certificado EV (validación extendida): un certificado EV es un certificado que cumple las pautas de certificado estándar del sector. Esto cambiará a verde la barra del localizador del explorador y publicará también el nombre de la compañía.
 - Certificado comodín: este certificado admite cualquier número de subdominios en función de *. site.com, donde el subdominio reemplazaría el asterisco (*). Sin embargo, no admite site.com, por lo que en caso de que los usuarios accedan a su sitio web sin escribir las "www" iniciales, el certificado comodín no cubrirá eso.
 - Certificados autofirmados: los exploradores de cliente no confían en estos certificados y avisarán al usuario de que el certificado del servicio virtual no forma parte de una cadena de confianza. Los certificados autofirmados son buenos para las pruebas o los entornos donde los administradores controlan a los clientes y pueden omitir de forma segura las alertas de seguridad del explorador. Las cargas de trabajo de producción nunca deben usar certificados autofirmados.
 

@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7ee8802aeb2a760e255ab4f5e99010dfedc45e0d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67108298"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problemas de inicio de sesión en una aplicación de Microsoft
@@ -57,7 +57,7 @@ Estos son algunos problemas comunes que pueden surgir cuando los usuarios no pue
 
   * Asegurarse de que el usuario inicia sesión en la **dirección URL correcta** y no en la dirección URL de la aplicación local
 
-  * Asegurarse de que la cuenta del usuario **no esté bloqueada**
+  * Que la cuenta del usuario **no está bloqueada**.
 
   * Asegurarse de que la **cuenta del usuario exista** en Azure Active Directory [Comprobar si existe una cuenta de usuario en Azure Active Directory](#problems-with-the-users-account)
 
@@ -65,21 +65,21 @@ Estos son algunos problemas comunes que pueden surgir cuando los usuarios no pue
 
   * Que la **contraseña del usuario no ha expirado o se ha olvidado**. [Restablecer la contraseña del usuario](#reset-a-users-password) o [habilitar el autoservicio de restablecimiento de contraseña](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
 
-  * Asegurarse de que **Multi-Factor Authentication** no bloquee el acceso del usuario [Comprobar el estado de la autenticación multifactor de un usuario](#check-a-users-multi-factor-authentication-status) o [comprobar la información de contacto de autenticación de un usuario](#check-a-users-authentication-contact-info)
+  * Que **Multi-Factor Authentication** no bloquea el acceso del usuario. [Comprobar el estado de la autenticación multifactor de un usuario](#check-a-users-multi-factor-authentication-status) o [comprobar la información de contacto de autenticación de un usuario](#check-a-users-authentication-contact-info)
 
   * Que una **directiva de acceso condicional** o una directiva de **protección de identidad** no bloquea el acceso del usuario. [Comprobar una directiva de acceso condicional específica](#problems-with-conditional-access-policies) o [comprobar la directiva de acceso condicional de una aplicación específica](#check-a-specific-applications-conditional-access-policy) o [deshabilitar una directiva de acceso condicional específica](#disable-a-specific-conditional-access-policy)
 
   * Que la **información de contacto de autenticación** del usuario está actualizada para permitir la aplicación de directivas de Multi-Factor Authentication o de acceso condicional. [Comprobar el estado de la autenticación multifactor de un usuario](#check-a-users-multi-factor-authentication-status) o [comprobar la información de contacto de autenticación de un usuario](#check-a-users-authentication-contact-info)
 
-- Para aplicaciones de **Microsoft** **que necesitan una licencia** (como Office365), estos son algunos problemas específicos que se deben comprobar una vez que haya descartado los problemas generales mencionados anteriormente:
+- Para las aplicaciones de **Microsoft** **que necesitan una licencia** (como Office365), estos son algunos problemas específicos que se deben comprobar una vez que haya descartado los problemas generales mencionados anteriormente:
 
   * Asegurarse de que el usuario tenga una **licencia asignada** [Comprobar las licencias asignadas de un usuario](#check-a-users-assigned-licenses) o [comprobar licencias asignadas de un grupo](#check-a-groups-assigned-licenses)
 
-  * Si la licencia está **asignada a un** **grupo estático**, asegúrese de que el **usuario sea miembro** de ese grupo. [Comprobación de la pertenencia a grupos de un usuario](#check-a-users-group-memberships)
+  * Si la licencia está **asignada a un** **grupo estático**, asegúrese de que el **usuario sea miembro** de dicho grupo. [Comprobación de la pertenencia a grupos de un usuario](#check-a-users-group-memberships)
 
   * Si la licencia está **asignada a un** **grupo dinámico**, asegúrese de que la **regla del grupo dinámico se haya establecido correctamente**. [Comprobar los criterios de pertenencia de un grupo dinámico](#check-a-dynamic-groups-membership-criteria)
 
-  * Si la licencia está **asignada a un** **grupo dinámico**, asegúrese de que el grupo dinámico haya **terminado de procesar** su pertenencia y que el **usuario sea miembro** (esta operación puede tardar un rato). [Comprobar la pertenencia a grupos de un usuario](#check-a-users-group-memberships)
+  * Si la licencia está **asignada a un** **grupo dinámico**, asegúrese de que el grupo dinámico haya **terminado de procesar** su pertenencia y que el **usuario sea miembro** (esta operación puede tardar un rato). [Comprobación de la pertenencia a grupos de un usuario](#check-a-users-group-memberships)
 
   *  Una vez que se haya asegurado de que la licencia está asignada, compruebe que esta **no haya caducado**.
 

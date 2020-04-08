@@ -5,18 +5,18 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 03/05/2020
 ms.author: yushwang
-ms.openlocfilehash: c556b71acf814203a67317039dafeede5f7b65a6
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 027047a212df72479a4f1b2511729365f3fa09e4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78357817"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79235904"
 ---
 # <a name="vpn-gateway-faq"></a>Preguntas más frecuentes sobre VPN Gateway
 
-## <a name="connecting"></a>Conexión a redes virtuales
+## <a name="connecting-to-virtual-networks"></a><a name="connecting"></a>Conexión a redes virtuales
 
 ### <a name="can-i-connect-virtual-networks-in-different-azure-regions"></a>¿Puedo conectar redes virtuales en diferentes regiones de Azure?
 
@@ -54,7 +54,7 @@ Las configuraciones **de punto a sitio** (VPN sobre SSTP) le permiten conectarse
 
 Puede configurar la red virtual para utilizar las conexiones de sitio a sitio y de punto a sitio simultáneamente, siempre que cree la conexión de sitio a sitio mediante un tipo de VPN basada en enrutamiento para la puerta de enlace. Los tipos de VPN basada en enrutamiento se denominan puertas de enlace dinámicas en el modelo de implementación clásico.
 
-## <a name="gateways"></a>Puertas de enlace de red virtual
+## <a name="virtual-network-gateways"></a><a name="gateways"></a>Puertas de enlace de red virtual
 
 ### <a name="is-a-vpn-gateway-a-virtual-network-gateway"></a>¿Es la puerta de enlace de VPN una puerta de enlace de red virtual?
 
@@ -131,7 +131,7 @@ Sí. Consulte [Configuración de una tunelización forzada](vpn-gateway-about-fo
 
 Sí, puede implementar sus propias puertas de enlace o servidores VPN en Azure bien desde Azure Marketplace o creando sus propios enrutadores VPN. Necesita configurar las rutas definidas por el usuario en la red virtual para asegurarse de que el tráfico se enruta correctamente entre las redes locales y las subredes de la red virtual.
 
-### <a name="gatewayports"></a>¿Por qué hay algunos puertos abiertos en mi puerta de enlace de red virtual?
+### <a name="why-are-certain-ports-opened-on-my-virtual-network-gateway"></a><a name="gatewayports"></a>¿Por qué hay algunos puertos abiertos en mi puerta de enlace de red virtual?
 
 Son necesarios para la comunicación de la infraestructura de Azure. Están protegidos (bloqueados) mediante certificados de Azure. Sin los certificados apropiados, las entidades externas, incluidos los clientes de esas puertas de enlace, no podrán tener ningún efecto en esos puntos de conexión.
 
@@ -141,7 +141,7 @@ Una puerta de enlace de red virtual es básicamente un dispositivo de hosts múl
 
 Para más información, consulte [Acerca de la configuración de VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md).
 
-## <a name="s2s"></a>Conexiones de sitio a sitio y dispositivos VPN
+## <a name="site-to-site-connections-and-vpn-devices"></a><a name="s2s"></a>Conexiones de sitio a sitio y dispositivos VPN
 
 ### <a name="what-should-i-consider-when-selecting-a-vpn-device"></a>¿Qué tengo que tener en cuenta al seleccionar un dispositivo VPN?
 
@@ -169,19 +169,23 @@ Para la configuración de sitio a sitio entre locales se admiten los servidores 
 
 Otras soluciones VPN de software deben funcionar con nuestra puerta de enlace siempre que se ajusten a las implementaciones IPsec estándar de la industria. Póngase en contacto con el proveedor del software para obtener instrucciones de configuración y soporte técnico.
 
-## <a name="P2S"></a>Punto a sitio mediante la autenticación de certificados de Azure nativa
+## <a name="how-do-i-change-the-authentication-type-for-my-point-to-site-connections"></a>¿Cómo cambiar el tipo de autenticación para las conexiones de punto a sitio?
+
+Para cambiar el método de autenticación para las conexiones de punto a sitio, vaya a la sección **Configuración de punto a sitio** en la VPN Gateway y active el botón de radio que desee. Las opciones actuales son **Certificado de Azure, Autenticación RADIUS y Azure Active Directory**. Tenga en cuenta que es posible que los clientes actuales **no puedan conectarse** después del cambio hasta que el nuevo perfil se haya descargado y configurado en el cliente.
+
+## <a name="point-to-site-using-native-azure-certificate-authentication"></a><a name="P2S"></a>Punto a sitio mediante la autenticación de certificados de Azure nativa
 
 Esta sección se aplica al modelo de implementación de Resource Manager.
 
 [!INCLUDE [P2S Azure cert](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 
-## <a name="P2SRADIUS"></a>Punto a sitio mediante la autenticación RADIUS
+## <a name="point-to-site-using-radius-authentication"></a><a name="P2SRADIUS"></a>Punto a sitio mediante la autenticación RADIUS
 
 Esta sección se aplica al modelo de implementación de Resource Manager.
 
 [!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-radius-include.md)]
 
-## <a name="V2VMulti"></a>Conexiones entre dos redes virtuales y multisitio
+## <a name="vnet-to-vnet-and-multi-site-connections"></a><a name="V2VMulti"></a>Conexiones entre dos redes virtuales y multisitio
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq-include](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 
@@ -213,16 +217,16 @@ Sí, las VPN de punto a sitio (P2S) se pueden usar con las puertas de enlace de 
 
 Sí, este procedimiento se admite. Para más información, consulte [Configurar conexiones VPN ExpressRoute y sitio a sitio que coexistan](../expressroute/expressroute-howto-coexist-classic.md).
 
-## <a name="ipsecike"></a>Directiva de IPsec o IKE
+## <a name="ipsecike-policy"></a><a name="ipsecike"></a>Directiva de IPsec o IKE
 
 [!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-faq-ipsecikepolicy-include.md)]
 
 
-## <a name="bgp"></a>BGP
+## <a name="bgp"></a><a name="bgp"></a>BGP
 
 [!INCLUDE [vpn-gateway-faq-bgp-include](../../includes/vpn-gateway-faq-bgp-include.md)]
 
-## <a name="vms"></a>Conectividad entre locales y máquinas virtuales
+## <a name="cross-premises-connectivity-and-vms"></a><a name="vms"></a>Conectividad entre locales y máquinas virtuales
 
 ### <a name="if-my-virtual-machine-is-in-a-virtual-network-and-i-have-a-cross-premises-connection-how-should-i-connect-to-the-vm"></a>Si mi máquina virtual está en una red virtual y tengo una conexión entre locales, ¿cómo debo conectar a la máquina virtual?
 
@@ -239,7 +243,7 @@ No. Únicamente el tráfico que tiene como destino una IP que se encuentra en lo
 [!INCLUDE [Troubleshoot VM connection](../../includes/vpn-gateway-connect-vm-troubleshoot-include.md)]
 
 
-## <a name="faq"></a>Preguntas más frecuentes sobre Virtual Network
+## <a name="virtual-network-faq"></a><a name="faq"></a>Preguntas más frecuentes sobre Virtual Network
 
 Consulte información adicional de redes virtuales adicionales en las [Preguntas frecuentes sobre redes virtuales](../virtual-network/virtual-networks-faq.md).
 

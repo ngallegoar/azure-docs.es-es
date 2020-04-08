@@ -1,6 +1,6 @@
 ---
-title: Solución de errores del trabajo de U-SQL de Azure Data Lake Analytics debido a la actualización a .NET 4.7.2
-description: Solucione los errores de trabajos de U-SQL debido a la actualización a .NET 4.7.2.
+title: Solución de problemas para los errores del trabajo de U-SQL de Azure Data Lake Analytics debidos a la actualización a .NET Framework 4.7.2
+description: Solucione los errores de trabajos de U-SQL debidos a la actualización a .NET Framework 4.7.2.
 services: data-lake-analytics
 author: guyhay
 ms.author: guyhay
@@ -9,12 +9,12 @@ ms.service: data-lake-analytics
 ms.topic: troubleshooting
 ms.workload: big-data
 ms.date: 10/11/2019
-ms.openlocfilehash: 2be2f50558fef41659c9a3313871b17961f6ad6d
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: f909419810cbd837e57b19a13b2df6ae9ad2ee97
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873240"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79213577"
 ---
 # <a name="azure-data-lake-analytics-is-upgrading-to-the-net-framework-v472"></a>Azure Data Lake Analytics se está actualizando a .NET Framework v4.7.2
 
@@ -22,12 +22,12 @@ El entorno en tiempo de ejecución predeterminado de Azure Data Lake Analytics s
 
 Esta actualización de .NET Framework 4.5.2 a la versión 4.7.2 significa que .NET Framework implementado en un entorno en tiempo de ejecución de U-SQL (el entorno en tiempo de ejecución predeterminado) ahora siempre será 4.7.2. No hay ninguna opción en paralelo para las versiones de .NET Framework.
 
-Una vez finalizada la actualización a .NET 4.7.2, el código administrado del sistema se ejecutará como la versión 4.7.2, las bibliotecas proporcionadas por el usuario, como los ensamblados personalizados de U-SQL, se ejecutarán en el modo compatible con versiones anteriores adecuado para la versión para la cual se generó el ensamblado.
+Una vez finalizada la actualización a .NET Framework 4.7.2, el código administrado del sistema se ejecutará como la versión 4.7.2, las bibliotecas proporcionadas por el usuario, como los ensamblados personalizados de U-SQL, se ejecutarán en el modo compatible con versiones anteriores adecuado para la versión para la cual se generó el ensamblado.
 
 - Si se generan bibliotecas de vínculos dinámicos de ensamblado para la versión 4.5.2, el marco implementado las tratará como bibliotecas 4.5.2, proporcionando (con algunas excepciones) semántica de la versión 4.5.2.
 - Ahora puede usar ensamblados personalizados de U-SQL que usan las características de la versión 4.7.2, si tiene como destino .NET Framework 4.7.2.
 
-Debido a esta actualización a .NET 4.7.2, existe la posibilidad de introducir cambios importantes en los trabajos de U-SQL que utilizan ensamblados personalizados de .NET. Se recomienda usar el procedimiento siguiente para comprobar si hay problemas de compatibilidad con versiones anteriores.
+Debido a esta actualización a .NET Framework 4.7.2, existe la posibilidad de introducir cambios importantes en los trabajos de U-SQL que utilizan ensamblados personalizados de .NET. Se recomienda usar el procedimiento siguiente para comprobar si hay problemas de compatibilidad con versiones anteriores.
 
 ## <a name="how-to-check-for-backwards-compatibility-issues"></a>Comprobación de problemas de compatibilidad con versiones anteriores
 

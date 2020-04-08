@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/13/2020
+ms.date: 03/16/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 08852a9421d714b601d724c5309153a028c960bb
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: f0aaa13ff4d3331378cc17cd0cde29be43822397
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77599569"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79460796"
 ---
 # <a name="what-sap-software-is-supported-for-azure-deployments"></a>Qué software de SAP es compatible para su implementación en Azure
 En este artículo se describe cómo puede averiguar qué software de SAP es compatible para su implementación en Azure y cuáles son las versiones de sistemas operativos o de DBMS necesarias.
@@ -94,6 +94,9 @@ Para ejecutar SAP HANA, SAP tiene que satisfacer unas necesidades de infraestruc
 > [!NOTE]
 > Las unidades que comienzan por la letra "S" son unidades de [instancias grandes de HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture). 
 
+> [!NOTE]
+> SAP no tiene ninguna certificación específica que dependa de las versiones principales de SAP HANA. Al contrario de la opinión común, la columna **Escenario de certificación** en las [plataformas IaaS certificadas de HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure), la columna **no tiene ninguna instrucción sobre el certificado de versión principal o secundaria de HANA**. Debe suponer que todas las unidades enumeradas que se pueden usar para HANA 1.0 y HANA 2.0, siempre que las versiones de sistema operativo certificadas para las unidades específicas, también se admitan en las versiones de HANA 1.0. 
+
 Para utilizar SAP HANA, es posible que se apliquen versiones mínimas de sistemas operativos distintas de las de los casos de NetWeaver en general. Debe comprobar los sistemas operativos compatibles para cada unidad individualmente, ya que pueden variar. Para ello, haga clic en cada unidad. Aparecerán más detalles. Uno de los detalles enumerado son los distintos sistemas operativos compatibles con esta unidad específica.
 
 > [!NOTE]
@@ -108,7 +111,7 @@ Como conoce cuáles son las versiones de HANA específicas que puede ejecutar en
 
 
 ## <a name="certified-azure-vms-and-hana-large-instance-units-and-business-transaction-throughput"></a>Máquinas virtuales y unidades de instancias grandes de HANA certificadas de Azure, y procesamiento de transacciones empresariales
-Además de evaluar las versiones de sistemas operativos compatibles, las versiones de DBMS y las versiones de software de SAP compatibles dependientes para las unidades de infraestructura de Azure, debe cualificar estas unidades por procesamiento de transacciones empresariales, lo que SAP expresa en la unidad "SAP". Todo el ajuste de tamaño de SAP gira en torno a SAPS. Al evaluar los sistemas SAP existentes, normalmente puede, con la ayuda del proveedor de infraestructura, calcular los SAPS de las unidades. Tanto para la capa de DBMS como para la capa de la aplicación. En otros casos en los que se crea una nueva funcionalidad, un ejercicio de ajuste de tamaño con SAP puede revelar los números de SAPS necesarios para la capa de la aplicación y la capa de DBMS. Como proveedor de infraestructura, Microsoft tiene la obligación de proporcionar la caracterización del procesamiento de SAP de las distintas unidades que tienen la certificación NetWeaver y/o HANA.
+Además de evaluar las versiones de sistemas operativos compatibles, las versiones de DBMS y las versiones de software de SAP compatibles dependientes para las unidades de infraestructura de Azure, debe cualificar estas unidades por procesamiento de transacciones empresariales, lo que SAP expresa en la unidad "SAP". Todo el ajuste de tamaño de SAP depende de los cálculos de SAP. Al evaluar los sistemas SAP existentes, normalmente puede, con la ayuda del proveedor de infraestructura, calcular los SAPS de las unidades. Tanto para la capa de DBMS como para la capa de la aplicación. En otros casos en los que se crea una nueva funcionalidad, un ejercicio de ajuste de tamaño con SAP puede revelar los números de SAPS necesarios para la capa de la aplicación y la capa de DBMS. Como proveedor de infraestructura, Microsoft tiene la obligación de proporcionar la caracterización del procesamiento de SAP de las distintas unidades que tienen la certificación NetWeaver y/o HANA.
 
 En el caso de las máquinas virtuales de Azure, estos números de procesamiento de SAPS se documentan en la [Nota sobre compatibilidad con SAP n.º 1928533](https://launchpad.support.sap.com/#/notes/1928533). En el caso de las unidades de instancias grandes de HANA de Azure, los números de procesamiento de SAPS se documentan en la [Nota sobre compatibilidad con SAP n.º 2316233](https://launchpad.support.sap.com/#/notes/2316233)
 
@@ -136,5 +139,5 @@ La compatibilidad con SAP Hybris Commerce Platform 5.x y 6.x en Azure se detalla
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los pasos siguientes en [Implementación y planeamiento de Azure Virtual Machines para SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide)
+Consulte los pasos siguientes en [Implementación y planeamiento de Azure Virtual Machines para SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide).
 

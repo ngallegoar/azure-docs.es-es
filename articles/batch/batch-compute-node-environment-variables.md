@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 09/12/2019
 ms.author: labrenne
-ms.openlocfilehash: b6a9e21157884c86577b498671e4cfd0bc6068cd
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: ebaa06acf309a0f941b8b4efd76fa4e9e7460810
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77020206"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80053947"
 ---
 # <a name="azure-batch-runtime-environment-variables"></a>Variables de entorno de tiempo de ejecución de Azure Batch
 
@@ -48,7 +48,7 @@ Las líneas de comandos que ejecutan las tareas en nodos de proceso no se ejecut
 |-----------------------------------|--------------------------------------------------------------------------|--------------|---------|
 | AZ_BATCH_ACCOUNT_NAME           | El nombre de la cuenta de Batch a la que pertenece la tarea.                  | Todas las tareas.   | mybatchaccount |
 | AZ_BATCH_ACCOUNT_URL            | La dirección URL de la cuenta de Batch. | Todas las tareas. | `https://myaccount.westus.batch.azure.com` |
-| AZ_BATCH_APP_PACKAGE            | Un prefijo de todas las variables de entorno de paquete de aplicación. Por ejemplo, si la aplicación "FOO" versión "1" se instala en un grupo, la variable de entorno es AZ_BATCH_APP_PACKAGE_FOO_1. AZ_BATCH_APP_PACKAGE_FOO_1 apunta a la ubicación en la que se descargó el paquete (una carpeta). Al usar la versión predeterminada del paquete de la aplicación, use la variable de entorno AZ_BATCH_APP_PACKAGE sin los números de versión. | Cualquier tarea con un paquete de aplicación asociado. También está disponible para todas las tareas si el nodo mismo tiene paquetes de aplicación. | AZ_BATCH_APP_PACKAGE_FOO_1 |
+| AZ_BATCH_APP_PACKAGE            | Un prefijo de todas las variables de entorno de paquete de aplicación. Por ejemplo, si la aplicación "FOO" versión "1" se instala en un grupo, la variable de entorno es AZ_BATCH_APP_PACKAGE_FOO_1 (en Linux) o AZ_BATCH_APP_PACKAGE_FOO#1 (en Windows). AZ_BATCH_APP_PACKAGE_FOO_1 apunta a la ubicación en la que se descargó el paquete (una carpeta). Al usar la versión predeterminada del paquete de la aplicación, use la variable de entorno AZ_BATCH_APP_PACKAGE sin los números de versión. Si está en Linux y el nombre del paquete de aplicación es "Agent-linux-x64" y la versión es "1.1.46.0", el nombre del entorno es: AZ_BATCH_APP_PACKAGE_agent_linux_x64_1_1_46_0 (con guiones bajos y en minúsculas). Obtenga más información [aquí](https://docs.microsoft.com/azure/batch/batch-application-packages#execute-the-installed-applications). | Cualquier tarea con un paquete de aplicación asociado. También está disponible para todas las tareas si el nodo mismo tiene paquetes de aplicación. | AZ_BATCH_APP_PACKAGE_FOO_1 (Linux) o AZ_BATCH_APP_PACKAGE_FOO#1 (Windows) |
 | AZ_BATCH_AUTHENTICATION_TOKEN   | Token de autenticación que concede acceso a un conjunto limitado de operaciones de servicio de Batch. Esta variable de entorno solo está presente si [authenticationTokenSettings](/rest/api/batchservice/task/add#authenticationtokensettings) está establecido al [agregar la tarea](/rest/api/batchservice/task/add#request-body). El valor del token se usa en las API de Batch como credenciales para crear un cliente de Batch, como en [BatchClient.Open() .NET API](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.batchclient.open#Microsoft_Azure_Batch_BatchClient_Open_Microsoft_Azure_Batch_Auth_BatchTokenCredentials_). | Todas las tareas. | Token de acceso de OAuth2 |
 | AZ_BATCH_CERTIFICATES_DIR       | Un directorio en el [directorio de trabajo de la tarea][files_dirs] en el que se almacenan los certificados para nodos de proceso de Linux. Esta variable de entorno no se aplica a los nodos de ejecución de Windows.                                                  | Todas las tareas.   |  /mnt/batch/tasks/workitems/batchjob001/job-1/task001/certs |
 | AZ_BATCH_HOST_LIST              | La lista de nodos que se asignan a una [tarea de varias instancias][multi_instance] en el formato `nodeIP,nodeIP`. | Tareas principales y secundarias de varias instancias. | `10.0.0.4,10.0.0.5` |

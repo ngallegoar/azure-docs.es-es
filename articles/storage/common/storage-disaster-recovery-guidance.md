@@ -10,18 +10,20 @@ ms.date: 01/23/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 8442d3f7ed3e73dc5d7358a9bc1d3ee31d7668cd
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.openlocfilehash: f7a8f6d0d3ab3b456c41128da9b689f6b7eda0f7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78894522"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79365377"
 ---
 # <a name="disaster-recovery-and-account-failover-preview"></a>Recuperación ante desastres y conmutación por error de la cuenta (versión preliminar)
 
 Microsoft se esfuerza por garantizar que los servicios de Azure siempre estén disponibles. Sin embargo, es posible que se produzcan interrupciones en el servicio. Si la aplicación requiere resistencia, Microsoft recomienda usar el almacenamiento con redundancia geográfica para que los datos se copien en una segunda región. Además, los clientes deben tener implementado un plan de recuperación ante desastres para controlar una interrupción del servicio regional. Parte importante de un plan de recuperación ante desastres es preparar la conmutación por error en el punto de conexión secundario ante la eventualidad de que el punto de conexión principal deje de estar disponible.
 
 Azure Storage admite la conmutación por error de la cuenta (versión preliminar) en cuentas de almacenamiento con redundancia geográfica. Con la conmutación por error de la cuenta, puede iniciar el proceso de conmutación por error de la cuenta de almacenamiento si el punto de conexión principal deja de estar disponible. La conmutación por error actualiza el punto de conexión secundario para convertirlo en el principal de la cuenta de almacenamiento. Una vez finalizada la conmutación por error, los clientes pueden empezar a escribir en el nuevo punto de conexión principal.
+
+[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
 
 En este artículo se describen los conceptos y el proceso que implica la conmutación por error de una cuenta y se analiza cómo preparar la cuenta de almacenamiento para la recuperación con el menor impacto en el cliente. Para aprender a iniciar la conmutación por error de una cuenta en Azure Portal o PowerShell, consulte el artículo sobre la [iniciación de la conmutación por error de una cuenta (versión preliminar)](storage-initiate-account-failover.md).
 

@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/24/2020
+ms.date: 03/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 28a9de63bb04a95fc2e655b05727963feaa3ec40
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 564c648a550b41017ffc684ca19ff03612fc63d3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77599601"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79137635"
 ---
 # <a name="sap-workload-on-azure-virtual-machine-supported-scenarios"></a>Carga de trabajo de SAP en escenarios admitidos en máquinas virtuales de Azure
 El diseño de la arquitectura de los sistemas SAP NetWeaver, Business One, `Hybris` o S/4HANA en Azure abre muchas oportunidades diferentes para las distintas arquitecturas y herramientas que se pueden usar para obtener una implementación escalable, eficiente y de alta disponibilidad. Aunque depende del sistema operativo o DBMS utilizado, existen restricciones. Además, no todos los escenarios que se admiten de forma local se admiten de la misma manera en Azure. Este documento le guiará a través de las configuraciones admitidas que no son de alta disponibilidad y las configuraciones y arquitecturas de alta disponibilidad que usan máquinas virtuales de Azure de forma exclusiva. En el caso de los escenarios compatibles con [instancias grandes de HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture), consulte el artículo [Escenarios admitidos para instancias grandes de HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario). 
@@ -66,7 +66,8 @@ Este tipo de implementación de DBMS es compatible con:
 - SQL Server en Windows
 - IBM Db2. Encuentre detalles en el artículo [Varias instancias (Linux, UNIX)](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.dbobj.doc/doc/c0004904.html)
 - Para Oracle. Para obtener más información, consulte la [nota de soporte de SAP 1778431](https://launchpad.support.sap.com/#/notes/1778431) y las notas de SAP relacionadas.
-- Para SAP HANA, se admiten varias instancias en una máquina virtual, en un método de implementación que SAP llama MCOS. Para obtener más información, consulte el artículo de SAP [Varios sistemas SAP HANA en un host (MCOS)](https://help.sap.com/viewer/eb3777d5495d46c5b2fa773206bbfb46/2.0.02/en-US/b2751fd43bec41a9a14e01913f1edf18.html).
+- Para SAP HANA, se admiten varias instancias en una máquina virtual, en un método de implementación que SAP llama MCOS. Para más información, consulte el artículo de SAP [Varios sistemas SAP HANA en un host (MCOS)] (https://help.sap.com/viewer/eb3777d5495d46c5b2fa773206bbfb46/2.0.02/.
+- /b2751fd43bec41a9a14e01913f1edf18.html).
 
 Al ejecutar varias instancias de base de datos en un host, debe asegurarse de que las distintas instancias no compitan por los recursos y, por tanto, superen los límites de recursos físicos de la máquina virtual. Esto es especialmente pertinente en el caso de la memoria en la que es necesario limitar la memoria que puede asignar cualquiera de las instancias que comparten la máquina virtual. También podría ser pertinente para los recursos de CPU que pueden aprovechar las distintas instancias de base de datos. Todo el DBMS mencionado tiene configuraciones que permiten limitar la asignación de memoria y los recursos de CPU en un nivel de instancia.
 Para que este tipo de configuración sea compatible con las máquinas virtuales de Azure, se espera que los discos o volúmenes que se usan para los archivos de registro de datos o para registrar/rehacer de las bases de datos administradas por las distintas instancias sean independientes. En otras palabras, los archivos de registro de datos o para registrar/rehacer de las bases de datos administrados por una instancia de DBMS diferente no deben compartir los mismos discos o volúmenes. 
@@ -121,6 +122,8 @@ En el caso de las máquinas virtuales de Azure, se admiten las siguientes config
 
 > [!IMPORTANT]
 > Para ninguno de los escenarios descritos anteriormente se admiten configuraciones de varias instancias de DBMS en una máquina virtual. Esto significa que, en cada uno de los casos, solo se puede implementar una instancia de base de datos por máquina virtual y protegerse con los métodos de alta disponibilidad descritos. La protección de varias instancias de DBMS en el mismo clúster de conmutación por error de Windows o Pacemaker **NO** se admite en este momento. También se admite Oracle Data Guard para casos de implementación de instancia única por máquina virtual. 
+
+Varios sistemas de base de datos permiten hospedar varias bases de datos en una instancia de DBMS. Como en el caso de SAP HANA, se pueden hospedar varias bases de datos en varios contenedores de base de datos (MDC). En los casos en los que estas configuraciones de varias bases de datos funcionan en un recurso de clúster de conmutación por error, se admiten estas configuraciones. Las configuraciones que no se admiten son casos en los que se necesitarían varios recursos de clúster. En el caso de las configuraciones en las que se definirían varios grupos de disponibilidad de SQL Server, en una instancia de SQL Server.
 
 
 ![Configuración de alta disponibilidad de DBMS](./media/sap-planning-supported-configurations/database-high-availability-configuration.png)

@@ -11,37 +11,37 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 36b3857f8827f8a33e5fc0981b22a49128f7c193
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 5653fa7c67d36dbf2ee71f51f182168bccb69105
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534776"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79298621"
 ---
 # <a name="azure-active-directory-identity-and-access-management-operations-reference-guide"></a>Guía de referencia de operaciones de administración de identidad y acceso de Azure Active Directory
 
 En esta sección de la [guía de referencia de operaciones de Azure AD](active-directory-ops-guide-intro.md) se describen las comprobaciones y las acciones que debe tener en cuenta para proteger y administrar el ciclo de vida de las identidades y sus asignaciones.
 
 > [!NOTE]
-> Estas recomendaciones están actualizadas en la fecha de publicación, pero pueden cambiar con el tiempo. Las organizaciones deben evaluar continuamente sus prácticas de identidad a medida que los productos y servicios de Microsoft evolucionen.
+> Estas recomendaciones están actualizadas hasta la fecha de publicación, pero pueden cambiar con el tiempo. Las organizaciones deben evaluar continuamente sus prácticas de identidad a medida que los productos y servicios de Microsoft evolucionen.
 
-## <a name="key-operational-processes"></a>Principales procesos operativos
+## <a name="key-operational-processes"></a>Procesos operativos clave
 
-### <a name="assign-owners-to-key-tasks"></a>Asignación de propietarios a las principales tareas
+### <a name="assign-owners-to-key-tasks"></a>Asignación de propietarios a las tareas clave
 
 La administración de Azure Active Directory requiere la ejecución continua de tareas y procesos operativos clave que pueden no formar parte de un proyecto de implementación. Aun así, es importante que configure estas tareas con miras al mantenimiento de su entorno. Entre las tareas clave y sus propietarios recomendados se incluyen:
 
 | Tarea | Propietario |
 | :- | :- |
 | Definir el proceso de creación de suscripciones de Azure | Varía según la organización |
-| Decidir quién obtiene licencias de Enterprise Mobility + Security | Equipo de operaciones de administración de identidad y acceso |
+| Decidir quién obtiene licencias de Enterprise Mobility + Security | Equipo de operaciones IAM |
 | Decidir quién obtiene licencias de Office 365 | Equipo de productividad |
 | Decidir quién obtiene otras licencias, por ejemplo, Dynamics, VSO | Application Owner |
-| Asignación de licencias | Equipo de operaciones de administración de identidad y acceso |
-| Solución de problemas y corrección de errores de asignación de licencias | Equipo de operaciones de administración de identidad y acceso |
-| Aprovisionar identidades para aplicaciones en Azure AD | Equipo de operaciones de administración de identidad y acceso |
+| Asignación de licencias | Equipo de operaciones IAM |
+| Solución de problemas y corrección de errores de asignación de licencias | Equipo de operaciones IAM |
+| Aprovisionar identidades para aplicaciones en Azure AD | Equipo de operaciones IAM |
 
-A medida que revise la lista, es posible que tenga que asignar un propietario a las tareas que no tienen uno o ajustar la propiedad de aquellas tareas con propietarios que no estén alineados con las recomendaciones anteriores.
+A medida que revise la lista, es posible que tenga que asignar un propietario a las tareas que no tienen uno o ajustar la propiedad de aquellas tareas cuyos propietarios no se ajustan a las recomendaciones anteriores.
 
 #### <a name="assigning-owners-recommended-reading"></a>Lectura recomendada sobre la asignación de propietarios
 
@@ -66,17 +66,17 @@ La supresión de cubos de objetos conocidos que no requieren sincronización tie
 
 - Menos orígenes de errores de sincronización
 - Ciclos de sincronización más rápidos
-- Menos elementos no útiles que transferir desde el entorno local, por ejemplo, la contaminación de la lista global de direcciones para las cuentas de servicios locales que no son pertinentes en la nube
+- Habrá menos elementos inútiles para transferir desde el entorno local; por ejemplo, la contaminación de la lista global de direcciones de las cuentas de servicios locales que no son pertinentes en la nube
 
 > [!NOTE]
 > Si se da cuenta de que está importando muchos objetos que no se están exportando a la nube, debe filtrar por unidad organizativa o atributos específicos.
 
 Algunos ejemplos de objetos que se deben excluir son:
 
-- Cuentas de servicio que no se usan para aplicaciones en la nube.
+- Cuentas de servicio que no se usan con aplicaciones en la nube.
 - Grupos que no están diseñados para usarse en escenarios en la nube, como los que se usan para conceder acceso a los recursos.
 - Usuarios o contactos que son identidades externas pensados para representarse con Colaboración B2B de Azure AD.
-- Cuentas de equipo en las que los empleados no están diseñados para tener acceso a aplicaciones en la nube desde, por ejemplo, servidores.
+- Cuentas de equipo en las que no está previsto que los emplados accedan a aplicaciones en la nube desde, por ejemplo, servidores.
 
 > [!NOTE]
 > Si una única identidad humana tiene varias cuentas aprovisionadas a partir de un suceso como una migración de dominio heredada, una fusión o una adquisición, solo debe sincronizar la cuenta utilizada por el usuario de forma cotidiana, por ejemplo, la que usa para iniciar sesión en su equipo.
@@ -93,7 +93,7 @@ Azure AD Connect desempeña un papel clave en el proceso de aprovisionamiento. 
 - **Implementación de los servidores de Azure AD Connect en modo de ensayo**: permite al administrador "promover" el servidor de ensayo a producción mediante un sencillo cambio de configuración.
 - **Uso de virtualización**: si la conexión de Azure AD se implementa en una máquina virtual (VM), los administradores pueden aprovechar su pila de virtualización para migrar en vivo o volver a implementar rápidamente la máquina virtual y, de este modo, reanudar la sincronización.
 
-Si su organización no dispone de una estrategia de recuperación ante desastres y conmutación por error para la sincronización, no dude en implementar Azure AD Connect en modo de ensayo. Del mismo modo, si hay una discrepancia entre la configuración de producción y de ensayo, debe volver a configurar el modo de ensayo de la línea de base de Azure AD Connect para que coincida con la configuración de producción, incluidas las versiones y las configuraciones de software.
+Si su organización no dispone de una estrategia de recuperación ante desastres y conmutación por error para la sincronización, no dude en implementar Azure AD Connect en modo de ensayo. Del mismo modo, si hay una discrepancia entre la configuración de producción y de ensayo, debe volver a configurar el modo de ensayo de la línea de base de Azure AD Connect para que coincida con la configuración de producción, incluidas las versiones y las configuraciones de software.
 
 ![Captura de pantalla del modo de ensayo de Azure AD Connect](./media/active-directory-ops-guide/active-directory-ops-img1.png)
 
@@ -148,7 +148,7 @@ Azure Active Directory simplifica la administración de licencias a través de l
 
 Si actualmente está usando un proceso manual para asignar licencias y componentes a los usuarios, se recomienda implementar las licencias basadas en grupos. Si el proceso actual no supervisa los errores de licencia o lo que está asignado frente a lo que está disponible, debe definir mejoras en el proceso para solucionar los errores relativos a las licencias y supervisar su asignación.
 
-Otro aspecto de la administración de licencias es la definición de los planes de servicio (componentes de la licencia) que deben habilitarse en función de las funciones de trabajo de la organización. Otorgar acceso a planes de servicio que no son necesarios puede hacer que los usuarios vean herramientas en el portal de Office para las que no se han formado o que no deberían utilizar. Puede generar un volumen adicional para el departamento de soporte técnico y un aprovisionamiento innecesario, además de poner en riesgo el cumplimiento y la gobernanza, por ejemplo, al aprovisionar OneDrive para la Empresa para individuos que podrían no tener permiso para compartir contenido.
+Otro aspecto de la administración de licencias es la definición de los planes de servicio (componentes de la licencia) que deben habilitarse en función de las funciones de trabajo de la organización. Otorgar acceso a planes de servicio que no son necesarios puede hacer que los usuarios vean herramientas en el portal de Office para las que no se han preparado o que no deberían utilizar. Puede generar un volumen adicional para el departamento de soporte técnico y un aprovisionamiento innecesario, además de poner en riesgo el cumplimiento y la gobernanza, por ejemplo, al aprovisionar OneDrive para la Empresa para individuos que podrían no tener permiso para compartir contenido.
 
 Utilice las siguientes directrices para definir planes de servicio para los usuarios:
 
@@ -163,26 +163,26 @@ Utilice las siguientes directrices para definir planes de servicio para los usua
 
 #### <a name="lifecycle-management"></a>Administración del ciclo de vida
 
-Si actualmente usa una herramienta, como [Microsoft Identity Manager](https://docs.microsoft.com/microsoft-identity-manager/) o un sistema de terceros, que se base en una infraestructura local, se recomienda descargar la asignación de la herramienta existente, implementar licencias basadas en grupos y definir una administración del ciclo de vida de los grupos basada en [grupos](https://docs.microsoft.com/azure/active-directory/users-groups-roles/licensing-group-advanced#use-group-based-licensing-with-dynamic-groups). Del mismo modo, si el proceso existente no tiene en cuenta los nuevos empleados o los empleados que abandonan la organización, debe implementar licencias basadas en grupos en función de grupos dinámicos y definir un ciclo de vida de pertenencia a grupos. Por último, si implementa la concesión de licencias basada en grupo sobre grupos locales que carecen de administración del ciclo de vida, considere la posibilidad de usar grupos en la nube para habilitar funcionalidades como la propiedad delegada o la pertenencia dinámica basada en atributos.
+Si actualmente usa una herramienta, como [Microsoft Identity Manager](https://docs.microsoft.com/microsoft-identity-manager/) o un sistema de terceros, que se base en una infraestructura local, se recomienda descargar la asignación de la herramienta existente, implementar licencias basadas en grupos y definir una administración del ciclo de vida de los grupos basada en [grupos](https://docs.microsoft.com/azure/active-directory/users-groups-roles/licensing-group-advanced#use-group-based-licensing-with-dynamic-groups). Del mismo modo, si el proceso existente no tiene en cuenta los nuevos empleados o los empleados que abandonan la organización, debe implementar licencias basadas en grupos dinámicos y definir un ciclo de vida de pertenencia a grupos. Por último, si implementa la concesión de licencias basada en grupo sobre grupos locales que carecen de administración del ciclo de vida, considere la posibilidad de usar grupos en la nube para habilitar funcionalidades como la propiedad delegada o la pertenencia dinámica basada en atributos.
 
 ### <a name="assignment-of-apps-with-all-users-group"></a>Asignación de aplicaciones con el grupo "Todos los usuarios"
 
 Los propietarios de recursos pueden creer que el grupo **Todos los usuarios** solo contiene **Empleados de la empresa**, cuando puede que realmente contengan tanto **Empleados de la empresa** como **Invitados**. Como resultado, debe tener especial cuidado al usar el grupo **Todos los usuarios** para la asignación de aplicaciones y conceder acceso a recursos como aplicaciones o contenido de SharePoint.
 
 > [!IMPORTANT]
-> Si el grupo **Todos los usuarios** está habilitado y se usa para las directivas de acceso condicional o la asignación de recursos o aplicaciones, asegúrese de [proteger el grupo](https://docs.microsoft.com/azure/active-directory/b2b/use-dynamic-groups#hardening-the-all-users-dynamic-group) si no desea que incluya a los usuarios invitados. Además, debe corregir las asignaciones de licencias creando y asignando grupos que contengan solo a los **Empleados de la empresa**. Por otro lado, si observa que el grupo **Todos los usuarios** está habilitado pero no se usa para conceder acceso a los recursos, asegúrese de que la directriz operativa de su organización sea usar intencionadamente ese grupo (que incluye tanto los **Empleados de la empresa** como los **Invitados**).
+> Si el grupo **Todos los usuarios** está habilitado y se usa para las directivas de acceso condicional o la asignación de recursos o aplicaciones, asegúrese de [proteger el grupo](https://docs.microsoft.com/azure/active-directory/b2b/use-dynamic-groups) si no desea que incluya a los usuarios invitados. Además, debe corregir las asignaciones de licencias creando y asignando grupos que contengan solo a los **Empleados de la empresa**. Por otro lado, si observa que el grupo **Todos los usuarios** está habilitado pero no se usa para conceder acceso a los recursos, asegúrese de que la directriz operativa de su organización sea usar intencionadamente ese grupo (que incluye tanto a los **empleados de la empresa** como a los **invitados**).
 
 ### <a name="automated-user-provisioning-to-apps"></a>Aprovisionamiento de usuarios automático a aplicaciones
 
 El [aprovisionamiento de usuarios automático](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) para aplicaciones es la mejor manera de crear un aprovisionamiento, desaprovisionamiento y ciclo de vida de identidades coherente entre varios sistemas.
 
-Si actualmente está aprovisionando aplicaciones ad hoc o usa elementos como archivos CSV, JIT o una solución local que no aborda la administración del ciclo de vida, le recomendamos que [implemente el aprovisionamiento de aplicaciones](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#how-do-i-set-up-automatic-provisioning-to-an-application) con Azure AD para las aplicaciones compatibles y que defina un patrón coherente para las aplicaciones que aún no son compatibles con Azure AD.
+Si actualmente está aprovisionando aplicaciones ad hoc o usa elementos como archivos CSV, JIT o una solución local que no se encargue de administrar el ciclo de vida, le recomendamos que [implemente el aprovisionamiento de aplicaciones](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#how-do-i-set-up-automatic-provisioning-to-an-application) con Azure AD con las aplicaciones compatibles y que defina un patrón coherente para las aplicaciones que aún no son compatibles con Azure AD.
 
 ![Servicio de aprovisionamiento de Azure AD](./media/active-directory-ops-guide/active-directory-ops-img3.png)
 
 ### <a name="azure-ad-connect-delta-sync-cycle-baseline"></a>Línea de base del ciclo de sincronización diferencial de Azure AD Connect
 
-Es importante comprender el volumen de cambios en su organización y asegurarse de que no se tarde demasiado en tener un tiempo de sincronización predecible.
+Es importante comprender el volumen de cambios de la organización y no tardar demasiado en tener un tiempo de sincronización predecible.
 
 La frecuencia de [sincronización diferencial predeterminada](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-scheduler) es de 30 minutos. Si la sincronización diferencial tarda más de 30 minutos de manera recurrente, o hay discrepancias significativas entre el rendimiento de la sincronización diferencial de ensayo y producción, debe investigar y revisar los [factores que influyen en el rendimiento de Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-performance-factors).
 

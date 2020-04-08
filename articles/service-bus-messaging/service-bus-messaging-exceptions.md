@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/24/2020
+ms.date: 03/23/2020
 ms.author: aschhab
-ms.openlocfilehash: 37f316af68bc0b20f21eb606e2abc8232f29ce32
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: fb27befadcf8e6d201d020e758cfd1ef9b695f41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759370"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240801"
 ---
 # <a name="troubleshooting-guide-for-azure-service-bus"></a>Guía para la solución de problemas de Azure Service Bus
 En este artículo se proporcionan algunas de las excepciones de .NET que generan las API de .NET Framework de Service Bus y también otras sugerencias para solucionar problemas. 
@@ -51,7 +51,7 @@ En la tabla siguiente se describen los tipos de excepción de mensajería, sus c
 | [ServerBusyException](/dotnet/api/microsoft.azure.servicebus.serverbusyexception) |El servicio no puede procesar la solicitud en este momento. |El cliente puede esperar durante un período de tiempo y volver a intentar realizar la operación. |El cliente puede volver a intentarlo tras un determinado intervalo de tiempo. Si el reintento genera otra excepción, compruebe el comportamiento de reintento de esa excepción. |
 | [MessageLockLostException](/dotnet/api/microsoft.azure.servicebus.messagelocklostexception) |El token de bloqueo asociado al mensaje expiró o no se encuentra. |Deseche el mensaje. |Los reintentos no funcionan. |
 | [SessionLockLostException](/dotnet/api/microsoft.azure.servicebus.sessionlocklostexception) |Se perdió el bloqueo asociado a esta sesión. |Anule el objeto [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) . |Los reintentos no funcionan. |
-| [MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception) |Excepción de mensajería genérica que puede producirse en los siguientes casos:<br /> Se intentó crear [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) con un nombre o una ruta de acceso que pertenece a un tipo de entidad diferente (por ejemplo, un tema).<br />  Intento de enviar un mensaje mayor de 256 KB. El servidor o servicio encontró un error durante el procesamiento de la solicitud. Consulte el mensaje de excepción para obtener detalles. Por lo general, se trata de una excepción transitoria. |Compruebe el código y asegúrese de que solo se usan objetos serializables en el cuerpo del mensaje (o use un serializador personalizado). Consulte la documentación de los tipos de valor de las propiedades admitidos y use solo los tipos compatibles. Compruebe la propiedad [IsTransient](/dotnet/api/microsoft.servicebus.messaging.messagingexception) . Si es **true**, puede volver a intentar la operación. |El comportamiento de reintento es indefinido y quizá no resulte útil. |
+| [MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception) |Excepción de mensajería genérica que puede producirse en los siguientes casos:<p>Se intentó crear [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) con un nombre o una ruta de acceso que pertenece a un tipo de entidad diferente (por ejemplo, un tema).</p><p>Intento de enviar un mensaje mayor de 256 KB. </p>El servidor o servicio encontró un error durante el procesamiento de la solicitud. Consulte el mensaje de excepción para obtener detalles. Por lo general, se trata de una excepción transitoria.</p><p>La solicitud finalizó porque la entidad se está limitando. Código de error: 50001, 50002, 50008. </p> | Compruebe el código y asegúrese de que solo se usan objetos serializables en el cuerpo del mensaje (o use un serializador personalizado). <p>Consulte la documentación de los tipos de valor de las propiedades admitidos y use solo los tipos compatibles.</p><p> Compruebe la propiedad [IsTransient](/dotnet/api/microsoft.servicebus.messaging.messagingexception) . Si es **true**, puede volver a intentar la operación. </p>| Si la excepción se debe a una limitación, espere unos segundos y vuelva a intentar la operación. El comportamiento de reintento es indefinido y quizá no resulte útil en otros escenarios.|
 | [MessagingEntityAlreadyExistsException](/dotnet/api/microsoft.servicebus.messaging.messagingentityalreadyexistsexception) |Se intenta crear una entidad con un nombre que ya se usa en otra entidad de ese espacio de nombres de servicio. |Elimine la entidad existente o elija un nombre diferente para la entidad que quiere crear. |Los reintentos no funcionan. |
 | [QuotaExceededException](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception) |La entidad de mensajería ha alcanzado su tamaño máximo permitido, o bien se superó el número máximo de conexiones en un espacio de nombres. |Cree espacio en la entidad recibiendo mensajes de esta o de sus subcolas. Consulte [QuotaExceededException](#quotaexceededexception). |El reintento podría resultar útil si los mensajes se eliminan mientras este se lleva a cabo. |
 | [RuleActionException](/dotnet/api/microsoft.servicebus.messaging.ruleactionexception) |Service Bus devuelve esta excepción si se intenta crear una acción de regla no válida. Si se produjo un error al procesar la acción de regla de un mensaje, Service Bus adjunta esta excepción a dicho mensaje. |Compruebe si la acción de regla es correcta. |Los reintentos no funcionan. |
@@ -72,7 +72,7 @@ Para las colas y los temas, suele tratarse del tamaño de la cola. La propiedad 
 
 ```Output
 Microsoft.ServiceBus.Messaging.QuotaExceededException
-Message: The maximum entity size has been reached or exceeded for Topic: ‘xxx-xxx-xxx’. 
+Message: The maximum entity size has been reached or exceeded for Topic: 'xxx-xxx-xxx'. 
     Size of entity in bytes:1073742326, Max entity size in bytes:
 1073741824..TrackingId:xxxxxxxxxxxxxxxxxxxxxxxxxx, TimeStamp:3/15/2013 7:50:18 AM
 ```
@@ -146,6 +146,15 @@ Los pasos siguientes pueden ayudarle a solucionar problemas de conectividad, cer
     Puede usar comandos equivalentes si utiliza otras herramientas como `tnc`, `ping`, etc. 
 - Realice un seguimiento de red si los pasos anteriores no ayudan y analícelo con herramientas como [Wireshark](https://www.wireshark.org/). Si lo necesita, póngase en contacto con el [soporte técnico de Microsoft](https://support.microsoft.com/). 
 
+## <a name="issues-that-may-occur-with-service-upgradesrestarts"></a>Problemas que se pueden producir con las actualizaciones o reinicios de servicios
+Las actualizaciones y los reinicios de servicios back-end pueden tener el siguiente impacto en las aplicaciones:
+
+- Puede que las solicitudes se limiten momentáneamente.
+- Puede haber una caída en la llegada de mensajes o solicitudes entrantes.
+- El archivo de registro puede contener mensajes de error.
+- Puede que las aplicaciones se desconecten del servicio durante unos segundos.
+
+Si el código de aplicación usa SDK, la directiva de reintento ya está integrada y activa. La aplicación se volverá a conectar sin un impacto significativo en la aplicación o el flujo de trabajo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

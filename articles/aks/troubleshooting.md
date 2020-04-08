@@ -6,12 +6,12 @@ author: sauryadas
 ms.topic: troubleshooting
 ms.date: 12/13/2019
 ms.author: saudas
-ms.openlocfilehash: b7aa90bd19e52059319570f1e7f6e64b90dee6e4
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 7bdabf2ec109fe96c28185bd1a2a680ce19c2650
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77593354"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79368339"
 ---
 # <a name="aks-troubleshooting"></a>Solución de problemas de AKS
 
@@ -60,7 +60,7 @@ El motivo por el que recibe advertencias en el panel es que ahora el clúster ti
 
 La manera más fácil de tener acceso al servicio fuera del clúster es ejecutar `kubectl proxy`, que redirigirá mediante proxy las solicitudes para el puerto 8001 de localhost al servidor de API de Kubernetes. Desde allí, el servidor de API puede redirigir mediante proxy a su servicio: `http://localhost:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/#!/node?namespace=default`.
 
-Si no ve el panel de Kubernetes, compruebe que el pod `kube-proxy` se está ejecutando en el espacio de nombres `kube-system`. Si no está en estado de ejecución, elimine el pod y se reiniciará.
+Si no ve el panel de Kubernetes, compruebe si el pod `kube-proxy` se está ejecutando en el espacio de nombres `kube-system`. Si no está en estado de ejecución, elimine el pod y se reiniciará.
 
 ## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>No logro obtener los registros mediante kubectl logs ni puedo conectarme al servidor de API. Recibo el mensaje "Error de servidor: error de marcado al back-end: marcar tcp…" ¿Cuál debo hacer?
 
@@ -121,7 +121,7 @@ Tanto AKS como la plataforma de Azure implementan las restricciones de nomenclat
 * El nombre del grupo de recursos *MC_* de AKS combina el nombre del grupo de recursos y el nombre del recurso. La sintaxis generada automáticamente de `MC_resourceGroupName_resourceName_AzureRegion` no puede tener más de 80 caracteres. Si es necesario, disminuya la longitud del nombre del grupo de recursos o del nombre del clúster de AKS.
 * *dnsPrefix* debe empezar y terminar con valores alfanuméricos, y debe tener entre 1 y 54 caracteres. Los caracteres válidos incluyen valores alfanuméricos y guiones (-). *dnsPrefix* no puede incluir caracteres especiales, como un punto (.).
 
-## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>Recibo errores cuando intento crear, actualizar, escalar, eliminar o actualizar un clúster, donde se indica que no se permite la operación porque hay otra operación en curso.
+## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>Recibo errores cuando intento crear, actualizar, escalar, eliminar o actualizar un clúster, donde se indica que no se permite la operación porque hay otra en curso.
 
 *Esta ayuda para solucionar problemas se dirige desde aka.ms/aks-pending-operation*
 
@@ -298,7 +298,7 @@ Si usa una versión de Kubernetes que no tiene la solución para este problema, 
 En algunos casos, si se produce un error en una operación de desasociación de un disco de Azure en el primer intento, no volverá a intentar la operación de desasociación y seguirá conectado a la máquina virtual del nodo original. Este error puede producirse al mover un disco de un nodo a otro. Por ejemplo:
 
 ```console
-[Warning] AttachVolume.Attach failed for volume “pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9” : Attach volume “kubernetes-dynamic-pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9" to instance “/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/virtualMachines/aks-agentpool-57634498-0” failed with compute.VirtualMachinesClient#CreateOrUpdate: Failure sending request: StatusCode=0 -- Original Error: autorest/azure: Service returned an error. Status= Code=“ConflictingUserInput” Message=“Disk ‘/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/disks/kubernetes-dynamic-pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9’ cannot be attached as the disk is already owned by VM ‘/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/virtualMachines/aks-agentpool-57634498-1’.”
+[Warning] AttachVolume.Attach failed for volume "pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9" : Attach volume "kubernetes-dynamic-pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9" to instance "/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/virtualMachines/aks-agentpool-57634498-0" failed with compute.VirtualMachinesClient#CreateOrUpdate: Failure sending request: StatusCode=0 -- Original Error: autorest/azure: Service returned an error. Status= Code="ConflictingUserInput" Message="Disk '/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/disks/kubernetes-dynamic-pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9' cannot be attached as the disk is already owned by VM '/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/virtualMachines/aks-agentpool-57634498-1'."
 ```
 
 Este problema se corrigió en las versiones siguientes de Kubernetes:
@@ -348,12 +348,12 @@ Este problema se corrigió en las versiones siguientes de Kubernetes:
 Si usa una versión de Kubernetes que no tiene la solución para este problema y la máquina virtual del nodo está en un estado erróneo, puede mitigar el problema si actualiza manualmente el estado de la máquina virtual de una de las maneras siguientes:
 
 * Para un clúster basado en un conjunto de disponibilidad:
-    ```console
+    ```azurecli
     az vm update -n <VM_NAME> -g <RESOURCE_GROUP_NAME>
     ```
 
 * Para un clúster basado en VMSS:
-    ```console
+    ```azurecli
     az vmss update-instances -g <RESOURCE_GROUP_NAME> --name <VMSS_NAME> --instance-id <ID>
     ```
 
@@ -384,7 +384,7 @@ Configuración recomendada:
 | 1.12.0 - 1.12.1 | 0755 |
 | 1.12.2 y versiones posteriores | 0777 |
 
-Si utiliza un clúster con Kubernetes 1.8.5 o superior y crea dinámicamente el volumen persistente con una clase de almacenamiento, se pueden especificar las opciones de montaje en el objeto de la clase de almacenamiento. En el ejemplo siguiente se establece *0777*:
+Si utiliza un clúster con Kubernetes versión 1.8.5 o posterior, y crea dinámicamente el volumen persistente con una clase de almacenamiento, se pueden especificar las opciones de montaje en el objeto de la clase de almacenamiento. En el ejemplo siguiente se establece *0777*:
 
 ```yaml
 kind: StorageClass
@@ -491,6 +491,10 @@ E1114 09:58:55.367731 1 static_autoscaler.go:239] Failed to fix node group sizes
 ```
 
 Este error se debe a una condición de carrera del escalador automático del clúster ascendente, en que el escalador automático del clúster finaliza con un valor diferente al del clúster. Para salir de este estado, simplemente, deshabilite y vuelva a habilitar el [escalador automático del clúster][cluster-autoscaler].
+
+### <a name="slow-disk-attachment-getazuredisklun-takes-10-to-15-minutes-and-you-receive-an-error"></a>Conexión lenta de disco, GetAzureDiskLun tarda entre 10 y 15 minutos y recibe un error.
+
+En las versiones de Kubernetes **anteriores a 1.15.0**, puede recibir un error similar a **Error WaitForAttach no encuentra LUN para el disco**.  Para evitar este problema, espere aproximadamente 15 minutos y vuelva a intentarlo.
 
 <!-- LINKS - internal -->
 [view-master-logs]: view-master-logs.md

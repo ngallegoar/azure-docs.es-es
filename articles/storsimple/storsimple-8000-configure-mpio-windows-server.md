@@ -15,17 +15,17 @@ ms.workload: NA
 ms.date: 03/26/2018
 ms.author: alkohli
 ms.openlocfilehash: eda134257edb851eea076459b44e02fc59028f46
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60363399"
 ---
 # <a name="configure-multipath-io-for-your-storsimple-device"></a>Configurar E/S de múltiples rutas para el dispositivo StorSimple
 
 En este tutorial se describen los pasos que hay que seguir para instalar y usar la característica E/S de múltiples rutas (MPIO) en un host que ejecuta Windows Server 2012 R2 y que está conectado a un dispositivo físico StorSimple. Las instrucciones de este artículo se aplican solo a los dispositivos físicos de la serie StorSimple 8000. Actualmente, MPIO no se admite en StorSimple Cloud Appliance.
 
-Microsoft incorporó a Windows Server la compatibilidad con la característica de E/S de múltiples rutas (MPIO) para que sea más fácil crear configuraciones de red iSCSI de alta disponibilidad y tolerancia a errores. MPIO usa componentes de ruta de acceso físicas redundantes (es decir, adaptadores, cables y conmutadores) para crear rutas de acceso lógicas entre el servidor y el dispositivo de almacenamiento. Si se produce un error de componente, lo que haría que la ruta de acceso lógica no funcionara, la lógica de múltiples rutas usa una ruta alternativa para E/S a fin de que las aplicaciones puedan seguir teniendo acceso a los datos. Además, en función de la configuración, MPIO puede mejorar el rendimiento al volver a equilibrar la carga entre estas rutas de acceso. Para más información, consulte [Introducción a E/S de múltiples rutas](https://technet.microsoft.com/library/cc725907.aspx "Introducción a E/S de múltiples rutas and features").
+Microsoft incorporó a Windows Server la compatibilidad con la característica de E/S de múltiples rutas (MPIO) para que sea más fácil crear configuraciones de red iSCSI de alta disponibilidad y tolerancia a errores. MPIO usa componentes de ruta de acceso físicas redundantes (es decir, adaptadores, cables y conmutadores) para crear rutas de acceso lógicas entre el servidor y el dispositivo de almacenamiento. Si se produce un error de componente, lo que haría que la ruta de acceso lógica no funcionara, la lógica de múltiples rutas usa una ruta alternativa para E/S a fin de que las aplicaciones puedan seguir teniendo acceso a los datos. Además, en función de la configuración, MPIO puede mejorar el rendimiento al volver a equilibrar la carga entre estas rutas de acceso. Para más información, consulte [Introducción a MPIO](https://technet.microsoft.com/library/cc725907.aspx "Información general y características de MPIO").
 
 Para conseguir una alta disponibilidad de la solución StorSimple, es necesario que MPIO esté configurado en el dispositivo StorSimple. Cuando MPIO se instala en los servidores host que ejecutan Windows Server 2012 R2, dichos servidores tendrán tolerancia a errores de vínculo, red e interfaz.
 
@@ -131,7 +131,7 @@ Después de configurar MPIO en Windows Server, los volúmenes creados en el disp
 12. Abra **Administración de equipos**; para ello, vaya a **Administrador del servidor > Panel > Administración de equipos**. En el panel izquierdo, haga clic en **Almacenamiento > Administración de discos**. Los volúmenes creados en el dispositivo StorSimple que ve este host aparecerá en **Administración de discos** como discos nuevos.
 13. Inicialice el disco y cree otro volumen. Durante el proceso de formato, seleccione un tamaño de bloque de 64 KB.
     
-    ![Administración de discos](./media/storsimple-configure-mpio-windows-server/IC741008.png)
+    ![Administración del disco](./media/storsimple-configure-mpio-windows-server/IC741008.png)
 14. En **Administración de discos**, haga clic con el botón derecho en el **disco** y seleccione **Propiedades**.
 15. En el cuadro de diálogo **Propiedades del dispositivo de disco de múltiples rutas** del número de modelo de StorSimple pertinente, haga clic en la pestaña **MPIO**.
     

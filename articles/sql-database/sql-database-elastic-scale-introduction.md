@@ -4,19 +4,16 @@ description: Los desarrolladores de Software como servicio (SaaS) pueden crear b
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
-ms.custom: ''
-ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 3e30e54eb18eb5d487da6821d285109b1a22297f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 44c6147402cbe05e62c091863cb0bd4f9235bfab
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823613"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80061643"
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>Escalado horizontal con Azure SQL Database
 Es muy fácil escalar horizontalmente bases de datos de SQL Azure mediante las herramientas de **Elastic Database**. Estas herramientas y características permiten usar los recursos de bases de datos de **Azure SQL Database** con el fin de crear soluciones para cargas de trabajo transaccionales y, especialmente, aplicaciones de software como servicio (SaaS). Las características de Elastic Database se componen de lo siguiente:
@@ -58,7 +55,7 @@ Escalar horizontalmente es agregar o quitar bases de datos con el fin de ajustar
 
 Escalar verticalmente es aumentar o disminuir el tamaño de proceso de una base de datos individual; también se conoce como "escalado vertical".
 
-La mayoría de las aplicaciones de bases de datos a escala de la nube usan una combinación de estas dos estrategias. Por ejemplo, una aplicación de software como servicio podría utilizar escalado horizontal para aprovisionar usuarios finales nuevos y escalado vertical para permitir que la base de datos de cada cliente final aumente o disminuya los recursos, según lo requiera la carga de trabajo.
+La mayoría de las aplicaciones de bases de datos a escala de la nube usan una combinación de estas dos estrategias. Por ejemplo, una aplicación de software como servicio podría utilizar el escalado horizontal para aprovisionar usuarios finales nuevos y el escalado vertical para permitir que la base de datos de cada cliente final aumente o disminuya los recursos, según lo requiera la carga de trabajo.
 
 * El escalado horizontal se administra mediante la [biblioteca de cliente de Elastic Database](sql-database-elastic-database-client-library.md).
 * El escalado vertical se logra utilizando cmdlets de Azure PowerShell para cambiar el nivel de servicio o colocando bases de datos en un grupo elástico.

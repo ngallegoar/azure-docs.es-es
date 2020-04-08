@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/12/2019
-ms.openlocfilehash: 4dae0d10f103710a0e6039127c5c1cacb63c03c4
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.date: 03/12/2020
+ms.openlocfilehash: a8ba8b212a504a8f8e4e29fbd50126189998e81a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75893102"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80065479"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-using-azure-data-factory"></a>Copia de datos con Azure Data Lake Storage Gen1 como origen o destino mediante Azure Data Factory
 
@@ -115,7 +115,7 @@ Se admiten las siguientes propiedades:
 }
 ```
 
-### <a name="managed-identity"></a> Uso de identidades administradas para la autenticación de recursos de Azure
+### <a name="use-managed-identities-for-azure-resources-authentication"></a><a name="managed-identity"></a> Uso de identidades administradas para la autenticación de recursos de Azure
 
 Una factoría de datos se puede asociar con una [identidad administrada para recursos de Azure](data-factory-service-identity.md), que representa esa factoría de datos concreta. Puede usar directamente esta identidad administrada para la autenticación en Data Lake Store, de forma similar a como usa su propia entidad de servicio. Permite que esta fábrica designada acceda a datos los copie a o desde Data Lake Store.
 
@@ -261,6 +261,7 @@ Las propiedades siguientes se admiten para Azure Data Lake Store Gen1 en la conf
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | type                     | La propiedad type de `storeSettings` se debe establecer en **AzureDataLakeStoreWriteSettings**. | Sí      |
 | copyBehavior             | Define el comportamiento de copia cuando el origen son archivos de un almacén de datos basados en archivos.<br/><br/>Los valores permitidos son:<br/><b>- PreserveHierarchy (valor predeterminado)</b>: conserva la jerarquía de archivos en la carpeta de destino. La ruta de acceso relativa del archivo de origen a la carpeta de origen es idéntica que la ruta de acceso relativa del archivo de destino a la carpeta de destino.<br/><b>- FlattenHierarchy</b>: todos los archivos de la carpeta de origen están en el primer nivel de la carpeta de destino. Los archivos de destino tienen nombres generados automáticamente. <br/><b>- MergeFiles</b>: combina todos los archivos de la carpeta de origen en un archivo. Si se especifica el nombre del archivo, el nombre de archivo combinado es el nombre especificado. De lo contrario, es un nombre de archivo generado automáticamente. | No       |
+| expiryDateTime | Especifica la hora de expiración de los archivos escritos. La hora se aplica a la hora UTC en el formato "2020-03-01T08:00:00Z". Es NULL de forma predeterminada, lo que significa que los archivos escritos nunca expiran. | No |
 | maxConcurrentConnections | Número de conexiones para conectarse al almacén de datos de forma simultánea. Solo se especifica cuando se quiere limitar la conexión simultánea al almacén de datos. | No       |
 
 **Ejemplo**:
@@ -351,7 +352,8 @@ Ejemplos de caracteres comodín:
 * ```[]``` Coincide con uno de los caracteres entre corchetes.
 
 * ```/data/sales/**/*.csv``` Obtiene todos los archivos csv que se encuentra en /data/sales.
-* ```/data/sales/20??/**``` Obtiene todos los archivos del siglo XX.
+* ```/data/sales/20??/**/``` Obtiene todos los archivos del siglo XX.
+* ```/data/sales/*/*/*.csv``` Obtiene los archivos CSV en dos niveles bajo /data/sales.
 * ```/data/sales/2004/*/12/[XY]1?.csv``` Obtiene todos los archivos csv de diciembre de 2004 que comienzan con X o Y precedido por un número de dos dígitos.
 
 **Partition Root Path:** (Ruta de acceso de la raíz de la partición) Si tiene carpetas con particiones en el origen de archivo con un formato ```key=value``` (por ejemplo, year=2019), puede asignar el nivel superior del árbol de carpetas de la partición a un nombre de columna del flujo de datos.
@@ -403,7 +405,7 @@ En la transformación de receptor, puede escribir en un contenedor o una carpeta
    * **Valor predeterminado**: permita que Spark nombre los archivos según los valores predeterminados de PART.
    * **Patrón**: escriba un patrón que enumere los archivos de salida por partición. Por ejemplo, **loans[n].csv** creará loans1.csv, loans2.csv, etc.
    * **Por partición**: escriba un nombre de archivo por partición.
-   * **Como datos de columna**: establezca el archivo de salida en el valor de una columna. La ruta de acceso es relativa al contenedor del conjunto de datos, no a la carpeta de destino.
+   * **Como datos de columna**: establezca el archivo de salida en el valor de una columna. La ruta de acceso es relativa al contenedor del conjunto de datos, no a la carpeta de destino. Si tiene una ruta de acceso de carpeta en el conjunto de datos, se invalidará.
    * **Salida en un solo archivo**: combine los archivos de salida con particiones en un solo archivo con nombre. La ruta de acceso es relativa a la carpeta del conjunto de datos. Tenga en cuenta que la operación de combinación probablemente produzca un error en función del tamaño del nodo. Esta opción no se recomienda para conjuntos de datos de gran tamaño.
 
 **Quote all** (Entrecomillar todo): determina si se deben entrecomillar todos los valores.

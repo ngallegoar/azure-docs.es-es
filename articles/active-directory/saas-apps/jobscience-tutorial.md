@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8199f106c234e216a0982dc9e51413ccf30ae93a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2f0ea5b922b2c958aabf5be3a6123bb81a8f0234
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60268702"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80048506"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscience"></a>Tutorial: Integración de Azure Active Directory con Jobscience
 
@@ -34,7 +34,7 @@ La integración de Jobscience con Azure AD proporciona las siguientes ventajas:
 
 Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para configurar la integración de Azure AD con Jobscience, necesita los siguientes elementos:
 
@@ -134,19 +134,19 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 1. Acceda a **Setup**(Configuración).
    
-   ![Instalación](./media/jobscience-tutorial/IC784358.png "Instalación")
+   ![Configuración](./media/jobscience-tutorial/IC784358.png "Configurar")
 
 1. En el panel de navegación izquierdo, en la sección **Administer** (Administrar), haga clic en **Domain Management** (Administración de dominios) para expandir la sección relacionada y, luego, haga clic en **My Domain** (Mi dominio) para abrir la página **My Domain** (Mi dominio). 
    
    ![Mi dominio](./media/jobscience-tutorial/ic767825.png "Mi dominio")
 
-1. Para comprobar que el dominio se configuró correctamente, asegúrese de que está en "**Step 4 Deployed to Users**" (Paso 4 Dominio implementado para usuarios) y revise la sección "**My Domain Settings**" (Mi configuración de dominio).
+1. Para comprobar que el dominio se configuró correctamente, asegúrese de que está en "**Step 4 Deployed to Users**" (Paso 4. Dominio implementado para usuarios) y revise la sección "**My Domain Settings**" (Mi configuración de dominio).
 
-    ![Dominio implementado al usuario](./media/jobscience-tutorial/ic784377.png "Dominio implementado al usuario")
+    ![Dominio implementado para el usuario](./media/jobscience-tutorial/ic784377.png "Dominio implementado para el usuario")
 
 1. En el sitio de la compañía de Jobscience, haga clic en **Security Controls** (Controles de seguridad) y, a continuación, haga clic en **Single Sign-On Settings** (Configuración de inicio de sesión único).
     
-    ![Controles de seguridad](./media/jobscience-tutorial/ic784364.png "Controles de seguridad")
+    ![Security Controls (Controles de seguridad)](./media/jobscience-tutorial/ic784364.png "Controles de seguridad")
 
 1. En la sección **Configuración del inicio de sesión único** , siga estos pasos:
     
@@ -154,11 +154,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     
     a. Seleccione **SAML habilitado**.
 
-    b. Haga clic en **Nuevo**.
+    b. Haga clic en **Nueva**.
 
 1. En el cuadro de diálogo **SAML Single Sign-On Setting Edit** (Edición de la configuración de inicio de sesión único de SAML), realice los pasos siguientes:
     
-    ![Inicio de sesión único SAML](./media/jobscience-tutorial/ic784365.png "Inicio de sesión único SAML")
+    ![Configuración del inicio de sesión único de SAML](./media/jobscience-tutorial/ic784365.png "Configuración de inicio de sesión único SAML")
     
     a. En el cuadro de texto **Name** (Nombre), escriba el nombre de la configuración.
 
@@ -184,17 +184,17 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 1. En la página **My domain** (Mi dominio), en la sección **Login Page Branding** (Personalización de marca de la página de inicio de sesión), haga clic en **Edit** (Editar).
     
-    ![Personalización de marca de página de inicio de sesión](./media/jobscience-tutorial/ic767826.png "Personalización de marca de página de inicio de sesión")
+    ![Personalización de marca de la página de inicio de sesión](./media/jobscience-tutorial/ic767826.png "Personalización de marca de la página de inicio de sesión")
 
 1. En la página **Login Page Branding** (Personalización de marca de la página de inicio de sesión), en la sección **Authentication Service** (Servicio de autenticación), se muestra el nombre de su **SAML SSO Settings** (Configuración de SSO de SAML). Selecciónelo y luego haga clic en **Save**(Guardar).
     
-    ![Personalización de marca de página de inicio de sesión](./media/jobscience-tutorial/ic784366.png "Personalización de marca de página de inicio de sesión")
+    ![Personalización de marca de la página de inicio de sesión](./media/jobscience-tutorial/ic784366.png "Personalización de marca de la página de inicio de sesión")
 
 1. Para obtener la dirección URL de inicio de sesión único iniciado por el proveedor de servicios, haga clic en **Configuración de inicio de sesión único** en la sección del menú **Controles de seguridad**.
 
-    ![Controles de seguridad](./media/jobscience-tutorial/ic784368.png "Controles de seguridad")
+    ![Security Controls (Controles de seguridad)](./media/jobscience-tutorial/ic784368.png "Controles de seguridad")
     
-    Haga clic en el perfil SSO creado en el paso anterior. En esta página se muestra la dirección URL de inicio de sesión único de su empresa (por ejemplo, [https://companyname.my.salesforce.com?so=companyid](https://companyname.my.salesforce.com?so=companyid).    
+    Haga clic en el perfil SSO creado en el paso anterior. En esta página se muestra la dirección URL de inicio de sesión único de su empresa; por ejemplo, `https://companyname.my.salesforce.com?so=companyid`.    
 
 > [!TIP]
 > Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -229,7 +229,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     c. Seleccione **Mostrar contraseña** y anote el valor del cuadro **Contraseña**.
 
-    d. Haga clic en **Create**(Crear).
+    d. Haga clic en **Crear**.
  
 ### <a name="creating-a-jobscience-test-user"></a>Creación de un usuario de prueba de Jobscience
 
@@ -245,7 +245,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Jobscience, deben 
 
 1. Vaya a Setup (Configuración).
    
-   ![Instalación](./media/jobscience-tutorial/ic784358.png "Instalación")
+   ![Configuración](./media/jobscience-tutorial/ic784358.png "Configurar")
 1. Vaya a **Manage Users \> (Administrar usuarios) Users** (Usuarios).
    
    ![Usuarios](./media/jobscience-tutorial/ic784369.png "Usuarios")
@@ -254,7 +254,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Jobscience, deben 
    ![Todos los usuarios](./media/jobscience-tutorial/ic784370.png "Todos los usuarios")
 1. En el cuadro de diálogo **Editar usuario** , realice los siguientes pasos:
    
-   ![Edición de usuario](./media/jobscience-tutorial/ic784371.png "Edición de usuario")
+   ![Edición de usuarios](./media/jobscience-tutorial/ic784371.png "Edición de usuarios")
    
    a. En el cuadro de texto **Nombre**, escriba el nombre del usuario, en este caso, Britta.
    
@@ -282,7 +282,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 **Para asignar a Britta Simon a Jobscience, realice los pasos siguientes:**
 
-1. En Azure Portal, abra la vista de aplicaciones, navegue a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego haga clic en **Todas las aplicaciones**.
+1. En Azure Portal, abra la vista de aplicaciones, vaya a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego, haga clic en **Todas las aplicaciones**.
 
     ![Asignar usuario][201] 
 

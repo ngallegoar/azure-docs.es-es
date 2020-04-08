@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
 ms.openlocfilehash: f2b454e812db1eea686f82e92841163f1129b6c8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64715220"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79232132"
 ---
 # <a name="troubleshoot-storsimple-device-deployment-issues"></a>Solución de problemas de implementación de dispositivos de StorSimple
 ## <a name="overview"></a>Información general
@@ -75,12 +75,12 @@ En las tablas siguientes se enumeran los errores comunes que pueden aparecer en 
 | 2 |Invoke-HcsSetupWizard: el dispositivo no está listo. |Hay problemas con la conectividad de red en DATA 0. |Compruebe la conectividad de red física en DATA 0. |
 | 3 |Invoke-HcsSetupWizard: hay un conflicto de dirección IP con otro sistema en la red (excepción de HRESULT: 0x80070263). |Otro sistema estaba usando la dirección IP indicada para DATA 0. |Indique una dirección IP nueva que no esté en uso. |
 | 4 |Invoke-HcsSetupWizard: error en un recurso de clúster. (Excepción de HRESULT: 0x800713AE). |VIP duplicada. La dirección IP proporcionada ya está en uso. |Indique una dirección IP nueva que no esté en uso. |
-| 5 |Invoke-HcsSetupWizard: dirección IPv4 no válida. |La dirección IP se ha indicado con un formato incorrecto. |Compruebe el formato e indique de nuevo la dirección IP. Para obtener más información, consulte [Direcciones Ipv4][1]. |
-| 6 |Invoke-HcsSetupWizard: dirección IPv6 no válida. |La dirección IP se ha indicado con un formato incorrecto. |Compruebe el formato e indique de nuevo la dirección IP. Para obtener más información, consulte [Direcciones Ipv6][2]. |
+| 5 |Invoke-HcsSetupWizard: dirección IPv4 no válida. |La dirección IP se ha indicado con un formato incorrecto. |Compruebe el formato e indique de nuevo la dirección IP. Para más información, consulte [Direcciones Ipv4][1]. |
+| 6 |Invoke-HcsSetupWizard: dirección IPv6 no válida. |La dirección IP se ha indicado con un formato incorrecto. |Compruebe el formato e indique de nuevo la dirección IP. Para más información, consulte [Direcciones Ipv6][2]. |
 | 7 |Invoke-HcsSetupWizard: no hay más puntos de conexión disponibles desde el asignador de puntos de conexión. (Excepción de HRESULT: 0x800706D9) |La funcionalidad de clúster no funciona. |[Póngase en contacto con el servicio de soporte técnico de Microsoft](storsimple-8000-contact-microsoft-support.md) para conocer los pasos siguientes. |
 
 ## <a name="errors-during-the-optional-web-proxy-settings"></a>Errores durante la configuración del proxy web opcional
-| Nº | Mensaje de error | Causas posibles | Acción recomendada |
+| No. | Mensaje de error | Causas posibles | Acción recomendada |
 | --- | --- | --- | --- |
 | 1 |Invoke-HcsSetupWizard: Parámetro no válido (excepción de HRESULT: 0x80070057) |Uno de los parámetros proporcionados para la configuración del proxy no es válido. |El URI no se indica con el formato correcto. Use el siguiente formato: http:// *\<IP dirección o el FQDN del servidor proxy web>* : *\<número de puerto TCP>* |
 | 2 |Invoke-HcsSetupWizard: Servidor RPC no disponible (excepción de HRESULT: 0x800706ba) |La causa principal es una de las siguientes:<ol><li>El clúster no está activo.</li><li>El controlador pasivo no puede comunicarse con el controlador activo, y el comando se ejecuta desde el controlador pasivo.</li></ol> |Dependiendo de la causa principal:<ol><li>[Póngase en contacto con el servicio de soporte técnico de Microsoft](storsimple-8000-contact-microsoft-support.md) para asegurarse de que el clúster está activo.</li><li>Ejecute el comando desde el controlador activo. Si desea ejecutar el comando desde el controlador pasivo, deberá asegurarse de que el controlador pasivo puede comunicarse con el controlador activo. Tendrá que [ponerse en contacto con el servicio de soporte técnico de Microsoft](storsimple-8000-contact-microsoft-support.md) si se interrumpe la conectividad.</li></ol> |

@@ -15,10 +15,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 34451fcc4597f77464e5e9566613e21e9fecdbc6
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74027307"
 ---
 # <a name="change-static-group-membership-to-dynamic-in-azure-active-directory"></a>Cambio de la pertenencia de un grupo estático a dinámico en Azure Active Directory
@@ -57,7 +57,7 @@ Los pasos siguientes son un ejemplo de cómo cambiar un grupo de usuarios para q
 ## <a name="change-membership-type-for-a-group-powershell"></a>Cambio del tipo de pertenencia de un grupo (PowerShell)
 
 > [!NOTE]
-> Para cambiar las propiedades de un grupo dinámico, es preciso usar los cmdlets de **la versión preliminar de** [Azure AD PowerShell, versión 2](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). Puede instalar la versión preliminar desde la [Galería de PowerShell](https://www.powershellgallery.com/packages/AzureADPreview).
+> Para cambiar las propiedades de un grupo dinámico, es preciso usar los cmdlets de **la versión preliminar de** [Azure AD PowerShell, versión 2](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). Puede instalar la versión preliminar desde la [Galería de PowerShell](https://www.powershellgallery.com/packages/AzureADPreview).
 
 Este es un ejemplo e las funciones que cambian la administración de la pertenencia a un grupo existente. En este ejemplo, se actúa con precaución para manipular correctamente la propiedad GroupTypes y preservar todos los valores que no tienen relación con la pertenencia a un grupo dinámico.
 
@@ -121,6 +121,6 @@ En estos artículos se proporciona información adicional sobre los grupos en Az
 
 * [Consulta de los grupos existentes](../fundamentals/active-directory-groups-view-azure-portal.md)
 * [Crear un nuevo grupo y agregar miembros](../fundamentals/active-directory-groups-create-azure-portal.md)
-* [Administrar la configuración de un grupo](../fundamentals/active-directory-groups-settings-azure-portal.md)
+* [Administración de la configuración de un grupo](../fundamentals/active-directory-groups-settings-azure-portal.md)
 * [Administrar la pertenencia a grupos](../fundamentals/active-directory-groups-membership-azure-portal.md)
 * [Administrar reglas dinámicas de los usuarios de un grupo](groups-dynamic-membership.md)

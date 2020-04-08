@@ -9,10 +9,10 @@ ms.date: 03/29/2018
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 8361c32860d48b78c778ea5106ba04715fcc5f3c
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67621052"
 ---
 # <a name="open-a-support-ticket-for-an-importexport-job"></a>Abra un vale de soporte para un trabajo de Import/Export
@@ -59,7 +59,7 @@ Lleve a cabo los siguientes pasos para crear una solicitud de soporte.
 
    1. En **Opciones de contacto**, especifique el método de contacto preferido (teléfono o correo electrónico) y el idioma. El tiempo de respuesta se selecciona automáticamente en función del plan de suscripción.
    2. En Información de contacto, especifique su nombre, correo electrónico, contacto opcional y país o región. Active la casilla **Guardar cambios de contacto para solicitudes futuras de soporte técnico**.
-   3. Haga clic en **Create**(Crear).
+   3. Haga clic en **Crear**.
    
        ![Información de contacto](./media/storage-import-export-contact-microsoft-support/import-export-support7.png)   
 

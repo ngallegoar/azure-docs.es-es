@@ -8,12 +8,12 @@ ms.date: 12/10/2019
 ms.topic: conceptual
 ms.service: azure-maps
 manager: cpendleton
-ms.openlocfilehash: b0d9437b10bc54aac481eb630f12a2b99d2360a1
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 5fa9e159fa0ac76ce8c585936059fb7f3151c7c4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77672470"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79473326"
 ---
 # <a name="building-an-accessible-application"></a>Creación de una aplicación accesible
 
@@ -41,7 +41,7 @@ Hay varias maneras de ampliar, desplazar lateralmente, girar e inclinar el mapa.
 - Con un mouse, desplácese por la rueda para acercar el mapa.
 - Con una pantalla táctil, toque el mapa con dos dedos y acérquelos para alejarse o aléjelos para acercarse.
 - Con una pantalla táctil, pulse dos veces el mapa para acercarse un nivel.
-- Con el mapa centrado, use el signo más (`+`) o el signo igual* (`=`) para acercarse un nivel.
+- Con el mapa centrado, use el signo más (`+`) o el signo igual (`=`) para acercarse un nivel.
 - Con el mapa centrado, use el signo menos, el guion (`-`) o el carácter de subrayado (`_`) para alejarse un nivel.
 - Use el control de zoom con el mouse, la entrada táctil o las teclas de tabulación/ingreso del teclado.
 - Mantenga presionado el botón `Shift` y presione el botón izquierdo del mouse sobre el mapa y arrastre para dibujar un área para aplicar zoom al mapa.

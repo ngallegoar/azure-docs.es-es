@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: c12e14b8b842e3ccf9f2bf9e0ab783d8852ee69b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 433f5885c7f057226e78c4ae57e03d7619004d21
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78357780"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79229744"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Preguntas más frecuentes sobre el rendimiento de aplicaciones para Web Apps de Azure
 
@@ -92,8 +92,9 @@ Para más información sobre cuotas y límites, consulte [Límites de App Servic
 De forma predeterminada, las aplicaciones web se descargan si están inactivas durante algún tiempo. Esto permite que el sistema conserve recursos. El inconveniente es que la respuesta a la primera solicitud después de descargar la aplicación web es más larga, para que la aplicación web pueda cargar y comenzar a atender a las respuestas. En los planes de servicio Básico y Estándar, puede activar el valor **Siempre activado** para que la aplicación web se mantenga cargada en todo momento. Esto elimina mayores tiempos de carga después de la inactividad de la aplicación. Para cambiar la configuración de **Siempre activado**:
 
 1. En Azure Portal, vaya a la aplicación web.
-2. Seleccione **Configuración de la aplicación**.
-3. Para **Siempre activado**, seleccione **Activado**.
+2. Seleccione **Configuración**.
+3. Seleccione **Configuración general**.
+4. Para **Siempre activado**, seleccione **Activado**.
 
 ## <a name="how-do-i-turn-on-failed-request-tracing"></a>¿Cómo se activa el seguimiento de solicitudes con error?
 

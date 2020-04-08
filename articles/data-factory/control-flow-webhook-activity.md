@@ -11,15 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 8c52bb21276071581a83fb3ee6a3a4a31ba0bb4a
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.openlocfilehash: ced2279878ee2eb361ec7338647418658e411513
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78400004"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79213000"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Actividad de webhook en Azure Data Factory
-Puede usar una actividad de webhook para controlar la ejecución de canalizaciones a través de su código personalizado. Con la actividad de webhook, los clientes pueden llamar a un punto de conexión y pasar una dirección URL de devolución de llamada. La ejecución de canalización espera a que la devolución de llamada se invoque antes de continuar con la siguiente actividad.
+
+Una actividad de webhook puede controlar la ejecución de canalizaciones mediante su código personalizado. Con la actividad de webhook, el código de los clientes puede llamar a un punto de conexión y pasarle una dirección URL de devolución de llamada. La ejecución de la canalización espera por la invocación de devolución de llamada antes de pasar a la siguiente actividad.
 
 ## <a name="syntax"></a>Sintaxis
 
@@ -48,30 +49,27 @@ Puede usar una actividad de webhook para controlar la ejecución de canalizacion
 
 ```
 
-
 ## <a name="type-properties"></a>Propiedades de tipo
-
-
 
 Propiedad | Descripción | Valores permitidos | Obligatorio
 -------- | ----------- | -------------- | --------
-name | Nombre de la actividad webhook | String | Sí |
-type | Debe establecerse en **WebHook**. | String | Sí |
-method | Método de API de REST para el punto de conexión de destino. | String. Tipos admitidos: "POST" | Sí |
-url | Punto de conexión y ruta de acceso de destino | Cadena (o expresión con un valor resultType de cadena). | Sí |
-headers | Encabezados que se envían a la solicitud. Por ejemplo, para establecer el idioma y el tipo en una solicitud: "headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }. | Cadena (o expresión con un valor resultType de cadena) | Sí, el encabezado Content-type es necesario. "headers":{ "Content-Type":"application/json"} |
-body | Representa la carga útil que se envía al punto de conexión. | JSON válido (o expresión con un valor resultType de JSON). Vea el esquema de la carga de solicitud en la sección [Solicitar un esquema de carga](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fdata-factory%2Fcontrol-flow-web-activity%23request-payload-schema&amp;data=02%7C01%7Cshlo%40microsoft.com%7Cde517eae4e7f4f2c408d08d6b167f6b1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636891457414397501&amp;sdata=ljUZv5csQQux2TT3JtTU9ZU8e1uViRzuX5DSNYkL0uE%3D&amp;reserved=0). | Sí |
-autenticación | Método de autenticación usado para llamar al punto de conexión. Los tipos admitidos son "Basic" y "ClientCertificate". Para más información, vea la sección [Autenticación](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fdata-factory%2Fcontrol-flow-web-activity%23authentication&amp;data=02%7C01%7Cshlo%40microsoft.com%7Cde517eae4e7f4f2c408d08d6b167f6b1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636891457414397501&amp;sdata=GdA1%2Fh2pAD%2BSyWJHSW%2BSKucqoAXux%2F4L5Jgndd3YziM%3D&amp;reserved=0). Si la autenticación no es necesaria, excluya esta propiedad. | Cadena (o expresión con un valor resultType de cadena) | Sin |
-timeout | ¿Durante cuánto tiempo esperará la actividad a que se invoque &#39;callBackUri&#39;? ¿Durante cuánto tiempo esperará la actividad a que se invoque "callBackUri"? El valor predeterminado es 10 min ("00:10:00"). El formato es un intervalo de tiempo, es decir, d.hh:mm:ss | String | Sin |
-Notificar el estado de la devolución de llamada | Permite al usuario informar del estado de error de la actividad de webhook, que marcará la actividad como con errores. | Boolean | Sin |
+**name** | El nombre de la actividad de webhook. | String | Sí |
+**type** | Tienen que establecerse en "WebHook". | String | Sí |
+**method** | El método de API REST para el punto de conexión de destino. | String. El tipo admitido es "POST". | Sí |
+**url** | Punto de conexión y ruta de acceso de destino. | Una cadena o una expresión con el valor **resultType** de una cadena. | Sí |
+**headers** | Encabezados que se envían a la solicitud. Este es un ejemplo que establece el idioma y el tipo en una solicitud: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Una cadena o una expresión con el valor **resultType** de una cadena. | Sí. Se necesita un encabezado `Content-Type` como `"headers":{ "Content-Type":"application/json"}`. |
+**body** | Representa la carga útil que se envía al punto de conexión. | JSON válido o una expresión con el valor **resultType** de JSON. Consulte la sección [Solicitar un esquema de carga](https://docs.microsoft.com/azure/data-factory/control-flow-web-activity#request-payload-schema) para ver el esquema de carga de la solicitud. | Sí |
+**autenticación** | El método de autenticación que se usa para llamar al punto de conexión. Los tipos admitidos son "Basic" y "ClientCertificate". Para más información, consulte [Autenticación](https://docs.microsoft.com/azure/data-factory/control-flow-web-activity#authentication). Si la autenticación no es necesaria, excluya esta propiedad. | Una cadena o una expresión con el valor **resultType** de una cadena. | No |
+**timeout** | El tiempo que la actividad espera a que se invoque la devolución de llamada especificada por **callBackUri**. El valor predeterminado es 10 minutos ("00:10:00"). Los valores tienen el formato TimeSpan *d*.*hh*:*mm*:*ss*. | String | No |
+**Notificar el estado de la devolución de llamada** | Permite a un usuario informar del estado de error de una actividad de webhook. | Boolean | No |
 
 ## <a name="authentication"></a>Authentication
 
-A continuación se muestran los tipos de autenticación admitidos en la actividad de webhook.
+Una actividad de webhook admite los siguientes tipos de autenticación.
 
 ### <a name="none"></a>None
 
-Si la autenticación no es necesaria, no incluya la propiedad "authentication".
+Si la autenticación no es necesaria, no incluya la propiedad **authentication**.
 
 ### <a name="basic"></a>Básica
 
@@ -87,7 +85,7 @@ Especifique el nombre de usuario y la contraseña que se usarán con la autentic
 
 ### <a name="client-certificate"></a>Certificado de cliente
 
-Especifique un contenido codificado en base64 de un archivo PFX y la contraseña.
+Especifique un contenido codificado en Base64 de un archivo PFX y una contraseña.
 
 ```json
 "authentication":{
@@ -99,7 +97,7 @@ Especifique un contenido codificado en base64 de un archivo PFX y la contraseña
 
 ### <a name="managed-identity"></a>Identidad administrada
 
-Especifique el URI de recurso para el que el token de acceso se solicitará utilizando la identidad administrada para la factoría de datos. Para llamar a la API de Azure Resource Management, use `https://management.azure.com/`. Para más información sobre cómo funcionan las identidades administradas, consulte la página de información general [Identidades administradas de recursos de Azure](/azure/active-directory/managed-identities-azure-resources/overview).
+Use la identidad administrada de la factoría de datos para especificar el URI de recurso para el que se solicita el token de acceso. Para llamar a la API de Azure Resource Management, use `https://management.azure.com/`. Para más información sobre cómo funcionan las identidades administradas, consulte [Información general sobre las identidades administradas de recursos de Azure](/azure/active-directory/managed-identities-azure-resources/overview).
 
 ```json
 "authentication": {
@@ -109,26 +107,26 @@ Especifique el URI de recurso para el que el token de acceso se solicitará util
 ```
 
 > [!NOTE]
-> Si la factoría de datos está configurada con un repositorio de Git, debe almacenar las credenciales en Azure Key Vault para usar la autenticación de certificado de cliente o básica. Azure Data Factory no almacena contraseñas en Git.
+> Si la factoría de datos está configurada con un repositorio de Git, tiene que almacenar sus credenciales en Azure Key Vault para usar la autenticación básica o de certificado de cliente. Azure Data Factory no almacena contraseñas en Git.
 
 ## <a name="additional-notes"></a>Notas adicionales
 
-Azure Data Factory pasará una propiedad adicional "callBackUri" en el cuerpo al punto de conexión de URL, y esperará que este URI se invoque antes del valor de tiempo de espera especificado. Si no se invoca el URI, se producirá un error en la actividad con estado "TimedOut".
+Data Factory pasa la propiedad adicional **callBackUri** en el cuerpo enviado al punto de conexión de la dirección URL. Data Factory espera que se invoque este URI antes del valor de tiempo de espera especificado. Si no se invoca el URI, se produce un error en la actividad con el estado "TimedOut".
 
-La propia actividad de webhook produce un error cuando la llamada al punto de conexión personalizado genera un error. Cualquier mensaje de error se puede agregar al cuerpo de la devolución de llamada y usarse en una actividad posterior.
+La propia actividad de webhook produce un error cuando la llamada al punto de conexión personalizado genera un error. Cualquier mensaje de error se puede agregar al cuerpo de devolución de llamada y usarse en una actividad posterior.
 
-Además, en cada llamada API REST, el cliente agotará el tiempo de espera si el punto de conexión no responde en 1 minuto. Se trata del procedimiento recomendado de http estándar. Para corregir este problema, debe implementar el patrón 202 en este caso, donde el punto de conexión devolverá 202 (aceptado) y el cliente realizará un sondeo.
+Para cada llamada a la API REST, el cliente agota el tiempo de espera si el punto de conexión no responde en un minuto. Este comportamiento es el procedimiento recomendado HTTP estándar. Para corregir este problema, implemente un patrón 202. En el caso actual, el punto de conexión devuelve 202 (aceptado) y el cliente sondea.
 
-El tiempo de espera de 1 minuto de la solicitud no tiene nada que ver con el tiempo de espera de la actividad. El primero se usará para esperar el valor de callbackUri.
+El tiempo de espera de un minuto en la solicitud no tiene nada que ver con el tiempo de espera de la actividad. El último se usa para esperar a la devolución de llamada especificada por **callbackUri**.
 
-El cuerpo devuelto al URI de devolución de llamada debe ser un JSON válido. Debe establecer el encabezado Content-Type en `application/json`.
+El cuerpo devuelto al URI de devolución de llamada tiene que ser un JSON válido. Establezca el encabezado `Content-Type` en `application/json`.
 
-Al usar la opción "Notificar el estado de la devolución de llamada", debe agregar el siguiente fragmento de código al cuerpo al hacer la devolución de llamada:
+Al usar la propiedad **Notificar el estado de la devolución de llamada**, tiene que agregar el siguiente código al cuerpo al hacer la devolución de llamada:
 
-```
+```json
 {
     "Output": {
-        // output object will be used in activity output
+        // output object is used in activity output
         "testProp": "testPropValue"
     },
     "Error": {
@@ -136,15 +134,13 @@ Al usar la opción "Notificar el estado de la devolución de llamada", debe agre
         "ErrorCode": "testErrorCode",
         "Message": "error message to show in activity error"
     },
-    "StatusCode": "403" // when status code is >=400, activity will be marked as failed
+    "StatusCode": "403" // when status code is >=400, activity is marked as failed
 }
 ```
 
-
-
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte otras actividades de flujo de control compatibles con Data Factory:
+Consulte las siguientes actividades de flujo de control compatibles con Data Factory:
 
 - [Actividad If Condition](control-flow-if-condition-activity.md)
 - [Actividad de ejecución de canalización](control-flow-execute-pipeline-activity.md)

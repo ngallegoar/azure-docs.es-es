@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 4c2b774c304e46f9fc68f3beaf64218e614ecad1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "66234051"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Autenticación de usuario final en Azure Data Lake Storage Gen1 con Azure Active Directory
@@ -34,8 +34,8 @@ Con ambas opciones, la aplicación recibe un token de OAuth 2.0 que se adjunta a
 
 En este artículo se habla de cómo crear una **aplicación nativa de Azure AD para la autenticación de usuario final**. Para obtener instrucciones sobre la configuración de aplicaciones de Azure AD para la autenticación entre servicios, vea [Autenticación entre servicios con Data Lake Storage Gen1 mediante Azure Active Directory](data-lake-store-authenticate-using-active-directory.md).
 
-## <a name="prerequisites"></a>Requisitos previos
-* Una suscripción de Azure. Consulte [How to get Azure Free trial for testing Hadoop in HDInsight (Obtención de una versión de prueba gratuita de Azure para probar Hadoop en HDInsight)](https://azure.microsoft.com/pricing/free-trial/).
+## <a name="prerequisites"></a>Prerrequisitos
+* Suscripción a Azure. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 * El identificador de suscripción. Puede recuperarlo en Azure Portal. Por ejemplo, está disponible en la hoja de la cuenta de Data Lake Storage Gen1.
   
@@ -78,7 +78,7 @@ Cree y configure una aplicación nativa de Azure AD para la autenticación de us
 
 Al seguir las instrucciones del vínculo, asegúrese de seleccionar **Nativa** como tipo de aplicación, como se muestra en la captura de pantalla siguiente:
 
-![Crear aplicación de web](./media/data-lake-store-end-user-authenticate-using-active-directory/azure-active-directory-create-native-app.png "Crear aplicación nativa")
+![Creación de una aplicación web](./media/data-lake-store-end-user-authenticate-using-active-directory/azure-active-directory-create-native-app.png "Creación de una aplicación nativa")
 
 ## <a name="step-2-get-application-id-and-redirect-uri"></a>Paso 2: Obtener el identificador de aplicación y el URI de redireccionamiento
 
@@ -95,7 +95,7 @@ Para recuperar el URI de redireccionamiento, siga estos pasos.
 3. Copie el valor mostrado.
 
 
-## <a name="step-3-set-permissions"></a>Paso 3: Establecer permisos
+## <a name="step-3-set-permissions"></a>Paso 3: Establecimiento de permisos
 
 1. En Azure Portal, seleccione **Azure Active Directory**, haga clic en **Registros de aplicaciones** y después busque la aplicación nativa de Azure AD que acaba de crear y haga clic en ella.
 

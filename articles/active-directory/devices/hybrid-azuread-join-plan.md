@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76d3be0fc00465c35dbc79a258b57db962969cc8
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: 152ff52ce52b573d7f24cbb2fafc944b1794f6d7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78672328"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80129259"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Instrucciones: Planeamiento de la implementación de la unión a Azure Active Directory híbrido
 
@@ -57,6 +57,7 @@ La unión a Azure AD híbrido admite una amplia variedad de dispositivos Windows
 
 - Windows 10
 - Windows Server 2016
+  - **Nota**: Los clientes de las nubes nacionales de Azure necesitan la versión 1809.
 - Windows Server 2019
 
 Para dispositivos que ejecutan el sistema operativo de escritorio Windows, las versiones admitidas se enumeran en el artículo [Información sobre la versión de Windows 10](/windows/release-information/). Como procedimiento recomendado, Microsoft recomienda actualizar a la versión más reciente de Windows 10.
@@ -92,7 +93,7 @@ Como primer paso del planeamiento, debe revisar el entorno y determinar si neces
 ### <a name="handling-devices-with-azure-ad-registered-state"></a>Control de dispositivos con el estado registrado de Azure AD
 Si los dispositivos unidos a un dominio de Windows 10 están [registrados en Azure AD](overview.md#getting-devices-in-azure-ad) con su inquilino, podría provocar un doble estado de dispositivos registrados en Azure AD y unidos a Azure AD híbrido. Se recomienda actualizar a Windows 10 1803 (con KB4489894 aplicado) o una versión superior para solucionar automáticamente esta situación. En las versiones anteriores a 1803, deberá quitar manualmente el estado registrado en Azure AD antes de habilitar la unión a Azure AD híbrido. A partir de la versión 1803, se han realizado los siguientes cambios para evitar este doble estado:
 
-- Cualquier estado registrado en Azure AD existente se eliminará automáticamente <i>después de que el dispositivo se una a Azure AD híbrido</i>.
+- Cualquier estado registrado de Azure AD existente de un usuario se eliminaría automáticamente <i>en el momento en que el dispositivo se una a Azure AD híbrido y el usuario en cuestión inicie sesión</i>. Por ejemplo, si un usuario A tuviera un estado registrado de Azure AD en el dispositivo, el doble estado de ese usuario A se limpiará únicamente cuando este inicie sesión en el dispositivo. Si hay varios usuarios en el mismo dispositivo, el doble estado se limpiará individualmente cuando cada uno de esos usuarios inicien sesión.
 - Puede impedir que el dispositivo unido al dominio se registre en Azure AD mediante la incorporación de esta clave del registro: HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001.
 - En Windows 10 1803, si tiene configurado Windows Hello para empresas, el usuario tendrá que volver a configurarlo tras la limpieza del doble estado. Este problema se ha resuelto con KB4512509.
 
@@ -102,7 +103,9 @@ Si los dispositivos unidos a un dominio de Windows 10 están [registrados en Az
 ### <a name="additional-considerations"></a>Consideraciones adicionales
 - Si su entorno usa la infraestructura de escritorio virtual (VDI), consulte [Identidad del dispositivo y virtualización del escritorio](/azure/active-directory/devices/howto-device-identity-virtual-desktop-infrastructure).
 
-- La unión a Azure AD híbrido es compatible con TPM 2.0 compatible con FIPS y no se admite en TPM 1.2. Si los dispositivos tienen TPM 1.2 compatible con FIPS, debe deshabilitarlos antes de continuar con la unión a Azure AD híbrido. Microsoft no proporciona ninguna herramienta para deshabilitar el modo FIPS para TPM, ya que eso depende del fabricante de TPM. Póngase en contacto con el OEM de hardware para obtener soporte técnico. A partir de la versión 10 1903 de Windows, los TPM 1,2 no se usan para la unión de Azure AD híbrida y los dispositivos que tengan esos TPM se considerarán como si no tuvieran un TPM.
+- La unión a Azure AD híbrido es compatible con TPM 2.0 compatible con FIPS y no se admite en TPM 1.2. Si los dispositivos tienen TPM 1.2 compatible con FIPS, debe deshabilitarlos antes de continuar con la unión a Azure AD híbrido. Microsoft no proporciona ninguna herramienta para deshabilitar el modo FIPS para TPM, ya que eso depende del fabricante de TPM. Póngase en contacto con el OEM de hardware para obtener soporte técnico. 
+
+- A partir de la versión 10 1903 de Windows, los TPM 1.2 no se usan con la unión de Azure AD híbrida, y los dispositivos que tengan esos TPM se considerarán como si no tuvieran un TPM.
 
 ## <a name="review-controlled-validation-of-hybrid-azure-ad-join"></a>Revisión de la validación controlada de la unión a Azure AD híbrido
 
@@ -145,12 +148,15 @@ Según el escenario que coincida con la infraestructura de identidad, consulte l
 - [Configuración de la unión a Azure Active Directory híbrido para un entorno federado](hybrid-azuread-join-federated-domains.md)
 - [Configuración de la unión a Azure Active Directory híbrido para un entorno administrado](hybrid-azuread-join-managed-domains.md)
 
-## <a name="review-on-premises-ad-upn-support-for-hybrid-azure-ad-join"></a>Revisión del soporte de UPN de AD local para la unión a Azure AD híbrido
+## <a name="review-on-premises-ad-users-upn-support-for-hybrid-azure-ad-join"></a>Revisión del soporte de UPN de usuarios de AD local para la unión a Azure AD híbrido
 
-A veces, los UPN de AD local podrían ser diferentes de los UPN de Azure AD. En tales casos, Unión a Azure AD híbrido para Windows 10 proporciona compatibilidad limitada para los UPN de AD local, según el tipo de [método de autenticación](/azure/security/fundamentals/choose-ad-authn), el tipo de dominio y la versión de Windows 10. Hay dos tipos de UPN de AD local que pueden existir en su entorno:
+A veces, los UPN de los usuarios de AD local podrían ser diferentes de los UPN de Azure AD. En tales casos, Unión a Azure AD híbrido para Windows 10 proporciona compatibilidad limitada para los UPN de AD local, según el tipo de [método de autenticación](/azure/security/fundamentals/choose-ad-authn), el tipo de dominio y la versión de Windows 10. Hay dos tipos de UPN de AD local que pueden existir en su entorno:
 
-- UPN enrutable: Un UPN enrutable tiene un dominio verificado válido, que está registrado en un registrador de dominios. Por ejemplo, si contoso.com es el dominio principal, en Azure AD, contoso.org es el dominio principal en la instancia local de AD que pertenece a Contoso y que está [verificado en Azure AD](/azure/active-directory/fundamentals/add-custom-domain)
-- UPN no enrutable: Un UPN no enrutable no tiene un dominio verificado. Es aplicable solo dentro de la red privada de su organización. Por ejemplo, si contoso.com es el dominio principal en Azure AD, contoso.local es el dominio principal en la instancia local de AD, pero no es un dominio verificable en Internet, y solo se usa dentro de la red de Contoso.
+- UPN de usuarios enrutable: Un UPN enrutable tiene un dominio verificado válido, que está registrado en un registrador de dominios. Por ejemplo, si contoso.com es el dominio principal, en Azure AD, contoso.org es el dominio principal en la instancia local de AD que pertenece a Contoso y que está [verificado en Azure AD](/azure/active-directory/fundamentals/add-custom-domain)
+- UPN de usuarios no enrutable: Un UPN no enrutable no tiene un dominio verificado. Es aplicable solo dentro de la red privada de su organización. Por ejemplo, si contoso.com es el dominio principal en Azure AD, contoso.local es el dominio principal en la instancia local de AD, pero no es un dominio verificable en Internet, y solo se usa dentro de la red de Contoso.
+
+> [!NOTE]
+> La información de esta sección es válida únicamente en el caso de los UPN de usuarios locales. No se puede usar con un sufijo de dominio de equipo local (por ejemplo: computer1.contoso.local).
 
 En la tabla siguiente se proporcionan detalles sobre la compatibilidad de estos UPN de AD local en Unión a Azure AD híbrido para Windows 10.
 

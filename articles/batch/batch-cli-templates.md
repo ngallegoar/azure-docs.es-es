@@ -11,12 +11,12 @@ ms.workload: big-compute
 ms.date: 12/07/2018
 ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: c7459c4dc700f034feafbf133b831a52b9233d11
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: df7db30e987c408ff158acfc468010948c821b8d
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77020172"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80397532"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Uso de plantillas y transferencia de archivos de la CLI de Azure Batch
 
@@ -68,7 +68,7 @@ Las plantillas de Azure Batch son similares a las plantillas de Azure Resource M
 
 -   **Parámetros**
 
-    -   Permiten que se especifiquen valores de propiedad en una sección del cuerpo, donde solo es necesario proporcionar los valores de parámetro cuando se usa la plantilla. Por ejemplo, se podría colocar la definición completa de un grupo en el cuerpo y solo un parámetro definido para el identificador del grupo. Por lo tanto, solo tiene que proporcionarse una cadena del identificador del grupo para crearlo.
+    -   Permiten que se especifiquen valores de propiedad en una sección del cuerpo, donde solo es necesario proporcionar los valores de parámetro cuando se usa la plantilla. Por ejemplo, se podría colocar la definición completa de un grupo en el cuerpo y solo un parámetro definido para `poolId`. Por lo tanto, solo tiene que proporcionarse una cadena del identificador del grupo para crearlo.
         
     -   El cuerpo de la plantilla lo puede crear alguien con conocimientos de Batch y las aplicaciones que Batch ejecuta. Solo se deben proporcionar los valores para los parámetros definidos por el autor cuando se use la plantilla. Un usuario sin conocimientos detallados de las aplicaciones y/o Batch, por tanto, puede usar las plantillas.
 

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 592131bf6cca4c4c3c827de23742e8d52bcb4d1c
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67186370"
 ---
 #### <a name="to-mount-initialize-and-format-a-volume"></a>Para montar, inicializar y formatear un volumen
@@ -16,7 +16,7 @@ ms.locfileid: "67186370"
 2. En la ventana **Propiedades del iniciador iSCSI**, en la pestaña **Detección**, haga clic en **Detectar portal**.
 3. En el cuadro de diálogo **Detectar portal de destino**, proporcione la dirección IP de la interfaz de red habilitada para iSCSI y, a continuación, haga clic en **Aceptar**. 
 4. En la ventana **Propiedades del iniciador iSCSI**, en la pestaña **Destinos**, busque los **Destinos detectados**. El estado del dispositivo debe aparecer como **Inactivo**.
-5. Seleccione el dispositivo de destino y, a continuación, haga clic en **Conectar**. Después de conectar el dispositivo, el estado debería cambiar a **Conectado**. (Para más información sobre el uso del iniciador iSCSI de Microsoft, consulte [Installing and Configuring Microsoft iSCSI Initiator ][1] [Instalación y configuración del iniciador iSCSI de Microsoft]).
+5. Seleccione el dispositivo de destino y, a continuación, haga clic en **Conectar**. Después de conectar el dispositivo, el estado debería cambiar a **Conectado**. Para más información sobre el uso del iniciador iSCSI de Microsoft, consulte [Instalación y configuración del iniciador iSCSI de Microsoft][1].
 6. En el host de Windows, presione la tecla del logotipo de Windows + X y, a continuación, haga clic en **Ejecutar**. 
 7. En el cuadro de diálogo **Ejecutar**, escriba **Diskmgmt.msc**. Haga clic en **Aceptar**, y aparecerá el cuadro de diálogo **Administración de discos**. El panel derecho mostrará los volúmenes del host.
 8. En la ventana **Administración de discos** , aparecerán los volúmenes montados, tal como se muestra en la siguiente ilustración. Haga clic con el botón derecho en el volumen detectado (haga clic en el nombre del disco) y, a continuación, haga clic en **Conectado**.
@@ -30,7 +30,7 @@ ms.locfileid: "67186370"
     3. Especifique un tamaño de unidad de asignación de 64 KB. Este tamaño de unidad de asignación funciona bien con los algoritmos de desduplicación usados en la solución de StorSimple.
     4. Realice un formateo rápido.
 
-![Vídeo disponible](./media/storsimple-mount-initialize-format-volume/Video_icon.png)**Vídeo disponible**
+![Vídeo disponible](./media/storsimple-mount-initialize-format-volume/Video_icon.png) **Vídeo disponible**
 
 Para ver un vídeo que muestra cómo montar, inicializar y formatear un volumen de StorSimple, haga clic [aquí](https://azure.microsoft.com/documentation/videos/mount-initialize-and-format-a-storsimple-volume/).
 

@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 1/24/2020
+ms.date: 3/13/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: c6ed72e5c94191411572c6ab67533141e2fe47d6
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 1248063c1b4c1b1e124ff671797450dd5c1b8727
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77185817"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80050170"
 ---
 # <a name="whats-new-for-authentication"></a>Novedades en la autenticación 
 
@@ -41,6 +41,28 @@ El sistema de autenticación altera y agrega características constantemente par
 ## <a name="upcoming-changes"></a>Próximos cambios
 
 No hay ninguno programado en este momento.  Consulte a continuación los cambios que están o estarán próximamente en producción. 
+
+## <a name="march-2020"></a>Marzo de 2020 
+
+### <a name="user-passwords-will-be-restricted-to-256-characters"></a>Las contraseñas de usuario tendrán un límite de 256 caracteres.
+
+**Fecha efectiva**: 13 de marzo de 2020
+
+**Puntos de conexión afectados**: v1.0 y v2.0
+
+**Protocolo afectado**: Todos los flujos de usuario. 
+
+Los usuarios con contraseñas de más de 256 caracteres que inicien sesión directamente en Azure AD (en lugar de en un IDP federado como ADFS) no podrán iniciar sesión a partir del 13 de marzo de 2020 y se les pedirá que restablezcan su contraseña.  Es posibles que los administradores reciban solicitudes de ayuda para restablecer la contraseña de los usuarios. 
+
+El error en los registros de inicio de sesión será AADSTS 50052: InvalidPasswordExceedsMaxLength
+
+Mensaje: `The password entered exceeds the maximum length of 256. Please reach out to your admin to reset the password.`
+
+Corrección:
+
+El usuario no puede iniciar sesión porque su contraseña supera la longitud máxima permitida. Debe ponerse en contacto con su administrador para restablecer la contraseña. Si SSPR está habilitado en su inquilino, puede restablecer la contraseña siguiendo el vínculo "¿Ha olvidado la contraseña?".
+
+
 
 ## <a name="february-2020"></a>Febrero de 2020 
 
@@ -104,7 +126,7 @@ Si la aplicación de puerta de enlace de Contoso fuera una aplicación de varios
 
 **Protocolo afectado**: Todos los flujos
 
-Según la solicitud [RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2), las aplicaciones de Azure AD ahora pueden registrar y usar identificadores URI de redireccionamiento (respuesta) con parámetros de consulta estáticos (como https://contoso.com/oauth2?idp=microsoft) ) para solicitudes de OAuth 2.0.  Los identificadores URI de redireccionamiento dinámico siguen estando prohibidos, ya que representan un riesgo de seguridad, y no se pueden usar para conservar la información de estado a través de una solicitud de autenticación; para ello, use el parámetro `state`.
+Según la solicitud [RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2), las aplicaciones de Azure AD ahora pueden registrar y usar identificadores URI de redireccionamiento (respuesta) con parámetros de consulta estáticos (como `https://contoso.com/oauth2?idp=microsoft`) para solicitudes de OAuth 2.0.  Los identificadores URI de redireccionamiento dinámico siguen estando prohibidos, ya que representan un riesgo de seguridad, y no se pueden usar para conservar la información de estado a través de una solicitud de autenticación; para ello, use el parámetro `state`.
 
 El parámetro de consulta estático está sujeto a la coincidencia de cadenas para los identificadores URI de redireccionamiento, al igual que cualquier otra parte del URI de redireccionamiento; si no hay ninguna cadena registrada que coincida con el parámetro redirect_uri descodificado con URI, se rechazará la solicitud.  Si se encuentra el identificador URI en el registro de la aplicación, se usará toda la cadena para redirigir al usuario, incluido el parámetro de consulta estático. 
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 2983be507fdc40d033623afa37c72eb2507d99ca
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 3694a1d04ec25f44cfcf9395bdd148e2fd3c0d9f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78357606"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79371567"
 ---
 # <a name="storage-account-overview"></a>Introducción a las cuentas de almacenamiento
 
@@ -108,7 +108,7 @@ Los niveles de acceso disponibles son:
 
 - Nivel de acceso **frecuente**. Este nivel está optimizado para el acceso frecuente de objetos en la cuenta de almacenamiento. Obtener acceso a los datos en el nivel de acceso frecuente es más rentable, aunque los costos de almacenamiento son más altos. Las nuevas cuentas de almacenamiento se crean en el nivel de acceso frecuente de forma predeterminada.
 - Nivel de acceso **esporádico**. Este nivel está optimizado para almacenar grandes cantidades de datos a los que se accede con poca frecuencia y que llevan guardados al menos 30 días. El almacenamiento de datos en el nivel de acceso esporádico es más rentable, pero el acceso a esos datos puede ser algo más costoso que a los del nivel de acceso frecuente.
-- Nivel de **archivo**. Este nivel está disponible solo para blobs en bloques y blobs en anexos individuales. Este nivel está optimizado para los datos que pueden tolerar varias horas de latencia de recuperación y que permanecerán en el nivel de almacenamiento de archivo durante un mínimo de 180 días. El nivel de archivo es la opción más rentable para almacenar datos. Sin embargo, el acceso a los datos es más caro que en el caso de los niveles de acceso frecuente o esporádico.
+- Nivel de **archivo**. Este nivel está disponible solo para blobs en bloques individuales. Este nivel está optimizado para los datos que pueden tolerar varias horas de latencia de recuperación y que permanecerán en el nivel de almacenamiento de archivo durante un mínimo de 180 días. El nivel de archivo es la opción más rentable para almacenar datos. Sin embargo, el acceso a los datos es más caro que en el caso de los niveles de acceso frecuente o esporádico.
 
 Si hay un cambio en el patrón de uso de datos, también se puede cambiar de nivel de acceso en cualquier momento. Para más información acerca de los niveles de acceso, consulte [Azure Blob Storage: niveles de almacenamiento de archivo, esporádico y frecuente](../blobs/storage-blob-storage-tiers.md).
 

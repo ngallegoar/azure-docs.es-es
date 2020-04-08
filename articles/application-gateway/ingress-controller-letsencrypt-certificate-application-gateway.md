@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: 92e9747865f1a0910c8bae4001cc597ae9ea3da6
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73957984"
 ---
 # <a name="use-certificates-with-letsencryptorg-on-application-gateway-for-aks-clusters"></a>Uso de certificados con LetsEncrypt.org en Application Gateway para clústeres de AKS
@@ -58,7 +58,7 @@ Siga los pasos que se indican a continuación para instalar [cert-manager](https
 
     Cree un recurso `ClusterIssuer`. `cert-manager` lo necesita para representar a la entidad de certificación `Lets Encrypt` en la que se obtendrán los certificados firmados.
 
-    Mediante el uso del recurso `ClusterIssuer` sin espacios de nombres, cert-manager emitirá certificados que se pueden consumir desde varios espacios de nombres. `Let’s Encrypt` usa el protocolo ACME para comprobar que controla un nombre de dominio determinado y para emitirle un certificado. Más información sobre la configuración de las propiedades de `ClusterIssuer` [aquí](https://docs.cert-manager.io/en/latest/tasks/issuers/index.html). `ClusterIssuer` indicará a `cert-manager` que emita certificados mediante el entorno de ensayo de `Lets Encrypt` que se usa para las pruebas (el certificado raíz no está presente en los almacenes de confianza del explorador o del cliente).
+    Mediante el uso del recurso `ClusterIssuer` sin espacios de nombres, cert-manager emitirá certificados que se pueden consumir desde varios espacios de nombres. `Let’s Encrypt` usa el protocolo ACME para comprobar que controla un nombre de dominio determinado y para emitirle un certificado. Más información sobre la configuración de las propiedades de `ClusterIssuer`[aquí](https://docs.cert-manager.io/en/latest/tasks/issuers/index.html). `ClusterIssuer` indicará a `cert-manager` que emita certificados mediante el entorno de ensayo de `Lets Encrypt` que se usa para las pruebas (el certificado raíz no está presente en los almacenes de confianza del explorador o del cliente).
 
     El tipo de desafío predeterminado en el siguiente YAML es `http01`. Otros desafíos están documentados en [Tipos de desafío de letsencrypt.org](https://letsencrypt.org/docs/challenge-types/)
 
@@ -127,7 +127,7 @@ Siga los pasos que se indican a continuación para instalar [cert-manager](https
     EOF
     ```
 
-    Después de unos segundos, puede tener acceso al servicio de `guestbook` a través de la dirección URL HTTPS de Application Gateway mediante el certificado de **almacenamiento provisional** emitido automáticamente por `Lets Encrypt`.
+    Después de unos segundos, puede acceder al servicio de `guestbook` con la dirección URL HTTPS de Application Gateway mediante el certificado `Lets Encrypt` de **almacenamiento provisional** emitido automáticamente.
     Es posible que su explorador web le advierta de una entidad de certificación no válida. `CN=Fake LE Intermediate X1` emite el certificado de almacenamiento provisional. Esto indica que el sistema funcionó según lo esperado y está listo para el certificado de producción.
 
 4. Certificado de producción

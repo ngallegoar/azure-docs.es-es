@@ -3,12 +3,12 @@ title: Referencia para desarrolladores de Python para Azure Functions
 description: Aprenda a desarrollar funciones con Python
 ms.topic: article
 ms.date: 12/13/2019
-ms.openlocfilehash: cfac28c4a759cee66c932c7b8cfea053c9c4f505
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 30f40db33b6aa8b40202c023f301265565257180
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921798"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79234920"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guía de Azure Functions para desarrolladores de Python
 
@@ -22,25 +22,9 @@ Azure Functions espera que una función sea un método sin estado de un script d
 
 Los datos de los desencadenadores y enlaces se enlazan a la función a través de los atributos del método con la propiedad `name` definida en el archivo *function.json*. Por ejemplo, en el archivo _function.json_ siguiente se describe una función simple desencadenada por una solicitud HTTP denominada `req`:
 
-```json
-{
-  "bindings": [
-    {
-      "name": "req",
-      "direction": "in",
-      "type": "httpTrigger",
-      "authLevel": "anonymous"
-    },
-    {
-      "name": "$return",
-      "direction": "out",
-      "type": "http"
-    }
-  ]
-}
-```
+:::code language="son" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-Python/function.json":::
 
-El archivo `__init__.py` contiene el código de función siguiente:
+Según esta definición, el archivo `__init__.py` que contiene el código de la función puede ser similar al siguiente ejemplo:
 
 ```python
 def main(req):
@@ -48,7 +32,7 @@ def main(req):
     return f'Hello, {user}!'
 ```
 
-también puede declarar explícitamente los tipos de parámetros y el tipo de valor devuelto de la función mediante las anotaciones de tipos de Python. Esto le ayuda a usar las características de IntelliSense y Autocompletar proporcionadas por muchos editores de código de Python.
+También puede declarar de forma explícita los tipos de parámetros y el tipo de valor devuelto de la función mediante las anotaciones de tipos de Python. Esto le ayuda a usar las características de IntelliSense y Autocompletar proporcionadas por muchos editores de código de Python.
 
 ```python
 import azure.functions
@@ -81,16 +65,16 @@ La estructura de carpetas recomendada para un proyecto de Python en Azure Functi
 
 ```
  __app__
- | - MyFirstFunction
+ | - my_first_function
  | | - __init__.py
  | | - function.json
  | | - example.py
- | - MySecondFunction
+ | - my_second_function
  | | - __init__.py
  | | - function.json
- | - SharedCode
- | | - myFirstHelperFunction.py
- | | - mySecondHelperFunction.py
+ | - shared_code
+ | | - my_first_helper_function.py
+ | | - my_second_helper_function.py
  | - host.json
  | - requirements.txt
  tests
@@ -105,19 +89,47 @@ La carpeta de proyecto principal (\_\_app\_\_) puede contener los siguientes arc
 
 Cada función tiene su propio archivo de código y archivo de configuración de enlace (function.json). 
 
-El código compartido debe mantenerse en una carpeta independiente en \_\_app\_\_. Para hacer referencia a los módulos en la carpeta SharedCode, puede usar la sintaxis siguiente:
+Al implementar el proyecto en una aplicación de funciones de Azure, debe incluirse en el paquete todo el contenido de la carpeta principal del proyecto ( *\_\_app\_\_* ), pero no la propia carpeta. Se recomienda mantener las pruebas en una carpeta independiente de la carpeta del proyecto; en este ejemplo `tests`. Esto evita que se implemente código de prueba con la aplicación. Para más información, consulte [Pruebas unitarias](#unit-testing).
+
+## <a name="import-behavior"></a>Comportamiento de la importación
+
+Puede importar módulos en el código de su función mediante referencias absolutas o relativas explícitas. En el caso de la estructura de carpetas que se muestra arriba, las siguientes operaciones de importación funcionan desde el archivo de función *\_\_app\_\_\my\_first\_function\\_\_init\_\_.py*:
 
 ```python
-from __app__.SharedCode import myFirstHelperFunction
+from . import example #(explicit relative)
 ```
-
-Para hacer referencia a los módulos locales de una función, puede usar la sintaxis de importación relativa de la siguiente manera:
 
 ```python
-from . import example
+from ..shared_code import my_first_helper_function #(explicit relative)
 ```
 
-Al implementar el proyecto en una aplicación de funciones de Azure, debe incluirse en el paquete todo el contenido de la carpeta *FunctionApp*, pero no la propia carpeta. Se recomienda mantener las pruebas en una carpeta independiente de la carpeta del proyecto; en este ejemplo `tests`. Esto evita que se implemente código de prueba con la aplicación. Para más información, consulte [Pruebas unitarias](#unit-testing).
+```python
+from __app__ import shared_code #(absolute)
+```
+
+```python
+import __app__.shared_code #(absolute)
+```
+
+Las siguientes operaciones de importación *no funcionan* desde ese mismo archivo:
+
+```python
+import example
+```
+
+```python
+from example import some_helper_code
+```
+
+```python
+import shared_code
+```
+
+El código compartido debe mantenerse en una carpeta independiente en *\_\_app\_\_* . Para hacer referencia a los módulos en la carpeta *shared\_code*, puede usar la sintaxis siguiente:
+
+```python
+from __app__.shared_code import my_first_helper_function
+```
 
 ## <a name="triggers-and-inputs"></a>Desencadenadores y entradas
 
@@ -382,7 +394,18 @@ Para el desarrollo local, la configuración de la aplicación se [mantiene en el
 
 ## <a name="python-version"></a>Versión de Python 
 
-Actualmente, Azure Functions admite Python 3.6.x y 3.7.x (distribuciones oficiales de CPython). Cuando se ejecuta localmente, el entorno de ejecución usa la versión de Python disponible. Para solicitar una versión específica de Python al crear la aplicación de funciones en Azure, use la opción `--runtime-version` del comando [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create). El cambio de versión solo se permite en la creación de la aplicación de funciones.  
+Azure Functions admite las siguientes versiones de Python:
+
+| Versión de Functions | Versiones de Python<sup>*</sup> |
+| ----- | ----- |
+| 3.x | 3.8<br/>3.7<br/>3.6 |
+| 2.x | 3.7<br/>3.6 |
+
+<sup>*</sup>Distribuciones oficiales de CPython
+
+Para solicitar una versión específica de Python al crear la aplicación de funciones en Azure, use la opción `--runtime-version` del comando [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create). La versión de tiempo de ejecución de Functions se establece mediante la opción `--functions-version`. La versión de Python se establece al crear la aplicación de funciones y no se puede cambiar.  
+
+Cuando se ejecuta localmente, el entorno de ejecución usa la versión de Python disponible. 
 
 ## <a name="package-management"></a>Administración de paquetes
 

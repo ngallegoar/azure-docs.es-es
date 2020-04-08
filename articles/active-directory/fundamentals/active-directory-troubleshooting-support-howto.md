@@ -15,12 +15,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9dce9b93dfe4ddfca370d1d3131d1d12cb6f121d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1193bfc08ccbd86d4da09c4de472f09bb49208f6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561756"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80049935"
 ---
 # <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>Instrucciones para buscar ayuda y abrir una incidencia de soporte técnico para Azure Active Directory
 Microsoft proporciona internacionalmente soporte técnico de preventa, facturación y suscripción para Azure Active Directory (Azure AD). El soporte técnico está disponible tanto en línea como por teléfono para las suscripciones de prueba y de pago de Microsoft Azure. El soporte técnico por teléfono y el soporte técnico para la facturación en línea están disponibles en otros idiomas. 
@@ -49,15 +49,26 @@ Si no encuentra una respuesta en estos recursos de autoayuda, puede abrir una in
 2. Desplácese hasta **Solución de problemas y soporte técnico** y seleccione **Nueva solicitud de soporte técnico**.
    
 3. En la hoja **Básico**, en **Tipo de problema**, seleccione **Técnico**.
-   
-4. En **Servicio**, seleccione **Azure Active Directory** y **Siguiente**.
 
-5. En la hoja **Problema**, seleccione la [gravedad](https://azure.microsoft.com/support/plans/response/).
+4. Seleccione su **suscripción**.
+
+5. En **Servicio**, seleccione **Azure Active Directory**.
+
+6. Cree un **resumen** de la solicitud. El resumen debe tener menos de 140 caracteres.
   
-6. Seleccione un **Tipo de problema** y la **Categoría** de ese tipo. En este momento, se le ofrecerá información de autoayuda para la categoría del problema.
+7. Seleccione un **tipo de problema** y una categoría. En este momento, se le ofrecerá información de autoayuda para la categoría del problema.
   
-7. Agregue el resto de información relativa al problema y haga clic en **Siguiente**.
-  
+7. Agregue el resto de información relativa al problema y haga clic en **Siguiente**. 
+
+8. En ese punto, aparecerán soluciones de autoayuda y documentación en la hoja **Soluciones**. Si ninguna de las soluciones resuelven el problema, haga clic en **Siguiente**. 
+
+9. En la hoja **Detalles**, rellene los datos necesarios y seleccione un valor en [Gravedad](https://azure.microsoft.com/support/plans/response/). 
+ 
+![imagen](https://user-images.githubusercontent.com/13383753/76565580-1c284900-6468-11ea-8c0f-85af98097b6f.png)
+ 
+10. Proporcione la información de contacto y seleccione **Siguiente**. 
+
+
 8. Proporcione su información de contacto y seleccione **Crear**.
   ![Captura de pantalla de autoayuda para la categoría de problema](./media/active-directory-troubleshooting-support-howto/open-support-ticket.png)
 

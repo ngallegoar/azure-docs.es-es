@@ -11,23 +11,28 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/20/2019
+ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: d2b2ffde66468ae7cb2818010ac374126d2973be
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 44676f7b92c2bcd30612295840054ab2f0c0cf12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74703135"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80062225"
 ---
 # <a name="create-or-update-custom-roles-for-azure-resources-using-azure-cli"></a>Creación o actualización de roles personalizados para los recursos de Azure con la CLI de Azure
+
+> [!IMPORTANT]
+> La adición de un grupo de administración a `AssignableScopes` está actualmente en versión preliminar.
+> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
+> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Si los [roles integrados para los recursos de Azure](built-in-roles.md) no cumplen las necesidades específicas de su organización, puede crear sus propios roles personalizados. En este artículo se describe cómo mostrar, crear, actualizar o eliminar roles personalizados con la CLI de Azure.
 
 Para ver un tutorial paso a paso sobre cómo crear un rol personalizado, consulte [Tutorial: creación de un rol personalizado para los recursos de Azure con la CLI de Azure](tutorial-custom-role-cli.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para crear roles personalizados, necesita:
 
@@ -186,7 +191,7 @@ Para actualizar un rol personalizado, primero use [az role definition list](/cli
 az role definition update --role-definition <role_definition>
 ```
 
-En el ejemplo siguiente, se agrega la operación *Microsoft.Insights/diagnosticSettings/* a *Acciones* del rol personalizado de *Operador de máquina virtual*.
+En el siguiente ejemplo, se agrega la operación *Microsoft.Insights/diagnosticSettings/* a `Actions` y se agrega un grupo de administración a `AssignableScopes` del rol personalizado de *Operador de máquina virtual*. La adición de un grupo de administración a `AssignableScopes` está actualmente en versión preliminar.
 
 vmoperator.json
 
@@ -213,7 +218,8 @@ vmoperator.json
   ],
   "AssignableScopes": [
     "/subscriptions/11111111-1111-1111-1111-111111111111",
-    "/subscriptions/33333333-3333-3333-3333-333333333333"
+    "/subscriptions/33333333-3333-3333-3333-333333333333",
+    "/providers/Microsoft.Management/managementGroups/marketing-group"
   ]
 }
 ```

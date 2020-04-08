@@ -6,14 +6,14 @@ services: vpn-gateway
 author: chadmath
 ms.service: vpn-gateway
 ms.topic: troubleshooting
-ms.date: 09/30/2019
+ms.date: 03/26/2020
 ms.author: genli
-ms.openlocfilehash: 2c5e8b344cad6928ee586dc5a5b69095f0b14552
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 119f9c28b5413b8d2db5fa14ea839d1743f3d64a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863655"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80297622"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Solución de problemas: Problemas de conexión de punto a sitio de Azure
 
@@ -338,6 +338,19 @@ Actualice el controlador NIC:
 3. Haga doble clic en el nombre del dispositivo, seleccione **Actualizar controlador** y, luego, **Buscar software de controlador actualizado automáticamente**.
 4. Si Windows no encuentra un nuevo controlador, puede intentar buscar uno en el sitio web del fabricante del dispositivo y seguir sus instrucciones.
 5. Reinicie el equipo e intente la conexión de nuevo.
+
+## <a name="vpn-client-error-dialing-vpn-connection-vpn-connection-name-status--vpn-platform-did-not-trigger-connection"></a>Error de cliente de VPN: Al marcar la conexión VPN <VPN Connection Name>, Estado = Plataforma VPN no desencadenó la conexión.
+
+También puede aparecer el siguiente error en el Visor de eventos, procedente de RasClient: "El usuario <User> marcó una conexión denominada <VPN Connection Name>, que no se realizó correctamente. El código de error devuelto en el error es 1460".
+
+### <a name="cause"></a>Causa
+
+El Cliente VPN de Azure no tiene habilitado el permiso de aplicación "Aplicaciones en segundo plano" en la configuración de aplicaciones de Windows.
+
+### <a name="solution"></a>Solución
+
+1. En Windows, vaya a Configuración -> Privacidad -> Aplicaciones en segundo plano.
+2. Active la opción "Permitir que las aplicaciones se ejecuten en segundo plano".
 
 ## <a name="error-file-download-error-target-uri-is-not-specified"></a>Error: "Error en la descarga del archivo. No se ha especificado el URI de destino"
 

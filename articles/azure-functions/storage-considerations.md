@@ -3,12 +3,12 @@ title: Consideraciones de almacenamiento de Azure Functions
 description: Conozca los requisitos de almacenamiento de Azure Functions y aprenda a cifrar los datos almacenados.
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: f094996ca44ec36d46330e54eac56b28794ef22e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 3bacc93ad6c1851d9165e8efb7d27b427050e6f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78358183"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79234888"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Consideraciones de almacenamiento de Azure Functions
 
@@ -56,6 +56,25 @@ Una misma cuenta de almacenamiento puede estar compartida entre varias aplicacio
 Azure Storage cifra todos los datos de las cuentas de almacenamiento en reposo. Para más información, consulte [Cifrado de Azure Storage para datos en reposo](../storage/common/storage-service-encryption.md).
 
 De manera predeterminada, los datos se cifran con claves administradas por Microsoft. Para tener un mayor control sobre las claves de cifrado, puede proporcionar claves administradas por el cliente que puede usar para el cifrado de datos de archivos y blobs. Estas claves deben estar presentes en Azure Key Vault para que Azure Functions pueda acceder a la cuenta de almacenamiento. Para más información, consulte [Configuración de claves administradas por el cliente con Azure Key Vault mediante Azure Portal](../storage/common/storage-encryption-keys-portal.md).  
+
+## <a name="mount-file-shares-linux"></a>Montaje de recursos compartidos de archivos (Linux)
+
+Puede montar recursos compartidos de Azure Files existentes en las aplicaciones de funciones de Linux. Al montar un recurso compartido en la aplicación de funciones de Linux, puede aprovechar los modelos de aprendizaje automático existentes u otros datos en sus funciones. Puede usar el comando [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account#az-webapp-config-storage-account-add) para montar un recurso compartido existente en la aplicación de funciones de Linux. 
+
+En este comando, `share-name` es el nombre del recurso compartido existente de Azure Files y `custom-id` puede ser cualquier cadena que defina de forma única el recurso compartido cuando se monta en la aplicación de funciones. Además, `mount-path` es la ruta de acceso desde la que se accede al recurso compartido en la aplicación de funciones. `mount-path` debe estar en el formato `/dir-name` y no puede comenzar con `/home`.
+
+Para ver un ejemplo completo, consulte los scripts de [Creación de una aplicación de funciones de Python y montaje de un recurso compartido de Azure Files](scripts/functions-cli-mount-files-storage-linux.md). 
+
+Actualmente, solo se admite `storage-type` de `AzureFiles`. Solo puede montar cinco recursos compartidos en una aplicación de funciones determinada. El montaje de un recurso compartido de archivos puede aumentar el tiempo de arranque en frío en al menos 200-300 ms o incluso más si la cuenta de almacenamiento se encuentra en una región diferente.
+
+El recurso compartido montado está disponible para el código de función en el valor `mount-path` especificado. Por ejemplo, cuando `mount-path` es `/path/to/mount`, puede acceder al directorio de destino mediante las API del sistema de archivos, como en el siguiente ejemplo de Python:
+
+```python
+import os
+...
+
+files_in_share = os.listdir("/path/to/mount")
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

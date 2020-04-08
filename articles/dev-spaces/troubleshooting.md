@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Obtenga información sobre cómo solucionar problemas y resolver problemas comunes al habilitar y usar Azure Dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, service mesh, enrutamiento de service mesh, kubectl, k8s '
-ms.openlocfilehash: b926e651200a4ab23306b0ec2443cb64400b8f7b
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: c12dfd385962d8dd7de8239a0d4ecd46746499c0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77605258"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80239763"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Solución de problemas de Azure Dev Spaces
 
@@ -44,7 +44,7 @@ Para eliminar un controlador, use la CLI de Azure Dev Spaces. No es posible elim
 
 Si no tiene la CLI de Azure Dev Spaces instalada, puede instalarla mediante el comando siguiente y, a continuación, eliminar el controlador:
 
-```cmd
+```azurecli
 az aks use-dev-spaces -g <resource group name> -n <cluster name>
 ```
 
@@ -76,12 +76,15 @@ Azure Dev Spaces no pudo crear un controlador en el clúster de AKS porque no en
 
 Para corregir este problema, [actualice la configuración de taint](../aks/operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations) en el clúster de AKS para asegurarse de que al menos un nodo de Linux permite programar pods sin especificar tolerations. Además, asegúrese de que al menos uno de los nodos de Linux que permitan programar pods sin especificar tolerations tenga el estado *Listo*. Si el nodo está tardando mucho tiempo en alcanzar el estado *Listo*, puede probar a reiniciarlo.
 
-### <a name="error-azure-dev-spaces-cli-not-installed-properly-when-running-az-aks-use-dev-spaces"></a>Error "Azure Dev Spaces CLI not installed properly" (La CLI de Azure Dev Spaces no está instalada correctamente) al ejecutar `az aks use-dev-spaces`
+### <a name="error-azure-dev-spaces-cli-not-installed-properly-when-running-az-aks-use-dev-spaces"></a>Error "Azure Dev Spaces CLI not installed properly" (La CLI de Azure Dev Spaces no está instalada correctamente) al ejecutar az aks use-dev-spaces
 
 Una actualización de la CLI de Azure Dev Spaces puede haber cambiado su ruta de acceso de instalación. Si usa una versión de la CLI de Azure anterior a la 2.0.63, puede ver este error. Para mostrar la versión de la CLI de Azure, use `az --version`.
 
-```bash
-$ az --version
+```azurecli
+az --version
+```
+
+```output
 azure-cli                         2.0.60 *
 ...
 ```
@@ -126,7 +129,7 @@ Este problema se produce cuando intenta usar Dev Spaces para ejecutar un servici
 Si ejecuta `azds up` con el modificador `--verbose` o habilita el registro detallado en Visual Studio, verá más detalles:
 
 ```cmd
-$ azds up --verbose
+azds up --verbose
 
 Installed chart in 2s
 Waiting for container image build...
@@ -223,7 +226,7 @@ En Visual Studio:
 
 Puede que reciba el error*El servicio no se puede iniciar* cuando intenta volver a ejecutar un servicio después de haber quitado y luego creado de nuevo el controlador de Azure Dev Spaces asociado a este clúster. En esta situación, la salida detallada contiene el texto siguiente:
 
-```cmd
+```output
 Installing Helm chart...
 Release "azds-33d46b-default-webapp1" does not exist. Installing it now.
 Error: release azds-33d46b-default-webapp1 failed: services "webapp1" already exists
@@ -292,7 +295,7 @@ Intente descargar e instalar la versión más reciente de la CLI de Azure Dev Sp
 
 Es posible que vea este error al ejecutar el depurador de Visual Studio Code. Puede que no tenga la extensión de VS Code para C# instalada en la máquina de desarrollo. La extensión de C# incluye compatibilidad de depuración para .Net Core (CoreCLR).
 
-Para corregir este problema, instale la [extensión de VS Code para C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
+Para corregir este problema, instale la [extensión de VS Code para C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
 
 ### <a name="error-configured-debug-type-coreclr-is-not-supported"></a>Error "El tipo de depuración 'coreclr' configurado no es compatible"
 
@@ -329,7 +332,7 @@ Para corregir este problema:
 1. Busque `azds.exe` en la ubicación %ProgramFiles%/Microsoft SDKs\Azure\Azure Dev Spaces CLI. Si está ahí, agregue esa ubicación a la variable de entorno PATH.
 2. Si `azds.exe` no está instalado, ejecute el siguiente comando:
 
-    ```cmd
+    ```azurecli
     az aks use-dev-spaces -n <cluster-name> -g <resource-group>
     ```
 
@@ -337,13 +340,13 @@ Para corregir este problema:
 
 Necesita acceso de *propietario* o *colaborador* en su suscripción de Azure para administrar Azure Dev Spaces. Puede ver un error de autorización si intenta administrar Dev Spaces y no tiene acceso como *Propietario* o *Colaborador* a la suscripción de Azure asociada. Por ejemplo:
 
-```console
+```output
 The client '<User email/Id>' with object id '<Guid>' does not have authorization to perform action 'Microsoft.DevSpaces/register/action' over scope '/subscriptions/<Subscription Id>'.
 ```
 
 Para corregir este problema, use una cuenta con acceso como *Propietario* o *Colaborador* a la suscripción de Azure, y registre manualmente el espacio de nombres `Microsoft.DevSpaces`:
 
-```console
+```azurecli
 az provider register --namespace Microsoft.DevSpaces
 ```
 
@@ -357,16 +360,19 @@ kubectl get pods --all-namespaces --include-uninitialized
 
 Este problema puede afectar a los pods de *todos los espacios de nombres* del clúster incluidos aquellos espacios en los que Azure Dev Spaces no está habilitado.
 
-Para corregir este problema, [actualice la CLI de Dev Spaces a la versión más reciente](./how-to/upgrade-tools.md#update-the-dev-spaces-cli-extension-and-command-line-tools) y, a continuación, elimine *azds InitializerConfiguration* del controlador de Azure Dev Spaces:
+Para corregir este problema, [actualice la CLI de Dev Spaces a la versión más reciente](./how-to/upgrade-tools.md#update-the-dev-spaces-cli-extension-and-command-line-tools) y, después, elimine *azds InitializerConfiguration* del controlador de Azure Dev Spaces:
+
+```azurecli
+az aks get-credentials --resource-group <resource group name> --name <cluster name>
+```
 
 ```bash
-az aks get-credentials --resource-group <resource group name> --name <cluster name>
 kubectl delete InitializerConfiguration azds
 ```
 
 Una vez que haya eliminado *azds InitializerConfiguration* del controlador de Azure Dev Spaces, use `kubectl delete` para eliminar todos los pods con estado *pendiente*. Una vez que se hayan eliminado todos los pods pendientes, vuelva a implementarlos.
 
-Si los nuevos pods aún siguen en el estado *pendiente* después de una reimplementación, use `kubectl delete` para eliminar todos los pods con ese estado. Una vez que se hayan eliminado todos los pods pendientes, elimine el controlador del clúster y vuelva a instalarlo:
+Si los nuevos pods aún siguen en el estado *pendiente* después de una reimplementación, use `kubectl delete` para eliminar todos los *pods* con ese estado. Una vez que se hayan eliminado todos los pods pendientes, elimine el controlador del clúster y vuelva a instalarlo:
 
 ```bash
 azds remove -g <resource group name> -n <cluster name>
@@ -422,9 +428,8 @@ Puede ver este error al intentar acceder al servicio. Por ejemplo, cuando vaya a
 Para corregir este problema:
 
 1. Si el contenedor está en proceso de creación o implementación, puede esperar entre dos y tres segundos e intentar acceder al servicio de nuevo. 
-1. Compruebe la configuración del puerto. Los números de puerto especificados deben ser **idénticos** en todos los recursos siguientes:
-    * **Dockerfile:** especificado por la instrucción `EXPOSE`.
-    * **[Gráfico de Helm](https://docs.helm.sh):** especificado por los valores `externalPort` y `internalPort` valores para un servicio (a menudo se encuentra en un archivo `values.yml`).
+1. Compruebe la configuración del puerto en los siguientes recursos:
+    * **[Gráfico de Helm](https://docs.helm.sh):** Especificado en `service.port` y `deployment.containerPort` en values.yaml con scaffolding con el comando `azds prep`.
     * Los puertos abiertos en el código de aplicación, por ejemplo, en Node.js: `var server = app.listen(80, function () {...}`
 
 ### <a name="the-type-or-namespace-name-mylibrary-couldnt-be-found"></a>No se encontró el tipo o el nombre del espacio de nombres "MyLibrary"
@@ -442,7 +447,7 @@ Puede ver un ejemplo [aquí](https://github.com/sgreenmsft/buildcontextsample).
 
 ### <a name="horizontal-pod-autoscaling-not-working-in-a-dev-space"></a>La escalabilidad horizontal del pod no funciona en un espacio de desarrollo
 
-Al ejecutar un servicio en un espacio de desarrollo, se insertan en el pod del servicio [contenedores adicionales para la instrumentación](how-dev-spaces-works.md#prepare-your-aks-cluster). Además, todos los contenedores de un pod deben tener solicitudes y límites de recursos establecidos para el escalado automático horizontal del pod.
+Al ejecutar un servicio en un espacio de desarrollo, se insertan en el pod del servicio [contenedores adicionales para la instrumentación](how-dev-spaces-works-cluster-setup.md#prepare-your-aks-cluster). Además, todos los contenedores de un pod deben tener solicitudes y límites de recursos establecidos para el escalado automático horizontal del pod.
 
 Para corregir este problema, aplique una solicitud y un límite de recursos a los contenedores de Dev Spaces insertados. Las solicitudes y límites de recursos se pueden aplicar al contenedor en el que se ha producido la inserción (devspaces-proxy) mediante la incorporación de la anotación `azds.io/proxy-resources` a la especificación del pod. El valor debe establecerse en un objeto JSON que representa la sección de recursos de la especificación del contenedor del proxy.
 
@@ -457,9 +462,12 @@ Es posible que ya tenga un clúster de AKS y un espacio de nombres con pods en e
 
 Para habilitar Azure Dev Spaces en un espacio de nombres existente de un clúster de AKS, ejecute `use-dev-spaces` y use `kubectl` para reiniciar todos los pods de dicho espacio de nombres.
 
-```console
+```azurecli
 az aks get-credentials --resource-group MyResourceGroup --name MyAKS
 az aks use-dev-spaces -g MyResourceGroup -n MyAKS --space my-namespace --yes
+```
+
+```console
 kubectl -n my-namespace delete pod --all
 ```
 
@@ -484,3 +492,17 @@ Para corregir este problema:
 
 * Use `az aks use-dev-spaces -g <resource group name> -n <cluster name>` para actualizar el contexto actual. Este comando también habilita Azure Dev Spaces en el clúster de AKS si aún no está habilitado. También puede usar `kubectl config use-context <cluster name>` como alternativa para actualizar el contexto actual.
 * Use `az account show` para mostrar la suscripción de Azure actual que quiere emplear como destino y compruebe que es la correcta. Puede cambiar la suscripción que desea emplear mediante `az account set`.
+
+### <a name="error-using-dev-spaces-after-rotating-aks-certificates"></a>Error al usar Dev Spaces después de rotar los certificados de AKS
+
+Después de [rotar los certificados en el clúster de AKS](../aks/certificate-rotation.md), se producirá un error en ciertas operaciones, como `azds space list` y `azds up`. También debe actualizar los certificados en el controlador de Azure Dev Spaces después de rotar los certificados en el clúster.
+
+Para corregir este problema, asegúrese de que *kubeconfig* tenga los certificados actualizados mediante `az aks get-credentials` y, a continuación, ejecute el comando `azds controller refresh-credentials`. Por ejemplo:
+
+```azurecli
+az aks get-credentials -g <resource group name> -n <cluster name>
+```
+
+```console
+azds controller refresh-credentials -g <resource group name> -n <cluster name>
+```

@@ -3,14 +3,14 @@ author: msmimart
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
-ms.date: 02/26/2020
+ms.date: 03/19/2020
 ms.author: mimart
-ms.openlocfilehash: 053349996e15dbc0f58f062ffa966d0d894f5e0d
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: af11283f9e9dbd925ec994dcb1d96393332b90fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78189039"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80117014"
 ---
 ## <a name="use-custom-page-content"></a>Uso del contenido de la página personalizada
 
@@ -49,7 +49,7 @@ En la tabla siguiente se muestra el contenido de la página predeterminada propo
 | Página predeterminada | Descripción | Id. de definición de contenido<br/>(solo directiva personalizada) |
 |:-----------------------|:--------|-------------|
 | [exception.html](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Página de error**. Esta página se muestra cuando se produce una excepción o un error. | *api.error* |
-| [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) |  **Página autoafirmada**. Use este archivo como contenido de la página predeterminada para una página de registro en una cuenta social, una página de registro en una cuenta local, una página de inicio de sesión en una cuenta local, el restablecimiento de contraseña y mucho más. El formulario puede contener varios controles de entrada, como un cuadro de entrada de texto, un cuadro de entrada de contraseña, un botón de radio, cuadros desplegables de selección única y casillas de selección múltiple. | *api.localaccountsignin*, *api.localaccountsignup* , *api.localaccountpasswordreset*, *api.selfasserted* |
+| [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) |  **Página autoafirmada**. Use este archivo como contenido de la página predeterminada para una página de registro en una cuenta social, una página de registro en una cuenta local, una página de inicio de sesión en una cuenta local, el restablecimiento de contraseña y mucho más. El formulario puede contener varios controles de entrada, como un cuadro de entrada de texto, un cuadro de entrada de contraseña, un botón de radio, cuadros desplegables de selección única y casillas de selección múltiple. | *api.localaccountsignin*, *api.localaccountsignup*, *api.localaccountpasswordreset*, *api.selfasserted* |
 | [multifactor-1.0.0.html](https://login.microsoftonline.com/static/tenant/default/multifactor-1.0.0.cshtml) | **Página de autenticación multifactor**. Esta página permite a los usuarios verificar sus números de teléfono (mediante texto o voz) durante el registro o el inicio de sesión. | *api.phonefactor* |
 | [updateprofile.html](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Página de actualización de perfil**. Esta página contiene un formulario que los usuarios pueden usar para actualizar su perfil. Esta página es similar a la página de registro en una cuenta social, excepto por los campos de entrada de contraseña. | *api.selfasserted.profileupdate* |
 | [unified.html](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Página de inicio de sesión o registro unificada**. Esta página controla los procesos de registro y de inicio de sesión del usuario. Los usuarios pueden utilizar proveedores de identidades de empresa, proveedores de identidades sociales como Facebook y Google+ o cuentas locales. | *api.signuporsignin* |
@@ -72,6 +72,7 @@ Al utilizar sus propios archivos HTML y CSS para personalizar la interfaz de usu
   - Compatibilidad limitada con Internet Explorer 9 y 8.
   - Google Chrome 42.0 y versiones posteriores
   - Mozilla Firefox 38.0 y versiones posteriores
+  - Safari para iOS y macOS, versión 12 y posteriores
 - Debido a las restricciones de seguridad, Azure AD B2C no es compatible con los elementos HTML `frame`, `iframe` o `form`.
 
 ## <a name="custom-page-content-walkthrough"></a>Tutorial sobre el contenido de la página personalizada
@@ -133,7 +134,7 @@ Para crear un contenedor público en Blob Storage, realice los siguientes pasos
 
 1. En **Blob service** en el menú izquierdo, seleccione **Blobs**.
 1. Seleccione **+ Contenedor**.
-1. En **Nombre**, escriba *root*. Este puede ser un nombre de su elección, por ejemplo *wingtiptoys*, sin embargo, usamos *root* en este ejemplo por motivos de simplicidad.
+1. En **Nombre**, escriba *root*. El nombre puede ser el que quiera, por ejemplo *contoso*; sin embargo, usamos *root* en este ejemplo por motivos de simplicidad.
 1. Para **Nivel de acceso público**, seleccione **Blob** y, luego, **Aceptar**.
 1. Seleccione **root** para abrir el contenedor nuevo.
 
@@ -164,6 +165,9 @@ Para configurar Blob Storage para el uso compartido de recursos entre orígenes
 
 Para comprobar que está listo, realice los siguientes pasos:
 
-1. Vaya a [www.test-cors.org](https://www.test-cors.org/) y pegue la dirección URL en el cuadro **Remote URL** (Dirección URL remota).
+1. Repita el paso de configuración de CORS. En **Orígenes permitidos**, escriba `https://www.test-cors.org`.
+1. Vaya a [www.test-cors.org](https://www.test-cors.org/). 
+1. En el cuadro de **URL remotas**, pegue la dirección URL del archivo HTML. Por ejemplo: `https://your-account.blob.core.windows.net/azure-ad-b2c/unified.html`
 1. Seleccione **Enviar solicitud**.
+    El resultado debe ser `XHR status: 200`. 
     Si recibe un error, asegúrese de que la configuración de CORS sea correcta. Puede que también deba borrar la caché del explorador o abrir una sesión de navegación privada, para ello, presione Ctrl + Mayús + P.

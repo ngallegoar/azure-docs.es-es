@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 6863e7f8ef8e2f263cda824fd13186dc7b035454
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 69225da1506ced879363b10b098d939df93cbfba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78943606"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79502381"
 ---
 # <a name="storsimple-1200-migration-to-azure-file-sync"></a>Migración de StorSimple 1200 a Azure File Sync
 
@@ -113,11 +113,43 @@ Ejecute la primera copia local en la carpeta de destino de Windows Server:
 El siguiente comando RoboCopy recuperará los archivos del almacenamiento de StorSimple en Azure al almacenamiento de StorSimple local y, a continuación, los moverá a la carpeta de destino de Windows Server. Windows Server los sincronizará con los recursos compartidos de archivos de Azure. A medida que el volumen local de Windows Server se llena, la nube por niveles se iniciará y organizará por niveles los archivos que ya se han sincronizado correctamente. La nube por niveles generará espacio suficiente para continuar con la copia desde la aplicación virtual StorSimple. La nube por niveles realiza comprobaciones cada hora para averiguar qué se ha sincronizado y para liberar espacio en disco para alcanzar el 99 % de espacio libre del volumen.
 
 ```console
-Robocopy /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
+Robocopy /MT:32 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
 ```
 
 Fondo:
 
+:::row:::
+   :::column span="1":::
+      /MT
+   :::column-end:::
+   :::column span="1":::
+      Permite que RoboCopy se ejecute en modo multiproceso. El valor predeterminado es 8, el máximo es 128.
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      /UNILOG:<file name>
+   :::column-end:::
+   :::column span="1":::
+      Envía el estado al archivo de registro como UNICODE (sobrescribe el registro existente).
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      /TEE
+   :::column-end:::
+   :::column span="1":::
+      Envía la salida a la ventana de la consola. Se usa junto con el envío a un archivo de registro.
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      /B
+   :::column-end:::
+   :::column span="1":::
+      Ejecuta RoboCopy en el mismo modo que usaría una aplicación de copia de seguridad. Permite que RoboCopy mueva los archivos para los que el usuario actual no tiene permisos.
+   :::column-end:::
+:::row-end:::
 :::row:::
    :::column span="1":::
       /MIR

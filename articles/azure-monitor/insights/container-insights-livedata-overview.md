@@ -3,12 +3,12 @@ title: Ver datos en directo (versión preliminar) con Azure Monitor para contene
 description: En este artículo se describe la vista en tiempo real de los registros de Kubernetes, eventos y métricas de pod sin usar kubectl en Azure Monitor para contenedores.
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: 18ae091a32d0256288d27ad1439ffc7be26db5f1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9e7c7a7b7bf276b3451cee1d289b8b07ac0f40ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75404752"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79216560"
 ---
 # <a name="how-to-view-kubernetes-logs-events-and-pod-metrics-in-real-time"></a>Cómo ver los registros de Kubernetes, eventos y métricas de pods en tiempo real
 
@@ -20,7 +20,7 @@ En este artículo se proporciona una introducción detallada y le ayuda a entend
 >No se admiten los clústeres de AKS habilitados como [clústeres privados](https://azure.microsoft.com/updates/aks-private-cluster/) con esta característica. Esta característica se basa en el acceso directo a la API de Kubernetes a través de un servidor proxy desde el explorador. La habilitación de la seguridad de red para bloquear la API de Kubernetes desde este proxy bloqueará este tráfico. 
 
 >[!NOTE]
->Esta característica está disponible en todas las regiones de Azure, incluida Azure China. Actualmente no está disponible en Azure Gobierno de EE. UU.
+>Esta característica está disponible en todas las regiones de Azure, incluida Azure China. Actualmente no está disponible en Azure US Gov
 
 Para obtener ayuda para configurar o solucionar problemas de la característica de datos en directo (versión preliminar), revise la [guía de configuración](container-insights-livedata-setup.md). Esta característica accede directamente a la API Kubernetes y se puede encontrar información adicional sobre el modelo de autenticación [aquí](https://kubernetes.io/docs/concepts/overview/kubernetes-api/). 
 
@@ -84,7 +84,7 @@ Después de autenticarse correctamente, el panel de consola de datos en directo 
     
 Si el objeto que seleccionó era un contenedor, elija la opción **Eventos** en el panel. Si ha seleccionado un nodo, pod o controlador, la visualización de eventos se selecciona automáticamente. 
 
-    ![Controller properties pane view events](./media/container-insights-livedata-overview/controller-properties-live-events.png)  
+![Eventos de visualización del panel de propiedades del controlador](./media/container-insights-livedata-overview/controller-properties-live-event.png)  
 
 El título del panel muestra el nombre del pod con el que se agrupa el contenedor.
 

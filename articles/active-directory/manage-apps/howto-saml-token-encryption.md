@@ -12,18 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/06/2019
+ms.date: 03/13/2020
 ms.author: mimart
 ms.reviewer: paulgarn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eafd209073b36265d24dbad4a66b3870d8f593db
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 0082d841faf22745e609d38444f4a97553b3c867
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73148631"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79365873"
 ---
-# <a name="how-to-configure-azure-ad-saml-token-encryption-preview"></a>Procedimientos para: Configuración del cifrado de tokens SAML de Azure AD (versión preliminar)
+# <a name="how-to-configure-azure-ad-saml-token-encryption"></a>Procedimientos: Configuración del cifrado de tokens SAML de Azure AD
 
 > [!NOTE]
 > El cifrado de tokens es una característica Premium de Azure Active Directory (Azure AD). Para más información sobre las ediciones, las características y los precios de Azure AD, consulte [Precios de Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -123,26 +123,21 @@ Cuando configure un valor keyCredential mediante Graph, PowerShell o en el manif
 
 ### <a name="to-configure-token-encryption-using-powershell"></a>Para configurar el cifrado de tokens mediante PowerShell
 
-Esta funcionalidad estará disponible próximamente. 
+1. Use el módulo de PowerShell de Azure AD más reciente para conectarse a su inquilino.
 
-<!--
-1. Use the latest Azure AD PowerShell module to connect to your tenant.
-
-1. Set the token encryption settings using the **[Set-AzureApplication](https://docs.microsoft.com/powershell/module/azuread/set-azureadapplication?view=azureadps-2.0-preview)** command.
+1. Establezca la configuración de cifrado de tokens mediante el comando **[Set-AzureApplication](https://docs.microsoft.com/powershell/module/azuread/set-azureadapplication?view=azureadps-2.0-preview)** .
 
     ```
     Set-AzureADApplication -ObjectId <ApplicationObjectId> -KeyCredentials "<KeyCredentialsObject>"  -TokenEncryptionKeyId <keyID>
     ```
 
-1. Read the token encryption settings using the following commands.
+1. Lea la configuración de cifrado de tokens con los siguientes comandos.
 
     ```powershell
     $app=Get-AzureADApplication -ObjectId <ApplicationObjectId>
     $app.KeyCredentials
     $app.TokenEncryptionKeyId
     ```
-
--->
 
 ### <a name="to-configure-token-encryption-using-the-application-manifest"></a>Para configurar el cifrado de tokens mediante el manifiesto de aplicación
 

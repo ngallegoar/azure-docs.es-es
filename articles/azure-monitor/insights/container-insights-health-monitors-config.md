@@ -3,12 +3,12 @@ title: Configuración de los monitores de estado de Azure Monitor para contenedo
 description: En este artículo se proporciona contenido que describe la configuración detallada de los monitores de estado en Azure Monitor para contenedores.
 ms.topic: conceptual
 ms.date: 12/01/2019
-ms.openlocfilehash: d2d602d767fa6a39b7f72650c426c90be210a6ed
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 99ea6e96f5a8a486784cb3d633a6e031b60eaad7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75405040"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80055700"
 ---
 # <a name="azure-monitor-for-containers-health-monitor-configuration-guide"></a>Guía de configuración de los monitores de estado de Azure Monitor para contenedores
 

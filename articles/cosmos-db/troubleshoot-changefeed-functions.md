@@ -3,16 +3,16 @@ title: Solución de problemas al usar el desencadenador de Azure Functions para 
 description: Problemas comunes, soluciones alternativas y pasos de diagnóstico al usar el desencadenador de Azure Functions para Cosmos DB
 author: ealsur
 ms.service: cosmos-db
-ms.date: 07/17/2019
+ms.date: 03/13/2020
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: f382406d164aa7378631753c2cfc85bc69003a4f
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 7bf7d418e3f2680b32f61e42cffc76c921068508
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77605074"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79365515"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-functions-trigger-for-cosmos-db"></a>Diagnóstico y solución de problemas al usar el desencadenador de Azure Functions para Azure Cosmos DB
 
@@ -52,6 +52,10 @@ Esto significa que uno de los contenedores de Azure Cosmos o ambos necesarios pa
 
 Las versiones anteriores de la extensión de Azure Cosmos DB no permitían usar un contenedor de concesión que se creara dentro de una [base de datos de rendimiento compartido](./set-throughput.md#set-throughput-on-a-database). Para resolver este problema, actualice la extensión [Microsoft.Azure.WebJobs.Extensions.CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB) para obtener la versión más reciente.
 
+### <a name="azure-function-fails-to-start-with-partitionkey-must-be-supplied-for-this-operation"></a>Función de Azure no se inicia con el mensaje de error "PartitionKey must be supplied for this operation." (Se debe proporcionar PartitionKey para esta operación).
+
+Este error significa que actualmente está usando una colección de concesiones con particiones con una antigua [dependencia de extensión](#dependencies). Actualice a la última versión disponible. Si actualmente está ejecutando Azure Functions v1, tendrá que actualizar a Azure Functions V2.
+
 ### <a name="azure-function-fails-to-start-with-the-lease-collection-if-partitioned-must-have-partition-key-equal-to-id"></a>La función de Azure no puede iniciarse e indica que "la colección de concesión, si tiene particiones, debe tener la clave de partición igual que el identificador".
 
 Este error significa que el contenedor de concesiones actual tiene particiones, pero la ruta de acceso de clave de partición no es `/id`. Para resolver este problema, debe volver a crear el contenedor de concesiones con `/id` como clave de partición.
@@ -70,6 +74,13 @@ Si ocurre lo segundo, podría haber algún retraso entre los cambios que se alma
 3. El contenedor de Azure Cosmos podría tener una [velocidad limitada](./request-units.md).
 4. Puede usar el atributo `PreferredLocations` en el desencadenador para especificar una lista separada por comas de las regiones de Azure y definir un orden personalizado preferido de conexión.
 
+### <a name="some-changes-are-repeated-in-my-trigger"></a>Algunos cambios se repiten en el desencadenador
+
+El concepto de "cambio" es una operación en un documento. Los escenarios más comunes en los que se reciben eventos para el mismo documento son:
+* La cuenta utiliza una posible coherencia. Durante el consumo de la fuente de cambios en un nivel de posible coherencia, podría haber eventos duplicados entre las operaciones de lectura de fuente de cambios posteriores (el último evento de una operación de lectura aparece como el primero de la siguiente).
+* El documento se está actualizando. La fuente de cambios puede contener varias operaciones para los mismos documentos, si ese documento recibe actualizaciones, puede recoger varios eventos (uno para cada actualización). Una manera fácil de distinguir entre las distintas operaciones del mismo documento es realizar un seguimiento de la propiedad `_lsn` [para cada cambio](change-feed.md#change-feed-and-_etag-_lsn-or-_ts). Si no coinciden, se trata de cambios diferentes en el mismo documento.
+* Si está identificando documentos simplemente por el `id`, recuerde que el identificador único de un documento es el `id` y su clave de partición (puede haber dos documentos con el mismo `id` pero con una clave de partición diferente).
+
 ### <a name="some-changes-are-missing-in-my-trigger"></a>Faltan algunos cambios en mi desencadenador
 
 Si observa que algunos de los cambios producidos en el contenedor de Azure Cosmos no son recogidos por la función de Azure, debe llevar a cabo una investigación inicial.
@@ -83,13 +94,13 @@ En este escenario, la mejor forma de proceder consiste en agregar bloques `try/c
 > [!NOTE]
 > El desencadenador de Azure Functions para Cosmos DB, de forma predeterminada, no volverá a intentar un lote de cambios si se ha producido una excepción no controlada durante la ejecución del código. Esto significa que la razón por la que no han llegado los cambios al destino es que se producen errores al procesarlos.
 
-Si aprecia que algunos cambios no se han recibido en el desencadenador, el escenario más común es que hay **otra función de Azure en ejecución**. Es posible que otra función de Azure implementada en Azure o que se ejecute localmente en la máquina del desarrollador tenga **exactamente la misma configuración** (mismos contenedores de concesión y supervisados), y esta función de Azure esté robando un subconjunto de los cambios que se espera que la función de Azure procesase.
+Si aprecia que algunos cambios no se han recibido en el desencadenador, el escenario más común es que hay **otra Función de Azure en ejecución**. Es posible que otra función de Azure implementada en Azure o que se ejecute localmente en la máquina del desarrollador tenga **exactamente la misma configuración** (mismos contenedores de concesión y supervisados), y esta función de Azure esté robando un subconjunto de los cambios que se espera que la función de Azure procesase.
 
 Además, el escenario se puede validar, si sabe cuántas instancias de la aplicación de función de Azure están ejecutándose. Si inspecciona el contenedor de concesión y cuenta el número de elementos de concesión que contiene, los distintos valores de la propiedad `Owner` en ellos debería ser igual al número de instancias de la aplicación de función. Si hay más propietarios de las instancias de la aplicación de función de Azure conocidas, significa que estos propietarios adicionales son los que están "robando" los cambios.
 
-Una manera fácil de solucionar esta situación es aplicar un `LeaseCollectionPrefix/leaseCollectionPrefix` a la función con un valor nuevo o diferente, o bien probar con un nuevo contenedor de concesión.
+Una manera fácil de solucionar esta situación es aplicar un `LeaseCollectionPrefix/leaseCollectionPrefix` a la función con un valor nuevo o diferente, o bien probar con un nuevo contenedor de concesiones.
 
-### <a name="need-to-restart-and-re-process-all-the-items-in-my-container-from-the-beginning"></a>Necesidad de reiniciar y volver a procesar todos los elementos del contenedor desde el principio 
+### <a name="need-to-restart-and-reprocess-all-the-items-in-my-container-from-the-beginning"></a>Necesidad de reiniciar y volver a procesar todos los elementos del contenedor desde el principio 
 Para volver a procesar todos los elementos de un contenedor desde el principio:
 1. Detenga la función de Azure si se está ejecutando actualmente. 
 1. Elimine los documentos de la colección de concesiones (o elimine y vuelva a crear la colección de concesiones para que esté vacía)
@@ -102,7 +113,7 @@ Cuando se establece [StartFromBeginning](../azure-functions/functions-bindings-c
 
 Este error se produce si el proyecto de Azure Functions (o cualquier proyecto al que se haga referencia) contiene una referencia de NuGet manual al SDK de Azure Cosmos DB con una versión diferente de la proporcionada por la [Extensión Cosmos DB de Azure Functions](./troubleshoot-changefeed-functions.md#dependencies).
 
-Para solucionar esta situación, quite la referencia manual de NuGet que se ha agregado y deje que la referencia del SDK de Azure Cosmos DB se resuelva con el paquete de la Extensión de Azure Functions de Cosmos DB.
+Para solucionar esta situación, quite la referencia manual de NuGet que se agregó y deje que la referencia del SDK de Azure Cosmos DB se resuelva con el paquete de la Extensión de Azure Functions de Cosmos DB.
 
 ### <a name="changing-azure-functions-polling-interval-for-the-detecting-changes"></a>Cambio del intervalo de sondeo de Azure Functions para detectar cambios
 

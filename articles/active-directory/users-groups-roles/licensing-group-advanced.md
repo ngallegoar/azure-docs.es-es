@@ -16,11 +16,11 @@ ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 139d7e0cf2b57cc466dc97370b90a599257ce755
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74025948"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231720"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Escenarios, limitaciones y problemas conocidos del uso de grupos para administrar las licencias en Azure Active Directory
 
@@ -28,7 +28,7 @@ Use la información y los ejemplos siguientes para obtener una descripción más
 
 ## <a name="usage-location"></a>Ubicación de uso
 
-Algunos servicios de Microsoft no están disponibles en todas las ubicaciones. Antes de poder asignar una licencia a un usuario, el administrador tiene que especificar la propiedad **Ubicación de uso** en el usuario. En [Azure Portal](https://portal.azure.com), puede especificar la ubicación de uso en **Usuario**&gt;**Perfil**&gt;**Configuración**.
+Algunos servicios de Microsoft no están disponibles en todas las ubicaciones. Antes de poder asignar una licencia a un usuario, el administrador tiene que especificar la propiedad **Ubicación de uso** en el usuario. En [Azure Portal](https://portal.azure.com), puede especificar la ubicación de uso en **Usuario** &gt; **Perfil** &gt; **Configuración**.
 
 En el caso de la asignación de licencias de grupo, cualquier usuario sin una ubicación de uso especificada heredará la ubicación del directorio. Si hay usuarios en varias ubicaciones, asegúrese de reflejarlo correctamente en los recursos de usuario antes de agregar usuarios a grupos con licencias.
 
@@ -110,7 +110,7 @@ Este es un ejemplo cómo podría ser este proceso:
 
 2. Recibió una notificación de Microsoft sobre que se extenderá el producto E5 con un nuevo servicio: *Microsoft Stream*. Cuando el servicio esté disponible en el inquilino, puede hacer lo siguiente:
 
-3. Vaya a la hoja [ **Azure Active Directory > Licencias > Todos los productos** ](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) y seleccione *Office 365 Enterprise E5*; a continuación, seleccione **Licensed Groups** (Grupos con licencia) para ver una lista de todos los grupos con ese producto.
+3. Vaya a la hoja [**Azure Active Directory > Licencias > Todos los productos**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) y seleccione *Office 365 Enterprise E5*; a continuación, seleccione **Licensed Groups** (Grupos con licencia) para ver una lista de todos los grupos con ese producto.
 
 4. Haga clic en el grupo que desea revisar (en este caso, *O365 E5 - Exchange only*). Se abrirá la pestaña **Licencias**. Al hacer clic en la licencia E5, se abrirá una hoja en la que se enumeran todos los servicios habilitados.
    > [!NOTE]
@@ -169,7 +169,7 @@ Cuando cambia una licencia en un grupo, Azure AD comenzará a aplicar los cambio
 
 2. De forma similar, para ver cuándo finaliza el procesamiento de los grupos, use el valor de filtro *Finalizar de aplicar licencias basadas en grupo a los usuarios*.
    > [!TIP]
-   > En este caso, el campo *Propiedades modificadas* contiene un resumen de los resultados (esto es útil para comprobar rápidamente si se ha producido) algún error en el procesamiento. Salida de ejemplo:
+   > En este caso, el campo *Propiedades modificadas* contiene un resumen de los resultados (esto es útil para comprobar rápidamente si se ha producido) algún error en el procesamiento. Salida del ejemplo:
    > ```
    > Modified Properties
    > ...

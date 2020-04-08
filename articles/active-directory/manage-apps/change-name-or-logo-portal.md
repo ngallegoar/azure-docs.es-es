@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3dfe0f8788275dd4403b6c9cad99a8eb09e479b
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: d23849df75d1ab239eb269b462abb21df196e7e5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74274710"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79138508"
 ---
 # <a name="change-the-name-or-logo-of-an-enterprise-application-in-azure-active-directory"></a>Cambio del nombre o del logotipo de una aplicación empresarial en Azure Active Directory
 
@@ -42,12 +42,12 @@ Cambiar el nombre o el logotipo de una aplicación empresarial personalizada en 
 7. En el selector de archivos, seleccione el archivo que quiera usar como nuevo logotipo. El nombre del archivo aparecerá en el cuadro debajo de la imagen del logotipo actual.
 
    > [!NOTE]
-   > Azure requiere que la imagen de logotipo sea un archivo PNG y limita el ancho, el alto y el tamaño del archivo.
+   > Azure requiere que la imagen de logotipo sea un archivo PNG y limita el ancho, el alto y el tamaño del archivo. Los logotipos personalizados deben tener exactamente 215 &times; 215 píxeles de tamaño y estar en formato PNG. Se recomienda usar un fondo de color sólido sin transparencia en el logotipo de la aplicación para que aparezca mejor para los usuarios.
 8. Seleccione **Guardar**. Si elige un nuevo logotipo, la imagen del campo **Logotipo** cambiará para reflejar el nuevo archivo de logotipo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Inicio rápido: Visualización de los grupos y miembros de la organización en Azure Active Directory](../fundamentals/active-directory-groups-view-azure-portal.md)
 * [Asignar un usuario o grupo a una aplicación empresarial](assign-user-or-group-access-portal.md)
-* [Eliminación de asignaciones de usuario o grupo de una aplicación empresarial](remove-user-or-group-access-portal.md)
+* [Quitar una asignación de usuario o grupo de una aplicación empresarial](remove-user-or-group-access-portal.md)
 * [Deshabilitar los inicios de sesión de los usuarios de una aplicación empresarial](disable-user-sign-in-portal.md)

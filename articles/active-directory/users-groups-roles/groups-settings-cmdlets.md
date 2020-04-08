@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 11/08/2019
+ms.date: 03/20/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b5d74c7c599f31694a68e7582a6447af8471508
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 9d56bb7c30a8289fe7f261979dca6a4ffe2bfe99
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76984955"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80048154"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Cmdlets de Azure Active Directory para configurar las opciones de grupo
 
@@ -63,7 +63,7 @@ Con estos pasos se crean configuraciones en el nivel de directorio que se aplica
    ```
    Esta llamada al cmdlet devuelve todas las plantillas que están disponibles:
   
-   ```powershell
+   ``` PowerShell
    Id                                   DisplayName         Description
    --                                   -----------         -----------
    62375ab9-6b52-47ed-826b-58e47e0e304b Group.Unified       ...
@@ -77,7 +77,7 @@ Con estos pasos se crean configuraciones en el nivel de directorio que se aplica
   
    ```powershell
    $TemplateId = (Get-AzureADDirectorySettingTemplate | where { $_.DisplayName -eq "Group.Unified" }).Id
-   $Template = Get-AzureADDirectorySettingTemplate -Id $TemplateId
+   $Template = Get-AzureADDirectorySettingTemplate | where -Property Id -Value $TemplateId -EQ
    ```
 3. A continuación, cree un nuevo objeto de configuración basado en esa plantilla:
   
@@ -150,19 +150,19 @@ Esta es la configuración definida en el objeto SettingsTemplate Group.Unified. 
 | **Configuración** | **Descripción** |
 | --- | --- |
 |  <ul><li>EnableGroupCreation<li>Escriba:  Boolean<li>Valor predeterminado: True |Marca que indica si se permite la creación de grupos de Office 365 en el directorio por parte de usuarios que no sean administradores. Este valor no requiere una licencia Azure Active Directory Premium P1.|
-|  <ul><li>GroupCreationAllowedGroupId<li>Escriba:  String<li>Valor predeterminado: “” |El GUID del grupo de seguridad para el que se permite a los miembros crear grupos de Office 365 incluso cuando EnableGroupCreation == false. |
-|  <ul><li>UsageGuidelinesUrl<li>Escriba:  String<li>Valor predeterminado: “” |Un vínculo a las instrucciones de uso de grupos. |
-|  <ul><li>ClassificationDescriptions<li>Escriba:  String<li>Valor predeterminado: “” | Una lista delimitada por comas de las descripciones de clasificación. El valor de ClassificationDescriptions solo es válido en este formato:<br>$setting[“ClassificationDescriptions”] ="Classification:Description,Classification:Description"<br>donde Classification coincide con las cadenas de ClassificationList.<br>Esta configuración no se aplica cuando EnableMIPLabels = = True.|
-|  <ul><li>DefaultClassification<li>Escriba:  String<li>Valor predeterminado: “” | La clasificación que se va a utilizar como la clasificación predeterminada para un grupo si no se ha especificado ninguno.<br>Esta configuración no se aplica cuando EnableMIPLabels = = True.|
-|  <ul><li>PrefixSuffixNamingRequirement<li>Escriba:  String<li>Valor predeterminado: “” | Cadena de una longitud máxima de 64 caracteres que define la convención de nomenclatura configurada para los grupos de Office 365. Para más información, consulte [Aplicación de una directiva de nomenclatura para grupos de Office 365](groups-naming-policy.md). |
-| <ul><li>CustomBlockedWordsList<li>Escriba:  String<li>Valor predeterminado: “” | Cadena de frases separadas por comas que los usuarios no tendrán permiso para usar en los nombres de grupos o alias. Para más información, consulte [Aplicación de una directiva de nomenclatura para grupos de Office 365](groups-naming-policy.md). |
-| <ul><li>EnableMSStandardBlockedWords<li>Escriba:  Boolean<li>Valor predeterminado: “False” | No debe usarse
+|  <ul><li>GroupCreationAllowedGroupId<li>Escriba:  String<li>Default: "" |El GUID del grupo de seguridad para el que se permite a los miembros crear grupos de Office 365 incluso cuando EnableGroupCreation == false. |
+|  <ul><li>UsageGuidelinesUrl<li>Escriba:  String<li>Default: "" |Un vínculo a las instrucciones de uso de grupos. |
+|  <ul><li>ClassificationDescriptions<li>Escriba:  String<li>Default: "" | Una lista delimitada por comas de las descripciones de clasificación. El valor de ClassificationDescriptions solo es válido en este formato:<br>$setting["ClassificationDescriptions"] ="Classification:Description,Classification:Description"<br>donde el valor de Classification coincide con una entrada en ClassificationList.<br>Esta configuración no se aplica cuando EnableMIPLabels = = True.|
+|  <ul><li>DefaultClassification<li>Escriba:  String<li>Default: "" | La clasificación que se va a utilizar como la clasificación predeterminada para un grupo si no se ha especificado ninguno.<br>Esta configuración no se aplica cuando EnableMIPLabels = = True.|
+|  <ul><li>PrefixSuffixNamingRequirement<li>Escriba:  String<li>Default: "" | Cadena de una longitud máxima de 64 caracteres que define la convención de nomenclatura configurada para los grupos de Office 365. Para más información, consulte [Aplicación de una directiva de nomenclatura para grupos de Office 365](groups-naming-policy.md). |
+| <ul><li>CustomBlockedWordsList<li>Escriba:  String<li>Default: "" | Cadena de frases separadas por comas que los usuarios no tendrán permiso para usar en los nombres de grupos o alias. Para más información, consulte [Aplicación de una directiva de nomenclatura para grupos de Office 365](groups-naming-policy.md). |
+| <ul><li>EnableMSStandardBlockedWords<li>Escriba:  Boolean<li>Valor predeterminado: "False" | No debe usarse
 |  <ul><li>AllowGuestsToBeGroupOwner<li>Escriba:  Boolean<li>Valor predeterminado: False | Valor booleano que indica si un usuario invitado puede ser o no un propietario de grupos. |
 |  <ul><li>AllowGuestsToAccessGroups<li>Escriba:  Boolean<li>Valor predeterminado: True | Valor booleano que indica si un usuario invitado puede tener o no acceso al contenido de grupos de Office 365.  Este valor no requiere una licencia Azure Active Directory Premium P1.|
-|  <ul><li>GuestUsageGuidelinesUrl<li>Escriba:  String<li>Valor predeterminado: “” | La dirección URL de un vínculo a las instrucciones de uso del invitado. |
-|  <ul><li>AllowToAddGuests<li>Escriba:  Boolean<li>Valor predeterminado: True | Un valor booleano que indica si está permitido o no agregar invitados a este directorio. <br>Esta configuración puede invalidarse y convertirse en solo lectura si *EnableMIPLabels* está establecida en *True* y una directiva de invitado está asociada a la etiqueta de confidencialidad asignada al grupo. |
-|  <ul><li>ClassificationList<li>Escriba:  String<li>Valor predeterminado: “” |Lista de valores de clasificación delimitados por coma que se puede aplicar a grupos de Office 365. <br>Esta configuración no se aplica cuando EnableMIPLabels = = True.|
-|  <ul><li>EnableMIPLabels<li>Escriba:  Boolean<li>Valor predeterminado: “False” |Marca que indica si las etiquetas de confidencialidad publicadas en el Centro de cumplimiento de Microsoft 365 se pueden aplicar a los grupos de Office 365. Para más información, vea [Asignación de etiquetas de confidencialidad para los grupos de Office 365](groups-assign-sensitivity-labels.md). |
+|  <ul><li>GuestUsageGuidelinesUrl<li>Escriba:  String<li>Default: "" | La dirección URL de un vínculo a las instrucciones de uso del invitado. |
+|  <ul><li>AllowToAddGuests<li>Escriba:  Boolean<li>Valor predeterminado: True | Un valor booleano que indica si está permitido o no agregar invitados a este directorio. <br>Esta configuración puede invalidarse y convertirse en solo lectura si *EnableMIPLabels* está establecida en *True* y una directiva de invitado está asociada a la etiqueta de confidencialidad asignada al grupo.<br>Si el valor de AllowToAddGuests se establece en False en el nivel de inquilino, se omite cualquier valor de AllowToAddGuests en el nivel de grupo. Si desea habilitar el acceso de invitado solo para algunos grupos, debe establecer AllowToAddGuests en true en el nivel de inquilino y, a continuación, deshabilitarlo de forma selectiva para grupos específicos. |
+|  <ul><li>ClassificationList<li>Escriba:  String<li>Default: "" | Lista de valores de clasificación delimitados por coma que se puede aplicar a grupos de Office 365. <br>Esta configuración no se aplica cuando EnableMIPLabels = = True.|
+|  <ul><li>EnableMIPLabels<li>Escriba:  Boolean<li>Valor predeterminado: "False" |Marca que indica si las etiquetas de confidencialidad publicadas en el Centro de cumplimiento de Microsoft 365 se pueden aplicar a los grupos de Office 365. Para más información, vea [Asignación de etiquetas de confidencialidad para los grupos de Office 365](groups-assign-sensitivity-labels.md). |
 
 ## <a name="example-configure-guest-policy-for-groups-at-the-directory-level"></a>Ejemplo: Configuración de la directiva de invitado para grupos en el nivel de directorio
 1. Obtenga todas las plantillas de configuración:
@@ -171,7 +171,7 @@ Esta es la configuración definida en el objeto SettingsTemplate Group.Unified. 
    ```
 2. Para establecer la directiva de invitado para los grupos en el nivel de directorio, necesita la plantilla Group.Unified.
    ```powershell
-   $Template = Get-AzureADDirectorySettingTemplate -Id 62375ab9-6b52-47ed-826b-58e47e0e304b
+   $Template = Get-AzureADDirectorySettingTemplate | where -Property Id -Value "62375ab9-6b52-47ed-826b-58e47e0e304b" -EQ
    ```
 3. A continuación, cree un nuevo objeto de configuración basado en esa plantilla:
   
@@ -262,7 +262,7 @@ Con estos pasos se elimina la configuración en el nivel de directorio, lo cual 
    ```
 2. Recupere el objeto de plantilla para la plantilla Groups.Unified.Guest:
    ```powershell
-   $Template1 = Get-AzureADDirectorySettingTemplate -Id 08d542b9-071f-4e16-94b0-74abb372e3d9
+   $Template1 = Get-AzureADDirectorySettingTemplate | where -Property Id -Value "08d542b9-071f-4e16-94b0-74abb372e3d9" -EQ
    ```
 3. Cree un nuevo objeto de configuración a partir de la plantilla:
    ```powershell

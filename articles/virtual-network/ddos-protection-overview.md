@@ -1,13 +1,9 @@
 ---
-title: Introducción a Protección contra DDoS de Azure estándar| Microsoft Docs
+title: Introducción a Azure DDoS Protection Standard
 description: Conozca el servicio Protección contra DDoS de Azure.
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: twooley
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/22/2020
 ms.author: kumud
-ms.openlocfilehash: 0b0052d58ab4f950467902c4b177e844c9bc498d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: f1dd33425a57689974fc98a28724adf7b130ab40
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905179"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79536350"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Introducción a Protección contra DDoS de Azure estándar
 
@@ -40,7 +36,7 @@ Azure DDoS Protection, junto con los procedimientos recomendados de diseño de a
 |Métricas y alertas                                |No                                    |Métricas de ataques y registros de diagnóstico en tiempo real a través de                                                                                            Azure Monitor                                 |
 |Informes de mitigación                              |No                                    |Informes sobre mitigación posteriores al ataque                |
 |Registros de flujo de mitigación                            |No                                    |Secuencia de registro NRT para la integración de SIEM           |
-|Personalizaciones de las directivas de migración                 |No                                    |Interacción con expertos en DDos                           |
+|Personalización de la directiva de mitigación                 |No                                    |Interacción con expertos en DDos                           |
 |Soporte técnico                                         |Mejor opción                           |Acceso a expertos en DDos durante un ataque activo|
 |Contrato de nivel de servicio                                             |Región de Azure                          |Garantía de aplicación y protección de costos       |
 |Precios                                         |Gratuito                                  |Mensual y basado en el uso                         |
@@ -49,7 +45,7 @@ Azure DDoS Protection, junto con los procedimientos recomendados de diseño de a
 
 El servicio Protección contra DDoS estándar puede mitigar los tipos de ataque siguientes:
 
-- **Ataques volumétricos**: el objetivo del ataque es desbordar la capa de la red con una gran cantidad de tráfico aparentemente legítimo. Esto incluye ataques de tipo "flood" de UDP, de amplificación y otros ataques de tipo "flood" de paquetes falsificados. El servicio Protección contra DDoS estándar mitiga estos posibles ataques de varios gigabytes, ya que los absorbe y los limpia automáticamente aprovechando la escala de red global de Azure.
+- **Ataques volumétricos**: el objetivo del ataque es desbordar la capa de la red con una gran cantidad de tráfico aparentemente legítimo. Esto incluye ataques de tipo "flood" de UDP, de amplificación y otros ataques de tipo "flood" de paquetes falsificados. DDoS Protection Standard mitiga estos posibles ataques de varios gigabytes, ya que los absorbe y los limpia automáticamente aprovechando la escala de red global de Azure.
 - **Ataques a protocolos**: estos ataques representan un destino inaccesible al aprovechar una vulnerabilidad en la pila de protocolo en los niveles 3 y 4. Esto incluye ataques de tipo “flood” de SYN, ataques de reflejo y otros ataques de protocolo. El servicio Protección contra DDoS estándar mitiga estos ataques al diferenciar entre el tráfico malintencionado y el legítimo. Para ello, interactúa con el cliente y bloquea el tráfico malintencionado. 
 - **Ataques de nivel de recurso (aplicación)** : estos ataques van dirigidos a paquetes de aplicaciones web y su objetivo es interrumpir la transmisión de datos entre hosts. Los ataques incluyen infracciones de protocolo HTTP, inyección de código SQL, scripts de sitios y otros ataques de nivel 7. Use un firewall de aplicaciones web, por ejemplo el [firewall de aplicaciones web de Azure Application Gateway](../application-gateway/application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), así como DDoS Protection Standard, para la defensa frente a estos ataques. También existen ofertas de firewall de aplicaciones web de terceros disponibles en [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=web%20application%20firewall).
 

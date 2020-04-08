@@ -1,19 +1,19 @@
 ---
 title: Incorporación de controles a un mapa | Microsoft Azure Maps
 description: Cómo agregar control de zoom, control de inclinación, control de giro y un selector de estilos a un mapa en Microsoft Azure Maps.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: e386c136e7d0258d00c22c627dfa5047ba803169
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 094dc9fd01ec71f378a173a2b4fa64cc672d7c97
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209773"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80334562"
 ---
 # <a name="add-controls-to-a-map"></a>Incorporación de controles a un mapa
 
@@ -75,7 +75,20 @@ A continuación se muestra el código de ejemplo de ejecución completo de la fu
 
 ## <a name="a-map-with-all-controls"></a>Mapa con todos los controles
 
-En el código de ejemplo siguiente se agregan los controles de zoom, inclinación, brújula y selector de estilo a la esquina inferior derecha del mapa. Observe cómo se apilan automáticamente. El orden de los objetos de control del script determina el orden en que aparecen en el mapa. Para cambiar el orden de los controles en el mapa, puede cambiar su orden en el script.
+Se pueden colocar varios controles en una matriz, agregarlos al mapa a la vez y colocarlos en la misma área del mapa para simplificar el desarrollo. Lo siguiente agrega los controles de navegación estándar al mapa usando este método.
+
+```javascript
+map.controls.add([
+    new atlas.control.ZoomControl(),
+    new atlas.control.CompassControl(),
+    new atlas.control.PitchControl(),
+    new atlas.control.StyleControl()
+], {
+    position: "top-right"
+});
+```
+
+En el siguiente código de ejemplo se agregan los controles de zoom, inclinación, brújula y selector de estilo a la esquina superior derecha del mapa. Observe cómo se apilan automáticamente. El orden de los objetos de control del script determina el orden en que aparecen en el mapa. Para cambiar el orden de los controles en el mapa, puede cambiar su orden en la matriz.
 
 <br/>
 

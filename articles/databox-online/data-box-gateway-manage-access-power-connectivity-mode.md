@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: e2e82c551117f2ae96e026b39c08ccf56e7ce8e2
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: e4d85bd460c39964c9f42ac946e3522f5f129c1c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561823"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79474448"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway"></a>Administración del acceso, encendido y modo de conectividad de Azure Data Box Gateway
 
@@ -58,16 +58,16 @@ El flujo de trabajo de restablecimiento no requiere que el usuario recupere la c
 
 Para crear un recurso de Data Box Edge o Data Box Gateway, IoT Hub y Azure Storage, necesita permisos de colaborador o superiores en el nivel del grupo de recursos. También debe registrar los proveedores de recursos correspondientes. Para las operaciones que implican credenciales y claves de activación, también se necesitan permisos para la Graph API de Azure Active Directory. Estos se describen en las secciones siguientes.
 
-### <a name="manage-microsoft-azure-active-directory-graph-api-permissions"></a>Administración de los permisos de Graph API de Azure Active Directory
+### <a name="manage-microsoft-graph-api-permissions"></a>Administración de permisos para Microsoft Graph API
 
-Cuando genere la clave de activación para el dispositivo de Data Box Edge o realice cualquier operación que requiera credenciales, necesitará permisos para la Graph API de Azure Active Directory. Las operaciones que podrían necesitar credenciales son:
+Cuando genere la clave de activación para el dispositivo de Data Box Edge o realice cualquier operación que requiera credenciales, necesitará permisos para Microsoft Graph API. Las operaciones que podrían necesitar credenciales son:
 
 -  Crear un recurso compartido con una cuenta de almacenamiento asociada.
 -  Crear un usuario que puede tener acceso a los recursos compartidos en el dispositivo.
 
 Debe tener acceso de `User` en el inquilino de Active Directory, ya que necesita la capacidad de `Read all directory objects`. No puede ser un usuario invitado, ya que estos no tienen permisos para `Read all directory objects`. Si es un invitado, se producirán errores en operaciones como la generación de una clave de activación, la creación de un recurso compartido en el dispositivo Data Box Edge o la creación de un usuario.
 
-Para obtener más información sobre cómo permitir que los usuarios tengan acceso a la Graph API de Azure Active Directory, consulte [Acceso predeterminado para los administradores, usuarios y usuarios invitados](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
+Para más información sobre cómo proporcionar a los usuarios acceso a Microsoft Graph API, consulte [Referencia de permisos de Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference).
 
 ### <a name="register-resource-providers"></a>Registro de proveedores de recursos
 

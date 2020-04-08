@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/27/2020
+ms.date: 03/26/2020
 ms.author: radeltch
-ms.openlocfilehash: 34f03dbfc2311903c6bc8df0292eccc143ff05de
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: 05effb7d2e64c5f27acabad4b086ba27d6849cc8
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78164719"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80348818"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Alta disponibilidad para SAP NetWeaver en máquinas virtuales de Azure en SUSE Linux Enterprise Server para SAP Applications
 
@@ -90,8 +90,6 @@ El servidor NFS, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS y la b
 
 * Configuración de front-end
   * Dirección IP 10.0.0.7
-* Configuración de back-end
-  * Se conecta a interfaces de red principales de todas las máquinas que deben ser parte del clúster (A)SCS/ERS
 * Puerto de sondeo
   * Puerto 620<strong>&lt;nr&gt;</strong>
 * Reglas de equilibrio de carga
@@ -109,8 +107,6 @@ El servidor NFS, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS y la b
 
 * Configuración de front-end
   * Dirección IP 10.0.0.8
-* Configuración de back-end
-  * Se conecta a interfaces de red principales de todas las máquinas que deben ser parte del clúster (A)SCS/ERS
 * Puerto de sondeo
   * Puerto 621<strong>&lt;nr&gt;</strong>
 * Reglas de equilibrio de carga.
@@ -121,6 +117,10 @@ El servidor NFS, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS y la b
     * 5<strong>&lt;nr&gt;</strong>13 TCP
     * 5<strong>&lt;nr&gt;</strong>14 TCP
     * 5<strong>&lt;nr&gt;</strong>16 TCP
+
+* Configuración de back-end
+  * Se conecta a interfaces de red principales de todas las máquinas que deben ser parte del clúster (A)SCS/ERS
+
 
 ## <a name="setting-up-a-highly-available-nfs-server"></a>Configuración de un servidor NFS de alta disponibilidad
 
@@ -160,7 +160,7 @@ Para implementar todos los recursos necesarios, puede usar una de las plantillas
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Implementación manual de Linux mediante Azure Portal
 
-En primer lugar, debe crear las máquinas virtuales de este clúster NFS. Después, creará un equilibrador de carga y usará las máquinas virtuales de los grupos de servidores back-end.
+En primer lugar, debe crear las máquinas virtuales de este clúster NFS. Después, creará un equilibrador de carga y usará las máquinas virtuales del grupo de servidores back-end.
 
 1. Creación de un grupo de recursos
 1. Creación de una red virtual
@@ -185,16 +185,13 @@ En primer lugar, debe crear las máquinas virtuales de este clúster NFS. Despu�
          1. Haga clic en Aceptar
       1. Dirección IP 10.0.0.8 para ASCS ERS
          * Repita los pasos anteriores para crear una dirección IP para el ERS (por ejemplo, **10.0.0.8** y **nw1-aers-backend**).
-   1. Creación de los grupos de servidores back-end
-      1. Creación de un grupo de servidores back-end para ASCS
-         1. Abra el equilibrador de carga, seleccione los grupos de back-end y haga clic en Agregar
-         1. Escriba el nombre del nuevo grupo de servidores back-end (por ejemplo, **nw1-ascs-backend**).
-         1. Haga clic en Agregar una máquina virtual.
-         1. Seleccione Máquina virtual.
-         1. Seleccione las máquinas virtuales del clúster de (A)SCS y sus direcciones IP.
-         1. Haga clic en Agregar
-      1. Creación de un grupo de servidores back-end para ASCS ERS
-         * Repita los pasos anteriores para crear un grupo de servidores back-end para ERS (por ejemplo **nw1-aers-backend**)
+   1. Creación del grupo de servidores back-end
+      1. Abra el equilibrador de carga, seleccione los grupos de back-end y haga clic en Agregar
+      1. Escriba el nombre del nuevo grupo de servidores back-end (por ejemplo, **nw1-backend**).
+      1. Haga clic en Agregar una máquina virtual.
+      1. Seleccione Máquina virtual.
+      1. Seleccione las máquinas virtuales del clúster de (A)SCS y sus direcciones IP.
+      1. Haga clic en Agregar
    1. Creación de los sondeos de estado
       1. Puerto 620**00** para ASCS
          1. Abra el equilibrador de carga, seleccione los sondeos de estado y haga clic en Agregar
@@ -207,7 +204,7 @@ En primer lugar, debe crear las máquinas virtuales de este clúster NFS. Despu�
       1. Reglas de equilibrio de carga para ASCS
          1. Abra el equilibrador de carga, seleccione las reglas de equilibrio de carga y haga clic en Agregar.
          1. Escriba el nombre de la nueva regla del equilibrador de carga (por ejemplo, **nw1-lb-ascs**)
-         1. Seleccione la dirección IP de front-end, el grupo de servidores back-end y el sondeo de estado creados anteriormente (por ejemplo, **nw1-ascs-frontend**, **nw1-ascs-backend** y **nw1-ascs-hp**)
+         1. Seleccione la dirección IP de front-end, el grupo de servidores back-end y el sondeo de estado creados anteriormente (por ejemplo, **nw1-ascs-frontend**, **nw1-backend** y **nw1-ascs-hp**).
          1. Seleccione **Puertos HA**
          1. Aumente el tiempo de espera de inactividad a 30 minutos
          1. **Asegúrese de habilitar la dirección IP flotante**
@@ -221,17 +218,14 @@ En primer lugar, debe crear las máquinas virtuales de este clúster NFS. Despu�
          1. Configure la asignación como estática y escriba la dirección IP (por ejemplo **10.0.0.7**).
          1. Haga clic en Aceptar
       1. Dirección IP 10.0.0.8 para ASCS ERS
-         * Repita los pasos anteriores para crear una dirección IP para el ERS (por ejemplo, **10.0.0.8** y **nw1-aers-backend**).
-   1. Creación de los grupos de servidores back-end
-      1. Creación de un grupo de servidores back-end para ASCS
-         1. Abra el equilibrador de carga, seleccione los grupos de back-end y haga clic en Agregar
-         1. Escriba el nombre del nuevo grupo de servidores back-end (por ejemplo, **nw1-ascs-backend**).
-         1. Haga clic en Agregar una máquina virtual.
-         1. Seleccione el conjunto de disponibilidad que creó anteriormente
-         1. Seleccione las máquinas virtuales del clúster (A)SCS.
-         1. Haga clic en Aceptar
-      1. Creación de un grupo de servidores back-end para ASCS ERS
-         * Repita los pasos anteriores para crear un grupo de servidores back-end para ERS (por ejemplo **nw1-aers-backend**)
+         * Repita los pasos anteriores para crear una dirección IP para el ERS (por ejemplo, **10.0.0.8** y **nw1-aers-frontend**).
+   1. Creación del grupo de servidores back-end
+      1. Abra el equilibrador de carga, seleccione los grupos de back-end y haga clic en Agregar
+      1. Escriba el nombre del nuevo grupo de servidores back-end (por ejemplo, **nw1-backend**).
+      1. Haga clic en Agregar una máquina virtual.
+      1. Seleccione el conjunto de disponibilidad que creó anteriormente
+      1. Seleccione las máquinas virtuales del clúster (A)SCS.
+      1. Haga clic en Aceptar
    1. Creación de los sondeos de estado
       1. Puerto 620**00** para ASCS
          1. Abra el equilibrador de carga, seleccione los sondeos de estado y haga clic en Agregar
@@ -404,7 +398,12 @@ Los elementos siguientes tienen el prefijo **[A]** : aplicable a todos los nodos
 
    > [!IMPORTANT]
    > Pruebas recientes han mostrado situaciones en las que netcat deja de responder a las solicitudes debido al trabajo pendiente y a su limitación para controlar solo una conexión. El recurso netcat deja de escuchar las solicitudes del equilibrador de carga de Azure y la dirección IP flotante deja de estar disponible.  
-   > En el caso de los clústeres de Pacemaker existentes, se recomienda reemplazar netcat por socat, para lo que deben seguirse las instrucciones del artículo acerca de la [protección de la detección del equilibrador de carga de Azure](https://www.suse.com/support/kb/doc/?id=7024128). Tenga en cuenta que el cambio requerirá un breve tiempo de inactividad.  
+   > En el caso de los clústeres de Pacemaker existentes, en el pasado se recomendaba reemplazar netcat por socat. Actualmente se recomienda usar el agente de recursos azure-lb, que forma parte de los agentes de recursos de paquetes, con los siguientes requisitos de versión de paquete:
+   > - En el caso de SLES 12 SP4/SP5, la versión debe ser, al menos, resource-agents-4.3.018.a7fb5035-3.30.1.  
+   > - Para SLES 15/15 SP1, la versión debe ser al menos resource-agents-4.3.0184.6ee15eb2-4.13.1.  
+   >
+   > Tenga en cuenta que el cambio requerirá un breve tiempo de inactividad.  
+   > En el caso de los clústeres de Pacemaker existentes, si la configuración ya se ha cambiado para usar socat, como se describe en [Protección de la detección del equilibrador de carga de Azure](https://www.suse.com/support/kb/doc/?id=7024128), no hay ningún requisito para cambiar inmediatamente al agente de recursos de azure-lb.
 
    <pre><code>sudo crm node standby <b>nw1-cl-1</b>
    
@@ -417,9 +416,7 @@ Los elementos siguientes tienen el prefijo **[A]** : aplicable a todos los nodos
      params ip=<b>10.0.0.7</b> cidr_netmask=<b>24</b> \
      op monitor interval=10 timeout=20
    
-   sudo crm configure primitive nc_<b>NW1</b>_ASCS anything \
-     params binfile="/usr/bin/socat" cmdline_options="-U TCP-LISTEN:620<b>00</b>,backlog=10,fork,reuseaddr /dev/null" \
-     op monitor timeout=20s interval=10 depth=0
+   sudo crm configure primitive nc_<b>NW1</b>_ASCS azure-lb port=620<b>00</b>
    
    sudo crm configure group g-<b>NW1</b>_ASCS fs_<b>NW1</b>_ASCS nc_<b>NW1</b>_ASCS vip_<b>NW1</b>_ASCS \
       meta resource-stickiness=3000
@@ -437,7 +434,7 @@ Los elementos siguientes tienen el prefijo **[A]** : aplicable a todos los nodos
    # stonith-sbd     (stonith:external/sbd): <b>Started nw1-cl-0</b>
    #  Resource Group: g-NW1_ASCS
    #      fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    <b>Started nw1-cl-0</b>
-   #      nc_NW1_ASCS        (ocf::heartbeat:anything):      <b>Started nw1-cl-0</b>
+   #      nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      <b>Started nw1-cl-0</b>
    #      vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       <b>Started nw1-cl-0</b>
    </code></pre>
 
@@ -470,12 +467,7 @@ Los elementos siguientes tienen el prefijo **[A]** : aplicable a todos los nodos
      params ip=<b>10.0.0.8</b> cidr_netmask=<b>24</b> \
      op monitor interval=10 timeout=20
    
-   sudo crm configure primitive nc_<b>NW1</b>_ERS anything \
-    params binfile="/usr/bin/socat" cmdline_options="-U TCP-LISTEN:621<b>02</b>,backlog=10,fork,reuseaddr /dev/null" \
-    op monitor timeout=20s interval=10 depth=0
-   
-   # WARNING: Resources nc_NW1_ASCS,nc_NW1_ERS violate uniqueness for parameter "binfile": "/usr/bin/socat"
-   # Do you still want to commit (y/n)? y
+   sudo crm configure primitive nc_<b>NW1</b>_ERS azure-lb port=621<b>02</b>
    
    sudo crm configure group g-<b>NW1</b>_ERS fs_<b>NW1</b>_ERS nc_<b>NW1</b>_ERS vip_<b>NW1</b>_ERS
    </code></pre>
@@ -492,11 +484,11 @@ Los elementos siguientes tienen el prefijo **[A]** : aplicable a todos los nodos
    # stonith-sbd     (stonith:external/sbd): <b>Started nw1-cl-1</b>
    #  Resource Group: g-NW1_ASCS
    #      fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    <b>Started nw1-cl-1</b>
-   #      nc_NW1_ASCS        (ocf::heartbeat:anything):      <b>Started nw1-cl-1</b>
+   #      nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      <b>Started nw1-cl-1</b>
    #      vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       <b>Started nw1-cl-1</b>
    #  Resource Group: g-NW1_ERS
    #      fs_NW1_ERS (ocf::heartbeat:Filesystem):    <b>Started nw1-cl-1</b>
-   #      nc_NW1_ERS (ocf::heartbeat:anything):      <b>Started nw1-cl-1</b>
+   #      nc_NW1_ERS (ocf::heartbeat:azure-lb):      <b>Started nw1-cl-1</b>
    #      vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       <b>Started nw1-cl-1</b>
    </code></pre>
 
@@ -648,17 +640,17 @@ Si usa la arquitectura de servidor 2 de puesta en cola ([ENSA2](https://help.sap
    # stonith-sbd     (stonith:external/sbd): <b>Started nw1-cl-1</b>
    #  Resource Group: g-NW1_ASCS
    #      fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    <b>Started nw1-cl-1</b>
-   #      nc_NW1_ASCS        (ocf::heartbeat:anything):      <b>Started nw1-cl-1</b>
+   #      nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      <b>Started nw1-cl-1</b>
    #      vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       <b>Started nw1-cl-1</b>
    #      rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   <b>Started nw1-cl-1</b>
    #  Resource Group: g-NW1_ERS
    #      fs_NW1_ERS (ocf::heartbeat:Filesystem):    <b>Started nw1-cl-0</b>
-   #      nc_NW1_ERS (ocf::heartbeat:anything):      <b>Started nw1-cl-0</b>
+   #      nc_NW1_ERS (ocf::heartbeat:azure-lb):      <b>Started nw1-cl-0</b>
    #      vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       <b>Started nw1-cl-0</b>
    #      rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   <b>Started nw1-cl-0</b>
    </code></pre>
 
-## <a name="2d6008b0-685d-426c-b59e-6cd281fd45d7"></a>Preparación del servidor de aplicaciones de SAP NetWeaver
+## <a name="sap-netweaver-application-server-preparation"></a><a name="2d6008b0-685d-426c-b59e-6cd281fd45d7"></a>Preparación del servidor de aplicaciones de SAP NetWeaver
 
 Algunas bases de datos requieren que la instalación de la instancia de base de datos se ejecute en un servidor de aplicaciones. Prepare las máquinas virtuales del servidor de aplicaciones para poder usarlas en estos casos.
 
@@ -869,12 +861,12 @@ Las siguientes pruebas son una copia de los casos de prueba de las guías de pro
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-0
     Resource Group: g-NW1_ASCS
         fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-0
-        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-0
+        nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started nw1-cl-0
         vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
         rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
     Resource Group: g-NW1_ERS
         fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-1
-        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-1
+        nc_NW1_ERS (ocf::heartbeat:azure-lb):      Started nw1-cl-1
         vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
    </code></pre>
@@ -896,12 +888,12 @@ Las siguientes pruebas son una copia de los casos de prueba de las guías de pro
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-0
     Resource Group: g-NW1_ASCS
         fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
-        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-1
+        nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started nw1-cl-1
         vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
         rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
     Resource Group: g-NW1_ERS
         fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-0
-        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-0
+        nc_NW1_ERS (ocf::heartbeat:azure-lb):      Started nw1-cl-0
         vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    </code></pre>
@@ -913,12 +905,12 @@ Las siguientes pruebas son una copia de los casos de prueba de las guías de pro
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-0
     Resource Group: g-NW1_ASCS
         fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
-        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-1
+        nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started nw1-cl-1
         vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
         rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
     Resource Group: g-NW1_ERS
         fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-0
-        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-0
+        nc_NW1_ERS (ocf::heartbeat:azure-lb):      Started nw1-cl-0
         vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    </code></pre>
@@ -940,12 +932,12 @@ Las siguientes pruebas son una copia de los casos de prueba de las guías de pro
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-0
     Resource Group: g-NW1_ASCS
         fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-0
-        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-0
+        nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started nw1-cl-0
         vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
         rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
     Resource Group: g-NW1_ERS
         fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-1
-        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-1
+        nc_NW1_ERS (ocf::heartbeat:azure-lb):      Started nw1-cl-1
         vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
    </code></pre>
@@ -957,12 +949,12 @@ Las siguientes pruebas son una copia de los casos de prueba de las guías de pro
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-0
     Resource Group: g-NW1_ASCS
         fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-0
-        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-0
+        nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started nw1-cl-0
         vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
         rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
     Resource Group: g-NW1_ERS
         fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-1
-        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-1
+        nc_NW1_ERS (ocf::heartbeat:azure-lb):      Started nw1-cl-1
         vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
    </code></pre>
@@ -982,12 +974,12 @@ Las siguientes pruebas son una copia de los casos de prueba de las guías de pro
    stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
     Resource Group: g-NW1_ASCS
         fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
-        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-1
+        nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started nw1-cl-1
         vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
         rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
     Resource Group: g-NW1_ERS
         fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-1
-        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-1
+        nc_NW1_ERS (ocf::heartbeat:azure-lb):      Started nw1-cl-1
         vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
    
@@ -1015,12 +1007,12 @@ Las siguientes pruebas son una copia de los casos de prueba de las guías de pro
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
     Resource Group: g-NW1_ASCS
         fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
-        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-1
+        nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started nw1-cl-1
         vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
         rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
     Resource Group: g-NW1_ERS
         fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-0
-        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-0
+        nc_NW1_ERS (ocf::heartbeat:azure-lb):      Started nw1-cl-0
         vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    </code></pre>
@@ -1032,12 +1024,12 @@ Las siguientes pruebas son una copia de los casos de prueba de las guías de pro
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
     Resource Group: g-NW1_ASCS
         fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
-        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-1
+        nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started nw1-cl-1
         vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
         rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
     Resource Group: g-NW1_ERS
         fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-0
-        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-0
+        nc_NW1_ERS (ocf::heartbeat:azure-lb):      Started nw1-cl-0
         vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    </code></pre>
@@ -1062,12 +1054,12 @@ Las siguientes pruebas son una copia de los casos de prueba de las guías de pro
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
     Resource Group: g-NW1_ASCS
         fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
-        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-1
+        nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started nw1-cl-1
         vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
         rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
     Resource Group: g-NW1_ERS
         fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-0
-        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-0
+        nc_NW1_ERS (ocf::heartbeat:azure-lb):      Started nw1-cl-0
         vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    </code></pre>
@@ -1079,12 +1071,12 @@ Las siguientes pruebas son una copia de los casos de prueba de las guías de pro
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
     Resource Group: g-NW1_ASCS
         fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
-        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-1
+        nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started nw1-cl-1
         vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
         rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
     Resource Group: g-NW1_ERS
         fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-0
-        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-0
+        nc_NW1_ERS (ocf::heartbeat:azure-lb):      Started nw1-cl-0
         vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    </code></pre>
@@ -1105,12 +1097,12 @@ Las siguientes pruebas son una copia de los casos de prueba de las guías de pro
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
     Resource Group: g-NW1_ASCS
         fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-0
-        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-0
+        nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started nw1-cl-0
         vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
         rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
     Resource Group: g-NW1_ERS
         fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-1
-        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-1
+        nc_NW1_ERS (ocf::heartbeat:azure-lb):      Started nw1-cl-1
         vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
    </code></pre>
@@ -1122,12 +1114,12 @@ Las siguientes pruebas son una copia de los casos de prueba de las guías de pro
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
     Resource Group: g-NW1_ASCS
         fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-0
-        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-0
+        nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started nw1-cl-0
         vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
         rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
     Resource Group: g-NW1_ERS
         fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-1
-        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-1
+        nc_NW1_ERS (ocf::heartbeat:azure-lb):      Started nw1-cl-1
         vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
    </code></pre>
@@ -1148,12 +1140,12 @@ Las siguientes pruebas son una copia de los casos de prueba de las guías de pro
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
     Resource Group: g-NW1_ASCS
         fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
-        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-1
+        nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started nw1-cl-1
         vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
         rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
     Resource Group: g-NW1_ERS
         fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-0
-        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-0
+        nc_NW1_ERS (ocf::heartbeat:azure-lb):      Started nw1-cl-0
         vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    </code></pre>
@@ -1165,12 +1157,12 @@ Las siguientes pruebas son una copia de los casos de prueba de las guías de pro
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
     Resource Group: g-NW1_ASCS
         fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
-        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-1
+        nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started nw1-cl-1
         vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
         rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
     Resource Group: g-NW1_ERS
         fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-0
-        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-0
+        nc_NW1_ERS (ocf::heartbeat:azure-lb):      Started nw1-cl-0
         vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    </code></pre>
@@ -1190,12 +1182,12 @@ Las siguientes pruebas son una copia de los casos de prueba de las guías de pro
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
     Resource Group: g-NW1_ASCS
         fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
-        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-1
+        nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started nw1-cl-1
         vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
         rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
     Resource Group: g-NW1_ERS
         fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-0
-        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-0
+        nc_NW1_ERS (ocf::heartbeat:azure-lb):      Started nw1-cl-0
         vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    </code></pre>
@@ -1207,12 +1199,12 @@ Las siguientes pruebas son una copia de los casos de prueba de las guías de pro
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
     Resource Group: g-NW1_ASCS
         fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
-        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-1
+        nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started nw1-cl-1
         vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
         rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
     Resource Group: g-NW1_ERS
         fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-0
-        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-0
+        nc_NW1_ERS (ocf::heartbeat:azure-lb):      Started nw1-cl-0
         vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    </code></pre>
@@ -1230,12 +1222,12 @@ Las siguientes pruebas son una copia de los casos de prueba de las guías de pro
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
     Resource Group: g-NW1_ASCS
         fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
-        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-1
+        nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started nw1-cl-1
         vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
         rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
     Resource Group: g-NW1_ERS
         fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-0
-        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-0
+        nc_NW1_ERS (ocf::heartbeat:azure-lb):      Started nw1-cl-0
         vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    </code></pre>
@@ -1246,5 +1238,4 @@ Las siguientes pruebas son una copia de los casos de prueba de las guías de pro
 * [Planeamiento e implementación de Azure Virtual Machines para SAP][planning-guide]
 * [Implementación de Azure Virtual Machines para SAP][deployment-guide]
 * [Implementación de DBMS de Azure Virtual Machines para SAP][dbms-guide]
-* Para obtener información sobre cómo establecer la alta disponibilidad y planear la recuperación ante desastres de SAP HANA en Azure (instancias grandes), vea [Alta disponibilidad y recuperación ante desastres de SAP HANA en Azure (instancias grandes)](hana-overview-high-availability-disaster-recovery.md).
 * Para más información sobre cómo establecer la alta disponibilidad y planear la recuperación ante desastres de SAP HANA en Azure Virtual Machines, consulte [Alta disponibilidad de SAP HANA en las máquinas virtuales de Azure][sap-hana-ha].

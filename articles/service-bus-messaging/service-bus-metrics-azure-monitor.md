@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/27/2020
 ms.author: aschhab
-ms.openlocfilehash: 569eb31c6cbe8b95773d52f6e1325801fbabf86f
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 227dfaff211eb60c5c2b25b5c76ecc82b6ce3edc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773545"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240785"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Métricas de Azure Service Bus en Azure Monitor
 
@@ -87,6 +87,13 @@ Los dos tipos de errores siguientes se clasifican como errores de usuario:
 | Mensajes fallidos| Recuento de mensajes fallidos de una cola/tema. <br/><br/> Unidad: Count <br/> Tipo de agregación: Average <br/>Dimensión: EntityName |
 | Mensajes programados| Recuento de mensajes programados de una cola/tema. <br/><br/> Unidad: Count <br/> Tipo de agregación: Average  <br/> Dimensión: EntityName |
 
+> [!NOTE]
+> Los valores de las métricas siguientes son valores de un momento dado. Es posible que los mensajes entrantes que se consumieron inmediatamente después de ese momento dado no se reflejen en estas métricas. 
+> - error de Hadoop
+> - Mensajes activos 
+> - Mensajes fallidos 
+> - Mensajes programados 
+
 ## <a name="connection-metrics"></a>Métricas de conexión
 
 | Nombre de la métrica | Descripción |
@@ -97,6 +104,10 @@ Los dos tipos de errores siguientes se clasifican como errores de usuario:
 
 > [!NOTE] 
 > Estas métricas están disponibles solo con el nivel **Premium**. 
+> 
+> Estas son las métricas importantes que supervisar en busca de posibles interrupciones de un espacio de nombres de nivel Premium: **Uso de CPU por espacio de nombres** y **Uso del tamaño de memoria por espacio de nombres**. [Configure alertas](../azure-monitor/platform/alerts-metric.md) para estas métricas usando Azure Monitor.
+> 
+> La otra métrica que se podría supervisar es: **Solicitudes limitadas**. Con todo, esto no debería ser un problema siempre y cuando el espacio de nombres permanezca dentro de sus límites de memoria, CPU y conexiones desacopladas correspondientes. Para más información, vea [Limitación en el nivel Prémium de Azure Service Bus](service-bus-throttling.md#throttling-in-azure-service-bus-premium-tier).
 
 | Nombre de la métrica | Descripción |
 | ------------------- | ----------------- |

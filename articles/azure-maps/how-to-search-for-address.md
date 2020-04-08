@@ -1,19 +1,19 @@
 ---
 title: Búsqueda de ubicaciones con los servicios Search de Azure Maps | Microsoft Azure Maps
 description: En este artículo, aprenderá a buscar una ubicación utilizando el servicio Search de Microsoft Azure Maps para la geocodificación y la geocodificación inversa.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 01/15/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 40066f24fec00610a1efd10b2cb874b1100acdee
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: cf0e5267885df1ace51271c53bb2d68ee5002f00
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209892"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335425"
 ---
 # <a name="search-for-a-location-using-azure-maps-search-services"></a>Búsqueda de ubicaciones con los servicios Search de Azure Maps
 
@@ -227,5 +227,5 @@ Si tiene un conjunto de direcciones en forma de coordenadas para realizar la geo
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Explore la documentación de la API del [servicio de búsqueda de Azure Maps](https://docs.microsoft.com/rest/api/maps/search).
-- Más información sobre los [procedimientos recomendados](https://docs.microsoft.com/azure/azure-maps/how-to-use-best-practices-for-search).
+- Explore la [documentación de la API de REST del servicio Search](https://docs.microsoft.com/rest/api/maps/search) de Azure Maps.
+- Obtenga información sobre [Procedimientos recomendados del servicio Search de Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-use-best-practices-for-search) y cómo optimizar las consultas.

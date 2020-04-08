@@ -16,12 +16,12 @@ ms.date: 05/21/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a35558b81d064680981bcf403a3584e3a3d00e4f
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: 466e1ce0efbdec3f5475634f3857d02554d93d98
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311747"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80049129"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problema al instalar el conector de agente del proxy de aplicación
 
@@ -48,7 +48,7 @@ Cuando se produce un error en la instalación de un conector, la causa principal
 
 2.  Si alguno de estos puertos no es correcto, compruebe que el firewall o el proxy de back-end tengan acceso a los dominios y puertos necesarios; consulte [Preparación del entorno local](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
 
-3.  Abra un explorador (en otra pestaña), vaya a la siguiente página web: <https://login.microsoftonline.com> y asegúrese de que pueda iniciar sesión en esa página.
+3.  Abra un explorador (en otra pestaña), vaya a la siguiente página web: `https://login.microsoftonline.com` y asegúrese de que pueda iniciar sesión en esa página.
 
 ## <a name="verify-machine-and-backend-components-support-for-application-proxy-trust-cert"></a>Comprobación de que los componentes de máquina y back-end admitan el certificado de confianza del proxy de aplicación
 
@@ -71,7 +71,7 @@ Cuando se produce un error en la instalación de un conector, la causa principal
 
 **Para comprobar que las credenciales sean correctas:**
 
-Conéctese a <https://login.microsoftonline.com> y use las mismas credenciales. Asegúrese de que el inicio de sesión se haya realizado correctamente. Para comprobar el rol de usuario, vaya a **Azure Active Directory** -&gt; **Usuarios y grupos** -&gt; **Todos los usuarios**. 
+Conéctese a `https://login.microsoftonline.com` y use las mismas credenciales. Asegúrese de que el inicio de sesión se haya realizado correctamente. Para comprobar el rol de usuario, vaya a **Azure Active Directory**  -&gt; **Usuarios y grupos** -&gt; **Todos los usuarios**. 
 
 Seleccione su cuenta de usuario y "Rol del directorio" en el menú resultante. Compruebe que el rol seleccionado sea "Administrador de aplicaciones". Si no puede acceder a alguna de las páginas en estos pasos, significa que no tiene el rol necesario.
 

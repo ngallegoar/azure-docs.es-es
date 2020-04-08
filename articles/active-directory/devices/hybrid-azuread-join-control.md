@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6bb57a60b2ed3b39bf83154d3afea88071efbac
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: f43db805ccbb7d4e546c51bbe39350f4bbba2efb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78672417"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80049988"
 ---
 # <a name="controlled-validation-of-hybrid-azure-ad-join"></a>Validación controlada de la unión a Azure AD híbrido
 
@@ -43,7 +43,7 @@ Utilice el Editor de interfaces de servicios de Active Directory (ADSI Edit) par
 1. Inicie la aplicación de escritorio **ADSI Edit** desde una estación de trabajo administrativa o un controlador de dominio como administrador de Enterprise.
 1. Conéctese al **contexto de nomenclatura de configuración** del dominio.
 1. Vaya a **CN = Configuración, DC = contoso, DC = com** > **CN = Servicios** > **CN = Configuración del registro del dispositivo**.
-1. Haga clic con el botón derecho en el objeto de hoja en **CN = Configuración del registro del dispositivo** y seleccione **Propiedades**
+1. Haga clic con el botón derecho en el objeto hoja **CN=62a0ff2e-97b9-4513-943f-0d221bd30080** y seleccione **Propiedades**.
    1. Seleccione **palabras clave** en la ventana del **Editor de atributos** y haga clic en **Editar**.
    1. Seleccione los valores de **azureADId** y **azureADName** (de uno en uno) y haga clic en **Quitar**.
 1. Cierre **Editor ADSI**.

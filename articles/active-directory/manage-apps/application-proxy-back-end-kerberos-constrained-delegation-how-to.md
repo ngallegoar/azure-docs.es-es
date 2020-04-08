@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c5e866f61409960447e17ecb50b035eabd53dc38
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74275692"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Solucionar problemas de las configuraciones de delegación restringida de Kerberos para el proxy de aplicación
@@ -38,7 +38,7 @@ En este artículo se da por supuesto lo siguiente:
 - Los hosts de servidor y aplicación residen en un único dominio de Azure Active Directory. Encontrará información detallada acerca de los escenarios de bosque y entre dominios en las [notas del producto para KCD](https://aka.ms/KCDPaper).
 - La aplicación en cuestión se publica en un inquilino de Azure con la autenticación previa habilitada. Se espera que los usuarios se autentiquen en Azure a través de la autenticación basada en formularios. Los escenarios de autenticación de cliente enriquecidos no se detallan en este artículo. Los agregaremos en el futuro.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Azure AD Application Proxy se puede implementar en varios tipos de infraestructuras o entornos. Las arquitecturas varían de una organización a otra. Las causas más comunes de los problemas relacionados con KCD no son los entornos. Las configuraciones erróneas más simples o los errores generales son los que causan la mayoría de los problemas.
 
@@ -62,7 +62,7 @@ El mejor lugar para colocar los conectores es lo más cerca posible de sus desti
 
 Ambas imágenes muestran el mismo síntoma: un error de SSO. Se denegó el acceso de usuario a la aplicación.
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 El modo de solucionar cada problema depende del mismo problema y de los síntomas observados. Antes de seguir adelante, lea los siguientes artículos. Le proporcionarán información útil para solucionar problemas:
 
@@ -86,7 +86,7 @@ Tal como se mencionó antes, los mensajes de error del explorador suelen proporc
 
 ![Ejemplo: Error de configuración de KCD incorrecta](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic3.png)
 
-Las entradas correspondientes en el registro de eventos se muestran como los eventos 13019 o 12027. Puede encontrar los registros de eventos del conector en **Registros de aplicaciones y servicios** &gt; **Microsoft** &gt; **AadApplicationProxy** &gt; **Conector**&gt;**Administrador**.
+Las entradas correspondientes en el registro de eventos se muestran como los eventos 13019 o 12027. Puede encontrar los registros de eventos del conector en **Registros de aplicaciones y servicios** &gt; **Microsoft** &gt; **AadApplicationProxy** &gt; **Conector** &gt; **Administrador**.
 
 ![Evento 13019 del registro de eventos del proxy de aplicación](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic4.png)
 

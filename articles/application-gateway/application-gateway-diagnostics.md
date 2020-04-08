@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: victorh
-ms.openlocfilehash: 1ddbc8e909c5ba0b720e893e87c0f495d256a886
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: c7b38ad40977e1042032210d3a82a73ff6169adc
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75966922"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411055"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Mantenimiento del back-end y registros de diagnóstico para Application Gateway
 
@@ -91,14 +91,14 @@ El siguiente fragmento de código muestra un ejemplo de la respuesta:
 }
 ```
 
-## <a name="diagnostic-logging"></a>Registros de diagnóstico
+## <a name="diagnostic-logs"></a><a name="diagnostic-logging"></a>Registros de diagnóstico
 
 Puede usar diferentes tipos de registros en Azure para administrar y solucionar problemas de Application Gateway. Se puede acceder a algunos de estos registros mediante el portal. Se pueden extraer todos los registros de Azure Blob Storage y visualizarse en distintas herramientas, como los [registros de Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md), Excel y PowerBI. Puede obtener más información sobre los diferentes tipos de registros en la lista siguiente:
 
 * **Registro de actividades**: se puede usar el [registro de actividades de Azure](../monitoring-and-diagnostics/insights-debugging-with-events.md) (anteriormente conocido como registros operativos y registros de auditoría) para ver todas las operaciones enviadas a la suscripción de Azure, así como su estado. Las entradas del registro de actividades se recopilan de forma predeterminada y se pueden ver en Azure Portal.
-* **Registro de acceso**: Puede usar este registro para ver los patrones de acceso de Application Gateway y analizar información importante. Esto incluye la dirección IP del autor de la llamada, la dirección URL solicitada, la latencia de la respuesta, el código de devolución y los bytes de entrada y salida. El registro de acceso se recopila cada 300 segundos. Este registro contiene un registro por cada instancia de Application Gateway. La instancia de Application Gateway se identifica por la propiedad instanceId.
+* **Registro de acceso**: Puede usar este registro para ver los patrones de acceso de Application Gateway y analizar información importante. Esto incluye la dirección IP del autor de la llamada, la dirección URL solicitada, la latencia de la respuesta, el código de devolución y los bytes de entrada y salida. El registro de acceso se recopila cada 60 segundos. Este registro contiene un registro por cada instancia de Application Gateway. La instancia de Application Gateway se identifica por la propiedad instanceId.
 * **Registro de rendimiento**: este registro se puede usar para ver el rendimiento de las instancias de Application Gateway. Este registro captura la información de rendimiento de cada instancia, incluida la cantidad total de solicitudes atendidas, el rendimiento en bytes, la cantidad de solicitudes con error y el número de instancias de back-end con un mantenimiento correcto o incorrecto. El registro de rendimiento se recopila cada 60 segundos. El registro de rendimiento solo está disponible para la SKU v1. En la SKU v2, use [Métricas](application-gateway-metrics.md) para los datos de rendimiento.
-* **Registro de firewall**: este registro se puede usar para ver las solicitudes que se registran con el modo de detección o prevención de una puerta de enlace de aplicaciones que está configurada con el firewall de aplicaciones web.
+* **Registro de firewall**: este registro se puede usar para ver las solicitudes que se registran con el modo de detección o prevención de una puerta de enlace de aplicaciones que está configurada con el firewall de aplicaciones web. Los registros de firewall se recopilan cada 60 segundos. 
 
 > [!NOTE]
 > Los registros solo están disponibles para los recursos implementados en el modelo de implementación de Azure Resource Manager. No puede usar los registros de recursos del modelo de implementación clásica. Para entender mejor los dos modelos, consulte el artículo [Descripción de la implementación de Resource Manager y la implementación clásica](../azure-resource-manager/management/deployment-models.md) .

@@ -1,34 +1,37 @@
 ---
-title: Uso de puntos de conexión privados con Azure Storage | Microsoft Docs
+title: Usar puntos de conexión privados
+titleSuffix: Azure Storage
 description: Información general de los puntos de conexión privados para el acceso seguro a las cuentas de almacenamiento de redes virtuales.
 services: storage
 author: santoshc
 ms.service: storage
 ms.topic: article
-ms.date: 09/25/2019
+ms.date: 03/12/2020
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 44d8a9e71b0415dc5dc7f5d31441bdc1e2aeb372
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: c51f2db698f30368c9d4090d3d571fa0c131178a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78252645"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79299063"
 ---
-# <a name="using-private-endpoints-for-azure-storage-preview"></a>Uso de puntos de conexión privados para Azure Storage (versión preliminar)
+# <a name="use-private-endpoints-for-azure-storage"></a>Uso de puntos de conexión privados para Azure Storage
 
-Puede usar [puntos de conexión privados](../../private-link/private-endpoint-overview.md) en sus cuentas de Azure Storage para que los clientes de una red virtual (VNet) puedan acceder de forma segura a los datos a través de un [vínculo privado](../../private-link/private-link-overview.md). El punto de conexión privado usa una dirección IP del espacio de direcciones de la red virtual para el servicio de la cuenta de almacenamiento. El tráfico de red entre los clientes de la red virtual y la cuenta de almacenamiento atraviesa la red virtual y un vínculo privado de la red troncal de Microsoft, lo que elimina la exposición a la red pública de Internet.
+Puede usar [puntos de conexión privados](../../private-link/private-endpoint-overview.md) en sus cuentas de Azure Storage para que los clientes de una red virtual (VNet) puedan acceder de forma segura a los datos a través de una instancias de [Private Link](../../private-link/private-link-overview.md). El punto de conexión privado usa una dirección IP del espacio de direcciones de la red virtual para el servicio de la cuenta de almacenamiento. El tráfico de red entre los clientes de la red virtual y la cuenta de almacenamiento atraviesa la red virtual y un vínculo privado de la red troncal de Microsoft, lo que elimina la exposición a la red pública de Internet.
 
 El uso de puntos de conexión privados en una cuenta de almacenamiento permite:
+
 - Proteger la cuenta de almacenamiento mediante la configuración del firewall de almacenamiento para que bloquee todas las conexiones del punto de conexión público del servicio de almacenamiento.
 - Aumentar la seguridad de la red virtual (VNet), ya que permite bloquear la filtración de datos de la red virtual.
 - Conectarse de forma segura a las cuentas de almacenamiento desde las redes locales que se conectan a la red virtual mediante [VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md) o [ExpressRoute](../../expressroute/expressroute-locations.md) con emparejamiento privado.
 
 ## <a name="conceptual-overview"></a>Información general conceptual
-![Puntos de conexión privados para Azure Storage](media/storage-private-endpoints/storage-private-endpoints-overview.jpg)
 
-Un punto de conexión privado es una interfaz de red especial para un servicio de Azure de una [red virtual](../../virtual-network/virtual-networks-overview.md) (VNet). Cuando se crea un punto de conexión privado para una cuenta de almacenamiento, este proporciona conectividad segura entre los clientes de la red virtual y el almacenamiento. Al punto de conexión privado se le asigna una dirección IP del intervalo de direcciones IP de la red virtual. La conexión entre el punto de conexión privado y el servicio de almacenamiento usa un vínculo privado seguro.
+![Información general de los puntos de conexión privados para Azure Storage](media/storage-private-endpoints/storage-private-endpoints-overview.jpg)
+
+Un punto de conexión privado es una interfaz de red especial para un servicio de Azure de una [red virtual](../../virtual-network/virtual-networks-overview.md). Cuando se crea un punto de conexión privado para una cuenta de almacenamiento, este proporciona conectividad segura entre los clientes de la red virtual y el almacenamiento. Al punto de conexión privado se le asigna una dirección IP del intervalo de direcciones IP de la red virtual. La conexión entre el punto de conexión privado y el servicio de almacenamiento usa un vínculo privado seguro.
 
 Las aplicaciones de la red virtual se pueden conectar al servicio de almacenamiento a través del punto de conexión privado sin problemas, **ya que se usan las mismas cadenas de conexión y mecanismos de autorización que se usarían en cualquier otro caso**. Los puntos de conexión privados se pueden usar con todos los protocolos que admita la cuenta de almacenamiento, incluidos REST y SMB.
 
@@ -43,7 +46,7 @@ Los propietarios de cuentas de almacenamiento pueden administrar las solicitudes
 
 Puede proteger la cuenta de almacenamiento para que acepte solo las conexiones que provengan de la red virtual. Para ello, debe [configurar el firewall de almacenamiento](storage-network-security.md#change-the-default-network-access-rule) para que, de forma predeterminada, deniegue el acceso a través de su punto de conexión. Para permitir el tráfico de una red virtual que tenga un punto de conexión privado no se necesita ninguna regla de firewall, ya que el firewall de almacenamiento solo controla el acceso a través del punto de conexión privado. En su lugar, los puntos de conexión privados usan el flujo de consentimiento para conceder el acceso de las subredes al servicio de almacenamiento.
 
-### <a name="private-endpoints-for-storage-service"></a>Punto de conexión privado de un servicio de almacenamiento
+### <a name="private-endpoints-for-azure-storage"></a>Puntos de conexión privados para Azure Storage
 
 Al crear el punto de conexión privado, debe especificar la cuenta de almacenamiento y el servicio de almacenamiento al que se conecta. Necesita un punto de conexión privado independiente para cada servicio de almacenamiento de la cuenta de almacenamiento a la que necesite acceder, a saber, [Blobs](../blobs/storage-blobs-overview.md), [Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md), [Files](../files/storage-files-introduction.md), [Queues](../queues/storage-queues-introduction.md), [Tables](../tables/table-storage-overview.md) o [Static Websites](../blobs/storage-blob-static-website.md).
 
@@ -51,8 +54,6 @@ Al crear el punto de conexión privado, debe especificar la cuenta de almacenami
 > Cree un punto de conexión privado independiente para la instancia secundaria del servicio de almacenamiento para mejorar el rendimiento de lectura en las cuentas de almacenamiento con redundancia geográfica con acceso de lectura.
 
 Para obtener acceso de lectura a la región secundaria con una cuenta de almacenamiento configurada para el almacenamiento con redundancia geográfica se necesitan puntos de conexión privados para las instancias principal y secundaria del servicio. No es preciso crear un punto de conexión privado para la instancia secundaria para la **conmutación por error**. El punto de conexión privado se conectará automáticamente a la nueva instancia principal después de la conmutación por error. Para más información sobre las opciones de redundancia de almacenamiento, consulte [Redundancia de Azure Storage](storage-redundancy.md).
-
-#### <a name="resources"></a>Recursos
 
 Para obtener información más detallada sobre la creación de un punto de conexión privado para la cuenta de almacenamiento, consulte los siguientes artículos:
 
@@ -111,8 +112,6 @@ Los nombres de zona DNS recomendados para los puntos de conexión privados de lo
 | Table service          | `privatelink.table.core.windows.net` |
 | Static Websites        | `privatelink.web.core.windows.net`   |
 
-#### <a name="resources"></a>Recursos
-
 Para más información sobre cómo configurar su propio servidor DNS para que admita puntos de conexión privados, consulte los siguientes artículos:
 
 - [Resolución de nombres de recursos en redes virtuales de Azure](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
@@ -124,16 +123,23 @@ Para más información sobre los precios, consulte [Precios de Azure Private Lin
 
 ## <a name="known-issues"></a>Problemas conocidos
 
+Tenga en cuenta los siguientes problemas conocidos relacionados con los puntos de conexión privados para Azure Storage.
+
 ### <a name="copy-blob-support"></a>Compatibilidad de Copy Blob
 
-Durante la versión preliminar, no se admiten los comandos [Copy Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) emitidos para las cuentas de almacenamiento a las que se accede a través de puntos de conexión privados cuando la cuenta de almacenamiento de origen está protegida mediante un firewall.
+Si la cuenta de almacenamiento está protegida por un firewall y se tiene acceso a la cuenta a través de puntos de conexión privados, esa cuenta no puede servir como origen de una operación de [copia de blobs](/rest/api/storageservices/copy-blob).
 
 ### <a name="storage-access-constraints-for-clients-in-vnets-with-private-endpoints"></a>Restricciones de acceso al almacenamiento para los clientes de redes virtuales con puntos de conexión privados
 
-Los clientes de redes virtuales con puntos de conexión privados existentes se enfrentan a ciertas restricciones al acceder a otras cuentas de almacenamiento que tienen puntos de conexión privados. Por ejemplo, imagine que la red virtual N1 tiene un punto de conexión privado para una cuenta de almacenamiento A1 para, por ejemplo, Blob service. Si la cuenta de almacenamiento A2 tiene un punto de conexión privado en una red virtual N2 para Blob service, los clientes de la red virtual N1 también deben acceder a la instancia de Blob service de la cuenta A2 mediante un punto de conexión privado. Si la cuenta de almacenamiento A2 no tiene puntos de conexión privados para Blob service, los clientes de la red virtual N1 pueden acceder a su instancia de Blob service sin ningún punto de conexión privado.
+Los clientes de redes virtuales con puntos de conexión privados existentes se enfrentan a ciertas restricciones al acceder a otras cuentas de almacenamiento que tienen puntos de conexión privados. Por ejemplo, imagine que la red virtual N1 tiene un punto de conexión privado para una cuenta de almacenamiento A1 para el almacenamiento de blobs. Si la cuenta de almacenamiento A2 tiene un punto de conexión privado en una red virtual N2 para el almacenamiento de blobs, los clientes de la red virtual N1 también deben acceder a al almacenamiento de blobs de la cuenta A2 mediante un punto de conexión privado. Si la cuenta de almacenamiento A2 no tiene puntos de conexión privados para el almacenamiento de blobs, los clientes de la red virtual N1 pueden acceder al almacenamiento de blobs sin ningún punto de conexión privado.
 
 Esta restricción es el resultado de los cambios de DNS realizados cuando la cuenta A2 crea un punto de conexión privado.
 
 ### <a name="network-security-group-rules-for-subnets-with-private-endpoints"></a>Reglas de grupo de seguridad de red para subredes con puntos de conexión privados
 
 Actualmente, no se pueden configurar reglas de [grupo de seguridad de red](../../virtual-network/security-overview.md) (NSG) ni rutas definidas por el usuario para puntos de conexión privados. Las reglas de NSG que se aplican a la subred que hospeda el punto de conexión privado se aplican al punto de conexión privado. Una solución alternativa limitada para este problema es implementar las reglas de acceso para los puntos de conexión privados en las subredes de origen, aunque este enfoque puede requerir mayor sobrecarga de administración.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+- [Configuración de redes virtuales y firewalls de Azure Storage](storage-network-security.md)
+- [Recomendaciones de seguridad para Blob Storage](../blobs/security-recommendations.md)

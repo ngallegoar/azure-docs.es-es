@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 9849e8ab918562267e93506771a4c32cf96533a4
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 95e220102cba290664a32cb6bbebef881ae4ffde
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76544946"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80159496"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Solución de problemas de Azure File en Linux
 
@@ -287,6 +287,14 @@ Pero es posible que estos cambios todavía no se migren a todas las distribucion
 Una solución alternativa para este problema es especificar un montaje forzado. Un montaje forzado obliga al cliente a esperar hasta que se establece una conexión o hasta que se interrumpe explícitamente. Puede usarlo para evitar errores provocados por los tiempos de espera de la red. Sin embargo, esta solución alternativa puede provocar esperas indefinidas. Esté preparado para detener las conexiones según sea necesario.
 
 Si no puede actualizar a las versiones más recientes del kernel, puede solucionar este problema manteniendo un archivo en el recurso compartido de archivos de Azure en el que se escribe cada 30 segundos o menos. Esta debe ser una operación de escritura, como volver a escribir la fecha de creación o modificación en el archivo. De lo contrario, podría obtener resultados almacenados en caché y la operación podría no desencadenar la reconexión.
+
+## <a name="cifs-vfs-error--22-on-ioctl-to-get-interface-list-when-you-mount-an-azure-file-share-by-using-smb-30"></a>Error "CIFS VFS: error -22 on ioctl to get interface list" al montar un recurso compartido de archivos de Azure por medio de SMB 3.0
+
+### <a name="cause"></a>Causa
+Este error se registra porque Azure Files [no admite SMB multicanal actualmente](https://docs.microsoft.com/rest/api/storageservices/features-not-supported-by-the-azure-file-service).
+
+### <a name="solution"></a>Solución
+Se puede omitir este error.
 
 ## <a name="need-help-contact-support"></a>¿Necesita ayuda? Póngase en contacto con el servicio de soporte técnico.
 

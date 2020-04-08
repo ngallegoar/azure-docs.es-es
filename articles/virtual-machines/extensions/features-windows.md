@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4eb212cb6122803f78b13e6c17a55bac5bc48286
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: cd6439bf1b1f52b8e63819e8e519fc4971d1bc2a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587879"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80066852"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Características y extensiones de las máquinas virtuales para Windows
 
@@ -353,7 +353,7 @@ Cada extensión de máquina virtual puede tener unos pasos de solución de probl
 
 Los pasos de solución de problemas siguientes se aplican a todas las extensiones de máquina virtual.
 
-1. Para comprobar el registro de Windows Guest Agent, examine la actividad cuando la extensión se aprovisionó en *C:\WindowsAzure\Logs\WaAppAgent.txt*
+1. Para comprobar el registro de Windows Guest Agent, examine la actividad cuando la extensión se aprovisionó en *C:\WindowsAzure\Logs\WaAppAgent.log*.
 
 2. Revise los registros reales de la extensión para ver más detalles en *C:\WindowsAzure\Logs\Plugins\<NombreDeLaExtensión>*
 

@@ -1,17 +1,17 @@
 ---
-title: Creación de informes interactivos Azure Monitor para VM con libros | Microsoft Docs
+title: Creación de informes interactivos Azure Monitor para VM con libros
 description: Simplifique la creación de informes complejos con libros parametrizados predefinidos y personalizados de Azure Monitor para VM.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/15/2019
-ms.openlocfilehash: 7ec24f1eca0b2cf1d5ea2c171573f7c5e47319af
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.date: 03/12/2020
+ms.openlocfilehash: a6ab126c3a5b0d2a82b17fac42dcc9e20f6aba3f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77670685"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79480460"
 ---
 # <a name="create-interactive-reports-azure-monitor-for-vms-with-workbooks"></a>Creación de informes interactivos Azure Monitor para VM con libros
 
@@ -24,7 +24,7 @@ Los libros son útiles en escenarios como los siguientes:
 * Compartir los resultados de un experimento de cambio de tamaño de la máquina virtual con otros miembros del equipo. Puede explicar los objetivos del experimento con texto y luego mostrar cada métrica de utilización y las consultas de análisis que se usan para evaluar el experimento, junto con indicadores claros sobre si cada métrica está por encima o por debajo del objetivo.
 * Notificar el impacto de una interrupción del servicio en la utilización de la máquina virtual, con la combinación de datos, explicación del texto y análisis de los pasos siguientes para evitar más interrupciones en el futuro.
 
-Azure Monitor para VM incluye varios libros para ayudarle a empezar y todos ellos se resumen en la tabla siguiente.
+En la tabla siguiente se resumen los libros que incluye Azure Monitor para VM para ayudarle a empezar.
 
 | Libro | Descripción | Ámbito |
 |----------|-------------|-------|
@@ -40,7 +40,7 @@ Azure Monitor para VM incluye varios libros para ayudarle a empezar y todos ello
 | Rendimiento | Proporciona una versión personalizable de la Vista de rendimiento que aprovecha todos los contadores de rendimiento de Log Analytics que se han habilitado. | Máquina virtual única | 
 | Conexiones | Las conexiones ofrecen una visión detallada de las conexiones entrantes y salientes de las máquinas virtuales. | Máquina virtual única |
  
-## <a name="starting-with-a-template-or-saved-workbook"></a>Uso de una plantilla o libro guardado para empezar
+## <a name="creating-a-new-workbook"></a>Creación de un libro
 
 Un libro se compone de secciones que constan de tablas, texto, controles de entrada y gráficos que se pueden editar de forma independientemente. Para entender mejor los libros, empecemos por abrir una plantilla para recorrer la creación de un libro personalizado. 
 
@@ -50,25 +50,21 @@ Un libro se compone de secciones que constan de tablas, texto, controles de entr
 
 3. En la lista, seleccione una máquina virtual.
 
-4. En la página de la VM, en la sección **Supervisión**, seleccione **Insights (versión preliminar)** .
+4. En la página de la máquina virtual, en la sección **Supervisión**, seleccione **Insights**.
 
-5. En la página de conclusiones de la máquina virtual, seleccione la pestaña de **Rendimiento** o de **Mapas** y luego seleccione **Ver libros** en el vínculo en la página. 
-
-    ![Captura de pantalla de navegación a los libros](media/vminsights-workbooks/workbook-option-01.png)
-
-6. En la lista desplegable, seleccione **Ir a la galería** en la parte inferior de la lista.
+5. En la página de conclusiones de la máquina virtual, seleccione la pestaña de **Rendimiento** o de **Mapas** y luego seleccione **Ver libros** en el vínculo en la página. En la lista desplegable, seleccione **Ir a la galería**.
 
     ![Captura de pantalla de la lista desplegable de un libro.](media/vminsights-workbooks/workbook-dropdown-gallery-01.png)
 
-    Se inicia la galería de libros con varios libros compilados previamente que le ayudarán a empezar a trabajar.
+    Se inicia la galería de libros con varios libros pregenerados que le ayudarán a empezar a trabajar.
 
-7. Comenzaremos con la **Plantilla predeterminada**, que se encuentra en el encabezado **Inicio rápido**.
+7. Para crear un libro, seleccione **Nuevo**.
 
     ![Captura de pantalla de la galería de libros](media/vminsights-workbooks/workbook-gallery-01.png)
 
 ## <a name="editing-workbook-sections"></a>Edición de las secciones del libro
 
-Los libros tienen dos modos: **modo de edición** y **modo de lectura**. Cuando se inicia por primera vez el libro de la plantilla predeterminada, se abre en **modo de edición**. Se muestra todo el contenido del libro, incluidos los pasos y los parámetros que se encuentran ocultos. El **modo de lectura** presenta una vista simplificada de estilo del informe. El modo de lectura permite reducir la complejidad que conlleva la creación de un informe, a la vez que se puede acceder a la mecánica subyacente con tan solo unos clics cuando la necesita para realizar modificaciones.
+Los libros tienen dos modos: **modo de edición** y **modo de lectura**. Cuando se inicia por primera vez un libro, se abre en **modo de edición**. Se muestra todo el contenido del libro, incluidos los pasos y los parámetros que se encuentran ocultos. El **modo de lectura** presenta una vista simplificada de estilo del informe. El modo de lectura permite reducir la complejidad que conlleva la creación de un informe, a la vez que se puede acceder a la mecánica subyacente con tan solo unos clics cuando la necesita para realizar modificaciones.
 
 ![Controles de edición de la sección de libros de Azure Monitor para VM](media/vminsights-workbooks/workbook-new-workbook-editor-01.png)
 

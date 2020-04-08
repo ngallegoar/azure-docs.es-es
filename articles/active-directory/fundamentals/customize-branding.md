@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: ajburnle
 ms.reviewer: kexia
-ms.custom: fasttrack-edit
+ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea0bc131f7eb3fc66f3b024b4c9902f8c73f9a7d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 441fdd14cc2c734b6ce532f3ad1d30663b2f56c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422833"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80049791"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Incorporación de la personalización de marca en la página de inicio de sesión de Azure Active Directory de la organización
 Use el logotipo de la organización y combinaciones de colores personalizadas para proporcionar un aspecto coherente en las páginas de inicio de sesión de Azure Active Directory (Azure AD). Las páginas de inicio de sesión aparecen cuando los usuarios inician sesión en las aplicaciones web de su organización, como Office 365, que usan Azure AD como proveedor de identidades.
@@ -27,7 +27,7 @@ Use el logotipo de la organización y combinaciones de colores personalizadas pa
 >Para agregar personalización de marca, es necesario usar las ediciones de Azure Active Directory Premium 1, Premium 2 o Basic, o bien tener una licencia de Office 365. Para obtener más información acerca de las ediciones y licencias, consulte [Suscripción a Azure AD Premium](active-directory-get-started-premium.md).<br><br>Las ediciones Azure AD Premium y Basic están disponibles para los clientes de China que utilizan la instancia de Azure Active Directory en todo el mundo. Las ediciones Azure AD Premium y Basic no se admiten actualmente en el servicio de Azure administrado por 21Vianet en China. Para más información, póngase en contacto con nosotros en el [foro de Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 ## <a name="customize-your-azure-ad-sign-in-page"></a>Personalización de la página de inicio de sesión de Azure AD
-Puede personalizar las páginas de inicio de sesión de Azure AD, que aparecen cuando los usuarios inician sesión en aplicaciones específicas del inquilino de la organización, como [ *https://outlook.com/contoso.com* ](https://outlook.com/contoso.com), o al pasar una variable de dominio, como [ *https://passwordreset.microsoftonline.com/?whr=contoso.com* ](https://passwordreset.microsoftonline.com/?whr=contoso.com).
+Puede personalizar las páginas de inicio de sesión de Azure AD. Estas páginas aparecen cuando los usuarios inician sesión en aplicaciones específicas del inquilino de la organización, como `https://outlook.com/contoso.com`, o al pasar una variable de dominio, como `https://passwordreset.microsoftonline.com/?whr=contoso.com`.
 
 La personalización de marca no aparecerá inmediatamente cuando los usuarios tengan acceso a sitios como www\.office.com. En su lugar, el usuario tiene que iniciar sesión para que aparezca la personalización de marca. Una vez que el usuario ha iniciado sesión, la personalización de marca puede tardar 15 minutos o más en aparecer. 
 
@@ -70,11 +70,11 @@ La personalización de marca no aparecerá inmediatamente cuando los usuarios te
 
         - **Color de fondo de la página de inicio de sesión**. Especifique el color hexadecimal (por ejemplo, el blanco es #FFFFFF) que aparecerá en lugar de la imagen de fondo en situaciones de conexión de ancho de banda bajo. Se recomienda usar el color principal del logotipo del banner o el color de la organización.
 
-        - **Imagen de logotipo cuadrado**. Seleccione una imagen .png (formato preferido) o .jpg del logotipo de la organización para mostrar a los usuarios durante el proceso de configuración de los nuevos dispositivos Windows 10 Enterprise. Esta imagen se utiliza únicamente para la autenticación de Windows y aparece solo en inquilinos que usan [Windows Autopilot]( https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) para la implementación o para páginas de entrada de contraseñas en otras experiencias de Windows 10. En algunos casos también pueden aparecer en el cuadro de diálogo de consentimiento.
+        - **Imagen de logotipo cuadrado**. Seleccione una imagen .png (formato preferido) o .jpg del logotipo de la organización para mostrársela a los usuarios durante el proceso de configuración de los nuevos dispositivos Windows 10 Enterprise. Esta imagen se utiliza únicamente para la autenticación de Windows y aparece solo en inquilinos que usan [Windows Autopilot]( https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) para la implementación o para páginas de entrada de contraseñas en otras experiencias de Windows 10. En algunos casos también pueden aparecer en el cuadro de diálogo de consentimiento.
         
-            La imagen no puede tener más de 240 x 240 píxeles de tamaño y debe tener un tamaño de archivo inferior a 10 KB. Se recomienda usar una imagen transparente, ya que el fondo podría no coincidir con el fondo del logotipo. También se recomienda no agregar relleno alrededor de la imagen, ya que podría reducir la apariencia del logotipo.
+            La imagen no puede tener más de 240 x 240 píxeles de tamaño y el tamaño de archivo debe ser inferior a 10 KB. Se recomienda usar una imagen transparente, ya que el fondo podría no coincidir con el fondo del logotipo. También se recomienda no agregar relleno alrededor de la imagen, ya que podría reducir la apariencia del logotipo.
     
-        - **Logotipo cuadrado, tema oscuro**. Igual que la imagen de logotipo cuadrado anterior. Esta imagen de logotipo ocupa el lugar de la imagen de logotipo cuadrado cuando se usa con un fondo oscuro, como con las pantallas unidas a Azure AD de Windows 10 en la configuración rápida (OOBE).  Si el logotipo se ve bien en fondos blancos y en fondos de color azul oscuro o negro, no es necesario agregar esta imagen. 
+        - **Logotipo cuadrado, tema oscuro**. Igual que la imagen de logotipo cuadrado anterior. Esta imagen de logotipo ocupa el lugar de la imagen de logotipo cuadrado cuando se usa con un fondo oscuro, como con las pantallas unidas a Azure AD de Windows 10 en la configuración rápida (OOBE).  Si el logotipo se ve bien en un fondo blanco, azul oscuro o negro, no es necesario agregar esta imagen. 
         
         - **Visualización de la opción para seguir conectado**. Puede optar por permitir que los usuarios permanezcan con la sesión iniciada en Azure AD hasta que cierren sesión explícitamente. Si elige **No**, esta opción se oculta y los usuarios deberán iniciar sesión cada vez que el explorador se cierre y se vuelva a abrir.
         
@@ -130,9 +130,9 @@ Agregue la personalización de marca personalizada a páginas mediante la modifi
 **Ejemplos:**
 
 **Dirección URL original:** https://aka.ms/MFASetup<br>
-**Dirección URL personalizada:** https://account.activedirectory.windowsazure.com/proofup.aspx?whr=contoso.com
+**Dirección URL personalizada:** `https://account.activedirectory.windowsazure.com/proofup.aspx?whr=contoso.com`
 
 **Dirección URL original:** https://aka.ms/SSPR<br>
-**Dirección URL personalizada:** https://passwordreset.microsoftonline.com/?whr=contoso.com
+**Dirección URL personalizada:** `https://passwordreset.microsoftonline.com/?whr=contoso.com`
 
  

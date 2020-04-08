@@ -7,18 +7,18 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 5edc2e5228146aee913027a83e495d94c003e237
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 0e58d9ecfbd0731fc9bf91664763e73d8c56e64a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74047330"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294764"
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-cli"></a>Creación de una puerta de enlace de aplicaciones con hospedaje de varios sitios mediante la CLI de Azure
 
-Puede usar la CLI de Azure para configurar el [hospedaje de varios sitios web](application-gateway-multi-site-overview.md) cuando se crea una [puerta de enlace de aplicaciones](application-gateway-introduction.md). En este tutorial, creará grupos de back-end mediante conjuntos de escalado de máquinas virtuales. Después, configurará agentes de escucha y reglas basados en los dominios que posee para asegurarse de que el tráfico web llega a los servidores adecuados en los grupos. En este tutorial se da por supuesto que posee varios dominios y se van a utilizar los ejemplos de *www.contoso.com* y *www.fabrikam.com*.
+Puede usar la CLI de Azure para configurar el [hospedaje de varios sitios web](application-gateway-multi-site-overview.md) cuando se crea una [puerta de enlace de aplicaciones](application-gateway-introduction.md). En este tutorial, creará grupos de back-end mediante conjuntos de escalado de máquinas virtuales. Después, configurará agentes de escucha y reglas basados en los dominios que posee para asegurarse de que el tráfico web llega a los servidores adecuados en los grupos. En este tutorial se da por hecho que posee varios dominios, y se usan ejemplos de `www.contoso.com` y `www.fabrikam.com`.
 
-En este artículo, aprenderá a:
+En este artículo aprenderá a:
 
 > [!div class="checklist"]
 > * Configuración de la red
@@ -133,7 +133,7 @@ az network application-gateway http-listener create \
   --host-name www.fabrikam.com   
   ```
 
-### <a name="add-routing-rules"></a>Adición de reglas de enrutamiento
+### <a name="add-routing-rules"></a>Incorporación de reglas de enrutamiento
 
 Las reglas se procesan en el orden en el que se crean y el tráfico se dirige mediante la primera regla que coincida con la dirección URL que se envía a la puerta de enlace de aplicaciones. Por ejemplo, si tiene una regla que usa un agente de escucha básico y una regla que usa un agente de escucha multisitio en el mismo puerto, la regla con el agente de escucha multisitio debe aparecer antes que la regla con el agente de escucha básico para que la regla multisitio funcione según lo previsto. 
 
@@ -208,7 +208,7 @@ done
 
 ## <a name="create-a-cname-record-in-your-domain"></a>Creación de un registro CNAME en el dominio
 
-Después de crear la puerta de enlace de aplicaciones con su dirección IP pública, puede obtener la dirección DNS y usarla para crear un registro CNAME en el dominio. Para obtener la dirección DNS de la puerta de enlace de aplicaciones, puede usar [az network public-ip show](/cli/azure/network/public-ip). Copie el valor de *fqdn* de DNSSettings y úselo como valor del registro CNAME que creó. 
+Después de crear la puerta de enlace de aplicaciones con la dirección IP pública, puede obtener la dirección DNS y usarla para crear un registro CNAME en el dominio. Para obtener la dirección DNS de la puerta de enlace de aplicaciones, puede usar [az network public-ip show](/cli/azure/network/public-ip). Copie el valor de *fqdn* de DNSSettings y úselo como valor del registro CNAME que creó. 
 
 ```azurecli-interactive
 az network public-ip show \
@@ -232,7 +232,7 @@ Cambie la dirección al otro dominio. Debería ver algo parecido al ejemplo sigu
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió lo siguiente:
+En este tutorial, ha aprendido a:
 
 > [!div class="checklist"]
 > * Configuración de la red

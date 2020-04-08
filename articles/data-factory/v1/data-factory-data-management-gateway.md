@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 9d86fa9bfe9c17867b8a30519b79d9ee8c5af363
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 1340c205477b256e3d96ff7ccacb64e575725c2c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78358584"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80065402"
 ---
 # <a name="data-management-gateway"></a>Data Management Gateway
 > [!NOTE]
@@ -326,7 +326,7 @@ En la página Configuración puede hacer las siguientes acciones:
 * Ver, modificar y exportar el **certificado** usado por la puerta de enlace. Este certificado se utiliza para cifrar las credenciales de orígenes de datos.
 * Cambiar el **puerto HTTPS** del punto de conexión. La puerta de enlace abre un puerto para establecer las credenciales del origen de datos.
 * **estado** del punto de conexión
-* El **certificado SSL** de visualización se utiliza para establecer la comunicación SSL entre el portal y la puerta de enlace con el fin de establecer credenciales para los orígenes de datos.
+* El **certificado SSL** de visualización se usar para establecer la comunicación TLS/SSL entre el portal y la puerta de enlace con el fin de establecer credenciales para los orígenes de datos.
 
 ### <a name="remote-access-from-intranet"></a>Acceso remoto desde la intranet
 Esta funcionalidad estará disponible en el futuro. En las próximas actualizaciones (v3.4 o posterior), podrá habilitar o deshabilitar cada una de las conectividades remota que actualmente tienen lugar a través del puerto 8050 (consulte la sección anterior) y utilizar al mismo tiempo PowerShell o la aplicación Administrador de credenciales para cifrar las credenciales.

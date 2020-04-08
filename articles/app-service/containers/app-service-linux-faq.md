@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 2413601db629fda62976b75e349b0340749dc6fa
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: f0a8b1758571a9473402d11a4d5141a11f76504d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78944083"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80245827"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Peguntas más frecuentes sobre Azure App Service en Linux
 
@@ -35,7 +35,7 @@ Puede encontrar todos los archivos de Docker en [GitHub](https://github.com/azur
 | Java SE         | Comando para iniciar la aplicación JAR (por ejemplo, `java -jar /home/site/wwwroot/app.jar --server.port=80`) |
 | Tomcat          | Ubicación de un script para realizar las configuraciones necesarias (por ejemplo, `/home/site/deployments/tools/startup_script.sh`)          |
 | Node.js         | Archivo de configuración de PM2 o el archivo de script.                                |
-| .Net Core       | Nombre del archivo DLL compilado como `dotnet <myapp>.dll`.                                 |
+| .NET Core       | Nombre del archivo DLL compilado como `dotnet <myapp>.dll`.                                 |
 | Ruby            | Script de Ruby con el que quiere inicializar la aplicación.                     |
 
 Estos comandos o scripts se ejecutan después de que se inicie el contenedor de Docker integrado, pero antes de que se inicie el código de la aplicación.
@@ -56,7 +56,7 @@ Sí, puede hacerlo a través del sitio de administración de control de código 
 
 **¿Cómo se puede crear un plan de App Service en Linux a través de un SDK o una plantilla de Azure Resource Manager?**
 
-Debe establecer el campo **reservado** del servicio de aplicación en *true*.
+Establezca el campo **reservado** del servicio de aplicación en *true*.
 
 ## <a name="continuous-integration-and-deployment"></a>Integración e implementación continuas
 
@@ -76,7 +76,7 @@ Sí, es necesario establecer un valor de la aplicación llamado `WEBSITE_WEBDEPL
 
 Si se produce un error en la implementación de Git en la aplicación web de Linux, puede elegir una de las opciones siguientes para implementar el código de aplicación:
 
-- Característica de entrega continua (versión preliminar): puede almacenar el código fuente de la aplicación en un repositorio de Git de Azure DevOps o en un repositorio de GitHub para usar la entrega continua de Azure. Para más información, consulte la publicación [How to configure Continuous Delivery for Linux web app](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/) (Configuración de entrega continua para aplicaciones web de Linux).
+- Característica de entrega continua (versión preliminar): el código fuente de la aplicación se puede almacenar en un repositorio de Git de Azure DevOps o en un repositorio de GitHub para usar la entrega continua de Azure. Para más información, consulte la publicación [How to configure Continuous Delivery for Linux web app](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/) (Configuración de entrega continua para aplicaciones web de Linux).
 
 - [ZIP deploy API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): para usar esta API, [use SSH en la aplicación web](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support) y vaya a la carpeta en la que desea implementar el código. Ejecute el código siguiente:
 
@@ -173,11 +173,19 @@ Estas son las reglas para determinar qué contenedor es accesible, en el orden d
 - El primer contenedor para definir el puerto 80 u 8080
 - Si ninguna de las opciones anteriores es true, el primer contenedor definido en el archivo será accesible (expuesto)
 
+
+## <a name="web-sockets"></a>Web Sockets
+
+Los sockets web se admiten en aplicaciones Linux.
+
+> [!IMPORTANT]
+> Actualmente, los sockets web no se admiten en aplicaciones Linux en planes de App Service gratuito. Estamos trabajando para acabar con esta limitación y está previsto admitir hasta 5 conexiones de socket web en planes de App Service gratuito.
+
 ## <a name="pricing-and-sla"></a>Precios y contrato de nivel de servicio
 
 **¿Cuál es el precio ahora que el servicio está disponible con carácter general?**
 
-Se le cobrará el número de horas que se ejecute la aplicación, con los precios normales de Azure App Service.
+Los precios varían según la SKU y la región, pero puede ver más detalles en nuestra página de precios: [Precios de App Service](https://azure.microsoft.com/pricing/details/app-service/linux/)
 
 ## <a name="other-questions"></a>Otras preguntas
 

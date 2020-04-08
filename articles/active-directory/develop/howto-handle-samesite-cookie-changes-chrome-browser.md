@@ -14,12 +14,12 @@ ms.date: 01/27/2020
 ms.author: jmprieur
 ms.reviewer: kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: 8fc1fab89a89fbf7e20414f292a1b02f77ac7907
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 056b787bbbcde6ba7f9510043deabdcf85ac7467
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76776093"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80050520"
 ---
 # <a name="handle-samesite-cookie-changes-in-chrome-browser"></a>Control de los cambios de cookies de SameSite en el explorador Chrome
 
@@ -36,7 +36,7 @@ De forma predeterminada, el valor de la propiedad `SameSite` no está establecid
 
 [Actualizaciones recientes de los estándares de SameSite](https://tools.ietf.org/html/draft-west-cookie-incrementalism-00) proponen proteger las aplicaciones al configurar `SameSite` como Lax de forma predeterminada cuando no se haya establecido ningún valor. Esta mitigación significa que las cookies se restringirán en las solicitudes HTTP (a excepción de las solicitudes GET) que se realicen desde otros sitios. Además, se introduce un valor **None** para quitar las restricciones de las cookies que se envían. Estas actualizaciones se publicarán pronto en una versión próxima del explorador Chrome.
 
-Cuando las aplicaciones web se autentican con la plataforma de identidad de Microsoft mediante el modo de respuesta "form_post", el servidor de inicio de sesión responde a estas con una solicitud HTTP POST para enviar los tokens o el código de autenticación. Dado que esta es una solicitud entre dominios (de `login.microsoftonline.com` a su dominio; por ejemplo https://contoso.com/auth), las cookies que ha establecido la aplicación ahora se rigen por las nuevas reglas de Chrome. Las cookies que deben usarse en escenarios entre sitios contienen los valores *state* y *nonce*, que también se envían en la solicitud de inicio de sesión. Azure AD genera otras cookies para almacenar la sesión.
+Cuando las aplicaciones web se autentican con la plataforma de identidad de Microsoft mediante el modo de respuesta "form_post", el servidor de inicio de sesión responde a estas con una solicitud HTTP POST para enviar los tokens o el código de autenticación. Dado que esta es una solicitud entre dominios (de `login.microsoftonline.com` a su dominio; por ejemplo, `https://contoso.com/auth`), las cookies que se establecieron en la aplicación ahora se rigen por las nuevas reglas de Chrome. Las cookies que deben usarse en escenarios entre sitios contienen los valores *state* y *nonce*, que también se envían en la solicitud de inicio de sesión. Azure AD genera otras cookies para almacenar la sesión.
 
 Si no actualiza las aplicaciones web, este nuevo comportamiento generará errores de autenticación.
 
@@ -48,7 +48,7 @@ Por eso, para admitir la autenticación en varios exploradores, las aplicaciones
 
 Esta estrategia se muestra en los siguientes ejemplos de código.
 
-# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
+# <a name="net"></a>[.NET](#tab/dotnet)
 
 En la tabla siguiente se muestran las solicitudes de incorporación de cambios que subsanaron los cambios de SameSite en nuestros ejemplos de ASP.NET y ASP.NET Core.
 
@@ -63,13 +63,13 @@ Para obtener más información sobre cómo administrar las cookies de SameSite e
 - [Trabajo con cookies de SameSite en ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/samesite).
 - [Problema de SameSite en el blog de ASP.NET](https://devblogs.microsoft.com/aspnet/upcoming-samesite-cookie-changes-in-asp-net-and-asp-net-core/)
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 | Muestra |
 | ------ |
 |  [ms-identity-python-webapp](https://github.com/Azure-Samples/ms-identity-python-webapp)  |
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 | Muestra | Solicitud de incorporación de cambios |
 | ------ | ------------ |

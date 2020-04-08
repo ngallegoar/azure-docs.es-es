@@ -5,12 +5,12 @@ keywords: azure app service, aplicación web, aplicación móvil, api app, aplic
 ms.topic: article
 ms.date: 08/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 28394689048e730aa0c84e3bf807ef3afb898b1e
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: e28935f73511e5ad973929517658cc626b5a6ea2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688556"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79475381"
 ---
 # <a name="security-in-azure-app-service"></a>Seguridad en Azure App Service
 
@@ -65,7 +65,7 @@ La funcionalidad de autorización y autenticación de App Service admite varios 
 Al autenticarse con un servicio back-end, App Service proporciona dos mecanismos diferentes dependiendo de sus necesidades:
 
 - **Identidad de servicio**: inicie sesión en el recurso remoto con la identidad de la propia aplicación. App Service permite crear fácilmente una [identidad administrada](overview-managed-identity.md), que puede usar para autenticarse en otros servicios, como [Azure SQL Database](/azure/sql-database/) o [Azure Key Vault](/azure/key-vault/). Para ver un tutorial completo sobre este tema, consulte [Tutorial: protección de la conexión con Azure SQL Database desde App Service mediante una identidad administrada](app-service-web-tutorial-connect-msi.md).
-- **En nombre de otra persona (OBO)** : cree un acceso delegado a los recursos remotos en nombre del usuario. Con Azure Active Directory como proveedor de autenticación, la aplicación de App Service puede realizar un inicio de sesión delegada a un servicio remoto, como [Azure Active Directory Graph API](../active-directory/develop/active-directory-graph-api.md) o una aplicación de API remota en App Service. Para ver un tutorial completo sobre este tema, consulte [Autenticación y autorización de usuarios de un extremo a otro en Azure App Service](app-service-web-tutorial-auth-aad.md).
+- **En nombre de otra persona (OBO)** : cree un acceso delegado a los recursos remotos en nombre del usuario. Con Azure Active Directory como proveedor de autenticación, la aplicación de App Service puede realizar un inicio de sesión delegada a un servicio remoto, como [Microsoft Graph API](../active-directory/develop/microsoft-graph-intro.md) o una aplicación de API remota en App Service. Para ver un tutorial completo sobre este tema, consulte [Autenticación y autorización de usuarios de un extremo a otro en Azure App Service](app-service-web-tutorial-auth-aad.md).
 
 ## <a name="connectivity-to-remote-resources"></a>Conectividad a los recursos remotos
 

@@ -15,12 +15,12 @@ ms.date: 09/11/2018
 ms.author: mimart
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12ba93a7e3de3c290d5952227b67843c0a9846d3
-ms.sourcegitcommit: 78f367310e243380b591ff10f2500feca93f5d0a
+ms.openlocfilehash: 2c667409f2abb9f1cf89ae3b34f08e0f9eec067e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77544273"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79138542"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito
 El objetivo de este artículo es explicar cómo usar filtros de ámbito para definir reglas basadas en atributos que determinarán qué usuarios se aprovisionarán en una aplicación.
@@ -103,7 +103,8 @@ Los filtros de ámbito se configuran como parte de las asignaciones de atributos
 
 
 >[!IMPORTANT] 
-> El filtro IsMemberOf no se admite actualmente.
+> - El filtro IsMemberOf no se admite actualmente.
+> - Los operadores ES IGUAL A y NO ES IGUAL A no pueden utilizarse en los atributos con varios valores
 
 9. Si lo desea, repita los pasos 7 y 8 para agregar más cláusulas de ámbito.
 

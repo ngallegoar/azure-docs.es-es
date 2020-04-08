@@ -3,14 +3,14 @@ title: Administración de actualizaciones para varias máquinas virtuales de Azu
 description: En este artículo se describe cómo administrar actualizaciones para máquinas virtuales de Azure y que no son de Azure.
 services: automation
 ms.subservice: update-management
-ms.date: 01/16/2020
+ms.date: 03/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: de7171d3807540ae7d5f09c3a877031631248e49
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: c9a3c88ea0c3e656adf0f8c514b418cfc07c9590
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76168041"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335766"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Administración de actualizaciones para varias máquinas
 
@@ -21,7 +21,7 @@ Puede usar la solución Update Management para administrar las actualizaciones y
 - Programar la instalación de las actualizaciones necesarias
 - Revisar los resultados de la implementación para comprobar que se han aplicado correctamente actualizaciones a todas las máquinas virtuales para las cuales se ha habilitado Update Management
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para usar Update Management, necesita lo siguiente:
 
@@ -29,21 +29,7 @@ Para usar Update Management, necesita lo siguiente:
 
 - Acceso a un repositorio de actualizaciones para máquinas virtuales Linux incorporadas a la solución.
 
-## <a name="supported-operating-systems"></a>Sistemas operativos admitidos
-
-Update Management es compatible con los sistemas operativos siguientes:
-
-|Sistema operativo  |Notas  |
-|---------|---------|
-|Windows Server 2008, Windows Server 2008 R2 RTM    | Solo admite evaluaciones de actualización.         |
-|Windows Server 2008 R2 SP1 y posterior     |Se requiere Windows PowerShell 4.0 o posterior. ([Descargar WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855))</br> Se recomienda Windows PowerShell 5.1 para aumentar la confiabilidad. ([Descargar WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))         |
-|CentOS 6 (x86/x64) y 7 (x64)      | |
-|Red Hat Enterprise (x86/x64) 6 y 7 (x64)     | |
-|SUSE Linux Enterprise Server 11 (x86/x64) y 12 (x64)     | |
-|Ubuntu 14.04 LTS, 16.04 y 18.04 LTS (x86/x64)      | |
-
-> [!NOTE]
-> Para evitar que las actualizaciones se apliquen fuera de una ventana de mantenimiento en Ubuntu, vuelva a configurar el paquete de actualizaciones desatendidas para deshabilitar las actualizaciones automáticas. Para más información, consulte el [tema sobre actualizaciones automáticas en la guía de Ubuntu Server](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
+Para más información sobre los requisitos del sistema de Update Management, vea [Requisitos del cliente de Update Management](automation-update-management.md#clients).
 
 ## <a name="enable-update-management-for-azure-virtual-machines"></a>Habilitación de Update Management en máquinas virtuales de Azure
 
@@ -132,7 +118,7 @@ En el panel **Nueva implementación de actualización**, especifique la siguient
    >[!NOTE]
    >Al seleccionar la opción de búsqueda guardada no se devuelven las identidades de la máquina, solo sus nombres. Si tiene varias máquinas virtuales con el mismo nombre en varios grupos de recursos, estas se devuelven en los resultados. Se recomienda usar la opción **Grupos que se deben actualizar** para garantizar que se incluyen las máquinas virtuales únicas que cumplen los criterios.
 
-   Si elige **Máquinas**, la preparación de la máquina se muestra en la columna **PREPARACIÓN DE ACTUALIZACIONES DEL AGENTE**. Puede ver el estado de mantenimiento de la máquina antes de programar la implementación de actualizaciones. Para información sobre los distintos métodos de creación de grupos de equipos en los registros de Azure Monitor, consulte el artículo sobre los [Grupos de equipos en los registros de Azure Monitor](../azure-monitor/platform/computer-groups.md)
+   Si elige **Máquinas**, la preparación de la máquina se muestra en la columna **Preparación del agente de actualización**. Puede ver el estado de mantenimiento de la máquina antes de programar la implementación de actualizaciones. Para información sobre los distintos métodos de creación de grupos de equipos en los registros de Azure Monitor, consulte el artículo sobre los [Grupos de equipos en los registros de Azure Monitor](../azure-monitor/platform/computer-groups.md)
 
   ![Panel Nueva implementación de actualización](./media/manage-update-multi/update-select-computers.png)
 
@@ -204,5 +190,4 @@ Seleccione **Errores** para ver información detallada sobre los errores de la i
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre Update Management, incluidos registros, salidas y errores, consulte [Solución Update Management en Azure](../operations-management-suite/oms-solution-update-management.md).
-
+Para más información sobre los registros, salidas y errores de Update Management, vea [Consulta de registros de actualización para Update Management](automation-update-management-query-logs.md).

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/24/2020
+ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 678385d9ed16a9821fc61be476e7eb9eaf6fd4f1
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: acacba591c9b895f1bd6abfbab5d3d4a4c858d12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78183710"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79472782"
 ---
 # <a name="string-claims-transformations"></a>Transformaciones de notificaciones de cadena
 
@@ -34,7 +34,7 @@ Comparar dos notificaciones y emitir una excepción si no son iguales según la 
 | InputClaim | inputClaim2 | string | Tipo de la segunda notificación, que se va a comparar. |
 | InputParameter | stringComparison | string | comparación de cadenas, uno de los valores: Ordinal, OrdinalIgnoreCase. |
 
-La transformación de notificaciones **AssertStringClaimsAreEqual** siempre se ejecuta desde un [perfil técnico de validación](validation-technical-profile.md) llamado por un [perfil técnico autofirmado](self-asserted-technical-profile.md) o un elemento [DisplayControl](display-controls.md). Los metadatos `UserMessageIfClaimsTransformationStringsAreNotEqual` de un perfil técnico autoafirmado controlan el mensaje de error que se presenta al usuario.
+La transformación de notificaciones **AssertStringClaimsAreEqual** siempre se ejecuta desde un [perfil técnico de validación](validation-technical-profile.md) llamado por un [perfil técnico autofirmado](self-asserted-technical-profile.md) o un elemento [DisplayControl](display-controls.md). Los metadatos `UserMessageIfClaimsTransformationStringsAreNotEqual` de un perfil técnico autoafirmado controlan el mensaje de error que se presenta al usuario. Los mensajes de error se pueden [localizar](localization-string-ids.md#claims-transformations-error-messages).
 
 
 ![Ejecución de AssertStringClaimsAreEqual](./media/string-transformations/assert-execution.png)
@@ -374,7 +374,7 @@ Copia las cadenas localizadas en las notificaciones.
 Para usar la transformación de notificaciones GetLocalizedStringsTransformation:
 
 1. Defina una [cadena de localización](localization.md) y asóciela con un [perfil técnico autoafirmado](self-asserted-technical-profile.md).
-1. `ElementType` del elemento `LocalizedString` debe establecerse en `GetLocalizedStringsTransformationClaimType`.
+1. El `ElementType` del elemento `LocalizedString` debe establecerse en `GetLocalizedStringsTransformationClaimType`.
 1. `StringId` es un identificador único que se define y se usa más adelante en la transformación de notificaciones.
 1. En la transformación de notificaciones, especifique la lista de notificaciones que se van a establecer con la cadena localizada. `ClaimTypeReferenceId` es una referencia a ClaimType ya definida en la sección ClaimsSchema de la directiva. `TransformationClaimType` es el nombre de la cadena localizada tal como se define en `StringId` del elemento `LocalizedString`.
 1. En un [perfil técnico autoafirmado](self-asserted-technical-profile.md) o una transformación de notificaciones de entrada o salida de [control de visualización](display-controls.md), haga una referencia a la transformación de notificaciones.

@@ -9,16 +9,16 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova, danil
-ms.date: 02/10/2020
+ms.date: 03/11/2020
 ms.custom: seoapril2019
-ms.openlocfilehash: d3e631fae4899fffafad9bd140abaae4fb170624
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: e01c61ca4f415ffbb46c86034d4b7441bc2617d9
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77462588"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80365483"
 ---
-# <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Diferencias, limitaciones y problemas conocidos de T-SQL en la instancia administrada
+# <a name="managed-instance-t-sql-differences-and-limitations"></a>Diferencias y limitaciones de T-SQL en la instancia administrada
 
 Este artículo resume y explica las diferencias de sintaxis y comportamiento entre la instancia administrada de Azure SQL Database y el Motor de base de datos de SQL Server local. La opción de implementación de la Instancia administrada proporciona gran compatibilidad con instancias locales del Motor de base de datos de SQL Server. Instancia administrada admite la mayoría de las características del Motor de base de datos de SQL Server.
 
@@ -34,11 +34,11 @@ Existen algunas limitaciones de PaaS que se introdujeron en Instancia administra
 
 La mayoría de estas características son restricciones de arquitectura y representan características de servicio.
 
-En esta página también se explican los [Problemas temporales conocidos](#Issues) que se detectaron en la instancia administrada y se resolverán en el futuro.
+En la [página de notas de la versión](sql-database-release-notes.md) se explican los problemas temporales conocidos que se han detectado en la instancia administrada y que se resolverán en el futuro.
 
 ## <a name="availability"></a>Disponibilidad
 
-### <a name="always-on-availability-groups"></a>Grupos de disponibilidad AlwaysOn
+### <a name="always-on-availability-groups"></a><a name="always-on-availability-groups"></a>Grupos de disponibilidad AlwaysOn
 
 La [alta disponibilidad](sql-database-high-availability.md) está integrada en la instancia administrada y no la pueden controlar los usuarios. No se admiten las siguientes instrucciones:
 
@@ -65,7 +65,6 @@ Limitaciones:
 
 - Con una instancia administrada, puede hacer una copia de seguridad de una base de datos de instancia en una copia de seguridad con hasta 32 franjas, lo cual es suficiente para bases de datos de hasta 4 TB si se usa la compresión de copia de seguridad.
 - No se puede ejecutar `BACKUP DATABASE ... WITH COPY_ONLY` en una base de datos cifrada con Cifrado de datos transparente (TDE) administrado por el servicio. TDE administrado por un servicio hace que las copias de seguridad se cifren con una clave interna de TDE. No es posible exportar la clave, por lo que no se puede restaurar la copia de seguridad. Use copias de seguridad automáticas y restauración a un momento dado, o use [Cifrado de datos transparente administrado por el cliente (BYOK)](transparent-data-encryption-azure-sql.md#customer-managed-transparent-data-encryption---bring-your-own-key) en su lugar. También puede deshabilitar el cifrado en la base de datos.
-- Las copias de seguridad manuales en el almacenamiento de blobs de Azure solo se admiten para [cuentas de BlockBlobStorage](/azure/storage/common/storage-account-overview#types-of-storage-accounts).
 - El tamaño máximo de una franja de copia de seguridad con el uso del comando `BACKUP` en una instancia administrada es de 195 GB, lo cual es el tamaño máximo del blob. Aumente el número de franjas en el comando de copia de seguridad para reducir el tamaño de las franjas y permanecer dentro de este límite.
 
     > [!TIP]
@@ -140,8 +139,8 @@ Una instancia administrada no puede acceder a archivos, por lo que no se pueden 
     La instancia administrada admite las entidades de seguridad de la base de datos de Azure AD con la sintaxis `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER`. Esta característica también se conoce como usuarios de bases de datos independientes de Azure AD.
 
 - No se admiten los inicios de sesión de Windows creados con la sintaxis `CREATE LOGIN ... FROM WINDOWS`. Use los usuarios e inicios de sesión de Azure Active Directory.
-- El usuario de Azure AD que creó la instancia tiene [privilegios de administrador sin restricciones](sql-database-manage-logins.md#unrestricted-administrative-accounts).
-- Los usuarios de nivel de base de datos de Azure AD que no son administradores pueden crearse con la sintaxis `CREATE USER ... FROM EXTERNAL PROVIDER`. Consulte [CREATE USER ... FROM EXTERNAL PROVIDER](sql-database-manage-logins.md#non-administrator-users).
+- El usuario de Azure AD que creó la instancia tiene [privilegios de administrador sin restricciones](sql-database-manage-logins.md).
+- Los usuarios de nivel de base de datos de Azure AD que no son administradores pueden crearse con la sintaxis `CREATE USER ... FROM EXTERNAL PROVIDER`. Consulte [CREATE USER ... FROM EXTERNAL PROVIDER](sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
 - Las entidades de seguridad (inicios de sesión) del servidor de Azure AD admiten las características SQL en una única instancia administrada. No se admiten las características que requieren una interacción entre instancias, con independencia de que se encuentren en el mismo inquilino de Azure AD o en inquilinos diferentes, para los usuarios de Azure AD. Ejemplos de estas características son los siguientes:
 
   - Replicación transaccional de SQL.
@@ -470,6 +469,7 @@ No se admite el agente de servicio entre instancias:
   - `allow polybase export`
   - `allow updates`
   - `filestream_access_level`
+  - `remote access`
   - `remote data archive`
   - `remote proc trans`
 - `sp_execute_external_scripts` no se admite. Consulte [sp_execute_external_scripts](/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples).
@@ -489,7 +489,7 @@ Las siguientes variables, funciones y vistas devuelven resultados diferentes:
 - `SUSER_ID` es compatible. Devuelve NULL si el inicio de sesión de Azure AD no está en sys.syslogins. Consulte [SUSER_ID](/sql/t-sql/functions/suser-id-transact-sql). 
 - `SUSER_SID` no se admite. Se devuelven los datos incorrectos, lo cual es un problema temporal conocido. Consulte [SUSER_SID](/sql/t-sql/functions/suser-sid-transact-sql). 
 
-## <a name="Environment"></a>Restricciones del entorno
+## <a name="environment-constraints"></a><a name="Environment"></a>Restricciones del entorno
 
 ### <a name="subnet"></a>Subnet
 -  No se puede colocar ningún otro recurso (por ejemplo, máquinas virtuales) en la subred en la que ha implementado la instancia administrada. Implemente estos recursos con una subred diferente.
@@ -531,181 +531,9 @@ Los siguientes esquemas MSDB de la instancia administrada deben ser propiedad de
 
 Una instancia administrada coloca información detallada en los registros de errores. Existen muchos eventos internos del sistema que se archivan en el registro de errores. use un procedimiento personalizado para leer los registros de errores que filtran algunas entradas que no son pertinentes. Para obtener más información, vea [instancia administrada – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/) o [Extensión de instancia administrada (versión preliminar)](/sql/azure-data-studio/azure-sql-managed-instance-extension#logs) para Azure Data Studio.
 
-## <a name="Issues"></a> Problemas conocidos
-
-
-### <a name="limitation-of-manual-failover-via-portal-for-failover-groups"></a>Limitación de la conmutación por error manual a través del portal para grupos de conmutación por error
-
-**Fecha:** Enero de 2020
-
-Si el grupo de conmutación por error abarca instancias de distintas suscripciones o grupos de recursos de Azure, la conmutación por error manual no se puede iniciar desde la instancia principal del grupo de conmutación por error.
-
-**Solución alternativa**: Inicie la conmutación por error mediante el portal desde la base de datos geográfica secundaria.
-
-### <a name="sql-agent-roles-need-explicit-execute-permissions-for-non-sysadmin-logins"></a>Los roles del Agente SQL necesitan permisos de ejecución (EXECUTE) explícitos para los inicios de sesión que no sean sysadmin
-
-**Fecha:** Diciembre de 2019
-
-Si los inicios de sesión que no son de sysadmin se agregan a cualquiera de los [roles fijos de base de datos del Agente SQL](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent-fixed-database-roles), existe un problema en el que los permisos EXECUTE explícitos deben concederse a los procedimientos almacenados maestros para que estos inicios de sesión funcionen. Si se encuentra este problema, aparece el mensaje de error "Se denegó el permiso EXECUTE en el objeto <nombre_objeto> (Microsoft SQL Server, error: 229)".
-
-**Solución alternativa**: Una vez que agregue inicios de sesión a cualquiera de los roles fijos de base de datos del Agente SQL: SQLAgentUserRole, SQLAgentReaderRole o SQLAgentOperatorRole, para cada uno de los inicios de sesión agregados a estos roles, ejecute el siguiente script T-SQL para conceder explícitamente permisos de ejecución a los procedimientos almacenados enumerados.
-
-```tsql
-USE [master]
-GO
-CREATE USER [login_name] FOR LOGIN [login_name]
-GO
-GRANT EXECUTE ON master.dbo.xp_sqlagent_enum_jobs TO [login_name]
-GRANT EXECUTE ON master.dbo.xp_sqlagent_is_starting TO [login_name]
-GRANT EXECUTE ON master.dbo.xp_sqlagent_notify TO [login_name]
-```
-
-### <a name="sql-agent-jobs-can-be-interrupted-by-agent-process-restart"></a>Los trabajos del Agente SQL pueden ser interrumpidos por el reinicio del proceso del agente
-
-**Fecha:** Diciembre de 2019
-
-El Agente SQL crea una sesión cada vez que se inicia el trabajo, lo que aumenta gradualmente el consumo de memoria. Para evitar alcanzar el límite de memoria interna que bloquearía la ejecución de los trabajos programados, el proceso del agente se reiniciará una vez que el consumo de memoria alcance el umbral. Puede provocar interrumpir la ejecución de los trabajos que se ejecutan en el momento del reinicio.
-
-### <a name="in-memory-oltp-memory-limits-are-not-applied"></a>No se aplican los límites de memoria de OLTP en memoria
-
-**Fecha:** Octubre de 2019
-
-El nivel de servicio Crítico para la empresa no aplicará correctamente los [límites de memoria máximos para los objetos optimizados para memoria](sql-database-managed-instance-resource-limits.md#in-memory-oltp-available-space) en algunos casos. La instancia administrada puede permitir que la carga de trabajo use más memoria para las operaciones de OLTP en memoria, lo que puede afectar a la disponibilidad y la estabilidad de la instancia. Es posible que las consultas de OLTP en memoria que alcanzan los límites no generen errores de inmediato. Pronto se resolverá este problema. Las consultas que usan en mayor grado OLTP en memoria producirán un error antes si llegan a los [límites](sql-database-managed-instance-resource-limits.md#in-memory-oltp-available-space).
-
-**Solución alternativa:** [Supervise el uso de almacenamiento de OLTP en memoria ](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory-oltp-monitoring) con [SQL Server Management Studio](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage#bkmk_Monitoring) para asegurarse de que la carga de trabajo no esté usando más memoria de la disponible. Aumente los límites de memoria que dependen del número de núcleos virtuales, u optimice la carga de trabajo para usar menos memoria.
-
-### <a name="wrong-error-returned-while-trying-to-remove-a-file-that-is-not-empty"></a>Se mostró un error al intentar quitar un archivo que no está vacío
-
-**Fecha:** Octubre de 2019
-
-SQL Server/Instancia administrada [no permiten al usuario quitar un archivo que no está vacío](/sql/relational-databases/databases/delete-data-or-log-files-from-a-database#Prerequisites). Si intenta quitar un archivo de datos no vacío mediante la instrucción `ALTER DATABASE REMOVE FILE`, el error `Msg 5042 – The file '<file_name>' cannot be removed because it is not empty` no se mostrará inmediatamente. Instancia administrada seguirá intentando quitar el archivo y se producirá un error en la operación después de 30 minutos con `Internal server error`.
-
-**Solución alternativa**: Quite el contenido del archivo mediante el comando `DBCC SHRINKFILE (N'<file_name>', EMPTYFILE)`. Si este es el único archivo del grupo de archivos, debe eliminar los datos de la tabla o partición asociada a este grupo de archivos antes de reducir el archivo y, opcionalmente, cargar estos datos en otra tabla o partición.
-
-### <a name="change-service-tier-and-create-instance-operations-are-blocked-by-ongoing-database-restore"></a>Las operaciones de cambio de nivel de servicio y creación de instancia se bloquean con la restauración en curso de la base de datos
-
-**Fecha:** Septiembre de 2019
-
-La instrucción `RESTORE` en curso, el proceso de migración del servicio de migración de datos y la restauración a un momento dado integrada bloquean la actualización del nivel de servicio o del cambio de tamaño de la instancia existente, así como la creación de nuevas instancias hasta que finalice el proceso de restauración. El proceso de restauración bloqueará estas operaciones en las instancias administradas y en los grupos de instancias de la misma subred en la que se ejecute el proceso de restauración. Las instancias de los grupos de instancias no se ven afectadas. Las operaciones de creación o cambio de nivel de servicio no se realizarán correctamente o se agotará el tiempo de espera; continuarán cuando el proceso de restauración se haya completado o cancelado.
-
-**Solución alternativa**: espere a que finalice el proceso de restauración; también puede cancelarlo si la operación de creación o actualización del nivel de servicio tiene mayor prioridad.
-
-### <a name="resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover"></a>Es posible que sea necesario volver a configurar Resource Governor en el nivel de servicio Crítico para la empresa después de la conmutación por error
-
-**Fecha:** Septiembre de 2019
-
-La característica [Resource Governor](/sql/relational-databases/resource-governor/resource-governor) que le permite limitar los recursos asignados a la carga de trabajo de usuario puede clasificar incorrectamente alguna carga de trabajo de usuario después de una conmutación por error o un cambio de nivel de servicio iniciado por el usuario (por ejemplo, el cambio de número máximo de núcleos virtuales o tamaño máximo de almacenamiento de instancia).
-
-**Solución alternativa**: Ejecute `ALTER RESOURCE GOVERNOR RECONFIGURE` periódicamente o como parte del trabajo del Agente SQL que ejecuta la tarea de SQL cuando la instancia se inicia si usa [Resource Governor](/sql/relational-databases/resource-governor/resource-governor).
-
-### <a name="cross-database-service-broker-dialogs-must-be-re-initialized-after-service-tier-upgrade"></a>Los cuadros de diálogo de Service Broker entre bases de datos se deben volver a inicializar después de la actualización del nivel de servicio
-
-**Fecha:** Agosto de 2019
-
-Los cuadros de diálogo de Service Broker entre bases de datos dejarán de enviar mensajes a los servicios de otras bases de datos después de la operación para cambiar el nivel de servicio. Los mensajes **no se pierden** y se pueden encontrar en la cola del remitente. Todos los cambios de tamaño de almacenamiento en núcleos virtuales o instancias de Instancia administrada harán que `service_broke_guid` cambie el valor de la vista [sys.databases](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) para todas las bases de datos. Todos los `DIALOG` creados con la instrucción [BEGIN DIALOG](/sql/t-sql/statements/begin-dialog-conversation-transact-sql) que hace referencia a los Service Broker de otra base de datos dejarán de entregar mensajes al servicio de destino.
-
-**Solución alternativa:** Detenga todas las actividades que usen conversaciones con cuadros de diálogo de Service Broker entre bases de datos antes de actualizar el nivel de servicio y vuelva a inicializarlos después. Si quedan mensajes que no se entregaron después del cambio de nivel de servicio, lea los mensajes de la cola de origen y vuelva a enviarlos a la cola de destino.
-
-### <a name="impersonification-of-azure-ad-login-types-is-not-supported"></a>No se admite la suplantación de tipos de inicio de sesión de Azure AD
-
-**Fecha:** Julio de 2019
-
-No se admite la suplantación con `EXECUTE AS USER` o `EXECUTE AS LOGIN` de las siguientes entidades de seguridad de AAD:
--   Usuarios de AAD con alias. Se devuelve el error siguiente en este caso: `15517`.
-- Inicios de sesión y usuarios de AAD basados en aplicaciones de AAD o entidades de servicio. Se devuelve el error siguiente en este caso: `15517` y `15406`.
-
-### <a name="query-parameter-not-supported-in-sp_send_db_mail"></a>No se admite el parámetro @query en sp_send_db_mail
-
-**Fecha:** Abril de 2019
-
-El parámetro `@query` del procedimiento [sp_send_db_mail](/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) no funciona.
-
-### <a name="transactional-replication-must-be-reconfigured-after-geo-failover"></a>La replicación transaccional debe volver a configurarse después de la conmutación por error geográfica
-
-**Fecha:** Marzo de 2019
-
-Si la replicación transaccional se habilita en una base de datos en un grupo de conmutación por error automática, el administrador de la instancia administrada debe limpiar todas las publicaciones de la base de datos principal anterior y volver a configurarlas en la nueva base principal después de que se produzca una conmutación por error a otra región. Consulte [Replicación](#replication) para obtener más detalles.
-
-### <a name="aad-logins-and-users-are-not-supported-in-ssdt"></a>No se admiten inicios de sesión y usuarios de AAD en SSDT
-
-**Fecha:** Noviembre de 2019
-
-SQL Server Data Tools no es totalmente compatible con los inicios de sesión y los usuarios de Azure Active Directory.
-
-### <a name="temporary-database-is-used-during-restore-operation"></a>La base de datos temporal se usa durante la operación RESTORE
-
-Cuando una base de datos se restaura en Instancia administrada, el servicio de restauración crea primero una base de datos vacía con el nombre deseado para asignar el nombre a la instancia. Después de un tiempo, esta base de datos se quitará y se iniciará la restauración de la base de datos real. La base de datos que se encuentra en estado de *restauración* será temporal y tendrá un valor de GUID aleatorio en lugar del nombre. El nombre temporal se cambiará al nombre deseado especificado en la instrucción `RESTORE` una vez que se complete el proceso de restauración. En la fase inicial, el usuario puede acceder a la base de datos vacía e incluso crear tablas o cargar datos en esta base de datos. Esta base de datos temporal se quitará cuando el servicio de restauración inicie la segunda fase.
-
-**Solución alternativa**: No acceda a la base de datos que va a restaurar hasta que vea que la restauración se ha completado.
-
-### <a name="tempdb-structure-and-content-is-re-created"></a>Se vuelve a crear la estructura y el contenido de TEMPDB
-
-La base de datos `tempdb` siempre se divide en 12 archivos de datos y la estructura de archivos no se puede cambiar. No se puede cambiar el tamaño máximo por archivo y no se pueden agregar nuevos archivos a `tempdb`. Siempre se vuelve a crear `Tempdb` como base de datos vacía cuando se inicia la instancia o se realiza una conmutación por error. Cualquier cambio que se realice en `tempdb` no se conservará.
-
-### <a name="exceeding-storage-space-with-small-database-files"></a>Exceder el espacio de almacenamiento con archivos de base de datos pequeños
-
-Se puede producir un error en las instrucciones `CREATE DATABASE`, `ALTER DATABASE ADD FILE` y `RESTORE DATABASE` porque la instancia puede alcanzar el límite de almacenamiento de Azure.
-
-Cada instancia administrada de uso general tiene hasta 35 TB de almacenamiento reservado para el espacio en disco Premium de Azure. Cada archivo de base de datos se coloca en un disco físico independiente. Los posibles tamaños de disco son: 128 GB, 256 GB, 512 GB, 1 TB o 4 TB. El espacio no utilizado en el disco no se cobra, pero la suma total de los tamaños de disco Premium de Azure no puede superar los 35 TB. En algunos casos, una instancia administrada que no necesita 8 TB en total puede superar los 35 TB de límite de Azure en tamaño de almacenamiento debido a la fragmentación interna.
-
-Por ejemplo, una instancia administrada de Uso general puede tener un archivo grande de 1,2 TB situado en un disco de 4 TB. También podría tener 248 archivos de 1 GB cada uno situados en discos independientes de 128 GB. En este ejemplo:
-
-- El tamaño de almacenamiento total del disco es de 1 x 4 TB + 248 x 128 GB = 35 TB.
-- El espacio total reservado para las bases de datos en la instancia es de 1 x 1,2 TB + 248 x 1 GB = 1,4 TB.
-
-Este ejemplo ilustra que, en determinadas circunstancias, debido a una distribución muy específica de archivos, una instancia administrada podría alcanzar el límite de 35 TB que está reservado para el disco adjunto Premium de Azure cuando no se lo espere.
-
-En este ejemplo, las bases de datos existentes seguirán funcionando y pueden crecer sin ningún problema, siempre y cuando no se agreguen nuevos archivos. No se podrían crear ni restaurar nuevas bases de datos porque no hay suficiente espacio para nuevas unidades de disco, incluso si el tamaño total de todas las bases de datos no alcanza el límite de tamaño de la instancia. El error que se devuelve en ese caso no está claro.
-
-También puede [identificar el número de archivos restantes](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) mediante el uso de vistas del sistema. Si se alcanza este límite, intente [vaciar y eliminar algunos de los archivos más pequeños mediante la instrucción DBCC SHRINKFILE](/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) o cambie al [nivel Crítico para la empresa, que no tiene este límite](/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
-
-### <a name="guid-values-shown-instead-of-database-names"></a>Se muestran valores de GUID en lugar de nombres de base de datos
-
-Varias vistas del sistema, contadores de rendimiento, mensajes de error, XEvents y entradas de registro de errores muestran identificadores de base de datos GUID en lugar de los nombres reales de base de datos. No confíe en estos identificadores GUID porque se reemplazarán por los nombres reales de las bases de datos en el futuro.
-
-### <a name="error-logs-arent-persisted"></a>Los registros de errores no se conservan
-
-Los registros de errores que están disponibles en la instancia administrada no se conservan y su tamaño no está incluido en el límite de almacenamiento máximo. Es posible que se borren automáticamente los registros de errores en caso de conmutación por error. Puede haber huecos en el historial del registro de errores porque Instancia administrada se ha migrado varias veces en varias máquinas virtuales.
-
-### <a name="transaction-scope-on-two-databases-within-the-same-instance-isnt-supported"></a>No se admite el ámbito de transacción en dos bases de datos de la misma instancia
-
-La clase `TransactionScope` de .NET no funciona si dos consultas se envían a dos bases de datos de la misma instancia en el mismo ámbito de transacción:
-
-```csharp
-using (var scope = new TransactionScope())
-{
-    using (var conn1 = new SqlConnection("Server=quickstartbmi.neu15011648751ff.database.windows.net;Database=b;User ID=myuser;Password=mypassword;Encrypt=true"))
-    {
-        conn1.Open();
-        SqlCommand cmd1 = conn1.CreateCommand();
-        cmd1.CommandText = string.Format("insert into T1 values(1)");
-        cmd1.ExecuteNonQuery();
-    }
-
-    using (var conn2 = new SqlConnection("Server=quickstartbmi.neu15011648751ff.database.windows.net;Database=b;User ID=myuser;Password=mypassword;Encrypt=true"))
-    {
-        conn2.Open();
-        var cmd2 = conn2.CreateCommand();
-        cmd2.CommandText = string.Format("insert into b.dbo.T2 values(2)");        cmd2.ExecuteNonQuery();
-    }
-
-    scope.Complete();
-}
-
-```
-
-Aunque este código funciona con datos en la misma instancia, requería el coordinador de transacciones distribuidas.
-
-**Solución alternativa:** use [SqlConnection.ChangeDatabase(String)](/dotnet/api/system.data.sqlclient.sqlconnection.changedatabase) para utilizar otra base de datos en un contexto de conexión en lugar de usar dos conexiones.
-
-### <a name="clr-modules-and-linked-servers-sometimes-cant-reference-a-local-ip-address"></a>Los módulos de CLR y los servidores vinculados en algún momento no pueden hacer referencia a una dirección IP local.
-
-Los módulos de CLR colocados en una instancia administrada y las consultas distribuidas o servidores vinculados que hacen referencia a una instancia actual en algún momento no pueden resolver la dirección IP de una instancia local. Este error es un problema transitorio.
-
-**Solución alternativa:** use conexiones de contexto en un módulo de CLR, si es posible.
-
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para más información sobre instancias administradas, consulte [¿Qué es una instancia administrada?](sql-database-managed-instance.md)
 - Para obtener una lista de características y ver una comparativa, consulte [Comparación de características de Azure SQL Database](sql-database-features.md).
+- Para obtener las actualizaciones de versión y el estado de los problemas conocidos, vea [Notas de la versión de SQL Database](sql-database-release-notes.md).
 - Para consultar un inicio rápido que muestra cómo crear una nueva instancia administrada, consulte [Creación de una instancia administrada](sql-database-managed-instance-get-started.md).

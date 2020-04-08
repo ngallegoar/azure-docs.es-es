@@ -16,10 +16,10 @@ ms.date: 06/02/2017
 ms.author: alkohli
 ms.custom: ''
 ms.openlocfilehash: e05a37122647d4979089f0ba00b1fc15f9b84b0f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60321828"
 ---
 # <a name="replace-a-hardware-component-on-your-storsimple-8000-series-device"></a>Sustitución de un componente de hardware en el dispositivo StorSimple serie 8000
@@ -36,8 +36,8 @@ En la tabla siguiente se describen los iconos de seguridad usados en estos tutor
 
 | Icono | Texto | Información adicional |
 |:--- |:--- |:--- |
-| ![Icono Advertencia](./media/storsimple-hardware-component-replacement/Warning.png) |**PELIGRO** |Indica una situación peligrosa que, si no se evita, causará la muerte o lesiones graves. Esta palabra de aviso se debe limitar a las situaciones más extremas. |
-| ![Icono Advertencia](./media/storsimple-hardware-component-replacement/Warning.png) |**¡ADVERTENCIA** |Indica una situación peligrosa que, si no se evita, podría causar la muerte o lesiones graves. |
+| ![Icono de advertencia](./media/storsimple-hardware-component-replacement/Warning.png) |**PELIGRO** |Indica una situación peligrosa que, si no se evita, causará la muerte o lesiones graves. Esta palabra de aviso se debe limitar a las situaciones más extremas. |
+| ![Icono de advertencia](./media/storsimple-hardware-component-replacement/Warning.png) |**¡ADVERTENCIA** |Indica una situación peligrosa que, si no se evita, podría causar la muerte o lesiones graves. |
 | ![Icono Precaución](./media/storsimple-hardware-component-replacement/Caution.png) |**PRECAUCIÓN** |Indica una situación peligrosa que, si no se evita, podría causar lesiones leves o graves. |
 | ![Icono Aviso](./media/storsimple-hardware-component-replacement/NoticeIcon.png) |**AVISO:** |Indica información considerada importante, pero no relacionada con la peligrosidad. |
 | ![Icono Descarga eléctrica](./media/storsimple-hardware-component-replacement/Electric.png) |**Peligro de descarga eléctrica** |Indica alto voltaje. |
@@ -51,12 +51,12 @@ Familiarícese con la información de seguridad acerca de su dispositivo y los i
 
 Antes de intentar reemplazar un componente, considere la siguiente información.
 
-![Warning Icon](./media/storsimple-hardware-component-replacement/Warning.png)![Electrical Shock Icon](./media/storsimple-hardware-component-replacement/Electric.png) **¡ADVERTENCIA**
+![Icono Advertencia](./media/storsimple-hardware-component-replacement/Warning.png) ![icono Descarga eléctrica](./media/storsimple-hardware-component-replacement/Electric.png) **ADVERTENCIA**
 
 * Conecte una buena descarga a tierra en sí mismo mediante una descarga electrostática o alfombra antiestática al manipular los módulos y los componentes del dispositivo StorSimple.
 * No toque los circuitos. Utilice las asas y las guías proporcionadas al manipular los componentes que pueden tener circuitos expuestos.
 
-![Warning Icon](./media/storsimple-hardware-component-replacement/Warning.png)![Notice Icon](./media/storsimple-hardware-component-replacement/NoticeIcon.png)**AVISO:**
+![Icono de advertencia](./media/storsimple-hardware-component-replacement/Warning.png) ![Icono de aviso](./media/storsimple-hardware-component-replacement/NoticeIcon.png) **AVISO:**
 
 Al reemplazar un módulo, **NUNCA deje un compartimento vacío en la parte posterior del gabinete**. Obtenga un módulo de reemplazo o vacío antes de quitar la parte problemática.
 
@@ -67,7 +67,7 @@ En las tablas siguientes se resumen los principales componentes de hardware del 
 
 | Componentes | # Present | ¿Módulo de complemento? | Procedimiento de reemplazo |
 |:--- |:--- |:--- |:--- |
-| Chasis |1 |Sin |[Reemplazar el chasis en el dispositivo StorSimple](storsimple-8000-chassis-replacement.md) |
+| Chasis |1 |No |[Reemplazar el chasis en el dispositivo StorSimple](storsimple-8000-chassis-replacement.md) |
 | Controladores principales |2 |Sí |[Reemplazar un módulos de controladores en el dispositivo StorSimple](storsimple-8000-controller-replacement.md) |
 | Módulos de alimentación y refrigeración (PCM) de 764 W |2 |Sí |[Reemplazar un Módulo de alimentación y de refrigeración en el dispositivo StorSimple](storsimple-8000-power-cooling-module-replacement.md) |
 | Batería de reserva |2 |Sí |[Reemplazar el módulo de baterías de reserva en el dispositivo StorSimple](storsimple-8000-battery-replacement.md) |
@@ -79,7 +79,7 @@ Los gabinetes principal y EBOD tienen módulos de I/O diferentes. Además, los P
 
 | Componentes | # Present | ¿Módulo de complemento? | Procedimiento de reemplazo |
 |:--- |:--- |:--- |:--- |
-| Chasis |1 |Sin |[Reemplazar el chasis en el dispositivo StorSimple](storsimple-8000-chassis-replacement.md) |
+| Chasis |1 |No |[Reemplazar el chasis en el dispositivo StorSimple](storsimple-8000-chassis-replacement.md) |
 | Controladores EBOD |2 |Sí |[Reemplazar un controlador EBOD en el dispositivo StorSimple](storsimple-8000-ebod-controller-replacement.md) |
 | Módulos de alimentación y refrigeración (PCM) de 580 W |2 |Sí |[Reemplazar un Módulo de alimentación y de refrigeración en el dispositivo StorSimple](storsimple-8000-power-cooling-module-replacement.md) |
 | Unidades de disco |12 |Sí |[Reemplazar un disco duro en el dispositivo StorSimple](storsimple-8000-disk-drive-replacement.md) |
@@ -92,7 +92,7 @@ Los módulos de complementos en el dispositivo se resaltan en los siguientes dia
 
 **Figura 1** Parte frontal del dispositivo
 
-| Etiqueta | DESCRIPCIÓN |
+| Etiqueta | Descripción |
 |:--- |:--- |
 | 0 - 11 |Unidades de discos (total de 12) |
 
@@ -102,7 +102,7 @@ El gabinete principal y el gabinete EBOD tienen módulos transportadores de unid
 
 **Figura 2** Parte posterior del gabinete principal
 
-| Etiqueta | DESCRIPCIÓN |
+| Etiqueta | Descripción |
 |:--- |:--- |
 | 1 |PCM 0 |
 | 2 |PCM 1 |
@@ -113,7 +113,7 @@ El gabinete principal y el gabinete EBOD tienen módulos transportadores de unid
 
 **Figura 3** Parte posterior del gabinete EBOD
 
-| Etiqueta | DESCRIPCIÓN |
+| Etiqueta | Descripción |
 |:--- |:--- |
 | 1 |PCM 0 |
 | 2 |PCM 1 |

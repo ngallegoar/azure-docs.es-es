@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 1555eb4e48a0cf43a38aa811e20ffbbed8ee87a9
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 1e7587c60e180fb35e1a2bed735b053b6b0c388a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755808"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294601"
 ---
 # <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>Adición de un repositorio de Git para almacenar artefactos personalizados y plantillas de Resource Manager
 
@@ -54,7 +54,7 @@ Para agregar un repositorio al laboratorio, obtenga cierta información clave de
 
 ### <a name="get-the-azure-repos-clone-url-and-personal-access-token"></a>Obtención de la dirección URL de clonación de Azure Repos y el token de acceso personal
 
-1. Vaya a la página principal de la colección de equipo (por ejemplo, https://contoso-web-team.visualstudio.com) ) y después seleccione el proyecto.
+1. Vaya a la página principal de la colección de equipo (por ejemplo, `https://contoso-web-team.visualstudio.com`) y, después, seleccione el proyecto.
 2. En la página de inicio del proyecto, seleccione **Código**.
 3. Para ver la dirección URL de clonación, en la página **Código** del proyecto, seleccione **Clonar**.
 4. Guarde la dirección URL. Usará la dirección URL más adelante.
@@ -71,7 +71,7 @@ Para agregar un repositorio al laboratorio, obtenga cierta información clave de
 10. Continúe con la sección [Conexión del laboratorio al repositorio](#connect-your-lab-to-the-repository) .
 
 ## <a name="connect-your-lab-to-the-repository"></a>Conexión del laboratorio al repositorio
-1. Inicie sesión en el [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Inicie sesión en [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Seleccione **Más servicios** y, luego, **DevTest Labs** en la lista de servicios.
 3. En la lista de laboratorios, seleccione el suyo. 
 4. Seleccione **Configuration and policies** (Directivas y configuración)  > **Repositorios** >  **+ Agregar**.

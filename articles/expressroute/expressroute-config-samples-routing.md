@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: article
-ms.date: 12/06/2018
-ms.author: cherylmc
-ms.openlocfilehash: 2c37dadeb669fb88f858b5487379828a8dddec6c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/26/2020
+ms.author: osamaz
+ms.openlocfilehash: 5304aefaf3ad70bb552b4b0d1b26fcce9867c9c0
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74076659"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80397745"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-routing"></a>Ejemplos de configuración de enrutadores para configurar y administrar enrutamiento
 Esta página ofrece ejemplos de configuración de enrutamiento e interfaces para enrutadores Cisco serie IOS-XE y Juniper serie MX al trabajar con ExpressRoute. Solo pretenden ser ejemplos de carácter informativo y no se deben usar tal cual. Puede trabajar con el proveedor para elaborar las configuraciones adecuadas para la red. 
@@ -91,6 +91,25 @@ Puede usar asignaciones de ruta y listas de prefijo para filtrar prefijos propag
     !
     route-map <MS_Prefixes_Inbound> permit 10
      match ip address prefix-list <MS_Prefixes>
+    !
+
+### <a name="5-configuring-bfd"></a>5. Configuración de BFD
+
+Configurará BFD en dos lugares: en el nivel de interfaz y en el nivel de BGP. El siguiente ejemplo corresponde a la interfaz de QinQ. 
+
+    interface GigabitEthernet<Interface_Number>.<Number>
+     bfd interval 300 min_rx 300 multiplier 3
+     encapsulation dot1Q <s-tag> seconddot1Q <c-tag>
+     ip address <IPv4_Address><Subnet_Mask>
+    
+    router bgp <Customer_ASN>
+     bgp log-neighbor-changes
+     neighbor <IP#2_used_by_Azure> remote-as 12076
+     !        
+     address-family ipv4
+      neighbor <IP#2_used_by_Azure> activate
+      neighbor <IP#2_used_by_Azure> fall-over bfd
+     exit-address-family
     !
 
 
@@ -173,7 +192,7 @@ Puede configurar el enrutador para anunciar prefijos seleccionados a Microsoft. 
     }
 
 
-### <a name="4-route-maps"></a>4. Asignaciones de ruta
+### <a name="4-route-policies"></a>4. Directivas de rutas
 Puede usar asignaciones de ruta y listas de prefijo para filtrar prefijos propagados en la red. Puede usar el ejemplo siguiente para realizar la tarea. Asegúrese de que tiene el programa de instalación de listas de prefijos adecuado.
 
     policy-options {
@@ -203,6 +222,24 @@ Puede usar asignaciones de ruta y listas de prefijo para filtrar prefijos propag
         }                                   
     }
 
+### <a name="4-configuring-bfd"></a>4. Configuración de BFD
+Configurará BFD únicamente en la sección del protocolo BGP.
+
+    protocols {
+        bgp { 
+            group <Group_Name> { 
+                peer-as 12076;              
+                neighbor <IP#2_used_by_Azure>;
+                bfd-liveness-detection {
+                       minimum-interval 3000;
+                       multiplier 3;
+                }
+            }                               
+        }                                   
+    }
+
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte [P+F de ExpressRoute](expressroute-faqs.md) para obtener más detalles.
+
+
 

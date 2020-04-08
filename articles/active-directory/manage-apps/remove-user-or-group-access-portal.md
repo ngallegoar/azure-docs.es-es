@@ -17,10 +17,10 @@ ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: edf918b57212cf2adfbffb358a0257d9dbea85e9
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74275878"
 ---
 # <a name="remove-a-user-or-group-assignment-from-an-enterprise-app-in-azure-active-directory"></a>Eliminación de asignaciones de usuario o grupo de una aplicación empresarial en Azure Active Directory
@@ -37,7 +37,7 @@ Evitar que se asigne acceso a un usuario o grupo a una de sus aplicaciones empre
 1. En la página **Azure Active Directory - *nombreDeDirectorio*** (es decir, la página de Azure AD del directorio que está administrando), seleccione **Aplicaciones empresariales**.
 1. En el panel **Aplicaciones empresariales - Todas las aplicaciones**, verá una lista de las aplicaciones que puede administrar. Seleccione una aplicación.
 1. En la página de introducción ***nombreDeAplicación*** (es decir, la página con el nombre de la aplicación seleccionada en el título), seleccione **Usuarios y grupos**.
-1. En la página ***nombreDeAplicación*** **- User & Group Assignment** (Asignación de usuarios y grupos), seleccione uno o varios usuarios o grupos y, luego, seleccione el comando**Quitar**. Confirme la decisión en el símbolo del sistema.
+1. En la página ***nombreDeAplicación*** **- User & Group Assignment** (Asignación de usuarios y grupos), seleccione uno o varios usuarios o grupos y, luego, seleccione el comando **Quitar**. Confirme la decisión en el símbolo del sistema.
 
 ## <a name="how-do-i-remove-a-user-or-group-assignment-to-an-enterprise-app-using-powershell"></a>¿Cómo puedo eliminar asignaciones de usuario o grupo de una aplicación empresarial con PowerShell?
 
@@ -69,4 +69,4 @@ Evitar que se asigne acceso a un usuario o grupo a una de sus aplicaciones empre
 - [Ver todos mis grupos](../fundamentals/active-directory-groups-view-azure-portal.md)
 - [Asignar un usuario o grupo a una aplicación empresarial](assign-user-or-group-access-portal.md)
 - [Deshabilitar los inicios de sesión de los usuarios de una aplicación empresarial](disable-user-sign-in-portal.md)
-- [Cambiar el nombre o el logotipo de una aplicación empresarial](change-name-or-logo-portal.md)
+- [Cambio del nombre o el logotipo de una aplicación empresarial](change-name-or-logo-portal.md)

@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/22/2019
+ms.date: 03/05/2020
 ms.author: apimpm
-ms.openlocfilehash: 8629d07830622770c3b30dacdd1fabc8417d7f52
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: af7c995c11322a538dd9e27a905f1ddbc723e8ab
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74454425"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79224892"
 ---
 # <a name="access-and-customize-developer-portal"></a>Acceso al portal para desarrolladores y su personalización
 
@@ -36,7 +36,7 @@ Puede encontrar más detalles del portal para desarrolladores en [Introducción 
 
 ![Modo de administrador del portal para desarrolladores de API Management](media/api-management-howto-developer-portal-customize/cover.png)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Complete el siguiente inicio rápido: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md)
 - Importe y publique una instancia de Azure API Management. Para obtener más información, consulte [Importación y publicación](import-and-publish.md).
@@ -111,7 +111,7 @@ En el siguiente vídeo se muestra cómo editar el contenido del portal, personal
 
 > [!VIDEO https://www.youtube.com/embed/5mMtUSmfUlw]
 
-## <a name="publish"> </a>Publicación del portal
+## <a name="publish-the-portal"></a><a name="publish"> </a>Publicación del portal
 
 Para que el portal y los últimos cambios estén disponibles para los visitantes, debe publicarlos.
 
@@ -125,6 +125,10 @@ Para que el portal y los últimos cambios estén disponibles para los visitantes
 ## <a name="visit-the-published-portal"></a>Visita del portal publicado
 
 Después de publicar el portal, puede acceder a él en la misma dirección URL que el panel administrativo, por ejemplo, `https://contoso-api.developer.azure-api.net`. Véalo en una sesión de explorador independiente (modo de exploración de incógnito o privada) como visitante externo.
+
+## <a name="apply-the-cors-policy-on-apis"></a>Aplicación de la directiva CORS en las API
+
+Debe habilitar CORS (uso compartido de recursos entre orígenes) en las API para que los visitantes del portal puedan probar las API con la consola interactiva integrada. Consulte [este artículo de la documentación](api-management-howto-developer-portal.md#cors) para más detalles.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
-ms.openlocfilehash: 4f89fb07fbbff3beee66f80675bb5c3a32136807
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d828103bef8e57f5d0cdfe6c243c52e2d0526663
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75458766"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80257553"
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Escalado de un trabajo de Azure Stream Analytics para incrementar el rendimiento
 En este artículo se muestra cómo ajustar una consulta de Stream Analytics para aumentar la capacidad de procesamiento de trabajos de Stream Analytics. Puede usar la guía siguiente para escalar un trabajo para administrar una carga más elevada y aprovecha más recursos del sistema, como más ancho de banda, más recursos de CPU y más memoria.
@@ -23,7 +23,7 @@ Como requisito previo, es posible que tenga que leer los artículos siguientes:
 ## <a name="case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions"></a>Caso 1: la consulta se puede paralelizar completamente de manera inherente en distintas particiones de entrada
 Si la consulta se puede paralelizar completamente de manera inherente en distintas particiones de entrada, puede seguir estos pasos:
 1.  Cree una consulta que sea embarazosamente paralela mediante la palabra clave **PARTITION BY**. Consulte más detalles en la sección de trabajos embarazosamente paralelos [en esta página](stream-analytics-parallelization.md).
-2.  En función de los tipos de salida que se usan en la consulta, es posible que algunas salidas no se puedan paralelizar o que necesiten una configuración adicional para ser embarazosamente paralelas. Por ejemplo, las salidas de SQL, SQL DW y PowerBI no se pueden paralelizar. Las salidas siempre se combinan antes de enviarlas al receptor de salida. Blobs, Tables, ADLS, Service Bus y Azure Function se pueden paralelizar de manera automática. CosmosDB y Event Hub deben tener la configuración PartitionKey establecida para coincidir con el campo **PARTITION BY** (habitualmente PartitionId). Para Event Hub, también debe poner atención en que el número de particiones de todas las entradas coincida con el de todas las salidas para evitar el intercambio entre las particiones. 
+2.  En función de los tipos de salida que se usan en la consulta, es posible que algunas salidas no se puedan paralelizar o que necesiten una configuración adicional para ser embarazosamente paralelas. Por ejemplo, la salida de Power BI no se puede paralelizar. Las salidas siempre se combinan antes de enviarlas al receptor de salida. Blobs, Tables, ADLS, Service Bus y Azure Function se pueden paralelizar de manera automática. Las salidas de SQL y SQL DW tienen una opción de paralelización. Event Hub debe tener la configuración PartitionKey establecida de forma que coincida con el campo **PARTITION BY** (habitualmente, PartitionId). Para Event Hub, también debe poner atención en que el número de particiones de todas las entradas coincida con el de todas las salidas para evitar el intercambio entre las particiones. 
 3.  Ejecute la consulta con **6 SU** (que es la capacidad total de un solo nodo de ejecución) para medir el rendimiento máximo posible y si usa **GROUP BY**, mida cuántos grupos (cardinalidad) puede controlar el trabajo. Los síntomas generales de que el trabajo alcanza los límites de los recursos del sistema son los siguientes.
     - La métrica del porcentaje de uso de SU supera el 80 %. Esto indica que el uso de la memoria es alto. [Aquí](stream-analytics-streaming-unit-consumption.md) se describen los factores que contribuyen al incremento de esta métrica. 
     -   La marca de tiempo de salida se queda atrás con respecto al tiempo de reloj. En función de la lógica de la consulta, la marca de tiempo de salida puede tener un desplazamiento lógico del tiempo de reloj. Sin embargo, debería avanzar aproximadamente a la misma velocidad. Si la marca de tiempo de salida se queda cada vez más atrás, es un indicador de que el sistema está trabajando demasiado. Esto puede ser resultado de una limitación de receptor de salida de bajada o de un alto uso de CPU. En este momento, no proporcionamos una métrica de uso de CPU, por lo que puede resultar difícil diferenciar ambas opciones.

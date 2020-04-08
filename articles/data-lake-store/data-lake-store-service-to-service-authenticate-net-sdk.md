@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 96c496ef67e26a3079577bf52e9d019d963467b8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65915844"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231488"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Autenticación de servicio a servicio con Azure Data Lake Storage Gen1 mediante el SDK de .NET
 > [!div class="op_single_selector"]
@@ -29,8 +29,8 @@ ms.locfileid: "65915844"
 
 En este artículo, aprenderá a usar el SDK de .NET para realizar la autenticación de servicio a servicio con Azure Data Lake Storage Gen1. Para la autenticación del usuario final con Data Lake Storage Gen1 mediante el SDK de .NET, vea [End-user authentication with Data Lake Storage Gen1 using .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md) (Autenticación del usuario final con Data Lake Storage Gen1 mediante el SDK de .NET).
 
-## <a name="prerequisites"></a>Requisitos previos
-* **Visual Studio 2013 o superior**. En las instrucciones siguientes se usa Visual Studio 2019.
+## <a name="prerequisites"></a>Prerrequisitos
+* **Visual Studio 2013 o superior**. En las instrucciones siguientes se usa Visual Studio 2019.
 
 * **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -50,7 +50,7 @@ En este artículo, aprenderá a usar el SDK de .NET para realizar la autenticaci
       * `Microsoft.Azure.Management.DataLake.Store` - En este tutorial se usa v2.1.3 (versión preliminar).
       * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - En este tutorial se usa v2.2.12.
 
-        ![Incorporación de un origen de NuGet](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "Creación de una cuenta de Azure Data Lake")
+        ![Incorporación de un origen de NuGet](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "Creación de una nueva cuenta de Azure Data Lake")
    4. Cierre el **Administrador de paquetes NuGet**.
 
 5. Abra **Program.cs**, elimine el código existente e incluya las siguientes instrucciones para agregar referencias a espacios de nombres.

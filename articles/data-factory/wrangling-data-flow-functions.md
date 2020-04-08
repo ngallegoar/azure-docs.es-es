@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
 ms.openlocfilehash: e2517ec4a02a5d61fb3ce1d9ca9ffa2b5f4e8bf8
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74287027"
 ---
 # <a name="transformation-functions-in-wrangling-data-flow"></a>Funciones de transformación en flujos de datos de limpieza y transformación
@@ -50,7 +50,7 @@ Las siguientes funciones de M agregan o transforman columnas: [Table.AddColumn](
 * Concatenación de texto
 * Aritmética de fecha y hora (operadores aritméticos, [Date.AddDays](https://docs.microsoft.com/powerquery-m/date-adddays), [Date.AddMonths](https://docs.microsoft.com/powerquery-m/date-addmonths), [Date.AddQuarters](https://docs.microsoft.com/powerquery-m/date-addquarters), [Date.AddWeeks](https://docs.microsoft.com/powerquery-m/date-addweeks), [Date.AddYears](https://docs.microsoft.com/powerquery-m/date-addyears))
 * Las duraciones se pueden usar para operaciones aritméticas de fecha y hora, pero se deben transformar en otro tipo antes de que se escriban en un receptor (operadores aritméticos, [#duration](https://docs.microsoft.com/powerquery-m/sharpduration), [Duration.Days](https://docs.microsoft.com/powerquery-m/duration-days), [Duration.Hours](https://docs.microsoft.com/powerquery-m/duration-hours), [Duration.Minutes](https://docs.microsoft.com/powerquery-m/duration-minutes), [Duration.Seconds](https://docs.microsoft.com/powerquery-m/duration-seconds), [Duration.TotalDays](https://docs.microsoft.com/powerquery-m/duration-totaldays), [Duration.TotalHours](https://docs.microsoft.com/powerquery-m/duration-totalhours), [Duration.TotalMinutes](https://docs.microsoft.com/powerquery-m/duration-totalminutes), [Duration.TotalSeconds](https://docs.microsoft.com/powerquery-m/duration-totalseconds))    
-* La mayoría de las funciones numéricas estándar, científicas y trigonométricas (todas las funciones de [Operaciones](https://docs.microsoft.com/powerquery-m/number-functions#operations), [Redondeo](https://docs.microsoft.com/powerquery-m/number-functions#rounding) y [Trigonometría](https://docs.microsoft.com/powerquery-m/number-functions#trigonometry), *excepto* Number.Factorial, Number.Permutations y Number.Combinations)
+* La mayoría de las funciones numéricas estándar, científicas y trigonométricas (todas las funciones de [Operaciones](https://docs.microsoft.com/powerquery-m/number-functions#operations), [Redondeo](https://docs.microsoft.com/powerquery-m/number-functions#rounding) y [Trigonometría](https://docs.microsoft.com/powerquery-m/number-functions#trigonometry) *excepto* Number.Factorial, Number.Permutations y Number.Combinations)
 * Reemplazo ([Replacer.ReplaceText](https://docs.microsoft.com/powerquery-m/replacer-replacetext), [Replacer.ReplaceValue](https://docs.microsoft.com/powerquery-m/replacer-replacevalue), [Text.Replace](https://docs.microsoft.com/powerquery-m/text-replace), [Text.Remove](https://docs.microsoft.com/powerquery-m/text-remove))
 * Extracción de texto posicional ([Text.PositionOf](https://docs.microsoft.com/powerquery-m/text-positionof), [Text.Length](https://docs.microsoft.com/powerquery-m/text-length), [Text.Start](https://docs.microsoft.com/powerquery-m/text-start), [Text.End](https://docs.microsoft.com/powerquery-m/text-end), [Text.Middle](https://docs.microsoft.com/powerquery-m/text-middle), [Text.ReplaceRange](https://docs.microsoft.com/powerquery-m/text-replacerange), [Text.RemoveRange](https://docs.microsoft.com/powerquery-m/text-removerange))
 * Formato básico de texto ([Text.Lower](https://docs.microsoft.com/powerquery-m/text-lower), [Text.Upper](https://docs.microsoft.com/powerquery-m/text-upper), [Text.Trim](https://docs.microsoft.com/powerquery-m/text-trim)/[Start](https://docs.microsoft.com/powerquery-m/text-trimstart)/[End](https://docs.microsoft.com/powerquery-m/text-trimend), [Text.PadStart](https://docs.microsoft.com/powerquery-m/text-padstart)/[End](https://docs.microsoft.com/powerquery-m/text-padend), [Text.Reverse](https://docs.microsoft.com/powerquery-m/text-reverse))

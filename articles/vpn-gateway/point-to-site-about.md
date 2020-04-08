@@ -7,24 +7,24 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: cherylmc
-ms.openlocfilehash: 78ed07560fdb15efb2de13c194549f5b433b775a
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: 381aad5d0a56362d9966ed54b931a8478f2f6bf2
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77500600"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80410501"
 ---
 # <a name="about-point-to-site-vpn"></a>Acerca de las conexiones VPN de punto a sitio
 
 Una conexión de puerta de enlace de VPN de punto a sitio (P2S) permite crear una conexión segura a la red virtual desde un equipo cliente individual. Se establece una conexión de punto a sitio al iniciarla desde el equipo cliente. Esta solución resulta útil para los teletrabajadores que deseen conectarse a redes virtuales de Azure desde una ubicación remota, por ejemplo, desde casa o un congreso. La conexión VPN de punto a sitio también es una solución útil en comparación con la conexión VPN de sitio a sitio cuando solo necesitan conectarse a la red virtual algunos clientes. Este artículo se aplica al modelo de implementación de Resource Manager.
 
-## <a name="protocol"></a>¿Qué protocolo utiliza P2S?
+## <a name="what-protocol-does-p2s-use"></a><a name="protocol"></a>¿Qué protocolo utiliza P2S?
 
 La conexión VPN de punto a sitio usa uno de los siguientes protocolos:
 
-* **Protocolo OpenVPN®**, un protocolo VPN basado en SSL/TLS. Una solución de VPN basada en SSL puede penetrar firewalls, puesto que la mayoría de ellos abre el puerto TCP 443 saliente, que utiliza SSL. OpenVPN puede utilizarse para la conexión desde dispositivos Android, iOS (11.0 y versiones posteriores), Windows, Linux y Mac (OSX 10.13 y versiones posteriores).
+* **Protocolo OpenVPN®**, un protocolo VPN basado en SSL/TLS. Una solución de VPN basada en TLS puede penetrar firewalls, puesto que la mayoría de ellos abre el puerto TCP 443 saliente, que usa TLS. OpenVPN puede utilizarse para la conexión desde dispositivos Android, iOS (11.0 y versiones posteriores), Windows, Linux y Mac (OSX 10.13 y versiones posteriores).
 
-* El protocolo de túnel de sockets seguro (SSTP), que es un protocolo VPN propio basado en SSL. Una solución de VPN basada en SSL puede penetrar firewalls, puesto que la mayoría de ellos abre el puerto TCP 443 saliente, que utiliza SSL. El protocolo SSTP solo se admite en dispositivos Windows. Azure es compatible con todas las versiones de Windows que tienen SSTP (Windows 7 y versiones posteriores).
+* El protocolo de túnel de sockets seguro (SSTP), que es un protocolo VPN propio basado en TLS. Una solución de VPN basada en TLS puede penetrar firewalls, puesto que la mayoría de ellos abre el puerto TCP 443 saliente, que usa TLS. El protocolo SSTP solo se admite en dispositivos Windows. Azure es compatible con todas las versiones de Windows que tienen SSTP (Windows 7 y versiones posteriores).
 
 * La conexión VPN IKEv2, una solución de VPN con protocolo de seguridad de Internet basada en estándares. La conexión VPN IKEv2 puede utilizarse para la conexión desde dispositivos Mac (versión de OSX 10.11 y versiones posteriores).
 
@@ -33,7 +33,7 @@ La conexión VPN de punto a sitio usa uno de los siguientes protocolos:
 >IKEv2 y OpenVPN para P2S están disponibles para el modelo de implementación de Resource Manager. No están disponibles para el modelo de implementación clásico.
 >
 
-## <a name="authentication"></a>¿Cómo se autentican los clientes VPN de punto a sitio?
+## <a name="how-are-p2s-vpn-clients-authenticated"></a><a name="authentication"></a>¿Cómo se autentican los clientes VPN de punto a sitio?
 
 Para que Azure acepte una conexión VPN de punto a sitio, el usuario primero debe autenticarse. Azure ofrece dos mecanismos para autenticar los usuarios que se conectan.
 
@@ -87,7 +87,7 @@ El archivo zip también proporciona los valores de algunas de las opciones de co
 >[!INCLUDE [TLS version changes](../../includes/vpn-gateway-tls-change.md)]
 >
 
-## <a name="gwsku"></a>¿Qué SKU de puerta de enlace admite VPN de P2S?
+## <a name="which-gateway-skus-support-p2s-vpn"></a><a name="gwsku"></a>¿Qué SKU de puerta de enlace admite VPN de P2S?
 
 [!INCLUDE [aggregate throughput sku](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
@@ -97,7 +97,7 @@ El archivo zip también proporciona los valores de algunas de las opciones de co
 >La SKU básica no admite la autenticación de IKEv2 o RADIUS.
 >
 
-## <a name="IKE/IPsec policies"></a>¿Qué directivas IPsec/IKE se configuran en las puertas de enlace de VPN de P2S?
+## <a name="what-ikeipsec-policies-are-configured-on-vpn-gateways-for-p2s"></a><a name="IKE/IPsec policies"></a>¿Qué directivas IPsec/IKE se configuran en las puertas de enlace de VPN de P2S?
 
 
 **IKEv2**
@@ -138,7 +138,7 @@ El archivo zip también proporciona los valores de algunas de las opciones de co
 | AES256    | SHA256 | GROUP_ECP256 |
 | AES256    | SHA1 | GROUP_NONE |
 
-## <a name="TLS policies"></a>¿Qué directivas TLS se configuran en las puertas de enlace de VPN para P2S?
+## <a name="what-tls-policies-are-configured-on-vpn-gateways-for-p2s"></a><a name="TLS policies"></a>¿Qué directivas TLS se configuran en las puertas de enlace de VPN para P2S?
 **TLS**
 
 |**Directivas** |
@@ -156,7 +156,7 @@ El archivo zip también proporciona los valores de algunas de las opciones de co
 |TLS_RSA_WITH_AES_128_CBC_SHA256 |
 |TLS_RSA_WITH_AES_256_CBC_SHA256 |
 
-## <a name="configure"></a>¿Cómo se puede configurar una conexión de P2S?
+## <a name="how-do-i-configure-a-p2s-connection"></a><a name="configure"></a>¿Cómo se puede configurar una conexión de P2S?
 
 En una configuración de P2S es necesario realizar unos pocos pasos específicos. En los siguientes artículos encontrará los pasos necesarios para realizar una configuración de P2S, así como vínculos para configurar los dispositivos de cliente VPN:
 
@@ -170,11 +170,11 @@ En una configuración de P2S es necesario realizar unos pocos pasos específicos
 
 Para conocer los pasos, consulte las [preguntas más frecuentes](#removeconfig) a continuación.
  
-## <a name="faqcert"></a>Preguntas más frecuentes acerca de la autenticación de certificado nativa de Azure
+## <a name="faq-for-native-azure-certificate-authentication"></a><a name="faqcert"></a>Preguntas más frecuentes acerca de la autenticación de certificado nativa de Azure
 
 [!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 
-## <a name="faqradius"></a>Preguntas más frecuentes acerca de la autenticación RADIUS
+## <a name="faq-for-radius-authentication"></a><a name="faqradius"></a>Preguntas más frecuentes acerca de la autenticación RADIUS
 
 [!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-radius-include.md)]
 

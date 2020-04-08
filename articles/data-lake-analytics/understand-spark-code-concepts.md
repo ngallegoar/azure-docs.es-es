@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: Understand-apache-spark-code-concepts
 ms.date: 10/15/2019
 ms.openlocfilehash: bdb38e36a9f1344a3adde15d349a2ec176c0fe95
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74424009"
 ---
 # <a name="understand-apache-spark-code-for-u-sql-developers"></a>Descripción del código de Apache Spark para los desarrolladores de U-SQL
@@ -160,8 +160,8 @@ Si el catálogo de U-SQL se ha usado para compartir datos y objetos de código e
 El lenguaje principal de U-SQL está transformando los conjuntos de filas y se basa en SQL. A continuación se muestra una lista no exhaustiva de las expresiones de conjunto de filas más comunes que se ofrecen en U-SQL:
 
 - `SELECT`/`FROM`/`WHERE`/`GROUP BY`+Aggregates+`HAVING`/`ORDER BY`+`FETCH`
-- Expresiones `JOIN` `INNER`/`OUTER`/`CROSS`/`SEMI`
-- Expresiones `APPLY` `CROSS`/`OUTER`
+- Expresiones `INNER`/`OUTER`/`CROSS`/`SEMI` `JOIN`
+- Expresiones `CROSS`/`OUTER` `APPLY`
 - Expresiones `PIVOT`/`UNPIVOT`
 - Constructor de conjunto de filas `VALUES`
 
@@ -217,7 +217,7 @@ El optimizador de consultas basado en el costo de Spark tiene sus propias funcio
 
 - [Descripción de los formatos de datos de Spark para desarrolladores de U-SQL](understand-spark-data-formats.md)
 - [.NET para Apache Spark](https://docs.microsoft.com/dotnet/spark/what-is-apache-spark-dotnet)
-- [Actualización de las soluciones de análisis de macrodatos de Azure Data Lake Storage Gen1 a Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-upgrade.md)
-- [Transformación de datos mediante la actividad de Spark en Azure Data Factory](../data-factory/transform-data-using-spark.md)
-- [Transformación de datos mediante la actividad de Hive de Hadoop en Azure Data Factory](../data-factory/transform-data-using-hadoop-hive.md)
-- [Qué es Apache Spark en Azure HDInsight](../hdinsight/spark/apache-spark-overview.md)
+- [Actualización de las soluciones de análisis de macrodatos de Azure Data Lake Storage Gen1 a Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-upgrade.md)
+- [Transformación de datos mediante la actividad de Spark en Azure Data Factory](../data-factory/transform-data-using-spark.md)
+- [Transformación de datos mediante la actividad de Hive de Hadoop en Azure Data Factory](../data-factory/transform-data-using-hadoop-hive.md)
+- [Qué es Apache Spark en Azure HDInsight](../hdinsight/spark/apache-spark-overview.md)

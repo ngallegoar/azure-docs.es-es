@@ -3,13 +3,13 @@ author: yashesvi
 ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 11/21/2019
-ms.openlocfilehash: 119ef52bd801f66cd25a844d3a87b1906881c484
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 03/27/2020
+ms.openlocfilehash: d41affc55134ad34c325c12ab4a14f4013c58f9e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76020887"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80371673"
 ---
 Cuando haga "commit" a una instancia reservada de VM de Azure, puede ahorrar dinero. El descuento de la reserva se aplica automáticamente el número de máquinas virtuales en ejecución que coincidan con el ámbito y los atributos de la reserva. No es necesario asignar una reserva a una máquina virtual para obtener los descuentos. Una compra de instancia reservada cubre solo la parte de proceso del uso de la máquina virtual. En el caso de las máquinas virtuales Windows, el medidor de uso se divide en dos medidores independientes. Hay un medidor de proceso, que es el mismo que el medidor de Linux, y un medidor de IP de Windows. Los cargos que verá al hacer la compra son solo por los costos de proceso. Los cargos no incluyen los costos de software de Windows. Para obtener más información sobre los costos de software, consulte los [costos de software no incluidos en Azure Reserved Virtual Machine Instances](../articles/cost-management-billing/reservations/reserved-instance-windows-software-costs.md).
 
@@ -56,11 +56,10 @@ Compruebe el valor *ConsumedService* en los datos de uso para determinar si el u
 Para más información sobre la flexibilidad de tamaño de instancia, vea [Flexibilidad en el tamaño de las máquinas virtuales con Azure Reserved VM Instances](../articles/virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
 
 ### <a name="analyze-your-usage-information"></a>Analizar la información de uso
-Analice su información de uso para averiguar qué reservas debe adquirir.
 
-Los datos de uso están disponibles en el archivo de uso y en las API. Úselos de manera conjunta para determinar qué reserva adquirir. Para determinar la cantidad de reservas que necesita adquirir, compruebe si hay instancias de máquina virtual que tengan un uso elevado diario.
+Analice su información de uso para averiguar qué reservas debe adquirir. Los datos de uso están disponibles en el archivo de uso y en las API. Úselos de manera conjunta para determinar qué reserva adquirir. Para determinar la cantidad de reservas que necesita adquirir, compruebe si hay instancias de máquina virtual que tengan un uso elevado diario. No tenga en cuenta la subcategoría `Meter` ni los campos `Product` de los datos de uso, ya que no distinguen los distintos tamaños de máquina virtual que usan Premium Storage. Si usa estos campos para determinar el tamaño de máquina virtual al adquirir la reserva, puede correr el riesgo de adquirir un tamaño equivocado, y no obtendrá el descuento de reserva que espera. En su lugar, consulte el campo `AdditionalInfo` del archivo o la API de uso para determinar el tamaño apropiado de la máquina virtual.
 
-No tenga en cuenta la subcategoría `Meter` ni los campos `Product` de los datos de uso, ya que no distinguen los distintos tamaños de máquina virtual que usan Premium Storage. Si usa estos campos para determinar el tamaño de máquina virtual al adquirir la reserva, puede correr el riesgo de adquirir un tamaño equivocado, y no obtendrá el descuento de reserva que espera. En su lugar, consulte el campo `AdditionalInfo` del archivo o la API de uso para determinar el tamaño apropiado de la máquina virtual.
+El archivo de uso proporciona los cargos por período de facturación y el uso diario. Para más información sobre cómo descargar el archivo de uso, vea [Visualización y descarga de los datos de uso y los cargos de Azure](../articles/cost-management-billing/understand/download-azure-daily-usage.md). Tras ello, una vez posea la información del archivo de uso, podrá [determinar qué reserva comprar](../articles/cost-management-billing/reservations/determine-reservation-purchase.md).
 
 ### <a name="purchase-restriction-considerations"></a>Consideraciones sobre restricciones de compra
 

@@ -12,16 +12,18 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/08/2019
-ms.openlocfilehash: 3932c22ff003a343e4c32aee117a7ddea922fbdb
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 0d50ddbbeeaed48c14d07c42588efcbb20bb7d79
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820742"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411155"
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>¿Qué es el servicio Azure SQL Database?
 
-Azure SQL Database es una base de datos relacional de uso general que se proporciona como un servicio administrado. Con este servicio, puede crear una capa de almacenamiento de datos de gran rendimiento y disponibilidad para las aplicaciones y las soluciones de Azure. SQL Database puede ser la opción adecuada para una variedad de aplicaciones modernas en la nube, porque le permite procesar tanto datos relacionales como [estructuras no relacionales](sql-database-multi-model-features.md), por ejemplo, grafos, JSON, elementos espaciales y XML.
+Azure SQL Database es un motor de base de datos de plataforma como servicio (PaaS) totalmente administrado que se encarga de la mayoría de las funciones de administración de bases de datos, tales como actualizar, aplicar revisiones, crear copias de seguridad y supervisar sin intervención del usuario. Azure SQL Database se ejecuta siempre en la última versión estable del motor de base de datos de SQL Server y en un sistema operativo revisado con el 99,99 % de disponibilidad. Las funcionalidades de PaaS que están integradas en Azure SQL Database permiten centrarse en las actividades de administración y optimización de la base de datos específica del dominio que son críticas para su negocio.
+
+Con Azure SQL Database, puede crear una capa de almacenamiento de datos de gran rendimiento y disponibilidad para las aplicaciones y las soluciones de Azure. SQL Database puede ser la opción adecuada para una variedad de aplicaciones modernas en la nube, porque le permite procesar tanto datos relacionales como [estructuras no relacionales](sql-database-multi-model-features.md), por ejemplo, grafos, JSON, elementos espaciales y XML.
 
 Se basa en la versión estable más reciente del [motor de base de datos de Microsoft SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json). Puede usar características avanzadas de procesamiento de consultas, como las [tecnologías en memoria de alto rendimiento](sql-database-in-memory.md) y el [procesamiento de consultas inteligente](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json). De hecho, las funcionalidades más recientes de SQL Server se publican primero en SQL Database y, después, en el propio SQL Server. Las funcionalidades de SQL Server más recientes se obtienen sin costo alguno mediante revisiones o actualizaciones, y se han probado en millones de bases de datos. 
 
@@ -68,7 +70,7 @@ SQL Database ofrece los siguientes modelos de compra:
 Azure SQL Database ofrece tres niveles de servicio que están diseñados para diferentes tipos de aplicaciones:
 - Nivel de servicio [De uso general/estándar](sql-database-service-tier-general-purpose.md) diseñado para las cargas de trabajo comunes. Ofrece opciones de proceso y almacenamiento equilibradas basadas en el presupuesto.
 - Nivel de servicio [Crítico para la empresa/Premium](sql-database-service-tier-business-critical.md), diseñado para las aplicaciones de OLTP con un alto índice de transacciones y una latencia de E/S más baja. Ofrece la máxima resistencia a los errores gracias al uso de varias réplicas aisladas.
-- Nivel de servicio [Hiperescala](sql-database-service-tier-hyperscale.md), diseñado para bases de datos OLTP de gran tamaño y con la posibilidad de escalar automáticamente el almacenamiento y el proceso de manera fluida. 
+- Nivel de servicio [Hiperescala](sql-database-service-tier-hyperscale.md), diseñado para bases de datos OLTP de gran tamaño y con la posibilidad de escalar automáticamente el almacenamiento y el proceso de manera fluida.    
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>Grupos elásticos para maximizar la utilización de los recursos
 
@@ -95,9 +97,9 @@ Azure SQL Database proporciona características avanzadas de supervisión y solu
  - Las funcionalidades de supervisión integradas que se proporcionan en la versión más reciente del motor de base de datos de SQL Server. Estas funcionalidades le permiten encontrar información en tiempo real sobre el rendimiento. 
  - Funcionalidades de supervisión PaaS que se proporcionan en Azure y que permiten supervisar y solucionar problemas de un gran número de instancias de base de datos.
 
-El [Almacén de consultas](sql-database-operate-query-store.md), una característica de supervisión integrada de SQL Server, registra el rendimiento de las consultas en tiempo real y permite identificar los posibles problemas de rendimiento y los principales consumidores de recursos. El ajuste automático y las recomendaciones le proporcionan consejos relativos a las consultas con respecto al rendimiento limitado y los índices que faltan o que están duplicados. El ajuste automático en SQL Database le permite aplicar manualmente los scripts que pueden corregir los problemas, o puede dejar que SQL Database aplique la corrección. SQL Database también puede probar y comprobar que la corrección proporciona algunas ventajas, y conservar o revertir el cambio en función del resultado. Además de las funcionalidades de Almacén de consultas y ajuste automático, también puede usar los elementos [DMV y XEvent](sql-database-monitoring-with-dmvs.md) estándar para supervisar el rendimiento de la carga de trabajo.
+El [Almacén de consultas](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store), una característica de supervisión integrada de SQL Server, registra el rendimiento de las consultas en tiempo real y permite identificar los posibles problemas de rendimiento y los principales consumidores de recursos. El ajuste automático y las recomendaciones le proporcionan consejos relativos a las consultas con respecto al rendimiento limitado y los índices que faltan o que están duplicados. El ajuste automático en SQL Database le permite aplicar manualmente los scripts que pueden corregir los problemas, o puede dejar que SQL Database aplique la corrección. SQL Database también puede probar y comprobar que la corrección proporciona algunas ventajas, y conservar o revertir el cambio en función del resultado. Además de las funcionalidades de Almacén de consultas y ajuste automático, también puede usar los elementos [DMV y XEvent](sql-database-monitoring-with-dmvs.md) estándar para supervisar el rendimiento de la carga de trabajo.
 
-Azure proporciona herramientas integradas de [supervisión del rendimiento](sql-database-performance.md) y [alertas](sql-database-insights-alerts-portal.md), junto con clasificaciones de rendimiento, que le permiten supervisar fácilmente el estado de miles de bases de datos. Con estas herramientas, puede evaluar rápidamente la repercusión que tiene escalar o reducir verticalmente en función de sus necesidades de rendimiento actuales o proyectadas. Además, SQL Database puede [emitir métricas y registros de diagnóstico](sql-database-metrics-diag-logging.md) para facilitar la supervisión. SQL Database se puede configurar para que almacene el uso de recursos, los trabajadores y sesiones, y la conectividad en uno de estos recursos de Azure:
+Azure proporciona herramientas integradas de [supervisión del rendimiento](sql-database-performance-guidance.md) y [alertas](sql-database-insights-alerts-portal.md), junto con clasificaciones de rendimiento, que le permiten supervisar fácilmente el estado de miles de bases de datos. Con estas herramientas, puede evaluar rápidamente la repercusión que tiene escalar o reducir verticalmente en función de sus necesidades de rendimiento actuales o proyectadas. Además, SQL Database puede [emitir métricas y registros de diagnóstico](sql-database-metrics-diag-logging.md) para facilitar la supervisión. SQL Database se puede configurar para que almacene el uso de recursos, los trabajadores y sesiones, y la conectividad en uno de estos recursos de Azure:
 
 - **Azure Storage**: para archivar grandes cantidades de datos de telemetría a un pequeño precio.
 - **Azure Event Hubs**: para integrar la telemetría de SQL Database con una solución de supervisión personalizada o canalizaciones activas.
@@ -107,11 +109,11 @@ Azure proporciona herramientas integradas de [supervisión del rendimiento](sql-
 
 ## <a name="availability-capabilities"></a>Funcionalidades de disponibilidad
 
-En un entorno de SQL Server tradicional, lo normal es que tenga al menos dos máquinas configuradas localmente. Estas máquinas tienen copias exactas de los datos, que se mantienen de manera sincrónica, como forma de protección frente a un error de una sola máquina o componente. Este entorno proporciona alta disponibilidad, pero no protege de la destrucción del centro de datos por un desastre natural.
+Azure SQL Database permite que su empresa siga funcionando durante las interrupciones. En un entorno de SQL Server tradicional, lo normal es que tenga al menos dos máquinas configuradas localmente. Estas máquinas tienen copias exactas de los datos, que se mantienen de manera sincrónica, como forma de protección frente a un error de una sola máquina o componente. Este entorno proporciona alta disponibilidad, pero no protege de la destrucción del centro de datos por un desastre natural.
 
 La recuperación ante desastres da por supuesto que la localización geográfica de un evento catastrófico será lo suficientemente precisa para tener otra máquina u otro conjunto de máquinas con una copia alejada de los datos. En SQL Server, puede usar grupos de disponibilidad AlwaysOn que se ejecuten en modo asincrónico para obtener esta funcionalidad. Con frecuencia, la gente no quiere esperar a que se produzca la replicación tan lejos para confirmar una transacción, por lo que se pueden perder datos al realizarse conmutaciones por error no planeadas.
 
-Las bases de datos de los niveles de servicio prémium y crítico para la empresa ya [hacen algo muy parecido](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) a la sincronización de un grupo de disponibilidad. Las bases de datos de los niveles de servicio menores proporcionan redundancia mediante almacenamiento con un [mecanismo distinto pero equivalente](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability). La lógica integrada ayuda a protegerse frente al error de una sola máquina. La característica de replicación geográfica activa proporciona la capacidad de protegerse frente a desastres cuando se destruye toda una región.
+Las bases de datos de los niveles de servicio Premium y crítico para la empresa ya [hacen algo parecido](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) a la sincronización de un grupo de disponibilidad. Las bases de datos de los niveles de servicio menores proporcionan redundancia mediante almacenamiento con un [mecanismo distinto pero equivalente](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability). La lógica integrada ayuda a protegerse frente al error de una sola máquina. La característica de replicación geográfica activa proporciona la capacidad de protegerse frente a desastres cuando se destruye toda una región.
 
 Azure Availability Zones intenta ofrecer protección contra la interrupción de un edificio con un solo centro de datos dentro de una región. Así, le ayuda a protegerse frente a la interrupción de alimentación eléctrica o de red en un edificio. En SQL Database, las diferentes réplicas se colocan en distintas zonas de disponibilidad (diferentes edificios, en realidad).
 
@@ -155,9 +157,9 @@ Hay dos aspectos del ajuste automático [disponibles en SQL Database](sql-databa
 - **Administración automática de índices**: Identifica tanto los índices que se deben agregar a la base de datos como los que se deben quitar.
 - **Corrección automática de planes**: identifica los planes problemáticos y corrige los problemas de rendimiento de los planes de SQL.
 
-### <a name="adaptive-query-processing"></a>Procesamiento adaptable de consultas
+### <a name="adaptive-query-processing"></a>Procesamiento de consultas adaptable
 
-Puede usar el [procesamiento adaptable de consultas](/sql/relational-databases/performance/intelligent-query-processing), lo que incluye la ejecución intercalada de funciones con valores de tabla de varias instrucciones, comentarios de concesión de memoria del modo por lotes y combinaciones adaptables del modo por lotes. Cada una de estas características del procesamiento adaptable de consultas aplica técnicas de "aprendizaje y adaptación" similares, lo que ayuda a solucionar los problemas de rendimiento relacionados con problemas de optimización de consultas históricamente intrincados.
+Puede usar el [procesamiento adaptable de consultas](/sql/relational-databases/performance/intelligent-query-processing), lo que incluye la ejecución intercalada de funciones con valores de tabla de varias instrucciones, comentarios de concesión de memoria del modo por lotes y combinaciones adaptables del modo por lotes. Cada una de estas características del procesamiento adaptable de consultas aplica técnicas de "aprendizaje y adaptación" similares, lo que ayuda a solucionar cualquier incidencia de rendimiento relacionada con problemas de optimización de consultas históricamente intrincados.
 
 ## <a name="advanced-security-and-compliance"></a>Conformidad y seguridad avanzada
 

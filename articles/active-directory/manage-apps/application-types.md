@@ -16,10 +16,10 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b1cb4eeb52d0680695bda266ad1a563b2ef5ee02
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65781093"
 ---
 # <a name="unexpected-application-in-my-applications-list"></a>Aplicación inesperada en mi lista de aplicaciones
@@ -100,7 +100,7 @@ Para **eliminar una aplicación**, siga estos pasos:
 
 5. Haga clic en **Todas las aplicaciones** para ver una lista de todas las aplicaciones.
 
-   * Si no ve que la aplicación que desea aparezca aquí, use el control **Filtro** de la parte superior de la lista **Todas las aplicaciones** y establezca la opción **Mostrar** en **Todas las aplicaciones.**
+   * Si no ve la aplicación que desea que aparezca aquí, use el control **Filtro** de la parte superior de la lista **Todas las aplicaciones** y establezca la opción **Mostrar** en **Todas las aplicaciones.**
 
 6. Seleccione la aplicación que desea eliminar.
 
@@ -112,7 +112,7 @@ Deshabilitar el consentimiento del usuario para todo el directorio impide que lo
 
 Para **deshabilitar todas las operaciones de consentimiento de usuario futuras en todo el directorio**, siga estos pasos:
 
-1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global**.
+1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global.**
 
 2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
 

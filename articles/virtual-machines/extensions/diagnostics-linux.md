@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: d9375d09219d2655bd9947c0953557f4a1bf8f3c
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 7a7c1af1193ba391550438229a22c4a8c116e6be
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78199621"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80289182"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Uso de la extensión Diagnostics de Linux para supervisar métricas y registros
 
@@ -61,7 +61,7 @@ La configuración que se puede descargar es solo un ejemplo; modifíquela como c
 
 Rellene los valores correctos de las variables de la primera sección antes de ejecutar lo siguiente:
 
-```bash
+```azurecli
 # Set your Azure VM diagnostic variables correctly below
 my_resource_group=<your_azure_resource_group_name_containing_your_azure_linux_vm>
 my_linux_vm=<your_azure_linux_vm_name>
@@ -89,11 +89,11 @@ my_lad_protected_settings="{'storageAccountName': '$my_diagnostic_storage_accoun
 az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 3.0 --resource-group $my_resource_group --vm-name $my_linux_vm --protected-settings "${my_lad_protected_settings}" --settings portal_public_settings.json
 ```
 
-La URL de la configuración de muestreo y su contenido están sujetos a cambios. Descargue una copia del archivo JSON de configuración del portal y personalícelo en función de sus necesidades. Cualquier plantilla o automatización que genere deberían usar su propia copia en lugar de descargar dicha URL cada vez.
+La configuración de ejemplo descargada en estos ejemplos recopila un conjunto de datos estándar y los envía a un almacenamiento de tabla. La dirección URL de la configuración de muestreo y su contenido están sujetos a cambios. En la mayoría de los casos, conviene descargar una copia del archivo JSON de configuración del portal y personalizarlo según sus necesidades y, tras ello, hacer que las plantillas o automatizaciones que se creen usen su propia versión del archivo de configuración, en lugar de tener que descargar esa dirección URL una y otra vez.
 
 #### <a name="powershell-sample"></a>Ejemplo de PowerShell
 
-```Powershell
+```powershell
 $storageAccountName = "yourStorageAccountName"
 $storageAccountResourceGroup = "yourStorageAccountResourceGroupName"
 $vmName = "yourVMName"
@@ -221,7 +221,7 @@ La entrada "sasURL" contiene la URL completa, incluido el token SAS, para la ins
 
 Si creó una SAS válida hasta la medianoche en horario UTC del 1 de enero de 2018, el valor de sasURL podría ser:
 
-```url
+```https
 https://contosohub.servicebus.windows.net/syslogmsgs?sr=contosohub.servicebus.windows.net%2fsyslogmsgs&sig=xxxxxxxxxxxxxxxxxxxxxxxxx&se=1514764800&skn=writer
 ```
 

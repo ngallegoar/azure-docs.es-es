@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 0b15b35f6fc83097e94f7d69815a163a0e98a228
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 19691a654162ee3855cb257fd42e29d2e1fc0157
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77523278"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79234912"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Uso de Azure Functions Core Tools
 
@@ -46,7 +46,7 @@ A menos que se indique lo contrario, los ejemplos de este artículo son para la 
 >[!IMPORTANT]
 >Debe tener la [CLI de Azure](/cli/azure/install-azure-cli) instalada localmente para poder realizar la publicación en Azure desde Azure Functions Core Tools.  
 
-### <a name="v2"></a>Versión 2.x y 3.x
+### <a name="version-2x-and-3x"></a><a name="v2"></a>Versión 2.x y 3.x
 
 La versión 2.x o 3.x de las herramientas usa el entorno en tiempo de ejecución de Azure Functions que se basa en .NET Core. Esta versión se admite en todas las plataformas que admiten .NET Core, incluidas [Windows](/azure/azure-functions/functions-run-local?tabs=windows#v2), [macOS](/azure/azure-functions/functions-run-local?tabs=macos#v2) y [Linux](/azure/azure-functions/functions-run-local?tabs=linux#v2). 
 
@@ -65,13 +65,13 @@ Los pasos siguientes utilizan npm para instalar Core Tools en Windows. También 
 
     ##### <a name="v2x"></a>Versión 2.x
 
-    ```bash
+    ```cmd
     npm install -g azure-functions-core-tools
     ```
 
     ##### <a name="v3x"></a>Versión 3.x
 
-    ```bash
+    ```cmd
     npm install -g azure-functions-core-tools@3
     ```
 
@@ -163,33 +163,33 @@ Para la versión 2.x deberá seleccionar un lenguaje predeterminado para el pro
 
 En la ventana de terminal o desde un símbolo del sistema, ejecute el siguiente comando para crear el proyecto y el repositorio de Git local:
 
-```bash
+```
 func init MyFunctionProj
 ```
 
 Al especificar un nombre de proyecto, se crea una carpeta con dicho nombre y posteriormente se inicializa. En caso contrario, se inicializa la carpeta actual.  
 En la versión 2.x, cuando ejecute el comando, debe elegir un tiempo de ejecución para el proyecto. 
 
-```output
+<pre>
 Select a worker runtime:
 dotnet
 node
 python 
 powershell
-```
+</pre>
 
 Use las flechas arriba/abajo para elegir un lenguaje, a continuación, presione ENTRAR. Si tiene previsto desarrollar funciones de JavaScript o de TypeScript, elija **nodo** y seleccione el lenguaje. TypeScript tiene [algunos requisitos adicionales](functions-reference-node.md#typescript). 
 
 La salida tendrá un aspecto similar al siguiente ejemplo de un proyecto de JavaScript:
 
-```output
+<pre>
 Select a worker runtime: node
 Writing .gitignore
 Writing host.json
 Writing local.settings.json
 Writing C:\myfunctions\myMyFunctionProj\.vscode\extensions.json
 Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
-```
+</pre>
 
 `func init` admite las siguientes opciones, que corresponden solo a la versión 2.x, a menos que se indique lo contrario:
 
@@ -247,28 +247,28 @@ Incluso cuando se usa el Emulador de Microsoft Azure Storage para tareas de desa
 
   + Descargue toda la configuración de una aplicación de función existente:
 
-    ```bash
+    ```
     func azure functionapp fetch-app-settings <FunctionAppName>
     ```
   + Obtenga la cadena de conexión de una cuenta de almacenamiento concreta:
 
-    ```bash
+    ```
     func azure storage fetch-connection-string <StorageAccountName>
     ```
 
     Si aún no ha iniciado sesión en Azure, se le pedirá que lo haga.
 
-## <a name="create-func"></a>Creación de una función
+## <a name="create-a-function"></a><a name="create-func"></a>Creación de una función
 
 Para crear una función, ejecute el siguiente comando:
 
-```bash
+```
 func new
 ```
 
 En la versión 2.x, al ejecutar `func new` se le pedirá que elija una plantilla en el lenguaje predeterminado de la aplicación de función y, después, también se le pedirá que elija un nombre para la función. En la versión 1.x, también se le pedirá que elija el lenguaje.
 
-```output
+<pre>
 Select a language: Select a template:
 Blob trigger
 Cosmos DB trigger
@@ -279,18 +279,18 @@ SendGrid
 Service Bus Queue trigger
 Service Bus Topic trigger
 Timer trigger
-```
+</pre>
 
 El código de la función se genera en una subcarpeta con el nombre proporcionado de la función, como se aprecia en la siguiente salida de desencadenador de cola:
 
-```output
+<pre>
 Select a language: Select a template: Queue trigger
 Function name: [QueueTriggerJS] MyQueueTrigger
 Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\index.js
 Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\readme.md
 Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\sample.dat
 Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\function.json
-```
+</pre>
 
 También puede especificar estas opciones en el comando con los argumentos siguientes:
 
@@ -303,62 +303,65 @@ También puede especificar estas opciones en el comando con los argumentos sigui
 
 Por ejemplo, para crear un desencadenador HTTP de JavaScript en un único comando, ejecute:
 
-```bash
+```
 func new --template "Http Trigger" --name MyHttpTrigger
 ```
 
 Para crear una función desencadenada por la cola en un único comando, ejecute:
 
-```bash
+```
 func new --template "Queue Trigger" --name QueueTriggerJS
 ```
 
-## <a name="start"></a>Ejecución local de funciones
+## <a name="run-functions-locally"></a><a name="start"></a>Ejecución local de funciones
 
-Para ejecutar un proyecto de Functions, ejecute el host de Functions. El host habilita desencadenadores para todas las funciones del proyecto. 
+Para ejecutar un proyecto de Functions, ejecute el host de Functions. El host habilita desencadenadores para todas las funciones del proyecto. El comando de inicio varía en función del lenguaje del proyecto.
 
-### <a name="version-2x"></a>Versión 2.x
+# <a name="c"></a>[C\#](#tab/csharp)
 
-En la versión 2.x del runtime, el comando de inicio varía según el lenguaje del proyecto.
-
-#### <a name="c"></a>C\#
-
-```command
+```
 func start --build
 ```
+# <a name="javascript"></a>[JavaScript](#tab/node)
 
-#### <a name="javascript"></a>JavaScript
-
-```command
+```
 func start
 ```
 
-#### <a name="typescript"></a>TypeScript
+# <a name="python"></a>[Python](#tab/python)
 
-```command
+```
+func start
+```
+Este comando debe [ejecutarse en un entorno virtual](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python#create-venv).
+
+# <a name="typescript"></a>[TypeScript](#tab/ts)
+
+```
 npm install
 npm start     
 ```
 
-### <a name="version-1x"></a>Versión 1.x
+---
 
-La versión 1.x del runtime de Functions requiere el comando `host`, como en el ejemplo siguiente:
-
-```command
-func host start
-```
+>[!NOTE]  
+> La versión 1.x del runtime de Functions requiere el comando `host`, como en el ejemplo siguiente:
+>
+> ```
+> func host start
+> ```
 
 `func start` admite las siguientes opciones:
 
 | Opción     | Descripción                            |
 | ------------ | -------------------------------------- |
-| **`--no-build`** | No compile del proyecto actual antes de su ejecución. Solo para proyectos de dotnet. El valor predeterminado se establece en false. Solo versión 2.x. |
-| **`--cert`** | La ruta de acceso a un archivo .pfx que contiene una clave privada. Solo se usa con `--useHttps`. Solo versión 2.x. |
-| **`--cors-credentials`** | Permitir solicitudes autenticadas de varios orígenes (es decir, cookies y el encabezado de autenticación) Solo versión 2.x. |
+| **`--no-build`** | No compile del proyecto actual antes de su ejecución. Solo para proyectos de dotnet. El valor predeterminado se establece en false. No se admite para la versión 1.x. |
+| **`--cert`** | La ruta de acceso a un archivo .pfx que contiene una clave privada. Solo se usa con `--useHttps`. No se admite para la versión 1.x. |
+| **`--cors-credentials`** | Permite solicitudes autenticadas de varios orígenes (es decir, cookies y el encabezado de autenticación). No se admite para la versión 1.x. |
 | **`--cors`** | Lista separada por comas de orígenes CORS, sin espacios en blanco. |
-| **`--language-worker`** | Argumentos para configurar el trabajo del lenguaje. Por ejemplo, puede habilitar la depuración para el trabajo de lenguaje proporcionando el [puerto de depuración y otros argumentos necesarios](https://github.com/Azure/azure-functions-core-tools/wiki/Enable-Debugging-for-language-workers). Solo versión 2.x. |
+| **`--language-worker`** | Argumentos para configurar el trabajo del lenguaje. Por ejemplo, puede habilitar la depuración para el trabajo de lenguaje proporcionando el [puerto de depuración y otros argumentos necesarios](https://github.com/Azure/azure-functions-core-tools/wiki/Enable-Debugging-for-language-workers). No se admite para la versión 1.x. |
 | **`--nodeDebugPort`** , **`-n`** | Puerto del depurador Node.js que se va a usar. Valor predeterminado: un valor de launch.json o 5858. Solo versión 1.x. |
-| **`--password`** | La contraseña o un archivo que contenga la contraseña de un archivo. pfx. Solo se usa con `--cert`. Solo versión 2.x. |
+| **`--password`** | La contraseña o un archivo que contenga la contraseña de un archivo. pfx. Solo se usa con `--cert`. No se admite para la versión 1.x. |
 | **`--port`** , **`-p`** | Puerto local en el que se escucha. Valor predeterminado: 7071. |
 | **`--pause-on-error`** | Se pone en pausa en espera de entrada adicional antes de salir del proceso. Se utiliza solo cuando se inicia Core Tools desde un entorno de desarrollo integrado (IDE).|
 | **`--script-root`** , **`--prefix`** | Se usa para especificar la ruta de acceso a la raíz de la aplicación de función que se va a ejecutar o implementar. Esto se usa para los proyectos compilados que generan archivos de proyecto en una subcarpeta. Por ejemplo, cuando se compila un proyecto de biblioteca de clases de C#, los archivos host.json, local.settings.json y function.json se generan en una subcarpeta *raíz* con una ruta de acceso similar a `MyProject/bin/Debug/netstandard2.0`. En este caso, establezca el prefijo como `--script-root MyProject/bin/Debug/netstandard2.0`. Esta es la raíz de la aplicación de función cuando se ejecuta en Azure. |
@@ -367,13 +370,13 @@ func host start
 
 Cuando se inicia el host de Functions, devuelve la dirección URL de las funciones desencadenadas por HTTP:
 
-```output
+<pre>
 Found the following functions:
 Host.Functions.MyHttpTrigger
 
 Job host started
 Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
-```
+</pre>
 
 >[!IMPORTANT]
 >Cuando se ejecuta localmente, no se aplica la autorización para puntos de conexión HTTP. Esto significa que todas las solicitudes HTTP locales se tratan como `authLevel = "anonymous"`. Para obtener más información, consulte el artículo sobre [enlaces HTTP](functions-bindings-http-webhook-trigger.md#authorization-keys).
@@ -397,21 +400,31 @@ Asegúrese de usar el mismo nombre del servidor y puerto en el que escucha el ho
 
 El siguiente comando cURL desencadena la función de inicio rápido `MyHttpTrigger` desde una solicitud GET con el parámetro _name_ transferido en la cadena de consulta.
 
-```bash
+```
 curl --get http://localhost:7071/api/MyHttpTrigger?name=Azure%20Rocks
 ```
 
 En el siguiente ejemplo está la misma función a la que se llama desde una solicitud POST que transfiere _name_ en el cuerpo de la solicitud:
 
+# <a name="bash"></a>[Bash](#tab/bash)
 ```bash
 curl --request POST http://localhost:7071/api/MyHttpTrigger --data '{"name":"Azure Rocks"}'
 ```
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+```cmd
+curl --request POST http://localhost:7071/api/MyHttpTrigger --data "{'name':'Azure Rocks'}"
+```
+---
 
 Puede realizar solicitudes GET desde un explorador que transfiere datos en la cadena de consulta. Para todos los demás métodos HTTP, debe usar cURL, Fiddler, Postman o una herramienta de pruebas HTTP similar.
 
 #### <a name="non-http-triggered-functions"></a>Funciones no desencadenadas por HTTP
 
-En el caso de todos los tipos de funciones distintas de los desencadenadores HTTP y HTTP webhooks, puede probar sus funciones localmente llamando a un punto de conexión de administración. Al llamar a este punto de conexión con una solicitud HTTP POST en el servidor local se desencadena esta función. Opcionalmente, puede transferir los datos de prueba a la ejecución en el cuerpo de la solicitud POST. Esta funcionalidad es similar a la pestaña **Prueba** de Azure Portal.
+En todos los tipos de funciones distintos de los desencadenadores y webhooks HTTP, y de los desencadenadores de Event Grid, puede probar sus funciones localmente llamando a un punto de conexión de administración. Al llamar a este punto de conexión con una solicitud HTTP POST en el servidor local se desencadena esta función. 
+
+Para probar las funciones de Event Grid desencadenadas localmente, consulte [Pruebas locales con la aplicación web de visor](functions-bindings-event-grid-trigger.md#local-testing-with-viewer-web-app).
+
+Opcionalmente, puede transferir los datos de prueba a la ejecución en el cuerpo de la solicitud POST. Esta funcionalidad es similar a la pestaña **Prueba** de Azure Portal.
 
 Se llama al siguiente punto de conexión de administrador para desencadenar funciones ajenas a HTTP:
 
@@ -427,16 +440,22 @@ Para transferir datos de prueba al punto de conexión de administrador de una fu
 
 El valor `<trigger_input>` contiene datos en un formato esperado por la función. El siguiente ejemplo de cURL es una solicitud POST dirigida a una función `QueueTriggerJS`. En este caso, la entrada es una cadena que equivale al mensaje que se espera encontrar en la cola.
 
+# <a name="bash"></a>[Bash](#tab/bash)
 ```bash
-curl --request POST -H "Content-Type:application/json" --data '{"input":"sample queue data"}' http://localhost:7071/admin/functions/QueueTriggerJS
+curl --request POST -H "Content-Type:application/json" --data '{"input":"sample queue data"}' http://localhost:7071/admin/functions/QueueTrigger
 ```
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+```bash
+curl --request POST -H "Content-Type:application/json" --data "{'input':'sample queue data'}" http://localhost:7071/admin/functions/QueueTrigger
+```
+---
 
-#### <a name="using-the-func-run-command-in-version-1x"></a>Uso del comando `func run` en la versión 1.x
+#### <a name="using-the-func-run-command-version-1x-only"></a>Uso del comando `func run` (solo versión 1.x)
 
 >[!IMPORTANT]
-> El comando `func run` no se admite en la versión 2.x de las herramientas. Para obtener más información, consulte el tema [How to target Azure Functions runtime versions](set-runtime-version.md) (Cómo seleccionar un destino para versiones en tiempo de ejecución de Azure Functions).
+> El comando `func run` solo se admite en la versión 1.x de las herramientas. Para obtener más información, consulte el tema [How to target Azure Functions runtime versions](set-runtime-version.md) (Cómo seleccionar un destino para versiones en tiempo de ejecución de Azure Functions).
 
-También puede invocar una función directamente con `func run <FunctionName>` y proporcionar datos de entrada para la función. Este comando es similar a la ejecución de una función con la pestaña **Prueba** de Azure Portal.
+En la versión 1.x, también puede invocar una función directamente con `func run <FunctionName>` y proporcionar datos de entrada para la función. Este comando es similar a la ejecución de una función con la pestaña **Prueba** de Azure Portal.
 
 `func run` admite las siguientes opciones:
 
@@ -450,11 +469,11 @@ También puede invocar una función directamente con `func run <FunctionName>` y
 
 Por ejemplo, para llamar a una función desencadenada por HTTP y pasar cuerpo del contenido, ejecute el siguiente comando:
 
-```bash
+```
 func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 ```
 
-## <a name="publish"></a>Publicación en Azure
+## <a name="publish-to-azure"></a><a name="publish"></a>Publicación en Azure
 
 Azure Functions Core Tools admite dos tipos de implementación: la opción de implementar archivos del proyecto de funciones directamente en su aplicación de funciones a través de la [implementación de archivos zip](functions-deployment-technologies.md#zip-deploy) y la [implementación de un contenedor de Docker personalizado](functions-deployment-technologies.md#docker-container). Tiene que tener [creada una aplicación de funciones en su suscripción de Azure](functions-cli-samples.md#create) para implementar su código. Se deben compilar los proyectos que lo requieran para poder implementar los archivos binarios.
 
@@ -463,11 +482,11 @@ Azure Functions Core Tools admite dos tipos de implementación: la opción de im
 
 Una carpeta de proyecto puede contener archivos y directorios específicos del idioma que no deben publicarse. Los elementos excluidos se enumeran en un archivo .funcignore en la carpeta raíz del proyecto.     
 
-### <a name="project-file-deployment"></a>Implementación (archivos del proyecto)
+### <a name="deploy-project-files"></a><a name="project-file-deployment"></a>Implementación de los archivos de proyecto
 
 Para publicar su código local en una aplicación de funciones en Azure, use el comando `publish`:
 
-```bash
+```
 func azure functionapp publish <FunctionAppName>
 ```
 
@@ -500,11 +519,11 @@ Las siguientes opciones de publicación solo se admiten en la versión 2.x:
 | **`--no-build`** | No compila funciones de la biblioteca de clases .NET. |
 | **`--dotnet-cli-params`** | Al publicar funciones de C# compiladas (.csproj), Core Tools llama a "dotnet build --output bin/publish". Todos los parámetros pasados se anexarán a la línea de comandos. |
 
-### <a name="deployment-custom-container"></a>Implementación (contenedor personalizado)
+### <a name="deploy-custom-container"></a>Ejecución del contenedor personalizado
 
 Azure Functions le permite implementar el proyecto de funciones en un [contenedor de Docker personalizado](functions-deployment-technologies.md#docker-container). Para más información, consulte [Creación de una función en Linux con una imagen personalizada](functions-create-function-linux-custom-image.md). Los contenedores personalizados deben tener un archivo Dockerfile. Para crear una aplicación con un archivo Dockerfile, use la opción--dockerfile en `func init`.
 
-```bash
+```
 func deploy
 ```
 

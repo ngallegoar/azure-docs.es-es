@@ -1,23 +1,23 @@
 ---
-title: Habilitar Azure Monitor (versión preliminar) para un entorno híbrido | Microsoft Docs
+title: Habilitación de Azure Monitor para un entorno híbrido | Microsoft Docs
 description: En este artículo se describe cómo habilitar Azure Monitor para VM para un entorno de nube híbrida que contenga una o más máquinas virtuales.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: bd44eebf8aceaf7fe32cf8cf1b1152db32acb344
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 734f61c2e96002516e9e15af88d2c6b0fce00e98
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77669631"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79480749"
 ---
-# <a name="enable-azure-monitor-for-vms-preview-for-a-hybrid-environment"></a>Habilitar Azure Monitor para VM (versión preliminar) para un entorno híbrido
+# <a name="enable-azure-monitor-for-vms-for-a-hybrid-environment"></a>Habilitación de Azure Monitor para VM para un entorno híbrido
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-En este artículo se explica cómo habilitar Azure Monitor para VM (versión preliminar) para máquinas virtuales o equipos físicos hospedados en el centro de datos o en otro entorno en la nube. Al final de este proceso, habrá empezado a supervisar todas las máquinas virtuales de su entorno y a aprender si están experimentando problemas de rendimiento o disponibilidad.
+En este artículo se explica cómo habilitar Azure Monitor para VM para máquinas virtuales o equipos físicos hospedados en el centro de datos o en otro entorno en la nube. Al final de este proceso, habrá empezado a supervisar todas las máquinas virtuales de su entorno y a aprender si están experimentando problemas de rendimiento o disponibilidad.
 
 Antes de comenzar, asegúrese de revisar los [requisitos previos](vminsights-enable-overview.md) y compruebe que su suscripción y sus recursos los cumplen. Revise los requisitos y los métodos de implementación para el [Agente Linux y Windows de Log Analytics](../../log-analytics/log-analytics-agent-overview.md).
 
@@ -111,7 +111,7 @@ sudo sh InstallDependencyAgent-Linux64.bin -s
 Para implementar Dependency Agent mediante Desired State Configuration (DSC), puede usar el módulo xPSDesiredStateConfiguration con el siguiente código de ejemplo:
 
 ```powershell
-configuration ServiceMap {
+configuration VMInsights {
 
     Import-DscResource -ModuleName xPSDesiredStateConfiguration
 
@@ -184,7 +184,7 @@ Para usar la CLI de Azure, primero debe instalar y usar la CLI localmente. Debe 
                     {
                         "apiVersion": "2015-11-01-preview",
                         "location": "[parameters('WorkspaceLocation')]",
-                        "name": "[concat('ServiceMap', '(', parameters('WorkspaceName'),')')]",
+                        "name": "[concat('VMInsights', '(', parameters('WorkspaceName'),')')]",
                         "type": "Microsoft.OperationsManagement/solutions",
                         "dependsOn": [
                             "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
@@ -194,9 +194,9 @@ Para usar la CLI de Azure, primero debe instalar y usar la CLI localmente. Debe 
                         },
 
                         "plan": {
-                            "name": "[concat('ServiceMap', '(', parameters('WorkspaceName'),')')]",
+                            "name": "[concat('VMInsights', '(', parameters('WorkspaceName'),')')]",
                             "publisher": "Microsoft",
-                            "product": "[Concat('OMSGallery/', 'ServiceMap')]",
+                            "product": "[Concat('OMSGallery/', 'VMInsights')]",
                             "promotionCode": ""
                         }
                     }

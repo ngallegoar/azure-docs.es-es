@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99ceb72930d756926bbc73508b20fbde8ea31324
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 227230f2d6f46fae27e2cec69d99390f5054c7db
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561611"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80366255"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>¿Cuales son los permisos de usuario predeterminados en Azure Active Directory?
 En Azure Active Directory (Azure AD), a todos los usuarios se les otorga un conjunto de permisos predeterminados. El acceso de un usuario consta del tipo de usuario, sus [asignaciones de roles](active-directory-users-assign-role-azure-portal.md) y su propiedad de objetos individuales. En este artículo se describen dichos permisos predeterminados y contiene una comparación de los valores predeterminados de los usuarios miembros e invitados. Los permisos de usuario predeterminados solo se pueden cambiar en la configuración de usuario de Azure AD.
@@ -53,7 +53,7 @@ Los usuarios pueden registrar aplicaciones | Si se selecciona No en esta opción
 Permitir a los usuarios conectar su cuenta profesional o educativa con LinkedIn | Si se selecciona No en esta opción, se impide que los usuarios conecten su cuenta profesional o educativa con su cuenta de LinkedIn. Para más información, consulte [Consentimiento y uso compartido de datos de conexiones de cuentas de LinkedIn](https://docs.microsoft.com/azure/active-directory/users-groups-roles/linkedin-user-consent).
 Capacidad para crear grupos de seguridad | Si se selecciona No en esta opción, se impide que los usuarios creen grupos de seguridad. Tanto los administradores globales como los administradores de tipo usuario pueden seguir creando grupos de seguridad. Para aprender a hacerlo, consulte [Cmdlets de Azure Active Directory para configurar las opciones de grupo](../users-groups-roles/groups-settings-cmdlets.md).
 Capacidad para crear grupos de Office 365 | Si se selecciona No en esta opción, se impide que los usuarios creen grupos de Office 365. Si se selecciona algunos en esta opción, se permite que un conjunto de usuarios creen grupos de Office 365. Tanto los administradores globales como los administradores de tipo usuario pueden seguir creando grupos de Office 365. Para aprender a hacerlo, consulte [Cmdlets de Azure Active Directory para configurar las opciones de grupo](../users-groups-roles/groups-settings-cmdlets.md).
-Restringir el acceso al portal de administración de Azure AD | Si se selecciona Sí en esta opción, se impide que los usuarios accedan a Azure Active Directory solo a través de Azure Portal.
+Restringir el acceso al portal de administración de Azure AD | Si esta opción se establece en No, los usuarios que no son administradores pueden usar el portal de administración de Azure AD para leer y administrar recursos de Azure AD. Si se elige Sí, los usuarios que no son administradores no podrán acceder a ningún dato de Azure AD en el portal de administración. Importante: esta configuración no restringe el acceso a los datos de Azure AD usando PowerShell u otros clientes, como Visual Studio. Cuando se establece en Sí, para conceder a un usuario específico que no es administrador la capacidad de usar el portal de administración de Azure AD, asígnele cualquier rol administrativo, como el rol Lectores de directorio. Este rol permite leer información básica del directorio, que los usuarios miembros tienen de forma predeterminada (los invitados y las entidades de servicio, no).
 Capacidad para leer otros usuarios | Esta configuración solo está disponible en PowerShell. Si establece esta marca en $false, se impide que quienes no son administradores lean la información de los usuarios desde el directorio. Esta marca no impide que puedan leer la información de los usuarios en otros servicios de Microsoft, como Exchange Online. Esta configuración está pensada para circunstancias especiales y no se recomienda establecer esta marca en $false.
 
 ## <a name="object-ownership"></a>Propiedad del objeto
@@ -132,5 +132,5 @@ Los usuarios pueden realizar las siguientes acciones en los grupos que poseen.
 
 * Para obtener más información sobre cómo asignar roles de administrador de Azure AD, vea [Asignación de roles de administrador a un usuario en Azure Active Directory](active-directory-users-assign-role-azure-portal.md)
 * Para más información acerca de cómo se controla el acceso a los recursos en Microsoft Azure, consulte [Descripción de acceso a los recursos de Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
-* Para más información sobre cómo se relaciona Azure Active Directory con la suscripción de Azure, consulte [Asociación de las suscripciones de Azure con Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
+* Para más información acerca de cómo se relaciona Azure Active Directory con la suscripción de Azure, consulte [Asociación de las suscripciones de Azure con Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
 * [Administrar usuarios](add-users-azure-active-directory.md)

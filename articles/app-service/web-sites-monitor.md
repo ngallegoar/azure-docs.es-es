@@ -7,17 +7,17 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 2bca4521184fa42002e6649a90bb9101fded595c
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: d84340730391abd7dba4d13202503d37941c09b5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75658447"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79500422"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Supervisión de aplicaciones en Azure App Service
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) proporciona funciones de supervisión integradas para aplicaciones Web, móviles y aplicaciones de API en el [Azure Portal](https://portal.azure.com).
 
-En el Azure Portal, puede revisar *cuotas* y *métricas* para una aplicación y un plan de App Service, y configurar *alertas* y *escalado* automático basadas en métricas.
+En Azure Portal, puede repasar las *cuotas* y *métricas* de una aplicación y un plan de App Service, así como configurar *alertas* y *escalado* automático a partir de métricas.
 
 ## <a name="understand-quotas"></a>Información sobre las cuotas
 
@@ -61,13 +61,17 @@ Se pueden incrementar o quitar de la aplicación mediante la actualización del 
 > **El uso del sistema de archivos** es una nueva métrica que se está implementando globalmente; no se espera ningún dato a menos que se haya incluido en la lista blanca de la versión preliminar privada.
 > 
 
+> [!IMPORTANT]
+> **Tiempo medio de respuesta** pasará a estar en desuso para evitar confusiones con las agregaciones de métricas. Use **Tiempo de respuesta** a modo de reemplazo.
+
 Las métricas proporcionan información acerca de la aplicación o el comportamiento del plan de App Service.
 
 Para una aplicación, estas son las métricas disponibles:
 
 | Métrica | Descripción |
 | --- | --- |
-| **Tiempo de respuesta promedio** | Tiempo promedio en segundos necesario para que la aplicación atienda solicitudes. |
+| **Tiempo de respuesta** | Tiempo en segundos necesario para que la aplicación atienda solicitudes. |
+| **Tiempo medio de respuesta (en desuso)** | Tiempo promedio en segundos necesario para que la aplicación atienda solicitudes. |
 | **Espacio de trabajo de memoria promedio** | Cantidad media de memoria que utiliza la aplicación, en megabytes (MiB). |
 | **Conexiones** | Número de sockets enlazados existente en el espacio aislado (w3wp.exe y sus procesos secundarios).  Un socket enlazado se crea mediante una llamada a las API bind()/connect() y permanece hasta que el socket se cierra con CloseHandle()/closesocket(). |
 | **Tiempo de CPU** | Cantidad de CPU consumida por la aplicación, en segundos. Para más información sobre esta métrica, consulte [Tiempo de CPU y porcentaje de CPU](#cpu-time-vs-cpu-percentage). |

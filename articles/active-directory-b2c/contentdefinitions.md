@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/17/2020
+ms.date: 02/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b55199ec2684ab7b95ce4e4988b19814c27b2cc3
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 074a0a39090e22a29f778fc1c99060848c6bfd99
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78189589"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80051491"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -70,7 +70,7 @@ El elemento **ContentDefinition** contiene los elementos siguientes:
 | Elemento | Repeticiones | Descripción |
 | ------- | ----------- | ----------- |
 | LoadUri | 1:1 | Cadena que contiene la URL de la página HTML5 de la definición de contenido. |
-| RecoveryUri | 1:1 | Cadena que contiene la URL de la página HTML para mostrar un error relacionado con la definición de contenido. |
+| RecoveryUri | 1:1 | Cadena que contiene la URL de la página HTML para mostrar un error relacionado con la definición de contenido. No se usa actualmente, el valor debe ser `~/common/default_page_error.html`. |
 | DataUri | 1:1 | Cadena que contiene la URL relativa de un archivo HTML que proporciona la experiencia del usuario que se invocará para el paso. |
 | Metadatos | 0:1 | Colección de pares de clave y valor que contiene los metadatos usados por la definición de contenido. |
 | LocalizedResourcesReferences | 0:1 | Colección de referencias de recursos localizados. Use este elemento para personalizar la localización de la interfaz de usuario y el atributo de notificaciones. |
@@ -147,7 +147,7 @@ La definición de contenido admite los siguientes elementos de metadatos:
 
 | Clave | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
-| DisplayName | Sin | Una cadena que contiene el nombre de la definición del contenido. |
+| DisplayName | No | Una cadena que contiene el nombre de la definición del contenido. |
 
 ### <a name="localizedresourcesreferences"></a>LocalizedResourcesReferences
 

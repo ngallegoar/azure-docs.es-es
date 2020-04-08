@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/06/2020
+ms.date: 03/16/2020
 ms.author: memildin
-ms.openlocfilehash: 183b81134b2fe72a539cc6460a05d828342aafbb
-ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+ms.openlocfilehash: 152168bbadd5815659bc5f70c91bd2a28f5e049d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79086495"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481966"
 ---
 # <a name="monitor-identity-and-access"></a>Supervisión de la identidad y el acceso
 
@@ -29,14 +29,16 @@ Cuando Security Center identifica posibles vulnerabilidades de seguridad, crea r
 
 El perímetro de seguridad ha evolucionado de un perímetro de red a uno de identidad. La seguridad se centra menos en proteger la red y más en proteger los datos, así como en administrar la seguridad de las aplicaciones y los usuarios. Hoy en día, donde cada vez más datos y aplicaciones se mueven a la nube, la identidad se convierte en el nuevo perímetro.
 
-Mediante la supervisión de las actividades de identidad, puede realizar acciones proactivas antes de que se produzca un incidente o acciones reactivas para detener un intento de ataque. Estos son algunos ejemplos de recomendaciones que podría ver en la sección de seguridad del recurso **Identity and Access** (Identidad y acceso) de Azure Security Center:
+Con la supervisión de las actividades de identidad, se pueden realizar acciones proactivas antes de que se produzca un incidente o acciones reactivas para detener un intento de ataque. Por ejemplo, Security Center puede marcar las cuentas desusadas (aquellas que ya no son necesarias y que no pueden iniciar sesión en Azure Active Directory) para que se eliminen. 
+
+Estos son algunos ejemplos de recomendaciones que podría ver en la sección de seguridad del recurso **Identity and Access** (Identidad y acceso) de Azure Security Center:
 
 - MFA debe estar habilitada en las cuentas con permisos de propietario en la suscripción
 - Debe designar un máximo de tres propietarios para la suscripción
-- Las cuentas en desuso deben quitarse de la suscripción
 - Las cuentas externas con permisos de lectura deben quitarse de la suscripción
+- Las cuentas en desuso deben quitarse de la suscripción
 
-Para obtener una lista completa de las recomendaciones que puede ver aquí, consulte [Recomendaciones de identidad y acceso](recommendations-reference.md#recs-identity).
+Para más información sobre estas recomendaciones y obtener una lista completa de las recomendaciones que se pueden consultar aquí, vea [Recomendaciones de identidad y acceso](recommendations-reference.md#recs-identity).
 
 > [!NOTE]
 > Si su suscripción tiene más de 600 cuentas, Security Center no puede ejecutar las recomendaciones de identidades en su suscripción. Las recomendaciones que no se ejecutan se muestran bajo "evaluaciones no disponibles" a continuación.

@@ -4,21 +4,21 @@ description: Aprenda a crear una puerta de enlace de aplicaciones con tráfico r
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 11/14/2019
+ms.date: 03/19/2020
 ms.author: victorh
-ms.topic: tutorial
-ms.openlocfilehash: 04cd390681d0492dc28308c3304753a6ecaf1c3c
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.topic: conceptual
+ms.openlocfilehash: c577859f6e8a44dd3573537aecadba638a5f6fa6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74047607"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80059384"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-redirection-using-azure-powershell"></a>Creación de una puerta de enlace de aplicaciones con redireccionamiento basado en rutas de dirección URL con Azure PowerShell
 
-Puede usar Azure PowerShell para configurar [reglas de enrutamiento basadas en URL](application-gateway-url-route-overview.md) al crear una [puerta de enlace de aplicaciones](application-gateway-introduction.md). En este tutorial, creará grupos de back-end mediante [conjuntos de escalado de máquinas virtuales](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). A continuación, creará reglas de enrutamiento de direcciones URL que garanticen que el tráfico web se redirija a los grupos de back-end adecuados.
+Puede usar Azure PowerShell para configurar [reglas de enrutamiento basadas en URL](application-gateway-url-route-overview.md) al crear una [puerta de enlace de aplicaciones](application-gateway-introduction.md). En este artículo, creará grupos de back-end usando [conjuntos de escalado de máquinas virtuales](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). A continuación, creará reglas de enrutamiento de direcciones URL que garanticen que el tráfico web se redirija a los grupos de back-end adecuados.
 
-En este tutorial, aprenderá a:
+En este artículo aprenderá a:
 
 > [!div class="checklist"]
 > * Configuración de la red
@@ -30,7 +30,7 @@ En el ejemplo siguiente se muestra el tráfico del sitio procedente de los puert
 
 ![Ejemplo de enrutamiento de direcciones URL](./media/tutorial-url-redirect-powershell/scenario.png)
 
-Si lo prefiere, puede realizar los pasos de este tutorial mediante la [CLI de Azure](tutorial-url-redirect-cli.md).
+Si lo prefiere, puede realizar los pasos de este procedimiento mediante la [CLI de Azure](tutorial-url-redirect-cli.md).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -38,7 +38,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar PowerShell de forma local, en este tutorial necesitará la versión 1.0.0 del módulo de Azure PowerShell o cualquier versión posterior. Para encontrar la versión, ejecute `Get-Module -ListAvailable Az`. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzAccount` para crear una conexión con Azure.
+Si decide instalar y usar PowerShell de forma local, la versión del módulo de Azure PowerShell que necesita este procedimiento es la 1.0.0 u otra posterior. Para encontrar la versión, ejecute `Get-Module -ListAvailable Az`. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzAccount` para crear una conexión con Azure.
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
@@ -50,7 +50,7 @@ New-AzResourceGroup -Name myResourceGroupAG -Location eastus
 
 ## <a name="create-network-resources"></a>Crear recursos de red
 
-Cree las configuraciones de subred para *myBackendSubnet* y *myAGSubnet* mediante [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). Cree la red virtual llamada *myVNet* mediante [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) con las configuraciones de subred. Y, por último, cree la dirección IP pública llamada *myAGPublicIPAddress* con [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). Estos recursos se usan para proporcionar conectividad de red a la puerta de enlace de aplicaciones y sus recursos asociados.
+Cree las configuraciones de subred para *myBackendSubnet* y *myAGSubnet* mediante [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). Cree la red virtual llamada *myVNet* mediante [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) con las configuraciones de subred. Y, por último, cree la dirección IP pública llamada *myAGPublicIPAddress* mediante [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). Estos recursos se usan para proporcionar conectividad de red a la puerta de enlace de aplicaciones y sus recursos asociados.
 
 ```azurepowershell-interactive
 $backendSubnetConfig = New-AzVirtualNetworkSubnetConfig `
@@ -77,7 +77,7 @@ New-AzPublicIpAddress `
 
 ## <a name="create-an-application-gateway"></a>Creación de una puerta de enlace de aplicaciones
 
-En esta sección se crearán recursos que admitan la puerta de enlace de aplicaciones y, por último, se creará. Los recursos creados incluyen:
+En esta sección se crearán recursos que admitan la puerta de enlace de aplicaciones y, por último, se creará. Los recursos que cree incluirán lo siguiente:
 
 - *Configuraciones IP y puerto front-end*: asocia la subred que se creó anteriormente a la puerta de enlace de aplicaciones y se asigna un puerto que se usará para tener acceso a esta.
 - *Grupo predeterminado*: todas las puertas de enlace de aplicaciones deben tener al menos un grupo de servidores back-end.
@@ -129,7 +129,7 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 ### <a name="create-the-default-listener-and-rule"></a>Creación del agente de escucha y la regla predeterminados
 
-Es necesario un agente de escucha para que la puerta de enlace de aplicaciones enrute el tráfico de forma adecuada al grupo de back-end. En este tutorial, se crean varios agentes de escucha. El primer agente de escucha básico espera tráfico en la dirección URL raíz. Los otros agentes de escucha esperan tráfico en direcciones URL específicas, como `http://52.168.55.24:8080/images/` o `http://52.168.55.24:8081/video/`.
+Es necesario un agente de escucha para que la puerta de enlace de aplicaciones enrute el tráfico de forma adecuada al grupo de back-end. En este artículo, se crean varios agentes de escucha. El primer agente de escucha básico espera tráfico en la dirección URL raíz. Los otros agentes de escucha esperan tráfico en direcciones URL específicas, como `http://52.168.55.24:8080/images/` o `http://52.168.55.24:8081/video/`.
 
 Cree un agente de escucha llamado *defaultListener* mediante [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) con la configuración de front-end y el puerto de front-end creados anteriormente. Es necesaria una regla para que el agente de escucha sepa qué grupo de servidores back-end se usa para el tráfico entrante. Cree una regla básica llamada *rule1* mediante [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
 
@@ -150,7 +150,7 @@ $frontendRule = New-AzApplicationGatewayRequestRoutingRule `
 
 ### <a name="create-the-application-gateway"></a>Creación de la puerta de enlace de aplicaciones
 
-Ahora que ha creado los recursos de apoyo necesarios, especifique los parámetros para la puerta de enlace de aplicaciones llamada *myAppGateway* con [New-AzApplicationGatewaySku](/powershell/module/az.network/new-azapplicationgatewaysku) y cree la puerta de enlace mediante [New-AzApplicationGateway](/powershell/module/az.network/new-azapplicationgateway).
+Ahora que ha creado los recursos auxiliares necesarios, especifique los parámetros para la puerta de enlace de aplicaciones llamada *myAppGateway* con [New-AzApplicationGatewaySku](/powershell/module/az.network/new-azapplicationgatewaysku) y cree la puerta de enlace mediante [New-AzApplicationGateway](/powershell/module/az.network/new-azapplicationgateway).
 
 ```azurepowershell-interactive
 $sku = New-AzApplicationGatewaySku `

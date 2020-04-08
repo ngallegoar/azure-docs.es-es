@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: atsenthi
-ms.openlocfilehash: 3115c65c7027f5624b7b60b9be702ee4192d8cb6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 857a4da0b24d600ecc572933af578e2e8faf501a
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75464452"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80366325"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Revisión del sistema operativo Windows en el clúster de Service Fabric
 
@@ -63,7 +63,7 @@ POA consta de los siguientes subcomponentes:
 > [!NOTE]
 > POA usa el servicio de administrador de reparaciones de Service Fabric para habilitar o deshabilitar el nodo, y llevar a cabo comprobaciones de estado. La tarea de reparación creada por POA sigue el progreso de Windows Update en cada nodo.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 > [!NOTE]
 > La versión mínima requerida de .NET framework es 4.6.
@@ -432,6 +432,10 @@ También es posible que se bloquee la revisión del nodo porque está atascado e
 **P: ¿Por qué debe deshabilitarse el nodo cuando POA lo está aplicando?**
 
 A. POA inhabilita el nodo con el intento de *reinicio* que detiene o reasigna todos los servicios de la estructura de Service Fabric que se ejecutan en el nodo. POA hace esto para garantizar que las aplicaciones no terminen usando una combinación de archivos DLL nuevos y antiguos, por lo que no recomendamos revisar un nodo sin desactivarlo antes.
+
+**P: ¿Cuál es el número máximo de nodos que se puede actualizar con POA?**
+
+A. POA usa el Administrador de reparaciones de Service Fabric para crear tareas de reparación de nodos para las actualizaciones. No obstante, no puede haber más de 250 tareas de reparación al mismo tiempo. Actualmente, POA crea tareas de reparación para cada nodo al mismo tiempo, de modo que no puede actualizar más de 250 nodos en un clúster. 
 
 ## <a name="disclaimers"></a>Declinación de responsabilidades
 

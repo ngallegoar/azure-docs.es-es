@@ -1,5 +1,5 @@
 ---
-title: Uso del resumen del dispositivo de la serie StorSimple 8000 | Microsoft Docs
+title: Uso del resumen del dispositivo del servicio StorSimple Device Manager
 description: Describe el resumen del dispositivo del servicio StorSimple Device Manager y cómo usarlo para ver las métricas de almacenamiento y los iniciadores conectados y buscar el número de serie y el IQN.
 services: storsimple
 documentationcenter: NA
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 1d88af2c0739c30b2562bad7660015b890e8159c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7801cdc6573799330e5173db82dead8d4f2cd83f
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60578324"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398244"
 ---
 # <a name="use-the-device-summary-in-storsimple-device-manager-service"></a>Uso del resumen del dispositivo del servicio StorSimple Device Manager
 
@@ -95,5 +95,5 @@ El área de información esencial captura algunas de las propiedades importantes
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Más información sobre la [hoja de resumen del servicio StorSimple](storsimple-8000-service-dashboard.md).
-* Más información sobre el [uso del servicio StorSimple Device Manager para administrar su dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
+* Obtenga más información sobre el [uso del servicio Administrador de dispositivos de StorSimple para administrar el dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
 

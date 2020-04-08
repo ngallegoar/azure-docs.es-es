@@ -1,19 +1,19 @@
 ---
-title: Deshabilitación de la supervisión en Azure Monitor para VM (versión preliminar) | Microsoft Docs
+title: Deshabilitación de la supervisión en Azure Monitor para VM
 description: En este artículo se describe cómo puede interrumpir la supervisión de las máquinas virtuales en Azure Monitor para VM.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/05/2018
-ms.openlocfilehash: fb4347e610920380792a17bb620e6d97a7d72505
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.date: 03/12/2020
+ms.openlocfilehash: 80473aa494b8fbcea5e43870b7717cd3472dd7d1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77669512"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79480528"
 ---
-# <a name="disable-monitoring-of-your-vms-in-azure-monitor-for-vms-preview"></a>Deshabilitación de la supervisión de las VM en Azure Monitor para VM (versión preliminar)
+# <a name="disable-monitoring-of-your-vms-in-azure-monitor-for-vms"></a>Deshabilitación de la supervisión de las máquinas virtuales en Azure Monitor para VM
 
 Después de habilitar la supervisión de las máquinas virtuales (VM), más adelante puede elegir deshabilitar la supervisión en Azure Monitor para VM. En este artículo se muestra cómo deshabilitar la supervisión de una o más VM.  
 
@@ -23,7 +23,7 @@ Azure Monitor para VM se basa en los siguientes componentes para ofrecer su expe
 
 * Un área de trabajo de Log Analytics, que almacena los datos de supervisión de las máquinas virtuales y otros orígenes.
 * Una colección de contadores de rendimiento configurados en el área de trabajo. La colección actualiza la configuración de supervisión en todas las VM conectadas al área de trabajo.
-* `InfrastructureInsights` y `ServiceMap`, que son soluciones de supervisión configuradas en el área de trabajo. Estas soluciones actualizan la configuración de supervisión en todas las VM conectadas al área de trabajo.
+* `VMInsights`, que es una solución de supervisión configurada en el área de trabajo. Esta solución actualiza la configuración de supervisión en todas las máquinas virtuales conectadas al área de trabajo.
 * `MicrosoftMonitoringAgent` y `DependencyAgent`, que son extensiones de Azure VM. Estas extensiones recopilan y envían datos al área de trabajo.
 
 Cuando se prepare para deshabilitar la supervisión de las VM, tenga en cuenta estas consideraciones:
@@ -32,24 +32,17 @@ Cuando se prepare para deshabilitar la supervisión de las VM, tenga en cuenta e
 * Si seleccionó un área de trabajo de Log Analytics existente que admite otras soluciones de supervisión y recopilación de datos de otros orígenes, puede quitar los componentes de la solución del área de trabajo sin que el área de trabajo se vea afectada.  
 
 >[!NOTE]
-> Después de quitar los componentes de la solución del área de trabajo, puede continuar viendo el estado de mantenimiento de las VM de Azure; específicamente, verá los datos de rendimiento y de mapa cuando vaya a cualquiera de las dos vistas en el portal. Los datos, finalmente, dejarán de aparecer en las vistas **Rendimiento** y **Mapa**. Pero la vista **Estado** seguirá mostrando el estado de mantenimiento para las VM. La opción **Probar ahora** estará disponible en la VM de Azure seleccionada para que pueda volver a habilitar la supervisión en el futuro.  
+> Después de quitar los componentes de la solución del área de trabajo, puede seguir viendo los datos de rendimiento y de mapa para las máquinas virtuales de Azure. Los datos, finalmente, dejarán de aparecer en las vistas **Rendimiento** y **Mapa**. La opción **Habilitar** estará disponible en la máquina virtual de Azure seleccionada para que pueda volver a habilitar la supervisión en el futuro.  
 
 ## <a name="remove-azure-monitor-for-vms-completely"></a>Quitar completamente Azure Monitor para VM
 
-Si aún necesita el área de trabajo de Log Analytics, siga estos pasos para quitar por completo Azure Monitor para VM. Va a quitar las soluciones `InfrastructureInsights` y `ServiceMap` del área de trabajo.  
-
->[!NOTE]
->Si usó la solución de supervisión de Service Map antes de habilitar Azure Monitor para VM y todavía confía en ella, no la quite como se describe en el último paso del procedimiento siguiente.  
->
+Si aún necesita el área de trabajo de Log Analytics, siga estos pasos para quitar por completo Azure Monitor para VM. Va a quitar la solución `VMInsights` del área de trabajo.  
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. En Azure Portal, seleccione **Todos los servicios**. En la lista de recursos, escriba **Log Analytics**. Cuando comience a escribir, la lista filtrará las sugerencias en función de la entrada. Seleccione **Log Analytics**.
 3. En la lista de áreas de trabajo de Log Analytics, seleccione el área de trabajo que eligió al incorporarse a Azure Monitor para VM.
 4. A la izquierda, seleccione **Soluciones**.  
-5. En la lista de soluciones, seleccione **InfrastructureInsights (nombre de área de trabajo)** . En la página **Introducción** de la solución, seleccione **Eliminar**. Cuando se le solicite confirmación, haga clic en **Sí**.  
-6. En la lista de soluciones, seleccione **ServiceMap (nombre de área de trabajo)** . En la página **Introducción** de la solución, seleccione **Eliminar**. Cuando se le solicite confirmación, haga clic en **Sí**.  
-
-Antes de habilitar Azure Monitor para VM, si no [recopilaba contadores de rendimiento](vminsights-enable-overview.md#performance-counters-enabled) para las VM basadas en Windows o Linux en el área de trabajo, [deshabilite esas reglas](../platform/data-sources-performance-counters.md#configuring-performance-counters) para Windows y Linux.
+5. En la lista de soluciones, seleccione **VMInsights(nombre de área de trabajo)** . En la página **Introducción** de la solución, seleccione **Eliminar**. Cuando se le solicite confirmación, haga clic en **Sí**.
 
 ## <a name="disable-monitoring-and-keep-the-workspace"></a>Deshabilitar la supervisión y conservar el área de trabajo  
 

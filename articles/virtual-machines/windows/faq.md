@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: cynthn
-ms.openlocfilehash: 64aeaf412bc8af242a9d3184a3c1f0fa0ee4809e
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: e3d2673ba52ba0cca36e2a999558313b64716ade
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77161773"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79299621"
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Preguntas más frecuentes sobre máquinas virtuales Windows
 En este artículo se responden algunas preguntas frecuentes que los usuarios plantean sobre las máquinas virtuales Windows creadas en Azure mediante el modelo de implementación de Resource Manager. Para la versión de Linux de este tema, vea [Preguntas frecuentes sobre las máquinas virtuales de Linux](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -39,7 +39,7 @@ Las cuentas de Azure Storage también pueden proporcionar almacenamiento para el
 ## <a name="how-can-i-access-my-virtual-machine"></a>¿Cómo puedo tener acceso a mi máquina virtual?
 Establezca una conexión remota mediante conexión a Escritorio remoto (RDP) para una máquina virtual Windows. Para obtener instrucciones, vea [Conexión a una máquina virtual de Azure donde se ejecuta Windows e inicio de sesión en ella](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Se admite un máximo de 2 conexiones simultáneas, a menos que el servidor esté configurado como un host de sesión de servicios de escritorio remoto.  
 
-Si tiene problemas con Escritorio remoto, consulte [Solución de problemas de conexiones del Escritorio remoto a una máquina virtual de Azure con Windows](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+Si tiene problemas con el Escritorio remoto, consulte [Solución de problemas de conexiones del Escritorio remoto a una máquina virtual de Azure con Windows](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
 Si está familiarizado con Hyper-V, puede que esté buscando una herramienta similar a VMConnect. Azure no ofrece una herramienta similar porque no admite el acceso de la consola a una máquina virtual.
 
@@ -75,7 +75,7 @@ Sí. Para crear rápidamente una máquina virtual Linux de prueba, consulte [Cre
 Sí, ahora es posible. En primer lugar, la máquina virtual debe detenerse desasignada. A continuación, puede agregar o quitar una NIC (a menos que sea la última en la máquina virtual). 
 
 ## <a name="are-there-any-computer-name-requirements"></a>¿Hay algún requisito de nombre de equipo?
-Sí. El nombre del equipo puede tener un máximo de 15 caracteres. Consulte el artículo sobre las [convenciones y restricciones de nomenclatura](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#sample-naming-convention) para más información sobre la denominación de los recursos.
+Sí. El nombre del equipo puede tener un máximo de 15 caracteres. Consulte el artículo sobre las [convenciones y restricciones de nomenclatura](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging) para más información sobre la denominación de los recursos.
 
 ## <a name="are-there-any-resource-group-name-requirements"></a>¿Existen algunos requisitos para los nombres de grupos de recursos?
 Sí. El nombre del grupo de recursos puede tener como máximo 90 caracteres. Consulte el artículo sobre las [convenciones y restricciones de nomenclatura](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#resource-naming) para más información sobre los grupos de recursos.

@@ -13,12 +13,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1293bbf6d2966caf7e6e095c1721e29890a57b76
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 759748124893a8f906a4bc336f835546202b0b62
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72025806"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80049492"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Solución de problemas de inicio de sesión único de conexión directa de Azure Active Directory
 
@@ -35,7 +35,7 @@ Este artículo sirve de ayuda para encontrar información sobre cómo solucionar
 - El inicio de sesión único de conexión directa no funciona en exploradores móviles en iOS y Android.
 - Si un usuario forma parte de demasiados grupos de Active Directory, es probable que el valor de Kerberos del usuario sea demasiado largo para procesarse, lo que hará que se produzca un error en el inicio de sesión único de conexión directa. Las solicitudes HTTPS de Azure AD pueden tener encabezados con un tamaño máximo de 50 KB; los vales de Kerberos deben ser menores que ese número para albergar otros artefactos de Azure AD (generalmente, de 2 a 5 KB), como las cookies. Nuestra recomendación es reducir la pertenencia a grupos del usuario y volver a intentarlo.
 - Si va a sincronizar treinta bosques de Active Directory o más, no se puede habilitar el inicio de sesión único de conexión directa mediante Azure AD Connect. Como alternativa, también puede [habilitar manualmente](#manual-reset-of-the-feature) la característica en su inquilino.
-- Agregar la dirección URL del servicio de Azure AD (https://autologon.microsoftazuread-sso.com) a la zona de sitios de confianza en lugar de a la zona de intranet local *impide que los usuarios inicien sesión*.
+- Agregar la dirección URL del servicio de Azure AD (`https://autologon.microsoftazuread-sso.com`) a la zona de sitios de confianza en lugar de a la zona de intranet local *impide que los usuarios inicien sesión*.
 - El inicio de sesión único de conexión directa admite los tipos de cifrado AES256_HMAC_SHA1, AES128_HMAC_SHA1 y RC4_HMAC_MD5 para Kerberos. Se recomienda que el tipo de cifrado de la cuenta AzureADSSOAcc$ se establezca en AES256_HMAC_SHA1 o uno de los tipos AES en lugar de RC4, para mayor seguridad. El tipo de cifrado se almacena en el atributo msDS-SupportedEncryptionTypes de la cuenta en Active Directory.  Si el tipo de cifrado de la cuenta AzureADSSOAcc$ está establecido en RC4_HMAC_MD5 y desea cambiarlo a uno de los tipos de cifrado AES, asegúrese de revertir primero la clave de descifrado de Kerberos de dicha cuenta, tal como se explica en la pregunta correspondiente del [documento de preguntas más frecuentes](how-to-connect-sso-faq.md); de lo contrario, no se producirá el inicio de sesión único de conexión directa.
 
 ## <a name="check-status-of-feature"></a>Comprobación del estado de la característica
@@ -56,7 +56,7 @@ Si el inquilino tiene una licencia de Azure AD Premium asociada, también puede 
 
 Examine **Azure Active Directory** > **Inicios de sesión** en el [centro de administración de Azure Active Directory](https://aad.portal.azure.com/) y después seleccione la actividad de inicio de sesión de un usuario específico. Busque el campo **CÓDIGO DE ERROR DE INICIO DE SESIÓN**. Busque la correspondencia entre el valor de ese campo y un motivo de error y la resolución en la siguiente tabla:
 
-|Código de error de inicio de sesión|Motivo del error de inicio de sesión|Resolución
+|Código de error de inicio de sesión|Motivo del error de inicio de sesión|Solución
 | --- | --- | ---
 | 81001 | El vale de Kerberos del usuario es demasiado grande. | Reduzca la pertenencia a grupos del usuario e inténtelo de nuevo.
 | 81002 | No se puede validar el vale Kerberos del usuario. | Vea la [Lista de comprobación de solución de problemas](#troubleshooting-checklist).
@@ -75,7 +75,7 @@ Use la siguiente lista de comprobación para solucionar problemas de SSO de cone
 
 - Asegúrese de que la característica SSO de conexión directa está habilitada en Azure AD Connect. Si no puede habilitarla (por ejemplo, debido a que hay un puerto bloqueado), asegúrese de que cumple todos los [requisitos previos](how-to-connect-sso-quick-start.md#step-1-check-the-prerequisites).
 - Si ha habilitado tanto [Azure AD Join](../active-directory-azureadjoin-overview.md) como SSO de conexión directa en el inquilino, asegúrese de que el problema no está relacionado con Azure AD Join. SSO de Azure AD Join tiene prioridad sobre SSO de conexión directa, si el dispositivo está tanto registrado con Azure AD como unido a un dominio. Con SSO de Azure AD Join, el usuario ve un icono de inicio de sesión que dice "Conectado a Windows".
-- Asegúrese de que la dirección URL de Azure AD (https://autologon.microsoftazuread-sso.com) forma parte de la configuración de zonas de intranet del usuario.
+- Asegúrese de que la dirección URL de Azure AD (`https://autologon.microsoftazuread-sso.com`) forma parte de la configuración de zonas de intranet del usuario.
 - Asegúrese de que el dispositivo corporativo se ha unido al dominio de Active Directory. El dispositivo _no_ tiene que [unirse a Azure AD](../active-directory-azureadjoin-overview.md) para que SSO de conexión directa funcione.
 - Asegúrese de que el usuario ha iniciado sesión en el dispositivo a través de una cuenta de dominio de Active Directory.
 - Asegúrese de que la cuenta del usuario provenga de un bosque de Active Directory donde esté configurado SSO de conexión directa.

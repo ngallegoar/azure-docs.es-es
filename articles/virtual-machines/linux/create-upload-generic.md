@@ -1,25 +1,17 @@
 ---
-title: Creación y carga de un VHD de Linux en Azure
+title: Creación y carga de un disco duro virtual de Linux
 description: Aprenda a crear y cargar un disco duro virtual de Azure (VHD) que contiene un sistema operativo Linux.
-services: virtual-machines-linux
-documentationcenter: ''
-author: mimckitt
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager,azure-service-management
-ms.assetid: d351396c-95a0-4092-b7bf-c6aae0bbd112
+author: gbowerman
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 10/08/2018
-ms.author: mimckitt
-ms.openlocfilehash: 7f2422df3a2449999e086e74e9446d125ffecbda
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.author: guybo
+ms.openlocfilehash: f700dec6486bad9e7024d7c908a70dd0ff2b342c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251659"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80066758"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Información para las distribuciones no aprobadas
 

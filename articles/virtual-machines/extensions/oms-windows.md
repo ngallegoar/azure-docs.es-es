@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/30/2020
 ms.author: akjosh
-ms.openlocfilehash: a0b5f45ba993033a9f56ee6b078193677b1c5aad
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 85977819d30ddc8745eb9231242eb1990222676c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78191816"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79530995"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-windows"></a>Extensión de máquina virtual de Log Analytics para Windows
 
@@ -36,6 +36,7 @@ En la tabla siguiente se proporciona una asignación de la versión de la extens
 
 | Versión del conjunto de productos Windows para Log Analytics | Versión de extensión de VM Windows de Log Analytics | Fecha de la versión | Notas de la versión |
 |--------------------------------|--------------------------|--------------------------|--------------------------|
+| 10.20.18029 | 1.0.18029 | Marzo de 2020   | <ul><li>Agrega compatibilidad con la firma de código SHA-2.</li><li>Mejora la instalación y administración de extensiones de máquina virtual.</li><li>Resuelve un error en Azure Arc de integración de servidores.</li><li>Agrega una herramienta de solución de problemas integrada de soporte al cliente.</li><li>Agrega compatibilidad con más regiones de Azure Government.</li> |
 | 10.20.18018 | 1.0.18018 | Octubre de 2019 | <ul><li> Correcciones de errores menores y mejoras de estabilización </li></ul> |
 | 10.20.18011 | 1.0.18011 | Julio de 2019 | <ul><li> Correcciones de errores menores y mejoras de estabilización </li><li> Aumento de MaxExpressionDepth a 10 000 </li></ul> |
 | 10.20.18001 | 1.0.18001 | Junio de 2019 | <ul><li> Correcciones de errores menores y mejoras de estabilización </li><li> Se agregó la posibilidad de deshabilitar las credenciales predeterminadas al realizar la conexión de proxy (compatibilidad con WINHTTP_AUTOLOGON_SECURITY_LEVEL_HIGH). </li></ul>|
@@ -46,6 +47,7 @@ En la tabla siguiente se proporciona una asignación de la versión de la extens
 | 8.0.11081 | 1.0.11081 | Noviembre de 2017 | | 
 | 8.0.11072 | 1.0.11072 | Septiembre de 2017 | |
 | 8.0.11049 | 1.0.11049 | Febrero de 2017 | |
+
 
 ### <a name="azure-security-center"></a>Azure Security Center
 
@@ -99,7 +101,7 @@ En el siguiente JSON se muestra el esquema para la extensión del agente de Log 
 
 ## <a name="template-deployment"></a>Implementación de plantilla
 
-Las extensiones de VM de Azure pueden implementarse con plantillas de Azure Resource Manager. El esquema JSON detallado en la sección anterior se puede usar en una plantilla de Azure Resource Manager para ejecutar el agente de Log Analytics durante la implementación de una plantilla de Azure Resource Manager. Puede encontrar una plantilla de ejemplo que incluye la extensión de VM del agente de Log Analytics en la [Galería de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm). 
+Las extensiones de VM de Azure pueden implementarse con plantillas de Azure Resource Manager. El esquema JSON detallado en la sección anterior se puede usar en una plantilla de Azure Resource Manager para ejecutar el agente de Log Analytics durante la implementación de una plantilla de Azure Resource Manager. En la [Galería de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm) encontrará una plantilla de ejemplo que incluye la extensión de VM del agente de Log Analytics. 
 
 >[!NOTE]
 >La plantilla no admite la especificación de más de un identificador y clave de área de trabajo cuando quiere configurar el agente para informar a varias áreas de trabajo. Para configurar el agente para que informe a varias áreas de trabajo, consulte [Adición o eliminación de un área de trabajo](../../azure-monitor/platform/agent-manage.md#adding-or-removing-a-workspace).  

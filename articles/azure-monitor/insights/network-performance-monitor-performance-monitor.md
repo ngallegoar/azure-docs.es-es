@@ -1,17 +1,17 @@
 ---
-title: Característica Monitor de rendimiento en la solución Network Performance Monitor en Azure Log Analytics | Microsoft Docs
+title: Monitor de rendimiento en Network Performance Monitor
 description: La funcionalidad Monitor de rendimiento de Network Performance Monitor ayuda a supervisar la conectividad de red en varios puntos de esta. Puede supervisar la conectividad de red en implementaciones en la nube y ubicaciones locales, varios centros de datos y sucursales, y aplicaciones o microservicios críticos de varios niveles.
 ms.subservice: logs
 ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: dfbc4ea8e168ced95a4239dd100cf7277e0adf7b
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 126cca9d3606b378e59e4f4e1c5b52d985d19d94
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77654535"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80055687"
 ---
 # <a name="network-performance-monitor-solution-performance-monitoring"></a>Solución Network Performance Monitor: Supervisión de rendimiento
 

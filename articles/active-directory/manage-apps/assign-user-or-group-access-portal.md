@@ -8,59 +8,84 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/24/2019
+ms.date: 02/21/2020
 ms.author: mimart
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a5135f97ffb7d29c9fd928382ca4344beaa654d
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 186e36e4625a60362c54972b16b53f0f3e6753fa
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74274737"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79409199"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Asignación de un usuario o un grupo a una aplicación empresarial en Azure Active Directory
 
-Para asignar un usuario o grupo a una aplicación empresarial, debe haber asignado cualquiera de estos roles de administrador: administrador global, administrador de aplicaciones, administrador de aplicaciones en la nube o haber sido asignado como propietario de la aplicación empresarial.  Con aplicaciones de Microsoft (por ejemplo, aplicaciones de Office 365), use PowerShell para asignar usuarios a una aplicación empresarial.
+En este artículo se explica cómo asignar usuarios o grupos a aplicaciones empresariales en Azure Active Directory (Azure AD), ya sea desde Azure Portal o usando PowerShell. Cuando un usuario se asigna a una aplicación, dicha aplicación aparece en el [panel de acceso Mis aplicaciones](https://myapps.microsoft.com/) del usuario para que pueda acceder a ella más fácilmente. Si la aplicación expone roles, también se puede asignar un rol concreto al usuario.
+
+De cara a tener un mayor control, se pueden configurar algunos tipos de aplicaciones empresariales para [requerir la asignación de usuarios](#configure-an-application-to-require-user-assignment). 
+
+Para [asignar un usuario o grupo a una aplicación empresarial](#assign-users-or-groups-to-an-app-via-the-azure-portal), deberá iniciar sesión como un administrador global, un administrador de aplicaciones o un administrador de aplicaciones en la nube, o bien como el propietario de la aplicación empresarial.
 
 > [!NOTE]
-> Para los requisitos de licencia de las características tratadas en este artículo, vea la [página de precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory).
+> La asignación basada en grupos requiere Azure Active Directory Premium P1 o P2. La asignación basada en grupo se admite en grupos de seguridad únicamente. Actualmente no se admiten las pertenencias a grupos anidados y los grupos de Office 365. Para conocer más requisitos de licencia de las características abordadas en este artículo, vea la [página de precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory). 
 
-## <a name="assign-a-user-to-an-app---portal"></a>Asignación de un usuario a una aplicación: portal
+## <a name="configure-an-application-to-require-user-assignment"></a>Configuración de una aplicación para que requiera la asignación de usuarios
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta que tenga el rol de administrador global en el directorio.
-1. Seleccione **Todos los servicios**, escriba Azure Active Directory en el cuadro de texto y seleccione **Entrar**.
-1. Seleccione **Aplicaciones empresariales**.
-1. En el panel **Aplicaciones empresariales - Todas las aplicaciones**, verá una lista de las aplicaciones que puede administrar. Seleccione una aplicación.
-1. En el panel ***nombreDeLaAplicación*** (es decir, el panel con el nombre de la aplicación seleccionada en el título), seleccione **Usuarios y grupos**.
-1. En el panel ***nombreDeLaAplicación*** **- Usuarios y grupos**, seleccione **Agregar usuario**.
-1. En el panel **Agregar asignación**, seleccione **Usuarios y grupos**.
+En los siguientes tipos de aplicaciones existe la opción de requerir que los usuarios estén asignados a la aplicación para poder acceder a ella:
+
+- Aplicaciones configuradas para el inicio de sesión único (SSO) federado con autenticación basada en SAML
+- Aplicaciones de proxy de aplicación que usan la autenticación previa de Azure Active Directory
+- Aplicaciones integradas en la plataforma de aplicaciones de Azure AD que usan la autenticación de OAuth 2.0 u OpenID Connect después de que un usuario o un administrador han dado su consentimiento en esa aplicación.
+
+Cuando se requiere la asignación de usuarios, solo podrán iniciar sesión los usuarios que se asignen expresamente a la aplicación. Estos pueden acceder a la aplicación desde su página Mis aplicaciones o a través de un vínculo directo. 
+
+Cuando la asignación *no es necesaria*, ya sea porque esta opción se ha establecido en **No** o porque la aplicación usa otro modo de SSO, podrá acceder a la aplicación cualquier usuario que tenga un vínculo directo a la aplicación o la **dirección URL de acceso de usuario** en la página **Propiedades** de la aplicación. 
+
+Esto no afecta a si una aplicación aparece o no en el panel de acceso Mis aplicaciones. Las aplicaciones aparecen en los paneles de acceso Mis aplicaciones de los usuarios en el momento en que un usuario o un grupo se asigna a la aplicación en cuestión. Para obtener información general, vea [Administración del acceso a las aplicaciones](what-is-access-management.md).
+
+
+Para requerir la asignación de usuarios en una aplicación:
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta de administrador o como propietario de la aplicación.
+
+2. Seleccione **Azure Active Directory**. En el menú de navegación de la izquierda, seleccione **Aplicaciones empresariales**.
+
+3. Seleccione la aplicación de la lista. Si no la ve, empiece a escribir su nombre en el cuadro de búsqueda. También puede usar controles de filtro para seleccionar el tipo de aplicación, el estado o la visibilidad. Tras ello, seleccione **Aplicar**.
+
+4. En el menú de navegación de la izquierda, seleccione **Propiedades**.
+
+5. Asegúrese de que el botón de alternancia **¿Asignación de usuarios?** está establecido en **Sí**.
+
+   > [!NOTE]
+   > Si **¿Asignación de usuarios?** no está disponible, puede usar PowerShell para establecer la propiedad appRoleAssignmentRequired en la entidad de servicio.
+
+6. Seleccione el botón **Guardar** de la parte superior de la pantalla.
+
+## <a name="assign-users-or-groups-to-an-app-via-the-azure-portal"></a>Asignación de usuarios o grupos a una aplicación en Azure Portal
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) como un administrador global, un administrador de aplicaciones o un administrador de aplicaciones en la nube, o bien como el propietario de la aplicación empresarial.
+2. Seleccione **Azure Active Directory**. En el menú de navegación de la izquierda, seleccione **Aplicaciones empresariales**.
+3. Seleccione la aplicación de la lista. Si no la ve, empiece a escribir su nombre en el cuadro de búsqueda. También puede usar controles de filtro para seleccionar el tipo de aplicación, el estado o la visibilidad. Tras ello, seleccione **Aplicar**.
+4. En el menú de navegación de la izquierda, seleccione **Usuarios y grupos**.
+   > [!NOTE]
+   > Si quiere asignar usuarios a aplicaciones de Microsoft como aplicaciones de Office 365, algunas de estas aplicaciones usan PowerShell. 
+5. Seleccione el botón **Agregar usuario**.
+6. En el panel **Agregar asignación**, seleccione **Usuarios y grupos**.
+7. Seleccione el usuario o grupo que quiera asignar a la aplicación o empiece a escribir el nombre del usuario o grupo en el cuadro de búsqueda. Puede elegir varios usuarios y grupos; sus selecciones aparecerán en **Elementos seleccionados**.
+8. Cuando termine, haga clic en **Guardar**.
 
    ![Asignación de un usuario o un grupo a la aplicación](./media/assign-user-or-group-access-portal/assign-users.png)
 
-1. En el panel **Usuarios y grupos**, seleccione uno o varios usuarios o grupos de la lista y, luego, haga clic en el botón **Seleccionar** en la parte inferior del panel.
-1. En el panel **Agregar asignación**, seleccione **Rol**. Después, en el panel **Seleccionar rol**, seleccione el rol que quiere aplicar a los usuarios o grupos seleccionados y, luego, haga clic en **Aceptar** en la parte inferior del panel.
-1. En el panel **Agregar asignación**, haga clic en el botón **Asignar** en la parte inferior del panel. Los usuarios o grupos asignados tienen definidos los permisos por el rol seleccionado para esta aplicación empresarial.
+9. En el panel **Usuarios y grupos**, seleccione uno o varios usuarios o grupos de la lista y, luego, haga clic en el botón **Seleccionar** en la parte inferior del panel.
+10. Si la aplicación lo permite, puede asignar un rol al usuario o al grupo. En el panel **Agregar asignación**, elija **Seleccionar rol**. Después, en el panel **Seleccionar rol**, seleccione el rol que quiera aplicar a los usuarios o grupos escogidos y, luego, haga clic en **Aceptar** en la parte inferior del panel. 
 
-## <a name="allow-all-users-to-access-an-app---portal"></a>Permitir a los usuarios tener acceso a una aplicación: portal
+    > [!NOTE]
+    > Si la aplicación no permite seleccionar roles, se asignará el rol de acceso predeterminado. En este caso, la aplicación administrará el nivel de acceso que tienen los usuarios.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta que tenga el rol de administrador global en el directorio.
-1. Seleccione **Todos los servicios**, escriba Azure Active Directory en el cuadro de texto y seleccione **Entrar**.
-1. Seleccione **Aplicaciones empresariales**.
-1. En el panel **Aplicaciones empresariales**, seleccione **Todas las aplicaciones**. A continuación se muestran las aplicaciones que se pueden administrar.
-1. En el panel **Aplicaciones empresariales - Todas las aplicaciones**, seleccione una aplicación.
-1. En el panel hoja ***nombreDeLaAplicación***, seleccione **Propiedades**.
-1. En el panel ***nombreDeLaAplicación* - Propiedades**, establezca la opción de configuración **¿Asignación de usuarios?** en **No**.
+2. En el panel **Agregar asignación**, haga clic en el botón **Asignar** en la parte inferior del panel.
 
-La opción **¿Asignación de usuarios?** :
-
-- Si esta opción se establece en Sí, los usuarios se deben asignar primero a esta aplicación antes de poder acceder a ella.
-- Si esta opción se establece en No, se concederá acceso a cualquier usuario que vaya directamente a la dirección URL de la aplicación o a la dirección URL del vínculo profundo de la aplicación.
-- No afecta a si una aplicación aparece o no en el panel de acceso de la aplicación. Para mostrar la aplicación en el panel de acceso, debe asignar un grupo o usuario adecuado a la aplicación.
-- Solo las funciones con las aplicaciones en la nube configuradas para el inicio de sesión único de SAML, las aplicaciones de proxy de aplicación que usan la autenticación previa de Azure Active Directory o las aplicaciones creadas directamente en la plataforma de aplicaciones de Azure AD que usan la autenticación de OAuth 2.0 o de OpenID Connect después de que un usuario o administración ha dado su consentimiento a esa aplicación. Vea [Inicio de sesión único para aplicaciones](what-is-single-sign-on.md). Vea [Configure el modo en que los usuarios finales dan su consentimiento a una aplicación](configure-user-consent.md).
-- Esta opción no tiene ningún efecto cuando una configuración está configurada para cualquiera de los otros modos de inicio de sesión único.
-
-## <a name="assign-a-user-to-an-app---powershell"></a>Asignación de un usuario a una aplicación: PowerShell
+## <a name="assign-users-or-groups-to-an-app-via-powershell"></a>Asignación de usuarios o grupos a una aplicación con PowerShell
 
 1. Abra un símbolo del sistema de Windows PowerShell con privilegios elevados.
 
@@ -128,9 +153,15 @@ En este ejemplo se asigna el usuario Britta Simon a la aplicación [Microsoft Wo
     New-AzureADUserAppRoleAssignment -ObjectId $user.ObjectId -PrincipalId $user.ObjectId -ResourceId $sp.ObjectId -Id $appRole.Id
     ```
 
+## <a name="related-articles"></a>Artículos relacionados
+
+- [Más información sobre el acceso de los usuarios finales a las aplicaciones](end-user-experiences.md)
+- [Planeamiento de la implementación del Panel de acceso de Azure AD](access-panel-deployment-plan.md)
+- [Administración del acceso a las aplicaciones](what-is-access-management.md)
+ 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Ver todos mis grupos](../fundamentals/active-directory-groups-view-azure-portal.md)
-- [Eliminación de asignaciones de usuario o grupo de una aplicación empresarial](remove-user-or-group-access-portal.md)
+- [Quitar una asignación de usuario o grupo de una aplicación empresarial](remove-user-or-group-access-portal.md)
 - [Deshabilitar los inicios de sesión de los usuarios de una aplicación empresarial](disable-user-sign-in-portal.md)
-- [Cambiar el nombre o el logotipo de una aplicación empresarial](change-name-or-logo-portal.md)
+- [Cambio del nombre o el logotipo de una aplicación empresarial](change-name-or-logo-portal.md)

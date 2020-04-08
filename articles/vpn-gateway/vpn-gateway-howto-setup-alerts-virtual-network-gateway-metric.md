@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: alzam
 ms.openlocfilehash: d57663f683ba4e2107ec6813a19fac7b2dcdd26a
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67605226"
 ---
 # <a name="set-up-alerts-on-vpn-gateway-metrics"></a>Configuración de alertas en métricas de VPN Gateway
@@ -22,18 +22,18 @@ Este artículo le ayuda a configurar alertas en métricas de Azure VPN Gateway. 
 |**Métrica**   | **Unidad** | **Granularidad** | **Descripción** | 
 |---       | ---        | ---       | ---            | ---       |
 |**AverageBandwidth**| Bytes por segundo  | 5 minutos| Promedio de uso de ancho de banda combinado de todas las conexiones de sitio a sitio en la puerta de enlace.     |
-|**P2SBandwidth**| Bytes por segundo  | 1 minuto  | Promedio de uso de ancho de banda combinado de todas las conexiones de punto a sitio en la puerta de enlace.    |
-|**P2SConnectionCount**| Recuento  | 1 minuto  | Recuento de las conexiones de punto a sitio en la puerta de enlace.   |
+|**P2SBandwidth**| Bytes por segundo  | 1 minuto.  | Promedio de uso de ancho de banda combinado de todas las conexiones de punto a sitio en la puerta de enlace.    |
+|**P2SConnectionCount**| Count  | 1 minuto.  | Recuento de las conexiones de punto a sitio en la puerta de enlace.   |
 |**TunnelAverageBandwidth** | Bytes por segundo    | 5 minutos  | Promedio de utilización del ancho de banda de los túneles creados en la puerta de enlace. |
 |**TunnelEgressBytes** | Bytes | 5 minutos | Tráfico saliente en los túneles creados en la puerta de enlace.   |
-|**TunnelEgressPackets** | Recuento | 5 minutos | Recuento de los paquetes salientes en los túneles creados en la puerta de enlace.   |
-|**TunnelEgressPacketDropTSMismatch** | Recuento | 5 minutos | Recuento de los paquetes salientes eliminados de los túneles por un error de coincidencia del selector de tráfico. |
+|**TunnelEgressPackets** | Count | 5 minutos | Recuento de los paquetes salientes en los túneles creados en la puerta de enlace.   |
+|**TunnelEgressPacketDropTSMismatch** | Count | 5 minutos | Recuento de los paquetes salientes eliminados de los túneles por un error de coincidencia del selector de tráfico. |
 |**TunnelIngressBytes** | Bytes | 5 minutos | Tráfico entrante en los túneles creados en la puerta de enlace.   |
-|**TunnelIngressPackets** | Recuento | 5 minutos | Recuento de los paquetes entrantes en los túneles creados en la puerta de enlace.   |
-|**TunnelIngressPacketDropTSMismatch** | Recuento | 5 minutos | Recuento de los paquetes entrantes eliminados de los túneles por un error de coincidencia del selector de tráfico. |
+|**TunnelIngressPackets** | Count | 5 minutos | Recuento de los paquetes entrantes en los túneles creados en la puerta de enlace.   |
+|**TunnelIngressPacketDropTSMismatch** | Count | 5 minutos | Recuento de los paquetes entrantes eliminados de los túneles por un error de coincidencia del selector de tráfico. |
 
 
-## <a name="setup"></a>Configuración de alertas de Azure Monitor basadas en métricas mediante Azure Portal
+## <a name="set-up-azure-monitor-alerts-based-on-metrics-by-using-the-azure-portal"></a><a name="setup"></a>Configuración de alertas de Azure Monitor basadas en métricas mediante Azure Portal
 
 En los pasos del ejemplo siguiente se creará una alerta en una puerta de enlace para:
 
@@ -61,7 +61,7 @@ En los pasos del ejemplo siguiente se creará una alerta en una puerta de enlace
 
     b. **Condición**: Es la operación para evaluar el valor de métrica.
 
-    c. **Tiempo**: Especifique la granularidad de los datos de la métrica y el período de tiempo para evaluar la alerta.
+    c. **Time**: Especifique la granularidad de los datos de la métrica y el período de tiempo para evaluar la alerta.
 
    ![Detalles de configuración de la lógica de señal](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert4.png "Seleccionar")
 

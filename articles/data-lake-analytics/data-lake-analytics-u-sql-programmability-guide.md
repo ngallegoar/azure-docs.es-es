@@ -10,10 +10,10 @@ ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.openlocfilehash: dc55615d7a5c6ae9a393ed4fd5f49cd92aedc0f9
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73162587"
 ---
 # <a name="u-sql-programmability-guide"></a>Guía de programación de U-SQL
@@ -496,7 +496,7 @@ using System.IO;
 
 * Defina un tipo definido por el usuario con el atributo SqlUserDefinedType.
 
-**SqlUserDefinedType** se utiliza para marcar una definición de tipo en un ensamblado como un tipo definido por el usuario (UDT) en U-SQL. Las propiedades del atributo reflejan las características físicas del UDT. Esta clase no se puede heredar.
+**SqlUserDefinedType** se utiliza para marcar una definición de tipo en un ensamblado como un tipo definido por el usuario (UDT) en U-SQL. Las propiedades del atributo reflejan las características físicas del UDT. No se puede heredar esta clase.
 
 SqlUserDefinedType es un atributo necesario para la definición de UDT.
 
@@ -912,7 +912,7 @@ La definición de clase base agregada definida por el usuario es la siguiente:
     }
 ```
 
-**SqlUserDefinedAggregate** indica que el tipo se debe registrar como un agregado definido por el usuario. Esta clase no se puede heredar.
+**SqlUserDefinedAggregate** indica que el tipo se debe registrar como un agregado definido por el usuario. No se puede heredar esta clase.
 
 El atributo SqlUserDefinedType es **opcional** para la definición de UDAGG.
 
@@ -945,7 +945,7 @@ Para declarar tipos de datos de entrada y salida correctos, utilice la definici�
 public abstract class IAggregate<T1, T2, TResult> : IAggregate
 ```
 
-* T1: primer parámetro para acumular.
+* T1: segundo parámetro para acumular.
 * T2: Segundo parámetro para acumular.
 * TResult: tipo de valor de terminación devuelto.
 
@@ -955,7 +955,7 @@ Por ejemplo:
 public class GuidAggregate : IAggregate<string, int, int>
 ```
 
-o
+or
 
 ```
 public class GuidAggregate : IAggregate<string, string, string>
@@ -1093,7 +1093,7 @@ public class SampleExtractor : IExtractor
 }
 ```
 
-El atributo **SqlUserDefinedExtractor** indica que el tipo se debe registrar como un extractor definido por el usuario. Esta clase no se puede heredar.
+El atributo **SqlUserDefinedExtractor** indica que el tipo se debe registrar como un extractor definido por el usuario. No se puede heredar esta clase.
 
 SqlUserDefinedExtractor es un atributo opcional para la definición de UDE. Se utiliza para definir la propiedad AtomicFileProcessing para el objeto UDE.
 
@@ -1271,7 +1271,7 @@ public class MyOutputter : IOutputter
 * La clase Constructor se utiliza para pasar parámetros al outputter definido por el usuario.
 * `Close` se usa para invalidar opcionalmente para liberar el estado costoso o saber cuándo se ha escrito la última fila.
 
-El atributo **SqlUserDefinedOutputter** indica que el tipo se debe registrar como un outputter definido por el usuario. Esta clase no se puede heredar.
+El atributo **SqlUserDefinedOutputter** indica que el tipo se debe registrar como un outputter definido por el usuario. No se puede heredar esta clase.
 
 SqlUserDefinedOutputter es un atributo opcional para la definición del outputter definido por el usuario. Se utiliza para definir la propiedad AtomicFileProcessing.
 
@@ -1514,7 +1514,7 @@ public override IRow Process(IRow input, IUpdatableRow output)
 }
 ```
 
-**SqlUserDefinedProcessor** indica que el tipo se debe registrar como un procesador definido por el usuario. Esta clase no se puede heredar.
+**SqlUserDefinedProcessor** indica que el tipo se debe registrar como un procesador definido por el usuario. No se puede heredar esta clase.
 
 El atributo SqlUserDefinedProcessor es **opcional** para la definición de UDP.
 
@@ -1635,7 +1635,7 @@ public class ParserApplier : IApplier
 * Se llama a Apply para cada fila de la tabla externa. Devuelve el conjunto de filas de salida `IUpdatableRow`.
 * La clase Constructor se utiliza para pasar parámetros al aplicador definido por el usuario.
 
-**SqlUserDefinedApplier** indica que el tipo se debe registrar como un aplicador definido por el usuario. Esta clase no se puede heredar.
+**SqlUserDefinedApplier** indica que el tipo se debe registrar como un aplicador definido por el usuario. No se puede heredar esta clase.
 
 **SqlUserDefinedApplier** es **opcional** para la definición del aplicador definido por el usuario.
 
@@ -1847,7 +1847,7 @@ public override IEnumerable<IRow> Combine(IRowset left, IRowset right,
 }
 ```
 
-El atributo **SqlUserDefinedCombiner** indica que el tipo se debe registrar como un combinador definido por el usuario. Esta clase no se puede heredar.
+El atributo **SqlUserDefinedCombiner** indica que el tipo se debe registrar como un combinador definido por el usuario. No se puede heredar esta clase.
 
 **SqlUserDefinedCombiner** se utiliza para definir la propiedad del modo de combinador. Es un atributo opcional para la definición de un combinador definido por el usuario.
 
@@ -2107,7 +2107,7 @@ public class EmptyUserReducer : IReducer
 }
 ```
 
-El atributo **SqlUserDefinedReducer** indica que el tipo se debe registrar como un reductor definido por el usuario. Esta clase no se puede heredar.
+El atributo **SqlUserDefinedReducer** indica que el tipo se debe registrar como un reductor definido por el usuario. No se puede heredar esta clase.
 **SqlUserDefinedReducer** es un atributo opcional para la definición del reductor definido por el usuario. Se utiliza para definir la propiedad IsRecursive.
 
 * bool     IsRecursive    

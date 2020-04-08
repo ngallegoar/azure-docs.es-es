@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 1/23/2020
+ms.date: 3/13/2020
 ms.author: raynew
-ms.openlocfilehash: 852059317c45dec4885b3f56de5617695d82e1e8
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 94da1639b5398a03b36fba3ff88877468a97ec36
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759813"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294112"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Arquitectura de recuperación ante desastres de Azure a Azure
 
@@ -135,11 +135,13 @@ Si se controla el acceso de salida para las máquinas virtuales con direcciones 
 | login.microsoftonline.com | Proporciona autorización y autenticación de las direcciones URL del servicio Site Recovery. |
 | *.hypervrecoverymanager.windowsazure.com | Permite que la máquina virtual se comunique con el servicio Site Recovery. |
 | *.servicebus.windows.net | Permite que la máquina virtual escriba los datos de diagnóstico y supervisión de Site Recovery. |
+| *.vault.azure.net | Permite el acceso para habilitar la replicación de máquinas virtuales habilitadas para ADE a través del portal.
+| *.automation.ext.azure.com | Permite habilitar la actualización automática del agente de movilidad para un elemento replicado a través del portal.
 
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>Conectividad de salida para rangos de direcciones IP
 
 Para controlar la conectividad de salida para máquinas virtuales con direcciones IP, permita estas direcciones.
-Tenga en cuenta que los detalles sobre los requisitos de conectividad de red se pueden encontrar en [las notas del producto de redes.](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges) 
+Tenga en cuenta que los detalles sobre los requisitos de conectividad de red se pueden encontrar en [las notas del producto de redes.](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags) 
 
 #### <a name="source-region-rules"></a>Reglas de la región de origen
 
@@ -149,6 +151,8 @@ Permitir HTTPS de salida: puerto 443 | Permitir rangos que correspondan a las cu
 Permitir HTTPS de salida: puerto 443 | Permitir rangos que correspondan a Azure Active Directory (Azure AD)  | AzureActiveDirectory
 Permitir HTTPS de salida: puerto 443 | Permitir rangos que correspondan al centro de eventos en la región de destino. | EventsHub.\<nombre-región>
 Permitir HTTPS de salida: puerto 443 | Permitir rangos que correspondan a Azure Site Recovery.  | AzureSiteRecovery
+Permitir HTTPS de salida: puerto 443 | Permite los rangos correspondientes a Azure Key Vault (esto solo es necesario para habilitar la replicación de máquinas virtuales habilitadas para ADE a través del portal). | AzureKeyVault
+Permitir HTTPS de salida: puerto 443 | Permite los rangos correspondientes al controlador de Azure Automation (esto solo es necesario para habilitar la actualización automática del agente de movilidad para un elemento replicado a través del portal). | GuestAndHybridManagement
 
 #### <a name="target-region-rules"></a>Reglas de la región de destino
 
@@ -158,6 +162,8 @@ Permitir HTTPS de salida: puerto 443 | Permitir rangos que correspondan a las cu
 Permitir HTTPS de salida: puerto 443 | Permitir rangos que correspondan a Azure AD  | AzureActiveDirectory
 Permitir HTTPS de salida: puerto 443 | Permitir rangos que correspondan al centro de eventos en la región de origen. | EventsHub.\<nombre-región>
 Permitir HTTPS de salida: puerto 443 | Permitir rangos que correspondan a Azure Site Recovery.  | AzureSiteRecovery
+Permitir HTTPS de salida: puerto 443 | Permite los rangos correspondientes a Azure Key Vault (esto solo es necesario para habilitar la replicación de máquinas virtuales habilitadas para ADE a través del portal). | AzureKeyVault
+Permitir HTTPS de salida: puerto 443 | Permite los rangos correspondientes al controlador de Azure Automation (esto solo es necesario para habilitar la actualización automática del agente de movilidad para un elemento replicado a través del portal). | GuestAndHybridManagement
 
 
 #### <a name="control-access-with-nsg-rules"></a>Control de acceso con reglas de grupo de seguridad de red
@@ -170,7 +176,7 @@ Si se controla la conectividad de la máquina virtual mediante el filtrado de tr
     - Las etiquetas de servicio representan un grupo de prefijos de direcciones IP que ayudan a reducir la complejidad de la creación de reglas de seguridad.
     - Microsoft actualiza periódica y automáticamente las etiquetas de servicio. 
  
-Más información sobre la [conectividad de salida](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges) para Site Recovery y el [control de la conectividad con grupos de seguridad de red](concepts-network-security-group-with-site-recovery.md).
+Más información sobre la [conectividad de salida](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags) para Site Recovery y el [control de la conectividad con grupos de seguridad de red](concepts-network-security-group-with-site-recovery.md).
 
 
 ### <a name="connectivity-for-multi-vm-consistency"></a>Conectividad para la coherencia entre varias máquinas virtuales

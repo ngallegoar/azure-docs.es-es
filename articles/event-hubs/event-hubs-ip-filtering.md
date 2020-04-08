@@ -11,51 +11,38 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/20/2019
 ms.author: spelluru
-ms.openlocfilehash: 769a70cee4f5a1d5d5f77cdd4e55108e3ba40fa1
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: fb11d1bdcf8145d4e78285833789b41c92b0ce4e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978687"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80064875"
 ---
-# <a name="azure-event-hubs---use-firewall-rules"></a>Azure Event Hubs: uso de las reglas de firewall
+# <a name="configure-ip-firewall-rules-for-an-azure-event-hubs-namespace"></a>Configuración de reglas de firewall de IP para un espacio de nombres de Azure Event Hubs
+Los espacios de nombres de Azure Event Hubs son accesibles de forma predeterminada desde Internet, siempre que la solicitud venga con una autenticación y una autorización válidas. Con el firewall de IP, puede restringirlo aún más a solo un conjunto de direcciones IPv4 o intervalos de direcciones IPv4 en la notación [CIDR (Enrutamiento de interdominios sin clases)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 
-En los escenarios en los que solo se puede acceder a Azure Event Hubs desde sitios conocidos, las reglas de firewall le permiten configurar reglas para aceptar el tráfico que se origina desde direcciones IPv4 específicas. Por ejemplo, estas direcciones pueden ser las de una puerta de enlace NAT corporativa.
+Esta característica es útil en escenarios en los que Azure Event Hubs debe ser accesible únicamente desde ciertos sitios conocidos. Las reglas de firewall permiten configurar reglas para aceptar el tráfico procedente de direcciones IPv4 concretas. Por ejemplo, si usa Event Hubs con [Azure ExpressRoute][express-route], puede crear una **regla de firewall** para permitir el tráfico procedente única y exclusivamente de las direcciones IP de la infraestructura local. 
 
-## <a name="when-to-use"></a>Cuándo se usa
+## <a name="ip-firewall-rules"></a>Reglas de firewall de IP
+Las reglas de firewall de IP se aplican en el nivel del espacio de nombres de Event Hubs. Por lo tanto, las reglas se aplican a todas las conexiones de clientes que usan cualquier protocolo admitido. Cualquier intento de conexión desde una dirección IP que no coincida con una regla IP admitida en el espacio de nombres de Event Hubs se rechaza como no autorizado. La respuesta no menciona la regla IP. Las reglas de filtro IP se aplican en orden y la primera regla que coincida con la dirección IP determina la acción de aceptar o rechazar.
 
-Si desea configurar el espacio de nombres Event Hubs de forma que solamente reciba tráfico de un determinado intervalo de direcciones IP y rechace todo lo demás, puede utilizar una *regla de firewall* para bloquear los puntos de conexión de Event Hubs de otras direcciones IP. Por ejemplo, si usa Event Hubs con [Azure ExpressRoute][express-route], puede crear una *regla de firewall* para restringir el tráfico procedente de las direcciones IP de la infraestructura local.
+## <a name="use-azure-portal"></a>Usar Azure Portal
+En esta sección se muestra cómo usar Azure Portal para crear reglas de firewall de IP para un espacio de nombres de Event Hubs. 
 
-## <a name="how-filter-rules-are-applied"></a>Cómo se aplican las reglas de filtro
+1. Vaya a su **espacio de nombres de Event Hubs** en [Azure Portal](https://portal.azure.com).
+2. En el menú de la izquierda, seleccione la opción **Redes**. Si selecciona la opción **Todas las redes**, el centro de eventos aceptará conexiones procedentes de cualquier dirección IP. Esta configuración equivale a una regla que acepta el intervalo de direcciones IP 0.0.0.0/0. 
 
-Las reglas de filtro IP se aplican en el nivel de espacio de nombres de Event Hubs. Por lo tanto, las reglas se aplican a todas las conexiones de clientes que usan cualquier protocolo admitido.
+    ![Firewall: opción Todas las redes seleccionada](./media/event-hubs-firewall/firewall-all-networks-selected.png)
+1. Para restringir el acceso a únicamente algunas redes y direcciones IP, seleccione la opción **Redes seleccionadas**. En la sección **Firewall**, haga lo siguiente:
+    1. Seleccione la opción **Agregar la dirección IP del cliente** para dar acceso a esa IP de cliente actual al espacio de nombres. 
+    2. En **Intervalo de direcciones**, escriba una dirección IPv4 específica o un intervalo de direcciones IPv4 en la notación CIDR. 
+    3. Especifique si quiere **permitir que los servicios de confianza de Microsoft omitan este firewall**. 
 
-Cualquier intento de conexión desde una dirección IP que no coincida con una regla IP admitida en el espacio de nombres de Event Hubs se rechaza como no autorizado. La respuesta no menciona la regla IP.
+        ![Firewall: opción Todas las redes seleccionada](./media/event-hubs-firewall/firewall-selected-networks-trusted-access-disabled.png)
+3. Seleccione **Guardar** en la barra de herramientas para guardar la configuración. Espere unos minutos hasta que la confirmación se muestre en las notificaciones de Azure Portal.
 
-## <a name="default-setting"></a>Valor predeterminado
 
-De forma predeterminada, la cuadrícula de **filtro IP** del portal para Event Hubs está vacía. Esta configuración predeterminada significa que el centro de eventos acepta la conexión de cualquier dirección IP. Esta configuración predeterminada es equivalente a una regla que acepta el intervalo de direcciones IP 0.0.0.0/0.
-
-## <a name="ip-filter-rule-evaluation"></a>Evaluación de las reglas de filtro IP
-
-Las reglas de filtro IP se aplican en orden y la primera regla que coincida con la dirección IP determina la acción de aceptar o rechazar.
-
->[!WARNING]
-> La implementación de firewalls puede evitar que otros servicios de Azure interactúen con Event Hubs.
->
-> Los servicios de confianza de Microsoft no se admiten cuando se implementa el filtro de IP (firewalls), pero estarán disponibles muy pronto.
->
-> Estos son los escenarios comunes de Azure que no funcionan con el filtro de IP (tenga en cuenta que la lista **NO** está completa).
-> - Azure Stream Analytics
-> - Integración con Azure Event Grid
-> - Enrutamientos de Azure IoT Hub
-> - Azure IoT Device Explorer
->
-> Los siguientes servicios de Microsoft deben estar en una red virtual
-> - Azure Web Apps
-> - Azure Functions
-
-### <a name="creating-a-firewall-rule-with-azure-resource-manager-templates"></a>Creación de una regla de firewall con plantillas de Azure Resource Manager
+## <a name="use-resource-manager-template"></a>Uso de plantillas de Resource Manager
 
 > [!IMPORTANT]
 > Las reglas de firewall se admiten en los niveles **estándar** y **dedicado** de Event Hubs. No se admiten en el nivel básico.
@@ -133,6 +120,7 @@ Parámetros de plantilla:
                 "action":"Allow"
             }
           ],
+          "trustedServiceAccessEnabled": false,
           "defaultAction": "Deny"
         }
       }

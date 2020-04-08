@@ -14,16 +14,16 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f690d23ac4d8c452d731c2f6fd4ae67dc281639
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 20ec1d1909a53a9de29e12be33957acfd1643698
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73805520"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80128822"
 ---
 # <a name="assign-or-remove-licenses-in-the-azure-active-directory-portal"></a>Asignación o eliminación de licencias en el portal de Azure Active Directory
 
-Muchos servicios de Azure Active Directory (Azure AD) exigen que asigne licencias a cada uno de los usuarios o grupos (y los miembros asociados) para ese servicio. Solo los usuarios con licencias activas podrán acceder y usar los servicios de Azure AD licenciados que presentan este requisito.
+Muchos servicios de Azure Active Directory (Azure AD) exigen que asigne licencias a cada uno de los usuarios o grupos (y los miembros asociados) para ese servicio. Solo los usuarios con licencias activas podrán acceder y usar los servicios de Azure AD licenciados que presentan este requisito. Las licencias se aplican a cada inquilino y no se transfieren a otros inquilinos. 
 
 ## <a name="available-license-plans"></a>Planes de licencia disponibles
 
@@ -136,6 +136,9 @@ Puede quitar una licencia desde la página de usuario de Azure AD de un usuario
 1. Seleccione **Quitar licencia**.
 
     ![Página Grupos con licencias con la opción Quitar licencia resaltada](media/license-users-groups/license-products-group-blade-with-remove-option-highlight.png)
+    
+    > [!NOTE]
+    > Cuando una cuenta de usuario local sincronizada con Azure AD no está en el ámbito de la sincronización, o si la sincronización se quita, el usuario se eliminará de forma temporal en Azure AD. Cuando esto ocurre, las licencias asignadas directamente a ese usuario o a través de licencias basadas en grupos se marcarán como **suspendidas** en lugar de como **eliminadas**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -147,4 +150,4 @@ Después de haber asignado las licencias, puede seguir los procesos a continuaci
 
 - [Escenarios, limitaciones y problemas conocidos del uso de grupos para administrar las licencias en Azure Active Directory](../users-groups-roles/licensing-group-advanced.md)
 
-- [Agregar o cambiar la información del perfil](active-directory-users-profile-azure-portal.md)
+- [Add or change profile information](active-directory-users-profile-azure-portal.md) (Incorporación o modificación de la información del perfil)

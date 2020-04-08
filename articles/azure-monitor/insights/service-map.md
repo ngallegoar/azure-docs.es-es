@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: c177589bea76770f8f72dd3267b856b00d57699c
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: f2f3e84462307f43ffe432fe878476d979f489f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77663630"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79480919"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Uso de la solución Service Map en Azure
 
@@ -26,7 +26,7 @@ En este artículo se describen los detalles sobre la incorporación y utilizaci�
 * El agente de dependencia instalado en el equipo Windows o en el servidor Linux.
 
 >[!NOTE]
->Si ya ha implementado Service Map, ahora también puede ver las asignaciones en Azure Monitor para las máquinas virtuales, lo que incluye características adicionales para supervisar el rendimiento y el estado de la máquina virtual. Para obtener más información, consulte [¿Qué es Azure Monitor para máquinas virtuales?](../../azure-monitor/insights/vminsights-overview.md) Para obtener información sobre las diferencias entre la solución de Service Map y la característica de asignación de Azure monitor para VM, consulte las siguientes [Preguntas más frecuentes](../faq.md#azure-monitor-for-vms-preview).
+>Si ya ha implementado Service Map, ahora también puede ver las asignaciones en Azure Monitor para las máquinas virtuales, lo que incluye características adicionales para supervisar el rendimiento y el estado de la máquina virtual. Para obtener más información, consulte [¿Qué es Azure Monitor para máquinas virtuales?](../../azure-monitor/insights/vminsights-overview.md) Para obtener información sobre las diferencias entre la solución de Service Map y la característica de asignación de Azure monitor para VM, consulte las siguientes [Preguntas más frecuentes](../faq.md#azure-monitor-for-vms).
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
@@ -108,7 +108,7 @@ Ahí puede elegir **Crear nuevo** y proporcionarle un nombre al grupo.
 
 ### <a name="viewing-a-group"></a>Visualización de un grupo
 
-Una vez que se han creado algunos grupos, puede verlos si elige la pestaña grupos.
+Una vez que se hayan creado algunos grupos, puede verlos si elige la pestaña Grupos.
 
 ![Pestaña Grupos](media/service-map/machine-groups-tab.png)
 
@@ -219,7 +219,7 @@ Puede recopilar detalles del proceso de los metadatos del sistema operativo sobr
 
 ![Panel Propiedades del proceso](media/service-map/process-properties.png)
 
-El panel **Resumen de proceso** proporciona información adicional sobre la conectividad del proceso, incluidos sus puertos enlazados, las conexiones entrantes y salientes y las conexiones con errores.
+El panel **Resumen de proceso** proporciona información adicional sobre la conectividad del proceso, incluidos sus puertos enlazados, las conexiones entrantes y salientes, y las conexiones con errores.
 
 ![Panel Resumen de proceso](media/service-map/process-summary.png)
 

@@ -16,10 +16,10 @@ ms.date: 09/11/2018
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b2b42880f99f3e87d75854166047896860f9eb14
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65784425"
 ---
 # <a name="problem-adding-an-azure-ad-gallery-application"></a>Problemas al agregar una aplicación de la galería de Azure AD
@@ -61,7 +61,7 @@ Puede ver los detalles de cualquier notificación del portal si sigue los pasos 
 
 5.  Si aún necesita ayuda, también puede compartir esta información con un ingeniero de soporte técnico o el grupo de producto para obtener ayuda.
 
-6.  Haga clic en el **icono** de **copia** situado a la derecha del cuadro de texto **Copiar error** para copiar todos los detalles de la notificación para compartirlos con un ingeniero de soporte técnico o un grupo de producto.
+6.  Haga clic en el **icono** de **copia** situado a la derecha del cuadro de texto **Copiar error** para copiar todos los detalles de la notificación y compartirlos con un ingeniero de soporte técnico o de un grupo de un producto.
 
 ## <a name="how-to-get-help-by-sending-notification-details-to-a-support-engineer"></a>Obtención de ayuda mediante el envío de detalles de la notificación a un ingeniero de soporte técnico
 

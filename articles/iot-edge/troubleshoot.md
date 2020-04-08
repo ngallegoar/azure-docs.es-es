@@ -8,12 +8,12 @@ ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 98d75f75a985fca3448becab216ad6570d948468
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 13eab175356ed1ec20caa3263ba00d0563384f0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772228"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80064390"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problemas habituales y soluciones para Azure IoT Edge
 
@@ -44,6 +44,28 @@ Los tipos de comprobaciones que ejecuta la herramienta se pueden clasificar como
 * Comprobaciones de preparación de producción: buscan procedimientos recomendados de producción, como el estado de los certificados de la entidad de certificación (CA) del dispositivo y la configuración del archivo de registro de módulo.
 
 Para obtener una lista completa de las comprobaciones de diagnóstico, vea [Built-in troubleshooting functionality](https://github.com/Azure/iotedge/blob/master/doc/troubleshoot-checks.md) (Funcionalidad de solución de problemas integrada).
+
+## <a name="gather-debug-information-with-iotedge-support-bundle-command"></a>Recopilación de información de depuración con el comando "support-bundle"
+
+Cuando necesite recopilar registros de un dispositivo IoT Edge, la manera más cómoda es usar el comando `support-bundle`. Este comando recopila de forma predeterminada registros de módulo, de IoT Edge Security Manager y del motor de contenedor, salidas JSON "iotedge check" y otra información de depuración de utilidad y, luego, lo comprime todo en un solo archivo para poder compartirlo fácilmente. El comando `support-bundle` está disponible en la [versión 1.0.9](https://github.com/Azure/azure-iotedge/releases/tag/1.0.9) y posteriores.
+
+Ejecute el comando `support-bundle` con la marca `--since` para especificar hasta qué momento en el pasado deben remontarse los registros. Por ejemplo, con `6h` se obtendrán registros de las últimas 6 horas, con `6d`, de los últimos 6 días, con `6m`, de los últimos 6 minutos, etc. Incluya la marca `--help` para ver una lista completa de opciones.
+
+
+* En Linux:
+
+  ```bash
+  sudo iotedge support-bundle --since 6h
+  ```
+
+* En Windows:
+
+  ```powershell
+  iotedge support-bundle --since 6h
+  ```
+
+> [!WARNING]
+> La salida del comando `support-bundle` puede contener nombres de hosts, de dispositivos y de módulos, información registrada por los módulos, etc. Tenga esto en cuenta si comparte la salida en un foro público.
 
 ## <a name="standard-diagnostic-steps"></a>Pasos de diagnóstico estándar
 

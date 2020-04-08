@@ -15,12 +15,12 @@ ms.date: 11/25/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a24a557cb436f18252abd88a4c82f15004f4390
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 5e828fd9c2561007c332db67bfd0b20dda9b845f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77522057"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79454540"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-applications-with-azure-active-directory"></a>Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones con Azure Active Directory
 
@@ -73,7 +73,7 @@ Para ayudar a automatizar el aprovisionamiento y el desaprovisionamiento, las ap
 
 Para abordar estos desafíos, la especificación de SCIM proporciona un esquema de usuario común a fin de ayudar a los usuarios a entrar a las aplicaciones, salir de ellas y trabajar con ellas. SCIM se está convirtiendo en el estándar de facto para aprovisionar y, cuando se usa junto con estándares de federación como SAML u OpenID Connect, ofrece a los administradores una solución de un extremo a otro basada en estándares para la administración del acceso.
 
-Si desea instrucciones detalladas sobre el uso de SCIM para automatizar el aprovisionamiento y desaprovisionamiento de usuarios y grupos en una aplicación, consulte [Aprovisionamiento de usuarios de SCIM con Azure Active Directory (Azure AD)](use-scim-to-provision-users-and-groups.md).
+Para ver instrucciones detalladas acerca de cómo desarrollar un punto de conexión de SCIM para automatizar el aprovisionamiento y el desaprovisionamiento de usuarios y grupos en una aplicación, consulte [Creación de un punto de conexión de SCIM y configuración del aprovisionamiento de usuarios](use-scim-to-provision-users-and-groups.md). En el caso de las aplicaciones integradas previamente en la galería (Slack, Azure Databricks, Snowflake, etc.), puede obviar la documentación para desarrolladores y usar los tutoriales que se proporcionan [aquí](../saas-apps/tutorial-list.md).
 
 ## <a name="manual-vs-automatic-provisioning"></a>Aprovisionamiento manual y automático
 

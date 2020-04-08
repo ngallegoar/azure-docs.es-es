@@ -3,16 +3,19 @@ title: Automatización de procesos de Azure Application Insights con Logic Apps
 description: Obtenga información sobre cómo automatizar rápidamente los procesos repetibles mediante la adición de Application Insights Connector a la aplicación lógica.
 ms.topic: conceptual
 ms.date: 03/11/2019
-ms.openlocfilehash: 9a7f411ca5ec47e3f25d8120d0388fb030b00c72
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 4a0944e661932d86fac75f78c4faf5be751806c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77655012"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79473173"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Automatización de procesos de Application Insights con Logic Apps
 
 ¿Se encuentra a menudo ejecutando las mismas consultas en los datos de telemetría para comprobar si el servicio está funcionando correctamente? ¿Desea automatizar estas consultas para encontrar tendencias y anomalías, y crear sus propios flujos de trabajo en función de ellas? El conector Azure Application Insights para Logic Apps es la herramienta adecuada para este fin.
+
+> [!NOTE]
+> El conector de Azure Application Insights se ha reemplazado por el [conector de Azure Monitor](../platform/logicapp-flow-connector.md) que se integra con Azure Active Directory en lugar de requerir una clave de API y también permite recuperar datos de un área de trabajo de Log Analytics.
 
 Con esta integración, se pueden automatizar numerosos procesos sin tener que escribir una sola línea de código. Puede crear una aplicación lógica con Application Insights Connector para automatizar rápidamente cualquier proceso de Application Insights. 
 

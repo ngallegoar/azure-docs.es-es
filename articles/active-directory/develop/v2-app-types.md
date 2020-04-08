@@ -17,12 +17,12 @@ ms.date: 04/06/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 8bfe668dc2eb4e0e00de34231f4c232f5240a82d
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 94cddf097f2a9e51f061909f6bdd3dcd82f18bfe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76700760"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79230564"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Tipos de aplicaciones para la Plataforma de identidad de Microsoft
 
@@ -43,7 +43,7 @@ Para más información, aprenda a [registrar una aplicación](quickstart-registe
 
 Una vez que la aplicación se registra, se comunica con la Plataforma de identidad de Microsoft mediante el envío de solicitudes al punto de conexión. Proporcionamos bibliotecas y marcos de código abierto que controlan los detalles de estas solicitudes. También tiene la opción de implementar la lógica de autenticación por su cuenta mediante la creación de solicitudes a estos puntos de conexión:
 
-```
+```HTTP
 https://login.microsoftonline.com/common/oauth2/v2.0/authorize
 https://login.microsoftonline.com/common/oauth2/v2.0/token
 ```
@@ -62,7 +62,7 @@ Para ver este escenario en acción, pruebe uno de los ejemplos de código de apl
 
 En las aplicaciones web (. NET, PHP, Java, Ruby, Python, Node) a las que el usuario accede a través de un explorador, puede usar [OpenID Connect](active-directory-v2-protocols.md) para el inicio de sesión de usuario. En OpenID Connect, la aplicación web recibe un identificador de token. Un token de id. es un token de seguridad que comprueba la identidad del usuario y proporciona información sobre el usuario en forma de notificaciones:
 
-```
+```JSON
 // Partial raw ID token
 eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImtyaU1QZG1Cd...
 
@@ -91,7 +91,7 @@ Además del inicio de sesión sencillo, una aplicación web de servidor podría 
 
 Puede usar el punto de conexión de la Plataforma de identidad de Microsoft para proteger los servicios web, como la API web RESTful de la aplicación. Las API web se pueden implementar en numerosas plataformas y lenguajes. También se pueden implementar mediante desencadenadores HTTP en Azure Functions. En lugar de tokens de id. y cookies de sesión, una API web usa un token de acceso de OAuth 2.0 para proteger sus datos y para autenticar las solicitudes entrantes. El llamador de una API web anexa un token de acceso en el encabezado de autorización de una solicitud HTTP, como esta:
 
-```
+```HTTP
 GET /api/items HTTP/1.1
 Host: www.mywebapi.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6...
@@ -99,7 +99,7 @@ Accept: application/json
 ...
 ```
 
-La API web usa el token de acceso para comprobar la identidad del llamador de API y extraer información sobre el llamador de notificaciones que se codifican en dicho token. Encontrará más información sobre los diferentes tipos de token que se usan en el punto de conexión de la Plataforma de identidad de Microsoft en la [referencia de token de acceso](access-tokens.md) y en la [referencia de id_token](id-tokens.md).
+La API web usa el token de acceso para comprobar la identidad del llamador de API y extraer información sobre el llamador de notificaciones que se codifican en dicho token. Hay más detalles sobre los diferentes tipos de token que se usan en el punto de conexión de la Plataforma de identidad de Microsoft en la referencia [Token de acceso](access-tokens.md) y en la referencia [id_token](id-tokens.md).
 
 Una API web puede ofrecer a los usuarios la capacidad para administrar la participación/no participación de ciertas funcionalidades o datos mediante la exposición de permisos, conocidos también como [ámbitos](v2-permissions-and-consent.md). Para que una aplicación de llamada adquiera permiso para un ámbito, el usuario debe consentir el ámbito durante un flujo. El punto de conexión de la Plataforma de identidad de Microsoft solicita al usuario permiso y luego registra los permisos en todos los tokens de acceso que recibe la API web. La API web valida los tokens de acceso que recibe en cada llamada y realiza comprobaciones de autorización.
 
@@ -121,7 +121,7 @@ En este flujo, la aplicación recibe un código de autorización del punto de co
 
 ## <a name="daemons-and-server-side-apps"></a>Demonios y aplicaciones de servidor
 
-Las aplicaciones que contienen procesos de larga duración o que funcionan sin la interacción con un usuario también necesitan un modo de acceder a recursos protegidos, como las API web. Estas aplicaciones pueden autenticarse y obtener tokens mediante la identidad de la aplicación, en lugar de una identidad delegada del usuario, con el flujo de credenciales de cliente de OAuth 2.0. Puede demostrar la identidad de la aplicación mediante un certificado o secreto de cliente. Para más información, consulte el artículo sobre la [autenticación en la Plataforma de identidad de Microsoft en aplicaciones de demonio con certificados](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/).
+Las aplicaciones que contienen procesos de larga duración o que funcionan sin la interacción con un usuario también necesitan un modo de acceder a recursos protegidos, como las API web. Estas aplicaciones pueden autenticarse y obtener tokens mediante la identidad de la aplicación, en lugar de una identidad delegada del usuario, con el flujo de credenciales de cliente de OAuth 2.0. Puede demostrar la identidad de la aplicación mediante un certificado o secreto de cliente. Para más información, consulte este artículo sobre la [aplicación de consola de demonio de .NET Core con la plataforma de identidad de Microsoft](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2).
 
 En este flujo, la aplicación interactúa directamente con el punto de conexión `/token` para obtener acceso:
 

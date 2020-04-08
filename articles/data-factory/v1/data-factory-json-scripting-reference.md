@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: e85696afde5f0332ff6481bfadabbde5ac2d4800
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 3492f917be8116d0eed0c7ec03ed8aa9ff506520
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894911"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80346593"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - Referencia de scripting JSON
 > [!NOTE]
@@ -3558,7 +3558,7 @@ Para definir un servicio vinculado de FTP, establezca el **tipo** de servicio vi
 | gatewayName |Nombre de la puerta de enlace de administración de datos para conectarse a un servidor FTP local |No |&nbsp; |
 | port |Puerto en el que escucha el servidor FTP |No |21 |
 | enableSsl |Especificar si desea usar FTP a través del canal SSL/TLS |No |true |
-| enableServerCertificateValidation |Especificar si desea habilitar la validación de certificados de servidor SSL al usar FTP sobre el canal SSL/TLS |No |true |
+| enableServerCertificateValidation |Especificar si quiere habilitar la validación de certificados de servidor TLS/SSL al usar FTP sobre el canal SSL/TLS |No |true |
 
 #### <a name="example-using-anonymous-authentication"></a>Ejemplo: Uso de autenticación anónima
 
@@ -4073,7 +4073,7 @@ Para definir un servicio vinculado de HTTP, establezca el **tipo** de servicio v
 | --- | --- | --- |
 | url | Dirección URL base para el servidor web | Sí |
 | authenticationType | Especifica el tipo de autenticación. Los valores permitidos son: **Anónima**, **Básica**, **Implícita**, **Windows** o **ClientCertificate**. <br><br> Consulte en las secciones después de esta tabla más propiedades y ejemplos de JSON para esos tipos de autenticación respectivamente. | Sí |
-| enableServerCertificateValidation | Especifique si desea habilitar la validación del certificado SSL de servidor si el origen es el servidor web HTTPS. | No, el valor predeterminado es True. |
+| enableServerCertificateValidation | Especificar si quiere habilitar la validación de certificados TLS/SSL de servidor si el origen es un servidor web HTTPS | No, el valor predeterminado es True. |
 | gatewayName | Nombre de la instancia de Data Management Gateway para conectarse a un origen HTTP local. | Sí si va a copiar datos desde un origen HTTP local. |
 | encryptedCredential | Credenciales cifradas para acceder al punto de conexión HTTP. Generadas automáticamente cuando se configura la información de autenticación en el Asistente para copia o en el cuadro de diálogo emergente de ClickOnce. | No. Se aplica solo cuando se copian datos desde un servidor HTTP local. |
 

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: f84fe995e65d2b67aaaf4ff9acc4a6a44ce607dc
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67186355"
 ---
 > [!NOTE]
@@ -55,7 +55,7 @@ ms.locfileid: "67186355"
    
    1. Cargue un documento en SharePoint. 
    2. Vaya a la ruta de acceso UNC que configuró. Asegúrese de que se ha creado la estructura de directorios de RBS y que contiene el objeto cargado.
-6. (Opcional) Puede usar el cmdlet de PowerShell `Migrate()` de Microsoft RBS incluido con SharePoint para migrar el contenido de BLOB existente para el dispositivo StorSimple. Para más información, consulte [Migrar contenido a o desde EDR en SharePoint 2013][6] o [Migración de contenido dentro o fuera de RBS (SharePoint Foundation 2010)][7].
+6. (Opcional) Puede usar el cmdlet de PowerShell `Migrate()` de Microsoft RBS incluido con SharePoint para migrar el contenido de BLOB existente para el dispositivo StorSimple. Para más información, consulte [Migrar contenido a RBS o desde RBS en SharePoint Server 2013][6] o [Migración de contenido a RBS o desde RBS (SharePoint Foundation 2010)][7].
 7. (Opcional) En instalaciones de prueba, puede comprobar que los blobs se han extraído de la base de datos de contenido como sigue: 
    
    1. Inicie SQL Management Studio
@@ -111,7 +111,7 @@ ms.locfileid: "67186355"
    Si almacena los blobs y la base de datos de contenido en volúmenes independientes en el dispositivo de StorSimple, se recomienda configurarlos en el mismo contenedor de volumen. Esto garantiza que se hará la copia de seguridad de ellos juntos.
    
    > [!WARNING]
-   > Si no tiene RBS habilitado, no es recomendable mover la base de datos de contenido al dispositivo de StorSimple. Se trata de una configuración no probada.
+   > Si no tiene RBS habilitado, no es recomendable mover la base de datos de contenido al dispositivo StorSimple. Se trata de una configuración no probada.
    
 9. Vaya al paso siguiente: [Configuración de la recolección de elementos no utilizados](#configure-garbage-collection).
 

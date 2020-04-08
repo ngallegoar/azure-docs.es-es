@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, carlrab, emlisa
 ms.date: 05/14/2019
-ms.openlocfilehash: 4aa45cc1e8b79186d3ddd5d2b2964addb3929b1a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 2a4c6dd3dd6f1bb2f15e31226086c73fb8e63521
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978568"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80124831"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Información general sobre las funcionalidades de seguridad de Azure SQL Database
 
@@ -56,7 +56,7 @@ La autenticación es el proceso por el cual se demuestra que el usuario es quien
 
 - **Autenticación de Azure Active Directory**:
 
-    La autenticación de Azure Active Directory es un mecanismo de conexión a [Azure SQL Database](sql-database-technical-overview.md) y [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) mediante identidades de Azure Active Directory (AD). La autenticación de Azure AD permite a los administradores administrar centralmente las identidades y los permisos de los usuarios de la base de datos, junto con otros servicios de Microsoft, en una ubicación central. Esto incluye la minimización de almacenamiento de contraseñas y permite directivas centralizadas de rotación de contraseñas.
+    La autenticación de Azure Active Directory es un mecanismo de conexión a [Azure SQL Database](sql-database-technical-overview.md) y [SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) mediante identidades de Azure Active Directory (AD). La autenticación de Azure AD permite a los administradores administrar centralmente las identidades y los permisos de los usuarios de la base de datos, junto con otros servicios de Microsoft, en una ubicación central. Esto incluye la minimización de almacenamiento de contraseñas y permite directivas centralizadas de rotación de contraseñas.
 
      Debe crearse un administrador del servidor denominado **Administrador de Active Directory** para usar la autenticación de Azure AD con SQL Database. Para más información, consulte [Usar la autenticación de Azure Active Directory para autenticación con SQL](sql-database-aad-authentication.md). La autenticación de Azure AD admite cuentas tanto administradas como federadas. Las cuentas federadas admiten usuarios y grupos de Windows para un dominio de cliente federado con Azure AD.
 
@@ -152,6 +152,6 @@ Además de las anteriores características y funcionalidades que pueden ayudar a
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener información acerca del uso de las características de control de acceso en SQL Database, consulte [Control de acceso](sql-database-control-access.md).
+- Para más información sobre el uso de inicios de sesión, cuentas de usuario, roles de base de datos y permisos en SQL Database, vea [Administración de inicios de sesión y cuentas de usuario](sql-database-manage-logins.md).
 - Para más información sobre la auditoría de bases de datos, consulte [SQL Database auditing](sql-database-auditing.md) (Auditoría de SQL Database).
 - Para más información sobre la detección de amenaza, consulte [SQL Database threat detection](sql-database-threat-detection.md) (Detección de amenazas de SQL Database).

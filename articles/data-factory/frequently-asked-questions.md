@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 2e50d226282536fa4e8c044d2ee3d91df4cfd1ee
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 34972e70039fef17161bdef66f64278cbabf908f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77131462"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80130801"
 ---
 # <a name="azure-data-factory-faq"></a>Preguntas más frecuentes de Azure Data Factory
 Este artículo ofrece respuestas a las preguntas más frecuentes sobre Azure Data Factory.  
@@ -78,15 +78,15 @@ Puede supervisar las factorías de datos mediante PowerShell, SDK o las herramie
 ### <a name="new-features-for-ssis-in-data-factory"></a>Nuevas características de SSIS en Data Factory
 Desde el lanzamiento inicial de la versión preliminar pública en 2017, Data Factory ha agregado las siguientes características para SSIS:
 
--   Compatibilidad con tres configuraciones o variantes más de Azure SQL Database para hospedar los paquetes o proyectos de la base de datos SSIS (SSISDB):
--   SQL Database con puntos de conexión de servicio de red virtual
--   instancia administrada
--   Grupo elástico
--   Compatibilidad con una red virtual de Azure Resource Manager en una red virtual clásica que caerá en desuso en el futuro, lo que le permite insertar o unir su entorno de ejecución de integración de Azure-SSIS a una red virtual que esté configurada para SQL Database con acceso a puntos de conexión de servicio de red virtual, Instancias administradas o datos locales. Para más información, consulte también [Unión de una instancia de Integration Runtime de SSIS de Azure a una red virtual](join-azure-ssis-integration-runtime-virtual-network.md).
--   Compatibilidad con la autenticación de Azure Active Directory (Azure AD) y la autenticación de SQL para conectarse a SSISDB, lo que le permite usar la autenticación de Azure AD con su identidad administrada de Data Factory para los recursos de Azure
--   Compatibilidad para usar su propia licencia de SQL Server local para conseguir ahorros sustanciales de costos con la opción Ventaja híbrida de Azure
--   Compatibilidad con la edición Enterprise del entorno de ejecución de integración de Azure-SSIS que le permite usar características avanzadas o premium, una interfaz de configuración personalizada para instalar componentes o extensiones adicionales y un ecosistema de terceros. Para más información, consulte también [Enterprise Edition, Custom Setup, and 3rd Party Extensibility for SSIS in ADF](https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/) (Enterprise Edition, instalación personalizada y extensibilidad de terceros para SSIS en ADF). 
--   Una integración más profunda de SSIS en Data Factory que le permite invocar o desencadenar actividades de primera clase de ejecución de paquetes SSIS en canalizaciones de Data Factory y programarlas mediante SSMS. Para más información, consulte también [Modernize and extend your ETL/ELT workflows with SSIS activities in ADF pipelines](https://blogs.msdn.microsoft.com/ssis/2018/05/23/modernize-and-extend-your-etlelt-workflows-with-ssis-activities-in-adf-pipelines/) (Modernización y ampliación de los flujos de trabajo ETL/ETL con actividades de SSIS en las canalizaciones de ADF)
+-    Compatibilidad con tres configuraciones o variantes más de Azure SQL Database para hospedar los paquetes o proyectos de la base de datos SSIS (SSISDB):
+-    SQL Database con puntos de conexión de servicio de red virtual
+-    instancia administrada
+-    Grupo elástico
+-    Compatibilidad con una red virtual de Azure Resource Manager en una red virtual clásica que caerá en desuso en el futuro, lo que le permite insertar o unir su entorno de ejecución de integración de Azure-SSIS a una red virtual que esté configurada para SQL Database con acceso a puntos de conexión de servicio de red virtual, Instancias administradas o datos locales. Para más información, consulte también [Unión de una instancia de Integration Runtime de SSIS de Azure a una red virtual](join-azure-ssis-integration-runtime-virtual-network.md).
+-    Compatibilidad con la autenticación de Azure Active Directory (Azure AD) y la autenticación de SQL para conectarse a SSISDB, lo que le permite usar la autenticación de Azure AD con su identidad administrada de Data Factory para los recursos de Azure
+-    Compatibilidad para usar su propia licencia de SQL Server local para conseguir ahorros sustanciales de costos con la opción Ventaja híbrida de Azure
+-    Compatibilidad con la edición Enterprise del entorno de ejecución de integración de Azure-SSIS que le permite usar características avanzadas o premium, una interfaz de configuración personalizada para instalar componentes o extensiones adicionales y un ecosistema de terceros. Para más información, consulte también [Enterprise Edition, Custom Setup, and 3rd Party Extensibility for SSIS in ADF](https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/) (Enterprise Edition, instalación personalizada y extensibilidad de terceros para SSIS en ADF). 
+-    Una integración más profunda de SSIS en Data Factory que le permite invocar o desencadenar actividades de primera clase de ejecución de paquetes SSIS en canalizaciones de Data Factory y programarlas mediante SSMS. Para más información, consulte también [Modernize and extend your ETL/ELT workflows with SSIS activities in ADF pipelines](https://blogs.msdn.microsoft.com/ssis/2018/05/23/modernize-and-extend-your-etlelt-workflows-with-ssis-activities-in-adf-pipelines/) (Modernización y ampliación de los flujos de trabajo ETL/ETL con actividades de SSIS en las canalizaciones de ADF)
 
 
 ## <a name="what-is-the-integration-runtime"></a>¿Qué es el entorno de ejecución de integración?
@@ -207,7 +207,6 @@ El flujo de datos de limpieza y transformación se admite actualmente en las fac
 * Este de Australia
 * Centro de Canadá
 * Centro de la India
-* Centro de EE. UU.
 * Este de EE. UU.
 * Este de EE. UU. 2
 * Japón Oriental
@@ -241,7 +240,7 @@ Los flujos de datos de limpieza y transformación permite realizar tareas de pre
 
 Los flujos de datos de Power Platform permiten a los usuarios importar y transformar datos de una amplia gama de orígenes de datos en Common Data Service y Azure Data Lake para crear aplicaciones de PowerApps, informes de Power BI o automatizaciones de flujo. Los flujos de datos de Power Platform usan las experiencias de preparación de datos de Power Query establecidas, similares a Power BI y Excel. Los flujos de entrada de Power Platform también permiten una reutilización sencilla dentro de una organización y controlan automáticamente la orquestación (por ejemplo, la actualización automática de los flujos de datos que dependen de otro flujo de entrada cuando se actualiza el primero).
 
-Azure Data Factory (ADF) es un servicio de integración de datos administrado que permite a los ingenieros de datos y al integrador de datos de componentes para crear flujos de trabajo de extracción, transformación y carga de datos (ETL) híbridos complejos y de extracción, carga y transformación (ELT). El flujo de datos de limpieza y transformación en ADF permite a los usuarios un entorno sin servidor ni código que simplifica la preparación de datos en la nube y lo escala a cualquier tamaño de datos, sin la necesidad de administración de infraestructura. Usa la tecnología de preparación de datos de Power Query (también utilizada en flujos de datos de Power Platform, Excel y Power BI) para preparar y dar forma a los datos. Creados para tratar todas las complejidades y desafíos a escala de la integración de macrodatos, los flujos de datos de limpieza y transformación permiten a los usuarios transformar rápidamente los datos a gran escala mediante la ejecución de Spark. Los usuarios pueden crear canalizaciones de datos resistentes en un entorno visual accesible con nuestra interfaz basada en el explorador y permitir que ADF se haga cargo de las complejidades de la ejecución de Spark. Cree programaciones para sus canalizaciones y supervise las ejecuciones del flujo de datos desde el portal de supervisión de ADF. Administre fácilmente los Acuerdo de Nivel de Servicio de la disponibilidad de los datos con la supervisión y las alertas de disponibilidad enriquecidas de ADF, y aproveche las funcionalidades integradas de integración continua e implementación para guardar y administrar sus flujos en un entorno administrado. Establezca alertas y vea planes de ejecución para validar que su lógica tenga el rendimiento esperado mientras optimiza sus flujos de datos.
+Azure Data Factory (ADF) es un servicio de integración de datos administrado que permite a los ingenieros de datos y al integrador de datos de componentes para crear flujos de trabajo de extracción, transformación y carga de datos (ETL) híbridos complejos y de extracción, carga y transformación (ELT). El flujo de datos de limpieza y transformación en ADF permite a los usuarios un entorno sin servidor ni código que simplifica la preparación de datos en la nube y lo escala a cualquier tamaño de datos, sin la necesidad de administración de infraestructura. Usa la tecnología de preparación de datos de Power Query (también utilizada en flujos de datos de Power Platform, Excel y Power BI) para preparar y dar forma a los datos. Creados para tratar todas las complejidades y desafíos a escala de la integración de macrodatos, los flujos de datos de limpieza y transformación permiten a los usuarios transformar rápidamente los datos a gran escala mediante la ejecución de Spark. Los usuarios pueden crear canalizaciones de datos resistentes en un entorno visual accesible con nuestra interfaz basada en el explorador y permitir que ADF se haga cargo de las complejidades de la ejecución de Spark. Cree programaciones para sus canalizaciones y supervise las ejecuciones del flujo de datos desde el portal de supervisión de ADF. Administre fácilmente los Acuerdos de Nivel de Servicio de la disponibilidad de los datos con la supervisión y las alertas de disponibilidad enriquecidas de ADF, y aproveche las funcionalidades incorporadas de integración continua e implementación para guardar y administrar sus flujos en un entorno administrado. Establezca alertas y vea planes de ejecución para validar que su lógica tenga el rendimiento esperado mientras optimiza sus flujos de datos.
 
 ### <a name="supported-sql-types"></a>Tipos de SQL admitidos
 

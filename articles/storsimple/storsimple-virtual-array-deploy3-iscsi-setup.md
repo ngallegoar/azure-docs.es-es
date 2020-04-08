@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 4560ca2b07826e2a071f515f147dfab8cbec3624
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516812"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228092"
 ---
 # <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>Implementación de una matriz virtual de StorSimple: configurar como un servidor iSCSI mediante Azure Portal
 
@@ -45,10 +45,10 @@ Antes de instalar y configurar StorSimple Virtual Array, asegúrese de que:
 
 Use las siguientes instrucciones detalladas para instalar y configurar StorSimple Virtual Array:
 
-* [Paso 1: Completar la configuración de la interfaz de usuario web local y registrar el dispositivo](#step-1-complete-the-local-web-ui-setup-and-register-your-device)
+* [Paso 1: Completar la configuración de la interfaz de usuario web local y registrar el dispositivo](#step-1-complete-the-local-web-ui-setup-and-register-your-device)
 * Paso 2: Completar la instalación de los dispositivos requeridos
-* [Paso 3: Agregar un volumen](#step-3-add-a-volume)
-* [Paso 4: Montar, inicializar y formatear un volumen](#step-4-mount-initialize-and-format-a-volume)
+* [Paso 3: Agregar un volumen](#step-3-add-a-volume)
+* [Paso 4: Montar, inicializar y formatear un volumen](#step-4-mount-initialize-and-format-a-volume)
 
 ## <a name="step-1-complete-the-local-web-ui-setup-and-register-your-device"></a>Paso 1: Completar la configuración de la interfaz de usuario web local y registrar el dispositivo
 
@@ -81,7 +81,7 @@ Use las siguientes instrucciones detalladas para instalar y configurar StorSimpl
 6. En la página **Device settings** (Configuración de dispositivo):
    
    1. Asigne un **nombre** exclusivo al dispositivo. Este nombre puede tener de 1 a 15 caracteres y puede contener letras, números y guiones.
-   2. Haga clic en el icono de **servidor iSCSI** ![icono de servidor iSCSI](./media/storsimple-virtual-array-deploy3-iscsi-setup/image7.png) del **tipo** de dispositivo que va a crear. Un servidor iSCSI le permitirá aprovisionar el almacenamiento en bloque.
+   2. Haga clic en el icono de **servidor iSCSI**![icono de servidor iSCSI](./media/storsimple-virtual-array-deploy3-iscsi-setup/image7.png) del **tipo** de dispositivo que va a crear. Un servidor iSCSI le permitirá aprovisionar el almacenamiento en bloque.
    3. Especifique si desea que este dispositivo esté unido al dominio. Si el dispositivo es un servidor iSCSI, la unión al dominio es opcional. Si decide no unir el servidor iSCSI a un dominio, haga clic en **Apply**(Aplicar), espere a que la configuración se aplique y, a continuación, vaya al paso siguiente.
       
        Si desea unir el dispositivo a un dominio. Escriba un **nombre de dominio** y, después, haga clic en **Aplicar**.
@@ -113,7 +113,7 @@ Use las siguientes instrucciones detalladas para instalar y configurar StorSimpl
    1. En la lista desplegable, seleccione la **zona horaria** según la ubicación geográfica en la que se va a implementar el dispositivo. La zona horaria predeterminada para el dispositivo es la hora del Pacífico (PST). El dispositivo usará esta zona horaria para todas las operaciones programadas.
    2. Especifique un **servidor NTP principal** para el dispositivo o acepte el valor predeterminado de time.windows.com. Asegúrese de que su red permite que el tráfico NTP pase del centro de datos a Internet.
    3. Opcionalmente, especifique un **servidor NTP secundario** para el dispositivo.
-   4. Haga clic en **Apply**. Esto validará y aplicará los parámetros de hora configurados.
+   4. Haga clic en **Aplicar**. Esto validará y aplicará los parámetros de hora configurados.
 9. Configure las opciones de nube para el dispositivo. En este paso, completará la configuración del dispositivo local y, después, registrará el dispositivo en el servicio StorSimple Device Manager.
    
    1. Escriba la **Clave de registro del servicio** que obtuvo en el **Paso 2: Obtener la clave de registro del servicio** en [Implementar una matriz virtual de StorSimple: Preparar el portal](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key).
@@ -232,7 +232,7 @@ Realice los pasos siguientes para montar, inicializar y formatear los volúmenes
 
 Aprenda a usar la interfaz de usuario web local para [administrar la matriz virtual de StorSimple](storsimple-ova-web-ui-admin.md).
 
-## <a name="appendix-a-get-the-iqn-of-a-windows-server-host"></a>Apéndice A: Obtener el IQN de un host de Windows Server
+## <a name="appendix-a-get-the-iqn-of-a-windows-server-host"></a>Apéndice A: Obtener el IQN de un host de Windows Server
 
 Siga estos pasos para obtener el nombre completo del iSCSI (IQN) de un host de Windows que ejecute Windows Server 2012.
 

@@ -8,15 +8,15 @@ ms.assetid: dc6ba151-1718-468a-b455-2da549225ab2
 ms.service: batch
 ms.topic: article
 ms.workload: na
-ms.date: 12/05/2019
-ms.author: markscu
+ms.date: 03/19/2020
+ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: dfd79bc9cfd8e897cdbb18127deaf8da4922ef3a
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 9f4b9ed9254eaf950311dd27d5716c4681707614
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023725"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80053912"
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Uso de máquinas virtuales de prioridad baja con Batch
 
@@ -31,7 +31,7 @@ Las máquinas virtuales de prioridad baja se ofrecen a un precio considerablemen
 > [!NOTE]
 > [Las máquinas virtuales de Spot](https://azure.microsoft.com/pricing/spot/) ahora están disponibles para [máquinas virtuales de instancia única](https://docs.microsoft.com/azure/virtual-machines/linux/spot-vms) y [conjuntos de escalado de máquinas virtuales](https://docs.microsoft.com/azure/virtual-machine-scale-sets/use-spot). Las máquinas virtuales de Spot son una evolución de las máquinas virtuales de prioridad baja, pero difieren en que los precios pueden variar y se puede establecer un precio máximo opcional al asignar máquinas virtuales de Spot.
 >
-> Los grupos de Azure Batch comenzarán a admitir máquinas virtuales de Spot en el primer trimestre de 2020, con nuevas versiones de las [API y las herramientas de Batch](https://docs.microsoft.com/azure/batch/batch-apis-tools). Las máquinas virtuales de prioridad baja seguirán siendo compatibles, con las versiones actuales de la API y las herramientas, durante al menos 12 meses, para permitir el tiempo suficiente para la migración a máquinas virtuales de Spot. 
+> Los grupos de Azure Batch empezarán a admitir máquinas virtuales de Spot unos meses después de que estén disponibles con carácter general, con nuevas versiones de las [API y herramientas de Batch](https://docs.microsoft.com/azure/batch/batch-apis-tools). Cuando las máquinas virtuales de Spot estén disponibles, las máquinas virtuales de prioridad baja quedarán en desuso, si bien seguirán siendo compatibles durante al menos 12 meses si se usan las versiones actuales de la API y las herramientas. Así habrá tiempo suficiente para la migración a máquinas virtuales de Spot. 
 >
 > No se admitirán las máquinas virtuales de Spot en los grupos de [Configuración del servicio en la nube](https://docs.microsoft.com/rest/api/batchservice/pool/add#cloudserviceconfiguration). Para usar máquinas virtuales de Spot, los grupos de servicios en la nube tendrán que migrarse a grupos de [Configuración de máquina virtual](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration).
 

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 7023651b09abc8c3124c7bf71608018d5cb72e25
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 4b265bb574895e4728ad93ee25c9dad0da226ea4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77162023"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240297"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Análisis de sentimiento de Twitter en tiempo real en Azure Stream Analytics
 
@@ -39,7 +39,7 @@ En esta guía paso a paso va a utilizar una aplicación cliente que se conecta a
 
 * La aplicación TwitterClientCore, que lee la fuente de Twitter. Para obtener esta aplicación, descargue [TwitterClientCore](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClientCore).
 
-* Instale la [CLI de .NET Core](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x).
+* Instale la [CLI de .NET Core](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x) versión 2.1.0.
 
 ## <a name="create-an-event-hub-for-streaming-input"></a>Creación de un centro de eventos para la entrada de streaming
 
@@ -94,12 +94,6 @@ Para que un proceso pueda enviar datos a un centro de eventos, este necesita una
    > [!NOTE]
    > Por seguridad, partes de la cadena de conexión del ejemplo se han quitado.
 
-8.  En el editor de texto, quite el par `EntityPath` de la cadena de conexión (no se olvide quitar el punto y coma que lo precede). Cuando haya finalizado, la cadena de conexión tiene el siguiente aspecto:
-   
-   ```
-   Endpoint=sb://EVENTHUBS-NAMESPACE.servicebus.windows.net/;SharedAccessKeyName=socialtwitter-access;SharedAccessKey=Gw2NFZw6r...FxKbXaC2op6a0ZsPkI=
-   ```
-
 ## <a name="configure-and-start-the-twitter-client-application"></a>Configuración e inicio de la aplicación cliente Twitter
 
 La aplicación cliente obtiene los eventos Tweet directamente de Twitter. Para ello, necesita permiso para llamar a las API de streaming de Twitter. Para configurar ese permiso, debe crear una aplicación de Twitter, que genera credenciales exclusivas (por ejemplo, un token de OAuth). Después, puede configurar la aplicación cliente para que use estas credenciales cuando realiza llamadas de API. 
@@ -110,7 +104,7 @@ Si no dispone de una aplicación de Twitter que pueda usar para esta guía paso 
 > [!NOTE]
 > Puede cambiar el proceso exacto en Twitter para crear una aplicación y obtener las claves, secretos y token. Si estas instrucciones no coinciden con lo que se ve en el sitio de Twitter, consulte la documentación para desarrolladores de Twitter.
 
-1. En un explorador web, vaya a [Twitter For Developers](https://developer.twitter.com/en/apps) y seleccione **Create an app** (Crear una aplicación). Es posible que vea un mensaje en el que se le indique que es necesario solicitar una cuenta de desarrollador de Twitter. Hágalo y, cuando se haya aprobado la solicitud, verá un correo electrónico de confirmación. Tenga en cuenta que una cuenta de desarrollador puede tardar varios días en aprobarse.
+1. En un explorador web, vaya a [Twitter For Developers](https://developer.twitter.com/en/apps), cree una cuenta de desarrollador y seleccione **Create an app** (Crear una aplicación). Es posible que vea un mensaje en el que se le indique que es necesario solicitar una cuenta de desarrollador de Twitter. Hágalo y, cuando se haya aprobado la solicitud, verá un correo electrónico de confirmación. Tenga en cuenta que una cuenta de desarrollador puede tardar varios días en aprobarse.
 
    ![Detalles de la aplicación Twitter](./media/stream-analytics-twitter-sentiment-analysis-trends/provide-twitter-app-details.png "Detalles de la aplicación Twitter")
 
@@ -139,7 +133,7 @@ Antes de que se ejecute la aplicación, requiere cierta información del usuario
    * Establezca `oauth_consumer_secret` en el secreto de consumidor de Twitter (clave de secreto de API).
    * Establezca `oauth_token` en el token de acceso de Twitter.
    * Establezca `oauth_token_secret` en el secreto del token de acceso de Twitter.
-   * Establezca `EventHubNameConnectionString` en la cadena de conexión. Asegúrese de que usa la cadena de conexión que se quitó del par clave-valor `EntityPath`.
+   * Establezca `EventHubNameConnectionString` en la cadena de conexión.
    * Establezca `EventHubName` en el nombre del centro de eventos (es decir, el valor de la ruta de acceso de la entidad).
 
 3. Abra la línea de comandos y vaya al directorio en el que se encuentre la aplicación TwitterClientCore. Use el comando `dotnet build` para compilar el proyecto. Luego, use el comando `dotnet run` para ejecutar la aplicación. Esta envía tweets a su centro de eventos.

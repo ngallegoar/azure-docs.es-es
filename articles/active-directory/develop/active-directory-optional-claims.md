@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/08/2019
+ms.date: 3/11/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 9ea3388cb65b18c093ffff3ec8b8c9f2764ef189
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 23d83b59c510f2565b2f66f78dad56c9c9592dd0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78300075"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79136524"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Procedimientos: Proporcionar notificaciones opcionales a la aplicación de Azure AD
 
@@ -85,10 +85,10 @@ Estas notificaciones siempre se incluyen en los tokens de la versión 1.0 de Azu
 | `pwd_exp`     | Tiempo de expiración de la contraseña        | Fecha y hora a la que expira la contraseña. |       |
 | `pwd_url`     | Cambiar dirección URL de contraseña             | Dirección URL que el usuario puede visitar para cambiar la contraseña.   |   |
 | `in_corp`     | Dentro de red corporativa        | Indica si el cliente ha iniciado sesión desde la red corporativa. En caso contrario, la notificación no se incluye.   |  En función de la configuración de las [IP de confianza](../authentication/howto-mfa-mfasettings.md#trusted-ips) de MFA.    |
-| `nickname`    | Alias                        | Nombre adicional para el usuario. El alias es independiente del nombre o el apellido. | 
-| `family_name` | Apellido                       | Proporciona el apellido del usuario según está definido en el objeto de usuario. <br>"family_name": "Miller" | Se admite en MSA y Azure AD.   |
-| `given_name`  | Nombre                      | Proporciona el nombre de pila o "dado" del usuario, tal como se establece en el objeto de usuario.<br>"given_name": "Frank"                   | Se admite en MSA y Azure AD.  |
-| `upn`         | Nombre principal del usuario | Un identificador del usuario que se puede usar con el parámetro username_hint.  No es un identificador duradero para el usuario y no debe usarse con datos de clave. | Consulte a continuación las [propiedades adicionales](#additional-properties-of-optional-claims) de la configuración de la notificación. |
+| `nickname`    | Alias                        | Nombre adicional para el usuario. El alias es independiente del nombre o el apellido. Requiere el ámbito `profile`.| 
+| `family_name` | Apellido                       | Proporciona el apellido del usuario según está definido en el objeto de usuario. <br>"family_name": "Miller" | Se admite en MSA y Azure AD. Requiere el ámbito `profile`.   |
+| `given_name`  | Nombre                      | Proporciona el nombre de pila o "dado" del usuario, tal como se establece en el objeto de usuario.<br>"given_name": "Frank"                   | Se admite en MSA y Azure AD.  Requiere el ámbito `profile`. |
+| `upn`         | Nombre principal del usuario | Un identificador del usuario que se puede usar con el parámetro username_hint.  No es un identificador duradero para el usuario y no debe usarse con datos de clave. | Consulte a continuación las [propiedades adicionales](#additional-properties-of-optional-claims) de la configuración de la notificación. Requiere el ámbito `profile`.|
 
 ### <a name="additional-properties-of-optional-claims"></a>Propiedades adicionales de las notificaciones opcionales
 
@@ -117,12 +117,13 @@ Algunas notificaciones opcionales se pueden configurar para cambiar la manera de
         }
     ```
 
-Este objeto OptionalClaims hace que el token de identificador devuelto al cliente incluya otro UPN con el inquilino de inicio adicional y la información de recursos de inquilino. La notificación `upn` solo cambia en el token si el usuario es un invitado en el inquilino (que usa un IDP diferente para la autenticación). 
+Este objeto OptionalClaims hace que el token de identificador devuelto al cliente incluya una notificación de UPN con el inquilino de inicio adicional y la información de los recursos del inquilino. La notificación `upn` solo cambia en el token si el usuario es un invitado en el inquilino (que usa un IDP diferente para la autenticación). 
 
 ## <a name="configuring-optional-claims"></a>Configuración de notificaciones opcionales
 
 > [!IMPORTANT]
 > Los tokens de acceso **siempre** se generan mediante el manifiesto del recurso, no del cliente,  con lo cual en la solicitud `...scope=https://graph.microsoft.com/user.read...`, el recurso es Microsoft Graph API.  Por lo tanto, el token de acceso se crea usando el manifiesto de Microsoft Graph API, no el manifiesto del cliente.  Cambiar el manifiesto de la aplicación nunca hará que los tokens de Microsoft Graph API tengan un aspecto diferente.  Para confirmar que los cambios realizados en `accessToken` han surtido efecto, solicite un token para la aplicación, no otra aplicación.  
+
 
 Puede configurar notificaciones opcionales para la aplicación mediante la interfaz de usuario o el manifiesto.
 
@@ -207,7 +208,7 @@ Si lo admite una notificación concreta, también puede modificar el comportamie
 | `additionalProperties` | Colección (Edm.String) | Propiedades adicionales de la notificación. Si existe una propiedad en esta colección, modifica el comportamiento de la notificación opcional especificada en la propiedad name.                                                                                                                                               |
 ## <a name="configuring-directory-extension-optional-claims"></a>Configuración de notificaciones opcionales de extensión de directorio
 
-Además del conjunto de notificaciones opcionales estándar, también se pueden configurar tokens para incluir las extensiones. Esta característica es útil para adjuntar información de usuario adicional que puede usar la aplicación, por ejemplo, un identificador adicional o la opción de configuración importante que el usuario haya establecido. Vea la parte inferior de esta página para obtener un ejemplo.
+Además del conjunto de notificaciones opcionales estándar, también se pueden configurar tokens para incluir las extensiones. Para más información, consulte [la documentación sobre extensionProperty de Microsoft Graph](https://docs.microsoft.com/graph/api/resources/extensionproperty?view=graph-rest-1.0) (tenga en cuenta que las extensiones abiertas y las extensiones de esquema no se admiten en las notificaciones opcionales; solo se admiten las extensiones de directorio con el estilo AAD-Graph). Esta característica es útil para adjuntar información de usuario adicional que puede usar la aplicación, por ejemplo, un identificador adicional o la opción de configuración importante que el usuario haya establecido. Vea la parte inferior de esta página para obtener un ejemplo.
 
 > [!NOTE]
 > - Las extensiones de esquema de directorio son una característica exclusiva de Azure AD, por lo que si el manifiesto de aplicación solicita una extensión personalizada y un usuario de MSA inicia sesión en la aplicación, estas extensiones no se devolverán.
@@ -269,7 +270,7 @@ En esta sección se describen las opciones de configuración de notificaciones o
    Si quiere que los grupos del token contengan los atributos de grupo locales de AD en la sección de notificaciones opcionales, especifique a qué tipo de token se debe aplicar la notificación, el nombre de la notificación opcional solicitada y las propiedades adicionales que quiera usar.  Pueden aparecer varios tipos de token:
 
    - idToken para el token de OIDC ID
-   - accessToken para el token de acceso OAuth/OIDC
+   - accessToken para el token de acceso OAuth
    - Saml2Token para los token de SAML.
 
    > [!NOTE]

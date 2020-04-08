@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/02/2019
 ms.author: shvija
-ms.openlocfilehash: 3b46c574ea47622ec97e70c0d2f2cdc3aa54ec0d
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: d2d74a90d6712089cff681381e11b1caec9d469d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706389"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80283674"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Preguntas frecuentes sobre Event Hubs
 
@@ -73,11 +73,11 @@ Consulte en la siguiente tabla los puertos de salida que se deben abrir para usa
 
 | Protocolo | Puertos | Detalles | 
 | -------- | ----- | ------- | 
-| AMQP | 5671 y 5672 | Consulte [Guía del protocolo AMQP](../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
+| AMQP | 5671 y 5672 | Consulte la [guía del protocolo AMQP](../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
 | HTTP, HTTPS | 80, 443 |  |
 | Kafka | 9093 | Consulte [Uso de Azure Event Hubs desde aplicaciones de Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)
 
-### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>¿Qué direcciones IP es necesario incluir en la lista de permitidas?
+### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>¿Qué direcciones IP debo incluir en la lista de permitidas?
 Para buscar las direcciones IP correctas para incluirlas en la lista de direcciones permitidas para las conexiones, siga estos pasos:
 
 1. Ejecute el siguiente comando desde el símbolo del sistema: 
@@ -109,7 +109,7 @@ Si usa la redundancia de zona para el espacio de nombres, deberá realizar algun
 Event Hubs proporciona un punto de conexión de Kafka que las aplicaciones basadas en Apache Kafka existentes pueden usar. Basta con un cambio de configuración para poder disfrutar de la experiencia de PaaS Kafka. Proporciona una alternativa a ejecutar su propio clúster de Kafka. Event Hubs admite Apache Kafka 1.0 y versiones del cliente más recientes y funciona con marcos, herramientas y aplicaciones de Kafka existentes. Para obtener más información, consulte [Event Hubs for Kafka repo](https://github.com/Azure/azure-event-hubs-for-kafka) (Event Hubs para el repositorio de Kafka).
 
 ### <a name="what-configuration-changes-need-to-be-done-for-my-existing-application-to-talk-to-event-hubs"></a>¿Qué cambios de configuración deben realizarse para que mi aplicación existente se comunique con Event Hubs?
-Para conectarse a un centro de eventos habilitado para Kafka, debe actualizar las configuraciones de cliente de Kafka. Se hace mediante la creación de un espacio de nombres de Event Hubs y la obtención de la [cadena de conexión](event-hubs-get-connection-string.md). Cambie bootstrap.servers para que señale al FQDN de Event Hubs y el puerto, a 9093. Actualice sasl.jaas.config para dirigir el cliente de Kafka al punto de conexión de Event Hubs habilitado para Kafka (que es la cadena de conexión que ha obtenido), con la autenticación correcta tal y como se muestra a continuación:
+Para conectarse a un centro de eventos, debe actualizar las configuraciones de cliente de Kafka. Se hace mediante la creación de un espacio de nombres de Event Hubs y la obtención de la [cadena de conexión](event-hubs-get-connection-string.md). Cambie bootstrap.servers para que señale al FQDN de Event Hubs y el puerto, a 9093. Actualice sasl.jaas.config para dirigir el cliente de Kafka al punto de conexión de Event Hubs (que es la cadena de conexión que ha obtenido) con la autenticación correcta, tal y como se muestra aquí:
 
 bootstrap.servers={YOUR.EVENTHUBS.FQDN}:9093 request.timeout.ms=60000 security.protocol=SASL_SSL sasl.mechanism=PLAIN sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
 
@@ -119,8 +119,8 @@ bootstrap.servers=dummynamespace.servicebus.windows.net:9093 request.timeout.ms=
 
 Nota: Si sasl.jaas.config no es una configuración compatible con su marco, busque las configuraciones que se usan para establecer el nombre de usuario y contraseña SASL y úselas en su lugar. Establezca el nombre de usuario para $ConnectionString y la contraseña para la cadena de conexión de Event Hubs.
 
-### <a name="what-is-the-messageevent-size-for-kafka-enabled-event-hubs"></a>¿Cuál es el tamaño de mensaje o evento para Event Hubs habilitado para Kafka?
-El tamaño máximo de mensaje permitido para Event Hubs habilitado para Kafka es 1 MB.
+### <a name="what-is-the-messageevent-size-for-event-hubs"></a>¿Cuál es el tamaño de mensaje o evento de Event Hubs?
+El tamaño máximo de mensaje permitido en Event Hubs es 1 MB.
 
 ## <a name="throughput-units"></a>Unidades de procesamiento
 
@@ -233,7 +233,7 @@ Capture usa la cuenta de almacenamiento que se especifique al habilitarlo en un 
 
 Para obtener una lista de todas las cuotas de los centros Event Hubs, consulte [Cuotas](event-hubs-quotas.md).
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 ### <a name="why-am-i-not-able-to-create-a-namespace-after-deleting-it-from-another-subscription"></a>¿Por qué no puedo crear un espacio de nombres después de eliminarlo de otra suscripción? 
 Cuando elimine un espacio de nombres de una suscripción, espere 4 horas antes de volver a crearlo con el mismo nombre en otra suscripción. En caso contrario, es posible que reciba el mensaje de error siguiente: `Namespace already exists`. 

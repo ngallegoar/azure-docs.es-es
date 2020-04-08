@@ -1,5 +1,5 @@
 ---
-title: Conmutación por error y recuperación ante desastres para dispositivos StorSimple serie 8000
+title: Conmutación por error y recuperación ante desastres en un dispositivo StorSimple serie 8000
 description: Obtenga información sobre cómo conmutar por error el dispositivo de StorSimple a sí mismo, a otro dispositivo físico o a una aplicación de nube.
 services: storsimple
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2017
 ms.author: alkohli
-ms.openlocfilehash: c1acc084d5abe3385fe311873dfd64c9009e83f2
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 179bc5cdf982792f41e0dec209341f346959a31a
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77468599"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80397524"
 ---
 # <a name="failover-and-disaster-recovery-for-your-storsimple-8000-series-device"></a>Conmutación por error y recuperación ante desastres para dispositivos de StorSimple de la serie 8000
 

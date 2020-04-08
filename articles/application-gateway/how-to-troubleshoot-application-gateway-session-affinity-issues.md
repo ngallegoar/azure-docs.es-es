@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/14/2019
 ms.author: absha
 ms.openlocfilehash: 9f14521c15c3497bed4ffbeba44cb5d78ee4df7b
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74047985"
 ---
 # <a name="troubleshoot-azure-application-gateway-session-affinity-issues"></a>Solución de problemas de afinidad de sesión en Azure Application Gateway
@@ -82,7 +82,7 @@ Para identificar este problema, siga las instrucciones:
 1. Realice un seguimiento del depurador web en el "cliente" que se conecta a la aplicación detrás de Application Gateway (en este ejemplo, se usa Fiddler).
     **Sugerencia** Si no sabe cómo usar Fiddler, active la opción "**I want to collect network traffic and analyze it using web debugger**" (Deseo recopilar el tráfico de red y analizarlo con el depurador web) en la parte inferior.
 
-2. Compruebe y analizar los registros de sesión, para determinar si las cookies proporcionadas por el cliente tienen los detalles de ARRAffinity. Si no encuentra los detalles de ARRAffinity, como "**ARRAffinity =** *ARRAffinityValue*" dentro del conjunto de cookies, significa que el cliente no está respondiendo con la cookie ARRA, que Application Gateway proporciona.
+2. Compruebe y analizar los registros de sesión, para determinar si las cookies proporcionadas por el cliente tienen los detalles de ARRAffinity. Si no encuentra los detalles de ARRAffinity, como "**ARRAffinity=** *ARRAffinityValue*" dentro del conjunto de cookies, significa que el cliente no está respondiendo con la cookie ARRA, que Application Gateway proporciona.
     Por ejemplo:
 
     ![troubleshoot-session-affinity-issues-3](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-3.png)
@@ -95,7 +95,7 @@ La aplicación continúa intentando establecer la cookie en cada solicitud hasta
 
 Este problema se produce porque Internet Explorer y otros exploradores no pueden almacenar o usar la cookie con una dirección URL de nombre corto.
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 
 Para corregir esta incidencia, debe acceder a Application Gateway con un nombre de dominio completo. Por ejemplo, use [http://website.com](https://website.com/) o [http://appgw.website.com](http://appgw.website.com/).
 
@@ -145,7 +145,7 @@ Habilitación del registro mediante Azure Portal
 - **ClientPort**: es el puerto de origen del cliente que se conecta para la solicitud.
 - **RequestQuery**: indica el servidor de destino en el que se recibe la solicitud.
 - **Server-Routed**: instancia del grupo de back-end a la que se ha enviado la solicitud.
-- **X-AzureApplicationGateway-LOG-ID**: identificador de correlación que se ha usado para la solicitud. Se puede utilizar para solucionar problemas de tráfico en los servidores back-end. Por ejemplo:  X-AzureApplicationGateway-CACHE-HIT=0&SERVER-ROUTED=10.0.2.4.
+- **X-AzureApplicationGateway-LOG-ID**: identificador de correlación que se ha usado para la solicitud. Se puede utilizar para solucionar problemas de tráfico en los servidores back-end. Por ejemplo: X-AzureApplicationGateway-CACHE-HIT=0&SERVER-ROUTED=10.0.2.4.
 
   - **SERVER-STATUS**: código de respuesta HTTP que Application Gateway ha recibido del back-end.
 
@@ -190,7 +190,7 @@ Use el depurador web que prefiera. En este ejemplo usaremos Fiddler para captura
 
     Por ejemplo:
 
-- **Ejemplo A:** Busque un registro de sesión que indique que la solicitud se envía desde el cliente y va a la dirección IP pública de Application Gateway; haga clic en este registro para ver los detalles.  En el lado derecho, los datos del cuadro inferior es lo que Application Gateway devuelve al cliente. Seleccione la pestaña "SIN FORMATO" y determine si el cliente recibe un valor "**Set-Cookie: ARRAffinity=** *ARRAffinityValue*". Si no hay ninguna cookie, la afinidad de la sesión no está establecida o bien Application Gateway no está aplicando la cookie al cliente.
+- **Ejemplo A:** Busque un registro de sesión que indique que la solicitud se envía desde el cliente y va a la dirección IP pública de Application Gateway; haga clic en este registro para ver los detalles.  En el lado derecho, los datos del cuadro inferior es lo que Application Gateway devuelve al cliente. Seleccione la pestaña "SIN FORMATO" y determine si el cliente recibe un valor "**Set-Cookie: ARRAffinity=** *ARRAffinityValue*." Si no hay ninguna cookie, la afinidad de la sesión no está establecida o bien Application Gateway no está aplicando la cookie al cliente.
 
    > [!NOTE]
    > Este valor ARRAffinity es el identificador de la cookie, que Application Gateway establece para que el cliente se envíe a un servidor back-end determinado.

@@ -12,12 +12,12 @@ ms.date: 12/03/2019
 ms.author: mimart
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e24a4209869d4c47f8ac73e250699ec55d006296
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: f46bcf412403d8f911e484e12a9d1f421b1666f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74786405"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79366077"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Inicio de sesión único en aplicaciones de Azure Active Directory
 
@@ -40,13 +40,13 @@ Este diagrama de flujo le ayuda a decidir qué método de inicio de sesión úni
 
 En la tabla siguiente se resumen los métodos de inicio de sesión únicos y los vínculos para obtener más información.
 
-| Método de inicio de sesión único | Tipos de aplicación | Cuándo se deben usar |
+| Método de inicio de sesión único | Tipos de aplicación | Cuándo se usa |
 | :------ | :------- | :----- |
 | [OpenID Connect y OAuth](#openid-connect-and-oauth) | solo en la nube | OpenID Connect y OAuth se usan cuando se desarrollan aplicaciones nuevas. Este protocolo simplifica la configuración de la aplicación, tiene SDK fáciles de usar y permite que la aplicación use MS Graph.
 | [SAML](#saml-sso) | En la nube y locales | Elija SAML siempre que sea posible para las aplicaciones existentes que no utilizan OpenID Connect o OAuth. SAML funciona con las aplicaciones realizan la autenticación mediante uno de los protocolos SAML.|
 | [Basado en contraseñas](#password-based-sso) | En la nube y locales | Elija el método basado en contraseña cuando la aplicación se autentique con nombre de usuario y contraseña. El inicio de sesión único basado en contraseña permite el almacenamiento seguro de contraseñas de las aplicaciones y la reproducción mediante una extensión de explorador web o aplicación móvil. Este método usa el proceso de inicio de sesión existente proporcionado por la aplicación, pero permite que un administrador administre las contraseñas. |
 | [Vinculado](#linked-sign-on) | En la nube y locales | Elija el inicio de sesión vinculado si la aplicación está configurada para el inicio de sesión único en otro servicio de proveedor de identidades. Esta opción no agrega el inicio de sesión único a la aplicación. No obstante, es posible que ya se haya implementado el inicio de sesión único en la aplicación mediante otro servicio, como los Servicios de federación de Active Directory.|
-| [Deshabilitada](#disabled-sso) | En la nube y locales | Elija un inicio de sesión único deshabilitado si la aplicación no está lista para configurarse para el inicio de sesión único. Los usuarios necesitan escribir su nombre de usuario y la contraseña cada vez que inician esta aplicación.|
+| [Deshabilitada](#disabled-sso) | En la nube y locales | Elija un inicio de sesión único deshabilitado si la aplicación no está lista para configurarse para el inicio de sesión único. Este modo es la opción predeterminada cuando se crea la aplicación.|
 | [Autenticación integrada de Windows (IWA)](#integrated-windows-authentication-iwa-sso) | Solo en entornos locales | Elija el inicio de sesión único IWA para aplicaciones que usen la [autenticación integrada de Windows (IWA)](/aspnet/web-api/overview/security/integrated-windows-authentication) o aplicaciones compatibles con notificaciones. Para la autenticación integrada de Windows, los conectores del proxy de aplicación utilizan la delegación restringida de Kerberos (KCD) para autenticar a los usuarios en la aplicación. |
 | [Basado en encabezados](#header-based-sso) | Solo en entornos locales | Use el inicio de sesión único basado en encabezados si la aplicación usa encabezados para la autenticación. El inicio de sesión único basado en encabezados requiere PingAccess para Azure AD. El proxy de aplicación usa Azure AD para autenticar al usuario y, a continuación, pasa el tráfico a través del servicio de conector.  |
 
@@ -146,6 +146,8 @@ Use el modo de inicio de sesión único deshabilitado en estos casos:
 - Si no está preparado para integrar esta aplicación con el inicio de sesión único de Azure AD, o
 - Si va a probar otros aspectos de la aplicación, o
 - Como una capa de seguridad en una aplicación local que no requiere que los usuarios se autentiquen. Con el modo deshabilitado, el usuario debe autenticarse.
+
+Tenga en cuenta que si ha configurado la aplicación para el inicio de sesión único basado en SAML iniciado por SP y cambia el modo SSO para deshabilitarlo, no impedirá que los usuarios firmen a la aplicación fuera del portal Mis aplicaciones. Para ello, debe [deshabilitar la capacidad de inicio de sesión de los usuarios](disable-user-sign-in-portal.md).
 
 ## <a name="integrated-windows-authentication-iwa-sso"></a>Inicio de sesión único con autenticación integrada de Windows (IWA)
 
