@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 02/26/2020
+ms.date: 03/24/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ffb2ff87eb78ed4088225f832b6df55726196493
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 2910933e2c57a8bc80a220726462b02915c4a8eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77656649"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80246524"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Informes de actividad de inicio de sesión en el portal de Azure Active Directory
 
@@ -47,7 +47,11 @@ En este artículo se ofrece una visión general del reporte de inicios de sesió
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>¿Qué licencia de Azure AD se necesita para acceder a la actividad de inicio de sesión?
 
-* El inquilino debe tener una licencia de Azure AD Premium asociada para ver el informe de actividades de inicio de sesión activas. Consulte [Introducción a Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) para actualizar la edición de Azure Active Directory. Los datos tardarán un par de días en aparecer en los informes después de actualizar a una licencia Premium sin actividades de datos antes de la actualización.
+- El informe de actividad de inicio de sesión está disponible en [todas las ediciones de Azure AD](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data).
+
+- Si desea acceder a los datos de inicio de sesión mediante una API, el inquilino debe tener una licencia asociada de [Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md).
+
+
 
 ## <a name="sign-ins-report"></a>Informe de inicios de sesión
 
@@ -172,13 +176,17 @@ En primer lugar, limite los datos informados a un nivel que le resulte más adec
 **Id. de correlación**: el identificador de correlación de la actividad.
 
 
+
+
 **Acceso condicional**: el estado de las reglas de acceso condicional aplicadas
 
-- No aplicado 
+- **No aplicado**: No se aplica ninguna directiva al usuario y a la aplicación durante el inicio de sesión.
 
-- Correcto
+- **Correcto**: Una o varias directivas de acceso condicional aplicadas al usuario y a la aplicación (pero no necesariamente a las demás condiciones) durante el inicio de sesión. 
 
-- Error
+- **Error**: Se aplicaron una o varias directivas de acceso condicional y no se cumplieron durante el inicio de sesión.
+
+
 
 
 

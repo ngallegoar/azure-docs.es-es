@@ -12,11 +12,11 @@ ms.author: sstein
 ms.reviewer: billgib
 ms.date: 09/19/2018
 ms.openlocfilehash: b6802d97b964b8863f6c2fce0cebfe16782b46fe
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822011"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79232620"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Administración del esquema en una aplicación SaaS con el patrón base de datos por inquilino con Azure SQL Database
  
@@ -77,7 +77,7 @@ En la aplicación Wingtip Tickets, cada base de datos de inquilino incluye un co
 En primer lugar, revise los tipos de ubicación que se incluyen en cada base de datos de inquilino. Conéctese a una de las bases de datos de inquilino en SQL Server Management Studio (SSMS) y revise la tabla VenueTypes.  También puede consultar esta tabla en el Editor de consultas de Azure Portal, al que se accede desde la página de la base de datos. 
 
 1. Abra SSMS y conéctese al servidor de inquilino: *tenants1-dpt-&lt;usuario&gt;.database.windows.net*
-1. Para confirmar que *Motorcycle Racing* y *Swimming Club* **no están** incluidos actualmente, vaya a la base de datos _contosoconcerthall_ en el servidor *tenants1-dpt-&lt;usuari&gt;* y consulte la tabla *VenueTypes*.
+1. Para confirmar que *Motorcycle Racing* y *Swimming Club* **no están** incluidos actualmente, vaya a la base de datos _contosoconcerthall_ en el servidor *tenants1-dpt-&lt;usuario&gt;* y consulte la tabla *VenueTypes*.
 
 Ahora vamos a crear un trabajo para actualizar la tabla *VenueTypes* en todas las bases de datos de inquilino para agregar los nuevos tipos de ubicación.
 

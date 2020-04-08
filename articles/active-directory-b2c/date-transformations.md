@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/03/2020
+ms.date: 02/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f3e5a7b90892f0ed0243d448ea1ac63fb56f277f
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: c02ac9392d6f3f95deef38ff86250e96dfb76d96
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78188846"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79476695"
 ---
 # <a name="date-claims-transformations"></a>Transformaciones de notificaciones de fecha
 
@@ -35,7 +35,7 @@ Comprueba que una notificación de fecha y hora (tipo de datos en cadena) es may
 | InputParameter | AssertIfRightOperandIsNotPresent | boolean | Especifica si esta aserción debe pasar si falta el operando derecho. |
 | InputParameter | TreatAsEqualIfWithinMillseconds | int | Especifica el número de milisegundos que se permiten entre las dos horas para considerar que las horas son iguales (por ejemplo, para tener en cuenta para el desplazamiento del reloj). |
 
-La transformación de notificaciones **AssertDateTimeIsGreaterThan** siempre se ejecuta desde un [perfil técnico de validación](validation-technical-profile.md) llamado por un [perfil técnico autoafirmado](self-asserted-technical-profile.md). Los metadatos de un perfil técnico autoafirmado **DateTimeGreaterThan** controla el mensaje de error que el perfil técnico presenta al usuario.
+La transformación de notificaciones **AssertDateTimeIsGreaterThan** siempre se ejecuta desde un [perfil técnico de validación](validation-technical-profile.md) llamado por un [perfil técnico autoafirmado](self-asserted-technical-profile.md). Los metadatos de un perfil técnico autoafirmado **DateTimeGreaterThan** controla el mensaje de error que el perfil técnico presenta al usuario. Los mensajes de error se pueden [localizar](localization-string-ids.md#claims-transformations-error-messages).
 
 ![Ejecución de AssertStringClaimsAreEqual](./media/date-transformations/assert-execution.png)
 
@@ -81,8 +81,8 @@ El perfil técnico autoafirmado llama al perfil técnico **login-NonInteractive*
 ### <a name="example"></a>Ejemplo
 
 - Notificaciones de entrada:
-    - **leftOperand**: 2018-10-01T15:00:00.0000000Z
-    - **rightOperand**: 2018-10-01T14:00:00.0000000Z
+    - **leftOperand**: 2020-03-01T15:00:00.0000000Z
+    - **rightOperand**: 2020-03-01T14:00:00.0000000Z
 - Resultado: aparece un error
 
 ## <a name="convertdatetodatetimeclaim"></a>ConvertDateToDateTimeClaim
@@ -110,9 +110,9 @@ En el ejemplo siguiente se muestra la conversión de la notificación `dateOfBir
 ### <a name="example"></a>Ejemplo
 
 - Notificaciones de entrada:
-    - **inputClaim**: 2019-06-01
+    - **inputClaim**: 2020-15-03
 - Notificaciones de salida:
-    - **outputClaim**: 1559347200 (1 de junio de 2019 12:00:00 A.M.)
+    - **outputClaim**: 2020-15-03T00:00:00.0000000Z
 
 ## <a name="convertdatetimetodateclaim"></a>ConvertDateTimeToDateClaim
 
@@ -139,9 +139,9 @@ En el ejemplo siguiente se muestra la conversión de la notificación `systemDat
 ### <a name="example"></a>Ejemplo
 
 - Notificaciones de entrada:
-  - **inputClaim**: 1559347200 (1 de junio de 2019 12:00:00 A.M.)
+  - **inputClaim**: 2020-15-03T11:34:22.0000000Z
 - Notificaciones de salida:
-  - **outputClaim**: 2019-06-01
+  - **outputClaim**: 2020-15-03
 
 ## <a name="getcurrentdatetime"></a>GetCurrentDateTime
 
@@ -162,7 +162,7 @@ Obtenga la fecha y la hora UTC actual y agregue el valor a ClaimType.
 ### <a name="example"></a>Ejemplo
 
 * Notificaciones de salida:
-    * **currentDateTime**: 1534418820 (16 de agosto de 2018 11:27:00 AM)
+    * **currentDateTime**: 2020-15-03T11:40:35.0000000Z
 
 ## <a name="datetimecomparison"></a>DateTimeComparison
 
@@ -198,8 +198,8 @@ Para ejecutar la transformación de notificaciones, primero deberá obtener el v
 ### <a name="example"></a>Ejemplo
 
 - Notificaciones de entrada:
-    - **firstDateTime**: 2018-01-01T00:00:00.100000Z
-    - **secondDateTime**: 2018-04-01T00:00:00.100000Z
+    - **firstDateTime**: 2020-01-01T00:00:00.100000Z
+    - **secondDateTime**: 2020-04-01T00:00:00.100000Z
 - Parámetros de entrada:
     - **operator**: mayor que
     - **timeSpanInSeconds**: 7776000 (90 días)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 5cce4337e3ef95c6407d46d9b8b6401fe4f6600b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 48bd909eefbaea15cf6ca2427e106ad9bc0ffbb4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60576193"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80298743"
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>Use la herramienta de diagnóstico de StorSimple para solucionar los problemas de los dispositivos de la serie 8000.
 
@@ -323,7 +323,7 @@ hcs_startup                                   Stopped hcs_startup
 
 ### <a name="network-test"></a>Prueba de red
 
-Esta prueba valida el estado de las interfaces de red, los puertos, la conectividad del servidor DNS y NTP, el certificado SSL, las credenciales de cuenta de almacenamiento, la conectividad a los servidores de actualización y la conectividad del servidor proxy web en el dispositivo de StorSimple.
+Esta prueba valida el estado de las interfaces de red, los puertos, la conectividad del servidor DNS y NTP, el certificado TLS/SSL, las credenciales de cuenta de almacenamiento, la conectividad a los servidores de actualización y la conectividad del servidor proxy web en el dispositivo de StorSimple.
 
 #### <a name="sample-output-of-network-test-when-only-data0-is-enabled"></a>Salida de ejemplo de la prueba de red solo cuando está habilitado DATA0
 
@@ -333,7 +333,7 @@ Esta es la salida de ejemplo del dispositivo 8100. En la salida, puede apreciar 
 * La configuración del servidor DNS es válida y el dispositivo puede conectarse mediante el servidor DNS.
 * La conectividad del servidor NTP también es correcta.
 * Los puertos 80 y 443 están abiertos. Sin embargo, el puerto 9354 está bloqueado. En función de los [requisitos de red del sistema](storsimple-system-requirements.md), deberá abrir este puerto para la comunicación del bus de servicio.
-* La certificación SSL es válida.
+* La certificación TLS/SSL es válida.
 * El dispositivo puede conectarse a la cuenta de almacenamiento: _myss8000storageacct_.
 * La conectividad a los servidores de actualización es válida.
 * El proxy web no está configurado en este dispositivo.
@@ -414,10 +414,10 @@ Controller0>
 
 Esta es una tabla que describe cuáles, de los diversos parámetros de Windows PowerShell de información del sistema, se deben asignar. 
 
-| Parámetro de PowerShell    | DESCRIPCIÓN  |
+| Parámetro de PowerShell    | Descripción  |
 |-------------------------|------------------|
 | Id. de instancia             | Cada controlador lleva asociado un identificador único o un GUID.|
-| NOMBRE                    | El nombre descriptivo del dispositivo, tal y como se configuró mediante el portal de Azure durante la implementación del dispositivo. El nombre descriptivo predeterminado es el número de serie del dispositivo. |
+| Nombre                    | El nombre descriptivo del dispositivo, tal y como se configuró mediante el portal de Azure durante la implementación del dispositivo. El nombre descriptivo predeterminado es el número de serie del dispositivo. |
 | Modelo                   | El modelo de su dispositivo StorSimple de la serie 8000. Puede ser 8100 o 8600.|
 | SerialNumber            | El número de serie del dispositivo se asigna en la fábrica y tiene una longitud de 15 caracteres. Por ejemplo, 8600-SHX0991003G44HT indica:<br> 8600: es el modelo del dispositivo.<br>SHX: es el sitio de fabricación.<br> 0991003: indica un producto específico. <br> G44HT: los 5 últimos dígitos se incrementan para crear números de serie únicos. Es posible que no sea un conjunto secuencial.|
 | TimeZone                | La zona horaria del dispositivo, tal y como se configuró en el portal de Azure durante la implementación del dispositivo.|

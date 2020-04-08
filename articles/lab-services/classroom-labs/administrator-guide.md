@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2019
 ms.author: spelluru
-ms.openlocfilehash: 318f16df6ac10be5909b255f2f1988be028d0eef
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: 8608aaab7bb8b6d10e67f27678c17f20a6c243da
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78162438"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80370854"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services: guía del administrador
 Los administradores de tecnología de la información (TI) que administran los recursos en la nube de una universidad suelen ser también responsables de configurar la cuenta de laboratorio en su institución. Una vez configurada una cuenta de laboratorio, los administradores o educadores crean laboratorios educativos que están incluidos en la cuenta de laboratorio. En este artículo se proporciona información general de alto nivel sobre los recursos de Azure relacionados e instrucciones para crearlos.
@@ -48,7 +48,7 @@ También se requiere un grupo de recursos para crear una [galería de imágenes 
 
 Al crear una cuenta de laboratorio, puede crear y adjuntar automáticamente una galería de imágenes compartidas al mismo tiempo.  Esta opción da como resultado la creación de la cuenta de laboratorio y la galería de imágenes compartidas en grupos de recursos independientes. Observará este comportamiento cuando siga los pasos descritos en este tutorial: [Configuración de la galería de imágenes compartidas en el momento de crear la cuenta de laboratorio](how-to-attach-detach-shared-image-gallery.md#configure-at-the-time-of-lab-account-creation). La imagen que se encuentra en la parte superior de este artículo también usa esta configuración. 
 
-Se recomienda dedicar tiempo por adelantado a planear la estructura de los grupos de recursos, ya que, una vez creado, *no* es posible cambiar el grupo de recursos de una cuenta de laboratorio o de la galería de imágenes compartidas. Si necesita cambiar el grupo de recursos de estos recursos, deberá eliminar y volver a crear la cuenta de laboratorio o la galería de imágenes compartidas.
+Se recomienda dedicar tiempo por adelantado a planear la estructura de los grupos de recursos ya que, una vez creado, *no* es posible cambiar el grupo de recursos de una cuenta de laboratorio o de la galería de imágenes compartidas. Si necesita cambiar el grupo de recursos de estos recursos, deberá eliminar y volver a crear la cuenta de laboratorio o la galería de imágenes compartidas.
 
 ## <a name="lab-account"></a>Cuenta de laboratorio
 Una cuenta de laboratorio funciona como contenedor de uno o varios laboratorios educativos. Al empezar a trabajar con Azure Lab Services, es habitual tener solo una cuenta de laboratorio. A medida que se amplía el uso del laboratorio, puede optar por crear más adelante otras cuentas de laboratorio.
@@ -79,15 +79,15 @@ Un laboratorio educativo contiene máquinas virtuales (VM) que se asignan a un �
 
 Tenga en cuenta los siguientes puntos a la hora de determinar cómo estructurar los laboratorios educativos:
 
-- **Todas las máquinas virtuales de un laboratorio educativo se implementan con la misma imagen con la que se han publicado**. 
+- **Todas las máquinas virtuales de un laboratorio educativo se implementan con la misma imagen con la que se han publicado**
 
     Como resultado, si tiene una clase que requiere que se publiquen distintas imágenes de laboratorio al mismo tiempo, deben crearse laboratorios de clase distintos para cada una.
   
-- **La cuota de uso se establece en el nivel de laboratorio y se aplica a todos los usuarios del laboratorio**. 
+- **La cuota de uso se establece en el nivel de laboratorio y se aplica a todos los usuarios del laboratorio**
     
     Para establecer cuotas diferentes para los usuarios, debe crear distintos laboratorios educativos. Sin embargo, es posible agregar más horas a un usuario específico después de haber establecido la cuota.
   
-- **La programación de inicio o apagado se establece en el nivel de laboratorio y se aplica a todas las máquinas virtuales del laboratorio**. 
+- **La programación de inicio o apagado se establece en el nivel de laboratorio y se aplica a todas las máquinas virtuales del laboratorio**
 
     De forma similar al punto anterior, si necesita establecer diferentes programaciones para los usuarios, debe crear distintos laboratorios educativos. 
 
@@ -98,13 +98,13 @@ Los instructores pueden publicar una versión de una imagen desde la galería de
 
 La galería de imágenes compartidas es un recurso opcional que es posible que no necesite de inmediato al empezar con solo algunos laboratorios educativos. Sin embargo, su uso tiene muchas ventajas que le resultarán útiles a la hora de tener más laboratorios educativos:
 
-- **Permite guardar y administrar versiones de una imagen de máquina virtual de plantilla**.
+- **Permite guardar y administrar versiones de una imagen de máquina virtual de plantilla**
 
     Resulta útil cuando se crea una imagen personalizada o se realizan cambios (software, configuración, etc.) en una imagen de la galería pública de Marketplace.  Por ejemplo, es habitual que los educadores requieran la instalación de software o herramientas diferentes. En lugar de solicitar a los alumnos que instalen manualmente estos requisitos previos por su cuenta, se pueden exportar diferentes versiones de la imagen de máquina virtual de plantilla en una galería de imágenes compartidas. Estas versiones de imagen se pueden usar luego para crear otros laboratorios educativos.
-- **Permite el uso compartido o la reutilización de imágenes de máquina virtual de plantilla entre laboratorios educativos**.
+- **Permite el uso compartido o la reutilización de imágenes de máquina virtual de plantilla entre laboratorios educativos**
 
     Puede guardar y reutilizar una imagen para que no tenga que configurar la imagen desde cero cada vez que cree un nuevo laboratorio educativo. Por ejemplo, si se ofrecen varias clases que necesitan la misma imagen, esta imagen solo debe crearse una vez y exportarse en la galería de imágenes compartidas para que se pueda compartir entre los laboratorios educativos.
-- **Garantiza la disponibilidad de imágenes mediante la replicación**.
+- **Garantiza la disponibilidad de imágenes mediante la replicación**
 
     Al guardar la imagen en la galería de imágenes compartidas de un laboratorio educativo, esta se replica automáticamente en otras [regiones de la misma geografía](https://azure.microsoft.com/global-infrastructure/regions/). En el caso de que se produzca una interrupción en una región, la publicación de la imagen en el laboratorio educativo no se ve afectada, ya que se puede usar una réplica de imagen de otra región.  La publicación de máquinas virtuales desde varias réplicas también puede ayudar al rendimiento.
 
@@ -125,39 +125,55 @@ Cuando empiece a trabajar con Azure Lab Services, se recomienda establecer conve
 
 Para más información sobre la asignación de nombres a otros recursos de Azure, consulte las [convenciones de nomenclatura para recursos de Azure](/azure/architecture/best-practices/naming-conventions).
 
-## <a name="regions-or-locations"></a>Regiones o ubicaciones
-Al configurar los recursos de Azure Lab Services, se le pedirá que proporcione una región (o ubicación) del centro de datos que hospedará el recurso. Aquí hay más detalles sobre cómo la región afecta a cada uno de los siguientes recursos utilizados en la implementación del laboratorio:
+## <a name="regionslocations"></a>Regiones o ubicaciones
 
-- **Grupos de recursos**
+Al configurar los recursos de Azure Lab Services, se le pedirá que proporcione una región (o ubicación) del centro de datos que hospedará el recurso. A continuación se muestran más detalles sobre cómo la región afecta a cada uno de los recursos implicados en la configuración de un laboratorio.
 
-    La región especifica el centro de datos donde se almacena la información sobre el grupo de recursos. Los recursos de Azure contenidos en el grupo de recursos pueden estar en otras regiones que no son la principal.
-- **Cuenta de laboratorio o laboratorio educativo**
+### <a name="resource-group"></a>Resource group
 
-    La ubicación de la cuenta de laboratorio indica la región de este recurso.  
+La región especifica el centro de datos donde se almacena la información sobre el grupo de recursos. Los recursos de Azure contenidos en el grupo de recursos pueden estar en otras regiones que no son la principal.
+
+### <a name="lab-account"></a>Cuenta de laboratorio
+
+La ubicación de la cuenta de un laboratorio indica la región en que existe este recurso.  
+
+### <a name="classroom-lab"></a>Laboratorio educativo
     
-    Con los laboratorios de clase, Azure Lab Services selecciona automáticamente la región en la que se implementa cada laboratorio en función de la capacidad disponible.  En concreto, Azure Lab Services busca disponibilidad en [regiones que se encuentran en la misma geografía que la cuenta de laboratorio](https://azure.microsoft.com/global-infrastructure/regions). 
-    
-    Si un administrador permite que los creadores de un laboratorio elijan la ubicación de su laboratorio educativo, las ubicaciones que estén disponibles para la selección se basarán en la capacidad regional disponible al crear el laboratorio.
+La ubicación en la que existe un laboratorio educativo varía en función de estos factores:
 
-    La ubicación del laboratorio educativo también determina qué tamaños de proceso de la máquina virtual están disponibles para la selección. Algunos tamaños de proceso solo están disponibles en ubicaciones concretas.
-- **Galería de imágenes compartidas**
+  - **La cuenta de laboratorio está emparejada con una red virtual (VNet)**
+  
+    Una cuenta de laboratorio se puede [emparejar con una red virtual](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-connect-peer-virtual-network) cuando se encuentran en la misma región.  Cuando una cuenta de laboratorio se empareja con una red virtual, los laboratorios educativos se crean automáticamente en la misma región que la cuenta de laboratorio y la red virtual.
 
-    La región indica la región de origen en la que se almacena la primera versión de la imagen antes de replicarse automáticamente en las regiones de destino.
+    > [!NOTE]
+    > Cuando una cuenta de laboratorio se empareja con una red virtual, la configuración **Permitir al creador del laboratorio seleccionar la ubicación correspondiente** está deshabilitada. Encontrará información adicional sobre esta opción en el artículo: [Selección de la ubicación del laboratorio por parte del creador de este en Azure Lab Services](https://docs.microsoft.com/azure/lab-services/classroom-labs/allow-lab-creator-pick-lab-location).
     
-Una regla general es establecer la región de un recurso en la más próxima a sus usuarios. En el caso de los laboratorios educativos, significa crear el laboratorio lo más cerca posible de sus alumnos. En el caso de los cursos en línea donde los alumnos están ubicados en cualquier parte del mundo, deberá usar su mejor criterio para crear un laboratorio educativo que esté ubicado en un lugar central. También puede dividir una clase en varios laboratorios educativos según la región de los alumnos.
+  - **No hay ninguna red virtual emparejada ***y*** los creadores del laboratorio no pueden elegir la ubicación del laboratorio.**
+  
+    Cuando **no** hay ninguna red virtual emparejada con la cuenta de laboratorio *y* los [creadores del laboratorio **no** pueden elegir la ubicación del laboratorio](https://docs.microsoft.com/azure/lab-services/classroom-labs/allow-lab-creator-pick-lab-location), los laboratorios educativos se crean automáticamente en una región que tiene capacidad de VM disponible.  En concreto, Azure Lab Services busca disponibilidad en [regiones que se encuentran en la misma geografía que la cuenta de laboratorio](https://azure.microsoft.com/global-infrastructure/regions).
+
+  - **No hay ninguna red virtual emparejada ***y*** los creadores del laboratorio pueden elegir la ubicación del laboratorio**
+       
+    Cuando **no** hay ninguna red virtual emparejada y [los creadores del laboratorio pueden elegir la ubicación del laboratorio](https://docs.microsoft.com/azure/lab-services/classroom-labs/allow-lab-creator-pick-lab-location), el creador del laboratorio puede seleccionar las ubicaciones según la capacidad disponible.
+
+Una regla general es establecer la región de un recurso en la más próxima a sus usuarios. En el caso de los laboratorios educativos, esto significa crear el laboratorio lo más cerca posible de sus alumnos. En el caso de los cursos en línea donde los alumnos están ubicados en cualquier parte del mundo, deberá usar su mejor criterio para crear un laboratorio educativo que esté ubicado en un lugar central. También puede dividir una clase en varios laboratorios educativos según la región de los alumnos.
+
+### <a name="shared-image-gallery"></a>Galería de imágenes compartidas
+
+La región indica la región de origen en la que se almacena la primera versión de la imagen antes de replicarse automáticamente en las regiones de destino.
 
 ## <a name="vm-sizing"></a>Tamaño de máquina virtual
 Cuando los administradores o creadores de laboratorios crean un laboratorio educativo, pueden elegir entre los siguientes tamaños de máquina virtual en función de las necesidades de su aula. Recuerde que los tamaños de proceso que haya disponibles dependerán de la región en la que se encuentre la cuenta de laboratorio:
 
-| Size | Especificaciones | Sugerencia de uso |
-| ---- | ----- | ------------- |
-| Pequeña| <ul><li>2 núcleos</li><li>3,5 GB de RAM</li></ul> | Este tamaño es el más adecuado para la línea de comandos, apertura de navegador web, servidores web de poco tráfico, bases de datos pequeñas o medianas. |
-| Media | <ul><li>4 núcleos</li><li>7 GB de RAM</li></ul> | Este tamaño es el más adecuado para bases de datos relacionales, análisis y almacenamiento en caché en memoria. |
-| Mediano (virtualización anidada) | <ul><li>4 núcleos</li><li>16 GB de RAM</li></ul> | Este tamaño es el más adecuado para bases de datos relacionales, análisis y almacenamiento en caché en memoria.  Este tamaño admite la virtualización anidada. |
-| grande | <ul><li>8 núcleos</li><li>32 GB de RAM</li></ul> | Este tamaño es ideal para aplicaciones que necesitan CPU más rápidas, un mejor rendimiento de los discos locales, bases de datos grandes y memorias caché grandes.  Este tamaño admite la virtualización anidada. |
-| GPU pequeña (visualización) | <ul><li>6 núcleos</li><li>56 GB de RAM</li> | Este tamaño es más adecuado para visualización remota, streaming, juegos y codificación mediante plataformas como OpenGL y DirectX. |
-| GPU pequeña (proceso) | <ul><li>6 núcleos</li><li>56 GB de RAM</li></ul> |Este tamaño es más adecuado para aplicaciones de proceso intensivo, como la inteligencia artificial y el aprendizaje profundo. |
-| GPU mediana (visualización) | <ul><li>12 núcleos</li><li>112 GB de RAM</li></ul> | Este tamaño es más adecuado para visualización remota, streaming, juegos y codificación mediante plataformas como OpenGL y DirectX. |
+| Size | Especificaciones | Serie | Sugerencia de uso |
+| ---- | ----- | ------ | ------------- |
+| Pequeña| <ul><li>2 núcleos</li><li>3,5 GB de RAM</li> | [Standard_A2_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Este tamaño es el más adecuado para la línea de comandos, apertura de navegador web, servidores web de poco tráfico, bases de datos pequeñas o medianas. |
+| Media | <ul><li>4 núcleos</li><li>7 GB de RAM</li> | [Standard_A4_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Este tamaño es el más adecuado para bases de datos relacionales, análisis y almacenamiento en caché en memoria. |
+| Mediano (virtualización anidada) | <ul><li>4 núcleos</li><li>16 GB de RAM</li></ul> | [Standard_DC4s_v2](https://docs.microsoft.com/azure/virtual-machines/dcv2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Este tamaño es el más adecuado para bases de datos relacionales, análisis y almacenamiento en caché en memoria.  Este tamaño admite la virtualización anidada. |
+| grande | <ul><li>8 núcleos</li><li>32 GB de RAM</li></ul>  | [Standard_DC8_v2](https://docs.microsoft.com/azure/virtual-machines/dcv2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Este tamaño es ideal para aplicaciones que necesitan CPU más rápidas, un mejor rendimiento de los discos locales, bases de datos grandes y memorias caché grandes.  Este tamaño admite la virtualización anidada. |
+| GPU pequeña (visualización) | <ul><li>6 núcleos</li><li>56 GB de RAM</li>  | [Standard_NV6](https://docs.microsoft.com/azure/virtual-machines/nv-series) | Este tamaño es más adecuado para visualización remota, streaming, juegos y codificación mediante plataformas como OpenGL y DirectX. |
+| GPU pequeña (proceso) | <ul><li>6 núcleos</li><li>56 GB de RAM</li></ul>  | [Standard_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) |Este tamaño es más adecuado para aplicaciones de proceso intensivo, como la inteligencia artificial y el aprendizaje profundo. |
+| GPU mediana (visualización) | <ul><li>12 núcleos</li><li>112 GB de RAM</li></ul>  | [Standard_NC12](https://docs.microsoft.com/azure/virtual-machines/nc-series) | Este tamaño es más adecuado para visualización remota, streaming, juegos y codificación mediante plataformas como OpenGL y DirectX. |
 
 ## <a name="manage-identity"></a>Administración de identidades
 Con el [control de acceso basado en roles de Azure](https://docs.microsoft.com/azure/role-based-access-control/overview), se pueden asignar los siguientes roles para conceder acceso a las cuentas de laboratorio y a los laboratorios educativos:
@@ -209,20 +225,20 @@ Los precios de Azure Lab Services se describen en el artículo siguiente: [Preci
 También debe tener en cuenta los precios de la galería de imágenes compartidas si tiene previsto usarla para almacenar y administrar versiones de imágenes. 
 
 ### <a name="shared-image-gallery"></a>Galería de imágenes compartidas
-La creación de una galería de imágenes compartidas y la asociación a su cuenta de laboratorio es gratuita. No se generan gastos hasta que se guarda una versión de la imagen en la galería. Normalmente, el precio por usar una galería de imágenes compartidas es bastante insignificante, pero es importante comprender cómo se calcula, ya que no se incluye en los precios de Azure Lab Services.  
+La creación de una galería de imágenes compartidas y la asociación a su cuenta de laboratorio es gratuita. No se generan gastos hasta que se guarda una versión de la imagen en la galería. Por lo general, el precio por usar una galería de imágenes compartidas es bastante insignificante, pero es importante comprender cómo se calcula, ya que no se incluye en los precios de Azure Lab Services.  
 
-### <a name="storage-charges"></a>Cargos de almacenamiento
+#### <a name="storage-charges"></a>Cargos de almacenamiento
 Para almacenar versiones de imágenes, una galería de imágenes compartidas usa discos estándar administrados por HDD. El tamaño del disco administrado por HDD que se usa depende del tamaño de la versión de la imagen que se almacena. Consulte el siguiente artículo para ver los precios: [Precios de Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 
-### <a name="replication-and-network-egress-charges"></a>Cargos por salida de replicación y red
+#### <a name="replication-and-network-egress-charges"></a>Cargos por salida de replicación y red
 Cuando se guarda una versión de una imagen mediante la máquina virtual de plantilla (VM) de un laboratorio educativo, Azure Lab Services la almacena primero en una región de origen y, luego, replica automáticamente la versión de la imagen de origen en una o varias regiones de destino. Es importante tener en cuenta que Azure Lab Services replica automáticamente la versión de la imagen de origen en todas las [regiones de destino dentro de la geografía](https://azure.microsoft.com/global-infrastructure/regions/) donde se encuentra el laboratorio educativo. Por ejemplo, si el laboratorio educativo está en la geografía de EE. UU., se replica una versión de la imagen en cada una de las ocho regiones que existen en EE. UU.
 
 Un cargo por salida de red se produce cuando una versión de una imagen se replica de la región de origen a regiones de destino adicionales. La cantidad que se cobra se basa en el tamaño de la versión de la imagen cuando los datos de la imagen se transfieren inicialmente desde la región de origen.  Para información detallada sobre precios, consulte el artículo siguiente: [Detalles de precios de ancho de banda](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 En las [soluciones educativas](https://www.microsoft.com/licensing/licensing-programs/licensing-for-industries?rtc=1&activetab=licensing-for-industries-pivot:primaryr3) los clientes pueden estar exentos de pagar cargos por salida. Hable con el administrador de cuentas para más información.  Para más información, **consulte la sección de preguntas frecuentes** en el documento vinculado, en concreto, la pregunta sobre qué programas de transferencia de datos existen para los clientes académicos y cómo se puede acceder a ellos.
 
-### <a name="pricing-example"></a>Ejemplo de precios
+#### <a name="pricing-example"></a>Ejemplo de precios
 Para resumir los precios descritos anteriormente, echemos un vistazo a un ejemplo de cómo guardar la imagen de la máquina virtual de plantilla en la galería de imágenes compartidas. Considere los casos siguientes:
 
 - Tiene una imagen de máquina virtual personalizada.
@@ -238,10 +254,10 @@ En este ejemplo, el costo es:
 
 1 imagen personalizada (32 GB) x 2 versiones x 8 regiones de EE. UU. x 1,54 USD = 24,64 USD
 
-### <a name="cost-management"></a>Administración de costos
+#### <a name="cost-management"></a>Administración de costos
 Es importante que el administrador de la cuenta de laboratorio administre los costos mediante la eliminación rutinaria de las versiones de imágenes innecesarias de la galería. 
 
 No debe eliminar la replicación a regiones específicas para reducir los costos (esta opción existe en la galería de imágenes compartidas). Los cambios en la replicación pueden tener efectos negativos sobre la capacidad de Azure Lab Services para publicar máquinas virtuales a partir de imágenes guardadas en una galería de imágenes compartidas.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte el tutorial para obtener instrucciones paso a paso sobre cómo crear una cuenta de laboratorio y un laboratorio: [Tutorial: Configuración de una cuenta de laboratorio](tutorial-setup-lab-account.md)
+Consulte el tutorial para obtener instrucciones paso a paso sobre cómo crear una cuenta de laboratorio y un laboratorio: [Guía de configuración](tutorial-setup-lab-account.md)

@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-ms.date: 03/12/2019
-ms.openlocfilehash: 9db6b5ff517a1b0d67e59591ee634dfad685527b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/18/2019
+ms.openlocfilehash: af88fdf3378a6290c773c658ea6dd3469d7c92cc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75461472"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79531284"
 ---
 # <a name="azure-sql-database-and-azure-sql-data-warehouse-ip-firewall-rules"></a>Reglas de firewall de IP para Azure SQL Database y Azure SQL Data Warehouse
 
@@ -39,7 +39,7 @@ Los intentos de conexión desde Internet y Azure deben atravesar el firewall ant
 
 ### <a name="server-level-ip-firewall-rules"></a>Reglas de firewall de IP en el nivel de servidor
 
-  Estas reglas permiten a los clientes obtener acceso a toda la instancia de Azure SQL Server (es decir, a todas las bases de datos que se encuentren en el mismo servidor de SQL Database). Estas reglas se almacenan en la base de datos *maestra*. Puede tener un máximo de 128 reglas de firewall IP de nivel de servidor para una instancia de Azure SQL Server.
+  Estas reglas permiten a los clientes obtener acceso a toda la instancia de Azure SQL Server (es decir, a todas las bases de datos que se encuentren en el mismo servidor de SQL Database). Estas reglas se almacenan en la base de datos *maestra*. Puede tener un máximo de 128 reglas de firewall IP de nivel de servidor para una instancia de Azure SQL Server. Si tiene habilitada la opción **Permitir que los servicios y recursos de Azure accedan a este servidor**, cuenta como una sola regla de firewall para Azure SQL Server.
   
   Puede configurar reglas de firewall de IP de nivel de servidor mediante Azure Portal, PowerShell o instrucciones Transact-SQL.
   - Para usar el portal o PowerShell, debe ser propietario o colaborador de la suscripción.

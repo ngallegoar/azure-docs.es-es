@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 11/04/2019
-ms.openlocfilehash: 9da756b702c994d69aae42ecef0e2da4d44eed39
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9da922de38d820864b3f83de80fe64eb3ac792e4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510673"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80246728"
 ---
 # <a name="deploy-azure-sql-database-edge-preview"></a>Implementación de la versión preliminar de Azure SQL Database Edge
 
@@ -23,7 +23,7 @@ La versión preliminar de Azure SQL Database Edge es un motor de base de datos r
 ## <a name="before-you-begin"></a>Antes de empezar
 
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/).
-* Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+* Inicie sesión en [Azure Portal](https://portal.azure.com/).
 * Envíe una solicitud [aquí](https://azure.microsoft.com/services/sql-database-edge/#contact) para que habilitemos la implementación de SQL Database Edge en su suscripción.
 * Cree un [Azure IoT Hub](../iot-hub/iot-hub-create-through-portal.md).
 * Registre un [dispositivo IoT Edge desde Azure Portal](../iot-edge/how-to-register-device-portal.md).
@@ -58,7 +58,7 @@ Azure Marketplace es un mercado de aplicaciones y servicios en línea en el que 
 
    |**Parámetro**  |**Descripción**|
    |---------|---------|
-   | NOMBRE | Nombre del módulo. |
+   | Nombre | Nombre del módulo. |
    |SA_PASSWORD  | Especifica una contraseña segura para la cuenta de administrador de SQL Database Edge. |
    |MSSQL_LCID   | Establece el identificador de idioma que se usará para SQL Server. Por ejemplo, 1036 es francés. |
    |MSSQL_COLLATION | Establece la intercalación predeterminada para SQL Server. Esta configuración invalida la asignación predeterminada de identificador de idioma (LCID) a la intercalación. |
@@ -66,7 +66,7 @@ Azure Marketplace es un mercado de aplicaciones y servicios en línea en el que 
    > [!NOTE]
    > No cambie ni actualice el **URI de la imagen** o la configuración de **ACCEPT_EULA** del módulo.
 
-6. En el panel de **Módulos personalizados de IoT Edge**, actualice el valor deseado de las opciones de creación del contenedor para el **puerto del host** y el de **destino** para los puntos de montaje. El destino del punto de montaje es donde se almacenan los archivos de base de datos de SQL en el dispositivo host IoT Edge.
+6. En el panel de **Módulos personalizados de IoT Edge**, actualice el valor deseado de las opciones de creación del contenedor para el **puerto del host**. Si necesita implementar más de un módulo de SQL DB Edge, asegúrese de actualizar la opción de montajes para crear un nuevo origen y par de destino para el volumen persistente. Para obtener más información sobre los montajes y el volumen, consulte el artículo sobre cómo [usar volúmenes](https://docs.docker.com/storage/volumes/) en la documentación de Docker. 
 
    ```json
        {

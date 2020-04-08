@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 8/26/2019
 ms.author: abnarain
 ms.reviewer: craigg
-ms.openlocfilehash: 2ae0f3033b88b3229d3dbef35c8bc9a32510c00e
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: e284060893e00ed7459edd0d1a03075c813dc5b2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74972343"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80065392"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>Solución de problemas de Azure Data Factory
 
@@ -387,7 +387,7 @@ La tabla siguiente se aplica a U-SQL.
 
 
 
-## <a name="common"></a>Común
+## <a name="common"></a>Comunes
 
 ### <a name="error-code--2103"></a>Código de error:  2103
 
@@ -1020,7 +1020,7 @@ Para usar Fiddler para crear una sesión HTTP de la aplicación web supervisada:
 
    ![Opciones de Fiddler](media/data-factory-troubleshoot-guide/fiddler-options.png)
 
-1. Si la aplicación usa certificados SSL, agregue el certificado de Fiddler al dispositivo. Vaya a **Tools** > **Fiddler Options** > **HTTPS** > **Actions** > **Export Root Certificate to Desktop** (Herramientas>Opciones de Fiddler>HTTPS>Acciones>Exportar el certificado raíz al escritorio).
+1. Si la aplicación usa certificados TLS/SSL, agregue el certificado de Fiddler al dispositivo. Vaya a **Tools** > **Fiddler Options** > **HTTPS** > **Actions** > **Export Root Certificate to Desktop** (Herramientas>Opciones de Fiddler>HTTPS>Acciones>Exportar el certificado raíz al escritorio).
 
 1. Desactive la captura en **File** > **Capture Traffic** (Archivo > Capturar tráfico). O bien, presione **F12**.
 

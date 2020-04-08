@@ -1,19 +1,19 @@
 ---
-title: Visualización de las dependencias de aplicación con Azure Monitor para VM (versión preliminar)
+title: Visualización de las dependencias de aplicación con Azure Monitor para VM
 description: Asignación es una característica de Azure Monitor para VM. Detecta automáticamente los componentes de la aplicación en sistemas Windows y Linux y asigna la comunicación entre servicios. En este artículo se proporciona información sobre cómo usar la característica de asignación en diferentes escenarios.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/15/2019
-ms.openlocfilehash: cbdcd5cc8fa9475febd338f94f8b6fe1cb2fe406
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.date: 03/20/2020
+ms.openlocfilehash: acb96984a49e4ad8535f87a41da11b3b63ae207b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77670753"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80283861"
 ---
-# <a name="use-the-map-feature-of-azure-monitor-for-vms-preview-to-understand-application-components"></a>Use la característica de asignación de Azure Monitor para VM (versión preliminar) para conocer los componentes de una aplicación
+# <a name="use-the-map-feature-of-azure-monitor-for-vms-to-understand-application-components"></a>Uso de la característica de asignación de Azure Monitor para VM para conocer los componentes de una aplicación
 En Azure Monitor para VM, puede ver los componentes de la aplicación detectados en las máquinas virtuales (VM) de Windows y Linux que se ejecutan en Azure o en su entorno. Puede observar las VM de dos maneras. Ver una asignación directamente desde una VM o ver un asignación desde Azure Monitor para ver los componentes de los grupos de VM. En este artículo le ayudamos a comprender estos dos métodos de visualización y a usar la característica de asignación. 
 
 Para obtener más información sobre cómo configurar Azure Monitor para máquinas virtuales, consulte el artículo [Enable Azure Monitor for VMs](vminsights-enable-overview.md) (Habilitar Azure Monitor para máquinas virtuales).
@@ -88,7 +88,7 @@ Si el grupo incluye a los servidores supervisados y sin supervisión, puede sele
 Para acceder a Azure Monitor para VM directamente desde una VM:
 
 1. En Azure Portal, seleccione **Virtual Machines**. 
-2. En la lista, elija una VM. En la sección **Supervisión**, seleccione **Insights (versión preliminar)** .  
+2. En la lista, elija una VM. En la sección **Supervisión**, seleccione **Insights**.  
 3. Seleccione la pestaña **Asignación**.
 
 La asignación muestra las dependencias de la VM mediante la detección de procesos y grupos de procesos que se están ejecutando en conexiones de red activas durante un determinado intervalo de tiempo.  
@@ -102,7 +102,7 @@ De forma predeterminada, la asignación muestra los últimos 30 minutos. Si quie
 Para obtener acceso a Azure Monitor para VM directamente desde un conjunto de escalado de máquinas virtuales:
 
 1. En Azure Portal, seleccione **Conjuntos de escalado de máquinas virtuales**.
-2. En la lista, elija una VM. A continuación, en la sección **Supervisión**, seleccione **Insights (versión preliminar)** .  
+2. En la lista, elija una VM. Luego, en la sección **Supervisión**, seleccione **Insights**.  
 3. Seleccione la pestaña **Asignación**.
 
 La asignación muestra todas las instancias del conjunto de escalado como un nodo de grupo junto con las dependencias del grupo. El nodo expandido enumera las instancias del conjunto de escalado. Puede desplazarse a través de estas instancias (10 a la vez). 
@@ -114,14 +114,14 @@ De forma predeterminada, la asignación muestra los últimos 30 minutos. Si quie
 ![Visión general directa de una asignación de máquina virtual](./media/vminsights-maps/map-direct-vmss-01.png)
 
 >[!NOTE]
->También puede acceder a una asignación de una instancia específica desde la vista **Instancias** de su conjunto de escalado de máquinas virtuales. En la sección **Configuración**, vaya a **Instancias** > **Insights (versión preliminar)** .
+>También puede acceder a una asignación de una instancia específica desde la vista **Instancias** de su conjunto de escalado de máquinas virtuales. En la sección **Configuración**, vaya a **Instancias** > **Insights**.
 
 ## <a name="view-a-map-from-azure-monitor"></a>Visualización de una asignación desde Azure Monitor
 
 Desde Azure Monitor, la característica de asignación proporciona una visión global de las VM y sus dependencias. Para obtener acceso a la característica de asignación en Azure Monitor:
 
 1. En Azure Portal, seleccione **Monitor**. 
-2. En la sección **Insights**, elija **Máquinas virtuales (versión preliminar)** .
+2. En la sección **Insights**, elija **Máquinas virtuales**.
 3. Seleccione la pestaña **Asignación**.
 
    ![Mapa de información general de Azure Monitor de varias VM](./media/vminsights-maps/map-multivm-azure-monitor-01.png)

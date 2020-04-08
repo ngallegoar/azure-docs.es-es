@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 0ef9609cded29c94260d027212abbf0c62f8653c
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 72264755d5f0379f0ffb07852f48885126a36898
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772115"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411600"
 ---
 # <a name="use-azure-files-with-linux"></a>Uso de Azure Files con Linux
 [Azure Files](storage-files-introduction.md) es el sencillo sistema de archivos en la nube de Microsoft. Los recursos compartidos de archivos de Azure se pueden montar en distribuciones de Linux mediante el [cliente kernel de SMB](https://wiki.samba.org/index.php/LinuxCIFS). En este artículo se muestran dos maneras de montar un recurso compartido de archivos de Azure: a petición, con el comando `mount` y al inicio, mediante la creación de una entrada en `/etc/fstab`.
@@ -34,7 +34,7 @@ Si usa una distribución de Linux que no aparece en la tabla anterior, puede com
 uname -r
 ```
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 <a id="smb-client-reqs"></a>
 
 * <a id="install-cifs-utils"></a>**Asegúrese de que el paquete cifs-utils está instalado.**  
@@ -194,10 +194,57 @@ Cuando haya terminado de usar el recurso compartido de archivos de Azure, puede 
     > [!Note]  
     > El comando de montaje anterior se monta con SMB 3.0. Si la distribución de Linux no admite SMB 3.0 con cifrado o si solo admite SMB 2.1, solo puede montar desde una máquina virtual de Azure dentro de la misma región que la cuenta de almacenamiento. Para montar el recurso compartido de archivos de Azure en una distribución de Linux que no admita SMB 3.0 con cifrado, necesitará [deshabilitar el cifrado en tránsito para la cuenta de almacenamiento](../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
+### <a name="using-autofs-to-automatically-mount-the-azure-file-shares"></a>Uso de autofs para montar automáticamente los recursos compartidos de archivos de Azure
+
+1. **Asegúrese de que el paquete autofs está instalado**.  
+
+    El paquete autofs se puede instalar con el administrador de paquetes en la distribución de Linux de su elección. 
+
+    En distribuciones de **Ubuntu** y **Debian**, use el administrador de paquetes `apt`:
+    ```bash
+    sudo apt update
+    sudo apt install autofs
+    ```
+    En **Fedora**, **Red Hat Enterprise Linux 8 +** , y **CentOS 8 +** , use el administrador de paquetes `dnf`:
+    ```bash
+    sudo dnf install autofs
+    ```
+    En las versiones anteriores de **Red Hat Enterprise Linux** y **CentOS**, use el administrador de paquetes `yum`:
+    ```bash
+    sudo yum install autofs 
+    ```
+    En **openSUSE**, use el administrador de paquetes `zypper`:
+    ```bash
+    sudo zypper install autofs
+    ```
+2. **Cree un punto de montaje para los recursos compartidos**:
+   ```bash
+    sudo mkdir /fileshares
+    ```
+3. **Cree un archivo de configuración de autofs personalizado**.
+    ```bash
+    sudo vi /etc/auto.fileshares
+    ```
+4. **Agregue las siguientes entradas a /etc/auto.fileshares**.
+   ```bash
+   echo "$fileShareName -fstype=cifs,credentials=$smbCredentialFile :$smbPath"" > /etc/auto.fileshares
+   ```
+5. **Agregue la siguiente entrada a /etc/auto.master**.
+   ```bash
+   /fileshares /etc/auto.fileshares --timeout=60
+   ```
+6. **Reinicie autofs**.
+    ```bash
+    sudo systemctl restart autofs
+    ```
+7.  **Acceda a la carpeta designada para el recurso compartido**.
+    ```bash
+    cd /fileshares/$filesharename
+    ```
 ## <a name="securing-linux"></a>Protección de Linux
 Para montar un recurso compartido de archivos de Azure en Linux, el puerto 445 debe estar accesible. Muchas organizaciones bloquean este puerto debido a los riesgos de seguridad inherentes a SMB 1. SMB 1, también conocido como CIFS (Sistema de archivos de Internet común), es un protocolo de sistema de archivos heredado que se incluye en muchas distribuciones de Linux. SMB 1 es un protocolo obsoleto, ineficaz y, lo más importante, no seguro. La buena noticia es que Azure Files no es compatible con SMB 1 y, a partir de la versión 4.18 del kernel de Linux, Linux hace posible deshabilitar SMB 1. Siempre [recomendamos encarecidamente](https://aka.ms/stopusingsmb1) deshabilitar SMB 1 en los clientes Linux antes de usar recursos compartidos de archivos SMB en producción.
 
-A partir del kernel de Linux 4.18, el módulo de kernel de SMB, denominado `cifs` por motivos de herencia, expone un nuevo parámetro de módulo (a menudo conocido como *parm* de diversos documentos externos), denominado `disable_legacy_dialects`. Aunque se presentó en el kernel de Linux 4.18, algunos proveedores han trasladado este cambio a los kernels más antiguos que admiten. Para mayor comodidad, en la tabla siguiente se detalla la disponibilidad de este parámetro de módulo en distribuciones de Linux comunes.
+A partir del kernel de Linux 4.18, el módulo de kernel de SMB, denominado `cifs` por motivos de herencia, expone un nuevo parámetro de módulo (a menudo conocido como *parm* en diversos documentos externos), denominado `disable_legacy_dialects`. Aunque se presentó en el kernel de Linux 4.18, algunos proveedores han trasladado este cambio a los kernels más antiguos que admiten. Para mayor comodidad, en la tabla siguiente se detalla la disponibilidad de este parámetro de módulo en distribuciones de Linux comunes.
 
 | Distribución | Puede deshabilitar SMB 1 |
 |--------------|-------------------|
@@ -226,7 +273,7 @@ sudo modinfo -p cifs | grep disable_legacy_dialects
 
 Este comando debe generar el siguiente mensaje:
 
-```Output
+```output
 disable_legacy_dialects: To improve security it may be helpful to restrict the ability to override the default dialects (SMB2.1, SMB3 and SMB3.02) on mount with old dialects (CIFS/SMB1 and SMB2) since vers=1.0 (CIFS/SMB1) and vers=2.0 are weaker and less secure. Default: n/N/0 (bool)
 ```
 
@@ -276,7 +323,7 @@ cat /sys/module/cifs/parameters/disable_legacy_dialects
 ## <a name="feedback"></a>Comentarios
 Usuarios de Linux: nos gustaría conocer su opinión.
 
-El grupo de usuarios de Azure Files para Linux ofrece un foro donde puede compartir sus comentarios a medida que evalúa y adopta File Storage en Linux. Envíe un correo electrónico a [Usuarios de Azure Files para Linux](mailto:azurefileslinuxusers@microsoft.com) para unirse al grupo de usuarios.
+El grupo de usuarios de Azure Files para Linux ofrece un foro donde puede compartir sus comentarios a medida que evalúa y adopta File Storage en Linux. Envíe un correo electrónico a [Usuarios de Azure Files para Linux](mailto:azurefiles@microsoft.com) para unirse al grupo de usuarios.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte los vínculos siguientes para más información sobre Azure Files:

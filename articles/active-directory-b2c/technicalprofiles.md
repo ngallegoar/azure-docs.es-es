@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/17/2020
+ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d4dbe5a62e69f4c30d55fa1318ca79c06640a10f
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 5196615b6b935e4d37565298be03ad315163d132
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78186750"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231112"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -101,7 +101,7 @@ El elemento **TechnicalProfile** contiene los elementos siguientes:
 | SubjectNamingInfo | 0:1 | Controla la producción del nombre de firmante en los tokens donde el nombre de firmante se especifica por separado de las notificaciones. Por ejemplo, OAuth o SAML.  |
 | IncludeInSso | 0:1 |  Si el uso de este perfil técnico debe aplicar el comportamiento de inicio de sesión único (SSO) para la sesión o, en su lugar, requerir una interacción explícita. Este elemento solo es válido en los perfiles de SelfAsserted usados dentro de un perfil técnico de validación. Valores posibles: `true` (opción predeterminada) o `false`. |
 | IncludeClaimsFromTechnicalProfile | 0:1 | Identificador de un perfil técnico cuyas notificaciones de entrada o salida quiere que se agreguen a este perfil técnico. El perfil técnico al que se haga referencia tiene que definirse en el mismo archivo de directiva. |
-| IncludeTechnicalProfile |0:1 | Identificador de un perfil técnico cuyos datos quiere agregar a este perfil técnico. El perfil técnico al que se haga referencia tiene que existir en el mismo archivo de directiva. |
+| IncludeTechnicalProfile |0:1 | Identificador de un perfil técnico cuyos datos quiere agregar a este perfil técnico. |
 | UseTechnicalProfileForSessionManagement | 0:1 | Perfil técnico distinto que se usará para la administración de sesiones. |
 |EnabledForUserJourneys| 0:1 |Controla si el perfil técnico se ejecuta en un recorrido del usuario.  |
 
@@ -112,7 +112,7 @@ El elemento **Protocol** contiene los atributos siguientes:
 | Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
 | Nombre | Sí | El nombre de un protocolo válido admitido por Azure AD B2C que se usará como parte del perfil técnico. Valores posibles: `OAuth1`, `OAuth2`, `SAML2`, `OpenIdConnect`, `Proprietary` o `None`. |
-| Controlador | Sin | Cuando el nombre del protocolo se establece en `Proprietary`, especifique el nombre completo del ensamblado que usará Azure AD B2C para determinar el controlador de protocolo. |
+| Controlador | No | Cuando el nombre del protocolo se establece en `Proprietary`, especifique el nombre completo del ensamblado que usará Azure AD B2C para determinar el controlador de protocolo. |
 
 ## <a name="metadata"></a>Metadatos
 
@@ -144,7 +144,7 @@ El elemento **Key** contiene el atributo siguiente:
 
 | Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
-| Identificador | Sin | Un identificador único de un par de claves específico al que se hace referencia desde otros elementos en el archivo de directiva. |
+| Identificador | No | Un identificador único de un par de claves específico al que se hace referencia desde otros elementos en el archivo de directiva. |
 | StorageReferenceId | Sí | Un identificador del contenedor de claves de almacenamiento al que se hace referencia desde otros elementos en el archivo de directiva. |
 
 ## <a name="inputclaimstransformations"></a>InputClaimsTransformations
@@ -178,8 +178,8 @@ El elemento **InputClaim** contiene los atributos siguientes:
 | Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Sí | El identificador de un tipo de notificación que ya se ha definido en la sección ClaimsSchema del archivo de directiva o del archivo de directiva principal. |
-| DefaultValue | Sin | Un valor predeterminado que se usará para crear una notificación si la notificación indicada por ClaimTypeReferenceId no existe, por lo que la notificación resultante puede usarse como un elemento InputClaim por el perfil técnico. |
-| PartnerClaimType | Sin | El identificador del tipo de notificación del socio externo al que se asigna el tipo de notificación de directiva especificado. Si no se especifica el atributo PartnerClaimType, el tipo de notificación de directiva especificado se asignará al tipo de notificación del socio que tenga el mismo nombre. Use esta propiedad cuando el nombre del tipo de notificación sea distinto de la otra entidad. Por ejemplo, el nombre de la primera notificación es “givenName”, mientras que el socio usa una notificación denominada “first_name”. |
+| DefaultValue | No | Un valor predeterminado que se usará para crear una notificación si la notificación indicada por ClaimTypeReferenceId no existe, por lo que la notificación resultante puede usarse como un elemento InputClaim por el perfil técnico. |
+| PartnerClaimType | No | El identificador del tipo de notificación del socio externo al que se asigna el tipo de notificación de directiva especificado. Si no se especifica el atributo PartnerClaimType, el tipo de notificación de directiva especificado se asignará al tipo de notificación del socio que tenga el mismo nombre. Use esta propiedad cuando el nombre del tipo de notificación sea distinto de la otra entidad. Por ejemplo, el nombre de la primera notificación es “givenName”, mientras que el socio usa una notificación denominada “first_name”. |
 
 ## <a name="displayclaims"></a>DisplayClaims
 
@@ -197,9 +197,9 @@ El elemento **DisplayClaim** contiene los atributos siguientes:
 
 | Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
-| ClaimTypeReferenceId | Sin | El identificador de un tipo de notificación que ya se ha definido en la sección ClaimsSchema del archivo de directiva o del archivo de directiva principal. |
-| DisplayControlReferenceId | Sin | Identificador de un [control de visualización](display-controls.md) ya definido en la sección ClaimsSchema del archivo de directiva o del archivo de directiva principal. |
-| Obligatorio | Sin | Indica si la notificación de visualización es obligatoria. |
+| ClaimTypeReferenceId | No | El identificador de un tipo de notificación que ya se ha definido en la sección ClaimsSchema del archivo de directiva o del archivo de directiva principal. |
+| DisplayControlReferenceId | No | Identificador de un [control de visualización](display-controls.md) ya definido en la sección ClaimsSchema del archivo de directiva o del archivo de directiva principal. |
+| Obligatorio | No | Indica si la notificación de visualización es obligatoria. |
 
 **DisplayClaim** requiere que se especifique un objeto `ClaimTypeReferenceId` o `DisplayControlReferenceId`.
 
@@ -218,8 +218,8 @@ El elemento **PersistedClaim** contiene los atributos siguientes:
 | Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Sí | El identificador de un tipo de notificación que ya se ha definido en la sección ClaimsSchema del archivo de directiva o del archivo de directiva principal. |
-| DefaultValue | Sin | Un valor predeterminado que se usará para crear una notificación si la notificación indicada por ClaimTypeReferenceId no existe, por lo que la notificación resultante puede usarse como un elemento InputClaim por el perfil técnico. |
-| PartnerClaimType | Sin | El identificador del tipo de notificación del socio externo al que se asigna el tipo de notificación de directiva especificado. Si no se especifica el atributo PartnerClaimType, el tipo de notificación de directiva especificado se asignará al tipo de notificación del socio que tenga el mismo nombre. Use esta propiedad cuando el nombre del tipo de notificación sea distinto de la otra entidad. Por ejemplo, el nombre de la primera notificación es “givenName”, mientras que el socio usa una notificación denominada “first_name”. |
+| DefaultValue | No | Un valor predeterminado que se usará para crear una notificación si la notificación indicada por ClaimTypeReferenceId no existe, por lo que la notificación resultante puede usarse como un elemento InputClaim por el perfil técnico. |
+| PartnerClaimType | No | El identificador del tipo de notificación del socio externo al que se asigna el tipo de notificación de directiva especificado. Si no se especifica el atributo PartnerClaimType, el tipo de notificación de directiva especificado se asignará al tipo de notificación del socio que tenga el mismo nombre. Use esta propiedad cuando el nombre del tipo de notificación sea distinto de la otra entidad. Por ejemplo, el nombre de la primera notificación es “givenName”, mientras que el socio usa una notificación denominada “first_name”. |
 
 ## <a name="outputclaims"></a>OutputClaims
 
@@ -236,9 +236,9 @@ El elemento **OutputClaim** contiene los atributos siguientes:
 | Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Sí | El identificador de un tipo de notificación que ya se ha definido en la sección ClaimsSchema del archivo de directiva o del archivo de directiva principal. |
-| DefaultValue | Sin | Un valor predeterminado que se usará para crear una notificación si la notificación indicada por ClaimTypeReferenceId no existe, por lo que la notificación resultante puede usarse como un elemento InputClaim por el perfil técnico. |
-|AlwaysUseDefaultValue |Sin |Obliga a usar el valor predeterminado.  |
-| PartnerClaimType | Sin | El identificador del tipo de notificación del socio externo al que se asigna el tipo de notificación de directiva especificado. Si no se especifica el atributo PartnerClaimType, el tipo de notificación de directiva especificado se asignará al tipo de notificación del socio que tenga el mismo nombre. Use esta propiedad cuando el nombre del tipo de notificación sea distinto de la otra entidad. Por ejemplo, el nombre de la primera notificación es “givenName”, mientras que el socio usa una notificación denominada “first_name”. |
+| DefaultValue | No | Un valor predeterminado que se usará para crear una notificación si la notificación indicada por ClaimTypeReferenceId no existe, por lo que la notificación resultante puede usarse como un elemento InputClaim por el perfil técnico. |
+|AlwaysUseDefaultValue |No |Obliga a usar el valor predeterminado.  |
+| PartnerClaimType | No | El identificador del tipo de notificación del socio externo al que se asigna el tipo de notificación de directiva especificado. Si no se especifica el atributo PartnerClaimType, el tipo de notificación de directiva especificado se asignará al tipo de notificación del socio que tenga el mismo nombre. Use esta propiedad cuando el nombre del tipo de notificación sea distinto de la otra entidad. Por ejemplo, el nombre de la primera notificación es “givenName”, mientras que el socio usa una notificación denominada “first_name”. |
 
 ## <a name="outputclaimstransformations"></a>OutputClaimsTransformations
 

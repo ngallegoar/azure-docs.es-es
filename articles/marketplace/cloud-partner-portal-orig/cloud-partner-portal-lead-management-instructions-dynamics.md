@@ -1,25 +1,24 @@
 ---
 title: Dynamics CRM | Azure Marketplace
 description: Configure la administración de clientes potenciales de Dynamics CRM.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.author: pabutler
-ms.openlocfilehash: 4ccc8b85e72a4da3b0e640abcc70d24b7cdc54af
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 524ae203a311d538431205bf8c6498de45aeb4d1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825255"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280310"
 ---
 # <a name="configure-lead-management-for-dynamics-crm-online"></a>Configure la administración de clientes potenciales de Dynamics CRM Online
 
 En este artículo se describe cómo configurar Dynamics CRM Online para procesar las ventas de clientes potenciales.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar los pasos de este artículo, se requieren los siguientes permisos de usuario:
 - Debe ser un administrador en la instancia de Dynamics CRM Online para instalar una solución.
@@ -142,5 +141,5 @@ El paso final es permitir que el usuario que ha creado escriba los clientes pote
 
 Finalice la configuración de Dynamics CRM para la administración de clientes potenciales agregando la información de cuentas generada a Cloud Partner Portal. Por ejemplo:
 
--   **Identificador de la aplicación** - de **Azure Active Directory** (ejemplo: *23456052-aaaa-bbbb-8662-1234df56788f*), **Identificador de directorio** (ejemplo: *12345678-8af1-4asf-1234-12234d01db47*) y **Clave de la aplicación** (ejemplo: *1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc=* ).
+-   **Azure Active Directory** - **Id. de aplicación** (ejemplo: *23456052-aaaa-bbbb-8662-1234df56788f*), **Identificador de directorio** (ejemplo: *12345678-8af1-4asf-1234-12234d01db47*) y **Clave de la aplicación** (ejemplo: *1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc=* ).
 -   **Office 365** - **Url** (ejemplo: *https://contoso.crm4.dynamics.com* ), **Nombre de usuario** (ejemplo: *contoso\@ contoso.onmicrosoft.com*) y **Contraseña** (ejemplo: *P\@ ssw0rd*).

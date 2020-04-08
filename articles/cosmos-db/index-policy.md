@@ -1,17 +1,17 @@
 ---
 title: Directivas de indexación de Azure Cosmos DB
 description: Obtenga información sobre la configuración y cambio de la directiva de indexación predeterminada para una indexación automática y un mayor rendimiento en Azure Cosmos DB.
-author: ThomasWeiss
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/10/2019
-ms.author: thweiss
-ms.openlocfilehash: 886d17098259ddbb78698a3c1280f797e370c714
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.date: 03/26/2020
+ms.author: tisande
+ms.openlocfilehash: 930f156ebec76be860e7af02d41540ce67982f92
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597152"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80292060"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Directivas de indexación en Azure Cosmos DB
 
@@ -30,11 +30,11 @@ Azure Cosmos DB admite dos modos de indexación:
 - **Ninguna**: La indexación está deshabilitada en el contenedor. Esto se utiliza normalmente cuando se usa un contenedor como un almacén de pares clave-valor puro sin necesidad de índices secundarios. También se puede usar para mejorar el rendimiento de las operaciones masivas. Una vez completadas las operaciones masivas, el modo de índice se puede establecer en Coherente y supervisarse mediante [IndexTransformationProgress](how-to-manage-indexing-policy.md#use-the-net-sdk-v2) hasta que se complete.
 
 > [!NOTE]
-> Cosmos DB también admite un modo de indexación diferida. La indexación diferida realiza actualizaciones en el índice con un nivel de prioridad mucho menor cuando el motor no realiza ningún otro trabajo. Esto puede producir resultados de consulta **incoherentes o incompletos**. Además, el uso de la indexación diferida en lugar de "Ninguno" para operaciones masivas tampoco proporciona ninguna ventaja, ya que cualquier cambio en el modo de índice hará que se quite el índice y se vuelva a crear. Por estas razones, no recomendamos su uso a los clientes. Para mejorar el rendimiento de las operaciones masivas, establezca el modo de índice en Ninguno, vuelva al modo Coherente y supervise la propiedad `IndexTransformationProgress` en el contenedor hasta la finalización.
+> Azure Cosmos DB también admite un modo de indexación diferida. La indexación diferida realiza actualizaciones en el índice con un nivel de prioridad mucho menor cuando el motor no realiza ningún otro trabajo. Esto puede producir resultados de consulta **incoherentes o incompletos**. Si tiene previsto consultar un contenedor de Cosmos, no debe seleccionar la indexación diferida.
 
 De forma predeterminada, la directiva de indexación se establece en `automatic`. Esto se consigue al establecer la propiedad `automatic` de la directiva de indexación en `true`. Al establecer esta propiedad en `true`, se permite que Azure Cosmos DB indexe automáticamente los documentos a medida que se escriben.
 
-## <a name="including-and-excluding-property-paths"></a>Inclusión y exclusión de rutas de acceso de propiedad
+## <a name="including-and-excluding-property-paths"></a><a id="include-exclude-paths"></a> Inclusión y exclusión de rutas de acceso de propiedad
 
 Una directiva de indexación personalizada puede especificar rutas de acceso de propiedad que se incluyen o excluyen de forma explícita de la indexación. Al optimizar el número de rutas de acceso que se indexan, puede reducir la cantidad de almacenamiento que utiliza el contenedor y mejorar la latencia de las operaciones de escritura. Estas rutas de acceso se definen siguiendo [el método descrito en la sección de introducción a la indexación](index-overview.md#from-trees-to-property-paths), con las siguientes adiciones:
 
@@ -75,7 +75,9 @@ Cualquier directiva de indexación tiene que incluir la ruta de acceso raíz `/*
 
 - Para las rutas de acceso con caracteres normales que incluyen: caracteres alfanuméricos y _ (guion bajo), no tiene que aplicar el escape a la cadena de ruta de acceso en comillas dobles (por ejemplo, "/path/?"). Para las rutas de acceso con otros caracteres especiales, necesitará aplicar el escape a la cadena de ruta de acceso en comillas dobles (por ejemplo, "/\"path-abc\"/?"). Si se esperan caracteres especiales en la ruta de acceso, puede aplicar el escape a las rutas de acceso por motivos de seguridad. Funcionalmente, no hay ninguna diferencia si aplica el escape a todas las rutas de acceso frente a aplicarlo solo a las que tienen caracteres especiales.
 
-- De forma predeterminada, la propiedad del sistema "ETag" se excluye de la indexación, a menos que la ETag se agregue a la ruta de acceso incluida para la indexación.
+- De forma predeterminada, la propiedad del sistema `_etag` se excluye de la indexación, a menos que la ETag se agregue a la ruta de acceso incluida para la indexación.
+
+- Si el modo de indexación se establece en **Coherente**, las propiedades del sistema `id` y `_ts` se indexan automáticamente.
 
 Al incluir y excluir las rutas de acceso, puede encontrar los atributos siguientes:
 

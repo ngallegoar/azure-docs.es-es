@@ -1,5 +1,5 @@
 ---
-title: Administración de recursos de Azure Cosmos DB mediante Explorador de Azure Storage
+title: Administración de recursos de Azure Cosmos DB con el Explorador de Azure Storage
 description: Obtenga información sobre cómo conectarse a Azure Cosmos DB y administrar sus recursos con el Explorador de Azure Storage.
 author: deborahc
 ms.service: cosmos-db
@@ -7,19 +7,19 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: dech
 ms.custom: seodec18
-ms.openlocfilehash: fd044d4f32aefc00e1b04f7060e0fc0dc74fd6c7
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 914551bab47ad9db4e0bca4d53226fbae74b92f3
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882348"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411670"
 ---
 # <a name="work-with-data-using-azure-storage-explorer"></a>Uso de datos con el Explorador de Azure Storage
 
 El uso de Azure Cosmos DB en el Explorador de Azure Storage permite a los usuarios administrar entidades de Azure Cosmos DB, manipular datos, actualizar procedimientos y desencadenadores almacenados, además de otras entidades de Azure, como los blobs y las colas de Storage. Ahora puede usar la misma herramienta para administrar las diferentes entidades de Azure en un solo lugar. Actualmente, el Explorador de Azure Storage admite cuentas de Cosmos que estén configuradas para API de SQL, MongoDB, Graph y Table.
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Una cuenta de Cosmos con las API de SQL o Azure Cosmos DB para MongoDB. Si no tiene una cuenta, puede crear una en Azure Portal, tal y como se describe en [Azure Cosmos DB: Compilación de una aplicación web de SQL API con .NET y Azure Portal](create-sql-api-dotnet.md).
 
@@ -85,7 +85,7 @@ Realice estas operaciones para administrar una cuenta de Azure Cosmos DB:
 * Agregar el recurso a la lista de acceso rápido
 * Buscar y actualizar recursos
 * Crear y eliminar bases de datos
-* Crear y eliminar recopilaciones
+* Crear y eliminar colecciones
 * Crear, editar, eliminar y filtrar documentos
 * Administrar procedimientos almacenados, desencadenadores y funciones definidas por el usuario
 
@@ -199,7 +199,7 @@ Puede realizar muchas tareas de acción rápida haciendo clic con el botón dere
     ![Procedimiento almacenado](./media/storage-explorer/stored-procedure.png)
 * Las operaciones para **Desencadenadores** y **UDF** son similares a las de los **procedimientos almacenados**.
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 [Azure Cosmos DB en el Explorador de Azure Storage](https://docs.microsoft.com/azure/cosmos-db/storage-explorer) es una aplicación independiente que le permite conectarse a las cuentas de Azure Cosmos DB hospedadas en Azure y nubes soberanas de Windows, macOS o Linux. Permite a los usuarios administrar entidades de Azure Cosmos DB, manipular datos, actualizar procedimientos y desencadenadores almacenados, además de otras entidades de Azure como los blobs y las colas de Storage.
 
@@ -215,14 +215,14 @@ Existen varias razones por las que puede ver este error, las dos más comunes so
 
 + Se encuentra detrás de un *proxy transparente*, lo que significa que alguien (por ejemplo el departamento de TI) intercepta el tráfico HTTPS, lo descifra y después lo cifra mediante un certificado autofirmado.
 
-+ Está ejecutando un software, como un software antivirus, que inserta un certificado SSL autofirmado en los mensajes HTTPS que recibe.
++ Está ejecutando un software, como un software antivirus, que inserta un certificado TLS/SSL autofirmado en los mensajes HTTPS que recibe.
 
 Cuando el Explorador de Storage se encuentra uno de estos "certificados autofirmados", ya no sabe si el mensaje HTTPS que recibe se ha alterado. Pero si tiene una copia del certificado autofirmado, puede hacer que el Explorador de Storage confíe en él. Si no está seguro de qué o quién está insertando el certificado, puede intentar encontrarlo realizando los pasos siguientes:
 
-1. Instale Open SSL.
+1. Instalación de OpenSSL
      - [Windows](https://slproweb.com/products/Win32OpenSSL.html) (cualquiera de las versiones ligeras vale)
      - Mac y Linux: debe estar incluido con el sistema operativo
-2. Ejecute Open SSL.
+2. Ejecución de OpenSSL
     - Windows: Vaya al directorio de instalación y después a **/bin/** y, después, haga doble clic en **openssl.exe**.
     - Mac y Linux: ejecute **openssl** desde un terminal
 3. Ejecute `s_client -showcerts -connect microsoft.com:443`

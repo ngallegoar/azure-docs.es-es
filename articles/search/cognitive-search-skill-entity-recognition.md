@@ -8,14 +8,14 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 6393c1eeaaa72d653704fcc52442bfb326dc2cdd
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 6ef5952b6413563b2c2e16ff2218f709b414fb84
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77472339"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80297808"
 ---
-#   <a name="entity-recognition-cognitive-skill"></a>Aptitud cognitiva de reconocimiento de entidades
+#    <a name="entity-recognition-cognitive-skill"></a>Aptitud cognitiva de reconocimiento de entidades
 
 La aptitud **Reconocimiento de entidades** extrae entidades de distintos tipos del texto. Esta aptitud utiliza los modelos de aprendizaje automático proporcionados por [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) en Cognitive Services.
 
@@ -38,7 +38,7 @@ Los parámetros distinguen mayúsculas de minúsculas y son opcionales.
 | Nombre de parámetro     | Descripción |
 |--------------------|-------------|
 | categories    | Matriz de categorías que se deben extraer.  Tipos de categorías posibles: `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"`. Si no se proporciona ninguna categoría, se devuelven todos los tipos.|
-|defaultLanguageCode |  Código de idioma del texto de entrada. Se admiten los siguientes idiomas: `ar, cs, da, de, en, es, fi, fr, hu, it, ja, ko, nl, no, pl, pt-BR, pt-PT, ru, sv, tr, zh-hans`. No todas las categorías de entidad son compatibles con todos los idiomas. Consulte la nota que aparece a continuación.|
+|defaultLanguageCode |    Código de idioma del texto de entrada. Se admiten los siguientes idiomas: `ar, cs, da, de, en, es, fi, fr, hu, it, ja, ko, nl, no, pl, pt-BR, pt-PT, ru, sv, tr, zh-hans`. No todas las categorías de entidad son compatibles con todos los idiomas. Consulte la nota que aparece a continuación.|
 |minimumPrecision | Un valor entre 0 y 1. Si la puntuación de confianza (en el resultado `namedEntities`) es inferior a este valor, no se devuelve la entidad. El valor predeterminado es 0. |
 |includeTypelessEntities | Establézcalo en `true` si desea reconocer entidades conocidas que no se ajustan a las categorías actuales. Las entidades reconocidas se devuelven en el campo de salida complejo `entities`. Por ejemplo, "Windows 10" es una entidad conocida (un producto), pero como "Productos" no es una categoría admitida, esta entidad se incluiría en el campo de salida de las entidades. Valor predeterminado: `false` |
 
@@ -47,7 +47,7 @@ Los parámetros distinguen mayúsculas de minúsculas y son opcionales.
 
 | Nombre de entrada      | Descripción                   |
 |---------------|-------------------------------|
-| languageCode  | Opcional. El valor predeterminado es `"en"`.  |
+| languageCode    | Opcional. El valor predeterminado es `"en"`.  |
 | text          | Texto que se analizará.          |
 
 ## <a name="skill-outputs"></a>Salidas de la aptitud
@@ -55,9 +55,9 @@ Los parámetros distinguen mayúsculas de minúsculas y son opcionales.
 > [!NOTE]
 > No todas las categorías de entidad son compatibles con todos los idiomas. Los tipos de categoría de entidad `"Person"`, `"Location"` y `"Organization"` se admiten para todos los idiomas anteriores. Solo _de_, _en_, _es_, _fr_ y _zh-hans_ admiten la extracción de los tipos `"Quantity"`, `"Datetime"`, `"URL"` y `"Email"`. Para más información, consulte [Compatibilidad de idiomas y regiones para Text Analytics API](https://docs.microsoft.com/azure/cognitive-services/text-analytics/language-support).  
 
-| Nombre de salida     | Descripción                   |
+| Nombre de salida      | Descripción                   |
 |---------------|-------------------------------|
-| persons      | Una matriz de cadenas donde cada cadena representa el nombre de una persona. |
+| persons       | Una matriz de cadenas donde cada cadena representa el nombre de una persona. |
 | locations  | Una matriz de cadenas donde cada cadena representa una ubicación. |
 | organizations  | Una matriz de cadenas donde cada cadena representa una organización. |
 | quantities  | Una matriz de cadenas donde cada cadena representa una cantidad. |
@@ -67,7 +67,7 @@ Los parámetros distinguen mayúsculas de minúsculas y son opcionales.
 | namedEntities | Una matriz de tipos complejos, que contiene los siguientes campos: <ul><li>category</li> <li>valor (el nombre de entidad real)</li><li>desplazamiento (la ubicación donde se encontró en el texto)</li><li>confianza (cuanto más alto sea el valor, más real será una entidad)</li></ul> |
 | entities | Una matriz de tipos complejos que contiene información valiosa acerca de las entidades extraídas del texto, con los siguientes campos: <ul><li> name (el nombre real de la entidad. Esto representa una forma "normalizada")</li><li> wikipediaId</li><li>wikipediaLanguage</li><li>wikipediaUrl (un vínculo a la página de Wikipedia de la entidad)</li><li>bingId</li><li>type (la categoría de la entidad reconocida)</li><li>subType (solo disponible para determinadas categorías; proporciona una vista más pormenorizada del tipo de entidad)</li><li> matches (una colección compleja que contiene)<ul><li>text (el texto sin formato de la entidad)</li><li>offset (la ubicación donde se encontró)</li><li>length (la longitud del texto de la entidad sin formato)</li></ul></li></ul> |
 
-##  <a name="sample-definition"></a>Definición de ejemplo
+##    <a name="sample-definition"></a>Definición de ejemplo
 
 ```json
   {
@@ -97,7 +97,7 @@ Los parámetros distinguen mayúsculas de minúsculas y son opcionales.
     ]
   }
 ```
-##  <a name="sample-input"></a>Entrada de ejemplo
+##    <a name="sample-input"></a>Entrada de ejemplo
 
 ```json
 {
@@ -114,7 +114,7 @@ Los parámetros distinguen mayúsculas de minúsculas y son opcionales.
 }
 ```
 
-##  <a name="sample-output"></a>Salida de ejemplo
+##    <a name="sample-output"></a>Salida de ejemplo
 
 ```json
 {
@@ -187,6 +187,7 @@ Los parámetros distinguen mayúsculas de minúsculas y son opcionales.
 }
 ```
 
+Tenga en cuenta que los desplazamientos devueltos para las entidades en la salida de esta aptitud se devuelven directamente desde la [API de Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview), lo que significa que si los usa para indexar en la cadena original, debe usar la clase [StringInfo](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo?view=netframework-4.8) en .NET para extraer el contenido correcto.  [Se pueden encontrar aquí más detalles.](https://docs.microsoft.com/azure/cognitive-services/text-analytics/concepts/text-offsets)
 
 ## <a name="error-cases"></a>Casos de error
 Si no se admite el código de idioma del documento, se devuelve un error y no se extrae ninguna entidad.

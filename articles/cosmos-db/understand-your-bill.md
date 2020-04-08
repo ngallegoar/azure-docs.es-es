@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 74a4279d347be92b1047a9cf361e233ecc7fcff8
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: 5954c8eda370c0734985c47cfff6d073f5d76d17
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78674315"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80258029"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Entienda la factura de Azure Cosmos DB
 
@@ -220,7 +220,7 @@ Con el nivel Gratis de Azure Cosmos DB, obtendrá en la cuenta las primeras 400
 - En total, sin el nivel Gratis, se le facturarían 3 * 1200 RU/s = 3600 RU/s y 3 * 10 GB = 30 GB de almacenamiento.
 - Con el descuento por nivel Gratis, después de quitar 400 RU/s y 5 GB de almacenamiento, se le facturará por una cantidad efectiva de 3200 RU/s (32 unidades) de capacidad de proceso aprovisionada con la tarifa de región de escritura única y 25 GB de almacenamiento.
 - El costo mensual de RU/s sería: 32 unidades * 0,008 USD * 24 horas * 31 días = 190,46 USD. El costo mensual del almacenamiento sería: 25 GB * 0,25/GB = 6,25 USD. El costo total sería de 190,46 + 6,25 = 196,71 USD.
-- Nota: si el precio por unidad de RU/s o de almacenamiento difiere en las regiones, las 400 RU/s y los 5 GB del nivel Gratis reflejarán las tarifas de la cuenta en la que se creó la región.
+- Nota: Si el precio por unidad de RU/s o de almacenamiento difiere en las regiones, las 400 RU/s y los 5 GB del nivel Gratis reflejarán las tarifas de la región donde se creó la cuenta.
 
 ### <a name="billing-example---multi-region-multi-master-multiple-write-region-account"></a>Ejemplo de facturación: cuenta de varias regiones, con arquitectura multimaestro (varias regiones de escritura)
 

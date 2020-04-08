@@ -7,16 +7,16 @@ ms.topic: article
 services: web-application-firewall
 ms.date: 09/05/2019
 ms.author: victorh
-ms.openlocfilehash: 516e327cca1aa6a691a1d932c5f48c9108d818b4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 158bfe30bf48ee420be8efb9ff32fff0e555d9e7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510189"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79475831"
 ---
 #  <a name="custom-rules-for-web-application-firewall-with-azure-front-door"></a>Reglas personalizadas para el firewall de aplicaciones web con Azure Front Door
 
-El servicio del firewall de aplicaciones web (WAF) de Azure con Front Door le permite controlar el acceso a sus aplicaciones web en función de las condiciones que defina. Una regla WAF personalizada consta de un número de prioridad, un tipo de regla, condiciones de coincidencia y una acción. Existen dos tipos de reglas personalizadas: reglas de coincidencia y reglas de límite de frecuencia. Una regla de coincidencia controla el acceso en función de un conjunto de condiciones coincidentes, mientras que una regla de limitación de frecuencia controla el acceso en función de las condiciones coincidentes y la frecuencia de las solicitudes entrantes. Puede deshabilitar una regla personalizada para impedir que se evalúe, pero mantener la configuración. 
+El firewall de aplicaciones web (WAF) de Azure con Front Door le permite controlar el acceso a sus aplicaciones web en función de las condiciones que defina. Una regla WAF personalizada consta de un número de prioridad, un tipo de regla, condiciones de coincidencia y una acción. Existen dos tipos de reglas personalizadas: reglas de coincidencia y reglas de límite de frecuencia. Una regla de coincidencia controla el acceso en función de un conjunto de condiciones coincidentes, mientras que una regla de limitación de frecuencia controla el acceso en función de las condiciones coincidentes y la frecuencia de las solicitudes entrantes. Puede deshabilitar una regla personalizada para impedir que se evalúe, pero mantener la configuración. 
 
 ## <a name="priority-match-conditions-and-action-types"></a>Prioridad, condiciones de coincidencia y tipos de acción
 
@@ -79,7 +79,7 @@ Puede controlar el acceso con una regla WAF personalizada que defina un número 
      - POST
      - PUT
      - HEAD
-     - DELETE
+     - Delete
      - LOCK
      - UNLOCK
      - PROFILE

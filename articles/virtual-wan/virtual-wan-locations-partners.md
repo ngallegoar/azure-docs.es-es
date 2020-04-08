@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to find a Virtual WAN partner
-ms.openlocfilehash: 68379fd2334e517df4011c05bb32543f7ce4a173
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 3976f4114df6222d34f19e2bb44fd05d53057321
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190399"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80123288"
 ---
 # <a name="virtual-wan-partners-and-virtual-hub-locations"></a>Ubicaciones de concentradores virtuales y asociados de Azure Virtual WAN
 
@@ -23,7 +23,7 @@ Azure Virtual WAN es un servicio de redes que ofrece conectividad de rama a rama
 
 La conectividad desde el dispositivo local se establece de forma automática para el concentrador virtual. Un concentrador virtual es una red virtual administrada por Microsoft. El concentrador contiene varios puntos de conexión de servicio para habilitar la conectividad de la red local (vpnsite). Solo se puede tener un concentrador por región.
 
-## <a name="automation"></a>Automatización de asociados de conectividad
+## <a name="automation-from-connectivity-partners"></a><a name="automation"></a>Automatización de asociados de conectividad
 
 Los dispositivos que se conectan a Azure Virtual WAN tienen automatización integrada para conectarse. Normalmente, esto se configura en la interfaz de usuario de administración de dispositivos (o equivalente), donde se configura la administración de configuración y de conectividad entre el dispositivo de la rama VPN a un punto de conexión de VPN de concentrador virtual de Azure (puerta de enlace VPN).
 
@@ -36,13 +36,13 @@ La automatización de alto nivel siguiente se configura en la consola del dispos
 
 Algunos asociados de conectividad pueden extender la automatización para incluir la creación de la red virtual del concentrador virtual de Azure y VPN Gateway. Si quiere obtener más información acerca de la automatización, consulte [Directrices de automatización para asociados de Azure Virtual WAN](virtual-wan-configure-automation-providers.md).
 
-## <a name="partners"></a>Conectividad mediante asociados
+## <a name="connectivity-through-partners"></a><a name="partners"></a>Conectividad mediante asociados
 
 [!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
 
-En nuestro plan de desarrollo para un futuro próximo están programados los siguientes asociados: Arista, Aruba HPE, Cisco Systems, F5 Networks, Open Systems, Oracle SD-WAN, SharpLink y VMWare Velocloud.
+En nuestro plan de desarrollo para un futuro próximo están programados los siguientes asociados: 128 Technologies, Arista, Aruba HPE, Cisco Systems, F5 Networks, Open Systems, Oracle SD-WAN, SharpLink y VMWare Velocloud.
 
-## <a name="locations"></a>Ubicaciones
+## <a name="locations"></a><a name="locations"></a>Ubicaciones
 
 [!INCLUDE [regions](../../includes/virtual-wan-regions-include.md)]
 

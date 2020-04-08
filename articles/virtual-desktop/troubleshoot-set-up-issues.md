@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 01/08/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 17505084095eb8fbe46c20c7aa226131e128b286
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: 36b15b41279edc60d337a7ba70abe2ca64d4bc7f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79127424"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79371603"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Creación de los grupos de inquilinos y de host
 
@@ -145,7 +145,7 @@ Ejemplo de error no procesado:
 
 Para corregirlo, siga estos pasos:
 
-1. Abra Azure Portal y vaya a la hoja **Redes virtuales**.
+1. Abra Azure Portal y vaya a la pestaña **Redes virtuales**.
 2. Busque la red virtual y, después, seleccione **Servidores DNS**.
 3. El menú Servidores DNS debe aparecer en el lado derecho de la pantalla. En ese menú, seleccione **Personalizado**.
 4. Asegúrese de que los servidores DNS que aparecen en Personalizado coinciden con el controlador de dominio o el dominio de Active Directory. Si no ve el servidor DNS, escriba su valor en el campo **Agregar servidor DNS** para agregarlo.

@@ -7,12 +7,12 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 03/10/2020
 ms.author: cynthn
-ms.openlocfilehash: b6f5e155b76535c4d9e0080983d5f54cec3adb01
-ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+ms.openlocfilehash: 3d014014b540e5ea5959483427dec4b239ceaf7b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79086942"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79476797"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-portal"></a>implementación de máquinas virtuales en hosts dedicados mediante el portal
 
@@ -37,7 +37,7 @@ En este artículo se ofrecen instrucciones para crear un [host dedicado](dedicat
 
 ## <a name="add-an-existing-vm"></a>Incorporación de una máquina virtual existente 
 
-Es posible incorporar una máquina virtual existente a un host dedicado, pero para ello antes es preciso detenerla o desasignarla. Antes de mover una máquina virtual a un host dedicado, asegúrese de que se admite su configuración:
+Puede agregar una máquina virtual existente a un host dedicado, pero antes es necesario detenerla o desasignarla. Antes de mover una máquina virtual a un host dedicado, asegúrese de que se admite su configuración:
 
 - El tamaño de la máquina virtual debe estar en la misma familia de tamaños que el host dedicado. Por ejemplo, si el host dedicado es DSv3, el tamaño de la máquina virtual puede ser Standard_D4s_v3, pero no Standard_A4_v2. 
 - Es preciso que la máquina virtual se encuentre en la misma región que el host dedicado.

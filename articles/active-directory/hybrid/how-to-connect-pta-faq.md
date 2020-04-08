@@ -16,12 +16,12 @@ ms.date: 03/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd923a47c49bfa7a6ab16e822a80c8e7f4f9a3e0
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.openlocfilehash: 59bf7ae5914f5cc886d95f25b36abccfdf09c4a8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79096057"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80331282"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticación de paso a través de Azure Active Directory: Preguntas más frecuentes
 
@@ -75,7 +75,7 @@ Si no ha configurado la escritura diferida de contraseñas para un usuario deter
 ## <a name="what-do-pass-through-authentication-agents-communicate-over-ports-80-and-443"></a>¿Qué comunican los agentes de autenticación de paso a través mediante los puertos 80 y 443?
 
 - Los agentes de autenticación realizan las solicitudes HTTPS a través del puerto 443 en todas las operaciones de esta característica.
-- Los agentes de autenticación realizan solicitudes HTTP a través del puerto 80 para la descarga de listas de revocación de certificados (CRL) SSL.
+- Los agentes de autenticación realizan solicitudes HTTP a través del puerto 80 para la descarga de listas de revocación de certificados (CRL) TLS/SSL.
 
      >[!NOTE]
      >Las actualizaciones recientes redujeron el número de puertos que la característica necesita. Si tiene versiones anteriores de Azure AD Connect o del agente de autenticación, mantenga también estos puertos abiertos: 5671, 8080, 9090, 9091, 9350, 9352 y 10100-10120.

@@ -1,19 +1,19 @@
 ---
-title: Cómo consultar registros de Azure Monitor para VM (versión preliminar) | Microsoft Docs
+title: Cómo consultar registros de Azure Monitor para VM
 description: La solución Azure Monitor para VM recopila datos de registro y métricas. En este artículo se describen los registros y se incluyen consultas de ejemplo.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 12/19/2019
-ms.openlocfilehash: e679345669d0954008e46f48d986930038a84c10
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.date: 03/12/2020
+ms.openlocfilehash: 61a71539dc034a216689eafd8991df60db96d2a4
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77670719"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396921"
 ---
-# <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Cómo consultar registros de Azure Monitor para VM (versión preliminar)
+# <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>Cómo consultar registros de Azure Monitor para VM
 
 Azure Monitor para VM recopila métricas de rendimiento y conexión, datos de inventario de proceso y equipo, e información sobre el estado, y reenvía estos datos al área de trabajo de Log Analytics en Azure Monitor.  Estos datos están disponibles para [consulta](../../azure-monitor/log-query/log-query-overview.md) en Azure Monitor. Estos datos se pueden aplicar a escenarios que incluyen la planeación de la migración, el análisis de la capacidad, la detección y la solución de problemas de rendimiento a petición.
 
@@ -208,13 +208,13 @@ Los registros con un tipo de *VMComputer* tienen datos de inventario para servid
 |AzureCloudServiceRoleType | Tipo de rol del servicio en la nube: *worker* o *web* |
 |AzureCloudServiceInstanceId | Identificador de instancia del rol del servicio en la nube |
 |AzureVmScaleSetName | Nombre de conjunto de escalado de máquinas virtuales |
-|AzureVmScaleSetDeployment | Identificación de implementación del conjunto de escalado de máquinas virtuales |
+|AzureVmScaleSetDeployment | Identificador de la implementación del conjunto de escalado de máquinas virtuales |
 |AzureVmScaleSetResourceId | Identificador único del recurso del conjunto de escalado de máquinas virtuales|
 |AzureVmScaleSetInstanceId | Identificador único del conjunto de escalado de máquinas virtuales |
 |AzureServiceFabricClusterId | Identificador único del clúster de Azure Service Fabric | 
 |AzureServiceFabricClusterName | Nombre del clúster de Azure Service Fabric |
 
-### <a name="vmprocess-record"></a>Registro de VMProcess
+### <a name="vmprocess-records"></a>Registro de VMProcess
 
 Los registros con un tipo *VMProcess* tienen datos de inventario para procesos conectados mediante TCP en servidores con Dependency Agent. Estos registros tienen las propiedades de la tabla siguiente:
 
@@ -247,7 +247,8 @@ Los registros con un tipo *VMProcess* tienen datos de inventario para procesos c
 |UserDomain | Dominio en el que se está ejecutando el proceso |
 |_ResourceId | Identificador único de un proceso en el área de trabajo |
 
-## <a name="sample-log-searches"></a>Búsquedas de registros de ejemplo
+
+## <a name="sample-map-queries"></a>Consultas de mapa de ejemplo
 
 ### <a name="list-all-known-machines"></a>Enumerar todas las máquinas conocidas
 
@@ -264,7 +265,7 @@ let Today = now(); VMComputer | extend DaysSinceBoot = Today - BootTime | summar
 ### <a name="summary-of-azure-vms-by-image-location-and-sku"></a>Resumen de las VM de Azure por imagen, ubicación y SKU
 
 ```kusto
-VMComputer | where AzureLocation != "" | summarize by ComputerName, AzureImageOffering, AzureLocation, AzureImageSku
+VMComputer | where AzureLocation != "" | summarize by Computer, AzureImageOffering, AzureLocation, AzureImageSku
 ```
 
 ### <a name="list-the-physical-memory-capacity-of-all-managed-computers"></a>Enumeración de la capacidad de memoria física de todos los equipos administrados
@@ -282,7 +283,7 @@ VMComputer | summarize arg_max(TimeGenerated, *) by _ResourceId | project Comput
 ### <a name="find-all-processes-with-sql-in-the-command-line"></a>Buscar todos los procesos con "sql" en la línea de comandos
 
 ```kusto
-VMComputer | where CommandLine contains_cs "sql" | summarize arg_max(TimeGenerated, *) by _ResourceId
+VMProcess | where CommandLine contains_cs "sql" | summarize arg_max(TimeGenerated, *) by _ResourceId
 ```
 
 ### <a name="find-a-machine-most-recent-record-by-resource-name"></a>Buscar una máquina (registro más reciente) por el nombre de recurso
@@ -306,7 +307,7 @@ VMProcess | where Machine == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | summariz
 ### <a name="list-all-computers-running-sql-server"></a>Enumerar todos los equipos que ejecutan SQL Server
 
 ```kusto
-VMComputer | where AzureResourceName in ((search in (VMProcess) "\*sql\*" | distinct Machine)) | distinct Computer
+VMComputer | where AzureResourceName in ((search in (VMProcess) "*sql*" | distinct Machine)) | distinct Computer
 ```
 
 ### <a name="list-all-unique-product-versions-of-curl-in-my-datacenter"></a>Enumerar todas las versiones de producto únicas de curl en mi centro de datos
@@ -318,7 +319,7 @@ VMProcess | where ExecutableName == "curl" | distinct ProductVersion
 ### <a name="create-a-computer-group-of-all-computers-running-centos"></a>Crear un grupo de equipos de todos los equipos con CentOS
 
 ```kusto
-VMComputer | where OperatingSystemFullName contains_cs "CentOS" | distinct ComputerName
+VMComputer | where OperatingSystemFullName contains_cs "CentOS" | distinct Computer
 ```
 
 ### <a name="bytes-sent-and-received-trends"></a>Tendencias de bytes enviados y recibidos
@@ -428,6 +429,47 @@ let remoteMachines = remote | summarize by RemoteMachine;
 // aggregate the remote information
 | summarize Remote=makeset(iff(isempty(RemoteMachine), todynamic('{}'), pack('Machine', RemoteMachine, 'Process', Process1, 'ProcessName', ProcessName1))) by ConnectionId, Direction, Machine, Process, ProcessName, SourceIp, DestinationIp, DestinationPort, Protocol
 ```
+
+## <a name="performance-records"></a>Registros de rendimiento
+Los registros con un tipo de *InsightsMetrics* tienen datos de rendimiento del sistema operativo invitado de la máquina virtual. Estos registros tienen las propiedades de la tabla siguiente:
+
+
+| Propiedad | Descripción |
+|:--|:--|
+|TenantId | Identificador único del área de trabajo |
+|SourceSystem | *Insights* | 
+|TimeGenerated | Hora en que se recopiló el valor (UTC) |
+|Computer | FQDN del equipo | 
+|Origen | *vm.azm.ms* |
+|Espacio de nombres | Categoría del contador de rendimiento | 
+|Nombre | Nombre del contador de rendimiento. |
+|Val | Valor recopilado | 
+|Etiquetas | Detalles relacionados sobre el registro. Vea la tabla siguiente para consultar las etiquetas utilizadas con diferentes tipos de registros.  |
+|AgentId | Identificador único de cada agente del equipo |
+|Tipo | *InsightsMetrics* |
+|_ResourceId_ | Identificador de recurso de la máquina virtual |
+
+Los contadores de rendimiento recopilados actualmente en la tabla *InsightsMetrics* se enumeran en la tabla siguiente:
+
+| Espacio de nombres | Nombre | Descripción | Unidad | Etiquetas |
+|:---|:---|:---|:---|:---|
+| Computer    | Latido             | Latido de equipo                        | | |
+| Memoria      | AvailableMB           | Bytes disponibles en la memoria                    | Bytes          | memorySizeMB: tamaño total de la memoria|
+| Red     | WriteBytesPerSecond   | Bytes de escritura de red por segundo            | BytesPerSecond | NetworkDeviceId: identificador del dispositivo<br>bytes: total de bytes enviados |
+| Red     | ReadBytesPerSecond    | Bytes de lectura de red por segundo             | BytesPerSecond | networkDeviceId: identificador del dispositivo<br>bytes: total de bytes recibidos |
+| Procesador   | UtilizationPercentage | Porcentaje de uso del procesador          | Percent        | totalCpus: CPU totales |
+| LogicalDisk | WritesPerSecond       | Escrituras en el disco lógico por segundo            | CountPerSecond | mountId: identificador de montaje del dispositivo |
+| LogicalDisk | WriteLatencyMs        | Latencia de escritura en el disco lógico en milisegundos    | MilliSeconds   | mountId: identificador de montaje del dispositivo |
+| LogicalDisk | WriteBytesPerSecond   | Bytes de escritura en el disco lógico por segundo       | BytesPerSecond | mountId: identificador de montaje del dispositivo |
+| LogicalDisk | TransfersPerSecond    | Transferencias del disco lógico por segundo         | CountPerSecond | mountId: identificador de montaje del dispositivo |
+| LogicalDisk | TransferLatencyMs     | Latencia de transferencia del disco lógico en milisegundos | MilliSeconds   | mountId: identificador de montaje del dispositivo |
+| LogicalDisk | ReadsPerSecond        | Lecturas del disco lógico por segundo             | CountPerSecond | mountId: identificador de montaje del dispositivo |
+| LogicalDisk | ReadLatencyMs         | Latencia de lectura del disco lógico en milisegundos     | MilliSeconds   | mountId: identificador de montaje del dispositivo |
+| LogicalDisk | ReadBytesPerSecond    | Bytes de lectura de disco lógico por segundo        | BytesPerSecond | mountId: identificador de montaje del dispositivo |
+| LogicalDisk | FreeSpacePercentage   | Porcentaje de espacio disponible en disco lógico        | Percent        | mountId: identificador de montaje del dispositivo |
+| LogicalDisk | FreeSpaceMB           | Bytes de espacio disponible en el disco lógico             | Bytes          | mountId: identificador de montaje del dispositivo<br>diskSizeMB: tamaño total del disco |
+| LogicalDisk | BytesPerSecond        | Bytes del disco lógico por segundo             | BytesPerSecond | mountId: identificador de montaje del dispositivo |
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: 1d244d7b62fcfefeec6f628f473274ae982bf4d8
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 0b1b22095c77344ed71762d3d51b12f19d9f1811
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77120230"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79458059"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Solución de problemas y limitaciones de Azure Cloud Shell
 
@@ -212,3 +212,6 @@ PowerShell:
   ```
 ## <a name="azure-government-limitations"></a>Limitaciones de Azure Government
 Azure Cloud Shell en Azure Government solo es accesible mediante Azure Portal.
+
+>[!Note]
+> Actualmente no se admite la conexión a las nubes GCC-High o DoD de Government de Exchange Online.

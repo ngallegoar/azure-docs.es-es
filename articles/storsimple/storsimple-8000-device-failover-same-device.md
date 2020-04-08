@@ -1,5 +1,5 @@
 ---
-title: Conmutación por error y recuperación ante desastres para el mismo dispositivo StorSimple 8000
+title: 'Tutorial: Conmutación por error del dispositivo físico StorSimple en el mismo dispositivo'
 description: Aprenda a conmutar por error el dispositivo StorSimple en el mismo dispositivo.
 services: storsimple
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/23/2017
 ms.author: alkohli
-ms.openlocfilehash: c8fe2d7ec7649f47f6cb9c8ae2c83f19c15691b6
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: dde01f9b91ff5a04ddb3fcc8d5f0c535278b0539
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77471812"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398072"
 ---
 # <a name="fail-over-your-storsimple-physical-device-to-same-device"></a>Conmutación por error del dispositivo físico StorSimple en el mismo dispositivo
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/11/2020
+ms.date: 03/25/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cfb5fb17abd5a433c177d3efc5a4f0a2cec3d4d7
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 20b699f0672b49dd2f947e0cf00d0ffcef7961e6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77186136"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80295301"
 ---
 # <a name="common-conditional-access-policies"></a>Directivas de acceso condicional habituales
 
@@ -33,18 +33,23 @@ En los siguientes artículos encontrará más información sobre las cuentas de 
 
 ## <a name="typical-policies-deployed-by-organizations"></a>Directivas habituales implementadas por organizaciones
 
+* [Bloquear la autenticación heredada](howto-conditional-access-policy-block-legacy.md)\*
 * [Exigir autenticación multifactor para administradores](howto-conditional-access-policy-admin-mfa.md)\*
 * [Exigir autenticación multifactor para la administración de Azure](howto-conditional-access-policy-azure-management.md)\*
 * [Exigir autenticación multifactor para todos los usuarios](howto-conditional-access-policy-all-users-mfa.md)\*
-* [Bloquear la autenticación heredada](howto-conditional-access-policy-block-legacy.md)\*
+
+\* Cuando estas cuatro directivas se configuran de forma conjunta, imitan la funcionalidad habilitada por los [valores predeterminados de seguridad](../fundamentals/concept-fundamentals-security-defaults.md).
+
+## <a name="additional-policies"></a>Directivas adicionales
+
 * [Acceso condicional basado en el riesgo (se necesita Azure AD Premium P2)](howto-conditional-access-policy-risk.md)
 * [Exigir ubicaciones de confianza para el registro de la autenticación multifactor](howto-conditional-access-policy-registration.md)
 * [Bloquear el acceso por ubicación](howto-conditional-access-policy-location.md)
 * [Requerir dispositivo compatible](howto-conditional-access-policy-compliant-device.md)
-
-\* Cuando estas cuatro directivas se configuran de forma conjunta, imitan la funcionalidad habilitada por los [valores predeterminados de seguridad](../fundamentals/concept-fundamentals-security-defaults.md).
+* [Bloquear el acceso, excepto para aplicaciones específicas](howto-conditional-access-policy-block-access.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Simulación del comportamiento de inicio de sesión mediante la herramienta What If de acceso condicional.](troubleshoot-conditional-access-what-if.md)
+
 - [Uso del modo de solo informe de acceso condicional para determinar el impacto de las nuevas decisiones de directiva.](concept-conditional-access-report-only.md)

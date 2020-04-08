@@ -1,5 +1,5 @@
 ---
-title: Back-end y grupos de back-end en Azure Front Door Service | Microsoft Docs
+title: Back-end y grupos de back-end en Azure Front Door | Microsoft Docs
 description: En este artículo se describe qué back-end y grupos de back-end se encuentran en la configuración de Front Door.
 services: front-door
 documentationcenter: ''
@@ -11,22 +11,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: b764799d3f40cef24a0412ac950026af650d4ec7
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 18b165d83bfa154348842542bd8323a40330aa2a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229030"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80293469"
 ---
-# <a name="backends-and-backend-pools-in-azure-front-door-service"></a>Back-end y grupos de back-end en Azure Front Door Service
-En este artículo se describen conceptos acerca de cómo asignar la implementación de aplicaciones con Azure Front Door Service. También se explican los distintos términos en la configuración de Front Door sobre back-end de aplicación.
+# <a name="backends-and-backend-pools-in-azure-front-door"></a>Back-end y grupos de back-end en Azure Front Door
+En este artículo se describen conceptos acerca de cómo asignar la implementación de aplicaciones con Azure Front Door. También se explican los distintos términos en la configuración de Front Door sobre back-end de aplicación.
 
 ## <a name="backends"></a>Backends
-Un back-end es igual a la instancia de implementación de una aplicación en una región. Front Door Service es compatible con back-ends de Azure y que no son de Azure, por lo que la región no está restringida solo a las regiones de Azure. Además, puede ser su centro de datos local o una instancia de aplicación en otra nube.
+Un back-end es igual a la instancia de implementación de una aplicación en una región. Front Door es compatible con back-ends de Azure y que no son de Azure, por lo que la región no está restringida solo a las regiones de Azure. Además, puede ser su centro de datos local o una instancia de aplicación en otra nube.
 
-Los back-end de Front Door Service hacen referencia al nombre de host o a la dirección IP pública de la aplicación, que puede atender solicitudes de cliente. Los back-ends no deben confundirse con el nivel de base de datos, la capa de almacenamiento, etc. Los back-ends deben considerarse como el punto de conexión público del back-end de aplicación. Al agregar un back-end en un grupo de back-end de Front Door, también debe agregar lo siguiente:
+Los back-end de Front Door hacen referencia al nombre de host o a la dirección IP pública de la aplicación, que puede atender solicitudes de cliente. Los back-ends no deben confundirse con el nivel de base de datos, la capa de almacenamiento, etc. Los back-ends deben considerarse como el punto de conexión público del back-end de aplicación. Al agregar un back-end en un grupo de back-end de Front Door, también debe agregar lo siguiente:
 
-- **Tipo de host de back-end**. El tipo de recurso que desea agregar. Front Door Service es compatible con la detección automática de back-end de aplicación del servicio de aplicación, el servicio en la nube o el almacenamiento. Si desea usar un recurso diferente en Azure o incluso un back-end ajeno a Azure, seleccione **Host personalizado**.
+- **Tipo de host de back-end**. El tipo de recurso que desea agregar. Front Door es compatible con la detección automática de back-end de aplicación del servicio de aplicación, el servicio en la nube o el almacenamiento. Si desea usar un recurso diferente en Azure o incluso un back-end ajeno a Azure, seleccione **Host personalizado**.
 
     >[!IMPORTANT]
     >Durante la configuración, las API no validan si el back-end no es accesible desde los entornos de Front Door. Asegúrese de que Front Door puede llegar a su back-end.
@@ -39,13 +39,13 @@ Los back-end de Front Door Service hacen referencia al nombre de host o a la dir
 
 - **Peso**. Asigne pesos a sus diferentes back-end para distribuir el tráfico entre un conjunto de back-end, ya sea de manera uniforme o según los coeficientes de peso. Para más información, vea [Pesos](front-door-routing-methods.md#weighted).
 
-### <a name = "hostheader"></a>Encabezado de host de back-end
+### <a name="backend-host-header"></a><a name = "hostheader"></a>Encabezado de host de back-end
 
 Las solicitudes reenviadas por Front Door a un back-end incluyen un campo de encabezado de host que el back-end usa para recuperar el recurso de destino. El valor de este campo normalmente procede del URI del back-end y tiene el host y el puerto.
 
-Por ejemplo, una solicitud realizada para www\.contoso.com tendrá el encabezado de host www\.contoso.com. Si usa Azure Portal para configurar su back-end, el valor predeterminado para este campo es el nombre de host del back-end. Si el back-end es contoso-westus.azurewebsites.net, en Azure Portal, el valor que se rellena automáticamente el encabezado de host de back-end será contoso-westus.azurewebsites.net. En cambio, si se usan plantillas de Azure Resource Manager u otro método sin establecer explícitamente este campo, Front Door enviará el nombre de host entrante como el valor del encabezado de host. Si la solicitud se realizó para www\.contoso.com y el back-end es contoso-westus.azurewebsites.net que tiene un campo de encabezado vacío, Front Door Service establecerá el encabezado de host como www\.contoso.com.
+Por ejemplo, una solicitud realizada para `www.contoso.com` tendrá el encabezado de host www.contoso.com. Si usa Azure Portal para configurar su back-end, el valor predeterminado para este campo es el nombre de host del back-end. Si el back-end es contoso-westus.azurewebsites.net, en Azure Portal, el valor que se rellena automáticamente el encabezado de host de back-end será contoso-westus.azurewebsites.net. En cambio, si se usan plantillas de Azure Resource Manager u otro método sin establecer explícitamente este campo, Front Door enviará el nombre de host entrante como el valor del encabezado de host. Si la solicitud se realizó para www\.contoso.com y el back-end es contoso-westus.azurewebsites.net que tiene un campo de encabezado vacío, Front Door establecerá el encabezado de host como www\.contoso.com.
 
-La mayoría de back-end de aplicación (por ejemplo, Azure Web Apps, Blob Storage y Cloud Services) requieren que el encabezado de host coincida con el dominio del back-end. En cambio, el host de front-end que se enrute al back-end usará otro nombre de host, como www\.contoso.azurefd.net.
+La mayoría de back-end de aplicación (por ejemplo, Azure Web Apps, Blob Storage y Cloud Services) requieren que el encabezado de host coincida con el dominio del back-end. En cambio, el host de front-end que se enrute al back-end usará otro nombre de host, como www.contoso.net.
 
 Si el back-end requiere que el encabezado de host coincida con el nombre de host de back-end, asegúrese de que el encabezado de host de back-end incluya el back-end de nombre de host.
 
@@ -59,22 +59,26 @@ Para configurar el campo **Encabezado host de back-end** para un back-end en la 
 
 3. Establezca el campo de encabezado de host de back-end en un valor personalizado o déjelo en blanco. El nombre de host de la solicitud entrante se utilizará como el valor del encabezado de host.
 
-## <a name="backend-pools"></a>Grupos de back-end
+## <a name="backend-pools"></a>Grupos back-end
 Un grupo de back-end en Front Door hace referencia al conjunto de back-end que reciben tráfico similar para las aplicaciones. En otras palabras, es una agrupación lógica de las instancias de aplicación en todo el mundo que reciben el mismo tráfico y responden con el comportamiento esperado. Estos back-end se implementan en diferentes regiones o en la misma región. Todos los back-end puede estar en modo de implementación activo/activo, o lo que se define como configuración activa/pasiva.
 
 Un grupo de back-end define cómo se deben evaluar los diferentes back-end a través de los sondeos de estado. También define cómo se produce el equilibrio de carga entre ellos.
 
 ### <a name="health-probes"></a>Sondeos de estado
-Front Door Service envía solicitudes periódicas de sondeo HTTP/HTTPS a cada uno de los back-end configurados. Las solicitudes de sondeo determinan la proximidad y el estado de cada back-end para equilibrar la carga de las solicitudes del usuario final. La configuración de sondeo de estado para un grupo de back-end define cómo se sondea el estado de mantenimiento de los back-end de la aplicación. Las siguientes opciones están disponibles para la configuración del equilibrio de carga:
+Front Door envía solicitudes periódicas de sondeo HTTP/HTTPS a cada uno de los back-end configurados. Las solicitudes de sondeo determinan la proximidad y el estado de cada back-end para equilibrar la carga de las solicitudes del usuario final. La configuración de sondeo de estado para un grupo de back-end define cómo se sondea el estado de mantenimiento de los back-end de la aplicación. Las siguientes opciones están disponibles para la configuración del equilibrio de carga:
 
-- **Ruta de acceso**. La dirección URL utilizada para las solicitudes de sondeo para todos los back-end del grupo de back-end. Por ejemplo, si uno de los back-end es contoso-westus.azurewebsites.net y la ruta de acceso se establece en /probe/test.aspx, los entornos de Front Door Service, suponiendo que el protocolo está establecido en HTTP, enviarán las solicitudes de sondeo de estado a http\://contoso-westus.azurewebsites.net/probe/test.aspx.
+- **Ruta de acceso**: La dirección URL utilizada para las solicitudes de sondeo para todos los back-end del grupo de back-end. Por ejemplo, si uno de los back-end es contoso-westus.azurewebsites.net y la ruta de acceso se establece en /probe/test.aspx, los entornos de Front Door, suponiendo que el protocolo está establecido en HTTP, enviarán las solicitudes de sondeo de estado a http\://contoso-westus.azurewebsites.net/probe/test.aspx.
 
-- **Protocolo**. Define si las solicitudes de sondeo de estado desde Front Door a los back-end se enviarán a través del protocolo HTTP o HTTPS.
+- **Protocolo**: Define si las solicitudes de sondeo de estado desde Front Door a los back-end se enviarán a través del protocolo HTTP o HTTPS.
 
-- **Intervalo (segundos)** . Este campo define la frecuencia de los sondeos de estado para los back-end o los intervalos en que cada uno de los entornos de Front Door envía un sondeo.
+- **Método**: método HTTP que se va a usar para enviar sondeos de estado. Las opciones incluyen GET o HEAD (valor predeterminado).
+    > [!NOTE]
+    > Para reducir la carga y el costo de los back-end, Front Door recomienda el uso de solicitudes HEAD para sondeos de estado.
+
+- **Intervalo (segundos)** : Este campo define la frecuencia de los sondeos de estado para los back-end o los intervalos en que cada uno de los entornos de Front Door envía un sondeo.
 
     >[!NOTE]
-    >Para las conmutaciones por error rápidas, establezca el intervalo en un valor inferior. Cuanto menor sea el valor, mayor será el volumen de sondeo de estado que reciben los back-end. Por ejemplo, si el intervalo se establece en treinta segundos con noventa entornos de Front Door o POP, cada back-end recibirá entre tres y cinco solicitudes de sondeo por segundo.
+    >Para las conmutaciones por error rápidas, establezca el intervalo en un valor inferior. Cuanto menor sea el valor, mayor será el volumen de sondeo de estado que reciben los back-end. Por ejemplo, si el intervalo se establece en 30 segundos con, por ejemplo, 100 POP de Front Door globalmente, cada back-end recibirá en torno a 200 solicitudes de sondeo por minuto.
 
 Para más información, consulte [Sondeos de estado](front-door-health-probes.md).
 

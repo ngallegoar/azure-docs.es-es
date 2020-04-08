@@ -1,17 +1,17 @@
 ---
 title: Seguimiento distribuido en Azure Application Insights | Microsoft Docs
-description: Proporciona información acerca de la compatibilidad de Microsoft con el seguimiento distribuido mediante el reenviador local y la asociación en el proyecto OpenCensus
+description: Proporciona información acerca de la compatibilidad de Microsoft con el seguimiento distribuido mediante la asociación en el proyecto OpenCensus
 ms.topic: conceptual
 author: nikmd23
 ms.author: nimolnar
 ms.date: 09/17/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 49e61a7677007c52d1a584c4b49ccaadc3a02df3
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: c2f384370c3ceaf24164e4a27adc05b1a1e1ddf7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77669597"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294959"
 ---
 # <a name="what-is-distributed-tracing"></a>¿Qué es el seguimiento distribuido?
 
@@ -38,7 +38,7 @@ Los SDK de Application Insights para .NET, .NET Core, Java, Node.js y JavaScript
 * [Java](https://docs.microsoft.com/azure/application-insights/app-insights-java-get-started)
 * [Node.js](https://docs.microsoft.com/azure/application-insights/app-insights-nodejs-quick-start)
 * [JavaScript](https://docs.microsoft.com/azure/application-insights/app-insights-javascript)
-* [Python (versión preliminar)](opencensus-python.md)
+* [Python](opencensus-python.md)
 
 Con el SDK de Application Insights adecuado instalado y configurado, la información de seguimiento se recopila automáticamente para los marcos de trabajo, bibliotecas y tecnologías más populares mediante los auto-recopiladores de dependencias del SDK. La lista completa de las tecnologías compatibles está disponible en [la documentación de la recopilación automática de dependencias](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies).
 
@@ -48,7 +48,7 @@ Con el SDK de Application Insights adecuado instalado y configurado, la informac
 
 Además de los SDK de Application Insights, Application Insights también admite el seguimiento distribuido mediante [OpenCensus](https://opencensus.io/). OpenCensus es una distribución de bibliotecas de código abierto e independiente del proveedor que proporciona recopilación de métricas y seguimiento distribuido para los servicios. También permite a la comunidad de código abierto habilitar el seguimiento distribuido con tecnologías conocidas como Redis, Memcached o MongoDB. [Microsoft colabora en OpenCensus junto con varios otros asociados de supervisión y en la nube](https://open.microsoft.com/2018/06/13/microsoft-joins-the-opencensus-project/).
 
-[Python (versión preliminar)](opencensus-python.md) 
+[Python](opencensus-python.md) 
 
 El sitio web de OpenCensus mantiene la documentación de referencia de la API para [Python](https://opencensus.io/api/python/trace/usage.html) y [Go](https://godoc.org/go.opencensus.io), así como diversas guías para el uso de OpenCensus. 
 

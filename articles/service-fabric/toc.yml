@@ -366,7 +366,7 @@
           href: service-fabric-get-started.md
         - name: Linux
           href: service-fabric-get-started-linux.md
-        - name: Mac OS
+        - name: macOS
           href: service-fabric-get-started-mac.md
         - name: Configuración de la CLI de Service Fabric
           href: service-fabric-cli.md
@@ -675,6 +675,8 @@
                   href: service-fabric-cluster-security-update-certs-azure.md
                 - name: Conexión remota a máquina virtual de nodo de clúster
                   href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
+                - name: Actualización de nodos de clúster para usar discos administrados
+                  href: upgrade-managed-disks.md
         - name: Clústeres independientes
           items:
             - name: Crear

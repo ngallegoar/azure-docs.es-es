@@ -6,73 +6,65 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 03/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: dac3037f82c38980c9ac16685aa7fddac68a2e7b
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 3d88123b3dd79e5707c5c19cbbae13c30cbdeb84
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76720306"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80409412"
 ---
 # <a name="troubleshoot-input-connections"></a>Solución de problemas de conexiones de entrada
 
-En esta página se describen problemas comunes con las conexiones de entrada y cómo solucionarlos.
+En este artículo se describen los problemas comunes relacionados con las conexiones de entrada de Azure Stream Analytics, cómo solucionar problemas de entrada y cómo corregir los problemas. Muchos pasos para solucionar problemas requieren que los registros de diagnóstico estén habilitados para el trabajo de Stream Analytics. Si los registros de diagnóstico están habilitados, vea [Solución de problemas de Azure Stream Analytics mediante registros de diagnóstico](stream-analytics-job-diagnostic-logs.md).
 
 ## <a name="input-events-not-received-by-job"></a>El trabajo no recibe los eventos de entrada 
-1.  Pruebe la conectividad. Compruebe la conectividad a entradas y salidas con el botón **Probar conexión** para cada entrada y salida.
+
+1.  Pruebe la conectividad de entrada y salida. Compruebe la conectividad a entradas y salidas con el botón **Probar conexión** para cada entrada y salida.
 
 2.  Examine los datos de entrada.
 
-    1. Para comprobar si los datos de entrada pasan al Centro de eventos, use [Service Bus Explorer](https://code.msdn.microsoft.com/windowsapps/Service-Bus-Explorer-f2abca5a) (Explorador de Service Bus) para conectarse al centro de eventos de Azure (si se usa la entrada de centro de eventos).
-        
     1. Use el botón [**Datos de ejemplo**](stream-analytics-sample-data-input.md) para cada entrada. Descargue los datos de ejemplo de entrada.
         
-    1. Inspeccione los datos de ejemplo para entender la forma de los datos; esto es, el esquema y los [tipos de datos](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics).
+    1. Inspeccione los datos de ejemplo para entender el esquema y los [tipos de datos](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics).
+    
+    1. Compruebe [métricas del centro de eventos](../event-hubs/event-hubs-metrics-azure-monitor.md) para asegurarse de que se envían los eventos. Las métricas de mensajes deben ser mayores que cero si Event Hubs está recibiendo mensajes.
 
 3.  Asegúrese de que ha seleccionado un intervalo de tiempo en la versión preliminar de la entrada. Elija **Seleccionar intervalo de tiempo** y, a continuación, escriba una duración de ejemplo antes de probar la consulta.
 
 ## <a name="malformed-input-events-causes-deserialization-errors"></a>Los eventos de entrada con formato incorrecto provocan errores de deserialización 
+
 Los problemas de deserialización surgen cuando el flujo de entrada del trabajo de Stream Analytics contiene mensajes con un formato incorrecto. Por ejemplo, que un mensaje tenga un formato incorrecto podría deberse a la falta de un paréntesis o una llave en un objeto JSON, o a un formato de marca de tiempo incorrecto en un campo de tiempo. 
  
-Cuando un trabajo de Stream Analytics recibe un mensaje con formato incorrecto desde una entrada, descarta el mensaje y le notifica con una advertencia. Se muestra un símbolo de advertencia en el icono **Entradas** del trabajo de Stream Analytics. Esta advertencia persiste mientras el trabajo está en estado de ejecución:
+Cuando un trabajo de Stream Analytics recibe un mensaje con formato incorrecto desde una entrada, descarta el mensaje y le notifica con una advertencia. Se muestra un símbolo de advertencia en el icono **Entradas** del trabajo de Stream Analytics. El siguiente símbolo de advertencia persiste mientras el trabajo está en estado de ejecución:
 
 ![Icono de entradas en Azure Stream Analytics](media/stream-analytics-malformed-events/stream-analytics-inputs-tile.png)
 
-Habilite los registros de diagnóstico para ver los detalles de la advertencia. Para los eventos de entrada con formato incorrecto, los registros de ejecución contienen una entrada con un mensaje similar al siguiente: 
-```
-Could not deserialize the input event(s) from resource <blob URI> as json.
-```
+Habilite los registros de diagnóstico para ver los detalles del error y el mensaje (carga) que causó el error. Hay varios motivos por los que se pueden producir errores de deserialización. Para más información sobre errores de deserialización específicos, vea [Errores de los datos de entrada](data-errors.md#input-data-errors). Si los registros de diagnóstico no están habilitados, habrá una breve notificación disponible en Azure Portal.
 
-### <a name="what-caused-the-deserialization-error"></a>El motivo del error de deserialización
-Puede realizar los pasos siguientes para analizar los eventos de entrada en detalle y así obtener una idea clara de qué produjo el error de deserialización. A continuación, puede corregir el origen del evento para generar eventos en el formato correcto y así evitar que el problema surja de nuevo.
+![Notificación de advertencia de detalles de entrada](media/stream-analytics-malformed-events/warning-message-with-offset.png)
 
-1. Navegue hasta el icono de entrada y haga clic en los símbolos de advertencia para ver la lista de problemas.
+En los casos en los que la carga del mensaje es mayor que 32 KB o está en formato binario, ejecute el código CheckMalformedEvents.cs disponible en el [repositorio de ejemplos de GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/CheckMalformedEventsEH). Este código lee el identificador de la partición y el desplazamiento e imprime los datos de este último. 
 
-2. El icono de detalles de entrada muestra una lista de advertencias con detalles sobre cada problema. El mensaje de advertencia de ejemplo que se muestra a continuación incluye la partición, el desplazamiento y los números de secuencia donde hay datos JSON con un formato incorrecto. 
+## <a name="job-exceeds-maximum-event-hub-receivers"></a>El trabajo excede el máximo de receptores del centro de eventos
 
-   ![Mensaje de advertencia de Stream Analytics con desplazamiento](media/stream-analytics-malformed-events/warning-message-with-offset.png)
-   
-3. Para encontrar los datos JSON con formato incorrecto, ejecute el código CheckMalformedEvents.cs, disponible en el [repositorio de ejemplos de GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/CheckMalformedEventsEH). Este código lee el identificador de la partición y el desplazamiento e imprime los datos de este último. 
+Un procedimiento recomendado para el uso de Event Hubs es usar varios grupos de consumidores para la escalabilidad del trabajo. El número de lectores en el trabajo de Stream Analytics para una entrada específica afecta a la cantidad de lectores en un grupo de consumidores único. El número exacto de destinatarios se basa en los detalles de implementación interna para la lógica de la topología de escalado horizontal y no está expuesto de forma externa. El número de lectores puede cambiar cuando inicia un trabajo o durante las actualizaciones del mismo.
 
-4. Una vez leídos los datos, puede analizar y corregir el formato de serialización.
+El error que se muestra cuando el número de receptores supera el máximo:
 
-5. También puede consultar [How to read events from an IoT Hub with the Service Bus Explorer](https://code.msdn.microsoft.com/How-to-read-events-from-an-1641eb1b) (Cómo leer eventos de una instancia de IoT Hub con Service Bus Explorer).
-
-## <a name="job-exceeds-maximum-event-hub-receivers"></a>El trabajo excede el máximo de receptores de centro de eventos
-Una práctica recomendada para el uso de Event Hubs es usar varios grupos de consumidores para garantizar la escalabilidad del trabajo. El número de lectores en el trabajo de Stream Analytics para una entrada específica afecta a la cantidad de lectores en un grupo de consumidores único. El número exacto de destinatarios se basa en los detalles de implementación interna para la lógica de la topología de escalado horizontal y no está expuesto de forma externa. El número de lectores puede cambiar cuando inicia un trabajo o durante las actualizaciones del mismo.
-
-El error que se muestra cuando el número de receptores supera el máximo: `The streaming job failed: Stream Analytics job has validation errors: Job will exceed the maximum amount of Event Hub Receivers.`
+`The streaming job failed: Stream Analytics job has validation errors: Job will exceed the maximum amount of Event Hub Receivers.`
 
 > [!NOTE]
 > Cuando el número de lectores cambia durante una actualización de trabajo, se escriben advertencias transitorias en registros de auditoría. Los trabajos de Stream Analytics se recuperan automáticamente de estos problemas transitorios.
 
 ### <a name="add-a-consumer-group-in-event-hubs"></a>Agregar un grupo de consumidores a Event Hubs
+
 Para agregar un nuevo grupo de consumidores a la instancia de Event Hubs, siga estos pasos:
 
 1. Inicie sesión en Azure Portal.
 
-2. Busque la instancia de Event Hubs.
+2. Busque su centro de eventos.
 
 3. Seleccione **Event Hubs** en el encabezado **Entidades**.
 
@@ -84,8 +76,7 @@ Para agregar un nuevo grupo de consumidores a la instancia de Event Hubs, siga e
 
    ![Agregar un grupo de consumidores a Event Hubs](media/stream-analytics-event-hub-consumer-groups/new-eh-consumer-group.png)
 
-7. Cuando se crea la entrada en el trabajo de Stream Analytics para que apunte al centro de eventos, es necesario especificar el grupo de consumidores ahí. $Default se utiliza cuando no se especifica ninguno. Una vez que cree un nuevo grupo de consumidores, edite la entrada de Event Hubs en el trabajo de Stream Analytics y especifique el nombre del nuevo grupo de consumidores.
-
+7. Cuando se crea la entrada en el trabajo de Stream Analytics para que apunte al centro de eventos, es necesario especificar el grupo de consumidores ahí. **$Default** se utiliza cuando no se especifica ninguno. Una vez que cree un nuevo grupo de consumidores, edite la entrada de Event Hubs en el trabajo de Stream Analytics y especifique el nombre del nuevo grupo de consumidores.
 
 ## <a name="readers-per-partition-exceeds-event-hubs-limit"></a>El número de lectores por partición supera el límite de Event Hubs
 
@@ -94,7 +85,9 @@ Si la sintaxis de la consulta de streaming hace referencia varias veces al mismo
 Los escenarios en los que el número de lectores por partición supera el límite de Event Hubs de cinco incluyen los siguientes:
 
 * Varias instrucciones SELECT: si usa varias instrucciones SELECT que hacen referencia a la **misma** entrada de centro de eventos, cada instrucción SELECT provoca que se cree un nuevo destinatario.
+
 * UNION: cuando se utiliza UNION, es posible tener varias entradas que hacen referencia al **mismo** centro de eventos y grupo de consumidores.
+
 * SELF JOIN: cuando se usa una operación SELF JOIN, es posible hacer referencia al **mismo** centro de eventos varias veces.
 
 Las siguientes prácticas recomendadas pueden ayudar a reducir los escenarios en los que el número de lectores por partición supera el límite de Event Hubs de cinco.

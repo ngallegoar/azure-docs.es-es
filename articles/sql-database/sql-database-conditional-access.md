@@ -4,24 +4,23 @@ description: Aprenda a configurar el acceso condicional para Azure SQL Database 
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: sql-data-warehouse
-ms.devlang: ''
 ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
+ms.custom: sql-data-warehouse
 ms.date: 02/06/2020
 tag: azure-synpase
-ms.openlocfilehash: f2431ee7c62079a3691a5ea99e562460df8f9309
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: cd56ccf2e6a4ceb0d81c25b5b9e795176be66b77
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78197579"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80124904"
 ---
 # <a name="conditional-access-mfa-with-azure-sql-database-and-azure-synapse-analytics"></a>Acceso condicional (MFA) con Azure SQL Database y Azure Synapse Analytics
 
-Azure [SQL Database](sql-database-technical-overview.md), [Instancia administrada](sql-database-managed-instance.md) y [Azure Synapse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) admiten el acceso condicional de Microsoft. 
+Azure [SQL Database](sql-database-technical-overview.md), [Instancia administrada](sql-database-managed-instance.md) y [Azure Synapse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) admiten el acceso condicional de Microsoft. 
 
 > [!NOTE]
 > Este tema se aplica al servidor de Azure SQL y a las instancias de SQL Database y Azure Synapse que se crean en dicho servidor. Para simplificar, se usa SQL Database cuando se hace referencia tanto a SQL Database como a Azure Synapse.

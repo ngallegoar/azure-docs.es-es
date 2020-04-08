@@ -2,19 +2,18 @@
 title: 'Marketplace: ‎Funcionalidades y consideraciones sobre transacciones comerciales | Azure'
 description: En este artículo se describen las consideraciones de precios, facturación y pago de transacciones para un tipo de oferta.
 services: Azure, Marketplace, Compute, Storage, Networking, Transact Offer Type
-author: yijenj
-manager: nuno costa
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/29/2018
-ms.author: pabutler
-ms.openlocfilehash: 969f2f6b2e25d9eb804349eccbed66e17b7fbb87
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.author: dsindona
+ms.openlocfilehash: de93a3c48e0b0aceb447e54e11190f487d1aa2d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427169"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80279834"
 ---
 # <a name="commercial-marketplace-transaction-capabilities-and-considerations"></a>Funcionalidades y consideraciones sobre transacciones comerciales de Marketplace
 
@@ -130,7 +129,7 @@ Esta opción permite que los precios sean mayores o menores que la oferta dispon
 **Suscripción de aplicación SaaS**
 
 Esta opción debe configurarse para vender a través de Microsoft y puede tener un precio con una tarifa plana o por usuario, de forma mensual o anual.
-•   Si habilita la opción de venta mediante Microsoft de una oferta de SaaS, obtendrá la siguiente estructura de costos.
+*    Si habilita la opción de venta mediante Microsoft de una oferta de SaaS, obtendrá la siguiente estructura de costos.
 
 |Costo de licencia       | 100,00 USD al mes  |
 |--------------|---------|

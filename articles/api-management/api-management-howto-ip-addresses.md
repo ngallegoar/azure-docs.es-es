@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: apimpm
-ms.openlocfilehash: cab63a17ddfed49684cc37609d9f2ae5bde9bdd3
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: 45501fee9ae6ff47643a1ed197a07c4ba598e981
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75689383"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80047737"
 ---
 # <a name="ip-addresses-of-azure-api-management"></a>Direcciones IP de Azure API Management
 
@@ -63,7 +63,7 @@ Si el servicio API Management se encuentra en una red virtual, tendrá dos tipos
 
 Las direcciones IP públicas se usan para la comunicación interna en el puerto `3443`, para administrar la configuración (por ejemplo, mediante Azure Resource Manager). En la configuración de la red virtual externa, también se usan para el tráfico de API en tiempo de ejecución. Cuando se envía una solicitud desde API Management a un back-end de acceso público (accesible desde Internet), una dirección IP pública será visible como origen de la solicitud.
 
-Las direcciones IP virtuales privadas (VIP) se usan para conectarse desde dentro de la red a los puntos de conexión y puertas de enlace de API Management, al portal para desarrolladores y al plano de administración para el acceso directo a la API. Puede usarlas para configurar los registros DNS dentro de la red.
+Las direcciones IP virtuales privadas (VIP), disponibles **únicamente** en el [modo de red virtual interna](api-management-using-with-internal-vnet.md), se usan para conectarse desde dentro de la red a los puntos de conexión y puertas de enlace de API Management, al portal para desarrolladores y al plano de administración para el acceso directo a la API. Puede usarlas para configurar los registros DNS dentro de la red.
 
 Verá direcciones de ambos tipos en Azure Portal y en la respuesta a la llamada API:
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: 799ed0e877bb3bddb3f179cdb3d6df6fca57e4d5
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 90b3c3fd18bc9211c731ccf16dd646a64a4a1116
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78301359"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80133089"
 ---
 # <a name="application-gateway-components"></a>Componentes de Application Gateway
 
@@ -55,7 +55,7 @@ Application Gateway admite cuatro protocolos: HTTP, HTTPS, HTTP/2 y WebSocket:
 - Especifique entre los protocolos HTTP y HTTPS en la configuración del cliente de escucha.
 - La compatibilidad con los [protocolos WebSockets y HTTP/2](features.md#websocket-and-http2-traffic) se proporciona de forma nativa, y la [compatibilidad con WebSocket](application-gateway-websocket.md) está habilitada de forma predeterminada. No hay ninguna opción de configuración que permita al usuario habilitar o deshabilitar la compatibilidad con WebSocket. Use WebSockets con clientes de escucha HTTP y HTTPS.
 
-Use un cliente de escucha HTTPS para la terminación SSL. Un cliente de escucha HTTPS descarga el trabajo de cifrado y descifrado en la puerta de enlace de aplicaciones, por lo que los servidores web no se ven afectados por la sobrecarga.
+Use un cliente de escucha HTTPS para la terminación TLS. Un cliente de escucha HTTPS descarga el trabajo de cifrado y descifrado en la puerta de enlace de aplicaciones, por lo que los servidores web no se ven afectados por la sobrecarga.
 
 ### <a name="custom-error-pages"></a>Páginas de error personalizadas
 
@@ -111,7 +111,7 @@ Para más información, consulte [Rescritura de encabezados HTTP en la puerta de
 
 Una puerta de enlace de aplicaciones enruta el tráfico a los servidores back-end (especificados en la regla de enrutamiento de solicitudes que incluye la configuración de HTTP) mediante el número de puerto, el protocolo y demás configuración detallados en este componente.
 
-El puerto y el protocolo usados en la configuración de HTTP determinan si el tráfico entre los servidores back-end y de puerta de enlace de aplicaciones está cifrado (con SSL de un extremo a otro) o sin cifrar.
+El puerto y el protocolo usados en la configuración de HTTP determinan si el tráfico entre los servidores back-end y de puerta de enlace de aplicaciones está cifrado (con TLS de un extremo a otro) o sin cifrar.
 
 Este componente también se usa para:
 

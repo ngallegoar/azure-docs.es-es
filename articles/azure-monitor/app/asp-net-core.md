@@ -1,18 +1,14 @@
 ---
 title: Azure Application Insights para aplicaciones de ASP.NET Core | Microsoft Docs
 description: Supervise la disponibilidad, el rendimiento y el uso de las aplicaciones web de ASP.NET Core.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 05/22/2019
-ms.openlocfilehash: 5f54605dd5b43236a75fe73aa3b47a4e619530a1
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: d6a0e507022452f1491e71651ba3bc8db3d1c090
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76765811"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80284796"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights para aplicaciones de ASP.NET Core
 
@@ -32,9 +28,9 @@ El [SDK de Application Insights para ASP.NET Core](https://nuget.org/packages/Mi
 * **IDE**: Visual Studio, VS Code o línea de comandos.
 
 > [!NOTE]
-> Si usa ASP.NET Core 3.0 junto con Application Insights, utilice la versión [2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) o una posterior. Esta es la única versión que admite ASP.NET Core 3.0.
+> Si usa ASP.NET Core 3.X junto con Application Insights, utilice la versión [2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) o una posterior. Esta es la única versión que admite ASP.NET Core 3.X.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Una aplicación de ASP.NET Core en funcionamiento. Si necesita crear una aplicación de ASP .NET Core, siga este [tutorial de ASP.NET Core](https://docs.microsoft.com/aspnet/core/getting-started/).
 - Una clave de instrumentación de Application Insights válida. Esta clave es necesaria para enviar los datos de telemetría a Application Insights. Si necesita crear un nuevo recurso de Application Insights para obtener un clave de instrumentación, consulte [Creación de recursos en Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource).
@@ -66,7 +62,7 @@ El [SDK de Application Insights para ASP.NET Core](https://nuget.org/packages/Mi
 
     ```xml
         <ItemGroup>
-          <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.12.0" />
+          <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.13.1" />
         </ItemGroup>
     ```
 
@@ -145,7 +141,7 @@ La compatibilidad con los [contadores de rendimiento](https://azure.microsoft.co
 
 ### <a name="eventcounter"></a>EventCounter
 
-`EventCounterCollectionModule` está habilitado de forma predeterminada y recopilará un conjunto predeterminado de contadores de las aplicaciones de .NET Core 3.0. En el tutorial de [EventCounter](eventcounters.md) se muestra el conjunto de contadores recopilado de manera predeterminada. También incluye instrucciones sobre la personalización de la lista.
+`EventCounterCollectionModule` está habilitado de forma predeterminada y recopilará un conjunto predeterminado de contadores de las aplicaciones de .NET Core 3.X. En el tutorial de [EventCounter](eventcounters.md) se muestra el conjunto de contadores recopilado de manera predeterminada. También incluye instrucciones sobre la personalización de la lista.
 
 ## <a name="enable-client-side-telemetry-for-web-applications"></a>Habilitación de la telemetría del lado cliente para aplicaciones web
 
@@ -162,6 +158,14 @@ Los pasos anteriores son suficientes para ayudarle a empezar a recopilar datos d
     ```cshtml
         @Html.Raw(JavaScriptSnippet.FullScript)
         </head>
+    ```
+    
+Como alternativa al uso de `FullScript`, `ScriptBody` está disponible a partir del SDK de la versión 2.14. Úselo si necesita controlar la etiqueta `<script>` para establecer una directiva de seguridad de contenido:
+
+    ```cshtml
+        <script> // apply custom changes to this script tag.
+            @Html.Raw(JavaScriptSnippet.ScriptBody)
+        </script>
     ```
 
 Los nombres del archivo `.cshtml` mencionados anteriormente son de una plantilla de la aplicación de MVC predeterminada. En última instancia, si desea habilitar correctamente la supervisión del lado cliente para la aplicación, el fragmento de código de JavaScript debe aparecer en la sección `<head>` de cada página de la aplicación que quiere supervisar. Puede lograr este objetivo para esta plantilla de la aplicación al agregar el fragmento de código de JavaScript a `_Layout.cshtml`. 
@@ -197,6 +201,12 @@ Lista completa de valores de `ApplicationInsightsServiceOptions`
 
 |Configuración | Descripción | Valor predeterminado
 |---------------|-------|-------
+|EnablePerformanceCounterCollectionModule  | Habilitar o deshabilitar `PerformanceCounterCollectionModule` | true
+|EnableRequestTrackingTelemetryModule   | Habilitar o deshabilitar `RequestTrackingTelemetryModule` | true
+|EnableEventCounterCollectionModule   | Habilitar o deshabilitar `EventCounterCollectionModule` | true
+|EnableDependencyTrackingTelemetryModule   | Habilitar o deshabilitar `DependencyTrackingTelemetryModule` | true
+|EnableAppServicesHeartbeatTelemetryModule  |  Habilitar o deshabilitar `AppServicesHeartbeatTelemetryModule` | true
+|EnableAzureInstanceMetadataTelemetryModule   |  Habilitar o deshabilitar `AzureInstanceMetadataTelemetryModule` | true
 |EnableQuickPulseMetricStream | Habilitar o deshabilitar la característica LiveMetrics | true
 |EnableAdaptiveSampling | Habilitar o deshabilitar el muestreo adaptable | true
 |EnableHeartbeat | Habilitar o deshabilitar la característica de latidos, que periódicamente (cada 15 minutos de forma predeterminada) envía una métrica personalizada denominada "HeartBeatState" con información sobre el entorno de ejecución, por ejemplo, la versión de .NET, información del entorno de Azure, si procede, etc. | true
@@ -313,6 +323,8 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
+A partir de la versión 2.12.2, [`ApplicationInsightsServiceOptions`](#using-applicationinsightsserviceoptions) contiene una opción sencilla para deshabilitar cualquiera de los módulos predeterminados.
+
 ### <a name="configuring-a-telemetry-channel"></a>Configuración de un canal de telemetría
 
 El canal predeterminado es `ServerTelemetryChannel`. Puede invalidarlo tal como se muestra en el ejemplo siguiente.
@@ -351,11 +363,11 @@ Lo anterior no impide que los módulos de recopilación automática recopilen la
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
-### <a name="does-application-insights-support-aspnet-core-30"></a>¿Admite Application Insights ASP.NET Core 3.0?
+### <a name="does-application-insights-support-aspnet-core-3x"></a>¿Admite Application Insights ASP.NET Core 3.X?
 
-Sí. Actualice a la versión 2.8.0 o una posterior del [SDK de Application Insights para ASP.NET Core](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore). Las versiones anteriores del SDK no admiten ASP.NET Core 3.0.
+Sí. Actualice a la versión 2.8.0 o una posterior del [SDK de Application Insights para ASP.NET Core](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore). Las versiones anteriores del SDK no admiten ASP.NET Core 3.X.
 
-Además, si usa [estas](#enable-application-insights-server-side-telemetry-visual-studio) instrucciones basadas en Visual Studio, actualice a la versión más reciente de Visual Studio 2019 (16.3.0) para la incorporación. Las versiones anteriores de Visual Studio no admiten la incorporación automática de aplicaciones ASP.NET Core 3.0.
+Además, si usa [estas](#enable-application-insights-server-side-telemetry-visual-studio) instrucciones basadas en Visual Studio, actualice a la versión más reciente de Visual Studio 2019 (16.3.0) para la incorporación. Las versiones anteriores de Visual Studio no admiten la incorporación automática de aplicaciones ASP.NET Core 3.X.
 
 ### <a name="how-can-i-track-telemetry-thats-not-automatically-collected"></a>¿Cómo puedo realizar un seguimiento de la telemetría que se recopila automáticamente?
 
@@ -388,7 +400,7 @@ Para obtener más información acerca de los datos personalizados que reporta Ap
 
 ### <a name="some-visual-studio-templates-used-the-useapplicationinsights-extension-method-on-iwebhostbuilder-to-enable-application-insights-is-this-usage-still-valid"></a>Algunas plantillas de Visual Studio usan el método de extensión UseApplicationInsights() en IWebHostBuilder para habilitar Application Insights. ¿Es este uso aún válido?
 
-Aunque todavía se admite el método de extensión `UseApplicationInsights()`, está marcado como obsoleto desde la versión 2.8.0 del SDK de Application Insights en adelante. Se quitará en el siguiente cambio de versión principal del SDK. La manera recomendada de habilitar la telemetría de Application Insights es usar `AddApplicationInsightsTelemetry()`, porque proporciona sobrecargas para controlar configuración. Además, en las aplicaciones ASP.NET Core 3.0, `services.AddApplicationInsightsTelemetry()` es la única manera de habilitar Application Insights.
+Aunque todavía se admite el método de extensión `UseApplicationInsights()`, está marcado como obsoleto desde la versión 2.8.0 del SDK de Application Insights en adelante. Se quitará en el siguiente cambio de versión principal del SDK. La manera recomendada de habilitar la telemetría de Application Insights es usar `AddApplicationInsightsTelemetry()`, porque proporciona sobrecargas para controlar configuración. Además, en las aplicaciones ASP.NET Core 3.X, `services.AddApplicationInsightsTelemetry()` es la única manera de habilitar Application Insights.
 
 ### <a name="im-deploying-my-aspnet-core-application-to-web-apps-should-i-still-enable-the-application-insights-extension-from-web-apps"></a>Estoy implementando mi aplicación de ASP.NET Core en Web Apps. ¿Debo habilitar la extensión de Application Insights desde Web Apps?
 
@@ -435,9 +447,9 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
     }
 ```
 
-### <a name="is-this-sdk-supported-for-the-new-net-core-30-worker-service-template-applications"></a>¿Es este SDK compatible con las nuevas aplicaciones de plantilla de servicio de trabajo de .NET Core 3.0?
+### <a name="is-this-sdk-supported-for-the-new-net-core-3x-worker-service-template-applications"></a>¿Es este SDK compatible con las nuevas aplicaciones de plantilla de servicio de trabajo de .NET Core 3.X?
 
-Este SDK requiere `HttpContext` y, por lo tanto, no funciona en ninguna aplicación sin HTTP, incluidas las aplicaciones de servicio de trabajo de .NET Core 3.0. Consulte [este](worker-service.md) documento para habilitar Application Insights en tales aplicaciones mediante el SDK de Microsoft.ApplicationInsights.WorkerService que se acaba de publicar.
+Este SDK requiere `HttpContext` y, por lo tanto, no funciona en ninguna aplicación sin HTTP, incluidas las aplicaciones de servicio de trabajo de .NET Core 3.X. Consulte [este](worker-service.md) documento para habilitar Application Insights en tales aplicaciones mediante el SDK de Microsoft.ApplicationInsights.WorkerService que se acaba de publicar.
 
 ## <a name="open-source-sdk"></a>SDK de código abierto
 

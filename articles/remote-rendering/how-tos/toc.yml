@@ -1,0 +1,16 @@
+- name: Creación de una cuenta de Azure Remote Rendering
+  href: create-an-account.md
+- name: Obtención de tokens de acceso de servicio
+  href: tokens.md
+- name: Configurar la autenticación
+  href: authentication.md
+- name: Uso de las API de front-end de Azure para la autenticación
+  href: frontend-apis.md
+- name: Uso de la API REST de administración de sesión
+  href: session-rest-api.md
+- name: Conversión de modelos
+  href: conversion/toc.yml
+- name: Representación remota con Unity
+  href: unity/toc.yml
+- name: Creación de seguimientos del rendimiento en el cliente
+  href: performance-tracing.md

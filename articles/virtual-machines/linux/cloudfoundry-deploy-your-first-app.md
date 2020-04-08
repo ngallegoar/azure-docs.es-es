@@ -7,12 +7,12 @@ ms.subservice: workloads
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: seanmck
-ms.openlocfilehash: 45ae8979a2617d4f380e417e3f0910182ebe145e
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: 793a8f291be4fcca6fad19d486849253dddc089f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78970069"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294786"
 ---
 # <a name="deploy-your-first-app-to-cloud-foundry-on-microsoft-azure"></a>Implementación de la primera aplicación en Cloud Foundry en Microsoft Azure
 
@@ -27,7 +27,7 @@ Hay varias opciones para crear un entorno de Cloud Foundry en Azure:
 - [Implemente directamente los paquetes de Cloud Foundry de código abierto][oss-cf-bosh]. Para ello, configure un director de [BOSH](https://bosh.io), una máquina virtual que coordina la implementación del entorno de Cloud Foundry.
 
 > [!IMPORTANT] 
-> Si va a implementar PCF desde Azure Marketplace, anote tanto SYSTEMDOMAINURL como las credenciales de administrador requeridas para acceder a Pivotal Apps Manager, ambos se describen en la guía de implementación de Marketplace. Ambos son necesarios para completar este tutorial. En el caso de las implementaciones de Marketplace, SYSTEMDOMAINURL tiene el formato https://system.*ip-address*.cf.pcfazure.com.
+> Si va a implementar PCF desde Azure Marketplace, anote tanto SYSTEMDOMAINURL como las credenciales de administrador requeridas para acceder a Pivotal Apps Manager, ambos se describen en la guía de implementación de Marketplace. Ambos son necesarios para completar este tutorial. En el caso de las implementaciones de Marketplace, SYSTEMDOMAINURL tiene el formato `https://system.*ip-address*.cf.pcfazure.com`.
 
 ## <a name="connect-to-the-cloud-controller"></a>Conexión a Cloud Controller
 

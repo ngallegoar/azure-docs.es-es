@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: anavin
-ms.openlocfilehash: 4103930e0d089f5f7c17586f22616431c8aa11d9
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 97acac61d0397a4e13fb64d39a6aba92e4de2afd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978353"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80123305"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Crear, cambiar o eliminar un emparejamiento de red virtual
 
@@ -60,9 +60,13 @@ Antes de crear un emparejamiento, familiarícese con los requisitos y las restri
        Además de reenviar tráfico a una red local, una puerta de enlace VPN puede reenviar el tráfico de red entre redes virtuales emparejadas con la red virtual en que se encuentra la puerta de enlace, sin necesidad de que las redes virtuales se tengan que emparejar entre sí. Usar una puerta de enlace VPN para reenviar el tráfico es útil si quiere usar una puerta de enlace VPN en una red virtual de concentrador (vea el ejemplo de concentrador y radio descrito para **Permitir tráfico reenviado**) para redirigir el tráfico entre redes virtuales de radio que no están emparejadas entre sí. Para obtener más información sobre permitir el uso de una puerta de enlace de tránsito, consulte [Configuración del tránsito de la puerta de enlace de VPN para el emparejamiento de red virtual](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Este escenario requiere la implementación de las rutas definidas por el usuario que especifican la puerta de enlace de red virtual como el tipo de próximo salto. Obtenga información sobre las [rutas definidas por el usuario](virtual-networks-udr-overview.md#user-defined). Solo puede especificar una puerta de enlace VPN como un tipo de próximo salto en una ruta definida por el usuario; no puede especificar una puerta de enlace de ExpressRoute como el tipo de próximo salto en una ruta definida por el usuario.
 
     - **Usar puertas de enlace remotas:** active esta casilla para permitir que el tráfico procedente de esta red virtual fluya a través de la puerta de enlace de red virtual asociada a la red virtual con la que está realizando el emparejamiento. Por ejemplo, la red virtual con la que está realizando el emparejamiento tiene una puerta de enlace de VPN asociada que permite la comunicación a una red local.  La activación de esta casilla permite que el tráfico procedente de esta red virtual fluya a través de la puerta de enlace de VPN asociada a la red virtual emparejada. Si activa esta casilla, la red virtual emparejada debe tener asociada una puerta de enlace de red virtual y debe tener activada la casilla **Permitir tránsito de puerta de enlace**. Si deja esta casilla sin activar (valor predeterminado), el tráfico procedente de la red virtual emparejada todavía puede fluir a esta red virtual, pero no podrá fluir a través de una puerta de enlace de red virtual asociada a esta red virtual.
-    Esta opción puede estar habilitada solo en un emparejamiento de esta red virtual.
+    
+      Esta opción puede estar habilitada solo en un emparejamiento de esta red virtual.
 
-        No puede usar las puertas de enlace remotas si ya tiene una puerta de enlace configurada en la red virtual. Para obtener más información sobre el uso de una puerta de enlace de tránsito, consulte [Configuración del tránsito de la puerta de enlace de VPN para el emparejamiento de red virtual](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+      No puede usar las puertas de enlace remotas si ya tiene una puerta de enlace configurada en la red virtual. Para obtener más información sobre el uso de una puerta de enlace de tránsito, consulte [Configuración del tránsito de la puerta de enlace de VPN para el emparejamiento de red virtual](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+        
+    > [!NOTE]
+    > Si usa una puerta de enlace de red virtual para enviar el tráfico local de manera transitiva a una red virtual emparejada, el intervalo IP de red virtual emparejada para el dispositivo VPN local debe establecerse en el tráfico "interesante". De lo contrario, sus recursos locales no podrán comunicarse con recursos en la red virtual emparejada.
 
 6. Para agregar el emparejamiento a la red virtual que ha seleccionado, elija **Aceptar**.
 

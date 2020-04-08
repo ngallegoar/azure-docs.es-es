@@ -1,7 +1,7 @@
 ---
-title: Configuración del cifrado SSL de un extremo a otro mediante el portal
+title: Configuración del cifrado TLS de un extremo a otro mediante el portal
 titleSuffix: Azure Application Gateway
-description: Aprenda a usar Azure Portal para crear una puerta de enlace de aplicaciones con el cifrado SSL de un extremo a otro.
+description: Aprenda a usar Azure Portal para crear una puerta de enlace de aplicaciones con el cifrado TLS de un extremo a otro.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -9,16 +9,16 @@ ms.topic: article
 ms.date: 11/14/2019
 ms.author: absha
 ms.custom: mvc
-ms.openlocfilehash: a878b966266bdd326db35d266bc14b2f81161e92
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 6f86f32e64bbbe79ea5a403d04f7d6c29ee6b980
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075138"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80133009"
 ---
-# <a name="configure-end-to-end-ssl-by-using-application-gateway-with-the-portal"></a>Configuración de SSL de un extremo a otro con Application Gateway mediante el portal
+# <a name="configure-end-to-end-tls-by-using-application-gateway-with-the-portal"></a>Configuración de TLS de un extremo a otro con Application Gateway mediante el portal
 
-En este artículo se describe cómo usar Azure Portal para configurar el cifrado de Capa de sockets seguros (SSL) de un extremo a otro a través de una SKU de Application Gateway v1.
+En este artículo se describe cómo usar Azure Portal para configurar el cifrado de Seguridad de la capa de transporte (TLS) de un extremo a otro, anteriormente conocido como Capa de sockets seguros (SSL), a través de una SKU de Application Gateway v1.
 
 > [!NOTE]
 > La SKU de Application Gateway v2 requiere certificados raíz de confianza para habilitar configuración de un extremo a otro.
@@ -27,19 +27,19 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Para configurar SSL de un extremo a otro con una puerta de enlace de aplicaciones, se necesita un certificado para la puerta de enlace. También se necesitan certificados para los servidores back-end. El certificado de puerta de enlace se usa para derivar una clave simétrica en cumplimiento de la especificación del protocolo SSL. A continuación, la clave simétrica se usa para cifrar y descifrar el tráfico que se envía a la puerta de enlace. 
+Para configurar TLS de un extremo a otro con una puerta de enlace de aplicaciones, se necesita un certificado para la puerta de enlace. También se necesitan certificados para los servidores back-end. El certificado de puerta de enlace se usa para derivar una clave simétrica en cumplimiento de la especificación del protocolo TLS. A continuación, la clave simétrica se usa para cifrar y descifrar el tráfico que se envía a la puerta de enlace. 
 
-Para el cifrado SSL de un extremo a otro, los servidores back-end correctos se deben permitir en Application Gateway. Para permitir este acceso, cargue los certificados públicos de los servidores back-end, también conocidos como certificados de autenticación (v1) o certificados raíz de confianza (v2), en la puerta de enlace de aplicaciones. Al agregar el certificado, se garantiza que la puerta de enlace de aplicaciones solo se comunique con instancias back-end conocidas. Esta configuración protege aún más la comunicación de un extremo a otro.
+Para el cifrado TLS de un extremo a otro, los servidores back-end correctos se deben permitir en Application Gateway. Para permitir este acceso, cargue los certificados públicos de los servidores back-end, también conocidos como certificados de autenticación (v1) o certificados raíz de confianza (v2), en la puerta de enlace de aplicaciones. Al agregar el certificado, se garantiza que la puerta de enlace de aplicaciones solo se comunique con instancias back-end conocidas. Esta configuración protege aún más la comunicación de un extremo a otro.
 
-Para más información, consulte [Terminación SSL y SSL de un extremo a otro](https://docs.microsoft.com/azure/application-gateway/ssl-overview).
+Para más información, consulte [Introducción a la terminación TLS y a TLS de extremo a extremo con Application Gateway](https://docs.microsoft.com/azure/application-gateway/ssl-overview).
 
-## <a name="create-a-new-application-gateway-with-end-to-end-ssl"></a>Crear una nueva instancia de Application Gateway con SSL de un extremo a otro
+## <a name="create-a-new-application-gateway-with-end-to-end-tls"></a>Creación de una nueva instancia de Application Gateway con TLS de un extremo a otro
 
-Para crear una nueva instancia de Application Gateway con el cifrado SSL de un extremo a otro, deberá habilitar primero la terminación SSL durante la creación de una nueva instancia de Application Gateway. Esta acción habilita el cifrado SSL para la comunicación entre el cliente y la puerta de enlace de aplicaciones. A continuación, deberá incluir en la lista de destinatarios seguros los certificados de los servidores back-end de la configuración HTTP. Esta configuración habilita el cifrado SSL para la comunicación entre la puerta de enlace de aplicaciones y los servidores back-end. Así se consigue el cifrado SSL de un extremo a otro.
+Para crear una nueva instancia de Application Gateway con el cifrado TLS de un extremo a otro, deberá habilitar primero la terminación TLS durante la creación de una nueva instancia de Application Gateway. Esta acción habilita el cifrado TLS para la comunicación entre el cliente y la puerta de enlace de aplicaciones. A continuación, deberá incluir en la lista de destinatarios seguros los certificados de los servidores back-end de la configuración HTTP. Esta configuración habilita el cifrado TLS para la comunicación entre la puerta de enlace de aplicaciones y los servidores back-end. Así se consigue el cifrado TLS de un extremo a otro.
 
-### <a name="enable-ssl-termination-while-creating-a-new-application-gateway"></a>Habilitar la terminación SSL durante la creación de una nueva instancia de Application Gateway
+### <a name="enable-tls-termination-while-creating-a-new-application-gateway"></a>Habilitación de la terminación TLS durante la creación de una nueva instancia de Application Gateway
 
-Para más información, consulte [Habilitación de la terminación SSL durante la creación de una nueva puerta de enlace de aplicaciones](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal).
+Para más información, consulte [Habilitación de la terminación TLS durante la creación de una nueva puerta de enlace de aplicaciones](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal).
 
 ### <a name="add-authenticationroot-certificates-of-back-end-servers"></a>Incorporación de certificados de autenticación o certificados raíz de los servidores back-end
 
@@ -69,14 +69,14 @@ Para más información, consulte [Habilitación de la terminación SSL durante l
 
 8. Seleccione **Guardar**.
 
-## <a name="enable-end-to-end-ssl-for-an-existing-application-gateway"></a>Habilitación de SSL de un extremo a otro para una puerta de enlace de aplicaciones existente
+## <a name="enable-end-to-end-tls-for-an-existing-application-gateway"></a>Habilitación de TLS de un extremo a otro para una puerta de enlace de aplicaciones existente
 
-Para configurar una puerta de enlace de aplicaciones existente con cifrado SSL de un extremo a otro, deberá habilitar primero la terminación SSL en el cliente de escucha. Esta acción habilita el cifrado SSL para la comunicación entre el cliente y la puerta de enlace de aplicaciones. A continuación, incluya los certificados de los servidores back-end de la configuración HTTP en la lista de destinatarios seguros. Esta configuración habilita el cifrado SSL para la comunicación entre la puerta de enlace de aplicaciones y los servidores back-end. Así se consigue el cifrado SSL de un extremo a otro.
+Para configurar una puerta de enlace de aplicaciones existente con cifrado TLS de un extremo a otro, deberá habilitar primero la terminación TLS en el cliente de escucha. Esta acción habilita el cifrado TLS para la comunicación entre el cliente y la puerta de enlace de aplicaciones. A continuación, incluya los certificados de los servidores back-end de la configuración HTTP en la lista de destinatarios seguros. Esta configuración habilita el cifrado TLS para la comunicación entre la puerta de enlace de aplicaciones y los servidores back-end. Así se consigue el cifrado TLS de un extremo a otro.
 
-Para habilitar la terminación SSL, deberá usar un cliente de escucha con el protocolo HTTPS y un certificado. Puede usar un cliente de escucha existente que cumpla esas condiciones o bien crear uno nuevo. Si elige la primera opción, puede omitir la sección "Habilitación de la terminación SSL en una puerta de enlace de aplicaciones existente" y pasar directamente a la sección "Incorporación de certificados de autenticación o raíz de confianza de servidores back-end".
+Para habilitar la terminación TLS, deberá usar un cliente de escucha con el protocolo HTTPS y un certificado. Puede usar un cliente de escucha existente que cumpla esas condiciones o bien crear uno nuevo. Si elige la primera opción, puede omitir la sección "Habilitación de la terminación TLS en una puerta de enlace de aplicaciones existente" y pasar directamente a la sección "Incorporación de certificados de autenticación o raíz de confianza de servidores back-end".
 
 Si elige la segunda opción, aplique los pasos del siguiente procedimiento.
-### <a name="enable-ssl-termination-in-an-existing-application-gateway"></a>Habilitación de la terminación SSL en una puerta de enlace de aplicaciones existente
+### <a name="enable-tls-termination-in-an-existing-application-gateway"></a>Habilitación de la terminación TLS en una puerta de enlace de aplicaciones existente
 
 1. Seleccione **Todos los recursos** y, después, seleccione **myAppGateway**.
 
@@ -86,7 +86,7 @@ Si elige la segunda opción, aplique los pasos del siguiente procedimiento.
 
 4. En **Protocolo**, seleccione **HTTPS**. Aparece un panel para **Certificado**.
 
-5. Cargue el certificado PFX que va a usar para la terminación SSL entre el cliente y la puerta de enlace de aplicaciones.
+5. Cargue el certificado PFX que va a usar para la terminación TLS entre el cliente y la puerta de enlace de aplicaciones.
 
    > [!NOTE]
    > Para fines de prueba, puede usar un certificado autofirmado. Sin embargo, estos certificados no se recomiendan para las cargas de trabajo de producción, ya que son más difíciles de administrar y no son completamente seguros. Para más información, consulte [Creación de un certificado autofirmado](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal#create-a-self-signed-certificate).

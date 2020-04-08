@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 7913cb888e1799efae0f3ecdf3391d19736cc273
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: f06c4304be67fbc2f3116375dae33b10228723a4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78970152"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80239870"
 ---
 # <a name="overview-of-red-hat-enterprise-linux-images"></a>Introducción a las imágenes de Red Hat Enterprise Linux
 
@@ -45,22 +45,22 @@ az vm image list --publisher RedHat --all
 
 Las imágenes de máquina virtual en Azure se organizan por editor, oferta, SKU y versión. La combinación de editor:oferta:SKU:versión es el URN de la imagen, que identifica de forma única la imagen que se usará.
 
-Por ejemplo, `RedHat:RHEL:7-LVM:7.6.2018103108` hace referencia a una imagen con partición LVM de RHEL 7.6 compilada el 31 de octubre de 2018.
+Por ejemplo, `RedHat:RHEL:8-LVM:8.1.20200318` hace referencia a una imagen con partición LVM de RHEL 8.1 compilada el 18 de marzo de 2020.
 
-A continuación, se muestra un ejemplo de cómo crear una máquina virtual de RHEL 7.6.
+A continuación, se muestra un ejemplo de cómo crear una máquina virtual de RHEL 8.1.
 
 ```azurecli-interactive
-az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:7-LVM:7.6.2018103108 --no-wait
+az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:8-LVM:8.1.20200318 --no-wait
 ```
 
 ### <a name="the-latest-moniker"></a>El moniker “latest” (último)
 
 La API REST de Azure permite el uso del moniker “latest” (último) para la versión, en lugar de la versión específica. Al usar “latest”, se aprovisionará la última imagen disponible para el editor, la oferta o la SKU específicos.
 
-Por ejemplo, `RedHat:RHEL:7-LVM:latest` hace referencia a la imagen con partición LVM más reciente de la familia de RHEL 7 disponible.
+Por ejemplo, `RedHat:RHEL:8-LVM:latest` hace referencia a la imagen con partición LVM más reciente de la familia de RHEL 8 disponible.
 
 ```azurecli-interactive
-az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:7-LVM:latest --no-wait
+az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:8-LVM:latest --no-wait
 ```
 
 >[!NOTE]
@@ -104,8 +104,8 @@ A continuación se muestran los detalles de los tipos de imagen RHEL 8.
 
 |Publicador | Oferta | Valor de SKU | Versión | Detalles
 |----------|-------|------------|---------|--------
-|RedHat | RHEL | 8 | Valores concatenados de la versión secundaria de RHEL y la fecha de publicación (por ejemplo, 8.0.20191023) | Estas imágenes tienen particiones LVM de RHEL 8.0 conectadas a repositorios estándar de Red Hat.
-|RedHat | RHEL | 8-gen2 | Valores concatenados de la versión secundaria de RHEL y la fecha de publicación (por ejemplo, 8.0.20191024) | Estas imágenes tienen particiones LVM de RHEL 8.0 de Hyper-V generación 2 conectadas a repositorios estándar de Red Hat. Para más información sobre las máquinas virtuales de Generación 2, consulte [Compatibilidad con máquinas virtuales de generación 2 en Azure](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2).
+|RedHat | RHEL | 8 | Valores concatenados de la versión secundaria de RHEL y la fecha de publicación (por ejemplo, 8.0.20191023) | Estas imágenes tienen particiones LVM de RHEL 8 conectadas a repositorios estándar de Red Hat.
+|RedHat | RHEL | 8-gen2 | Valores concatenados de la versión secundaria de RHEL y la fecha de publicación (por ejemplo, 8.0.20191024) | Estas imágenes tienen particiones LVM de RHEL 8 de Hyper-V generación 2 conectadas a repositorios estándar de Red Hat. Para más información sobre las máquinas virtuales de Generación 2, consulte [Compatibilidad con máquinas virtuales de generación 2 en Azure](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2).
 
 ## <a name="rhel-longer-support-add-ons"></a>Complementos de compatibilidad más larga de RHEL
 

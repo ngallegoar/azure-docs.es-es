@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: a1c2049d7355ab946dbf426ec71f7f6178b8f153
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 5c84588290ce769b556002469b6a11c6950bb878
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74819108"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79476559"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Solución de problemas de activación de máquinas virtuales Windows de Azure
 
@@ -46,9 +46,9 @@ Por lo general, los problemas de activación de máquinas virtuales de Azure se 
 ## <a name="solution"></a>Solución
 
 >[!NOTE]
->Si usa una VPN de sitio a sitio y tunelización forzada, vea [Use Azure custom routes to enable KMS activation with forced tunneling](https://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx) (Uso de rutas personalizadas de Azure para permitir la activación de KMS con tunelización forzada). 
+>Si usa una VPN de sitio a sitio y tunelización forzada, vea [Use Azure custom routes to enable KMS activation with forced tunneling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-forced-tunneling) (Uso de rutas personalizadas de Azure para permitir la activación de KMS con tunelización forzada). 
 >
->Si usa ExpressRoute y tiene una ruta predeterminada publica, vea [Azure VM may fail to activate over ExpressRoute](https://blogs.msdn.com/b/mast/archive/2015/12/01/azure-vm-may-fail-to-activate-over-expressroute.aspx) (Es posible que la máquina virtual de Azure no se pueda activar por ExpressRoute).
+>Si usa ExpressRoute y tiene una ruta predeterminada publicada, consulte [¿Puedo bloquear la conectividad a Internet a redes virtuales conectadas a circuitos ExpressRoute?](https://docs.microsoft.com/azure/expressroute/expressroute-faqs)
 
 ### <a name="step-1-configure-the-appropriate-kms-client-setup-key"></a>Paso 1 Establecimiento de la clave de configuración de cliente KMS adecuada
 
@@ -102,7 +102,9 @@ En el caso de máquinas virtuales creadas a partir de una imagen personalizada, 
   
     Además, asegúrese de que el tráfico de red saliente al punto de KMS con el puerto 1688 no esté bloqueado por el firewall de la máquina virtual.
 
-5. Después de comprobar la conectividad correcta con kms.core.windows.net, ejecute el siguiente comando en un símbolo del sistema de Windows PowerShell con privilegios elevados. Este comando intenta la activación varias veces.
+5. Con ayuda de la información de [Próximo salto de Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview), compruebe que el tipo de próximo salto de la máquina virtual en cuestión a la IP de destino 23.102.135.246 (para kms.core.windows.net) o la dirección IP del punto de conexión de KMS adecuado que se aplica a su región sea **Internet**.  Si el resultado es VirtualAppliance o VirtualNetworkGateway, es probable que exista una ruta predeterminada.  Póngase en contacto con el administrador de red y trabaje con él para determinar el curso de acción correcto.  La solución podría ser una [ruta personalizada](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/custom-routes-enable-kms-activation) si esa opción es coherente con las directivas de la organización.
+
+6. Después de comprobar la conectividad correcta con kms.core.windows.net, ejecute el siguiente comando en un símbolo del sistema de Windows PowerShell con privilegios elevados. Este comando intenta la activación varias veces.
 
     ```powershell
     1..12 | ForEach-Object { Invoke-Expression "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /ato" ; start-sleep 5 }

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 05/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 1e75acc03209fdd7e613801c9152f24aaecfa6de
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68965451"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79232180"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Implementar el servicio Administrador de dispositivos de StorSimple para dispositivos de la serie StorSimple 8000
 
@@ -77,7 +77,7 @@ Realice los siguientes pasos para eliminar un servicio.
 
     ![Buscar servicio para eliminar](./media/storsimple-8000-manage-service/deletessdevman1.png)
 
-2. Esto le llevará a la hoja del servicio Administrador de dispositivos de StorSimple. Hacer clic en **Eliminar**.
+2. Esto le llevará a la hoja del servicio Administrador de dispositivos de StorSimple. Haga clic en **Eliminar**.
 
     ![Eliminar servicio](./media/storsimple-8000-manage-service/deletessdevman2.png)
 
@@ -103,7 +103,7 @@ Tiene que volver a generar una clave de registro del servicio si tiene que reali
 Realice los pasos siguientes para volver a generar una clave de registro de servicio.
 
 ### <a name="to-regenerate-the-service-registration-key"></a>Para volver a generar la clave de registro de servicio
-1. En la hoja **StorSimple Device Manager**, vaya a **Administración &gt;** **Claves**.
+1. En la hoja **Administrador de dispositivos de StorSimple**, vaya a **Administración &gt;** **Claves**.
     
     ![Hoja de claves](./media/storsimple-8000-manage-service/regenregkey2.png)
 
@@ -196,16 +196,16 @@ En Azure Portal, solo se admiten los dispositivos de StorSimple que ejecuten Upd
 | Buscar, descargar e instalar actualizaciones                                                                                             | Sí            |
 | Desactivar un dispositivo                                                                                                               | Sí            |
 | Eliminar un dispositivo                                                                                                                   | Sí            |
-| Crear, modificar y eliminar un contenedor de volúmenes                                                                                   | Sin             |
-| Crear, modificar y eliminar un volumen                                                                                             | Sin             |
-| Crear, modificar y eliminar una directiva de copia de seguridad                                                                                      | Sin             |
-| Creación de una copia de seguridad manual                                                                                                            | Sin             |
+| Crear, modificar y eliminar un contenedor de volúmenes                                                                                   | No             |
+| Crear, modificar y eliminar un volumen                                                                                             | No             |
+| Crear, modificar y eliminar una directiva de copia de seguridad                                                                                      | No             |
+| Creación de una copia de seguridad manual                                                                                                            | No             |
 | Realizar una copia de seguridad programada                                                                                                         | No aplicable |
-| Restaurar desde un conjunto de copias de seguridad                                                                                                        | Sin             |
+| Restaurar desde un conjunto de copias de seguridad                                                                                                        | No             |
 | Clonar en un dispositivo que ejecuta Update 3.0 y versiones posteriores <br> El dispositivo de origen está ejecutando una versión anterior a Update 3.0.                                | Sí            |
-| Clonar en un dispositivo que ejecuta versiones anteriores a Update 3.0                                                                          | Sin             |
+| Clonar en un dispositivo que ejecuta versiones anteriores a Update 3.0                                                                          | No             |
 | Conmutación por error como dispositivo de origen <br> (desde un dispositivo que ejecuta la versión anterior a Update 3.0 a un dispositivo que ejecuta Update 3.0 y versiones posteriores)                                                               | Sí            |
-| Conmutación por error como dispositivo de destino <br> (a un dispositivo que ejecuta una versión de software anterior a Update 3.0)                                                                                   | Sin             |
+| Conmutación por error como dispositivo de destino <br> (a un dispositivo que ejecuta una versión de software anterior a Update 3.0)                                                                                   | No             |
 | Desactivar una alerta                                                                                                                  | Sí            |
 | Ver las directivas de copia de seguridad, el catálogo de copias de seguridad, volúmenes, contenedores de volúmenes, gráficos de supervisión, trabajos y alertas creadas en el Portal clásico | Sí            |
 | Activar y desactivar los controladores de dispositivo                                                                                              | Sí            |

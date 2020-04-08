@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/16/2019
 ms.author: absha
-ms.openlocfilehash: d9d7ae3bc321f1f000fac1a875589df352077f33
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 84a7bdfb9f8f7c741140cbe2086149dff90db211
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74129810"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80132984"
 ---
 # <a name="how-an-application-gateway-works"></a>Funcionamiento de una puerta de enlace de aplicaciones
 
@@ -46,7 +46,7 @@ Cuando la puerta de enlace de aplicaciones selecciona el grupo de back-end, env�
 
 Después de que la puerta de enlace de aplicaciones determina el servidor back-end, abre una nueva sesión TCP con el servidor back-end según la configuración HTTP. La configuración HTTP especifica el protocolo, el puerto y otras configuraciones relacionadas con el enrutamiento que son necesarias para establecer una nueva sesión con el servidor back-end.
 
-El puerto y el protocolo usados en la configuración HTTP determinan si el tráfico entre los servidores back-end y la puerta de enlace de aplicaciones está cifrado (para lograr SSL de un extremo a otro) o sin cifrar.
+El puerto y el protocolo usados en la configuración HTTP determinan si el tráfico entre los servidores back-end y la puerta de enlace de aplicaciones está cifrado (para lograr TLS de un extremo a otro) o sin cifrar.
 
 Cuando una puerta de enlace de la aplicación envía la solicitud original al servidor back-end, respeta las opciones personalizadas en la configuración HTTP relacionadas con reemplazar el nombre de host, la ruta de acceso y el protocolo. Esta acción mantiene la afinidad de sesión basada en cookies, la purga de la conexión y la selección de nombre de host desde el back-end, entre otros.
 

@@ -3,12 +3,12 @@ title: Eliminación de un almacén de Microsoft Azure Recovery Services
 description: En este artículo, aprenderá a quitar dependencias y, a continuación, eliminar un almacén de Microsoft Azure Backup Recovery Services (MARS).
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 9ac9d0fd6411b512b319d02c94e86fa792243e0a
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: f33f52048729b50015ba86db71118b9a21e1a2fd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251430"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79500392"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Eliminación de un almacén de Recovery Services de Azure Backup
 
@@ -31,6 +31,8 @@ No se puede eliminar un almacén de Recovery Services que tenga dependencias aso
 - Si los elementos de copia de seguridad se encuentran en estado de eliminación temporal, aparece el mensaje de advertencia siguiente y tendrá que esperar hasta que se eliminen de forma permanente. Para más información, consulte este [artículo](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud).
 
    ![Elimine el error del almacén.](./media/backup-azure-delete-vault/error-message-soft-delete.png)
+
+- Los almacenes que tienen cuentas de almacenamiento registradas no se pueden eliminar. Para aprender a anular el registro de la cuenta, consulte [Anulación del registro de una cuenta de almacenamiento](manage-afs-backup.md#unregister-a-storage-account).
   
 Para eliminar el almacén, elija el escenario que coincida con la configuración y siga los pasos recomendados:
 
@@ -40,7 +42,7 @@ Tengo archivos y carpetas locales protegidos mediante la copia de seguridad del 
 Tengo máquinas locales protegidas con MABS (Microsoft Azure Backup Server) o DPM en Azure (System Center Data Protection Manager) en Azure. | Siga los pasos de [Eliminación de elementos de copia de seguridad desde la consola de administración de MABS](#delete-backup-items-from-the-mabs-management-console).
 Tengo elementos protegidos en la nube (por ejemplo, una máquina virtual laaS o un recurso compartido de Azure Files)  | Siga los pasos de [Eliminación de elementos protegidos en la nube](#delete-protected-items-in-the-cloud).
 Tengo elementos protegidos tanto en el entorno local como en la nube. | Siga los pasos que se describen en las secciones siguientes, en el orden siguiente: <br> 1. [Eliminación de elementos protegidos en la nube](#delete-protected-items-in-the-cloud)<br> 2. [Eliminación de elementos de copia de seguridad desde la consola de administración de MARS](#delete-backup-items-from-the-mars-management-console) <br> 3. [Eliminación de elementos de copia de seguridad desde la consola de administración de MABS](#delete-backup-items-from-the-mabs-management-console)
-No tengo elementos protegidos en el entorno local o en la nube; sin embargo, sigo obteniendo el error de eliminación del almacén. | Siga los pasos que se describen en [Eliminación del almacén de Recovery Services mediante Azure Resource Manager](#delete-the-recovery-services-vault-by-using-azure-resource-manager).
+No tengo elementos protegidos en el entorno local o en la nube; sin embargo, sigo obteniendo el error de eliminación del almacén. | Siga los pasos que se describen en [Eliminación del almacén de Recovery Services mediante Azure Resource Manager](#delete-the-recovery-services-vault-by-using-azure-resource-manager). <br><br> Asegúrese de que no haya cuentas de almacenamiento registradas en el almacén. Para aprender a anular el registro de la cuenta, consulte [Anulación del registro de una cuenta de almacenamiento](manage-afs-backup.md#unregister-a-storage-account).
 
 ## <a name="delete-protected-items-in-the-cloud"></a>Eliminación de elementos protegidos en la nube
 

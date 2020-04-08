@@ -12,11 +12,11 @@ ms.author: genemi
 ms.reviewer: billgib, sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: 6f660426c41b37dd27438c28cbf603bdbf1e58b3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822118"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79232616"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Administración de esquema en una aplicación SaaS que usa bases de datos SQL multiinquilino particionadas
 
@@ -40,7 +40,7 @@ En este tutorial, aprenderá a:
 > * Actualizar los datos de referencia en todas las bases de datos de inquilino.
 > * Crear un índice en una tabla en todas las bases de datos de inquilino.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - La aplicación de base de datos multiinquilino de Wingtip Tickets ya debe estar implementada:
     - Si desea ver las instrucciones, consulte el primer tutorial, en el que se presenta la aplicación de base de datos multiinquilino Wingtip Tickets de SaaS:<br />[Implementación y exploración de una aplicación multiinquilino con particiones que usa Azure SQL Database](saas-multitenantdb-get-started-deploy.md).
@@ -88,7 +88,7 @@ Cada base de datos de inquilinos incluye un conjunto de los tipos de ubicación 
 En primer lugar, revise los tipos de ubicación que se incluyen en cada base de datos de inquilino. Conéctese a una de las bases de datos de inquilino en SQL Server Management Studio (SSMS) y revise la tabla VenueTypes.  También puede consultar esta tabla en el Editor de consultas de Azure Portal, al que se accede desde la página de la base de datos.
 
 1. Abra SSMS y conéctese al servidor de inquilino: *tenants1-dpt-&lt;usuario&gt;.database.windows.net*
-1. Para confirmar que *Motorcycle Racing* y *Swimming Club* **no están** incluidos actualmente, vaya a la base de datos *contosoconcerthall* en el servidor *tenants1-dpt-&lt;usuari&gt;* y consulte la tabla *VenueTypes*.
+1. Para confirmar que *Motorcycle Racing* y *Swimming Club***no están** incluidos actualmente, vaya a la base de datos *contosoconcerthall* en el servidor *tenants1-dpt-&lt;usuario&gt;* y consulte la tabla *VenueTypes*.
 
 
 

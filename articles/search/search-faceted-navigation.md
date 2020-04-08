@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 4008779f0ec16bcaf6b995cf7f33d15a8f1e5665
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 5f4435ca213584fff84f3ddad9bda6f7e06628a1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78190660"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79236912"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-cognitive-search"></a>Procedimiento para implementar la navegación por facetas en Azure Cognitive Search
 
@@ -34,7 +34,7 @@ En el desarrollo de aplicaciones, la escritura del código que construye las con
 ## <a name="sample-code-and-demo"></a>Demostración y código de ejemplo
 En este artículo se utiliza como ejemplo un portal de búsqueda de trabajo. El ejemplo se implementa como una aplicación ASP.NET MVC.
 
-- Vea y pruebe la demostración de trabajo en línea en [Demostración del portal de búsqueda de trabajo de Azure Cognitive Search](http://azjobsdemo.azurewebsites.net/).
+- Vea y pruebe la demostración de trabajo en línea en [Demostración del portal de búsqueda de trabajo de Azure Cognitive Search](https://aka.ms/azjobsdemo).
 
 - Descargue el código del [repositorio de ejemplos de Azure en GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
 
@@ -78,7 +78,7 @@ Las expresiones de búsqueda complejas reducen el rendimiento de la consulta. Si
 Para entender mejor cómo los filtros agregan más precisión, compare una expresión de búsqueda compleja con una que incluya una expresión de filtro:
 
 -   `GET /indexes/hotel/docs?search=lodging budget +Seattle –motel +parking`
--   `GET /indexes/hotel/docs?search=lodging&$filter=City eq ‘Seattle’ and Parking and Type ne ‘motel’`
+-   `GET /indexes/hotel/docs?search=lodging&$filter=City eq 'Seattle' and Parking and Type ne 'motel'`
 
 Aunque ambas consultas son válidas, la segunda es mejor si está buscando hoteles que no sean moteles con estacionamiento en Seattle.
 -   La primera consulta se basa en las palabras específicas que se mencionan o no en campos de cadena tales como nombre, descripción u otros que contengan datos que se pueden buscar.
@@ -232,7 +232,7 @@ SearchParameters sp = new SearchParameters()
 
 Un parámetro de consulta de faceta se establece en un campo y, según el tipo de datos, se puede parametrizar aún más con una lista delimitada por comas que incluya `count:<integer>`, `sort:<>`, `interval:<integer>` y `values:<list>`. Se admiten listas de valores para datos numéricos cuando se establecen intervalos. Consulte [Buscar documentos (API de Azure Cognitive Search)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) para más información sobre su uso.
 
-Además de las facetas, la solicitud que la aplicación formula también debe generar filtros para reducir el conjunto de documentos candidatos en función de una selección de valores de faceta. Para una tienda de bicicletas, la navegación por facetas proporciona pistas a preguntas como *¿qué colores, fabricantes y tipos de bicicletas están disponibles?* . El filtrado responde a preguntas como *¿qué bicicletas exactas son rojas, bicicletas de montaña, dentro de este precio de intervalo de precios?* . Cuando hace clic en "Red" para indicar que solo se deben mostrar productos de color rojo, la consulta siguiente que la aplicación envía incluye`$filter=Color eq ‘Red’`.
+Además de las facetas, la solicitud que la aplicación formula también debe generar filtros para reducir el conjunto de documentos candidatos en función de una selección de valores de faceta. Para una tienda de bicicletas, la navegación por facetas proporciona pistas a preguntas como *¿qué colores, fabricantes y tipos de bicicletas están disponibles?* . El filtrado responde a preguntas como *¿qué bicicletas exactas son rojas, bicicletas de montaña, dentro de este precio de intervalo de precios?* . Cuando hace clic en "Red" para indicar que solo se deben mostrar productos de color rojo, la consulta siguiente que la aplicación envía incluye`$filter=Color eq 'Red'`.
 
 El siguiente fragmento de código de la página `JobsSearch.cs` agrega el cargo empresarial seleccionado al filtro si selecciona un valor de la faceta de Business Title.
 
@@ -371,7 +371,7 @@ Puede encontrar ejemplos de filtros en [Sintaxis de expresiones de OData (Azure 
 ## <a name="try-the-demo"></a>Prueba de la demostración
 La demostración del portal de búsqueda de trabajo de Azure Cognitive Search contiene los ejemplos a los que se hace referencia en este artículo.
 
--   Vea y pruebe la demostración de trabajo en línea en [Demostración del portal de búsqueda de trabajo de Azure Cognitive Search](https://azjobsdemo.azurewebsites.net/).
+-   Vea y pruebe la demostración de trabajo en línea en [Demostración del portal de búsqueda de trabajo de Azure Cognitive Search](https://aka.ms/azjobsdemo).
 
 -   Descargue el código del [repositorio de ejemplos de Azure en GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
 

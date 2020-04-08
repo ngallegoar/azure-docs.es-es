@@ -7,14 +7,14 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 10/04/2019
+ms.date: 03/12/2020
 ms.author: kgremban
-ms.openlocfilehash: e3f55f9be28a8b53f012e111e43ba1f495b1d585
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 80ce962ac6977fcce2455c8e2ef29af448a44075
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77186482"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80133151"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Instalación del entorno de ejecución de Azure IoT Edge en Windows
 
@@ -39,15 +39,18 @@ Utilice esta sección para revisar si el dispositivo Windows puede admitir IoT E
 
 ### <a name="supported-windows-versions"></a>Versiones de Windows admitidas
 
-En los escenarios de desarrollo y pruebas, Azure IoT Edge con contenedores Windows puede instalarse en cualquier versión de Windows 10 o Windows Server 2019 (compilación 17763) que admita la característica de contenedores. Para obtener información acerca de qué sistemas operativos se admiten actualmente en los escenarios de producción, consulte [Sistemas compatibles con Azure IoT Edge](support.md#operating-systems).
+IoT Edge para Windows requiere la versión de Windows 1809/compilación 17763, que es la [compilación de compatibilidad con Windows a largo plazo más reciente](https://docs.microsoft.com/windows/release-information/). En cuanto a la compatibilidad con la SKU de Windows, vea qué se admite en función de si está preparando escenarios de producción o escenarios de desarrollo y pruebas:
 
-Los dispositivos IoT Core deben incluir la característica opcional de contenedores de Windows IoT Core para admitir el tiempo de ejecución de IoT Edge. Use el siguiente comando en una [sesión remota de PowerShell](https://docs.microsoft.com/windows/iot-core/connect-your-device/powershell) para comprobar que los contenedores de Windows son compatibles con el dispositivo:
+* **Producción**: para la información más reciente sobre qué sistemas operativos se admiten actualmente en los escenarios de producción, consulte [Sistemas compatibles con Azure IoT Edge](support.md#operating-systems).
+* **Desarrollo y pruebas**: en los escenarios de desarrollo y pruebas, Azure IoT Edge con contenedores Windows puede instalarse en cualquier versión de Windows 10 o Windows Server 2019 que admita la característica de contenedores.
+
+Los dispositivos IoT Core deben incluir la característica opcional de contenedores de Windows IoT Core para admitir el entorno de ejecución de Azure IoT Edge. Use el siguiente comando en una [sesión remota de PowerShell](https://docs.microsoft.com/windows/iot-core/connect-your-device/powershell) para comprobar que los contenedores de Windows son compatibles con el dispositivo:
 
 ```powershell
 Get-Service vmcompute
 ```
 
-Si el servicio está presente, debería obtener una respuesta correcta con el estado del servicio indicado como **en ejecución**. Si no se encuentra el servicio vmcompute, el dispositivo no cumple los requisitos de IoT Edge. Póngase en contacto con su proveedor de hardware para consultar la compatibilidad con esta característica.
+Si el servicio está presente, debería obtener una respuesta correcta con el estado del servicio indicado como **en ejecución**. Si no se encuentra el servicio `vmcompute`, el dispositivo no cumple los requisitos de IoT Edge. Póngase en contacto con su proveedor de hardware para consultar la compatibilidad con esta característica.
 
 ### <a name="prepare-for-a-container-engine"></a>Preparación de un motor de contenedor
 
@@ -123,6 +126,7 @@ Para más información acerca de estas opciones de instalación, más adelante e
 En esta segunda opción, aprovisionará el dispositivo mediante el servicio IoT Hub Device Provisioning. Proporcione el **Id. de ámbito** de una instancia de Device Provisioning Service junto con cualquier otra información específica del [mecanismo de atestación](../iot-dps/concepts-security.md#attestation-mechanism) que prefiera:
 
 * [Creación y aprovisionamiento de un dispositivo IoT Edge con un TPM virtual en Windows](how-to-auto-provision-simulated-device-windows.md)
+* [Creación y aprovisionamiento de un dispositivo IoT Edge simulado mediante certificados X.509](how-to-auto-provision-x509-certs.md)
 * [Creación y aprovisionamiento de un dispositivo IoT Edge mediante la atestación de clave simétrica](how-to-auto-provision-symmetric-keys.md)
 
 Al instalar y aprovisionar un dispositivo automáticamente, puede usar parámetros adicionales para modificar la instalación, por ejemplo:
@@ -152,7 +156,7 @@ Deploy-IoTEdge -OfflineInstallationPath C:\Downloads\iotedgeoffline
 ```
 
 >[!NOTE]
->El parámetro `-OfflineInstallationPath` busca un archivo denominado **Microsoft-Azure-IoTEdge. cab** en el directorio proporcionado. A partir de la versión 1.0.9-RC4 de IoT Edge, dos archivos. cab están disponibles para su uso: uno para dispositivos AMD64 y otro para dispositivos ARM32. Descargue el archivo correcto para el dispositivo y, a continuación, cambie el nombre del archivo para quitar el sufijo de la arquitectura.
+>El parámetro `-OfflineInstallationPath` busca un archivo denominado **Microsoft-Azure-IoTEdge. cab** en el directorio proporcionado. A partir de la versión 1.0.9-rc4 de IoT Edge, dos archivos. cab están disponibles para su uso: uno para dispositivos AMD64 y otro para dispositivos ARM32. Descargue el archivo correcto para el dispositivo y, a continuación, cambie el nombre del archivo para quitar el sufijo de la arquitectura.
 
 El comando `Deploy-IoTEdge` instala los componentes de IoT Edge. Después, hay que continuar con el comando `Initialize-IoTEdge` para aprovisionar el dispositivo con su identificador y su conexión de IoT Hub. Ejecute el comando directamente y proporcione una cadena de conexión desde IoT Hub, o bien use uno de los hipervínculos de la sección anterior para obtener información sobre cómo aprovisionar automáticamente los dispositivos con el servicio de aprovisionamiento de dispositivos (Device Provisioning).
 
@@ -228,6 +232,18 @@ El comando Uninstall-IoTEdge no funciona en Windows IoT Core. Para quitar IoT Ed
 
 Para más información acerca de las opciones de desinstalación, use el comando `Get-Help Uninstall-IoTEdge -full`.
 
+## <a name="verify-installation-script"></a>Comprobación del script de instalación
+
+Los comandos de instalación que se proporcionan en este artículo usan el cmdlet Invoke-WebRequest para solicitar el script de instalación de `aka.ms/iotedge-win`. Este vínculo apunta al script `IoTEdgeSecurityDaemon.ps1` de la [versión de IoT Edge](https://github.com/Azure/azure-iotedge/releases) más reciente. También puede descargar este script, o una versión específica del mismo, para ejecutar los comandos de instalación en el dispositivo IoT Edge.
+
+El script proporcionado se firma para aumentar la seguridad. Puede comprobar la firma si descarga el script en el dispositivo y luego ejecuta el siguiente comando de PowerShell:
+
+```powershell
+Get-AuthenticodeSignature "C:\<path>\IotEdgeSecurityDaemon.ps1"
+```
+
+El estado de salida es **Válido** si se comprueba la firma.
+
 ## <a name="all-installation-parameters"></a>Todos los parámetros de instalación
 
 En las secciones anteriores se presentaron escenarios de instalación comunes con ejemplos de cómo usar parámetros para modificar el script de instalación. En esta sección se proporcionan tablas de referencia de los parámetros que se suelen usar para instalar, actualizar o desinstalar IoT Edge.
@@ -252,10 +268,12 @@ El comando Initialize-IoTEdge configura IoT Edge con su cadena de conexión del 
 | --------- | --------------- | -------- |
 | **Manual** | None | **Parámetro de modificador**. Si no se especifica ningún tipo de aprovisionamiento, el valor predeterminado es manual.<br><br>Declara que usted proporcionará una cadena de conexión de dispositivo para aprovisionar el dispositivo manualmente |
 | **Dps** | None | **Parámetro de modificador**. Si no se especifica ningún tipo de aprovisionamiento, el valor predeterminado es manual.<br><br>Declara que usted proporcionará un Id. de ámbito de Device Provisioning Service (DPS) y el Id. de registro del dispositivo para aprovisionar a través de DPS.  |
-| **DeviceConnectionString** | Una cadena de conexión desde un dispositivo de IoT Edge registrado en IoT Hub, entre comillas simples | **Obligatorio** para la instalación manual. Si no proporciona una cadena de conexión en los parámetros del script, se le pedirá una durante la instalación. |
-| **ScopeId** | Un Id. de ámbito de una instancia de Device Provisioning Service asociada con IoT Hub. | **Obligatorio** para la instalación de DPS. Si no proporciona un Id. de ámbito en los parámetros del script, se le pedirá uno durante la instalación. |
-| **RegistrationId** | Un identificador de registro generado por el dispositivo | **Obligatorio** para la instalación de DPS si se usa TPM o la atestación de clave simétrica. |
-| **SymmetricKey** | La clave simétrica usada para aprovisionar la identidad del dispositivo de IoT Edge al usar DPS | **Obligatorio** para la instalación de DPS si se usa la atestación de clave simétrica. |
+| **DeviceConnectionString** | Una cadena de conexión desde un dispositivo de IoT Edge registrado en IoT Hub, entre comillas simples | **Obligatorio** para aprovisionamiento manual. Si no proporciona una cadena de conexión en los parámetros del script, se le pedirá una. |
+| **ScopeId** | Un Id. de ámbito de una instancia de Device Provisioning Service asociada con IoT Hub. | **Obligatorio** para aprovisionamiento de DPS. Si no proporciona un identificador de ámbito en los parámetros del script, se le pedirá uno. |
+| **RegistrationId** | Un identificador de registro generado por el dispositivo | **Obligatorio** para aprovisionamiento de DPS si se usa TPM o la atestación de clave simétrica. **Opcional**  si se usa la atestación de certificados X. 509. |
+| **X509IdentityCertificate** | La ruta de acceso del URI al certificado de identidad del dispositivo X. 509 en el dispositivo. | **Obligatorio** para aprovisionamiento de DPS si se usa la atestación de certificados X. 509. |
+| **X509IdentityPrivateKey** | La ruta de acceso del URI a la clave del certificado de identidad del dispositivo X. 509 en el dispositivo. | **Obligatorio** para aprovisionamiento de DPS si se usa la atestación de certificados X. 509. |
+| **SymmetricKey** | La clave simétrica usada para aprovisionar la identidad del dispositivo de IoT Edge al usar DPS | **Obligatorio** para aprovisionamiento de DPS si se usa atestación de clave simétrica. |
 | **ContainerOs** | **Windows** o **Linux** | Si no se especifica el sistema operativo del contenedor, el valor predeterminado es Windows.<br><br>En el caso de los contenedores Windows, IoT Edge usa el motor de contenedor de Moby que se incluye en la instalación. Para los contenedores de Linux, deberá instalar un motor de contenedor antes de iniciar la instalación. |
 | **InvokeWebRequestParameters** | Tabla de hash de parámetros y valores | Durante la instalación se realizan varias solicitudes web. Utilice este campo para definir parámetros para esas solicitudes web. Este parámetro es útil para configurar las credenciales para los servidores proxy. Para más información, consulte [Configuración de un dispositivo de IoT Edge para que se comunique a través de un servidor proxy](how-to-configure-proxy-support.md). |
 | **AgentImage** | URI de la imagen del agente de IoT Edge | De forma predeterminada, una nueva instalación de IoT Edge utiliza la etiqueta gradual más reciente de la imagen del agente de IoT Edge. Utilice este parámetro para establecer una etiqueta específica para la versión de la imagen o para proporcionar su propia imagen de agente. Para obtener más información, vea [Información sobre las etiquetas de IoT Edge](how-to-update-iot-edge.md#understand-iot-edge-tags). |

@@ -3,12 +3,12 @@ title: Cuota de implementaciones superada
 description: En este artículo se describe cómo resolver el error de tener más de 800 implementaciones en el historial del grupo de recursos.
 ms.topic: troubleshooting
 ms.date: 10/04/2019
-ms.openlocfilehash: 7f389827513562a3add67f022fec360081754b02
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 919cd9a3482401cd47516e2677b0bf58387488b0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75474322"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80245096"
 ---
 # <a name="resolve-error-when-deployment-count-exceeds-800"></a>Resolución de error cuando el recuento de implementaciones es superior a 800
 
@@ -22,28 +22,28 @@ Durante una implementación, se recibe un error que indica que la implementació
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Utilice el comando [az group deployment delete](/cli/azure/group/deployment#az-group-deployment-delete) para eliminar implementaciones del historial:
+Utilice el comando [az deployment group delete](/cli/azure/group/deployment) para eliminar implementaciones del historial.
 
 ```azurecli-interactive
-az group deployment delete --resource-group exampleGroup --name deploymentName
+az deployment group delete --resource-group exampleGroup --name deploymentName
 ```
 
 Para eliminar todas las implementaciones de más de cinco días, use:
 
 ```azurecli-interactive
 startdate=$(date +%F -d "-5days")
-deployments=$(az group deployment list --resource-group exampleGroup --query "[?properties.timestamp<'$startdate'].name" --output tsv)
+deployments=$(az deployment group list --resource-group exampleGroup --query "[?properties.timestamp<'$startdate'].name" --output tsv)
 
 for deployment in $deployments
 do
-  az group deployment delete --resource-group exampleGroup --name $deployment
+  az deployment group delete --resource-group exampleGroup --name $deployment
 done
 ```
 
 Puede obtener el recuento actual del historial de implementaciones con el siguiente comando:
 
 ```azurecli-interactive
-az group deployment list --resource-group exampleGroup --query "length(@)"
+az deployment group list --resource-group exampleGroup --query "length(@)"
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell

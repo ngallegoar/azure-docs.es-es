@@ -3,12 +3,12 @@ title: Referencia de errores en las comprobaciones de estado
 description: Códigos de error y posibles soluciones de los problemas encontrados tras la ejecución del comando az acr para el diagnóstico de comprobación de mantenimiento en Azure Container Registry
 ms.topic: article
 ms.date: 07/02/2019
-ms.openlocfilehash: a921d17ad7d01b134f5bfa33a1d9a768d3ea94df
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 971b28b2bf8d9ac22cec0efe979837886762cf17
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455032"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80289148"
 ---
 # <a name="health-check-error-reference"></a>Referencia de errores de la comprobación de mantenimiento
 
@@ -97,6 +97,10 @@ Este error significa que el cliente no pudo establecer una conexión segura con 
 Este error indica que la CLI no pudo encontrar el servidor de inicio de sesión del registro determinado y que no se encontró ningún sufijo predeterminado para la nube actual. Este error puede producirse si el registro no existe, si el usuario no tiene los permisos adecuados en el registro, si la nube del registro y la nube de la CLI de Azure actual no coinciden o si la versión de la CLI de Azure está obsoleta.
 
 *Posibles soluciones*: compruebe que la ortografía es correcta y que el registro existe; asegúrese de que el usuario tiene los permisos adecuados en el registro y que las nubes del registro y del entorno de la CLI coinciden; actualice la CLI de Azure a la versión más reciente.
+
+## <a name="notary_version_error"></a>NOTARY_VERSION_ERROR
+
+Este error significa que la CLI no es compatible con la versión instalada actualmente de Docker/Notary. Intente cambiar la versión de notary.exe a una versión anterior a 0.6.0 reemplazando manualmente el cliente de Notary de la instalación de Docker para resolver este problema.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

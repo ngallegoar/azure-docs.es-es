@@ -1,24 +1,24 @@
 ---
-title: 'Private Link para Azure Database for PostgreSQL: método de configuración del portal de un solo servidor (versión preliminar)'
+title: 'Private Link para Azure Database for PostgreSQL: servidor único de la CLI de Azure'
 description: 'Obtenga información sobre cómo configurar Private Link para Azure Database for PostgreSQL: servidor único de CLI de Azure'
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 0eacf0f65346247d5fda5b26ead924a8cfd94dd9
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: d4288b901a0e6e132e32f8391d108e79861fc331
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77562095"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79371042"
 ---
-# <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-preview-using-cli"></a>Creación y administración de Private Link para Azure Database for PostgreSQL: servidor único (versión preliminar) con CLI
+# <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-cli"></a>Creación y administración de Private Link para Azure Database for PostgreSQL: servidor único con la CLI
 
 Un punto de conexión privado es el bloque de creación fundamental para el vínculo privado en Azure. Permite que los recursos de Azure, como las máquinas virtuales, se comuniquen de manera privada con recursos de vínculos privados. En este artículo se muestra cómo usar CLI de Azure para crear una máquina virtual en Azure Virtual Network y un servidor único de Azure Database for PostgreSQL con un punto de conexión privado de Azure.
 
 > [!NOTE]
-> Esta característica está disponible en todas las regiones de Azure donde Azure Database for PostgreSQL admita los planes de tarifa de uso general y optimizados para memoria.
+> Esta característica está disponible en todas las regiones de Azure donde Azure Database for PostgreSQL: servidor único admite los planes de tarifa de uso general y optimizados para memoria.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 

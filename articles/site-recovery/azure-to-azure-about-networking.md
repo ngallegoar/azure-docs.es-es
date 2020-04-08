@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 1/23/2020
+ms.date: 3/13/2020
 ms.author: sutalasi
-ms.openlocfilehash: aeab1960b065538635fdd63c43d779287f8cd9ee
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 58348c9aed14a5cc9126be780fe01817274a0b47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759830"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80283266"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Acerca de las redes para la recuperación ante desastres de máquinas virtuales de Azure
 
@@ -46,23 +46,27 @@ Normalmente, los clientes protegen sus redes mediante firewalls y grupos de segu
 Si usa un proxy de firewall basado en la dirección URL para controlar la conectividad de salida, admita estas direcciones URL de Site Recovery:
 
 
-**URL** | **Detalles**  
+**URL** | **Detalles**
 --- | ---
 *.blob.core.windows.net | Se requiere para que los datos se puedan escribir en la cuenta de almacenamiento de la caché en la región de origen de la máquina virtual. Si conoce todas las cuentas de almacenamiento en caché de las máquinas virtuales, puede permitir el acceso a las direcciones URL de las cuentas de almacenamiento específicas (por ejemplo, cache1.blob.core.windows.net y cache2.blob.core.windows.net) en lugar de *.blob.core.windows.net
 login.microsoftonline.com | Se requiere para la autorización y la autenticación de las direcciones URL del servicio Site Recovery.
 *.hypervrecoverymanager.windowsazure.com | Se requiere para la comunicación del servicio Site Recovery desde la máquina virtual.
 *.servicebus.windows.net | Se requiere para que se puedan escribir datos de supervisión y diagnóstico de Site Recovery desde la máquina virtual.
+*.vault.azure.net | Permite el acceso para habilitar la replicación de máquinas virtuales habilitadas para ADE a través del portal.
+*.automation.ext.azure.com | Permite habilitar la actualización automática del agente de movilidad para un elemento replicado a través del portal.
 
-## <a name="outbound-connectivity-for-ip-address-ranges"></a>Conectividad de salida para rangos de direcciones IP
+## <a name="outbound-connectivity-using-service-tags"></a>Conectividad saliente mediante etiquetas de servicio
 
 Si utiliza un grupo de seguridad de red para controlar la conectividad de salida, deben permitirse estas etiquetas de servicio.
 
-- Todos los intervalos de direcciones IP que correspondan a las cuentas de almacenamiento en la región de origen.
+- Para las cuentas de almacenamiento en la región de origen:
     - Cree una regla de NSG basada en la [etiqueta del servicio Storage](../virtual-network/security-overview.md#service-tags) para la región de origen.
     - Permita estas direcciones para que los datos se puedan escribir en la cuenta de almacenamiento en caché, desde la máquina virtual.
 - Cree una regla de grupos de seguridad de red basada en la [etiqueta de servicio de Azure Active Directory (AAD)](../virtual-network/security-overview.md#service-tags) para permitir el acceso a todas las direcciones IP correspondientes a AAD.
 - Cree una regla de NSG basada en una etiqueta de servicio EventsHub para la región de destino, lo que permite el acceso a la supervisión de Site Recovery.
 - Cree una regla de NSG basada en una etiqueta de servicio AzureSiteRecovery para permitir el acceso al servicio Site Recovery en cualquier región.
+- Cree una regla de NSG basada en una etiqueta de servicio de AzureKeyVault. Esto solo es necesario para habilitar la replicación de máquinas virtuales habilitadas para ADE a través del portal.
+- Cree una regla de NSG basada en una etiqueta de servicio de GuestAndHybridManagement. Esto es necesario solo para habilitar la actualización automática del agente de movilidad para un elemento replicado a través del portal.
 - Se recomienda crear las reglas de NSG necesarias en un grupo NSG de NSG de prueba y comprobar que no haya ningún problema antes de crear las reglas en un grupo de NSG de producción.
 
 ## <a name="example-nsg-configuration"></a>Configuración de NSG de ejemplo

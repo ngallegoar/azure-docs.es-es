@@ -6,12 +6,12 @@ author: harelbr
 ms.author: harelbr
 ms.date: 06/26/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 3c028a97c2fb554b13035026025437d5331104c2
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 7ca4df620739b2ab55b8ba986031cc48fe87f1fa
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77669716"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294920"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Administración de reglas de detección inteligente de Application Insights con plantillas de Azure Resource Manager
 
@@ -28,8 +28,6 @@ Puede configurar los siguientes valores en una regla de detección inteligente:
 
 Para permitir la configuración de los valores de regla a través de Azure Resource Manager, la configuración de reglas de detección inteligente ahora está disponible como recurso interno en el recurso de Application Insights denominado **ProactiveDetectionConfigs**.
 Para obtener la máxima flexibilidad, cada regla de detección inteligente puede configurarse con valores de notificación únicos.
-
-## 
 
 ## <a name="examples"></a>Ejemplos
 
@@ -131,6 +129,27 @@ Asegúrese de reemplazar el nombre de recurso de Application Insights y de espec
 
 ```
 
+
+## <a name="smart-detection-rule-names"></a>Nombres de regla de detección inteligente
+
+Seguidamente se muestra una tabla de nombres de reglas de detección inteligente tal y como aparecen en el portal, así como sus nombres internos, que deben utilizarse en la plantilla de Azure Resource Manager.
+
+> [!NOTE]
+> Las reglas de detección inteligente marcadas como de _versión preliminar_ no admiten notificaciones por correo electrónico. Por lo tanto, solo se puede establecer la propiedad _habilitada_ para estas reglas. 
+
+| Nombre de regla de Azure Portal | Nombre interno
+|:---|:---|
+| Carga lenta de página | slowpageloadtime |
+| Lentitud en el tiempo de respuesta del servidor | slowserverresponsetime |
+| Duración de la dependencia prolongada | longdependencyduration |
+| Degradación del tiempo de respuesta del servidor | degradationinserverresponsetime |
+| Reducción de la duración de la dependencia | degradationindependencyduration |
+| Degradación en la relación de gravedad de seguimiento (versión preliminar) | extension_traceseveritydetector |
+| Aumento anormal del volumen de excepciones (versión preliminar) | extension_exceptionchangeextension |
+| Detección de una posible fuga de memoria (versión preliminar) | extension_memoryleakextension |
+| Detección de un posible problema de seguridad (versión preliminar) | extension_securityextensionspackage |
+| Aumento anómalo del volumen de datos diario (versión preliminar) | extension_billingdatavolumedailyspikeextension |
+
 ### <a name="failure-anomalies-alert-rule"></a>Regla de alertas Anomalías de errores
 
 Esta plantilla de Azure Resource Manager muestra la configuración de una regla de alertas de Anomalías en los errores con una gravedad de 2. Esta versión nueva de la regla de alertas de Anomalías en los errores es parte de la nueva plataforma de alertas de Azure y reemplaza la versión clásica que se retira como parte del [proceso de retirada de alertas clásicas](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/).
@@ -167,27 +186,7 @@ Esta plantilla de Azure Resource Manager muestra la configuración de una regla 
 ```
 
 > [!NOTE]
-> Esta plantilla de Azure Resource Manager es única para la regla de alertas de Anomalías en los errores y es distinta de las otras reglas clásicas de detección inteligente que se describen en este artículo.
-
-## <a name="smart-detection-rule-names"></a>Nombres de regla de detección inteligente
-
-Seguidamente se muestra una tabla de nombres de reglas de detección inteligente tal y como aparecen en el portal, así como sus nombres internos, que deben utilizarse en la plantilla de Azure Resource Manager.
-
-> [!NOTE]
-> Las reglas de detección inteligente marcadas como de _versión preliminar_ no admiten notificaciones por correo electrónico. Por lo tanto, solo se puede establecer la propiedad _habilitada_ para estas reglas. 
-
-| Nombre de regla de Azure Portal | Nombre interno
-|:---|:---|
-| Carga lenta de página | slowpageloadtime |
-| Lentitud en el tiempo de respuesta del servidor | slowserverresponsetime |
-| Duración de la dependencia prolongada | longdependencyduration |
-| Degradación del tiempo de respuesta del servidor | degradationinserverresponsetime |
-| Reducción de la duración de la dependencia | degradationindependencyduration |
-| Degradación en la relación de gravedad de seguimiento (versión preliminar) | extension_traceseveritydetector |
-| Aumento anormal del volumen de excepciones (versión preliminar) | extension_exceptionchangeextension |
-| Detección de una posible fuga de memoria (versión preliminar) | extension_memoryleakextension |
-| Detección de un posible problema de seguridad (versión preliminar) | extension_securityextensionspackage |
-| Aumento anómalo del volumen de datos diario (versión preliminar) | extension_billingdatavolumedailyspikeextension |
+> Esta plantilla de Azure Resource Manager es única para la regla de alertas de Anomalías en los errores y es distinta de las otras reglas clásicas de detección inteligente que se describen en este artículo. Si desea administrar Anomalías en los errores manualmente, esto se hace en Alertas de Azure Monitor, mientras que todas las demás reglas de detección inteligente se administran en el panel Detección inteligente de la interfaz de usuario.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

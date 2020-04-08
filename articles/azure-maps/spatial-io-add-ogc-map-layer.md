@@ -1,30 +1,30 @@
 ---
 title: Incorporación de una capa de mapa de Open Geospatial Consortium (OGC) | Microsoft Azure Maps
 description: Obtenga información sobre cómo superponer una capa de mapa OGC en el mapa y cómo usar las diferentes opciones de la clase OgcMapLayer.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: c41ee293c853572ec9e1f9dd3edf001c805924d3
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.openlocfilehash: b753ecfc07cfb3806838f8a05dbe33ef0bb92730
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78402781"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80334295"
 ---
 # <a name="add-a-map-layer-from-the-open-geospatial-consortium-ogc"></a>Incorporación de una capa de mapa desde Open Geospatial Consortium (OGC)
 
-La clase `atlas.layer.OgcMapLayer` puede superponer imágenes de Web Mapping Services (WMS) y de Web Mapping Tile Services (WMTS) en el mapa. WMS es un protocolo estándar desarrollado por OGC para servir imágenes de mapa georreferenciadas a través de Internet. La georreferenciación de imágenes es el proceso de asociar una imagen a una ubicación geográfica. WMTS es también un protocolo estándar desarrollado por OGC. Está diseñado para servir iconos de mapa representados previamente y con iconos de mapas con georreferencia.
+La clase `atlas.layer.OgcMapLayer` puede superponer imágenes de Web Map Services (WMS) y de Web Map Tile Services (WMTS) en el mapa. WMS es un protocolo estándar desarrollado por OGC para servir imágenes de mapa georreferenciadas a través de Internet. La georreferenciación de imágenes es el proceso de asociar una imagen a una ubicación geográfica. WMTS es también un protocolo estándar desarrollado por OGC. Está diseñado para servir iconos de mapa representados previamente y con iconos de mapas con georreferencia.
 
-En las secciones siguientes se describen las características de Web Mapping Service que son compatibles con la clase `OgcMapLayer`.
+En las secciones siguientes se describen las características del servicio de mapas web que son compatibles con la clase `OgcMapLayer`.
 
-**Web Mapping Service (WMS)**
+**Web Map Service (WMS)**
 
 - Versiones compatibles: `1.0.0`, `1.1.0`, `1.1.1` y `1.3.0`
-- El servicio debe admitir el sistema de proyección `EPSG:3857` o el servicio debe ser capaz de controlar las reproyecciones.
+- El servicio debe ser compatible con el sistema de proyección de `EPSG:3857` o controlar las reproyecciones.
 - GetFeatureInfo requiere que el servicio admita `EPSG:4326` o controle las reproyecciones. 
 - Operaciones compatibles:
 
@@ -34,7 +34,7 @@ En las secciones siguientes se describen las características de Web Mapping Ser
     | GetMap | Recupera una imagen de mapa para una región especificada. |
     | GetFeatureInfo | Recupera `feature_info`, que contiene los datos subyacentes de la característica. |
 
-**Web Mapping Tile Service (WMTS)**
+**Web Map Tile Service (WMTS)**
 
 - Versiones admitidas: `1.0.0`
 - Los mosaicos deben ser cuadrados, de modo que `TileWidth == TileHeight`.
@@ -76,7 +76,7 @@ La siguiente herramienta superpone las imágenes de Web Map Services (WMS) y de 
 <iframe height='750' style='width: 100%;' scrolling='no' title='Explorador de Web Map Service de OGC' src='//codepen.io/azuremaps/embed/YzXxYdX/?height=750&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vea el lápiz <a href='https://codepen.io/azuremaps/pen/YzXxYdX/'>Explorador de Web Map Service de OGC</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-También puede especificar la configuración de mapa para usar un servicio de proxy. El servicio de proxy le permite cargar recursos que se hospedan en dominios que no tienen CORs habilitado.
+También puede especificar la configuración de mapa para usar un servicio de proxy. El servicio de proxy le permite cargar recursos que se hospedan en dominios que no tienen CORS habilitado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

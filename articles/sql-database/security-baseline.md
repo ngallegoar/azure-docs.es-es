@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: ca3df9e68e1d7e82675a6765f0320d42599a63da
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 35d4d44f0b9f1b210f38a034575b589c7211d55c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78943635"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80246677"
 ---
 # <a name="azure-security-baseline-for-azure-sql-database"></a>Línea de base de seguridad de Azure para Azure SQL Database
 
@@ -238,20 +238,19 @@ https://docs.microsoft.com/azure/virtual-machines/windows/time-sync
 
 Además, puede transmitir telemetría de diagnósticos de Azure SQL a Azure SQL Analytics, una solución en la nube que supervisa el rendimiento de bases de datos, grupos elásticos e instancias administradas de Azure SQL a escala entre varias suscripciones. Puede ayudarle a recopilar y visualizar métricas del rendimiento de Azure SQL Database y cuenta con inteligencia integrada para solucionar problemas de rendimiento.
 
-
 Configuración de la auditoría de Azure SQL Database:
 
 https://docs.microsoft.com/azure/sql-database/sql-database-auditing
 
 
-Recopilación de registros y métricas de plataforma con Azure Monitor:
+Recopilación de métricas y registros de recursos con Azure Monitor:
 
 https://docs.microsoft.com/azure/sql-database/sql-database-metrics-diag-logging
 
 
 Transmisión de diagnósticos a Azure SQL Analytics:
 
-https://docs.microsoft.com/azure/sql-database/sql-database-metrics-diag-logging#stream-diagnostic-telemetry-into-sql-analytics
+https://docs.microsoft.com/azure/sql-database/sql-database-metrics-diag-logging#configure-the-streaming-export-of-diagnostic-telemetry
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -787,7 +786,7 @@ https://docs.microsoft.com/azure/security-center/security-center-vulnerability-a
 
 Exportación de un informe de evaluación de vulnerabilidades en Azure Security Center:
 
-https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment#implementing-vulnerability-assessment
+https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment#implement-vulnerability-assessment
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -1272,7 +1271,7 @@ Alertas de seguridad en Azure Security Center: https://docs.microsoft.com/azure/
 
 ### <a name="103-test-security-response-procedures"></a>10.3: Prueba de los procedimientos de respuesta de seguridad
 
-**Instrucciones**: Realice ejercicios para probar las capacidades de respuesta a los incidentes de los sistemas con regularidad. Identifique puntos débiles y brechas y revise el plan según sea necesario.
+**Guía**: Realice ejercicios para probar las capacidades de respuesta a los incidentes de los sistemas con regularidad. Identifique puntos débiles y brechas y revise el plan según sea necesario.
 
 
 

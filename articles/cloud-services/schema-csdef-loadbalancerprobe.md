@@ -1,5 +1,6 @@
 ---
 title: Esquema LoadBalancerProbe de definición de Azure Cloud Services | Microsoft Docs
+description: El cliente define LoadBalancerProbe como un sondeo de estado de los puntos de conexión en las instancias de rol. Los roles web o de trabajo se combinan en un archivo de definición de servicio.
 ms.custom: ''
 ms.date: 04/14/2015
 services: cloud-services
@@ -8,12 +9,12 @@ ms.topic: reference
 caps.latest.revision: 14
 author: georgewallace
 ms.author: tagore
-ms.openlocfilehash: bc2c0f5137ce78392a8df7c6c2fdd402ded5355a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6d0e84b6724d9df4162d4be3e06a9952087a53a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449055"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79537353"
 ---
 # <a name="azure-cloud-services-definition-loadbalancerprobe-schema"></a>Esquema LoadBalancerProbe de definición de Azure Cloud Services
 El sondeo del equilibrador de carga es un sondeo de mantenimiento definido por el cliente de los puntos de conexión UDP y los puntos de conexión de las instancias de rol. El elemento `LoadBalancerProbe` no es un elemento independiente; se combina con el rol web o el rol de trabajo en un archivo de definición de servicio. Un elemento `LoadBalancerProbe` se puede usar en más de un rol.
@@ -46,10 +47,10 @@ El elemento `LoadBalancerProbes` del archivo de definición de servicio incluye 
 - [Elemento LoadBalancerProbes](#LoadBalancerProbes)
 - [Elemento LoadBalancerProbe](#LoadBalancerProbe)
 
-##  <a name="LoadBalancerProbes"></a> Elemento LoadBalancerProbes
+##  <a name="loadbalancerprobes-element"></a><a name="LoadBalancerProbes"></a> Elemento LoadBalancerProbes
 El elemento `LoadBalancerProbes` describe la colección de sondeos del equilibrador de carga. Este elemento es el elemento primario del [elemento LoadBalancerProbe](#LoadBalancerProbe). 
 
-##  <a name="LoadBalancerProbe"></a> Elemento LoadBalancerProbe
+##  <a name="loadbalancerprobe-element"></a><a name="LoadBalancerProbe"></a> Elemento LoadBalancerProbe
 El elemento `LoadBalancerProbe` define el sondeo de mantenimiento de un modelo. Puede definir varios sondeos del equilibrador de carga. 
 
 En la tabla siguiente se describen los atributos del elemento `LoadBalancerProbe`:

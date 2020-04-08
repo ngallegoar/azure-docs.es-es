@@ -173,7 +173,7 @@
         - name: Oferta de aplicación de Azure
           href: ./cloud-partner-portal/azure-applications/cpp-azure-app-offer.md
           items:
-            - name: Prerequisites
+            - name: Prerrequisitos
               href: ./cloud-partner-portal/azure-applications/cpp-prerequisites.md
             - name: Creación de una oferta de aplicación de Azure
               href: ./cloud-partner-portal/azure-applications/cpp-create-offer.md
@@ -199,7 +199,7 @@
         - name: Servicios de consultoría
           href: ./cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md
           items:
-            - name: Prerequisites
+            - name: Prerrequisitos
               href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-prerequisites.md
             - name: Creación de una oferta de servicios de consultoría
               href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-create-offer.md
@@ -213,7 +213,7 @@
         - name: Oferta de Containers
           href: ./cloud-partner-portal/containers/cpp-containers-offer.md
           items:
-            - name: Prerequisites
+            - name: Prerrequisitos
               href: ./cloud-partner-portal/containers/cpp-prerequisites.md
             - name: Creación de oferta de contenedor
               href: ./cloud-partner-portal/containers/cpp-create-offer.md
@@ -250,7 +250,7 @@
         - name: Oferta de Dynamics 365 for Customer Engagement
           href: ./cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer.md
           items:
-            - name: Prerequisites
+            - name: Prerrequisitos
               href: ./cloud-partner-portal/dyn365ce/cpp-prerequisites.md
             - name: Creación de una oferta de Customer Engagement
               href: ./cloud-partner-portal/dyn365ce/cpp-create-offer.md
@@ -272,7 +272,7 @@
         - name: Oferta de Dynamics 365 for Operations
           href: ./cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md
           items:
-            - name: Prerequisites
+            - name: Prerrequisitos
               href: ./cloud-partner-portal-orig/pre-requisites.md
             - name: Publicación
               href: ./cloud-partner-portal-orig/manage-dynamics-365-for-operations.md
@@ -289,7 +289,7 @@
         - name: Oferta de módulo de IoT Edge
           href: ./cloud-partner-portal/iot-edge-module/cpp-offer-process-parts.md
           items:
-            - name: Prerequisites
+            - name: Prerrequisitos
               href: ./cloud-partner-portal/iot-edge-module/cpp-prerequisites.md
             - name: Creación de una oferta del módulo de IoT Edge
               href: ./cloud-partner-portal/iot-edge-module/cpp-create-offer.md
@@ -311,7 +311,7 @@
         - name: Oferta de la aplicación Power BI
           href: ./cloud-partner-portal/power-bi/cpp-power-bi-offer.md
           items:
-            - name: Prerequisites
+            - name: Prerrequisitos
               href: ./cloud-partner-portal/power-bi/cpp-prerequisites.md
             - name: Creación de oferta de la aplicación Power BI
               href: ./cloud-partner-portal/power-bi/cpp-create-offer.md
@@ -335,7 +335,7 @@
         - name: Oferta de máquina virtual
           href: ./cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md
           items:
-            - name: Prerequisites
+            - name: Prerrequisitos
               href: ./cloud-partner-portal/virtual-machine/cpp-prerequisites.md
             - name: Creación de oferta de máquina virtual
               href: ./cloud-partner-portal/virtual-machine/cpp-create-offer.md
@@ -399,7 +399,7 @@
       items:
         - name: Información general
           href: ./cloud-partner-portal-orig/cloud-partner-portal-api-overview.md
-        - name: Prerequisites
+        - name: Prerrequisitos
           href: ./cloud-partner-portal-orig/cloud-partner-portal-api-prerequisites.md
         - name: Consideraciones
           href: ./cloud-partner-portal-orig/cloud-partner-portal-api-considerations.md
@@ -453,6 +453,12 @@
               href: ./partner-center-portal/azure-apps-review-feedback.md
             - name: API para la incorporación
               href: ./partner-center-portal/azure-app-apis.md
+        - name: Servicios de consultoría
+          items:
+            - name: Prerrequisitos
+              href: ./partner-center-portal/consulting-service-prerequisites.md
+            - name: Creación de una oferta de servicios de consultoría
+              href: ./partner-center-portal/create-consulting-service-offer.md
         - name: "Ofertas de Dynamics\_365"
           items:
             - name: Creación de una oferta de Dynamics 365 for Customer Engagement y PowerApps
@@ -461,6 +467,22 @@
               href: ./partner-center-portal/create-new-operations-offer.md
             - name: Creación de una oferta de Dynamics 365 Business Central
               href: ./partner-center-portal/create-new-business-central-offer.md
+        - name: Ofertas del módulo de IoT Edge
+          items:
+            - name: Preparación de recursos técnicos del módulo de IoT Edge
+              href: ./partner-center-portal/create-iot-edge-module-asset.md
+            - name: Creación de una oferta de módulo de IoT Edge
+              href: ./partner-center-portal/azure-iot-edge-module-creation.md
+        - name: Ofertas de servicio administrado
+          items:
+            - name: Creación de una oferta de servicio administrado
+              href: ./partner-center-portal/create-new-managed-service-offer.md
+        - name: Ofertas de la aplicación Power BI
+          items:
+            - name: Publicación de información general
+              href: ./partner-center-portal/create-power-bi-app-overview.md
+            - name: Creación de oferta de la aplicación Power BI
+              href: ./partner-center-portal/create-power-bi-app-offer.md
         - name: Ofertas de SaaS
           items:
             - name: Lista de comprobación de creación de ofertas de SaaS

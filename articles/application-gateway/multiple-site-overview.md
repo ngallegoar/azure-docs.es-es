@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.date: 03/11/2020
 ms.author: amsriva
 ms.topic: conceptual
-ms.openlocfilehash: c43ac0923e0d3d76c25657f4870a0a0431bc8b6e
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.openlocfilehash: 4d945a255dacd35c61c3c80574b7d46b56de4aab
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79096431"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80257417"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Hospedaje de varios sitios de Application Gateway
 
@@ -39,7 +39,7 @@ En la actualidad, Application Gateway admite una dirección IP pública única e
 
 Application Gateway permite que haya varias aplicaciones y cada una escuche en un puerto diferente. Sin embargo, este escenario requiere que las aplicaciones acepten el tráfico en puertos no estándar. Esta no suele ser la configuración deseada.
 
-Application Gateway se basa en los encabezados de host HTTP 1.1 para hospedar más de un sitio web en la misma dirección IP pública y en el mismo puerto. Los sitios que se hospedan en la puerta de enlace de aplicaciones también pueden admitir la descarga SSL con la extensión TLS de Indicación de nombre de servidor (SNI). Este escenario significa que el explorador cliente y la granja de servidores web back-end deben admitir la extensión TLS y HTTP/1.1, como se define en RFC 6066.
+Application Gateway se basa en los encabezados de host HTTP 1.1 para hospedar más de un sitio web en la misma dirección IP pública y en el mismo puerto. Los sitios que se hospedan en la puerta de enlace de aplicaciones también pueden admitir la descarga TLS con la extensión TLS de Indicación de nombre de servidor (SNI). Este escenario significa que el explorador cliente y la granja de servidores web back-end deben admitir la extensión TLS y HTTP/1.1, como se define en RFC 6066.
 
 ## <a name="listener-configuration-element"></a>Elemento de configuración de agente de escucha
 

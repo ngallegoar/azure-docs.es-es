@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 03/26/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 3f9a1cfa92ffa454758849f52cc1977cef6df63a
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: e73686629de8481f6a37e5bfafc9b723206b4853
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76768389"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80351029"
 ---
 # <a name="optimize-costs-for-blob-storage-with-reserved-capacity"></a>Optimización de los costos de almacenamiento de blobs con capacidad reservada
 
@@ -33,7 +33,9 @@ Puede comprar capacidad reservada de Azure Storage en unidades de 100 TB y 1 P
 
 ### <a name="reservation-scope"></a>Ámbito de la reserva
 
-La capacidad reservada de Azure Storage está disponible en una suscripción única o para un grupo de recursos compartidos. Al comprar la capacidad reservada de Azure Storage, puede usar la reserva para los datos de blobs en bloques y de Azure Data Lake Storage Gen2. Una reserva se aplica al uso dentro del ámbito adquirido y no se puede limitar a una cuenta de almacenamiento, un contenedor o un objeto específico de la suscripción. Una reserva no se puede dividir entre varias suscripciones.
+La capacidad reservada de Azure Storage está disponible en una suscripción única o para varias suscripciones (ámbito compartido). Cuando el ámbito es de una suscripción única, el descuento por reserva se aplica a la suscripción seleccionada únicamente. Cuando el ámbito es de varias suscripciones, el descuento de la reserva se comparte entre esas suscripciones según el contexto de facturación del cliente.
+
+Al comprar la capacidad reservada de Azure Storage, puede usar la reserva para los datos de blobs en bloques y de Azure Data Lake Storage Gen2. Una reserva se aplica al uso dentro del ámbito adquirido y no se puede limitar a una cuenta de almacenamiento, un contenedor o un objeto específico de la suscripción. Una reserva no se puede dividir entre varias suscripciones.
 
 Una reserva de Azure Storage solo cubre la cantidad de datos que se almacenan en una suscripción o un grupo de recursos compartidos. Los cargos iniciales por transferencia de datos, ancho de banda, operaciones y eliminación no se incluyen en la reserva. En cuanto se compra una reserva, los cargos de capacidad que coincidan con los atributos de reserva se cobran según las tarifas de descuento en lugar de las tarifas de pago por uso. Para más información sobre las reservas de Azure, consulte [¿Qué es Azure Reservations?](/azure/billing/billing-save-compute-costs-reservations).
 

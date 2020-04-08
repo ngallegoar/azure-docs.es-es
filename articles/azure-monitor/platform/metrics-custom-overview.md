@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 3e3f45c1802d501e2320930c35073ec89ff38124
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: e104877ef641a87eac4ba19bb3342c6e029bf80c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77662355"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294592"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Métricas personalizadas en Azure Monitor
 
@@ -35,7 +35,7 @@ Para enviar métricas personalizadas a Azure Monitor, la entidad que envía la m
 Para autenticar la solicitud, Azure Monitor valida el token de aplicación mediante las claves públicas de Azure AD. El rol **Supervisión del publicador de métricas** existente ya tiene este permiso. Está disponible en Azure Portal. La entidad de servicio, en función de para qué recursos vaya a emitir las métricas personalizadas, puede recibir el rol **Supervisión del publicador de métricas** en el ámbito necesario. Algunos ejemplos son una suscripción, un grupo de recursos o un recurso específico.
 
 > [!NOTE]  
-> Cuando solicite un token de Azure AD para emitir métricas personalizadas, asegúrese de que la audiencia o el recurso para el que se solicita el token sea https://monitoring.azure.com/. Asegúrese de incluir la barra diagonal "/" final.
+> Cuando solicite un token de Azure AD para emitir métricas personalizadas, asegúrese de que la audiencia o el recurso para el que se solicita el token sea `https://monitoring.azure.com/`. Asegúrese de incluir la barra diagonal "/" final.
 
 ### <a name="subject"></a>Asunto
 Esta propiedad captura para cuál identificador de recurso de Azure se notifica la métrica personalizada. Esta información se codificarán en la dirección URL de la llamada API que se realiza. Cada API solo puede enviar los valores de métrica para un único recurso de Azure.
@@ -156,13 +156,17 @@ No es necesario definir previamente una métrica personalizada en Azure Monitor 
 
 ## <a name="using-custom-metrics"></a>Uso de métricas personalizadas
 Una vez que las métricas personalizadas se envían a Azure Monitor, puede examinarlas con Azure Portal y consultarlas mediante las API REST de Azure Monitor. También puede crear alertas con ellas para avisarle cuando se cumplen ciertas condiciones.
+
+> [!NOTE]
+> Debe ser un rol de lector o colaborador para ver las métricas personalizadas.
+
 ### <a name="browse-your-custom-metrics-via-the-azure-portal"></a>Exploración de las métricas personalizadas a través de Azure Portal
-1.  Vaya a [Azure Portal](https://portal.azure.com).
-2.  Seleccione el panel **Monitor**.
-3.  Seleccione **Métricas**.
-4.  Seleccione un recurso con el que haya emitido métricas personalizadas.
-5.  Seleccione el espacio de nombres de métrica para la métrica personalizada.
-6.  Seleccione la métrica personalizada.
+1.    Vaya a [Azure Portal](https://portal.azure.com).
+2.    Seleccione el panel **Monitor**.
+3.    Seleccione **Métricas**.
+4.    Seleccione un recurso con el que haya emitido métricas personalizadas.
+5.    Seleccione el espacio de nombres de métrica para la métrica personalizada.
+6.    Seleccione la métrica personalizada.
 
 ## <a name="supported-regions"></a>Regiones admitidas
 Durante la versión preliminar pública, la capacidad de publicar métricas personalizadas solo está disponible en un subconjunto de las regiones de Azure. Esta restricción implica que las métricas solo pueden publicarse para recursos de una de las regiones admitidas. En la tabla siguiente se enumera el conjunto de regiones de Azure admitidas para las métricas personalizadas. También se muestran los puntos de conexión correspondientes para cuyos recursos en esas regiones se deben publicar métricas:

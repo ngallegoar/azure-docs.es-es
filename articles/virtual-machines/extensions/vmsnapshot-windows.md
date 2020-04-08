@@ -9,18 +9,20 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: trinadhk
-ms.openlocfilehash: c4f5650e333c209d3b5f342c1f1c61ec1ca5cf47
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 5ee3b97eb835322a0ad6c8a69c20776a243713fd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264295"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79415127"
 ---
 # <a name="vm-snapshot-windows-extension-for-azure-backup"></a>Extensión de Windows de instantánea de máquina virtual para Azure Backup
 
 Azure Backup proporciona compatibilidad para realizar copias de seguridad de cargas de trabajo desde el entorno local a la nube y para realizar copias de seguridad de recursos en la nube en el almacén de Recovery Services. Azure Backup usa la extensión de instantánea de máquina virtual para realizar una copia de seguridad coherente con la aplicación de la máquina virtual de Azure sin necesidad de apagar la máquina virtual. Microsoft publica la extensión de instantánea de máquina virtual y es compatible con esta como parte del servicio de Azure Backup. Azure Backup instalará la extensión como parte de la primera copia de seguridad programada que se desencadene tras habilitar la copia de seguridad. En este documento se especifican las plataformas compatibles, configuraciones y opciones de implementación de la extensión de instantánea de máquina virtual.
 
-## <a name="prerequisites"></a>Prerequisites
+La extensión VMSnapshot solo aparece en Azure Portal para las máquinas virtuales no administradas.
+
+## <a name="prerequisites"></a>Prerrequisitos
 
 ### <a name="operating-system"></a>Sistema operativo
 Para obtener una lista de sistemas operativos compatibles, vea [Sistemas operativos compatibles con Azure Backup](../../backup/backup-azure-arm-vms-prepare.md#before-you-start).

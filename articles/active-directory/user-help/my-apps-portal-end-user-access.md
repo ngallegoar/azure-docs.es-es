@@ -12,12 +12,12 @@ ms.date: 02/03/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: a5dae30c8b8f43602581b39005389211da83cb9e
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: ab3ab25df6ce41d4045a270754830d501fe40689
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77022312"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80347168"
 ---
 # <a name="sign-in-and-start-apps-from-the-my-apps-portal"></a>Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones
 
@@ -69,7 +69,8 @@ Descargue e instale la extensión según el explorador que esté utilizando:
 
 - **Mozilla Firefox** En la página de **complementos de Firefox**, diríjase a la característica [Extensión de inicio de sesión seguro de Mis aplicaciones](https://addons.mozilla.org/firefox/addon/access-panel-extension/) y, a continuación, seleccione **Añadir a Firefox**.
 
-- **Microsoft Edge** En Microsoft Store, diríjase a la característica [Extensión de inicio de sesión seguro de Mis aplicaciones](https://www.microsoft.com/p/my-apps-secure-sign-in-extension/9pc9sckkzk84?rtc=1&activetab=pivot%3Aoverviewtab) y, a continuación, seleccione **Obtener**.
+- **Microsoft Edge** en Microsoft Store, diríjase a la característica [Extensión de inicio de sesión seguro de Mis aplicaciones](https://www.microsoft.com/p/my-apps-secure-sign-in-extension/9pc9sckkzk84?rtc=1&activetab=pivot%3Aoverviewtab) y, a continuación, seleccione **Obtener** para obtener la extensión para el explorador heredado Microsoft Edge.  
+Si usa el nuevo explorador Microsoft Edge (Edge en Chromium), puede obtener la extensión del [almacén de Complementos de Microsoft Edge](https://microsoftedge.microsoft.com/addons/category/EdgeExtensionsEditorsPick).
 
 Se ha agregado un icono a la derecha de la barra de **direcciones** que le permite iniciar sesión y personalizar la extensión.
 

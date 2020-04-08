@@ -3,16 +3,17 @@ title: Creación de una plantilla de Azure Image Builder, versión preliminar
 description: Obtenga información sobre cómo crear una plantilla para usarla con Azure Image Builder.
 author: danis
 ms.author: danis
-ms.date: 01/23/2020
+ms.date: 03/24/2020
 ms.topic: article
 ms.service: virtual-machines-linux
+ms.subservice: imaging
 manager: gwallace
-ms.openlocfilehash: 08a1ca0c85d69d1a5262f1dcac5d46fb82b1c22b
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: e1f1bc09406c34836c13deb805fa399ab4751d41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78191799"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80246796"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Vista previa: Creación de una plantilla de Azure Image Builder 
 
@@ -35,9 +36,14 @@ Este es el formato de plantilla básico:
         "buildTimeoutInMinutes": <minutes>, 
         "vmProfile": 
             {
-            "vmSize": "<vmSize>"
+            "vmSize": "<vmSize>",
+            "osDiskSizeGB": <sizeInGB>,
+            "vnetConfig": {
+                "name": "<vnetName>",
+                "subnetName": "<subnetName>",
+                "resourceGroupName": "<vnetRgName>"
             },
-        "build": {}, 
+        "source": {}, 
         "customize": {}, 
         "distribute": {} 
       } 
@@ -64,6 +70,8 @@ La ubicación es la región donde se creará la imagen personalizada. Para la ve
 - Centro-Oeste de EE. UU.
 - Oeste de EE. UU.
 - Oeste de EE. UU. 2
+- Norte de Europa
+- Oeste de Europa
 
 
 ```json
@@ -80,7 +88,7 @@ De forma predeterminada, el generador de imágenes usará una máquina virtual d
 
 ## <a name="osdisksizegb"></a>osDiskSizeGB
 
-De forma predeterminada, el generador de imágenes no cambiará el tamaño de la imagen, sino que usará el tamaño de la imagen de origen. Puede ajustar el tamaño del disco del sistema operativo (Windows y Linux). Tenga en cuenta que no sea mucho menor que el espacio mínimo necesario para el sistema operativo. Esto es opcional y el valor 0 significa dejar el mismo tamaño que la imagen de origen. Esto es opcional.
+De forma predeterminada, el generador de imágenes no cambiará el tamaño de la imagen, sino que usará el tamaño de la imagen de origen. Puede aumentar el tamaño del disco del sistema operativo (Win y Linux), es opcional y un valor de 0 significa dejar el mismo tamaño que la imagen de origen. 
 
 ```json
  {
@@ -88,6 +96,16 @@ De forma predeterminada, el generador de imágenes no cambiará el tamaño de la
  },
 ```
 
+## <a name="vnetconfig"></a>vnetConfig
+Si no especifica ninguna propiedad de la red virtual, Image Builder creará su propia red virtual, la dirección IP pública y el NSG. La dirección IP pública se usa para que el servicio se comunique con la máquina virtual de compilación; sin embargo, si no quiere que una dirección IP pública o desea que Image Builder tenga acceso a los recursos de red virtual existentes, por ejemplo, servidores de configuración (DSC, Chef, Puppet, Ansible...), recursos compartidos de archivos, etc., puede especificar una red virtual. Para obtener más información, consulte la [documentación de redes](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibNetworking.md#networking-with-azure-vm-image-builder), que es opcional.
+
+```json
+    "vnetConfig": {
+        "name": "<vnetName>",
+        "subnetName": "<subnetName>",
+        "resourceGroupName": "<vnetRgName>"
+    }
+```
 ## <a name="tags"></a>Etiquetas
 
 Estos son los pares clave-valor que puede especificar para la imagen que se genera.
@@ -129,33 +147,15 @@ Para obtener más información sobre la implementación de esta característica,
 La sección `source` contiene información acerca de la imagen de origen que usará Image Builder.
 
 La API requiere un "SourceType" que define el origen de la compilación de imagen. Actualmente hay tres tipos:
-- ISO: utilice esta opción cuando el origen sea un ISO de RHEL.
 - PlatformImage: indicado para los casos en que la imagen de origen es una imagen de Marketplace.
 - ManagedImage: use esta opción cuando empiece desde una imagen administrada normal.
 - SharedImageVersion: se utiliza cuando se usa como origen una versión de la imagen de una galería de imágenes compartidas.
 
 ### <a name="iso-source"></a>Origen de ISO
+Vamos a dejar de usar esta funcionalidad de Image Builder, ya que ahora contamos con [imágenes de la suscripción Traiga su propia licencia de RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/byos), revise las escalas de tiempo siguientes:
+    * 31 de marzo de 2020: el proveedor de recursos ya podrá aceptar plantillas de imagen con orígenes ISO de RHEL.
+    * 30 de abril 2020: ya no se procesarán las plantillas de imagen que contengan orígenes ISO de RHEL.
 
-Para la versión preliminar, Azure Image Builder solo admite el uso de ISO de DVD binarios de Red Hat Enterprise Linux 7.x publicados. Image Builder admite:
-- RHEL 7.3 
-- RHEL 7.4 
-- RHEL 7.5 
- 
-```json
-"source": {
-       "type": "ISO",
-       "sourceURI": "<sourceURI from the download center>",
-       "sha256Checksum": "<checksum associated with ISO>"
-}
-```
-
-Para obtener los valores `sourceURI` y `sha256Checksum`, vaya a `https://access.redhat.com/downloads` y, a continuación, seleccione el producto **Red Hat Enterprise Linux** y una versión compatible. 
-
-En la lista de **Instaladores e imágenes para Red Hat Enterprise Linux Server**, deberá copiar el vínculo de DVD binario de Red Hat Enterprise Linux 7.x y la suma de comprobación.
-
-> [!NOTE]
-> Los tokens de acceso de los vínculos se actualizan a intervalos frecuentes, por lo que, cada vez que desee enviar una plantilla, deberá comprobar si la dirección del vínculo de RH ha cambiado.
- 
 ### <a name="platformimage-source"></a>Origen de PlatformImage 
 El generador de imágenes de Azure admite Windows Server y el cliente, así como las imágenes de Azure Marketplace de Linux. Consulte [aquí](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview#os-support) para ver la lista completa. 
 
@@ -165,7 +165,7 @@ El generador de imágenes de Azure admite Windows Server y el cliente, así com
                 "publisher": "Canonical",
                 "offer": "UbuntuServer",
                 "sku": "18.04-LTS",
-                "version": "18.04.201903060"
+                "version": "latest"
         },
 ```
 
@@ -176,8 +176,7 @@ Aquí, las propiedades son las mismas que se utilizan para crear máquinas virtu
 az vm image list -l westus -f UbuntuServer -p Canonical --output table –-all 
 ```
 
-> [!NOTE]
-> La versión no puede ser la "más reciente", deberá usar el comando anterior para obtener un número de versión. 
+Puede usar "latest" en la versión; la versión se evalúa cuando se produce la compilación de la imagen, no cuando se envía la plantilla. Si usa esta funcionalidad con el destino de Shared Image Gallery, puede evitar volver a enviar la plantilla y ejecutar de nuevo la compilación de la imagen a intervalos, por lo que las imágenes se volverán a crear a partir de las imágenes más recientes.
 
 ### <a name="managedimage-source"></a>Origen de ManagedImage
 
@@ -336,7 +335,7 @@ El personalizador de shell admite la ejecución de scripts de PowerShell y coman
              "type": "PowerShell", 
              "name": "<name>", 
              "inline": "<PowerShell syntax to run>", 
-             "valid_exit_codes": "<exit code>",
+             "validExitCodes": "<exit code>",
              "runElevated": "<true or false>" 
          } 
     ], 
@@ -349,7 +348,7 @@ Propiedades de personalización:
 - **type**: PowerShell.
 - **scriptUri**: URI a la ubicación del archivo de script de PowerShell. 
 - **inline**: comandos alineados que se ejecutarán, separados por comas.
-- **valid_exit_codes**: opcional, códigos válidos que pueden devolverse desde el comando de script o alineado; esto evitará que se informe de un error del comando de script o alineado.
+- **validExitCodes**: opcional, códigos válidos que pueden devolverse desde el comando de script o alineado; esto evitará que se informe de un error del comando de script o alineado.
 - **runElevated**: opcional, booleano, admite la ejecución de comandos y scripts con permisos elevados.
 - **sha256Checksum**: valor de la suma de comprobación sha256 del archivo, se genera de forma local y, a continuación, Image Builder realizará la suma de comprobación y la validación.
     * Para generar el valor de sha256Checksum, con PowerShell en Windows utilice [Get-hash](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/get-filehash?view=powershell-6)
@@ -389,6 +388,30 @@ Si se produce un error al intentar descargar el archivo o colocarlo en un direct
 > el personalizador de archivos solo es adecuado para descargas de archivos pequeños, inferiores a 20 MB. Para descargas de archivos más grandes, use un script o un comando insertado, el código de uso para descargar archivos, como `wget` o `curl` de Linux, o `Invoke-WebRequest` de Windows.
 
 Los archivos del personalizador de archivos se pueden descargar desde Azure Storage mediante [MSI](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage).
+
+### <a name="windows-update-customizer"></a>Personalizador de Windows Update
+Este personalizador se basa en el [aprovisionador de Windows Update de la comunidad](https://packer.io/docs/provisioners/community-supported.html) para Packer, que es un proyecto de código abierto que mantiene la comunidad de Packer. Microsoft comprueba y valida el aprovisionamiento con el servicio Image Builder, y permite investigar problemas con él, así como trabajar para resolver problemas, pero Microsoft no admite oficialmente el proyecto de código abierto. Para obtener documentación detallada y ayuda con el aprovisionamiento de Windows Update, vea el repositorio del proyecto.
+ 
+     "customize": [
+            {
+                "type": "WindowsUpdate",
+                "searchCriteria": "IsInstalled=0",
+                "filters": [
+                    "exclude:$_.Title -like '*Preview*'",
+                    "include:$true"
+                            ],
+                "updateLimit": 20
+            }
+               ], 
+SO compatible: Windows
+
+Propiedades de personalización:
+- **type**: WindowsUpdate.
+- **searchCriteria**: (opcional) define qué tipo de actualizaciones se instalan (recomendadas, importantes, etc.); BrowseOnly=0 e IsInstalled=0 (recomendado) son los valores predeterminados.
+- **filters**: (opcional) permite especificar un filtro para incluir o excluir actualizaciones.
+- **updateLimit**: (opcional) define el número de actualizaciones que se pueden instalar, el valor predeterminado es 1000.
+ 
+ 
 
 ### <a name="generalize"></a>Generalize 
 De forma predeterminada, Azure Image Builder también ejecutará código de "desaprovisionamiento" al final de cada fase de personalización de la imagen con el fin de "generalizar" la imagen. La generalización es un proceso en el que la imagen se configura para que pueda volver a usarse para crear varias máquinas virtuales. Para las máquinas virtuales de Windows, Azure Image Builder utiliza Sysprep. Para Linux, Azure Image Builder ejecuta "waagent-deprovision". 

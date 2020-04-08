@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/20/2019
+ms.date: 03/25/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0aca5019f4f7fca47195fb8fb821b1af1ae9ec77
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 6a868c8199ac34a498a280e2522d6b1e4c7ec370
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024252"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80295212"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>Acceso condicional: Bloquear la autenticación heredada
 
@@ -24,7 +24,7 @@ Debido al aumento del riesgo asociado a los protocolos de autenticación heredad
 
 ## <a name="create-a-conditional-access-policy"></a>Creación de una directiva de acceso condicional
 
-Los pasos siguientes le ayudarán a crear una directiva de acceso condicional para bloquear las solicitudes de autenticación heredadas.
+Los pasos siguientes le ayudarán a crear una directiva de acceso condicional para bloquear las solicitudes de autenticación heredadas. Esta directiva se coloca en [modo de solo informe](howto-conditional-access-report-only.md) para comenzar, de modo que los administradores puedan establecer el impacto que tendrán en los usuarios existentes. Cuando los administradores se sientan cómodos con que la directiva se aplique según lo previsto, pueden cambiar a **Activado** o ensayar la implementación agregando grupos específicos y excluyendo otros.
 
 1. Inicie sesión en **Azure Portal** como administrador global, administrador de seguridad o administrador de acceso condicional.
 1. Vaya a **Azure Active Directory** > **Seguridad** > **Acceso condicional**.
@@ -32,16 +32,16 @@ Los pasos siguientes le ayudarán a crear una directiva de acceso condicional pa
 1. Asigne un nombre a la directiva. Se recomienda que las organizaciones creen un estándar significativo para los nombres de sus directivas.
 1. En **Asignaciones**, seleccione **Usuarios y grupos**.
    1. En **Incluir**, seleccione **Todos los usuarios**.
-   1. En **Excluir**, seleccione **Usuarios y grupos** y elija las cuentas que deben mantener la capacidad para usar la autenticación heredada. Debe excluir al menos una cuenta para evitar que se le bloquee. Si no se excluye ninguna cuenta, no podrá crear esta directiva.
+   1. En **Excluir**, seleccione **Usuarios y grupos** y elija las cuentas que deben mantener la capacidad para usar la autenticación heredada. Excluya al menos una cuenta para evitar que se le bloquee. Si no se excluye ninguna cuenta, no podrá crear esta directiva.
    1. Seleccione **Listo**.
-1. En **Aplicaciones o acciones en la nube** seleccione **Todas las aplicaciones en la nube**.
+1. En **Aplicaciones o acciones en la nube**, seleccione **Todas las aplicaciones en la nube**.
    1. Seleccione **Listo**.
 1. En **Condiciones** > **Aplicaciones cliente (versión preliminar)** , establezca **Configurar** en **Sí**.
    1. Active solo las casillas **Aplicaciones móviles y clientes de escritorio** > **Otros clientes**.
    1. Seleccione **Listo**.
 1. En **Controles de acceso** > **Conceder**, seleccione **Bloquear acceso**.
    1. Elija **Seleccionar**.
-1. Confirme la configuración y establezca **Habilitar directiva** en **Activado**.
+1. Confirme la configuración y establezca **Habilitar directiva** en **Solo informe**.
 1. Seleccione **Crear** para crear la directiva.
 
 ## <a name="next-steps"></a>Pasos siguientes

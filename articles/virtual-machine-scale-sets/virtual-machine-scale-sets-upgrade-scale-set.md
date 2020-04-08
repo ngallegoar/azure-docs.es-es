@@ -1,19 +1,19 @@
 ---
 title: Modificación de un conjunto de escalado de máquinas virtuales de Azure
 description: Aprenda a modificar y actualizar un conjunto de escalado de máquinas virtuales de Azure con las API REST, Azure PowerShell y la CLI de Azure
-author: mayanknayar
+author: mimckitt
 tags: azure-resource-manager
 ms.assetid: e229664e-ee4e-4f12-9d2e-a4f456989e5d
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
-ms.date: 02/14/2018
-ms.author: manayar
-ms.openlocfilehash: 49327ff0c3aeab25de02fc67c049f24597215d45
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.date: 03/10/2020
+ms.author: mimckitt
+ms.openlocfilehash: 66fd656b5175547641150a048e57c978dc06d291
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76274450"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79476831"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificación de un conjunto de escalado de máquinas virtuales
 
@@ -311,7 +311,7 @@ Para actualizar las máquinas virtuales existentes, debe realizar una "actualiza
 >[!NOTE]
 > Los clústeres de Service Fabric solo pueden usar el modo *automático*, pero la actualización se administra de forma diferente. Para más información, consulte [Actualización de la aplicación de Service Fabric](../service-fabric/service-fabric-application-upgrade.md).
 
-Hay un tipo de modificación en las propiedades globales del conjunto de escalado que no sigue la directiva de actualización. Los cambios en el perfil de sistema operativo del conjunto de escalado (como nombre de usuario administrador o contraseña) solo se pueden realizar en la versión de API *2017-12-01* o posterior. Estos cambios solo se aplican a las máquinas virtuales creadas después del cambio en el modelo de conjunto de escalado. Para actualizar las máquinas virtuales existentes, debe realizar un "restablecimiento de la imagen inicial" de cada una de ellas. Para ello, puede usar:
+Hay un tipo de modificación en las propiedades globales del conjunto de escalado que no sigue la directiva de actualización. Los cambios en el perfil del disco de datos y del sistema operativo del conjunto de escalado (como nombre de usuario administrador y contraseña) solo se pueden realizar en la versión de API *2017-12-01* o posterior. Estos cambios solo se aplican a las máquinas virtuales creadas después del cambio en el modelo de conjunto de escalado. Para actualizar las máquinas virtuales existentes, debe realizar un "restablecimiento de la imagen inicial" de cada una de ellas. Para ello, puede usar:
 
 - API REST con [compute/virtualmachinescalesets/reimage](/rest/api/compute/virtualmachinescalesets/reimage) de la manera siguiente:
 
@@ -342,6 +342,7 @@ Algunas propiedades solo pueden establecerse al crear el conjunto de escalado. E
 - Zonas de disponibilidad
 - Image reference publisher
 - Image reference offer
+- Image reference sku
 - Tipo de cuenta de almacenamiento de disco de sistema operativo administrado
 
 ### <a name="properties-that-can-only-be-changed-based-on-the-current-value"></a>Propiedades que solo se pueden cambiar en función del valor actual

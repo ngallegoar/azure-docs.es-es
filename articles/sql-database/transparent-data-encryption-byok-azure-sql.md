@@ -1,22 +1,22 @@
 ---
 title: Cifrado de datos transparente (TDE) administrado por el cliente
-description: Compatibilidad de Bring Your Own Key (BYOK) para el cifrado de datos transparente (TDE) con Azure Key Vault para SQL Database y Data Warehouse. Información general de TDE con BYOK, ventajas, funcionamiento, consideraciones y recomendaciones.
+description: Compatibilidad de Bring Your Own Key (BYOK) con el cifrado de datos transparente (TDE) con Azure Key Vault para SQL Database y Azure Synapse. Información general de TDE con BYOK, ventajas, funcionamiento, consideraciones y recomendaciones.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, azure-synapse
 ms.devlang: ''
 ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
-ms.date: 02/12/2020
-ms.openlocfilehash: 8e91bb9223f3e6ccd4c76614d75db8591dbed045
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.date: 03/18/2020
+ms.openlocfilehash: 462326fb16663a6f25ff4b51ea11791201086fd6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201530"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79528735"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Cifrado de datos transparente de Azure SQL con una clave administrada por el cliente
 
@@ -24,7 +24,7 @@ El [Cifrado de datos transparente (TDE)](https://docs.microsoft.com/sql/relation
 
 En este escenario, la clave que se usa para el cifrado de la clave de cifrado de base de datos (DEK), denominada protector de TDE, es una clave asimétrica administrada por el cliente que se almacena en una instancia propiedad del cliente y administrada por él de [Azure Key Vault (AKV)](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault), un sistema de administración de claves externas basado en la nube. Key Vault ofrece un almacenamiento seguro de alta disponibilidad y escalabilidad para claves criptográficas RSA respaldado opcionalmente por módulos de seguridad de hardware (HSM) con certificación FIPS 140-2 nivel 2. No permite el acceso directo a una clave almacenada, sino que proporciona servicios de cifrado y descifrado mediante el uso de la clave en las entidades autorizadas. La clave puede generarse desde el almacén de claves, así como importarse o [transferirse al almacén de claves desde un dispositivo HSM local](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys).
 
-Para Azure SQL Database y Azure SQL Data Warehouse, el protector de TDE se establece en el nivel de servidor lógico y se hereda por todas las bases de datos cifradas asociadas con dicho servidor. En el caso de la Instancia administrada de Azure SQL Database, el protector de TDE se establece en el nivel de instancia y lo heredan todas las bases de datos cifradas que se encuentren en dicha instancia. El término *servidor* hace referencia tanto al servidor lógico de SQL Database como a una instancia administrada a lo largo de este documento, a menos que se indique lo contrario.
+En Azure SQL Database y Azure Synapse, el protector de TDE se establece en el nivel de servidor lógico y todas las bases de datos cifradas asociadas a dicho servidor lo heredan. En el caso de la Instancia administrada de Azure SQL Database, el protector de TDE se establece en el nivel de instancia y lo heredan todas las bases de datos cifradas que se encuentren en dicha instancia. El término *servidor* hace referencia tanto al servidor lógico de SQL Database como a una instancia administrada a lo largo de este documento, a menos que se indique lo contrario.
 
 > [!IMPORTANT]
 > Para aquellos que usan TDE administrado por el servicio y que quieren empezar a usar TDE administrado por el cliente, los datos permanecen cifrados durante el proceso de cambio y no hay tiempo de inactividad ni se vuelven a cifrar los archivos de la base de datos. El cambio de una clave administrada por el servicio a una clave administrada por el cliente solo requiere el nuevo cifrado de la DEK, que es una operación rápida y en línea.
@@ -99,7 +99,7 @@ Los auditores pueden usar Azure Monitor para revisar los registros de los objeto
 
 - Habilite la auditoría y la generación de informes en todas las claves de cifrado: El almacén de claves proporciona registros que son fáciles de insertar en otras herramientas de administración de eventos e información de seguridad. [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault) de Operations Management Suite es un ejemplo de un servicio que ya está integrado.
 
-- Vincule cada servidor con dos almacenes de claves que residan en regiones diferentes y que conserven el mismo material de clave para garantizar una alta disponibilidad de bases de datos cifradas. Marque solo la clave del almacén de claves que está en la misma región que un protector de TDE. El sistema usará la clave marcada.
+- Vincule cada servidor con dos almacenes de claves que residan en regiones diferentes y que conserven el mismo material de clave para garantizar una alta disponibilidad de bases de datos cifradas. Marque solo la clave del almacén de claves que está en la misma región que un protector de TDE. El sistema cambiará automáticamente al almacén de claves de la región remota si se produce una interrupción que afecte al almacén de claves en la misma región.
 
 ### <a name="recommendations-when-configuring-tde-protector"></a>Recomendaciones para la configuración del protector de TDE
 - Almacene una copia del protector de TDE en un lugar seguro o en el servicio de custodia.
@@ -163,7 +163,7 @@ Si la clave necesaria para restaurar una copia de seguridad ya no está disponib
 
 Para mitigarlo, ejecute el cmdlet [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) para el servidor lógico de destino de SQL Database o [Get-AzSqlInstanceKeyVaultKey](/powershell/module/az.sql/get-azsqlinstancekeyvaultkey) para la instancia administrada de destino para devolver la lista de claves disponibles e identificar las que faltan. Para asegurarse de que se pueden restaurar las copias de seguridad, asegúrese de que el servidor de destino para la restauración tiene acceso a todas las claves necesarias. No es necesario que estas claves estén marcadas como protector de TDE.
 
-Para obtener más información acerca de la recuperación de copia de seguridad de SQL Database, consulte la información sobre la [recuperación de una base de datos de Azure SQL](sql-database-recovery-using-backups.md). Para obtener más información acerca de la recuperación de copia de seguridad de SQL Data Warehouse, consulte la información sobre la [recuperación de una instancia de Azure SQL Data Warehouse](../sql-data-warehouse/backup-and-restore.md). Para realizar una copia de seguridad o una restauración nativa de SQL Server con una instancia administrada, consulte [Inicio rápido: Restauración de una base de datos en una instancia administrada](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore).
+Para obtener más información acerca de la recuperación de copia de seguridad de SQL Database, consulte la información sobre la [recuperación de una base de datos de Azure SQL](sql-database-recovery-using-backups.md). Para más información sobre la recuperación de copia de seguridad del grupo de SQL, consulte [Recuperación de un grupo de SQL](../synapse-analytics/sql-data-warehouse/backup-and-restore.md). Para realizar una copia de seguridad o una restauración nativa de SQL Server con una instancia administrada, consulte [Inicio rápido: Restauración de una base de datos en una instancia administrada](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore).
 
 Una consideración adicional para los archivos de registro: las copias de seguridad de archivos de registro permanecen cifradas con el protector de TDE original, incluso si este se ha rotado y la base de datos usa ahora un nuevo protector de TDE.  Durante la restauración, se necesitarán ambas claves para restaurar la base de datos.  Si el archivo de registro está usando un protector de TDE almacenado en Azure Key Vault, se necesitará esta clave durante la restauración, incluso si la base de datos se ha cambiado para usar TDE administrado por el servicio durante el proceso.
 

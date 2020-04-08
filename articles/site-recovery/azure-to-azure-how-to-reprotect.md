@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 818c053c22cfa47cac0f4f6a19349cf239d3cdec
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 73747b8331054cdc3bfa1f4073ccf2cdb62ab326
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368594"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80283249"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Reprotección de máquinas virtuales de Azure conmutadas por error en la región principal
 
@@ -89,6 +89,10 @@ Las siguientes condiciones determinan la cantidad de datos que se replican:
 |---|---|
 |La región de origen tiene una máquina virtual con un disco estándar de 1 TB.<br/>Solo se usan 127 GB de datos y el resto del disco está vacío.<br/>El tipo de disco es estándar con un rendimiento de 60 MiB/s.<br/>Ningún cambio de datos después de la conmutación por error.| Tiempo aproximado: 45 minutos (1,5 horas)<br/>Durante la reprotección, Site Recovery rellenará la suma de comprobación de todos los datos, lo que lleva 127 GB/45 MB, aproximadamente 45 minutos.<br/>Se necesita algún tiempo de sobrecarga para que Site Recovery realice el escalado automático, aproximadamente entre 20 y 30 minutos.<br/>No hay cargos de salida. |
 |La región de origen tiene una máquina virtual con disco estándar de 1 TB.<br/>Solo se usan 127 GB de datos y el resto del disco está vacío.<br/>El tipo de disco es estándar con un rendimiento de 60 MiB/s.<br/>45 GB de datos cambian después de la conmutación por error.| Tiempo aproximado: Entre 1 y 2 horas.<br/>Durante la reprotección, Site Recovery rellenará la suma de comprobación de todos los datos, lo que lleva 127 GB/45 MB, aproximadamente 45 minutos.<br/>El tiempo de transferencia para aplicar los cambios es de 45 GB, es decir, 45 GB/45 MBps, aproximadamente 17 minutos.<br/>Los cargos de salida serían únicamente para 45 GB de cambios de datos, no para la suma de comprobación. |
+
+Cuando se vuelve a proteger la VM después de la conmutación por recuperación en la región primaria (es decir, si la VM se vuelve a proteger desde la región primaria a la región de DR), se eliminan la VM de destino y las NIC asociadas.
+
+Cuando la máquina virtual se vuelve a proteger desde la región de recuperación ante desastres a la región primaria, no se elimina la máquina virtual principal anterior ni las NIC asociadas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

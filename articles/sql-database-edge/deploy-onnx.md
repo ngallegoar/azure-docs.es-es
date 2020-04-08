@@ -6,16 +6,15 @@ services: sql-database-edge
 ms.service: sql-database-edge
 ms.subservice: machine-learning
 ms.topic: conceptual
-author: ronychatterjee
-ms.author: achatter
-ms.reviewer: davidph
-ms.date: 11/04/2019
-ms.openlocfilehash: 37fc04919b844d1edf87be62a587c34de4a8c4d5
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+author: dphansen
+ms.author: davidph
+ms.date: 03/26/2020
+ms.openlocfilehash: aff9346595d3b8985d3558658af32d05f88c0554
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692342"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80365449"
 ---
 # <a name="deploy-and-make-predictions-with-an-onnx-model-in-sql-database-edge-preview"></a>Implementación y creación de predicciones con un modelo de ONNX en la versión preliminar de SQL Database Edge
 
@@ -32,8 +31,8 @@ Esta guía de inicio rápido se basa en **scikit-learn** y usa el [conjunto de d
 * Abra Azure Data Studio y siga estos pasos para instalar los paquetes necesarios para esta guía de inicio rápido:
 
     1. Abra un [nuevo cuaderno](https://docs.microsoft.com/sql/azure-data-studio/sql-notebooks) conectado al kernel de Python 3. 
-    1. Haga clic en **Administrar paquetes** y en **Agregar nuevo**, busque **sklearn** e instale el paquete scikit-learn. 
-    1. Instale también los paquetes **onnxmltools**, **onnxruntime**, **skl2onnx** y **sqlalchemy**.
+    1. Haga clic en **Administrar paquetes** y en **Agregar nuevo**, busque **scikit-learn** e instale el paquete scikit-learn. 
+    1. Instale también los paquetes **setuptools**, **numpy**, **onnxmltools**, **onnxruntime**, **skl2onnx**, **pyodbc** y **sqlalchemy**.
     
 * Introduzca cada parte del siguiente script en una celda del cuaderno de Azure Data Studio y ejecute la celda.
 
@@ -61,7 +60,6 @@ x = df.drop(['MEDV'], axis = 1)
 
 # y is what we are trying to predict - the median value
 y = df.iloc[:,-1]
-
 
 # Split the data frame into features and target
 x_train = df.drop(['MEDV'], axis = 1)

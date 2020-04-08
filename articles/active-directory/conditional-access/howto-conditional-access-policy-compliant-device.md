@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 03/25/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 90d958d2adc8920e4e6ccbccef20acf20aedca4c
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: cc6bd486c1e8338eaf875c7026764c80d49e2f05
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561619"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80295201"
 ---
 # <a name="conditional-access-require-compliant-devices"></a>Acceso condicional: Requerir dispositivos compatibles
 
@@ -44,6 +44,7 @@ Los pasos siguientes le ayudarán a crear una directiva de acceso condicional pa
 1. En **Aplicaciones en la nube o acciones** > **Incluir**, seleccione **Todas las aplicaciones en la nube**.
    1. Si debe excluir aplicaciones específicas de la directiva, puede seleccionarlas en la pestaña **Excluir** en **Seleccionar las aplicaciones en la nube excluidas** y elegir **Seleccionar**.
    1. Seleccione **Listo**.
+1. En **Condiciones** > **Aplicaciones cliente (versión preliminar)** , establezca **Configurar** en **Sí**, y seleccione **Listo**.
 1. En **Controles de acceso** > **Conceder**, seleccione **Requerir que el dispositivo esté marcado como compatible**.
    1. Elija **Seleccionar**.
 1. Confirme la configuración y establezca **Habilitar directiva** en **Activado**.

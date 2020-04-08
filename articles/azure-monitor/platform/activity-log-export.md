@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: edaa585ffb3448a80b021aa924a9d654ac829931
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.openlocfilehash: 12c750f96b8852cdd6a6039ebfa750c2ee792a6b
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79096135"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396717"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Exportación del registro de actividad de Azure al almacenamiento o a Azure Event Hubs
 
 > [!IMPORTANT]
-> El método para enviar el registro de actividad de Azure a Azure Storage y Azure Event Hubs ha cambiado a [configuración de diagnóstico](diagnostic-settings.md). En este artículo se describe el método heredado que está en proceso de quedarse en desuso. Consulte la actualización en [Recopilación del registro de actividad de Azure con configuración heredada](diagnostic-settings-legacy.md) para ver una comparativa.
+> El método para enviar el registro de actividad de Azure a Azure Storage y Azure Event Hubs ha cambiado a [configuración de diagnóstico](diagnostic-settings.md). En este artículo se describe el método heredado que está en proceso de quedarse en desuso. Consulte Actualización para [Recopilación y análisis de los registros de actividad de Azure en un área de trabajo de Log Analytics en Azure Monitor](activity-log-collect.md) para obtener una comparación.
 
 
 El [registro de actividad de Azure](platform-logs-overview.md) proporciona información de los eventos de nivel de suscripción que se han producido en la suscripción de Azure. Además de ver el registro de actividades en Azure Portal o copiarlo en un área de trabajo de Log Analytics donde se puede analizar con otros datos recopilados por Azure Monitor, puede crear un perfil de registro para archivar el registro de actividad en una cuenta de almacenamiento de Azure o transmitirlo a un centro de eventos.
@@ -120,11 +120,11 @@ Si ya existe un perfil de registro, primero debe quitarlo y luego crear uno nuev
     | Propiedad | Obligatorio | Descripción |
     | --- | --- | --- |
     | Nombre |Sí |Nombre de su perfil de registro. |
-    | StorageAccountId |Sin |Identificador de recurso de la cuenta de almacenamiento donde se debe guardar el registro de actividad. |
-    | serviceBusRuleId |Sin |Identificador de regla de Service Bus para el espacio de nombres de Service Bus donde desea que se creen centros de eventos. Se trata de una cadena con este formato: `{service bus resource ID}/authorizationrules/{key name}`. |
+    | StorageAccountId |No |Identificador de recurso de la cuenta de almacenamiento donde se debe guardar el registro de actividad. |
+    | serviceBusRuleId |No |Identificador de regla de Service Bus para el espacio de nombres de Service Bus donde desea que se creen centros de eventos. Se trata de una cadena con este formato: `{service bus resource ID}/authorizationrules/{key name}`. |
     | Location |Sí |Lista separada por comas de las regiones para las que desea recopilar eventos del registro de actividad. |
     | RetentionInDays |Sí |Número de días que deben retenerse los eventos en la cuenta de almacenamiento, entre 1 y 365. Con el valor cero, se almacenan los registros indefinidamente. |
-    | Category |Sin |Lista separada por comas de las categorías de eventos que deben recopilarse. Los valores posibles son _Write_, _Delete_ y _Action_. |
+    | Category |No |Lista separada por comas de las categorías de eventos que deben recopilarse. Los valores posibles son _Write_, _Delete_ y _Action_. |
 
 ### <a name="example-script"></a>Script de ejemplo
 A continuación se muestra un script de ejemplo de PowerShell para crear un perfil de registro que escribe el registro de actividad en una cuenta de almacenamiento y en un centro de eventos.

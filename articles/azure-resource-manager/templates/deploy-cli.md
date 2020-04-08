@@ -2,17 +2,19 @@
 title: Implementación de recursos con una plantilla y la CLI de Azure
 description: Use Azure Resource Manager y la CLI de Azure para implementar recursos en Azure. Los recursos se definen en una plantilla de Resource Manager.
 ms.topic: conceptual
-ms.date: 10/09/2019
-ms.openlocfilehash: 64f60a6e15a0c51e5ee506340c064804f7588693
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.date: 03/25/2020
+ms.openlocfilehash: 241b84bc7b8c0b213e74cd7ee5f3d7668fe0d808
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250659"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80282654"
 ---
-# <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Implementación de recursos con plantillas de Resource Manager y la CLI de Azure
+# <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>Implementación de recursos con plantillas de ARM y la CLI de Azure
 
-En este artículo, se explica el uso de la CLI de Azure con plantillas de Resource Manager para implementar recursos en Azure. Si no está familiarizado con los conceptos de implementación y administración de las soluciones de Azure, vea [Información general sobre plantillas](overview.md).
+En este artículo, se explica el uso de la CLI de Azure con plantillas de Azure Resource Manager (ARM) para implementar recursos en Azure. Si no está familiarizado con los conceptos de implementación y administración de las soluciones de Azure, vea [Información general sobre plantillas](overview.md).
+
+Los comandos de implementación cambiaron en la CLI de Azure, versión 2.2.0. Los ejemplos de este artículo requieren la CLI de Azure, versión 2.2.0 o posterior.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -20,23 +22,39 @@ Si no tiene instalada la CLI de Azure, puede usar [Cloud Shell](#deploy-template
 
 ## <a name="deployment-scope"></a>Ámbito de la implementación
 
-La implementación puede tener como destino una suscripción de Azure o un grupo de recursos dentro de una suscripción. En la mayoría de los casos, la implementación tendrá como destino un grupo de recursos. Use las implementaciones de la suscripción para aplicar directivas y asignaciones de roles en la suscripción. También puede usar las implementaciones de la suscripción para crear un grupo de recursos e implementar recursos en él. Según el ámbito de la implementación, usará comandos diferentes.
+La implementación puede tener como destino un grupo de recursos, una suscripción, un grupo de administración o un inquilino. En la mayoría de los casos, la implementación tendrá como destino un grupo de recursos. Para aplicar directivas y asignaciones de roles en un ámbito mayor, use implementaciones de suscripción, de grupo de administración o de inquilino. Al implementar en una suscripción, puede crear un grupo de recursos e implementar recursos en él.
 
-Para implementar en un **grupo de recursos**, use [az group deployment create](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create):
+Según el ámbito de la implementación, usará comandos diferentes.
 
-```azurecli
-az group deployment create --resource-group <resource-group-name> --template-file <path-to-template>
+Para implementar en un **grupo de recursos**, use [az deployment group create](/cli/azure/deployment/group?view=azure-cli-latest#az-deployment-group-create):
+
+```azurecli-interactive
+az deployment group create --resource-group <resource-group-name> --template-file <path-to-template>
 ```
 
-Para implementar en una **suscripción**, use [az deployment create](/cli/azure/deployment?view=azure-cli-latest#az-deployment-create):
+Para implementar en una **suscripción**, use [az deployment sub create](/cli/azure/deployment/sub?view=azure-cli-latest#az-deployment-sub-create):
 
-```azurecli
-az deployment create --location <location> --template-file <path-to-template>
+```azurecli-interactive
+az deployment sub create --location <location> --template-file <path-to-template>
 ```
 
 Para más información sobre las implementaciones en el nivel de suscripción, consulte [Creación de grupos de recursos y otros recursos en el nivel de suscripción](deploy-to-subscription.md).
 
-Actualmente, solo se admiten las implementaciones del grupo de administración mediante la API REST. Para obtener más información sobre las implementaciones de nivel de grupo de administración, consulte [Creación de recursos en el nivel de grupo de administración](deploy-to-management-group.md).
+Para implementar en un **grupo de administración**, use [az deployment mg create](/cli/azure/deployment/mg?view=azure-cli-latest#az-deployment-mg-create):
+
+```azurecli-interactive
+az deployment mg create --location <location> --template-file <path-to-template>
+```
+
+Para obtener más información sobre las implementaciones de nivel de grupo de administración, consulte [Creación de recursos en el nivel de grupo de administración](deploy-to-management-group.md).
+
+Para implementar en un **inquilino**, use [az deployment tenant create](/cli/azure/deployment/tenant?view=azure-cli-latest#az-deployment-tenant-create):
+
+```azurecli-interactive
+az deployment tenant create --location <location> --template-file <path-to-template>
+```
+
+Para obtener más información sobre las implementaciones a nivel de inquilino, consulte [Creación de recursos en el nivel de inquilino](deploy-to-tenant.md).
 
 Los ejemplos de este artículo usan las implementaciones del grupo de recursos.
 
@@ -54,7 +72,7 @@ En el ejemplo siguiente se crea un grupo de recursos y se implementa una plantil
 
 ```azurecli-interactive
 az group create --name ExampleGroup --location "Central US"
-az group deployment create \
+az deployment group create \
   --name ExampleDeployment \
   --resource-group ExampleGroup \
   --template-file storage.json \
@@ -69,13 +87,13 @@ La implementación puede demorar unos minutos en completarse. Cuando termine, ve
 
 ## <a name="deploy-remote-template"></a>Implementación de una plantilla remota
 
-En lugar de almacenar las plantillas de Resource Manager en el equipo local, quizás prefiera almacenarlas en una ubicación externa. Puede almacenar plantillas en un repositorio de control de código fuente (por ejemplo, GitHub). O bien, puede almacenarlas en una cuenta de Azure Storage para el acceso compartido en su organización.
+En lugar de almacenar las plantillas de ARM en el equipo local, quizás prefiera almacenarlas en una ubicación externa. Puede almacenar plantillas en un repositorio de control de código fuente (por ejemplo, GitHub). O bien, puede almacenarlas en una cuenta de Azure Storage para el acceso compartido en su organización.
 
 Para implementar una plantilla externa, use el parámetro **template-uri**. Use el identificador URI en el ejemplo para implementar la plantilla de ejemplo de GitHub.
 
 ```azurecli-interactive
 az group create --name ExampleGroup --location "Central US"
-az group deployment create \
+az deployment group create \
   --name ExampleDeployment \
   --resource-group ExampleGroup \
   --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json" \
@@ -90,7 +108,7 @@ En Cloud Shell, use los comandos siguientes:
 
 ```azurecli-interactive
 az group create --name examplegroup --location "South Central US"
-az group deployment create --resource-group examplegroup \
+az deployment group create --resource-group examplegroup \
   --template-uri <copied URL> \
   --parameters storageAccountType=Standard_GRS
 ```
@@ -103,8 +121,8 @@ Para pasar valores de parámetros, puede usar parámetros en línea o un archivo
 
 Para pasar parámetros en línea, proporcione los valores en `parameters`. Por ejemplo, para pasar una cadena y una matriz a una plantilla en un shell de Bash, use:
 
-```azurecli
-az group deployment create \
+```azurecli-interactive
+az deployment group create \
   --resource-group testgroup \
   --template-file demotemplate.json \
   --parameters exampleString='inline string' exampleArray='("value1", "value2")'
@@ -114,8 +132,8 @@ Si usa la CLI de Azure con el símbolo del sistema de Windows (CMD) o PowerShell
 
 También puede obtener el contenido del archivo y proporcionar ese contenido como un parámetro en línea.
 
-```azurecli
-az group deployment create \
+```azurecli-interactive
+az deployment group create \
   --resource-group testgroup \
   --template-file demotemplate.json \
   --parameters exampleString=@stringContent.txt exampleArray=@arrayContent.json
@@ -141,7 +159,7 @@ Para más información sobre el archivo de parámetro, consulte [Creación de un
 Para pasar un archivo de parámetros local, use `@` para especificar un archivo local denominado storage.parameters.json.
 
 ```azurecli-interactive
-az group deployment create \
+az deployment group create \
   --name ExampleDeployment \
   --resource-group ExampleGroup \
   --template-file storage.json \
@@ -172,10 +190,10 @@ Para implementar una plantilla con cadenas multilínea o comentarios, debe usar 
 
 ## <a name="test-a-template-deployment"></a>Prueba de una implementación de plantilla
 
-Para probar los valores de parámetro y de plantilla sin implementar realmente ningún recurso, use [az group deployment validate](/cli/azure/group/deployment#az-group-deployment-validate).
+Para probar los valores de parámetro y de plantilla sin implementar realmente ningún recurso, use [az deployment group validate](/cli/azure/group/deployment).
 
 ```azurecli-interactive
-az group deployment validate \
+az deployment group validate \
   --resource-group ExampleGroup \
   --template-file storage.json \
   --parameters @storage.parameters.json

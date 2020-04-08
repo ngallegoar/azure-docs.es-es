@@ -1,19 +1,19 @@
 ---
-title: 'Private Link para Azure Database for PostgreSQL: método de configuración del portal de un solo servidor (versión preliminar)'
+title: Private Link para el servidor único de Azure Database for PostgreSQL con Azure Portal
 description: 'Obtenga información sobre cómo configurar Private Link para Azure Database for PostgreSQL: servidor único de Azure Portal'
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 187fa7cf52193d94b932d9021749917fa4f9b1dc
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 72dcf95c8ae8d8da34532fa96e3bf0371f5112fd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77562605"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79370923"
 ---
-# <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-preview-using-portal"></a>Creación y administración de Private Link para Azure Database for PostgreSQL: servidor único (versión preliminar) con Portal
+# <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-portal"></a>Creación y administración de Private Link para el servidor único de Azure Database for PostgreSQL con el portal
 
 Un punto de conexión privado es el bloque de creación fundamental para el vínculo privado en Azure. Permite que los recursos de Azure, como las máquinas virtuales, se comuniquen de manera privada con recursos de vínculos privados.  En este artículo se muestra cómo usar Azure Portal para crear una máquina virtual en Azure Virtual Network y un servidor único de Azure Database for PostgreSQL con un punto de conexión privado de Azure.
 
@@ -126,12 +126,12 @@ En esta sección, creará un servidor de Azure Database for PostgreSQL en Azure.
 
 En esta sección, creará un servidor PostgreSQL y le agregará un punto de conexión privado. 
 
-1. En la parte superior izquierda de la pantalla en Azure Portal, seleccione **Crear un recurso** > **Redes** > **Private Link Center (versión preliminar)** .
+1. En la parte superior izquierda de la pantalla en Azure Portal, seleccione **Crear un recurso** > **Redes** > **Private Link**.
 2. En **Centro de vínculos privados: Información general**, en la opción**Build a private connection to a service** (Crear una conexión privada a un servicio), seleccione **Start** (Iniciar).
 
     ![Información general de Private Link](media/concepts-data-access-and-security-private-link/privatelink-overview.png)
 
-1. En **Create a private endpoint (Preview) - Basics** (Crear un punto de conexión privado [versión preliminar]: Conceptos básicos), escriba o seleccione esta información:
+1. En **Crear un punto de conexión privado - Aspectos básicos**, escriba o seleccione esta información:
 
     | Configuración | Value |
     | ------- | ----- |
@@ -154,7 +154,7 @@ En esta sección, creará un servidor PostgreSQL y le agregará un punto de cone
     |Recurso secundario de destino |Seleccione *postgresqlServer*|
     |||
 7. Seleccione **Siguiente: Configuration** (Siguiente: Configuración).
-8. En **Create a private endpoint (Preview) - Configuración** (Crear un punto de conexión privado [versión preliminar]: Configuración), escriba o seleccione esta información:
+8. En **Crear un punto de conexión privado - Configuración**, escriba o seleccione esta información:
 
     | Configuración | Value |
     | ------- | ----- |

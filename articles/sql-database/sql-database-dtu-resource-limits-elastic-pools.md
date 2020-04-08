@@ -11,12 +11,12 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 ms.date: 03/14/2019
-ms.openlocfilehash: 3f6bbef8f274c5efb99d5b98961450aa7b001527
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 7b7ef3b6f2d400dafb28cfb7a15cf95cbbe2c457
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264872"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80351009"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-purchasing-model"></a>Límites de recursos para grupos elásticos que utilizan el modelo de compra de DTU
 
@@ -40,13 +40,17 @@ Para los grupos elásticos de SQL Database, las siguientes tablas muestran los r
 | Almacenamiento incluido por grupo (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
 | Opciones de almacenamiento máximo por grupo (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
 | Almacenamiento máximo de OLTP en memoria por grupo (GB) | N/D | N/D | N/D | N/D | N/D | N/D | N/D | N/D |
-| Máximo número de bases de datos por grupo | 100 | 200 | 500 | 500 | 500 | 500 | 500 | 500 |
-| Cantidad máxima de trabajos (solicitudes) simultáneos por grupo | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
-| Cantidad máxima de sesiones simultáneas por grupo | 30000 | 30000 | 30000 | 30000 |30000 | 30000 | 30000 | 30000 |
+| Máximo número de bases de datos por grupo <sup>1</sup> | 100 | 200 | 500 | 500 | 500 | 500 | 500 | 500 |
+| Cantidad máxima de trabajos (solicitudes) simultáneos por grupo <sup>2</sup> | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
+| Cantidad máxima de sesiones simultáneas por grupo <sup>2</sup> | 30000 | 30000 | 30000 | 30000 |30000 | 30000 | 30000 | 30000 |
 | Opciones de cantidad mínima de eDTU por base de datos | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 |
 | Opciones de cantidad máxima de eDTU por base de datos | 5 | 5 | 5 | 5 | 5 | 5 | 5 | 5 |
 | Almacenamiento máximo por base de datos (GB) | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 |
 ||||||||
+
+<sup>1</sup> Consulte [Administración de recursos en grupos elásticos densos](sql-database-elastic-pool-resource-management.md) para conocer las consideraciones adicionales.
+
+<sup>2</sup> Para obtener el máximo de trabajos simultáneos (solicitudes) para cualquier base de datos individual, consulte [Límites de recursos de base de datos única](sql-database-vcore-resource-limits-single-databases.md). Por ejemplo, si el grupo elástico usa Gen5 y el valor máximo de núcleo virtual por base de datos se establece en 2, el valor de máximo de trabajos simultáneos es 200.  Si el número máximo de núcleo virtual por base de datos se establece en 0,5, el valor de máximo de trabajos simultáneos es 50, ya que en Gen5 hay un máximo de 100 trabajos simultáneos por núcleo virtual. Para otras configuraciones de memoria con núcleo virtual máximo por base de datos que sean un núcleo virtual o menos, la cantidad máxima de trabajos simultáneos se escala de forma similar.
 
 ### <a name="standard-elastic-pool-limits"></a>Límites de grupo elástico estándar
 
@@ -55,13 +59,17 @@ Para los grupos elásticos de SQL Database, las siguientes tablas muestran los r
 | Almacenamiento incluido por grupo (GB) | 50 | 100 | 200 | 300 | 400 | 800 |
 | Opciones de almacenamiento máximo por grupo (GB) | 50, 250, 500 | 100, 250, 500, 750 | 200, 250, 500, 750, 1024 | 300, 500, 750, 1024, 1280 | 400, 500, 750, 1024, 1280, 1536 | 800, 1024, 1280, 1536, 1792, 2048 |
 | Almacenamiento máximo de OLTP en memoria por grupo (GB) | N/D | N/D | N/D | N/D | N/D | N/D |
-| Máximo número de bases de datos por grupo | 100 | 200 | 500 | 500 | 500 | 500 |
-| Cantidad máxima de trabajos (solicitudes) simultáneos por grupo | 100 | 200 | 400 | 600 | 800 | 1600 |
-| Cantidad máxima de sesiones simultáneas por grupo | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
+| Máximo número de bases de datos por grupo <sup>1</sup> | 100 | 200 | 500 | 500 | 500 | 500 |
+| Cantidad máxima de trabajos (solicitudes) simultáneos por grupo <sup>2</sup> | 100 | 200 | 400 | 600 | 800 | 1600 |
+| Cantidad máxima de sesiones simultáneas por grupo <sup>2</sup> | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
 | Opciones de cantidad mínima de eDTU por base de datos | 0, 10, 20, 50 | 0, 10, 20, 50, 100 | 0, 10, 20, 50, 100, 200 | 0, 10, 20, 50, 100, 200, 300 | 0, 10, 20, 50, 100, 200, 300, 400 | 0, 10, 20, 50, 100, 200, 300, 400, 800 |
 | Opciones de cantidad máxima de eDTU por base de datos | 10, 20, 50 | 10, 20, 50, 100 | 10, 20, 50, 100, 200 | 10, 20, 50, 100, 200, 300 | 10, 20, 50, 100, 200, 300, 400 | 10, 20, 50, 100, 200, 300, 400, 800 |
 | Almacenamiento máximo por base de datos (GB) | 500 | 750 | 1024 | 1024 | 1024 | 1024 |
 ||||||||
+
+<sup>1</sup> Consulte [Administración de recursos en grupos elásticos densos](sql-database-elastic-pool-resource-management.md) para conocer las consideraciones adicionales.
+
+<sup>2</sup> Para obtener el máximo de trabajos simultáneos (solicitudes) para cualquier base de datos individual, consulte [Límites de recursos de base de datos única](sql-database-vcore-resource-limits-single-databases.md). Por ejemplo, si el grupo elástico usa Gen5 y el valor máximo de núcleo virtual por base de datos se establece en 2, el valor de máximo de trabajos simultáneos es 200.  Si el número máximo de núcleo virtual por base de datos se establece en 0,5, el valor de máximo de trabajos simultáneos es 50, ya que en Gen5 hay un máximo de 100 trabajos simultáneos por núcleo virtual. Para otras configuraciones de memoria con núcleo virtual máximo por base de datos que sean un núcleo virtual o menos, la cantidad máxima de trabajos simultáneos se escala de forma similar.
 
 ### <a name="standard-elastic-pool-limits-continued"></a>Límites de grupo elástico estándar (continuación)
 
@@ -70,13 +78,17 @@ Para los grupos elásticos de SQL Database, las siguientes tablas muestran los r
 | Almacenamiento incluido por grupo (GB) | 1200 | 1600 | 2000 | 2\.500 | 3000 |
 | Opciones de almacenamiento máximo por grupo (GB) | 1200, 1280, 1536, 1792, 2048, 2304, 2560 | 1600, 1792, 2048, 2304, 2560, 2816, 3072 | 2000, 2048, 2304, 2560, 2816, 3072, 3328, 3584 | 2500, 2560, 2816, 3072, 3328, 3584, 3840, 4096 | 3000, 3072, 3328, 3584, 3840, 4096 |
 | Almacenamiento máximo de OLTP en memoria por grupo (GB) | N/D | N/D | N/D | N/D | N/D |
-| Máximo número de bases de datos por grupo | 500 | 500 | 500 | 500 | 500 |
-| Cantidad máxima de trabajos (solicitudes) simultáneos por grupo | 2400 | 3200 | 4000 | 5000 | 6000 |
-| Cantidad máxima de sesiones simultáneas por grupo | 30000 | 30000 | 30000 | 30000 | 30000 |
+| Máximo número de bases de datos por grupo <sup>1</sup> | 500 | 500 | 500 | 500 | 500 |
+| Cantidad máxima de trabajos (solicitudes) simultáneos por grupo <sup>2</sup> | 2400 | 3200 | 4000 | 5000 | 6000 |
+| Cantidad máxima de sesiones simultáneas por grupo <sup>2</sup> | 30000 | 30000 | 30000 | 30000 | 30000 |
 | Opciones de cantidad mínima de eDTU por base de datos | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
 | Opciones de cantidad máxima de eDTU por base de datos | 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
 | Opciones de almacenamiento máximo por base de datos (GB) | 1024 | 1024 | 1024 | 1024 | 1024 |
 |||||||
+
+<sup>1</sup> Consulte [Administración de recursos en grupos elásticos densos](sql-database-elastic-pool-resource-management.md) para conocer las consideraciones adicionales.
+
+<sup>2</sup> Para obtener el máximo de trabajos simultáneos (solicitudes) para cualquier base de datos individual, consulte [Límites de recursos de base de datos única](sql-database-vcore-resource-limits-single-databases.md). Por ejemplo, si el grupo elástico usa Gen5 y el valor máximo de núcleo virtual por base de datos se establece en 2, el valor de máximo de trabajos simultáneos es 200.  Si el número máximo de núcleo virtual por base de datos se establece en 0,5, el valor de máximo de trabajos simultáneos es 50, ya que en Gen5 hay un máximo de 100 trabajos simultáneos por núcleo virtual. Para otras configuraciones de memoria con núcleo virtual máximo por base de datos que sean un núcleo virtual o menos, la cantidad máxima de trabajos simultáneos se escala de forma similar.
 
 ### <a name="premium-elastic-pool-limits"></a>Límites de grupo elástico premium
 
@@ -85,13 +97,17 @@ Para los grupos elásticos de SQL Database, las siguientes tablas muestran los r
 | Almacenamiento incluido por grupo (GB) | 250 | 500 | 750 | 1024 | 1536 |
 | Opciones de almacenamiento máximo por grupo (GB) | 250, 500, 750, 1024 | 500, 750, 1024 | 750, 1024 | 1024 | 1536 |
 | Almacenamiento máximo de OLTP en memoria por grupo (GB) | 1 | 2 | 4 | 10 | 12 |
-| Máximo número de bases de datos por grupo | 50 | 100 | 100 | 100 | 100 |
-| Cantidad máxima de trabajos simultáneos por grupo (solicitudes) | 200 | 400 | 800 | 1600 | 2400 |
-| Cantidad máxima de sesiones simultáneas por grupo | 30000 | 30000 | 30000 | 30000 | 30000 |
+| Máximo número de bases de datos por grupo <sup>1</sup> | 50 | 100 | 100 | 100 | 100 |
+| Número máximo de trabajos simultáneos por grupo (solicitudes) <sup>2</sup> | 200 | 400 | 800 | 1600 | 2400 |
+| Cantidad máxima de sesiones simultáneas por grupo <sup>2</sup> | 30000 | 30000 | 30000 | 30000 | 30000 |
 | Cantidad mínima de eDTU por base de datos | 0, 25, 50, 75, 125 | 0, 25, 50, 75, 125, 250 | 0, 25, 50, 75, 125, 250, 500 | 0, 25, 50, 75, 125, 250, 500, 1000 | 0, 25, 50, 75, 125, 250, 500, 1000|
 | Cantidad máxima de eDTU por base de datos | 25, 50, 75, 125 | 25, 50, 75, 125, 250 | 25, 50, 75, 125, 250, 500 | 25, 50, 75, 125, 250, 500, 1000 | 25, 50, 75, 125, 250, 500, 1000|
 | Almacenamiento máximo por base de datos (GB) | 1024 | 1024 | 1024 | 1024 | 1024 |
 |||||||
+
+<sup>1</sup> Consulte [Administración de recursos en grupos elásticos densos](sql-database-elastic-pool-resource-management.md) para conocer las consideraciones adicionales.
+
+<sup>2</sup> Para obtener el máximo de trabajos simultáneos (solicitudes) para cualquier base de datos individual, consulte [Límites de recursos de base de datos única](sql-database-vcore-resource-limits-single-databases.md). Por ejemplo, si el grupo elástico usa Gen5 y el valor máximo de núcleo virtual por base de datos se establece en 2, el valor de máximo de trabajos simultáneos es 200.  Si el número máximo de núcleo virtual por base de datos se establece en 0,5, el valor de máximo de trabajos simultáneos es 50, ya que en Gen5 hay un máximo de 100 trabajos simultáneos por núcleo virtual. Para otras configuraciones de memoria con núcleo virtual máximo por base de datos que sean un núcleo virtual o menos, la cantidad máxima de trabajos simultáneos se escala de forma similar.
 
 ### <a name="premium-elastic-pool-limits-continued"></a>Límites de grupo elástico premium (continuación)
 
@@ -100,16 +116,20 @@ Para los grupos elásticos de SQL Database, las siguientes tablas muestran los r
 | Almacenamiento incluido por grupo (GB) | 2048 | 2560 | 3072 | 3548 | 4096 |
 | Opciones de almacenamiento máximo por grupo (GB) | 2048 | 2560 | 3072 | 3548 | 4096|
 | Almacenamiento máximo de OLTP en memoria por grupo (GB) | 16 | 20 | 24 | 28 | 32 |
-| Máximo número de bases de datos por grupo | 100 | 100 | 100 | 100 | 100 |
-| Cantidad máxima de trabajos (solicitudes) simultáneos por grupo | 3200 | 4000 | 4800 | 5600 | 6400 |
-| Cantidad máxima de sesiones simultáneas por grupo | 30000 | 30000 | 30000 | 30000 | 30000 |
+| Máximo número de bases de datos por grupo <sup>1</sup> | 100 | 100 | 100 | 100 | 100 |
+| Cantidad máxima de trabajos (solicitudes) simultáneos por grupo <sup>2</sup> | 3200 | 4000 | 4800 | 5600 | 6400 |
+| Cantidad máxima de sesiones simultáneas por grupo <sup>2</sup> | 30000 | 30000 | 30000 | 30000 | 30000 |
 | Opciones de cantidad mínima de eDTU por base de datos | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 |
 | Opciones de cantidad máxima de eDTU por base de datos | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 |
 | Almacenamiento máximo por base de datos (GB) | 1024 | 1024 | 1024 | 1024 | 1024 |
 |||||||
 
+<sup>1</sup> Consulte [Administración de recursos en grupos elásticos densos](sql-database-elastic-pool-resource-management.md) para conocer las consideraciones adicionales.
+
+<sup>2</sup> Para obtener el máximo de trabajos simultáneos (solicitudes) para cualquier base de datos individual, consulte [Límites de recursos de base de datos única](sql-database-vcore-resource-limits-single-databases.md). Por ejemplo, si el grupo elástico usa Gen5 y el valor máximo de núcleo virtual por base de datos se establece en 2, el valor de máximo de trabajos simultáneos es 200.  Si el número máximo de núcleo virtual por base de datos se establece en 0,5, el valor de máximo de trabajos simultáneos es 50, ya que en Gen5 hay un máximo de 100 trabajos simultáneos por núcleo virtual. Para otras configuraciones de memoria con núcleo virtual máximo por base de datos que sean un núcleo virtual o menos, la cantidad máxima de trabajos simultáneos se escala de forma similar.
+
 > [!IMPORTANT]
-> Existe más de 1 TB de almacenamiento en el nivel Premium actualmente disponible en todas las regiones excepto: Este de China, Norte de China, Centro de Alemania, Nordeste de Alemania, Centro-oeste de EE. UU., US regiones de US DoD y Centro de Gobierno de EE. UU. En estas regiones, el almacenamiento máximo en el nivel Prémium está limitado a 1 TB.  Para más información, consulte las [limitaciones actuales de P11 y P15](sql-database-single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).
+> Existe más de 1 TB de almacenamiento en el nivel Premium actualmente disponible en todas las regiones excepto: Este de China, Norte de China, Centro de Alemania, Nordeste de Alemania, Centro-oeste de EE. UU., US regiones de US DoD y Centro de US Gov En estas regiones, el almacenamiento máximo en el nivel Prémium está limitado a 1 TB.  Para más información, consulte las [limitaciones actuales de P11 y P15](sql-database-single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).
 
 Si se usan todas las unidades DTU de un grupo elástico, cada una de las bases de datos del grupo recibe una misma cantidad de recursos para procesar consultas. El servicio SQL Database proporciona ecuanimidad de uso compartido de recursos entre bases de datos garantizando los mismos segmentos de tiempo de proceso. La ecuanimidad de uso compartido de recursos del grupo elástico es adicional a cualquier cantidad de recursos garantizados de otro modo a cada base de datos cuando el número mínimo de DTU por base de datos se establece en un valor distinto de cero.
 

@@ -4,33 +4,31 @@ description: Aprenda a configurar las claves administradas por el cliente para s
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 01/14/2020
+ms.date: 03/19/2020
 ms.author: thweiss
 ROBOTS: noindex, nofollow
-ms.openlocfilehash: 44bbd7eab80ecb1cbfef9738e42b4070dff31180
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.openlocfilehash: 6e2a90b8f81b9b945905ee98beb1686c54a62e8a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77506052"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80063761"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Configuración de claves administradas por el cliente para una cuenta de Azure Cosmos con Azure Key Vault
 
 > [!NOTE]
 > En este momento, debe solicitar acceso para poder usar esta funcionalidad. Para ello, póngase en contacto con [azurecosmosdbcmk@service.microsoft.com](mailto:azurecosmosdbcmk@service.microsoft.com).
 
-Los datos almacenados en su cuenta de Azure Cosmos se cifran de forma automática y sin problemas. Azure Cosmos DB ofrece dos opciones para administrar las claves usadas para cifrar los datos en reposo:
+Los datos almacenados en su cuenta de Azure Cosmos se cifran de forma automática y sin problemas con claves administradas por Microsoft (**claves administradas por el servicio**). También puede optar por agregar una segunda capa de cifrado con las claves administradas (**claves administradas por el cliente**).
 
-- **Claves administradas del servicio**: de manera predeterminada, Microsoft administra las claves que se usan para cifrar los datos de la cuenta de Azure Cosmos.
-
-- **Claves administradas del cliente (CMK)** : también puede optar por agregar una segunda capa de cifrado con sus propias claves.
+![Capas de cifrado en torno a los datos de clientes](./media/how-to-setup-cmk/cmk-intro.png)
 
 Debe almacenar las claves administradas por el cliente en [Azure Key Vault](../key-vault/key-vault-overview.md) y proporcionar una clave para cada cuenta de Azure Cosmos que tenga habilitadas las claves administradas por el cliente. Esta clave se usa para cifrar todos los datos almacenados en esa cuenta.
 
 > [!NOTE]
 > Actualmente, las claves administradas por el cliente solo están disponibles para las nuevas cuentas de Azure Cosmos. Debe configurarlas durante la creación de la cuenta.
 
-## <a id="register-resource-provider"></a> Registro del proveedor de recursos de Azure Cosmos DB para su suscripción a Azure
+## <a name="register-the-azure-cosmos-db-resource-provider-for-your-azure-subscription"></a><a id="register-resource-provider"></a> Registro del proveedor de recursos de Azure Cosmos DB para su suscripción a Azure
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/), vaya a la suscripción de Azure y seleccione **Proveedores de recursos** en la pestaña **Configuración**:
 
@@ -189,6 +187,22 @@ New-AzResourceGroupDeployment `
     -keyVaultKeyUri $keyVaultKeyUri
 ```
 
+### <a name="using-the-azure-cli"></a>Uso de la CLI de Azure
+
+Al crear una nueva cuenta de Azure Cosmos a través de la CLI de Azure, pase el URI de la clave de Azure Key Vault que copió anteriormente en el parámetro **--key-uri**.
+
+```azurecli-interactive
+resourceGroupName='myResourceGroup'
+accountName='mycosmosaccount'
+keyVaultKeyUri = 'https://<my-vault>.vault.azure.net/keys/<my-key>'
+
+az cosmosdb create \
+    -n $accountName \
+    -g $resourceGroupName \
+    --locations regionName='West US 2' failoverPriority=0 isZoneRedundant=False \
+    --key-uri $keyVaultKeyUri
+```
+
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
 ### <a name="is-there-any-additional-charge-for-using-customer-managed-keys"></a>¿Existe algún cargo adicional al usar claves administradas por el cliente?
@@ -217,7 +231,7 @@ Actualmente, no. Sin embargo, se está analizando la posibilidad de incluir clav
 
 ### <a name="how-do-customer-managed-keys-affect-a-backup"></a>¿Cómo afectan las claves administradas por el cliente a una copia de seguridad?
 
-Azure Cosmos DB realiza [copias de seguridad periódicas y automáticas](./online-backup-and-restore.md) de los datos almacenados en su cuenta. Esta operación realiza una copia de seguridad de los datos cifrados. Para usar la copia de seguridad restaurada, se requiere la clave de cifrado que se usó en el momento de la copia de seguridad. Esto significa que no se ha realizado ninguna revocación y que la versión de la clave que se usó en el momento de la copia de seguridad aún estará habilitada.
+Azure Cosmos DB realiza [copias de seguridad periódicas y automáticas](../synapse-analytics/sql-data-warehouse/backup-and-restore.md) de los datos almacenados en su cuenta. Esta operación realiza una copia de seguridad de los datos cifrados. Para usar la copia de seguridad restaurada, se requiere la clave de cifrado que se usó en el momento de la copia de seguridad. Esto significa que no se ha realizado ninguna revocación y que la versión de la clave que se usó en el momento de la copia de seguridad aún estará habilitada.
 
 ### <a name="how-do-i-revoke-an-encryption-key"></a>¿Cómo se revoca una clave de cifrado?
 

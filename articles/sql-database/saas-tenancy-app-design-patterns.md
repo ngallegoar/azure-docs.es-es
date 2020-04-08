@@ -4,19 +4,18 @@ description: Aprenda sobre los requisitos y patrones de arquitectura de datos co
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
-ms.custom: seoapril2019
-ms.devlang: ''
 ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: ad7bd660ee685b490fb79c7e63fd3c5fce557977
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.custom: seoapril2019
+ms.openlocfilehash: 956d74467c69d9924d26f9cae8d902a6ddd84496
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822057"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80067500"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Patrones de inquilinato de base de datos SaaS multiinquilino
 
@@ -55,8 +54,8 @@ En general, el modelo de inquilinato no afecta a la función de una aplicación,
     - Cambios en las consultas (requeridos por el patrón).
 
 - **Complejidad operativa:**
-    - Supervisión y administración del rendimiento.
-    - Administración del esquema.
+    - Supervisión y administración del rendimiento
+    - Administración de esquemas
     - Restauración de un inquilino.
     - Recuperación ante desastres
 
@@ -185,7 +184,7 @@ En la tabla siguiente se resumen las diferencias entre los principales modelos d
 
 | Medición | Aplicación independiente | Una base de datos por inquilino | Multiinquilino con particiones |
 | :---------- | :------------- | :------------------ | :------------------- |
-| Escala | Mediano<br />1-100 | Muy alto<br />1-100.000 | Ilimitado<br />1-1.000.000 |
+| Escala | Media<br />1-100 | Muy alto<br />1-100.000 | Sin límite<br />1-1.000.000 |
 | Aislamiento de inquilino | Muy alto | Alto | Bajo; excepto para los inquilinos únicos (que están solos en una base de datos multiinquilino). |
 | Costo de base de datos por inquilino | Alta; tiene un tamaño adecuado para picos. | Baja; se utilizan grupos. | Más bajo, para inquilinos pequeños en bases de datos multiinquilino. |
 | Administración y supervisión del rendimiento | Por inquilino solo | Agregado + por inquilino | Agregado; aunque es por inquilino solo para los únicos. |

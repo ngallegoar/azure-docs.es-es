@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
-ms.openlocfilehash: ac539b44f09663e6eac5651646d3c9cd02e45b3c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5cedde1e7daa49aaa7a2786c9ad8a65fb8e452f7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75360011"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80297572"
 ---
 # <a name="use-storsimple-device-manager-to-manage-storage-account-credentials-for-storsimple-virtual-array"></a>Uso de StorSimple Device Manager para administrar credenciales de cuentas de almacenamiento de StorSimple Virtual Array
 
@@ -38,7 +38,7 @@ Las credenciales de las cuentas de almacenamiento son las credenciales que usa e
 En la hoja **Credenciales de cuenta de almacenamiento**, todas las credenciales de las cuentas de almacenamiento que se crean para la suscripción de facturación se muestran en un formato tabular que contiene la información siguiente:
 
 * **Nombre** : nombre único asignado a la cuenta cuando se creó.
-* **SSL habilitado** : indica si el SSL está habilitado y la comunicación de dispositivo a la nube se realiza a través del canal seguro.
+* **SSL habilitado**: indica si el TLS está habilitado y la comunicación de dispositivo a la nube se realiza a través del canal seguro.
   
   ![Sección de configuración](./media/storsimple-virtual-array-manage-storage-accounts/ova-storageaccountcredentials-blade.png)
 
@@ -56,7 +56,7 @@ Hay tres tipos de credenciales de cuentas de almacenamiento que se pueden usar c
 * **Credenciales de las cuentas de almacenamiento fuera de la suscripción al servicio**: son las credenciales de las cuentas de almacenamiento de Azure no asociadas al servicio que probablemente existían antes de que se crease el servicio.
 
 ## <a name="add-a-storage-account-credential"></a>Incorporación de una credencial de cuenta de almacenamiento
-Puede agregar una credencial de cuenta de almacenamiento a la configuración del servicio StorSimple Manager proporcionando un nombre descriptivo único y las credenciales de acceso vinculadas a la cuenta de almacenamiento. También tiene la opción de habilitar el modo de Capa de sockets seguros (SSL) para crear un canal seguro para la comunicación de red entre su dispositivo y la nube.
+Puede agregar una credencial de cuenta de almacenamiento a la configuración del servicio StorSimple Manager proporcionando un nombre descriptivo único y las credenciales de acceso vinculadas a la cuenta de almacenamiento. También tiene la opción de habilitar el modo de Seguridad de la capa de transporte (TLS), antes conocido como modo de Capa de sockets seguros (SSL), para crear un canal seguro para la comunicación de red entre su dispositivo y la nube.
 
 Puede crear varias cuentas para un proveedor de servicios en la nube determinado. Mientras se guardan las credenciales de la cuenta de almacenamiento, el servicio intenta comunicarse con el proveedor de servicios en la nube. Las credenciales y el material de acceso que proporcionó se autenticarán en este momento. Solo si la autenticación se realiza correctamente se creará una credencial de cuenta de almacenamiento. Si se produce un error en la autenticación, se mostrará un mensaje de error adecuado.
 
@@ -92,7 +92,7 @@ Utilice los procedimientos siguientes para agregar las credenciales de la cuenta
    
     3. En el cuadro de texto **Clave de acceso de la cuenta de almacenamiento**, proporcione la clave de acceso principal para la credencial de la cuenta de Azure Storage. Para obtener esta clave, vaya al servicio Azure Storage, seleccione la credencial de la cuenta de almacenamiento y haga clic en **Administrar claves de cuenta**. Ahora puede copiar la clave de acceso principal.
    
-    4. Para habilitar SSL, haga clic en el botón **Habilitar** para crear un canal seguro para la comunicación de red entre StorSimple Device Manager y la nube. Haga clic en el botón **Deshabilitar** solo si está trabajando en una nube privada.
+    4. Para habilitar TLS, haga clic en el botón **Habilitar** para crear un canal seguro para la comunicación de red entre el administrador de dispositivos de StorSimple y la nube. Haga clic en el botón **Deshabilitar** solo si está trabajando en una nube privada.
    
     5. Haga clic en **Agregar**. Recibirá una notificación cuando la credencial de la cuenta de almacenamiento se haya creado correctamente.
 
@@ -101,7 +101,7 @@ Utilice los procedimientos siguientes para agregar las credenciales de la cuenta
     ![Incorporación de una credencial de cuenta de almacenamiento que está fuera de la suscripción al servicio Device Manager](./media/storsimple-virtual-array-manage-storage-accounts/ova-add-outside-storageacct.png)
 
 ## <a name="edit-a-storage-account-credential"></a>Edición de una credencial de cuenta de almacenamiento
-Puede editar una credencial de cuenta de almacenamiento utilizada por su dispositivo. Si edita una credencial de cuenta de almacenamiento que está actualmente en uso, los campos disponibles para modificar serán la clave de acceso y el modo SSL de esta. Puede proporcionar la nueva clave de acceso de almacenamiento o modificar la selección de **Habilitar modo SSL** y guardar la configuración actualizada.
+Puede editar una credencial de cuenta de almacenamiento utilizada por su dispositivo. Si edita una credencial de cuenta de almacenamiento que está actualmente en uso, los campos disponibles para modificar serán la clave de acceso y el modo TLS de esta. Puede proporcionar la nueva clave de acceso de almacenamiento o modificar la selección de **Habilitar modo SSL** y guardar la configuración actualizada.
 
 #### <a name="to-edit-a-storage-account-credential"></a>Edición de una credencial de cuenta de almacenamiento
 1. Vaya al servicio Device Manager, selecciónelo y haga doble clic en él. Se abrirá la hoja **Introducción**.

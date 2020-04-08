@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: bfae8147c348c76fa0e406fec283144ebc26e86b
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: cd787881957d78f179107e46b2650de4618c7724
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75615331"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80282331"
 ---
 # <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>Plataformas de datos admitidas en Data Science Virtual Machine
 
@@ -28,7 +28,7 @@ Las siguientes son las herramientas de la plataforma de datos compatibles con DS
 | | |
 | ------------- | ------------- |
 | ¿Qué es?   | Una instancia de base de datos relacional local      |
-| Ediciones de DSVM admitidas      | Windows: SQL Server 2017, Windows 2019 (versión preliminar): SQL Server 2019      |
+| Ediciones de DSVM admitidas      | Windows 2016: SQL Server 2017, Windows 2019: SQL Server 2019      |
 | Usos típicos      | Desarrollo rápido de forma local con un conjunto de datos más pequeño <br/> Ejecución de R en base de datos   |
 | Vínculos a ejemplos      |    Una pequeña muestra del conjunto de datos de la ciudad de Nueva York se carga en la instancia de SQL Database:<br/>  `nyctaxi` <br/> Puede encontrar un ejemplo de Jupyter que muestra Microsoft Machine Learning Server y el análisis en bases de datos en:<br/> `~notebooks/SQL_R_Services_End_to_End_Tutorial.ipynb`  |
 | Herramientas relacionadas en DSVM       | SQL Server Management Studio <br/> Controladores ODBC/JDBC<br/> pyodbc, RODBC<br />Apache Drill      |

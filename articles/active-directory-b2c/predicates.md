@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/24/2020
+ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cc61ef5980a8019514f05c1db47f2300fff3603b
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 887c9432f04cce775e045bb6da83f0af4a4a4bce
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78187243"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396886"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicates y PredicateValidations
 
@@ -45,8 +45,8 @@ El elemento **Predicate** contiene los siguientes atributos:
 | Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
 | Identificador | Sí | Un identificador que se usa para el predicado. Hay otros elementos que pueden usar este identificador en la directiva. |
-| Método | Sí | El tipo de método que se usará para la validación. Valores posibles: **IsLengthRange**, **MatchesRegex**, **IncludesCharacters** o **IsDateRange**. El valor **IsLengthRange** comprueba si la longitud de un valor de notificación de cadena está dentro del intervalo de parámetros mínimos y máximos especificados. El valor **MatchesRegex** comprueba si un valor de notificación de cadena coincide con una expresión regular. El valor **IncludesCharacters** comprueba si un valor de notificación de cadena contiene un juego de caracteres. El valor **IsDateRange** comprueba si un valor de notificación de fecha se encuentra dentro de un intervalo de parámetros mínimos y máximos especificados. |
-| HelpText | Sin | S se produce un error en la comprobación, un mensaje de error para los usuarios. Esta cadena se puede localizar con la [personalización de idioma](localization.md). |
+| Método | Sí | El tipo de método que se usará para la validación. Valores posibles: [IsLengthRange](#islengthrange), [MatchesRegex](#matchesregex), [IncludesCharacters](#includescharacters) o [IsDateRange](#isdaterange).  |
+| HelpText | No | S se produce un error en la comprobación, un mensaje de error para los usuarios. Esta cadena se puede localizar con la [personalización de idioma](localization.md). |
 
 El elemento **Predicate** contiene los siguientes elementos:
 
@@ -67,7 +67,19 @@ El elemento **Parameter** contiene los siguientes atributos:
 | ------- | ----------- | ----------- |
 | Identificador | 1:1 | Identificador del parámetro. |
 
-En el ejemplo siguiente se muestra un método `IsLengthRange` con los parámetros `Minimum` y `Maximum` que especifican el intervalo de longitud de la cadena:
+### <a name="predicate-methods"></a>Métodos de predicado
+
+#### <a name="islengthrange"></a>IsLengthRange
+
+El método IsLengthRange comprueba si la longitud de un valor de notificación de cadena está dentro del intervalo de parámetros mínimos y máximos especificados. El elemento de predicado admite los siguientes parámetros:
+
+| Parámetro | Obligatorio | Descripción |
+| ------- | ----------- | ----------- |
+| Máxima | Sí | Número máximo de caracteres que se pueden especificar. |
+| Mínima | Sí | Número mínimo de caracteres que se deben especificar. |
+
+
+En el ejemplo siguiente se muestra un método IsLengthRange con los parámetros `Minimum` y `Maximum` que especifican el intervalo de longitud de la cadena:
 
 ```XML
 <Predicate Id="IsLengthBetween8And64" Method="IsLengthRange" HelpText="The password must be between 8 and 64 characters.">
@@ -77,6 +89,14 @@ En el ejemplo siguiente se muestra un método `IsLengthRange` con los parámetro
   </Parameters>
 </Predicate>
 ```
+
+#### <a name="matchesregex"></a>MatchesRegex
+
+El método MatchesRegex comprueba si un valor de notificación de cadena coincide con una expresión regular. El elemento de predicado admite los siguientes parámetros:
+
+| Parámetro | Obligatorio | Descripción |
+| ------- | ----------- | ----------- |
+| RegularExpression | Sí | Patrón de expresión regular del que van a buscarse coincidencias. |
 
 En el ejemplo siguiente se muestra un método `MatchesRegex` con el parámetro `RegularExpression` que especifica una expresión regular:
 
@@ -88,6 +108,14 @@ En el ejemplo siguiente se muestra un método `MatchesRegex` con el parámetro `
 </Predicate>
 ```
 
+#### <a name="includescharacters"></a>IncludesCharacters
+
+El método IncludesCharacters comprueba si un valor de notificación de cadena contiene un juego de caracteres. El elemento de predicado admite los siguientes parámetros:
+
+| Parámetro | Obligatorio | Descripción |
+| ------- | ----------- | ----------- |
+| CharacterSet | Sí | El conjunto de caracteres que se pueden especificar. Por ejemplo, caracteres en minúscula `a-z`, caracteres en mayúscula `A-Z`, dígitos `0-9` o una lista de símbolos, como `@#$%^&amp;*\-_+=[]{}|\\:',?/~"();!`. |
+
 En el ejemplo siguiente se muestra un método `IncludesCharacters` con el parámetro `CharacterSet` que especifica un juego de caracteres:
 
 ```XML
@@ -98,7 +126,16 @@ En el ejemplo siguiente se muestra un método `IncludesCharacters` con el parám
 </Predicate>
 ```
 
-En el ejemplo siguiente se muestra un método `IsDateRange` con los parámetros `Minimum` y `Maximum` que especifican el intervalo de fechas con un formato de `yyyy-MM-dd` y `Today`.
+#### <a name="isdaterange"></a>IsDateRange
+
+El método IsDateRange comprueba si un valor de notificación de fecha se encuentra dentro de un intervalo de parámetros mínimos y máximos especificados. El elemento de predicado admite los siguientes parámetros:
+
+| Parámetro | Obligatorio | Descripción |
+| ------- | ----------- | ----------- |
+| Máxima | Sí | La fecha más larga posible que se puede especificar. El formato de la fecha sigue la convención `yyyy-mm-dd` o `Today`. |
+| Mínima | Sí | La fecha más corta posible que se puede especificar. El formato de la fecha sigue la convención `yyyy-mm-dd` o `Today`.|
+
+En el ejemplo siguiente se muestra un método `IsDateRange` con los parámetros `Minimum` y `Maximum` que especifican el intervalo de fechas con un formato de `yyyy-mm-dd` y `Today`.
 
 ```XML
 <Predicate Id="DateRange" Method="IsDateRange" HelpText="The date must be between 1970-01-01 and today.">
@@ -174,7 +211,7 @@ El elemento **PredicateReferences** contiene los siguientes atributos:
 
 | Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
-| MatchAtLeast | Sin | Especifica que el valor debe coincidir por lo menos con ese número de definiciones de predicado para que la entrada se acepte. Si no se especifica, el valor debe coincidir con todas las definiciones de predicado. |
+| MatchAtLeast | No | Especifica que el valor debe coincidir por lo menos con ese número de definiciones de predicado para que la entrada se acepte. Si no se especifica, el valor debe coincidir con todas las definiciones de predicado. |
 
 El elemento **PredicateReferences** contiene los siguientes elementos:
 
@@ -388,3 +425,7 @@ En el tipo de notificación, agregue el elemento **PredicateValidationReference*
   <PredicateValidationReference Id="CustomDateRange" />
 </ClaimType>
  ```
+
+## <a name="next-steps"></a>Pasos siguientes
+
+- Obtenga más información sobre la [Configuración de la complejidad de contraseñas mediante directivas personalizadas en Azure Active Directory B2C](custom-policy-password-complexity.md) con validaciones de predicado.

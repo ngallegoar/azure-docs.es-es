@@ -2,29 +2,26 @@
 title: Configurar un dispositivo de Azure Migrate para VMware
 description: Obtenga información sobre cómo configurar un dispositivo de Azure Migrate para evaluar y migrar VM de VMware.
 ms.topic: article
-ms.date: 11/18/2019
-ms.openlocfilehash: e331d45d3e87f8007642675a0349839e7494958c
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.date: 03/23/2020
+ms.openlocfilehash: 7a7d0007d2824abc781411f9529f9fa4ac89e55c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598160"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80336791"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>Configuración de un dispositivo para máquinas virtuales de VMware
 
-En este artículo se describe cómo configurar el dispositivo de Azure Migrate si va a evaluar máquinas virtuales de VMware con la herramienta Azure Migrate Server Assessment o si va a migrar máquinas virtuales de VMware a Azure con la migración sin agente mediante la herramienta Azure Migrate Server Migration.
+En este artículo se describe cómo configurar el dispositivo de Azure Migrate para su evaluación con la herramienta [Azure Migrate:Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) y para la migración sin agente mediante la herramienta [Azure Migrate:Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool).
 
-El dispositivo de máquina virtual de VMware es un dispositivo ligero que Azure Migrate Server Assessment/Migration usa para lo siguiente:
+El [dispositivo de Azure Migrate](migrate-appliance.md) es un dispositivo ligero que usa Azure Migrate:Server Assessment y Server Migration para detectar máquinas virtuales de VMware locales, enviar datos de rendimiento y metadatos de máquinas virtuales a Azure y para la replicación de máquinas virtuales de VMware durante la migración sin agente.
 
-- detecta las máquinas virtuales locales de VMware.
-- Enviar metadatos y datos de rendimiento para las máquinas virtuales detectadas a Azure Migrate Server Assessment/Migration.
-
-[Más información](migrate-appliance.md) sobre el dispositivo de Azure Migrate.
+Puede configurar el dispositivo de Azure Migrate para la valoración de máquinas virtuales de VMware mediante una plantilla de OVA que se descargue o mediante un script de instalación de PowerShell. En este artículo se describe cómo configurar el dispositivo mediante la plantilla de OVA. Si se quiere configurar el dispositivo mediante el script, siga las instrucciones de [este artículo](deploy-appliance-script.md).
 
 
-## <a name="appliance-deployment-steps"></a>Pasos de implementación del dispositivo
+## <a name="appliance-deployment-ova"></a>Implementación del dispositivo (OVA)
 
-Para configurar el dispositivo:
+Para configurar el dispositivo mediante una plantilla de OVA:
 - Descargue una plantilla OVA e impórtela en vCenter Server.
 - Crear el dispositivo y comprobar que se puede conectar a Azure Migrate Server Assessment.
 - Configurar el dispositivo por primera vez y registrarlo en el proyecto de Azure Migrate.
@@ -72,7 +69,7 @@ Asegúrese de que la máquina virtual del dispositivo se puede conectar a las [d
 
 ## <a name="configure-the-appliance"></a>Configuración del dispositivo
 
-Configure el dispositivo por primera vez.
+Configure el dispositivo por primera vez. Si se implementa el dispositivo mediante un script en lugar de una plantilla de OVA, se tienen que omitir los dos primeros pasos del procedimiento.
 
 1. En la consola del cliente de vSphere, haga clic con el botón derecho en VM > **Open Console** (Abrir consola).
 2. Especifique el idioma, la zona horaria y la contraseña del dispositivo.
@@ -109,7 +106,7 @@ El dispositivo necesita conectarse a vCenter Server para detectar los datos de c
 
 ### <a name="specify-vcenter-server-details"></a>Especificar los detalles de vCenter Server
 1. En **Specify vCenter Server details** (Especificar detalles de vCenter Server), especifique el nombre (nombre de dominio completo) o la dirección IP de vCenter Server. Puede dejar el puerto predeterminado o especificar un puerto personalizado en el que vCenter Server escuche.
-2. En **User name** (Nombre de usuario) y **Password** (Contraseña), especifique las credenciales de la cuenta de solo lectura que el dispositivo utilizará para detectar las máquinas virtuales en vCenter Server. Puede limitar el ámbito de la detección. Para ello, debe limitar el acceso a la cuenta de vCenter en consecuencia; [aquí](tutorial-assess-vmware.md#set-the-scope-of-discovery)encontrará más información acerca del ámbito de la detección.
+2. En **User name** (Nombre de usuario) y **Password** (Contraseña), especifique las credenciales de la cuenta de solo lectura que el dispositivo utilizará para detectar las máquinas virtuales en vCenter Server. Puede establecer el ámbito de la detección si limita el acceso a la cuenta de vCenter. [Más información](set-discovery-scope.md).
 3. Haga clic en **Validate connection** (Validar conexión) para asegurarse de que el dispositivo puede conectarse a vCenter Server.
 
 ### <a name="specify-vm-credentials"></a>Especificación de las credenciales de máquina virtual

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: 2e7c1eedf02c8a7783ee90f403dbd77ec2ee53ea
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 3032585c6f0a5cc6143eee06b12b6def50cd7cd0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68963353"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80297706"
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>Software de la serie StorSimple 8000, alta disponibilidad y requisitos de red
 
@@ -39,7 +39,7 @@ Los requisitos del sistema incluyen:
 
 Los siguientes requisitos de software son para los clientes de almacenamiento que tienen acceso a su dispositivo StorSimple.
 
-| Sistemas operativos compatibles | Versión requerida | Requisitos/notas adicionales |
+| Sistemas operativos admitidos | Versión requerida | Requisitos/notas adicionales |
 | --- | --- | --- |
 | Windows Server |2008 R2 SP1, 2012, 2012 R2, 2016 |Se admiten volúmenes iSCSI de StorSimple para utilizarlos exclusivamente en los siguientes tipos de discos de Windows:<ul><li>Volumen simple en disco básico</li><li>Volumen simple y reflejado en disco dinámico</li></ul>Solo se admiten los iniciadores iSCSI de software presentes de forma nativa en el sistema operativo. No se admiten los iniciadores iSCSI de hardware.<br></br>El aprovisionamiento fino de Windows Server 2012 y 2016 y las características de ODX se admiten si se usa un volumen iSCSI de StorSimple.<br><br>StorSimple puede crear volúmenes con aprovisionamiento fino y totalmente aprovisionados. No puede crear volúmenes de aprovisionamiento parcial.<br><br>El proceso de volver a formatear un volumen con aprovisionamiento fino puede tardar mucho tiempo en completarse. Se recomienda eliminar el volumen y luego crear uno nuevo en lugar de volverlo a formatear. Sin embargo, si aun así prefiere volver a formatear un volumen:<ul><li>Ejecute el siguiente comando antes de volver a formatear para evitar retrasos por recuperación de espacio: <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>Una vez completada la aplicación de formato, use el siguiente comando para volver a habilitar la recuperación de espacio:<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>Aplique la revisión de Windows Server 2012, como se describe en [KB 2878635 ](https://support.microsoft.com/kb/2870270), al equipo con Windows Server.</li></ul></li></ul></ul> Si va a configurar Snapshot Manager de StorSimple o el Adaptador de StorSimple para SharePoint, vaya a los [requisitos de software para ver los componentes opcionales](#software-requirements-for-optional-components). |
 | VMware ESX |5.5 y 6.0 |Se admite con VMware vSphere como cliente iSCSI. La característica VAAI-block se admite con VMware vSphere en dispositivos de StorSimple. |
@@ -65,14 +65,14 @@ El dispositivo StorSimple es un dispositivo bloqueado. Sin embargo, los puertos 
 
 | Nº de puerto<sup>1,2</sup> | Dentro o fuera | Ámbito de puerto | Obligatorio | Notas |
 | --- | --- | --- | --- | --- |
-| TCP 80 (HTTP)<sup>3</sup> |Fuera |WAN |Sin |<ul><li>El puerto de salida se usa para obtener acceso a Internet para así recuperar las actualizaciones.</li><li>El usuario puede configurar el proxy web de salida.</li><li>Para permitir que se actualice el sistema, también debe estar abierto este puerto para las IP fijas del controlador.</li></ul> |
+| TCP 80 (HTTP)<sup>3</sup> |Fuera |WAN |No |<ul><li>El puerto de salida se usa para obtener acceso a Internet para así recuperar las actualizaciones.</li><li>El usuario puede configurar el proxy web de salida.</li><li>Para permitir que se actualice el sistema, también debe estar abierto este puerto para las IP fijas del controlador.</li></ul> |
 | TCP 443 (HTTPS)<sup>3</sup> |Fuera |WAN |Sí |<ul><li>El puerto de salida se usa para tener acceso a los datos en la nube.</li><li>El usuario puede configurar el proxy web de salida.</li><li>Para permitir que se actualice el sistema, también debe estar abierto este puerto para las IP fijas del controlador.</li><li>Este puerto también se utiliza en ambos controladores para la recolección de elementos no utilizados.</li></ul> |
 | UDP 53 (DNS) |Fuera |WAN |En algunos casos; consulte las notas. |Este puerto es necesario solo si está utilizando un servidor DNS basado en Internet. |
 | UDP 123 (NTP) |Fuera |WAN |En algunos casos; consulte las notas. |Este puerto solo es necesario si está utilizando un servidor DNS basado en Internet. |
 | TCP 9354 |Fuera |WAN |Sí |El dispositivo StorSimple usa el puerto de salida para comunicarse con el servicio StorSimple Device Manager. |
-| 3260 (iSCSI) |En el |LAN |Sin |Este puerto se utiliza para tener acceso a datos a través de iSCSI. |
-| 5985 |En |LAN |Sin |El puerto de entrada se usa en Snapshot Manager de StorSimple para comunicarse con el dispositivo de StorSimple.<br>También se usa cuando se conecta de forma remota a Windows PowerShell para StorSimple a través de HTTP. |
-| 5986 |En |LAN |Sin |Este puerto se usa al conectarse de forma remota a Windows PowerShell para StorSimple a través de HTTPS. |
+| 3260 (iSCSI) |En |LAN |No |Este puerto se utiliza para tener acceso a datos a través de iSCSI. |
+| 5985 |En |LAN |No |El puerto de entrada se usa en Snapshot Manager de StorSimple para comunicarse con el dispositivo de StorSimple.<br>También se usa cuando se conecta de forma remota a Windows PowerShell para StorSimple a través de HTTP. |
+| 5986 |En |LAN |No |Este puerto se usa al conectarse de forma remota a Windows PowerShell para StorSimple a través de HTTPS. |
 
 <sup>1</sup> Ningún puerto de entrada debe estar abierto en la red Internet pública.
 
@@ -81,7 +81,7 @@ El dispositivo StorSimple es un dispositivo bloqueado. Sin embargo, los puertos 
 <sup>3</sup> Las direcciones IP fijas del controlador del dispositivo de StorSimple deben ser enrutables y deben poder conectarse a Internet directamente o a través de un proxy web configurado. Las direcciones IP fijas se usan para el mantenimiento de las actualizaciones del dispositivo y para la recolección de elementos no utilizados. Si los controladores del dispositivo no pueden conectarse a Internet a través de direcciones IP fijas, no podrá actualizar el dispositivo StorSimple y la recolección de elementos no utilizados no funcionará correctamente.
 
 > [!IMPORTANT]
-> Asegúrese de que el firewall no modifica ni descifra ningún tráfico SSL entre el dispositivo de StorSimple y Azure.
+> Asegúrese de que el firewall no modifica ni descifra ningún tráfico TLS entre el dispositivo de StorSimple y Azure.
 
 
 ### <a name="url-patterns-for-firewall-rules"></a>Patrones de URL para reglas de firewall
@@ -157,7 +157,7 @@ El algoritmo de métrica de enrutamiento usado en Update 2 y versiones posterior
 * También se genera una alerta en el dispositivo de StorSimple cuando hay un error en la IP virtual. Para más información, vaya a la [referencia rápida de alertas](storsimple-8000-manage-alerts.md).
 * En términos de reintentos, iSCSI tendrá prioridad sobre la nube.
   
-    Considere el siguiente ejemplo: un dispositivo de StorSimple tiene dos interfaces de red habilitadas, Data 0 y Data 1. Data 0 está habilitada para la nube mientras que Data 1 está habilitada para la nube y para iSCSI. Ninguna otra interfaz de red de este dispositivo está habilitada para la nube ni para iSCSI.
+    Considere el ejemplo siguiente: un dispositivo de StorSimple tiene dos interfaces de red habilitadas, Data 0 y Data 1. Data 0 está habilitada para la nube mientras que Data 1 está habilitada para la nube y para iSCSI. Ninguna otra interfaz de red de este dispositivo está habilitada para la nube ni para iSCSI.
   
     Si se produce un error de Data 1, dado que es la última interfaz de red de iSCSI, esto produce una conmutación por error del controlador a Data 1 en el otro controlador.
 

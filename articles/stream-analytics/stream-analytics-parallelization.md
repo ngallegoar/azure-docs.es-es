@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: d1afb6037b5fc290de93faba405982ebd1fb68ea
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 31ac43ec796d305b8a8f4b62ea09481e262b6b3f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75431577"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80256987"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Aprovechamiento de la paralelización de consultas en Azure Stream Analytics
 En este artículo se muestra cómo aprovechar la paralelización en Azure Stream Analytics. Aprenda a escalar los trabajos de Stream Analytics mediante la configuración de particiones de entrada y el ajuste de la definición de consultas de análisis.
@@ -60,7 +60,7 @@ Un trabajo *embarazosamente paralelo* es el escenario más escalable que tenemos
 
 2. Una vez dispuestos los datos en la salida, hay que asegurarse de que la consulta está particionada. Esto requiere el uso de **PARTITION BY** en todos los pasos. Se pueden usar varios pasos, pero todos deben particionarse con la misma clave. En los niveles de compatibilidad 1.0 y 1.1, la clave de partición debe establecerse en **PartitionId** para que el trabajo sea totalmente paralelo. En el caso de los trabajos con un nivel de compatibilidad 1.2 o superior, se puede especificar una columna personalizada como clave de partición en la configuración de entrada, y el trabajo se paralelizará automáticamente incluso sin la cláusula PARTITION BY. En la salida del centro de eventos, la propiedad de la columna de clave de partición debe establecerse para usar "PartitionId".
 
-3. La mayoría de las salidas puede aprovechar la creación de particiones, pero si se usa un tipo de salida que no la admite, el trabajo no estará completamente en paralelo. Consulte la [sección de salida](#outputs) para más detalles.
+3. La mayoría de las salidas puede aprovechar la creación de particiones, pero si se usa un tipo de salida que no la admite, el trabajo no estará completamente en paralelo. En el caso de las salidas del centro de eventos, asegúrese de que **Columna de clave de partición** se establece con el mismo valor que la clave de partición de la consulta. Consulte la [sección de salida](#outputs) para más detalles.
 
 4. El número de particiones de entrada debe ser igual al número de particiones de salida. La salida de Blob Storage puede admitir particiones y hereda el esquema de partición de la consulta de nivel superior. Cuando se especifica una clave de partición para Blob Storage, los datos se particionan por partición de entrada, por tanto, el resultado sigue siendo totalmente paralelo. Vea ejemplos de valores de partición que permiten un trabajo totalmente paralelo:
 

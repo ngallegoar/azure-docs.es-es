@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: 6e2437fadb743706d4f4215bbcbab8616817de5f
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: a2eade6c5a9c826d28d435a09861ba58463ae8c4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76545626"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79236104"
 ---
 # <a name="azure-active-directory-integration-for-azure-red-hat-openshift"></a>Integración de Azure Active Directory para Red Hat OpenShift en Azure
 
@@ -92,14 +92,19 @@ Para obtener información sobre cómo crear una nueva aplicación de Azure AD, c
 
 ## <a name="add-api-permissions"></a>Adición de permisos de API
 
+[//]: # (No cambie a Microsoft Graph. No funciona con Microsoft Graph.)
 1. En la sección **Administrar**, haga clic en **Permisos de API**.
-2. Haga clic en **Agregar permiso**, seleccione **Azure Active Directory Graph** y luego **Permisos delegados**. 
-3. Expanda la opción **Usuario** en la lista siguiente y habilite el permiso **User.Read**. Si **User.Read** está habilitado de forma predeterminada, asegúrese de que es el permiso **User.Read** de **Azure Active Directory Graph**, *no* el permiso **User.Read** de **Microsoft Graph**.
+2. Haga clic en **Agregar permiso**, seleccione **Azure Active Directory Graph** y luego **Permisos delegados**.
+> [!NOTE]
+> Asegúrese de que ha seleccionado "Graph de Azure Active Directory" y no el icono de "Microsoft Graph".
+
+3. Expanda la opción **Usuario** en la lista siguiente y habilite el permiso **User.Read**. Si **User.Read** está habilitado de forma predeterminada, asegúrese de que es el permiso **User.Read** de **Azure Active Directory Graph**.
 4. Desplácese hacia arriba y seleccione **Permisos de aplicación**.
 5. Expanda la opción **Directorio** en la lista siguiente y habilite **Directory.ReadAll**
 6. Para aceptar los cambios, haga clic en **Agregar permisos**.
 7. El panel de permisos de API debe mostrar ahora *User.Read* y *Directory.ReadAll*. Tenga en cuenta la advertencia que aparece en la columna **Consentimiento del administrador requerido** junto a *Directory.ReadAll*.
 8. Si es el *administrador de suscripciones de Azure*, haga clic en **Conceder consentimiento del administrador para *nombre de la suscripción*** debajo. Si no es el *administrador de suscripciones de Azure*, solicítelo al administrador.
+
 ![Captura de pantalla del panel de permisos de API. Permisos User.Read y Directory.ReadAll agregados, consentimiento del administrador requerido para Directory.ReadAll](./media/howto-aad-app-configuration/permissions-required.png)
 
 > [!IMPORTANT]

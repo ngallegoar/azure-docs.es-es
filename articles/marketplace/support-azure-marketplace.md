@@ -1,20 +1,18 @@
 ---
 title: Compatibilidad con Azure Marketplace y AppSource | Azure
 description: Información de soporte técnico y vínculos de Azure Marketplace y AppSource
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: MaggiePucciEvans
-manager: evansma
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
-ms.date: 3/11/2020
-ms.author: evansma
-ms.openlocfilehash: 80911ce7858308302b1736328b6c7954c0e05a86
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.topic: conceptual
+ms.date: 3/19/2020
+ms.author: dsindona
+ms.openlocfilehash: 6cb08e11910bc0afdd4b2f454582612395cbd50f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79095530"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80284932"
 ---
 # <a name="support-for-the-marketplace"></a>Soporte técnico de Azure Marketplace  
 A continuación, se muestra una lista de las opciones admitidas en Marketplace.  
@@ -48,6 +46,8 @@ Abra un vale con el [soporte técnico del anunciante de Marketplace](https://aka
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Visite la página [Guía del anunciante de Azure Marketplace y AppSource](./marketplace-publishers-guide.md).  
- 
+
+* Visite la página [Guía del anunciante de Azure Marketplace y AppSource](https://docs.microsoft.com/azure/marketplace/).
+* Obtenga más información acerca del [Soporte técnico para el programa Marketplace comercial en el Centro de partners](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support).
+
 ---

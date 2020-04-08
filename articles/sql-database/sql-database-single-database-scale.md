@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 04/26/2019
-ms.openlocfilehash: 940baf219f1b3994585472f0eed9d171ba319d4e
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.date: 03/10/2020
+ms.openlocfilehash: 84846e642fa102045b89eb12dbc85b0995867a3e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023147"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80061589"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Escalar recursos de base de datos única en Azure SQL Database
 
@@ -77,7 +77,7 @@ A continuación, haga clic en el botón **Cancelar esta operación**.
 
 Desde un símbolo del sistema de PowerShell, defina los valores `$resourceGroupName`, `$serverName` y `$databaseName` y, después, ejecute el comando siguiente:
 
-```powershell
+```azurecli
 $operationName = (az sql db op list --resource-group $resourceGroupName --server $serverName --database $databaseName --query "[?state=='InProgress'].name" --out tsv)
 if (-not [string]::IsNullOrEmpty($operationName)) {
     (az sql db op cancel --resource-group $resourceGroupName --server $serverName --database $databaseName --name $operationName)
@@ -106,10 +106,11 @@ Se le cobrará por cada hora que una base de datos exista con el mayor nivel de 
 
 ### <a name="vcore-based-purchasing-model"></a>Modelo de compra basado en núcleo virtual
 
-- Se puede aprovisionar el almacenamiento hasta el límite máximo de tamaño con incrementos de 1 GB. El almacenamiento de datos mínimo configurable es 5 GB
-- Se puede aprovisionar almacenamiento para una base de datos única mediante el aumento o disminución de su tamaño máximo con [Azure Portal](https://portal.azure.com), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), la [CLI de Azure](/cli/azure/sql/db#az-sql-db-update) o la [API REST](https://docs.microsoft.com/rest/api/sql/databases/update).
-- SQL Database asigna automáticamente 30 % de almacenamiento adicional para los archivos de registro y 32 GB por núcleo virtual para TempDB, sin exceder los 384 GB. TempDB se encuentra en una SSD asociada en todos los niveles de servicio.
-- El precio de almacenamiento para una única base de datos es la suma de las cantidades de almacenamiento de datos y de registros, multiplicada por el precio de la unidad de almacenamiento del nivel de servicio. El costo de TempDB se incluye en el precio del núcleo virtual. Para más información sobre el precio del almacenamiento adicional, consulte los [precios de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
+- Se puede aprovisionar el almacenamiento hasta el límite máximo de tamaño del almacenamiento de datos con incrementos de 1 GB. El almacenamiento de datos mínimo configurable es 1 GB. Consulte las páginas de documentación del límite de recursos para [bases de datos únicas](sql-database-vcore-resource-limits-single-databases.md) y [grupos elásticos](sql-database-vcore-resource-limits-elastic-pools.md) a fin de ver los límites máximos de tamaño del almacenamiento de datos en cada objetivo del servicio.
+- Se puede aprovisionar almacenamiento de datos para una base de datos única mediante el aumento o disminución de su tamaño máximo con [Azure Portal](https://portal.azure.com), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), la [CLI de Azure](/cli/azure/sql/db#az-sql-db-update) o la [API de REST](https://docs.microsoft.com/rest/api/sql/databases/update). Si el valor de tamaño máximo se especifica en bytes, debe ser un múltiplo de 1 GB (1073741824 bytes).
+- La cantidad de datos que se pueden almacenar en los archivos de datos de una base de datos está limitada por el tamaño máximo del almacenamiento de datos configurado. Además de ese almacenamiento, SQL Database asigna automáticamente un 30 % de almacenamiento que se va a usar para el registro de transacciones.
+- SQL Database asigna automáticamente 32 GB por núcleo virtual para la base de datos `tempdb`. `tempdb` se encuentra en el almacenamiento local de SSD en todos los niveles de servicio.
+- El precio de almacenamiento para una única base de datos o un grupo elástico es la suma de las cantidades de almacenamiento de datos y de registros de transacciones, multiplicada por el precio de la unidad de almacenamiento del nivel de servicio. El costo de `tempdb` se incluye en el precio. Para más información sobre el precio del almacenamiento, consulte los [precios de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]
 > En algunas circunstancias, puede que deba reducir una base de datos para reclamar el espacio no utilizado. Para obtener más información, consulte [Administración del espacio de archivo en Azure SQL Database](sql-database-file-space-management.md).

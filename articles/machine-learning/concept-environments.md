@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: trbye
 author: trevorbye
-ms.date: 01/06/2020
-ms.openlocfilehash: 036efa27fb8d22c32f2f6bce1efe9dea300a3972
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.date: 03/18/2020
+ms.openlocfilehash: 50ddbffd00e0cbbd0641089613aaa40d03658c9e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78302784"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80064205"
 ---
 # <a name="what-are-azure-machine-learning-environments"></a>¿Qué son los entornos de Azure Machine Learning?
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -92,10 +92,13 @@ Consulte el siguiente diagrama que muestra tres definiciones de entorno. Dos de 
 
 ![Diagrama del almacenamiento en caché del entorno como imágenes de Docker](./media/concept-environments/environment-caching.png)
 
-Si crea un entorno con una dependencia de paquete sin especificar (por ejemplo, ```numpy```), ese entorno seguirá usando la versión del paquete instalada en el momento de la creación del entorno. Además, cualquier entorno futuro con una definición coincidente seguirá usando la versión anterior. Para actualizar el paquete, especifique un número de versión para forzar la recompilación de la imagen; por ejemplo, ```numpy==1.18.1```. Tenga en cuenta que se instalarán nuevas dependencias, incluidas las anidadas, que podrían interrumpir un escenario que anteriormente funcionaba.
+>[!IMPORTANT]
+> Si crea un entorno con una dependencia de paquete desanclada (por ejemplo, ```numpy```), ese entorno seguirá usando la versión del paquete instalada _en el momento de la creación del entorno_. Además, cualquier entorno futuro con una definición coincidente seguirá usando la versión anterior. 
+
+Para actualizar el paquete, especifique un número de versión para forzar la recompilación de la imagen; por ejemplo, ```numpy==1.18.1```. Tenga en cuenta que se instalarán nuevas dependencias, incluidas las anidadas, que podrían interrumpir un escenario que anteriormente funcionaba.
 
 > [!WARNING]
->  El método [Environment.build](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#build-workspace-) recompilará la imagen almacenada en caché, con el posible efecto secundario de que se actualicen los paquetes sin especificar y que todas las definiciones de entorno correspondientes a esa imagen almacenada en caché ya no puedan reproducirse.
+>  El método [Environment.build](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#build-workspace--image-build-compute-none-) recompilará la imagen almacenada en caché, con el posible efecto secundario de que se actualicen los paquetes sin especificar y que todas las definiciones de entorno correspondientes a esa imagen almacenada en caché ya no puedan reproducirse.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

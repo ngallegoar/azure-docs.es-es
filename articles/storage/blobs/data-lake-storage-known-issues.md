@@ -1,27 +1,41 @@
 ---
 title: Problemas conocidos con Azure Data Lake Storage Gen2 | Microsoft Docs
-description: Obtenga información sobre las limitaciones y problemas conocidos con Azure Data Lake Storage Gen2
+description: Más información sobre las limitaciones y problemas conocidos con Azure Data Lake Storage Gen2.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/03/2019
+ms.date: 03/20/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 951d707c898ad0efa1f21480c12f0c733f5218ee
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 4f8fae6580272ed53b8d440ba3e74c6a1ed1e61a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834946"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80061505"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemas conocidos con Azure Data Lake Storage Gen2
 
-En este artículo se enumeran las características y herramientas que aún no son compatibles o que son parcialmente compatibles con las cuentas de almacenamiento que tienen un espacio de nombres jerárquico (Azure Data Lake Storage Gen2).
+En este artículo se describen las limitaciones y problemas conocidos con Azure Data Lake Storage Gen2.
 
-<a id="blob-apis-disabled" />
+## <a name="supported-blob-storage-features"></a>Características de Blob Storage compatibles
 
-## <a name="issues-and-limitations-with-using-blob-apis"></a>Problemas y limitaciones con el uso de API de Blob
+Ahora, un número creciente de características de Blob Storage funciona con cuentas que tienen un espacio de nombres jerárquico. Para obtener una lista completa, consulte [Características de Blob Storage disponibles en Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md).
+
+## <a name="supported-azure-service-integrations"></a>Integraciones de servicios de Azure admitidos
+
+Data Lake Storage Gen2 admite varios servicios de Azure que se pueden usar para ingerir datos, realizar análisis y crear representaciones visuales. Para ver una lista de los servicios de Azure admitidos, consulte el documento en que se indica cuáles son los [servicios de Azure que admiten Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md).
+
+Consulte [Servicios de Azure que admiten Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md).
+
+## <a name="supported-open-source-platforms"></a>Plataformas de código abierto compatibles
+
+Varias plataformas de código abierto son compatibles con Data Lake Storage Gen2. Para ver una lista completa, consulte [Plataformas de código abierto que admiten Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md).
+
+Consulte [Plataformas de código abierto que admiten Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md).
+
+## <a name="blob-storage-apis"></a>API de Blob Storage
 
 Las API de Blob y Data Lake Storage Gen2 API pueden operar en los mismos datos.
 
@@ -48,38 +62,61 @@ No se admiten discos de máquina virtual no administrados en cuentas que tengan 
 
 <a id="api-scope-data-lake-client-library" />
 
-## <a name="filesystem-support-in-sdks"></a>Compatibilidad del sistema de archivos en SDK
+## <a name="file-system-support-in-sdks"></a>Compatibilidad del sistema de archivos en SDK
 
-- La compatibilidad con [.NET](data-lake-storage-directory-file-acl-dotnet.md), [Java](data-lake-storage-directory-file-acl-java.md) y [Python](data-lake-storage-directory-file-acl-python.md) se encuentra en versión preliminar pública. No se admiten otros SDK actualmente.
-- Las operaciones de ACL Get y Set no son recursivas actualmente.
+Las operaciones de ACL Get y Set no son recursivas actualmente.
 
-## <a name="filesystem-support-in-powershell-and-azure-cli"></a>Compatibilidad del sistema de archivos en PowerShell y la CLI de Azure
+## <a name="file-system-support-in-powershell-and-azure-cli"></a>Compatibilidad del sistema de archivos en PowerShell y la CLI de Azure
 
 - La compatibilidad con [PowerShell](data-lake-storage-directory-file-acl-powershell.md) y la [CLI de Azure](data-lake-storage-directory-file-acl-cli.md) se encuentra en versión preliminar pública.
 - Las operaciones de ACL Get y Set no son recursivas actualmente.
 
-## <a name="support-for-other-blob-storage-features"></a>Compatibilidad con otras características de Blob Storage
+## <a name="lifecycle-management-policies"></a>Directivas de administración del ciclo de vida
 
-En la siguiente tabla se enumeran las demás características y herramientas que aún no son compatibles o que son parcialmente compatibles con las cuentas de almacenamiento que tienen un espacio de nombres jerárquico (Azure Data Lake Storage Gen2).
+* Todavía no se admite la eliminación de instantáneas de blob.  
 
-| Característica o herramienta    | Más información    |
-|--------|-----------|
-| **Conmutación por error de cuenta** |Todavía no se admite|
-| **AzCopy** | Compatibilidad con versiones específicas <br><br>Use solo la versión más reciente de AzCopy ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). No se admiten versiones anteriores de AzCopy, como AzCopy v8.1.|
-| **Directivas de administración del ciclo de vida de Azure Blob Storage** | Se admiten las directivas de administración del ciclo de vida (versión preliminar).  Regístrese [aquí](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u) para obtener la versión preliminar de las directivas de administración del ciclo de vida y el nivel de acceso de archivo.   <br><br>Se admiten todos los niveles de acceso. El nivel de acceso de archivo se encuentra actualmente en versión preliminar. Todavía no se admite la eliminación de instantáneas de blob.  Actualmente, hay algunos errores que afectan a las directivas de administración del ciclo de vida y al nivel de acceso de archivo.  |
-| **Azure Content Delivery Network** | Todavía no se admite|
-| **Azure Search** |Compatible (versión preliminar)|
-| **Explorador de Azure Storage** | Compatibilidad con versiones específicas. <br><br>Use solo las versiones `1.6.0` o superiores. <br> Actualmente hay un error de almacenamiento que afecta a la versión `1.11.0` que puede dar lugar a errores de autenticación en ciertos escenarios. Se está implementando una corrección para el error de almacenamiento, pero, como solución alternativa, se recomienda usar la versión `1.10.x`, que está disponible como [descarga gratuita](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-relnotes). El error de almacenamiento no afecta a la versión `1.10.x`.|
-| **Listas de control de acceso del contenedor de blobs** |Todavía no se admite|
-| **Blobfuse** |Todavía no se admite|
-| **Dominios personalizados** |Todavía no se admite|
-| **Explorador de Storage en Azure Portal** | Compatibilidad limitada. Las ACL aún no se admiten. |
-| **Registro de diagnóstico** |Se admiten los registros de diagnóstico (versión preliminar). <br><br>El Explorador de Azure Storage 1.10.x no se puede usar para ver registros de diagnóstico. Para ver los registros, use AzCopy o SDK.
-| **Almacenamiento inmutable** |Todavía no se admite <br><br>El almacenamiento inmutable ofrece la capacidad de almacenar datos en estado [WORM](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage).|
-| **Niveles de objeto** |Se admiten las capas de almacenamiento en frío y en archivos. El nivel de archivo está en versión preliminar. Todavía no se admiten los demás niveles de acceso. <br><br> Actualmente, hay algunos errores que afectan al nivel de acceso de archivo.  Regístrese [aquí](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u) para obtener la versión preliminar del nivel de acceso de archivo.|
-| **Sitios web estáticos** |Todavía no se admite <br><br>En concreto, la capacidad de incluir los archivos en [los sitios web estáticos](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website).|
-| **Aplicaciones de terceros** | Compatibilidad limitada <br><br>Las aplicaciones de terceros que usan las API REST para funcionar seguirán funcionando si se usan con Data Lake Storage Gen2. <br>Lo más probable es que las aplicaciones que llaman a las API de Blob funcionen.|
-|**eliminación temporal** |Todavía no se admite|
-| **Características de control de versiones** |Todavía no se admite <br><br>Esto incluye la [eliminación temporal](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) y otras características de control de versiones como [instantáneas](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob).|
+## <a name="archive-tier"></a>Nivel de archivo
+
+Actualmente hay un error que afecta al nivel de acceso de archivo.
+
+
+## <a name="blobfuse"></a>Blobfuse
+
+Blobfuse no se admite.
+
+<a id="known-issues-tools" />
+
+## <a name="azcopy"></a>AzCopy
+
+Use solo la versión más reciente de AzCopy ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). No se admiten versiones anteriores de AzCopy, como AzCopy v8.1.
+
+<a id="storage-explorer" />
+
+## <a name="azure-storage-explorer"></a>Explorador de Azure Storage
+
+Use solo las versiones  `1.6.0`  o superiores.
+
+<a id="explorer-in-portal" />
+
+## <a name="storage-explorer-in-the-azure-portal"></a>Explorador de Storage en Azure Portal
+
+Las ACL aún no se admiten.
+
+<a id="third-party-apps" />
+
+## <a name="thirdpartyapplications"></a>Aplicaciones de terceros
+
+Las aplicaciones de terceros que usan las API REST para funcionar seguirán funcionando si se usan con Data Lake Storage Gen2. Lo más probable es que las aplicaciones que llaman a las API de Blob funcionen.
+
+## <a name="access-control-lists-acl-and-anonymous-read-access"></a>Listas de control de acceso (ACL) y acceso de lectura anónimo
+
+Si se ha concedido [acceso de lectura anónimo](storage-manage-access-to-resources.md) a un contenedor, las ACL no tendrán ningún efecto en ese contenedor o los archivos de ese contenedor.
+
+## <a name="windows-azure-storage-blob-wasb-driver"></a>Controlador Azure Storage Blob para Windows (WASB)
+
+Actualmente, hay varios problemas asociados al uso del controlador de WASB junto con cuentas que tienen un espacio de nombres jerárquico. Se recomienda el uso del controlador de [Azure Blob File System (ABFS)](data-lake-storage-abfs-driver.md) en las cargas de trabajo. 
+
+
+
 
 

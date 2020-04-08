@@ -2,17 +2,17 @@
 title: Implementación de recursos en una suscripción
 description: Se describe cómo crear un grupo de recursos en una plantilla de Azure Resource Manager. También se muestra cómo implementar recursos en el ámbito de la suscripción de Azure.
 ms.topic: conceptual
-ms.date: 02/10/2020
-ms.openlocfilehash: 50db0b4d46ff4e367411829aa75fa017a168372f
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.date: 03/23/2020
+ms.openlocfilehash: 65cc220d32d1e1149b7026fc438f5e34262511dd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207662"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80131953"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Creación de grupos de recursos y otros recursos en el nivel de suscripción
 
-Normalmente, implementa los recursos de Azure en un grupo de recursos en su suscripción de Azure. Sin embargo, también puede crear recursos en el nivel de suscripción. Las implementaciones de nivel de suscripción se usan para realizar acciones que tienen sentido en ese nivel, como la creación de grupos de recursos o la asignación del [control de acceso basado en rol](../../role-based-access-control/overview.md).
+Para simplificar la administración de recursos en su suscripción de Azure, puede definir y asignar [directivas](../../governance/policy/overview.md) o [controles de acceso basado en rol](../../role-based-access-control/overview.md) en la suscripción. Con las plantillas de nivel de suscripción, puede aplicar directivas y asignar roles en la suscripción de forma declarativa. También puede crear grupos de recursos e implementar recursos.
 
 Para implementar plantillas en el nivel de suscripción, use la CLI de Azure, PowerShell o la API REST. Azure Portal no admite la implementación en el nivel de suscripción.
 
@@ -20,14 +20,20 @@ Para implementar plantillas en el nivel de suscripción, use la CLI de Azure, Po
 
 Puede implementar los siguientes tipos de recursos en el nivel de suscripción:
 
-* [deployments](/azure/templates/microsoft.resources/deployments)
+* [budgets](/azure/templates/microsoft.consumption/budgets)
+* [implementaciones](/azure/templates/microsoft.resources/deployments): para plantillas anidadas que se implementan en grupos de recursos.
+* [eventSubscriptions](/azure/templates/microsoft.eventgrid/eventsubscriptions)
 * [peerAsns](/azure/templates/microsoft.peering/peerasns)
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
+* [remediations](/azure/templates/microsoft.policyinsights/remediations)
 * [resourceGroups](/azure/templates/microsoft.resources/resourcegroups)
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 * [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
+* [scopeAssignments](/azure/templates/microsoft.managednetwork/scopeassignments)
+* [supportPlanTypes](/azure/templates/microsoft.addons/supportproviders/supportplantypes)
+* [etiquetas](/azure/templates/microsoft.resources/tags)
 
 ### <a name="schema"></a>Schema
 
@@ -39,34 +45,33 @@ Para las plantillas, use:
 https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#
 ```
 
-Para los archivos de parámetros, use:
+El esquema de un archivo de parámetros es el mismo para todos los ámbitos de implementación. Para los archivos de parámetros, use:
 
 ```json
-https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentParameters.json#
+https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
 ```
 
 ## <a name="deployment-commands"></a>Comandos de implementación
 
 Los comandos para las implementaciones de nivel de suscripción son diferentes de los comandos de las implementaciones de grupo de recursos.
 
-Para la CLI de Azure, use [az deployment create](/cli/azure/deployment?view=azure-cli-latest#az-deployment-create). El ejemplo siguiente implementa una plantilla para crear un grupo de recursos:
+Para la CLI de Azure, use [az deployment sub create](/cli/azure/deployment/sub?view=azure-cli-latest#az-deployment-sub-create). El ejemplo siguiente implementa una plantilla para crear un grupo de recursos:
 
 ```azurecli-interactive
-az deployment create \
-  --name demoDeployment \
+az deployment sub create \
+  --name demoSubDeployment \
   --location centralus \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json" \
   --parameters rgName=demoResourceGroup rgLocation=centralus
 ```
 
-
-Para el comando de implementación de PowerShell, use [New-AzDeployment](/powershell/module/az.resources/new-azdeployment). El ejemplo siguiente implementa una plantilla para crear un grupo de recursos:
+En el comando de implementación de PowerShell, use [New-AzDeployment](/powershell/module/az.resources/new-azdeployment) o **New-AzSubscriptionDeployment**. El ejemplo siguiente implementa una plantilla para crear un grupo de recursos:
 
 ```azurepowershell-interactive
-New-AzDeployment `
-  -Name demoDeployment `
+New-AzSubscriptionDeployment `
+  -Name demoSubDeployment `
   -Location centralus `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json" `
   -rgName demoResourceGroup `
   -rgLocation centralus
 ```
@@ -87,12 +92,12 @@ En las implementaciones de nivel de suscripción, hay algunas consideraciones im
 
 * La función [resourceGroup()](template-functions-resource.md#resourcegroup)**no** se admite.
 * Se admiten las funciones [reference()](template-functions-resource.md#reference) y [list()](template-functions-resource.md#list).
-* La función [resourceId()](template-functions-resource.md#resourceid) sí se admite. Utilícela para obtener el identificador de los recursos que se utilizan en las implementaciones de nivel de suscripción. No proporcione un valor para el parámetro del grupo de recursos.
+* O bien, use la función [subscriptionResourceId()](template-functions-resource.md#subscriptionresourceid) para obtener el id. de recurso para recursos implementados en nivel de suscripción.
 
   Por ejemplo, para obtener el identificador de recurso de una definición de directiva, utilice:
   
   ```json
-  resourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))
+  subscriptionResourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))
   ```
   
   El identificador de recurso devuelto tiene el formato siguiente:
@@ -100,8 +105,6 @@ En las implementaciones de nivel de suscripción, hay algunas consideraciones im
   ```json
   /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
   ```
-
-  O bien, use la función [subscriptionResourceId ()](template-functions-resource.md#subscriptionresourceid) para obtener el id. de recurso para un recurso de nivel de suscripción.
 
 ## <a name="create-resource-groups"></a>Crear grupos de recursos
 
@@ -228,8 +231,8 @@ En el ejemplo siguiente se crea un grupo de recursos y se implementa una cuenta 
               "location": "[parameters('rgLocation')]",
               "sku": {
                 "name": "Standard_LRS"
-              }
-              "kind": "StorageV2",
+              },
+              "kind": "StorageV2"
             }
           ],
           "outputs": {}
@@ -285,10 +288,10 @@ Para implementar esta plantilla con la CLI de Azure, use:
 # Built-in policy that accepts parameters
 definition=$(az policy definition list --query "[?displayName=='Allowed locations'].id" --output tsv)
 
-az deployment create \
+az deployment sub create \
   --name demoDeployment \
   --location centralus \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policyassign.json \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policyassign.json" \
   --parameters policyDefinitionID=$definition policyName=setLocation policyParameters="{'listOfAllowedLocations': {'value': ['westus']} }"
 ```
 
@@ -300,10 +303,10 @@ $definition = Get-AzPolicyDefinition | Where-Object { $_.Properties.DisplayName 
 $locations = @("westus", "westus2")
 $policyParams =@{listOfAllowedLocations = @{ value = $locations}}
 
-New-AzDeployment `
+New-AzSubscriptionDeployment `
   -Name policyassign `
   -Location centralus `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policyassign.json `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policyassign.json" `
   -policyDefinitionID $definition.PolicyDefinitionId `
   -policyName setLocation `
   -policyParameters $policyParams
@@ -357,30 +360,29 @@ Puede [definir](../../governance/policy/concepts/definition-structure.md) y asig
 Para crear la definición de directiva en su suscripción y aplicarla a la suscripción, use el siguiente comando de la CLI:
 
 ```azurecli
-az deployment create \
+az deployment sub create \
   --name demoDeployment \
   --location centralus \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policydefineandassign.json
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policydefineandassign.json"
 ```
 
 Para implementar esta plantilla con PowerShell, use:
 
 ```azurepowershell
-New-AzDeployment `
+New-AzSubscriptionDeployment `
   -Name definePolicy `
   -Location centralus `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policydefineandassign.json
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policydefineandassign.json"
 ```
 
 ## <a name="template-samples"></a>Ejemplos de plantillas
 
-* Cree un grupo de recursos, bloquéelo y concédale permisos. Consulte [aquí](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments/create-rg-lock-role-assignment).
-* Cree un grupo de recursos, una directiva y una asignación de directiva.  Consulte [aquí](https://github.com/Azure/azure-docs-json-samples/blob/master/subscription-level-deployment/azuredeploy.json).
+* [Cree un grupo de recursos, bloquéelo y concédale permisos](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments/create-rg-lock-role-assignment).
+* [Cree un grupo de recursos, una directiva y una asignación de directiva](https://github.com/Azure/azure-docs-json-samples/blob/master/subscription-level-deployment/azuredeploy.json).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para aprender sobre los roles de asignación, consulte [Administración del acceso a los recursos de Azure mediante RBAC y plantillas de Azure Resource Manager](../../role-based-access-control/role-assignments-template.md).
 * Para un ejemplo de implementación de la configuración del área de trabajo para Azure Security Center, consulte [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
 * Puede encontrar plantillas de ejemplo en [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments).
-* Para más información sobre la creación de plantillas del Administrador de recursos de Azure, consulte [Creación de plantillas](template-syntax.md).
-* Para obtener una lista de las funciones disponibles en una plantilla, consulte [Funciones de plantilla](template-functions.md).
+* También puede implementar plantillas en el [nivel de grupo de administración](deploy-to-management-group.md) y en el [nivel de inquilino](deploy-to-tenant.md).

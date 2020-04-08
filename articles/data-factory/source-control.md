@@ -11,12 +11,12 @@ ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/09/2019
-ms.openlocfilehash: 1cc5932eca520b0bbc0c592b54d36ea8b5942b08
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 6645c2672e15c562216b4347f779ef3634a2f124
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77031636"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80130864"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Control de código fuente en Azure Data Factory
 
@@ -141,7 +141,7 @@ En el panel configuración se muestra la siguiente configuración del repositori
 |:--- |:--- |:--- |
 | **Tipo de repositorio** | Tipo de repositorio de código de Azure Repos. | GitHub |
 | **Use GitHub Enterprise** (Usar GitHub Enterprise) | Casilla para seleccionar GitHub Enterprise | no seleccionado (valor predeterminado) |
-| **GitHub Enterprise URL** (URL de GitHub Enterprise) | Dirección URL raíz de GitHub Enterprise. Por ejemplo: https://github.mydomain.com. Solo es necesario si se selecciona **Use GitHub Enterprise** (Usar GitHub Enterprise). | `<your GitHub enterprise url>` |                                                           
+| **GitHub Enterprise URL** (URL de GitHub Enterprise) | La dirección URL de GitHub Enterprise (debe ser HTTPS para el servidor local de GitHub Enterprise). Por ejemplo: https://github.mydomain.com. Solo es necesario si se selecciona **Use GitHub Enterprise** (Usar GitHub Enterprise). | `<your GitHub enterprise url>` |                                                           
 | **Cuenta de GitHub** | El nombre de la cuenta de GitHub. Este nombre se puede encontrar en https:\//github.com/{nombre de cuenta}/{nombre de repositorio}. Para ir a esta página se le pide que introduzca credenciales de OAuth de GitHub en la cuenta de GitHub. | `<your GitHub account name>` |
 | **Nombre del repositorio**  | El nombre del repositorio de código de GitHub. Las cuentas de GitHub contienen repositorios de Git para administrar el código fuente. Puede crear un repositorio o usar uno existente que ya se encuentre en su cuenta. | `<your repository name>` |
 | **Rama de colaboración** | La rama de colaboración de GitHub que se usa para la publicación. De forma predeterminada, es master. Cámbiela en caso de que desee publicar recursos de otra rama. | `<your collaboration branch>` |

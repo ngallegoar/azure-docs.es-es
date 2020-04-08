@@ -9,14 +9,14 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 01/16/2020
+ms.date: 03/13/2020
 ms.custom: seodec18
-ms.openlocfilehash: c7fd70ca32054b3b25e717c8c7169cf2d30ef9be
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 24c0d9955a857e8bbc1e1c09e600031a7541026c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156359"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80296962"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configuración y uso de destinos de proceso para el entrenamiento del modelo 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -81,7 +81,7 @@ Use las secciones siguientes para configurar estos destinos de proceso:
 * [HDInsight de Azure](#hdinsight)
 
 
-### <a id="local"></a>Equipo local
+### <a name="local-computer"></a><a id="local"></a>Equipo local
 
 1. **Crear y adjuntar**: no es necesario crear o asociar un destino de proceso para utilizar el equipo local como entorno de entrenamiento.  
 
@@ -91,7 +91,7 @@ Use las secciones siguientes para configurar estos destinos de proceso:
 
 Ahora que ha asociado el proceso y ha configurado la ejecución, el siguiente paso es [enviar la ejecución de entrenamiento](#submit).
 
-### <a id="amlcompute"></a>Proceso de Azure Machine Learning
+### <a name="azure-machine-learning-compute"></a><a id="amlcompute"></a>Proceso de Azure Machine Learning
 
 Proceso de Azure Machine Learning es una infraestructura de proceso administrado que permite al usuario crear fácilmente un proceso de uno o varios nodos. El proceso se crea dentro de la región de su área de trabajo y es un recurso que se puede compartir con otros usuarios del área de trabajo. El proceso se escala verticalmente de forma automática cuando se envía un trabajo y se puede colocar en una instancia de Azure Virtual Network. El proceso se ejecuta en un entorno con contenedores y empaqueta las dependencias del modelo en un [contenedor de Docker](https://www.docker.com/why-docker).
 
@@ -116,7 +116,7 @@ Puede crear una instancia de Proceso de Azure Machine Learning como un destino d
 
 Ahora que ha asociado el proceso y ha configurado la ejecución, el siguiente paso es [enviar la ejecución de entrenamiento](#submit).
 
-#### <a id="persistent"></a>Proceso persistente
+#### <a name="persistent-compute"></a><a id="persistent"></a>Proceso persistente
 
 Se puede reutilizar una instancia de Proceso de Azure Machine Learning persistente en varios trabajos. El proceso se puede compartir con otros usuarios del área de trabajo y se conserva entre un trabajo y otro.
 
@@ -139,7 +139,7 @@ Se puede reutilizar una instancia de Proceso de Azure Machine Learning persisten
 Ahora que ha asociado el proceso y ha configurado la ejecución, el siguiente paso es [enviar la ejecución de entrenamiento](#submit).
 
 
-### <a id="vm"></a>Máquinas virtuales remotas
+### <a name="remote-virtual-machines"></a><a id="vm"></a>Máquinas virtuales remotas
 
 Azure Machine Learning también admite la posibilidad de que traiga su propio recurso de proceso y lo adjunte a su área de trabajo. Uno de estos tipos de recursos es una máquina virtual remota arbitraria, siempre que se pueda acceder desde Azure Machine Learning. El recurso puede ser una máquina virtual de Azure, un servidor remoto de la organización o local. En concreto, dada la dirección IP y las credenciales (nombre de usuario y contraseña o clave SSH), puede usar cualquier máquina virtual a la que se pueda acceder para las ejecuciones remotas.
 
@@ -154,15 +154,30 @@ Utilice Azure Data Science Virtual Machine (DSVM) como máquina virtual de Azure
 
 1. **Adjuntar**: Para asociar una máquina virtual existente como destino de proceso, debe proporcionar el nombre de dominio completo (FQDN), el nombre de usuario y la contraseña de la máquina virtual. En el ejemplo, reemplace \<fqdn> por el FQDN de la máquina virtual o por la dirección IP pública. Reemplace \<username> y \<password> por el nombre de usuario y contraseña de SSH para la máquina virtual.
 
+    > [!IMPORTANT]
+    > Las siguientes regiones de Azure no admiten la conexión de una máquina virtual mediante la dirección IP pública de la máquina virtual. En su lugar, use el identificador de Azure Resource Manager de la máquina virtual con el parámetro `resource_id`:
+    >
+    > * Este de EE. UU.
+    > * Oeste de EE. UU. 2
+    > * Centro y Sur de EE. UU.
+    >
+    > El identificador de recurso de la máquina virtual se puede construir con el identificador de la suscripción, el nombre del grupo de recursos y el nombre de la máquina virtual con el siguiente formato de cadena: `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Compute/virtualMachines/<vm_name>`.
+
+
    ```python
    from azureml.core.compute import RemoteCompute, ComputeTarget
 
    # Create the compute config 
    compute_target_name = "attach-dsvm"
-   attach_config = RemoteCompute.attach_configuration(address = "<fqdn>",
+   attach_config = RemoteCompute.attach_configuration(address='<fqdn>',
                                                     ssh_port=22,
                                                     username='<username>',
                                                     password="<password>")
+   # If in US East, US West 2, or US South Central, use the following instead:
+   # attach_config = RemoteCompute.attach_configuration(resource_id='<resource_id>',
+   #                                                 ssh_port=22,
+   #                                                 username='<username>',
+   #                                                 password="<password>")
 
    # If you authenticate with SSH keys instead, use this code:
    #                                                  ssh_port=22,
@@ -186,7 +201,7 @@ Utilice Azure Data Science Virtual Machine (DSVM) como máquina virtual de Azure
 
 Ahora que ha asociado el proceso y ha configurado la ejecución, el siguiente paso es [enviar la ejecución de entrenamiento](#submit).
 
-### <a id="hdinsight"></a>Azure HDInsight 
+### <a name="azure-hdinsight"></a><a id="hdinsight"></a>Azure HDInsight 
 
 Azure HDInsight es una plataforma popular para el análisis de macrodatos. La plataforma proporciona Apache Spark, que se puede usar para entrenar el modelo.
 
@@ -198,6 +213,15 @@ Azure HDInsight es una plataforma popular para el análisis de macrodatos. La pl
 
 1. **Adjuntar**: Para asociar un clúster de HDInsight como destino de proceso, debe proporcionar el nombre de host, el nombre de usuario y la contraseña para el clúster de HDInsight. El ejemplo siguiente usa el SDK para asociar un clúster al área de trabajo. En el ejemplo, reemplace \<clustername> por el nombre del clúster. Reemplace \<username> y \<password> por el nombre de usuario y contraseña de SSH para el clúster.
 
+    > [!IMPORTANT]
+    > Las siguientes regiones de Azure no admiten la conexión de un clúster de HDInsight mediante la dirección IP pública del clúster. En su lugar, use el identificador de Azure Resource Manager del clúster con el parámetro `resource_id`:
+    >
+    > * Este de EE. UU.
+    > * Oeste de EE. UU. 2
+    > * Centro y Sur de EE. UU.
+    >
+    > El identificador de recurso del clúster se puede construir con el identificador de la suscripción, el nombre del grupo de recursos y el nombre del clúster con el siguiente formato de cadena: `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.HDInsight/clusters/<cluster_name>`.
+
    ```python
    from azureml.core.compute import ComputeTarget, HDInsightCompute
    from azureml.exceptions import ComputeTargetException
@@ -208,6 +232,11 @@ Azure HDInsight es una plataforma popular para el análisis de macrodatos. La pl
                                                           ssh_port=22, 
                                                           username='<ssh-username>', 
                                                           password='<ssh-pwd>')
+    # If you are in US East, US West 2, or US South Central, use the following instead:
+    # attach_config = HDInsightCompute.attach_configuration(resource_id='<resource_id>',
+    #                                                      ssh_port=22, 
+    #                                                      username='<ssh-username>', 
+    #                                                      password='<ssh-pwd>')
     hdi_compute = ComputeTarget.attach(workspace=ws, 
                                        name='myhdi', 
                                        attach_configuration=attach_config)
@@ -228,15 +257,15 @@ Azure HDInsight es una plataforma popular para el análisis de macrodatos. La pl
 Ahora que ha asociado el proceso y ha configurado la ejecución, el siguiente paso es [enviar la ejecución de entrenamiento](#submit).
 
 
-### <a id="azbatch"></a>Azure Batch 
+### <a name="azure-batch"></a><a id="azbatch"></a>Azure Batch 
 
 Azure Batch se usa para ejecutar aplicaciones de informática de alto rendimiento (HPC) en paralelo y a gran escala de manera eficaz en la nube. AzureBatchStep se puede usar en una canalización de Azure Machine Learning para enviar trabajos al grupo de máquinas de Azure Batch.
 
 Para adjuntar Azure Batch como destino de proceso, debe usar el SDK de Azure Machine Learning y proporcionar la siguiente información:
 
--   **Nombre de proceso de Azure Batch**: nombre descriptivo que se usará para el proceso en el área de trabajo.
--   **Nombre de cuenta de Azure Batch**: nombre de la cuenta de Azure Batch.
--   **Grupo de recursos**: grupo de recursos que contiene la cuenta de Azure Batch.
+-    **Nombre de proceso de Azure Batch**: nombre descriptivo que se usará para el proceso en el área de trabajo.
+-    **Nombre de cuenta de Azure Batch**: nombre de la cuenta de Azure Batch.
+-    **Grupo de recursos**: grupo de recursos que contiene la cuenta de Azure Batch.
 
 El código siguiente muestra cómo asociar Azure Batch como destino de proceso:
 
@@ -284,7 +313,7 @@ from azureml.core.compute import ComputeTarget
 myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 ```
 
-### <a id="portal-view"></a>Visualización de destinos de proceso
+### <a name="view-compute-targets"></a><a id="portal-view"></a>Visualización de destinos de proceso
 
 
 Para ver los destinos de proceso del área de trabajo, use los pasos siguientes:
@@ -295,7 +324,7 @@ Para ver los destinos de proceso del área de trabajo, use los pasos siguientes:
 
     [![Visualización de la pestaña Proceso](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace.png)](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace-expanded.png)
 
-### <a id="portal-create"></a>Creación de un destino de proceso
+### <a name="create-a-compute-target"></a><a id="portal-create"></a>Creación de un destino de proceso
 
 Siga los pasos anteriores para ver la lista de destinos de proceso. A continuación, siga estos pasos para crear un destino de proceso: 
 
@@ -323,7 +352,7 @@ Siga los pasos anteriores para ver la lista de destinos de proceso. A continuaci
 
     ![Ver los detalles del destino de proceso](./media/how-to-set-up-training-targets/compute-target-details.png) 
 
-### <a id="portal-reuse"></a>Adjuntar destinos de proceso
+### <a name="attach-compute-targets"></a><a id="portal-reuse"></a>Adjuntar destinos de proceso
 
 Para usar destinos de proceso creados fuera del área de trabajo de Azure Machine Learning, debe adjuntarlos. Adjuntar un destino de proceso hace que esté disponible para el área de trabajo.
 
@@ -366,7 +395,7 @@ Para más información, consulte el artículo sobre la [administración de recur
 
 Puede crear y administrar los destinos de proceso asociados con el área de trabajo, así como acceder a ellos, mediante la [extensión de VS Code](tutorial-train-deploy-image-classification-model-vscode.md#configure-compute-targets) para Azure Machine Learning.
 
-## <a id="submit"></a>Envío de una ejecución de entrenamiento mediante el SDK de Azure Machine Learning
+## <a name="submit-training-run-using-azure-machine-learning-sdk"></a><a id="submit"></a>Envío de una ejecución de entrenamiento mediante el SDK de Azure Machine Learning
 
 Después de crear una configuración de ejecución, se utiliza para ejecutar el experimento.  El patrón de código para enviar una ejecución de entrenamiento es el mismo para todos los tipos de destinos de proceso:
 
@@ -421,6 +450,8 @@ Para obtener más información, consulte la documentación de [ScriptRunConfig](
 ## <a name="create-run-configuration-and-submit-run-using-azure-machine-learning-cli"></a>Creación de una configuración de ejecución y envío de la ejecución mediante la CLI de Azure Machine Learning
 
 Puede usar la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) y la [extensión de la CLI de Machine Learning](reference-azure-machine-learning-cli.md) para crear configuraciones de ejecución y enviar esas ejecuciones a distintos destinos del proceso. En los ejemplos siguientes se supone que ya tiene un área de trabajo de Azure Machine Learning y que ha iniciado sesión en Azure mediante el comando de la CLI `az login`. 
+
+[!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)]
 
 ### <a name="create-run-configuration"></a>Creación de una configuración de ejecución
 
@@ -505,7 +536,7 @@ Cuando se inicia una ejecución de entrenamiento en la que el directorio de orig
 
 Consulte estos cuadernos para ver ejemplos de entrenamiento con varios destinos de proceso:
 * [how-to-use-azureml/training](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)
-* [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
+* [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/image-classification-mnist-data/img-classification-part1-training.ipynb)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 

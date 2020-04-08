@@ -3,12 +3,12 @@ title: Creación de un recurso de Azure Application Insights | Microsoft Docs
 description: Describe la configuración manual de la supervisión de Application Insights para una nueva aplicación activa.
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 090c983dcca101557f8dec479d1267275d24908b
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: c1b3a6920723ad59b714cce4bd69e1b95fe1995f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77672045"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80132424"
 ---
 # <a name="create-an-application-insights-resource"></a>Creación de recursos en Application Insights
 
@@ -41,7 +41,7 @@ Cuando se haya creado la aplicación, se abrirá un panel nuevo. En este panel p
 
 ## <a name="copy-the-instrumentation-key"></a>Copia de la clave de instrumentación
 
-La clave de instrumentación identifica el recurso con el que quiere asociar los datos de telemetría. Necesitará la copia para agregar la clave de instrumentación al código de la aplicación.
+La clave de instrumentación identifica el recurso con el que quiere asociar los datos de telemetría. Necesitará copiar la clave de instrumentación y agregarla al código de la aplicación.
 
 ![Hacer clic y copiar la clave de instrumentación](./media/create-new-resource/instrumentation-key.png)
 

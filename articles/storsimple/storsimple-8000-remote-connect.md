@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/02/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 70d0246debc532260d287104bacea2f15c1b94d2
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 58d61df932da06e32bb4c8f21a3a296b185f02d9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277291"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80299005"
 ---
 # <a name="connect-remotely-to-your-storsimple-8000-series-device"></a>Conexión de forma remota al dispositivo StorSimple serie 8000
 
@@ -203,11 +203,11 @@ A continuación se describe cada uno de los procedimientos anteriores.
 
 ### <a name="connect-to-the-device-from-the-remote-host"></a>Conectarse al dispositivo desde el host remoto
 
-Use Windows PowerShell y SSL para iniciar una sesión de SSAdmin en el dispositivo desde un host remoto o cliente. La sesión de SSAdmin se asigna a la opción 1 en el menú de la [consola serie](storsimple-8000-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console) del dispositivo.
+Use Windows PowerShell y TLS para iniciar una sesión de SSAdmin en el dispositivo desde un host remoto o cliente. La sesión de SSAdmin se asigna a la opción 1 en el menú de la [consola serie](storsimple-8000-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console) del dispositivo.
 
 Realice el procedimiento siguiente en el equipo desde el que desea realizar la conexión remota de Windows PowerShell.
 
-#### <a name="to-enter-an-ssadmin-session-on-the-device-by-using-windows-powershell-and-ssl"></a>Para iniciar una sesión de SSAdmin en el dispositivo mediante el uso de Windows PowerShell y SSL
+#### <a name="to-enter-an-ssadmin-session-on-the-device-by-using-windows-powershell-and-tls"></a>Para iniciar una sesión de SSAdmin en el dispositivo mediante el uso de Windows PowerShell y TLS
 1. Iniciar una sesión de Windows PowerShell como administrador. Si utiliza un cliente de Windows 10, el servicio de Administración remota de Windows se establece en modo manual de forma predeterminada. Si necesita iniciar el servicio, escriba lo siguiente:
 
     `Start-Service WinRM`
@@ -232,9 +232,9 @@ Realice el procedimiento siguiente en el equipo desde el que desea realizar la c
 5. Escriba:
    
      `Enter-PSSession $session`
-6. Deberá esperar unos minutos y, a continuación, se conectará al dispositivo a través de HTTPS con SSL. Verá un mensaje que indica que está conectado al dispositivo.
+6. Deberá esperar unos minutos y, a continuación, se conectará al dispositivo a través de HTTPS con TLS. Verá un mensaje que indica que está conectado al dispositivo.
    
-    ![Conexión remota de PowerShell mediante HTTP y SSL](./media/storsimple-remote-connect/HCS_PSRemotingUsingHTTPSAndSSL.png)
+    ![Conexión remota de PowerShell mediante HTTP y TLS](./media/storsimple-remote-connect/HCS_PSRemotingUsingHTTPSAndSSL.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

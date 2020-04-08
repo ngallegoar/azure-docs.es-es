@@ -8,13 +8,13 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 11/04/2019
-ms.openlocfilehash: 9cbfc17e7412b4d30f082354996721ee7b5d6d5b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 03/24/2020
+ms.openlocfilehash: d5c48b6036065f6182912c21c144cab80fc3cfbf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510645"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80246711"
 ---
 # <a name="what-is-azure-sql-database-edge-preview"></a>¿Qué es la versión preliminar de Azure SQL Database Edge?
 
@@ -34,9 +34,8 @@ SQL Database Edge está disponible en tres ediciones o planes de software difere
 
    |**Plan**  |**Descripción**  |
    |---------|---------|
-   |Developer  |  SKU solo de desarrollo, con los mismos límites de limitación que impone la SKU estándar que se menciona a continuación |
-   |Estándar   |  El plan estándar admite hasta 4 CPU y hasta 32 GB de memoria para el contenedor de SQL Database Edge. |
-   |Premium    |  El plan premium admite hasta 8 núcleos y hasta 64 GB de memoria para el contenedor de SQL Database Edge. |
+   |Desarrollador de Azure SQL Database Edge  |  SKU solo de desarrollo; cada contenedor de SQL Database está limitado a hasta 4 núcleos y 32 GB de memoria  |
+   |Azure SQL Database Edge    |  SKU de producción; cada contenedor de SQL Database perimetral está limitado a hasta 8 núcleos y 64 GB de memoria. |
 
 ## <a name="pricing-and-availability"></a>Precios y disponibilidad
 

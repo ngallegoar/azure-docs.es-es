@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: c6b7e3da6cb6fd87e3b43d6f310e3b76f8fc4d30
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: c414087270558e21340e50114c0563ff7e50064c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77526100"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80282314"
 ---
 # <a name="machine-learning-and-data-science-tools-on-azure-data-science-virtual-machines"></a>Herramientas de aprendizaje automático y ciencia de datos en Azure Data Science Virtual Machines
 Azure Data Science Virtual Machine (DSVM) tiene un amplio conjunto de herramientas y bibliotecas para el aprendizaje automático, disponibles en lenguajes conocidos como Python, R o Julia.
@@ -108,7 +108,7 @@ Hay otras bibliotecas de aprendizaje automático en DSVM, como el conocido paque
 |    |           |
 | ------------- | ------------- |
 | ¿Qué es?   | Motor de consultas SQL de código abierto en macrodatos    |
-| Versiones de DSVM compatibles      | Windows 2019 (versión preliminar), Linux  |
+| Versiones de DSVM compatibles      | Windows 2019, Linux  |
 | ¿Cómo se configura e instala en DSVM?      |  Solo se instala en `/dsvm/tools/drill*` en modo incrustado   |
 | Usos típicos      |  Para la exploración de datos en contexto sin necesidad de extraerlos, transformarlos y cargarlos (ETL). Consulta de distintos orígenes y formatos de datos, como CSV, JSON, tablas relacionales y Hadoop.     |
 | Cómo usarla y ejecutarla      | Acceso directo de escritorio  <br/> [Comience a usar Drill en 10 minutos](https://drill.apache.org/docs/drill-in-10-minutes/)  |

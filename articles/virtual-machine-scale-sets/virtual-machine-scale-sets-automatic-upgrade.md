@@ -1,18 +1,18 @@
 ---
 title: Actualizaciones automáticas de imágenes del SO con conjuntos de escalado de máquinas virtuales de Azure
 description: Aprenda a actualizar automáticamente la imagen del sistema operativo en instancias de máquina virtual de un conjunto de escalado
-author: shandilvarun
+author: mayanknayar
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
-ms.date: 07/16/2019
-ms.author: vashan
-ms.openlocfilehash: c452ba5b8abfce4227d72922139824d639c62755
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.date: 03/18/2020
+ms.author: manayar
+ms.openlocfilehash: 6d550e8e960cb8e212702796467c91d1cd1ebb23
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278159"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80235178"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Actualización automática de imágenes del sistema operativo en un conjunto de escalado de máquinas virtuales de Azure
 
@@ -21,9 +21,9 @@ La habilitación de las actualizaciones automáticas de imágenes del sistema op
 La actualización automática del sistema operativo tiene las siguientes características:
 
 - Una vez configurada, la imagen del sistema operativo más reciente publicada por los editores de la imagen se aplica automáticamente al conjunto de escalado sin la intervención del usuario.
-- Actualiza lotes de instancias de forma gradual cada vez que el editor publica una nueva imagen de plataforma.
+- Actualiza lotes de instancias de forma gradual cada vez que el editor publica una nueva imagen.
 - Se integra con sondeos de estado de la aplicación y la [extensión Estado de la aplicación](virtual-machine-scale-sets-health-extension.md).
-- Funciona con todos los tamaños de máquina virtual y puede usarse con imágenes de la plataforma Windows y de la plataforma Linux.
+- Funciona con todos los tamaños de máquina virtual y puede usarse con imágenes de Windows y Linux.
 - Puede rechazar las actualizaciones automáticas en cualquier momento (las actualizaciones de sistema operativo también se pueden iniciar manualmente).
 - El disco del sistema operativo de una máquina virtual se reemplaza por el nuevo disco de sistema operativo creado con la versión más reciente de la imagen. Las extensiones configuradas y los scripts de datos personalizados se ejecutan, mientras se conservan los discos de datos persistentes.
 - Se admite la [secuenciación de extensiones](virtual-machine-scale-sets-extension-sequencing.md).
@@ -35,7 +35,7 @@ En una actualización se reemplaza el disco del sistema operativo de una máquin
 
 El proceso de actualización funciona de la manera siguiente:
 1. Antes de comenzar el proceso de actualización, el orquestador se asegurará de que no haya más del 20 % de las instancias de todo el conjunto de escalado en mal estado.
-2. El orquestador de actualización identifica el lote de instancias de máquina virtual para actualizar, donde un lote puede tener como máximo el 20 % del recuento total de instancias. Para los conjuntos de escalado menores, con 5 o menos instancias, el tamaño del lote de actualización es una máquina virtual.
+2. El orquestador de actualización identifica el lote de instancias de máquina virtual para actualizar, donde un lote puede tener como máximo el 20 % del recuento total de instancias (sujeto a un tamaño de lote mínimo de una máquina virtual).
 3. El disco del sistema operativo del lote de máquinas virtuales seleccionado se sustituye por uno nuevo creado a partir de la imagen más reciente. Todas las extensiones y configuraciones especificadas en el modelo de conjunto de escalado se aplican a la instancia actualizada.
 4. En conjuntos de escalado que tienen configurados sondeos de estado de la aplicación o la extensión Estado de la aplicación, la actualización espera hasta 5 minutos a que la instancia tenga un estado correcto antes de pasar a actualizar el siguiente lote. Si una instancia no recupera su estado en 5 minutos después de la actualización, se restaura su disco del sistema operativo anterior de forma predeterminada.
 5. El orquestador de actualización también realiza un seguimiento del porcentaje de instancias que tienen un estado incorrecto después de una actualización. La actualización se detendrá si más del 20 % de las instancias actualizadas pasan a tener un estado incorrecto durante el proceso de actualización.
@@ -44,9 +44,9 @@ El proceso de actualización funciona de la manera siguiente:
 El orquestador de actualización del sistema operativo del conjunto de escalado comprueba el mantenimiento global del conjunto de escalado antes de actualizar cada lote. Al actualizar un lote, podría haber otras actividades de mantenimiento simultáneas planeadas o sin planear que podrían afectar al mantenimiento de las instancias del conjunto de escalado. En tales casos, si más del 20 % de las instancias del conjunto de escalado tienen un estado incorrecto, la actualización del conjunto de escalado se detiene al final del lote actual.
 
 ## <a name="supported-os-images"></a>Imágenes de sistema operativo compatibles
-Actualmente se admiten solo determinadas imágenes de plataforma del sistema operativo. Actualmente no se admiten imágenes personalizadas.
+Actualmente se admiten solo determinadas imágenes de plataforma del sistema operativo. La compatibilidad con imágenes personalizadas está disponible [en versión preliminar](virtual-machine-scale-sets-automatic-upgrade.md#automatic-os-image-upgrade-for-custom-images-preview) para imágenes personalizadas a través de [Shared Image Gallery](shared-image-galleries.md).
 
-Las siguientes SKU se admiten actualmente (y periódicamente se agregan más):
+Las siguientes SKU de plataforma se admiten actualmente (y periódicamente se agregan más):
 
 | Publicador               | Sistema operativo      |  SKU               |
 |-------------------------|---------------|--------------------|
@@ -66,7 +66,7 @@ Las siguientes SKU se admiten actualmente (y periódicamente se agregan más):
 
 ## <a name="requirements-for-configuring-automatic-os-image-upgrade"></a>Requisitos para configurar la actualización automática de imágenes del sistema operativo
 
-- La propiedad *versión* de la imagen de plataforma debe establecerse en *más reciente*.
+- La propiedad *versión* de la imagen debe establecerse en *más reciente*.
 - Use sondeos de estado de la aplicación o la [extensión Estado de la aplicación](virtual-machine-scale-sets-health-extension.md) con conjuntos de escalado que no sean de Service Fabric.
 - Use la versión 2018-10-01 o una posterior de Compute API.
 - Asegúrese de que los recursos externos especificados en el modelo del conjunto de escalado están disponibles y actualizados. Por ejemplo, el URI de SAS para arrancar la carga en las propiedades de extensión de máquina virtual, la carga de la cuenta de almacenamiento, la referencia a los secretos del modelo, etc.
@@ -80,6 +80,86 @@ Si utiliza Service Fabric, asegúrese de que se cumplen las condiciones siguient
 -   El nivel de durabilidad debe ser el mismo en el clúster de Service Fabric y la extensión Service Fabric de la definición del modelo de conjunto de escalado.
 
 Asegúrese de que la configuración de durabilidad coincida con la del clúster y la extensión de Service Fabric, ya que la falta de coincidencia produce errores de actualización. Los niveles de durabilidad se pueden modificar según las directrices que se describen en [esta página](../service-fabric/service-fabric-cluster-capacity.md#changing-durability-levels).
+
+
+## <a name="automatic-os-image-upgrade-for-custom-images-preview"></a>Actualización automática de la imagen del sistema operativo para imágenes personalizadas (versión preliminar)
+
+> [!IMPORTANT]
+> La actualización automática de la imagen del sistema operativo para imágenes personalizadas se encuentra actualmente en versión preliminar pública. No es necesario ningún procedimiento de participación para usar la funcionalidad de versión preliminar pública que se describe a continuación.
+> Esta versión preliminar se ofrece sin contrato de nivel de servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
+> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+La actualización automática de la imagen del sistema operativo está disponible en versión preliminar para las imágenes personalizadas implementadas a través de [Shared Image Gallery](shared-image-galleries.md). No se admiten otras imágenes personalizadas para las actualizaciones automáticas de imágenes del sistema operativo.
+
+Para habilitar la funcionalidad en versión preliminar, hay que participar en la característica *AutomaticOSUpgradeWithGalleryImage* por suscripción (solo hay que hacerlo una vez), tal como se detalla a continuación.
+
+### <a name="rest-api"></a>API DE REST
+En el ejemplo siguiente se describe cómo habilitar la versión preliminar para su suscripción:
+
+```
+POST on `/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Compute/features/AutomaticOSUpgradeWithGalleryImage/register?api-version=2015-12-01`
+```
+
+El registro de la característica puede tardar hasta 15 minutos. Para comprobar el estado del registro, siga estos pasos:
+
+```
+GET on `/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Compute/features/AutomaticOSUpgradeWithGalleryImage?api-version=2015-12-01`
+```
+
+Una vez que la característica se ha registrado para su suscripción, complete el proceso de participación mediante la propagación del cambio en el proveedor de recursos de Compute.
+
+```
+POST on `/subscriptions/{subscriptionId}/providers/Microsoft.Compute/register?api-version=2019-10-01`
+```
+
+### <a name="azure-powershell"></a>Azure PowerShell
+Use el cmdlet [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) para habilitar la versión preliminar de su suscripción.
+
+```azurepowershell-interactive
+Register-AzProviderFeature -FeatureName AutomaticOSUpgradeWithGalleryImage -ProviderNamespace Microsoft.Compute
+```
+
+El registro de la característica puede tardar hasta 15 minutos. Para comprobar el estado del registro, siga estos pasos:
+
+```azurepowershell-interactive
+Get-AzProviderFeature -FeatureName AutomaticOSUpgradeWithGalleryImage -ProviderNamespace Microsoft.Compute
+```
+
+Una vez que la característica se ha registrado para su suscripción, complete el proceso de participación mediante la propagación del cambio en el proveedor de recursos de Compute.
+
+```azurepowershell-interactive
+Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
+```
+
+### <a name="azure-cli-20"></a>CLI de Azure 2.0
+Utilice [az feature register](/cli/azure/feature#az-feature-register) para habilitar la versión preliminar de su suscripción.
+
+```azurecli-interactive
+az feature register --namespace Microsoft.Compute --name AutomaticOSUpgradeWithGalleryImage
+```
+
+El registro de la característica puede tardar hasta 15 minutos. Para comprobar el estado del registro, siga estos pasos:
+
+```azurecli-interactive
+az feature show --namespace Microsoft.Compute --name AutomaticOSUpgradeWithGalleryImage
+```
+
+Una vez que la característica se ha registrado para su suscripción, complete el proceso de participación mediante la propagación del cambio en el proveedor de recursos de Compute.
+
+```azurecli-interactive
+az provider register --namespace Microsoft.Compute
+```
+
+### <a name="additional-requirements-for-custom-images"></a>Requisitos adicionales de las imágenes personalizadas
+- El proceso de participación descrito anteriormente solo debe realizarse una vez por cada suscripción. Después de la finalización de la participación en la suscripción, se pueden habilitar actualizaciones automáticas del sistema operativo para cualquier conjunto de escalado de esa suscripción.
+- Shared Image Gallery puede estar en cualquier suscripción y no es necesario participar por separado. Solo la suscripción al conjunto de escalado requiere la participación en la característica.
+- El proceso de configuración para la actualización automática de la imagen del sistema operativo es el mismo para todos los conjuntos de escalado que se detallan en la [sección configuración](virtual-machine-scale-sets-automatic-upgrade.md#configure-automatic-os-image-upgrade) de esta página.
+- Las instancias de conjuntos de escalado configuradas para actualizaciones automáticas de imágenes del sistema operativo se actualizarán a la versión más reciente de la imagen de Shared Image Gallery cuando se publique una nueva versión de la imagen y se [replique](shared-image-galleries.md#replication) en la región de ese conjunto de escalado. Si la nueva imagen no se replica en la región donde se implementa la escala, las instancias del conjunto de escalado no se actualizarán a la versión más reciente. La replicación de imagen regional permite controlar el lanzamiento de la nueva imagen para los conjuntos de escalado.
+- La nueva versión de la imagen no se debe excluir de la versión más reciente de esa imagen de la galería. Las versiones de las imágenes excluidas de la versión más reciente de la imagen de la galería no se implementan en el conjunto de escalado mediante la actualización automática de la imagen del sistema operativo.
+
+> [!NOTE]
+>Un conjunto de escalado puede tardar hasta 2 horas en obtener el lanzamiento de la primera imagen una vez configurado el conjunto de escalado para las actualizaciones automáticas del sistema operativo. Se trata de un retraso puntual por conjunto de escalado. Las implementaciones de imágenes posteriores se aplican al conjunto de escalado sin este retraso.
+
 
 ## <a name="configure-automatic-os-image-upgrade"></a>Configuración de la actualización automática de imágenes del sistema operativo
 Para configurar la actualización automática de las imágenes del sistema operativo, asegúrese de que la propiedad *automaticOSUpgradePolicy.enableAutomaticOSUpgrade* está establecida en *true* en la definición del modelo del conjunto de escalado.
@@ -143,13 +223,13 @@ Se puede hacer referencia al sondeo de equilibrador de carga en el valor *networ
 > [!NOTE]
 > Al utilizar actualizaciones automáticas del sistema operativo con Service Fabric, la nueva imagen del sistema operativo se implanta de dominio de actualización en dominio de actualización para mantener una alta disponibilidad de los servicios que se ejecutan en Service Fabric. Para utilizar las actualizaciones automáticas del sistema operativo en Service Fabric, el clúster debe estar configurado para utilizar el nivel de durabilidad Silver o superior. Para más información sobre las características de durabilidad de los clústeres de Service Fabric, consulte [esta documentación](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
 
-### <a name="keep-credentials-up-to-date"></a>Credenciales siempre actualizadas
+### <a name="keep-credentials-up-to-date"></a>Mantener actualizadas las credenciales
 Si el conjunto de escalado usa credenciales para acceder a recursos externos (por ejemplo, si se configura una extensión de máquina virtual que usa un token de SAS para la cuenta de almacenamiento), asegúrese de que las credenciales estén actualizadas. Si las credenciales, incluidos los certificados y tokens, han expirado, se producirá un error en la actualización y el primer lote de máquinas virtuales se quedará en estado de error.
 
 Los pasos recomendados para recuperar las máquinas virtuales y volver a habilitar la actualización automática del sistema operativo si se produce un error de autenticación de recursos son:
 
 * Volver a generar el token (o cualquier otra credencial) pasada en las extensiones.
-* Asegúrese de que las credenciales que se usan en la máquina virtual para comunicarse con entidades externas están actualizadas.
+* Asegurarse de que cualquier credencial usada desde dentro de la máquina virtual para comunicarse con las entidades externas está actualizada.
 * Actualizar las extensiones en el modelo de conjunto de escala con los tokens nuevos.
 * Implementar el conjunto de escala actualizada, lo que actualizará todas las instancias de máquina virtual, incluyendo las que dieran error.
 
@@ -249,7 +329,7 @@ En casos concretos en los que no desee esperar a que el orquestador aplique la i
 > El desencadenador manual de la actualización de la imagen del sistema operativo no proporciona funciones de reversión automática. Si una instancia no recupera su estado después de una actualización, no se puede restaurar el disco del sistema operativo anterior.
 
 ### <a name="rest-api"></a>API DE REST
-Use la llamada API [Start OS Upgrade](/rest/api/compute/virtualmachinescalesetrollingupgrades/startosupgrade) para iniciar una actualización gradual para mover todas las máquinas virtuales del conjunto de escalado a la versión más reciente disponible del sistema operativo con imagen de la plataforma. Las instancias que ya ejecutan la última versión del sistema operativo disponible no se ven afectadas. En el ejemplo siguiente se detalla cómo empezar una actualización de sistema operativo en un conjunto de escalado denominado *myScaleSet* en el grupo de recursos denominado *myResourceGroup*:
+Use la llamada API [Start OS Upgrade](/rest/api/compute/virtualmachinescalesetrollingupgrades/startosupgrade) para iniciar una actualización gradual para mover todas las máquinas virtuales del conjunto de escalado a la versión más reciente disponible del sistema operativo con imagen. Las instancias que ya ejecutan la última versión del sistema operativo disponible no se ven afectadas. En el ejemplo siguiente se detalla cómo empezar una actualización de sistema operativo en un conjunto de escalado denominado *myScaleSet* en el grupo de recursos denominado *myResourceGroup*:
 
 ```
 POST on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/osRollingUpgrade?api-version=2018-10-01`

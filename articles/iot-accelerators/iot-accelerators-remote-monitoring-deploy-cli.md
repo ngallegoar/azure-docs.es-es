@@ -8,18 +8,18 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: ea96b2b996ea79efacdcda50c6370f25e26e0aa2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 501ca51a9542229a14e98a56679837950a82891e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61447019"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80258301"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Implementación del acelerador de soluciones de supervisión remota mediante la CLI
 
 En esta guía paso a paso, se explica cómo implementar el acelerador de soluciones de supervisión remota. La solución se implementa mediante la CLI. También puede implementar la solución con la interfaz de usuario basada en web de azureiotsolutions.com. Para más información sobre esta opción, vea la guía de inicio rápido [Implementación del acelerador de soluciones de supervisión remota](quickstart-remote-monitoring-deploy.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para implementar el acelerador de soluciones de supervisión remota, necesita una suscripción de Azure activa.
 
@@ -49,7 +49,7 @@ Siga las instrucciones que aparecen en pantalla para completar el proceso de ini
 
 Al implementar el acelerador de la solución, hay varias opciones que permiten configurar el proceso de implementación:
 
-| Opción | Valores | DESCRIPCIÓN |
+| Opción | Valores | Descripción |
 | ------ | ------ | ----------- |
 | SKU    | `basic`, `standard`, `local` | Una implementación _básica_ está destinada a pruebas y demostraciones. En este tipo de implementación, todos los microservicios se implementan en una única máquina virtual. Una implementación _estándar_ está destinada a producción. En este tipo de implementación, los microservicios se implementan en varias máquinas virtuales. Una implementación _local_ configura un contenedor de Docker para que ejecute los microservicios en la máquina local y usa los servicios de nube de Azure, como Storage y Cosmos DB. |
 | Tiempo de ejecución | `dotnet`, `java` | Selecciona la implementación del lenguaje de los microservicios. |
@@ -68,7 +68,7 @@ La implementación básica está orientada a presentar la solución. Para reduci
 
 Una implementación básica crea los siguientes servicios en la suscripción de Azure:
 
-| Recuento | Recurso                       | Type         | Se usa para |
+| Count | Resource                       | Tipo         | Se usa para |
 |-------|--------------------------------|--------------|----------|
 | 1     | [Máquina virtual con Linux](https://azure.microsoft.com/services/virtual-machines/) | Estándar D1 v2  | Hospedaje de microservicios |
 | 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                  | S1: nivel Estándar | Comunicación y administración de dispositivos |
@@ -89,13 +89,13 @@ Una implementación estándar es una implementación lista para producción que 
 
 Una implementación estándar crea los siguientes servicios en la suscripción de Azure:
 
-| Recuento | Recurso                                     | SKU / Tamaño      | Se usa para |
+| Count | Resource                                     | SKU / Tamaño      | Se usa para |
 |-------|----------------------------------------------|-----------------|----------|
 | 1     | [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service)| Use un servicio de orquestación de contenedores de Kubernetes totalmente administrados, con un valor predeterminado de tres agentes.|
 | 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                     | S2: nivel Estándar | Comando, control y administración de dispositivos |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)                 | Estándar        | Almacenar datos de configuración y telemetría de dispositivos como reglas, alertas y mensajes |
 | 5     | [Cuentas de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | Estándar        | 4 para el almacenamiento de máquina virtual y 1 para los puntos de comprobación de streaming |
-| 1     | [App Service](https://azure.microsoft.com/services/app-service/web/)             | S1 Estándar     | Application Gateway frente a SSL |
+| 1     | [App Service](https://azure.microsoft.com/services/app-service/web/)             | S1 Estándar     | Application Gateway a través de TLS |
 | 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | Administración de identidades y seguridad de usuarios |
 | 1     | [Azure Maps](https://azure.microsoft.com/services/azure-maps/)        | Estándar                | Visualización de ubicaciones de recursos |
 | 1     | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)        |   3 unidades              | Habilitación de análisis en tiempo real |
@@ -129,7 +129,7 @@ pcs -t remotemonitoring -s standard -r java
 
 Al ejecutar el comando `pcs` para implementar una solución, se le pide:
 
-- Un nombre para la solución. Este nombre debe ser único.
+- Un nombre para la solución. El nombre debe ser único.
 - La suscripción de Azure que se va a usar.
 - Una ubicación.
 - Las credenciales de las máquinas virtuales que hospedan los microservicios. Puede usar estas credenciales para tener acceso a las máquinas virtuales de cara a la solución de problemas.

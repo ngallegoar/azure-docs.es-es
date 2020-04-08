@@ -6,19 +6,22 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 02/24/2020
-ms.openlocfilehash: 9236fab332758308ceb8bde1f83a9f3ac8ee6789
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.date: 03/11/2020
+ms.openlocfilehash: 4baf7974bdb0a5efe4cb556e820e9d13aeac5d8a
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587590"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80409840"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guía de optimización y rendimiento de la asignación de instancias de Data Flow
 
 Mapping Data Flows de Azure Data Factory proporciona una interfaz sin código para diseñar, implementar y orquestar transformaciones de datos a escala. Si no está familiarizado con los flujos de datos de asignación, consulte [Introducción a Mapping Data Flow](concepts-data-flow-overview.md).
 
 Al diseñar y probar flujos de datos desde la interfaz de usuario de ADF, asegúrese de activar el modo de depuración para ejecutar los flujos de datos en tiempo real sin esperar a que se prepare un clúster. Para más información, consulte [Modo de depuración](concepts-data-flow-debug-mode.md).
+
+En este vídeo se muestran algunos intervalos de ejemplo que transforman datos con flujos de datos:
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4rNxM]
 
 ## <a name="monitoring-data-flow-performance"></a>Supervisión del rendimiento de flujo de datos
 
@@ -59,11 +62,14 @@ De forma predeterminada, al activar la depuración se usará el entorno Azure In
 
 ![Elemento de origen](media/data-flow/sourcepart3.png "Elemento de origen")
 
+> [!NOTE]
+> Para elegir el número de particiones para el origen, una buena guía de ayuda es coger el número de núcleos que haya establecido para Azure Integration Runtime y multiplicar ese número por cinco. Así, por ejemplo, si está transformando una serie de archivos en las carpetas ADLS y va a utilizar una instancia de Azure IR con 32 núcleos, el número de particiones de destino es 32 x 5 = 160 particiones.
+
 ### <a name="source-batch-size-input-and-isolation-level"></a>Tamaño de lote de origen, entrada y nivel de aislamiento
 
 En **Opciones de origen**, en la transformación de origen, la siguiente configuración puede afectar al rendimiento:
 
-* El tamaño de lote indica a ADF que almacene los datos en conjuntos en memoria en lugar de hacerlo fila a fila. El tamaño de lote es una opción opcional y es posible que se quede sin recursos en los nodos de proceso si no tienen el tamaño correcto.
+* El tamaño de lote indica a ADF que almacene los datos en conjuntos en la memoria de Spark en lugar de hacerlo fila a fila. El tamaño de lote es una opción opcional y es posible que se quede sin recursos en los nodos de proceso si no tienen el tamaño correcto. Si no se establece esta propiedad, se utilizarán las opciones predeterminadas de almacenamiento en caché por lotes de Spark.
 * El establecimiento de una consulta puede permitirle filtrar las filas en el origen antes de que lleguen a Data Flow para procesarse. Esto puede agilizar la adquisición de datos inicial. Si usa una consulta, puede agregar sugerencias de consulta opcionales para Azure SQL DB, como READ UNCOMMITTED.
 * La lectura sin confirmar proporcionará resultados de consulta más rápidos en la transformación de origen.
 
@@ -71,7 +77,7 @@ En **Opciones de origen**, en la transformación de origen, la siguiente configu
 
 ### <a name="sink-batch-size"></a>Tamaño de lote del receptor
 
-Para evitar el procesamiento fila por fila de los flujos de datos, establezca el **Tamaño de lote** en la pestaña Configuración de los receptores de Azure SQL DB y Azure SQL Data Warehouse. Si se establece el tamaño de lote, ADF procesa las operaciones de escritura de base de datos en lotes según el tamaño especificado.
+Para evitar el procesamiento fila por fila de los flujos de datos, establezca el **Tamaño de lote** en la pestaña Configuración de los receptores de Azure SQL DB y Azure SQL Data Warehouse. Si se establece el tamaño de lote, ADF procesa las operaciones de escritura de base de datos en lotes según el tamaño especificado. Si no se establece esta propiedad, se utilizarán las opciones predeterminadas de almacenamiento en caché por lotes de Spark.
 
 ![Sink](media/data-flow/sink4.png "Receptor")
 
@@ -100,7 +106,7 @@ Para evitar las inserciones fila a fila en el almacenamiento de datos, consulte 
 
 En cada transformación, puede establecer el esquema de partición que desee que use la factoría de datos en la pestaña Optimizar. Se recomienda probar primero los receptores basados en archivos y mantener las particiones y las optimizaciones predeterminadas.
 
-* Para los archivos más pequeños, puede comprobar que seleccionar *Partición única* en ocasiones funciona mejor y más rápido que solicitar a Spark que cree particiones de los archivos pequeños.
+* Para los archivos más pequeños, se dará cuenta de que seleccionar menos particiones en ocasiones puede funcionar mejor y más rápido que solicitar a Spark que cree particiones para los archivos pequeños.
 * Si no tiene información suficiente sobre los datos de origen, elija la creación de particiones *Round Robin* y establezca el número de particiones.
 * Si los datos tienen columnas que pueden ser claves de hash correctas, elija *Creación de particiones por hash*.
 

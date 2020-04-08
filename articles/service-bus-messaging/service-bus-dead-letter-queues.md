@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/24/2020
+ms.date: 03/23/2020
 ms.author: aschhab
-ms.openlocfilehash: e1c3798c36b497423ea1d0cb5da6fabbd6a935f7
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 9c1a0cb92fbaf98d25799ffb5a85e666e7c05f8c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76761022"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80158915"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Información general de colas de mensajes fallidos de Service Bus
 
-Las colas de Azure Service Bus y las suscripciones a temas proporcionan una subcola secundaria, llamada *cola de mensajes fallidos* (DLQ). La cola de mensajes fallidos no se necesita crear explícitamente y no se puede eliminar o administrar independientemente de la entidad principal.
+Las colas de Azure Service Bus y las suscripciones a temas proporcionan una subcola secundaria, llamada *cola de mensajes fallidos* (DLQ). La cola de mensajes fallidos no se necesita crear explícitamente y no se puede eliminar ni administrar independientemente de la entidad principal.
 
 En este artículo se describen las colas de mensajes fallidos de Service Bus. Gran parte de la descripción se muestra en el [ejemplo de colas de mensajes fallidos](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/DeadletterQueue) en GitHub.
  
@@ -33,7 +33,14 @@ La finalidad de la cola de mensajes fallidos es mantener los mensajes que no se 
 
 Desde el punto de vista de la API y el protocolo, la cola de mensajes fallidos es muy similar a cualquier otra cola, salvo que los mensajes solo se pueden enviar a través de la operación de mensajes fallidos de la entidad principal. Además, no se observa el período de vida, y no puede tratar como fallido un mensaje desde una cola de mensajes fallidos. La cola de mensajes fallidos es totalmente compatible con las operaciones transaccionales y de entrega de bloqueo de información.
 
-Tenga en cuenta que no hay limpieza automática de la cola de mensajes fallidos. Los mensajes permanecen en la cola de mensajes fallidos hasta que los recupera explícitamente de dicha cola y llama a [Complete()](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) en el mensaje fallido.
+No hay limpieza automática de mensajes fallidos. Los mensajes permanecen en la cola de mensajes fallidos hasta que los recupera explícitamente de dicha cola y llama a [Complete()](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) en el mensaje fallido.
+
+## <a name="dlq-message-count"></a>Recuento de mensajes fallidos
+No es posible obtener el número de mensajes de la cola de mensajes fallidos en el nivel de tema. Esto se debe a que los mensajes no se encuentran en el nivel de tema, a menos que Service Bus produzca un error interno. En su lugar, cuando un remitente envía un mensaje a un tema, el mensaje se reenvía a las suscripciones del tema en milisegundos y, por tanto, ya no reside en el nivel de tema. Por lo tanto, puede ver los mensajes en los mensajes fallidos asociados con la suscripción del tema. En el ejemplo siguiente, **Service Bus Explorer** muestra que hay 62 mensajes actualmente en los mensajes fallidos de la suscripción "test1". 
+
+![Recuento de mensajes fallidos](./media/service-bus-dead-letter-queues/dead-letter-queue-message-count.png)
+
+También puede obtener el recuento de mensajes fallidos mediante el comando de la CLI de Azure: [`az servicebus topic subscription show`](/cli/azure/servicebus/topic/subscription?view=azure-cli-latest#az-servicebus-topic-subscription-show). 
 
 ## <a name="moving-messages-to-the-dlq"></a>Movimiento de mensajes a la cola de mensajes fallidos
 
@@ -56,13 +63,13 @@ Las aplicaciones pueden definir sus propios códigos para la propiedad `DeadLett
 
 Las colas y las suscripciones tienen las propiedades [QueueDescription.MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount) y [SubscriptionDescription.MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.maxdeliverycount), respectivamente; el valor predeterminado es 10. Cuando un mensaje se entrega bajo un bloqueo ([ReceiveMode.PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode)), pero se abandona explícitamente o el bloqueo expira, la propiedad [BrokeredMessage.DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) del mensaje se incrementa. Cuando [DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) supera a [MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount), el mensaje se mueve a la cola de mensajes fallidos, y se especifica el código de motivo `MaxDeliveryCountExceeded`.
 
-Este comportamiento no se puede deshabilitar, pero puede establecer [MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount) en un número muy grande.
+Este comportamiento no se puede deshabilitar, pero puede establecer [MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount) en un número grande.
 
 ## <a name="exceeding-timetolive"></a>Superación de TimeToLive
 
 Cuando las propiedades [QueueDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription) o [SubscriptionDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) están establecidas en **true** (el valor predeterminado es **false**), todos los mensajes que expiran se mueven a la cola de mensajes fallidos y se especifica el código de motivo `TTLExpiredException`.
 
-Tenga en cuenta que los mensajes expirados solo se purgan y se mueven a la cola de mensajes fallidos cuando hay, al menos, un receptor activo que extrae contenido de la cola o suscripción principal. Este es el comportamiento predeterminado.
+Los mensajes expirados solo se purgan y se mueven a la cola de mensajes fallidos cuando hay, al menos, un receptor activo que extrae contenido de la cola o suscripción principal. Este es el comportamiento predeterminado.
 
 ## <a name="errors-while-processing-subscription-rules"></a>Errores al procesar reglas de suscripción
 

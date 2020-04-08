@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/29/2019
-ms.openlocfilehash: 3a4d31cb6986f8fc841a6afe20388e40e9f28c9b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 0557c9b9eb65654c4a11c1389ace4776ab60a61d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926672"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79532577"
 ---
 # <a name="create-a-tumbling-window-trigger-dependency"></a>Creación de una dependencia de un desencadenador de ventana de saltos de tamaño constante
 
@@ -76,9 +76,9 @@ La tabla siguiente proporciona la lista de los atributos necesarios para definir
 
 | **Nombre de la propiedad** | **Descripción**  | **Tipo** | **Obligatorio** |
 |---|---|---|---|
-| Tipo  | Todos los desencadenadores de ventana de saltos de tamaño constante existentes se muestran en este menú desplegable. Elija el desencadenador del que se va a depender.  | TumblingWindowTriggerDependencyReference o SelfDependencyTumblingWindowTriggerReference. | Sí |
-| offset | Desplazamiento del desencadenador de dependencia. Proporcione un valor en formato de intervalo de tiempo; admite desplazamientos negativos y positivos. Esta propiedad es obligatoria si el desencadenador depende de sí mismo; en todos los demás casos, es opcional. La autodependencia debe tener siempre un valor de desplazamiento negativo. Si no se especifica ningún valor, la ventana es igual al desencadenador. | TimeSpan<br/>(hh:mm:ss) | Autodependencia: Sí<br/>Otros: Sin |
-| size | Tamaño de la ventana de saltos de tamaño constante de dependencia. Proporcione un valor de intervalo de tiempo positivo. Esta propiedad es opcional. | TimeSpan<br/>(hh:mm:ss) | Sin  |
+| type  | Todos los desencadenadores de ventana de saltos de tamaño constante existentes se muestran en este menú desplegable. Elija el desencadenador del que se va a depender.  | TumblingWindowTriggerDependencyReference o SelfDependencyTumblingWindowTriggerReference. | Sí |
+| offset | Desplazamiento del desencadenador de dependencia. Proporcione un valor en formato de intervalo de tiempo; admite desplazamientos negativos y positivos. Esta propiedad es obligatoria si el desencadenador depende de sí mismo; en todos los demás casos, es opcional. La autodependencia debe tener siempre un valor de desplazamiento negativo. Si no se especifica ningún valor, la ventana es igual al desencadenador. | TimeSpan<br/>(hh:mm:ss) | Autodependencia: Sí<br/>Otros: No |
+| tamaño | Tamaño de la ventana de saltos de tamaño constante de dependencia. Proporcione un valor de intervalo de tiempo positivo. Esta propiedad es opcional. | TimeSpan<br/>(hh:mm:ss) | No  |
 
 > [!NOTE]
 > Un desencadenador de ventana de saltos de tamaño constante puede depender de un máximo de otros dos desencadenadores.
@@ -146,6 +146,10 @@ Un trabajo de procesamiento de datos de telemetría diario que dependa de otro t
 Un trabajo diario sin interrupciones en los flujos de salida del trabajo:
 
 ![Ejemplo de autodependencia](media/tumbling-window-trigger-dependency/tumbling-window-dependency06.png "Ejemplo de autodependencia")
+
+Puede ver una demostración de cómo crear canalizaciones dependientes en Azure Data Factory mediante el desencadenador de ventanas de saltos de tamaño constante en el vídeo siguiente:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Create-dependent-pipelines-in-your-Azure-Data-Factory/player]
 
 ## <a name="monitor-dependencies"></a>Supervisión de dependencias
 

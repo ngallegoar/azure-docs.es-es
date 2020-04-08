@@ -8,16 +8,16 @@ ms.author: edprice
 manager: edprice
 editor: edprice
 ms.topic: conceptual
-ms.date: 05/29/2019
+ms.date: 03/30/2020
 tags: ''
 keywords: ''
 ms.service: multiple
-ms.openlocfilehash: a5426c3cd7552b24739f9a20e01d5a4b42bd383c
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 5b3fa5faccf17df17bc4f7cc2d8b023b868fdbe1
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834577"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411188"
 ---
 # <a name="install-micro-focus-enterprise-server-40-and-enterprise-developer-40-on-azure"></a>Instalación de Micro Focus Enterprise Server 4.0 y Enterprise Developer 4.0 en Azure
 
@@ -25,15 +25,18 @@ Este artículo muestra cómo configurar [Micro Focus Enterprise Server 4.0](htt
 
 Un entorno de desarrollo y pruebas es una carga de trabajo común en Azure. Este escenario es común porque es rentable y fácil de implementar y anular. Con Enterprise Server, Micro Focus ha creado una de las mayores plataformas de rehospedaje de sistemas centrales disponibles. Puede ejecutar cargas de trabajo de z/OS en una plataforma x86 más económica en Azure con máquinas virtuales Windows o Linux (VM).
 
+> [!NOTE]
+> Próximamente: instrucciones para configurar [Micro Focus Enterprise Server 5.0](https://techcommunity.microsoft.com/t5/azurecat/micro-focus-enterprise-server-5-0-quick-start-template-on-azure/ba-p/1160110) en máquinas virtuales de Azure.
+
 Esta configuración usa máquinas virtuales de Azure que ejecutan la imagen de Windows Server 2016 de Azure Marketplace con Microsoft SQL Server 2017 ya instalado. Esta configuración también se aplica a Azure Stack.
 
 El entorno de desarrollo correspondiente de Enterprise Server es Enterprise Developer, que se ejecuta en Microsoft Visual Studio 2017 o versiones posteriores, Visual Studio Community (descarga gratuita) o Eclipse. En este artículo se muestra cómo se implementa con una máquina virtual Windows Server 2016 que viene con Visual Studio 2017 o posterior instalado.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de comenzar, revise estos requisitos previos:
 
-- Una suscripción de Azure. Si no tiene una, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+- Suscripción a Azure. Si no tiene una, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 - El software de Micro Focus y una licencia válida (o licencia de prueba). Si es un cliente existente de Micro Focus, póngase en contacto con su representante de Micro Focus. En caso contrario, [solicite una versión de evaluación](https://www.microfocus.com/products/enterprise-suite/enterprise-server/trial/).
 
@@ -112,7 +115,7 @@ Después de la instalación, asegúrese de comprobar si hay actualizaciones adic
 
      ![Mensaje de instalación correcta](media/05-enterprise-server.png)
 
-6. Inicie el administrador de licencias de Micro Focus tal como hizo para Enterprise Server. Haga clic en **Iniciar** \> **Micro Focus License Manager** \> **Administración de licencias** y, a continuación, haga clic en la pestaña **Instalar**.
+6. Inicie el administrador de licencias de Micro Focus tal como hizo para Enterprise Server. Seleccione **Iniciar** \> **Micro Focus License Manager** \> **Administración de licencias** y haga clic en la pestaña **Instalar**.
 
 7. Elija el tipo de formato de licencia que se va a cargar: un archivo de licencia o un código de licencia de 16 caracteres. Por ejemplo, para un archivo, en **Archivo de licencia**, vaya al archivo **mflic** cargado previamente en la máquina virtual y seleccione **Instalar licencias**.
 

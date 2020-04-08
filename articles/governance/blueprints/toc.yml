@@ -225,7 +225,7 @@
     - name: Orden de secuencia de implementación de un plano técnico
       displayName: customize
       href: ./concepts/sequencing-order.md
-    - name: Bloqueo de recursos en planos técnicos
+    - name: Bloqueo de recursos en Azure Blueprints
       displayName: 'mode, state, read only, edit, denyAssignments'
       href: ./concepts/resource-locking.md
 - name: Guías paso a paso

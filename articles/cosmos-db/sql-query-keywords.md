@@ -4,21 +4,22 @@ description: Obtenga información sobre las palabras clave de SQL para Azure Cos
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/20/2019
+ms.date: 03/17/2020
 ms.author: mjbrown
-ms.openlocfilehash: c9024f120e0a55162a1f6dba0cd9cbda97f5eebc
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: f2da2695ec20eac9dd2636104d3314427e60d541
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67343188"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79498535"
 ---
 # <a name="keywords-in-azure-cosmos-db"></a>Palabras clave en Azure Cosmos DB
+
 En este artículo se detallan las palabras clave que se pueden usar en consultas SQL de Azure Cosmos DB.
 
 ## <a name="between"></a>BETWEEN
 
-Al igual que en SQL ANSI, puede usar la palabra clave BETWEEN para expresar consultas en intervalos de cadenas o valores numéricos. Por ejemplo, la consulta siguiente devuelve todos los elementos de la familia en los que el curso del primer hijo se encuentre entre 1 y 5, inclusive.
+Puede usar la palabra clave `BETWEEN` para expresar consultas en intervalos de cadenas o valores numéricos. Por ejemplo, la consulta siguiente devuelve todos los elementos de la familia en los que el curso del primer hijo se encuentre entre 1 y 5, ambos incluidos.
 
 ```sql
     SELECT *
@@ -26,7 +27,7 @@ Al igual que en SQL ANSI, puede usar la palabra clave BETWEEN para expresar cons
     WHERE c.grade BETWEEN 1 AND 5
 ```
 
-Al contrario que en SQL ANSI, también se puede usar la cláusula BETWEEN en la cláusula FROM, como en el ejemplo siguiente.
+También puede usar la palabra clave `BETWEEN` en la cláusula `SELECT`, como en el ejemplo siguiente.
 
 ```sql
     SELECT (c.grade BETWEEN 0 AND 10)
@@ -36,18 +37,18 @@ Al contrario que en SQL ANSI, también se puede usar la cláusula BETWEEN en la 
 En la API de SQL, a diferencia de SQL ANSI, puede expresar consultas en intervalos en propiedades de tipos combinados. Por ejemplo, `grade` podría ser un número, como `5`, en algunos elementos y una cadena, como `grade4`, en otros. En estos casos, al igual que en JavaScript, una comparación entre los dos tipos distintos da como resultado `Undefined`, por lo que el elemento se omite.
 
 > [!TIP]
-> Para que la consulta se ejecute de forma más rápida, cree una directiva de indexación que use un tipo de índice de intervalo en cualquier ruta o propiedad numérica que filtre la cláusula BETWEEN.
+> Para que la consulta se ejecute de forma más rápida, cree una directiva de indexación que use un tipo de índice de intervalo en cualquier ruta o propiedad numérica que filtre la cláusula `BETWEEN`.
 
 ## <a name="distinct"></a>DISTINCT
 
-La palabra clave DISTINCT elimina los duplicados en la proyección de la consulta.
+La palabra clave `DISTINCT` elimina los duplicados en la proyección de la consulta.
+
+En este ejemplo, la consulta proyecta los valores para cada apellido:
 
 ```sql
 SELECT DISTINCT VALUE f.lastName
 FROM Families f
 ```
-
-En este ejemplo, la consulta proyecta valores para cada apellido.
 
 Los resultados son:
 
@@ -82,7 +83,7 @@ SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as Ch
 FROM f
 ```
 
-Esta consulta proyecta una matriz que contiene givenName de cada hijo con los duplicados quitados. Esta matriz tiene establecido un alias como ChildNames y se proyecta en la consulta externa.
+Esta consulta proyecta una matriz que contiene el valor de givenName de cada hijo con los duplicados quitados. Esta matriz tiene establecido un alias como ChildNames y se proyecta en la consulta externa.
 
 Los resultados son:
 
@@ -101,7 +102,14 @@ Los resultados son:
     }
 ]
 ```
-## <a name="in"></a> IN
+
+No se admiten las consultas con una función del sistema agregada y una subconsulta con `DISTINCT`. Por ejemplo, la siguiente consulta no se admite:
+
+```sql
+SELECT COUNT(1) FROM (SELECT DISTINCT f.lastName FROM f)
+```
+
+## <a name="in"></a>IN
 
 Use la palabra clave IN para comprobar si un valor especificado coincide con algún valor de una lista. Por ejemplo, la consulta siguiente devuelve todos los elementos de la familia donde `id` es `WakefieldFamily` o `AndersenFamily`.
 
@@ -111,7 +119,7 @@ Use la palabra clave IN para comprobar si un valor especificado coincide con alg
     WHERE Families.id IN ('AndersenFamily', 'WakefieldFamily')
 ```
 
-El ejemplo siguiente devuelve todos los elementos en los que el estado sea cualquiera de los valores especificados:
+El ejemplo siguiente devuelve todos los elementos cuyo estado sea cualquiera de los valores especificados:
 
 ```sql
     SELECT *
@@ -119,11 +127,13 @@ El ejemplo siguiente devuelve todos los elementos en los que el estado sea cualq
     WHERE Families.address.state IN ("NY", "WA", "CA", "PA", "OH", "OR", "MI", "WI", "MN", "FL")
 ```
 
-La API de SQL proporciona compatibilidad con la [iteración en las matrices JSON](sql-query-object-array.md#Iteration), donde se ha agregado una nueva construcción mediante la palabra clave IN en el origen FROM. 
+La API de SQL proporciona compatibilidad con la [iteración en las matrices JSON](sql-query-object-array.md#Iteration), donde se ha agregado una nueva construcción mediante la palabra clave IN en el origen FROM.
+
+Si incluye la clave de partición en el filtro `IN`, la consulta se filtrará automáticamente solo por las particiones pertinentes.
 
 ## <a name="top"></a>TOP
 
-La palabra clave TOP devuelve los primeros `N` resultados de la consulta en un orden indefinido. Como práctica recomendada, use TOP con la cláusula ORDER BY para limitar los resultados a los primeros `N` valores ordenados. La combinación de estas dos cláusulas es la única manera de indicar de forma previsible las filas a las que afecta TOP.
+La palabra clave TOP devuelve los primeros `N` resultados de la consulta en un orden indefinido. Como procedimiento recomendado, use TOP con la cláusula `ORDER BY` para limitar los resultados a los primeros `N` valores ordenados. La combinación de estas dos cláusulas es la única manera de indicar de forma previsible las filas a las que TOP afecta.
 
 Puede usar TOP con un valor constante, como se muestra en el ejemplo anterior, o con un valor variable usando consultas parametrizadas.
 

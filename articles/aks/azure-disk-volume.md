@@ -4,12 +4,12 @@ description: Aprenda a crear manualmente un volumen con discos de Azure para usa
 services: container-service
 ms.topic: article
 ms.date: 03/01/2019
-ms.openlocfilehash: b84f62dd02aa29a4c1aa64e3235c0a1e7cc66522
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 17795ae696c0d710f099a5c21aa754fc925953ca
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77596749"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80047938"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Creación manual y uso de un volumen con discos de Azure en Azure Kubernetes Service (AKS)
 
@@ -28,7 +28,7 @@ También es preciso que esté instalada y configurada la versión 2.0.59 de la C
 
 ## <a name="create-an-azure-disk"></a>Creación de un disco de Azure
 
-Cuando crea un disco de Azure para usarlo con AKS, puede crear el recurso de disco en el grupo de recursos del **nodo**. Este enfoque permite que el clúster AKS acceda y administre el recurso de disco. Si en cambio crea el disco en un grupo de recursos independiente, debe conceder a la entidad de servicio de Azure Kubernetes Service (AKS) del clúster el rol `Contributor` en el grupo de recursos del disco.
+Cuando crea un disco de Azure para usarlo con AKS, puede crear el recurso de disco en el grupo de recursos del **nodo**. Este enfoque permite que el clúster AKS acceda y administre el recurso de disco. Si en cambio crea el disco en un grupo de recursos independiente, debe conceder a la entidad de servicio de Azure Kubernetes Service (AKS) del clúster el rol `Contributor` en el grupo de recursos del disco. De forma alternativa, puede usar la identidad administrada asignada por el sistema en los permisos en lugar de la entidad de servicio. Para más información, consulte [Uso de identidades administradas](use-managed-identity.md).
 
 En este artículo, se crea el disco en el grupo de recursos del nodo. En primer lugar, obtenga el nombre del grupo de recursos con el comando [az aks show][az-aks-show] y agregue el parámetro de consulta `--query nodeResourceGroup`. En este ejemplo se obtiene el grupo de recursos del nodo para el nombre de clúster de AKS *myAKSCluster* en el grupo de recursos denominado *myResourceGroup*:
 

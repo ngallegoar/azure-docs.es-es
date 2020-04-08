@@ -3,15 +3,15 @@ title: Configuración de Micro Focus CICS BankDemo para Micro Focus Enterprise D
 description: Ejecute la aplicación Micro Focus BankDemo en Azure Virtual Machines (VM) para aprender a utilizar Micro Focus Enterprise Server y Enterprise Developer.
 author: sread
 ms.author: sread
-ms.date: 04/02/2019
+ms.date: 03/30/2020
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: 4491fc137c2c85e2be605f5e58fde6fd422efbbe
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: db9d6bab2f383102434512aa63d7566cff1f579b
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621333"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411068"
 ---
 # <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-on-azure"></a>Configuración de Micro Focus CICS BankDemo para Micro Focus Enterprise Developer 4.0 en Azure
 
@@ -19,7 +19,10 @@ Al configurar Micro Focus Enterprise Server 4.0 y Enterprise Developer 4.0 en 
 
 CICS significa Customer Information Control System, la plataforma de transacciones utilizada por muchas de las aplicaciones de sistema central en línea. La aplicación BankDemo es ideal para aprender cómo funcionan Enterprise Server y Enterprise Developer y cómo administrar e implementar una aplicación real completa con terminales de pantalla verde.
 
-## <a name="prerequisites"></a>Requisitos previos
+> [!NOTE]
+> Próximamente: instrucciones para configurar [Micro Focus Enterprise Server 5.0](https://techcommunity.microsoft.com/t5/azurecat/micro-focus-enterprise-server-5-0-quick-start-template-on-azure/ba-p/1160110) en máquinas virtuales de Azure.
+
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Una máquina virtual con [Enterprise Developer](set-up-micro-focus-azure.md). Tenga en cuenta que Enterprise Developer tiene incluida una instancia completa de Enterprise Server para fines de desarrollo y pruebas. Esta instancia es la instancia de Enterprise Server utilizada para la demostración.
 
@@ -239,9 +242,9 @@ Cree un agente de escucha para las sesiones de TN3270 que tienen acceso a la apl
 
 7. En el campo **Name** (Nombre), escriba **TN3270**. En el campo **Port** (Puerto), escriba **9024**. La aplicación ESDEMO utiliza el puerto 9230, por lo que deberá usar un puerto diferente.
 
-8. Para guardar el archivo, haga clic en el icono **Save** (Guardar) o elija **File** \> **Save** (Archivo, Guardar).
+8. Para guardar el archivo, haga clic en el icono **Guardar** o seleccione **Archivo** \> **Guardar**.
 
-9. Para iniciar el agente de escucha, haga clic en el icono **Start Listener** (Iniciar el agente de escucha) o elija **Options** \> **Start Listener** (Opciones, Iniciar el agente de escucha).
+9. Para iniciar el cliente de escucha, haga clic en **Iniciar el agente de escucha** o elija **Opciones** \> **Iniciar el agente de escucha**.
 
      ![Ventanas del editor de configuración del agente de escucha](media/13-demo-listener.png)
 

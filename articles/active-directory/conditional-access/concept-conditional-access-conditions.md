@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/25/2020
+ms.date: 03/25/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dff80d849268c770e4227ff8c99b8f4d133c4d78
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: bb14369275a111476867f2263766e1bb87b7c87d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77620725"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80295345"
 ---
 # <a name="conditional-access-conditions"></a>Acceso condicional: Condiciones
 
@@ -72,7 +72,7 @@ De forma predeterminada, las directivas de acceso condicional se aplican a aplic
       - Esta opción incluye clientes que usan protocolos de autenticación básicos/heredados que no admiten la autenticación moderna.
          - SMTP autenticado: usado por clientes POP e IMAP para enviar mensajes de correo electrónico.
          - Detección automática: usada por clientes Outlook y EAS para buscar y conectarse a buzones en Exchange Online.
-         - Exchange Online PowerShell: se usa para conectarse a Exchange Online con PowerShell remoto. Si bloquea la autenticación básica para Exchange Online PowerShell, debe usar el módulo de Exchange Online PowerShell para conectarse. Para obtener instrucciones, consulte [Conexión a Exchange Online PowerShell con autenticación multifactor](https://docs.microsoft.com/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).
+         - Exchange Online PowerShell: se usa para conectarse a Exchange Online con PowerShell remoto. Si bloquea la autenticación básica para Exchange Online PowerShell, debe usar el módulo de Exchange Online PowerShell para conectarse. Para obtener instrucciones, consulte [Conexión a Exchange Online PowerShell con autenticación multifactor](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).
          - Servicios web Exchange (EWS): una interfaz de programación que se usa en Outlook, Outlook para Mac y aplicaciones de terceros.
          - IMAP4: usado por clientes de correo electrónico IMAP.
          - MAPI sobre HTTP (MAPI/HTTP): usado por Outlook 2010 y versiones posteriores.
@@ -142,8 +142,8 @@ Esta configuración afecta a los intentos de acceso realizados desde las siguien
 | Aplicación de Correo electrónico/Calendario/People, Outlook 2016, Outlook 2013 (con la autenticación moderna)| Office 365 Exchange Online | Windows 10 |
 | Directiva de MFA y de ubicación para las aplicaciones. No se admiten las directivas basadas en dispositivos.| Cualquier servicio de aplicaciones de Mis aplicaciones | Android e iOS |
 | Microsoft Teams Services: controla todos los servicios que admiten Microsoft Teams y todas sus aplicaciones cliente: escritorio de Windows, iOS, Android, WP y cliente web | Equipos de Microsoft | Windows 10, Windows 8.1, Windows 7, iOS, Android y macOS |
-| Aplicaciones de Office 2016, Office 2013 (con autenticación moderna), [cliente de sincronización de OneDrive](https://docs.microsoft.com/onedrive/enable-conditional-access) | Office 365 SharePoint Online | Windows 8.1, Windows 7, Windows 7 |
-| Aplicaciones de Office 2016, aplicaciones universales de Office, Office 2013 (con autenticación moderna), [cliente de sincronización de OneDrive](https://docs.microsoft.com/onedrive/enable-conditional-access) | Office 365 SharePoint Online | Windows 10 |
+| Aplicaciones de Office 2016, Office 2013 (con autenticación moderna), [cliente de sincronización de OneDrive](/onedrive/enable-conditional-access) | Office 365 SharePoint Online | Windows 8.1, Windows 7, Windows 7 |
+| Aplicaciones de Office 2016, aplicaciones universales de Office, Office 2013 (con autenticación moderna), [cliente de sincronización de OneDrive](/onedrive/enable-conditional-access) | Office 365 SharePoint Online | Windows 10 |
 | Office 2016 (solo Word, Excel, PowerPoint y OneNote). | Office 365 SharePoint Online | macOS |
 | Office 2019| Office 365 SharePoint Online | Windows 10, macOS |
 | Aplicaciones móviles de Office | Office 365 SharePoint Online | Android, iOS |

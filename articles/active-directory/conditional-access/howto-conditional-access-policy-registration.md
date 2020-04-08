@@ -1,26 +1,26 @@
 ---
 title: 'Acceso condicional: información de seguridad combinada (Azure Active Directory)'
-description: Cree una directiva de acceso condicional personalizada para exigir una ubicación de confianza para el registro de la información de seguridad.
+description: Cree una directiva de acceso condicional personalizada para el registro de la información de seguridad.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/12/2019
+ms.date: 03/25/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c9b01cc06b3d0ef8f47b34e9ef86bec9adac03f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4f69a94e17155ff93510d09f666bce12f628274f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424849"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80295174"
 ---
-# <a name="conditional-access-require-trusted-location-for-mfa-registration"></a>Acceso condicional: Requerir ubicaciones de confianza para el registro de autenticación multifactor
+# <a name="conditional-access-securing-security-info-registration"></a>Acceso condicional: Protección del registro de información de seguridad
 
-Proteger cuándo y cómo se registran los usuarios para Azure Multi-Factor Authentication y el restablecimiento de contraseñas de autoservicio ya es posible con las acciones del usuario en la directiva de acceso condicional. Esta característica de versión preliminar está disponible para organizaciones que han habilitado la [vista previa del registro combinado](../authentication/concept-registration-mfa-sspr-combined.md). Esta funcionalidad se puede habilitar en las organizaciones que quieren usar condiciones como la ubicación de red de confianza para restringir el acceso al registro en Azure Multi-Factor Authentication y SSPR. Para obtener más información sobre la creación de ubicaciones de confianza en el acceso condicional, consulte el artículo [What is the location condition in Azure Active Directory Conditional Access?](../conditional-access/location-condition.md#named-locations) (¿Qué es la condición de ubicación del acceso condicional de Azure Active Directory?)
+Proteger cuándo y cómo se registran los usuarios para Azure Multi-Factor Authentication y el restablecimiento de contraseñas de autoservicio ya es posible con las acciones del usuario en la directiva de acceso condicional. Esta característica de versión preliminar está disponible para organizaciones que han habilitado la [vista previa del registro combinado](../authentication/concept-registration-mfa-sspr-combined.md). Esta funcionalidad se puede habilitar en las organizaciones que quieren usar condiciones como la ubicación de red de confianza para restringir el acceso al registro en Azure Multi-Factor Authentication y autoservicio de restablecimiento de contraseña (SSPR). Para obtener más información sobre las condiciones que se pueden usar, consulte el artículo [Acceso condicional: Condiciones](concept-conditional-access-conditions.md).
 
 ## <a name="create-a-policy-to-require-registration-from-a-trusted-location"></a>Crear una directiva para requerir el registro desde una ubicación de confianza
 
@@ -29,7 +29,7 @@ La siguiente directiva se aplica a todos los usuarios seleccionados, que intenta
 1. En **Azure Portal**, vaya a **Azure Active Directory** > **Seguridad** > **Acceso condicional**.
 1. Seleccione **Nueva directiva**.
 1. En Nombre, escriba un nombre para la directiva. Por ejemplo, **Registro de información de seguridad combinada en redes de confianza**.
-1. En **Asignaciones**, haga clic en **Usuarios y grupos** y seleccione los usuarios y grupos a los que quiera aplicar esta directiva.
+1. En **Asignaciones**, seleccione **Usuarios y grupos** y seleccione los usuarios y grupos a los que quiera aplicar esta directiva.
 
    > [!WARNING]
    > Los usuarios deben estar habilitados para la [versión preliminar del registro combinado](../authentication/howto-registration-mfa-sspr-combined.md).
@@ -39,13 +39,28 @@ La siguiente directiva se aplica a todos los usuarios seleccionados, que intenta
    1. Configure **Sí**.
    1. Incluya **Cualquier ubicación**.
    1. Excluya **Todas las ubicaciones de confianza**.
-   1. Haga clic en **Listo** en la hoja de ubicaciones.
-   1. Haga clic en **Listo** en la hoja de condiciones.
+   1. Seleccione **Listo** en la hoja Ubicaciones.
+   1. Seleccione **Listo** en la hoja Condiciones.
+1. En **Condiciones** > **Aplicaciones cliente (versión preliminar)** , establezca **Configurar** en **Sí**, y seleccione **Listo**.
 1. En **Controles de acceso** > **Conceder**.
-   1. Haga clic en **Bloquear acceso**.
+   1. Seleccione **Block access** (Bloquear acceso).
    1. Después, haga clic en **Seleccionar**.
 1. Establezca **Habilitar directiva** en **Activado**.
-1. A continuación, haga clic en **Save**(Guardar).
+1. Después, seleccione **Guardar**.
+
+En el paso 6 de esta directiva, las organizaciones pueden tomar elecciones. La directiva anterior requiere el registro de una ubicación de red de confianza. Las organizaciones pueden optar por emplear cualquier condición disponible en lugar de **Ubicaciones**. Recuerde que esta directiva es una directiva de bloqueo, por lo que se bloquea todo lo que se incluye, y se permite todo que no coincida con la inclusión. 
+
+Algunos pueden optar por usar el estado del dispositivo en lugar de la ubicación en el paso 6 anterior:
+
+6. En **Condiciones** > **Estado del dispositivo (versión preliminar)** .
+   1. Configure **Sí**.
+   1. Incluya **Todos los estados de dispositivo**.
+   1. Excluya **Unido a Azure AD híbrido de dispositivo** o **Dispositivo marcado como compatible**.
+   1. Seleccione **Listo** en la hoja Ubicaciones.
+   1. Seleccione **Listo** en la hoja Condiciones.
+
+> [!WARNING]
+> Si usa el estado del dispositivo como condición en la directiva, esto puede afectar a los usuarios invitados en el directorio. El [Modo de solo informe](concept-conditional-access-report-only.md) puede ayudar a determinar el impacto de las decisiones de la directiva.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

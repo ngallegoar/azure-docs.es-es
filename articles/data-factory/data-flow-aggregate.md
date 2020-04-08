@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/15/2019
-ms.openlocfilehash: 74b96bf2cac0de7c57e496c637f2e3ef549eb61f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 03/24/2020
+ms.openlocfilehash: e4b076d96cad280c4da6c2424f056c2216c47602
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930452"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80408867"
 ---
 # <a name="aggregate-transformation-in-mapping-data-flow"></a>Transformación Agregar en Asignación de Data Flow 
 
@@ -45,6 +45,16 @@ Las transformaciones Agregar son similares a las consultas de selección de agre
 
 * Use una función de agregado como `last()` o `first()` para incluir esa columna adicional.
 * Vuelva a unir las columnas al flujo de salida con el [patrón self join](https://mssqldude.wordpress.com/2018/12/20/adf-data-flows-self-join/).
+
+## <a name="removing-duplicate-rows"></a>Eliminación de filas duplicadas
+
+Un uso común de la transformación de agregados es quitar o identificar entradas duplicadas en los datos de origen. Este proceso se conoce como desduplicación. En función de un conjunto de claves Group by, utilice una heurística de su elección para determinar qué fila duplicada desea conservar. Las heurísticas comunes son `first()`, `last()`, `max()` y `min()`. Use [patrones de columna](concepts-data-flow-column-pattern.md) para aplicar la regla a todas las columnas excepto para las columnas Group by.
+
+![Desduplicación](media/data-flow/agg-dedupe.png "Desduplicación")
+
+En el ejemplo anterior, las columnas `ProductID` y `Name` se usan para la agrupación. Si dos filas tienen los mismos valores para esas dos columnas, se consideran duplicadas. En esta transformación de agregados, se conservarán los valores de la primera fila coincidente y se quitarán todos los demás. Con la sintaxis de patrón de columnas, todas las columnas cuyos nombres no son `ProductID` y `Name` se asignan a su nombre de columna existente y se les proporciona el valor de las primeras filas coincidentes. El esquema de salida es el mismo que el esquema de entrada.
+
+En escenarios de validación de datos, la función `count()` se puede usar para contar el número de duplicados que hay.
 
 ## <a name="data-flow-script"></a>Script de flujo de datos
 
@@ -84,6 +94,15 @@ MoviesYear aggregate(
                 groupBy(year),
                 avgrating = avg(toInteger(Rating))
             ) ~> AvgComedyRatingByYear
+```
+
+![Script del flujo de datos de agregado](media/data-flow/aggdfs1.png "Script del flujo de datos de agregado")
+
+```MoviesYear```: columna derivada que define las columnas year y title ```AvgComedyRatingByYear```: transformación de agregados para la clasificación media de comedias agrupadas por año ```avgrating```: nombre de la nueva columna que se va a crear para contener el valor agregado
+
+```
+MoviesYear aggregate(groupBy(year),
+    avgrating = avg(toInteger(Rating))) ~> AvgComedyRatingByYear
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

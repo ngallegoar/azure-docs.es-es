@@ -1,21 +1,21 @@
 ---
 title: Seguridad y autenticación de Azure Event Grid
-description: Describe Azure Event Grid y sus conceptos.
+description: En este artículo se describen las distintas formas de autenticar el acceso a los recursos de Event Grid (webhook, suscripciones, temas personalizados).
 services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 03/06/2020
 ms.author: babanisa
-ms.openlocfilehash: e8913c1f198c89bdcd779d2faf2706f9d4079c5c
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 0b7c5b42ac6291c6687337ba8d6a9d35830b9bda
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846291"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79236252"
 ---
-# <a name="event-grid-security-and-authentication"></a>Seguridad y autenticación de Event Grid 
+# <a name="authenticating-access-to-event-grid-resources"></a>Autenticación de acceso a recursos de Event Grid
 
 Azure Event Grid tiene tres tipos de autenticación:
 
@@ -43,7 +43,7 @@ Si utiliza cualquier otro tipo de punto de conexión, como una función de Azure
 
    La dirección URL proporcionada es válida durante 5 minutos. Durante ese tiempo, el estado de aprovisionamiento de la suscripción al eventos es `AwaitingManualAction`. Si no ha completado la validación manual en 5 minutos, el estado de aprovisionamiento se establece en `Failed`. Tendrá que crear la suscripción de eventos de nuevo antes de intentar la validación manual.
 
-    Este mecanismo de autenticación también requiere el punto de conexión de webhook para devolver un código de estado HTTP de 200 para que sepa que se aceptó el objeto POST para el evento de validación antes de se pueda colocar en el modo de validación manual. Es decir, si el punto de conexión devuelve 200, pero no devuelve una respuesta de validación mediante programación, el modo se cambia al modo de validación manual. Si hay una operación GET en la dirección URL de validación dentro de un plazo de 5 minutos, se considera el protocolo de enlace de validación se realizó correctamente.
+    Este mecanismo de autenticación también requiere el punto de conexión de webhook para devolver un código de estado HTTP de 200 para que sepa que se aceptó el objeto POST para el evento de validación antes de se pueda colocar en el modo de validación manual. Es decir, si el punto de conexión devuelve 200, pero no devuelve una respuesta de validación mediante programación, el modo se cambia al modo de validación manual. Si hay una operación GET en la dirección URL de validación dentro de un plazo de cinco minutos, se considera el protocolo de enlace de validación se realizó correctamente.
 
 > [!NOTE]
 > Para la validación no se admite el uso de certificados autofirmados. En su lugar, use un certificado firmado de una entidad de certificación (CA).
@@ -85,7 +85,7 @@ Para comprobar la propiedad del punto de conexión, devuelva el código de valid
 }
 ```
 
-Debe devolver un código de estado de respuesta HTTP 200 OK. HTTP 202 Aceptado no se reconoce como una respuesta válida de validación de suscripción a Event Grid. La solicitud http debe completarse en 30 segundos. Si la operación no finaliza en 30 segundos, se cancelará y puede que se vuelva a intentar pasados 5 segundos. Si se producen errores en todos los intentos, se tratará como un error de protocolo de enlace de validación.
+Debe devolver un código de estado de respuesta HTTP 200 OK. HTTP 202 Aceptado no se reconoce como una respuesta válida de validación de suscripción a Event Grid. La solicitud http debe completarse en 30 segundos. Si la operación no finaliza en 30 segundos, se cancelará y puede que se vuelva a intentar pasados cinco segundos. Si se producen errores en todos los intentos, se tratará como un error de protocolo de enlace de validación.
 
 O bien, puede enviar una solicitud GET a la dirección URL de validación para validar la suscripción manualmente. La suscripción a eventos permanece en estado pendiente hasta que se valida. La dirección URL de validación usa el puerto 553. Si las reglas de firewall bloquean el puerto 553, puede que sea necesario actualizarlas para aplicar el protocolo de enlace manual de forma satisfactoria.
 
@@ -104,7 +104,7 @@ Durante la creación de la suscripción a eventos, si ve un mensaje de error, pa
 
 #### <a name="azure-ad"></a>Azure AD
 
-Puede proteger el punto de conexión de webhook mediante Azure Active Directory para autenticar y autorizar a Event Grid a que publique eventos en los puntos de conexión. Tendrá que crear una aplicación de Azure Active Directory, crear un rol y una entidad de servicio en la aplicación que autorice a Event Grid, y configurar la suscripción de eventos para usar la aplicación de Azure AD. [Obtenga información sobre cómo configurar AAD con Event Grid](secure-webhook-delivery.md).
+Puede proteger el punto de conexión de webhook mediante Azure Active Directory para autenticar y autorizar a Event Grid a que publique eventos en los puntos de conexión. Tendrá que crear una aplicación de Azure Active Directory, crear un rol y una entidad de servicio en la aplicación que autorice a Event Grid, y configurar la suscripción de eventos para usar la aplicación de Azure AD. [Obtenga información sobre cómo configurar AAD con Event Grid](secure-webhook-delivery.md).
 
 #### <a name="query-parameters"></a>Parámetros de consulta
 Puede proteger el punto de conexión del webhook mediante la incorporación de parámetros de consulta a la URL del webhook al crear una suscripción a eventos. Establezca uno de estos parámetros de consulta para que sea un secreto, como un [token de acceso](https://en.wikipedia.org/wiki/Access_token). El webhook puede usar el secreto para reconocer que el evento procede de Event Grid con permisos válidos. Event Grid incluye estos parámetros de consulta en cada entrega de eventos al webhook.
@@ -186,172 +186,9 @@ static string BuildSharedAccessSignature(string resource, DateTime expirationUtc
 }
 ```
 
-## <a name="management-access-control"></a>Control de acceso de administración
+### <a name="encryption-at-rest"></a>Cifrado en reposo
 
-Azure Event Grid permite controlar el nivel de acceso dado a distintos usuarios para realizar diversas operaciones de administración, como enumerar las suscripciones a eventos, crear otras nuevas y generar claves. Event Grid usa el control de acceso basado en rol (RBAC) de Azure.
-
-### <a name="operation-types"></a>Tipos de operación
-
-Event Grid admite las siguientes acciones:
-
-* Microsoft.EventGrid/*/read
-* Microsoft.EventGrid/*/write
-* Microsoft.EventGrid/*/delete
-* Microsoft.EventGrid/eventSubscriptions/getFullUrl/action
-* Microsoft.EventGrid/topics/listKeys/action
-* Microsoft.EventGrid/topics/regenerateKey/action
-
-Las tres últimas operaciones devuelven información potencialmente confidencial, la cual se filtra de las operaciones de lectura normales. Se recomienda restringir el acceso a estas operaciones. 
-
-### <a name="built-in-roles"></a>Roles integrados
-
-Event Grid proporciona dos roles integrados para administrar las suscripciones de eventos. Son importantes al implementar [dominios de eventos](event-domains.md) porque proporcionan a los usuarios los permisos que necesitan para suscribirse a temas en el dominio del evento. Estos roles se centran en las suscripciones de eventos y no conceden acceso para acciones como la creación de temas.
-
-También puede [asignar estos roles a un usuario o grupo](../role-based-access-control/quickstart-assign-role-user-portal.md).
-
-**Colaborador de EventGrid EventSubscription**: administre las operaciones de suscripción de Event Grid.
-
-```json
-[
-  {
-    "Description": "Lets you manage EventGrid event subscription operations.",
-    "IsBuiltIn": true,
-    "Id": "428e0ff05e574d9ca2212c70d0e0a443",
-    "Name": "EventGrid EventSubscription Contributor",
-    "IsServiceRole": false,
-    "Permissions": [
-      {
-        "Actions": [
-          "Microsoft.Authorization/*/read",
-          "Microsoft.EventGrid/eventSubscriptions/*",
-          "Microsoft.EventGrid/topicTypes/eventSubscriptions/read",
-          "Microsoft.EventGrid/locations/eventSubscriptions/read",
-          "Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read",
-          "Microsoft.Insights/alertRules/*",
-          "Microsoft.Resources/deployments/*",
-          "Microsoft.Resources/subscriptions/resourceGroups/read",
-          "Microsoft.Support/*"
-        ],
-        "NotActions": [],
-        "DataActions": [],
-        "NotDataActions": [],
-        "Condition": null
-      }
-    ],
-    "Scopes": [
-      "/"
-    ]
-  }
-]
-```
-
-**Lector de EventGrid EventSubscription**: lea las suscripciones de Event Grid.
-
-```json
-[
-  {
-    "Description": "Lets you read EventGrid event subscriptions.",
-    "IsBuiltIn": true,
-    "Id": "2414bbcf64974faf8c65045460748405",
-    "Name": "EventGrid EventSubscription Reader",
-    "IsServiceRole": false,
-    "Permissions": [
-      {
-        "Actions": [
-          "Microsoft.Authorization/*/read",
-          "Microsoft.EventGrid/eventSubscriptions/read",
-          "Microsoft.EventGrid/topicTypes/eventSubscriptions/read",
-          "Microsoft.EventGrid/locations/eventSubscriptions/read",
-          "Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read",
-          "Microsoft.Resources/subscriptions/resourceGroups/read"
-        ],
-        "NotActions": [],
-        "DataActions": [],
-        "NotDataActions": []
-       }
-    ],
-    "Scopes": [
-      "/"
-    ]
-  }
-]
-```
-
-### <a name="custom-roles"></a>Roles personalizados
-
-Si tiene que especificar permisos distintos a los de los roles integrados, puede crear roles personalizados.
-
-Las siguientes son definiciones de roles de Event Grid de ejemplo que permiten a los usuarios realizar distintas acciones. Estos roles personalizados son diferentes de los roles integrados, ya que conceden acceso más amplio que las suscripciones a eventos.
-
-**EventGridReadOnlyRole.json**: Únicamente se permiten operaciones de solo lectura.
-
-```json
-{
-  "Name": "Event grid read only role",
-  "Id": "7C0B6B59-A278-4B62-BA19-411B70753856",
-  "IsCustom": true,
-  "Description": "Event grid read only role",
-  "Actions": [
-    "Microsoft.EventGrid/*/read"
-  ],
-  "NotActions": [
-  ],
-  "AssignableScopes": [
-    "/subscriptions/<Subscription Id>"
-  ]
-}
-```
-
-**EventGridNoDeleteListKeysRole.json**: permitir acciones de publicación restringidas pero denegar acciones de eliminación.
-
-```json
-{
-  "Name": "Event grid No Delete Listkeys role",
-  "Id": "B9170838-5F9D-4103-A1DE-60496F7C9174",
-  "IsCustom": true,
-  "Description": "Event grid No Delete Listkeys role",
-  "Actions": [
-    "Microsoft.EventGrid/*/write",
-    "Microsoft.EventGrid/eventSubscriptions/getFullUrl/action"
-    "Microsoft.EventGrid/topics/listkeys/action",
-    "Microsoft.EventGrid/topics/regenerateKey/action"
-  ],
-  "NotActions": [
-    "Microsoft.EventGrid/*/delete"
-  ],
-  "AssignableScopes": [
-    "/subscriptions/<Subscription id>"
-  ]
-}
-```
-
-**EventGridContributorRole.json**: Permite todas las acciones de Event Grid.
-
-```json
-{
-  "Name": "Event grid contributor role",
-  "Id": "4BA6FB33-2955-491B-A74F-53C9126C9514",
-  "IsCustom": true,
-  "Description": "Event grid contributor role",
-  "Actions": [
-    "Microsoft.EventGrid/*/write",
-    "Microsoft.EventGrid/*/delete",
-    "Microsoft.EventGrid/topics/listkeys/action",
-    "Microsoft.EventGrid/topics/regenerateKey/action",
-    "Microsoft.EventGrid/eventSubscriptions/getFullUrl/action"
-  ],
-  "NotActions": [],
-  "AssignableScopes": [
-    "/subscriptions/<Subscription id>"
-  ]
-}
-```
-
-Puede crear roles personalizados con [PowerShell](../role-based-access-control/custom-roles-powershell.md), la [CLI de Azure](../role-based-access-control/custom-roles-cli.md) o [REST](../role-based-access-control/custom-roles-rest.md).
-
-## <a name="encryption-at-rest"></a>Cifrado en reposo
-
-Todos los eventos o datos escritos en el disco por el servicio Event Grid se cifran mediante una clave administrada por Microsoft, lo que garantiza que se cifren en reposo. Además, el período máximo que se conservan los eventos o los datos es de 24 horas, conforme a la [directiva de reintentos de Event Grid](delivery-and-retry.md). Event Grid elimina automáticamente todos los eventos o datos tras 24 horas, o el período de vida del evento, lo que sea menor.
+Todos los eventos o datos escritos en el disco por el servicio Event Grid se cifran mediante una clave administrada por Microsoft, lo que garantiza que se cifran en reposo. Además, el período máximo que se conservan los eventos o los datos es de 24 horas, conforme a la [directiva de reintentos de Event Grid](delivery-and-retry.md). Event Grid elimina automáticamente todos los eventos o datos tras 24 horas, o el período de vida del evento, lo que sea menor.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
