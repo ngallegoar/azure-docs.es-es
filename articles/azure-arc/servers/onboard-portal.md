@@ -6,14 +6,14 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 02/24/2020
+ms.date: 03/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8bde9a9e9227f0c8715b38a9a376fad3015c7bf3
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 40885e1de4ff4c16d2a50399c654d8596396ab53
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77586264"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80366368"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Conexión de máquinas híbridas a Azure desde Azure Portal
 
@@ -56,6 +56,7 @@ El script para automatizar la descarga y la instalación, y para establecer la c
 ## <a name="install-and-validate-the-agent-on-windows"></a>Instalación y validación del agente en Windows
 
 ### <a name="install-manually"></a>Instalación manual
+
 Para instalar manualmente el agente de Connected Machine, puede ejecutar el paquete de Windows Installer llamado *AzureConnectedMachineAgent.msi*. 
 
 > [!NOTE]
@@ -64,14 +65,19 @@ Para instalar manualmente el agente de Connected Machine, puede ejecutar el paqu
 
 Si la máquina necesita comunicarse mediante un servidor proxy con el servicio, después de instalar el agente, debe ejecutar un comando que se describe más adelante en este artículo. Este permite establecer la variable de entorno del sistema del servidor proxy `https_proxy`.
 
-En la tabla siguiente se destacan los parámetros que admite el programa de instalación para el agente desde la línea de comandos.
+Si no está familiarizado con las opciones de la línea de comandos para los paquetes de Windows Installer, consulte [Opciones de la línea de comandos estándar de msiexec](https://docs.microsoft.com/windows/win32/msi/standard-installer-command-line-options) y [Opciones de la línea de comandos de msiexec](https://docs.microsoft.com/windows/win32/msi/command-line-options).
 
-| Parámetro | Descripción |
-|:--|:--|
-| /? | Devuelve una lista de las opciones de la línea de comandos. |
-| /S | Realiza una instalación silenciosa sin interacción del usuario. |
+Por ejemplo, ejecute el programa de instalación con el parámetro `/?` para revisar la opción de ayuda y referencia rápida. 
 
-Por ejemplo, para ejecutar el programa de instalación con el parámetro `/?`, escriba `msiexec.exe /i AzureConnectedMachineAgent.msi /?`.
+```dos
+msiexec.exe /i AzureConnectedMachineAgent.msi /?
+```
+
+Para instalar el agente de forma silenciosa y crear un archivo de registro de instalación en la carpeta `C:\Support\Logs`, ejecute el comando siguiente.
+
+```dos
+msiexec.exe /i AzureConnectedMachineAgent.msi /qn /l*v "C:\Support\Logs\Azcmagentsetup.log"
+```
 
 Los archivos del agente de Connected Machine se instalan de forma predeterminada en *C:\Archivos de programa\AzureConnectedMachineAgent*. Si el agente no se inicia una vez completada la instalación, compruebe los registros para obtener información detallada del error. El directorio de registro es *%Programfiles%\AzureConnectedMachineAgentAgent\logs*.
 
@@ -147,58 +153,6 @@ Después de instalar el agente, configúrelo para que se comunique con el servic
 Después de instalar el agente y configurarlo para que se conecte a Azure Arc para servidores (versión preliminar), vaya a Azure Portal para comprobar que el servidor se ha conectado correctamente. Vea las máquinas en [Azure Portal](https://aka.ms/hybridmachineportal).
 
 ![Una conexión de servidor correcta](./media/onboard-portal/arc-for-servers-successful-onboard.png)
-
-## <a name="clean-up"></a>Limpieza
-
-Para desconectar una máquina de Azure Arc para servidores (versión preliminar), haga lo siguiente:
-
-1. Abra Azure Arc para servidores (versión preliminar). Para ello, vaya a [Azure Portal](https://aka.ms/hybridmachineportal).
-
-1. Seleccione la máquina en la lista, seleccione los puntos suspensivos ( **...** ) y, a continuación, seleccione **Eliminar**.
-
-1. Para desinstalar el agente de Windows de la máquina, haga lo siguiente:
-
-    a. Inicie sesión en el equipo con una cuenta que disponga de permisos de administrador.  
-    b. En **Panel de control**, seleccione **Programas y características**.  
-    c. En **Programas y características**, seleccione **Agente de Azure Connected Machine**, seleccione **Desinstalar** y, después, seleccione **Sí**.  
-
-    >[!NOTE]
-    > También puede ejecutar el asistente para la instalación del agente haciendo doble clic en el paquete del instalador **AzureConnectedMachineAgent.msi**.
-
-    Si quiere crear un script para quitar el agente, puede usar el ejemplo siguiente, el cual permite recuperar el código de producto y desinstalar el agente mediante esta línea de comandos Msiexec.exe: `msiexec /x {Product Code}`. Para ello:  
-    
-    a. Abra el Editor del Registro.  
-    b. En la clave del Registro `HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall`, busque y copie el GUID del código del producto.  
-    c. Después, puede desinstalar el agente mediante Msiexec.
-
-    En el siguiente ejemplo se muestra cómo desinstalar el agente:
-
-    ```powershell
-    Get-ChildItem -Path HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall | `
-    Get-ItemProperty | `
-    Where-Object {$_.DisplayName -eq "Azure Connected Machine Agent"} | `
-    ForEach-Object {MsiExec.exe /x "$($_.PsChildName)" /qn}
-    ```
-
-1. Para desinstalar el agente de Linux, el comando que se va a usar depende del sistema operativo Linux.
-
-    - Para Ubuntu ejecute el siguiente comando:
-
-      ```bash
-      sudo apt purge azcmagent
-      ```
-
-    - Para RHEL, CentOS y Amazon Linux, ejecute el siguiente comando:
-
-      ```bash
-      sudo yum remove azcmagent
-      ```
-
-    - Para SLES, ejecute el siguiente comando:
-
-      ```bash
-      sudo zypper remove azcmagent
-      ```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

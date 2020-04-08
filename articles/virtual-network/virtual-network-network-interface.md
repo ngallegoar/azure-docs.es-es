@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/24/2017
+ms.date: 1/22/2020
 ms.author: kumud
-ms.openlocfilehash: df2eb0886b71a2d5daaa95f33ef29a2afc7e112a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 11e6285ef70ffde5344add951801997f8541eaad
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980716"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79225152"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Creación, cambio o eliminación de una interfaz de red
 
@@ -90,7 +90,7 @@ Puede ver y cambiar la mayoría de las opciones de una interfaz de red después 
    - **Propiedades:** muestra las opciones de configuración clave de la interfaz de red, incluida la dirección MAC (en blanco si la interfaz de red no está asociada a una máquina virtual) y la suscripción donde se encuentra.
    - **Reglas de seguridad vigentes:**  las reglas de seguridad se muestran si la interfaz de red está asociada a una máquina virtual en ejecución y hay un grupo de seguridad de red asociado a la interfaz de red, a la subred a la que está asignada o ambas. Para obtener más información sobre lo que se muestra, consulte [Visualización de las reglas de seguridad vigentes](#view-effective-security-rules). Para más información sobre los grupos de seguridad de red, consulte [Grupos de seguridad de red](security-overview.md).
    - **Rutas vigentes:** las rutas se muestran si la interfaz de red está asociada a una máquina virtual en ejecución. Las rutas son una combinación de las rutas predeterminadas de Azure, las rutas definidas por el usuario y las rutas BGP que pueda haber en la subred a la cual está asignada la interfaz de red. Para obtener más información sobre lo que se muestra, consulte [View effective routes](#view-effective-routes) (Visualización de rutas vigentes). Para obtener más información sobre las rutas predeterminadas de Azure y las rutas definidas por el usuario, consulte [Routing overview](virtual-networks-udr-overview.md) (Información general sobre enrutamiento).
-   - **Opciones comunes de Azure Resource Manager:**  para más información acerca de las opciones de configuración comunes de Azure Resource Manager, consulte [Registro de actividad](../azure-monitor/platform/platform-logs-overview.md), [Control de acceso (IAM)](../role-based-access-control/overview.md), [Etiquetas](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Bloqueos](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json) y [Script de Automation](../azure-resource-manager/templates/export-template-portal.md).
+Opciones comunes de Azure Resource Manager: para más información acerca de las opciones de configuración comunes de Azure Resource Manager, consulte [Registro de actividad](../azure-monitor/platform/platform-logs-overview.md), [Control de acceso (IAM)](../role-based-access-control/overview.md), [Etiquetas](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Bloqueos](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json) y [Script de Automation](../azure-resource-manager/templates/export-template-portal.md).
 
 <a name="view-settings-commands"></a>**Comandos**
 
@@ -168,7 +168,7 @@ Puede cambiar la subred, pero no la red virtual, a la que está asignada una int
 Solo puede agregar o quitar una interfaz de red de un grupo de seguridad de aplicaciones mediante el portal si la interfaz de red está asociada a una máquina virtual. Puede usar PowerShell o la CLI de Azure para agregar o quitar una interfaz de red de un grupo de seguridad de aplicaciones si la interfaz de red está asociada o no a una máquina virtual. Para más información sobre los [grupos de seguridad de aplicaciones](security-overview.md#application-security-groups), consulte el artículo sobre cómo [crear un grupo de seguridad de aplicaciones](manage-network-security-group.md).
 
 1. En el cuadro *Buscar recursos, servicios y documentos* en la parte superior del portal, comience a escribir el nombre de una máquina virtual que tenga una interfaz de red que desee agregar o quitar de un grupo de seguridad de aplicaciones. Cuando el nombre de la máquina virtual aparezca en los resultados de búsqueda, selecciónelo.
-2. En **CONFIGURACIÓN**, seleccione **Redes**.  Seleccione **Configure the application security groups** (Configurar los grupos de seguridad de la aplicación), seleccione los grupos de seguridad de la aplicación a los que desee agregar la interfaz de red o anule la selección de los grupos de seguridad de la aplicación de los que desee quitar la interfaz de red y, a continuación, seleccione **Guardar**. Solo las interfaces de red que existen en la misma red virtual se pueden agregar al mismo grupo de seguridad de aplicaciones. El grupo de seguridad de aplicaciones debe existir en la misma ubicación que la interfaz de red.
+2. En **CONFIGURACIÓN**, seleccione **Redes**.  Seleccione **Grupos de seguridad de aplicación**, después **Configurar grupos de seguridad de aplicación**, seleccione los grupos de seguridad de la aplicación a los que desee agregar la interfaz de red o anule la selección de los grupos de seguridad de la aplicación de los que desee quitar la interfaz de red y, a continuación, seleccione **Guardar**. Solo las interfaces de red que existen en la misma red virtual se pueden agregar al mismo grupo de seguridad de aplicaciones. El grupo de seguridad de aplicaciones debe existir en la misma ubicación que la interfaz de red.
 
 **Comandos**
 
@@ -196,8 +196,8 @@ Solo puede agregar o quitar una interfaz de red de un grupo de seguridad de apli
 Puede eliminar una interfaz de red siempre y cuando no esté asociada a una máquina virtual. Si una interfaz de red está asociada a una máquina virtual, primero debe cambiar el estado de la máquina virtual a detenido (desasignado) y, después, desasociar la interfaz de red de la máquina virtual. Para desasociar una interfaz de red de una máquina virtual, complete los pasos que se indican en [Desasociar una interfaz de red de una máquina virtual](virtual-network-network-interface-vm.md#remove-a-network-interface-from-a-vm). Sin embargo, no se puede desasociar una interfaz de red de una máquina virtual si es la única interfaz de red asociada a la máquina virtual. Una máquina virtual debe tener siempre una interfaz de red asociada como mínimo. Al eliminar una máquina virtual, se desasocian todas las interfaces de red asociadas a ella, pero no se eliminan las interfaces de red.
 
 1. En el cuadro que contiene el texto *Buscar recursos*, en la parte superior de Azure Portal, escriba *interfaces de red*. Cuando aparezcan las **interfaces de red** en los resultados de búsqueda, selecciónelas.
-2. Seleccione **...**  en el lado derecho de la interfaz de red que quiere eliminar de la lista de interfaces de red.
-3. Seleccione **Eliminar**.
+2. Seleccione la interfaz de red en la lista que quiere eliminar.
+3. En **Información general**, seleccione **Eliminar**.
 4. Seleccione **Sí** para confirmar la eliminación de la interfaz de red.
 
 Cuando se elimina una interfaz de red, se liberan las direcciones MAC o IP asignadas a ella.

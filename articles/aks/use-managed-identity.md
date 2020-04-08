@@ -5,16 +5,16 @@ services: container-service
 author: saudas
 manager: saudas
 ms.topic: article
-ms.date: 09/11/2019
+ms.date: 03/10/2019
 ms.author: saudas
-ms.openlocfilehash: 6d00fd72c338fc101420bf78b5608516715d44ad
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 85efc6d9d203ca06c5f7566376993b4c13950788
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77592975"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80369966"
 ---
-# <a name="preview---use-managed-identities-in-azure-kubernetes-service"></a>Uso de identidades administradas en Azure Kubernetes Service (versión preliminar)
+# <a name="use-managed-identities-in-azure-kubernetes-service"></a>Uso de identidades administradas en Azure Kubernetes Service
 
 Actualmente, un clúster de Azure Kubernetes Service (AKS) (específicamente, el proveedor de servicios en la nube de Kubernetes) requiere una *entidad de servicio* para crear recursos adicionales, como equilibradores de carga y discos administrados, en Azure. El usuario puede proporcionar una entidad de servicio o bien AKS se encargará de crearla. Las entidades de servicio suelen tener una fecha de expiración. Llega un momento en que los clústeres alcanzan un estado en el que se debe renovar la entidad de servicio para mantener el clúster en funcionamiento. La administración de las entidades de servicio es compleja.
 
@@ -23,48 +23,15 @@ Las *identidades administradas* son básicamente un contenedor relacionado con l
 AKS crea dos identidades administradas:
 
 - **Identidad administrada asignada por el sistema**: identidad que utiliza el proveedor de servicios en la nube de Kubernetes para crear recursos de Azure en nombre del usuario. El ciclo de vida de la identidad asignada por el sistema está vinculado al del clúster. La identidad se elimina cuando se elimina el clúster.
-- **Identidad administrada asignada por el usuario**: la identidad que se usa para la autorización en el clúster. Por ejemplo, la identidad asignada por el usuario se usa para autorizar a AKS a usar los registros de control de acceso (ACR) o para autorizar al kubelet a obtener metadatos de Azure.
+- **Identidad administrada asignada por el usuario**: la identidad que se usa para la autorización en el clúster. Por ejemplo, la identidad asignada por el usuario se usa para autorizar a AKS a usar instancias de Azure Container Registry (ACR) o para autorizar al kubelet a obtener metadatos de Azure.
 
-En este período de versión preliminar, aún será necesario contar con una entidad de servicio. Esta entidad se usa para autorizar complementos como la supervisión, los nodos virtuales, Azure Policy y el enrutamiento de aplicaciones HTTP. Se está trabajando para eliminar la dependencia que tienen los complementos del nombre de la entidad de seguridad de servicio (SPN). Al final desaparecerá el requisito de un SPN en AKS.
-
-> [!IMPORTANT]
-> Las características en versión preliminar de AKS están disponibles como opción de participación y autoservicio. Las versiones preliminares se proporcionan "tal cual" y "como están disponibles", y están excluidas de los Acuerdos de Nivel de Servicio y la garantía limitada. Las versiones preliminares de AKS reciben cobertura parcial del soporte al cliente en la medida de lo posible. Por lo tanto, estas características no están diseñadas para usarse en producción. Para más información, consulte los siguientes artículos de soporte:
->
-> - [Directivas de soporte técnico para AKS](support-policies.md)
-> - [Preguntas más frecuentes de soporte técnico de Azure](faq.md)
+Los complementos también se autentican con una identidad administrada. Para cada complemento, AKS crea una identidad administrada, que se mantiene durante la vida del complemento. Para crear y usar su propia red virtual, una dirección IP estática o un disco de Azure conectado donde los recursos estén fuera del grupo de recursos MC_*, use el PrincipalID del clúster para realizar una asignación de roles. Para obtener más información sobre la asignación, consulte [Delegación del acceso a otros recursos de Azure](kubernetes-service-principal.md#delegate-access-to-other-azure-resources).
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Debe tener instalados los siguientes recursos:
+Debe tener instalado el siguiente recurso:
 
-- CLI de Azure, versión 2.0.70 o posterior
-- Extensión aks-preview 0.4.14
-
-Para instalar la extensión aks-preview 0.4.14 o posterior, use los siguientes comandos de la CLI de Azure:
-
-```azurecli
-az extension add --name aks-preview
-az extension list
-```
-
-> [!CAUTION]
-> Actualmente, después de registrar una característica en una suscripción no se puede anular el registro de esa característica. Al habilitar algunas características en versión preliminar, es posible que se usen valores predeterminados en todos los clústeres de AKS creados más tarde en la suscripción. No habilite características en vista previa en las suscripciones de producción. En su lugar, use una suscripción independiente para probar las características en versión preliminar y recopilar comentarios.
-
-```azurecli-interactive
-az feature register --name MSIPreview --namespace Microsoft.ContainerService
-```
-
-Pueden pasar unos minutos hasta que el estado aparezca como **Registrado**. Puede comprobar el estado del registro con el comando [az feature list](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-list):
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/MSIPreview')].{Name:name,State:properties.state}"
-```
-
-Cuando el estado se muestre como Registrado, actualice el registro del proveedor de recursos `Microsoft.ContainerService` mediante el comando [az provider register](https://docs.microsoft.com/cli/azure/provider?view=azure-cli-latest#az-provider-register):
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
+- La CLI de Azure, versión 2.2.0 o posterior
 
 ## <a name="create-an-aks-cluster-with-managed-identities"></a>Creación de un clúster de AKS con identidades administradas
 
@@ -81,6 +48,15 @@ Después, cree un clúster de AKS:
 
 ```azurecli-interactive
 az aks create -g MyResourceGroup -n MyManagedCluster --enable-managed-identity
+```
+
+La creación correcta de un clúster con identidades administradas contiene esta información de perfil de la entidad de servicio:
+
+```json
+"servicePrincipalProfile": {
+    "clientId": "msi",
+    "secret": null
+  }
 ```
 
 Por último, obtenga credenciales para acceder al clúster:

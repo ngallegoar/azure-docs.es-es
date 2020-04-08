@@ -3,16 +3,16 @@ title: Definición de varias instancias de una propiedad
 description: Utilice la operación de copia en una plantilla de Azure Resource Manager para realizar varias iteraciones cuando cree una propiedad en un recurso.
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: b759389cd1065c399658bd8d0c1ddd263054697c
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: e86d38b0e5d2e39d54b3c419b6eebdcda74022db
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77622858"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80258114"
 ---
-# <a name="property-iteration-in-azure-resource-manager-templates"></a>Iteración de propiedades en plantillas de Azure Resource Manager
+# <a name="property-iteration-in-arm-templates"></a>Iteración de propiedades en las plantillas de ARM
 
-En este artículo, se explica cómo se crean varias instancias de una propiedad en la plantilla de Azure Resource Manager. Al agregar el elemento **copy** a la sección de propiedades de un recurso, puede establecer de forma dinámica el número de elementos de una variable durante la implementación. Asimismo, evitará tener que repetir la sintaxis de la plantilla.
+En este artículo, se explica cómo se crean varias instancias de una propiedad en la plantilla de Azure Resource Manager (ARM). Al agregar el elemento **copy** a la sección de propiedades de un recurso, puede establecer de forma dinámica el número de elementos de una variable durante la implementación. Asimismo, evitará tener que repetir la sintaxis de la plantilla.
 
 También puede usar el elemento copy con [recursos](copy-resources.md), [variables](copy-variables.md) y [salidas](copy-outputs.md).
 
@@ -119,7 +119,7 @@ El elemento de copia es una matriz por lo que puede especificar más de una prop
 {
   "type": "Microsoft.Network/loadBalancers",
   "apiVersion": "2017-10-01",
-  "name": "examleLB",
+  "name": "exampleLB",
   "properties": {
     "copy": [
       {
@@ -191,11 +191,11 @@ En los ejemplos siguientes, se muestran escenarios comunes en los que se crean v
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para seguir los pasos de un tutorial, consulte [Tutorial: create multiple resource instances using Resource Manager templates](template-tutorial-create-multiple-instances.md) (Tutorial: Creación de varias instancias de recursos con plantillas de Resource Manager).
+* Para seguir los pasos de un tutorial, consulte [Tutorial: Creación de varias instancias de recursos con plantillas de ARM](template-tutorial-create-multiple-instances.md).
 * Para otros usos del elemento copy, consulte:
-  * [Iteración de recursos en plantillas de Azure Resource Manager](copy-resources.md)
-  * [Iteración de variables en plantillas de Azure Resource Manager](copy-variables.md)
-  * [Iteración de salidas en plantillas de Azure Resource Manager](copy-outputs.md)
-* Para obtener información sobre las secciones de una plantilla, consulte el artículo sobre cómo [crear plantillas de Azure Resource Manager](template-syntax.md).
-* Para obtener información sobre cómo implementar la plantilla, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](deploy-powershell.md).
+  * [Iteración de recursos en las plantillas de ARM](copy-resources.md)
+  * [Iteración de variables en las plantillas de ARM](copy-variables.md)
+  * [Iteración de salida en las plantillas de ARM](copy-outputs.md)
+* Para más información sobre las secciones de una plantilla, consulte el artículo sobre cómo [crear plantillas de ARM](template-syntax.md).
+* Para más información sobre cómo implementar su plantilla, consulte el artículo [Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell](deploy-powershell.md).
 

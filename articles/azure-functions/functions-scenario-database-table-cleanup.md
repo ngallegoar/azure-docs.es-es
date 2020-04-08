@@ -4,12 +4,12 @@ description: Use Azure Functions para programar una tarea que se conecte a Azure
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.openlocfilehash: 3dafe275dcd5eb172e744f1d163b33ebb0bac7cc
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 2e3f53943d45e90b8aff8e386ce8d0e28670673f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74972241"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79366823"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Uso de Azure Functions para conectarse a una base de datos de Azure SQL Database
 
@@ -17,7 +17,7 @@ En este artículo se indica cómo usar Azure Functions para crear un trabajo pro
 
 Si es la primera vez que trabaja con funciones de C#, debe leer la [referencia para desarrolladores de C# de Azure Functions](functions-dotnet-class-library.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 + Complete los pasos del artículo [Creación de la primera función mediante Visual Studio](functions-create-your-first-function-visual-studio.md) para crear una aplicación de funciones local que tenga como destino la versión 2.x o una posterior del entorno en tiempo de ejecución. También debe haber publicado el proyecto en una aplicación de función en Azure.
 
@@ -29,7 +29,7 @@ Si es la primera vez que trabaja con funciones de C#, debe leer la [referencia p
 
 Deberá obtener la cadena de conexión de la base de datos que creó una vez concluidos los pasos de [Creación de una base de datos de Azure SQL en Azure Portal](../sql-database/sql-database-get-started-portal.md).
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 1. Seleccione **SQL Database** en el menú de la izquierda y seleccione la base de datos en la página **SQL Database**.
 
@@ -43,7 +43,7 @@ Una aplicación de función hospeda la ejecución de sus funciones en Azure. Com
 
 Anteriormente debe haber publicado la aplicación en Azure. Si todavía no lo ha hecho, [publique la aplicación de función en Azure](functions-develop-vs.md#publish-to-azure).
 
-1. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto de aplicación de función y elija **Publicar** > **Administrar configuración de la aplicación...** . Seleccione **Agregar configuración**, en **Nuevo nombre de configuración de aplicación**, escriba `sqldb_connection` y seleccione **Aceptar**.
+1. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto de aplicación de funciones y elija **Publicar** > **Editar configuración de Azure App Service**. Seleccione **Agregar configuración**, en **Nuevo nombre de configuración de aplicación**, escriba `sqldb_connection` y seleccione **Aceptar**.
 
     ![Configuración de la aplicación para la aplicación de función.](./media/functions-scenario-database-table-cleanup/functions-app-service-add-setting.png)
 

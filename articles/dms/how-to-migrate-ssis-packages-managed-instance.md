@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: a0669724888f02672d18ef9e8f725eef1c744f90
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 97a466ab033a42016c0d82465d1f98e2dcae8080
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77650971"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80297176"
 ---
 # <a name="migrate-sql-server-integration-services-packages-to-an-azure-sql-database-managed-instance"></a>Migración de paquetes de SQL Server Integration Services a una instancia administrada de Azure SQL Database
 Si usa SQL Server Integration Services (SSIS) y quiere migrar sus proyectos o paquetes de SSIS desde la SSISDB de origen, que está hospedada en SQL Server, a la SSISDB de destino, que está hospedada en una instancia administrada de Azure SQL Database, puede usar Azure Database Migration Service.
@@ -122,7 +122,7 @@ Después de crear una instancia del servicio, búsquela en Azure Portal, ábrala
     Si no hay ningún certificado de confianza instalado, SQL Server genera un certificado autofirmado cuando se inicia la instancia. Este certificado se usa para cifrar las credenciales de las conexiones del cliente.
 
     > [!CAUTION]
-    > Las conexiones SSL cifradas mediante un certificado autofirmado no proporcionan una gran seguridad. Son susceptibles de sufrir ataques de tipo "Man in the middle". No se debe confiar en SSL mediante certificados autofirmados en un entorno de producción o en servidores que están conectados a Internet.
+    > Las conexiones TLS cifradas mediante un certificado autofirmado no proporcionan una gran seguridad. Son susceptibles de sufrir ataques de tipo "Man in the middle". No debe confiar en TLS con certificados autofirmados en un entorno de producción ni en servidores conectados a Internet.
 
    ![Detalles del origen](media/how-to-migrate-ssis-packages-mi/dms-source-details1.png)
 

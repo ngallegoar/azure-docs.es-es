@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ccfbb31c29b9e240a4865c8d7d98d7b6af00d1fd
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: f4560a514ddb9949c8cc07864b2319a5878b245e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74963943"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80295355"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Procedimientos recomendados para el acceso condicional en Azure Active Directory
 
@@ -27,7 +27,7 @@ Con el [acceso condicional de Azure Active Directory (Azure AD)](../active-di
 
 En este artículo se asume que está familiarizado con los conceptos y la terminología que se describen en [¿Qué es el acceso condicional en Azure Active Directory?](../active-directory-conditional-access-azure-portal.md)
 
-## <a name="whats-required-to-make-a-policy-work"></a>¿Cuáles son los requisitos para realizar un trabajo de directiva?
+## <a name="whats-required-to-make-a-policy-work"></a>¿Cuáles son los requisitos para que una directiva funcione?
 
 Cuando crea una directiva nueva, no hay usuarios, grupos, aplicaciones ni controles de acceso seleccionados.
 
@@ -98,7 +98,7 @@ Dado que las aplicaciones de Office 365 están conectadas entre sí, se recomien
 
 Las aplicaciones normales interconectadas incluyen Microsoft Flow, Microsoft Planner, Microsoft Teams, Office 365 Exchange Online, Office 365 SharePoint Online y Office 365 Yammer.
 
-Para las directivas que requieren interacciones del usuario, como la autenticación multifactor, es importante conocer cuándo se controla el acceso al principio de una sesión o tarea. En caso contrario, los usuarios no podrán completar algunas tareas dentro de una aplicación. Por ejemplo, si necesita autenticación multifactor en dispositivos no administrados para acceder a SharePoint pero no al correo electrónico, los usuarios que trabajen con el correo electrónico no podrán adjuntar archivos de SharePoint a un mensaje. Se puede encontrar más información en el artículo [¿Cuáles son las dependencias del servicio de acceso condicional de Azure Active Directory?](service-dependencies.md).
+Para las directivas que requieren interacciones del usuario, como la autenticación multifactor, es importante conocer cuándo se controla el acceso al principio de una sesión o tarea. En caso contrario, los usuarios no podrán completar algunas tareas dentro de una aplicación. Por ejemplo, si necesita autenticación multifactor en dispositivos no administrados para tener acceso a SharePoint, pero no al correo electrónico, los usuarios que trabajen con el correo electrónico no podrán adjuntar archivos de SharePoint a un mensaje. Se puede encontrar más información en el artículo [¿Cuáles son las dependencias del servicio de acceso condicional de Azure Active Directory?](service-dependencies.md).
 
 ## <a name="what-you-should-avoid-doing"></a>¿Qué no debería hacer?
 
@@ -138,7 +138,7 @@ Considere la posibilidad de migrar las directivas que no haya creado en Azure Po
 
 - Ahora puede resolver situaciones que antes no podía controlar.
 - Puede reducir el número de directivas que tiene que administrar mediante su consolidación.   
-- Puede administrar todas las directivas de acceso condicional en una ubicación central.
+- Puede administrar todas las directivas de Acceso condicional en una ubicación central.
 - Se ha retirado la versión clásica de Azure Portal.   
 
 Para obtener más información, consulte [Migración de directivas clásicas en Azure Portal](policy-migration.md).

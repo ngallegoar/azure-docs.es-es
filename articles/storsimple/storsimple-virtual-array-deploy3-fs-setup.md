@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c2d93099f0f76f173cc7e77ab7f24f27d1560835
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 16a5e0bb3e50e3a90951572e8d2847d379c1b114
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516773"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80297642"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Implementación de una matriz virtual de StorSimple: configurar un servidor de archivos mediante Azure Portal
 ![](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)
@@ -37,7 +37,7 @@ El proceso de instalación y configuración puede tardar unos 10 minutos en comp
 Antes de instalar y configurar StorSimple Virtual Array, asegúrese de que:
 
 * Ha aprovisionado una matriz virtual y se ha conectado a ella según se detalla en [Implementación de una matriz virtual de StorSimple: aprovisionamiento de una matriz virtual en Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) o en [Implementación de una matriz virtual de StorSimple: aprovisionamiento de una matriz virtual en VMware](storsimple-virtual-array-deploy2-provision-vmware.md).
-* Tiene la clave de registro del servicio del administrador de dispositivos de StorSimple que creó para administrar instancias de StorSimple Virtual Array. Para más información, consulte el [Paso 2: Obtener la clave de registro del servicio](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key) de StorSimple Virtual Array.
+* Tiene la clave de registro del servicio del administrador de dispositivos de StorSimple que creó para administrar instancias de StorSimple Virtual Array. Para más información, consulte [Paso 2: Obtener la clave de registro del servicio](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key) de StorSimple Virtual Array.
 * Si este es la segunda o subsiguiente matriz virtual que registra en un servicio StorSimple Device Manager existente, debe tener la clave de cifrado de datos del servicio. Esta clave se generó cuando el primer dispositivo se registró correctamente en este servicio. Si perdió esta clave, consulte la sección [Obtener la clave de cifrado de datos del servicio](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) para la matriz virtual de StorSimple.
 
 ## <a name="step-by-step-setup"></a>Configuración paso a paso
@@ -70,7 +70,7 @@ Use las siguientes instrucciones detalladas para instalar y configurar StorSimpl
 6. En la página **Device settings** (Configuración de dispositivo):
    
    1. Asigne un **nombre** exclusivo al dispositivo. Este nombre puede tener de 1 a 15 caracteres y puede contener letras, números y guiones.
-   2. Haga clic en el icono **Servidor de archivos** ![](./media/storsimple-virtual-array-deploy3-fs-setup/image6.png) del **tipo** de dispositivo que crea. Un servidor de archivos le permitirá crear carpetas compartidas.
+   2. Haga clic en el icono **Servidor de archivos**![](./media/storsimple-virtual-array-deploy3-fs-setup/image6.png) del **tipo** de dispositivo que crea. Un servidor de archivos le permitirá crear carpetas compartidas.
    3. Como el dispositivo es un servidor de archivos, debe unir el dispositivo a un dominio. Escriba un valor en **nombre de dominio**.
    4. Haga clic en **Aplicar**.
 7. Aparece un cuadro de diálogo. Escriba las credenciales del dominio en el formato especificado. Haga clic en el icono de marca de verificación. Se comprueban las credenciales del dominio. Si las credenciales no son correctas, aparece un mensaje de error.
@@ -103,7 +103,7 @@ Use las siguientes instrucciones detalladas para instalar y configurar StorSimpl
     1. En la lista desplegable, seleccione la **zona horaria** según la ubicación geográfica en la que se va a implementar el dispositivo. La zona horaria predeterminada para el dispositivo es la hora del Pacífico (PST). El dispositivo usará esta zona horaria para todas las operaciones programadas.
     2. Especifique un **servidor NTP principal** para el dispositivo o acepte el valor predeterminado de time.windows.com. Asegúrese de que su red permite que el tráfico NTP pase del centro de datos a Internet.
     3. Opcionalmente, especifique un **servidor NTP secundario** para el dispositivo.
-    4. Haga clic en **Apply**. Esto validará y aplicará los parámetros de hora configurados.
+    4. Haga clic en **Aplicar**. Esto validará y aplicará los parámetros de hora configurados.
 11. Configure las opciones de nube para el dispositivo. En este paso, completará la configuración del dispositivo local y, después, registrará el dispositivo en el servicio StorSimple Device Manager.
     
     1. Escriba la **Clave de registro del servicio** que obtuvo en el [Paso 2: Obtener la clave de registro del servicio](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key) de StorSimple Virtual Array.
@@ -149,7 +149,7 @@ Siga estos pasos en [Azure Portal](https://portal.azure.com/) para completar la 
     
     3. La ubicación se rellenará automáticamente según la cuenta de almacenamiento especificada. 
     
-    4. Habilite SSL para garantizar un canal de comunicación de red segura entre el dispositivo y la nube.
+    4. Habilite TLS para garantizar un canal de comunicación de red segura entre el dispositivo y la nube.
     
     5. Haga clic en **Agregar** para agregar esta credencial. 
    

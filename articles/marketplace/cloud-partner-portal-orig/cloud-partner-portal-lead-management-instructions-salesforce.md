@@ -1,19 +1,18 @@
 ---
 title: Configuración de la administración de clientes potenciales en Salesforce | Azure Marketplace
 description: Configure la administración de clientes potenciales en Salesforce para clientes de Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.author: pabutler
-ms.openlocfilehash: fa1bfdcd172b17f88f6acf14a9d9b80e13767da8
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 4261f16cbe76a788f8a8a91445d432f2f810c4ec
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827708"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280259"
 ---
 # <a name="configure-lead-management-for-salesforce"></a>Configuración de la administración de clientes potenciales en Salesforce
 
@@ -29,7 +28,7 @@ En este artículo se describe cómo configurar el sistema de Salesforce para adm
 4. En **Web-to-Lead Setup** (Configuración de web para clientes potenciales), seleccione **Create Web-to-Lead Form** (Crear formulario web para clientes potenciales).
     ![Formulario de creación de Salesforce](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce3.png)
 
-5. En **Create a Web-to-Lead Form** (Creación de un formulario web para clientes potenciales), seleccione **Generate** (Generar) ![Salesforce generate](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce4.png) (Generación de Salesforce)
+5. En **Create a Web-to-Lead Form**, seleccione **Generate** ![Salesforce generate](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce4.png).
 
 6. Copie el OID del ejemplo y guárdelo. Pegue el OID en el campo **Identificador de objeto** en Cloud Partner Portal.
 ![OID de obtención de Salesforce](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce5.png)

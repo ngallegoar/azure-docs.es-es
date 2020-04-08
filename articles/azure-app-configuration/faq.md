@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: lcozzens
-ms.openlocfilehash: 60ba0a7723861d6e642a23418dda6a1daa57f14e
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 25187fd055f40e8b32d840ead2a9c54882446b88
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77523499"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80348783"
 ---
 # <a name="azure-app-configuration-faq"></a>Preguntas frecuentes de Azure App Configuration
 
@@ -59,13 +59,15 @@ Hay un límite de 10 KB para un único elemento de clave-valor.
 
 Puede controlar quién accede a App Configuration en cada almacén. Use un almacén independiente para cada entorno que requiera permisos distintos. Este enfoque ofrece el mejor aislamiento de seguridad.
 
+Si no necesita aislamiento de seguridad entre entornos, puede usar etiquetas para diferenciar los valores de configuración. [Uso de etiquetas para habilitar diferentes configuraciones para distintos entornos](./howto-labels-aspnet-core.md) proporciona un ejemplo completo.
+
 ## <a name="what-are-the-recommended-ways-to-use-app-configuration"></a>¿Cuáles son los métodos recomendados para usar App Configuration?
 
 Consulte los [procedimientos recomendados](./howto-best-practices.md).
 
 ## <a name="how-much-does-app-configuration-cost"></a>¿Cuánto cuesta App Configuration?
 
-Hay dos planes de tarifa: 
+Hay dos planes de tarifa:
 
 - Nivel Gratis
 - Nivel Estándar.
@@ -96,6 +98,25 @@ A continuación se indican algunas consideraciones para elegir un nivel.
 Puede actualizar desde el nivel Gratis al nivel Estándar en cualquier momento.
 
 No se puede degradar un almacén del nivel Estándar al nivel Gratis. Puede crear un nuevo almacén en el nivel Gratis y, a continuación, [importar los datos de configuración en ese almacén](howto-import-export-data.md).
+
+## <a name="are-there-any-limits-on-the-number-of-requests-made-to-app-configuration"></a>¿Hay algún límite para el número de solicitudes que se realiza a App Configuration?
+
+Los almacenes de configuración del nivel Gratis están limitados a 1000 solicitudes al día. Los almacenes de configuración del nivel Estándar pueden experimentar una limitación temporal cuando la tasa de solicitudes supera las 20 000 solicitudes por hora.
+
+Cuando un almacén alcanza su límite, devolverá el código de estado HTTP 429 para todas las solicitudes realizadas hasta que expire el período de tiempo. El encabezado `retry-after-ms` de la respuesta proporciona un tiempo de espera sugerido (en milisegundos) antes de volver a intentar la solicitud.
+
+Si la aplicación recibe periódicamente respuestas de código de estado HTTP 429, considere la posibilidad de rediseñarla para reducir el número de solicitudes realizadas. Para obtener más información, consulte [Reducción de las solicitudes realizadas a App Configuration](./howto-best-practices.md#reduce-requests-made-to-app-configuration).
+
+## <a name="my-application-receives-http-status-code-429-responses-why"></a>Mi aplicación recibe respuestas con el código de estado HTTP 429. ¿Por qué?
+
+Recibirá una respuesta con el código de estado HTTP 429 en estas circunstancias:
+
+* Superación del límite de solicitudes diarias de un almacén en el nivel Gratis.
+* Limitación temporal debido a una tasa de solicitudes elevada para un almacén en el nivel Estándar.
+* Uso de ancho de banda excesivo.
+* Intento de crear o modificar una clave cuando se ha superado la cuota de almacenamiento.
+
+Compruebe el cuerpo de la respuesta 429 para conocer el motivo específico por el que se produjo un error en la solicitud.
 
 ## <a name="how-can-i-receive-announcements-on-new-releases-and-other-information-related-to-app-configuration"></a>¿Cómo puedo recibir anuncios sobre nuevas versiones y otra información relacionada con App Configuration?
 

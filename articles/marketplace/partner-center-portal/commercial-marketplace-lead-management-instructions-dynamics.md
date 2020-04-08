@@ -1,19 +1,18 @@
 ---
 title: Administración de clientes potenciales para Dynamics 365 for Customer Engagement | Azure Marketplace
 description: Configure la administración de clientes potenciales para Dynamics 365 for Customer Engagement.
-services: Azure, Marketplace, commercial marketplace, Partner Center
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/30/2019
-ms.author: evansma
-ms.openlocfilehash: 37cf613b6e0bd2ec9910dd3e7431c0feaa02431c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 8af6b3a451d20bcc9cab3fa4adb9643f82b85e49
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73812304"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288825"
 ---
 # <a name="configure-lead-management-for-dynamics-365-for-customer-engagement"></a>Configurar la administración de clientes potenciales para Dynamics 365 for Customer Engagement
 
@@ -22,7 +21,7 @@ En este artículo se describe cómo configurar Dynamics 365 for Customer Engagem
 >[!Note]
 >Estas instrucciones son específicas para el entorno de Dynamics 365 for Customer Engagement de Microsoft hospedado en la nube. Actualmente no se admite la conexión directa a un entorno local de Dynamics. Hay otras opciones para que reciba clientes potenciales, como configurar un [punto de conexión https](./commercial-marketplace-lead-management-instructions-https.md) o una [tabla de Azure](./commercial-marketplace-lead-management-instructions-azure-table.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar los pasos de este artículo, se requieren los siguientes permisos de usuario:
 

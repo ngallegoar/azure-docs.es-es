@@ -1,26 +1,20 @@
 ---
 title: archivo de inclusión
 description: archivo de inclusión
-services: commercial marketplace
 documentationcenter: partner-center-commercial-marketplace
 author: qianw211
-manager: evansma
-editor: ''
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.devlang: na
 ms.topic: include
-ms.tgt_pltfrm: na
-ms.workload: identity
 ms.date: 08/13/2019
-ms.author: v-qiwe
+ms.author: dsindona
 ms.custom: include file
-ms.openlocfilehash: 831e3330126d82795cece128c28cb96b7199d69a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: f2446a924ceed37c51779efc9d9e94c0252a2067
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825523"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80321672"
 ---
 La pestaña **Versión de prueba** permite configurar una demostración (o "versión limitada de prueba") que permitirá a los clientes probar su oferta antes de comprarla. Puede encontrar más información al respecto en el artículo [¿Qué es la versión de prueba?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive). Si ya no quiere ofrecer una versión de prueba de la oferta, vuelva a la página **Configuración de la oferta** y desactive **Habilitar versión de prueba**.
 
@@ -36,7 +30,7 @@ Los siguientes tipos de versiones de prueba están disponibles, cada uno de ello
 
 Una plantilla de implementación que contiene todos los recursos de Azure que componen la solución. Los productos que se ajustan a este escenario usan solo recursos de Azure. Más información acerca de cómo configurar una [versión de prueba de Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive).
 
-- **Regiones** (se requiere): Actualmente hay 26 regiones admitidas de Azure en las que se puede usar la versión de prueba. La habitual es que desee que su versión de prueba esté disponible en las regiones en que prevé un mayor número de clientes, con el fin de que puedan seleccionar la región más cercana para lograr el mejor rendimiento posible. Tendrá que asegurarse de que su suscripción puede implementar todos los recursos necesarios en cada una de las regiones que seleccione.
+- **Regiones** (se requiere): actualmente hay 26 regiones admitidas de Azure en las que se puede usar la versión de prueba. La habitual es que desee que su versión de prueba esté disponible en las regiones en que prevé un mayor número de clientes, con el fin de que puedan seleccionar la región más cercana para lograr el mejor rendimiento posible. Tendrá que asegurarse de que su suscripción puede implementar todos los recursos necesarios en cada una de las regiones que seleccione.
 
 - **Instances**: seleccione el tipo (activa o inactiva) y el número de instancias disponibles, que va multiplicarán por el número de regiones en las que está disponible la oferta.
 
@@ -56,9 +50,9 @@ Microsoft puede eliminar la complejidad de configurar una versión de prueba hos
 
 - **Duración de la versión de prueba (horas)** (se requiere): Especifique el período de tiempo que la versión de prueba permanecerá activa. Para ello debe definir el número de horas. Después de este número de horas, la sesión finalizará y dejará de consumir una de las licencias. Se recomienda un valor que oscile entre 2 y 24 horas, en función de la complejidad de la oferta. Esta duración solo se puede indicar con un número completo de horas (p. ej. "2" horas; "1,5" no es un valor válido).  El usuario puede solicitar una nueva sesión si se agota el tiempo y desea volver a acceder a la versión de prueba.
 
-- **Dirección URL de la instancia** (se requiere): la dirección URL en la que el cliente comenzará su versión de prueba. Normalmente es la dirección URL de la instancia de Dynamics 365 en la que se ejecuta la aplicación con los datos de ejemplo instalados (p. ej., https://testdrive.crm.dynamics.com).
+- **Dirección URL de la instancia** (se requiere): la dirección URL en la que el cliente comenzará su versión de prueba. Normalmente es la dirección URL de la instancia de Dynamics 365 en la que se ejecuta la aplicación con los datos de ejemplo instalados (p. ej., `https://testdrive.crm.dynamics.com`).
 
-- **Dirección URL de API web de la instancia** (se requiere): recupere la dirección URL de la API web de la instancia de Dynamics 365, para lo que debe iniciar sesión en su cuenta de Microsoft 365 e ir a **Configuración** \&gt; **Personalización** \&gt; **Recursos para desarrolladores** \&gt; **API web de instancia (URL raíz de servicio )** , copie la dirección URL que se encuentra aquí (p. ej. https://testdrive.crm.dynamics.com/api/data/v9.0).
+- **Dirección URL de API web de la instancia** (se requiere): Recupere la dirección URL de la API web de la instancia de Dynamics 365. Para ello, inicie sesión en su cuenta de Microsoft 365 y vaya a **Configuración** \&gt; **Personalización** \&gt; **Recursos para desarrolladores** \&gt; **API web de instancia (URL raíz de servicio)** . Copie la dirección URL que se encuentra aquí (p. ej., `https://testdrive.crm.dynamics.com/api/data/v9.0`).
 
 - **Nombre de rol** (se requiere): Proporcione el nombre del rol de seguridad que ha definido en su versión de prueba de Dynamics 365 personalizada. Se le asignará al usuario durante su versión de prueba (por ejemplo, test-drive-role).
 
@@ -88,7 +82,7 @@ Para implementar la versión de prueba en su nombre, cree y proporcione una susc
 
 - **Id. de suscripción de Azure** (necesario para Azure Resource Manager y Logic Apps): Escriba el identificador de la suscripción para conceder acceso a los servicios de la cuenta de Azure para la generación de informes y facturación del uso de los recursos. Se recomienda considerar la posibilidad de [crear una suscripción de Azure independiente](https://docs.microsoft.com/azure/billing/billing-create-subscription) que se use para las versiones de prueba, en caso de que no se tenga ninguna. Para buscar su identificador de la suscripción de Azure inicie sesión en [Azure Portal](https://portal.azure.com/) y vaya a la pestaña **Suscripciones** del menú izquierdo. Al seleccionar la pestaña se mostrará el identificador de la suscripción (por ejemplo, "a83645ac-1234-5ab6-6789-1h234g764ghty").
 
-- **Identificador de inquilino de Azure AD** (se requiere): Escriba el [id. de inquilino](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) de Azure Active Directory (AD). Para buscar dicho identificador, inicie sesión en [Azure Portal](https://portal.azure.com/), seleccione la pestaña Azure Active Directory del menú de la izquierda, seleccione **Propiedades** y busque el número de **identificador de directorio** que aparece (por ejemplo, 50c464d3-4930-494c-963c-1e951d15360e). El id. de inquilino de su organización también lo puede buscar mediante la dirección URL de su nombre de dominio en: [ https://www.whatismytenantid.com ](https://www.whatismytenantid.com).
+- **Identificador de inquilino de Azure AD** (se requiere): Escriba el [id. de inquilino](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) de Azure Active Directory (AD). Para buscar dicho identificador, inicie sesión en [Azure Portal](https://portal.azure.com/), seleccione la pestaña Azure Active Directory del menú de la izquierda, seleccione **Propiedades** y busque el número de **identificador de directorio** que aparece (por ejemplo, 50c464d3-4930-494c-963c-1e951d15360e). El id. de inquilino de su organización también lo puede buscar mediante la dirección URL de su nombre de dominio en: [https://www.whatismytenantid.com](https://www.whatismytenantid.com).
 
 - **Nombre de inquilino de Azure AD** (se requiere para Dynamic 365): Escriba el nombre de Azure Active Directory (AD). Para buscar este nombre, inicie sesión en [Azure Portal](https://portal.azure.com/) y en la esquina superior derecha se mostrará su nombre del inquilino, debajo de su nombre de cuenta.
 
