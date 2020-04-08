@@ -19,8 +19,8 @@ Azure Storage ofrece varios tipos de cuentas de almacenamiento. Cada tipo admite
 
 - **Cuentas de uso general v2**: tipo de cuenta de almacenamiento básico para blobs, archivos, colas y tablas. Se recomienda para la mayoría de los escenarios con Azure Storage.
 - **Cuentas de uso general v1**: tipo de cuenta heredada para blobs, archivos, colas y tablas. Cuando sea posible, utilice en su lugar las cuentas de uso general v2.
-- **Cuentas BlockBlobStorage**: Cuentas de almacenamiento con características de rendimiento Premium para blobs en bloques y en anexos. Recomendado para escenarios con altas tasas de transacciones, que utilizan objetos más pequeños o que requieren una latencia de almacenamiento constantemente baja.
-- **Cuentas FileStorage**: Cuentas de almacenamiento solo para archivos con características de rendimiento superiores. Se recomienda para empresas y aplicaciones de escalado de alto rendimiento.
+- **Cuentas BlockBlobStorage**: cuentas de almacenamiento con características de rendimiento prémium para blobs en bloques y en anexos. Se recomiendan para escenarios con altas tasas de transacciones, que utilizan objetos más pequeños o que requieren una latencia de almacenamiento constantemente baja.
+- **Cuentas FileStorage**: cuentas de almacenamiento solo para archivos con características de rendimiento superiores. Se recomienda para empresas y aplicaciones de escalado de alto rendimiento.
 - **Cuentas BlobStorage**: cuentas de almacenamiento de solo blobs heredadas. Cuando sea posible, utilice en su lugar las cuentas de uso general v2.
 
 En la siguiente tabla se describen los tipos de cuentas de almacenamiento y sus capacidades:
