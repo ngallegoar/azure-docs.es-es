@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/21/2020
+ms.date: 03/25/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5df7eedcd92d338d3f741f7092ff6ef73f3442d
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 02ec8dace971cd4dc1407c9e8d20839504c9ecc3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77585890"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80331836"
 ---
 # <a name="conditional-access-grant"></a>Acceso condicional: Conceder
 
@@ -35,7 +35,7 @@ El bloqueo es un control eficaz y se debe manejar con el conocimiento adecuado. 
 Los administradores pueden optar por aplicar uno o varios controles al conceder acceso. Entre estos controles se incluyen las siguientes opciones: 
 
 - [Requerir la autenticación multifactor (Azure Multi-Factor Authentication)](../authentication/concept-mfa-howitworks.md)
-- [Requerir que el dispositivo esté marcado como compatible (Microsoft Intune)](https://docs.microsoft.com/intune/protect/device-compliance-get-started)
+- [Requerir que el dispositivo esté marcado como compatible (Microsoft Intune)](/intune/protect/device-compliance-get-started)
 - [Requerir un dispositivo unido a Azure AD híbrido](../devices/concept-azure-ad-join-hybrid.md)
 - [Requerir aplicación cliente aprobada](app-based-conditional-access.md)
 - [Requerir la directiva de protección de aplicaciones](app-protection-based-conditional-access.md)
@@ -53,9 +53,9 @@ Al seleccionar esta casilla, los usuarios deberán ejecutar Azure Multi-Factor A
 
 ### <a name="require-device-to-be-marked-as-compliant"></a>Requerir que el dispositivo esté marcado como compatible
 
-Las organizaciones que han implementado Microsoft Intune pueden usar la información que devuelven sus dispositivos para identificar aquellos que satisfacen los requisitos de cumplimiento específicos. Esta información del cumplimiento de las directivas se reenvía de Intune a Azure AD donde se pueden tomar decisiones de acceso condicional para conceder o bloquear el acceso a los recursos. Para más información sobre las directivas de cumplimiento, consulte el artículo [Establecimiento de reglas en los dispositivos para permitir el acceso a recursos de su organización con Intune](https://docs.microsoft.com/intune/protect/device-compliance-get-started).
+Las organizaciones que han implementado Microsoft Intune pueden usar la información que devuelven sus dispositivos para identificar aquellos que satisfacen los requisitos de cumplimiento específicos. Esta información del cumplimiento de las directivas se reenvía de Intune a Azure AD donde se pueden tomar decisiones de acceso condicional para conceder o bloquear el acceso a los recursos. Para más información sobre las directivas de cumplimiento, consulte el artículo [Establecimiento de reglas en los dispositivos para permitir el acceso a recursos de su organización con Intune](/intune/protect/device-compliance-get-started).
 
-Un dispositivo se puede marcar como compatible con Intune (para cualquier sistema operativo del dispositivo) o por el sistema MDM de terceros para dispositivos Windows 10. No se pueden utilizar sistemas MDM de terceros con otros sistemas operativos que no sean Windows 10.
+Un dispositivo se puede marcar como compatible con Intune (para cualquier sistema operativo del dispositivo) o por el sistema MDM de terceros para dispositivos Windows 10. Jamf Pro es el único sistema MDM de terceros compatible. Puede encontrar más información sobre la integración en el artículo [Integración de Jamf Pro con Intune para cumplimiento](/intune/protect/conditional-access-integrate-jamf).
 
 Los dispositivos deben estar registrados en Azure AD para poder marcarlos como compatibles. Puede encontrar más información sobre el registro del dispositivo en el artículo [¿Qué es una identidad de dispositivo?](../devices/overview.md)
 
@@ -67,7 +67,9 @@ Las organizaciones pueden optar por usar la identidad del dispositivo como parte
 
 Las organizaciones pueden requerir que los intentos de acceso a las aplicaciones en la nube seleccionadas se tengan que realizar desde una aplicación cliente aprobada. Estas aplicaciones cliente aprobadas son compatibles con las [directivas de protección de aplicaciones de Intune](/intune/app-protection-policy) independientemente de cualquier otra solución de administración de dispositivos móviles (MDM).
 
-Esta configuración se aplica a las aplicaciones cliente siguientes:
+Con el fin de aprovechar este control de concesión, el acceso condicional requiere que el dispositivo esté registrado en Azure Active Directory, lo que requiere el uso de una aplicación de agente. La aplicación de agente puede ser Microsoft Authenticator para iOS o el portal de empresa de Microsoft para dispositivos Android. Si no hay ninguna aplicación de agente instalada en el dispositivo cuando el usuario intenta autenticarse, será redirigido a la tienda de aplicaciones para que instale la aplicación de agente.
+
+Esta configuración se aplica a las siguientes aplicaciones de iOS y Android:
 
 - Microsoft Azure Information Protection
 - Microsoft Bookings
@@ -80,6 +82,8 @@ Esta configuración se aplica a las aplicaciones cliente siguientes:
 - Microsoft Invoicing
 - Microsoft Kaizala
 - Microsoft Launcher
+- Microsoft Office
+- Microsoft Office Hub
 - Microsoft OneDrive
 - Microsoft OneNote
 - Microsoft Outlook
@@ -96,17 +100,23 @@ Esta configuración se aplica a las aplicaciones cliente siguientes:
 - Microsoft Visio
 - Microsoft Word
 - Microsoft Yammer
+- Microsoft Whiteboard
 
 **Comentarios:**
 
 - Las aplicaciones cliente aprobadas admiten la característica de administración de aplicaciones móviles de Intune.
 - Requisito de la opción **Solicitar aplicación cliente aprobada**:
    - Solo admite iOS y Android como condición de plataformas de dispositivo.
+   - Se requiere una aplicación de agente para registrar el dispositivo. En iOS, la aplicación de agente es Microsoft Authenticator y, en Android, es la aplicación Portal de empresa de Intune.
 - El acceso condicional no puede considerar Microsoft Edge en modo InPrivate como aplicación cliente aprobada.
+
+Consulte el artículo [Uso obligatorio de aplicaciones cliente aprobadas para el acceso a aplicaciones en la nube mediante el acceso condicional](app-based-conditional-access.md) para obtener ejemplos de configuración.
 
 ### <a name="require-app-protection-policy"></a>Requerir la directiva de protección de aplicaciones
 
 En la directiva de acceso condicional, puede requerir que una [directiva de protección de aplicaciones de Intune](/intune/app-protection-policy) esté presente en la aplicación cliente antes de que el acceso esté disponible para las aplicaciones en la nube seleccionadas. 
+
+Con el fin de aprovechar este control de concesión, el acceso condicional requiere que el dispositivo esté registrado en Azure Active Directory, lo que requiere el uso de una aplicación de agente. La aplicación de agente puede ser Microsoft Authenticator para iOS o el portal de empresa de Microsoft para dispositivos Android. Si no hay ninguna aplicación de agente instalada en el dispositivo cuando el usuario intenta autenticarse, será redirigido a la tienda de aplicaciones para que instale la aplicación de agente.
 
 Esta configuración se aplica a las aplicaciones cliente siguientes:
 
@@ -120,6 +130,9 @@ Esta configuración se aplica a las aplicaciones cliente siguientes:
 - Las aplicaciones para la directiva de protección de aplicaciones admiten la característica de administración de aplicaciones móviles de Intune con la protección de la directiva.
 - Requisitos para la **Exigencia de la directiva de protección de aplicaciones**:
     - Solo admite iOS y Android como condición de plataformas de dispositivo.
+    - Se requiere una aplicación de agente para registrar el dispositivo. En iOS, la aplicación de agente es Microsoft Authenticator y, en Android, es la aplicación Portal de empresa de Intune.
+
+Consulte el artículo [Uso obligatorio de directivas de protección de aplicaciones y una aplicación cliente aprobada para el acceso a aplicaciones en la nube con acceso condicional](app-protection-based-conditional-access.md) para obtener ejemplos de configuración.
 
 ### <a name="terms-of-use"></a>Términos de uso
 

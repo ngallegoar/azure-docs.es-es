@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: efb6cd1a45ac14dcbd5b2b6d8e70f5ee096ddbd8
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 5a9917010b7301bf70c3bebf68c35d82f4839e0f
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587284"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80409059"
 ---
 # <a name="hyperscale-service-tier"></a>Nivel de servicio Hiperescala
 
@@ -162,7 +162,7 @@ Si necesita restaurar una base de datos Hiperescala de Azure SQL Database en una
 > [!NOTE]
 > Dado que el origen y el destino están en regiones distintas, la base de datos no puede compartir el almacenamiento de instantáneas con la base de datos de origen como en las restauraciones no geográficas, que se completan muy rápidamente. En el caso de una restauración geográfica de una base de datos Hiperescala, será una operación de tamaño de datos, incluso si el destino está en la región emparejada del almacenamiento con replicación geográfica.  Esto significa que la duración de una restauración geográfica será proporcional al tamaño de la base de datos que se está restaurando.  Si el destino se encuentra en la región emparejada, la copia estará dentro de una región, lo que será mucho más rápido que una copia entre regiones, pero aun así será una operación del tamaño de los datos.
 
-## <a name=regions></a>Regiones disponibles
+## <a name="available-regions"></a><a name=regions></a>Regiones disponibles
 
 El nivel Hiperescala de Azure SQL Database está disponible actualmente en las regiones siguientes:
 
@@ -205,8 +205,7 @@ Estas son las limitaciones actuales para el nivel de servicio Hiperescala en dis
 | Problema | Descripción |
 | :---- | :--------- |
 | El panel Administrar copias de seguridad para un servidor lógico no muestra las bases de datos Hiperescala que se van a filtrar desde SQL Server  | Hiperescala tiene un método independiente para administrar las copias de seguridad y, por tanto, la configuración de la retención de copias de seguridad correspondiente a la retención a largo plazo y a un momento dado no se aplican o se invalidan. En consecuencia, las bases de datos de Hiperescala no aparecen en el panel Administración de copias de seguridad. |
-| Restauración a un momento dado | Una vez que se migra una base de datos al nivel de servicio Hiperescala, no se puede restaurar a un momento dado anterior a la migración.|
-| Restauración de una base de datos que no sea Hiperescala en una base de datos Hiperescala y viceversa | No se puede restaurar una base de datos Hiperescala en una base de datos que no sea Hiperescala, ni se puede restaurar una base de datos que no sea Hiperescala en una base de datos Hiperescala.|
+| Restauración a un momento dado | Puede restaurar una base de datos de hiperescala en una base de datos que no sea de hiperescala dentro del período de retención de bases de datos que no son de hiperescala. No se puede restaurar una base de datos que no sea de hiperescala en una base de datos de hiperescala.|
 | Si una base de datos tiene uno o más archivos de datos de más de 1 TB, se produce un error en la migración | En algunos casos, es posible que se pueda solucionar este problema si se reducen los archivos de gran tamaño para que tengan menos de 1 TB. Si va a migrar una base de datos que se utiliza durante el proceso de migración, asegúrese de que ningún archivo tenga un tamaño superior a 1 TB. Utilice la siguiente consulta para determinar el tamaño de los archivos de base de datos. `SELECT *, name AS file_name, size * 8. / 1024 / 1024 AS file_size_GB FROM sys.database_files WHERE type_desc = 'ROWS'`;|
 | de SQL DB | Instancia administrada de Azure SQL Database no es compatible actualmente con las bases de datos Hiperescala. |
 | Grupos elásticos |  Los grupos elásticos no admiten actualmente con SQL Database Hiperescala.|

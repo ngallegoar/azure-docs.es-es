@@ -6,13 +6,13 @@ ms.subservice: update-management
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 02/27/2020
-ms.openlocfilehash: a8b382663b56d7481da876979e33194fb0ac533d
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.date: 03/30/2020
+ms.openlocfilehash: e69f3d7350d0da9f364983eae0935532b576bd76
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77921755"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411469"
 ---
 # <a name="onboard-update-management-solution-using-azure-resource-manager-template"></a>Incorporación de la solución Update Management con una plantilla de Azure Resource Manager
 
@@ -56,6 +56,7 @@ Los siguientes parámetros de la plantilla se configuran con un valor predetermi
 
 * SKU: el valor predeterminado es el nuevo plan de tarifa por GB publicado en el modelo de precios de abril de 2018
 * Retención de datos: el valor predeterminado es de 30 días
+* Reserva de capacidad: el valor predeterminado es de 100 GB.
 
 >[!WARNING]
 >Si se crea o configura un área de trabajo de Log Analytics en una suscripción que ha elegido el nuevo modelo de precios de abril de 2018, el único plan de tarifa válido de Log Analytics es **PerGB2018**.
@@ -79,7 +80,7 @@ Los siguientes parámetros de la plantilla se configuran con un valor predetermi
                 "description": "Workspace name"
             }
         },
-        "pricingTier": {
+        "sku": {
             "type": "string",
             "allowedValues": [
                 "pergb2018",
@@ -168,7 +169,8 @@ Los siguientes parámetros de la plantilla se configuran con un valor predetermi
             "apiVersion": "2017-03-15-preview",
             "location": "[parameters('location')]",
             "properties": {
-                "sku": { 
+                "sku": {
+                    "Name": "[parameters('sku')]",
                     "name": "CapacityReservation",
                     "capacityReservationLevel": 100
                 },
@@ -231,7 +233,7 @@ Los siguientes parámetros de la plantilla se configuran con un valor predetermi
     }
     ```
 
-2. Edite la plantilla para adecuarla a sus requisitos.
+2. Edite la plantilla para adecuarla a sus requisitos. Plantéese la posibilidad de crear un [archivo de parámetros de Resource Manager](../azure-resource-manager/templates/parameter-files.md) en lugar de pasar los parámetros como valores insertados.
 
 3. Guarde este archivo como deployUMSolutiontemplate.json en una carpeta local.
 

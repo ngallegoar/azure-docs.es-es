@@ -1,23 +1,23 @@
 ---
 title: Conexión a un servicio Web Feature Service (WFS) | Microsoft Azure Maps
 description: Obtenga información sobre cómo conectarse a un servicio WFS y consultar después el servicio WFS con el SDK web de Azure Maps y el módulo de E/S espacial.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 03/03/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 18ac583837c7cb8b2dabbfa6f7d7210c8afe3fcb
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.openlocfilehash: 8b511395eb61e8845aaa11e5ca7a490dc461424d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78402757"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80334198"
 ---
 # <a name="connect-to-a-wfs-service"></a>Conexión a un servicio WFS
 
-Web Feature Service (WFS) es un servicio web para la consulta de datos espaciales que tiene una API estandarizada, que se ha definido en Open Geospatial Consortium (OGC). La clase `WfsClient` del módulo de E/S espacial permite a los desarrolladores conectarse a un servicio WFS y consultar los datos del servicio.
+Web Feature Service (WFS) es un servicio web para consultar datos espaciales que tiene una API estandarizada definida por Open Geospatial Consortium (OGC). La clase `WfsClient` del módulo de E/S espacial permite a los desarrolladores conectarse a un servicio WFS y consultar los datos del servicio.
 
 La clase `WfsClient` admite las características siguientes:
 
@@ -94,32 +94,14 @@ En el código siguiente se usa el cliente de WFS para explorar los servicios WFS
 <iframe height='700' style='width: 100%;' scrolling='no' title= 'Explorador de servicios WFS' src='//codepen.io/azuremaps/embed/bGdrvmG/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vea el lápiz <a href='https://codepen.io/azuremaps/pen/bGdrvmG/'>Explorador de servicios WFS</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-También puede usar un servicio de proxy para cargar los recursos que se hospedan en los dominios que no están habilitados para CORs. En primer lugar, debe definir una variable que contenga la dirección URL del servicio proxy y establecer la opción `proxyService` para el cliente de WFS. Para representar una opción de servicio de proxy para el usuario, agregue una entrada de usuario a la interfaz de usuario. Cargue la dirección URL del servicio cuando se haga clic en la entrada. Los fragmentos de código siguientes muestran cómo usar el servicio de proxy.
+Para acceder a los servicios de WFS hospedados en puntos de conexión habilitados sin CORS, se puede pasar un servicio de proxy habilitado con CORS a la opción `proxyService` del cliente de WFS, como se muestra a continuación. 
 
 ```JavaScript
-
-//A variable to hold the URL of the proxy service
-var proxyServiceUrl = window.location.origin + 'CorsEnabledProxyService.ashx?url=';
-
 //Create the WFS client to access the service and use the proxy service settings
 client = new atlas.io.ogc.WfsClient({
     url: url,
-    proxyService: (document.getElementById('useProxyService').checked) ? proxyServiceUrl : null
+    proxyService: window.location.origin + '/YourCorsEnabledProxyService.ashx?url='
 });
-
-function proxyOptionChanged() {
-    if (currentServiceUrl) {
-        loadClient(currentServiceUrl);
-    }
-}
-
-```
-
-El siguiente fragmento de código HTML corresponde al código JavaScript anterior:
-
-```html
-<!-- use the proxy service -->
-<input id="useProxyService" type="checkbox" onclick="proxyOptionChanged()"/>
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

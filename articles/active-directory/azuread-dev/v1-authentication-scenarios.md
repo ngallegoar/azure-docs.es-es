@@ -5,24 +5,21 @@ services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
 manager: CelesteDG
-editor: ''
-ms.assetid: 0c84e7d0-16aa-4897-82f2-f53c6c990fd9
 ms.service: active-directory
 ms.subservice: azuread-dev
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/14/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 07bdc8af5a3bc82f0fc5aad52648a9524a2dc87f
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ROBOTS: NOINDEX
+ms.openlocfilehash: 36b39f3706db615e40ebfadebf36be4d8b29c33e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77163401"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154736"
 ---
 # <a name="what-is-authentication"></a>¿Qué es la autenticación?
 

@@ -8,18 +8,18 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: 10e6ed556abe8f8c438e5436fbb93c1b70b85d2b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 579767a0d535605a2316c35bd413a75474b5a3de
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445158"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80409996"
 ---
 # <a name="how-to-globally-distribute-reads-using-azure-cosmos-dbs-api-for-mongodb"></a>Cómo distribuir las lecturas globalmente con la API de Azure Cosmos DB para MongoDB
 
 En este artículo se muestra cómo distribuir globalmente las operaciones de lectura usando la configuración de las [preferencias de lectura de MongoDB](https://docs.mongodb.com/manual/core/read-preference/) con la API de Azure Cosmos DB para MongoDB.
 
-## <a name="prerequisites"></a>Prerequisites 
+## <a name="prerequisites"></a>Prerrequisitos 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar. 
 [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
@@ -86,7 +86,7 @@ Consulte la documentación detallada sobre el [comportamiento de las preferencia
 Basándose en los escenarios más comunes, se recomienda usar las siguientes opciones:
 
 1. Si son necesarias **lecturas de baja latencia**, use el modo de preferencias de lectura **NEAREST**. Esta opción dirige las operaciones de lectura a la región más cercana disponible. Tenga en cuenta que si la región más cercana es la región de escritura, estas operaciones se dirigen a dicha región.
-2. Si son necesarias **alta disponibilidad y distribución geográfica de las lecturas** (la latencia no es una restricción), use el modo de preferencias de lectura **SECONDARY PREFERRED**. Esta opción dirige las operaciones de lectura a una región de lectura disponible. Si ninguna región de lectura está disponible, las solicitudes se dirigen a la región de escritura.
+2. Si necesita **alta disponibilidad y distribución geográfica de las lecturas** (la latencia no es una restricción), use el modo de preferencias de lectura **PRIMARY PREFERRED** o **SECONDARY PREFERRED**. Esta opción dirige las operaciones de lectura a una región de escritura o lectura disponible, respectivamente. Si la región no está disponible, las solicitudes se dirigen a la siguiente región disponible según el comportamiento de las preferencias de lectura.
 
 El siguiente fragmento de código de la aplicación de ejemplo muestra cómo configurar el modo de preferencias de lectura NEAREST en NodeJS:
 

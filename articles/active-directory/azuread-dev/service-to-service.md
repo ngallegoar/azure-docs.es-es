@@ -2,26 +2,23 @@
 title: Aplicaciones servicio a servicio en Azure Active Directory
 description: Se describe qué son las aplicaciones de servicio a servicio y los conceptos básicos sobre el flujo de protocolos, el registro y la expiración de tokens en este tipo de aplicación.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: azuread-dev
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: ryanwi
-ms.reviewer: saeeda, jmprieur, andret
+ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: ff27ada23e45f2bbbb09e47af9458c1f83af277a
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ROBOTS: NOINDEX
+ms.openlocfilehash: 179034533d90dbbb6ca362fc6f72996f32873729
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77163425"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154770"
 ---
 # <a name="service-to-service-apps"></a>Aplicaciones de se servicio a servicio
 
@@ -45,16 +42,16 @@ Las aplicaciones de servicio a servicio pueden ser una aplicación de demonio o 
 
 ### <a name="application-identity-with-oauth-20-client-credentials-grant"></a>Identidad de aplicación con concesión de credenciales de cliente OAuth 2.0
 
-1. En primer lugar, la aplicación de servidor necesita autenticarse con Azure AD por sí misma, sin ninguna interacción como, por ejemplo, un cuadro de diálogo de inicio de sesión interactivo. Esta realiza una solicitud al punto de conexión de token de Azure AD y proporciona las credenciales, el identificador de la aplicación y el identificador URI del identificador de la aplicación.
+1. En primer lugar, la aplicación de servidor necesita autenticarse con Azure AD por sí misma, sin ninguna interacción como, por ejemplo, un cuadro de diálogo de inicio de sesión interactivo. Esta realiza una solicitud al punto de conexión de token de Azure AD y proporciona las credenciales, el identificador de la aplicación y el identificador URI del identificador de la aplicación.
 1. Azure AD autentica la aplicación y devuelve un token de acceso de JWT que se usa para llamar a la API web.
-1. A través de HTTPS, la aplicación web usa el token de acceso de JWT devuelto para agregar la cadena JWT con una designación “Bearer” en el encabezado Authorization de la solicitud a la API web. A continuación, la API web valida el token de JWT y, si la validación es correcta, devuelve el recurso deseado.
+1. A través de HTTPS, la aplicación web usa el token de acceso de JWT devuelto para agregar la cadena JWT con una designación Bearer en el encabezado Authorization de la solicitud a la API web. A continuación, la API web valida el token de JWT y, si la validación es correcta, devuelve el recurso deseado.
 
 ### <a name="delegated-user-identity-with-oauth-20-on-behalf-of-draft-specification"></a>Identidad de usuario delegado con la especificación provisional "On-Behalf-Of" de OAuth 2.0
 
 En el flujo descrito a continuación se asume que un usuario se ha autenticado en otra aplicación (por ejemplo, una aplicación nativa) y se ha usado su identidad de usuario para adquirir un token de acceso para la API web de primer nivel.
 
 1. La aplicación nativa envía el token de acceso a la API web de primer nivel.
-1. La API web de primer nivel envía una solicitud al punto de conexión de token de Azure AD y proporciona el identificador de la aplicación y las credenciales, así como el token de acceso del usuario. Además, la solicitud se envía con un parámetro on_behalf_of que indica que la API web solicita nuevos tokens para llamar a una API web de nivel inferior en nombre del usuario original.
+1. La API web de primer nivel envía una solicitud al punto de conexión de token de Azure AD y proporciona el identificador de la aplicación y las credenciales, así como el token de acceso del usuario. Además, la solicitud se envía con un parámetro on_behalf_of que indica que la API web solicita nuevos tokens para llamar a una API web de nivel inferior en nombre del usuario original.
 1. Azure AD comprueba que la API web de primer nivel tiene permisos de acceso a la API web de segundo nivel, valida la solicitud y devuelve un token de acceso de JWT y un token de actualización de JWT a la API web de primer nivel.
 1. La API web de primer nivel llama después a la API web de segundo nivel a través de HTTPS. Para ello, anexa la cadena de token en el encabezado Authorization de la solicitud. La API web de primer nivel puede seguir llamando a la API web de segundo nivel siempre que el token de acceso y los tokens de actualización sean válidos.
 

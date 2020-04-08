@@ -2,20 +2,20 @@
 title: Registros sin procesar de HTTP de Azure CDN
 description: En este artículo se describen los registros sin procesar de HTTP de Azure CDN.
 services: cdn
-author: asudbring
-manager: KumudD
+author: sohamnchatterjee
+manager: danielgi
 ms.service: azure-cdn
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/10/2020
-ms.author: allensu
-ms.openlocfilehash: 79ced4df8df12bf2ef1fbe0075b53d02fafb2aff
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.date: 03/23/2020
+ms.author: sohamnc
+ms.openlocfilehash: c6e8570746ae3dd0051dbec084c89d90580d28b1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79129839"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80371628"
 ---
 # <a name="azure-cdn-http-raw-logs"></a>Registros sin procesar de HTTP de Azure CDN
 Los registros sin procesar proporcionan información valiosa acerca de las operaciones y los errores que son importantes para la auditoría, así como para solucionar problemas. Los registros sin procesar son diferentes de los registros de actividad. Los registros de actividad proporcionan visibilidad sobre las operaciones llevadas a cabo en los recursos de Azure. Los registros sin procesar proporcionan un registro de las operaciones del recurso.
@@ -62,7 +62,7 @@ Para configurar los registros sin procesar para Azure CDN desde el perfil de Mi
 
 ## <a name="raw-logs-properties"></a>Propiedades de los registros sin procesar
 
-En la actualidad, Azure CDN del servicio de Microsoft proporciona los registros sin procesar (por lotes cada hora). Los registros sin procesar proporcionan las solicitudes de API individuales con el siguiente esquema para cada entrada: 
+En la actualidad, Azure CDN del servicio de Microsoft proporciona los registros sin procesar. Los registros sin procesar proporcionan las solicitudes de API individuales con el siguiente esquema para cada entrada: 
 
 | Propiedad              | Descripción                                                                                                                                                                                          |
 |-----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -83,6 +83,11 @@ En la actualidad, Azure CDN del servicio de Microsoft proporciona los registros
 | HttpStatusDetails     | Estado resultante en la solicitud. El significado de este valor de cadena puede encontrarse en una tabla de referencia de estado.                                                                                              |
 | PoP                   | El servidor PoP perimetral, que respondió a la solicitud del usuario. Las abreviaturas de los PoP son los códigos de aeropuerto de sus correspondientes áreas metropolitanas.                                                                                   |
 | Estado de la caché          | Indica si el objeto se devolvió desde la memoria caché o procede del origen.                                                                                                             |
+> [!IMPORTANT]
+> La característica de registros sin formato HTTP está disponible automáticamente para los perfiles creados o actualizados después del **25 de febrero de 2020**. En el caso de los perfiles de CDN creados anteriormente, debe actualizar el punto de conexión de CDN después de configurar el registro. Por ejemplo, puede navegar al filtrado geográfico en puntos de conexión de CDN y bloquear cualquier país o región que no sea relevante para su carga de trabajo y pulsar Guardar. 
+
+> [!NOTE]
+> Para ver los registros en el perfil de Log Analytics, ejecute una consulta. Una consulta de ejemplo tendría este aspecto:              AzureDiagnostics | where Category == "AzureCdnAccessLog"
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo, ha habilitado los registros sin procesar de HTTP para el servicio CDN de Microsoft.

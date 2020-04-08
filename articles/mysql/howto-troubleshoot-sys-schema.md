@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: troubleshooting
-ms.date: 12/02/2019
-ms.openlocfilehash: 50552b87fad9d8f58ff8c48dc03463d4c901bf99
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/30/2020
+ms.openlocfilehash: 59b8753007c3b9130c397dda30c571580cbb5326
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74775952"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411093"
 ---
 # <a name="how-to-use-sys_schema-for-performance-tuning-and-database-maintenance-in-azure-database-for-mysql"></a>Uso de sys_schema para operaciones de optimización del rendimiento y mantenimiento de bases de datos en Azure Database for MySQL
 
@@ -60,6 +60,9 @@ En este ejemplo Azure Database for MySQL empleó 53 minutos en vaciar el registr
 ## <a name="database-maintenance"></a>Mantenimiento de base de datos
 
 ### <a name="sysinnodb_buffer_stats_by_table"></a>*sys.innodb_buffer_stats_by_table*
+
+[!IMPORTANT]
+> La consulta de esta vista puede afectar al rendimiento. Se recomienda llevar a cabo esta solución de problemas durante el horario comercial fuera de horas punta.
 
 El grupo de búferes InnoDB reside en la memoria y es el principal mecanismo de memoria caché entre el sistema de administración de bases de datos y el almacenamiento. El tamaño del grupo de búferes InnoDB está vinculado al nivel de rendimiento y no se puede cambiar a menos que se elija una SKU de producto diferente. Al igual que con la memoria del sistema operativo, se intercambiaron páginas antiguas para dejar espacio a los datos más recientes. Para averiguar qué tablas consumen la mayor parte de la memoria del grupo de búferes InnoDB, puede consultar la vista *sys.innodb_buffer_stats_by_table*.
 

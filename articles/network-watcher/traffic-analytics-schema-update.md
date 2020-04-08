@@ -13,23 +13,24 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/06/2020
 ms.author: vinigam
-ms.openlocfilehash: 0e9d37e3a89473e59b94168f8f8c80e7a6621107
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: 4fe981576e3f6e58b0886d9c0d2eb2915d8b7720
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78969061"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396623"
 ---
-# <a name="sample-queries-with-new-fields-in-traffic-analytics-schema-august-2019-schema-update"></a>Consultas de ejemplo con nuevos campos en el esquema de Análisis de tráfico (actualización del esquema de agosto de 2019)
+# <a name="sample-queries-with-new-fields-in-the-traffic-analytics-schema-august-2019-schema-update"></a>Consultas de ejemplo con nuevos campos en el esquema de Análisis de tráfico (actualización del esquema de agosto de 2019)
 
-El [esquema de registro de Análisis de tráfico](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema) se ha actualizado para incluir los siguientes campos nuevos: **SrcPublicIPs_s**, **DestPublicIPs_s**, **NSGRule_s**. En los próximos meses, los siguientes campos más antiguos van a quedar en desuso: **VMIP_s**, **Subscription_g**, **Region_s**, **NSGRules_s**, **Subnet_s**, **VM_s**, **NIC_s**, **PublicIPs_s**, **FlowCount_d**.
-Los nuevos campos proporcionan información sobre las direcciones IP de origen y de destino y simplifican las consultas.
+El [esquema de registro del Análisis de tráfico](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema) incluye estos campos nuevos: **SrcPublicIPs_s**, **DestPublicIPs_s**, **NSGRule_s**. Los nuevos campos proporcionan información sobre las direcciones IP de origen y de destino y simplifican las consultas.
 
-A continuación hay tres ejemplos en los que se muestra cómo reemplazar los campos anteriores por los nuevos.
+En los próximos meses, los siguientes campos más antiguos van a quedar en desuso: **VMIP_s**, **Subscription_g**, **Region_s**, **NSGRules_s**, **Subnet_s**, **VM_s**, **NIC_s**, **PublicIPs_s**, **FlowCount_d**.
 
-## <a name="example-1---vmip_s-subscription_g-region_s-subnet_s-vm_s-nic_s-publicips_s"></a>Ejemplo 1: VMIP_s, Subscription_g, Region_s, Subnet_s, VM_s, NIC_s, PublicIPs_s
+En los tres ejemplos siguientes se muestra cómo reemplazar los campos anteriores por los nuevos.
 
-No es necesario inferir los casos de origen y de destino de los flujos públicos externos y de Azure a partir del campo FlowDirection_s de los flujos AzurePublic y ExternalPublic específicamente. En el caso de una NVA (aplicación virtual de red), el campo FlowDirection_s además puede no ser adecuado para usarse.
+## <a name="example-1-vmip_s-subscription_g-region_s-subnet_s-vm_s-nic_s-and-publicips_s-fields"></a>Ejemplo 1: campos VMIP_s, Subscription_g, Region_s, Subnet_s, VM_s, NIC_s y PublicIPs_s
+
+No es necesario inferir los casos de origen y destino del campo **FlowDirection_s** para los flujos AzurePublic y ExternalPublic. También puede resultar inadecuado usar el campo **FlowDirection_s** para una aplicación virtual de red.
 
 ```Old Kusto query
 AzureNetworkAnalytics_CL
@@ -71,12 +72,13 @@ SourcePublicIPsAggregated = iif(isnotempty(SrcPublicIPs_s), SrcPublicIPs_s, "N/A
 DestPublicIPsAggregated = iif(isnotempty(DestPublicIPs_s), DestPublicIPs_s, "N/A")
 ```
 
+## <a name="example-2-nsgrules_s-field"></a>Ejemplo 2: Campo NSGRules_s
 
-## <a name="example-2---nsgrules_s"></a>Ejemplo 2: NSGRules_s
+El campo anterior usaba el formato:
 
-El campo anterior tenía el formato: <Index value 0)>|<NSG_RULENAME>|<Flow Direction>|<Flow Status>|<FlowCount ProcessedByRule>
+<Index value 0)>|<NSG_ RuleName>|<Flow Direction>|<Flow Status>|<FlowCount ProcessedByRule>
 
-Anteriormente se solían agregar datos en NSG y NSGRules. Ahora no se agregan. Por lo tanto, NSGList_s solo contiene un NSG y NSGRules_s además se usa para incluir únicamente una regla. Por lo tanto, aquí se ha quitado el formato complicado y lo mismo ocurre en otros campos, como se menciona a continuación:
+Ya no se agregan datos a través de un grupo de seguridad de red (NSG). En el esquema actualizado, **NSGList_s** contiene solo un NSG. Además, **NSGRules** solo contiene una regla. Hemos quitado el formato complicado aquí y en otros campos, tal y como se muestra en el ejemplo.
 
 ```Old Kusto query
 AzureNetworkAnalytics_CL
@@ -101,16 +103,24 @@ FlowStatus = FlowStatus_s,
 FlowCountProcessedByRule = AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_d + DeniedOutFlows_d
 ```
 
-## <a name="example-3---flowcount_d"></a>Ejemplo 3: FlowCount_d
+## <a name="example-3-flowcount_d-field"></a>Ejemplo 3: Campo FlowCount_d
 
-Dado que no se agrupan datos en NSG, FlowCount_d es simplemente AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_d + DeniedOutFlows_d.
-Solo uno de los cuatro anteriores es distinto de cero y los tres restantes son cero. Además indicaría el estado y el recuento en la NIC donde se ha capturado el flujo.
+Dado que no agrupamos los datos en el NSG, el campo **FlowCount_d** es, simplemente:
 
-Si se ha permitido el flujo, se rellena uno de los campos con el prefijo "Allowed". De lo contrario, se rellenan los campos con el prefijo "Denied".
-Si el flujo es entrante, se rellena uno de los campos con el sufijo "\_d", como "InFlows_d". De lo contrario, se rellena "OutFlows_d".
+**AllowedInFlows_d** + **DeniedInFlows_d** + **AllowedOutFlows_d** + **DeniedOutFlows_d**
 
-En función de las dos condiciones anteriores, se sabe cuál de los cuatro se va a rellenar.
+Solo uno de los cuatro campos será distinto de cero. Los otros tres campos tendrán un valor de cero. Estos campos se completan para indicar el estado y el recuento en la NIC donde se ha capturado el flujo.
 
+Para ilustrar estas condiciones:
+
+- Si se ha permitido el flujo, se rellena uno de los campos con el prefijo "Allowed".
+- Si se ha denegado el flujo, se rellena uno de los campos con el prefijo "Denied".
+- Si el flujo era de entrada, se rellena uno de los campos con el sufijo "InFlows_d".
+- Si el flujo era de salida, se rellena uno de los campos con el sufijo "OutFlows_d".
+
+En función de las condiciones, sabemos cuál de los cuatro campos se rellenará.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener respuestas a las preguntas más frecuentes, consulte [Preguntas más frecuentes sobre Análisis de tráfico](traffic-analytics-faq.md). Para ver detalles sobre la funcionalidad, consulte la [documentación de Análisis de tráfico](traffic-analytics.md)
+
+- Para obtener respuestas a las preguntas más frecuentes, consulte [Preguntas más frecuentes de Análisis de tráfico](traffic-analytics-faq.md).
+- Para ver detalles acerca de la funcionalidad, consulte la [documentación de Análisis de tráfico](traffic-analytics.md).

@@ -1,23 +1,23 @@
 ---
 title: Detalles de los formatos de datos admitidos | Microsoft Azure Maps
 description: Obtenga información sobre cómo se analizan los datos espaciales delimitados en el módulo de E/S espacial.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 03/03/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: fff801731c3c3a94b4039a8c65ad8ccaab7cc725
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.openlocfilehash: 3353620f1751e939a04543115fe704555fb3bc21
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78402745"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80334091"
 ---
 # <a name="supported-data-format-details"></a>Detalles de formatos de datos admitidos
 
-En este artículo se proporcionan detalles sobre la compatibilidad de lectura y escritura para todas las etiquetas XML y los tipos de geometría de texto conocidos. También detalla la forma en que se analizan los datos espaciales delimitados en el módulo de E/S espacial.
+En este artículo se proporcionan detalles sobre la compatibilidad de lectura y escritura para todas las etiquetas XML y los tipos de geometría de Well-Known Text. También detalla cómo se analizan los datos espaciales delimitados en el módulo de E/S espacial.
 
 ## <a name="supported-xml-namespaces"></a>Espacios de nombres XML admitidos
 
@@ -170,7 +170,7 @@ El módulo de E/S espacial admite los siguientes elementos GeoRSS.
 | `georss:where`           | sí     | sí   |                                                                                                |
 | `geourl:latitude`        | sí     | no    | Se escribe como un `georss:point`.                                                                   |
 | `geourl:longitude`       | sí     | no    | Se escribe como un `georss:point`.                                                                   |
-| `position`               | sí     | no    | Algunas fuentes XML ajustan GML con una etiqueta de posición en lugar de encapsularla con una etiqueta georss:where. Leerá esta etiqueta, pero escribirá con una etiqueta georss:where. |
+| `position`               | sí     | no    | Algunas fuentes XML ajustan GML con una etiqueta de posición en lugar de encapsularla con una etiqueta `georss:where`. Leerá esta etiqueta, pero la escribirá con una etiqueta `georss:where`. |
 | `rss`                    | sí     | no    | GeoRSS escrito en formato ATOM.                                                                 |
 | `rss:author`             | sí     | parcialmente | Se escribe como un `atom:author`.                                                                 |
 | `rss:category`           | sí     | parcialmente | Se escribe como un `atom:category`.                                                               |
@@ -304,7 +304,7 @@ Al escribir;
 - Los puntos de Multipoint se dividirán en puntos de trayecto individuales.
 - Polygons y MultiPolygons se escribirán como pistas. 
   
-## <a name="supported-well-known-text-geometry-types"></a>Tipos de geometría de texto conocidos admitidos
+## <a name="supported-well-known-text-geometry-types"></a>Tipos de geometría de texto Well-Known Text
 
 | Tipo Geometry | Lectura | Escritura |
 |--------------|:----:|:-----:|
@@ -343,7 +343,7 @@ Al escribir;
 
 ## <a name="delimited-spatial-data-support"></a>Compatibilidad con datos espaciales delimitados
 
-Los datos espaciales delimitados, como los archivos de valores separados por comas (CSV), suelen tener columnas que contienen datos espaciales. Por ejemplo, puede haber columnas que contengan información de latitud y longitud. En el formato de texto conocido (WKT), puede haber una columna que contenga datos de geometría espacial.
+Los datos espaciales delimitados, como los archivos de valores separados por comas (CSV), suelen tener columnas que contienen datos espaciales. Por ejemplo, puede haber columnas que contengan información de latitud y longitud. En el formato Well-Known Text (WKT) puede haber una columna que contenga datos de geometría espacial.
 
 ### <a name="spatial-data-column-detection"></a>Detección de columnas de datos espaciales
 
@@ -423,7 +423,7 @@ Al examinar la fila de encabezado, toda la información de tipo que se encuentre
 - edm.string
 - varchar
 - text
-- case 'string
+- string
 
 Si no se puede extraer información de tipo del encabezado y la opción de escritura dinámica está habilitada al leer, cada celda se analizará individualmente para determinar qué tipo de datos es el más adecuado para convertirse.
 

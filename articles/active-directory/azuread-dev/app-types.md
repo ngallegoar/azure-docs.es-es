@@ -12,12 +12,13 @@ ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: b91cc5249b386a465ea98b5e81b199323481a733
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ROBOTS: NOINDEX
+ms.openlocfilehash: c290cbf36fd53d5afb5fd805cda896fb6879bb4b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77163709"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154957"
 ---
 # <a name="application-types-in-v10"></a>Tipos de aplicaciones en v1.0
 
@@ -50,7 +51,7 @@ Además, si la aplicación necesita un determinado fragmento o segmento de un es
 
 ### <a name="registering-an-app-that-uses-the-azure-ad-v10-endpoint"></a>Registro de una aplicación que utiliza el punto de conexión v1.0 de Azure AD
 
-Cualquier aplicación que externalice la autenticación a Azure AD debe registrarse en un directorio. Este paso implica informar a Azure AD de la aplicación, incluidos, entre otros, la dirección URL donde se encuentra, la dirección URL a la que se envían las respuestas tras la autenticación y el URI que identifica la aplicación. Esta información es necesaria por algunos motivos importantes:
+Cualquier aplicación que externalice la autenticación a Azure AD debe registrarse en un directorio. Este paso implica informar a Azure AD de la aplicación, incluidos, entre otros, la dirección URL donde se encuentra, la dirección URL a la que se envían las respuestas tras la autenticación y el URI que identifica la aplicación. Esta información es necesaria por algunos motivos importantes:
 
 * Azure AD necesita comunicarse con la aplicación cuando administra el inicio de sesión o intercambia tokens. La información que se pasa entre Azure AD y la aplicación incluye lo siguiente:
   
@@ -71,7 +72,7 @@ El aprovisionamiento se entiende mejor cuando se comprende que existen dos categ
 
 ### <a name="additional-considerations-when-developing-single-tenant-or-multi-tenant-apps"></a>Consideraciones adicionales al desarrollar aplicaciones de un solo inquilino o multiempresa
 
-Cuando se desarrolla una aplicación multiempresa en lugar de una aplicación de un solo inquilino hay que tener en cuenta otros aspectos. Por ejemplo, si pone la aplicación a disposición de usuarios de varios directorios, necesitará un mecanismo para determinar en qué inquilino se encuentran. Una aplicación de un solo inquilino únicamente necesita buscar un usuario en su propio directorio, mientras que una aplicación multiempresa debe identificar un usuario específico en todos los directorios de Azure AD. Para realizar esta tarea, Azure AD proporciona un extremo de autenticación común donde cualquier aplicación multiempresa puede dirigir solicitudes de inicio de sesión, en lugar de un extremo específico del inquilino. Este punto de conexión es https://login.microsoftonline.com/common para todos los directorios en Azure AD, mientras que un punto de conexión específico del inquilino podría ser https://login.microsoftonline.com/contoso.onmicrosoft.com. Es especialmente importante tener en cuenta el extremo común al desarrollar la aplicación porque necesitará toda la lógica necesaria para administrar varios inquilinos durante el inicio y el cierre de sesión y la validación de tokens.
+Cuando se desarrolla una aplicación multiempresa en lugar de una aplicación de un solo inquilino hay que tener en cuenta otros aspectos. Por ejemplo, si pone la aplicación a disposición de usuarios de varios directorios, necesitará un mecanismo para determinar en qué inquilino se encuentran. Una aplicación de un solo inquilino únicamente necesita buscar un usuario en su propio directorio, mientras que una aplicación multiempresa debe identificar un usuario específico en todos los directorios de Azure AD. Para realizar esta tarea, Azure AD proporciona un extremo de autenticación común donde cualquier aplicación multiempresa puede dirigir solicitudes de inicio de sesión, en lugar de un extremo específico del inquilino. Este punto de conexión es `https://login.microsoftonline.com/common` para todos los directorios en Azure AD, mientras que un punto de conexión específico del inquilino podría ser `https://login.microsoftonline.com/contoso.onmicrosoft.com`. Es especialmente importante tener en cuenta el extremo común al desarrollar la aplicación porque necesitará toda la lógica necesaria para administrar varios inquilinos durante el inicio y el cierre de sesión y la validación de tokens.
 
 Si actualmente desarrolla una aplicación de un solo inquilino pero quiere ponerla a disposición de varias organizaciones, puede realizar cambios fácilmente en la aplicación y en su configuración en Azure AD para que pueda aceptar varios inquilinos. Además, Azure AD usa la misma clave de firma para todos los tokens en todos los directorios, tanto si se proporciona autenticación para una aplicación de un solo inquilino como para una aplicación multiempresa de varios inquilinos.
 

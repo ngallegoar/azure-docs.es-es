@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 02/26/2020
+ms.date: 03/24/2020
 ms.author: victorh
-ms.openlocfilehash: 39b7e94747f556b61f661968f7126d122156d9cf
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 4cd2969f9a56c96af2b2c6db216f6829a080260c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77622011"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80371274"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Escalabilidad automática y Application Gateway con redundancia de zona v2 
 
@@ -169,7 +169,7 @@ En la tabla siguiente se comparan las características disponibles con cada SKU.
 |--|--|
 |Certificado de autenticación|No compatible.<br>Para más información, consulte [Introducción a SSL de un extremo a otro con Application Gateway](ssl-overview.md#end-to-end-ssl-with-the-v2-sku).|
 |Combinación de Application Gateway Standard y Standard_v2 en la misma subred|No compatible|
-|Ruta definida por el usuario (UDR) en la subred de Application Gateway|No compatible|
+|Ruta definida por el usuario (UDR) en la subred de Application Gateway|Se admite (escenarios específicos). En versión preliminar.<br> Para obtener más información sobre los escenarios admitidos, consulte [Introducción a la configuración de Application Gateway](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet).|
 |NSG para el intervalo de puertos de entrada| - 65200 a 65535 para la SKU Standard_v2<br>- 65503 a 65534 para la SKU Standard.<br>Para más información, consulte las [preguntas más frecuentes](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
 |Registros de rendimiento en Azure Diagnostics|No compatible.<br>Se deben usar las métricas de Azure.|
 |Facturación|La facturación está programada para que comience el 1 de julio de 2019.|

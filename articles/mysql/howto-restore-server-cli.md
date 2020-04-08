@@ -6,25 +6,23 @@ ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: b2458c42a77ffee6985165252b0ebab836fce457
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/27/2020
+ms.openlocfilehash: a2a9efceed84c4c57d1ad2cae47dd4440fd4eb42
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74774208"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80373009"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Copia de seguridad y restauración de un servidor en Azure Database for MySQL mediante la CLI de Azure
 
 Periódicamente, se realizan copias de seguridad de los servidores de Azure Database for MySQL para habilitar las características de restauración. Con esta característica, puede restaurar el servidor y todas sus bases de datos en un servidor nuevo a un momento dado anterior.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 Para completar esta guía, necesita:
 - Un [servidor de Azure Database for MySQL y una base de datos](quickstart-create-mysql-server-database-using-azure-cli.md)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
- 
 
 > [!IMPORTANT]
 > Esta guía de procedimientos requiere el uso de la CLI de Azure versión 2.0 o posterior. Para confirmar la versión, en el símbolo del sistema de la CLI de Azure, escriba `az --version`. Para la instalación o la actualización, consulte [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
@@ -68,7 +66,7 @@ az mysql server restore --resource-group myresourcegroup --name mydemoserver-res
 
 El comando `az mysql server restore` requiere los siguientes parámetros:
 
-| Configuración | Valor sugerido | DESCRIPCIÓN  |
+| Configuración | Valor sugerido | Descripción  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Grupo de recursos donde existe el servidor de origen.  |
 | name | mydemoserver-restored | Nombre del nuevo servidor que se crea mediante el comando de restauración. |
@@ -81,7 +79,7 @@ Los valores de ubicación y plan de tarifa del servidor restaurado son los mismo
 
 Una vez finalizada la restauración, busque el servidor nuevo y compruebe que los datos se restauraron según lo previsto. El nuevo servidor tiene el mismo nombre de inicio de sesión y contraseña de administrador del servidor que el servidor existente tenía cuando se inició la restauración. La contraseña se puede cambiar en la página **Información general** del nuevo servidor.
 
-El servidor creado durante una restauración no tiene las reglas de firewall o los puntos de conexión de servicio VNet que existían en el servidor original. Estas reglas deben configurarse por separado para este nuevo servidor.
+El servidor creado durante una restauración no tiene los puntos de conexión de servicio de red virtual que existían en el servidor original. Estas reglas deben configurarse por separado para este nuevo servidor. Se restauran las reglas de firewall del servidor original.
 
 ## <a name="geo-restore"></a>Restauración geográfica
 Si ha configurado el servidor para copias de seguridad con redundancia geográfica, se puede crear un nuevo servidor a partir de la copia de seguridad de ese servidor existente. Este nuevo servidor puede crearse en cualquier región en la que Azure Database for MySQL esté disponible.  
@@ -108,19 +106,19 @@ az mysql server georestore --resource-group newresourcegroup --name mydemoserver
 
 El comando `az mysql server georestore` requiere los siguientes parámetros:
 
-| Configuración | Valor sugerido | DESCRIPCIÓN  |
+| Configuración | Valor sugerido | Descripción  |
 | --- | --- | --- |
 |resource-group| myresourcegroup | Nombre del grupo de recursos al que pertenece el nuevo servidor.|
 |name | mydemoserver-georestored | Nombre del nuevo servidor. |
 |source-server | mydemoserver | Nombre del servidor existente cuyas copias de seguridad con redundancia geográfica se usan. |
-|location | estado | Ubicación del nuevo servidor. |
+|ubicación | estado | Ubicación del nuevo servidor. |
 |sku-name| GP_Gen5_8 | Este parámetro establece el plan de tarifa, la generación del proceso y el número de núcleos virtuales del nuevo servidor. GP_Gen5_8 se asigna a un servidor Gen 5 de uso general con ocho núcleos virtuales.|
 
 Al crear un nuevo servidor mediante una restauración geográfica, hereda el mismo tamaño de almacenamiento y plan de tarifa que el servidor de origen. Estos valores no se pueden cambiar durante la creación. Después de crea el nuevo servidor, se puede escalar verticalmente su tamaño de almacenamiento.
 
 Una vez finalizada la restauración, busque el servidor nuevo y compruebe que los datos se restauraron según lo previsto. El nuevo servidor tiene el mismo nombre de inicio de sesión y contraseña de administrador del servidor que el servidor existente tenía cuando se inició la restauración. La contraseña se puede cambiar en la página **Información general** del nuevo servidor.
 
-El servidor creado durante una restauración no tiene las reglas de firewall o los puntos de conexión de servicio VNet que existían en el servidor original. Estas reglas deben configurarse por separado para este nuevo servidor.
+El servidor creado durante una restauración no tiene los puntos de conexión de servicio de red virtual que existían en el servidor original. Estas reglas deben configurarse por separado para este nuevo servidor. Se restauran las reglas de firewall del servidor original.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Más información sobre las [copias de seguridad](concepts-backup.md) del servicio.

@@ -1,5 +1,5 @@
 ---
-title: Uso del resumen del dispositivo de la serie StorSimple 8000 | Microsoft Docs
+title: Uso de la hoja de resumen de servicio del dispositivo de la serie StorSimple 8000
 description: Describe la hoja del resumen del servicio de StorSimple y explica cómo se usa para supervisar el estado de la solución de StorSimple.
 services: storsimple
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2017
 ms.author: alkohli
-ms.openlocfilehash: c174f6ce0fb3d40af953be205a7bfcca60fbfeec
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 14c37227a7e8598ee6f8f3adc62acd69dd274475
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60633204"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396504"
 ---
 # <a name="use-the-service-summary-blade-for-storsimple-8000-series-device"></a>Uso de la hoja de resumen del servicio del dispositivo de la serie StorSimple 8000
 

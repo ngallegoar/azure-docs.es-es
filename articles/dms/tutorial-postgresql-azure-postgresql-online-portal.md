@@ -3,21 +3,21 @@ title: 'Tutorial: Migración de PostgreSQL a Azure DB for PostgreSQL en línea m
 titleSuffix: Azure Database Migration Service
 description: Aprenda a realizar una migración en línea de PostgreSQL local a Azure Database for PostgreSQL mediante Azure Database Migration Service a través de Azure Portal.
 services: dms
-author: pochiraju
-ms.author: rajpo
+author: HJToland3
+ms.author: jtoland
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 02/17/2020
-ms.openlocfilehash: 67eced7f647d50733dc8d273bdd9cd8a31b7b6dc
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.date: 03/25/2020
+ms.openlocfilehash: 4985c492c8ca71da87cf1a519ebc658c203d3952
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78255499"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80246983"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-db-for-postgresql-online-using-dms-via-the-azure-portal"></a>Tutorial: Migración de PostgreSQL a Azure DB for PostgreSQL en línea mediante DMS a través de Azure Portal
 
@@ -34,7 +34,7 @@ En este tutorial, aprenderá a:
 > * Realizar la migración total.
 
 > [!NOTE]
-> El uso de Azure Database Migration Service para realizar una migración en línea requiere la creación de una instancia basada en el plan de tarifa Premium.
+> El uso de Azure Database Migration Service para realizar una migración en línea requiere la creación de una instancia basada en el plan de tarifa Premium. El disco se cifra para impedir el robo de datos durante el proceso de migración
 
 > [!IMPORTANT]
 > Para disfrutar de una experiencia de migración óptima, Microsoft recomienda crear una instancia de Azure Database Migration Service en la misma región de Azure que la base de datos de destino. Si los datos se transfieren entre diferentes regiones o ubicaciones geográficas, el proceso de migración puede verse afectado y pueden producirse errores.
@@ -116,29 +116,35 @@ Para completar todos los objetos de base de datos como esquemas de tabla, índic
    > Las claves externas en el esquema provocarán un error en la carga inicial y la sincronización continua de la migración.
 
     ```
-    SELECT Queries.tablename
-           ,concat('alter table ', Queries.tablename, ' ', STRING_AGG(concat('DROP CONSTRAINT ', Queries.foreignkey), ',')) as DropQuery
-                ,concat('alter table ', Queries.tablename, ' ',
-                                                STRING_AGG(concat('ADD CONSTRAINT ', Queries.foreignkey, ' FOREIGN KEY (', column_name, ')', 'REFERENCES ', foreign_table_name, '(', foreign_column_name, ')' ), ',')) as AddQuery
-        FROM
+    SELECT Q.table_name
+        ,CONCAT('ALTER TABLE ', table_schema, '.', table_name, STRING_AGG(DISTINCT CONCAT(' DROP CONSTRAINT ', foreignkey), ','), ';') as DropQuery
+            ,CONCAT('ALTER TABLE ', table_schema, '.', table_name, STRING_AGG(DISTINCT CONCAT(' ADD CONSTRAINT ', foreignkey, ' FOREIGN KEY (', column_name, ')', ' REFERENCES ', foreign_table_schema, '.', foreign_table_name, '(', foreign_column_name, ')' ), ','), ';') as AddQuery
+    FROM
         (SELECT
+        S.table_schema,
+        S.foreignkey,
+        S.table_name,
+        STRING_AGG(DISTINCT S.column_name, ',') AS column_name,
+        S.foreign_table_schema,
+        S.foreign_table_name,
+        STRING_AGG(DISTINCT S.foreign_column_name, ',') AS foreign_column_name
+    FROM
+        (SELECT DISTINCT
         tc.table_schema,
-        tc.constraint_name as foreignkey,
-        tc.table_name as tableName,
+        tc.constraint_name AS foreignkey,
+        tc.table_name,
         kcu.column_name,
         ccu.table_schema AS foreign_table_schema,
         ccu.table_name AS foreign_table_name,
         ccu.column_name AS foreign_column_name
-    FROM
-        information_schema.table_constraints AS tc
-        JOIN information_schema.key_column_usage AS kcu
-          ON tc.constraint_name = kcu.constraint_name
-          AND tc.table_schema = kcu.table_schema
-        JOIN information_schema.constraint_column_usage AS ccu
-          ON ccu.constraint_name = tc.constraint_name
-          AND ccu.table_schema = tc.table_schema
-    WHERE constraint_type = 'FOREIGN KEY') Queries
-      GROUP BY Queries.tablename;
+        FROM information_schema.table_constraints AS tc
+        JOIN information_schema.key_column_usage AS kcu ON tc.constraint_name = kcu.constraint_name AND tc.table_schema = kcu.table_schema
+        JOIN information_schema.constraint_column_usage AS ccu ON ccu.constraint_name = tc.constraint_name AND ccu.table_schema = tc.table_schema
+    WHERE constraint_type = 'FOREIGN KEY'
+        ) S
+        GROUP BY S.table_schema, S.foreignkey, S.table_name, S.foreign_table_schema, S.foreign_table_name
+        ) Q
+        GROUP BY Q.table_schema, Q.table_name;
     ```
 
 5. Ejecute la clave externa que desea eliminar (que es la segunda columna) en el resultado de la consulta.
@@ -149,8 +155,8 @@ Para completar todos los objetos de base de datos como esquemas de tabla, índic
    > Los desencadenadores (de inserción o de actualización) de los datos aplican la integridad de datos en el destino antes de que los datos se repliquen desde el origen. Como resultado, se recomienda deshabilitar los desencadenadores en todas las tablas **del destino** durante la migración y, cuando esta haya terminado, volver a habilitar los desencadenadores.
 
     ```
-    select concat ('alter table ', event_object_table, ' disable trigger ', trigger_name)
-    from information_schema.triggers;
+    SELECT DISTINCT CONCAT('ALTER TABLE ', event_object_schema, '.', event_object_table, ' DISABLE TRIGGER ', trigger_name, ';')
+    FROM information_schema.triggers
     ```
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registro del proveedor de recursos Microsoft.DataMigration

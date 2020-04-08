@@ -6,12 +6,12 @@ author: timothymothra
 ms.author: tilee
 ms.date: 01/17/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: ad56f1f15936bc3f3f1ac75396352206f68e7a61
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 25eda0ae2b0d873fe9850e5b886489a5f2590e69
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77671484"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80410609"
 ---
 # <a name="connection-strings"></a>Cadenas de conexión
 
@@ -103,7 +103,7 @@ Consulte también: https://docs.microsoft.com/azure/azure-monitor/app/custom-end
 
 En este ejemplo, solo se ha establecido la clave de instrumentación.
 
-- El esquema de autorización tiene como valor predeterminado "iKey". 
+- El esquema de autorización tiene como valor predeterminado "ikey". 
 - Clave de instrumentación: 00000000-0000-0000-0000-000000000000
 - Los identificadores URI de servicio regional se basan en los [valores predeterminados del SDK](https://github.com/microsoft/ApplicationInsights-dotnet/blob/e50d569cebf485e72e98f4a08a0bc0e30cdf42bc/BASE/src/Microsoft.ApplicationInsights/Extensibility/Implementation/Endpoints/Constants.cs#L6) y se conectarán a Azure público global:
    - Ingesta: https://dc.services.visualstudio.com/
@@ -119,7 +119,7 @@ En este ejemplo, solo se ha establecido la clave de instrumentación.
 
 En este ejemplo, esta cadena de conexión especifica el sufijo de punto de conexión, y el SDK construirá los puntos de conexión de servicio.
 
-- El esquema de autorización tiene como valor predeterminado "iKey". 
+- El esquema de autorización tiene como valor predeterminado "ikey". 
 - Clave de instrumentación: 00000000-0000-0000-0000-000000000000
 - Los identificadores URI de servicio regional se basan en el sufijo de punto de conexión proporcionado: 
    - Ingesta: https://dc.ai.contoso.com
@@ -135,7 +135,7 @@ En este ejemplo, esta cadena de conexión especifica el sufijo de punto de conex
 
 En este ejemplo, esta cadena de conexión especifica invalidaciones explícitas para cada servicio. El SDK usará los puntos de conexión exactos proporcionados sin modificaciones.
 
-- El esquema de autorización tiene como valor predeterminado "iKey". 
+- El esquema de autorización tiene como valor predeterminado "ikey". 
 - Clave de instrumentación: 00000000-0000-0000-0000-000000000000
 - Los identificadores URI de servicio regional se basan en los valores de invalidación explícitos: 
    - Ingesta: https:\//custom.com:111/
@@ -148,7 +148,7 @@ En este ejemplo, esta cadena de conexión especifica invalidaciones explícitas 
 
 Se admiten cadenas de conexión en las siguientes versiones del SDK:
 - .NET y .NET Core v2.12.0
-- Java v2.5.1
+- Java v2.5.1 y Java 3.0
 - Javascript v2.3.0
 - NodeJS v1.5.0
 - Python v1.0.0
@@ -161,7 +161,7 @@ Una cadena de conexión se puede establecer por el código, la variable de entor
 
 - Cadena de conexión: `APPLICATIONINSIGHTS_CONNECTION_STRING`
 
-### <a name="net-sdk-example"></a>Ejemplo del SDK de .NET
+# <a name="netnetcore"></a>[.NET/.NetCore](#tab/net)
 
 TelemetryConfiguration.ConnectionString: https://github.com/microsoft/ApplicationInsights-dotnet/blob/add45ceed35a817dc7202ec07d3df1672d1f610d/BASE/src/Microsoft.ApplicationInsights/Extensibility/TelemetryConfiguration.cs#L271-L274
 
@@ -194,10 +194,10 @@ NetCore config.json:
 ```
 
 
-### <a name="java-sdk-example"></a>Ejemplo del SDK de Java
+# <a name="java"></a>[Java](#tab/java)
 
 
-Java establecido explícitamente:
+Java (v2.5.x) establecido explícitamente:
 ```java
 TelemetryConfiguration.getActive().setConnectionString("InstrumentationKey=00000000-0000-0000-0000-000000000000");
 ```
@@ -210,7 +210,7 @@ ApplicationInsights.xml
 </ApplicationInsights>
 ```
 
-### <a name="javascript-sdk-example"></a>Ejemplo del SDK de JavaScript
+# <a name="javascript"></a>[JavaScript](#tab/js)
 
 Importante: JavaScript no admite el uso de variables de entorno.
 
@@ -239,7 +239,7 @@ appInsights.loadAppInsights();
 appInsights.trackPageView();
 ```
 
-### <a name="node-sdk-example"></a>Ejemplo del SDK de Node
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 ```javascript
 const appInsights = require("applicationinsights");
@@ -247,7 +247,7 @@ appInsights.setup("InstrumentationKey=00000000-0000-0000-0000-000000000000;");
 appInsights.start();
 ```
 
-### <a name="python-sdk-example"></a>Ejemplo del SDK de Python
+# <a name="python"></a>[Python](#tab/python)
 
 Se recomienda que los usuarios establezcan la variable de entorno.
 
@@ -276,4 +276,4 @@ Comience en el tiempo de desarrollo con:
 * [ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
 * [Java](../../azure-monitor/app/java-get-started.md)
 * [Node.js](../../azure-monitor/app/nodejs.md)
-* [Python (versión preliminar)](../../azure-monitor/app/opencensus-python.md)
+* [Python](../../azure-monitor/app/opencensus-python.md)

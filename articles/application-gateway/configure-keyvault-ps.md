@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/27/2020
 ms.author: victorh
-ms.openlocfilehash: 2f7eafc6fc1533bd837fae60dd3b9673f6f97aa8
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 15e10d34120ab5475f241235bbebeb0c7689ca14
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77913028"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80371228"
 ---
 # <a name="configure-ssl-termination-with-key-vault-certificates-by-using-azure-powershell"></a>Configuración de la terminación SSL con certificados de Key Vault mediante Azure PowerShell
 
@@ -71,7 +71,7 @@ $certificate = Get-AzKeyVaultCertificate -VaultName $kv -Name "cert1"
 $secretId = $certificate.SecretId.Replace($certificate.Version, "")
 ```
 > [!NOTE]
-> La marca -EnableSoftDelete debe usarse para que la terminación SSL funcione correctamente.
+> La marca -EnableSoftDelete debe usarse para que la terminación SSL funcione correctamente. Si está configurando [la eliminación temporal de Key Vault mediante el portal](../key-vault/key-vault-ovw-soft-delete.md#soft-delete-behavior), el período de retención debe mantenerse en 90 días, el valor predeterminado. Application Gateway aún no es compatible con otro período de retención. 
 
 ### <a name="create-a-virtual-network"></a>Creación de una red virtual
 

@@ -9,12 +9,12 @@ ms.reviewer: estfan, valthom
 ms.topic: article
 ms.date: 03/06/2019
 tags: connectors
-ms.openlocfilehash: a9d3d0287e7839d6396553d532ba6f293fb19b68
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 808eef5424d678559ae94ffd04e41eacd0f16aee
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77647672"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80371100"
 ---
 # <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>Integración de aplicaciones controladas por pantallas 3270 en sistemas centrales de IBM con Azure mediante Azure Logic Apps y el conector de IBM 3270
 
@@ -364,12 +364,12 @@ Al completar todos estos pasos, podrá usar la acción que crea en su aplicació
    | **Id. de cuenta de integración** | Sí | <*integration-account-name*> | Nombre de su cuenta de integración |
    | **Dirección URL de SAS de la cuenta de integración** | Sí | <*integration-account-SAS-URL*> | Dirección URL de la Firma de acceso compartido (SAS) de su cuenta de integración, que puede generar a partir de la configuración de dicha cuenta en Azure Portal. <p>1. En el menú de la cuenta de integración, en **Configuración**, seleccione **Dirección URL de devolución de llamada**. <br>2. En el panel derecho, copie el valor **Dirección URL de devolución de llamada generada**. |
    | **Server** | Sí | <*TN3270-server-name*> | Nombre del servidor para su servicio TN3270 |
-   | **Puerto** | Sin | <*TN3270-server-port*> | Puerto utilizado por el servidor TN3270. Si se deja en blanco, el conector usa `23` como valor predeterminado. |
-   | **Tipo de dispositivo** | Sin | <*IBM-terminal-model*> | Nombre o número del modelo para el terminal de IBM que se va a emular. Si se deja en blanco, el conector usa valores predeterminados. |
-   | **Página de códigos** | Sin | <*code-page-number*> | Número de la página de códigos para el host. Si se deja en blanco, el conector usa `37` como valor predeterminado. |
-   | **Nombre de la unidad lógica** | Sin | <*logical-unit-name*> | Nombre de la unidad lógica específico que se va a solicitar desde el host |
-   | **¿Quiere habilitar SSL?** | Sin | On (Activado) u Off (Desactivado) | Activar o desactivar el cifrado SSL. |
-   | **¿Quiere validar un certificado SSL host?** | Sin | On (Activado) u Off (Desactivado) | Active o desactive la validación del certificado del servidor. |
+   | **Puerto** | No | <*TN3270-server-port*> | Puerto utilizado por el servidor TN3270. Si se deja en blanco, el conector usa `23` como valor predeterminado. |
+   | **Tipo de dispositivo** | No | <*IBM-terminal-model*> | Nombre o número del modelo para el terminal de IBM que se va a emular. Si se deja en blanco, el conector usa valores predeterminados. |
+   | **Página de códigos** | No | <*code-page-number*> | Número de la página de códigos para el host. Si se deja en blanco, el conector usa `37` como valor predeterminado. |
+   | **Nombre de la unidad lógica** | No | <*logical-unit-name*> | Nombre de la unidad lógica específico que se va a solicitar desde el host |
+   | **¿Quiere habilitar SSL?** | No | On (Activado) u Off (Desactivado) | Activar o desactivar el cifrado TLS. |
+   | **¿Quiere validar un certificado SSL host?** | No | On (Activado) u Off (Desactivado) | Active o desactive la validación del certificado del servidor. |
    ||||
 
    Por ejemplo:
@@ -409,7 +409,7 @@ Al completar todos estos pasos, podrá usar la acción que crea en su aplicació
 
 ## <a name="connector-reference"></a>Referencia de conectores
 
-Si necesita más detalles técnicos sobre este conector, como los desencadenadores, las acciones y los límites que se describen en el archivo de Swagger del conector, consulte la [página de referencia del conector](https://docs.microsoft.com/connectors/si3270/).
+Si necesita más detalles técnicos sobre este conector, como los desencadenadores, las acciones y los límites que se describen en el archivo de Swagger del conector, vea la [página de referencia del conector](https://docs.microsoft.com/connectors/si3270/).
 
 > [!NOTE]
 > En el caso de las aplicaciones lógicas de un [entorno de servicio de integración (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), la versión con la etiqueta ISE de este conector usa en su lugar los [límites de mensajes de ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits).

@@ -7,16 +7,16 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: fd5308574e84ab6d2e30b9352254683b2d1d6fdd
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.openlocfilehash: c0521f384a333c3054397fb0ec7c2ab907e54f67
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78403573"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411748"
 ---
 # <a name="customer-managed-key-disk-encryption"></a>Cifrado de disco mediante claves administradas por el cliente
 
-Azure HDInsight admite el cifrado de claves administradas por el cliente para los datos de los discos administrados y los discos de recursos asociados a las máquinas virtuales del clúster de HDInsight. Esta característica permite usar Azure Key Vault para administrar las claves de cifrado que protegen los datos en reposo en los clústeres de HDInsight. 
+Azure HDInsight admite el cifrado de claves administradas por el cliente para los datos de los discos administrados y los discos de recursos asociados a las máquinas virtuales del clúster de HDInsight. Esta característica permite usar Azure Key Vault para administrar las claves de cifrado que protegen los datos en reposo en los clústeres de HDInsight.
 
 Todos los discos administrados en HDInsight están protegidos con Azure Storage Service Encryption (SSE). De forma predeterminada, los datos en esos discos se cifran mediante claves administradas por Microsoft. Si habilita las claves administradas por el cliente para HDInsight, debe proporcionar las claves de cifrado para que HDInsight las use y administre mediante Azure Key Vault.
 
@@ -146,6 +146,42 @@ az hdinsight rotate-disk-encryption-key \
 --name MyCluster \
 --resource-group MyResourceGroup
 ```
+
+## <a name="azure-resource-manager-templates"></a>Plantillas del Administrador de recursos de Azure
+
+Para usar las claves administradas por el cliente mediante el uso de una plantilla de Resource Manager, actualice la plantilla con los siguientes cambios:
+
+1. En el archivo **azuredeploy.json**, agregue la siguiente propiedad al objeto "resources":
+
+    ```json
+       "diskEncryptionProperties":
+         {
+                 "vaultUri": "[parameters('diskEncryptionVaultUri')]",
+                  "keyName": "[parameters('diskEncryptionKeyName')]",
+                  "keyVersion": "[parameters('diskEncryptionKeyVersion')]",
+                   "msiResourceId": "[parameters('diskEncryptionMsiResourceId')]"
+         }
+
+1. In the **azuredeploy.parameters.json** file, add the following parameters. You can get the values of these parameters from the Key Vault URI and the managed Identity. For example, if you have the following URI and identity values,
+    * Sample key vault URI: https://<KeyVault_Name>.vault.azure.net/keys/clusterkey/<Cluster_Key_Value>
+    * Sample user-assigned managed identity: "/subscriptions/<subscriptionID>/resourcegroups/<ResourceGroup_Name>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI_Name>
+
+    The parameters in the **azuredeploy.parameters.json** file are:
+
+    ```json
+   "diskEncryptionVaultUri": {
+            "value": "https://<KeyVault_Name>.vault.azure.net"
+        },
+        "diskEncryptionKeyName": {
+            "value": "clusterkey"
+        },
+        "diskEncryptionKeyVersion": {
+            "value": "<Cluster_Key_Value>"
+        },
+        "diskEncryptionMsiResourceId": {
+            "value": "/subscriptions/<subscriptionID>/resourcegroups/<ResourceGroup_Name>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI_Name>"
+        }
+    ```
 
 ## <a name="faq-for-customer-managed-key-encryption"></a>Preguntas más frecuentes del cifrado de claves administradas por el cliente
 

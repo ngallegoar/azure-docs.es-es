@@ -5,29 +5,27 @@ services: active-directory
 documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: azuread-dev
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ryanwi
-ms.reviewer: saeeda, jmprieur, andret
+ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: bb7e2f2f68a4f30aac87a90b7c6e87a2957d127f
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ROBOTS: NOINDEX
+ms.openlocfilehash: e4a7fb72d40f5db65e8e30264e9d68b2727749e4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77163325"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154413"
 ---
 # <a name="web-apps"></a>Aplicaciones web
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
-Las aplicaciones web son aplicaciones que autentican a un usuario de un explorador web en una aplicación web. En este escenario, la aplicación web dirige el explorador del usuario para que inicie sesión en Azure AD. Azure AD devuelve una respuesta de inicio de sesión a través el explorador del usuario, que contiene notificaciones sobre el usuario en un token de seguridad. Este escenario admite el inicio de sesión mediante los protocolos OpenID Connect, SAML 2.0 y WS-Federation.
+Las aplicaciones web son aplicaciones que autentican a un usuario de un explorador web en una aplicación web. En este escenario, la aplicación web dirige el explorador del usuario para que inicie sesión en Azure AD. Azure AD devuelve una respuesta de inicio de sesión a través el explorador del usuario, que contiene notificaciones sobre el usuario en un token de seguridad. Este escenario admite el inicio de sesión mediante los protocolos OpenID Connect, SAML 2.0 y WS-Federation.
 
 ## <a name="diagram"></a>Diagrama
 
@@ -37,7 +35,7 @@ Las aplicaciones web son aplicaciones que autentican a un usuario de un explorad
 
 1. Cuando un usuario visita la aplicación y debe iniciar sesión, se le redirige mediante una solicitud de inicio de sesión al extremo de autenticación de Azure AD.
 1. El usuario inicia sesión en la página de inicio de sesión.
-1. Si la autenticación es correcta, Azure AD crea un token de autenticación y devuelve una respuesta de inicio de sesión a la dirección URL de respuesta de la aplicación que se configuró en Azure Portal. En el caso de una aplicación de producción, esta URL de respuesta debe ser HTTPS. El token devuelto incluye notificaciones sobre el usuario y Azure AD, necesarias para que la aplicación valide el token.
+1. Si la autenticación es correcta, Azure AD crea un token de autenticación y devuelve una respuesta de inicio de sesión a la dirección URL de respuesta de la aplicación que se configuró en Azure Portal. En el caso de una aplicación de producción, esta URL de respuesta debe ser HTTPS. El token devuelto incluye notificaciones sobre el usuario y Azure AD, necesarias para que la aplicación valide el token.
 1. La aplicación valida el token mediante una clave de firma pública y la información del emisor disponible en el documento de metadatos de federación para Azure AD. Cuando la aplicación haya validado el token, inicia una nueva sesión con el usuario. Hasta que expire, esta sesión permitirá al usuario tener acceso a la aplicación.
 
 ## <a name="code-samples"></a>Ejemplos de código
@@ -53,7 +51,7 @@ Para registrar una aplicación web, vea [Registrar una aplicación](../develop/q
 
 ## <a name="token-expiration"></a>Expiración del token
 
-La sesión del usuario expira cuando expira la duración del token emitido por Azure AD. Si lo desea, la aplicación puede reducir este período de tiempo; por ejemplo, cerrar sesiones de usuario en función de un período de inactividad. Cuando la sesión expire, se le pedirá al usuario que vuelva a iniciar sesión.
+La sesión del usuario expira cuando expira la duración del token emitido por Azure AD. Si lo desea, la aplicación puede reducir este período de tiempo; por ejemplo, cerrar sesiones de usuario en función de un período de inactividad. Cuando la sesión expire, se le pedirá al usuario que vuelva a iniciar sesión.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

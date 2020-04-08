@@ -3,12 +3,12 @@ title: Acerca de la copia de seguridad de recursos compartidos de archivos de Az
 description: Aprenda a hacer una copia de seguridad de los recursos compartidos de archivos de Azure en el almacén de Recovery Services.
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: 0e17b05a3febaa673fb29d45c2bcef25e2996df8
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: fd5bb51b2c7b5c09e9d859b69c3094eb50c205b5
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78385718"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396277"
 ---
 # <a name="about-azure-file-share-backup"></a>Acerca de la copia de seguridad de recursos compartidos de archivos de Azure
 
@@ -43,6 +43,15 @@ La copia de seguridad de recursos compartidos de archivos de Azure es una soluci
 6. Puede restaurar el contenido de los recursos compartidos de archivos de Azure (archivos individuales o el recurso compartido completo) de las instantáneas disponibles en el recurso compartido de archivos de origen. Una vez que se desencadena la operación, la dirección URL de la instantánea se recupera del almacén de metadatos y los datos se muestran y transfieren desde la instantánea de origen al recurso compartido de archivos de destino que elija.
 
 7. Los datos de supervisión de los trabajos de copia de seguridad y restauración se insertan en el servicio de supervisión de Azure Backup. Esto le permite supervisar las copias de seguridad en la nube de los recursos compartidos de archivos en un único panel. Además, también puede configurar alertas o notificaciones por correo electrónico cuando resulte afectado el estado de la copia de seguridad. Se envían correos electrónicos a través del servicio de correo electrónico de Azure.
+
+## <a name="backup-costs"></a>Costos de la copia de seguridad
+
+La copia de seguridad de recursos compartidos de Azure Files es una solución basada en instantáneas ,y los cargos por almacenamiento incurridos por las instantáneas se facturan junto con el uso de Azure Files según los datos de precios que figuran [aquí](https://azure.microsoft.com/pricing/details/storage/files/).
+
+Sin embargo, la cuota de la instancia protegida para aprovechar la solución de copia de seguridad se aplica según el modelo de precios descrito en la sección [Copia de seguridad de Azure Files](https://azure.microsoft.com/pricing/details/backup/). Actualmente, el precio real solo se ha actualizado para el centro occidental de EE. UU. En el caso de otras regiones, los precios concretos se actualizarán en breve con algunas variaciones regionales, pero con el mismo modelo de precios.
+
+>[!NOTE]
+>Durante la versión preliminar no hay ninguna "cuota de instancia protegida" y solo se le cobrarán las instantáneas según los precios que figuran [aquí](https://azure.microsoft.com/pricing/details/storage/files/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

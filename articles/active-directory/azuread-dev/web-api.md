@@ -5,23 +5,21 @@ services: active-directory
 documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: azuread-dev
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ryanwi
-ms.reviewer: saeeda, jmprieur, andret
+ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 93e487063944801129090d6b9952143b8df887da
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ROBOTS: NOINDEX
+ms.openlocfilehash: 9cf5a9c81ca1d7a42a5a8e342dee55f335656c3e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77163329"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154430"
 ---
 # <a name="web-api"></a>API Web
 
@@ -43,26 +41,26 @@ Los tipos de identidad de aplicación y de identidad de usuario delegado se trat
 ### <a name="application-identity-with-oauth-20-client-credentials-grant"></a>Identidad de aplicación con concesión de credenciales de cliente OAuth 2.0
 
 1. Un usuario inicia sesión en Azure AD en la aplicación web (consulte la sección **Aplicaciones web**).
-1. La aplicación web necesita adquirir un token de acceso para poder autenticarse ante la API web y recuperar el recurso deseado. Realiza una solicitud al punto de conexión de token de Azure AD y proporciona las credenciales, el identificador de la aplicación y el identificador URI del identificador de aplicación de la API web.
+1. La aplicación web necesita adquirir un token de acceso para poder autenticarse ante la API web y recuperar el recurso deseado. Realiza una solicitud al punto de conexión de token de Azure AD y proporciona las credenciales, el identificador de la aplicación y el identificador URI del identificador de aplicación de la API web.
 1. Azure AD autentica la aplicación y devuelve un token de acceso de JWT que se usa para llamar a la API web.
-1. A través de HTTPS, la aplicación web usa el token de acceso de JWT devuelto para agregar la cadena JWT con una designación “Bearer” en el encabezado Authorization de la solicitud a la API web. A continuación, la API web valida el token de JWT y, si la validación es correcta, devuelve el recurso deseado.
+1. A través de HTTPS, la aplicación web usa el token de acceso de JWT devuelto para agregar la cadena JWT con una designación Bearer en el encabezado Authorization de la solicitud a la API web. A continuación, la API web valida el token de JWT y, si la validación es correcta, devuelve el recurso deseado.
 
 ### <a name="delegated-user-identity-with-openid-connect"></a>Identidad de usuario delegado con OpenID Connect
 
 1. Un usuario inicia sesión en una aplicación web mediante Azure AD (vea la sección anterior Explorador web a aplicación web ). Si el usuario de la aplicación web todavía no ha dado su consentimiento para permitir que la aplicación web llame a la API web en su nombre, el usuario tendrá que dar su consentimiento. La aplicación mostrará los permisos que requiere y, si alguno de estos permisos es de nivel de administrador, un usuario normal del directorio no podrá dar su consentimiento. Este proceso de consentimiento solo se aplica a las aplicaciones multiempresa (de varios inquilinos), no a las aplicaciones de un solo inquilino, puesto que la aplicación ya tendrá los permisos necesarios. Cuando el usuario inicia sesión, la aplicación web recibe un token de identificador con información sobre el usuario, así como un código de autorización.
-1. Con el código de autorización emitido por Azure AD, la aplicación web envía una solicitud al punto de conexión de token de Azure AD que incluye el código de autorización, detalles sobre la aplicación cliente (URI de redirección e identificador de la aplicación), además del recurso deseado (URI del identificador de la aplicación para la API web).
+1. Con el código de autorización emitido por Azure AD, la aplicación web envía una solicitud al punto de conexión de token de Azure AD que incluye el código de autorización, detalles sobre la aplicación cliente (URI de redirección e identificador de la aplicación), además del recurso deseado (URI del identificador de la aplicación para la API web).
 1. Azure AD valida el código de autorización e información sobre la aplicación web y la API web. Tras la correcta validación, Azure AD devuelve dos tokens: un token de acceso de JWT y un token de actualización de JWT.
-1. A través de HTTPS, la aplicación web usa el token de acceso de JWT devuelto para agregar la cadena JWT con una designación “Bearer” en el encabezado Authorization de la solicitud a la API web. A continuación, la API web valida el token de JWT y, si la validación es correcta, devuelve el recurso deseado.
+1. A través de HTTPS, la aplicación web usa el token de acceso de JWT devuelto para agregar la cadena JWT con una designación Bearer en el encabezado Authorization de la solicitud a la API web. A continuación, la API web valida el token de JWT y, si la validación es correcta, devuelve el recurso deseado.
 
 ### <a name="delegated-user-identity-with-oauth-20-authorization-code-grant"></a>Identidad de usuario delegado con concesión de código de autorización OAuth 2.0
 
 1. Un usuario ya ha iniciado sesión en una aplicación web, cuyo mecanismo de autenticación es independiente de Azure AD.
-1. La aplicación web requiere un código de autorización para adquirir un token de acceso, por lo que emite una solicitud a través del explorador al punto de conexión de autorización de Azure AD y proporciona el identificador de la aplicación y el identificador URI de redirección de la aplicación web después de la correcta autenticación. El usuario inicia sesión en Azure AD.
+1. La aplicación web requiere un código de autorización para adquirir un token de acceso, por lo que emite una solicitud a través del explorador al punto de conexión de autorización de Azure AD y proporciona el identificador de la aplicación y el identificador URI de redirección de la aplicación web después de la correcta autenticación. El usuario inicia sesión en Azure AD.
 1. Si el usuario de la aplicación web todavía no ha dado su consentimiento para permitir que la aplicación web llame a la API web en su nombre, el usuario tendrá que dar su consentimiento. La aplicación mostrará los permisos que requiere y, si alguno de estos permisos es de nivel de administrador, un usuario normal del directorio no podrá dar su consentimiento. Este consentimiento se aplica tanto a aplicaciones de un solo inquilino como a aplicaciones multiempresa. En el caso de las aplicaciones de un solo inquilino, un administrador puede realizar una operación de consentimiento de administrador en nombre de sus usuarios. Esto puede hacerse mediante el botón `Grant Permissions` en [Azure Portal](https://portal.azure.com). 
 1. Una vez que el usuario haya dado su consentimiento, la aplicación web recibe el código de autorización que necesita para adquirir un token de acceso.
-1. Con el código de autorización emitido por Azure AD, la aplicación web envía una solicitud al punto de conexión de token de Azure AD que incluye el código de autorización, detalles sobre la aplicación cliente (URI de redirección e identificador de la aplicación), además del recurso deseado (URI del identificador de la aplicación para la API web).
+1. Con el código de autorización emitido por Azure AD, la aplicación web envía una solicitud al punto de conexión de token de Azure AD que incluye el código de autorización, detalles sobre la aplicación cliente (URI de redirección e identificador de la aplicación), además del recurso deseado (URI del identificador de la aplicación para la API web).
 1. Azure AD valida el código de autorización e información sobre la aplicación web y la API web. Tras la correcta validación, Azure AD devuelve dos tokens: un token de acceso de JWT y un token de actualización de JWT.
-1. A través de HTTPS, la aplicación web usa el token de acceso de JWT devuelto para agregar la cadena JWT con una designación “Bearer” en el encabezado Authorization de la solicitud a la API web. A continuación, la API web valida el token de JWT y, si la validación es correcta, devuelve el recurso deseado.
+1. A través de HTTPS, la aplicación web usa el token de acceso de JWT devuelto para agregar la cadena JWT con una designación Bearer en el encabezado Authorization de la solicitud a la API web. A continuación, la API web valida el token de JWT y, si la validación es correcta, devuelve el recurso deseado.
 
 ## <a name="code-samples"></a>Ejemplos de código
 

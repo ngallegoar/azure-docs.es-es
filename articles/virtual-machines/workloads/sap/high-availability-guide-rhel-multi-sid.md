@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/26/2020
+ms.date: 03/24/2020
 ms.author: radeltch
-ms.openlocfilehash: 1c52e7e30ac02b14356284f0506824b5a7d0188a
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 4f1bfd58e27f0cd677980ff9351d32d91a68e3e6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77651946"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80247442"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-red-hat-enterprise-linux-for-sap-applications-multi-sid-guide"></a>Alta disponibilidad para SAP NetWeaver en VM de Azure en Red Hat Enterprise Linux para SAP Applications: guía de varios SID
 
@@ -32,14 +32,14 @@ ms.locfileid: "77651946"
 [anf-register]:https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register
 [anf-sap-applications-azure]:https://www.netapp.com/us/media/tr-4746.pdf
 
-[2002167]: https://launchpad.support.sap.com/#/notes/2002167
-[2009879]: https://launchpad.support.sap.com/#/notes/2009879
-[1928533]: https://launchpad.support.sap.com/#/notes/1928533
-[2015553]: https://launchpad.support.sap.com/#/notes/2015553
-[2178632]: https://launchpad.support.sap.com/#/notes/2178632
-[2191498]: https://launchpad.support.sap.com/#/notes/2191498
-[2243692]: https://launchpad.support.sap.com/#/notes/2243692
-[1999351]: https://launchpad.support.sap.com/#/notes/1999351
+[2002167]:https://launchpad.support.sap.com/#/notes/2002167
+[2009879]:https://launchpad.support.sap.com/#/notes/2009879
+[1928533]:https://launchpad.support.sap.com/#/notes/1928533
+[2015553]:https://launchpad.support.sap.com/#/notes/2015553
+[2178632]:https://launchpad.support.sap.com/#/notes/2178632
+[2191498]:https://launchpad.support.sap.com/#/notes/2191498
+[2243692]:https://launchpad.support.sap.com/#/notes/2243692
+[1999351]:https://launchpad.support.sap.com/#/notes/1999351
 [1410736]:https://launchpad.support.sap.com/#/notes/1410736
 
 [sap-swcenter]:https://support.sap.com/en/my-support/software-downloads.html
@@ -169,7 +169,7 @@ En la lista siguiente se muestra la configuración del equilibrador de carga (A)
 
 ## <a name="sap-shares"></a>Recursos compartidos de SAP
 
-SAP NetWeaver requiere un almacenamiento compartido para el transporte, el directorio de perfil, etc. En el caso de sistemas SAP de alta disponibilidad, es importante tener recursos compartidos de alta disponibilidad. Tendrá que decidir sobre la arquitectura de sus recursos compartidos de SAP. Una opción consiste en implementar los recursos compartidos en [volúmenes NFS de Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes).  Con Azure NetApp Files, obtendrá alta disponibilidad integrada para los recursos compartidos NFS de SAP.
+SAP NetWeaver requiere un almacenamiento compartido para el transporte, el directorio de perfil, etc. En el caso de sistemas SAP de alta disponibilidad, es importante tener recursos compartidos de alta disponibilidad. Tendrá que decidir sobre la arquitectura de sus recursos compartidos de SAP. Una opción consiste en implementar los recursos compartidos en [Volúmenes NFS de Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes).  Con Azure NetApp Files, obtendrá alta disponibilidad integrada para los recursos compartidos NFS de SAP.
 
 Otra opción consiste en compilar [GlusterFS en VM de Azure en Red Hat Enterprise Linux para SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-glusterfs), que se puede compartir entre varios sistemas SAP. 
 

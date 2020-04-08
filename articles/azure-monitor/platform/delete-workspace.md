@@ -6,14 +6,14 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/14/2020
-ms.openlocfilehash: 6f50450702c9ecdc1c1d910514d94e0a759176b8
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 1dceb3db4572ecdaf504745dba1099a5eccead43
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77670481"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80395786"
 ---
-# <a name="delete-and-restore-azure-log-analytics-workspace"></a>Eliminación y restauración de un área de trabajo de Azure Log Analytics
+# <a name="delete-and-recover-azure-log-analytics-workspace"></a>Eliminación y recuperación de un área de trabajo de Azure Log Analytics
 
 En este artículo se explica el concepto de eliminación temporal de áreas de trabajo de Azure Log Analytics y cómo recuperarlas. 
 
@@ -39,7 +39,7 @@ La operación de eliminación temporal quita el recurso del área de trabajo y l
 La operación de eliminación del área de trabajo quita el recurso de Resource Manager del área de trabajo, pero su configuración y sus datos se conservan durante 14 días (y da la sensación de que el área de trabajo se ha eliminado). Los agentes y grupos de administración de System Center Operations Manager configurados para enviar notificaciones al área de trabajo continúan en un estado huérfano durante el período de eliminación temporal. El servicio proporciona además un mecanismo para recuperar el área de trabajo eliminada (incluidos sus datos y recursos conectados), básicamente, deshaciendo la eliminación.
 
 > [!NOTE] 
-> Tanto las soluciones instaladas como los servicios vinculados, como su cuenta de Azure Automation, se quitan permanentemente del área de trabajo en el momento de la eliminación y no se pueden recuperar. Deben volver a configurarse después de la operación de recuperación para que el área de trabajo vuelva al estado en que estaba configurado anteriormente.
+> Tanto las soluciones instaladas como los servicios vinculados, como la cuenta de Azure Automation, se quitan permanentemente del área de trabajo en el momento de la eliminación y no se pueden recuperar. Deben volver a configurarse después de la operación de recuperación para que el área de trabajo vuelva al estado en que estaba configurado anteriormente.
 
 Las áreas de trabajo se pueden eliminar un mediante [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace?view=azurermps-6.13.0), [API REST](https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete) o en [Azure Portal](https://portal.azure.com).
 
@@ -56,6 +56,17 @@ Las áreas de trabajo se pueden eliminar un mediante [PowerShell](https://docs.m
 ```PowerShell
 PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name"
 ```
+
+### <a name="troubleshooting"></a>Solución de problemas
+
+Debe tener permisos de "Colaborador de Log Analytics" para eliminar el área de trabajo de Log Analytics.<br>
+Si recibe el mensaje de error "*El nombre de esta área de trabajo ya existe*" al crear un área de trabajo, puede deberse a:
+* el nombre del área de trabajo no está disponible y lo está usando alguien de su organización u otro cliente.
+* El área de trabajo se ha eliminado en los últimos 14 días y su nombre se mantiene reservado durante el período de eliminación temporal. Para invalidar la eliminación temporal y eliminar inmediatamente el área de trabajo y crear una nueva área de trabajo con el mismo nombre, siga estos pasos para recuperar el área de trabajo primero y realizar una eliminación permanente:<br>
+   1. [Recuperar](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#recover-workspace) el área de trabajo.
+   2. [Eliminar permanentemente](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#permanent-workspace-delete) el área de trabajo.
+   3. Crear una nueva área de trabajo con el mismo nombre.
+
 
 ## <a name="permanent-workspace-delete"></a>Eliminación permanente del área de trabajo
 Es posible que el método de eliminación temporal no encaje en algunos escenarios como el desarrollo y las pruebas, donde es necesario repetir una implementación con la misma configuración y el mismo nombre de área de trabajo. En tales casos, puede eliminar el área de trabajo de forma permanente e "invalidar" el período de eliminación temporal. La operación de eliminación permanente del área de trabajo libera el nombre del área de trabajo y puede crear una nueva área de trabajo con el mismo nombre.

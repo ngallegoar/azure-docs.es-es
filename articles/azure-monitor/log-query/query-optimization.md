@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 02/28/2019
-ms.openlocfilehash: e5c3da94cf2440b30dc59fe20bc51a34095f7d5f
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.date: 03/30/2019
+ms.openlocfilehash: 29d5213b8eecd94ed8c8ce565972c9f98872a362
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78269059"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411431"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Optimización de las consultas de registro en Azure Monitor
 Los registros de Azure Monitor usan [Azure Data Explorer (ADX)](/azure/data-explorer/) para almacenar los datos de registro y ejecutar consultas para analizar los datos. Crea, administra y mantiene los clústeres de ADX automáticamente y los optimiza para la carga de trabajo de análisis de registros. Al ejecutar una consulta, se optimiza y se redirige al clúster de ADX adecuado que almacena los datos del área de trabajo. Tanto los registros de Azure Monitor como Azure Data Explorer usan muchos mecanismos de optimización de consultas automática. Aunque las optimizaciones automáticas proporcionan un aumento significativo, en algunos casos se puede mejorar drásticamente el rendimiento de las consultas. En este artículo se explican las consideraciones de rendimiento y varias técnicas para corregirlas.
@@ -59,6 +59,8 @@ El tiempo de procesamiento de consultas se emplea en:
 
 Aparte del tiempo dedicado a los nodos de procesamiento de consultas, hay un tiempo adicional que los registros de Azure Monitor invierten en: autenticar el usuario y comprobar que tiene permiso para acceder a estos datos, buscar el almacén de datos, analizar la consulta y asignar los nodos de procesamiento de consultas. Este tiempo no se incluye en el tiempo de CPU total de la consulta.
 
+### <a name="early-filtering-of-records-prior-of-using-high-cpu-functions"></a>Filtrado temprano de registros antes de usar funciones de CPU elevadas
+
 Algunos de los comandos de consulta y las funciones realizan un gran consumo de CPU. Esto es especialmente cierto para los comandos que analizan JSON y XML o extraen expresiones regulares complejas. Este análisis puede producirse explícitamente a través de las funciones [parse_json()](/azure/kusto/query/parsejsonfunction) o [parse_xml()](/azure/kusto/query/parse-xmlfunction) o implícitamente cuando se hace referencia a columnas dinámicas.
 
 Estas funciones consumen CPU en proporción al número de filas que están procesando. La optimización más eficaz consiste en agregar inmediatamente condiciones where en la consulta que pueden filtrar tantos registros como sea posible antes de que se ejecute la función de uso intensivo de la CPU.
@@ -83,7 +85,10 @@ SecurityEvent
 | extend FilePath = tostring(Details.UserData.RuleAndFileData.FilePath)
 | extend FileHash = tostring(Details.UserData.RuleAndFileData.FileHash)
 | summarize count() by FileHash, FilePath
+| where FileHash != "" // No need to filter out %SYSTEM32 here as it was removed before
 ```
+
+### <a name="avoid-using-evaluated-where-clauses"></a>Evitar el uso de cláusulas where evaluadas
 
 Las consultas que contienen cláusulas [where](/azure/kusto/query/whereoperator) en una columna evaluada en lugar de en columnas que están físicamente presentes en el conjunto de datos pierden eficacia. El filtrado de columnas evaluadas evita algunas optimizaciones del sistema cuando se administran grandes conjuntos de datos.
 Por ejemplo, las siguientes consultas producen exactamente el mismo resultado, pero la segunda es más eficaz, ya que la condición [where](/azure/kusto/query/whereoperator) hace referencia a la columna integrada.
@@ -102,6 +107,8 @@ Heartbeat
 | extend IPRegion = iif(RemoteIPLongitude  < -94,"WestCoast","EastCoast")
 | summarize count() by Computer
 ```
+
+### <a name="use-effective-aggregation-commands-and-dimmentions-in-summarize-and-join"></a>Uso de dimensiones y comandos de agregación efectivos para resúmenes y uniones
 
 Aunque algunos comandos de agregación, como [max()](/azure/kusto/query/max-aggfunction), [sum()](/azure/kusto/query/sum-aggfunction), [count()](/azure/kusto/query/count-aggfunction) y [avg()](/azure/kusto/query/avg-aggfunction), tienen un impacto bajo en la CPU debido a su lógica, otros son más complejos e incluyen heurística y estimaciones que les permiten ejecutarse de forma eficaz. Por ejemplo, [dcount()](/azure/kusto/query/dcount-aggfunction) usa el algoritmo HyperLogLog para proporcionar una estimación próxima para distinguir el recuento de grandes conjuntos de datos sin contar realmente cada valor; las funciones de percentil realizan aproximaciones similares mediante el algoritmo de percentil de clasificación más próximo. Algunos de los comandos incluyen parámetros opcionales para reducir su impacto. Por ejemplo, la función [makeset()](/azure/kusto/query/makeset-aggfunction) tiene un parámetro opcional para definir el tamaño máximo del conjunto, lo que afecta significativamente a la CPU y la memoria.
 
@@ -149,13 +156,31 @@ Heartbeat
 > [!NOTE]
 > Este indicador solo presenta la CPU del clúster inmediato. En una consulta de varias regiones, solo representaría una de las regiones. En una consulta de varias áreas de trabajo, es posible que no incluya todas las áreas de trabajo.
 
+### <a name="avoid-full-xml-and-json-parsing-when-string-parsing-works"></a>Evite el análisis XML y JSON completo cuando funcione el análisis de cadenas
+El análisis completo de un objeto XML o JSON puede consumir una gran cantidad de recursos de CPU y memoria. En muchos casos, cuando solo se necesitan uno o dos parámetros y los objetos XML o JSON son simples, es más fácil analizarlos como cadenas mediante el [operador parse](/azure/kusto/query/parseoperator) u otras [técnicas de análisis de texto](/azure/azure-monitor/log-query/parse-text). La mejora del rendimiento será más significativa a medida que aumente el número de registros en el objeto XML o JSON. Es fundamental cuando el número de registros alcanza decenas de millones.
+
+Por ejemplo, la consulta siguiente devolverá exactamente los mismos resultados que las consultas anteriores sin realizar un análisis XML completo. Tenga en cuenta que hace algunas suposiciones sobre la estructura del archivo XML, como que el elemento FilePath aparece después de FileHash y que ninguno de ellos tiene atributos. 
+
+```Kusto
+//even more efficient
+SecurityEvent
+| where EventID == 8002 //Only this event have FileHash
+| where EventData !has "%SYSTEM32" //Early removal of unwanted records
+| parse EventData with * "<FilePath>" FilePath "</FilePath>" * "<FileHash>" FileHash "</FileHash>" *
+| summarize count() by FileHash, FilePath
+| where FileHash != "" // No need to filter out %SYSTEM32 here as it was removed before
+```
+
 
 ## <a name="data-used-for-processed-query"></a>Datos usados para la consulta procesada
 
 Un factor crítico en el procesamiento de la consulta es el volumen de datos que se digitaliza y usa para el procesamiento de la consulta. Azure Data Explorer usa optimizaciones agresivas que reducen en gran medida el volumen de datos en comparación con otras plataformas de datos. Aún así, hay factores críticos en la consulta que pueden afectar al volumen de datos que se usa.
+
 En los registros de Azure Monitor, la columna **TimeGenerated** se usa para indexar los datos. Si los valores de **TimeGenerated** se restringen tanto como sea posible, se producirá una mejora significativa en el rendimiento de la consulta mediante una limitación considerable de la cantidad de datos que se tienen que procesar.
 
-Otro factor que aumenta los datos que se procesan es el uso de un gran número de tablas. Esto suele ocurrir cuando se usan los comandos `search *` y `union *`. Estos comandos obligan al sistema a evaluar y digitalizar los datos de todas las tablas del área de trabajo. En algunos casos, puede haber cientos de tablas en el área de trabajo. Intente evitar en la medida de lo posible el uso de "buscar *" o las buscas sin ámbito en una tabla específica.
+### <a name="avoid-unnecessary-use-of-search-and-union-operators"></a>Evitar el uso innecesario de los operadores search y union
+
+Otro factor que aumenta los datos que se procesan es el uso de un gran número de tablas. Esto suele ocurrir cuando se usan los comandos `search *` y `union *`. Estos comandos obligan al sistema a evaluar y digitalizar los datos de todas las tablas del área de trabajo. En algunos casos, puede haber cientos de tablas en el área de trabajo. Intente evitar en la medida de lo posible el uso de "search *" o cualquier búsqueda sin definir su ámbito a una tabla específica.
 
 Por ejemplo, las siguientes consultas producen exactamente el mismo resultado, pero la última es, con diferencia, la más eficaz:
 
@@ -177,6 +202,8 @@ Perf
 | summarize count(), avg(CounterValue)  by Computer
 ```
 
+### <a name="add-early-filters-to-the-query"></a>Adición de filtros iniciales a la consulta
+
 Otro método para reducir el volumen de datos es tener condiciones [where](/azure/kusto/query/whereoperator) rápidamente en la consulta. La plataforma de Azure Data Explorer incluye una memoria caché que le permite saber qué particiones incluyen datos relevantes para una condición where específica. Por ejemplo, si un consulta contiene `where EventID == 4624`, distribuirá la consulta solo en los nodos que controlan particiones con eventos coincidentes.
 
 Las siguientes consultas de ejemplo producen exactamente el mismo resultado, pero la última es mucho más eficaz:
@@ -193,7 +220,9 @@ SecurityEvent
 | summarize LoginSessions = dcount(LogonGuid) by Account
 ```
 
-Dado que Azure Data Explorer es un almacén de datos en columnas, la recuperación de cada columna es independiente de las demás. El número de columnas que se recuperan influye directamente en el volumen de datos general. Solo se deben incluir las columnas de la salida que se necesitan para [resumir](/azure/kusto/query/summarizeoperator) los resultados o [proyectar](/azure/kusto/query/projectoperator) las columnas específicas. Azure Data Explorer tiene varias optimizaciones para reducir el número de columnas recuperadas. Si se determina que una columna no es necesaria, por ejemplo, si el comando [summarize](/azure/kusto/query/summarizeoperator) no hace referencia a ella, no se recuperará.
+### <a name="reduce-the-number-of-columns-that-is-retrieved"></a>Reducción del número de columnas que se recuperan
+
+Dado que Azure Data Explorer es un almacén de datos en columnas, la recuperación de cada columna es independiente de las demás. El número de columnas que se recuperan influye directamente en el volumen de datos general. Solo se deben incluir las columnas de la salida que se necesitan para [resumir](/azure/kusto/query/summarizeoperator) los resultados o [proyectar](/azure/kusto/query/projectoperator) las columnas específicas. Azure Data Explorer tiene varias optimizaciones para reducir el número de columnas recuperadas. Si se determina que una columna no es necesaria; por ejemplo, si el comando [summarize](/azure/kusto/query/summarizeoperator) no hace referencia a ella, no se recuperará.
 
 Por ejemplo, la segunda consulta puede procesar tres veces más datos, ya que necesita capturar no una columna, sino tres:
 
@@ -216,6 +245,8 @@ El intervalo de tiempo puede establecerse con el selector de intervalo de tiempo
 
 Un método alternativo consiste en incluir explícitamente una condición [where](/azure/kusto/query/whereoperator) en **TimeGenerated** en la consulta. Se debería usar este método, ya que se asegura que el intervalo de tiempo sea fijo, aunque la consulta se use desde una interfaz diferente.
 Debe asegurarse de que todas las partes de la consulta tengan filtros **TimeGenerated**. Cuando una consulta tiene subconsultas que capturan datos de diferentes tablas o de la misma, cada una tiene que incluir su propia condición [where](/azure/kusto/query/whereoperator).
+
+### <a name="make-sure-all-sub-queries-have-timegenerated-filter"></a>Asegúrese de que todas las subconsultas tienen el filtro TimeGenerated
 
 Por ejemplo, en la siguiente consulta, mientras que la tabla **Perf** solo se digitalizará para el último día, la tabla **Heartbeat** se digitalizará para la totalidad de su historial, que puede ser de hasta dos años:
 
@@ -286,6 +317,8 @@ Heartbeat
 | summarize min(TimeGenerated) by Computer
 ```
 
+### <a name="time-span-measurement-limitations"></a>Limitaciones de la medición de intervalos de tiempo
+
 La medida siempre es mayor que el tiempo real especificado. Por ejemplo, si el filtro de la consulta es 7 días, el sistema podría examinar 7,5 o 8,1 días. Esto se debe a que el sistema realiza la partición de los datos en fragmentos de tamaño variable. Para garantizar que se analizan todos los registros pertinentes, examina toda la partición que puede abarcar varias horas e incluso más de un día.
 
 Hay varios casos en los que el sistema no puede proporcionar una medida precisa del intervalo de tiempo. Esto sucede en la mayoría de los casos en los que el intervalo de la consulta es inferior a un día o en consultas de varias áreas de trabajo.
@@ -303,7 +336,7 @@ A continuación, se indican algunos ejemplos de dichos casos:
 
 - No establecer el intervalo de tiempo en Log Analytics con una subconsulta que no esté limitada. Vea el ejemplo anterior.
 - Usar la API sin los parámetros opcionales del intervalo de tiempo.
-- Usar un cliente que no fuerce un intervalo de tiempo, como el conector de Power BI.
+- Usar un cliente que no fuerce un intervalo de tiempo, como el conector de Power BI.
 
 Consulte los ejemplos y las notas de la sección anterior, ya que también son relevantes en este caso.
 
@@ -340,10 +373,10 @@ Para ejecutar una consulta de forma eficaz, se divide en particiones y se distri
 Entre los comportamientos de las consultas que pueden reducir el paralelismo se incluyen los siguientes:
 
 - Uso de las funciones de ventana y serialización, como [serialize operator](/azure/kusto/query/serializeoperator), [next()](/azure/kusto/query/nextfunction), [prev()](/azure/kusto/query/prevfunction) y [row](/azure/kusto/query/rowcumsumfunction). Las funciones de análisis de usuario y serie temporal pueden usarse en algunos de estos casos. También puede producirse una serialización ineficaz si los siguientes operadores no se usan al final de la consulta: [range](/azure/kusto/query/rangeoperator), [sort](/azure/kusto/query/sortoperator), [order](/azure/kusto/query/orderoperator), [top](/azure/kusto/query/topoperator), [top-hitters](/azure/kusto/query/tophittersoperator), [getschema](/azure/kusto/query/getschemaoperator).
--   El uso de la función de agregación [dcount()](/azure/kusto/query/dcount-aggfunction) obliga al sistema a tener una copia central de los distintos valores. Cuando la escala de datos es alta, considere la posibilidad de usar los parámetros opcionales de la función dcount para reducir la precisión.
--   En muchos casos, el operador [join](/azure/kusto/query/joinoperator?pivots=azuremonitor) reduce el paralelismo general. Considere la combinación de orden aleatorio como alternativa cuando el rendimiento sea problemático.
--   En las consultas con ámbito de recurso, las comprobaciones de ejecución previa de RBAC pueden quedarse en situaciones en las que hay un gran número de asignaciones de RBAC. Esto puede provocar comprobaciones más largas, lo que generaría un paralelismo más bajo. Por ejemplo, una consulta se ejecuta en una suscripción en la que hay miles de recursos y cada recurso tiene varias asignaciones de roles en el nivel de recurso, no en la suscripción ni en el grupo de recursos.
--   Si una consulta está procesando fragmentos de datos pequeños, su paralelismo será inferior, ya que el sistema no se propagará en muchos nodos de ejecución.
+-    El uso de la función de agregación [dcount()](/azure/kusto/query/dcount-aggfunction) obliga al sistema a tener una copia central de los distintos valores. Cuando la escala de datos es alta, considere la posibilidad de usar los parámetros opcionales de la función dcount para reducir la precisión.
+-    En muchos casos, el operador [join](/azure/kusto/query/joinoperator?pivots=azuremonitor) reduce el paralelismo general. Considere la combinación de orden aleatorio como alternativa cuando el rendimiento sea problemático.
+-    En las consultas con ámbito de recurso, las comprobaciones de ejecución previa de RBAC pueden quedarse en situaciones en las que hay un gran número de asignaciones de RBAC. Esto puede provocar comprobaciones más largas, lo que generaría un paralelismo más bajo. Por ejemplo, una consulta se ejecuta en una suscripción en la que hay miles de recursos y cada recurso tiene varias asignaciones de roles en el nivel de recurso, no en la suscripción ni en el grupo de recursos.
+-    Si una consulta está procesando fragmentos de datos pequeños, su paralelismo será inferior, ya que el sistema no se propagará en muchos nodos de ejecución.
 
 
 

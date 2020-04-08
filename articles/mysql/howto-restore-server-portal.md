@@ -5,20 +5,20 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: f8005bccf3a726a6022efdecb2eb5738669f3bc2
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/27/2020
+ms.openlocfilehash: 619dc05d709f41941d16764bf32b49a0d2a11958
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74762631"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80372987"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Copia de seguridad y restauración de un servidor en Azure Database for MySQL mediante Azure Portal
 
 ## <a name="backup-happens-automatically"></a>Las copias de seguridad se realizan automáticamente
 Periódicamente, se realizan copias de seguridad de los servidores de Azure Database for MySQL para habilitar las características de restauración. Con esta característica, puede restaurar el servidor y todas sus bases de datos en un servidor nuevo a un momento dado anterior.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 Para completar esta guía, necesita:
 - Un [servidor de Azure Database for MySQL y una base de datos](quickstart-create-mysql-server-database-using-azure-portal.md)
 
@@ -73,7 +73,7 @@ Los siguientes pasos restauran el servidor de ejemplo a un momento dado:
 
 El nuevo servidor creado mediante restauración a un momento dado tiene el mismo nombre de inicio de sesión y contraseña de administrador del servidor que el servidor existente tenía en ese momento dado. Puede cambiar la contraseña en la página **Información general** del nuevo servidor.
 
-El servidor creado durante una restauración no tiene las reglas de firewall o los puntos de conexión de servicio VNet que existían en el servidor original. Estas reglas deben configurarse por separado para este nuevo servidor.
+El servidor creado durante una restauración no tiene los puntos de conexión de servicio de red virtual que existían en el servidor original. Estas reglas deben configurarse por separado para este nuevo servidor. Se restauran las reglas de firewall del servidor original.
 
 ## <a name="geo-restore"></a>Restauración geográfica
 Si ha configurado el servidor para copias de seguridad con redundancia geográfica, se puede crear un nuevo servidor a partir de la copia de seguridad de ese servidor existente. Este nuevo servidor puede crearse en cualquier región en la que Azure Database for MySQL esté disponible.  
@@ -93,9 +93,7 @@ Si ha configurado el servidor para copias de seguridad con redundancia geográfi
 
 El nuevo servidor creado mediante restauración geográfica tiene el mismo nombre de inicio de sesión y contraseña de administrador del servidor que el servidor existente tenía cuando se inició la restauración. La contraseña se puede cambiar en la página **Información general** del nuevo servidor.
 
-El servidor creado durante una restauración no tiene las reglas de firewall o los puntos de conexión de servicio VNet que existían en el servidor original. Estas reglas deben configurarse por separado para este nuevo servidor.
-
-
+El servidor creado durante una restauración no tiene los puntos de conexión de servicio de red virtual que existían en el servidor original. Estas reglas deben configurarse por separado para este nuevo servidor. Se restauran las reglas de firewall del servidor original.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Más información sobre las [copias de seguridad](concepts-backup.md) del servicio.

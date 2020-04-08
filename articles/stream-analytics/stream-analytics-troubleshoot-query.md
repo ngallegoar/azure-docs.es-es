@@ -6,26 +6,31 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 03/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: bf0740bbdd4754aeba43e64f1076a1bea33cffc6
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: f049dc6d1261a8201cf79d1779e522b30d13c4b0
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844433"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80409437"
 ---
 # <a name="troubleshoot-azure-stream-analytics-queries"></a>Solución de problemas en las consultas de Azure Stream Analytics
 
 En este artículo se describen problemas comunes con el desarrollo de consultas a Stream Analytics y cómo solucionarlos.
 
+En este artículo se describen los problemas comunes relacionados con el desarrollo de consultas de Azure Stream Analytics, cómo solucionar problemas con las consultas y cómo corregir estos problemas. Muchos pasos para solucionar problemas requieren que los registros de diagnóstico estén habilitados para el trabajo de Stream Analytics. Si los registros de diagnóstico están habilitados, vea [Solución de problemas de Azure Stream Analytics mediante registros de diagnóstico](stream-analytics-job-diagnostic-logs.md).
+
 ## <a name="query-is-not-producing-expected-output"></a>La consulta no produce el resultado esperado
+
 1.  Examine los errores mediante la comprobación local:
+
     - En Azure Portal, en la pestaña **Consulta**, seleccione **Probar**. Use los datos de ejemplo que descargó para [probar la consulta](stream-analytics-test-query.md). Examine los errores e intente corregirlos.   
     - También puede [probar la consulta localmente](stream-analytics-live-data-local-testing.md) mediante las herramientas de Stream Analytics para Visual Studio o [Visual Studio Code](visual-studio-code-local-run-live-input.md). 
 
-2.  [Depure las consultas paso a paso localmente mediante un diagrama de trabajo](debug-locally-using-job-diagram.md) con las herramientas de Azure Stream Analytics para Visual Studio. El diagrama de trabajo muestra cómo fluyen los datos de los orígenes de entrada (centro de eventos, IoT Hub, etc.) por varios pasos de consulta y, por último, a los receptores de salida. Cada paso de la consulta se asigna a un conjunto de resultados temporal definido en el script mediante la instrucción WITH. Puede ver los datos, así como las métricas de cada paso de consulta, en cada uno de los conjuntos de resultados intermedios para encontrar el origen del problema.
-    ![Resultado de la vista previa del diagrama de trabajo](./media/debug-locally-using-job-diagram/preview-result.png)
+2.  [Depure las consultas paso a paso localmente mediante un diagrama de trabajo](debug-locally-using-job-diagram.md) con las herramientas de Azure Stream Analytics para Visual Studio. El diagrama de trabajos muestra cómo fluyen los datos de los orígenes de entrada (centro de eventos, IoT Hub, etc.) por varios pasos de consulta y, por último, a los receptores de salida. Cada paso de la consulta se asigna a un conjunto de resultados temporal definido en el script mediante la instrucción WITH. Puede ver los datos, así como las métricas, en cada uno de los conjuntos de resultados intermedios para encontrar el origen del problema.
+
+    ![Resultado de la vista previa del diagrama de trabajos](./media/debug-locally-using-job-diagram/preview-result.png)
 
 3.  Si usa [**Marca de tiempo por**](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics), asegúrese de que los eventos tengan marcas de tiempo mayores que la [hora de inicio del trabajo](stream-analytics-out-of-order-and-late-events.md).
 
@@ -33,20 +38,24 @@ En este artículo se describen problemas comunes con el desarrollo de consultas 
     - Una cláusula [**WHERE**](https://docs.microsoft.com/stream-analytics-query/where-azure-stream-analytics) en la consulta filtrada por todos los eventos, que impide que se genere alguna salida.
     - Un error de una función [**CAST**](https://docs.microsoft.com/stream-analytics-query/cast-azure-stream-analytics), que provoca que el trabajo no se realice. Para evitar errores de conversión de tipo, utilice [**TRY_CAST**](https://docs.microsoft.com/stream-analytics-query/try-cast-azure-stream-analytics) en su lugar.
     - Cuando use funciones de ventana, espere la duración entera de la ventana para ver una salida de la consulta.
-    - La marca de tiempo de los eventos es anterior a la hora de inicio del trabajo y, por tanto, los eventos se descartan.
+    - La marca de tiempo de los eventos es anterior a la hora de inicio del trabajo y los eventos se descartan.
+    - Las condiciones [**JOIN**](https://docs.microsoft.com/stream-analytics-query/join-azure-stream-analytics) no coinciden. Si no hay ninguna coincidencia, no habrá resultados.
 
-5.  Asegúrese de que las directivas de ordenación de eventos están configuradas según lo previsto. Vaya a la **Configuración** y seleccione [**Ordenación de eventos**](stream-analytics-out-of-order-and-late-events.md). La directiva *no* se aplica cuando usa el botón **Probar** para probar la consulta. El resultado es una diferencia entre probar en el explorador frente a ejecutar el trabajo de producción. 
+5.  Asegúrese de que las directivas de ordenación de eventos están configuradas según lo previsto. Vaya a **Configuración** y seleccione [**Ordenación de eventos**](stream-analytics-out-of-order-and-late-events.md). La directiva *no* se aplica cuando usa el botón **Probar** para probar la consulta. El resultado es una diferencia entre probar en el explorador frente a ejecutar el trabajo de producción. 
 
 6. Depure mediante auditorías y registros de diagnóstico:
     - Use [Registros de auditoría](../azure-resource-manager/resource-group-audit.md) y filtre para identificar y depurar errores.
     - Use [registros de diagnóstico de trabajo](stream-analytics-job-diagnostic-logs.md) para identificar y depurar errores.
 
-## <a name="job-is-consuming-too-many-streaming-units"></a>El trabajo consume demasiadas unidades de streaming
+## <a name="resource-utilization-is-high"></a>El uso de recursos es alto
+
 Asegúrese de estar aprovechando la paralelización en Azure Stream Analytics. Puede aprender a [escalar con la paralelización de consultas](stream-analytics-parallelization.md) de los trabajos de Stream Analytics mediante la configuración de particiones de entrada y el ajuste de la definición de consultas de análisis.
 
 ## <a name="debug-queries-progressively"></a>Depuración gradual de consultas
 
-En el procesamiento de datos en tiempo real, puede ser útil conocer qué aspecto tendrán los datos en el medio de la consulta. Como las entradas o pasos de un trabajo de Azure Stream Analytics se pueden leer muchas veces, puede escribir instrucciones SELECT INTO adicionales. Si lo hace, se generan daros intermedios en el almacenamiento y puede inspeccionar la integridad de los datos, igual que hacen las *variables de inspección* cuando se depura un programa.
+En el procesamiento de datos en tiempo real, puede ser útil conocer qué aspecto tendrán los datos en el medio de la consulta. Puede verlo mediante el diagrama de trabajos de Visual Studio. Si no tiene Visual Studio, puede seguir otros pasos para generar datos intermedios.
+
+Como las entradas o pasos de un trabajo de Azure Stream Analytics se pueden leer muchas veces, puede escribir instrucciones SELECT INTO adicionales. Si lo hace, se generan daros intermedios en el almacenamiento y puede inspeccionar la integridad de los datos, igual que hacen las *variables de inspección* cuando se depura un programa.
 
 La siguiente consulta de ejemplo en un trabajo de Azure Stream Analytics tiene una entrada de secuencias, dos entradas de datos de referencia y una salida a Azure Table Storage. La consulta combina datos del centro de eventos y dos blobs de referencia para obtener la información de nombre y categoría:
 

@@ -3,12 +3,12 @@ title: Supervisión de servicios de Node.js con Azure Application Insights | Mic
 description: Supervise el rendimiento y diagnostique problemas en servicios de Node.js con Application Insights.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: 320ec62e642155002e42c59d4656f51673249eb1
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 38336e3faf3764233dd94bffbfb24421e054496a
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77670022"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411578"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Supervisión de servicios y aplicaciones de Node.js con Application Insights
 
@@ -16,7 +16,7 @@ ms.locfileid: "77670022"
 
 Para recibir, almacenar y explorar los datos de supervisión, incluya el SDK en su código y luego configure el recurso correspondiente de Application Insights en Azure. El SDK envía datos a ese recurso para realizar el análisis y la exploración posteriormente.
 
-El SDK de Node.js puede supervisar automáticamente las solicitudes HTTP entrantes y salientes, excepciones y varias métricas del sistema. A partir de la versión 0.20, el SDK también puede supervisar algunos paquetes de terceros comunes, como MongoDB, MySQL y Redis. Todos los eventos relacionados con una solicitud HTTP entrante se correlacionan para una solución de problemas más rápida.
+El SDK de Node.js puede supervisar automáticamente las solicitudes HTTP entrantes y salientes, excepciones y varias métricas del sistema. A partir de la versión 0.20, el SDK también puede supervisar algunos [paquetes de terceros](https://github.com/microsoft/node-diagnostic-channel/tree/master/src/diagnostic-channel-publishers#currently-supported-modules) comunes, como MongoDB, MySQL y Redis. Todos los eventos relacionados con una solicitud HTTP entrante se correlacionan para una solución de problemas más rápida.
 
 Puede usar TelemetryClient API para instrumentar y supervisar manualmente aspectos adicionales de la aplicación y el sistema. TelemetryClient API se describe con más detalle más adelante en este artículo.
 
@@ -32,7 +32,7 @@ Antes de empezar, asegúrese de que tiene una suscripción de Azure o bien [obte
 [add-aad-user]: https://docs.microsoft.com/azure/active-directory/active-directory-users-create-azure-portal
 
 
-### <a name="resource"></a> Configuración de un recurso de Application Insights
+### <a name="set-up-an-application-insights-resource"></a><a name="resource"></a> Configuración de un recurso de Application Insights
 
 
 1. Inicie sesión en [Azure Portal][portal].
@@ -40,7 +40,7 @@ Antes de empezar, asegúrese de que tiene una suscripción de Azure o bien [obte
 
 3. En la página de creación de recursos, en el cuadro **Tipo de aplicación**, seleccione **Aplicación Node.js**. El tipo de aplicación determina los paneles e informes predeterminados que se crean. (Cualquier recurso de Application Insights puede recopilar datos de cualquier lenguaje o plataforma).
 
-### <a name="sdk"></a> Configuración del SDK de Node.js
+### <a name="set-up-the-nodejs-sdk"></a><a name="sdk"></a> Configuración del SDK de Node.js
 
 Incluya el SDK en la aplicación para que pueda recopilar datos. 
 
@@ -70,7 +70,7 @@ Incluya el SDK en la aplicación para que pueda recopilar datos.
 
    Puede probar el SDK sin enviar telemetría estableciendo `appInsights.defaultClient.config.disableAppInsights = true`.
 
-### <a name="monitor"></a> Supervisión de la aplicación
+### <a name="monitor-your-app"></a><a name="monitor"></a> Supervisión de la aplicación
 
 El SDK recopila automáticamente datos de telemetría sobre el entorno de tiempo de ejecución de Node.js y sobre algunos módulos de terceros comunes. Utilice la aplicación para generar algunos datos.
 
