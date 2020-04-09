@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/04/2019
-ms.openlocfilehash: 84098901d58e2087c7ece77049e445bb5c76f2a9
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.date: 03/24/2020
+ms.openlocfilehash: b905c75e920577e46017caeb456f8237421086b2
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78357258"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421204"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Copia de datos desde SAP Business Warehouse con Open Hub en Azure Data Factory
 
@@ -184,12 +184,12 @@ Para copiar datos desde Open Hub para SAP BW, en la sección **origen** de la ac
 |:--- |:--- |:--- |
 | type | La propiedad **type** del origen de la actividad de copia debe establecerse en **SapOpenHubSource**. | Sí |
 | excludeLastRequest | Si desea excluir los registros de la última solicitud. | No (el valor predeterminado es **true**) |
-| baseRequestId | El identificador de la solicitud para la carga diferencial. Una vez establecido, solo se recuperarán los datos con el identificador de solicitud **mayor que** el valor de esta propiedad.  | Sin |
+| baseRequestId | El identificador de la solicitud para la carga diferencial. Una vez establecido, solo se recuperarán los datos con el identificador de solicitud **mayor que** el valor de esta propiedad.  | No |
 
 >[!TIP]
 >Si la tabla de Open Hub solo contiene los datos generados por un único identificador de solicitud y, por ejemplo, siempre hace una carga completa y sobrescribe los datos existentes en la tabla o solo ejecuta el DTP una vez por cada prueba, recuerde desactivar la opción "excludeLastRequest" para poder copiar los datos.
 
-Para acelerar la carga de datos, puede establecer [`parallelCopies`](copy-activity-performance.md#parallel-copy) en la actividad de copia para cargar datos desde Open Hub para SAP BW en paralelo. Por ejemplo, si establece `parallelCopies` en cuatro, Data Factory ejecutará simultáneamente cuatro llamadas de RFC, y cada llamada de RFC recuperará una parte de los datos de la tabla de Open Hub para SAP BW, particionada por el identificador de solicitud de DTP y por el identificador de paquete. Esto se aplica cuando la suma de identificadores únicos de solicitud de DTP y de paquete es superior al valor de `parallelCopies`. Cuando se copian datos en un almacén de datos basado en archivos, también se recomienda escribir en una carpeta como varios archivos (solo especifique el nombre de la carpeta), en cuyo caso el rendimiento es mejor que escribir en un único archivo.
+Para acelerar la carga de datos, puede establecer [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) en la actividad de copia para cargar datos desde Open Hub para SAP BW en paralelo. Por ejemplo, si establece `parallelCopies` en cuatro, Data Factory ejecutará simultáneamente cuatro llamadas de RFC, y cada llamada de RFC recuperará una parte de los datos de la tabla de Open Hub para SAP BW, particionada por el identificador de solicitud de DTP y por el identificador de paquete. Esto se aplica cuando la suma de identificadores únicos de solicitud de DTP y de paquete es superior al valor de `parallelCopies`. Cuando se copian datos en un almacén de datos basado en archivos, también se recomienda escribir en una carpeta como varios archivos (solo especifique el nombre de la carpeta), en cuyo caso el rendimiento es mejor que escribir en un único archivo.
 
 **Ejemplo**:
 
@@ -243,6 +243,11 @@ Al copiar datos desde Open Hub para SAP BW, se usan las siguientes asignaciones 
 
 Para obtener información detallada sobre las propiedades, consulte [Actividad de búsqueda](control-flow-lookup-activity.md).
 
+## <a name="troubleshooting-tips"></a>Sugerencias de solución de problemas
+
+**Síntomas:** Si ejecuta SAP BW en HANA y observa que solo se copia un subconjunto de datos mediante la actividad de copia de ADF (1 millón filas), la causa posible es que habilite la opción "Ejecución de SAP HANA" en su DTP, en cuyo caso ADF solo puede recuperar el primer lote de datos.
+
+**Resolución:** Deshabilite la opción "Ejecución de SAP HANA" en DTP, vuelva a procesar los datos e intente ejecutar la actividad de copia de nuevo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.

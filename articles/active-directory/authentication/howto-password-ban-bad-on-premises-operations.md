@@ -1,67 +1,74 @@
 ---
-title: 'Operaciones e informes de la protección con contraseña de Azure AD: Azure Active Directory'
-description: Operaciones de versión preliminar de la protección con contraseña posterior a la implementación de Azure AD e informes
+title: Habilitación de la protección con contraseña de Azure AD local
+description: Aprenda a habilitar la protección con contraseña de Azure AD para un entorno de Active Directory Domain Services local.
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: article
-ms.date: 11/21/2019
+ms.topic: how-to
+ms.date: 03/05/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2440d373b726b4f97cd5d9ba162daaa0714f79e0
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 4ee0f3d89d48b23db48e3bf4b78203b09fbcbdbd
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76155058"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80652635"
 ---
-# <a name="azure-ad-password-protection-operational-procedures"></a>Procedimientos operativos de protección con contraseña de Azure AD
+# <a name="enable-on-premises-azure-active-directory-password-protection"></a>Habilitación de la protección con contraseña de Azure Active Directory local
 
-Después de haber completado la [instalación de la protección con contraseña de Azure AD](howto-password-ban-bad-on-premises-deploy.md) en el entorno local, hay algunos elementos que se deben configurar en Azure Portal.
+Los usuarios suelen crear contraseñas que usan palabras comunes locales, como una escuela, un equipo deportivo o una persona famosa. Estas contraseñas son fáciles de adivinar y poco seguras contra ataques basados en diccionarios. Para aplicar contraseñas seguras en su organización, la protección con contraseña de Azure Active Directory (Azure AD) proporciona una lista de contraseñas prohibidas global y personalizada. Se produce un error en una solicitud de cambio de contraseña si hay una coincidencia en esta lista de contraseñas prohibidas.
 
-## <a name="configure-the-custom-banned-password-list"></a>Configuración de la lista personalizada de contraseñas prohibidas
+Para proteger el entorno de Active Directory Domain Services (AD DS) local, puede instalar y configurar la protección con contraseña de Azure AD para que funcione con el controlador de dominio local. En este artículo se muestra cómo habilitar la protección con contraseña de Azure AD para su entorno local.
 
-Siga las instrucciones del artículo [Configuración de la lista personalizada de contraseñas prohibidas](howto-password-ban-bad-configure.md) para conocer los pasos para personalizar la lista de contraseñas prohibidas de su organización.
+Para más información sobre cómo funciona la protección con contraseña de Azure AD en un entorno local, consulte [Aplicación de Protección con contraseña de Azure AD para Windows Server Active Directory](concept-password-ban-bad-on-premises.md).
 
-## <a name="enable-password-protection"></a>Habilitación de la protección con contraseña
+## <a name="before-you-begin"></a>Antes de empezar
+
+En este artículo se muestra cómo habilitar la protección con contraseña de Azure AD para su entorno local. Antes de completar este artículo, [instale y registre el servicio de proxy de protección con contraseña de Azure AD y el agente de controlador de dominio](howto-password-ban-bad-on-premises-deploy.md) en el entorno AD DS local.
+
+## <a name="enable-on-premises-password-protection"></a>Habilitación de la protección con contraseña local
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) y vaya a **Azure Active Directory**,  > **Seguridad** > **Métodos de autenticación** > **Protección con contraseña**.
-1. Establezca **Habilitar protección con contraseña en Windows Server Active Directory** en **Sí**.
-1. Como se mencionó en la [Guía de implementación](howto-password-ban-bad-on-premises-deploy.md#deployment-strategy), inicialmente se recomienda establecer el **Modo** en **Auditoría**
-   * Cuando se sienta cómodo con la característica, puede cambiar el **Modo** a **Forzado**
-1. Haga clic en **Guardar**
+1. Establezca la opción **Habilitar protección con contraseña en Windows Server Active Directory** en *Sí*.
 
-![Habilitación de componentes de la protección con contraseña de Azure AD en Azure Portal](./media/howto-password-ban-bad-on-premises-operations/authentication-methods-password-protection-on-prem.png)
+    Cuando esta opción se establece en *No*, todos los agentes de controlador de dominio de la protección de contraseña Azure AD implementados entran en un modo inactivo, donde todas las contraseñas se aceptan tal cual. No se realizan actividades de validación ni se generan eventos de auditoría.
 
-## <a name="audit-mode"></a>Modo de auditoría
+1. Se recomienda establecer inicialmente el **modo** en *Auditoría*. Cuando esté familiarizado con la característica y el impacto en los usuarios de su organización, puede cambiar el **modo** a *Forzado*. Para más información, consulte la sección siguiente en [modos de operación](#modes-of-operation).
+1. Cuando esté preparado, seleccione **Guardar**.
 
-El modo de auditoría está previsto como una forma de ejecutar el software en un modo "what if". Cada servicio de agente de controlador de dominio evalúa una contraseña de entrada según la directiva activa en el momento. Si la directiva activa se ha configurado para estar en modo de auditoría, las contraseñas "incorrectas" se traducen en mensajes del registro de errores pero son aceptadas. Esta es la única diferencia entre el modo de auditoría y el modo forzado; todas las demás operaciones se ejecutan de la misma manera.
+    [![](media/howto-password-ban-bad-on-premises-operations/enable-configure-custom-banned-passwords-cropped.png "Enable on-premises password protection under Authentication Methods in the Azure portal")](media/howto-password-ban-bad-on-premises-operations/enable-configure-custom-banned-passwords.png#lightbox)
 
-> [!NOTE]
-> Microsoft recomienda que la implementación y las pruebas iniciales comiencen siempre en el modo auditoría. Los eventos del registro de eventos se deben supervisar después para tantear si alguno de los procesos operativos existentes se vería perturbado una vez que se habilite el modo forzado.
+## <a name="modes-of-operation"></a>Modos de operación
 
-## <a name="enforce-mode"></a>Modo forzado
+Al habilitar la protección con contraseña de Azure AD local, puede usar el modo de *auditoría* o el modo de *aplicación*. Recomendamos que la implementación y las pruebas iniciales comiencen siempre en el modo auditoría. Las entradas del registro de eventos se deben supervisar después para tantear si alguno de los procesos operativos existentes se vería perturbado una vez que se habilite el modo *Forzado*.
 
-El modo forzado está previsto como la configuración final. Como en el anterior modo de auditoría, cada servicio de agente de controlador de dominio evalúa las contraseñas de entrada según la directiva activa en el momento. Aunque si el modo forzado está habilitado, una contraseña que se considera no segura según la directiva se rechaza.
+### <a name="audit-mode"></a>Modo Auditoría
 
-Cuando un agente de controlador de dominio de la protección con contraseña de Azure AD DC rechaza una contraseña en modo de aplicación, el impacto visible que percibe un usuario final es idéntico al que percibiría si su contraseña fuese rechazada por la aplicación tradicional de complejidad de la contraseña local. Por ejemplo, un usuario podría ver el siguiente mensaje de error tradicional en la pantalla de inicio de sesión/cambio de contraseña de Windows:
+El modo *Auditoría* está previsto como una forma de ejecutar el software en un modo "what if". Cada servicio de agente de controlador de dominio de la protección con contraseña de Azure AD evalúa una contraseña de entrada según la directiva activa en el momento.
 
-`Unable to update the password. The value provided for the new password does not meet the length, complexity, or history requirements of the domain.`
+Si la directiva actual se ha configurado para estar en modo de auditoría, las contraseñas "incorrectas" se traducen en mensajes del registro de errores pero se procesan y actualizan. Este comportamiento es la única diferencia entre el modo Auditoría y el modo Forzado. Todas las demás operaciones se ejecutan de la misma forma.
+
+### <a name="enforced-mode"></a>Modo Forzado
+
+El modo *Forzado* está previsto como la configuración final. Como en el anterior modo de auditoría, cada servicio de agente de controlador de dominio de la protección con contraseña de Azure AD evalúa las contraseñas de entrada según la directiva activa en el momento. Cuando el modo Forzado está habilitado, se rechaza una contraseña que se considera no segura según la directiva.
+
+Cuando un agente de controlador de dominio de la protección con contraseña de Azure AD DC rechaza una contraseña en modo Forzado, el usuario final ve un error similar al que percibiría si su contraseña fuese rechazada por la aplicación tradicional de complejidad de la contraseña local. Por ejemplo, un usuario podría ver el siguiente mensaje de error tradicional en la pantalla de inicio de sesión o cambio de contraseña de Windows:
+
+*"No se puede actualizar la contraseña. El valor proporcionado para la nueva contraseña no cumple los requisitos de longitud, complejidad o de historial del dominio".*
 
 Este mensaje es solo un ejemplo de varios resultados posibles. El mensaje de error específico puede variar según el escenario o software real que intenta establecer una contraseña no segura.
 
-Puede que los usuarios finales afectados tengan que trabajar con su personal de TI para comprender los nuevos requisitos y tener más capacidad de elegir contraseñas seguras.
+Puede que los usuarios finales afectados tengan que trabajar con su personal de TI para comprender los nuevos requisitos y elegir contraseñas seguras.
 
 > [!NOTE]
 > La funcionalidad Protección con contraseña de Azure AD no tiene ningún control sobre el mensaje de error específico que se muestra en la máquina cliente cuando se rechaza una contraseña débil.
 
-## <a name="enable-mode"></a>Modo de habilitación
-
-Este ajuste debe dejarse en su estado habilitado predeterminado (Sí). Si se deshabilita (No), todos los agentes de controlador de dominio de protección con contraseña de Azure AD entrarán en modo inactivo y todas las contraseñas se aceptarán tal cual. No se ejecutará ninguna actividad de validación (por ejemplo, ni siquiera se emitirán los eventos de auditoría).
-
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Supervisión de la protección de contraseñas de Azure AD](howto-password-ban-bad-on-premises-monitor.md)
+Para personalizar la lista de contraseñas prohibidas de su organización, consulte [Tutorial: Configuración de contraseñas prohibidas personalizadas para la protección con contraseña de Azure Active Directory](tutorial-configure-custom-password-protection.md).
+
+Para supervisar los eventos locales, consulte [Supervisión y revisión de los registros de los entornos de protección con contraseña de Azure AD local](howto-password-ban-bad-on-premises-monitor.md).

@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 99fed1d2b1246e4c099f275708f694e5d7ea2f22
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 7d3bcc32dc8f1412a5adbc175a5f8618628bce83
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190820"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80547885"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Preguntas frecuentes: Recuperación ante desastres de Azure a Azure
 
@@ -49,7 +49,7 @@ El equipo de Site Recovery y el equipo de administración de la capacidad de Azu
 Sí. Site Recovery admite la recuperación ante desastres de máquinas virtuales con Azure Disk Encryption habilitado. Cuando está habilitada la replicación, Azure copia todos los secretos y claves de cifrado del disco necesarios de la región de origen a la de destino en el contexto del usuario. Si no tiene los permisos adecuados, el administrador de seguridad puede usar un script para copiarlos.
 
 - Site Recovery admite Azure Disk Encryption para máquinas virtuales de Azure que ejecutan Windows.
-- Site Recovery admite la versión 0.1 de Azure Disk Encryption, que tiene un esquema que requiere Azure Active Directory (Azure AD). Site Recovery también admite la versión 1.1, que no necesita Azure AD. [Más información sobre el esquema de extensión de Azure Disk Encryption](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schemata).
+- Site Recovery admite la versión 0.1 de Azure Disk Encryption, que tiene un esquema que requiere Azure Active Directory (Azure AD). Site Recovery también admite la versión 1.1, que no necesita Azure AD. [Más información sobre el esquema de extensión de Azure Disk Encryption](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schema).
   - En el caso de la versión 1.1 de Azure Disk Encryption, tiene que usar las máquinas virtuales Windows con discos administrados.
   - [Más información](azure-to-azure-how-to-enable-replication-ade-vms.md) sobre la habilitación de la replicación para máquinas virtuales cifradas.
 
@@ -73,7 +73,7 @@ Sí, en máquinas virtuales de Azure con discos administrados se admite la incor
 
 - Si habilita la protección para los discos agregados, la advertencia desaparecerá después de la replicación inicial.
 - Si no permite la replicación para el disco, puede descartar la advertencia.
-- Si conmuta por error una máquina virtual que tiene un disco agregado y la replicación habilitada, existen puntos de replicación. Los puntos de replicación mostrarán los discos que están disponibles para la recuperación. 
+- Si conmuta por error una máquina virtual que tiene un disco agregado y la replicación habilitada, existen puntos de replicación. Los puntos de replicación mostrarán los discos que están disponibles para la recuperación.
 
 Por ejemplo, supongamos que una máquina virtual tiene un único disco y agrega uno nuevo. Podría haber un punto de replicación que se haya creado antes de agregar el disco. Este punto de replicación mostrará que consta de "1 de 2 discos".
 
@@ -93,7 +93,7 @@ Con Site Recovery, puede replicar y recuperar máquinas virtuales entre dos regi
 
 ### <a name="does-site-recovery-require-internet-connectivity"></a>¿Site Recovery requiere conectividad a Internet?
 
-No, Site Recovery no requiere conectividad a Internet. Sin embargo, requiere acceso a los intervalos IP y direcciones URL de Site Recovery, como se menciona en el artículo sobre las [redes en la recuperación ante desastres de máquinas virtuales de Azure](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges).
+No, Site Recovery no requiere conectividad a Internet. Sin embargo, requiere acceso a los intervalos IP y direcciones URL de Site Recovery, como se menciona en el artículo sobre las [redes en la recuperación ante desastres de máquinas virtuales de Azure](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-urls).
 
 ### <a name="can-i-replicate-an-application-that-has-a-separate-resource-group-for-separate-tiers"></a>¿Se puede replicar una aplicación que tiene grupos de recursos independientes para niveles independientes?
 
@@ -193,6 +193,10 @@ Puede replicar 16 máquinas virtuales juntas en un grupo de replicación.
 
 Dado que la coherencia de múltiples máquinas virtuales consume mucha CPU, su habilitación puede afectar al rendimiento. Use la coherencia de múltiples máquinas virtuales solo si las máquinas ejecutan la misma carga de trabajo y necesita coherencia entre varias máquinas virtuales. Por ejemplo, si tiene dos instancias de SQL Server y dos servidores web en una aplicación, debe tener coherencia de múltiples máquinas virtuales solo para las instancias de SQL Server.
 
+### <a name="can-you-add-an-already-replicating-vm-to-a-replication-group"></a>¿Se puede agregar una máquina virtual que ya se esté replicando a un grupo de replicación?
+
+Puede agregar una máquina virtual a un nuevo grupo de replicación mientras permite la replicación. También puede agregar una máquina virtual a un nuevo grupo de replicación existente mientras permite la replicación. Sin embargo, no puede agregar una máquina virtual que ya se esté replicando a un nuevo grupo de replicación o a un grupo de replicación existente.
+
 ## <a name="failover"></a>Conmutación por error
 
 ### <a name="how-is-capacity-ensured-in-the-target-region-for-azure-vms"></a>¿Cómo se garantiza la capacidad en la región de destino de las máquinas virtuales de Azure?
@@ -207,7 +211,7 @@ La conmutación por error no es automática. Puede iniciar conmutaciones por err
 
 No se puede conservar la dirección IP pública de la aplicación de producción tras la conmutación por error.
 
-Al incorporar una carga de trabajo como parte del proceso de conmutación por error, debe asignarle un recurso de IP pública de Azure. El recurso de IP pública de Azure tiene que estar disponible en la región de destino. Puede asignar el recurso de IP pública manualmente o automatizarlo con un plan de recuperación. Aprenda a [configurar direcciones IP públicas tras la conmutación por error](concepts-public-ip-address-with-site-recovery.md#public-ip-address-assignment-using-recovery-plan).  
+Al incorporar una carga de trabajo como parte del proceso de conmutación por error, debe asignarle un recurso de IP pública de Azure. El recurso de IP pública de Azure tiene que estar disponible en la región de destino. Puede asignar el recurso de IP pública manualmente o automatizarlo con un plan de recuperación. Aprenda a [configurar direcciones IP públicas tras la conmutación por error](concepts-public-ip-address-with-site-recovery.md#public-ip-address-assignment-using-recovery-plan).
 
 ### <a name="can-i-keep-a-private-ip-address-during-a-failover"></a>¿Se puede conservar una dirección IP privada durante una conmutación por error?
 
@@ -281,7 +285,7 @@ Depende de la situación. Si la máquina virtual de la región de origen existe,
 
 Después de la reprotección, la conmutación por recuperación tarda casi lo mismo que la conmutación por error de la región primaria a una región secundaria.
 
-## <a name="capacity"></a>Capacidad
+## <a name="capacity"></a><a name="capacity"></a>Capacidad
 
 ### <a name="how-is-capacity-ensured-in-the-target-region-for-azure-vms"></a>¿Cómo se garantiza la capacidad en la región de destino de las máquinas virtuales de Azure?
 
@@ -295,7 +299,7 @@ Sí, puede comprar [máquinas virtuales de Azure reservadas](https://azure.micro
 
 ### <a name="is-replication-data-sent-to-the-site-recovery-service"></a>¿Se envían mis datos de replicación al servicio de Site Recovery?
 
-No, Site Recovery no intercepta los datos replicados ni tiene información sobre lo que se ejecuta en las máquinas virtuales. Únicamente se envían los metadatos necesarios para coordinar la replicación y la conmutación por error al servicio Site Recovery.  
+No, Site Recovery no intercepta los datos replicados ni tiene información sobre lo que se ejecuta en las máquinas virtuales. Únicamente se envían los metadatos necesarios para coordinar la replicación y la conmutación por error al servicio Site Recovery.
 
 Site Recovery tiene la certificación ISO 27001:2013, 27018, HIPAA y DPA. El servicio está llevando a cabo evaluaciones de SOC2 y FedRAMP JAB.
 

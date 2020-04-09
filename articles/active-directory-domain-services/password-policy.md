@@ -8,15 +8,15 @@ ms.assetid: 1a14637e-b3d0-4fd9-ba7a-576b8df62ff2
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.topic: article
-ms.date: 01/21/2020
+ms.topic: how-to
+ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: c4402c1ce2f051c8d1911e7c0332d4cac787ce1d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b14fed07c9bd9b5fcb6a5489719481902351fc0d
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77613200"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80654879"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>Directivas de bloqueo de cuenta y contraseña en dominios administrados
 
@@ -45,6 +45,11 @@ Para completar este artículo, necesitará los siguientes recursos y privilegios
 ## <a name="default-password-policy-settings"></a>Configuración de directiva de contraseña predeterminada
 
 Las directivas de contraseñas específicas (FGPP) le permiten aplicar restricciones específicas de directivas de bloqueo de cuentas y contraseñas a diferentes usuarios de un dominio. Por ejemplo, para proteger las cuentas con privilegios, puede aplicar una configuración de bloqueo de cuenta más estricta que para las cuentas normales sin privilegios. Puede crear varias FGPP en un dominio administrado de Azure AD DS y especificar el orden de prioridad para aplicarlas a los usuarios.
+
+Para más información acerca de las directivas de contraseñas y el uso del centro de administración de Active Directory, consulte los siguientes artículos:
+
+* [Más información sobre las directivas de contraseñas específicas](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770394(v=ws.10))
+* [Configuración de directivas de contraseñas específicas mediante el Centro de administración de AD](/windows-server/identity/ad-ds/get-started/adac/introduction-to-active-directory-administrative-center-enhancements--level-100-#fine_grained_pswd_policy_mgmt)
 
 Las directivas se distribuyen, mediante la asociación de grupos, en un dominio administrado de Azure AD DS y los cambios que realice se aplicarán en el siguiente inicio de sesión de usuario. Al cambiar la directiva, no se desbloquea una cuenta de usuario que ya esté bloqueada.
 
@@ -105,20 +110,20 @@ Para crear una directiva de contraseñas personalizada, use las herramientas adm
     * Opciones de configuración como la fecha de expiración, la antigüedad o la complejidad de la contraseña solo para usuarios creados manualmente en un dominio administrado de Azure AD DS.
     * La configuración de bloqueo de cuenta se aplica a todos los usuarios, pero solo surte efecto en el dominio administrado y no en el mismo Azure AD.
 
-    ![Creación de una directiva de contraseñas específica personalizada](./media/how-to/custom-fgpp.png)
+    ![Creación de una directiva de contraseñas específica personalizada](./media/password-policy/custom-fgpp.png)
 
 1. Desactive **Proteger contra eliminación accidental**. Si esta opción está seleccionada, la directiva FGPP no se podrá guardar.
 1. En la sección **Se aplica directamente a**, seleccione el botón **Agregar**. En el cuadro de diálogo **Seleccionar usuarios o grupos**, seleccione el botón **Ubicaciones**.
 
-    ![Seleccionar los usuarios y grupos a los que se va a aplicar la directiva de contraseñas](./media/how-to/fgpp-applies-to.png)
+    ![Seleccionar los usuarios y grupos a los que se va a aplicar la directiva de contraseñas](./media/password-policy/fgpp-applies-to.png)
 
 1. Las directivas de contraseñas solo se pueden aplicar a grupos. En el cuadro de diálogo **Ubicaciones**, expanda el nombre de dominio, por ejemplo, *aaddscontoso.com* y, a continuación, seleccione una unidad organizativa como **Usuarios del controlador de dominio de AAD**. Si tiene una unidad organizativa personalizada que contiene un grupo de usuarios al que desea aplicar la directiva, seleccione esa unidad organizativa.
 
-    ![Seleccionar la unidad organizativa a la que pertenece ese grupo](./media/how-to/fgpp-container.png)
+    ![Seleccionar la unidad organizativa a la que pertenece ese grupo](./media/password-policy/fgpp-container.png)
 
 1. Escriba el nombre del grupo al que desea aplicar la directiva y, después, seleccione **Comprobar nombres** para validar que el grupo existe.
 
-    ![Buscar y seleccionar el grupo al que aplicar la FGPP](./media/how-to/fgpp-apply-group.png)
+    ![Buscar y seleccionar el grupo al que aplicar la FGPP](./media/password-policy/fgpp-apply-group.png)
 
 1. Cuando ya aparezca el nombre del grupo que seleccionó en la sección **Se aplica directamente a**, seleccione **Aceptar** para guardar la directiva de contraseñas personalizada.
 

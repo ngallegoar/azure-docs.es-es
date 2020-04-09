@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
-ms.openlocfilehash: 8087baf7595bfd2497f97fbff4822b356cd1b146
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 622c0cb8d58dddcdb13c7dc9412ada3f2e2d93e4
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79234268"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632990"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Administración de grupos de recursos de Azure Resource Manager mediante Azure Portal
 
@@ -29,7 +29,6 @@ Un grupo de recursos es un contenedor que almacena los recursos relacionados con
 
 Los grupos de recursos almacenan metadatos acerca de los recursos. Por consiguiente, al especificar la ubicación del grupo de recursos, se especifica el lugar en que se almacenan dichos metadatos. Por motivos de compatibilidad, es posible que sea preciso asegurarse de que los datos se almacenan en una región concreta.
 
-Los grupos de recursos almacenan metadatos acerca de los recursos. Al especificar la ubicación del grupo de recursos, se especifica el lugar en que dichos metadatos se almacenan.
 
 ## <a name="create-resource-groups"></a>Crear grupos de recursos
 

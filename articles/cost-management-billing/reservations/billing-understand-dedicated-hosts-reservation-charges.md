@@ -6,12 +6,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: banders
-ms.openlocfilehash: 0f7c48c47e400c2db53b024267fbf9d9690ea404
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a39cd7aa2c15fedeaf69408d8c8ae8c6b0848fed
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79204688"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677399"
 ---
 # <a name="how-the-azure-reservation-discount-is-applied-to-azure-dedicated-hosts"></a>Aplicación del descuento de la reserva de Azure a instancias de Azure Dedicated Host
 
@@ -21,7 +21,7 @@ Después de comprar una instancia reservada de Azure Dedicated Host, el descuent
 
 Un descuento de reserva significa "*usarlo o perderlo*". Por lo tanto, si no tiene recursos coincidentes para ninguna hora, perderá una cantidad de reserva para esa hora. No se pueden arrastrar las horas reservadas no utilizadas.
 
-Al eliminar un host dedicado, el descuento por reserva se aplica automáticamente a otro que coincida con el ámbito especificado. Si no se encuentran recursos coincidentes en el ámbito especificado, las horas reservadas se  *pierden*.
+Al eliminar un host dedicado, el descuento por reserva se aplica automáticamente a otro que coincida con el ámbito especificado. Si no se encuentran recursos coincidentes en el ámbito especificado, las horas reservadas se *pierden*.
 
 ## <a name="reservation-discount-for-dedicated-hosts"></a>Descuento de reserva para host dedicados
 

@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5a9e7be5f582051e03cba08733fcbfa697cc8f5
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 3ad2032497b4b01476389428f5a2ef4a3961a1c7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275046"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481252"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Aplicaciones con comodín en Azure Active Directory Application Proxy
 
@@ -53,7 +53,7 @@ Si tiene otras aplicaciones con distintos valores de configuración, debe public
 
 La creación de una aplicación comodín se basa en el mismo [flujo de publicación de aplicaciones](application-proxy-add-on-premises-application.md) que está disponible para las demás aplicaciones. La única diferencia es que se incluye un carácter comodín en las direcciones URL y, quizá, la configuración del inicio de sesión único.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para comenzar, asegúrese de que reúne estos requisitos.
 
@@ -62,7 +62,7 @@ Para comenzar, asegúrese de que reúne estos requisitos.
 Mientras que los[dominios personalizados](application-proxy-configure-custom-domain.md) son opcionales para todas las demás aplicaciones, son un requisito previo para las aplicaciones con comodín. La creación de dominios personalizados requiere:
 
 1. La creación de un dominio comprobado en Azure.
-1. La carga de un certificado SSL con formato PFX para el proxy de aplicación.
+1. La carga de un certificado TLS/SSL con formato PFX para el proxy de aplicación.
 
 Considere la posibilidad de usar un certificado con comodín para que coincida con la aplicación que va a crear. Como alternativa, también puede utilizar un certificado que solo incluya aplicaciones específicas. En este caso, mediante esta aplicación con comodín solo se podrá acceder a las aplicaciones incluidas en el certificado.
 
@@ -158,7 +158,7 @@ La configuración implementa la siguiente estructura:
 
 ![Se muestra la estructura implementada por la configuración de ejemplo](./media/application-proxy-wildcard/05.png)
 
-| Color | DESCRIPCIÓN |
+| Color | Descripción |
 | ---   | ---         |
 | Azul  | Aplicaciones publicadas explícitamente y visibles en Azure Portal. |
 | Gris  | Aplicaciones accesibles desde la aplicación primaria. |

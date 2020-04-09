@@ -8,12 +8,12 @@ ms.date: 09/05/2017
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 34665db48d2097fd3be3cdcd11a0d9cceb31855c
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 73181222bf3f15bbbac24fc253eddfea1c57bc6c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77588950"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80247102"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Métricas de Azure Storage en Azure Monitor
 

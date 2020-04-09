@@ -1,5 +1,5 @@
 ---
-title: ¿Qué es una base de datos única?
+title: Qué es una base de datos única
 description: Obtenga información acerca de la base de datos única en Azure SQL Database
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 04/08/2019
-ms.openlocfilehash: 7b084954cb53d19739a0f633661e0c76fa82dd13
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: fc63de4057def632d3ac1980e8cb3eaedbff2175
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820937"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79500746"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>Bases de datos únicas en Azure SQL Database
 
@@ -37,7 +37,7 @@ Una base de datos única se puede mover dentro o fuera de un [grupo elástico](s
 
 ## <a name="monitoring-and-alerting"></a>Supervisión y alertas
 
-Utilice las herramientas integradas de [supervisión de rendimiento](sql-database-performance.md) y de [alertas](sql-database-insights-alerts-portal.md) en combinación con las clasificaciones del rendimiento. Uso de estas herramientas, puede evaluar rápidamente el impacto de escalar verticalmente en función de su suscripción actual o se proyecta necesidades de rendimiento. Además, SQL Database puede [emitir métricas y registros de diagnóstico](sql-database-metrics-diag-logging.md) para facilitar la supervisión.
+Utilice las herramientas integradas de [supervisión de rendimiento](sql-database-performance-guidance.md) y de [alertas](sql-database-insights-alerts-portal.md) en combinación con las clasificaciones del rendimiento. Uso de estas herramientas, puede evaluar rápidamente el impacto de escalar verticalmente en función de su suscripción actual o se proyecta necesidades de rendimiento. Además, SQL Database puede [emitir métricas y registros de recurso](sql-database-metrics-diag-logging.md) para facilitar la supervisión.
 
 ## <a name="availability-capabilities"></a>Funcionalidades de disponibilidad
 
@@ -55,7 +55,7 @@ Para obtener más información, consulte [Resolución de diferencias de Transact
 SQL Database proporciona varias [características integradas de seguridad y cumplimiento](sql-database-security-overview.md) que facilitan que su aplicación cumpla los distintos requisitos de seguridad y cumplimiento normativo.
 
 > [!IMPORTANT]
-> Azure SQL Database (todas las opciones de implementación) ha obtenido la certificación de diversas normas de cumplimiento. Para obtener más información, consulte el [Centro de confianza de Microsoft Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942), donde encontrará la lista más reciente de certificaciones de cumplimiento de SQL Database.
+> Azure SQL Database (todas las opciones de implementación) ha obtenido la certificación de diversas normas de cumplimiento. Para obtener más información, vea el [Centro de confianza de Microsoft Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942), donde encontrará la lista más reciente de certificaciones de cumplimiento de SQL Database.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

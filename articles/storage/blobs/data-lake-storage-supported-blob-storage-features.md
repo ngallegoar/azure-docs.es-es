@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/26/2020
+ms.date: 04/03/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 215244204aa58cc2fdedc639d48e01b514759694
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b270ce3cd15dbd1e8dd53bd60376a87d6e08f75c
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78196015"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637210"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Características de Blob Storage disponibles en Azure Data Lake Storage Gen2
 
@@ -38,7 +38,7 @@ En esta tabla se enumeran las características de Blob Storage que puede usar co
 |API de Blob Storage|Disponibilidad general|[Inicio rápido: Biblioteca cliente de Azure Blob Storage v12 para .NET](storage-quickstart-blobs-dotnet.md)<br>[Inicio rápido: Administración de blobs con el SDK de Java v12](storage-quickstart-blobs-java.md)<br>[Inicio rápido: Administración de blobs con el SDK de Python v12](storage-quickstart-blobs-python.md)<br>[Inicio rápido: Administración de blobs con el SDK de JavaScript v12 en Node.js](storage-quickstart-blobs-nodejs.md)|
 |Nivel de acceso de archivo|Vista previa|[Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo](storage-blob-storage-tiers.md)|
 |Directivas de administración del ciclo de vida|Vista previa|[Administración del ciclo de vida de Azure Blob Storage](storage-lifecycle-management-concepts.md)|
-|Registros de diagnóstico|Vista previa|[Registro de Azure Storage Analytics](../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Registros de diagnóstico|Disponibilidad general|[Registro de Azure Storage Analytics](../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Fuente de cambios|Todavía no se admite|[Compatibilidad con la fuente de cambios en Azure Blob Storage](storage-blob-change-feed.md)|
 |Conmutación por error de cuenta|Todavía no se admite|[Recuperación ante desastres y conmutación por error de la cuenta](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |ACL del contenedor de blobs|Todavía no se admite|[Establecer lista de control de acceso de contenedor](https://docs.microsoft.com/rest/api/storageservices/set-container-acl)|

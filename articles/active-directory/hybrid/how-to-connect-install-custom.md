@@ -14,12 +14,12 @@ ms.date: 11/14/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c99a6e018edd0806daac7cd429135e522f217f23
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: d5f83fa040de501adf3afa523086e100244fa619
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77159835"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80331784"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Instalación personalizada de Azure AD Connect
 Se utiliza **Configuración personalizada** de Azure AD Connect cuando se desea contar con más opciones para la instalación. Se utiliza si tiene varios bosques o si desea configurar características opcionales que no se incluyen en la instalación rápida. Se usa en todos aquellos casos en que la opción [**Instalación rápida**](how-to-connect-install-express.md) no vale para su implementación o topología.
@@ -246,16 +246,16 @@ La configuración de AD FS con Azure AD Connect es muy sencilla y solo se necesi
 
 * Un servidor Windows Server 2012 R2 o posterior para el servidor de federación con la administración remota habilitada
 * Un servidor Windows Server 2012 R2 para el servidor Web Application Proxy con la administración remota habilitada
-* Un certificado SSL para el nombre del servicio de federación que desea usar (por ejemplo, sts.contoso.com)
+* Un certificado TLS/SSL del nombre del servicio de federación que quiera usar (por ejemplo, sts.contoso.com)
 
 >[!NOTE]
->Puede actualizar el certificado SSL de la granja de AD FS con Azure AD Connect incluso si no lo usa para administrar la confianza de federación.
+>El certificado TLS/SSL de la granja de AD FS se puede actualizar con Azure AD Connect incluso si no lo usa para administrar la confianza de federación.
 
 ### <a name="ad-fs-configuration-pre-requisites"></a>Requisitos previos de la configuración de AD FS
 Para configurar la granja de AD FS mediante Azure AD Connect, asegúrese de que WinRM está habilitado en los servidores remotos. Asegúrese de haber completado las otras tareas de [requisitos previos de federación](how-to-connect-install-prerequisites.md#prerequisites-for-federation-installation-and-configuration). Además, revise los requisitos de puertos enumerados en la [Tabla 3: Azure AD Connect y servidores de federación/WAP](reference-connect-ports.md#table-3---azure-ad-connect-and-ad-fs-federation-serverswap).
 
 ### <a name="create-a-new-ad-fs-farm-or-use-an-existing-ad-fs-farm"></a>Creación de una nueva granja de AD FS o utilización de una granja de AD FS existente
-Puede utilizar una granja de AD FS existente o crear una nueva granja de AD FS. Si decide crearla, debe proporcionar el certificado SSL. Si el certificado SSL está protegido mediante contraseña, se le solicitará dicha contraseña.
+Puede utilizar una granja de AD FS existente o crear una nueva granja de AD FS. Si decide crearla, debe proporcionar el certificado TLS/SSL. Si el certificado TLS/SSL está protegido con contraseña, se le pedirá dicha contraseña.
 
 ![Granja de AD FS](./media/how-to-connect-install-custom/adfs1.png)
 
@@ -320,7 +320,7 @@ Cuando se selecciona el dominio que se va a federar, Azure AD Connect proporcion
 ## <a name="configuring-federation-with-pingfederate"></a>Configuración de federación con PingFederate
 La configuración de PingFederate con Azure AD Connect es muy sencilla y solo se necesitan unos pocos clics. Sin embargo, se precisan los siguientes requisitos previos.
 - PingFederate 8.4 o superior.  Para obtener más información, consulte [PingFederate Integration with Azure Active Directory and Office 365](https://docs.pingidentity.com/bundle/O365IG20_sm_integrationGuide/page/O365IG_c_integrationGuide.html) (Integración de PingFederate con Azure Active Directory y Office 365).
-- Un certificado SSL para el nombre del servicio de federación que desea usar (por ejemplo, sts.contoso.com)
+- Un certificado TLS/SSL del nombre del servicio de federación que quiera usar (por ejemplo, sts.contoso.com)
 
 ### <a name="verify-the-domain"></a>Comprobar el dominio
 Después de seleccionar la federación con PingFederate, se le pedirá que compruebe el dominio que quiere federar.  Seleccione el dominio del cuadro desplegable.

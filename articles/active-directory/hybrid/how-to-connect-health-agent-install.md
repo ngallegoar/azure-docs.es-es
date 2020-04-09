@@ -16,12 +16,12 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e9468c0a0f6844c7522ff43761cf58f4beea27e
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 47fede0726ff1a540a71b9c42ca0c07117865d9e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76897358"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80331621"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Instalación del agente de Azure AD Connect Health
 
@@ -38,7 +38,7 @@ En la tabla siguiente hay una lista de requisitos para utilizar Azure AD Connect
 | El agente de Azure AD Connect Health está instalado en cada servidor de destino. | Azure AD Connect Health requiere que se instalen y configuren agentes de mantenimiento en servidores de destino para recibir los datos y proporcionar las funcionalidades de supervisión y análisis. <br /><br />Por ejemplo, para obtener datos sobre su infraestructura de AD FS, el agente se debe instalar en los servidores proxy de AD FS y en los servidores proxy de aplicación web. De igual manera, para obtener datos sobre su infraestructura local de AD DS, el agente se debe instalar en los controladores de dominio. <br /><br /> |
 | Conectividad saliente a los extremos del servicio de Azure | Durante la instalación y el tiempo de ejecución, el agente requiere conectividad a los puntos de conexión del servicio de Azure AD Connect Health. Si la conectividad de salida está bloqueada mediante firewalls, asegúrese de agregar los siguientes puntos de conexión a la lista de elementos permitidos: Vea la sección sobre [conectividad de salida (puntos de conexión)](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) |
 |Conectividad saliente basada en direcciones IP | Para el filtrado basado en direcciones IP en los firewalls, consulte los [intervalos de IP de Azure](https://www.microsoft.com/download/details.aspx?id=41653).|
-| La inspección de SSL para el tráfico saliente se filtra o se deshabilita. | Las operaciones de carga de datos o de paso de registro de agente pueden producir un error si se produce la inspección de SSL o la finalización del tráfico saliente en el nivel de red. Más información acerca de [cómo configurar la inspección SSL](https://technet.microsoft.com/library/ee796230.aspx) |
+| La inspección de TLS del tráfico saliente se filtra o deshabilita | Las operaciones de carga de datos o de paso de registro de agente pueden generar un error si la inspección de TLS o la finalización del tráfico saliente se producen en el nivel de red. Obtenga más información sobre [cómo configurar la inspección de TLS](https://technet.microsoft.com/library/ee796230.aspx). |
 | Puertos del firewall en el servidor que ejecuta el agente |El agente requiere que los siguientes puertos de firewall estén abiertos para poder comunicarse con los puntos de conexión de Azure AD Health.<br /><br /><li>Puerto TCP 443</li><li>Puerto TCP 5671</li> <br />Tenga en cuenta que el puerto 5671 ya no es necesario para la versión más reciente del agente. Actualice a la versión más reciente, para que solo el puerto 443 sea necesario. Más información sobre cómo [habilitar los puertos del firewall](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) |
 | Permitir los siguientes sitios web si la seguridad mejorada de IE está habilitada |Si está habilitada la seguridad mejorada de Internet Explorer, los siguientes sitios web se deben permitir en el servidor en el que estará instalado el agente.<br /><br /><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com</li><li>https:\//login.windows.net</li><li>https:\//aadcdn.msftauth.net</li><li>El servidor de federación de su organización en el que confía Azure Active Directory. Por ejemplo: https:\//sts.contoso.com</li> Más información sobre [cómo configurar Internet Explorer](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing). En caso de que tenga un proxy dentro de la red, consulte la nota siguiente.|
 | Asegúrese de que PowerShell v4.0 o posterior está instalado | <li>Windows Server 2008 R2 se suministra con PowerShell 2.0, que no es suficiente para el agente. Actualice PowerShell como se explica a continuación en [Instalación del agente en servidores de Windows Server 2008 R2](#agent-installation-on-windows-server-2008-r2-servers).</li><li>Windows Server 2012 se suministra con PowerShell 3.0, que no es suficiente para el agente.  [Actualice](https://www.microsoft.com/download/details.aspx?id=40855) Windows Management Framework.</li><li>Windows Server 2012 R2 y las versiones posteriores se suministran con una versión lo suficientemente reciente de PowerShell.</li>|

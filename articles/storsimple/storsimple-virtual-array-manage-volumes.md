@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
-ms.openlocfilehash: a233a9deb58a7c1abc87a622a4f1f2581ee2e477
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2dbbe6bcd4957a108cc3eae4d41816b130cf8f07
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "62125804"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633865"
 ---
 # <a name="use-storsimple-device-manager-service-to-manage-volumes-on-the-storsimple-virtual-array"></a>Uso del servicio StorSimple Device Manager para administrar volúmenes en StorSimple Virtual Array
 
@@ -44,7 +44,7 @@ Para conocer la capacidad máxima aprovisionada de cada tipo de volumen, consult
 | Tamaño mínimo de un volumen en capas                            | 500 GB        |
 | Tamaño máximo de un volumen en capas                            | 5 TB          |
 | Tamaño mínimo de un volumen anclado localmente                    | 50 GB         |
-| Tamaño máximo de un volumen anclado localmente                    | 500 GB        |
+| Tamaño máximo de un volumen anclado localmente                    | 200 GB        |
 
 ## <a name="the-volumes-blade"></a>La hoja Volúmenes
 El menú **Volúmenes** de la hoja de resumen del servicio StorSimple muestra la lista de volúmenes de almacenamiento en una matriz dada de StorSimple y permite administrarlos.

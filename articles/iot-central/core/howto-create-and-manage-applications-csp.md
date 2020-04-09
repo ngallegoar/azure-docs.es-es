@@ -6,14 +6,14 @@ ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
 ms.date: 08/23/2019
-ms.topic: conceptual
+ms.topic: how-to
 manager: philmea
-ms.openlocfilehash: 40c5f612b5b1571bb3d39f452d64a7005701f7c1
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 02481d5dcbaba15c9b17a27348207d9af64f3355
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023810"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982045"
 ---
 # <a name="create-and-manage-an-azure-iot-central-application-from-the-csp-portal"></a>Creación y administración de una aplicación de Azure IoT Central desde el portal de CSP
 
@@ -33,7 +33,7 @@ Va a la página Administrador de aplicaciones de Azure IoT Central. Azure IoT Ce
 
 ![Creación de un administrador para los CSP](media/howto-create-and-manage-applications-csp/image3.png)
 
-Para crear una aplicación de Azure IoT Central, seleccione **Compilar** en el menú izquierdo. Elija una de las plantillas del sector o **Aplicación heredada** para crear una aplicación desde cero. De esta manera se cargará la página de creación de aplicaciones. Debe completar todos los campos de esta página y luego eligir **Crear**. A continuación encontrará más información sobre cada uno de los campos.
+Para crear una aplicación de Azure IoT Central, seleccione **Compilar** en el menú izquierdo. Elija una de las plantillas del sector o **Aplicación personalizada** para crear una aplicación desde cero. De esta manera se cargará la página de creación de aplicaciones. Debe completar todos los campos de esta página y luego eligir **Crear**. A continuación encontrará más información sobre cada uno de los campos.
 
 ![Página Crear aplicación para los CSP](media/howto-create-and-manage-applications-csp/image4.png)
 
@@ -73,21 +73,13 @@ Si no tiene una suscripción de Azure, puede crear una en el Centro de partners 
 
 Para más información, consulte [Suscripciones de Azure](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing).
 
-## <a name="region"></a>Region
+## <a name="location"></a>Location
 
-Elija la región o [zona geográfica](https://azure.microsoft.com/global-infrastructure/geographies/) donde quiere crear la aplicación de Azure IoT Central. Normalmente, debe elegir la región más cercana físicamente a los dispositivos a fin de obtener un rendimiento óptimo.
-
-Para obtener más información, consulte [regiones de Azure](https://azure.microsoft.com/global-infrastructure/regions/) y [zonas geográficas de Azure](https://azure.microsoft.com/global-infrastructure/geographies/).
-
-Puede ver las regiones en las que Azure IoT Central está disponible en la página [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=iot-central).
-
-> [!Note]
-> Una vez que elija una región, ya no podrá mover la aplicación a otra región más adelante.
+**Ubicación** es la [zona geográfica](https://azure.microsoft.com/global-infrastructure/geographies/) en la que desea crear la aplicación. Normalmente, se debe elegir la ubicación más cercana físicamente a los dispositivos para un rendimiento óptimo. Actualmente, se puede crear una aplicación de IoT Central en las zonas geográficas **Australia**, **Asia Pacífico**, **Europa**, **Estados Unidos**, **Reino Unido** y **Japón**. Una vez que elija una ubicación, no puede mover la aplicación a otra más adelante.
 
 ## <a name="application-template"></a>Plantilla de la aplicación
 
 Seleccione la plantilla de aplicación que desea utilizar para la aplicación.
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

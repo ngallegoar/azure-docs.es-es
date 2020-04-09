@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 02/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2c3c52fc85e6c915587db27a3f5ce247fd05ea51
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 7b8c1b0bcc74d73f1f869972488ba7c5dfe610d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598330"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80060067"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Lista de comprobación de planeamiento e implementación de cargas de trabajo de SAP en Azure
 
@@ -164,7 +164,7 @@ Se recomienda configurar y validar una solución completa de alta disponibilidad
             -   [Nota de soporte técnico de SAP 2772999 - Red Hat Enterprise Linux 8.x: Installation and Configuration](https://launchpad.support.sap.com/#/notes/2772999) (Red Hat Enterprise Linux 8.x: instalación y configuración)
             -   [Nota de soporte técnico de SAP 2777782 - SAP HANA DB: Recommended OS settings for RHEL 8](https://launchpad.support.sap.com/#/notes/2777782) (SAP HANA DB: configuración recomendada del sistema operativo para RHEL 8).
             -   [Nota de soporte técnico de SAP 2578899 – SUSE Linux Enterprise Server 15: Installation Note](https://launchpad.support.sap.com/#/notes/2578899) (SUSE Linux Enterprise Server 15: nota de instalación)
-            -   Nota de soporte técnico de SAP https://launchpad.support.sap.com/#/notes/0002455582)(https://launchpad.support.sap.com/#/notes/0002455582)
+            -   [Nota de soporte técnico de SAP 2455582 - Linux: Ejecución de aplicaciones SAP compiladas con GCC 6.x](https://launchpad.support.sap.com/#/notes/0002455582)
             -    [Nota de soporte técnico de SAP 2729475 - HWCCT Failed with Error "Hypervisor is not supported" on Azure VMs certified for SAP HANA ](https://launchpad.support.sap.com/#/notes/2729475) (HWCCT: error "no se admite el hipervisor" en las máquinas virtuales de Azure certificadas para SAP HANA)
 1. Pruebe los procedimientos de alta disponibilidad y recuperación ante desastres.
    1. Simule situaciones de conmutación por error apagando las máquinas virtuales (sistemas operativos invitados de Windows) o colocando los sistemas operativos en modo de pánico (sistemas operativos invitados de Linux). Este paso le ayudará a averiguar si las configuraciones de conmutación por error funcionan según lo previsto.

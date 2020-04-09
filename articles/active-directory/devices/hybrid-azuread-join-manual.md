@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6754393bdeabcd67dcf6514102e3c825a26fc3e9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 878960738830dbe2f94b977e98215a681c4a79d2
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79222952"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80802559"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Tutorial: Configuración manual de dispositivos unidos a Azure Active Directory híbrido
 
@@ -85,7 +85,7 @@ Utilice la tabla siguiente para obtener una visión general de los pasos necesar
 | Configuración del punto de conexión de servicio | ![Comprobar][1] | ![Comprobar][1] | ![Comprobar][1] |
 | Configurar la emisión de notificaciones |     | ![Comprobar][1] | ![Comprobar][1] |
 | Habilitación de dispositivos que no tengan Windows 10 |       |        | ![Comprobar][1] |
-| Comprobación dispositivos unidos | ![Comprobar][1] | ![Comprobar][1] | [Comprobación][1] |
+| Comprobación dispositivos unidos | ![Comprobar][1] | ![Comprobar][1] | ![Comprobar][1] |
 
 ## <a name="configure-a-service-connection-point"></a>Configurar un punto de conexión de servicio
 

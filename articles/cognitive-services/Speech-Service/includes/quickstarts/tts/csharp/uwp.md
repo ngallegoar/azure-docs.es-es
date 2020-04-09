@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 08/19/2019
+ms.date: 04/04/2020
 ms.author: yinhew
-ms.openlocfilehash: 8ca97be2863bd8e45ac7937c49c464fa2f216b11
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 1633586a77465d9d5f605b17727f2531430d1cbd
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78925639"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80671410"
 ---
 > [!NOTE]
 > La Plataforma universal de Windows permite desarrollar aplicaciones que se ejecutan en cualquier dispositivo que admite Windows 10, incluidos PC, Xbox, Surface Hub y otros dispositivos.
@@ -26,7 +26,7 @@ Antes de comenzar, compruebe lo siguiente:
 
 > [!div class="checklist"]
 > * [Ha creado un recurso de Voz de Azure](../../../../get-started.md)
-> * [Configuración del entorno de desarrollo y creación de un proyecto vacío](../../../../quickstarts/setup-platform.md?tabs=uwp)
+> * [Configuración del entorno de desarrollo y creación de un proyecto vacío](../../../../quickstarts/setup-platform.md?tabs=uwp&pivots=programming-language-csharp)
 
 ## <a name="add-sample-code"></a>Incorporación de código de ejemplo
 

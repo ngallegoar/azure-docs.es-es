@@ -10,17 +10,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/01/2019
-ms.openlocfilehash: 89ce253806b4a39b393c74ea96ddc2523d338d84
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 03/24/2020
+ms.openlocfilehash: 7d380f34f849eac835abbd295cd1e2d8c17daaef
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926245"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80153867"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Copia de datos desde y hacia Salesforce mediante Azure Data Factory
 
-> [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
+> [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](v1/data-factory-salesforce-connector.md)
 > * [Versión actual](connector-salesforce.md)
 
@@ -33,7 +33,6 @@ Este conector de Salesforce es compatible con las actividades siguientes:
 - [Actividad de copia](copy-activity-overview.md) con [matriz de origen o receptor compatible](copy-activity-overview.md)
 - [Actividad de búsqueda](control-flow-lookup-activity.md)
 
-
 Puede copiar datos desde Salesforce a cualquier almacén de datos receptor compatible. También puede copiar datos desde cualquier almacén de datos de origen compatible a Salesforce. Consulte la tabla de [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver una lista de almacenes de datos que la actividad de copia admite como orígenes o receptores.
 
 En concreto, este conector de Salesforce admite:
@@ -41,9 +40,9 @@ En concreto, este conector de Salesforce admite:
 - Ediciones de Salesforce Developer, Professional, Enterprise o Unlimited.
 - La copia de datos desde y hacia producción, espacio aislado y dominio personalizado de Salesforce.
 
-El conector de Salesforce se basa en la API REST/Bulk de Salesforce, con [v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) como origen para la copia de datos y [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) como destino.
+El conector de Salesforce se basa en la API REST/Bulk de Salesforce. De forma predeterminada, el conector usa [V45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) para copiar datos de Salesforce y [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) para copiar datos en Salesforce. También puede establecer de forma explicita la versión de la API que se va a usar para leer y escribir datos a través de [`apiVersion` propiedad](#linked-service-properties) en el servicio vinculado.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 El permiso API debe estar habilitado en Salesforce. Para más información, consulte [How do I enable API access in Salesforce by permission set?](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/) (Procedimientos para habilitar el acceso de API en Salesforce mediante un conjunto de permisos)
 
@@ -56,7 +55,7 @@ Salesforce tiene límites para el número total de solicitudes de API y el de so
 
 También podría recibir el mensaje de error "REQUEST_LIMIT_EXCEEDED" en ambos escenarios. Consulte la sección "API Request Limits" (Límites de solicitudes de API) en [Salesforce Developer Limits](https://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) (Límites de Salesforce Developer) para más información.
 
-## <a name="get-started"></a>Primeros pasos
+## <a name="get-started"></a>Introducción
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -66,13 +65,14 @@ Las secciones siguientes proporcionan detalles sobre las propiedades que se usan
 
 Las siguientes propiedades son compatibles con el servicio vinculado Salesforce.
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | type |La propiedad type debe establecerse en: **Salesforce**. |Sí |
-| environmentUrl | Especifique la URL de la instancia de Salesforce. <br> - El valor predeterminado es `"https://login.salesforce.com"`. <br> - Para copiar datos desde el espacio aislado, especifique `"https://test.salesforce.com"`. <br> - Para copiar datos del dominio personalizado, especifique, por ejemplo, `"https://[domain].my.salesforce.com"`. |Sin |
+| environmentUrl | Especifique la URL de la instancia de Salesforce. <br> - El valor predeterminado es `"https://login.salesforce.com"`. <br> - Para copiar datos desde el espacio aislado, especifique `"https://test.salesforce.com"`. <br> - Para copiar datos del dominio personalizado, especifique, por ejemplo, `"https://[domain].my.salesforce.com"`. |No |
 | username |Especifique el nombre de usuario de la cuenta de usuario. |Sí |
 | password |Especifique la contraseña para la cuenta de usuario.<br/><br/>Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí |
-| securityToken |Especifique el token de seguridad para la cuenta de usuario. Consulte [Get a security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) (Obtención de un token de seguridad) para ver instrucciones sobre cómo restablecer u obtener un token de seguridad. Para más información acerca de los tokens de seguridad en general, consulte [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)(Seguridad y la API).<br/><br/>Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí |
+| securityToken |Especifique el token de seguridad para la cuenta de usuario. <br/><br/>Para más información acerca de los tokens de seguridad en general, consulte [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)(Seguridad y la API). El token de seguridad solo se puede omitir si agrega la dirección IP de Integration Runtime a la [lista de direcciones IP de confianza](https://developer.salesforce.com/docs/atlas.en-us.securityImplGuide.meta/securityImplGuide/security_networkaccess.htm) en Salesforce. Cuando use Azure IR, consulte [Direcciones IP de Azure Integration Runtime](azure-integration-runtime-ip-addresses.md).<br/><br/>Para obtener instrucciones sobre cómo restablecer u obtener un token de seguridad consulte el artículo sobre [obtención de un token de seguridad](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm). Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |No |
+| apiVersion | Especifique la versión de la API REST/Bulk de Salesforce que se va a usar, por ejemplo, `48.0`. De forma predeterminada, el conector usa [V45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) para copiar datos de Salesforce y [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) para copiar datos en Salesforce. | No |
 | connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Si no se especifica, se usará Azure Integration Runtime. | "No" para el origen, "Sí" para el receptor si el servicio vinculado al origen no tiene ningún entorno de ejecución de integración. |
 
 >[!IMPORTANT]
@@ -144,7 +144,7 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos desde y hacia Salesforce, establezca la propiedad type del conjunto de datos en **SalesforceObject**. Se admiten las siguientes propiedades.
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type debe establecerse en **SalesforceObject**.  | Sí |
 | objectApiName | El nombre del objeto de Salesforce desde el que se van a recuperar los datos. | No para el origen, sí para el receptor |
@@ -154,7 +154,7 @@ Para copiar datos desde y hacia Salesforce, establezca la propiedad type del con
 
 ![Data Factory - Conexión a Salesforce - Nombre de la API](media/copy-data-from-salesforce/data-factory-salesforce-api-name.png)
 
-**Ejemplo:**
+**Ejemplo**:
 
 ```json
 {
@@ -176,7 +176,7 @@ Para copiar datos desde y hacia Salesforce, establezca la propiedad type del con
 >[!NOTE]
 >Por compatibilidad con versiones anteriores: Cuando se copian datos de Salesforce, se podrá seguir usando el conjunto de datos de tipo "RelationalTable" anterior, pero se sugiere cambiar al nuevo tipo "SalesforceObject".
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type del conjunto de datos debe establecerse en: **RelationalTable**. | Sí |
 | tableName | Nombre de la tabla de Salesforce. | No (si se especifica "query" en el origen de la actividad) |
@@ -189,18 +189,18 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos desde Salesforce, establezca el tipo de origen de la actividad de copia en **SalesforceSource**. En la sección **source** de la actividad de copia se admiten las siguientes propiedades.
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type del origen de la actividad de copia debe establecerse en: **SalesforceSource**. | Sí |
-| query |Utilice la consulta personalizada para leer los datos. Puede usar una consulta de SQL-92 o de [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm). Consulte más sugerencias en la sección [Sugerencias de consulta](#query-tips). Si no se especifica la consulta, se recuperarán todos los datos del objeto de Salesforce especificado en "objectApiName" en el conjunto de datos. | No (si se especifica "objectApiName" en el conjunto de datos) |
-| readBehavior | Indica si se van a consultar los registros existentes o todos, incluso los que se eliminaron. Si no se especifica, el comportamiento predeterminado es el primero. <br>Valores permitidos: **query** (valor predeterminado), **queryAll**.  | Sin |
+| Query |Utilice la consulta personalizada para leer los datos. Puede usar una consulta de SQL-92 o de [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm). Consulte más sugerencias en la sección [Sugerencias de consulta](#query-tips). Si no se especifica la consulta, se recuperarán todos los datos del objeto de Salesforce especificado en "objectApiName" en el conjunto de datos. | No (si se especifica "objectApiName" en el conjunto de datos) |
+| readBehavior | Indica si se van a consultar los registros existentes o todos, incluso los que se eliminaron. Si no se especifica, el comportamiento predeterminado es el primero. <br>Valores permitidos: **query** (valor predeterminado), **queryAll**.  | No |
 
 > [!IMPORTANT]
 > La parte "__c" del **nombre de la API** es necesaria para cualquier objeto personalizado.
 
 ![Data Factory - Conexión a Salesforce - Lista de nombres de API](media/copy-data-from-salesforce/data-factory-salesforce-api-name-2.png)
 
-**Ejemplo:**
+**Ejemplo**:
 
 ```json
 "activities":[
@@ -239,7 +239,7 @@ Para copiar datos desde Salesforce, establezca el tipo de origen de la actividad
 
 Para copiar datos hacia Salesforce, establezca el tipo de receptor de la actividad de copia en **SalesforceSink**. En la sección **sink** de la actividad de copia se admiten las siguientes propiedades.
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type del receptor de la actividad de copia debe establecerse en: **SalesforceSink**. | Sí |
 | writeBehavior | El comportamiento de escritura de la operación.<br/>Los valores permitidos son: **Insert** y **Upsert**. | No (el valor predeterminado es Insert) |
@@ -322,25 +322,25 @@ Al copiar datos desde Salesforce, se usan las siguientes asignaciones de tipos d
 
 | Tipos de datos de Salesforce | Tipo de datos provisionales de Data Factory |
 |:--- |:--- |
-| Numeración automática |Cadena |
+| Numeración automática |String |
 | Casilla de verificación |Boolean |
 | Moneda |Decimal |
 | Date |DateTime |
 | Fecha y hora |DateTime |
-| Email |Cadena |
-| Id |Cadena |
-| Relación de búsqueda |Cadena |
-| Lista desplegable de selección múltiple |Cadena |
+| Email |String |
+| Identificador |String |
+| Relación de búsqueda |String |
+| Lista desplegable de selección múltiple |String |
 | Number |Decimal |
 | Percent |Decimal |
-| Teléfono |Cadena |
-| Lista desplegable |Cadena |
-| Texto |Cadena |
-| Área de texto |Cadena |
-| Área de texto (largo) |Cadena |
-| Área de texto (enriquecido) |Cadena |
-| Texto (cifrado) |Cadena |
-| URL |Cadena |
+| Teléfono |String |
+| Lista desplegable |String |
+| Texto |String |
+| Área de texto |String |
+| Área de texto (largo) |String |
+| Área de texto (enriquecido) |String |
+| Texto (cifrado) |String |
+| URL |String |
 
 ## <a name="lookup-activity-properties"></a>Propiedades de la actividad de búsqueda
 

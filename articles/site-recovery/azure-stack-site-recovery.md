@@ -1,23 +1,18 @@
 ---
 title: Replicar máquinas virtuales de Azure Stack en Azure con Azure Site Recovery | Microsoft Docs
 description: Aprenda a configurar la recuperación ante desastres en Azure para máquinas virtuales de Azure Stack con el servicio Azure Site Recovery.
-services: site-recovery
-author: rayne-wiselman
-manager: carmonm
 ms.topic: conceptual
-ms.service: site-recovery
 ms.date: 08/05/2019
-ms.author: raynew
-ms.openlocfilehash: 15cd729063545914f791de39a075af9084f72bef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ab35463ca8c3b29e6b4ae8abc781a7081091b214
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75426564"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478516"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replicación de máquinas virtuales de Azure Stack en Azure
 
-En este artículo se muestra cómo configurar la recuperación ante desastres de máquinas virtuales de Azure Stack en Azure, mediante el [servicio Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview).
+En este artículo se muestra cómo configurar la recuperación ante desastres de máquinas virtuales de Azure Stack en Azure, mediante el [servicio Azure Site Recovery](site-recovery-overview.md).
 
 Site Recovery contribuye a su estrategia de continuidad empresarial y recuperación ante desastres (BCDR). El servicio garantiza que las cargas de trabajo de máquina virtual sigan estando disponibles cuando se produzcan interrupciones esperadas e inesperadas.
 
@@ -45,9 +40,9 @@ Con estos pasos completados, puede ejecutar una conmutación por error completa 
 
 **Ubicación** | **Componente** |**Detalles**
 --- | --- | ---
-**Servidor de configuración** | Se ejecuta en una única máquina virtual de Azure Stack. | En cada suscripción se configura una máquina virtual de configuración. Esta máquina virtual ejecuta los siguientes componentes de Site Recovery:<br/><br/> - Servidor de configuración: coordina las comunicaciones entre el entorno local y Azure, además de administrar la replicación de datos. - Servidor de procesos: Actúa como puerta de enlace de replicación. Recibe los datos de la replicación, los optimiza mediante el almacenamiento en caché, compresión y cifrado, y los envía a Azure Storage.<br/><br/> Si las máquinas virtuales que va a replicar superan los límites indicados a continuación, puede configurar un servidor de procesos independiente. [Más información](https://docs.microsoft.com/azure/site-recovery/vmware-azure-set-up-process-server-scale).
-**Servicio de movilidad** | Se instala en cada máquina virtual que quiere replicar. | En los pasos de este artículo, se prepara una cuenta para que Mobility Service se instale automáticamente en una máquina virtual cuando se habilite la replicación. Si no quiere instalar automáticamente el servicio, hay una serie de otros métodos que puede usar. [Más información](https://docs.microsoft.com/azure/site-recovery/vmware-azure-install-mobility-service).
-**Azure** | En Azure, necesita un almacén de Recovery Services, una cuenta de almacenamiento y una red virtual. |  Los datos replicados se almacenan en la cuenta de almacenamiento. Las máquinas virtuales de Azure se agregan a la red de Azure cuando se produce una conmutación por error. 
+**Servidor de configuración** | Se ejecuta en una única máquina virtual de Azure Stack. | En cada suscripción se configura una máquina virtual de configuración. Esta máquina virtual ejecuta los siguientes componentes de Site Recovery:<br/><br/> - Servidor de configuración: coordina las comunicaciones entre el entorno local y Azure, además de administrar la replicación de datos. - Servidor de procesos: Actúa como puerta de enlace de replicación. Recibe los datos de la replicación, los optimiza mediante el almacenamiento en caché, compresión y cifrado, y los envía a Azure Storage.<br/><br/> Si las máquinas virtuales que va a replicar superan los límites indicados a continuación, puede configurar un servidor de procesos independiente. [Más información](vmware-azure-set-up-process-server-scale.md).
+**Servicio de movilidad** | Se instala en cada máquina virtual que quiere replicar. | En los pasos de este artículo, se prepara una cuenta para que Mobility Service se instale automáticamente en una máquina virtual cuando se habilite la replicación. Si no quiere instalar automáticamente el servicio, hay una serie de otros métodos que puede usar. [Más información](vmware-azure-install-mobility-service.md).
+**Azure** | En Azure, necesita un almacén de Recovery Services, una cuenta de almacenamiento y una red virtual. |  Los datos replicados se almacenan en la cuenta de almacenamiento. Las máquinas virtuales de Azure se agregan a la red de Azure cuando se produce una conmutación por error.
 
 
 La replicación funciona de la manera siguiente:
@@ -68,8 +63,8 @@ Esto es lo que va a necesitar para configurar este escenario.
 **Requisito** | **Detalles**
 --- | ---
 **Cuenta de suscripción de Azure** | Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/).
-**Permisos de cuenta de Azure** | La cuenta de Azure que use necesita permisos para:<br/><br/> - Crear un almacén de Recovery Service<br/><br/> - Crear una máquina virtual en el grupo de recursos y la red virtual que se utiliza para el escenario<br/><br/> - Escribir en la cuenta de almacenamiento que especifique<br/><br/> Observe lo siguiente:<br/><br/> \- Si crea una cuenta gratuita, será el administrador de la suscripción y podrá realizar todas las acciones.<br/><br/> - Si usa una suscripción existente y no es el administrador, tendrá que solicitar al administrador que le asigne permisos de propietario o colaborador.<br/><br/> - Si necesita permisos más específicos, consulte [este artículo](https://docs.microsoft.com/azure/site-recovery/site-recovery-role-based-linked-access-control). 
-**Máquina virtual de Azure Stack** | Necesita una máquina virtual de Azure Stack en la suscripción de inquilino, que se implementará como servidor de configuración de Site Recovery. 
+**Permisos de cuenta de Azure** | La cuenta de Azure que use necesita permisos para:<br/><br/> - Crear un almacén de Recovery Service<br/><br/> - Crear una máquina virtual en el grupo de recursos y la red virtual que se utiliza para el escenario<br/><br/> - Escribir en la cuenta de almacenamiento que especifique<br/><br/> Observe lo siguiente:<br/><br/> \- Si crea una cuenta gratuita, será el administrador de la suscripción y podrá realizar todas las acciones.<br/><br/> - Si usa una suscripción existente y no es el administrador, tendrá que solicitar al administrador que le asigne permisos de propietario o colaborador.<br/><br/> - Si necesita permisos más específicos, consulte [este artículo](site-recovery-role-based-linked-access-control.md).
+**Máquina virtual de Azure Stack** | Necesita una máquina virtual de Azure Stack en la suscripción de inquilino, que se implementará como servidor de configuración de Site Recovery.
 
 
 ### <a name="prerequisites-for-the-configuration-server"></a>Requisitos previos del servidor de configuración
@@ -77,7 +72,7 @@ Esto es lo que va a necesitar para configurar este escenario.
 [!INCLUDE [site-recovery-config-server-reqs-physical](../../includes/site-recovery-config-server-reqs-physical.md)]
 
 
- 
+
 ## <a name="step-1-prepare-azure-stack-vms"></a>Paso 1: Preparación de las máquinas virtuales de Azure Stack
 
 ### <a name="verify-the-operating-system"></a>Comprobar el sistema operativo
@@ -89,7 +84,7 @@ Asegúrese de que las máquinas virtuales ejecuten uno de los sistemas operativo
 --- | ---
 **Windows de 64 bits** | Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 (desde SP1)
 **CentOS** | Desde 5.2 hasta 5.11, desde 6.1 hasta 6.9 y desde 7.0 hasta 7.3
-**Ubuntu** | Servidor 14.04 LTS, servidor 16.04 LTS. Revise los [kernels compatibles](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#ubuntu-kernel-versions).
+**Ubuntu** | Servidor 14.04 LTS, servidor 16.04 LTS. Revise los [kernels compatibles](vmware-physical-azure-support-matrix.md#ubuntu-kernel-versions).
 
 ### <a name="prepare-for-mobility-service-installation"></a>Preparación para la instalación del Servicio de Movilidad
 
@@ -109,7 +104,7 @@ Todas las máquinas virtuales que desee replicar deben tener instalado Mobility 
     - Para ello, ejecute **wf.msc** para abrir la consola de Firewall de Windows. Haga clic con el botón derecho en **Reglas de entrada** > **Nueva regla**. Seleccione **Predefinido** y elija **Compartir archivos e impresoras** en la lista. Complete el asistente, seleccione Permitir la conexión > **Finalizar**.
     - Para los equipos del dominio, puede usar un GPO para hacerlo.
 
-    
+
 #### <a name="linux-machines"></a>Equipos con Linux
 
 - Asegúrese de que hay conectividad de red entre la el equipo con Linux y el servidor de procesos.
@@ -143,7 +138,7 @@ Para cada equipo que quiera replicar, busque la dirección IP:
 ## <a name="step-2-create-a-vault-and-select-a-replication-goal"></a>Paso 2: Creación de un almacén y selección de un objetivo de replicación
 
 1. En Azure Portal, seleccione **Crear un recurso** > **Herramientas de administración** > **Backup y Site Recovery**.
-2. En **Nombre**, escriba un nombre descriptivo para identificar el almacén. 
+2. En **Nombre**, escriba un nombre descriptivo para identificar el almacén.
 3. En **Grupo de recursos**, cree o seleccione un grupo de recursos. Estamos usando **contosoRG**.
 4. En **Ubicación** especifique la región de Azure. se va a usar **Oeste de Europa**.
 5. Para acceder rápidamente al almacén desde el panel, seleccione **Anclar al panel** > **Crear**.
@@ -182,7 +177,7 @@ Configure el equipo del servidor de configuración, regístrelo en el almacén y
 
 Para instalar y registrar el servidor de configuración, realice una conexión RDP a la máquina virtual que quiere usar para el servidor de configuración y ejecute la configuración unificada.
 
-Antes de empezar, asegúrese de que el reloj esté [sincronizado con un servidor horario](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service) en la máquina virtual antes de empezar. Se produce un error en la instalación si la hora se desvía más de cinco minutos de la hora local.
+Antes de empezar, asegúrese de que el reloj esté [sincronizado con un servidor horario](/windows-server/networking/windows-time-service/windows-time-service-top) en la máquina virtual antes de empezar. Se produce un error en la instalación si la hora se desvía más de cinco minutos de la hora local.
 
 Ahora instale el servidor de configuración:
 
@@ -190,7 +185,7 @@ Ahora instale el servidor de configuración:
 
 > [!NOTE]
 > El servidor de configuración también se puede instalar desde la línea de comandos. [Más información](physical-manage-configuration-server.md#install-from-the-command-line).
-> 
+>
 > El nombre de la cuenta podría tardar 15 minutos o más en aparecer en el portal. Para que se actualice inmediatamente, seleccione **Servidores de configuración** > ***nombre de servidor*** > **Actualizar servidor**.
 
 ## <a name="step-4-set-up-the-target-environment"></a>Paso 4: Configuración del entorno de destino
@@ -249,9 +244,9 @@ Asegúrese de que ha completado todas las tareas del [Paso 1: Preparación de la
 
 > [!NOTE]
 > Site Recovery instala Mobility Service cuando se habilita la replicación para una máquina virtual.
-> 
+>
 > Los cambios pueden tardar 15 minutos o más en aplicarse y aparecer en el portal.
-> 
+>
 > Para supervisar las máquinas virtuales que agregue, compruebe la última hora de detección de máquinas virtuales en **Servidores de configuración** > **Último contacto a las**. Para agregar máquinas virtuales sin esperar a la detección programada, resalte el servidor de configuración (no haga clic en él) y haga clic en **Actualizar**.
 
 
@@ -261,16 +256,16 @@ Ejecute una conmutación por error de prueba en Azure para asegurarse de que tod
 
 ### <a name="verify-machine-properties"></a>Comprobar las propiedades de la máquina
 
-Antes de ejecutar una conmutación por error de prueba, compruebe las propiedades de la máquina virtual y asegúrese de que la máquina virtual cumpla con los [requisitos de Azure](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#azure-vm-requirements). Puede ver y modificar las propiedades como sigue:
+Antes de ejecutar una conmutación por error de prueba, compruebe las propiedades de la máquina virtual y asegúrese de que la máquina virtual cumpla con los [requisitos de Azure](vmware-physical-azure-support-matrix.md#azure-vm-requirements). Puede ver y modificar las propiedades como sigue:
 
 1. En **Elementos protegidos**, haga clic en **Elementos replicados** > VM.
 2. En el panel **Elemento replicado**, puede ver un resumen de la información de la máquina virtual, el estado de mantenimiento y los puntos de recuperación disponibles más recientes. Haga clic en **Propiedades** para ver más detalles.
 3. En **Compute and Network** (Proceso y red), modifique la configuración según sea necesario.
 
-    - Puede modificar el nombre de máquina virtual de Azure, el grupo de recursos, el tamaño de destino, el [conjunto de disponibilidad](../virtual-machines/windows/tutorial-availability-sets.md) y la configuración de discos administrados.
+    - Puede modificar el nombre de máquina virtual de Azure, el grupo de recursos, el tamaño de destino, el [conjunto de disponibilidad](/azure/virtual-machines/windows/tutorial-availability-sets) y la configuración de discos administrados.
     - También puede ver y modificar la configuración de red. Esta incluye la red y subred a la que se une la máquina virtual de Azure después de la conmutación por error y la dirección IP que se asignará a la máquina virtual.
 1. En **Discos**, puede ver información sobre los discos de datos y el sistema operativo de la máquina virtual.
-   
+
 
 ### <a name="run-a-test-failover"></a>Ejecución de una conmutación por error de prueba
 
@@ -288,19 +283,19 @@ Cuando se ejecuta una conmutación por error de prueba, ocurre lo siguiente:
 Ejecute una conmutación por error de prueba para una máquina virtual de la siguiente manera:
 
 1. En **Configuración** > **Elementos replicados**, haga clic en la VM > **+Probar conmutación por error**.
-2. En este tutorial, seleccionaremos el uso del punto de recuperación **Procesado más recientemente**. 
+2. En este tutorial, seleccionaremos el uso del punto de recuperación **Procesado más recientemente**.
 3. En **Probar conmutación por error**, seleccione la red Azure de destino.
 4. Haga clic en **Aceptar** para iniciar la conmutación por error.
 5. Para realizar el seguimiento del progreso, haga clic en la máquina virtual para abrir sus propiedades. También puede hacer clic en el trabajo **Probar conmutación por error** en *nombre del almacén* > **Configuración** > **Trabajos** >**Trabajos de Site Recovery**.
 6. Una vez finalizada la conmutación por error, la VM de Azure de réplica aparece en Azure Portal > **Virtual Machines**. Compruebe que la máquina virtual tiene el tamaño adecuado, está conectada a la red correcta y está en ejecución.
-7. Ahora debería poder conectarse a la VM replicada en Azure. [Más información](https://docs.microsoft.com/azure/site-recovery/site-recovery-test-failover-to-azure#prepare-to-connect-to-azure-vms-after-failover).
+7. Ahora debería poder conectarse a la VM replicada en Azure. [Más información](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
 8. Para eliminar máquinas virtuales de Azure que se crearon durante la conmutación por error de prueba, haga clic en **Limpieza de conmutación por error de prueba** en la máquina virtual. En **Notas**, guarde las observaciones asociadas a la conmutación por error de prueba.
 
 ## <a name="fail-over-and-fail-back"></a>Conmutación por error y conmutación por recuperación
 
 Una vez haya configurado la replicación y ejecutado un simulacro para asegurarse de que todo funciona, puede conmutar las máquinas a Azure según sea necesario.
 
-Antes de ejecutar una conmutación por error, si quiere conectarse a la máquina en Azure tras la conmutación por error, debe [preparar la conexión](https://docs.microsoft.com/azure/site-recovery/site-recovery-test-failover-to-azure#prepare-to-connect-to-azure-vms-after-failover) antes de empezar.
+Antes de ejecutar una conmutación por error, si quiere conectarse a la máquina en Azure tras la conmutación por error, debe [preparar la conexión](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover) antes de empezar.
 
 A continuación, ejecute una conmutación por error de prueba de la manera siguiente:
 
@@ -308,7 +303,7 @@ A continuación, ejecute una conmutación por error de prueba de la manera sigui
 1. En **Configuración** > **Elementos replicados**, haga clic en la máquina > **Conmutación por error**.
 2. Seleccione el punto de recuperación que quiere usar.
 3. En **Probar conmutación por error**, seleccione la red Azure de destino.
-4. Seleccione **Apague la máquina antes de comenzar con la conmutación por error**. Con esta configuración, Site Recovery intenta apagar la máquina de origen antes de iniciar la conmutación por error. Sin embargo, la conmutación por error continúa aunque se produzca un error de apagado. 
+4. Seleccione **Apague la máquina antes de comenzar con la conmutación por error**. Con esta configuración, Site Recovery intenta apagar la máquina de origen antes de iniciar la conmutación por error. Sin embargo, la conmutación por error continúa aunque se produzca un error de apagado.
 5. Haga clic en **Aceptar** para iniciar la conmutación por error. Puede seguir el progreso de la conmutación por error en la página **Trabajos**.
 6. Una vez finalizada la conmutación por error, la VM de Azure de réplica aparece en Azure Portal > **Virtual Machines**. Si ha preparado la conexión para después de la conmutación por error, compruebe que la máquina virtual tiene el tamaño adecuado, está conectada a la red correcta y está en ejecución.
 7. Después de comprobar la máquina virtual, haga clic en **Confirmar** para finalizar la conmutación por error. Esta acción elimina todos los puntos de recuperación disponibles.
@@ -321,18 +316,18 @@ A continuación, ejecute una conmutación por error de prueba de la manera sigui
 
 Cuando el sitio principal esté de nuevo activo y en ejecución, puede conmutar por recuperación desde Azure a Azure Stack. Para ello, deberá descargar el VHD de máquina virtual de Azure y cargarlo en Azure Stack.
 
-1. Apague la máquina virtual de Azure, para que se pueda descargar el disco duro virtual. 
+1. Apague la máquina virtual de Azure, para que se pueda descargar el disco duro virtual.
 2. Para empezar a descargar el disco duro virtual, instale el [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/).
 3. Navegue hasta la máquina virtual en Azure Portal (con el nombre de la máquina virtual).
 4. En **Discos**, haga clic en el nombre del disco y recopile la configuración.
 
-    - Por ejemplo, el URI de disco duro virtual usado en nuestra prueba, https://502055westcentralus.blob.core.windows.net/wahv9b8d2ceb284fb59287/copied-3676553984.vhd, puede dividirse para obtener los siguientes parámetros de entrada que se usan para descargar el disco duro virtual.
+    - Por ejemplo, el URI de disco duro virtual usado en nuestra prueba, `https://502055westcentralus.blob.core.windows.net/wahv9b8d2ceb284fb59287/copied-3676553984.vhd`, puede dividirse para obtener los siguientes parámetros de entrada que se usan para descargar el disco duro virtual.
         - Cuenta de almacenamiento: 502055westcentralus
         - Contenedor: wahv9b8d2ceb284fb59287
         - Nombre de disco duro virtual: copied-3676553984.vhd
 
 5. Ahora, use el Explorador de Azure Storage para descargar el disco duro virtual.
-6. Cargue el disco duro virtual en Azure Stack con [estos pasos](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-manage-vm-disks#use-powershell-to-add-multiple-disks-to-a-vm).
+6. Cargue el disco duro virtual en Azure Stack con [estos pasos](/azure-stack/user/azure-stack-manage-vm-disks#use-powershell-to-add-multiple-disks-to-a-vm).
 7. En la máquina virtual existente o en una nueva, conecte los discos duros virtuales cargados.
 8. Compruebe que el disco del sistema operativo sea correcto e inicie la máquina virtual.
 

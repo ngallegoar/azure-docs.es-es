@@ -6,13 +6,13 @@ ms.author: nimoolen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/10/2019
-ms.openlocfilehash: d861a4355158dfe18ac3aa40a7f98dc11ebda90b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 03/24/2020
+ms.openlocfilehash: 92421125ecb5f4336922c6e6b4508fcdaf92be6e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930253"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80246405"
 ---
 # <a name="data-flow-script-dfs"></a>Script de flujo de datos (DFS)
 
@@ -136,6 +136,40 @@ Y un receptor sin esquema sería sencillamente:
 ```
 derive1 sink(allowSchemaDrift: true,
     validateSchema: false) ~> sink1
+```
+
+## <a name="script-snippets"></a>Script de fragmentos de código
+
+### <a name="aggregated-summary-stats"></a>Estadísticas de resumen agregadas
+Añada una transformación agregado al flujo de datos denominada "SummaryStats" y, a continuación, pegue el siguiente código para la función de agregado en el script, reemplazando el SummaryStats existente. Esto proporcionará un patrón genérico para las estadísticas de resumen de perfil de datos.
+
+```
+aggregate(each(match(true()), $$+'_NotNull' = countIf(!isNull($$)), $$ + '_Null' = countIf(isNull($$))),
+        each(match(type=='double'||type=='integer'||type=='short'||type=='decimal'), $$+'_stddev' = round(stddev($$),2), $$ + '_min' = min ($$), $$ + '_max' = max($$), $$ + '_average' = round(avg($$),2), $$ + '_variance' = round(variance($$),2)),
+        each(match(type=='string'), $$+'_maxLength' = max(length($$)))) ~> SummaryStats
+```
+También puede usar el ejemplo siguiente para contar el número de filas únicas y el número de filas distintas de los datos. El ejemplo siguiente se puede pegar en un flujo de datos con la transformación agregada llamada ValueDistAgg. En este ejemplo se usa una columna denominada "title". Asegúrese de reemplazar "title" por la columna de cadena de los datos que desea usar para obtener los recuentos de valores.
+
+```
+aggregate(groupBy(title),
+    countunique = count()) ~> ValueDistAgg
+ValueDistAgg aggregate(numofunique = countIf(countunique==1),
+        numofdistinct = countDistinct(title)) ~> UniqDist
+```
+
+### <a name="include-all-columns-in-an-aggregate"></a>Incluir todas las columnas en un agregado
+Se trata de un patrón de agregado genérico que muestra cómo se pueden mantener las columnas restantes en los metadatos de salida al compilar agregados. En este caso, usamos la ```first()``` función para elegir el primer valor de cada columna cuyo nombre no sea "movie". Para usar esto, cree una transformación agregada llamada DistinctRows y, a continuación, péguela en el script que existe sobre el script agregado DistinctRows.
+
+```
+aggregate(groupBy(movie),
+    each(match(name!='movie'), $$ = first($$))) ~> DistinctRows
+```
+
+### <a name="create-row-hash-fingerprint"></a>Crear huella digital en código hash 
+Use este código en el script de flujo de datos para crear una nueva columna derivada denominada ```DWhash``` que genere una ```sha1``` hash de tres columnas.
+
+```
+derive(DWhash = sha1(Name,ProductNumber,Color))
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

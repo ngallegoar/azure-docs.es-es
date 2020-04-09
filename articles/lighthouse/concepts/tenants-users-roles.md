@@ -1,14 +1,14 @@
 ---
 title: Inquilinos, roles y usuarios en escenarios de Azure Lighthouse
 description: Comprenda los conceptos de los inquilinos, los usuarios y los roles de Azure Active Directory, así como la forma en que se pueden usar en escenarios de Azure Lighthouse.
-ms.date: 01/16/2020
+ms.date: 04/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 344e104201a83b3589dae6dbd3b02e49e4575e00
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 32d9214e4d0d204db39b6e6decab4665e9b55069
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156342"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754085"
 ---
 # <a name="tenants-roles-and-users-in-azure-lighthouse-scenarios"></a>Inquilinos, roles y usuarios en escenarios de Azure Lighthouse
 
@@ -41,6 +41,9 @@ Para crear las autorizaciones, se recomiendan las siguientes prácticas recomend
 - Asegúrese de seguir el principio de privilegios mínimos para que los usuarios solo tengan los permisos necesarios para completar su trabajo, lo que ayuda a reducir la posibilidad de errores involuntarios. Para obtener más información, consulte [Recommended security practices](../concepts/recommended-security-practices.md) (Prácticas de seguridad recomendadas).
 - Incluya un usuario con el [rol de eliminación de asignaciones de registro de los servicios administrados](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) para que pueda [quitar el acceso a la delegación](../how-to/onboard-customer.md#remove-access-to-a-delegation) posteriormente si es necesario. Si este rol no está asignado, solo un usuario puede quitar los recursos delegados del inquilino del cliente.
 - Asegúrese de que todos los usuarios que necesiten [ver la página Mis clientes en Azure Portal](../how-to/view-manage-customers.md) tengan el rol de [Lector](../../role-based-access-control/built-in-roles.md#reader) (u otro rol integrado que incluya acceso de lectura).
+
+> [!IMPORTANT]
+> Para agregar permisos a un grupo de Azure AD, el **tipo de grupo** debe ser **Seguridad** y no **Office 365**. Esta opción se selecciona cuando se crea el grupo. Para obtener más información vea [Creación de un grupo básico e incorporación de miembros con Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

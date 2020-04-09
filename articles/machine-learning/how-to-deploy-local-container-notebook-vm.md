@@ -10,12 +10,12 @@ ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
 ms.date: 03/05/2020
-ms.openlocfilehash: afbd9950c31bc1c40b01ec0aaf3d2bfffb8a6b94
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 09164580b8bdb249fc12d14e827ad799d51cab34
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78398174"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756581"
 ---
 # <a name="deploy-a-model-to-azure-machine-learning-compute-instances"></a>Implementación de un modelo en instancias de proceso de Azure Machine Learning
 
@@ -29,7 +29,7 @@ Obtenga información sobre cómo usar Azure Machine Learning para implementar un
 > [!TIP]
 > La implementación de un modelo de Jupyter Notebook de una instancia de proceso, en un servicio web de la misma máquina virtual es una _implementación local_. En este caso, la máquina "local" es la instancia de proceso. Para más información sobre las implementaciones, consulte [Implementación de modelos con Azure Machine Learning](how-to-deploy-and-where.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Un área de trabajo de Azure Machine Learning con una instancia de proceso en ejecución. Para más información, consulte [Configuración del entorno y del área de trabajo](tutorial-1st-experiment-sdk-setup.md).
 
@@ -96,7 +96,7 @@ print("prediction:", resp.text)
 
 * [Cómo implementar un modelo con una imagen personalizada de Docker](how-to-deploy-custom-docker-image.md)
 * [Solución de problemas de implementación](how-to-troubleshoot-deployment.md)
-* [Protección de los servicios web de Azure Machine Learning con SSL](how-to-secure-web-service.md)
+* [Uso de TLS para proteger un servicio web con Azure Machine Learning](how-to-secure-web-service.md)
 * [Consumir un modelo de ML que está implementado como un servicio web](how-to-consume-web-service.md)
 * [Supervisión de los modelos de Azure Machine Learning con Application Insights](how-to-enable-app-insights.md)
 * [Recopilar datos de modelos en producción](how-to-enable-data-collection.md)

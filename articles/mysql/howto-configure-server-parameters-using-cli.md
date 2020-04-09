@@ -6,18 +6,18 @@ ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 5f3027909d1c4684e2ef5d1b6e967cb11f570fd0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 4/1/2020
+ms.openlocfilehash: ca5f80e57f90e4dd26ac2e4a175998ff3de2c102
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80062428"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546436"
 ---
 # <a name="customize-server-parameters-by-using-azure-cli"></a>Personalización de los parámetros del servidor con la CLI de Azure
 Puede enumerar, mostrar y actualizar los parámetros de configuración de un servidor de Azure Database for MySQL con la CLI de Azure, la utilidad de línea de comandos de Azure. En el nivel del servidor, se expone y se puede modificar un subconjunto de las opciones de configuración del motor. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 Para seguir esta guía, necesitará:
 - [Un servidor de Azure Database for MySQL](quickstart-create-mysql-server-database-using-azure-cli.md)
 - La utilidad de línea de comandos [CLI de Azure](/cli/azure/install-azure-cli) o usar Azure Cloud Shell en el explorador.
@@ -55,10 +55,10 @@ Este código restablece la configuración **slow\_query\_log** en el valor prede
 
 ### <a name="populating-the-time-zone-tables"></a>Relleno de las tablas de la zona horaria
 
-Las tablas de la zona horaria del servidor se pueden rellenar mediante una llamada al procedimiento almacenado `az_load_timezone` desde una herramienta como la línea de comandos de MySQL o MySQL Workbench.
+Las tablas de la zona horaria del servidor se pueden rellenar mediante una llamada al procedimiento almacenado `mysql.az_load_timezone` desde una herramienta como la línea de comandos de MySQL o MySQL Workbench.
 
 > [!NOTE]
-> Si ejecuta el comando `az_load_timezone` de MySQL Workbench, es posible que primero tenga que desactivar el modo de actualización segura mediante `SET SQL_SAFE_UPDATES=0;`.
+> Si ejecuta el comando `mysql.az_load_timezone` de MySQL Workbench, es posible que primero tenga que desactivar el modo de actualización segura mediante `SET SQL_SAFE_UPDATES=0;`.
 
 ```sql
 CALL mysql.az_load_timezone();

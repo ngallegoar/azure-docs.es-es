@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 02/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 301b68d0dfaeef6d5cfdd4d7a5a504794ac877f4
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: 0cfe58ab0d161019d5f53d9135c65db7beff2bb4
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78205836"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80397992"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Entrenamiento de un modelo de Form Recognizer con etiquetas mediante la herramienta de etiquetado de ejemplo
 
@@ -35,6 +35,10 @@ Para completar este inicio rápido, debe cumplir los siguientes requisitos:
 ## <a name="set-up-the-sample-labeling-tool"></a>Configuración de la herramienta de etiquetado de ejemplo
 
 Usará el motor de Docker para ejecutar la herramienta de etiquetado de ejemplo. Siga estos pasos para configurar el contenedor de Docker. Para conocer los principios básicos de Docker y de los contenedores, consulte [Introducción a Docker](https://docs.docker.com/engine/docker-overview/).
+
+> [!TIP]
+> OCR Form Labeling Tool también está disponible como proyecto de código abierto en GitHub. La herramienta es una aplicación web compilada mediante React + Redux y está escrita en TypeScript. Para más información o para contribuir, consulte [OCR Form Labeling Tool](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md#run-as-web-application).
+
 1. En primer lugar, instale Docker en un equipo host. En esta guía se muestra cómo usar el equipo local como un host. Si desea usar un servicio de hospedaje de Docker en Azure, consulte la guía paso a paso [Implementación de la herramienta de etiquetado de ejemplo](../deploy-label-tool.md). 
 
    El equipo host debe cumplir los siguientes requisitos de hardware:
@@ -46,7 +50,7 @@ Usará el motor de Docker para ejecutar la herramienta de etiquetado de ejemplo.
    Instale Docker en la máquina siguiendo las instrucciones adecuadas para su sistema operativo: 
    * [Windows](https://docs.docker.com/docker-for-windows/)
    * [macOS](https://docs.docker.com/docker-for-mac/)
-   * [Linux](https://docs.docker.com/install/).
+   * [Linux](https://docs.docker.com/install/)
 
 1. Obtenga el contenedor de la herramienta de etiquetado de ejemplo con el comando `docker pull`.
     ```
@@ -185,11 +189,12 @@ Vaya a la página de configuración del proyecto (icono de control deslizante) y
 Si desea reanudar el proyecto, primero debe crear una conexión al mismo contenedor de almacenamiento de blobs. Para ello, repita los pasos anteriores. A continuación, vaya a la página de configuración de la aplicación (icono de engranaje) y compruebe si el token de seguridad del proyecto está allí. Si no es así, agregue un nuevo token de seguridad y copie el nombre y la clave del token del paso anterior. Después, haga clic en Guardar configuración. 
 
 ### <a name="resume-a-project"></a>Reanudación de un proyecto
+
 Por último, vaya a la página principal (icono de casa) y haga clic en Open Cloud Project (Abrir proyecto en la nube). Después, seleccione la conexión a Blob Storage y seleccione el archivo *.vott* del proyecto. La aplicación cargará todos los valores del proyecto ya que tiene el token de seguridad.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este inicio rápido, ha aprendido a utilizar la herramienta de etiquetado de ejemplo Form Recognizer para entrenar un modelo con datos etiquetados manualmente. Si desea integrar la herramienta de etiquetado en su propia aplicación, use las API REST que se ocupan del entrenamiento de datos etiquetados.
+En este inicio rápido, ha aprendido a utilizar la herramienta de etiquetado de ejemplo de Form Recognizer para entrenar un modelo con datos etiquetados manualmente. Si desea integrar la herramienta de etiquetado en su propia aplicación, use las API REST que se ocupan del entrenamiento de datos etiquetados.
 
 > [!div class="nextstepaction"]
 > [Entrenamiento con etiquetas mediante Python](./python-labeled-data.md)

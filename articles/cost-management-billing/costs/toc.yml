@@ -62,6 +62,8 @@
           href: 'https://github.com/Azure-Samples/Cost-Management-Samples'
     - name: Recursos
       items:
+        - name: Vídeos sobre Cost Management
+          href: 'https://www.youtube.com/c/AzureCostManagement'
         - name: Desarrollo de aptitudes con Microsoft Learn
           href: /learn/browse/?products=azure-cost-management
         - name: Foro de comentarios de Cost Management

@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 12/27/2019
-ms.openlocfilehash: cb5603c12f06e4f5d5675ca27e171321ecc8827a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d460112394d7c7b7d2da4e8af41c0085b67226ec
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79536452"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475460"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>Implementación de un modelo en Azure Container Instances
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -27,7 +27,7 @@ Obtenga información sobre cómo usar Azure Machine Learning para implementar un
 
 Para información de la disponibilidad de cuotas y regiones de ACI, consulte el artículo [Disponibilidad de cuotas y regiones en Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-quotas).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Un área de trabajo de Azure Machine Learning. Para más información, consulte [Creación de un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
 
@@ -94,7 +94,7 @@ Consulte [Implementación de modelos con VS Code](tutorial-train-deploy-image-c
 
 * [Cómo implementar un modelo con una imagen personalizada de Docker](how-to-deploy-custom-docker-image.md)
 * [Solución de problemas de implementación](how-to-troubleshoot-deployment.md)
-* [Protección de los servicios web de Azure Machine Learning con SSL](how-to-secure-web-service.md)
+* [Uso de TLS para proteger un servicio web con Azure Machine Learning](how-to-secure-web-service.md)
 * [Consumir un modelo de ML que está implementado como un servicio web](how-to-consume-web-service.md)
 * [Supervisión de los modelos de Azure Machine Learning con Application Insights](how-to-enable-app-insights.md)
 * [Recopilar datos de modelos en producción](how-to-enable-data-collection.md)

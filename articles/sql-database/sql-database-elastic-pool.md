@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
 ms.date: 08/06/2019
-ms.openlocfilehash: 3c476393153f6bc1d18d5c163bcd69484583eb15
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8139ed8f4f4799a963a051eed96dd87c4ac38aec
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79228640"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80981433"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Los grupos elásticos pueden ayudarle a administrar y escalar varias bases de datos de Azure SQL
 
@@ -224,7 +224,6 @@ Para más información, consulte cómo [crear alertas de SQL Database en Azure P
 
 - Para obtener información de precios, consulte [Precios de grupos elásticos](https://azure.microsoft.com/pricing/details/sql-database/elastic).
 - Para escalar grupos elásticos, consulte los artículos sobre el [escalado de grupos elásticos](sql-database-elastic-pool-scale.md) y el [código de ejemplo de escalado de un grupo elástico](scripts/sql-database-monitor-and-scale-pool-powershell.md)
-- Para ver un vídeo, vea el [Curso de vídeo de la Academia virtual de Microsoft sobre las funcionalidades de las bases de datos elásticas en Azure SQL Database](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554).
 - Para más información acerca de los modelos de diseño de las aplicaciones SaaS que usan grupos elásticos, consulte [Modelos de diseño para aplicaciones SaaS multiinquilino con Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 - Para obtener un tutorial sobre SaaS con grupos elásticos, vea [Introducción a la aplicación de SaaS Wingtip](sql-database-wtp-overview.md).
 - Para más información sobre la administración de recursos en grupos elásticos con muchas bases de datos, consulte [Administración de recursos en grupos elásticos densos](sql-database-elastic-pool-resource-management.md).

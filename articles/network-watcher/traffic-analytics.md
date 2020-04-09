@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: damendo
 ms.reviewer: vinigam
-ms.openlocfilehash: 83164a615cacc067e5f1ea6a1dd6ce0f0fd9d540
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: adba282a96f9d250569e090e186859c04e89ebda
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80298850"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80981552"
 ---
 # <a name="traffic-analytics"></a>Análisis de tráfico
 
@@ -183,8 +183,8 @@ Seleccione las opciones siguientes, tal y como se muestra en la imagen:
 
 1. En *Estado*, seleccione **Activo**.
 2. En *Versión de los registros de flujo*, seleccione **Versión 2**. La versión 2 contiene estadísticas de la sesión de flujo (Bytes y paquetes)
-3. Seleccione una cuenta de almacenamiento existente para almacenar los registros de flujos. Si desea almacenar los datos de forma permanente, establezca el valor en *0*. Puede incurrir en gastos de Azure Storage por la cuenta de almacenamiento. Asegúrese de que el almacenamiento no tenga el "espacio de nombres jerárquico de Data Lake Storage Gen2 habilitado" establecido en true.
-4. Establezca **Retención** en el número de días que desea almacenar los datos.
+3. Seleccione una cuenta de almacenamiento existente para almacenar los registros de flujos. Asegúrese de que el almacenamiento no tenga el "espacio de nombres jerárquico de Data Lake Storage Gen2 habilitado" establecido en true.
+4. Establezca **Retención** en el número de días que desea almacenar los datos. Si desea almacenar los datos de forma permanente, establezca el valor en *0*. Puede incurrir en gastos de Azure Storage por la cuenta de almacenamiento. 
 5. Seleccione *Activo* en **Estado de Análisis de tráfico**.
 6. Seleccione el intervalo de procesamiento. En función de su elección, los registros de flujos se recopilan de la cuenta de almacenamiento y se procesan mediante Análisis de tráfico. Puede elegir el intervalo de procesamiento de cada hora o cada 10 minutos. 
 7. Seleccione un área de trabajo de Log Analytics (OMS) existente o seleccione **Crear área de trabajo nueva** para crear una. Análisis de tráfico usa un área de trabajo de Log Analytics para almacenar los datos agregados e indexados que se emplean posteriormente para generar los análisis. Si selecciona un área de trabajo existente, esta debe estar en una de las [regiones admitidas](#supported-regions-log-analytics-workspaces) y se debe haber actualizado al nuevo lenguaje de consulta. Si no desea actualizar un área de trabajo existente, o no tiene ninguna en una región admitida, cree una nueva. Para más información sobre los lenguajes de consulta, consulte [Actualización de Azure Log Analytics para la nueva búsqueda de registros](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).

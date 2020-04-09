@@ -10,13 +10,13 @@ author: linda33wj
 manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 09/09/2019
-ms.openlocfilehash: e25b860417333d458bdde870d20968fce7dda715
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.date: 03/12/2020
+ms.openlocfilehash: 11f4005e802e2a584b21903bfead2c6b9701f065
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75892886"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80238755"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>Copia de datos hacia y desde Instancia administrada de Azure SQL Database mediante Azure Data Factory
 
@@ -41,10 +41,7 @@ En concreto, este conector de Instancia administrada de Azure SQL Database admit
 >[!NOTE]
 >Actualmente, este conector no admite [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=azuresqldb-mi-current) de la instancia administrada de Azure SQL Database. Como solución alternativa, puede usar un [conector ODBC genérico](connector-odbc.md) y un controlador ODBC de SQL Server mediante un entorno de ejecución de integración autohospedado. Siga [esta guía](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=azuresqldb-mi-current) con configuraciones de cadena de conexión y descarga del controlador ODBC.
 
->[!NOTE]
->Actualmente, este conector no admite las autenticaciones de identidad administrada y entidad de servicio. Como solución alternativa, elija un conector de Azure SQL Database y especifique manualmente el servidor de la instancia administrada.
-
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para acceder al [punto de conexión público](../sql-database/sql-database-managed-instance-public-endpoint-securely.md) de la instancia administrada de Azure SQL Database, puede usar un entorno de ejecución de integración de Azure administrado de Azure Data Factory. Asegúrese de habilitar el punto de conexión público y de permitir también el tráfico de punto de conexión público en el grupo de seguridad de red para que Azure Data Factory pueda conectarse a la base de datos. Para obtener más información, consulte [esta guía](../sql-database/sql-database-managed-instance-public-endpoint-configure.md).
 
@@ -177,7 +174,7 @@ Para usar la autenticación de token de aplicación de Azure AD basada en la ent
 }
 ```
 
-### <a name="managed-identity"></a> Identidades administradas para la autenticación de recursos de Azure
+### <a name="managed-identities-for-azure-resources-authentication"></a><a name="managed-identity"></a> Identidades administradas para la autenticación de recursos de Azure
 
 Una factoría de datos se puede asociar con una [identidad administrada para recursos de Azure](data-factory-service-identity.md) que representa esa factoría de datos concreta. Esta identidad administrada se puede usar para la autenticación de la instancia administrada de Azure SQL Database. Puede acceder a la factoría designada y copiar datos desde la base de datos o en la base de datos usando esta identidad.
 
@@ -271,6 +268,7 @@ Para copiar datos desde la instancia administrada de Azure SQL Database, se admi
 | sqlReaderQuery |Esta propiedad usa la consulta SQL personalizada para leer los datos. Un ejemplo es `select * from MyTable`. |No |
 | sqlReaderStoredProcedureName |Esta propiedad es el nombre del procedimiento almacenado que lee datos de la tabla de origen. La última instrucción SQL debe ser una instrucción SELECT del procedimiento almacenado. |No |
 | storedProcedureParameters |Estos parámetros son para el procedimiento almacenado.<br/>Los valores permitidos son pares de nombre o valor. Los nombres y las mayúsculas y minúsculas de los parámetros deben coincidir con las mismas características de los parámetros de procedimiento almacenado. |No |
+| isolationLevel | Especifica el comportamiento de bloqueo de transacción para el origen de SQL. Los valores permitidos son: **ReadCommitted** (valor predeterminado), **ReadUncommitted**, **RepeatableRead**, **Serializable** y **Snapshot**. Vea [este documento](https://docs.microsoft.com/dotnet/api/system.data.isolationlevel) para obtener más detalles. | No |
 
 **Tenga en cuenta los siguientes puntos:**
 
@@ -514,7 +512,7 @@ Los pasos necesarios para escribir datos con lógica personalizada son similares
 - Cargue los datos en una tabla temporal y luego invoque un procedimiento almacenado.
 - Invoque un procedimiento almacenado durante la copia.
 
-## <a name="invoke-a-stored-procedure-from-a-sql-sink"></a> Invocación del procedimiento almacenado desde el receptor de SQL
+## <a name="invoke-a-stored-procedure-from-a-sql-sink"></a><a name="invoke-a-stored-procedure-from-a-sql-sink"></a> Invocación del procedimiento almacenado desde el receptor de SQL
 
 Al copiar datos en la instancia administrada de Azure SQL Database, también puede configurar e invocar un procedimiento almacenado especificado por el usuario con parámetros adicionales. La característica de procedimiento almacenado aprovecha los [parámetros con valores de tabla](https://msdn.microsoft.com/library/bb675163.aspx).
 
@@ -530,7 +528,7 @@ En el ejemplo siguiente se muestra cómo usar un procedimiento almacenado para r
     ```sql
     CREATE TYPE [dbo].[MarketingType] AS TABLE(
         [ProfileID] [varchar](256) NOT NULL,
-        [State] [varchar](256) NOT NULL，
+        [State] [varchar](256) NOT NULL,
         [Category] [varchar](256) NOT NULL
     )
     ```

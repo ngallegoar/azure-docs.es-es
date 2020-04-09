@@ -2,13 +2,13 @@
 title: Consulta de registros desde Azure Monitor para contenedores | Microsoft Docs
 description: Azure Monitor para contenedores recopila datos de registro y métricas. En este artículo se describen los registros y se incluyen consultas de ejemplo.
 ms.topic: conceptual
-ms.date: 10/15/2019
-ms.openlocfilehash: dcd1656673e549b583de26bca897d0055f389d0a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/26/2020
+ms.openlocfilehash: ff7cbff708b794847d8be69ca8f829e622d7c7ab
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75404537"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80333471"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>Cómo consultar registros desde Azure Monitor para contenedores
 
@@ -28,15 +28,11 @@ En la siguiente tabla se muestran ejemplos de registros recopilados por Azure Mo
 | Inventario de la parte de nodos de un clúster de Kubernetes | `KubeNodeInventory` | TimeGenerated, Computer, ClusterName, ClusterId, LastTransitionTimeReady, Labels, Status, KubeletVersion, KubeProxyVersion, CreationTimeStamp, SourceSystem | 
 | Eventos de Kubernetes | `KubeEvents` | TimeGenerated, Computer, ClusterId_s, FirstSeen_t, LastSeen_t, Count_d, ObjectKind_s, Namespace_s, Name_s, Reason_s, Type_s, TimeGenerated_s, SourceComponent_s, ClusterName_s, Message, SourceSystem | 
 | Servicios en el clúster de Kubernetes | `KubeServices` | TimeGenerated, ServiceName_s, Namespace_s, SelectorLabels_s, ClusterId_s, ClusterName_s, ClusterIP_s, ServiceType_s, SourceSystem | 
-| Métricas de rendimiento de la parte de nodos del clúster de Kubernetes | Perf &#124; donde ObjectName == “K8SNode” | Computer, ObjectName, CounterName &#40;cpuAllocatableBytes, memoryAllocatableBytes, cpuCapacityNanoCores, memoryCapacityBytes, memoryRssBytes, cpuUsageNanoCores, memoryWorkingsetBytes, restartTimeEpoch&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem | 
-| Métricas de rendimiento de la parte de contenedores del clúster de Kubernetes | Perf &#124; donde ObjectName == “K8SContainer” | CounterName &#40; cpuRequestNanoCores, memoryRequestBytes, cpuLimitNanoCores, memoryWorkingSetBytes, restartTimeEpoch, cpuUsageNanoCores, memoryRssBytes&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem | 
+| Métricas de rendimiento de la parte de nodos del clúster de Kubernetes | Perf &#124; donde ObjectName == "K8SNode" | Computer, ObjectName, CounterName &#40;cpuAllocatableBytes, memoryAllocatableBytes, cpuCapacityNanoCores, memoryCapacityBytes, memoryRssBytes, cpuUsageNanoCores, memoryWorkingsetBytes, restartTimeEpoch&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem | 
+| Métricas de rendimiento de la parte de contenedores del clúster de Kubernetes | Perf &#124; donde ObjectName == "K8SContainer" | CounterName &#40; cpuRequestNanoCores, memoryRequestBytes, cpuLimitNanoCores, memoryWorkingSetBytes, restartTimeEpoch, cpuUsageNanoCores, memoryRssBytes&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem | 
 | Métricas personalizadas |`InsightsMetrics` | Computer, Name, Namespace, Origin, SourceSystem, Tags<sup>1</sup>, TimeGenerated, Type, Va, _ResourceId | 
 
 <sup>1</sup> La propiedad *Tags* representa [varias dimensiones](../platform/data-platform-metrics.md#multi-dimensional-metrics) para la métrica correspondiente. Para información adicional sobre las métricas recopiladas y almacenadas en la tabla `InsightsMetrics` y una descripción de las propiedades de registro, consulte [InsightsMetrics overview](https://github.com/microsoft/OMS-docker/blob/vishwa/june19agentrel/docs/InsightsMetrics.md) (Información general de InsightsMetrics).
-
->[!NOTE]
->La compatibilidad con Prometheus es una característica que se encuentra en versión preliminar pública en este momento.
->
 
 ## <a name="search-logs-to-analyze-data"></a>Búsqueda de registros para analizar datos
 
@@ -44,7 +40,7 @@ Los registros de Azure Monitor pueden ayudarle a buscar tendencias, diagnosticar
 
 Puede realizar un análisis interactivo de los datos en el área de trabajo mediante la selección de la opción **Ver registros de eventos de Kubernetes** o **Ver registros del contenedor** en el panel de vista previa de la lista desplegable **Ver en Analytics**. La página **Búsqueda de registros** aparece a la derecha de la página de Azure Portal en que se encontraba.
 
-![Análisis de los datos en Log Analytics](./media/container-insights-analyze/container-health-log-search-example.png)   
+![Análisis de los datos en Log Analytics](./media/container-insights-analyze/container-health-log-search-example.png)
 
 Los registros de contenedor generador que se reenvían al área de trabajo son STDOUT y STDERR. Dado que Azure Monitor supervisa Kubernetes administrado por Azure (AKS), el sistema de Kubernetes no se recopila hoy debido al gran volumen de datos generados. 
 

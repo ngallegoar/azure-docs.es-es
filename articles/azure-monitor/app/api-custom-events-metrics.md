@@ -3,12 +3,12 @@ title: API de Application Insights para eventos y métricas personalizados | Mic
 description: Inserte unas cuantas líneas de código en su aplicación de dispositivo o de escritorio, página o servicio web, para realizar el seguimiento del uso y diagnosticar problemas.
 ms.topic: conceptual
 ms.date: 03/27/2019
-ms.openlocfilehash: 74736966013581296483d1444f4ab2b8a35bbd98
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 06bd8bd0958afd26e1256a010b08c908c59aaf7d
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77666503"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585881"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API de Application Insights para eventos y métricas personalizados
 
@@ -31,7 +31,7 @@ La API central es uniforme en todas las plataformas, excepto por algunas pequeñ
 
 Puede [adjuntar propiedades y métricas](#properties) a la mayoría de estas llamadas de telemetría.
 
-## <a name="prep"></a>Antes de comenzar
+## <a name="before-you-start"></a><a name="prep"></a>Antes de comenzar
 
 Si aún no tiene una referencia en el SDK de Application Insights:
 
@@ -58,11 +58,14 @@ Obtenga una instancia de `TelemetryClient` (excepto en JavaScript en páginas we
 
 En el caso de las aplicaciones [ASP.NET Core](asp-net-core.md#how-can-i-track-telemetry-thats-not-automatically-collected) y aplicaciones que [no son HTTP o de trabajo para .NET/.NET Core](worker-service.md#how-can-i-track-telemetry-thats-not-automatically-collected), se recomienda obtener una instancia de `TelemetryClient` del contenedor de inserción de dependencias, tal como se explica en la documentación correspondiente.
 
+Si usa AzureFunctions v2 o superior o Azure WebJobs v3 o superior, siga este documento: https://docs.microsoft.com/azure/azure-functions/functions-monitoring#version-2x-and-higher
+
 *C#*
 
 ```csharp
 private TelemetryClient telemetry = new TelemetryClient();
 ```
+Los usuarios que reciban mensajes que indiquen que el método está obsoleto pueden visitar [microsoft/ApplicationInsights-dotnet#1152](https://github.com/microsoft/ApplicationInsights-dotnet/issues/1152) para obtener más detalles.
 
 *Visual Basic*
 
@@ -775,7 +778,7 @@ En el [Explorador de métricas](../../azure-monitor/app/metrics-explorer.md), pu
 
 También puede [buscar](../../azure-monitor/app/diagnostic-search.md) puntos de datos de cliente con cuentas y nombres de usuario específicos.
 
-## <a name="properties"></a>Filtrado, búsqueda y segmentación de los datos mediante el uso de propiedades
+## <a name="filtering-searching-and-segmenting-your-data-by-using-properties"></a><a name="properties"></a>Filtrado, búsqueda y segmentación de los datos mediante el uso de propiedades
 
 Puede asociar propiedades y medidas a los eventos (y también a las métricas, vistas de página, excepciones y otros datos de telemetría).
 
@@ -906,7 +909,7 @@ Tenga en lo siguiente:
 * Al extraer un valor de los elementos de JSON customDimensions o customMeasurements, es de tipo dinámico, por lo que debe convertirlo a `tostring` o `todouble`.
 * Para tener en cuenta la posibilidad de [muestreo](../../azure-monitor/app/sampling.md), debería usar `sum(itemCount)`, no `count()`.
 
-## <a name="timed"></a> Eventos de temporización
+## <a name="timing-events"></a><a name="timed"></a> Eventos de temporización
 
 Seguro que en ocasiones le gustaría representar el tiempo que se tarda en realizar alguna acción. Por ejemplo, puede que quiera saber cuánto tiempo tardan los usuarios en considerar las opciones de un juego. Puede usar el parámetro de medida para ello.
 
@@ -949,7 +952,7 @@ properties.put("signalSource", currentSignalSource.getName());
 telemetry.trackEvent("SignalProcessed", properties, metrics);
 ```
 
-## <a name="defaults"></a>Propiedades predeterminadas para la telemetría personalizada
+## <a name="default-properties-for-custom-telemetry"></a><a name="defaults"></a>Propiedades predeterminadas para la telemetría personalizada
 
 Si quiere establecer valores de propiedad predeterminados para algunos de los eventos personalizados que escriba, puede hacerlo en una instancia de TelemetryClient. Se adjuntarán a cada elemento de telemetría enviado desde ese cliente.
 
@@ -1055,7 +1058,7 @@ applicationInsights.setup()
 
 Para deshabilitar estos recopiladores después de la inicialización, utilice el objeto de configuración: `applicationInsights.Configuration.setAutoCollectRequests(false)`
 
-## <a name="debug"></a>Modo de programador
+## <a name="developer-mode"></a><a name="debug"></a>Modo de programador
 
 Durante la depuración, resulta útil enviar los datos de telemetría por la canalización para así poder ver los resultados inmediatamente. También puede recibir mensajes adicionales que le ayuden a realizar el seguimiento de los posibles problemas con la telemetría. Desactívelo en producción, ya que puede ralentizar la aplicación.
 
@@ -1082,7 +1085,7 @@ applicationInsights.setup("ikey")
 applicationInsights.defaultClient.config.maxBatchSize = 0;
 ```
 
-## <a name="ikey"></a> Establecimiento de la clave de instrumentación para datos de telemetría personalizados seleccionados
+## <a name="setting-the-instrumentation-key-for-selected-custom-telemetry"></a><a name="ikey"></a> Establecimiento de la clave de instrumentación para datos de telemetría personalizados seleccionados
 
 *C#*
 
@@ -1092,7 +1095,7 @@ telemetry.InstrumentationKey = "---my key---";
 // ...
 ```
 
-## <a name="dynamic-ikey"></a> Copia de la clave de instrumentación
+## <a name="dynamic-instrumentation-key"></a><a name="dynamic-ikey"></a> Copia de la clave de instrumentación
 
 Para evitar la mezcla de telemetría de entornos de desarrollo, pruebas y producción, puede [crear recursos separados de Application Insights](../../azure-monitor/app/create-new-resource.md ) y cambiar sus claves en función del entorno.
 
@@ -1198,7 +1201,7 @@ Para determinar cuánto tiempo se conservan los datos, consulte el artículo sob
 
     Sí, la [API de acceso a datos](https://dev.applicationinsights.io/). Otras maneras de extraer datos son [exportar desde Analytics a Power BI](../../azure-monitor/app/export-power-bi.md ) y la [exportación continua](../../azure-monitor/app/export-telemetry.md).
 
-## <a name="next"></a>Pasos siguientes
+## <a name="next-steps"></a><a name="next"></a>Pasos siguientes
 
 * [Búsqueda de eventos y registros](../../azure-monitor/app/diagnostic-search.md)
 * [Solución de problemas](../../azure-monitor/app/troubleshoot-faq.md)

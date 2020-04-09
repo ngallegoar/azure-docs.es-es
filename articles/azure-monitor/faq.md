@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 01/23/2020
-ms.openlocfilehash: 169cc3f6a195a7339ab33eb9f00d9937451a93e0
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.date: 03/26/2020
+ms.openlocfilehash: db63ce2d56eb78bf6b361d530511b6902c1cb6d5
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77620450"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637767"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Preguntas más frecuentes sobre Azure Monitor
 
@@ -61,10 +61,6 @@ No hay límite en la cantidad de datos de métricas que se pueden recopilar, per
 ### <a name="how-do-i-access-data-collected-by-azure-monitor"></a>¿Cómo puedo acceder a los datos recopilados por Azure Monitor?
 Insights y las soluciones proporcionan una experiencia personalizada para trabajar con los datos almacenados en Azure Monitor. Puede trabajar directamente con los datos de registro mediante una consulta de registro escrita en el lenguaje de consulta Kusto (KQL). En Azure Portal, puede escribir y ejecutar consultas y analizar los datos de forma interactiva mediante Log Analytics. Puede analizar las métricas en Azure Portal con el Explorador de métricas. Consulte [Análisis de los datos de registro en Azure Monitor](log-query/log-query-overview.md) e [Introducción al Explorador de métricas de Azure](platform/metrics-getting-started.md).
 
-
-
-
-
 ## <a name="solutions-and-insights"></a>Soluciones e Insights
 
 ### <a name="what-is-an-insight-in-azure-monitor"></a>¿Qué es una conclusión en Azure Monitor?
@@ -76,11 +72,6 @@ Para ver información detallada en Azure Portal, consulte la sección **Insights
 Las soluciones de supervisión son conjuntos empaquetados de lógica para la supervisión de una determinada aplicación o servicio que se basan en las características de Azure Monitor. Recopilan datos de registro en Azure Monitor y proporcionan consultas y vistas de registro para su análisis con una experiencia común en Azure Portal. Consulte [Soluciones de supervisión en Azure Monitor](insights/solutions.md).
 
 Para ver las soluciones en Azure Portal, haga clic en **Más** en la sección **Insights** del menú **Monitor**. Haga clic en **Agregar** para agregar más soluciones al área de trabajo.
-
-
-
-
-
 
 ## <a name="logs"></a>Registros
 
@@ -106,9 +97,6 @@ Muchos proveedores de recursos se registran automáticamente. Sin embargo, debe 
 ### <a name="why-am-i-am-getting-no-access-error-message-when-opening-log-analytics-from-a-vm"></a>¿Por qué no recibo un mensaje de error de acceso cuando abro Log Analytics desde una máquina virtual? 
 Para ver los registros de la VM, debe tener permiso de lectura para aquellos espacios de trabajo que almacenan los registros de VM. En esos casos, su administrador debe otorgarle permisos en Azure.
 
-
-
-
 ## <a name="alerts"></a>Alertas
 
 ### <a name="what-is-an-alert-in-azure-monitor"></a>¿Qué es una alerta en Azure Monitor?
@@ -129,7 +117,6 @@ Un grupo de acciones es una colección de notificaciones y acciones que pueden s
 
 ### <a name="what-is-an-action-rule"></a>¿Qué es una regla de acción?
 Una regla de acción le permite modificar el comportamiento de un conjunto de alertas que coinciden con determinados criterios. Esto le permite realizar requisitos como deshabilitar las acciones de alertas durante una ventana de mantenimiento. También puede aplicar un grupo de acciones a un conjunto de alertas en lugar de aplicarlo directamente a las reglas de alertas. Consulte [Reglas de acción](platform/alerts-action-rules.md).
-
 
 ## <a name="agents"></a>Agentes
 
@@ -190,15 +177,14 @@ Especifique un [grupo de acciones](platform/action-groups.md) existente o nuevo 
 
 
 ### <a name="what-are-the-firewall-requirements-for-azure-monitor-agents"></a>¿Cuáles son los requisitos de firewall para los agentes de Azure Monitor?
-Consulte [Requisitos del firewall de red](platform/log-analytics-agent.md#network-firewall-requirements) para más información sobre los requisitos de firewall.
+Consulte [Requisitos del firewall de red](platform/log-analytics-agent.md#network-requirements) para más información sobre los requisitos de firewall.
 
 
 ## <a name="visualizations"></a>Visualizaciones
 
-### <a name="why-cant-i-cant-see-view-designer"></a>¿Por qué no puedo ver el Diseñador de vistas?
+### <a name="why-cant-i-see-view-designer"></a>¿Por qué no puedo ver el Diseñador de vistas?
 
 El Diseñador de vistas solo está disponible para los usuarios asignados que tengan permiso de colaborador o superior en el área de trabajo de Log Analytics.
-
 
 ## <a name="application-insights"></a>Application Insights
 
@@ -245,7 +231,7 @@ El plan Enterprise cobra por cada día que cada nodo de servidor web envía tele
 * Abra la página **Uso y costos estimados** en un recurso de Application Insights. Hay un gráfico de uso reciente. Puede establecer un límite de volumen de datos, si quiere.
 * Abra la [hoja de facturación de Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingBlade/Overview) para ver las facturas de todos los recursos.
 
-### <a name="q14"></a>¿Qué modifica Application Insights en mi proyecto?
+### <a name="what-does-application-insights-modify-in-my-project"></a><a name="q14"></a>¿Qué modifica Application Insights en mi proyecto?
 Los detalles dependen del tipo de proyecto. Para una aplicación web:
 
 * Agregue estos archivos al proyecto:
@@ -266,7 +252,7 @@ Los detalles dependen del tipo de proyecto. Para una aplicación web:
 ### <a name="how-do-i-upgrade-from-older-sdk-versions"></a>¿Cómo se puede actualizar desde versiones anteriores de SDK?
 Consulte las [notas de la versión](app/release-notes.md) del SDK adecuado para el tipo de aplicación.
 
-### <a name="update"></a>¿Cómo puedo cambiar el recurso de Azure al que mi proyecto envía datos?
+### <a name="how-can-i-change-which-azure-resource-my-project-sends-data-to"></a><a name="update"></a>¿Cómo puedo cambiar el recurso de Azure al que mi proyecto envía datos?
 En el Explorador de soluciones, haga clic con el botón derecho en `ApplicationInsights.config` y elija **Actualizar Application Insights**. Puede enviar los datos a un recurso nuevo o existente en Azure. El Asistente para actualización cambia la clave de instrumentación en ApplicationInsights.config, que determina dónde el SDK del servidor envía los datos. A menos que desactive la opción "Actualizar todo", también cambiará la clave donde aparece en las páginas web.
 
 ### <a name="what-is-status-monitor"></a>¿Qué es el Monitor de estado?
@@ -324,7 +310,7 @@ Puede configurar `ClientIpHeaderTelemetryInitializer` para tomar la dirección I
 También puede [usar Power BI](app/export-power-bi.md ) para mostrar la telemetría de solicitudes en un mapa.
 
 
-### <a name="data"></a>¿Cuánto tiempo se retienen los datos en el portal? ¿Es seguro?
+### <a name="how-long-is-data-retained-in-the-portal-is-it-secure"></a><a name="data"></a>¿Cuánto tiempo se retienen los datos en el portal? ¿Es seguro?
 Eche un vistazo a [Privacidad y retención de los datos][data].
 
 ### <a name="what-happens-to-application-insights-telemetry-when-a-server-or-device-loses-connection-with-azure"></a>¿Qué ocurre con los datos de telemetría de Application Insights cuando un servidor o dispositivo pierde la conexión con Azure?
@@ -350,7 +336,7 @@ Podría:
 * Usar dos claves de instrumentación independientes (recursos independientes de Application Insights) para los datos de cliente y servidor. Or
 * Escribir un servidor proxy que se ejecute en el servidor y hacer que el cliente web envíe datos a través de dicho servidor proxy.
 
-### <a name="post"></a>¿Cómo puedo ver datos POST en Búsqueda de diagnóstico?
+### <a name="how-do-i-see-post-data-in-diagnostic-search"></a><a name="post"></a>¿Cómo puedo ver datos POST en Búsqueda de diagnóstico?
 Los datos POST no se registran automáticamente, pero se puede usar una llamada TrackTrace: incluya los datos en el parámetro de mensaje. Este tiene un límite de tamaño superior al de las propiedades de cadena, aunque no se puede filtrar por él.
 
 ### <a name="should-i-use-single-or-multiple-application-insights-resources"></a>¿Debo usar uno o varios recursos de Application Insights?
@@ -372,7 +358,7 @@ Utilice un único recurso para todos los componentes o funciones en un sistema d
 * Si un usuario real usa su sitio en exploradores diferentes o usa la exploración InPrivate o de incógnito, o distintas máquinas, entonces se contabilizará más de una vez.
 * Para identificar un usuario que ha iniciado sesión en todas las máquinas y exploradores, agregue una llamada a [setAuthenticatedUserContext()](app/api-custom-events-metrics.md#authenticated-users).
 
-### <a name="q17"></a> ¿He habilitado todo en Application Insights?
+### <a name="have-i-enabled-everything-in-application-insights"></a><a name="q17"></a> ¿He habilitado todo en Application Insights?
 | Qué debería ver | Cómo conseguirlo | Razones para quererlo |
 | --- | --- | --- |
 | Gráficos de disponibilidad |[Pruebas web](app/monitor-web-app-availability.md) |Saber que la aplicación web funciona |
@@ -511,10 +497,33 @@ La mayoría de los datos de Application Insights tienen una latencia de menos de
 [windows]: app/app-insights-windows-get-started.md
 
 
-
 ## <a name="azure-monitor-for-containers"></a>Azure Monitor para contenedores
 
 En este artículo de preguntas frecuentes de Microsoft, se presenta una lista con las preguntas frecuentes sobre Azure Monitor para contenedores. Si tiene alguna otra pregunta sobre esta solución, vaya al [foro de discusión](https://feedback.azure.com/forums/34192--general-feedback) y publíquela. Si una pregunta es frecuente, se agrega a este artículo para que se pueda encontrar de forma rápida y sencilla.
+
+### <a name="what-does-other-processes-represent-under-the-node-view"></a>¿Qué representa *Otros procesos* en la vista de nodo?
+
+**Otros procesos** está diseñado para ayudarle a entender claramente la causa principal del uso elevado de recursos en el nodo. Esto le permite distinguir el uso entre los procesos en contenedores y los procesos fuera de contenedores.
+
+¿Qué son estos **Otros procesos**? 
+
+Representan procesos fuera de contenedores que se ejecutan en el nodo.  
+
+¿Cómo se calcula esto?
+
+**Otros procesos** = *Uso total de CAdvisor* - *Uso del proceso en contenedores*
+
+**Otros procesos** incluye:
+
+- Procesos fuera de contenedores de Kubernetes administrados o autoadministrados 
+
+- Procesos en contenedores en tiempo de ejecución  
+
+- Kubelet  
+
+- Procesos del sistema que se ejecutan en el nodo 
+
+- Otras cargas de trabajo que no son de Kubernetes que se ejecutan en hardware de nodo o VM 
 
 ### <a name="i-dont-see-image-and-name-property-values-populated-when-i-query-the-containerlog-table"></a>No veo que los valores de propiedad Name e Image se rellenen cuando consulto la tabla ContainerLog.
 
@@ -607,7 +616,7 @@ console.log(json.stringify({
 Estos datos tendrán un aspecto similar al del siguiente ejemplo en Azure Monitor cuando se realiza una consulta en los registros:
 
 ```
-LogEntry : ({“Hello": "This example has multiple lines:","Docker/Moby": "will not break this into multiple lines", "and you will receive":"all of them in log analytics", "as one": "log entry"}
+LogEntry : ({"Hello": "This example has multiple lines:","Docker/Moby": "will not break this into multiple lines", "and you will receive":"all of them in log analytics", "as one": "log entry"}
 
 ```
 
@@ -625,78 +634,35 @@ Si, después de habilitar Azure Monitor para contenedores en un clúster de AKS,
 
 Consulte los [requisitos del firewall de red](insights/container-insights-onboard.md#network-firewall-requirements) para obtener la información de configuración del servidor proxy y el firewall necesaria para el agente en contenedor con las nubes de Azure, Azure US Government y Azure China 21Vianet.
 
-## <a name="azure-monitor-for-vms-preview"></a>Azure Monitor para VM (versión preliminar)
+## <a name="azure-monitor-for-vms"></a>Azure Monitor para máquinas virtuales
 En este artículo de preguntas frecuentes de Microsoft, se presenta una lista con las preguntas frecuentes sobre Azure Monitor para VM. Si tiene alguna otra pregunta sobre esta solución, vaya al [foro de discusión](https://feedback.azure.com/forums/34192--general-feedback) y publíquela. Si una pregunta es frecuente, se agrega a este artículo para que se pueda encontrar de forma rápida y sencilla.
 
 ### <a name="can-i-onboard-to-an-existing-workspace"></a>¿Puede incorporarse a un área de trabajo existente?
 Si las máquinas virtuales ya están conectadas a un área de trabajo de Log Analytics, puede seguir usando esa área de trabajo cuando se incorpore a Azure Monitor para máquinas virtuales, siempre que se encuentre en una de las regiones compatibles enumeradas [aquí](insights/vminsights-enable-overview.md#prerequisites).
 
-Durante la incorporación, configuramos los contadores de rendimiento para el área de trabajo que harán que todas las máquinas virtuales que estén generando informes para el área de trabajo comiencen a recopilar esta información para su presentación y análisis en Azure Monitor para máquinas virtuales.  Como resultado, verá los datos de rendimiento de todas las máquinas virtuales conectadas al área de trabajo que seleccionó.  Solo se habilitan las características de mantenimiento y de asignación para las máquinas virtuales que ha especificado para la incorporación.
-
-Para más información sobre qué contadores de rendimiento están habilitados, consulte nuestro artículo de [información general de habilitación](insights/vminsights-enable-overview.md#performance-counters-enabled).
 
 ### <a name="can-i-onboard-to-a-new-workspace"></a>¿Puede incorporarse a una nueva área de trabajo? 
 Si las máquinas virtuales no están conectadas actualmente a un área de trabajo de Log Analytics existente, deberá crear un área de trabajo para almacenar los datos. Un área de trabajo predeterminada se crea automáticamente si configura una sola máquina virtual de Azure para Azure Monitor para máquinas virtuales a través de Azure Portal.
 
-Si decide usar el método basado en scripts, estos pasos se describen en el artículo [Habilitar Azure Monitor para VM (versión preliminar) mediante Azure PowerShell o una plantilla de Resource Manager](insights/vminsights-enable-at-scale-powershell.md). 
+Si decide usar el método basado en scripts, estos pasos se describen en el artículo [Habilitar Azure Monitor para VM mediante Azure PowerShell o una plantilla de Resource Manager](insights/vminsights-enable-at-scale-powershell.md). 
 
 ### <a name="what-do-i-do-if-my-vm-is-already-reporting-to-an-existing-workspace"></a>¿Qué puedo hacer si mi máquina virtual ya está generando informes para un área de trabajo?
-Si ya está recopilando datos de las máquinas virtuales, es posible que ya las haya configurado para que generen ubfirnes de datos a un área de trabajo de Log Analytics existente.  Siempre y cuando el área de trabajo se encuentre en una de nuestras regiones admitidas, podrá habilitar Azure Monitor para máquinas virtuales en esa área de trabajo preexistente.  Si el área de trabajo que ya está usando no está en una de nuestras regiones admitidas, no podrá incorporar Azure Monitor para máquinas virtuales en este momento.  Estamos trabajando para admitir más regiones.
+Si ya está recopilando datos de las máquinas virtuales, es posible que ya las haya configurado para que generen ubfirnes de datos a un área de trabajo de Log Analytics existente.  Siempre y cuando el área de trabajo se encuentre en una de nuestras regiones admitidas, podrá habilitar Azure Monitor para máquinas virtuales en esa área de trabajo preexistente.  Si el área de trabajo que ya está usando no está en una de nuestras regiones admitidas, no podrá incorporar Azure Monitor para VM en este momento.  Estamos trabajando para admitir más regiones.
 
->[!NOTE]
->Configuramos los contadores de rendimiento para el área de trabajo que afecta a todas las máquinas virtuales que se comunican con el área de trabajo, independientemente de si ha elegido incorporarlas a Azure Monitor para máquinas virtuales. Para obtener más detalles sobre cómo se configuran los contadores de rendimiento para el área de trabajo, consulte nuestra [documentación](platform/data-sources-performance-counters.md). Para obtener información acerca de los contadores configurados para Azure Monitor para VM, consulte nuestro artículo sobre cómo [habilitar Azure Monitor para VM](insights/vminsights-enable-overview.md#performance-counters-enabled).  
 
 ### <a name="why-did-my-vm-fail-to-onboard"></a>¿Por qué no se pudo incorporar mi máquina virtual?
 Al incorporar una máquina virtual de Azure desde Azure Portal, se producen los pasos siguientes:
 
 * Se crea un área de trabajo de Log Analytics predeterminada si se ha seleccionado la opción.
-* Los contadores de rendimiento se configuran para el área de trabajo seleccionada. Si se produce un error en este paso, verá que algunas de las tablas y gráficos de rendimiento no muestran datos para la máquina virtual que incorporó. Puede solucionar este problema si ejecuta el script de PowerShell documentado [aquí](insights/vminsights-enable-at-scale-powershell.md#enable-performance-counters).
 * Se instala el agente de Log Analytics en las máquinas virtuales de Azure mediante la extensión de máquina virtual si se determina que es necesario.  
-* Se instala el agente de la dependencia de asignación de Azure Monitor para máquinas virtuales mediante una extensión si se determina que es necesario.  
-* De ser necesario, se configuran los componentes de Azure Monitor que admiten la característica de estado y la máquina virtual se configura para notificar sobre los datos de estado.
+* Se instala el agente de la dependencia de asignación de Azure Monitor para máquinas virtuales mediante una extensión si se determina que es necesario. 
 
-Durante el proceso de incorporación, comprobamos el estado de cada uno de los pasos anteriores para devolver un estado de notificación en el portal. La configuración del área de trabajo y la instalación del agente normalmente tarda de 5 a 10 minutos. La visualización de los datos de supervisión y estado en el portal tarda otros 5 o 10 minutos.  
+Durante el proceso de incorporación, comprobamos el estado de cada uno de los pasos anteriores para devolver un estado de notificación en el portal. La configuración del área de trabajo y la instalación del agente normalmente tarda de 5 a 10 minutos. La visualización de los datos de supervisión en el portal tarda otros 5 o 10 minutos.  
 
 Si ha iniciado la incorporación y puede ver los mensajes que indican que la máquina virtual debe incorporarse, espere hasta 30 minutos para que la máquina virtual pueda completar el proceso. 
 
-### <a name="i-only-enabled-azure-monitor-for-vms-why-do-i-see-all-my-vms-monitored-by-the-health-feature"></a>Solo habilité Azure Monitor para VM, ¿por qué veo que la característica de mantenimiento supervisa todas las máquinas virtuales?
-La característica de mantenimiento está habilitada para todas las máquinas virtuales conectadas al área de trabajo de Log Analytics, incluso cuando la acción se inicia para una sola máquina virtual.
 
-### <a name="can-i-modify-the-schedule-for-when-health-criteria-evaluates-a-condition"></a>¿Puedo modificar la programación de cuándo los criterios de mantenimiento evalúan una condición?
-No, el período y la frecuencia de los criterios de mantenimiento no se pueden modificar con esta versión. 
-
-### <a name="can-i-disable-health-criteria-for-a-condition-i-dont-need-to-monitor"></a>¿Puedo deshabilitar los criterios de mantenimiento para una condición que no es necesario supervisar?
-Los criterios de mantenimiento no se pueden deshabilitar en esta versión.
-
-### <a name="are-the-health-alert-severities-configurable"></a>¿Es posible configurar la gravedad de las alertas de mantenimiento?  
-No se puede modificar la gravedad de la alerta de mantenimiento, solo se habilitar o deshabilitar. Además, las gravedades de algunas alertas se actualizan según el estado de los criterios de mantenimiento. 
-
-### <a name="if-i-reconfigure-the-settings-of-a-particular-health-criteria-can-it-be-scoped-to-a-specific-instance"></a>Si vuelvo a configurar los valores de un criterio de mantenimiento determinado, ¿lo puedo limitar a una instancia específica?  
-Si modifica alguna configuración de un criterio de mantenimiento, se modifican todos los criterios de estado del mismo tipo en la máquina virtual de Azure. Por ejemplo, si se modifica el umbral del criterio de mantenimiento del espacio libre en el disco correspondiente al disco lógico C:, este umbral se aplicará a todos los demás discos lógicos detectados y supervisados para la misma máquina virtual.
-
-### <a name="does-the-health-feature-monitor-logical-processors-and-cores"></a>¿La característica de mantenimiento supervisa los núcleos y procesadores lógicos?
-No, los criterios de mantenimiento de nivel de procesador individual y de procesador lógico no se incluyen para Windows, solo se supervisa el uso de CPU total de manera predeterminada para evaluar de manera eficaz la presión de CPU en función del número total de CPU lógicas disponibles para la máquina virtual de Azure. 
-
-### <a name="are-all-health-criteria-thresholds-configurable"></a>¿Es posible configurar todos los umbrales de los criterios de mantenimiento?  
-Los umbrales de los criterios de mantenimiento que tienen como destino una máquina virtual Windows no son modificables, puesto que su estado está establecido como *en ejecución* o *disponible*. Cuando se consulta el estado de mantenimiento desde la [API Workload Monitor](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components), muestra el valor *comparisonOperator* de **LessThan** o **GreaterThan** con un valor de *threshold* de **4** para el servicio o la entidad si:
-   - Service Health del cliente DNS: el servicio no se está ejecutando. 
-   - Service Health del cliente DHCP: el servicio no se está ejecutando. 
-   - Service Health de RPC: el servicio no se está ejecutando. 
-   - Service Health del firewall de Windows: el servicio no se está ejecutando.
-   - Service Health del registro de eventos de Windows: el servicio no se está ejecutando. 
-   - Service Health del servidor: el servicio no se está ejecutando. 
-   - Service Health del servicio de administración remota de Windows: el servicio no se está ejecutando. 
-   - Error o daño del sistema de archivos: el disco lógico no está disponible.
-
-Los umbrales de los siguientes criterios de mantenimiento de Linux no son modificables, ya que su estado de mantenimiento ya está establecido en *true*. El estado de mantenimiento muestra *comparisonOperator* con un valor **LessThan** y un valor de *threshold* de **1** cuando la API Workload Monitor realiza una consulta sobre la entidad en función de su contexto:
-   - Estado del disco lógico: el disco lógico no está en línea ni está disponible
-   - Estado del disco: el disco no está en línea ni está disponible
-   - Estado del adaptador de red: el adaptador de red está deshabilitado
-
-### <a name="how-do-i-modify-alerts-that-are-included-with-the-health-feature"></a>¿Cómo puedo modificar las alertas que se incluyen con la característica de mantenimiento?
-Las reglas de alertas que se definen para cada criterio de mantenimiento no se muestran en Azure Portal. Solo puede habilitar o deshabilitar una regla de alerta de estado en la [API Workload Monitor](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components). Además, no puede asignar un [grupo de acciones de Azure Monitor](platform/action-groups.md) para las alertas de estado desde Azure Portal. Solo puede usar la API de configuración de notificaciones para configurar un grupo de acciones que se desencadene cada vez que se desencadena una alerta de estado. Actualmente, puede asignar grupos de acciones en una máquina virtual, de tal forma que todas las *alertas de estado* desencadenadas en la máquina virtual desencadenen los mismos grupos de acciones. A diferencia de las alertas de Azure tradicionales, no existe el concepto de un grupo de acciones independiente para cada regla de alertas de mantenimiento. Además, solo se admiten los grupos de acciones configurados para enviar notificaciones mediante un correo electrónico o SMS cuando se desencadenan alertas de estado. 
-
-### <a name="i-dont-see-some-or-any-data-in-the-performance-charts-for-my-vm"></a>No veo algunos o ninguno de los datos en el gráfico de rendimiento de la máquina virtual
+### <a name="i-dont-see-some-or-any-data-in-the-performance-charts-for-my-vm"></a>No veo algunos o ninguno de los datos en el gráfico de rendimiento de la VM
 Los gráficos de rendimiento se han actualizado para usar los datos almacenados en la tabla *InsightsMetrics*.  Si desea ver los datos en estos diagramas, es necesario que los actualice para poder usar la solución VM Insights.  Consulte las [preguntas frecuentes sobre disponibilidad general](insights/vminsights-ga-release-faq.md) para más información.
 
 Si no ve los datos de rendimiento en la tabla del disco o en algunos de los gráficos de rendimiento, es posible que los contadores de rendimiento en el área de trabajo no estén configurados. Para solucionar este problema, ejecute el siguiente [script de PowerShell](insights/vminsights-enable-at-scale-powershell.md#enable-with-powershell).
@@ -746,7 +712,7 @@ Esta aproximación funciona bien para protocolos que se basan en solicitud/respu
 ### <a name="are-their-limitations-if-i-am-on-the-log-analytics-free-pricing-plan"></a>¿Existen limitaciones si estoy en el plan de tarifa gratis de Log Analytics?
 Si ha configurado Azure Monitor con un área de trabajo de Log Analytics mediante el plan de tarifa *gratis*, la característica de asignación de Azure Monitor para máquinas virtuales solo admitirá cinco máquinas conectadas. Si tiene cinco máquinas virtuales conectadas a un área de trabajo gratuita, desconecte una para poder conectar otra nueva. La nueva máquina virtual que conecte no se supervisará ni se reflejará en la página de asignación.  
 
-En esta condición, verá la opción **Probar ahora** al abrir la máquina virtual y seleccionar la opción **Insights (versión preliminar)** en el panel izquierdo, incluso después de que se haya instalado en la máquina virtual.  Sin embargo, no se le presentarán opciones como ocurriría si estas VM no estuvieran incorporadas en Azure Monitor para VM. 
+En esta condición, verá la opción **Probar ahora** al abrir la VM y seleccionar la opción **Insights** en el panel izquierdo, incluso después de que se haya instalado en la VM.  Sin embargo, no se le presentarán opciones como ocurriría si estas VM no estuvieran incorporadas en Azure Monitor para VM. 
 
 
 ## <a name="next-steps"></a>Pasos siguientes

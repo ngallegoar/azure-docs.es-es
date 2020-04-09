@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 01/02/2020
-ms.openlocfilehash: d0b9c59852175b91b4bf799a366ae5124fa0ae42
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.date: 03/16/2020
+ms.openlocfilehash: 115cb3e499117457629e130b6432a1cbc2224edb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644804"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79463057"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Actividad de Data Flow en Azure Data Factory
 
@@ -62,6 +62,14 @@ staging.linkedService | Si usa un origen o un receptor de Azure SQL Data Warehou
 staging.folderPath | Si usa un origen o un receptor de Azure SQL Data Warehouse, es la ruta de la carpeta de la cuenta de almacenamiento de blobs que se utiliza como almacenamiento provisional de PolyBase. | String | Solo si el flujo de datos lee o escribe en una instancia de Azure SQL Data Warehouse.
 
 ![Ejecución de flujo de datos](media/data-flow/activity-data-flow.png "Ejecución de flujo de datos")
+
+### <a name="dynamically-size-data-flow-compute-at-runtime"></a>Ajuste dinámico del tamaño del proceso de flujo de datos en tiempo de ejecución
+
+Las propiedades Recuento de núcleos y Tipo de proceso se pueden configurar dinámicamente para ajustarse al tamaño de los datos de origen entrantes en tiempo de ejecución. Use actividades de canalización como Búsqueda u Obtener metadatos para averiguar el tamaño de los datos del conjunto de datos de origen. Tras ello, use Agregar contenido dinámico en las propiedades de la actividad del flujo de datos.
+
+![Flujo de datos dinámicos](media/data-flow/dyna1.png "Flujo de datos dinámicos")
+
+[Este es un breve tutorial en formato de vídeo en el que se explica esta técnica.](https://www.youtube.com/watch?v=jWSkJdtiJNM)
 
 ### <a name="data-flow-integration-runtime"></a>Entorno de ejecución de integración de Data Flow
 

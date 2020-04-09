@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-local-business
 ms.topic: overview
-ms.date: 11/29/2019
+ms.date: 03/24/2020
 ms.author: aahi
-ms.openlocfilehash: 4e08596e8cf71bbb0e88abdc51f5d8e69972464d
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 0006761126eb1d561da7eeff97e8a9928d62ddb0
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74665262"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478940"
 ---
 # <a name="what-is-bing-local-business-search"></a>¿Qué es Bing Local Business Search?
 Bing Local Business Search API es un servicio RESTful que permite a las aplicaciones buscar información acerca de empresas locales en función de las consultas de búsquedas. Por ejemplo, `q=<business-name> in Redmond, Washington` o `q=Italian restaurants near me`. 
@@ -23,7 +23,7 @@ Bing Local Business Search API es un servicio RESTful que permite a las aplicaci
 ## <a name="features"></a>Características
 | Característica | Descripción |  
 | -- | -- | 
-| [Búsqueda de ubicaciones y empresas locales](quickstarts/local-quickstart.md) | Bing Local Business Search API obtiene resultados localizados a partir de una consulta. Los resultados incluyen la dirección URL del sitio web de la empresa y muestran el texto, el número de teléfono y la ubicación geográfica (por ejemplo, las coordenadas de GPS, la ciudad y la dirección postal). |  
+| [Búsqueda de ubicaciones y empresas locales](quickstarts/local-quickstart.md) | Bing Local Business Search API obtiene resultados localizados a partir de una consulta. Los resultados incluyen la dirección URL del sitio web de la empresa y muestran texto, el número de teléfono y la ubicación geográfica, lo que incluye: las coordenadas de GPS, la ciudad y la dirección postal |  
 | [Filtrado de los resultados locales por límites geográficos](specify-geographic-search.md) | Agregue las coordenadas como parámetros de búsqueda para limitar los resultados a un área geográfica determinada que se especifica mediante un área circular o un rectángulo delimitador. | 
 | [Filtrado de los resultados de empresas locales por categoría](local-categories.md) | Busque resultados de empresas locales por categorías. Esta opción utiliza las coordenadas de GPS o la dirección IP inversa del autor de la llamada para devolver resultados localizados de diversas categorías de empresas.|
 

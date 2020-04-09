@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: eb44163922e318d17d675143ca2d6a3a1fa4ed75
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 05f8430efa31b39d49025fb8456108da229d3d71
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793324"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80239827"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking-using-azure-cli"></a>Creación de una máquina virtual Linux con Accelerated Networking con la CLI de Azure
 
@@ -40,7 +40,7 @@ Las ventajas de Accelerated Networking solo se aplican a la máquina virtual don
 * **Inestabilidad reducida:** el procesamiento del conmutador virtual depende de la cantidad de directivas que deben aplicarse y la carga de trabajo de la CPU que se encarga del procesamiento. Al descargarse la aplicación de directivas en el hardware, se elimina esa variabilidad, ya que los paquetes se entregan directamente a la máquina virtual y se elimina el host de la comunicación de la máquina virtual, así como todas las interrupciones de software y los cambios de contexto.
 * **Disminución de la utilización de la CPU:** el pasar por alto el conmutador virtual en el host conlleva una disminución de la utilización de la CPU para procesar el tráfico de red.
 
-## <a name="supported-operating-systems"></a>Sistemas operativos compatibles
+## <a name="supported-operating-systems"></a>Sistemas operativos admitidos
 Se admiten las siguientes distribuciones de fábrica desde la galería de Azure: 
 * **Ubuntu 14.04 con el kernel linux-azure**
 * **Ubuntu 16.04 o posterior** 
@@ -177,7 +177,7 @@ Para obtener una lista de todos los tamaños de máquinas virtuales y las caract
 
 Una vez creada la máquina virtual, se devuelve una salida similar a la del siguiente ejemplo. Anote el valor de **publicIpAddress**. Esta dirección se utiliza para acceder a la máquina virtual en los pasos posteriores.
 
-```azurecli
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/<ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -208,7 +208,7 @@ En el shell de Bash, escriba `uname -r` y confirme que la versión de kernel es 
 
 Con el comando `lspci`, confirme que el dispositivo Mellanox VF se expone a la máquina virtual. La salida devuelta será similar a la siguiente:
 
-```bash
+```output
 0000:00:00.0 Host bridge: Intel Corporation 440BX/ZX/DX - 82443BX/ZX/DX Host bridge (AGP disabled) (rev 03)
 0000:00:07.0 ISA bridge: Intel Corporation 82371AB/EB/MB PIIX4 ISA (rev 01)
 0000:00:07.1 IDE interface: Intel Corporation 82371AB/EB/MB PIIX4 IDE (rev 01)
@@ -219,7 +219,7 @@ Con el comando `lspci`, confirme que el dispositivo Mellanox VF se expone a la m
 
 Compruebe la actividad en la función virtual con el comando `ethtool -S eth0 | grep vf_`. Si recibe un resultado similar al siguiente ejemplo de salida, Accelerated Networking red está habilitado y en funcionamiento.
 
-```bash
+```output
 vf_rx_packets: 992956
 vf_rx_bytes: 2749784180
 vf_tx_packets: 2656684

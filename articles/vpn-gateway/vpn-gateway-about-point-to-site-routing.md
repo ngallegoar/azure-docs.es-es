@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 10/08/2019
+ms.date: 03/24/2020
 ms.author: anzaman
-ms.openlocfilehash: 7205b5f3049773545d78c3a3e3423450779b78c5
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 4821f2eb694a36cf0570008b3e62ce39999c58d1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74150970"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80239750"
 ---
 # <a name="about-point-to-site-vpn-routing"></a>Información sobre el enrutamiento de VPN de punto a sitio
 
@@ -24,11 +24,11 @@ Actualmente, Azure admite dos protocolos para el acceso remoto, IKEv2 y SSTP. El
 > Este artículo solo se aplica al protocolo IKEv2.
 >
 
-## <a name="diagrams"></a>Acerca de los diagramas
+## <a name="about-the-diagrams"></a><a name="diagrams"></a>Acerca de los diagramas
 
 Hay varios diagramas distintos en este artículo. Cada sección muestra una configuración o topología distinta. En este artículo, las conexiones de sitio a sitio (S2S) y las conexiones de red virtual a red virtual funcionan del mismo modo, debido a que ambas son túneles IPsec. Todas las puertas de enlace de VPN se basan en rutas.
 
-## <a name="isolatedvnet"></a>Una red virtual aislada
+## <a name="one-isolated-vnet"></a><a name="isolatedvnet"></a>Una red virtual aislada
 
 La conexión de puerta de enlace de VPN de punto a sitio en este ejemplo es para una red virtual que no está conectada ni emparejada con ninguna otra red virtual (VNet1). En este ejemplo, los clientes pueden acceder a VNet1.
 
@@ -44,15 +44,15 @@ La conexión de puerta de enlace de VPN de punto a sitio en este ejemplo es para
 
 * Rutas agregadas a clientes no Windows: 10.1.0.0/16, 192.168.0.0/24
 
-### <a name="access"></a>Access
+### <a name="access"></a>Acceso
 
 * Los clientes Windows pueden acceder a VNet1
 
 * Los clientes no Windows pueden acceder a VNet1
 
-## <a name="multipeered"></a>Varias redes virtuales emparejadas
+## <a name="multiple-peered-vnets"></a><a name="multipeered"></a>Varias redes virtuales emparejadas
 
-En este ejemplo, la conexión de puerta de enlace de VPN de punto a sitio es para VNet1. VNet1 está emparejada con VNet2. VNet 2 está emparejada con VNet3. VNet1 está emparejada con VNet4. No hay emparejamiento directo entre VNet1 y VNet3. VNet1 tiene habilitado "Permitir tránsito de puerta de enlace" y VNet2, "Usar puertas de enlace remotas".
+En este ejemplo, la conexión de puerta de enlace de VPN de punto a sitio es para VNet1. VNet1 está emparejada con VNet2. VNet 2 está emparejada con VNet3. VNet1 está emparejada con VNet4. No hay emparejamiento directo entre VNet1 y VNet3. VNet1 tiene habilitado "Permitir tránsito de puerta de enlace" y VNet2 y VNet4 tienen "Usar puertas de enlace remotas".
 
 Los clientes que usan Windows pueden acceder directamente a redes virtuales emparejadas, pero el cliente VPN se debe descargar de nuevo si se hace algún cambio en el emparejamiento de VNet o en la topología de red. Los clientes no Windows pueden acceder directamente a las redes virtuales emparejadas. El acceso no es transitivo y está limitado solo a las redes virtuales emparejadas directamente.
 
@@ -74,13 +74,13 @@ Los clientes que usan Windows pueden acceder directamente a redes virtuales empa
 
 * Rutas agregadas a clientes no Windows: 10.1.0.0/16, 10.2.0.0/16, 10.4.0.0/16, 192.168.0.0/24
 
-### <a name="access"></a>Access
+### <a name="access"></a>Acceso
 
 * Los clientes Windows pueden acceder a VNet1, VNet2 y VNet4, pero el cliente de VPN se debe descargar de nuevo para que cualquier cambio en la topología surta efecto.
 
 * Los clientes no Windows pueden acceder a VNet1, VNet2 y VNet4.
 
-## <a name="multis2s"></a>Varias redes virtuales conectadas mediante VPN de sitio a sitio
+## <a name="multiple-vnets-connected-using-an-s2s-vpn"></a><a name="multis2s"></a>Varias redes virtuales conectadas mediante VPN de sitio a sitio
 
 En este ejemplo, la conexión de puerta de enlace de VPN de punto a sitio es para VNet1. VNet1 se conecta a VNet2 mediante una conexión VPN de sitio a sitio. VNet2 se conecta a VNet3 mediante una conexión VPN de sitio a sitio. No hay emparejamiento directo ni conexión VPN de sitio a sitio entre VNet1 y VNet3. Las conexiones de sitio a sitio no ejecutan BGP para el enrutamiento.
 
@@ -102,13 +102,13 @@ Los clientes que usan Windows o cualquier otro SO compatible solo pueden acceder
 
 * Rutas agregadas a clientes no Windows: 10.1.0.0/16, 10.2.0.0/16, 192.168.0.0/24
 
-### <a name="access"></a>Access
+### <a name="access"></a>Acceso
 
 * Los clientes Windows solo pueden acceder a VNet1
 
 * Los clientes no Windows solo pueden acceder a VNet1
 
-## <a name="multis2sbgp"></a>Varias redes virtuales conectadas mediante VPN de sitio a sitio (BGP)
+## <a name="multiple-vnets-connected-using-an-s2s-vpn-bgp"></a><a name="multis2sbgp"></a>Varias redes virtuales conectadas mediante VPN de sitio a sitio (BGP)
 
 En este ejemplo, la conexión de puerta de enlace de VPN de punto a sitio es para VNet1. VNet1 se conecta a VNet2 mediante una conexión VPN de sitio a sitio. VNet2 se conecta a VNet3 mediante una conexión VPN de sitio a sitio. No hay emparejamiento directo ni conexión VPN de sitio a sitio entre VNet1 y VNet3. Las conexiones de sitio a sitio ejecutan BGP para el enrutamiento.
 
@@ -130,13 +130,13 @@ Los clientes que usan Windows o cualquier otro SO compatible pueden acceder a to
 
 * Rutas agregadas a clientes no Windows: 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16, 192.168.0.0/24
 
-### <a name="access"></a>Access
+### <a name="access"></a>Acceso
 
 * Los clientes Windows pueden acceder a VNet1, VNet2 y VNet3, pero las rutas a VNet2 y VNet3 se deberán agregar manualmente.
 
 * Los clientes no Windows pueden acceder a VNet1, VNet2 y VNet3.
 
-## <a name="vnetbranch"></a>Una red virtual y una sucursal
+## <a name="one-vnet-and-a-branch-office"></a><a name="vnetbranch"></a>Una red virtual y una sucursal
 
 En este ejemplo, la conexión de puerta de enlace de VPN de punto a sitio es para VNet1. VNet1 no está conectada ni emparejada con ninguna otra red virtual, pero sí está conectada a un sitio local a través de una conexión VPN de sitio a sitio que no ejecuta BGP.
 
@@ -156,13 +156,13 @@ Los clientes Windows y no Windows solo pueden acceder a VNet1.
 
 * Rutas agregadas a clientes no Windows: 10.1.0.0/16, 192.168.0.0/24
 
-### <a name="access"></a>Access
+### <a name="access"></a>Acceso
 
 * Los clientes Windows solo pueden acceder a VNet1
 
 * Los clientes no Windows solo pueden acceder a VNet1
 
-## <a name="vnetbranchbgp"></a>Una red virtual y una sucursal (BGP)
+## <a name="one-vnet-and-a-branch-office-bgp"></a><a name="vnetbranchbgp"></a>Una red virtual y una sucursal (BGP)
 
 En este ejemplo, la conexión de puerta de enlace de VPN de punto a sitio es para VNet1. VNet1 no está conectada ni emparejada con ninguna otra red virtual, pero sí está conectada a un sitio local (Site1) a través de una conexión VPN de sitio a sitio que ejecuta BGP.
 
@@ -182,14 +182,14 @@ Los clientes Windows pueden acceder a la red virtual y a la sucursal (Site1), pe
 
 * Rutas agregadas a clientes no Windows: 10.1.0.0/16, 10.101.0.0/16, 192.168.0.0/24
 
-### <a name="access"></a>Access
+### <a name="access"></a>Acceso
 
 * Los clientes Windows pueden acceder a VNet1 y a Site1, pero las rutas a Site1 se deberán agregar manualmente.
 
 * Los clientes no Windows pueden acceder a VNet1 y Site1.
 
 
-## <a name="multivnets2sbranch"></a>Varias redes virtual conectadas mediante sitio a sitio y una sucursal
+## <a name="multiple-vnets-connected-using-s2s-and-a-branch-office"></a><a name="multivnets2sbranch"></a>Varias redes virtual conectadas mediante sitio a sitio y una sucursal
 
 En este ejemplo, la conexión de puerta de enlace de VPN de punto a sitio es para VNet1. VNet1 se conecta a VNet2 mediante una conexión VPN de sitio a sitio. VNet2 se conecta a VNet3 mediante una conexión VPN de sitio a sitio. No hay emparejamiento directo ni túnel VPN de sitio a sitio entre las redes VNet1 y VNet3. VNet3 se conecta a una sucursal (Site1) mediante una conexión VPN de sitio a sitio. Las conexiones VPN no ejecutan BGP.
 
@@ -213,13 +213,13 @@ Todo los clientes pueden acceder solo a VNet1.
 
 * Rutas agregadas a clientes no Windows: 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16, 10.101.0.0/16, 192.168.0.0/24
 
-### <a name="access"></a>Access
+### <a name="access"></a>Acceso
 
 * Los clientes Windows solo pueden acceder a VNet1
 
 * Los clientes no Windows solo pueden acceder a VNet1
 
-## <a name="multivnets2sbranchbgp"></a>Varias redes virtual conectadas mediante sitio a sitio y una sucursal (BGP)
+## <a name="multiple-vnets-connected-using-s2s-and-a-branch-office-bgp"></a><a name="multivnets2sbranchbgp"></a>Varias redes virtual conectadas mediante sitio a sitio y una sucursal (BGP)
 
 En este ejemplo, la conexión de puerta de enlace de VPN de punto a sitio es para VNet1. VNet1 se conecta a VNet2 mediante una conexión VPN de sitio a sitio. VNet2 se conecta a VNet3 mediante una conexión VPN de sitio a sitio. No hay emparejamiento directo ni túnel VPN de sitio a sitio entre las redes VNet1 y VNet3. VNet3 se conecta a una sucursal (Site1) mediante una conexión VPN de sitio a sitio. Las conexiones VPN ejecutan BGP.
 
@@ -243,7 +243,7 @@ Los clientes que usan Windows pueden acceder a las redes virtuales y los sitios 
 
 * Rutas agregadas a clientes no Windows: 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16, 10.101.0.0/16, 192.168.0.0/24
 
-### <a name="access"></a>Access
+### <a name="access"></a>Acceso
 
 * Los clientes Windows pueden acceder a VNet1, VNet2, VNet3 y Site1, pero las rutas a VNet2, VNet3 y Site1 se deben agregar manualmente al cliente.
 

@@ -3,7 +3,7 @@ title: Cifrado en reposo de datos de Microsoft Azure | Microsoft Docs
 description: Este artículo proporciona información general sobre el cifrado en reposo de datos de Microsoft Azure, funcionalidades y consideraciones.
 services: security
 documentationcenter: na
-author: barclayn
+author: msmbaldwin
 manager: barbkess
 editor: TomSh
 ms.assetid: 9dcb190e-e534-4787-bf82-8ce73bf47dba
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/07/2020
-ms.author: barclayn
-ms.openlocfilehash: 682f0b66f7632bce16ae134e71ea27c4df976f43
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.date: 03/23/2020
+ms.author: mbaldwin
+ms.openlocfilehash: 42b83963dc4996a7347d57be712451086fa79b26
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77087102"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548624"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Cifrado en reposo de datos de Azure
 
@@ -49,7 +49,7 @@ El cifrado en reposo proporciona protección de datos para los datos almacenados
 
 El cifrado en reposo está diseñado para evitar que el atacante obtenga acceso a los datos sin cifrar asegurándose de que los datos se cifran en el disco. Si un atacante obtiene una unidad de disco duro con datos cifrados pero no las claves de cifrado, el atacante debe anular el cifrado para leer los datos. Este ataque es mucho más complejo y consume más recursos que el acceso a datos no cifrados en una unidad de disco duro. Por este motivo, el cifrado en reposo es muy recomendable y es un requisito de alta prioridad para muchas organizaciones.
 
-También se requiere el cifrado en reposo por necesidad de la organización de los esfuerzos de cumplimiento y gobernanza de datos. Las normas gubernamentales y del sector, como HIPAA, PCI y FedRAMP, diseñan las medidas de seguridad específicas a través de los requisitos de cifrado y la protección de datos. El cifrado en reposo es una medida obligatoria necesaria para el cumplimiento de algunas de esas regulaciones.
+También se requiere el cifrado en reposo por necesidad de la organización de los esfuerzos de cumplimiento y gobernanza de datos. Las normas gubernamentales y del sector, como HIPAA, PCI y FedRAMP, diseñan las medidas de seguridad específicas a través de los requisitos de cifrado y la protección de datos. El cifrado en reposo es una medida obligatoria necesaria para el cumplimiento de algunas de esas regulaciones. Para más información sobre el enfoque de Microsoft en relación con la validación de FIPS 140-2, consulte [Publicación del estándar federal de procesamiento de información (FIPS) 140-2](https://docs.microsoft.com/microsoft-365/compliance/offering-fips-140-2). 
 
 Además de satisfacer los requisitos de cumplimiento y regulatorios, el cifrado en reposo proporciona protección de defensa en profundidad. Microsoft Azure proporciona una plataforma compatible para servicios, aplicaciones y datos. También proporciona servicios completos y seguridad física, control de acceso a los datos y auditoría. Sin embargo, es importante proporcionar medidas de seguridad "superpuestas" adicionales en caso de que se produzca un error en una de las otras medidas de seguridad y el cifrado en reposo proporciona dicha medida de seguridad.
 
@@ -299,7 +299,7 @@ Se admite el cifrado del lado cliente de los datos de Azure SQL Database a trav�
 | Azure SQL Database for MariaDB   | Sí                | -                  | -                  |
 | Azure SQL Database for MySQL     | Sí                | Sí                | -                  |
 | Azure SQL Database for PostgreSQL | Sí               | Sí                | -                  |
-| Azure Synapse Analytics          | Sí                | Sí, RSA de 2048 bits  | Sí                |
+| Azure Synapse Analytics          | Sí                | Sí, RSA de 2048 bits  | -                  |
 | SQL Server Stretch Database      | Sí                | Sí, RSA de 2048 bits  | Sí                |
 | Table Storage                    | Sí                | Sí                | Sí                |
 | Azure Cosmos DB                  | Sí                | Sí                | -                  |

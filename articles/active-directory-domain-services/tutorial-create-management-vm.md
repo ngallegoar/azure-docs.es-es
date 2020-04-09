@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/30/2019
+ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: 63c5f068adab58c901acf5fd26261d57e1183f0d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 09fcf88c6dfe90380f387c6d72c751634f5b1606
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79481524"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475751"
 ---
 # <a name="tutorial-create-a-management-vm-to-configure-and-administer-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Creación de una máquina virtual de administración para configurar y administrar un dominio administrado de Azure Active Directory Domain Services
 
@@ -89,7 +89,6 @@ Para empezar, conéctese a la máquina virtual de Windows Server tal y como se 
 
     ![Conexión a una máquina virtual Windows mediante Bastion en Azure Portal](./media/join-windows-vm/connect-to-vm.png)
 
-    También puede [crear y usar un host de Azure Bastion (actualmente en versión preliminar)][azure-bastion] para permitir el acceso solo mediante Azure Portal a través de TLS.
 1. Escriba las credenciales de la máquina virtual y seleccione **Conectar**.
 
    ![Conexión mediante el host de Bastion en Azure Portal](./media/join-windows-vm/connect-to-bastion.png)

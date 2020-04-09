@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: tokaplan
 ms.author: alkaplan
 ms.date: 04/25/2019
-ms.openlocfilehash: 15c75d4add9615df6c42aa6121557659e54354d0
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 56a0cb66f5b54c817067970ab369d7ca471a1696
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77666793"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80132345"
 ---
 # <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-applications"></a>Supervisión de aplicaciones sin instrumentación para aplicaciones hospedadas de Kubernetes
 
@@ -59,7 +59,7 @@ kubectl label namespace <my-app-namespace> istio-injection=enabled
 ```
 
 > [!NOTE]
-> Puesto que la malla de servicio quita los datos de la conexión, no podemos interceptar el tráfico cifrado. Para el tráfico que no abandona el clúster, use un protocolo sin cifrar (por ejemplo, HTTP). Para el tráfico externo que debe cifrarse, considere la posibilidad de [configurar la terminación SSL](https://kubernetes.io/docs/concepts/services-networking/ingress/#tls) en el controlador de entrada.
+> Puesto que la malla de servicio quita los datos de la conexión, no podemos interceptar el tráfico cifrado. Para el tráfico que no abandona el clúster, use un protocolo sin cifrar (por ejemplo, HTTP). Con el tráfico externo que debe cifrarse, considere la posibilidad de [configurar la terminación TLS](https://kubernetes.io/docs/concepts/services-networking/ingress/#tls) en el controlador de entrada.
 
 Las aplicaciones que se ejecutan fuera de la malla de servicio no se ven afectadas.
 

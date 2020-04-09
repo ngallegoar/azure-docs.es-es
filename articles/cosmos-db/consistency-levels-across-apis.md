@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 819929fb157444ae53df113c0318dd18146156c9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ef7d032d37105549ff7b05f85b953cd420954602
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442040"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80131470"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Niveles de coherencia y API de Azure Cosmos DB
 
@@ -22,11 +22,11 @@ Al usar la API de SQL, la API de Gremlin y Table API, se usa el nivel de coheren
 
 Al usar Cassandra API o la API de Azure Cosmos DB para MongoDB, las aplicaciones obtienen un conjunto completo de los niveles de coherencia que ofrece Apache Cassandra y MongoDB, respectivamente, con garantías de coherencia y durabilidad más fuertes. En este documento se muestran los niveles de coherencia de Azure Cosmos DB correspondientes para los niveles de coherencia de Apache Cassandra y MongoDB.
 
-## <a id="cassandra-mapping"></a>Asignación entre niveles de coherencia de Apache Cassandra y Azure Cosmos DB
+## <a name="mapping-between-apache-cassandra-and-azure-cosmos-db-consistency-levels"></a><a id="cassandra-mapping"></a>Asignación entre niveles de coherencia de Apache Cassandra y Azure Cosmos DB
 
 A diferencia de Azure Cosmos DB, Apache Cassandra no proporciona de forma nativa garantías de coherencia definidas con precisión.  En su lugar, Cassandra Apache proporciona un nivel de coherencia de escritura y de lectura para permitir los inconvenientes que representan la alta disponibilidad, coherencia, disponibilidad y latencia. Al usar Cassandra API de Azure Cosmos DB: 
 
-* El nivel de coherencia de escritura de Apache Cassandra se asigna al nivel de coherencia predeterminado configurado en la cuenta de Azure Cosmos. 
+* El nivel de coherencia de escritura de Apache Cassandra se asigna al nivel de coherencia predeterminado configurado en la cuenta de Azure Cosmos. No se puede cambiar la coherencia de una operación de escritura (CL) en cada solicitud.
 
 * Azure Cosmos DB asignará dinámicamente el nivel de coherencia de lectura que el controlador de cliente de Cassandra especifique en uno de los niveles de coherencia de Azure Cosmos DB configurados dinámicamente en una solicitud de lectura. 
 
@@ -34,7 +34,7 @@ En la tabla siguiente se muestra cómo se asignan los niveles de coherencia nati
 
 [![Asignación de modelos de coherencia de Cassandra](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png)](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png#lightbox)
 
-## <a id="mongo-mapping"></a>Asignación entre los niveles de coherencia de MongoDB y Azure Cosmos DB
+## <a name="mapping-between-mongodb-and-azure-cosmos-db-consistency-levels"></a><a id="mongo-mapping"></a>Asignación entre los niveles de coherencia de MongoDB y Azure Cosmos DB
 
 A diferencia de Azure Cosmos DB, el nivel de coherencia nativo de MongoDB no proporciona garantías de coherencia definidas con precisión. En su lugar, MongoDB nativo permite a los usuarios configurar las siguientes garantías de coherencia (una preocupación de escritura, una preocupación de lectura y la directiva isMaster) para dirigir las operaciones de lectura a las réplicas principales o secundarias y lograr el nivel de coherencia deseado. 
 
@@ -44,7 +44,7 @@ Al usar la API de Azure Cosmos DB para MongoDB:
 
 * la preocupación de escritura se asigna al nivel de coherencia predeterminado configurado en la cuenta de Azure Cosmos.
  
-* Azure Cosmos DB asignará dinámicamente la preocupación de lectura que el controlador de cliente de MongoDB especifique en uno de los niveles de coherencia de Azure Cosmos DB configurados dinámicamente en una solicitud de lectura. 
+* Azure Cosmos DB asignará dinámicamente la preocupación de lectura que el controlador de cliente de MongoDB especifique en uno de los niveles de coherencia de Azure Cosmos DB configurados dinámicamente en una solicitud de lectura.  
 
 * Puede anotar una región específica asociada con su cuenta de Azure Cosmos como "Maestra" al establecer la región como la primera región de escritura. 
 

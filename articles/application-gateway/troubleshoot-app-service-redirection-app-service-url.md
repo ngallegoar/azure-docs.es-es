@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: d43efd6dbd344f666c23b1ad4414ceb29992e996
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 961ed17bcef19b445c2546a557725bb6bd8653cb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074491"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80293535"
 ---
 # <a name="troubleshoot-app-service-issues-in-application-gateway"></a>Solución de problemas de App Service en Application Gateway
 
@@ -77,7 +77,7 @@ Set-Cookie: ARRAffinity=b5b1b14066f35b3e4533a1974cacfbbd969bf1960b6518aa2c2e2619
 
 X-Powered-By: ASP.NET
 ```
-En el ejemplo anterior, observe que el encabezado de respuesta tiene un código de estado 301 para el redireccionamiento. El encabezado de ubicación tiene el nombre de host de la instancia de App Service en lugar del nombre de host original `www.contoso.com`.
+En el ejemplo anterior, observe que el encabezado de respuesta tiene un código de estado 301 para el redireccionamiento. El encabezado de ubicación tiene el nombre de host de la instancia de App Service en lugar del nombre de host original, `www.contoso.com`.
 
 ## <a name="solution-rewrite-the-location-header"></a>Solución: Reescribir el encabezado de ubicación
 

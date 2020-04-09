@@ -1,77 +1,93 @@
 ---
-title: Transformación Búsqueda del flujo de datos de asignación
-description: Transformación Búsqueda del flujo de datos de asignación de Azure Data Factory
+title: Transformación de búsqueda en el flujo de datos de asignación
+description: Haga referencia a los datos de otro origen mediante la transformación búsqueda en el flujo de datos de asignación.
 author: kromerm
+ms.reviewer: daperlov
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/26/2020
-ms.openlocfilehash: 2216e1bf058eef486dbfefba24d52bdc6bdb232f
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.date: 03/23/2020
+ms.openlocfilehash: 78c6c1363af011a90865770d88c0037e50e958c1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78164685"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240406"
 ---
-# <a name="azure-data-factory-mapping-data-flow-lookup-transformation"></a>Transformación Búsqueda del flujo de datos de asignación de Azure Data Factory
+# <a name="lookup-transformation-in-mapping-data-flow"></a>Transformación de búsqueda en el flujo de datos de asignación
 
-Use Búsqueda para agregar datos de referencia desde otro origen al flujo de datos. La transformación Búsqueda requiere un origen definido que apunte a la tabla de referencia y busque coincidencias por los campos de clave.
+Utilice la transformación búsqueda para hacer referencia a los datos de otro origen en una secuencia de flujo de datos. La transformación búsqueda anexa columnas de los datos coincidentes a los datos de origen.
+
+Una transformación búsqueda es similar a una combinación externa izquierda. Todas las filas del flujo principal existirán en el flujo de salida con columnas adicionales de la secuencia de búsqueda. 
+
+## <a name="configuration"></a>Configuración
 
 ![Transformación Búsqueda](media/data-flow/lookup1.png "Búsqueda")
 
-Seleccione los campos de clave por los que desea buscar coincidencias entre los campos de la secuencia entrante y los campos del origen de referencia. Tiene que haber creado un origen nuevo en el lienzo de diseño de Data Flow para usarlo como lado derecho de la búsqueda.
+**Flujo principal:** El flujo de datos entrante. Este flujo es equivalente a la parte izquierda de una combinación.
 
-Cuando se encuentran coincidencias, las filas y columnas resultantes del origen de referencia se agregarán al flujo de datos. Puede elegir qué campos de interés desea incluir en el receptor al final de su flujo de datos. O bien, puede usar una transformación Seleccionar después de Búsqueda para realizar una eliminación en la lista de campos y conservar solo los campos de las dos secuencias que desee.
+**Secuencia de búsqueda:** Los datos que se anexan al flujo principal. Los datos que se agregan están determinados por las condiciones de búsqueda. Este flujo es equivalente a la parte derecha de una combinación.
 
-La transformación Búsqueda realiza el equivalente de una combinación externa izquierda. Por lo tanto, verá que todas las filas del origen izquierdo se combinan con las coincidencias del lado derecho. Si tiene varios valores coincidentes en la búsqueda, o si desea personalizar la expresión de búsqueda, es preferible cambiar a una transformación Combinación y usar una combinación cruzada. Esto evitará cualquier posible error de producto cartesiano en la ejecución.
+**Coincidencia con varias filas:** Si está habilitada, una fila con varias coincidencias en el flujo principal devolverá varias filas. De lo contrario, solo se devolverá una sola fila en función de la condición de coincidencia.
 
-## <a name="match--no-match"></a>Coincidente o no coincidente
+**Coincidencia en:** Solo es visible si está habilitada la opción 'coincidencia con varias filas '. Elija si desea buscar coincidencias en cualquier fila, la primera coincidencia o la última coincidencia. Se recomienda cualquier fila a medida que se ejecuta la más rápida. Si se selecciona la primera o la última fila, se le pedirá que especifique las condiciones de organización.
 
-Después de la transformación Búsqueda, puede usar las transformaciones posteriores para inspeccionar los resultados de cada fila coincidente mediante la función de expresión `isMatch()` para tomar más decisiones sobre la lógica en función de si la búsqueda dio como resultado una coincidencia o no.
+**Condiciones de búsqueda:** Elija las columnas en las que desea buscar coincidencias. Si se cumple la condición de igualdad, las filas se considerarán una coincidencia. Mantenga el puntero y seleccione 'columna calculada' para extraer un valor mediante el [lenguaje de expresiones de flujo de datos](data-flow-expression-functions.md).
+
+La transformación búsqueda solo admite coincidencias de igualdad. Para personalizar la expresión de búsqueda para que incluya otros operadores como mayor que, se recomienda usar una [Combinación cruzada en la transformación combinada](data-flow-join.md#custom-cross-join). Una combinación cruzada evitará cualquier posible error de producto cartesiano en la ejecución.
+
+Todas las columnas de ambas secuencias se incluyen en los datos de salida. Para quitar las columnas duplicadas o no deseadas, agregue una [transformación de selección](data-flow-select.md) después de la transformación búsqueda. También se pueden quitar o cambiar el nombre de las columnas en una transformación de receptor.
+
+## <a name="analyzing-matched-rows"></a>Analizar filas coincidentes
+
+Después de la transformación de búsqueda, se puede usar la función `isMatch()` para ver si la búsqueda coincide con las filas individuales.
 
 ![Patrón de búsqueda](media/data-flow/lookup111.png "Patrón de búsqueda")
 
-Después de usar la transformación Búsqueda, puede agregar una división de transformación del tipo División condicional en la función ```isMatch()```. En el ejemplo anterior, las filas coincidentes pasan por el flujo anterior y las filas no coincidentes fluyen a través del flujo de ```NoMatch```.
+Un ejemplo de este patrón es usar la transformación división condicional para dividirla en la función `isMatch()`. En el ejemplo anterior, las filas coincidentes pasan por el flujo anterior y las filas no coincidentes fluyen a través del flujo de ```NoMatch```.
 
-## <a name="first-or-last-value"></a>Primer o último valor
+## <a name="testing-lookup-conditions"></a>Probar condiciones de búsqueda
 
-La Transformación Búsqueda se implementa como una combinación externa izquierda. Si la actividad Búsqueda devuelve varias coincidencias, es posible que desee reducir el número de filas coincidentes mediante la selección de la fila de la primera coincidencia, la última coincidencia o una fila aleatoria.
+Cuando pruebe la transformación de búsqueda con la vista previa de datos en modo de depuración, use un conjunto pequeño de datos conocidos. Cuando se realiza un muestreo de filas de un conjunto de filas grande, no se puede predecir qué filas y claves se leerán para las pruebas. El resultado es no determinista, lo que significa que las condiciones de combinación pueden no devolver ninguna coincidencia.
 
-### <a name="option-1"></a>Opción 1
+## <a name="broadcast-optimization"></a>Optimización de difusión
 
-![Búsqueda de fila única](media/data-flow/singlerowlookup.png "Búsqueda de fila única")
-
-* Coincidencia con varias filas: Déjelo en blanco para que se devuelva una coincidencia de fila única
-* Coincidencia en: Seleccionar la primera, la última o cualquier coincidencia
-* Condiciones de ordenación: Si selecciona la primera o la última, ADF requiere que los datos estén ordenados para que haya una lógica detrás de la primera y la última
-
-> [!NOTE]
-> Use la opción de primera o última en el selector de una sola fila solo si necesita controlar qué valor va a devolver la búsqueda. El uso de búsquedas de "cualquiera" o de varias filas se realizará con más rapidez.
-
-### <a name="option-2"></a>Opción 2
-
-También puede hacerlo mediante una Transformación Aggregate (Agregar) después de la de Búsqueda. En este caso, se usa una transformación Agregar llamada ```PickFirst``` para elegir el primer valor de entre las coincidencias de búsqueda.
-
-![Agregar después de Búsqueda](media/data-flow/lookup333.png "Agregar después de Búsqueda")
-
-![Primer valor de búsqueda](media/data-flow/lookup444.png "Primer valor de Búsqueda")
-
-## <a name="optimizations"></a>Optimizaciones
-
-En Data Factory, Data Flow se ejecuta en entornos de Spark de escalabilidad horizontal. Si el conjunto de datos puede caber en el espacio de memoria de un nodo de trabajo, podemos optimizar el rendimiento de Búsqueda.
+En Azure Data Factory, el flujo de datos de asignación se ejecuta en entornos Spark de escalabilidad horizontal. Si el conjunto de datos puede caber en el espacio de memoria de un nodo de trabajo, el rendimiento de la búsqueda se puede optimizar habilitando la difusión.
 
 ![Combinación de difusión](media/data-flow/broadcast.png "Combinación de difusión")
 
-### <a name="broadcast-join"></a>Unión de difusión
+La habilitación de la transmisión envía todo el conjunto de datos a la memoria. En el caso de conjuntos de datos más pequeños que contienen solo unas cuantas filas, la difusión puede mejorar considerablemente el rendimiento de la búsqueda. En el caso de grandes conjuntos de datos, esta opción puede conducir a una excepción de memoria insuficiente.
 
-Seleccione la unión de difusión del lado izquierdo o derecho para solicitar a ADF que inserte todo el conjunto de datos de cualquiera de los dos lados de la relación de Búsqueda en la memoria. En los conjuntos de valores más pequeños, esto puede mejorar considerablemente el rendimiento de la búsqueda.
+## <a name="data-flow-script"></a>Script de flujo de datos
 
-### <a name="data-partitioning"></a>Creación de particiones de datos
+### <a name="syntax"></a>Sintaxis
 
-También puede especificar la creación de particiones de los datos si selecciona "Set Partitioning" (establecer particiones) en la pestaña Optimizar de la transformación Búsqueda para crear conjuntos de datos que pueden adaptarse mejor a la memoria por trabajo.
+```
+<leftStream>, <rightStream>
+    lookup(
+        <lookupConditionExpression>,
+        multiple: { true | false },
+        pickup: { 'first' | 'last' | 'any' },  ## Only required if false is selected for multiple
+        { desc | asc }( <sortColumn>, { true | false }), ## Only required if 'first' or 'last' is selected. true/false determines whether to put nulls first
+        broadcast: { 'none' | 'left' | 'right' | 'both' }
+    ) ~> <lookupTransformationName>
+```
+### <a name="example"></a>Ejemplo
 
-## <a name="next-steps"></a>Pasos siguientes
+![Transformación Búsqueda](media/data-flow/lookup-dsl-example.png "Búsqueda")
 
-* Las transformaciones [Combinación](data-flow-join.md) y [Existe](data-flow-exists.md) realizan tareas similares en los flujos de datos de asignación de ADF. A continuación, eche un vistazo a esas transformaciones.
-* Use una [División condicional](data-flow-conditional-split.md) con ```isMatch()``` para dividir las filas en valores coincidentes y no coincidentes.
+El script de flujo de datos para la configuración de búsqueda anterior se encuentra en el siguiente fragmento de código.
+
+```
+SQLProducts, DimProd lookup(ProductID == ProductKey,
+    multiple: false,
+    pickup: 'first',
+    asc(ProductKey, true),
+    broadcast: 'none')~> LookupKeys
+```
+## 
+Pasos siguientes
+
+* Las transformaciones [combinación](data-flow-join.md) y [existencia](data-flow-exists.md) toman múltiples entradas de flujo
+* Use una [transformación de división condicional](data-flow-conditional-split.md) con ```isMatch()``` para dividir las filas en valores coincidentes y no coincidentes

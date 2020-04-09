@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 44d5edd7b5808b6c212a832dd95de7a9cb4b7c08
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 03/25/2020
+ms.openlocfilehash: 6de6f23fe9564b28a5d436ac00999dbb3e9183e1
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978598"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548958"
 ---
 # <a name="security-and-data-privacy-in-azure-cognitive-search"></a>Seguridad y privacidad de datos en Azure Cognitive Search
 
@@ -43,7 +43,7 @@ El cifrado se extiende a lo largo de la canalización de indexación entera: des
 |----------------|-------------|
 | Cifrado en tránsito <br>(HTTPS/SSL/TLS) | Azure Cognitive Search escucha en el puerto HTTPS 443. Las conexiones a los servicios de Azure están cifradas en toda la plataforma. <br/><br/>Todas las interacciones de Azure Cognitive Search entre el cliente y el servicio son compatibles con los protocolos SSL o TLS 1.2.  Asegúrese de usar TLSv1.2 para las conexiones SSL con el servicio.|
 | Cifrado en reposo <br>Claves administradas por Microsoft | El cifrado se internaliza totalmente en el proceso de indexación, sin impacto cuantificable a la hora de indexar el tiempo que tarda en completarse ni el tamaño de indexación. Se produce automáticamente en todas las indexaciones, incluidas las actualizaciones incrementales a un índice que no esté totalmente cifrado (creado antes de enero de 2018).<br><br>Internamente, el cifrado se basa en el [cifrado del servicio de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-service-encryption), que usa [cifrado AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) de 256 bits.<br><br> El cifrado es interno para Azure Cognitive Search, con certificados y claves de cifrado que Microsoft administra internamente, y se aplica universalmente. No se puede activar ni desactivar el cifrado, administrar ni sustituir sus claves, ni ver la configuración de cifrado en el portal o mediante programación.<br><br>El cifrado en reposo se anunció el 24 de enero de 2018 y se aplica a todos los niveles de servicio, incluido el nivel Gratis, en todas las regiones. Para el cifrado completo, los índices creados antes de esa fecha deben quitarse y volver a generarse para que se produzca el cifrado. En caso contrario, solo se cifrarán los datos nuevos a partir del 24 de enero.|
-| Cifrado en reposo <br>Claves administradas por el cliente | El cifrado con claves administradas por el cliente ya está disponible con carácter general para los servicios de búsqueda creados en enero de 2019 o con posterioridad. No se admite en servicios Gratis (compartidos).<br><br>Los mapas de sinónimos y los índices de Azure Cognitive Search ya se pueden cifran en reposo con claves administradas por el cliente en Azure Key Vault. Para más información, consulte [Administración de claves de cifrado en Azure Cognitive Search](search-security-manage-encryption-keys.md).<br><br>Esta característica no reemplaza el cifrado en reposo de forma predeterminada, sino que se aplica además de este.<br><br>Si habilita esta característica, aumentará el tamaño del índice y reducirá el rendimiento de las consultas. Según las observaciones hechas hasta la fecha, puede esperar un aumento del 30 al 60% en los tiempos de consultas, aunque el rendimiento real variará según la definición del índice y los tipos de consultas. Debido a este impacto en el rendimiento, se recomienda habilitar esta característica solo en los índices que realmente la necesitan.
+| Cifrado en reposo <br>Claves administradas por el cliente | El cifrado con claves administradas por el cliente ya está disponible con carácter general para los servicios de búsqueda creados en enero de 2019 o con posterioridad. No se admite en servicios Gratis (compartidos).<br><br>Los mapas de sinónimos y los índices de Azure Cognitive Search ya se pueden cifrar en reposo con claves administradas por el cliente en Azure Key Vault. Para más información, consulte [Administración de claves de cifrado en Azure Cognitive Search](search-security-manage-encryption-keys.md).<br><br>Esta característica no reemplaza el cifrado en reposo de forma predeterminada, sino que se aplica además de este.<br><br>Si habilita esta característica, aumentará el tamaño del índice y reducirá el rendimiento de las consultas. Según las observaciones hechas hasta la fecha, puede esperar un aumento del 30 al 60% en los tiempos de consultas, aunque el rendimiento real variará según la definición del índice y los tipos de consultas. Debido a este impacto en el rendimiento, se recomienda habilitar esta característica solo en los índices que realmente la necesitan.
 
 ## <a name="azure-wide-user-access-controls"></a>Controles de acceso de usuario en todo Azure
 
@@ -52,13 +52,15 @@ Azure cuenta con varios mecanismos de seguridad y, por tanto, están disponibles
 + [Bloqueos en el nivel de suscripción y recurso para evitar la eliminación](../azure-resource-manager/management/lock-resources.md)
 + [Control de acceso basado en roles (RBAC) para controlar el acceso a la información y las operaciones administrativas](../role-based-access-control/overview.md)
 
-Todos los servicios de Azure admiten controles de acceso basado en roles (RBAC) para establecer niveles de acceso de forma coherente en todos los servicios. Por ejemplo, ver información confidencial como la clave de administración está restringido a los roles de Colaborador y Propietario, mientras que la visualización del estado del servicio está disponible para los miembros de cualquier rol. RBAC proporciona los roles de Propietario, Colaborador y Lector. De forma predeterminada, todos los administradores de servicios son miembros del rol de propietario.
+Todos los servicios de Azure admiten controles de acceso basado en roles (RBAC) para establecer niveles de acceso de forma coherente en todos los servicios. Por ejemplo, la visualización de información confidencial, como la clave de administración, está restringida a los roles Colaborador y Propietario. Sin embargo, la visualización del estado del servicio está disponible para los miembros de cualquier rol. RBAC proporciona los roles de Propietario, Colaborador y Lector. De forma predeterminada, todos los administradores de servicios son miembros del rol de propietario.
 
 <a name="service-access-and-authentication"></a>
 
-## <a name="service-access-and-authentication"></a>Autenticación y acceso al servicio
+## <a name="endpoint-access"></a>Acceso al punto de conexión
 
-Si bien Azure Cognitive Search hereda las medidas de seguridad de la plataforma Azure, también proporciona su propia autenticación basada en claves. Una clave de API es una cadena que se compone de letras y números generados aleatoriamente. El tipo de clave (administrador o consulta) determina el nivel de acceso. El envío de una clave válida se considera una prueba de que la solicitud se origina desde una entidad de confianza. 
+### <a name="public-access"></a>Acceso público
+
+Azure Cognitive Search hereda las medidas de seguridad de la plataforma Azure y proporciona su propia autenticación basada en claves. Una clave de API es una cadena que se compone de letras y números generados aleatoriamente. El tipo de clave (administrador o consulta) determina el nivel de acceso. El envío de una clave válida se considera una prueba de que la solicitud se origina desde una entidad de confianza. 
 
 Hay dos niveles de acceso al servicio de búsqueda, habilitados por dos tipos de claves:
 
@@ -71,6 +73,16 @@ Las *claves de consulta* se crean a medida que son necesarias y están diseñada
 
 Se requiere autenticación en cada solicitud, y cada solicitud se compone de una clave obligatoria, una operación y un objeto. Cuando se encadenan, los dos niveles de permisos (completo y de solo lectura) y el contexto (por ejemplo, una operación de consulta en un índice) son suficientes para proporcionar seguridad en la gama completa de las operaciones del servicio. Para más información acerca de las claves, vea [Create and manage api-keys](search-security-api-keys.md) (Creación y administración de claves de API).
 
+### <a name="restricted-access"></a>Acceso restringido
+
+Si tiene un servicio público y quiere restringir el uso de este, puede usar la regla de restricción de IP en la versión de la API REST de administración: 2020-03-13, [IpRule](https://docs.microsoft.com/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service#IpRule). IpRule le permite restringir el acceso a su servicio mediante la identificación (de forma individual o en un intervalo) de las direcciones IP a las que quiera otorgar acceso a su servicio de búsqueda. 
+
+### <a name="private-access"></a>Acceso privado
+
+Los [puntos de conexión privados](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) para Azure Cognitive Search permiten a un cliente de una red virtual obtener acceso de forma segura a los datos de un índice de búsqueda a través de un [vínculo privado](https://docs.microsoft.com/azure/private-link/private-link-overview). El punto de conexión privado usa una dirección IP del espacio de direcciones de la red virtual para el servicio de búsqueda. El tráfico de red entre el cliente y el servicio de búsqueda atraviesa la red virtual y un vínculo privado de la red troncal de Microsoft, lo que elimina la exposición a la red pública de Internet.
+
+[Azure Virtual Network (VNet)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) permite establecer una comunicación segura entre recursos, con su red local y con Internet. 
+
 ## <a name="index-access"></a>Acceso a los índices
 
 En Azure Cognitive Search, un índice individual no es un objeto protegible. En su lugar, el acceso a un índice se determina en la capa de servicio (acceso de lectura o escritura), junto con el contexto de una operación.
@@ -81,11 +93,13 @@ Los accesos de administrador y de desarrollador a los índices no se diferencian
 
 Para soluciones multiinquilino que requieren límites de seguridad en el nivel de índice, estas soluciones suelen incluir un nivel intermedio que los clientes utilizan para controlar el aislamiento de índices. Para más información sobre los casos de uso de varios inquilinos, consulte [Modelos de diseño de aplicaciones SaaS para varios inquilinos y Azure Cognitive Search](search-modeling-multitenant-saas-applications.md).
 
-## <a name="admin-access"></a>Acceso de administrador
+## <a name="authentication"></a>Authentication
+
+### <a name="admin-access"></a>Acceso de administrador
 
 El [acceso basado en roles (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) determina si tiene acceso a los controles del servicio y su contenido. Si es propietario o colaborador en un servicio de Azure Cognitive Search, puede usar el módulo **Az.Search** de PowerShell o el portal para crear, actualizar o eliminar objetos del servicio. También puede usar la [API REST de administración de Azure Cognitive Search](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
 
-## <a name="user-access"></a>Acceso de usuarios
+### <a name="user-access"></a>Acceso de usuarios
 
 De forma predeterminada, el acceso de usuario a un índice viene determinado por la clave de acceso en la solicitud de consulta. La mayoría de los desarrolladores crean y asignan [*claves de consulta*](search-security-api-keys.md) para las solicitudes de búsqueda del lado cliente. Una clave de consulta concede acceso de lectura a todo el contenido del índice.
 

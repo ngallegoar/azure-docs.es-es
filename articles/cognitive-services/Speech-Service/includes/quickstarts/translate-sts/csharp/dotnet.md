@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 12/09/2019
+ms.date: 04/04/2020
 ms.author: erhopf
-ms.openlocfilehash: 37de11cae72bc884311d925e2b37a00905d790ac
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: cee0f5c1cdb71f182399356cc7e1dce8d738fd4e
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78925130"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80671837"
 ---
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -23,7 +23,7 @@ Antes de comenzar, compruebe lo siguiente:
 
 > [!div class="checklist"]
 > * [Ha creado un recurso de Voz de Azure](../../../../get-started.md)
-> * [Configuración del entorno de desarrollo y creación de un proyecto vacío](../../../../quickstarts/setup-platform.md?tabs=dotnet)
+> * [Configuración del entorno de desarrollo y creación de un proyecto vacío](../../../../quickstarts/setup-platform.md?tabs=dotnet&pivots=programming-language-csharp)
 
 ## <a name="add-sample-code"></a>Incorporación de código de ejemplo
 

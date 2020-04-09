@@ -3,16 +3,16 @@ title: Administración de almacenes y servidores de Azure Recovery Services
 description: En este artículo se explica cómo usar el panel de información general del almacén de Recovery Services para supervisar y administrar los almacenes de Recovery Services.
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: 5ae875b2e767768e90a9fbc6ff4ecfc6efb239c5
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 1a4d23c157700f42422cfe7ca8fa1c49e2cf128a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77586451"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80131971"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Supervisión y administración de almacenes de Recovery Services
 
-En este artículo se explica cómo usar el panel de **información general** del almacén de Recovery Services para supervisar y administrar los almacenes de Recovery Services. Al abrir un almacén de Recovery Services de la lista, se abre el panel de **información general** del mismo. El panel proporciona diversos detalles acerca del almacén. Hay *iconos* que muestran: el estado de las alertas críticas y de advertencia, los trabajos de copia de seguridad en curso y con errores, y la cantidad de almacenamiento con redundancia local (LRS) y almacenamiento con redundancia geográfica (GRS) usada. Si realiza copias de seguridad de máquinas virtuales de Azure en el almacén, el icono [**Estado de la comprobación previa a la copia de seguridad** muestra todos los elementos críticos o de advertencia](https://azure.microsoft.com/blog/azure-vm-backup-pre-checks/). La imagen siguiente es el panel de **información general** de **Contoso-vault**. El icono **Elementos de copia de seguridad** muestra que hay nueve elementos registrados en el almacén.
+En este artículo se explica cómo usar el panel de **información general** del almacén de Recovery Services para supervisar y administrar los almacenes de Recovery Services. Al abrir un almacén de Recovery Services de la lista, se abre el panel de **información general** del mismo. El panel proporciona diversos detalles acerca del almacén. Hay *iconos* que muestran: el estado de las alertas críticas y de advertencia, los trabajos de copia de seguridad en curso y con errores, y la cantidad de almacenamiento con redundancia local (LRS) y almacenamiento con redundancia geográfica (GRS) usada. Si realiza copias de seguridad de máquinas virtuales de Azure en el almacén, el icono [**Estado de la comprobación previa a la copia de seguridad** muestra todos los elementos críticos o de advertencia](https://docs.microsoft.com/azure/backup/backup-azure-manage-windows-server#backup-pre-check-status). La imagen siguiente es el panel de **información general** de **Contoso-vault**. El icono **Elementos de copia de seguridad** muestra que hay nueve elementos registrados en el almacén.
 
 ![panel del almacén de Servicios de recuperación](./media/backup-azure-manage-windows-server/rs-vault-blade.png)
 
@@ -49,7 +49,7 @@ El panel de **información general** del almacén de Recovery Services proporcio
 La sección de supervisión muestra los resultados de las consultas de **Alertas de copia de seguridad** y **Trabajos de copia de seguridad** predefinidas. Los iconos de supervisión proporcionan información actualizada acerca de:
 
 * Alertas críticas y de advertencia para los trabajos de copia de seguridad (en las últimas 24 horas)
-* Estado de comprobación previa de las máquinas virtuales de Azure [para obtener información completa sobre el estado de comprobación previa, consulte el [blog Introducing Backup Pre-Checks for Backup of Azure VMs](https://azure.microsoft.com/blog/azure-vm-backup-pre-checks/) (Introducción a las comprobaciones previas a la copia de seguridad de máquinas virtuales de Azure)].
+* Compruebe el estado de las máquinas virtuales de Azure. Para una información más completa sobre el estado de la comprobación previa, consulte [Estado de comprobación previa de copia de seguridad](#backup-pre-check-status).
 * Los trabajos de copia de seguridad en curso y los trabajos con errores (en las últimas 24 horas).
 
 Los iconos de uso proporcionan:
@@ -62,6 +62,22 @@ Haga clic en los iconos (excepto Almacenamiento de copia de seguridad) para abri
 ![Menú Alertas de copia de seguridad filtrado para alertas críticas](./media/backup-azure-manage-windows-server/critical-backup-alerts.png)
 
 El menú Alertas de copia de seguridad, en la imagen anterior, se filtra por: estado activo, gravedad crítica y la hora es las 24 horas posteriores.
+
+### <a name="backup-pre-check-status"></a>Estado de comprobación previa a la copia de seguridad
+
+Las comprobaciones previas de copia de seguridad, comprueba la configuración de las máquinas virtuales en busca de problemas que puedan afectar negativamente a las copias de seguridad. Agregan esta información para que pueda verla directamente desde el panel del almacén de Recovery Services y proporcionar recomendaciones para medidas correctivas para garantizar copias de seguridad correctas coherentes con el archivo o coherentes con la aplicación. No requieren ninguna infraestructura y no tienen ningún coste adicional.  
+
+Las comprobaciones previas de copia de seguridad se ejecutan como parte de las operaciones de copia de seguridad programadas para las máquinas virtuales de Azure. Concluyen con uno de los siguientes estados:
+
+* **Superado**: Este estado indica que la configuración de la máquina virtual debe llevar a copias de seguridad correctas y no es necesario realizar ninguna acción correctiva.
+* **Advertencia**: Este estado indica uno o más problemas en la configuración de la máquina virtual que *podrían* provocar fallas en la copia de seguridad. Proporciona pasos *recomendados* para garantizar copias de seguridad correctas. Por ejemplo, si no tiene instalado el Agente de máquina virtual más reciente, pueden producirse errores en las copias de seguridad de forma intermitente. Esta situación proporciona un estado de advertencia.
+* **Crítico**: Este estado indica uno o más problemas críticos en la configuración de la máquina virtual que *provocarán* errores de copia de seguridad y proporciona los pasos *necesarios* para garantizar copias de seguridad correctas. Por ejemplo, un problema de red provocado por una actualización de las reglas de NSG de una máquina virtual hará que se produzca un error en las copias de seguridad, ya que impide que la máquina virtual se comunique con el servicio de Azure Backup. Esta situación proporcionaría un estado crítico.
+
+Siga los pasos que se indican a continuación para comenzar a resolver los problemas de comprobación previa de copias de seguridad de máquinas virtuales en el almacén de Recovery Services.
+
+* Seleccione el icono **Estado de la comprobación previa de la copia de seguridad (máquinas virtuales de Azure)** en el panel del almacén de Recovery Services.
+* Seleccione cualquier máquina virtual con un Estado de comprobación previa de copia de seguridad de **Crítico** o **Advertencia**. Esta acción abrirá el panel de **detalles de la máquina virtual**.
+* Seleccione la notificación del panel en la parte superior del panel para ver la descripción del problema de configuración y los pasos correctos.
 
 ## <a name="manage-backup-alerts"></a>Administración de alertas de copia de seguridad
 
@@ -162,7 +178,7 @@ Para explorar un tipo concreto de instancia protegida, haga clic en el elemento 
 
 ![Lista de tipo de copia de seguridad](./media/backup-azure-manage-windows-server/list-of-protected-virtual-machines.png)
 
-La lista de máquinas virtuales tiene datos útiles: el grupo de recursos asociados, [Comprobación previa a la copia de seguridad](https://azure.microsoft.com/blog/azure-vm-backup-pre-checks/) anterior, Estado de la última copia de seguridad y la fecha del punto de restauración más reciente. El botón de puntos suspensivos, en la última columna, abre el menú para desencadenar tareas comunes. Los datos útiles que se proporcionan en las columnas son diferentes para cada tipo de copia de seguridad.
+La lista de máquinas virtuales tiene datos útiles: el grupo de recursos asociados, [Comprobación previa a la copia de seguridad](https://docs.microsoft.com/azure/backup/backup-azure-manage-windows-server#backup-pre-check-status) anterior, Estado de la última copia de seguridad y la fecha del punto de restauración más reciente. El botón de puntos suspensivos, en la última columna, abre el menú para desencadenar tareas comunes. Los datos útiles que se proporcionan en las columnas son diferentes para cada tipo de copia de seguridad.
 
 ![Lista de tipo de copia de seguridad](./media/backup-azure-manage-windows-server/ellipsis-menu.png)
 
@@ -272,4 +288,3 @@ El icono Almacenamiento de copia de seguridad del panel muestra el almacenamient
 
 * [Restauración de Windows Server o el cliente de Windows desde Azure](backup-azure-restore-windows-server.md)
 * Para obtener más información sobre Azure Backup, consulte [Información general de Azure Backup](backup-introduction-to-azure-backup.md)
-

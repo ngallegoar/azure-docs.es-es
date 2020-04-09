@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/08/2020
+ms.date: 03/25/2020
 ms.author: jingwang
-ms.openlocfilehash: 0e138e954501df3cf3c3c8819d0198ad9a9288f0
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: edb80c604951a140d21e3775eec3f1dc6d55af73
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78358495"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421410"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Actividad de copia en Azure Data Factory
 
@@ -65,9 +65,11 @@ El servicio que permite la actividad de copia está disponible globalmente en la
 
 ## <a name="configuration"></a>Configuración
 
-Para usar la actividad de copia en Azure Data Factory, debe:
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-1. **Crear servicios vinculados para el almacén de datos de origen y el almacén de datos receptor**. Consulte la sección "Propiedades del servicio vinculado" del artículo sobre conectores para información sobre la configuración y las propiedades admitidas. Puede encontrar la lista de conectores admitidos en la sección [Almacenes de datos y formatos que se admiten](#supported-data-stores-and-formats) de este artículo.
+En general, para usar la actividad de copia en Azure Data Factory, debe:
+
+1. **Crear servicios vinculados para el almacén de datos de origen y el almacén de datos receptor**. Puede encontrar la lista de conectores admitidos en la sección [Almacenes de datos y formatos que se admiten](#supported-data-stores-and-formats) de este artículo. Consulte la sección "Propiedades del servicio vinculado" del artículo sobre conectores para información sobre la configuración y las propiedades admitidas. 
 2. **Crear conjuntos de datos para el origen y el receptor**. Consulte las secciones "Propiedades del conjunto de datos" de los artículos sobre los conectores de origen y receptor para información sobre la configuración y las propiedades admitidas.
 3. **Crear una canalización con la actividad de copia.** Se proporciona un ejemplo en la sección siguiente.
 
@@ -131,111 +133,16 @@ La plantilla siguiente de una actividad de copia contiene una lista completa de 
 | typeProperties | Especifique las propiedades para configurar la actividad de copia. | Sí |
 | source | Especifique el tipo de origen de copia y las propiedades correspondientes para la recuperación de datos.<br/>Para más información, consulte la sección "Propiedades de la actividad de copia" del artículo sobre conectores que aparece en [Almacenes de datos y formatos que se admiten](#supported-data-stores-and-formats). | Sí |
 | sink | Especifique el tipo de receptor de copia y las propiedades correspondientes para escribir datos.<br/>Para más información, consulte la sección "Propiedades de la actividad de copia" del artículo sobre conectores que aparece en [Almacenes de datos y formatos que se admiten](#supported-data-stores-and-formats). | Sí |
-| translator | Especifique asignaciones de columna explícitas de origen a receptor. Esta propiedad se aplica cuando el comportamiento de copia predeterminado no satisface sus necesidades.<br/>Para más información, consulte [Asignación de esquemas en la actividad de copia](copy-activity-schema-and-type-mapping.md). | Sin |
-| dataIntegrationUnits | Especifique una medida que represente la cantidad de potencia que emplea el [entorno de ejecución de integración de Azure](concepts-integration-runtime.md) para la copia de datos. Estas unidades se conocían anteriormente como unidades de movimiento de datos de nube (DMU). <br/>Para más información, consulte [Unidades de integración de datos](copy-activity-performance.md#data-integration-units). | Sin |
-| parallelCopies | Especifique el paralelismo que quiere que use la actividad de copia al leer datos del origen y escribirlos en el receptor.<br/>Para obtener más información, consulte [Copia paralela](copy-activity-performance.md#parallel-copy). | Sin |
-| preservar | Especifique si desea conservar los metadatos o las ACL durante la copia de datos. <br/>Para obtener más información, vea [Conservación de metadatos](copy-activity-preserve-metadata.md). |Sin |
-| enableStaging<br/>stagingSettings | Especifique si quiere almacenar provisionalmente los datos en una instancia de Blob Storage en lugar de copiarlos directamente del origen al receptor.<br/>Para información sobre escenarios útiles y detalles de configuración, consulte [Copia almacenada provisionalmente](copy-activity-performance.md#staged-copy). | Sin |
-| enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| Elija cómo controlar las filas incompatibles al copiar datos del origen al receptor.<br/>Para más información, consulte [Tolerancia a errores](copy-activity-fault-tolerance.md). | Sin |
+| translator | Especifique asignaciones de columna explícitas de origen a receptor. Esta propiedad se aplica cuando el comportamiento de copia predeterminado no satisface sus necesidades.<br/>Para más información, consulte [Asignación de esquemas en la actividad de copia](copy-activity-schema-and-type-mapping.md). | No |
+| dataIntegrationUnits | Especifique una medida que represente la cantidad de potencia que emplea el [entorno de ejecución de integración de Azure](concepts-integration-runtime.md) para la copia de datos. Estas unidades se conocían anteriormente como unidades de movimiento de datos de nube (DMU). <br/>Para más información, consulte [Unidades de integración de datos](copy-activity-performance-features.md#data-integration-units). | No |
+| parallelCopies | Especifique el paralelismo que quiere que use la actividad de copia al leer datos del origen y escribirlos en el receptor.<br/>Para obtener más información, consulte [Copia paralela](copy-activity-performance-features.md#parallel-copy). | No |
+| preservar | Especifique si desea conservar los metadatos o las ACL durante la copia de datos. <br/>Para obtener más información, vea [Conservación de metadatos](copy-activity-preserve-metadata.md). |No |
+| enableStaging<br/>stagingSettings | Especifique si quiere almacenar provisionalmente los datos en una instancia de Blob Storage en lugar de copiarlos directamente del origen al receptor.<br/>Para información sobre escenarios útiles y detalles de configuración, consulte [Copia almacenada provisionalmente](copy-activity-performance-features.md#staged-copy). | No |
+| enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| Elija cómo controlar las filas incompatibles al copiar datos del origen al receptor.<br/>Para más información, consulte [Tolerancia a errores](copy-activity-fault-tolerance.md). | No |
 
 ## <a name="monitoring"></a>Supervisión
 
-Puede supervisar la ejecución de la actividad de copia en la interfaz de usuario **Author & Monitor** (Creación y supervisión) de Azure Data Factory o mediante programación.
-
-### <a name="monitor-visually"></a>Supervisión visual
-
-Para supervisar visualmente la ejecución de la actividad de copia, vaya a su factoría de datos y, luego, a **Author & Monitor** (Creación y supervisión). En la pestaña **Monitor** (Supervisar), verá una lista de ejecuciones de canalización con un botón **View Activity Run** (Ver ejecución de actividad) en la columna **Actions** (Acciones):
-
-![La supervisión de la canalización se ejecuta](./media/load-data-into-azure-data-lake-store/monitor-pipeline-runs.png)
-
-Seleccione **View Activity Runs** (Ver ejecuciones de actividad) para ver la lista de actividades en la ejecución de canalización. En la columna **Actions** (Acciones), verá vínculos a la entrada, la salida, los errores (si se producen errores en la ejecución de la actividad de copia) y los detalles de la actividad de copia.
-
-![Supervisión de las ejecuciones de actividad](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
-
-Seleccione el botón **Details** (Detalles) de la columna **Actions** (Acciones) para ver los detalles de ejecución y las características de rendimiento de la actividad de copia. Verá información como el volumen, el número de filas o el número de archivos de datos copiados del origen al receptor, el rendimiento, los pasos de la actividad de copia con las duraciones correspondientes y las configuraciones que se usan en el escenario de copia.
-
->[!TIP]
->En algunos escenarios, también verá **sugerencias para la optimización del rendimiento** en la parte superior de la página de supervisión de la copia. Estas sugerencias le indican los cuellos de botella identificados y proporcionan información sobre lo que debe cambiar para aumentar el rendimiento de copia. Para ver un ejemplo, consulte la sección [Rendimiento y optimización](#performance-and-tuning) de este artículo.
-
-**Ejemplo: Copia de Amazon S3 en Azure Data Lake Store**
-![Detalles de la supervisión de la ejecución de actividad](./media/copy-activity-overview/monitor-activity-run-details-adls.png)
-
-**Ejemplo: Copia de Azure SQL Database en Azure SQL Data Warehouse con una copia de almacenamiento temporal**
-![Detalles de la supervisión de la ejecución de actividad](./media/copy-activity-overview/monitor-activity-run-details-sql-dw.png)
-
-### <a name="monitor-programmatically"></a>Supervisión mediante programación
-
-Los detalles de la ejecución de la actividad de copia y las características de rendimiento también se devuelven en la sección **Copy Activity run result** > **Output** (Resultado de la ejecución de la actividad de copia -> Salida). A continuación se muestra una lista completa de las propiedades que pueden devolverse. Solo verá las propiedades que se aplican a su escenario de copia. Para información sobre cómo supervisar las ejecuciones de actividad, consulte [Supervisión de una ejecución de canalización](quickstart-create-data-factory-dot-net.md#monitor-a-pipeline-run).
-
-| Nombre de propiedad  | Descripción | Unidad |
-|:--- |:--- |:--- |
-| dataRead | Cantidad de datos leídos del origen. | Valor Int64 en bytes |
-| dataWritten | Cantidad de datos escritos en el receptor. | Valor Int64 en bytes |
-| filesRead | Número de archivos copiados durante la copia desde File Storage. | Valor Int64 (sin unidad) |
-| filesWritten | Número de archivos copiados durante la copia en File Storage. | Valor Int64 (sin unidad) |
-| sourcePeakConnections | Número máximo de conexiones simultáneas establecidas en el almacén de datos de origen durante la ejecución de la actividad de copia. | Valor Int64 (sin unidad) |
-| sinkPeakConnections | Número máximo de conexiones simultáneas establecidas en el almacén de datos receptor durante la ejecución de la actividad de copia. | Valor Int64 (sin unidad) |
-| rowsRead | Número de filas que se leen del origen (no se aplica a la copia binaria). | Valor Int64 (sin unidad) |
-| rowsCopied | Número de filas que se copian en el receptor (no se aplica a la copia binaria). | Valor Int64 (sin unidad) |
-| rowsSkipped | Número de filas incompatibles que se han omitido. Puede permitir que se omitan las filas incompatibles; para ello, establezca `enableSkipIncompatibleRow` en true. | Valor Int64 (sin unidad) |
-| copyDuration | Duración de la ejecución de copia. | Valor Int32 en segundos |
-| throughput | Velocidad de transferencia de datos. | Número de punto flotante en KBps |
-| sourcePeakConnections | Número máximo de conexiones simultáneas establecidas en el almacén de datos de origen durante la ejecución de la actividad de copia. | Valor Int32 (sin unidad) |
-| sinkPeakConnections| Número máximo de conexiones simultáneas establecidas en el almacén de datos receptor durante la ejecución de la actividad de copia.| Valor Int32 (sin unidad) |
-| sqlDwPolyBase | Si se usará PolyBase cuando se copian datos en SQL Data Warehouse. | Boolean |
-| redshiftUnload | Si se usará UNLOAD cuando se copian datos de Redshift. | Boolean |
-| hdfsDistcp | Si se usará DistCp cuando se copian datos de HDFS. | Boolean |
-| effectiveIntegrationRuntime | El entorno de ejecución de integración (IR) o los tiempos de ejecución que se usan para aumentar la potencia de la ejecución de la actividad, en el formato `<IR name> (<region if it's Azure IR>)`. | Texto (cadena) |
-| usedDataIntegrationUnits | Unidades de integración de datos vigentes durante la copia. | Valor Int32 |
-| usedParallelCopies | El número de parallelCopies efectivo durante la copia. | Valor Int32 |
-| redirectRowPath | Ruta de acceso al registro de filas incompatibles omitidas en el almacenamiento de blobs que se configura en la propiedad `redirectIncompatibleRowSettings`. Consulte [Tolerancia a errores](#fault-tolerance) más adelante en este artículo. | Texto (cadena) |
-| executionDetails | Más información sobre las fases por las que pasa la actividad de copia y los pasos, la duración, las configuraciones usadas, etc. correspondientes. No se recomienda analizar esta sección porque podría cambiar.<br/><br/>Data Factory también informa de las duraciones detalladas (en segundos) empleadas en varias fases en `detailedDurations`. Las duraciones de estos pasos son exclusivas. Solo aparecen las duraciones que se aplican a la ejecución de la actividad de copia dada:<br/>**Duración de puesta en cola** (`queuingDuration`): tiempo hasta que la actividad de copia se inicia realmente en el entorno de ejecución de integración. Si usa un entorno de ejecución de integración autohospedado y este valor es grande, compruebe la capacidad y el uso del entorno, y escálelo vertical u horizontalmente según la carga de trabajo. <br/>**Duración del script anterior a la copia** (`preCopyScriptDuration`): tiempo transcurrido entre el momento en que la actividad de copia comienza en el entorno de ejecución de integración y el momento en que la actividad de copia termina de ejecutar el script anterior a la copia en el almacén de datos receptor. Se aplica cuando se configura el script anterior a la copia. <br/>**Tiempo hasta el primer byte** (`timeToFirstByte`): tiempo transcurrido entre el final del paso anterior y el momento en que la instancia de IR recibe el primer byte del almacén de datos de origen. Se aplica a un origen no basado en archivos. Si este valor es grande, compruebe y optimice la consulta o el servidor.<br/>**Duración de la transferencia** (`transferDuration`): tiempo transcurrido entre el final del paso anterior y el momento en que el entorno de ejecución de integración transfiere todos los datos del origen al receptor. | Array |
-| perfRecommendation | Sugerencias de optimización del rendimiento de la copia. Consulte [Rendimiento y optimización](#performance-and-tuning) para más información. | Array |
-
-```json
-"output": {
-    "dataRead": 6198358,
-    "dataWritten": 19169324,
-    "filesRead": 1,
-    "sourcePeakConnections": 1,
-    "sinkPeakConnections": 2,
-    "rowsRead": 39614,
-    "rowsCopied": 39614,
-    "copyDuration": 1325,
-    "throughput": 4.568,
-    "errors": [],
-    "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (West US)",
-    "usedDataIntegrationUnits": 4,
-    "usedParallelCopies": 1,
-    "executionDetails": [
-        {
-            "source": {
-                "type": "AzureBlobStorage"
-            },
-            "sink": {
-                "type": "AzureSqlDatabase"
-            },
-            "status": "Succeeded",
-            "start": "2019-08-06T01:01:36.7778286Z",
-            "duration": 1325,
-            "usedDataIntegrationUnits": 4,
-            "usedParallelCopies": 1,
-            "detailedDurations": {
-                "queuingDuration": 2,
-                "preCopyScriptDuration": 12,
-                "transferDuration": 1311
-            }
-        }
-    ],
-    "perfRecommendation": [
-        {
-            "Tip": "Sink Azure SQL Database: The DTU utilization was high during the copy activity run. To achieve better performance, you are suggested to scale the database to a higher tier than the current 1600 DTUs.",
-            "ReferUrl": "https://go.microsoft.com/fwlink/?linkid=2043368",
-            "RuleName": "AzureDBTierUpgradePerfRecommendRule"
-        }
-    ]
-}
-```
+Puede supervisar la ejecución de la actividad de copia en Azure Data Factory visualmente o mediante programación. Para obtener más detalles, consulte [Supervisión de la actividad de copia](copy-activity-monitoring.md).
 
 ## <a name="incremental-copy"></a>Copia incremental
 
@@ -243,15 +150,7 @@ Data Factory permite la copia incremental de datos diferenciales de un almacén 
 
 ## <a name="performance-and-tuning"></a>Rendimiento y optimización
 
-En el artículo [Guía de escalabilidad y rendimiento de la actividad de copia](copy-activity-performance.md) se describen los factores claves que afectan al rendimiento del movimiento de datos mediante la actividad de copia en Azure Data Factory. También se muestran los valores de rendimiento observados durante las pruebas y se describe cómo optimizar el rendimiento de la actividad de copia.
-
-En algunos casos, cuando se ejecuta una actividad de copia en Data Factory, se ve el mensaje **Performance tuning tips** (Sugerencias para la optimización del rendimiento) en la parte superior de la página [Copy activity monitoring](#monitor-visually) (Supervisión de la actividad de copia), como se muestra en el ejemplo siguiente. Las sugerencias indican el cuello de botella identificado de la ejecución de la copia dada. También proporcionan información sobre lo que se debe cambiar para aumentar el rendimiento de la copia. Las sugerencias para la optimización del rendimiento actualmente ofrecen recomendaciones, como usar PolyBase al copiar datos en Azure SQL Data Warehouse, aumentar las unidades de solicitud (RU) de Azure Cosmos DB o las unidades de transacción de base de datos (DTU) de Azure SQL Database cuando el recurso del almacén de datos forma el cuello de botella, así como quitar las copias preconfiguradas innecesarias.
-
-**Ejemplo: Copia en Azure SQL Database con una sugerencia de optimización del rendimiento**
-
-En este ejemplo, durante la ejecución de una copia, Data Factory realiza un seguimiento de la utilización de un número elevado de DTU en la instancia de Azure SQL Database del receptor. Esta condición reduce la velocidad de las operaciones de escritura. La sugerencia es aumentar el número de DTU en el nivel de Azure SQL Database.
-
-![Supervisión de copia con sugerencias de optimización del rendimiento](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
+La experiencia de [supervisión de la actividad de copia](copy-activity-monitoring.md) muestra las estadísticas de rendimiento de copia de cada una de las ejecuciones de actividad. En el artículo [Guía de escalabilidad y rendimiento de la actividad de copia](copy-activity-performance.md) se describen los factores claves que afectan al rendimiento del movimiento de datos mediante la actividad de copia en Azure Data Factory. También se muestran los valores de rendimiento observados durante las pruebas y se describe cómo optimizar el rendimiento de la actividad de copia.
 
 ## <a name="resume-from-last-failed-run"></a>Reanudación desde el último error de ejecución
 
@@ -279,6 +178,66 @@ Al copiar datos desde el origen al receptor, en escenarios como la migración de
 ## <a name="schema-and-data-type-mapping"></a>Asignación de tipo de datos y esquema
 
 Para información sobre cómo la actividad de copia asigna los datos de origen al receptor, consulte [Asignación de tipo de datos y esquema](copy-activity-schema-and-type-mapping.md).
+
+## <a name="add-additional-columns-during-copy"></a>Adición de columnas adicionales durante la copia
+
+Además de copiar datos desde el almacén de datos de origen al receptor, también puede configurar la adición de columnas de datos adicionales para copiar junto con el receptor. Por ejemplo:
+
+- Cuando copie desde un origen basado en archivos, almacene la ruta de acceso relativa del archivo como columna adicional para tener registrado de qué archivo proceden los datos.
+- Agregue una columna con la expresión de ADF para asociar variables del sistema ADF, como el nombre de la canalización o el identificador de la canalización, o bien almacene otros valores dinámicos de la salida de la actividad ascendente.
+- Agregue una columna con un valor estático para satisfacer sus necesidades de consumo descendente.
+
+Puede encontrar la siguiente configuración en la pestaña origen de la actividad de copia: 
+
+![Adición de columnas adicionales en la actividad de copia](./media/copy-activity-overview/copy-activity-add-additional-columns.png)
+
+>[!TIP]
+>Esta característica funciona con el modelo de conjunto de datos más reciente. Si no ve esta opción desde la interfaz de usuario, intente crear un nuevo conjunto de datos.
+
+Para configurarlo mediante programación, agregue la propiedad `additionalColumns` al origen de la actividad de copia:
+
+| Propiedad | Descripción | Obligatorio |
+| --- | --- | --- |
+| additionalColumns | Agregue columnas de datos adicionales para copiarlas en el receptor.<br><br>Cada objeto de la matriz `additionalColumns` representa una columna adicional. `name` define el nombre de la columna y `value` indica el valor de los datos de esa columna.<br><br>Los valores permitidos de los datos son:<br>-  **`$$FILEPATH`** : una variable reservada indica almacenar la ruta de acceso relativa de los archivos de origen en la ruta de acceso de la carpeta especificada en el conjunto de datos. Se aplica en un origen basado en archivos.<br>- **Expresión**<br>- **Valor estático** | No |
+
+**Ejemplo**:
+
+```json
+"activities":[
+    {
+        "name": "CopyWithAdditionalColumns",
+        "type": "Copy",
+        "inputs": [...],
+        "outputs": [...],
+        "typeProperties": {
+            "source": {
+                "type": "<source type>",
+                "additionalColumns": [
+                    {
+                        "name": "filePath",
+                        "value": "$$FILEPATH"
+                    },
+                    {
+                        "name": "pipelineName",
+                        "value": {
+                            "value": "@pipeline().Pipeline",
+                            "type": "Expression"
+                        }
+                    },
+                    {
+                        "name": "staticValue",
+                        "value": "sampleValue"
+                    }
+                ],
+                ...
+            },
+            "sink": {
+                "type": "<sink type>"
+            }
+        }
+    }
+]
+```
 
 ## <a name="fault-tolerance"></a>Tolerancia a errores
 

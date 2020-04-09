@@ -16,14 +16,14 @@ ms.date: 11/07/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: 618be4bc2d7669879daa927d5c4392b1097d29af
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: a775963f1b0fa19cd687c839f527f4a078c76864
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76774886"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80126991"
 ---
-# <a name="tutorial-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>Tutorial: Envío de notificaciones push a dispositivos iOS concretos mediante Azure Notification Hubs
+# <a name="tutorial-send-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>Tutorial: Envío de notificaciones push a dispositivos iOS concretos mediante Azure Notification Hubs
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
@@ -41,7 +41,7 @@ En este tutorial, realizará los siguientes pasos:
 > * Envío de notificaciones desde el dispositivo
 > * Ejecución de la aplicación y generación de notificaciones
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Este tema se basa en la aplicación que creó en el [Tutorial: Envío de notificaciones push a aplicaciones iOS mediante Azure Notification Hubs][get-started]. Antes de comenzar este tutorial, debe haber completado el [Tutorial: Envío de notificaciones push a aplicaciones iOS mediante Azure Notification Hubs][get-started].
 

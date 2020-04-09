@@ -1,31 +1,31 @@
 ---
 title: Métodos de autenticación | Microsoft Azure Maps
 description: En este artículo, obtendrá información sobre la autenticación de clave compartida y de Azure Active Directory (Azure AD). Ambos métodos se usan para los servicios de Microsoft Azure Maps. Obtenga información sobre cómo obtener una clave de suscripción de Azure Maps.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 01/28/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 171219c001f43137a52f29b282fb1705b3d836aa
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 21d29cba85adfc147ec9deb6ab362a5da943bf10
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77649830"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335705"
 ---
 # <a name="authentication-with-azure-maps"></a>Autenticación con Azure Maps
 
 Azure Maps admite dos formas de autenticar las solicitudes: Autenticación de clave compartida y autenticación de Azure Active Directory. En este artículo se explican estos métodos de autenticación para guiar su implementación de los servicios de Azure Maps.
 
 > [!NOTE]
-> Para mejorar la comunicación segura con Azure Maps, ahora admitimos Seguridad de la capa de transporte (TLS) 1.2 y retiramos la compatibilidad con TLS 1.0 y 1.1. Para evitar cualquier interrupción del servicio, **actualice sus servidores y aplicaciones para usar TLS 1.2 antes del 2 de abril de 2020**.  Si actualmente usa TLS 1.x, evalúe su preparación de TLS 1.2 y desarrolle un plan de migración con las pruebas descritas en [Solución del problema de TLS 1.0](https://docs.microsoft.com/security/solving-tls1-problem).
+> Para mejorar la comunicación segura con Azure Maps, ahora admitimos Seguridad de la capa de transporte (TLS) 1.2 y retiramos la compatibilidad con TLS 1.0 y 1.1. Para evitar cualquier interrupción del servicio, **actualice sus servidores y aplicaciones para usar TLS 1.2 antes del 2 de abril de 2020**.  Si actualmente usa TLS 1.x, evalúe su preparación de TLS 1.2 y desarrolle un plan de migración con las pruebas descritas en [Solución del problema de TLS 1.0](https://docs.microsoft.com/security/solving-tls1-problem).
 
 ## <a name="shared-key-authentication"></a>Autenticación de clave compartida
 
- Las claves principal y secundaria se generan después de crearse la cuenta de Azure Maps. Se recomienda usar la clave principal como clave de suscripción al llamar a Azure Maps mediante la autenticación de clave compartida. La autenticación de clave compartida pasa las claves generadas por una cuenta de Azure Maps a un servicio de Azure Maps. En solicitud a los servicios de Azure Maps requiere, agregue la *clave de suscripción* como parámetro a la dirección URL. La clave secundaria se puede usar, por ejemplo, para cambios de clave graduales.  
+ Las claves principal y secundaria se generan después de crearse la cuenta de Azure Maps. Se recomienda usar la clave principal como clave de suscripción al llamar a Azure Maps mediante la autenticación de clave compartida. La autenticación de clave compartida pasa las claves generadas por una cuenta de Azure Maps a un servicio de Azure Maps. En solicitud a los servicios de Azure Maps requiere, agregue la *clave de suscripción* como parámetro a la dirección URL. La clave secundaria se puede usar, por ejemplo, para cambios de clave graduales.  
 
 Para obtener información sobre cómo ver sus claves en Azure Portal, consulte [Administración de la autenticación](https://aka.ms/amauthdetails).
 

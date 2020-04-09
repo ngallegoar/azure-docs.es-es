@@ -3,29 +3,29 @@ title: Ubicación del recurso de plantilla
 description: En este artículo se describe cómo establecer la ubicación de los recursos de una plantilla de Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.openlocfilehash: 24d278df8f71fecfaec4f0fa3a84172bf1db942b
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: a8324dac1232eecd5624e5f1dc0e6656295c0a10
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122413"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80156436"
 ---
-# <a name="set-resource-location-in-resource-manager-template"></a>Establecimiento de la ubicación para recursos en una plantilla de Resource Manager
+# <a name="set-resource-location-in-arm-template"></a>Establecimiento de la ubicación del recurso en la plantilla de Resource Manager
 
-Al implementar una plantilla, debe proporcionar una ubicación para cada recurso. No es necesario que la ubicación sea la misma que la ubicación del grupo de recursos.
+Al implementar una plantilla de Azure Resource Manager (ARM), debe proporcionar una ubicación para cada recurso. No es necesario que la ubicación sea la misma que la ubicación del grupo de recursos.
 
 ## <a name="get-available-locations"></a>Obtención de las ubicaciones disponibles
 
 Se admiten diferentes tipos de recursos en diferentes ubicaciones. Para obtener las ubicaciones admitidas para un tipo de recurso, use Azure PowerShell o la CLI de Azure.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 ((Get-AzResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes `
   | Where-Object ResourceTypeName -eq batchAccounts).Locations
 ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 ```azurecli-interactive
 az provider show \
@@ -96,4 +96,4 @@ En el ejemplo siguiente se muestra una cuenta de almacenamiento que está implem
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para obtener la lista completa de las funciones de plantilla, consulte [Funciones de la plantilla del Administrador de recursos de Azure](template-functions.md).
-* Para más información sobre los archivos de plantilla, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).
+* Para más información sobre los archivos de plantilla, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de ARM](template-syntax.md).

@@ -1,19 +1,19 @@
 ---
 title: Definición de un nuevo tipo de dispositivo IoT en Azure IoT Central | Microsoft Docs
-description: Este tutorial le muestra, como desarrollador, cómo crear una plantilla de dispositivo de Azure IoT en la aplicación de Azure IoT Central. Se definen la telemetría, el estado, las propiedades y los comandos del tipo.
+description: Este artículo le muestra, como desarrollador, cómo crear una plantilla de dispositivo de Azure IoT en la aplicación de Azure IoT Central. Se definen la telemetría, el estado, las propiedades y los comandos del tipo.
 author: dominicbetts
 ms.author: dobett
 ms.date: 12/06/2019
-ms.topic: tutorial
+ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 2313c347e3836b6fa9d6055f99c258624e44c51f
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 6f93d74653aab78e48e613ddf9252a0876548b95
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023793"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80157677"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Definición de un nuevo tipo de dispositivo IoT en la aplicación de Azure IoT Central
 

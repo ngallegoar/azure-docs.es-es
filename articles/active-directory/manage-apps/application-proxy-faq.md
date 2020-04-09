@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: mimart
 ms.reviewer: japere
-ms.openlocfilehash: de2b40ea0339b564b97d17601415d1071bdc6a6e
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: ec9eeb0c35d96ee777771260686178faa536e909
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367919"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80877310"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Preguntas más frecuentes sobre Active Directory (Azure AD) Application Proxy
 
@@ -49,13 +49,9 @@ No, este escenario no se admite. La configuración predeterminada es la siguient
 
 Para ver más recomendaciones, consulte [Alta disponibilidad y equilibrio de carga de los conectores y las aplicaciones de Application Proxy](application-proxy-high-availability-load-balancing.md).
 
-### <a name="can-i-place-a-forward-proxy-device-between-the-connector-servers-and-the-back-end-application-server"></a>¿Puedo colocar un dispositivo proxy de reenvío entre los servidores del conector y el servidor de aplicaciones de back-end?
+### <a name="is-tls-termination-tlshttps-inspection-or-acceleration-on-traffic-from-the-connector-servers-to-azure-supported"></a>¿Se admite la terminación TLS (inspección o aceleración de TLS/HTTPS) en el tráfico desde los servidores de conector a Azure?
 
-No, este escenario no se admite. Solo el conector y los servicios de actualización se pueden configurar para usar un proxy de reenvío en el tráfico saliente a Azure. Consulte [Trabajar con servidores proxy locales existentes](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-connectors-with-proxy-servers).
-
-### <a name="is-ssl-termination-sslhttps-inspection-or-acceleration-on-traffic-from-the-connector-servers-to-azure-supported"></a>¿Se admite la terminación SSL (inspección o aceleración de SSL/HTTPS) en el tráfico desde los servidores de conector a Azure?
-
-El conector de Application Proxy realiza la autenticación basada en certificados en Azure. Asimismo, la terminación SSL (inspección o aceleración de SSL/HTTPS) interrumpe este método de autenticación y no se admite. El tráfico del conector a Azure debe omitir todos los dispositivos que realicen la terminación SSL.  
+El conector de Application Proxy realiza la autenticación basada en certificados en Azure. Asimismo, la terminación TLS (inspección o aceleración de TLS/HTTPS) interrumpe este método de autenticación y no se admite. El tráfico del conector a Azure debe omitir todos los dispositivos que realicen la terminación TLS.  
 
 ### <a name="should-i-create-a-dedicated-account-to-register-the-connector-with-azure-ad-application-proxy"></a>¿Debo crear una cuenta dedicada para registrar el conector con Azure AD Application Proxy?
 
@@ -113,7 +109,7 @@ No, este escenario no se admite porque Application Proxy finalizaría el tráfic
 
 Consulte [Publicación del Escritorio Remoto con Azure AD Application Proxy](application-proxy-integrate-with-remote-desktop-services.md).
 
-### <a name="can-i-use-kerberos-constrained-delegation-in-the-remote-desktop-gateway-publishing-scenario"></a>¿Puedo usar la delegación restringida de Kerberos en el escenario de publicación de la Puerta de enlace de Escritorio remoto?
+### <a name="can-i-use-kerberos-constrained-delegation-single-sign-on---windows-integrated-authentication-in-the-remote-desktop-gateway-publishing-scenario"></a>¿Puedo usar la delegación restringida de Kerberos (inicio de sesión único: autenticación integrada de Windows) en el escenario de publicación de la Puerta de enlace de Escritorio remoto?
 
 No, este escenario no se admite.  
 
@@ -121,7 +117,7 @@ No, este escenario no se admite.
 
 Sí, es normal. El escenario de autenticación previa requiere un control ActiveX, que no se admite en exploradores de terceros.
 
-### <a name="is-the-remote-desktop-web-client-supported"></a>¿Se admite el cliente web de Escritorio remoto?
+### <a name="is-the-remote-desktop-web-client-html5-supported"></a>¿Se admite el cliente web de Escritorio remoto (HTML5)?
 
 No, este escenario no se admite actualmente. Siga nuestro foro de comentarios [UserVoice](https://aka.ms/aadapuservoice) para obtener actualizaciones sobre esta característica.
 
@@ -135,6 +131,10 @@ Sí, es normal. Si el equipo del usuario está unido Azure AD, el usuario inici
 
 Consulte [Habilitar el acceso remoto a SharePoint con Azure AD Application Proxy](application-proxy-integrate-with-sharepoint-server.md).
 
+### <a name="can-i-use-the-sharepoint-mobile-app-ios-android-to-access-a-published-sharepoint-server"></a>¿Puedo usar la aplicación móvil de SharePoint (iOS/Android) para tener acceso a un servidor de SharePoint publicado?
+
+Actualmente, la [aplicación móvil de SharePoint](https://docs.microsoft.com/sharepoint/administration/supporting-the-sharepoint-mobile-apps-online-and-on-premises) no admite la autenticación previa con Azure Active Directory.
+
 ## <a name="active-directory-federation-services-ad-fs-publishing"></a>Publicación de Servicios de federación de Active Directory (AD FS) 
 
 ### <a name="can-i-use-azure-ad-application-proxy-as-ad-fs-proxy-like-web-application-proxy"></a>¿Puedo usar Azure AD Application Proxy como proxy de AD FS (esto es, como un proxy de aplicación web)?
@@ -147,7 +147,7 @@ No. Azure AD Application Proxy está diseñado para funcionar con Azure AD y n
 
 Actualmente, la compatibilidad con el protocolo de WebSocket todavía está en su versión preliminar pública y es posible que no funcione en otras aplicaciones. Algunos clientes han podido usar correctamente el protocolo WebSocket con otras aplicaciones. Si prueba ese tipo de escenarios, nos encantaría saber más acerca de sus resultados. Envíenos sus comentarios a aadapfeedback@microsoft.com.
 
-Las características (EventLog, PowerShell y Servicios de Escritorio remoto) en Windows Admin Center (WAC) o el cliente web de Escritorio remoto no funcionan actualmente a través de Azure AD Application Proxy.
+Las características (EventLog, PowerShell y Servicios de Escritorio remoto) en Windows Admin Center (WAC) o el cliente web de Escritorio remoto (HTML5) no funcionan actualmente a través de Azure AD Application Proxy.
 
 ## <a name="link-translation"></a>Traducción de vínculos
 

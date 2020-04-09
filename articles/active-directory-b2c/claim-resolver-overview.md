@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/02/2020
+ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 02277d2da2e431ac1cefdd9b018af4c25f7d5a9a
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 1c4bbd98682d964cfdf72031c7d6cb77cf42a809
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78189844"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396078"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Acerca de los solucionadores de notificaciones en las directivas personalizadas de Azure Active Directory B2C
 
@@ -72,10 +72,12 @@ Las secciones siguientes enumeran los solucionadores de notificaciones disponibl
 | {OIDC:LoginHint} |  El parámetro de cadena de consulta `login_hint`. | someone@contoso.com |
 | {OIDC:MaxAge} | El parámetro de cadena de consulta `max_age`. | N/D |
 | {OIDC:Nonce} |El parámetro de cadena de consulta `Nonce`. | defaultNonce |
+| {OIDC:Password}| Contraseña de usuario del [flujo de credenciales de contraseña del propietario del recurso](ropc-custom.md).| password1| 
 | {OIDC:Prompt} | El parámetro de cadena de consulta `prompt`. | login |
-| {OIDC:Resource} |El parámetro de cadena de consulta `resource`. | N/D |
-| {OIDC:scope} |El parámetro de cadena de consulta `scope`. | openid |
 | {OIDC:RedirectUri} |El parámetro de cadena de consulta `redirect_uri`. | https://jwt.ms |
+| {OIDC:Resource} |El parámetro de cadena de consulta `resource`. | N/D |
+| {OIDC:Scope} |El parámetro de cadena de consulta `scope`. | openid |
+| {OIDC:Username}| Nombre de usuario del usuario del [flujo de credenciales de contraseña de propietario del recurso](ropc-custom.md).| emily@contoso.com| 
 
 ### <a name="context"></a>Context
 
@@ -94,7 +96,7 @@ Cualquier nombre de parámetro incluido como parte de una solicitud OIDC u OAuth
 
 | Notificación | Descripción | Ejemplo |
 | ----- | ----------------------- | --------|
-| {OAUTH-KV:campaignId} | Parámetro de cadena de consulta. | hawaii |
+| {OAUTH-KV:campaignId} | Parámetro de cadena de consulta. | Hawái |
 | {OAUTH-KV:app_session} | Parámetro de cadena de consulta. | A3C5R |
 | {OAUTH-KV:loyalty_number} | Parámetro de cadena de consulta. | 1234 |
 | {OAUTH-KV:any custom query string} | Parámetro de cadena de consulta. | N/D |
@@ -112,7 +114,7 @@ Cualquier nombre de parámetro incluido como parte de una solicitud OIDC u OAuth
 | ----- | ----------- | --------|
 | {SAML:AuthnContextClassReferences} | Valor del elemento `AuthnContextClassRef` de la solicitud SAML. | urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport |
 | {SAML:NameIdPolicyFormat} | Atributo `Format` del elemento `NameIDPolicy` de la solicitud SAML. | urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress |
-| {SAML:Issuer} |  Valor del elemento `Issuer` SAML de la solicitud SAML.| https://contoso.com |
+| {SAML:Issuer} |  Valor del elemento `Issuer` SAML de la solicitud SAML.| `https://contoso.com` |
 | {SAML: AllowCreate} | Valor del atributo `AllowCreate` del elemento `NameIDPolicy` de la solicitud SAML. | True |
 | {SAML:ForceAuthn} | Valor del atributo `ForceAuthN` del elemento `AuthnRequest` de la solicitud SAML. | True |
 | {SAML:ProviderName} | Valor del atributo `ProviderName` del elemento `AuthnRequest` de la solicitud SAML.| Contoso.com |
@@ -143,7 +145,7 @@ Configuración:
 
 ### <a name="restful-technical-profile"></a>Perfil técnico de RESTful
 
-En un perfil técnico de [RESTful](restful-technical-profile.md), es posible que desee enviar el idioma del usuario, el nombre de la directiva, el ámbito y el identificador de cliente. Según estas notificaciones, la API REST puede ejecutar la lógica de negocios personalizada y, si es necesario, generar un mensaje de error localizado.
+En un perfil técnico de [RESTful](restful-technical-profile.md), es posible que desee enviar el idioma del usuario, el nombre de la directiva, el ámbito y el identificador de cliente. Según las notificaciones, la API de REST puede ejecutar la lógica de negocios personalizada y, si es necesario, generar un mensaje de error localizado.
 
 En el ejemplo siguiente se muestra un perfil técnico de RESTful con este escenario:
 
@@ -160,7 +162,7 @@ En el ejemplo siguiente se muestra un perfil técnico de RESTful con este escena
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="userLanguage" DefaultValue="{Culture:LCID}" AlwaysUseDefaultValue="true" />
     <InputClaim ClaimTypeReferenceId="policyName" DefaultValue="{Policy:PolicyId}" AlwaysUseDefaultValue="true" />
-    <InputClaim ClaimTypeReferenceId="scope" DefaultValue="{OIDC:scope}" AlwaysUseDefaultValue="true" />
+    <InputClaim ClaimTypeReferenceId="scope" DefaultValue="{OIDC:Scope}" AlwaysUseDefaultValue="true" />
     <InputClaim ClaimTypeReferenceId="clientId" DefaultValue="{OIDC:ClientId}" AlwaysUseDefaultValue="true" />
   </InputClaims>
   <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
@@ -173,9 +175,9 @@ Al usar solucionadores de notificaciones, puede rellenar previamente el nombre d
 
 ### <a name="dynamic-ui-customization"></a>Personalización de la interfaz de usuario dinámica
 
-Azure AD B2C le permite pasar parámetros de cadena de consulta a los puntos de conexión de la definición de contenido HTML para representar dinámicamente el contenido de la página. Por ejemplo, esto permite cambiar la imagen de fondo en la página de inicio de sesión o de registro de Azure AD B2C en función de un parámetro personalizado que se pasa desde la aplicación web o dispositivo móvil. Para más información, consulte [Azure Active Directory B2C: configuración de la interfaz de usuario con contenido dinámico utilizando directivas personalizadas](custom-policy-ui-customization.md). También puede localizar la página HTML basándose en un parámetro de idioma, o bien puede cambiar el contenido basándose en el identificador de cliente.
+Azure AD B2C le permite pasar parámetros de cadena de consulta a los puntos de conexión de la definición de contenido HTML para representar dinámicamente el contenido de la página. Por ejemplo, esta característica permite cambiar la imagen de fondo en la página de inicio de sesión o de registro de Azure AD B2C en función de un parámetro personalizado que se pasa desde la aplicación web o dispositivo móvil. Para más información, consulte [Azure Active Directory B2C: configuración de la interfaz de usuario con contenido dinámico utilizando directivas personalizadas](custom-policy-ui-customization.md#configure-dynamic-custom-page-content-uri). También puede localizar la página HTML basándose en un parámetro de idioma, o bien puede cambiar el contenido basándose en el identificador de cliente.
 
-El ejemplo siguiente pasa en la cadena de consulta un parámetro denominado **campaignId** con un valor de `hawaii`, un código de **idioma** de `en-US` y una **aplicación** que representa el identificador de cliente:
+El ejemplo siguiente pasa en la cadena de consulta un parámetro denominado **campaignId** con un valor de `Hawaii`, un código de **idioma** de `en-US` y una **aplicación** que representa el identificador de cliente:
 
 ```XML
 <UserJourneyBehaviors>

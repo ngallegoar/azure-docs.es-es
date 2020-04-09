@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: cfa39799e44cee0a2d36efccd454ccf8ca15157f
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 4080825bbb1f6c274f5b5aafd28e8c672148b98f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77603224"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80159292"
 ---
 # <a name="update-to-dynamic-compliance-packages-in-your-regulatory-compliance-dashboard-preview"></a>Actualización a los paquetes de cumplimiento dinámicos en el panel de cumplimiento normativo (versión preliminar)
 
@@ -51,6 +51,9 @@ En los pasos siguientes se explica cómo agregar el paquete dinámico para super
 
 1. Opcionalmente, haga clic en **Agregar más estándares** para abrir la página **Adición de estándares de cumplimiento normativo**. En ella puede buscar de forma manual **Azure CIS 1.1.0 (Nuevo)** y los paquetes dinámicos de otros estándares de cumplimiento, como **NIST SP 800-53 R4**, **SWIFT CSP CSCF-v2020**, **UKO y UK NHS** y **Canada PBMM**.
     
+    > [!TIP]
+    > Solo los usuarios que son propietario o colaborador de directivas tienen los permisos necesarios para agregar estándares de cumplimiento. 
+
     ![Agregar paquetes normativos al panel de cumplimiento normativo de Azure Security Center](./media/update-regulatory-compliance-packages/security-center-dynamic-regulatory-compliance-additional-standards.png)
 
 

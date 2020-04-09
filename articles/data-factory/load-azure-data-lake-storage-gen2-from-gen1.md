@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/13/2019
-ms.openlocfilehash: 5809307ff8e047ebc6120cb5ebf36590f2a2a51a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 81f8577592f1d53627bc09a2f9ace8c060ad4660
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75444021"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668863"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>Copia de datos de Azure Data Lake Storage Gen1 en Gen2 con Azure Data Factory
 
@@ -31,7 +31,7 @@ Azure Data Factory ofrece una solución de movimiento de datos administrados y d
 
 En este artículo se muestra cómo utilizar la herramienta Copiar datos de Data Factory para copiar datos de Azure Data Lake Storage Gen1 en Azure Data Lake Storage Gen2. Puede seguir los mismos pasos para copiar datos de otros tipos de almacenes de datos.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 * Cuenta de Azure Data Lake Storage Gen1 con datos en ella.
@@ -137,7 +137,7 @@ En este artículo se muestra cómo utilizar la herramienta Copiar datos de Data 
 
 ## <a name="best-practices"></a>Procedimientos recomendados
 
-Para evaluar la actualización de Azure Data Lake Storage Gen1 a Azure Data Lake Storage Gen2 en general, vea [Actualizar sus soluciones de análisis de macrodatos de Azure Data Lake Storage Gen1 a Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-upgrade.md). Las secciones siguientes presentan procedimientos recomendados para usar Data Factory para una actualización de datos de Data Lake Storage Gen1 a Data Lake Storage Gen2.
+Para evaluar la actualización de Azure Data Lake Storage Gen1 a Azure Data Lake Storage Gen2 en general, vea [Actualizar sus soluciones de análisis de macrodatos de Azure Data Lake Storage Gen1 a Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-migrate-gen1-to-gen2.md). Las secciones siguientes presentan procedimientos recomendados para usar Data Factory para una actualización de datos de Data Lake Storage Gen1 a Data Lake Storage Gen2.
 
 ### <a name="data-partition-for-historical-data-copy"></a>Partición de datos para una copia de datos históricos
 
@@ -146,7 +146,7 @@ Para evaluar la actualización de Azure Data Lake Storage Gen1 a Azure Data Lake
 
 Utilice una prueba de concepto para comprobar la solución de un extremo a otro y probar el rendimiento de la copia en su entorno. Pasos principales de la prueba de concepto: 
 
-1. Crear una canalización de Data Factory con una actividad de copia única para copiar varios TB de datos de Data Lake Storage Gen1 a Data Lake Storage Gen2 con el fin de obtener una base de referencia de rendimiento de copia. Empiece con las [unidades de integración de datos (DIU)](copy-activity-performance.md#data-integration-units) en 128. 
+1. Crear una canalización de Data Factory con una actividad de copia única para copiar varios TB de datos de Data Lake Storage Gen1 a Data Lake Storage Gen2 con el fin de obtener una base de referencia de rendimiento de copia. Empiece con las [unidades de integración de datos (DIU)](copy-activity-performance-features.md#data-integration-units) en 128. 
 2. En función del rendimiento de copia que se obtenga en el paso 1, calcular el tiempo estimado necesario para toda la migración de datos. 
 3. (Opcional) Crear una tabla de control y definir el filtro de archivos para crear particiones en los archivos que se van a migrar. La manera de crear particiones en los archivos es la siguiente: 
 
@@ -163,7 +163,7 @@ En Data Factory, el [conector de Data Lake Storage Gen1](connector-azure-data-la
 
 ### <a name="preserve-acls-from-data-lake-storage-gen1"></a>Conservación de ACL desde Data Lake Storage Gen1
 
-Si quiere replicar las ACL junto con los archivos de datos cuando se actualiza de Data Lake Storage Gen1 a Data Lake Storage Gen2, vea [Conservar las ACL de Data Lake Storage Gen1](connector-azure-data-lake-storage.md#preserve-acls-from-data-lake-storage-gen1). 
+Si quiere replicar las ACL junto con los archivos de datos cuando se actualiza de Data Lake Storage Gen1 a Data Lake Storage Gen2, vea [Conservar las ACL de Data Lake Storage Gen1](connector-azure-data-lake-storage.md#preserve-acls). 
 
 ### <a name="incremental-copy"></a>Copia incremental 
 

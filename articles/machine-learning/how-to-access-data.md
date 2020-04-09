@@ -1,5 +1,5 @@
 ---
-title: Acceso a los datos en los servicios de Azure Storage
+title: Conexión con los servicios de Azure Storage
 titleSuffix: Azure Machine Learning
 description: Aprenda a usar los almacenes de datos para conectarse de forma segura a los servicios de Azure Storage durante el entrenamiento con Azure Machine Learning
 services: machine-learning
@@ -9,25 +9,26 @@ ms.topic: conceptual
 ms.author: sihhu
 author: MayMSFT
 ms.reviewer: nibaccam
-ms.date: 01/15/2020
+ms.date: 03/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: b31d0237f04ef535fa6528d5b3a04e5ee7256e22
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 97aa446636ea3131246a06f69f74b5868abff608
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623674"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668657"
 ---
-# <a name="access-data-in-azure-storage-services"></a>Acceso a los datos en los servicios de almacenamiento de Azure
+# <a name="connect-to-azure-storage-services"></a>Conexión con los servicios de Azure Storage
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-En este artículo, aprenderá a obtener acceso fácilmente a los datos en los servicios de Azure Storage a través de almacenes de datos de Azure Machine Learning. Los almacenes de datos se usan para almacenar información de conexión, como el identificador de suscripción y la autorización de token. Al usar almacenes de datos, puede obtener acceso al almacenamiento sin tener que codificar de forma rígida la información de conexión en los scripts. 
+En este artículo, aprenderá a conectarse a los servicios de Azure Storage a través de almacenes de datos de Azure Machine Learning. Los almacenes de datos almacenan información de conexión, como el identificador de suscripción y la autorización de token de su instancia de [Key Vault](https://azure.microsoft.com/services/key-vault/) asociada con el área de trabajo, para que pueda acceder al almacenamiento sin tener que codificarlos de forma rígida en los scripts.
 
-Puede crear almacenes de datos a partir de estas [soluciones de Azure Storage](#matrix). En el caso de las soluciones de almacenamiento no compatibles y para ahorrar el costo de salida de datos durante los experimentos de aprendizaje automático, se recomienda [mover los datos](#move) a nuestras soluciones de Azure Storage compatibles. 
+Puede crear almacenes de datos a partir de [estas soluciones de Azure Storage](#matrix). En el caso de las soluciones de almacenamiento no compatibles y para ahorrar el costo de salida de datos durante los experimentos de aprendizaje automático, le recomendamos que [mueva los datos](#move) a nuestras soluciones de Azure Storage compatibles. 
 
 ## <a name="prerequisites"></a>Prerrequisitos
+
 Necesitará:
-- Suscripción a Azure. Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
+- Suscripción a Azure. Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 
 - Una cuenta de Azure Storage con un [contenedor de blobs de Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) o un [recurso compartido de archivos de Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction).
 
@@ -35,7 +36,7 @@ Necesitará:
 
 - Un área de trabajo de Azure Machine Learning.
   
-  [Cree un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md) o use una existente mediante el SDK de Python:
+  [Cree un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md) o use una existente mediante el SDK de Python. Importe las clases `Workspace` y `Datastore`, y cargue la información de la suscripción desde el archivo `config.json` con la función `from_config()`. De forma predeterminada, busca el archivo JSON en el directorio actual, pero también puede especificar un parámetro de ruta de acceso para que apunte al archivo mediante `from_config(path="your/file/path")`.
 
    ```Python
    import azureml.core
@@ -47,7 +48,7 @@ Necesitará:
 
 ## <a name="supported-data-storage-service-types"></a>Tipos de servicio de almacenamiento de datos admitidos
 
-Los almacenes de datos admiten actualmente el almacenamiento de la información de conexión a los servicios de almacenamiento que se enumeran en la siguiente matriz. En este momento, Azure Data Warehouse no se admite. 
+Los almacenes de datos admiten actualmente el almacenamiento de la información de conexión a los servicios de almacenamiento que se enumeran en la siguiente matriz.
 
 | Tipo de&nbsp;almacenamiento | Tipo de&nbsp;autenticación | [Azure&nbsp;Machine&nbsp;Learning Studio](https://ml.azure.com/) | SDL de Python de [Azure&nbsp;Machine&nbsp;Learning Studio&nbsp;](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) |  Cli de [Azure&nbsp;Machine&nbsp;Learning CLI](reference-azure-machine-learning-cli.md) | API Rest de [Azure&nbsp;Machine&nbsp;Learning&nbsp;](https://docs.microsoft.com/rest/api/azureml/)
 ---|---|---|---|---|---
@@ -55,30 +56,36 @@ Los almacenes de datos admiten actualmente el almacenamiento de la información 
 [Recurso compartido de &nbsp;archivos de&nbsp;Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)| Clave de cuenta <br> Token de SAS | ✓ | ✓ | ✓ |✓
 [Azure&nbsp;Data Lake&nbsp;Storage Gen&nbsp;1](https://docs.microsoft.com/azure/data-lake-store/)| Entidad de servicio| ✓ | ✓ | ✓ |✓
 [Azure&nbsp;Data Lake&nbsp;Storage Gen&nbsp;2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction)| Entidad de servicio| ✓ | ✓ | ✓ |✓
-Azure&nbsp;SQL&nbsp;Database| Autenticación SQL <br>Entidad de servicio| ✓ | ✓ | ✓ |✓
-Azure&nbsp;PostgreSQL | Autenticación SQL| ✓ | ✓ | ✓ |✓
-Azure&nbsp;Database&nbsp;for&nbsp;MySQL | Autenticación SQL|  | ✓* | ✓* |✓*
-Databricks&nbsp;File&nbsp;System| Sin autenticación | | ✓** | ✓ ** |✓** 
+[Azure&nbsp;SQL&nbsp;Database](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview)| Autenticación SQL <br>Entidad de servicio| ✓ | ✓ | ✓ |✓
+[Azure&nbsp;PostgreSQL](https://docs.microsoft.com/azure/postgresql/overview) | Autenticación SQL| ✓ | ✓ | ✓ |✓
+[Azure&nbsp;Database&nbsp;for&nbsp;MySQL](https://docs.microsoft.com/azure/mysql/overview) | Autenticación SQL|  | ✓* | ✓* |✓*
+[Sistema&nbsp; de archivos de &nbsp;Databricks](https://docs.microsoft.com/azure/databricks/data/databricks-file-system)| Sin autenticación | | ✓** | ✓ ** |✓** 
 
-*MySQL solo se admite para la canalización [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py). <br> \** Databricks solo se admite para la canalización [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py)
+*MySQL solo se admite para la canalización [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py). <br>
+**Databricks solo se admite para la canalización [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py).
 
 ### <a name="storage-guidance"></a>Orientación sobre el almacenamiento
 
-Se recomienda crear un almacén de datos para un contenedor de blobs de Azure.  
-El almacenamiento Estándar y Premium están disponibles para blobs. Aunque el almacenamiento premium sea más costoso, su mayor velocidad de rendimiento puede mejorar la velocidad de las ejecuciones de entrenamiento, sobre todo si usa un gran conjunto de datos. Para obtener información sobre el costo de las cuentas de almacenamiento, vea la [Calculadora de precios de Azure](https://azure.microsoft.com/pricing/calculator/?service=machine-learning-service).
+Le recomendamos que cree un almacén de datos para un [contenedor de blobs de Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction). El almacenamiento Estándar y Premium están disponibles para blobs. Aunque el almacenamiento premium sea más costoso, su mayor velocidad de rendimiento puede mejorar la velocidad de las ejecuciones de entrenamiento, sobre todo si usa un gran conjunto de datos. Para obtener información sobre el costo de las cuentas de almacenamiento, vea la [Calculadora de precios de Azure](https://azure.microsoft.com/pricing/calculator/?service=machine-learning-service).
 
-Al crear un área de trabajo, se registra automáticamente un contenedor de blobs de Azure y un recurso compartido de archivos de Azure en el área de trabajo. Se denominan `workspaceblobstore` y `workspacefilestore`, respectivamente. Almacenan la información de conexión del contenedor de blobs y el recurso compartido de archivos que se aprovisionan en la cuenta de almacenamiento asociada al área de trabajo. El contenedor `workspaceblobstore` se establece como el almacén de datos predeterminado.
+[Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction?toc=/azure/storage/blobs/toc.json) se basa en Azure Blob Storage y se ha diseñado para el análisis de macrodatos empresarial. Parte fundamental de Data Lake Storage Gen2 es la incorporación de un [espacio de nombres jerárquico](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace) en Blob Storage. El espacio de nombres jerárquico organiza los objetos o archivos en una jerarquía de directorios para un acceso eficaz a los datos.
+
+Al crear un área de trabajo, se registra automáticamente un contenedor de blobs de Azure y un recurso compartido de archivos de Azure en el área de trabajo. Se denominan `workspaceblobstore` y `workspacefilestore`, respectivamente. `workspaceblobstore` se usa para almacenar los artefactos del área de trabajo y los registros del experimento de aprendizaje automático. `workspacefilestore` se usa para almacenar cuadernos y scripts de R autorizados a través de la [instancia de proceso](https://docs.microsoft.com/azure/machine-learning/concept-compute-instance#accessing-files). El contenedor `workspaceblobstore` se establece como el almacén de datos predeterminado.
+
+> [!IMPORTANT]
+> El diseñador de Azure Machine Learning (versión preliminar) creará automáticamente un almacén de datos denominado **azureml_globaldatasets** al abrir un ejemplo en la página principal del diseñador. Este almacén de datos solo contiene conjuntos de datos de ejemplo. **No** use este almacén de datos para el acceso a datos confidenciales.
+> ![Almacén de datos creado automáticamente para conjuntos de datos de ejemplo del diseñador](media/how-to-access-data/datastore-designer-sample.png)
 
 <a name="access"></a>
 
 ## <a name="create-and-register-datastores"></a>Creación y registro de almacenes de datos
 
-Cuando se registra una solución de Azure Storage como almacén de datos, se crea automáticamente ese almacén de datos en un área de trabajo específica. Puede crear y registrar almacenes de datos en un área de trabajo mediante el SDK de Python o Azure Machine Learning Studio.
+Cuando se registra una solución de Azure Storage como almacén de datos, se crea y registra automáticamente ese almacén de datos en un área de trabajo específica. Puede crear y registrar almacenes de datos en un área de trabajo mediante el SDK de Python o Azure Machine Learning Studio.
 
 >[!IMPORTANT]
-> Como parte del proceso de creación y registro del almacén de datos actual, Azure Machine Learning valida que la entidad de seguridad proporcionada por el usuario (nombre de usuario, entidad de servicio o token de SAS) tenga acceso al servicio de almacenamiento subyacente. 
+> Como parte del proceso de creación y registro del almacén de datos inicial, Azure Machine Learning valida que el servicio de almacenamiento subyacente exista y que la entidad de seguridad proporcionada por el usuario (nombre de usuario, entidad de servicio o token de SAS) tenga acceso a ese almacenamiento. Sin embargo, en los almacenes de datos de Azure Data Lake Storage Gen 1 y 2, esta validación se produce más adelante cuando se llama a métodos de acceso a datos como [`from_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py) o [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-parquet-files-path--validate-true--include-path-false--set-column-types-none--partition-format-none-). 
 <br><br>
-Sin embargo, en los almacenes de datos de Azure Data Lake Storage Gen 1 y 2, esta validación se produce más adelante cuando se llama a métodos de acceso a datos como [`from_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py) o [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-parquet-files-path--validate-true--include-path-false--set-column-types-none--partition-format-none-). 
+Una vez creado el almacén de datos, esta validación solo se realiza para los métodos que requieren acceso al contenedor de almacenamiento subyacente, y **no** cada vez que se recuperan objetos del almacén de datos. Por ejemplo, la validación se produce si quiere descargar archivos del almacén de archivos. Sin embargo, no se produce si solo quiere cambiar el almacén de datos predeterminado.
 
 ### <a name="python-sdk"></a>SDK de Python
 
@@ -94,7 +101,7 @@ Seleccione **Cuentas de almacenamiento** en el panel izquierdo y elija la cuenta
 > [!IMPORTANT]
 > Si la cuenta de almacenamiento está en una red virtual, solo se admite la creación de blobs, recursos compartidos de archivos, almacenes de datos ADLS Gen 1 y Gen 2 **mediante el SDK**. Para conceder a la cuenta de almacenamiento acceso a su área de trabajo, establezca el parámetro `grant_workspace_access` en `True`.
 
-Los ejemplos siguientes muestran cómo registrar un contenedor de blobs de Azure, un recurso compartido de archivos de Azure y Azure Data Lake Storage Generation 2 como almacén de datos. Para otros servicios de almacenamiento, consulte la [documentación de referencia para los métodos de `register_azure_*`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#methods).
+Los ejemplos siguientes muestran cómo registrar un contenedor de blobs de Azure, un recurso compartido de archivos de Azure y Azure Data Lake Storage Generation 2 como almacén de datos. En el caso de otros servicios de almacenamiento, consulte la [documentación de referencia de los métodos `register_azure_*` aplicables](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#methods).
 
 #### <a name="blob-container"></a>Contenedor de blobs
 
@@ -136,7 +143,7 @@ file_datastore = Datastore.register_azure_file_share(workspace=ws,
 
 #### <a name="azure-data-lake-storage-generation-2"></a>Azure Data Lake Storage Generation 2
 
-Para un almacén de datos de Azure Data Lake Storage Generation 2 (ADLS Gen 2), utilice [register_azure_data_lake_gen2()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#register-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) para registrar un almacén de datos de credenciales conectado a un almacenamiento Azure DataLake Gen 2 con [permisos de entidad de servicio](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal). Para poder utilizar la entidad de servicio, debe [registrar la aplicación](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) y establecer las asignaciones de roles en Lector y Acceso a datos. Aprenda más sobre la [configuración del control de acceso en ADLS Gen 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control). 
+Para un almacén de datos de Azure Data Lake Storage Generation 2 (ADLS Gen 2), utilice [register_azure_data_lake_gen2()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#register-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) para registrar un almacén de datos de credenciales conectado a un almacenamiento Azure DataLake Gen 2 con [permisos de entidad de servicio](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal). Para poder utilizar la entidad de servicio, debe [registrar la aplicación](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) y conceder el acceso a datos adecuado a la entidad de servicio. Aprenda más sobre la [configuración del control de acceso en ADLS Gen 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control). 
 
 En el código siguiente se crea y registra el almacén de datos `adlsgen2_datastore_name` en el área de trabajo `ws`. Este almacén de datos accede al sistema de archivos `test` en la cuenta de almacenamiento `account_name` con las credenciales de la entidad de servicio facilitadas.
 
@@ -170,7 +177,7 @@ Cree un nuevo almacén de datos en unos cuantos pasos en Azure Machine Learning 
 1. Inicie sesión en [Azure Machine Learning Studio](https://ml.azure.com/).
 1. Seleccione **Almacenes de datos** en el panel izquierdo en **Administrar**.
 1. Seleccione **+ Nuevo almacén de datos**.
-1. Complete el formulario para un nuevo almacén de datos. El formulario se actualiza de forma inteligente según las selecciones de tipo de Azure Storage y tipo de autenticación.
+1. Complete el formulario para un nuevo almacén de datos. El formulario se actualiza de forma inteligente según las selecciones de tipo de Azure Storage y de autenticación.
   
 Puede encontrar la información necesaria para rellenar el formulario en [Azure Portal](https://portal.azure.com). Seleccione **Cuentas de almacenamiento** en el panel izquierdo y elija la cuenta de almacenamiento que quiere registrar. La página **Información general** proporciona información como el nombre de la cuenta, el contenedor y el nombre del recurso compartido de archivos. 
 
@@ -206,13 +213,6 @@ Para obtener el almacén de datos predeterminado del área de trabajo, use esta 
 
 ```Python
 datastore = ws.get_default_datastore()
-```
-
-Para definir un almacén de datos predeterminado diferente para el área de trabajo actual, use el método [`set_default_datastore()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#set-default-datastore-name-) en el objeto del área de trabajo:
-
-```Python
-# Define the default datastore for the current workspace
-ws.set_default_datastore('your datastore name')
 ```
 
 <a name="up-and-down"></a>
@@ -257,7 +257,7 @@ Para interactuar con los datos de los almacenes de datos o empaquetar los datos 
 
 Azure Blob Storage presenta mayores velocidades de rendimiento que un recurso compartido de archivos de Azure y se escala a un gran número de trabajos iniciados en paralelo. Por esta razón, se recomienda configurar las ejecuciones de manera que usen Blob Storage para transferir archivos de código fuente.
 
-En el ejemplo de código siguiente se especifica en la configuración de ejecución el almacén de datos de blobs que se usará para las transferencias de código fuente:
+En el ejemplo de código siguiente se especifica en la configuración de ejecución el almacén de datos de blobs que se usará para las transferencias de código fuente.
 
 ```python 
 # workspaceblobstore is the default blob storage
@@ -280,7 +280,7 @@ En situaciones en las que el SDK no proporciona acceso a los almacenes de datos,
 
 ## <a name="move-data-to-supported-azure-storage-solutions"></a>Movimiento de datos a soluciones de Azure Storage compatibles
 
-Azure Machine Learning admite el acceso a datos desde Azure Blob Storage, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database y Azure Database for PostgreSQL. Si usa almacenamiento no compatible, se recomienda que mueva los datos a soluciones de Azure Storage compatibles mediante [Azure Data Factory y estos pasos](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-copy-data-tool). El movimiento de datos a un almacenamiento compatible puede ayudarle a ahorrar costos de salida de datos durante los experimentos de aprendizaje automático. 
+Azure Machine Learning admite el acceso a datos desde Azure Blob Storage, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database y Azure Database for PostgreSQL. Si usa un almacenamiento que no es compatible, le recomendamos que mueva los datos a soluciones de Azure Storage compatibles mediante [Azure Data Factory y estos pasos](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-copy-data-tool). El movimiento de datos a un almacenamiento compatible puede ayudarle a ahorrar costos de salida de datos durante los experimentos de aprendizaje automático. 
 
 Azure Data Factory proporciona una transferencia de datos eficaz y resistente con más de 80 conectores pregenerados sin costo adicional. Estos conectores incluyen servicios de datos de Azure, orígenes de datos locales, Amazon S3 y Redshift, y Google BigQuery.
 

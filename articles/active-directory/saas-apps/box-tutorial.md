@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 03/24/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab129315f398061eaa427f05f3bd4b1cabff0dc3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 35f8172d418cb9926ba0be2de945ff559fba14cf
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77046771"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583105"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-box"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Box
 
@@ -87,6 +87,8 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.account.box.com`
 
     b. En el cuadro de texto **Identificador (Id. de entidad)** , escriba una dirección URL: `box.net`
+
+    c. En el cuadro de texto **URL de respuesta**, escriba una dirección URL: `https://sso.services.box.net/sp/ACS.saml2`
 
     > [!NOTE]
     > El valor de la dirección URL de inicio de sesión no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de atención al cliente de Box](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire) para obtener el valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.

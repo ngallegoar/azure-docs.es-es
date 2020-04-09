@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/24/2019
-ms.openlocfilehash: 6b5c5d46003c995ae0e853809e2283e8502615bc
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.date: 03/12/2020
+ms.openlocfilehash: e7f91d60a0e181690859da64e491c4c0fa1e1a3e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75891944"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80238715"
 ---
 # <a name="copy-data-to-and-from-sql-server-by-using-azure-data-factory"></a>Copia de datos con SQL Server como origen o destino mediante Azure Data Factory
 
@@ -49,7 +49,7 @@ No se admite la base de datos local LocalDB de [SQL Server Express](https://doc
 >[!NOTE]
 >Actualmente, este conector no admite [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017) de SQL Server. Como solución alternativa, puede usar un [conector ODBC genérico](connector-odbc.md) y un controlador ODBC de SQL Server. Siga [esta guía](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=sql-server-2017) con configuraciones de cadena de conexión y descarga del controlador ODBC.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -189,6 +189,7 @@ Si va a copiar datos desde SQL Server, establezca el tipo de origen de la activi
 | sqlReaderQuery |Use la consulta SQL personalizada para leer los datos. Un ejemplo es `select * from MyTable`. |No |
 | sqlReaderStoredProcedureName |Esta propiedad es el nombre del procedimiento almacenado que lee datos de la tabla de origen. La última instrucción SQL debe ser una instrucción SELECT del procedimiento almacenado. |No |
 | storedProcedureParameters |Estos parámetros son para el procedimiento almacenado.<br/>Los valores permitidos son pares de nombre o valor. Los nombres y las mayúsculas y minúsculas de los parámetros tienen que coincidir con las mismas características de los parámetros de procedimiento almacenado. |No |
+| isolationLevel | Especifica el comportamiento de bloqueo de transacción para el origen de SQL. Los valores permitidos son: **ReadCommitted** (valor predeterminado), **ReadUncommitted**, **RepeatableRead**, **Serializable** y **Snapshot**. Vea [este documento](https://docs.microsoft.com/dotnet/api/system.data.isolationlevel) para obtener más detalles. | No |
 
 **Puntos a tener en cuenta:**
 
@@ -432,7 +433,7 @@ Los pasos necesarios para escribir datos con lógica personalizada son similares
 - Cargue los datos en una tabla temporal y luego invoque un procedimiento almacenado. 
 - Invoque un procedimiento almacenado durante la copia.
 
-## <a name="invoke-a-stored-procedure-from-a-sql-sink"></a> Invocación del procedimiento almacenado desde el receptor de SQL
+## <a name="invoke-a-stored-procedure-from-a-sql-sink"></a><a name="invoke-a-stored-procedure-from-a-sql-sink"></a> Invocación del procedimiento almacenado desde el receptor de SQL
 
 Al copiar datos en una base de datos SQL Server, también se puede configurar e invocar un procedimiento almacenado especificado por el usuario con parámetros adicionales. La característica de procedimiento almacenado aprovecha los [parámetros con valores de tabla](https://msdn.microsoft.com/library/bb675163.aspx).
 
@@ -448,7 +449,7 @@ En el ejemplo siguiente se muestra cómo usar un procedimiento almacenado para r
     ```sql
     CREATE TYPE [dbo].[MarketingType] AS TABLE(
         [ProfileID] [varchar](256) NOT NULL,
-        [State] [varchar](256) NOT NULL，
+        [State] [varchar](256) NOT NULL,
         [Category] [varchar](256) NOT NULL
     )
     ```

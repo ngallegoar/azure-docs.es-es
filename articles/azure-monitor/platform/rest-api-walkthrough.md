@@ -4,12 +4,12 @@ description: Cómo autenticar las solicitudes y usar la API de REST de Azure Mon
 ms.subservice: metrics
 ms.topic: conceptual
 ms.date: 03/19/2018
-ms.openlocfilehash: 42a7034c586f4e01066e989dcb2b9fae4eebfa85
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: f52776fc6b5f5f530cc368a2f148a2ff63fb5b40
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250823"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294617"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Tutorial sobre la API de REST de supervisión de Azure
 
@@ -463,7 +463,7 @@ Una vez que se conocen las definiciones de métricas disponibles, es posible rec
 
 **Método**: GET
 
-**URI de solicitud**: https://management.azure.com/subscriptions/ *{subscription-id}* /resourceGroups/ *{resource-group-name}* /providers/ *{resource-provider-namespace}* / *{resource-type}* / *{resource-name}* /providers/microsoft.insights/metrics?$filter= *{filter}* &api-version= *{apiVersion}*
+**URI de solicitud**: `https://management.azure.com/subscriptions/\*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?$filter=*{filter}*&api-version=*{apiVersion}*`
 
 Por ejemplo, para recuperar los puntos de datos de métricas RunsSucceeded para el intervalo de tiempo determinado y para un intervalo de agregación de 1 hora, la solicitud sería como sigue:
 

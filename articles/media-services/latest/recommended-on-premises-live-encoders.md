@@ -9,14 +9,14 @@ ms.author: johndeu
 ms.date: 02/10/2020
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 60f9209129c75e329b283045d19b4b5140b40ec2
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: 5e16f1fb948ddb435c5002c16125b36fa61d50a7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78268193"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80336244"
 ---
-# <a name="recommended-on-premises-live-streaming-encoders"></a>Codificadores de streaming en vivo locales recomendados
+# <a name="tested-on-premises-live-streaming-encoders"></a>Codificadores de streaming en vivo locales probados
 
 En Azure Media Services, un [evento en directo](https://docs.microsoft.com/rest/api/media/liveevents) (canal) representa una canalización para procesar contenido de streaming en vivo. El evento en directo recibe las secuencias de entrada en vivo de una de estas dos formas:
 
@@ -24,10 +24,12 @@ En Azure Media Services, un [evento en directo](https://docs.microsoft.com/rest/
 
     Si usa transmisiones de múltiples velocidades de bits para el evento en directo de paso a través, el tamaño del GOP de vídeo y los fragmentos de vídeo con diferentes velocidades de bits deben estar sincronizados para evitar un comportamiento inesperado en el lado de reproducción.
 
-  > [!NOTE]
+  > [!TIP]
   > El método de paso a través es la forma más económica de realizar un streaming en vivo.
  
 * Un codificador en directo local envía una secuencia de velocidad de bits única al Evento en directo que está habilitado para realizar la codificación en vivo con Media Services, con uno de los siguientes formatos: RTMP o Smooth Streaming (MP4 fragmentado). Después, el Evento en directo codifica en vivo la secuencia entrante de velocidad de bits única en una secuencia de vídeo de velocidad de bits múltiple (adaptable).
+
+En este artículo se abordan los codificadores de streaming en vivo locales que se han probado. Para obtener instrucciones sobre cómo comprobar su codificador en vivo local, vea [Comprobación del codificador local](become-on-premises-encoder-partner.md).
 
 Para obtener información detallada sobre la codificación en vivo con Media Services, vea [Streaming en vivo con Azure Media Services v3](live-streaming-overview.md).
 
@@ -96,11 +98,18 @@ Para volver a reproducir un contenido, debe haber una secuencia de audio y una s
 - Cuando se usen codificadores por software, cierre todos los programas innecesarios.
 - Si se modifica la configuración del codificador una vez iniciada la inserción, se producirán efectos negativos en el evento. Los cambios de configuración pueden provocar que el evento se vuelva inestable. 
 - Asegúrese de dejar tiempo suficiente para configurar el evento. En el caso de los eventos a gran escala, se recomienda iniciar la configuración una hora antes del evento.
+- Use el vídeo H.264 y la salida de códec de audio AAC.
+- Asegúrese de que haya una alineación temporal de fotograma clave o de GOP a lo largo de las calidades de vídeo.
+- Asegúrese de que cada calidad de vídeo tiene un nombre de secuencia único.
+- Use la codificación CBR estricta recomendada para obtener un rendimiento óptimo de velocidad de bits adaptable.
+
+> [!IMPORTANT]
+> Vigile la condición física de la máquina (CPU/memoria, etc.), ya que la carga de fragmentos en la nube conlleva operaciones de CPU y de E/S. Si cualquiera de las configuraciones del codificador cambia, asegúrese de restablecer el evento en directo/canales para que los cambios surten efecto.
 
 ## <a name="see-also"></a>Consulte también
 
-[Conviértase en un asociado de codificador local](become-on-premises-encoder-partner.md)
+[Streaming en vivo con Media Services v3](live-streaming-overview.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Streaming en vivo con Media Services v3](live-streaming-overview.md)
+[Cómo comprobar su codificador](become-on-premises-encoder-partner.md)

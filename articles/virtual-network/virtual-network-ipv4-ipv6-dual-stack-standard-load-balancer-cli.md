@@ -11,48 +11,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/17/2019
+ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: fa895a294e26b6c74ab72afa3136feac2b2ec986
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bb90858f7e87e31b8b6028a30a6000bbed4d3e4b
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80240245"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421090"
 ---
-# <a name="deploy-an-ipv6-dual-stack-application-in-azure-virtual-network---cli-preview"></a>Implementación de una aplicación de pila doble IPv6 en Azure Virtual Network: CLI (versión preliminar)
+# <a name="deploy-an-ipv6-dual-stack-application-in-azure-virtual-network---cli"></a>Implementación de una aplicación de pila doble IPv6 en Azure Virtual Network: CLI
 
 En este artículo, se explica cómo se implementa en Azure una aplicación de pila doble (IPv4 + IPv6) con Standard Load Balancer que contiene una red virtual de pila doble y una subred de pila doble, una instancia de Standard Load Balancer con configuraciones de front-end duales (IPv4 + IPv6), VM con NIC que tienen una configuración de IP dual, reglas de grupo de seguridad de red dual e IP públicas duales.
-
-> [!Important]
-> La pila doble IPv6 para Azure Virtual Network se encuentra actualmente en versión preliminar pública. Esta versión preliminar se ofrece sin contrato de nivel de servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) ahora.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Si, en su lugar, decide instalar y usar la CLI de Azure en un entorno local, para esta guía de inicio rápido se necesita la versión 2.0.49 de la CLI de Azure o una versión posterior. Ejecute `az --version` para buscar la versión instalada. Consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli) para obtener información sobre la instalación o actualización.
-
-## <a name="prerequisites"></a>Prerequisites
-Para usar IPv6 para la característica Azure Virtual Network, debe configurar la suscripción mediante la CLI de Azure como se indica a continuación:
-
-```azurecli
-az feature register --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
-az feature register --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
-```
-
-Se tarda hasta 30 minutos en completar el registro de características. Puede comprobar el estado del registro ejecutando el siguiente comando de la CLI de Azure:
-
-```azurecli
-az feature show --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
-az feature show --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
-```
-
-Una vez completado el registro, ejecute el siguiente comando:
-
-```azurecli
-az provider register --namespace Microsoft.Network
-```
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
@@ -385,10 +361,6 @@ Para ver la red virtual de doble pila IPv6 en Azure Portal, siga estos pasos:
 2. Cuando aparezca la opción **myVirtualNetwork** en los resultados de la búsqueda, selecciónela. De este modo, se abrirá la **página de información general** de la red virtual de doble pila llamada *dsVnet*. En la red virtual de doble pila, se muestran las dos NIC con las configuraciones IPv4 e IPv6 en una subred de pila doble denominada *dsSubnet*.
 
   ![Red virtual de doble pila IPv6 de Azure](./media/virtual-network-ipv4-ipv6-dual-stack-powershell/dual-stack-vnet.png)
-
-> [!NOTE]
-> En esta versión preliminar, la dirección IPv6 de la red virtual de Azure está disponible en Azure Portal en modo de solo lectura.
-
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

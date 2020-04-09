@@ -4,19 +4,19 @@ description: En esta página de Azure Multi-Factor Authentication se describe c�
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/11/2018
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00200436784eca970f736c4a7f2afebd652c9577
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e5949fdce9d591a9c02c5c6c4fb2f1dde94c45d2
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76155220"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80654017"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Protección de recursos en la nube con Azure Multi-Factor Authentication y AD FS
 
@@ -94,4 +94,4 @@ Ahora que las notificaciones están listas, podemos configurar direcciones IP de
 4. En la página Configuración del servicio, en **direcciones IP de confianza**, seleccione **Omitir autenticación multifactor para solicitudes de usuarios federados en mi intranet**.  
 5. Haga clic en **guardar**.
 
-¡Ya está! En este punto, los usuarios federados de Office 365 solo deberán usar MFA cuando una notificación se origine fuera de la intranet corporativa.
+Eso es todo. En este punto, los usuarios federados de Office 365 solo deberán usar MFA cuando una notificación se origine fuera de la intranet corporativa.

@@ -2,26 +2,23 @@
 title: Aplicaciones de página única en Azure Active Directory
 description: Se describe qué son las aplicaciones de página única (SPA) y los conceptos básicos sobre el flujo de protocolos, el registro y la expiración de tokens en este tipo de aplicación.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: azuread-dev
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ryanwi
-ms.reviewer: saeeda, jmprieur, andret
+ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 362de46b6b8cd70f9e4daa86637e3b4eb28ad95c
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ROBOTS: NOINDEX
+ms.openlocfilehash: adf3c5b5cd40a9ea3f07ba9c92cfc4544ca60f1e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77163409"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154753"
 ---
 # <a name="single-page-applications"></a>Aplicación de página única
 

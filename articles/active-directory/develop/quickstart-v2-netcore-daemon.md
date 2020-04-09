@@ -5,7 +5,6 @@ description: Aprenda a obtener un token y llamar a una instancia de Microsoft Gr
 services: active-directory
 author: jmprieur
 manager: CelesteDG
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
@@ -13,12 +12,12 @@ ms.workload: identity
 ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: e42be651de6fc70f5fe075a1bc1bee8010b886d7
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: c4580708c827ebf700808974d01ed30ab9d2162d
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78274347"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80883634"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-using-console-apps-identity"></a>Inicio rápido: Adquisición de un token y llamada a Microsoft Graph API mediante la identidad de la consola de aplicación
 
@@ -82,7 +81,7 @@ Para este inicio rápido se requiere [.NET Core 2.2](https://www.microsoft.com/n
 
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
-> > Enter_the_Supported_Account_Info_Here
+> > `Enter_the_Supported_Account_Info_Here`
     
 > [!div renderon="docs"]
 > #### <a name="step-3-configure-your-visual-studio-project"></a>Paso 3: Configuración del proyecto de Visual Studio

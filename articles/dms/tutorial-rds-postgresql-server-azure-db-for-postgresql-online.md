@@ -3,8 +3,8 @@ title: 'Tutorial: Migración de RDS PostgreSQL en línea a Azure Database for Po
 titleSuffix: Azure Database Migration Service
 description: Aprenda a realizar una migración en línea de PostgreSQL de RDS a Azure Database for PostgreSQL mediante Azure Database Migration Service.
 services: dms
-author: pochiraju
-ms.author: rajpo
+author: HJToland3
+ms.author: jtoland
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/17/2020
-ms.openlocfilehash: 33d39be071591071d88bb5a95c3cfcbb458d85a8
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.openlocfilehash: 12aa11aa5064b3a0a2ff18f88161f44f37208aec
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78255703"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240690"
 ---
 # <a name="tutorial-migrate-rds-postgresql-to-azure-db-for-postgresql-online-using-dms"></a>Tutorial: Migración de RDS PostgreSQL a Azure DB for PostgreSQL en línea mediante DMS
 
@@ -34,7 +34,7 @@ En este tutorial, aprenderá a:
 > * Realizar la migración total.
 
 > [!NOTE]
-> El uso de Azure Database Migration Service para realizar una migración en línea requiere la creación de una instancia basada en el plan de tarifa Premium. Para más información, consulte la página de [precios](https://azure.microsoft.com/pricing/details/database-migration/) de Azure Database Migration Service.
+> El uso de Azure Database Migration Service para realizar una migración en línea requiere la creación de una instancia basada en el plan de tarifa Premium. Para más información, consulte la página de [precios](https://azure.microsoft.com/pricing/details/database-migration/) de Azure Database Migration Service. El disco se cifra para impedir el robo de datos durante el proceso de migración.
 
 > [!IMPORTANT]
 > Para disfrutar de una experiencia de migración óptima, Microsoft recomienda crear una instancia de Azure Database Migration Service en la misma región de Azure que la base de datos de destino. Si los datos se transfieren entre diferentes regiones o ubicaciones geográficas, el proceso de migración puede verse afectado y pueden producirse errores.

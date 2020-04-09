@@ -3,12 +3,12 @@ title: Referencia de host.json para Azure Functions 2.x
 description: Documentación de referencia para el archivo host.json de Azure Functions con el entorno en tiempo de ejecución de la versión 2.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 949d4f2c5d8c1d8034ccc392915bc40f1f2fddda
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 1a861d500f0b8cc31b8312d6c955916ab741b649
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78356514"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878260"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Referencia de host.json para Azure Functions 2.x y versiones posteriores 
 
@@ -146,8 +146,6 @@ Para obtener la estructura JSON completa, consulte el [archivo host.json de ejem
 | Propiedad | Valor predeterminado | Descripción |
 | --------- | --------- | --------- | 
 | samplingSettings | N/D | Consulte [applicationInsights.samplingSettings](#applicationinsightssamplingsettings). |
-| samplingExcludedTypes | null | Una lista delimitada por puntos y coma de tipos que no desea que se muestreen. Los tipos reconocidos son: Dependency, Event, Exception, PageView, Request y Trace. Todas las instancias de los tipos especificados se transmiten; los tipos no especificados se muestrean. |
-| samplingIncludedTypes | null | Una lista delimitada por puntos y coma de tipos que desea que se muestreen (con listas vacías se muestrean todos los tipos). El tipo que figura en `samplingExcludedTypes` invalida los tipos que se enumeran aquí. Los tipos reconocidos son: Dependency, Event, Exception, PageView, Request y Trace. Todas las instancias de los tipos especificados se transmiten; los tipos no especificados se muestrean. |
 | enableLiveMetrics | true | Habilita la colección de Live Metrics. |
 | enableDependencyTracking | true | Habilita el seguimiento de dependencias. |
 | enablePerformanceCountersCollection | true | Habilita la colección de contadores de rendimiento Kudu. |
@@ -168,6 +166,8 @@ Para obtener la estructura JSON completa, consulte el [archivo host.json de ejem
 | minSamplingPercentage | 0,1 | A medida que el porcentaje de muestreo va variando, esta propiedad determina el porcentaje de muestreo mínimo permitido. |
 | maxSamplingPercentage | 0,1 | A medida que el porcentaje de muestreo va variando, esta propiedad determina el porcentaje de muestreo máximo permitido. |
 | movingAverageRatio | 1.0 | En el cálculo de la media móvil, peso asignado al valor más reciente. Use un valor igual o menor que 1. Los valores menores hacen que el algoritmo reaccione con menor agilidad a los cambios repentinos. |
+| excludedTypes | null | Una lista delimitada por puntos y coma de tipos que no desea que se muestreen. Los tipos reconocidos son: Dependency, Event, Exception, PageView, Request y Trace. Todas las instancias de los tipos especificados se transmiten; los tipos no especificados se muestrean. |
+| includedTypes | null | Una lista delimitada por puntos y coma de tipos que desea que se muestreen (con listas vacías se muestrean todos los tipos). El tipo que figura en `excludedTypes` invalida los tipos que se enumeran aquí. Los tipos reconocidos son: Dependency, Event, Exception, PageView, Request y Trace. Todas las instancias de los tipos especificados se transmiten; los tipos no especificados se muestrean. |
 
 ### <a name="applicationinsightshttpautocollectionoptions"></a>applicationInsights.httpAutoCollectionOptions
 
@@ -286,7 +286,7 @@ Controla los comportamientos de registro de la aplicación de función, Applicat
 
 ```json
 "logging": {
-    "fileLoggingMode": "debugOnly"
+    "fileLoggingMode": "debugOnly",
     "logLevel": {
       "Function.MyFunction": "Information",
       "default": "None"

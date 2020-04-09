@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: a77041c0e53c2f0f8b6d0891a0f755e8ca474923
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 03aa3919e1da982bb8a8c235bb598f5b94df1ebf
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75945995"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80986676"
 ---
 
 Use la biblioteca cliente de QnA Maker para Python para:
@@ -17,7 +17,7 @@ Use la biblioteca cliente de QnA Maker para Python para:
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
 * [Python 3.x](https://www.python.org/)
@@ -68,7 +68,7 @@ Cree variables para el punto de conexión y la clave de Azure del recurso. Si ha
 
 |Variable de entorno|Variable|Ejemplo|
 |--|--|--|
-|`QNAMAKER_SUBSCRIPTION_KEY`|`subscription_key`|La clave es una cadena de 32 caracteres y está disponible en Azure Portal, en el recurso de QnA Maker, en la página de inicio rápido. Esta clave no es la misma que la clave de punto de conexión de predicción.|
+|`QNAMAKER_KEY`|`subscription_key`|La clave es una cadena de 32 caracteres y está disponible en Azure Portal, en el recurso de QnA Maker, en la página de inicio rápido. Esta clave no es la misma que la clave de punto de conexión de predicción.|
 |`QNAMAKER_HOST`|`host`| El punto de conexión de creación, con el formato `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`, incluye el **nombre del recurso**. Esta no es la misma dirección URL que se utiliza para consultar el punto de conexión de predicción.|
 
 [!code-python[Azure resource variables](~/samples-qnamaker-python/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.py?name=resourcekeys)]

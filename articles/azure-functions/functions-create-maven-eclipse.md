@@ -2,16 +2,16 @@
 title: Creación de una aplicación de funciones de Azure con Java y Eclipse
 description: Guía de procedimientos para crear y publicar una aplicación sencilla sin servidor desencadenada por HTTP con Java y Eclipse en Azure Functions.
 author: jeffhollan
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: d2d353e6ccd7dad7be302a5f40c65012f32deba7
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 42e9ed7c080c9274fad7eda8e4c8af3631ed41f5
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227120"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756490"
 ---
 # <a name="create-your-first-function-with-java-and-eclipse"></a>Creación de la primera función con Java y Eclipse 
 
@@ -42,8 +42,8 @@ Se recomienda encarecidamente instalar también [Azure Functions Core Tools, ver
 1. Seleccione **Add Archetype** (Agregar arquetipo) y agregue las entradas para [azure-functions-arquetipo](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype).
     - Identificador de grupo de arquetipo: com.microsoft.azure
     - Identificador de artefacto de arquetipo: azure-functions-arquetipo
-    - Versión: Utilice la versión más reciente **1.22** del [repositorio central](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
-    ![Creación de Maven en Eclipse](media/functions-create-first-java-eclipse/functions-create-eclipse.png)  
+    - Versión: compruebe y use la versión más reciente del [repositorio central](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
+    ![Creación de Eclipse Maven](media/functions-create-first-java-eclipse/functions-create-eclipse.png)  
 1. Haga clic en **Aceptar** y luego en **Siguiente**.  Asegúrese de rellenar los valores de todos los campos, incluidos `resourceGroup`, `appName`y `appRegion` (use un valor de appName distinto de **fabrikam-function-20170920120101928**) y, por último, seleccione **Finalizar**.
     ![Creación de Maven en Eclipse 2](media/functions-create-first-java-eclipse/functions-create-eclipse2.png)  
 

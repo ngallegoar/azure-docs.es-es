@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/02/2020
-ms.openlocfilehash: 10149c6eb06e6d2994233aa365f237e6d9330c48
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 32100e9cad86f12dc8111ee8a0282a515540a4db
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644770"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80346610"
 ---
 # <a name="join-transformation-in-mapping-data-flow"></a>Transformación Combinación en el flujo de datos de asignación
 
@@ -32,7 +32,7 @@ La combinación interna solo genera filas que tienen valores coincidentes en amb
 La combinación externa izquierda devuelve todas las filas del flujo izquierdo y los registros coincidentes del flujo derecho. Si una fila del flujo izquierdo no tiene ninguna coincidencia, las columnas de salida del flujo derecho se establecen en NULL. La salida constará de las filas devueltas por una combinación interna más las filas sin coincidencias del flujo izquierdo.
 
 > [!NOTE]
-> En ocasiones, el motor de Spark que usan los flujos de datos puede incluir posibles productos cartesianos en las condiciones de combinación. En ese caso, puede cambiar a una combinación cruzada personalizada y escribir manualmente la condición de combinación. Esto puede dar lugar a un rendimiento más lento en los flujos de datos, ya que es posible que el motor de ejecución tenga que calcular todas las filas de ambos lados de la relación y luego filtrarlas.
+> En ocasiones, el motor de Spark que los flujos de datos usan puede no funcionar debido a posibles productos cartesianos en las condiciones de combinación. Si esto sucede, puede cambiar a una combinación cruzada personalizada y escribir manualmente la condición de combinación. Esto puede dar lugar a un rendimiento más lento en los flujos de datos, ya que es posible que el motor de ejecución tenga que calcular todas las filas de ambos lados de la relación y luego filtrarlas.
 
 ### <a name="right-outer"></a>Externa derecha
 

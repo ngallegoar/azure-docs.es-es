@@ -3,16 +3,16 @@ title: Procedimientos recomendados para las plantillas
 description: En este artículo se describen los enfoques recomendados para la creación de plantillas de Azure Resource Manager. Se ofrecen sugerencias para evitar problemas comunes al usar las plantillas.
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: f623255a64404f0e041173fd29488ded24cd03b3
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 870636d6457d842c89f261c2537644c17a335294
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207492"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80156419"
 ---
-# <a name="azure-resource-manager-template-best-practices"></a>Procedimientos recomendados de plantillas de Azure Resource Manager
+# <a name="arm-template-best-practices"></a>Procedimientos recomendados para plantilla de Resource Manager
 
-En este artículo se proporcionan recomendaciones sobre cómo construir la plantilla de Resource Manager. Estas recomendaciones ayudan a evitar problemas comunes al usar una plantilla para implementar una solución.
+En este artículo se proporcionan recomendaciones sobre cómo construir la plantilla de Azure Resource Manager (ARM). Estas recomendaciones ayudan a evitar problemas comunes al usar una plantilla de Resource Manager para implementar una solución.
 
 Para obtener recomendaciones sobre cómo controlar las suscripciones de Azure, vea [Scaffolding empresarial de Azure: gobernanza de suscripción prescriptiva](/azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=%2Fen-us%2Fazure%2Fazure-resource-manager%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json).
 
@@ -279,5 +279,5 @@ La información siguiente puede ser útil cuando se trabaja con [recursos](templ
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para obtener información sobre la estructura del archivo de plantillas de Resource Manager vea [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).
-* Para obtener recomendaciones sobre cómo crear plantillas que funcionan en todos los entornos de nube de Azure, vea [Desarrollo de plantillas de Azure Resource Manager para mantener la coherencia en la nube](templates-cloud-consistency.md).
+* Para obtener información sobre la estructura en los archivos de plantilla, vea [Nociones sobre la estructura y la sintaxis de las plantillas de Resource Manager](template-syntax.md).
+* Para obtener recomendaciones sobre cómo crear plantillas que funcionan en todos los entornos de nube de Azure, vea [Desarrollo de plantillas de Resource Manager para mantener la coherencia en la nube](templates-cloud-consistency.md).

@@ -22,8 +22,6 @@
           href: functions-create-your-first-function-visual-studio.md
         - name: Línea de comandos
           href: functions-create-first-azure-function-azure-cli.md
-        - name: Maven/Gradle (Java)
-          href: functions-create-first-java-maven.md
     - name: Conexión al almacenamiento
       items:
         - name: Visual Studio Code
@@ -32,8 +30,6 @@
           href: functions-add-output-binding-storage-queue-vs.md
         - name: Línea de comandos
           href: functions-add-output-binding-storage-queue-cli.md
-        - name: Maven/Gradle (Java)
-          href: functions-add-output-binding-storage-queue-java.md
 - name: Tutoriales
   items:
     - name: Functions con Logic Apps
@@ -175,10 +171,16 @@
                   href: create-visual-studio.md
                 - name: Visual Studio Code
                   href: create-visual-studio-code.md
+                - name: Java con Gradle
+                  href: functions-create-first-java-gradle.md
                 - name: Java con Eclipse
                   href: functions-create-maven-eclipse.md
                 - name: Java con IDEA de IntelliJ
                   href: functions-create-maven-intellij.md
+                - name: Kotlin con Maven
+                  href: functions-create-first-kotlin-maven.md
+                - name: Kotlin con IntelliJ
+                  href: functions-create-maven-kotlin-intellij.md
                 - name: Plan de App Service de Linux
                   href: create-function-app-linux-app-service-plan.md
                 - name: Plan de Consumo para Linux
@@ -205,6 +207,8 @@
               href: add-output-binding-storage-queue-vs-code.md
             - name: 'Almacenamiento: Visual Studio'
               href: add-output-binding-storage-queue-vs.md
+            - name: 'Almacenamiento: Java'
+              href: functions-add-output-binding-storage-queue-java.md
         - name: Depuración y prueba
           items:
             - name: Funciones de prueba
@@ -336,7 +340,7 @@
       href: functions-app-settings.md
     - name: Desencadenadores y enlaces
       items:
-        - name: Almacenamiento de blobs
+        - name: Blob Storage
           items:
             - name: Información general
               href: functions-bindings-storage-blob.md

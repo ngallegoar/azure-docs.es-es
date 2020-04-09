@@ -12,17 +12,18 @@ ms.date: 03/25/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: 116af5192236045ec50409f65a9687ffec5223b5
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: eb1122ba3de0002507589d3e607d1e39d905c308
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406131"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80127518"
 ---
-# <a name="configure-apple-push-notification-service-apns-settings-for-a-notification-hub-in-the-azure-portal"></a>Configuración de Apple Push Notification Service (APNS) para un centro de notificaciones en Azure Portal
+# <a name="configure-apple-push-notification-service-settings-for-a-notification-hub-in-the-azure-portal"></a>Configuración de Apple Push Notification Service para un centro de notificaciones en Azure Portal
+
 En este artículo podrá ver cómo establecer la configuración de Apple Push Notification Service (APNS) para un centro de notificaciones de Azure mediante Azure Portal. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 Si aún no ha creado un centro de notificaciones, cree uno ahora. Para más información, consulte [Creación de un centro de notificaciones de Azure en Azure Portal](create-notification-hub-portal.md). 
 
 ## <a name="configure-apple-push-notification-service"></a>Configuración de Apple Push Notification Service

@@ -3,12 +3,12 @@ title: ¿Qué es Azure Lighthouse?
 description: Azure Lighthouse permite a los proveedores de servicios ofrecer servicios administrados para sus clientes con mayor automatización y eficacia a escala.
 ms.date: 11/11/2019
 ms.topic: overview
-ms.openlocfilehash: 0bec1f5b727ca3ecd604d2654358ca9a5507abe4
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1d4d33238f30c2a579c6a0da6a39238207db4f4a
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75646201"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982793"
 ---
 # <a name="what-is-azure-lighthouse"></a>¿Qué es Azure Lighthouse?
 
@@ -32,7 +32,7 @@ Azure Lighthouse incluye varias maneras de ayudar a simplificar la administraci�
 
 - **Administración de recursos delegados de Azure**: Administre los recursos de Azure de sus clientes de forma segura desde su propio inquilino sin tener que cambiar los planos de contexto y control. Para obtener más información, consulte la [administración de recursos delegados de Azure](concepts/azure-delegated-resource-management.md).
 - **Nuevas experiencias de Azure Portal**: vea la información de distintos inquilinos en la nueva página **Mis clientes** de [Azure Portal](https://portal.azure.com). Una hoja de **proveedores de servicios** correspondiente permite a los clientes ver y administrar el acceso del proveedor de servicios. Para obtener más información, consulte [Ver y administrar clientes](./how-to/view-manage-customers.md) y [View and manage service providers](how-to/view-manage-service-providers.md) (Ver y administrar proveedores de servicios).
-- **Plantillas de Azure Resource Manager**: realice tareas de administración más fácilmente, incluida la incorporación de clientes para la administración de recursos delegados de Azure. Para obtener más información, consulte nuestro [repositorio de ejemplos](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates) y [Onboard a customer to Azure delegated resource management](how-to/onboard-customer.md) (Incorporar a un cliente en la administración de recursos delegados de Azure).
+- **Plantillas de Azure Resource Manager**: realice tareas de administración más fácilmente, incluida la incorporación de clientes para la administración de recursos delegados de Azure. Para obtener más información, consulte nuestro [repositorio de ejemplos](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates) y [Onboard a customer to Azure delegated resource management](how-to/onboard-customer.md) (Incorporar a un cliente en la administración de recursos delegados de Azure).
 - **Ofertas de servicios administrados en Azure Marketplace**: ofrezca sus servicios a los clientes mediante ofertas privadas o públicas, y pídales que se incorporen automáticamente a la administración de recursos delegados de Azure, como alternativa a la incorporación mediante plantillas de Azure Resource Manager. Para obtener más información, consulte [Managed services offers in Azure Marketplace](concepts/managed-services-offers.md) (Ofertas de servicios administrados en Azure Marketplace).
 - **Azure Managed Applications** Empaquete y envíe aplicaciones que resulten fáciles de implementar y usar para los clientes en sus propias suscripciones. La aplicación se implementa en un grupo de recursos al que se tiene acceso desde el inquilino, lo que le permite administrar el servicio como parte de la experiencia general de Azure Lighthouse. Para obtener más información, consulte [Introducción a las aplicaciones administradas de Azure](../azure-resource-manager/managed-applications/overview.md).
 

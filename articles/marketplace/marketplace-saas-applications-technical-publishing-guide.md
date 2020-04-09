@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/09/2018
 ms.author: kevidal
-ms.openlocfilehash: 2c1cb755b62812336a306994f6820573130815e6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 641297ea74a08dea163cf768b8e9b245348824a4
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288366"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80544278"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>Guía de publicación de ofertas de aplicaciones de SaaS
 
@@ -25,11 +25,11 @@ Las aplicaciones de SaaS están disponibles en los escaparates de Azure. En la t
 
 | Opción de escaparate | Listado | Evaluación/transacción |  
 | --- | --- | --- |  
-| AppSource | Sí (Contacto) | Sí (PowerBI/Dynamics) |
-| Azure Marketplace | No | Sí (Aplicaciones de SaaS) |   
+| AppSource | Sí | Sí |
+| Azure Marketplace | No | Sí |   
 
-**Lista:** la opción de publicación de listado consiste en un tipo de oferta del tipo Ponerse en contacto conmigo y se usa cuando una participación de nivel de evaluación o transacción no es viable. La ventaja de este enfoque es que permite que los anunciantes con una solución en el mercado comiencen a recibir inmediatamente clientes potenciales que pueden convertirse en ventas para hacer crecer su negocio.  
-**Evaluación/Transacción:** el cliente tiene la opción de comprar directamente o solicitar una versión de evaluación para la solución. Proporcionar una experiencia de Evaluación aumenta el nivel de compromiso que se ofrece a los clientes y permite que exploren la solución antes de comprarla. Con una experiencia de este tipo, tendrá mejores posibilidades de promoción en los escaparates, y deberían generarse más clientes potenciales y más valiosos a partir de la interacción con los clientes. Las versiones de evaluación deben incluir al menos soporte técnico gratuito durante el período de evaluación.  
+**Lista:**  la opción de publicación de listado consiste en un tipo de oferta del tipo Ponerse en contacto conmigo y se usa cuando una participación de nivel de evaluación o transacción no es viable. La ventaja de este enfoque es que permite que los anunciantes con una solución en el mercado comiencen a recibir inmediatamente clientes potenciales que pueden convertirse en ventas para hacer crecer su negocio.  
+**Evaluación/Transacción:**  el cliente tiene la opción de comprar directamente o solicitar una versión de evaluación para la solución. Proporcionar una experiencia de Evaluación aumenta el nivel de compromiso que se ofrece a los clientes y permite que exploren la solución antes de comprarla. Con una experiencia de este tipo, tendrá mejores posibilidades de promoción en los escaparates, y deberían generarse más clientes potenciales y más valiosos a partir de la interacción con los clientes. Las versiones de evaluación deben incluir al menos soporte técnico gratuito durante el período de evaluación.  
 
 | Oferta de aplicaciones de SaaS | Requisitos empresariales | Requisitos técnicos |  
 | --- | --- | --- |  
@@ -88,7 +88,7 @@ Para ver tutoriales de vídeo, revise lo siguiente:
 * [Vídeos de Microsoft Azure sobre Active Directory](https://azure.microsoft.com/resources/videos/index/?services=active-directory)
 
 La capacitación gratuita de Azure Active Directory está disponible en  
-* [Microsoft Azure for IT Pros Content Series: Azure Active Directory](https://mva.microsoft.com/training-courses/microsoft-azure-for-it-pros-content-series-azure-active-directory-16754?l=N0e23wtxC_2106218965) (Serie de contenido de Microsoft Azure para profesionales de IT: Azure Active Directory)
+* [Microsoft Azure for IT Pros Content Series: Azure Active Directory](https://mva.microsoft.com/training-courses/microsoft-azure-for-it-pros-content-series-azure-active-directory-16754?l=N0e23wtxC_2106218965)
 
 Además, Azure Active Directory proporciona un sitio para buscar actualizaciones del servicio   
 * [Actualizaciones de servicios de Azure AD](https://azure.microsoft.com/updates/?product=active-directory)

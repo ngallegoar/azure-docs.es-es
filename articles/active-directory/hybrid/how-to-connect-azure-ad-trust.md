@@ -18,12 +18,12 @@ ms.author: billmath
 author: billmath
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bd46bb820c7127c4fa6105fcc0be73bb66024c6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0f3e521fb7668305ce511aaddd63ed2cce8dfed0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60245700"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80331718"
 ---
 # <a name="manage-ad-fs-trust-with-azure-ad-using-azure-ad-connect"></a>Administración de la confianza de AD FS con Azure AD mediante Azure AD Connect
 
@@ -39,7 +39,7 @@ Azure AD Connect puede administrar la federación entre los Servicios de federac
 
 Azure AD Connect **solo** administra la configuración relacionada con la confianza de Azure AD. Azure AD Connect no modifica ninguna configuración de otras confianzas para usuarios autenticados de AD FS. En la tabla siguiente se indica la configuración que se controla mediante Azure AD Connect.
 
-| Configuración | DESCRIPCIÓN |
+| Configuración | Descripción |
 | :--- | :--- |
 | Certificado de firma de tokens | Azure AD Connect puede usarse para restablecer y volver a crear la confianza con Azure AD. Azure AD Connect realiza una sustitución inmediata puntual de los certificados de firma de tokens para AD FS y actualiza la configuración de federación de dominios de Azure AD.|
 | Algoritmo de firma de token | Microsoft recomienda usar SHA-256 como algoritmo de firma de token. Azure AD Connect puede detectar si el algoritmo de firma de tokens está establecido en un valor menos seguro que SHA-256, y actualizará la configuración a SHA-256 en la siguiente operación de configuración posible. El usuario de confianza debe actualizarse para utilizar el nuevo certificado de firma de tokens. |
@@ -64,7 +64,7 @@ Azure AD Connect no actualiza toda la configuración de la confianza de Azure AD
 | Agregar el servidor WAP | None |
 | Opciones de dispositivos | Reglas de transformación de emisión, IWA para el registro de dispositivos |
 | Agregar el dominio federado | Si el dominio se agrega por primera vez, es decir, se está cambiando la configuración de federación de dominio único a federación de varios dominios, Azure AD Connect volverá a crear la confianza desde el principio. Si la confianza con Azure AD ya está configurada para varios dominios, solo se modifican las reglas de transformación de emisión. |
-| Actualización de SSL | None |
+| Actualizar TLS | None |
 
 Durante todas las operaciones, en las que se modifica cualquier configuración, Azure AD Connect realiza una copia de seguridad de las configuraciones de confianza actuales en **%ProgramData%\AADConnect\ADFS**.
 
@@ -77,7 +77,7 @@ Durante todas las operaciones, en las que se modifica cualquier configuración, 
 
 Azure AD Connect garantiza que la confianza de Azure AD siempre esté configurada con el conjunto adecuado de reglas de notificación recomendadas. Microsoft recomienda usar Azure AD Connect para administrar la confianza de Azure AD. En esta sección se enumeran las reglas de transformación de emisión establecidas y su descripción.
 
-| Nombre de la regla | DESCRIPCIÓN |
+| Nombre de la regla | Descripción |
 | --- | --- |
 | Emitir UPN | Esta regla consulta el valor de userprincipalname a partir del atributo configurado en la configuración de sincronización de userprincipalname.|
 | Consultar objectguid y msdsconsistencyguid para la notificación de ImmutableId personalizada | Esta regla agrega un valor temporal en la canalización para el valor de objectguid y msdsconsistencyguid si existe. |

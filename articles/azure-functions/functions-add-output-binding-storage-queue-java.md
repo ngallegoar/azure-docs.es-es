@@ -6,12 +6,12 @@ ms.author: karler
 ms.date: 10/14/2019
 ms.topic: quickstart
 zone_pivot_groups: java-build-tools-set
-ms.openlocfilehash: 8ae69bfa7ed00e310205332e05c071158c5fc9a3
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: d9815fd27a57acc8b418962e610d2ae1c106edde
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78272800"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80673283"
 ---
 # <a name="connect-your-java-function-to-azure-storage"></a>Conexión de la función de Java a Azure Storage
 
@@ -21,7 +21,7 @@ En este artículo se muestra cómo integrar la función que creó en el [artícu
 
 La mayoría de los enlaces requieren una cadena de conexión almacenada que se usa en Functions para acceder al servicio enlazado. Para facilitar la conexión, usará la cuenta de almacenamiento que creó con la aplicación de funciones. La conexión a esta cuenta ya está almacenada en una configuración de aplicación llamada `AzureWebJobsStorage`.  
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de empezar este artículo, realice los pasos de la [parte 1 del inicio rápido de Java](functions-create-first-java-maven.md).
 
@@ -37,77 +37,13 @@ Ahora podrá agregar el enlace de salida de almacenamiento al proyecto.
 
 ## <a name="add-an-output-binding"></a>Adición de un enlace de salida
 
-En un proyecto de Java, los enlaces se definen como anotaciones de enlace en el método de función. Entonces, el archivo *function.json* se genera automáticamente en función de estas anotaciones.
-
-Vaya a la ubicación del código de función en _src/main/java_, abra el archivo de proyecto *Function.java* y agregue el parámetro siguiente a la definición del método `run`:
-
-```java
-@QueueOutput(name = "msg", queueName = "outqueue", connection = "AzureWebJobsStorage") OutputBinding<String> msg
-```
-
-El parámetro `msg` es de tipo [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding), que representa una colección de cadenas escritas como mensajes en un enlace de salida cuando se completa la función. En este caso, la salida es una cola de almacenamiento denominada `outqueue`. La cadena de conexión de la cuenta de Storage la establece el método `connection`. En lugar de la propia cadena de conexión, el usuario se encarga de pasar la configuración de la aplicación que contiene la cadena de conexión de la cuenta de Storage.
-
-La definición del método `run` debe ahora parecerse a la del siguiente ejemplo:  
-
-```java
-@FunctionName("HttpTrigger-Java")
-public HttpResponseMessage run(
-        @HttpTrigger(name = "req", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.FUNCTION)  
-        HttpRequestMessage<Optional<String>> request, 
-        @QueueOutput(name = "msg", queueName = "outqueue", connection = "AzureWebJobsStorage") 
-        OutputBinding<String> msg, final ExecutionContext context) {
-    ...
-}
-```
+[!INCLUDE [functions-add-output-binding-java-cli](../../includes/functions-add-output-binding-java-cli.md)]
 
 ## <a name="add-code-that-uses-the-output-binding"></a>Adición de código que utilice el enlace de salida
 
-Ahora, puede usar el nuevo parámetro `msg` para escribir en el enlace de salida desde el código de la función. Agregue la siguiente línea de código antes de la respuesta de operación correcta para agregar el valor de `name` al enlace de salida `msg`.
+[!INCLUDE [functions-add-output-binding-java-code](../../includes/functions-add-output-binding-java-code.md)]
 
-```java
-msg.setValue(name);
-```
-
-Al usar un enlace de salida, no tiene que usar el código del SDK de Azure Storage para autenticarse, obtener una referencia de cola o escribir datos. El sistema en tiempo de ejecución de Functions y el enlace de salida de cola realizan esas tareas automáticamente.
-
-El método `run` debe ahora parecerse al del siguiente ejemplo:
-
-```java
-@FunctionName("HttpTrigger-Java")
-public HttpResponseMessage run(
-        @HttpTrigger(name = "req", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.FUNCTION) HttpRequestMessage<Optional<String>> request, 
-        @QueueOutput(name = "msg", queueName = "outqueue", connection = "AzureWebJobsStorage") 
-        OutputBinding<String> msg, final ExecutionContext context) {
-    context.getLogger().info("Java HTTP trigger processed a request.");
-
-    // Parse query parameter
-    String query = request.getQueryParameters().get("name");
-    String name = request.getBody().orElse(query);
-
-    if (name == null) {
-        return request.createResponseBuilder(HttpStatus.BAD_REQUEST).body("Please pass a name on the query string or in the request body").build();
-    } else {
-        // Write the name to the message queue. 
-        msg.setValue(name);
-
-        return request.createResponseBuilder(HttpStatus.OK).body("Hello, " + name).build();
-    }
-}
-```
-
-## <a name="update-the-tests"></a>Actualización de las pruebas
-
-Dado que el arquetipo también crea un conjunto de pruebas, debe actualizar estas pruebas para controlar el nuevo parámetro `msg` en la signatura del método `run`.  
-
-Vaya a la ubicación del código de prueba en _src/test/java_, abra el archivo de proyecto *Function.Java* y reemplace la línea de código debajo de `//Invoke` por el código siguiente.
-
-```java
-@SuppressWarnings("unchecked")
-final OutputBinding<String> msg = (OutputBinding<String>)mock(OutputBinding.class);
-
-// Invoke
-final HttpResponseMessage ret = new Function().run(req, msg, context);
-``` 
+[!INCLUDE [functions-add-output-binding-java-test-cli](../../includes/functions-add-output-binding-java-test-cli.md)]
 
 Ahora ya está listo para probar el nuevo enlace de salida de forma local.
 
@@ -115,19 +51,17 @@ Ahora ya está listo para probar el nuevo enlace de salida de forma local.
 
 Como antes, use el siguiente comando para crear el proyecto e iniciar el sistema en tiempo de ejecución de Functions localmente:
 
-::: zone pivot="java-build-tools-maven"  
+# <a name="maven"></a>[Maven](#tab/maven)
 ```bash
 mvn clean package 
 mvn azure-functions:run
 ```
-::: zone-end
-
-::: zone pivot="java-build-tools-gradle"  
+# <a name="gradle"></a>[Gradle](#tab/gradle) 
 ```bash
 gradle jar --info
 gradle azureFunctionsRun
 ```
-::: zone-end
+---
 
 > [!NOTE]  
 > Como ya habilitó las agrupaciones de extensiones en el archivo host.json, la [extensión de enlace de Storage](functions-bindings-storage-blob.md#add-to-your-functions-app) se descargó e instaló automáticamente durante el inicio junto con el resto de extensiones de enlace de Microsoft.
@@ -150,17 +84,15 @@ A continuación, se usa la CLI de Azure para ver la nueva cola y comprobar que s
 
 Para actualizar la aplicación publicada, vuelva a ejecutar el siguiente comando:  
 
-::: zone pivot="java-build-tools-maven"  
+# <a name="maven"></a>[Maven](#tab/maven)  
 ```bash
 mvn azure-functions:deploy
 ```
-::: zone-end
-
-::: zone pivot="java-build-tools-gradle"  
+# <a name="gradle"></a>[Gradle](#tab/gradle)  
 ```bash
 gradle azureFunctionsDeploy
 ```
-::: zone-end
+---
 
 De nuevo, puede usar cURL para probar la función implementada. Como antes, pase el valor `AzureFunctions` del cuerpo de la solicitud POST a la dirección URL, como en este ejemplo:
 

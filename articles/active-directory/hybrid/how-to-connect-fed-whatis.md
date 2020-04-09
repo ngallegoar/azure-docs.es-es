@@ -16,12 +16,12 @@ ms.date: 10/09/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67ae5d2661371c256f753d05eb496d2cd53a0017
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0518c58abf156c718ee083ffadb0ef8e0a590252
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60350497"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80331539"
 ---
 # <a name="azure-ad-connect-and-federation"></a>Azure AD Connect y la federación
 Connect de Azure Active Directory (Azure AD) le permite configurar la federación con Servicios de federación de Active Directory (AD FS) locales y Azure AD. Con el inicio de sesión federado, puede habilitar a los usuarios para que inicien sesión en los servicios basados en Azure AD con sus contraseñas locales y, mientras se encuentren en la red corporativa, sin necesidad de volver a escribir sus contraseñas. Mediante la opción de federación con AD FS, puede implementar una nueva instalación de AD FS o puede especificar una instalación existente en una granja de servidores de Windows Server 2012 R2.
@@ -42,7 +42,7 @@ Este tema constituye la principal referencia de las funcionalidades relacionadas
 | [Adición de un nuevo servidor de AD FS](how-to-connect-fed-management.md#addadfsserver) |Expansión de la granja de servidores de AD FS con un servidor de AD FS adicional después de la instalación inicial. |
 | [Incorporación de un nuevo servidor WAP de AD FS](how-to-connect-fed-management.md#addwapserver) |Expanda una granja de servidores de AD FS con un servidor proxy de aplicación web (WAP) adicional después de la instalación inicial. |
 | [Incorporación de un nuevo dominio federado](how-to-connect-fed-management.md#addfeddomain) |Agregue otro dominio para que se federe con Azure AD. |
-| [Actualizar el certificado SSL](how-to-connect-fed-ssl-update.md)| Actualice el certificado SSL para una granja de servidores de AD FS. |
+| [Actualización del certificado TLS/SSL](how-to-connect-fed-ssl-update.md)| Actualice el certificado TLS/SSL de una granja de servidores de AD FS. |
 | [Renovación de certificados de federación para Office 365 y Azure AD](how-to-connect-fed-o365-certs.md)|Renueve su certificado de Office 365 con Azure AD.|
 | **Otros parámetros de configuración de la federación** | |
 | [Federación de varias instancias de Azure AD con una instancia única de AD FS](how-to-connect-fed-single-adfs-multitenant-federation.md) | Federación de varias instancias de Azure AD con una granja única de servidores de AD FS| 

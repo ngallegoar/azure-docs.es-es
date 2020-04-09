@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c4ff3ebf6239f9b62409ff0885f23115711e33cb
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 3b000776c04550e1deb883039d94deeb735061ce
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77584548"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985888"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Escalado y hospedaje de Azure Functions
 
@@ -57,13 +57,13 @@ Las aplicaciones de funciones de la misma región se pueden asignar al mismo pla
 
 Para obtener más información sobre cómo calcular los costos cuando se ejecutan en un plan de consumo, vea [Descripción de los costos en un plan de consumo](functions-consumption-costs.md).
 
-## <a name="premium-plan"></a>Plan Premium
+## <a name="premium-plan"></a><a name="premium-plan"></a>Plan Premium
 
 Cuando se usa el plan Prémium, las instancias del host de Azure Functions se agregan y quitan según el número de eventos entrantes al igual que con el plan de consumo.  El plan Prémium admite las características siguientes:
 
 * Instancias permanentemente semiactivas para evitar cualquier inicio en frío
 * Conectividad de red virtual
-* Duración de la ejecución ilimitada
+* Duración de la ejecución ilimitada (60 minutos garantizados)
 * Tamaños de la instancia Prémium (un núcleo, dos núcleos y cuatro instancias de núcleo)
 * Precios más previsibles
 * Asignación de aplicaciones de alta densidad para planes con varias aplicaciones de funciones
@@ -82,7 +82,7 @@ Considere la posibilidad de elegir el plan Premium de Azure Functions en las sig
 
 Al ejecutar las funciones de JavaScript en un plan Prémium, debe elegir una instancia que tenga menos vCPU. Para obtener más información, consulte [Elección de los planes de App Service de un solo núcleo](functions-reference-node.md#considerations-for-javascript-functions).  
 
-## <a name="app-service-plan"></a>Plan dedicado (App Service)
+## <a name="dedicated-app-service-plan"></a><a name="app-service-plan"></a>Plan dedicado (App Service)
 
 Sus aplicaciones de funciones también pueden ejecutarse en las mismas máquinas virtuales dedicadas que otras aplicaciones de App Service (SKU básica, estándar, prémium y aislada).
 
@@ -98,7 +98,7 @@ Con un plan de App Service, para escalar horizontalmente de forma manual, puede 
 Al ejecutar funciones de JavaScript en un plan de App Service, debe elegir un plan con menos vCPU. Para obtener más información, consulte [Elección de los planes de App Service de un solo núcleo](functions-reference-node.md#choose-single-vcpu-app-service-plans). 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
 
-### <a name="always-on"></a> Always On
+### <a name="always-on"></a><a name="always-on"></a> Always On
 
 Si se ejecuta en un plan de App Service, debe habilitar la configuración **Always On** para que la aplicación de función se ejecute correctamente. En un plan de App Service, el tiempo de ejecución de las funciones queda inactivo después de unos minutos de inactividad, por lo que solo los desencadenadores HTTP podrán "reactivar" las funciones. Always On solo está disponible en un plan de App Service. En un plan de consumo, la plataforma activa automáticamente las aplicaciones de función.
 
@@ -132,7 +132,7 @@ Es muy posible que varias aplicaciones de función compartan la misma cuenta de 
 
 <!-- JH: Does using a Premium Storage account improve perf? -->
 
-Para obtener más información sobre los tipos de cuenta de almacenamiento, vea [Introducción de los servicios Azure Storage](../storage/common/storage-introduction.md#azure-storage-services).
+Para obtener más información sobre los tipos de cuenta de almacenamiento, vea [Introducción de los servicios Azure Storage](../storage/common/storage-introduction.md#core-storage-services).
 
 ## <a name="how-the-consumption-and-premium-plans-work"></a>Cómo funcionan los planes de consumo y Prémium
 
@@ -153,12 +153,10 @@ La unidad de escala de Azure Functions es la aplicación de funciones. Al escala
 El escalado puede variar en función de varios factores, y realizarse de forma diferente según el desencadenador y el idioma seleccionados. Hay algunas complejidades de los comportamientos del escalado que hay que tener en cuenta:
 
 * Una aplicación de funciones única solo se escala horizontalmente hasta un máximo de 200 instancias. Una única instancia puede procesar más de un mensaje o solicitud a la vez, por lo que no hay un límite establecido en el número de ejecuciones simultáneas.
-* En el caso de los desencadenadores HTTP, solo se asignarán nuevas instancias como máximo una vez cada segundo.
-* Para los desencadenadores que no son HTTP, solo se asignarán nuevas instancias como máximo una vez cada 30 segundos.
-
-Diferentes desencadenadores pueden también tener distintos límites de escalado como se describe a continuación:
-
-* [Event Hubs](functions-bindings-event-hubs-trigger.md#scaling)
+* En el caso de los desencadenadores HTTP, solo se asignan nuevas instancias como máximo una vez cada segundo.
+* Para los desencadenadores que no son HTTP, solo se asignan nuevas instancias como máximo una vez cada 30 segundos. El escalado es más rápido cuando se ejecuta en un plan [Premium](#premium-plan).
+* En el caso de los desencadenadores de Service Bus, use los derechos de _Administración_ en los recursos para obtener el escalado más eficaz. Con los derechos de _Escucha_, el escalado no es tan preciso porque la longitud de la cola no se puede utilizar para informar sobre las decisiones de escalado. Para más información sobre cómo establecer derechos en las directivas de acceso de Service Bus, consulte [Directivas de autorización de acceso compartido](../service-bus-messaging/service-bus-sas.md#shared-access-authorization-policies).
+* Para los desencadenadores de Event Hubs, consulte la [guía de escalado](functions-bindings-event-hubs-trigger.md#scaling) en el artículo de referencia. 
 
 ### <a name="best-practices-and-patterns-for-scalable-apps"></a>Procedimientos recomendados y patrones para aplicaciones escalables
 

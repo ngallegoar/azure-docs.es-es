@@ -1,15 +1,15 @@
 ---
 title: Comprender cómo funcionan las alertas de métricas en Azure Monitor.
 description: Obtenga información general acerca de lo que puede hacer con las alertas de métricas y cómo funcionan en Azure Monitor.
-ms.date: 12/5/2019
+ms.date: 03/17/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 2f1734d30136be904aedf7d880922ba052130ec7
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: a6860cad077b597df923274f8971f5652d4ba9e3
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77664736"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80397973"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprender cómo funcionan las alertas de métricas en Azure Monitor
 
@@ -122,15 +122,28 @@ El aumento de los períodos de retroceso y del número de infracciones también 
 
 ## <a name="monitoring-at-scale-using-metric-alerts-in-azure-monitor"></a>Supervisión a escala mediante alertas de métricas en Azure Monitor
 
-Hasta ahora, ha visto cómo se puede usar una única alerta de métrica para supervisar una o varias series temporales de métricas relacionadas con un único recurso de Azure. Con frecuencia, es posible que desee aplicar la misma regla de alertas a muchos recursos. Azure Monitor también permite supervisar varios recursos (del mismo tipo) utilizando una sola regla de alertas de métricas con los recursos que se encuentran en la misma región de Azure. En la actualidad, esta característica solo puede utilizarse en la nube pública de Azure con máquinas virtuales, bases de datos de SQL Server, grupos elásticos de SQL Server y dispositivos de Data Box Edge. Asimismo, solo puede emplearse con métricas de plataforma, y no con métricas personalizadas.
+Hasta ahora, ha visto cómo se puede usar una única alerta de métrica para supervisar una o varias series temporales de métricas relacionadas con un único recurso de Azure. Con frecuencia, es posible que desee aplicar la misma regla de alertas a muchos recursos. Azure Monitor también permite supervisar varios recursos (del mismo tipo) utilizando una sola regla de alertas de métricas con los recursos que se encuentran en la misma región de Azure. 
 
-Puede especificar el ámbito de supervisión mediante una sola alerta de métrica de estas tres formas:
+Esta característica se admite actualmente en las métricas de plataforma (no métricas personalizadas) de los siguientes servicios en las siguientes nubes de Azure:
 
-- como una lista de máquinas virtuales de una región de Azure en una suscripción
+| Servicio | Public Azure (Azure público) | Government | China |
+|:--------|:--------|:--------|:--------|
+| Máquinas virtuales  | **Sí** | No | No |
+| Bases de datos de SQL Server | **Sí** | **Sí** | No |
+| Grupos elásticos de SQL Server | **Sí** | **Sí** | No |
+| Dispositivos Data Box Edge | **Sí** | **Sí** | No |
+
+El ámbito de supervisión se puede especificar con una sola alerta de métrica de tres formas distintas. Por ejemplo, respecto a las máquinas virtuales, el ámbito se puede especificar como:  
+
+- una lista de máquinas virtuales de una región de Azure en una suscripción
 - todas las máquinas virtuales (de una región de Azure) en uno o varios grupos de recursos de una suscripción
 - todas las máquinas virtuales (de una región de Azure) en una suscripción
 
 La creación de reglas de alertas de métrica que supervisen varios recursos es similar a [crear cualquier otra alerta de métrica](alerts-metric.md) que supervise un único recurso. La única diferencia es que debe seleccionar todos los recursos que desea supervisar. Estas reglas también se pueden crear mediante las [plantillas de Azure Resource Manager](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-a-metric-alert-that-monitors-multiple-resources). Recibirá notificaciones diferentes de cada máquina virtual.
+
+> [!NOTE]
+>
+> En una regla de alerta de métrica que supervisa varios recursos solo se permite una condición.
 
 ## <a name="typical-latency"></a>Latencia típica
 

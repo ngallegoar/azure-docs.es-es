@@ -5,24 +5,21 @@ services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
 manager: CelesteDG
-editor: ''
-ms.assetid: 90e42ff9-43b0-4b4f-a222-51df847b2a8d
 ms.service: active-directory
 ms.subservice: azuread-dev
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/15/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: ec9d58c517cca354b00af25e1f0204460f2851bb
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ROBOTS: NOINDEX
+ms.openlocfilehash: eaa3844bfbbef8cb71dbe8691cab894c921ce00a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77163385"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154515"
 ---
 # <a name="understanding-the-oauth2-implicit-grant-flow-in-azure-active-directory-ad"></a>Descripción del flujo de concesión implícita de OAuth2 de Azure Active Directory (AD)
 
@@ -51,7 +48,7 @@ Actualmente, el método preferido para proteger las llamadas a una API web es us
 * Pueden obtenerse tokens de forma confiable sin necesidad de realizar llamadas de origen cruzado: gracias al registro obligatorio del URI de redirección en el que se devuelven los tokens, se garantiza que estos no van a sustituirse.
 * Las aplicaciones JavaScript pueden obtener tantos tokens de acceso como necesiten para la cantidad de API web que tengan como destino; sin restricciones de dominios.
 * Las características de HTML5 como el almacenamiento local o de sesión conceden un control total sobre el almacenamiento en caché de tokens y administración de la duración, mientras que la administración de cookies es opaca para la aplicación.
-* Los tokens de acceso no son susceptibles a los ataques de falsificación de solicitud entre sitios (CSRF).
+* Los tokens de acceso no son susceptibles a los ataques de falsificación de solicitud entre sitios (CSRF)
 
 El flujo de concesión implícita no emite tokens de actualización, principalmente por motivos de seguridad. Los tokens de actualización no tienen tantas limitaciones como los de acceso, que conceden muchos más permisos y, por tanto, pueden producir más daños en caso de que se filtren. En el flujo implícito, los tokens se entregan en la dirección URL, por lo tanto, el riesgo de interceptación es mayor que en la concesión de código de autorización.
 

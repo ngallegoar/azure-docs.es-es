@@ -3,19 +3,19 @@ title: 'Referencia de la API de conversión de texto a voz (REST): servicio de v
 titleSuffix: Azure Cognitive Services
 description: Aprenda a usar la API de REST Text-to-Speech. En este artículo, obtendrá más información sobre las opciones de autorización y de consulta y sobre cómo estructurar una solicitud y recibir una respuesta.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/09/2019
-ms.author: erhopf
-ms.openlocfilehash: ab0891653f449b13f50dc43b196cf16a2f71370e
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.date: 03/23/2020
+ms.author: dapine
+ms.openlocfilehash: 977c6ec9aa1cd6a8b8a545d123c5308bb8c51651
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975829"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80409019"
 ---
 # <a name="text-to-speech-rest-api"></a>Text-to-speech REST API
 
@@ -47,19 +47,19 @@ El punto de conexión `voices/list` le permite obtener una lista completa de las
 | Sur de Brasil | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Centro de Canadá | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Centro de EE. UU. | `https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Asia oriental | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| East US | `https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Este de Asia | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Este de EE. UU. | `https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Este de EE. UU. 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Centro de Francia | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | India central | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Este de Japón | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Corea Central | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Japón Oriental | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Centro de Corea del Sur | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Centro-Norte de EE. UU | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Europa del Norte | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Centro-Sur de EE. UU | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Sudeste asiático | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Sur del Reino Unido 2 | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Europa occidental | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Norte de Europa | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Centro-sur de EE. UU. | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Sudeste de Asia | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Sur de Reino Unido 2 | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Oeste de Europa | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Oeste de EE. UU. | `https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Oeste de EE. UU. 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 
@@ -67,7 +67,7 @@ El punto de conexión `voices/list` le permite obtener una lista completa de las
 
 En esta tabla se enumeran los encabezados obligatorios y opcionales para las solicitudes de texto a voz.
 
-| Encabezado | DESCRIPCIÓN | Obligatorio u opcional |
+| Encabezado | Descripción | Obligatorio u opcional |
 |--------|-------------|---------------------|
 | `Authorization` | Un token de autorización precedido por la palabra `Bearer`. Para más información, consulte [Autenticación](#authentication). | Obligatorio |
 
@@ -99,35 +99,44 @@ Esta respuesta se ha truncado para ilustrar la estructura de una respuesta.
         "Name": "Microsoft Server Speech Text to Speech Voice (ar-EG, Hoda)",
         "ShortName": "ar-EG-Hoda",
         "Gender": "Female",
-        "Locale": "ar-EG"
+        "Locale": "ar-EG",
+        "SampleRateHertz": "16000",
+        "VoiceType": "Standard"
     },
     {
         "Name": "Microsoft Server Speech Text to Speech Voice (ar-SA, Naayf)",
         "ShortName": "ar-SA-Naayf",
         "Gender": "Male",
-        "Locale": "ar-SA"
+        "Locale": "ar-SA",
+        "SampleRateHertz": "16000",
+        "VoiceType": "Standard"
     },
     {
         "Name": "Microsoft Server Speech Text to Speech Voice (bg-BG, Ivan)",
         "ShortName": "bg-BG-Ivan",
         "Gender": "Male",
-        "Locale": "bg-BG"
+        "Locale": "bg-BG",
+        "SampleRateHertz": "16000",
+        "VoiceType": "Standard"
     },
     {
         "Name": "Microsoft Server Speech Text to Speech Voice (ca-ES, HerenaRUS)",
         "ShortName": "ca-ES-HerenaRUS",
         "Gender": "Female",
-        "Locale": "ca-ES"
+        "Locale": "ca-ES",
+        "SampleRateHertz": "16000",
+        "VoiceType": "Standard"
     },
     {
-        "Name": "Microsoft Server Speech Text to Speech Voice (cs-CZ, Jakub)",
-        "ShortName": "cs-CZ-Jakub",
-        "Gender": "Male",
-        "Locale": "cs-CZ"
+        "Name": "Microsoft Server Speech Text to Speech Voice (zh-CN, XiaoxiaoNeural)",
+        "ShortName": "zh-CN-XiaoxiaoNeural",
+        "Gender": "Female",
+        "Locale": "zh-CN",
+        "SampleRateHertz": "24000",
+        "VoiceType": "Neural"
     },
 
     ...
-
 ]
 ```
 
@@ -135,13 +144,13 @@ Esta respuesta se ha truncado para ilustrar la estructura de una respuesta.
 
 El estado HTTP de cada respuesta indica estados de corrección o error comunes.
 
-| Código de estado HTTP | DESCRIPCIÓN | Posible motivo |
+| Código de estado HTTP | Descripción | Posible motivo |
 |------------------|-------------|-----------------|
-| 200 | OK | La solicitud fue correcta. |
+| 200 | Aceptar | La solicitud fue correcta. |
 | 400 | Bad Request | Falta un parámetro requerido, está vacío o es nulo. O bien, el valor pasado a un parámetro obligatorio u opcional no es válido. Un problema común es que el encabezado sea demasiado largo. |
 | 401 | No autorizado | La solicitud no está autenticada. Asegúrese de que la clave de suscripción o el token sean válidos y de la región correcta. |
 | 429 | Demasiadas solicitudes | Ha superado la cuota o la tasa de solicitudes permitidas para su suscripción. |
-| 502 | Puerta de enlace incorrecta | Problema de red o de servidor. Podría indicar también encabezados no válidos. |
+| 502 | Puerta de enlace incorrecta    | Problema de red o de servidor. Podría indicar también encabezados no válidos. |
 
 
 ## <a name="convert-text-to-speech"></a>Conversión de texto a voz
@@ -158,7 +167,7 @@ Estas regiones son compatibles con la conversión de texto a voz mediante la API
 
 En esta tabla se enumeran los encabezados obligatorios y opcionales para las solicitudes de texto a voz.
 
-| Encabezado | DESCRIPCIÓN | Obligatorio u opcional |
+| Encabezado | Descripción | Obligatorio u opcional |
 |--------|-------------|---------------------|
 | `Authorization` | Un token de autorización precedido por la palabra `Bearer`. Para más información, consulte [Autenticación](#authentication). | Obligatorio |
 | `Content-Type` | Especifica el tipo de contenido para el texto proporcionado. Valor aceptable: `application/ssml+xml`. | Obligatorio |
@@ -191,7 +200,7 @@ El cuerpo de cada solicitud `POST` se envía como [lenguaje de marcado de sínte
 
 ### <a name="sample-request"></a>Solicitud de ejemplo
 
-Esta solicitud HTTP utiliza SSML para especificar el idioma y la voz. El cuerpo no puede superar los 1000 caracteres.
+Esta solicitud HTTP utiliza SSML para especificar el idioma y la voz. Si la longitud del cuerpo es larga y el audio resultante supera los 10 minutos, se trunca a 10 minutos. En otras palabras, la longitud del audio no puede superar los 10 minutos.
 
 ```http
 POST /cognitiveservices/v1 HTTP/1.1
@@ -203,7 +212,7 @@ Content-Length: 225
 Authorization: Bearer [Base64 access_token]
 
 <speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female'
-    name='en-US-JessaRUS'>
+    name='en-US-AriaRUS'>
         Microsoft Speech Service Text-to-Speech API
 </voice></speak>
 ```
@@ -218,20 +227,20 @@ Consulte nuestras guías de inicio rápido para ver ejemplos específicos del id
 
 El estado HTTP de cada respuesta indica estados de corrección o error comunes.
 
-| Código de estado HTTP | DESCRIPCIÓN | Posible motivo |
+| Código de estado HTTP | Descripción | Posible motivo |
 |------------------|-------------|-----------------|
-| 200 | OK | La solicitud es correcta; el cuerpo de la respuesta es un archivo de audio. |
+| 200 | Aceptar | La solicitud es correcta; el cuerpo de la respuesta es un archivo de audio. |
 | 400 | Bad Request | Falta un parámetro requerido, está vacío o es nulo. O bien, el valor pasado a un parámetro obligatorio u opcional no es válido. Un problema común es que el encabezado sea demasiado largo. |
 | 401 | No autorizado | La solicitud no está autenticada. Asegúrese de que la clave de suscripción o el token sean válidos y de la región correcta. |
 | 413 | Entidad de solicitud demasiado larga | La entrada de SSML tiene más de 1024 caracteres. |
 | 415 | Tipo de medio no compatible | Es posible que se haya proporcionado el `Content-Type` incorrecto. `Content-Type` se debe establecer en `application/ssml+xml`. |
 | 429 | Demasiadas solicitudes | Ha superado la cuota o la tasa de solicitudes permitidas para su suscripción. |
-| 502 | Puerta de enlace incorrecta | Problema de red o de servidor. Podría indicar también encabezados no válidos. |
+| 502 | Puerta de enlace incorrecta    | Problema de red o de servidor. Podría indicar también encabezados no válidos. |
 
 Si el estado HTTP es `200 OK`, el cuerpo de la respuesta contiene un archivo de audio en el formato solicitado. Este archivo se puede reproducir mientras se transfiere o guardarse en un búfer o en un archivo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Obtenga su suscripción de prueba a Voz](https://azure.microsoft.com/try/cognitive-services/)
-- [Personalización de modelos acústicos](how-to-customize-acoustic-models.md)
-- [Personalización de modelos de lenguaje](how-to-customize-language-model.md)
+- [Obtenga su suscripción de prueba a Voz](https://azure.microsoft.com/try/cognitive-services)
+- [Síntesis asincrónica para audio de formato largo](quickstarts/text-to-speech/async-synthesis-long-form-audio.md)
+- [Introducción a Voz personalizada](how-to-custom-voice.md)

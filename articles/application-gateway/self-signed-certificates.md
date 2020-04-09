@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: victorh
-ms.openlocfilehash: 3cf4f2314c7de2b2f7d581faeea88fe3c3177e81
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 0547f254a64cecc7072ee9ff79eb50204b34bc17
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975064"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548861"
 ---
 # <a name="generate-an-azure-application-gateway-self-signed-certificate-with-a-custom-root-ca"></a>Generación de un certificado autofirmado de Azure Application Gateway con una entidad de certificación raíz personalizada
 
@@ -30,7 +30,7 @@ En este artículo, aprenderá a:
 - Crear un certificado autofirmado firmado por la entidad de certificación personalizada
 - Cargar un certificado raíz autofirmado en Application Gateway para autenticar el servidor back-end
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - **[OpenSSL](https://www.openssl.org/) en un equipo con Windows o Linux** 
 
@@ -88,7 +88,7 @@ Use el siguiente comando para generar la clave para el certificado de servidor.
 La CSR es una clave pública que se asigna a una entidad de certificación al solicitar un certificado. La entidad de certificación emite el certificado para esta solicitud específica.
 
 > [!NOTE]
-> El nombre común del certificado de servidor debe ser diferente del dominio del emisor. Por ejemplo, en este caso, el CN del emisor es `www.contoso.com` y el CN del certificado de servidor es `www.fabrikam.com`.
+> El nombre común (CN) del certificado de servidor debe ser diferente del dominio del emisor. Por ejemplo, en este caso, el CN del emisor es `www.contoso.com` y el CN del certificado de servidor es `www.fabrikam.com`.
 
 
 1. Use el comando siguiente para generar la CSR:
@@ -230,9 +230,9 @@ $probe = Get-AzApplicationGatewayProbeConfig `
   -Name testprobe `
   -ApplicationGateway $gw
 
-## Add the configuration to the HTTP Setting and don’t forget to set the “hostname” field
+## Add the configuration to the HTTP Setting and don't forget to set the "hostname" field
 ## to the domain name of the server certificate as this will be set as the SNI header and
-## will be used to verify the backend server’s certificate. Note that SSL handshake will
+## will be used to verify the backend server's certificate. Note that SSL handshake will
 ## fail otherwise and might lead to backend servers being deemed as Unhealthy by the probes
 
 Add-AzApplicationGatewayBackendHttpSettings `
@@ -262,12 +262,13 @@ Add-AzApplicationGatewayRequestRoutingRule `
 
 Set-AzApplicationGateway -ApplicationGateway $gw 
 ```
+
 ### <a name="verify-the-application-gateway-backend-health"></a>Comprobación del estado de back-end de una instancia de Application Gateway
 
 1. Haga clic en la vista **Estado de back-end** de la instancia de Application Gateway para comprobar si el estado del sondeo es correcto.
-1.  Debería ver que el estado es **Correcto** para el sondeo HTTPS.
+1. Debería ver que el estado es **Correcto** para el sondeo HTTPS.
 
-    ![Sondeo HTTPS](media/self-signed-certificates/https-probe.png)
+![Sondeo HTTPS](media/self-signed-certificates/https-probe.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

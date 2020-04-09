@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: dcd0371d275c3a46fe9bf07c96516a2d0820abb7
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: 9f33dc9528d5f7043dda2c6fad207a9a51347a2b
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77430540"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631493"
 ---
 # <a name="troubleshoot-issues-with-azure-automation-desired-state-configuration-dsc"></a>Solución de problemas de Desired State Configuration (DSC) de Azure Automation
 
@@ -48,11 +48,11 @@ Para obtener información sobre el uso de xDscDiagnostics, consulte [Uso de xDsc
 
 ### <a name="3-ensure-that-nodes-and-the-automation-workspace-have-required-modules"></a>3. Asegúrese de que los nodos y el área de trabajo de Automation tengan los módulos necesarios
 
-DSC depende de módulos que hay instalados en el nodo. Al usar State Configuration de Azure Automation, importe los módulos necesarios a la cuenta de Automation mediante los pasos indicados en [Importación de módulos](../shared-resources/modules.md#import-modules). Las configuraciones también pueden tener una dependencia en versiones específicas de los módulos. Para más información, consulte [Solución de problemas de módulos](shared-resources.md#modules).
+DSC depende de módulos que hay instalados en el nodo. Al usar State Configuration de Azure Automation, importe los módulos necesarios a la cuenta de Automation mediante los pasos indicados en [Importación de módulos](../shared-resources/modules.md#importing-modules). Las configuraciones también pueden tener una dependencia en versiones específicas de los módulos. Para más información, consulte [Solución de problemas de módulos](shared-resources.md#modules).
 
 ## <a name="common-errors-when-working-with-dsc"></a>Errores comunes al trabajar con DSC
 
-### <a name="unsupported-characters"></a>Escenario: No se puede eliminar una configuración con caracteres especiales del portal
+### <a name="scenario-a-configuration-with-special-characters-cannot-be-deleted-from-the-portal"></a><a name="unsupported-characters"></a>Escenario: No se puede eliminar una configuración con caracteres especiales del portal
 
 #### <a name="issue"></a>Problema
 
@@ -72,7 +72,7 @@ Este error es un problema temporal que está previsto que se resuelva.
 * Todavía no se ha actualizado la documentación de este cmdlet.  Hasta entonces, consulte la documentación del módulo AzureRM.
   * [Remove-AzureRmAutomationDSCConfiguration](/powershell/module/azurerm.automation/Remove-AzureRmAutomationDscConfiguration)
 
-### <a name="failed-to-register-agent"></a>Escenario: No se pudo registrar el agente de DSC
+### <a name="scenario-failed-to-register-dsc-agent"></a><a name="failed-to-register-agent"></a>Escenario: No se pudo registrar el agente de DSC
 
 #### <a name="issue"></a>Problema
 
@@ -97,7 +97,7 @@ Este error se debe normalmente a un firewall, a la máquina que está detrás de
 
 Compruebe que la máquina tenga acceso a los puntos de conexión adecuadas para DSC de Automatización de Azure y vuelva a intentarlo. Para ver una lista de puertos y direcciones necesarios, consulte [Planeamiento de red](../automation-dsc-overview.md#network-planning).
 
-### <a name="a-nameunauthorizedascenario-status-reports-return-response-code-unauthorized"></a><a name="unauthorized"><a/>Escenario: los informes de estado devuelven el código de respuesta "No autorizado"
+### <a name="a-nameunauthorizedscenario-status-reports-return-response-code-unauthorized"></a><a name="unauthorized"><a/>Escenario: los informes de estado devuelven el código de respuesta "No autorizado"
 
 #### <a name="issue"></a>Problema
 
@@ -113,7 +113,7 @@ VM has reported a failure when processing extension 'Microsoft.Powershell.DSC / 
 
 ### <a name="cause"></a>Causa
 
-Este problema se debe a un certificado que no es válido o ha expirado.  Para más información, consulte [Expiración y repetición del registro del certificado](../automation-dsc-onboarding.md#certificate-expiration-and-re-registration).
+Este problema se debe a un certificado que no es válido o ha expirado.  Para más información, consulte [Expiración y repetición del registro del certificado](../automation-dsc-onboarding.md#re-registering-a-node).
 
 ### <a name="resolution"></a>Solución
 
@@ -159,7 +159,7 @@ Por último, vuelva a registrar el nodo con errores mediante estos pasos.
 4. Seleccione el nodo con errores.
 5. Haga clic en "Conectar" y seleccione las opciones deseadas.
 
-### <a name="failed-not-found"></a>Escenario: el nodo se encuentra en estado de error con el error "No encontrado"
+### <a name="scenario-node-is-in-failed-status-with-a-not-found-error"></a><a name="failed-not-found"></a>Escenario: el nodo se encuentra en estado de error con el error "No encontrado"
 
 #### <a name="issue"></a>Problema
 
@@ -181,7 +181,7 @@ Este error suele ocurrir cuando se asigna al nodo un nombre de configuración (p
   * Para asignar una configuración de nodo a un nodo mediante Azure Portal, abra la página **Nodos DSC**, seleccione un nodo y haga clic en el botón **Asignar configuración de nodo**.
   * Para asignar una configuración de nodo a un nodo mediante un cmdlet de PowerShell, use el cmdlet **Set-AzureRmAutomationDscNode**.
 
-### <a name="no-mof-files"></a>Escenario: no se produjeron configuraciones de nodo (archivos MOF) al compilarse una configuración
+### <a name="scenario-no-node-configurations-mof-files-were-produced-when-a-configuration-is-compiled"></a><a name="no-mof-files"></a>Escenario: no se produjeron configuraciones de nodo (archivos MOF) al compilarse una configuración
 
 #### <a name="issue"></a>Problema
 
@@ -202,7 +202,7 @@ Cualquiera de las siguientes soluciones resolverá el problema:
 * Asegúrese de que la expresión junto a la palabra clave **Node** en la definición de configuración no se está evaluando como $null.
 * Si se pasan datos de configuración al compilar la configuración, asegúrese de que se pasan los valores esperados que la configuración necesita de [ConfigurationData](../automation-dsc-compile.md).
 
-### <a name="dsc-in-progress"></a>Escenario: el informe de nodo de DSC se queda bloqueado en el estado "en curso"
+### <a name="scenario-the-dsc-node-report-becomes-stuck-in-progress-state"></a><a name="dsc-in-progress"></a>Escenario: el informe de nodo de DSC se queda bloqueado en el estado "en curso"
 
 #### <a name="issue"></a>Problema
 
@@ -220,7 +220,7 @@ Ha actualizado la versión de WMF y ha dañado WMI.
 
 Para solucionar el problema, siga las instrucciones que se indican en el artículo [Problemas y limitaciones conocidos de DSC](https://docs.microsoft.com/powershell/scripting/wmf/known-issues/known-issues-dsc).
 
-### <a name="issue-using-credential"></a>Escenario: no se puede usar una credencial en una configuración de DSC
+### <a name="scenario-unable-to-use-a-credential-in-a-dsc-configuration"></a><a name="issue-using-credential"></a>Escenario: no se puede usar una credencial en una configuración de DSC
 
 #### <a name="issue"></a>Problema
 
@@ -232,13 +232,13 @@ System.InvalidOperationException error processing property 'Credential' of type 
 
 #### <a name="cause"></a>Causa
 
-Ha usado una credencial en una configuración pero no ha proporcionado el valor adecuado de **ConfigurationData** para establecer **PSDscAllowPlainTextPassword** en true para cada configuración de nodo.
+Ha usado una credencial en una configuración, pero no ha proporcionado el valor adecuado de **ConfigurationData** para establecer **PSDscAllowPlainTextPassword** en true en cada configuración de nodo.
 
 #### <a name="resolution"></a>Solución
 
 * Asegúrese de pasar el valor adecuado de **ConfigurationData** para establecer **PSDAllowPlainTextPassword** como true para cada configuración de nodo mencionada en la configuración. Para más información, consulte [Compilación de configuraciones de DSC en State Configuration de Azure Automation](../automation-dsc-compile.md).
 
-### <a name="failure-processing-extension"></a>Escenario: Se produce un error de procesamiento de la extensión al realizar la incorporación desde la extensión DSC
+### <a name="scenario-onboarding-from-dsc-extension-failure-processing-extension-error"></a><a name="failure-processing-extension"></a>Escenario: Se produce un error de procesamiento de la extensión al realizar la incorporación desde la extensión DSC
 
 #### <a name="issue"></a>Problema
 
@@ -257,7 +257,7 @@ Este error suele producirse cuando se asigna al nodo un nombre de configuración
 * Asegúrese de que asigna al nodo un nombre de configuración que coincida exactamente con el nombre del servicio.
 * Puede elegir no incluir el nombre de configuración del nodo, lo que dará lugar a la incorporación del nodo, pero no a la asignación de una configuración del nodo
 
-### <a name="cross-subscription"></a>Escenario: al registrar un nodo con PowerShell, se devuelve el error "Se han producido uno o más errores"
+### <a name="scenario-registering-a-node-with-powershell-returns-the-error-one-or-more-errors-occurred"></a><a name="cross-subscription"></a>Escenario: al registrar un nodo con PowerShell, se devuelve el error "Se han producido uno o más errores"
 
 #### <a name="issue"></a>Problema
 
@@ -277,10 +277,10 @@ Trate el nodo entre suscripciones como si se encontrara en una nube independient
 
 Siga estos pasos para registrar el nodo.
 
-* Windows: [máquinas físicas y virtuales con Windows locales o en una nube que no sea Azure/AWS](../automation-dsc-onboarding.md#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances).
-* Linux: [máquinas físicas y virtuales Linux locales o en una nube que no sea Azure](../automation-dsc-onboarding.md#physicalvirtual-linux-machines-on-premises-or-in-a-cloud-other-than-azure).
+* Windows: [máquinas físicas y virtuales con Windows locales o en una nube que no sea Azure/AWS](../automation-dsc-onboarding.md#onboarding-physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances).
+* Linux: [máquinas físicas y virtuales Linux locales o en una nube que no sea Azure](../automation-dsc-onboarding.md#onboarding-physicalvirtual-linux-machines-on-premises-or-in-a-cloud-other-than-azure).
 
-### <a name="agent-has-a-problem"></a>Escenario: mensaje de error: "Error de aprovisionamiento"
+### <a name="scenario-error-message---provisioning-failed"></a><a name="agent-has-a-problem"></a>Escenario: mensaje de error: "Error de aprovisionamiento"
 
 #### <a name="issue"></a>Problema
 
@@ -300,7 +300,7 @@ Determine si el nodo está en una red virtual privada o si tiene otros problemas
 
 Para más información, consulte [Solución de problemas de errores al incorporar soluciones](onboarding.md).
 
-### <a name="failure-linux-temp-noexec"></a>Escenario: Al aplicar una configuración en Linux, se produce un error general
+### <a name="scenario-applying-a-configuration-in-linux-a-failure-occurs-with-a-general-error"></a><a name="failure-linux-temp-noexec"></a>Escenario: Al aplicar una configuración en Linux, se produce un error general
 
 #### <a name="issue"></a>Problema
 
@@ -318,7 +318,7 @@ Los clientes han identificado que si se establece la ubicación `/tmp` en `noexe
 
 * Quite la opción `noexec` de la ubicación `/tmp`.
 
-### <a name="compilation-node-name-overlap"></a>Escenario: los nombres de configuración de nodos que se superponen podrían provocar una versión incorrecta
+### <a name="scenario-node-configuration-names-that-overlap-could-result-in-bad-release"></a><a name="compilation-node-name-overlap"></a>Escenario: los nombres de configuración de nodos que se superponen podrían provocar una versión incorrecta
 
 #### <a name="issue"></a>Problema
 
@@ -333,6 +333,20 @@ Problema conocido con el servicio de compilación.
 #### <a name="resolution"></a>Solución
 
 La mejor solución sería realizar la compilación localmente o en una canalización de CI/CD y cargar los archivos MOF directamente en el servicio.  Si es necesario que la compilación tenga lugar en el servicio, la siguiente mejor solución sería dividir los trabajos de compilación para que no haya nombres superpuestos.
+
+### <a name="scenario-gateway-timeout-error-on-dsc-configuration-upload"></a><a name="gateway-timeout"></a>Escenario: Error de tiempo de espera de puerta de enlace en la carga de la configuración de DSC
+
+#### <a name="issue"></a>Problema
+
+Recibe un error `GatewayTimeout` al cargar una configuración de DSC. 
+
+#### <a name="cause"></a>Causa
+
+Las configuraciones de DSC que tardan mucho tiempo en compilarse pueden producir este error.
+
+#### <a name="resolution"></a>Solución
+
+Las configuraciones de DSC se pueden analizar más rápidamente si se incluye expresamente el parámetro `ModuleName` en cualquier llamada `Import-DscResource`. Para más información, vea [Uso de Import-DSCResource](https://docs.microsoft.com/powershell/scripting/dsc/configurations/import-dscresource?view=powershell-5.1).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

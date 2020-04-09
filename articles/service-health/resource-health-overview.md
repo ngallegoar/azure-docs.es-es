@@ -3,12 +3,12 @@ title: Introducción a Azure Resource Health
 description: Introducción a Azure Resource Health
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: 5609c7f09dc81a54a941dea391c0d717ad4bb06a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7a1dfe5e93d0e19aeb343d113a24ed882a5b3f69
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75356792"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80159258"
 ---
 # <a name="resource-health-overview"></a>Introducción a Resource Health
  
@@ -38,7 +38,7 @@ El mantenimiento de un recurso se muestra con uno de los siguientes estados.
 
 #### <a name="platform-events"></a>Eventos de plataforma
 
-Varios componentes de la infraestructura de Azure desencadenan estos eventos. Por ejemplo, acciones programadas (como mantenimiento planeado) e incidentes inesperados (como reinicio del host no planeado).
+Varios componentes de la infraestructura de Azure desencadenan estos eventos. Por ejemplo, acciones programadas (como mantenimiento planeado) e incidentes inesperados (como reinicio del host no planeado o un hardware host degradado que se predice que falla después de un período de tiempo especifico).
 
 Resource Health proporciona detalles adicionales sobre el evento y el proceso de recuperación. También permite ponerse en contacto con Soporte técnico de Microsoft, incluso si no tiene un contrato de soporte técnico activo.
 
@@ -76,7 +76,7 @@ Si cree que el estado de mantenimiento actual es incorrecto, puede hacérnoslo s
 
 ## <a name="history-information"></a>Información del historial
 
-Puede acceder al historial de 14 días en la sección **Historial de estado** de Resource Health.
+Puede tener acceso al historial de hasta 30 días en la sección **Historial de estado** de Resource Health.
 
 ![Lista de eventos de Resource Health durante las últimas dos semanas](./media/resource-health-overview/history-blade.png)
 

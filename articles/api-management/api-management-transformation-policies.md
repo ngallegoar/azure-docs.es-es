@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 34a70a4698b69881a06cfb7a7017fa0c30647197
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 81b7fb687bb6ef88d1ed436923d0e5ff7561c22b
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80047696"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80803252"
 ---
 # <a name="api-management-transformation-policies"></a>Directivas de transformación de API Management
 En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -342,7 +342,7 @@ En este ejemplo, la directiva enruta la solicitud a un back-end de Service Fabri
 ```
 
 #### <a name="filter-response-based-on-product"></a>Filtro de respuesta según un producto
- En este ejemplo se muestra cómo filtrar contenido quitando elementos de datos de la respuesta recibida del servicio back-end al usar el producto `Starter`. Para ver una demostración de la configuración y el uso de esta directiva, vea [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) (Episodio 177 de Cloud Cover: más características API Management con Vlad Vinogradsky) y avance al minuto 34:30. Empiece en el minuto 31:50 para ver una introducción a la [API de previsión de Dark Sky](https://developer.forecast.io/) empleada en esta demostración.
+ En este ejemplo se muestra cómo filtrar contenido quitando elementos de datos de la respuesta recibida del servicio back-end al usar el producto `Starter`. Para ver una demostración de la configuración y el uso de esta directiva, consulte el [Episodio 177 de Cloud Cover: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) (Más características de API Management con Vlad Vinogradsky) y avance hasta el minuto 34:30. Empiece en el minuto 31:50 para ver una introducción a la [API de previsión de Dark Sky](https://developer.forecast.io/) empleada en esta demostración.
 
 ```xml
 <!-- Copy this snippet into the outbound section to remove a number of data elements from the response received from the backend service based on the name of the api product -->
@@ -484,7 +484,7 @@ OriginalUrl.
 
 
 #### <a name="forward-context-information-to-the-backend-service"></a>Reenvío de información contextual al servicio back-end
- En este ejemplo se muestra cómo aplicar directivas en el nivel de API para proporcionar información contextual al servicio back-end. Para ver una demostración de la configuración y el uso de esta directiva, vea [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) (Episodio 177 de Cloud Cover: más características API Management con Vlad Vinogradsky) y avance al minuto 10:30. En el minuto 12:10 se realiza una demostración del llamamiento de una operación en el portal para desarrolladores donde podrá ver la directiva en funcionamiento.
+ En este ejemplo se muestra cómo aplicar directivas en el nivel de API para proporcionar información contextual al servicio back-end. Para ver una demostración de la configuración y el uso de esta directiva, consulte el [Episodio 177 de Cloud Cover: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) (Más características de API Management con Vlad Vinogradsky) y avance hasta el minuto 10:30. En el minuto 12:10 se realiza una demostración del llamamiento de una operación en el portal para desarrolladores donde podrá ver la directiva en funcionamiento.
 
 ```xml
 <!-- Copy this snippet into the inbound element to forward some context information, user id and the region the gateway is hosted in, to the backend service for logging or evaluation -->
@@ -540,23 +540,18 @@ OriginalUrl.
 </set-query-parameter>
 ```
 
-### <a name="examples"></a>Ejemplos
-
 #### <a name="example"></a>Ejemplo
 
 ```xml
 
-<set-query-parameter>
-  <parameter name="api-key" exists-action="skip">
-    <value>12345678901</value>
-  </parameter>
-  <!-- for multiple parameters with the same name add additional value elements -->
+<set-query-parameter name="api-key" exists-action="skip">
+  <value>12345678901</value>
 </set-query-parameter>
 
 ```
 
 #### <a name="forward-context-information-to-the-backend-service"></a>Reenvío de información contextual al servicio back-end
- En este ejemplo se muestra cómo aplicar directivas en el nivel de API para proporcionar información contextual al servicio back-end. Para ver una demostración de la configuración y el uso de esta directiva, vea [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) (Episodio 177 de Cloud Cover: más características API Management con Vlad Vinogradsky) y avance al minuto 10:30. En el minuto 12:10 se realiza una demostración del llamamiento de una operación en el portal para desarrolladores donde podrá ver la directiva en funcionamiento.
+ En este ejemplo se muestra cómo aplicar directivas en el nivel de API para proporcionar información contextual al servicio back-end. Para ver una demostración de la configuración y el uso de esta directiva, consulte el [Episodio 177 de Cloud Cover: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) (Más características de API Management con Vlad Vinogradsky) y avance hasta el minuto 10:30. En el minuto 12:10 se realiza una demostración del llamamiento de una operación en el portal para desarrolladores donde podrá ver la directiva en funcionamiento.
 
 ```xml
 <!-- Copy this snippet into the inbound element to forward a piece of context, product name in this example, to the backend service for logging or evaluation -->

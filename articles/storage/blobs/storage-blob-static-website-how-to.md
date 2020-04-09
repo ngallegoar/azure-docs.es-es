@@ -7,12 +7,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
-ms.openlocfilehash: e312cc0dc6c58bb33a737e1fc28dd6eb3578b764
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.openlocfilehash: 056e23f0f0cf1a3a1c70042cef3c92dd41f14f82
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78330294"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80247017"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Hospedaje de un sitio web estático en Azure Storage
 
@@ -239,11 +239,15 @@ Write-Output $storageAccount.PrimaryEndpoints.Web
 
 Después de habilitar las métricas, las estadísticas de tráfico de los archivos en el contenedor **$web** aparecen en el panel de métricas.
 
-1. Haga clic en **Configuración** > **Supervisión** > **Métricas**.
+1. Haga clic en **métricas** en la sección **monitor** del menú de la cuenta de almacenamiento.
 
-   Los datos de las métricas se generan al enlazarse en diferentes API de métricas. El portal solo muestra los miembros de API que se usan en un período de tiempo determinado, para centrarse únicamente en los miembros que devuelven datos. Para asegurarse de que puede seleccionar el miembro de API necesario, el primer paso es expandir el período de tiempo.
+   > [!div class="mx-imgBorder"]
+   > ![Vínculo de métricas](./media/storage-blob-static-website/metrics-link.png)
 
-2. Haga clic en el botón de marco de tiempo y seleccione **Últimas 24 horas** y luego haga clic en **Aplicar**.
+   > [!NOTE]
+   > Los datos de las métricas se generan al enlazarse en diferentes API de métricas. El portal solo muestra los miembros de API que se usan en un período de tiempo determinado, para centrarse únicamente en los miembros que devuelven datos. Para asegurarse de que puede seleccionar el miembro de API necesario, el primer paso es expandir el período de tiempo.
+
+2. Haga clic en el botón de marco de tiempo y seleccione un plazo de tiempo y luego haga clic en **Aplicar**.
 
    ![Intervalo de tiempo de las métricas de sitios web estáticos de Azure Storage](./media/storage-blob-static-website/storage-blob-static-website-metrics-time-range.png)
 
@@ -266,6 +270,9 @@ Después de habilitar las métricas, las estadísticas de tráfico de los archiv
 7. Active la casilla junto a **GetWebContent** en el selector *Valores* para completar el informe de métricas.
 
    ![GetWebContent de métricas de sitios web de Azure Storage](./media/storage-blob-static-website/storage-blob-static-website-metrics-getwebcontent.png)
+
+   >[!NOTE]
+   > La casilla **GetWebContent** solo aparece si ese miembro de la API se usó dentro de un período de tiempo determinado. El portal solo muestra los miembros de API que se usan en un período de tiempo determinado, para centrarse únicamente en los miembros que devuelven datos. Si no encuentra un miembro específico de la API en esta lista, expanda el período de tiempo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

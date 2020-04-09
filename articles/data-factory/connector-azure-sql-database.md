@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/28/2020
-ms.openlocfilehash: def57dc125a148abd330643fc5848a35cd3b52bf
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.date: 03/12/2020
+ms.openlocfilehash: 8f5065a0f4a2a96a747a45f64e00e86f7990bfb8
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76991019"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437790"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Copia y transformación de datos en Azure SQL Database mediante Azure Data Factory
 
@@ -45,7 +45,7 @@ Para la actividad de copia, este conector de Azure SQL Database admite estas fun
 >Actualmente, este conector no admite [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=azuresqldb-current) de Azure SQL Database. Como solución alternativa, puede usar un [conector ODBC genérico](connector-odbc.md) y un controlador ODBC de SQL Server mediante un entorno de ejecución de integración autohospedado. Siga [esta guía](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=azuresqldb-current) con configuraciones de cadena de conexión y descarga del controlador ODBC.
 
 > [!IMPORTANT]
-> Si copia los datos mediante el entorno de ejecución de integración de Azure Data Factory, configure un [firewall de Azure SQL Server ](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) para que los servicios de Azure puedan obtener acceso al servidor.
+> Si copia los datos mediante el entorno de ejecución de integración de Azure Data Factory, configure un [firewall de Azure SQL Server ](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) para que los servicios de Azure puedan obtener acceso al servidor.
 > Si copia los datos mediante un entorno de ejecución de integración autohospedado, configure el firewall de Azure SQL Server para permitir el intervalo IP apropiado. Dicho intervalo incluye la dirección IP de la máquina que se utiliza para conectarse a Azure SQL Database.
 
 ## <a name="get-started"></a>Introducción
@@ -143,7 +143,7 @@ Para usar la autenticación de token de aplicación de Azure AD basada en la ent
 4. Conceda a la entidad de servicio los permisos necesarios, tal como lo haría normalmente para los usuarios de SQL, u otros usuarios. Ejecute el código siguiente: Para más opciones, consulte [este documento](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
 
     ```sql
-    EXEC sp_addrolemember [role name], [your application name];
+    ALTER ROLE [role name] ADD MEMBER [your application name];
     ```
 
 5. En Azure Data Factory, configure un servicio vinculado de Azure SQL Database.
@@ -173,7 +173,7 @@ Para usar la autenticación de token de aplicación de Azure AD basada en la ent
 }
 ```
 
-### <a name="managed-identity"></a> Identidades administradas para la autenticación de recursos de Azure
+### <a name="managed-identities-for-azure-resources-authentication"></a><a name="managed-identity"></a> Identidades administradas para la autenticación de recursos de Azure
 
 Una factoría de datos se puede asociar con una [identidad administrada para recursos de Azure](data-factory-service-identity.md) que representa esa factoría de datos concreta. Esta identidad administrada se puede usar para la autenticación de Azure SQL Database. Puede acceder a la factoría designada y copiar datos desde la base de datos o en la base de datos usando esta identidad.
 
@@ -190,7 +190,7 @@ Para usar la autenticación de identidad administrada, siga estos pasos.
 3. Conceda a la identidad administrada de Data Factory los permisos necesarios, tal como lo haría normalmente para los usuarios de SQL y otros usuarios. Ejecute el código siguiente: Para más opciones, consulte [este documento](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
 
     ```sql
-    EXEC sp_addrolemember [role name], [your Data Factory name];
+    ALTER ROLE [role name] ADD MEMBER [your Data Factory name];
     ```
 
 4. En Azure Data Factory, configure un servicio vinculado de Azure SQL Database.
@@ -261,6 +261,7 @@ Para copiar datos desde Azure SQL Database, se admiten las siguientes propiedade
 | sqlReaderQuery | Esta propiedad usa la consulta SQL personalizada para leer los datos. Un ejemplo es `select * from MyTable`. | No |
 | sqlReaderStoredProcedureName | Nombre del procedimiento almacenado que lee datos de la tabla de origen. La última instrucción SQL debe ser una instrucción SELECT del procedimiento almacenado. | No |
 | storedProcedureParameters | Parámetros del procedimiento almacenado.<br/>Los valores permitidos son pares de nombre o valor. Los nombres y las mayúsculas y minúsculas de los parámetros tienen que coincidir con las mismas características de los parámetros de procedimiento almacenado. | No |
+| isolationLevel | Especifica el comportamiento de bloqueo de transacción para el origen de SQL. Los valores permitidos son: **ReadCommitted** (valor predeterminado), **ReadUncommitted**, **RepeatableRead**, **Serializable** y **Snapshot**. Vea [este documento](https://docs.microsoft.com/dotnet/api/system.data.isolationlevel) para obtener más detalles. | No |
 
 **Puntos a tener en cuenta:**
 
@@ -505,7 +506,7 @@ Los pasos necesarios para escribir datos con lógica personalizada son similares
 - Cargar los datos en una tabla temporal con ámbito de base de dato y luego invocar un procedimiento almacenado. 
 - Invoque un procedimiento almacenado durante la copia.
 
-## <a name="invoke-a-stored-procedure-from-a-sql-sink"></a> Invocación del procedimiento almacenado desde el receptor de SQL
+## <a name="invoke-a-stored-procedure-from-a-sql-sink"></a><a name="invoke-a-stored-procedure-from-a-sql-sink"></a> Invocación del procedimiento almacenado desde el receptor de SQL
 
 Al copiar datos en Azure SQL Database, también se puede configurar e invocar un procedimiento almacenado especificado por el usuario con parámetros adicionales. La característica de procedimiento almacenado aprovecha los [parámetros con valores de tabla](https://msdn.microsoft.com/library/bb675163.aspx).
 
@@ -521,7 +522,7 @@ En el ejemplo siguiente se muestra cómo usar un procedimiento almacenado para r
     ```sql
     CREATE TYPE [dbo].[MarketingType] AS TABLE(
         [ProfileID] [varchar](256) NOT NULL,
-        [State] [varchar](256) NOT NULL，
+        [State] [varchar](256) NOT NULL,
         [Category] [varchar](256) NOT NULL
     )
     ```

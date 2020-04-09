@@ -5,17 +5,22 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 03/03/2020
+ms.date: 03/20/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 9392855f98dbee2badbe87bb4a0bf11bf2fc073e
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: 4eb63fe4bd8f8a8b0961aa6a7fccb8de9b7c2f16
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79128012"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80123403"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>Implementación de la herramienta de diagnósticos
+
+>[!IMPORTANT]
+>A partir del 16 de marzo de 2020, se deshabilitaron temporalmente las consultas de diagnóstico que afectan a la experiencia del usuario debido al aumento de demanda en el servicio. Por este motivo, la herramienta dejará de funcionar, ya que depende de dichas consultas. Este artículo se actualizará cuando las consultas de diagnóstico vuelvan a estar disponibles.
+>
+>Hasta entonces, se recomienda [usar Log Analytics](diagnostics-log-analytics.md) para la supervisión continuada.
 
 Esto es lo que la herramienta de diagnósticos para Windows Virtual Desktop puede hacer:
 

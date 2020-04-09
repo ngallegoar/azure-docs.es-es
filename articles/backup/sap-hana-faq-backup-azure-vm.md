@@ -3,12 +3,12 @@ title: 'Preguntas frecuentes: copia de seguridad de bases de datos de SAP HANA e
 description: En este artículo, descubra las respuestas a preguntas comunes sobre la copia de seguridad de bases de datos de SAP HANA con el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: d9d10e38885ba814045d8476b83671153feb7b8c
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: a46c4d6cccc00452a56567880400ef5779e6aed4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77919692"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80155399"
 ---
 # <a name="frequently-asked-questions--back-up-sap-hana-databases-on-azure-vms"></a>Preguntas frecuentes: copia de seguridad de bases de datos de SAP HANA en máquinas virtuales de Azure
 
@@ -52,6 +52,14 @@ Al ejecutar el script de registro previo, se establecen los permisos necesarios 
 ### <a name="will-backups-work-after-migrating-sap-hana-from-10-to-20"></a>¿Funcionarán las copias de seguridad después de migrar SAP HANA de la versión 1.0 a la 2.0?
 
 Consulte [esta sección](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot#upgrading-from-sap-hana-10-to-20) de la guía de solución de problemas.
+
+### <a name="can-azure-hana-backup-be-set-up-against-a-virtual-ip-load-balancer-and-not-a-virtual-machine"></a>¿Se puede configurar la copia de seguridad de Azure HANA en una IP virtual (equilibrador de carga) y no en una máquina virtual?
+
+Actualmente no se tiene la capacidad de configurar la solución en una IP virtual por sí sola. Se necesita una máquina virtual para ejecutar la solución.
+
+### <a name="i-have-a-sap-hana-system-replication-hsr-how-should-i-configure-backup-for-this-setup"></a>Tengo una replicación del sistema SAP HANA (HSR), ¿cómo debo configurar la copia de seguridad para esta configuración?
+
+Los nodos principal y secundario del HSR se tratarán como dos máquinas virtuales individuales no relacionadas. Debe configurar la copia de seguridad en el nodo principal y, cuando se produzca la conmutación errónea, deberá configurar la copia de seguridad en el nodo secundario (que ahora se convierte en el nodo principal). No hay ninguna "conmutación errónea" automática de la copia de seguridad en el otro nodo.
 
 ## <a name="restore"></a>Restauración
 

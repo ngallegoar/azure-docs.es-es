@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: azfuncdf
-ms.openlocfilehash: a7d8891c6f925cfac326685f01ba5f6149a1b233
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: fece1155d2f707f11dda9f3896bd8a08deff1557
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78357802"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80802390"
 ---
 # <a name="http-features"></a>Características de HTTP
 
@@ -232,7 +232,7 @@ En runtime, el origen de token configurado devuelve automáticamente un token de
 * Los tokens nunca se almacenan en el estado de orquestación duradero.
 * No es necesario escribir código para administrar la adquisición de tokens.
 
-Puede encontrar un ejemplo más completo en la [muestra precompilada de C# RestartVMs](https://github.com/Azure/azure-functions-durable-extension/blob/v2/samples/v2/precompiled/RestartVMs.cs).
+Puede encontrar un ejemplo más completo en la [muestra precompilada de C# RestartVMs](https://github.com/Azure/azure-functions-durable-extension/blob/dev/samples/precompiled/RestartVMs.cs).
 
 Las identidades administradas no se limitan a la administración de recursos de Azure. Puede usar identidades administradas para acceder a cualquier API que acepte tokens de portador de Azure AD, incluidos los servicios de Azure de Microsoft y las aplicaciones Web de los asociados. Una aplicación Web de asociado puede ser también otra aplicación de funciones. Para ver la lista de servicios de Azure de Microsoft que admiten la autenticación con Azure AD, consulte [Servicios de Azure que admiten la autenticación de Azure AD](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
@@ -258,7 +258,7 @@ Si alguna de estas limitaciones puede afectar a su caso de uso, considere la pos
 
 La personalización del comportamiento del cliente HTTP interno de la orquestación es posible mediante [Inserción de dependencias en Azure Functions con .NET](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-dependency-injection). Esta capacidad puede ser útil para realizar pequeños cambios de comportamiento. También puede ser útil para las pruebas unitarias del cliente HTTP mediante la inserción de objetos ficticios.
 
-En el ejemplo siguiente se muestra cómo usar la inserción de dependencias para deshabilitar la validación de certificados SSL para las funciones del orquestador que llaman a puntos de conexión HTTP externos.
+En el ejemplo siguiente se muestra cómo usar la inserción de dependencias para deshabilitar la validación de certificados TLS/SSL para las funciones del orquestador que llaman a puntos de conexión HTTP externos.
 
 ```csharp
 public class Startup : FunctionsStartup
@@ -276,7 +276,7 @@ public class MyDurableHttpMessageHandlerFactory : IDurableHttpMessageHandlerFact
 {
     public HttpMessageHandler CreateHttpMessageHandler()
     {
-        // Disable SSL certificate validation (not recommended in production!)
+        // Disable TLS/SSL certificate validation (not recommended in production!)
         return new HttpClientHandler
         {
             ServerCertificateCustomValidationCallback =

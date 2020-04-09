@@ -1,19 +1,19 @@
 ---
-title: Búsqueda eficaz mediante el servicio Search de Azure Maps | Microsoft Azure Maps
-description: Obtenga información sobre cómo aplicar los procedimientos recomendados al servicio Search de Microsoft Azure Maps.
-author: farah-alyasari
-ms.author: v-faalya
+title: Procedimientos recomendados del servicio Search de Azure Maps | Microsoft Azure Maps
+description: Obtenga información sobre cómo poner en marcha algunos procedimientos recomendados relativos al servicio Search de Microsoft Azure Maps.
+author: philmea
+ms.author: philmea
 ms.date: 01/23/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 82e0339e02fa2fb27e7b2ca24f65934e3ce4fe23
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 8d62d7d278323baa0ae49b9e12f46468efb067a0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209807"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335318"
 ---
 # <a name="best-practices-for-azure-maps-search-service"></a>Procedimientos recomendados del servicio Search de Azure Maps
 
@@ -69,12 +69,12 @@ Se recomienda usar la [API de búsqueda aproximada](https://docs.microsoft.com/r
 
 * Use el parámetro `idxSet` para dar prioridad al conjunto exacto de tipos de resultados. Para dar prioridad a un conjunto exacto de resultados, puede enviar una lista de índices separada por comas. En la lista, el orden de los elementos no importa. Azure Maps admite los índices siguientes:
 
-    * `Addr` - **Intervalos de direcciones**: puntos de dirección que se interpolan desde el principio y el final de la calle. Esos puntos se representan como intervalos de direcciones.
-    * `Geo` - **Geografías**: divisiones administrativas del territorio. Una geografía puede ser un país o región, un estado o una ciudad, por ejemplo.
-    * `PAD` - **Direcciones de punto**: direcciones que incluyen el nombre y el número de la calle. Las direcciones de punto se pueden encontrar en un índice. Un ejemplo es *Soquel Dr 2501*. Una dirección de punto proporciona el nivel más alto de precisión disponible para las direcciones.  
-    * `POI` - **Puntos de interés**: puntos en un mapa que se considera que merece la pena prestar atención o que pueden ser interesantes. La [API de búsqueda de direcciones](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) no devuelve puntos de interés.  
-    * `Str` - **Calles**: calles en el mapa.
-    * `XStr` - **Cruces o intersecciones**: uniones o lugares donde dos calles forman una intersección.
+* `Addr` - **Intervalos de direcciones**: puntos de dirección que se interpolan desde el principio y el final de la calle. Esos puntos se representan como intervalos de direcciones.
+* `Geo` - **Geografías**: divisiones administrativas del territorio. Una geografía puede ser un país o región, un estado o una ciudad, por ejemplo.
+* `PAD` - **Direcciones de punto**: direcciones que incluyen el nombre y el número de la calle. Las direcciones de punto se pueden encontrar en un índice. Un ejemplo es *Soquel Dr 2501*. Una dirección de punto proporciona el nivel más alto de precisión disponible para las direcciones.  
+* `POI` - **Puntos de interés**: puntos en un mapa que se considera que merece la pena prestar atención o que pueden ser interesantes. La [API de búsqueda de direcciones](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) no devuelve puntos de interés.  
+* `Str` - **Calles**: calles en el mapa.
+* `XStr` - **Cruces o intersecciones**: uniones o lugares donde dos calles forman una intersección.
 
 
 #### <a name="usage-examples"></a>Ejemplos de uso
@@ -114,7 +114,6 @@ https://atlas.microsoft.com/search/address/reverse/json?api-version=1.0&subscrip
                 "municipality": "Redmond",
                 "country": "United States",
                 "countryCodeISO3": "USA",
-                },
                 "countrySubdivisionName": "Washington"
             },
             "position": "47.639454,-122.130455",
@@ -490,7 +489,6 @@ Para mejorar la pertinencia de los resultados y la información de la respuesta,
 En una solicitud, puede enviar una lista de nombres de marcas separada por comas. Use la lista para restringir los resultados a marcas específicas con el parámetro `brandSet`. En la lista, el orden de los elementos no importa. Cuando se proporcionan varias listas de marcas, los resultados que se devuelven deben pertenecer al menos a una de las listas.
 
 Para explorar la búsqueda de marcas, vamos a crear una solicitud de [búsqueda de categorías de puntos de interés](https://docs.microsoft.com/rest/api/maps/search/getsearchpoicategory). En el ejemplo siguiente, buscamos estaciones de servicio próximas al campus de Microsoft en Redmond, Washington. La respuesta muestra la información de marca de cada punto de interés devuelto.
-
 
 #### <a name="sample-query"></a>Consulta de ejemplo
 
@@ -969,5 +967,10 @@ Las respuestas de la API de [búsqueda de direcciones](https://docs.microsoft.co
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga información sobre [cómo crear solicitudes del servicio Search de Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-search-for-address).
-* Explore la [documentación de la API del servicio Search](https://docs.microsoft.com/rest/api/maps/search) de Azure Maps. 
+Para obtener más información, vea:
+
+> [!div class="nextstepaction"]
+> [Creación de solicitudes del servicio Search de Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-search-for-address)
+
+> [!div class="nextstepaction"]
+> [Documentación de la API del servicio Search](https://docs.microsoft.com/rest/api/maps/search)

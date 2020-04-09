@@ -3,13 +3,15 @@ title: Migración de máquinas virtuales de Hyper-V a Azure con la migración de
 description: Aprenda a migrar máquinas virtuales de Hyper-V locales a Azure con la migración de servidores de Azure Migrate Server
 ms.topic: tutorial
 ms.date: 11/18/2019
-ms.custom: MVC
-ms.openlocfilehash: e1b670db3399857278c646d3793e8ec946d385b0
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.custom:
+- MVC
+- fasttrack-edit
+ms.openlocfilehash: b5d37da7ea0c53a7e8cbb5b579d529dd4a799fed
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78943299"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422696"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Migración de máquinas virtuales de Hyper-V a Azure 
 
@@ -50,7 +52,7 @@ Antes de comenzar este tutorial, debe:
 
 ## <a name="add-the-azure-migrate-server-migration-tool"></a>Incorporación de la herramienta Azure Migrate Server Migration
 
-Si no ha seguido el segundo tutorial para evaluar las máquinas virtuales de Hyper-V, debe [seguir estas instrucciones](how-to-add-tool-first-time.md) para configurar un proyecto de Azure Migrate y agregar la herramienta Azure Migrate Server Migration a dicho proyecto.
+Si no ha seguido el segundo tutorial para evaluar las máquinas virtuales de Hyper-V, debe [seguir estas instrucciones](how-to-add-tool-first-time.md) para configurar un proyecto de Azure Migrate y agregar la herramienta Azure Migrate Server Assessment al proyecto.
 
 Si siguió el segundo tutorial y ya tiene un proyecto de Azure Migrate configurado, agregue la herramienta Azure Migrate Server: Server Migration de la manera siguiente:
 
@@ -67,10 +69,10 @@ Si siguió el segundo tutorial y ya tiene un proyecto de Azure Migrate configura
 
 ## <a name="set-up-the-azure-migrate-appliance"></a>Configuración del dispositivo de Azure Migrate
 
-Azure Migrate Server Migration ejecuta un dispositivo ligero de máquina virtual de Hyper-V.
+Azure Migrate Server Migration ejecuta un agente de software en Hyper-V Hosts o en los nodos de clúster para orquestar y replicar datos en Azure Migrate y no necesita ninguna aplicación dedicada.
 
-- Dicho dispositivo realiza la detección de la máquina virtual y envía los metadatos y los datos de rendimiento a Azure Migrate Server Migration.
-- El dispositivo también se usa en la herramienta Azure Migrate: Server Assessment, para migrar las máquinas virtuales de Hyper-V a Azure.
+- La aplicación de Azure Migrate: Server Assessment dispositivo realiza la detección de las máquinas virtuales y envía los metadatos y los datos de rendimiento de estas a Azure Migrate Server Migration.
+- Tanto el proveedor de Microsoft Azure Site Recovery como el proveedor de Microsoft Azure Recovery Service controlan la orquestación de la migración y la replicación de los datos.
 
 Para configurar el dispositivo:
 - Si ha seguido el segundo tutorial para evaluar las máquinas virtuales de Hyper-V, ya habrá configurado el dispositivo con dicho tutorial, y tiene que volver a hacerlo.

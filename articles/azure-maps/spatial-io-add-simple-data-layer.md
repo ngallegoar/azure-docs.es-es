@@ -1,19 +1,19 @@
 ---
 title: Adición de una capa de datos simple | Microsoft Azure Maps
 description: Obtenga información sobre cómo agregar una capa de datos simple mediante el módulo de E/S espacial, proporcionado por el SDK web de Azure Maps.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 02/29/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 3fa54e3227496c11fcafc2f42e980daa5c716365
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 8862c33b7660b8130f692dc4beea89a7b6b5f5ad
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78370379"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804493"
 ---
 # <a name="add-a-simple-data-layer"></a>Adición de una capa de datos simple
 
@@ -23,17 +23,73 @@ Además de las características de estilo, `SimpleDataLayer` proporciona una car
 
 La clase `SimpleDataLayer` está pensada para su uso con conjuntos de datos de gran tamaño con muchos tipos de geometría y muchos estilos aplicados en las características. Cuando se utiliza, esta clase agrega una sobrecarga de seis capas que contienen expresiones de estilo. Por lo tanto, hay casos en los que es más eficaz usar las capas de representación básicas. Por ejemplo, se puede usar una capa básica para representar un par de tipos de geometría y algunos estilos en una característica.
 
+## <a name="use-a-simple-data-layer"></a>Uso de una capa de datos simple
+
+La clase `SimpleDataLayer` se usa como el resto de las capas de representación. En el código siguiente se muestra cómo usar una capa de datos simple en un mapa:
+
+```javascript
+//Create a data source and add it to the map.
+var datasource = new atlas.source.DataSource();
+map.sources.add(datasource);
+
+//Add a simple data layer for rendering data.
+var layer = new atlas.layer.SimpleDataLayer(datasource);
+map.layers.add(layer);
+```
+
+Agregue características al origen de datos. A continuación, la capa de datos simple determinará la mejor manera de representar las características. Los estilos de las características individuales se pueden establecer como propiedades en la característica. En el código siguiente se muestra una característica de punto GeoJSON con la propiedad `color` establecida en `red`. 
+
+```json
+{
+    "type": "Feature",
+    "geometry": {
+        "type": "Point",
+        "coordinates": [0, 0]
+    },
+    "properties": {
+        "color": "red"
+    }
+}
+```
+
+El código siguiente representa la característica de punto anterior mediante la capa de datos simple. 
+
+<br/>
+
+<iframe height="500" style="width: 100%;" scrolling="no" title="Uso de la capa de datos simple" src="//codepen.io/azuremaps/embed/zYGzpQV/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true"> Consulte el fragmento de código <a href='https://codepen.io/azuremaps/pen/zYGzpQV/'>Uso de la capa de datos simple</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+La eficacia real de la capa de datos simple se aprecia cuando:
+
+- Hay varios tipos diferentes de características en un origen de datos o
+- Las características del conjunto de datos tienen varias propiedades de estilo establecidas individualmente o
+- No está seguro de lo que contiene exactamente el conjunto de datos.
+
+Por ejemplo, al analizar fuentes de distribución de datos XML, es posible que no conozca los estilos exactos y los tipos de geometría de las características. En el ejemplo siguiente se muestra la eficacia de la capa de datos simple mediante la representación de las características de un archivo KML. También se muestran varias de las opciones que proporciona la clase de capa de datos simple.
+
+<br/>
+
+<iframe height="700" style="width: 100%;" scrolling="no" title="Opciones de la capa de datos simple" src="//codepen.io/azuremaps/embed/gOpRXgy/?height=700&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true"> Consulte el fragmento de código <a href='https://codepen.io/azuremaps/pen/gOpRXgy/'>Opciones de la cada de datos simple</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+
+> [!NOTE]
+> Este nivel de datos simple usa la clase [plantilla emergente](map-add-popup.md#add-popup-templates-to-the-map) para mostrar globos de KML o propiedades de características en forma de tabla. De forma predeterminada, todo el contenido representado en el elemento emergente estará en un espacio aislado dentro de un iframe como característica de seguridad. Sin embargo, existen limitaciones:
+>
+> - Todos los scripts, los formularios y las funcionalidades de bloqueo de puntero y de navegación superior están deshabilitados. Al hacer clic en los vínculos, se pueden abrir en una pestaña nueva. 
+> - Los exploradores más antiguos que no admitan el parámetro `srcdoc` en iframes se limitarán a representar una pequeña cantidad de contenido.
+> 
+> Si confía en los datos que se van a cargar en los elementos emergentes y, potencialmente, quiere que estos scripts cargados en los elementos emergentes puedan acceder a su aplicación, puede deshabilitarlo estableciendo la opción `sandboxContent` de las plantillas emergentes en false. 
+
 ## <a name="default-supported-style-properties"></a>Propiedades de estilo predeterminadas admitidas
 
 Como se mencionó anteriormente, la capa de datos simple encapsula varias de las capas de representación básicas: burbuja, símbolo, línea, polígono y polígono extruido. A continuación, utiliza expresiones para buscar propiedades de estilo válidas en características individuales.
 
 Las propiedades de estilo de Azure Maps y GitHub son los dos conjuntos principales de nombres de propiedad admitidos. La mayoría de los nombres de propiedades de las diferentes opciones de capa de Azure Maps se admiten como propiedades de estilo de las características de la capa de datos simple. Se han agregado expresiones a algunas opciones de capa para admitir nombres de propiedades de estilo utilizadas habitualmente en GitHub. Estos nombres de propiedades se definen en [Compatibilidad de mapas GeoJSON de GitHub](https://help.github.com/en/github/managing-files-in-a-repository/mapping-geojson-files-on-github) y se usan para aplicar estilo a los archivos GeoJSON que se almacenan y representan en la plataforma. Se admiten todas las propiedades de estilo de GitHub en la capa de datos simple, excepto en las propiedades de estilo `marker-symbol`.
 
-Si el lector encuentra una propiedad de estilo menos común, la convertirá en la propiedad de estilo de Azure Maps más similar. Además, las expresiones de estilo predeterminadas se pueden invalidar mediante el uso de la función `getLayers` de la capa de datos simple y la actualización de las opciones de cualquiera de las capas.
+Si el lector se encuentra con una propiedad de estilo menos habitual, la convertirá en la propiedad de estilo de Azure Maps más parecida. Además, las expresiones de estilo predeterminadas se pueden invalidar mediante el uso de la función `getLayers` de la capa de datos simple y la actualización de las opciones de cualquiera de las capas.
 
-En la siguiente sección se proporcionan detalles sobre las propiedades de estilo predeterminadas que admite la capa de datos simple. El orden del nombre de propiedad admitido también es la prioridad de la propiedad. Si se definen dos propiedades de estilo para la misma opción de capa, la primera de la lista tendrá mayor precedencia.
-
-## <a name="simple-data-layer-options"></a>Opciones de la capa de datos simple
+En las siguientes secciones se proporcionan detalles sobre las propiedades de estilo predeterminadas que admite la capa de datos simple. El orden del nombre de propiedad admitido también es la prioridad de la propiedad. Si se definen dos propiedades de estilo para la misma opción de capa, la primera de la lista tendrá mayor precedencia.
 
 ### <a name="bubble-layer-style-properties"></a>Propiedades de estilo de la capa de burbujas
 
@@ -113,56 +169,6 @@ Si la característica es un elemento `Polygon` o un elemento `MultiPolygon` y ti
 | `base` | `base` | `0` |
 | `fillColor` | `fillColor`, `fill` | `'#1E90FF'` |
 | `height` | `height` | `0` |
-
-## <a name="use-a-simple-data-layer"></a>Uso de una capa de datos simple
-
-La clase `SimpleDataLayer` se usa como el resto de las capas de representación. En el código siguiente se muestra cómo usar una capa de datos simple en un mapa:
-
-```javascript
-//Create a data source and add it to the map.
-var datasource = new atlas.source.DataSource();
-map.sources.add(datasource);
-
-//Add a simple data layer for rendering data.
-var layer = new atlas.layer.SimpleDataLayer(datasource);
-map.layers.add(layer);
-```
-
-Agregue características al origen de datos. A continuación, la capa de datos simple determinará la mejor manera de representar las características. Los estilos de las características individuales se pueden establecer como propiedades en la característica. En el código siguiente se muestra una característica de punto GeoJSON con la propiedad `color` establecida en `red`. 
-
-```json
-{
-    "type": "Feature",
-    "geometry": {
-        "type": "Point",
-        "coordinates": [0, 0]
-    },
-    "properties": {
-        "color": "red"
-    }
-}
-```
-
-El código siguiente representa la característica de punto anterior mediante la capa de datos simple. 
-
-<br/>
-
-<iframe height="500" style="width: 100%;" scrolling="no" title="Uso de la capa de datos simple" src="//codepen.io/azuremaps/embed/zYGzpQV/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true"> Consulte el fragmento de código <a href='https://codepen.io/azuremaps/pen/zYGzpQV/'>Uso de la capa de datos simple</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
-</iframe>
-
-La eficacia real de la capa de datos simple se aprecia cuando:
-
-- Hay varios tipos diferentes de características en un origen de datos o
-- Las características del conjunto de datos tienen varias propiedades de estilo establecidas individualmente o
-- No está seguro de lo que contiene exactamente el conjunto de datos.
-
-Por ejemplo, al analizar fuentes de distribución de datos XML, es posible que no conozca los estilos exactos y los tipos de geometría de las características. En el ejemplo siguiente se muestra la eficacia de la capa de datos simple mediante la representación de las características de un archivo KML. También se muestran varias de las opciones que proporciona la clase de capa de datos simple.
-
-<br/>
-
-<iframe height="700" style="width: 100%;" scrolling="no" title="Opciones de la capa de datos simple" src="//codepen.io/azuremaps/embed/gOpRXgy/?height=700&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true"> Consulte el fragmento de código <a href='https://codepen.io/azuremaps/pen/gOpRXgy/'>Opciones de la cada de datos simple</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
-</iframe>
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

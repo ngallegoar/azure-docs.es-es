@@ -3,16 +3,16 @@ title: Plantillas de vínculo para la implementación
 description: Describe cómo usar plantillas vinculadas en una plantilla del Administrador de recursos de Azure para crear una solución de plantilla modular. Muestra cómo pasar valores de parámetros y especificar un archivo de parámetros y las direcciones URL creadas dinámicamente.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: e26b795a645ab9128dd738ba6a54b66ac0b7da2a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 322797383ee865ceb66c44793387da827aeb8879
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78355097"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80131921"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Uso de plantillas vinculadas y anidadas al implementar recursos de Azure
 
-Para implementar soluciones complejas, puede dividir la plantilla en numerosas plantillas relacionadas y, a continuación, implementarlas juntas mediante una plantilla principal. Las plantillas relacionadas pueden ser archivos independientes o una sintaxis de la plantilla que esté insertada en la plantilla principal. En este artículo se usa el término **plantilla vinculada** para hacer referencia a un archivo de plantilla independiente que esté vinculado desde la plantilla principal. Usa el término **plantilla anidada** para hacer referencia a la sintaxis de la plantilla insertada dentro de la plantilla principal.
+Para implementar soluciones complejas, puede dividir la plantilla en numerosas plantillas relacionadas y, a continuación, implementarlas juntas mediante una plantilla principal. Las plantillas relacionadas pueden ser archivos independientes o una sintaxis de la plantilla que esté insertada en la plantilla principal. En este artículo se usa el término **plantilla vinculada** para hacer referencia a un archivo de plantilla independiente al que se hace referencia a través de un vínculo de la plantilla principal. Usa el término **plantilla anidada** para hacer referencia a la sintaxis de la plantilla insertada dentro de la plantilla principal.
 
 En el caso de soluciones pequeñas o medianas, es más fácil entender y mantener una única plantilla. Puede ver todos los recursos y valores en un único archivo. Para los escenarios avanzados, las plantillas vinculadas le permiten desglosar la solución en componentes dirigidos. Estas plantillas se pueden reutilizar fácilmente para otros escenarios.
 
@@ -92,11 +92,11 @@ En el ejemplo siguiente se implementa una cuenta de almacenamiento mediante una 
 }
 ```
 
-### <a name="scope-for-expressions-in-nested-templates"></a>Ámbito de las expresiones en plantillas anidadas
+### <a name="expression-evaluation-scope-in-nested-templates"></a>Ámbito de evaluación de expresiones en plantillas anidadas
 
 Al utilizar una plantilla anidada, puede especificar si las expresiones de plantilla se evalúan dentro del ámbito de la plantilla principal o de la plantilla anidada. El ámbito determina cómo se resuelven los parámetros, las variables y las funciones como [resourceGroup](template-functions-resource.md#resourcegroup) y [subscription](template-functions-resource.md#subscription).
 
-El ámbito se establece mediante la propiedad `expressionEvaluationOptions`. De forma predeterminada, la propiedad `expressionEvaluationOptions` está establecida en `outer`, lo que significa que usa el ámbito de plantilla principal. Establezca el valor en `inner` para limitar las expresiones a la plantilla anidada.
+El ámbito se establece mediante la propiedad `expressionEvaluationOptions`. De forma predeterminada, la propiedad `expressionEvaluationOptions` está establecida en `outer`, lo que significa que usa el ámbito de plantilla principal. Establezca el valor en `inner` para que las expresiones se evalúen dentro del ámbito de la plantilla anidada.
 
 ```json
 {
@@ -158,14 +158,14 @@ En la plantilla siguiente se muestra cómo se resuelven las expresiones de plant
 }
 ```
 
-El valor de la variable cambia en función del ámbito. La siguiente tabla muestra los resultados para cada ámbito.
+El valor de `exampleVar` cambia según el valor de la `scope` propiedad en `expressionEvaluationOptions`. La siguiente tabla muestra los resultados para cada ámbito.
 
-| Ámbito | Output |
+| `expressionEvaluationOptions` `scope` | Output |
 | ----- | ------ |
 | interna | desde la plantilla anidada |
 | outer (o predeterminado) | desde la plantilla principal |
 
-En el ejemplo siguiente se implementa un servidor SQL Server y se recupera el secreto del almacén de claves que se va a usar para la contraseña. El ámbito se establece en `inner` porque crea dinámicamente el identificador del almacén de claves y lo pasa como parámetro a la plantilla anidada.
+En el ejemplo siguiente se implementa un servidor SQL Server y se recupera el secreto del almacén de claves que se va a usar para la contraseña. El ámbito se establece en `inner` porque crea dinámicamente el identificador de almacén de claves (consulte `adminPassword.reference.keyVault` en las plantillas externas `parameters`) y lo pasa como un parámetro a la plantilla anidada.
 
 ```json
 {
@@ -215,6 +215,22 @@ En el ejemplo siguiente se implementa un servidor SQL Server y se recupera el se
         "expressionEvaluationOptions": {
           "scope": "inner"
         },
+        "parameters": {
+          "location": {
+            "value": "[parameters('location')]"
+          },
+          "adminLogin": {
+            "value": "ghuser"
+          },
+          "adminPassword": {
+            "reference": {
+              "keyVault": {
+                "id": "[resourceId(parameters('vaultSubscription'), parameters('vaultResourceGroupName'), 'Microsoft.KeyVault/vaults', parameters('vaultName'))]"
+              },
+              "secretName": "[parameters('secretName')]"
+            }
+          }
+        },
         "template": {
           "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
           "contentVersion": "1.0.0.0",
@@ -250,22 +266,6 @@ En el ejemplo siguiente se implementa un servidor SQL Server y se recupera el se
               "value": "[reference(variables('sqlServerName')).fullyQualifiedDomainName]"
             }
           }
-        },
-        "parameters": {
-          "location": {
-            "value": "[parameters('location')]"
-          },
-          "adminLogin": {
-            "value": "ghuser"
-          },
-          "adminPassword": {
-            "reference": {
-              "keyVault": {
-                "id": "[resourceId(parameters('vaultSubscription'), parameters('vaultResourceGroupName'), 'Microsoft.KeyVault/vaults', parameters('vaultName'))]"
-              },
-              "secretName": "[parameters('secretName')]"
-            }
-          }
         }
       }
     }
@@ -277,7 +277,7 @@ En el ejemplo siguiente se implementa un servidor SQL Server y se recupera el se
 
 > [!NOTE]
 >
-> Cuando el ámbito está establecido en `outer`, no puede usar la función `reference` en la sección de salidas de una plantilla anidada para un recurso que haya implementado en la plantilla anidada. Para devolver los valores de un recurso implementado en una plantilla anidada, utilice el ámbito interno o convierta la plantilla anidada en una plantilla vinculada.
+> Cuando el ámbito está establecido en `outer`, no puede usar la función `reference` en la sección de salidas de una plantilla anidada para un recurso que haya implementado en la plantilla anidada. Para devolver los valores de un recurso implementado en una plantilla anidada, use el ámbito `inner` o convierta la plantilla anidada en una plantilla vinculada.
 
 ## <a name="linked-template"></a>Plantilla vinculada
 
@@ -308,9 +308,15 @@ Para vincular una plantilla, agregue un [recurso de implementaciones](/azure/tem
 }
 ```
 
-No se puede especificar un archivo local o un archivo que solo esté disponible en la red local. Solo se puede proporcionar un valor de URI que incluya **http** o **https**. Resource Manager debe tener acceso a la plantilla. Una opción es colocar la plantilla vinculada en una cuenta de almacenamiento y usar el URI para dicho elemento.
+Al hacer referencia a una plantilla vinculada, el valor de `uri` no debe ser un archivo local o un archivo que solo esté disponible en la red local. Debe proporcionar un valor de URI que se puede descargar como **http** o **https**. 
 
-No tiene que proporcionar la propiedad `contentVersion` para la plantilla ni los parámetros. Si no proporciona un valor de versión del contenido, se implementará la versión actual de la plantilla. Si proporciona un valor, este debe coincidir con la versión de la plantilla vinculada o, de lo contrario, se producirá un error durante la implementación.
+> [!NOTE]
+>
+> Puede hacer referencia a plantillas mediante parámetros que, en última instancia, se resuelven en algo que usa **http** o **https**, por ejemplo, usando el parámetro `_artifactsLocation` de esta manera: `"uri": "[concat(parameters('_artifactsLocation'), '/shared/os-disk-parts-md.json', parameters('_artifactsLocationSasToken'))]",`
+
+
+
+Resource Manager debe tener acceso a la plantilla. Una opción es colocar la plantilla vinculada en una cuenta de almacenamiento y usar el URI para dicho elemento.
 
 ### <a name="parameters-for-linked-template"></a>Parámetros de la plantilla vinculada
 
@@ -325,12 +331,12 @@ Puede proporcionar los parámetros de la plantilla vinculada en un archivo exter
   "properties": {
     "mode": "Incremental",
     "templateLink": {
-    "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
-    "contentVersion":"1.0.0.0"
+      "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
+      "contentVersion":"1.0.0.0"
     },
     "parametersLink": {
-    "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.parameters.json",
-    "contentVersion":"1.0.0.0"
+      "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.parameters.json",
+      "contentVersion":"1.0.0.0"
     }
   }
   }
@@ -360,6 +366,41 @@ Para pasar los valores de parámetro alineados, use la propiedad **parameters**.
 ```
 
 No se pueden usar los parámetros alineados ni un vínculo a un archivo de parámetros. La implementación produce un error cuando ambos (`parametersLink` y `parameters`) se especifican.
+
+## `contentVersion`
+
+No tiene que proporcionar la propiedad `contentVersion` para la propiedad `templateLink` o `parametersLink`. Si no proporciona un `contentVersion`, se implementará la versión actual de la plantilla. Si proporciona un valor, este debe coincidir con la versión de la plantilla vinculada o, de lo contrario, se producirá un error durante la implementación.
+
+## <a name="using-variables-to-link-templates"></a>Uso de variables para vincular plantillas
+
+Los ejemplos anteriores mostraron valores de dirección URL codificadas de forma rígida para los vínculos de la plantilla. Este enfoque puede funcionar en una plantilla sencilla, pero no funciona bien para un gran conjunto de plantillas modulares. En su lugar, puede crear una variable estática que almacene una dirección URL base para la plantilla principal y, luego, crear dinámicamente direcciones URL para las plantillas vinculadas desde esa dirección URL base. La ventaja de este enfoque es que puede mover o bifurcar fácilmente la plantilla, ya que solo tiene que cambiar la variable estática en la plantilla principal. La plantilla principal pasa los URI correctos por toda la plantilla descompuesta.
+
+En el ejemplo siguiente se muestra cómo usar una dirección URL base para crear dos direcciones URL para las plantillas vinculadas (**sharedTemplateUrl** y **vmTemplate**).
+
+```json
+"variables": {
+  "templateBaseUrl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/postgresql-on-ubuntu/",
+  "sharedTemplateUrl": "[uri(variables('templateBaseUrl'), 'shared-resources.json')]",
+  "vmTemplateUrl": "[uri(variables('templateBaseUrl'), 'database-2disk-resources.json')]"
+}
+```
+
+También puede usar la función [deployment()](template-functions-deployment.md#deployment) para obtener la dirección URL base de la plantilla actual y usar esta información para obtener la dirección URL de otras plantillas en la misma ubicación. Este enfoque resulta útil si cambia la ubicación de la plantilla o desea evitar la codificación de forma rígida de las direcciones URL en el archivo de plantilla. La propiedad templateLink solo se devuelve al vincular una plantilla remota a una URL. Si utiliza una plantilla local, esa propiedad no está disponible.
+
+```json
+"variables": {
+  "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"
+}
+```
+
+En última instancia, usaría la variable en la propiedad `uri` de una propiedad `templateLink`.
+
+```json
+"templateLink": {
+ "uri": "[variables('sharedTemplateUrl')]",
+ "contentVersion":"1.0.0.0"
+}
+```
 
 ## <a name="using-copy"></a>Uso de la copia
 
@@ -410,35 +451,13 @@ En la plantilla de ejemplo siguiente se muestra cómo usar la función de copiar
 ]
 ```
 
-## <a name="using-variables-to-link-templates"></a>Uso de variables para vincular plantillas
-
-Los ejemplos anteriores mostraron valores de dirección URL codificadas de forma rígida para los vínculos de la plantilla. Este enfoque puede funcionar en una plantilla sencilla pero no funciona bien cuando se trabaja con un gran conjunto de plantillas modulares. En su lugar, puede crear una variable estática que almacene una dirección URL base para la plantilla principal y, luego, crear dinámicamente direcciones URL para las plantillas vinculadas desde esa dirección URL base. La ventaja de este enfoque es que puede mover fácilmente o bifurcar la plantilla porque solo tendrá que cambiar la variable estática en la plantilla principal. La plantilla principal pasa los URI correctos por toda la plantilla descompuesta.
-
-En el ejemplo siguiente se muestra cómo usar una dirección URL base para crear dos direcciones URL para las plantillas vinculadas (**sharedTemplateUrl** y **vmTemplate**).
-
-```json
-"variables": {
-  "templateBaseUrl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/postgresql-on-ubuntu/",
-  "sharedTemplateUrl": "[concat(variables('templateBaseUrl'), 'shared-resources.json')]",
-  "vmTemplateUrl": "[concat(variables('templateBaseUrl'), 'database-2disk-resources.json')]"
-}
-```
-
-También puede usar la función [deployment()](template-functions-deployment.md#deployment) para obtener la dirección URL base de la plantilla actual y usar esta información para obtener la dirección URL de otras plantillas en la misma ubicación. Este enfoque resulta útil si cambia la ubicación de la plantilla o desea evitar la codificación de forma rígida de las direcciones URL en el archivo de plantilla. La propiedad templateLink solo se devuelve al vincular una plantilla remota a una URL. Si utiliza una plantilla local, esa propiedad no está disponible.
-
-```json
-"variables": {
-  "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"
-}
-```
-
 ## <a name="get-values-from-linked-template"></a>Obtención de valores a partir de la plantilla vinculada
 
 Para obtener un valor de salida de una plantilla vinculada, recupere el valor de propiedad con sintaxis de esta manera: `"[reference('deploymentName').outputs.propertyName.value]"`.
 
-Al obtener una propiedad de salida a partir de una plantilla vinculada, el nombre de propiedad no puede incluir un guión.
+Al obtener una propiedad de salida de una plantilla vinculada, el nombre de la propiedad no debe incluir un guión.
 
-Los ejemplos siguientes muestran cómo hacer referencia a una plantilla vinculada y recuperar un valor de salida. La plantilla vinculada devuelve un mensaje simple.
+Los ejemplos siguientes muestran cómo hacer referencia a una plantilla vinculada y recuperar un valor de salida. La plantilla vinculada devuelve un mensaje simple.  En primer lugar, la plantilla vinculada:
 
 ```json
 {
@@ -487,9 +506,9 @@ La plantilla principal implementa la plantilla vinculada y obtiene el valor devu
 }
 ```
 
-Al igual que otros tipos de recursos, puede establecer dependencias entre la plantilla vinculada y otros recursos. Cuando otros recursos requieren un valor de salida de la plantilla vinculada, asegúrese de que la plantilla vinculada se implemente antes que ellos. O bien, si la plantilla vinculada se basa en otros recursos, asegúrese de que los otros recursos se implementen antes que la plantilla vinculada.
+Como con otros tipos de recursos, puede establecer dependencias entre la plantilla vinculada y otros recursos. Cuando otros recursos requieren un valor de salida de la plantilla vinculada, asegúrese de que la plantilla vinculada se implemente antes que ellos. O bien, si la plantilla vinculada se basa en otros recursos, asegúrese de que los otros recursos se implementen antes que la plantilla vinculada.
 
-En el ejemplo siguiente se muestra una plantilla que implementa una dirección IP pública y devuelve el identificador de recurso:
+En el ejemplo siguiente se muestra una plantilla que implementa una dirección IP pública y devuelve el identificador de recurso del recurso de Azure para esa IP pública:
 
 ```json
 {
@@ -524,7 +543,7 @@ En el ejemplo siguiente se muestra una plantilla que implementa una dirección I
 }
 ```
 
-Para usar la dirección IP pública de la plantilla anterior al implementar un equilibrador de carga, vincule a la plantilla y agregue una dependencia en el recurso de implementación. La dirección IP pública del equilibrador de carga se establece en el valor de salida de la plantilla vinculada.
+Para usar la dirección IP pública de la plantilla anterior al implementar un equilibrador de carga, vincule a la plantilla y declare una dependencia en el recurso `Microsoft.Resources/deployments`. La dirección IP pública del equilibrador de carga se establece en el valor de salida de la plantilla vinculada.
 
 ```json
 {
@@ -554,6 +573,7 @@ Para usar la dirección IP pública de la plantilla anterior al implementar un e
             "properties": {
               "privateIPAllocationMethod": "Dynamic",
               "publicIPAddress": {
+                // this is where the output value from linkedTemplate is used
                 "id": "[reference('linkedTemplate').outputs.resourceID.value]"
               }
             }
@@ -566,6 +586,7 @@ Para usar la dirección IP pública de la plantilla anterior al implementar un e
         "outboundNatRules": [],
         "inboundNatPools": []
       },
+      // This is where the dependency is declared
       "dependsOn": [
         "linkedTemplate"
       ]
@@ -686,7 +707,7 @@ O bien, el script de la CLI de Azure en un shell de Bash:
 for i in 0 1 2;
 do
   name="linkedTemplate$i";
-  deployment=$(az group deployment show -g examplegroup -n $name);
+  deployment=$(az deployment group show -g examplegroup -n $name);
   ip=$(echo $deployment | jq .properties.outputs.returnedIPAddress.value);
   echo "deployment $name returned $ip";
 done
@@ -759,7 +780,7 @@ url=$(az storage blob url \
   --output tsv \
   --connection-string $connection)
 parameter='{"containerSasToken":{"value":"?'$token'"}}'
-az group deployment create --resource-group ExampleGroup --template-uri $url?$token --parameters $parameter
+az deployment group create --resource-group ExampleGroup --template-uri $url?$token --parameters $parameter
 ```
 
 ## <a name="example-templates"></a>Plantillas de ejemplo

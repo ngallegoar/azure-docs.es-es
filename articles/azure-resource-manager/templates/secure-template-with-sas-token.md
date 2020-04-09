@@ -3,22 +3,22 @@ title: Implementación de forma segura de una plantilla con el token de SAS
 description: Implemente recursos en Azure con una plantilla de Azure Resource Manager que está protegida con el token de SAS. Se muestra Azure PowerShell y la CLI de Azure.
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: d30e685c35f33b6fc5d3872b9287e45190ad5713
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 42eaae316d4fd0575102323933f849a3058228a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75476310"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80156402"
 ---
-# <a name="deploy-private-resource-manager-template-with-sas-token"></a>Implementación de plantillas privadas de Resource Manager con un token de SAS
+# <a name="deploy-private-arm-template-with-sas-token"></a>Implementación de una plantilla de Resource Manager privada con el token de SAS
 
-Cuando la plantilla se encuentra en una cuenta de almacenamiento, puede restringir el acceso a la plantilla para evitar que se exponga públicamente. Para acceder a una plantilla protegida, cree un token de firma de acceso compartido (SAS) para la plantilla y proporcione ese token durante la implementación. En este artículo se explica cómo usar Azure PowerShell o la CLI de Azure para implementar una plantilla con un token de SAS.
+Cuando la plantilla de Azure Resource Manager (ARM) se encuentra en una cuenta de almacenamiento, puede restringir el acceso a la plantilla para evitar que se exponga públicamente. Para acceder a una plantilla protegida, cree un token de firma de acceso compartido (SAS) para la plantilla y proporcione ese token durante la implementación. En este artículo se explica cómo usar Azure PowerShell o la CLI de Azure para implementar una plantilla con un token de SAS.
 
 ## <a name="create-storage-account-with-secured-container"></a>Creación de una cuenta de almacenamiento con un contenedor protegido
 
 El script siguiente crea una cuenta de almacenamiento y un contenedor con acceso público desactivado.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 New-AzResourceGroup `
@@ -37,7 +37,7 @@ New-AzStorageContainer `
   -Permission Off
 ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 ```azurecli-interactive
 az group create \
@@ -65,7 +65,7 @@ az storage container create \
 
 Ahora puede cargar la plantilla en la cuenta de almacenamiento. Proporcione la ruta de acceso a la plantilla que quiere usar.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Set-AzStorageBlobContent `
@@ -73,7 +73,7 @@ Set-AzStorageBlobContent `
   -File c:\Templates\azuredeploy.json
 ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 ```azurecli-interactive
 az storage blob upload \
@@ -93,7 +93,7 @@ Para implementar una plantilla privada en una cuenta de almacenamiento, genere u
 > El blob que contiene la plantilla solo es accesible para el propietario de la cuenta. Sin embargo, cuando se crea un token de SAS para el blob, el blob es accesible para cualquier persona con ese URI. Si otro usuario intercepta el URI, ese usuario podrá tener acceso a la plantilla. Un token de SAS es una buena forma de limitar el acceso a las plantillas, pero no debe incluir datos confidenciales, como contraseñas, directamente en la plantilla.
 >
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 # get the URI with the SAS token
@@ -109,7 +109,7 @@ New-AzResourceGroupDeployment `
   -TemplateUri $templateuri
 ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 ```azurecli-interactive
 expiretime=$(date -u -d '30 minutes' +%Y-%m-%dT%H:%MZ)
@@ -129,7 +129,7 @@ url=$(az storage blob url \
     --name azuredeploy.json \
     --output tsv \
     --connection-string $connection)
-az group deployment create \
+az deployment group create \
   --resource-group ExampleGroup \
   --template-uri $url?$token
 ```

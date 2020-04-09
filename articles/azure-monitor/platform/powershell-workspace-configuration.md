@@ -1,17 +1,17 @@
 ---
-title: Uso de PowerShell para crear y configurar un área de trabajo de Log Analytics | Microsoft Docs
+title: Creación y configuración de Log Analytics con PowerShell
 description: Las áreas de trabajo de Log Analytics en Azure Monitor almacenan datos de servidores en su infraestructura local o en la nube. Puede recopilar datos de equipo del almacenamiento de Azure cuando son generados por Diagnósticos de Azure.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/19/2019
-ms.openlocfilehash: 6f3f21a7148c59de452d6407fd9a1067b86faae4
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 2584cedceab1386cbab9c72bb4b510eebe2122bd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77659312"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80054706"
 ---
 # <a name="manage-log-analytics-workspace-in-azure-monitor-using-powershell"></a>Administre el área de trabajo de Log Analytics en Azure Monitor con PowerShell
 
@@ -158,7 +158,7 @@ New-AzOperationalInsightsComputerGroup -ResourceGroupName $ResourceGroup -Worksp
 Enable-AzOperationalInsightsIISLogCollection -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName
 
 # Linux Perf
-New-AzOperationalInsightsLinuxPerformanceObjectDataSource -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -ObjectName "Logical Disk" -InstanceName "*"  -CounterNames @("% Used Inodes", "Free Megabytes", "% Used Space", "Disk Transfers/sec", "Disk Reads/sec", "Disk Reads/sec", "Disk Writes/sec") -IntervalSeconds 20  -Name "Example Linux Disk Performance Counters"
+New-AzOperationalInsightsLinuxPerformanceObjectDataSource -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -ObjectName "Logical Disk" -InstanceName "*"  -CounterNames @("% Used Inodes", "Free Megabytes", "% Used Space", "Disk Transfers/sec", "Disk Reads/sec", "Disk Writes/sec") -IntervalSeconds 20  -Name "Example Linux Disk Performance Counters"
 Enable-AzOperationalInsightsLinuxPerformanceCollection -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName
 
 # Linux Syslog

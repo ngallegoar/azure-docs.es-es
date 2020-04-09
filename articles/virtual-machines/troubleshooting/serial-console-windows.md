@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 87ccb1c4995337b385f685797980a9fc3962bc6f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 68089a86b8b832638abd30aa7c36aa1c5bd84225
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75451250"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80410116"
 ---
 # <a name="azure-serial-console-for-windows"></a>Consola serie de Azure para Windows
 
@@ -32,7 +32,7 @@ Para obtener documentación sobre la consola serie para Linux, consulte [Consola
 > La consola serie está disponible con carácter general en regiones de Azure globales y en versión preliminar pública en Azure Government. Aún no está disponible en la nube de Azure en China.
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * La máquina virtual o la instancia de conjunto de escalado de máquinas virtuales deben usar el modelo de implementación de Resource Manager. No se admiten las implementaciones clásicas.
 
@@ -60,7 +60,7 @@ De manera alternativa, para habilitar manualmente la consola serie para las máq
 
 1. Conéctese a la máquina virtual Windows mediante Escritorio remoto
 1. Ejecute los siguientes comandos como administrador en un símbolo del sistema:
-    - `bcdedit /ems {current} on`
+    - `bcdedit /ems {current} on` o `bcdedit /ems '{current}' on` si usa PowerShell
     - `bcdedit /emssettings EMSPORT:1 EMSBAUDRATE:115200`
 1. Reinicie el sistema para que la consola de SAC se habilite.
 
@@ -102,15 +102,15 @@ Si tiene que habilitar los mensajes del cargador de arranque de Windows para que
 
     ![Conectarse a SAC](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect-sac.png)
 
-1.  Escriba `cmd` para crear un canal que contenga una instancia de CMD.
+1.    Escriba `cmd` para crear un canal que contenga una instancia de CMD.
 
-1.  Escriba `ch -si 1` o presione las teclas de método abreviado `<esc>+<tab>` para cambiar al canal que ejecuta la instancia de CDM.
+1.    Escriba `ch -si 1` o presione las teclas de método abreviado `<esc>+<tab>` para cambiar al canal que ejecuta la instancia de CDM.
 
-1.  Presione **Entrar** y, a continuación, escriba las credenciales de inicio de sesión con permisos administrativos.
+1.    Presione **Entrar** y, a continuación, escriba las credenciales de inicio de sesión con permisos administrativos.
 
-1.  Después de escribir las credenciales válidas, se abre la instancia de CMD.
+1.    Después de escribir las credenciales válidas, se abre la instancia de CMD.
 
-1.  Para iniciar una instancia de PowerShell, escriba `PowerShell` en la instancia de CMD y, a continuación, presione **Entrar**.
+1.    Para iniciar una instancia de PowerShell, escriba `PowerShell` en la instancia de CMD y, a continuación, presione **Entrar**.
 
     ![Abrir una instancia de PowerShell](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-powershell.png)
 

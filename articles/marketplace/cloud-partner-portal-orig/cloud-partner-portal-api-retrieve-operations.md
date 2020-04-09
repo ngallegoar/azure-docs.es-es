@@ -1,19 +1,18 @@
 ---
 title: API Recuperar operaciones | Azure Marketplace
 description: Recupera todas las operaciones en la oferta u obtiene una determinada operación para el operationId especificado.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/14/2018
-ms.author: pabutler
-ms.openlocfilehash: c3eb77744d61322ca0aed20bb2b3f486cc02ac70
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 4fc77407ae1c5854d3fe977da5a81f4226bf5305
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819592"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280480"
 ---
 <a name="retrieve-operations"></a>Retrieve operations
 ===================
@@ -34,10 +33,10 @@ Recupera todas las operaciones en la oferta u obtiene una determinada operación
 
 |  **Nombre**          |      **Descripción**                                                                                           | **Tipo de datos** |
 |  ----------------  |     --------------------------------------------------------------------------------------------------------   |  -----------  |
-|  publisherId       |  Identificador del publicador, por ejemplo `Contoso`.                                                                   |  Cadena       |
-|  offerId           |  Identificador de la oferta.                                                                                              |  Cadena       |
+|  publisherId       |  Identificador del publicador, por ejemplo `Contoso`.                                                                   |  String       |
+|  offerId           |  Identificador de la oferta.                                                                                              |  String       |
 |  operationId       |  GUID que identifica de manera única la operación de la oferta. El operationId se puede recuperar mediante el uso de esta API y también se puede devolver en el encabezado HTTP de la respuesta para cualquier operación de larga ejecución, como la API de [publicación de oferta](./cloud-partner-portal-api-publish-offer.md).  |   Guid   |
-|  filteredStatus    | Parámetro de consulta opcional que se utiliza para filtrar por estado (por ejemplo `running`) en la colección devuelta por esta API.  |   Cadena |
+|  filteredStatus    | Parámetro de consulta opcional que se utiliza para filtrar por estado (por ejemplo `running`) en la colección devuelta por esta API.  |   String |
 |  api-version       | Última versión de la API.                                                                                           |    Date      |
 |  |  |  |
 
@@ -183,7 +182,7 @@ Recupera todas las operaciones en la oferta u obtiene una determinada operación
 |  submissionType              | Identifica el tipo de operación sobre el que informa la oferta, por ejemplo `Publish/GGoLive`.      |
 |  createdDateTime             | Datetime de UTC cuando se creó la operación.                                                       |
 |  lastActionDateTime          | Datetime de UTC cuando se realizó la última actualización en la operación.                                       |
-|  status                      | Estado de la operación, que puede ser: `not started` \| `running` \| `failed` \| o `completed`. Solo una operación puede tener el estado `running` a la vez. |
+|  status                      | Estado de la operación, que puede ser `not started` \| `running` \| `failed` \| `completed`. Solo una operación puede tener el estado `running` a la vez. |
 |  error                       | Mensaje de error de las operaciones incorrectas                                                               |
 |  |  |
 

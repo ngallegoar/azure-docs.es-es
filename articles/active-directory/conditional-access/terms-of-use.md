@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1dbd1d96cda88d500e16fff885dae03ebfa230f0
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.openlocfilehash: a2f06a7c88a7c17f5f93201192664c2d4a97564e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79079899"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79480970"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Términos de uso de Azure Active Directory
 
@@ -248,7 +248,7 @@ El siguiente procedimiento describe cómo agregar un idioma a los términos de u
 
 ## <a name="per-device-terms-of-use"></a>Términos de uso por dispositivo
 
-La opción de configuración **Requerir que los usuarios concedan su consentimiento en todos los dispositivos** le permite requerir a los usuarios finales que acepten sus términos de uso en todos los dispositivos desde los que obtienen acceso. Al usuario final se le pedirá que se una a su dispositivo en Azure AD. Al conectarse el dispositivo, el id. de dispositivo se usa para exigir los términos de uso en cada dispositivo.
+La opción de configuración **Requerir que los usuarios concedan su consentimiento en todos los dispositivos** le permite requerir a los usuarios finales que acepten sus términos de uso en todos los dispositivos desde los que obtienen acceso. Al usuario final se le pedirá que registre su dispositivo en Azure AD. Cuando el dispositivo se registra, el identificador de dispositivo se usa para aplicar los términos de uso en cada dispositivo.
 
 Esta es una lista de las plataformas y el software admitidos.
 

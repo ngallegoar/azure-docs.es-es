@@ -3,12 +3,12 @@ title: Implementación de aplicaciones en Azure Spring Cloud mediante Jenkins y 
 description: Aprenda a usar la CLI de Azure en una canalización de integración e implementación continuas para implementar microservicios en el servicio Azure Spring Cloud
 ms.topic: tutorial
 ms.date: 01/07/2020
-ms.openlocfilehash: 67ad97bb762ed302ef52c404d47c5755ea4b245b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: bc48eecc9e73b95fd9112d645135409c24369e10
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75732858"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80810225"
 ---
 # <a name="tutorial-deploy-apps-to-azure-spring-cloud-using-jenkins-and-the-azure-cli"></a>Tutorial: Implementación de aplicaciones en Azure Spring Cloud mediante Jenkins y la CLI de Azure
 
@@ -28,7 +28,7 @@ En este tutorial se supone que tiene un conocimiento intermedio de los servicios
 >[!Note]
 > Azure Spring Cloud se ofrece actualmente como versión preliminar pública. Las ofertas de versión preliminar pública permiten a los clientes experimentar con nuevas características antes de su publicación oficial.  Los servicios y las características en versión preliminar pública no están diseñados para su uso en producción.  Para más información sobre el soporte técnico durante las versiones preliminares, revise las [preguntas frecuentes](https://azure.microsoft.com/support/faq/) o envíe una [solicitud de soporte técnico](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) para obtener más información.
 
-[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+- **Suscripción de Azure**: Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de empezar.
 
 * Una cuenta de GitHub. Antes de comenzar, si no tiene una cuenta de GitHub, cree una [gratuita](https://github.com/).
 

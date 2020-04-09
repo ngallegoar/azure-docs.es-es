@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.custom: seodec18
-ms.openlocfilehash: 6f49529b0599f36ae4a26939bbbe171a45a1a53a
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: 03e1d4aa74d2f71ab2f32ac55f4ad3d46f672f5c
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79127183"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618534"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configuración de experimentos de ML automatizado en Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -82,6 +82,7 @@ Requisitos para los datos de entrenamiento:
 En los siguientes ejemplos de código se muestra cómo almacenar los datos en estos formatos.
 
 * TabularDataset
+
   ```python
   from azureml.core.dataset import Dataset
   from azureml.opendatasets import Diabetes
@@ -93,14 +94,14 @@ En los siguientes ejemplos de código se muestra cómo almacenar los datos en es
 
 * Dataframe de Pandas
 
-    ```python
-    import pandas as pd
-    from sklearn.model_selection import train_test_split
+  ```python
+  import pandas as pd
+  from sklearn.model_selection import train_test_split
 
-    df = pd.read_csv("your-local-file.csv")
-    train_data, test_data = train_test_split(df, test_size=0.1, random_state=42)
-    label = "label-col-name"
-    ```
+  df = pd.read_csv("your-local-file.csv")
+  train_data, test_data = train_test_split(df, test_size=0.1, random_state=42)
+  label = "label-col-name"
+  ```
 
 ## <a name="fetch-data-for-running-experiment-on-remote-compute"></a>Capturar datos para ejecutar un experimento en el proceso remoto
 
@@ -130,51 +131,51 @@ Use un conjunto de datos de validación personalizado si la división aleatoria 
 ## <a name="compute-to-run-experiment"></a>Proceso para ejecutar el experimento
 
 A continuación, determine dónde se va a entrenar el modelo. Un experimento de entrenamiento de aprendizaje automático automatizado se puede ejecutar en las opciones de proceso siguientes:
-*    La máquina local, como un escritorio local o un equipo portátil: generalmente, cuando haya un pequeño conjunto de datos y siga en la fase de exploración.
-*    Una máquina remota en la nube: [Azure Machine Learning Managed Compute](concept-compute-target.md#amlcompute) es un servicio administrado que permite entrenar modelos de aprendizaje automático en clústeres de máquinas virtuales de Azure.
+* La máquina local, como un escritorio local o un equipo portátil: generalmente, cuando haya un pequeño conjunto de datos y siga en la fase de exploración.
+* Una máquina remota en la nube: [Azure Machine Learning Managed Compute](concept-compute-target.md#amlcompute) es un servicio administrado que permite entrenar modelos de aprendizaje automático en clústeres de máquinas virtuales de Azure.
 
-    Visite este [sitio de GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) para obtener ejemplos de cuadernos con destinos de proceso locales y remotos.
+  Visite este [sitio de GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) para obtener ejemplos de cuadernos con destinos de proceso locales y remotos.
 
-*   Un clúster de Azure Databricks en su suscripción de Azure. Puede encontrar más detalles aquí: [Configuración del clúster de Azure Databricks para ML automatizado](how-to-configure-environment.md#azure-databricks)
+* Un clúster de Azure Databricks en su suscripción de Azure. Puede encontrar más detalles aquí: [Configuración del clúster de Azure Databricks para ML automatizado](how-to-configure-environment.md#azure-databricks)
 
-    Consulte este [sitio de GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks/automl) para ver ejemplos de cuadernos con Azure Databricks.
+  Consulte este [sitio de GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks/automl) para ver ejemplos de cuadernos con Azure Databricks.
 
 <a name='configure-experiment'></a>
 
 ## <a name="configure-your-experiment-settings"></a>Establecer la configuración de experimento
 
-Se pueden usar varias opciones para configurar el experimento de aprendizaje automático automatizado. Estos parámetros se establecen al crear una instancia un objeto `AutoMLConfig`. Consulte la [clase AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) para obtener una lista completa de parámetros.
+Se pueden usar varias opciones para configurar el experimento de aprendizaje automático automatizado. Estos parámetros se establecen al crear una instancia un objeto `AutoMLConfig`. Consulte la [clase AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) para obtener una lista completa de parámetros.
 
 Estos son algunos ejemplos:
 
-1.    Experimento de clasificación con AUC ponderado como métrica principal con los minutos de tiempo de espera del experimento establecidos en 30 minutos y 2 iteraciones de validación cruzada.
+1. Experimento de clasificación con AUC ponderado como métrica principal con los minutos de tiempo de espera del experimento establecidos en 30 minutos y 2 iteraciones de validación cruzada.
 
-    ```python
-    automl_classifier=AutoMLConfig(
-        task='classification',
-        primary_metric='AUC_weighted',
-        experiment_timeout_minutes=30,
-        blacklist_models=['XGBoostClassifier'],
-        training_data=train_data,
-        label_column_name=label,
-        n_cross_validations=2)
-    ```
-2.    A continuación, se incluye un ejemplo de un conjunto de experimentos de regresión que finaliza después de sesenta iteraciones con cinco iteraciones de validación cruzada.
+   ```python
+       automl_classifier=AutoMLConfig(
+       task='classification',
+       primary_metric='AUC_weighted',
+       experiment_timeout_minutes=30,
+       blacklist_models=['XGBoostClassifier'],
+       training_data=train_data,
+       label_column_name=label,
+       n_cross_validations=2)
+   ```
+2. A continuación, se incluye un ejemplo de un conjunto de experimentos de regresión que finaliza después de sesenta iteraciones con cinco iteraciones de validación cruzada.
 
-    ```python
-    automl_regressor = AutoMLConfig(
-        task='regression',
-        experiment_timeout_minutes=60,
-        whitelist_models=['kNN regressor'],
-        primary_metric='r2_score',
-        training_data=train_data,
-        label_column_name=label,
-        n_cross_validations=5)
-    ```
+   ```python
+      automl_regressor = AutoMLConfig(
+      task='regression',
+      experiment_timeout_minutes=60,
+      whitelist_models=['KNN'],
+      primary_metric='r2_score',
+      training_data=train_data,
+      label_column_name=label,
+      n_cross_validations=5)
+   ```
 
 Los tres valores diferentes del parámetro `task` (el tercer tipo de tarea es `forecasting` y usa el mismo grupo de algoritmos que las tareas `regression`) determinan la lista de modelos que se aplican. Use los parámetros `whitelist` o `blacklist` para modificar aún más las iteraciones con los modelos disponibles para incluir o excluir. La lista de modelos admitidos se puede encontrar en [Clase SupportedModels](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels) para ([clasificación](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.classification), [previsión](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.forecasting) y [regresión](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.regression)).
 
-El servicio de validación del aprendizaje automático automatizado requerirá que se establezca `experiment_timeout_minutes` en un tiempo de espera mínimo de 15 minutos para evitar los errores por tiempo de espera en el experimento.
+Para ayudar a evitar errores de tiempo de espera del experimento, el servicio de validación del aprendizaje automático automatizado requerirá que se establezca `experiment_timeout_minutes` en un mínimo de 15 minutos, o 60 minutos si el tamaño de fila por columna es superior a 10 millones.
 
 ### <a name="primary-metric"></a>Métrica principal
 La métrica principal determina la métrica que se utilizará durante el entrenamiento del modelo para la optimización. Las métricas disponibles que puede seleccionar vienen determinadas por el tipo de tarea que elige y en la siguiente tabla se muestran métricas principales válidas para cada tipo de tarea.
@@ -242,7 +243,7 @@ automl_config = AutoMLConfig(task = 'forecasting',
                              **time_series_settings)
 ```
 
-### <a name="ensemble"></a> Configuración de conjuntos
+### <a name="ensemble-configuration"></a><a name="ensemble"></a> Configuración de conjuntos
 
 Los modelos de conjunto están habilitados de forma predeterminada y aparecen como las iteraciones de ejecución finales en una ejecución automatizada de aprendizaje automático. Los métodos de conjunto admitidos actualmente son votación y apilamiento. La votación se implementa como un voto blando mediante promedios ponderados y la implementación de apilamiento usa una implementación de dos niveles, donde el primer nivel tiene los mismos modelos que el conjunto de votación y el segundo modelo de nivel se usa para encontrar la combinación óptima de los modelos del primer nivel. Si usa modelos de ONNX **o** tiene habilitada la explicación del modelo, el apilamiento se deshabilitará y solo se utilizará la votación.
 

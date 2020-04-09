@@ -1,15 +1,15 @@
 ---
-title: Creación de una aplicación de funciones en Azure Portal
+title: Creación de una instancia de Function App desde Azure Portal
 description: Cree una nueva aplicación de funciones en Azure desde el portal.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/29/2019
 ms.custom: mvc
-ms.openlocfilehash: 086a543e75d083094d4dfa789e71afaba5da6d6e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 001b4e4f0ea7fbacd232b2a87abfe353f34919bd
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79368798"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985021"
 ---
 # <a name="create-a-function-app-from-the-azure-portal"></a>Creación de una instancia de Function App desde Azure Portal
 
@@ -36,7 +36,7 @@ Al crear una aplicación de funciones, debe crear o vincular una cuenta de Azure
 >[!NOTE]
 >Cuando usa el plan de hospedaje de consumo, los archivos de configuración de enlace y el código de la función se almacenan en Azure File Storage en la cuenta de almacenamiento principal. Si elimina la cuenta de almacenamiento principal, este contenido se suprimirá y no se podrá recuperar.
 
-Para más información sobre los tipos de cuenta de almacenamiento, consulte [Introducción de los servicios Azure Storage](../storage/common/storage-introduction.md#azure-storage-services). 
+Para más información sobre los tipos de cuenta de almacenamiento, consulte [Introducción de los servicios Azure Storage](../storage/common/storage-introduction.md#core-storage-services). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

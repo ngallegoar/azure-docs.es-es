@@ -12,12 +12,13 @@ ms.date: 11/26/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
-ms.openlocfilehash: d910a76397a40a14d960b59f60561cbee470f5c4
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ROBOTS: NOINDEX
+ms.openlocfilehash: 67a54a2cd4fa071fd47bcebb9aa53fd11fefd61e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78358446"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154923"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>Motivos para actualizar a la Plataforma de identidad de Microsoft (v2.0)
 

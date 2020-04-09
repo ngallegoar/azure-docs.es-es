@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/28/2019
 ms.author: juliako
-ms.openlocfilehash: 9443a50d130e6542672eb143bcb56d04d63959a4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d66347bc5510189b1d947b4c6b00345b0a56c3f7
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "65235709"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582217"
 ---
 # <a name="media-services-job-error-codes"></a>Códigos de error de trabajos de Media Services
 
@@ -36,7 +36,7 @@ Consulte el artículo [Comunidad de Azure Media Services](media-services-communi
 
 - [Códigos de error de punto de conexión de streaming](streaming-endpoint-error-codes.md)
 - [Conceptos de Azure Media Services](concepts-overview.md)
-- [Cuotas y limitaciones](limits-quotas-constraints.md)
+- [Cuotas y límites](limits-quotas-constraints.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

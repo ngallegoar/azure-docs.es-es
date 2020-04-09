@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/25/2019
+ms.date: 03/26/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 7ab811635ca50c3a28ecd8bdf6d0f18fad4c384f
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: db249ccde1026cd468a1c30942891119482697ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77137373"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80372484"
 ---
 # <a name="understand-deny-assignments-for-azure-resources"></a>Descripción de las asignaciones de denegación para recursos de Azure
 
@@ -30,7 +30,7 @@ En este artículo se describe cómo se definen las asignaciones de denegación.
 
 ## <a name="how-deny-assignments-are-created"></a>Cómo se crean las asignaciones de denegación
 
-Azure crea y administra las asignaciones de denegación para proteger los recursos. Azure Blueprints y las aplicaciones administradas de Azure usan las asignaciones de denegación para proteger los recursos administrados por el sistema. Azure Blueprints y las aplicaciones administradas de Azure son la única manera de crear las asignaciones de denegación. No se pueden crear directamente asignaciones de denegación propias.  Para más información, consulte [Protect new resources with Azure Blueprints resource locks](../governance/blueprints/tutorials/protect-new-resources.md) (Protección de los nuevos recursos con bloqueos de recursos de Azure Blueprints).
+Azure crea y administra las asignaciones de denegación para proteger los recursos. Azure Blueprints y las aplicaciones administradas de Azure usan las asignaciones de denegación para proteger los recursos administrados por el sistema. Azure Blueprints y las aplicaciones administradas de Azure son la única manera de crear las asignaciones de denegación. No se pueden crear directamente asignaciones de denegación propias. Para más información sobre cómo Blueprints usa las asignaciones de denegación para bloquear recursos, vea [Comprensión del bloqueo de recursos en planos técnicos de Azure Blueprint](../governance/blueprints/concepts/resource-locking.md).
 
 > [!NOTE]
 > No se pueden crear directamente asignaciones de denegación propias.
@@ -89,5 +89,5 @@ Todas las entidades se puede combinar con `ExcludePrincipals` para denegar todas
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+* [Tutorial: Protección de los nuevos recursos con bloqueos de recursos de Azure Blueprints](../governance/blueprints/tutorials/protect-new-resources.md)
 * [Enumeración de las asignaciones de denegación para recursos de Azure mediante Azure Portal](deny-assignments-portal.md)
-* [Descripción de definiciones de roles para los recursos de Azure](role-definitions.md)

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: db561761acbd5ff991f88cfd18cec8d4625336f2
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.openlocfilehash: 8d538deca610fd9981d401d28b6bea1c31c6d4c8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78255519"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80298866"
 ---
 # <a name="tutorial-migrate-rds-sql-server-to-azure-sql-database-or-an-azure-sql-database-managed-instance-online-using-dms"></a>Tutorial: Migración de RDS SQL Server a Azure SQL Database o a una instancia administrada de Azure SQL Database en línea mediante DMS
 Azure Database Migration Service se puede usar para migrar las bases de datos de una instancia de RDS SQL Server local a [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/) o a una [instancia administrada de Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) con un tiempo de inactividad mínimo. En este tutorial migrará la base de datos **Adventureworks2012** restaurada en una instancia de RDS SQL Server de SQL 2012 (o posterior) a Azure SQL Database o a una instancia administrada de Azure SQL Database mediante Azure Database Migration Service.
@@ -223,7 +223,7 @@ Después de crear el servicio, búsquelo en Azure Portal, ábralo y cree un proy
     Si no hay ningún certificado de confianza instalado, SQL Server genera un certificado autofirmado cuando se inicia la instancia. Este certificado se usa para cifrar las credenciales de las conexiones del cliente.
 
     > [!CAUTION]
-    > Las conexiones SSL cifradas mediante un certificado autofirmado no proporcionan una gran seguridad. Son susceptibles de sufrir ataques de tipo "Man in the middle". No se debe confiar en SSL mediante certificados autofirmados en un entorno de producción o en servidores que están conectados a Internet.
+    > Las conexiones TLS cifradas con un certificado autofirmado no proporcionan una gran seguridad. Son susceptibles de sufrir ataques de tipo "Man in the middle". No debe confiar en TLS con certificados autofirmados en un entorno de producción, ni en servidores conectados a Internet.
 
    ![Detalles del origen](media/tutorial-rds-sql-to-azure-sql-and-managed-instance/dms-source-details3.png)
 

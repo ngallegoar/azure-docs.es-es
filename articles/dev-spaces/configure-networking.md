@@ -1,16 +1,16 @@
 ---
 title: Configuración de red para Azure Dev Spaces en distintas topologías de red
 services: azure-dev-spaces
-ms.date: 01/10/2020
+ms.date: 03/17/2020
 ms.topic: conceptual
 description: Se describen los requisitos de red para ejecutar Azure Dev Spaces en Azure Kubernetes Services.
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, CNI, Kubenet, SDN, red
-ms.openlocfilehash: 9e32e3b65451dceefaeeaf7faed7c8337797e0b8
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 82d046aa36fe9caf6337aa7f58ca0db525062283
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76044980"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240566"
 ---
 # <a name="configure-networking-for-azure-dev-spaces-in-different-network-topologies"></a>Configuración de red para Azure Dev Spaces en distintas topologías de red
 
@@ -51,7 +51,7 @@ Azure Dev Spaces le permite comunicarse directamente con un pod en un espacio de
 
 ### <a name="ingress-only-network-traffic-requirements"></a>Requisitos de tráfico de red de solo entrada
 
-Azure Dev Spaces proporciona enrutamiento entre los pods entre espacios de nombres. Por ejemplo, los espacios de nombres con Azure Dev Spaces habilitado pueden tener una relación de elementos primarios y secundarios, lo que permite enrutar el tráfico de red entre los pods entre los espacios de nombres primarios y secundarios. Para que esta característica funcione, agregue una directiva de red que permita el tráfico entre los espacios de nombres en los que se enruta el tráfico de red, como los espacios de nombres de elementos primarios y secundarios. Además, si el controlador de entrada se implementa en el espacio de nombres *azds*, debe comunicarse con los pods instrumentados por Azure Dev Spaces en un espacio de nombres diferente. Para que el controlador de entrada funcione correctamente, se debe permitir el tráfico de red desde el espacio de nombres *azds* al espacio de nombres donde se ejecutan los pods instrumentados.
+Azure Dev Spaces proporciona enrutamiento entre los pods entre espacios de nombres. Por ejemplo, los espacios de nombres con Azure Dev Spaces habilitado pueden tener una relación de elementos primarios y secundarios, lo que permite enrutar el tráfico de red entre los pods entre los espacios de nombres primarios y secundarios. También Azure Dev Spaces expone puntos de conexión de servicio mediante su propio FQDN. Para configurar maneras diferentes de exponer servicios y cómo afecta al enrutamiento de nivel de espacio de nombres, consulte [Usar diferentes opciones de punto de conexión][endpoint-options].
 
 ## <a name="using-azure-cni"></a>Uso de CNI de Azure
 
@@ -64,6 +64,23 @@ Los clústeres de AKS permiten configurar medidas de seguridad adicionales que l
 ## <a name="using-aks-private-clusters"></a>Uso de clústeres privados de AKS
 
 En este momento, Azure Dev Spaces no es compatible con los [clústeres privados de AKS][aks-private-clusters].
+
+## <a name="using-different-endpoint-options"></a>Usar diferentes opciones de punto de conexión
+
+Azure Dev Spaces tiene la opción de exponer los puntos de conexión de los servicios que se ejecutan en AKS. Al habilitar Azure Dev Spaces en el clúster, tiene las siguientes opciones para configurar el tipo de punto de conexión para el clúster:
+
+* Un punto de conexión *público*, que es el valor predeterminado, implementa un controlador de entrada con una dirección IP pública. La dirección IP pública se registra en el DNS del clúster, lo que permite el acceso público a los servicios mediante una dirección URL. Puede ver esta dirección URL mediante `azds list-uris`.
+* Un punto de conexión *privado* implementa un controlador de entrada con una dirección IP privada. Con una dirección IP privada, el equilibrador de carga del clúster solo es accesible desde dentro de la red virtual del clúster. La dirección IP privada del equilibrador de carga se registra en el DNS del clúster para que se pueda tener acceso a los servicios dentro de la red virtual del clúster mediante una dirección URL. Puede ver esta dirección URL mediante `azds list-uris`.
+* Si se establece *ninguno* para la opción de punto de conexión, no se implementará ningún controlador de entrada. Sin el controlador de entrada implementado, las [funciones de enrutamiento de Azure Dev Spaces][dev-spaces-routing] no funcionarán. Opcionalmente, puede implementar su propia solución de controlador de entrada mediante [traefik][traefik-ingress] o [NGINX][nginx-ingress], lo que permitirá que las funciones de enrutamiento vuelvan a funcionar.
+
+Para configurar la opción de punto de conexión, use *-e* o *--punto de conexión* al habilitar Azure Dev Spaces en el clúster. Por ejemplo:
+
+> [!NOTE]
+> La opción de punto de conexión requiere que se ejecute CLI de Azure versión 2.2.0 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][azure-cli-install].
+
+```azurecli
+az aks use-dev-spaces -g MyResourceGroup -n MyAKS -e private
+```
 
 ## <a name="client-requirements"></a>Requisitos del cliente
 
@@ -86,7 +103,10 @@ Obtenga información acerca de la forma en que Azure Dev Spaces le ayuda a desar
 [aks-network-policies]: ../aks/use-network-policies.md
 [aks-private-clusters]: ../aks/private-clusters.md
 [auth-range-section]: #using-api-server-authorized-ip-ranges
+[azure-cli-install]: /cli/azure/install-azure-cli
 [dev-spaces-ip-auth-range-regions]: https://github.com/Azure/dev-spaces/tree/master/public-ips
+[dev-spaces-routing]: how-dev-spaces-works-routing.md
+[endpoint-options]: #using-different-endpoint-options
 [traefik-ingress]: how-to/ingress-https-traefik.md
 [nginx-ingress]: how-to/ingress-https-nginx.md
 [team-quickstart]: quickstart-team-development.md

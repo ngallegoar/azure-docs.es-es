@@ -9,18 +9,18 @@ ms.assetid: 05f16c3e-9d23-45dc-afca-3d0fa9dbf501
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/02/2019
+ms.date: 02/26/2020
 ms.subservice: hybrid
 ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 405b2fb9d9b8ef3bce17a9370ac87592a3437026
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: c41b11ab65f5710d338ce0041579e1eb4678ec42
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77585958"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80331360"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementación de la sincronización de hash de contraseñas con la sincronización de Azure AD Connect
 En este artículo se ofrece información que se necesita para sincronizar las contraseñas de usuario desde una instancia de Active Directory local con otra de Azure Active Directory (Azure AD) basado en la nube.
@@ -57,7 +57,7 @@ En la sección siguiente se describe con detalle cómo funciona la sincronizaci�
 4. El agente de sincronización de hash de contraseñas amplía el hash de contraseña binario de 16 bits a 64 bytes al convertir en primer lugar el hash con una cadena hexadecimal de 32 bytes y, después, convertir esta cadena de nuevo en binario con codificación UTF-16.
 5. El agente de sincronización de hash de contraseñas agrega un valor sal por usuario, que consta de un valor sal de longitud de 10 bytes, al archivo binario de 64 bits para proteger aún más el valor hash original.
 6. El agente de sincronización de hash de contraseñas combina el hash MD4 con el valor sal por usuario y los introduce en la función [PBKDF2](https://www.ietf.org/rfc/rfc2898.txt). Se usan 1000 iteraciones del algoritmo hash con clave [HMAC-SHA256](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx). 
-7. El agente de sincronización de hash de contraseñas toma el hash de 32 bits resultante, concatena el valor sal por usuario y el número de iteraciones de SHA256 con él (para su uso con Azure AD) y después transmite la cadena desde Azure AD Connect a Azure AD a través de SSL.</br> 
+7. El agente de sincronización de hash de contraseñas toma el hash de 32 bits resultante, concatena el valor sal por usuario y el número de iteraciones de SHA256 con él (para su uso con Azure AD) y después transmite la cadena desde Azure AD Connect a Azure AD a través de TLS.</br> 
 8. Cuando un usuario intenta iniciar sesión en Azure AD y escribe su contraseña, esta se ejecuta a través del mismo proceso MD4 + sal + PBKDF2 + HMAC-SHA256. Si el hash resultante coincide con el valor hash almacenado en Azure AD, el usuario ha especificado la contraseña correcta y se autentica.
 
 > [!NOTE]
@@ -124,6 +124,7 @@ Advertencia: Si hay cuentas sincronizadas que necesiten contraseñas que no expi
 
 > [!NOTE]
 > Esta característica está ahora en versión preliminar pública.
+> El comando de PowerShell Set-MsolPasswordPolicy no funcionará en dominios federados. 
 
 #### <a name="public-preview-of-synchronizing-temporary-passwords-and-force-password-change-on-next-logon"></a>Versión preliminar pública de la sincronización de contraseñas temporales y "Forzar cambio de contraseña en el siguiente inicio de sesión"
 
@@ -136,10 +137,10 @@ Para admitir contraseñas temporales en Azure AD para usuarios sincronizados, p
 `Set-ADSyncAADCompanyFeature  -ForcePasswordChangeOnLogOn $true`
 
 > [!NOTE]
-> Forzar a un usuario a cambiar su contraseña en el siguiente inicio de sesión requiere un cambio de contraseña al mismo tiempo.  AD Connect no recogerá la marca de forzar el cambio de contraseña por sí misma; es complementaria al cambio de contraseña detectado que se produce durante la sincronización de hash de contraseñas.
+> Forzar a un usuario a cambiar su contraseña en el siguiente inicio de sesión requiere un cambio de contraseña al mismo tiempo.  Azure AD Connect no recoge la marca de forzar el cambio de contraseña por sí misma; es complementaria al cambio de contraseña detectado que se produce durante la sincronización de hash de contraseñas.
 
 > [!CAUTION]
-> Si no habilita el autoservicio de restablecimiento de contraseña (SSPR) en Azure AD, los usuarios tendrán una experiencia confusa cuando restablezcan su contraseña en Azure AD e intenten iniciar sesión en Active Directory con la nueva contraseña, ya que esta contraseña no es válida. Solo debe usar esta característica cuando SSPR y la escritura diferida de contraseñas está habilitada en el inquilino.
+> Solo debe usar esta característica cuando SSPR y la escritura diferida de contraseñas estén habilitados en el inquilino.  De este modo, si un usuario cambia la contraseña a través de SSPR, se sincroniza con Active Directory.
 
 > [!NOTE]
 > Esta característica está ahora en versión preliminar pública.

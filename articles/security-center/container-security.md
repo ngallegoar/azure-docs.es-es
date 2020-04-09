@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2020
 ms.author: memildin
-ms.openlocfilehash: fac9cba28f90f3642de660ed7d070b165c06bb2e
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: d46e2a9820ec0c45d197f135428f1ace712b2fb8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78303263"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80125138"
 ---
 # <a name="container-security-in-security-center"></a>Seguridad de los contenedores en Security Center
 
@@ -54,7 +54,7 @@ Cuando explora los problemas de seguridad de una máquina virtual, Security Cent
 >[!NOTE]
 > Estas comprobaciones del banco de prueba de CIS no se ejecutarán en instancias que administre AKS o en VM que administre Databricks.
 
-### <a name="continuous-monitoring-of-your-kubernetes-clusters-preview"></a>Supervisión continua de los clústeres de Kubernetes (versión preliminar)
+### <a name="continuous-monitoring-of-your-kubernetes-clusters"></a>Supervisión continua de los clústeres de Kubernetes
 Security Center funciona junto con Azure Kubernetes Service (AKS), el servicio de orquestación de contenedores administrados de Microsoft que le permite desarrollar, implementar y administrar las aplicaciones en contenedores.
 
 AKS proporciona controles de seguridad y visibilidad sobre la postura de seguridad de los clústeres. Security Center utiliza estas características para:
@@ -67,7 +67,7 @@ Para obtener información sobre las recomendaciones pertinentes de Security Cent
 
 Security Center proporciona detección de amenazas en tiempo real para los entornos en contenedores y genera alertas de actividades sospechosas. Puede usar esta información para corregir problemas de seguridad y mejorar la seguridad de los contenedores rápidamente.
 
-Detectamos amenazas en el nivel de clúster del host y AKS. Para obtener una información completa, consulte [Detección de amenazas para contenedores de Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-compute#azure-containers-).
+Detectamos amenazas en el nivel de clúster del host y AKS. Para obtener una información completa, consulte [Detección de amenazas para contenedores de Azure](threat-protection.md#azure-containers).
 
 
 ## <a name="container-security-faq"></a>Preguntas frecuentes sobre la seguridad de los contenedores

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 01/21/2020
-ms.openlocfilehash: 40c279a4beee9fbebe2de7f272fe51d9039f071c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9807d6eeb07b953ab75b328ce64c5166ca52dd2a
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77668713"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637518"
 ---
 # <a name="connect-linux-computers-to-azure-monitor"></a>Conexión de equipos Linux a Azure Monitor
 
@@ -22,7 +22,7 @@ Si desea instalar el agente de Log Analytics para Linux, siga uno de los método
 * [Descargue e instale manualmente](#install-the-agent-manually) el agente. Esto es necesario cuando el equipo Linux no tiene acceso a Internet y se va a comunicar con Azure Monitor o Azure Automation utilizando la [puerta de enlace de Log Analytics](gateway.md). 
 * [Instale al agente para Linux con un script contenedor](#install-the-agent-using-wrapper-script) hospedado en GitHub. Este es el método recomendado para instalar y actualizar el agente cuando el equipo tiene conectividad a Internet directamente o a través de un servidor proxy.
 
-Para comprender la configuración compatible, revise los [sistemas operativos Linux admitidos](log-analytics-agent.md#supported-linux-operating-systems) y la [configuración del firewall de red](log-analytics-agent.md#network-firewall-requirements).
+Para comprender la configuración compatible, revise los [sistemas operativos Linux admitidos](log-analytics-agent.md#supported-linux-operating-systems) y la [configuración del firewall de red](log-analytics-agent.md#network-requirements).
 
 >[!NOTE]
 >No se puede configurar el agente de Log Analytics para Linux para informar a varias áreas de trabajo de Log Analytics. Solo se puede configurar para enviar informes simultánea o individualmente a un grupo de administración de System Center Operations Manager y a un área de trabajo de Log Analytics.

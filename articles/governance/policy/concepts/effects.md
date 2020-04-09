@@ -1,14 +1,14 @@
 ---
 title: Descripción del funcionamiento de los efectos
 description: Las definiciones de Azure Policy tienen diversos efectos que determinan cómo se administra y notifica el cumplimiento.
-ms.date: 11/04/2019
+ms.date: 03/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 502c8a87c4e915ebd1fd764915daa9c89a307097
-ms.sourcegitcommit: 78f367310e243380b591ff10f2500feca93f5d0a
+ms.openlocfilehash: 0330cb5c732921efda3627dec92e486657097d82
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77544137"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422453"
 ---
 # <a name="understand-azure-policy-effects"></a>Comprender los efectos de Azure Policy
 
@@ -334,7 +334,7 @@ Similar a AuditIfNotExists, una definición de directiva DeployIfNotExists ejecu
 DeployIfNotExists se ejecuta unos 15 minutos después de que un proveedor de recursos haya controlado una solicitud de creación o actualización de recursos y haya devuelto un código de estado correcto. La implementación de una plantilla se produce si no hay recursos relacionados o si los recursos definidos por **ExistenceCondition** no se evalúan como true.
 La duración de la implementación depende de la complejidad de los recursos incluidos en la plantilla.
 
-Durante un ciclo de evaluación, las definiciones de directiva con un efecto DeployIfNotExists que coinciden con los recursos se marcan como no compatibles, pero no se realiza ninguna acción en dicho recurso.
+Durante un ciclo de evaluación, las definiciones de directiva con un efecto DeployIfNotExists que coinciden con los recursos se marcan como no compatibles, pero no se realiza ninguna acción en dicho recurso. Los recursos no conformes existentes se pueden solucionar con una [tarea de corrección](../how-to/remediate-resources.md).
 
 ### <a name="deployifnotexists-properties"></a>Propiedades de DeployIfNotExists
 
@@ -453,7 +453,7 @@ La propiedad de **detalles** del efecto EnforceOPAConstraint tiene las subpropie
 - **values** [opcional]
   - Define cualquier parámetro y valor para pasar a la restricción. Cada valor debe existir en la CRD de la plantilla de restricción.
 
-### <a name="enforceregopolicy-example"></a>Ejemplo de EnforceRegoPolicy
+### <a name="enforceopaconstraint-example"></a>Ejemplo de EnforceOPAConstraint
 
 Ejemplo: regla de control de admisión de Gatekeeper v3 para establecer los límites de recursos de memoria y CPU de contenedor en el motor de AKS.
 

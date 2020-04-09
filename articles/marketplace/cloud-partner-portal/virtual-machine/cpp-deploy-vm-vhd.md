@@ -1,19 +1,18 @@
 ---
 title: Implementación de una máquina virtual a partir de discos duros virtuales para Azure Marketplace
 description: Se explica cómo registrar una máquina virtual desde un disco duro virtual implementado en Azure.
-services: Azure, Marketplace, Cloud Partner Portal,
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/08/2019
-ms.author: evansma
-ms.openlocfilehash: 797c258c963d0daec32a8f9ac7c4e0665dc465d3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 5263d24c411ef8de4187c2fd750013374d779f04
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73813412"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80277946"
 ---
 # <a name="deploy-a-vm-from-your-vhds"></a>Implementación de una máquina virtual a partir de VHD
 
@@ -63,7 +62,7 @@ Una vez implementada la VM, está listo para [certificar la imagen de VM](./cpp-
    | DNS Name for Public IP (Nombre DNS para IP pública)      | Nombre DNS de IP pública. El nombre DNS es el de la máquina virtual, lo definirá en Azure Portal una vez implementada la oferta.  |
    | Nombre de usuario administrador             | Nombre de usuario de la cuenta de administrador de la nueva máquina virtual                                  |
    | Contraseña de administrador              | Contraseña de la cuenta de administrador de la nueva máquina virtual                                  |
-   | OS Type (Tipo de SO)                     | Sistema operativo de la máquina virtual: `Windows` \| `Linux`                                    |
+   | Tipo de SO                     | Sistema operativo de la máquina virtual: `Windows` \| `Linux`                                    |
    | Id. de suscripción             | Identificador de la suscripción seleccionada                                      |
    | Location                    | Ubicación geográfica de la implementación                                        |
    | Tamaño de VM                     | [Tamaño de la máquina virtual de Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes), por ejemplo `Standard_A2` |

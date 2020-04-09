@@ -14,12 +14,12 @@ ms.date: 04/08/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 7c93538982b7fd7bb2f5ac25027ed92cc6ccbfa3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: faaff9e9ad5982efac6409f2284158a3d0711331
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75357856"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548403"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>Ampliar la compatibilidad de SQL Server 2008 y SQL Server 2008 R2 con Azure
 
@@ -66,7 +66,7 @@ SQL Server necesita instantáneas coherentes con la aplicación de Azure Site R
 
 Las soluciones de recuperación ante desastres para SQL Server con finalización del soporte en una máquina virtual de Azure son las siguientes:
 
-- **Copias de seguridad de SQL Server**: use Azure Backup para ayudar a proteger el servidor SQL Server con finalización del soporte contra ransomware, la eliminación accidental y daños. Actualmente, la solución se ofrece como versión preliminar para EOS SQL Server y admite SQL Server 2008 y 2008 R2 que se ejecutan en Windows 2008 R2 SP1. Para más información, consulte [este artículo](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#scenario-support).
+- **Copias de seguridad de SQL Server**: Use Azure Backup para ayudar a proteger su instancia de EOS SQL Server 2008 y 2008 R2 contra ransomware, eliminación accidental y daños con un RPO de 15 minutos y una recuperación a un momento dado. Para más información, consulte [este artículo](https://docs.microsoft.com/azure/backup/sql-support-matrix#scenario-support).
 - **Trasvase de registros**: puede crear una réplica de trasvase de registros en otra zona o región de Azure con restauraciones continuas para reducir el RTO. Tiene que configurar manualmente el trasvase de registros.
 - **Azure Site Recovery**: Puede replicar la VM entre zonas y regiones a través de la replicación de Azure Site Recovery. SQL Server necesita instantáneas coherentes con la aplicación para garantizar la recuperación en caso de desastre. Azure Site Recovery ofrece un RPO mínimo de una hora y un RTO de dos horas (más el tiempo de recuperación de SQL Server) para la recuperación ante desastres de SQL Server con finalización del soporte.
 
