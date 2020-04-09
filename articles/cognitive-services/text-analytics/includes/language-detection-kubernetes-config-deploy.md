@@ -3,18 +3,18 @@ title: 'Detección de idioma: pasos de configuración e implementación de Kuber
 titleSuffix: Azure Cognitive Services
 description: 'Detección de idioma: pasos de configuración e implementación de Kubernetes'
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 11/21/2019
-ms.author: dapine
-ms.openlocfilehash: addb044d82429a4471e7ecd302351dd7b7eada84
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: dc344bd6e4927d39b72ba9af3ae2eeb61d9cec95
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78262724"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80877859"
 ---
 ### <a name="deploy-the-language-detection-container-to-an-aks-cluster"></a>Implementación del contenedor de detección de idioma en un clúster de AKS
 

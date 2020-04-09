@@ -11,30 +11,30 @@ ms.date: 11/12/2019
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 4c6c4d97282387fbcee1d7e8b55b95c01e3dded5
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: daf57c7e6ef40f75eac070c06547cf2a28338f21
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351613"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633240"
 ---
 # <a name="manage-compute-in-azure-synapse-analytics-data-warehouse"></a>Administración de proceso en el almacenamiento de datos de Azure Synapse Analytics
 
-Aprenda sobre la administración de recursos de proceso en el grupo de SQL de Azure Synapse Analytics. Para reducir los costos, detenga el grupo de SQL o escale el almacenamiento de datos para satisfacer las demandas de rendimiento. 
+Aprenda sobre la administración de recursos de proceso en el grupo de SQL de Azure Synapse Analytics. Para reducir los costos, detenga el grupo de SQL o escale el almacenamiento de datos para satisfacer las demandas de rendimiento.
 
 ## <a name="what-is-compute-management"></a>¿Qué es la administración de proceso?
 
-La arquitectura de almacenamiento de datos separa el proceso y el almacenamiento, lo que permite que cada uno se escale de forma independiente. Como resultado, puede escalar el proceso para satisfacer las demandas de rendimiento con independencia del almacenamiento de datos. También puede pausar y reanudar los recursos de proceso. Una consecuencia natural de esta arquitectura es que la [facturación](https://azure.microsoft.com/pricing/details/sql-data-warehouse/) por proceso y almacenamiento está separada. Si no es necesario usar el almacenamiento de datos durante un tiempo, puede detener el proceso para ahorrar costos de proceso. 
+La arquitectura de almacenamiento de datos separa el proceso y el almacenamiento, lo que permite que cada uno se escale de forma independiente. Como resultado, puede escalar el proceso para satisfacer las demandas de rendimiento con independencia del almacenamiento de datos. También puede pausar y reanudar los recursos de proceso. Una consecuencia natural de esta arquitectura es que la [facturación](https://azure.microsoft.com/pricing/details/sql-data-warehouse/) por proceso y almacenamiento está separada. Si no es necesario usar el almacenamiento de datos durante un tiempo, puede detener el proceso para ahorrar costos de proceso.
 
 ## <a name="scaling-compute"></a>Escalado de proceso
 
-Para escalar horizontalmente el proceso o reducir su escala, ajuste el valor de las [unidades de almacenamiento de datos](what-is-a-data-warehouse-unit-dwu-cdwu.md) de su grupo de SQL. La carga y el rendimiento de las consultas pueden aumentar linealmente a medida que agrega más unidades de almacenamiento de datos. 
+Para escalar horizontalmente el proceso o reducir su escala, ajuste el valor de las [unidades de almacenamiento de datos](what-is-a-data-warehouse-unit-dwu-cdwu.md) de su grupo de SQL. La carga y el rendimiento de las consultas pueden aumentar linealmente a medida que agrega más unidades de almacenamiento de datos.
 
 Para conocer los pasos de escalado horizontal, consulte las guías de inicio rápido de [Azure Portal](quickstart-scale-compute-portal.md), [PowerShell](quickstart-scale-compute-powershell.md) o [T-SQL](quickstart-scale-compute-tsql.md). También puede realizar operaciones de escalado horizontal con una [REST API](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
 
 Para realizar una operación de escalado, el grupo de SQL termina primero con todas las consultas de entrada y, luego, revierte las transacciones para garantizar un estado coherente. El escalado solo se produce una vez finalizada la reversión de la transacción. En una operación de escalado, el sistema desasocia la capa de almacenamiento de los nodos de proceso, agrega nodos de proceso y, luego, vuelve a asociar la capa de almacenamiento a la capa de proceso. Cada grupo de SQL se almacena como 60 distribuciones, que se distribuyen de manera uniforme a los nodos de proceso. Al agregar más nodos de proceso, se agrega más capacidad de proceso. A medida que aumenta el número de nodos de proceso, se reduce el número de distribuciones por nodo de proceso, de forma que hay más capacidad de proceso para las consultas. De igual manera, al reducir las unidades de almacenamiento de datos se reduce el número de nodos de proceso, de forma que se reducen los recursos de proceso para las consultas.
 
-En la tabla siguiente se muestra cómo cambia el número de distribuciones por nodo de proceso a medida que cambian las unidades de almacenamiento de datos.  DW30000c proporciona 60 nodos de proceso y consigue un rendimiento mucho mayor que DW100c. 
+En la tabla siguiente se muestra cómo cambia el número de distribuciones por nodo de proceso a medida que cambian las unidades de almacenamiento de datos.  DW30000c proporciona 60 nodos de proceso y consigue un rendimiento mucho mayor que DW100c.
 
 | Unidades de almacenamiento de datos  | \# de nodos de proceso | \# de distribuciones por nodo |
 | -------- | ---------------- | -------------------------- |
@@ -55,16 +55,15 @@ En la tabla siguiente se muestra cómo cambia el número de distribuciones por n
 | DW15000c | 30               | 2                          |
 | DW30000c | 60               | 1                          |
 
-
 ## <a name="finding-the-right-size-of-data-warehouse-units"></a>Búsqueda del tamaño adecuado de las unidades de almacenamiento de datos
 
-Para ver las ventajas de rendimiento del escalado horizontal, en especial para unidades de almacenamiento de datos más grandes, querrá usar al menos un conjunto de datos de 1 TB. Para encontrar el mejor número de unidades de almacenamiento de datos para el grupo de SQL, pruebe a escalarlo y reducirlo verticalmente. Ejecute algunas consultas con distintos números de unidades de almacenamiento de datos después de cargar los datos. Dado que el escalado se realiza rápidamente, puede probar varios niveles de rendimiento en una hora o menos. 
+Para ver las ventajas de rendimiento del escalado horizontal, en especial para unidades de almacenamiento de datos más grandes, querrá usar al menos un conjunto de datos de 1 TB. Para encontrar el mejor número de unidades de almacenamiento de datos para el grupo de SQL, pruebe a escalarlo y reducirlo verticalmente. Ejecute algunas consultas con distintos números de unidades de almacenamiento de datos después de cargar los datos. Dado que el escalado se realiza rápidamente, puede probar varios niveles de rendimiento en una hora o menos.
 
 Recomendaciones para encontrar el mejor número de unidades de almacenamiento de datos:
 
 - Para un grupo de SQL en desarrollo, comience por seleccionar un número más pequeño de unidades de almacenamiento de datos.  Un buen punto de partida es DW400c o DW200c.
 - Supervise el rendimiento de la aplicación y observe el número de unidades de almacenamiento de datos seleccionadas en comparación con el rendimiento observado.
-- Suponga una escala lineal y determine cuánto debe aumentar o reducir las unidades de almacenamiento de datos. 
+- Suponga una escala lineal y determine cuánto debe aumentar o reducir las unidades de almacenamiento de datos.
 - Continúe realizando ajustes hasta llegar a un nivel de rendimiento adecuado para sus requerimientos empresariales.
 
 ## <a name="when-to-scale-out"></a>Cuándo escalar horizontalmente
@@ -78,29 +77,30 @@ El escalado horizontal de unidades de almacenamiento de datos afecta a los sigui
 Recomendaciones para saber cuándo escalar horizontalmente las unidades de almacenamiento de datos:
 
 - Para realizar una operación de transformación o carga de con muchos datos, realice el escalado horizontal para que los datos estén disponibles con mayor rapidez.
-- Durante las horas punta comerciales, escale horizontalmente para dar cabida a un mayor número de consultas simultáneas. 
+- Durante las horas punta comerciales, escale horizontalmente para dar cabida a un mayor número de consultas simultáneas.
 
 ## <a name="what-if-scaling-out-does-not-improve-performance"></a>¿Qué ocurre si escalado horizontal no mejora el rendimiento?
 
-La adición de unidades de almacenamiento de datos aumenta el paralelismo. Si el trabajo se divide uniformemente entre los nodos de proceso, el paralelismo adicional mejora el rendimiento de las consultas. Si el escalado horizontal no cambia el rendimiento, hay algunos motivos por los que puede ocurrir. Puede que los datos se sesguen entre las distribuciones o que las consultas introduzcan un movimiento de gran cantidad de datos. Para investigar los problemas de rendimiento de consultas, consulte las [soluciones a los problemas de rendimiento](sql-data-warehouse-troubleshoot.md#performance). 
+La adición de unidades de almacenamiento de datos aumenta el paralelismo. Si el trabajo se divide uniformemente entre los nodos de proceso, el paralelismo adicional mejora el rendimiento de las consultas. Si el escalado horizontal no cambia el rendimiento, hay algunos motivos por los que puede ocurrir. Puede que los datos se sesguen entre las distribuciones o que las consultas introduzcan un movimiento de gran cantidad de datos. Para investigar los problemas de rendimiento de consultas, consulte las [soluciones a los problemas de rendimiento](sql-data-warehouse-troubleshoot.md#performance).
 
 ## <a name="pausing-and-resuming-compute"></a>Pausa y reanudación del proceso
 
-Al pausar el proceso, la capa de almacenamiento se desasocia de los nodos de proceso. Se liberan los recursos de proceso desde su cuenta. No se le cobra por el proceso mientras está en pausa. Al reanudarse el proceso, se vuelve a asociar el almacenamiento con los nodos de proceso y se reanudan los cargos correspondientes. Al pausar un grupo de SQL:
+Al pausar el proceso, la capa de almacenamiento se desasocia de los nodos de proceso. Se liberan los recursos de proceso desde su cuenta. No se le cobra por el proceso mientras está en pausa. Al reanudarse el proceso, se vuelve a asociar el almacenamiento con los nodos de proceso y se reanudan los cargos correspondientes.
+Al pausar un grupo de SQL:
 
-* Los recursos de memoria y proceso se devuelven al grupo de recursos disponibles en el centro de datos
-* Los costos de unidad de almacenamiento de datos son cero lo que dura la pausa.
-* El almacenamiento de datos no se ve afectado y sus datos permanecen intactos. 
-* Todas las operaciones en ejecución o en cola se cancelan.
+- Los recursos de memoria y proceso se devuelven al grupo de recursos disponibles en el centro de datos
+- Los costos de unidad de almacenamiento de datos son cero lo que dura la pausa.
+- El almacenamiento de datos no se ve afectado y sus datos permanecen intactos.
+- Todas las operaciones en ejecución o en cola se cancelan.
 
 Al reanudar un grupo de SQL:
 
-* El grupo de SQL adquiere recursos de memoria y proceso equivalentes a su valor de unidades de almacenamiento de datos.
-* Los cargos por la reanudación de las unidades de almacenamiento de datos se reanudan también.
-* Los datos se vuelven disponibles.
-* Una vez que el grupo de SQL está en línea, debe reiniciar las consultas de carga de trabajo.
+- El grupo de SQL adquiere recursos de memoria y proceso equivalentes a su valor de unidades de almacenamiento de datos.
+- Los cargos por la reanudación de las unidades de almacenamiento de datos se reanudan también.
+- Los datos se vuelven disponibles.
+- Una vez que el grupo de SQL está en línea, debe reiniciar las consultas de carga de trabajo.
 
-Si quiere que el grupo de SQL esté siempre accesible, puede escalarlo verticalmente al tamaño más pequeño en lugar de pausarlo. 
+Si quiere que el grupo de SQL esté siempre accesible, puede escalarlo verticalmente al tamaño más pequeño en lugar de pausarlo.
 
 Para conocer los pasos de pausa y reanudación, consulte las guías de inicio rápido de [Azure Portal](pause-and-resume-compute-portal.md), o [PowerShell](pause-and-resume-compute-powershell.md). También puede usar la [REST API de pausa](sql-data-warehouse-manage-compute-rest-api.md#pause-compute) o la [REST API de reanudación](sql-data-warehouse-manage-compute-rest-api.md#resume-compute).
 
@@ -116,15 +116,14 @@ Consulte también [Transacciones en SQL Data Warehouse](sql-data-warehouse-devel
 
 Para automatizar las operaciones de administración de proceso, consulte [Administración de proceso con Azure Functions](manage-compute-with-azure-functions.md).
 
-Cada una de las operaciones de escalado horizontal, pausar y reanudación puede tardar varios minutos en completarse. Si va a escalar, pausar o reanudar automáticamente, se recomienda implementar una lógica para garantizar que determinadas operaciones se hayan completado antes de continuar con otra acción. La comprobación del estado del grupo de SQL a través de varios puntos de conexión le permite implementar correctamente la automatización de tales operaciones. 
+Cada una de las operaciones de escalado horizontal, pausar y reanudación puede tardar varios minutos en completarse. Si va a escalar, pausar o reanudar automáticamente, se recomienda implementar una lógica para garantizar que determinadas operaciones se hayan completado antes de continuar con otra acción. La comprobación del estado del grupo de SQL a través de varios puntos de conexión le permite implementar correctamente la automatización de tales operaciones.
 
 Para comprobar el estado del grupo de SQL, consulte el inicio rápido de [PowerShell](quickstart-scale-compute-powershell.md#check-data-warehouse-state) o [T-SQL](quickstart-scale-compute-tsql.md#check-data-warehouse-state). También puede comprobar el estado del grupo de SQL con una [API REST](sql-data-warehouse-manage-compute-rest-api.md#check-database-state).
 
-
 ## <a name="permissions"></a>Permisos
 
-Para escalar el grupo de SQL, se requieren los permisos descritos en [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse).  Para pausar y reanudar, se requiere el permiso [Colaborador de base de datos SQL](../../role-based-access-control/built-in-roles.md#sql-db-contributor), en concreto Microsoft.Sql/servers/databases/action.
-
+Para escalar el grupo de SQL, se requieren los permisos descritos en [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  Para pausar y reanudar, se requiere el permiso [Colaborador de base de datos SQL](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#sql-db-contributor), en concreto Microsoft.Sql/servers/databases/action.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 Consulte la guía de procedimientos de [administración del proceso](manage-compute-with-azure-functions.md) Otro aspecto de la administración de recursos de proceso es asignar distintos recursos a las consultas individuales. Para más información, consulte [Clases de recursos para la administración de cargas de trabajo](resource-classes-for-workload-management.md).

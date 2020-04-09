@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/11/2020
-ms.openlocfilehash: 963b86852a7df557ad7179e444e7c3a2692f57d9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a14f4d548053fb7aaf6f450176fdc49bc7b119bf
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79531459"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421038"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Solución de problemas de rendimiento de la actividad de copia
 
@@ -88,7 +88,7 @@ Si el rendimiento de la actividad de copia no satisface sus expectativas, quiere
 
   - Compruebe el patrón del origen y el receptor de la copia: 
 
-    - Si el patrón de copia admite más de cuatro unidades de integración de datos (DIU), consulte [esta sección](copy-activity-performance.md#data-integration-units) para obtener detalles; por lo general, puede intentar aumentar las unidades para obtener un mejor rendimiento. 
+    - Si el patrón de copia admite más de cuatro unidades de integración de datos (DIU), consulte [esta sección](copy-activity-performance-features.md#data-integration-units) para obtener detalles; por lo general, puede intentar aumentar las unidades para obtener un mejor rendimiento. 
 
     - En caso contrario, considere la posibilidad de dividir un conjunto de datos de gran tamaño en varios conjuntos de datos más pequeños y permitir que esos trabajos de copia se ejecuten simultáneamente, abordando cada uno de ellos una parte de los datos. Puede hacerlo con Lookup/GetMetadata + ForEach + Copy. Consulte las plantillas de solución de [Copia de archivos de varios contenedores](solution-template-copy-files-multiple-containers.md), [Migración de datos de Amazon S3 a ADLS Gen2](solution-template-migration-s3-azure.md) o [Copia masiva con una tabla de control](solution-template-bulk-copy-with-control-table.md) como ejemplo general.
 
@@ -102,7 +102,7 @@ Si el rendimiento de la actividad de copia no satisface sus expectativas, quiere
 
   - Compruebe el patrón del origen y el receptor de la copia: 
 
-    - Si el patrón de copia admite más de cuatro unidades de integración de datos (DIU), consulte [esta sección](copy-activity-performance.md#data-integration-units) para obtener detalles; por lo general, puede intentar aumentar las unidades para obtener un mejor rendimiento. 
+    - Si el patrón de copia admite más de cuatro unidades de integración de datos (DIU), consulte [esta sección](copy-activity-performance-features.md#data-integration-units) para obtener detalles; por lo general, puede intentar aumentar las unidades para obtener un mejor rendimiento. 
 
     - De lo contrario, ajuste gradualmente las [copias en paralelo](copy-activity-performance-features.md); tenga en cuenta que demasiadas copias en paralelo pueden perjudicar el rendimiento.
 
