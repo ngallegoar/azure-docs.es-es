@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/03/2020
+ms.date: 03/13/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 3806fead9226978c277e87f3d97b14ee38d9552d
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: 0df0ba4ce76d249bcb4738b41c94677e061f14ca
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75665423"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79409869"
 ---
 # <a name="determine-which-azure-storage-encryption-key-model-is-in-use-for-the-storage-account"></a>Determinación del modelo de clave de cifrado de Azure Storage que está en uso para la cuenta de almacenamiento
 
@@ -32,18 +32,22 @@ Para más información sobre claves de cifrado, consulte [Cifrado de Azure Stora
 
 Para determinar si una cuenta de almacenamiento usa claves administradas por Microsoft o claves administradas por el cliente para el cifrado, use uno de los métodos siguientes.
 
-# <a name="azure-portaltabportal"></a>[Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
 Para comprobar el modelo de cifrado de la cuenta de almacenamiento mediante Azure Portal, siga estos pasos:
 
 1. En Azure Portal, vaya a la cuenta de almacenamiento.
 1. Seleccione el valor de **Cifrado** y anótelo.
 
-En la imagen siguiente se muestra una cuenta de almacenamiento en la que se usan las claves administradas por el cliente para el cifrado:
+En la imagen siguiente se muestra una cuenta de almacenamiento cifrada con claves administradas por Microsoft:
+
+![Ver cuenta cifrada con claves administradas por Microsoft](media/storage-encryption-key-model-get/microsoft-managed-encryption-key-setting-portal.png)
+
+En la imagen siguiente se muestra una cuenta de almacenamiento cifrada con claves administradas por el cliente:
 
 ![Captura de pantalla que muestra el valor de la clave de cifrado en Azure Portal](media/storage-encryption-key-model-get/customer-managed-encryption-key-setting-portal.png)
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Para comprobar el modelo de cifrado de la cuenta de almacenamiento mediante PowerShell, llame al comando [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) y, después, compruebe la propiedad **KeySource** de la cuenta.
 
@@ -55,7 +59,7 @@ $account.Encryption.KeySource
 
 Si el valor de la propiedad **KeySource** es `Microsoft.Storage`, la cuenta está cifrada con claves administradas por Microsoft. Sin embargo, si el valor de la propiedad **KeySource** es `Microsoft.Keyvault`, la cuenta está cifrada con claves administradas por el cliente.
 
-# <a name="azure-clitabcli"></a>[CLI de Azure](#tab/cli)
+# <a name="azure-cli"></a>[CLI de Azure](#tab/cli)
 
 Para comprobar el modelo de cifrado de la cuenta de almacenamiento mediante la CLI de Azure, llame al comando [az storage account show](/cli/azure/storage/account#az-storage-account-show) y, después, compruebe la propiedad **keySource** de la cuenta.
 
@@ -73,4 +77,5 @@ Si el valor de la propiedad **keySource** es `Microsoft.Storage`, la cuenta est�
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Cifrado de Azure Storage para datos en reposo](storage-service-encryption.md)
+- [Cifrado de Azure Storage para datos en reposo](storage-service-encryption.md)
+- [Uso de claves administradas por el cliente con Azure Key Vault para administrar el cifrado de Azure Storage](encryption-customer-managed-keys.md)

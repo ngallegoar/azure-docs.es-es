@@ -11,20 +11,20 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 06/19/2019
-ms.openlocfilehash: b88557468c386bc07c2432e154a82fd1f4fcb438
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: c5ce6a1c2f231d372a2a8113eb9043a236090388
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78194313"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80061689"
 ---
 # <a name="tutorial-add-an-azure-sql-database-single-database-to-a-failover-group"></a>Tutorial: Adición de una base de datos única de Azure SQL Database a un grupo de conmutación por error
 
-Configure un grupo de conmutación por error para una base de datos única de Azure SQL Database y pruebe la conmutación por error mediante Azure Portal, PowerShell o la CLI de Azure.  En este tutorial, aprenderá a:
+Un [grupo de conmutación por error](sql-database-auto-failover-group.md) es una capa de abstracción declarativa que permite agrupar varias bases de datos con replicación geográfica. Aprenda a configurar un grupo de conmutación por error para una base de datos única de Azure SQL Database y pruebe la conmutación por error mediante Azure Portal, PowerShell o la CLI de Azure.  En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > - Crear una base de datos única de Azure SQL Database.
-> - Crear un [grupo de conmutación por error](sql-database-auto-failover-group.md) para una base de datos única entre dos servidores lógicos de SQL.
+> - Crear un grupo de conmutación por error para una base de datos única entre dos servidores lógicos de SQL.
 > - Probar la conmutación por error.
 
 ## <a name="prerequisites"></a>Prerrequisitos
@@ -62,7 +62,7 @@ Cree el grupo de conmutación por error y agregue la base de datos única median
 
 1. Seleccione **Azure SQL** en el menú izquierdo de [Azure Portal](https://portal.azure.com). Si **Azure SQL** no está en la lista, seleccione **Todos los servicios** y escriba Azure SQL en el cuadro de búsqueda. (Opcional) Seleccione la estrella junto a **Azure SQL** para marcarlo como favorito y agréguelo como un elemento en el panel de navegación izquierdo. 
 1. Seleccione la base de datos única creada en la sección 1, `mySampleDatabase`. 
-1. Seleccione el nombre del servidor en **Nombre del servidor** para abrir la configuración del servidor.
+1. Los grupos de conmutación por error se pueden configurar en el nivel de servidor. Seleccione el nombre del servidor en **Nombre del servidor** para abrir la configuración del servidor.
 
    ![Abrir servidor para una base de datos única](media/sql-database-single-database-failover-group-tutorial/open-sql-db-server.png)
 

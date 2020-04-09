@@ -1,26 +1,26 @@
 ---
-title: Configuración de la autenticación de Azure AD para la conexión de punto a sitio con Azure | Microsoft Docs
-description: En este tutorial, aprenderá a configurar la autenticación de Azure Active Directory para una VPN de usuario.
+title: 'Configuración de la autenticación de Azure AD para la conexión VPN de usuario: Red WAN virtual'
+description: Aprenda a configurar la autenticación de Azure Active Directory para una VPN de usuario.
 services: virtual-wan
 author: anzaman
 ms.service: virtual-wan
-ms.topic: tutorial
-ms.date: 02/07/2019
+ms.topic: conceptual
+ms.date: 03/17/2020
 ms.author: alzam
-ms.openlocfilehash: b3508c4c8da5b4987fb5f38cf3bf701f2dda1097
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 703b832d58f2374eac131cfd380ba27f2c890618
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77122036"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80059480"
 ---
-# <a name="tutorial-create-a-user-vpn-connection-by-using-azure-virtual-wan"></a>Tutorial: Creación de una conexión VPN de usuario con Azure Virtual WAN
+# <a name="configure-azure-active-directory-authentication-for-user-vpn"></a>Configuración de la autenticación de Azure Active Directory para una VPN de usuario
 
 En este tutorial se muestra cómo configurar la autenticación de Azure AD para una VPN de usuario en Virtual WAN para conectarse a los recursos de Azure mediante una conexión de VPN OpenVPN. La autenticación de Azure Active Directory solo está disponible para puertas de enlace que usan el protocolo OpenVPN y los clientes que ejecutan Windows.
 
 Este tipo de conexión requiere que se configure un cliente en el equipo cliente. Para más información sobre Virtual WAN, consulte la [Introducción a Virtual WAN](virtual-wan-about.md).
 
-En este tutorial, aprenderá a:
+En este artículo aprenderá a:
 
 > [!div class="checklist"]
 > * Crear una red de área extensa (WAN)
@@ -31,7 +31,6 @@ En este tutorial, aprenderá a:
 > * Conectar una red virtual a un concentrador
 > * Descargar y aplicar la configuración de cliente VPN
 > * Visualizar la instancia de Virtual WAN
-> * Visualizar el estado de los recursos
 
 ![Diagrama de Virtual WAN](./media/virtual-wan-about/virtualwanp2s.png)
 
@@ -47,7 +46,7 @@ Antes de comenzar con la configuración, compruebe que se cumplen los criterios 
 
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="wan"></a>Creación de una instancia de Virtual WAN
+## <a name="create-a-virtual-wan"></a><a name="wan"></a>Creación de una instancia de Virtual WAN
 
 Desde un explorador, navegue al [Portal de Azure](https://portal.azure.com) e inicie sesión con su cuenta de Azure.
 
@@ -65,7 +64,7 @@ Desde un explorador, navegue al [Portal de Azure](https://portal.azure.com) e in
 4. Cuando termine de rellenar los campos, haga clic en **Revisión y creación**.
 5. Una vez que se haya superado la validación, seleccione **Crear** para crear la red WAN virtual.
 
-## <a name="site"></a>Crear un centro virtual vacío
+## <a name="create-an-empty-virtual-hub"></a><a name="site"></a>Crear un centro virtual vacío
 
 1. En la red WAN virtual, seleccione Centros de conectividad y haga clic en **+Nuevo centro de conectividad**.
 
@@ -82,7 +81,7 @@ Desde un explorador, navegue al [Portal de Azure](https://portal.azure.com) e in
 3. Haga clic en **Revisar + crear**.
 4. En la página **Validación superada**, haga clic en **Crear**.
 
-## <a name="site"></a>Creación de una nueva configuración de punto a sitio
+## <a name="create-a-new-p2s-configuration"></a><a name="site"></a>Creación de una nueva configuración de punto a sitio
 
 Una configuración de P2S define los parámetros para conectarse a los clientes remotos.
 
@@ -98,7 +97,7 @@ Una configuración de P2S define los parámetros para conectarse a los clientes 
 
    ![Configuración nueva](media/virtual-wan-point-to-site-azure-ad/aadportal3.jpg)
 
-## <a name="hub"></a>Edición de la asignación del concentrador
+## <a name="edit-hub-assignment"></a><a name="hub"></a>Edición de la asignación del concentrador
 
 1. Vaya a la hoja **Centros de conectividad** de la red virtual WAN.
 2. Seleccione el concentrador al que desea asociar la configuración del servidor VPN y haga clic en los puntos suspensivos (...).
@@ -112,7 +111,7 @@ Una configuración de P2S define los parámetros para conectarse a los clientes 
 6. Haga clic en **Confirmar**.
 7. La operación puede tardar hasta 30 minutos en completarse.
 
-## <a name="device"></a>Descarga del perfil de VPN
+## <a name="download-vpn-profile"></a><a name="device"></a>Descarga del perfil de VPN
 
 Use el perfil de VPN para configurar los clientes.
 
@@ -126,14 +125,14 @@ Use el perfil de VPN para configurar los clientes.
 Para conectarse, debe descargar el cliente de VPN de Azure e importar el perfil de cliente de VPN que descargó en los pasos anteriores en todos los equipos que quieran conectarse a la red virtual.
 
 > [!NOTE]
-> La autenticación de Azure AD solo se admite para las conexiones de protocolo de OpenVPN®.
+> La autenticación de Azure AD solo se admite para las conexiones de protocolo de OpenVPN&reg;.
 >
 
 #### <a name="to-download-the-azure-vpn-client"></a>Para descargar el cliente VPN de Azure
 
 Use este [vínculo](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab) para descargar el cliente VPN de Azure.
 
-#### <a name="import"></a>Para importar un perfil de cliente
+#### <a name="to-import-a-client-profile"></a><a name="import"></a>Para importar un perfil de cliente
 
 1. En la página, seleccione **Importar**.
 
@@ -155,7 +154,7 @@ Use este [vínculo](https://www.microsoft.com/p/azure-vpn-client-preview/9np355q
 
     ![importación](./media/virtual-wan-point-to-site-azure-ad/import/import5.jpg)
 
-#### <a name="delete"></a>Para eliminar un perfil de cliente
+#### <a name="to-delete-a-client-profile"></a><a name="delete"></a>Para eliminar un perfil de cliente
 
 1. Seleccione los puntos suspensivos junto al perfil de cliente que quiera eliminar. Después, seleccione **Quitar**.
 
@@ -165,7 +164,7 @@ Use este [vínculo](https://www.microsoft.com/p/azure-vpn-client-preview/9np355q
 
     ![delete](./media/virtual-wan-point-to-site-azure-ad/delete/delete2.jpg)
 
-#### <a name="diagnose"></a>Diagnóstico de problemas de conexión
+#### <a name="diagnose-connection-issues"></a><a name="diagnose"></a>Diagnóstico de problemas de conexión
 
 1. Para diagnosticar problemas de conexión, puede usar la herramienta **Diagnosticar**. Seleccione los puntos suspensivos (...) junto a la conexión de VPN que desea diagnosticar para que se muestre el menú. Después, seleccione **Diagnosticar**.
 
@@ -183,19 +182,14 @@ Use este [vínculo](https://www.microsoft.com/p/azure-vpn-client-preview/9np355q
 
     ![diagnóstico](./media/virtual-wan-point-to-site-azure-ad/diagnose/diagnose4.jpg)
 
-## <a name="viewwan"></a>Visualización de la instancia de Virtual WAN
+## <a name="view-your-virtual-wan"></a><a name="viewwan"></a>Visualización de la instancia de Virtual WAN
 
 1. Vaya a la instancia de Virtual WAN.
-2. En la página Información general, cada punto del mapa representa un concentrador. Mantenga el mouse sobre cualquier punto para ver el resumen de estado del concentrador.
+2. En la página Información general, cada punto del mapa representa un concentrador.
 3. En la sección de concentradores y conexiones, puede ver estado del concentrador, sitio, región, estado de la conexión VPN y bytes de entrada y salida.
 
-## <a name="viewhealth"></a>Visualización del estado de los recursos
 
-1. Vaya a su red WAN.
-2. En la página de la WAN, en la sección de **Soporte técnico y solución de problemas**, haga clic en **Mantenimiento** y visualice los recursos.
-
-
-## <a name="cleanup"></a>Limpieza de recursos
+## <a name="clean-up-resources"></a><a name="cleanup"></a>Limpieza de recursos
 
 Cuando ya no necesite estos recursos, puede usar [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) para quitar el grupo de recursos y todos los recursos que contiene. Reemplace "myResourceGroup" con el nombre del grupo de recursos y ejecute el siguiente comando de PowerShell:
 

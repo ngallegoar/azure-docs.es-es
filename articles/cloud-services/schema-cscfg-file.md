@@ -1,5 +1,6 @@
 ---
 title: Esquema de definición de Azure Cloud Services (archivo .cscfg) | Microsoft Docs
+description: Un archivo de configuración de servicio (.cscfg) especifica el número de instancias de rol que se implementarán para cada rol, los valores de configuración y las huellas digitales de certificado para un rol.
 services: cloud-services
 ms.custom: ''
 ms.date: 12/07/2016
@@ -8,12 +9,12 @@ ms.topic: reference
 caps.latest.revision: 35
 author: tgore03
 ms.author: tagore
-ms.openlocfilehash: 71c0bb1b09d480a05a9e5a54b269d0da8fde5bc3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: cb77181e00c97b7f426429793f17af3cb5e84ebe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449115"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79534752"
 ---
 # <a name="azure-cloud-services-config-schema-cscfg-file"></a>Esquema de configuración de Azure Cloud Services (archivo .cscfg)
 El archivo de configuración de servicio especifica el número de instancias de rol que se implementan para cada rol del servicio, los valores de los parámetros de configuración y las huellas digitales de los certificados asociados a un rol. Si el servicio forma parte de una red virtual, se debe proporcionar información de configuración de la red en el archivo de configuración de servicio, así como en el archivo de configuración de red virtual. La extensión predeterminada del archivo de configuración de servicio es. cscfg.
@@ -50,7 +51,7 @@ En los temas siguientes se describe el esquema del elemento `ServiceConfiguratio
 ## <a name="service-configuration-namespace"></a>Espacio de nombres de configuración de servicio
 El espacio de nombres XML del archivo de configuración de servicio es: `http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration`.
 
-##  <a name="ServiceConfiguration"></a> Elemento ServiceConfiguration
+##  <a name="serviceconfiguration-element"></a><a name="ServiceConfiguration"></a> Elemento ServiceConfiguration
 El elemento `ServiceConfiguration` es el elemento de nivel superior del archivo de configuración de servicio.
 
 En la tabla siguiente se describen los atributos del elemento `ServiceConfiguration`: Todos los valores de atributo son tipos de cadena.

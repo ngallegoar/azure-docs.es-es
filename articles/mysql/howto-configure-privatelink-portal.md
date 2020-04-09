@@ -1,19 +1,19 @@
 ---
-title: Private Link para el método de instalación del portal de Azure Database for MySQL (versión preliminar)
+title: 'Private Link en Azure Database for MySQL: Azure Portal'
 description: Aprenda a configurar una instancia de Private Link para Azure Database for MySQL desde Azure Portal
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 193227ff98accb31c15e388c810aea7460a2cb5d
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 4a4824a9f8340b12bca7e18562d723eb24e58b71
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561670"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79371926"
 ---
-# <a name="create-and-manage-private-link-for-azure-database-for-mysql-preview-using-portal"></a>Creación y administración de Private Link para Azure Database for MySQL (versión preliminar) mediante el portal
+# <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-portal"></a>Creación y administración de Private Link para Azure Database for MySQL mediante el portal
 
 Un punto de conexión privado es el bloque de creación fundamental para el vínculo privado en Azure. Permite que los recursos de Azure, como las máquinas virtuales, se comuniquen de manera privada con recursos de vínculos privados. En este artículo, obtendrá información sobre cómo usar Azure Portal para crear una VM en una instancia de Azure Virtual Network y un servidor de Azure Database for MySQL con un punto de conexión privado de Azure.
 
@@ -126,13 +126,13 @@ En esta sección, creará un servidor de Azure Database for MySQL en Azure.
 
 En esta sección, creará una instancia de MySQL Server y le agregará un punto de conexión privado. 
 
-1. En la parte superior izquierda de la pantalla en Azure Portal, seleccione **Crear un recurso** > **Redes** > **Private Link Center (versión preliminar)** .
+1. En la parte superior izquierda de la pantalla en Azure Portal, seleccione **Crear un recurso** > **Redes** > **Private Link**.
 
 2. En **Centro de vínculos privados: Información general**, en la opción**Build a private connection to a service** (Crear una conexión privada a un servicio), seleccione **Start** (Iniciar).
 
     ![Información general de Private Link](media/concepts-data-access-and-security-private-link/privatelink-overview.png)
 
-1. En **Create a private endpoint (Preview) - Basics** (Crear un punto de conexión privado [versión preliminar]: Conceptos básicos), escriba o seleccione esta información:
+1. En **Crear un punto de conexión privado - Aspectos básicos**, escriba o seleccione esta información:
 
     | Configuración | Value |
     | ------- | ----- |
@@ -156,7 +156,7 @@ En esta sección, creará una instancia de MySQL Server y le agregará un punto 
     |Recurso secundario de destino |Seleccione *mysqlServer*.|
     |||
 7. Seleccione **Siguiente: Configuration** (Siguiente: Configuración).
-8. En **Create a private endpoint (Preview) - Configuración** (Crear un punto de conexión privado [versión preliminar]: Configuración), escriba o seleccione esta información:
+8. En **Crear un punto de conexión privado - Configuración**, escriba o seleccione esta información:
 
     | Configuración | Value |
     | ------- | ----- |

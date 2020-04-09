@@ -1,22 +1,22 @@
 ---
-title: Generación y exportación de certificados para conexiones VPN de usuario de Azure Virtual WAN | Microsoft Docs
+title: Generación y exportación de certificados para conexiones VPN de usuario | Azure Virtual WAN
 description: Cree un certificado raíz autofirmado, exporte la clave pública y genere los certificados de cliente mediante PowerShell en Windows 10 o Windows Server 2016.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 03/18/2020
 ms.author: cherylmc
-ms.openlocfilehash: 57d730a92c687a297a35b8cd6cccd955025694af
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0303bac88f34c895a4a680cd5bff0e9d1513d2e5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510925"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80059957"
 ---
-# <a name="generate-and-export-certificates-for-virtual-wan-user-vpn-connections"></a>Generación y exportación de certificados para conexiones VPN de usuario de Virtual WAN
+# <a name="generate-and-export-certificates-for-user-vpn-connections"></a>Generación y exportación de certificados para conexiones VPN de usuario
 
-Las conexiones VPN de usuario utilizan certificados para realizar la autenticación. En este artículo, se muestra cómo crear un certificado raíz autofirmado y generar certificados de cliente usando PowerShell en Windows 10 o Windows Server 2016.
+Las conexiones de VPN de usuario (punto a sitio) utilizan certificados para realizar la autenticación. En este artículo, se muestra cómo crear un certificado raíz autofirmado y generar certificados de cliente usando PowerShell en Windows 10 o Windows Server 2016.
 
 Debe realizar los pasos de este artículo en un equipo que ejecute Windows 10 o Windows Server 2016. Los cmdlets de PowerShell que se usan para generar certificados forman parte del sistema operativo y no funcionan en otras versiones de Windows. El equipo con Windows 10 o Windows Server 2016 solo es necesario para generar los certificados. Una vez que se generan los certificados, puede cargarlos o instalarlos en cualquier sistema operativo cliente compatible.
 

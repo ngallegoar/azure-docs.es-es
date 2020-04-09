@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/13/2017
-ms.openlocfilehash: 9afac1adef801956f176dd339c795e2df533a2c7
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 648dbdb7e9e9d1b20c55d3fa5b314b7e4657d5e7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169118"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79204189"
 ---
 # <a name="perform-analytics-with-azure-machine-learning-studio-classic-using-an-on-premises-sql-server-database"></a>Análisis mediante Azure Machine Learning Studio (clásico) con una base de datos de SQL Server local
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Con frecuencia, a las compañías que trabajan con datos locales les gustaría aprovechar la escala y la agilidad de la nube para su cargas de trabajo de aprendizaje de automático. Sin embargo, no desean interrumpir los flujos de trabajo y los procesos de negocio actuales por mover sus datos locales a la nube. Ahora, Azure Machine Learning Studio (clásico) admite la lectura de los datos de una base de datos de SQL Server local, seguida del entrenamiento y la puntuación de un modelo con estos datos. Ya no tendrá que copiar y sincronizar de forma manual los datos entre la nube y el servidor local. En su lugar, el módulo de **importación de datos** de Azure Machine Learning Studio (clásico) ahora puede leer directamente los trabajos de entrenamiento y puntuación en la base de datos de SQL Server local.
 
@@ -43,7 +45,7 @@ El entorno de ejecución de integración autohospedado de Data Factory tiene los
 * Su integración requiere un sistema operativo de 64 bits con .NET Framework 4.6.1 o posterior.
 * Las versiones de sistema operativo Windows compatibles son Windows 10, Windows Server 2012, Windows Server 2012 R2 y Windows Server 2016. 
 * La configuración recomendada para la máquina del entorno de ejecución de integración es de al menos 2 GHz, CPU de 4 núcleos, 8 GB de RAM y un disco de 80 GB.
-* Si la máquina host está en hibernación, el entorno no responderá a las solicitudes de datos. Por tanto, configure un plan de energía adecuado en el equipo antes de instalar el entorno de ejecución de integración. Si la máquina está configurada para hibernar, en la instalación del entorno se muestra un mensaje.
+* Si la máquina host está en hibernación, el entorno de ejecución de integración no responderá a las solicitudes de datos. Por tanto, configure un plan de energía adecuado en el equipo antes de instalar el entorno de ejecución de integración. Si la máquina está configurada para hibernar, en la instalación del entorno se muestra un mensaje.
 * Dado que la actividad de copia sucede con una frecuencia determinada, el uso de recursos (CPU, memoria) en el equipo también sigue el mismo patrón con horas pico y de inactividad. El uso de recursos también depende en gran medida de la cantidad de datos que se mueven. Cuando haya varios trabajos de copia en curso, observará que el uso de los recursos aumenta durante las horas pico. Aunque la configuración mínima de arriba es técnicamente suficiente, se recomienda una con más recursos en función de la carga específica para el movimiento de datos.
 
 Tenga en cuenta lo siguiente al configurar y usar el entorno de ejecución de integración autohospedado de Data Factory:

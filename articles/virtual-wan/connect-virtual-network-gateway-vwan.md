@@ -1,18 +1,18 @@
 ---
-title: Conexión de una puerta de enlace de red virtual a una de Azure Virtual WAN | Microsoft Docs
+title: Conexión de una puerta de enlace de red virtual a una de Azure Virtual WAN
 description: Este artículo le ayuda a conectar una puerta de enlace de red virtual de Azure a una puerta de enlace de VPN de Azure Virtual WAN
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 03/19/2020
 ms.author: cherylmc
-ms.openlocfilehash: 1f8e0db9921c305edd2ee34efad22cdcf568f8df
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 688183bc07aa14d5e5df182d7de0897cec93f0b9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510937"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80066233"
 ---
 # <a name="connect-a-vpn-gateway-virtual-network-gateway-to-virtual-wan"></a>Conexión de una VPN Gateway (puerta de enlace de red virtual) a una Virtual WAN
 
@@ -31,29 +31,29 @@ Azure Virtual WAN
 
 Azure Virtual Network
 
-* Cree una red virtual sin ninguna puerta de enlace de red virtual. Compruebe que ninguna de las subredes de sus redes locales se superpone a las redes virtuales a las que desea conectarse. Para crear una red virtual en Azure Portal consulte este [Inicio rápido](../virtual-network/quick-create-portal.md).
+* Cree una red virtual sin ninguna puerta de enlace de red virtual. Compruebe que ninguna de las subredes de sus redes locales se superpone a las redes virtuales a las que quiere conectarse. Para crear una red virtual en Azure Portal consulte este [Inicio rápido](../virtual-network/quick-create-portal.md).
 
-## <a name="vnetgw"></a>1. Creación de una puerta de enlace de red virtual de Azure
+## <a name="1-create-an-azure-virtual-network-gateway"></a><a name="vnetgw"></a>1. Creación de una puerta de enlace de red virtual de Azure
 
 Cree una puerta de enlace de red virtual VPN Gateway para la red virtual en modo activo-activo para la red virtual. Al crear la puerta de enlace, puede usar las direcciones IP públicas existentes para las dos instancias de la puerta de enlace o puede crear nuevas direcciones IP públicas. Estas direcciones IP públicas se usan al configurar los sitios de Virtual WAN. Para más información sobre el modo activo-activo, consulte [Configurar conexiones activas-activas](../vpn-gateway/vpn-gateway-activeactive-rm-powershell.md#aagateway).
 
-### <a name="active-active"></a>Configuración del modo activo/activo
+### <a name="active-active-mode-setting"></a><a name="active-active"></a>Configuración del modo activo/activo
 
 ![activo-activo](./media/connect-virtual-network-gateway-vwan/active.png "activa-activa")
 
-### <a name="BGP"></a>Configuración de BGP
+### <a name="bgp-setting"></a><a name="BGP"></a>Configuración de BGP
 
 El ASN del protocolo de puerta de enlace de borde (BGP) no puede ser 65515. Azure Virtual WAN usará 66515.
 
 ![BGP](./media/connect-virtual-network-gateway-vwan/bgp.png "bgp")
 
-### <a name="pip"></a>Direcciones IP públicas
+### <a name="public-ip-addresses"></a><a name="pip"></a>Direcciones IP públicas
 
 Después de crea la puerta de enlace, vaya a la página **Propiedades**. Las propiedades y los valores de configuración serán similares al ejemplo siguiente. Tenga en cuenta las dos direcciones IP públicas que se usan para la puerta de enlace.
 
 ![properties](./media/connect-virtual-network-gateway-vwan/publicip.png "properties")
 
-## <a name="vwansite"></a>2. Creación de sitios VPN de Virtual WAN
+## <a name="2-create-virtual-wan-vpn-sites"></a><a name="vwansite"></a>2. Creación de sitios VPN de Virtual WAN
 
 Para crear sitios VPN de Virtual WAN, vaya a su WAN virtual y, en **Conectividad**, elija **Sitios VPN**. En esta sección, creará dos sitios VPN de Virtual WAN que corresponden a las puertas de enlace de red virtual que creó en la sección anterior.
 
@@ -72,20 +72,20 @@ Para crear sitios VPN de Virtual WAN, vaya a su WAN virtual y, en **Conectividad
    * **Dirección IP**: escriba la dirección IP (igual que la primera dirección IP pública que se muestra en las propiedades de la puerta de enlace de red virtual (VPN Gateway))
    * **Direcciones BGP** y **ASN**: dirección BGP y ASN. Deben ser las mismas que una de las direcciones IP del mismo nivel BGP y ASN de la puerta de enlace de red virtual VPN Gateway que configuró en el [Paso 1](#vnetgw).
 4. Revise y haga clic en **Confirmar** para crear el sitio.
-5. Repita los pasos anteriores para crear el segundo sitio para que coincida con la segunda instancia de la puerta de enlace de red virtual VPN Gateway. Conservará la misma configuración, excepto el uso de la segunda dirección IP pública y la segunda dirección IP del mismo nivel BGP desde la configuración VPN Gateway.
+5. Repita los pasos anteriores para crear el segundo sitio para que coincida con la segunda instancia de la puerta de enlace de red virtual VPN Gateway. Conservará la misma configuración, excepto el uso de la segunda dirección IP pública y la segunda dirección IP del mismo nivel BGP de la configuración de VPN Gateway.
 6. Ahora tiene dos sitios aprovisionados correctamente y puede continuar con la sección siguiente para descargar los archivos de configuración.
 
-## <a name="downloadconfig"></a>3. Descargar los archivos de configuración de VPN
+## <a name="3-download-the-vpn-configuration-files"></a><a name="downloadconfig"></a>3. Descargar los archivos de configuración de VPN
 
 En esta sección, descargará el archivo de configuración de VPN para cada uno de los sitios que creó en la sección anterior.
 
 1. En la parte superior de la página **Sitios VPN** de Virtual WAN, elija el **Sitio** y luego seleccione **Descargar la configuración de VPN de sitio a sitio**. Azure crea un archivo de configuración con los valores.
 
-   ![descargar archivo de configuración](./media/connect-virtual-network-gateway-vwan/download.png "descargar")
+   ![descargar archivo de configuración](./media/connect-virtual-network-gateway-vwan/download.png "descarga")
 2. Descargue y abra el archivo de configuración.
 3. Repita estos pasos para el segundo sitio. Una vez que tenga abiertos ambos archivos de configuración, puede continuar con la siguiente sección.
 
-## <a name="createlocalgateways"></a>4. Creación de las puertas de enlace de red local
+## <a name="4-create-the-local-network-gateways"></a><a name="createlocalgateways"></a>4. Creación de las puertas de enlace de red local
 
 En esta sección, creará dos puertas de enlace de red local de Azure VPN Gateway. Los archivos de configuración del paso anterior contienen los valores de configuración de la puerta de enlace. Use estos valores para crear y configurar las puertas de enlace de red local de Azure VPN Gateway.
 
@@ -101,7 +101,7 @@ En esta sección, creará dos puertas de enlace de red local de Azure VPN Gatewa
 
    ![descargar archivo de configuración](./media/connect-virtual-network-gateway-vwan/lng2.png "instance1")
 
-## <a name="createlocalgateways"></a>5. Crear conexiones
+## <a name="5-create-connections"></a><a name="createlocalgateways"></a>5. Crear conexiones
 
 En esta sección, creará una conexión entre las puertas de enlace de red local VPN Gateway y la puerta de enlace de red virtual. Para conocer los pasos para crear una conexión VPN Gateway, consulte [Configurar una conexión](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#CreateConnection).
 
@@ -118,10 +118,10 @@ En esta sección, creará una conexión entre las puertas de enlace de red local
 3. Haga clic en **Aceptar** para crear la conexión.
 4. La conexión se puede ver en la página **Conexiones** de la puerta de enlace de red virtual.
 
-   ![Connection](./media/connect-virtual-network-gateway-vwan/connect.png "connection")
+   ![Connection](./media/connect-virtual-network-gateway-vwan/connect.png "conexión")
 5. Repita los pasos anteriores para crear otra red virtual. Para la segunda conexión, elija la otra puerta de enlace de red local que creó.
 
-## <a name="test"></a>6. Prueba de conexiones
+## <a name="6-test-connections"></a><a name="test"></a>6. Prueba de conexiones
 
 Para probar la conectividad, puede crear dos máquinas virtuales, una en el lateral de la puerta de enlace de red virtual de VPN Gateway y otra en una red virtual para la Virtual WAN y luego hacer ping en las dos máquinas virtuales.
 

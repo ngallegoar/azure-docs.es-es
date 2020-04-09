@@ -5,22 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/11/2020
+ms.date: 03/25/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da44e8482e335c209f45db478797efa5461bbfe1
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: 3d9bec829d7fb3e76eb243bda73423303670585e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78671853"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80295112"
 ---
 # <a name="configure-a-conditional-access-policy-in-report-only-mode-preview"></a>Configuración de una directiva de acceso condicional en modo de solo informe (versión preliminar)
 
 Para configurar una directiva de acceso condicional en modo de solo informe:
+
+> [!IMPORTANT]
+> Si su organización aún no lo ha hecho, realice la [Configuración de la integración de Azure Monitor con Azure AD](#set-up-azure-monitor-integration-with-azure-ad). Este proceso debe realizarse antes de que los datos estén disponibles para su revisión.
 
 1. Inicie sesión en **Azure Portal** como administrador de acceso condicional, administrador de seguridad o administrador global.
 1. Vaya a **Azure Active Directory** > **Seguridad** > **Acceso condicional**.
@@ -78,9 +81,9 @@ Una vez que haya integrado sus registros de Azure AD con Azure Monitor, podrá s
 
 Los clientes han observado que, en ocasiones, se producen errores en las consultas si varias áreas de trabajo o áreas de trabajo erróneas se asocian al libro. Para corregir este problema, haga clic en **Editar** en la parte superior del libro y, a continuación, en el icono con forma de engranaje de Configuración. Seleccione y, a continuación, quite las áreas de trabajo no asociadas al libro. Solo debe haber un área de trabajo asociada a cada libro.
 
-### <a name="why-doesnt-the-conditional-access-policies-dropdown-parameter-contain-my-policies"></a>¿Por qué no contiene mis directivas el parámetro del menú desplegable Directivas de acceso condicional?
+### <a name="why-doesnt-the-conditional-access-policies-dropdown-parameter-contain-my-policies"></a>¿Por qué el parámetro del menú desplegable Directivas de acceso condicional no contiene mis directivas?
 
-El menú desplegable Directivas de acceso condicional se rellena consultando los inicios de sesión más recientes durante un período de 4 horas. Si un inquilino no tiene ningún inicio de sesión en las últimas 4 horas, es posible que el menú desplegable esté vacío. Si este retraso es un problema persistente, como en los inquilinos pequeños con inicios de sesión poco frecuentes, los administradores pueden editar la consulta para el menú desplegable Directivas de acceso condicional y ampliar el tiempo para la consulta, de modo que supere las 4 horas.
+El menú desplegable Directivas de acceso condicional se rellena consultando los inicios de sesión más recientes durante un período de 4 horas. Si un inquilino no tiene ningún inicio de sesión en las últimas 4 horas, es posible que el menú desplegable esté vacío. Si este retraso es un problema persistente, como en los inquilinos pequeños con inicios de sesión poco frecuentes, los administradores pueden editar la consulta para el menú desplegable Directivas de acceso condicional y ampliar el tiempo para la consulta, de modo que supere las 4 horas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

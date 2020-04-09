@@ -6,13 +6,13 @@ author: jan-eng
 ms.author: janeng
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: f061f9cc6d3f03acf01995e2632b229aaea5ab8f
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 26a6ac4412f1dff450cc087382dc9b0fce443f0b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74772869"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79532202"
 ---
 # <a name="handling-of-transient-connectivity-errors-for-azure-database-for-mariadb"></a>Control de errores de conectividad transitorios para Azure Database for MariaDB
 
@@ -36,7 +36,7 @@ El primer y segundo caso son bastante sencillos de controlar. Pruebe a abrir la 
 * Para cada intento siguiente, aumente la espera exponencialmente, hasta 60 segundos.
 * Establezca un número máximo de reintentos como momento en que la aplicación considera que se produjo un error en la operación.
 
-Cuando se produce un error en una conexión con una transacción activa, la recuperación es más difícil de controlar correctamente. Hay dos casos: si la transacción era de solo lectura por naturaleza, es seguro volver a abrir la conexión y volver a intentar la transacción. No obstante, si la transacción también estaba escribiendo en la base de datos, debe determinar si la transacción se revirtió o si se ha ejecutado correctamente antes de producirse el error transitorio. En ese caso, es posible que no haya recibido el reconocimiento de confirmación desde el servidor de bases de datos.
+Cuando se produce un error en una conexión con una transacción activa, la recuperación es más difícil de controlar correctamente. Hay dos casos: si la transacción era de solo lectura por naturaleza, es seguro volver a abrir la conexión y volver a intentar la transacción. No obstante, si la transacción también estaba escribiendo en la base de datos, debe determinar si la transacción se revirtió o si se ha ejecutado correctamente antes de producirse el error transitorio. En ese caso, es posible que no haya recibido el reconocimiento de confirmación del servidor de bases de datos.
 
 Una manera de hacerlo consiste en generar un id. único en el cliente que se usará para todos los reintentos. Este id. único se pasa como parte de la transacción al servidor y para almacenarlo en una columna con una restricción única. De esta forma, puede reintentar la transacción de forma segura. Se realizará correctamente si se ha revertido la transacción anterior y el id. único del cliente generado aún no existe en el sistema. Producirá un error que indica una infracción de clave duplicada si el id. único se almacenó previamente porque la transacción anterior se completó correctamente.
 

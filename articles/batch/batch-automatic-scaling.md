@@ -14,12 +14,12 @@ ms.workload: multiple
 ms.date: 10/24/2019
 ms.author: labrenne
 ms.custom: H1Hack27Feb2017,fasttrack-edit
-ms.openlocfilehash: f3edbc4fc48abd9c7df92aedcdea50dd77a0fd4b
-ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+ms.openlocfilehash: 398b6d9c3fc05a6cf164b4003f57b94ecd6c1972
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79086267"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80054007"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Creación de una fórmula automática para escalar nodos de ejecución en un grupo de Batch
 
@@ -228,7 +228,7 @@ Algunas de las funciones descritas en la tabla anterior pueden aceptar una lista
 
 El valor *doubleVecList* se convierte en un *doubleVec* individual antes de la evaluación. Por ejemplo, si `v = [1,2,3]`, entonces, llamar a `avg(v)` es equivalente a llamar a `avg(1,2,3)`. Llamar a `avg(v, 7)` es equivalente a llamar a `avg(1,2,3,7)`.
 
-## <a name="getsampledata"></a>Obtención de datos de ejemplo
+## <a name="obtain-sample-data"></a><a name="getsampledata"></a>Obtención de datos de ejemplo
 
 Las fórmulas de escalado automático actúan en datos de métricas (muestras) proporcionados por el servicio Batch. Una fórmula aumenta o reduce el tamaño del grupo según los valores que obtiene del servicio. Las variables definidas por el servicio descritas anteriormente son objetos que proporcionan varios métodos para obtener acceso a los datos que están asociados a ese objeto. Por ejemplo, la siguiente expresión muestra una solicitud para obtener los últimos cinco minutos de uso de CPU:
 
@@ -668,6 +668,7 @@ $isWorkingWeekdayHour = $workHours && $isWeekday;
 $TargetDedicatedNodes = $isWorkingWeekdayHour ? 20:10;
 $NodeDeallocationOption = taskcompletion;
 ```
+`$curTime` se puede ajustar para reflejar la zona horaria local mediante la adición de `time()` al producto de `TimeZoneInterval_Hour` y la diferencia horaria con UTC. Por ejemplo, utilice `$curTime = time() + (-6 * TimeInterval_Hour);` para Hora de verano de las Montañas (MDT). Tenga en cuenta que la diferencia horaria debe ajustarse al principio y al final del horario de verano (si procede).
 
 ### <a name="example-2-task-based-adjustment"></a>Ejemplo 2: Ajuste basado en tareas
 

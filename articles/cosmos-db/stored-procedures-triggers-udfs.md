@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 706f52a6cda2bbcb0e5ca1cfe9372600fa6709d0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 23a14e7590eca6f63c92acdf6336ffaef8b54381
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75441236"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80065891"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Procedimientos almacenados, desencadenadores y funciones definidas por el usuario
 
@@ -55,7 +55,7 @@ En Azure Cosmos DB, el entorno en tiempo de ejecución de JavaScript está hospe
 
 ### <a name="scope-of-a-transaction"></a>Ámbito de una transacción
 
-Si un procedimiento almacenado está asociado con un contenedor de Azure Cosmos, dicho procedimiento se ejecuta en el ámbito de transacción de una clave de partición lógica. Cada ejecución de procedimientos almacenados debe incluir un valor de clave de partición lógica que se corresponda con el ámbito de la transacción. Para más información, consulte el artículo [Creación de particiones de Azure Cosmos DB](partition-data.md).
+Los procedimientos almacenados se asocian a un contenedor de Azure Cosmos y la ejecución del procedimiento almacenado se incluye en el ámbito de una clave de partición lógica. Los procedimientos almacenados deben incluir un valor de clave de partición lógica durante la ejecución que defina la partición lógica del ámbito de la transacción. Para más información, consulte el artículo [Creación de particiones de Azure Cosmos DB](partition-data.md).
 
 ### <a name="commit-and-rollback"></a>Confirmación y reversión
 
@@ -88,11 +88,11 @@ De forma similar a los desencadenadores previos, los desencadenadores posteriore
 > [!NOTE]
 > Los desencadenadores registrados no se ejecutan automáticamente cuando se producen sus correspondientes operaciones (crear/eliminar/reemplazar/actualizar). Se les debe llamar de forma explícita al ejecutar estas operaciones. Para obtener más información, vea el artículo [Cómo ejecutar desencadenadores](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers).
 
-## <a id="udfs"></a>Funciones definidas por el usuario
+## <a name="user-defined-functions"></a><a id="udfs"></a>Funciones definidas por el usuario
 
 Las funciones definidas por el usuario (UDF) se utilizan para ampliar la sintaxis del lenguaje de consultas de la API de SQL e implementar fácilmente la lógica empresarial personalizada. Solo se pueden llamar dentro de las consultas. Las UDF no tienen acceso al objeto de contexto y se supone que se deben utilizar como un JavaScript únicamente de cálculo. Por lo tanto, se pueden ejecutar en réplicas secundarias. Para obtener ejemplos, vea el artículo [Escritura de funciones definidas por el usuario](how-to-write-stored-procedures-triggers-udfs.md#udfs).
 
-## <a id="jsqueryapi"></a>Language-integrated query API de JavaScript
+## <a name="javascript-language-integrated-query-api"></a><a id="jsqueryapi"></a>Language-integrated query API de JavaScript
 
 Además de emitir consultas mediante la sintaxis de consulta de la API de SQL, el [SDK del lado servidor](https://azure.github.io/azure-cosmosdb-js-server) permite realizar consultas a través de una interfaz de JavaScript sin necesitar conocimientos de SQL. La Query API de JavaScript le permite compilar consultas mediante programación pasando las funciones de predicado en la secuencia de las llamadas de función. Las consultas se analizan con el entorno en tiempo de ejecución de JavaScript y se ejecutan eficazmente dentro de Azure Cosmos DB. Para más información sobre la compatibilidad con la Query API de JavaScript, consulte el artículo [Working with JavaScript Language Integrated Query API in Azure Cosmos DB](javascript-query-api.md) (Trabajo con Language Integrated Query API de JavaScript). Para obtener ejemplos, consulte el artículo [Escritura de procedimientos almacenados y desencadenadores en Azure Cosmos DB con la API de consulta de JavaScript](how-to-write-javascript-query-api.md).
 

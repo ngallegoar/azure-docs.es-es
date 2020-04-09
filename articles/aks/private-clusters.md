@@ -4,100 +4,23 @@ description: Aprenda a crear un clúster privado de Azure Kubernetes Service (AK
 services: container-service
 ms.topic: article
 ms.date: 2/21/2020
-ms.openlocfilehash: 0a05bd15fff97d4f0020f6ce82ee90a2fe995edf
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 87f52c5a749b531e5b0656e0b30ff0fe9c1a57bf
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78944195"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398044"
 ---
-# <a name="create-a-private-azure-kubernetes-service-cluster-preview"></a>Creación de un clúster privado de Azure Kubernetes Service (versión preliminar)
+# <a name="create-a-private-azure-kubernetes-service-cluster"></a>Creación de un clúster privado de Azure Kubernetes Service
 
 En un clúster privado, el servidor de la API o el plano de control tienen direcciones IP internas que se definen en el documento [RFC1918 sobre la asignación de direcciones para conexiones privadas](https://tools.ietf.org/html/rfc1918). Mediante el uso de un clúster privado, puede asegurarse de que el tráfico entre el servidor de la API y los grupos de nodos permanece solo en la red privada.
 
 El plano de control o el servidor de la API están en una suscripción de Azure administrada mediante Azure Kubernetes Service (AKS). El grupo de clústeres o nodos de un cliente está en la suscripción del cliente. El servidor y el grupo de clústeres o nodos pueden comunicarse entre sí a través del [servicio de Azure Private Link][private-link-service] en la red virtual del servidor de la API y de un punto de conexión privado expuesto en la subred del clúster de AKS del cliente.
 
-> [!IMPORTANT]
-> Las características en vista previa de AKS están disponibles como opción de participación y autoservicio. Las versiones preliminares se proporcionan *tal cual* y *como están disponibles*, y están excluidas del Acuerdo de Nivel de Servicio y la garantía limitada. Las versiones preliminares de AKS reciben cobertura parcial del soporte al cliente *en la medida de lo posible*. Por tanto, estas características no están diseñadas para su uso en producción. Para más información, consulte los siguientes artículos de soporte:
->
-> * [Directivas de soporte técnico para AKS](support-policies.md)
-> * [Preguntas más frecuentes de soporte técnico de Azure](faq.md)
-
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* La versión 2.0.77 de la CLI de Azure u otra versión posterior y la versión 0.4.18 de la extensión de la versión preliminar de la CLI de AKS.
+* CLI de Azure, versión 2.2.0 o cualquier versión posterior
 
-## <a name="currently-supported-regions"></a>Regiones admitidas actualmente
-
-* Este de Australia
-* Sudeste de Australia
-* Sur de Brasil
-* Centro de Canadá
-* Este de Canadá
-* Centro de EE. UU.
-* Este de Asia
-* Este de EE. UU.
-* Este de EE. UU. 2
-* EUAP de Este de EE. UU. 2
-* Centro de Francia
-* Norte de Alemania
-* Japón Oriental
-* Japón Occidental
-* Centro de Corea del Sur
-* Corea del Sur
-* Centro-Norte de EE. UU
-* Norte de Europa
-* Norte de Europa
-* Centro-sur de EE. UU.
-* Sur de Reino Unido 2
-* Oeste de Europa
-* Oeste de EE. UU.
-* Oeste de EE. UU. 2
-* Este de EE. UU. 2
-
-## <a name="currently-supported-availability-zones"></a>Zonas de disponibilidad admitidas actualmente
-
-* Centro de EE. UU.
-* Este de EE. UU.
-* Este de EE. UU. 2
-* Centro de Francia
-* Japón Oriental
-* Norte de Europa
-* Sudeste de Asia
-* Sur de Reino Unido 2
-* Oeste de Europa
-* Oeste de EE. UU. 2
-
-## <a name="install-the-latest-azure-cli-aks-preview-extension"></a>Instalación de la extensión de la versión preliminar de AKS de la CLI de Azure más reciente
-
-Para usar clústeres privados, necesita la versión 0.4.18 o una versión posterior de la extensión de la versión preliminar de AKS de la CLI de Azure. Instale la extensión de la versión preliminar de AKS de la CLI de Azure con el comando [az extension add][az-extension-add] y, después, busque las actualizaciones disponibles con este comando [az extension update][az-extension-update]:
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
-> [!CAUTION]
-> Actualmente, al registrar una característica en una suscripción, no se puede anular el registro de esa característica. Después de habilitar algunas características en vista previa, puede usar los valores predeterminados en todos los clústeres de AKS que se crearon en la suscripción. No habilite características en vista previa en las suscripciones de producción. Use una suscripción independiente para probar las características en vista previa y recopilar comentarios.
-
-```azurecli-interactive
-az feature register --name AKSPrivateLinkPreview --namespace Microsoft.ContainerService
-```
-
-Pueden pasar unos minutos hasta que el estado de registro aparezca como *Registrado*. Puede comprobar el estado mediante el siguiente comando [az feature list][az-feature-list]:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSPrivateLinkPreview')].{Name:name,State:properties.state}"
-```
-
-Cuando el estado sea registrado, actualice el registro del proveedor de recursos *Microsoft.ContainerService* mediante el siguiente comando [az provider register][az-provider-register]:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-az provider register --namespace Microsoft.Network
-```
 ## <a name="create-a-private-aks-cluster"></a>Creación de un clúster privado de AKS
 
 ### <a name="create-a-resource-group"></a>Crear un grupo de recursos
@@ -158,9 +81,22 @@ Tal y como se ha dicho, el emparejamiento de red virtual es un mecanismo para ac
 8. Seleccione **Agregar**, agregue la red virtual de la máquina virtual y, después, cree el emparejamiento.  
 9. Vaya a la red virtual en la que tiene la máquina virtual, seleccione **Emparejamientos**, seleccione la red virtual de AKS y, después, cree el emparejamiento. Si los intervalos de direcciones de la red virtual de AKS y de la red virtual de la máquina virtual entran en conflicto, se produce un error de emparejamiento. Para más información, vea el artículo [Emparejamiento de redes virtuales][virtual-network-peering].
 
+## <a name="hub-and-spoke-with-custom-dns"></a>Concentrador y radio con DNS personalizado
+
+[Las arquitecturas de concentrador y radio](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) suelen usarse para implementar redes en Azure. En muchas de estas implementaciones, los valores de DNS en las redes virtuales de radios están configurados para hacer referencia a un reenviador de DNS central con el fin de permitir la resolución de DNS local y basada en Azure. Al implementar un clúster de AKS en un entorno de red de este tipo, hay algunas consideraciones especiales que se deben tener en cuenta.
+
+![Concentrador y radio de clúster privado](media/private-clusters/aks-private-hub-spoke.png)
+
+1. De forma predeterminada, cuando se aprovisiona un clúster privado, se crean un punto de conexión privado (1) y una zona DNS privada (2) en el grupo de recursos administrados del clúster. El clúster usa un registro A en la zona privada a fin de resolver la dirección IP del punto de conexión privado para la comunicación con el servidor de la API.
+
+2. La zona DNS privada solo está vinculada a la red virtual a la que están adjuntados los nodos del clúster (3). Esto significa que el punto de conexión privado solo lo pueden resolver los hosts de esa red virtual vinculada. En escenarios en los que no haya ningún DNS personalizado configurado en la red virtual (valor predeterminado), esto funciona sin incidencias, ya que los hosts apuntan a 168.63.129.16 para DNS, que puede resolver registros en la zona DNS privada debido al vínculo.
+
+3. En escenarios en los que la red virtual que contiene el clúster tenga una configuración de DNS personalizada (4), se produce un error en la implementación del clúster a menos que la zona DNS privada esté vinculada a la red virtual que contiene las resoluciones de DNS personalizadas (5). Este vínculo se puede crear manualmente después de crear la zona privada, durante el aprovisionamiento del clúster, o a través de la automatización si se detecta la creación de la zona mediante Azure Policy u otros mecanismos de implementación basados en eventos (por ejemplo, Azure Event Grid y Azure Functions).
+
 ## <a name="dependencies"></a>Dependencias  
+
 * El servicio Azure Private Link solo se admite en Standard Azure Load Balancer. No se admite en Basic Azure Load Balancer.  
-* Para usar un servidor DNS personalizado, implemente un servidor de AD con DNS para el reenvío a la IP 168.63.129.16.
+* Para usar un servidor DNS personalizado, agregue la IP 168.63.129.16 de Azure DNS como servidor DNS ascendente en el servidor DNS personalizado.
 
 ## <a name="limitations"></a>Limitaciones 
 * Los intervalos autorizados de direcciones IP no se pueden aplicar al punto de conexión del servidor de API privada. Solo se aplican al servidor de API pública.
@@ -173,7 +109,6 @@ Tal y como se ha dicho, el emparejamiento de red virtual es un mecanismo para ac
 * No se admite la conversión de clústeres de AKS existentes en clústeres privados.
 * La eliminación o modificación del punto de conexión privado en la subred del cliente hará que el clúster deje de funcionar. 
 * Actualmente no existe compatibilidad con los datos en directo de Azure Monitor para contenedores.
-* Actualmente no se admite la posibilidad de *traer el propio DNS*.
 
 
 <!-- LINKS - internal -->
@@ -181,7 +116,7 @@ Tal y como se ha dicho, el emparejamiento de red virtual es un mecanismo para ac
 [az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
-[private-link-service]: /private-link/private-link-service-overview
+[private-link-service]: /azure/private-link/private-link-service-overview
 [virtual-network-peering]: ../virtual-network/virtual-network-peering-overview.md
 [azure-bastion]: ../bastion/bastion-create-host-portal.md
 [express-route-or-vpn]: ../expressroute/expressroute-about-virtual-network-gateways.md

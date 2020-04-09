@@ -8,21 +8,21 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 65a2eab05e7c475431602d9c2d3fc44b59bbc8f7
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 1eaf159149bb353b1cf0474aad5bc233decddc5c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78185733"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481575"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de validación en una directiva personalizada en Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Un perfil técnico de validación es un perfil técnico normal de cualquier protocolo, como [Azure Active Directory](active-directory-technical-profile.md) o una [API de REST](restful-technical-profile.md). El perfil técnico de validación devuelve notificaciones de salida o devuelve un mensaje de error HTTP 409 (código de estado de respuesta de conflicto), con los siguientes datos:
+Un perfil técnico de validación es un perfil técnico normal de cualquier protocolo, como [Azure Active Directory](active-directory-technical-profile.md) o una [API de REST](restful-technical-profile.md). El perfil técnico de validación devuelve notificaciones de salida o el código de estado HTTP 4xx, con los siguientes datos. Para más información, consulte [Devolución de mensajes de error](restful-technical-profile.md#returning-error-message).
 
 ```JSON
 {
@@ -32,7 +32,7 @@ Un perfil técnico de validación es un perfil técnico normal de cualquier prot
 }
 ```
 
-Las notificaciones que se devuelven desde un perfil técnico de validación se vuelven a agregar al contenedor de notificaciones. Puede usar esas notificaciones en los perfiles técnicos de validación siguientes.
+El ámbito de las notificaciones de salida de un perfil técnico de validación se limita al [perfil técnico autofirmado](self-asserted-technical-profile.md) que invoca el perfil técnico de validación y sus perfiles técnicos de validación. Si desea usar las notificaciones de salida en el siguiente paso de orquestación, agregue las notificaciones de salida al perfil técnico autofirmado que invoca el perfil técnico de validación.
 
 Los perfiles técnicos de validación se ejecutan en la secuencia en que aparecen en el elemento **ValidationTechnicalProfiles**. Puede configurar un perfil técnico de validación si la ejecución de los perfiles técnicos de validación posteriores debe continuar, si el perfil técnico de validación genera un error o si es correcto.
 
@@ -56,8 +56,8 @@ El elemento **ValidationTechnicalProfile** contiene el atributo siguiente:
 | Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
 | ReferenceId | Sí | Un identificador de un perfil técnico que ya se ha definido en la directiva o en la directiva principal. |
-|ContinueOnError|Sin| Indica si la validación de los perfiles técnicos de validación posteriores debe continuar si este perfil técnico de validación genera un error. Los valores posibles: `true` o `false` (de forma predeterminada, se detendrá el procesamiento de más perfiles de validación y se devolverá un error). |
-|ContinueOnSuccess | Sin | Indica si la validación de los perfiles de validación posteriores debe continuar si este perfil técnico de validación es correcto. Valores posibles: `true` o `false`. El valor predeterminado es `true`, lo que significa que el procesamiento de los perfiles de validación adicionales continuará. |
+|ContinueOnError|No| Indica si la validación de los perfiles técnicos de validación posteriores debe continuar si este perfil técnico de validación genera un error. Los valores posibles: `true` o `false` (de forma predeterminada, se detendrá el procesamiento de más perfiles de validación y se devolverá un error). |
+|ContinueOnSuccess | No | Indica si la validación de los perfiles de validación posteriores debe continuar si este perfil técnico de validación es correcto. Valores posibles: `true` o `false`. El valor predeterminado es `true`, lo que significa que el procesamiento de los perfiles de validación adicionales continuará. |
 
 El elemento **ValidationTechnicalProfile** contiene el elemento siguiente:
 

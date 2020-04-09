@@ -5,7 +5,7 @@ services: dedicated-hsm
 author: johncdawson
 manager: rkarlin
 tags: azure-resource-manager
-ms.custom: mvc
+ms.custom: mvc, seodec18
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 947dc6eb8060d2d229ee7984f719cb837e638490
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: a0cb7957008308425d91abb3e0f828cc40301736
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77045924"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80064924"
 ---
 # <a name="frequently-asked-questions-faq"></a>Preguntas más frecuentes
 
@@ -132,7 +132,7 @@ Sí. Consulte la guía de migración de Gemalto.
 
 ### <a name="q-how-do-i-decide-whether-to-use-azure-key-vault-or-azure-dedicated-hsm"></a>P: ¿Cómo decido si usar Azure Key Vault o Azure Dedicated HSM?
 
-Azure Dedicated HSM es la opción adecuada para las empresas que migran a Azure aplicaciones locales que usan módulos HSM. Los módulos HSM dedicados son una opción para migrar una aplicación con cambios mínimos. Si las operaciones criptográficas se realizan en el código de la aplicación que se ejecuta en una máquina virtual de Azure o una aplicación web, pueden usar Azure Dedicated HSM. En general, el software empaquetado que se ejecuta en modelos de IaaS (infraestructura como servicio) y que admite los módulos HSM como un almacén de claves puede usar HSM dedicado, como una puerta de enlace de aplicación o un administrador de tráfico para SSL sin clave, ADCS (servicios de certificados de Active Directory) o herramientas similares de PKI, herramientas o aplicaciones utilizadas para la firma de documentos, firma de código o un servidor SQL Server (IaaS) configurado con TDE (cifrado de base de datos transparente) con la clave maestra en un módulo HSM mediante un proveedor de EKM (administración extensible de claves). Azure Key Vault es adecuado para aplicaciones "nacidas en la nube" o para el cifrado en escenarios en reposo en los que el software PaaS (plataforma como servicio) procesa los datos del cliente o escenarios SaaS (software como servicio) como la clave de cliente de Office 365, Azure Information Protection, Azure Disk Encryption, el cifrado de Azure Data Lake Store con clave administrada por el cliente, el cifrado de Azure Storage con clave administrada por el cliente y Azure SQL con clave administrada por el cliente.
+Azure Dedicated HSM es la opción adecuada para las empresas que migran a Azure aplicaciones locales que usan módulos HSM. Los módulos HSM dedicados son una opción para migrar una aplicación con cambios mínimos. Si las operaciones criptográficas se realizan en el código de la aplicación que se ejecuta en una máquina virtual de Azure o una aplicación web, pueden usar Azure Dedicated HSM. En general, el software empaquetado que se ejecuta en modelos de IaaS (infraestructura como servicio) y que admite los módulos HSM como un almacén de claves puede usar HSM dedicado, como una puerta de enlace de aplicación o un administrador de tráfico para SSL sin clave, ADCS (servicios de certificados de Active Directory) o herramientas similares de PKI, herramientas o aplicaciones utilizadas para la firma de documentos, firma de código o un servidor SQL Server (IaaS) configurado con TDE (cifrado de base de datos transparente) con la clave maestra en un módulo HSM mediante un proveedor de EKM (administración extensible de claves). Azure Key Vault es adecuado para aplicaciones "nacidas en la nube" o para el cifrado en escenarios en reposo en los que el software PaaS (plataforma como servicio) procesa los datos del cliente, o escenarios SaaS (software como servicio) como la clave de cliente de Office 365, Azure Information Protection, Azure Disk Encryption, el cifrado de Azure Data Lake Store con clave administrada por el cliente, el cifrado de Azure Storage con clave administrada por el cliente y Azure SQL con clave administrada por el cliente.
 
 ### <a name="q-what-usage-scenarios-best-suit-azure-dedicated-hsm"></a>P: ¿Qué escenarios de uso se adaptan mejor a Azure Dedicated HSM?
 

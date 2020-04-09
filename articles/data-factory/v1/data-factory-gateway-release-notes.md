@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 9d0e31a89494477e048c7a2f9f7b8165e08d1a2f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 838e523f74a21c44958ddb6dc88e4dab3526d81a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74924267"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80064995"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Notas de la versión de Data Management Gateway
 > [!NOTE]
@@ -40,28 +40,28 @@ Ya no se conservan las notas de la versión aquí. Puede obtener las notas de la
 ## <a name="21063477"></a>2.10.6347.7
 ### <a name="enhancements-"></a>Mejoras-
 - Puede agregar entradas DNS a la lista de Service Bus permitidos en vez de incluir todas las direcciones IP de Azure en la lista de permitidas del firewall (en caso necesario). Puede encontrar la entrada DNS correspondiente en Azure Portal (Data Factory -> "Crear e implementar" -> "Puertas de enlace" -> "serviceUrls" (en JSON)
-- El conector HDFS admite ahora certificados públicos autofirmados para poder omitir la validación de SSL.
-- Problema corregido: Problema con la puerta de enlace sin conexión durante la actualización (debido a la distorsión del reloj)
+- El conector HDFS ahora admite certificados públicos autofirmados al permitirle omitir la validación de TLS.
+- Solucionado: Problema con la puerta de enlace sin conexión durante la actualización (debido a la distorsión del reloj)
 
 
 ## <a name="2963132"></a>2.9.6313.2
 ### <a name="enhancements-"></a>Mejoras-
 -   Puede agregar entradas DNS a la lista blanca de Service Bus en vez de incluir todas las direcciones IP de Azure en la lista blanca del firewall (en caso necesario). Más detalles aquí.
 -   Ahora puede copiar hasta 4,75 TB de datos (tamaño máximo admitido para blob en bloques) en un único blob en bloques, y viceversa (el límite anterior era 195 GB).
--   Problema corregido: memoria agotada al descomprimir varios archivos pequeños durante la actividad de copia.
--   Problema corregido: índice fuera de rango al copiar de Document DB a una instancia de SQL Server local con la característica de idempotencia.
--   Problema corregido: el script de limpieza SQL no funciona en la instancia de SQL Server local desde el Asistente para copia.
--   Problema corregido: el nombre de columna con espacio al final no funciona en la actividad de copia.
+-   Solucionado: memoria agotada al descomprimir varios archivos pequeños durante la actividad de copia.
+-   Solucionado: índice fuera de rango al copiar de Document DB a una instancia de SQL Server local con la característica de idempotencia.
+-   Solucionado: el script de limpieza SQL no funciona en la instancia de SQL Server local desde el Asistente para copia.
+-   Solucionado: el nombre de columna con espacio al final no funciona en la actividad de copia.
 
 ## <a name="28662833"></a>2.8.66283.3
 ### <a name="enhancements-"></a>Mejoras-
-- Problema corregido: Problema con la falta de credenciales durante el reinicio de la máquina de puerta de enlace.
-- Problema corregido: problema de registro durante la restauración de la puerta de enlace mediante un archivo de copia de seguridad.
+- Solucionado: Problema con la falta de credenciales durante el reinicio de la máquina de puerta de enlace.
+- Solucionado: problema de registro durante la restauración de la puerta de enlace mediante un archivo de copia de seguridad.
 
 
 ## <a name="2762401"></a>2.7.6240.1
 ### <a name="enhancements-"></a>Mejoras-
-- Problema corregido: lectura incorrecta de valor NULL decimal desde Oracle como origen.
+- Solucionado: lectura incorrecta de valor NULL decimal desde Oracle como origen.
 
 ## <a name="2661922"></a>2.6.6192.2
 ### <a name="whats-new"></a>Novedades

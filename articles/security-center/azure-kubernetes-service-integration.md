@@ -12,15 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 0743499b019bd1c7b985636e886eee9352284a55
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: d5c74ac760b5746d37468d692c2a46d5aedbee72
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77616065"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80436175"
 ---
-# <a name="azure-kubernetes-services-integration-with-security-center-preview"></a>Integración de Azure Kubernetes Services con Security Center (versión preliminar)
-Azure Kubernetes Service (AKS) es un servicio que administra Microsoft y que le permite desarrollar, implementar y administrar las aplicaciones en contenedores. 
+# <a name="azure-kubernetes-services-integration-with-security-center"></a>Integración de Azure Kubernetes Services con Security Center
+
+Azure Kubernetes Service (AKS) es un servicio que administra Microsoft y que permite desarrollar, implementar y administrar las aplicaciones en contenedores. 
 
 Use AKS junto con el nivel estándar de Azure Security Center (consulte los [precios](security-center-pricing.md)) para obtener una mayor visibilidad de los nodos de AKS, el tráfico en la nube y los controles de seguridad.
 
@@ -34,10 +35,7 @@ Si trabajan juntas, estas dos herramientas proporcionan la mejor oferta de segur
 
 Si usa de forma conjunta estos dos servicios, obtendrá lo siguiente:
 
-* **Recomendaciones de seguridad**: Security Center identifica los recursos de AKS y los categoriza; desde clústeres hasta máquinas virtuales individuales. Puede ver las recomendaciones de seguridad de cada recurso. Para más información, consulte las recomendaciones de contenedores en la [lista de referencias de recomendaciones](recommendations-reference.md#recs-computeapp). 
-
-    > [!NOTE]
-    > Si el nombre de una recomendación de Security Center finaliza con una etiqueta "(Versión preliminar)", hace referencia a que la recomendación, y no la característica, es una versión preliminar.
+* **Recomendaciones de seguridad**: Security Center identifica los recursos de AKS y los categoriza; desde clústeres hasta máquinas virtuales individuales. Puede ver las recomendaciones de seguridad de cada recurso. Para más información, consulte las recomendaciones de contenedores en la [lista de referencias de recomendaciones](recommendations-reference.md#recs-containers). 
 
 * **Protección del entorno**: Security Center supervisa constantemente la configuración de los clústeres de Kubernetes y configuraciones de Docker. A continuación, genera recomendaciones de seguridad que reflejan los estándares del sector.
 

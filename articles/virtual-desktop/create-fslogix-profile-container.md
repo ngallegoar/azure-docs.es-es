@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/25/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b29dbd7a034123b17b34b1c0fd4c8649e30810bd
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: 272188b50fe59435031a4a2fb9c252f3f358bb6c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79128174"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79535738"
 ---
 # <a name="create-an-fslogix-profile-container-for-a-host-pool-using-azure-netapp-files"></a>Creación de un contenedor de perfiles de FSLogix para un grupo host mediante Azure NetApp Files
 
@@ -57,11 +57,11 @@ Para empezar, necesita configurar una cuenta a Azure NetApp Files.
 
 5. Una vez que cargue Azure Cloud Shell, ejecute los dos cmdlets siguientes.
 
-   ```powershell
+   ```azurecli
    az account set --subscription <subscriptionID>
    ```
 
-   ```powershell
+   ```azurecli
    az provider register --namespace Microsoft.NetApp --wait
    ```
 
@@ -73,7 +73,7 @@ Para empezar, necesita configurar una cuenta a Azure NetApp Files.
 7. Seleccione **Azure NetApp Files** en los resultados de la búsqueda y, a continuación, seleccione **Crear**.
 
 8. Seleccione el botón **Agregar**.
-9. Cuando se abra la hoja **Nueva cuenta de NetApp**, escriba los valores siguientes:
+9. Cuando se abra la pestaña **Nueva cuenta de NetApp**, escriba los valores siguientes:
 
     - En **Nombre**, escriba el nombre de la cuenta de NetApp.
     - En **Suscripción**, seleccione en el menú desplegable la suscripción de la cuenta de almacenamiento que configuró en el paso 4.
@@ -92,7 +92,7 @@ A continuación, cree un nuevo grupo de capacidad:
 1. Vaya al menú de Azure NetApp Files y seleccione la nueva cuenta.
 2. En el menú de la cuenta, seleccione **Grupos de capacidad** en Servicio de almacenamiento.
 3. Seleccione **Agregar grupo**.
-4. Cuando se abra la hoja **Nuevo grupo de capacidad**, escriba los valores siguientes:
+4. Cuando se abra la pestaña **Nuevo grupo de capacidad**, escriba los valores siguientes:
 
     - En **Nombre**, escriba un nombre para el nuevo grupo de capacidad.
     - En **Nivel de servicio**, seleccione el valor deseado en el menú desplegable. Se recomienda **Premium** en la mayoría de los entornos.
@@ -127,7 +127,7 @@ A continuación, tendrá que crear un nuevo volumen.
 
 1. Seleccione **Volúmenes** y luego **Agregar volumen**.
 
-2. Cuando se abra la hoja **Crear un volumen**, escriba los valores siguientes:
+2. Cuando se abra la pestaña **Crear un volumen**, escriba los valores siguientes:
 
     - En **Nombre del volumen**, escriba un nombre para el nuevo volumen.
     - En **Grupo de capacidad**, seleccione el grupo de capacidad que acaba de crear en el menú desplegable.

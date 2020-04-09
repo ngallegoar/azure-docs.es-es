@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/23/2020
+ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 63aef8d2036e442659145e031d384e9677c779a1
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 03a3d3c7d572d7ec5b8d3ac3d527d0d59e649bc2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598075"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80062239"
 ---
 # <a name="list-role-assignments-using-azure-rbac-and-the-azure-portal"></a>Lista de asignaciones de roles con RBAC de Azure y Azure Portal
 
@@ -128,11 +128,11 @@ Para mostrar el acceso de un usuario, grupo, entidad de servicio o identidad adm
 
 ## <a name="list-number-of-role-assignments"></a>Enumeración del número de asignaciones de roles
 
-Puede tener hasta **2000** asignaciones de roles en cada suscripción. Para ayudarle a realizar un seguimiento de estos límites, la pestaña **Asignaciones de roles** incluye un gráfico que muestra el número actual de asignaciones de roles.
+Puede tener hasta **2000** asignaciones de roles en cada suscripción. Para ayudarle a realizar un seguimiento de este límite, la pestaña **Asignaciones de roles** incluye un gráfico que muestra el número de asignaciones de roles de la suscripción actual.
 
 ![Cuadro de control de acceso: número de asignaciones de roles](./media/role-assignments-list-portal/access-control-role-assignments-chart.png)
 
-Si está cerca del número máximo e intenta agregar más asignaciones de roles, verá una advertencia en el panel **Agregar asignación de roles**. Puede reducir el número de asignaciones de roles eliminando las asignaciones de roles que ya no son necesarias o asignando roles a grupos en lugar de a usuarios individuales.
+Si está cerca del número máximo e intenta agregar más asignaciones de roles, verá una advertencia en el panel **Agregar asignación de roles**. Para saber cómo puede reducir el número de asignaciones de roles, vea [Solución de problemas de RBAC de Azure](troubleshooting.md#azure-role-assignments-limit).
 
 ![Advertencia de control de acceso - agregar asignación de roles](./media/role-assignments-list-portal/add-role-assignment-warning.png)
 

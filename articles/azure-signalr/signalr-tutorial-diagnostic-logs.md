@@ -1,23 +1,23 @@
 ---
 title: Registros de diagnóstico para Azure SignalR Service
 description: Aprenda a configurar registros de diagnóstico para Azure SignalR Service y a utilizarlos para solucionar problemas por sí mismo.
-author: wanl
+author: wanlwanl
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: wanl
-ms.openlocfilehash: 33d9a338e12fa4b3d2449f0c5b0576895364c3cf
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 72f57ba4bbbbde07f6d26edc88c158f301ebe2f2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750269"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79536741"
 ---
 # <a name="diagnostic-logs-for-azure-signalr-service"></a>Registros de diagnóstico para Azure SignalR Service
 
 En este tutorial se explica qué son los registros de diagnóstico para Azure SignalR Service, cómo configurarlos y cómo solucionar problemas con ellos.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 Para habilitar los registros de diagnóstico, necesitará un lugar donde almacenar los datos de registro. En este tutorial se utiliza Azure Storage y Log Analytics.
 
 * [Azure Storage](../azure-monitor/platform/resource-logs-collect-storage.md): conserva los registros de diagnóstico para auditorías de directivas, análisis estáticos o copias de seguridad.
@@ -31,22 +31,22 @@ Puede ver los registros de diagnóstico para Azure SignalR Service. Estos regist
 
 Los registros de diagnóstico están inhabilitados de forma predeterminada. Para habilitarlos, siga estos pasos:
 
-1.  En [Azure Portal](https://portal.azure.com), en **Supervisión**, haga clic en **Configuración de diagnóstico**.
+1. En [Azure Portal](https://portal.azure.com), en **Supervisión**, haga clic en **Configuración de diagnóstico**.
 
     ![Navegación por el panel a la configuración de diagnóstico](./media/signalr-tutorial-diagnostic-logs/diagnostic-settings-menu-item.png)
 
-1.  Haga clic en **Agregar configuración de diagnóstico**.
+1. Haga clic en **Agregar configuración de diagnóstico**.
 
     ![Agregar registros de diagnóstico](./media/signalr-tutorial-diagnostic-logs/add-diagnostic-setting.png)
 
-1.  Establezca el destino de archivo que desee. Actualmente, se admiten **Archivar en una cuenta de almacenamiento** y **Enviar a Log Analytics**.
+1. Establezca el destino de archivo que desee. Actualmente, se admiten **Archivar en una cuenta de almacenamiento** y **Enviar a Log Analytics**.
 
 1. Seleccione los registros que desea archivar.
 
     ![Panel Configuración de diagnóstico](./media/signalr-tutorial-diagnostic-logs/diagnostics-settings-pane.png)
 
 
-1.  Guarde la nueva configuración de diagnóstico.
+1. Guarde la nueva configuración de diagnóstico.
 
 La nueva configuración surte efecto en unos 10 minutos. Después, los registros aparecen en el destino de archivo configurado, en el panel **Registros de diagnóstico**.
 
@@ -195,4 +195,5 @@ Proporcione:
 4. Registros recopilados del lado servidor o cliente y otros materiales que pueden ser útiles
 5. [Opcional] Código de reproducción
 
-> Nota: Si abre la incidencia en GitHub, mantenga la información confidencial (por ejemplo, el identificador de recurso, los registros de servidor o cliente) privada y envíesela solo a los miembros de la organización de Microsoft de forma privada.  
+> [!NOTE]
+> Si abre la incidencia en GitHub, mantenga la información confidencial (por ejemplo, el identificador de recurso y los registros de servidor o cliente) privada y envíesela solo a los miembros de la organización de Microsoft de forma privada.

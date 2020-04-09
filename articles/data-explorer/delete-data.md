@@ -1,41 +1,56 @@
 ---
 title: Eliminación de datos desde el Explorador de datos de Azure
-description: En este artículo se describen los escenarios de eliminación masiva en el Explorador de datos de Azure, incluidas las eliminaciones basadas en la retención y la purga.
+description: En este artículo se describen los escenarios de eliminación de Azure Data Explorer, incluidas la purga, la eliminación de extensiones y las eliminaciones basadas en la retención.
 author: orspod
 ms.author: orspodek
-ms.reviewer: mblythe
+ms.reviewer: avneraa
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 9c1b21e119a38c6d306b9c564ab7958ba21a1c41
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 03/12/2020
+ms.openlocfilehash: dd0f8740d148a7817bcfe2fbad591ceeb1610d0f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60445675"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79501416"
 ---
 # <a name="delete-data-from-azure-data-explorer"></a>Eliminación de datos desde el Explorador de datos de Azure
 
-El Explorador de datos de Azure admite varias soluciones de eliminación masiva, que trataremos en este artículo. No admite la eliminación por registro en tiempo real, porque está optimizado para agilizar el acceso de lectura.
+Azure Data Explorer admite los distintos escenarios de eliminación que se describen en este artículo. 
 
-* Si una o varias tablas ya no se necesitan, elimínelas mediante los comandos drop table o drop tables.
+## <a name="delete-data-using-the-retention-policy"></a>Eliminación de datos mediante la directiva de retención
 
-    ```Kusto
-    .drop table <TableName>
+Azure Data Explorer elimina automáticamente los datos de acuerdo con la [directiva de retención](/azure/kusto/management/retentionpolicy). Este método es la forma más eficaz y sencilla de eliminar datos. Establezca la directiva de retención en el nivel de base de datos o de tabla.
 
-    .drop tables (<TableName1>, <TableName2>,...)
+Considere una base de datos o una tabla que se establece con 90 días de retención. Si solo se necesitan 60 días de datos, elimine los datos más antiguos de la siguiente manera:
+
+```kusto
+.alter-merge database <DatabaseName> policy retention softdelete = 60d
+
+.alter-merge table <TableName> policy retention softdelete = 60d
+```
+
+## <a name="delete-data-by-dropping-extents"></a>Eliminación de datos mediante la eliminación de extensiones
+
+La [extensión (partición de datos)](/azure/kusto/management/extents-overview) es la estructura interna en la que se almacenan los datos. Cada extensión puede contener millones de registros. Las extensiones se pueden eliminar individualmente o en grupo mediante los [comandos de eliminación de extensiones](/azure/kusto/management/extents-commands#drop-extents). 
+
+### <a name="examples"></a>Ejemplos
+
+Puede eliminar todas las filas de una tabla o solo una extensión específica.
+
+* Eliminación de todas las filas de una tabla:
+
+    ```kusto
+    .drop extents from TestTable
     ```
 
-* Si los datos antiguos ya no se necesitan, elimínelos; para ello, cambie el período de retención en el nivel de base de datos o de tabla.
+* Eliminación de una extensión específica:
 
-    Considere una base de datos o una tabla que se establece con 90 días de retención. Las necesidades empresariales cambian, de modo que solo es necesario mantener los datos 60 días. En este caso, elimine los datos más antiguos de una de las maneras siguientes.
-
-    ```Kusto
-    .alter-merge database <DatabaseName> policy retention softdelete = 60d
-
-    .alter-merge table <TableName> policy retention softdelete = 60d
+    ```kusto
+    .drop extent e9fac0d2-b6d5-4ce3-bdb4-dea052d13b42
     ```
 
-    Para más información, consulte [Directiva de retención](https://docs.microsoft.com/azure/kusto/concepts/retentionpolicy).
+## <a name="delete-individual-rows-using-purge"></a>Eliminación de filas individuales mediante la purga
 
-Si necesita ayuda con problemas relacionados con la eliminación de datos, abra una solicitud de soporte técnico en [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+La [purga de datos](/azure/kusto/concepts/data-purge) se puede usar para eliminar filas individuales. La eliminación no es inmediata y requiere bastantes recursos del sistema. Por tanto, solo se recomienda para escenarios de cumplimiento.  
+

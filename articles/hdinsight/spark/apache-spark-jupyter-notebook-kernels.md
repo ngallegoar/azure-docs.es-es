@@ -6,19 +6,19 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 05/27/2019
-ms.openlocfilehash: 44089ea4b997e06cb7654fc6665a1a9a59ae2658
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.date: 03/20/2020
+ms.openlocfilehash: a04b8fee31ffa5280bc8ad0fca35495bb87e0e8a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494115"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80064463"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Kernels para Jupyter Notebook en clústeres Apache Spark en Azure HDInsight
 
-Los clústeres de HDInsight Spark proporcionan kernels que se pueden utilizar con el cuaderno de Jupyter Notebook en [Azure Spark](https://spark.apache.org/) para probar las aplicaciones. Un kernel es un programa que ejecuta e interpreta el código. Estos son los tres kernels:
+Los clústeres de HDInsight Spark proporcionan kernels que se pueden utilizar con el cuaderno de Jupyter Notebook en [Azure Spark](./apache-spark-overview.md) para probar las aplicaciones. Un kernel es un programa que ejecuta e interpreta el código. Estos son los tres kernels:
 
 - **PySpark**: para aplicaciones escritas en Python2.
 - **PySpark3**: para aplicaciones escritas en Python3.
@@ -26,7 +26,7 @@ Los clústeres de HDInsight Spark proporcionan kernels que se pueden utilizar co
 
 En este artículo, aprenderá a usar estos kernels y las ventajas de utilizarlos.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Un clúster de Apache Spark en HDInsight. Para obtener instrucciones, vea [Creación de clústeres Apache Spark en HDInsight de Azure](apache-spark-jupyter-spark-sql.md).
 
@@ -58,7 +58,7 @@ Estas son algunas ventajas de usar los kernels nuevo con el cuaderno de Jupyter 
   - **sc** : para el contexto Spark
   - **sqlContext** : para el contexto Hive
 
-    Por tanto, no tiene que ejecutar instrucciones como la siguiente para definir los contextos:
+    Por tanto, **no** tiene que ejecutar instrucciones como la siguiente para definir los contextos:
 
          sc = SparkContext('yarn-client')
          sqlContext = HiveContext(sc)
@@ -69,7 +69,7 @@ Estas son algunas ventajas de usar los kernels nuevo con el cuaderno de Jupyter 
 
     La siguiente tabla muestra las diferentes instrucciones mágicas disponibles a través de los kernels.
 
-   | Instrucción mágica | Ejemplo | DESCRIPCIÓN |
+   | Instrucción mágica | Ejemplo | Descripción |
    | --- | --- | --- |
    | help |`%%help` |Genera una tabla de todas las instrucciones mágicas disponibles con el ejemplo y la descripción |
    | info |`%%info` |Produce información de sesión del punto de conexión actual de Livy. |
@@ -89,15 +89,15 @@ Estas son algunas ventajas de usar los kernels nuevo con el cuaderno de Jupyter 
 
 El comando mágico `%%sql` es compatible con distintos parámetros que se pueden usar para controlar el tipo de resultado que se obtiene al ejecutar consultas. En la tabla siguiente se muestra el resultado.
 
-| Parámetro | Ejemplo | DESCRIPCIÓN |
+| Parámetro | Ejemplo | Descripción |
 | --- | --- | --- |
 | -o |`-o <VARIABLE NAME>` |Use este parámetro para conservar el resultado de la consulta en el contexto %%local de Python como trama de datos [Pandas](https://pandas.pydata.org/) . El nombre de la variable de la trama de datos es el nombre de variable que especifique. |
 | -q |`-q` |Úselo para desactivar visualizaciones de la celda. Si no quiere visualizar de forma automática el contenido de una celda y simplemente quiere capturarlo como una trama de datos, use `-q -o <VARIABLE>`. Si quiere desactivar visualizaciones sin capturar los resultados (por ejemplo, para ejecutar una consulta de SQL, como una instrucción `CREATE TABLE`), use `-q` sin especificar un argumento `-o`. |
-| -m |`-m <METHOD>` |Donde **METHOD** puede ser **take** o **sample** (el valor predeterminado es **take**). Si el método es **take**, el kernel toma elementos de la parte superior del conjunto de datos de resultados especificado por MAXROWS (se describe más adelante en esta tabla). Si el método es **sample**, el kernel toma como muestra los elementos del conjunto de datos de forma aleatoria en función del parámetro `-r`, que se describe a continuación en esta tabla. |
+| -M |`-m <METHOD>` |Donde **METHOD** puede ser **take** o **sample** (el valor predeterminado es **take**). Si el método es **take**, el kernel toma elementos de la parte superior del conjunto de datos de resultados especificado por MAXROWS (se describe más adelante en esta tabla). Si el método es **sample**, el kernel toma como muestra los elementos del conjunto de datos de forma aleatoria en función del parámetro `-r`, que se describe a continuación en esta tabla. |
 | -r |`-r <FRACTION>` |Aquí **FRACTION** es un número de punto flotante entre 0,0 y 1,0. Si el método sample de la consulta SQL es `sample`, el kernel muestrea de forma aleatoria la fracción especificada de los elementos del conjunto de resultados establecido. Por ejemplo, si ejecuta una consulta SQL con los argumentos `-m sample -r 0.01`, el 1 % de las filas del resultados se muestrean de forma aleatoria. |
 | -n |`-n <MAXROWS>` |**MAXROWS** es un valor entero. El kernel limita el número de filas de salida a **MAXROWS**. Si **MAXROWS** tiene un valor negativo (por ejemplo, **-1**), no se limita el número de filas del conjunto de resultados. |
 
-**Ejemplo:**
+**Ejemplo**:
 
     %%sql -q -m sample -r 0.1 -n 500 -o query2
     SELECT * FROM hivesampletable
@@ -124,7 +124,7 @@ La forma de guardar los cuadernos en la cuenta de almacenamiento es compatible c
 
     hdfs dfs -ls /HdiNotebooks                            # List everything at the root directory – everything in this directory is visible to Jupyter from the home page
     hdfs dfs –copyToLocal /HdiNotebooks                   # Download the contents of the HdiNotebooks folder
-    hdfs dfs –copyFromLocal example.ipynb /HdiNotebooks   # Upload a notebook example.ipynb to the root folder so it’s visible from Jupyter
+    hdfs dfs –copyFromLocal example.ipynb /HdiNotebooks   # Upload a notebook example.ipynb to the root folder so it's visible from Jupyter
 
 Independientemente de si el clúster usa Azure Storage o Azure Data Lake Storage como cuenta de almacenamiento predeterminada, los cuadernos también se guardan en el nodo principal del clúster en `/var/lib/jupyter`.
 
@@ -136,7 +136,7 @@ Los cuadernos de Jupyter Notebook que se ejecutan en clústeres Spark de HDInsig
 
 El nuevo kernel está en la fase de evolución y se desarrollará con el tiempo. También podría significar que las API podrían cambiar a medida que estos kernels maduran. Agradecemos cualquier comentario que tenga al utilizar estos nuevos kernels. Esto resulta muy útil para dar forma a la versión final de estos kernels. Puede dejar sus comentarios la sección **Comentarios** al final de este artículo.
 
-## <a name="seealso"></a>Consulte también
+## <a name="see-also"></a>Consulte también
 
 - [Información general: Apache Spark en Azure HDInsight](apache-spark-overview.md)
 
@@ -160,7 +160,7 @@ El nuevo kernel está en la fase de evolución y se desarrollará con el tiempo.
 - [Uso de paquetes externos con cuadernos de Jupyter Notebook](apache-spark-jupyter-notebook-use-external-packages.md)
 - [Instalación de un cuaderno de Jupyter Notebook en el equipo y conexión al clúster de Apache Spark en HDInsight de Azure](apache-spark-jupyter-notebook-install-locally.md)
 
-### <a name="manage-resources"></a>Administración de recursos
+### <a name="manage-resources"></a>Administrar recursos
 
 - [Administración de recursos para el clúster Apache Spark en HDInsight de Azure](apache-spark-resource-manager.md)
 - [Track and debug jobs running on an Apache Spark cluster in HDInsight (Seguimiento y depuración de trabajos que se ejecutan en un clúster de Apache Spark en HDInsight)](apache-spark-job-debugging.md)

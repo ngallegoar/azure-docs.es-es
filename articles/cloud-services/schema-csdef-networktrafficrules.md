@@ -1,5 +1,6 @@
 ---
 title: Esquema LoadBalancerProbe de de definición de Azure Cloud Services | Microsoft Docs
+description: Obtenga información sobre NetworkTrafficRules, que limita los roles que pueden acceder a los puntos de conexión internos de un rol. Se combina con los roles de un archivo de definición de servicio.
 ms.custom: ''
 ms.date: 04/14/2015
 services: cloud-services
@@ -12,12 +13,12 @@ ms.assetid: 351b369f-365e-46c1-82ce-03fc3655cc88
 caps.latest.revision: 17
 author: tgore03
 ms.author: tagore
-ms.openlocfilehash: e6d156810b9fdee69ddac122eec06db7267ddf36
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e53c10395ec3168e656633cc43fb2d01902209fa
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449034"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79534735"
 ---
 # <a name="azure-cloud-services-definition-networktrafficrules-schema"></a>Esquema NetworkTrafficRules de definición de Azure Cloud Services
 El nodo `NetworkTrafficRules` es un elemento opcional del archivo de definición de servicio que especifica cómo se comunican los roles entre sí. Limita qué roles pueden acceder a los puntos de conexión internos del rol en cuestión. `NetworkTrafficRules` no es un elemento independiente; se combina con dos o más roles de un archivo de definición de servicio.
@@ -63,16 +64,16 @@ Elemento AllowAllTraffic
 
 [Elemento FromRole](#FromRole)
 
-##  <a name="NetworkTrafficRules"></a> Elemento NetworkTrafficRules
+##  <a name="networktrafficrules-element"></a><a name="NetworkTrafficRules"></a> Elemento NetworkTrafficRules
 El elemento `NetworkTrafficRules` especifica qué roles se pueden comunicar con qué punto de conexión de otro rol. Un servicio puede contener una definición de `NetworkTrafficRules`.
 
-##  <a name="OnlyAllowTrafficTo"></a> Elemento OnlyAllowTrafficTo
+##  <a name="onlyallowtrafficto-element"></a><a name="OnlyAllowTrafficTo"></a> Elemento OnlyAllowTrafficTo
 El elemento `OnlyAllowTrafficTo` describe una colección de puntos de conexión de destino y los roles que se pueden comunicar con ellos. Puede especificar varios nodos `OnlyAllowTrafficTo`.
 
-##  <a name="Destinations"></a> Elemento Destinations
+##  <a name="destinations-element"></a><a name="Destinations"></a> Elemento Destinations
 El elemento `Destinations` describe una colección de elementos RoleEndpoint con los que se puede comunicar.
 
-##  <a name="RoleEndpoint"></a> Elemento RoleEndpoint
+##  <a name="roleendpoint-element"></a><a name="RoleEndpoint"></a> Elemento RoleEndpoint
 El elemento `RoleEndpoint` describe un punto de conexión en un rol con el que permitir la comunicación. Puede especificar varios elementos `RoleEndpoint` si hay más de un punto de conexión en el rol.
 
 | Atributo      | Tipo     | Descripción |
@@ -83,14 +84,14 @@ El elemento `RoleEndpoint` describe un punto de conexión en un rol con el que p
 ## <a name="allowalltraffic-element"></a>Elemento AllowAllTraffic
 El elemento `AllowAllTraffic` es una regla que permite que todos los roles se comuniquen con los puntos de conexión definidos en el nodo `Destinations`.
 
-##  <a name="WhenSource"></a> Elemento WhenSource
+##  <a name="whensource-element"></a><a name="WhenSource"></a> Elemento WhenSource
 El elemento `WhenSource` describe una colección de roles que se pueden comunicar con los puntos de conexión definidos en el nodo `Destinations`.
 
 | Atributo | Tipo     | Descripción |
 | --------- | -------- | ----------- |
 | `matches` | `string` | Necesario. Especifica la regla que se aplicará al permitir las comunicaciones. Actualmente, el único valor válido es `AnyRule`.|
   
-##  <a name="FromRole"></a> Elemento FromRole
+##  <a name="fromrole-element"></a><a name="FromRole"></a> Elemento FromRole
 El elemento `FromRole` especifica los roles que se pueden comunicar con los puntos de conexión definidos en el nodo `Destinations`. Puede especificar varios elementos `FromRole` si hay más de un rol que pueda comunicarse con los puntos de conexión.
 
 | Atributo  | Tipo     | Descripción |

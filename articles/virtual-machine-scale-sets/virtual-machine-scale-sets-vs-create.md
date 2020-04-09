@@ -1,7 +1,7 @@
 ---
 title: Implementación de un conjunto de escalado de máquinas virtuales mediante Visual Studio
 description: Implementación de un conjunto de escalado de máquinas virtuales mediante Visual Studio y una plantilla de Resource Manager
-ms.custom: H1Hack27Feb2017
+ms.custom: vs-azure, H1Hack27Feb2017
 ms.workload: azure-vs
 author: mayanknayar
 tags: azure-resource-manager
@@ -10,12 +10,12 @@ ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: manayar
-ms.openlocfilehash: 0d0dc3fbb7e48b1f7e6936cfb65473dba882b776
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: c49b4f42bc726c68880bdd4d6f58956936e83177
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76274230"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80066972"
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Procedimiento para crear un conjunto de escalado de máquinas virtuales con Visual Studio
 
@@ -25,7 +25,7 @@ Los [conjuntos de escalado de máquinas virtuales de Azure](https://azure.micros
 
 Las implementaciones de grupo de recursos de Azure son una forma de agrupar y publicar un conjunto de recursos de Azure relacionados en una única operación de implementación. Para más información, consulte [Creación e implementación de grupos de recursos de Azure mediante Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar a implementar conjuntos de escalado de máquinas virtuales en Visual Studio, necesita los siguientes requisitos previos:
 
@@ -35,7 +35,7 @@ Para empezar a implementar conjuntos de escalado de máquinas virtuales en Visua
 >[!NOTE]
 >En este artículo se usa Visual Studio 2019 con [Azure SDK 2.8](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/).
 
-## Creación de un proyecto <a name="creating-a-project"></a> 
+## <a name="create-a-project"></a>Creación de un proyecto <a name="creating-a-project"></a> 
 
 1. Abra Visual Studio y seleccione **Crear un proyecto**.
 
@@ -83,7 +83,7 @@ Implemente la plantilla de Azure Resource Manager para crear el recurso de conju
 
    ![La salida muestra los resultados](media/virtual-machine-scale-sets-vs-create/deployment-output.png)
 
-## Exploración del conjunto de escalado de máquinas virtuales <a name="exploring-your-virtual-machine-scale-set"></a>
+## <a name="explore-your-virtual-machine-scale-set"></a>Exploración del conjunto de escalado de máquinas virtuales <a name="exploring-your-virtual-machine-scale-set"></a>
 
 Seleccione **Ver** > **Cloud Explorer** para ver el nuevo conjunto de escalado de máquinas virtuales. Use **Actualizar todo**, si es necesario.
 
@@ -95,4 +95,4 @@ Seleccione **Ver** > **Cloud Explorer** para ver el nuevo conjunto de escalado d
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Después de implementar satisfactoriamente los conjuntos de escalado de máquinas virtuales en Visual Studio, puede personalizar aún más el proyecto para satisfacer las necesidades de la aplicación. Por ejemplo, configure el escalado automático agregando un recurso **Insights**. Puede agregar infraestructura a la plantilla, como por ejemplo máquinas virtuales independientes, o implementar aplicaciones con la extensión de script personalizado. Se puede encontrar una buena serie de plantillas de ejemplo en el repositorio de GitHub de [plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates). Busque `vmss`.
+Después de implementar satisfactoriamente los conjuntos de escalado de máquinas virtuales a través de Visual Studio, puede personalizar aún más el proyecto para satisfacer las necesidades de la aplicación. Por ejemplo, configure el escalado automático agregando un recurso **Insights**. Puede agregar infraestructura a la plantilla, como por ejemplo máquinas virtuales independientes, o implementar aplicaciones con la extensión de script personalizado. Se puede encontrar una buena serie de plantillas de ejemplo en el repositorio de GitHub de [plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates). Busque `vmss`.

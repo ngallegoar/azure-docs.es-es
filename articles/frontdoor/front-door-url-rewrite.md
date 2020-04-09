@@ -1,6 +1,6 @@
 ---
-title: 'Azure Front Door Service: Reescritura de direcciones URL | Microsoft Docs'
-description: Este artículo le ayudará a comprender cómo Azure Front Door Service realiza la reescritura de direcciones URL para las rutas, si se ha configurado.
+title: 'Azure Front Door: Reescritura de direcciones URL | Microsoft Docs'
+description: Este artículo le ayudará a comprender cómo Azure Front Door realiza la reescritura de direcciones URL para las rutas, si se ha configurado.
 services: front-door
 documentationcenter: ''
 author: sharad4u
@@ -11,15 +11,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: dc2126276e3e8e0d35ce8ed1f835544386659eff
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 1e5bd565be7a1cabf08ddf33c65eb12b5294249f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "60736195"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79471479"
 ---
 # <a name="url-rewrite-custom-forwarding-path"></a>Reescritura de direcciones URL (ruta de acceso de reenvío personalizada)
-Azure Front Door Service admite la reescritura de direcciones URL al permitirle configurar una **ruta de acceso de reenvío personalizada** opcional que se usará al construir la solicitud para reenviar al back-end. De forma predeterminada, si no se proporciona ninguna ruta de reenvío personalizada, Front Door copiará la ruta de acceso de la dirección URL entrante en la dirección URL usada en la solicitud reenviada. El encabezado host usado en la solicitud reenviada se configura para el back-end seleccionado. Lea [Encabezado de host de back-end](front-door-backend-pool.md#hostheader) para más información sobre lo que hace y cómo configurarlo.
+Azure Front Door admite la reescritura de direcciones URL al permitirle configurar una **ruta de acceso de reenvío personalizada** opcional que se usará al construir la solicitud de reenvío al back-end. De forma predeterminada, si no se proporciona ninguna ruta de reenvío personalizada, Front Door copiará la ruta de acceso de la dirección URL entrante en la dirección URL usada en la solicitud reenviada. El encabezado host usado en la solicitud reenviada se configura para el back-end seleccionado. Lea [Encabezado de host de back-end](front-door-backend-pool.md#hostheader) para más información sobre lo que hace y cómo configurarlo.
 
 La ventaja más importante de la reescritura de direcciones URL mediante la ruta de acceso de reenvío personalizada es que esta copia cualquier parte de la ruta de acceso entrante que coincida con una ruta de acceso de comodín en la ruta de acceso de reenvío (estos segmentos aparecen en **verde** en el siguiente ejemplo):
 </br>

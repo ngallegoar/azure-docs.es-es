@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: d6b2fbe28aae8e8233aaeb75bc9b43a35a9ab588
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: d07d1a706635a7f269a9a51769ae6f8bbf57df3d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905285"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80295403"
 ---
 # <a name="azcopy-login"></a>azcopy login
 
@@ -101,7 +101,7 @@ Asegúrese de tratar/path/to/my/cert como una ruta de acceso a un archivo PEM o 
 
 |Opción|Descripción|
 |--|--|
-|--aad-endpoint|El punto de conexión de Azure Active Directory que se usará. El valor predeterminado (https://login.microsoftonline.com) es correcto para la nube pública de Azure. Establezca este parámetro al autenticarse en una nube nacional. Consulte [Puntos de conexión de autenticación de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#azure-ad-authentication-endpoints).
+|--aad-endpoint|El punto de conexión de Azure Active Directory que se usará. El valor predeterminado (`https://login.microsoftonline.com`) es correcto para la nube pública de Azure. Establezca este parámetro al autenticarse en una nube nacional. Consulte [Puntos de conexión de autenticación de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#azure-ad-authentication-endpoints).
 Esta marca no es necesaria para Managed Service Identity.|
 |--application-id string|Identificador de aplicación de la identidad asignada por el usuario. Se requiere para la autenticación de entidades de servicio.|
 |--certificate-path string|Ruta de acceso al certificado para la autenticación de SPN. Se requiere para la autenticación de entidades de servicio basada en certificados.|

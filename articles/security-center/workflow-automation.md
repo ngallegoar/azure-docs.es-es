@@ -1,5 +1,5 @@
 ---
-title: Automatización de flujos de trabajo (versión preliminar) en Azure Security Center | Microsoft Docs
+title: Automatización de flujos de trabajo en Azure Security Center | Microsoft Docs
 description: Aprenda a crear y automatizar flujos de trabajo en Azure Security Center
 services: security-center
 author: memildin
@@ -8,21 +8,21 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 57351ccf0c6155a1a3532ec9e6481a724e3219aa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5d947cf41e13abdea9a2fd29f8a740d0c101dc6f
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462442"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80397908"
 ---
-# <a name="workflow-automation-preview"></a>Automatización de flujos de trabajo (versión preliminar)
+# <a name="workflow-automation"></a>Automatización de flujos de trabajo
 
 Cada programa de seguridad incluye varios flujos de trabajo para la respuesta a incidentes. Estos procesos pueden incluir notificaciones para las partes interesadas competentes, iniciar un proceso de administración de cambios y aplicar pasos de corrección específicos. Los expertos en seguridad recomiendan automatizar tantos pasos de esos procedimientos como sea posible. Recuerde que la automatización reduce la sobrecarga. También puede mejorar la seguridad asegurándose de que los pasos del proceso se realizan de forma rápida, coherente y según sus requisitos predefinidos.
 
-En este artículo se describe la característica de automatización de flujos de trabajo (versión preliminar) de Azure Security Center. Esta característica de vista previa puede desencadenar una instancia de Logic Apps sobre alertas y recomendaciones de seguridad. Por ejemplo, si quiere que Security Center envíe un correo electrónico a un usuario específico cuando se produce una alerta. También aprenderá a crear instancias de Logic Apps con [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
+En este artículo se describe la característica de automatización de flujos de trabajo de Azure Security Center. Esta característica puede desencadenar una instancia de Logic Apps sobre alertas y recomendaciones de seguridad. Por ejemplo, si quiere que Security Center envíe un correo electrónico a un usuario específico cuando se produce una alerta. También aprenderá a crear instancias de Logic Apps con [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
 
 > [!NOTE]
-> Si ya usó la vista de los cuadernos de estrategias (versión preliminar) de la barra lateral, encontrará las mismas características junto con la funcionalidad expandida en la página nueva de automatización del flujo de trabajo (versión preliminar).
+> Si ya se ha usado la vista Cuadernos de estrategias (versión preliminar) de la barra lateral, se encontrarán las mismas características junto con la función expandida en la página nueva de automatización del flujo de trabajo.
 
 
 ## <a name="requirements"></a>Requisitos
@@ -38,7 +38,7 @@ En este artículo se describe la característica de automatización de flujos de
 
 ## <a name="create-a-logic-app-and-define-when-it-should-automatically-run"></a>Crear una aplicación lógica y definir cuándo debe ejecutarse automáticamente 
 
-1. En la barra lateral de Security Center, seleccione **Automatización de flujos de trabajo (versión preliminar)** .
+1. En la barra lateral de Security Center, seleccione **Automatización de flujos de trabajo**.
 
     [![Lista de automatizaciones de flujos de trabajo](media/workflow-automation/list-of-workflow-automations.png)](media/workflow-automation/list-of-workflow-automations.png#lightbox)
 
@@ -64,8 +64,11 @@ En este artículo se describe la característica de automatización de flujos de
 
     En el diseñador de la aplicación lógica se admiten los siguientes desencadenadores de los conectores de Security Center:
 
-    * **Cuando se crea o se desencadena una recomendación de Azure Security Center (versión preliminar)**
-    * **Cuando se crea o se desencadena una alerta de Azure Security Center (versión preliminar)**
+    * **Cuando se crea o se desencadena una recomendación de Azure Security Center**
+    * **Cuando se crea o se desencadena una alerta de Azure Security Center** 
+    
+    > [!TIP]
+    > Se puede personalizar el desencadenador para que haga referencia solo a las alertas con los niveles de gravedad que le interesen.
     
     > [!NOTE]
     > Si utiliza el desencadenador heredado "Cuando se desencadena una respuesta a una alerta de Azure Security Center", la característica de automatización de flujos de trabajo no iniciará la instancia de Logic Apps. En su lugar, use cualquiera de los desencadenadores mencionados anteriormente. 
@@ -81,9 +84,9 @@ En este artículo se describe la característica de automatización de flujos de
 
 ## <a name="manually-trigger-a-logic-app"></a>Desencadenar manualmente una aplicación lógica
 
-También puede ejecutar Logic Apps manualmente al ver una recomendación de seguridad.
+También se puede ejecutar Logic Apps manualmente al ver una alerta de seguridad o cualquier recomendación que ofrezca [Solución por corrección rápida](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations#quick-fix-remediation).
 
-Para ejecutar manualmente una aplicación lógica, abra una recomendación y haga clic en Desencadenar aplicación lógica (versión preliminar):
+Para ejecutar manualmente una aplicación lógica, abra una alerta o una recomendación que admita Solución por corrección rápida y haga clic en **Desencadenar la aplicación lógica**:
 
 [![Desencadenar manualmente una aplicación lógica](media/workflow-automation/manually-trigger-logic-app.png)](media/workflow-automation/manually-trigger-logic-app.png#lightbox)
 
@@ -93,10 +96,11 @@ Para ver los esquemas de eventos sin procesar de las alertas de seguridad o los 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, ha aprendido a crear aplicaciones lógicas, a ejecutarlas manualmente en Security Center y a automatizar su ejecución. 
+En este artículo, ha obtenido información sobre cómo crear aplicaciones lógicas, automatizar su ejecución en Security Center y ejecutarlas manualmente. 
 
-Para obtener material relacionado, consulte los siguientes artículos: 
+Para obtener material relacionado, vea lo siguiente: 
 
+- [Módulo de Microsoft Learn sobre cómo la automatización de flujos de trabajo para automatizar una respuesta de seguridad](https://docs.microsoft.com/learn/modules/resolve-threats-with-azure-security-center/)
 - [Recomendaciones de seguridad en Azure Security Center](security-center-recommendations.md)
 - [Alertas de seguridad en el Centro de seguridad de Azure](security-center-alerts-overview.md)
 - [Acerca de Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)

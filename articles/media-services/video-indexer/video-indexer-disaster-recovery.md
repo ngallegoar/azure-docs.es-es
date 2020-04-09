@@ -1,6 +1,7 @@
 ---
-title: Continuidad empresarial y recuperación ante desastres en Video Indexer (Azure)
-description: Aprenda a conmutar por error a una cuenta secundaria de Video Indexer si se produce una interrupción o un error en un centro de datos regional.
+title: Conmutación por error y recuperación ante desastres de Video Indexer
+titleSuffix: Azure Media Services
+description: Aprenda cómo realizar la conmutación por error en una cuenta secundaria de Video Indexer si se produce un desastre o un error en un centro de datos regional.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -13,28 +14,28 @@ ms.topic: article
 ms.custom: ''
 ms.date: 07/29/2019
 ms.author: juliako
-ms.openlocfilehash: 2f54c340226a9ea78643df8e0a984c8ed8475c94
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 17c21900448fcb6d0a40fe5407f3b8bd62f9e3e4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513582"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79499608"
 ---
-# <a name="handle-video-indexer-business-continuity-and-disaster-recovery"></a>Control de la continuidad empresarial y la recuperación ante desastres en Video Indexer
+# <a name="video-indexer-failover-and-disaster-recovery"></a>Conmutación por error y recuperación ante desastres de Video Indexer
 
-Video Indexer de Azure Media Services no proporciona una conmutación por error instantánea del servicio si se produce una interrupción o un error en un centro de centros regional. En este artículo se explica cómo configurar el entorno para una conmutación por error con el fin de garantizar la disponibilidad óptima de las aplicaciones y minimizar el tiempo de recuperación en caso de que se produzca un desastre.
+Video Indexer de Azure Media Services no proporciona una conmutación por error instantánea del servicio si se produce una interrupción o un error en un centro de centros regional. En este artículo se explica cómo configurar el entorno para una conmutación por error con el fin de garantizar la disponibilidad óptima de las aplicaciones y el tiempo de recuperación mínimo en caso de que se produzca un desastre.
 
-Se recomienda que configure la continuidad empresarial y recuperación ante desastres entre las parejas regionales para beneficiarse de las directivas de aislamiento y disponibilidad de Azure. Para más información, consulte [Regiones emparejadas de Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Se recomienda que configure la continuidad empresarial y recuperación ante desastres (BCDR) entre las parejas regionales para beneficiarse de las directivas de aislamiento y disponibilidad de Azure. Para más información, consulte [Regiones emparejadas de Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
-## <a name="prerequisites"></a>Prerequisites 
+## <a name="prerequisites"></a>Prerrequisitos
 
 Suscripción a Azure. Si aún no tiene una suscripción de Azure, regístrese para una [evaluación gratuita de Azure](https://azure.microsoft.com/free/).
 
 ## <a name="failover-to-a-secondary-account"></a>Conmutación por error a una cuenta secundaria
 
-Si desea implementar BCDR, debe tener dos cuentas de Video Indexer para administrar la redundancia.
+Para implementar BCDR, debe tener dos cuentas de Video Indexer para controlar la redundancia.
 
-1. Cree dos cuentas de Video Indexer conectadas a Azure (consulte el artículo sobre [creación de cuentas](connect-to-azure.md)). Una será para la región primaria y otra para la región de Azure emparejada. 
+1. Cree dos cuentas de Video Indexer conectadas a Azure (consulte [Creación de una cuenta de Video Indexer](connect-to-azure.md)). Cree una cuenta para la región primaria y otra para la región de Azure emparejada.
 1. Si se produce un error en la región primaria, cambie a la indexación mediante la cuenta secundaria.
 
 > [!TIP]

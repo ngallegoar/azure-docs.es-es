@@ -9,20 +9,20 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/12/2019
+ms.date: 03/24/2020
 ms.author: jingwang
-ms.openlocfilehash: 056909f5fd5838e5ae50fb84bd3535029d862acf
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b73cd73a18d286f221c7be2c624719e1d23d7c06
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75475990"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80153835"
 ---
 #  <a name="preserve-metadata-and-acls-using-copy-activity-in-azure-data-factory"></a>Conservación de los metadatos y las ACL mediante la actividad de copia en Azure Data Factory
 
 Cuando se usa la actividad de copia de Azure Data Factory para copiar datos desde el origen al receptor en los escenarios siguientes, también se pueden conservar los metadatos y las ACL.
 
-## <a name="preserve-metadata"></a> Conservación de los metadatos para la migración de lagos
+## <a name="preserve-metadata-for-lake-migration"></a><a name="preserve-metadata"></a> Conservación de los metadatos para la migración de lagos
 
 Al migrar datos de un lago de datos a otro, incluido [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md) y [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), puede optar por conservar los metadatos de archivo junto con los datos.
 
@@ -40,7 +40,7 @@ Este es un ejemplo de configuración de JSON de la actividad de copia (consulte 
 ```json
 "activities":[
     {
-        "name": "CopyFromGen1ToGen2",
+        "name": "CopyAndPreserveMetadata",
         "type": "Copy",
         "typeProperties": {
             "source": {
@@ -76,9 +76,9 @@ Este es un ejemplo de configuración de JSON de la actividad de copia (consulte 
 ]
 ```
 
-## <a name="preserve-acls"></a> Conservación de ACL desde Data Lake Storage Gen1 a Gen2
+## <a name="preserve-acls-from-data-lake-storage-gen1gen2-to-gen2"></a><a name="preserve-acls"></a> Conservación de las ACL desde Data Lake Storage Gen1/Gen2 a Gen2
 
-Al actualizar de Azure Data Lake Storage Gen1 a Gen2, puede elegir conservar las listas de control de acceso (ACL) de POSIX junto con los archivos de datos. Para más información sobre el control de acceso, consulte [Control de acceso en Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md) y [Control de acceso en Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-access-control.md).
+Al actualizar de Azure Data Lake Storage Gen1 a Gen2 o copiar datos entre ADLS Gen2, se puede optar por conservar las listas de control de acceso (ACL) de POSIX junto con los archivos de datos. Para más información sobre el control de acceso, consulte [Control de acceso en Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md) y [Control de acceso en Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-access-control.md).
 
 La actividad de copia admite la conservación de los siguientes tipos de ACL durante la copia de datos. Puede seleccionar uno o varios tipos:
 
@@ -89,21 +89,21 @@ La actividad de copia admite la conservación de los siguientes tipos de ACL dur
 Si especifica que desea copiar desde una carpeta, Data Factory replicará las ACL de esa carpeta concreta y los archivos y directorios incluidos en ella si `recursive` se establece en true. Si especifica que desea copiar desde un único archivo, se copiarán las ACL de ese archivo.
 
 >[!NOTE]
->Cuando use ADF para conservar las ACL de Data Lake Storage Gen1 a Gen2, se sobrescribirán las ACL existentes en la carpeta o los archivos correspondientes de Gen2.
+>Cuando use ADF para conservar las ACL de Data Lake Storage Gen1/Gen2 a Gen2, se sobrescribirán las ACL existentes en la carpeta o los archivos correspondientes de Gen2 del receptor.
 
 >[!IMPORTANT]
 >Si decide conservar las ACL, asegúrese de que concede permisos lo suficientemente altos para que Data Factory funcione en la cuenta de destino de Data Lake Storage Gen2. Por ejemplo, utilice la autenticación de clave de cuenta o asigne el rol Propietario de datos de Blob Storage a la entidad de servicio o identidad administrada.
 
-Si configura el origen como Data Lake Storage Gen1 con la opción de formato binario o de copia binaria, y el destino como Data Lake Storage Gen2 con las mismas opciones, puede encontrar la opción **Conservar** en la página de **configuración de la herramienta Copiar datos** o en la pestaña **Copiar actividad** > **Configuración** para la creación de actividades.
+Si configura el origen como Data Lake Storage Gen1/Gen2 con la opción de formato binario o de copia binaria, y el receptor como Data Lake Storage Gen2 con las mismas opciones, puede encontrar la opción **Conservar** en la página **Configuración** de la herramienta Copiar datos o en la pestaña **Copiar actividad** > **Configuración** para la creación de actividades.
 
-![Opción Conservar ACL de Data Lake Storage Gen1 a Gen2](./media/connector-azure-data-lake-storage/adls-gen2-preserve-acl.png)
+![Opción Conservar ACL de Data Lake Storage Gen1/Gen2 a Gen2](./media/connector-azure-data-lake-storage/adls-gen2-preserve-acl.png)
 
 Este es un ejemplo de configuración de JSON de la actividad de copia (consulte `preserve`): 
 
 ```json
 "activities":[
     {
-        "name": "CopyFromGen1ToGen2",
+        "name": "CopyAndPreserveACLs",
         "type": "Copy",
         "typeProperties": {
             "source": {
@@ -127,7 +127,7 @@ Este es un ejemplo de configuración de JSON de la actividad de copia (consulte 
         },
         "inputs": [
             {
-                "referenceName": "<Binary dataset name for Azure Data Lake Storage Gen1 source>",
+                "referenceName": "<Binary dataset name for Azure Data Lake Storage Gen1/Gen2 source>",
                 "type": "DatasetReference"
             }
         ],

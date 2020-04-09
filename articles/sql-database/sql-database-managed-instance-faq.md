@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
-ms.date: 07/16/2019
-ms.openlocfilehash: 1c1995b4daf3b76abf7663d8d6c1f4cb7b1d6e2b
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.date: 03/17/2020
+ms.openlocfilehash: 393d67b200a4f8d44cb001b3a7e2e491209e9d58
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201686"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80364167"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>Preguntas frecuentes acerca de Instancia administrada de Azure SQL Database
 
@@ -42,13 +42,13 @@ Para ver los niveles de servicio disponibles y sus características, consulte la
 
 **¿Dónde puedo encontrar soluciones a errores y problemas conocidos?**
 
-Para ver los errores y los problemas conocidos, consulte [Problemas conocidos](sql-database-managed-instance-transact-sql-information.md#Issues).
+Para ver los errores y los problemas conocidos, consulte [Problemas conocidos](sql-database-release-notes.md#known-issues).
 
 ## <a name="new-features"></a>Nuevas características
 
 **¿Dónde puedo encontrar las características más recientes y las características en versión preliminar pública?**
 
-Para obtener características nuevas y en vista previa, consulte las [notas de la versión](/azure/sql-database/sql-database-release-notes?tabs=managed-instance).
+Para obtener características nuevas y en vista previa, consulte las [notas de la versión](sql-database-release-notes.md?tabs=managed-instance).
 
 ## <a name="deployment-times"></a>Tiempos de implementación 
 
@@ -60,7 +60,11 @@ El tiempo esperado para crear una nueva instancia administrada o cambiar el nive
 
 **¿Puede una instancia administrada tener el mismo nombre que una instancia de SQL Server local?**
 
-El nombre de la instancia administrada debe terminar en *database.windows.net*. Para usar otra zona DNS en lugar de la predeterminada, por ejemplo, **mi otro nombre**.contoso.com: 
+No se admite cambiar el nombre de la instancia administrada.
+
+Se puede cambiar la zona DNS predeterminada *.database.windows.net* de la instancia administrada. 
+
+Para usar otra zona DNS en lugar de la predeterminada, por ejemplo, *.contoso.com*, haga lo siguiente: 
 - Use CliConfig para definir un alias. La herramienta no es más que un contenedor de la configuración del registro, por lo que también se puede hacer mediante una directiva de grupo o un script.
 - Use *CNAME* con la opción *TrustServerCertificate = true*.
 
@@ -125,24 +129,24 @@ Use la opción **Costos acumulados** y luego filtre por **Tipo de recurso**, com
 
 **¿Cómo se pueden establecer reglas de grupos de seguridad de red de entrada en los puertos de administración?**
 
-La característica de firewall integrado configura firewall de Windows en todas las máquinas virtuales del clúster para permitir conexiones entrantes de los rangos de IP asociados solo a máquinas de administración e implementación de Microsoft y estaciones de trabajo de administración segura para evitar que se puedan producir intrusiones a través de la capa de red.
+El plano de control de la instancia administrada mantiene las reglas de NSG que protegen los puertos de administración.
 
-Esto es para lo que se usan los puertos:
+Esto es para lo que se usan los puertos de administración:
 
 La infraestructura de Service Fabric usa los puertos 9000 y 9003. El rol principal de Service Fabric consiste en mantener siempre el clúster virtual en un estado correcto y en mantener el estado del objetivo en cuanto al número de réplicas de componente.
 
 Node Agent utiliza los puertos 1438, 1440 y 1452. Node Agent es una aplicación que se ejecuta dentro del clúster y que el plano de control usa para ejecutar comandos de administración.
 
-Además del firewall integrado de la capa de red, la comunicación también se protege con certificados.
+Además de las reglas de NSG, el firewall integrado protege la instancia en el nivel de red. En el nivel de aplicación, la comunicación está protegida con los certificados.
   
 Para más información acerca del firewall integrado y acerca de cómo verificarlo, consulte [Firewall integrado en Instancia administrada de Azure SQL Database](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
 
 
-## <a name="mitigate-network-risks"></a>Mitigación de los riesgos de la red  
+## <a name="mitigate-data-exfiltration-risks"></a>Mitigación de los riesgos de filtración de datos  
 
-**¿Cómo puedo mitigar los riesgos de la red?**
+**¿Cómo se pueden mitigar los riesgos de filtración de datos?**
 
-Para mitigar los riesgos de la red, es aconsejable que los clientes apliquen un conjunto de valores y controles de seguridad:
+Para mitigar los riesgos de filtración de datos, es aconsejable que los clientes apliquen un conjunto de valores y controles de seguridad:
 
 - Activar el [cifrado de datos transparente (TDE)](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql) en todas las bases de datos.
 - Desactivar Common Language Runtime (CLR). Se recomienda hacerlo también en el entorno local.
@@ -180,19 +184,19 @@ La configuración de DNS se actualiza:
 Como alternativa, cambie la instancia administrada a la versión 4 del núcleo virtual y vuelva a actualizarla posteriormente. Esto tiene el efecto secundario de actualizar la configuración de DNS.
 
 
-## <a name="static-ip-address"></a>Dirección IP estática
+## <a name="ip-address"></a>Dirección IP
+
+**¿Se puede realizar una conexión a una instancia administrada mediante la dirección IP?**
+
+No se admite la conexión a una instancia administrada mediante la dirección IP. El nombre de host de la instancia administrada se asigna al equilibrador de carga delante del clúster virtual de instancia administrada. Puesto que un clúster virtual podría hospedar varias instancias administradas, es posible que la conexión no se pueda enrutar a la instancia administrada adecuada sin especificar su nombre.
+
+Para obtener más información sobre la arquitectura del clúster virtual de instancia administrada, vea [Arquitectura de conectividad del clúster virtual](sql-database-managed-instance-connectivity-architecture.md#virtual-cluster-connectivity-architecture).
 
 **¿Puede una instancia administrada tener una dirección IP estática?**
 
 En situaciones poco frecuentes pero necesarias, es posible que tengamos que realizar una migración en línea de una instancia administrada a un nuevo clúster virtual. Si es necesaria, esta migración se debe a los cambios realizados en nuestra pila de tecnología destinados a mejorar la seguridad y confiabilidad del servicio. La migración a un nuevo clúster virtual provoca el cambio de dirección IP que está asignada al nombre de host de la instancia administrada. El servicio de instancia administrada no solicita compatibilidad con direcciones IP estáticas y se reserva el derecho a cambiar la dirección IP sin previo aviso como parte de los ciclos de mantenimiento regular.
 
 Por este motivo se desaconseja confiar en la inmutabilidad de la dirección IP, ya que podría provocar un tiempo de inactividad innecesario.
-
-## <a name="moving-mi"></a>Traslado de la instancia administrada
-
-**¿Puedo llevar una instancia administrada o su red virtual a otro grupo de recursos?**
-
-No, esto es una limitación actual de la plataforma. Después de crear una instancia administrada, no se admite el traslado de la instancia administrada o la red virtual a otro grupo de recursos o suscripción.
 
 ## <a name="change-time-zone"></a>Cambio de la zona horaria
 

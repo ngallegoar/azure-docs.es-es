@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 12/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4f31c5583671ed3441e1a3f0f53c8518e550080a
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: f38b0895b0d6eddcf63c082d3df205f4d9de9d50
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77580736"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80297058"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Creación y administración de áreas de trabajo de Azure Machine Learning en Azure Portal
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -50,7 +50,8 @@ Para crear un área de trabajo, necesita una suscripción de Azure. Si no tiene 
 
     ![Configuración de un área de trabajo](./media/how-to-manage-workspace/select-edition.png)
 
-1. Cuando haya terminado de configurarla, seleccione **Crear**. 
+1. Cuando haya terminado de configurar el área de trabajo, seleccione **Revisar y crear**.
+2. Revise la configuración y realice cualquier cambio o corrección adicional. Cuando esté satisfecho con la configuración, seleccione **Crear**.
 
    > [!Warning] 
    > La creación del área de trabajo en la nube puede tardar varios minutos.
@@ -69,7 +70,7 @@ Para crear un área de trabajo, necesita una suscripción de Azure. Si no tiene 
    
    Coloque el archivo en la estructura de directorios que contiene los scripts de Python o las instancias de Jupyter Notebook. Puede estar en el mismo directorio, en un subdirectorio denominado *.azureml* o en un directorio principal. Al crear una instancia de proceso, este archivo se agrega automáticamente al directorio correcto de la máquina virtual.
 
-## <a name="upgrade"></a>Actualización a la edición Enterprise
+## <a name="upgrade-to-enterprise-edition"></a><a name="upgrade"></a>Actualización a la edición Enterprise
 
 Puede actualizar el área de trabajo de la edición Basic a la edición Enterprise para aprovechar las ventajas de las características mejoradas, como experiencias de poco código y características de seguridad mejoradas.
 
@@ -87,7 +88,7 @@ Puede actualizar el área de trabajo de la edición Basic a la edición Enterpri
 > [!IMPORTANT]
 > No se puede rebajar un área de trabajo de la edición Enterprise a un área de trabajo de la edición Basic. 
 
-## <a name="view"></a>Buscar un área de trabajo
+## <a name="find-a-workspace"></a><a name="view"></a>Buscar un área de trabajo
 
 1. En el campo de búsqueda superior, escriba **Machine Learning**.  
 

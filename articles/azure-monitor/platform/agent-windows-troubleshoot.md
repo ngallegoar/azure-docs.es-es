@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: 78625707bfa296eeb7ad8cc658657f46da1dc495
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 4112555347ce1d718375fbab3f166c6f2f5deeaa
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77668798"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80333501"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-windows"></a>Procedimientos para solucionar problemas relacionados con el agente de Log Analytics para Windows 
 
@@ -64,7 +64,7 @@ Hay varias formas de comprobar si el agente se comunica de forma correcta con Az
     |---------|-------|------------|-----------|
     |2133 y 2129 |Servicio de mantenimiento |Error de conexión con el servicio desde el agente |Este error se puede producir cuando el agente no se puede comunicar directamente o a través de un servidor proxy o firewall con el servicio Azure Monitor. Compruebe la configuración de proxy de agente o que el firewall o proxy de red permite el tráfico TCP desde el equipo al servicio.|
     |2138 |Módulos de servicio de mantenimiento |Se requiere autenticación del proxy |Configure las opciones del proxy de agente y especifique el nombre de usuario y la contraseña necesarios para autenticarse con el servidor proxy. |
-    |2129 |Módulos de servicio de mantenimiento |Error de conexión o error de negociación SSL |Compruebe la configuración TCP/IP del adaptador de red y del proxy de agente.|
+    |2129 |Módulos de servicio de mantenimiento |Error de conexión o error de negociación TLS |Compruebe la configuración TCP/IP del adaptador de red y del proxy de agente.|
     |2127 |Módulos de servicio de mantenimiento |Error al enviar datos de código de error recibido |Si solo se produce de forma periódica durante el día, podría ser simplemente una anomalía aleatoria que se puede ignorar. Supervise para comprender la frecuencia con que sucede. Si se produce con frecuencia a lo largo del día, compruebe la configuración de red y de proxy. Si en la descripción se incluye el código de error HTTP 404 y es la primera vez que el agente intenta enviar datos al servicio, incluirá un error 500 con un código de error 404 interno. 404 significa que no se ha encontrado, lo que indica que el área de almacenamiento para la nueva área de trabajo todavía se está aprovisionando. En el siguiente reintento, los datos se escribirán correctamente en el área de trabajo según lo previsto. Un error HTTP 403 podría indicar un problema de credenciales o permisos. El error 403 incluye más información para ayudar a solucionar el problema.|
     |4000 |Conector de servicio |Error de resolución de nombre DNS |El equipo no pudo resolver la dirección de Internet que se ha usado al enviar datos al servicio. Esto podría deberse a la configuración de resolución DNS en el equipo, la configuración incorrecta del proxy o un problema de DNS temporal con el proveedor. Si se produce de forma periódica, se podría deber a un problema transitorio relacionado con la red.|
     |4001 |Conector de servicio |Error de conexión al servicio. |Este error se puede producir cuando el agente no se puede comunicar directamente o a través de un servidor proxy o firewall con el servicio Azure Monitor. Compruebe la configuración de proxy de agente o que el firewall o proxy de red permite el tráfico TCP desde el equipo al servicio.|

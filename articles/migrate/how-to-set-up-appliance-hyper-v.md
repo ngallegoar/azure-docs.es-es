@@ -2,29 +2,27 @@
 title: Configurar un dispositivo de Azure Migrate para Hyper-V
 description: Obtenga información sobre cómo configurar un dispositivo de Azure Migrate para evaluar y migrar VM de Hyper-V.
 ms.topic: article
-ms.date: 11/19/2019
-ms.openlocfilehash: 8199525a118ffca2cfc03734283eb26facba8483
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.date: 03/23/2020
+ms.openlocfilehash: 80db2c1d4f5482604ca1507174b127c150f76044
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598347"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80336813"
 ---
 # <a name="set-up-an-appliance-for-hyper-v-vms"></a>Configuración de un dispositivo para VM de Hyper-V
 
-En este artículo se describe cómo configurar el dispositivo Azure Migrate si va a evaluar VM de Hyper-V con la herramienta Azure Migrate Server Assessment o a migrar VM de VMware a Azure con la herramienta Azure Migrate Server Migration.
+En este artículo se describe cómo configurar el dispositivo de Azure Migrate para la evaluación de máquinas virtuales de Hyper-V con la herramienta [Azure Migrate: Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool).
 
-El dispositivo de VM de Hyper-V es un dispositivo ligero que Azure Migrate Server Assessment/Migration usa para lo siguiente:
+El [dispositivo de Azure Migrate](migrate-appliance.md) es un dispositivo ligero que usa Azure Migrate: Server Assessment/Migration para detectar máquinas virtuales de Hyper-V locales y enviar datos de rendimiento y metadatos de máquinas virtuales a Azure.
 
-- Detectar VM de Hyper-V locales.
-- Enviar metadatos y datos de rendimiento para las máquinas virtuales detectadas a Azure Migrate Server Assessment/Migration.
-
-[Más información](migrate-appliance.md) sobre el dispositivo de Azure Migrate.
+Puede configurar el dispositivo de Azure Migrate para la evaluación de máquinas virtuales de Hyper-V mediante una plantilla de VHD que se descargue o mediante un script de instalación de PowerShell. En este artículo se describe cómo configurar el dispositivo mediante la plantilla de VHD. Si se quiere configurar el dispositivo mediante el script, siga las instrucciones de [este artículo](deploy-appliance-script.md).
 
 
-## <a name="appliance-deployment-steps"></a>Pasos de implementación del dispositivo
+## <a name="appliance-deployment-vhd"></a>Implementación del dispositivo (VHD)
 
-Para configurar el dispositivo:
+Para configurar el dispositivo mediante una plantilla de VHD, haga lo siguiente:
+
 - Descargue un disco duro virtual de Hyper-V comprimido desde Azure Portal.
 - Crear el dispositivo y comprobar que se puede conectar a Azure Migrate Server Assessment.
 - Configurar el dispositivo por primera vez y registrarlo en el proyecto de Azure Migrate.
@@ -79,7 +77,7 @@ Asegúrese de que la máquina virtual del dispositivo se puede conectar a las [d
 
 ## <a name="configure-the-appliance"></a>Configuración del dispositivo
 
-Configure el dispositivo por primera vez.
+Configure el dispositivo por primera vez. Si se implementa el dispositivo mediante un script en lugar de un VHD, se tienen que omitir los dos primeros pasos del procedimiento.
 
 1. En Administrador de Hyper-V > **Máquinas virtuales**, haga clic con el botón derecho en la VM > **Conectar**.
 2. Especifique el idioma, la zona horaria y la contraseña del dispositivo.

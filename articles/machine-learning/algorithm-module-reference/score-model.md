@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
-ms.openlocfilehash: c06d1268abe8afdeb03668131c3c61cfbafa44cd
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: 56d8cad05a42da8de680ade487dddee9a97aab3a
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77138173"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80364174"
 ---
 # <a name="score-model-module"></a>Score Model module
 
@@ -30,15 +30,15 @@ Utilice este módulo para generar predicciones con un modelo entrenado de clasif
 
     Los datos deben estar en un formato compatible con el tipo de modelo entrenado que usa. El esquema del conjunto de datos de entrada también debe coincidir generalmente con el esquema de los datos utilizados para entrenar el modelo.
 
-3. Ejecución de la canalización
+3. Envíe la canalización.
 
 ## <a name="results"></a>Results
 
 Después de haber generado un conjunto de puntuaciones mediante [Puntuar modelo](./score-model.md):
 
-+ Para generar un conjunto de métricas utilizadas para evaluar la precisión del modelo (rendimiento).  Puede conectar el conjunto de datos puntuado a [Evaluar modelo](./evaluate-model.md). 
++ Para generar un conjunto de métricas usadas para evaluar la precisión del modelo (rendimiento), puede conectar el conjunto de datos puntuado a [Evaluar modelo](./evaluate-model.md). 
 + Haga clic con el botón derecho en el módulo y seleccione **Visualizar** para ver un ejemplo de los resultados.
-+ Guarde los resultados en un conjunto de datos.
+<!-- + To Save the results to a dataset. -->
 
 La puntuación, o el valor de predicción, puede estar en muchos formatos diferentes, según el modelo y los datos de entrada:
 
@@ -48,7 +48,7 @@ La puntuación, o el valor de predicción, puede estar en muchos formatos difere
 
 ## <a name="publish-scores-as-a-web-service"></a>Publicar puntuaciones como servicio web
 
-Un uso común de la puntuación es devolver la salida como parte de un servicio web predictivo. Para más información, consulte este tutorial sobre cómo crear un servicio web basado en una canalización en Azure Machine Learning:
+Un uso común de la puntuación es devolver la salida como parte de un servicio web predictivo. Para obtener más información, vea [este tutorial](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-deploy) sobre cómo implementar un punto de conexión en tiempo real basado en una canalización en el diseñador de Azure Machine Learning.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

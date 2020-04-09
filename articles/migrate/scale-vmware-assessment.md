@@ -1,18 +1,14 @@
 ---
-title: Evaluación de grandes cantidades de VM de VMware para la migración a Azure con Azure Migrate | Microsoft Docs
-description: Describe cómo evaluar grandes cantidades de VM de VMware para su migración a Azure mediante el servicio Azure Migrate.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
-ms.topic: conceptual
-ms.date: 07/12/2019
-ms.author: hamusa
-ms.openlocfilehash: f76134ffc6a7becb9b5719dcb3d826130b7cfa86
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+title: Evaluación de grandes cantidades de máquinas virtuales de VMware para la migración a Azure con Azure Migrate
+description: Describe cómo evaluar grandes cantidades de máquinas virtuales de VMware para la migración a Azure mediante el servicio Azure Migrate.
+ms.topic: how-to
+ms.date: 03/23/2020
+ms.openlocfilehash: d404583b1bad474a5e24e8c7cf060aeb80d610bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453279"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80336865"
 ---
 # <a name="assess-large-numbers-of-vmware-vms-for-migration-to-azure"></a>Evaluación de grandes cantidades de VM de VMware para la migración a Azure
 
@@ -69,7 +65,7 @@ Si está planeando un entorno de varios inquilinos, puede limitar la detección 
 
 - Puede establecer el ámbito de detección del dispositivo en un centro de datos de vCenter Server, varios clústeres o una carpeta de clústeres, varios hosts o una carpeta de hosts, o VM individuales.
 - Si el entorno se comparte entre inquilinos y quiere detectar cada inquilino por separado, puede limitar el acceso a la cuenta de vCenter que el dispositivo usa para la detección. 
-    - Puede que quiera limitarse a las carpetas de VM si los inquilinos comparten hosts. Azure Migrate no puede detectar VM si a la cuenta de vCenter se le ha concedido acceso en el nivel de carpeta de VM de vCenter. Si tiene intención de limitar el ámbito de detección por carpetas de VM, asegúrese de que la cuenta de vCenter tiene asignado acceso de solo lectura asignado a nivel de VM. [Aquí](tutorial-assess-vmware.md#set-the-scope-of-discovery) encontrará más información sobre el ámbito de la detección.
+    - Puede que quiera limitarse a las carpetas de VM si los inquilinos comparten hosts. Azure Migrate no puede detectar VM si a la cuenta de vCenter se le ha concedido acceso en el nivel de carpeta de VM de vCenter. Si tiene intención de limitar el ámbito de detección por carpetas de VM, asegúrese de que la cuenta de vCenter tiene asignado acceso de solo lectura asignado a nivel de VM. [Más información](set-discovery-scope.md).
 
 ## <a name="prepare-for-assessment"></a>Preparación para la evaluación
 

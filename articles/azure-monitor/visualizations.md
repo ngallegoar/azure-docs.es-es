@@ -5,20 +5,36 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/24/2018
-ms.openlocfilehash: 7bace6ff6eb7dd1c02e4907e338fc0be9d66471c
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.date: 03/17/2020
+ms.openlocfilehash: 877616f6fd31bdfbe193bd8f03efb3f79317ad42
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77657816"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79535376"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualizar datos de Azure Monitor
 En este artículo se proporciona un resumen de los métodos disponibles para visualizar los datos de métricas y de registro almacenados en Azure Monitor.
 
 Visualizaciones como gráficos y diagramas pueden ayudarlo a analizar los datos de supervisión para explorar en profundidad los problemas e identificar patrones. Según la herramienta que utilice, es posible que también tenga la opción de compartir visualizaciones con otros usuarios dentro y fuera de su organización.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+## <a name="workbooks"></a>Workbooks
+Los [libros](../azure-monitor/app/usage-workbooks.md) son documentos interactivos que proporcionan información detallada sobre los datos, la investigación y colaboración en el equipo. Algunos ejemplos de libros útiles son las guías de resolución de problemas y los análisis posteriores a incidentes.
+
+![Libro](media/visualizations/workbook.png)
+
+### <a name="advantages"></a>Ventajas
+- Es compatible con las métricas y los registros.
+- Admite parámetros que habilitan los informes interactivos en que, al seleccionar un elemento en una tabla, se actualizarán dinámicamente los gráficos y las visualizaciones asociados.
+- Flujo similar al de los documentos.
+- Opción de libros personales o compartidos.
+- Experiencia de creación sencilla y colaborativa.
+- Las plantillas admiten la galería de plantillas públicas basadas en GitHub.
+
+### <a name="limitations"></a>Limitaciones
+- No hay actualizaciones automáticas.
+- No hay ningún diseño denso, como paneles, que haga que los libros tengan menos utilidad que un solo panel de vidrio. Diseñado especialmente para proporcionar información más detallada.
+
 
 ## <a name="azure-dashboards"></a>Paneles de Azure
 Los [paneles de Azure](../azure-portal/azure-portal-dashboards.md) son la tecnología de panel principal de Azure. Son especialmente útiles para proporcionar una hoja de cristal sobre su infraestructura de Azure y servicios, lo que permite identificar rápidamente problemas importantes.
@@ -43,44 +59,6 @@ Los [paneles de Azure](../azure-portal/azure-portal-dashboards.md) son la tecnol
 - Los gráficos de registro solo se pueden anclar a los paneles compartidos.
 - No hay interactividad con los datos del panel.
 - Exploración en profundidad contextual limitada.
-
-## <a name="azure-monitor-views"></a>Vistas de Azure Monitor
-Las [vistas de Azure Monitor](platform/view-designer.md) le permiten crear visualizaciones personalizadas con datos de registro. Las [soluciones de supervisión](insights/solutions.md) las utilizan para presentar los datos recopilados.
-
-![Ver](media/visualizations/view.png)
-
-### <a name="advantages"></a>Ventajas
-- Visualizaciones enriquecidas para datos de registro.
-- Exporte e importe las vistas para transferirlas a otros grupos de recursos y suscripciones.
-- Se integran en el modelo de administración de Azure Monitor con áreas de trabajo y soluciones de supervisión.
-- [Filtran](platform/view-designer-filters.md) los parámetros personalizados.
-- Interactivas, admiten varios niveles de obtención de detalles (vista que explora otra vista)
-
-### <a name="limitations"></a>Limitaciones
-- Admiten registros, pero no las métricas.
-- No hay vistas personales. Disponibles para todos los usuarios con acceso al área de trabajo.
-- No hay actualizaciones automáticas.
-- Opciones de diseño limitadas.
-- No se admiten las consultas a través de varias áreas de trabajo o aplicaciones de Application Insights.
-- El tamaño de respuesta y el tiempo de ejecución de las consultas se limitan a 8 MB y 110 segundos, respectivamente.
-
-
-## <a name="workbooks"></a>Workbooks
-Los [libros](../azure-monitor/app/usage-workbooks.md) son documentos interactivos que proporcionan información detallada sobre los datos, la investigación y colaboración en el equipo. Algunos ejemplos de libros útiles son las guías de resolución de problemas y los análisis posteriores a incidentes.
-
-![Libro](media/visualizations/workbook.png)
-
-### <a name="advantages"></a>Ventajas
-- Es compatible con las métricas y los registros.
-- Admite parámetros que habilitan los informes interactivos en que, al seleccionar un elemento en una tabla, se actualizarán dinámicamente los gráficos y las visualizaciones asociados.
-- Flujo similar al de los documentos.
-- Opción de libros personales o compartidos.
-- Experiencia de creación sencilla y colaborativa.
-- Las plantillas admiten la galería de plantillas públicas basadas en GitHub.
-
-### <a name="limitations"></a>Limitaciones
-- No hay actualizaciones automáticas.
-- No hay ningún diseño denso, como paneles, que haga que los libros tengan menos utilidad que un solo panel de vidrio. Diseñado especialmente para proporcionar información más detallada.
 
 
 ## <a name="power-bi"></a>Power BI
@@ -129,6 +107,31 @@ Puede tener acceso a datos de métricas y de registro en Azure Monitor mediante 
 ### <a name="disadvantages"></a>Inconvenientes
 - Se requiere un trabajo de ingeniería importante.
 
+
+## <a name="azure-monitor-views"></a>Vistas de Azure Monitor
+
+> [!IMPORTANT]
+> Las vistas están en proceso de quedar en desuso. Consulte la [Guía de transición del diseñador de vistas de Azure Monitor a libros](platform/view-designer-conversion-overview.md) para obtener instrucciones sobre cómo convertir vistas en libros.
+
+Las [vistas de Azure Monitor](platform/view-designer.md) le permiten crear visualizaciones personalizadas con datos de registro. Las [soluciones de supervisión](insights/solutions.md) las utilizan para presentar los datos recopilados.
+
+
+![Ver](media/visualizations/view.png)
+
+### <a name="advantages"></a>Ventajas
+- Visualizaciones enriquecidas para datos de registro.
+- Exporte e importe las vistas para transferirlas a otros grupos de recursos y suscripciones.
+- Se integran en el modelo de administración de Azure Monitor con áreas de trabajo y soluciones de supervisión.
+- [Filtran](platform/view-designer-filters.md) los parámetros personalizados.
+- Interactivas, admiten varios niveles de obtención de detalles (vista que explora otra vista)
+
+### <a name="limitations"></a>Limitaciones
+- Admiten registros, pero no las métricas.
+- No hay vistas personales. Disponibles para todos los usuarios con acceso al área de trabajo.
+- No hay actualizaciones automáticas.
+- Opciones de diseño limitadas.
+- No se admiten las consultas a través de varias áreas de trabajo o aplicaciones de Application Insights.
+- El tamaño de respuesta y el tiempo de ejecución de las consultas se limitan a 8 MB y 110 segundos, respectivamente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Obtenga información sobre los [datos que Azure Monitor recopila](platform/data-platform.md).

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb7fed7cf5f38f9f7677126aff92492ccacd6e12
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.openlocfilehash: 2cd782cdab625934fe60617142e5ac0baf756398
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75707951"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80128758"
 ---
 # <a name="troubleshooting-devices-using-the-dsregcmd-command"></a>Solución de problemas de dispositivos con el comando dsregcmd
 
@@ -134,7 +134,7 @@ En esta sección se muestra el estado de varios atributos para el usuario que ha
 - **CanReset:** indica si el usuario puede restablecer la clave de Windows Hello. 
 - **Valores posibles:** DestructiveOnly, NonDestructiveOnly, DestructiveAndNonDestructive o Unknown, si se ha producido un error. 
 - **WorkplaceJoined:** establézcalo en "YES" (SÍ) si se han agregado cuentas registradas de Azure AD al dispositivo en el contexto de NTUSER actual.
-- **WamDefaultSet:** establézcalo en "YES" (SÍ) si se creó una WebAccount predeterminada de WAM para el usuario que ha iniciado sesión. Este campo podría mostrar un error si se ejecuta dsreg /status en el contexto de administración. 
+- **WamDefaultSet:** establézcalo en "YES" (SÍ) si se creó una WebAccount predeterminada de WAM para el usuario que ha iniciado sesión. Este campo podría mostrar un error si se ejecuta dsreg /status desde un símbolo del sistema con privilegios elevados. 
 - **WamDefaultAuthority:** establézcalo en "organizations" (organizaciones) para Azure AD.
 - **WamDefaultId:** siempre "https://login.microsoft.com" para Azure AD.
 - **WamDefaultGUID:** el GUID del proveedor de WAM (cuenta de Azure AD/Microsoft) para la cuenta web predeterminada de WAM. 
@@ -211,8 +211,16 @@ En esta sección se realizan una serie de pruebas para ayudar a diagnosticar err
 - **AD Configuration Test:** se lee y se comprueba si el objeto SCP está configurado correctamente en el bosque de AD en el entorno local. Los errores de esta prueba podrían producir errores de unión en la fase de detección con el código 0x801c001d.
 - **DS Discovery Test:** la prueba obtiene los puntos de conexión de DRS del punto de conexión de los metadatos de detección y realiza una solicitud del dominio Kerberos del usuario. Los errores de esta prueba podrían producir errores de unión en la fase de detección.
 - **DRS Connectivity Test:** se realiza una prueba de conectividad básica del punto de conexión DRS.
-- **Token acquisition Test:** la prueba intenta obtener un token de autenticación de Azure AD si el inquilino del usuario está federado. Los errores de esta prueba podrían producir errores de unión en la fase de autorización. Si la autorización no puede realizarse, se intentará la unión de sincronización como reserva, a menos que la reserva se deshabilite explícitamente con una clave del Registro.
-- **Fallback to Sync-Join:** establézcalo en "Enabled" (Habilitado) si la clave del Registro, para evitar que la reserva se combine con sincronización y errores de autenticación, NO está presente. Esta opción está disponible en Windows 10 1803 y versiones posteriores.
+- **Token acquisition Test:** la prueba intenta obtener un token de autenticación de Azure AD si el inquilino del usuario está federado. Los errores de esta prueba podrían producir errores de unión en la fase de autorización. Si la autorización no puede realizarse, se intentará la unión de sincronización como reserva, a menos que la reserva se deshabilite explícitamente con la configuración siguiente de clave del Registro.
+```
+    Keyname: Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ
+    Value: FallbackToSyncJoin
+    Type:  REG_DWORD
+    Value: 0x0 -> Disabled
+    Value: 0x1 -> Enabled
+    Default (No Key): Enabled
+ ```
+- **Fallback to Sync-Join:** establézcalo en "Enabled" (Habilitado) si la siguiente clave del Registro, a fin de evitar que la reserva realice la unión de sincronización con errores de autenticación, NO está presente. Esta opción está disponible en Windows 10 1803 y versiones posteriores.
 - **Previous Registration:** hora en que se produjo el intento de unión anterior. Solo se registran los intentos de unión erróneos.
 - **Error Phase:** la fase de la unión en la que se anuló. Los valores posibles son pre-check (comprobación previa), discover (detección), auth (autorización), join (unión).
 - **Client ErrorCode:** se devolvió el código de error del cliente (HRESULT).

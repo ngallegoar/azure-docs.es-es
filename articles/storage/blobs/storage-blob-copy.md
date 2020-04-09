@@ -8,16 +8,16 @@ ms.date: 08/20/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.openlocfilehash: 9b3dba0041b38d9d59a10eaf80592bab91f65b98
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 9ffa69980f020580376aea447f40ac615f26cf03
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72599910"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79135894"
 ---
 # <a name="copy-a-blob-with-net"></a>Copia de un blob con .NET
 
-En este artículo se muestra cómo copiar un blob con una cuenta de Azure Storage. También se muestra cómo anular una operación de copia asincrónica. El código de ejemplo usa la [biblioteca cliente de Azure Storage para .NET](/dotnet/api/overview/azure/storage/client).
+En este artículo se muestra cómo copiar un blob con una cuenta de Azure Storage. También se muestra cómo anular una operación de copia asincrónica. El código de ejemplo usa la [biblioteca cliente de Azure Storage para .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
 
 ## <a name="about-copying-blobs"></a>Acerca de la copia de blobs
 
@@ -111,7 +111,7 @@ private static async Task CopyBlockBlobAsync(CloudBlobContainer container)
 
 Al anular una operación de copia, se obtiene un blob de destino con una longitud cero para los blobs en bloques, anexos y páginas. Sin embargo, los metadatos del blob de destino contendrán los nuevos valores ya que se copiarán desde el blob de origen o se establecerán de forma explícita en la llamada a [StartCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopy?view=azure-dotnet) o [StartCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopyasync?view=azure-dotnet). Para conservar los metadatos originales anteriores a la copia, cree una instantánea del blob de destino antes de llamar a `StartCopy` o `StartCopyAsync`.
 
-Cuando se anula una operación de copia de blobs en curso, el [CopyState.Status](/dotnet/api/microsoft.azure.storage.blob.copystate.status?view=azure-dotnet#Microsoft_Azure_Storage_Blob_CopyState_Status) del blob de destino se establece en [CopyStatus.Aborted](/dotnet/api/microsoft.azure.storage.blob.copystatus?view=azure-dotnet).
+Cuando se anula una operación de copia de blobs en curso, el valor de [CopyState.Status](/dotnet/api/microsoft.azure.storage.blob.copystate.status?view=azure-dotnet#Microsoft_Azure_Storage_Blob_CopyState_Status) del blob de destino se establece en [CopyStatus.Aborted](/dotnet/api/microsoft.azure.storage.blob.copystatus?view=azure-dotnet).
 
 Los métodos [AbortCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.abortcopy?view=azure-dotnet) y [AbortCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.abortcopyasync?view=azure-dotnet) cancelan una operación de copia de blobs en curso y dejan un blob de destino con longitud cero y metadatos completos.
 

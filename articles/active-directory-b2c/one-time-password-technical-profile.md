@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/09/2020
+ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a4732d780bb241a18e0738c99603799c31c2102f
-ms.sourcegitcommit: 3616b42a0d6bbc31b965995d861930e53d2cf0d3
+ms.openlocfilehash: bd5fed45332c73c633db1137bdc23aea66fd3403
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78933071"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80332778"
 ---
 # <a name="define-a-one-time-password-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definición de un perfil técnico de una contraseña de un solo uso en una directiva personalizada de Azure AD B2C
 
@@ -73,16 +73,12 @@ La configuración siguiente se puede usar para establecer el modo de generación
 
 | Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
-| CodeExpirationInSeconds | Sin | Tiempo en segundos hasta la expiración del código. Mínimo: `60`; máximo: `1200`; valor predeterminado: `600`. |
-| CodeLength | Sin | Longitud del código. El valor predeterminado es `6`. |
-| CharacterSet | Sin | Juego de caracteres del código, con formato para usarse en una expresión regular. Por ejemplo, `a-z0-9A-Z`. El valor predeterminado es `0-9`. El juego de caracteres debe incluir un mínimo de 10 caracteres diferentes en el conjunto especificado. |
-| NumRetryAttempts | Sin | Número de intentos de verificación antes de que el código se considere no válido. El valor predeterminado es `5`. |
+| CodeExpirationInSeconds | No | Tiempo en segundos hasta la expiración del código. Mínimo: `60`; máximo: `1200`; valor predeterminado: `600`. |
+| CodeLength | No | Longitud del código. El valor predeterminado es `6`. |
+| CharacterSet | No | Juego de caracteres del código, con formato para usarse en una expresión regular. Por ejemplo, `a-z0-9A-Z`. El valor predeterminado es `0-9`. El juego de caracteres debe incluir un mínimo de 10 caracteres diferentes en el conjunto especificado. |
+| NumRetryAttempts | No | Número de intentos de verificación antes de que el código se considere no válido. El valor predeterminado es `5`. |
 | Operación | Sí | La operación que se va a realizar. Valor posible: `GenerateCode`. |
-| ReuseSameCode | Sin | Indica si se debe proporcionar un código duplicado en lugar de generar un código nuevo cuando el código proporcionado no ha expirado y sigue siendo válido. El valor predeterminado es `false`. |
-
-### <a name="returning-error-message"></a>Devolución de mensajes de error
-
-No se devuelve ningún mensaje de error para el modo de generación de código.
+| ReuseSameCode | No | Indica si se debe proporcionar un código duplicado en lugar de generar un código nuevo cuando el código proporcionado no ha expirado y sigue siendo válido. El valor predeterminado es `false`. |
 
 ### <a name="example"></a>Ejemplo
 
@@ -139,16 +135,16 @@ La configuración siguiente se puede usar para establecer el modo de comprobaci�
 | Operación | Sí | La operación que se va a realizar. Valor posible: `VerifyCode`. |
 
 
-### <a name="error-messages"></a>Mensajes de error
+### <a name="ui-elements"></a>Elementos de interfaz de usuario
 
-La configuración siguiente se puede usar para establecer los mensajes de error que se muestran cuando se produce un error en la comprobación de código. Los metadatos se deben configurar en el perfil técnico [autoafirmado](self-asserted-technical-profile.md). Los mensajes de error se pueden [localizar](localization-string-ids.md#one-time-password-error-messages).
+Los metadatos siguientes se pueden usar para configurar los mensajes de error que se muestran cuando se produce un error en la comprobación de código. Los metadatos se deben configurar en el perfil técnico [autoafirmado](self-asserted-technical-profile.md). Los mensajes de error se pueden [localizar](localization-string-ids.md#one-time-password-error-messages).
 
 | Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
-| UserMessageIfSessionDoesNotExist | Sin | Mensaje que se mostrará al usuario si la sesión de verificación de código ha expirado. Es posible que el código haya expirado o que nunca se haya generado para un identificador determinado. |
-| UserMessageIfMaxRetryAttempted | Sin | Mensaje que se mostrará al usuario si ha superado el número máximo de intentos de verificación permitidos. |
-| UserMessageIfInvalidCode | Sin | Mensaje que se mostrará al usuario si ha proporcionado un código no válido. |
-|UserMessageIfSessionConflict|Sin| Mensaje que se mostrará al usuario si no se puede comprobar el código.|
+| UserMessageIfSessionDoesNotExist | No | Mensaje que se mostrará al usuario si la sesión de verificación de código ha expirado. Es posible que el código haya expirado o que nunca se haya generado para un identificador determinado. |
+| UserMessageIfMaxRetryAttempted | No | Mensaje que se mostrará al usuario si ha superado el número máximo de intentos de verificación permitidos. |
+| UserMessageIfInvalidCode | No | Mensaje que se mostrará al usuario si ha proporcionado un código no válido. |
+|UserMessageIfSessionConflict|No| Mensaje que se mostrará al usuario si no se puede comprobar el código.|
 
 ### <a name="example"></a>Ejemplo
 

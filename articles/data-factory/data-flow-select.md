@@ -6,60 +6,126 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/08/2020
-ms.openlocfilehash: 2d04de420f743e4fef4cff4bd2912559dae0886a
-ms.sourcegitcommit: e6bce4b30486cb19a6b415e8b8442dd688ad4f92
+ms.date: 03/18/2020
+ms.openlocfilehash: cfa15f5424dcd5d52b03fb65afe051444127f5ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78934184"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80065228"
 ---
-# <a name="mapping-data-flow-select-transformation"></a>Transformación Selección de Mapping Data Flow
+# <a name="select-transformation-in-mapping-data-flow"></a>Transformación Selección en el flujo de datos de asignación
 
+Use la transformación Selección para cambiar el nombre de las columnas, quitarlas o reordenarlas. Esta transformación no modifica los datos de fila, pero elige qué columnas se propagan hacia abajo. 
 
-Use esta transformación para la selección de columnas (reducir el número de columnas), para crear alias de nombres de columnas y secuencias y para reordenar las columnas.
+En una transformación Selección, los usuarios pueden especificar asignaciones fijas, usar patrones para realizar la asignación basada en reglas o habilitar la asignación automática. Las asignaciones fijas y basadas en reglas se pueden usar en la misma transformación Selección. Si una columna no coincide con una de las asignaciones definidas, se quitará.
 
-## <a name="how-to-use-select-transformation"></a>Uso de la transformación Selección
-La transformación Selección permite crear un alias de una secuencia completa, o de las columnas de esa secuencia, asignarles nombres diferentes (alias) y, después, hacer referencia a esos nuevos nombres en el flujo de datos. Esta transformación resulta útil en escenarios de autocombinación. Para implementar una autocombinación en ADF Data Flow, se toma una secuencia, se crea una la rama con "Nueva rama" e, inmediatamente después, se agrega una transformación "Selección". Ahora, la secuencia tiene un nuevo nombre que puede usar para combinarla con la secuencia original y crear una autocombinación:
+## <a name="fixed-mapping"></a>Asignación fija
 
-![Autocombinación](media/data-flow/selfjoin.png "Autocombinación")
+Si hay menos de 50 columnas definidas en la proyección, todas las columnas definidas tendrán una asignación fija de forma predeterminada. Una asignación fija toma una columna de entrada definida y le asigna un nombre exacto.
 
-En el diagrama anterior, la transformación Selección se encuentra en la parte superior. Lo que está haciendo es asignar a la secuencia original el alias "OrigSourceBatting". En la transformación Combinación resaltada a continuación, puede ver que usamos esta secuencia de alias de selección como combinación de la derecha, lo que nos permite hacer referencia a la misma clave tanto en el lado derecho como el izquierdo de la combinación interna.
+![Asignación fija](media/data-flow/fixedmapping.png "Asignación fija")
 
-También puede usar Selección como una manera de anular la selección de columnas del flujo de datos. Por ejemplo, si tiene 6 columnas definidas en el receptor, pero solo desea elegir tres específicas para transformarlas y enviarlas al receptor, puede seleccionar solo esas tres con la transformación Selección.
+> [!NOTE]
+> No puede asignar una columna desfasada ni cambiarle el nombre mediante una asignación fija
 
-![Transformación Selección](media/data-flow/newselect1.png "Seleccionar alias")
+### <a name="mapping-hierarchical-columns"></a>Asignación de columnas jerárquicas
 
-## <a name="options"></a>Opciones
-* El valor predeterminado de "Selección" es incluir todas las columnas de entrada y mantener los nombres originales. Para crear un alias de la secuencia, puede establecer el nombre de la transformación Selección.
-* Para crear alias de columnas individuales, desactive la opción "Seleccionar todo" y use la asignación de columnas en la parte inferior.
-* Elija Skip Duplicates (Omitir duplicados) para eliminar las columnas duplicadas de los metadatos de entrada o salida.
+Las asignaciones fijas se pueden usar para asignar una subcolumna de una columna jerárquica a una columna de nivel superior. Si tiene una jerarquía definida, use la lista desplegable de columnas para seleccionar una subcolumna. La transformación Selección creará una columna nueva con el valor y el tipo de datos de la subcolumna.
+
+![Asignación jerárquica](media/data-flow/select-hierarchy.png "Asignación jerárquica")
+
+## <a name="rule-based-mapping"></a>Asignación basada en reglas
+
+Si desea asignar muchas columnas a la vez o pasar las columnas desfasadas a un nivel inferior, use la asignación basada en reglas para definir las asignaciones mediante patrones de columna. Coincidencia basada en los valores `name`, `type`, `stream` y `position` de las columnas. Puede usar cualquier combinación de asignaciones basadas en reglas y fijas. De forma predeterminada, todas las proyecciones con más de 50 columnas tendrán como valor predeterminado una asignación basada en reglas que coincida con todas las columnas y que genere el nombre insertado. 
+
+Para agregar una asignación basada en reglas, haga clic en **Agregar asignación** y seleccione **Rule based mapping** (Asignación basada en reglas).
+
+![asignación basada en reglas](media/data-flow/rule2.png "Asignación basada en reglas")
+
+Cada asignación basada en reglas requiere dos entradas: la condición por la que buscar coincidencias y el nombre de cada columna asignada. Ambos valores se insertaron a través del [generador de expresiones](concepts-data-flow-expression-builder.md). En el cuadro de expresión de la izquierda, escriba la condición de coincidencia booleana. En el cuadro de expresión de la derecha, especifique a qué se asignará la columna coincidente.
+
+![asignación basada en reglas](media/data-flow/rule-based-mapping.png "Asignación basada en reglas")
+
+Use la sintaxis de `$$` para hacer referencia al nombre de entrada de una columna coincidente. Utilizando la imagen anterior como ejemplo, supongamos que un usuario desea buscar coincidencias en todas las columnas de cadena cuyos nombres tengan más de 6 caracteres. Si una columna de entrada se denomina `test`, la expresión `$$ + '_short'` cambiará el nombre de la columna `test_short`. Si esta es la única asignación que existe, todas las columnas que no cumplan la condición se quitarán de los datos de salida.
+
+Los patrones coinciden con las columnas desfasadas y definidas. Para ver qué columnas definidas están asignadas mediante una regla, haga clic en el icono de las gafas junto a la regla. Compruebe la salida mediante la vista previa de los datos.
+
+### <a name="regex-mapping"></a>Asignación de expresión regular
+
+Si hace clic en el icono del botón de contenido adicional hacia abajo, puede especificar una condición de asignación de regex. Una condición de asignación de regex coincide con todos los nombres de columna que coinciden con la condición regex especificada. Se puede usar en combinación con las asignaciones estándar basadas en reglas.
+
+![asignación basada en reglas](media/data-flow/regex-matching.png "Asignación basada en reglas")
+
+El ejemplo anterior coincide con el patrón regex `(r)` o cualquier nombre de columna que contenga un "r" en minúscula. De forma similar a la asignación basada en reglas estándar, todas las columnas coincidentes se modifican por la condición de la derecha con `$$` sintaxis.
+
+Si tiene varias coincidencias de expresiones regulares en el nombre de columna, puede hacer referencia a coincidencias específicas mediante `$n`, donde "n" hace referencia a la coincidencia. Por ejemplo, "$2" hace referencia a la segunda coincidencia de un nombre de columna.
+
+### <a name="rule-based-hierarchies"></a>Jerarquías basadas en reglas
+
+Si la proyección definida tiene una jerarquía, puede usar la asignación basada en reglas para asignar las subcolumnas de las jerarquías. Especifique una condición de coincidencia y la columna compleja cuyas subcolumnas desee asignar. Todas las subcolumnas coincidentes se enviarán con la regla para asignar un nombre de salida especificada a la derecha.
+
+![asignación basada en reglas](media/data-flow/rule-based-hierarchy.png "Asignación basada en reglas")
+
+En el ejemplo anterior se hace coincidir con todas las subcolumnas de la columna compleja `a`. `a` contiene dos subcolumnas `b` y `c`. El esquema de salida incluirá dos columnas `b` y `c`, ya que la condición para asignar un nombre de salida es `$$`.
+
+### <a name="parameterization"></a>Parametrización
+
+Puede parametrizar los nombres de columna mediante la asignación basada en reglas. Use la palabra clave ```name``` para hacer coincidir los nombres de columna de entrada con un parámetro. Por ejemplo, si tiene un parámetro de flujo de datos ```mycolumn```, puede crear una regla que coincida con cualquier nombre de columna que sea igual a ```mycolumn```. Puede cambiar el nombre de la columna coincidente por una cadena codificada de forma rígida, como "clave empresarial", y hacer referencia a esta explícitamente. En este ejemplo, la condición de coincidencia es ```name == $mycolumn``` y la condición de nombre es "clave empresarial". 
+
+## <a name="auto-mapping"></a>Asignación automática
+
+Al agregar una transformación Selección, para habilitar la opción **Asignación automática** se puede cambiar el control deslizante de Asignación automática. Con la asignación automática, la transformación Selección asigna todas las columnas de entrada, excepto las duplicadas, con el mismo nombre que su entrada. Se incluirán las columnas desfasadas, lo que significa que los datos de salida pueden contener columnas no definidas en el esquema. Para obtener más información sobre las columnas desfasadas, consulte [Desfase de esquema](concepts-data-flow-schema-drift.md).
+
+![Asignación automática](media/data-flow/automap.png "Asignación automática")
+
+Con la asignación automática activada, la transformación Selección respetará la configuración para omitir duplicados y proporcionará un nuevo alias para las columnas existentes. La asignación de alias es útil cuando se realizan varias combinaciones o búsquedas en el mismo flujo y en escenarios de autocombinación. 
+
+## <a name="duplicate-columns"></a>Columnas duplicadas
+
+De forma predeterminada, la transformación Selección quita las columnas duplicadas en ambas proyecciones de entrada y de salida. Las columnas de entrada duplicadas suelen provenir de las transformaciones Combinación y Búsqueda, en las que los nombres de columna se duplican en cada lado de la combinación. Pueden producirse columnas de salida duplicadas si se asignan dos columnas de entrada diferentes al mismo nombre. Active o desactive la casilla de verificación según si desea quitar o pasar las columnas duplicadas.
 
 ![Omitir duplicados](media/data-flow/select-skip-dup.png "Omitir duplicados")
 
-* Si elige omitir duplicados, los resultados estarán visibles en la pestaña Inspect (Inspeccionar). ADF mantendrá la primera repetición de la columna y verá que se han quitado de su flujo todas las repeticiones posteriores de la misma columna.
+## <a name="ordering-of-columns"></a>Ordenación de columnas
 
-> [!NOTE]
-> Para borrar las reglas de asignación, pulse el botón **Restablecer**.
+El orden de las asignaciones determina el orden de las columnas de salida. Si una columna de entrada se asigna varias veces, solo se respetará la primera asignación. Si se quita alguna columna duplicada, se conservará la primera coincidencia.
 
-## <a name="mapping"></a>Asignación
-De forma predeterminada, la transformación Selección asignará automáticamente todas las columnas, lo que pasará a través de todas las columnas entrantes con el mismo nombre de la salida. El nombre del flujo de salida que se establece en Configuración de Selección definirá un nuevo nombre de alias para el flujo. Si mantiene Selección establecido en mapa automático, puede asignar un alias a todo el flujo con todas las columnas iguales.
+## <a name="data-flow-script"></a>Script de flujo de datos
 
-![Reglas de la transformación Selección](media/data-flow/rule2.png "Asignación basada en reglas")
+### <a name="syntax"></a>Sintaxis
 
-Si desea asignar un alias, quitar, cambiar el nombre o reordenar las columnas, antes debe desactivar "mapa automático". De forma predeterminada, verá una regla predeterminada que se ha especificado como "Todas las columnas de entrada". Puede dejar esta regla en vigor si tiene intención de permitir siempre que todas las columnas entrantes se asignen al mismo nombre en la salida.
+```
+<incomingStream>
+    select(mapColumn(
+        each(<hierarchicalColumn>, match(<matchCondition>), <nameCondition> = $$), ## hierarchical rule-based matching
+        <fixedColumn>, ## fixed mapping, no rename
+        <renamedFixedColumn> = <fixedColumn>, ## fixed mapping, rename
+        each(match(<matchCondition>), <nameCondition> = $$), ## rule-based mapping
+        each(patternMatch(<regexMatching>), <nameCondition> = $$) ## regex mapping
+    ),
+    skipDuplicateMapInputs: { true | false },
+    skipDuplicateMapOutputs: { true | false }) ~> <selectTransformationName>
+```
 
-Sin embargo, si desea agregar reglas personalizadas, tendrá que hacer clic en "Agregar asignación". La asignación de campos le proporcionará una lista de los nombres de columna de entrada y de salida para asignar y crear un alias. Elija "asignación basada en reglas" para crear reglas de coincidencia de patrones.
+### <a name="example"></a>Ejemplo
 
-## <a name="rule-based-mapping"></a>Asignación basada en reglas
-Al elegir la asignación basada en reglas, se indica a ADF que evalúe la expresión coincidente para que coincida con las reglas de patrón de entrada y que defina los nombres de los campos salientes. Puede agregar cualquier combinación de asignaciones basadas en campos y en reglas. A continuación, el ADF genera los nombres de campo en el entorno en tiempo de ejecución en función de los metadatos entrantes del origen. Puede ver los nombres de los campos generados durante la depuración y mediante el panel de vista previa de los datos.
+A continuación se muestra un ejemplo de asignación Selección con el script de flujo de datos correspondiente:
 
-En la [documentación acerca de los patrones de columnas](concepts-data-flow-column-pattern.md) hay más detalles acerca de la coincidencia de patrones.
+![Ejemplo de script de Selección](media/data-flow/select-script-example.png "Ejemplo de selección de script")
 
-### <a name="use-rule-based-mapping-to-parameterize-the-select-transformation"></a>Uso de la asignación basada en reglas para parametrizar la transformación Seleccionar
-Puede parametrizar la asignación de campos en la transformación Seleccionar mediante la asignación basada en reglas. Use la palabra clave ```name``` para comprobar los nombres de columna de entrada con un parámetro. Por ejemplo, si tiene un parámetro de flujo de datos denominado ```mycolumn```, puede crear una única regla de transformación de selección que siempre asigne el nombre de columna que establezca en ```mycolumn``` a un nombre de campo de esta manera:
-
-```name == $mycolumn```
+```
+DerivedColumn1 select(mapColumn(
+        each(a, match(true())),
+        movie,
+        title1 = title,
+        each(match(name == 'Rating')),
+        each(patternMatch(`(y)`),
+            $1 + 'regex' = $$)
+    ),
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true) ~> Select1
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Después de usar Selección para cambiar el nombre de las columnas, reordenarlas y crear alias, use la [transformación del receptor](data-flow-sink.md) para enviar los datos a un almacén de datos.

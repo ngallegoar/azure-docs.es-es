@@ -6,20 +6,20 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 03/25/2020
 ms.author: memildin
-ms.openlocfilehash: 34dbace304ccf70891ef53dd768de60d87e26967
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: c709890ae6c57a001c6a0e9df4e973bd3bd24602
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666642"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80258267"
 ---
-# <a name="using-custom-security-policies-preview"></a>Uso de directivas de seguridad personalizadas (versión preliminar)
+# <a name="using-custom-security-policies"></a>Uso de directivas de seguridad personalizadas
 
 Para ayudarle a proteger los sistemas y el entorno, Azure Security Center genera recomendaciones de seguridad. Estas recomendaciones se basan en los procedimientos recomendados del sector, que se incorporan a la directiva de seguridad predeterminada genérica que se proporciona a todos los clientes. Estas recomendaciones también pueden provenir de los conocimientos de Security Center acerca del sector y de los estándares normativos.
 
-Gracias a esta característica de vista previa, puede agregar sus propias iniciativas *personalizadas*. A continuación, recibirá recomendaciones si el entorno no sigue las directivas que creó. Cualquier iniciativa personalizada que cree aparecerá junto a las iniciativas integradas en el panel de cumplimiento normativo descrito en el tutorial [Mejora del cumplimiento normativo](security-center-compliance-dashboard.md).
+Gracias a esta característica, puede agregar sus propias iniciativas *personalizadas*. A continuación, recibirá recomendaciones si el entorno no sigue las directivas que creó. Cualquier iniciativa personalizada que cree aparecerá junto a las iniciativas integradas en el panel de cumplimiento normativo descrito en el tutorial [Mejora del cumplimiento normativo](security-center-compliance-dashboard.md).
 
 Como se explicó [aquí](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#definition-location) en la documentación de Azure Policy, cuando se especifica una ubicación para la iniciativa personalizada, debe ser un grupo de administración o una suscripción. 
 
@@ -36,7 +36,7 @@ Como se explicó [aquí](https://docs.microsoft.com/azure/governance/policy/conc
     >
     > Cuando se agrega un estándar personalizado, este asigna una *iniciativa* a ese ámbito. Por lo tanto, se recomienda seleccionar el ámbito más amplio necesario para esa asignación.
 
-1. En la página de la directiva de seguridad, en las iniciativas personalizadas (versión preliminar), haga clic en **Agregar una iniciativa personalizada**.
+1. En la página Directiva de seguridad, en Sus iniciativas personalizadas, haga clic en **Agregar una iniciativa personalizada**.
 
     [![Haga clic en **Agregar una iniciativa personalizada**](media/custom-security-policies/custom-policy-add-initiative.png)](media/custom-security-policies/custom-policy-add-initiative.png#lightbox)
 
@@ -65,7 +65,7 @@ Como se explicó [aquí](https://docs.microsoft.com/azure/governance/policy/conc
     
     * Empezará a recibir recomendaciones si el entorno no sigue las directivas que ha definido.
 
-1. Para ver las recomendaciones resultantes de la directiva, haga clic en **Recomendaciones** de la barra lateral para abrir la página recomendaciones. Las recomendaciones aparecerán con una etiqueta "Personalizada" y estarán disponibles en, aproximadamente, una hora.
+1. Para ver las recomendaciones resultantes de la directiva, haga clic en **Recomendaciones** de la barra lateral para abrir la página recomendaciones. Las recomendaciones aparecerán con una etiqueta "Personalizada" y estarán disponibles en aproximadamente una hora.
 
     [![Recomendaciones personalizadas](media/custom-security-policies/custom-policy-recommendations.png)](media/custom-security-policies/custom-policy-recommendations-in-context.png#lightbox)
 

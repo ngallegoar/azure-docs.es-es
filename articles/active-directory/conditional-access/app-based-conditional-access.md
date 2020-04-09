@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a869f4fa82999192f75f2c114720151bae55680
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 7a215e2bb7d9d1cf9013414037383590456296cd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78298435"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79480902"
 ---
 # <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>Procedimientos: Uso obligatorio de aplicaciones cliente aprobadas para el acceso a aplicaciones en la nube mediante el acceso condicional
 
@@ -28,6 +28,9 @@ En este artículo se presentan dos escenarios para configurar directivas de acce
 - [Escenario 2: Exchange Online y SharePoint Online requieren una aplicación cliente aprobada](#scenario-2-exchange-online-and-sharepoint-online-require-an-approved-client-app)
 
 En el acceso condicional, esta funcionalidad se conoce como requerir una aplicación cliente aprobada. Para una lista de las aplicaciones cliente aprobadas, consulte el [requisito de las aplicaciones cliente aprobadas](concept-conditional-access-grant.md#require-approved-client-app).
+
+> [!NOTE]
+> Para requerir aplicaciones cliente aprobadas para dispositivos iOS y Android, estos dispositivos deben registrarse primero en Azure AD.
 
 ## <a name="scenario-1-office-365-apps-require-an-approved-client-app"></a>Escenario 1: Las aplicaciones de Office 365 requieren una aplicación cliente aprobada
 

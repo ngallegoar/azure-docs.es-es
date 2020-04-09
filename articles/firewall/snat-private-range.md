@@ -5,18 +5,18 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 01/09/2020
+ms.date: 03/20/2020
 ms.author: victorh
-ms.openlocfilehash: b190d07ceadea43ca572f5eb5be3eeeafa616971
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: ed8cef00b7de67458c607373c724a3717f14a7cb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77444833"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80064805"
 ---
 # <a name="azure-firewall-snat-private-ip-address-ranges"></a>Intervalos de direcciones IP privadas de SNAT de Azure Firewall
 
-Azure Firewall no aplica SNAT cuando la dirección IP de destino es un intervalo de direcciones IP privadas, de acuerdo con la normativa [RFC 1918 de IANA](https://tools.ietf.org/html/rfc1918). 
+Azure Firewall no aplica SNAT con reglas de red cuando la dirección IP de destino es un intervalo de direcciones IP privadas, de acuerdo con la normativa [RFC 1918 de IANA](https://tools.ietf.org/html/rfc1918). Las reglas de aplicación se aplican siempre mediante un [proxy transparente](https://wikipedia.org/wiki/Proxy_server#Transparent_proxy), independientemente de la dirección IP de destino.
 
 Si su organización usa un intervalo de direcciones IP públicas para las redes privadas, Azure Firewall aplicará SNAT al tráfico para una de las direcciones IP privadas de firewall en AzureFirewallSubnet. Sin embargo, puede configurar Azure Firewall de modo que **no** aplique SNAT al intervalo de direcciones IP públicas.
 
@@ -41,7 +41,7 @@ Para configurar un firewall existente, use los siguientes comandos de Azure Powe
 
 ```azurepowershell
 $azfw = Get-AzFirewall -ResourceGroupName "Firewall Resource Group name"
-$azfw.PrivateRange = @(“IANAPrivateRanges”,“IPRange1”, “IPRange2”)
+$azfw.PrivateRange = @("IANAPrivateRanges","IPRange1", "IPRange2")
 Set-AzFirewall -AzureFirewall $azfw
 ```
 

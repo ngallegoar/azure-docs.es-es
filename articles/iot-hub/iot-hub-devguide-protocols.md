@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.openlocfilehash: 7082ebc4ca3066f84ca9790797cfa04e437f78a3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6d1ab50e471c9c603c7886130375dc74e9b2a755
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60626186"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79237364"
 ---
 # <a name="reference---choose-a-communication-protocol"></a>Referencia: elección de un protocolo de comunicación
 
@@ -48,13 +48,13 @@ Considere los siguientes aspectos a la hora de elegir el protocolo para las comu
 * **Tamaño de carga**. MQTT y AMQP son protocolos binarios que producen cargas más compactas que HTTPS.
 
 > [!WARNING]
-> Cuando se usa HTTPS, cada dispositivo sondeará si hay mensajes de la nube a dispositivo cada 25 minutos o más. Sin embargo, durante el desarrollo, es aceptable sondear con una frecuencia mayor de 25 minutos.
+> Si se usa HTTPS, cada dispositivo debe sondear si hay mensajes de la nube al dispositivo como máximo una vez cada 25 minutos. En el desarrollo, cada dispositivo puede realizar el sondeo con mayor frecuencia, si lo desea.
 
 ## <a name="port-numbers"></a>Números de puerto
 
 Los dispositivos pueden comunicarse con Azure IoT Hub en Azure mediante diversos protocolos. Normalmente, la elección del protocolo se basa en los requisitos específicos de la solución. En la tabla siguiente se indican los puertos de salida que deben estar abiertos para que un dispositivo pueda usar un protocolo concreto:
 
-| Protocol | Port |
+| Protocolo | Port |
 | --- | --- |
 | MQTT |8883 |
 | MQTT sobre WebSockets |443 |

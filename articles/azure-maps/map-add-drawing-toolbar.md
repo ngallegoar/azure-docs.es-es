@@ -1,19 +1,19 @@
 ---
 title: Adición de una barra de herramientas de dibujo a un mapa | Microsoft Azure Maps
 description: Cómo agregar una barra de herramientas de dibujo a un mapa mediante Azure Maps SDK Web
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 09/04/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: cb0f70bc42c9ac0f7026c910593950516f027a88
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: bebf1ddfbca3aec5a551193609381cf3510bc3ac
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209756"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80334493"
 ---
 # <a name="add-a-drawing-tools-toolbar-to-a-map"></a>Agregar una barra de herramientas de dibujo a un mapa
 
@@ -23,7 +23,7 @@ Este artículo muestra cómo usar el módulo de herramientas de dibujo y mostrar
 
 En el código siguiente crea una instancia del administrador de dibujos y muestra la barra de herramientas en el mapa.
 
-```Javascript
+```javascript
 //Create an instance of the drawing manager and display the drawing toolbar.
 drawingManager = new atlas.drawing.DrawingManager(map, {
         toolbar: new atlas.control.DrawingToolbar({
@@ -46,7 +46,7 @@ Consulte el Pen <a href='https://codepen.io/azuremaps/pen/ZEzLeRg/'>Adición de 
 
 En el código siguiente crea una instancia del administrador de dibujos y muestra la barra de herramientas solo con una herramienta de dibujo de polígono en el mapa. 
 
-```Javascript
+```javascript
 //Create an instance of the drawing manager and display the drawing toolbar with polygon drawing tool.
 drawingManager = new atlas.drawing.DrawingManager(map, {
         toolbar: new atlas.control.DrawingToolbar({
@@ -68,25 +68,53 @@ Consulte el Pen <a href='https://codepen.io/azuremaps/pen/OJLWWMy/'>Adición de 
 
 ## <a name="change-drawing-rendering-style"></a>Cambiar el estilo de representación de dibujo
 
-El código siguiente obtiene las capas de representación del administrador de dibujos y modifica sus opciones para cambiar el estilo de representación del dibujo. En este caso, los puntos se representarán con un icono de marcador azul. Las líneas serán rojas y tendrán cuatro píxeles de ancho. Los polígonos tendrán el relleno verde y el contorno naranja.
+Se puede personalizar el estilo de las formas que se dibujan recuperando las capas subyacentes del administrador de dibujos usando la función `drawingManager.getLayers()` y, después, estableciendo opciones en las capas individuales. Los controladores de arrastre que aparecen para las coordenadas al editar una forma son marcadores HTML. El estilo de los controladores de arrastre se puede personalizar pasando opciones de marcador HTML en las opciones `dragHandleStyle` y `secondaryDragHandleStyle` del administrador de dibujos.  
 
-```Javascript
+El código siguiente obtiene las capas de representación del administrador de dibujos y modifica sus opciones para cambiar el estilo de representación del dibujo. En este caso, los puntos se representarán con un icono de marcador azul. Las líneas serán rojas y tendrán cuatro píxeles de ancho. Los polígonos tendrán el relleno verde y el contorno naranja. Después, cambia los estilos de los controladores de arrastre para que sean iconos cuadrados. 
+
+```javascript
+//Get rendering layers of drawing manager.
 var layers = drawingManager.getLayers();
-    layers.pointLayer.setOptions({
-        iconOptions: {
-            image: 'marker-blue'
-        }
-    });
-    layers.lineLayer.setOptions({
-        strokeColor: 'red',
-        strokeWidth: 4
-    });
-    layers.polygonLayer.setOptions({
-        fillColor: 'green'
-    });
-    layers.polygonOutlineLayer.setOptions({
-        strokeColor: 'orange'
-    });
+
+//Change the icon rendered for points.
+layers.pointLayer.setOptions({
+    iconOptions: {
+        image: 'marker-blue'
+    }
+});
+
+//Change the color and width of lines.
+layers.lineLayer.setOptions({
+    strokeColor: 'red',
+    strokeWidth: 4
+});
+
+//Change fill color of polygons.
+layers.polygonLayer.setOptions({
+    fillColor: 'green'
+});
+
+//Change the color of polygon outlines.
+layers.polygonOutlineLayer.setOptions({
+    strokeColor: 'orange'
+});
+
+//Update the style of the drag handles that appear when editting.
+drawingManager.setOptions({
+    //Primary drag handle that represents coordinates in the shape.
+    dragHandleStyle: {
+        anchor: 'center',
+        htmlContent: '<svg width="15" height="15" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg" style="cursor:pointer"><rect x="0" y="0" width="15" height="15" style="stroke:black;fill:white;stroke-width:4px;"/></svg>',
+        draggable: true
+    },
+
+    //Secondary drag hanle that represents mid-point coordinates that users can grab to add new cooridnates in the middle of segments.
+    secondaryDragHandleStyle: {
+        anchor: 'center',
+        htmlContent: '<svg width="10" height="10" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg" style="cursor:pointer"><rect x="0" y="0" width="10" height="10" style="stroke:white;fill:black;stroke-width:4px;"/></svg>',
+        draggable: true
+    }
+});  
 ```
 
 A continuación se muestra el ejemplo de código de ejecución completo de la funcionalidad anterior:

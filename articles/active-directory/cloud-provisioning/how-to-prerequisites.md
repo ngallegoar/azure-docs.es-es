@@ -11,12 +11,12 @@ ms.date: 12/06/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 382c588ca005f95f4ae38e7506c0e3e8d842bd2c
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 45648170f69d513b15e79cdd76f56e66bbc88bfa
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78298656"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80332080"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Requisitos previos del aprovisionamiento en la nube de Azure AD Connect
 En este artículo se proporcionan instrucciones sobre cómo elegir y usar el aprovisionamiento en la nube de Azure Active Directory (Azure AD) Connect como solución de identidad.
@@ -53,7 +53,7 @@ Ejecute la [herramienta IdFix](https://docs.microsoft.com/office365/enterprise/p
 
         | Número de puerto | Cómo se usa |
         | --- | --- |
-        | **80** | Descarga las listas de revocación de certificados (CRL) al validar el certificado SSL.  |
+        | **80** | Descarga las listas de revocación de certificados (CRL) al validar el certificado TLS/SSL  |
         | **443** | Controla toda la comunicación saliente con el servicio. |
         | **8080** (opcional) | Si el puerto 443 no está disponible, los agentes notifican su estado cada 10 minutos en el puerto 8080. Este estado se muestra en el portal de Azure AD. |
      

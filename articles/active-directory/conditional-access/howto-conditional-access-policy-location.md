@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/12/2019
+ms.date: 03/25/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 204026825a5132464e1adda611227db2ac7cf91f
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 34b29ceadaaf85e69d1214039fa1b563ed21a77d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76543994"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80295184"
 ---
 # <a name="conditional-access-block-access-by-location"></a>Acceso condicional: Bloqueo del acceso por ubicación
 
@@ -50,6 +50,7 @@ Para más información sobre la condición de ubicación en el acceso condiciona
    1. En **Incluir**, seleccione **Ubicaciones seleccionadas**
    1. Seleccione la ubicación bloqueada que ha creado para su organización.
    1. Haga clic en **Seleccionar** > **Listo** > **Listo**.
+1. En **Condiciones** > **Aplicaciones cliente (versión preliminar)** , establezca **Configurar** en **Sí** y seleccione **Listo**.
 1. En **Controles de acceso** > **Bloquear**, elija **Seleccionar**.
 1. Confirme la configuración y establezca **Habilitar directiva** en **Activado**.
 1. Seleccione **Crear** para crear la directiva.

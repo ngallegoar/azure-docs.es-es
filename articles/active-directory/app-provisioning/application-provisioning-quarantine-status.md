@@ -16,12 +16,12 @@ ms.date: 10/03/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d689bb5f76eef36b784a3285749a7d250144fd7
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 563c049bf3d1606e87db54e3b003dac987594610
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77522720"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154634"
 ---
 # <a name="application-provisioning-in-quarantine-status"></a>Aprovisionamiento de aplicaciones en el estado de cuarentena
 
@@ -36,6 +36,8 @@ Hay tres maneras de comprobar si una aplicación está en cuarentena:
 - En Azure Portal, vaya a **Azure Active Directory** > **Aplicaciones empresariales** > &lt;*nombre de la aplicación*&gt; > **Aprovisionamiento** y vaya a la barra de progreso en la parte inferior.  
 
   ![Barra de estado de aprovisionamiento que muestra el estado de cuarentena](./media/application-provisioning-quarantine-status/progress-bar-quarantined.png)
+
+- En Azure Portal, vaya a **Azure Active Directory** > **Registros de auditoría** > filtro en **Actividad: cuarentena** y revise el historial de cuarentena. Aunque la vista de la barra de progreso, tal como se ha descrito anteriormente, muestra si el aprovisionamiento está actualmente en cuarentena, los registros de auditoría permiten ver el historial de cuarentena de una aplicación. 
 
 - Utilice la solicitud de Microsoft Graph [Get synchronizationJob](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-get?view=graph-rest-beta&tabs=http) (Obtener trabajo de sincronización) para obtener, mediante programación, el estado del trabajo de aprovisionamiento:
 

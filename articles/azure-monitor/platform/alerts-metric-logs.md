@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.subservice: alerts
-ms.openlocfilehash: 9f61c62bc4960cb8e5bff31f84bd73a14240b613
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 6b21f228858954292e7a3bc5561d5e86fcfaaf41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250709"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80055177"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Creación de alertas de métricas para registros en Azure Monitor
 
@@ -42,7 +42,7 @@ Hay muchas ventajas al usar **alertas de métricas para registros** a través de
  Las alertas de métricas admiten alertas de métricas que utilizan dimensiones. Puede usar dimensiones para filtrar las métricas al nivel adecuado. Se incluye la lista completa de métricas admitidas para los registros de [áreas de trabajo de Log Analytics](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces); a través de las soluciones compatibles.
 
 > [!NOTE]
-> Para ver las métricas admitidas para la extracción desde el área de trabajo de Log Analytics a través de [Azure Monitor: Métrica](../../azure-monitor/platform/metrics-charts.md), debe crearse una métrica de alertas para registro para dicha métrica. Las dimensiones elegidas en la alerta de métrica para registros solo aparecerá para la exploración a través de Azure Monitor: métricas.
+> Para ver una métrica admitida extraída de un área de trabajo de Log Analytics a través de [Azure Monitor: Métricas](../../azure-monitor/platform/metrics-charts.md), debe crearse una alerta de métrica para el registro en la métrica específica. Las dimensiones elegidas en la alerta de métrica para registros solo aparecerán para la exploración a través de Azure Monitor: Métricas.
 
 ## <a name="creating-metric-alert-for-log-analytics"></a>Creación de alertas de métricas para Log Analytics
 

@@ -2,24 +2,21 @@
 title: 'Configuración de una API web que permite iniciar sesión a los usuarios: Plataforma de identidad de Microsoft | Azure'
 description: Obtener información sobre cómo crear una aplicación web que inicie la sesión de los usuarios (configuración del código)
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: d54103cad8a3550bdc300cba2308397dd1ce3d6c
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 3de1edc8560cfc85f52293c095fa824b364d2058
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425585"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80881645"
 ---
 # <a name="web-app-that-signs-in-users-code-configuration"></a>Aplicación web que inicia sesión de usuarios: Configuración del código
 
@@ -103,7 +100,7 @@ En ASP.NET Core, estos valores se encuentran en el archivo [appsettings.json](ht
 }
 ```
 
-En ASP.NET Core, hay otro archivo ([properties\launchSettings.json](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/bc564d68179c36546770bf4d6264ce72009bc65a/1-WebApp-OIDC/1-1-MyOrg/Properties/launchSettings.json#L6-L7)) que contiene la dirección URL (`applicationUrl`) y el puerto SSL (`sslPort`) de la aplicación, así como diversos perfiles.
+En ASP.NET Core, hay otro archivo ([properties\launchSettings.json](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/bc564d68179c36546770bf4d6264ce72009bc65a/1-WebApp-OIDC/1-1-MyOrg/Properties/launchSettings.json#L6-L7)) que contiene la dirección URL (`applicationUrl`) y el puerto SSL/TLS (`sslPort`) de la aplicación, así como diversos perfiles.
 
 ```Json
 {

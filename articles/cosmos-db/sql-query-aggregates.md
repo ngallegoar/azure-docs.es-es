@@ -4,18 +4,18 @@ description: Obtenga información sobre la sintaxis de las funciones de agregado
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/05/2020
+ms.date: 03/16/2020
 ms.author: tisande
-ms.openlocfilehash: df9700dd51c8915ff28c34cf0a29c2f5e48baa44
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.openlocfilehash: 24acd1e9c13320244ff4c27abd13abeda6f70b2b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78897825"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79464468"
 ---
 # <a name="aggregate-functions-in-azure-cosmos-db"></a>Funciones de agregado en Azure Cosmos DB
 
-Las funciones de agregado realizan un cálculo en un conjunto de valores en la cláusula SELECT y devuelven un valor único. Por ejemplo, la consulta siguiente devuelve el número de elementos dentro del contenedor `Families`:
+Las funciones de agregado realizan un cálculo en un conjunto de valores en la cláusula `SELECT` y devuelven un valor único. Por ejemplo, la consulta siguiente devuelve el número de elementos dentro del contenedor `Families`:
 
 ## <a name="examples"></a>Ejemplos
 
@@ -61,7 +61,7 @@ Los resultados son:
 
 ## <a name="types-of-aggregate-functions"></a>Tipos de funciones de agregado
 
-La API de SQL admite las siguientes funciones de agregado. SUM y AVG operan en valores numéricos, y COUNT, MIN y MAX trabajan con números, cadenas, valores booleanos y valores null.
+La API de SQL admite las siguientes funciones de agregado. `SUM` y `AVG` operan en valores numéricos, y `COUNT`, `MIN` y `MAX` trabajan con números, cadenas, valores booleanos y valores null.
 
 | Función | Descripción |
 |-------|-------------|
@@ -75,6 +75,10 @@ También puede aplicar agregaciones a los resultados de la iteración de una mat
 
 > [!NOTE]
 > En el Explorador de datos de Azure Portal, las consultas de agregación pueden agregar resultados parciales a lo largo de solo una página de consulta. El SDK genera un único valor acumulado en todas las páginas. Para realizar consultas de agregación mediante código, necesita el SDK de .NET 1.12.0, el SDK de .NET Core 1.1.0 o el SDK de Java 1.9.5 o posterior.
+
+## <a name="remarks"></a>Observaciones
+
+Estas funciones de agregado del sistema se beneficiarán de un [índice de intervalo](index-policy.md#includeexclude-strategy). Si espera ejecutar `COUNT`, `SUM`, `MIN`, `MAX` o `AVG` en una propiedad, debe [incluir la ruta de acceso relevante en la directiva de indexación](index-policy.md#includeexclude-strategy).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

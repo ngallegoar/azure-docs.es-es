@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: andyxu
 author: gogowings
 ms.date: 11/04/2019
-ms.openlocfilehash: 5ec953ace6bb9583c622f89cfcd0196482b1c683
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: d8a975487c68a21b2c8b6fa2f07d86c312243f12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75535700"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79139052"
 ---
 # <a name="consume-azure-machine-learning-events-preview"></a>Consumo de eventos de Azure Machine Learning (versión preliminar)
 
@@ -42,6 +42,7 @@ Azure Machine Learning proporciona eventos en los distintos puntos del ciclo d
 | `Microsoft.MachineLearningServices.ModelRegistered` | Se genera cuando se registra un modelo de aprendizaje automático en el área de trabajo |
 | `Microsoft.MachineLearningServices.ModelDeployed` | Se genera cuando se completa una implementación de servicio de inferencia con uno o varios modelos. |
 | `Microsoft.MachineLearningServices.DatasetDriftDetected` | Se genera cuando se completa un trabajo de detección de desfase de datos para dos conjuntos de datos |
+| `Microsoft.MachineLearningServices.RunStatusChanged` | Se genera cuando cambia un estado de ejecución, que actualmente solo se produce cuando un estado de ejecución es "incorrecto". |
 
 ## <a name="subscribe-to-machine-learning-events"></a>Suscripción a eventos de Machine Learning
 
@@ -61,6 +62,7 @@ Azure Event Grid admite filtros de asunto en función de las coincidencias de 
 | `Microsoft.MachineLearningServices.ModelRegistered` | `models/{modelName}:{modelVersion}` | `models/sklearn_regression_model:3` |
 | `Microsoft.MachineLearningServices.ModelDeployed` | `endpoints/{serviceId}` | `endpoints/my_sklearn_aks` |
 | `Microsoft.MachineLearningServices.DatasetDriftDetected` | `datadrift/{data.DataDriftId}/run/{data.RunId}` | `datadrift/4e694bf5-712e-4e40-b06a-d2a2755212d4/run/my_driftrun1_1550564444_fbbcdc0f` |
+| `Microsoft.MachineLearningServices.RunStatusChanged` | `experiments/{ExperimentId}/runs/{RunId}` | `experiments/b1d7966c-f73a-4c68-b846-992ace89551f/runs/my_exp1_1554835758_38dbaa94` | 
 
 ### <a name="advanced-filtering"></a>Filtrado avanzado
 

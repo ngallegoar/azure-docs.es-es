@@ -12,12 +12,12 @@ ms.date: 01/16/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7287e32fbeff751bddf91bed32afeeae84f9378c
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: bcedb24a0efdbabaaef150fc3d5aff07d210ce23
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014529"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481371"
 ---
 # <a name="cookie-settings-for-accessing-on-premises-applications-in-azure-active-directory"></a>Configuración de las cookies para el acceso a aplicaciones locales en Azure Active Directory
 
@@ -27,9 +27,9 @@ Azure Active Directory (Azure AD) cuenta con cookies de sesión y acceso para ac
 
 [Application Proxy](application-proxy.md) utiliza los siguientes valores de configuración para cookies de sesión y acceso.
 
-| Configuración de cookies | Valor predeterminado | DESCRIPCIÓN | Recomendaciones |
+| Configuración de cookies | Valor predeterminado | Descripción | Recomendaciones |
 | -------------- | ------- | ----------- | --------------- |
-| Usar cookie solo HTTP | **No** | **Sí** permite que Application Proxy incluya la marca HTTPOnly en los encabezados de respuesta HTTP. Esta marca proporciona ventajas de seguridad adicionales; por ejemplo, evita que el scripting del cliente (CSS) copie o modifique las cookies.<br></br><br></br>Antes de que se añadiera la compatibilidad con la configuración solo HTTP, Application Proxy cifraba y transmitía las cookies a través de un canal SSL seguro para protegerlas contra las modificaciones. | Use **Sí** para obtener las ventajas de seguridad adicionales.<br></br><br></br>Use **No** para los agentes de usuario o cliente que necesiten acceder a la cookie de sesión. Por ejemplo, use **No** para un cliente RDP o MTSC que se conecta a un servidor de puerta de enlace de Escritorio remoto a través Application Proxy.|
+| Usar cookie solo HTTP | **No** | **Sí** permite que Application Proxy incluya la marca HTTPOnly en los encabezados de respuesta HTTP. Esta marca proporciona ventajas de seguridad adicionales; por ejemplo, evita que el scripting del cliente (CSS) copie o modifique las cookies.<br></br><br></br>Antes de que se añadiera la compatibilidad con la configuración solo HTTP, Proxy de aplicación cifraba y transmitía las cookies a través de un canal TLS seguro para protegerlas contra las modificaciones. | Use **Sí** para obtener las ventajas de seguridad adicionales.<br></br><br></br>Use **No** para los agentes de usuario o cliente que necesiten acceder a la cookie de sesión. Por ejemplo, use **No** para un cliente RDP o MTSC que se conecta a un servidor de puerta de enlace de Escritorio remoto a través Application Proxy.|
 | Usar cookies seguras | **No** | **Sí** permite que Application Proxy incluya la marca Secure en los encabezados de respuesta HTTP. Las cookies seguras mejoran la seguridad al transmitir las cookies a través de un canal protegido mediante TLS, como HTTPS. Esto impide que personas no autorizadas observen las cookies, ya que no se transmiten como texto no cifrado. | Use **Sí** para obtener las ventajas de seguridad adicionales.|
 | Usar cookies persistentes | **No** | **Sí** permite que Application Proxy configure las cookies de acceso de forma que no expiren cuando se cierre el explorador web. La persistencia dura hasta que expire el token de acceso o hasta que el usuario elimine manualmente las cookies persistentes. | Use **No** debido al riesgo de seguridad asociado con mantener autenticados a los usuarios.<br></br><br></br>Se recomienda usar **Sí** únicamente para aplicaciones más antiguas que no pueden compartir cookies entre procesos. Es mejor actualizar la aplicación para controlar el uso compartido de cookies entre procesos, en lugar de usar las cookies persistentes. Por ejemplo, puede necesitar las cookies persistentes para permitir que un usuario abra documentos de Office en la vista de explorador desde un sitio de SharePoint. Sin cookies persistentes, esta operación puede producir un error si las cookies de acceso no se comparten entre el explorador, el proceso del explorador y el proceso de Office. |
 
@@ -48,7 +48,7 @@ Además si la aplicación back-end tiene cookies que deben estar disponibles en 
 ## <a name="set-the-cookie-settings---azure-portal"></a>Configuración de los valores de cookies: Azure Portal
 Para configurar los valores de las cookies en Azure Portal:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com). 
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). 
 2. Vaya a **Azure Active Directory** > **Aplicaciones empresariales** > **Todas las aplicaciones**.
 3. Seleccione la aplicación para la que quiere habilitar las configuraciones de cookies.
 4. Haga clic en **Application Proxy**.

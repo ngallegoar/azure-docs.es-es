@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: d3008e2e2d720b67fcf0846c27d2fed1ef7db307
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 1635589b282dc33f6a1e9c2552dc8a73c67b9004
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035504"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294744"
 ---
 # <a name="post-deployment-tasks"></a>Tareas posteriores a la implementación
 
@@ -39,9 +39,9 @@ Para usar Azure Active Directory para la autenticación, primero debe crear un r
 Estos pasos usan la CLI de Azure para crear el registro de aplicación y la GUI (portal) para definir los permisos. Para crear el registro de aplicación, se necesitan los cinco datos siguientes:
 
 - Nombre para mostrar: nombre del registro de aplicación (por ejemplo, OCPAzureAD)
-- Página principal: dirección URL de la consola de OpenShift (por ejemplo, https://masterdns343khhde.westus.cloudapp.azure.com/console)
-- URI del identificador: dirección URL de la consola de OpenShift (por ejemplo, https://masterdns343khhde.westus.cloudapp.azure.com/console)
-- URL de respuesta: dirección URL pública maestra y nombre de registro de la aplicación (por ejemplo, https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD)
+- Página principal: URL de la consola de OpenShift (por ejemplo, `https://masterdns343khhde.westus.cloudapp.azure.com/console`)
+- URI del identificador: URL de la consola de OpenShift (por ejemplo, `https://masterdns343khhde.westus.cloudapp.azure.com/console`)
+- URL de respuesta: URL pública maestra y nombre de registro de la aplicación (por ejemplo, `https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD`)
 - Contraseña: proteja la contraseña (utilice una contraseña segura)
 
 En el ejemplo siguiente, se creará un registro de aplicación con la información anterior:
@@ -176,7 +176,7 @@ Si las métricas o el registro no se han habilitado durante la instalación del 
 
 ### <a name="azure-cloud-provider-in-use"></a>Proveedor de soluciones en la nube de Azure en uso
 
-Conéctese mediante SSH al nodo de tipo bastión o al primer nodo maestro (en función de la plantilla y la rama en uso) con las credenciales proporcionadas durante la implementación. Ejecute el siguiente comando:
+Conéctese mediante SSH al nodo de tipo bastión o al primer nodo maestro (en función de la plantilla y la rama en uso) con las credenciales proporcionadas durante la implementación. Emita el comando siguiente:
 
 ```bash
 ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-metrics/config.yml \

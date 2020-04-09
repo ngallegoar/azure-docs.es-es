@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 03/10/2020
-ms.openlocfilehash: 2e12952c04373fe47eaebb24b61a4fc563121185
-ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+ms.openlocfilehash: f038293b48956ac89314e426df3f5dc491954df3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79037109"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80064220"
 ---
 # <a name="execute-r-script"></a>Ejecución script de R
 
@@ -97,13 +97,16 @@ azureml_main <- function(dataframe1, dataframe2){
 }
 ```
 
-Una vez que la canalización se envía correctamente, puede obtener una vista previa de la imagen en el panel derecho del módulo ![Imagen cargada](media/module/upload-image-in-r-script.png).
+Cuando finalice la ejecución de la canalización, puede obtener una vista previa de la imagen en el panel derecho del módulo.
+
+> [!div class="mx-imgBorder"]
+> ![Imagen cargada](media/module/upload-image-in-r-script.png)
 
 ## <a name="how-to-configure-execute-r-script"></a>Procedimiento para configurar Ejecutar script R
 
 El módulo **Ejecutar script R** contiene código de ejemplo que puede usar como punto de partida. Para configurar el módulo **Ejecutar script R**, proporcione un conjunto de entradas y código para ejecutarlo.
 
-![Módulo de R](media/module/upload-image-in-r-script.png)
+![Módulo de R](media/module/execute-r-script.png)
 
 Los conjuntos de datos almacenados en el diseñador se convierten automáticamente en una trama de datos R cuando se cargan con este módulo.
 
@@ -123,25 +126,25 @@ Los conjuntos de datos almacenados en el diseñador se convierten automáticamen
 
     Para ayudarle a empezar, el cuadro de texto **Script de R** se muestra rellenado previamente con el código de ejemplo, que puede editar o reemplazar.
     
-```R
-# R version: 3.5.1
-# The script MUST contain a function named azureml_main
-# which is the entry point for this module.
+    ```R
+    # R version: 3.5.1
+    # The script MUST contain a function named azureml_main
+    # which is the entry point for this module.
 
-# The entry point function can contain up to two input arguments:
-#   Param<dataframe1>: a R DataFrame
-#   Param<dataframe2>: a R DataFrame
-azureml_main <- function(dataframe1, dataframe2){
-  print("R script run.")
+    # The entry point function can contain up to two input arguments:
+    #   Param<dataframe1>: a R DataFrame
+    #   Param<dataframe2>: a R DataFrame
+    azureml_main <- function(dataframe1, dataframe2){
+    print("R script run.")
 
-  # If a zip file is connected to the third input port, it is
-  # unzipped under "./Script Bundle". This directory is added
-  # to sys.path.
+    # If a zip file is connected to the third input port, it is
+    # unzipped under "./Script Bundle". This directory is added
+    # to sys.path.
 
-  # Return datasets as a Named List
-  return(list(dataset1=dataframe1, dataset2=dataframe2))
-}
-```
+    # Return datasets as a Named List
+    return(list(dataset1=dataframe1, dataset2=dataframe2))
+    }
+    ```
 
  * El script debe contener una función denominada `azureml_main`, que es el punto de entrada para este módulo.
 
@@ -155,7 +158,7 @@ azureml_main <- function(dataframe1, dataframe2){
 
 1.  **Valor de inicialización aleatorio**: escriba un valor para usarlo en el entorno de R como valor de inicialización aleatorio. Este parámetro equivale a llamar a `set.seed(value)` en el código de R.  
 
-1. Ejecución de la canalización  
+1. Envíe la canalización.  
 
 ## <a name="results"></a>Results
 
@@ -174,9 +177,9 @@ Hay muchas formas de ampliar la canalización mediante el script de R personaliz
 
 El módulo **Ejecutar script R** admite archivos de script de R arbitrarios como entradas. Para ello, deben cargarse en el área de trabajo como parte del archivo ZIP.
 
-1. Para cargar un archivo ZIP que contiene el código de R en el área de trabajo, haga clic en **Nuevo**, seleccione **Conjunto de datos**y, a continuación, seleccione **From local file** (De un archivo local) y la opción **Archivo ZIP**.  
+1. Para cargar un archivo ZIP que contiene el código de R en el área de trabajo, diríjase a **Conjuntos de datos**, haga clic en **Crear conjunto de datos** y, a continuación, seleccione **From local file** (De un archivo local) y la opción de tipo de conjunto de datos **Archivo**.  
 
-1. Compruebe que el archivo comprimido esté disponible en la lista **Saved Datasets** (Conjuntos de datos guardados).
+1. Compruebe que el archivo comprimido está disponible en la lista **Mis conjuntos de datos** en la categoría **Conjuntos de archivos** del árbol de módulos de la izquierda.
 
 1.  Conecte el conjunto de datos al puerto de entrada del **conjunto de scripts**.
 

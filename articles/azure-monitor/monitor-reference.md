@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/17/2020
-ms.openlocfilehash: 3cd330e9c4ceba2feeb7a74cafe9f094fd03d690
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 0ef7e5d869ab2d7e085cbf861bfc32e57b1fad4b
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77669121"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80408486"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>¿Qué supervisa Azure Monitor?
 En este artículo se describen las distintas aplicaciones y servicios que se supervisan mediante Azure Monitor. 
@@ -54,119 +54,119 @@ En la tabla siguiente se enumeran los servicios de Azure y los datos que estos r
 
 | Servicio | Métricas | Registros | Conclusión | Notas |
 |:---|:---|:---|:---|:---|
-|Active Directory | Sin | Sí | [Sí](../active-directory/reports-monitoring/howto-use-azure-monitor-workbooks.md) |  |
-|Active Directory B2C | Sin | Sin | Sin |  |
-|Active Directory Domain Services | Sin | Sí | Sin |  |
-|Registro de actividades | Sin | Sí | Sin | |
-|Protección contra amenazas avanzada | Sin | Sin | Sin |  |
-|Advisor | Sin | Sin | Sin |  |
-|AI Builder | Sin | Sin | Sin |  |
-|Analysis Services | Sí | Sí | Sin |  |
-|API for FHIR | Sin | Sin | Sin |  |
-|API Management | Sí | Sí | Sin |  |
-|App Service | Sí | Sí | Sin |  |
-|AppConfig | Sin | Sin | Sin |  |
-|Application Gateway | Sí | Sí | Sin |  |
-|Servicio de atestación | Sin | Sin | Sin |  |
-|Automation | Sí | Sí | Sin |  |
-|Azure Service Manager (RDFE) | Sin | Sin | Sin |  |
-|Copia de seguridad | Sin | Sí | Sin |  |
-|Bastion | Sin | Sin | Sin |  |
-|Batch | Sí | Sí | Sin |  |
-|Batch AI | Sin | Sin | Sin |  |
-|Blockchain Service | Sin | Sí | Sin |  |
-|Planos técnicos | Sin | Sin | Sin |  |
-|Servicio de bots | Sin | Sin | Sin |  |
-|Cloud Services | Sí | Sí | Sin | Agente necesario para supervisar los flujos de trabajo y el sistema operativo invitado.  |
-|Cloud Shell | Sin | Sin | Sin |  |
-|Cognitive Services | Sí | Sí | Sin |  |
-|Azure Container Instances | Sí | Sin | Sin |  |
-|Container Registry | Sí | Sí | Sin |  |
-|Content Delivery Network (CDN) | Sin | Sí | Sin |  |
+|Active Directory | No | Sí | [Sí](../active-directory/reports-monitoring/howto-use-azure-monitor-workbooks.md) |  |
+|Active Directory B2C | No | No | No |  |
+|Active Directory Domain Services | No | Sí | No |  |
+|Registro de actividades | No | Sí | No | |
+|Protección contra amenazas avanzada | No | No | No |  |
+|Advisor | No | No | No |  |
+|AI Builder | No | No | No |  |
+|Analysis Services | Sí | Sí | No |  |
+|API for FHIR | No | No | No |  |
+|API Management | Sí | Sí | No |  |
+|App Service | Sí | Sí | No |  |
+|AppConfig | No | No | No |  |
+|Application Gateway | Sí | Sí | No |  |
+|Servicio de atestación | No | No | No |  |
+|Automation | Sí | Sí | No |  |
+|Azure Service Manager (RDFE) | No | No | No |  |
+|Copia de seguridad | No | Sí | No |  |
+|Bastion | No | No | No |  |
+|Batch | Sí | Sí | No |  |
+|Batch AI | No | No | No |  |
+|Blockchain Service | No | Sí | No |  |
+|Planos técnicos | No | No | No |  |
+|Servicio de bots | No | No | No |  |
+|Cloud Services | Sí | Sí | No | Agente necesario para supervisar los flujos de trabajo y el sistema operativo invitado.  |
+|Cloud Shell | No | No | No |  |
+|Cognitive Services | Sí | Sí | No |  |
+|Azure Container Instances | Sí | No | No |  |
+|Container Registry | Sí | Sí | No |  |
+|Content Delivery Network (CDN) | No | Sí | No |  |
 |Cosmos DB | Sí | Sí | [Sí](insights/cosmosdb-insights-overview.md) |  |
-|Administración de costos | Sin | Sin | Sin |  |
-|Data Box | Sin | Sin | Sin |  |
-|Data Catalog Gen2 | Sin | Sin | Sin |  |
-|Data Explorer | Sí | Sí | Sin |  |
-|Data Factory | Sí | Sí | Sin |  |
-|Data Factory v2 | Sin | Sí | Sin |  |
-|Recurso compartido de datos | Sin | Sin | Sin |  |
-|Database for MariaDB | Sí | Sí | Sin |  |
-|Database for MySQL | Sí | Sí | Sin |  |
-|Database for PostgreSQL | Sí | Sí | Sin |  |
-|Database Migration Service | Sin | Sin | Sin |  |
-|Databricks | Sin | Sí | Sin |  |
-|Protección contra DDOS | Sí | Sí | Sin |  |
-|DevOps | Sin | Sin | Sin |  |
-|DNS | Sí | Sin | Sin |  |
-|Nombres de dominio | Sin | Sin | Sin |  |
-|DPS | Sin | Sin | Sin |  |
-|Dynamics 365 Customer Engagement | Sin | Sin | Sin |  |
-|Dynamics 365 Finance y Operations | Sin | Sin | Sin |  |
-|Event Grid | Sí | Sin | Sin |  |
-|Event Hubs | Sí | Sí | Sin |  |
-|ExpressRoute | Sí | Sí | Sin |  |
-|Firewall | Sí | Sí | Sin |  |
-|Front Door | Sí | Sí | Sin |  |
-|Functions | Sí | Sí | Sin |  |
-|HDInsight | Sin | Sí | Sin |  |
-|HPC Cache | Sin | Sin | Sin |  |
-|Information Protection | Sin | Sí | Sin |  |
-|Intune | Sin | Sí | Sin |  |
-|IoT Central | Sin | Sin | Sin |  |
-|IoT Hub | Sí | Sí | Sin |  |
-|Key Vault | Sí | Sí | Sin |  |
-|Kubernetes Service (AKS) | Sin | Sin | [Sí](insights/container-insights-overview.md)  |  |
-|Load Balancer | Sí | Sí | Sin |  |
-|Logic Apps | Sí | Sí | Sin |  |
-|Machine Learning Service | Sin | Sin | Sin |  |
-|Aplicaciones administradas  | Sin | Sin | Sin |  |
-|Mapas  | Sin | Sin | Sin |  |
-|Media Services | Sí | Sí | Sin |  |
-|Microsoft Flow | Sin | Sin | Sin |  |
-|Escritorio administrado de Microsoft | Sin | Sin | Sin |  |
-|Microsoft PowerApps | Sin | Sin | Sin |  |
-|Microsoft Social Engagement | Sin | Sin | Sin |  |
-|Microsoft Stream | Sí | Sí | Sin |  |
-|Migrar | Sin | Sin | Sin |  |
-|Multi-Factor Authentication | Sin | Sí | Sin |  |
-|Network Watcher | Sí | Sí | Sin |  |
-|Notification Hubs | Sí | Sin | Sin |  |
-|Open Datasets | Sin | Sin | Sin |  |
-|Directiva | Sin | Sin | Sin |  |
-|Power BI | Sí | Sí | Sin |  |
-|Power BI Embedded | Sin | Sin | Sin |  |
-|Private Link | Sin | Sin | Sin |  |
-|Plataforma de comunicación de Project Spool | Sin | Sin | Sin |  |
-|Red Hat OpenShift | Sin | Sin | Sin |  |
-|Redis Cache | Sí | Sí | Sin |  |
-|Gráfico de recursos | Sin | Sin | Sin |  |
-|Resource Manager | Sin | Sin | Sin |  |
-|Búsqueda minorista: por Bing | Sin | Sin | Sin |  |
-|Search | Sí | Sí | Sin |  |
-|Azure Service Bus | Sí | Sí | Sin |  |
-|Service Fabric | Sin | Sí | Sin | Agente necesario para supervisar los flujos de trabajo y el sistema operativo invitado.  |
-|Portal de suscripción | Sin | Sin | Sin |  |
-|Site Recovery | Sin | Sí | Sin |  |
-|Servicio Spring Cloud | Sin | Sin | Sin |  |
-|SQL Data Warehouse | Sí | Sí | Sin |  |
-|SQL Database | Sí | Sí | Sin |  |
-|SQL Server Stretch Database | Sí | Sí | Sin |  |
-|Pila | Sin | Sin | Sin |  |
-|Storage | Sí | Sin | [Sí](insights/storage-insights-overview.md) |  |
-|Almacenamiento caché | Sin | Sin | Sin |  |
-|Servicios de sincronización de almacenamiento | Sin | Sin | Sin |  |
-|Stream Analytics | Sí | Sí | Sin |  |
-|Time Series Insights | Sí | Sí | Sin |  |
-|TINA | Sin | Sin | Sin |  |
-|Traffic Manager | Sí | Sí | Sin |  |
-|Impresión universal | Sin | Sin | Sin |  |
-|Virtual Machine Scale Sets | Sin | Sí | [Sí](insights/vminsights-overview.md) | Agente necesario para supervisar los flujos de trabajo y el sistema operativo invitado. |
+|Administración de costos | No | No | No |  |
+|Data Box | No | No | No |  |
+|Data Catalog Gen2 | No | No | No |  |
+|Data Explorer | Sí | Sí | No |  |
+|Data Factory | Sí | Sí | No |  |
+|Data Factory v2 | No | Sí | No |  |
+|Recurso compartido de datos | No | No | No |  |
+|Database for MariaDB | Sí | Sí | No |  |
+|Database for MySQL | Sí | Sí | No |  |
+|Database for PostgreSQL | Sí | Sí | No |  |
+|Database Migration Service | No | No | No |  |
+|Databricks | No | Sí | No |  |
+|Protección contra DDOS | Sí | Sí | No |  |
+|DevOps | No | No | No |  |
+|DNS | Sí | No | No |  |
+|Nombres de dominio | No | No | No |  |
+|DPS | No | No | No |  |
+|Dynamics 365 Customer Engagement | No | No | No |  |
+|Dynamics 365 Finance y Operations | No | No | No |  |
+|Event Grid | Sí | No | No |  |
+|Event Hubs | Sí | Sí | No |  |
+|ExpressRoute | Sí | Sí | No |  |
+|Firewall | Sí | Sí | No |  |
+|Front Door | Sí | Sí | No |  |
+|Functions | Sí | Sí | No |  |
+|HDInsight | No | Sí | No |  |
+|HPC Cache | No | No | No |  |
+|Information Protection | No | Sí | No |  |
+|Intune | No | Sí | No |  |
+|IoT Central | No | No | No |  |
+|IoT Hub | Sí | Sí | No |  |
+|Key Vault | Sí | Sí | No |  |
+|Kubernetes Service (AKS) | No | No | [Sí](insights/container-insights-overview.md)  |  |
+|Load Balancer | Sí | Sí | No |  |
+|Logic Apps | Sí | Sí | No |  |
+|Machine Learning Service | No | No | No |  |
+|Aplicaciones administradas  | No | No | No |  |
+|Mapas  | No | No | No |  |
+|Media Services | Sí | Sí | No |  |
+|Microsoft Flow | No | No | No |  |
+|Escritorio administrado de Microsoft | No | No | No |  |
+|Microsoft PowerApps | No | No | No |  |
+|Microsoft Social Engagement | No | No | No |  |
+|Microsoft Stream | Sí | Sí | No |  |
+|Migrar | No | No | No |  |
+|Multi-Factor Authentication | No | Sí | No |  |
+|Network Watcher | Sí | Sí | No |  |
+|Notification Hubs | Sí | No | No |  |
+|Open Datasets | No | No | No |  |
+|Directiva | No | No | No |  |
+|Power BI | Sí | Sí | No |  |
+|Power BI Embedded | No | No | No |  |
+|Private Link | No | No | No |  |
+|Plataforma de comunicación de Project Spool | No | No | No |  |
+|Red Hat OpenShift | No | No | No |  |
+|Redis Cache | Sí | Sí | No |  |
+|Gráfico de recursos | No | No | No |  |
+|Resource Manager | No | No | No |  |
+|Búsqueda minorista: por Bing | No | No | No |  |
+|Search | Sí | Sí | No |  |
+|Azure Service Bus | Sí | Sí | No |  |
+|Service Fabric | No | Sí | No | Agente necesario para supervisar los flujos de trabajo y el sistema operativo invitado.  |
+|Portal de suscripción | No | No | No |  |
+|Site Recovery | No | Sí | No |  |
+|Servicio Spring Cloud | No | No | No |  |
+|SQL Data Warehouse | Sí | Sí | No |  |
+|SQL Database | Sí | Sí | No |  |
+|SQL Server Stretch Database | Sí | Sí | No |  |
+|Pila | No | No | No |  |
+|Storage | Sí | No | [Sí](insights/storage-insights-overview.md) |  |
+|Almacenamiento caché | No | No | No |  |
+|Servicios de sincronización de almacenamiento | No | No | No |  |
+|Stream Analytics | Sí | Sí | No |  |
+|Time Series Insights | Sí | Sí | No |  |
+|TINA | No | No | No |  |
+|Traffic Manager | Sí | Sí | No |  |
+|Impresión universal | No | No | No |  |
+|Virtual Machine Scale Sets | No | Sí | [Sí](insights/vminsights-overview.md) | Agente necesario para supervisar los flujos de trabajo y el sistema operativo invitado. |
 |Virtual Machines | Sí | Sí | [Sí](insights/vminsights-overview.md) | Agente necesario para supervisar los flujos de trabajo y el sistema operativo invitado. |
 |Virtual Network | Sí | Sí | [Sí](insights/network-insights-overview.md) |  |
-|Virtual Network: registros de flujo de NSG | Sin | Sí | Sin |  |
-|VPN Gateway | Sí | Sí | Sin |  |
-|Windows Virtual Desktop | Sin | Sin | Sin |  |
+|Virtual Network: registros de flujo de NSG | No | Sí | No |  |
+|VPN Gateway | Sí | Sí | No |  |
+|Windows Virtual Desktop | No | No | No |  |
 
 
 ## <a name="product-integrations"></a>Integraciones de productos
@@ -198,7 +198,7 @@ Hay otras soluciones disponibles para supervisar diferentes aplicaciones y servi
 |:---|:---|
 | [Comprobación de mantenimiento de Active Directory](insights/ad-assessment.md) | Evalúe el riesgo y el estado de los entornos de Active Directory. |
 | [Estado de replicación de Active Directory](insights/ad-replication-status.md) | Supervisa periódicamente el entorno de Active Directory para comprobar si existen errores de replicación. |
-| [Activity Log Analytics](platform/activity-log-view.md#activity-logs-analytics-monitoring-solution) | Analice las entradas de Activity Log mediante consultas y vistas de registros predefinidas. |
+| [Activity Log Analytics](platform/activity-log-view.md#azure-portal) | Entradas del registro de actividad de Azure. |
 | [DNS Analytics (versión preliminar)](insights/dns-analytics.md) | Recopila, analiza y correlaciona los registros analíticos y de auditoría de Windows DNS y otros datos relacionados a partir de los servidores DNS. |
 | [Cloud Foundry](../cloudfoundry/cloudfoundry-oms-nozzle.md) | Recopile, vea y analice las métricas de rendimiento y estado de sistema de Cloud Foundry entre varias implementaciones. |
 | [Contenedores](insights/containers.md) | Vea y administre hosts de contenedor de Docker y Windows. |

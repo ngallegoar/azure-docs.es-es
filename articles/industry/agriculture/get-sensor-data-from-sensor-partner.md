@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 9364c344c58d17f9f6e6404dd8aa850af032cee9
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: 113ab07af8ada16c0779da510c5f5b1f1f5a290b
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77138370"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398229"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>Obtención de datos de sensor de los asociados de sensor
 
@@ -37,35 +37,44 @@ Tras iniciar la transmisión de los datos del sensor, puede comenzar el proceso 
  - Secreto del cliente
  - Cadena de conexión de EventHub
 
-Para generar la información anterior siga estos pasos: (Tenga en cuenta que estos pasos se deben realizar en Azure, por lo que necesitará acceso a la suscripción de Azure en la que se implementó FarmBeats)
+Siga los pasos que se indican a continuación para generar la información anterior:
 
-1. Descargue el [archivo zip](https://aka.ms/farmbeatspartnerscriptv2) y extráigalo en la unidad local. Habrá un archivo dentro del archivo ZIP.
+> [!NOTE]
+> Estos pasos se deben completar en Azure para acceder a la suscripción de Azure donde se implementa FarmBeats.
 
-2. Inicie sesión en https://portal.azure.com/.
+1. Inicie sesión en https://portal.azure.com/.
 
-3. **Si está en la versión 1.2.7 o posterior de FarmBeats, omita los pasos 3a, 3b y 3c y vaya al paso 4.** . Para comprobar la versión de FarmBeats, haga clic en el icono de configuración en la parte superior derecha de la interfaz de usuario de FarmBeats.
+2. **Si utiliza la versión 1.2.7 o posterior de FarmBeats, omita los pasos a, b y c, y vaya al paso 3.** Para comprobar la versión de FarmBeats, seleccione el icono **Configuración** en la esquina superior derecha de la interfaz de usuario de FarmBeats.
 
-3a. Vaya a Azure Active Directory -> Registro de aplicaciones.
+      a.  Vaya a **Azure Active Directory** > **Registros de aplicaciones**.
 
-3b. Haga clic en el registro de la aplicación que se ha creado como parte de la implementación de FarmBeats. Tendrá el mismo nombre que el centro de datos de FarmBeats.
+      b. Seleccione el **Registro de aplicación** que se ha creado como parte de la implementación de FarmBeats. Tendrá el mismo nombre que el centro de datos de FarmBeats.
 
-3c. Haga clic en "Exponer una API" -> "Agregar una aplicación cliente", escriba **04b07795-8ddb-461a-bbee-02f9e1bf7b46** y active "Authorize Scope" (Autorizar ámbito). De esta forma, se proporciona acceso a la CLI de Azure (Cloud Shell) para realizar los pasos siguientes.
+      c. Seleccione **Exponer una API** > **Agregar una aplicación cliente**, escriba **04b07795-8ddb-461a-bbee-02f9e1bf7b46** y active **Autorizar ámbito**. De esta forma, se proporciona acceso a la CLI de Azure (Cloud Shell) para realizar los pasos siguientes:
 
-4. Abra Cloud Shell. Esta opción está disponible en la barra de herramientas de la esquina superior derecha de Azure Portal.
+3. Abra Cloud Shell. Esta opción está disponible en la barra de herramientas de la esquina superior derecha de Azure Portal.
 
     ![Barra de herramientas de Azure Portal](./media/get-drone-imagery-from-drone-partner/navigation-bar-1.png)
 
-5. Asegúrese de que el entorno esté establecido en **PowerShell**. De forma predeterminada, se establece en Bash.
+4. Asegúrese de que el entorno esté establecido en **PowerShell**. De forma predeterminada, se establece en Bash.
 
     ![Valor de la barra de herramientas de PowerShell](./media/get-sensor-data-from-sensor-partner/power-shell-new-1.png)
 
-6. Cargue el archivo del paso 1 en la instancia de Cloud Shell.
+5. Vaya a su directorio principal.
 
-    ![Botón Cargar de la barra de herramientas](./media/get-sensor-data-from-sensor-partner/power-shell-two-1.png)
+    ```azurepowershell-interactive 
+    cd  
+    ```
 
-7. Vaya al directorio donde se ha cargado el archivo. De forma predeterminada, los archivos se cargan en el directorio particular bajo el nombre de usuario.
+6. Ejecute el siguiente comando: Se descargará un script en el directorio principal.
 
-8. Ejecute el siguiente script. El script solicita el identificador de inquilino, que se puede obtener en la página Azure Active Directory -> Información general.
+    ```azurepowershell-interactive 
+
+    wget –q https://aka.ms/farmbeatspartnerscriptv3 -O ./generatePartnerCredentials.ps1
+
+    ```
+
+7. Ejecute el siguiente script. El script solicita el id. de inquilino, que se puede obtener en la página **Azure Active Directory** > **Información general**.
 
     ```azurepowershell-interactive 
 
@@ -73,7 +82,7 @@ Para generar la información anterior siga estos pasos: (Tenga en cuenta que est
 
     ```
 
-9. Siga las instrucciones en pantalla para capturar los valores del **punto de conexión de API**, el **identificador de inquilino**, el **identificador de cliente**, el **secreto de cliente** y la **cadena de conexión de EventHub**.
+8. Siga las instrucciones en pantalla para capturar los valores del **punto de conexión de API**, el **identificador de inquilino**, el **identificador de cliente**, el **secreto de cliente** y la **cadena de conexión de EventHub**.
 
 ### <a name="integrate-device-data-by-using-the-generated-credentials"></a>Integración de los datos de los dispositivos con las credenciales generadas
 
@@ -83,12 +92,16 @@ Ahora tiene la siguiente información generada desde la sección anterior.
  - Id. de cliente
  - Secreto del cliente
  - Id. de inquilino
- 
-Deberá proporcionar esta información a su asociado de dispositivo para la vinculación con FarmBeats. Vaya al portal de asociados de dispositivos para hacer lo mismo. Por ejemplo, en caso de que use dispositivos de Davis Instruments, vaya a la página siguiente:
 
-[Davis Instruments](https://weatherlink.github.io/azure-farmbeats/setup)
+Deberá proporcionar esta información a su asociado de dispositivo para la vinculación con FarmBeats. Vaya al portal de asociados de dispositivos para hacer lo mismo. Por ejemplo, en caso de que use dispositivos de Davis Instruments, Teralytic o Pessl Instruments (Metos.at), vaya a las páginas correspondientes, tal como se indica a continuación:
 
- El proveedor del dispositivo confirma una integración correcta. Tras la confirmación, puede ver todos los dispositivos y sensores en Azure FarmBeats.
+1. [Davis Instruments](https://weatherlink.github.io/azure-farmbeats/setup)
+
+2. [Teralytic](https://app.teralytic.com/)
+
+3. [Pessl Instruments](https://ng.fieldclimate.com/user-api-services)
+
+El proveedor del dispositivo confirma una integración correcta. Tras la confirmación, puede ver todos los dispositivos y sensores en Azure FarmBeats.
 
 ## <a name="view-devices-and-sensors"></a>Visualización de dispositivos y sensores
 
@@ -101,7 +114,7 @@ Actualmente, FarmBeats admite los siguientes dispositivos:
 - **Nodo**: dispositivo al que se conectan uno o varios sensores.
 - **Puerta de enlace**: dispositivo al que están conectados uno o varios nodos.
 
-Siga estos pasos.
+Siga estos pasos:
 
 1. En la página principal, seleccione **Devices** (Dispositivos) en el menú.
   En la página **Devices** (Dispositivos) se muestra el tipo de dispositivo, el modelo, el estado, la granja en la que se encuentra y la fecha de la última actualización de los metadatos. De forma predeterminada, la columna de la granja está establecida en *NULL*. Puede elegir asignar un dispositivo a una granja. Para más información, consulte [Asignación de dispositivos](#assign-devices).
@@ -111,7 +124,7 @@ Siga estos pasos.
 
 ### <a name="view-sensors"></a>Visualización de los sensores
 
-Siga estos pasos.
+Siga estos pasos:
 
 1. En la página principal, seleccione **Sensors** (Sensores) en el menú.
   La página **Sensors** (Sensores) muestra detalles sobre el tipo de sensor, la granja a la que está conectado, el dispositivo principal, el nombre del puerto, el tipo de puerto y el último estado actualizado.
@@ -135,11 +148,12 @@ Una vez que fluyan los datos del sensor, puede asignarlos a la granja en la que 
     ![Ventana Associate Devices (Asociar dispositivos)](./media/get-sensor-data-from-sensor-partner/associate-devices-1.png)
 
 6. Para asociar cada dispositivo a otra granja, seleccione la flecha desplegable de la columna **Assign to Farm** (Asignar a granja) y elija una granja para cada fila de dispositivo.
+
 7. Seleccione **Assign** (Asignar) para finalizar la asignación de dispositivos.
 
 ### <a name="visualize-sensor-data"></a>Visualización de los datos del sensor
 
-Siga estos pasos.
+Siga estos pasos:
 
 1. En la página principal, seleccione **Farms** (Granjas) en el menú para ver la página **Farms** (Granjas).
 2. Seleccione la **granja** para la que quiere ver los datos del sensor.
@@ -149,7 +163,7 @@ Siga estos pasos.
 
 ## <a name="delete-a-sensor"></a>Eliminación de un sensor
 
-Siga estos pasos.
+Siga estos pasos:
 
 1. En la página `principal, seleccione **Sensors** (Sensores) en el menú para ver la página **Sensors** (Sensores).
 2. Seleccione el dispositivo que quiere eliminar y elija **Delete** (Eliminar) en la ventana de confirmación.
@@ -160,7 +174,7 @@ Un mensaje de confirmación muestra que el sensor se ha eliminado correctamente.
 
 ## <a name="delete-devices"></a>Eliminar dispositivos
 
-Siga estos pasos.
+Siga estos pasos:
 
 1. En la página principal, seleccione **Devices** (Dispositivos) en el menú para ver la página **Devices** (Dispositivos).
 2. Seleccione el dispositivo que quiere eliminar y elija **Delete** (Eliminar) en la ventana de confirmación.

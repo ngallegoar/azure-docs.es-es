@@ -13,21 +13,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/15/2019
 ms.author: memildin
-ms.openlocfilehash: 15a94a9724fac29d36f6bb88ee4810b3bc7ca607
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 30405ce5cc875144fcd1cf83d4a3f883a0304989
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77603485"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79415767"
 ---
-# <a name="improve-your-secure-score-in-azure-security-center"></a>Mejora de la puntuación de seguridad de Azure Security Center
+# <a name="improve-your-secure-score-in-azure-security-center"></a>Mejorar la puntuación segura de Azure Security Center
 
 > [!NOTE]
-> Hay una puntuación de seguridad mejorada disponible en versión preliminar. La puntuación de seguridad mejorada reemplazará finalmente a la puntuación de seguridad ya existente, aunque durante un tiempo funcionarán ambas simultáneamente para facilitar la transición.
+> En este artículo se trata la versión anterior de la puntuación segura. Esta experiencia de puntuación segura todavía está disponible desde la interfaz de usuario, pero se retirará paulatinamente con el tiempo. Las dos experiencias de puntuación segura se ejecutan en paralelo para permitir una transición más fluida.
 >
-> Para más información sobre las ventajas de la puntuación de seguridad mejorada, consulte [este artículo](secure-score-security-controls.md).
+> Puede obtener más información sobre la puntuación segura más reciente [aquí](secure-score-security-controls.md).
 >
-> Para tomar parte en la versión preliminar, abra Azure Portal, inicie Azure Security Center y seleccione Puntuación de seguridad. A partir de ahí, podrá ver un banner en la parte superior de la página que ofrece la experiencia de la nueva puntuación de seguridad. O bien, haga clic [aquí](https://aka.ms/ascnewscore).
 
 Con tantos servicios que ofrecen ventajas de seguridad, a menudo es difícil saber qué pasos dar primero para asegurar y proteger su carga de trabajo. La puntuación de seguridad revisa las recomendaciones de seguridad y les asigna una prioridad, para que usted sepa qué recomendaciones realizar primero. De esta manera, puede encontrar las vulnerabilidades de seguridad más graves y así dar prioridad a la investigación. La puntuación de seguridad es una herramienta que le ayuda a evaluar la postura de seguridad de las cargas de trabajo.
 
@@ -75,14 +74,11 @@ Además, puede consultar las puntuaciones de seguridad individuales en la hoja d
 
 La recomendación muestra las amenazas a las que se expone la carga de trabajo si no se realizan los pasos para la corrección.
 
-![Puntuación de seguridad de recomendación individual](./media/security-center-secure-score/indiv-recommendation-secure-score.png)
-
-
+![puntuación segura de recomendación individual](./media/security-center-secure-score/indiv-recommendation-secure-score.png)
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo se muestra cómo mejorar su postura de seguridad mediante **Puntuación de seguridad** de Azure Security Center. Para más información sobre Security Center, consulte:
 
-* [Preguntas más frecuentes sobre Azure Security Center](faq-general.md): encuentre las preguntas más frecuentes sobre el servicio y la puntuación de seguridad.
+* [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md): encuentre las preguntas más frecuentes sobre el uso del servicio.
 * [Supervisión del estado de seguridad en Azure Security Center](security-center-monitoring.md): aprenda a supervisar el estado de los recursos de Azure.
-* [Puntuación de seguridad mejorada](secure-score-security-controls.md): Obtenga información sobre las ventajas de la puntuación de seguridad mejorada actualmente en versión preliminar.

@@ -3,12 +3,12 @@ title: Preguntas frecuentes sobre Azure Migrate Server Migration
 description: Obtenga respuestas a preguntas habituales sobre el uso de Azure Migrate Server Migration para migrar máquinas.
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 4d3638e930b4e12a29df4ab189ffb24ab248582b
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 507cc8088bf54b1a4f4483673ec5332efcdd36c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78939209"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80127803"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Azure Migrate Server Migration: Preguntas frecuentes
 
@@ -74,6 +74,14 @@ No. Azure Migrate solo admite la migración a discos administrados (HDD estánda
 ## <a name="how-many-vms-can-i-replicate-at-one-time-by-using-agentless-migration"></a>¿Cuántas máquinas virtuales se pueden replicar a la vez con la migración sin agente?
 
 Actualmente, se pueden migrar 100 máquinas virtuales por instancia de vCenter Server a la vez. Realice la migración en lotes de 10 VM.
+
+## <a name="how-do-i-throttle-replication-in-using-azure-migrate-appliance-for-agentless-vmware-replication"></a>¿Cómo puedo limitar la replicación en el uso del dispositivo de Azure Migrate para la replicación de VMware sin agente?  
+
+Se puede limitar mediante NetQosPolicy. Por ejemplo:
+
+El elemento AppNamePrefix que se va a usar en NetQosPolicy es "GatewayWindowsService.exe". Se puede crear una directiva en el dispositivo de Azure Migrate para limitar el tráfico de replicación desde el dispositivo mediante la creación de una directiva como la siguiente:
+ 
+New-NetQosPolicy -Name "ThrottleReplication" -AppPathNameMatchCondition "GatewayWindowsService.exe" -ThrottleRateActionBitsPerSecond 1MB
 
 ## <a name="when-do-i-migrate-machines-as-physical-servers"></a>¿Cuándo debo migrar máquinas como servidores físicos a Azure?
 

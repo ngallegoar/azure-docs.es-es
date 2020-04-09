@@ -12,46 +12,48 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/07/2019
+ms.date: 03/17/2020
 ms.author: b-juche
-ms.openlocfilehash: 7cf382f511d2ba8452d77bf207f36b749cb31e94
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: c8e3b616dee1ab4e6bb6e77c6a8bab5661d4e20b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848788"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79460439"
 ---
 # <a name="metrics-for-azure-netapp-files"></a>Métricas de Azure NetApp Files
 
-Azure NetApp Files proporciona métricas sobre el almacenamiento asignado, el uso de almacenamiento real, el rendimiento de volumen, el número de IOPS y la latencia. Mediante el análisis de estas métricas, puede comprender mejor el patrón de uso y el rendimiento de volumen de las cuentas de NetApp.  
+Azure NetApp Files proporciona métricas sobre el almacenamiento asignado, el uso de almacenamiento real, el número de IOPS del volumen y la latencia. Mediante el análisis de estas métricas, puede comprender mejor el patrón de uso y el rendimiento de volumen de las cuentas de NetApp.  
 
-## <a name="capacity_pools"></a>Métricas de uso de grupos de capacidad
+## <a name="usage-metrics-for-capacity-pools"></a><a name="capacity_pools"></a>Métricas de uso de grupos de capacidad
 
 <!-- 
-- *Volume pool allocated size*  
-    The size (GiB) of the provisioned capacity pool  
+- *Pool Provisioned Size*  
+    The logical space (GiB) the capacity pool is provisioned with.  
+    This size is the size you selected during capacity pool creation. 
 --> 
-- *Uso asignado del grupo de volumen*  
-    La cuota de volumen (GiB) total en un grupo de capacidad determinado (es decir, el total de los tamaños aprovisionados de los volúmenes en el grupo de capacidad).  
-    Este es el tamaño que se selecciona durante la creación del volumen.  
-- *Tamaño lógico total del grupo de volumen*  
-    El espacio lógico (GiB) total usado en todos los volúmenes de un grupo de capacidad.  
+- *Grupo asignado al tamaño del volumen*  
+    Cuota de volumen (GiB) total en un grupo de capacidad determinado (es decir, el total de los tamaños aprovisionados de los volúmenes en el grupo de capacidad).  
+    Es el tamaño que se selecciona durante la creación del volumen.  
+- *Tamaño consumido del grupo*  
+    Espacio lógico (GiB) total usado en todos los volúmenes de un grupo de capacidad.  
 <!-- 
-- *Volume pool total snapshot size*  
-    The total of incremental logical space used by the snapshots  
+- *Pool Consumed Snapshot Size*  
+    The total of logical space (GiB) used by snapshots across all volumes in a capacity pool. 
 -->
 
-## <a name="volumes"></a>Métricas de uso de volúmenes
+## <a name="usage-metrics-for-volumes"></a><a name="volumes"></a>Métricas de uso de volúmenes
 
-<!-- 
-- *Volume allocated size*   
-    The volume size (quota) provisioned in GiB  
---> 
-- *Tamaño lógico del volumen*   
-    El espacio lógico total usado en un volumen (GiB).  
+<!--
+- *Volume Quota Size*    
+    The quota size (GiB) the volume is provisioned with.   
+    This size is the size you selected during capacity pool creation. 
+-->
+- *Tamaño consumido del volumen*   
+    Espacio lógico total usado en un volumen (GiB).  
     Este tamaño incluye el espacio lógico usado por las instantáneas y los sistemas de archivos activos.  
 - *Tamaño de instantánea de volumen*   
-   El espacio lógico incremental usado por las instantáneas de un volumen.  
+   Espacio lógico incremental usado por las instantáneas de un volumen.  
 
 ## <a name="performance-metrics-for-volumes"></a>Métricas de rendimiento de los volúmenes
 

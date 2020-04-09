@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/05/2020
-ms.openlocfilehash: d8cb8bfa32db958b6dfdda0df23429669ce2a439
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: bf780897317d41c7da85140f64313546cf5c31d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77063805"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80064697"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Administración de clústeres de HDInsight con la interfaz de usuario web de Apache Ambari
 
@@ -23,7 +23,7 @@ Apache Ambari simplifica la administración y la supervisión de un clúster de 
 
 Con este documento aprende a usar la interfaz de usuario web de Ambari con un clúster de HDInsight.
 
-## <a id="whatis"></a>¿Qué es Apache Ambari?
+## <a name="what-is-apache-ambari"></a><a id="whatis"></a>¿Qué es Apache Ambari?
 
 [Apache Ambari](https://ambari.apache.org) simplifica la administración de Hadoop al proporcionar una interfaz de usuario de web fácil de usar. Puede usar Ambari para administrar y supervisar los clústeres de Hadoop. Los desarrolladores pueden integrar estas funcionalidades en sus aplicaciones mediante el uso de las [API de REST de Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
@@ -87,6 +87,8 @@ También puede administrar métodos de alerta y crear notificaciones de alerta a
 ![Crear una notificación de alerta en Apache Ambari](./media/hdinsight-hadoop-manage-ambari/create-alert-notification.png)
 
 Por último, al seleccionar __Manage Alert Settings__ (Administrar configuración de alerta) en el menú __Actions__ (Acciones) podrá probar el número de veces que debe aparecer una alerta antes de enviar una notificación. Esta opción puede usarse para evitar notificaciones de errores transitorios.
+
+Para ver un tutorial de una notificación de alerta con una [cuenta de SendGrid](https://docs.microsoft.com/azure/sendgrid-dotnet-how-to-send-email) gratuita, consulte [Configuración de notificaciones por correo electrónico de Apache Ambari en Azure HDInsight](./apache-ambari-email.md).
 
 ### <a name="cluster"></a>Clúster
 
@@ -164,7 +166,7 @@ La página **Hosts** muestra todos los hosts existentes en el clúster. Siga est
     |Dar de baja|Quita un host del clúster. **No use esta acción en clústeres de HDInsight.**|
     |Dar de alta|Agrega un host anteriormente retirado al clúster. **No use esta acción en clústeres de HDInsight.**|
 
-### <a id="service"></a>Servicios
+### <a name="services"></a><a id="service"></a>Servicios
 
 En la página **Dashboard** (Panel) o **Services** (Servicios), use el botón **Actions** (Acciones) que se encuentra en la parte inferior de la lista de servicios para detener e iniciar todos los servicios.
 

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ee3b5bd3278412949074b77f9d1c53d63a467280
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 403ca480bcf0743d81e375c122c888db96bbf543
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78189402"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80408719"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Notas para desarrolladores sobre directivas personalizadas en Azure Active Directory B2C
 
@@ -59,68 +59,82 @@ Los desarrolladores que utilizan el conjunto de características de directivas p
 
 Las directivas personalizadas y las funcionalidades de Identity Experience Framework están en desarrollo constante y rápido. La siguiente tabla es un índice de disponibilidad de características y componentes.
 
-### <a name="identity-providers-tokens-protocols"></a>Proveedores de identidades, Tokens, Protocolos
+
+### <a name="protocols-and-authorization-flows"></a>Protocolos y flujos de autorización
 
 | Característica | Desarrollo | Vista previa | GA | Notas |
 |-------- | :-----------: | :-------: | :--: | ----- |
-| IDP-OpenIDConnect |  |  | X | Por ejemplo, Google+.  |
-| IDP-OAUTH2 |  |  | X | Por ejemplo, Facebook.  |
-| IDP-OAUTH1 (twitter) |  | X |  | Por ejemplo, Twitter. |
-| IDP-OAUTH1 (ex-twitter) |  |  |  | No compatible |
-| IDP-SAML |  |   | X | Por ejemplo, Salesforce, ADFS. |
-| IDP-WSFED | X |  |  |  |
-| Usuario de confianza OAUTH1 |  |  |  | No compatible. |
-| Usuario de confianza OAUTH2 |  |  | X |  |
-| Usuario de confianza OIDC |  |  | X |  |
-| Usuario de confianza SAML |  |X  |  |  |
-| Usuario de confianza WSFED | X |  |  |  |
-| API REST con autenticación básica y de certificado |  |  | X | Por ejemplo, Azure Logic Apps. |
+| [Código de autorización OAuth2](authorization-code-flow.md) |  |  | X |  |
+| Código de autorización OAuth2 con PKCE |  |  | X | Solo aplicaciones móviles  |
+| [Flujo implícito de OAuth2](implicit-flow-single-page-application.md) |  |  | X |  |
+| [Credenciales de contraseña del propietario del recurso OAuth2](ropc-custom.md) |  | X |  |  |
+| [Conexión OIDC](openid-connect.md) |  |  | X |  |
+| [SAML2](connect-with-saml-service-providers.md)  |  |X  |  | Enlaces POST y de redirección. |
+| OAuth1 |  |  |  | No compatible. |
+| WSFED | X |  |  |  |
+
+### <a name="identify-providers-federation"></a>Identificación de la federación de proveedores 
+
+| Característica | Desarrollo | Vista previa | GA | Notas |
+|-------- | :-----------: | :-------: | :--: | ----- |
+| [OpenID Connect](openid-connect-technical-profile.md) |  |  | X | Por ejemplo, Google+.  |
+| [OAuth2](oauth2-technical-profile.md) |  |  | X | Por ejemplo, Facebook.  |
+| [OAuth1](oauth1-technical-profile.md) |  | X |  | Por ejemplo, Twitter. |
+| [SAML2](saml-technical-profile.md) |  |   | X | Por ejemplo, Salesforce, ADFS. |
+| WSFED| X |  |  |  |
+
+
+### <a name="rest-api-integration"></a>Integración de API REST
+
+| Característica | Desarrollo | Vista previa | GA | Notas |
+|-------- | :-----------: | :-------: | :--: | ----- |
+| [API REST con autenticación básica](secure-rest-api.md#http-basic-authentication) |  |  | X |  |
+| [API REST con autenticación de certificado de cliente](secure-rest-api.md#https-client-certificate-authentication) |  |  | X |  |
+| [API REST con autenticación de portador de OAuth2](secure-rest-api.md#oauth2-bearer-authentication) |  | X |  |  |
 
 ### <a name="component-support"></a>Compatibilidad de componentes
 
 | Característica | Desarrollo | Vista previa | GA | Notas |
 | ------- | :-----------: | :-------: | :--: | ----- |
-| Autenticación multifactor de Azure |  |  | X |  |
-| Azure Active Directory como directorio local |  |  | X |  |
+| [Autenticación de factor de teléfono](phone-factor-technical-profile.md) |  |  | X |  |
+| [Autenticación de Azure MFA](multi-factor-auth-technical-profile.md) |  | X |  |  |
+| [Contraseña de un solo uso](one-time-password-technical-profile.md) |  | X |  |  |
+| [Azure Active Directory](active-directory-technical-profile.md) como directorio local |  |  | X |  |
 | Subsistema de correo electrónico de Azure para la comprobación de correo electrónico |  |  | X |  |
-| Compatibilidad con varios lenguajes|  |  | X |  |
-| Validaciones de predicado |  |  | X | Por ejemplo, la complejidad de la contraseña. |
-| Uso de proveedores de servicios de correo electrónico de terceros |  |X  |  |  |
+| [Proveedores de servicios de correo electrónico de terceros](custom-email.md) |  |X  |  |  |
+| [Compatibilidad con varios lenguajes](localization.md)|  |  | X |  |
+| [Validaciones de predicado](predicates.md) |  |  | X | Por ejemplo, la complejidad de la contraseña. |
+| [Controles de presentación](display-controls.md) |  |X  |  |  |
 
-### <a name="content-definition"></a>Definición de contenido
+
+### <a name="page-layout-versions"></a>Versiones de diseño de página
 
 | Característica | Desarrollo | Vista previa | GA | Notas |
 | ------- | :-----------: | :-------: | :--: | ----- |
-| Página de error, api.error |  |  | X |  |
-| Página de selección de IDP, api.idpselections |  |  | X |  |
-| Selección de IDP para suscribirse, api.idpselections.signup |  |  | X |  |
-| Ha olvidado la contraseña, api.localaccountpasswordreset |  |  | X |  |
-| Inicio de sesión en cuenta local, api.localaccountsignin |  |  | X |  |
-| Registro en cuenta local, api.localaccountsignup |  |  | X |  |
-| Página de MFA, api.phonefactor |  |  | X |  |
-| Registro en la cuenta social de autoaserción, api.selfasserted |  |  | X |  |
-| Actualización de perfil de autoaserción, api.selfasserted.profileupdate |  |  | X |  |
-| Página unificada de registro o inicio de sesión, api.signuporsignin, con el parámetro "disableSignup" |  |  | X |  |
-| JavaScript/diseño de página |  | X |  |  |
+| [2.0.0](page-layout.md#200) |  | X |  |  |
+| [1.2.0](page-layout.md#120) |  | X |  |  |
+| [1.1.0](page-layout.md#110) |  |  | X |  |
+| [1.0.0](page-layout.md#100) |  |  | X |  |
+| [Compatibilidad con JavaScript](javascript-samples.md) |  | X |  |  |
 
 ### <a name="app-ief-integration"></a>Integración de aplicaciones IEF
 
 | Característica | Desarrollo | Vista previa | GA | Notas |
 | ------- | :-----------: | :-------: | :--: | ----- |
-| Parámetro de cadena de consulta domain_hint |  |  | X | Disponible como notificación, puede pasarse al IDP. |
-| Parámetro de cadena de consulta login_hint |  |  | X | Disponible como notificación, puede pasarse al IDP. |
-| Insertar JSON en UserJourney a través de client_assertion | X |  |  | En desuso. |
-| Insertar JSON en UserJourney como id_token_hint |  | X |  | Enfoque de avance para pasar a JSON. |
-| Paso del TOKEN del IDP a la aplicación |  | X |  | Por ejemplo, de Facebook a la aplicación. |
+| Parámetro `domain_hint` de cadena de consulta |  |  | X | Disponible como notificación, puede pasarse al IDP. |
+| Parámetro `login_hint` de cadena de consulta |  |  | X | Disponible como notificación, puede pasarse al IDP. |
+| Inserción de JSON en el recorrido del usuario a través de `client_assertion` | X |  |  | En desuso. |
+| Inserción de JSON en el recorrido del usuario como `id_token_hint` |  | X |  | Enfoque de avance para pasar a JSON. |
+| [Paso del token del proveedor de identidades a la aplicación](idp-pass-through-custom.md) |  | X |  | Por ejemplo, de Facebook a la aplicación. |
 
 ### <a name="session-management"></a>Administración de sesiones
 
 | Característica | Desarrollo | Vista previa | GA | Notas |
 | ------- | :-----------: | :-------: | :--: | ----- |
-| Proveedor de sesión SSO |  |  | X |  |
-| Proveedor de sesión de inicio de sesión externa |  |  | X |  |
-| Proveedor de sesión de SSO de SAML |  |  | X |  |
-| Proveedor de sesión de SSO predeterminado |  |  | X |  |
+| [Proveedor predeterminado de sesión de SSO](custom-policy-reference-sso.md#defaultssosessionprovider) |  |  | X |  |
+| [Proveedor externo de sesión de inicio de sesión](custom-policy-reference-sso.md#externalloginssosessionprovider) |  |  | X |  |
+| [Proveedor de sesión de SSO de SAML](custom-policy-reference-sso.md#samlssosessionprovider) |  |  | X |  |
+
 
 ### <a name="security"></a>Seguridad
 
@@ -128,16 +142,19 @@ Las directivas personalizadas y las funcionalidades de Identity Experience Frame
 |-------- | :-----------: | :-------: | :--: | ----- |
 | Claves de directivas: generar, manual, carga |  |  | X |  |
 | Claves de directivas: RSA/Certificado, secretos |  |  | X |  |
-| Carga de directiva |  |  | X |  |
+
 
 ### <a name="developer-interface"></a>Interfaz del desarrollador
 
 | Característica | Desarrollo | Vista previa | GA | Notas |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | Azure Portal-IEF UX |  |  | X |  |
-| Registros de UserJourney de Application Insights |  | X |  | Se usa para solucionar problemas durante el desarrollo.  |
-| Registros de eventos de Application Insights (mediante pasos de orquestación) |  | X |  | Se usa para supervisar flujos de usuario en producción. |
+| Carga de directiva |  |  | X |  |
+| [Registros de recorridos del usuario de Application Insights](troubleshoot-with-application-insights.md) |  | X |  | Se usa para solucionar problemas durante el desarrollo.  |
+| [Registros de eventos de Application Insights](application-insights-technical-profile.md) |  | X |  | Se usa para supervisar flujos de usuario en producción. |
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga más información sobre las [directivas personalizadas y las diferencias con los flujos de usuario](custom-policy-overview.md).
+- Consulte las [Operaciones de Microsoft Graph disponibles para Azure AD B2C](microsoft-graph-operations.md).
+- Obtenga más información sobre las [directivas personalizadas y las diferencias con los flujos de usuario](custom-policy-overview.md).

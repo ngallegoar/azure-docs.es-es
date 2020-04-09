@@ -8,12 +8,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: spelluru
-ms.openlocfilehash: 16d8faa1f20227241d1a582dd4d80e0123f7a31e
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 1fa8f7a48c03ead7e939185b23834b3049b3e21c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368494"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80064859"
 ---
 # <a name="authorize-access-to-event-hubs-resources-using-azure-active-directory"></a>Autorización del acceso a recursos de Event Hubs mediante Azure Active Directory
 Azure Event Hubs admite la autorización de solicitudes a recursos de Event Hubs mediante Azure Active Directory (Azure AD). Con Azure AD, puede usar el control de acceso basado en rol (RBAC) para conceder permisos a una entidad de seguridad, que puede ser un usuario o una entidad de servicio de aplicación. Para más información sobre los roles y las asignaciones de roles, consulte [Descripción de los distintos roles](../role-based-access-control/overview.md).
@@ -21,7 +21,7 @@ Azure Event Hubs admite la autorización de solicitudes a recursos de Event Hubs
 ## <a name="overview"></a>Información general
 Cuando una entidad de seguridad (un usuario o una aplicación) intenta acceder a un recurso de Event Hubs, la solicitud debe estar autorizada. Con Azure AD, el acceso a un recurso es un proceso de dos pasos. 
 
- 1. En primer lugar, se autentica la identidad de la entidad de seguridad y se devuelve un token de OAuth 2.0. El nombre del recurso para solicitar un token es `https://eventhubs.azure.net/`.
+ 1. En primer lugar, se autentica la identidad de la entidad de seguridad y se devuelve un token de OAuth 2.0. El nombre del recurso para solicitar un token es `https://eventhubs.azure.net/`. En el caso de los clientes de Kafka, el recurso para solicitar un token es `https://<namespace>.servicebus.windows.net`.
  1. Luego, el token se pasa como parte de una solicitud al servicio Event Hubs para autorizar el acceso al recurso especificado.
 
 El paso de autenticación exige que una solicitud de aplicación contenga un token de acceso de OAuth 2.0 en tiempo de ejecución. Si una aplicación se está ejecutando dentro de una entidad de Azure, como puede ser una máquina virtual de Azure, un conjunto de escalado de máquinas virtuales o una aplicación de Azure Functions, puede usar una identidad administrada para acceder a los recursos. Para más información sobre cómo autenticar solicitudes realizadas por una identidad administrada al servicio Event Hubs, vea [Autenticación del acceso a recursos de Azure Event Hubs con Azure Active Directory e identidades administradas para recursos de Azure](authenticate-managed-identity.md). 

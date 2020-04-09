@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/14/2020
+ms.date: 03/17/2020
 ms.author: b-juche
-ms.openlocfilehash: 6391a3eeead6a52371c11011a65f4b4de7260156
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 24b3710861f0ee158619ae9103584dcdb181f3d5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76046246"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79460456"
 ---
 # <a name="faqs-about-smb-performance-for-azure-netapp-files"></a>Preguntas más frecuentes sobre el rendimiento de SMB para Azure NetApp Files
 
@@ -94,12 +94,12 @@ Azure coloca los límites de velocidad de red en cada tipo o tamaño de máquina
 
 ![Comparación de E/S secuencial](../media/azure-netapp-files/azure-netapp-files-sequential-io-tests-list.png)
 
-## <a name="is-advanced-networking-recommended"></a>¿Se recomienda el uso de redes avanzadas?
+## <a name="is-accelerated-networking-recommended"></a>¿Se recomienda el uso de la opción Redes aceleradas?
 
-Para obtener el máximo rendimiento, se recomienda configurar redes avanzadas siempre que sea posible. Tenga en cuenta las siguientes consideraciones:  
+Para obtener el máximo rendimiento, se recomienda configurar [Redes aceleradas](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell) siempre que sea posible. Tenga en cuenta las siguientes consideraciones:  
 
-* Azure Portal habilita redes avanzadas de forma predeterminada para las máquinas virtuales que admiten esta característica.  Sin embargo, es posible que no se puedan aplicar otros métodos de implementación como Ansible y herramientas de configuración similares.  Si no se habilitan las redes avanzadas, el rendimiento de la máquina puede verse afectado.  
-* Si las redes avanzadas no están habilitadas en la interfaz de red de una máquina virtual debido a su falta de compatibilidad con un tipo o tamaño de instancia, permanecerán deshabilitadas con tipos de instancia mayores. En esos casos, necesitará una intervención manual.
+* Azure Portal habilita Redes aceleradas de forma predeterminada para las máquinas virtuales que admiten esta característica.  Sin embargo, es posible que no se puedan aplicar otros métodos de implementación como Ansible y herramientas de configuración similares.  Si no se habilita Redes aceleradas, el rendimiento de la máquina puede verse afectado.  
+* Si la opción Redes aceleradas no está habilitada en la interfaz de red de una máquina virtual debido a su falta de compatibilidad con un tipo o tamaño de instancia, permanecerá deshabilitada con tipos de instancia mayores. En esos casos, necesitará una intervención manual.
 
 ## <a name="are-jumbo-frames-supported"></a>¿Se admiten tramas gigantes?
 

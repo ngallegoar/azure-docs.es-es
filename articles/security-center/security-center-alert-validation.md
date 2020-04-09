@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 10ea15168d61d5e73aff976ef641e07b6327dbca
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 5146878adf10e452f38fecb115ec40792ffa84f3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77604570"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79140004"
 ---
 # <a name="alert-validation-eicar-test-file-in-azure-security-center"></a>Validación de alertas (archivo de prueba EICAR) en Azure Security Center
 Este documento le ayuda a comprobar si el sistema está configurado correctamente para las alertas de Azure Security Center.
@@ -33,7 +33,7 @@ Para obtener más información, consulte [Alertas de seguridad en Azure Security
 * [Linux](#validate-linux)
 * [Kubernetes](#validate-kubernetes)
 
-## Validación de alertas en máquinas virtuales Windows <a name="validate-windows"></a>
+## <a name="validate-alerts-on-windows-vms"></a>Validación de alertas en máquinas virtuales Windows <a name="validate-windows"></a>
 
 Una vez que el agente de Security Center esté instalado en el equipo, siga estos pasos desde el equipo donde desee que esté el recurso atacado de la alerta:
 
@@ -46,7 +46,7 @@ Una vez que el agente de Security Center esté instalado en el equipo, siga esto
 >
 >```reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\system\Audit" /f /v "ProcessCreationIncludeCmdLine_Enabled"```
 
-## Validación de alertas en máquinas virtuales Linux <a name="validate-linux"></a>
+## <a name="validate-alerts-on-linux-vms"></a>Validación de alertas en máquinas virtuales Linux <a name="validate-linux"></a>
 
 Una vez que el agente de Security Center esté instalado en el equipo, siga estos pasos desde el equipo donde desee que esté el recurso atacado de la alerta:
 1. Copie un archivo ejecutable en una ubicación adecuada y cambie el nombre a **./asc_alerttest_662jfi039n**, por ejemplo:
@@ -59,12 +59,12 @@ Una vez que el agente de Security Center esté instalado en el equipo, siga esto
 
 1. Espere de cinco a diez minutos y abra Alertas de Security Center. Se mostrará una alerta similar a la del [ejemplo](#alert-validate) siguiente:
 
-### Ejemplo de alerta <a name="alert-validate"></a>
+### <a name="alert-example"></a>Ejemplo de alerta <a name="alert-validate"></a>
 
 ![Ejemplo de validación de alertas](./media/security-center-alert-validation/security-center-alert-validation-fig2.png) 
 
 
-## Validación de alertas en Kubernetes <a name="validate-kubernetes"></a>
+## <a name="validate-alerts-on-kubernetes"></a>Validación de alertas en Kubernetes <a name="validate-kubernetes"></a>
 
 Si usa la característica de vista previa de Security Center referentes a la integración de Azure Kubernetes Service, ejecute el siguiente comando kubectl para comprobar que las alertas funcionan:
 
@@ -75,8 +75,7 @@ Para obtener más información sobre la integración de Azure Kubernetes Service
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo se explicó el proceso de validación de las alertas. Ahora que conoce esta validación, intente los siguientes pasos:
 
+* [Validación de la detección de amenazas de Azure Key Vault en Azure Security Center](https://techcommunity.microsoft.com/t5/azure-security-center/validating-azure-key-vault-threat-detection-in-azure-security/ba-p/1220336)
 * [Administración y respuesta a las alertas de seguridad en Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts): obtenga información sobre cómo administrar y responder a los incidentes de seguridad en Security Center.
 * [Supervisión del estado de seguridad en Azure Security Center](security-center-monitoring.md): obtenga información sobre cómo supervisar el mantenimiento de los recursos de Azure.
 * [Comprender las alertas de seguridad en Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type): obtenga información sobre los distintos tipos de alertas de seguridad.
-* [Guía de solución de problemas de Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide): aprenda a solucionar problemas comunes en Security Center.
-* [Blog de Azure Security](https://blogs.msdn.com/b/azuresecurity/): busque entradas de blog sobre el cumplimiento y la seguridad en Azure.

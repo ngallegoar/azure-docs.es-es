@@ -5,28 +5,28 @@ services: virtual-wan
 author: anzaman
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 02/19/2020
+ms.date: 03/19/2020
 ms.author: alzam
-ms.openlocfilehash: 4e667dcccd612873e8633c375bc3ce611e11c962
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: af5ff5817ee9ae7e6d7432fe281ecb440bf25b9a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77485955"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80060710"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Creación de un inquilino de Azure Active Directory para conexiones del protocolo P2S OpenVPN
 
-Al conectarse a la red virtual, puede usar la autenticación basada en certificados o la autenticación RADIUS. Sin embargo, cuando use el protocolo de VPN abierto, también puede usar la autenticación de Azure Active Directory. Si quiere que un conjunto de usuarios diferente pueda conectarse a diferentes puertas de enlace de VPN, puede registrar varias aplicaciones en AD y vincularlas a diferentes puertas de enlace de VPN.
+Al conectarse a la red virtual, puede usar la autenticación basada en certificados o la autenticación RADIUS. Sin embargo, cuando use el protocolo de VPN abierto, también puede usar la autenticación de Azure Active Directory. Si quiere que un conjunto de usuarios diferente pueda conectarse a diferentes puertas de enlace, puede registrar varias aplicaciones en AD y vincularlas a diferentes puertas de enlace.
 
 Este artículo le ayuda a configurar un inquilino de Azure AD para la autenticación de OpenVPN de P2S y a crear y registrar varias aplicaciones en Azure AD a fin de permitir un acceso distinto a los diferentes usuarios y grupos.
 
 > [!NOTE]
-> La autenticación de Azure AD solo se admite para las conexiones de protocolo de OpenVPN®.
+> La autenticación de Azure AD solo se admite para las conexiones de protocolo de OpenVPN&reg;.
 >
 
 [!INCLUDE [create](../../includes/openvpn-azure-ad-tenant-multi-app.md)]
 
-## <a name="site"></a>6. Creación de una nueva configuración de P2S
+## <a name="6-create-a-new-p2s-configuration"></a><a name="site"></a>6. Creación de una nueva configuración de P2S
 
 Una configuración de P2S define los parámetros para conectarse a los clientes remotos.
 
@@ -45,9 +45,9 @@ Una configuración de P2S define los parámetros para conectarse a los clientes 
    ```
 
    > [!NOTE]
-   > No use el id. de la aplicación del cliente VPN de Azure en los comandos anteriores: Concederá acceso a todos los usuarios a la puerta de enlace VPN. Use el identificador de las aplicaciones que registró.
+   > No use el id. de la aplicación del cliente VPN de Azure en los comandos anteriores: Concederá acceso a todos los usuarios a la puerta de enlace. Use el identificador de las aplicaciones que registró.
 
-## <a name="hub"></a>7. Edición de la asignación del concentrador
+## <a name="7-edit-hub-assignment"></a><a name="hub"></a>7. Edición de la asignación del concentrador
 
 1. Vaya a la hoja **Centros de conectividad** de la red virtual WAN.
 
@@ -67,7 +67,7 @@ Una configuración de P2S define los parámetros para conectarse a los clientes 
 
 7. La operación puede tardar un máximo de 30 minutos en completarse.
 
-## <a name="device"></a>8. Descarga del perfil de VPN
+## <a name="8-download-vpn-profile"></a><a name="device"></a>8. Descarga del perfil de VPN
 
 Use el perfil de VPN para configurar los clientes.
 
@@ -90,14 +90,14 @@ Use el perfil de VPN para configurar los clientes.
 Para conectarse, debe descargar el cliente de VPN de Azure e importar el perfil de cliente de VPN que descargó en los pasos anteriores en todos los equipos que quieran conectarse a la red virtual.
 
 > [!NOTE]
-> La autenticación de Azure AD solo se admite para las conexiones de protocolo de OpenVPN®.
+> La autenticación de Azure AD solo se admite para las conexiones de protocolo de OpenVPN&reg;.
 >
 
 #### <a name="to-download-the-azure-vpn-client"></a>Para descargar el cliente VPN de Azure
 
 Use este [vínculo](https://go.microsoft.com/fwlink/?linkid=2117554) para descargar el cliente VPN de Azure.
 
-#### <a name="import"></a>Para importar un perfil de cliente
+#### <a name="to-import-a-client-profile"></a><a name="import"></a>Para importar un perfil de cliente
 
 1. En la página, seleccione **Importar**.
 
@@ -119,7 +119,7 @@ Use este [vínculo](https://go.microsoft.com/fwlink/?linkid=2117554) para descar
 
     ![importación](./media/openvpn-azure-ad-tenant-multi-app/import/import5.jpg)
 
-#### <a name="delete"></a>Para eliminar un perfil de cliente
+#### <a name="to-delete-a-client-profile"></a><a name="delete"></a>Para eliminar un perfil de cliente
 
 1. Seleccione los puntos suspensivos junto al perfil de cliente que quiera eliminar. Después, seleccione **Quitar**.
 
@@ -129,7 +129,7 @@ Use este [vínculo](https://go.microsoft.com/fwlink/?linkid=2117554) para descar
 
     ![delete](./media/openvpn-azure-ad-tenant-multi-app/delete/delete2.jpg)
 
-#### <a name="diagnose"></a>Para diagnosticar problemas de conexión
+#### <a name="to-diagnose-connection-issues"></a><a name="diagnose"></a>Para diagnosticar problemas de conexión
 
 1. Para diagnosticar problemas de conexión, puede usar la herramienta **Diagnosticar**. Seleccione los puntos suspensivos (...) junto a la conexión de VPN que desea diagnosticar para que se muestre el menú. Después, seleccione **Diagnosticar**.
 
@@ -147,21 +147,15 @@ Use este [vínculo](https://go.microsoft.com/fwlink/?linkid=2117554) para descar
 
     ![diagnóstico](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose4.jpg)
 
-## <a name="viewwan"></a>10. Visualizar la instancia de Virtual WAN
+## <a name="10-view-your-virtual-wan"></a><a name="viewwan"></a>10. Visualizar la instancia de Virtual WAN
 
 1. Vaya a la instancia de Virtual WAN.
 
-2. En la página Información general, cada punto del mapa representa un concentrador. Mantenga el mouse sobre cualquier punto para ver el resumen de estado del concentrador.
+2. En la página Información general, cada punto del mapa representa un concentrador.
 
 3. En la sección de concentradores y conexiones, puede ver estado del concentrador, sitio, región, estado de la conexión VPN y bytes de entrada y salida.
 
-## <a name="viewhealth"></a>11. Visualización del estado de los recursos
-
-1. Vaya a su red WAN.
-
-2. En la página de la WAN, en la sección de **Soporte técnico y solución de problemas**, haga clic en **Mantenimiento** y visualice los recursos.
-
-## <a name="cleanup"></a>Limpieza de recursos
+## <a name="clean-up-resources"></a><a name="cleanup"></a>Limpieza de recursos
 
 Cuando ya no necesite estos recursos, puede usar [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) para quitar el grupo de recursos y todos los recursos que contiene. Reemplace "myResourceGroup" con el nombre del grupo de recursos y ejecute el siguiente comando de PowerShell:
 

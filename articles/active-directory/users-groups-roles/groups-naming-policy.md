@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9136ce26f0070c8822292c741be59de537d3667
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 141e83e21db18f21468113fd9927c2bdd2ed176d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75941053"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79497884"
 ---
 # <a name="enforce-a-naming-policy-on-office-365-groups-in-azure-active-directory"></a>Aplicación de una directiva de nomenclatura en los grupos de Office 365 en Azure Active Directory
 
@@ -29,6 +29,8 @@ Para aplicar convenciones de nomenclatura coherentes a los grupos de Office 365 
 > Para usar la directiva de nomenclatura de Azure AD para los grupos de Office 365, es necesario que posea una licencia P1 de Azure Active Directory Premium o una licencia EDU de Azure AD Basic para cada usuario que sea miembro de uno o varios grupos de Office 365.
 
 La directiva de nomenclatura se aplica a la creación o edición de grupos creados en cargas de trabajo (por ejemplo, Outlook, Microsoft Teams, SharePoint, Exchange o Planner). Se aplica tanto al nombre como al alias del grupo. Si configuró su directiva de nomenclatura en Azure AD y tiene una directiva de nomenclatura de grupos de Exchange existente, se aplica la directiva de nomenclatura de Azure AD.
+
+Cuando se configure la directiva de nomenclatura de grupos, se aplicará a los nuevos grupos de Office 365 creados por los usuarios finales. La directiva de nomenclatura no se aplica a ciertos roles de directorio, como Administrador global o Administrador de usuarios (consulte a continuación la lista completa de los roles exentos de la directiva de nomenclatura de grupos). En el caso de los grupos existentes de Office 365, la directiva no se aplicará de inmediato en el momento de la configuración. Una vez que el propietario del grupo edite el nombre de estos grupos, se aplicará la directiva de nomenclatura.
 
 ## <a name="naming-policy-features"></a>Características de la directiva de nomenclatura
 

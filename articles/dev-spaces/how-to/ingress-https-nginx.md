@@ -5,12 +5,12 @@ ms.date: 12/10/2019
 ms.topic: conceptual
 description: Aprenda a configurar Azure Dev Spaces para usar un controlador de entrada de NGINX personalizado y configurar HTTPS con ese controlador de entrada
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, service mesh, enrutamiento de service mesh, kubectl, k8s
-ms.openlocfilehash: 9c3598ea39dd7b48c622126a9adbaa75d4c9d934
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 0fe9fec263b72ac06839b58fdc5b0142a724718c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77622416"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80155454"
 ---
 # <a name="use-a-custom-nginx-ingress-controller-and-configure-https"></a>Uso de un controlador de entrada de NGINX personalizado y configuración de HTTPS
 
@@ -23,20 +23,20 @@ En este artículo se muestra cómo configurar Azure Dev Spaces para usar un cont
 * [Clúster de Azure Kubernetes Service (AKS) con Azure Dev Spaces habilitado][qs-cli].
 * [kubectl][kubectl] instalado.
 * [Helm 3 instalado][helm-installed].
-* [Un dominio personalizado][custom-domain] con una [zona DNS][dns-zone] en el mismo grupo de recursos que el clúster de AKS.
+* [Un dominio personalizado][custom-domain] con una [zona DNS][dns-zone].  En este artículo se da por supuesto que el dominio personalizado y la zona DNS están en el mismo grupo de recursos que el clúster de AKS, pero es posible usar un dominio personalizado y una zona DNS de otro grupo de recursos.
 
 ## <a name="configure-a-custom-nginx-ingress-controller"></a>Configuración de un controlador de entrada de NGINX personalizado
 
 Conecte el clúster con [kubectl][kubectl], el cliente de la línea de comandos de Kubernetes. Para configurar `kubectl` para conectarse a su clúster de Kubernetes, use el comando [az aks get-credentials][az-aks-get-credentials]. Con este comando se descargan las credenciales y se configura la CLI de Kubernetes para usarlas.
 
-```azurecli-interactive
+```azurecli
 az aks get-credentials --resource-group myResourceGroup --name myAKS
 ```
 
 Para comprobar la conexión al clúster, use el comando [kubectl get][kubectl-get] para devolver una lista de los nodos del clúster.
 
 ```console
-$ kubectl get nodes
+kubectl get nodes
 NAME                                STATUS   ROLES   AGE    VERSION
 aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.14.1
 ```
@@ -79,7 +79,7 @@ nginx-nginx-ingress-controller        LoadBalancer   10.0.19.39     MY_EXTERNAL_
 
 Agregue un registro *A* a la zona DNS con la dirección IP externa del servicio de NGINX mediante [az network dns record-set a add-record][az-network-dns-record-set-a-add-record].
 
-```console
+```azurecli
 az network dns record-set a add-record \
     --resource-group myResourceGroup \
     --zone-name MY_CUSTOM_DOMAIN \
@@ -249,7 +249,7 @@ gateway:
 Actualice la aplicación de ejemplo mediante `helm`:
 
 ```console
-helm upgrade bikesharing . --namespace dev --atomic
+helm upgrade bikesharingsampleapp . --namespace dev --atomic
 ```
 
 Navegue hasta la aplicación de ejemplo en el espacio secundario *dev/azureuser1* y observe que se le redirige para usar HTTPS. Observe también que la página se carga, pero el explorador muestra algunos errores. Al abrir la consola del explorador, se muestra el error relacionado con una página HTTPS que intenta cargar recursos HTTP. Por ejemplo:
@@ -288,7 +288,7 @@ Actualice [BikeSharingWeb/package.json][package-json] con una dependencia para e
 ...
 ```
 
-Actualice el método *getApiHostAsync* en [BikeSharingWeb/pages/helpers.js][helpers-js] para usar HTTPS:
+Actualice el método *getApiHostAsync* en [BikeSharingWeb/lib/helpers.js][helpers-js] para usar HTTPS:
 
 ```javascript
 ...
@@ -335,7 +335,7 @@ Obtenga información acerca de la forma en que Azure Dev Spaces le ayuda a desar
 [cert-manager]: https://cert-manager.io/
 [helm-installed]: https://helm.sh/docs/intro/install/
 [helm-stable-repo]: https://helm.sh/docs/intro/quickstart/#initialize-a-helm-chart-repository
-[helpers-js]: https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/BikeSharingWeb/pages/helpers.js#L7
+[helpers-js]: https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/BikeSharingWeb/lib/helpers.js#L7
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [letsencrypt-staging-issuer]: https://cert-manager.io/docs/configuration/acme/#creating-a-basic-acme-issuer

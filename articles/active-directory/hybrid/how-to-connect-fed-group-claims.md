@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: 78b36e1f5ababf2551bd69682807a8ed308ae24d
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: b8708aec1137836516852135412c4c7cec2feba4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78298452"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79408409"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory-public-preview"></a>Configurar notificaciones de grupo para aplicaciones con Azure Active Directory (versión preliminar pública)
 
@@ -107,7 +107,7 @@ Los grupos asignados a la aplicación se incluirán en el token.  Otros grupos d
 
 Para cambiar los grupos asignados a la aplicación, seleccione la aplicación en la lista **Aplicaciones de empresa** y, a continuación, haga clic en **Usuarios y grupos** en el menú de navegación izquierdo de la aplicación.
 
-Consulte el documento [Métodos para asignar usuarios y grupos a una aplicación](../../active-directory/manage-apps/methods-for-assigning-users-and-groups.md#assign-groups) para más información sobre la administración de la asignación de grupos a aplicaciones.
+Consulte el documento [Asignar un usuario o grupo a una aplicación empresarial](../../active-directory/manage-apps/assign-user-or-group-access-portal.md) para más información sobre la administración de la asignación de grupos a aplicaciones.
 
 ### <a name="advanced-options"></a>Opciones avanzadas
 
@@ -222,6 +222,6 @@ Para emitir los nombres de grupo que se devolverán en el formato netbiosDomain\
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Métodos para asignar usuarios y grupos a una aplicación](../../active-directory/manage-apps/methods-for-assigning-users-and-groups.md#assign-groups)
+[Asignar un usuario o grupo a una aplicación empresarial](../../active-directory/manage-apps/assign-user-or-group-access-portal.md)
 
 [Configuración de notificaciones de rol](../../active-directory/develop/active-directory-enterprise-app-role-management.md)

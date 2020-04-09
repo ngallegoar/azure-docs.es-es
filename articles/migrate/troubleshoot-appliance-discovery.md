@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 3e25f55d82ba146f9076e38faf1e399c5228d947
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.openlocfilehash: 9fbf55fbe16d958bf10541894159dade26668bef
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79080399"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80336724"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Solución de problemas del dispositivo de Azure Migrate y la detección
 
@@ -53,7 +53,7 @@ Un error sobre la sincronización de fecha y hora (802) indica que el reloj del 
 
 ## <a name="unabletoconnecttoserver"></a>"UnableToConnectToServer"
 
-Si obtiene este error de conexión, es posible que no pueda conectarse a vCenter Server *NombreDelServidor*.com:9443. Los detalles del error indican que no hay ningún punto de conexión en escucha en https://*NombreDelServidor*.com:9443/sdk que puede aceptar el mensaje.
+Si obtiene este error de conexión, es posible que no pueda conectarse a vCenter Server *NombreDelServidor*.com:9443. Los detalles del error indican que no hay ningún punto de conexión escuchando en `https://\*servername*.com:9443/sdk` que pueda aceptar el mensaje.
 
 - Compruebe si tiene en ejecución la versión más reciente del dispositivo. Si no es así, actualice el dispositivo a la [versión más reciente](https://docs.microsoft.com/azure/migrate/concepts-collector).
 - Si el problema persiste con la última versión, es posible que el dispositivo no pueda resolver el nombre de vCenter Server especificado o que el puerto especificado sea incorrecto. De forma predeterminada, si no se especifica el puerto, el recopilador intentará conectar con el número de puerto 443.
@@ -120,7 +120,7 @@ Si espera y el estado no cambia, seleccione **Actualizar** en la pestaña **Serv
 Si esto no funciona y está detectando servidores VMware:
 
 - Compruebe que la cuenta de vCenter especificada tiene los permisos establecidos correctamente y que tiene acceso al menos a una máquina virtual.
-- Azure Migrate no puede detectar máquinas virtuales de VMware si a la cuenta de vCenter se le ha concedido acceso en el nivel de carpeta de VM de vCenter. [Obtenga más información](tutorial-assess-vmware.md#set-the-scope-of-discovery) sobre el ámbito de la detección.
+- Azure Migrate no puede detectar máquinas virtuales de VMware si a la cuenta de vCenter se le ha concedido acceso en el nivel de carpeta de VM de vCenter. [Obtenga más información](set-discovery-scope.md) sobre el ámbito de la detección.
 
 ## <a name="vm-data-not-in-portal"></a>Datos de VM que no están en el portal
 

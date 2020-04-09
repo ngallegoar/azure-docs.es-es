@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 10/31/2019
 ms.author: apimpm
-ms.openlocfilehash: 1df2cce04021c1cd14c356311df921dd1c0298e4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1f2184c7c62887a98a76877528b167d173c3d75b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510585"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335947"
 ---
 # <a name="configure-a-custom-domain-name"></a>Configurar un nombre de dominio personalizado
 
@@ -25,7 +25,7 @@ Al aprovisionar una [puerta de enlace autohospedada de Azure API Management](sel
 > [!NOTE]
 > La característica de puerta de enlace autohospedada se encuentra en versión preliminar. Durante la versión preliminar, la puerta de enlace autohospedada solo está disponible en los niveles Desarrollador y Premium sin cargo adicional. El nivel de Desarrollador está limitado a una única implementación de puerta de enlace autohospedada.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para seguir los pasos que se describen en este artículo, debe tener:
 
@@ -37,7 +37,7 @@ Para seguir los pasos que se describen en este artículo, debe tener:
 - Una puerta de enlace autohospedada. Para obtener más información, consulte [cómo aprovisionar una puerta de enlace autohospedada](api-management-howto-provision-self-hosted-gateway.md)
 -   Nombre de dominio personalizado que propiedad de su organización o suyo. En este tema no se dan instrucciones para adquirir un nombre de dominio personalizado.
 -   Un registro DNS hospedado en un servidor DNS que asigna el nombre de dominio personalizado a la dirección IP de la puerta de enlace autohospedada. En este tema no se dan instrucciones para hospedar un registro DNS.
--   Debe tener un certificado válido con una clave pública y privada (. PFX). El firmante o el nombre alternativo del firmante (SAN) debe coincidir con el nombre de dominio; de este modo, API Management puede exponer de forma segura direcciones URL a través de SSL.
+-   Debe tener un certificado válido con una clave pública y privada (. PFX). El firmante o el nombre alternativo del firmante (SAN) debe coincidir con el nombre de dominio. De este modo, API Management puede exponer de forma segura direcciones URL mediante TLS.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 

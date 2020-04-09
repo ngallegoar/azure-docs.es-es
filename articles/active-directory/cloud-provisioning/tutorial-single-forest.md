@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f7c348e29fa2234627a53095a99e913a6389a27
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: 55dab553a93db4650a5d7126d7f1a0c3ca5f808f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76280975"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80332232"
 ---
 # <a name="tutorial-integrate-a-single-forest-with-a-single-azure-ad-tenant"></a>Tutorial: Integración de un único bosque con un único inquilino de Azure AD
 
@@ -26,7 +26,7 @@ Este tutorial le guía en la creación de un entorno de identidad híbrida media
 
 El entorno que se crea en este tutorial se puede usar para realizar pruebas o para familiarizarse con el aprovisionamiento en la nube.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 ### <a name="in-the-azure-active-directory-admin-center"></a>En el Centro de administración de Azure Active Directory
 
 1. Cree una cuenta de administrador global solo en la nube en el inquilino de Azure AD. De esta manera, puede administrar la configuración del inquilino en caso de que los servicios locales fallen o no estén disponibles. Información acerca de la [incorporación de una cuenta de administrador global que está solo en la nube](../active-directory-users-create-azure-portal.md). Realizar este paso es esencial para garantizar que no queda bloqueado fuera de su inquilino.
@@ -41,7 +41,7 @@ El entorno que se crea en este tutorial se puede usar para realizar pruebas o pa
 
      | Número de puerto | Cómo se usa |
      | --- | --- |
-     | **80** | Descarga las listas de revocación de certificados (CRL) al validar el certificado SSL |
+     | **80** | Descarga las listas de revocación de certificados (CRL) al validar el certificado TLS/SSL. |
      | **443** | Controla toda la comunicación saliente con el servicio |
      | **8080** (opcional) | Si el puerto 443 no está disponible, los agentes notifican su estado cada 10 minutos en el puerto 8080. Este estado se muestra en el portal de Azure AD. |
      

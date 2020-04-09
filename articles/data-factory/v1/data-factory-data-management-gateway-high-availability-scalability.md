@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 25dbb01a4b018a51390be664472aceadea0a9524
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 4ee89f4bba70bb5e81eef21247d556f65a2a1f16
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74932025"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80065204"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Data Management Gateway - Alta disponibilidad y escalabilidad (versión preliminar)
 > [!NOTE]
@@ -42,7 +42,7 @@ También puede configurar el número de **trabajos de movimiento de datos simult
 
 Mediante Azure Portal, puede supervisar el estado de estos nodos, lo que ayuda a decidir si agregar o quitar un nodo de la puerta de enlace lógica. 
 
-## <a name="architecture"></a>Arquitectura 
+## <a name="architecture"></a>Architecture 
 El diagrama siguiente proporciona información general de la arquitectura de la característica de escalabilidad y disponibilidad de Data Management Gateway: 
 
 ![Data Management Gateway - Alta disponibilidad y escalabilidad](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-high-availability-and-scalability.png)
@@ -166,7 +166,7 @@ Estos son los requisitos para el certificado TLS/SSL que se usa para proteger la
   > La aplicación del Administrador de credenciales se usa al configurar de forma segura las credenciales en el Asistente para copia o en Azure Portal. Además, puede activarse en cualquier equipo que se encuentre en la misma red que el almacén de datos local o privado.
 - Se admiten certificados comodín. Si el nombre FQDN es **node1.domain.contoso.com**, puede utilizar * **.domain.contoso.com** como nombre del firmante del certificado.
 - No se recomienda usar certificados de SAN, ya que solo se utilizará el último elemento de los nombres alternativos del firmante y los demás se ignorarán debido a la limitación actual. Por ejemplo, tiene un certificado de SAN cuyos SAN son **node1.domain.contoso.com** y **node2.domain.contoso.com**, pero solo puede usar este certificado en el equipo cuyo FQDN es **node2.domain.contoso.com**.
-- Se admite cualquier tamaño de clave compatible con Windows Server 2012 R2 para los certificados SSL.
+- Se admite cualquier tamaño de clave compatible con Windows Server 2012 R2 para los certificados TLS/SSL.
 - El certificado que usa claves CNG no es compatible.
 
 #### <a name="faq-when-would-i-not-enable-this-encryption"></a>PREGUNTAS MÁS FRECUENTES: ¿Cuándo no debería habilitar este cifrado?
@@ -183,16 +183,16 @@ En Azure Portal, puede ver una instantánea casi en tiempo real de la utilizaci�
 
 Puede habilitar la **Configuración avanzada** en la página **Puerta de enlace** para ver métricas avanzadas como **Red**(entrada/salida), **Rol y estado de credenciales**, que es útil para depurar problemas de puerta de enlace y **Trabajos simultáneos** (en ejecución / límite) que puede ser modificado según corresponda durante la optimización del rendimiento. En la tabla siguiente se proporcionan las descripciones de las columnas de la lista **Nodos de la puerta de enlace**:  
 
-Propiedad de supervisión | DESCRIPCIÓN
+Propiedad de supervisión | Descripción
 :------------------ | :---------- 
-NOMBRE | Nombre de la puerta de enlace lógica y de los nodos asociados a la puerta de enlace.  
+Nombre | Nombre de la puerta de enlace lógica y de los nodos asociados a la puerta de enlace.  
 Status | Estado de la puerta de enlace lógica y de los nodos de la puerta de enlace. Ejemplo: En línea, Sin conexión, Limitado, etc. Para obtener información acerca de estos estados, consulte la sección [Estado de la puerta de enlace](#gateway-status). 
 Versión | Muestra la versión de la puerta de enlace lógica y de cada nodo de la puerta de enlace. La versión de la puerta de enlace lógica se determina basándose en la versión de la mayoría de los nodos del grupo. Si hay nodos con versiones diferentes en la configuración de la puerta de enlace lógica, solo los nodos con el mismo número de versión que la puerta de enlace lógica funcionan correctamente. Los otros están en el modo limitado y deben actualizarse manualmente (solo en caso de que se produzca un error en la actualización automática). 
 Memoria disponible | Memoria disponible en un nodo de la puerta de enlace. Este valor es una instantánea casi en tiempo real. 
 Uso de CPU | Uso de CPU de un nodo de la puerta de enlace. Este valor es una instantánea casi en tiempo real. 
 Redes (Entrada/Salida) | Uso de red de un nodo de la puerta de enlace. Este valor es una instantánea casi en tiempo real. 
 Trabajos simultáneos (En ejecución / Límite) | Número de trabajos o tareas que se ejecutan en cada nodo. Este valor es una instantánea casi en tiempo real. Límite significa el máximo número de trabajos simultáneos para cada nodo. Este valor se define basándose en el tamaño de la máquina. Puede aumentar el límite para escalar verticalmente la ejecución de trabajos simultáneos en escenarios avanzados, donde la CPU, la memoria o la red están infrautilizadas pero se agota el tiempo de espera de las actividades. Esta funcionalidad también está disponible con una puerta de enlace de un único nodo (incluso cuando no está habilitada la característica de escalabilidad y disponibilidad). Para más información, consulte la sección [Consideraciones para el escalado](#scale-considerations). 
-Rol | Hay dos tipos de roles: distribuidor y de trabajo. Todos los nodos son trabajos, lo que significa que pueden usarse para ejecutar los trabajos. Hay solo un nodo distribuidor, que se usa para extraer los trabajos y tareas de los servicios en la nube y enviarlos a los diferentes nodos de trabajo (incluido él mismo). 
+Role | Hay dos tipos de roles: distribuidor y de trabajo. Todos los nodos son trabajos, lo que significa que pueden usarse para ejecutar los trabajos. Hay solo un nodo distribuidor, que se usa para extraer los trabajos y tareas de los servicios en la nube y enviarlos a los diferentes nodos de trabajo (incluido él mismo). 
 
 ![Data Management Gateway: supervisión avanzada de varios nodos](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-multi-node-monitoring-advanced.png)
 
@@ -238,11 +238,11 @@ Cuando la memoria disponible y la CPU no se utilizan correctamente, pero la capa
 
 ## <a name="known-issuesbreaking-changes"></a>Problemas conocidos y cambios relevantes
 
-- Actualmente, puede tener hasta cuatro nodos físicos de puerta de enlace para una sola puerta de enlace lógica. Si necesita más de cuatro nodos por motivos de rendimiento, envíe un correo electrónico a [ DMGHelp@microsoft.com ](mailto:DMGHelp@microsoft.com).
+- Actualmente, puede tener hasta cuatro nodos físicos de puerta de enlace para una sola puerta de enlace lógica. Si necesita más de cuatro nodos por motivos de rendimiento, envíe un correo electrónico a [DMGHelp@microsoft.com](mailto:DMGHelp@microsoft.com).
 - No se puede volver a registrar un nodo de puerta de enlace con la clave de autenticación de otra puerta de enlace lógica para cambiar la puerta de enlace lógica actual. Para volver a registrarlo, desinstale la puerta de enlace del nodo, vuelva a instalar la puerta de enlace y regístrela con la clave de autenticación de la otra puerta de enlace lógica. 
 - Si es necesario un proxy HTTP para todos los nodos de la puerta de enlace, establezca el proxy en diahost.exe.config y diawp.exe.config y use el administrador del servidor para asegurarse de que todos los nodos tienen el mismo diahost.exe.config y diawip.exe.config. Consulte la sección [configurar el proxy](data-factory-data-management-gateway.md#configure-proxy-server-settings) para más información. 
 - Para cambiar el modo de cifrado para la comunicación de nodo a nodo en Configuration Manager de la puerta de enlace, elimine todos los nodos desde el portal excepto uno. A continuación, agregue nodos después de cambiar el modo de cifrado.
-- Utilice un certificado SSL oficial si elige cifrar el canal de comunicación de nodo a nodo. Un certificado autofirmado puede producir problemas de conectividad ya que el mismo certificado puede no ser de confianza en la lista de entidades de certificación de otros equipos. 
+- Utilice un certificado TLS oficial si elige cifrar el canal de comunicación de nodo a nodo. Un certificado autofirmado puede producir problemas de conectividad ya que el mismo certificado puede no ser de confianza en la lista de entidades de certificación de otros equipos. 
 - No se puede registrar un nodo de puerta de enlace en una puerta de enlace lógica si la versión del nodo es menor que la versión de la puerta de enlace lógica. Elimine todos los nodos de la puerta de enlace lógica desde Azure Portal para poder registrar un nodo con una versión anterior. Si elimina todos los nodos de una puerta de enlace lógica, instale y registre manualmente los nuevos nodos en esa puerta de enlace lógica. La instalación rápida no se admite en este caso.
 - No se puede usar la instalación rápida para instalar nodos en una puerta de enlace lógica existente, que todavía está usando credenciales de la nube. Puede comprobar dónde se almacenan las credenciales en la pestaña Configuración de Configuration Manager de Data Management Gateway.
 - No se puede usar la instalación rápida para instalar nodos en una puerta de enlace lógica existente que tenga habilitado el cifrado nodo a nodo. Dado que establecer el modo de cifrado implica agregar manualmente los certificados, la instalación rápida no es una opción. 

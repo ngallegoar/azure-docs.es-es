@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
-ms.openlocfilehash: 868a0238092786d0999a6a41de71d30011bbef7a
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 7e16eabc4f9572591eabd37b93258fcd783cce7e
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72246037"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80351150"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-fstab-errors"></a>Solución de problemas de inicio de máquinas virtuales Linux debido a errores de fstab
 
@@ -36,7 +36,7 @@ Los siguientes son ejemplos de posibles errores:
 [[1;33mDEPEND[0m] Dependency failed for /data.
 [[1;33mDEPEND[0m] Dependency failed for Local File Systems.
 …
-Welcome to emergency mode! After logging in, type “journalctl -xb” to viewsystem logs, “systemctl reboot” to reboot, “systemctl default” to try again to boot into default mode.
+Welcome to emergency mode! After logging in, type "journalctl -xb" to viewsystem logs, "systemctl reboot" to reboot, "systemctl default" to try again to boot into default mode.
 Give root password for maintenance
 (or type Control-D to continue)
 ```
@@ -47,9 +47,9 @@ Give root password for maintenance
 Checking file systems…
 fsck from util-linux 2.19.1
 Checking all file systems.
-/dev/sdc1: nonexistent device (“nofail” fstab option may be used to skip this device)
-/dev/sdd1: nonexistent device (“nofail” fstab option may be used to skip this device)
-/dev/sde1: nonexistent device (“nofail” fstab option may be used to skip this device)
+/dev/sdc1: nonexistent device ("nofail" fstab option may be used to skip this device)
+/dev/sdd1: nonexistent device ("nofail" fstab option may be used to skip this device)
+/dev/sde1: nonexistent device ("nofail" fstab option may be used to skip this device)
 
 [/sbin/fsck.ext3 (1) — /CODE] sck.ext3 -a /dev/sdc1
 fsck.ext3: No such file or directory while trying to open /dev/sdc1
@@ -90,7 +90,7 @@ fsck.ext4: Unable to resolve UUID="<UUID>"
 *** when you leave the shell.
 *** Warning — SELinux is active
 *** Disabling security enforcement for system recovery.
-*** Run ‘setenforce 1’ to reenable.
+*** Run 'setenforce 1' to reenable.
 type=1404 audit(1428047455.949:4): enforcing=0 old_enforcing=1 auid=<AUID> ses=4294967295
 Give root password for maintenance
 (or type Control-D to continue)
@@ -98,11 +98,47 @@ Give root password for maintenance
 
 Este problema puede producirse si la sintaxis de la tabla del sistema de archivos (fstab) es incorrecta o si un disco de datos necesario que está asignado a una entrada en el archivo "/etc/fstab" no está asociado a la máquina virtual.
 
-## <a name="resolution"></a>Resolución
+## <a name="resolution"></a>Solución
 
 Para resolver este problema, inicie la máquina virtual en modo de emergencia mediante la consola serie de Azure Virtual Machines. Luego, use la herramienta para reparar el sistema de archivos. Si la consola serie no está habilitada en la máquina virtual, vaya a la sección [Reparación de la máquina virtual sin conexión](#repair-the-vm-offline).
 
 ## <a name="use-the-serial-console"></a>Uso de la consola serie
+
+### <a name="using-single-user-mode"></a>Uso del Modo de usuario único
+
+1. Conexión a la [consola serie](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux).
+2. Use la consola serie para realizar el [modo de usuario único](https://docs.microsoft.com/azure/virtual-machines/linux/serial-console-grub-single-user-mode).
+3. Una vez que la máquina virtual se haya iniciado en modo de usuario único. Use el editor de texto que prefiera para abrir el archivo fstab. 
+
+   ```
+   # nano /etc/fstab
+   ```
+
+4. Revise los sistemas de archivos enumerados. Cada línea del archivo fstab indica un sistema de archivos que se monta cuando se inicia la máquina virtual. Para más información sobre la sintaxis del archivo fstab, ejecute el comando man fstab. Para solucionar los errores de inicio, revise cada línea para asegurarse de que es correcta tanto en estructura como en contenido.
+
+   > [!Note]
+   > * Los campos de cada línea están separados por tabulaciones o espacios. Se omiten las líneas en blanco. Las líneas que tienen un signo de número (#) como primer carácter son comentarios. Las líneas comentadas pueden permanecer en el archivo fstab, pero no se procesarán. Se recomienda comentar las líneas fstab sobre las que no está seguro en lugar de quitarlas.
+   > * Para que la máquina virtual se recupere y se inicie, las particiones del sistema de archivos deben ser las únicas particiones necesarias. La máquina virtual puede experimentar errores de aplicación sobre particiones comentadas adicionales. Sin embargo, la máquina virtual debe iniciarse sin las particiones adicionales. Posteriormente, puede quitar la marca de comentario de las líneas comentadas.
+   > * Se recomienda montar los discos de datos en máquinas virtuales de Azure mediante el UUID de la partición del sistema de archivos. Por ejemplo, ejecute el siguiente comando: ``/dev/sdc1: LABEL="cloudimg-rootfs" UUID="<UUID>" TYPE="ext4" PARTUUID="<PartUUID>"``.
+   > * Para determinar el UUID del sistema de archivos, ejecute el comando blkid. Para más información sobre la sintaxis, ejecute el comando man blkid.
+   > * La opción nofail garantiza que la máquina virtual se inicia incluso si el sistema de archivos está dañado o no existe durante el inicio. Se recomienda usar la opción nofail en el archivo fstab para permitir que el inicio continúe después de que se produzcan errores en las particiones que no son necesarias para que se inicie la máquina virtual.
+
+5. Cambie o comente cualquier línea incorrecta o innecesaria en el archivo fstab para permitir que la máquina virtual se inicie correctamente.
+
+6. Guarde los cambios en el archivo fstab.
+
+7. Reinicie la máquina virtual con el comando siguiente.
+   
+   ```
+   # reboot -f
+   ```
+> [!Note]
+   > También puede usar el comando "Ctrl + X", que reiniciaría igualmente la máquina virtual.
+
+
+8. Si el comentario o la corrección de entradas se realizó correctamente, el sistema debe tener acceso al símbolo del sistema de bash en el portal. Compruebe si puede conectarse a la máquina virtual.
+
+### <a name="using-root-password"></a>Uso de la contraseña raíz
 
 1. Conexión a la [consola serie](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux).
 2. Inicie sesión en el sistema con un usuario local y una contraseña.
@@ -156,7 +192,7 @@ Para resolver este problema, inicie la máquina virtual en modo de emergencia me
 
 2. Después de montar el disco del sistema como un disco de datos en la máquina virtual de recuperación, haga una copia de seguridad del archivo fstab antes de realizar cambios y, luego, siga estos pasos para corregirlo.
 
-3.  Busque el error que indica que el disco no se ha montado. En el ejemplo siguiente, el sistema intentaba asociar un disco que ya no existía:
+3.    Busque el error que indica que el disco no se ha montado. En el ejemplo siguiente, el sistema intentaba asociar un disco que ya no existía:
 
     ```
     [DEPEND] Dependency failed for /datadisk1.

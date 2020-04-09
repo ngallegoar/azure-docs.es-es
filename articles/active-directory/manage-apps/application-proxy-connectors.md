@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c2036bf9995725e4bbef44e4c039f8336eb81a0
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: b097ce3781a77a8c5e8a94b9c2bf0977f3efcfd9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997044"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481337"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Descripción de los conectores del Proxy de aplicación de Azure AD
 
@@ -88,7 +88,7 @@ Para más información acerca de los grupos de conectores, consulte [Publicació
 
 ## <a name="capacity-planning"></a>Planificación de capacidad
 
-Es importante asegurarse de que la capacidad prevista entre los conectores es suficiente para administrar el volumen de tráfico esperado. Se recomienda que cada grupo de conectores tenga al menos dos conectores para proporcionar disponibilidad y escala altas. Tener tres conectores es una situación óptima en caso de que necesite realizar tareas de servicio en una máquina en cualquier momento.
+Es importante asegurarse de que la capacidad prevista entre los conectores es suficiente para administrar el volumen de tráfico esperado. Se recomienda que cada grupo de conectores tenga al menos dos conectores para proporcionar alta disponibilidad y escala. Tener tres conectores es una situación óptima en caso de que necesite realizar tareas de servicio en una máquina en cualquier momento.
 
 En general, cuantos más usuarios tenga, mayor será la máquina que necesitará. A continuación se muestra una tabla que proporciona un esquema del volumen y la latencia que diferentes máquinas pueden controlar. Tenga en cuenta que todo se basa en las transacciones por segundo (TPS) que se esperan en len lugar de en las transacciones por usuario, ya que los patrones de uso varían y no se pueden utilizar para predecir la carga. Tenga en cuenta también que habrá algunas diferencias en función del tamaño de las respuestas y el tiempo de respuesta de la aplicación de back-end: cuanto mayor sea el tamaño de respuesta y menor el tiempo de respuesta, menor será el TPS máximo. También le recomendamos que tenga máquinas adicionales para que la carga distribuida entre las máquinas siempre proporcione un búfer amplio. La capacidad adicional garantizará que tanto la resistencia como la disponibilidad son elevadas.
 
@@ -118,7 +118,7 @@ Para más información sobre cómo configurar reglas de firewall de salida, vea 
 
 La escala del servicio Proxy de aplicación es transparente, pero es un factor en lo que respecta a los conectores. Debe tener suficientes conectores para administrar el tráfico en sus momentos de pico. Como los conectores no tienen estado, no dependen del número de usuarios o de sesiones. Más bien dependen del número de solicitudes y del tamaño de la carga. En el caso del tráfico web estándar, una máquina puede controlar en promedio unas dos mil solicitudes por segundo. La capacidad específica depende de las características exactas de la máquina.
 
-El rendimiento del conector viene determinado por las redes y la CPU. El rendimiento de la CPU es necesario para el cifrado y el descifrado SSL, mientras que las redes son importantes para conectar rápidamente con las aplicaciones y el servicio en línea de Azure.
+El rendimiento del conector viene determinado por las redes y la CPU. El rendimiento de la CPU es necesario para el cifrado y el descifrado TLS, mientras que las redes son importantes para conectar rápidamente con las aplicaciones y el servicio en línea de Azure.
 
 En cambio, la memoria no supone un problema para los conectores. El servicio en línea se encarga de gran parte del procesamiento y de todo el tráfico no autenticado. Todo lo que puede realizarse en la nube se realiza en la nube.
 

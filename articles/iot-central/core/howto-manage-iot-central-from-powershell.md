@@ -5,15 +5,15 @@ services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/11/2020
-ms.topic: conceptual
+ms.date: 03/27/2020
+ms.topic: how-to
 manager: philmea
-ms.openlocfilehash: 1598451ce184db5a25cac28870b70a446aef123c
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 42d853c9cf53c1c6921fbd1816ec2298c9c3583e
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198827"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80365539"
 ---
 # <a name="manage-iot-central-from-azure-powershell"></a>Administración de IoT Central desde Azure PowerShell
 
@@ -69,9 +69,9 @@ El script crea primero un grupo de recursos en la región Este de EE. UU. para l
 |Parámetro         |Descripción |
 |------------------|------------|
 |ResourceGroupName |Grupo de recursos que contiene a la aplicación. Este grupo de recursos ya debe existir en la suscripción. |
-|Location |De forma predeterminada, este cmdlet usa la ubicación del grupo de recursos. Actualmente, puede crear una aplicación de IoT Central en las ubicaciones geográficas **Australia**, **Asia Pacífico**, **Europa** o **Estados Unidos**.  |
+|Location |De forma predeterminada, este cmdlet usa la ubicación del grupo de recursos. Actualmente, se puede crear una aplicación de IoT Central en las zonas geográficas **Australia**, **Asia Pacífico**, **Europa**, **Estados Unidos**, **Reino Unido** y **Japón**. |
 |Nombre              |Nombre de la aplicación en Azure Portal. |
-|Subdominio         |Subdominio en la dirección URL de la aplicación. En el ejemplo, la dirección URL de la aplicación es https://mysubdomain.azureiotcentral.com. |
+|Subdominio         |Subdominio en la dirección URL de la aplicación. En el ejemplo, la dirección URL de la aplicación es `https://mysubdomain.azureiotcentral.com`. |
 |SKU               |Actualmente, puede usar **ST1** o **ST2**. Consulte [Precios de Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/). |
 |Plantilla          | Plantilla de aplicación que se va a usar. Para más información, vea la tabla siguiente. |
 |DisplayName       |Nombre de la aplicación tal como se muestra en la interfaz de usuario. |

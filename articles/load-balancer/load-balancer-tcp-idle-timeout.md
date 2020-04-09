@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: 39cd5b5d6e9d6007994ccc29732186ec6a8bdc2e
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: d0bb73b58aa23e5f7eb784772acf37b05df463ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023895"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79456835"
 ---
 # <a name="configure-tcp-idle-timeout-settings-for-azure-load-balancer"></a>Modificación de la configuración de tiempo de espera de inactividad de TCP para Azure Load Balancer
 
@@ -29,13 +29,13 @@ ms.locfileid: "77023895"
 Si decide instalar y usar PowerShell de forma local, para realizar los pasos de este artículo necesita la versión 5.4.1 del módulo de Azure PowerShell o cualquier versión posterior. Ejecute `Get-Module -ListAvailable Az` para buscar la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-Az-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzAccount` para crear una conexión con Azure.
 
 ## <a name="tcp-idle-timeout"></a>Tiempo de espera de inactividad de TCP
-En su configuración predeterminada, Azure Load Balancer tiene una configuración de tiempo de espera de inactividad de 4 minutos. Si un período de inactividad es mayor que el valor de tiempo de espera, no hay ninguna garantía de que todavía exista la sesión TCP o HTTP entre el cliente y el servicio en la nube.
+Azure Load Balancer tiene una configuración de tiempo de espera de inactividad de 4 a 30 minutos. De forma predeterminada, se establece en 4 minutos. Si un período de inactividad es mayor que el valor de tiempo de espera, no hay ninguna garantía de que todavía exista la sesión TCP o HTTP entre el cliente y el servicio en la nube.
 
 Cuando se cierra la conexión, la aplicación cliente puede recibir el mensaje de error siguiente: "The underlying connection was closed: A connection that was expected to be kept alive was closed by the server" (Se ha terminado la conexión: El servidor cerró una conexión que se esperaba estuviera activa).
 
 Una práctica común es usar TCP Keep-alive. Esta práctica mantiene la conexión activa durante un periodo más largo. Para obtener más información, consulte estos [ejemplos de .NET](https://msdn.microsoft.com/library/system.net.servicepoint.settcpkeepalive.aspx). Con Keep-alive habilitado, los paquetes se envían durante los periodos de inactividad en la conexión. Los paquetes de Keep-alive garantizan que no se alcance el valor de tiempo de espera de inactividad y la conexión se mantenga durante un largo período.
 
-La configuración funciona solo para conexiones entrantes. Para evitar la pérdida de la conexión, configure el TCP keep-alive con un intervalo menor que el valor de tiempo de espera de inactividad o aumentar el valor de tiempo de espera de inactividad. Para admitir estos escenarios, se agregó compatibilidad con un tiempo de espera de inactividad configurable. Ahora puede establecer una duración de entre 4 y 30 minutos.
+La configuración funciona solo para conexiones entrantes. Para evitar la pérdida de la conexión, configure el TCP keep-alive con un intervalo menor que el valor de tiempo de espera de inactividad o aumentar el valor de tiempo de espera de inactividad. Para admitir estos escenarios, se agregó compatibilidad con un tiempo de espera de inactividad configurable.
 
 TCP keep-alive funciona en escenarios donde la batería no supone una restricción. No se recomienda para aplicaciones móviles. El uso de TCP Keep-alive desde una aplicación móvil puede agotarla batería del dispositivo más rápidamente.
 

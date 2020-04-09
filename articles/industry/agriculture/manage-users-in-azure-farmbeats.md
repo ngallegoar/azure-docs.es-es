@@ -5,20 +5,20 @@ author: uhabiba04
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: v-umha
-ms.openlocfilehash: 208a302a0702a5c4de4d194c9e72f562aaf758c4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6ccc29422c6abf1120d13c05d10125efd0871ca6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75475698"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79502069"
 ---
 # <a name="manage-users"></a>Administrar usuarios
 
 Azure FarmBeats incluye la administración de usuarios para personas que forman parte de su instancia de Azure Active Directory (Azure AD). Puede agregar usuarios a la instancia de Azure FarmBeats para acceder a las API, ver los mapas generados y acceder a la telemetría del sensor desde la granja de servidores.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
-- Se requiere una instalación de Azure FarmBeats. Para obtener más información, consulte [Instalación de Azure FarmBeats](install-azure-farmbeats.md).
+- Se requiere la instalación de Azure FarmBeats. Para obtener más información, consulte [Instalación de Azure FarmBeats](install-azure-farmbeats.md).
 - Identificadores de correo electrónico de los usuarios que quiere agregar o quitar de la instancia de Azure FarmBeats.
 
 ## <a name="manage-azure-farmbeats-users"></a>Administración de los usuarios de Azure FarmBeats
@@ -26,7 +26,7 @@ Azure FarmBeats incluye la administración de usuarios para personas que forman 
 Azure FarmBeats usa Azure AD para la autenticación, el control de acceso y los roles. Puede agregar usuarios al inquilino de Azure AD como usuarios en Azure FarmBeats.
 
 > [!NOTE]
-> Si un usuario que intenta agregar como usuario de Azure FarmBeats no está en el inquilino de Azure AD, siga las instrucciones que aparecen en la sección Adición de usuarios de Azure AD para completar la configuración.
+> Si un usuario no es un usuario de inquilino de Azure AD, siga las instrucciones de la sección **Add Azure AD users** (Agregar usuarios de Azure AD) para completar la instalación.
 
 Azure FarmBeats admite dos tipos de roles de usuario:
 
@@ -63,9 +63,9 @@ Para quitar usuarios del sistema Azure FarmBeats:
 ## <a name="add-azure-ad-users"></a>Adición de usuarios de Azure AD
 
 > [!NOTE]
-> Los usuarios de Azure FarmBeats deben existir en el inquilino de Azure AD antes de que les pueda asignar a aplicaciones y roles. Si un usuario que quiere agregar a Azure FarmBeats todavía no existe en el inquilino de Azure AD, siga las instrucciones de esta sección. Si el usuario existe en el inquilino de Azure AD, puede omitir estas instrucciones.
+> Los usuarios de Azure FarmBeats deben existir en el inquilino de Azure AD antes de asignarlos a aplicaciones y roles. Si no existe un usuario en el inquilino de Azure AD, siga las instrucciones de esta sección. Omita las instrucciones si ya existe un usuario en el inquilino de Azure AD.
 
-Para agregar usuarios a Azure AD, haga lo siguiente:
+Para agregar usuarios a Azure AD, realice los pasos siguientes:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 2. En la esquina superior derecha, seleccione su cuenta y cambie al inquilino de Azure AD asociado a FarmBeats.

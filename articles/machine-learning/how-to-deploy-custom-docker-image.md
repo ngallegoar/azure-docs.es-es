@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 03/05/2020
-ms.openlocfilehash: 24ca37f5610589ae675a47a1dd966871b3004800
-ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
+ms.date: 03/16/2020
+ms.openlocfilehash: 1f11d6667c22990b3cba2079959bec6f413d5951
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78851262"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80296919"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Implementación de un modelo con una imagen base de Docker personalizada
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -95,6 +95,8 @@ Si ya ha entrenado o implementado modelos mediante Azure Machine Learning, se cr
     ```
 
     Siga las indicaciones para autenticarse en la suscripción.
+
+    [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)]
 
 2. Use el siguiente comando para mostrar el registro de contenedor para el área de trabajo. Reemplace `<myworkspace>` por el nombre del área de trabajo de Azure Machine Learning. Reemplace `<resourcegroup>` por el grupo de recursos de Azure que contiene el área de trabajo:
 
@@ -277,18 +279,49 @@ Para más información sobre cómo personalizar el entorno de Python, consulte e
 > [!IMPORTANT]
 > Actualmente, la CLI de Machine Learning puede usar imágenes de Azure Container Registry para su área de trabajo o los repositorios accesibles públicamente. No puede usar las imágenes de registros privados independientes.
 
-Al implementar un modelo mediante la CLI de Machine Learning, proporciona un archivo de configuración de inferencia que hace referencia a la imagen personalizada. El siguiente documento JSON muestra cómo hacer referencia a una imagen en un registro de contenedor público:
+Antes de implementar un modelo mediante la CLI de Machine Learning, cree un [entorno](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) que use la imagen personalizada. Después, cree un archivo de configuración de la inferencia que haga referencia al entorno. También puede definir el entorno directamente en el archivo de configuración de la inferencia. El documento JSON siguiente muestra cómo hacer referencia a una imagen en un registro de contenedor público. En este ejemplo, el entorno se define insertado:
 
 ```json
 {
-   "entryScript": "score.py",
-   "runtime": "python",
-   "condaFile": "infenv.yml",
-   "extraDockerfileSteps": null,
-   "sourceDirectory": null,
-   "enableGpu": false,
-   "baseImage": "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda",
-   "baseImageRegistry": "mcr.microsoft.com"
+    "entryScript": "score.py",
+    "environment": {
+        "docker": {
+            "arguments": [],
+            "baseDockerfile": null,
+            "baseImage": "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda",
+            "enabled": false,
+            "sharedVolumes": true,
+            "shmSize": null
+        },
+        "environmentVariables": {
+            "EXAMPLE_ENV_VAR": "EXAMPLE_VALUE"
+        },
+        "name": "my-deploy-env",
+        "python": {
+            "baseCondaEnvironment": null,
+            "condaDependencies": {
+                "channels": [
+                    "conda-forge"
+                ],
+                "dependencies": [
+                    "python=3.6.2",
+                    {
+                        "pip": [
+                            "azureml-defaults",
+                            "azureml-telemetry",
+                            "scikit-learn",
+                            "inference-schema[numpy-support]"
+                        ]
+                    }
+                ],
+                "name": "project_environment"
+            },
+            "condaDependenciesFile": null,
+            "interpreterPath": "python",
+            "userManagedDependencies": false
+        },
+        "version": "1"
+    }
 }
 ```
 

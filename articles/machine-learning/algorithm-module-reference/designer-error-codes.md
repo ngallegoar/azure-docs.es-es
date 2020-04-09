@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 12/03/2019
-ms.openlocfilehash: ea132578a08b9f0002084374838c615a01fa820f
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: cda499b81a61a5b78ca86a96372640e368f90357
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425806"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80364190"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer-preview"></a>Excepciones y códigos de error para el diseñador (versión preliminar)
 
@@ -39,6 +39,9 @@ Hay dos maneras de obtener el texto completo de un mensaje de error en el diseñ
 |No se encontró la columna con nombre o índice "{column_id}".|
 |La columna con nombre o índice "{column_id}" no existe en "{arg_name_missing_column}".|
 |La columna con nombre o índice "{column_id}" no existe en "{arg_name_missing_column}", pero existe en "{arg_name_has_column}".|
+|No se encontraron las columnas con nombre o índice "{column_names}".|
+|Las columnas con nombre o índice "{column_names}" no existen en "{arg_name_missing_column}".|
+|Las columnas con nombre o índice "{column_names}" no existen en "{arg_name_missing_column}", pero sí en "{arg_name_has_column}".|
 
 
 ## <a name="error-0002"></a>Error 0002  
@@ -373,6 +376,7 @@ En el caso de las columnas que va a utilizar para agrupación o clasificación, 
 |{dataset1} y {dataset2} deben tener un formato de columna coherente.|
 |{dataset1} contiene datos no válidos, {reason}.|
 |{dataset1} contiene {invalid_data_category}. {troubleshoot_hint}|
+|{dataset1} no es válido, {reason}. {troubleshoot_hint}|
 
 
 ## <a name="error-0019"></a>Error 0019  
@@ -1248,6 +1252,7 @@ Se introdujo un control de errores para este evento en una versión anterior de 
 |{data_name} contiene datos no válidos para el entrenamiento.|
 |{data_name} contiene datos no válidos para el entrenamiento. Tipo de aprendiz: {learner_type}.|
 |{data_name} contiene datos no válidos para el entrenamiento. Tipo de aprendiz: {learner_type}. Motivo: {reason}.|
+|No se pudo aplicar la acción "{action_name}" en los datos de entrenamiento {data_name}. Motivo: {reason}.|
 
 
 ## <a name="error-0084"></a>Error 0084  
@@ -1392,9 +1397,10 @@ Este error también puede producirse cuando una operación anterior cambia el co
 
 Resolución: 
 
- Si incluye una columna de etiqueta en la selección de columna, pero no se reconoce, utilice el módulo [Edit Metadata](edit-metadata.md) (editar metadatos) para marcarla como una columna de etiqueta.
+ Si se incluye una columna de etiqueta en la selección de columna, pero no se reconoce, utilice el módulo [Edit Metadata](edit-metadata.md) (Editar metadatos) para marcarla como una columna de etiqueta.
 
-  <!--Use the [Summarize Data](summarize-data.md) module to generate a report that shows how many values are missing in each column. -->A continuación, puede usar el módulo [Clean Missing Data](clean-missing-data.md) (eliminar datos faltantes) para quitar las filas con valores que faltan en la columna de etiqueta. 
+  <!--Use the [Summarize Data](summarize-data.md) module to generate a report that shows how many values are missing in each column. -->
+  A continuación, puede usar el módulo [Clean Missing Data](clean-missing-data.md) (eliminar datos faltantes) para quitar las filas con valores que faltan en la columna de etiqueta. 
 
  Compruebe los conjuntos de datos de entrada para asegurarse de que contienen datos válidos y filas suficientes para cumplir los requisitos de la operación. Muchos algoritmos generarán un mensaje de error si requieren un número mínimo de filas de datos, pero los datos contienen solo unas pocas filas, o solo un encabezado.
 
@@ -1455,8 +1461,8 @@ Resolución:
 
 |Mensajes de excepción|
 |------------------------|
-|Los nombres de columna no son una cadena.|
-|Los nombres de columna: {column_names} no son cadenas.|
+|El nombre de la columna de dataframe debe ser un tipo de cadena. Los nombres de columna no son una cadena.|
+|El nombre de la columna de dataframe debe ser un tipo de cadena. Los nombres de columna {column_names} no son cadenas.|
 
 
 ## <a name="error-0156"></a>Error 0156  
@@ -1475,6 +1481,15 @@ Resolución:
 |------------------------|
 |La información del almacén de datos no es válida.|
 |La información del almacén de datos no es válida. No se pudo obtener el almacén de datos de AzureML "{datastore_name}" en el área de trabajo "{workspace_name}".|
+
+
+## <a name="error-0158"></a>Error 0158
+ Se produce cuando un directorio de transformación no es válido.
+
+|Mensajes de excepción|
+|------------------------------------------------------------|
+|El TransformationDirectory concreto no es válido.|
+|TransformationDirectory "{arg_name}" no es válido. Motivo: {reason}. Vuelva a ejecutar el experimento de entrenamiento que genera el archivo de transformación. Si se ha eliminado el experimento de entrenamiento, vuelva a crear y guarde el archivo de transformación.|
 
 
 ## <a name="error-1000"></a>Error 1000  

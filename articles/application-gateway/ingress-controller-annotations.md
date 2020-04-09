@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: a3583a5efd120733ce7f6b71a7594b5636593f99
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: f54381ddcd11a2e4a24d30d812468da85b5403de
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796004"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335822"
 ---
 # <a name="annotations-for-application-gateway-ingress-controller"></a>Anotaciones para el controlador de entrada de Application Gateway 
 
@@ -27,7 +27,7 @@ Para que AGIC observe un recurso de entrada, **se debe anotar** con `kubernetes.
 | Clave de anotación | Tipo de valor | Valor predeterminado | Valores permitidos
 | -- | -- | -- | -- |
 | [appgw.ingress.kubernetes.io/backend-path-prefix](#backend-path-prefix) | `string` | `nil` | |
-| [appgw.ingress.kubernetes.io/ssl-redirect](#ssl-redirect) | `bool` | `false` | |
+| [appgw.ingress.kubernetes.io/ssl-redirect](#tls-redirect) | `bool` | `false` | |
 | [appgw.ingress.kubernetes.io/connection-draining](#connection-draining) | `bool` | `false` | |
 | [appgw.ingress.kubernetes.io/connection-draining-timeout](#connection-draining) | `int32` (segundos) | `30` | |
 | [appgw.ingress.kubernetes.io/cookie-based-affinity](#cookie-based-affinity) | `bool` | `false` | |
@@ -70,7 +70,7 @@ En el ejemplo anterior, se ha definido un recurso de entrada denominado `go-serv
 > [!NOTE] 
 > En el ejemplo anterior, solo se ha definido una regla. Sin embargo, las anotaciones se pueden aplicar a todo el recurso de entrada, por lo que si un usuario hubiera definido varias reglas, se configuraría el prefijo de la ruta de acceso de back-end para cada una de las rutas de acceso especificadas. Por lo tanto, si un usuario desea tener diferentes reglas con prefijos de ruta de acceso diferentes (incluso para el mismo servicio), tendrían que definir diferentes recursos de entrada.
 
-## <a name="ssl-redirect"></a>Redirección de SSL
+## <a name="tls-redirect"></a>Redirección de TLS
 
 Application Gateway [puede configurarse](https://docs.microsoft.com/azure/application-gateway/application-gateway-redirect-overview) para redirigir automáticamente las direcciones URL HTTP a sus equivalentes HTTPS. Cuando esta anotación está presente y TLS está configurado correctamente, el controlador de entrada de Kubernetes creará una [regla de enrutamiento con una configuración de redireccionamiento](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-portal#add-a-routing-rule-with-a-redirection-configuration) y aplicará los cambios a su instancia de Application Gateway. La redirección creada será HTTP `301 Moved Permanently`.
 

@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9add6ac30184d87ef50200c3ab944698a1a660f8
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 3202c2fbfedfce0b0b52be94b1e0d165a6e72546
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275528"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481320"
 ---
 # <a name="high-availability-and-load-balancing-of-your-application-proxy-connectors-and-applications"></a>Alta disponibilidad y equilibrio de carga de los conectores y las aplicaciones de Application Proxy
 
@@ -88,9 +88,9 @@ En este escenario, la aplicación web de back-end requiere la permanencia de la 
 Este escenario puede resultar más complicado, porque por lo general el cliente establece varias conexiones con el servicio Application Proxy. Las solicitudes en distintas conexiones pueden llegar a diferentes conectores y servidores de la granja. Dado que cada conector utiliza su propia dirección IP para esta comunicación, el equilibrador de carga no puede garantizar la permanencia de la sesión en función de la dirección IP de los conectores. Tampoco se puede usar la afinidad de la IP de origen.
 Estas son algunas opciones para el escenario 2:
 
-- Opción 1: basar la persistencia de la sesión en una cookie de sesión establecida por el equilibrador de carga. Se recomienda esta opción porque permite que la carga se extienda de manera más uniforme entre los servidores back-end. Requiere un equilibrador de carga de nivel 7 con esta funcionalidad, que puede controlar el tráfico HTTP y finalizar la conexión SSL. Puede usar Azure Application Gateway (Afinidad de sesión) o un equilibrador de carga de otro proveedor.
+- Opción 1: basar la persistencia de la sesión en una cookie de sesión establecida por el equilibrador de carga. Se recomienda esta opción porque permite que la carga se extienda de manera más uniforme entre los servidores back-end. Requiere un equilibrador de carga de nivel 7 con esta capacidad, que puede controlar el tráfico HTTP y finalizar la conexión TLS. Puede usar Azure Application Gateway (Afinidad de sesión) o un equilibrador de carga de otro proveedor.
 
-- Opción 2: basar la persistencia de la sesión en el campo de encabezado X-Forwarded-For. Esta opción requiere un equilibrador de carga de nivel 7 con esta funcionalidad, que puede controlar el tráfico HTTP y finalizar la conexión SSL.  
+- Opción 2: basar la persistencia de la sesión en el campo de encabezado X-Forwarded-For. Esta opción requiere un equilibrador de carga de nivel 7 con esta capacidad, que puede controlar el tráfico HTTP y finalizar la conexión TLS.  
 
 - Opción 3: configurar la aplicación de back-end para que no requiera la persistencia de la sesión.
 

@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 1c2bac06f2526260fb290b63e5aa559a1e2337b4
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 5df1198e6681431738f886eb7c3ad549936eab1a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77020631"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80067641"
 ---
 # <a name="how-to-index-documents-in-azure-blob-storage-with-azure-cognitive-search"></a>Indexación de documentos en Azure Blob Storage con Azure Cognitive Search
 
@@ -289,16 +289,59 @@ También puede continuar con la indexación si se producen errores en cualquier 
     }
 
 ## <a name="incremental-indexing-and-deletion-detection"></a>Indexación incremental y detección de eliminación
+
 Al configurar un indexador de blob para ejecutarlo en una programación, se vuelven a indexar solamente los blobs modificados, que vienen determinados por la marca de tiempo `LastModified` del blob.
 
 > [!NOTE]
 > No tiene que especificar una directiva de detección de cambios, la indexación incremental ya está habilitada automáticamente.
 
-Para admitir la eliminación de documentos, utilice un enfoque de "eliminación temporal". Si elimina los blobs directamente, los documentos correspondientes no se quitarán del índice de búsqueda. Para ello, use los pasos siguientes:  
+Para admitir la eliminación de documentos, utilice un enfoque de "eliminación temporal". Si elimina los blobs directamente, los documentos correspondientes no se quitarán del índice de búsqueda.
 
-1. Agregar una propiedad de metadatos personalizada al blob para indicar a Azure Cognitive Search que está eliminado de forma lógica
-2. Configurar una directiva de detección de eliminación temporal en el origen de datos
-3. Una vez que el indexador ha procesado el blob (como muestra la API de estado del indexador), puede eliminar el blob físicamente
+Hay dos maneras de implementar el enfoque de eliminación temporal. Ambos se describen a continuación.
+
+### <a name="native-blob-soft-delete-preview"></a>Eliminación temporal de blobs nativos (versión preliminar)
+
+> [!IMPORTANT]
+> La compatibilidad con la eliminación temporal de blobs nativos está en versión preliminar. La funcionalidad de versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). En la [API REST, versión 2019-05-06-Preview](https://docs.microsoft.com/azure/search/search-api-preview) se proporciona esta característica. Actualmente no hay compatibilidad con el portal ni con el SDK de .NET.
+
+> [!NOTE]
+> Al usar la directiva de eliminación temporal de blobs nativos, las claves de documento de los documentos del índice deben ser una propiedad de blob o metadatos de blob.
+
+En este método, usará la característica de [eliminación temporal de blobs nativos](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) que ofrece Azure Blob Storage. Si la eliminación temporal de blobs nativos está habilitada en la cuenta de almacenamiento, el origen de datos tiene una directiva de eliminación temporal nativa establecida y el indexador encuentra un blob que ha pasado a un estado de eliminación temporal, el indexador quitará ese documento del índice. No se admite la directiva de eliminación temporal de blobs nativos al indexar blobs de Azure Data Lake Storage Gen2.
+
+Siga estos pasos:
+1. Habilite la [eliminación temporal nativa para Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete). Se recomienda establecer la directiva de retención en un valor mucho mayor que la programación del intervalo del indexador. De este modo, si hay un problema al ejecutar el indexador o si tiene un gran número de documentos para indexar, el indexador tendrá mucho tiempo para procesar los blobs eliminados temporalmente. Los indexadores de Azure Cognitive Search solo eliminarán un documento del índice si procesa el blob mientras se encuentra en un estado de eliminación temporal.
+1. Configure una directiva de detección de eliminación temporal de blobs nativos en el origen de datos. A continuación se muestra un ejemplo. Dado que esta característica se encuentra en versión preliminar, debe usar la versión preliminar de la API de REST.
+1. Ejecute el indexador o establezca el indexador para que se ejecute según una programación. Cuando el indexador ejecuta y procesa el blob, el documento se quita del índice.
+
+    ```
+    PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2019-05-06-Preview
+    Content-Type: application/json
+    api-key: [admin key]
+    {
+        "name" : "blob-datasource",
+        "type" : "azureblob",
+        "credentials" : { "connectionString" : "<your storage connection string>" },
+        "container" : { "name" : "my-container", "query" : null },
+        "dataDeletionDetectionPolicy" : {
+            "@odata.type" :"#Microsoft.Azure.Search.NativeBlobSoftDeleteDeletionDetectionPolicy"
+        }
+    }
+    ```
+
+#### <a name="reindexing-undeleted-blobs"></a>Reindexación de blobs no eliminados
+
+Si elimina un blob de Azure Blob Storage con la eliminación temporal nativa habilitada en la cuenta de almacenamiento, el blob pasará a un estado de eliminación temporal, lo que le dará la opción de recuperar el blob en el período de retención. Si un origen de datos de Azure Cognitive Search tiene una directiva de eliminación temporal de blobs nativos y el indexador procesa un blob eliminado temporalmente, quitará ese documento del índice. Si ese blob se recupera posteriormente, el indexador no siempre lo volverá a indexar. Esto se debe a que el indexador determina qué blobs se indexan en función de la marca de tiempo `LastModified` del blob. Cuando se recupera un blob de eliminación temporal, su marca de tiempo `LastModified` no se actualiza, de modo que, si el indexador ya ha procesado blobs con marcas de tiempo `LastModified` más recientes que el blob recuperado, no volverá a indexar el blob recuperado. Para garantizar que se vuelva a indexar un blob recuperado, debe actualizar la marca de tiempo `LastModified` del blob. Una forma de hacerlo consiste en volver a guardar los metadatos de ese blob. No es necesario cambiar los metadatos, pero si se vuelve a guardar los metadatos, se actualizará la marca de tiempo `LastModified` del blob para que el indexador sepa que debe volver a indexar este blob.
+
+### <a name="soft-delete-using-custom-metadata"></a>Eliminación temporal con metadatos personalizados
+
+En este método, usará los metadatos de un blob para indicar cuándo se debe quitar un documento del índice de búsqueda.
+
+Siga estos pasos:
+
+1. Agregar un par clave-valor de metadatos personalizado al blob para indicar a Azure Cognitive Search que se ha eliminado de forma lógica.
+1. Configurar una directiva de detección de columnas de eliminación temporal en el origen de datos. A continuación se muestra un ejemplo.
+1. Una vez que el indexador ha procesado el blob y eliminado el documento del índice, puede eliminar el blob de Azure Blob Storage.
 
 Por ejemplo, la siguiente directiva considera que un blob se va a eliminar si tiene una propiedad de metadatos `IsDeleted` con el valor `true`:
 
@@ -310,13 +353,17 @@ Por ejemplo, la siguiente directiva considera que un blob se va a eliminar si ti
         "name" : "blob-datasource",
         "type" : "azureblob",
         "credentials" : { "connectionString" : "<your storage connection string>" },
-        "container" : { "name" : "my-container", "query" : "my-folder" },
+        "container" : { "name" : "my-container", "query" : null },
         "dataDeletionDetectionPolicy" : {
             "@odata.type" :"#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy",     
             "softDeleteColumnName" : "IsDeleted",
             "softDeleteMarkerValue" : "true"
         }
-    }   
+    }
+
+#### <a name="reindexing-undeleted-blobs"></a>Reindexación de blobs no eliminados
+
+Si establece una directiva de detección de columnas de eliminación temporal en el origen de datos, agrega los metadatos personalizados a un blob con el valor de marcador y, después, ejecuta el indexador, el indexador quitará ese documento del índice. Si desea volver a indexar ese documento, simplemente cambie el valor de los metadatos de eliminación temporal de ese blob y vuelva a ejecutar el indexador.
 
 ## <a name="indexing-large-datasets"></a>Indización de grandes conjuntos de datos
 

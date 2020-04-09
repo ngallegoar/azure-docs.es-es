@@ -1,28 +1,29 @@
 ---
-title: 'VPN Gateway: inquilino de Azure AD para las conexiones VPN de punto a sitio: Autenticación de Azure AD'
-description: Puede usar la P2S VPN para conectarse a la red virtual con la autenticación de Azure AD
+title: 'Inquilino de Azure AD para las conexiones VPN de usuario: Autenticación de Azure AD'
+description: Puede usar la VPN de usuario de WAN virtual de Azure (punto a sitio) para conectarse a la red virtual mediante la autenticación de Azure AD
+titleSuffix: Azure Virtual WAN
 services: virtual-wan
 author: anzaman
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 12/27/2019
+ms.date: 03/19/2020
 ms.author: alzam
-ms.openlocfilehash: 1f7cf97e38bf201679593819cce814249f9625b0
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 74347ce969b6a5ffd57f5ca8396517e78590f3f2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75930418"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80059459"
 ---
-# <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Creación de un inquilino de Azure Active Directory para conexiones del protocolo P2S OpenVPN
+# <a name="create-an-azure-active-directory-tenant-for-user-vpn-openvpn-protocol-connections"></a>Creación de un inquilino de Azure Active Directory para conexiones de VPN de usuario del protocolo OpenVPN
 
-Al conectarse a la red virtual, puede usar la autenticación basada en certificados o la autenticación RADIUS. Sin embargo, cuando use el protocolo de VPN abierto, también puede usar la autenticación de Azure Active Directory. Este artículo le ayuda a configurar un inquilino de Azure AD para la autenticación de P2S VPN abierta.
+Al conectarse a la red virtual, puede usar la autenticación basada en certificados o la autenticación RADIUS. Sin embargo, cuando use el protocolo de VPN abierto, también puede usar la autenticación de Azure Active Directory. Este artículo le ayuda a configurar un inquilino de Azure AD para la autenticación de VPN abierta de VPN de usuario de WAN virtual (punto a sitio).
 
 > [!NOTE]
-> La autenticación de Azure AD solo se admite para las conexiones de protocolo de OpenVPN®.
+> La autenticación de Azure AD solo se admite para las conexiones de protocolo de OpenVPN&reg;.
 >
 
-## <a name="tenant"></a>1. Cree un inquilino Azure AD
+## <a name="1-create-the-azure-ad-tenant"></a><a name="tenant"></a>1. Cree un inquilino Azure AD
 
 Cree un inquilino de Azure AD con los pasos del artículo [Crear un nuevo inquilino](../active-directory/fundamentals/active-directory-access-create-new-tenant.md):
 
@@ -33,7 +34,7 @@ Ejemplo:
 
    ![Nuevo inquilino Azure AD](./media/openvpn-create-azure-ad-tenant/newtenant.png)
 
-## <a name="users"></a>2. Crear usuario de inquilino Azure AD
+## <a name="2-create-azure-ad-tenant-users"></a><a name="users"></a>2. Crear usuario de inquilino Azure AD
 
 Después, cree dos cuentas de usuario. Cree una cuenta de Administrador global y una cuenta de usuario principal. La cuenta de usuario principal se usa como cuenta de inserción maestra (cuenta de servicio). Al crear una cuenta de usuario de inquilino Azure AD, ajuste el rol de directorio para el tipo de usuario que desea crear.
 
@@ -42,7 +43,7 @@ Siga los pasos descritos en [este artículo](../active-directory/fundamentals/ad
 * Administrador global
 * Usuario
 
-## <a name="enable-authentication"></a>3. Habilitación de la autenticación de Azure AD
+## <a name="3-enable-azure-ad-authentication-on-the-vpn-gateway"></a><a name="enable-authentication"></a>3. Habilitación de la autenticación de Azure AD
 
 1. Busque el ID. de directorio del directorio que desea utilizar para la autenticación. Aparece en la sección propiedades de la página Active Directory.
 

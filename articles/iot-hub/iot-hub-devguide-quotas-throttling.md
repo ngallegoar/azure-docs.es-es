@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
-ms.openlocfilehash: 64f285ea27bde4565d051a84a65c5b4d7b8e9e8c
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 71a5737434e78bc39bccdfeb950e0dbc32ed0052
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906986"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79237384"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referencia: Cuotas y limitación de IoT Hub
 
@@ -105,7 +105,7 @@ IoT Hub exige otros límites operativos:
 | Mensajería de la nube a un dispositivo<sup>1</sup> | Tamaño máximo del mensaje 64 KB. El número máximo de mensajes pendientes para la entrega es 50 por dispositivo. |
 | Método directo<sup>1</sup> | El tamaño de carga máximo del método directo es de 128 KB. |
 | Configuraciones automáticas de dispositivos y módulos<sup>1</sup> | 100 configuraciones por centro de SKU de pago. 20 configuraciones por centro de SKU gratis. |
-| Implementaciones automáticas de IoT Edge<sup>1</sup> | 20 módulos por implementación. 100 implementaciones (incluidas las implementaciones superpuestas) por centro de SKU de pago. 10 implementaciones por centro de SKU gratis. |
+| Implementaciones automáticas de IoT Edge<sup>1</sup> | 50 módulos por implementación. 100 implementaciones (incluidas las implementaciones superpuestas) por centro de SKU de pago. 10 implementaciones por centro de SKU gratis. |
 | Gemelos<sup>1</sup> | Tamaño máximo de las secciones de propiedades deseadas y propiedades notificadas son de 32 KB cada una. El tamaño máximo de la sección de etiquetas es de 8 KB. |
 | Directivas de acceso compartido | El número máximo de directivas de acceso compartidas es 16 |
 

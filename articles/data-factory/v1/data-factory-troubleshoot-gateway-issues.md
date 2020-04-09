@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 0b8aee32869202a8cc24a27dec85c93ffd294c6b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 09d51de3ae0bd4baca585d2abdd936b1a29567d0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931600"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80065023"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Solución de problemas con Data Management Gateway
 En este artículo se ofrece información sobre la solución de problemas con Data Management Gateway.
@@ -35,7 +35,7 @@ Se muestra este mensaje de error al instalar y registrar una puerta de enlace (e
 #### <a name="cause"></a>Causa
 La máquina donde intenta instalar la puerta de enlace no puede descargar la versión más reciente del archivo de instalación de la puerta de enlace del Centro de descarga debido a un problema de red.
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 Compruebe si la configuración del firewall o del servidor proxy bloquea la conexión de red desde el equipo al [Centro de descarga](https://download.microsoft.com/) y actualice la configuración según corresponda.
 
 Como alternativa, puede descargar el archivo de instalación para la puerta de enlace más reciente desde el [centro de descarga](https://www.microsoft.com/download/details.aspx?id=39717) en otros equipos que pueden tener acceso al centro de descarga. A continuación, puede copiar el archivo del instalador en el equipo de host de puerta de enlace y ejecutarlo manualmente para instalar y actualizar la puerta de enlace.
@@ -48,7 +48,7 @@ Se muestra este error al hacer clic en **Instalar directamente en este equipo** 
 #### <a name="cause"></a>Causa
 Ya hay instalada una puerta de enlace en la máquina.
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 Desinstale la puerta de enlace existente en la máquina y vuelva a hacer clic en el vínculo **Instalar directamente en este equipo**.
 
 ### <a name="3-problem"></a>3. Problema
@@ -63,7 +63,7 @@ Puede que vea este mensaje por uno de los motivos siguientes:
 * Se ha invalidado la clave de la puerta de enlace.
 * Se ha vuelto a generar la clave de la puerta de enlace desde el portal.  
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 Compruebe si usa la clave de la puerta de enlace correcta en el portal. Si es necesario, vuelva a generar una clave y úsela para registrar la puerta de enlace.
 
 ### <a name="4-problem"></a>4. Problema
@@ -78,7 +78,7 @@ Puede que vea el siguiente mensaje de error al volver a registrar una puerta de 
 #### <a name="cause"></a>Causa
 El contenido o el formato de la clave de la puerta de enlace de entrada no son correctos. Uno de los motivos puede ser que haya copiado solo una parte de la clave desde el portal o que esté usando una clave no válida.
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 Genere una clave de puerta de enlace en el portal y use el botón Copiar para copiar la clave completa. A continuación, péguela en esta ventana para registrar la puerta de enlace.
 
 ### <a name="5-problem"></a>5. Problema
@@ -91,7 +91,7 @@ Puede que vea el siguiente mensaje de error al volver a registrar una puerta de 
 #### <a name="cause"></a>Causa
 La clave de la puerta de enlace se ha vuelto a generar o la puerta de enlace se ha eliminado en Azure Portal. También puede ocurrir que el programa de instalación de Data Management Gateway no sea el más reciente.
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 Compruebe si el programa de instalación de Data Management Gateway es la versión más reciente. Puede encontrar la versión más reciente en el [Centro de descarga de Microsoft](https://go.microsoft.com/fwlink/p/?LinkId=271260).
 
 Si se trata de la versión más reciente o la actual y existe una puerta de enlace en el Portal, vuelva a generar una clave de la puerta de enlace en Azure Portal, use el botón Copiar para copiar la clave entera y, después, péguela en esta ventana para registrar la puerta de enlace. En caso contrario, vuelva a crear la puerta de enlace y empiece de nuevo.
@@ -106,7 +106,7 @@ Puede que vea el siguiente mensaje de error al volver a registrar una puerta de 
 #### <a name="cause"></a>Causa
 Este error puede producirse porque se ha eliminado la puerta de enlace o porque se ha vuelto generar la clave de la puerta de enlace asociada.
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 Si se ha eliminado la puerta de enlace, vuelva a crear la puerta de enlace desde el portal, haga clic en **Registrar**, copie la clave desde el portal, péguela y, después, intente registrar la puerta de enlace.
 
 Si la puerta de enlace aún existe, pero su clave se ha vuelto a generar, use la nueva clave para registrar la puerta de enlace. Si no tiene la clave, vuelva a generar la clave desde el portal.
@@ -123,7 +123,7 @@ La puerta de enlace se ha registrado en otras máquinas anteriormente. Durante e
 
 Al restaurar la puerta de enlace en un equipo host distinto, el asistente para registro pide este certificado para descifrar las credenciales que se han cifrado anteriormente con este certificado.  Sin este certificado, las credenciales no se pueden descifrar con la nueva puerta de enlace y las ejecuciones de actividades de copia posteriores asociadas con esta nueva puerta de enlace producirán errores.  
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 Si ha exportado el certificado de credenciales desde la máquina de la puerta de enlace original con el botón e **Exportar** de la pestaña **Configuración** del administrador de configuración de la puerta de enlace de administración de datos, use el certificado aquí.
 
 No puede omitir esta fase al recuperar una puerta de enlace. Si falta el certificado, necesitará eliminar la puerta de enlace del portal y volver a crear una puerta de enlace.  Además, actualice todos los servicios vinculados relacionados con la puerta de enlace volviendo a escribir sus credenciales.
@@ -136,7 +136,7 @@ Puede aparecer el siguiente mensaje de error.
 #### <a name="cause"></a>Causa
 Este error se produce cuando la puerta de enlace se encuentra en un entorno que necesita un proxy HTTP para acceder a recursos de Internet, o bien cuando se cambia la contraseña de autenticación del proxy, pero no se actualiza en la puerta de enlace.
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 Siga las instrucciones de la sección Consideraciones sobre el servidor proxy en este artículo y establezca la configuración del proxy con el Administrador de configuración de Data Management Gateway.
 
 ## <a name="gateway-is-online-with-limited-functionality"></a>La puerta de enlace está en línea con funcionalidad limitada
@@ -151,7 +151,7 @@ El estado de la puerta de enlace es "en línea con funciones limitadas" por uno 
 
 Cuando la puerta de enlace está en línea con funcionalidad limitada, no podrá usar el Asistente para copia de Data Factory para crear canalizaciones de datos entre almacenes de datos locales. Como alternativa, puede usar Data Factory Editor en el portal, Visual Studio o Azure PowerShell.
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 La solución a este problema (en línea con funciones limitadas) depende de si la puerta de enlace se puede conectar al servicio en la nube o viceversa. En las secciones siguientes se describen estas soluciones.
 
 ### <a name="2-problem"></a>2. Problema
@@ -164,7 +164,7 @@ Verá este error.
 #### <a name="cause"></a>Causa
 La puerta de enlace no se puede conectar al servicio en la nube mediante Service Bus.
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 Siga estos pasos para poner en línea la puerta de enlace:
 
 1. Permita reglas de salida de direcciones IP en la máquina de la puerta de enlace y en el firewall corporativo. Puede buscar las direcciones IP desde el registro de eventos de Windows (Id. == 401): Intento de obtener acceso a un socket de una manera no permitida por los permisos de acceso XX.XX.XX.XX:9350.
@@ -179,7 +179,7 @@ Verá este error.
 #### <a name="cause"></a>Causa
 Un error transitorio en la conectividad de red.
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 Siga estos pasos para poner en línea la puerta de enlace:
 
 1. Espere un par de minutos; la conectividad se recuperará automáticamente cuando desaparezca el error.
@@ -196,19 +196,19 @@ Cuando aparece este error, la página de configuración del Administrador de con
 ![No se puede establecer conexión con la base de datos](media/data-factory-troubleshoot-gateway-issues/database-cannot-be-reached.png)
 
 #### <a name="cause"></a>Causa
-Es posible que se haya perdido el certificado SSL en la máquina de la puerta de enlace. El equipo de la puerta de enlace no puede cargar certificado usado actualmente para el cifrado SSL. También puede ver un mensaje de error en el registro de eventos que es similar al siguiente mensaje.
+Es posible que se haya perdido el certificado TLS/SSL en la máquina de la puerta de enlace. El equipo de la puerta de enlace no puede cargar el certificado usado actualmente para el cifrado TLS. También puede ver un mensaje de error en el registro de eventos que es similar al siguiente mensaje.
 
  `Unable to get the gateway settings from cloud service. Check the gateway key and the network connection. (Certificate with thumbprint cannot be loaded.)`
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 Siga estos pasos para solucionar el problema:
 
 1. Inicie el Administrador de configuración de la puerta de enlace de administración de datos.
 2. Cambie a la pestaña **Configuración** .  
-3. Haga clic en el botón **Cambiar** para cambiar el certificado SSL.
+3. Haga clic en el botón **Cambiar** para cambiar el certificado TLS/SSL.
 
    ![Botón Cambiar certificado](media/data-factory-troubleshoot-gateway-issues/change-button-ssl-certificate.png)
-4. Seleccione un nuevo certificado como certificado SSL. Puede usar cualquier certificado SSL que haya generado por su cuenta o que haya generado una organización.
+4. Seleccione un nuevo certificado como certificado TLS/SSL. Puede usar cualquier certificado TLS/SSL que haya generado por su cuenta o que haya generado una organización.
 
    ![Especificar certificado](media/data-factory-troubleshoot-gateway-issues/specify-http-end-point.png)
 
@@ -221,7 +221,7 @@ Puede que vea el error "UserErrorFailedToConnectToSqlserver" después de configu
 #### <a name="cause"></a>Causa
 Esto puede ocurrir por diferentes motivos y la mitigación varía según la causa.
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 Permita las conexiones TCP de salida a través del puerto TCP/1433 en el lado cliente de Puerta de enlace de administración de datos antes de conectar a una SQL Database.
 
 Si la base de datos de destino es una base de datos de Azure SQL, compruebe también la configuración del firewall de SQL Server para Azure.
