@@ -11,12 +11,12 @@ ms.date: 08/29/2018
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 635b65d16ae9a59816506023d323243f043ce7da
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 6fa8bd42eb067124ab6ea1db77e2f3d6fba79638
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350390"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745215"
 ---
 # <a name="restore-an-existing-sql-pool"></a>Restauración de un grupo de SQL existente
 
@@ -28,12 +28,12 @@ En este artículo, aprenderá a restaurar un grupo de SQL existente en Azure Syn
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-1. Asegúrese de [instalar Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
+1. Asegúrese de [instalar Azure PowerShell](/powershell/azure/overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 2. Tenga un punto de restauración existente desde el que desee realizar la restauración. Si desea crear una restauración, consulte [el tutorial para crear un de restauración definido por el usuario](sql-data-warehouse-restore-points.md).
 
 ## <a name="restore-an-existing-sql-pool-through-powershell"></a>Restauración de un grupo de SQL existente mediante PowerShell
 
-Para restaurar un grupo de SQL existente a partir de un punto de restauración, use el cmdlet [Restore-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) de PowerShell.
+Para restaurar un grupo de SQL existente a partir de un punto de restauración, use el cmdlet [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) de PowerShell.
 
 1. Abra PowerShell.
 
@@ -45,13 +45,13 @@ Para restaurar un grupo de SQL existente a partir de un punto de restauración, 
 
 5. Elija el punto de restauración deseado mediante RestorePointCreationDate.
 
-6. Restaure el grupo de SQL al punto de restauración deseado mediante el comando [Restore-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) de PowerShell.
+6. Restaure el grupo de SQL al punto de restauración deseado mediante el comando [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) de PowerShell.
         1. Para restaurar el grupo de SQL en un servidor lógico diferente, asegúrese de especificar el nombre del otro servidor lógico.  Este servidor lógico también puede estar en un grupo de recursos y una región diferentes.
         2. Para realizar la restauración en otra suscripción, use el botón Mover para mover el servidor lógico a otra suscripción.
 
 7. Compruebe que el grupo de SQL restaurado está en línea.
 
-8. Una vez finalizada la restauración, puede configurar el grupo de SQL recuperado siguiendo la guía [Configuración de la base de datos después de realizar la recuperación](../../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery).
+8. Una vez finalizada la restauración, puede configurar el grupo de SQL recuperado siguiendo la guía [Configuración de la base de datos después de realizar la recuperación](../../sql-database/sql-database-disaster-recovery.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
 
 ```Powershell
 
@@ -100,7 +100,6 @@ $RestoredDatabase.status
     ![Puntos de restauración automáticos](./media/sql-data-warehouse-restore-active-paused-dw/restoring-11.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 - [Restauración de un grupo de SQL eliminado](sql-data-warehouse-restore-deleted-dw.md)
 - [Restauración de un grupo de SQL a partir de una copia de seguridad de replicación geográfica](sql-data-warehouse-restore-from-geo-backup.md)
-
- 
