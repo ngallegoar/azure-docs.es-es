@@ -1,20 +1,18 @@
 ---
-title: Hoja de ruta de Azure Marketplace y AppSource | Azure
+title: Hoja de ruta de Azure Marketplace y AppSource
 description: Una guía básica de lo que sucede en Marketplace.
-services: Azure, Marketplace, Compute
 author: qianw211
-manager: MaggiePucciEvans
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/02/2019
-ms.author: blevens
-ms.openlocfilehash: ce2390f1aa71b6cfc10bbb5144127d46fc82fb19
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: c9c69bb475c943003f78a69df1142653c3d5249e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826438"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288383"
 ---
 # <a name="microsoft-commercial-marketplace-roadmap"></a>Plan de desarrollo de Marketplace comercial de Microsoft
 
@@ -22,7 +20,7 @@ En este documento se proporciona una visión de las próximas novedades de Marke
 
 Agradecemos sus sugerencias. Únase a la conversación de [Microsoft Partner Community](https://www.microsoftpartnercommunity.com/) para obtener las actualizaciones más recientes sobre nuevas funcionalidades, programas y eventos.
 
-## <a name="roadmap"></a>Roadmap
+## <a name="roadmap"></a>Plan de desarrollo
 ![Plan de desarrollo de Marketplace para noviembre de 2019](./media/marketplace-publishers-guide/roadmap-nov19.png)
 
 ## <a name="recent-releases"></a>Versiones recientes
@@ -31,7 +29,7 @@ Una vez que se activa una funcionalidad, se quita de la hoja de ruta. La funcion
 
 * [Blog de actualización de Marketplace + CSP](https://aka.ms/marketplacemarchupdateblog)
 * [Publicación de ofertas en el canal CSP (ISV)](https://aka.ms/publishtocsp)
-* [Reventa de ofertas de Marketplace (CSP)](h https://aka.ms/marketplaceincsp)
+* [Reventa de ofertas de Marketplace (CSP)](hhttps://aka.ms/marketplaceincsp)
 * [Contrato estándar](https://aka.ms/standardcontract)
 * [API de suministro de SaaS](https://aka.ms/saasapiv2)
 * [Geoáreas y monedas de Marketplace](https://aka.ms/marketplacegeos)
