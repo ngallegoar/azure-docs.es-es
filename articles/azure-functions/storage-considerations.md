@@ -3,12 +3,12 @@ title: Consideraciones de almacenamiento de Azure Functions
 description: Conozca los requisitos de almacenamiento de Azure Functions y aprenda a cifrar los datos almacenados.
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: 3bacc93ad6c1851d9165e8efb7d27b427050e6f0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 48ff2dedd997cccb76b13acdadc895504f656ea3
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79234888"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984170"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Consideraciones de almacenamiento de Azure Functions
 
@@ -29,7 +29,7 @@ Azure Functions necesita una cuenta de Azure Storage para crear una instancia de
 
 Al crear una aplicación de funciones, debe crear o vincular una cuenta de Azure Storage de uso general compatible con Blob, Queue y Table Storage. El motivo es que Azure Functions usa Azure Storage con ciertas operaciones; por ejemplo, para administrar los desencadenadores y ejecutar las funciones de registro. Algunas cuentas de almacenamiento no admiten el uso de colas y tablas; por ejemplo, las cuentas de almacenamiento solo para blobs, Azure Premium Storage y las cuentas de almacenamiento de uso general con replicación ZRS. Estas cuentas no compatibles no se muestran en la hoja Cuenta de almacenamiento cuando se crea una aplicación de funciones.
 
-Para más información sobre los tipos de cuenta de almacenamiento, consulte [Introducción de los servicios Azure Storage](../storage/common/storage-introduction.md#azure-storage-services). 
+Para más información sobre los tipos de cuenta de almacenamiento, consulte [Introducción de los servicios Azure Storage](../storage/common/storage-introduction.md#core-storage-services). 
 
 Aunque puede usar una cuenta de almacenamiento existente con la aplicación de funciones, debe asegurarse de que cumple estos requisitos. En las cuentas de almacenamiento que se generan durante el flujo de creación de la aplicación de funciones, el cumplimiento de los requisitos de la cuenta de almacenamiento está garantizado.  
 

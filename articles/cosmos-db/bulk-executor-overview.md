@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 9d335bcf6daf0b38e7a68ca2d40894dd64c93e40
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: af17f9c2ef7eea5eb531327d4df13d5885a49b7e
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75442152"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985599"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Información general sobre la biblioteca BulkExecutor de Azure Cosmos DB
  
@@ -51,4 +51,4 @@ La biblioteca Bulk Executor se asegura de la máxima utilización de la capacida
 * Puede aprender más si prueba las aplicaciones de ejemplo que usan la biblioteca BulkExecutor en [.NET](bulk-executor-dot-net.md) y [Java](bulk-executor-java.md).  
 * Consulte la información sobre el SDK y las notas de la versión de BulkExecutor en [.NET](sql-api-sdk-bulk-executor-dot-net.md) y [Java](sql-api-sdk-bulk-executor-java.md).
 * La biblioteca BulkExecutor está integrada en el conector de Spark a Cosmos DB; para más información, vea el artículo sobre el [conector de Spark a Azure Cosmos DB](spark-connector.md).  
-* La biblioteca de BulkExecutor también está integrada en una nueva versión del [conector de Azure Cosmos DB](https://aka.ms/bulkexecutor-adf-v2) para que Azure Data Factory copie datos.
+* La biblioteca de BulkExecutor también está integrada en una nueva versión del [conector de Azure Cosmos DB](../data-factory/connector-azure-cosmos-db.md) para que Azure Data Factory copie datos.

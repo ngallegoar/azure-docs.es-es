@@ -7,14 +7,14 @@ author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.date: 02/26/2020
+ms.date: 03/31/2020
 ms.author: tamram
-ms.openlocfilehash: 479145f4d42c0708c109ab582e76e3691971c6ad
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 3b005bc359b3c1b0cafe663b7ce2b599b10973a1
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80061403"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474003"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-powershell"></a>Inicio rápido: Carga, descarga y enumeración de blobs mediante PowerShell
 
@@ -28,7 +28,7 @@ Para acceder a Azure Storage, necesitará una suscripción de Azure. Si todavía
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Para realizar los pasos de este inicio rápido, se requiere la versión 0.7 del módulo Az de Azure PowerShell, o cualquier versión posterior. Ejecute `Get-InstalledModule -Name Az -AllVersions | select Name,Version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte el artículo sobre [cómo instalar el módulo de Azure PowerShell](/powershell/azure/install-Az-ps).
+Para realizar los pasos de este inicio rápido, se requiere la versión 0.7 del módulo Az de Azure PowerShell, o cualquier versión posterior. Ejecute `Get-InstalledModule -Name Az -AllVersions | select Name,Version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte el artículo sobre [cómo instalar el módulo de Azure PowerShell](/powershell/azure/install-az-ps).
 
 [!INCLUDE [storage-quickstart-tutorial-intro-include-powershell](../../../includes/storage-quickstart-tutorial-intro-include-powershell.md)]
 
@@ -36,7 +36,7 @@ Para realizar los pasos de este inicio rápido, se requiere la versión 0.7 del 
 
 Los blobs siempre se cargan en un contenedor. Puede organizar los grupos de blobs de una forma similar a como organiza los archivos en carpetas en el equipo.
 
-Establezca el nombre del contenedor y, después, cree el contenedor mediante [New-AzStorageContainer](/powershell/module/az.storage/new-AzStoragecontainer). Establezca los permisos para `blob` de modo que se permita el acceso público de los archivos. El nombre del contenedor en este ejemplo es *quickstartblobs*.
+Establezca el nombre del contenedor y, después, cree el contenedor mediante [New-AzStorageContainer](/powershell/module/az.storage/new-azstoragecontainer). Establezca los permisos para `blob` de modo que se permita el acceso público de los archivos. El nombre del contenedor en este ejemplo es *quickstartblobs*.
 
 ```powershell
 $containerName = "quickstartblobs"
@@ -47,7 +47,7 @@ New-AzStorageContainer -Name $containerName -Context $ctx -Permission blob
 
 Blob Storage admite blobs en bloques, blobs en anexos y blobs en páginas. Los archivos VHD utilizados para respaldar VM IaaS son blobs en páginas. Use los blobs en anexos para el registro, por ejemplo, cuando desea escribir en un archivo y luego sigue agregando más información. La mayoría de los archivos almacenados en Blob Storage son blobs en bloques. 
 
-Para cargar un archivo en un blob en bloques, obtenga una referencia de contenedor y luego obtenga una referencia al blob en bloques en ese contenedor. Cuando tenga la referencia del blob, puede cargar datos en él mediante [Set-AzStorageBlobContent](/powershell/module/az.storage/set-AzStorageblobcontent). De este modo, se creará el blob si no existe, o se sobrescribirá si ya existe.
+Para cargar un archivo en un blob en bloques, obtenga una referencia de contenedor y luego obtenga una referencia al blob en bloques en ese contenedor. Cuando tenga la referencia del blob, puede cargar datos en él mediante [Set-AzStorageBlobContent](/powershell/module/az.storage/set-azstorageblobcontent). De este modo, se creará el blob si no existe, o se sobrescribirá si ya existe.
 
 Los ejemplos siguientes cargan *Image001.jpg* e *Image002.png* desde la carpeta *D:\\_TestImages* del disco local al contenedor que creó.
 
@@ -69,7 +69,7 @@ Cargue tantos archivos como desee antes de continuar.
 
 ## <a name="list-the-blobs-in-a-container"></a>Enumerar los blobs de un contenedor
 
-Obtenga una lista de blobs del contenedor mediante [Get-AzStorageBlob](/powershell/module/az.storage/get-AzStorageblob). Este ejemplo muestra solo los nombres de los blobs cargados.
+Obtenga una lista de blobs del contenedor mediante [Get-AzStorageBlob](/powershell/module/az.storage/get-azstorageblob). Este ejemplo muestra solo los nombres de los blobs cargados.
 
 ```powershell
 Get-AzStorageBlob -Container $ContainerName -Context $ctx | select Name
@@ -77,7 +77,7 @@ Get-AzStorageBlob -Container $ContainerName -Context $ctx | select Name
 
 ## <a name="download-blobs"></a>Descargar blobs
 
-Descargue los blobs en el disco local. Para cada blob que quiera descargar, establezca el nombre y llame a [Get-AzStorageBlobContent](/powershell/module/az.storage/get-AzStorageblobcontent) para descargar el blob.
+Descargue los blobs en el disco local. Para cada blob que quiera descargar, establezca el nombre y llame a [Get-AzStorageBlobContent](/powershell/module/az.storage/get-azstorageblobcontent) para descargar el blob.
 
 Este ejemplo descarga los blobs a *D:\\_TestImages\Downloads* en el disco local. 
 

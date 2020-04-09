@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 07a96fdd6350d8db38a92c23e510afb05f7416fb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1837d342c4476633ee33a8579abe7389ac9bbddf
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79235248"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80476834"
 ---
 # <a name="manage-instances-in-durable-functions-in-azure"></a>Administración de instancias con Durable Functions en Azure
 
@@ -42,9 +42,9 @@ El código siguiente es una función de ejemplo que inicia una nueva instancia d
 # <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
-[FunctionName("HelloWorldManualStart")]
+[FunctionName("HelloWorldQueueTrigger")]
 public static async Task Run(
-    [ManualTrigger] string input,
+    [QueueTrigger("start-queue")] string input,
     [DurableClient] IDurableOrchestrationClient starter,
     ILogger log)
 {
@@ -161,7 +161,7 @@ Este método devuelve `null` (.NET) o `undefined` (JavaScript) si la instancia n
 [FunctionName("GetStatus")]
 public static async Task Run(
     [DurableClient] IDurableOrchestrationClient client,
-    [ManualTrigger] string instanceId)
+    [QueueTrigger("check-status-queue")] string instanceId)
 {
     DurableOrchestrationStatus status = await client.GetStatusAsync(instanceId);
     // do something based on the current status.
@@ -363,7 +363,7 @@ Puede usar los métodos `TerminateAsync` (.NET) o `terminate` (JavaScript) del [
 [FunctionName("TerminateInstance")]
 public static Task Run(
     [DurableClient] IDurableOrchestrationClient client,
-    [ManualTrigger] string instanceId)
+    [QueueTrigger("terminate-queue")] string instanceId)
 {
     string reason = "It was time to be done.";
     return client.TerminateAsync(instanceId, reason);
@@ -428,7 +428,7 @@ Los parámetros de `RaiseEventAsync` (.NET) y `raiseEvent` (JavaScript) son los 
 [FunctionName("RaiseEvent")]
 public static Task Run(
     [DurableClient] IDurableOrchestrationClient client,
-    [ManualTrigger] string instanceId)
+    [QueueTrigger("event-queue")] string instanceId)
 {
     int[] eventData = new int[] { 1, 2, 3 };
     return client.RaiseEventAsync(instanceId, "MyEvent", eventData);
@@ -622,7 +622,7 @@ Por ejemplo, supongamos que tiene un flujo de trabajo que requiere una serie de 
 [FunctionName("RewindInstance")]
 public static Task Run(
     [DurableClient] IDurableOrchestrationClient client,
-    [ManualTrigger] string instanceId)
+    [QueueTrigger("rewind-queue")] string instanceId)
 {
     string reason = "Orchestrator failed and needs to be revived.";
     return client.RewindAsync(instanceId, reason);
@@ -674,7 +674,7 @@ Estos métodos tienen dos sobrecargas: La primera sobrecarga purga el historial 
 [FunctionName("PurgeInstanceHistory")]
 public static Task Run(
     [DurableClient] IDurableOrchestrationClient client,
-    [ManualTrigger] string instanceId)
+    [QueueTrigger("purge-queue")] string instanceId)
 {
     return client.PurgeInstanceHistoryAsync(instanceId);
 }

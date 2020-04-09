@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 23eb51428dcf4961febfb592bf957bb8beeeda57
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 40820170bae275f090c5f898387698fc562e59ae
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "61463129"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985548"
 ---
 # <a name="scale-streaming-endpoints-with-the-azure-portal"></a>Escalado de puntos de conexión de streaming con el Portal de Azure
 ## <a name="overview"></a>Información general
@@ -33,7 +33,7 @@ Los puntos de conexión de streaming **Premium** son adecuados para cargas de tr
  
 Este tema muestra cómo escalar un punto de conexión de streaming.
 
-Para obtener más información acerca del precio, consulte la página sobre [información del precio de Media Services](https://go.microsoft.com/fwlink/?LinkId=275107).
+Para obtener más información acerca del precio, consulte la página sobre [información del precio de Media Services](https://azure.microsoft.com/pricing/details/media-services/).
 
 ## <a name="scale-streaming-endpoints"></a>Escalar puntos de conexión de streaming
 

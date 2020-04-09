@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/13/2019
-ms.openlocfilehash: a04ca3768ade6058c59393591c252bc4347a3663
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/30/2020
+ms.openlocfilehash: c2690ad7cc4dcaa295bfb08b8c0396438ada0807
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79234464"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437544"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Soluciones de supervisión en Azure Monitor
 Las soluciones de supervisión aprovechan los servicios de Azure para proporcionar información adicional sobre el funcionamiento de una aplicación o servicio determinados. En este artículo se proporciona una breve descripción de las soluciones de supervisión en Azure y los detalles sobre su uso e instalación.
@@ -83,11 +83,7 @@ Todas las soluciones de supervisión requieren un [área de trabajo de Log Analy
 * Si una solución requiere una cuenta de Automation, el área de trabajo de Log Analytics y la cuenta de Automation solución deben estar vinculadas. Un área de trabajo de Log Analytics solo puede estar vinculada a una cuenta de Automation y viceversa.
 * Para poder vincularse, el área de trabajo de Log Analytics y la cuenta de Automation deben encontrarse en el mismo grupo de recursos y la misma región. La excepción es un área de trabajo que se encuentre en la región Este de EE. UU. y una cuenta de Automation del Este de EE. UU. 2.
 
-### <a name="create-a-link-between-a-log-analytics-workspace-and-automation-account"></a>Creación de un vínculo entre un área de trabajo de Log Analytics y una cuenta de Automation
-La forma de especificar el área de trabajo de Log Analytics y una cuenta de Automation dependerá del método de instalación de la solución.
-
-* Al instalar una solución mediante Azure Marketplace, se le pedirá un área de trabajo y una cuenta de Automation. Se creará un vínculo entre ellas, si no están ya vinculadas.
-* Para las soluciones externas a Azure Marketplace, debe vincular el área de trabajo de Log Analytics y la cuenta de Automation antes de instalar la solución. Para ello, seleccione cualquier solución en Azure Marketplace y seleccione el área de trabajo de Log Analytics y la cuenta de Automation. No tendrá que instalar la solución en sí, ya que el vínculo se crea en cuanto se seleccionan el área de trabajo de Log Analytics y la cuenta de Automation. Cuando se cree el vínculo, podrá usar esa área de trabajo de Log Analytics y la cuenta de Automation para cualquier solución.
+Al instalar una solución mediante Azure Marketplace, se le pedirá un área de trabajo y una cuenta de Automation. Se creará un vínculo entre ellas, si no están ya vinculadas.
 
 ### <a name="verify-the-link-between-a-log-analytics-workspace-and-automation-account"></a>Comprobación de un vínculo entre un área de trabajo de Log Analytics y una cuenta de Automation
 Puede comprobar el vínculo entre un área de trabajo de Log Analytics y una cuenta de Automation mediante el procedimiento siguiente.

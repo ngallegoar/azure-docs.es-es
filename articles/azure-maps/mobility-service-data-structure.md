@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 30696c5dcb3353ea468aa78dbc107dae4d292edb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4dfc6793bba473c4046863937baa292dde7bf421
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80334441"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478692"
 ---
 # <a name="data-structures-in-azure-maps-mobility-service"></a>Estructuras de datos de Mobility Service en Azure Maps
 
@@ -31,13 +31,13 @@ Los datos de Mobility Service se agrupan en áreas metropolitanas admitidas. Las
 
 ## <a name="stop-ids"></a>Identificadores de parada
 
-Se puede hacer referencia a las paradas de transporte público por dos tipos de identificador: el identificador de [General Transit Feed Specification (GFTS)](https://gtfs.org/) y el identificador de parada de Azure Maps. El identificador de GFTS se conoce como stopKey y el identificador de parada de Azure Maps como stopID. Cuando se hace referencia con frecuencia a paradas de transporte público, se recomienda usar el identificador de parada de Azure Maps. stopID es más estable y es probable que permanezca igual siempre que exista la parada física. El identificador de parada de GTFS se actualiza con más frecuencia. Por ejemplo, se puede actualizar según la solicitud del proveedor de GTFS o cuando se lanza una nueva versión de GTFS. Aunque no se haya producido ningún cambio en la parada física, el identificador de parada de GTFS puede cambiar.
+Se puede hacer referencia a las paradas de transporte público por dos tipos de identificador: el identificador de [General Transit Feed Specification (GFTS)](http://gtfs.org/) y el identificador de parada de Azure Maps. El identificador de GFTS se conoce como stopKey y el identificador de parada de Azure Maps como stopID. Cuando se hace referencia con frecuencia a paradas de transporte público, se recomienda usar el identificador de parada de Azure Maps. stopID es más estable y es probable que permanezca igual siempre que exista la parada física. El identificador de parada de GTFS se actualiza con más frecuencia. Por ejemplo, se puede actualizar según la solicitud del proveedor de GTFS o cuando se lanza una nueva versión de GTFS. Aunque no se haya producido ningún cambio en la parada física, el identificador de parada de GTFS puede cambiar.
 
 Para empezar, puede solicitar las paradas de transporte público próximas mediante [Get Nearby Transit API](https://aka.ms/AzureMapsMobilityNearbyTransit).
 
 ## <a name="line-groups-and-lines"></a>Líneas y grupos de líneas
 
-Mobility Service usa un modelo de datos paralelo para las líneas y los grupos de líneas. Este modelo se usa para contrarrestar mejor los cambios heredados de las rutas y los datos de viajes de [GTFS](https://gtfs.org/).
+Mobility Service usa un modelo de datos paralelo para las líneas y los grupos de líneas. Este modelo se usa para contrarrestar mejor los cambios heredados de las rutas y los datos de viajes de [GTFS](http://gtfs.org/).
 
 
 ### <a name="line-groups"></a>Grupos de líneas

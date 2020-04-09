@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: diberry
-ms.openlocfilehash: 51b0d02443df872a7fae13116ea77b13d05055fa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a1e43cfc55611c432652055db2ac8411d835608b
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "74225462"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396828"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Corregir palabras incorrectas con Bing Spell Check
 
@@ -71,7 +71,7 @@ La consulta de punto de conexión necesita la clave que se pasa en los parámetr
 
 La dirección URL del punto de conexión tiene varios valores que se deben pasar correctamente. La clave de Bing Spell Check API v7 es simplemente uno de ellos. Debe establecer el parámetro **spellCheck** en true y el valor de **bing-spell-check-subscription-key** en el valor de la clave:
 
-`https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appID}?subscription-key={luisKey}&spellCheck=**true**&bing-spell-check-subscription-key=**{bingKey}**&verbose=true&timezoneOffset=0&q={utterance}`
+`https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appID}?subscription-key={luisKey}&spellCheck=true&bing-spell-check-subscription-key={bingKey}&verbose=true&timezoneOffset=0&q={utterance}`
 
 ## <a name="send-misspelled-utterance-to-luis"></a>Enviar expresiones incorrectas a LUIS
 1. En un explorador web, copie la cadena anterior y reemplace `region`, `appId`, `luisKey` y `bingKey` con sus propios valores. Asegúrese de usar la región del punto de conexión, si es diferente de la [región](luis-reference-regions.md) de publicación.

@@ -5,12 +5,12 @@ author: mumian
 ms.date: 03/04/2019
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: c9447d356cff792d9a70e33cc2a5e35898d8982b
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: a0c80f18e9cd09b765804aaddbd178b4b3e32a9d
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80131890"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984459"
 ---
 # <a name="quickstart-create-arm-templates-by-using-visual-studio-code"></a>Inicio rápido: Creación de plantillas de ARM mediante Visual Studio Code
 
@@ -132,11 +132,13 @@ Existen muchos métodos para la implementación de plantillas. En este inicio r�
 4. En Cloud Shell, ejecute los comandos siguientes. Seleccione la pestaña para mostrar el código de PowerShell o el código de la CLI.
 
     # <a name="cli"></a>[CLI](#tab/CLI)
+
     ```azurecli
-    echo "Enter the Resource Group name:" &&
-    read resourceGroupName &&
+    echo "Enter a project name that is used to generate resource group name:" &&
+    read projectName &&
     echo "Enter the location (i.e. centralus):" &&
     read location &&
+    resourceGroupName="${projectName}rg" &&
     az group create --name $resourceGroupName --location "$location" &&
     az deployment group create --resource-group $resourceGroupName --template-file "$HOME/azuredeploy.json"
     ```
@@ -144,8 +146,9 @@ Existen muchos métodos para la implementación de plantillas. En este inicio r�
     # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
     ```azurepowershell
-    $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+    $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name"
     $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+    $resourceGroupName = "${projectName}rg"
 
     New-AzResourceGroup -Name $resourceGroupName -Location "$location"
     New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "$HOME/azuredeploy.json"
@@ -172,6 +175,7 @@ Existen muchos métodos para la implementación de plantillas. En este inicio r�
 5. Ejecute el siguiente comando de la CLI o de PowerShell para enumerar la cuenta de almacenamiento recién creada:
 
     # <a name="cli"></a>[CLI](#tab/CLI)
+
     ```azurecli
     echo "Enter the Resource Group name:" &&
     read resourceGroupName &&

@@ -10,12 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: cbe01ee9b8edeab349db484cea6c25dca32bf213
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7064101c21c11b48d8616dbeaa2fd9075660fd3b
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79218019"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80473456"
 ---
 # <a name="manage-azure-machine-learning-studio-classic-web-services-using-api-management"></a>Administración de servicios web de Azure Machine Learning Studio (clásico) con API Management
 
@@ -217,7 +217,7 @@ Haga clic en **Sí** para publicar el experimento.
 ![yes-to-publish](./media/manage-web-service-endpoints-using-api-management/yes-to-publish.png)
 
 ### <a name="test-the-web-service"></a>Prueba del servicio web
-Un servicio web de AzureML consta de los extremos RRS (servicio de solicitud/respuesta) y BES (servicio de ejecución por lotes). RRS sirve para la ejecución sincrónica. BES sirve para la ejecución por lotes asincrónica. Para probar el servicio web con el origen de Python del ejemplo siguiente, puede que necesite descargar e instalar el SDK de Azure para Python (consulte: [Cómo instalar Python](/azure/python/python-sdk-azure-install)).
+Un servicio web de AzureML consta de los extremos RRS (servicio de solicitud/respuesta) y BES (servicio de ejecución por lotes). RRS sirve para la ejecución sincrónica. BES sirve para la ejecución por lotes asincrónica. Para probar el servicio web con el origen de Python del ejemplo siguiente, puede que necesite descargar e instalar el SDK de Azure para Python (consulte: [Cómo instalar Python](/azure/developer/python/azure-sdk-install)).
 
 También necesitará el **área de trabajo**, el **servicio** y la **api_key** del experimento para el origen de ejemplo siguiente. Puede encontrar el área de trabajo y el servicio haciendo clic en **Solicitud-respuesta** o en **Ejecución de lotes** del experimento en el panel del servicio web.
 

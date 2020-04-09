@@ -12,12 +12,12 @@ manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 11/20/2019
-ms.openlocfilehash: d065439839ba5db479305ae81c61892cb5cf5e70
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9bbd2e3376f1da3fdf5b10d654a331ce258be5cf
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74929455"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422101"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copia de datos desde y hacia Dynamics 365 (Common Data Service) o Dynamics CRM mediante Azure Data Factory
 
@@ -324,7 +324,7 @@ Para copiar datos a Dynamics, se admiten las siguientes propiedades en la secci�
 | ignoreNullValues | Indica si se omiten los valores nulos de los datos de entrada (excepto los campos de clave) durante la operación de escritura.<br/>Los valores permitidos son **true** y **false**.<br>- **True**: deja los datos del objeto de destino sin cambiar cuando realiza una operación upsert/update. Inserta un valor predeterminado definido al realizar una operación insert.<br/>- **False**: actualiza los datos del objeto de destino a NULL cuando realiza una operación upsert/update. Inserta un valor NULL al realizar una operación insert. | No (el valor predeterminado es false) |
 
 >[!NOTE]
->El valor predeterminado del receptor "**writeBatchSize**" y el de la actividad de copia " **[parallelCopies](copy-activity-performance.md#parallel-copy)** " del receptor de Dynamics es 10 en ambos casos. Por lo tanto, se enviarán 100 registros a Dynamics simultáneamente.
+>El valor predeterminado del receptor "**writeBatchSize**" y el de la actividad de copia " **[parallelCopies](copy-activity-performance-features.md#parallel-copy)** " del receptor de Dynamics es 10 en ambos casos. Por lo tanto, se enviarán 100 registros a Dynamics simultáneamente.
 
 Para Dynamics 365 en línea, hay un límite de [2 llamadas simultáneas por lotes por organización](https://msdn.microsoft.com/library/jj863631.aspx#Run-time%20limitations). Si se supera dicho límite, se produce un error de "Servidor ocupado" antes de que la primera solicitud se haya ejecutado siquiera. Mantener el valor "writeBatchSize" menor o igual a 10 evitará tal limitación de las llamadas simultáneas.
 

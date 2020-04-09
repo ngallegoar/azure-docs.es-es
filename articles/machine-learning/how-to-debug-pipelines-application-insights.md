@@ -3,20 +3,20 @@ title: Depuración y solución de problemas de canalizaciones de aprendizaje aut
 titleSuffix: Azure Machine Learning
 description: Agregue el registro a las canalizaciones de entrenamiento y puntuación por lotes y vea los resultados registrados en Application Insights.
 services: machine-learning
-author: aburek
-ms.author: anrode
+author: sanpil
+ms.author: sanpil
 ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/16/2020
 ms.custom: seodec18
-ms.openlocfilehash: 85dcd9ef98deb2ea0117f2db280e49c4a57bf00f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b3e4bf19a7ec153f85483f3c5028e468e06ed7f0
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76776073"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982368"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines-in-application-insights"></a>Depuración y solución de problemas de canalizaciones de aprendizaje automático en Application Insights
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
