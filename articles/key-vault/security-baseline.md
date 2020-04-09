@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 7c15786e9a5d2fe65c20a26606087cee994ab54b
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: cc76f8c87eca059db85a68acbe4c317cf4904d39
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78302855"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79457192"
 ---
 # <a name="azure-security-baseline-for-key-vault"></a>Línea de base de seguridad de Azure para Key Vault
 
@@ -118,10 +118,7 @@ Introducción a las etiquetas de servicio de Azure: https://docs.microsoft.com/a
 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1.9: Mantenga las configuraciones de seguridad estándar para dispositivos de red
 
-**Instrucciones**: Defina e implemente configuraciones de seguridad estándar para los recursos de red asociados a las instancias de Azure Key Vault con Azure Policy. Use alias de Azure Policy en los espacios de nombres "Microsoft.KeyVault" y "Microsoft.Network" para crear directivas personalizadas con el fin de auditar o aplicar la configuración de red de las instancias de Azure Key Vault. También puede usar definiciones de directivas integradas relacionadas con Azure Key Vault, como:
-
-
-Key Vault debe usar un punto de conexión del servicio de red virtual
+**Instrucciones**: Defina e implemente configuraciones de seguridad estándar para los recursos de red asociados a las instancias de Azure Key Vault con Azure Policy. Use alias de Azure Policy en los espacios de nombres "Microsoft.KeyVault" y "Microsoft.Network" para crear directivas personalizadas con el fin de auditar o aplicar la configuración de red de las instancias de Azure Key Vault. También puede usar definiciones de directivas integradas relacionadas con Azure Key Vault, como: [Key Vault debe usar un punto de conexión del servicio de red virtual](key-vault-overview-vnet-service-endpoints.md)
 
 
 Tutorial: Creación y administración de directivas para aplicar el cumplimiento:
@@ -559,10 +556,10 @@ https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault
 
 ### <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4.7: Uso de la prevención de pérdida de datos basada en host para aplicar el control de acceso
 
-**Instrucciones**: Microsoft administra la infraestructura subyacente para Azure Key Vault y ha implementado controles estrictos para evitar la pérdida o exposición de los datos de los clientes.
+**Guía**: Microsoft administra la infraestructura subyacente para Azure Key Vault y ha implementado controles estrictos para evitar la pérdida o exposición de los datos de los clientes. Use Azure Security Center para realizar análisis de base de referencia para los recursos protegidos de Azure Key Vault.
 
 
-¿Qué es Azure Key Vault? https://docs.microsoft.com/azure/key-vault/key-vault-overview
+¿Qué es Azure Key Vault?: https://docs.microsoft.com/azure/key-vault/key-vault-overview
 
 Protección de datos de cliente de Azure: https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
@@ -915,7 +912,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 ### <a name="79-implement-automated-configuration-monitoring-for-azure-services"></a>7.9: Implemente la supervisión de configuración automatizada para servicios de Azure
 
-**Instrucciones**: Use Azure Security Center para realizar análisis de base de referencia para los recursos protegidos de Azure Key Vault. 
+**Guía**: Use Azure Security Center para realizar análisis de base de referencia para los recursos protegidos de Azure Key Vault. 
 
   
 

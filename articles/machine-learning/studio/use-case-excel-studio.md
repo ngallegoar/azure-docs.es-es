@@ -10,16 +10,18 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: 5831f83d8cd38cc07c64fdc398405c3a70935485
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 85bae9bfc10460b51935c6eb1e14e3a3dd816a8c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169090"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79217794"
 ---
 # <a name="migrate-analytics-from-excel-to-azure-machine-learning-studio-classic"></a>Migración de Analytics desde Excel a Azure Machine Learning Studio (clásico)
 
-> *Kate Baroni* y *Ben Boatman* son arquitectos de soluciones para empresas del Centro de Excelencia de Perspectivas sobre los datos de Microsoft. En este artículo, se describe su experiencia al migrar un conjunto existente de análisis de regresión a una solución basada en la nube mediante Azure Machine Learning Studio (clásico).
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
+> *Kate Baroni* y *Ben Boatman* son arquitectos de soluciones para empresas del Centro de Excelencia de Data Insights de Microsoft. En este artículo, se describe su experiencia al migrar un conjunto existente de análisis de regresión a una solución basada en la nube mediante Azure Machine Learning Studio (clásico).
 
 ## <a name="goal"></a>Objetivo
 
@@ -132,8 +134,8 @@ La posibilidad de transferir sistemáticamente la previsión analítica predicti
 ## <a name="resources"></a>Recursos
 A continuación, encontrará algunos recursos que le ayudarán a trabajar con la regresión: 
 
-* Regresión en Excel. Si nunca ha probado Regresión en Excel, este tutorial le enseñará a usarla fácilmente: [https://www.excel-easy.com/examples/regression.html](https://www.excel-easy.com/examples/regression.html)
-* Regresión frente a previsión. Tyler Chessman escribió un artículo de blog que explica cómo realizar una serie de previsiones de tiempo en Excel. [https://www.itprotoday.com/sql-server/understanding-time-series-forecasting-concepts](https://www.itprotoday.com/sql-server/understanding-time-series-forecasting-concepts) 
+* Regresión en Excel. Si nunca ha probado la regresión en Excel, este tutorial le enseñará a usarla fácilmente: [https://www.excel-easy.com/examples/regression.html](https://www.excel-easy.com/examples/regression.html).
+* Regresión frente a previsión. Tyler Chessman escribió un artículo de blog que explica cómo realizar una serie de previsiones de tiempo en Excel, que contiene una buena descripción para principiantes de la regresión lineal. [https://www.itprotoday.com/sql-server/understanding-time-series-forecasting-concepts](https://www.itprotoday.com/sql-server/understanding-time-series-forecasting-concepts) 
 * Regresión lineal (ordinaria de mínimos cuadrados): errores, problemas y riesgos. Para ver una introducción y una explicación sobre la regresión, consulte: [https://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ ](https://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/).
 
 <!-- Module References -->

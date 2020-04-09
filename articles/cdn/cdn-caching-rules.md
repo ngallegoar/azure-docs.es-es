@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: magattus
 ms.openlocfilehash: ddd7dc7e1245c2a77e866a454bf6bfa3c1f16f88
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74278135"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-caching-rules"></a>Control del comportamiento del almacenamiento en caché de Azure CDN con reglas de caché
@@ -67,7 +67,7 @@ Para las reglas de almacenamiento en caché globales y personalizadas, puede esp
 ## <a name="cache-expiration-duration"></a>Duración de expiración de caché
 Para las reglas de almacenamiento en caché globales y personalizadas, puede especificar la duración de expiración de caché en días, horas, minutos y segundos:
 
-- Para las configuraciones **Invalidar** y **Establecer si falta** correspondientes a **Comportamiento de almacenamiento en caché**, el intervalo de las duraciones de caché válido está comprendido entre 0 segundos y 366 días. Para un valor de 0 segundos, la red CDN almacena en caché el contenido, pero debe volver a validar cada solicitud con el servidor de origen.
+- Para las configuraciones **Invalidar** y **Establecer si falta** correspondientes a **Comportamiento de almacenamiento en caché**, el intervalo de las duraciones de caché válido está comprendido entre 0 segundos y 366 días. Para un valor de 0 segundos, la red CDN almacena en caché el contenido, pero debe volver a validar cada solicitud con el servidor de origen.
 
 - Para la configuración **Omitir caché**, la duración de caché se establece automáticamente en 0 segundos y no se puede cambiar.
 
@@ -113,7 +113,7 @@ Cuando se establecen estas reglas, una solicitud de _&lt;endpoint hostname&gt;_ 
 > - En los perfiles de **Azure CDN estándar de Verizon**, la propagación normalmente se completa en 10 minutos.  
 >
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 - [Cómo funciona el almacenamiento en caché](cdn-how-caching-works.md)
 - [Tutorial: Establecimiento de las reglas de almacenamiento en caché de Azure CDN](cdn-caching-rules-tutorial.md)

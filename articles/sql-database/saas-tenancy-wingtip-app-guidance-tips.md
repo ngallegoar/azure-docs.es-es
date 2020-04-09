@@ -12,10 +12,10 @@ ms.author: genemi
 ms.reviewer: sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: 162d1f269c65ad98afa30e8e96370bbdceca99bd
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74132298"
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Instrucciones generales para trabajar con aplicaciones SaaS de ejemplo de vales de Wingtip
@@ -80,7 +80,7 @@ Inicialmente, la implementación tiene inquilinos y servidores de SQL Database d
 
    - **Aplicación independiente:** servidores para cada inquilino (p. ej. *servidor contosoconcerthall-&lt;Usuario&gt;* ) y *catalog-sa-&lt;Usuario&gt;*
    - **Base de datos por inquilino: servidores** *tenants1-dpt-&lt;Usuario&gt;* y *catalog-dpt-&lt;Usuario&gt;*
-   - **Base de datos de varios inquilinos: servidores** *tenants1-mt-&lt;Usuario&gt;*  y *catalog-mt-&lt;Usuario&gt;*
+   - **Base de datos de varios inquilinos: servidores** *tenants1-mt-&lt;Usuario&gt;* y *catalog-mt-&lt;Usuario&gt;*
 
 Para garantizar una conexión de demostración correcta, todos los servidores tienen una [regla de firewall](sql-database-firewall-configure.md) que permite todas las direcciones IP.
 
@@ -88,7 +88,7 @@ Para garantizar una conexión de demostración correcta, todos los servidores ti
 1. Abra *SSMS* y conéctese a los inquilinos. El nombre del servidor depende del patrón de inquilino de base de datos que seleccionó (vea a continuación para obtener información específica).
     - **Aplicación independiente:** servidores de inquilinos individuales (p. ej. *contosoconcerthall-&lt;Usuario&gt;.database.windows.net*)
     - **Base de datos por inquilino:** *tenants1-dpt-&lt;Usuario&gt;.database.windows.net*
-    - **Base de datos de varios inquilinos:** *tenants1-mt-&lt;Usuario&gt;.database.windows.net*
+    - **Base de datos multiinquilino:** *tenants1-MT-&lt;Usuario&gt;.database.windows.net*
 2. Haga clic en **Conectar** > **Motor de base de datos...** :
 
    ![Servidor de catálogo](media/saas-tenancy-wingtip-app-guidance-tips/connect.png)
@@ -96,14 +96,14 @@ Para garantizar una conexión de demostración correcta, todos los servidores ti
 3. Las credenciales de demostración son: Inicio de sesión = *developer* y contraseña = *P\@ssword1*
 
     En la imagen siguiente se muestra el inicio de sesión para el patrón *Base de datos por inquilino*.
-    ![conexión](media/saas-tenancy-wingtip-app-guidance-tips/tenants1-connect.png)
+    ![connection](media/saas-tenancy-wingtip-app-guidance-tips/tenants1-connect.png)
 
 
 
 4. Repita los pasos 2 y 3 y conéctese al servidor del catálogo (consulte a continuación si hay nombres de servidores específicos basados en el patrón de inquilino de base de datos seleccionado).
-    - **Aplicación independiente:** *catalog-sa-&lt;Usuario&gt;.database.windows.net*
+    - **Aplicación independiente:** *catalog-sa-&lt;usuario&gt;.database.windows.net*
     - **Base de datos por inquilino:** *catalog-dpt-&lt;Usuario&gt;.database.windows.net*
-    - **Base de datos de varios inquilinos:** *catalog-mt-&lt;User&gt;.database.windows.net*
+    - **Base de datos multiinquilino:** *catalog-MT-&lt;Usuario&gt;.database.windows.net*
 
 
 Después de conectarse correctamente, debería ver todos los servidores. La lista de bases de datos podría ser diferente, dependiendo de los inquilinos que haya aprovisionado.

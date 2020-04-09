@@ -1,17 +1,17 @@
 ---
-title: 'Autenticación de Active Directory en Azure Database for MySQL: servidor único'
-description: Obtenga información sobre los conceptos de autenticación de Azure Active Directory con Azure Database for MySQL - Servidor único
+title: Autenticación de Active Directory en Azure Database for MySQL
+description: Conozca los conceptos de la autenticación de Azure Active Directory con Azure Database for MySQL.
 author: lfittl-msft
 ms.author: lufittl
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/22/2019
-ms.openlocfilehash: eb26bc09ce273280b55a023c563427b5b323ace9
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 960536c3f80aa7870d6f2056d8e95cd1a4338dfe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76706035"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79299029"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-mysql"></a>Uso de Azure Active Directory para la autenticación con MySQL
 
@@ -90,7 +90,7 @@ Una vez que se ha autenticado en el Active Directory, se recupera un token. Este
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para aprender a crear y rellenar Azure AD y, posteriormente, configurar Azure AD con Azure Database for MySql, consulte [Configuración e inicio de sesión con Azure AD para Azure Database for MySQL](howto-configure-sign-in-azure-ad-authentication.md).
-- Para obtener información general sobre los inicios de sesión y los usuarios de bases de datos de Azure Database for MySQL, consulte [Creación de usuarios en un servidor de Azure Database for MySQL: servidor único](howto-create-users.md).
+- Para información general sobre los inicios de sesión y los usuarios de bases de datos de Azure Database for MySQL, consulte [Creación de usuarios en Azure Database for MySQL](howto-create-users.md).
 
 <!--Image references-->
 

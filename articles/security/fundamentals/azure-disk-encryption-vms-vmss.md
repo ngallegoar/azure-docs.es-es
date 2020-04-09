@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 10/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 239bfb4f5a0e9115c113bb2d5ddbc931f41c0f3d
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: c881b2b9743766e4d35e6cb05f6f3469803850bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72599810"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80062122"
 ---
 # <a name="azure-disk-encryption-for-virtual-machines-and-virtual-machine-scale-sets"></a>Azure Disk Encryption para máquinas virtuales y conjuntos de escalado de máquinas virtuales
 
@@ -29,6 +29,7 @@ En los siguientes artículos se proporcionan instrucciones para el cifrado de m�
 - [Creación y cifrado de una máquina virtual Linux con la CLI de Azure](../../virtual-machines/linux/disk-encryption-cli-quickstart.md)
 - [Creación y cifrado de una máquina virtual Linux con Azure PowerShell](../../virtual-machines/linux/disk-encryption-powershell-quickstart.md)
 - [Creación y cifrado de una máquina virtual Linux en Azure Portal](../../virtual-machines/linux/disk-encryption-portal-quickstart.md)
+- [Esquema de la extensión Azure Disk Encryption para Linux](../../virtual-machines/extensions/azure-disk-enc-linux.md)
 - [Creación y configuración de un almacén de claves para Azure Disk Encryption](../../virtual-machines/linux/disk-encryption-key-vault.md)
 - [Scripts de ejemplo de Azure Disk Encryption](../../virtual-machines/linux/disk-encryption-sample-scripts.md)
 - [Solución de problemas de Azure Disk Encryption](../../virtual-machines/linux/disk-encryption-troubleshooting.md)
@@ -46,11 +47,12 @@ En los siguientes artículos se proporcionan instrucciones para el cifrado de m�
 
 ### <a name="current-version-of-azure-disk-encryption"></a>Versión actual de Azure Disk Encryption
 
-- [Introducción sobre el uso de Azure Disk Encryption para máquinas virtuales Windows](../../virtual-machines/windows/disk-encryption-overview.md)
+- [Introducción a Azure Disk Encryption para máquinas virtuales Windows](../../virtual-machines/windows/disk-encryption-overview.md)
 - [Escenarios de Azure Disk Encryption en máquinas virtuales Windows](../../virtual-machines/windows/disk-encryption-windows.md)
 - [Creación y cifrado de una máquina virtual Windows con la CLI de Azure](../../virtual-machines/windows/disk-encryption-cli-quickstart.md)
 - [Creación y cifrado de una máquina virtual Windows con Azure PowerShell](../../virtual-machines/windows/disk-encryption-powershell-quickstart.md)
 - [Creación y cifrado de una máquina virtual Windows con Azure Portal](../../virtual-machines/windows/disk-encryption-portal-quickstart.md)
+- [Esquema de la extensión Azure Disk Encryption para Windows](../../virtual-machines/extensions/azure-disk-enc-windows.md)
 - [Creación y configuración de un almacén de claves para Azure Disk Encryption](../../virtual-machines/windows/disk-encryption-key-vault.md)
 - [Scripts de ejemplo de Azure Disk Encryption](../../virtual-machines/windows/disk-encryption-sample-scripts.md)
 - [Solución de problemas de Azure Disk Encryption](../../virtual-machines/windows/disk-encryption-troubleshooting.md)

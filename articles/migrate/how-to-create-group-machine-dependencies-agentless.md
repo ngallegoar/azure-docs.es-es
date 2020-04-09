@@ -1,26 +1,36 @@
 ---
-title: Configuración de la visualización de dependencias sin agente en Azure Migrate
-description: Use la visualización de dependencias sin agente para configure grupos en Azure Migrate Server Assessment.
-ms.topic: article
+title: Configuración del análisis de dependencias sin agente en Azure Migrate Server Assessment
+description: Configure el análisis de dependencias sin agente en Azure Migrate Server Assessment.
+ms.topic: how-to
 ms.date: 2/24/2020
-ms.openlocfilehash: c9425ad1fa78f14a194d3fe13c259dadf4eb5eb6
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: af767bf73a3b9a6f2a91298987f11974499fd694
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77589137"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79455713"
 ---
 # <a name="set-up-agentless-dependency-visualization"></a>Configuración de la visualización de dependencias sin agente 
 
-En este artículo se describe cómo configurar la visualización de dependencias Azure Migrate: Server Assessment. La [visualización de dependencias](concepts-dependency-visualization.md#what-is-dependency-visualization) le ayuda a identificar y comprender las dependencias en las máquinas que quiere evaluar y migrar a Azure.
+En este artículo se describe cómo configurar el análisis de dependencias sin agente en Azure Migrate Server Assessment. El [análisis de dependencias](concepts-dependency-visualization.md) le ayuda a identificar y comprender las dependencias en las máquinas que quiere evaluar y migrar a Azure.
 
-La visualización de dependencia sin agente le ayuda a identificar las dependencias de las máquinas sin necesidad de instalar en ellas ningún agente. Funciona capturando los datos de conexión TCP de las máquinas para las que está habilitada.
 
 > [!IMPORTANT]
-> La visualización de dependencias sin agente se encuentra actualmente en versión preliminar solo para las VM de Azure VMware detectadas con la herramienta Azure Migrate: Server Assessment.
+> La visualización de dependencias sin agente se encuentra actualmente en versión preliminar solo para máquinas virtuales de VMware detectadas con la herramienta Azure Migrate Server Assessment.
 > Las características pueden ser limitadas o estar incompletas.
 > Esta versión preliminar está incluida en el soporte al cliente y se puede usar para cargas de trabajo de producción.
 > Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+
+
+## <a name="before-you-start"></a>Antes de comenzar
+
+- [Aprenda sobre](concepts-dependency-visualization.md#agentless-analysis) el análisis de dependencias sin agente.
+- [Revise](migrate-support-matrix-vmware.md#agentless-dependency-analysis-requirements) los requisitos previos y los requisitos de compatibilidad para configurar la visualización de dependencias sin agente para máquinas virtuales de VMware.
+- Asegúrese de que ha [creado](how-to-add-tool-first-time.md) un proyecto de Azure Migrate.
+- Si ya ha creado un proyecto, asegúrese de que ha [agregado](how-to-assess.md) la herramienta Azure Migrate: Server Assessment.
+- Asegúrese de que ha configurado un [dispositivo Azure Migrate](migrate-appliance.md) para detectar las máquinas locales. Obtenga información sobre cómo configurar un dispositivo para las VM de [VMware](how-to-set-up-appliance-vmware.md). El dispositivo detecta máquinas locales, y envía metadatos y datos de rendimiento a Azure Migrate: Server Assessment.
+
 
 ## <a name="current-limitations"></a>Limitaciones actuales
 
@@ -28,21 +38,10 @@ La visualización de dependencia sin agente le ayuda a identificar las dependenc
 - Actualmente, no existe ningún mapa de dependencias disponible para un grupo de servidores.
 - Actualmente, los datos de dependencias no se pueden descargar en formato tabular.
 
-## <a name="before-you-start"></a>Antes de comenzar
-
-- [Revise](concepts-dependency-visualization.md#agentless-visualization) los requisitos y los costos asociados de la visualización de dependencias sin agente.
-- Revise los [requisitos de compatibilidad](migrate-support-matrix-vmware.md#agentless-dependency-visualization) para configurar la visualización de dependencias sin agente.
-- Asegúrese de que ha [creado](how-to-add-tool-first-time.md) un proyecto de Azure Migrate.
-- Si ya ha creado un proyecto, asegúrese de que ha [agregado](how-to-assess.md) la herramienta Azure Migrate: Server Assessment.
-- Asegúrese de que ha configurado un [dispositivo Azure Migrate](migrate-appliance.md) para detectar las máquinas locales. Obtenga información sobre cómo configurar un dispositivo para las VM de [VMware](how-to-set-up-appliance-vmware.md). El dispositivo detecta máquinas locales, y envía metadatos y datos de rendimiento a Azure Migrate: Server Assessment.
-
-
 ## <a name="create-a-user-account-for-discovery"></a>Creación de una cuenta de usuario para la detección
 
-Configure una cuenta de usuario para que Server Assessment pueda acceder a la VM para la detección. Puede especificar una cuenta de usuario.
+Configure una cuenta de usuario para que Server Assessment pueda acceder a la VM para la detección. [Aprenda](migrate-support-matrix-vmware.md#agentless-dependency-analysis-requirements) sobre los requisitos de la cuenta.
 
-- **Máquinas virtuales Windows**: La cuenta de usuario debe ser una cuenta de administrador local o de dominio.
-- **Máquinas virtuales Linux**: se requiere el privilegio raíz en la cuenta. Como alternativa, la cuenta de usuario requiere estas dos funcionalidades en los archivos/bin/netstat y /bin/ls: CAP_DAC_READ_SEARCH y CAP_SYS_PTRACE.
 
 ## <a name="add-the-user-account-to-the-appliance"></a>Adición de la cuenta de usuario al dispositivo
 

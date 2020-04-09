@@ -1,14 +1,14 @@
 ---
 title: Extensión de Azure Policy para Visual Studio Code
 description: Obtenga información acerca de cómo usar la extensión de Azure Policy para Visual Studio Code para buscar alias de Resource Manager.
-ms.date: 11/04/2019
+ms.date: 03/07/2020
 ms.topic: how-to
-ms.openlocfilehash: 48ef098cf970b5128185c40c92f8bb02ad8d9698
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 0e9123f2975bda0d61e9d6e9bf894ecd359e6c5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873121"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231224"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Use la extensión de Azure Policy para Visual Studio Code
 
@@ -21,12 +21,12 @@ La extensión de Azure Policy de Visual Studio Code se puede instalar en todas l
 > [!NOTE]
 > Los cambios realizados localmente en las directivas que se ven en la extensión de Azure Policy para Visual Studio Code no se sincronizan con Azure.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
-Para completar los pasos de este artículo, se requieren los elementos siguientes:
+Los elementos siguientes son necesarios para completar los pasos indicados en este artículo:
 
-- Una suscripción de Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
-- [Visual Studio Code](https://code.visualstudio.com)
+- Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+- [Visual Studio Code](https://code.visualstudio.com).
 
 ## <a name="install-azure-policy-extension"></a>Instalar la extensión de Azure Policy
 
@@ -82,7 +82,7 @@ La primera vez que inicia sesión, la extensión de Azure Policy carga los recur
 
    - Paleta de comandos: 
 
-     En la barra de menús, vaya a **Vista** > **Paleta de comandos** y escriba **Azure Policy: Selección de suscripciones**.
+     En la barra de menús, vaya a **Vista** > **Paleta de comandos** y escriba **Azure: Selección de suscripciones**.
 
    - Pie de página de ventana
 
@@ -139,7 +139,7 @@ La extensión de Azure Policy enumera los tipos de directivas y las asignaciones
 
    - Paleta de comandos:
 
-     En la barra de menús, vaya a **Vista**>**Paleta de comandos** y escriba **Directivas: Buscar directivas**.
+     En la barra de menús, vaya a **Vista** > **Paleta de comandos** y escriba **Directivas: Buscar directivas**.
 
 1. Si se selecciona más de una suscripción para mostrarla, use el filtro para elegir la suscripción que se va a buscar.
 
@@ -158,6 +158,6 @@ En la barra de menús, vaya a **Vista** > **Paleta de comandos** y escriba **Azu
 - Puede consultar ejemplos en [Ejemplos de Azure Policy](../samples/index.md).
 - Revise la [estructura de definición de Azure Policy](../concepts/definition-structure.md).
 - Vea la [Descripción de los efectos de directivas](../concepts/effects.md).
-- Aprenda cómo [crear directivas mediante programación](programmatically-create.md).
-- Aprenda a [corregir recursos no compatibles](remediate-resources.md).
+- Obtenga información acerca de cómo se pueden [crear directivas mediante programación](programmatically-create.md).
+- Obtenga información sobre cómo [corregir recursos no compatibles](remediate-resources.md).
 - En [Organización de los recursos con grupos de administración de Azure](../../management-groups/overview.md), obtendrá información sobre lo que es un grupo de administración.

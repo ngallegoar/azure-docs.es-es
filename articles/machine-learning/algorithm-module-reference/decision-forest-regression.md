@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 6d326b3cb5a964e43ce77ee459533a4271d5ed73
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 63d90a5239e6bf350d8a6b66f35157e4c7d15aee
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77919947"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79456546"
 ---
 # <a name="decision-forest-regression-module"></a>Módulo Decision Forest Regression (Regresión de bosque de decisión)
 
@@ -84,7 +84,7 @@ Para obtener más información sobre el marco teórico de este algoritmo y su im
 
    
 
-10. Ejecución de la canalización
+10. Envíe la canalización.
 
 ### <a name="results"></a>Results
 

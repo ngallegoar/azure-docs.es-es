@@ -8,15 +8,15 @@ ms.assetid: d4bc5583-6537-4cd9-bc4b-7712fdd9272a
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: sample
 ms.date: 09/05/2019
 ms.author: iainfou
-ms.openlocfilehash: ee85002aea962dfa675ac6c09a6bfbaeba8e9e79
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e99ad2d53bc26b4e13a34097baaec929058a61a0
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77613222"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80654799"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>Habilitación de Azure Active Directory Domain Services mediante PowerShell
 
@@ -62,7 +62,7 @@ New-AzureADGroup -DisplayName "AAD DC Administrators" `
   -MailNickName "AADDCAdministrators"
 ```
 
-Con este grupo creado, agregue un usuario al grupo con el cmdlet [Add-AzureADGroupMember][Add-AzureADGroupMember]. Primero obtendrá el identificador de objeto del grupo *Administradores de controlador de dominio de AAD* con el cmdlet [Get-AzureADGroup][Get-AzureADGroup] y, luego, el identificador de objeto del usuario deseado con el cmdlet [Get-AzureADUser][Get-AzureADUser].
+Con este *grupo* creado, agregue un usuario al grupo con el cmdlet [Add-AzureADGroupMember][Add-AzureADGroupMember]. Primero obtendrá el identificador de objeto del grupo *Administradores de controlador de dominio de AAD* con el cmdlet [Get-AzureADGroup][Get-AzureADGroup] y, luego, el identificador de objeto del usuario deseado con el cmdlet [Get-AzureADUser][Get-AzureADUser].
 
 En el ejemplo siguiente, el identificador de objeto de usuario de la cuenta con un UPN de `admin@aaddscontoso.onmicrosoft.com`. Reemplace esta cuenta de usuario por el UPN del usuario que quiere agregar al grupo *Administradores de controlador de dominio de AAD*:
 
@@ -132,7 +132,7 @@ Ahora vamos a crear un dominio administrado de Azure AD DS. Establezca el iden
 
 Si elige una región que admite zonas de disponibilidad, los recursos de Azure AD DS se distribuyen entre las zonas para conseguir redundancia adicional.
 
-Las zonas de disponibilidad son ubicaciones físicas exclusivas dentro de una región de Azure. Cada zona de disponibilidad consta de uno o varios centros de datos equipados con alimentación, refrigeración y redes independientes. Para garantizar la resistencia, hay tres zonas independientes como mínimo en todas las regiones habilitadas.
+Las zonas de disponibilidad son ubicaciones físicas exclusivas dentro de una región de Azure. Cada zona de disponibilidad consta de uno o varios centros de datos equipados con alimentación, refrigeración y redes independientes. Para garantizar la resistencia, hay un mínimo de tres zonas independientes en todas las regiones habilitadas.
 
 No es necesario realizar ninguna configuración para que Azure AD DS se distribuya entre zonas. La plataforma Azure controla automáticamente la distribución en zonas de los recursos. Para más información y ver la disponibilidad regional, consulte [¿Qué son las zonas de disponibilidad en Azure?][availability-zones]
 

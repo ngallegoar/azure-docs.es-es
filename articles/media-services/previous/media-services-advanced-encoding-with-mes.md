@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: fadf1aa54f525fb3d4c414161583f8a89f2e4c05
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5f7611fd9df207df51fa0e51218d8a234583b1f9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61230260"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79529790"
 ---
 # <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>Codificación avanzada mediante la personalización de valores preestablecidos de MES 
 
@@ -30,7 +30,7 @@ Este tema muestra cómo personalizar los valores preestablecidos de Media Encode
 Si utiliza un ajuste preestablecido XML, asegúrese de conservar el orden de los elementos, como se muestra en los ejemplos XML siguientes (por ejemplo, KeyFrameInterval debe preceder a SceneChangeDetection).
 
 > [!NOTE] 
-> Muchas de las características avanzadas de Media Services v2 de Media Encoder Standard no están disponibles en v3: Para más información, consulte las [carencias de características](https://docs.microsoft.com/azure/media-services/latest/migrate-from-v2-to-v3#feature-gaps-with-respect-to-v2-apis).
+> Muchas de las características avanzadas de Media Services v2 de Media Encoder Standard no están disponibles en v3: Para más información, consulte las [carencias de características](https://docs.microsoft.com/azure/media-services/latest/media-services-v2-vs-v3#feature-gaps-with-respect-to-v2-apis).
 
 ## <a name="support-for-relative-sizes"></a>Compatibilidad con tamaños relativos
 
@@ -44,7 +44,7 @@ Si se generan miniaturas, no será preciso especificar siempre la anchura y altu
     <Width>100%</Width>
     <Height>100%</Height>
 
-## <a id="thumbnails"></a>Generación de miniaturas
+## <a name="generate-thumbnails"></a><a id="thumbnails"></a>Generación de miniaturas
 
 En esta sección se muestra cómo personalizar un valor preestablecido que genera vistas en miniatura. El valor preestablecido que se define a continuación contiene información sobre cómo se quiere codificar el archivo, así como la información necesaria para generar miniaturas. Puede usar cualquiera de los valores preestablecidos de MES que se documentan en [esta](media-services-mes-presets-overview.md) sección y agregar el código que genera miniaturas.  
 
@@ -57,7 +57,7 @@ Para obtener información sobre el esquema, consulte [este](media-services-mes-s
 
 Asegúrese de revisar la sección [Consideraciones](#considerations) .
 
-### <a id="json"></a>Valor preestablecido JSON
+### <a name="json-preset"></a><a id="json"></a>Valor preestablecido JSON
     {
       "Version": 1.0,
       "Codecs": [
@@ -157,7 +157,7 @@ Asegúrese de revisar la sección [Consideraciones](#considerations) .
     }
 
 
-### <a id="xml"></a>Valor preestablecido XML
+### <a name="xml-preset"></a><a id="xml"></a>Valor preestablecido XML
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
@@ -247,12 +247,12 @@ Se aplican las siguientes consideraciones:
   * Valores predeterminados: Start:{Best}
 * Es necesario proporcionar explícitamente el formato de salida para cada formato de imagen: Jpg, Png o BmpFormat. Cuando está presente, MES hará coincidir JpgVideo con JpgFormat y así sucesivamente. OutputFormat presenta una nueva macro específica de códec de imagen: {Index}, que debe estar presente (una vez y sólo una vez) para formatos de salida de imagen.
 
-## <a id="trim_video"></a>Recorte de un vídeo
+## <a name="trim-a-video-clipping"></a><a id="trim_video"></a>Recorte de un vídeo
 En esta sección se habla sobre cómo modificar los valores preestablecidos del codificador para recortar el vídeo de entrada donde la entrada es un archivo denominado intermedio o a petición. El codificador también se puede usar para recortar un recurso que se captura o archiva desde una transmisión en directo; puede consultar los detalles en [este blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 
 Para recortar vídeos, puede usar cualquiera de los valores preestablecidos de MES que se documentan en [esta](media-services-mes-presets-overview.md) sección y modificar el elemento **Sources** (como se muestra a continuación). El valor de StartTime debe coincidir con las marcas de tiempo absoluto de la entrada de vídeo. Por ejemplo, si el primer fotograma del vídeo de entrada tiene una marca de tiempo de 12:00:10.000, StartTime debe ser al menos 12:00:10.000 o un valor superior. En el ejemplo siguiente, se supone que el vídeo de entrada tiene una marca de tiempo inicial de cero. **Sources** debe incluirse al comienzo del valor preestablecido.
 
-### <a id="json"></a>Valor preestablecido JSON
+### <a name="json-preset"></a><a id="json"></a>Valor preestablecido JSON
     {
       "Version": 1.0,
       "Sources": [
@@ -489,7 +489,7 @@ Para recortar vídeos, puede usar cualquiera de los valores preestablecidos de M
       </Outputs>
     </Preset>
 
-## <a id="overlay"></a>Creación de una superposición
+## <a name="create-an-overlay"></a><a id="overlay"></a>Creación de una superposición
 
 Media Encoder Estándar permite superponer una imagen en un vídeo existente. Actualmente, se admiten los siguientes formatos: png, jpg, gif y bmp. El valor preestablecido que se definen a continuación es un ejemplo básico de superposición de vídeo.
 
@@ -696,7 +696,7 @@ Si usa. NET, agregue las dos funciones siguientes al ejemplo de .NET definido en
     </Preset>
 
 
-## <a id="silent_audio"></a>Inserción de una pista de audio silenciosa cuando la entrada no tiene audio
+## <a name="insert-a-silent-audio-track-when-input-has-no-audio"></a><a id="silent_audio"></a>Inserción de una pista de audio silenciosa cuando la entrada no tiene audio
 De forma predeterminada, si envía una entrada al codificador que solo contenga vídeo, y no audio, el recurso de salida contendrá archivos que solo contienen datos de vídeos. Algunos reproductores no puede controlar estos flujos de salida. Puede usar este ajuste para forzar al codificador a agregar una pista de audio silenciosa a la salida en ese escenario.
 
 Para forzar al codificador a producir un activo que contiene una pista de audio silenciosa cuando la entrada no tiene audio, especifique el valor de "InsertSilenceIfNoAudio".
@@ -719,10 +719,10 @@ Puede usar cualquiera de los valores preestablecidos de MES que se documentan en
       <Bitrate>96</Bitrate>
     </AACAudio>
 
-## <a id="deinterlacing"></a>Deshabilitar el entrelazado automático
+## <a name="disable-auto-de-interlacing"></a><a id="deinterlacing"></a>Deshabilitar el entrelazado automático
 Los clientes no tienen que hacer nada si prefieren que el enlazado del contenido entrelazado se anule automáticamente. Cuando la anulación de entrelazado automática está activada (valor predeterminado), el MES realiza la detección automática de fotogramas entrelazados y solo se anula el entrelazado de los fotogramas marcados como entrelazados.
 
-Puede desactivar la anulación de entrelazado automática. Esta opción nos e recomienda.
+Puede desactivar la anulación de entrelazado automática. Esta opción no se recomienda.
 
 ### <a name="json-preset"></a>Valor preestablecido JSON
     "Sources": [
@@ -747,7 +747,7 @@ Puede desactivar la anulación de entrelazado automática. Esta opción nos e re
     </Sources>
 
 
-## <a id="audio_only"></a>Valores preestablecidos de solo audio
+## <a name="audio-only-presets"></a><a id="audio_only"></a>Valores preestablecidos de solo audio
 En esta sección se muestran dos valores preestablecidos de MES de solo audio: AAC Audio y Audio AAC de buena calidad.
 
 ### <a name="aac-audio"></a>Audio AAC
@@ -794,7 +794,7 @@ En esta sección se muestran dos valores preestablecidos de MES de solo audio: A
       ]
     }
 
-## <a id="concatenate"></a>Concatenación de dos o más archivos de vídeo
+## <a name="concatenate-two-or-more-video-files"></a><a id="concatenate"></a>Concatenación de dos o más archivos de vídeo
 
 En el ejemplo siguiente se muestra cómo generar un valor preestablecido para concatenar dos o más archivos de vídeo. El escenario más frecuente es cuando desea agregar un encabezado o un finalizador al vídeo principal. El uso previsto es cuando los archivos de vídeo que se están editando juntos comparten propiedades (resolución de vídeo, velocidad de fotogramas, número de pistas de audio, etc.). Procure no para combinar vídeos de distintas velocidades de fotogramas o con un número diferente de pistas de audio.
 
@@ -904,10 +904,10 @@ Actualice el valor preestablecido personalizado con los identificadores de los r
       ]
     }
 
-## <a id="crop"></a>Recorte de vídeos con Codificador multimedia estándar
+## <a name="crop-videos-with-media-encoder-standard"></a><a id="crop"></a>Recorte de vídeos con Codificador multimedia estándar
 Consulte el tema [Recorte de vídeos con Codificador multimedia estándar](media-services-crop-video.md) .
 
-## <a id="no_video"></a>Inserción de una pista de vídeo cuando la entrada cuando no tiene vídeo
+## <a name="insert-a-video-track-when-input-has-no-video"></a><a id="no_video"></a>Inserción de una pista de vídeo cuando la entrada cuando no tiene vídeo
 
 De forma predeterminada, si envía una entrada al codificador que solo contenga audio, y no vídeo, el recurso de salida contendrá archivos que solo contienen datos de audio. Algunos reproductores, incluidos Azure Media Player (consulte [esta página](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/8082468-audio-only-scenarios)) no pueden controlar estas secuencias. Puede usar este ajuste para forzar al codificador a agregar una pista de vídeo monocromática a la salida en ese escenario.
 
@@ -1002,7 +1002,7 @@ Al usar XML, utilice Condition="InsertBlackIfNoVideo" como atributo del elemento
 . . .  
 ```
 
-## <a id="rotate_video"></a>Girar un vídeo
+## <a name="rotate-a-video"></a><a id="rotate_video"></a>Girar un vídeo
 [Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md) admite ángulos de rotación de 0, 90, 180 o 270 grados. El comportamiento predeterminado es "Auto", en el que se intentan detectar los metadatos de rotación del archivo de vídeo entrante y la compensación. Incluya el siguiente elemento **Sources** en uno de los valores preestablecidos definidos en [esta](media-services-mes-presets-overview.md) sección:
 
 ### <a name="json-preset"></a>Valor preestablecido JSON
@@ -1037,5 +1037,5 @@ Puede utilizar el valor "0" para indicar al codificador que pase por alto los me
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 [Información general sobre la codificación de Media Services](media-services-encode-asset.md)

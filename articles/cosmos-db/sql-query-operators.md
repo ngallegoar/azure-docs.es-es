@@ -1,17 +1,17 @@
 ---
 title: Operadores de consultas SQL para Azure Cosmos DB
 description: Obtenga información sobre los operadores de SQL, por ejemplo, los de igualdad, comparación y los operadores lógicos que admite Azure Cosmos DB.
-author: markjbrown
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.author: mjbrown
-ms.openlocfilehash: f3efe4bee749f0d3132206ca68a33a60f0e16b81
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.date: 03/19/2020
+ms.author: tisande
+ms.openlocfilehash: 8ef41edb687a5df39243880c897d12e83c008ec9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74870945"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80063572"
 ---
 # <a name="operators-in-azure-cosmos-db"></a>Operadores en Azure Cosmos DB
 
@@ -23,13 +23,13 @@ En la siguiente tabla se muestra el resultado de las comparaciones de igualdad e
 
 | **Op** | **Undefined** | **Null** | **Boolean** | **Number** | **String** | **Object** | **Array** |
 |---|---|---|---|---|---|---|---|
-| **Undefined** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined |
-| **Null** | Undefined | **OK (CORRECTO)** | Undefined | Undefined | Undefined | Undefined | Undefined |
-| **Boolean** | Undefined | Undefined | **OK (CORRECTO)** | Undefined | Undefined | Undefined | Undefined |
-| **Number** | Undefined | Undefined | Undefined | **OK (CORRECTO)** | Undefined | Undefined | Undefined |
-| **String** | Undefined | Undefined | Undefined | Undefined | **OK (CORRECTO)** | Undefined | Undefined |
-| **Object** | Undefined | Undefined | Undefined | Undefined | Undefined | **OK (CORRECTO)** | Undefined |
-| **Array** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | **OK (CORRECTO)** |
+| **Undefined** | No definido | No definido | No definido | No definido | No definido | No definido | No definido |
+| **Null** | No definido | **OK (CORRECTO)** | No definido | No definido | No definido | No definido | No definido |
+| **Boolean** | No definido | No definido | **OK (CORRECTO)** | No definido | No definido | No definido | No definido |
+| **Number** | No definido | No definido | No definido | **OK (CORRECTO)** | No definido | No definido | No definido |
+| **String** | No definido | No definido | No definido | No definido | **OK (CORRECTO)** | No definido | No definido |
+| **Object** | No definido | No definido | No definido | No definido | No definido | **OK (CORRECTO)** | No definido |
+| **Array** | No definido | No definido | No definido | No definido | No definido | No definido | **OK (CORRECTO)** |
 
 Para los operadores de comparación como `>`, `>=`, `!=`, `<` y `<=`, la comparación entre tipos o entre dos objetos o matrices genera `Undefined`.  
 
@@ -41,36 +41,51 @@ Los operadores lógicos operan en valores booleanos. En las tablas siguientes se
 
 **operator OR**
 
-| OR | True | False | Undefined |
+Devuelve `true` cuando alguna de las condiciones es `true`.
+
+|  | **True** | **False** | **Undefined** |
 | --- | --- | --- | --- |
-| True |True |True |True |
-| False |True |False |Undefined |
-| Undefined |True |Undefined |Undefined |
+| **True** |True |True |True |
+| **False** |True |False |No definido |
+| **Undefined** |True |No definido |No definido |
 
 **operator AND**
 
-| Y | True | False | Undefined |
+Devuelve `true` cuando ambas expresiones son `true`.
+
+|  | **True** | **False** | **Undefined** |
 | --- | --- | --- | --- |
-| True |True |False |Undefined |
-| False |False |False |False |
-| Undefined |Undefined |False |Undefined |
+| **True** |True |False |No definido |
+| **False** |False |False |False |
+| **Undefined** |No definido |False |No definido |
 
 **operator NOT**
 
-| NO |  |
-| --- | --- |
-| True |False |
-| False |True |
-| Undefined |Undefined |
+Invierte el valor de cualquier expresión booleana.
 
+|  | **NOT** |
+| --- | --- |
+| **True** |False |
+| **False** |True |
+| **Undefined** |No definido |
+
+**Prioridad de los operadores**
+
+Los operadores lógicos `OR`, `AND` y `NOT` tienen el nivel de prioridad que se muestra a continuación:
+
+| **Operador** | **Prioridad** |
+| --- | --- |
+| **NOT** |1 |
+| **AND** |2 |
+| **OR** |3 |
 
 ## <a name="-operator"></a>Operador *
 
-El operador especial * proyecta el elemento completo tal cual. Al usarse, debe ser el único campo proyectado. Una consulta como `SELECT * FROM Families f` es válida, `SELECT VALUE * FROM Families f` y `SELECT *, f.id FROM Families f` no lo son.
+El operador especial * proyecta el elemento completo tal cual. Al usarse, debe ser el único campo proyectado. Una consulta como `SELECT * FROM Families f` es válida; `SELECT VALUE * FROM Families f` y `SELECT *, f.id FROM Families f` no lo son.
 
 ## <a name="-and--operators"></a>? y ?? (operadores)
 
-Puede usar el operador ternario (?) y el operador de combinación (??) para crear expresiones condicionales, al igual que en lenguajes de programación populares como C# y JavaScript. 
+Puede usar el operador ternario (?) y el operador de combinación (??) para crear expresiones condicionales, al igual que en lenguajes de programación populares como C# y JavaScript.
 
 Puede usar el operador ? para construir nuevas propiedades JSON sobre la marcha. Por ejemplo, la siguiente consulta clasifica los niveles de curso en `elementary` u `other`:
 
@@ -88,7 +103,7 @@ Además, también puede anidar llamadas al operador ?, como en la consulta sigu
 
 Al igual que con otros operadores de consulta, el operador ? excluye elementos si faltan las propiedades a las que se hace referencia o si los tipos que se comparan son diferentes.
 
-Use el operador ?? para comprobar de manera eficaz una propiedad en un elemento al consultar datos semiestructurados o de tipos mixtos. Por ejemplo, la consulta siguiente devuelve `lastName` si está presente, o `surname` si `lastName` no está presente.
+Use el operador ?? para comprobar de manera eficaz una propiedad en un elemento al consultar datos semiestructurados o de tipos mixtos. Por ejemplo, la consulta siguiente devuelve `lastName` si está presente, o `surname` si `lastName` no lo está.
 
 ```sql
     SELECT f.lastName ?? f.surname AS familyName

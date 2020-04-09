@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/09/2018
 ms.author: magattus
 ms.openlocfilehash: 53ad0c516547e17801bd57c2fd6b0d1704383797
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593815"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>Variables HTTP para el motor de reglas de Azure CDN
@@ -34,10 +34,10 @@ Las variables HTTP proporcionan los medios para recuperar metadatos de respuesta
 En la tabla siguiente se describen las variables HTTP compatibles. Se devuelve un valor en blanco cuando los metadatos de replicación geográfica (por ejemplo, el código postal) no están disponibles para una solicitud concreta.
 
 
-| NOMBRE | Variable | DESCRIPCIÓN | Valor de ejemplo |
+| Nombre | Variable | Descripción | Valor de ejemplo |
 | ---- | -------- | ----------- | ------------ |
 | ASN (solicitante) | %{geo_asnum} | Indica el número de sistema autónomo (AS) del solicitante. <br /><br />**En desuso**: %{virt_dst_asnum}. <br />Esta variable ha quedado en desuso y se ha reemplazado por %{geo_asnum}. Aunque una regla que usa esta variable en desuso continuará funcionando, debe actualizarla para usar la nueva variable. | AS15133 |
-| Ciudad (solicitante) | %{geo_city} | Indica la ciudad del solicitante. | Los Ángeles |
+| Ciudad (solicitante) | %{geo_city} | Indica la ciudad del solicitante. | Los Angeles |
 | Continente (solicitante) | %{geo_continent} | Indica el continente del solicitante mediante su abreviatura. <br />Los valores válidos son: <br />AF: África<br />AS: Asia<br />EU: Europa<br />N/D: Norteamérica<br />OC: Oceanía<br />SA: Sudamérica<br /><br />**En desuso**: %{virt_dst_continent}. <br />Esta variable ha quedado en desuso y se ha reemplazado por %{geo_continent}. <br />Aunque una regla que usa esta variable en desuso continuará funcionando, debe actualizarla para usar la nueva variable.| N/D |
 | Valor de la cookie | %{cookie_Cookie} | Devuelve el valor correspondiente a la clave de cookie identificada por el término Cookie. | Ejemplo de uso: <br />%{cookie__utma}<br /><br />Valor de ejemplo:<br />111662281.2.10.1222100123 |
 | País (solicitante) | %{geo_country} | Indica el país de origen del solicitante mediante su código de país. <br />**En desuso**: %{virt_dst_country}. <br /><br />Esta variable ha quedado en desuso y se ha reemplazado por %{geo_country}. Aunque una regla que usa esta variable en desuso continuará funcionando, debe actualizarla para usar la nueva variable. | US |
@@ -62,14 +62,14 @@ En la tabla siguiente se describen las variables HTTP compatibles. Se devuelve u
 | Esquema de solicitud | %{scheme} | Indica el esquema de solicitud. |http |
 | URI de solicitud (relativa) | %{request_uri} | Indica la ruta de acceso relativa, incluida la cadena de consulta, definida en el URI de solicitud. | /marketing/foo.js?loggedin=true |
 | URI de solicitud (relativa sin cadena de consulta) | %{uri} | Indica la ruta de acceso relativa al contenido solicitado. <br /><br/>Información importante:<br />- Esta ruta de acceso relativa excluye la cadena de consulta.<br />- Esta ruta de acceso relativa refleja las reescrituras de la dirección URL. Una dirección URL se reescribirá en las siguientes condiciones:<br />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Característica de reescritura de direcciones URL: esta característica reescribe la ruta de acceso relativa definida en el URI de solicitud.<br />    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Dirección URL de CNAME perimetral: este tipo de solicitud se reescribe para la dirección URL de CDN correspondiente. |/800001/corigin/rewrittendir/foo.js |
-| URI de solicitud | %{request} | Describe la solicitud. <br />Sintaxis: &lt;método HTTP&gt; &lt;ruta de acceso relativa&gt; &lt;protocolo HTTP&gt; | GET /marketing/foo.js?loggedin=true HTTP/1.1 |
+| URI de solicitud | %{request} | Describe la solicitud. <br />Sintaxis: &lt;Método HTTP&gt; &lt;Ruta de acceso relativa&gt; &lt;Protocolo HTTP&gt; | GET /marketing/foo.js?loggedin=true HTTP/1.1 |
 | Valor de encabezado de respuesta | %{resp_&lt;ResponseHeader&gt;} | Devuelve el valor correspondiente al encabezado de respuesta identificado por el término &lt;ResponseHeader&gt;. <br /><br />Si el nombre del encabezado de respuesta contiene un guión (por ejemplo, Usuario-Agente), reemplácelo por un guión bajo (por ejemplo, Usuario_Agente). | Ejemplo de uso: %{resp_Content_Length}<br /><br />Valor de ejemplo: 100 |
 
 ## <a name="usage"></a>Uso
 En la tabla siguiente se describe la sintaxis correcta para especificar una variable HTTP.
 
 
-| Sintaxis | Ejemplo | DESCRIPCIÓN |
+| Sintaxis | Ejemplo | Descripción |
 | ------ | -------- | ---------- |
 | %{&lt;HTTPVariable&gt;} | %{host} | Use esta sintaxis para obtener el valor completo correspondiente a la variable &lt;HTTPVariable&gt; especificada. |
 | %{&lt;HTTPVariableDelimiter&gt;} | %{host,} | Use esta sintaxis para definir el valor completo correspondiente al valor de &lt;HTTPVariableDelimiter&gt; especificado. |
@@ -92,7 +92,7 @@ Se puede especificar un delimitador después de una variable HTTP para lograr cu
 
 Los delimitadores se describen en la tabla siguiente.
 
-| Delimitador | DESCRIPCIÓN |
+| Delimitador | Descripción |
 | --------- | ----------- |
 | := | Indica que se asignará un valor predeterminado a la variable cuando: <br />- Falte. <br />- Se establezca en NULL. |
 | :+ | Indica que se asignará un valor predeterminado a la variable cuando se le haya asignado un valor. |
@@ -110,7 +110,7 @@ Los delimitadores se describen en la tabla siguiente.
 ## <a name="exceptions"></a>Excepciones
 En la tabla siguiente se describen las circunstancias en que el texto especificado no se trata como una variable HTTP.
 
-| Condición | DESCRIPCIÓN | Ejemplo |
+| Condición | Descripción | Ejemplo |
 | --------- | ----------- | --------|
 | Símbolo de escape % | El símbolo de porcentaje se puede escapar mediante el uso de una barra diagonal inversa. <br />El valor de ejemplo de la derecha se tratará como un valor literal y no como una variable HTTP.| \%{host} |
 | Variables desconocidas | Siempre se devuelve una cadena vacía para variables desconocidas. | %{unknown_variable} |
@@ -125,13 +125,13 @@ Un valor predeterminado puede asignarse a un encabezado cuando se cumple alguna 
 
 En la tabla siguiente se describe cómo definir un valor predeterminado.
 
-| Condición | Sintaxis | Ejemplo | DESCRIPCIÓN |
+| Condición | Sintaxis | Ejemplo | Descripción |
 | --------- | ------ | --------| ----------- |
 | Establecer un encabezado en un valor predeterminado si se cumple alguna de las siguientes condiciones: <br /><br />- Falta el encabezado <br /><br />- El valor de encabezado está establecido en NULL.| %{Variable:=Value} | %{http_referrer:=unspecified} | El encabezado del origen de referencia solo se establecerá en *unspecified* en caso de que falte o de que esté establecido en NULL. En caso de que se haya definido, no se llevará a cabo ninguna acción. |
 | Establecer un encabezado en un valor predeterminado cuando está ausente. | %{Variable=Value} | %{http_referrer=unspecified} | El encabezado del origen de referencia solo se establecerá en *unspecified* en caso de que falte. En caso de que se haya definido, no se llevará a cabo ninguna acción. |
 | Establecer el encabezado en un valor predeterminado si no se cumple alguna de las siguientes condiciones: <br /><br />- Falte.<br /><br /> - Se establezca en NULL. | %{Variable:+Value} | %{http_referrer:+unspecified} | El encabezado del origen de referencia solo se establecerá en *unspecified* si se le ha asignado algún valor. No se llevará a cabo ninguna acción si falta o está establecido en NULL. |
 
-## <a name="manipulating-variables"></a>Manipular variables
+## <a name="manipulating-variables"></a>Manipulación de variables
 Las variables se pueden manipular de las maneras siguientes:
 
 - Expansión de subcadenas
@@ -174,7 +174,7 @@ https:\//www.midominio.com/móvil/marketing/propuesta.htm
 ### <a name="pattern-removal"></a>Eliminación de patrón
 El texto que coincide con un patrón específico puede quitarse del principio o el final del valor de una variable.
 
-| Sintaxis | . |
+| Sintaxis | Acción |
 | ------ | ------ |
 | %{Variable#Pattern} | Quitar el texto cuando el patrón especificado se encuentre al principio del valor de una variable. |
 | %{Variable%Pattern} | Quitar el texto cuando el patrón especificado se encuentre al final del valor de una variable. |
@@ -195,7 +195,7 @@ En la tabla siguiente se muestra cómo funciona esta sintaxis.
 ### <a name="find-and-replace"></a>Buscar y reemplazar
 La sintaxis de buscar y reemplazar se describe en la tabla siguiente.
 
-| Sintaxis | . |
+| Sintaxis | Acción |
 | ------ | ------ |
 | %{Variable/Find/Replace} | Buscar y reemplazar la primera ocurrencia del patrón especificado. |
 | %{Variable//Find/Replace} | Buscar y reemplazar todas las ocurrencias del patrón especificado. |
@@ -207,7 +207,7 @@ La sintaxis de buscar y reemplazar se describe en la tabla siguiente.
 ### <a name="find-and-rewrite"></a>Buscar y reescribir
 Para una variación en Buscar y reemplazar, utilice el texto que coincide con el patrón especificado al reescribirlo. La sintaxis de buscar y reescribir se describe en la tabla siguiente.
 
-| Sintaxis | . |
+| Sintaxis | Acción |
 | ------ | ------ |
 | %{Variable/=Find/Rewrite} | Busque, copie y reescriba todas las instancias del patrón especificado. |
 | %{Variable/^Find/Rewrite} | Buscar, copiar y reescribir el patrón especificado cuando se produce al principio de la variable. |

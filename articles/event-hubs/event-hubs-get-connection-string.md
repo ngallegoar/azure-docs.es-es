@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 02/19/2019
 ms.author: spelluru
-ms.openlocfilehash: 744151a1ce8cde630e26c17ccf06569ebd0efb61
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 77a768f907ad989a457ee498f26ad0f6e004f786
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771009"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231304"
 ---
 # <a name="get-an-event-hubs-connection-string"></a>Obtención de una cadena de conexión de Event Hubs
 
@@ -55,7 +55,7 @@ En este artículo se explican distintas formas de obtener la cadena de conexión
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Puede usar [Get-AzEventHubNamespaceKey](/powershell/module/az.eventhub/get-azeventhubkey) para obtener la cadena de conexión del nombre de directiva o regla específica, tal como se muestra a continuación:
+Puede usar [Get-AzEventHubKey](/powershell/module/az.eventhub/get-azeventhubkey) para obtener la cadena de conexión del nombre de directiva o regla específica, tal como se muestra a continuación:
 
 ```azurepowershell-interactive
 Get-AzEventHubKey -ResourceGroupName dummyresourcegroup -NamespaceName dummynamespace -AuthorizationRuleName RootManageSharedAccessKey

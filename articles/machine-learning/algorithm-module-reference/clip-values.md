@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 5f695bf739a6e096083cd6d8271b6936f24c16da
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 6466cea9fe04bb308a670cb03fd3de5314758142
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76546833"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79456614"
 ---
 # <a name="clip-values"></a>Recorte de valores
 
@@ -84,7 +84,7 @@ Si necesita aplicar métodos de recorte o criterios diferentes a algunas columna
   
     Para mantener la columna original y agregar una nueva columna con los valores recortados, anule la selección de esta opción.  
   
-1.  Ejecución de la canalización  
+1.  Envíe la canalización.  
   
     Haga clic con el botón derecho en el módulo **Clip values** (Recortar valores) y seleccione **Visualize** (Visualizar), o bien seleccione el módulo y cambie a la pestaña **Outputs** (Salidas) en el panel derecho, haga clic en el icono del histograma de **Port outputs** (Salidas del puerto), para revisar los valores y asegurarse de que la operación de recorte cumple sus expectativas.  
  

@@ -4,12 +4,12 @@ description: En este artículo, aprenderá a solucionar los errores detectados a
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 1b82d43a58a25dc1c475180a4780106220e1ceeb
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 15e4b4c8850798fd2386cd2874b6ab58a18d5406
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77597327"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79297397"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Solución de errores de copia de seguridad en las máquinas virtuales de Azure
 
@@ -24,7 +24,7 @@ En esta sección se trata el error en la operación de copia de seguridad de la 
 * Asegúrese de que el agente de máquina virtual (agente de WA) es la [versión más reciente](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent).
 * Asegúrese de que la versión del sistema operativo de la máquina virtual Windows o Linux, consulte [Matriz de compatibilidad para copias de seguridad de máquinas virtuales IaaS](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas).
 * Compruebe que no hay otro servicio de copia de seguridad en ejecución.
-  * Para asegurarse de que no hay problemas con las extensiones de instantáneas, [desinstale las extensiones para forzar la recarga y vuelva a intentar la copia de seguridad](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-backup-extension-fails-to-update-or-load).
+  * Para asegurarse de que no hay problemas con las extensiones de instantáneas, [desinstale las extensiones para forzar la recarga y vuelva a intentar la copia de seguridad](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout).
 * Compruebe que la máquina virtual tiene conectividad a Internet.
   * Asegúrese de que no hay otro servicio de copia de seguridad en ejecución.
 * En `Services.msc`, asegúrese de que el estado del servicio **Microsoft Azure Guest Agent** es **En ejecución**. Si falta el servicio **Windows Azure Guest Agent**, instálelo desde [Copia de seguridad de máquinas virtuales de Azure en un almacén de Recovery Services](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent).
@@ -125,7 +125,7 @@ Si ve permisos en el directorio **MachineKeys** distintos de los predeterminados
    * Permisos de lectura
 2. Elimine todos los certificados donde **Emitido para** sea el modelo de implementación clásica o bien el **Generador de certificados CRP de Microsoft Azure**:
 
-   * [Abra los certificados en una consola del equipo local](https://msdn.microsoft.com/library/ms788967(v=vs.110).aspx).
+   * [Abra los certificados en una consola del equipo local](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in).
    * En **Personal** > **Certificados**, elimine todos los certificados donde **Emitido para** sea el modelo de implementación clásico, o **Generador de certificados CRP de Microsoft Azure**.
 3. Desencadene un trabajo de copia de seguridad de VM.
 
@@ -190,7 +190,7 @@ Esto garantizará que las instantáneas se realizan con permisos de host en luga
 | El agente de máquina virtual no está en la máquina virtual: <br>Instale los requisitos previos y el agente de máquina virtual. A continuación, reinicie la operación. |Obtenga más información acerca de la [instalación del agente de máquina virtual y de cómo validarla](#vm-agent). |
 | **Código de error**: ExtensionSnapshotFailedNoSecureNetwork <br/> **Mensaje de error**: Error en la operación de instantánea debido a un error en la creación de un canal de comunicación de red segura. | <ol><li> Abra el Editor del Registro; para ello, ejecute **regedit.exe** en modo elevado. <li> Identifique todas las versiones de .NET Framework presentes en el sistema. Se encuentran en la jerarquía de la clave del Registro **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft**. <li> Para cada versión de .NET Framework presente en la clave del Registro, agregue la siguiente clave: <br> **SchUseStrongCrypto"=dword:00000001**. </ol>|
 | **Código de error**: ExtensionVCRedistInstallationFailure <br/> **Mensaje de error**: Error en la operación de instantánea debido a un error en la instalación de Visual C++ Redistributable para Visual Studio 2012. | Vaya a C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion e instale vcredist2013_x64.<br/>Asegúrese de que el valor de la clave del Registro que permite la instalación del servicio se establezca correctamente. Es decir, establezca el valor **Start** de **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** en **3** y no en **4**. <br><br>Si todavía experimenta problemas con la instalación, reinicie el servicio de instalación; para ello, ejecute **MSIEXEC /UNREGISTER** seguido de **MSIEXEC /REGISTER** desde un símbolo del sistema con privilegios elevados.  |
-
+| **Código de error**:  UserErrorRequestDisallowedByPolicy <BR> **Mensaje de error**: Se ha configurado una directiva no válida en la máquina virtual que impide la operación de instantánea. | Si tiene una instancia de Azure Policy que [rige las etiquetas dentro de su entorno](https://docs.microsoft.com/azure/governance/policy/tutorials/govern-tags), considere la posibilidad de cambiar la directiva de un [efecto Deny](https://docs.microsoft.com/azure/governance/policy/concepts/effects#deny) (Denegar) a un [efecto Modify](https://docs.microsoft.com/azure/governance/policy/concepts/effects#modify) (Modificar), o bien cree el grupo de recursos manualmente según el [esquema de nomenclatura requerido por Azure Backup](https://docs.microsoft.com/azure/backup/backup-during-vm-creation#azure-backup-resource-group-for-virtual-machines).
 ## <a name="jobs"></a>Trabajos
 
 | Detalles del error | Solución alternativa |

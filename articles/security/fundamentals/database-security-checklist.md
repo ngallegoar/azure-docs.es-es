@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 9298b802417f5a7162ef74bb0f7906144aae4e35
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: d9283a36d5f7ccb82b2cc211485487d5a3dcce7b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75745713"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79201032"
 ---
 # <a name="azure-database-security-checklist"></a>Lista de comprobación de la seguridad de Azure Database
 
@@ -28,14 +28,14 @@ Para ayudar a mejorar la seguridad, Azure Database incluye una serie de controle
 
 Entre ellas se incluyen las siguientes:
 
--   Un firewall que permite crear [reglas de firewall](../../sql-database/sql-database-firewall-configure.md) que limitan la conectividad en función de su dirección IP
--   Firewall de nivel de servidor accesible desde Azure Portal
--   Reglas de firewall de nivel de base de datos accesibles desde SSMS
--   Conectividad segura a una base de datos mediante cadenas de conexión seguras
--   Uso de la administración del acceso
--   Cifrado de datos
--   Auditoría de SQL Database
--   Detección de amenazas de SQL Database
+-    Un firewall que permite crear [reglas de firewall](../../sql-database/sql-database-firewall-configure.md) que limitan la conectividad en función de su dirección IP
+-    Firewall de nivel de servidor accesible desde Azure Portal
+-    Reglas de firewall de nivel de base de datos accesibles desde SSMS
+-    Conectividad segura a una base de datos mediante cadenas de conexión seguras
+-    Uso de la administración del acceso
+-    Cifrado de datos
+-    Auditoría de SQL Database
+-    Detección de amenazas de SQL Database
 
 ## <a name="introduction"></a>Introducción
 La informática en la nube requiere nuevos paradigmas de seguridad que son poco conocidos para muchos usuarios de aplicaciones, administradores de bases de datos y programadores. Como resultado, algunas organizaciones dudan de si implementar una infraestructura en la nube para la administración de datos debido a los riesgos de seguridad percibidos. Sin embargo, se puede mitigar gran parte de este problema mediante una mejor comprensión de las características de seguridad integradas en Microsoft Azure y Microsoft Azure SQL Database.
@@ -50,11 +50,11 @@ Le recomendamos que lea el artículo [Prácticas recomendadas de seguridad de Az
 | <br> Cifrado en movimiento o tránsito| <ul><li>[Seguridad de la capa de transporte](https://docs.microsoft.com/windows-server/security/tls/transport-layer-security-protocol), para el cifrado de datos cuando los datos se pasan a las redes.</li><li>Las bases de datos requieren una comunicación segura desde los clientes basados en el protocolo [TDS (Tabular Data Stream)](https://msdn.microsoft.com/library/dd357628.aspx) a través de TLS (Seguridad de la capa de transporte).</li></ul> |
 |<br>Cifrado en reposo| <ul><li>[Cifrado de datos transparente](https://go.microsoft.com/fwlink/?LinkId=526242), cuando los datos inactivos se almacenan físicamente en cualquier formato digital.</li></ul>|
 |**Control de acceso**||  
-|<br> Acceso a la base de datos | <ul><li>[Autenticación](../../sql-database/sql-database-control-access.md) (Autenticación de Azure Active Directory). La autenticación de AD usa las identidades administradas por Azure Active Directory.</li><li>[Autorización](../../sql-database/sql-database-control-access.md). Conceda a los usuarios los privilegios mínimos necesarios.</li></ul> |
+|<br> Acceso a la base de datos | <ul><li>[Autenticación](../../sql-database/sql-database-manage-logins.md) (Autenticación de Azure Active Directory). La autenticación de AD usa las identidades administradas por Azure Active Directory.</li><li>[Autorización](../../sql-database/sql-database-manage-logins.md). Conceda a los usuarios los privilegios mínimos necesarios.</li></ul> |
 |<br>Acceso a las aplicaciones| <ul><li>[Seguridad de nivel de fila](https://msdn.microsoft.com/library/dn765131). Se usa la directiva de seguridad, al mismo tiempo que se restringe el acceso de nivel de fila según el contexto de ejecución, rol o identidad de un usuario).</li><li>[Enmascaramiento dinámico de datos](../../sql-database/sql-database-dynamic-data-masking-get-started.md). El uso de directivas y permisos limita la exposición de información confidencial al enmascararla para los usuarios sin privilegios</li></ul>|
 |**Supervisión proactiva**||  
 | <br>Seguimiento y detección| <ul><li>[La auditoría](../../sql-database/sql-database-auditing.md) realiza un seguimiento de los eventos de bases de datos y los escribe en un registro de auditoría y de actividad en su [cuenta de Azure Storage](../../storage/common/storage-create-storage-account.md).</li><li>Seguimiento del estado de Azure Database mediante [registros de actividad de Azure Monitor](../../azure-monitor/platform/platform-logs-overview.md).</li><li>[Detección de amenazas](../../sql-database/sql-database-threat-detection.md) detecta actividades anómalas en la base de datos que indican posibles amenazas de seguridad. </li></ul> |
-|<br>Azure Security Center| <ul><li>[Supervisión de datos](../../security-center/security-center-enable-auditing-on-sql-databases.md) Use Azure Security Center como solución de supervisión de seguridad centralizada para SQL y otros servicios de Azure.</li></ul>|       
+|<br>Azure Security Center| <ul><li>[Supervisión de datos](../../security-center/security-center-enable-auditing-on-sql-databases.md) Use Azure Security Center como solución de supervisión de seguridad centralizada para SQL y otros servicios de Azure.</li></ul>|        
 
 ## <a name="conclusion"></a>Conclusión
 Azure Database es una sólida plataforma de base de datos, con una amplia gama de características de seguridad que satisfacen muchos de los requisitos de cumplimiento tanto normativos como organizativos. Puede proteger fácilmente los datos controlando el acceso físico a los mismos y con diversas opciones de seguridad en el archivo (nivel de fila, de columna o de archivo) con el cifrado de datos transparente, el cifrado de nivel de celda o la seguridad de nivel de fila. Always Encrypted también permite operaciones en los datos cifrados, simplificando el proceso de actualizaciones de las aplicaciones. A su vez, el acceso a los registros auditoría de la actividad de SQL Database le proporciona la información que necesita, lo que le permite saber cómo y cuándo se tiene acceso a datos.

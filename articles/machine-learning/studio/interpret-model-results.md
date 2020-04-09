@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
-ms.openlocfilehash: 2d13385b63802bc0037c3fbe32cd38ed5caaf1c6
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 9a0b855f48085138b28e02e0a5d01c5dd0f666be
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168603"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79218069"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio-classic"></a>Interpretar los resultados del modelo en Azure Machine Learning Studio (clásico)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 En este tema se explica cómo ver e interpretar los resultados de predicción en Azure Machine Learning Studio (clásico). Después de entrenar un modelo y realizar predicciones sobre él ("puntuar el modelo"), deberá comprender e interpretar el resultado de predicción.
 
 
@@ -129,7 +131,7 @@ Figura 8. Código R para extraer etiquetas puntuadas y las probabilidades asocia
 
 Figura 9. Experimento de puntuación final del problema de clasificación multiclase de reconocimiento de letras
 
-Después de publicar y ejecutar el servicio web y especificar algunos valores de características de entrada, el resultado devuelto será como el mostrado en la figura 10. Se prevé que esta letra escrita a mano, con sus 16 funciones extraídas, sea una "T", con una probabilidad de 0,9715.
+Después de publicar y ejecutar el servicio web y especificar algunos valores de características de entrada, el resultado devuelto será como el mostrado en la figura 10. Se prevé que esta letra escrita a mano, con sus 16 funciones extraídas, sea una "T", con una probabilidad del 0,9715.
 
 ![Módulo de puntuación de interpretación de prueba](./media/interpret-model-results/9_1.png)
 
@@ -183,7 +185,7 @@ Usemos de nuevo el conjunto de datos de Iris para generar un experimento de agru
 
 Figura 15. Experimento del problema de agrupación en clústeres de iris
 
-La agrupación en clústeres difiere de la clasificación en que el conjunto de datos de entrenamiento no tiene etiquetas de realidad por sí mismo. La agrupación en clústeres agrupa las instancias del conjunto de datos en clústeres diferentes. Durante el proceso de entrenamiento, el modelo etiqueta las entradas al conocer las diferencias entre sus características. Después, el modelo entrenado se puede usar para clasificar entradas futuras. Hay dos partes del resultado que nos interesan en un problema de agrupación en clústeres. La primera parte es el etiquetado del conjunto de datos de entrenamiento y, la segunda, la clasificación de un nuevo conjunto de datos con el modelo entrenado.
+La agrupación en clústeres se diferencia de la clasificación en que el conjunto de datos de entrenamiento no tiene etiquetas de realidad por sí mismo. La agrupación en clústeres agrupa las instancias del conjunto de datos en clústeres diferentes. Durante el proceso de entrenamiento, el modelo etiqueta las entradas al conocer las diferencias entre sus características. Después, el modelo entrenado se puede usar para clasificar entradas futuras. Hay dos partes del resultado que nos interesan en un problema de agrupación en clústeres. La primera parte es el etiquetado del conjunto de datos de entrenamiento y, la segunda, la clasificación de un nuevo conjunto de datos con el modelo entrenado.
 
 La primera parte del resultado se puede visualizar haciendo clic en el puerto de salida izquierdo de [Entrenar modelo de agrupación en clústeres][train-clustering-model] y, a continuación, en **Visualizar**. La visualización se muestra en la figura 16.
 

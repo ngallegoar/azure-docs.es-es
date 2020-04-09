@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
-ms.openlocfilehash: ff50d972ad9590fb70dbcf67e21f8b5dc8c32fad
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: d10744f2536cdf89115cdccd0bea6f1e5155774c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748062"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79370464"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Uso del enrutamiento de mensajes de IoT Hub para enviar mensajes del dispositivo a la nube a distintos puntos de conexión
 
@@ -75,6 +75,9 @@ public void ListBlobsInContainer(string containerName, string iothub)
 }
 ```
 
+> [!NOTE]
+> Si la cuenta de almacenamiento tiene configuraciones de firewall que restringen la conectividad de IoT Hub, considere la posibilidad de usar [excepciones propias de confianza de Microsoft](./virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) (disponibles en las regiones seleccionadas para centros de IoT con identidad de servicio administrada).
+
 Para crear una cuenta de almacenamiento compatible con Azure Data Lake Gen2, cree una nueva cuenta de almacenamiento V2 y seleccione *habilitado* en el campo *Espacio de nombres jerárquico* en la pestaña **Avanzado**, como se muestra en la siguiente imagen:
 
 ![Seleccione el almacenamiento de Azure Date Lake Gen2.](./media/iot-hub-devguide-messages-d2c/selectadls2storage.png)
@@ -84,9 +87,17 @@ Para crear una cuenta de almacenamiento compatible con Azure Data Lake Gen2, cre
 
 Las colas y los temas de Service Bus usados como puntos de conexión de IoT Hub no deben tener habilitadas las opciones **Sesiones** o **Detección de duplicados**. Si cualquiera de estas opciones está habilitada, el punto de conexión aparece como **Inaccesible** en Azure Portal.
 
+> [!NOTE]
+> Si el recurso de Service Bus tiene configuraciones de firewall que restringen la conectividad de IoT Hub, considere la posibilidad de usar [excepciones propias de confianza de Microsoft](./virtual-network-support.md#egress-connectivity-to-service-bus-endpoints-for-routing) (disponibles en las regiones seleccionadas para centros de IoT con identidad de servicio administrada).
+
+
 ### <a name="event-hubs"></a>Event Hubs
 
 Aparte del punto de conexión compatible con Event Hubs integrado, también puede enrutar los datos a puntos de conexión personalizados de tipo Event Hubs. 
+
+> [!NOTE]
+> Si el recurso de Event Hubs tiene configuraciones de firewall que restringen la conectividad de IoT Hub, considere la posibilidad de usar [excepciones propias de confianza de Microsoft](./virtual-network-support.md#egress-connectivity-to-event-hubs-endpoints-for-routing) (disponibles en las regiones seleccionadas para centros de IoT con identidad de servicio administrada).
+
 
 ## <a name="reading-data-that-has-been-routed"></a>Lectura de datos que se han enrutado
 
@@ -103,6 +114,7 @@ Use los siguientes tutoriales para obtener información sobre cómo leer un mens
 * Lectura desde [colas de Service Bus](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)
 
 * Lectura desde [temas de Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions)
+
 
 ## <a name="fallback-route"></a>Ruta de reserva
 

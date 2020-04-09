@@ -3,39 +3,40 @@ title: Configuración de alertas y notificaciones (Azure Portal)
 description: Use Azure Portal para crear alertas de SQL Database, que pueden desencadenar notificaciones o automatización cuando se cumplen las condiciones que ha especificado.
 services: sql-database
 ms.service: sql-database
-ms.subservice: monitor
+ms.subservice: performance
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
-ms.date: 11/02/2018
-ms.openlocfilehash: c2b889d4013abb60c9ad7bb4bcdc4e6546cfa37c
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.date: 03/10/2020
+ms.openlocfilehash: 67c47b35e84a93d7d9032ad55b425ae2bb6971fe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75745939"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79209479"
 ---
-# <a name="create-alerts-for-azure-sql-database-and-data-warehouse-using-azure-portal"></a>Creación de alertas para Azure SQL Database y Data Warehouse con Azure Portal
+# <a name="create-alerts-for-azure-sql-database-and-azure-synapse-analytics-databases-using-azure-portal"></a>Creación de alertas para bases de datos de Azure SQL Database y Azure Synapse Analytics mediante Azure Portal
 
 ## <a name="overview"></a>Información general
-En este artículo se muestra cómo configurar alertas de Azure SQL Database y Data Warehouse con Azure Portal. Las alertas pueden enviarle un correo electrónico o llamar a un webhook cuando alguna métrica (por ejemplo, el tamaño de la base de datos o el uso de la CPU) alcanza el umbral. En este artículo también se indican procedimientos recomendados para establecer periodos de alerta.    
+
+En este artículo se muestra cómo configurar las alertas de bases de datos de almacenamiento de datos, agrupadas y únicas en Azure SQL Database y Azure Synapse Analytics (anteriormente Azure SQL Data Warehouse) desde Azure Portal. Las alertas pueden enviarle un correo electrónico o llamar a un webhook cuando alguna métrica (por ejemplo, el tamaño de la base de datos o el uso de la CPU) alcanza el umbral. En este artículo también se indican procedimientos recomendados para establecer periodos de alerta.
 
 > [!IMPORTANT]
 > Esta característica todavía no está disponible en la Instancia administrada. Como alternativa, puede utilizar el agente de SQL para enviar alertas por correo electrónico para algunas métricas basadas en [vistas de administración dinámica](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views).
 
 Puede recibir una alerta basada en las métricas de supervisión para los servicios de Azure o los eventos sobre ellos.
 
-* **Valores de métrica** : la alerta se desencadena cuando el valor de una métrica específica cruza un umbral asignado en cualquier dirección. Es decir, se desencadena tanto la primera vez que se cumple la condición como después, cuando dicha condición ya deja de cumplirse.    
+* **Valores de métrica** : la alerta se desencadena cuando el valor de una métrica específica cruza un umbral asignado en cualquier dirección. Es decir, se desencadena tanto la primera vez que se cumple la condición como después, cuando dicha condición ya deja de cumplirse.
 * **Eventos de registro de actividades** : una alerta puede desencadenarse en *cada* evento o solo cuando se produce una serie de eventos.
 
 Puede configurar una alerta para hacer lo siguiente cuando se desencadena:
 
 * Enviar notificaciones de correo electrónico al administrador y los coadministradores del servicio.
 * Enviar un correo electrónico a direcciones de correo electrónico adicionales que especifique.
-* Llamar a un webhook.
+* Llamar a un webhook
 
 Puede obtener información sobre las reglas de alerta y configurarlas mediante:
 
@@ -45,78 +46,29 @@ Puede obtener información sobre las reglas de alerta y configurarlas mediante:
 * [API de REST de Azure Monitor](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
 ## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>Creación de una regla de alerta de una métrica con Azure Portal
+
 1. En el [portal](https://portal.azure.com/), busque el recurso que desea supervisar y selecciónelo.
-2. Seleccione **Alertas (clásico)** en la sección SUPERVISIÓN. El texto y el icono pueden variar ligeramente en los distintos recursos.  
-   
-     ![Supervisión](media/sql-database-insights-alerts-portal/AlertsClassicButton.JPG)
+2. Seleccione **Alertas** en la sección Supervisión. El texto y el icono pueden variar ligeramente en los distintos recursos.  
+
+   ![Supervisión](media/sql-database-insights-alerts-portal/Alerts.png)
   
-   - **SOLO SQL DW**: Haga clic en el gráfico **Uso de DWU**. Seleccione **Ver alertas clásicas**.
+3. Seleccione el botón **New alert rule** (Nueva regla de alertas) para abrir la página **Create rule** (Crear regla).
+  ![Creación de una regla](media/sql-database-insights-alerts-portal/create-rule.png)
 
-3. Seleccione el botón **Agregar alerta de métrica (clásica)** y rellene los campos.
-   
-    ![Agregar alerta](media/sql-database-insights-alerts-portal/AddDBAlertPageClassic.JPG)
-4. Asígnele un **nombre** a la regla de alerta y elija una **descripción**, que también se muestra los correos electrónicos de notificación.
-5. Seleccione la **métrica** que desea supervisar y elija un valor de **Condición** y **Umbral** para la métrica. También debe elegir el **período** de la regla de métrica que se debe cumplir antes de que se desencadene la alerta. Por ejemplo, si usa el período "PT5M" y la alerta busca una CPU por encima del 80 %, la alerta se desencadena cuando el **promedio** de CPU ha estado por encima del 80 % durante 5 minutos. Una vez que se desencadena por primera vez, se vuelve a desencadenar cuando el promedio de CPU está por debajo del 80 % durante más de 5 minutos. La CPU se mide cada 1 minuto. Consulte la tabla siguiente para ver las ventanas de tiempo compatibles y el tipo de agregación que usa cada alerta; no todas las alertas usan el valor promedio.   
-6. Marque la opción **Enviar correo electrónico a propietarios...** si desea que se envíe un correo electrónico a los administradores y coadministradores cuando se active la alerta.
-7. Si desea enviar una notificación a otras direcciones de correo electrónico cuando se active la alerta, agréguelas en el campo **Correos electrónicos de administradores adicionales** . Separe las direcciones de correo electrónico con punto y coma: *email\@contoso.com;email2\@contoso.com*.
-8. Escriba un identificador URI válido en el campo **Webhook** si desea llamarlo cuando se active la alerta.
-9. Seleccione **Aceptar** cuando termine para crear la alerta.   
+4. En la sección **Condition** (Condición), haga clic en **Add** (Agregar).
+  ![Definir condición](media/sql-database-insights-alerts-portal/create-rule.png)
+5. En la página **Configure signal logic** (Configurar lógica de señal), seleccione una señal.
+  ![Seleccionar señal](media/sql-database-insights-alerts-portal/select-signal.png).
+6. Después de seleccionar una señal, como **Porcentaje de CPU**, aparece la página **Configure signal logic** (Configurar lógica de señal).
+  ![Configurar lógica de señal](media/sql-database-insights-alerts-portal/configure-signal-logic.png)
+7. En esta página, configure el tipo de umbral, operador, tipo de agregación, valor de umbral, granularidad de agregación y frecuencia de evaluación. A continuación, haga clic en **Hecho**.
+8. En **Create rule** (Crear regla), seleccione un **grupo de acciones** existente o créelo. Un grupo de acciones le permite definir la acción que se va a realizar cuando se produce una condición de alerta.
+  ![Definir un grupo de acciones](media/sql-database-insights-alerts-portal/action-group.png)
 
-En cuestión de minutos, se activa la alerta y se desencadena tal como se describió anteriormente.
+9. Defina un nombre para la regla, especifique una descripción opcional, elija el nivel de gravedad de la regla, elija si desea habilitar la regla tras su creación y haga clic en **Create rule alert** (Crear alerta de regla) para crear la alerta de regla de la métrica.
 
-## <a name="managing-your-alerts"></a>Administración de las alertas
-Una vez que haya creado una alerta, puede seleccionarla y:
-
-* Ver un gráfico que muestre el umbral de las métricas y los valores reales del día anterior.
-* Editar la alerta o eliminarla.
-* **Deshabilitar** la alerta, si desea dejar de recibir notificaciones de esa alerta de manera temporal, o **habilitarla** si desea reanudar sus notificaciones.
-
-
-## <a name="sql-database-alert-values"></a>Valores de las alertas de SQL Database
-
-| Tipo de recurso | Nombre de la métrica | Nombre descriptivo | Tipo de agregación | Ventana de tiempo mínimo de la alerta|
-| --- | --- | --- | --- | --- |
-| Base de datos SQL | cpu_percent | Porcentaje de CPU | Average | 5 minutos |
-| Base de datos SQL | physical_data_read_percent | Porcentaje de E/S de datos | Average | 5 minutos |
-| Base de datos SQL | log_write_percent | Porcentaje de E/S de registro | Average | 5 minutos |
-| Base de datos SQL | dtu_consumption_percent | Porcentaje de DTU | Average | 5 minutos |
-| Base de datos SQL | storage | Tamaño total de base de datos | Máxima | 30 minutos |
-| Base de datos SQL | connection_successful | Conexiones correctas | Total | 10 minutos |
-| Base de datos SQL | connection_failed | Conexiones con errores | Total | 10 minutos |
-| Base de datos SQL | blocked_by_firewall | Bloqueado por el firewall | Total | 10 minutos |
-| Base de datos SQL | deadlock | Interbloqueos | Total | 10 minutos |
-| Base de datos SQL | storage_percent | Porcentaje de tamaño de base de datos | Máxima | 30 minutos |
-| Base de datos SQL | xtp_storage_percent | Porcentaje de almacenamiento de OLTP en memoria (versión preliminar) | Average | 5 minutos |
-| Base de datos SQL | workers_percent | Porcentaje de trabajos | Average | 5 minutos |
-| Base de datos SQL | sessions_percent | Porcentaje de sesiones | Average | 5 minutos |
-| Base de datos SQL | dtu_limit | Límite de DTU | Average | 5 minutos |
-| Base de datos SQL | dtu_used | DTU utilizada | Average | 5 minutos |
-||||||
-| Grupo elástico | cpu_percent | Porcentaje de CPU | Average | 10 minutos |
-| Grupo elástico | physical_data_read_percent | Porcentaje de E/S de datos | Average | 10 minutos |
-| Grupo elástico | log_write_percent | Porcentaje de E/S de registro | Average | 10 minutos |
-| Grupo elástico | dtu_consumption_percent | Porcentaje de DTU | Average | 10 minutos |
-| Grupo elástico | storage_percent | Porcentaje de almacenamiento | Average | 10 minutos |
-| Grupo elástico | workers_percent | Porcentaje de trabajos | Average | 10 minutos |
-| Grupo elástico | eDTU_limit | Límite de eDTU | Average | 10 minutos |
-| Grupo elástico | storage_limit | Límite de almacenamiento | Average | 10 minutos |
-| Grupo elástico | eDTU_used | eDTU utilizada | Average | 10 minutos |
-| Grupo elástico | storage_used | Almacenamiento utilizado | Average | 10 minutos |
-||||||               
-| SQL Data Warehouse | cpu_percent | Porcentaje de CPU | Average | 10 minutos |
-| SQL Data Warehouse | physical_data_read_percent | Porcentaje de E/S de datos | Average | 10 minutos |
-| SQL Data Warehouse | connection_successful | Conexiones correctas | Total | 10 minutos |
-| SQL Data Warehouse | connection_failed | Conexiones con errores | Total | 10 minutos |
-| SQL Data Warehouse | blocked_by_firewall | Bloqueado por el firewall | Total | 10 minutos |
-| SQL Data Warehouse | service_level_objective | Nivel de servicio de la base de datos | Total | 10 minutos |
-| SQL Data Warehouse | dwu_limit | Límite de DWU | Máxima | 10 minutos |
-| SQL Data Warehouse | dwu_consumption_percent | Porcentaje de DWU | Average | 10 minutos |
-| SQL Data Warehouse | dwu_used | DWU utilizada | Average | 10 minutos |
-||||||
-
+En 10 minutos, la alerta se activa y se desencadena como se ha descrito anteriormente.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Obtenga información general sobre la supervisión de Azure](../monitoring-and-diagnostics/monitoring-overview.md) , incluidos los tipos de información que puede recopilar y supervisar.
+
 * Obtenga más información sobre cómo [configurar webhooks en las alertas](../azure-monitor/platform/alerts-webhooks.md).
-* Obtenga [información general sobre los registros de diagnóstico](../azure-monitor/platform/platform-logs-overview.md) para recopilar métricas detalladas de alta frecuencia sobre el servicio.
-* Obtenga [información general sobre la colección de métricas](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) para garantizar que el servicio está disponible y que responder adecuadamente.

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: mjbrown
 ms.openlocfilehash: 38e80f1597a08b8db7cbfa852d1bcf38ac768b1f
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74871149"
 ---
 # <a name="joins-in-azure-cosmos-db"></a>Combinaciones en Azure Cosmos DB
@@ -167,7 +167,7 @@ El origen FROM de la cláusula JOIN es un iterador. Por tanto, en el ejemplo ant
 
 1. Amplíe cada elemento secundario `c` en la matriz.
 2. Aplique un producto vectorial con la raíz del elemento `f` con cada elemento hijo `c` cuyo formato se quitó en el primer paso.
-3. Por último, proyecte solo la propiedad `id` `f` del objeto raíz.
+3. Por último, proyecte solo la propiedad `f` `id` del objeto raíz.
 
 El primer elemento, `AndersenFamily`, contiene solo un elemento `children`, por lo que el conjunto de resultados contiene solo un objeto único. El segundo elemento, `WakefieldFamily`, contiene dos `children`, por lo que el producto vectorial genera dos objetos, uno para cada elemento `children`. Los campos de raíz de ambos elementos son los mismos, tal como se esperaría en un cruce de productos.
 

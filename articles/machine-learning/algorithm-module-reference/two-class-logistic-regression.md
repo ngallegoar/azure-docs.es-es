@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: b1afd99a569de96e9075b4b5b6eff902abd8642e
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 7eb1ad00c3c947c3ed6d4ca450bddc0956a08d71
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77916768"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79455832"
 ---
 # <a name="two-class-logistic-regression-module"></a>Módulo Regresión logística de dos clases
 
@@ -75,7 +75,7 @@ Por ejemplo, la columna de etiqueta podría ser [Votado] con los valores posible
   
     -   Si establece **Create trainer mode** (Crear modo entrenador) en **Single Parameter** (Parámetro único), use el módulo [Entrenar modelo](./train-model.md).  
   
-9. Ejecución de la canalización  
+9. Envíe la canalización.  
   
 ## <a name="results"></a>Results
 

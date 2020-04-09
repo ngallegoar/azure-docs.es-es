@@ -5,18 +5,18 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: e4b2e7c40295d134fe24def0f140bc8097c21250
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 3431576acbb01a0cc3a5f372460b28be05bf7ce7
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77132829"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437476"
 ---
 # <a name="sensor-partner-integration"></a>Integración de partners de sensores
 
 En este artículo se proporciona información sobre el componente **Translator** de FarmBeats de Azure, que permite la integración de asociados de sensor.
 
-Con este componente, los partners se pueden integrar con FarmBeats mediante las API de centro de datos de FarmBeats y enviar telemetría y datos de dispositivos de clientes al centro de datos de FarmBeats. Una vez que los datos están disponibles en FarmBeats, se visualizan con el acelerador de FarmBeats y se pueden usar para la fusión de datos y para crear modelos de inteligencia artificial y aprendizaje automático.
+Con este componente, los asociados se pueden integrar con FarmBeats mediante las API de FarmBeats Datahub y enviar telemetría y datos de dispositivos de clientes a FarmBeats Datahub. Una vez que los datos están disponibles en FarmBeats, se visualizan con el acelerador de FarmBeats y se pueden usar para la fusión de datos y para crear modelos de inteligencia artificial y aprendizaje automático.
 
 ## <a name="before-you-start"></a>Antes de comenzar
 
@@ -42,7 +42,7 @@ Los datos de telemetría se asignan a un mensaje canónico publicado en Azure Ev
 
 **Desarrollo de API**
 
-Las API contienen documentación técnica de Swagger. Para obtener más información sobre las API y sus solicitudes y respuestas correspondientes, consulte [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
+Las API contienen documentación técnica de Swagger. Para obtener más información sobre las API y sus solicitudes y respuestas correspondientes, consulte [Swagger](https://aka.ms/FarmBeatsSwagger).
 
 **Autenticación**
 
@@ -85,14 +85,14 @@ access_token = token_response.get('accessToken') 
 
 **Encabezados de solicitud HTTP**
 
-Estos son los encabezados de solicitud más comunes que se deben especificar al realizar una llamada API al centro de datos de FarmBeats.
+Estos son los encabezados de solicitud más comunes que deben especificarse al realizar una llamada API al centro de datos de FarmBeats.
 
 
 **Encabezado** | **Descripción y ejemplo**
 --- | ---
-Content-Type | El formato de la solicitud (Content-Type: application/<format>). Para las API de centro de datos de FarmBeats, el formato es JSON. Content-Type: application/json
+Content-Type | El formato de la solicitud (Content-Type: application/<format>). En el caso de las API de centro de datos de FarmBeats, el formato es JSON. Content-Type: application/json
 Authorization | Especifica el token de acceso necesario para realizar una llamada API. Autorización: Bearer <Access-Token>
-Accept | El formato de respuesta. Para las API de centro de datos de FarmBeats, el formato es JSON. Accept: application/json
+Accept | El formato de respuesta. En el caso de las API de centro de datos de FarmBeats, el formato es JSON. Accept: application/json
 
 **Solicitudes de API**
 
@@ -119,7 +119,7 @@ JSON es un formato de datos común independiente del lenguaje que proporciona un
 
 ## <a name="metadata-specifications"></a>Especificaciones de metadatos
 
-El centro de datos de FarmBeats tiene las API siguientes que permiten a los partners de dispositivo crear y administrar metadatos de dispositivos o sensores.
+El centro de datos de FarmBeats tiene las siguientes API que permiten a los asociados de dispositivo crear y administrar los metadatos de dispositivos o sensores.
 
 - /**DeviceModel**: DeviceModel se corresponde con los metadatos del dispositivo, como el fabricante o el tipo de dispositivo, que es puerta de enlace o nodo.
 - /**Device**: Device se corresponde con un dispositivo físico presente en la granja.
@@ -188,7 +188,7 @@ El componente traductor debe tener la capacidad de agregar nuevos dispositivos o
 
 ### <a name="add-new-types-and-units"></a>Adición de nuevos tipos y unidades
 
-FarmBeats permite agregar nuevas unidades y tipos de medidas de sensor. Para obtener más información sobre la API /ExtendedType, consulte [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
+FarmBeats permite agregar nuevas unidades y tipos de medidas de sensor. Para obtener más información sobre la API /ExtendedType, consulte [Swagger](https://aka.ms/FarmBeatsSwagger).
 
 ## <a name="telemetry-specifications"></a>Especificaciones de telemetría
 
@@ -304,7 +304,7 @@ Después de que los clientes hayan comprado e implementado dispositivos o sensor
 
 ## <a name="unlink-farmbeats"></a>Desvinculación de FarmBeats
 
-Los partners de dispositivo pueden permitir a los clientes desvincular una integración de FarmBeats existente. La desvinculación de FarmBeats no debería eliminar los metadatos de los dispositivos o sensores que se han creado en el centro de datos de FarmBeats. El proceso de desvinculación hace lo siguiente:
+Los partners de dispositivo pueden permitir a los clientes desvincular una integración de FarmBeats existente. La desvinculación de FarmBeats no debería eliminar los metadatos de los dispositivos o sensores que se han creado en FarmBeats Datahub. El proceso de desvinculación hace lo siguiente:
 
    - Detiene el flujo de telemetría.
    - Elimina y borra las credenciales de integración del asociado de dispositivo.

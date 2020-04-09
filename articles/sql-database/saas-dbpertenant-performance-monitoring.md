@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: e2e752ec37f71ea501dcee586e7daf0fc950919d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 34c50795567615637e31446ad3dc51a5e1b355f6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822230"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79214463"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Supervisión y administración del rendimiento de bases de datos y grupos SQL de Azure en la aplicación SaaS multiinquilino
 
@@ -56,7 +56,7 @@ Se deben supervisar los grupos y las bases de datos de estos para garantizar que
 
 [Azure Portal](https://portal.azure.com) proporciona supervisión y alertas integradas en la mayoría de recursos. Para SQL Database, la supervisión y las alertas están disponibles para las bases de datos y los grupos. La supervisión y las alertas integradas son específicas de los recursos, por lo que es conveniente usarlas con un número reducido de recursos, pero no cuando se trabaja con muchos recursos.
 
-Para escenarios de gran volumen, donde se trabaja con muchos recursos, se puede usar los [registros de Azure Monitor](saas-dbpertenant-log-analytics.md). Se trata de un servicio de Azure independiente que proporciona análisis de los registros de diagnóstico emitidos y de telemetría recopilados en un área de trabajo de Log Analytics. Los registros de Azure Monitor pueden recopilar la telemetría de muchos servicios y sirve para consultar y establecer alertas.
+Para escenarios de gran volumen, donde se trabaja con muchos recursos, se puede usar los [registros de Azure Monitor](saas-dbpertenant-log-analytics.md). Se trata de un servicio de Azure independiente que proporciona análisis de los registros recopilados en un área de trabajo de Log Analytics. Los registros de Azure Monitor pueden recopilar la telemetría de muchos servicios y sirve para consultar y establecer alertas.
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Obtención de los scripts de la aplicación Wingtip Tickets SaaS Database Per Tenant
 
@@ -206,7 +206,7 @@ En este ejercicio se simula el efecto de una carga elevada en Contoso Concert Ha
 
 1. Inspeccione el gráfico **Supervisión de grupo elástico** y busque el aumento de uso de eDTU en el grupo. Pasado un minuto o dos, la carga mayor entrará en vigor rápidamente y verá que el grupo alcanza el 100 % de uso.
 2. Observe la pantalla **Supervisión de base de datos elástica** que muestra las bases de datos principales de la última hora. La base de datos *contosoconcerthall* pronto debería aparecer como una de las cinco bases de datos principales.
-3. **Haga clic en el gráfico Supervisión de bases de datos elásticas** y se abre la **página** **Uso de recursos de base de datos** donde puede supervisar cualquier base de datos. Esto le permite aislar la presentación de la base de datos *contosoconcerthall*.
+3. **Haga clic en el gráfico Supervisión de bases de datos elásticas** y se abre la **página** **Uso de recursos de base de datos**, donde puede supervisar cualquier base de datos. Esto le permite aislar la presentación de la base de datos *contosoconcerthall*.
 4. En la lista de bases de datos, haga clic en **contosoconcerthall**.
 5. Haga clic en **Plan de tarifa (escalar DTU)** para abrir la página **Configurar rendimiento** donde puede establecer un tamaño de proceso independiente para la base de datos.
 6. Haga clic en la pestaña **Estándar** para abrir las opciones de escalado del nivel Estándar.
@@ -218,7 +218,7 @@ Una vez que desaparezca el exceso de carga de la base de datos contosoconcerthal
 
 ## <a name="other-performance-management-patterns"></a>Otros patrones de administración del rendimiento
 
-**Escalado preventivo** En el ejercicio anterior donde exploramos cómo escalar una base de datos aislada, sabía la base de datos que buscaba. Si la administración de Contoso Concert Hall había informado a Wingtip de la venta inminente de entradas, la base de datos podía haberse sacado del grupo de manera preventiva. De lo contrario, probablemente se hubiera necesitado una alerta en el grupo o la base de datos permite detectar lo que estaba pasando. No le gustaría que le informaran de esto los otros inquilinos del grupo con quejas sobre el rendimiento. Y si el inquilino puede predecir durante cuánto tiempo necesita recursos adicionales, podrá configurar un runbook de Azure Automation para sacar la base de datos del grupo y volverla a meter según un programa determinado.
+**Escalado preventivo** En el ejercicio anterior donde exploramos cómo escalar una base de datos aislada, sabía la base de datos que buscaba. Si la administración de Contoso Concert Hall había informado a Wingtips de la venta inminente de entradas, la base de datos podía haberse sacado del grupo de manera preventiva. De lo contrario, probablemente se hubiera necesitado una alerta en el grupo o la base de datos permite detectar lo que estaba pasando. No le gustaría que le informaran de esto los otros inquilinos del grupo con quejas sobre el rendimiento. Y si el inquilino puede predecir durante cuánto tiempo necesita recursos adicionales, podrá configurar un runbook de Azure Automation para sacar la base de datos del grupo y volverla a meter según un programa determinado.
 
 **Autoservicio de escalado de inquilinos**. Como el escalado es una tarea que se llama fácilmente a través de la API de administración, puede crear fácilmente la capacidad de escalar las bases de datos de inquilinos en la aplicación de inquilino y ofrecerla como característica del servicio SaaS. Por ejemplo, puede permitir que los inquilinos se autoadministren el escalado y la reducción vertical y quizá vincularlo directamente a su facturación.
 

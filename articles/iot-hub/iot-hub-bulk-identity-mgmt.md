@@ -1,6 +1,6 @@
 ---
 title: Importación y exportación de identidades de dispositivo de IoT Hub de Azure | Microsoft Docs
-description: Describe cómo usar el SDK de servicio IoT de Azure para realizar operaciones masivas en el registro de identidad con el fin de importar y exportar identidades de dispositivo. Las operaciones de importación permiten crear, actualizar y eliminar las identidades de dispositivo de forma masiva.
+description: Describe cómo usar el SDK de servicio IoT de Azure para ejecutar operaciones masivas en el registro de identidad con el fin de importar y exportar identidades de dispositivo. Las operaciones de importación permiten crear, actualizar y eliminar las identidades de dispositivo de forma masiva.
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -8,25 +8,27 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: robinsh
-ms.openlocfilehash: 0d0643adc56a3dcdeef163708c26f2425ab8af43
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2a0394e6e7c17e0a4954bbdddb1d5b2811959746
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429251"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79371586"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>Importación y exportación de identidades de dispositivo de IoT Hub de forma masiva
 
 Cada Centro de IoT tiene un registro de identidad que se puede usar para crear recursos por dispositivo en el servicio. El registro de identidad también permite controlar el acceso a los puntos de conexión accesibles desde los dispositivos. En este artículo se describe cómo importar y exportar identidades de dispositivo de forma masiva hacia y desde un Registro de identidad. Para ver un ejemplo en funcionamiento en C# y obtener información sobre cómo puede usar esta funcionalidad a la hora de clonar un centro en otra región, consulte [Cómo clonar una instancia de IoT Hub](iot-hub-how-to-clone.md).
 
-[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
+> [!NOTE]
+> IoT Hub ha agregado recientemente compatibilidad con redes virtuales en un número limitado de regiones. Esta característica protege las operaciones de importación y exportación y elimina la necesidad de pasar claves para la autenticación.  Inicialmente, la compatibilidad con redes virtuales solo está disponible en estas regiones: *WestUS2*, *Eastus* y *SouthCentralUS*. Para más información sobre la compatibilidad con redes virtuales y las llamadas API para implementarla, consulte [Compatibilidad de IoT Hub con redes virtuales](virtual-network-support.md).
 
 Las operaciones de importación y exportación tienen lugar en el contexto de *Trabajos* que permiten ejecutar operaciones de servicio de forma masiva en un IoT Hub.
 
 La clase **RegistryManager** incluye los métodos **ExportDevicesAsync** y **ImportDevicesAsync**, que usan el marco **Trabajo**. Estos métodos le permiten exportar, importar y sincronizar la totalidad de un Registro de identidad de IoT Hub.
 
-En este tema se describe el uso de la clase **RegistryManager** y del sistema de **trabajo** para realizar importaciones y exportaciones en bloque de dispositivos a y desde un registro de identidad de un centro de IoT. También puede usar el servicio Azure IoT Hub Device Provisioning para habilitar el aprovisionamiento Just-In-Time sin intervención del usuario de uno o varios centros de IoT sin necesidad de ninguna intervención humana. Para más información, consulte la [documentación del servicio de aprovisionamiento](/azure/iot-dps).
+En este tema se describe el uso de la clase **RegistryManager** y del sistema de **trabajo** para realizar importaciones y exportaciones en bloque de dispositivos a un registro de identidades de un centro de IoT y desde este. También puede usar el servicio Azure IoT Hub Device Provisioning para habilitar el aprovisionamiento Just-In-Time sin intervención del usuario de uno o varios centros de IoT sin necesidad de ninguna intervención humana. Para más información, consulte la [documentación del servicio de aprovisionamiento](/azure/iot-dps).
 
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 ## <a name="what-are-jobs"></a>¿Qué son los trabajos?
 
@@ -84,6 +86,10 @@ while(true)
   await Task.Delay(TimeSpan.FromSeconds(5));
 }
 ```
+
+> [!NOTE]
+> Si la cuenta de almacenamiento tiene configuraciones de firewall que restringen la conectividad de IoT Hub, considere la posibilidad de usar [excepciones propias de confianza de Microsoft](./virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) (disponibles en las regiones seleccionadas para centros de IoT con identidad de servicio administrada).
+
 
 ## <a name="device-importexport-job-limits"></a>Límites de trabajo de importación y exportación de dispositivos
 
@@ -259,11 +265,11 @@ Use la propiedad opcional **importMode** en los datos de serialización de impor
 
 | importMode | Descripción |
 | --- | --- |
-| **createOrUpdate** |Si no existe un dispositivo con el valor **ID** especificado, se registra por primera vez. <br/>Si el dispositivo ya existe, la información existente se sobrescribe con los datos de entrada proporcionados con independencia del valor **ETag** . <br> El usuario puede especificar opcionalmente datos gemelos junto con los datos del dispositivo. El valor etag del gemelo, si se especifica, se procesa por separado del etag del dispositivo. Si no coincide con el etag del gemelo existente, se escribe un error en el archivo de registro. |
-| **crear** |Si no existe un dispositivo con el valor **ID** especificado, se registra por primera vez. <br/>Si el dispositivo ya existe, se escribe un error en el archivo de registro. <br> El usuario puede especificar opcionalmente datos gemelos junto con los datos del dispositivo. El valor etag del gemelo, si se especifica, se procesa por separado del etag del dispositivo. Si no coincide con el etag del gemelo existente, se escribe un error en el archivo de registro. |
+| **createOrUpdate** |Si no existe un dispositivo con el valor **ID** especificado, se registra por primera vez. <br/>Si el dispositivo ya existe, la información existente se sobrescribe con los datos de entrada proporcionados con independencia del valor **ETag** . <br> El usuario puede especificar opcionalmente datos gemelos junto con los datos del dispositivo. La etiqueta de entidad (ETag) del gemelo, si se especifica, se procesa por separado de la del dispositivo. Si no coincide con la ETag del gemelo existente, se escribe un error en el archivo de registro. |
+| **crear** |Si no existe un dispositivo con el valor **ID** especificado, se registra por primera vez. <br/>Si el dispositivo ya existe, se escribe un error en el archivo de registro. <br> El usuario puede especificar opcionalmente datos gemelos junto con los datos del dispositivo. La etiqueta de entidad (ETag) del gemelo, si se especifica, se procesa por separado de la del dispositivo. Si no coincide con la ETag del gemelo existente, se escribe un error en el archivo de registro. |
 | **update** |Si ya existe un dispositivo con el **identificador** especificado, la información existente se sobrescribe con los datos de entrada proporcionados con independencia del valor **ETag**. <br/>Si el dispositivo no existe, se escribe un error en el archivo de registro. |
 | **updateIfMatchETag** |Si ya existe un dispositivo con el **identificador** especificado, la información existente se sobrescribe con los datos de entrada proporcionados solo si hay un valor **ETag** que coincida. <br/>Si el dispositivo no existe, se escribe un error en el archivo de registro. <br/>Si no existe la coincidencia con **ETag** , se escribe un error en el archivo de registro. |
-| **createOrUpdateIfMatchETag** |Si no existe un dispositivo con el valor **ID** especificado, se registra por primera vez. <br/>Si el dispositivo ya existe, la información existente se sobrescribe con los datos de entrada proporcionados solo si hay una coincidencia con **ETag** . <br/>Si no existe la coincidencia con **ETag** , se escribe un error en el archivo de registro. <br> El usuario puede especificar opcionalmente datos gemelos junto con los datos del dispositivo. El valor etag del gemelo, si se especifica, se procesa por separado del etag del dispositivo. Si no coincide con el etag del gemelo existente, se escribe un error en el archivo de registro. |
+| **createOrUpdateIfMatchETag** |Si no existe un dispositivo con el valor **ID** especificado, se registra por primera vez. <br/>Si el dispositivo ya existe, la información existente se sobrescribe con los datos de entrada proporcionados solo si hay una coincidencia con **ETag** . <br/>Si no existe la coincidencia con **ETag** , se escribe un error en el archivo de registro. <br> El usuario puede especificar opcionalmente datos gemelos junto con los datos del dispositivo. La etiqueta de entidad (ETag) del gemelo, si se especifica, se procesa por separado de la del dispositivo. Si no coincide con la ETag del gemelo existente, se escribe un error en el archivo de registro. |
 | **delete** |Si ya existe un dispositivo con el **identificador** especificado, se eliminará con independencia del valor **ETag**. <br/>Si el dispositivo no existe, se escribe un error en el archivo de registro. |
 | **deleteIfMatchETag** |Si ya existe un dispositivo con el **identificador** especificado, solo se eliminará si hay una coincidencia con **ETag**. Si el dispositivo no existe, se escribe un error en el archivo de registro. <br/>Si no existe una coincidencia con ETag, se escribe un error en el archivo de registro. |
 

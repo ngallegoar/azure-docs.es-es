@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/14/2018
-ms.openlocfilehash: 34607b15dbffa8869cbb4e8d1dd0903aa0131304
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 89fc5196977f53e040e1a6553b46ca57f39b18b4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169144"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79217880"
 ---
 # <a name="create-a-sentiment-analysis-model-in-azure-machine-learning-studio-classic"></a>Creación de un modelo de análisis de opinión en Azure Machine Learning Studio (clásico)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Puede usar Azure Machine Learning Studio (clásico) para generar y aplicar modelos de análisis de texto. Estos modelos pueden ayudarle a resolver, por ejemplo, problemas de clasificación de documentos o de análisis de opinión.
 
@@ -29,7 +31,7 @@ En un experimento de análisis de texto, normalmente debería:
 4. Puntuar y validar el modelo
 5. Implementar el modelo en producción
 
-En este tutorial, aprenderá estos pasos a medida que le guiamos por un modelo de análisis de opiniones mediante el conjunto de datos de Amazon Book Reviews (consulte este artículo de investigación "Biographies, Bollywood, Boom-boxes and Blenders: Domain Adaptation for Sentiment Classification” [Biografías, Bollywood, equipos de sonido y licuadoras: adaptación del dominio para la clasificación de opiniones], de John Blitzer, Mark Dredze y Fernando Pereira; Asociación de Lingüística Informática [ACL], 2007). Este conjunto de datos consta de las puntuaciones de revisión (1-2 o 4-5) y un texto de forma libre. El objetivo es predecir la puntuación de revisión: baja (1 - 2) o alta (4-5).
+En este tutorial, aprenderá estos pasos a medida que le guiamos por un modelo de análisis de sentimiento mediante el conjunto de datos de Amazon Book Reviews (consulte este artículo de investigación "Biographies, Bollywood, Boom-boxes and Blenders: Domain Adaptation for Sentiment Classification” [Biografías, Bollywood, equipos de sonido y licuadoras: adaptación del dominio para la clasificación de opiniones], de John Blitzer, Mark Dredze y Fernando Pereira; Asociación de Lingüística Informática [ACL], 2007). Este conjunto de datos consta de las puntuaciones de revisión (1-2 o 4-5) y un texto de forma libre. El objetivo es predecir la puntuación de revisión: baja (1 - 2) o alta (4-5).
 
 Puede encontrar los experimentos citados en este tutorial en la Galería de Azure AI:
 

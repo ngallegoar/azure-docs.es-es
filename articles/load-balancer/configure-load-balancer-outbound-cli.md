@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: allensu
 ms.openlocfilehash: 7230b0c2b80137b068bbeacf43ab2133491a69b0
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74225472"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-using-azure-cli"></a>Configurar el equilibrio de carga y las reglas de salida en Standard Load Balancer mediante la CLI de Azure
@@ -169,7 +169,7 @@ az network lb outbound-rule create \
 
 Si no quiere usar un grupo de salida independiente, puede cambiar el argumento del grupo de direcciones en el comando anterior y especificar *bepoolinbound*.  Se recomienda usar grupos independientes para garantizar la flexibilidad y la legibilidad de la configuración resultante.
 
-En este momento, puede agregar la máquina virtual al grupo de back-end *bepool* __y__ *bepooloutbound* mediante la actualización de la configuración de IP de los recursos de la NIC correspondientes mediante [az network nic ip-config address-pool add](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest).
+En este momento, puede pasar a agregar la máquina virtual al grupo de back-end *bepoolinbound*__y__*bepooloutbound* mediante la actualización de la configuración de IP de los recursos de la NIC correspondientes con [az network nic ip-config address-pool add](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest).
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

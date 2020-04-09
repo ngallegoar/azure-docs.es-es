@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
-ms.openlocfilehash: fc059eca3a01b5c6cde642af5ceb6a3822672def
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: f1b194f2c65f95ad4daff0353d05ca589db9ce51
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77163829"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477670"
 ---
 # <a name="convert-to-indicator-values"></a>Convertir en valores de indicador
 En este artículo se describe un módulo del diseñador de Azure Machine Learning.
@@ -39,7 +39,7 @@ Este módulo también genera una definición de la transformación usada para la
     > [!TIP]
     >  Si elige la opción para sobrescribir, la columna de origen no se elimina ni modifica realmente. En su lugar, las columnas nuevas se generan y presentan en el conjunto de datos de salida, y la columna de origen sigue disponible en el área de trabajo. Si necesita ver los datos originales, puede usar el módulo [Agregar columnas](add-columns.md) en cualquier momento para volver a agregar la columna de origen.
 
-1. Ejecución de la canalización
+1. Envíe la canalización.
 
 ## <a name="results"></a>Results
 
@@ -88,7 +88,7 @@ Si necesita repetir las operaciones de valores de indicador a menudo, puede guar
 
    Al aplicar una transformación guardada, no se pueden seleccionar las columnas que se van a transformar. Esto se debe a que la transformación ya se ha definido y se aplica automáticamente a los tipos de datos especificados en la operación original.
 
-1. Ejecución de la canalización
+1. Envíe la canalización.
  
 ## <a name="technical-notes"></a>Notas técnicas  
 

@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 01/16/2020
-ms.openlocfilehash: 41b5d7519776ca84cf002d463048eb7a8dec2410
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.date: 3/18/2020
+ms.openlocfilehash: 39edaa32b0695f4ab83206cd5701629f12295a0f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76169148"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79527918"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Réplicas de lectura en Azure Database for MariaDB
 
@@ -31,7 +31,6 @@ Dado que las réplicas son de solo lectura, no reducen directamente las cargas d
 
 Esta característica de réplica de lectura utiliza la replicación asincrónica nativa. La característica no está diseñada para escenarios de replicación sincrónica. Habrá un retraso medible entre el servidor maestro y la réplica. Los datos de la réplica se vuelven finalmente coherentes con los datos del servidor maestro. Use esta característica con cargas de trabajo que puedan admitir este retraso.
 
-
 ## <a name="cross-region-replication"></a>Replicación entre regiones
 Puede crear una réplica de lectura en una región distinta del servidor maestro. La replicación entre regiones puede ser útil para escenarios como el planeamiento de la recuperación ante desastres o la incorporación de datos más cerca de los usuarios.
 
@@ -45,10 +44,9 @@ Puede tener un servidor maestro en cualquier [región de Azure Database for Mar
 ### <a name="universal-replica-regions"></a>Regiones de réplica universal
 Puede crear una réplica de lectura en cualquiera de las siguientes regiones, con independencia de dónde se encuentre el servidor maestro. Entre las regiones de réplica universales admitidas se incluyen:
 
-Este de Australia, Sudeste de Australia, Centro de EE. UU., Asia Oriental, Este de EE. UU. 2, Japón Oriental, Japón Occidental, Centro de Corea del Sur, Sur de Corea del Sur, Centro y norte de EE. UU., Norte de Europa, Centro y Sur de EE. UU., Asia Suroriental, Sur de Reino Unido, Oeste de Reino Unido, Oeste de Europa, Oeste de EE. UU.
+Este de Australia, Sudeste de Australia, Centro de EE. UU., Este de Asia, Este de EE. UU. 2, Este de Japón, Oeste de Japón, Centro de Corea del Sur, Sur de Corea del Sur, Centro y norte de EE. UU., Norte de Europa, Centro y Sur de EE. UU., Sudeste de Asia, Sur de Reino Unido, Oeste de Reino Unido, Oeste de Europa, Oeste de EE. UU.
 
 *Oeste de EE  UU. 2 no está disponible temporalmente como ubicación de réplica entre regiones.
-
 
 ### <a name="paired-regions"></a>Regiones emparejadas
 Además de las regiones de réplica universal, puede crear una réplica de lectura en la región emparejada de Azure del servidor maestro. Si no conoce el par de la región, puede obtener más información en el [artículo sobre regiones emparejadas de Azure](../best-practices-availability-paired-regions.md).
@@ -60,8 +58,7 @@ Sin embargo, existen limitaciones que deben considerarse:
 * Disponibilidad regional: Azure Database for MariaDB está disponible en Oeste de EE. UU. 2, Centro de Francia, Norte de Emiratos Árabes Unidos y Centro de Alemania. Sin embargo, sus regiones emparejadas no están disponibles.
     
 * Pares unidireccionales: Algunas regiones de Azure se emparejan solo en una dirección. Estas regiones incluyen Oeste de la India, Sur de Brasil y US Gov Virginia. 
-   Esto significa que un servidor maestro de Oeste de la India puede crear una réplica en India meridional. Sin embargo, un servidor maestro de India del Sur no puede crear una réplica en India occidental. Esto es debido a que la región secundaria del Oeste de la India es India meridional, pero la región secundaria de esta última no es India occidental.
-
+   Esto significa que un servidor maestro de Oeste de la India puede crear una réplica en Sur de la India. Sin embargo, un servidor maestro de Sur de la India no puede crear una réplica en Oeste de la India. Esto es debido a que la región secundaria del Oeste de la India es Sur de la India, pero la región secundaria de esta última no es Oeste de la India.
 
 ## <a name="create-a-replica"></a>Creación de una réplica
 

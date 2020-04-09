@@ -2,13 +2,13 @@
 title: Implementación de recursos en el inquilino
 description: Se describe cómo implementar recursos en el ámbito de un inquilino en una plantilla de Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 03/09/2020
-ms.openlocfilehash: 64090f1a0bac4b2b5f18d8dec14be0c3b051ac17
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.date: 03/16/2020
+ms.openlocfilehash: fcdfc5b1c4333a0d7eeec80a09ad85579a1f8b77
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78968878"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79460269"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>Creación de recursos en el nivel de inquilino
 
@@ -65,10 +65,20 @@ La entidad de seguridad tiene ahora los permisos necesarios para implementar la 
 
 Los comandos para las implementaciones de inquilino son diferentes de los comandos para las implementaciones de grupos de recursos.
 
+Para la CLI de Azure, use [az deployment tenant create](/cli/azure/deployment/tenant?view=azure-cli-latest#az-deployment-tenant-create):
+
+```azurecli-interactive
+az deployment tenant create \
+  --name demoTenantDeployment \
+  --location WestUS \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-level-deployments/new-mg/azuredeploy.json"
+```
+
 En el caso de Azure PowerShell, use [New-AzTenantDeployment](/powershell/module/az.resources/new-aztenantdeployment).
 
 ```azurepowershell-interactive
 New-AzTenantDeployment `
+  -Name demoTenantDeployment `
   -Location "West US" `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-level-deployments/new-mg/azuredeploy.json"
 ```

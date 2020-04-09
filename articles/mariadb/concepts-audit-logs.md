@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/09/2019
-ms.openlocfilehash: 9c5f6aa2900570aa00ddbc50ec8be4dbb0d16a34
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.date: 3/19/2020
+ms.openlocfilehash: e8d5abd81feb86ba48fc442ee95615cb52230a24
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978056"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80063829"
 ---
 # <a name="audit-logs-in-azure-database-for-mariadb"></a>Registros de auditoría en Azure Database for MariaDB
 
@@ -30,7 +30,7 @@ Otros parámetros que se pueden ajustar son los siguientes:
 - `audit_log_include_users`: usuarios de MariaDB que se incluirán en el registro. El valor predeterminado de este parámetro es estar vacío, lo que incluirá todos los usuarios en el registro. Este tiene una mayor prioridad que `audit_log_exclude_users`. La longitud máxima del parámetro es de 512 caracteres.
 > [!Note]
 > `audit_log_include_users` tiene mayor prioridad sobre `audit_log_exclude_users`. Por ejemplo, si `audit_log_include_users` = `demouser` y `audit_log_exclude_users` = `demouser`, el usuario se incluirá en los registros de auditoría porque `audit_log_include_users` tiene mayor prioridad.
-- `audit_log_exclude_users`: Los usuarios de MariaDB que se excluirán del registro. Permite a lo sumo cuatro usuarios. La longitud máxima del parámetro es de 256 caracteres.
+- `audit_log_exclude_users`: Los usuarios de MariaDB que se excluirán del registro. Permite un máximo de cuatro usuarios. La longitud máxima del parámetro es de 256 caracteres.
 
 | **Evento** | **Descripción** |
 |---|---|
@@ -45,7 +45,7 @@ Otros parámetros que se pueden ajustar son los siguientes:
 
 ## <a name="access-audit-logs"></a>Acceso a registros de auditoría
 
-Los registros de auditoría están integrados en los registros de diagnóstico de Azure Monitor. Una vez que haya habilitado los registros de auditoría en el servidor de MariaDB, puede emitirlos a los registros de Azure Monitor, Event Hubs o Azure Storage. Para más información sobre cómo habilitar los registros de diagnóstico en Azure Portal, consulte el [artículo sobre registros de auditoría en el portal](howto-configure-audit-logs-portal.md#set-up-diagnostic-logs).
+Los registros de auditoría están integrados en los registros de diagnóstico de Azure Monitor. Una vez que haya habilitado los registros de auditoría en el servidor de MariaDB, puede emitirlos a los registros de Azure Monitor, Event Hubs o Azure Storage. Para obtener más información sobre cómo habilitar los registros de diagnóstico en Azure Portal, consulte el [artículo sobre registros de auditoría en el portal](howto-configure-audit-logs-portal.md#set-up-diagnostic-logs).
 
 ## <a name="diagnostic-logs-schemas"></a>Esquemas de registros de diagnóstico
 
@@ -72,7 +72,7 @@ En las secciones siguientes se describe lo que generan los registros de auditor�
 | `connection_id_d` | Identificador único de conexión generado por MariaDB |
 | `host_s` | En blanco |
 | `ip_s` | Dirección IP del cliente que se conecta a MariaDB |
-| `user_s` | Nombre de usuario que ejecuta la consulta |
+| `user_s` | Nombre del usuario que ejecuta la consulta |
 | `db_s` | Nombre de la base de datos a la que se conecta |
 | `\_ResourceId` | URI de recurso |
 
@@ -97,39 +97,68 @@ El esquema siguiente se aplica a los tipos de evento GENERAL, DML_SELECT, DML_NO
 | `LogicalServerName_s` | Nombre del servidor |
 | `event_class_s` | `general_log` |
 | `event_subclass_s` | `LOG`, `ERROR`, `RESULT` |
-| `event_time` | Segundos del inicio de la consulta en la marca de tiempo de UNIX |
+| `event_time` | Segundos a partir del inicio de la consulta en formato de marca de tiempo de UNIX |
 | `error_code_d` | Código de error si la consulta no es correcta. `0` significa que no hay error |
 | `thread_id_d` | Id. del subproceso que ejecutó la consulta |
 | `host_s` | En blanco |
 | `ip_s` | Dirección IP del cliente que se conecta a MariaDB |
-| `user_s` | Nombre de usuario que ejecuta la consulta |
+| `user_s` | Nombre del usuario que ejecuta la consulta |
 | `sql_text_s` | Texto de la consulta completa |
 | `\_ResourceId` | URI de recurso |
 
-### <a name="table-access"></a>Acceso a la tabla
+## <a name="analyze-logs-in-azure-monitor-logs"></a>Análisis de registros en los registros de Azure Monitor
 
-| **Propiedad** | **Descripción** |
-|---|---|
-| `TenantId` | El identificador de inquilino |
-| `SourceSystem` | `Azure` |
-| `TimeGenerated [UTC]` | Marca de tiempo de cuando se grabó el registro en UTC |
-| `Type` | Tipo del registro. Siempre `AzureDiagnostics` |
-| `SubscriptionId` | GUID de la suscripción a la que pertenece el servidor |
-| `ResourceGroup` | Nombre del grupo de recursos al que pertenece el servidor |
-| `ResourceProvider` | Nombre del proveedor de recursos Siempre `MICROSOFT.DBFORMARIADB` |
-| `ResourceType` | `Servers` |
-| `ResourceId` | URI de recurso |
-| `Resource` | Nombre del servidor |
-| `Category` | `MySqlAuditLogs` |
-| `OperationName` | `LogEvent` |
-| `LogicalServerName_s` | Nombre del servidor |
-| `event_class_s` | `table_access_log` |
-| `event_subclass_s` | `READ`, `INSERT`, `UPDATE` o `DELETE` |
-| `connection_id_d` | Identificador único de conexión generado por MariaDB |
-| `db_s` | Nombre de la base de datos a la que se accede |
-| `table_s` | Nombre de la tabla a la que se accede |
-| `sql_text_s` | Texto de la consulta completa |
-| `\_ResourceId` | URI de recurso |
+Una vez que los registros de auditoría se canalizan a los registros de Azure Monitor a través de registros de diagnóstico, puede realizar un análisis en mayor profundidad de sus eventos auditados. A continuación encontrará algunas consultas de ejemplo que le ayudarán a ponerse en marcha. Asegúrese de que actualizar los datos siguientes con el nombre del servidor.
+
+- Enumeración de los eventos GENERALES en un servidor determinado
+
+    ```kusto
+    AzureDiagnostics
+    | where LogicalServerName_s == '<your server name>'
+    | where Category == 'MySqlAuditLogs' and event_class_s == "general_log"
+    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s 
+    | order by TimeGenerated asc nulls last 
+    ```
+
+- Enumeración de los eventos de CONEXIÓN en un servidor determinado
+
+    ```kusto
+    AzureDiagnostics
+    | where LogicalServerName_s == '<your server name>'
+    | where Category == 'MySqlAuditLogs' and event_class_s == "connection_log"
+    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s 
+    | order by TimeGenerated asc nulls last
+    ```
+
+- Resumen de los eventos auditados en un servidor determinado
+
+    ```kusto
+    AzureDiagnostics
+    | where LogicalServerName_s == '<your server name>'
+    | where Category == 'MySqlAuditLogs'
+    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s 
+    | summarize count() by event_class_s, event_subclass_s, user_s, ip_s
+    ```
+
+- Representación de una distribución de tipo de evento de auditoría en un servidor concreto
+
+    ```kusto
+    AzureDiagnostics
+    | where LogicalServerName_s == '<your server name>'
+    | where Category == 'MySqlAuditLogs'
+    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s 
+    | summarize count() by LogicalServerName_s, bin(TimeGenerated, 5m)
+    | render timechart 
+    ```
+
+- Enumeración de los eventos auditados en todos los servidores de MariaDB con registros de diagnóstico habilitados para los registros de auditoría
+
+    ```kusto
+    AzureDiagnostics
+    | where Category == 'MySqlAuditLogs'
+    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s 
+    | order by TimeGenerated asc nulls last
+    ``` 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

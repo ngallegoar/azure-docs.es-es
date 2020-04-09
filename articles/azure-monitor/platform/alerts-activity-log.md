@@ -4,12 +4,12 @@ description: Crear alertas del registro de actividad mediante Azure Portal, una 
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 06/25/2019
-ms.openlocfilehash: 9791ebaadeb1ee724692a9e1a0d61aff5cbae6a3
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: bfbe2bc3ae3edf9285d3ec006ab0451f070cabd6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77668492"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80132403"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Crear, ver y administrar las alertas del registro de actividad mediante Azure Monitor  
 
@@ -127,7 +127,7 @@ Una simple analogía para comprender las condiciones en las que se pueden crear 
 
 
 ## <a name="azure-resource-manager-template"></a>Plantilla del Administrador de recursos de Azure
-Para crear una alerta del registro de actividad mediante una plantilla de Azure Resource Manager, cree un recurso del tipo `microsoft.insights/activityLogAlerts`. A continuación, rellene todas las propiedades relacionadas. A continuación, se muestra una plantilla que crea una alerta del registro de actividad:
+Para crear una regla de alerta del registro de actividad mediante una plantilla de Azure Resource Manager, cree un recurso del tipo `microsoft.insights/activityLogAlerts`. A continuación, rellene todas las propiedades relacionadas. A continuación, se muestra una plantilla que crea una regla de alerta del registro de actividad:
 
 ```json
 {
@@ -195,6 +195,39 @@ Para crear una alerta del registro de actividad mediante una plantilla de Azure 
 }
 ```
 El ejemplo JSON anterior se puede guardar, por ejemplo, como sampleActivityLogAlert.json a los efectos de este tutorial, y puede implementarse con [Azure Resource Manager en Azure Portal](../../azure-resource-manager/templates/deploy-portal.md).
+
+Los campos siguientes son las opciones que puede usar en la plantilla de Azure Resource Manager para los campos de condiciones: Observe que "Resource Health", "Advisor" y "Service Health" tienen campos de propiedades adicionales para sus campos especiales. 
+1. resourceId:  el identificador del recurso afectado en el evento del registro de actividad en el que se debe generar la alerta.
+2. category: categoría del evento del registro de actividad. Por ejemplo: Administrative, ServiceHealth, ResourceHealth, Autoscale, Security, Recommendation, Policy.
+3. caller: dirección de correo electrónico o el identificador de Azure Active Directory del usuario que realizó la operación del evento del registro de actividad.
+4. level: nivel de la actividad del evento del registro de actividad en el que se debe generar la alerta. Por ejemplo: Critical, Error, Warning, Informational, Verbose.
+5. operationName: nombre de la operación en el evento del registro de actividad. Por ejemplo: Microsoft.Resources/deployments/write
+6. resourceGroup: nombre del grupo de recursos del recurso afectado en el evento del registro de actividad.
+7. resourceProvider: [explicación de tipos y proveedor de recursos de Azure](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fazure-resource-manager%2Fmanagement%2Fresource-providers-and-types&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C90b7c2308c0647c0347908d7c9a2918d%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637199572373543634&sdata=4RjpTkO5jsdOgPdt%2F%2FDOlYjIFE2%2B%2BuoHq5%2F7lHpCwQw%3D&reserved=0). Para obtener una lista que asigna proveedores de recursos con servicios de Azure, consulte [Proveedores de recursos para servicios de Azure](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fazure-resource-manager%2Fmanagement%2Fazure-services-resource-providers&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C90b7c2308c0647c0347908d7c9a2918d%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637199572373553639&sdata=0ZgJPK7BYuJsRifBKFytqphMOxMrkfkEwDqgVH1g8lw%3D&reserved=0).
+8. status: cadena que describe el estado de la operación en el evento de actividad. Por ejemplo: Started, In Progress, Succeeded, Failed, Active, Resolved
+9. subStatus: Normalmente el código de estado HTTP de la llamada REST correspondiente, pero también puede incluir otras cadenas que describen un subestado.   Por ejemplo: Correcto (código de estado HTTP: 200), Creado (código de estado HTTP: 201), Aceptado (código de estado HTTP: 202), Sin contenido (código de estado HTTP: 204), Solicitud incorrecta (código de estado HTTP: 400), No encontrado (código de estado HTTP): 404), Conflicto (código de estado HTTP: 409), Error interno del servidor (código de estado HTTP: 500), Servicio no disponible (código de estado HTTP: Tiempo de espera agotado para la puerta de enlace (código de estado HTTP: 503) 504).
+10. resourceType: tipo de recurso que se vio afectado por el evento. Por ejemplo: Microsoft.Resources/deployments
+
+Por ejemplo:
+
+```json
+"condition": {
+          "allOf": [
+            {
+              "field": "category",
+              "equals": "Administrative"
+            },
+            {
+              "field": "resourceType",
+              "equals": "Microsoft.Resources/deployments"
+            }
+          ]
+        }
+
+```
+Puede encontrar más información sobre los campos del registro de actividad [aquí](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fazure-monitor%2Fplatform%2Factivity-log-schema&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C90b7c2308c0647c0347908d7c9a2918d%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637199572373563632&sdata=6QXLswwZgUHFXCuF%2FgOSowLzA8iOALVgvL3GMVhkYJY%3D&reserved=0).
+
+
 
 > [!NOTE]
 > Una regla de alertas nueva del registro de actividad puede tardar hasta 5 minutos en activarse.

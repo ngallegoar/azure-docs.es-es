@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: jaredro
-ms.openlocfilehash: 9f2b106df531dfdf26c2c83b765e3f7270a63df5
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 845c53ec970777901ae8d1c0abf5032ac705d3e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770992"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231300"
 ---
 # <a name="expressroute-faq"></a>P+F de ExpressRoute
 
@@ -50,7 +50,15 @@ Sí. Un circuito ExpressRoute, una vez configurado, le permitirá acceder a los 
 
 ### <a name="how-are-vnets-advertised-on-expressroute-private-peering"></a>¿Cómo se anuncian las redes virtuales en el emparejamiento privado de ExpressRoute?
 
-La puerta de enlace de ExpressRoute anunciará el *espacio de direcciones* de la red virtual de Azure. No se puede incluir ni excluir en el nivel de la subred. Siempre es el espacio de direcciones de la red virtual que se anuncia. Además, si se usa el emparejamiento de la red virtual y la red virtual emparejada tiene habilitada la opción "Use Remote Gateway" (Usar puerta de enlace remota), también se anunciará el espacio de direcciones de la red virtual emparejada.
+La puerta de enlace de ExpressRoute anunciará los *espacios de direcciones* de la red virtual de Azure que no puede incluir ni excluir en el nivel de la subred. Siempre es el espacio de direcciones de la red virtual que se anuncia. Además, si se usa el emparejamiento de la red virtual y la red virtual emparejada tiene habilitada la opción "Use Remote Gateway" (Usar puerta de enlace remota), también se anunciará el espacio de direcciones de la red virtual emparejada.
+
+### <a name="how-many-prefixes-can-be-advertised-from-a-vnet-to-on-premises-on-expressroute-private-peering"></a>¿Cuántos prefijos se pueden anunciar desde una red virtual a un entorno local en el emparejamiento privado de ExpressRoute?
+
+Se pueden anunciar un máximo de 200 prefijos en una única conexión de ExpressRoute o a través del emparejamiento de VNet mediante el tránsito de puerta de enlace. Por ejemplo, si tiene 199 espacios de direcciones en una sola red virtual conectada a un circuito ExpressRoute, todos esos prefijos se anunciarán en el entorno local. Como alternativa, si tiene una red virtual habilitada para permitir el tránsito de puerta de enlace con 1 espacio de direcciones y 150 redes virtuales radiales habilitadas con la opción "Permitir puerta de enlace remota", la red virtual implementada con la puerta de enlace anunciará los 151 prefijos en el entorno local.
+
+### <a name="what-happens-if-i-exceed-the-prefix-limit-on-an-expressroute-connection"></a>¿Qué ocurre si se supera el límite de prefijos en una conexión de ExpressRoute?
+
+La conexión entre el circuito ExpressRoute y la puerta de enlace (y las redes virtuales emparejadas mediante el tránsito de puerta de enlace, si procede), dejará de funcionar. Se restablecerá cuando ya no se supere el límite de prefijos.  
 
 ### <a name="can-i-filter-routes-coming-from-my-on-premises-network"></a>¿Se pueden filtrar las rutas procedentes de mi red local?
 
@@ -164,7 +172,7 @@ Debe implementar el atributo *Preferencia local* en los enrutadores para asegura
 
 Consulte más detalles [aquí](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#path-selection-on-microsoft-and-public-peerings) relacionados con la selección de rutas de acceso de BGP y configuraciones de enrutador comunes. 
 
-### <a name="onep2plink"></a>Si no estoy en una ubicación compartida en un intercambio en la nube y mi proveedor de servicios ofrece una conexión punto a punto, ¿necesito solicitar dos conexiones físicas entre mi red local y Microsoft?
+### <a name="if-im-not-co-located-at-a-cloud-exchange-and-my-service-provider-offers-point-to-point-connection-do-i-need-to-order-two-physical-connections-between-my-on-premises-network-and-microsoft"></a><a name="onep2plink"></a>Si no estoy en una ubicación compartida en un intercambio en la nube y mi proveedor de servicios ofrece una conexión punto a punto, ¿necesito solicitar dos conexiones físicas entre mi red local y Microsoft?
 
 Si su proveedor de servicios puede establecer dos circuitos virtuales de Ethernet sobre la conexión física, solo necesita una conexión física. La conexión física (por ejemplo, una fibra óptica) se termina en un dispositivo de capa 1 (L1) (consulte la imagen). Los dos circuitos virtuales de Ethernet se etiquetan con id. de VLAN distintos, uno para el circuito principal y otro para el secundario. Esos id. de VLAN están en el encabezado Ethernet 802.1Q externo. El encabezado Ethernet 802.1Q interno (que no se muestra) está asignado a un [dominio de enrutamiento ExpressRoute](expressroute-circuit-peerings.md) específico.
 
@@ -293,7 +301,7 @@ ExpressRoute Premium es una colección de las siguientes características:
     *  En el emparejamiento de Microsoft, los prefijos de otras regiones geopolíticas se anuncian de forma que sea posible conectarse, por ejemplo, a SQL Azure en Europa occidental desde un circuito en Silicon Valley.
 
 
-### <a name="limits"></a>¿Cuántas conexiones de redes virtuales y de ExpressRoute Global Reach puedo habilitar en un circuito ExpressRoute si habilito ExpressRoute Premium?
+### <a name="how-many-vnets-and-expressroute-global-reach-connections-can-i-enable-on-an-expressroute-circuit-if-i-enabled-expressroute-premium"></a><a name="limits"></a>¿Cuántas conexiones de redes virtuales y de ExpressRoute Global Reach puedo habilitar en un circuito ExpressRoute si habilito ExpressRoute Premium?
 
 Las tablas siguientes muestran los límites de ExpressRoute y el número de conexiones de redes virtuales y de ExpressRoute Global Reach por cada circuito ExpressRoute:
 
@@ -377,7 +385,7 @@ Consulte la recomendación que aparece en [Alta disponibilidad y conmutación po
 
 ### <a name="can-i-access-office-365-us-government-community-gcc-services-over-an-azure-us-government-expressroute-circuit"></a>¿Puedo acceder a servicios de Office 365 US Government Community (GCC) a través de un circuito de ExpressRoute de Azure Gobierno de EE. UU.?
 
-Sí. Los puntos de conexión de servicio de Office 365 GCC son accesibles a través de ExpressRoute de Azure Gobierno de EE. UU. Sin embargo, primero debe abrir una incidencia de soporte técnico en Azure Portal para proporcionar los prefijos que se van a anunciar a Microsoft. La conectividad a los servicios de Office 365 GCC se establecerá después de resolver la incidencia de soporte técnico. 
+Sí. Los puntos de conexión de servicio de Office 365 GCC son accesibles a través de ExpressRoute de Azure US Gov Sin embargo, primero debe abrir una incidencia de soporte técnico en Azure Portal para proporcionar los prefijos que se van a anunciar a Microsoft. La conectividad a los servicios de Office 365 GCC se establecerá después de resolver la incidencia de soporte técnico. 
 
 ## <a name="route-filters-for-microsoft-peering"></a>Filtros de ruta para el emparejamiento de Microsoft
 
@@ -399,10 +407,10 @@ El circuito existente continuará anunciando los prefijos para Office 365. Si d
 
 * No se anunciará ningún prefijo para el emparejamiento de Microsoft de los circuitos ExpressRoute que se configuraron el 1 de agosto de 2017 o con posterioridad, hasta que se asocie un filtro de ruta al circuito. No verá los prefijos de forma predeterminada.
 
-## <a name="expressRouteDirect"></a>ExpressRoute Direct
+## <a name="expressroute-direct"></a><a name="expressRouteDirect"></a>ExpressRoute Direct
 
 [!INCLUDE [ExpressRoute Direct](../../includes/expressroute-direct-faq-include.md)]
 
-## <a name="globalreach"></a>Global Reach
+## <a name="global-reach"></a><a name="globalreach"></a>Global Reach
 
 [!INCLUDE [Global Reach](../../includes/expressroute-global-reach-faq-include.md)]

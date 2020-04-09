@@ -9,18 +9,18 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
-ms.openlocfilehash: 112a7f7aa61984b2ce9bd8400c629fe62db55584
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: ff0ccbf201f2b83dd446859d8054d115a70f402e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77137896"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80064155"
 ---
 # <a name="tune-model-hyperparameters"></a>Optimizar los hiperparámetros del modelo
 
 En este artículo se describe cómo usar el módulo Tune Model Hyperparameters (Optimizar hiperparámetros del modelo) en el diseñador de Azure Machine Learning (versión preliminar). El objetivo es determinar los hiperparámetros óptimos para un modelo de Machine Learning. El módulo compila y prueba varios modelos con diferentes combinaciones de configuraciones. Compara las métricas de todos los modelos para obtener las combinaciones de valores. 
 
-Los términos *parámetro* e *hiperparámetro* pueden ser confusos. Los parámetros de *modelo* son los que se establecen en el panel de propiedades. Básicamente, este módulo realiza una *barrido de parámetros* en la configuración de parámetros especificada. Aprende un conjunto óptimo de _hiperparámetros_, que puede ser diferente para cada árbol de decisión, conjunto de datos o método de regresión específico. El proceso de búsqueda de la configuración óptima a veces se denomina de *optimización*. 
+Los términos *parámetro* e *hiperparámetro* pueden ser confusos. Los *parámetros* del modelo son los que establece en el panel derecho del módulo. Básicamente, este módulo realiza una *barrido de parámetros* en la configuración de parámetros especificada. Aprende un conjunto óptimo de _hiperparámetros_, que puede ser diferente para cada árbol de decisión, conjunto de datos o método de regresión específico. El proceso de búsqueda de la configuración óptima a veces se denomina de *optimización*. 
 
 El módulo admite el siguiente método para encontrar la configuración óptima de un modelo: *entrenamiento y optimización integrados*. En este método, se configura el conjunto de parámetros que se van a utilizar. A continuación, se deja que el módulo recorra en iteración varias combinaciones. El módulo mide la precisión hasta que encuentra un modelo "mejor". Con la mayoría de los módulos de aprendizaje, se puede elegir qué parámetros se deben cambiar durante el proceso de entrenamiento y cuáles deben permanecer fijos.
 
@@ -69,7 +69,7 @@ En esta sección se describe cómo realizar un barrido de parámetros básico, q
 
 9.  En **Random seed** (Inicialización aleatoria), escriba el número que se usará para iniciar el barrido de parámetros. 
 
-10. Ejecución de la canalización
+10. Envíe la canalización.
 
 ## <a name="results-of-hyperparameter-tuning"></a>Resultados de la optimización de hiperparámetros
 

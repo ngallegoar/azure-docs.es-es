@@ -3,12 +3,12 @@ title: Acerca de la copia de seguridad de bases de datos SAP HANA en máquinas v
 description: En este artículo obtendrá información sobre cómo realizar copias de seguridad de bases de datos SAP HANA que se ejecutan en máquinas virtuales de Azure.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 53fd87f0de48d56d696abcf5484908060225cb3d
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: 52c235c95cea73a0c51c62fcb55f7f711d2eff21
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78207020"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79476464"
 ---
 # <a name="about-sap-hana-database-backup-in-azure-vms"></a>Acerca de la copia de seguridad de bases de datos SAP HANA en máquinas virtuales de Azure
 
@@ -52,6 +52,25 @@ Para ver los escenarios de copia de seguridad y restauración que se admiten en 
 * El **complemento de Azure Backup para HANA** mantiene todas las programaciones de copia de seguridad y los detalles de la directiva. Desencadena las copias de seguridad programadas y se comunica con el **motor de copia de seguridad de HANA** a través de las API de Backint.
 * El **motor de copia de seguridad de HANA** devuelve una secuencia de Backint con los datos de los que se va a realizar la copia de seguridad.
 * Todas las copias de seguridad programadas y las copias de seguridad a petición (desencadenadas desde Azure Portal) que son completas o diferenciales se inician mediante el **complemento de Azure Backup para HANA**. Pero el propio **motor de copia de seguridad de HANA** administra y desencadena las copias de seguridad de registros.
+* Azure Backup para SAP HANA, que es una solución con certificación BackInt, no depende de los tipos de máquina virtual o disco subyacente. La copia de seguridad se realiza mediante secuencias generadas por HANA.
+
+## <a name="using-azure-vm-backup-with-azure-sap-hana-backup"></a>Uso de copia de seguridad de máquina virtual de Azure con la copia de seguridad de Azure SAP HANA
+
+Además de usar la copia de seguridad de SAP HANA en Azure, que proporciona copia de seguridad y recuperación en el nivel de base de datos, puede usar la solución de copia de seguridad de máquina virtual de Azure para realizar copias de seguridad de discos que no sean de base de datos y del sistema operativo.
+
+La [solución de copia de seguridad de Azure SAP HANA con certificación BackInt](#backup-architecture) puede usarse para la copia de seguridad y recuperación de bases de datos.
+
+La [copia de seguridad de máquina virtual de Azure](backup-azure-vms-introduction.md) se puede usar para realizar copias de seguridad del sistema operativo y de otros discos que no sean de base de datos. La copia de seguridad de la máquina virtual se lleva a cabo una vez al día y realiza una copia de seguridad de todos los discos (excepto los **discos habilitados para el Acelerador de escritura** y los **discos Ultra**). Dado que se realiza una copia de seguridad de la base de datos mediante la solución de copia de seguridad de Azure SAP HANA, puede realizar una copia de seguridad coherente con el archivo solo del sistema operativo y de los discos que no sean de base de datos mediante la funcionalidad de excluir disco, que se encuentra actualmente en versión preliminar.
+
+>[!NOTE]
+> El uso de scripts previos y posteriores con la copia de seguridad de máquina virtual de Azure permitirá copias de seguridad coherentes con la aplicación de los volúmenes de datos de la base de datos. Sin embargo, si el área de registro reside en discos habilitados para el Acelerador de escritura, es posible que la toma de una instantánea de estos discos no garantice la coherencia del área de registro. HANA tiene una forma explícita de generar copias de seguridad de registros por este preciso motivo. Habilítela en SAP HANA para poder realizar una copia de seguridad mediante la copia de seguridad de SAP HANA de Azure.
+
+Para restaurar una máquina virtual que ejecuta SAP HANA, siga estos pasos:
+
+* [Restaure una nueva máquina virtual desde la copia de seguridad de máquina virtual de Azure](backup-azure-arm-restore-vms.md) desde el punto de recuperación más reciente. También puede crear una nueva máquina virtual vacía y conectar los discos desde el punto de recuperación más reciente.
+* Como no se realizan copias de seguridad de los discos habilitados para el Acelerador de escritura, no se restauran. Cree el área de registro y discos habilitados para el Acelerador de escritura vacíos.
+* Una vez establecidas todas las demás configuraciones (como la dirección IP, el nombre del sistema, etc.), la máquina virtual se establece para recibir datos de base de datos de la copia de seguridad de Azure.
+* Ahora restaure la base de datos en la máquina virtual desde la [copia de seguridad de base de datos de SAP HANA de Azure](sap-hana-db-restore.md#restore-to-a-point-in-time-or-to-a-recovery-point) en el momento deseado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

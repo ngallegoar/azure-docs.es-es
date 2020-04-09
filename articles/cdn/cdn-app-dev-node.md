@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 18dbcbf93947306334ccc2c156d9266884198e19
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67594116"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Introducción al desarrollo de Azure CDN
@@ -367,5 +367,5 @@ Para ver la referencia del SDK de Azure CDN para Node.js, consulte el documento 
 
 Para encontrar más documentación sobre Azure SDK para Node.js, consulte el [material de referencia completo](https://azure.github.io/azure-sdk-for-node/).
 
-Administración de los recursos de red CDN con [PowerShell](cdn-manage-powershell.md).
+Administre sus recursos de red CDN con [PowerShell](cdn-manage-powershell.md).
 

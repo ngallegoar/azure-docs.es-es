@@ -9,20 +9,20 @@ ms.topic: conceptual
 ms.date: 07/03/2019
 ms.author: ramamill
 ms.openlocfilehash: 902c14211e91a1500c6b50cd790b347e337c4f70
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67589055"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79229132"
 ---
 # <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>Configuración del servidor de configuración para la recuperación ante desastres de servidores físicos en Azure
 
 En este artículo se describe cómo configurar el entorno local para comenzar a replicar servidores físicos que ejecutan Windows o Linux en Azure.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 En este artículo se supone que ya cuenta con lo siguiente:
-- Un almacén de Recovery Services en [Azure Portal](https://portal.azure.com "Azure Portal").
+- Almacén de Recovery Services en [Azure Portal](https://portal.azure.com "Portal de Azure").
 - Un equipo físico para instalar el servidor de configuración.
 - Si deshabilitó TLS 1.0 en la máquina en la que va a instalar al servidor de configuración, asegúrese de que TLs 1.2 esté habilitado y de que esté instalada la versión 4.6 o versiones posteriores de .NET Framework en la máquina (con la criptografía segura habilitada). [Más información](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1).
 

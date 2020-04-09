@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/18/2019
 ms.openlocfilehash: 04faafca0811e60ded47d1e91a82054a1c1cdb25
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74406173"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Uso del flujo estructurado de Apache Spark con Apache Kafka y Azure Cosmos DB
 
-Aprenda a usar [Apache Spark](https://spark.apache.org/) y su [flujo estructurado](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html) para leer datos de [Apache Kafka](https://kafka.apache.org/) en Azure HDInsight y, después, almacenarlos en Azure Cosmos DB.
+Aprenda a usar el [flujo estructurado](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html) de [Apache Spark](https://spark.apache.org/) para leer datos de [Apache Kafka](https://kafka.apache.org/) en Azure HDInsight y, después, almacenarlos en Azure Cosmos DB.
 
 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) es una base de datos de varios modelos distribuida globalmente. Este ejemplo utiliza un modelo de base de datos de la API de SQL. Para obtener más información, consulte el documento [Bienvenido a Azure Cosmos DB](../cosmos-db/introduction.md).
 
@@ -64,7 +64,7 @@ Aunque puede crear manualmente la red virtual de Azure y los clústeres Kafka y 
 
 1. Utilice los datos siguientes para rellenar las entradas de la sección **Implementación personalizada**:
 
-    |Propiedad |Valor |
+    |Propiedad |Value |
     |---|---|
     |Subscription|Seleccione su suscripción a Azure.|
     |Resource group|cree un grupo o seleccione uno existente. Este grupo contiene el clúster de HDInsight.|

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
 ms.openlocfilehash: 5fa3d4d4fdfa0dd81cd8ab8772ffb3903dda289f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73820132"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>Configuración del acelerador de soluciones de factoría conectada
@@ -264,8 +264,8 @@ Todas las propiedades utilizadas en el archivo de configuración pueden agrupars
 
 Las propiedades de esta categoría definen la apariencia visual del panel de la factoría conectada. Algunos ejemplos son:
 
-* NOMBRE
-* DESCRIPCIÓN
+* Nombre
+* Descripción
 * Imagen
 * Location
 * Unidades

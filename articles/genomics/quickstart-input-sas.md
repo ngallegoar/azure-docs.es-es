@@ -10,10 +10,10 @@ ms.service: genomics
 ms.topic: conceptual
 ms.date: 03/02/2018
 ms.openlocfilehash: d6228762b9a1299d8e9229f7a0f73dc7d0bca2b2
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72248581"
 ---
 # <a name="submit-a-workflow-to-microsoft-genomics-using-a-sas-instead-of-a-storage-account-key"></a>Envío de un flujo de trabajo a Microsoft Genomics mediante una firma de acceso compartido en lugar de una clave de cuenta de almacenamiento 
@@ -53,7 +53,7 @@ El [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-ex
 
 La firma de acceso compartido de los archivos de entrada debe estar limitada al archivo de entrada concreto (blob). Para crear un token de SAS, siga [estas instrucciones](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer). Una vez que haya creado la firma de acceso compartido, se proporcionan la dirección URL completa con la cadena de consulta, así como la cadena de consulta solamente y se pueden copiar desde la pantalla.
 
- ![Genomics SAS Explorador de Storage](./media/quickstart-input-sas/genomics-sas-storageexplorer.png "Genomics SAS Explorador de Storage")
+ ![Explorador de Storage de SAS para Genomics](./media/quickstart-input-sas/genomics-sas-storageexplorer.png "Explorador de Storage de SAS para Genomics")
 
 
 ### <a name="set-up-create-a-sas-programmatically"></a>Configuración: Creación de una firma de acceso compartido mediante programación
@@ -77,7 +77,7 @@ msgen submit -f [full path to your config file] -b1 [name of your first paired e
 ### <a name="if-adding-the-input-file-names-to-the-configtxt-file"></a>En caso de que agregue los nombres de archivo de entrada al archivo config.txt
 Alternativamente, los nombres de los archivos de lectura de extremos emparejados se pueden agregar directamente al archivo config.txt, con los tokens de consulta de SAS anexados como se indica a continuación:
 
-![Nombres de blob en la configuración de SAS para Genomics](./media/quickstart-input-sas/genomics-sas-config-blobnames.png "Nombres de blob en la configuración de SAS para Genomics")
+![Nombres de blob de la configuración de SAS para Genomics](./media/quickstart-input-sas/genomics-sas-config-blobnames.png "Nombres de blob de la configuración de SAS para Genomics")
 
 En este caso, use el cliente de Python de Microsoft Genomics para enviar el flujo de trabajo con el siguiente comando, ignorando los comandos `-b1` y `-b2`:
 

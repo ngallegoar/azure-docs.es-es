@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 9bbbcc38116c5681e3b5c867690c296f60507ad1
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: dd8be482009e067bf9016cc8e351fc42a2db39c7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78196117"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79233396"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Información acerca de claves, secretos y certificados
 
@@ -120,6 +120,7 @@ Los módulos criptográficos que utiliza Key Vault, sean HSM o software, tienen 
 -   **ES384**: se crean claves y códigos hash de ECDSA para SHA-384 creados con la curva P-384. Este algoritmo se describe en [RFC7518](https://tools.ietf.org/html/rfc7518).
 -   **ES512**: se crean claves y códigos hash de ECDSA para SHA-512 creados con la curva P-521. Este algoritmo se describe en [RFC7518](https://tools.ietf.org/html/rfc7518).
 
+
 ###  <a name="rsa-algorithms"></a>Algoritmos RSA  
  Los siguientes identificadores de algoritmo son compatibles con las claves RSA y RSA-HSM en Key Vault.  
 
@@ -130,6 +131,9 @@ Los módulos criptográficos que utiliza Key Vault, sean HSM o software, tienen 
 
 #### <a name="signverify"></a>SIGN/VERIFY
 
+-   **PS256** - RSASSA-PSS con SHA-256 y MGF1 con SHA-256, como se indica en [RFC7518](https://tools.ietf.org/html/rfc7518).
+-   **PS384** - RSASSA-PSS con SHA-384 y MGF1 con SHA-384, como se indica en [RFC7518](https://tools.ietf.org/html/rfc7518).
+-   **PS512** - RSASSA-PSS con SHA-512 y MGF1 con SHA-512, como se describe en [RFC7518](https://tools.ietf.org/html/rfc7518).
 -   **RS256**: RSASSA-PKCS-v1_5 con SHA-256. El valor de hash proporcionado por la aplicación debe calcularse mediante SHA-256 y debe tener 32 bytes de longitud.  
 -   **RS384**: RSASSA-PKCS-v1_5 con SHA-384. El valor de hash proporcionado por la aplicación debe calcularse mediante SHA-384 y debe tener 48 bytes de longitud.  
 -   **RS512**: RSASSA-PKCS-v1_5 con SHA-512. El valor de hash proporcionado por la aplicación debe calcularse mediante SHA-512 y debe tener 64 bytes de longitud.  

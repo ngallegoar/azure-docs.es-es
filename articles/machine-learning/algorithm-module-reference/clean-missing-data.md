@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
-ms.openlocfilehash: 5851b294e52fdcc03dbf3b889ff32898a823f655
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: 14c3bc968da9d398fbc14eda74378047cf28277b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77137571"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477704"
 ---
 # <a name="clean-missing-data-module"></a>Módulo Limpiar datos que faltan
 
@@ -110,7 +110,7 @@ Cada vez que se aplica el módulo [Limpiar datos que faltan](./clean-missing-dat
   
 7. **Generate missing value indicator column** (Generar columna de indicador de valores que faltan): Seleccione esta opción si desea producir alguna indicación de si los valores de la columna cumplen los criterios para la limpieza de valores que faltan. Esta opción es especialmente útil cuando va a configurar una nueva operación de limpieza y desea asegurarse de que funciona según lo diseñado.
   
-8. Ejecución de la canalización
+8. Envíe la canalización.
 
 ### <a name="results"></a>Results
 
@@ -138,7 +138,7 @@ Si necesita repetir operaciones de limpieza a menudo, se recomienda que guarde l
 
     Sin embargo, supongamos que ha creado una transformación en un subconjunto de columnas numéricas. Puede aplicar esta transformación a un conjunto de datos de tipos de columna mixtos sin provocar un error, porque se cambian los valores que faltan solo en las columnas numéricas coincidentes.
 
-6.  Ejecución de la canalización  
+6.  Envíe la canalización.  
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -9,12 +9,12 @@ ms.topic: reference
 author: peterclu
 ms.author: peterlu
 ms.date: 02/22/2020
-ms.openlocfilehash: 334cf69db70e8a1e0c2994c492f15ff44505af0d
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: c24c7ce1d47a4734d79d7e17e9fb4b3a2d4d70e0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78673369"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80064140"
 ---
 # <a name="algorithm--module-reference-for-azure-machine-learning-designer-preview"></a>Referencia de módulo y algoritmo para el diseñador de Azure Machine Learning (versión preliminar)
 
@@ -24,7 +24,7 @@ Cada módulo representa un conjunto de código que puede ejecutarse de forma ind
 
 Para obtener ayuda con la elección de algoritmos, consulte 
 * [Selección de algoritmos](../how-to-select-algorithms.md)
-* [Hoja de características de los algoritmos de Machine Learning](../algorithm-cheat-sheet.md)
+* [Hoja de características de los algoritmos de Machine Learning](../../synapse-analytics/sql-data-warehouse/cheat-sheet.md)
 
 > [!TIP]
 > En cualquier canalización del diseñador, puede obtener información sobre un módulo específico. Seleccione el módulo y luego seleccione el vínculo **más ayuda** en el panel **Ayuda rápida**.
@@ -55,8 +55,9 @@ Para obtener ayuda con la elección de algoritmos, consulte
 | Evaluación y puntuación del modelo | Mida la precisión del modelo entrenado. | [Aplicación de la transformación](apply-transformation.md) <br/> [Assign Data to Clusters](assign-data-to-clusters.md) (asignar datos a los clústeres) <br/> [Cross Validate Model](cross-validate-model.md) (Modelo de validación cruzada) <br/> [Evaluación de módulo](evaluate-model.md) <br/> [Score Model](score-model.md) (puntuar modelo) |
 | Lenguaje Python | Escriba código e insértelo en un módulo para integrar Python con la canalización. | [Creación de modelo Python](create-python-model.md) <br/> [Ejecución de script de Python](execute-python-script.md) |
 | Lenguaje R | Escriba código e insértelo en un módulo para integrar R con la canalización. | [Ejecución script de R](execute-r-script.md) |
-| Text Analytics | Proporcione herramientas de cálculo especializadas para trabajar con texto estructurado y no estructurado. | [Extracción de características de n-gramas a partir de texto](extract-n-gram-features-from-text.md) <br/> [Hash de características](feature-hashing.md) <br/> [Preprocesamiento de texto](preprocess-text.md) |
+| Text Analytics | Proporcione herramientas de cálculo especializadas para trabajar con texto estructurado y no estructurado. | [Extracción de características de n-gramas a partir de texto](extract-n-gram-features-from-text.md) <br/> [Hash de características](feature-hashing.md) <br/> [Preprocesamiento de texto](preprocess-text.md) <br/> [Asignación de Dirichlet latente](latent-dirichlet-allocation.md) |
 | Recomendación | Compile modelos de recomendación. | [Evaluate Recommender](evaluate-recommender.md) (Evaluar recomendador) <br/> [Score SVD Recommender](score-svd-recommender.md) (Puntuar recomendador de SVD) <br/> [Train SVD Recommender](train-SVD-recommender.md) (Entrenar recomendador de SVD) |
+| Detección de anomalías | Compile modelos de detección de anomalías. | [Detección de anomalías basada en PCA](pca-based-anomaly-detection.md) <br/> [Train Anomaly Detection Model](train-anomaly-detection-model.md) (entrenar un modelo de detección de anomalías) |
 
 
 ## <a name="error-messages"></a>Mensajes de error

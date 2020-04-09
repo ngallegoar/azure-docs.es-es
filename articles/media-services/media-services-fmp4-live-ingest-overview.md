@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 507afad294e8233ea4de4130795f29925870fcdf
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74888060"
 ---
 # <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Especificación de la introducción en directo de MP4 fragmentado de Azure Media Services 
@@ -51,7 +51,7 @@ A continuación se muestra una lista de definiciones de formato especial que se 
 1. En la sección 3.3.6 en [1] se define el cuadro denominado **MovieFragmentRandomAccessBox** (**mfra**) que se PUEDE enviar al final de la ingesta en directo para indicar EOS (final de secuencia) al canal. Debido a la lógica de ingestión de Media Services, el uso de EOS (final de la secuencia) está en desuso y el cuadro **mfra** NO DEBERÍA enviarse para la ingestión en vivo. Si se envía, Media Services lo omite de modo silencioso. Para restablecer el estado del punto de ingestión, se recomienda utilizar [Restablecer canales](https://docs.microsoft.com/rest/api/media/operations/channel#reset_channels). También se recomienda que use [Detener programa](https://msdn.microsoft.com/library/azure/dn783463.aspx#stop_programs) para finalizar una presentación y la transmisión.
 1. La duración del fragmento MP4 DEBERÍA ser constante para reducir el tamaño de los manifiestos de cliente. Una duración del fragmento MP4 constante también mejora la heurística de descarga de cliente mediante el uso de repetir las etiquetas. La duración PUEDE fluctuar para compensar velocidades de fotogramas no enteras.
 1. La duración de fragmentos MP4 DEBERÍA estar comprendida aproximadamente entre 2 y 6 segundos.
-1. Las marcas de tiempo de los fragmentos MP4 y los índices (**TrackFragmentExtendedHeaderBox** `fragment_ absolute_ time` y `fragment_index`) DEBERÍAN llegar en orden ascendente. Aunque Media Services es resistente a fragmentos duplicados, tiene una capacidad limitada para reordenar fragmentos de acuerdo con la escala de tiempo multimedia.
+1. Las marcas de tiempo y los índices de los fragmentos MP4 (**TrackFragmentExtendedHeaderBox**`fragment_ absolute_ time` y `fragment_index`) DEBERÍAN llegar en orden ascendente. Aunque Media Services es resistente a fragmentos duplicados, tiene una capacidad limitada para reordenar fragmentos de acuerdo con la escala de tiempo multimedia.
 
 ## <a name="4-protocol-format--http"></a>4. Formato de protocolo: HTTP
 La ingestión en vivo basada en MP4 fragmentado de ISO para Media Services usa una solicitud HTTP POST de larga ejecución estándar para transmitir datos multimedia codificados empaquetados en formato MP4 fragmentado al servicio. Cada HTTP POST envía una secuencia de bits MP4 fragmentada completa ("secuencia"), desde el comienzo con cuadros de encabezado (cuadros **ftyp**, **Live Server Manifest Box** y **moov**) y continuando con una secuencia de fragmentos (cuadros **moof** y **mdat**). Para más información sobre la sintaxis URL de la solicitud HTTP POST, consulte la sección 9.2 en [1]. Un ejemplo de la dirección URL de POST es: 
@@ -75,7 +75,7 @@ Estos son los requisitos detallados:
 ## <a name="6-definition-of-stream"></a>6. Definición de "secuencia"
 "Secuencia" es la unidad básica de operación en la ingesta en vivo para crear presentaciones en directo, controlar la conmutación por error de streaming y los escenarios de redundancia. "Secuencia" se define como una única secuencia de bits MP4 fragmentada que puede contener una sola pista o varias pistas. Una presentación en directo completa podría contener una o varias secuencias en función de la configuración de los codificadores en directo. En los ejemplos siguientes se ilustran varias opciones de uso de secuencias para crear una presentación en directo completa.
 
-**Ejemplo:** 
+**Ejemplo**: 
 
 El cliente desea crear una presentación de streaming en vivo que incluye las siguientes velocidades de bits de audio y vídeo:
 

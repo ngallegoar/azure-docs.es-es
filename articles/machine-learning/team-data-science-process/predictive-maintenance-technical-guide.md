@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: 3b3a0b00ee6e1e170023584c2e643a5802166428
-ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+ms.openlocfilehash: 0542106f70e96b6c2f63e8ca03d2532de191d365
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79087446"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477177"
 ---
 # <a name="technical-guide-to-the-solution-template-for-predictive-maintenance-in-aerospace"></a>Guía técnica sobre la plantilla de solución orientada al mantenimiento predictivo en el sector aeroespacial
 
@@ -83,7 +83,7 @@ El servicio Azure Event Hubs es genérico; los datos se pueden publicar datos en
 
 Este documento no describe cómo introducir los datos, pero puede enviar fácilmente eventos o datos a una instancia de Azure Event Hubs mediante las API de Event Hubs.
 
-### <a name="azure-stream-analytics-1"></a>Azure Stream Analytics
+### <a name="azure-stream-analytics"></a><a name="azure-stream-analytics-1"></a>Azure Stream Analytics
 Utilice el recurso de Azure Stream Analytics para proporcionar análisis casi en tiempo real mediante la lectura de flujos de datos y el envío de datos a cualquier número de orígenes.
 
 Para el mantenimiento predictivo de la plantilla de solución aeroespacial, la consulta del servicio Azure Stream Analytics consta de cuatro subconsultas, y cada una de ellas consume eventos del servicio Centro de eventos de Azure y tiene salidas a cuatro ubicaciones distintas. Estas salidas constan de tres conjuntos de datos de Power BI y una ubicación de Azure Storage.
@@ -105,7 +105,7 @@ En esta solución, las consultas envían tres conjuntos de datos con informació
 La consulta del segundo trabajo de Stream Analytics, **maintenancesa02asablob**, simplemente envía todos los eventos de [Event Hubs](https://azure.microsoft.com/services/event-hubs/) a [Azure Storage](https://azure.microsoft.com/services/storage/) y, por tanto, no necesita ninguna modificación, independientemente del formato de los datos, ya que toda la información del evento se transmitió al almacenamiento.
 
 ### <a name="azure-data-factory"></a>Azure Data Factory
-El servicio [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) organiza el traslado y procesamiento de los datos. En el mantenimiento predictivo para la plantilla de solución aeroespacial, la factoría de datos se compone de tres [canalizaciones](../../data-factory/concepts-pipelines-activities.md) que mueven y procesan los datos mediante varias tecnologías.  Acceda a la factoría de datos si abre el nodo Data Factory en la parte inferior del diagrama de la plantilla de solución que se creó con la implementación de la solución. Los errores en los conjuntos de datos se deben a que la factoría de datos se implementaron antes de iniciarse el generador de datos. Estos errores se pueden ignorar y no impiden que la factoría de datos funcione.
+El servicio [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) organiza el traslado y procesamiento de los datos. En el mantenimiento predictivo para la plantilla de solución aeroespacial, la factoría de datos se compone de tres [canalizaciones](../../data-factory/concepts-pipelines-activities.md) que mueven y procesan los datos mediante varias tecnologías.  Acceda a la factoría de datos si abre el nodo Data Factory en la parte inferior del diagrama de la plantilla de solución que se creó con la implementación de la solución. Los errores en los conjuntos de datos se deben a que la factoría de datos se implementaron antes de iniciarse el generador de datos. Esos errores se pueden omitir y no impiden que la factoría de datos funcione.
 
 ![Errores de conjuntos de datos de Data Factory](./media/predictive-maintenance-technical-guide/data-factory-dataset-error.png)
 
@@ -193,7 +193,8 @@ Los siguientes pasos lo guiarán a la hora de conectar el archivo pbix con SQL D
      <br/>
    * Para programar la actualización de los datos, mantenga el puntero sobre el conjunto de datos **PredictiveMaintenanceAerospace**, haga clic en ![Icono de puntos suspensivos](./media/predictive-maintenance-technical-guide/icon-elipsis.png) y, después, elija **Programar actualización**.
      <br/>
-     **Nota:** Si ve un mensaje de advertencia, haga clic en **Editar credenciales** y asegúrese de que las credenciales de la base de datos son las mismas que las descritas en el paso 1.
+     > [!NOTE]
+     > Si ve un mensaje de advertencia, haga clic en **Editar credenciales** y asegúrese de que las credenciales de la base de datos son las mismas que las descritas en el paso 1.
      <br/>
      ![Programar la actualización](./media/predictive-maintenance-technical-guide/schedule-refresh.png)
      <br/>

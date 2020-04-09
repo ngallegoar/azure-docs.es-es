@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 03b9995eab503ac1fcd4615882419dde31d4f8bf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "64869490"
 ---
 # <a name="upload-files-into-a-media-services-account-using-net"></a>Cargar archivos en una cuenta de Media Services mediante .NET 
@@ -167,7 +167,7 @@ Al cargar un número elevado de recursos, tenga en cuenta lo siguiente:
 * Aumente NumberOfConcurrentTransfers desde el valor predeterminado de 2 a un valor superior como 5. La configuración de esta propiedad afecta a todas las instancias de **CloudMediaContext**. 
 * Mantenga ParallelTransferThreadCount en el valor predeterminado de 10.
 
-## <a id="ingest_in_bulk"></a>Ingesta de activos en bloque con SDK .NET de Media Services
+## <a name="ingesting-assets-in-bulk-using-media-services-net-sdk"></a><a id="ingest_in_bulk"></a>Ingesta de activos en bloque con SDK .NET de Media Services
 La carga de archivos de recursos de gran tamaño puede ser un obstáculo durante la creación de recursos. La ingesta de recursos en masa o "Ingesta en masa" implica la separación de la creación de recursos del proceso de carga. Para adoptar un enfoque de ingesta en masa, cree un manifiesto (IngestManifest) que describa el recurso y sus archivos asociados. A continuación, use el método de carga que prefiera para cargar los archivos asociados al contenedor de blobs del manifiesto. Los Microsoft Azure Media Services ven el contenedor de blobs asociado al manifesto. Una vez que se carga un archivo en el contenedor de blobs, los Microsoft Azure Media Services completan la creación de recursos según la configuración del recurso en el manifiesto (IngestManifestAsset).
 
 Para crear un nuevo manifiesto IngestManifest, llame al método Create expuesto por la colección de IngestManifests en CloudMediaContext. Este método crea un nuevo manifiesto IngestManifest con el nombre de manifiesto proporcionado.

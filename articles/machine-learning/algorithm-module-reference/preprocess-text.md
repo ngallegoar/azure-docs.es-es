@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/01/2019
-ms.openlocfilehash: a8938eba0f7af995086ab1e2baba41aee7dc6330
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 6e4d4c8f798418e090caeba091dec33c71f0458f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153815"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477500"
 ---
 # <a name="preprocess-text"></a>preprocesamiento de texto
 
@@ -83,7 +83,7 @@ El módulo **Preprocess Text** solo admite actualmente texto en inglés.
 
     Por ejemplo, la cadena `MS---WORD` se dividiría en tres tokens `MS`, `-` y `WORD`.
 
-1. Ejecución de la canalización
+1. Envíe la canalización.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

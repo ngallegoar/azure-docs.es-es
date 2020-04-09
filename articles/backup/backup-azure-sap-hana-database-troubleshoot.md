@@ -3,12 +3,12 @@ title: Solución de problemas de errores de copia de seguridad de bases de datos
 description: En este artículo se describe cómo se solucionan los errores comunes que pueden producirse al usar Azure Backup para realizar copias de seguridad de bases de datos de SAP HANA.
 ms.topic: troubleshooting
 ms.date: 11/7/2019
-ms.openlocfilehash: 04f9bafba0ca490b33a0daf3c3725e57d81bcc7e
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: 6520f106011b632da2725f456aeb278c7748ddc9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75664605"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79459317"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Solución de problemas al realizar copias de seguridad de bases de datos de SAP HANA en Azure
 
@@ -16,9 +16,16 @@ En este artículo se proporciona información para la solución de problemas al 
 
 ## <a name="prerequisites-and-permissions"></a>Requisitos previos y permisos
 
-Consulte las secciones sobre los [requisitos previos](tutorial-backup-sap-hana-db.md#prerequisites) y los [permisos de configuración](tutorial-backup-sap-hana-db.md#setting-up-permissions) antes de configurar las cpias de seguridad.
+Consulte las secciones sobre los [requisitos previos](tutorial-backup-sap-hana-db.md#prerequisites) y [Qué hace el script de registro previo](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) antes de configurar las copias de seguridad.
 
 ## <a name="common-user-errors"></a>Errores de usuario comunes
+
+### <a name="usererrorhanainternalrolenotpresent"></a>UserErrorHANAInternalRoleNotPresent
+
+| **Mensaje de error**      | <span style="font-weight:normal">La copia de seguridad de Azure no tiene los privilegios de rol necesarios para llevar a cabo la copia de seguridad</span>    |
+| ---------------------- | ------------------------------------------------------------ |
+| **Causas posibles:**    | Es posible que se haya sobrescrito el rol.                          |
+| **Acción recomendada** | Para resolver el problema, ejecute el script desde el panel **Discover DB** (Detectar BD) o descárguelo [aquí](https://aka.ms/scriptforpermsonhana). También puede agregar el rol "SAP_INTERNAL_HANA_SUPPORT " al usuario de copia de seguridad de la carga de trabajo (AZUREWLBACKUPHANAUSER). |
 
 ### <a name="usererrorinopeninghanaodbcconnection"></a>UserErrorInOpeningHanaOdbcConnection
 
@@ -117,6 +124,26 @@ Las actualizaciones del sistema operativo o SAP HANA que no causan un cambio de 
 - Vuelva a ejecutar el [script de registro previo](https://aka.ms/scriptforpermsonhana). Normalmente, hemos detectado que el proceso de actualización elimina los roles necesarios. La ejecución del script de registro previo le ayudará a comprobar todos los roles necesarios.
 - [Reanude la protección](sap-hana-db-manage.md#resume-protection-for-an-sap-hana-database) de la base de datos nuevamente.
 
+## <a name="re-registration-failures"></a>Errores de repetición del registro
+
+Compruebe uno o varios de los siguientes síntomas antes de desencadenar la operación de repetición del registro:
+
+- Se producen errores en todas las operaciones (tales como copia de seguridad, restauración y configuración de copia de seguridad) en la máquina virtual con uno de los códigos de error siguientes: **WorkloadExtensionNotReachable, UserErrorWorkloadExtensionNotInstalled, WorkloadExtensionNotPresent, WorkloadExtensionDidntDequeueMsg**.
+- Si el área **Estado de copia de seguridad** del elemento de copia de seguridad se muestra como **no accesible**, descarte todas las demás causas que podrían dar lugar al mismo estado:
+
+  - Falta de permiso para realizar operaciones relacionadas con la copia de seguridad en la máquina virtual
+  - La máquina virtual está apagada, por lo que no se pueden realizar copias de seguridad
+  - Problemas de red
+
+Estos síntomas pueden surgir por uno o varios de los siguientes motivos:
+
+- Se ha eliminado o desinstalado una extensión del portal.
+- Se ha restaurado la máquina virtual retrocediendo en el tiempo a través de la restauración del disco o discos en contexto.
+- Se ha apagado la máquina virtual durante un largo período, por lo que la configuración de la extensión en ella ha caducado.
+- Se ha eliminado la máquina virtual, y se ha creado otra con el mismo nombre y en el mismo grupo de recursos que la máquina virtual eliminada.
+
+En los escenarios anteriores, se recomienda desencadenar una operación de nuevo registro en la máquina virtual.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Revise las [preguntas más frecuentes](https://docs.microsoft.com/azure/backup/sap-hana-faq-backup-azure-vm) sobre cómo hacer copias de seguridad de las bases de datos SAP HANA en VM de Azure.
+- Revise las [preguntas frecuentes](https://docs.microsoft.com/azure/backup/sap-hana-faq-backup-azure-vm) sobre cómo hacer copias de seguridad de las bases de datos SAP HANA en máquinas virtuales de Azure.

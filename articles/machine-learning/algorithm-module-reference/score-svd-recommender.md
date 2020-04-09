@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/10/2020
-ms.openlocfilehash: a3eafc28dc6d0f44a1f1019cb3393259aa2a698a
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 82c3454ad4c8db3a9b19084f5b6ece988cc86b9a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77920355"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79455985"
 ---
 # <a name="score-svd-recommender"></a>Puntuación del recomendador SVD
 
@@ -53,7 +53,7 @@ Cuando se predicen las clasificaciones, el modelo calcula el modo en que un usua
 
    El conjunto de datos puede contener una tercera columna opcional de clasificaciones para el par de usuario-elemento en la primera y segunda columna. Pero la tercera columna se omitirá durante la predicción.
 
-4. Ejecución de la canalización
+4. Envíe la canalización.
 
 ### <a name="results-for-rating-predictions"></a>Resultados de las predicciones de clasificación 
 
@@ -99,7 +99,7 @@ Para recomendar elementos para los usuarios, debe proporcionar una lista de usua
 
     Para aplicar este filtro, conecte el conjunto de datos de aprendizaje original al puerto de entrada.
 
-8. Ejecución de la canalización
+8. Envíe la canalización.
 
 ### <a name="results-of-item-recommendation"></a>Resultados de la recomendación de elementos
 

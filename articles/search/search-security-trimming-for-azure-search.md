@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 24f168f68a60ebb0408b7f1c367039ea5caea6d1
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72794275"
 ---
 # <a name="security-filters-for-trimming-results-in-azure-cognitive-search"></a>Filtros de seguridad para restringir los resultados en Azure Cognitive Search
@@ -32,7 +32,7 @@ En este artículo se explica cómo realizar el filtrado de seguridad mediante lo
 >[!NOTE]
 > El proceso de recuperación de los identificadores de entidad de seguridad no se trata en este documento. Debe obtenerlo de su proveedor de servicio de identidad.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 En este artículo se da por hecho que dispone de una [suscripción de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F), el [servicio Azure Cognitive Search](https://docs.microsoft.com/azure/search/search-create-service-portal) y el [Índice de Azure Cognitive Search](https://docs.microsoft.com/azure/search/search-create-index-portal).  
 
@@ -153,8 +153,8 @@ Debería obtener los documentos en que `group_ids` contenga "group_id1" o "group
 
 Se explica cómo puede filtrar los resultados según la identidad del usuario y la función `search.in()` de Azure Cognitive Search. Puede usar esta función para pasar los identificadores de principio del usuario solicitante para que coincidan con los identificadores de entidad de seguridad asociados a cada documento de destino. Cuando se controla una solicitud de búsqueda, la función `search.in` filtra los resultados de la búsqueda para los que ninguna de las entidades de seguridad del usuario tiene acceso de lectura. Los identificadores de entidad de seguridad pueden representar elementos como los grupos de seguridad, los roles o incluso la identidad del usuario.
  
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
-+ [Control de acceso basado en identidades de Active Directory mediante filtros de Azure Cognitive Search](search-security-trimming-for-azure-search-with-aad.md)
++ [Control de acceso basado en identidades de Active Directory mediante filtros de Azure Cognitive Search](search-security-trimming-for-azure-search-with-aad.md)
 + [Filtros de Azure Cognitive Search](search-filters.md)
 + [Control de acceso y seguridad de datos en las operaciones de Azure Cognitive Search](search-security-overview.md)

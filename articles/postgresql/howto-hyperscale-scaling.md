@@ -5,13 +5,13 @@ author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 12/17/2019
-ms.openlocfilehash: bec2a40d8cf5fb178418ec6bb59a52a0bfe3eb8c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 3/16/2020
+ms.openlocfilehash: fa48ca287c248155a0271b5134be782d8db1c785
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453054"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80063113"
 ---
 # <a name="scale-a-hyperscale-citus-server-group"></a>Escalado de un grupo de servidores Hiperescala (Citus)
 
@@ -38,9 +38,14 @@ SELECT rebalance_table_shards('distributed_table_name');
 
 La función `rebalance_table_shards` vuelve a equilibrar todas las tablas del grupo [colocación](concepts-hyperscale-colocation.md)de la tabla nombrada en su argumento. Por lo tanto, no tiene que llamar a la función para cada tabla distribuida, simplemente llámela en una tabla representativa de cada grupo de ubicación.
 
-## <a name="increase-vcores"></a>Aumentar los núcleos virtuales
+## <a name="increase-or-decrease-vcores-on-nodes"></a>Aumentar o disminuir los núcleos virtuales de los nodos
 
-Además de agregar nodos nuevos, puede aumentar las capacidades de los nodos existentes. Actualmente, esta característica se encuentra en versión preliminar: para solicitar más núcleos virtuales para los nodos del grupo de servidores, [póngase en contacto con el Soporte técnico de Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+> [!NOTE]
+> Esta funcionalidad actualmente está en su versión preliminar. Para solicitar un cambio en los núcleos virtuales de los nodos del grupo de servidores, [póngase en contacto con el servicio de soporte técnico de Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+
+Además de agregar nodos nuevos, puede aumentar las capacidades de los nodos existentes. Ajustar la capacidad de proceso hacia arriba y hacia abajo puede ser útil en los experimentos de rendimiento, así como en el caso de cambios a corto o largo plazo en las demandas de tráfico.
+
+Para cambiar los núcleos virtuales de todos los nodos de trabajo, ajuste el control deslizante **Núcleos virtuales** en **Configuración (por nodo de trabajo)** . Los núcleos virtuales del nodo de coordinación se pueden ajustar de forma independiente. Haga clic en el vínculo **Cambiar configuración** en el **nodo de coordinación**. Aparecerá un cuadro de diálogo con controles deslizantes para los núcleos virtuales y la capacidad de almacenamiento del coordinador. Cambie los controles deslizantes como prefiera y seleccione **Aceptar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

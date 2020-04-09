@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/01/2019
-ms.openlocfilehash: cae128505c61e7c640819041c6ffdae10a4947e7
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: efe09c1d516b37c23b024e07ae387772fa7e5992
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152285"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477619"
 ---
 # <a name="extract-n-gram-features-from-text-module-reference"></a>Referencia del módulo Extract N-Gram Features from Text (Extracción de características de n-gramas del texto)
 
@@ -73,7 +73,7 @@ El módulo admite los siguientes escenarios de uso de un diccionario de n-gramas
 
 1. Seleccione la opción **Normalize n-gram feature vectors** (Normalizar vectores de características de n-gramas) para normalizar los vectores de características. Si esta opción está habilitada, cada vector de características de n-grama se divide por su norma L2.
 
-1. Ejecución de la canalización
+1. Envíe la canalización.
 
 ### <a name="use-an-existing-n-gram-dictionary"></a>Uso de un diccionario de n-gramas existente
 
@@ -92,7 +92,7 @@ El módulo admite los siguientes escenarios de uso de un diccionario de n-gramas
 
 1.  Para todas las demás opciones, consulte las descripciones de las propiedades de la [sección anterior](#create-a-new-n-gram-dictionary).
 
-1.  Ejecución de la canalización
+1.  Envíe la canalización.
 
 ### <a name="score-or-publish-a-model-that-uses-n-grams"></a>Puntuación o publicación de un modelo que usa n-gramas
 

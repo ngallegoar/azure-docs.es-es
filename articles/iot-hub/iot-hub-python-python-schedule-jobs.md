@@ -6,14 +6,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
-ms.date: 08/16/2019
+ms.date: 03/17/2020
 ms.author: robinsh
-ms.openlocfilehash: c424c18538a4e428c0e713bb814c2febe28d2d04
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 1d721e89534c09a5572e5674796f28355f652165
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555571"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79527408"
 ---
 # <a name="schedule-and-broadcast-jobs-python"></a>Programación y difusión de trabajos (Python)
 
@@ -53,9 +53,9 @@ Al final de este tutorial, tiene dos aplicaciones de Python:
 
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
-[!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
+[!INCLUDE [iot-hub-include-python-v2-installation-notes](../../includes/iot-hub-include-python-v2-installation-notes.md)]
 
 ## <a name="create-an-iot-hub"></a>Crear un centro de IoT
 
@@ -158,7 +158,7 @@ Para crear una directiva de acceso compartido que conceda los permisos **Conexi�
 
 1. En [Azure Portal](https://portal.azure.com), abra IoT Hub. La manera más fácil de acceder a IoT Hub es seleccionar **Grupos de recursos**, seleccionar el grupo de recursos donde se encuentra IoT Hub y después seleccionarlo en la lista de recursos.
 
-2. En el panel de la izquierda del centro de IoT, seleccione **Directivas de acceso compartido**.
+2. En el panel de la izquierda de IoT Hub, seleccione **Directivas de acceso compartido**.
 
 3. En el menú superior situado encima de la lista de directivas, seleccione **Agregar**.
 
@@ -168,7 +168,7 @@ Para crear una directiva de acceso compartido que conceda los permisos **Conexi�
 
 5. En el panel **Directivas de acceso compartido**, seleccione la nueva directiva en la lista de directivas.
 
-6. En **Claves de acceso compartido**, seleccione el icono de **Cadena de conexión -- clave principal** y guarde el valor.
+6. En **Claves de acceso compartido**, seleccione el icono de **Cadena de conexión: clave principal** y guarde el valor.
 
     ![Recuperación de la cadena de conexión](./media/iot-hub-python-python-schedule-jobs/get-connection-string.png)
 
@@ -176,17 +176,13 @@ Para obtener más información sobre las directivas de acceso compartido y los p
 
 ## <a name="schedule-jobs-for-calling-a-direct-method-and-updating-a-device-twins-properties"></a>Programación de trabajos para llamar un método directo y actualización de las propiedades de un dispositivo gemelo
 
-En esta sección, creará una aplicación de consola de Python que inicia un **lockDook** remoto en un dispositivo con un método directo y actualiza las propiedades del dispositivo gemelo.
+En esta sección, creará una aplicación de consola de Python que inicia un **lockDoor** remoto en un dispositivo con un método directo y actualiza las propiedades seleccionadas del dispositivo gemelo.
 
-1. En el símbolo del sistema, ejecute el siguiente comando para instalar el paquete **azure-iot-service-client**:
+1. En el símbolo del sistema, ejecute el siguiente comando para instalar el paquete **azure-iot-hub**:
 
     ```cmd/sh
-    pip install azure-iothub-service-client
+    pip install azure-iot-hub
     ```
-
-   > [!NOTE]
-   > El paquete PIP para azure-iothub-service-client actualmente solo está disponibles para el sistema operativo Windows. Para Linux o Mac OS, consulte las secciones específicas de Mac OS y Linux en la publicación [Preparar el entorno de desarrollo para Python](https://github.com/Azure/azure-iot-sdk-python/blob/v1-deprecated/doc/python-devbox-setup.md).
-   >
 
 2. Con un editor de texto, cree un nuevo archivo **scheduleJobService.py** en el directorio de trabajo.
 
@@ -198,16 +194,15 @@ En esta sección, creará una aplicación de consola de Python que inicia un **l
     import threading
     import uuid
 
-    import iothub_service_client
-    from iothub_service_client import IoTHubRegistryManager, IoTHubRegistryManagerAuthMethod
-    from iothub_service_client import IoTHubDeviceTwin, IoTHubDeviceMethod, IoTHubError
+    from azure.iot.hub import IoTHubRegistryManager
+    from azure.iot.hub.models import Twin, TwinProperties, CloudToDeviceMethod, CloudToDeviceMethodResult, QuerySpecification, QueryResult
 
     CONNECTION_STRING = "{IoTHubConnectionString}"
     DEVICE_ID = "{deviceId}"
 
     METHOD_NAME = "lockDoor"
     METHOD_PAYLOAD = "{\"lockTime\":\"10m\"}"
-    UPDATE_JSON = "{\"properties\":{\"desired\":{\"building\":43,\"floor\":3}}}"
+    UPDATE_PATCH = {"building":43,"floor":3}
     TIMEOUT = 60
     WAIT_COUNT = 5
     ```
@@ -215,18 +210,12 @@ En esta sección, creará una aplicación de consola de Python que inicia un **l
 4. Agregue la siguiente función que se usa para consultar los dispositivos:
 
     ```python
-    def query_condition(device_id):
-        iothub_registry_manager = IoTHubRegistryManager(CONNECTION_STRING)
+    def query_condition(iothub_registry_manager, device_id):
 
-        number_of_devices = 10
-        dev_list = iothub_registry_manager.get_device_list(number_of_devices)
+        query_spec = QuerySpecification(query="SELECT * FROM devices WHERE deviceId = '{}'".format(device_id))
+        query_result = iothub_registry_manager.query_iot_hub(query_spec, None, 1)
 
-        for device in range(0, number_of_devices):
-            if dev_list[device].deviceId == device_id:
-                return 1
-
-        print ( "Device not found" )
-        return 0
+        return len(query_result.items)
     ```
 
 5. Agregue los métodos siguientes para ejecutar los trabajos que llaman al método directo y al dispositivo gemelo:
@@ -237,10 +226,13 @@ En esta sección, creará una aplicación de consola de Python que inicia un **l
         print ( "Scheduling job: " + str(job_id) )
         time.sleep(wait_time)
 
-        if query_condition(device_id):
-            iothub_device_method = IoTHubDeviceMethod(CONNECTION_STRING)
+        iothub_registry_manager = IoTHubRegistryManager(CONNECTION_STRING)
 
-            response = iothub_device_method.invoke(device_id, METHOD_NAME, METHOD_PAYLOAD, TIMEOUT)
+
+        if query_condition(iothub_registry_manager, device_id):
+            deviceMethod = CloudToDeviceMethod(method_name=METHOD_NAME, payload=METHOD_PAYLOAD)
+
+            response = iothub_registry_manager.invoke_device_method(DEVICE_ID, deviceMethod)
 
             print ( "" )
             print ( "Direct method " + METHOD_NAME + " called." )
@@ -250,10 +242,13 @@ En esta sección, creará una aplicación de consola de Python que inicia un **l
         print ( "Scheduling job " + str(job_id) )
         time.sleep(wait_time)
 
-        if query_condition(device_id):
-            iothub_twin_method = IoTHubDeviceTwin(CONNECTION_STRING)
+        iothub_registry_manager = IoTHubRegistryManager(CONNECTION_STRING)
 
-            twin_info = iothub_twin_method.update_twin(DEVICE_ID, UPDATE_JSON)
+        if query_condition(iothub_registry_manager, device_id):
+
+            twin = iothub_registry_manager.get_twin(DEVICE_ID)
+            twin_patch = Twin(properties= TwinProperties(desired=UPDATE_PATCH))
+            twin = iothub_registry_manager.update_twin(DEVICE_ID, twin_patch, twin.etag)
 
             print ( "" )
             print ( "Device twin updated." )
@@ -298,9 +293,9 @@ En esta sección, creará una aplicación de consola de Python que inicia un **l
                     time.sleep(1)
                     status_counter += 1
 
-        except IoTHubError as iothub_error:
+        except Exception as ex:
             print ( "" )
-            print ( "Unexpected error {0}" % iothub_error )
+            print ( "Unexpected error {0}" % ex )
             return
         except KeyboardInterrupt:
             print ( "" )

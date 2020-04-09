@@ -3,16 +3,22 @@ title: Acerca de la copia de seguridad de máquina virtual de Azure
 description: En este artículo, aprenderá cómo el servicio Azure Backup realiza copias de seguridad de las máquinas virtuales de Azure y cómo seguir los procedimientos recomendados.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 8ffbf0d0164cbf6f085518d57566b0befde6e124
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: f4b36f57362607a13c09896cd7109596aba0a852
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77597259"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79415978"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Información general sobre la copia de seguridad de máquinas virtuales de Azure
 
 En este artículo se describe cómo el [servicio Azure Backup](backup-introduction-to-azure-backup.md) realiza una copia de seguridad de las máquinas virtuales (VM) de Azure.
+
+Azure Backup proporciona copias de seguridad independientes y aisladas para impedir la destrucción accidental de los datos en las máquinas virtuales. Las copias de seguridad se almacenan en un almacén de Recovery Services con administración integrada de puntos de recuperación. La configuración y la escalabilidad son sencillas, las copias de seguridad están optimizadas y puede restaurarlas fácilmente cuando sea necesario.
+
+Como parte del proceso de copia de seguridad, se [realiza una instantánea](#snapshot-creation) y los datos se transfieren al almacén de Recovery Services sin que ello afecte a las cargas de trabajo de producción. La instantánea proporciona diferentes niveles de coherencia, como se describe [aquí](#snapshot-consistency).
+
+Azure Backup también tiene ofertas especializadas para cargas de trabajo de base de datos como [SQL Server](backup-azure-sql-database.md) y [SAP HANA](sap-hana-db-about.md) que incluyen reconocimiento de la carga de trabajo, ofrecen un objetivo de punto de recuperación (RPO) de 15 minutos y permiten realizar copias de seguridad y restaurar bases de datos individuales.
 
 ## <a name="backup-process"></a>Proceso de copia de seguridad
 
@@ -20,8 +26,8 @@ Aquí se explica cómo Azure Backup completa una copia de seguridad para las VM 
 
 1. Para VM de Azure que están seleccionadas para copia de seguridad, Azure Backup inicia un trabajo de copia de seguridad según la programación que especifique el usuario.
 1. Durante la primera copia de seguridad, se instala una extensión de copia de seguridad en la VM si esta se encuentra en ejecución.
-    - En VM de Windows, se instala la extensión _VMSnapshot_.
-    - En VM de Linux, se instala la extensión _VMSnapshotLinux_.
+    - En máquinas virtuales Windows, se instala la [extensión VMSnapshot](https://docs.microsoft.com/azure/virtual-machines/extensions/vmsnapshot-windows).
+    - En máquinas virtuales Linux, se instala la [extensión VMSnapshotLinux](https://docs.microsoft.com/azure/virtual-machines/extensions/vmsnapshot-linux).
 1. En el caso de VM Windows en ejecución, Azure Backup coordina con el Servicio de instantáneas de volumen (VSS) de Windows para obtener una instantánea coherente con la aplicación de la VM.
     - De forma predeterminada, Azure Backup realiza copias de seguridad de VSS completas.
     - Si Azure Backup no puede realizar una instantánea coherente con la aplicación, realiza una instantánea coherente con archivos del almacenamiento subyacente (ya que no se produce ninguna escritura en la aplicación mientras la VM está detenida).
@@ -66,7 +72,7 @@ Azure Backup toma instantáneas según la programación de copia de seguridad.
   - Azure Backup marcará el punto de recuperación como coherente con la aplicación si la ejecución de los scripts anteriores y posteriores se realiza correctamente. Sin embargo, el usuario es el responsable final de la coherencia con la aplicación cuando se usan scripts personalizados.
   - [Obtenga más información](backup-azure-linux-app-consistent.md) sobre cómo configurar scripts.
 
-### <a name="snapshot-consistency"></a>Coherencia de instantáneas
+## <a name="snapshot-consistency"></a>Coherencia de instantáneas
 
 En la siguiente tabla se explica los diferentes tipos de coherencia de instantánea:
 
@@ -102,7 +108,7 @@ Estos escenarios comunes pueden afectar al tiempo total de copia de seguridad:
 Al configurar las copias de seguridad de VM, se recomienda seguir estos procedimientos recomendados:
 
 - Modificar las horas de programación predeterminadas que se establecen en una directiva. Por ejemplo, si la hora predeterminada en la directiva es 00:00 h, incremente el tiempo en varios minutos para que los recursos se usen de forma óptima.
-- Si va a restaurar las VM desde un solo almacén, recomendamos encarecidamente que use diferentes [cuentas de almacenamiento de uso general v2](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) para asegurarse de que no se vea limitada la cuenta de almacenamiento de destino. Por ejemplo, cada VM debe tener una cuenta de almacenamiento diferente. Por ejemplo, si se restauran 10 máquinas virtuales, use 10 cuentas de almacenamiento diferentes.
+- Si va a restaurar las máquinas virtuales desde un solo almacén, recomendamos encarecidamente que use diferentes [cuentas de almacenamiento de uso general v2](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) para asegurarse de que no se vea limitada la cuenta de almacenamiento de destino. Por ejemplo, cada VM debe tener una cuenta de almacenamiento diferente. Por ejemplo, si se restauran 10 máquinas virtuales, use 10 cuentas de almacenamiento diferentes.
 - Para la copia de seguridad de VM que usan almacenamiento Premium, con restauración instantánea, se recomienda asignar un espacio libre del *50 %* , del espacio de almacenamiento total asignado, que **solo** es necesario para la primera copia de seguridad. El espacio libre del 50 % no es un requisito para las copias de seguridad una vez completada la primera copia de seguridad.
 - El límite del número de discos por cuenta de almacenamiento es relativo a la frecuencia de acceso a los discos de parte de las aplicaciones que se ejecutan en una VM de infraestructura como servicio (IaaS). Como práctica general, si hay entre 5 y 10 o más en una única cuenta de almacenamiento, mueva algunos discos a cuentas de almacenamiento separadas para equilibrar la carga.
 

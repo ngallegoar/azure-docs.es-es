@@ -10,10 +10,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 04/04/2018
 ms.author: liydu
 ms.openlocfilehash: deb1ea8c7b41ad48bddebfbed1b15c667ee0071a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73483940"
 ---
 # <a name="mxchip-iot-devkit"></a>MXChip IoT DevKit
@@ -55,7 +55,7 @@ Este ejemplo se puede utilizar para supervisar la información del Wi-Fi de MXCh
 
 6. Se muestra algo similar a *aplicación de función: nombre de aplicación de función: xxx*. Anote el nombre de la aplicación de función, ya que se utilizará en un paso posterior.
 
-7. Espere hasta que finalice la implementación de la plantilla de Azure Resource Manager, momento que se indica mediante el mensaje *Resource Manager template deployment: Done* (Implementación de plantilla de Resource Manager: listo).
+7. Espere hasta que finalice la implementación de la plantilla de Azure Resource Manager, momento que se indica mediante el mensaje *Resource Manager template deployment: Done* (Se implementa la aplicación de función: listo).
 
 ## <a name="deploy-function-app"></a>Implementación de aplicación de función
 

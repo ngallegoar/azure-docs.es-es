@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 9bf0fb1a33a98031a78155a3956ac6d6abe33029
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74113634"
 ---
 # <a name="add-custom-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Incorporación de analizadores personalizados a campos de cadena en un índice de Azure Cognitive Search
@@ -213,16 +213,16 @@ Para los analizadores, los atributos de índice varían dependiendo de si usa an
 
 |||  
 |-|-|  
-|NOMBRE|Solo puede contener letras, dígitos, espacios, guiones o guiones bajos, debe empezar y acabar con caracteres alfanuméricos y no puede superar los 128 caracteres.|  
-|type|Tipo de analizador de la lista de analizadores admitidos. Consulte la columna **analyzer_type** de la tabla [Analizadores](#AnalyzerTable) siguiente.|  
+|Nombre|Solo puede contener letras, dígitos, espacios, guiones o guiones bajos, debe empezar y acabar con caracteres alfanuméricos y no puede superar los 128 caracteres.|  
+|Tipo|Tipo de analizador de la lista de analizadores admitidos. Consulte la columna **analyzer_type** de la tabla [Analizadores](#AnalyzerTable) siguiente.|  
 |Opciones|Deben ser opciones válidas de un analizador predefinido que se muestran en la tabla [Analizadores](#AnalyzerTable) siguiente.|  
 
 #### <a name="custom-analyzers"></a>Analizadores personalizados
 
 |||  
 |-|-|  
-|NOMBRE|Solo puede contener letras, dígitos, espacios, guiones o guiones bajos, debe empezar y acabar con caracteres alfanuméricos y no puede superar los 128 caracteres.|  
-|type|Debe ser "#Microsoft.Azure.Search.CustomAnalyzer".|  
+|Nombre|Solo puede contener letras, dígitos, espacios, guiones o guiones bajos, debe empezar y acabar con caracteres alfanuméricos y no puede superar los 128 caracteres.|  
+|Tipo|Debe ser "#Microsoft.Azure.Search.CustomAnalyzer".|  
 |CharFilters|Establézcalo en uno de los filtros de caracteres predefinidos enumerados en la tabla [Filtros de caracteres](#char-filters-reference) o en un filtro de caracteres personalizado especificado en la definición del índice.|  
 |Tokenizador|Necesario. Establézcalo en uno de los tokenizadores predefinidos enumerados en la tabla [Tokenizadores](#Tokenizers) siguiente o en un tokenizador personalizado especificado en la definición del índice.|  
 |TokenFilters|Establézcalo en uno de los filtros de token predefinidos enumerados en la tabla [Filtros de token](#TokenFilters) o en un filtro de token personalizado especificado en la definición del índice.|  
@@ -238,8 +238,8 @@ Para los analizadores, los atributos de índice varían dependiendo de si usa an
 
 |||  
 |-|-|  
-|NOMBRE|Solo puede contener letras, dígitos, espacios, guiones o guiones bajos, debe empezar y acabar con caracteres alfanuméricos y no puede superar los 128 caracteres.|  
-|type|Tipo de filtro de caracteres de la lista de filtros de caracteres admitidos. Consulte la columna **char_filter_type** de la tabla [Filtros de caracteres](#char-filters-reference) siguiente.|  
+|Nombre|Solo puede contener letras, dígitos, espacios, guiones o guiones bajos, debe empezar y acabar con caracteres alfanuméricos y no puede superar los 128 caracteres.|  
+|Tipo|Tipo de filtro de caracteres de la lista de filtros de caracteres admitidos. Consulte la columna **char_filter_type** de la tabla [Filtros de caracteres](#char-filters-reference) siguiente.|  
 |Opciones|Deben ser opciones válidas de un tipo [Filtros de caracteres](#char-filters-reference) dado.|  
 
 ### <a name="tokenizers"></a>Tokenizer
@@ -251,8 +251,8 @@ Un analizador personalizado puede usar un tokenizer predefinido con opciones pre
 
 |||  
 |-|-|  
-|NOMBRE|Solo puede contener letras, dígitos, espacios, guiones o guiones bajos, debe empezar y acabar con caracteres alfanuméricos y no puede superar los 128 caracteres.|  
-|type|Nombre de tokenizador de la lista de tokenizadores admitidos. Consulte la columna **tokenizer_type** de la tabla [Tokenizadores](#Tokenizers) siguiente.|  
+|Nombre|Solo puede contener letras, dígitos, espacios, guiones o guiones bajos, debe empezar y acabar con caracteres alfanuméricos y no puede superar los 128 caracteres.|  
+|Tipo|Nombre de tokenizador de la lista de tokenizadores admitidos. Consulte la columna **tokenizer_type** de la tabla [Tokenizadores](#Tokenizers) siguiente.|  
 |Opciones|Deben ser opciones válidas de un tipo de tokenizador determinado enumerado en la tabla [Tokenizadores](#Tokenizers) siguiente.|  
 
 ### <a name="token-filters"></a>Filtros de token
@@ -262,8 +262,8 @@ Puede tener varios filtros de token en un analizador personalizado. Los filtros 
 
 |||  
 |-|-|  
-|NOMBRE|Solo puede contener letras, dígitos, espacios, guiones o guiones bajos, debe empezar y acabar con caracteres alfanuméricos y no puede superar los 128 caracteres.|  
-|type|Nombre de filtro de token de la lista de filtros de token admitidos. Consulte la columna **token_filter_type** de la tabla [Filtros de token](#TokenFilters) siguiente.|  
+|Nombre|Solo puede contener letras, dígitos, espacios, guiones o guiones bajos, debe empezar y acabar con caracteres alfanuméricos y no puede superar los 128 caracteres.|  
+|Tipo|Nombre de filtro de token de la lista de filtros de token admitidos. Consulte la columna **token_filter_type** de la tabla [Filtros de token](#TokenFilters) siguiente.|  
 |Opciones|Deben ser [filtros de token](#TokenFilters) de un tipo de filtro de token dado.|  
 
 <a name="PropertyReference"></a>  
@@ -313,7 +313,7 @@ En la tabla siguiente, los tokenizadores que se implementan mediante Apache Luce
 
 |**tokenizer_name**|**tokenizer_type** <sup>1</sup>|**Descripción y opciones**|  
 |-|-|-|  
-|[clásico](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/standard/ClassicTokenizer.html)|ClassicTokenizer|Tokenizador basado en la gramática que es adecuado para procesar la mayoría de los documentos de idiomas europeos.<br /><br /> **Opciones**<br /><br /> maxTokenLength (tipo: entero): la longitud máxima del token. Valor predeterminado: 255, valor máximo: 300. Los tokens que sobrepasen la longitud máxima se dividen.|  
+|[clásico](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/standard/ClassicTokenizer.html)|ClassicTokenizer|Tokenizador basado en la gramática que es adecuado para procesar la mayoría de los documentos de idiomas Europaos.<br /><br /> **Opciones**<br /><br /> maxTokenLength (tipo: entero): la longitud máxima del token. Valor predeterminado: 255, valor máximo: 300. Los tokens que sobrepasen la longitud máxima se dividen.|  
 |[edgeNGram](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ngram/EdgeNGramTokenizer.html)|EdgeNGramTokenizer|Tokeniza la entrada de un perímetro en n-gramas de tamaños dados.<br /><br /> **Opciones**<br /><br /> minGram (tipo: entero) - Valor predeterminado: 1, valor máximo: 300.<br /><br /> maxGram (tipo: entero) - Valor predeterminado: 2, valor máximo: 300. El valor debe ser mayor que minGram.<br /><br /> tokenChars (tipo: matriz de cadenas): clases de caracteres para mantener en los tokens. Valores permitidos: <br />"letter", "digit", "whitespace", "punctuation" y "symbol". Los valores predeterminados son una matriz vacía: mantiene todos los caracteres. |  
 |[keyword_v2](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordTokenizer.html)|KeywordTokenizerV2|Emite la entrada completa como un solo token.<br /><br /> **Opciones**<br /><br /> maxTokenLength (tipo: entero): la longitud máxima del token. Valor predeterminado: 256, valor máximo: 300. Los tokens que sobrepasen la longitud máxima se dividen.|  
 |[letter](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/LetterTokenizer.html)|(el tipo solo se aplica cuando las opciones están disponibles)  |Divide el texto por donde no hay letras. Los tokens cuya longitud no es superior a 255 caracteres se dividen.|  
@@ -382,7 +382,7 @@ En la tabla siguiente, los filtros de token que se implementan mediante Apache L
  <sup>1</sup> Los tipos de filtro de token siempre tienen el prefijo "#Microsoft.Azure.Search" en el código, de forma que "ArabicNormalizationTokenFilter" realmente se especificaría como "#Microsoft.Azure.Search.ArabicNormalizationTokenFilter".  Hemos quitado el prefijo para reducir el ancho de la tabla, pero recuerde que debe incluirlo en el código.  
 
 
-## <a name="see-also"></a>Otras referencias  
+## <a name="see-also"></a>Consulte también  
  [API REST de Azure Cognitive Search](https://docs.microsoft.com/rest/api/searchservice/)   
  [Analizadores de Azure Cognitive Search > ejemplos](search-analyzers.md#examples)    
  [Creación de un índice &#40;API REST de Azure Cognitive Search&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)  

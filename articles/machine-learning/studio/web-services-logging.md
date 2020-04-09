@@ -11,14 +11,17 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 ms.date: 06/15/2017
-ms.openlocfilehash: 0b0dfeb6a19e2f6f24568de0b4712758d2b7ad4a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 90e7692fe0e254074d8176d719d0ca9abad54a9b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427394"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79217857"
 ---
 # <a name="enable-logging-for-azure-machine-learning-studio-classic-web-services"></a>Habilitación del registro para servicios web de Azure Machine Learning Studio (clásico)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
 En este documento se proporciona información sobre la funcionalidad de registro de los servicios web de Machine Learning Studio (clásico). El registro ofrece información adicional, más allá de un número de error y un mensaje, que puede ayudar a solucionar problemas con las llamadas a las API de Machine Learning Studio (clásico).  
 
 ## <a name="how-to-enable-logging-for-a-web-service"></a>Habilitación del registro para un servicio web
@@ -61,7 +64,7 @@ El registro se habilita en el portal de [Servicios web de Azure Machine Learning
 
 
 ## <a name="the-effects-of-enabling-logging"></a>Consecuencias de habilitar el registro
-Cuando el registro está habilitado, el diagnóstico y los errores del punto de conexión de servicio Web se registran en el contenedor de blobs **ml-diagnostics** en la cuenta de Azure Storage vinculada al área de trabajo del usuario. Este contenedor incluye toda la información de diagnóstico de todos los puntos de conexión de servicio Web relativos a todas las áreas de trabajo asociadas a esta cuenta de almacenamiento.
+Cuando el registro está habilitado, el diagnóstico y los errores del punto de conexión de servicio web se registran en el contenedor de blobs **ml-diagnostics** en la cuenta de Azure Storage vinculada al área de trabajo del usuario. Este contenedor incluye toda la información de diagnóstico de todos los puntos de conexión de servicio Web relativos a todas las áreas de trabajo asociadas a esta cuenta de almacenamiento.
 
 Los registros pueden verse mediante cualquiera de las diversas herramientas disponibles para explorar una cuenta de Azure Storage. Lo más sencillo puede ser desplazarse a la cuenta de almacenamiento en el portal de Azure, hacer clic en **Contenedores** y luego en el contenedor **ml-diagnostics**.  
 

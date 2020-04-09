@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
-ms.openlocfilehash: 3141795ed9ccfdabc9fd462a1cd09a74690f9c5b
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: 0a9728e05aee27e74054a77e2c9be7dc08968207
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77137920"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79455866"
 ---
 # <a name="train-model-module"></a>Módulo Entrenar modelo
 
@@ -62,9 +62,9 @@ En Azure Machine Learning, crear y usar un modelo suele ser un proceso de tres p
     > [!TIP] 
     > Si tiene problemas para usar el selector de columnas, consulte el artículo [Select Columns in Dataset](./select-columns-in-dataset.md) (Seleccionar columnas en conjunto de datos) para obtener sugerencias. En él, se describen algunos escenarios y sugerencias comunes para usar las opciones **WITH RULES** (CON REGLAS) y **BY NAME** (POR NOMBRE).
   
-5.  Ejecución de la canalización Si tiene una gran cantidad de datos, puede tardar.
+5.  Envíe la canalización. Si tiene una gran cantidad de datos, puede tardar.
 
-## <a name="bkmk_results"></a> Resultados
+## <a name="results"></a><a name="bkmk_results"></a> Resultados
 
 Cuando el modelo está entrenado:
 

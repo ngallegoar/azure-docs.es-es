@@ -3,16 +3,23 @@ title: Copia de seguridad de bases de datos de SQL Server en Azure
 description: En este artículo se explica cómo realizar una copia de seguridad de SQL Server en Azure. En este tutorial también se explica cómo se realiza la recuperación de SQL Server.
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.openlocfilehash: 39f2348a95be95a03dada45d48952dce99ec4ec7
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 537257733d7693598fd8007da6ce12c28fbeb02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74462593"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79408767"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Acerca de la copia de seguridad de SQL Server en máquinas virtuales de Azure
 
-Las bases de datos SQL Server son cargas de trabajo críticas que requieren un bajo objetivo de punto de recuperación (RPO) y retención a largo plazo. Puede hacer una copia de seguridad de las bases de datos de SQL Server que se ejecutan en máquinas virtuales de Azure mediante [Azure Backup](backup-overview.md).
+[Azure Backup](backup-overview.md) ofrece una solución especializada basada en secuencias para realizar copias de seguridad de SQL Server que se ejecutan en máquinas virtuales de Azure. Esta solución se ajusta a los beneficios de copia de seguridad sin necesidad de infraestructura, retención a largo plazo y administración central que ofrece Azure Backup. Además, proporciona las siguientes ventajas específicamente para SQL Server:
+
+1. Copias de seguridad con reconocimiento de la carga de trabajo que admiten todos los tipos de copia de seguridad: completa, diferencial y de registros
+2. Objetivo de punto de recuperación (RPO) de 15 minutos con copias de seguridad de registros frecuentes
+3. Recuperación a un momento dado en un segundo preciso
+4. Copia de seguridad y restauración individuales a nivel de base de datos
+
+Para ver los escenarios de copia de seguridad y restauración que se admiten en la actualidad, consulte la [matriz de compatibilidad](sql-support-matrix.md#scenario-support).
 
 ## <a name="backup-process"></a>Proceso de copia de seguridad
 
@@ -33,82 +40,8 @@ Esta solución aprovecha las API nativas de SQL para realizar copias de segurida
 Antes de empezar, compruebe lo siguiente:
 
 1. Asegúrese de tener una instancia de SQL Server que se ejecuta en Azure. Puede [crear rápidamente una instancia de SQL Server](../virtual-machines/windows/sql/quickstart-sql-vm-create-portal.md) en Marketplace.
-2. Revise los apartados en que se realizan [consideraciones acerca de las características](#feature-consideration-and-limitations) y se indica la [compatibilidad con los escenarios](#scenario-support).
+2. Revise los apartados en que se realizan [consideraciones acerca de las características](sql-support-matrix.md#feature-consideration-and-limitations) y se indica la [compatibilidad con los escenarios](sql-support-matrix.md#scenario-support).
 3. [Revise las preguntas más frecuentes](faq-backup-sql-server.md) sobre este escenario.
-
-## <a name="scenario-support"></a>Compatibilidad con los escenarios
-
-**Soporte técnico** | **Detalles**
---- | ---
-**Implementaciones admitidas** | Se admiten máquinas virtuales de Azure de SQL Marketplace y que no son de Marketplace (SQL Server instalado manualmente).
-**Zonas geográficas admitidas** | Sudeste de Australia (ASE), Este de Australia (AE), Centro de Australia (AC) y Centro de Australia 2 (AC) <br> Sur de Brasil (BRS)<br> Centro de Canadá (CNC) y Este de Canadá (CE)<br> Asia Suroriental (SEA) y Asia Oriental (EA) <br> Este de EE. UU. (EUS), Este de EE. UU. 2 (EUS2), Centro-oeste de EE. UU. (WCUS), Oeste de EE. UU. (WUS); Oeste de EE. UU. 2 (WUS 2) Centro-norte de EE. UU. (NCUS) Centro de EE. UU. (CUS) Centro-sur de EE. UU. (SCUS) <br> Centro de la India (INC), India del Sur (INS), Oeste de la India <br> Este de Japón (JPE) y Oeste de Japón (JPW) <br> Centro de Corea del Sur (KRC), Sur de Corea del Sur (KRS) <br> Norte de Europa (NE) y Oeste de Europa <br> Sur de Reino Unido (UKS) y Oeste de Reino Unido (UKW) <br> US Gov Arizona, US Gov Virginia, US Gov Texas, US DoD (centro), US DoD (este) <br> Norte de Alemania, Centro-oeste de Alemania <br> Norte de Suiza, Oeste de Suiza <br> Centro de Francia <br> Este de China, Norte de China, Norte de China 2 y Este de China 2
-**Sistemas operativos compatibles** | Windows Server 2019, Windows Server 2016, Windows Server 2012, Windows Server 2008 R2 SP1 <br/><br/> Linux no se admite actualmente.
-**Versiones admitidas de SQL Server** | SQL Server 2019, SQL Server 2017 tal como se detalla en la [página de búsqueda del ciclo de vida del producto](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017), SQL Server 2016 y los SP tal como se detalla en la [página de búsqueda del ciclo de vida del producto](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack), SQL Server 2014, SQL Server 2012, SQL Server 2008 R2, SQL Server 2008 <br/><br/> Enterprise, Standard, Web, Developer, Express.
-**Versiones de .NET compatibles** | .NET Framework 4.5.2 o posterior instalado en la máquina virtual
-
-## <a name="feature-consideration-and-limitations"></a>Consideraciones y limitaciones de las características
-
-* La copia de seguridad de SQL Server se puede configurar en Azure Portal o **PowerShell**. No se admite la CLI.
-* La solución es compatible con ambos tipos de [implementaciones](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model): las máquinas virtuales de Azure Resource Manager y las máquinas virtuales clásicas.
-* La máquina virtual que ejecuta SQL Server requiere conectividad a Internet para acceder a las direcciones IP públicas de Azure.
-* La **instancia del clúster de conmutación por error (FCI)** de SQL Server no se admite.
-* No se admiten operaciones de copia de seguridad y restauración de bases de datos reflejadas ni de instantáneas de bases de datos.
-* Si se usa más de una solución para realizar copias de seguridad de una instancia de SQL Server independiente o de un grupo de disponibilidad Always On de SQL, se pueden producir errores en la copia de seguridad, por lo que es aconsejable evitarlo.
-* La realización de una copia de seguridad de dos nodos de un grupo de disponibilidad individualmente con las mismas soluciones o soluciones diferentes, también puede dar lugar a errores en la copia de seguridad.
-* Azure Backup admite solo los tipos de copia de seguridad Completa y Solo copia completa en las bases de datos **de solo lectura**
-* Las bases de datos con un gran número de archivos no se pueden proteger. El número máximo de archivos admitidos es **aproximadamente 1000**.  
-* Puede hacer una copia de seguridad de hasta **aproximadamente 2000** bases de datos de SQL Server en un almacén. Si tiene un número mayor de bases de datos, puede crear varios almacenes.
-* Puede configurar la copia de seguridad de hasta **50** bases de datos a la vez; esta restricción ayuda a optimizar la carga de copias de seguridad.
-* Se admiten bases de datos de hasta **2 TB** de tamaño; si su tamaño es mayor, pueden surgir problemas de rendimiento.
-* Para saber el número aproximado de bases de datos que se pueden proteger por servidor, es preciso tener en cuenta factores tales como el ancho de banda, el tamaño de la máquina virtual, la frecuencia de copia de seguridad, el tamaño de la base de datos, etc. [Descargue](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) la herramienta de planeamiento de recursos que proporciona el número aproximado de bases de datos que puede tener por servidor según los recursos de la máquina virtual y la directiva de copia de seguridad.
-* En el caso de los grupos de disponibilidad, las copias de seguridad se realizan de los distintos nodos en función de una serie de factores. A continuación, se resume el comportamiento del proceso de copia de seguridad en un grupo de disponibilidad.
-
-### <a name="back-up-behavior-in-case-of-always-on-availability-groups"></a>Comportamiento del proceso de copia de seguridad en el caso de los grupos de disponibilidad Always On
-
-Se recomienda que la copia de seguridad se configure en un único nodo de un grupo de disponibilidad. La copia de seguridad siempre debe configurarse en la misma región que el nodo principal. En otras palabras, siempre es necesario que el nodo principal esté presente en la región en la que va a configurar la copia de seguridad. Si todos los nodos del grupo de disponibilidad están en la misma región en la que se configura la copia de seguridad, no hay ningún problema.
-
-#### <a name="for-cross-region-ag"></a>Para los grupos de disponibilidad con varias regiones
-
-* Independientemente de la preferencia de copia de seguridad, las copias de seguridad no se harán en los nodos que no estén en la misma región donde se configure la copia de seguridad. Esto se debe a que no se admiten las copias de seguridad entre regiones. Si tiene solo dos nodos y el secundario está en la otra región; en este caso, las copias de seguridad seguirán produciéndose desde el nodo principal (a menos que su preferencia de copia de seguridad sea "solo secundaria").
-* Si se produce una conmutación por error a una región diferente de aquella en la que se configura la copia de seguridad, las copias de seguridad producirían un error en los nodos de la región conmutada por error.
-
-En función de las preferencias relativas a la copia de seguridad y de los tipos de copia de seguridad (completa, diferencial, de registros, y solo copia completa), se toman las copias de seguridad de un nodo concreto (principal o secundario).
-
-* **Preferencias de copia de seguridad: principal**
-
-**Tipo de copia de seguridad** | **Node**
-    --- | ---
-    Completo | Principal
-    Diferencial | Principal
-    Log |  Principal
-    Solo copia completa |  Principal
-
-* **Preferencias de copia de seguridad: solo secundaria**
-
-**Tipo de copia de seguridad** | **Node**
---- | ---
-Completo | Principal
-Diferencial | Principal
-Log |  Secundario
-Solo copia completa |  Secundario
-
-* **Preferencias de copia de seguridad: secundaria**
-
-**Tipo de copia de seguridad** | **Node**
---- | ---
-Completo | Principal
-Diferencial | Principal
-Log |  Secundario
-Solo copia completa |  Secundario
-
-* **Sin preferencias para copia de seguridad**
-
-**Tipo de copia de seguridad** | **Node**
---- | ---
-Completo | Principal
-Diferencial | Principal
-Log |  Secundario
-Solo copia completa |  Secundario
 
 ## <a name="set-vm-permissions"></a>Establecer permisos de máquina virtual
 

@@ -1,30 +1,47 @@
 ---
-title: Llamada a puntos de conexión HTTP y HTTPS
-description: Envío de solicitudes salientes a puntos de conexión HTTP y HTTPS mediante Azure Logic Apps
+title: Llamada a puntos de conexión de servicio mediante HTTP o HTTPS
+description: Envío de solicitudes HTTP o HTTPS salientes a puntos de conexión de servicio desde Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 03/12/2020
 tags: connectors
-ms.openlocfilehash: 9c1b2af8d06c9466ed6c82308de941b43510238a
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 8aefe851708c0b8d8780d03e4364e034e783bf4a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77117975"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79297221"
 ---
-# <a name="send-outgoing-calls-to-http-or-https-endpoints-by-using-azure-logic-apps"></a>Envío de llamadas salientes a puntos de conexión HTTP o HTTPS mediante Azure Logic Apps
+# <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Llamada a puntos de conexión de servicio mediante HTTP o HTTPS desde Azure Logic Apps
 
-Con [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y el desencadenador o la acción HTTP integrados, puede crear tareas y flujos de trabajo automatizados que envían periódicamente solicitudes a cualquier punto de conexión HTTP o HTTPS. En cambio, para recibir llamadas HTTP o HTTPS entrantes o responder a ellas, use el [desencadenador de solicitud o la acción de respuesta integrados](../connectors/connectors-native-reqres.md).
+Con [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y el desencadenador o la acción HTTP integrados, puede crear tareas y flujos de trabajo automatizados que envían solicitudes a puntos de conexión de servicio mediante HTTP o HTTPS. Por ejemplo, para supervisar el punto de conexión de servicio de su sitio web puede comprobarlo según una programación específica. Cuando se produce un evento especificado en ese punto de conexión, por ejemplo, que su sitio web deje de funcionar, el evento desencadena el flujo de trabajo de la aplicación lógica y ejecuta las acciones de ese flujo de trabajo. En cambio, si desea recibir y responder llamadas HTTP o HTTPS entrantes, use el [desencadenador de solicitud o la acción de respuesta](../connectors/connectors-native-reqres.md) integrados.
 
-Por ejemplo, para supervisar el punto de conexión de servicio de su sitio web puede comprobarlo según una programación especificada. Cuando se produce un evento específico en ese punto de conexión, por ejemplo, que su sitio web deje de funcionar, el evento desencadena el flujo de trabajo de la aplicación lógica y ejecuta las acciones especificadas.
+> [!NOTE]
+> En función de la capacidad del punto de conexión de destino, el conector HTTP admite las versiones de Seguridad de la capa de transporte (TLS) 1.0, 1.1 y 1.2. Logic Apps negocia con el punto de conexión usando la versión compatible más alta posible. Por ejemplo, si el punto de conexión admite la versión 1.2, el conector usa esta versión primero. De lo contrario, el conector utiliza la siguiente versión compatible más alta.
 
-Puede usar el desencadenador HTTP como primer paso del flujo de trabajo para comprobar o *sondear* un punto de conexión según una programación periódica. En cada comprobación, el desencadenador envía una llamada o *solicitud* al punto de conexión. La respuesta del punto de conexión determina si el flujo de trabajo de la aplicación lógica se ejecuta. El desencadenador pasa a lo largo de todo el contenido desde la respuesta hasta las acciones en la aplicación lógica.
+[Agregue el desencadenador HTTP](#http-trigger) como primer paso del flujo de trabajo para comprobar o *sondear* un punto de conexión según una programación recurrente. Cada vez que el desencadenador comprueba el punto de conexión, el desencadenador llama a o envía una *solicitud* al punto de conexión. La respuesta del punto de conexión determina si el flujo de trabajo de la aplicación lógica se ejecuta. El desencadenador pasa todo el contenido de la respuesta del punto de conexión a las acciones en la aplicación lógica.
 
-Puede usar la acción HTTP como cualquier otro paso del flujo de trabajo para llamar al extremo cuando desee. La respuesta del punto de conexión determina cómo se ejecutan las acciones restantes de su flujo de trabajo.
+Para llamar a un punto de conexión desde cualquier parte del flujo de trabajo, [agregue la acción HTTP](#http-action). La respuesta del punto de conexión determina cómo se ejecutan las acciones restantes de su flujo de trabajo.
 
-En función de la capacidad del punto de conexión de destino, el conector HTTP admite las versiones de Seguridad de la capa de transporte (TLS) 1.0, 1.1 y 1.2. Logic Apps negocia con el punto de conexión usando la versión compatible más alta posible. Por ejemplo, si el punto de conexión admite la versión 1.2, el conector usa esta versión primero. De lo contrario, el conector utiliza la siguiente versión compatible más alta.
+> [!IMPORTANT]
+> Si una acción o desencadenador HTTP incluye estos encabezados, Logic Apps quita estos encabezados del mensaje de respuesta generado sin mostrar ninguna advertencia o error:
+>
+> * `Accept-*`
+> * `Allow`
+> * `Content-*` con estas excepciones: `Content-Disposition`, `Content-Encoding` y `Content-Type`
+> * `Cookie`
+> * `Expires`
+> * `Host`
+> * `Last-Modified`
+> * `Origin`
+> * `Set-Cookie`
+> * `Transfer-Encoding`
+>
+> Aunque Logic Apps no le impedirá guardar aplicaciones lógicas que usen una acción o desencadenador HTTP con estos encabezados, Logic Apps omite estos encabezados.
+
+En este artículo se muestra cómo agregar una acción o desencadenador HTTP al flujo de trabajo de la aplicación lógica.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -36,13 +53,15 @@ En función de la capacidad del punto de conexión de destino, el conector HTTP 
 
 * La aplicación lógica desde la que quiere llamar al punto de conexión de destino. Para comenzar con el desencadenador HTTP, [cree una aplicación lógica en blanco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para usar la acción de HTTP, inicie la aplicación lógica con el desencadenador que quiera. En este ejemplo se usa el desencadenador HTTP como primer paso.
 
+<a name="http-trigger"></a>
+
 ## <a name="add-an-http-trigger"></a>Agregar un desencadenador HTTP
 
 Este desencadenador integrado realiza una llamada HTTP a la dirección URL especificada para un punto de conexión y devuelve una respuesta.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com). Abra la aplicación lógica en blanco en el diseñador de aplicación lógica.
 
-1. En **Elegir una acción**, en el cuadro de búsqueda, escriba "http" como filtro. En la lista **Desencadenadores**, seleccione el desencadenador **HTTP**.
+1. En el cuadro de búsqueda del diseñador, seleccione **Integrado**. En el cuadro de búsqueda, escriba `http` como filtro. En la lista **Desencadenadores**, seleccione el desencadenador **HTTP**.
 
    ![Selección del desencadenador HTTP](./media/connectors-native-http/select-http-trigger.png)
 
@@ -63,6 +82,8 @@ Este desencadenador integrado realiza una llamada HTTP a la dirección URL espec
 
 1. Cuando haya terminado, recuerde guardar la aplicación lógica. En la barra de herramientas del diseñador, seleccione **Save** (Guardar).
 
+<a name="http-action"></a>
+
 ## <a name="add-an-http-action"></a>Adición de una acción HTTP
 
 Esta acción integrada realiza una llamada HTTP a la dirección URL especificada para un punto de conexión y devuelve una respuesta.
@@ -75,7 +96,7 @@ Esta acción integrada realiza una llamada HTTP a la dirección URL especificada
 
    Para agregar una acción entre un paso y otro, mueva el puntero sobre la flecha entre ellos. Seleccione el signo más ( **+** ) que aparece y, luego, seleccione **Agregar una acción**.
 
-1. En **Elegir una acción**, en el cuadro de búsqueda, escriba "http" como filtro. En la lista **Acciones**, seleccione la acción **HTTP**.
+1. En **Elegir una acción**, seleccione **Integrado**. En el cuadro de búsqueda, escriba `http` como filtro. En la lista **Acciones**, seleccione la acción **HTTP**.
 
    ![Selección de la acción de HTTP](./media/connectors-native-http/select-http-action.png)
 

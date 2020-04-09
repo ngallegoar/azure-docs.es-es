@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: 022d6edad1e907173dfde3481e60d2523be087a1
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74082668"
 ---
 # <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Arquitectura de recuperación ante desastres de Hyper-V en Azure
@@ -29,14 +29,14 @@ La tabla y el gráfico siguientes proporcionan una visión general de los compon
 
 **Componente** | **Requisito** | **Detalles**
 --- | --- | ---
-**Las tablas de Azure** | Suscripción de Azure, cuenta de Azure Storage y red de Azure. | Los datos replicados desde las cargas de trabajo de las máquinas virtuales locales se almacenan en la cuenta de almacenamiento. Las máquinas virtuales de Azure se crean con los datos de la carga de trabajo replicados cuando se produce la conmutación por error desde el sitio local.<br/><br/> Las máquinas virtuales de Azure se conectan a la red virtual de Azure cuando se crean.
+**Azure** | Suscripción de Azure, cuenta de Azure Storage y red de Azure. | Los datos replicados desde las cargas de trabajo de las máquinas virtuales locales se almacenan en la cuenta de almacenamiento. Las máquinas virtuales de Azure se crean con los datos de la carga de trabajo replicados cuando se produce la conmutación por error desde el sitio local.<br/><br/> Las máquinas virtuales de Azure se conectan a la red virtual de Azure cuando se crean.
 **Hyper-V** | Durante la implementación de Site Recovery, se recopilan los clústeres y los hosts de Hyper-V en los sitios de Hyper-V. Se instala el agente de Recovery Services y el Proveedor de Azure Site Recovery en cada host de Hyper-V independiente y en cada nodo de clúster de Hyper-V. | El proveedor organiza la replicación con Site Recovery a través de Internet. El agente de Recovery Services se encarga de la replicación de datos.<br/><br/> Las comunicaciones del proveedor y el agente son seguras y cifradas. También se cifran los datos replicados en el almacenamiento de Azure.
 **Máquinas virtuales de Hyper-V** | Una o varias máquinas virtuales en ejecución en Hyper-V. | No es necesario instalar nada explícitamente en las máquinas virtuales.
 
 
 **Arquitectura de Hyper-V a Azure (sin VMM)**
 
-![Arquitectura](./media/hyper-v-azure-architecture/arch-onprem-azure-hypervsite.png)
+![Architecture](./media/hyper-v-azure-architecture/arch-onprem-azure-hypervsite.png)
 
 
 ## <a name="architectural-components---hyper-v-with-vmm"></a>Componentes de la arquitectura: Hyper-V con VMM
@@ -45,7 +45,7 @@ La tabla y gráfico siguientes proporcionan una visión general de los component
 
 **Componente** | **Requisito** | **Detalles**
 --- | --- | ---
-**Las tablas de Azure** | Suscripción de Azure, cuenta de Azure Storage y red de Azure. | Los datos replicados desde las cargas de trabajo de las máquinas virtuales locales se almacenan en la cuenta de almacenamiento. Las máquinas virtuales de Azure se crean con los datos replicados cuando se produce la conmutación por error desde el sitio local.<br/><br/> Las máquinas virtuales de Azure se conectan a la red virtual de Azure cuando se crean.
+**Azure** | Suscripción de Azure, cuenta de Azure Storage y red de Azure. | Los datos replicados desde las cargas de trabajo de las máquinas virtuales locales se almacenan en la cuenta de almacenamiento. Las máquinas virtuales de Azure se crean con los datos replicados cuando se produce la conmutación por error desde el sitio local.<br/><br/> Las máquinas virtuales de Azure se conectan a la red virtual de Azure cuando se crean.
 **Servidor VMM** | El servidor de VMM tiene una o varias nubes que contienen hosts de Hyper-V. | Se instala el Proveedor de Site Recovery en el servidor VMM para orquestar la replicación con Site Recovery, y se registra el servidor en el almacén de Recovery Services.
 **Host de Hyper-V** | Uno o más hosts o clústeres de Hyper-V administrados por VMM. |  Se instala el agente de Recovery Services en cada nodo del clúster o host de Hyper-V.
 **Máquinas virtuales de Hyper-V** | Una o varias máquinas virtuales en un servidor host de Hyper-V. | No es necesario instalar nada explícitamente en las máquinas virtuales.
@@ -69,7 +69,7 @@ La tabla y gráfico siguientes proporcionan una visión general de los component
 1. Después de habilitar la protección de una máquina virtual de Hyper-V, en el Azure Portal o de forma local, la opción **Habilitar la protección** se inicia.
 2. El trabajo comprueba que la máquina cumpla los requisitos previos e invoca [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx) para que configure la replicación con su configuración.
 3. El trabajo comienza la replicación inicial con la invocación del método [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) para inicializar una replicación completa de la máquina virtual y enviar los discos virtuales de la máquina virtual a Azure.
-4. Puede supervisar el trabajo en la pestaña **Trabajos**.      ![Lista Trabajos](media/hyper-v-azure-architecture/image1.png) ![Detalles de Habilitar protección](media/hyper-v-azure-architecture/image2.png)
+4. Puede supervisar el trabajo en la pestaña **Trabajos**.      ![Lista de trabajos](media/hyper-v-azure-architecture/image1.png) ![Detalles de Habilitar protección](media/hyper-v-azure-architecture/image2.png)
 
 
 ### <a name="initial-data-replication"></a>Replicación inicial de datos

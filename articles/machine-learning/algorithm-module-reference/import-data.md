@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 8b1e4c60e6054141e71d2509fe34c7ca9baf9ca6
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: d124fdc15bd34743b237985a66cc35625f5d9a4b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598466"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79456206"
 ---
 # <a name="import-data-module"></a>Módulo Importación de datos
 
@@ -65,7 +65,7 @@ Si cambian los datos de origen, puede actualizar el conjunto de datos y agregar 
     Si se selecciona, el sistema volverá a ejecutar el módulo para regenerar la salida. Por lo tanto, seleccione esta opción cuando se actualicen los datos subyacentes en el almacenamiento, ya que puede ayudar a obtener los datos más recientes.
 
 
-1. Ejecución de la canalización
+1. Envíe la canalización.
 
     Cuando la importación de datos carga los datos en el diseñador, deduce el tipo de datos de cada columna basándose en los valores que contiene, numéricos o categóricos.
 

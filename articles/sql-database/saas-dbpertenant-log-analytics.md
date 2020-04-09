@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 ms.date: 01/25/2019
-ms.openlocfilehash: eca2dbe7589fdc7d59a84d21ecf59749d986ade9
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 7429a9d5e9a803f0e9a6f900c5d81e77e7477a48
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826406"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79214503"
 ---
 # <a name="set-up-and-use-azure-monitor-logs-with-a-multitenant-sql-database-saas-app"></a>Configuración y uso de registros de Azure Monitor con una aplicación SaaS multiinquilino de SQL Database
 
@@ -41,7 +41,7 @@ Consulte el [tutorial de administración y supervisión del rendimiento](saas-db
 
 En Azure SQL Database, la supervisión y alerta están disponibles en bases de datos y grupos de Azure Portal. Esta supervisión y alerta integrada resulta práctica, pero también es específica del recurso. Esto significa que resulta menos adecuada para supervisar grandes instalaciones o para proporcionar una vista unificada entre recursos y suscripciones.
 
-En escenarios de gran volumen, puede usarse los registros de Azure Monitor para supervisión y alerta. Azure Monitor es un servicio de Azure independiente, que permite el análisis sobre registros de diagnóstico y telemetría recopilados en un área de trabajo de muchos servicios en potencia. Los registros de Azure Monitor proporcionan herramientas integradas de visualización de datos y lenguaje de consulta para el análisis de datos operativos. La solución SQL Analytics proporciona varias vistas y consultas predefinidas de supervisión y alerta de bases de datos y grupos elásticos. Los registros de Azure Monitor también proporcionan un diseñador de vistas personalizadas.
+En escenarios de gran volumen, puede usarse los registros de Azure Monitor para supervisión y alerta. Azure Monitor es un servicio de Azure independiente, que permite el análisis sobre los registros recopilados en un área de trabajo de muchos servicios en potencia. Los registros de Azure Monitor proporcionan herramientas integradas de visualización de datos y lenguaje de consulta para el análisis de datos operativos. La solución SQL Analytics proporciona varias vistas y consultas predefinidas de supervisión y alerta de bases de datos y grupos elásticos. Los registros de Azure Monitor también proporcionan un diseñador de vistas personalizadas.
 
 Las áreas de trabajo de OMS ahora se conocen como áreas de trabajo de Log Analytics. Las áreas de trabajo y las soluciones de análisis de Log Analytics se abren en Azure Portal. Azure Portal es el punto de acceso más reciente, pero, en ciertos aspectos, podría ir por detrás del portal de Operations Management Suite.
 

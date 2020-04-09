@@ -9,13 +9,13 @@ ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 02/27/2020
-ms.openlocfilehash: 0cb76884fd46a45bb45fa3e29a03a6f9dbd0250b
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.date: 03/18/2020
+ms.openlocfilehash: 3b1fc5dc427a8a9a1987b0ef916b99edb25e292a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77920304"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80063974"
 ---
 # <a name="reuse-environments-for-training-and-deployment-by-using-azure-machine-learning"></a>Reutilización de entornos para entrenamiento e implementación con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -157,6 +157,9 @@ conda_dep.add_conda_package("scikit-learn==0.21.3")
 myenv.python.conda_dependencies=conda_dep
 ```
 
+>[!IMPORTANT]
+> Si usa la misma definición de entorno para otra ejecución, Azure Machine Learning Service vuelve a usar la imagen almacenada en caché de su entorno. Si crea un entorno con una dependencia de paquete desanclada (por ejemplo, ```numpy```), ese entorno seguirá usando la versión del paquete instalada _en el momento de la creación del entorno_. Además, cualquier entorno futuro con una definición coincidente seguirá usando la versión anterior. Para más información, consulte [Compilación, almacenamiento en caché y reutilización de entornos](https://docs.microsoft.com/azure/machine-learning/concept-environments#environment-building-caching-and-reuse).
+
 ### <a name="private-wheel-files"></a>Archivos de Private Wheel
 
 Puede usar archivos de Private Wheel de pip si primero los carga en el almacenamiento del área de trabajo. Se cargan mediante un método [`add_private_pip_wheel()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#add-private-pip-wheel-workspace--file-path--exist-ok-false-) estático. A continuación, capture la dirección URL de almacenamiento y pase la dirección URL al método `add_pip_package()`.
@@ -219,7 +222,7 @@ Para actualizar la versión de un paquete de Python en un entorno existente, esp
 
 ### <a name="debug-the-image-build"></a>Depuración de la compilación de la imagen
 
-En el ejemplo siguiente se usa el método [`build()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py#build-workspace-) para crear manualmente un entorno como imagen de Docker. Supervisa los registros de salida de la compilación de imágenes mediante [`wait_for_completion()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image(class)?view=azure-ml-py#wait-for-creation-show-output-false-). La imagen compilada aparece después en la instancia de Azure Container Registry del área de trabajo. Esta información resulta útil para la depuración.
+En el ejemplo siguiente se usa el método [`build()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py#build-workspace--image-build-compute-none-) para crear manualmente un entorno como imagen de Docker. Supervisa los registros de salida de la compilación de imágenes mediante [`wait_for_completion()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image(class)?view=azure-ml-py#wait-for-creation-show-output-false-). La imagen compilada aparece después en la instancia de Azure Container Registry del área de trabajo. Esta información resulta útil para la depuración.
 
 ```python
 from azureml.core import Image
@@ -248,7 +251,7 @@ myenv.docker.base_image="your_base-image"
 myenv.docker.base_image_registry="your_registry_location"
 ```
 
-Como alternativa, puede especificar un Dockerfile personalizado. Es más sencillo empezar a partir de una de las imágenes base de Azure Machine Learning mediante el comando ```FROM``` de Docker y, después, agregar sus propios pasos personalizados. Use este enfoque si necesita instalar paquetes que no son de Python como dependencias.
+También puede especificar un Dockerfile personalizado. Es más sencillo empezar a partir de una de las imágenes base de Azure Machine Learning mediante el comando ```FROM``` de Docker y, después, agregar sus propios pasos personalizados. Use este enfoque si necesita instalar paquetes que no son de Python como dependencias.
 
 ```python
 # Specify docker steps as a string. Alternatively, load the string from a file.
@@ -262,8 +265,29 @@ myenv.docker.base_image = None
 myenv.docker.base_dockerfile = dockerfile
 ```
 
-> [!NOTE]
-> Si especifica `environment.python.user_managed_dependencies=False` mientras usa una imagen de Docker personalizada, el servicio compilará un entorno de Conda dentro de la imagen. La ejecución se ejecutará en ese entorno en lugar de usar las bibliotecas de Python que haya instalado en la imagen base. Establezca el parámetro en `True` para usar sus propios paquetes instalados.
+### <a name="use-user-managed-dependencies"></a>Uso de dependencias administradas por el usuario
+
+En algunas situaciones, es posible que la imagen base personalizada ya contenga un entorno de Python con paquetes que quiera usar.
+
+De forma predeterminada, Azure Machine Learning Service creará un entorno de Conda con las dependencias especificadas y realizará la ejecución en ese entorno en lugar de usar las bibliotecas de Python que haya instalado en la imagen base. 
+
+Para usar sus propios paquetes instalados, establezca el parámetro en `Environment.python.user_managed_dependencies = True`. Asegúrese de que la imagen base contenga un intérprete de Python, así como los paquetes que necesita el script de entrenamiento.
+
+Por ejemplo, para trabajar en un entorno base de Miniconda que tenga instalado el paquete NumPy, especifique primero un Dockerfile con un paso para instalar el paquete. A continuación, establezca las dependencias administradas por el usuario en `True`. 
+
+También puede especificar una ruta de acceso a un intérprete de Python específico dentro de la imagen mediante el establecimiento de la variable `Environment.python.interpreter_path`.
+
+```python
+dockerfile = """
+FROM mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04
+RUN conda install numpy
+"""
+
+myenv.docker.base_image = None
+myenv.docker.base_dockerfile = dockerfile
+myenv.python.user_managed_dependencies=True
+myenv.python.interpreter_path = "/opt/miniconda/bin/python"
+```
 
 ## <a name="use-environments-for-training"></a>Uso de entornos para el entrenamiento
 

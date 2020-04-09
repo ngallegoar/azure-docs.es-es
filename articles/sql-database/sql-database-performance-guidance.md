@@ -1,24 +1,24 @@
 ---
-title: Guía para el ajuste del rendimiento
-description: Obtenga información acerca del uso de las recomendaciones para ajustar manualmente el rendimiento de las consultas de su base de datos de Azure SQL.
+title: Guía para el ajuste del rendimiento de aplicaciones y bases de datos
+description: Aprenda a ajustar el rendimiento de aplicaciones de base de datos y bases de datos en Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: juliemsft
-ms.author: jrasnick
-ms.reviewer: carlrab
-ms.date: 01/25/2019
-ms.openlocfilehash: 0dc3a121b30f33d533b1079d9c81501130487017
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+author: CarlRabeler
+ms.author: carlrab
+ms.reviewer: carlrab; jrasnick
+ms.date: 03/10/2020
+ms.openlocfilehash: 4f30ebe39d86db7076baa8c29b2a5cf060b07bf5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74009100"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228540"
 ---
-# <a name="manual-tune-query-performance-in-azure-sql-database"></a>Ajuste manual del rendimiento de consultas en Azure SQL Database
+# <a name="tune-applications-and-databases-for-performance-in-azure-sql-database"></a>Ajustar el rendimiento de aplicaciones de base de datos y bases de datos en Azure SQL Database
 
 Una vez que haya identificado un problema de rendimiento experimente con SQL Database, este artículo le será de ayuda:
 
@@ -232,6 +232,10 @@ Puede examinar **sys.resource_stats** para determinar si el recurso de una prueb
 
 Si una carga de trabajo contiene un conjunto de consultas repetidas, con frecuencia tiene sentido capturar y validar la idoneidad de esas elecciones del plan, ya que controlarán la unidad de tamaño mínima de los recursos necesaria para hospedar la base de datos. Después de validarlo, vuelva a examinar de vez en cuando los planes para asegurarse de que no se han degradado. Puede aprender más sobre las [sugerencias de consulta (Transact-SQL)](https://msdn.microsoft.com/library/ms181714.aspx).
 
+### <a name="very-large-database-architectures"></a>Arquitecturas de bases de datos de gran tamaño
+
+Antes del lanzamiento del nivel de servicio de [Hiperescala](sql-database-service-tier-hyperscale.md) para bases de datos únicas en Azure SQL Database, los clientes solían alcanzar los límites de capacidad en las bases de datos individuales. Estos límites aún existen para las bases de datos agrupadas en grupos elásticos y para la base de datos de instancia en instancias administradas. En las dos secciones siguientes se describen dos opciones para solucionar problemas de bases de datos de gran tamaño en Azure SQL Database cuando no se puede usar el nivel de servicio de Hiperescala.
+
 ### <a name="cross-database-sharding"></a>Particionamiento entre bases de datos
 
 Como Azure SQL Database se ejecuta en hardware estándar, los límites de capacidad para una base de datos individual son inferiores a los de una instalación local de SQL Server tradicional. Algunos clientes usan técnicas de particionamiento para repartir las operaciones de base de datos entre varias bases de datos cuando las operaciones no entran en los límites de una base de datos individual en Azure SQL Database. La mayoría de los clientes que usan técnicas de particionamiento en Azure SQL Database divide sus datos en una única dimensión entre varias bases de datos. En este enfoque, debe comprender que las aplicaciones OLTP a menudo realizan transacciones que se aplican a una sola fila o a un pequeño grupo de filas del esquema.
@@ -243,7 +247,7 @@ Por ejemplo, si una base de datos tiene el nombre del cliente, el pedido y los d
 
 Aunque el particionamiento de base de datos no reduce la capacidad de recursos agregados para una solución, es muy eficaz a la hora de admitir soluciones muy grandes que se distribuyen entre varias bases de datos. Cada base de datos se puede ejecutar con un tamaño de proceso diferente para admitir bases de datos "eficaces" muy grandes con requisitos elevados de recursos.
 
-### <a name="functional-partitioning"></a>Creación de particiones funcional
+#### <a name="functional-partitioning"></a>Creación de particiones funcional
 
 Los usuarios de SQL Server suelen combinar varias funciones en una base de datos individual. Por ejemplo, si una aplicación contiene lógica para administrar el inventario de un almacén, esa base de datos podría contener lógica asociada con el inventario, el seguimiento de los pedidos de compra, los procedimientos almacenados y las vistas indizadas o materializadas que administran los informes de fin de me. Esta técnica facilita la administración de la base de datos para operaciones como la copia de seguridad, pero también requiere ajustar el tamaño del hardware para administrar la carga máxima en todas las funciones de una aplicación.
 

@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 40d8e298237b6110fee04aefbb7b79c5f3bac6f0
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 807771fd4018c9666f059c965370ebc36d0105df
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598619"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79456308"
 ---
 # <a name="export-data-module"></a>Módulo Exportación de datos
 
@@ -52,7 +52,7 @@ Antes de exportar los datos, debe registrar un almacén de datos en el área de 
 
 1. Para **Formato de archivo**, seleccione el formato en el que se deben almacenar los datos.
  
-1. Ejecución de la canalización
+1. Envíe la canalización.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

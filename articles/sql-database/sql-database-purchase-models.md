@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 02/01/2020
-ms.openlocfilehash: 0b2eafeec27cb92ccb191ec902e8bf1d581a3b4a
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.date: 03/09/2020
+ms.openlocfilehash: 97ce402045cfd2c990b457c5d4d06888cda632d5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587301"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228552"
 ---
 # <a name="choose-between-the-vcore-and-the-dtu-purchasing-models"></a>Elija entre los modelos de compra de núcleo virtual y de DTU
 
@@ -57,7 +57,7 @@ Para una descripción de cómo se define la capacidad de proceso y cómo se calc
 
 ## <a name="storage-costs"></a>Costos de almacenamiento
 
-Diferentes tipos de almacenamiento se facturan de forma diferente. En el almacenamiento de datos, se le cobra por el almacenamiento aprovisionado en función del tamaño máximo de la base de datos o del grupo que seleccione. El costo no cambia a menos que reduzca o aumente ese máximo. El almacenamiento de copia de seguridad se asocia a las copias de seguridad automatizadas de la instancia y su ubicación es dinámica. Al aumentar el período de retención de las copias de seguridad, aumenta el almacenamiento de copia de seguridad que consume la instancia.
+Diferentes tipos de almacenamiento se facturan de forma diferente. En el almacenamiento de datos, se le cobra por el almacenamiento aprovisionado en función del tamaño máximo de la base de datos o del grupo que seleccione. El costo no cambia a menos que reduzca o aumente ese máximo. El almacenamiento de copia de seguridad se asocia a las copias de seguridad automatizadas de la instancia y su ubicación es dinámica. Al aumentar el período de retención de las copias de seguridad, aumenta también el almacenamiento de copia de seguridad que consume la instancia.
 
 De forma predeterminada, se realizan copias de seguridad automatizadas de las bases de datos durante siete días en una cuenta de almacenamiento de blobs estándar de almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS). Este almacenamiento se usa para realizar cada cinco minutos copias de seguridad completas semanales, copias de seguridad diferenciales diarias y copias de seguridad de registros de transacciones. El tamaño de los registros de transacciones depende de la tasa de cambio de la base de datos. Se ofrece una cantidad de almacenamiento mínimo igual al 100 % del tamaño de la base de datos sin costo adicional. El consumo adicional de almacenamiento de copia de seguridad se cobra en GB/mes.
 
@@ -85,6 +85,11 @@ Para cambiar del modelo de compra basado en DTU al modelo de compra basado en n�
 
 - Por cada 100 DTU en el nivel Estándar se requiere al menos un núcleo virtual en el nivel de servicio Uso general.
 - Por cada 125 DTU en el nivel Premium se requiere al menos un núcleo virtual en el nivel de servicio Crítico para la empresa.
+
+> [!NOTE]
+> Las directrices de ajuste de tamaño de DTU a núcleo virtual son aproximadas y se proporcionan para ayudarle en la estimación inicial del objetivo del servicio de base de datos de destino. La configuración óptima de la base de datos de destino depende de la carga de trabajo. 
+> 
+> La obtención de la relación óptima entre precio y rendimiento puede requerir que se aproveche la flexibilidad del modelo núcleo virtual para ajustar el número de núcleos virtuales, la [generación de hardware](sql-database-service-tiers-vcore.md#hardware-generations), los niveles de [servicio](sql-database-service-tiers-vcore.md#service-tiers) y [proceso](sql-database-service-tiers-vcore.md#compute-tiers), así como el ajuste de otros parámetros de configuración de base de datos, como el [grado máximo de paralelismo](https://docs.microsoft.com/sql/relational-databases/query-processing-architecture-guide#parallel-query-processing).
 
 ## <a name="dtu-based-purchasing-model"></a>Modelo de compra basado en DTU
 
@@ -142,6 +147,20 @@ Los valores de entrada de esta fórmula se pueden obtener de los DMV [sys.dm_db_
 ### <a name="workloads-that-benefit-from-an-elastic-pool-of-resources"></a>Cargas de trabajo que se benefician de un grupo elástico de recursos
 
 Los grupos son adecuados para las bases de datos con un promedio de uso de recursos bajo y picos de uso relativamente poco frecuentes. Para más información, consulte [¿Cuándo se debe usar un grupo elástico de SQL Database?](sql-database-elastic-pool.md)
+
+### <a name="hardware-generations-in-the-dtu-based-purchasing-model"></a>Generaciones de hardware en el modelo de compra basado en DTU
+
+En el modelo de compra basado en DTU, los clientes no pueden elegir la generación de hardware utilizada para sus bases de datos. Aunque una base de datos determinada normalmente permanece en una generación de hardware específica durante mucho tiempo (normalmente durante varios meses), hay ciertos casos en los que se puede mover a otra generación de hardware.
+
+Por ejemplo, una base de datos se puede mover a una generación de hardware diferente si se escala vertical u horizontalmente para un objetivo de servicio diferente, si la infraestructura actual de un centro de datos se aproxima a sus límites de capacidad o si el hardware utilizado actualmente se va a retirar porque ha finalizado su vida útil.
+
+Si se mueve una base de datos a un hardware diferente, el rendimiento de la carga de trabajo puede cambiar. El modelo de DTU garantiza que el rendimiento y el tiempo de respuesta de la carga de trabajo del [banco de pruebas de DTU](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers-dtu#dtu-benchmark) seguirán siendo prácticamente idénticos cuando la base de datos se mueva a una generación de hardware diferente, siempre y cuando su objetivo de servicio (el número de DTU) permanezca igual. 
+
+Sin embargo, en el amplio espectro de cargas de trabajo de clientes que se ejecutan en Azure SQL Database, el efecto de usar hardware diferente para el mismo objetivo de servicio puede ser más pronunciado. Distintas cargas de trabajo se beneficiarán de distintas características y configuraciones de hardware. Por lo tanto, es posible que en cargas de trabajo distintas de las de la prueba comparativa de DTU se aprecien diferencias en el rendimiento si la base de datos se mueve de una generación de hardware a otra.
+
+Por ejemplo, una aplicación que es sensible a la latencia de red puede experimentar un mejor rendimiento en el hardware de Gen5 frente a Gen4 debido al uso de redes aceleradas en Gen5; pero una aplicación que use E/S de lectura intensiva puede experimentar un mejor rendimiento en hardware de Gen4 frente a Gen5 debido a una mejor relación de memoria por núcleo en Gen4.
+
+Los clientes con cargas de trabajo que son sensibles a los cambios de hardware, o los clientes que desean controlar la opción de generación de hardware para su base de datos pueden usar el modelo de [núcleo virtual](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers-vcore) para elegir su generación de hardware preferida durante la creación y el escalado de las bases de datos. En el modelo de núcleo virtual, los límites de recursos de cada objetivo de servicio en cada generación de hardware están documentados, tanto para las [bases de datos únicas](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases) como para los [grupos elásticos](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools). Para más información sobre las generaciones de hardware en el modelo de núcleo virtual, consulte [Generaciones de hardware](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers-vcore#hardware-generations).
 
 ## <a name="frequently-asked-questions-faqs"></a>Preguntas más frecuentes (P+F)
 

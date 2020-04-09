@@ -12,14 +12,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: reference
 ms.date: 11/16/2016
-ms.openlocfilehash: 15e73740f5d932d0fa4cfb9a56c9fe7b155555cc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9e25f2fbc10eb07cc71f2a7bd34247c0191f61b9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73468157"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79217773"
 ---
 # <a name="azure-machine-learning-studio-classic-rest-api-error-codes"></a>Códigos de error de API REST de Azure Machine Learning Studio (clásico)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
  
 Una operación en un servicio web de Azure Machine Learning Studio (clásico) podría devolver los siguientes códigos de error.
  
@@ -27,7 +29,7 @@ Una operación en un servicio web de Azure Machine Learning Studio (clásico) po
  
 Argumento no válido proporcionado.
  
-Esta clase de errores significa que un argumento proporcionado en alguna parte no era válido. Podría tratarse de una credencial o ubicación de Azure Storage para algo pasado al servicio web. Mire el campo de código del error en la sección de detalles para diagnosticar qué argumento específico no era válido.
+Esta clase de errores significa que un argumento proporcionado en alguna parte no era válido. Podría tratarse de una credencial o ubicación de Azure Storage para algo pasado al servicio web. Examine el campo de código del error en la sección de detalles para diagnosticar qué argumento específico no era válido.
  
 | Código de error | Mensaje de usuario |
 | ---------- |--------------|
@@ -209,7 +211,7 @@ Error interno en la ejecución.
  
 ## <a name="internalerrorsystemlowonmemory-http-status-code-500"></a>InternalErrorSystemLowOnMemory (código de estado HTTP 500)
  
-Error interno en la ejecución. Sistema con poca memoria. Vuelva a intentarlo.
+Error interno en la ejecución. Sistema con poca memoria. Inténtelo de nuevo.
  
  
 ## <a name="modelpackageformaterror-http-status-code-500"></a>ModelPackageFormatError (código de estado HTTP 500)

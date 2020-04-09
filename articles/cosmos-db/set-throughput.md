@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2019
-ms.openlocfilehash: 236ae017832d5d613d0bf9fc948d16a7218d2269
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: e7a64776cba00a6840af70cecad5bf9c02b3f38e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77621943"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227316"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Aprovisionar rendimiento en contenedores y bases de datos
 
@@ -63,7 +63,8 @@ Si la carga de trabajo en una partición lógica consume más que el rendimiento
 Los contenedores de una base de datos de rendimiento compartido comparten el rendimiento (RU/s) asignado a dicha base de datos. Puede tener hasta cuatro contenedores con un mínimo de 400 RU/s en la base de datos. Cada nuevo contenedor después de los cuatro primeros requerirá un mínimo de 100 RU/s adicionales. Por ejemplo, si tiene una base de datos de rendimiento compartido con ocho contenedores, el mínimo de RU/s en la base de datos será de 800 RU/s.
 
 > [!NOTE]
-> En una base de datos de rendimiento compartida, puede tener hasta 25 contenedores en la base de datos. Si ya tiene más de 25 contenedores en una base de datos de rendimiento compartido, no podrá crear contenedores adicionales hasta que el número de contenedores sea inferior a 25.
+> En febrero de 2020, se presentó un cambio que permite tener un máximo de 25 contenedores en una base de datos de rendimiento compartida, lo que permite el uso compartido del rendimiento entre los contenedores. Después de los primeros 25 contenedores, solo puede agregar más a la base de datos si están [aprovisionados con un rendimiento dedicado](#set-throughput-on-a-database-and-a-container), que es independiente del rendimiento compartido de la base de datos.<br>
+Si la cuenta de Azure Cosmos DB ya contiene una base de datos de rendimiento compartida con >= 25 contenedores, la cuenta y todas las demás cuentas de la misma suscripción de Azure están exentas de este cambio. [Póngase en contacto con el servicio de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) si tiene comentarios o preguntas. 
 
 Si las cargas de trabajo implican eliminar y volver a crear todas las colecciones de una base de datos, se recomienda quitar la base de datos vacía y volver a crear una nueva base de datos antes de la creación de la colección. En la siguiente imagen se muestra cómo una partición física puede hospedar una o varias particiones lógicas que pertenecen a distintos contenedores dentro de una base de datos:
 
@@ -86,11 +87,11 @@ Puede combinar los dos modelos. Se permite el aprovisionamiento del rendimiento 
 
 ## <a name="update-throughput-on-a-database-or-a-container"></a>Actualización del rendimiento en un contenedor o una base de datos
 
-Después de crear un contenedor o una base de datos de Cosmos Azure, se puede actualizar el rendimiento aprovisionado. No existen límites para el rendimiento aprovisionado máximo que se puede configurar en la base de datos o el contenedor. El rendimiento aprovisionado mínimo depende de los factores siguientes: 
+Después de crear un contenedor o una base de datos de Cosmos Azure, se puede actualizar el rendimiento aprovisionado. No existen límites para el rendimiento aprovisionado máximo que se puede configurar en la base de datos o el contenedor. El [rendimiento aprovisionado mínimo](concepts-limits.md#storage-and-throughput) depende de los factores siguientes: 
 
 * Tamaño máximo de los datos que se han almacenado en algún momento en el contenedor.
 * Rendimiento máximo que se ha aprovisionado en algún momento en el contenedor.
-* El número máximo de contenedores de Azure Cosmos que se han creado alguna vez en una base de datos con rendimiento compartido. 
+* El número actual de contenedores de Azure Cosmos que tiene en una base de datos con rendimiento compartido. 
 
 Puede recuperar el rendimiento mínimo de un contenedor o una base de datos mediante programación con los SDK o ver el valor en Azure Portal. Al usar el SDK de .NET, el método [DocumentClient.ReplaceOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.replaceofferasync?view=azure-dotnet) permite escalar el valor de rendimiento aprovisionado. Al usar el SDK de Java, el método [RequestOptions.setOfferThroughput](sql-api-java-samples.md#offer-examples) permite escalar el valor de rendimiento aprovisionado. 
 

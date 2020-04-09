@@ -6,12 +6,12 @@ ms.topic: reference
 author: bwren
 ms.author: bwren
 ms.date: 01/20/2020
-ms.openlocfilehash: 3adf4b59c0605859ada75577c083094541815984
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 4c711e1b0a63fbcf978c0e4467eadaed8d91f3de
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77672368"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79234312"
 ---
 # <a name="windows-diagnostics-extension-schema"></a>Esquema de Windows Diagnostics Extension
 Azure Diagnostics Extension es un agente de Azure Monitor que recopila datos de supervisión del sistema operativo invitado y de las cargas de trabajo de los recursos de proceso. En este artículo, se describe el esquema que se usa para configurar Diagnostics Extension en máquinas virtuales Windows y otros recursos de proceso.
@@ -506,7 +506,7 @@ Los elementos *PublicConfig* y *PrivateConfig* están separados porque, en la ma
 ```
 
 > [!NOTE]
-> En la configuración pública, la definición del receptor de datos de Azure Monitor tiene dos propiedades: *PrincipalId* y *Secret*. Solo se necesitan para las máquinas virtuales clásicas y los servicios en la nube clásica. Estas propiedades no deben usarse con otros recursos.
+> En la configuración privada, la definición del receptor de datos de Azure Monitor tiene dos propiedades: *PrincipalId* y *Secret*. Solo se necesitan para las máquinas virtuales clásicas y los servicios en la nube clásica. Estas propiedades no deben usarse con otros recursos.
 
 
 ```json

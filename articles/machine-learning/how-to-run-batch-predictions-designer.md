@@ -10,12 +10,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 02/24/2020
 ms.custom: Ignite2019
-ms.openlocfilehash: fdda35d3a617a30169748f4f6b42c8726e7e3512
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 01d69bffcf2c17abceba8ba2e0893360bead8b12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77920695"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477228"
 ---
 # <a name="run-batch-predictions-using-azure-machine-learning-designer-preview"></a>Ejecución de predicciones por lotes mediante el diseñador de Azure Machine Learning (versión preliminar)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -43,13 +43,13 @@ Las canalizaciones de entrenamiento deben ejecutarse al menos una vez para poder
 
 1. Seleccione la canalización de entrenamiento que entrene el modelo que quiere usar para realizar la predicción.
 
-1. **Ejecute** la canalización.
+1. **Envíe** la canalización.
 
-    ![Ejecución de la canalización](./media/how-to-run-batch-predictions-designer/run-training-pipeline.png)
+    ![Enviar la canalización](./media/how-to-run-batch-predictions-designer/run-training-pipeline.png)
 
 Ahora que se ha ejecutado la canalización de entrenamiento, puede crear una canalización de inferencias por lotes.
 
-1. Al lado de **Ejecutar**, seleccione la nueva lista desplegable **Create inference pipeline** (Crear canalización de inferencia).
+1. Al lado de **Submit** (Enviar), seleccione la nueva lista desplegable **Create inference pipeline** (Crear canalización de inferencia).
 
 1. Seleccione **Canalización de inferencias por lotes predeterminada**.
 
@@ -116,7 +116,7 @@ En esta sección, configurará la ejecución manual de una canalización y modif
     
 1. Cambie el parámetro para usar otro conjunto de datos.
     
-1. Seleccione **Run** (Ejecutar) para ejecutar la canalización.
+1. Seleccione **Submit** (Enviar) para ejecutar la canalización.
 
 ### <a name="use-the-rest-endpoint"></a>Uso del punto de conexión de REST
 
@@ -145,3 +145,4 @@ También puede establecer una canalización predeterminada nueva en la pestaña 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Siga el [tutorial](tutorial-designer-automobile-price-train-score.md) del diseñador para entrenar e implementar un modelo de regresión.
+''

@@ -1,17 +1,17 @@
 ---
-title: Cifrado de datos de Azure Database for MySQL con una clave administrada por el cliente
+title: 'Cifrado de datos con claves administradas por el cliente: Azure Database for MySQL'
 description: El cifrado de datos de Azure Database for MySQL con una clave administrada por el cliente le permite usar el método Bring Your Own Key (BYOK) para la protección de datos en reposo. También permite a las organizaciones implementar la separación de tareas en la administración de claves y datos.
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 552c6b5176babfc1a66f74f1bb6daa9370744b8f
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: a97fee619858aa024ff208b72d3b2594c30d2fd5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210438"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79299131"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>Cifrado de datos de Azure Database for MySQL con una clave administrada por el cliente
 
@@ -57,7 +57,7 @@ Para que un servidor de MySQL pueda usar claves administradas por el cliente alm
 
 El administrador del almacén de claves también puede [habilitar el registro de eventos de auditoría de Key Vault](../azure-monitor/insights/azure-key-vault.md), de forma que se puedan auditar más adelante.
 
-Cuando el servidor está configurado para usar la clave administrada por el cliente que se almacena en el almacén de claves, el servidor envía a este la DEK para que la cifre. Key Vault devuelve las DEK cifradas, la cual se almacena en la base de datos del usuario. De igual modo, cuando es necesario, el servidor envía la DEK protegida al almacén de claves para que la descifre. Los auditores pueden usar Azure Monitor para revisar los registros de eventos de auditoría de Key Vault, si está habilitado el registro.
+Cuando el servidor está configurado para usar la clave administrada por el cliente que se almacena en el almacén de claves, el servidor envía a este la DEK para que la cifre. Key Vault devuelve las DEK cifradas, que se almacenan en la base de datos del usuario. De igual modo, cuando es necesario, el servidor envía la DEK protegida al almacén de claves para que la descifre. Los auditores pueden usar Azure Monitor para revisar los registros de eventos de auditoría de Key Vault, si está habilitado el registro.
 
 ## <a name="requirements-for-configuring-data-encryption-for-azure-database-for-mysql"></a>Requisitos de configuración del cifrado de datos para Azure Database for MySQL
 

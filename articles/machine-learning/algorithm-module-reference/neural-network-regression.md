@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: d1e93c18b13e7171274eda2a7e8d07eefbefb592
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 3a591badab29a1669d109f01f8a93732704d2fd4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77920389"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79456105"
 ---
 # <a name="neural-network-regression-module"></a>Módulo Regresión de red neuronal
 
@@ -50,7 +50,7 @@ Las redes neuronales se pueden personalizar ampliamente. En esta sección se des
     
     Esta opción es mejor si ya está un poco familiarizado con las redes neuronales. Use el lenguaje Net# para definir la arquitectura de red.  
 
-##  <a name="bkmk_DefaultArchitecture"></a>Crear un modelo de red neuronal con la arquitectura predeterminada
+##  <a name="create-a-neural-network-model-using-the-default-architecture"></a><a name="bkmk_DefaultArchitecture"></a>Crear un modelo de red neuronal con la arquitectura predeterminada
 
 1.  Agregue el módulo **Neural Network Regression** (Regresión de red neuronal) a la canalización del diseñador. Puede encontrar este módulo en **Machine Learning**, **Inicializar**, en la categoría **Regresión**. 
   
@@ -86,7 +86,7 @@ Las redes neuronales se pueden personalizar ampliamente. En esta sección se des
     -   Si establece **Create trainer mode** (Crear modo entrenador) en **Single Parameter** (Parámetro único), use [Entrenar modelo](./train-model.md).  
   
    
-14. Ejecución de la canalización  
+14. Envíe la canalización.  
 
 ## <a name="results"></a>Results
 

@@ -4,12 +4,12 @@ description: Se describe cómo ver las operaciones de implementación de Azure R
 tags: top-support-issue
 ms.topic: conceptual
 ms.date: 11/26/2019
-ms.openlocfilehash: 753071a3edca62690b772f7b8d34fec43641466f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b0f196f86bed05094b04bfc20c7cef2248a91c65
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75474334"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79460303"
 ---
 # <a name="view-deployment-history-with-azure-resource-manager"></a>Visualización del historial de implementación con Azure Resource Manager
 
@@ -21,7 +21,7 @@ Para obtener ayuda con la resolución de errores de implementación concretos, c
 
 Se pueden ver los detalles sobre una implementación mediante Azure Portal, PowerShell, la CLI de Azure o la API REST. Cada implementación tiene un id. de correlación que se usa para realizar el seguimiento de los eventos relacionados. Puede resultar útil al trabajar con el soporte técnico para solucionar problemas de una implementación.
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Seleccione el grupo de recursos que quiera examinar.
 
@@ -33,11 +33,11 @@ Se pueden ver los detalles sobre una implementación mediante Azure Portal, Pow
 
    ![Selección de la implementación](./media/deployment-history/select-details.png)
 
-1. Se muestra un resumen de la implementación, incluido el id. de correlación. 
+1. Se muestra un resumen de la implementación, incluido el id. de correlación.
 
     ![Resumen de implementación](./media/deployment-history/show-correlation-id.png)
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Para enumerar todas las implementaciones de un grupo de recursos, use el comando [Get-AzResourceGroupDeployment](/powershell/module/az.resources/Get-AzResourceGroupDeployment).
 
@@ -57,29 +57,29 @@ Para obtener el Id. de correlación, use:
 (Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName ExampleDeployment).CorrelationId
 ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-Para mostrar la implementación de un grupo de recursos, use [az group deployment list](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-list).
-
-```azurecli-interactive
-az group deployment list --resource-group ExampleGroup
-```
-
-Para obtener una implementación concreta, use [az group deployment show](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-show).
+Para mostrar la implementación de un grupo de recursos, use [az deployment group list](/cli/azure/group/deployment?view=azure-cli-latest#az-deployment-group-list).
 
 ```azurecli-interactive
-az group deployment show --resource-group ExampleGroup --name ExampleDeployment
+az deployment group list --resource-group ExampleGroup
 ```
-  
+
+Para obtener una implementación concreta, use [az deployment group show](/cli/azure/group/deployment?view=azure-cli-latest#az-deployment-group-show).
+
+```azurecli-interactive
+az deployment group show --resource-group ExampleGroup --name ExampleDeployment
+```
+
 Para obtener el Id. de correlación, use:
 
 ```azurecli-interactive
-az group deployment show --resource-group ExampleGroup --name ExampleDeployment --query properties.correlationId
+az deployment group show --resource-group ExampleGroup --name ExampleDeployment --query properties.correlationId
 ```
 
-# <a name="httptabhttp"></a>[HTTP](#tab/http)
+# <a name="http"></a>[HTTP](#tab/http)
 
-Para enumerar las implementaciones de un grupo de recursos, use la operación siguiente. Para obtener el número de versión de la API más reciente que se va a usar en la solicitud, vea [Implementaciones: mostrar por grupo de recursos](/rest/api/resources/deployments/listbyresourcegroup). 
+Para enumerar las implementaciones de un grupo de recursos, use la operación siguiente. Para obtener el número de versión de la API más reciente que se va a usar en la solicitud, vea [Implementaciones: mostrar por grupo de recursos](/rest/api/resources/deployments/listbyresourcegroup).
 
 ```
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/?api-version={api-version}
@@ -113,7 +113,7 @@ La respuesta incluye el id. de correlación.
 
 Cada implementación puede incluir varias operaciones. Para ver más detalles acerca de una implementación, vea las operaciones de implementación. Cuando se produce un error en una implementación, las operaciones de implementación incluyen un mensaje de error.
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. En el Resumen de una implementación, seleccione **Detalles de la operación**.
 
@@ -123,7 +123,7 @@ Cada implementación puede incluir varias operaciones. Para ver más detalles ac
 
     ![Representación de los detalles de la operación](./media/deployment-history/see-operation-details.png)
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Con el fin de ver las operaciones de implementación para la implementación en un grupo de recursos, use el comando [Get-AzResourceGroupDeploymentOperation](/powershell/module/az.resources/get-azdeploymentoperation).
 
@@ -143,27 +143,27 @@ Para obtener el mensaje de estado de las operaciones erróneas, use el comando s
 ((Get-AzResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName ExampleDeploy ).Properties | Where-Object ProvisioningState -eq Failed).StatusMessage.error
 ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-Con el fin de ver las operaciones de implementación para la implementación en un grupo de recursos, use el comando [az group deployment operation list](/cli/azure/group/deployment/operation?view=azure-cli-latest#az-group-deployment-operation-list).
+Con el fin de ver las operaciones de implementación para la implementación en un grupo de recursos, use el comando [az deployment group operation list](/cli/azure/group/deployment/operation?view=azure-cli-latest#az-deployment-group-operation-list).
 
 ```azurecli-interactive
-az group deployment operation list --resource-group ExampleGroup --name ExampleDeployment
+az deployment group operation list --resource-group ExampleGroup --name ExampleDeployment
 ```
 
 Para ver las operaciones con errores, filtre las operaciones con el estado **Erróneas**.
 
 ```azurecli-interactive
-az group deployment operation list --resource-group ExampleGroup --name ExampleDeploy --query "[?properties.provisioningState=='Failed']"
+az deployment group operation list --resource-group ExampleGroup --name ExampleDeploy --query "[?properties.provisioningState=='Failed']"
 ```
 
 Para obtener el mensaje de estado de las operaciones erróneas, use el comando siguiente:
 
 ```azurecli-interactive
-az group deployment operation list --resource-group ExampleGroup --name ExampleDeploy --query "[?properties.provisioningState=='Failed'].properties.statusMessage.error"
+az deployment group operation list --resource-group ExampleGroup --name ExampleDeploy --query "[?properties.provisioningState=='Failed'].properties.statusMessage.error"
 ```
 
-# <a name="httptabhttp"></a>[HTTP](#tab/http)
+# <a name="http"></a>[HTTP](#tab/http)
 
 Para obtener las operaciones de implementación, use la operación siguiente. Para obtener el número de versión de la API más reciente que se va a usar en la solicitud, vea [Operaciones de implementación: mostrar](/rest/api/resources/deploymentoperations/list).
 

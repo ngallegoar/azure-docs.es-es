@@ -10,10 +10,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: e8f6c0454497b1cb1d62417e566e9662469c56d0
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74113001"
 ---
 # <a name="how-to-index-tables-from-azure-table-storage-with-azure-cognitive-search"></a>Indexación de documentos en Azure Blob Storage con Azure Cognitive Search
@@ -26,7 +26,7 @@ Puede configurar un indexador de Azure Table Storage mediante estos recursos:
 
 * [Azure Portal](https://ms.portal.azure.com)
 * [API REST](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations) de Azure Cognitive Search
-* [SDK de .NET](https://aka.ms/search-sdk) de Azure Cognitive Search
+* [SDK para .NET](https://aka.ms/search-sdk) de Azure Cognitive Search
 
 En este caso, demostramos el flujo mediante la API de REST. 
 
@@ -115,7 +115,7 @@ Este indexador se ejecuta cada dos horas. (El intervalo de programación se esta
 
 Para más información sobre la API de creación de indexador, consulte [Create Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer) (Creación de un indexador).
 
-Para más información sobre cómo definir las programaciones del indizador, consulte [Programación de indizadores para Azure Cognitive Search](search-howto-schedule-indexers.md).
+Para más información sobre cómo definir las programaciones del indexador, consulte [Programación de indexadores para Azure Cognitive Search](search-howto-schedule-indexers.md).
 
 ## <a name="deal-with-different-field-names"></a>Trabajo con distintos nombres de campos
 A veces, los nombres de los campos de un índice existente no coincidirán con los nombres de las propiedades de la tabla. Puede usar asignaciones de campos para asignar los nombres de propiedad procedentes de la tabla a los nombres de campo del índice de búsqueda. Para aprender más sobre las asignaciones de campos, consulte [Las asignaciones de campos de indizador de Azure Cognitive Search salvan las diferencias entre los orígenes de datos y los índices de búsqueda](search-indexer-field-mappings.md).
@@ -126,7 +126,7 @@ En Azure Cognitive Search, la clave del documento identifica de forma exclusiva 
 Como las filas de tablas tienen una clave compuesta, Azure Cognitive Search genera un campo sintético llamado `Key`, que es una concatenación de valores de clave de partición y clave de fila. Por ejemplo, si el valor PartitionKey de una fila es `PK1` y el valor RowKey es `RK1`, el valor del campo `Key` es `PK1RK1`.
 
 > [!NOTE]
-> El valor `Key` puede contener caracteres no válidos en claves de documentos, como guiones. Para tratar con caracteres no válidos, use la [función de asignación de campos](search-indexer-field-mappings.md#base64EncodeFunction) `base64Encode`. Si lo hace, recuerde utilizar también la codificación Base64 de seguridad de direcciones URL al pasar las claves de documento en las llamadas de la API como búsqueda.
+> El valor `Key` puede contener caracteres no válidos en claves de documentos, como guiones. Para tratar con caracteres no válidos, use la [función de asignación de campos](search-indexer-field-mappings.md#base64EncodeFunction)`base64Encode`. Si lo hace, recuerde utilizar también la codificación Base64 de seguridad de direcciones URL al pasar las claves de documento en las llamadas de la API como búsqueda.
 >
 >
 
@@ -148,7 +148,7 @@ Para indicar que determinados documentos se deben quitar del índice, puede usar
     }   
 
 <a name="Performance"></a>
-## <a name="performance-considerations"></a>Consideraciones sobre rendimiento
+## <a name="performance-considerations"></a>Consideraciones de rendimiento
 
 De forma predeterminada, Azure Cognitive Search usa el siguiente filtro de consulta: `Timestamp >= HighWaterMarkValue`. Como las tablas de Azure no tienen un índice secundario en el campo `Timestamp`, este tipo de consulta requiere un examen de toda la tabla y, por tanto, es lento para tablas grandes.
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/19/2019
-ms.openlocfilehash: 2a5d1178bd6dbd6f7cfdd2ec2af17b78836a38d7
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.openlocfilehash: d1c0652844556b545cf0617032d21b80dd67d198
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79096734"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79479848"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Orígenes de datos de supervisión para Azure Monitor
 Azure Monitor se basa en una [plataforma de datos de supervisión común](data-platform.md) que incluye [registros](data-platform-logs.md) y [métricas](data-platform-metrics.md). La recopilación de datos en esta plataforma permite que los datos de múltiples recursos se analicen juntos mediante un conjunto común de herramientas en Azure Monitor. Los datos de supervisión también pueden enviarse a otras ubicaciones para admitir determinados escenarios, y algunos recursos pueden realizar operaciones de escritura en otras ubicaciones para poder recopilarse en registros o métricas.
@@ -135,12 +135,11 @@ Instale el agente de Log Analytics para la supervisión y administración comple
 
 
 ### <a name="azure-monitor-for-vms"></a>Azure Monitor para máquinas virtuales 
-[Azure Monitor para VM](../insights/vminsights-overview.md) ofrece una experiencia de supervisión personalizada para máquinas virtuales que proporciona características más allá de la funcionalidad de Azure Monitor principal, incluido el estado del servicio y el estado de la máquina virtual. Requiere Dependency Agent en las máquinas virtuales de Windows y Linux que se integra con el agente de Log Analytics para recopilar datos detectados acerca de los procesos que se ejecutan en la máquina virtual y en las dependencias de procesos externos.
+[Azure Monitor para VM](../insights/vminsights-overview.md) ofrece una experiencia de supervisión personalizada para máquinas virtuales que proporciona características más allá de la funcionalidad de Azure Monitor principal. Requiere Dependency Agent en las máquinas virtuales de Windows y Linux que se integra con el agente de Log Analytics para recopilar datos detectados acerca de los procesos que se ejecutan en la máquina virtual y en las dependencias de procesos externos.
 
 | Destination | Descripción | Referencia |
 |:---|:---|:---|
 | Registros de Azure Monitor | Almacena los datos sobre los procesos y dependencias en el agente. | [Uso de la asignación de Azure Monitor para VM (versión preliminar) para conocer los componentes de una aplicación](../insights/vminsights-maps.md) |
-| Almacenamiento de máquinas virtuales | Azure Monitor para VM usa el agente de Log Analytics para almacenar la información de estado de mantenimiento en una ubicación personalizada. Esto solo está disponible en Azure Monitor para VM en Azure Portal, además de en la [API REST de Azure Resource Health](/rest/api/resourcehealth/). | [Descripción del mantenimiento de las máquinas virtuales de Azure](../insights/vminsights-health.md)<br>[API REST de Azure Resource Health](https://docs.microsoft.com/rest/api/resourcehealth/) |
 
 
 

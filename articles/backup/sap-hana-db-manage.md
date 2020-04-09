@@ -3,12 +3,12 @@ title: Administración de bases de datos de SAP HANA con copia de seguridad en m
 description: En este artículo, aprenderá las tareas comunes para administrar y supervisar las bases de datos de SAP HANA que se ejecutan en máquinas virtuales de Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: a9462f8608fc5ae35255ac321a0742b3f1834fde
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 89fd7f23163d301817e767771257d9bc6f4ed526
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75390630"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79480069"
 ---
 # <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>Administración y supervisión de bases de datos de SAP HANA de las que se ha realizado copia de seguridad
 
@@ -57,7 +57,7 @@ Para obtener más información sobre la supervisión, vaya a [Supervisión en Az
 
 Azure Backup facilita la administración de una base de datos de SAP HANA de la que se hizo una copia de seguridad a través de una gran cantidad de operaciones de administración con las que es compatible. En las siguientes secciones se detalla cada una de estas operaciones.
 
-### <a name="run-an-ad-hoc-backup"></a>Ejecute una copia de seguridad ad-hoc.
+### <a name="run-an-on-demand-backup"></a>Ejecución de una copia de seguridad a petición
 
 Las copias de seguridad se ejecutan según la programación de la directiva. Puede ejecutar una copia de seguridad a petición siguiendo estos pasos:
 
@@ -65,6 +65,16 @@ Las copias de seguridad se ejecutan según la programación de la directiva. Pue
 2. En **Elementos de copia de seguridad**, seleccione la máquina virtual que ejecuta la base de datos de SAP HANA y, a continuación, haga clic en **Hacer copia de seguridad ahora**.
 3. En **Realizar copia de seguridad ahora**, use el control del calendario para seleccionar el último día que debería retenerse el punto de recuperación. A continuación, haga clic en **Aceptar**.
 4. Supervise las notificaciones del portal. Puede supervisar el progreso del trabajo en el panel del almacén > **Trabajos de copia de seguridad** > **En curso**. Según el tamaño de la base de datos, la creación de la copia de seguridad inicial puede tardar un tiempo.
+
+### <a name="hana-native-client-integration"></a>Integración de cliente nativo de HANA
+
+Ahora, las copias de seguridad completas a petición desencadenadas desde cualquiera de los clientes nativos de HANA se mostrarán como una copia de seguridad completa en la página **Elementos de copia de seguridad**.
+
+![Última ejecución de copias de seguridad](./media/sap-hana-db-manage/last-backups.png)
+
+Estas copias de seguridad completas ad hoc también se mostrarán en la lista de puntos de restauración para la restauración.
+
+![Lista de puntos de restauración](./media/sap-hana-db-manage/list-restore-points.png)
 
 ### <a name="run-sap-hana-native-client-backup-on-a-database-with-azure-backup-enabled"></a>Ejecución de una copia de seguridad del cliente nativo de SAP HANA en una base de datos con Azure Backup habilitado
 
@@ -112,6 +122,37 @@ Puede cambiar la directiva subyacente para un elemento de copia de seguridad de 
 > Cualquier cambio en el período de retención se aplicará de manera retrospectiva a todos los puntos de recuperación más antiguos, además de los nuevos.
 >
 > Las directivas de copia de seguridad incrementales no se pueden usar para las bases de datos de SAP HANA. Las copias de seguridad incrementales no se admite actualmente para estas bases de datos.
+
+### <a name="modify-policy"></a>Modificación de directivas
+
+Modifique la directiva para cambiar el tipo, la frecuencia o la duración de retención de las copias de seguridad.
+
+>[!NOTE]
+>Cualquier cambio en el período de retención se aplicará con efectos retroactivos a todos los puntos de recuperación anteriores, además de a los nuevos.
+
+1. En el panel del almacén, vaya a **Administrar > Directivas de copia de seguridad** y elija la directiva que desea editar.
+
+   ![Selección de la directiva que editar](./media/sap-hana-db-manage/manage-backup-policies.png)
+
+1. Seleccione **Modificar**.
+
+   ![Selección de Modificar](./media/sap-hana-db-manage/modify-policy.png)
+
+1. Elija la frecuencia para los tipos de copia de seguridad.
+
+   ![Selección de frecuencia de copia de seguridad](./media/sap-hana-db-manage/choose-frequency.png)
+
+La modificación de directivas afectará a todos los elementos de copia de seguridad asociados y al desencadenador de los trabajos de **configuración de la protección** correspondientes.
+
+### <a name="inconsistent-policy"></a>Directiva incoherente
+
+A veces, una operación de modificación de directiva puede conducir a una versión de directiva **incoherente** para algunos elementos de copia de seguridad. Esto sucede cuando el trabajo de **protección de configuración**  correspondiente fracasa para el elemento de copia de seguridad después de que se desencadene una operación de modificación de directiva. Aparece como se indica a continuación en la vista del elemento de copia de seguridad:
+
+![Directiva incoherente](./media/sap-hana-db-manage/inconsistent-policy.png)
+
+Puede corregir la versión de directiva de todos los elementos afectados en un solo clic:
+
+![Corrección de la versión de la directiva](./media/sap-hana-db-manage/fix-policy-version.png)
 
 ### <a name="stop-protection-for-an-sap-hana-database"></a>Detención de la protección para una base de datos de SAP HANA
 
@@ -167,7 +208,7 @@ Obtenga información sobre cómo continuar con la copia de seguridad de una base
 
 Obtenga información sobre cómo continuar con la copia de seguridad de una base de datos de SAP HANA cuyo [Id. de seguridad no haya cambiado después de la actualización](backup-azure-sap-hana-database-troubleshoot.md#upgrading-without-an-sid-change).
 
-### <a name="unregister-an-sap-hana-database"></a>Anulación del registro de una base de datos de SAP HANA
+### <a name="unregister-an-sap-hana-instance"></a>Anulación del registro de una instancia de SAP HANA
 
 Anule el registro de una instancia de SAP HANA después de deshabilitar la protección, pero antes de eliminar el almacén:
 
@@ -184,6 +225,12 @@ Anule el registro de una instancia de SAP HANA después de deshabilitar la prote
 * Haga clic con el botón derecho en la instancia protegida y seleccione **Anular registro**.
 
    ![Seleccionar Anular registro](./media/sap-hana-db-manage/unregister.png)
+
+### <a name="re-register-extension-on-the-sap-hana-server-vm"></a>Volver a registrar la extensión en la máquina virtual de SAP HANA
+
+A veces, la extensión de la carga de trabajo en la máquina virtual puede verse afectada por diversas razones. En tales casos, todas las operaciones que se desencadenen en la máquina virtual comenzarán a generar errores. Quizás tenga que volver a registrar la extensión en la máquina virtual. La operación de repetición del registro vuelve a instalar la extensión de copia de seguridad de cargas de trabajo en la máquina virtual para que las operaciones puedan continuar.
+
+Use esta opción con precaución; cuando se desencadena en una máquina virtual que ya tiene una extensión correcta, esta operación hará que la extensión se reinicie. Esto puede dar lugar a errores en todos los trabajos en curso. Compruebe uno o varios de los [síntomas](backup-azure-sap-hana-database-troubleshoot.md#re-registration-failures) antes de desencadenar la operación de repetición del registro.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

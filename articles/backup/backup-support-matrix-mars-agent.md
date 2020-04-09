@@ -3,12 +3,12 @@ title: Matriz de compatibilidad para el agente de MARS
 description: En este artículo se resume la compatibilidad con Azure Backup al realizar copias de seguridad de máquinas que ejecutan el agente de Microsoft Azure Recovery Services (MARS).
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: ef57688dd7b5ccee4e71ac0a54138ac567320aa2
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 6085bc647c06b5907282460a2d8706b8549e1bc2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77582643"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79226052"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matriz de compatibilidad para la copia de seguridad con el agente de Microsoft Azure Recovery Services (MARS)
 
@@ -85,7 +85,7 @@ Con el emparejamiento de Microsoft, seleccione los siguientes servicios o region
 - Región de Microsoft Azure (según la ubicación del almacén de Recovery Services)
 - Azure Storage (según la ubicación del almacén de Recovery Services)
 
-Para obtener más información, consulte los [requisitos de enrutamiento de ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
+Para más información, consulte los [requisitos de enrutamiento de ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
 
 >[!NOTE]
 >El emparejamiento público está en desuso para circuitos nuevos.
@@ -97,7 +97,7 @@ Para obtener más información, consulte los [requisitos de enrutamiento de Expr
 Control del ancho de banda | Compatible. En el agente de MARS, use **Cambiar propiedades** para ajustar el ancho de banda.
 Limitación de la red | No está disponible para las máquinas de copia de seguridad que ejecutan Windows Server 2008 R2, Windows Server 2008 SP2 o Windows 7.
 
-## <a name="support-for-direct-backups"></a>Compatibilidad con copias de seguridad directas
+## <a name="supported-operating-systems"></a>Sistemas operativos admitidos
 
 >[!NOTE]
 > El agente de MARS no es compatible con las SKU de Windows Server Core.
@@ -111,17 +111,30 @@ Los sistemas operativos deben ser de 64 bits y ejecutar los Service Pack y actu
 
 **Sistema operativo** | **Archivos/carpetas** | **Estado del sistema** | **Requisitos de software o módulo**
 --- | --- | --- | ---
-Windows 10 (Enterprise, Pro, Home) | Sí | Sin |  Comprobar la versión de servidor correspondiente para los requisitos de software o módulo
-Windows 8.1 (Enterprise, Pro)| Sí |Sin | Comprobar la versión de servidor correspondiente para los requisitos de software o módulo
-Windows 8 (Enterprise, Pro) | Sí | Sin | Comprobar la versión de servidor correspondiente para los requisitos de software o módulo
-Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Basic, Starter) | Sí | Sin | Comprobar la versión de servidor correspondiente para los requisitos de software o módulo
+Windows 10 (Enterprise, Pro, Home) | Sí | No |  Comprobar la versión de servidor correspondiente para los requisitos de software o módulo
+Windows 8.1 (Enterprise, Pro)| Sí |No | Comprobar la versión de servidor correspondiente para los requisitos de software o módulo
+Windows 8 (Enterprise, Pro) | Sí | No | Comprobar la versión de servidor correspondiente para los requisitos de software o módulo
 Windows Server 2016 (Standard, Datacenter, Essentials) | Sí | Sí | - .NET 4.5 <br> Windows PowerShell <br> - Versión compatible más reciente de Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0
 Windows Server 2012 R2 (Standard, Datacenter, Foundation, Essentials) | Sí | Sí | - .NET 4.5 <br> Windows PowerShell <br> - Versión compatible más reciente de Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0
 Windows Server 2012 (Standard, Datacenter, Foundation) | Sí | Sí |- .NET 4.5 <br> -Windows PowerShell <br> - Versión compatible más reciente de Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0 <br> - Administración y mantenimiento de imágenes de implementación (DISM.exe)
-Windows Storage Server 2016/2012 R2/2012 (Standard, Workgroup) | Sí | Sin | - .NET 4.5 <br> Windows PowerShell <br> - Versión compatible más reciente de Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0
+Windows Storage Server 2016/2012 R2/2012 (Standard, Workgroup) | Sí | No | - .NET 4.5 <br> Windows PowerShell <br> - Versión compatible más reciente de Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0
 Windows Server 2019 (Standard, Datacenter, Essentials) | Sí | Sí | - .NET 4.5 <br> Windows PowerShell <br> - Versión compatible más reciente de Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0
 
 Para obtener más información, consulte el artículo sobre los [Sistemas operativos de MABS y DPM compatibles](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems).
+
+### <a name="operating-systems-at-end-of-support"></a>Sistemas operativos al final del soporte técnico
+
+Los siguientes sistemas operativos se encuentran al final del soporte técnico y se recomienda encarecidamente actualizar el sistema operativo para que siga estando protegido.
+
+Si debido a una serie de compromisos existentes no es posible actualizar el sistema operativo, considere la posibilidad de migrar los servidores Windows a máquinas virtuales de Azure y utilice las copias de seguridad de las máquinas virtuales de Azure para seguir estando protegido. Visite la [página de migración](https://azure.microsoft.com/migration/windows-server/) para obtener más información acerca de la migración de servidores Windows.
+
+En el caso de entornos locales u hospedados, donde no puede actualizar el sistema operativo ni migrar a Azure, active las Actualizaciones de seguridad ampliada para que las máquinas sigan estando protegidas. Tenga en cuenta que las Actualizaciones de seguridad ampliada solo son aplicables para algunas ediciones concretas. Visite la [página de preguntas frecuentes](https://www.microsoft.com/cloud-platform/extended-security-updates) para más información.
+
+| **Sistema operativo**                                       | **Archivos/carpetas** | **Estado del sistema** | **Requisitos de software o módulo**                           |
+| ------------------------------------------------------------ | ----------------- | ------------------ | ------------------------------------------------------------ |
+| Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Basic, Starter) | Sí               | No                 | Comprobar la versión de servidor correspondiente para los requisitos de software o módulo |
+| Windows Server 2008 R2 (Standard, Enterprise, Datacenter, Foundation) | Sí               | Sí                | - .NET 3.5, .NET 4.5 <br>  Windows PowerShell <br>  - Versión compatible de Microsoft VC++ Redistributable <br>  - Microsoft Management Console (MMC) 3.0 <br>  - Administración y mantenimiento de imágenes de implementación (DISM.exe) |
+| Windows Server 2008 SP2 (Standard, Datacenter, Foundation)  | Sí               | No                 | - .NET 3.5, .NET 4.5 <br>  Windows PowerShell <br>  - Versión compatible de Microsoft VC++ Redistributable <br>  - Microsoft Management Console (MMC) 3.0 <br>  - Administración y mantenimiento de imágenes de implementación (DISM.exe) <br>  - Base de Virtual Server 2005 + KB KB948515 |
 
 ## <a name="backup-limits"></a>Límites de Backup
 
@@ -145,7 +158,7 @@ Windows 7| 1700 GB
 
 **Tipo** | **Soporte técnico**
 --- | ---
-Cifrados| Compatible.
+Cifrado<sup>*</sup>| Compatible.
 Compressed | Compatible.
 Dispersos | Compatible.
 Comprimidos y dispersos |Compatible.
@@ -156,6 +169,8 @@ Flujo comprimido| No compatible. Se omite.
 Flujo disperso| No compatible. Se omite.
 OneDrive (los archivos sincronizados son flujos dispersos).| No compatible.
 Carpetas con la replicación DFS habilitada | No compatible.
+
+\* Asegúrese de que el agente de MARS tenga acceso a los certificados necesarios para acceder a los archivos cifrados. Los archivos inaccesibles se omitirán.
 
 ## <a name="supported-drives-or-volumes-for-backup"></a>Unidades o volúmenes compatibles con la copia de seguridad
 

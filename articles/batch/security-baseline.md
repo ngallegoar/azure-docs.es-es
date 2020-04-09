@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: af0466299d1f972fe9334beb5f31c886c1928a1c
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.openlocfilehash: a9569c1f5de797c77f447b5df15e85a57e8be84b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78329006"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79472935"
 ---
 # <a name="azure-security-baseline-for-batch"></a>Línea de base de seguridad de Azure para Batch
 
@@ -788,10 +788,10 @@ Opcionalmente, si dispone de Rapid7, Qualys o cualquier otra suscripción de pla
 **Guía**: use Azure Resource Graph para consultar o detectar todos los recursos (por ejemplo, proceso, almacenamiento, red, etc.) dentro de las suscripciones. Asegúrese de que tiene los permisos adecuados (lectura) en el inquilino y de que puede enumerar todas las suscripciones de Azure, así como los recursos de las suscripciones.
 
 
-Aunque los recursos clásicos de Azure se pueden detectar a través de Resource Graph, se recomienda encarecidamente crear y usar los recursos de Azure Resource Manager (ARM) en adelante.
+Aunque los recursos clásicos de Azure se pueden detectar a través de Azure Resource Graph Explorer, se recomienda encarecidamente crear y usar los recursos de Azure Resource Manager (ARM) que figuran a continuación.
 
 
-Creación de consultas con Azure Graph:
+Creación de consultas con Azure Resource Graph Explorer:
 
 https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
@@ -840,7 +840,7 @@ https://docs.microsoft.com/azure/governance/management-groups/create
 
 
 
-Creación y uso de etiquetas:
+Cómo crear y usar etiquetas:
 
 https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
@@ -870,7 +870,7 @@ Use Azure Resource Graph para consultar o detectar recursos dentro de las suscri
 Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 
-Creación de consultas con Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Creación de consultas con Azure Resource Graph Explorer: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 **Supervisión de Azure Security Center**: no disponible actualmente
 

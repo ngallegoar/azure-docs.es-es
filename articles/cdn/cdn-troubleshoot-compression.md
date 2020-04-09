@@ -3,8 +3,8 @@ title: Solución de problemas de compresión de archivos en Azure CDN | Microsof
 description: Solucione los problemas con la compresión de archivos de Azure CDN.
 services: cdn
 documentationcenter: ''
-author: zhangmanling
-manager: erikre
+author: sohamnc
+manager: danielgi
 editor: ''
 ms.assetid: a6624e65-1a77-4486-b473-8d720ce28f8b
 ms.service: azure-cdn
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 5195dc3c47d2a4377147b2ef49b23bab6b3fee77
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: aff2dadee365fcdc7e14070714aa1d2cbba901ff
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67593317"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79476430"
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>Solución de problemas de compresión de archivos de red CDN
 Este artículo le ayudará a solucionar los problemas con la [compresión de archivos de red CDN](cdn-improve-performance.md).
 
-Si necesita más ayuda en cualquier punto de este artículo, puede ponerse en contacto con los expertos de Azure en [los foros de MSDN Azure o de desbordamiento de pila](https://azure.microsoft.com/support/forums/). Como alternativa, también puede registrar un incidente de soporte técnico de Azure. Vaya al [sitio de soporte técnico de Azure](https://azure.microsoft.com/support/options/) y haga clic en **Obtener soporte**.
+Si necesita más ayuda en cualquier momento con este artículo, puede ponerse en contacto con los expertos de Azure en [los foros de MSDN Azure y de desbordamiento de pila](https://azure.microsoft.com/support/forums/). Como alternativa, también puede registrar un incidente de soporte técnico de Azure. Vaya al [sitio de soporte técnico de Azure](https://azure.microsoft.com/support/options/) y haga clic en **Obtener soporte**.
 
 ## <a name="symptom"></a>Síntoma
 Está habilitada la compresión para el punto de conexión, pero se devuelven archivos sin comprimir.
@@ -42,6 +42,7 @@ Hay varias causas posibles, por nombrar algunas:
 * El contenido solicitado no es apto para la compresión.
 * La compresión no está habilitada para el tipo de archivo solicitado.
 * La solicitud HTTP no incluía un encabezado que solicitara un tipo de compresión válido.
+* El origen está enviando contenido fragmentado.
 
 ## <a name="troubleshooting-steps"></a>Pasos para solucionar problemas
 > [!TIP]

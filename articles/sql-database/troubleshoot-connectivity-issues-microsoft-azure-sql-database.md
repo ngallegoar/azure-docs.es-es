@@ -9,16 +9,16 @@ author: ramakoni1
 ms.author: ramakoni
 ms.reviewer: carlrab,vanto
 ms.date: 01/14/2020
-ms.openlocfilehash: 6baf9d4edba9ba8db008c5c6a8d7af6832ba3273
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 578d076dfc2fc383051c0c3a8528cdbb0fbcdb15
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77591241"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79208780"
 ---
 # <a name="troubleshooting-connectivity-issues-and-other-errors-with-microsoft-azure-sql-database"></a>Solución de problemas de conectividad y otros errores de Microsoft Azure SQL Database
 
-Cuando la conexión a Azure SQL Database no se logra establecer, se reciben mensajes de error. El origen de estos problemas de conexión puede ser la reconfiguración de Azure SQL Database, la configuración de firewall, el tiempo de expiración de conexión, la información de inicio de sesión incorrecta o un error al aplicar procedimientos recomendados e instrucciones de diseño durante el proceso de [diseño de la aplicación] (sql-database-develop-overview.md). Además, si se alcanza el límite máximo en algunos recursos de Azure SQL Database, no se puede conectar a Azure SQL Database.
+Cuando la conexión a Azure SQL Database no se logra establecer, se reciben mensajes de error. El origen de estos problemas de conexión puede ser la reconfiguración de Azure SQL Database, la configuración de firewall, el tiempo de expiración de conexión, la información de inicio de sesión incorrecta o un error al aplicar procedimientos recomendados e instrucciones de diseño durante el proceso de [diseño de la aplicación](sql-database-develop-overview.md). Además, si se alcanza el límite máximo en algunos recursos de Azure SQL Database, no se puede conectar a Azure SQL Database.
 
 ## <a name="transient-fault-error-messages-40197-40613-and-others"></a>Mensajes de error transitorios (40197, 40613 y otros)
 

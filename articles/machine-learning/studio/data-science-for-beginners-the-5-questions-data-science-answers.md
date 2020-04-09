@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: feb49b4e12bd304b49e0c50cd43ed0be52761532
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: af0611e121228a587e159bd4e6529c807132d16d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838780"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79204450"
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Ciencia de datos para principiantes, vídeo 1: Las cinco preguntas a las que responde la ciencia de datos
 Obtenga una rápida introducción a la ciencia de datos en la serie *Ciencia de datos para principiantes*, con cinco vídeos breves, que protagoniza una de los científicos de datos más importantes. Estos vídeos son básicos pero útiles si está interesado en elaborar ciencia de datos o trabajar con científicos de datos.
@@ -83,7 +83,7 @@ Si tiene una tarjeta de crédito, ya se habrá beneficiado de la detección de a
 Esta pregunta puede ser útil de muchas formas. Por ejemplo:
 
 * Si tiene un automóvil con indicadores de presión, puede que quiera saber: ¿la lectura de este medidor de presión es normal?
-* Si está supervisando internet, quizá quiera saber: ¿Es este un mensaje típico de internet?
+* Si está supervisando Internet, quizá quiera saber: ¿Es este un mensaje típico de internet?
 
 La detección de anomalías marca eventos o comportamientos inesperados o poco habituales. Proporciona pistas sobre dónde buscar problemas.
 

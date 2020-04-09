@@ -11,10 +11,10 @@ ms.service: genomics
 ms.topic: conceptual
 ms.date: 05/23/2018
 ms.openlocfilehash: ddfe8b6010ddc241364ccf7b2d4f5f648bd3ce0e
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72248607"
 ---
 # <a name="how-to-contact-microsoft-genomics-for-support"></a>Cómo ponerse en contacto con Microsoft Genomics para obtener soporte técnico
@@ -24,26 +24,26 @@ Esta introducción describe cómo enviar una solicitud de soporte técnico para 
 ## <a name="file-a-support-ticket-through-the-azure-portal"></a>Enviar una incidencia de soporte técnico mediante Azure Portal
 Primero, inicie sesión con su cuenta de Azure en Azure Portal. Haga clic en el signo de interrogación en la esquina superior derecha y seleccione `Help + support`.
 
-![Póngase en contacto con el equipo de soporte técnico en Azure Portal](./media/file-support-ticket/genomics-contact-support.png "Póngase en contacto con el equipo de soporte técnico en Azure Portal") 
+![Póngase en contacto con el soporte técnico en Azure Portal](./media/file-support-ticket/genomics-contact-support.png "Póngase en contacto con el soporte técnico en Azure Portal") 
 
 
 
 Después, seleccione `New support request`. 
 
-![Nueva solicitud de soporte técnico](./media/file-support-ticket/new-support-request.png "New support request") 
+![Nueva solicitud de soporte técnico](./media/file-support-ticket/new-support-request.png "Nueva solicitud de soporte") 
 
 Rellene `Basics`, incluido `Issue type` y su `Subscription`. Seleccione el `Issue type` más relevante para su problema; por ejemplo en la imagen siguiente, se ha seleccionado `Technical`. No olvide seleccionar `Microsoft Genomics` como el servicio en cuestión.  `Microsoft Genomics` se mostrará en la categoría `Intelligence and Analytics`.   Después de seleccionar `Microsoft Genomics`, también se le pedirá que proporcione el tipo de `Support plan`.
 
-![Conceptos básicos de la solicitud de soporte técnico](./media/file-support-ticket/support-request-basics.png "Support request basics")
+![Conceptos básicos de una solicitud de soporte técnico](./media/file-support-ticket/support-request-basics.png "Conceptos básicos de una solicitud de soporte técnico")
 
 
 Después, agregue los detalles sobre el problema. La herramienta de la solicitud también incluye vínculos a documentación existente que puede resultarle útil. En este ejemplo, el problema está relacionado con `Genomics keys`, pero también hay disponibles otras opciones diferentes.
 
-![Problema de la solicitud de soporte técnico](./media/file-support-ticket/support-request-problem.png "Support request problem")
+![Información sobre el problema en la solicitud de soporte técnico](./media/file-support-ticket/support-request-problem.png "Información sobre el problema en la solicitud de soporte técnico")
 
 Por último, agregue la información de contacto y seleccione `Create` en la parte inferior de la pantalla para enviar la solicitud de soporte técnico.
 
-![Contacto de solicitud de soporte técnico](./media/file-support-ticket/support-request-contact.png "Support request contact")
+![Información de contacto en la solicitud de soporte técnico](./media/file-support-ticket/support-request-contact.png "Información de contacto en la solicitud de soporte técnico")
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo aprendió a enviar una solicitud de soporte técnico. También puede resolver problemas comunes mediante las [Preguntas frecuentes ](frequently-asked-questions-genomics.md) y la [Guía de solución de problemas](troubleshooting-guide-genomics.md). 

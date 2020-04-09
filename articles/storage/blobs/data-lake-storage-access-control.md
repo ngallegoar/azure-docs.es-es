@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 03/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 6507c2a2d1100d480c879c73861c02e477d38416
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 192e46fd7f86b6053eaf658fa65e3c6cdfa3a4e7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026139"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79528615"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Control de acceso en Azure Data Lake Storage Gen2
 
@@ -29,6 +29,9 @@ Normalmente, los recursos de Azure están limitados a los recursos de nivel supe
 
 Para aprender a asignar roles a las entidades de seguridad en el ámbito de la cuenta de almacenamiento, consulte [Concesión de acceso a datos de blob y cola de Azure con RBAC en Azure Portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
+> [!NOTE]
+> Los usuarios invitados no puede crear asignaciones de roles.
+
 ### <a name="the-impact-of-role-assignments-on-file-and-directory-level-access-control-lists"></a>Impacto de las asignaciones de roles en las listas de control de acceso en el nivel de archivo y directorio
 
 Aunque el uso de las asignaciones de roles RBAC es un mecanismo eficaz para controlar los permisos de acceso, se trata de un mecanismo mucho más detallado en relación con las ACL. La granularidad más pequeña para RBAC es el nivel de contenedor y esto se evaluará con mayor prioridad que las listas ACL. Por lo tanto, si asigna un rol a una entidad de seguridad en el ámbito de un contenedor, esa entidad de seguridad tendrá el nivel de autorización asociado a ese rol para TODOS los directorios y archivos de ese contenedor, independientemente de las asignaciones de ACL.
@@ -42,7 +45,7 @@ Cuando a una entidad de seguridad se le conceden permisos de datos RBAC mediante
 
 Azure Data Lake Storage Gen2 admite los métodos de autenticación con clave compartida y firma de acceso compartido. Una característica de estos métodos de autenticación es que no se asocia ninguna identidad con el autor de la llamada y, en consecuencia, no se puede realizar la autorización basada en permisos de la entidad de seguridad.
 
-En el caso de la clave compartida, el autor de la llamada obtiene acceso de “superusuario” de forma eficaz, lo que conlleva un acceso total a todas las operaciones en todos los recursos, como la configuración del propietario y el cambio de las ACL.
+En el caso de la clave compartida, el autor de la llamada obtiene acceso de “superusuario” de forma eficaz, lo que significa que puede acceder plenamente a todas las operaciones en todos los recursos, lo que incluye la configuración del propietario y el cambio de las ACL.
 
 Los tokens de SAS incluyen permisos permitidos como parte del token. Los permisos incluidos en el token de SAS se aplican con eficacia a todas las decisiones de autorización, pero no se realizan comprobaciones de ACL adicionales.
 
@@ -50,9 +53,13 @@ Los tokens de SAS incluyen permisos permitidos como parte del token. Los permiso
 
 Puede asociar una entidad de seguridad a un nivel de acceso de archivos y directorios. Estas asociaciones se capturan en una *lista de control de acceso (ACL)* . Cada archivo y directorio de la cuenta de almacenamiento tiene una lista de control de acceso.
 
+> [!NOTE]
+> Las ACL se aplican solo a las entidades de seguridad del mismo inquilino. No se puede asociar un usuario invitado a un nivel de acceso.  
+
 Si ha asignado un rol a una entidad de seguridad en el nivel de cuenta de almacenamiento, puede usar listas de control de acceso para conceder a esta entidad de seguridad privilegios de acceso elevados a archivos y directorios específicos.
 
 No puede usar listas de control de acceso para proporcionar un nivel de acceso que sea inferior a un nivel concedido por una asignación de roles. Por ejemplo, si asigna el rol [Colaborador de datos de Storage Blob](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) a una entidad de seguridad, no puede usar listas de control de acceso para impedir que esa entidad de seguridad escriba en un directorio.
+
 
 ### <a name="set-file-and-directory-level-permissions-by-using-access-control-lists"></a>Establecimiento de los permisos en el nivel de archivo y de directorio mediante listas de control de acceso
 
@@ -175,7 +182,7 @@ El grupo propietario se puede cambiar por:
 
 El siguiente seudocódigo representa el algoritmo de comprobación de acceso de las cuentas de almacenamiento.
 
-```
+```console
 def access_check( user, desired_perms, path ) : 
   # access_check returns true if user has the desired permissions on the path, false otherwise
   # user is the identity that wants to perform an operation on path
@@ -235,7 +242,7 @@ El bit persistente no se muestra en Azure Portal.
 
 Cuando se crea un archivo o directorio en un directorio existente, la ACL predeterminada del directorio principal determina:
 
-- Una ACL de acceso y una ACL predeterminada del directorio secundario
+- Una ACL de acceso y una ACL predeterminada del directorio secundario.
 - Una ACL de acceso de un archivo secundario (los archivos no tienen ninguna ACL predeterminada).
 
 #### <a name="umask"></a>umask
@@ -254,7 +261,7 @@ El valor de umask usado por Azure Data Lake Storage Gen2 significa realmente que
 
 El siguiente pseudocódigo muestra cómo se aplica umask al crear las ACL de un elemento secundario.
 
-```
+```console
 def set_default_acls_for_new_child(parent, child):
     child.acls = []
     for entry in parent.acls :
@@ -284,7 +291,7 @@ Utilice siempre grupos de seguridad de Azure AD como la entidad asignada en las 
 
 ### <a name="which-permissions-are-required-to-recursively-delete-a-directory-and-its-contents"></a>¿Qué permisos son necesarios para eliminar de forma recursiva un directorio y su contenido?
 
-- El autor de la llamada tiene los permisos de "superusuario",
+- El autor de la llamada tiene permisos de "superusuario",
 
 Or
 
@@ -316,10 +323,11 @@ Cuando defina las ACL para entidades de servicio, es importante que utilice el i
 
 Para obtener el OID de la entidad de servicio que corresponde a un registro de aplicación, puede usar el comando `az ad sp show`. Especifique el identificador de aplicación como parámetro. Este es un ejemplo sobre cómo obtener el OID de la entidad de servicio que corresponde a un registro de aplicación con el identificador de aplicación = 18218b12-1895-43e9-ad80-6e8fc1ea88ce. Ejecute el siguiente comando en la CLI de Azure:
 
+```azurecli
+az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
 ```
-$ az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
-<<OID will be displayed>>
-```
+
+Se mostrará OID.
 
 Cuando tenga el OID correcto de la entidad de servicio, vaya a la página **Administrar acceso** del Explorador de Azure Storage para agregar el OID y asignar los permisos adecuados para este. No olvide seleccionar **Guardar**.
 

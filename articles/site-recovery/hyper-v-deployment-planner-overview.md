@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 7/29/2019
+ms.date: 3/13/2020
 ms.author: mayg
-ms.openlocfilehash: 72b1311227f5c9f9efc35b2940d3c843a21dc261
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 07c1f7f258dbea7bcf7a6e7ea51fdcfdfaa006aa
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954013"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79368730"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Información sobre Azure Site Recovery Deployment Planner para la recuperación ante desastres de Hyper-V en Azure
 
@@ -72,19 +72,19 @@ La herramienta proporciona los detalles siguientes:
 
 | | **VMware a Azure** |**Hyper-V en Azure**|**De Azure a Azure**|**De Hyper-V a un sitio secundario**|**Sitio VMware en un sitio secundario**
 --|--|--|--|--|--
-Escenarios admitidos |Sí|Sí|Sin|Sí*|Sin
+Escenarios admitidos |Sí|Sí|No|Sí*|No
 Versión admitida | vCenter 6.7, 6.5, 6.0 o 5.5| Windows Server 2016, Windows Server 2012 R2 | N/D |Windows Server 2016, Windows Server 2012 R2|N/D
 Configuración admitida|vCenter, ESXi| Clúster de Hyper-V, host de Hyper-V|N/D|Clúster de Hyper-V, host de Hyper-V|N/D|
 Número de servidores cuyo perfil puede generarse por instancia en ejecución de Azure Site Recovery Deployment Planner |Único (los perfiles de las máquinas virtuales que pertenecen a una instancia de vCenter Server o a un servidor ESXi se pueden generar a la vez)|Varios (los perfiles de las máquinas virtuales en varios hosts o clústeres de hosts se pueden generar a la vez)| N/D |Varios (los perfiles de las máquinas virtuales en varios hosts o clústeres de hosts se pueden generar a la vez)| N/D
 
 *La herramienta es principalmente para un escenario de recuperación ante desastres de Hyper-V en Azure. En un escenario de recuperación ante desastres de Hyper-V en un sitio secundario, solo se puede usar para conocer recomendaciones sobre el origen como el ancho de banda de red requerido, el espacio de almacenamiento disponible necesario en cada uno de los servidores Hyper-V de origen y las cifras referentes al procesamiento por lotes de replicación inicial y a las definiciones de los lotes.  Omita las recomendaciones de Azure y los costos del informe. Además, la operación Get Throughput (Obtención de rendimiento) no es aplicable al escenario de recuperación ante desastres de Hyper-V a un sitio secundario.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 La herramienta tiene tres fases principales de Hyper-V: obtener la lista de máquinas virtuales, generación de perfiles y generación de informes. También hay una cuarta opción para calcular solo el rendimiento. Los requisitos para el servidor en el que se deben ejecutar las distintas fases se presentan en la tabla siguiente:
 
-| Requisito del servidor | DESCRIPCIÓN |
+| Requisito del servidor | Descripción |
 |---|---|
-|Obtención de la lista de máquinas virtuales, generación de perfiles y medición de rendimiento |<ul><li>Sistema operativo: Microsoft Windows Server 2016 o Microsoft Windows Server 2012 R2 </li><li>Configuración de la máquina: 8 vCPUs, 16 GB de RAM y disco duro de 300 GB</li><li>[Microsoft .NET 4.5 Framework](https://aka.ms/dotnet-framework-45)</li><li>[Microsoft Visual C++ Redistributable para Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Acceso a través de Internet a Azure desde este servidor</li><li>Cuenta de almacenamiento de Azure</li><li>Acceso de administrador en el servidor</li><li>Mínimo de 100 GB de espacio libre en disco (asumiendo 1000 máquinas virtuales con un promedio de tres discos cada una, con perfil para 30 días)</li><li>La máquina virtual desde donde se ejecuta la herramienta Azure Site Recovery Deployment Planner debe agregarse a la lista TrustedHosts de todos los servidores Hyper-V.</li><li>Los servidores Hyper-V deben agregarse a la lista TrustedHosts de la máquina virtual del cliente desde donde se esté ejecutando la herramienta. [Más información sobre cómo agregar servidores a la lista TrustedHosts](#steps-to-add-servers-into-trustedhosts-list). </li><li> La herramienta debe ejecutarse con privilegios de administrador desde PowerShell o la consola de línea de comandos en el cliente</ul></ul>|
+|Obtención de la lista de máquinas virtuales, generación de perfiles y medición de rendimiento |<ul><li>Sistema operativo: Microsoft Windows Server 2016 o Microsoft Windows Server 2012 R2 </li><li>Configuración de la máquina: 8 vCPUs, 16 GB de RAM y disco duro de 300 GB</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Microsoft Visual C++ Redistributable para Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Acceso a Internet en Azure (*.blob.core.windows.net) desde este servidor, puerto 443<br>[Es opcional. Puede elegir especificar el ancho de banda disponible durante la generación de informes de forma manual.]</li><li>Cuenta de almacenamiento de Azure</li><li>Acceso de administrador en el servidor</li><li>Mínimo de 100 GB de espacio libre en disco (asumiendo 1000 máquinas virtuales con un promedio de tres discos cada una, con perfil para 30 días)</li><li>La máquina virtual desde donde se ejecuta la herramienta Azure Site Recovery Deployment Planner debe agregarse a la lista TrustedHosts de todos los servidores Hyper-V.</li><li>Los servidores Hyper-V deben agregarse a la lista TrustedHosts de la máquina virtual del cliente desde donde se esté ejecutando la herramienta. [Más información sobre cómo agregar servidores a la lista TrustedHosts](#steps-to-add-servers-into-trustedhosts-list). </li><li> La herramienta debe ejecutarse con privilegios de administrador desde PowerShell o la consola de línea de comandos en el cliente</ul></ul>|
 | Generación de informes | Un PC con Windows o Windows Server con Microsoft Excel 2013, o cualquier versión posterior |
 | Permisos de usuario | Cuenta de administrador para tener acceso al clúster o al host Hyper-V durante la obtención de una lista de máquinas virtuales y las operaciones de generación de perfiles.<br>Todos los hosts cuyo perfil debe generarse deben tener una cuenta de administrador de dominio con las mismas credenciales, es decir, el nombre de usuario y la contraseña
  |

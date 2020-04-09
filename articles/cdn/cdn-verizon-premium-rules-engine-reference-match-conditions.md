@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
 ms.openlocfilehash: 1660dca34b2f128ef5889145fcdeed0d2523b9bb
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593199"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-match-conditions"></a>Condiciones de coincidencia del motor de reglas de Azure CDN de Verizon Premium
@@ -30,7 +30,7 @@ Por ejemplo, puede usar una condición de coincidencia para:
 
 La condición de coincidencia Siempre aplica un conjunto predeterminado de características a todas las solicitudes.
 
-NOMBRE | Propósito
+Nombre | Propósito
 -----|--------
 [Siempre](#always) | Se aplica un conjunto predeterminado de características a todas las solicitudes.
 
@@ -38,7 +38,7 @@ NOMBRE | Propósito
 
 La condición de coincidencia Dispositivo identifica solicitudes realizadas desde un dispositivo móvil en función de sus propiedades.  
 
-NOMBRE | Propósito
+Nombre | Propósito
 -----|--------
 [Dispositivo](#device) | Identifica solicitudes realizadas desde un dispositivo móvil en función de sus propiedades.
 
@@ -46,7 +46,7 @@ NOMBRE | Propósito
 
 Las condiciones de coincidencia Ubicación identifican solicitudes en función de la ubicación del solicitante.
 
-NOMBRE | Propósito
+Nombre | Propósito
 -----|--------
 [Número de sistema autónomo (AS)](#as-number) | Identifica solicitudes que se originan en una red determinada.
 [País](#country) | Identifica solicitudes que se originan en países o regiones determinados.
@@ -55,7 +55,7 @@ NOMBRE | Propósito
 
 Las condiciones de coincidencia Origen identifican solicitudes que señalan al servidor de origen de un cliente o de almacenamiento de Content Delivery Network.
 
-NOMBRE | Propósito
+Nombre | Propósito
 -----|--------
 [Origen de red CDN](#cdn-origin) | Identifica las solicitudes de contenido almacenado en el almacenamiento de Content Delivery Network.
 [Origen de cliente](#customer-origin) | Identifica solicitudes de contenido almacenado en el servidor de origen de un cliente específico.
@@ -64,7 +64,7 @@ NOMBRE | Propósito
 
 Las condiciones de coincidencia Solicitud identifican solicitudes en función de sus propiedades.
 
-NOMBRE | Propósito
+Nombre | Propósito
 -----|--------
 [Dirección IP de cliente](#client-ip-address) | Identifica solicitudes que se originan en una dirección IP determinada.
 [Parámetro de cookie](#cookie-parameter) | Busca el valor especificado en las cookies asociadas a cada solicitud.
@@ -81,7 +81,7 @@ NOMBRE | Propósito
 
 Las condiciones de coincidencia URL identifican solicitudes en función de sus direcciones URL.
 
-NOMBRE | Propósito
+Nombre | Propósito
 -----|--------
 [Directorio de la ruta de acceso URL](#url-path-directory) | Identifica solicitudes por su ruta de acceso relativa.
 [Extensión de la ruta de acceso URL](#url-path-extension) | Identifica solicitudes por su extensión de nombre de archivo.
@@ -330,7 +330,7 @@ Información importante:
 
 Normalmente, una funcionalidad WURFL acepta cualquier combinación de números, letras y símbolos. Debido a la naturaleza flexible de esta funcionalidad, debe elegir cómo se interpreta el valor asociado a esta condición de coincidencia. La tabla siguiente describe el conjunto de opciones disponibles:
 
-type     | DESCRIPCIÓN
+Tipo     | Descripción
 ---------|------------
 Literal  | Seleccione esta opción para evitar que la mayoría de los caracteres tengan un significado especial mediante el uso de su [valor literal](cdn-verizon-premium-rules-engine-reference.md#literal-values).
 Wildcard (Carácter comodín) | Seleccione esta opción para aprovechar las ventajas de todos los [caracteres comodín] ([valores de caracteres comodín](cdn-verizon-premium-rules-engine-reference.md#wildcard-values).
@@ -345,7 +345,7 @@ En la tabla siguiente se enumeran las funcionalidades WURFL y sus variables para
 > [!NOTE]
 > Las variables siguientes se admiten en las funciones **Modify Client Request Header** (Modificar encabezado de solicitud de cliente) y **Modify Client Response Header** (Modificar encabezado de respuesta de cliente).
 
-Capacidad | Variable | DESCRIPCIÓN | Valores de ejemplo
+Capacidad | Variable | Descripción | Valores de ejemplo
 -----------|----------|-------------|----------------
 Nombre de la marca | %{wurfl_cap_brand_name} | Una cadena que indica el nombre de marca del dispositivo. | Samsung
 Sistema operativo del dispositivo | %{wurfl_cap_device_os} | Una cadena que indica el sistema operativo instalado en el dispositivo. | IOS
@@ -364,7 +364,7 @@ Explorador móvil | %{wurfl_cap_mobile_browser} | Una cadena que indica el explo
 Versión del explorador móvil | %{wurfl_cap_mobile_browser_version} | Una cadena que indica la versión del explorador que se usa para solicitar el contenido del dispositivo. | 31
 Nombre del modelo | %{wurfl_cap_model_name} | Una cadena que indica el nombre del modelo del dispositivo. | s3
 Descarga progresiva | %{wurfl_cap_progressive_download} | Un valor booleano que indica si el dispositivo admite la reproducción de audio y vídeo durante la descarga. | true
-Fecha de lanzamiento | %{wurfl_cap_release_date} | Una cadena que indica el año y el mes en el que se agregó el dispositivo a la base de datos WURFL.<br/><br/>Formato: `yyyy_mm` | 2013_december
+Fecha de la versión | %{wurfl_cap_release_date} | Una cadena que indica el año y el mes en el que se agregó el dispositivo a la base de datos WURFL.<br/><br/>Formato: `yyyy_mm` | 2013_december
 Altura de resolución | %{wurfl_cap_resolution_height} | Un entero que indica la altura del dispositivo en píxeles. | 768
 Anchura de resolución | %{wurfl_cap_resolution_width} | Un entero que indica la anchura del dispositivo en píxeles. | 1024
 
@@ -519,7 +519,7 @@ La condición de coincidencia Método de solicitud se cumple solo cuando los rec
 - POST
 - OPCIONES
 - PUT
-- DELETE
+- Delete
 - TRACE
 - CONNECT
 
@@ -829,10 +829,10 @@ Información importante:
 
 En las configuraciones de ejemplo de la tabla siguiente se da por supuesto que esta condición de coincidencia se cumple cuando una solicitud coincide con una de los patrones de URL especificados:
 
-Valor                   | Relativo a    | Resultado 
+Value                   | Relativo a    | Resultado 
 ------------------------|----------------|-------
 \*/test.html \*/test.php  | Raíz u origen | Este patrón coincide con solicitudes de recursos llamados "test.html" o "test.php" en cualquier carpeta.
-/80ABCD/origin/text/*   | Raíz           | Este patrón coincide cuando el recurso solicitado cumple los criterios siguientes: <br />- Debe residir en un origen de cliente que se llama "origin". <br />- La ruta de acceso relativa debe comenzar con una carpeta llamada "text". Es decir, el recurso solicitado puede residir en la carpeta "text" o una de sus subcarpetas recursivas.
+/80ABCD/origin/text/*   | Root           | Este patrón coincide cuando el recurso solicitado cumple los criterios siguientes: <br />- Debe residir en un origen de cliente que se llama "origin". <br />- La ruta de acceso relativa debe comenzar con una carpeta llamada "text". Es decir, el recurso solicitado puede residir en la carpeta "text" o una de sus subcarpetas recursivas.
 */css/* */js/*          | Raíz u origen | Este patrón coincide con todas las direcciones URL de CNAME perimetral o de la red CDN que contengan una carpeta llamada css o js.
 *.jpg *.gif *.png       | Raíz u origen | Este patrón coincide con todas las direcciones URL de CNAME perimetral o de la red CDN que terminen con .jpg, .gif o .png. Una manera alternativa para especificar este patrón es con la [condición de coincidencia Extensión de ruta de acceso URL](#url-path-extension).
 /images/\* /media/\*      | Origen         | Este patrón coincide con las direcciones URL de CNAME perimetral o de la red CDN cuya ruta de acceso relativa comienza por una carpeta "images" o "media". <br />- Dirección URL de la red CDN: http:\//wpc.0001.&lt;domain&gt;/800001/myorigin/images/sales/event1.png<br />- Dirección URL de CNAME perimetral de ejemplo: http:\//cdn.mydomain.com/images/sales/event1.png
@@ -862,9 +862,9 @@ Información importante:
     
 - Ciertos caracteres requieren codificación URL. Utilice el símbolo de porcentaje para codificar en formato URL los caracteres siguientes:
 
-   Character | Codificación URL
+   Carácter | Codificación URL
    ----------|---------
-   Espacio     | %20
+   Space     | %20
    &         | %25
 
 - Debido a la manera en que se realiza el seguimiento de la configuración de la memoria caché, esta condición de coincidencia es incompatible con las siguientes características:
@@ -902,9 +902,9 @@ Información importante:
    - Cada patrón de valor de parámetro puede contener uno o varios asteriscos (*), donde cada asterisco coincide con una secuencia de uno o más caracteres.
    - Ciertos caracteres requieren codificación URL. Utilice el símbolo de porcentaje para codificar en formato URL los caracteres siguientes:
 
-       Character | Codificación URL
+       Carácter | Codificación URL
        ----------|---------
-       Espacio     | %20
+       Space     | %20
        &         | %25
 
 - Especifique varios valores de parámetro de la cadena de consulta mediante la delimitación de cada uno con un espacio. Esta condición de coincidencia se cumple cuando una solicitud contiene una de las combinaciones de nombre/valor especificadas.
@@ -953,7 +953,7 @@ Información importante:
 
 En el ejemplo siguiente se muestra cómo funciona esta opción en situaciones específicas:
 
-NOMBRE  | Valor |  Resultado
+Nombre  | Value |  Resultado
 ------|-------|--------
 Usuario  | Joe   | Este patrón coincide cuando la cadena de consulta para una dirección URL solicitada es "?user=joe".
 Usuario  | *     | Este patrón coincide cuando la cadena de consulta para una dirección URL solicitada contiene el parámetro User.
@@ -984,9 +984,9 @@ Información importante:
     
 - Ciertos caracteres requieren codificación URL. Utilice el símbolo de porcentaje para codificar en formato URL los caracteres siguientes:
 
-   Character | Codificación URL | Valor
+   Carácter | Codificación URL | Value
    ----------|--------------|------
-   Espacio     | %20          | \%20
+   Space     | %20          | \%20
    &         | %25          | \%25
 
    Tenga en cuenta que los símbolos de porcentaje deben usarse en forma de secuencia de escape.
@@ -995,7 +995,7 @@ Información importante:
 
    Por ejemplo:
 
-   Valor | Se interpreta como 
+   Value | Se interpreta como 
    ------|---------------
    \\+    | +
    \\\\+   | \\+
@@ -1029,14 +1029,14 @@ Información importante:
    - Cada patrón de valor de parámetro puede contener uno o varios asteriscos (*), donde cada asterisco coincide con una secuencia de uno o más caracteres.
    - Ciertos caracteres requieren codificación URL. Utilice el símbolo de porcentaje para codificar en formato URL los caracteres siguientes:
 
-     Character | Codificación URL
+     Carácter | Codificación URL
      ----------|---------
-     Espacio     | %20
+     Space     | %20
      &         | %25
 
 - Especifique varios valores de encabezado mediante la delimitación de cada uno con un espacio.
 
-   Por ejemplo:  *Parameter1=ValueA* *ValueB* *Parameter1=ValueC&Parameter2=ValueD*
+   Por ejemplo: *Parameter1=ValueA* *ValueB* *Parameter1=ValueC&Parameter2=ValueD*
 
 - Solo las coincidencias exactas con al menos uno de los patrones de cadena de consulta especificados satisfacen esta condición de coincidencia.
     
@@ -1053,7 +1053,7 @@ Información importante:
 
 En el ejemplo siguiente se muestra cómo funciona esta opción en situaciones específicas:
 
- NOMBRE                 | DESCRIPCIÓN
+ Nombre                 | Descripción
  ---------------------|------------
 user=joe              | Este patrón coincide cuando la cadena de consulta para una dirección URL solicitada es "?user=joe".
 \*user=\* \*optout=\* | Este patrón coincide cuando la consulta URL de la red CDN contiene el parámetro user o el parámetro optout.

@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
-ms.date: 12/27/2019
-ms.custom: seodec18
-ms.openlocfilehash: 70d843f5773f66e6e17c40d0441553e3cb096c64
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.date: 03/17/2020
+ms.custom: seoapril2019, seodec18
+ms.openlocfilehash: f779781eee81bf85f6420e5bae6b0feb62680b8d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77462163"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80064185"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Funcionamiento de Azure Machine Learning: Arquitectura y conceptos
 
@@ -28,9 +28,9 @@ Obtenga información sobre la arquitectura, los conceptos y el flujo de trabajo 
 Normalmente, el flujo de trabajo del modelo de Machine Learning sigue estos pasos:
 
 1. **Entrenar**
-    + Desarrolle scripts de entrenamiento de aprendizaje automático en **Python** o con el diseñador visual.
+    + Desarrolle scripts de entrenamiento de aprendizaje automático en **Python**, **R** o con el diseñador visual.
     + Se crea y configura un **destino de proceso**.
-    + **Se envían los scripts** al destino de proceso configurado para ejecutarse en ese entorno. Durante el entrenamiento, los scripts pueden leer o escribir en el **almacén de datos**. Y los registros de ejecución se guardan como **ejecuciones** en el **área de trabajo**, agrupados en **experimentos**.
+    + **Envíe los scripts** a un destino de proceso configurado para ejecutarse en ese entorno. Durante el entrenamiento, los scripts pueden leer o escribir en **almacenes de datos**. Los registros y las salidas generados durante el entrenamiento se guardan como **ejecuciones** en el **área de trabajo** y se agrupan en **experimentos**.
 
 1. **Paquete**: después de encontrar una ejecución satisfactoria, se registra el modelo guardado en el **registro de modelos**.
 
@@ -135,7 +135,7 @@ Al desarrollar la solución, use el SDK de Python de Azure Machine Learning en e
 
 Las canalizaciones de aprendizaje automático se usan para crear y administrar flujos de trabajo que unen las fases de aprendizaje automático. Por ejemplo, una canalización podría incluir las fases de preparación de los datos, entrenamiento del modelo, implementación del modelo e inferencia y puntuación. Cada fase puede estar formada por varios pasos, cada uno de los cuales puede ejecutarse en modo desatendido en varios destinos de proceso. 
 
-Los pasos de canalización se pueden reutilizar y se pueden ejecutar sin volver a ejecutar los pasos subsiguientes si la salida de ese paso no ha cambiado. Por ejemplo, puede volver a entrenar un modelo sin volver a ejecutar los costosos pasos de preparación de datos si los datos no han cambiado. Las canalizaciones también permiten a los científicos de datos colaborar mientras trabajan en áreas independientes de un flujo de trabajo de Machine Learning.
+Los pasos de canalización se pueden reutilizar y se pueden ejecutar sin volver a ejecutar los pasos anteriores si la salida de esos pasos no ha cambiado. Por ejemplo, puede volver a entrenar un modelo sin volver a ejecutar los costosos pasos de preparación de datos si los datos no han cambiado. Las canalizaciones también permiten a los científicos de datos colaborar mientras trabajan en áreas independientes de un flujo de trabajo de Machine Learning.
 
 Para obtener más información sobre las canalizaciones de aprendizaje automático con este servicio, consulte el artículo [Canalizaciones y Azure Machine Learning](concept-ml-pipelines.md).
 
@@ -212,7 +212,7 @@ Si ha habilitado la supervisión, Azure recopila datos de telemetría desde el m
 Azure IoT Edge garantiza que el módulo se esté ejecutando y supervisa el dispositivo que lo hospeda.
 
 
-### <a name="compute-instance"></a>Instancia de proceso (versión preliminar)
+### <a name="compute-instance-preview"></a><a name="compute-instance"></a>Instancia de proceso (versión preliminar)
 
 Una **instancia de proceso de Azure Machine Learning** (anteriormente máquina virtual de cuadernos) es una estación de trabajo basada en la nube totalmente administrada que incluye varias herramientas y entornos instalados para el aprendizaje automático. Las instancias de proceso se pueden usar como destino de proceso para los trabajos de entrenamiento e inferencia. En el caso de tareas de gran tamaño, los [clústeres de procesos de Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute) con las funcionalidades de escalado de varios nodos es una mejor opción de destino de proceso.
 

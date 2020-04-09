@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 01/29/2020
-ms.openlocfilehash: 091ca4d632d89405d85c66e264aff9867979fcd4
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.date: 03/20/2020
+ms.openlocfilehash: e5a96d2eb67937ce4eeaa1999d8168e7f5d3d926
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905233"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80130184"
 ---
 # <a name="release-notes"></a>Notas de la versión
 
@@ -68,35 +68,12 @@ No hay cambio de versión de componentes para esta versión. Aquí puede encontr
 
 ## <a name="known-issues"></a>Problemas conocidos
 
-A partir del 29 de enero de 2020, hay un problema activo que consiste en que puede recibir un error al intentar usar un cuaderno de Jupyter Notebook. Para solucionar el problema, siga estos pasos. También puede consultar esta [publicación de MSDN](https://social.msdn.microsoft.com/Forums/en-us/8c763fb4-79a9-496f-a75c-44a125e934ac/hdinshight-create-not-create-jupyter-notebook?forum=hdinsight) o esta [publicación de StackOverflow](https://stackoverflow.com/questions/59687614/azure-hdinsight-jupyter-notebook-not-working/59831103) para obtener información actualizada o formular otras preguntas. Esta página se actualizará cuando se solucione el problema.
+Desde el 18 de marzo de 2020, algunos clientes de Azure HDInsight del Oeste o el Norte de Europa han recibido notificaciones de error al crear o escalar clústeres de HDInsight en estas regiones. Los errores relacionados con este problema incluyen:
 
-**Errores**
+- Se produjo un error interno al procesar la solicitud. Vuelva a intentar la solicitud o póngase en contacto con el soporte técnico.
+- Se ha producido un error al menos en una operación de implementación de recursos. Enumere las operaciones de implementación para obtener más información. Consulte https://aka.ms/DeployOperations para obtener detalles de uso.
+- Al \<identificador de suscripción\> SubscriptionId no le quedan núcleos para crear el recurso "\<cluster name>". Requerido: \<X\>, disponible: 0.
 
-* ValueError: No se puede convertir el cuaderno a v5 porque esa versión no existe
-* Error al cargar el cuaderno: se ha producido un error desconocido al cargar este cuaderno. Esta versión puede cargar los formatos de cuadernos v4 o anteriores
+Los ingenieros son conscientes de este problema y lo están investigando activamente.
 
-**Causa** 
-
-El archivo _version.py del clúster se ha actualizado a 5.x.x en lugar de a 4.4.x.## o es necesario reiniciar Ambari.
-
-**Solución**
-
-Si crea un cuaderno de Jupyter Notebook y recibe uno de los errores anteriores, siga estos pasos para solucionar el problema.
-
-1. Vaya a `https://CLUSTERNAME.azurehdinsight.net` para abrir Ambari en un explorador web, donde CLUSTERNAME es el nombre del clúster.
-1. En Ambari, en el menú izquierdo, haga clic en **Jupyter**, luego en **Service Actions** (Acciones de servicio) y en **Stop** (Detener).
-1. Conéctese al nodo principal del clúster en el que se ejecuta el servicio Jupyter mediante SSH.
-1. Abra el siguiente archivo /usr/bin/anaconda/lib/python2.7/site-packages/nbformat/_version.py en modo sudo.
-1. Compruebe el valor de version_info.
-1. Si el valor de version_info está establecido en: 
-
-    version_info = (5, 0, 3)
-
-    Modifique la entrada a: 
-    
-    version_info = (4, 4, 0)
-
-    Y guarde el archivo. 
-
-    Si version_info ya está establecido en (4, 4, 0), continúe en el paso siguiente, ya que solo es necesario reiniciar Ambari y no se tiene que realizar ningún otro cambio.
-1. Vuelva a Ambari y, en **Service Actions** (Acciones de servicio), haga clic en **Restart All** (Reiniciar todo).
+Para obtener más ayuda, cree una [solicitud de soporte técnico](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).

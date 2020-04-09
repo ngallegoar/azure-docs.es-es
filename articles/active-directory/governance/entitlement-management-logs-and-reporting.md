@@ -3,7 +3,7 @@ title: Archivado e informe con Azure Monitor en administración de derechos de A
 description: Obtenga información sobre cómo archivar registros y crear informes con Azure Monitor en la administración de derechos de Azure Active Directory.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 02/27/2020
-ms.author: ajburnle
+ms.date: 03/22/2020
+ms.author: barclayn
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f89af42e32783de479c4302b19c0a7ddc1289bb8
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 070b7c5e0fef7d50f84271190432a65d29699bdf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78202001"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80128622"
 ---
 # <a name="archive-logs-and-reporting-on-azure-ad-entitlement-management-in-azure-monitor"></a>Archivado de registros e informes sobre la administración de derechos de Azure AD en Azure Monitor
 
@@ -57,7 +57,7 @@ Puede crear sus propias consultas en eventos de auditoría de Azure AD, incluid
 
 1. El área de trabajo se debe mostrar en la parte superior izquierda de la página de consulta. Si tiene varias áreas de trabajo de Azure Monitor, y no se muestra el área de trabajo que está usando para almacenar eventos de auditoría de Azure AD, haga clic en **Seleccionar ámbito**. A continuación, seleccione la suscripción y el área de trabajo correctas.
 
-1. A continuación, en el área de texto de la consulta, elimine la cadena "Search *" y reemplácela por la siguiente consulta:
+1. A continuación, en el área de texto de la consulta, elimine la cadena "search *" y reemplácela por la siguiente consulta:
 
     ```
     AuditLogs | where Category == "EntitlementManagement"
@@ -97,7 +97,7 @@ Para establecer la asignación de roles y crear una consulta, siga estos pasos:
 
 ### <a name="install-azure-powershell-module"></a>Instalación del módulo de Azure PowerShell
 
-Una vez que tenga la asignación de roles adecuada, inicie PowerShell e [Instale el módulo de Azure PowerShell](/powershell/azure/install-az-ps?view=azps-3.3.0) (si aún no lo ha hecho), escribiendo lo siguiente:
+Una vez que tenga la asignación de roles adecuada, inicie PowerShell e [Instale el módulo de Azure PowerShell](/powershell/azure/install-az-ps?view=azps-3.3.0) (si aún no lo ha hecho). Para hacerlo, escriba:
 
 ```azurepowershell
 install-module -Name az -allowClobber -Scope CurrentUser

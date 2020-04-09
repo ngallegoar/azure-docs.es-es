@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/24/2020
-ms.openlocfilehash: 8611abd4e504e0378b744b12d0adb5fa22f5476b
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: e4511cf4393172e7d2b1ab8a985c76d8f98d4015
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77920372"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79456070"
 ---
 # <a name="permutation-feature-importance"></a>Importancia de la característica de permutación
 
@@ -54,7 +54,7 @@ Para generar un conjunto de puntuaciones de características, es necesario tener
 
      Para una descripción más detallada de estas métricas de evaluación y cómo se calculan, consulte [Evaluar modelo](evaluate-model.md).  
 
-6.  Ejecución de la canalización  
+6.  Envíe la canalización.  
 
 7.  El módulo genera una lista de columnas de características y las puntuaciones asociadas con ellas. La lista está en orden descendente de las puntuaciones.  
 

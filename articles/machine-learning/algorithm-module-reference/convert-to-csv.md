@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 8206a88695c89d04eabe89e79a5aff8469cc6862
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: fc2a043e8f1565cf5fe45ba0b072ad015076635e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152438"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477687"
 ---
 # <a name="convert-to-csv-module"></a>Módulo Convertir a CSV
 
@@ -41,7 +41,7 @@ Al convertir un conjunto de datos a formato CSV, el archivo se guarda en el áre
 
 2. Conéctelo a cualquier módulo que genere un conjunto de datos.   
   
-3.  Ejecución de la canalización
+3.  Envíe la canalización.
 
 ### <a name="results"></a>Results
   

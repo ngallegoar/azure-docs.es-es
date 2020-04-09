@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 35046d33a85eaed913454f188f2a4526715526a9
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 5b8dab14a9416795eccef1f71988a048c8bedb48
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168777"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79218163"
 ---
 # <a name="define-custom-r-modules-for-azure-machine-learning-studio-classic"></a>Definición de módulos R personalizados en Azure Machine Learning Studio (clásico)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 En este tema se describe cómo crear e implementar un módulo R Studio personalizado (clásico). Se explica qué son los módulos R personalizados y qué archivos se usan para definirlos. Muestra cómo construir estos archivos y cómo registrar el módulo para implementarlo en un área de trabajo de Machine Learning. Los elementos y atributos que se utilizan en la definición del módulo personalizado se describen a continuación con más detalle. También se describe cómo utilizar la funcionalidad y los archivos auxiliares, y varias salidas. 
 
@@ -200,7 +202,7 @@ Por ejemplo, si quiere modificar el módulo **Custom Add Rows** (Personalizar Ag
     </Ports> 
 
 
-Y devuelva la lista de objetos de una lista en el orden correcto en "CustomAddRows.R":
+Luego, devuelva la lista de objetos de una lista en el orden correcto en "CustomAddRows.R":
 
     CustomAddRows <- function(dataset1, dataset2, swap=FALSE) { 
         if (swap) { dataset <- rbind(dataset2, dataset1)) } 
@@ -333,11 +335,11 @@ Los parámetros del módulo se definen mediante el elemento secundario **Arg** d
 Cualquier archivo que se coloque en el archivo ZIP de módulo personalizado estará disponible para su uso durante el tiempo de ejecución. Se conservarán todas las estructuras de directorios presentes. Esto significa que el abastecimiento de archivos funcionará igual localmente y en la ejecución de Azure Machine Learning Studio (clásico). 
 
 > [!NOTE]
-> Observe que todos los archivos se extraen en el directorio 'src', por lo que todas las rutas de acceso deberían tener el prefijo 'src/'.
+> Observe que todos los archivos se extraen en el directorio "src", por lo que todas las rutas de acceso deberían tener el prefijo "src/".
 > 
 > 
 
-Por ejemplo, supongamos que desea quitar tanto todas las filas con ND como todas las filas duplicadas del conjunto de datos antes de generarlo en CustomAddRows y que ya ha escrito una función de R que lo hace en el archivo RemoveDupNARows.R:
+Por ejemplo, supongamos que quiere quitar todas las filas con ND del conjunto de datos, así como todas las filas duplicadas, antes de generarlo en CustomAddRows, y que ya ha escrito una función de R que lo hace en el archivo RemoveDupNARows.R:
 
     RemoveDupNARows <- function(dataFrame) {
         #Remove Duplicate Rows:
@@ -359,7 +361,7 @@ Puede originar el archivo auxiliar RemoveDupNARows.R en la función CustomAddRow
         return (dataset)
     }
 
-A continuación, cargue un archivo zip que contenga "myAddRows.R", "myAddRows.xml" y "removeDupNARows.R" como módulo de R personalizado.
+Luego, cargue un archivo ZIP que contenga "myAddRows.R", "myAddRows.xml" y "removeDupNARows.R" como módulo de R personalizado.
 
 ## <a name="execution-environment"></a>Entorno de ejecución
 El entorno de ejecución del script de R usa la misma versión de R que el módulo **Ejecutar script de R** y puede usar los mismos paquetes predeterminados. También puede agregar paquetes de R adicionales al módulo personalizado incluyéndolos en el paquete zip del módulo personalizado. Solo tiene que cargarlos en el script de R como lo haría en su propio entorno de R. 

@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: 939ac7caacac7cfb55bd29ed9a5d9c136a8e5c90
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 29934758ab729e0fb888c10b7f834da3d0bf7fb0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314256"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79456087"
 ---
 # <a name="one-vs-all-multiclass"></a>Uno frente a todos multiclase
 
-En este artículo se describe cómo usar el módulo Uno frente a todos multiclase del diseñador de Azure Machine Learning. El objetivo es crear un modelo de clasificación que pueda predecir varias clases mediante el uso de la estrategia *uno frente a todos*.
+En este artículo se describe cómo usar el módulo One-vs-All Multiclass (Uno frente a todos multiclase) del diseñador de Azure Machine Learning (versión preliminar). El objetivo es crear un modelo de clasificación que pueda predecir varias clases mediante el uso de la estrategia *uno frente a todos*.
 
 Este módulo es útil para crear modelos que predicen tres o más resultados posibles, cuando el resultado depende de variables de predicción continuas o de categorías. Este método también permite usar métodos de clasificación binaria para problemas que requieren varias clases de salida.
 
@@ -50,7 +50,7 @@ Cuando combina los modelos, One-vs-All Multiclass (Uno frente a todos multiclase
 
 4. En la otra entrada de [Train Model](train-model.md) (Entrenar modelo), conecte un conjunto de datos de aprendizaje etiquetado que tenga varios valores de clase.
 
-5. Ejecución de la canalización
+5. Envíe la canalización.
 
 ## <a name="results"></a>Results
 

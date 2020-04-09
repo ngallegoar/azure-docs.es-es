@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 11/19/2019
-ms.openlocfilehash: eff480d6763ae4bd277e6781663c559cc7c9169e
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 207172f10277589af2b22ae2f41b07234a0925b3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152455"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477721"
 ---
 # <a name="module-assign-data-to-clusters"></a>Módulo: Asignación de datos a clústeres
 
@@ -43,7 +43,7 @@ El módulo Asignación de datos a clústeres devuelve un conjunto de datos que c
   
     Si desactiva esta casilla, solo se devuelven los resultados. Esta opción puede ser útil al crear predicciones como parte de un servicio web.
   
-5.  Ejecución de la canalización  
+5.  Envíe la canalización.  
   
 ### <a name="results"></a>Results
 

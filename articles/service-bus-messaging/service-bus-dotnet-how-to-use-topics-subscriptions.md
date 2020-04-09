@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/27/2019
 ms.author: aschhab
 ms.openlocfilehash: 3fba1d62b9347303d630c80733c4fbfa279b5296
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74560093"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Introducción a las colas de Service Bus
@@ -30,9 +30,9 @@ En este tutorial se describen los pasos siguientes:
 1. Escriba una aplicación de consola de .NET Core para enviar un conjunto de mensajes al tema.
 2. Escriba una aplicación de consola de .NET Core para recibir esos mensajes de la suscripción.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
-1. Una suscripción de Azure. Para completar este tutorial, deberá tener una cuenta de Azure. Puede activar sus [beneficios de suscriptor de Visual Studio o MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+1. Suscripción a Azure. Para completar este tutorial, deberá tener una cuenta de Azure. Puede activar sus [beneficios de suscriptor de Visual Studio o MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 2. Siga los pasos de [Inicio rápido: Use Azure Portal para crear un tema de Service Bus y suscripciones al tema ](service-bus-quickstart-topics-subscriptions-portal.md) para realizar las siguientes tareas:
     1. Cree un **espacio de nombres** de Service Bus.
     2. Obtenga la **cadena de conexión**.
@@ -75,7 +75,7 @@ Inicie Visual Studio y cree un nuevo proyecto **Aplicación de consola (.NET Cor
     static ITopicClient topicClient;
     ``` 
 
-3. Reemplace el método `Main()` por el siguiente método `Main` **asincrónico** que envía mensajes de forma asincrónica mediante el método SendMessagesAsync que agregará en el paso siguiente. 
+3. Reemplace el método `Main()` por el siguiente método **asincrónico** `Main`que envía mensajes de forma asincrónica mediante el método SendMessagesAsync que agregará en el paso siguiente. 
 
     ```csharp
     public static async Task Main(string[] args)
@@ -210,7 +210,7 @@ Para recibir los mensajes que envió, cree otra aplicación de consola de .NET 
     static ISubscriptionClient subscriptionClient;
     ```
 
-3. Reemplace el método `Main()` por el método `Main` **asincrónico**. Llama al método `RegisterOnMessageHandlerAndReceiveMessages()`, que se agregará en el paso siguiente. 
+3. Reemplace el método `Main()` por el método `Main`**asincrónico**. Llama al método `RegisterOnMessageHandlerAndReceiveMessages()`, que se agregará en el paso siguiente. 
 
     ```csharp
     public static async Task Main(string[] args)

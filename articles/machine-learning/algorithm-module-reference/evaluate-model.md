@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/24/2020
-ms.openlocfilehash: a665ee97f923620bb484243d5cd4904a647969e4
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: c1bcbb6a368c9c80f968c48c1a6e0bc6c95133d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77917446"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79456411"
 ---
 # <a name="evaluate-model-module"></a>Módulo Evaluate Model
 
@@ -62,7 +62,7 @@ Esta característica es útil porque permite comparar fácilmente los resultados
 
 1. Conecte la salida de **Scored dataset** (Conjunto de datos puntuados) de [Score Model](score-model.md) (Puntuar modelo) a la entrada de **Evaluate Model**. 
 2. Conecte la salida del módulo Score Model (Puntuar modelo) para el segundo modelo a la entrada derecha de **Evaluate Model**.
-3. Ejecución de la canalización
+3. Envíe la canalización.
 
 ## <a name="results"></a>Results
 

@@ -7,12 +7,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/23/2019
 ms.topic: conceptual
-ms.openlocfilehash: 88382a5b6e0364145d8504b5e25ef1a9bfd0111a
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: a68d812a044c776819d169d5bf179f011d06390f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484135"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79472952"
 ---
 # <a name="check-for-pool-and-node-errors"></a>Comprobación de errores de grupo y de nodo
 
@@ -64,17 +64,17 @@ Batch establece el [estado del grupo](https://docs.microsoft.com/rest/api/batchs
 
 ## <a name="pool-compute-node-errors"></a>Errores de nodo de proceso de grupo
 
-Aun cuando Batch asigne correctamente los nodos de un grupo, distintos problemas pueden provocar que algunos de los nodos sean incorrectos y no puedan ejecutar tareas. Estos nodos siguen incurriendo en cargos, por lo que es importante detectar los problemas para evitar pagar por los nodos que no se pueden usar. Además de los errores comunes de nodo, conocer el [estado actual del trabajo](https://docs.microsoft.com/rest/api/batchservice/job/get#jobstate) es útil para solucionar problemas.
+Aun cuando Batch asigne correctamente los nodos de un grupo, distintos problemas pueden provocar que algunos de los nodos sean incorrectos y no puedan ejecutar tareas. Estos nodos siguen incurriendo en cargos, por lo que es importante detectar los problemas para evitar pagar por los nodos que no se pueden usar. Además de los errores comunes de nodo, conocer el [estado actual del trabajo](/rest/api/batchservice/job/get#jobstate) es útil para solucionar problemas.
 
 ### <a name="start-task-failures"></a>Errores de la tarea de inicio
 
-Es posible que desee especificar una [tarea de inicio](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask) opcional para un grupo. Al igual que con cualquier tarea, se puede usar una línea de comandos y archivos de recursos para descargar desde el almacenamiento. La tarea de inicio se ejecuta para cada nodo después de iniciarse. La propiedad **waitForSuccess** especifica si Batch espera hasta que la tarea de inicio se complete correctamente antes de programar las tareas para un nodo.
+Es posible que desee especificar una [tarea de inicio](/rest/api/batchservice/pool/add#starttask) opcional para un grupo. Al igual que con cualquier tarea, se puede usar una línea de comandos y archivos de recursos para descargar desde el almacenamiento. La tarea de inicio se ejecuta para cada nodo después de iniciarse. La propiedad **waitForSuccess** especifica si Batch espera hasta que la tarea de inicio se complete correctamente antes de programar las tareas para un nodo.
 
 ¿Qué ocurre si ha configurado el nodo para esperar la finalización correcta de la tarea de inicio, pero se produce un error en ella? En ese caso, el nodo no se podrá usar, pero seguirá incurriendo en cargos.
 
-Se pueden detectar los errores de la tarea de inicio mediante las propiedades [result](https://docs.microsoft.com/rest/api/batchservice/computenode/get#taskexecutionresult) y [failureInfo](https://docs.microsoft.com/rest/api/batchservice/computenode/get#taskfailureinformation) de la propiedad de nodo [startTaskInfo](https://docs.microsoft.com/rest/api/batchservice/computenode/get#starttaskinformation) de nivel superior.
+Se pueden detectar los errores de la tarea de inicio mediante las propiedades [result](/rest/api/batchservice/computenode/get#taskexecutionresult) y [failureInfo](/rest/api/batchservice/computenode/get#taskfailureinformation) de la propiedad de nodo [startTaskInfo](/rest/api/batchservice/computenode/get#starttaskinformation) de nivel superior.
 
-Una tarea de inicio con errores también hace que Batch establezca el nodo [state](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) en **starttaskfailed**, si **waitForSuccess** estaba establecido en **true**.
+Una tarea de inicio con errores también hace que Batch establezca el nodo [state](/rest/api/batchservice/computenode/get#computenodestate) en **starttaskfailed**, si **waitForSuccess** estaba establecido en **true**.
 
 Al igual que con cualquier tarea, puede haber varias causas para que se produzcan errores en la tarea de inicio.  Para solucionar problemas, compruebe los archivos stdout, stderr y cualquier otro archivo de registro específico de la tarea.
 
@@ -84,19 +84,19 @@ Las tareas de inicio deben ser reentrantes, ya que es posible que la tarea de in
 
 Puede especificar uno o varios paquetes de aplicación para un grupo. Batch descarga los archivos de paquete especificados en cada nodo y descomprime los archivos después de que se haya iniciado el nodo, pero antes de que se programen las tareas. Es habitual usar una línea de comandos de tarea de inicio junto con los paquetes de aplicación. Por ejemplo, para copiar archivos en otra ubicación o para ejecutar la configuración.
 
-La propiedad [errors](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) del nodo notifica un error al descargar y descomprimir un paquete de aplicación. El estado del nodo se establece en **inutilizable**.
+La propiedad [errors](/rest/api/batchservice/computenode/get#computenodeerror) del nodo notifica un error al descargar y descomprimir un paquete de aplicación. El estado del nodo se establece en **inutilizable**.
 
 ### <a name="container-download-failure"></a>Error de descarga del contenedor
 
-Puede especificar una o varias referencias de contenedor en un grupo. Batch descarga los contenedores especificados en cada nodo. La propiedad [errores](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) del nodo notifica un error al descargar un contenedor y establece el estado del nodo en **inutilizable**.
+Puede especificar una o varias referencias de contenedor en un grupo. Batch descarga los contenedores especificados en cada nodo. La propiedad [errores](/rest/api/batchservice/computenode/get#computenodeerror) del nodo notifica un error al descargar un contenedor y establece el estado del nodo en **inutilizable**.
 
 ### <a name="node-in-unusable-state"></a>Nodo en estado unusable
 
-Azure Batch puede establecer el [estado del nodo](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) en **unusable** por diversos motivos. Con el estado del nodo establecido en **unusable**, no se pueden programar tareas para el nodo, pero sigue generando cargos.
+Azure Batch puede establecer el [estado del nodo](/rest/api/batchservice/computenode/get#computenodestate) en **unusable** por diversos motivos. Con el estado del nodo establecido en **unusable**, no se pueden programar tareas para el nodo, pero sigue generando cargos.
 
-Los nodos con un estado **inutilizable**, pero sin [errores](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) implica que Batch no se puede comunicar con la VM. En este caso, Batch siempre intenta recuperar la VM. Batch no intentará recuperar automáticamente VM que no puedan instalar los paquetes de aplicaciones o contenedores, aunque su estado sea **inutilizable**.
+Los nodos con un estado **inutilizable**, pero sin [errores](/rest/api/batchservice/computenode/get#computenodeerror) implica que Batch no se puede comunicar con la VM. En este caso, Batch siempre intenta recuperar la VM. Batch no intentará recuperar automáticamente VM que no puedan instalar los paquetes de aplicaciones o contenedores, aunque su estado sea **inutilizable**.
 
-Si Batch puede determinar la causa, la propiedad [errors](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) del nodo la notifica.
+Si Batch puede determinar la causa, la propiedad [errors](/rest/api/batchservice/computenode/get#computenodeerror) del nodo la notifica.
 
 Otros ejemplos de causas de nodos **unusable** incluyen:
 
@@ -104,7 +104,7 @@ Otros ejemplos de causas de nodos **unusable** incluyen:
 
 - Se mueve una máquina virtual debido a un error de infraestructura o una actualización de bajo nivel. Batch recupera el nodo.
 
-- Se ha implementado una imagen de VM en el hardware no compatible. Por ejemplo, se intenta ejecutar una imagen de HPC de CentOS en una VM [Standard_D1_v2](../virtual-machines/dv2-dsv2-series.md).
+- Se ha implementado una imagen de máquina virtual en hardware no compatible. Por ejemplo, se intenta ejecutar una imagen de HPC de CentOS en una VM [Standard_D1_v2](../virtual-machines/dv2-dsv2-series.md).
 
 - Las VM están en una [red virtual de Azure](batch-virtual-network.md), y se ha bloqueado el tráfico a los puertos claves.
 
@@ -114,7 +114,7 @@ Otros ejemplos de causas de nodos **unusable** incluyen:
 
 ### <a name="node-agent-log-files"></a>Archivos de registro del agente de nodo
 
-El proceso del agente Batch que se ejecuta en cada nodo del grupo puede proporcionar archivos de registro que resulten útiles si necesita ponerse en contacto con el soporte técnico sobre un problema en el nodo de grupo. Los archivos de registro para un nodo se pueden cargar a través de Azure Portal, Batch Explorer o una [API](https://docs.microsoft.com/rest/api/batchservice/computenode/uploadbatchservicelogs). Es útil cargar y guardar los archivos de registro. A continuación, puede eliminar el nodo o el grupo para ahorrar el costo de los nodos en ejecución.
+El proceso del agente Batch que se ejecuta en cada nodo del grupo puede proporcionar archivos de registro que resulten útiles si necesita ponerse en contacto con el soporte técnico sobre un problema en el nodo de grupo. Los archivos de registro para un nodo se pueden cargar a través de Azure Portal, Batch Explorer o una [API](/rest/api/batchservice/computenode/uploadbatchservicelogs). Es útil cargar y guardar los archivos de registro. A continuación, puede eliminar el nodo o el grupo para ahorrar el costo de los nodos en ejecución.
 
 ### <a name="node-disk-full"></a>Disco del nodo lleno
 
@@ -133,12 +133,26 @@ Otros archivos se escriben para cada tarea que se ejecuta en un nodo, como stdou
 El tamaño de la unidad temporal depende del tamaño de la máquina virtual. Una consideración que se debe tener en cuenta al seleccionar un tamaño de máquina virtual es asegurarse de que la unidad temporal tenga espacio suficiente.
 
 - En el Azure Portal al agregar un grupo, se puede mostrar la lista completa de tamaños de máquina virtual y hay una columna de "Tamaño de disco de recursos".
-- Los artículos que describen todos los tamaños de máquina virtual tienen tablas con una columna de "Almacenamiento temporal"; por ejemplo [Tamaños de máquinas virtuales optimizadas para proceso](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-compute)
+- Los artículos que describen todos los tamaños de máquina virtual tienen tablas con una columna de "Almacenamiento temporal"; por ejemplo [Tamaños de máquinas virtuales optimizadas para proceso](/azure/virtual-machines/windows/sizes-compute)
 
 En el caso de los archivos escritos por cada tarea, se puede especificar un tiempo de retención para cada tarea que determine durante cuánto tiempo se conservan los archivos de tareas antes de que se limpien automáticamente. Se puede reducir el tiempo de retención para reducir los requisitos de almacenamiento.
 
-Si el espacio en disco temporal se rellena, el nodo dejará de ejecutar las tareas en ese momento. En el futuro, se informará de [un error en el nodo](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror).
 
+Si el disco temporal se queda sin espacio (o está muy cerca de quedarse sin espacio), el nodo pasará al estado [No utilizable](/rest/api/batchservice/computenode/get#computenodestate) y se notificará un error de nodo que indica que el disco está lleno.
+
+### <a name="what-to-do-when-a-disk-is-full"></a>Qué hacer cuando un disco está lleno
+
+Determine por qué está lleno el disco: Si no está seguro de qué ocupa espacio en el nodo, se recomienda que se conecte en remoto al nodo e investigue manualmente qué ha ocurrido con el espacio. También puede usar [Batch List Files API](https://docs.microsoft.com/rest/api/batchservice/file/listfromcomputenode) para examinar archivos de carpetas administradas por lotes (por ejemplo, salidas de tareas). Tenga en cuenta que esta API solo enumera los archivos de los directorios administrados por lotes y, si las tareas han creado archivos en otro lugar, no los verá.
+
+Asegúrese de que los datos que necesite se han recuperado del nodo o se han cargado en un almacén duradero. Para mitigar el problema de disco lleno, deberá eliminar datos para liberar espacio.
+
+### <a name="recovering-the-node"></a>Recuperación del nodo
+
+1. Si su grupo es un grupo [CloudServiceConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#cloudserviceconfiguration), puede volver a crear la imagen del nodo mediante [Batch re-image API](https://docs.microsoft.com/rest/api/batchservice/computenode/reimage). Esto limpiará todo el disco. Actualmente no es posible volver a crear la imagen con grupos [VirtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration).
+
+2. Si su grupo es un grupo [VirtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration), puede quitar el nodo del grupo mediante [remove nodes API](https://docs.microsoft.com/rest/api/batchservice/pool/removenodes). A continuación, puede volver a aumentar el grupo para reemplazar el nodo incorrecto por uno nuevo.
+
+3.  Elimine los trabajos o tareas completados antiguos cuyos datos de tarea sigan estando en los nodos. Para saber qué datos de trabajos y tareas hay en los nodos, puede buscar en la [colección RecentTasks](https://docs.microsoft.com/rest/api/batchservice/computenode/get#taskinformation) del nodo o en los [archivos del nodo](https://docs.microsoft.com//rest/api/batchservice/file/listfromcomputenode). Al eliminar el trabajo, se eliminarán todas las tareas del trabajo y, al eliminar las tareas del trabajo, se desencadenará la eliminación de los datos de los directorios de tareas del nodo, lo que liberará espacio. Una vez que haya liberado espacio suficiente, reinicie el nodo, que debería pasar del estado "No utilizable" a "Inactivo".
 
 ## <a name="next-steps"></a>Pasos siguientes
 

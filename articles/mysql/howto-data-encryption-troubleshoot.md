@@ -1,17 +1,17 @@
 ---
-title: Solución de problemas del cifrado de datos en Azure Database for MySQL
+title: 'Solución de problemas del cifrado de datos: Azure Database for MySQL'
 description: Aprenda a solucionar problemas del cifrado de datos en Azure Database for MySQL.
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: 516f0b2080fc894ec00f222c712ffdea4ee74356
-ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
+ms.openlocfilehash: 42956d115590fd322d2851fd546c505a76a851fa
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78851108"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79297047"
 ---
 # <a name="troubleshoot-data-encryption-in-azure-database-for-mysql"></a>Solución de problemas del cifrado de datos en Azure Database for MySQL
 

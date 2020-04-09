@@ -4,12 +4,12 @@ description: Supervise las cargas de trabajo de Azure Backup y cree alertas pers
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 0673291ac6bd1692c6ebe07540e05077e3025d55
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 547cef66be9902468f4e2755c31e5f586eccad5e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77583882"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79459521"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Supervisión a escala mediante Azure Monitor
 
@@ -29,7 +29,7 @@ En Azure Monitor, puede crear sus propias alertas en un área de trabajo de Log 
 > [!IMPORTANT]
 > Para obtener información sobre el costo que supone la creación de esta consulta, consulte [Precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
-Abra la sección **Registros** del área de trabajo de Log Analytics y escriba una consulta de sus propios registros. Al seleccionar **Nueva regla de alertas**, se abre la página de creación de alertas de Azure Monitor, como se muestra en la siguiente imagen.
+Abra la sección **Registros** del área de trabajo de Log Analytics y cree una consulta para sus propios registros. Al seleccionar **Nueva regla de alertas**, se abre la página de creación de alertas de Azure Monitor, como se muestra en la siguiente imagen.
 
 ![Creación de una alerta en un área de trabajo de Log Analytics](media/backup-azure-monitoring-laworkspace/custom-alert.png)
 

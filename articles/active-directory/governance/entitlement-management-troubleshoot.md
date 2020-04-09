@@ -3,7 +3,7 @@ title: 'Solución de problemas de la administración de derechos: Azure AD'
 description: Aprenda sobre algunos elementos que debe comprobar para solucionar los problemas de administración de derechos de Azure Active Directory.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: barclayn
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
 ms.subservice: compliance
-ms.date: 10/26/2019
-ms.author: ajburnle
+ms.date: 03/22/2020
+ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e291a032c1aac45ebc783126e69b524e1d0af95b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7c38e1a61827da547bb39a699a0e92043e63466c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422491"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80128472"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Solución de problemas de la administración de derechos de Azure AD
 
@@ -48,6 +48,10 @@ En este artículo se describen algunos elementos que debe comprobar que le ayuda
 * Cuando se quita un miembro de un equipo, también se quita del grupo de Office 365. Puede pasar algún tiempo hasta que se elimine la funcionalidad de chat del equipo. Para más información, consulte [Pertenencia a grupos](https://docs.microsoft.com/microsoftteams/office-365-groups#group-membership).
 
 * Asegúrese de que el directorio no esté configurado para ubicaciones multigeográficas. La administración de derechos no admite actualmente ubicaciones multigeográficas en SharePoint Online. Los sitios de SharePoint Online deben estar en la ubicación geográfica predeterminada para regirse por la administración de derechos. Para más información, consulte [Capacidades multigeográficas de OneDrive y SharePoint Online](https://docs.microsoft.com/Office365/Enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-office-365).
+
+## <a name="access-packages"></a>Paquetes de acceso
+
+* Si intenta eliminar una directiva o un paquete de acceso y ve un mensaje de error que indica que hay asignaciones activas, si no ve ningún usuario con asignaciones, compruebe si los usuarios eliminados recientemente todavía tienen asignaciones. Durante el período de 30 días después de la eliminación de un usuario, se puede restaurar la cuenta de usuario.   
 
 ## <a name="external-users"></a>Usuarios externos
 

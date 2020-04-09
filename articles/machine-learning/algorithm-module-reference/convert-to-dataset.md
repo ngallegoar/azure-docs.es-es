@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: dc3630f4b832a9b15217e8f5cdc03830f15ee2a7
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: fd45db779b7a828d247f09cae38f90fc20d12c16
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76546765"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79456597"
 ---
 # <a name="convert-to-dataset"></a>Convertir conjunto de datos
 
@@ -51,7 +51,7 @@ Le recomendamos usar el módulo [Edit Metadata](edit-metadata.md) (Editar metada
     Tenga en cuenta que la operación **ReplaceValues** solo se aplica a las coincidencias exactas. Por ejemplo, estas cadenas no se verían afectadas: `obs.`,`obsolete`.  
  
   
-5.  Ejecución de la canalización  
+5.  Envíe la canalización.  
 
 ## <a name="results"></a>Results
 

@@ -1,21 +1,21 @@
 ---
-title: 'Private Link para Azure Database for PostgreSQL: servidor único (versión preliminar)'
+title: 'Private Link en Azure Database for PostgreSQL: servidor único'
 description: 'Obtenga información sobre cómo funciona Private Link para Azure Database for PostgreSQL: servidor único.'
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/09/2020
-ms.openlocfilehash: e3667a60a326838b490f9082fd55bdc92d038cf9
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.date: 03/10/2020
+ms.openlocfilehash: 4216abdf8cc8aae00e3ba0c57961c4b8b7403672
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75899192"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79371688"
 ---
-# <a name="private-link-for-azure-database-for-postgresql-single-server-preview"></a>Private Link para Azure Database for PostgreSQL: servidor único (versión preliminar)
+# <a name="private-link-for-azure-database-for-postgresql-single-server"></a>Private Link en Azure Database for PostgreSQL: servidor único
 
-Private Link permite conectarse a varios servicios PaaS en Azure mediante un punto de conexión privado. En esencia, Azure Private Link incorpora los servicios de Azure dentro de su red virtual privada (VNet). Se puede acceder a los recursos de PaaS mediante la dirección IP privada, al igual que cualquier otro recurso de la red virtual.
+Private Link le permite crear puntos de conexión privados para Azure Database for PostgreSQL y, por tanto, incorpora servicios de Azure en la red privada virtual (VNet). El punto de conexión privado expone una dirección IP privada que puede usar para conectarse a su servidor de bases de datos como cualquier otro recurso de la red virtual.
 
 Para una lista de los servicios PaaS que admiten la funcionalidad Private Link, consulte la página de [documentación](https://docs.microsoft.com/azure/private-link/index) de Private Link. Un punto de conexión privado es una dirección IP privada dentro de una [red virtual](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) y una subred específicas.
 
@@ -57,17 +57,14 @@ Los puntos de conexión privados son necesarios para habilitar Private Link. Se 
 * [CLI](https://docs.microsoft.com/azure/postgresql/howto-configure-privatelink-cli)
 
 ### <a name="approval-process"></a>Proceso de aprobación
-Una vez que el administrador de red crea el punto de conexión privado (PE), el administrador de PostgreSQL puede administrar la conexión de punto de conexión privado (PEC) a la instancia de Azure Database for PostgreSQL.
-
-> [!NOTE]
-> Actualmente, Azure Database for PostgreSQL: servidor único solo admite la aprobación automática para el punto de conexión privado.
+Una vez que el administrador de red crea el punto de conexión privado (PE), el administrador de PostgreSQL puede administrar la conexión del punto de conexión privado (PEC) a la instancia de Azure Database for PostgreSQL. Esta separación de tareas entre el administrador de red y el administrador de base de datos es útil para la administración de la conectividad de Azure Database for PostgreSQL. 
 
 * Vaya al recurso de servidor de Azure Database for PostgreSQL: servidor único en Azure Portal. 
-    * Seleccione las conexiones del punto de conexión privado en el panel izquierdo
-    * Muestra una lista de todas las conexiones del punto de conexión privado (PEC)
-    * Punto de conexión privado (PE) correspondiente creado
+    * Seleccione las conexiones del punto de conexión privado en el panel izquierdo.
+    * Muestra una lista de todas las conexiones del punto de conexión privado (PEC).
+    * Punto de conexión privado (PE) correspondiente creado.
 
-![selección del portal del punto de conexión privado](media/concepts-data-access-and-security-private-link/select-private-link-portal.png)
+![Selección del portal del punto de conexión privado](media/concepts-data-access-and-security-private-link/select-private-link-portal.png)
 
 * Seleccione una conexión del punto de conexión privado en la lista.
 
@@ -79,13 +76,13 @@ Una vez que el administrador de red crea el punto de conexión privado (PE), el 
 
 * Después de la aprobación o el rechazo, la lista reflejará el estado apropiado, junto con el texto de respuesta.
 
-![Selección del estado final del punto de conexión privado](media/concepts-data-access-and-security-private-link/show-private-link-approved-connection.png)
+![selección del estado final del punto de conexión privado](media/concepts-data-access-and-security-private-link/show-private-link-approved-connection.png)
 
 ## <a name="use-cases-of-private-link-for-azure-database-for-postgresql"></a>Casos de uso de Private Link para Azure Database for PostgreSQL
 
 Los clientes se pueden conectar al punto de conexión privado desde la misma red virtual, desde una red virtual emparejada de la misma región o a través de una conexión entre redes virtuales de distintas regiones. Además, los clientes pueden conectarse de forma local mediante ExpressRoute, emparejamiento privado o tunelización de VPN. A continuación, puede ver un diagrama simplificado que muestra los casos de uso habituales.
 
-![información general sobre la selección del punto de conexión privado](media/concepts-data-access-and-security-private-link/show-private-link-overview.png)
+![Información general sobre la selección del punto de conexión privado](media/concepts-data-access-and-security-private-link/show-private-link-overview.png)
 
 ### <a name="connecting-from-an-azure-vm-in-peered-virtual-network-vnet"></a>Conexión desde una máquina virtual de Azure en una red virtual emparejada (VNet)
 Configure el [Emparejamiento de VNET](https://docs.microsoft.com/azure/virtual-network/tutorial-connect-virtual-networks-powershell) para establecer la conectividad con Azure Database for PostgreSQL: servidor único desde una máquina virtual de Azure en una red virtual emparejada.
@@ -109,6 +106,19 @@ Las situaciones y resultados que se muestran a continuación son posibles cuando
 * Si configura el tráfico público o un punto de conexión de servicio y crea puntos de conexión privados, los distintos tipos de tráfico entrante estarán autorizados por el tipo de regla de firewall correspondiente.
 
 * Si no configura ningún tráfico público ni punto de conexión de servicio y crea puntos de conexión privados, Azure Database for PostgreSQL: servidor único solo será accesible a través de los puntos de conexión privados. Si no configura ningún tráfico público ni punto de conexión de servicio, después de que se rechacen o eliminen todos los puntos de conexión privados aprobados, ningún tráfico podrá tener acceso a la instancia de Azure Database for PostgreSQL: servidor único.
+
+## <a name="deny-public-access-for-azure-database-for-postgresql-single-server"></a>Denegación del acceso público para Azure Database for PostgreSQL: servidor único
+
+Si quiere depender completamente de puntos de conexión privados para acceder a su instancia de Azure Database for PostgreSQL: servidor único, puede deshabilitar la configuración de todos los puntos de conexión públicos ([reglas de firewall](concepts-firewall-rules.md) y [puntos de conexión de servicio de red virtual](concepts-data-access-and-security-vnet.md)). Para ello, configure **Deny Public Network Access** (Denegar el acceso a la red pública) en el servidor de bases de datos. 
+
+Si esta opción está establecida en *YES* (SÍ), solo se permiten conexiones a la instancia de Azure Database for PostgreSQL mediante puntos de conexión privados. Si esta opción está establecida en *NO*, los clientes pueden conectarse a su instancia de Azure Database for PostgreSQL en función de la configuración del firewall o del punto de conexión de servicio de red virtual. Además, una vez establecido el valor de acceso a la red privada, los clientes no pueden agregar ni actualizar las reglas de firewall ni la regla de punto de conexión de servicio de red virtual existentes.
+
+> [!Note]
+> Esta característica está disponible en todas las regiones de Azure donde Azure Database for PostgreSQL: servidor único admita los planes de tarifa De uso general y Optimizado para memoria.
+>
+> Esta configuración no afecta a las configuraciones de SSL y TLS de su instancia de Azure Database for PostgreSQL: servidor único.
+
+Para aprender a establecer **Deny Public Network Access** (Denegar el acceso a la red pública) en su instancia de Azure Database for PostgreSQL: servidor único desde Azure Portal, consulte [Cómo configurar la denegación del acceso a una red pública](howto-deny-public-network-access.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

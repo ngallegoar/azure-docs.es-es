@@ -1,34 +1,34 @@
 ---
-title: Configuración de la visualización de dependencias en Azure Migrate
-description: En este artículo se describe cómo configurar la visualización de dependencias en Azure Migrate Server Assessment.
-ms.topic: article
+title: Configuración del análisis de dependencias basado en agente en Azure Migrate Server Assessment
+description: En este artículo se describe cómo configurar un análisis de dependencias basado en agente en Azure Migrate Server Assessment.
+ms.topic: how-to
 ms.date: 2/24/2020
-ms.openlocfilehash: 2b75a38a376558946841d08ab7a9dbf730232e51
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: e61b7b4e6c3e566aa67d2bd585d2049ae885083b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78942077"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79453622"
 ---
 # <a name="set-up-dependency-visualization"></a>Configuración de la visualización de dependencias
 
-En este artículo se describe cómo configurar la visualización de dependencias Azure Migrate: Server Assessment. La [visualización de dependencias](concepts-dependency-visualization.md#what-is-dependency-visualization) le ayuda a identificar y comprender las dependencias en las máquinas que quiere evaluar y migrar a Azure.
+En este artículo se describe cómo configurar un análisis de dependencias basado en agente en Azure Migrate Server Assessment. El [análisis de dependencias](concepts-dependency-visualization.md) le ayuda a identificar y comprender las dependencias en las máquinas que quiere evaluar y migrar a Azure.
 
 ## <a name="before-you-start"></a>Antes de comenzar
 
-- [Revise](concepts-dependency-visualization.md) los requisitos y los costos asociados con la visualización de dependencias.
+- [Aprenda sobre](concepts-dependency-visualization.md#agent-based-analysis) el análisis de dependencias basado en agente.
+- Revise los requisitos previos y los requisitos de soporte técnico para configurar la visualización de dependencias basada en agente para [máquinas virtuales de VMware](migrate-support-matrix-vmware.md#agent-based-dependency-analysis-requirements), [servidores físicos](migrate-support-matrix-physical.md#agent-based-dependency-analysis-requirements) y [máquinas virtuales de Hyper-V](migrate-support-matrix-hyper-v.md#agent-based-dependency-analysis-requirements).
 - Asegúrese de que ha [creado](how-to-add-tool-first-time.md) un proyecto de Azure Migrate.
 - Si ya ha creado un proyecto, asegúrese de que ha [agregado](how-to-assess.md) la herramienta Azure Migrate: Server Assessment.
-- Asegúrese de que ha configurado un [dispositivo Azure Migrate](migrate-appliance.md) para detectar las máquinas locales. Obtenga información sobre cómo configurar un dispositivo para [VMware](how-to-set-up-appliance-vmware.md) o [Hyper-V](how-to-set-up-appliance-hyper-v.md). El dispositivo detecta máquinas locales y envía metadatos y datos de rendimiento a Azure Migrate: Server Assessment.
+- Asegúrese de que ha configurado un [dispositivo Azure Migrate](migrate-appliance.md) para detectar las máquinas locales. Aprenda a configurar un dispositivo para [VMware](how-to-set-up-appliance-vmware.md), [Hyper-V](how-to-set-up-appliance-hyper-v.md) o [servidores físicos](how-to-set-up-appliance-physical.md). El dispositivo detecta máquinas locales y envía metadatos y datos de rendimiento a Azure Migrate Server Assessment.
 - Si quiere usar la visualización de dependencias, debe asociar un [área de trabajo de Log Analytics](../azure-monitor/platform/manage-access.md) con un proyecto de Azure Migrate:
+    - Solo puede asociar un área de trabajo después de configurar el dispositivo de Azure Migrate y de detectar máquinas en el proyecto de Azure Migrate.
     - Asegúrese de que tiene un área de trabajo en la suscripción que contiene el proyecto de Azure Migrate.
     - El área de trabajo debe residir en las regiones Este de EE. UU., Sudeste Asiático u Oeste de Europa. Las áreas de trabajo de otras regiones no se pueden asociar a un proyecto.
     - El área de trabajo debe estar en una región en la que [se admita Service Map](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites).
     - Puede asociar un área de trabajo de Log Analytics nueva o existente con un proyecto de Azure Migrate.
     - La primera vez que configure la visualización de dependencias para una máquina, deberá asociar el área de trabajo. El área de trabajo de un proyecto de Azure Migrate no se puede modificar una vez que se ha agregado.
     - En Log Analytics, el área de trabajo asociada con Azure Migrate se etiqueta con la clave del proyecto de migración y el nombre del proyecto.
-
-- Solo puede asociar un área de trabajo después de detectar máquinas en el proyecto de Azure Migrate. Para ello, puede configurar un dispositivo Azure Migrate para [VMware](how-to-set-up-appliance-vmware.md) o [Hyper-V](how-to-set-up-appliance-hyper-v.md). El dispositivo detecta máquinas locales y envía metadatos y datos de rendimiento a Azure Migrate: Server Assessment. [Más información](migrate-appliance.md).
 
 ## <a name="associate-a-workspace"></a>Asociación de un área de trabajo
 
@@ -51,7 +51,7 @@ En este artículo se describe cómo configurar la visualización de dependencias
 En cada máquina que desee analizar, instale los agentes.
 
 > [!NOTE]
-    > En el caso de las máquinas que supervisa System Center Operations Manager 2012 R2 o las versiones posteriores, no hay necesidad de instalar el agente MMA. Service Map se integra con Operations Manager. [Siga esta](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites) guía de integración.
+> En el caso de las máquinas que supervisa System Center Operations Manager 2012 R2 o las versiones posteriores, no hay necesidad de instalar el agente MMA. Service Map se integra con Operations Manager. [Siga](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites) la guía de integración.
 
 1. En **Azure Migrate: Server Assessment**, haga clic en **Servidores detectados**.
 2. Para cada máquina que desee analizar con visualización de dependencias, en la columna **Dependencias**, haga clic en **Requiere la instalación del agente**.

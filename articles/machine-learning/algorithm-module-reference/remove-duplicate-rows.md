@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 429ddd62cccb8657aa18ec844968cc12df778f55
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 490d3305abcbcd906a0f727d736db8cab7e4287e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153798"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79456028"
 ---
 # <a name="remove-duplicate-rows-module"></a>Módulo Supresión de filas duplicadas
 
@@ -69,7 +69,7 @@ Al ejecutar el módulo, este crea un conjunto de datos candidato y devuelve un c
     + Si se selecciona, se devuelve la primera fila y se descartan las demás. 
     + Si desactiva esta opción, se mantiene la última fila duplicada en los resultados y se descartan las demás. 
 
-5. Ejecución de la canalización
+5. Envíe la canalización.
 
 6. Para ver los resultados, haga clic con el botón derecho en el módulo y seleccione **Visualize** (Visualizar). 
 

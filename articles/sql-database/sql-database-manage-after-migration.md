@@ -11,12 +11,12 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: 16855bb218ba3ae4d221cb1329410c7848aab2c5
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: ebb512fee0186bed3cc7f49f0525dac43e57da3a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818965"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228612"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Nuevo DBA en la nube: administración de las bases de datos únicas o agrupadas en Azure SQL Database
 
@@ -91,7 +91,7 @@ Para obtener más información sobre la recuperación ante desastres, vea: [Azur
 
 SQL Database se toma la seguridad y la privacidad muy en serio. La seguridad en SQL Database está disponible en el nivel de base de datos y en el nivel de plataforma, y se entiende mejor cuando se clasifica por categorías en varias capas. Cada capa le proporciona seguridad óptima para su aplicación y le permite controlarla. Las capas son:
 
-- Identidad y autenticación ([Autenticación de Windows/SQL y autenticación de Azure Active Directory [AAD]](sql-database-control-access.md)).
+- Identidad y autenticación ([autenticación de SQL y autenticación de Azure Active Directory [AAD]](sql-database-manage-logins.md)).
 - Supervisión de la actividad ([Auditoría](sql-database-auditing.md) y [detección de amenazas](sql-database-threat-detection.md)).
 - Protección de datos reales ([Cifrado de datos transparente [TDE]](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) y [Always Encrypted [AE]](/sql/relational-databases/security/encryption/always-encrypted-database-engine)).
 - Control del acceso a datos confidenciales y con privilegios ([seguridad de nivel de fila](/sql/relational-databases/security/row-level-security) y [Enmascaramiento dinámico de datos](/sql/relational-databases/security/dynamic-data-masking)).
@@ -100,10 +100,10 @@ SQL Database se toma la seguridad y la privacidad muy en serio. La seguridad en 
 
 ### <a name="what-user-authentication-methods-are-offered-in-sql-database"></a>Qué métodos de autenticación de usuario se ofrecen en SQL Database
 
-En SQL Database, se ofrecen [dos métodos de autenticación](sql-database-control-access.md#authentication):
+En SQL Database, se ofrecen dos métodos de autenticación:
 
 - [Autenticación con Azure Active Directory](sql-database-aad-authentication.md)
-- Autenticación de SQL
+- [Autenticación de SQL](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication)
 
 No se admite la autenticación de Windows tradicional. Azure Active Directory (AD) es un servicio de administración de identidades y acceso centralizado. Con esto puede proporcionar cómodamente un acceso de inicio de sesión único (SSO) a todo el personal de su organización. Esto significa que las credenciales se comparten entre todos los servicios de Azure para simplificar la autenticación. AAD es compatible con [MFA (Multi-Factor Authentication)](sql-database-ssms-mfa-authentication.md) y con unos [pocos clics](../active-directory/hybrid/how-to-connect-install-express.md) AAD puede integrarse con Windows Server Active Directory. La autenticación de SQL funciona del mismo modo que la ha estado usando en el pasado. Debe proporcionar un nombre de usuario y una contraseña, y puede autenticar a los usuarios en cualquier base de datos de un servidor de SQL Database determinado. Esto también permite a SQL Database y SQL Data Warehouse ofrecer autenticación multifactor y cuentas de usuario de invitado dentro de un dominio de Azure AD. Si ya tiene una instancia de Active Directory local, puede federar el directorio con Azure Active Directory para extender su directorio a Azure.
 
@@ -132,7 +132,7 @@ Un firewall impide el acceso al servidor desde una entidad externa al permitir q
 
 Puede crear reglas de firewall en el nivel de servidor o el nivel de base de datos. Las reglas de firewall de IP en el nivel de servidor pueden crearse mediante Azure Portal o con SSMS. Para más información acerca de cómo configurar una regla de firewall en el nivel de servidor y en el de base de datos, consulte el tema sobre la [creación de reglas de firewall de IP en SQL Database](sql-database-security-tutorial.md#create-firewall-rules).
 
-#### <a name="service-endpoints"></a>Puntos de conexión de servicio
+#### <a name="service-endpoints"></a>Puntos de conexión del servicio
 
 De forma predeterminada, su instancia de SQL Database está configurada para "Permitir que los servicios de Azure accedan al servidor", lo que significa que todas las máquinas virtuales de Azure pueden intentar conectarse a su base de datos. Estos intentos todavía tienen que autenticarse. Sin embargo, si no desea que la base de datos sea accesible para las direcciones IP de Azure, puede deshabilitar "Permitir que los servicios de Azure accedan al servidor". Asimismo, puede configurar [puntos de conexión de servicio de red virtual](sql-database-vnet-service-endpoint-rule-overview.md).
 
@@ -171,9 +171,9 @@ Para proteger los datos confidenciales en curso y en reposo, SQL Database propor
 |**Características**|**Always Encrypted**|**Cifrado de datos transparente**|
 |---|---|---|
 |**Cifrado**|Completa|Datos en reposo|
-|**El servidor de bases de datos puede acceder a datos confidenciales**|Sin|Sí, ya que el cifrado es para los datos en reposo|
+|**El servidor de bases de datos puede acceder a datos confidenciales**|No|Sí, ya que el cifrado es para los datos en reposo|
 |**Operaciones permitidas de T-SQL**|Comparación de igualdad|Toda el área expuesta de T-SQL está disponible|
-|**Cambios de aplicación necesarios para usar la característica**|Mínimo|Muy mínimo|
+|**Cambios de aplicación necesarios para usar la característica**|mínimo|Muy mínimo|
 |**Granularidad de cifrado**|Nivel de columna|Nivel de base de datos|
 ||||
 
@@ -226,7 +226,7 @@ ExpressRoute permite ampliar el límite de ancho de banda que adquiere hasta el 
 
 ### <a name="is-sql-database-compliant-with-any-regulatory-requirements-and-how-does-that-help-with-my-own-organizations-compliance"></a>SQL Database cumple con los requisitos de regulación y cómo ayuda eso con el cumplimiento de mi propia organización
 
-SQL Database cumple con una variedad de regulaciones de cumplimiento. Para ver el conjunto más reciente de cumplimientos que ha alcanzado SQL Database, visite [Microsoft Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) y profundice en los cumplimientos que son importantes para su organización para ver si SQL Database se incluye en los servicios de Azure compatibles. Es importante tener en cuenta que aunque SQL Database puede estar certificada como un servicio conforme, contribuye al cumplimiento del servicio en la organización pero no lo garantiza automáticamente.
+SQL Database cumple con un gran número de regulaciones de cumplimiento. Para ver el conjunto más reciente de cumplimientos que ha realizado SQL Database, visite [Microsoft Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) y profundice en los cumplimientos importantes para su organización, con el fin de ver si SQL Database se incluye en los servicios de Azure compatibles. Es importante tener en cuenta que aunque SQL Database puede estar certificada como un servicio conforme, contribuye al cumplimiento del servicio en la organización pero no lo garantiza automáticamente.
 
 ## <a name="intelligent-database-monitoring-and-maintenance-after-migration"></a>Supervisión y mantenimiento inteligentes de la base de datos después de la migración
 
@@ -302,7 +302,7 @@ SQL Database ofrece varios niveles de servicio: Básico, Estándar y Premium. Co
 
 |**Nivel de servicio**|**Escenarios de casos de uso comunes**|
 |---|---|
-|**Básico**|Aplicaciones con pocos usuarios y una base de datos que no tienen grandes requisitos de simultaneidad, escalabilidad y rendimiento. |
+|**Basic**|Aplicaciones con pocos usuarios y una base de datos que no tienen grandes requisitos de simultaneidad, escalabilidad y rendimiento. |
 |**Estándar**|Aplicaciones con requisitos de simultaneidad, escalabilidad y rendimiento considerables, y una demanda de E/S de baja a media. |
 |**Premium**|Aplicaciones con una gran cantidad de usuarios simultáneos, y altas demandas de CPU/memoria y E/S. Las aplicaciones confidenciales con una alta latencia, un alto rendimiento y una alta simultaneidad pueden usar el nivel Premium. |
 |||
@@ -319,11 +319,11 @@ SQL Database utiliza algunas técnicas inteligentes que permiten controlar ciert
 
 ### <a name="how-do-i-export-and-import-data-as-bacpac-files-from-sql-database"></a>Cómo se exportan e importan datos como archivos BACPAC desde SQL Database
 
-- **Exportar**: puede exportar su base de datos de Azure SQL como un archivo BACPAC desde Azure Portal.
+- **Export**: puede exportar su base de datos de Azure SQL como un archivo BACPAC desde Azure Portal.
 
    ![exportación de base de datos](./media/sql-database-export/database-export1.png)
 
-- **Importar**: también puede importar datos como un archivo BACPAC en la base de datos mediante Azure Portal.
+- **Import**: también puede importar datos como un archivo BACPAC en la base de datos mediante Azure Portal.
 
    ![importación de base de datos](./media/sql-database-import/import1.png)
 

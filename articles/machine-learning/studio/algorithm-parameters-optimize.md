@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 33705d0c9f2f405be733fd21c88cb83e96aec781
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 04148b482cb07665f43df5bd86a77175cbbaf08b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168963"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79218267"
 ---
 # <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio-classic"></a>Elegir parámetros para optimizar los algoritmos de Azure Machine Learning Studio (clásico)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 En este tema se describe cómo elegir el hiperparámetro adecuado establecido para un algoritmo en Azure Machine Learning Studio (clásico). La mayoría de los algoritmos de aprendizaje automático tienen parámetros para configurar. Cuando entrena un modelo, tiene que especificar valores para esos parámetros. La eficacia del modelo entrenado depende de los parámetros del modelo que elija. El proceso de encontrar el conjunto óptimo de parámetros se conoce como *selección del modelo*.
 
@@ -41,7 +43,7 @@ Puede definir el conjunto de parámetros en el paso de inicialización del model
 
 ![Árbol de decisión ampliado de dos clases, único parámetro](./media/algorithm-parameters-optimize/fig2.png)
 
- De manera alternativa, puede definir los puntos máximos y mínimos de la cuadrícula y el número total de puntos que se va a generar con **Usar generador de intervalo**. De manera predeterminada, se generan los valores de parámetro en una escala lineal. Pero si el cuadro **Escala logarítmica** está activado, los valores se generan en la escala logarítmica (es decir, la relación de los puntos adyacentes es constante en lugar de su diferencia). Para los parámetros de número entero, puede definir un intervalo con un guión. Por ejemplo, “1-10” significa que todos los valores enteros entre 1 y 10 (ambos inclusive) forman el conjunto de parámetros. También se admite un modo mixto. Por ejemplo, el conjunto de parámetros “1-10, 20, 50” incluirá números enteros de 1-10, 20 y 50.
+ De manera alternativa, puede definir los puntos máximos y mínimos de la cuadrícula y el número total de puntos que se va a generar con **Usar generador de intervalo**. De manera predeterminada, se generan los valores de parámetro en una escala lineal. Pero si el cuadro **Escala logarítmica** está activado, los valores se generan en la escala logarítmica (es decir, la relación de los puntos adyacentes es constante en lugar de su diferencia). Para los parámetros de número entero, puede definir un intervalo con un guión. Por ejemplo, "1-10" significa que todos los valores enteros entre 1 y 10 (ambos inclusive) forman el conjunto de parámetros. También se admite un modo mixto. Por ejemplo, el conjunto de parámetros "1-10, 20, 50" incluirá números enteros de 1-10, 20 y 50.
 
 ![Árbol de decisión ampliado de dos clases, intervalo de parámetros](./media/algorithm-parameters-optimize/fig3.png)
 

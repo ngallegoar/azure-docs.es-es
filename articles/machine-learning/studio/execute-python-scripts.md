@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/12/2019
-ms.openlocfilehash: ec210fcdf521413438edd256cc3ee988b67f293f
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: c79f6bd63fa5d8d8c6b22ff271d8ca513a94fd64
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168661"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79218084"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio-classic"></a>Ejecución de scripts de Python en Azure Machine Learning Studio (clásico)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Python es una valiosa herramienta de la caja de herramientas de muchos científicos de datos. Se utiliza en cada etapa de flujos de trabajo típicos de aprendizaje automático, incluida la exploración de datos, la extracción de características, el entrenamiento y la validación del modelo, y la implementación.
 
@@ -65,7 +67,7 @@ Los conjuntos de datos de Studio no son lo mismo que los DataFrames de Pandas. E
 
 **Todas las tramas de datos de entrada de la función de Python siempre tienen un índice numérico de 64 bits entre 0 y el número de filas menos 1*
 
-## <a id="import-modules"></a>Importación de módulos de scripts existentes de Python
+## <a name="importing-existing-python-script-modules"></a><a id="import-modules"></a>Importación de módulos de scripts existentes de Python
 
 El back-end que se usa para ejecutar Python se basa en [Anaconda](https://www.anaconda.com/distribution/), una distribución científica de Python ampliamente usada. Incluye cerca de 200 de los paquetes más comunes de Python que se utilizan en las cargas de trabajo centradas en datos. Studio (clásico) no admite actualmente el uso de sistemas de administración de paquetes, como Pip o Conda, para instalar y administrar bibliotecas externas.  Si encuentra la necesidad de incorporar bibliotecas adicionales, use el siguiente escenario como guía.
 
@@ -122,7 +124,7 @@ Un servicio web creado a partir de este experimento tendría las siguientes acci
 1. Enviar la expresión de Python para el intérprete de Python.
 1. Devuelve una tabla que contiene la expresión y el resultado evaluado.
 
-## <a id="visualizations"></a>Trabajo con visualizaciones
+## <a name="working-with-visualizations"></a><a id="visualizations"></a>Trabajo con visualizaciones
 
 El módulo [Ejecutar script de Python][execute-python-script] puede devolver los trazados creados con MatplotLib. Sin embargo, los trazados no se redirigen automáticamente a imágenes como sucede cuando se usa R. Por lo tanto, el usuario debe guardar explícitamente todo trazado como archivo PNG.
 
@@ -153,7 +155,7 @@ Aquí se muestra la función de Python usada para calcular las puntuaciones de i
 
 ![Función para clasificar características por puntuaciones](./media/execute-python-scripts/figure8.png)
 
-El siguiente experimento calcula y devuelve las puntuaciones de importancia de características en el conjunto de datos "Diabetes en los indios Pima" en Azure Machine Learning Studio (clásico):
+El siguiente experimento calcula y devuelve las puntuaciones de importancia de características en el conjunto de datos "Pima Indian Diabetes" en Azure Machine Learning Studio (clásico):
 
 ![Experimento para clasificar las características del conjunto de datos Diabetes mediante Python](./media/execute-python-scripts/figure9a.png)
 

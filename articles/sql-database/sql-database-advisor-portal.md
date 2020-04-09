@@ -11,16 +11,16 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: 5462a03accb3420b3f0fcec4624734c8f6d68859
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: b0452d51dc472e100ef52536d8e3814ff395292b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73811590"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79214180"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Búsqueda y aplicación de recomendaciones de rendimiento
 
-Puede usar Azure Portal para buscar recomendaciones de rendimiento que pueden optimizar el rendimiento de su base de datos de Azure SQL o corregir un problema identificado en la carga de trabajo. La página **Recomendaciones de rendimiento** de Azure Portal permite buscar las principales recomendaciones en función de su impacto potencial. 
+Puede usar Azure Portal para buscar recomendaciones de rendimiento que pueden optimizar el rendimiento de su base de datos de Azure SQL o corregir un problema identificado en la carga de trabajo. La página **Recomendaciones de rendimiento** de Azure Portal permite buscar las principales recomendaciones en función de su impacto potencial.
 
 ## <a name="viewing-recommendations"></a>Visualización de recomendaciones
 
@@ -28,7 +28,7 @@ Para ver y aplicar recomendaciones de rendimiento, necesita los permisos correct
 
 Use los pasos siguientes para buscar recomendaciones de rendimiento en Azure Portal:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 2. Vaya a **Todos los servicios** > **Bases de datos SQL** y seleccione la base de datos.
 3. Vaya a **Recomendaciones de rendimiento** para ver las recomendaciones disponibles para la base de datos seleccionada.
 
@@ -38,25 +38,24 @@ Las recomendaciones de rendimiento se muestran en una tabla similar a la de la s
 
 Las recomendaciones se ordenan en las siguientes categorías, según su impacto potencial sobre el rendimiento:
 
-| Impacto | DESCRIPCIÓN |
+| Impacto | Descripción |
 |:--- |:--- |
 | Alto |Las recomendaciones de alto impacto debe tener el impacto más importante en el rendimiento. |
-| Mediano |Las recomendaciones de impacto moderado deben mejorar el rendimiento, pero no de manera significativa. |
+| Media |Las recomendaciones de impacto moderado deben mejorar el rendimiento, pero no de manera significativa. |
 | Bajo |Las recomendaciones de bajo impacto deben proporcionar un mejor rendimiento que el que se produciría sin ellas, pero es posible que las mejoras no sean significativas. |
-
 
 > [!NOTE]
 > Azure SQL Database necesita supervisar actividades durante al menos un día para identificar algunas recomendaciones. Azure SQL Database puede optimizar con patrones de consultas coherentes con más facilidad que en el caso de ráfagas irregulares de actividad. Si no hay recomendaciones disponibles, la página **Recomendaciones de rendimiento** proporciona un mensaje explicativo.
-> 
 
-También puede ver el estado de las operaciones históricas. Seleccione una recomendación o estado para ver más información.
+También puede ver el estado de las operaciones históricas. Para ver más información seleccione una recomendación o un estado.
 
 Este es un ejemplo de la recomendación "Crear índice" de Azure Portal.
 
-![Creación de índice](./media/sql-database-advisor-portal/sql-database-performance-recommendation.png)
+![Crear índice](./media/sql-database-advisor-portal/sql-database-performance-recommendation.png)
 
 ## <a name="applying-recommendations"></a>Aplicación de las recomendaciones
-Azure SQL Database le proporciona un control total sobre el modo en que se habilitan las recomendaciones mediante una de las tres opciones siguientes: 
+
+Azure SQL Database le proporciona un control total sobre el modo en que se habilitan las recomendaciones mediante una de las tres opciones siguientes:
 
 * Aplicar recomendaciones individuales una a una.
 * Habilitar el ajuste automático para aplicar automáticamente recomendaciones.
@@ -67,12 +66,13 @@ Seleccione cualquier recomendación para ver sus detalles y, luego, haga clic en
 La base de datos permanece en línea mientras se aplica la recomendación; cuando se usa la recomendación de rendimiento o el ajuste automático, no se desconecta nunca una base de datos.
 
 ### <a name="apply-an-individual-recommendation"></a>Aplicar una recomendación individual
+
 Puede revisar y aceptar recomendaciones una a una.
 
 1. En la página **Recomendaciones**, seleccione una recomendación.
 2. En la página **Detalles**, haga clic en **Aplicar**.
-   
-    ![Aplicar recomendaciones](./media/sql-database-advisor-portal/apply.png)
+
+   ![Aplicar recomendaciones](./media/sql-database-advisor-portal/apply.png)
 
 Se aplica la recomendación seleccionada en la base de datos.
 
@@ -92,21 +92,20 @@ Si quiere, puede volver a agregar elementos descartados a la lista **Recomendaci
 > [!NOTE]
 > Tenga en cuenta que si el [Ajuste automático](sql-database-automatic-tuning.md) de SQL Database está habilitado y se ha descartado manualmente una recomendación de la lista, esta nunca se aplicará automáticamente. Descartar una recomendación es una forma práctica para que los usuarios tengan el ajuste automático habilitado en casos en que se requiera que no se aplique dicha recomendación específica.
 > Se puede revertir este comportamiento si se vuelven a agregar las recomendaciones descartadas a la lista de recomendaciones con la selección de la opción Deshacer Descartar.
-> 
 
 ### <a name="enable-automatic-tuning"></a>Habilitación del ajuste automático
+
 Puede establecer que Azure SQL Database implemente las recomendaciones de forma automática. A medida que las recomendaciones estén disponibles, estas se aplicarán de manera automática. Al igual que con todas las recomendaciones que administra el servicio, si el impacto en el rendimiento es negativo, se revierte la recomendación.
 
 1. En la página **Recomendaciones**, haga clic en **Automatizar**:
-   
-    ![Configuración del asesor](./media/sql-database-advisor-portal/settings.png)
+
+   ![Configuración del asesor](./media/sql-database-advisor-portal/settings.png)
 2. Seleccione las acciones que desee automatizar:
-   
-    ![Índices recomendados](./media/sql-database-automatic-tuning-enable/server.png)
+
+   ![Índices recomendados](./media/sql-database-automatic-tuning-enable/server.png)
 
 > [!NOTE]
-> Tenga en cuenta que la opción **DROP_INDEX** no es compatible con las aplicaciones que usan sugerencias de índice y la conmutación de particiones. 
->
+> Tenga en cuenta que la opción **DROP_INDEX** no es compatible con las aplicaciones que usan sugerencias de índice y la conmutación de particiones.
 
 Cuando haya seleccionado la configuración que desee, haga clic en Aplicar.
 
@@ -114,7 +113,7 @@ Cuando haya seleccionado la configuración que desee, haga clic en Aplicar.
 
 Seleccione cualquier recomendación y haga clic en **Ver script**. Ejecute este script en la base de datos para aplicar la recomendación manualmente.
 
-*El servicio no supervisa ni valida los índices que se ejecutan de manera manual para conocer el impacto en el rendimiento* , por lo que se recomienda supervisar estos índices después de su creación para comprobar que proporcionen mejoras en el rendimiento y, en caso necesario, ajustarlos o eliminarlos. Si desea conocer detalles sobre la creación de índices, consulte [CREAR ÍNDICE (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx). Además, las recomendaciones aplicadas manualmente permanecerán activas y se mostrarán en la lista de recomendaciones durante un período de 24 a 48 horas antes de que el sistema las retire automáticamente. Si quiere quitar una recomendación antes, puede descartarla manualmente.
+*El servicio no supervisa ni valida los índices que se ejecutan de manera manual para conocer el impacto en el rendimiento* , por lo que se recomienda supervisar estos índices después de su creación para comprobar que proporcionen mejoras en el rendimiento y, en caso necesario, ajustarlos o eliminarlos. Si desea conocer detalles sobre la creación de índices, consulte [CREAR ÍNDICE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-index-transact-sql). Además, las recomendaciones aplicadas manualmente permanecerán activas y se mostrarán en la lista de recomendaciones durante un período de 24 a 48 horas antes de que el sistema las retire automáticamente. Si quiere quitar una recomendación antes, puede descartarla manualmente.
 
 ### <a name="canceling-recommendations"></a>Cancelación de recomendaciones
 
@@ -127,7 +126,7 @@ Las recomendaciones que se encuentran en estado **Pendiente**, **Validando** o *
 
 Puede que una recomendación no se aplique de manera inmediata. El portal proporciona detalles sobre el estado de la recomendación. A continuación se indican los posibles estados en los que un índice puede encontrarse:
 
-| Status | DESCRIPCIÓN |
+| Status | Descripción |
 |:--- |:--- |
 | Pending |El comando de aplicación de recomendaciones se ha recibido y su ejecución está programada. |
 | Executing |La recomendación está aplicándose. |
@@ -142,6 +141,7 @@ Haga clic en una recomendación en proceso de la lista para ver más informació
 ![Índices recomendados](./media/sql-database-advisor-portal/operations.png)
 
 ### <a name="reverting-a-recommendation"></a>Reversión de una recomendación
+
 Si usó las recomendaciones de rendimiento para aplicar la recomendación (es decir, no ejecutó manualmente el script T-SQL), se revierte automáticamente el cambio si detecta que afecta de manera desfavorable al rendimiento. Si tan solo quiere revertir una recomendación por el motivo que sea, realice los siguientes pasos:
 
 1. En el área **Historial de ajuste** , seleccione una recomendación que se haya aplicado correctamente.
@@ -150,22 +150,25 @@ Si usó las recomendaciones de rendimiento para aplicar la recomendación (es de
 ![Índices recomendados](./media/sql-database-advisor-portal/details.png)
 
 ## <a name="monitoring-performance-impact-of-index-recommendations"></a>Supervisión del impacto en el rendimiento de las recomendaciones de índices
+
 Una vez implementadas correctamente las recomendaciones (actualmente, solo recomendaciones para indexar operaciones y parametrizar consultas), puede hacer clic en **Detalles de la consulta** en la página de detalles de recomendaciones para abrir [Información de rendimiento de consultas](sql-database-query-performance.md) y ver el efecto en el rendimiento de las consultas principales.
 
 ![Supervisar el impacto en el rendimiento](./media/sql-database-advisor-portal/query-insights.png)
 
 ## <a name="summary"></a>Resumen
+
 Azure SQL Database ofrece recomendaciones para mejorar el rendimiento de la base de datos SQL. Al proporcionar scripts T-SQL, consigue ayuda útil para optimizar la base de datos y, en última instancia, para mejorar el rendimiento de las consultas.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Supervise las recomendaciones y siga aplicándolas para refinar el rendimiento. Las cargas de trabajo de bases de datos son dinámicas y cambian con frecuencia. Azure SQL Database sigue supervisando y ofreciendo recomendaciones que pueden mejorar el rendimiento de la base de datos. 
+
+Supervise las recomendaciones y siga aplicándolas para refinar el rendimiento. Las cargas de trabajo de bases de datos son dinámicas y cambian con frecuencia. Azure SQL Database sigue supervisando y ofreciendo recomendaciones que pueden mejorar el rendimiento de la base de datos.
 
 * Consulte [Ajuste automático](sql-database-automatic-tuning.md) para más información sobre el ajuste automático en Azure SQL Database.
 * Consulte [Recomendaciones de rendimiento](sql-database-advisor.md) para ver información general sobre las recomendaciones de rendimiento de Azure SQL Database.
 * Consulte [Query Performance Insight](sql-database-query-performance.md) para más información sobre el impacto en el rendimiento de las principales consultas.
 
 ## <a name="additional-resources"></a>Recursos adicionales
+
 * [Almacén de consultas](https://msdn.microsoft.com/library/dn817826.aspx)
 * [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
 * [Control de acceso basado en rol](../role-based-access-control/overview.md)
-

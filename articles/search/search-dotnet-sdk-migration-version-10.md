@@ -10,10 +10,10 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: ad912eb0b26354d40a654a1c8782dfcb960235e5
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73847519"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-10"></a>Actualización a la versión 10 del SDK de .NET para Azure Cognitive Search
@@ -68,7 +68,7 @@ Hay varios cambios importantes en la versión 10 que pueden requerir cambios de
 
 La definición de la [aptitud API web personalizada](cognitive-search-custom-skill-web-api.md) estaba especificada de forma incorrecta en la versión 9 y anteriores. 
 
-El modelo para la aptitud `WebApiSkill` especificaba `HttpHeaders` como una propiedad de objeto que _contenía_ un diccionario. La creación de un conjunto de aptitudes con una aptitud `WebApiSkill` construida de esta manera daría como resultado una excepción porque la API REST consideraría la solicitud mal formada. Este problema se ha corregido al hacer de `HttpHeaders` **una propiedad del diccionario de nivel superior** en el propio modelo `WebApiSkill`, que se considera una solicitud válida de la API REST.
+El modelo para la aptitud `WebApiSkill` especificaba `HttpHeaders` como una propiedad de objeto que _contenía_ un diccionario. La creación de un conjunto de aptitudes con una aptitud `WebApiSkill` construida de esta manera daría como resultado una excepción porque la API REST consideraría la solicitud mal formada. Este problema se ha corregido al hacer de `HttpHeaders`**una propiedad de diccionario de nivel superior** en el propio modelo `WebApiSkill`, que se considera una solicitud válida de la API REST.
 
 Por ejemplo, si ha intentado crear anteriormente una instancia de `WebApiSkill` del modo siguiente:
 

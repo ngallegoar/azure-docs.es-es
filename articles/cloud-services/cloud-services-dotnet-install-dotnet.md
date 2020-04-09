@@ -10,29 +10,29 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/22/2018
 ms.author: tagore
-ms.openlocfilehash: c950fbedde19e3b7708d3640487d413fcac7787f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c830dc0ee38ad808579a62274e3db87d0696e099
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75360997"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79214716"
 ---
 # <a name="install-net-on-azure-cloud-services-roles"></a>Instalación de .NET en roles de Azure Cloud Services
 En este artículo se describe cómo instalar versiones de .NET Framework que no viene con el SO invitado de Azure. Puede usar .NET en el SO invitado para configurar el rol de trabajo y el rol web del servicio en la nube.
 
-Por ejemplo, puede instalar .NET 4.6.2 en la familia 4 del SO invitado, que no viene con ninguna versión de .NET 4.6. (La familia 5 del SO invitado sí viene con .NET 4.6) Para la información más reciente sobre las versiones del SO invitado de Azure, consulte las [novedades de la versión del SO invitado de Azure](cloud-services-guestos-update-matrix.md). 
+Por ejemplo, puede instalar .NET Framework 4.6.2 en la familia 4 del SO invitado, que no viene con ninguna versión de .NET Framework 4.6. (La familia 5 del SO invitado sí viene con .NET Framework 4.6) Para la información más reciente sobre las versiones del SO invitado de Azure, consulte las [novedades de la versión del SO invitado de Azure](cloud-services-guestos-update-matrix.md). 
 
 >[!IMPORTANT]
->Azure SDK 2.9 contiene una restricción sobre la implementación de .NET 4.6 en la familia 4 o anterior del SO invitado. Hay disponible una corrección para la restricción en el sitio [Microsoft Docs](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Azure%20Targets%20SDK%202.9).
+>Azure SDK 2.9 contiene una restricción sobre la implementación de .NET Framework 4.6 en la familia 4 o anterior del SO invitado. Hay disponible una corrección para la restricción en el sitio [Microsoft Docs](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Azure%20Targets%20SDK%202.9).
 
 Para instalar .NET en el rol de trabajo y el rol web, incluya el instalador web de .NET como parte del proyecto de servicios en la nube. Inicie el instalador como parte de las tareas de inicio del rol. 
 
 ## <a name="add-the-net-installer-to-your-project"></a>Agregar el instalador de .NET al proyecto
 Para descargar el instalador web de .NET Framework, elija la versión que desea instalar:
 
-* [Instalador web de .NET 4.8](https://dotnet.microsoft.com/download/thank-you/net48)
-* [Instalador web de .NET 4.7.2](https://go.microsoft.com/fwlink/?LinkId=863262)
-* [Instalador web de .NET 4.6.2](https://www.microsoft.com/download/details.aspx?id=53345)
+* [Instalador web de .NET Framework 4.8](https://dotnet.microsoft.com/download/thank-you/net48)
+* [Instalador web de .NET Framework 4.7.2](https://go.microsoft.com/fwlink/?LinkId=863262)
+* [Instalador web de .NET Framework 4.6.2](https://www.microsoft.com/download/details.aspx?id=53345)
 
 Para agregar el instalador para un rol *web*:
   1. En el **Explorador de soluciones**, en **Roles** del proyecto de servicio en la nube, haga clic con el botón derecho en el rol *web* y seleccione **Agregar** > **Nueva carpeta**. Cree una carpeta llamada **bin**.
@@ -44,7 +44,7 @@ Para agregar el instalador para un rol *trabajo*:
 Cuando se agregan de esta manera archivos a la carpeta de contenido de rol, se agregan automáticamente al paquete del servicio en la nube. Los archivos luego se implementan en una ubicación coherente en la máquina virtual. Repita este proceso para cada rol web y rol de trabajo en el servicio en la nube, de manera que todos los roles tengan una copia del instalador.
 
 > [!NOTE]
-> Debe instalar .NET 4.6.2 en su rol de servicio en la nube, aunque la aplicación tenga como destino .NET 4.6. El SO invitado incluye la [actualización 3098779](https://support.microsoft.com/kb/3098779) y la [actualización 3097997](https://support.microsoft.com/kb/3097997) de Knowledge Base. Pueden producirse problemas cuando se ejecutan las aplicaciones .NET si .NET 4.6 está instalado sobre las actualizaciones de Knowledge Base. Para evitar estos problemas, instale .NET 4.6.2 en lugar de la versión 4.6. Para más información, consulte los artículos [3118750](https://support.microsoft.com/kb/3118750) y [4340191](https://support.microsoft.com/kb/4340191) de Knowledge Base.
+> Debe instalar .NET Framework 4.6.2 en su rol de servicio en la nube, aunque la aplicación tenga como destino .NET Framework 4.6. El SO invitado incluye la [actualización 3098779](https://support.microsoft.com/kb/3098779) y la [actualización 3097997](https://support.microsoft.com/kb/3097997) de Knowledge Base. Pueden producirse problemas cuando se ejecutan las aplicaciones .NET si .NET Framework 4.6 está instalado sobre las actualizaciones de Knowledge Base. Para evitar estos problemas, instale .NET Framework 4.6.2 en lugar de la versión 4.6. Para más información, consulte los artículos [3118750](https://support.microsoft.com/kb/3118750) y [4340191](https://support.microsoft.com/kb/4340191) de Knowledge Base.
 > 
 > 
 
@@ -82,7 +82,7 @@ Puede usar las tareas de inicio para realizar operaciones antes de que se inicie
 
 2. Cree un archivo llamado **install.cmd** y agréguele el script de instalación siguiente.
 
-   El script consulta el registro para comprobar si la versión especificada de .NET Framework ya esta instalada en la máquina. Si la versión de .NET no está instalada, se abre el instalador web de .NET. Para ayudar a solucionar cualquier problema, el script registra toda la actividad en el archivo startuptasklog-(fecha y hora actual).txt que se almacena en el almacenamiento local **InstallLogs**.
+   El script consulta el registro para comprobar si la versión especificada de .NET Framework ya esta instalada en la máquina. Si la versión de .NET Framework no está instalada, se abre el instalador web de .NET Framework. Para ayudar a solucionar cualquier problema, el script registra toda la actividad en el archivo startuptasklog-(fecha y hora actual).txt que se almacena en el almacenamiento local **InstallLogs**.
    
    > [!IMPORTANT]
    > Use un editor de texto básico, como el Bloc de notas de Windows, para crear el archivo the install.cmd. Si usa Visual Studio para crear un archivo de texto y cambia la extensión a .cmd, es posible que el archivo siga teniendo una marca BOM UTF-8. Esta marca puede provocar un error cuando se ejecuta la primera línea del script. Para evitarlo, haga que la primera línea del script sea una instrucción REM que el procesamiento de orden de bytes pueda omitir. 

@@ -10,25 +10,24 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 01/25/2019
-ms.openlocfilehash: c4923e43613653bf3dfe8055754039ab0cf57fca
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.date: 03/10/2020
+ms.openlocfilehash: 739bba7ed9ab4770a762c08fccc422ce048ae11d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587386"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79214091"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Solucionar problemas de rendimiento de Azure SQL Database con Intelligent Insights
 
-Esta página proporciona información sobre los problemas de rendimiento de Azure SQL Database e Instancia administrada detectados mediante el registro de diagnóstico de rendimiento de la base de datos de [Intelligent Insights](sql-database-intelligent-insights.md). Se puede realizar un flujo de datos de telemetría del registro de diagnóstico hacia [registros de Azure Monitor](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-diagnostic-telemetry-into-azure-storage) o una solución de terceros para las funcionalidades personalizadas de informes y alertas de DevOps.
+Esta página se proporciona información sobre los problemas de rendimiento de Azure SQL Database e Instancia administrada detectados mediante el registro de recursos de [Intelligent Insights](sql-database-intelligent-insights.md). Tanto las métricas como los flujos de recursos se pueden transmitir en secuencias a los [registros de Azure Monitor](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-azure-storage) o una solución de terceros para las funcionalidades personalizadas de informes y alertas de DevOps.
 
 > [!NOTE]
 > Para una guía rápida de solución de problemas de rendimiento de SQL Database a través de Intelligent Insights, consulte el diagrama de flujo [Flujo de solución de problemas recomendado](sql-database-intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow) de este documento.
->
 
 ## <a name="detectable-database-performance-patterns"></a>Patrones de rendimiento de la base de datos detectables
 
-Intelligent Insights detecta automáticamente los problemas de rendimiento de las bases de datos SQL y de instancia administrada en función de los tiempos de espera o los errores en la ejecución de consultas. Envía los patrones de rendimiento detectados al registro de diagnóstico. Los patrones de rendimiento detectables se resumen en la tabla siguiente.
+Intelligent Insights detecta automáticamente los problemas de rendimiento con bases de datos de Azure SQL Database en función de los tiempos de espera, los errores o el agotamiento de los tiempos de espera. Intelligent Insights genera patrones de rendimiento detectados en el registro de recursos de SQL Database. Los patrones de rendimiento detectables se resumen en la tabla siguiente.
 
 | Patrones de rendimiento detectables | Descripción de Azure SQL Database y los grupos elásticos | Descripción de las bases de datos en Instancia administrada |
 | :------------------- | ------------------- | ------------------- |
@@ -82,7 +81,7 @@ Este patrón de rendimiento identifica los problemas causados por el aumento de 
 
 Esta detección se realiza mediante la combinación de varias estadísticas. La métrica básica medida consiste en detectar un aumento de la carga de trabajo en comparación con la base de referencia de la carga de trabajo anterior. La otra forma de detección se basa en medir un gran aumento de los subprocesos de trabajo activos que son lo suficientemente grandes como para afectar al rendimiento de la consulta.
 
-En su forma más grave, la carga de trabajo podría acumularse continuamente debido a la incapacidad de la base de datos SQL para controlarla. Como resultado, la carga de trabajo sigue aumentando constantemente, que es la condición de acumulación de la carga de trabajo. Debido a esta condición, aumenta el tiempo que espera la carga de trabajo para ejecutarse. Esta condición representa uno de los problemas más graves de rendimiento de la base de datos. El problema se detecta mediante la supervisión del aumento del número de subprocesos de trabajo anulados. 
+En su forma más grave, la carga de trabajo podría acumularse continuamente debido a la incapacidad de la base de datos SQL para controlarla. Como resultado, la carga de trabajo sigue aumentando constantemente, que es la condición de acumulación de la carga de trabajo. Debido a esta condición, aumenta el tiempo que espera la carga de trabajo para ejecutarse. Esta condición representa uno de los problemas más graves de rendimiento de la base de datos. El problema se detecta mediante la supervisión del aumento del número de subprocesos de trabajo anulados.
 
 ### <a name="troubleshooting"></a>Solución de problemas
 
@@ -102,29 +101,29 @@ La forma más grave de presión de memoria es la condición de acumulación de m
 
 ### <a name="troubleshooting"></a>Solución de problemas
 
-El registro de diagnóstico proporciona los detalles del almacén de objetos de memoria con el distribuidor (es decir, el subproceso de trabajo) marcado como el mayor motivo del uso de memoria alta y las marcas de tiempo pertinentes. Puede usar esta información como base para la solución de problemas. 
+El registro de diagnóstico proporciona los detalles del almacén de objetos de memoria con el distribuidor (es decir, el subproceso de trabajo) marcado como el mayor motivo del uso de memoria alta y las marcas de tiempo pertinentes. Puede usar esta información como base para la solución de problemas.
 
 Puede optimizar o quitar consultas relacionadas con los distribuidores que realizan un mayor uso de memoria. También puede asegurarse de no consultar datos que no vaya a utilizar. Como procedimiento recomendado, use siempre la cláusula WHERE en sus consultas. Además, se recomienda que cree índices no agrupados para buscar los datos en lugar de examinarlos.
 
 Otra manera de reducir la carga de trabajo es optimizarla o distribuirla entre varias bases de datos . Si ninguna de estas soluciones es posible, podría aumentar el plan de tarifa de su suscripción de SQL Database a fin de aumentar la cantidad de recursos de memoria disponibles para la base de datos.
 
-Para obtener más sugerencias de solución de problemas, consulte [Memory grants meditation: The mysterious SQL Server memory consumer with many names](https://blogs.msdn.microsoft.com/sqlmeditation/20../../memory-meditation-the-mysterious-sql-server-memory-consumer-with-many-names/) (Meditación sobre la concesión de memoria: el misterioso consumidor de memoria de SQL Server con muchos nombres).
+Para obtener más sugerencias de solución de problemas, consulte [Memory grants meditation: The mysterious SQL Server memory consumer with many names](https://techcommunity.microsoft.com/t5/sql-server-support/memory-grants-meditation-the-mysterious-sql-server-memory/ba-p/333994) (Meditación sobre la concesión de memoria: el misterioso consumidor de memoria de SQL Server con muchos nombres).
 
 ## <a name="locking"></a>Bloqueo
 
 ### <a name="what-is-happening"></a>Qué pasa
 
-Este patrón de rendimiento indica una degradación del rendimiento actual de la base de datos en el que se detectó un bloqueo excesivo de la base de datos en comparación con la base de referencia de rendimiento de los últimos 7 días. 
+Este patrón de rendimiento indica una degradación del rendimiento actual de la base de datos en el que se detectó un bloqueo excesivo de la base de datos en comparación con la base de referencia de rendimiento de los últimos 7 días.
 
 En el sistema de administración de bases de datos relacionales moderno, el bloqueo es esencial para implementar sistemas de varios subprocesos en los que, siempre que sea posible, el rendimiento se maximiza mediante la ejecución de varios trabajos simultáneos y transacciones de la base de datos paralelas. El bloqueo en este contexto hace referencia al mecanismo de acceso integrado en el que solo una transacción puede tener acceso exclusivo a las filas, las páginas, las tablas y los archivos necesarios y no competir con ninguna otra transacción por los recursos. Cuando la transacción se realiza con los recursos cuyo uso tenía bloqueado, se libera el bloqueo en estos recursos y se permite que otras transacciones accedan a los recursos necesarios. Para más información sobre el bloqueo, consulte [Bloquear el motor de base de datos](https://msdn.microsoft.com/library/ms190615.aspx).
 
-Si las transacciones ejecutadas por el motor SQL esperan largos períodos de tiempo para el acceso a recursos cuyo uso tienen bloqueado, este tiempo de espera provoca la reducción del rendimiento de la ejecución de la carga de trabajo. 
+Si las transacciones ejecutadas por el motor SQL esperan largos períodos de tiempo para el acceso a recursos cuyo uso tienen bloqueado, este tiempo de espera provoca la reducción del rendimiento de la ejecución de la carga de trabajo.
 
 ### <a name="troubleshooting"></a>Solución de problemas
 
 El registro de diagnóstico genera detalles del bloqueos que puede usar como base para la solución de problemas. Puede analizar las consultas de bloqueo notificadas, es decir, las consultas que presentan la degradación del rendimiento de bloqueo, y quitarlas. En algunos casos, es posible que la optimización de las consultas de bloqueo se realice correctamente.
 
-La forma más sencilla y segura de mitigar el problema es mantener cortas las transacciones y reducir la superficie de bloqueo de las consultas más costosas. Puede dividir un lote grande de operaciones en operaciones más pequeñas. Se recomienda reducir la superficie de bloqueo de consulta. Para ello, haga que la consulta sea tan eficaz como sea posible. Reduzca las exploraciones grandes porque aumentar las posibilidades de interbloqueos y afectan negativamente al rendimiento general de la base de datos. En el caso de consultas identificadas que provocan bloqueo, puede crear nuevos índices o agregar columnas al índice existente para evitar recorridos de tabla. 
+La forma más sencilla y segura de mitigar el problema es mantener cortas las transacciones y reducir la superficie de bloqueo de las consultas más costosas. Puede dividir un lote grande de operaciones en operaciones más pequeñas. Se recomienda reducir la superficie de bloqueo de consulta. Para ello, haga que la consulta sea tan eficaz como sea posible. Reduzca las exploraciones grandes porque aumentar las posibilidades de interbloqueos y afectan negativamente al rendimiento general de la base de datos. En el caso de consultas identificadas que provocan bloqueo, puede crear nuevos índices o agregar columnas al índice existente para evitar recorridos de tabla.
 
 Para obtener más sugerencias, vea [How to resolve blocking problems that are caused by lock escalation in SQL Server](https://support.microsoft.com/help/323630/how-to-resolve-blocking-problems-that-are-caused-by-lock-escalation-in) (Cómo resolver los problemas de bloqueo causados por la extensión de bloqueo en SQL Server).
 
@@ -136,7 +135,7 @@ Este patrón de rendimiento detectable indica una condición en la que se parare
 
 El sistema experto analiza el rendimiento actual de la base de datos y lo compara con el período de base de referencia. De esta forma, determina si una consulta ejecutada anteriormente funciona más lenta que antes porque el plan de ejecución de consultas está más paralelizado de lo que debería.
 
-La opción de configuración del servidor MAXDOP de SQL Database se usa para controlar el número de núcleos de CPU que se pueden usar para ejecutar la misma consulta en paralelo. 
+La opción de configuración del servidor MAXDOP de SQL Database se usa para controlar el número de núcleos de CPU que se pueden usar para ejecutar la misma consulta en paralelo.
 
 ### <a name="troubleshooting"></a>Solución de problemas
 
@@ -164,7 +163,7 @@ El registro de diagnóstico genera detalles de contención de Pagelatch. Puede u
 
 Dado que Pagelatch es un mecanismo de control interno de SQL Database, se determina automáticamente cuándo se debe usar. Las decisiones de aplicación, incluido el diseño de esquema, pueden afectar al comportamiento de Pagelatch debido al comportamiento determinista de los bloqueos temporales.
 
-Un método para controlar la contención de bloqueos temporales es reemplazar una clave de índice secuencial por una clave no secuencial a fin de distribuir uniformemente las inserciones en un intervalo de índices. Normalmente, una columna inicial en el índice distribuye la carga de trabajo de manera proporcional. Otro método que se debe tener en cuenta es la creación de particiones de tablas. La creación de un esquema de creación de particiones por hash con una columna calculada en una tabla con particiones es un enfoque común para mitigar la contención de bloqueos temporales excesivos. En el caso de la contención de E/S de PAGELATCH, la introducción de índices ayuda a mitigar este problema de rendimiento. 
+Un método para controlar la contención de bloqueos temporales es reemplazar una clave de índice secuencial por una clave no secuencial a fin de distribuir uniformemente las inserciones en un intervalo de índices. Normalmente, una columna inicial en el índice distribuye la carga de trabajo de manera proporcional. Otro método que se debe tener en cuenta es la creación de particiones de tablas. La creación de un esquema de creación de particiones por hash con una columna calculada en una tabla con particiones es un enfoque común para mitigar la contención de bloqueos temporales excesivos. En el caso de la contención de E/S de PAGELATCH, la introducción de índices ayuda a mitigar este problema de rendimiento.
 
 Para más información, consulte [Diagnosing and Resolving Latch Contention on SQL Server](https://download.microsoft.com/download/B/9/E/B9EDF2CD-1DBF-4954-B81E-82522880A2DC/SQLServerLatchContention.pdf) (Diagnóstico y resolución de la contención de bloqueo temporal en SQL Server) (descarga de PDF).
 
@@ -208,13 +207,13 @@ Considere la posibilidad de usar [Información de rendimiento de consultas de Az
 
 Este patrón de rendimiento detectable indica una degradación del rendimiento de la carga de trabajo en la que se identifican consultas con un rendimiento deficiente en comparación con la base de referencia de carga de trabajo de los últimos 7 días.
 
-En este caso, el sistema no puede clasificar las consultas con un rendimiento deficiente en cualquier otra categoría de rendimiento detectable estándar, pero detectó la estadística de espera responsable de la regresión. Por lo tanto, las considera consultas con *estadísticas de espera aumentada*, donde también se expone la estadística de espera aumentada responsable de la regresión. 
+En este caso, el sistema no puede clasificar las consultas con un rendimiento deficiente en cualquier otra categoría de rendimiento detectable estándar, pero detectó la estadística de espera responsable de la regresión. Por lo tanto, las considera consultas con *estadísticas de espera aumentada*, donde también se expone la estadística de espera aumentada responsable de la regresión.
 
 ### <a name="troubleshooting"></a>Solución de problemas
 
 El registro de diagnóstico genera información sobre los detalles de los tiempos de espera aumentada y los códigos hash de las consultas afectadas.
 
-Dado que el sistema no pudo identificar correctamente la causa principal de las consultas con un rendimiento deficiente, la información de diagnóstico es un buen punto de partida para la solución manual de problemas. Puede optimizar el rendimiento de estas consultas. Una buena práctica es capturar solo los datos que necesite y simplificar y dividir las consultas complejas en otras más pequeñas. 
+Dado que el sistema no pudo identificar correctamente la causa principal de las consultas con un rendimiento deficiente, la información de diagnóstico es un buen punto de partida para la solución manual de problemas. Puede optimizar el rendimiento de estas consultas. Una buena práctica es capturar solo los datos que necesite y simplificar y dividir las consultas complejas en otras más pequeñas.
 
 Para más información sobre cómo optimizar el rendimiento de las consultas, consulte [Optimizar consultas](https://msdn.microsoft.com/library/ms176005.aspx).
 
@@ -226,15 +225,15 @@ Este patrón de rendimiento detectable indica una condición de rendimiento de l
 
 ### <a name="troubleshooting"></a>Solución de problemas
 
-El registro de diagnóstico genera detalles de contención de tempDB. Puede usar la información como punto de partida para solucionar el problema. Hay dos cosas que puede hacer para solucionar este tipo de contención y mejorar el rendimiento de la carga de trabajo general: la primera es dejar de usar las tablas temporales y la segunda usar tablas optimizadas para memoria. 
+El registro de diagnóstico genera detalles de contención de tempDB. Puede usar la información como punto de partida para solucionar el problema. Hay dos cosas que puede hacer para solucionar este tipo de contención y mejorar el rendimiento de la carga de trabajo general: la primera es dejar de usar las tablas temporales y la segunda usar tablas optimizadas para memoria.
 
-Para más información, consulte [Introducción a las tablas optimizadas para memoria](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables). 
+Para más información, consulte [Introducción a las tablas optimizadas para memoria](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables).
 
 ## <a name="elastic-pool-dtu-shortage"></a>Escasez de DTU en el grupo elástico
 
 ### <a name="what-is-happening"></a>Qué pasa
 
-Este patrón de rendimiento detectable indica una degradación del rendimiento actual de la carga de trabajo de la base de datos en comparación con la base de referencia de los últimos 7 días. El motivo es la escasez de DTU disponibles en el grupo elástico de su suscripción. 
+Este patrón de rendimiento detectable indica una degradación del rendimiento actual de la carga de trabajo de la base de datos en comparación con la base de referencia de los últimos 7 días. El motivo es la escasez de DTU disponibles en el grupo elástico de su suscripción.
 
 Normalmente, se hace referencia a los recursos de SQL Database como [recursos de DTU](sql-database-purchase-models.md#dtu-based-purchasing-model), que consisten en una medida combinada de recursos de CPU y E/S (datos y registro de transacciones). Los [recursos del grupo elástico de Azure ](sql-database-elastic-pool.md) se usan como un grupo de recursos disponibles de eDTU que se comparten entre varias bases de datos con finalidades de escala. Cuando los recursos de eDTU disponibles en su grupo elástico no son lo suficientemente grandes como para admitir todas las bases de datos del grupo, el sistema detecta el problema de rendimiento por escasez de DTU en el grupo elástico.
 
@@ -258,13 +257,13 @@ Este patrón de rendimiento detectable combina tres casos diferentes de regresi�
 
 La condición de regresión de un plan nuevo hace referencia a un estado en el que SQL Database empieza a ejecutar un nuevo plan de ejecución de consultas que no es tan eficaz como el anterior. La condición de regresión de un plan anterior se refiere al estado en que SQL Database pasa de usar un nuevo plan más eficaz al plan anterior que no es tan eficaz como el nuevo. La regresión de la carga de trabajo cambiada en los planes existentes se refiere al estado en el que el plan nuevo y el anterior se alternan continuamente, aunque la balanza se decanta más por el plan de rendimiento deficiente.
 
-Para más información sobre las regresiones de un plan, consulte [What is plan regression in SQL Server](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../what-is-plan-regression-in-sql-server/) (Qué es la regresión de un plan en SQL Server). 
+Para más información sobre las regresiones de un plan, consulte [What is plan regression in SQL Server](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../what-is-plan-regression-in-sql-server/) (Qué es la regresión de un plan en SQL Server).
 
 ### <a name="troubleshooting"></a>Solución de problemas
 
 El registro de diagnóstico genera los códigos hash de consulta, el identificador de un plan bueno, el identificador de un plan malo y los identificadores de consulta. Puede usar esta información como base para la solución de problemas.
 
-Puede analizar qué plan le puede ir mejor para sus consultas específicas que puede identificar con los códigos hash de consulta proporcionados. Una vez determine el plan que funciona mejor para sus consultas, puede forzarlo manualmente. 
+Puede analizar qué plan le puede ir mejor para sus consultas específicas que puede identificar con los códigos hash de consulta proporcionados. Una vez determine el plan que funciona mejor para sus consultas, puede forzarlo manualmente.
 
 Para más información, consulte [How SQL Server prevents plan regressions](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../you-shall-not-regress-how-sql-server-2017-prevents-plan-regressions/) (Cómo SQL Server impide las regresiones del plan).
 
@@ -300,7 +299,7 @@ Esta condición solo se genera si se detecta una regresión del rendimiento en c
 
 Este patrón de rendimiento detectable indica una condición del lado cliente. Es necesario solucionar los problemas en la aplicación del lado cliente o la red del cliente. El registro de diagnóstico genera los códigos hash de consulta y los tiempos de espera que parecen estar esperando lo máximo hasta que el cliente los consuma en las últimas dos horas. Puede usar esta información como base para la solución de problemas.
 
-Puede optimizar el rendimiento de la aplicación para el consumo de estas consultas. También puede considerar los posibles problemas de latencia de la red. Como el problema de degradación del rendimiento estaba relacionado con los cambios en la base de referencia de rendimiento de los últimos 7 días, puede investigar si los cambios recientes en la condición de la aplicación o de la red provocó este evento de regresión del rendimiento. 
+Puede optimizar el rendimiento de la aplicación para el consumo de estas consultas. También puede considerar los posibles problemas de latencia de la red. Como el problema de degradación del rendimiento estaba relacionado con los cambios en la base de referencia de rendimiento de los últimos 7 días, puede investigar si los cambios recientes en la condición de la aplicación o de la red provocó este evento de regresión del rendimiento.
 
 ## <a name="pricing-tier-downgrade"></a>Degradación del plan de tarifa
 
@@ -318,7 +317,7 @@ Si ha reducido su plan de tarifa y, por lo tanto, las DTU disponibles en SQL Dat
 
  Siga el diagrama de flujo para obtener un enfoque recomendado para solucionar los problemas de rendimiento mediante Intelligent Insights.
 
-Navegue a Azure SQL Analytics y acceda a Intelligent Insights a través de Azure Portal. Intente ubicar la alerta de rendimiento entrante y selecciónela. Identifique qué ocurre en la página de detecciones. Observe el análisis proporcionado de la causa principal del problema, el texto de la consulta, las tendencias del tiempo de consulta y la evolución del incidente. Para intentar resolverlo, use la recomendación de Intelligent Insights para mitigar el problema de rendimiento . 
+Navegue a Azure SQL Analytics y acceda a Intelligent Insights a través de Azure Portal. Intente ubicar la alerta de rendimiento entrante y selecciónela. Identifique qué ocurre en la página de detecciones. Observe el análisis proporcionado de la causa principal del problema, el texto de la consulta, las tendencias del tiempo de consulta y la evolución del incidente. Para intentar resolverlo, use la recomendación de Intelligent Insights para mitigar el problema de rendimiento .
 
 [![Diagrama de flujo de solución de problemas](./media/sql-database-intelligent-insights/intelligent-insights-troubleshooting-flowchart.png)](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/intelligent-insight/Troubleshoot%20Azure%20SQL%20Database%20performance%20issues%20using%20Intelligent%20Insight.pdf)
 
@@ -328,6 +327,7 @@ Navegue a Azure SQL Analytics y acceda a Intelligent Insights a través de Azure
 Intelligent Insights normalmente necesita una hora para realizar el análisis de la causa principal del problema de rendimiento. Si no puede encontrar el problema en Intelligent Insights y es importante para usted, use el Almacén de consultas para identificar manualmente la causa principal del problema de rendimiento. (Normalmente, estos problemas se han producido hace menos de una hora). Para más información, consulte [Supervisión del rendimiento mediante el almacén de consultas](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store).
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 - Conozca los conceptos de [Intelligent Insights](sql-database-intelligent-insights.md).
 - Use el [registro de diagnóstico de rendimiento de Azure SQL Database de Intelligent Insights](sql-database-intelligent-insights-use-diagnostics-log.md).
 - Supervise [Azure SQL Database mediante Azure SQL Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql).

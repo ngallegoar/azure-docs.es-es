@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
-ms.openlocfilehash: 6dd8246d5751609e2f20ee9d5e519529752940f7
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: 7550bb7c6bbf7602245f9a9f1ac006ce693b36a8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77137524"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477653"
 ---
 # <a name="cross-validate-model"></a>Modelo de validación cruzada
 
@@ -72,7 +72,7 @@ En este escenario se entrena y se prueba el modelo con el módulo Cross-Validate
 
 5. Establezca un valor para el parámetro **Random seed** si quiere repetir los resultados de la validación cruzada en ejecuciones posteriores de los mismos datos.  
 
-6. Ejecución de la canalización
+6. Envíe la canalización.
 
 7. Consulte la sección [Resultados](#results) para obtener una descripción de los informes.
 

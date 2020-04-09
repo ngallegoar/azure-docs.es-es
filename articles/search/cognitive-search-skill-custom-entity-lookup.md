@@ -8,14 +8,14 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: d5e2813c71e9d6941eea7d11fb6565fb84fd0789
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 8674438032ebd925296c95e9ffa0a2a0b95322f1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77651345"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79369784"
 ---
-#    <a name="custom-entity-lookup-cognitive-skill-preview"></a>Aptitud cognitiva de búsqueda de entidades personalizadas (versión preliminar)
+#     <a name="custom-entity-lookup-cognitive-skill-preview"></a>Aptitud cognitiva de búsqueda de entidades personalizadas (versión preliminar)
 
 > [!IMPORTANT] 
 > Esta aptitud está actualmente en versión preliminar pública. La funcionalidad de versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Actualmente no hay compatibilidad con el portal ni con el SDK de .NET.
@@ -38,9 +38,9 @@ Los parámetros distinguen mayúsculas de minúsculas.
 
 | Nombre de parámetro     | Descripción |
 |--------------------|-------------|
-| entitiesDefinitionUri | Ruta de acceso a un archivo JSON o CSV que contiene todo el texto de destino con el que debe coincidir. Esta definición de entidad se lee al principio de una ejecución del indexador; las actualizaciones en medio de la ejecución de este archivo no se realizarán hasta posteriores ejecuciones. Esta configuración debe ser accesible mediante HTTPS. Consulte [Formato de definición de entidad personalizada](#custom-entity-definition-format) que aparece más adelante para ver el esquema CSV o JSON esperado.|
+| entitiesDefinitionUri    | Ruta de acceso a un archivo JSON o CSV que contiene todo el texto de destino con el que debe coincidir. Esta definición de entidad se lee al principio de una ejecución del indexador; las actualizaciones en medio de la ejecución de este archivo no se realizarán hasta posteriores ejecuciones. Esta configuración debe ser accesible mediante HTTPS. Consulte [Formato de definición de entidad personalizada](#custom-entity-definition-format) que aparece más adelante para ver el esquema CSV o JSON esperado.|
 |inlineEntitiesDefinition | Definiciones de entidades JSON insertadas. Este parámetro reemplaza al parámetro entitiesDefinitionUri si existe. No se pueden proporcionar más de 10 KB de configuración en línea. Consulte [Definición de entidad personalizada](#custom-entity-definition-format) que aparece más adelante para ver el esquema JSON esperado. |
-|defaultLanguageCode |  (Opcional) Código de idioma del texto de entrada que se utiliza para dividir en tokens y definir el texto de entrada. Se admiten los siguientes idiomas: `da, de, en, es, fi, fr, it, ko, pt`. El idioma predeterminado es inglés (`en`). Si se pasa un formato “código de idioma-código de país”, solo se usa la parte “código de idioma” del formato.  |
+|defaultLanguageCode |    (Opcional) Código de idioma del texto de entrada que se utiliza para dividir en tokens y definir el texto de entrada. Se admiten los siguientes idiomas: `da, de, en, es, fi, fr, it, ko, pt`. El idioma predeterminado es inglés (`en`). Si se pasa un formato “código de idioma-código de país”, solo se usa la parte “código de idioma” del formato.  |
 
 
 ## <a name="skill-inputs"></a>Entradas de la aptitud
@@ -48,13 +48,13 @@ Los parámetros distinguen mayúsculas de minúsculas.
 | Nombre de entrada      | Descripción                   |
 |---------------|-------------------------------|
 | text          | Texto que se analizará.          |
-| languageCode  | Opcional. El valor predeterminado es `"en"`.  |
+| languageCode    | Opcional. El valor predeterminado es `"en"`.  |
 
 
 ## <a name="skill-outputs"></a>Salidas de la aptitud
 
 
-| Nombre de salida     | Descripción                   |
+| Nombre de salida      | Descripción                   |
 |---------------|-------------------------------|
 | entities | Matriz de objetos que contiene información sobre las coincidencias encontradas y los metadatos relacionados. Cada una de las entidades identificadas puede contener los campos siguientes:  <ul> <li> *name*: La entidad de nivel superior identificada. La entidad representa el formulario "normalizado". </li> <li> *id*:  Un identificador único para la entidad tal y como lo define el usuario en el "formato de definición de entidad personalizada".</li> <li> *description*: Descripción de la entidad tal y como la define el usuario en el "formato de definición de entidad personalizada". </li> <li> *type:* Tipo de entidad tal y como la define el usuario en el "formato de definición de entidad personalizada".</li> <li> *subtype:* Subtipo de entidad tal y como la define el usuario en el "formato de definición de entidad personalizada".</li>  <li> *matches*: Colección que describe cada una de las coincidencias para esa entidad en el texto de origen. Cada coincidencia tendrá los siguientes miembros: </li> <ul> <li> *text*: Coincidencia de texto sin formato del documento de origen. </li> <li> *offset*: La ubicación en la que se encontró la coincidencia en el texto. </li> <li> *length*:  La longitud del texto coincidente. </li> <li> *matchDistance*: El número de caracteres que diferencia a esta coincidencia del nombre o alias de la entidad original.  </li> </ul> </ul>
   |
@@ -168,7 +168,7 @@ En las tablas siguientes se describe más detalladamente los distintos parámetr
 En algunos casos, puede que resulte más conveniente proporcionar la lista de entidades personalizadas para que coincidan directamente en línea con la definición de la aptitud. En ese caso, puede usar un formato JSON similar al descrito anteriormente, pero inserto en la definición de la aptitud.
 Solo las configuraciones que tienen un tamaño inferior a 10 KB (tamaño serializado) se pueden definir en línea. 
 
-##  <a name="sample-definition"></a>Definición de ejemplo
+##    <a name="sample-definition"></a>Definición de ejemplo
 
 A continuación se muestra un ejemplo de definición de aptitud con un formato en línea:
 
@@ -231,7 +231,7 @@ Opcionalmente, si decide proporcionar un puntero al archivo de definición de en
 
 ```
 
-##  <a name="sample-input"></a>Entrada de ejemplo
+##    <a name="sample-input"></a>Entrada de ejemplo
 
 ```json
 {
@@ -248,7 +248,7 @@ Opcionalmente, si decide proporcionar un puntero al archivo de definición de en
 }
 ```
 
-##  <a name="sample-output"></a>Salida de ejemplo
+##    <a name="sample-output"></a>Salida de ejemplo
 
 ```json
   { 
@@ -295,6 +295,12 @@ Opcionalmente, si decide proporcionar un puntero al archivo de definición de en
     ] 
   } 
 ```
+
+## <a name="errors-and-warnings"></a>Errores y advertencias
+
+### <a name="warning-reached-maximum-capacity-for-matches-skipping-all-further-duplicate-matches"></a>Advertencia: Se alcanzó la capacidad máxima de coincidencias; se omitirán todas las coincidencias duplicadas.
+
+Esta advertencia se emitirá si el número de coincidencias detectadas es mayor que el máximo permitido. En este caso, se dejarán de incluir coincidencias duplicadas. Si esto no le resulta aceptable, envíe una [incidencia de soporte técnico](https://ms.portal.azure.com/#create/Microsoft.Support) para que podamos ayudarle con su caso de uso individual.
 
 ## <a name="see-also"></a>Consulte también
 

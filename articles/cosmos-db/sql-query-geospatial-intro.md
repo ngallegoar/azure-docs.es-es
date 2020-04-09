@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
-ms.openlocfilehash: 0fe83b8e28b96f1d89a7c98cfe86a6e924f1bc49
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.openlocfilehash: 59c8b31dcc8594d2cafb2db7832e290b01026f60
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77566469"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79367591"
 ---
 # <a name="geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Datos de ubicación geoespaciales y GeoJSON en Azure Cosmos DB
 
@@ -25,7 +25,10 @@ Este artículo es una introducción a la funcionalidad geoespacial de Azure Cosm
 
 Los datos espaciales describen la posición y la forma de los objetos en el espacio. En la mayoría de las aplicaciones, estos se refieren a objetos situados en la tierra y datos geoespaciales. Los datos espaciales pueden usarse para representar la ubicación de una persona, un lugar de interés o el límite de una ciudad o un lago. Los casos de uso más comunes suelen implicar las consultas de búsqueda por proximidad; por ejemplo, "encontrar todas las cafeterías cerca de la ubicación actual".
 
-SQL API de Azure Cosmos DB admite el tipo de datos **geography**. El tipo **geography** representa los datos en un sistema de coordenadas de tierra redonda.
+SQL API de Azure Cosmos DB admite dos tipos de datos espaciales: el tipo de datos **geométricos** y el tipo de datos **geográficos**.
+
+- El tipo **geométrico** representa los datos en un sistema de coordenadas euclidiano (plano).
+- El tipo **geography** representa los datos en un sistema de coordenadas de tierra redonda.
 
 ## <a name="supported-data-types"></a>Tipos de datos admitidos
 
@@ -70,7 +73,11 @@ Los tipos de datos espaciales se pueden insertar en un documento de Azure Cosmo
 }
 ```
 
-### <a name="points-in-geography-coordinate-system"></a>Puntos del sistema de coordenadas de geografía
+### <a name="points-in-a-geometry-coordinate-system"></a>Puntos de un sistema de coordenadas de geometría
+
+En el caso del tipo de datos **geométricos**, la especificación de GeoJSON especifica primero el eje horizontal y, después, el eje vertical.
+
+### <a name="points-in-a-geography-coordinate-system"></a>Puntos de un sistema de coordenadas de geografía
 
 Para el tipo de datos **geography**, la especificación GeoJSON indica la longitud primero y la latitud después. Al igual que en otras aplicaciones de mapeado, la longitud y la latitud son ángulos y se representan en grados. Los valores de longitud se miden a partir del meridiano cero y están comprendidos entre -180 y 180,0 grados, mientras que los valores de latitud se miden a partir del Ecuador y están comprendidos entre -90,0 y 90,0 grados.
 
@@ -125,20 +132,20 @@ Un elemento **MultiPolygon** es una matriz de cero o más elementos Polygon. Los
 ```json
 {
     "type":"MultiPolygon",
-    "coordinates":[ [
+    "coordinates":[[[
         [52.0, 12.0],
         [53.0, 12.0],
         [53.0, 13.0],
         [52.0, 13.0],
         [52.0, 12.0]
-    ],
-    [
+        ]],
+        [[
         [50.0, 0.0],
         [51.0, 0.0],
         [51.0, 5.0],
         [50.0, 5.0],
         [50.0, 0.0]
-    ] ]
+        ]]]
 }
 ```
 

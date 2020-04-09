@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: c8d58180b11c12afb256dc888406c7c0d58fb119
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: a5264c14294f84858cd489f5892b8cdd19e117d0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314324"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79455917"
 ---
 # <a name="select-columns-transform"></a>Seleccionar transformación de columnas
 
-En este artículo se describe cómo usar el módulo Select Columns Transform (Seleccionar transformación de columnas) en el diseñador de Azure Machine Learning. El propósito del módulo Select Columns Transform (Seleccionar transformación de columnas) es asegurarse de que siempre se usa un conjunto de columnas coherente y predecible en las operaciones de aprendizaje automático de nivel inferior.
+En este artículo se describe cómo usar el módulo Select Columns Transform (Seleccionar transformación de columnas) en el diseñador de Azure Machine Learning (versión preliminar). El propósito del módulo Select Columns Transform (Seleccionar transformación de columnas) es asegurarse de que siempre se usa un conjunto de columnas coherente y predecible en las operaciones de aprendizaje automático de nivel inferior.
 
 Este módulo es útil para tareas como puntuación, que requiere columnas específicas. Los cambios en las columnas disponibles pueden interrumpir la canalización o cambiar los resultados.
 
@@ -48,7 +48,7 @@ En este escenario se supone que desea usar la selección de características par
 
    > [!IMPORTANT]
    > No puede esperar aplicar [Selección de características basada en filtros](filter-based-feature-selection.md) al conjunto de datos de puntuación y obtener los mismos resultados. Dado que la selección de características se basa en valores, puede elegir un conjunto diferente de columnas, lo que provocaría el fracaso de la operación de puntuación.
-7. Ejecución de la canalización
+7. Envíe la canalización.
 
 Este proceso de guardar y después aplicar una selección de columnas garantiza que el mismo esquema de datos esté disponible para el entrenamiento y la puntuación.
 
