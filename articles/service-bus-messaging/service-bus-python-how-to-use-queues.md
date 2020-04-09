@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: aschhab
 ms.custom: seo-python-october2019
-ms.openlocfilehash: aa9ffc48d9b1374fa510f450bab2c66641421446
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: acb0b0e84804ecf6025e05590133dee9b0d54c48
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76773485"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478640"
 ---
 # <a name="quickstart-use-azure-service-bus-queues-with-python"></a>Inicio rápido: Uso de colas de Azure Service Bus con Python
 
@@ -32,7 +32,7 @@ Para obtener más información sobre las bibliotecas de Azure Service Bus de Pyt
 ## <a name="prerequisites"></a>Prerrequisitos
 - Suscripción a Azure. Puede activar sus [beneficios de suscriptor de Visual Studio o MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - Un espacio de nombres de Service Bus, creado siguiendo los pasos descritos en [Inicio rápido: Uso de Azure Portal para crear suscripciones y temas de Service Bus](service-bus-quickstart-topics-subscriptions-portal.md). Copie la cadena de conexión principal de la pantalla **Directivas de acceso compartido** para usarla más adelante en este artículo. 
-- Python 3.4.x o superior, con el paquete de [Azure Service Bus de Python][Python Azure Service Bus package] instalado. Para obtener más información, consulte la [guía de instalación de Python](/azure/python/python-sdk-azure-install). 
+- Python 3.4.x o superior, con el paquete de [Azure Service Bus de Python][Python Azure Service Bus package] instalado. Para obtener más información, consulte la [guía de instalación de Python](/azure/developer/python/azure-sdk-install). 
 
 ## <a name="create-a-queue"></a>Creación de una cola
 

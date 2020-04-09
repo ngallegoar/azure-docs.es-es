@@ -10,16 +10,16 @@ ms.subservice: ''
 ms.date: 02/02/2019
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: f193580ca03d4b1805f3c044658a34f468f3f44f
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 43fc32e910c51e8b70e15aa49584a18e5b703fca
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80346559"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631608"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Uso de programaciones de mantenimiento para administrar las actualizaciones del servicio y el mantenimiento
 
-La característica de programación de mantenimiento integra las notificaciones de mantenimiento planeado de Service Health, el monitor de comprobación de Resource Health y el servicio de programación de mantenimiento del grupo de SQL de Synapse (almacenamiento de datos) dentro de Azure Synapse Analytics. 
+La característica de programación de mantenimiento integra las notificaciones de mantenimiento planeado de Service Health, el monitor de comprobación de Resource Health y el servicio de programación de mantenimiento del grupo de SQL de Synapse (almacenamiento de datos) dentro de Azure Synapse Analytics.
 
 Debe usar programación de mantenimiento para elegir un período de tiempo en el que sea conveniente recibir las nuevas características, actualizaciones y revisiones. Tendrá que elegir una ventana de mantenimiento principal y una secundaria dentro de un período de siete días, cada ventana debe estar dentro de intervalos de días independientes.
 
@@ -48,52 +48,55 @@ Todos los eventos de mantenimiento activos se muestran en la sección **Service 
 
 Aunque Programación de mantenimiento no esté aún disponible en la región seleccionada, puede ver y editar la programación de mantenimiento en cualquier momento. Cuando la programación de mantenimiento esté disponible en su región, la programación identificada pasará a estar activa inmediatamente en el grupo de SQL de Synapse.
 
-## <a name="view-a-maintenance-schedule"></a>Vista de una programación de mantenimiento 
+## <a name="view-a-maintenance-schedule"></a>Vista de una programación de mantenimiento
 
 De forma predeterminada, todas las instancias de almacenamiento de datos recién creadas tienen una ventana de mantenimiento principal y secundaria de 8 horas aplicada durante la implementación. Como se ha indicado anteriormente, puede cambiar las ventanas tan pronto como se complete la implementación. Sin notificación previa, no se llevará a cabo mantenimiento fuera de las ventanas de mantenimiento especificadas.
 
 Para ver la programación de mantenimiento que se ha aplicado al grupo de SQL de Synapse, complete los siguientes pasos:
 
-1.    Inicie sesión en [Azure Portal](https://portal.azure.com/).
-2.    Seleccione el grupo de SQL de Synapse que desea ver. 
-3.    El grupo de SQL de Synapse seleccionado se abre en la hoja de información general. La programación de mantenimiento que se aplica al almacén de datos se mostrará debajo de **Programación de mantenimiento**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
+2. Seleccione el grupo de SQL de Synapse que desea ver.
+3. El grupo de SQL de Synapse seleccionado se abre en la hoja de información general. La programación de mantenimiento que se aplica al almacén de datos se mostrará debajo de **Programación de mantenimiento**.
 
 ![Hoja Información general](./media/maintenance-scheduling/clear-overview-blade.PNG)
 
-## <a name="change-a-maintenance-schedule"></a>Cambiar una programación de mantenimiento 
+## <a name="change-a-maintenance-schedule"></a>Cambiar una programación de mantenimiento
 
-Una programación de mantenimiento puede actualizarse o cambiarse en cualquier momento. Si la instancia seleccionada está en un ciclo de mantenimiento activo, se guardará la configuración. Se activará durante el siguiente período de mantenimiento identificado. [Obtenga más información](../../service-health/resource-health-overview.md) sobre cómo supervisar el almacenamiento de datos durante un evento de mantenimiento activo. 
+Una programación de mantenimiento puede actualizarse o cambiarse en cualquier momento. Si la instancia seleccionada está en un ciclo de mantenimiento activo, se guardará la configuración. Se activará durante el siguiente período de mantenimiento identificado. [Obtenga más información](../../service-health/resource-health-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) sobre cómo supervisar el almacenamiento de datos durante un evento de mantenimiento activo.
 
 ## <a name="identifying-the-primary-and-secondary-windows"></a>Identificar las ventanas principales y secundarias
 
 Las ventanas principales y secundarias deben tener intervalos de días independientes. Un ejemplo es una ventana principal de martes a jueves, y otra secundaria de sábado a domingo.
 
 Para cambiar la programación de mantenimiento del grupo de SQL de Synapse, complete los siguientes pasos:
-1.    Inicie sesión en [Azure Portal](https://portal.azure.com/).
-2.    Seleccione el grupo de SQL de Synapse que desea actualizar. La página se abre en la hoja de información general. 
-3.    Abra la página de configuración de la programación de mantenimiento seleccionando el vínculo de **resumen de la Programación de mantenimiento** en la hoja de información general. O bien, seleccione la opción **Programación de mantenimiento** en el menú de recursos del lado izquierdo.  
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
+2. Seleccione el grupo de SQL de Synapse que desea actualizar. La página se abre en la hoja de información general.
+Abra la página de configuración de la programación de mantenimiento seleccionando el vínculo de **resumen de la Programación de mantenimiento** en la hoja de información general. O bien, seleccione la opción **Programación de mantenimiento** en el menú de recursos del lado izquierdo.
 
     ![Opciones de la hoja Información general](./media/maintenance-scheduling/maintenance-change-option.png)
 
-4. Puede identificar el intervalo de día preferido para la ventana de mantenimiento principal con las opciones situadas en la parte superior de la página. Esta selección determina si la ventana principal se producirá en un día laborable o durante el fin de semana. La selección actualizará los siguientes valores de la lista desplegable. Durante la versión preliminar es posible que algunas regiones no admitan el conjunto completo de opciones de **día** disponibles.
+3. Puede identificar el intervalo de día preferido para la ventana de mantenimiento principal con las opciones situadas en la parte superior de la página. Esta selección determina si la ventana principal se producirá en un día laborable o durante el fin de semana. La selección actualizará los siguientes valores de la lista desplegable.
+Durante la versión preliminar es posible que algunas regiones no admitan el conjunto completo de opciones de **día** disponibles.
 
    ![Hoja Configuración de mantenimiento](./media/maintenance-scheduling/maintenance-settings-page.png)
 
-5. Elija las ventanas de mantenimiento principales y secundarias que prefiera con el cuadro de lista desplegable:
+4. Elija las ventanas de mantenimiento principales y secundarias que prefiera con el cuadro de lista desplegable:
    - **Día**: día preferido para realizar el mantenimiento durante el período seleccionado.
    - **Hora de inicio**: hora de inicio preferida de la ventana de mantenimiento.
    - **Período de tiempo**: duración preferida del período de tiempo.
 
-   El área **Resumen de la programación** de la parte inferior de la hoja se actualiza según los valores que seleccione. 
+   El área **Resumen de la programación** de la parte inferior de la hoja se actualiza según los valores que seleccione.
   
-6. Seleccione **Guardar**. Aparece un mensaje que confirma que la nueva programación está activa. 
+5. Seleccione **Guardar**. Aparece un mensaje que confirma que la nueva programación está activa.
 
-   Si va a guardar una programación en una región que aún no admite la programación de mantenimiento, aparecerá el siguiente mensaje. La configuración se guarda y se activa cuando la característica esté disponible en la región seleccionada.    
+   Si va a guardar una programación en una región que aún no admite la programación de mantenimiento, aparecerá el siguiente mensaje. La configuración se guarda y se activa cuando la característica esté disponible en la región seleccionada.
 
    ![Mensaje sobre la disponibilidad de la región](./media/maintenance-scheduling/maintenance-not-active-toast.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
-- [Obtenga más información](../../azure-monitor/platform/alerts-metric.md) sobre cómo crear, ver y administrar alertas mediante Azure Monitor.
-- [Obtenga más información](../..//azure-monitor/platform/alerts-log-webhook.md) sobre las acciones del webhook para las reglas de alerta de registro.
-- [Obtenga más información](../..//azure-monitor/platform/action-groups.md) sobre la creación y administración de grupos de acciones.
-- [Obtenga más información](../../service-health/service-health-overview.md) acerca de Azure Service Health.
+
+- [Obtenga más información](../../azure-monitor/platform/alerts-metric.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) sobre cómo crear, ver y administrar alertas mediante Azure Monitor.
+- [Obtenga más información](../..//azure-monitor/platform/alerts-log-webhook.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) sobre las acciones del webhook para las reglas de alerta de registro.
+- [Obtenga más información](../..//azure-monitor/platform/action-groups.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) sobre la creación y administración de grupos de acciones.
+- [Obtenga más información](../../service-health/service-health-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) acerca de Azure Service Health.

@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 03/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1401cbe1920c7c6df804aadbba1751612ba9cf06
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: be12bce8fa29076621bec35228838a4ebdd97433
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79126794"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80545867"
 ---
 # <a name="localize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Localización de la interfaz de usuario de la aplicación con una directiva personalizada en Azure Active Directory B2C.
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-La personalización de idioma en Azure Active Directory B2C (Azure AD B2C) permite que albergue distintos idiomas para satisfacer las necesidades de los clientes. Microsoft proporciona las traducciones de 36 idiomas, pero el usuario también puede proporcionar sus propias traducciones en cualquier idioma. Incluso si su experiencia se proporciona únicamente para un idioma, puede personalizar cualquier texto de las páginas. 
+La personalización de idioma en Azure Active Directory B2C (Azure AD B2C) permite que albergue distintos idiomas para satisfacer las necesidades de los clientes. Microsoft proporciona las traducciones de [36 idiomas](https://docs.microsoft.com/azure/active-directory-b2c/user-flow-language-customization#supported-languages), pero el usuario también puede proporcionar sus propias traducciones para cualquier idioma. Incluso si su experiencia se proporciona únicamente para un idioma, puede personalizar cualquier texto de las páginas. 
 
 En este artículo, se muestra cómo admitir varios idiomas o configuraciones regionales en la directiva para los recorridos del usuario. La localización necesita tres pasos: configurar la lista explícita de idiomas admitidos; proporcionar las colecciones y cadenas específicas del idioma; y editar la [definición de contenido](contentdefinitions.md) de la página. 
 

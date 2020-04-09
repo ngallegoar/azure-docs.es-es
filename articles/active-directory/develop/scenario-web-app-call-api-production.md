@@ -2,24 +2,21 @@
 title: 'Traslado a producción de una aplicación web que llama a API web: Plataforma de identidad de Microsoft | Azure'
 description: Obtenga información sobre cómo migrar a producción una aplicación web que llama a API web.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: b1307df8f6dfb0457719b13c9e5cd0bf28660caa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6404d00b87b9ee745b9e3a92c646404e574417c1
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76758959"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80881668"
 ---
 # <a name="a-web-app-that-calls-web-apis-move-to-production"></a>Una aplicación web que llama a API web: Paso a producción
 

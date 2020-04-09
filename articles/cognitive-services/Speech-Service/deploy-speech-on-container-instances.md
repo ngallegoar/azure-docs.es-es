@@ -3,19 +3,19 @@ title: 'Ejecución de Azure Container Instances: servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: Implemente el contenedor de servicio de voz en una instancia de Azure Container Instances y pruébelo en un explorador web.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/23/2020
-ms.author: dapine
-ms.openlocfilehash: e5d9143b0c84b579945b283ccae1cce36a7a4291
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 610d5ce095097a31ee92c67f0112d1657424858e
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76717411"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878755"
 ---
 # <a name="deploy-the-speech-service-container-to-azure-container-instances"></a>Implementación del contenedor del servicio de voz en Azure Container Instances
 

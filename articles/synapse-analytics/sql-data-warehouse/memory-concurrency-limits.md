@@ -11,17 +11,19 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: c868d8c159bca0c8462acde48225dc45003cf84e
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 56ab49949b4ea2a92bc591042b2d43a7f7b2dc63
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351002"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632681"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-synapse-analytics"></a>Límites de memoria y simultaneidad de Azure Synapse Analytics
+
 Vea los límites de simultaneidad y memoria asignados a los distintos niveles de rendimiento y las clases de recursos en Azure Synapse Analytics.  
 
 ## <a name="data-warehouse-capacity-settings"></a>Configuración de la capacidad del almacenamiento de datos
+
 Las siguientes tablas muestran la capacidad máxima para el almacenamiento de datos en diferentes niveles de rendimiento. Para cambiar el nivel de rendimiento, consulte [Escalabilidad horizontal de un proceso en Azure SQL Data Warehouse en Azure Portal](quickstart-scale-compute-portal.md).
 
 ### <a name="service-levels"></a>Niveles de servicio
@@ -50,7 +52,8 @@ Los niveles de servicio van de DW100c a DW30000c.
 El nivel de servicio máximo es DW30000c, que tiene 60 nodos de proceso y una distribución por nodo de proceso. Por ejemplo, un almacenamiento de datos de 600 TB con DW30000c procesa, aproximadamente, 10 TB por nodo de proceso.
 
 ## <a name="concurrency-maximums-for-workload-groups"></a>Valores máximos de simultaneidad para grupos de cargas de trabajo
-Con la introducción de los [grupos de cargas de trabajo](sql-data-warehouse-workload-isolation.md), ya no se aplica el concepto de espacios de simultaneidad.  Los recursos por solicitud se asignan de forma porcentual y se especifican en la definición del grupo de cargas de trabajo.  Sin embargo, incluso con la eliminación de los espacios de simultaneidad, se necesita una cantidad mínima de recursos por consultas basada en el nivel de servicio.  En la tabla siguiente se han definido la cantidad mínima de recursos necesarios por consulta en los niveles de servicio y la simultaneidad asociada que se puede lograr. 
+
+Con la introducción de los [grupos de cargas de trabajo](sql-data-warehouse-workload-isolation.md), ya no se aplica el concepto de espacios de simultaneidad.  Los recursos por solicitud se asignan de forma porcentual y se especifican en la definición del grupo de cargas de trabajo.  Sin embargo, incluso con la eliminación de los espacios de simultaneidad, se necesita una cantidad mínima de recursos por consultas basada en el nivel de servicio.  En la tabla siguiente se han definido la cantidad mínima de recursos necesarios por consulta en los niveles de servicio y la simultaneidad asociada que se puede lograr.
 
 |Nivel de servicio|Número máximo de consultas concurrentes|% mínimo admitido para REQUEST_MIN_RESOURCE_GRANT_PERCENT|
 |---|---|---|
@@ -73,7 +76,8 @@ Con la introducción de los [grupos de cargas de trabajo](sql-data-warehouse-wor
 ||||
 
 ## <a name="concurrency-maximums-for-resource-classes"></a>Valores máximos de simultaneidad para clases de recursos
-Para asegurarse de que cada consulta tenga recursos suficientes para ejecutarse de forma eficaz, SQL Analytics en Azure Synapse realiza un seguimiento del uso de los recursos. Para ello, asigna espacios de simultaneidad a cada consulta. El sistema coloca las consultas en una cola en función de la importancia y las ranuras de simultaneidad. Las consultas esperan en la cola hasta que haya suficientes ranuras de simultaneidad disponibles. La [importancia](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-importance) y las ranuras de simultaneidad determinan la asignación de prioridades de CPU. Para obtener más información, consulte [Analyze your workload](analyze-your-workload.md) (Análisis de la carga de trabajo).
+
+Para asegurarse de que cada consulta tenga recursos suficientes para ejecutarse de forma eficaz, SQL Analytics en Azure Synapse realiza un seguimiento del uso de los recursos. Para ello, asigna espacios de simultaneidad a cada consulta. El sistema coloca las consultas en una cola en función de la importancia y las ranuras de simultaneidad. Las consultas esperan en la cola hasta que haya suficientes ranuras de simultaneidad disponibles. La [importancia](sql-data-warehouse-workload-importance.md) y las ranuras de simultaneidad determinan la asignación de prioridades de CPU. Para obtener más información, consulte [Analyze your workload](analyze-your-workload.md) (Análisis de la carga de trabajo).
 
 **Clases de recursos estáticos**
 
@@ -121,11 +125,11 @@ En la tabla siguiente se muestra el número máximo de consultas simultáneas y 
 | DW15000c      | 32                         |  600                        | 18                    | 60                     | 132                   | 420                    |
 | DW30000c      | 32                         | 1200                        | 36                    | 120                    | 264                   | 840                    |
 
-
-Cuando no hay suficientes espacios de simultaneidad libres para iniciar la ejecución de consulta, las consultas se ponen en cola y se ejecutan en función de su importancia.  En caso de una importancia equivalente, las consultas se ejecutan según el criterio primero en entrar, primero en salir.  A medida que las consultas finalizan y el número de consultas y espacios desciende por debajo de los límites, SQL Data Warehouse libera las consultas en cola. 
+Cuando no hay suficientes espacios de simultaneidad libres para iniciar la ejecución de consulta, las consultas se ponen en cola y se ejecutan en función de su importancia.  En caso de una importancia equivalente, las consultas se ejecutan según el criterio primero en entrar, primero en salir.  A medida que las consultas finalizan y el número de consultas y espacios desciende por debajo de los límites, SQL Data Warehouse libera las consultas en cola.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener más información sobre cómo aprovechar las clases de recursos para optimizar aún más la carga de trabajo, revise los artículos siguientes:
+
 * [Resource classes for workload management](resource-classes-for-workload-management.md) (Clases de recursos para la administración de cargas de trabajo)
 * [Analyzing your workload](analyze-your-workload.md) (Análisis de la carga de trabajo)
