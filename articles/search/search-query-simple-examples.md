@@ -8,20 +8,20 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 525c20f5b6e24811ab092a63fa84fe6ebbd7b618
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 42ace2444c7d8e790c7575a7c1a7b3b1219d090a
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72808199"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656421"
 ---
 # <a name="create-a-simple-query-in-azure-cognitive-search"></a>Creación de una consulta simple en Azure Cognitive Search
 
-En Azure Cognitive Search, la [sintaxis de consulta simplificada](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) invoca el analizador de consultas predeterminado para ejecutar consultas de búsqueda de texto completo en un índice. Este analizador es rápido y gestiona escenarios comunes, incluida la búsqueda de texto completo, la búsqueda por facetas, la búsqueda filtrada y la búsqueda geográfica. 
+En Azure Cognitive Search, la [sintaxis de consulta simplificada](query-simple-syntax.md) invoca el analizador de consultas predeterminado para ejecutar consultas de búsqueda de texto completo en un índice. Este analizador es rápido y gestiona escenarios comunes, incluida la búsqueda de texto completo, la búsqueda por facetas, la búsqueda filtrada y la búsqueda geográfica. 
 
 En este artículo, usamos ejemplos para ilustrar la sintaxis simple.
 
-Una sintaxis de consulta alternativa es [Lucene completa](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), compatible con estructuras de consulta más complejas, como la búsqueda aproximada y la búsqueda con caracteres comodín, por lo que puede tardar más tiempo en procesarse. Para más información y ejemplos que muestran la sintaxis completa, consulte [Uso de la sintaxis comleta de Lucene](search-query-lucene-examples.md).
+Una sintaxis de consulta alternativa es [Lucene completa](query-lucene-syntax.md), compatible con estructuras de consulta más complejas, como la búsqueda aproximada y la búsqueda con caracteres comodín, por lo que puede tardar más tiempo en procesarse. Para más información y ejemplos que muestran la sintaxis completa, consulte [Uso de la sintaxis comleta de Lucene](search-query-lucene-examples.md).
 
 ## <a name="formulate-requests-in-postman"></a>Formulación de solicitudes en Postman
 

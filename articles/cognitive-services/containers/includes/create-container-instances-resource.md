@@ -3,18 +3,18 @@ title: Compatibilidad con los contenedores
 titleSuffix: Azure Cognitive Services
 description: Aprenda cómo crear un recurso de instancia de contenedor de Azure.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 11/21/2019
-ms.author: dapine
-ms.openlocfilehash: 18f4edf5cc63a448779423cc1b302130b4b80724
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 09957461fd92114d1181a570550ee1a189edd8ea
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "75692564"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80876469"
 ---
 ## <a name="create-an-azure-container-instance-resource"></a>Crear un recurso de instancia de contenedor de Azure
 

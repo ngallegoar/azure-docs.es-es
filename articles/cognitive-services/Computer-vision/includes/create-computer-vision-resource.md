@@ -2,18 +2,18 @@
 title: Compatibilidad con los contenedores
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/07/2019
-ms.author: dapine
-ms.openlocfilehash: 2cb2cfbdfbac5d496f109d85977b41a050766ab0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 2647c604bebc2885f5c8516eb997792b65751e88
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73499097"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80876105"
 ---
 ## <a name="create-an-computer-vision-resource"></a>Creación de un recurso de Computer Vision
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: fb2f9ff5af68575d9f9d29e9a6aca83d603395b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6ff9e62ed145b7892d2997193dae8e171ae49c98
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77672419"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585385"
 ---
 # <a name="create-diagnostic-setting-to-collect-platform-logs-and-metrics-in-azure"></a>Creación de una configuración de diagnóstico para recopilar registros de plataforma y métricas en Azure
 Los [registros de plataforma](platform-logs-overview.md) de Azure, incluidos los registros de recursos y los registros de actividad de Azure, proporcionan información detallada de diagnóstico y auditoría sobre los recursos de Azure y la plataforma de Azure de la que dependen. En este artículo, se proporcionan detalles sobre la creación y la configuración de las opciones de diagnóstico para enviar registros de plataforma a diferentes destinos.
@@ -53,7 +53,7 @@ Puede realizar configuraciones de diagnóstico en Azure Portal desde el menú de
     
         ![Configuración de diagnóstico](media/diagnostic-settings/menu-monitor.png)
 
-    - En el registro de actividad, haga clic en la opción **Registro de actividad** del menú **Azure Monitor** y después en **Configuración de diagnóstico**. No olvide deshabilitar cualquier configuración heredada del registro de actividad. Consulte [Deshabilitar la configuración existente](diagnostic-settings-legacy.md#disable-existing-settings) para más información.
+    - En el registro de actividad, haga clic en la opción **Registro de actividad** del menú **Azure Monitor** y después en **Configuración de diagnóstico**. No olvide deshabilitar cualquier configuración heredada del registro de actividad. Consulte [Deshabilitar la configuración existente](/azure/azure-monitor/platform/activity-log-collect#collecting-activity-log) para más información.
 
         ![Configuración de diagnóstico](media/diagnostic-settings/menu-activity-log.png)
 

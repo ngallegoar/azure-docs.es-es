@@ -3,7 +3,6 @@ title: Uso del servicio conectado de Active Directory (Visual Studio)
 description: Adición de Azure Active Directory mediante el cuadro de diálogo Agregar servicios conectados de Visual Studio
 author: ghogen
 manager: jillfra
-ms.assetid: f599de6b-e369-436f-9cdc-48a0165684cb
 ms.prod: visual-studio-windows
 ms.technology: vs-azure
 ms.custom: aaddev, vs-azure
@@ -11,12 +10,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
-ms.openlocfilehash: f139fc8cb59c40ea169e195312326773296b0592
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b3d068a8100cf78ccffac6d537fe71942239f383
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77159632"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886167"
 ---
 # <a name="add-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Adición de una instancia de Azure Active Directory mediante Servicios conectados en Visual Studio
 

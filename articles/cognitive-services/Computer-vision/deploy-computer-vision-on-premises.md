@@ -3,19 +3,19 @@ title: Uso de un contenedor de Computer Vision con Kubernetes y Helm
 titleSuffix: Azure Cognitive Services
 description: Implemente el contenedor de Computer Vision en una instancia de Azure Container Instances y pruébelo en un explorador web.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 03/16/2020
-ms.author: dapine
-ms.openlocfilehash: 126060875c09d70b8680447d78b7cf6ccdd782af
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 9aac374de5af748eafbe4c22e5fc89f64e483c2a
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79458025"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80877987"
 ---
 # <a name="use-computer-vision-container-with-kubernetes-and-helm"></a>Uso de un contenedor de Computer Vision con Kubernetes y Helm
 

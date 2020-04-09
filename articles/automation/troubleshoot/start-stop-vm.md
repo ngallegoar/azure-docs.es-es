@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 97ea98fc38fc8d06dc1bc65ee057241da6f15488
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 73a9680cc570179c47b527a4844488da69193cb3
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78851386"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586095"
 ---
 # <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>Solución de problemas de la solución Start/Stop VMs during off-hours
 
@@ -137,7 +137,7 @@ Este error puede deberse a alguna de las siguientes razones:
 
 Revise la siguiente lista de posibles soluciones para su problema o para saber dónde buscar:
 
-* Si usa el [escenario en secuencia](../automation-solution-vm-management.md#scenario-2-startstop-vms-in-sequence-by-using-tags) de la solución Start/Stop VMs during off-hours, debe asegurarse de que cada máquina virtual que desea iniciar o detener tiene la etiqueta correcta. Asegúrese de que las máquinas virtuales que desea iniciar tienen la etiqueta `sequencestart` y que aquellas que desea detener tienen la etiqueta `sequencestop`. Ambas etiquetas requieren un valor entero positivo. Puede usar una consulta similar a la del ejemplo siguiente para buscar todas las máquinas virtuales con las etiquetas y sus valores.
+* Si usa el [escenario en secuencia](../automation-solution-vm-management.md) de la solución Start/Stop VMs during off-hours, debe asegurarse de que cada máquina virtual que desea iniciar o detener tiene la etiqueta correcta. Asegúrese de que las máquinas virtuales que desea iniciar tienen la etiqueta `sequencestart` y que aquellas que desea detener tienen la etiqueta `sequencestop`. Ambas etiquetas requieren un valor entero positivo. Puede usar una consulta similar a la del ejemplo siguiente para buscar todas las máquinas virtuales con las etiquetas y sus valores.
 
   ```powershell-interactive
   Get-AzureRmResource | ? {$_.Tags.Keys -contains "SequenceStart" -or $_.Tags.Keys -contains "SequenceStop"} | ft Name,Tags
@@ -187,7 +187,7 @@ Realice los pasos siguientes para asegurarse de que la solución está configura
 2. Asegúrese de que los grupos de recursos de las máquinas virtuales que se van a iniciar o detener están en las variables `External_Start_ResourceGroupNames` o `External_Stop_ResourceGroupNames`, en función de su situación.
 3. Pruebe los cambios mediante la ejecución del runbook `SequencedStartStop_Parent` con el parámetro WHATIF establecido en True para obtener una vista previa de dichos cambios.
 
-Para obtener información detallada e instrucciones adicionales sobre cómo usar la solución para iniciar y detener máquinas virtuales en secuencia, vea [Iniciar o detener las máquinas virtuales en secuencia ](../automation-solution-vm-management.md#scenario-2-startstop-vms-in-sequence-by-using-tags).
+Para obtener información detallada e instrucciones adicionales sobre cómo usar la solución para iniciar y detener máquinas virtuales en secuencia, vea [Iniciar o detener las máquinas virtuales en secuencia ](../automation-solution-vm-management.md).
 
 ## <a name="scenario-startstop-vm-job-fails-with-403-forbidden-status"></a><a name="403"></a>Escenario: El trabajo de inicio y detención de máquinas virtuales genera un estado de error 403 Prohibido
 

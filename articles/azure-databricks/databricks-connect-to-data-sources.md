@@ -9,12 +9,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: mamccrea
-ms.openlocfilehash: 80ec9b2bbf10d8f500e7f9e0369faca3b9663633
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 79a821a4c8fe4cb2d048f0dcb0a6e091462a1779
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74129389"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548791"
 ---
 # <a name="connect-to-data-sources-from-azure-databricks"></a>Conectarse a orígenes de datos de Azure Databricks
 
@@ -47,7 +47,7 @@ En la lista siguiente se proporcionan los orígenes de datos de Azure que puede 
 
     En este vínculo se proporcionan instrucciones acerca de cómo usar el [conector de Azure Event Hubs Spark](https://github.com/Azure/azure-event-hubs-spark) desde Azure Databricks para obtener acceso a los datos de Azure Event Hubs.
 
-- [Azure SQL Data Warehouse](/azure/databricks/data/data-sources/azure/sql-data-warehouse)
+- [Azure SQL Data Warehouse](/azure/synapse-analytics/sql-data-warehouse/)
 
     En este vínculo se proporcionan instrucciones acerca de cómo usar el conector de Azure SQL Data Warehouse para conectarse desde Azure Databricks.
     

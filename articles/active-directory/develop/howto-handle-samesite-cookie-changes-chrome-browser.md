@@ -3,7 +3,6 @@ title: Control de los cambios de cookies de SameSite en el explorador Chrome | A
 titleSuffix: Microsoft identity platform
 description: Obtenga información sobre cómo controlar los cambios de cookies de SameSite en el explorador Chrome.
 services: active-directory
-documentationcenter: ''
 author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
@@ -14,12 +13,12 @@ ms.date: 01/27/2020
 ms.author: jmprieur
 ms.reviewer: kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: 056b787bbbcde6ba7f9510043deabdcf85ac7467
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e414e5cb7ad9097eb815240f83d9f529f839b6b4
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80050520"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80884008"
 ---
 # <a name="handle-samesite-cookie-changes-in-chrome-browser"></a>Control de los cambios de cookies de SameSite en el explorador Chrome
 

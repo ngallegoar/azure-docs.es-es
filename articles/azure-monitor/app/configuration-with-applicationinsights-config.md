@@ -4,12 +4,12 @@ description: Habilitación o deshabilitación de los módulos de recopilación d
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.reviewer: olegan
-ms.openlocfilehash: b2c407036277b17c0f8c08f3261c932a6dc66624
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 460bd79e3a37c492301f7438112fef4487618fed
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79234764"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982096"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Configuración del SDK de Application Insights con ApplicationInsights.config o .xml
 El SDK de Application Insights para .NET consta de varios paquetes de NuGet. El [paquete principal](https://www.nuget.org/packages/Microsoft.ApplicationInsights) proporciona la API para enviar telemetría a Application Insights. Los [paquetes adicionales](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights) proporcionan *módulos* e *inicializadores* de telemetría para hacer un seguimiento automático de la aplicación y su contexto. Si ajusta el archivo de configuración, puede habilitar o deshabilitar los módulos e inicializadores de telemetría, y establecer los parámetros para algunos de ellos.
@@ -165,65 +165,6 @@ También hay un [procesador de telemetría de muestreo](../../azure-monitor/app/
      </Add>
    </TelemetryProcessors>
 
-```
-
-
-
-## <a name="channel-parameters-java"></a>Parámetros de canal (Java)
-Estos parámetros afectan al modo en que el SDK de Java debe almacenar y vaciar los datos de telemetría que recopila.
-
-#### <a name="maxtelemetrybuffercapacity"></a>MaxTelemetryBufferCapacity
-El número de elementos de telemetría que pueden almacenarse en el almacenamiento del SDK en memoria. Cuando se alcanza este número, se vacía el búfer de telemetría; es decir, los elementos de telemetría se envían al servidor de Application Insights.
-
-* Mín.: 1
-* Máx.: 1000
-* Valor predeterminado: 500
-
-```
-
-  <ApplicationInsights>
-      ...
-      <Channel>
-       <MaxTelemetryBufferCapacity>100</MaxTelemetryBufferCapacity>
-      </Channel>
-      ...
-  </ApplicationInsights>
-```
-
-#### <a name="flushintervalinseconds"></a>FlushIntervalInSeconds
-Determina la frecuencia con que los datos almacenados en el almacenamiento en memoria deben vaciarse (enviarse a Application Insights).
-
-* Mín.: 1
-* Máx.: 300
-* Valor predeterminado: 5
-
-```
-
-    <ApplicationInsights>
-      ...
-      <Channel>
-        <FlushIntervalInSeconds>100</FlushIntervalInSeconds>
-      </Channel>
-      ...
-    </ApplicationInsights>
-```
-
-#### <a name="maxtransmissionstoragecapacityinmb"></a>MaxTransmissionStorageCapacityInMB
-Determina el tamaño máximo en MB que se asigna al almacenamiento persistente en el disco local. Este almacenamiento se utiliza para conservar los elementos de telemetría que no pudieron transmitirse al extremo de Application Insights. Cuando se ha alcanzado el tamaño de almacenamiento, se descartarán los nuevos elementos de telemetría.
-
-* Mín.: 1
-* Máx.: 100
-* Valor predeterminado: 10
-
-```
-
-   <ApplicationInsights>
-      ...
-      <Channel>
-        <MaxTransmissionStorageCapacityInMB>50</MaxTransmissionStorageCapacityInMB>
-      </Channel>
-      ...
-   </ApplicationInsights>
 ```
 
 ## <a name="instrumentationkey"></a>InstrumentationKey

@@ -3,26 +3,22 @@ title: Uso de identificadores URI de redirección con MSAL (iOS/macOS) | Azure
 titleSuffix: Microsoft identity platform
 description: Conozca las diferencias entre la biblioteca de autenticación de Microsoft para ObjectiveC (MSAL para iOS y macOS) y la biblioteca de autenticación de Azure AD para ObjectiveC (ADAL.ObjC) y cómo migrar entre ellas.
 services: active-directory
-documentationcenter: dev-center-name
 author: mmacy
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: jak
 ms.custom: aaddev
-ms.openlocfilehash: c36c6b1b1b08de6d2db9a7f7f9ebd3b162c02383
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1291563a39e3cf3acd4b343302be8b150bf794ca
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79215893"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80883515"
 ---
 # <a name="using-redirect-uris-with-the-microsoft-authentication-library-for-ios-and-macos"></a>Uso de los URI de redirección con la biblioteca de autenticación de Microsoft para iOS y macOS
 

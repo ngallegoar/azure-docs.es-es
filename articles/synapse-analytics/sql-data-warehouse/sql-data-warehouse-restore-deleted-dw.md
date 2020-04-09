@@ -11,12 +11,12 @@ ms.date: 08/29/2018
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 5f0432cafee07dbed071d24aa8c24ee9b2176967
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: d2e2fdb181b553d330368b043b75159e211dd0d2
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350174"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745133"
 ---
 # <a name="restore-a-deleted-sql-pool-using-azure-synapse-analytics"></a>Restauración de un grupo de SQL eliminado mediante Azure Synapse Analytics
 
@@ -30,25 +30,25 @@ En este artículo, aprenderá a restaurar un grupo de SQL mediante Azure Portal 
 
 ## <a name="restore-a-deleted-data-warehouse-through-powershell"></a>Restauración de una base de datos de almacenamiento de datos eliminada mediante PowerShell
 
-Para restaurar una grupo de SQL eliminado, use el cmdlet [Restore-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase). Si también se ha eliminado el servidor lógico correspondiente, la base de datos de almacenamiento de datos no se podrá restaurar.
+Para restaurar una grupo de SQL eliminado, use el cmdlet [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Si también se ha eliminado el servidor lógico correspondiente, la base de datos de almacenamiento de datos no se podrá restaurar.
 
-1. Antes de empezar, asegúrese de [instalar Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
+1. Antes de empezar, asegúrese de [instalar Azure PowerShell](/powershell/azure/overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 2. Abra PowerShell.
 3. Conéctese a su cuenta de Azure y enumere todas las suscripciones asociadas a su cuenta.
 4. Seleccione la suscripción que contiene la base de datos de almacenamiento de datos eliminada que se va a restaurar.
 5. Obtenga la base de datos de almacenamiento de datos eliminada específica.
 6. Restauración de la base de datos de almacenamiento de datos eliminada
     1. Para restaurar la instancia de SQL Data Warehouse eliminada en un servidor lógico diferente, asegúrese de especificar el nombre del otro servidor lógico.  Este servidor lógico también puede estar en un grupo de recursos y una región diferentes.
-    1. Para realizar la restauración en otra suscripción, use el botón [Mover](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources#use-the-portal) para mover el servidor lógico a otra suscripción.
-1. Compruebe que la base de datos de almacenamiento de datos restaurada está en línea.
-1. Una vez finalizada la restauración, puede configurar la base de datos de almacenamiento de datos recuperada siguiendo la explicación que se proporciona en el apartado [Configuración de la base de datos después de realizar la recuperación](../../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery).
+    1. Para realizar la restauración en otra suscripción, use el botón [Mover](../../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#use-the-portal) para mover el servidor lógico a otra suscripción.
+7. Compruebe que la base de datos de almacenamiento de datos restaurada está en línea.
+8. Una vez finalizada la restauración, puede configurar la base de datos de almacenamiento de datos recuperada siguiendo la explicación que se proporciona en el apartado [Configuración de la base de datos después de realizar la recuperación](../../sql-database/sql-database-disaster-recovery.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
 
 ```Powershell
 $SubscriptionName="<YourSubscriptionName>"
 $ResourceGroupName="<YourResourceGroupName>"
 $ServerName="<YourServerNameWithoutURLSuffixSeeNote>"  # Without database.windows.net
 #$TargetResourceGroupName="<YourTargetResourceGroupName>" # uncomment to restore to a different logical server.
-#$TargetServerName="<YourtargetServerNameWithoutURLSuffixSeeNote>" 
+#$TargetServerName="<YourtargetServerNameWithoutURLSuffixSeeNote>"
 $DatabaseName="<YourDatabaseName>"
 $NewDatabaseName="<YourDatabaseName>"
 
@@ -86,5 +86,6 @@ $RestoredDatabase.status
     ![Especificar nombre de base de datos](./media/sql-data-warehouse-restore-deleted-dw/restoring-deleted-21.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 - [Restauración de un grupo de SQL existente](sql-data-warehouse-restore-active-paused-dw.md)
 - [Restauración de un grupo de SQL a partir de una copia de seguridad de replicación geográfica](sql-data-warehouse-restore-from-geo-backup.md)

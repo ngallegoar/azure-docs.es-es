@@ -11,12 +11,12 @@ ms.date: 05/28/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 5d5b2509b212172758fa867d9f27b829f43aeeaa
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 685d6970b0e88032fe503bf97a139c0b8c0f8a73
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80349115"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631350"
 ---
 # <a name="quickstart-create-and-query-a-synapse-sql-pool-using-the-azure-portal"></a>Inicio rápido: Creación y consulta de un grupo de SQL de Synapse mediante Azure Portal
 
@@ -29,7 +29,7 @@ Cree y consulte rápidamente un grupo de SQL de Synapse (almacenamiento de datos
    > [!NOTE]
    > La creación de un grupo de SQL en Azure Synapse puede dar lugar a un nuevo servicio facturable. Para más información, consulte los [precios de Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/synapse-analytics/).
 
-2. Descargue e instale la versión más reciente de [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
+2. Descargue e instale la versión más reciente de [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
@@ -37,7 +37,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-sql-pool"></a>Creación de un grupo de SQL
 
-Los almacenamientos de datos se crean mediante un grupo de SQL en Azure Synapse Analytics. Se crea un grupo de SQL con un conjunto definido de [recursos de proceso](memory-concurrency-limits.md). La base de datos se crea dentro de un [grupo de recursos de Azure](../../azure-resource-manager/management/overview.md) y en un [servidor lógico de Azure SQL](../../sql-database/sql-database-servers.md).
+Los almacenamientos de datos se crean mediante un grupo de SQL en Azure Synapse Analytics. Se crea un grupo de SQL con un conjunto definido de [recursos de proceso](memory-concurrency-limits.md). La base de datos se crea dentro de un [grupo de recursos de Azure](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) y en un [servidor lógico de Azure SQL](../../sql-database/sql-database-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 Siga estos pasos para crear un grupo de SQL que contenga los datos de ejemplo **AdventureWorksDW**.
 
@@ -54,9 +54,9 @@ Siga estos pasos para crear un grupo de SQL que contenga los datos de ejemplo **
    | Configuración | Valor sugerido | Descripción |
    | :------ | :-------------- | :---------- |
    | **Suscripción** | Su suscripción | Para más información acerca de sus suscripciones, consulte [Suscripciones](https://account.windowsazure.com/Subscriptions). |
-   | **Grupos de recursos** | myResourceGroup | Para conocer cuáles son los nombres de grupo de recursos válidos, consulte el artículo [Convenciones de nomenclatura](/azure/architecture/best-practices/resource-naming). |
-   | **Nombre del grupo de SQL** | Cualquier nombre globalmente único (un ejemplo es *mySampleDataWarehouse*) | Para conocer los nombres de base de datos válidos, consulte [Database Identifiers](/sql/relational-databases/databases/database-identifiers) (Identificadores de base de datos). Tenga en cuenta que un grupo de SQL es un tipo de base de datos. |
-   | **Server** | Cualquier nombre globalmente único | Seleccione un servidor existente o cree uno. Para ello debe seleccionar **Crear nuevo**. Para conocer cuáles son los nombres de servidor válidos, consulte el artículo [Naming conventions](/azure/architecture/best-practices/resource-naming) (Convenciones de nomenclatura). |
+   | **Grupos de recursos** | myResourceGroup | Para conocer cuáles son los nombres de grupo de recursos válidos, consulte el artículo [Convenciones de nomenclatura](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). |
+   | **Nombre del grupo de SQL** | Cualquier nombre globalmente único (un ejemplo es *mySampleDataWarehouse*) | Para conocer los nombres de base de datos válidos, consulte [Database Identifiers](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (Identificadores de base de datos). Tenga en cuenta que un grupo de SQL es un tipo de base de datos. |
+   | **Server** | Cualquier nombre globalmente único | Seleccione un servidor existente o cree uno. Para ello debe seleccionar **Crear nuevo**. Para conocer cuáles son los nombres de servidor válidos, consulte el artículo [Naming conventions](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (Convenciones de nomenclatura). |
 
    ![creación de los detalles básicos del almacenamiento de datos](./media/create-data-warehouse-portal/create-sql-pool-basics.png)
 
@@ -78,7 +78,7 @@ Siga estos pasos para crear un grupo de SQL que contenga los datos de ejemplo **
 
 ## <a name="create-a-server-level-firewall-rule"></a>Crear una regla de firewall de nivel de servidor
 
-El servicio Azure Synapse crea un firewall en el nivel de servidor. El firewall impide que herramientas y aplicaciones externas se conecten al servidor y a cualquier base de datos incluida en este. Para habilitar la conectividad, puede agregar reglas de firewall que habilitan la conectividad para direcciones IP concretas. Siga estos pasos para crear una [regla de firewall de nivel de servidor](../../sql-database/sql-database-firewall-configure.md) para la dirección IP del cliente.
+El servicio Azure Synapse crea un firewall en el nivel de servidor. El firewall impide que herramientas y aplicaciones externas se conecten al servidor y a cualquier base de datos incluida en este. Para habilitar la conectividad, puede agregar reglas de firewall que habilitan la conectividad para direcciones IP concretas. Siga estos pasos para crear una [regla de firewall de nivel de servidor](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) para la dirección IP del cliente.
 
 > [!NOTE]
 > Azure Synapse se comunica a través del puerto 1433. Si intenta conectarse desde una red corporativa, es posible que el firewall de la red no permita el tráfico saliente a través del puerto 1433. En ese caso, no puede conectarse al servidor de Azure SQL Database, salvo que el departamento de TI abra el puerto 1433.
@@ -124,7 +124,7 @@ En Azure Portal encontrará el nombre completo del servidor SQL. Más adelante u
 
 ## <a name="connect-to-the-server-as-server-admin"></a>Conexión al servidor como administrador del mismo
 
-En esta sección se usa [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) para establecer una conexión con el servidor Azure SQL.
+En esta sección se usa [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) para establecer una conexión con el servidor Azure SQL.
 
 1. Abra SQL Server Management Studio.
 
@@ -141,11 +141,11 @@ En esta sección se usa [SQL Server Management Studio](/sql/ssms/download-sql-se
 
    ![conectar con el servidor](./media/create-data-warehouse-portal/connect-to-server-ssms.png)
 
-3. Seleccione **Conectar**. La ventana Explorador de objetos se abre en SSMS. 
+3. Seleccione **Conectar**. La ventana Explorador de objetos se abre en SSMS.
 
 4. En el Explorador de objetos, expanda **Bases de datos**. Después, expanda **mySampleDatabase** para ver los objetos de la base de datos.
 
-   ![Objetos de base de datos](./media/create-data-warehouse-portal/connected-ssms.png) 
+   ![Objetos de base de datos](./media/create-data-warehouse-portal/connected-ssms.png)
 
 ## <a name="run-some-queries"></a>Ejecución de algunas consultas
 
@@ -163,7 +163,7 @@ SQL Data Warehouse utiliza T-SQL como lenguaje de consulta. Para abrir una venta
 
    ![Consulta de bases de datos](./media/create-data-warehouse-portal/query-databases.png)
 
-4. Para ver algunos datos, utilice el siguiente comando para ver el número de clientes cuyo apellido es Adams y que tienen tres hijos en casa. Los resultados muestran seis clientes. 
+4. Para ver algunos datos, utilice el siguiente comando para ver el número de clientes cuyo apellido es Adams y que tienen tres hijos en casa. Los resultados muestran seis clientes.
 
     ```sql
     SELECT LastName, FirstName FROM dbo.dimCustomer
@@ -196,4 +196,4 @@ Siga estos pasos para limpiar los recursos que ya no necesite.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre la carga de datos en el grupo de SQL, continúe con el artículo [Carga de datos en un grupo de SQL](load-data-from-azure-blob-storage-using-polybase.md). 
+Para más información sobre la carga de datos en el grupo de SQL, continúe con el artículo [Carga de datos en un grupo de SQL](load-data-from-azure-blob-storage-using-polybase.md).

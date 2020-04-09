@@ -6,14 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/11/2019
-ms.openlocfilehash: fc943ac3cf82d22a58d0ba3390ad8d9bbee6a4c9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6b81aba553fc775821c80631aa83bbb3e8ac63b5
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77669394"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631791"
 ---
 # <a name="azure-monitor-log-queries"></a>Consultas de registros de Azure Monitor
+
 Los registros de Azure Monitor se crean en Azure Data Explorer y las consultas de registros de Azure Monitor usan una versión del mismo lenguaje de consulta de Kusto. La [documentación del lenguaje de consulta de Kusto](/azure/kusto/query) incluye todos los detalles del lenguaje y debe ser el principal recurso para escribir consultas de registros de Azure Monitor. Esta página proporciona vínculos a otros recursos para aprender a escribir consultas y conocer las diferencias con la implementación de Azure Monitor del lenguaje.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
@@ -24,6 +25,7 @@ Los registros de Azure Monitor se crean en Azure Data Explorer y las consultas d
 - [Introducción a las consultas de registros de Azure Monitor](get-started-queries.md) es una lección sobre cómo escribir consultas con los datos de registro de Azure Monitor.
 
 ## <a name="concepts"></a>Conceptos
+
 - El [análisis de los datos de registro en Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) ofrece una breve introducción a las consultas de registros y describe cómo se estructuran los datos de Azure Monitor.
 - En [Visualización y análisis de datos de registro en Azure Monitor](../../azure-monitor/log-query/portals.md) se explican los portales donde se crean y ejecutan las consultas de registros.
 
@@ -34,17 +36,14 @@ Los registros de Azure Monitor se crean en Azure Data Explorer y las consultas d
 - [Propiedades estándar de los registros de Azure Monitor](../../azure-monitor/platform/log-standard-properties.md) describe las propiedades que son estándar para todos los datos de registro de Azure Monitor.
 - [Realización de consultas de registros entre recursos en Azure Monitor](../../azure-monitor/log-query/cross-workspace-query.md) indica cómo escribir consultas de registros que usan datos procedentes de varias áreas de trabajo de Log Analytics y aplicaciones de Application Insights.
 
-
 ## <a name="examples"></a>Ejemplos
 
 - [Ejemplos de consultas de registros de Azure Monitor](examples.md) proporciona ejemplos de consultas con datos de registro de Azure Monitor.
 
-
-
 ## <a name="lessons"></a>Lecciones
 
 - [Trabajo con cadenas en consultas de registros de Azure Monitor](string-operations.md) describe cómo trabajar con datos de cadena.
-- [Trabajar con valores de fecha y hora en consultas de registros de Azure Monitor](datetime-operations.md) describe cómo trabajar con datos de fecha y hora. 
+- [Trabajar con valores de fecha y hora en consultas de registros de Azure Monitor](datetime-operations.md) describe cómo trabajar con datos de fecha y hora.
 - [Agregaciones en consultas de registros de Azure Monitor](aggregations.md) y [Agregaciones avanzadas en consultas de registros de Azure Monitor](advanced-aggregations.md) describen cómo agregar y resumir datos.
 - [Combinaciones en consultas de registros de Azure Monitor](joins.md) describe cómo combinar datos de varias tablas.
 - [Trabajo con JSON y estructuras de datos en consultas de registros de Azure Monitor](json-data-structures.md) describe cómo analizar datos JSON.
@@ -53,9 +52,9 @@ Los registros de Azure Monitor se crean en Azure Data Explorer y las consultas d
 
 ## <a name="cheatsheets"></a>Hojas de características clave
 
--  [Consulta de registros de SQL en Azure Monitor](sql-cheatsheet.md) ayuda a los usuarios que ya están familiarizados con SQL.
--  [Consulta de registros de Splunk en Azure Monitor](splunk-cheatsheet.md) ayuda a los usuarios que ya están familiarizados con Splunk.
- 
+- [Consulta de registros de SQL en Azure Monitor](sql-cheatsheet.md) ayuda a los usuarios que ya están familiarizados con SQL.
+- [Consulta de registros de Splunk en Azure Monitor](splunk-cheatsheet.md) ayuda a los usuarios que ya están familiarizados con Splunk.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Acceda a la [documentación de referencia completa del lenguaje de consulta de Kusto](/azure/kusto/query/).

@@ -5,14 +5,14 @@ author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 04/07/2020
 ms.author: banders
-ms.openlocfilehash: 3a45a04786bb9976a42269191c8b24282905f96f
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 1f44b0a0e2278bfcfbbf7cde1a3605fe334eaa3f
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80436983"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886524"
 ---
 # <a name="buy-a-reservation"></a>Adquisición de una reserva
 
@@ -43,8 +43,6 @@ Al aplicar los descuentos por reserva sobre su uso, Azure procesa la reserva en 
 1. Reservas cuyo ámbito es un grupo de recursos
 2. Reservas de ámbito único
 3. Reservas de ámbito compartido
-
-Un único grupo de recursos puede obtener descuentos por reserva de varias reservas, en función de cómo se establezca el ámbito de las reservas.
 
 También puede actualizar el ámbito después de comprar una reserva. Para ello, vaya a la reserva, haga clic en **Configuración** y limite de nuevo el ámbito de la reserva. Volver a limitar el ámbito de una reserva no es una transacción comercial. No se cambian las condiciones de la reserva. Para más información sobre cómo actualizar el ámbito, consulte [Update the scope after you purchase a reservation](manage-reserved-vm-instance.md#change-the-reservation-scope) (Actualización del ámbito después de comprar una reserva).
 

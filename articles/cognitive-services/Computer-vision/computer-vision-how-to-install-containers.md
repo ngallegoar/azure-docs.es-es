@@ -3,20 +3,20 @@ title: 'Cómo instalar y ejecutar contenedores: Computer Vision'
 titleSuffix: Azure Cognitive Services
 description: Cómo descargar, instalar y ejecutar contenedores para Computer Vision en este tutorial paso a paso.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 03/17/2020
-ms.author: pafarley
+ms.date: 04/01/2020
+ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: f8d19ded32f7f4a90b23106b6cec53418eef407e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5f36c429041a8182551d1f077f0a1229f520e8c1
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79458042"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879350"
 ---
 # <a name="install-and-run-read-containers-preview"></a>Instalación y ejecución de los contenedores de Read (versión preliminar)
 

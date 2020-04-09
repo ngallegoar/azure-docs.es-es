@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f508cac23d997b7595fcc7a4606608aa2dc15fc6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b8023c0927c05d3952bd9f3a51e99e85154552fd
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79128218"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656374"
 ---
 # <a name="connect-with-the-web-client"></a>Conexión con el cliente web
 
@@ -45,4 +45,4 @@ Después de iniciar sesión, debería ver una lista de recursos. Puede iniciar l
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información sobre cómo usar el cliente web, consulte [Introducción al cliente web](https://go.microsoft.com/fwlink/?linkid=2120256).
+Para obtener más información sobre cómo usar el cliente web, consulte [Introducción al cliente web](/windows-server/remote/remote-desktop-services/clients/remote-desktop-web-client).

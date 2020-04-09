@@ -2,26 +2,22 @@
 title: Aplicaciones cliente públicas de una o varias cuentas | Azure
 description: Introducción a las aplicaciones cliente públicas de una o varias cuentas.
 services: active-directory
-documentationcenter: ''
 author: shoatman
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/26/2019
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
-ms.openlocfilehash: f2ce993b8fbf2a1b04ea4ad9d992ba278dbc964e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 89a383aabf3487a0938604bc28ddb06c0541d13e
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76701423"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80881357"
 ---
 # <a name="single-and-multiple-account-public-client-apps"></a>Aplicaciones cliente públicas de una o varias cuentas
 

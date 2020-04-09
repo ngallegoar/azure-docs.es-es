@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 05/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 35fba966fcdb6d1c5cd7c531bb22c9c78ae16ff3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bbf7f2945ad6a94c51cfd0c7db1e8c85d739c6ed
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75417796"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631616"
 ---
 # <a name="manage-pre-and-post-scripts"></a>Administración de scripts previos y posteriores
 
@@ -18,7 +18,7 @@ Los scripts previos y posteriores le permiten ejecutar runbooks de PowerShell en
 
 ## <a name="runbook-requirements"></a>Requisitos de runbook
 
-Para que un runbook se utilice como script previo o posterior, el runbook debe importarse en su cuenta de Automation y publicarse. Para más información sobre este proceso, consulte [Publicar un runbook](manage-runbooks.md#publish-a-runbook).
+Para que un runbook se utilice como script previo o posterior, el runbook debe importarse en su cuenta de Automation y publicarse. Para más información sobre este proceso, consulte [Publicar un runbook](manage-runbooks.md#publishing-a-runbook).
 
 ## <a name="using-a-pre-script-or-post-script"></a>Uso de un script previo o posterior
 

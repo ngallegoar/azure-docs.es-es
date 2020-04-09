@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 8503b12be628fe7d5651221c9d0379bee3e292bd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c473be25907eb3a761fbccd598bb9b732e5be5b9
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76933480"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80802355"
 ---
 # <a name="add-a-line-layer-to-the-map"></a>Adición de una capa de línea al mapa
 
@@ -55,7 +55,7 @@ En este ejemplo se muestra cómo agregar iconos de flecha situados a lo largo de
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Visualización de la flecha a lo largo de la línea" src="//codepen.io/azuremaps/embed/drBJwX/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Visualización de la flecha a lo largo de la línea" src="//codepen.io/azuremaps/embed/drBJwX/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Consulte el Pen <a href='https://codepen.io/azuremaps/pen/drBJwX/'>Visualización de la flecha a lo largo de la línea</a> por Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -70,7 +70,7 @@ Puede aplicar un color de trazo único a la línea. También puede rellenar la l
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Línea con degradado de trazo" src="//codepen.io/azuremaps/embed/wZwWJZ/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Línea con degradado de trazo" src="//codepen.io/azuremaps/embed/wZwWJZ/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Consulte el Pen <a href='https://codepen.io/azuremaps/pen/wZwWJZ/'>Línea con degradado de trazo</a> por Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 

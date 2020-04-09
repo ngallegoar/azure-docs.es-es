@@ -11,12 +11,12 @@ ms.date: 07/12/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 4390ed39c86e041d3fbd776415f0ffbe71f605bd
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 7e0980a9142dc966916d5a4df898ea53b0ddeae5
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350163"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745081"
 ---
 # <a name="geo-restore-for-sql-pool"></a>Restauración geográfica del grupo de SQL
 
@@ -30,20 +30,20 @@ En este artículo, aprenderá a restaurar el grupo de SQL desde una copia de seg
 
 ## <a name="restore-from-an-azure-geographical-region-through-powershell"></a>Uso de PowerShell para restaurar desde una región geográfica de Azure
 
-Para realizar una restauración a partir de una copia de seguridad de replicación geográfica use el cmdlet [Get-AzSqlDatabaseGeoBackup](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasegeobackup) y [Restore-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase).
+Para realizar una restauración a partir de una copia de seguridad de replicación geográfica use el cmdlet [Get-AzSqlDatabaseGeoBackup](/powershell/module/az.sql/get-azsqldatabasegeobackup?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) y [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 > [!NOTE]
 > Puede realizar una restauración geográfica en Gen2. Para ello, especifique Gen2 ServiceObjectiveName (p. ej., DW1000**c**) como parámetro opcional.
 >
 
-1. Antes de empezar, asegúrese de [instalar Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
+1. Antes de empezar, asegúrese de [instalar Azure PowerShell](/powershell/azure/overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 2. Abra PowerShell.
-2. Conéctese a su cuenta de Azure y enumere todas las suscripciones asociadas a su cuenta.
-3. Seleccione la suscripción que contiene el almacenamiento de datos que se va a restaurar.
-4. Obtenga el almacenamiento de datos que quiere recuperar.
-5. Cree la solicitud de recuperación para el almacenamiento de datos.
-6. Compruebe el estado del almacenamiento de datos restaurado geográficamente.
-7. Para configurar la base de datos una vez finalizada la restauración, consulte [Configuración de la base de datos después de realizar la recuperación]( ../../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery).
+3. Conéctese a su cuenta de Azure y enumere todas las suscripciones asociadas a su cuenta.
+4. Seleccione la suscripción que contiene el almacenamiento de datos que se va a restaurar.
+5. Obtenga el almacenamiento de datos que quiere recuperar.
+6. Cree la solicitud de recuperación para el almacenamiento de datos.
+7. Compruebe el estado del almacenamiento de datos restaurado geográficamente.
+8. Para configurar la base de datos una vez finalizada la restauración, consulte [Configuración de la base de datos después de realizar la recuperación]( ../../sql-database/sql-database-disaster-recovery.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
 
 ```Powershell
 $SubscriptionName="<YourSubscriptionName>"
@@ -77,24 +77,25 @@ La base de datos recuperada estará habilitada para TDE si la base de datos de o
 Siga los pasos que se describen a continuación para restaurar un grupo de SQL desde una copia de seguridad geográfica:
 
 1. Inicie sesión en su cuenta de [Azure Portal](https://portal.azure.com/).
-1. Haga clic en **+ Crear un recurso**. 
+2. Haga clic en **+ Crear un recurso**.
 
-![Nuevo DW](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new.png)
+   ![Nuevo DW](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new.png)
 
 3. Haga clic en **Bases de datos** y, después, **Azure Synapse Analytics (anteriormente SQL DW)**.
 
-![Nuevo DW 2](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new-02.png)
+   ![Nuevo DW 2](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new-02.png)
 
 4. Rellene la información solicitada en la pestaña **Aspectos básicos** y haga clic en **Siguiente: Configuración adicional**.
 
-![Aspectos básicos](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
+   ![Aspectos básicos](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
 
 5. En el parámetro **Usar datos existentes**, haga clic en **Copia de seguridad** y luego seleccione la copia de seguridad adecuada en las opciones de desplazamiento. Haga clic en **Revisar y crear**.
- 
-![copia de seguridad](./media/sql-data-warehouse-restore-from-geo-backup/georestore-select.png)
+
+   ![copia de seguridad](./media/sql-data-warehouse-restore-from-geo-backup/georestore-select.png)
 
 6. Una vez que se haya restaurado el almacenamiento de datos, compruebe que el estado es **En línea**.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 - [Restauración de un grupo de SQL existente](sql-data-warehouse-restore-active-paused-dw.md)
 - [Restauración de un grupo de SQL eliminado](sql-data-warehouse-restore-deleted-dw.md)

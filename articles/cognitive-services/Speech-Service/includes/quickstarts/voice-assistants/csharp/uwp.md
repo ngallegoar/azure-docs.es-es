@@ -2,14 +2,14 @@
 author: trrwilson
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/20/2020
+ms.date: 04/04/2020
 ms.author: travisw
-ms.openlocfilehash: fb78a78190a6817e1a199f9935fd55e173caa2b0
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 62c317843c275531286eeb2ae616d79ad76c6f99
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80241790"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80671864"
 ---
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -17,7 +17,7 @@ Antes de comenzar, compruebe lo siguiente:
 
 > [!div class="checklist"]
 > * [Ha creado un recurso de Voz de Azure](~/articles/cognitive-services/speech-service/get-started.md)
-> * [Ha configurado el entorno de desarrollo y ha creado un proyecto vacío](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?tabs=uwp)
+> * [Ha configurado el entorno de desarrollo y ha creado un proyecto vacío](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?tabs=uwp&pivots=programming-language-csharp)
 > * Ha creado un bot conectado al [canal Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 > * Asegúrese de que tiene acceso a un micrófono para capturar el audio.
 > 

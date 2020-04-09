@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: c1e740fbfa4bf1e8a77a2d9d6060ab39dba7ae7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0938fbe94cb0d1e6dae3dcb84950a11f90dd9db8
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79228620"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878160"
 ---
 # <a name="what-are-sql-database-instance-pools-preview"></a>¿Qué son los grupos de instancias de SQL Database (versión preliminar)?
 
@@ -59,7 +59,7 @@ En la lista siguiente se proporcionan los casos de uso principales en los que se
 
 ## <a name="architecture-of-instance-pools"></a>Arquitectura de grupos de instancias
 
-Los grupos de instancias tienen una arquitectura similar a las instancias administradas normales (*instancias únicas*). Para admitir [implementaciones dentro de máquinas virtuales de Azure](../virtual-network/virtual-network-for-azure-services.md#deploy-azure-services-into-virtual-networks) y proporcionar aislamiento y seguridad para los clientes, los grupos de instancias también dependen de  [clústeres virtuales](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture). Los clústeres virtuales representan un conjunto dedicado de máquinas virtuales aisladas implementadas dentro de la subred de la red virtual del cliente.
+Los grupos de instancias tienen una arquitectura similar a las instancias administradas normales (*instancias únicas*). Para admitir [implementaciones dentro de máquinas virtuales de Azure](../virtual-network/virtual-network-for-azure-services.md) y proporcionar aislamiento y seguridad para los clientes, los grupos de instancias también dependen de  [clústeres virtuales](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture). Los clústeres virtuales representan un conjunto dedicado de máquinas virtuales aisladas implementadas dentro de la subred de la red virtual del cliente.
 
 La principal diferencia entre los dos modelos de implementación es que los grupos de instancias permiten varias implementaciones de procesos de SQL Server en el mismo nodo de máquina virtual, que se rigen por los recursos mediante [objetos de trabajo de Windows](https://docs.microsoft.com/windows/desktop/ProcThread/job-objects), mientras que las instancias únicas siempre están solas en un nodo de máquina virtual.
 

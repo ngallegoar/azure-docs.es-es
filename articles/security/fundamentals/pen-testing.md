@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/13/2018
-ms.author: barclayn
-ms.openlocfilehash: 3a2addce83862ef109089f1474330f3821daaed7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: terrylan
+ms.openlocfilehash: 413ec8b121838a4ffac4119421ec3266e141618b
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68726712"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80549247"
 ---
 # <a name="penetration-testing"></a>Pruebas de penetración
 Una de las ventajas del uso de Azure para las pruebas y la implementación de aplicaciones es que puede crear entornos rápidamente. No tiene que preocuparse del pedido, la adquisición, la "instalación en bastidor y apilamiento" de su propio hardware local.

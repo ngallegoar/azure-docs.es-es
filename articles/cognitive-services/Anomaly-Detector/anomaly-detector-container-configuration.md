@@ -3,19 +3,19 @@ title: Configuración de un contenedor para Anomaly Detector API
 titleSuffix: Azure Cognitive Services
 description: El entorno de tiempo de ejecución de los contenedores de Anomaly Detector API se configura mediante los argumentos del comando `docker run`. Este contenedor tiene varias opciones de configuración necesarias, así como otras opcionales.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 11/07/2019
-ms.author: dapine
-ms.openlocfilehash: f7e04a16fa35d492b8e5e6c53a05220e8b96a38a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 569499002c5e047d7030575342790e9a074b9404
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73795849"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80875187"
 ---
 # <a name="configure-anomaly-detector-containers"></a>Configuración de los contenedores de Anomaly Detector
 

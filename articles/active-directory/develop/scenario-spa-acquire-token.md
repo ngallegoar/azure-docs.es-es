@@ -2,24 +2,21 @@
 title: Adquisición de un token para llamar a una API web (aplicaciones de página única) - Plataforma de identidad de Microsoft | Azure
 description: Aprenda a crear una aplicación de página única (adquirir un token para llamar a una API).
 services: active-directory
-documentationcenter: dev-center-name
 author: negoe
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/20/2019
 ms.author: negoe
 ms.custom: aaddev
-ms.openlocfilehash: d5d48a2fc7aca184cf8b6e7761584a8800ca5151
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: eeba01a609a1a21ed564c0b9cb78a28a4ad5c95a
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77160073"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80882325"
 ---
 # <a name="single-page-application-acquire-a-token-to-call-an-api"></a>Aplicación de página única: Adquisición de un token para llamar a una API
 
@@ -76,20 +73,40 @@ El contenedor MSAL Angular proporciona el interceptor HTTP, que adquiere de form
 Puede especificar los ámbitos de las API en la opción de configuración `protectedResourceMap`. `MsalInterceptor` solicitará estos ámbitos cuando adquiera automáticamente tokens.
 
 ```javascript
-//In app.module.ts
+// app.module.ts
 @NgModule({
-  imports: [ MsalModule.forRoot({
-                clientID: 'your_app_id',
-                protectedResourceMap: {"https://graph.microsoft.com/v1.0/me", ["user.read", "mail.send"]}
-            })]
-         })
-
-providers: [ ProductService, {
-        provide: HTTP_INTERCEPTORS,
-        useClass: MsalInterceptor,
-        multi: true
+  declarations: [
+    // ...
+  ],
+  imports: [
+    // ...
+    MsalModule.forRoot({
+      auth: {
+        clientId: 'Enter_the_Application_Id_Here',
+      }
+    },
+    {
+      popUp: !isIE,
+      consentScopes: [
+        'user.read',
+        'openid',
+        'profile',
+      ],
+      protectedResourceMap: [
+        ['https://graph.microsoft.com/v1.0/me', ['user.read']]
+      ]
+    })
+  ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: MsalInterceptor,
+      multi: true
     }
-   ],
+  ],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
 ```
 
 Para conocer el éxito o fracaso de la adquisición de tokens silenciosa, MSAL Angular proporciona devoluciones de llamada a las que puede suscribirse. También es importante recordar esta información si quiere cancelar la suscripción.
@@ -103,7 +120,7 @@ Para conocer el éxito o fracaso de la adquisición de tokens silenciosa, MSAL A
 
 ngOnDestroy() {
    this.broadcastService.getMSALSubject().next(1);
-   if(this.subscription) {
+   if (this.subscription) {
      this.subscription.unsubscribe();
    }
  }
@@ -149,16 +166,16 @@ Puede usar notificaciones opcionales con los siguientes fines:
 
 - Incluir notificaciones adicionales en los tokens de la aplicación.
 - Cambiar el comportamiento de ciertas notificaciones que Azure AD devuelve en tokens.
-- Agregar notificaciones personalizadas para la aplicación y acceder a ellas. 
+- Agregar notificaciones personalizadas para la aplicación y acceder a ellas.
 
 Para solicitar notificaciones opcionales en `IdToken`, puede enviar un objeto de notificaciones en cadena al campo `claimsRequest` de la clase `AuthenticationParameters.ts`.
 
 ```javascript
-"optionalClaims":  
+"optionalClaims":
    {
       "idToken": [
             {
-                  "name": "auth_time", 
+                  "name": "auth_time",
                   "essential": true
              }
       ],

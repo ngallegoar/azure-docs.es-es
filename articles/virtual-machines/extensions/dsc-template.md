@@ -13,16 +13,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 10/05/2018
 ms.author: robreed
-ms.openlocfilehash: ef781653332984a7fb6d71ef91d53cbf77e6c91c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 89bae60c30cfe82d38c61f385dbaef574b4152d8
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72437954"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80547794"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Extensión Desired State Configuration con plantillas de Azure Resource Manager
 
-En este artículo se describe la plantilla de Azure Resource Manager para el [controlador de la extensión Desired State Configuration (DSC)](dsc-overview.md). Muchos de los ejemplos usan **RegistrationURL** (proporcionado como String) y **RegistrationKey** (proporcionado como [PSCredential](/dotnet/api/system.management.automation.pscredential)) para incorporarlos en Azure Automation. Para más información acerca de cómo obtener dichos valores, consulte [Incorporación de máquinas para su administración mediante Azure Automation State Configuration](/azure/automation/automation-dsc-onboarding#secure-registration).
+En este artículo se describe la plantilla de Azure Resource Manager para el [controlador de la extensión Desired State Configuration (DSC)](dsc-overview.md). Muchos de los ejemplos usan **RegistrationURL** (proporcionado como String) y **RegistrationKey** (proporcionado como [PSCredential](/dotnet/api/system.management.automation.pscredential)) para incorporarlos en Azure Automation. Para más información acerca de cómo obtener dichos valores, consulte [Incorporación de máquinas para su administración mediante Azure Automation State Configuration](/azure/automation/automation-dsc-onboarding#onboarding-securely-using-registration).
 
 > [!NOTE]
 > Podría encontrar ejemplos de esquema levemente distintos. El cambio en el esquema ocurrió en la versión de octubre de 2016. Para obtener detalles, vea [Actualización desde un formato anterior](#update-from-a-previous-format).

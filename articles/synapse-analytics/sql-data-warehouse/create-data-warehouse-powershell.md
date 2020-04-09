@@ -11,12 +11,12 @@ ms.date: 4/11/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 45982c0761fecdb456dba5dc4a5d604972b9c3e5
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 57564e9dffd6022e1e4fe464b4b26a5bb8eb318b
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80349308"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631340"
 ---
 # <a name="quickstart-create-and-query-a-synapse-sql-pool-with-azure-powershell"></a>Inicio rápido: Creación y consulta de un grupo de SQL de Synapse con Azure PowerShell
 
@@ -33,24 +33,23 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
-Inicie sesión en la suscripción de Azure con el comando [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) y siga las instrucciones de la pantalla.
+Inicie sesión en la suscripción de Azure con el comando [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) y siga las instrucciones de la pantalla.
 
 ```powershell
 Connect-AzAccount
 ```
 
-Para ver qué suscripción está usando, ejecute [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription).
+Para ver qué suscripción está usando, ejecute [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ```powershell
 Get-AzSubscription
 ```
 
-Si necesita usar una suscripción diferente de la predeterminada, ejecute [Set-AzContext](/powershell/module/az.accounts/set-azcontext).
+Si necesita usar una suscripción diferente de la predeterminada, ejecute [Set-AzContext](/powershell/module/az.accounts/set-azcontext?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ```powershell
 Set-AzContext -SubscriptionName "MySubscription"
 ```
-
 
 ## <a name="create-variables"></a>Creación de variables
 
@@ -75,7 +74,7 @@ $databasename = "mySampleDataWarehouse"
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Cree un [grupo de recursos de Azure](../../azure-resource-manager/management/overview.md) con el comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Un grupo de recursos es un contenedor lógico en el que se implementan y se administran recursos de Azure como un grupo. En el ejemplo siguiente, se crea un grupo de recursos denominado `myResourceGroup` en la ubicación `westeurope`.
+Cree un [grupo de recursos de Azure](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) con el comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Un grupo de recursos es un contenedor lógico en el que se implementan y se administran recursos de Azure como un grupo. En el ejemplo siguiente, se crea un grupo de recursos denominado `myResourceGroup` en la ubicación `westeurope`.
 
 ```powershell
 New-AzResourceGroup -Name $resourcegroupname -Location $location
@@ -83,7 +82,7 @@ New-AzResourceGroup -Name $resourcegroupname -Location $location
 
 ## <a name="create-a-logical-server"></a>un servidor lógico
 
-Cree un [servidor lógico de Azure SQL](/powershell/module/az.sql/new-azsqlserver) con el comando [New-AzSqlServer](../../sql-database/sql-database-logical-servers.md). Un servidor lógico contiene un conjunto de bases de datos administradas como un grupo. En el ejemplo siguiente se crea un servidor con nombre aleatorio en el grupo de recursos con un inicio de sesión de administrador denominado `ServerAdmin` y una contraseña `ChangeYourAdminPassword1`. Cambie estos valores predefinidos por los que prefiera.
+Cree un [servidor lógico de Azure SQL](/powershell/module/az.sql/new-azsqlserver?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) con el comando [New-AzSqlServer](../../sql-database/sql-database-logical-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Un servidor lógico contiene un conjunto de bases de datos administradas como un grupo. En el ejemplo siguiente se crea un servidor con nombre aleatorio en el grupo de recursos con un inicio de sesión de administrador denominado `ServerAdmin` y una contraseña `ChangeYourAdminPassword1`. Cambie estos valores predefinidos por los que prefiera.
 
 ```powershell
 New-AzSqlServer -ResourceGroupName $resourcegroupname `
@@ -94,7 +93,7 @@ New-AzSqlServer -ResourceGroupName $resourcegroupname `
 
 ## <a name="configure-a-server-firewall-rule"></a>Configuración de una regla de firewall del servidor
 
-Para crear una [regla de firewall de nivel de servidor de Azure SQL](../../sql-database/sql-database-firewall-configure.md), ejecute el comando [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule). Una regla de firewall de nivel de servidor permite a una aplicación externa, como SQL Server Management Studio, o la utilidad SQLCMD, conectarse a un grupo de SQL a través del firewall del servicio del grupo de SQL. 
+Para crear una [regla de firewall de nivel de servidor de Azure SQL](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json), ejecute el comando [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Una regla de firewall de nivel de servidor permite a una aplicación externa, como SQL Server Management Studio, o la utilidad SQLCMD, conectarse a un grupo de SQL a través del firewall del servicio del grupo de SQL.
 
 En el ejemplo siguiente, el firewall está abierto solo para otros recursos de Azure. Para habilitar la conectividad externa, cambie la dirección IP a una dirección apropiada para su entorno. Para abrir todas las direcciones IP, utilice 0.0.0.0 como la dirección IP inicial y 255.255.255.255 como la dirección final.
 
@@ -108,9 +107,9 @@ New-AzSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 > Los puntos de conexión de SQL se comunican a través del puerto 1433. Si intenta conectarse desde dentro de una red corporativa, es posible que el firewall de la red no permita el tráfico de salida a través del puerto 1433. Si es así, no podrá conectarse al servidor SQL de Azure a menos que el departamento de TI abra el puerto 1433.
 >
 
-
 ## <a name="create-a-sql-pool"></a>Creación de un grupo de SQL
-En el siguiente ejemplo se crea un grupo de SQL mediante las variables definidas anteriormente.  Especifica el objetivo del servicio como DW100c, que es un punto de partida de bajo costo para el grupo de SQL. 
+
+En el siguiente ejemplo se crea un grupo de SQL mediante las variables definidas anteriormente.  Especifica el objetivo del servicio como DW100c, que es un punto de partida de bajo costo para el grupo de SQL.
 
 ```Powershell
 New-AzSqlDatabase `
@@ -133,15 +132,14 @@ Los parámetros obligatorios son:
 
 Los parámetros opcionales son:
 
-- **CollationName**: la intercalación predeterminada cuando no se especifica otra es SQL_Latin1_General_CP1_CI_AS. No se puede cambiar la intercalación de una base de datos.
-- **MaxSizeBytes**: el tamaño máximo predeterminado de una base de datos es 240 TB. El tamaño máximo limita los datos del almacén de filas. Hay un almacenamiento ilimitado de los datos de las columnas.
+* **CollationName**: la intercalación predeterminada cuando no se especifica otra es SQL_Latin1_General_CP1_CI_AS. No se puede cambiar la intercalación de una base de datos.
+* **MaxSizeBytes**: el tamaño máximo predeterminado de una base de datos es 240 TB. El tamaño máximo limita los datos del almacén de filas. Hay un almacenamiento ilimitado de los datos de las columnas.
 
-Para más información sobre las opciones de parámetro, consulte [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase).
-
+Para más información sobre las opciones de parámetro, consulte [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Otros tutoriales de inicio rápido de esta colección se basan en esta guía. 
+Otros tutoriales de inicio rápido de esta colección se basan en esta guía.
 
 > [!TIP]
 > Si tiene previsto seguir trabajando con otros tutoriales de inicio rápido, no elimine los recursos creados en esta guía de inicio rápido. Si no tiene previsto continuar, siga estos pasos para eliminar todos los recursos creados en esta guía de inicio rápido en Azure Portal.

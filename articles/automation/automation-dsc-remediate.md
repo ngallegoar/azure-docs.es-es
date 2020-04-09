@@ -9,12 +9,12 @@ ms.author: migreene
 ms.topic: conceptual
 ms.date: 07/17/2019
 manager: nirb
-ms.openlocfilehash: a6c7639cb4988eb13dfaa1c151085cda6e53b5d3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f4ca76f4be9d00e185f8774fc33296d1af1aeece
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68611359"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585498"
 ---
 # <a name="remediate-non-compliant-dsc-servers"></a>Corrección de servidores DSC no compatibles
 
@@ -40,7 +40,7 @@ Update-DscConfiguration -Wait -Verbose
 Actualmente, no existe una funcionalidad similar para los servidores Linux.
 La única opción es repetir el proceso de registro.
 En los nodos de Azure, la corrección de la variación puede realizarse desde el portal o mediante los cmdlets Az Automation.
-Para obtener más detalles sobre este proceso, consulte la página [Incorporación de máquinas para su administración mediante Azure Automation State Configuration](/azure/automation/automation-dsc-onboarding#azure-portal).
+Para obtener más detalles sobre este proceso, consulte la página [Incorporación de máquinas para su administración mediante Azure Automation State Configuration](/azure/automation/automation-dsc-onboarding#onboard-a-vm-using-azure-portal).
 En el caso de los nodos híbridos, la corrección de la variación puede realizarse con los scripts de Python que están incluidos.
 Consulte la documentación del [repositorio PowerShell DSC para Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux#performing-dsc-operations-from-the-linux-computer).
 

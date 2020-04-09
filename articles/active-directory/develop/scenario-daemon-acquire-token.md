@@ -2,25 +2,21 @@
 title: Adquisición de tokens para llamar a una API web (aplicación de demonio) - Plataforma de identidad de Microsoft | Azure
 description: Obtenga información sobre cómo compilar una aplicación de demonio que llame a las API web (adquisición de tokens)
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7f1010949a72f95ef2836c43666e6cea9281e04d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a81f3ffb7ec190943c50127b129523badf0ef0a7
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79230600"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80882988"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>Aplicación de demonio que llama a las API web: adquisición de un token
 

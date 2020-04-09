@@ -13,12 +13,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: aschhab
-ms.openlocfilehash: 03e22c4c179850e5140015c0abc2d89f16d4b624
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 4745d675086f1b07bf7fccf17c14c76e4b18fba2
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76774539"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478073"
 ---
 # <a name="quickstart-use-service-bus-topics-and-subscriptions-with-python"></a>Inicio rápido: Uso de temas y suscripciones de Service Bus con Python
 
@@ -35,7 +35,7 @@ En este artículo se describe cómo usar Python con los temas y las suscripcione
 ## <a name="prerequisites"></a>Prerrequisitos
 - Suscripción a Azure. Puede activar sus [beneficios de suscriptor de Visual Studio o MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - Un espacio de nombres de Service Bus, creado siguiendo los pasos descritos en [Inicio rápido: Uso de Azure Portal para crear suscripciones y temas de Service Bus](service-bus-quickstart-topics-subscriptions-portal.md). Copie el nombre del espacio de nombres, el nombre de la clave de acceso compartido y el valor de clave principal de la pantalla **Directivas de acceso compartido** para usarlos más adelante en este inicio rápido. 
-- Python 3.4.x o superior, con el paquete del [SDK de Python de Azure][Azure Python package] instalado. Para obtener más información, consulte la [guía de instalación de Python](/azure/python/python-sdk-azure-install).
+- Python 3.4.x o superior, con el paquete del [SDK de Python de Azure][Azure Python package] instalado. Para obtener más información, consulte la [guía de instalación de Python](/azure/developer/python/azure-sdk-install).
 
 ## <a name="create-a-servicebusservice-object"></a>Creación de un objeto ServiceBusService
 

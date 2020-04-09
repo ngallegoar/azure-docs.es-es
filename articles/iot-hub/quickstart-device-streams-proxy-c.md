@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: af303928490d2570fa9430bd4b9d30c4a49df304
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 91cf594e74d91b8b4df2108d23459016fa843700
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78675484"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586629"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Inicio rápido: Habilitar SSH y RDP mediante un flujo de dispositivo de IoT Hub con una aplicación proxy en C (versión preliminar)
 
@@ -33,7 +33,7 @@ En la siguiente ilustración se muestra cómo configurar los programas de proxy 
 * [SSH/RDP mediante flujos de dispositivo de IoT Hub con aplicaciones proxy de C#](./quickstart-device-streams-proxy-csharp.md)
 * [SSH/RDP mediante flujos de dispositivos de IoT Hub con aplicaciones proxy de Node.js](./quickstart-device-streams-proxy-nodejs.md)
 
-![Configuración de proxy local](./media/quickstart-device-streams-proxy-csharp/device-stream-proxy-diagram.svg)
+![Configuración de proxy local](./media/quickstart-device-streams-proxy-c/device-stream-proxy-diagram.png)
 
 1. El proxy local de servicio se conecta a IoT Hub e inicia un flujo de dispositivo al dispositivo de destino.
 
