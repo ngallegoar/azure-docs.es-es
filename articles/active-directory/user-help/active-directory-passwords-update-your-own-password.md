@@ -33,7 +33,7 @@ Si no puede acceder a su cuenta de Azure Active Directory (Azure AD), el motivo 
 
 - La contraseña no funciona y quiere restablecerla.
 
-- Conoce la contraseña pero la cuenta está bloqueada y necesita desbloquearla.
+- Conoce la contraseña, pero la cuenta está bloqueada y necesita desbloquearla.
 
 ### <a name="to-reset-your-password-and-get-back-into-your-account"></a>Para restablecer la contraseña y volver a su cuenta
 
@@ -53,7 +53,7 @@ Si no puede acceder a su cuenta de Azure Active Directory (Azure AD), el motivo 
     >[!NOTE]
     >Según cómo el administrador haya configurado su organización, puede que algunas de estas opciones de verificación no estén disponibles. Debe haber configurado previamente el dispositivo móvil para la verificación al menos con uno de estos métodos.<br><br>Además, puede que la nueva contraseña tenga que cumplir determinados requisitos de seguridad. Normalmente, las contraseñas seguras tienen entre ocho y dieciséis caracteres, incluidos los caracteres en mayúsculas y minúsculas, al menos un número y al menos un carácter especial.
 
-- **Restablezca la contraseña con una dirección de correo electrónico.** Envía un correo electrónico a la dirección de correo electrónico que configuró previamente en la verificación en dos pasos o en la información de seguridad. Si el administrador ha activado la experiencia de información de seguridad, puede encontrar más información acerca de cómo configurar una dirección de correo electrónico en el artículo [Configuración de la información de seguridad para usar el correo electrónico (versión preliminar)](security-info-setup-email.md). Si aún no usa la información de seguridad, puede encontrar más información acerca de cómo configurar una dirección de correo electrónico en el artículo [Configuración de mi cuenta para la verificación en dos pasos](multi-factor-authentication-end-user-first-time.md). 
+- **Restablezca la contraseña con una dirección de correo electrónico.** Se envía un correo electrónico a la dirección de correo electrónico que configuró previamente en la verificación en dos pasos o en la información de seguridad. Si el administrador ha activado la experiencia de información de seguridad, puede encontrar más información acerca de cómo configurar una dirección de correo electrónico en el artículo [Configuración de la información de seguridad para usar el correo electrónico (versión preliminar)](security-info-setup-email.md). Si aún no usa la información de seguridad, puede encontrar más información acerca de cómo configurar una dirección de correo electrónico en el artículo [Configuración de mi cuenta para la verificación en dos pasos](multi-factor-authentication-end-user-first-time.md). 
 
     1. Seleccione **Enviar un mensaje de correo electrónico a mi dirección alternativa** y después seleccione **Correo electrónico**.
 
@@ -61,7 +61,7 @@ Si no puede acceder a su cuenta de Azure Active Directory (Azure AD), el motivo 
 
     3. Escriba y confirme la nueva contraseña y luego seleccione **Finalizar**.
 
-- **Restablezca la contraseña con un mensaje de texto.** Envía un mensaje de texto al número de teléfono que configuró previamente en la información de seguridad. Si el administrador ha activado la experiencia de información de seguridad, puede encontrar más información acerca de cómo configurar la mensajería de texto en el artículo [Configuración de la información de seguridad para usar la mensajería de texto (versión preliminar)](security-info-setup-text-msg.md). Si aún no usa la información de seguridad, puede encontrar más información acerca de cómo configurar la mensajería de texto en el artículo [Configuración de mi cuenta para la verificación en dos pasos](multi-factor-authentication-end-user-first-time.md).
+- **Restablezca la contraseña con un mensaje de texto.** Se envía un mensaje de texto al número de teléfono que configuró previamente en la información de seguridad. Si el administrador ha activado la experiencia de información de seguridad, puede encontrar más información acerca de cómo configurar la mensajería de texto en el artículo [Configuración de la información de seguridad para usar la mensajería de texto (versión preliminar)](security-info-setup-text-msg.md). Si aún no usa la información de seguridad, puede encontrar más información acerca de cómo configurar la mensajería de texto en el artículo [Configuración de mi cuenta para la verificación en dos pasos](multi-factor-authentication-end-user-first-time.md).
 
     1. Seleccione **Enviar mensaje de texto a mi teléfono móvil**, escriba el número de teléfono y después seleccione **Texto**.
 
@@ -69,7 +69,7 @@ Si no puede acceder a su cuenta de Azure Active Directory (Azure AD), el motivo 
 
     3. Escriba y confirme la nueva contraseña y luego seleccione **Finalizar**.
 
-- **Restablezca la contraseña con un número de teléfono.** Envía un mensaje de texto al número de teléfono que configuró previamente en la información de seguridad. Si el administrador ha activado la experiencia de información de seguridad, puede encontrar más información acerca de cómo configurar un número de teléfono en el artículo [Configuración de la información de seguridad para usar una llamada telefónica (versión preliminar)](security-info-setup-phone-number.md). Si aún no usa la información de seguridad, puede encontrar más información acerca de cómo configurar un número de teléfono en el artículo [Configuración de mi cuenta para la verificación en dos pasos](multi-factor-authentication-end-user-first-time.md).
+- **Restablezca la contraseña con un número de teléfono.** Se envía un mensaje de texto al número de teléfono que configuró previamente en la información de seguridad. Si el administrador ha activado la experiencia de información de seguridad, puede encontrar más información acerca de cómo configurar un número de teléfono en el artículo [Configuración de la información de seguridad para usar una llamada telefónica (versión preliminar)](security-info-setup-phone-number.md). Si aún no usa la información de seguridad, puede encontrar más información acerca de cómo configurar un número de teléfono en el artículo [Configuración de mi cuenta para la verificación en dos pasos](multi-factor-authentication-end-user-first-time.md).
 
     1. Seleccione **Llamar al teléfono móvil**, escriba el número de teléfono y después seleccione **Llamar**.
 
@@ -91,7 +91,7 @@ Si no puede acceder a su cuenta de Azure Active Directory (Azure AD), el motivo 
 
     3. Escriba y confirme la nueva contraseña y luego seleccione **Finalizar**.
 
-- **Restablezca su contraseña mediante un código de la aplicación autenticadora.** Acepta un código aleatorio proporcionado por la aplicación autenticadora. Si el administrador ha activado la experiencia de información de seguridad, puede encontrar más información acerca de cómo configurar una aplicación autenticadora para que proporcione un código en el artículo [Configuración de la información de seguridad para usar una aplicación autenticadora (versión preliminar)](security-info-setup-auth-app.md). Si aún no usa la información de seguridad, puede encontrar más información acerca de cómo configurar una aplicación autenticadora para que proporcione un código en el artículo [Configuración de mi cuenta para la verificación en dos pasos](multi-factor-authentication-end-user-first-time.md).
+- **Restablezca su contraseña mediante un código de la aplicación autenticadora.** Se acepta un código aleatorio proporcionado por la aplicación autenticadora. Si el administrador ha activado la experiencia de información de seguridad, puede encontrar más información acerca de cómo configurar una aplicación autenticadora para que proporcione un código en el artículo [Configuración de la información de seguridad para usar una aplicación autenticadora (versión preliminar)](security-info-setup-auth-app.md). Si aún no usa la información de seguridad, puede encontrar más información acerca de cómo configurar una aplicación autenticadora para que proporcione un código en el artículo [Configuración de mi cuenta para la verificación en dos pasos](multi-factor-authentication-end-user-first-time.md).
 
   1. Seleccione **Escribir un código de mi aplicación autenticadora** y después seleccione **Enviar notificación**.
 

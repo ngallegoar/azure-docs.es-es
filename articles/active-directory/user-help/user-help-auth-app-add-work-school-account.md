@@ -18,7 +18,7 @@ ms.contentlocale: es-ES
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "77063924"
 ---
-# <a name="add-your-work-or-school-account-to-the-microsoft-authenticator-app"></a>Agregue la cuenta profesional o educativa a la aplicación Microsoft Authenticator
+# <a name="add-your-work-or-school-account-to-the-microsoft-authenticator-app"></a>Agregar la cuenta profesional o educativa a la aplicación Microsoft Authenticator
 
 Si su organización usa la verificación en dos pasos, puede configurar su cuenta profesional o educativa para usar la aplicación Microsoft Authenticator como uno de los métodos de verificación.
 
