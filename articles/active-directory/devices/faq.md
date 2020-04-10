@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cebb59d30dd717e54321ab138f6580947a545961
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: c238600d412e53ad665214492e292aa395655b78
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77185843"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79497521"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Preguntas más frecuentes sobre la administración de dispositivos de Azure Active Directory
 
@@ -25,7 +25,7 @@ ms.locfileid: "77185843"
 ### <a name="q-i-registered-the-device-recently-why-cant-i-see-the-device-under-my-user-info-in-the-azure-portal-or-why-is-the-device-owner-marked-as-na-for-hybrid-azure-active-directory-azure-ad-joined-devices"></a>P: He registrado el dispositivo hace poco. ¿Por qué no puedo ver el dispositivo en mi información del usuario de Azure Portal? O bien, ¿por qué el propietario del dispositivo está marcado como N/D para los dispositivos unidos a Azure Active Directory (Azure AD) híbrido?
 
 **R:** los dispositivos Windows 10 que están unidos a Azure AD híbrido no aparecen bajo los **dispositivos del USUARIO**.
-Use la vista **Todos los dispositivos** de Azure Portal. También puede usar un cmdlet [Get-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) de PowerShell.
+Use la vista **Todos los dispositivos** de Azure Portal. También puede usar un cmdlet [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) de PowerShell.
 
 Los únicos que aparecen entre los **dispositivos del USUARIO** son los siguientes:
 
@@ -62,7 +62,7 @@ Los únicos que aparecen entre los **dispositivos del USUARIO** son los siguient
 - El usuario deshabilita el dispositivo en el portal Mis aplicaciones. 
 - Un administrador (o usuario) elimina o deshabilita el dispositivo en Azure Portal o mediante PowerShell.
 - Solo unido a Azure AD híbrido: Un administrador quita la unidad organizativa de los dispositivos del ámbito de sincronización, lo que da lugar a la eliminación de los dispositivos de Azure AD.
-- Actualización de Azure AD Connect a la versión 1.4.xx.x. [Descripción de Azure AD Connect 1.4.xx.x y desaparición del dispositivo](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-device-disappearance).
+- Actualización de Azure AD Connect a la versión 1.4.xx.x. [Descripción de Azure AD Connect 1.4.xx.x y desaparición del dispositivo](/azure/active-directory/hybrid/reference-connect-device-disappearance).
 
 
 Vea a continuación cómo se pueden rectificar estas acciones.
@@ -128,7 +128,7 @@ Vea a continuación cómo se pueden rectificar estas acciones.
 **R:** La revocación tarda hasta una hora en aplicarse desde el momento en el que el dispositivo de Azure AD se marca como deshabilitado.
 
 >[!NOTE] 
->En el caso de los dispositivos inscritos, se recomienda que borre los datos del dispositivo para asegurarse de que los usuarios no pueden acceder a los recursos. Para obtener más información, consulte [¿Qué es la inscripción de dispositivos?](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune). 
+>En el caso de los dispositivos inscritos, se recomienda que borre los datos del dispositivo para asegurarse de que los usuarios no pueden acceder a los recursos. Para obtener más información, consulte [¿Qué es la inscripción de dispositivos?](/mem/intune/user-help/use-managed-devices-to-get-work-done). 
 
 ---
 
@@ -180,17 +180,17 @@ Los usuarios eliminados o deshabilitados que no han iniciado sesión anteriormen
 
 ### <a name="q-my-users-cant-search-printers-from-azure-ad-joined-devices-how-can-i-enable-printing-from-those-devices"></a>P: Mis usuarios no pueden buscar impresoras desde dispositivos unidos a Azure AD. ¿Cómo se puede habilitar la impresión desde esos dispositivos?
 
-**R:** Con el fin de implementar impresoras para los dispositivos unidos a Azure AD, consulte [Deploy Windows Server Hybrid Cloud Print with Pre-Authentication](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy) (Implementación de impresión en nube híbrida de Windows Server mediante autenticación previa). Necesita un servidor de Windows Server local para implementar la impresión en nube híbrida. Actualmente, el servicio de impresión basado en la nube no está disponible. 
+**R:** Con el fin de implementar impresoras para los dispositivos unidos a Azure AD, consulte [Deploy Windows Server Hybrid Cloud Print with Pre-Authentication](/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy) (Implementación de impresión en nube híbrida de Windows Server mediante autenticación previa). Necesita un servidor de Windows Server local para implementar la impresión en nube híbrida. Actualmente, el servicio de impresión basado en la nube no está disponible. 
 
 ---
 
 ### <a name="q-how-do-i-connect-to-a-remote-azure-ad-joined-device"></a>P: ¿Cómo me conecto a un dispositivo remoto unido a Azure AD?
 
-**R:** Consulte [Conectarse a un equipo remoto unido a Azure Active Directory](https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc).
+**R:** Consulte [Conectarse a un equipo remoto unido a Azure Active Directory](/windows/client-management/connect-to-remote-aadj-pc).
 
 ---
 
-### <a name="q-why-do-my-users-see-you-cant-get-there-from-here"></a>P: ¿Por qué mis usuarios ven el mensaje *No puedes acceder desde aquí*?
+### <a name="q-why-do-my-users-see-you-cant-get-there-from-here"></a>P: ¿Por qué mis usuarios ven un mensaje que indica que *no pueden acceder desde aquí?*
 
 **R:** ¿Ha configurado determinadas reglas de acceso condicional para requerir un estado de dispositivo específico? Si el dispositivo no cumple los criterios, se bloquea a los usuarios y se les muestra ese mensaje. Examine las reglas de la directiva de acceso condicional. Asegúrese de que el dispositivo cumple los criterios para evitar el mensaje.
 
@@ -220,7 +220,7 @@ Este comportamiento:
 
 ### <a name="q-why-do-i-see-the-oops-an-error-occurred-dialog-when-i-try-to-azure-ad-join-my-pc"></a>P: ¿Por qué se muestra el cuadro de diálogo *¡Vaya!... se produjo un error* cuando intento unir mi equipo a Azure AD?
 
-**R:** Este error se produce cuando configura la inscripción de Azure Active Directory con Intune. Asegúrese de que el usuario que intenta unirse a Azure AD tiene asignada la licencia de Intune correcta. Para obtener más información, consulte [Configuración de la inscripción de dispositivos Windows](https://docs.microsoft.com/intune/windows-enroll).  
+**R:** Este error se produce cuando configura la inscripción de Azure Active Directory con Intune. Asegúrese de que el usuario que intenta unirse a Azure AD tiene asignada la licencia de Intune correcta. Para obtener más información, consulte [Configuración de la inscripción de dispositivos Windows](/intune/windows-enroll).  
 
 ---
 
@@ -307,8 +307,8 @@ La unión de Azure AD híbrido tiene prioridad sobre el estado registrado en Az
 
 **R:** Siga estos pasos.
 
-1.  [Cree una directiva de cumplimiento](https://docs.microsoft.com/intune/compliance-policy-create-mac-os).
-1.  [Defina una directiva de acceso condicional para dispositivos de Mac OS](../active-directory-conditional-access-azure-portal.md). 
+1.    [Cree una directiva de cumplimiento](/intune/compliance-policy-create-mac-os).
+1.    [Defina una directiva de acceso condicional para dispositivos de Mac OS](../active-directory-conditional-access-azure-portal.md). 
 
 **Observaciones**:
 

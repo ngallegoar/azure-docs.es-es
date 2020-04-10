@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/08/2017
+ms.date: 03/13/2020
 ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa7b5c82f0b057e2eb029b9cc632d8da02206678
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6fd6794bafc3c209032f32626e8c46b51769d05e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108390"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481235"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Consideraciones de seguridad al obtener acceso a aplicaciones de forma remota con el Proxy de aplicación de Azure AD
 
@@ -81,13 +81,9 @@ El software al que no se aplican revisiones sigue siendo objeto de un gran núme
 
 Para mejorar la seguridad de las aplicaciones publicadas por el Proxy de aplicación de Azure AD, se impide que los robots de agentes de búsqueda indexen y archiven sus aplicaciones. Cada vez que un robot de agente de búsqueda intenta recuperar la configuración del robot de una aplicación publicada, el Proxy de aplicación responde con un archivo robots.txt que incluye `User-agent: * Disallow: /`.
 
-### <a name="ddos-prevention"></a>Prevención de DDOS
+#### <a name="azure-ddos-protection-service"></a>Servicio Azure DDoS Protection
 
-Las aplicaciones publicadas a través de Proxy de aplicación están protegidas frente a ataques de denegación de servicio distribuido (DDOS).
-
-El servicio de Proxy de aplicación supervisa la cantidad de tráfico que intenta obtener acceso a las aplicaciones y la red. Si el número de dispositivos que solicitan acceso remoto a las aplicaciones sube hasta un pico, Microsoft limita el acceso a la red. 
-
-Microsoft supervisa los patrones de tráfico para las aplicaciones individuales y para la suscripción íntegra. Si una aplicación recibe una cantidad de solicitudes superior a la normal, las solicitudes para tener acceso a esa aplicación se deniegan durante un breve período de tiempo. Si recibe una cantidad de solicitudes superior a la normal en toda la suscripción, se deniegan las solicitudes para acceder a cualquiera de las aplicaciones. Esta medida preventiva impide que los servidores de aplicaciones se sobrecarguen con solicitudes de acceso remoto, de esta forma los usuarios locales pueden mantener el acceso a sus aplicaciones. 
+Las aplicaciones publicadas a través del servicio de proxy de aplicación están protegidas frente a ataques de denegación de servicio distribuido (DDoS). **Azure DDoS Protection** es un servicio que se ofrece con la plataforma Azure para proteger los recursos de Azure frente a ataques de denegación de servicio. El nivel de servicio **Básico** se habilita automáticamente, lo que proporciona supervisión del tráfico siempre activa y mitigación en tiempo real de los ataques de nivel de red comunes. También dispone del nivel **Estándar**, que ofrece funciones adicionales de mitigación adaptadas específicamente a los recursos de Azure Virtual Network. Para más información, consulte [Introducción a Azure DDoS Protection estándar](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview).
 
 ## <a name="under-the-hood"></a>En segundo plano
 
@@ -103,7 +99,7 @@ Se establece un flujo entre el conector y el servicio de Proxy de aplicación cu
 * Un usuario tiene acceso a una aplicación publicada.
 
 >[!NOTE]
->Todas las comunicaciones se producen a través de SSL, y siempre se originan en el conector del servicio de Proxy de aplicación. Este servicio solo es de salida.
+>Todas las comunicaciones se producen a través de TLS, y siempre se originan en el conector del servicio Proxy de aplicación. Este servicio solo es de salida.
 
 El conector usa un certificado de cliente para autenticarse en el servicio de Proxy de aplicación para casi todas las llamadas. La única excepción para este proceso es el momento de la instalación inicial, donde se establece el certificado de cliente.
 

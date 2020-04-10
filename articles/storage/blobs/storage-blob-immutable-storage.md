@@ -9,18 +9,20 @@ ms.date: 11/18/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: b8b5de910195b14c279fe395cc35c12768536728
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: a980c7bd068a463956191eece43ec1be233e7890
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981843"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79367625"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Almacenamiento de datos de blobs críticos para la empresa con almacenamiento inmutable
 
 El almacenamiento inmutable para Azure Blob Storage permite a los usuarios almacenar objetos de datos críticos para la empresa en un estado WORM (escribir una vez, leer muchas). En este estado, los usuarios no pueden borrar ni modificar los datos durante el intervalo de tiempo especificado por el usuario. Mientras dure el intervalo de retención, se pueden crear y leer blobs, pero no modificar ni eliminar. El almacenamiento inmutable está disponible en las cuentas de uso general v1, de uso general v2, BlobStorage y BlockBlobStorage de todas las regiones de Azure.
 
 Para obtener información sobre cómo establecer y borrar las suspensiones legales o crear una directiva de retención basada en el tiempo mediante Azure Portal, PowerShell o la CLI de Azure, vea [Establecimiento y administración de directivas de inmutabilidad para el almacenamiento de blobs](storage-blob-immutability-policies-manage.md).
+
+[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="about-immutable-blob-storage"></a>Acerca del almacenamiento de blobs inmutable
 
@@ -84,15 +86,7 @@ Por ejemplo, imagine que un usuario crea una directiva de retención de duració
 
 Las directivas de retención de duración definida desbloqueadas permiten habilitar y deshabilitar la configuración `allowProtectedAppendWrites` en cualquier momento. Una vez que se ha bloqueado la directiva de retención de duración definida, no se puede cambiar el valor de `allowProtectedAppendWrites`.
 
-Las directivas de suspensión legal no pueden habilitar `allowProtectedAppendWrites` y no permiten que se agreguen nuevos bloques a los blobs en anexos. Si se aplica la suspensión legal a una directiva de retención de duración definida con `allowProtectedAppendWrites` habilitada, se producirá un error en la API *AppendBlock* hasta que se levante la suspensión legal.
-
-> [!IMPORTANT] 
-> La configuración para permitir escrituras de blobs en anexos protegidos en la retención de duración definida está disponible actualmente en las regiones siguientes:
-> - East US
-> - Centro-Sur de EE. UU
-> - Oeste de EE. UU. 2
->
-> En este momento, se recomienda encarecidamente que no habilite `allowProtectedAppendWrites` en otras regiones, además de las especificadas, ya que puede producir errores intermitentes y afectar al cumplimiento de los blobs en anexos. Para más información sobre cómo establecer y bloquear las directivas de retención de duración definida, vea [Permitir escrituras de blobs en anexos protegidos](storage-blob-immutability-policies-manage.md#enabling-allow-protected-append-blobs-writes).
+Las directivas de retención legal no pueden habilitar `allowProtectedAppendWrites` y cualquier retención legal anulará la propiedad 'allowProtectedAppendWrites'. Si se aplica la suspensión legal a una directiva de retención de duración definida con `allowProtectedAppendWrites` habilitada, se producirá un error en la API *AppendBlock* hasta que se levante la suspensión legal.
 
 ## <a name="legal-holds"></a>Retenciones legales
 
@@ -140,7 +134,7 @@ No, puede usar el almacenamiento inmutable con cualquier cuenta de uso general 
 
 **¿Se puede aplicar una suspensión legal y una directiva de retención con duración definida a la vez?**
 
-Sí, un contenedor puede tener una suspensión legal y una directiva de retención con duración definida al mismo tiempo. Todos los blobs de ese contenedor permanecen en estado inmutable hasta que se eliminen todas las suspensiones legales, aunque haya expirado el período de retención efectivo. Por el contrario, un blob permanece en estado inmutable hasta que expire el período de retención efectivo, aunque se hayan eliminado todas las suspensiones legales.
+Sí, un contenedor puede tener una retención legal y una directiva de retención basada en tiempo al mismo tiempo; sin embargo, el valor 'allowProtectedAppendWrites' no se aplicará hasta que se elimine la retención legal. Todos los blobs de ese contenedor permanecen en estado inmutable hasta que se eliminen todas las suspensiones legales, aunque haya expirado el período de retención efectivo. Por el contrario, un blob permanece en estado inmutable hasta que expire el período de retención efectivo, aunque se hayan eliminado todas las suspensiones legales. 
 
 **¿Las directivas de suspensión legal son solo para procedimientos judiciales o pueden emplearse en otros casos?**
 
@@ -164,7 +158,7 @@ Sí, puede usar el comando Set Blob Tier para mover datos entre los niveles de b
 
 **¿Qué ocurre si dejo de pagar y no ha expirado el intervalo de retención?**
 
-En caso de impago, las directivas de retención de datos normales se aplicarán como estipulado en los términos y condiciones de su contrato con Microsoft.
+En caso de impago, las directivas de retención de datos normales se aplicarán como estipulado en los términos y condiciones de su contrato con Microsoft. Para obtener información general, consulte [Administración de datos en Microsoft](https://www.microsoft.com/en-us/trust-center/privacy/data-management). 
 
 **¿Se ofrece una evaluación o un período de gracia para probar la característica?**
 

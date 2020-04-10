@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/10/2020
+ms.date: 03/17/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 56a3478f1c0dbc05eba07a5109f5bb6ba89b79d0
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.openlocfilehash: 85f2ab6f8c3e5edda027e44eeda13a3279a88321
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79079881"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79473683"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Adición de notificaciones y personalización de la entrada del usuario mediante directivas personalizadas en Azure Active Directory B2C
 
@@ -24,9 +24,12 @@ ms.locfileid: "79079881"
 
 En este artículo, recopilará un nuevo atributo durante el recorrido de registro en Azure Active Directory B2C (Azure AD B2C). Obtendrá la ciudad de los usuarios, la configurará como una lista desplegable y definirá si es necesario proporcionarla.
 
+> [!NOTE]
+> En este ejemplo se usa una notificación "city" integrada. En su lugar, puede elegir uno de los [atributos integrados de Azure AD B2C](user-profile-attributes.md) admitidos o un atributo personalizado. Para usar un atributo personalizado, [habilite los atributos personalizados en la directiva](custom-policy-custom-attributes.md). Para usar otro atributo integrado o personalizado, reemplace "city" por el atributo que prefiera; por ejemplo, el atributo integrado *jobTitle* o uno personalizado como *extension_loyaltyId*.  
+
 Para recopilar los datos iniciales de los usuarios, utilice el recorrido del usuario de registro o inicio de sesión. Las reclamaciones posteriores se pueden recopilar mediante el recorrido de edición de perfil del usuario. Siempre que Azure AD B2C recopila información del usuario de forma directa e interactiva, Identity Experience Framework utiliza su [perfil técnico autoafirmado](self-asserted-technical-profile.md). En este ejemplo:
 
-1. Define una notificación de "ciudad".
+1. Define una notificación de "ciudad". 
 1. Pide al usuario que especifique su ciudad.
 1. Conserva la ciudad en el perfil de usuario en el directorio de Azure AD B2C.
 1. Lee la notificación de ciudad en el directorio de Azure AD B2C en cada inicio de sesión.
@@ -45,7 +48,7 @@ Una notificación proporciona un almacenamiento temporal de datos durante la eje
 - **UserHelpText**: ayuda al usuario a entender los requisitos.
 - [UserInputType](claimsschema.md#userinputtype): tipo de control de entrada, como cuadro de texto, botón de selección, lista desplegable o selecciones múltiples.
 
-Abra el archivo de extensiones de la directiva. Por ejemplo, <em>`SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`** </em>.
+Abra el archivo de extensiones de la directiva. Por ejemplo, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
 
 1. Busque el elemento [BuildingBlocks](buildingblocks.md). Si el elemento no existe, agréguelo.
 1. Busque el elemento [ClaimsSchema](claimsschema.md). Si el elemento no existe, agréguelo.
@@ -169,7 +172,7 @@ Reemplace estos perfiles técnicos en el archivo de extensión. Busque el elemen
 
 ## <a name="include-a-claim-in-the-token"></a>Incorporación de una notificación en el token 
 
-Para devolver la notificación de ciudad a la aplicación de usuario de confianza, agregue una notificación de salida al archivo <em>`SocialAndLocalAccounts/` **`SignUpOrSignIn.xml`** </em>. La notificación de salida se agregará al token después de un recorrido del usuario correcto y se enviará a la aplicación. Modifique el elemento de perfil técnico en la sección de usuario de confianza para agregar la ciudad como una notificación de salida.
+Para devolver la notificación de ciudad a la aplicación de usuario de confianza, agregue una notificación de salida al archivo <em>`SocialAndLocalAccounts/`**`SignUpOrSignIn.xml`**</em>. La notificación de salida se agregará al token después de un recorrido del usuario correcto y se enviará a la aplicación. Modifique el elemento de perfil técnico en la sección de usuario de confianza para agregar la ciudad como una notificación de salida.
  
 ```xml
 <RelyingParty>
