@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43f355f22774477466d2965cef02adcc4ec4f497
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: f884f4c0ea3a610f28a8fdbb34b081f0b0a64d08
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76908860"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80666948"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integración de la infraestructura existente de NPS con Azure Multi-Factor Authentication
 
@@ -29,7 +29,7 @@ Al usar la extensión de NPS para Azure MFA, el flujo de autenticación incluye 
 1. **Servidor NAS/VPN** recibe solicitudes de los clientes VPN y las convierte en solicitudes RADIUS para servidores NPS. 
 2. **Servidor NPS** se conecta a Active Directory para realizar la autenticación principal para las solicitudes RADIUS y, cuando se realiza correctamente, pasa la solicitud a todas las extensiones instaladas.  
 3. **Extensión de NPS** desencadena una solicitud para Azure MFA para la autenticación secundaria. Una vez que la extensión recibe la respuesta y, si el desafío de MFA se realiza correctamente, se completa la solicitud de autenticación proporcionando al servidor NPS tokens de seguridad que incluyen una notificación de MFA, emitidos por Azure STS.  
-4. **Azure MFA** se comunica con Azure Active Directory para recuperar los detalles del usuario y realiza la autenticación secundaria con un método de verificación configurado para el usuario.
+4. **Azure MFA** se comunica con Azure Active Directory para recuperar los detalles del usuario y realiza la autenticación secundaria con un método de comprobación configurado para el usuario.
 
 El diagrama siguiente ilustra este flujo de solicitud de autenticación de alto nivel: 
 
@@ -78,6 +78,7 @@ El servidor NPT necesita poder comunicarse con las siguientes direcciones URL a 
 
 - https:\//adnotifications.windowsazure.com
 - https:\//login.microsoftonline.com
+- https:\//credentials.azure.com
 
 Además, se requiere conectividad con las direcciones URL siguientes para completar la [instalación del adaptador mediante el script de PowerShell proporcionado](#run-the-powershell-script).
 
@@ -168,7 +169,7 @@ El instalador crea un script de PowerShell en esta ubicación: `C:\Program Files
 - Creación de un certificado autofirmado.
 - Asociación de la clave pública del certificado a la entidad de servicio en Azure AD.
 - Almacenamiento del certificado en el almacén de certificados del equipo local.
-- Concesión de acceso a la clave privada del certificado al usuario de red.
+- Concesión de acceso a la clave privada del certificado para el usuario de red.
 - Reinicio de NPS.
 
 A menos que desee utilizar sus propios certificados (en lugar de los certificados autofirmados que genera el script de PowerShell), ejecute el script de PowerShell para completar la instalación. Si instala la extensión en varios servidores, cada uno debe tener su propio certificado.
@@ -250,9 +251,9 @@ Puede crear esta clave y establecerla en FALSE mientras los usuarios se incorpor
 
 ### <a name="nps-extension-health-check-script"></a>Script de comprobación del estado de la extensión NPS
 
-El siguiente script está disponible en la galería de TechNet para realizar los pasos básicos de comprobación del estado a la hora de solucionar problemas de la extensión de NPS.
+El siguiente script está disponible para realizar los pasos básicos de comprobación del estado al momento de solucionar problemas de la extensión de NPS.
 
-[MFA_NPS_Troubleshooter.ps1](https://gallery.technet.microsoft.com/Azure-MFA-NPS-Extension-648de6bb)
+[MFA_NPS_Troubleshooter.ps1](https://docs.microsoft.com/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/)
 
 ---
 
@@ -303,7 +304,7 @@ Este error puede deberse a varias razones. Siga estos pasos para poder resolver 
 1. Reinicie el servidor NPS.
 2. Compruebe que el certificado de cliente esté instalado según lo previsto.
 3. Compruebe que el certificado esté asociado a su inquilino en Azure AD.
-4. Compruebe que https://login.microsoftonline.com/ es accesible desde el servidor que ejecuta la extensión.
+4. Compruebe que `https://login.microsoftonline.com/` es accesible desde el servidor que ejecuta la extensión.
 
 ---
 
@@ -334,6 +335,8 @@ Se recomienda deshabilitar o quitar los conjuntos de cifrado más antiguos o dé
 Puede encontrar una guía de solución de problemas adicional y posibles soluciones en el artículo [Resolución de mensajes de error de la extensión NPS para Azure Multi-Factor Authentication](howto-mfa-nps-extension-errors.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
+
+- [Información general y configuración del servidor de directivas de redes en Windows Server](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top)
 
 - Configurar los identificadores alternativos de inicio de sesión o una lista de excepciones para las direcciones IP que no deben realizar la comprobación de dos pasos en [Opciones de configuración avanzada para la extensión NPS para Multi-Factor Authentication](howto-mfa-nps-extension-advanced.md)
 

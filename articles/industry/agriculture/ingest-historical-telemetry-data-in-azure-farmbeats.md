@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 0d220d1d88d9d761d9f0eba6187abefb372681be
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: e0a5e89f256b562ce5f702e9ff1388cb4d021bf5
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77131895"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437687"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Ingesta de datos de telemetría históricos
 
@@ -20,59 +20,74 @@ Uno de los escenarios comunes de FarmBeats es la ingesta de datos históricos de
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Antes de continuar con este artículo, asegúrese de que ha instalado FarmBeats y ha recopilado datos históricos de los dispositivos IoT.
-También tendrá que habilitar el acceso de los asociados como se indica en los pasos siguientes.
+Antes de continuar con este artículo, asegúrese de que ha instalado FarmBeats y ha recopilado datos históricos de los dispositivos IoT. También tendrá que habilitar el acceso de los asociados como se indica en los pasos siguientes.
 
 ## <a name="enable-partner-access"></a>Habilitación del acceso de asociados
 
 Deberá habilitar la integración de asociados en la instancia de Azure FarmBeats. En este paso se crea un cliente que tendrá acceso a su instancia de Azure FarmBeats como asociado de dispositivo, y se proporcionan los siguientes valores que son necesarios en los pasos posteriores:
 
-- Punto de conexión de API: esta es la dirección URL del centro de datos, por ejemplo, https://\<centro de datos>.azurewebsites.net.
+- Punto de conexión de API: esta es la dirección URL de Datahub, por ejemplo, https://\<datahub>.azurewebsites.net.
 - Id. de inquilino
 - Id. de cliente
 - Secreto del cliente
 - Cadena de conexión de EventHub
 
-Siga estos pasos.
+Siga estos pasos:
 
->[!NOTE]
+> [!NOTE]
 > Para realizar los pasos siguientes, debe ser administrador.
 
-1. Descargue el [archivo zip](https://aka.ms/farmbeatspartnerscriptv2) y extráigalo en la unidad local. Habrá un archivo dentro del archivo ZIP.
-2. Inicie sesión en https://portal.azure.com/ y vaya a Azure Active Directory> Registros de aplicaciones.
+1. Inicie sesión en https://portal.azure.com/.
 
-3. Haga clic en el registro de la aplicación que se ha creado como parte de la implementación de FarmBeats. Tendrá el mismo nombre que el centro de datos de FarmBeats.
+2. **Si utiliza la versión 1.2.7 o posterior de FarmBeats, omita los pasos a, b y c, y vaya al paso 3.** Para comprobar la versión de FarmBeats, seleccione el icono **Configuración** en la esquina superior derecha de la interfaz de usuario de FarmBeats.
 
-4. Haga clic en "Exponer una API" -> "Agregar una aplicación cliente", escriba **04b07795-8ddb-461a-bbee-02f9e1bf7b46** y active "Authorize Scope" (Autorizar ámbito). De esta forma, se proporciona acceso a la CLI de Azure (Cloud Shell) para realizar los pasos siguientes.
+      a.  Vaya a **Azure Active Directory** > **Registros de aplicaciones**.
 
-5. Abra Cloud Shell. Esta opción está disponible en la barra de herramientas de la esquina superior derecha de Azure Portal.
+      b. Seleccione el **Registro de aplicación** que se ha creado como parte de la implementación de FarmBeats. Tendrá el mismo nombre que el centro de datos de FarmBeats.
+
+      c. Seleccione **Exponer una API** > **Agregar una aplicación cliente**, escriba **04b07795-8ddb-461a-bbee-02f9e1bf7b46** y active **Autorizar ámbito**. De esta forma, se proporciona acceso a la CLI de Azure (Cloud Shell) para realizar los pasos siguientes:
+
+3. Abra Cloud Shell. Esta opción está disponible en la barra de herramientas de la esquina superior derecha de Azure Portal.
 
     ![Barra de herramientas de Azure Portal](./media/get-drone-imagery-from-drone-partner/navigation-bar-1.png)
 
-6. Asegúrese de que el entorno esté establecido en **PowerShell**. De forma predeterminada, se establece en Bash.
+4. Asegúrese de que el entorno esté establecido en **PowerShell**. De forma predeterminada, se establece en Bash.
 
     ![Valor de la barra de herramientas de PowerShell](./media/get-sensor-data-from-sensor-partner/power-shell-new-1.png)
 
-7. Cargue el archivo del paso 1 en la instancia de Cloud Shell.
+5. Vaya a su directorio principal.
 
-    ![Botón Cargar de la barra de herramientas](./media/get-sensor-data-from-sensor-partner/power-shell-two-1.png)
+    ```azurepowershell-interactive 
+    cd  
+    ```
 
-8. Vaya al directorio donde se ha cargado el archivo. De forma predeterminada, los archivos se cargan en el directorio particular bajo el nombre de usuario.
+6. Ejecute el siguiente comando: Se descargará un script en el directorio principal.
 
-9. Ejecute el siguiente script. El script solicita el identificador de inquilino, que se puede obtener en la página Azure Active Directory -> Información general.
+    ```azurepowershell-interactive 
 
-    ```azurepowershell-interactive 
+    wget –q https://aka.ms/farmbeatspartnerscriptv3 -O ./generatePartnerCredentials.ps1
+
+    ```
+
+7. Ejecute el siguiente script. El script solicita el id. de inquilino, que se puede obtener en la página **Azure Active Directory** > **Información general**.
+
+    ```azurepowershell-interactive 
 
     ./generatePartnerCredentials.ps1   
 
     ```
 
-10. Siga las instrucciones en pantalla para capturar los valores del **punto de conexión de API**, el **identificador de inquilino**, el **identificador de cliente**, el **secreto de cliente** y la **cadena de conexión de EventHub**.
+8. Siga las instrucciones en pantalla para capturar los valores del **punto de conexión de API**, el **identificador de inquilino**, el **identificador de cliente**, el **secreto de cliente** y la **cadena de conexión de EventHub**.
+
+
 ## <a name="create-device-or-sensor-metadata"></a>Creación de metadatos de dispositivo o sensor
 
- Ahora que tiene las credenciales necesarias, puede definir el dispositivo y los sensores. Para ello, cree los metadatos mediante una llamada a las API de FarmBeats. Tenga en cuenta que deberá llamar a las API como la aplicación cliente que creó en la sección anterior
+ Ahora que tiene las credenciales necesarias, puede definir el dispositivo y los sensores. Para ello, cree los metadatos mediante una llamada a las API de FarmBeats. Asegúrese de llamar a las API como la aplicación cliente que creó en la sección anterior.
 
- El centro de datos de FarmBeats tiene las siguientes API que permiten la creación y administración de los metadatos de dispositivos o sensores. Tenga en cuenta que, como asociado, solo tiene acceso para leer, crear y actualizar los metadatos; **un asociado no tiene permiso para eliminarlos.**
+ El centro de datos de FarmBeats tiene las siguientes API que permiten la creación y administración de los metadatos de dispositivos o sensores.
+
+ > [!NOTE]
+ > Como asociado, solo tiene acceso para leer, crear y actualizar los metadatos. **La opción de eliminación está restringida.**
 
 - /**DeviceModel**: DeviceModel se corresponde con los metadatos del dispositivo, como el fabricante o el tipo de dispositivo, que es puerta de enlace o nodo.
 - /**Device**: Device se corresponde con un dispositivo físico presente en la granja.
@@ -108,17 +123,17 @@ Siga estos pasos.
 |        SensorMeasures > Unit              | Unidad de datos de telemetría del sensor. Las unidades definidas por el sistema son NoUnit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, Mercury, PSI, MilliMeter, CentiMeter, Meter, Inch, Feet, Mile, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, Degree, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, Percentage, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, Liter, MilliLiter, Seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond e InchesPerHour. Para agregar más, consulte /ExtendedType API.|
 |    SensorMeasures > AggregationType    |  Los valores pueden ser none, average, maximum, minimum o StandardDeviation.  |
 |          Nombre            | Nombre para identificar un recurso. Por ejemplo, nombre del modelo o nombre del producto.  |
-|    Descripción        | Proporciona una descripción significativa del modelo.  |
-|   Propiedades       |  Propiedades adicionales del fabricante.  |
+|    Descripción        | Proporciona una descripción significativa del modelo.|
+|   Propiedades       |  Propiedades adicionales del fabricante.|
 |    **Sensor**      |          |
-| HardwareId          |   Identificador único del sensor establecido por el fabricante. |
-|  SensorModelId     |    Identificador del modelo de sensor asociado.   |
+| HardwareId          |   Identificador único del sensor establecido por el fabricante.|
+|  SensorModelId     |    Identificador del modelo de sensor asociado.|
 | Location          |  Latitud (de -90 a +90), longitud (de -180 a 180) y elevación (en metros) del sensor.|
-|   Port > Name        |  Nombre y tipo de puerto al que está conectado el sensor en el dispositivo. Debe ser el mismo nombre que el definido en el modelo de dispositivo. |
-|    DeviceID  |    Identificador del dispositivo al que está conectado el sensor.     |
+|   Port > Name        |  Nombre y tipo de puerto al que está conectado el sensor en el dispositivo. Debe ser el mismo nombre que el definido en el modelo de dispositivo.|
+|    DeviceID  |    Identificador del dispositivo al que está conectado el sensor. |
 | Nombre            |   Nombre para identificar el recurso. Por ejemplo, el nombre del sensor o del producto, y el número de modelo o el código del producto.|
-|    Descripción      | Proporciona una descripción significativa. |
-|    Propiedades        |Propiedades adicionales del fabricante. |
+|    Descripción      | Proporciona una descripción significativa.|
+|    Propiedades        |Propiedades adicionales del fabricante.|
 
 Para más información sobre los objetos, consulte [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
 
@@ -160,7 +175,6 @@ token_response = context.acquire_token_with_client_credentials(ENDPOINT, CLI
 #Should get an access token here 
 access_token = token_response.get('accessToken') 
 ```
-
 
 **Encabezados de solicitud HTTP**
 
@@ -274,6 +288,7 @@ Sensor
   }
 }
 ```
+
 La siguiente solicitud de ejemplo crea un dispositivo. Esta solicitud tiene un código JSON de entrada como carga con el cuerpo de la solicitud.
 
 ```bash
@@ -282,6 +297,22 @@ curl -X POST "https://<datahub>.azurewebsites.net/Device" -H
 "Authorization: Bearer <Access-Token>" -d "{  \"deviceModelId\": \"ID123\",  \"hardwareId\": \"MHDN123\",  
 \"reportingInterval\": 900,  \"name\": \"Device123\",  
 \"description\": \"Test Device 123\"}" *
+```
+
+A continuación se muestra un código de ejemplo en Python. El token de acceso que se usa en este ejemplo es el mismo que se recibe durante la autenticación.
+
+```python
+import requests
+import json
+
+# Got access token - Calling the Device Model API
+
+headers = {
+    "Authorization": "Bearer " + access_token,
+    "Content-Type" : "application/json"
+    }
+payload = '{"type" : "Node", "productCode" : "TestCode", "ports": [{"name": "port1","type": "Analog"}], "name" : "DummyDevice"}'
+response = requests.post(ENDPOINT + "/DeviceModel", data=payload, headers=headers)
 ```
 
 > [!NOTE]
@@ -392,8 +423,10 @@ A continuación se incluye un mensaje de telemetría de ejemplo:
 
 **Acción correctiva**:
 
-1. Asegúrese de que ha realizado correctamente el registro del asociado. Para comprobarlo, vaya a su swagger del centro de datos, vaya a /Partner API, realice una operación get y compruebe si el asociado está registrado. Si no es así, siga los [pasos que se indican aquí](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) para agregar un asociado.
+1. Asegúrese de que ha realizado correctamente el registro del asociado. Para comprobarlo, vaya a Swagger de Datahub, vaya a /Partner API, realice una operación get y compruebe si el asociado está registrado. Si no es así, siga los [pasos que se indican aquí](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) para agregar un asociado.
+
 2. Asegúrese de que ha creado los metadatos (DeviceModel, Device, SensorModel, Sensor) con las credenciales del cliente del asociado.
+
 3. Asegúrese de que ha utilizado el formato de mensaje de telemetría correcto (tal y como se especifica a continuación):
 
 ```json
@@ -418,7 +451,6 @@ A continuación se incluye un mensaje de telemetría de ejemplo:
  ]
 }
 ```
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 
