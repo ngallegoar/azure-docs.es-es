@@ -113,6 +113,8 @@
       items:
         - name: ¿Qué es el texto a voz?
           href: text-to-speech.md
+        - name: Aspectos básicos de la conversión de texto a voz
+          href: text-to-speech-basics.md
     - name: Guía de inicio rápido
       items:
         - name: Síntesis de voz en un altavoz
@@ -545,6 +547,8 @@
       href: sovereign-clouds.md
     - name: Precios y límites
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
+    - name: Calculadora de precios
+      href: 'https://azure.microsoft.com/pricing/calculator/#cognitive-services'
     - name: Cumplimiento normativo
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Cifrado

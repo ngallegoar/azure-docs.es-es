@@ -161,8 +161,13 @@
         - name: Supervisión basada en código
           items:
             - name: ASP.NET Core
-              displayname: 'Core, .NET Core, services.add, dotnetcore, c#, csharp'
-              href: app/asp-net-core.md
+              items:
+                - name: Supervisión de aplicaciones de ASP.NET Core
+                  displayname: 'Core, .NET Core, services.add, dotnetcore, c#, csharp'
+                  href: app/asp-net-core.md
+                - name: ILogger
+                  displayname: 'ilogger, logging, log'
+                  href: app/ilogger.md
             - name: ASP.NET
               displayname: 'ASP.NET, c#, csharp, .NET, NET, dotnet'
               href: app/asp-net.md
@@ -172,9 +177,6 @@
             - name: Consola de .NET
               displayname: 'console, .NET, dotnet console, dotnet, c#, csharp, NET'
               href: app/console.md
-            - name: ILogger
-              displayname: 'ilogger, logging, log'
-              href: app/ilogger.md
             - name: Java
               items:
                 - name: Aplicaciones web
@@ -220,8 +222,12 @@
               href: app/api-custom-events-metrics.md
             - name: Solución de problemas de ASP.NET
               href: app/asp-net-troubleshoot-no-data.md
+            - name: Eliminación de Application Insights
+              href: app/remove-application-insights.md
         - name: Supervisión sin código
           items:
+            - name: 'Cualquier entorno: Java (versión preliminar)'
+              href: app/java-in-process-agent.md
             - name: Máquina virtual y conjunto de escalado de Azure
               href: app/azure-vm-vmss-apps.md
             - name: Azure App Service

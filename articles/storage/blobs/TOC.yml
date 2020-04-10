@@ -4,8 +4,10 @@
   items:
     - name: ¿Qué es Azure Blob Storage?
       href: storage-blobs-overview.md
+    - name: Comparación de los principales servicios de almacenamiento
+      href: ../common/storage-introduction.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   expanded: true
-- name: Almacenamiento de blobs
+- name: Blob Storage
   items:
     - name: Información general
       items:
@@ -436,7 +438,7 @@
       items:
         - name: Objetivos de escalabilidad y rendimiento
           items:
-            - name: Almacenamiento de blobs
+            - name: Blob Storage
               href: scalability-targets.md
             - name: Cuentas de almacenamiento estándar
               href: ../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json

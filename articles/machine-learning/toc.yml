@@ -15,24 +15,27 @@
 - name: Tutoriales
   expanded: true
   items:
-    - name: Studio y Designer
+    - name: Estudio
       items:
         - name: Designer (arrastrar y colocar)
           items:
-            - name: 'Diseñador: 1. Entrenamiento de un modelo de regresión'
+            - name: 1. Entrenamiento de un modelo de regresión
               displayName: studio
               href: tutorial-designer-automobile-price-train-score.md
-            - name: 'Diseñador: 2. Implementación de ese modelo'
+            - name: 2. Implementación de ese modelo
               displayName: studio
               href: tutorial-designer-automobile-price-deploy.md
         - name: ML automatizado (interfaz de usuario)
           items:
-            - name: Creación de un experimento de ML automatizado
+            - name: Creación de experimentos de ML automatizados
               displayName: 'automl, automated, auto ml, portal, ui'
               href: tutorial-first-experiment-automated-ml.md
-            - name: Previsión de la demanda con aprendizaje automático automatizado (datos del recurso compartido de bicicletas)
+            - name: Previsión de demanda (datos de uso compartido de bicicletas)
               displayName: 'automl, automated, auto ml, portal, ui'
               href: tutorial-automated-ml-forecast.md
+        - name: Datos de imagen de etiqueta
+          displayName: 'tag, tagging, images'
+          href: tutorial-labeling.md
     - name: SDK de Python
       items:
         - name: Creación del primer experimento de Machine Learning
@@ -78,14 +81,14 @@
     - name: Cuadernos de Jupyter Notebook
       displayName: 'example, examples, server, jupyter, azure notebooks, python, notebook, github'
       href: samples-notebooks.md
-    - name: Conjuntos de datos abiertos de Azure
-      href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
     - name: Conjuntos de valores del diseñador
       href: sample-designer-datasets.md
+    - name: Canalizaciones de ejemplo del diseñador
+      href: samples-designer.md
     - name: Ejemplos de MLOps de un extremo a otro
       href: 'https://github.com/microsoft/MLOps'
-    - name: Canalizaciones del diseñador
-      href: samples-designer.md
+    - name: Open Datasets (público)
+      href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
 - name: Conceptos
   items:
     - name: Área de trabajo
@@ -115,10 +118,10 @@
       href: /azure/machine-learning/algorithm-cheat-sheet
     - name: Selección de algoritmos
       href: /azure/machine-learning/how-to-select-algorithms
-    - name: Automated Machine Learning
+    - name: Machine Learning Automatizado
       displayName: 'automl, auto ml'
       href: concept-automated-ml.md
-    - name: Administración de los riesgos de Machine Learning
+    - name: Sobreajuste y datos desequilibrados
       displayName: 'automl, auto ml, risks'
       href: concept-manage-ml-pitfalls.md
     - name: Instancia de proceso
@@ -351,6 +354,8 @@
       items:
         - name: Creación de canalizaciones de Machine Learning (Python)
           href: how-to-create-your-first-pipeline.md
+        - name: Movimiento de datos a los pasos de canalización de Machine Learning (Python) y entre ellos
+          href: how-to-move-data-in-out-of-pipelines.md
         - name: Programación de una canalización (Python)
           href: how-to-schedule-pipelines.md
         - name: Desencadenar una canalización

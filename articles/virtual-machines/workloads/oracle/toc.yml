@@ -4,7 +4,7 @@
       href: oracle-overview.md
     - name: Soluciones para máquinas virtuales de Azure
       href: oracle-vm-solutions.md
-    - name: 'Soluciones con OCI: Versión preliminar'
+    - name: Soluciones con OCI
       href: oracle-oci-overview.md
 - name: Guías de inicio rápido
   items:
@@ -32,7 +32,7 @@
       href: oracle-disaster-recovery.md
 - name: Guías paso a paso
   items:
-    - name: 'Interconexión de Azure y OCI: Versión preliminar'
+    - name: Interconexión de Azure y OCI
       href: configure-azure-oci-networking.md
 - name: Recursos
   items:

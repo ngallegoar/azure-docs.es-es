@@ -213,6 +213,8 @@
     - name: Solución de problemas
       items:
         - name: Guía de solución de problemas
+          href: service-bus-troubleshooting-guide.md
+        - name: Excepciones de mensajería
           href: service-bus-messaging-exceptions.md
         - name: Excepciones de Resource Manager
           href: service-bus-resource-manager-exceptions.md

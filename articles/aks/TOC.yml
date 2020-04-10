@@ -140,10 +140,14 @@
           href: cluster-autoscaler.md
         - name: Uso de zonas de disponibilidad
           href: availability-zones.md
-        - name: Uso de grupos de varios nodos
-          href: use-multiple-node-pools.md
-        - name: Uso de grupos de nodos puntuales (versión preliminar)
-          href: spot-node-pool.md
+        - name: Uso de grupos de nodos
+          items:
+            - name: Uso de grupos de varios nodos
+              href: use-multiple-node-pools.md
+            - name: Uso de grupos de nodos puntuales (versión preliminar)
+              href: spot-node-pool.md
+            - name: Uso de grupos de nodos del sistema
+              href: use-system-pools.md
         - name: Implementación de AKS con Terraform
           href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
           maintainContext: true

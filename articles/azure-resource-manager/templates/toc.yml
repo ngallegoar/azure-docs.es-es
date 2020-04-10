@@ -83,9 +83,9 @@
         - name: '3: creación de una canalización'
           displayName: Devop
           href: deployment-tutorial-pipeline.md
-    - name: Avanzado
+    - name: Plantillas avanzadas
       items:
-        - name: Utilización de la referencia de la plantilla
+        - name: Uso de referencia de plantilla
           href: template-tutorial-use-template-reference.md
         - name: Creación de varias instancias
           displayName: 'iteration,copy'
@@ -101,23 +101,21 @@
         - name: Integración de Key Vault
           displayName: secrets
           href: template-tutorial-use-key-vault.md
-        - name: Creación de plantillas vinculadas
-          href: template-tutorial-create-linked-templates.md
         - name: Implementación de extensiones de máquina virtual
           displayName: virtual machine extensions
           href: template-tutorial-deploy-vm-extensions.md
         - name: Implementación de extensiones de SQL
           href: template-tutorial-deploy-sql-extensions-bacpac.md
-        - name: Protección de artefactos
-          href: template-tutorial-secure-artifacts.md
+        - name: Solución de problemas de las implementaciones de plantillas
+          href: template-tutorial-troubleshoot.md
+    - name: Administrador de implementaciones
+      items:
         - name: Uso de procedimientos de implementación seguros
           displayName: adm
           href: deployment-manager-tutorial.md
         - name: Uso de la comprobación de estado en el Administrador de implementaciones
           displayName: adm
           href: deployment-manager-tutorial-health-check.md
-        - name: Solución de problemas de las implementaciones de plantillas
-          href: template-tutorial-troubleshoot.md
 - name: Ejemplos
   items:
     - name: Plantillas de inicio rápido de Azure
@@ -293,6 +291,8 @@
           href: template-functions-array.md
         - name: Funciones de comparación
           href: template-functions-comparison.md
+        - name: Funciones de fecha
+          href: template-functions-date.md
         - name: Funciones de implementación
           href: template-functions-deployment.md
         - name: Funciones lógicas
