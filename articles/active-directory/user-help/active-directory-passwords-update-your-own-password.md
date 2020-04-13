@@ -59,7 +59,7 @@ Si no puede acceder a su cuenta de Azure Active Directory (Azure AD), el motivo 
 
     2. Escriba en el cuadro el código de verificación enviado en el correo electrónico y luego seleccione **Siguiente**.
 
-    3. Escriba y confirme la nueva contraseña y luego seleccione **Finalizar**.
+    3. Escriba y confirme la nueva contraseña, y luego seleccione **Finalizar**.
 
 - **Restablezca la contraseña con un mensaje de texto.** Se envía un mensaje de texto al número de teléfono que configuró previamente en la información de seguridad. Si el administrador ha activado la experiencia de información de seguridad, puede encontrar más información acerca de cómo configurar la mensajería de texto en el artículo [Configuración de la información de seguridad para usar la mensajería de texto (versión preliminar)](security-info-setup-text-msg.md). Si aún no usa la información de seguridad, puede encontrar más información acerca de cómo configurar la mensajería de texto en el artículo [Configuración de mi cuenta para la verificación en dos pasos](multi-factor-authentication-end-user-first-time.md).
 
@@ -67,7 +67,7 @@ Si no puede acceder a su cuenta de Azure Active Directory (Azure AD), el motivo 
 
     2. Escriba en el cuadro el código de verificación enviado en el mensaje de texto y luego seleccione **Siguiente**.
 
-    3. Escriba y confirme la nueva contraseña y luego seleccione **Finalizar**.
+    3. Escriba y confirme la nueva contraseña, y luego seleccione **Finalizar**.
 
 - **Restablezca la contraseña con un número de teléfono.** Se envía un mensaje de texto al número de teléfono que configuró previamente en la información de seguridad. Si el administrador ha activado la experiencia de información de seguridad, puede encontrar más información acerca de cómo configurar un número de teléfono en el artículo [Configuración de la información de seguridad para usar una llamada telefónica (versión preliminar)](security-info-setup-phone-number.md). Si aún no usa la información de seguridad, puede encontrar más información acerca de cómo configurar un número de teléfono en el artículo [Configuración de mi cuenta para la verificación en dos pasos](multi-factor-authentication-end-user-first-time.md).
 
@@ -75,13 +75,13 @@ Si no puede acceder a su cuenta de Azure Active Directory (Azure AD), el motivo 
 
     2. Responda a la llamada telefónica y siga las instrucciones para verificar su identidad y luego seleccione **Siguiente**.
 
-    3. Escriba y confirme la nueva contraseña y luego seleccione **Finalizar**.
+    3. Escriba y confirme la nueva contraseña, y luego seleccione **Finalizar**.
 
 - **Restablezca su contraseña mediante preguntas de seguridad.** Se muestra la lista de preguntas de seguridad configuradas en la información de seguridad. Si el administrador ha activado la experiencia de información de seguridad, puede encontrar más información acerca de cómo configurar sus preguntas de seguridad en el artículo [Configuración de la información de seguridad para usar preguntas de seguridad predefinidas (versión preliminar)](security-info-setup-questions.md). Si aún no usa la información de seguridad, puede encontrar más información acerca de cómo configurar pregunta de seguridad en el artículo [Configuración de mi cuenta para la verificación en dos pasos](multi-factor-authentication-end-user-first-time.md).
 
     1. Seleccione **Responder a mis preguntas de seguridad**, responda a las preguntas y después seleccione **Siguiente**.
 
-    2. Escriba y confirme la nueva contraseña y luego seleccione **Finalizar**.
+    2. Escriba y confirme la nueva contraseña, y luego seleccione **Finalizar**.
 
 - **Restablezca su contraseña mediante una notificación de la aplicación autenticadora.** Envía una notificación de aprobación a la aplicación autenticadora. Si el administrador ha activado la experiencia de información de seguridad, puede encontrar más información acerca de cómo configurar una aplicación autenticadora en el artículo [Configuración de la información de seguridad para usar una aplicación autenticadora (versión preliminar)](security-info-setup-auth-app.md). Si aún no usa la información de seguridad, puede encontrar más información acerca de cómo configurar una aplicación autenticadora en el artículo [Configuración de mi cuenta para la verificación en dos pasos](multi-factor-authentication-end-user-first-time.md).
 
@@ -89,7 +89,7 @@ Si no puede acceder a su cuenta de Azure Active Directory (Azure AD), el motivo 
 
     2. Apruebe el inicio de sesión desde la aplicación autenticadora.
 
-    3. Escriba y confirme la nueva contraseña y luego seleccione **Finalizar**.
+    3. Escriba y confirme la nueva contraseña, y luego seleccione **Finalizar**.
 
 - **Restablezca su contraseña mediante un código de la aplicación autenticadora.** Se acepta un código aleatorio proporcionado por la aplicación autenticadora. Si el administrador ha activado la experiencia de información de seguridad, puede encontrar más información acerca de cómo configurar una aplicación autenticadora para que proporcione un código en el artículo [Configuración de la información de seguridad para usar una aplicación autenticadora (versión preliminar)](security-info-setup-auth-app.md). Si aún no usa la información de seguridad, puede encontrar más información acerca de cómo configurar una aplicación autenticadora para que proporcione un código en el artículo [Configuración de mi cuenta para la verificación en dos pasos](multi-factor-authentication-end-user-first-time.md).
 
@@ -97,7 +97,7 @@ Si no puede acceder a su cuenta de Azure Active Directory (Azure AD), el motivo 
 
   2. Abra la aplicación autenticadora, escriba el código de verificación de la cuenta en el cuadro y después seleccione **Siguiente**.
 
-  3. Escriba y confirme la nueva contraseña y luego seleccione **Finalizar**.
+  3. Escriba y confirme la nueva contraseña, y luego seleccione **Finalizar**.
 
   4. Después de obtener el mensaje que confirma que se ha restablecido su contraseña, puede iniciar sesión en su cuenta con la nueva contraseña.
 
@@ -119,7 +119,7 @@ Use este método si normalmente accede a las aplicaciones mediante el Portal de 
 
 3. Seleccione **Seguridad y privacidad** > **Contraseña**.
 
-4. Escriba la contraseña anterior, establezca la nueva contraseña y confírmela y luego seleccione **Enviar**.
+4. Escriba la contraseña anterior, establezca la nueva contraseña y confírmela, y luego seleccione **Enviar**.
 
 ### <a name="to-change-your-password-from-the-azure-access-panel"></a>Para cambiar la contraseña en el panel de acceso de Azure
 
@@ -131,7 +131,7 @@ Use este método si normalmente accede a las aplicaciones mediante el panel de a
 
 3. Seleccione **Cambiar contraseña**.
 
-4. Escriba la contraseña anterior, establezca la nueva contraseña y confírmela y luego seleccione **Enviar**.
+4. Escriba la contraseña anterior, establezca la nueva contraseña y confírmela, y luego seleccione **Enviar**.
 
 ### <a name="to-change-your-password-at-windows-sign-in"></a>Para cambiar la contraseña en el inicio de sesión de Windows
 

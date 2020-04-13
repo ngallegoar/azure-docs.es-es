@@ -75,14 +75,14 @@ Una vez configurada la verificación en dos pasos o la información de seguridad
 
 Si por algún motivo no puede usar su método de inicio de sesión principal, puede usar otro método de verificación configurado previamente.
 
-1. Inicie sesión en la cuenta de la forma habitual y, luego, elija el vínculo **Sign in another way** (Iniciar sesión de otro modo) en la página **Two-step verification** (Verificación en dos pasos).
+1. Inicie sesión en la cuenta de la forma habitual y luego elija el vínculo **Iniciar sesión de otro modo** en la página **Verificación en dos pasos**.
 
     ![Cambio del método de comprobación de inicio de sesión](media/security-info/two-factor-auth-signin-another-way.png)
 
     >[!Note]
-    >Si no ve el vínculo **Sign in another way** (Iniciar sesión de otro modo), significa que no ha configurado ningún otro método de comprobación y que tendrá que ponerse en contacto con el administrador para solicitar ayuda para iniciar sesión en su cuenta. Después de que el administrador le ayude a iniciar sesión, asegúrese de agregar métodos de comprobación adicionales. Para más información sobre cómo agregar métodos de comprobación, consulte el artículo [Administración de la configuración de la verificación en dos pasos](multi-factor-authentication-end-user-manage-settings.md).
+    >Si no ve el vínculo **Iniciar sesión de otro modo**, significa que no ha configurado ningún otro método de verificación y que tendrá que ponerse en contacto con el administrador para solicitar ayuda para iniciar sesión en su cuenta. Después de que el administrador le ayude a iniciar sesión, asegúrese de agregar métodos de comprobación adicionales. Para más información sobre cómo agregar métodos de verificación, consulte el artículo [Administración de la configuración de la verificación en dos pasos](multi-factor-authentication-end-user-manage-settings.md).
     >
-    >Si ve el vínculo **Sign in another way** (Iniciar sesión de otro modo) pero sigue sin ver ningún otro método de comprobación, tendrá que ponerse en contacto con el administrador para que lo ayude a iniciar sesión en su cuenta.
+    >Si ve el vínculo **Iniciar sesión de otro modo** pero sigue sin ver ningún otro método de verificación, tendrá que ponerse en contacto con el administrador para que lo ayude a iniciar sesión en su cuenta.
 
 2. Elija el método de verificación alternativo y siga con el proceso de verificación en dos pasos.
 
