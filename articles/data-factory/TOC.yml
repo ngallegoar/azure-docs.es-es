@@ -607,6 +607,8 @@
           href: configure-bcdr-azure-ssis-integration-runtime.md
         - name: Limpieza de los registros de SSISDB con trabajos de Elastic Database
           href: how-to-clean-up-ssisdb-logs-with-elastic-jobs.md
+        - name: Migración de trabajos de SSIS con SSMS
+          href: how-to-migrate-ssis-job-ssms.md
     - name: Creación de desencadenadores
       items:
         - name: Creación de un desencadenador basado en eventos

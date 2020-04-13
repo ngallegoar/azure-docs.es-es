@@ -278,18 +278,15 @@
         - name: Configuración de servidores en un estado deseado y administración del desfase con State Configuration
           href: tutorial-configure-servers-desired-state.md
           displayName: 'DSC, compliance'
-        - name: Incorporación de máquinas para administración
-          href: automation-dsc-onboarding.md
-          displayName: 'DSC, state configuration'
         - name: Compilación de configuraciones DSC
           href: automation-dsc-compile.md
           displayName: 'state configuration, composite resources, configurationData'
         - name: Corrección de servidores DSC no compatibles
           href: automation-dsc-remediate.md
           displayName: 'state configuration, DSC, remediate'
-        - name: Creación de configuraciones de DSC mediante recursos compuestos
+        - name: Creación de configuraciones DSC mediante recursos compuestos
           href: compose-configurationwithcompositeresources.md
-        - name: Implementación continua mediante Chocolatey
+        - name: Realización de implementación continua mediante Chocolatey
           href: automation-dsc-cd-chocolatey.md
           displayName: 'dsc, state configuration'
         - name: Reenvío de datos de informes de State Configuration a registros de Azure Monitor
@@ -297,12 +294,12 @@
           displayName: DSC
     - name: Solución de problemas
       items:
-        - name: Incorporación
+        - name: Solución de problemas de incorporación
           href: troubleshoot/onboarding.md
           displayName: troubleshoot
         - name: Solución de problemas de State Configuration (DSC)
           href: troubleshoot/desired-state-configuration.md
-          displayName: 'Desired State Configuration, troubleshoot'
+          displayName: 'state configuration, DSC, troubleshoot'
     - name: Referencia
       items:
         - name: Soluciones de la comunidad

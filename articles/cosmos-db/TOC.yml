@@ -1037,6 +1037,8 @@
           href: monitor-cosmos-db.md
         - name: Supervisión de latencia del lado servidor
           href: monitor-server-side-latency.md
+        - name: Supervisión del uso de la unidad de solicitud
+          href: monitor-request-unit-usage.md
         - name: Supervisión con registros de diagnóstico
           href: cosmosdb-monitor-resource-logs.md
         - name: Auditoría de registros del plano de control

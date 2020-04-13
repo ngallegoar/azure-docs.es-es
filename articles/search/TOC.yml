@@ -114,12 +114,6 @@
               href: index-add-language-analyzers.md
             - name: Adición de un analizador personalizado
               href: index-add-custom-analyzers.md
-        - name: Typeahead
-          items:
-            - name: Creación de un proveedor de sugerencias
-              href: index-add-suggesters.md
-            - name: Agregar sugerencias o autocompletar
-              href: search-autocomplete-tutorial.md
         - name: Sinónimos
           items:
             - name: Adición de sinónimos
@@ -230,6 +224,14 @@
           href: search-query-lucene-examples.md
         - name: Términos parciales y caracteres especiales
           href: search-query-partial-matching.md
+        - name: Búsqueda aproximada
+          href: search-query-fuzzy.md
+        - name: Autocompletar "Búsqueda al escribir"
+          items:
+            - name: Creación de un proveedor de sugerencias
+              href: index-add-suggesters.md
+            - name: Agregar sugerencias o autocompletar
+              href: search-autocomplete-tutorial.md
         - name: Consulta desde Power Apps
           href: search-howto-powerapps.md
         - name: Referencia de sintaxis

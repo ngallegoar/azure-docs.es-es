@@ -1007,6 +1007,40 @@
         - name: Introducción a la seguridad
           href: /azure/databricks/security/index
           maintainContext: true
+        - name: Control de acceso
+          items:
+            - name: Introducción al control de acceso
+              href: /azure/databricks/security/access-control/index
+              maintainContext: true
+            - name: Control de acceso al área de trabajo
+              href: /azure/databricks/security/access-control/workspace-acl
+              maintainContext: true
+            - name: Control de acceso a clúster
+              href: /azure/databricks/security/access-control/cluster-acl
+              maintainContext: true
+            - name: Control de acceso a grupo
+              href: /azure/databricks/security/access-control/pool-acl
+              maintainContext: true
+            - name: Control de acceso a trabajos
+              href: /azure/databricks/security/access-control/job-acl
+              maintainContext: true
+            - name: Control de acceso a tabla
+              items:
+                - name: Introducción al control de acceso a tabla
+                  href: /azure/databricks/security/access-control/table-acls/index
+                  maintainContext: true
+                - name: Habilitación del control de acceso a tablas en un clúster
+                  href: /azure/databricks/security/access-control/table-acls/table-acl
+                  maintainContext: true
+                - name: Privilegios del objeto de datos
+                  href: /azure/databricks/security/access-control/table-acls/object-privileges
+                  maintainContext: true
+            - name: Control de acceso al secreto
+              href: /azure/databricks/security/access-control/secret-acl
+              maintainContext: true
+        - name: "Autenticación en Azure Data Lake Storage mediante las credenciales de Azure\_Active\_Directory"
+          href: /azure/databricks/security/credential-passthrough/adls-passthrough
+          maintainContext: true
         - name: Secretos
           items:
             - name: Conservación de datos seguros con secretos
@@ -1018,9 +1052,6 @@
             - name: Secretos
               href: /azure/databricks/security/secrets/secrets
               maintainContext: true
-            - name: Control de acceso al secreto
-              href: /azure/databricks/security/secrets/secret-acl
-              maintainContext: true
             - name: Redacción de secreto
               href: /azure/databricks/security/secrets/redaction
               maintainContext: true
@@ -1028,11 +1059,11 @@
               href: /azure/databricks/security/secrets/example-secret-workflow
               maintainContext: true
         - name: Cifrado del tráfico entre los nodos de trabajo del clúster
-          href: /azure/databricks/security/encrypt-otw
+          href: /azure/databricks/security/encryption/encrypt-otw
         - name: Habilitación de claves administradas por el cliente para cuadernos
-          href: /azure/databricks/security/customer-managed-key-notebook
+          href: /azure/databricks/security/keys/customer-managed-key-notebook
         - name: Habilitación de claves administradas por el cliente para DBFS
-          href: /azure/databricks/security/customer-managed-keys-dbfs
+          href: /azure/databricks/security/keys/customer-managed-keys-dbfs
     - name: Administración
       items:
         - name: Introducción a la administración
@@ -1080,30 +1111,22 @@
             - name: Introducción al control de acceso
               href: /azure/databricks/administration-guide/access-control/index
               maintainContext: true
-            - name: Control de acceso a clúster
-              href: /azure/databricks/administration-guide/access-control/cluster-acl
-              maintainContext: true
-            - name: Control de acceso a grupo
-              href: /azure/databricks/administration-guide/access-control/pool-acl
-              maintainContext: true
-            - name: Control de acceso a trabajos
-              href: /azure/databricks/administration-guide/access-control/jobs-acl
-              maintainContext: true
-            - name: Control de acceso a tabla
-              items:
-                - name: Introducción al control de acceso a tabla
-                  href: /azure/databricks/administration-guide/access-control/table-acls/index
-                  maintainContext: true
-                - name: Habilitación del control de acceso a tabla
-                  href: /azure/databricks/administration-guide/access-control/table-acls/table-acl
-                  maintainContext: true
-                - name: Establecimiento de privilegios en un objeto de datos
-                  href: /azure/databricks/administration-guide/access-control/table-acls/object-privileges
-                  maintainContext: true
-            - name: Control de acceso al área de trabajo
+            - name: Habilitación del control de acceso al área de trabajo
               href: /azure/databricks/administration-guide/access-control/workspace-acl
               maintainContext: true
-            - name: Habilitación de la autenticación basada en token
+            - name: Habilitación del control de acceso a clústeres
+              href: /azure/databricks/administration-guide/access-control/cluster-acl
+              maintainContext: true
+            - name: Habilitación del control de acceso a grupos
+              href: /azure/databricks/administration-guide/access-control/pool-acl
+              maintainContext: true
+            - name: Habilitación del control de acceso a trabajos
+              href: /azure/databricks/administration-guide/access-control/jobs-acl
+              maintainContext: true
+            - name: Habilitación del control de acceso a tablas
+              href: /azure/databricks/administration-guide/access-control/table-acl
+              maintainContext: true
+            - name: Habilitación de la autenticación basada en tokens
               href: /azure/databricks/administration-guide/access-control/tokens
               maintainContext: true
             - name: Acceso condicional
@@ -1688,6 +1711,9 @@
           items:
             - name: Notas de la versión de la plataforma
               href: /azure/databricks/release-notes/product/index
+              maintainContext: true
+            - name: Abril de 2020
+              href: /azure/databricks/release-notes/product/2020/april
               maintainContext: true
             - name: Marzo de 2020
               href: /azure/databricks/release-notes/product/2020/march
