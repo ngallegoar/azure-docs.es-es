@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/14/2019
+ms.date: 04/05/2020
 ms.author: haroldw
-ms.openlocfilehash: 615d9a3c5c359174ef15028e82044a85da0dd733
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7fd1c381ecd2b7dba4c77a025cb0332ace4147bf
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75561293"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80673660"
 ---
 # <a name="deploy-openshift-container-platform-311-in-azure"></a>Implementación de OpenShift Container Platform 3.11 en Azure
 
@@ -303,7 +303,7 @@ Diferentes versiones pueden tener distintos parámetros; por ello, compruebe los
 | `masterClusterType` | Especifique si el clúster usa nodos maestros públicos o privados. Si se eligen nodos privados, los nodos maestros no se expondrán en Internet a través de una dirección IP pública. En su lugar, usará la dirección IP privada que especificó en `masterPrivateClusterIp`. | público <br> privado | público |
 | `masterPrivateClusterIp` | Si se seleccionan los nodos maestros privados, debe especificarse una dirección IP privada para que la use el equilibrador de carga interno para los nodos maestros. La dirección IP estática debe estar dentro del bloque de CIDR para la subred maestra y no estar en uso todavía. Si se seleccionan los nodos maestros públicos, este valor no se usará, aunque se debe especificar. |  | 10.1.0.200 |
 | `routerClusterType` | Especifique si el clúster usa nodos de infraestructura públicos o privados. Si se eligen nodos privados, los nodos de infraestructura no se expondrán en Internet a través de una dirección IP pública. En su lugar, usará la dirección IP privada que especificó en `routerPrivateClusterIp`. | público <br> privado | público |
-| `routerPrivateClusterIp` | Si se seleccionan los nodos de infraestructura privados, debe especificarse una dirección IP privada para que la use el equilibrador de carga interno para los nodos de infraestructura. La dirección IP estática debe estar dentro del bloque de CIDR para la subred maestra y no estar en uso todavía. Si se seleccionan los nodos de infraestructura públicos, este valor no se usará, aunque se debe especificar. |  | 10.2.0.200 |
+| `routerPrivateClusterIp` | Si se seleccionan los nodos de infraestructura privados, debe especificarse una dirección IP privada para que la use el equilibrador de carga interno para los nodos de infraestructura. La dirección IP estática debe estar dentro del bloque de CIDR para la subred de infraestructura y no estar en uso todavía. Si se seleccionan los nodos de infraestructura públicos, este valor no se usará, aunque se debe especificar. |  | 10.2.0.200 |
 | `routingCertType` | Use un certificado personalizado para un dominio de enrutamiento o el certificado autofirmado predeterminado; siga las instrucciones de la sección **Certificados personalizados**. | selfsigned <br> custom | selfsigned |
 | `masterCertType` | Use un certificado personalizado para un dominio maestro o el certificado autofirmado predeterminado; siga las instrucciones de la sección **Certificados personalizados**. | selfsigned <br> custom | selfsigned |
 

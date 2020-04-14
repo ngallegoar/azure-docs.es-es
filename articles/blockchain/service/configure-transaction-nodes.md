@@ -4,12 +4,12 @@ description: Cómo configurar los nodos de transacción de Azure Blockchain Serv
 ms.date: 11/20/2019
 ms.topic: article
 ms.reviewer: janders
-ms.openlocfilehash: 4a9a4f660dd171e65b600ec4cd66714ca476b091
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8fa18496d0c1aa59beb55569e731967d5ebea427
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79227404"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80876936"
 ---
 # <a name="configure-azure-blockchain-service-transaction-nodes"></a>Configurar los nodos de transacción de Azure Blockchain Service
 
@@ -54,7 +54,7 @@ Para ver los detalles del punto de conexión de un nodo de transacción:
 
     ![Puntos de conexión](./media/configure-transaction-nodes/endpoints.png)
 
-Los puntos de conexión del nodo de transacción son seguros y requieren autenticación. Puede conectarse a un punto de conexión de transacción mediante la autenticación de Azure AD, la autenticación básica HTTPS y mediante una clave de acceso a través de HTTPS o WebSocket a través de SSL.
+Los puntos de conexión del nodo de transacción son seguros y requieren autenticación. Puede conectarse a un punto de conexión de transacción mediante la autenticación de Azure AD, la autenticación básica HTTPS y mediante una clave de acceso a través de HTTPS o WebSocket a través de TLS.
 
 ### <a name="azure-active-directory-access-control"></a>Control de acceso de Azure Active Directory
 

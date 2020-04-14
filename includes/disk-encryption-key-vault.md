@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2019
 ms.author: mbaldwin
 ms.custom: include file
-ms.openlocfilehash: 0aa62a76727f6f913c277100d8c5b36ed1b00110
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f2133524f57576c4646de9d4bf7f37b573a77e6d
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77618488"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80813837"
 ---
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
@@ -40,7 +40,7 @@ New-AzResourceGroup -Name "myResourceGroup" -Location "EastUS"
 Cree un almacén de claves mediante el comando [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) de la CLI de Azure, el comando [New-AzKeyvault](/powershell/module/az.keyvault/new-azkeyvault) de Azure Powershell, [Azure Portal](https://portal.azure.com) o una [plantilla de Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create).
 
 >[!WARNING]
-> Para asegurarse de que los secretos de cifrado no traspasan los límites regionales, Azure Disk Encryption requiere que Key Vault y las máquinas virtuales se encuentren en la misma región. Cree y use un almacén de claves que se encuentre en la misma región que las máquinas virtuales que se van a cifrar. 
+> Para asegurarse de que los secretos de cifrado no traspasan los límites regionales, Azure Disk Encryption requiere que Key Vault y las máquinas virtuales se encuentren en la misma región y suscripción. Cree y use un almacén de claves que se encuentre en la misma región que las máquinas virtuales que se van a cifrar. 
 
 Cada instancia de Key Vault debe tener un nombre único. Reemplace <nombre-almacén de claves-único> por el nombre del almacén de claves en los ejemplos siguientes.
 
@@ -77,7 +77,7 @@ Si no ha habilitado el almacén de claves para el cifrado de discos, la implemen
 
 Use [az keyvault update](/cli/azure/keyvault#az-keyvault-update) para habilitar el cifrado de disco para el almacén de claves. 
 
- - **Habilitar Key Vault para el cifrado de disco:** se requiere enabled-for-disk-encryption. 
+ - **Habilitar Key Vault para el cifrado de disco:** Es necesario Enabled-for-disk-encryption. 
 
      ```azurecli-interactive
      az keyvault update --name "<your-unique-keyvault-name>" --resource-group "MyResourceGroup" --enabled-for-disk-encryption "true"

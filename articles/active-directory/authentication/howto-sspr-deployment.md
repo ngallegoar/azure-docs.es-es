@@ -1,6 +1,6 @@
 ---
-title: 'Implementación de autoservicio de restablecimiento de contraseña: Azure Active Directory'
-description: Estrategia para la implementación correcta del autoservicio de restablecimiento de contraseña de Azure AD
+title: Consideraciones de implementación para el autoservicio de restablecimiento de contraseña de Azure Active Directory
+description: Obtenga información sobre las consideraciones y la estrategia para la implementación correcta del autoservicio de restablecimiento de contraseña de Azure AD
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,27 +11,34 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 785a8a031a10232a37b235711ba919fdc1df35d3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c11521ec074b63843b873c39102b68bf185d2821
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77061438"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80676738"
 ---
-# <a name="plan-an-azure-active-directory-self-service-password-reset"></a>Planeamiento de un autoservicio de restablecimiento de contraseña de Azure Active Directory
+# <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Plan de implementación de autoservicio de restablecimiento de contraseña de Azure Active Directory
 
-> [!NOTE]
-> Este plan de implementación ofrece instrucciones de planeación y procedimientos recomendados para implementar el autoservicio de restablecimiento de contraseña (SSPR) de Azure AD. <br>**Si está buscando la herramienta de SSPR para recuperar la cuenta, vaya a [https://aka.ms/sspr](https://aka.ms/sspr)** .
+> [!IMPORTANT]
+> Este plan de implementación ofrece instrucciones y procedimientos recomendados para implementar el autoservicio de restablecimiento de contraseña (SSPR) de Azure AD.
+>
+> **Si es un usuario final y necesita volver a su cuenta, vaya a [https://aka.ms/sspr](https://aka.ms/sspr)** .
 
-El [autoservicio de restablecimiento de contraseña (SSPR)](https://www.youtube.com/watch?v=tnb2Qf4hTP8) es una característica de Azure Active Directory (AD) que permite a los usuarios restablecer sus contraseñas sin ponerse en contacto con el personal de TI. Los usuarios se pueden desbloquear rápidamente ellos mismos y continuar trabajando con independencia de dónde se encuentren o la hora del día. Al permitir que los empleados se desbloqueen ellos mismos, su organización puede reducir el tiempo no productivo y los altos costes de soporte técnico para los problemas más comunes relacionados con las contraseñas. 
+El [autoservicio de restablecimiento de contraseña (SSPR)](https://www.youtube.com/watch?v=tnb2Qf4hTP8) es una característica de Azure Active Directory (AD) que permite a los usuarios restablecer sus contraseñas sin ponerse en contacto con el personal de TI. Los usuarios se pueden desbloquear rápidamente ellos mismos y continuar trabajando con independencia de dónde se encuentren o la hora del día. Al permitir que los empleados se desbloqueen ellos mismos, su organización puede reducir el tiempo no productivo y los altos costes de soporte técnico para los problemas más comunes relacionados con las contraseñas.
 
 SSPR ofrece las siguientes funcionalidades clave:
 
 * El autoservicio permite a los usuarios finales restablecer sus contraseñas expiradas o no expiradas sin necesidad de ponerse en contacto con un administrador o el departamento de soporte técnico.
-
 * La [escritura diferida de contraseñas](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-writeback) permite la administración de contraseñas locales y la resolución de bloqueos de cuenta a través de la nube.
-
 * Los informes de actividad de administración de contraseñas proporcionan a los administradores información sobre una actividad de registro y restablecimiento de contraseña en su organización.
+
+En esta guía de implementación se muestra cómo planear y probar una implementación de SSPR.
+
+Para ver rápidamente SSPR en acción y, a continuación, volver para conocer las consideraciones de implementación adicionales:
+
+> [!div class="nextstepaction"]
+> [Habilitar el autoservicio de restablecimiento de contraseña (SSPR)](tutorial-enable-sspr.md)
 
 ## <a name="learn-about-sspr"></a>Más información acerca de SSPR
 
@@ -245,17 +252,17 @@ También puede consultar [Realización de una implementación piloto del autoser
 
 Aunque SSPR no suele crear problemas de usuario, es importante preparar al personal de soporte técnico para afrontar los problemas que puedan surgir. Si bien un administrador puede restablecer la contraseña para los usuarios finales a través del portal de Azure AD, es mejor ayudar a resolver el problema a través de un proceso de soporte técnico de autoservicio.
 
-Para allanar el camino del equipo de soporte técnico, puede crear una página de P+F en función de las preguntas que reciba de los usuarios. Estos son algunos ejemplos:
+Para allanar el camino del equipo de soporte técnico, puede crear una página de P+F basada en las preguntas que reciba de los usuarios. Estos son algunos ejemplos:
 
 | Escenarios| Descripción |
 | - | - |
-| El usuario no tiene disponible ningún método de autenticación registrado.| Un usuario intenta restablecer la contraseña, pero no tiene disponible ninguno de los métodos de autenticación que ha registrado (ejemplo: ha dejado el teléfono móvil en casa y no puede acceder al correo electrónico). |
+| El usuario no tiene disponible ningún método de autenticación registrado.| Un usuario intenta restablecer la contraseña, pero no tiene disponible ninguno de los métodos de autenticación que ha registrado (ejemplo: se ha dejado el teléfono móvil en casa y no puede acceder al correo electrónico). |
 | El usuario no recibe mensajes de texto ni llamadas en su teléfono móvil o laboral.| Un usuario intenta verificar su identidad mediante mensaje de texto o una llamada, pero no recibe ni un mensaje de texto ni una llamada. |
 | El usuario no puede acceder al portal de restablecimiento de contraseñas.| Un usuario quiere restablecer su contraseña, pero no está habilitado para restablecer la contraseña y no puede acceder a la página para actualizar las contraseñas. |
 | El usuario no puede establecer una contraseña nueva.| Un usuario finaliza la verificación durante el flujo de restablecimiento de contraseña, pero no puede establecer una contraseña nueva. |
 | El usuario no ve un vínculo de restablecimiento de contraseña en un dispositivo Windows 10.| Un usuario intenta restablecer la contraseña desde la pantalla de bloqueo de Windows 10, pero el dispositivo no está unido a Azure AD o no está habilitada la directiva de dispositivos de Intune. |
 
-### <a name="plan-roll-back"></a>Planeamiento de reversión
+### <a name="plan-rollback"></a>Planeamiento de la reversión
 
 Para revertir la implementación:
 
@@ -336,7 +343,7 @@ Los registros de auditoría para el registro y el restablecimiento de contraseñ
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para empezar con la implementación de SSPR, consulte [Realización de una implementación piloto del autoservicio de restablecimiento de contraseñas en Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-sspr-pilot)
+* Para empezar con la implementación de SSPR, consulte [Habilitación del autoservicio de restablecimiento de contraseña de Azure AD](tutorial-enable-sspr.md)
 
 * [Implementar la protección de contraseña de Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad)
 

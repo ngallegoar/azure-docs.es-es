@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/27/2020
-ms.openlocfilehash: 194da036260a78b27748dfc7f755212ab4f30b1e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ae5d5f2d282c546f5172ca1c8cb0e420d3b6e96b
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78256027"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878058"
 ---
 # <a name="known-issuesmigration-limitations-with-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>Problemas conocidos/limitaciones de migración con las migraciones desde MongoDB a la API de Azure Cosmos DB para MongoDB
 
@@ -29,7 +29,7 @@ En las secciones siguientes se describen los problemas conocidos y las limitacio
 
 | Causa         | Solución |
 | ------------- | ------------- |
-| El uso de un certificado autofirmado en Azure Database Migration Service puede dar lugar a errores en la migración debido al certificado SSL incorrecto. El mensaje de error puede incluir el siguiente texto "The remote certificate is invalid according to the validation procedure" (De acuerdo al procedimiento de validación el certificado remoto no es válido). | Use un certificado original de una entidad de certificación (CA).  Los certificados autofirmados se suelen usar solo en pruebas internas. Al instalar un certificado original desde una entidad de certificación, puede usar SSL en Azure Database Migration Service sin problema (las conexiones a Cosmos DB usan SSL a través de Mongo API).<br><br> |
+| El uso de un certificado autofirmado en Azure Database Migration Service puede dar lugar a errores en la migración debido al certificado SSL incorrecto. El mensaje de error puede incluir el siguiente texto "El certificado remoto no es válido según el procedimiento de validación". | Use un certificado original de una entidad de certificación (CA).  Los certificados autofirmados se suelen usar solo en pruebas internas. Al instalar un certificado original desde una entidad de certificación, puede usar SSL en Azure Database Migration Service sin problema (las conexiones a Cosmos DB usan SSL a través de Mongo API).<br><br> |
 
 ## <a name="unable-to-get-the-list-of-databases-to-map-in-dms"></a>No se puede obtener la lista bases de datos para asignarlas en DMS
 

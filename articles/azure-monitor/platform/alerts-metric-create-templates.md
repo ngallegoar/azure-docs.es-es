@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 2/24/2020
 ms.subservice: alerts
-ms.openlocfilehash: 2f6e9cd4e7a035e6555b2241613cb9c46c3be550
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 02424d7df24305d6642c364f12e3ed6e8674a01d
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79234396"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677003"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Creación de una alerta de métrica con una plantilla de Resource Manager
 
@@ -563,7 +563,7 @@ az group deployment create \
 
 ## <a name="template-for-a-static-threshold-metric-alert-that-monitors-multiple-criteria"></a>Plantilla para una alerta de métrica de umbral estática que supervisa varios criterios
 
-Las alertas de métrica más recientes admiten las alertas relacionadas con métricas de varias dimensiones además de admitir varios criterios. Puede usar la siguiente plantilla para crear una regla de alerta de métrica más avanzada relacionada con métricas dimensionales y especificar varios criterios.
+Las alertas de métrica más recientes admiten las alertas relacionadas con métricas de varias dimensiones además de admitir la definición de varios criterios (hasta 5 por regla de alerta). Puede usar la siguiente plantilla para crear una regla de alerta de métrica más avanzada relacionada con métricas dimensionales y especificar varios criterios.
 
 Tenga en cuenta las restricciones siguientes cuando use dimensiones en una regla de alerta que contenga varios criterios:
 - Solo puede seleccionar un valor por dimensión dentro de cada criterio.
@@ -1518,6 +1518,10 @@ En esta sección se describen las plantillas de Azure Resource Manager de tres e
 - Supervisión de todas las máquinas virtuales (de una región de Azure) en uno o varios grupos de recursos.
 - Supervisión de todas las máquinas virtuales (de una región de Azure) en una suscripción.
 - Supervisión de una lista de máquinas virtuales (de una región de Azure) en una suscripción.
+
+> [!NOTE]
+>
+> En una regla de alerta de métrica que supervisa varios recursos solo se permite una condición.
 
 ### <a name="static-threshold-alert-on-all-virtual-machines-in-one-or-more-resource-groups"></a>Alerta de umbral estático en todas las máquinas virtuales de uno o varios grupos de recursos
 

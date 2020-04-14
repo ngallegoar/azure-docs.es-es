@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/12/2019
-ms.openlocfilehash: 3b631c068d1a444691345e054219208c4c8b0b8c
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 8941c097fbb2d05c3a28be87d216b7a2679ebc68
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77020053"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804901"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Transformación de receptor en el flujo de datos de asignación
 
@@ -39,13 +39,15 @@ Azure Data Factory tiene acceso a más de [90 conectores nativos](connector-over
 
 ## <a name="sink-settings"></a>Configuración del receptor
 
-Una vez que haya agregado un receptor, configúrelo a través de la pestaña **Receptor**. Aquí puede elegir o crear el conjunto de datos en el que escibe el receptor. 
+Una vez que haya agregado un receptor, configúrelo a través de la pestaña **Receptor**. Aquí puede elegir o crear el conjunto de datos en el que escribe el receptor. A continuación, se muestra un vídeo en el que se explican varias opciones de receptor diferentes para los tipos de archivo delimitados de texto:
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4tf7T]
 
 ![Configuración del receptor](media/data-flow/sink-settings.png "Configuración del receptor")
 
 **Desfase de esquema:** El [desfase de esquema](concepts-data-flow-schema-drift.md) es la capacidad de Data Factory de administrar de forma nativa los esquemas flexibles en los flujos de datos sin necesidad de definir explícitamente los cambios en las columnas. Habilite **Permitir el desfase de esquema** para escribir columnas adicionales sobre lo que se define en el esquema de datos del receptor.
 
-**Validate schema:** (Validar esquema) Si Validar esquema está seleccionado, el flujo de datos dará error si no se encuentra ninguna columna del esquema definido del conjunto de datos.
+**Validate schema:** (Validar esquema) Si se selecciona que se valide el esquema, se producirá un error en el flujo de datos si no se encuentra ninguna columna del esquema de origen entrante en la proyección de origen o si los tipos de datos no coinciden. Use esta opción para exigir que los datos de origen cumplan el contrato de la proyección definida. Es muy útil en escenarios de origen de base de datos para indicar que los nombres o los tipos de columna han cambiado.
 
 ## <a name="field-mapping"></a>Asignación de campos
 

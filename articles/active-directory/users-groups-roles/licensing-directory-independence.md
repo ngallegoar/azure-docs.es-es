@@ -1,6 +1,6 @@
 ---
 title: 'Características de la interacción de varios inquilinos: Azure AD | Microsoft Docs'
-description: Administre sus inquilinos de Azure Active Directory considerándolos como recursos completamente independientes.
+description: Descripción de los inquilinos de Azure Active Directory como organizaciones totalmente independientes
 services: active-tenant
 documentationcenter: ''
 author: curtand
@@ -9,45 +9,50 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 11/08/2019
+ms.date: 04/07/2020
 ms.author: curtand
 ms.custom: it-pro
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4eb09ab7fa31af5edf14b113a6a88e08df2d115
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 175d9ce7db1657e0e654f46adaf8a8d8ef28c25e
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77562265"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878126"
 ---
-# <a name="understand-how-multiple-azure-active-directory-tenants-interact"></a>Información de cómo interactúan varios inquilinos de Azure Active Directory
+# <a name="understand-how-multiple-azure-active-directory-organizations-interact"></a>Información de cómo interactúan varias organizaciones de Azure Active Directory
 
-En Azure Active Directory (Azure AD), cada inquilino es un recurso totalmente independiente: un recurso del mismo nivel, que es lógicamente independiente de otros inquilinos que administre. No hay ninguna relación de elementos primarios y secundarios entre los inquilinos. Esta independencia entre inquilinos incluye la de los recursos, la independencia administrativa y la de sincronización.
+En Azure Active Directory (Azure AD), cada inquilino es una organización totalmente independiente: un recurso del mismo nivel, que es lógicamente independiente de otras organizaciones de Azure AD que administre. Esta independencia entre organizaciones incluye la independencia de recursos, la independencia administrativa y la independencia de sincronización. No hay ninguna relación de elementos primarios y secundarios entre las organizaciones.
 
 ## <a name="resource-independence"></a>Independencia de recursos
-* Si crea o elimina un recurso en un inquilino, no tiene efecto en ningún recurso de los demás inquilinos, con la excepción parcial de los usuarios externos. 
-* Si usa uno de los nombres de dominio con un inquilino, no se puede usar con ningún otro.
+
+* Si crea o elimina un recurso de Azure AD en una organización, esto no tiene efecto en ningún recurso de las demás organizaciones, con la excepción parcial de los usuarios externos.
+* Si registra uno de los nombres de dominio con una organización, no podrá usarse por ninguna otra organización.
 
 ## <a name="administrative-independence"></a>Independencia administrativa
-Si un usuario no administrador del inquilino "Contoso" crea un directorio de prueba "Prueba", en ese caso:
 
-* De forma predeterminada, el usuario que crea un inquilino se agrega como un usuario externo en ese nuevo inquilino y se le asigna el rol de administrador global en ese inquilino.
-* Los administradores del inquilino "Contoso" no tienen privilegios administrativos directos en el inquilino "Prueba", a menos que el administrador de "Prueba" se los otorgue específicamente. Sin embargo, los administradores de "Contoso" pueden controlar el acceso al inquilino "Prueba" si controlan la cuenta de usuario que creó "Prueba".
-* Si se agrega o quita un rol de administrador para un usuario en un inquilino, el cambio no afecta a los roles de administrador que tenga el usuario en otro inquilino.
+Si un usuario no administrativo de la organización "Contoso" crea la organización de prueba "Prueba", en ese caso:
+
+* De forma predeterminada, el usuario que crea una organización se agrega como un usuario externo en esa nueva organización y se le asigna el rol de administrador global en esa organización.
+* Los administradores de la organización "Contoso" no tienen privilegios administrativos directos en la organización "Prueba", a menos que el administrador de "Prueba" les conceda específicamente estos privilegios. Sin embargo, los administradores de "Contoso" pueden controlar el acceso a la organización "Prueba" si controlan la cuenta de usuario que creó "Prueba".
+* Si agrega o quita un rol de Azure AD para un usuario de una organización, el cambio no afectará a los roles que el usuario esté asignado en otras organizaciones Azure AD.
 
 ## <a name="synchronization-independence"></a>Independencia de sincronización
-Puede configurar cada inquilino de Azure AD de manera independiente para que los datos se sincronicen desde una sola instancia de:
+
+Puede configurar cada organización de Azure AD de manera independiente para que los datos se sincronicen desde una sola instancia de:
 
 * La herramienta Azure AD Connect, para sincronizar los datos con un único bosque de AD.
-* El conector de inquilinos de Azure Active Directory para Forefront Identity Manager, para sincronizar datos con uno o varios bosques locales u orígenes de datos distintos de Azure AD.
+* El conector de Azure Active Directory para Forefront Identity Manager, para sincronizar datos con uno o varios bosques locales u orígenes de datos distintos de Azure AD.
 
-## <a name="add-an-azure-ad-tenant"></a>Adición de un inquilino de Azure AD
-Para agregar un inquilino de Azure AD en Azure Portal, inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta que sea un administrador global de Azure AD y, a la izquierda, seleccione **Nuevo**.
+## <a name="add-an-azure-ad-organization"></a>Incorporación de una de organización de Azure AD
+
+Para agregar una organización de Azure AD en Azure Portal, inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta que sea un administrador global de Azure AD y seleccione **Nuevo**.
 
 > [!NOTE]
-> A diferencia de otros recursos de Azure, los inquilinos no son recursos secundarios de una suscripción a Azure. Aunque su suscripción a Azure se cancele o expire, puede acceder a los datos de su inquilino mediante Azure PowerShell, Microsoft Graph API o el Centro de administración de Microsoft 365. También puede [asociar otra suscripción al inquilino](../fundamentals/active-directory-how-subscriptions-associated-directory.md).
+> A diferencia de otros recursos de Azure, las organizaciones de Azure AD no son recursos secundarios de una suscripción a Azure. Aunque su suscripción a Azure se cancele o expire, puede acceder a los datos de la organización de Azure AD mediante Azure PowerShell, Microsoft Graph API o el Centro de administración de Microsoft 365. También puede [asociar otra suscripción con la organización](../fundamentals/active-directory-how-subscriptions-associated-directory.md).
 >
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para una amplia visión general de los problemas de licencias de Azure AD y los procedimientos recomendados, consulte [¿Qué es la licencia de inquilinos de Azure Active Directory?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
+
+Para consideraciones sobre la concesión de licencias de Azure AD y las prácticas recomendadas, consulte [¿Qué es la licencia de Azure Active Directory?](../fundamentals/active-directory-licensing-whatis-azure-portal.md).

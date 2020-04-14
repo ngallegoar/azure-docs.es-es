@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 741cbc82f2ed3ffffb553b146d981b4e35a273f4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 630304bec17dd34befab4e5bd9f1cfdfb6505645
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68726675"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811427"
 ---
 # <a name="azure-customer-data-protection"></a>Protección de datos de cliente de Azure   
 El personal de operaciones y soporte técnico de Microsoft no tiene libre acceso a los datos de los clientes, ya que se les deniega de forma predeterminada. Cuando se concede acceso a los datos del cliente, se requiere la aprobación de la dirección y, a continuación, el acceso se administra y registra cuidadosamente. Los requisitos de control de acceso se establecen mediante la directiva de seguridad de Azure siguiente:
@@ -45,9 +45,9 @@ Azure proporciona a los clientes una fuerte seguridad de los datos, tanto de man
 - El cliente y la nube
 - Internamente entre centros de datos y sistemas de Azure
 
-**Cifrado**: los clientes pueden implementar el cifrado de datos en almacenamiento y en tránsito como procedimiento recomendado para garantizar la confidencialidad e integridad de los datos. Los clientes pueden configurar de manera sencilla sus servicios en la nube de Azure para usar SSL para proteger las comunicaciones de Internet e incluso entre sus máquinas virtuales hospedadas en Azure.
+**Cifrado**: los clientes pueden implementar el cifrado de datos en almacenamiento y en tránsito como procedimiento recomendado para garantizar la confidencialidad e integridad de los datos. Los clientes pueden configurar de manera sencilla sus servicios en la nube de Azure para usar TLS para proteger las comunicaciones de Internet e incluso entre sus máquinas virtuales hospedadas en Azure.
 
-**Redundancia de datos**: Microsoft ayuda a garantizar que los datos están protegidos si se produce un ciberataque o daños físicos en un centro de datos. Los clientes pueden optar por:
+**Data redundancy** (Redundancia de datos): Microsoft ayuda a garantizar que los datos están protegidos si se produce un ciberataque o daños físicos en un centro de datos. Los clientes pueden optar por:
 
 - Consideraciones sobre el almacenamiento en el país o región por motivos de cumplimiento o latencia.
 - Almacenamiento fuera del país o la región por motivos de seguridad o de recuperación ante desastres.
@@ -56,9 +56,9 @@ Los datos pueden replicarse en un área geográfica seleccionada para redundanci
 
 Al crear la cuenta de almacenamiento, seleccione una de las siguientes opciones de replicación:
 
-- **Almacenamiento con redundancia local (LRS)** : el almacenamiento con redundancia local mantiene tres copias de sus datos. LRS se replica tres veces dentro de una única instalación de una sola región. LRS protege los datos frente a errores comunes del hardware, pero no frente a errores de una única instalación.
-- **Almacenamiento con redundancia de zona (ZRS)** : el almacenamiento con redundancia de zona mantiene tres copias de los datos. ZRS se replica tres veces entre dos o tres instalaciones para proporcionar mayor durabilidad que LRS. La replicación se produce en una única región o entre dos regiones. ZRS ayuda a garantizar la durabilidad de sus datos dentro de una sola región.
-- **Almacenamiento con redundancia geográfica (GRS)** : el almacenamiento con redundancia geográfica con acceso de lectura está habilitado para su cuenta de almacenamiento de manera predeterminada cuando la crea. GRS mantiene seis copias de sus datos. Con GRS, los datos se replican tres veces dentro de la región primaria. Los datos se replican también tres veces en una región secundaria a cientos de kilómetros de distancia de la región primaria, lo que proporciona el nivel más alto de durabilidad. En caso de que se produzca un error en la región primaria, Azure Storage conmuta por error a la región secundaria. GRS ayuda a garantizar la durabilidad de sus datos en dos regiones distintas.
+- **Almacenamiento con redundancia local (LRS)** :  El almacenamiento con redundancia local mantiene tres copias de sus datos. LRS se replica tres veces dentro de una única instalación de una sola región. LRS protege los datos frente a errores comunes del hardware, pero no frente a errores de una única instalación.
+- **Almacenamiento con redundancia de zona (ZRS)** :  El almacenamiento con redundancia de zona mantiene tres copias de los datos. ZRS se replica tres veces entre dos o tres instalaciones para proporcionar mayor durabilidad que LRS. La replicación se produce en una única región o entre dos regiones. ZRS ayuda a garantizar la durabilidad de sus datos dentro de una sola región.
+- **Almacenamiento con redundancia geográfica (GRS)** : El almacenamiento con redundancia geográfica está habilitado para su cuenta de almacenamiento de manera predeterminada cuando la crea. GRS mantiene seis copias de sus datos. Con GRS, los datos se replican tres veces dentro de la región primaria. Los datos se replican también tres veces en una región secundaria a cientos de kilómetros de distancia de la región primaria, lo que proporciona el nivel más alto de durabilidad. En caso de que se produzca un error en la región primaria, Azure Storage conmuta por error a la región secundaria. GRS ayuda a garantizar la durabilidad de sus datos en dos regiones distintas.
 
 **Destrucción de datos**: cuando los clientes eliminan datos o abandonan Azure, Microsoft sigue estándares estrictos para sobrescribir los recursos de almacenamiento antes de reutilizarlos, así como la destrucción física del hardware retirado. Microsoft ejecuta una eliminación completa de los datos a solicitud del cliente y a la finalización del contrato.
 

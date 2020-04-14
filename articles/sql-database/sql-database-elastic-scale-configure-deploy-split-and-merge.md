@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
-ms.openlocfilehash: 50dbca0b3a761b72134eaa6cfed57e231be4ef13
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b6f61de23ab4b637cfb5b8ee365ddea9764bf515
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74421035"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80810206"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Implementación de un servicio de división y combinación para mover datos entre bases de datos particionadas
 
@@ -36,7 +36,7 @@ La herramienta de división y combinación permite mover los datos entre bases d
 
 Los archivos están ubicados en un directorio llamado **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** , donde *x.x.xxx.x* refleja el número de la versión. Busque los archivos del servicio de división y combinación en el subdirectorio **content\splitmerge\service** y los scripts de PowerShell de división y combinación (y las .dll de cliente necesarias) en el subdirectorio **content\splitmerge\powershell**.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 1. Cree una base de datos de Base de datos SQL de Azure que se usará como la base de datos de estado de división y combinación. Vaya a [Azure Portal](https://portal.azure.com). Cree una nueva **SQL Database**. Asigne un nombre a la base de datos y cree un nuevo administrador y una contraseña. Asegúrese de anotar el nombre y la contraseña para usarlos más adelante.
 
@@ -150,7 +150,7 @@ Tenga en cuenta que para las implementaciones de producción se deben usar certi
 
 ## <a name="troubleshoot-the-deployment"></a>Solución de problemas de la implementación
 
-Si el rol web no puede ponerse en línea, probablemente haya un problema con la configuración de seguridad. Compruebe que SSL esté configurado como se describió anteriormente.
+Si el rol web no puede ponerse en línea, probablemente haya un problema con la configuración de seguridad. Compruebe que TLS/SSL esté configurado como se describió anteriormente.
 
 Si el rol de trabajo no puede ponerse en línea, pero el rol web sí, probablemente se trate de un problema al conectarse a la base de datos de estado que creó anteriormente.
 
@@ -254,7 +254,7 @@ Los archivos de script incluidos son:
     -UserName 'mysqluser' -Password 'MySqlPassw0rd' -ShardMapManagerServerName 'abcdefghij.database.windows.net'
    ```
 
-5. Ejecute el script *ExecuteSampleSplitMerge.ps1* para ejecutar una operación de división (moviendo la mitad de los datos de la primera partición a la segunda partición) y luego una operación Merge (moviendo los datos de vuelta a la primera partición). Si configuró SSL y dejó deshabilitado el extremo http, asegúrese de usar el extremo https://.
+5. Ejecute el script *ExecuteSampleSplitMerge.ps1* para ejecutar una operación de división (moviendo la mitad de los datos de la primera partición a la segunda partición) y luego una operación Merge (moviendo los datos de vuelta a la primera partición). Si configuró TLS y dejó deshabilitado el punto de conexión http, asegúrese de usar el punto de conexión https://.
 
    Línea de comandos de ejemplo:
 
@@ -333,7 +333,7 @@ Es posible que cuando ejecute los scripts de ejemplo de PowerShell vea el siguie
 
    `Invoke-WebRequest : The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.`
 
-Este error significa que el certificado SSL no está configurado correctamente. Siga las instrucciones que aparecen en la sección "Conexión con un explorador web".
+Este error significa que el certificado TLS/SSL no está configurado correctamente. Siga las instrucciones que aparecen en la sección "Conexión con un explorador web".
 
 Si no se pueden enviar solicitudes, verá lo siguiente:
 

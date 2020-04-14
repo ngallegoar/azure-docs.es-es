@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: a9f12849525daeea69ece6e81077446f062e8889
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: f5588503825281f407ddbbc2c1c57cd94a9c7ee6
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80384405"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804714"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-postgresql"></a>Uso de Azure Active Directory para la autenticación con PostgreSQL
 
@@ -24,7 +24,9 @@ Este artículo le guiará a través de los pasos para configurar el acceso a Azu
 
 ## <a name="setting-the-azure-ad-admin-user"></a>Configuración del usuario administrador de Azure AD
 
-Solo un usuario administrador de Azure AD puede crear o habilitar usuarios para la autenticación basada en Azure AD. Para crear un usuario administrador de Azure AD, haga lo siguiente
+Solo los usuarios administradores de Azure AD pueden crear o habilitar usuarios para la autenticación basada en Azure AD. Se recomienda no usar el administrador de Azure AD para las operaciones normales de base de datos, ya que tiene permisos de usuario elevados (por ejemplo, CREATEDB).
+
+Para configurar el administrador de Azure AD (puede usar un usuario o un grupo), siga estos pasos
 
 1. En el Azure Portal, seleccione la instancia de Azure Database for PostgreSQL que desea habilitar para Azure AD.
 2. En Configuración, seleccione Administrador de Active Directory:
@@ -37,36 +39,6 @@ Solo un usuario administrador de Azure AD puede crear o habilitar usuarios para 
 > Al establecer el administrador, se agrega un nuevo usuario al servidor de Azure Database for PostgreSQL con permisos de administrador totales. El usuario administrador de Azure AD en Azure Database for PostgreSQL tendrá el rol `azure_ad_admin`.
 
 Solo se puede crear un administrador de Azure AD por servidor PostgreSQL y la selección de otro sobrescribirá al administrador de Azure AD existente configurado para el servidor. Puede especificar un grupo de Azure AD en lugar de un usuario individual para que tenga varios administradores. Tenga en cuenta que, después iniciará sesión con el nombre de grupo para fines de administración.
-
-## <a name="creating-azure-ad-users-in-azure-database-for-postgresql"></a>Creación de usuarios Azure AD en Azure Database for PostgreSQL
-
-Para agregar un usuario Azure AD a la base de datos de Azure Database for PostgreSQL, haga lo siguiente después de la conexión (consulte la sección más adelante sobre cómo conectarse):
-
-1. En primer lugar, asegúrese de que el usuario Azure AD `<user>@yourtenant.onmicrosoft.com` un usuario válido en el suscriptor de Azure AD.
-2. Inicie sesión en la instancia de Azure Database for PostgreSQL como usuario administrador de Azure AD.
-3. Creación del rol `<user>@yourtenant.onmicrosoft.com` en Azure Database for PostgreSQL.
-4. Cree `<user>@yourtenant.onmicrosoft.com` un miembro del rol azure_ad_user. Esto solo se debe proporcionar a los usuarios de Azure AD.
-
-**Ejemplo**:
-
-```sql
-CREATE ROLE "user1@yourtenant.onmicrosoft.com" WITH LOGIN IN ROLE azure_ad_user;
-```
-
-> [!NOTE]
-> La autenticación de un usuario a través de Azure AD no concede al usuario ningún permiso para tener acceso a los objetos en la base de datos de Azure Database for PostgreSQL. Asegúrese de concederle al usuario los permisos necesarios de forma manual.
-
-## <a name="creating-azure-ad-groups-in-azure-database-for-postgresql"></a>Creación de grupos Azure AD en Azure Database for PostgreSQL
-
-Para habilitar el acceso de un grupo de Azure AD a la base de datos, use el mismo mecanismo que para los usuarios, pero en su lugar especifique el nombre del grupo:
-
-**Ejemplo**:
-
-```sql
-CREATE ROLE "Prod DB Readonly" WITH LOGIN IN ROLE azure_ad_user;
-```
-
-Al iniciar sesión, los miembros del grupo usarán sus token de acceso personal, pero firmarán con el nombre del grupo especificado como nombre de usuario.
 
 ## <a name="connecting-to-azure-database-for-postgresql-using-azure-ad"></a>Conexión a Azure Database for PostgreSQL con Azure AD
 
@@ -167,6 +139,36 @@ psql "host=mydb.postgres... user=user@tenant.onmicrosoft.com@mydb dbname=postgre
 ```
 
 Ahora está autenticado en el servidor de PostgreSQL con la autenticación de Azure AD.
+
+## <a name="creating-azure-ad-users-in-azure-database-for-postgresql"></a>Creación de usuarios Azure AD en Azure Database for PostgreSQL
+
+Para agregar un usuario Azure AD a la base de datos de Azure Database for PostgreSQL, haga lo siguiente después de la conexión (consulte la sección más adelante sobre cómo conectarse):
+
+1. En primer lugar, asegúrese de que el usuario Azure AD `<user>@yourtenant.onmicrosoft.com` un usuario válido en el suscriptor de Azure AD.
+2. Inicie sesión en la instancia de Azure Database for PostgreSQL como usuario administrador de Azure AD.
+3. Creación del rol `<user>@yourtenant.onmicrosoft.com` en Azure Database for PostgreSQL.
+4. Cree `<user>@yourtenant.onmicrosoft.com` un miembro del rol azure_ad_user. Esto solo se debe proporcionar a los usuarios de Azure AD.
+
+**Ejemplo**:
+
+```sql
+CREATE ROLE "user1@yourtenant.onmicrosoft.com" WITH LOGIN IN ROLE azure_ad_user;
+```
+
+> [!NOTE]
+> La autenticación de un usuario a través de Azure AD no concede al usuario ningún permiso para tener acceso a los objetos en la base de datos de Azure Database for PostgreSQL. Asegúrese de concederle al usuario los permisos necesarios de forma manual.
+
+## <a name="creating-azure-ad-groups-in-azure-database-for-postgresql"></a>Creación de grupos Azure AD en Azure Database for PostgreSQL
+
+Para habilitar el acceso de un grupo de Azure AD a la base de datos, use el mismo mecanismo que para los usuarios, pero en su lugar especifique el nombre del grupo:
+
+**Ejemplo**:
+
+```sql
+CREATE ROLE "Prod DB Readonly" WITH LOGIN IN ROLE azure_ad_user;
+```
+
+Al iniciar sesión, los miembros del grupo usarán sus token de acceso personal, pero firmarán con el nombre del grupo especificado como nombre de usuario.
 
 ## <a name="token-validation"></a>Validación de token
 

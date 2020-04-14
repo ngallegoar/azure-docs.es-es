@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: b-juche
-ms.openlocfilehash: 8e6a1c3472c6b20b27cf181edbeeb96ab71eb58d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 12be766f36a0901079a5a26f20ea7dacc75268de
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73242482"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80667875"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Instrucciones para el planeamiento de red de Azure NetApp Files
 
@@ -39,10 +39,11 @@ Las características siguientes no se admiten actualmente en Azure NetApp Files:
 * Rutas definidas por el usuario (UDR) con prefijo de dirección como subred de Azure NetApp Files
 * Directivas de Azure (por ejemplo, directivas de nomenclatura personalizadas) en la interfaz de Azure NetApp Files
 * Equilibradores de carga para el tráfico de Azure NetApp Files
+* Azure NetApp Files no es compatible con Azure Virtual WAN.
 
 Las siguientes restricciones de red se aplican a Azure NetApp Files:
 
-* El número de direcciones IP en uso en una red virtual con Azure NetApp Files (incluidas las redes virtuales emparejadas) no puede ser mayor que 1000. Estamos trabajando para aumentar este límite con el fin de satisfacer las necesidades de escalado de los clientes. Mientras tanto, si necesita más direcciones IP, póngase en contacto con nuestro equipo de soporte técnico con su caso de uso y el límite requerido.
+* El número de direcciones IP en uso en una red virtual con Azure NetApp Files (incluidas las redes virtuales emparejadas) no puede ser mayor que 1000. Estamos trabajando para aumentar este límite con el fin de satisfacer las necesidades de escalado de los clientes. 
 * En cada red virtual de Azure (VNet), solo puede delegarse una subred a Azure NetApp Files.
 
 
@@ -123,8 +124,8 @@ En la topología que se ilustra anteriormente, la red local está conectada a un
 * Los recursos locales VM 1 y VM 2 pueden conectarse al volumen 2 o volumen 3 a través de una VPN de sitio a sitio y emparejamiento de redes virtuales regional.
 * La VM 3 en el centro puede conectarse al volumen 2 en la red virtual 1 de radio y el volumen 3 en la red virtual 2 de radio.
 * La VM 4 de la red virtual 1 de radio y la VM 5 de la red virtual 2 de radio pueden conectarse al volumen 1 en la red virtual del centro.
-
-La VM 4 en la red virtual 1 de radio no se puede conectar al volumen 3 en la red virtual 2 de radio. Además, la VM 5 en la red virtual 2 de radio no se puede conectar al volumen 2 en la red virtual 1 de radio. Esto se debe a que las redes virtuales de radio no están emparejadas, y _no se admite el enrutamiento de tránsito a través del emparejamiento de redes virtuales_.
+* La VM 4 en la red virtual 1 de radio no se puede conectar al volumen 3 en la red virtual 2 de radio. Además, la VM 5 en la red virtual 2 de radio no se puede conectar al volumen 2 en la red virtual 1 de radio. Esto se debe a que las redes virtuales de radio no están emparejadas, y _no se admite el enrutamiento de tránsito a través del emparejamiento de redes virtuales_.
+* En la arquitectura anterior, si también hay una puerta de enlace en la red virtual de radios, se perderá la conectividad al volumen de ANF de la conexión local a través de la puerta de enlace en el concentrador. Por diseño, se dará prioridad a la puerta de enlace de la red virtual de radios y, de este modo, solo las máquinas que se conecten a través de esa puerta de enlace podrán conectarse al volumen de ANF.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

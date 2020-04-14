@@ -7,22 +7,22 @@ ms.service: frontdoor
 ms.topic: article
 ms.date: 5/21/2019
 ms.author: sharadag
-ms.openlocfilehash: b7385ef27cd17705f2c86b6f57d4780511b6935c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f1b8c033a3ec230d60c30f6168de8ce013a80ac6
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80246864"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878007"
 ---
 # <a name="create-a-front-door-with-http-to-https-redirection-using-the-azure-portal"></a>Crear una instancia de Front Door con redirección de HTTP a HTTPS mediante Azure Portal
 
-Puede usar Azure Portal para crear una instancia de [Front Door](front-door-overview.md) con un certificado para la terminación SSL. Una regla de enrutamiento se usa para redirigir el tráfico de HTTP a HTTPS.
+Puede usar Azure Portal para crear una instancia de [Front Door](front-door-overview.md) con un certificado para la terminación TLS. Una regla de enrutamiento se usa para redirigir el tráfico de HTTP a HTTPS.
 
 En este artículo aprenderá a:
 
 > [!div class="checklist"]
 > * Crear una instancia de Front Door con un recurso de aplicación web existente
-> * Agregar un dominio personalizado con un certificado SSL 
+> * Agregar un dominio personalizado con un certificado TLS/SSL 
 > * Configurar la redirección HTTPS en el dominio personalizado
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
@@ -87,7 +87,7 @@ Después de agregar CNAME, la página de registros DNS es como la del ejemplo si
 ### <a name="enable-https-on-your-custom-domain"></a>Habilitación de HTTPS en el dominio personalizado
 
 1. Haga clic en el dominio personalizado que se ha agregado y, en la sección **Personalizar HTTPS de dominio**, cambie el estado a **Habilitado**.
-2. Puede dejar el **Tipo de administración de certificados** establecido en _Front Door administrado_ para el certificado gratuito que mantiene, administra y rota automáticamente Front Door. También puede usar su propio certificado SSL personalizado almacenado con Azure Key Vault. En este tutorial se da por supuesto el uso del certificado administrado de Front Door.
+2. Puede dejar el **Tipo de administración de certificados** establecido en _Front Door administrado_ para el certificado gratuito que mantiene, administra y rota automáticamente Front Door. También puede usar su propio certificado TLS/SSL personalizado almacenado con Azure Key Vault. En este tutorial se da por supuesto el uso del certificado administrado de Front Door.
 ![Habilitar HTTPS para el dominio personalizado](./media/front-door-url-redirect/front-door-custom-domain-https.png)
 
 3. Haga clic en **Actualizar** para guardar la selección y, después, haga clic en **Guardar**.

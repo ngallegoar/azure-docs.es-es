@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 40abd048b047bbece79b7c05d36a1fb189a4f28d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5821c72ae1be4759cf5aa76ff1f5af43337749c0
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77656932"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668576"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Configuración y problemas de administración de Microsoft Azure Cloud Services: Preguntas más frecuentes (P+F)
 
@@ -30,11 +30,11 @@ En este artículo se incluyen las preguntas frecuentes sobre la configuración y
 
 **Certificados**
 
-- [¿Por qué está incompleta la cadena de certificados SSL de mi servicio de nube?](#why-is-the-certificate-chain-of-my-cloud-service-ssl-certificate-incomplete)
+- [¿Por qué está incompleta la cadena de certificados TLS/SSL de mi servicio en la nube?](#why-is-the-certificate-chain-of-my-cloud-service-tlsssl-certificate-incomplete)
 - [¿Cuál es el propósito del "Windows Azure Tools Encryption Certificate for Extensions" (certificado de cifrado para extensiones de Windows Azure Tools)?](#what-is-the-purpose-of-the-windows-azure-tools-encryption-certificate-for-extensions)
 - [¿Cómo se puede generar una solicitud de firma de certificado (CSR) sin ejecutar RDP en la instancia?](#how-can-i-generate-a-certificate-signing-request-csr-without-rdp-ing-in-to-the-instance)
 - [Expira el certificado de administración del servicio en la nube. ¿Cómo se renueva?](#my-cloud-service-management-certificate-is-expiring-how-to-renew-it)
-- [¿Cómo se automatiza la instalación de un certificado SSL principal (.pfx) y un certificado intermedio (.p7b)?](#how-to-automate-the-installation-of-main-ssl-certificatepfx-and-intermediate-certificatep7b)
+- [¿Cómo se automatiza la instalación de un certificado TLS/SSL principal (.pfx) y un certificado intermedio (.p7b)?](#how-to-automate-the-installation-of-main-tlsssl-certificatepfx-and-intermediate-certificatep7b)
 - [¿Cuál es el propósito del certificado "Microsoft Azure Service Management for MachineKey"?](#what-is-the-purpose-of-the-microsoft-azure-service-management-for-machinekey-certificate)
 
 **Supervisión y registro**
@@ -75,7 +75,7 @@ En este artículo se incluyen las preguntas frecuentes sobre la configuración y
 
 ## <a name="certificates"></a>Certificados
 
-### <a name="why-is-the-certificate-chain-of-my-cloud-service-ssl-certificate-incomplete"></a>¿Por qué está incompleta la cadena de certificados SSL de mi servicio en la nube?
+### <a name="why-is-the-certificate-chain-of-my-cloud-service-tlsssl-certificate-incomplete"></a>¿Por qué está incompleta la cadena de certificados TLS/SSL de mi servicio en la nube?
     
 Se recomienda que los clientes instalen la cadena de certificados completa (certificado de hoja, certificados intermedios y certificado raíz) en lugar de simplemente el certificado de hoja. Cuando se instala solamente el certificado de hoja, se confía en Windows para que genere la cadena de certificados recorriendo la CTL. Si se producen problemas intermitentes de la red o problemas de DNS en Azure o Windows Update cuando Windows está intentando validar el certificado, es posible que este se considere no válido. Al instalar la cadena de certificados completa se evita este problema. El blog en [How to install a chained SSL certificate](https://blogs.msdn.microsoft.com/azuredevsupport/2010/02/24/how-to-install-a-chained-ssl-certificate/) (cómo instalar una cadena de certificado SSL) muestra cómo hacerlo.
 
@@ -103,7 +103,7 @@ Puede usar los siguientes comandos de PowerShell para renovar sus certificados d
 
 **Get-AzurePublishSettingsFile** creará un certificado de administración en **Suscripción** > **Certificados de administración** en Azure Portal. El nombre del nuevo certificado es algo así como "YourSubscriptionNam]-[CurrentDate]-credentials".
 
-### <a name="how-to-automate-the-installation-of-main-ssl-certificatepfx-and-intermediate-certificatep7b"></a>¿Automatización de la instalación de un certificado SSL principal (.pfx) y un certificado intermedio (.p7b)?
+### <a name="how-to-automate-the-installation-of-main-tlsssl-certificatepfx-and-intermediate-certificatep7b"></a>¿Cómo se automatiza la instalación de un certificado TLS/SSL principal (.pfx) y un certificado intermedio (.p7b)?
 
 Puede automatizar esta tarea mediante un script de inicio (batch/cmd/PowerShell) y registrar dicho script en el archivo de definición de servicio. Agregue el script de inicio y el certificado (archivo. p7b) a la carpeta del proyecto del mismo directorio que el script de inicio.
 

@@ -1,15 +1,16 @@
 ---
-title: 'Procedimientos recomendados del operador: seguridad de clústeres en Azure Kubernetes Service (AKS)'
+title: Procedimientos recomendados para la seguridad de los clústeres
+titleSuffix: Azure Kubernetes Service
 description: Obtenga información sobre los procedimientos recomendados del operador de clústeres para saber cómo administrar la seguridad y las actualizaciones de los clústeres en Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: f02f6588946e2b63a1a092aba15603d1685e8207
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3d4e8577116ba1d78aaa881887f64e71c04af4f2
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77594811"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668326"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para administrar la seguridad y las actualizaciones de los clústeres en Azure Kubernetes Service (AKS)
 

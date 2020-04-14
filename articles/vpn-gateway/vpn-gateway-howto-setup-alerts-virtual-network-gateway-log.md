@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: alzam
-ms.openlocfilehash: b587fa31f1aa42e8dbd5a9d2430c0117891f2091
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 49510b26e0b2a9c69dd65faf0f343e86d1a068db
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80239785"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878908"
 ---
 # <a name="set-up-alerts-on-diagnostic-log-events-from-vpn-gateway"></a>Configuración de alertas de eventos de registro de diagnóstico de VPN Gateway
 
@@ -26,7 +26,7 @@ Los registros siguientes están disponibles en Azure:
 |TunnelDiagnosticLog | Contiene los eventos de cambio del estado del túnel. Los eventos de conexión/desconexión del túnel tienen un motivo resumido para el cambio de estado si es aplicable |
 |RouteDiagnosticLog | Registra los cambios en rutas estáticas y eventos BGP que se producen en la puerta de enlace |
 |IKEDiagnosticLog | Registra mensajes de control de IKE y eventos en la puerta de enlace |
-|P2SDiagnosticLog | Registra mensajes de control de punto a sitio y eventos en la puerta de enlace |
+|P2SDiagnosticLog | Registra mensajes de control de punto a sitio y eventos en la puerta de enlace. La información del origen de conexión se proporciona solo para conexiones IKEv2 |
 
 ## <a name="set-up-alerts-in-the-azure-portal"></a><a name="setup"></a>Configuración de alertas en Azure Portal
 

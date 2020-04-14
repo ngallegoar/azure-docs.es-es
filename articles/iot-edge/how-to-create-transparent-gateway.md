@@ -4,16 +4,16 @@ description: Uso de un dispositivo Azure IoT Edge como una puerta de enlace tran
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/30/2019
+ms.date: 04/03/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6069e0782f69d0dfb73d9be2998cbb11d59d7d22
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3b3aeff595671c5f924d01599b572b6b938ef09d
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79529176"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80666660"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Configuración de un dispositivo IoT Edge para que actúe como puerta de enlace transparente
 
@@ -42,11 +42,11 @@ Puede crear cualquier infraestructura de certificados que permita la confianza n
 >[!NOTE]
 >El término "entidad de certificación raíz" utilizado en este artículo hace referencia al certificado público de entidad de nivel superior de la cadena de certificados de PKI y no necesariamente a la raíz del certificado de una entidad de certificación sindicada. En muchos casos, se trata realmente de un certificado público intermedio de la entidad de certificación.
 
-La puerta de enlace presenta su certificado de entidad de certificación de IoT Edge al dispositivo de bajada durante el inicio de la conexión. El dispositivo de bajada comprueba que el certificado de entidad de certificación del dispositivo IoT Edge está firmado con el certificado de entidad de certificación raíz. Este proceso permite que el dispositivo de bajada confirme que la puerta de enlace procede de un origen de confianza.
+El demonio de seguridad de IoT Edge usa el certificado de entidad de certificación de dispositivo IoT Edge para firmar un certificado de entidad de certificación de carga de trabajo, que a su vez firma un certificado de servidor para el centro de IoT Edge. La puerta de enlace presenta su certificado de servidor al dispositivo de bajada durante el inicio de la conexión. El dispositivo de bajada realiza comprobaciones para asegurarse de que el certificado de servidor forma parte de una cadena de certificados que se acumula en el certificado de entidad de certificación raíz. Este proceso permite que el dispositivo de bajada confirme que la puerta de enlace procede de un origen de confianza. Para obtener más información, consulta [Información sobre los certificados de Azure IoT Edge](iot-edge-certs.md).
 
 Los pasos siguientes le guían por el proceso de crear los certificados e instalarlos en los lugares adecuados de la puerta de enlace. Puede usar cualquier máquina para generar los certificados y, a continuación, copiarlos en el dispositivo IoT Edge.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Un dispositivo Azure IoT Edge, configurado con [certificados de producción](how-to-manage-device-certificates.md).
 
@@ -115,7 +115,7 @@ Para obtener más información sobre el enrutamiento de mensajes, vea [Implement
 
 A partir de la [versión v1.0.4](https://github.com/Azure/azure-iotedge/releases/tag/1.0.4) del entorno de ejecución de Azure IoT Edge, el dispositivo de puerta de enlace y los dispositivos de bajada conectados a él pueden configurarse para un funcionamiento sin conexión extendido.
 
-Con esta funcionalidad, los módulos locales o los dispositivos de bajada pueden volver a autenticarse con el dispositivo IOT Edge según sea necesario y comunicarse entre sí mediante el uso de mensajes y métodos incluso cuando están desconectados del centro de IoT. Para obtener más información, consulte [Understand extended offline capabilities for IoT Edge devices, modules, and child devices](offline-capabilities.md) (Entender las capacidades sin conexión extendidas para dispositivos IoT Edge, módulos y dispositivos secundarios).
+Con esta funcionalidad, los módulos locales o los dispositivos de bajada pueden volver a autenticarse con el dispositivo IoT Edge según sea necesario y comunicarse entre sí mediante mensajes y métodos, aunque estén desconectados de IoT Hub. Para obtener más información, consulte [Understand extended offline capabilities for IoT Edge devices, modules, and child devices](offline-capabilities.md) (Entender las capacidades sin conexión extendidas para dispositivos IoT Edge, módulos y dispositivos secundarios).
 
 Para habilitar la funcionalidad sin conexión extendida, se debe establecer una relación principal-secundario entre el dispositivo de puerta de enlace IoT Edge y los dispositivos de bajada que se conectarán a él. Estos pasos se explican con más detalle en [Authenticate a downstream device to Azure IoT Hub](how-to-authenticate-downstream-device.md) (Autenticación de un dispositivo de bajada en Azure IoT Hub).
 

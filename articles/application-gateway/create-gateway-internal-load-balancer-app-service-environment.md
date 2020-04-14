@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/06/2018
 ms.author: genli
-ms.openlocfilehash: 9c3216af283ebd9d84a5469d4d50d18c19f67534
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4edeea749ba22bef173c15f3a0855679b784ce33
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71121947"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668575"
 ---
 # <a name="back-end-server-certificate-is-not-whitelisted-for-an-application-gateway-using-an-internal-load-balancer-with-an-app-service-environment"></a>El certificado de servidor back-end no está incluido en la lista de permitidos en una puerta de enlace de aplicaciones que usa un equilibrador de carga interno con App Service Environment.
 
-En este artículo, se soluciona el problema siguiente: un certificado no se incluye en la lista blanca al crear una puerta de enlace de aplicaciones utilizando un equilibrador de carga interno (ILB) junto con una instancia de App Service Environment (ASE) en el back-end cuando se usa SSL de un extremo a otro en Azure.
+En este artículo, se soluciona el problema siguiente: un certificado no se incluye en la lista blanca al crear una puerta de enlace de aplicaciones utilizando un equilibrador de carga interno (ILB) junto con una instancia de App Service Environment (ASE) en el back-end cuando se usa TLS de un extremo a otro en Azure.
 
 ## <a name="symptoms"></a>Síntomas
 
@@ -68,7 +68,7 @@ Cuando se usa un nombre de dominio completo (FQDN) para acceder al ILB, el servi
 
 - Desactive la opción **Uso para App Service** de la puerta de enlace de aplicaciones si está utilizando la dirección IP del ILB.
 
-Para reducir la sobrecarga, puede cargar el certificado de ILB en la configuración HTTP para que la ruta de acceso de sondeo funcione. (Este paso es solo para la inclusión en la lista de permitidos. No se usa para la comunicación SSL). Para recuperar el certificado de ILB, puede acceder al ILB utilizando su dirección IP en el explorador con HTTPS, exportar después el certificado SSL en un formato CER codificado en Base-64 y cargarlo en la configuración HTTP correspondiente.
+Para reducir la sobrecarga, puede cargar el certificado de ILB en la configuración HTTP para que la ruta de acceso de sondeo funcione. (Este paso es solo para la inclusión en la lista de permitidos. No se usa para la comunicación TLS). Para recuperar el certificado de ILB, puede acceder al ILB utilizando su dirección IP en el explorador con HTTPS, exportar después el certificado TLS/SSL en un formato CER codificado en Base-64 y cargarlo en la configuración HTTP correspondiente.
 
 ## <a name="need-help-contact-support"></a>¿Necesita ayuda? Ponerse en contacto con soporte técnico
 

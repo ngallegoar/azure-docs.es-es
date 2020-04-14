@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sasolank
-ms.openlocfilehash: 2b8cf66afa1d8aa592d5755ebab70cd6ad2e75fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 733f4b74ca7643476586189b36f4e1d3e446968b
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79298066"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811174"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Integración de API Management en una red virtual interna con Application Gateway
 
@@ -35,7 +35,7 @@ La combinación de una instancia de API Management aprovisionada en una red virt
 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -61,13 +61,13 @@ En el primer ejemplo de la configuración, todas las API se administran únicame
 
 ## <a name="what-is-required-to-create-an-integration-between-api-management-and-application-gateway"></a>¿Qué se necesita para crear una integración entre API Management y Application Gateway?
 
-* **Grupo de servidores de back-end:** se trata de la dirección IP virtual interna del servicio API Management.
-* **Configuración del grupo de servidores back-end:** cada grupo tiene una configuración en la que se incluye el puerto, el protocolo y la afinidad basada en cookies. Estos valores se aplican a todos los servidores del grupo.
-* **Puerto front-end:** es el puerto público que se abre en la puerta de enlace de aplicaciones. El tráfico que llega se redirige a uno de los servidores back-end.
-* **Agente de escucha** : tiene un puerto front-end, un protocolo (Http o Https, estos valores distinguen mayúsculas de minúsculas) y el nombre del certificado SSL (si se configura la descarga de SSL).
-* **Regla:** la regla enlaza un agente de escucha con un grupo de servidor back-end.
-* **Sondeo de mantenimiento personalizado:** Application Gateway, de forma predeterminada, usa sondeos basados en direcciones IP para determinar cuáles son los servidores de BackendAddressPool que están activos. El servicio API Management responde solo a las solicitudes con el encabezado de host correcto, por lo tanto, los sondeos predeterminados no podrán completarse. Es necesario definir el sondeo de mantenimiento personalizado para ayudar a la puerta de enlace de aplicaciones a determinar que el servicio está activo y debe reenviar las solicitudes.
-* **Certificados de dominio personalizados:** para acceder a API Management desde Internet, debe crear una asignación de CNAME del nombre de host al nombre DNS de front-end de Application Gateway. Esto garantiza que el encabezado de nombre de host y el certificado enviados a Application Gateway que se reenvían a API Management pueden ser reconocidos como válidos por APIM. En este ejemplo, usaremos dos certificados: uno para el back-end y otro para el portal para desarrolladores.  
+* **Grupo de servidores back-end:** se trata de la dirección IP virtual interna del servicio API Management.
+* **Configuración del grupo de servidores back-end:** cada grupo tiene una configuración como el puerto, el protocolo y la afinidad basada en las cookies. Estos valores se aplican a todos los servidores del grupo.
+* **Puerto de front-end:** es el puerto público que se abre en la puerta de enlace de aplicaciones. El tráfico que llega se redirige a uno de los servidores back-end.
+* **Agente de escucha:** tiene un puerto front-end, un protocolo (Http o Https, estos valores distinguen mayúsculas de minúsculas) y el nombre del certificado TLS/SSL (si se configura una descarga de TLS).
+* **Regla:** la regla enlaza un agente de escucha con un grupo de servidores back-end.
+* **Sondeo de estado personalizado:** de forma predeterminada, Application Gateway usa sondeos basados en direcciones IP para determinar cuáles son los servidores de BackendAddressPool que están activos. El servicio API Management responde solo a las solicitudes con el encabezado de host correcto, por lo tanto, los sondeos predeterminados no podrán completarse. Es necesario definir el sondeo de mantenimiento personalizado para ayudar a la puerta de enlace de aplicaciones a determinar que el servicio está activo y debe reenviar las solicitudes.
+* **Certificados de dominio personalizado:** para tener acceso a API Management desde Internet, debe crear una asignación de CNAME entre el nombre de host y el nombre DNS del front-end de Application Gateway. Esto garantiza que el encabezado de nombre de host y el certificado enviados a Application Gateway que se reenvían a API Management pueden ser reconocidos como válidos por APIM. En este ejemplo, usaremos dos certificados: uno para el back-end y otro para el portal para desarrolladores.  
 
 ## <a name="steps-required-for-integrating-api-management-and-application-gateway"></a><a name="overview-steps"></a> Pasos necesarios para integrar API Management y Application Gateway
 
@@ -271,7 +271,7 @@ $certPortal = New-AzApplicationGatewaySslCertificate -Name "cert02" -Certificate
 
 ### <a name="step-5"></a>Paso 5
 
-Cree los agentes de escucha HTTP para Application Gateway. Asígneles la configuración IP de front-end, el puerto y los certificados SSL que se usarán.
+Cree los agentes de escucha HTTP para Application Gateway. Asígneles la configuración IP de front-end, el puerto y los certificados TSL/SSL que se usarán.
 
 ```powershell
 $listener = New-AzApplicationGatewayHttpListener -Name "listener01" -Protocol "Https" -FrontendIPConfiguration $fipconfig01 -FrontendPort $fp01 -SslCertificate $cert -HostName $gatewayHostname -RequireServerNameIndication true
@@ -280,7 +280,7 @@ $portalListener = New-AzApplicationGatewayHttpListener -Name "listener02" -Proto
 
 ### <a name="step-6"></a>Paso 6
 
-Cree sondeos personalizados para el punto de conexión de dominio del proxy `ContosoApi` del servicio API Management. La ruta de acceso `/status-0123456789abcdef` es un punto de conexión de mantenimiento predeterminado hospedado en todos los servicios de API Management. Establezca `api.contoso.net` como un nombre de host de sondeo personalizado para protegerlo con el certificado SSL.
+Cree sondeos personalizados para el punto de conexión de dominio del proxy `ContosoApi` del servicio API Management. La ruta de acceso `/status-0123456789abcdef` es un punto de conexión de mantenimiento predeterminado hospedado en todos los servicios de API Management. Establezca `api.contoso.net` como un nombre de host de sondeo personalizado para protegerlo con el certificado TLS/SSL.
 
 > [!NOTE]
 > El nombre de host `contosoapi.azure-api.net` es el nombre de host de proxy predeterminado configurado cuando se crea un servicio denominado `contosoapi` en el ámbito público de Azure.
@@ -293,7 +293,7 @@ $apimPortalProbe = New-AzApplicationGatewayProbeConfig -Name "apimportalprobe" -
 
 ### <a name="step-7"></a>Paso 7
 
-Cargue el certificado que se usará en los recursos del grupo de back-end habilitado para SSL. Este es el mismo certificado que ha proporcionado en el paso 4 anterior.
+Cargue el certificado que se usará en los recursos del grupo de back-end habilitado para TLS/SSL. Este es el mismo certificado que ha proporcionado en el paso 4 anterior.
 
 ```powershell
 $authcert = New-AzApplicationGatewayAuthenticationCertificate -Name "whitelistcert1" -CertificateFile $gatewayCertCerPath

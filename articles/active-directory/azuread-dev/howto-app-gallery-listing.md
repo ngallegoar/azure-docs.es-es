@@ -4,7 +4,6 @@ description: Información sobre cómo mostrar una aplicación compatible con el 
 services: active-directory
 author: rwike77
 manager: CelesteDG
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: azuread-dev
 ms.topic: conceptual
@@ -12,13 +11,14 @@ ms.workload: identity
 ms.date: 12/06/2019
 ms.author: ryanwi
 ms.reviewer: jeedes
-ms.custom: aaddev, seoapril2019
-ms.openlocfilehash: 99c7d7fccf674fe8cda9d1f64cdf303f1e7764fd
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.custom: aaddev
+ROBOTS: NOINDEX
+ms.openlocfilehash: fbdae8b8506731f13ff08e877ea8eedb6d57fa78
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77163613"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80666940"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Aprenda a mostrar su aplicación en la galería de aplicaciones de Azure Active Directory
 
@@ -49,9 +49,9 @@ Puede obtener una cuenta de prueba gratuita con todas las características de Az
 
 ## <a name="submit-the-request-in-the-portal"></a>Envío de la solicitud en el portal
 
-Cuando haya comprobado que la integración de aplicaciones funciona con Azure AD, envíe la solicitud de acceso en el [portal de red de aplicaciones](https://microsoft.sharepoint.com/teams/apponboarding/Apps). Si tiene una cuenta de Office 365, utilícela para iniciar sesión en este portal. De lo contrario, utilice una cuenta Microsoft, como Outlook o Hotmail, para iniciar sesión.
+Cuando haya comprobado que la integración de aplicaciones funciona con Azure AD, envíe la solicitud de aplicación en el [portal de redes de aplicaciones de Microsoft](https://microsoft.sharepoint.com/teams/apponboarding/Apps).
 
-Si aparece la siguiente página después de iniciar sesión, póngase en contacto con el [equipo de integración de SSO de Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). Proporcione la cuenta de correo electrónico que desea usar para enviar la solicitud. A continuación, el equipo de Azure AD agregará la cuenta en el portal de redes de aplicaciones de Microsoft.
+Si aparece la siguiente página después de iniciar sesión, póngase en contacto con el [equipo de integración de SSO de Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). Proporcione la cuenta de correo electrónico que desea usar para enviar la solicitud. Se prefiere una dirección de correo electrónico empresarial, como [name@yourbusiness.com](mailto:name@yourbusiness.com). A continuación, el equipo de Azure AD agregará la cuenta en el portal de redes de aplicaciones de Microsoft.
 
 ![Mensaje de solicitud de acceso en el portal de SharePoint](./media/howto-app-gallery-listing/errorimage.png)
 

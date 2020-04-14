@@ -11,94 +11,26 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/28/2018
+ms.date: 04/07/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aed01ea11c1f53cb090d9c2e65ee23f521575649
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 052d99a819aee415d5e7ad6dc00b8c786af0f636
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60456924"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811108"
 ---
 # <a name="hybrid-identity-directory-integration-tools-comparison"></a>Identidades híbridas: comparación de las herramientas para la integración de directorios de identidades híbridas
-A lo largo de los años, las herramientas para la integración de directorios han crecido y evolucionado.  En este documento, se proporciona una vista consolidada de estas herramientas, además de una comparación de las características disponibles en cada una de ellas.
+A lo largo de los años, las herramientas para la integración de directorios han crecido y evolucionado.  
 
-<!-- The hardcoded link is a workaround for campaign ids not working in acom links-->
 
-> [!NOTE]
-> Azure AD Connect incorpora los componentes y la funcionalidad publicados previamente como Dirsync y Sincronización de AAD. Estas herramientas ya no se publican de manera individual, y todas las futuras mejoras se incluirán en actualizaciones de Azure AD Connect; así, siempre sabrá dónde obtener la funcionalidad más actualizada.
-> 
-> DirSync y Sincronización de Azure AD están en desuso. Puede encontrar más información [aquí](reference-connect-dirsync-deprecated.md).
-> 
-> 
+- Todavía se admiten [FIM](https://docs.microsoft.com/previous-versions/windows/desktop/forefront-2010/ff182370%28v%3dvs.100%29) y [MIM](https://docs.microsoft.com/microsoft-identity-manager/microsoft-identity-manager-2016), y permiten principalmente la sincronización entre sistemas locales.   El [conector FIM de Microsoft Azure AD](https://docs.microsoft.com/previous-versions/mim/dn511001(v=ws.10)?redirectedfrom=MSDN) es compatible con FIM y MIM, pero no se recomienda para las nuevas implementaciones, los clientes con orígenes locales, como Notes o SAP HCM, deben usar MIM para rellenar Active Directory Domain Services (AD DS) y, a continuación, usar también la sincronización de Azure AD Connect o el aprovisionamiento en la nube de Azure AD Connect para sincronizar desde AD DS a Azure AD.
+- La [sincronización de Azure AD Connect](how-to-connect-sync-whatis.md) incorpora los componentes y la funcionalidad que se publicaron previamente en DirSync y la sincronización de Azure AD, para sincronizar entre bosques de AD DS y Azure AD.  
+- El [aprovisionamiento en la nube de Azure AD Connect](../cloud-provisioning/what-is-cloud-provisioning.md) es un nuevo agente de Microsoft para sincronizar de AD DS a Azure AD, útil para los escenarios como la fusión y la adquisición en los que los bosques de AD de la empresa adquirida están aislados de los bosques de AD de la empresa principal.
 
-Utilice la clave siguiente para cada una de las tablas.
-
-●  = Ya disponible  
-FR = versión futura  
-PP = En versión preliminar pública  
-
-## <a name="on-premises-to-cloud-synchronization"></a>Sincronización de local a la nube
-| Característica | Azure Active Directory Connect | Servicios de sincronización de Azure Active Directory (Sincronización de AAD): YA NO SE ADMITE | Herramienta de sincronización de Azure Active Directory (DirSync): YA NO SE ADMITE | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
-|:--- |:---:|:---:|:---:|:---:|:---:|
-| Conexión a un bosque de AD local |● |● |● |● |● |
-| Conexión a varios bosques de AD locales |● |● | |● |● |
-| Conexión a varias organizaciones de Exchange locales |● | | | | |
-| Conexión a un directorio LDAP local |●* | | |● |● | 
-| Conexión a varios directorios LDAP locales |●*  | | |● |● | 
-| Conexión a directorios AD y LDAP locales |●* | | |● |● | 
-| Conexión a sistemas personalizados (es decir, SQL, Oracle, MySQL, etc.) |VF | | |● |● |
-| Sincronización de atributos definidos por el cliente (extensiones de directorio) |● | | | | |
-| Conexión a sistemas de recursos humanos locales (es decir, SAP, Oracle eBusiness, PeopleSoft) |VF | | |● |● |
-| Admite reglas de sincronización y conectores de FIM para el aprovisionamiento de sistemas locales. | | | |● |● |
-
- 
-&#42; Actualmente hay dos opciones admitidas para esto.  Son las siguientes: 
-
-   1. Puede usar el conector LDAP genérico y habilitarlo fuera de Azure AD Connect.  Es un proceso complejo y requiere un asociado para la incorporación y un acuerdo de soporte técnico Premier para su mantenimiento.  Esta opción puede controlar uno o varios directorios LDAP. 
-
-   2. Puede desarrollar su propia solución para mover objetos de LDAP a Active Directory.  Después, sincronice los objetos con Azure AD Connect.  MIM o FIM podrían utilizarse como una posible solución para mover los objetos. 
-
-## <a name="cloud-to-on-premises-synchronization"></a>Sincronización de la nube a local
-| Característica | Azure Active Directory Connect | Servicios de sincronización de Azure Active Directory: YA NO SE ADMITE  | Herramienta de sincronización de Azure Active Directory (DirSync): YA NO SE ADMITE  | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
-|:--- |:---:|:---:|:---:|:---:|:---:|
-| Escritura diferida de dispositivos |● | |● | | |
-| Escritura diferida de atributos (para la implementación híbrida de Exchange) |● |● |● |● |● |
-| Escritura diferida de objetos de grupos |● | | | | |
-| Escritura diferida de contraseñas (desde autoservicio de restablecimiento de contraseña [SSPR] y cambio de contraseña) |● |● | | | |
-
-## <a name="authentication-feature-support"></a>Compatibilidad con características de autenticación
-| Característica | Azure Active Directory Connect | Servicios de sincronización de Azure Active Directory: YA NO SE ADMITE  | Herramienta de sincronización de Azure Active Directory (DirSync): YA NO SE ADMITE  | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
-|:--- |:---:|:---:|:---:|:---:|:---:|
-| Sincronización de hash contraseñas para un bosque individual de AD local |●|●|● | | |
-| Sincronización de hash contraseñas para varios bosques de AD locales |●|● | | | |
-| Autenticación de paso a través para bosques de AD locales individuales |●| | | | |
-| Inicio de sesión único con federación |● |● |● |● |● |
-| Inicio de sesión único de conexión directa|● |||||
-| Escritura diferida de contraseñas (desde SSPR y cambio de contraseña) |● |● | | | |
-
-## <a name="set-up-and-installation"></a>Configuración e instalación
-| Característica | Azure Active Directory Connect | Servicios de sincronización de Azure Active Directory: YA NO SE ADMITE  | Herramienta de sincronización de Azure Active Directory (DirSync): YA NO SE ADMITE  | Microsoft Identity Manager 2016 (MIM) |
-|:--- |:---:|:---:|:---:|:---:|
-| Admite la instalación de un controlador de dominio |● |● |● | |
-| Admite la instalación con SQL Express |● |● |● | |
-| Actualización sencilla desde DirSync |● | | | |
-| Localización de la experiencia de usuario de administración a los idiomas de Windows Server |● |● |● | |
-| Localización de la experiencia de usuario de usuario final a los idiomas de Windows Server | | | |● |
-| Compatibilidad con Windows Server 2008 y Windows Server 2008 R2 |● para sincronización, no para federación |● |● |● |
-| Compatibilidad con Windows Server 2012 y Windows Server 2012 R2 |● |● |● |● |
-
-## <a name="filtering-and-configuration"></a>Filtrado y configuración
-| Característica | Azure Active Directory Connect | Servicios de sincronización de Azure Active Directory: YA NO SE ADMITE  | Herramienta de sincronización de Azure Active Directory (DirSync): YA NO SE ADMITE  | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
-|:--- |:---:|:---:|:---:|:---:|:---:|
-| Filtrar según dominios y unidades organizativas |● |● |● |● |● |
-| Filtrar según valores de atributo de los objetos |● |● |● |● |● |
-| Permitir sincronización de un conjunto mínimo de atributos (MinSync) |● |● | | | |
-| Permitir aplicar distintas plantillas de servicio para flujos de atributo |● |● | | | |
-| Permitir quitar atributos del flujo de AD a Azure AD |● |● | | | |
-| Permitir personalización avanzada para flujos de atributo |● |● | |● |● |
+Para más información sobre las diferencias entre la sincronización de Azure AD Connect y el aprovisionamiento en la nube de Azure AD, consulte el artículo [¿Qué es el aprovisionamiento en la nube de Azure AD Connect?](../cloud-provisioning/what-is-cloud-provisioning.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](whatis-hybrid-identity.md).

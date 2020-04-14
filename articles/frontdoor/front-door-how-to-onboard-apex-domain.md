@@ -7,12 +7,12 @@ ms.service: frontdoor
 ms.topic: article
 ms.date: 5/21/2019
 ms.author: sharadag
-ms.openlocfilehash: bb1042e15d4366923174996388eeb2fb99aef429
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4b74338f22a82d76ef13126ee0862b841bd89a99
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74184615"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878891"
 ---
 # <a name="onboard-a-root-or-apex-domain-on-your-front-door"></a>Incorporación de un dominio raíz o de vértice a una instancia de Front Door
 Azure Front Door usa registros CNAME a fin de validar la propiedad del dominio para la incorporación de dominios personalizados. Además, Front Door no expone la dirección IP de front-end asociada al perfil de Front Door, por lo que no podrá asignar su dominio de vértice a una dirección IP, si lo que pretende es incorporarlo a Azure Front Door.
@@ -26,7 +26,7 @@ Para asignar el dominio raíz o de vértice al perfil de Front Door, básicament
 > [!NOTE]
 > También hay otros proveedores de DNS que admiten la eliminación del formato de CNAME o la búsqueda de DNS, pero Azure Front Door recomienda a sus clientes el uso de Azure DNS para hospedar sus dominios.
 
-Puede usar Azure Portal para incorporar un dominio de vértice en Front Door y habilitar HTTPS si lo asocia con un certificado para la terminación SSL. Los dominios de vértice también se conocen como dominios raíz o "desnudos".
+Puede usar Azure Portal para incorporar un dominio de vértice en Front Door y habilitar HTTPS si lo asocia con un certificado para la terminación TSL. Los dominios de vértice también se conocen como dominios raíz o "desnudos".
 
 En este artículo aprenderá a:
 
@@ -65,7 +65,7 @@ En este artículo aprenderá a:
 2. En **Tipo de administración de certificados**, seleccione _Usar mi propio certificado_.
 
 > [!WARNING]
-> Actualmente no se admite el tipo de administración de certificados Front Door administrado para dominios raíz o de vértice. La única opción disponible para habilitar HTTPS en un dominio raíz o de vértice para Front Door consiste en usar su propio certificado SSL personalizado hospedado en Azure Key Vault.
+> Actualmente no se admite el tipo de administración de certificados Front Door administrado para dominios raíz o de vértice. La única opción disponible para habilitar HTTPS en un dominio raíz o de vértice para Front Door consiste en usar su propio certificado TLS/SSL personalizado hospedado en Azure Key Vault.
 
 3. Asegúrese de que ha configurado los permisos adecuados para que Front Door acceda a Key Vault, como se indica en la interfaz de usuario, antes de continuar con el paso siguiente.
 4. Elija una **cuenta de Key Vault** desde su suscripción actual y, luego, seleccione el **Secreto** y la **Versión del secreto** adecuados para asignar el certificado correcto.

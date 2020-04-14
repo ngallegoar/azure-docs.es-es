@@ -1,5 +1,5 @@
 ---
-title: Guía de planeamiento y operaciones de Security Center | Microsoft Docs
+title: Guía de planeamiento y operaciones de Security Center
 description: Este documento lo ayuda a planear antes de adoptar Azure Security Center y proporciona consideraciones sobre las operaciones diarias.
 services: security-center
 author: memildin
@@ -8,14 +8,14 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 63b947a27c3aa24b42252bf33febd031f7caefbf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f31c084be2fb017c0db521328e4ccdff9dd2aa25
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79236768"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80810474"
 ---
-# <a name="azure-security-center-planning-and-operations-guide"></a>Guía de planeamiento y operaciones de Azure Security Center
+# <a name="planning-and-operations-guide"></a>Guía de planeamiento y operaciones
 Esta guía está destinada a profesionales de tecnología de la información (TI), arquitectos de TI, analistas de seguridad de la información y administradores de la nube que planean usar Azure Security Center.
 
 
@@ -25,7 +25,7 @@ Esta guía abarca una serie de tareas que se pueden seguir para optimizar el uso
 * Roles de seguridad y controles de acceso
 * Directivas de seguridad y recomendaciones
 * Recopilación de datos y almacenamiento
-* Recursos que no son de Azure en curso
+* Incorporación de recursos que no son de Azure
 * Supervisión continuada de la seguridad
 * Respuesta a los incidentes
 
@@ -131,15 +131,15 @@ Security Center crea automáticamente una directiva de seguridad predeterminada 
 Antes de configurar las directivas de seguridad, revise cada una de las [recomendaciones de seguridad](https://docs.microsoft.com/azure/security-center/security-center-recommendations)y determine si son adecuadas para los diversos grupos de recursos y suscripciones. También es importante entender qué acción debe realizarse para abordar las recomendaciones de seguridad y qué persona de su organización será responsable de supervisar las nuevas recomendaciones y llevar a cabo los pasos necesarios.
 
 ## <a name="data-collection-and-storage"></a>Recopilación de datos y almacenamiento
-Azure Security Center usa Microsoft Monitoring Agent, que es el mismo agente que usa el servicio Azure Monitor, para recopilar datos de seguridad de las máquinas virtuales. Los [datos recopilados](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) por este agente se almacenan en las áreas de trabajo de Log Analytics.
+Azure Security Center usa el agente de Log Analytics, que es el mismo agente que usa el servicio Azure Monitor, para recopilar datos de seguridad de las máquinas virtuales. Los [datos recopilados](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) por este agente se almacenan en las áreas de trabajo de Log Analytics.
 
 ### <a name="agent"></a>Agente
 
-Cuando el aprovisionamiento automático está habilitado en la directiva de seguridad, Microsoft Monitoring Agent (para [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents) o [Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents)) se instala en todas las máquinas virtuales de Azure admitidas y en las nuevas que se hayan creado. Si la máquina virtual o el equipo ya tienen instalado Microsoft Monitoring Agent, Azure Security Center aprovechará al agente instalado actual. El proceso del agente está diseñado para que no sea invasivo y tenga un impacto mínimo sobre el rendimiento de la máquina virtual.
+Cuando el aprovisionamiento automático está habilitado en la directiva de seguridad, el agente de Log Analytics (para [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents) o [Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents)) se instala en todas las máquinas virtuales de Azure admitidas y en las nuevas que se creen. Si la máquina virtual o el equipo ya tienen instalado el agente de Log Analytics, Azure Security Center aprovechará el agente instalado actual. El proceso del agente está diseñado para que no sea invasivo y tenga un impacto mínimo sobre el rendimiento de la máquina virtual.
 
-Microsoft Monitoring Agent para Windows requiere el uso del puerto TCP 443. Para más información, consulte el [artículo de solución de problemas](security-center-troubleshooting-guide.md).
+El agente de Log Analytics para Windows requiere el uso del puerto TCP 443. Para más información, consulte el [artículo de solución de problemas](security-center-troubleshooting-guide.md).
 
-Si en algún momento desea deshabilitar la recopilación de datos, puede desactivarla en la directiva de seguridad. Sin embargo, como Microsoft Monitoring Agent se puede usar en otros servicios de administración y supervisión de Azure, el agente no se desinstalará automáticamente cuando desactive la recopilación de datos en Security Center. En caso necesario, puede desinstalar el agente manualmente.
+Si en algún momento desea deshabilitar la recopilación de datos, puede desactivarla en la directiva de seguridad. Sin embargo, como el agente de Log Analytics se puede usar en otros servicios de administración y supervisión de Azure, el agente no se desinstalará automáticamente cuando desactive la recopilación de datos en Security Center. En caso necesario, puede desinstalar el agente manualmente.
 
 > [!NOTE]
 > Para encontrar una lista de máquinas virtuales admitidas, lea las [preguntas frecuentes sobre Azure Security Center](faq-vms.md).
@@ -148,7 +148,7 @@ Si en algún momento desea deshabilitar la recopilación de datos, puede desacti
 
 Un área de trabajo es un recurso de Azure que actúa como contenedor de los datos. Tanto usted como otros miembros de la organización pueden usar varias áreas de trabajo para administrar diferentes conjuntos de datos, recopilados a partir de toda la infraestructura de TI o de algunos de sus componentes.
 
-Los datos recopilados por Microsoft Monitoring Agent (en nombre de Azure Security Center) se almacenarán en las áreas de trabajo de Log Analytics existentes asociadas con la suscripción de Azure o en unas nuevas áreas de trabajo, según la región geográfica de la máquina virtual.
+Los datos recopilados por el agente de Log Analytics (en nombre de Azure Security Center) se almacenarán en las áreas de trabajo de Log Analytics existentes asociadas con la suscripción de Azure o en unas nuevas áreas de trabajo, según la región geográfica de la máquina virtual.
 
 En el portal de Azure, puede realizar una exploración para ver una lista de las áreas de trabajo de Log Analytics, incluidas las creadas por Azure Security Center. Se creará un grupo de recursos relacionado para las nuevas áreas de trabajo. Ambas siguen esta convención de nomenclatura:
 
@@ -181,7 +181,7 @@ Después de que procese todas las recomendaciones, la sección **Prevención** d
 
 La sección **Detección** es más reactiva, ya que se trata de alertas sobre los problemas que están ocurriendo en ese momento o que ocurrieron en el pasado y se detectaron en los controles de Security Center y sistemas de terceros. El icono Alertas de seguridad mostrará gráficos de barras que representan el número de alertas encontradas cada día y su distribución entre las diversas categorías de gravedad (baja, media, alta). Para más información sobre Alertas de seguridad, lea [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md).
 
-Planee la visita a la opción de [inteligencia sobre amenazas](https://docs.microsoft.com/azure/security-center/security-center-threat-intel) como parte de las operaciones de seguridad diarias. Ahí puede identificar las amenazas de seguridad en el entorno, como determinar si un determinado equipo es parte de una red de robots (botnet).
+Planee la visita a la opción de inteligencia sobre amenazas como parte de las operaciones de seguridad diarias. Ahí puede identificar las amenazas de seguridad en el entorno, como determinar si un determinado equipo es parte de una red de robots (botnet).
 
 ### <a name="monitoring-for-new-or-changed-resources"></a>Supervisión de recursos nuevos o modificados
 La mayoría de los entornos de Azure son dinámicos; en ellos se crean recursos, se activan o desactivan, se reconfiguran y se cambian. Security Center ayuda a garantizar la visibilidad del estado de seguridad de estos nuevos recursos.
@@ -200,7 +200,7 @@ También debería supervisar periódicamente los recursos existentes en busca de
 ![Operaciones](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig4-newUI.png)
 
 1. En el panel de la sección **Prevención** se proporciona acceso rápido a los recursos principales. Use esta opción para supervisar los recursos Compute, Redes, Almacenamiento y datos y Aplicación.
-2. El panel **Recomendaciones** permite revisar las recomendaciones de Security Center. Durante la supervisión continuada, es posible que no vea recomendaciones todos los días, lo cual es normal ya que todas las recomendaciones se abordaron durante la configuración inicial de Security Center. Por este motivo, es posible que no aparezca en esta sección información nueva todos los días y solo tenga que acceder a ella cuando sea necesario.
+2. El panel **Recomendaciones** permite revisar las recomendaciones de Security Center. Durante la supervisión continuada, es posible que no vea recomendaciones todos los días, lo cual es normal, ya que todas las recomendaciones se abordaron durante la configuración inicial de Security Center. Por este motivo, es posible que no aparezca en esta sección información nueva todos los días y solo tenga que acceder a ella cuando sea necesario.
 3. La sección **Detección** podría cambiar con mucha frecuencia o con muy poca. Revise siempre las alertas de seguridad y tome medidas basadas en las recomendaciones de Security Center.
 
 ### <a name="hardening-access-and-applications"></a>Protección de acceso y aplicaciones
@@ -235,7 +235,7 @@ En el ejemplo siguiente se muestra una actividad sospechosa de RDP:
 
 En esta página se muestran los detalles relacionados con la hora en que ocurrió el ataque, el nombre del host de origen, la máquina virtual de destino y también pasos recomendados. En algunas circunstancias, la información de origen del ataque puede estar vacía. Consulte [Missing Source Information in Azure Security Center Alerts](https://blogs.msdn.microsoft.com/azuresecurity/2016/03/25/missing-source-information-in-azure-security-center-alerts/) (Falta de información de origen en las alertas de Azure Security Center) para más información acerca de este tipo de comportamiento.
 
-Desde esta página, también puede iniciar una [investigación](https://docs.microsoft.com/azure/security-center/security-center-investigation) para entender mejor la escala de tiempo del ataque, cómo se produjo, qué sistemas se vieron potencialmente comprometidos o qué credenciales se usaron. Asimismo, puede ver una representación gráfica de toda la cadena de ataques.
+Desde esta página, también puede iniciar una investigación para entender mejor la escala de tiempo del ataque, cómo se produjo, qué sistemas se vieron potencialmente comprometidos o qué credenciales se usaron. Asimismo, puede ver una representación gráfica de toda la cadena de ataques.
 
 Una vez identificado el sistema en peligro, puede ejecutar una [automatización de flujos de trabajo](workflow-automation.md) creada anteriormente. Se trata de una colección de procedimientos que se pueden ejecutar desde Security Center una vez que se desencadene mediante una alerta.
 

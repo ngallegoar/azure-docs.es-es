@@ -1,17 +1,17 @@
 ---
 title: Ejecución de un trabajo de Apache Spark con Azure Kubernetes Service (AKS)
-description: Uso de Azure Kubernetes Service (AKS) para ejecutar un trabajo de Apache Spark
+description: Use Azure Kubernetes Service (AKS) para crear y ejecutar un trabajo de Apache Spark para el procesamiento de datos a gran escala.
 author: lenadroid
 ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: alehall
 ms.custom: mvc
-ms.openlocfilehash: 4b3248cb9ab61a158f70b5a2d6ae9dd846501816
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2e399c1a7b0f9bbc2aac375fe8af969a2b9e0e48
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79473632"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80877634"
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>Ejecución de trabajos de Apache Spark en AKS
 

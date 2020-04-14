@@ -3,18 +3,18 @@ title: Características de seguridad para proteger cargas de trabajo en la nube
 description: Aprenda a usar las características de seguridad de Azure Backup para que las copias de seguridad sean más seguras.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 20cf322dec0827c00b15a62bf4f7695fc4ed0992
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: bd7c86e18114513a264a0f9252589533fb7ff2d3
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705503"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668737"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Características de seguridad para proteger cargas de trabajo en la nube mediante Azure Backup
 
 Cada vez es mayor la preocupación que generan problemas de seguridad como malware, ransomware e intrusión. Estos problemas de seguridad pueden ser costosos, en términos de dinero y datos. Para protegerse contra dichos ataques, Azure Backup proporciona características de seguridad que protegen los datos de las copias de seguridad incluso después de su eliminación.
 
-Una de estas características es la eliminación temporal. Con la eliminación temporal, aunque un individuo malintencionado elimine la copia de seguridad de una máquina virtual (o se eliminen por accidente datos de copia de seguridad), los datos de copia de seguridad se conservan durante 14 días adicionales, lo que permite la recuperación de ese elemento de copia de seguridad sin pérdida de datos. Esta retención adicional de 14 días de los datos de copia de seguridad en el estado "eliminación temporal" no acarrea costo alguno para el cliente. Azure cifra también todos los datos en reposo con copia de seguridad mediante [Storage Service Encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) para proteger aún más los datos.
+Una de estas características es la eliminación temporal. Con la eliminación temporal, aunque un individuo malintencionado elimine la copia de seguridad de una máquina virtual (o se eliminen por accidente datos de copia de seguridad), los datos de copia de seguridad se conservan durante 14 días adicionales, lo que permite la recuperación de ese elemento de copia de seguridad sin pérdida de datos. Esta retención adicional de 14 días de los datos de copia de seguridad en el estado "eliminación temporal" no acarrea ningún costo para el cliente. Azure cifra también todos los datos en reposo con copia de seguridad mediante [Storage Service Encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) para proteger aún más los datos.
 
 La protección de eliminación temporal para máquinas virtuales de Azure está disponible con carácter general.
 
@@ -34,7 +34,7 @@ La eliminación temporal de máquinas virtuales protege las copias de seguridad 
 
 ### <a name="supported-regions"></a>Regiones admitidas
 
-La eliminación temporal se admite actualmente en Centro-oeste de EE. UU., Asia Oriental, Centro de Canadá, Este de Canadá, Centro de Francia, Sur de Francia, Centro de Corea del Sur, Sur de Corea del Sur, Sur de Reino Unido, Oeste de Reino Unido, Este de Australia, Sudeste de Australia, Norte de Europa, Oeste de EE. UU., Oeste de EE. UU. 2, Centro de EE. UU., Sudeste Asiático, Centro-norte de EE. UU., Centro-sur de EE. UU., Japón Oriental, Japón Occidental, Sur de India, Centro de la India, India occidental, Este de EE. UU. 2, Norte de Suiza, Oeste de Suiza y todas las regiones nacionales.
+La eliminación temporal se admite actualmente en Centro-oeste de EE. UU., Este de Asia, Centro de Canadá, Este de Canadá, Centro de Francia, Sur de Francia, Centro de Corea del Sur, Sur de Corea del Sur, Sur de Reino Unido, Oeste de Reino Unido, Este de Australia, Sudeste de Australia, Norte de Europa, Oeste de EE. UU., Oeste de EE. UU. 2, Centro de EE. UU., Sudeste de Asia, Centro-norte de EE. UU., Centro-sur de EE. UU., Este de Japón, Oeste de Japón, Sur de India, Centro de la India, Oeste de la India, Este de EE. UU. 2, Norte de Suiza, Oeste de Suiza, Oeste de Noruega, Este de Noruega y todas las regiones nacionales.
 
 ### <a name="soft-delete-for-vms-using-azure-portal"></a>Eliminación temporal para máquinas virtuales con Azure Portal
 
@@ -42,11 +42,11 @@ La eliminación temporal se admite actualmente en Centro-oeste de EE. UU., Asia
 
    ![Captura de pantalla de elementos de copia de seguridad de Azure Portal](./media/backup-azure-security-feature-cloud/backup-stopped.png)
 
-2. En la ventana siguiente, se le ofrecerá la opción de eliminar o conservar los datos de copia de seguridad. Si elige **Eliminar datos de copia de seguridad** y, a continuación, **Detener copia de seguridad**, la copia de seguridad de la máquina virtual no se eliminará de forma permanente. En su lugar, los datos de copia de seguridad se conservarán durante 14 días en el estado de eliminación temporal. Si selecciona **Eliminar datos de copia de seguridad**, se enviará una alerta de eliminación por correo electrónico al identificador de correo electrónico configurado que informa al usuario de que quedan 14 días de retención ampliada para los datos de copia de seguridad. Además, a los doce días se envía una alerta por correo electrónico para informar de que quedan otros dos días para recuperar los datos eliminados. La eliminación se aplaza hasta el decimoquinto día, cuando se produce la eliminación permanente y se envía una alerta final por correo electrónico que informa de la eliminación permanente de los datos.
+2. En la ventana siguiente, se le ofrecerá la opción de eliminar o conservar los datos de copia de seguridad. Si elige la opción **Eliminar datos de copia de seguridad** y, a continuación, **Detener copia de seguridad**, la copia de seguridad de la máquina virtual no se eliminará de forma permanente. En su lugar, los datos de copia de seguridad se conservarán durante 14 días en el estado de eliminación temporal. Si selecciona **Eliminar datos de copia de seguridad**, se enviará una alerta de eliminación por correo electrónico al identificador de correo electrónico configurado que informa al usuario de que quedan 14 días de retención ampliada para los datos de copia de seguridad. Además, a los doce días se envía una alerta por correo electrónico para informar de que quedan otros dos días para recuperar los datos eliminados. La eliminación se aplaza hasta el decimoquinto día, cuando se produce la eliminación permanente y se envía una alerta final por correo electrónico que informa de la eliminación permanente de los datos.
 
    ![Captura de pantalla de Azure Portal, pantalla Detener copia de seguridad](./media/backup-azure-security-feature-cloud/delete-backup-data.png)
 
-3. Durante esos 14 días, en el almacén de Recovery Services, la máquina virtual eliminada temporalmente aparecerá con un icono rojo de "eliminación temporal" junto a ella.
+3. Durante esos 14 días, en el almacén de Recovery Services, la máquina virtual eliminada temporalmente aparecerá con un icono rojo de "eliminación temporal" junto a ella.
 
    ![Captura de pantalla de Azure Portal, máquina virtual en estado de eliminación temporal](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
 
@@ -68,7 +68,7 @@ La eliminación temporal se admite actualmente en Centro-oeste de EE. UU., Asia
    > [!NOTE]
    > El recolector de elementos no utilizados ejecutará y limpiará los puntos de recuperación expirados solo después de que el usuario realice la operación de **reanudar copia de seguridad**.
 
-5. Una vez completado el proceso de recuperación, el estado volverá a "Detener copia de seguridad con retención de datos" y, a continuación, podrá seleccionar **Reanudar copia de seguridad**. La operación **Reanudar copia de seguridad** devuelve el elemento de copia de seguridad al estado activo, asociado a una directiva de copia de seguridad seleccionada por el usuario que define las programaciones de copia de seguridad y retención.
+5. Una vez completado el proceso de recuperación, el estado volverá a "Detener copia de seguridad con conservación de datos" y, a continuación, podrá seleccionar **Reanudar copia de seguridad**. La operación **Reanudar copia de seguridad** devuelve el elemento de copia de seguridad al estado activo, asociado a una directiva de copia de seguridad seleccionada por el usuario que define las programaciones de copia de seguridad y retención.
 
    ![Captura de pantalla de Azure Portal, opción Reanudar copia de seguridad](./media/backup-azure-security-feature-cloud/resume-backup.png)
 
@@ -83,7 +83,7 @@ Para más información, consulte la sección [Preguntas frecuentes](backup-azure
 > [!IMPORTANT]
 > La versión de Az.RecoveryServices necesaria para usar la eliminación temporal con Azure PS es, como mínimo, la 2.2.0. Use ```Install-Module -Name Az.RecoveryServices -Force``` para obtener la versión más reciente.
 
-Tal y como se ha descrito anteriormente para Azure Portal, la secuencia de pasos es la misma cuando se usa Azure PowerShell.
+Tal y como se ha descrito anteriormente para Azure Portal, la secuencia de pasos es la misma cuando también se usa Azure PowerShell.
 
 #### <a name="delete-the-backup-item-using-azure-powershell"></a>Eliminación del elemento de copia de seguridad con Azure PowerShell
 
@@ -99,7 +99,7 @@ AppVM1           DeleteBackupData     Completed            12/5/2019 12:44:15 PM
 
 El elemento "DeleteState" del elemento de copia de seguridad cambiará de "NotDeleted" a "ToBeDeleted". Los datos de la copia de seguridad se conservarán durante 14 días. Si desea revertir la operación de eliminación, se debe realizar la operación undo-delete.
 
-#### <a name="undoing-the-deletion-operation-using-azure-powershell"></a>Deshacer la operación de eliminación mediante Azure PowerShell
+#### <a name="undoing-the-deletion-operation-using-azure-powershell"></a>Acción de deshacer la operación de eliminación mediante Azure PowerShell
 
 En primer lugar, capture el elemento de copia de seguridad pertinente que se encuentra en estado de eliminación temporal (es decir, que se va a eliminar).
 
@@ -124,7 +124,7 @@ WorkloadName     Operation            Status               StartTime            
 AppVM1           Undelete             Completed            12/5/2019 12:47:28 PM     12/5/2019 12:47:40 PM     65311982-3755-46b5-8e53-c82ea4f0d2a2
 ```
 
-El elemento "DeleteState" del elemento de copia de seguridad se revertirá a "NotDeleted". Pero la protección sigue detenida. Debe [reanudar la copia de seguridad](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#change-policy-for-backup-items) para volver a habilitar la protección.
+El elemento "DeleteState" del elemento de copia de seguridad se revertirá a "NotDeleted". Pero la protección sigue detenida. [Reanude la copia de seguridad](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#change-policy-for-backup-items) para volver a habilitar la protección.
 
 ### <a name="soft-delete-for-vms-using-rest-api"></a>Eliminación temporal para máquinas virtuales con API REST
 
@@ -133,7 +133,7 @@ El elemento "DeleteState" del elemento de copia de seguridad se revertirá a "No
 
 ## <a name="disabling-soft-delete"></a>Deshabilitación de la eliminación temporal
 
-La eliminación temporal se habilita de forma predeterminada en los almacenes recién creados para proteger los datos de copia de seguridad de eliminaciones accidentales o malintencionadas.  No se recomienda deshabilitar esta característica. La única circunstancia en la que debe considerar la posibilidad de deshabilitar la eliminación temporal es si está planeando mover los elementos protegidos a un nuevo almacén y no puede esperar los 14 días necesarios para eliminar y volver a proteger (por ejemplo, en un entorno de prueba). Solo un administrador de Backup puede deshabilitar esta característica. Si se deshabilita esta característica, todas las eliminaciones de elementos protegidos se convertirán en eliminaciones inmediatas, sin la posibilidad de restaurar. Los datos de copia de seguridad con el estado de eliminación temporal antes de deshabilitar esta característica continuarán en ese estado. Si quiere eliminarlos permanentemente de inmediato, debe recuperarlos y eliminarlos de nuevo para eliminarlos de forma permanente.
+La eliminación temporal se habilita de forma predeterminada en los almacenes recién creados para proteger los datos de copia de seguridad de eliminaciones accidentales o malintencionadas.  No se recomienda deshabilitar esta característica. La única circunstancia en la que debe considerar la posibilidad de deshabilitar la eliminación temporal es si está planeando mover los elementos protegidos a un nuevo almacén y no puede esperar los 14 días necesarios para realizar la acción de eliminar y volver a proteger (por ejemplo, en un entorno de prueba). Solo el propietario del almacén puede deshabilitar esta característica. Si se deshabilita, todas las eliminaciones posteriores de elementos protegidos se convertirán en eliminaciones inmediatas, sin la posibilidad de restaurar. Los datos de copia de seguridad que se encuentren en estado de eliminación temporal antes de deshabilitar esta característica permanecerán en ese estado durante el período de 14 días. Si quiere eliminarlos permanentemente de inmediato, debe recuperarlos y eliminarlos de nuevo para eliminarlos de forma permanente.
 
 ### <a name="disabling-soft-delete-using-azure-portal"></a>Deshabilitación de la eliminación temporal con Azure Portal
 
@@ -178,28 +178,27 @@ Siga estos pasos:
 1. Siga los pasos para [deshabilitar la eliminación temporal](#disabling-soft-delete).
 2. En Azure Portal, vaya al almacén, a **Elementos de copia de seguridad** y elija la máquina virtual eliminada temporalmente.
 
-![Selección de una máquina virtual eliminada temporalmente](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
+   ![Selección de una máquina virtual eliminada temporalmente](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
 
 3. Seleccione la opción **Recuperar**.
 
-![Elegir Recuperar](./media/backup-azure-security-feature-cloud/choose-undelete.png)
-
+   ![Elegir Recuperar](./media/backup-azure-security-feature-cloud/choose-undelete.png)
 
 4. Se mostrará una ventana. Seleccione **Recuperar**.
 
-![Seleccionar Recuperar](./media/backup-azure-security-feature-cloud/undelete-vm.png)
+   ![Seleccionar Recuperar](./media/backup-azure-security-feature-cloud/undelete-vm.png)
 
 5. Elija **Eliminar datos de la copia de seguridad** para eliminar los datos de copia de seguridad de forma permanente.
 
-![Elegir Eliminar datos de la copia de seguridad](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-buttom.png)
+   ![Elegir Eliminar datos de la copia de seguridad](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-buttom.png)
 
 6. Escriba el nombre del elemento de copia de seguridad para confirmar que desea eliminar los puntos de recuperación.
 
-![Escritura del nombre del elemento de copia de seguridad](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-data1.png)
+   ![Escritura del nombre del elemento de copia de seguridad](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-data1.png)
 
 7. Para eliminar los datos de copia de seguridad para el elemento, seleccione **Eliminar**. Un mensaje de notificación le confirma que se han eliminado los datos de copia de seguridad.
 
-### <a name="using-azure-powershell"></a>Con Azure Powershell
+### <a name="using-azure-powershell"></a>Uso de Azure PowerShell
 
 Si los elementos se eliminaron antes de que se deshabilitara la eliminación temporal, se encontrarán en un estado de eliminación temporal. Para eliminarlos de inmediato, la operación de eliminación debe invertirse y volver a ejecutarse.
 
@@ -246,28 +245,34 @@ Si los elementos se eliminaron antes de que se deshabilitara la eliminación tem
 
 ## <a name="encryption"></a>Cifrado
 
-### <a name="encryption-of-backup-data-using-microsoft-managed-keys"></a>Cifrado de datos de copia de seguridad mediante claves administradas de Microsoft
+Todos los datos de copia de seguridad se cifran automáticamente cuando se almacenan en la nube mediante el cifrado de Azure Storage, lo que le ayuda a cumplir los compromisos de seguridad y cumplimiento. Los datos en reposo se cifran mediante el cifrado AES de 256 bits, uno de los cifrados de bloques más seguros que hay disponibles y que es compatible con FIPS 140-2.
 
-Los datos de copia de seguridad se cifran automáticamente con cifrado de Azure Storage. Mediante el cifrado, se protegen los datos y es más fácil cumplir los compromisos de cumplimiento y seguridad de la organización. Los datos se cifran y descifran de forma transparente con cifrado AES de 256 bits, uno de los cifrados de bloques más sólidos que hay disponibles, que es compatible con FIPS 140-2. El cifrado de Azure Storage es similar al cifrado de BitLocker en Windows.
-
-Dentro de Azure, los datos en tránsito entre Azure Storage y el almacén se protegen mediante HTTPS. Estos datos permanecen en la red troncal de Azure.
+Además del cifrado en reposo, todos los datos de copia de seguridad en tránsito se transfieren a través de HTTPS y permanecen siempre en la red troncal de Azure.
 
 Para más información, consulte [Cifrado de Azure Storage para datos en reposo](https://docs.microsoft.com/azure/storage/common/storage-service-encryption). Consulte las [preguntas más frecuentes sobre Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-backup-faq#encryption) para obtener respuesta a las dudas que pueda tener sobre el cifrado.
 
+### <a name="encryption-of-backup-data-using-platform-managed-keys"></a>Cifrado de datos de copia de seguridad mediante claves administradas por la plataforma
+
+De forma predeterminada, todos los datos se cifran mediante claves administradas por la plataforma. No es necesario que realice ninguna acción explícita por su parte para habilitar este cifrado y se aplica a todas las cargas de trabajo de las que se realiza una copia de seguridad en el almacén de Recovery Services.
+
 ### <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Cifrado de datos de copia de seguridad mediante claves administradas por el cliente
 
-Mientras realiza una copia de seguridad de Azure Virtual Machines, también tiene la opción de cifrar los datos de copia de seguridad en el almacén de Recovery Services con las claves de cifrado almacenadas en la instancia de Azure Key Vault.
+Al realizar una copia de seguridad de Azure Virtual Machines, ahora puede cifrar los datos mediante las claves que posee y administra. Azure Backup le permite usar las claves RSA almacenadas en Azure Key Vault para cifrar las copias de seguridad. La clave de cifrado utilizada para cifrar las copias de seguridad puede ser diferente de la que se usa para el origen. Los datos se protegen mediante una clave de cifrado de datos (DEK) basada en AES 256, que, a su vez, está protegida con las claves del usuario. Esto le proporciona un control total sobre los datos y las claves. Para permitir el cifrado, se requiere que el almacén de Recovery Services tenga acceso a la clave de cifrado en Azure Key Vault. Puede deshabilitar la clave o revocar el acceso siempre que sea necesario. Sin embargo, debe habilitar el cifrado con las claves antes de intentar proteger los elementos en el almacén.
 
 >[!NOTE]
->Esta característica no está disponible actualmente. Rellene [esta encuesta](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapURE9TTDRIUEUyNFhNT1lZS1BNVDdZVllHWi4u) si quiere cifrar los datos de copia de seguridad mediante claves administradas por el cliente. Tenga en cuenta que la posibilidad de utilizar esta característica está sujeta a la aprobación del servicio Azure Backup.
+>Actualmente, esta característica se encuentra en versión preliminar limitada. Rellene [esta encuesta](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapURE9TTDRIUEUyNFhNT1lZS1BNVDdZVllHWi4u) y envíenos un correo electrónico a AskAzureBackupTeam@microsoft.com si quiere cifrar los datos de copia de seguridad mediante claves administradas por el cliente. Tenga en cuenta que la posibilidad de utilizar esta característica está sujeta a la aprobación del servicio Azure Backup.
 
-### <a name="backup-of-managed-disk-vm-encrypted-using-customer-managed-keys"></a>Copia de seguridad de la máquina virtual de disco administrado cifrada con claves administradas por el cliente
+### <a name="backup-of-managed-disk-vms-encrypted-using-customer-managed-keys"></a>Copia de seguridad de las máquinas virtuales de disco administrado cifradas con claves administradas por el cliente
 
-Azure Backup le permite realizar una copia de seguridad de Azure Virtual Machines que contiene discos cifrados con claves administradas por el cliente. Para obtener más información, consulte el artículo sobre [cifrado de discos administrados con claves administradas por el cliente](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys).
+Azure Backup también le permite realizar copias de seguridad de las máquinas virtuales de Azure que usan la clave para el cifrado del lado servidor. La clave que se usa para cifrar los discos se almacena en Azure Key Vault y la administra el usuario. El cifrado del lado servidor mediante claves administradas por el cliente difiere de Azure Disk Encryption, ya que ADE aprovecha BitLocker (para Windows) y DM-Crypt (para Linux) a fin de realizar el cifrado en invitado, y SSE cifra los datos en el servicio de almacenamiento, lo que permite usar cualquier sistema operativo o imagen para las máquinas virtuales. Para obtener más información, consulte el artículo sobre [cifrado de discos administrados con claves administradas por el cliente](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys).
 
-### <a name="backup-of-encrypted-vms"></a>Copia de seguridad de máquinas virtuales cifradas
+### <a name="backup-of-vms-encrypted-using-ade"></a>Copia de seguridad de máquinas virtuales cifradas mediante ADE
 
-Puede realizar una copia de seguridad de máquinas virtuales Windows o Linux de Azure con discos cifrados y restaurarlas mediante el servicio Azure Backup. Para obtener instrucciones, consulte [Copia de seguridad y restauración de máquinas virtuales cifradas con Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).
+Con Azure Backup, también puede hacer una copia de seguridad de las máquinas virtuales de Azure que tienen el sistema operativo o los discos de datos cifrados mediante Azure Disk Encryption. ADE usa BitLocker para las VM Windows y DM-Crypt para las VM Linux a fin de realizar el cifrado de invitado. Para obtener instrucciones, consulte [Copia de seguridad y restauración de máquinas virtuales cifradas con Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).
+
+## <a name="private-endpoints"></a>Puntos de conexión privados
+
+[!INCLUDE [Private Endpoints](../../includes/backup-private-endpoints.md)]
 
 ## <a name="other-security-features"></a>Otras características de seguridad
 
@@ -303,15 +308,15 @@ Sí.
 
 #### <a name="how-can-i-trigger-the-scheduled-backups-again-for-a-soft-deleted-resource"></a>¿Cómo puedo volver a desencadenar las copias de seguridad programadas para un recurso eliminado temporalmente?
 
-La recuperación seguida de la operación de reanudación volverá a proteger el recurso. La operación de reanudación asocia una directiva de copia de seguridad para desencadenar las copias de seguridad programadas con el período de retención seleccionado. Además, el recolector de elementos no utilizados se ejecuta tan pronto como se completa la operación de reanudación. Si desea realizar una restauración desde un punto de recuperación que supere su fecha de expiración, se recomienda hacerlo antes de desencadenar la operación de reanudación.
+La recuperación seguida de la operación de reanudación volverá a proteger el recurso. La operación de reanudación asocia una directiva de copia de seguridad para desencadenar las copias de seguridad programadas con el período de retención seleccionado. Además, el recolector de elementos no utilizados se ejecuta tan pronto como se completa la operación de reanudación. Si quiere realizar una restauración desde un punto de recuperación que supere su fecha de expiración, le recomendamos que lo haga antes de desencadenar la operación de reanudación.
 
 #### <a name="can-i-delete-my-vault-if-there-are-soft-deleted-items-in-the-vault"></a>¿Puedo eliminar mi almacén si contiene elementos eliminados temporalmente?
 
-No es posible eliminar el almacén de Recovery Services si contiene elementos de copia de seguridad en estado de eliminación temporal. Los elementos eliminados temporalmente se eliminan de forma permanente 14 días después de la operación de eliminación. Si no puede esperar 14 días, [deshabilite la eliminación temporal](#disabling-soft-delete), recupere los elementos eliminados temporalmente y elimínelos de nuevo para eliminarlos de forma permanente. Después de asegurarse de que no hay elementos protegidos o eliminados temporalmente en el almacén, puede eliminarlo.  
+No es posible eliminar el almacén de Recovery Services si contiene elementos de copia de seguridad en estado de eliminación temporal. Los elementos eliminados temporalmente se eliminan de forma permanente 14 días después de la operación de eliminación. Si no puede esperar 14 días, [deshabilite la eliminación temporal](#disabling-soft-delete), recupere los elementos eliminados temporalmente y elimínelos de nuevo para eliminarlos de forma permanente. Después de asegurarse de que no hay elementos protegidos o eliminados temporalmente en el almacén, puede eliminarlo.  
 
 #### <a name="can-i-delete-the-data-earlier-than-the-14-days-soft-delete-period-after-deletion"></a>¿Puedo eliminar los datos antes del período de eliminación temporal de 14 días posterior a la eliminación?
 
-No. No se puede forzar la eliminación de los elementos eliminados temporalmente; se eliminan automáticamente al cabo de 14 días. Esta característica de seguridad está habilitada para proteger los datos de copia de seguridad de eliminaciones accidentales o malintencionadas.  Debe esperar 14 días antes de realizar cualquier otra acción en la máquina virtual.  Los elementos eliminados temporalmente no se cobrarán.  Si tiene que volver a proteger las máquinas virtuales marcadas para eliminación temporal en un plazo de 14 días en un nuevo almacén, póngase en contacto con Soporte técnico de Microsoft.
+No. No se puede forzar la eliminación de los elementos eliminados temporalmente. Estos se eliminan automáticamente al cabo de 14 días. Esta característica de seguridad está habilitada para proteger los datos de copia de seguridad de eliminaciones accidentales o malintencionadas.  Debe esperar 14 días antes de realizar cualquier otra acción en la máquina virtual.  Los elementos eliminados temporalmente no se cobrarán.  Si tiene que volver a proteger las máquinas virtuales marcadas para eliminación temporal en un plazo de 14 días en un nuevo almacén, póngase en contacto con Soporte técnico de Microsoft.
 
 #### <a name="can-soft-delete-operations-be-performed-in-powershell-or-cli"></a>¿Se pueden realizar operaciones de eliminación temporal en PowerShell o la CLI?
 

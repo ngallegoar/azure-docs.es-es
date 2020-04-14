@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: yurid
-ms.openlocfilehash: 4603240a76ec72223b88853c63ed11152707201c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9d74ea2b967112a794cda204cbbfcac707e1d7c4
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76281298"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879469"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Mapa de ruta de preparación para Azure Security Center
 Este documento le proporciona un mapa de ruta de preparación que le ayudará a empezar a trabajar con Azure Security Center.
@@ -37,16 +37,14 @@ Vídeos
 * [Introducción a las funcionalidades de prevención, detección y respuesta de Security Center](https://azure.microsoft.com/resources/videos/azurecon-2015-new-azure-security-center-helps-you-prevent-detect-and-respond-to-threats/)
 
 ## <a name="planning-and-operations"></a>Planeamiento y operaciones
+
 Para sacar el máximo partido a Security Center, es importante comprender cómo distintas personas o equipos de su organización usarán el servicio para satisfacer las necesidades relativas a las operaciones seguras, la supervisión, la gobernanza y la respuesta a incidentes.
 
 Use los siguientes recursos como ayuda durante los procesos de planeamiento y de operaciones.
 
-
 Artículo
 * [Guía de planeamiento y operaciones de Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
 
-Vídeo
-* [Protección de cargas de trabajo en la nube híbrida con Security Center](https://mva.microsoft.com/training-courses/hybrid-cloud-workload-protection-with-azure-security-center-18173?l=X4WqTA3jE_1106218965)
 
 ### <a name="onboarding-computers-to-security-center"></a>Incorporación de equipos a Security Center
 Security Center detecta automáticamente las áreas de trabajo o suscripciones a Azure que no están habilitadas para Security Center Estándar. Esto engloba las suscripciones a Azure que usan Security Center gratis y las áreas de trabajo que no tiene la solución de Security habilitada.
@@ -71,7 +69,7 @@ Artículos
 * [Protección del servicio SQL de Azure en Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-sql-service-recommendations)
 
 
-Vídeo   
+Vídeo    
 * [Mitigación de problemas de seguridad mediante Azure Security Center](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Mitigating-Security-Issues-using-Azure-Security-Center)
 
 ### <a name="security-center-for-incident-response"></a>Security Center para respuesta a incidentes
@@ -79,7 +77,7 @@ Para reducir los costos y los daños, es importante tener un plan de respuesta a
 
 Use los siguientes recursos para comprender cómo se puede incorporar Security Center al proceso de respuesta a incidentes.
 
-Vídeos  
+Vídeos    
 * [Azure Security Center in Incident Response](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Security-Center-in-Incident-Response) (Uso de Azure Security Center para dar respuesta a incidentes)
 * [Respond quickly to threats with next-generation security operation, and investigation](https://youtu.be/e8iFCz5RM4g) (Respuesta rápida ante amenazas mediante investigación y operaciones de última generación)
 
@@ -93,7 +91,7 @@ Las máquinas virtuales de Azure pueden aprovechar las funcionalidades de protec
 
 Use los siguientes recursos para aprender a utilizar estas funcionalidades de Security Center.
 
-Vídeos  
+Vídeos    
 * [Azure Security Center – Just-in-Time VM Access](https://youtu.be/UOQb2FcdQnU) (Azure Security Center: Acceso a máquinas virtuales "Just-in-Time")
 * [Azure Security Center - Adaptive Application Controls](https://youtu.be/wWWekI1Y9ck) (Azure Security Center: Controles de aplicación adaptables)
 
@@ -105,7 +103,7 @@ Artículos
 
 * [Laboratorios prácticos de Security Center](https://www.microsoft.com/handsonlabs/SelfPacedLabs/?storyGuid=78871abf-6f35-4aa0-840f-d801f5cdbd72)
 * [Guión de procedimientos con recomendaciones de firewall de aplicaciones web (WAF) en Security Center](https://gallery.technet.microsoft.com/ASC-Playbook-Protect-38bd47ff)
-* [Guión de procedimientos de Azure Security Center Playbook: alertas de seguridad](https://gallery.technet.microsoft.com/Azure-Security-Center-f621a046)
+* [Cuaderno de estrategias de Azure Security Center: alertas de seguridad](https://gallery.technet.microsoft.com/Azure-Security-Center-f621a046)
 
 ## <a name="additional-resources"></a>Recursos adicionales
 * [Página Documentación de Security Center](https://docs.microsoft.com/azure/security-center/)

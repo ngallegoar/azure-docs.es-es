@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, estfan
 ms.topic: conceptual
 ms.date: 08/18/2016
-ms.openlocfilehash: 0a744c2de320ddad2e7959cae7b62d7990879953
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 100be6a4376883a4f2a91b1efd172242c1d19e19
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78898573"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878398"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Conceptos, terminología y entidades de Azure Scheduler
 
@@ -66,7 +66,7 @@ https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{reso
 
 Azure Scheduler admite varios tipos de trabajo: 
 
-* Trabajos HTTP, incluidos los trabajos HTTPS que admiten SSL, para cuando tenga el punto de conexión de un servicio o carga de trabajo existente
+* Trabajos HTTP, incluidos los trabajos HTTPS que admiten TLS, para cuando tenga el punto de conexión de un servicio o carga de trabajo existente
 * Trabajos de la cola de almacenamiento para cargas de trabajo que utilizan colas de Storage, como la publicación de mensajes en colas de Storage
 * Trabajos de cola de Service Bus para cargas de trabajo que usan colas de Service Bus
 * Trabajos de tema de Service Bus para cargas de trabajo que usan temas de Service Bus

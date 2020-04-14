@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
-ms.date: 01/21/2020
-ms.openlocfilehash: b9fdd1b25e53e1cdc8aa76564304a61adaa8d804
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/02/2020
+ms.openlocfilehash: 04b07ff60c882501c49ad58607db867e7e99897c
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79232488"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879078"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>¿Qué es Instancia administrada de Azure SQL Database?
 
@@ -67,7 +67,7 @@ Las características principales de las instancias administradas se muestran en 
 | Soporte técnico del portal | Sí|
 | Integration Service (SSIS) integrado | No: SSIS es una parte de [PaaS de Azure Data Factory](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) |
 | Analysis Service (SSAS) integrado | No: SSAS es un servicio [PaaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) independiente. |
-| Reporting Service (SSRS) integrado | No: use Power BI o IaaS de SSRS |
+| Reporting Service (SSRS) integrado | No: use [informes paginados de Power BI](https://docs.microsoft.com/power-bi/paginated-reports/paginated-reports-report-builder-power-bi) en su lugar u hospede SSRS en una máquina virtual de Azure. Aunque Instancia administrada no se puede ejecutar en SSRS como servicio, puede hospedar las bases de datos del catálogo de SSRS 2019 para un servidor de informes externo mediante la autenticación de SQL Server. |
 |||
 
 ## <a name="vcore-based-purchasing-model"></a>Modelo de compra basado en núcleo virtual
@@ -121,7 +121,7 @@ Encuentre más información sobre la diferencia entre los niveles de servicio en
 
 Azure SQL Database proporciona las operaciones de administración que puede usar para implementar automáticamente instancias administradas nuevas, actualizar las propiedades de una instancia y eliminar instancias que ya no son necesarias. En esta sección se proporciona información sobre las operaciones de administración y sus duraciones típicas.
 
-Para admitir [implementaciones dentro de Azure Virtual Networks (redes virtuales)](../virtual-network/virtual-network-for-azure-services.md#deploy-azure-services-into-virtual-networks) y brindar aislamiento y seguridad a los clientes, la instancia administrada se basa en [clústeres virtuales](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture), que representan un conjunto dedicado de máquinas virtuales aisladas implementado dentro de la subred de la red virtual del cliente. En esencia, cada implementación de instancia administrada en una subred vacía resulta en la creación de un clúster virtual.
+Para admitir [implementaciones dentro de Azure Virtual Networks (redes virtuales)](../virtual-network/virtual-network-for-azure-services.md) y brindar aislamiento y seguridad a los clientes, la instancia administrada se basa en [clústeres virtuales](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture), que representan un conjunto dedicado de máquinas virtuales aisladas implementado dentro de la subred de la red virtual del cliente. En esencia, cada implementación de instancia administrada en una subred vacía resulta en la creación de un clúster virtual.
 
 Las operaciones subsiguientes en las instancias administradas implementadas pueden tener efecto también en su clúster virtual subyacente. Esto afecta la duración de las operaciones de administración, debido a que la implementación de las máquinas virtuales adicionales conlleva una sobrecarga que se debe considerar cuando planea implementaciones nuevas o actualizaciones de instancias administradas existentes.
 
@@ -239,7 +239,7 @@ Azure SQL Database proporciona un conjunto de características de seguridad avan
 - La [auditoría de Instancia administrada](sql-database-managed-instance-auditing.md) realiza un seguimiento de los eventos de bases de datos y los escribe en un archivo de registro de auditoría de su cuenta de Azure Storage. La auditoría puede ayudarle a mantener el cumplimiento de normativas, comprender la actividad de las bases de datos y conocer las discrepancias y anomalías que pueden indicar problemas en el negocio o infracciones de seguridad sospechosas.
 - Cifrado de datos en movimiento: una instancia administrada protege los datos gracias al cifrado de datos en movimiento mediante la Seguridad de la capa de transporte. Además de la seguridad de la capa de transporte, la opción de implementación de instancia administrada ofrece la protección de la información confidencial en tránsito, en reposo y durante el procesamiento de consultas con [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Always Encrypted es una tecnología totalmente novedosa en el sector que ofrece una seguridad de datos sin parangón frente a las infracciones que implican el robo de datos críticos. Por ejemplo, con Always Encrypted, los números de las tarjetas de crédito siempre se almacenan cifrados en la base de datos, incluso durante el procesamiento de las consultas, lo que permite que solo los descifren personal autorizado o las aplicaciones que los necesitan para procesar los datos en el lugar en que se van a usar.
 - [Advanced Threat Protection](sql-database-managed-instance-threat-detection.md) complementa la [auditoría](sql-database-managed-instance-auditing.md), ya que proporciona una capa adicional de inteligencia de seguridad integrada en el servicio que detecta intentos inusuales y potencialmente dañinos para obtener acceso a las bases de datos o vulnerarlas. Recibirá alertas de actividades sospechosas, vulnerabilidades potenciales y ataques por inyección de código SQL, así como patrones anómalos de acceso a bases de datos. Las alertas de Advanced Threat Protection pueden verse en [Azure Security Center](https://azure.microsoft.com/services/security-center/) y proporcionar detalles de actividad sospechosa y la acción recomendada sobre cómo investigar y mitigar la amenaza.  
-- El [enmascaramiento dinámico de datos](/sql/relational-databases/security/dynamic-data-masking) limita la exposición de información confidencial mediante su enmascaramiento a los usuarios sin privilegios. El enmascaramiento dinámico de datos ayuda a impedir el acceso no autorizado a datos confidenciales permitiéndole designar la cantidad de los datos confidenciales que se revelarán con un impacto mínimo en el nivel de aplicación. Se trata de una característica de protección de datos que oculta la información confidencial del conjunto de resultados de una consulta de campos designados de una base de datos, sin modificar los datos de esta última.
+- El [enmascaramiento dinámico de datos](/sql/relational-databases/security/dynamic-data-masking) limita la exposición de información confidencial mediante su enmascaramiento a los usuarios sin privilegios. El enmascaramiento dinámico de datos ayuda a impedir el acceso no autorizado a datos confidenciales permitiéndole designar la cantidad de los datos confidenciales que se revelarán con un impacto mínimo en el nivel de aplicación. Se trata de una característica de seguridad basada en directivas que oculta la información confidencial del conjunto de resultados de una consulta de campos designados de una base de datos, sin modificar los datos de esta última.
 - La [seguridad de nivel de fila](/sql/relational-databases/security/row-level-security) le permite controlar el acceso a las filas de una tabla de base de datos en función de las características del usuario que ejecuta una consulta (por ejemplo, la pertenencia a un grupo o el contexto de ejecución). La seguridad de nivel de fila (RLS) simplifica el diseño y la codificación de la seguridad de la aplicación. RLS permite implementar restricciones de acceso a filas de datos. Por ejemplo, garantiza que los empleados únicamente puedan acceder a aquellas filas de datos necesarios para su departamento o restringe el acceso solo a los datos relevantes.
 - [Cifrado de datos transparente (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) cifra los archivos de datos de instancias administradas, lo que se conoce como cifrado de datos en reposo. TDE realiza el cifrado y descifrado de E/S en tiempo real de los archivos de datos y de registro. El cifrado usa una clave de cifrado de base de datos (DEK), que se almacena en el registro de arranque de la base de datos de disponibilidad durante la recuperación. Puede proteger todas las bases de datos en una instancia administrada con cifrado de datos transparente. TDE es la probada tecnología de cifrado en reposo de SQL Server que requieren muchos estándares de cumplimiento normativo para proteger contra el robo de soportes de almacenamiento.
 

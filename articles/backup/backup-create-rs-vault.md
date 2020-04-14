@@ -4,12 +4,12 @@ description: En este artículo, aprenderá a crear almacenes de Recovery Service
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: e722996f516d21445d8e0028df925ca44eb02bfc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 439f102e8f13bff63ab388be8f10df07ab2dc7d2
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80295013"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80672843"
 ---
 # <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Recovery Services
 
@@ -37,9 +37,9 @@ Para crear un almacén de Recovery Services:
 
     ![Configurar el almacén de Recovery Services](./media/backup-create-rs-vault/create-new-vault-dialog.png)
 
-   - **Nombre**: escriba un nombre descriptivo que identifique el almacén. El nombre debe ser único para la suscripción de Azure. Especifique un nombre que tenga entre 2 y 50 caracteres. El nombre debe comenzar por una letra y consta solo de letras, números y guiones.
-   - **Suscripción**: elija la suscripción que va a utilizar. Si es miembro de una sola suscripción, verá solo ese nombre. Si no está seguro de qué suscripción va a utilizar, use la predeterminada (sugerida). Solo hay varias opciones si la cuenta profesional o educativa está asociada a más de una suscripción de Azure.
-   - **Grupo de recursos**: use un grupo de recursos existente o cree uno. Para ver la lista de grupos de recursos disponibles en una suscripción, seleccione **Usar existente** y, después, seleccione un recurso en el cuadro de lista desplegable. Para crear un grupo de recursos, seleccione **Crear nuevo** y escriba el nombre. Para más información acerca de los grupos de recursos, consulte [Introducción a Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+   - **Name**: escriba un nombre descriptivo que identifique el almacén. El nombre debe ser único para la suscripción de Azure. Especifique un nombre que tenga entre 2 y 50 caracteres. El nombre debe comenzar por una letra y consta solo de letras, números y guiones.
+   - **Suscripción**: elija la suscripción que desee usar. Si es miembro de una sola suscripción, verá solo ese nombre. Si no está seguro de qué suscripción va a utilizar, use la predeterminada (sugerida). Solo hay varias opciones si la cuenta profesional o educativa está asociada a más de una suscripción de Azure.
+   - **Grupo de recursos**: Use un grupo de recursos existente o cree uno. Para ver la lista de grupos de recursos disponibles en una suscripción, seleccione **Usar existente** y, después, seleccione un recurso en el cuadro de lista desplegable. Para crear un grupo de recursos, seleccione **Crear nuevo** y escriba el nombre. Para más información acerca de los grupos de recursos, consulte [Introducción a Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
    - **Ubicación**: seleccione la región geográfica del almacén. Para crear un almacén para proteger máquinas virtuales, el almacén **debe** estar en la misma región que las máquinas virtuales.
 
       > [!IMPORTANT]
@@ -88,27 +88,7 @@ En este proceso hay implicaciones de precios, ya que se encuentra en el nivel de
 >Antes de empezar:
 >
 >- Revise la [matriz de compatibilidad](backup-support-matrix.md#cross-region-restore) para obtener una lista de regiones y tipos administrados compatibles.
->- La característica Restauración entre regiones (CRR) solo está disponible actualmente en las siguientes regiones: 
->    - Centro-Oeste de EE. UU.
->    - Oeste de EE. UU. 2
->    - Centro-sur de EE. UU.
->    - Este de EE. UU.
->    - Este de EE. UU. 2
->    - Centro-Norte de EE. UU
->    - Centro de Canadá
->    - Este de Canadá
->    - Este de Australia
->    - Sudeste de Australia
->    - Centro de la India
->    - Sur de la India
->    - Japón Oriental
->    - Japón Occidental
->    - Sudeste de Asia
->    - Sur de Reino Unido 2
->    - Oeste de Reino Unido
->    - Centro de Francia
->    - Centro de Corea del Sur
->    - Corea del Sur
+>- La característica Restauración entre regiones (CRR) ahora se muestra como vista previa en todas las regiones públicas de Azure.
 >- CRR es una característica opcional de nivel de almacén para cualquier almacén GRS (está desactivada de forma predeterminada).
 >- Use el siguiente comando para incorporar la suscripción para esta característica:<br>
 >  `Register-AzProviderFeature -FeatureName CrossRegionRestore -ProviderNamespace Microsoft.RecoveryServices`

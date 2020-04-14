@@ -6,12 +6,12 @@ ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: ce0a170a629f347e2687a2e9f63fb3438fe2bd2f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 18469c94b66acab27b58243e8d15eb924843319b
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79235992"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811121"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configurar una aplicación de App Service en Azure Portal
 
@@ -96,10 +96,11 @@ En cambio, para otras pilas de lenguaje es mejor usar la [configuración de la a
 
 En tiempo de ejecución, las cadenas de conexión están disponibles como variables de entorno, con los siguientes tipos de conexión como prefijo:
 
-* SQL Server: `SQLCONNSTR_`
-* MySQL: `MYSQLCONNSTR_`
-* SQL Database: `SQLAZURECONNSTR_`
+* SQLServer: `SQLCONNSTR_`  
+* MySQL: `MYSQLCONNSTR_` 
+* SQLAzure: `SQLAZURECONNSTR_` 
 * Personalizado: `CUSTOMCONNSTR_`
+* PostgreSQL: `POSTGRESQLCONNSTR_`  
 
 Por ejemplo, se puede obtener acceso a una cadena de conexión de MySQL denominada *connectionstring1* como la variable de entorno `MYSQLCONNSTR_connectionString1`. Para obtener pasos específicos de la pila de lenguaje, consulte:
 
@@ -173,7 +174,7 @@ En este caso, puede configurar algunas opciones comunes para la aplicación. Alg
     - **Versión de canalización administrada**: el [modo de canalización] IIS. Establézcalo en **Clásico** si tiene una aplicación heredada que requiere una versión anterior de IIS.
     - **Versión de HTTP**: Establézcala en **2.0** para habilitar la compatibilidad con el protocolo [HTTPS/2](https://wikipedia.org/wiki/HTTP/2).
     > [!NOTE]
-    > Los exploradores más modernos admiten el protocolo HTTP/2 sobre TLS únicamente, mientras que el tráfico no cifrado sigue usando HTTP/1.1. Para asegurarse de que los exploradores de cliente se conectan a la aplicación con HTTP/2, [proteja el nombre DNS personalizado con un enlace SSL en Azure App Service](configure-ssl-bindings.md).
+    > Los exploradores más modernos admiten el protocolo HTTP/2 sobre TLS únicamente, mientras que el tráfico no cifrado sigue usando HTTP/1.1. Para asegurarse de que los exploradores del cliente se conectan a la aplicación con HTTP/2, proteja el nombre DNS personalizado. Para más información, consulte [Protección de un nombre DNS personalizado con un enlace TLS/SSL en Azure App Service](configure-ssl-bindings.md).
     - **Afinidad ARR**: en una implementación de varias instancias, asegúrese de que el cliente esté enrutado a la misma instancia de la vida de la sesión. Puede establecer esta opción en **Desactivada** para las aplicaciones sin estado.
 - **Depuración**: habilite la depuración remota para las aplicaciones [ASP.NET](troubleshoot-dotnet-visual-studio.md#remotedebug), [ASP.NET Core](/visualstudio/debugger/remote-debugging-azure) o [Node.js](containers/configure-language-nodejs.md#debug-remotely). Esta opción se desactiva automáticamente después de 48 horas.
 - **Certificados de cliente entrantes**: requiera certificados de cliente en [autenticación mutua](app-service-web-configure-tls-mutual-auth.md).
@@ -248,7 +249,7 @@ Consulte [Configuración de un contenedor de Linux personalizado para Azure App 
 
 - [Configuración de un nombre de dominio personalizado en Azure App Service]
 - [Configuración de entornos de ensayo en Azure App Service]
-- [Protección de un nombre DNS personalizado con un enlace SSL en Azure App Service](configure-ssl-bindings.md)
+- [Protección de un nombre DNS personalizado con un enlace TLS/SSL en Azure App Service](configure-ssl-bindings.md)
 - [Habilitar los registros de diagnóstico](troubleshoot-diagnostic-logs.md)
 - [Escalado de una aplicación en Azure App Service]
 - [Aspectos básicos de supervisión en Azure App Service]

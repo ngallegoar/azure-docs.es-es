@@ -3,12 +3,12 @@ title: Administración de asignaciones con PowerShell
 description: Obtenga información sobre cómo administrar las asignaciones de planos técnicos con el módulo oficial de PowerShell de Azure Blueprints, Az.Blueprint.
 ms.date: 09/30/2019
 ms.topic: how-to
-ms.openlocfilehash: b16cf887ba8bfc51616839db5f4af87944ec686d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0868e5e207202511c1981a930870bfdc68a77a8f
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80247408"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677424"
 ---
 # <a name="how-to-manage-assignments-with-powershell"></a>Administración de asignaciones con PowerShell
 
@@ -27,12 +27,12 @@ El módulo de Azure Blueprints requiere el software siguiente:
 
 ### <a name="install-the-module"></a>Instalación del módulo
 
-El módulo de Blueprints para PowerShell es **Az.Blueprint**.
+El módulo de Azure Blueprints para PowerShell es **Az.Blueprint**.
 
 1. Ejecute el siguiente comando como **administrador** en un símbolo del sistema de PowerShell:
 
    ```azurepowershell-interactive
-   # Install the Blueprints module from PowerShell Gallery
+   # Install the Azure Blueprints module from PowerShell Gallery
    Install-Module -Name Az.Blueprint
    ```
 

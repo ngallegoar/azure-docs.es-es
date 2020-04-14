@@ -3,17 +3,16 @@ title: Ciclo de vida de un plano técnico
 description: Aprenda sobre el ciclo de vida de la definición de un plano técnico y detalles sobre cada fase, incluida la actualización y eliminación de asignaciones de planos técnicos.
 ms.date: 07/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 4dd5cb7d085744377cf12998f14c994fb1dcd2d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 46da42ec97f16af91ef8e41362a085d466bbb887
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74404592"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677384"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Ciclo de vida de una instancia de Azure Blueprint
 
-Al igual que muchos recursos de Azure, un plano técnico de Azure Blueprints tiene un ciclo de vida normal y natural. Se crean, se implementan y, finalmente, se eliminan cuando ya no son necesarios.
-Blueprint admite operaciones de ciclo de vida estándar. A continuación, se basa en ellas para proporcionar niveles adicionales de estado que admiten una integración continua y canalizaciones de implementación continua comunes para las organizaciones que administran su infraestructura como código, un elemento clave de DevOps.
+Al igual que muchos recursos de Azure, un plano técnico de Azure Blueprints tiene un ciclo de vida normal y natural. Se crean, se implementan y, finalmente, se eliminan cuando ya no son necesarios. Azure Blueprints admite operaciones de ciclo de vida estándar. A continuación, se basa en ellas para proporcionar niveles adicionales de estado que admiten una integración continua y canalizaciones de implementación continua comunes para las organizaciones que administran su infraestructura como código, un elemento clave de DevOps.
 
 Para comprender totalmente un plano técnico y sus fases, se describirá un ciclo de vida estándar:
 

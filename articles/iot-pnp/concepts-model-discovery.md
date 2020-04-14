@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 66da0321930ac38217a336380c9889963a433e67
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 94e5e6fb826528aab1a358d44cb51bfcd6219032
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75531367"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80673589"
 ---
 # <a name="implement-iot-plug-and-play-preview-model-discovery-in-an-iot-solution"></a>Implementación de la detección de modelo de IoT Plug and Play (versión preliminar) en una solución de IoT
 
@@ -46,7 +46,7 @@ Las soluciones de IoT creadas específicamente funcionan con un conjunto conocid
 
 Tendrá las interfaces y el modelo de funcionalidad de los dispositivos que se van a conectarán a la solución con anterioridad. Siga estos pasos para preparar la solución:
 
-1. Almacene los archivos JSON de la interfaz en Azure en una ubicación donde la solución pueda leerlos.
+1. Almacene los archivos JSON de la interfaz en un [repositorio de modelos](./howto-manage-models.md) donde la solución pueda leerlos.
 1. Escriba la lógica de la solución de IoT en función de la interfaz y los modelos de funcionalidad de IoT Plug and Play esperados.
 1. Suscríbase a las notificaciones del centro de IoT que usa la solución.
 

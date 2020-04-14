@@ -1,24 +1,24 @@
 ---
 title: Azure HDInsight para Visual Studio Code
-description: Obtenga información sobre cómo usar las herramientas Spark y Hive (Azure HDInsight) para Visual Studio Code y así poder crear y enviar consultas y scripts.
+description: Obtenga información sobre cómo usar las herramientas Spark y Hive (Azure HDInsight) para Visual Studio Code. Use las herramientas para crear y enviar consultas y scripts.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/11/2019
-ms.openlocfilehash: 9a81868d678b4c0277e904e879c73185a378bf70
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/07/2020
+ms.openlocfilehash: de433d85c2f04a7140fbcb918730218ac3a05e54
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75435683"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878636"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Usar las herramientas Spark y Hive para Visual Studio Code
 
-Aprenda a usar las Herramientas Spark y Hive para Visual Studio Code para crear y enviar trabajos por lotes de Apache Hive, consultas de Hive interactivas y scripts de PySpark para Apache Spark. En primer lugar, vamos a describir cómo instalar Spark & Hive Tools en Visual Studio Code y luego veremos cómo enviar trabajos a Spark & Hive Tools.  
+Obtenga información sobre cómo usar las herramientas Apache Spark y Apache Hive para Visual Studio Code. Use las herramientas para crear y enviar trabajos por lotes de Apache Hive, consultas de Hive interactivas y scripts de PySpark para Apache Spark. Primero, describiremos cómo instalar las herramientas Spark y Hive en Visual Studio Code. A continuación, veremos cómo enviar trabajos a las herramientas Spark y Hive.  
 
-Spark & Hive Tools se puede instalar en las plataformas compatibles con Visual Studio Code, que son Windows, Linux y macOS. Observe los siguientes requisitos previos para las distintas plataformas.
+Las herramientas Spark y Hive se pueden instalar en todas las plataformas compatibles con Visual Studio Code. Observe los siguientes requisitos previos para las distintas plataformas.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -70,7 +70,7 @@ Para usuarios de la nube nacional, siga los pasos para configurar el entorno de 
 
 ## <a name="connect-to-an-azure-account"></a>Conexión a la cuenta de Azure
 
-Para enviar scripts a clústeres desde Visual Studio Code, debe conectarse a su cuenta de Azure o vincular un clúster (con las credenciales de nombre de usuario y contraseña de Ambari o una cuenta unida a un dominio). Siga estos pasos para conectarse a Azure:
+Antes de poder enviar scripts a clústeres desde Visual Studio Code, debe conectarse a su cuenta de Azure o vincular un clúster. Use las credenciales de nombre de usuario y contraseña de Apache Ambari o una cuenta unida a un dominio. Siga estos pasos para conectarse a Azure:
 
 1. En la barra de menús, vaya a **Ver** > **Paleta de comandos...** y escriba **Azure: Sign In**:
 
@@ -260,7 +260,7 @@ Después de enviar trabajo de Python, los registros de envío se muestran en la 
 
 ## <a name="apache-livy-configuration"></a>Configuración de Apache Livy
 
-La [configuración de Apache Livy](https://livy.incubator.apache.org/) es compatible. Puede configurarla en el archivo **.VSCode\settings.json** en la carpeta del área de trabajo. En la actualidad, la configuración de Livy solo admite el script de Python. Para obtener más información, consulte el archivo [léame de Livy](https://github.com/cloudera/livy/blob/master/README.rst ).
+La [configuración de Apache Livy](https://livy.incubator.apache.org/) es compatible. Puede configurarla en el archivo **.VSCode\settings.json** en la carpeta del área de trabajo. En la actualidad, la configuración de Livy solo admite el script de Python. Para más información, vea el [LÉAME de Livy](https://github.com/cloudera/livy/blob/master/README.rst ).
 
 <a id="triggerlivyconf"></a>**Cómo activar la configuración de Livy**
 
@@ -269,7 +269,7 @@ Método 1
 2. En el cuadro de texto **Configuración de la búsqueda** escriba **HDInsight Job Submission: configuración de Livy**.  
 3. Seleccione **Editar en settings.json** para el resultado de la búsqueda relevante.
 
-Método 2: envíe un archivo y observe que la carpeta .vscode se agrega automáticamente a la carpeta de trabajo. Puede encontrar la configuración de Livy si selecciona **.vscode\settings.json**.
+Método 2: envíe un archivo y observe que la carpeta `.vscode` se agrega automáticamente a la carpeta de trabajo. Puede encontrar la configuración de Livy si selecciona **.vscode\settings.json**.
 
 + Configuración del proyecto:
 
@@ -283,7 +283,7 @@ Método 2: envíe un archivo y observe que la carpeta .vscode se agrega automát
     **POST /batches** Cuerpo de la solicitud
 
     | name | description | type |
-    | :- | :- | :- |
+    | --- | --- | --- |
     | archivo | Archivo que contiene la aplicación que se ejecutará | Ruta (obligatorio) |
     | proxyUser | Usuario que se suplantará al ejecutar el trabajo | String |
     | className | Clase principal de Java/Spark de la aplicación | String |
@@ -304,9 +304,9 @@ Método 2: envíe un archivo y observe que la carpeta .vscode se agrega automát
     Cuerpo de respuesta: el objeto Batch creado.
 
     | name | description | type |
-    | :- | :- | :- |
-    | id | Identificador de la sesión | Int |
-    | appId | Identificador de la aplicación de esta sesión | String |
+    | --- | ---| --- |
+    | id | Identificador de sesión | Int |
+    | appId | Id. de aplicación de esta sesión | String |
     | appInfo | Información detallada de la aplicación | Mapa de clave=valor |
     | log | Líneas de registro | Lista de cadenas |
     | state |Estado del lote | String |
@@ -340,8 +340,8 @@ Puede obtener una vista previa de la tabla de Hive directamente en los clústere
 
 - Panel MENSAJES
    1. Cuando el número de filas de la tabla es superior a 100, aparece un mensaje que informa de que se muestran las 100 primeras filas de la tabla de Hive.
-   2. Cuando el número de filas de la tabla es menor o igual a 100, aparece un mensaje que informa de que se muestran 60 filas de la tabla de Hive.
-   3. Cuando no haya contenido en la tabla, verá un mensaje que informa de que se muestran 0 filas de la tabla de Hive.
+   2. Cuando el número de filas de la tabla es menor o igual a 100, aparece el siguiente mensaje: se muestran 60 filas de la tabla de Hive.
+   3. Cuando no haya contenido en la tabla, verá el siguiente mensaje: "`0 rows are displayed for Hive table.`"
 
         >[!NOTE]
         >
@@ -364,7 +364,7 @@ Hive y Spark para Visual Studio Code admite también las siguientes caracterís
 
 ## <a name="reader-only-role"></a>Rol de solo lectura
 
-Los usuarios a los que se haya asignado el rol solo lector para el clúster ya no podrán enviar trabajos al clúster de HDInsight ni podrán ver la base de datos de Hive. Póngase en contacto con el administrador de clústeres para actualizar el rol a [**operador de clústeres de HDInsight**](https://docs.microsoft.com/azure/hdinsight/hdinsight-migrate-granular-access-cluster-configurations#add-the-hdinsight-cluster-operator-role-assignment-to-a-user) en [Azure Portal](https://ms.portal.azure.com/). Si tiene credenciales de Ambari válidas, puede vincular manualmente el clúster siguiendo estas instrucciones.
+Los usuarios a los que se haya asignado el rol de solo lector para el clúster ya no pueden enviar trabajos al clúster de HDInsight ni pueden ver la base de datos de Hive. Póngase en contacto con el administrador de clústeres para actualizar el rol a [**operador de clústeres de HDInsight**](https://docs.microsoft.com/azure/hdinsight/hdinsight-migrate-granular-access-cluster-configurations#add-the-hdinsight-cluster-operator-role-assignment-to-a-user) en [Azure Portal](https://ms.portal.azure.com/). Si tiene credenciales de Ambari válidas, puede vincular manualmente el clúster siguiendo estas instrucciones.
 
 ### <a name="browse-the-hdinsight-cluster"></a>Examen del clúster de HDInsight  
 
@@ -393,11 +393,11 @@ Al enviar un trabajo al clúster de HDInsight, se le pide que vincule el clúste
 
 ### <a name="browse-a-data-lake-storage-gen2-account"></a>Examen de una cuenta de Data Lake Storage Gen2
 
-Al seleccionar el explorador de Azure HDInsight para expandir una cuenta de Azure Data Lake Storage Gen2, se le pedirá que escriba la clave de acceso del almacenamiento si la cuenta de Azure no tiene acceso al almacenamiento de Gen2. Una vez validada la clave de acceso, la cuenta de Data Lake Storage Gen2 se expande automáticamente.
+Seleccione el explorador de Azure HDInsight para expandir una cuenta de Data Lake Storage Gen2. Se le pedirá que especifique la clave de acceso de almacenamiento si su cuenta de Azure no tiene acceso al almacenamiento de Gen2. Una vez validada la clave de acceso, la cuenta de Data Lake Storage Gen2 se expande automáticamente.
 
 ### <a name="submit-jobs-to-an-hdinsight-cluster-with-data-lake-storage-gen2"></a>Envío de trabajos a un clúster de HDInsight con Data Lake Storage Gen2
 
-Al enviar un trabajo a un clúster de HDInsight con Data Lake Storage Gen2, se le pedirá que escriba la clave de acceso del almacenamiento si la cuenta de Azure no tiene acceso de escritura en el almacenamiento de Gen2. El trabajo se enviará sin problemas una vez validada correctamente la clave de acceso.
+Envíe un trabajo a un clúster de HDInsight con Data Lake Storage Gen2. Se le pedirá que especifique la clave de acceso de almacenamiento si su cuenta de Azure no tiene acceso de escritura al almacenamiento de Gen2. El trabajo se enviará sin problemas una vez validada correctamente la clave de acceso.
 
 ![Clave de acceso de las herramientas de Spark y Hive para Visual Studio Code](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-accesskey.png)
 

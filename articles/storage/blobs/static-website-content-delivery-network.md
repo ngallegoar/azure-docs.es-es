@@ -6,17 +6,17 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
-ms.date: 01/22/2020
-ms.openlocfilehash: aaf61ccbb3577036c614aa6196d2af57124550fa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/07/2020
+ms.openlocfilehash: 4516e9f48174a0f1f5201c46cf114badf13d99d6
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76907463"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878834"
 ---
 # <a name="integrate-a-static-website-with-azure-cdn"></a>Integración de un sitio web estático con Azure CDN
 
-Puede habilitar [Azure Content Delivery Network (CDN)](../../cdn/cdn-overview.md) para almacenar en caché el contenido de un [sitio web estático](storage-blob-static-website.md) que esté hospedado en una cuenta de Azure Storage. Puede usar Azure CDN para configurar el punto de conexión del dominio personalizado de su sitio web estático, aprovisionar certificados SSL personalizados y configurar reglas de reescritura personalizadas. La configuración de Azure CDN da como resultado cargos adicionales, pero proporciona latencias bajas y coherentes a su sitio web desde cualquier parte del mundo. Azure CDN también proporciona el cifrado SSL con su propio certificado. 
+Puede habilitar [Azure Content Delivery Network (CDN)](../../cdn/cdn-overview.md) para almacenar en caché el contenido de un [sitio web estático](storage-blob-static-website.md) que esté hospedado en una cuenta de Azure Storage. Puede usar Azure CDN para configurar el punto de conexión del dominio personalizado de su sitio web estático, aprovisionar certificados TLS/SSL personalizados y configurar reglas de reescritura personalizadas. La configuración de Azure CDN da como resultado cargos adicionales, pero proporciona latencias bajas y coherentes a su sitio web desde cualquier parte del mundo. Azure CDN también proporciona el cifrado TLS con su propio certificado. 
 
 Para más información sobre los precios de Azure CDN, consulte [Precios de Azure CDN](https://azure.microsoft.com/pricing/details/cdn/).
 
@@ -26,19 +26,17 @@ Puede habilitar Azure CDN para su sitio web estático directamente desde su cuen
 
 1. Busque la cuenta de almacenamiento en Azure Portal y muestre la información general de la cuenta.
 
-2. Seleccione **Azure CDN** en el menú **Blob Service** para configurar Azure CDN.
+1. En el menú **Blob Service**, seleccione **Azure CDN** para abrir la página **Azure CDN**:
 
-    Aparece la página **Azure CDN**.
+    ![Creación de un punto de conexión de CDN](media/storage-blob-static-website-custom-domain/cdn-storage-new.png)
 
-    ![Creación de un punto de conexión de CDN](../../cdn/media/cdn-create-a-storage-account-with-cdn/cdn-storage-new-endpoint-creation.png)
+1. En la sección**Perfil de CDN**, especifique si desea crear un nuevo perfil de CDN o usar uno existente. Un perfil de CDN es una colección de puntos de conexión de CDN que comparten el mismo plan de tarifa y proveedor. A continuación, escriba un nombre para la red CDN que sea único dentro de su suscripción.
 
-3. En la sección **Perfil de CDN**, especifique un perfil de CDN nuevo o uno existente. 
+1. Especifique un plan de tarifa para el punto de conexión de CDN. Para más información sobre los precios, consulte [Precios de Content Delivery Network](https://azure.microsoft.com/pricing/details/cdn/). Para obtener información sobre las características disponibles en cada nivel de servicio, consulte [Comparación de las características de los productos de Azure CDN](../../cdn/cdn-features.md).
 
-4. Especifique un plan de tarifa para el punto de conexión de CDN. Para más información sobre los precios, consulte [Precios de Content Delivery Network](https://azure.microsoft.com/pricing/details/cdn/). Para obtener información sobre las características disponibles en cada nivel de servicio, consulte [Comparación de las características de los productos de Azure CDN](../../cdn/cdn-features.md).
+1. En el campo **Nombre del punto de conexión de CDN**, especifique el nombre del punto de conexión de CDN. El punto de conexión de red CDN debe ser único en Azure y proporcionar la primera parte de la dirección URL del punto de conexión. El formulario valida que el nombre del punto de conexión es único.
 
-5. En el campo **Nombre del punto de conexión de CDN**, especifique el nombre del punto de conexión de CDN. El punto de conexión de CDN debe ser único en Azure.
-
-6. Escriba el punto de conexión del sitio web estático en el campo **Nombre de host de origen**. 
+1. Escriba el punto de conexión del sitio web estático en el campo **Nombre de host de origen**. 
 
    Para buscar el punto de conexión del sitio web estático, vaya al valor **Sitio web estático** de la cuenta de almacenamiento.  Copie el punto de conexión principal y péguelo en la configuración de CDN.
 
@@ -49,15 +47,15 @@ Puede habilitar Azure CDN para su sitio web estático directamente desde su cuen
 
    ![Captura de pantalla que muestra la configuración de un punto de conexión de CDN de ejemplo](media/storage-blob-static-website-custom-domain/add-cdn-endpoint.png)
 
-7. Seleccione **Crear** y espere a que se propague. Después de que se crea el punto de conexión, aparece en la lista de puntos de conexión.
+1. Seleccione **Crear** y espere a que la red CDN lo aprovisione. Después de que se crea el punto de conexión, aparece en la lista de puntos de conexión. (Si hay algún error en el formulario, aparece un signo de admiración junto al campo).
 
-8. Para comprobar que el punto de conexión de CDN está configurado correctamente, haga clic en él para ir a su configuración. Desde la información general de la red CDN de la cuenta de almacenamiento, busque el nombre de host del punto de conexión y vaya al punto de conexión, como se muestra en la siguiente imagen. El formato de punto de conexión de CDN será similar a `https://staticwebsitesamples.azureedge.net`.
+1. Para comprobar que el punto de conexión de CDN está configurado correctamente, haga clic en él para ir a su configuración. Desde la información general de la red CDN de la cuenta de almacenamiento, busque el nombre de host del punto de conexión y vaya al punto de conexión, como se muestra en la siguiente imagen. El formato de punto de conexión de CDN será similar a `https://staticwebsitesamples.azureedge.net`.
 
     ![Captura de pantalla que muestra la información general del punto de conexión de CDN](media/storage-blob-static-website-custom-domain/verify-cdn-endpoint.png)
 
-9. Una vez que se ha completado la propagación del punto de conexión de CDN, si se desplaza hasta dicho punto de conexión, se mostrará el contenido del archivo index.html que ha cargado previamente en su sitio web estático.
+1. Una vez que ha aprovisionado el punto de conexión de CDN, si navega hasta dicho punto de conexión, se muestra el contenido del archivo index.html que ha cargado previamente en su sitio web estático.
 
-10. Para revisar la configuración del origen del punto de conexión de CDN, vaya a **Origen** en la sección **Configuración** del punto de conexión de CDN. Verá que el valor del campo **Tipo de origen** es *Origen personalizado* y que el campo **Nombre de host de origen** muestra el punto de conexión del sitio web estático.
+1. Para revisar la configuración del origen del punto de conexión de CDN, vaya a **Origen** en la sección **Configuración** del punto de conexión de CDN. Verá que el valor del campo **Tipo de origen** es *Origen personalizado* y que el campo **Nombre de host de origen** muestra el punto de conexión del sitio web estático.
 
     ![Captura de pantalla muestra la configuración del origen del punto de conexión de CDN](media/storage-blob-static-website-custom-domain/verify-cdn-origin.png)
 

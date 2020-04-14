@@ -3,12 +3,12 @@ title: Configuración de informes de Azure Backup
 description: Configuración y visualización de informes para Azure Backup con Log Analytics y Azure Workbooks
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 651d1383f0f292895ed95c91bafd5206d4f04c2c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 497d70c1bcc577faa467720b959eb828e785a26a
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78161208"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80672659"
 ---
 # <a name="configure-azure-backup-reports"></a>Configuración de informes de Azure Backup
 
@@ -21,7 +21,7 @@ En la actualidad, Azure Backup proporciona una solución de informes que aprovec
 * Los informes de copia de seguridad son compatibles con las máquinas virtuales de Azure, SQL en máquinas virtuales de Azure, SAP HANA/ASE en máquinas virtuales de Azure, el agente de Azure Backup (MARS), Azure Backup Server (MABS) y System Center DPM.
 * En las cargas de trabajo de DPM, se admiten los informes de copia de seguridad para la versión 5.1.363.0 de DPM y versiones posteriores y la versión 2.0.9127.0 del agente y posteriores.
 * En las cargas de trabajo de MABS, se admiten los informes de copia de seguridad para la versión 13.0.415.0 de MABS y versiones posteriores y la versión 2.0.9170.0 del agente y posteriores.
-* Los informes de copia de seguridad se pueden ver en todos los elementos de copia de seguridad, almacenes, suscripciones y regiones, siempre y cuando sus datos se envíen a un área de trabajo Log Analytics (LA) a la que el usuario tenga acceso. 
+* Los informes de copia de seguridad se pueden ver en todos los elementos de copia de seguridad, almacenes, suscripciones y regiones, siempre y cuando sus datos se envíen a un área de trabajo Log Analytics (LA) a la que el usuario tenga acceso. Tenga en cuenta que para ver los informes de un conjunto de almacenes, solo necesita tener **acceso de lectura al área de trabajo de LA** a la que los almacenes envían sus datos. **No es necesario** que tenga acceso a los almacenes individuales.
 * Si es usuario de [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/) con acceso delegado a las suscripciones de los clientes, puede usar estos informes con Azure Lighthouse para ver los informes de todos los inquilinos.
 * Los datos de los trabajos de copia de seguridad de registros no se muestran actualmente en los informes.
 
