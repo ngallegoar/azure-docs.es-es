@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/06/2020
 tags: connectors
-ms.openlocfilehash: 1578ca030bc8bab971a44e1afcce1d1ab9e1d5e9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0a3fb9a8a72b384d2af4af38bdc382e541ddf535
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78674082"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656278"
 ---
 # <a name="create-and-run-automated-event-based-workflows-by-using-http-webhooks-in-azure-logic-apps"></a>Creación y ejecución de flujos de trabajo basados en eventos automatizados mediante webhooks HTTP en Azure Logic Apps
 
@@ -36,7 +36,7 @@ Una acción de webhook HTTP también está basada en eventos y *se suscribe* a u
 Por ejemplo, la acción [**Enviar correo de aprobación**](connectors-create-api-office365-outlook.md) del conector de Office 365 Outlook es un ejemplo de acción de webhook que sigue este patrón. Puede ampliar este patrón a cualquier servicio mediante el uso de la acción de webhook.
 
 > [!NOTE]
-> Logic Apps aplica la seguridad de la capa de transporte (TLS) 1.2 al recibir la llamada de vuelta al desencadenador o acción de webhook HTTP. Si ve errores de protocolo de enlace SSL, asegúrese de usar TLS 1.2. En el caso de las llamadas entrantes, estos son los conjuntos de cifrado compatibles:
+> Logic Apps aplica la seguridad de la capa de transporte (TLS) 1.2 al recibir la llamada de vuelta al desencadenador o acción de webhook HTTP. Si ve errores de protocolo de enlace TLS, asegúrese de usar TLS 1.2. En el caso de las llamadas entrantes, estos son los conjuntos de cifrado compatibles:
 >
 > * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
 > * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256

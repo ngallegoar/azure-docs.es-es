@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 12/03/2019
-ms.openlocfilehash: 750d08f3667317e9e1e396cff50884101d7ff55d
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.date: 4/3/2020
+ms.openlocfilehash: 07f29a01ae0128ba0a35504dea54ba1ae2dde944
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77131964"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80657061"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database sin servidor
 
@@ -149,11 +149,15 @@ Si una base de datos sin servidor está en pausa, la primera vez que se inicie s
 
 La latencia de la reanudación y la pausa automáticas de una base de datos sin servidor es, por lo general, de 1 minuto para la reanudación automática y de 1 a 10 minutos para la pausa automática.
 
+### <a name="customer-managed-transparent-data-encryption-byok"></a>Cifrado de datos transparente administrado por el cliente (BYOK)
+
+Si se usa el [cifrado de datos transparente administrado por el cliente](transparent-data-encryption-byok-azure-sql.md) (BYOK) y la base de datos sin servidor se pausa automáticamente cuando se produce la eliminación o la revocación de claves, la base de datos permanece en estado de pausa automática.  En este caso, después de que la base de datos se reanude la próxima vez, esta dejará de estar accesible en aproximadamente 10 minutos.  Si la base de datos pasa a ser inaccesible, el proceso de recuperación es el mismo que para las bases de datos de proceso aprovisionadas.  Si la base de datos sin servidor está en línea cuando se produce la eliminación o la revocación de claves, la base de datos también pasa a ser inaccesible en el plazo de unos 10 minutos, como sucede con las bases de datos de proceso aprovisionadas.
+
 ## <a name="onboarding-into-serverless-compute-tier"></a>Incorporación en un nivel de proceso sin servidor
 
 La creación de una nueva base de datos o el cambio de una base de datos existente a un nivel de proceso sin servidor siguen el mismo patrón que la creación de una nueva base de datos en el nivel de proceso aprovisionado y constan de los dos pasos siguientes.
 
-1. Especifique el nombre del objetivo de servicio. El objetivo de servicio preceptúa el nivel de servicio, la generación de hardware y el máximo de núcleos virtuales. La siguiente tabla muestra las opciones de objetivo de servicio:
+1. Especifique el objetivo de servicio. El objetivo de servicio preceptúa el nivel de servicio, la generación de hardware y el máximo de núcleos virtuales. La siguiente tabla muestra las opciones de objetivo de servicio:
 
    |Nombre del objetivo de servicio|Nivel de servicio|Generación de hardware|Número máximo de núcleos virtuales|
    |---|---|---|---|
@@ -172,12 +176,12 @@ La creación de una nueva base de datos o el cambio de una base de datos existen
    |Parámetro|Opciones de valores|Valor predeterminado|
    |---|---|---|---|
    |Número mínimo de núcleos virtuales|Depende de la cantidad máxima de núcleos virtuales configurada; consulte [Límites de los recursos](sql-database-vcore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5).|0,5 núcleos virtuales|
-   |Demora de pausa automática|Mínimos: 60 minutos (1 hora)<br>Máximo: 10 080 minutos (7 días)<br>Incrementos: 60 minutos<br>Deshabilitar pausa automática: -1|60 minutos|
+   |Demora de pausa automática|Mínimos: 60 minutos (1 hora)<br>Máximo: 10 080 minutos (7 días)<br>Incrementos: 10 minutos<br>Deshabilitar pausa automática: -1|60 minutos|
 
 
 ### <a name="create-new-database-in-serverless-compute-tier"></a>Creación de una nueva base de datos en el nivel de proceso sin servidor 
 
-En el siguiente ejemplo se crea una base de datos en el nivel de proceso sin servidor. En este ejemplo se especifica explícitamente el mínimo de núcleos virtuales, el máximo de núcleos virtuales y el retraso de pausa automática.
+En el siguiente ejemplo se crea una base de datos en el nivel de proceso sin servidor.
 
 #### <a name="use-azure-portal"></a>Usar Azure Portal
 
@@ -201,7 +205,7 @@ az sql db create -g $resourceGroupName -s $serverName -n $databaseName `
 
 #### <a name="use-transact-sql-t-sql"></a>Uso de Transact-SQL (T-SQL)
 
-En el siguiente ejemplo se crea una nueva base de datos en el nivel de proceso sin servidor.
+Cuando se usa T-SQL, se aplican los valores predeterminados para el número mínimo de núcleos virtuales y la demora de pausa automática.
 
 ```sql
 CREATE DATABASE testdb
@@ -212,7 +216,7 @@ Para más información, consulte [CREATE DATABASE](/sql/t-sql/statements/create-
 
 ### <a name="move-database-from-provisioned-compute-tier-into-serverless-compute-tier"></a>Cambio de la base de datos del nivel de proceso aprovisionado al nivel de proceso sin servidor
 
-En el siguiente ejemplo se mueve una base de datos del nivel de proceso aprovisionado al nivel de proceso sin servidor. En este ejemplo se especifica explícitamente el mínimo de núcleos virtuales, el máximo de núcleos virtuales y el retraso de pausa automática.
+En el siguiente ejemplo se mueve una base de datos del nivel de proceso aprovisionado al nivel de proceso sin servidor.
 
 #### <a name="use-powershell"></a>Uso de PowerShell
 
@@ -233,7 +237,7 @@ az sql db update -g $resourceGroupName -s $serverName -n $databaseName `
 
 #### <a name="use-transact-sql-t-sql"></a>Uso de Transact-SQL (T-SQL)
 
-En el siguiente ejemplo se mueve una base de datos desde el nivel de proceso aprovisionado al nivel de proceso sin servidor.
+Cuando se usa T-SQL, se aplican los valores predeterminados para el número mínimo de núcleos virtuales y la demora de pausa automática.
 
 ```sql
 ALTER DATABASE testdb 

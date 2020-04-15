@@ -4,19 +4,19 @@ description: Integre la infraestructura de Puerta de enlace de Escritorio remoto
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71d9b2332d6d78e7bde63d0fa3f5b64b588e576b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c61bea7f3ca1105edfec54501c5f0725a5a10225
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75425438"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80654109"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integración de la infraestructura de la puerta de enlace de Escritorio remoto utilizando la extensión Servidor de directivas de redes (NPS) y Azure AD
 
@@ -54,7 +54,7 @@ Cuando la extensión NPS para Azure está integrada con el NPS y la puerta de en
 1. El servidor de la puerta de enlace de Escritorio remoto recibe una solicitud de autenticación de un usuario de escritorio remoto para conectarse a un recurso, como una sesión de escritorio remoto. Actuando como un cliente RADIUS, el servidor de puerta de enlace de Escritorio remoto convierte la solicitud en un mensaje de solicitud de acceso RADIUS y envía el mensaje al servidor RADIUS (NPS) donde está instalada la extensión NPS.
 1. Se comprueba la combinación de nombre de usuario y contraseña en Active Directory y se autentica al usuario.
 1. Si se cumplen todas las condiciones especificadas en la solicitud de conexión NPS y las directivas de red (por ejemplo, la hora del día o restricciones por pertenencia a un grupo), la extensión NPS desencadena una solicitud de autenticación secundaria con Azure MFA.
-1. Azure MFA se comunica con Azure AD, recupera los detalles del usuario y realiza la autenticación secundaria mediante métodos admitidos.
+1. Azure MFA se comunica con Azure AD, recupera los detalles del usuario y realiza la autenticación secundaria mediante métodos admitidos.
 1. Cuando se realiza correctamente el desafío de MFA, Azure MFA comunica el resultado a la extensión NPS.
 1. El servidor NPS donde está instalada la extensión envía un mensaje de aceptación de acceso de RADIUS para la directiva CAP de RD al servidor de puerta de enlace de Escritorio remoto.
 1. Se concede al usuario acceso al recurso de red solicitado a través de la puerta de enlace de Escritorio remoto.
@@ -157,7 +157,7 @@ Si desea usar sus propios certificados, debe asociar la clave pública de su cer
 Para usar el script, indique a la extensión sus credenciales de administrador de Azure AD y el identificador del inquilino de Azure AD que copió anteriormente. Ejecute el script en cada servidor NPS donde instaló la extensión NPS. A continuación, haga lo siguiente:
 
 1. Abra un símbolo del sistema administrativo de Windows PowerShell.
-1. En el símbolo del sistema de PowerShell, escriba `cd ‘c:\Program Files\Microsoft\AzureMfa\Config’` y presione **Entrar**.
+1. En el símbolo del sistema de PowerShell, escriba `cd 'c:\Program Files\Microsoft\AzureMfa\Config'` y presione **Entrar**.
 1. Escriba `.\AzureMfaNpsExtnConfigSetup.ps1` y presione **Entrar**. El script comprueba si está instalado el módulo de PowerShell de Azure Active Directory. Si no está instalado, el script instala el módulo.
 
    ![Ejecutar AzureMfaNpsExtnConfigSetup.ps1 en el PowerShell de Azure AD](./media/howto-mfa-nps-extension-rdg/image4.png)

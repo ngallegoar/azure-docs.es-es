@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: dfdfa9f69e00aa644c21fc96cb70e9fa460ca0c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0a282a412823207e5f662441158000e8c6121796
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77211711"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637924"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Guía de implementación de aplicaciones web mediante plantillas de Azure Resource Manager
 
@@ -109,7 +109,7 @@ El nombre de la aplicación web debe ser globalmente único. Puede usar una conv
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Si la plantilla incluye un recurso [Microsoft.Web/certificates](/azure/templates/microsoft.web/certificates) para el enlace SSL, y el certificado se almacena en Key Vault, debe asegurarse de que la identidad de App Service pueda acceder al certificado.
+Si la plantilla incluye un recurso [Microsoft.Web/certificates](/azure/templates/microsoft.web/certificates) para el enlace TLS/SSL, y el certificado se almacena en Key Vault, debe asegurarse de que la identidad de App Service pueda acceder al certificado.
 
 En Azure global, la entidad de servicio de App Service tiene el identificador de **abfa0a7c-a6b6-4736-8310-5855508787cd**. Para conceder acceso a Key Vault para la entidad de servicio de App Service, use lo siguiente:
 

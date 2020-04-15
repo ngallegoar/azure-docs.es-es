@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 4301aaed0152e07eb2a941b56637239b66c33878
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d7ea99e2ee8e2882c211ee17acec70222dc058a8
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79127352"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637094"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>Preguntas frecuentes sobre la sesión múltiple de Windows 10 Enterprise
 
@@ -39,7 +39,7 @@ La sesión múltiple de Windows 10 Enterprise no se puede ejecutar en entornos
 
 Puede iniciar una máquina virtual en Azure con la sesión múltiple de Windows 10 Enterprise de Windows 10 y personalizarla mediante la instalación de aplicaciones de línea de negocio, usar el comando sysprep/generalize y, a continuación, crear una imagen en Azure Portal.  
  
-Para empezar, cree una máquina virtual en Azure con la sesión múltiple de Windows 10 Enterprise de Windows 10. En lugar de iniciar la máquina virtual en Azure, puede descargar el disco duro virtual directamente. Después, podrá usar el disco duro virtual que ha descargado para crear una nueva máquina virtual de generación 1 en un equipo con Windows 10 con Hyper-V habilitado.
+Para empezar, cree una VM en Azure con la sesión múltiple de Windows 10 Enterprise. En lugar de iniciar la máquina virtual en Azure, puede descargar el disco duro virtual directamente. Después, podrá usar el disco duro virtual que ha descargado para crear una nueva máquina virtual de generación 1 en un equipo con Windows 10 con Hyper-V habilitado.
 
 Personalice la imagen según sus necesidades instalando aplicaciones de línea de negocio y prepare la imagen con sysprep. Cuando haya terminado de personalizarla, cargue la imagen en Azure con el disco duro virtual dentro. Después, obtenga Windows Virtual Desktop de Azure Marketplace y úselo para implementar un nuevo grupo de hosts con la imagen personalizada.
  

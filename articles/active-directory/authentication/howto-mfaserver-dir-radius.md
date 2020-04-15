@@ -4,19 +4,19 @@ description: Implementación de Autenticación RADIUS y Servidor Azure Multi-Fac
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b38341613c98bf85df8cb47ccafc3df5709a1fd4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 552226c35d4d129f73b96b689871708950b7ffb1
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75425216"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80652945"
 ---
 # <a name="integrate-radius-authentication-with-azure-multi-factor-authentication-server"></a>Integración de la autenticación RADIUS con Servidor Azure Multi-Factor Authentication
 
@@ -77,9 +77,9 @@ Ha configurado correctamente Servidor Azure Multi-Factor Authentication. Ahora, 
 
 Para configurar el cliente RADIUS, siga las siguientes instrucciones:
 
-* Configure el dispositivo/servidor para autenticarse mediante RADIUS en la dirección IP de Servidor Azure Multi-Factor Authentication, que actúa como servidor RADIUS.
+* Configure el dispositivo/servidor para autenticarse mediante RADIUS en la dirección IP de Servidor Microsoft Azure Multi-Factor Authentication, que funciona como servidor RADIUS.
 * Use el mismo secreto compartido que se configuró anteriormente.
-* Configure el tiempo de espera de RADIUS en entre 30 y 60 segundos para que haya tiempo para validar las credenciales del usuario, realizar la verificación en dos pasos, recibir su respuesta y, a continuación, responder a la solicitud de acceso RADIUS.
+* Configure el tiempo de espera de RADIUS en un valor entre 30 y 60 segundos para que haya tiempo para validar las credenciales del usuario, realizar la verificación en dos pasos, recibir su respuesta y, a continuación, responder a la solicitud de acceso RADIUS.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

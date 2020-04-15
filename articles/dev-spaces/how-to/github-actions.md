@@ -1,21 +1,21 @@
 ---
 title: Acciones de GitHub y Azure Kubernetes Service (versión preliminar)
 services: azure-dev-spaces
-ms.date: 02/04/2020
+ms.date: 04/03/2020
 ms.topic: conceptual
 description: Revise y pruebe los cambios de una solicitud de incorporación de cambios directamente en Azure Kubernetes Service mediante acciones de GitHub y Azure Dev Spaces.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, acciones de GitHub, Helm, service mesh, enrutamiento de service mesh, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 49715e38f36d4421b7327640ec8392a83b3c2996
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a83da0ef3958748831eb0eeda1aa5e91efa7ef2e
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78252375"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637939"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>Acciones de GitHub y Azure Kubernetes Service (versión preliminar)
 
-Azure Dev Spaces proporciona un flujo de trabajo con acciones de GitHub que le permite probar los cambios de una solicitud de incorporación de cambios directamente en AKS antes de que dicha solicitud se combine en la rama principal del repositorio. Tener una aplicación en ejecución para revisar los cambios de una solicitud de incorporación de cambios puede aumentar la confianza del desarrollador y de los miembros del equipo. Esta aplicación en ejecución también puede ayudar a los miembros del equipo, como administradores de productos y diseñadores, a formar parte del proceso de revisión durante las primeras fases del desarrollo.
+Azure Dev Spaces proporciona un flujo de trabajo con Acciones de GitHub que le permite probar los cambios de una solicitud de incorporación de cambios directamente en AKS antes de que dicha solicitud se combine en la rama principal del repositorio. Tener una aplicación en ejecución para revisar los cambios de una solicitud de incorporación de cambios puede aumentar la confianza del desarrollador y de los miembros del equipo. Esta aplicación en ejecución también puede ayudar a los miembros del equipo, como administradores de productos y diseñadores, a formar parte del proceso de revisión durante las primeras fases del desarrollo.
 
 En esta guía, aprenderá a:
 
@@ -101,6 +101,11 @@ Navegue al repositorio bifurcado y haga clic en *Configuración*. Haga clic en *
 > Todos estos secretos los usa la acción de GitHub y se configuran en [.github/workflows/bikes.yml][github-action-yaml].
 
 De manera opcional, si desea actualizar el espacio maestro después de la combinación de la solicitud de incorporación de cambios, agregue el secreto *GATEWAY_HOST*, que toma la forma *<ESPACIO_MAESTRO>. Gateway. <SUFIJO_DE_HOST>* , que en este ejemplo es *dev.gateway.fedcab0987.eus.azds.io*. Una vez que combine los cambios en la rama maestra de la bifurcación, se ejecutará otra acción para volver a compilar y ejecutar toda la aplicación en el espacio de desarrollo maestro. En este ejemplo, el espacio maestro es *dev*. Esta acción se configura en [.github/workflows/bikesharing.yml][github-action-bikesharing-yaml].
+
+Además, si desea que los cambios de la solicitud de incorporación de cambios se ejecuten en un espacio terciario, actualice los secretos *MASTER_SPACE* y *HOST*. Por ejemplo, si la aplicación se ejecuta en *dev* con un espacio secundario *dev/azureuser1*, para que la solicitud de incorporación de cambios se ejecute en un espacio secundario de *dev/azureuser1*:
+
+* Actualice *MASTER_SPACE* al espacio secundario que desee como espacio primario, en este ejemplo *azureuser1*.
+* Actualice *HOST* a *<GRANDPARENT_SPACE>.<APP_NAME>.<HOST_SUFFIX>* , en este ejemplo *dev.bikesharingweb.fedcab0987.eus.azds.io*.
 
 ## <a name="create-a-new-branch-for-code-changes"></a>Crear una nueva rama para los cambios de código
 
