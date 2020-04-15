@@ -85,8 +85,6 @@
   items:
     - name: Soporte técnico de TLS
       href: iot-hub-tls-support.md
-    - name: Desuso de TLS 1.0 y 1.1
-      href: iot-hub-tls-deprecating-1-0-and-1-1.md
     - name: Soporte para redes virtuales
       href: virtual-network-support.md
     - name: Introducción sobre los enriquecimientos de mensajes
@@ -444,6 +442,8 @@
           href: iot-hub-operations-monitoring.md
         - name: Migración a la configuración de Diagnostics
           href: iot-hub-migrate-to-diagnostics-settings.md
+        - name: Desuso de TLS 1.0 y 1.1
+          href: iot-hub-tls-deprecating-1-0-and-1-1.md
 - name: Recursos
   items:
     - name: Opciones de ayuda y soporte técnico
