@@ -3,12 +3,12 @@ title: Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscr
 description: Use Azure Resource Manager para trasladar recursos a un nuevo grupo de recursos o a una nueva suscripción.
 ms.topic: conceptual
 ms.date: 03/02/2020
-ms.openlocfilehash: 40432c55a7f7e289d2e5cbc8afe94847074e4ca8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ffb5f8be81d3628084d127db404ab994d4d5b938
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79226356"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631502"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción
 
@@ -107,7 +107,7 @@ Con fines ilustrativos, solo tenemos un recurso dependiente.
 
 * Paso 1: Si los recursos dependientes se distribuyen entre diferentes grupos de recursos, trasládelos primero a un grupo de recursos.
 * Paso 2: Traslade el recurso y los recursos dependientes juntos desde la suscripción de origen hasta la de destino.
-* Paso 3: Opcionalmente, redistribuya los recursos dependientes a distintos grupos de recursos dentro de la suscripción de destino. 
+* Paso 3: Opcionalmente, redistribuya los recursos dependientes a distintos grupos de recursos dentro de la suscripción de destino.
 
 ## <a name="validate-move"></a>Validar el movimiento
 
@@ -260,8 +260,9 @@ Al mover un recurso, sus recursos dependientes deben existir en el grupo de recu
 Por ejemplo, mover una máquina virtual podría requerir mover siete tipos de recursos con tres proveedores de recursos diferentes. Estos proveedores y tipos de recursos son:
 
 * Microsoft.Compute
-   * virtualMachines
-   * disks
+
+  * virtualMachines
+  * disks
 * Microsoft.Network
   * networkInterfaces
   * publicIPAddresses

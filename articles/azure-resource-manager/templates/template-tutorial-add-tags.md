@@ -2,21 +2,21 @@
 title: 'Tutorial: Adición de etiquetas a los recursos de la plantilla'
 description: Agregue etiquetas a los recursos que implemente en la plantilla de Azure Resource Manager. Las etiquetas permiten organizar los recursos de manera lógica.
 author: mumian
-ms.date: 10/04/2019
+ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: d7853d388b9159328a515818697ba9ddd5b95637
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 3e0deb53e57cd29cbfce4c37f2d6c6729f15bebd
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773195"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411701"
 ---
-# <a name="tutorial-add-tags-in-your-resource-manager-template"></a>Tutorial: Adición de etiquetas a la plantilla de Resource Manager
+# <a name="tutorial-add-tags-in-your-arm-template"></a>Tutorial: Incorporación de etiquetas en la plantilla de Resource Manager
 
-En este tutorial, aprenderá a agregar etiquetas a los recursos de la plantilla. Las [etiquetas](../management/tag-resources.md) le ayudan a organizar los recursos de forma lógica. Los valores de la etiqueta se muestran en los informes de costos. Este tutorial se realiza en **8 minutos**.
+En este tutorial, aprenderá a agregar etiquetas a los recursos de la plantilla de Resource Manager. Las [etiquetas](../management/tag-resources.md) le ayudan a organizar los recursos de forma lógica. Los valores de la etiqueta se muestran en los informes de costos. Este tutorial se realiza en **8 minutos**.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Aunque no es obligatorio, se recomienda realizar el [tutorial sobre las plantillas de inicio rápido](template-tutorial-quickstart-template.md).
 
@@ -44,7 +44,7 @@ Es momento de implementar la plantilla y examinar los resultados.
 
 Si no ha creado el grupo de recursos, consulte [Creación del grupo de recursos](template-tutorial-create-first-template.md#create-resource-group). En el ejemplo se supone que ha establecido la variable **templateFile** en la ruta de acceso al archivo de plantilla, como se muestra en el [primer tutorial](template-tutorial-create-first-template.md#deploy-template).
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -56,10 +56,12 @@ New-AzResourceGroupDeployment `
   -webAppName demoapp
 ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+Para ejecutar este comando de implementación, debe tener la [última versión](/cli/azure/install-azure-cli) de la CLI de Azure.
 
 ```azurecli
-az group deployment create \
+az deployment group create \
   --name addtags \
   --resource-group myResourceGroup \
   --template-file $templateFile \
@@ -67,6 +69,9 @@ az group deployment create \
 ```
 
 ---
+
+> [!NOTE]
+> Si se ha producido un error en la implementación, use el modificador **debug** con el comando de implementación para mostrar los registros de depuración.  También puede usar el modificador **verbose** para mostrar los registros de depuración completos.
 
 ## <a name="verify-deployment"></a>Comprobación de la implementación
 

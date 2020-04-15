@@ -12,12 +12,12 @@ author: Ninarn
 ms.author: ninarn
 ms.reviewer: carlrab
 ms.date: 03/12/2020
-ms.openlocfilehash: 5847ef3033d257faef4831785b8abd864d54e835
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: c072161db7a477b7973571a18d4f686b1b9c6202
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79209593"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985684"
 ---
 # <a name="quickstart-use-the-azure-portals-query-editor-to-query-a-sql-database"></a>Inicio rápido: Uso del editor de consultas de Azure Portal para consultar una base de datos SQL
 
@@ -175,7 +175,7 @@ Hay algunos aspectos que debe conocer al trabajar con el Editor de consultas.
 
 * El editor de consultas usa los puertos 443 y 1443 para comunicarse. Asegúrese de que ha habilitado el tráfico HTTPS saliente en estos puertos. También deberá agregar la dirección IP saliente a las reglas de firewall permitidas del servidor para acceder a las bases de datos y los almacenes de datos.
 
-* El editor de consultas funciona con Private Link sin necesidad de agregar la dirección IP del cliente al firewall de SQL Database
+* Si tiene una conexión Private Link, el editor de consultas funciona sin necesidad de agregar la dirección IP del cliente al firewall de SQL Database.
 
 * Al presionar la tecla **F5**, se actualiza la página del editor de consultas y se perderá cualquier consulta en la que se esté trabajando.
 

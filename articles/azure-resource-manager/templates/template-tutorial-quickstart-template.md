@@ -2,15 +2,15 @@
 title: 'Tutorial: Uso de plantillas de inicio rápido'
 description: Aprenda a usar las plantillas de inicio rápido de Azure para completar el desarrollo de plantillas.
 author: mumian
-ms.date: 10/04/2019
+ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 1e110bb4711490f53da7628f608f150a2bc3186c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4b82e02ecc009e587b89d1fd151fd13f75a4bcf8
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79368883"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80408502"
 ---
 # <a name="tutorial-use-azure-quickstart-templates"></a>Tutorial: Uso de las plantillas de inicio rápido de Azure
 
@@ -77,6 +77,8 @@ New-AzResourceGroupDeployment `
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
+Para ejecutar este comando de implementación, debe tener la [última versión](/cli/azure/install-azure-cli) de la CLI de Azure.
+
 ```azurecli
 az deployment group create \
   --name addwebapp \
@@ -86,6 +88,9 @@ az deployment group create \
 ```
 
 ---
+
+> [!NOTE]
+> Si se ha producido un error en la implementación, use el modificador **debug** con el comando de implementación para mostrar los registros de depuración.  También puede usar el modificador **verbose** para mostrar los registros de depuración completos.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

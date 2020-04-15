@@ -3,16 +3,16 @@ title: Solución de problemas de acceso al portal de Azure EA
 description: En este artículo se describen algunos problemas comunes que pueden producirse en una Contrato Enterprise de Azure (EA) en el portal de Azure EA.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/03/2020
+ms.date: 04/01/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 3bf1c10e28ef9e3e4008968c9dbaef576bccdb5f
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: ee8363a76db93f0c2bd4734151e3d250de5402fc
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80411548"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586195"
 ---
 # <a name="troubleshoot-azure-ea-portal-access"></a>Solución de problemas de acceso al portal de Azure EA
 
@@ -122,7 +122,7 @@ Hay varias razones posibles para un mensaje de error en Azure EA Portal durant
  1. Determine si el acceso a Azure EA Portal se ha agregado como una cuenta profesional o educativa, o bien como Microsoft Live ID. Si usa una cuenta profesional, escriba su correo electrónico y contraseña profesionales. Si usa Microsoft Live ID, escriba su correo electrónico de Live ID y la contraseña de Microsoft Live ID. Si olvidó su contraseña de Microsoft Live ID, vuelva a establecerla en [https://account.live.com/password/reset](https://account.live.com/password/reset).
  1. Se recomienda que use un explorador privado para iniciar sesión de modo que no se conserven cookies ni caché de sesiones anteriores o existentes. Borre la memoria caché y use el modo de exploración privado/ventana incógnito para abrir [https://ea.azure.com](https://ea.azure.com).
  1. Si recibe un error de usuario no válido al usar un cuenta de Microsoft, puede deberse a que tiene varias cuentas de Microsoft y en la que está intentando iniciar sesión no es el alias principal. Para comprobar el alias principal, vaya a account.live.com:
-    - Vaya a "Your Info" (Su información) > "Manage your sign-in email or phone number" (Administrar el correo electrónico o el número de teléfono de inicio de sesión).
+    - Vaya a "Tu información" > "Manage your sign-in email or phone number" (Administrar el correo electrónico o el número de teléfono de inicio de sesión).
     - Siga las indicaciones de la pantalla para comprobar otra dirección de correo electrónico y obtener un código para acceder a la información confidencial.
     - Escriba el código de seguridad.
     - Si prefiere configurar más tarde la autenticación en dos pasos, seleccione "Configurarlo más tarde".
@@ -161,7 +161,7 @@ Si olvidó su contraseña de trabajo, póngase en contacto con el administrador 
 
 ### <a name="i-have-a-valid-work-or-school-account-but-i-cant-add-it-to-the-ea-portal"></a>Tengo una cuenta profesional o educativa válida, pero no puedo agregarla a EA Portal
 
-Si tiene una cuenta profesional o educativa en otro inquilino, cambie el nivel de autorización en la página Detalles de inscripción a "Cuenta profesional o educativa entre inquilinos" y podrá agregar la cuenta.
+Si tiene una cuenta profesional o educativa en otro inquilino, cambie el nivel de autorización en la página Detalles de inscripción a "Work or School Account Cross Tenant" (Cuenta profesional o educativa entre inquilinos) y podrá agregar la cuenta.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

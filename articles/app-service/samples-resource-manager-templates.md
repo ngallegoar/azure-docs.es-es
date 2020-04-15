@@ -6,13 +6,13 @@ tags: azure-service-management
 ms.topic: sample
 ms.date: 01/04/2019
 ms.author: tomfitz
-ms.custom: mvc
-ms.openlocfilehash: b1d5f20ccd2f2c637d7db668af10ef331947d018
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.custom: mvc, fasttrack-edit
+ms.openlocfilehash: 2d77dcbd07a67e3ba50d70770515416b45fbc7a3
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74971203"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637905"
 ---
 # <a name="azure-resource-manager-templates-for-app-service"></a>Plantillas de Azure Resource Manager para App Service
 
@@ -28,11 +28,12 @@ Para obtener información sobre la sintaxis de JSON y las propiedades para los r
 | [App linked to a GitHub repository](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-github-deploy) (Aplicación vinculada a un repositorio de GitHub)| Implementa una aplicación de App Service que extrae código de GitHub. |
 | [App with custom deployment slots](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-custom-deployment-slots) (Aplicación con ranuras de implementación personalizados)| Implementa una aplicación de App Service con ranuras o entornos de implementación personalizados. |
 |**Configuración de una aplicación**||
-| [App certificate from Key Vault](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-certificate-from-key-vault) (Certificado de aplicación de Key Vault)| Implementa un certificado de aplicación de App Service desde un secreto de Azure Key Vault y lo utiliza para el enlace de SSL. |
+| [App certificate from Key Vault](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-certificate-from-key-vault) (Certificado de aplicación de Key Vault)| Implementa un certificado de aplicación de App Service a partir de un secreto de Azure Key Vault y lo utiliza para el enlace TLS/SSL. |
 | [App with a custom domain](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-custom-domain) (Aplicación con un dominio personalizado)| Implementa una aplicación de App Service con un nombre de host personalizado. |
-| [App with a custom domain and SSL](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-custom-domain-and-ssl) (Aplicación con un dominio personalizado y SSL)| Implementa una aplicación de App Service con un nombre de host personalizado y obtiene un certificado de aplicación de Key Vault para el enlace de SSL. |
+| [App with a custom domain and SSL](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-custom-domain-and-ssl) (Aplicación con un dominio personalizado y SSL)| Implementa una aplicación de App Service con un nombre de host personalizado y obtiene un certificado de aplicación de Key Vault para el enlace TLS/SSL. |
 | [App with a GoLang extension](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-with-golang) (Aplicación con una extensión de GoLang)| Implementa una aplicación de App Service con la extensión de sitio de Golang. A partir de ese momento se pueden ejecutar en Azure aplicaciones web desarrolladas en Golang. |
 | [App with Java 8 and Tomcat 8](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-java-tomcat) (Aplicación con Java 8 y Tomcat 8)| Implementa una aplicación de App Service con Java 8 y Tomcat 8 habilitados. A continuación, puede ejecutar aplicaciones Java en Azure. |
+| [Aplicación con integración de una red virtual regional](https://github.com/Azure/azure-quickstart-templates/tree/master/101-app-service-regional-vnet-integration)| Implementa una aplicación de App Service con la integración de una red virtual regional habilitada. |
 |**Protección de una aplicación**||
 | [Aplicación integrada con Azure Application Gateway](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-with-app-gateway-v2)| Implementa una aplicación de App Service y una instancia de Application Gateway y aísla el tráfico mediante el punto de conexión de servicio y las restricciones de acceso. |
 |**Linux app with connected resources** (Aplicación Linux con recursos conectados)||
@@ -47,5 +48,5 @@ Para obtener información sobre la sintaxis de JSON y las propiedades para los r
 |**entorno de App Service**||
 | [Create an App Service environment v2](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-asev2-create) (Creación de un entorno de App Service v2) | Crea un entorno de App Service v2 en la red virtual. |
 | [Create an App Service environment v2 with an ILB address](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-asev2-ilb-create/) (Creación de un entorno de App Service v2 con una dirección ILB) | Crea un entorno de App Service v2 en la red virtual con una dirección de equilibrador de carga interno privado. |
-| [Configure the default SSL certificate for an ILB App Service environment or an ILB App Service environment v2](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-ase-ilb-configure-default-ssl) (Configuración del certificado SSL predeterminado para un entorno de App Service con ILB o un entorno de App Service v2 con ILB) | Configura el certificado SSL predeterminado para un entorno de App Service con ILB o de App Service v2 con ILB. |
+| [Configure the default SSL certificate for an ILB App Service environment or an ILB App Service environment v2](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-ase-ilb-configure-default-ssl) (Configuración del certificado SSL predeterminado para un entorno de App Service con ILB o un entorno de App Service v2 con ILB) | Configura el certificado TLS/SSL predeterminado para un entorno de App Service con ILB o de App Service v2 con ILB. |
 | | |

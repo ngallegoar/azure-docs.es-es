@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/30/2019
+ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: 6db2c907abc495ca3c88e1e73e885043a8f19997
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 636f2e6139ad081d1e2fc67462a74cb7e18e3ff0
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79481541"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475898"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Configuración de LDAP seguro para un dominio administrado de Azure Active Directory Domain Services
 
@@ -114,13 +114,13 @@ Estas dos claves, *privada* y *pública*, garantizan que solo los equipos adecua
 
 Antes de poder usar el certificado digital creado en el paso anterior con el dominio administrado de Azure AD DS, exporte el certificado a un archivo de certificado *.PFX* que incluye la clave privada.
 
-1. Para abrir el cuadro de diálogo *Ejecutar*, presione las teclas **Windows** y **R**.
+1. Para abrir el cuadro de diálogo *Ejecutar*, presione las teclas **Windows** + **R**.
 1. Escriba **mmc** en el cuadro de diálogo *Ejecutar* y, después, seleccione **Aceptar** para abrir Microsoft Management Console (MMC).
-1. En la solicitud de **Control de cuentas de usuario**, haga clic en **Sí** para iniciar MMC como administrador.
-1. En el menú **Archivo**, haga clic en **Agregar o quitar complemento**.
+1. En la solicitud de **Control de cuentas de usuario**, seleccione **Sí** para iniciar MMC como administrador.
+1. En el menú **Archivo**, seleccione **Agregar o quitar complemento**.
 1. En el asistente para el **complemento Certificados**, elija **Cuenta de equipo** y seleccione **Siguiente**.
 1. En la página **Seleccionar equipo**, elija **Equipo local: (el equipo en el que se está ejecutando esta consola)** y seleccione **Finalizar**.
-1. En el cuadro de diálogo **Agregar o quitar complementos**, haga clic en **Aceptar** para agregar el complemento de certificados a MMC.
+1. En el cuadro de diálogo **Agregar o quitar complementos**, seleccione **Aceptar** para agregar el complemento de certificados a MMC.
 1. En la ventana de MMC, expanda **Raíz de consola**. Seleccione **Certificados (equipo local)** y, después, expanda el nodo **Personal**, seguido del nodo **Certificados**.
 
     ![Apertura del almacén de certificados personales en Microsoft Management Console](./media/tutorial-configure-ldaps/open-personal-store.png)
@@ -177,9 +177,6 @@ Ahora el archivo de certificado *.CER* se puede distribuir a los equipos cliente
 Ahora que ya contamos con un certificado digital creado y exportado que incluye la clave privada y con el equipo cliente configurado para confiar en la conexión, es necesario habilitar LDAP seguro en el dominio administrado de Azure AD DS. Para habilitar LDAP seguro en un dominio administrado de Azure AD DS, lleve a cabo los siguientes pasos de configuración:
 
 1. En [Azure Portal](https://portal.azure.com), escriba *domain services* en el cuadro **Buscar recursos**. En el resultado de la búsqueda, seleccione **Azure AD Domain Services**.
-
-    ![Búsqueda y selección del dominio administrado de Azure AD DS en Azure Portal](./media/tutorial-configure-ldaps/search-for-domain-services.png)
-
 1. Elija el dominio administrado como, por ejemplo, *aaddscontoso.com*.
 1. En el lado izquierdo de la ventana de Azure AD DS, elija **LDAP seguro**.
 1. De forma predeterminada, se deshabilita el acceso de LDAP seguro a su dominio administrado. Cambie **LDAP seguro** a **Habilitar**.
@@ -235,10 +232,10 @@ Ahora que ya ha habilitado el acceso LDAP seguro a través de Internet, debe act
 
 Configure el proveedor DNS externo para crear un registro de host, por ejemplo *ldaps*, para resolver en esta dirección IP externa. Para hacer antes una prueba local en el equipo, puede crear una entrada en el archivo de hosts de Windows. Para editar correctamente el archivo de hosts en el equipo local, abra el *Bloc de notas* como administrador y en él el archivo *C:\Windows\System32\drivers\etc*.
 
-La siguiente entrada de DNS de ejemplo, ya sea con el proveedor DNS externo o en el archivo de hosts local, resuelve el tráfico de *ldaps.aaddscontoso.com* en la dirección IP externa *40.121.19.239*:
+La siguiente entrada de DNS de ejemplo, ya sea con el proveedor DNS externo o en el archivo de hosts local, resuelve el tráfico de *ldaps.aaddscontoso.com* en la dirección IP externa de *168.62.205.103*:
 
 ```
-40.121.19.239    ldaps.aaddscontoso.com
+168.62.205.103    ldaps.aaddscontoso.com
 ```
 
 ## <a name="test-queries-to-the-managed-domain"></a>Prueba de consultas en el dominio administrado
@@ -261,7 +258,7 @@ Para ver los objetos almacenados en el dominio administrado de Azure AD DS:
 1. Seleccione la opción de menú **Ver** y, a continuación, elija **Árbol**.
 1. Deje en blanco el campo *DN base* y, después, seleccione **Aceptar**.
 1. Elija un contenedor, como *AADDC Users*, seleccione con el botón derecho el contenedor y elija **Buscar**.
-1. Deje los campos rellenados previamente con los valores establecidos y, a continuación, seleccione **Ejecutar**. Los resultados de la consulta se muestran en la ventana de la derecha.
+1. Deje los campos rellenados previamente con los valores establecidos y, a continuación, seleccione **Ejecutar**. Los resultados de la consulta aparecen en la ventana de la derecha, tal como se muestra en la siguiente salida de ejemplo:
 
     ![Búsqueda de objetos en el dominio administrado de Azure AD DS con LDP.exe](./media/tutorial-configure-ldaps/ldp-query.png)
 
@@ -273,7 +270,7 @@ Si en este tutorial ha agregado una entrada DNS en el archivo de hosts local del
 
 1. En el equipo local, abra el *Bloc de notas* como administrador.
 1. Vaya al archivo *C:\Windows\System32\drivers\etc* y ábralo.
-1. Elimine la línea del registro que ha agregado, como `40.121.19.239    ldaps.aaddscontoso.com`.
+1. Elimine la línea del registro que ha agregado, como `168.62.205.103    ldaps.aaddscontoso.com`.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

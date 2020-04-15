@@ -12,14 +12,14 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 04/02/2020
 ms.author: jeedes
-ms.openlocfilehash: a4cfcf20fc7a6a3532f65c3e797da6c876844d2c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 349a9920adc0d9353ee8e8e821f54bc2ea2f2616
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76985573"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80666985"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-wdesk"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Wdesk
 
@@ -181,6 +181,10 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
     ![Configurar inicio de sesión único](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig2.png)
 
+1. En **SAML User ID Settings** (Configuración de Id. de usuario de SAML), marque **SAML User ID is Wdesk Username** (Id. de usuario de SAML es nombreDeUsuario de Wdesk).
+
+    ![Configurar inicio de sesión único](./media/wdesk-tutorial/wdesk-username.png)
+
 4. En **General Settings** (Configuración general), seleccione la casilla **Enable SAML Single Sign On** (Habilitar inicio de sesión único de SAML):
 
     ![Configurar inicio de sesión único](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig3.png)
@@ -223,7 +227,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Wdesk, tienen que 
    
     ![Creación de un usuario de prueba de Azure AD](./media/wdesk-tutorial/createuser1.png)  
 
-5. En el cuadro de texto **User** (Usuario), escriba el nombre del usuario así brittasimon@contoso.com y haga clic en el botón **Continue** (Continuar).
+5. En el cuadro de texto **User** (Usuario), escriba el nombre del usuario así b.simon@contoso.com y haga clic en el botón **Continue** (Continuar).
 
     ![Creación de un usuario de prueba de Azure AD](./media/wdesk-tutorial/createuser3.png)
 
@@ -231,9 +235,9 @@ Para permitir que los usuarios de Azure AD inicien sesión en Wdesk, tienen que 
   
     ![Creación de un usuario de prueba de Azure AD](./media/wdesk-tutorial/createuser4.png)
  
-    a. En el cuadro de texto **E-mail** (Correo electrónico), escriba el correo electrónico del usuario con el siguiente formato brittasimon@contoso.com.
+    a. En el cuadro de texto **E-mail** (Correo electrónico), escriba el correo electrónico del usuario con el siguiente formato b.simon@contoso.com.
 
-    b. En el cuadro de texto **First Name** (Nombre), escriba el nombre de usuario, en este caso **Britta**.
+    b. En el cuadro de texto **First Name** (Nombre), escriba el nombre del usuario, en este caso **B**.
 
     c. En el cuadro de texto **Last Name** (Apellidos), escriba el nombre de usuario, en este caso **Simon**.
 

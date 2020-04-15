@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 02/27/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 3218a2de890124915d62afa86fd5f3dca1e72b2e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1bef4e5f4129ddc8300d61d609392ce0b07b74b8
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80063097"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656252"
 ---
 # <a name="what-is-azure-private-link"></a>¿Qué es Azure Private Link? 
 Azure Private Link le permite acceder a los servicios PaaS de Azure (por ejemplo, Azure Storage y SQL Database) y a los servicios hospedados en Azure que son propiedad de los clientes, o a los servicios de asociados, a través de un [punto de conexión privado](private-endpoint-overview.md) de la red virtual.
@@ -47,21 +47,22 @@ Azure Private Link proporciona las ventajas siguientes:
 |  | Azure Data Lake Storage Gen2        |  Todas las regiones públicas      | GA <br/> [Más información](/azure/storage/common/storage-private-endpoints)  |
 |  |  Azure SQL Database         | Todas las regiones públicas      |   GA <br/> [Más información](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)      |
 |  |Azure Synapse Analytics (SQL Data Warehouse)| Todas las regiones públicas |GA <br/> [Más información](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)|
-|  |Azure Cosmos DB|  ESTE DE EE. UU., ESTE DE EE. UU. 2, OESTE DE EE. UU., OESTE DE EE. UU. 2, CENTRO DE EE. UU., CENTRO-SUR DE EE. UU., CENTRO-OESTE DE EE. UU., CENTRO-NORTE DE EE. UU., NORTE DE EUROPA, OESTE DE EUROPA  |GA <br/> [Más información](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints)|
+|  |Azure Cosmos DB|  Todas las regiones públicas |GA <br/> [Más información](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints)|
 |  |  Azure Database for PostgreSQL: servidor único         | Todas las regiones públicas      |   GA <br/> [Más información](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-private-link)      |
 |  |  Azure Database for MySQL         | Todas las regiones públicas      |   GA <br/> [Más información](https://docs.microsoft.com/azure/mysql/concepts-data-access-security-private-link)     |
 |  |  Azure Database for MariaDB         | Todas las regiones públicas      |   GA <br/> [Más información](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-private-link)      |
 |  |  Azure Key Vault         | Todas las regiones públicas      |   GA   <br/> [Más información](https://docs.microsoft.com/azure/key-vault/private-link-service)   |
 |  |Azure Kubernetes Service: API de Kubernetes | Todas las regiones públicas      |   GA   <br/> [Más información](https://docs.microsoft.com/azure/aks/private-clusters)   |
-|  |Azure Search | ESTE DE EE. UU., OESTE DE EE. UU. 2, CENTRO-SUR DE EE. UU. |   Vista previa    |
+|  |Azure Search | ESTE DE EE. UU., OESTE DE EE. UU. 2, CENTRO DE EE. UU. |   Vista previa    |
 |  |Azure Container Registry | Todas las regiones públicas      |   Vista previa   |
 |  |Azure App Configuration | Todas las regiones públicas      |   Vista previa   |
-|  |Azure Backup | ESTE DE EE. UU., OESTE DE EE. UU. 2, CENTRO-SUR DE EE. UU.     |   Vista previa   |
+|  |Azure Backup | ESTE DE EE. UU., OESTE DE EE. UU. 2, CENTRO DE EE. UU.     |   Vista previa   |
 |  |Centro de eventos de Azure | Todas las regiones públicas      |   Vista previa    |
 |  |Azure Service Bus | Todas las regiones públicas      |   Vista previa   |
 |  |Azure Relay | Todas las regiones públicas      |   Vista previa   |
-|  |Azure Event Grid| Todas las regiones públicas      |   Vista previa   <br/> [Más información](https://docs.microsoft.com/azure/event-grid/network-security)   |
-|  |Azure Web Apps | ESTE DE EE. UU., OESTE DE EE. UU. 2, CENTRO-SUR DE EE. UU.      |   Vista previa   <br/> [Más información](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)   |
+|  |Azure Event Grid| ESTE DE EE. UU., OESTE DE EE. UU. 2, CENTRO DE EE. UU.      |   Vista previa   <br/> [Más información](https://docs.microsoft.com/azure/event-grid/network-security)   |
+|  |Azure Web Apps | ESTE DE EE. UU., OESTE DE EE. UU. 2, CENTRO DE EE. UU.      |   Vista previa   <br/> [Más información](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)   |
+|  |Azure Machine Learning | ESTE DE EE. UU., OESTE DE EE. UU. 2, CENTRO DE EE. UU.      |   Vista previa   <br/> [Más información](https://docs.microsoft.com/azure/machine-learning/how-to-configure-private-link)   |
 
 Para conocer las notificaciones más actualizadas, consulte la página [Actualizaciones de Azure Virtual Network](https://azure.microsoft.com/updates/?product=virtual-network).
 

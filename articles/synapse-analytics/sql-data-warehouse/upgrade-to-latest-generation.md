@@ -11,12 +11,12 @@ ms.date: 02/19/2019
 ms.author: martinle
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 637e377e469eeb1a82b6c0ad3a845d94ac09c7db
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 13b1f33ffe653627bcf45f6c995e82e741de32ea
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351194"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80742756"
 ---
 # <a name="optimize-performance-by-upgrading-azure-synapse-analytics-sql-pool"></a>Optimización del rendimiento mediante la actualización del grupo de SQL de Azure Synapse Analytics
 
@@ -24,13 +24,12 @@ Actualice el grupo de SQL a la última generación de arquitectura de almacenami
 
 ## <a name="why-upgrade"></a>¿Por qué actualizar?
 
-Ahora puede actualizar sin problemas al grupo de SQL de nivel Gen2 optimizado para proceso en Azure Portal para las [regiones compatibles](gen2-migration-schedule.md#automated-schedule-and-region-availability-table). Si su región no admite la actualización automática, puede actualizar a una región admitida o esperar a que la actualización automática esté disponible en su región. Actualice ahora para beneficiarse de la última generación de hardware de Azure y de la arquitectura de almacenamiento mejorada, como un rendimiento más rápido, mayor escalabilidad y un almacenamiento en columnas ilimitado. 
+Ahora puede actualizar sin problemas al grupo de SQL de nivel Gen2 optimizado para proceso en Azure Portal para las [regiones compatibles](gen2-migration-schedule.md#automated-schedule-and-region-availability-table). Si su región no admite la actualización automática, puede actualizar a una región admitida o esperar a que la actualización automática esté disponible en su región. Actualice ahora para beneficiarse de la última generación de hardware de Azure y de la arquitectura de almacenamiento mejorada, como un rendimiento más rápido, mayor escalabilidad y un almacenamiento en columnas ilimitado.
 
 > [!VIDEO https://www.youtube.com/embed/9B2F0gLoyss]
 
-## <a name="applies-to"></a>Se aplica a
-
-Esta actualización se aplica a los grupos de SQL de nivel Gen1 optimizado para proceso en [regiones compatibles](gen2-migration-schedule.md#automated-schedule-and-region-availability-table).
+> [!IMPORTANT]
+> Esta actualización se aplica a los grupos de SQL de nivel Gen1 optimizado para proceso en [regiones compatibles](gen2-migration-schedule.md#automated-schedule-and-region-availability-table).
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -54,28 +53,26 @@ Esta actualización se aplica a los grupos de SQL de nivel Gen1 optimizado para 
    |           DW3000            |           DW3000c           |
    |           DW6000            |           DW6000c           |
 
-> [!Note]
+> [!NOTE]
 > Los niveles de rendimiento sugeridos no son una conversión directa. Por ejemplo, se recomienda pasar de DW600 a DW500c.
 
 ## <a name="upgrade-in-a-supported-region-using-the-azure-portal"></a>Actualización en una región compatible mediante Azure Portal
 
-## <a name="before-you-begin"></a>Antes de empezar
+- La migración de Gen1 a Gen2 mediante Azure Portal es permanente. No hay ningún proceso para volver a Gen1.
+- El grupo de SQL debe estar en ejecución para migrar a Gen2.
+
+### <a name="before-you-begin"></a>Antes de empezar
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-> [!NOTE]
-> La migración de Gen1 a Gen2 mediante Azure Portal es permanente. No hay ningún proceso para volver a Gen1.  
+- Inicie sesión en [Azure Portal](https://portal.azure.com/).
+- Comprobar que se está ejecutando el grupo de SQL para poder migrar a Gen2
 
-## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
-
-Inicie sesión en [Azure Portal](https://portal.azure.com/).
+### <a name="powershell-upgrade-commands"></a>Comandos de actualización de PowerShell
 
 1. Si el grupo de SQL de nivel Gen1 optimizado para proceso que se va a actualizar se pausa, [reanude el grupo de SQL](pause-and-resume-compute-portal.md).
 
-   > [!NOTE]
-   > El grupo de SQL debe estar en ejecución para migrar a Gen2.
-
-2. Prepárese para unos minutos de inactividad. 
+2. Prepárese para unos minutos de inactividad.
 
 3. Identifique todas las referencias de código para los niveles de rendimiento Optimizado para Compute Gen1 y modifíquelos a su nivel de rendimiento equivalente Optimizado para Compute Gen2. A continuación, se muestran dos ejemplos de dónde debe actualizar las referencias de código antes de actualizar:
 
@@ -91,7 +88,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/).
    Set-AzSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300c"
    ```
 
-   > [!NOTE] 
+   > [!NOTE]
    > -RequestedServiceObjectiveName "DW300" cambiado a RequestedServiceObjectiveName "DW300**c**"
    >
 
@@ -104,19 +101,20 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/).
    Modificado a:
 
    ```sql
-   ALTER DATABASE mySampleDataWarehouse MODIFY (SERVICE_OBJECTIVE = 'DW300c') ; 
+   ALTER DATABASE mySampleDataWarehouse MODIFY (SERVICE_OBJECTIVE = 'DW300c') ;
    ```
-   > [!NOTE] 
+
+   > [!NOTE]
    > SERVICE_OBJECTIVE = 'DW300' cambiado a SERVICE_OBJECTIVE = 'DW300**c**'
 
 ## <a name="start-the-upgrade"></a>Iniciar la actualización
 
-1. Vaya al grupo de SQL de nivel Gen1 optimizado para proceso en Azure Portal. Si el grupo de SQL de nivel Gen1 optimizado para proceso que se va a actualizar se pausa, [reanude el grupo de SQL](pause-and-resume-compute-portal.md). 
-2. Seleccione la tarjeta **Actualizar a Gen2** en la pestaña Tareas:  ![Upgrade_1](./media/upgrade-to-latest-generation/upgrade-to-gen2-1.png)
-    
-    > [!NOTE]
-    > Si no aparece la tarjeta **Actualizar a Gen2** en la pestaña Tareas, su suscripción es de un tipo que tiene limitaciones en la región actual.
-    > [Envíe una incidencia de soporte técnico](sql-data-warehouse-get-started-create-support-ticket.md) para obtener la lista de elementos permitidos en la suscripción.
+1. Vaya al grupo de SQL de nivel Gen1 optimizado para proceso en Azure Portal. Si el grupo de SQL de nivel Gen1 optimizado para proceso que se va a actualizar se pausa, [reanude el grupo de SQL](pause-and-resume-compute-portal.md).
+2. Seleccione la tarjeta **Actualizar a Gen2** en la pestaña Tareas: ![Upgrade_1](./media/upgrade-to-latest-generation/upgrade-to-gen2-1.png)
+
+   > [!NOTE]
+   > Si no aparece la tarjeta **Actualizar a Gen2** en la pestaña Tareas, su suscripción es de un tipo que tiene limitaciones en la región actual.
+   > [Envíe una incidencia de soporte técnico](sql-data-warehouse-get-started-create-support-ticket.md) para obtener la lista de elementos permitidos en la suscripción.
 
 3. Asegúrese de que la carga de trabajo ha terminado de ejecutarse y está en modo inactivo antes de actualizar. Experimentará tiempo de inactividad unos minutos antes de que el grupo de SQL vuelva a estar en línea como grupo de SQL de nivel Gen2 optimizado para proceso. **Seleccione Actualizar**:
 
@@ -126,58 +124,58 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
    ![Upgrade3](./media/upgrade-to-latest-generation/upgrade-to-gen2-3.png)
 
-   El primer paso del proceso de actualización recorre la operación de escalado ("Actualización: sin conexión") donde todas las sesiones se terminan y las conexiones se descartan. 
+   El primer paso del proceso de actualización recorre la operación de escalado ("Actualización: sin conexión") donde todas las sesiones se terminan y las conexiones se descartan.
 
-   El segundo paso del proceso de actualización es la migración de datos ("Actualización: en línea"). La migración de datos es un proceso en segundo plano lento y en línea. Durante este proceso, los datos en columnas se mueven lentamente desde la arquitectura de almacenamiento anterior hasta la nueva arquitectura de almacenamiento mediante una caché de SSD local. Durante este tiempo, el grupo de SQL estará en línea para consulta y carga. Los datos estarán disponibles para consulta tanto si se han migrado como si no. La migración de datos se produce a una velocidad variable, según el tamaño de los datos, el nivel de rendimiento y el número de segmentos del almacén de columnas. 
+   El segundo paso del proceso de actualización es la migración de datos ("Actualización: en línea"). La migración de datos es un proceso en segundo plano lento y en línea. Durante este proceso, los datos en columnas se mueven lentamente desde la arquitectura de almacenamiento anterior hasta la nueva arquitectura de almacenamiento mediante una caché de SSD local. Durante este tiempo, el grupo de SQL estará en línea para consulta y carga. Los datos estarán disponibles para consulta tanto si se han migrado como si no. La migración de datos se produce a una velocidad variable, según el tamaño de los datos, el nivel de rendimiento y el número de segmentos del almacén de columnas.
 
 5. **Recomendación opcional:** Una vez completada la operación de escalado, puede acelerar el proceso en segundo plano de migración de datos. Puede forzar inmediatamente el movimiento de datos ejecutando [Alter Index rebuild](sql-data-warehouse-tables-index.md) en todas las tablas de almacén de columnas principales que consulte con una clase de recurso y un SLO de mayor tamaño. Esta operación es **sin conexión** en comparación con el proceso en segundo plano lento, que puede tardar horas en completarse según el número y tamaño de las tablas. Sin embargo, una vez que haya finalizado, la migración de datos será mucho más rápida debido a la nueva arquitectura de almacenamiento mejorada con grupos de filas de alta calidad.
- 
+
 > [!NOTE]
 > Alter Index rebuild es una operación sin conexión y las tablas no estarán disponibles hasta que se complete la recompilación.
 
 La consulta siguiente genera los comandos Alter Index Rebuild necesarios para acelerar la migración de datos:
 
 ```sql
-SELECT 'ALTER INDEX [' + idx.NAME + '] ON [' 
-       + Schema_name(tbl.schema_id) + '].[' 
-       + Object_name(idx.object_id) + '] REBUILD ' + ( CASE 
-                                                         WHEN ( 
-                                                     (SELECT Count(*) 
-                                                      FROM   sys.partitions 
-                                                             part2 
-                                                      WHERE  part2.index_id 
-                                                             = idx.index_id 
-                                                             AND 
-                                                     idx.object_id = 
-                                                     part2.object_id) 
-                                                     > 1 ) THEN 
-              ' PARTITION = ' 
-              + Cast(part.partition_number AS NVARCHAR(256)) 
-              ELSE '' 
-                                                       END ) + '; SELECT ''[' + 
-              idx.NAME + '] ON [' + Schema_name(tbl.schema_id) + '].[' + 
-              Object_name(idx.object_id) + '] ' + ( 
-              CASE 
-                WHEN ( (SELECT Count(*) 
-                        FROM   sys.partitions 
-                               part2 
-                        WHERE 
-                     part2.index_id = 
-                     idx.index_id 
-                     AND idx.object_id 
-                         = part2.object_id) > 1 ) THEN 
-              ' PARTITION = ' 
-              + Cast(part.partition_number AS NVARCHAR(256)) 
-              + ' completed'';' 
-              ELSE ' completed'';' 
-                                                    END ) 
-FROM   sys.indexes idx 
-       INNER JOIN sys.tables tbl 
-               ON idx.object_id = tbl.object_id 
-       LEFT OUTER JOIN sys.partitions part 
-                    ON idx.index_id = part.index_id 
-                       AND idx.object_id = part.object_id 
-WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE'; 
+SELECT 'ALTER INDEX [' + idx.NAME + '] ON ['
+       + Schema_name(tbl.schema_id) + '].['
+       + Object_name(idx.object_id) + '] REBUILD ' + ( CASE
+                                                         WHEN (
+                                                     (SELECT Count(*)
+                                                      FROM   sys.partitions
+                                                             part2
+                                                      WHERE  part2.index_id
+                                                             = idx.index_id
+                                                             AND
+                                                     idx.object_id =
+                                                     part2.object_id)
+                                                     > 1 ) THEN
+              ' PARTITION = '
+              + Cast(part.partition_number AS NVARCHAR(256))
+              ELSE ''
+                                                       END ) + '; SELECT ''[' +
+              idx.NAME + '] ON [' + Schema_name(tbl.schema_id) + '].[' +
+              Object_name(idx.object_id) + '] ' + (
+              CASE
+                WHEN ( (SELECT Count(*)
+                        FROM   sys.partitions
+                               part2
+                        WHERE
+                     part2.index_id =
+                     idx.index_id
+                     AND idx.object_id
+                         = part2.object_id) > 1 ) THEN
+              ' PARTITION = '
+              + Cast(part.partition_number AS NVARCHAR(256))
+              + ' completed'';'
+              ELSE ' completed'';'
+                                                    END )
+FROM   sys.indexes idx
+       INNER JOIN sys.tables tbl
+               ON idx.object_id = tbl.object_id
+       LEFT OUTER JOIN sys.partitions part
+                    ON idx.index_id = part.index_id
+                       AND idx.object_id = part.object_id
+WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 ```
 
 ## <a name="upgrade-from-an-azure-geographical-region-using-restore-through-the-azure-portal"></a>Actualización desde una región geográfica de Azure mediante restauración en Azure Portal
@@ -204,7 +202,7 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 
     ![ Introducción a la restauración](./media/upgrade-to-latest-generation/restoring_0.png)
 
-4. Seleccione **Puntos de restauración automáticos** o **Puntos de restauración definidos por el usuario**. En el caso de los puntos de restauración definidos por el usuario, **seleccione un punto de restauración definido por el usuario** o **cree un punto de restauración definido por el usuario**. En el servidor, seleccione **Crear nuevo** y elija un servidor en una región geográfica compatible con Gen2. 
+4. Seleccione **Puntos de restauración automáticos** o **Puntos de restauración definidos por el usuario**. En el caso de los puntos de restauración definidos por el usuario, **seleccione un punto de restauración definido por el usuario** o **cree un punto de restauración definido por el usuario**. En el servidor, seleccione **Crear nuevo** y elija un servidor en una región geográfica compatible con Gen2.
 
     ![Puntos de restauración automáticos](./media/upgrade-to-latest-generation/restoring_1.png)
 
@@ -212,7 +210,7 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Para recuperar una base de datos, use el cmdlet [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase).
+Para recuperar una base de datos, use el cmdlet [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 > [!NOTE]
 > Puede realizar una restauración geográfica en Gen2. Para ello, especifique Gen2 ServiceObjectiveName (p. ej., DW1000**c**) como parámetro opcional.
@@ -240,10 +238,9 @@ $GeoRestoredDatabase.status
 ```
 
 > [!NOTE]
-> Para configurar la base de datos una vez finalizada la restauración, consulte [Configuración de la base de datos después de realizar la recuperación](../../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery).
+> Para configurar la base de datos una vez finalizada la restauración, consulte [Configuración de la base de datos después de realizar la recuperación](../../sql-database/sql-database-disaster-recovery.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
 
 La base de datos recuperada estará habilitada para TDE si la base de datos de origen está habilitada para TDE.
-
 
 Si experimenta problemas con el grupo de SQL, cree una [solicitud de soporte técnico](sql-data-warehouse-get-started-create-support-ticket.md) e indique que la posible causa es la "actualización a Gen2".
 

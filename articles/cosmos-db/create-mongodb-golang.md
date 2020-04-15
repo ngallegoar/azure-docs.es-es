@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: quickstart
 ms.date: 12/26/2018
-ms.openlocfilehash: c717a8d5baa57ce780fbbc0d25e67c2509ca86fc
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 94be0ec16aedc317f1be41998356bc52b66f7e86
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75441948"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619205"
 ---
 # <a name="quickstart-build-a-console-app-using-azure-cosmos-dbs-api-for-mongodb-and-golang-sdk"></a>Inicio rápido: Compilación de una aplicación de consola mediante la API de Azure Cosmos DB para MongoDB y el SDK de Golang
 
@@ -93,7 +93,7 @@ Los fragmentos de código siguientes se han tomado del archivo main.go.
 
 ### <a name="connecting-the-go-app-to-cosmos-db"></a>Conexión de una aplicación Go a Cosmos DB
 
-La API de Azure Cosmos DB para MongoDB admite la conexión con SSL habilitado. Para conectarse, debe definir la función **DialServer** en [mgo.DialInfo](https://godoc.org/gopkg.in/mgo.v2#DialInfo) y utilizar la función [tls.*Dial*](https://golang.org/pkg/crypto/tls#Dial) para realizar la conexión.
+La API de Azure Cosmos DB para MongoDB admite la conexión habilitada para TLS. Para conectarse, debe definir la función **DialServer** en [mgo.DialInfo](https://godoc.org/gopkg.in/mgo.v2#DialInfo) y utilizar la función [tls.*Dial*](https://golang.org/pkg/crypto/tls#Dial) para realizar la conexión.
 
 El siguiente fragmento de código de Golang conecta la aplicación Go a la API de Azure Cosmos DB para MongoDB. La clase *DialInfo* contiene opciones para establecer una sesión.
 
@@ -129,7 +129,7 @@ defer session.Close()
 session.SetSafe(&mgo.Safe{})
 ```
 
-El método **mgo. Dial()** se utiliza cuando no hay conexión SSL. Para establecer una conexión SSL, se necesita el método **mgo.DialWithInfo()** .
+El método **mgo.Dial()** se usa cuando no hay conexión TLS. Para establecer una conexión TLS, se necesita el método **mgo.DialWithInfo()** .
 
 Para crear el objeto de sesión, se utiliza una instancia del objeto **DialWIthInfo{}** . Cuando se establezca la sesión, puede acceder a la colección mediante el siguiente fragmento de código:
 

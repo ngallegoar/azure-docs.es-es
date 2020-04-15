@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/30/2019
+ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: 26122278ad74fb1d383ca7a900810b6060ee78f5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: af284e4c10487123c8c2a2105a25a2285ae0aa99
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73172681"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474364"
 ---
 # <a name="tutorial-configure-virtual-networking-for-an-azure-active-directory-domain-services-instance"></a>Tutorial: Configuración de redes virtuales para una instancia de Azure Active Directory Domain Services
 
@@ -72,18 +72,18 @@ De forma predeterminada, la red virtual de Azure creada con el dominio administr
 Para crear una subred de red virtual para las máquinas virtuales y las cargas de trabajo de la aplicación, complete los pasos siguientes:
 
 1. En Azure Portal, seleccione el grupo de recursos de su dominio administrado de Azure AD DS, como *myResourceGroup*. En la lista de recursos, elija la red virtual predeterminada, como *aadds-vnet*.
-1. En el menú de la izquierda de la ventana de la red virtual, seleccione **Espacio de direcciones**. La red virtual se crea con un solo espacio de direcciones *10.0.1.0/24*, que la subred predeterminada utiliza.
+1. En el menú de la izquierda de la ventana de la red virtual, seleccione **Espacio de direcciones**. La red virtual se crea con un solo espacio de direcciones de *10.0.2.0/24*, que es la que utiliza la subred predeterminada.
 
     Agregue un intervalo de direcciones IP adicional a la red virtual. El tamaño de este intervalo de direcciones y el intervalo de direcciones IP real que se usará dependerán de otros recursos de red ya implementados. El intervalo de direcciones IP no debe solaparse con los intervalos de direcciones existentes en el entorno de Azure o local. Asegúrese de que el intervalo de direcciones IP sea lo suficientemente grande para el número de máquinas virtuales que espera implementar en la subred.
 
-    En el ejemplo siguiente, se agrega un intervalo de direcciones IP adicional *10.0.2.0/24*. Cuando esté preparado, seleccione **Guardar**.
+    En el ejemplo siguiente, se agrega un intervalo de direcciones IP adicional de *10.0.3.0/24*. Cuando esté preparado, seleccione **Guardar**.
 
     ![Adición de un intervalo de direcciones IP de red virtual adicional en Azure Portal](./media/tutorial-configure-networking/add-vnet-address-range.png)
 
 1. A continuación, en el menú de la izquierda de la ventana de la red virtual, seleccione **Subredes** y, a continuación, seleccione **+ Subred** para agregar una subred.
 1. Escriba un nombre para la subred, como *workloads*. Si es necesario, actualice el **intervalo de direcciones** si desea usar un subconjunto del intervalo de direcciones IP configurado para la red virtual en los pasos anteriores. Por el momento, deje los valores predeterminados de opciones como Grupo de seguridad de red, Tabla de rutas y Puntos de conexión de servicio.
 
-    En el ejemplo siguiente, se crea una subred denominada *workloads* que usa el intervalo de direcciones IP *10.0.2.0/24*:
+    En el ejemplo siguiente, se crea una subred denominada *workloads* que usa el intervalo de direcciones IP de *10.0.3.0/24*:
 
     ![Adición de una subred de red virtual adicional en Azure Portal](./media/tutorial-configure-networking/add-vnet-subnet.png)
 
@@ -130,7 +130,7 @@ En este tutorial, se configurarán los servidores DNS de la red virtual de Azure
 
 1. En Azure Portal, seleccione el grupo de recursos de la red virtual emparejada, como *myResourceGroup*. En la lista de recursos, elija la red virtual emparejada, como *myVnet*.
 1. En el menú de la izquierda de la ventana de la red virtual, seleccione **Servidores DNS**.
-1. De forma predeterminada, una red virtual usa los servidores DNS integrados que proporciona Azure. Seleccione **Personalizado** para usar servidores DNS personalizados. Escriba las direcciones IP de los controladores de dominio de Azure AD DS, que suelen ser *10.0.1.4* y *10.0.1.5*. Confirme estas direcciones IP en la ventana **Información general** del dominio administrado de Azure AD DS en el portal.
+1. De forma predeterminada, una red virtual usa los servidores DNS integrados que proporciona Azure. Seleccione **Personalizado** para usar servidores DNS personalizados. Escriba las direcciones IP de los controladores de dominio de Azure AD DS, que suelen ser *10.0.2.4* y *10.0.2.5*. Confirme estas direcciones IP en la ventana **Información general** del dominio administrado de Azure AD DS en el portal.
 
     ![Configuración de los servidores DNS de la red virtual para usar los controladores de dominio de Azure AD DS](./media/tutorial-configure-networking/custom-dns.png)
 

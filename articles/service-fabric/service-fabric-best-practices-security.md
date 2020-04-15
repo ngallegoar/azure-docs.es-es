@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: dcdc338bdcdb2c04f6b8894ccb358bc773b95c07
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fa8bb41684271c7d4ebe90e31ce8019994fc1f41
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79229456"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478740"
 ---
 # <a name="azure-service-fabric-security"></a>Seguridad de Azure Service Fabric 
 
@@ -208,7 +208,7 @@ cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBS
 [Es recomendable que implemente una configuración estándar del sector que sea ampliamente conocida y esté probada, como las líneas base de seguridad de Microsoft, en lugar de crear una línea base usted mismo](https://docs.microsoft.com/windows/security/threat-protection/windows-security-baselines). Una opción para aprovisionarlas en Virtual Machine Scale Sets consiste en usar el controlador de extensión Desired State Configuration (DSC) de Azure para configurar las máquinas virtuales a medida que se conecten, de modo que ejecuten el software de producción.
 
 ## <a name="azure-firewall"></a>Azure Firewall
-[Azure Firewall es un servicio de seguridad de red administrado y basado en la nube que protege los recursos de Azure Virtual Network. Se trata de un firewall como servicio con estado completo que incorpora alta disponibilidad y escalabilidad en la nube sin restricciones.](https://docs.microsoft.com/azure/firewall/overview) Esto permite limitar el tráfico de salida HTTP/S a una lista especificada de nombres de dominio completos (FQDN) con caracteres comodín. Esta característica no requiere terminación de SSL. Se recomienda que aproveche las [etiquetas FQDN de Azure Firewall](https://docs.microsoft.com/azure/firewall/fqdn-tags) para Windows Update y que habilite el tráfico de red a los puntos de conexión de Microsoft Windows Update para que pueda fluir a través del firewall. En [Implementación de Azure Firewall mediante una plantilla](https://docs.microsoft.com/azure/firewall/deploy-template) encontrará un ejemplo de definición de la plantilla de recursos Microsoft.Network/azureFirewalls. En las reglas de firewall habituales de las aplicaciones de Service Fabric se permite lo siguiente para la red virtual de clústeres:
+[Azure Firewall es un servicio de seguridad de red administrado y basado en la nube que protege los recursos de Azure Virtual Network. Se trata de un firewall como servicio con estado completo que incorpora alta disponibilidad y escalabilidad en la nube sin restricciones.](https://docs.microsoft.com/azure/firewall/overview) Esto permite limitar el tráfico de salida HTTP/S a una lista especificada de nombres de dominio completos (FQDN) con caracteres comodín. Esta característica no requiere terminación de TLS/SSL. Se recomienda que aproveche las [etiquetas FQDN de Azure Firewall](https://docs.microsoft.com/azure/firewall/fqdn-tags) para Windows Update y que habilite el tráfico de red a los puntos de conexión de Microsoft Windows Update para que pueda fluir a través del firewall. En [Implementación de Azure Firewall mediante una plantilla](https://docs.microsoft.com/azure/firewall/deploy-template) encontrará un ejemplo de definición de la plantilla de recursos Microsoft.Network/azureFirewalls. En las reglas de firewall habituales de las aplicaciones de Service Fabric se permite lo siguiente para la red virtual de clústeres:
 
 - *download.microsoft.com
 - *servicefabric.azure.com

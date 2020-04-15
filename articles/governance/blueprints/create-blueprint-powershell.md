@@ -3,12 +3,12 @@ title: 'Inicio rápido: Creación de un plano técnico con PowerShell'
 description: En este inicio rápido se usa Azure Blueprints para crear, definir e implementar artefactos mediante PowerShell.
 ms.date: 11/21/2019
 ms.topic: quickstart
-ms.openlocfilehash: 8b418fa2b5244c42b8597bbbe7ed4773133d03a8
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 53fcf53bdcc3b5fcd1c6ec07a7d8ab45b39955b6
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75436632"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80676581"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>Inicio rápido: Definición y asignación de un plano técnico de Azure Blueprint con PowerShell
 
@@ -377,7 +377,7 @@ Cuando se ha publicado un plano técnico con PowerShell, se puede asignar a una 
      La **identidad administrada asignada por el usuario** puede estar en cualquier suscripción y grupo de recursos para los que tenga permiso el usuario que asigna el plano técnico.
 
      > [!IMPORTANT]
-     > Los planos técnicos no administran la identidad administrada asignada por el usuario. Los usuarios son responsables de asignar los roles y permisos necesarios o, de lo contrario, se producirá un error en la asignación del plano técnico.
+     > Azure Blueprints no administra la identidad administrada asignada por el usuario. Los usuarios son responsables de asignar los roles y permisos necesarios o, de lo contrario, se producirá un error en la asignación del plano técnico.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

@@ -1,26 +1,18 @@
 ---
 title: 'Tutorial: Datos contextuales con roles: LUIS'
-titleSuffix: Azure Cognitive Services
 description: Busque datos relacionados en función del contexto. Por ejemplo, las ubicaciones de origen y destino para un traslado físico de un edificio y oficina a otro edificio y oficina están relacionadas.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/17/2019
-ms.author: diberry
-ms.openlocfilehash: cd646ef061a0be06a9b1a56b72a4f35d9796aa63
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.date: 03/30/2020
+ms.openlocfilehash: fdb463896e531619ea7ebe7c384729763dc84138
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75447879"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475827"
 ---
 # <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>Tutorial: Extracción de datos relacionados contextualmente de una expresión
 
-En este tutorial, busque datos relacionados en función del contexto. Por ejemplo, una ubicación de origen y destino para una transferencia de una ciudad a otra. Ambas partes de datos pueden ser necesarias y están relacionadas entre sí.
+En este tutorial, busque datos relacionados en función del contexto. Por ejemplo, ubicaciones de origen y destino para un traslado de una ciudad a otra. Ambas partes de datos pueden ser necesarias y están relacionadas entre sí.
 
 Un rol se puede usar con cualquier tipo de entidad precompilada o personalizada, y tanto en patrones como en expresiones de ejemplo.
 
@@ -49,24 +41,26 @@ Un rol se debe utilizar cuando los datos de la entidad que se deben extraer:
 
 ## <a name="create-a-new-app"></a>Creación de una nueva aplicación
 
-1. Inicie sesión en la versión preliminar del portal de LUIS con la dirección URL [https://preview.luis.ai](https://preview.luis.ai).
+1. Inicie sesión en el [portal de la **versión preliminar** de LUIS](https://preview.luis.ai).
 
-1. Seleccione **Crear una aplicación**, escriba el nombre `HumanResources` y mantenga la referencia cultural predeterminada, **English** (Inglés). Deje en blanco la descripción.
-
-1. Seleccione **Listo**.
+1. Seleccione **+ New app for conversation** (Nueva aplicación para conversación), escriba el nombre `HumanResources` y mantenga la referencia cultural predeterminada, **English** (Inglés). Deje la descripción y el recurso de predicción vacíos. Seleccione **Listo**.
 
 ## <a name="create-an-intent-to-move-employees-between-cities"></a>Creación de una intención para mover los empleados entre ciudades
 
+Las intenciones se usan para clasificar las expresiones de usuario en función del propósito del usuario, que se determina a partir del texto del lenguaje natural.
+
+Para clasificar una expresión, la intención necesita ejemplos de expresiones del usuario que se deben clasificar con esta intención.
+
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-1. Haga clic en **Create new intent** (Crear intención).
+1. Seleccione **+ Create** (+ Crear).
 
 1. Escriba `MoveEmployeeToCity` en el cuadro de diálogo emergente y seleccione **Done** (Listo).
 
     > [!div class="mx-imgBorder"]
     > ![Captura de pantalla del cuadro de diálogo Create new intent (Crear nueva intención)](./media/tutorial-entity-roles/create-new-intent-move-employee-to-city.png)
 
-1. Agregue expresiones de ejemplo a la intención.
+1. Agregue varias expresiones de ejemplo a esta intención que espera que un usuario pida.
 
     |Expresiones de ejemplo|
     |--|
@@ -85,24 +79,29 @@ Un rol se debe utilizar cuando los datos de la entidad que se deben extraer:
 
 ## <a name="add-prebuilt-entity-geographyv2"></a>Adición de la entidad precompilada geographyV2
 
-La entidad precompilada, geographyV2, extrae información de ubicación, incluidos los nombres de las ciudades. Dado que las expresiones tienen dos nombres de ciudad, relacionados entre sí en contexto, use roles para extraer ese contexto.
+La entidad precompilada, **geographyV2**, extrae información de ubicación, incluidos los nombres de las ciudades. Dado que las expresiones tienen dos nombres de ciudad, relacionados entre sí en contexto, use roles para extraer ese contexto.
 
 1. Seleccione **Entities** (Entidades) en el menú de navegación de la izquierda.
 
-1. Seleccione **Add prebuilt entity** (Agregar entidad precompilada) y `geo` en la barra de búsqueda para filtrar las entidades precompiladas.
+1. Seleccione **+ Add prebuilt entity** (+ Agregar entidad precompilada) y escriba `geo` en la barra de búsqueda para filtrar las entidades precompiladas.
 
     > [!div class="mx-imgBorder"]
     > ![Adición de la entidad precompilada geographyV2 a la aplicación](media/tutorial-entity-roles/add-geographyV2-prebuilt-entity.png)
 
 1. Seleccione la casilla de verificación y **Listo**.
+
+## <a name="add-roles-to-prebuilt-entity"></a>Adición de roles a la entidad precompilada
+
 1. En la lista **Entidades**, seleccione **geographyV2** para abrir la nueva entidad.
-1. Agregue dos roles (`Origin` y `Destination`).
+1. Para agregar un rol, seleccione **+** y agregue los dos roles siguientes: `Origin` y `Destination`.
 
     > [!div class="mx-imgBorder"]
     > ![Adición de roles a la entidad precompilada](media/tutorial-entity-roles/add-roles-to-prebuilt-entity.png)
 
+## <a name="label-entity-roles-in-example-utterances"></a>Roles de entidad de etiqueta en las expresiones de ejemplo
+
 1. Seleccione **Intenciones** desde el panel de navegación del lado izquierdo y la intención **MoveEmployeeToCity**. Tenga en cuenta que los nombres de ciudades están etiquetados con la entidad precompilada **geographyV2**.
-1. En la barra de herramientas de contexto, seleccione la **paleta de entidades**.
+1. En la barra de herramientas de contexto, seleccione la **paleta de entidades** con el _icono del lápiz_.
 
     > [!div class="mx-imgBorder"]
     > ![Seleccionar paleta de entidades en la barra de herramientas del contenido](media/tutorial-entity-roles/intent-detail-context-toolbar-select-entity-palette.png)
@@ -122,18 +121,21 @@ La entidad precompilada, geographyV2, extrae información de ubicación, incluid
 
 ## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>Entrenamiento de la aplicación para probar los cambios en la intención
 
-[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+Para entrenar la aplicación, seleccione **Entrenar**. El entrenamiento aplica los cambios, como las nuevas entidades y las expresiones etiquetadas, al modelo activo.
 
-## <a name="publish-the-app-so-the-trained-model-is-queryable-from-the-endpoint"></a>Publicación de la aplicación para que se pueda consultar al modelo entrenado desde el punto de conexión
+## <a name="publish-the-app-to-access-it-from-the-http-endpoint"></a>Publicación de la aplicación para tener acceso a ella desde el punto de conexión HTTP
 
-[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
+[!INCLUDE [LUIS How to Publish steps](includes/howto-publish.md)]
+
 
 ## <a name="get-intent-and-entity-prediction-from-endpoint"></a>Obtención de intención y predicción de entidad desde el punto de conexión
 
-1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
 
-1. Vaya al final de la dirección URL en la barra de direcciones y escriba `Please move Carl Chamerlin from Tampa to Portland`. El último parámetro de la cadena de consulta es `q`, la expresión **query**. Esta expresión no es la misma que las expresiones etiquetadas, por lo que es una buena prueba y debería devolver la intención `MoveEmployee` con la entidad extraída.
+1. Vaya al final de la dirección URL de la barra de direcciones y reemplace _YOUR_QUERY_HERE_ por: `Please move Carl Chamerlin from Tampa to Portland`.
+
+Esta expresión no es la misma que las expresiones etiquetadas, por lo que es una buena prueba y debería devolver la intención `MoveEmployee` con la entidad extraída.
 
     ```json
     {
@@ -171,11 +173,9 @@ La entidad precompilada, geographyV2, extrae información de ubicación, incluid
     }
     ```
 
-    La intención correcta se predice y la matriz de entidades tiene los roles de origen y destino en la propiedad **entities** correspondiente.
+    The correct intent is predicted and the entities array has both the origin and destination roles in the corresponding **entities** property.
 
-## <a name="clean-up-resources"></a>Limpieza de recursos
-
-[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](includes/quickstart-tutorial-cleanup-resources.md)]
 
 ## <a name="related-information"></a>Información relacionada
 

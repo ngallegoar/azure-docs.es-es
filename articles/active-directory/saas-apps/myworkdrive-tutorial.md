@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/27/2019
 ms.author: jeedes
-ms.openlocfilehash: c733873a5545bb01f03abd8178ed2f371e2dd3aa
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 60fdd9b0a8fb272da885df97e39804a98e48de67
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74074078"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478866"
 ---
 # <a name="tutorial-integrate-myworkdrive-with-azure-active-directory"></a>Tutorial: Integración de MyWorkDrive con Azure Active Directory
 
@@ -92,7 +92,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     > 
     > URL de inicio de sesión: `https://yourserver.yourdomain.com/Account/Login-saml`
     > 
-    > Póngase en contacto con el [equipo de soporte técnico de MyWorkDrive](mailto:support@myworkdrive.com) si no está seguro de cómo configurar su propio nombre de host y el certificado SSL para estos valores.
+    > Póngase en contacto con el [equipo de soporte técnico de MyWorkDrive](mailto:support@myworkdrive.com) si no está seguro de cómo configurar su propio nombre de host y el certificado TLS/SSL para estos valores.
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en el botón de copia para copiar la **Dirección URL de metadatos de federación de aplicación** y guárdela en el Portapapeles.
 

@@ -2,15 +2,15 @@
 title: 'Tutorial: Exportación de una plantilla desde Azure Portal'
 description: Aprenda a usar una plantilla exportada para realizar el desarrollo mediante plantillas.
 author: mumian
-ms.date: 10/04/2019
+ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 95d54a0661f0a0cebdbfc225074be0ce0d83a5cc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f95efbaedc2718c968062c47427ab7765756bde7
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79368900"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80408565"
 ---
 # <a name="tutorial-use-exported-template-from-the-azure-portal"></a>Tutorial: Uso de una plantilla desde Azure Portal
 
@@ -97,6 +97,8 @@ New-AzResourceGroupDeployment `
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
+Para ejecutar este comando de implementación, debe tener la [última versión](/cli/azure/install-azure-cli) de la CLI de Azure.
+
 ```azurecli
 az deployment group create \
   --name addappserviceplan \
@@ -106,6 +108,9 @@ az deployment group create \
 ```
 
 ---
+
+> [!NOTE]
+> Si se ha producido un error en la implementación, use el modificador **debug** con el comando de implementación para mostrar los registros de depuración.  También puede usar el modificador **verbose** para mostrar los registros de depuración completos.
 
 ## <a name="verify-deployment"></a>Comprobación de la implementación
 

@@ -6,15 +6,79 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 03/05/2020
-ms.openlocfilehash: c29790035ec4e971957784e826a1e8bd8e0c9329
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: a2e6d2a459a6713aa9372496fc3a933c0a886ed9
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79500503"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80802611"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Novedades en la documentación de Azure Monitor
 En este artículo se enumeran los artículos de Azure Monitor que son nuevos o que se han actualizado de forma significativa. Se actualizará la primera semana de cada mes para que incluya las actualizaciones de artículos del mes anterior.
+
+## <a name="march-2020"></a>Marzo de 2020
+
+### <a name="general"></a>General
+- [Introducción a Azure Monitor](overview.md): se ha agregado un vídeo de introducción a Azure Monitor.
+- [Configuración de la clave administrada por el cliente de Azure Monitor](platform/customer-managed-keys.md): actualizaciones generales.
+- [Referencia de datos de Azure Monitor](/azure/azure-monitor/reference): nuevo sitio.
+
+### <a name="alerts"></a>Alertas
+
+- [Crear, ver y administrar las alertas del registro de actividad mediante Azure Monitor](platform/alerts-activity-log.md): explicación adicional de la plantilla de Resource Manager.
+- [Descripción del funcionamiento de las alertas de métricas en Azure Monitor.](platform/alerts-metric-overview.md) : se ha actualizado para la compatibilidad con la Administración Pública.
+- [Solución de problemas de alertas y notificaciones de Azure Monitor](platform/alerts-troubleshoot.md): nuevo artículo.
+
+### <a name="application-insights"></a>Application Insights
+- [Automatización de Azure Application Insights con PowerShell](app/powershell.md): se han agregado ejemplos de ARMClient.
+- [Exportación continua de telemetría desde Application Insights](app/export-telemetry.md):se ha agregado una tabla con detalles de la estructura de exportación.
+- [Habilitación de Snapshot Debugger para aplicaciones de .NET en Azure App Service](app/snapshot-debugger-appservice.md): se ha agregado una plantilla de Resource Manager de ejemplo.
+- [Administración del uso y los costos de Application Insights](app/pricing.md): se ha agregado información sobre la alerta de límite de datos.
+- [Supervisión de aplicaciones de Python con Azure Monitor (versión preliminar)](app/opencensus-python.md): se han agregado métricas estándar.
+- [Compatibilidad del mapa de origen con las aplicaciones de JavaScript: Application Insights para Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/app/source-map-support): nuevo artículo.
+
+
+### <a name="containers"></a>Contenedores
+- [Preguntas más frecuentes sobre Azure Monitor](faq.md): actualización de Azure Monitor para contenedores.
+- [Configuración de la supervisión de GPU con Azure Monitor para contenedores](insights/container-insights-gpu-monitoring.md): nuevo artículo.
+
+### <a name="insights"></a>Información detallada
+- [Solución de administración de Office 365 en Azure](insights/solution-office-365.md): fecha de desuso actualizada.
+
+### <a name="logs"></a>Registros
+- [Optimización de las consultas de registro en Azure Monitor](log-query/query-optimization.md): se ha agregado la condición de CPU para el análisis de XML y JSON.
+- [Eliminación y recuperación de un área de trabajo de Azure Log Analytics](platform/delete-workspace.md): se ha agregado información de solución de problemas.
+- [Uso de registros de Azure Monitor con Azure Logic Apps y Power Automate](platform/logicapp-flow-connector.md): se ha actualizado con un nuevo conector de Azure Monitor.
+
+### <a name="metrics"></a>Métricas
+- [Desuso de métricas de disco en Azure Portal](https://docs.microsoft.com/azure/azure-monitor/platform/portal-disk-metrics-deprecation): nuevo artículo.
+- [Tutorial: Creación de un gráfico de métricas en Azure Monitor](learn/tutorial-metrics-explorer.md): se ha agregado un vídeo.
+
+### <a name="platform-logs"></a>Registros de plataforma
+- [Recopilación y análisis del registro de actividad de Azure en Azure Monitor](platform/activity-log-collect.md): se ha redactado de nuevo para explicar mejor la recopilación del registro de actividad con configuración de diagnóstico.
+
+### <a name="virtual-machines"></a>Máquinas virtuales
+- [Supervisión de máquinas virtuales de Azure con Azure Monitor](insights/monitor-vm-azure.md): nuevo artículo.
+- [Inicio rápido: Supervisión de máquinas virtuales de Azure con Azure Monitor](learn/quick-monitor-azure-vm.md): se ha actualizado para agregar Azure Monitor para máquinas virtuales.
+- [Creación de alertas a partir de Azure Monitor para VM](insights/vminsights-alerts.md): nuevo artículo.
+- [Información general sobre la habilitación de Azure Monitor para VM](insights/vminsights-enable-overview.md): actualización de los vínculos de descarga de agentes.
+
+
+Actualizaciones generales para disponibilidad general de Azure Monitor para VM
+- [¿Qué es Azure Monitor para VM?](insights/vminsights-overview.md)
+- [Preguntas frecuentes sobre Azure Monitor para VM (GA)](insights/vminsights-ga-release-faq.md) 
+- [Habilitación de Azure Monitor para VM mediante Azure Policy](insights/vminsights-enable-at-scale-policy.md) 
+- [Cómo representar el rendimiento en gráficos con Azure Monitor para VM](insights/vminsights-performance.md)
+- [Cómo consultar registros de Azure Monitor para VM](insights/vminsights-log-search.md)
+- [Visualización de las dependencias de aplicación con Azure Monitor para VM](insights/vminsights-maps.md) 
+
+
+### <a name="visualizations"></a>Visualizaciones
+- [Visualización de datos de Azure Monitor](visualizations.md): se ha actualizado para indicar el desuso planeado del Diseñador de vistas.
+
+
+
+
 
 ## <a name="february-2020"></a>Febrero de 2020
 

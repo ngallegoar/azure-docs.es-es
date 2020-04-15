@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 03/26/2020
+ms.date: 03/30/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1497b757d77d12cb5b963953224fa8929e987853
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 4af7dc5d55e451e4f6873df42e2b740fd1e5cd56
+ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80385307"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80891754"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-anyconnect"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Cisco AnyConnect
 
@@ -96,6 +96,9 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 1. En la sección **Configurar Cisco AnyConnect**, copie las direcciones URL adecuadas según sus necesidades.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
+
+> [!NOTE]
+> Si desea incorporar varios vales TGT del servidor, debe agregar varias instancias de la aplicación Cisco AnyConnect desde la galería. También puede optar por cargar su propio certificado en Azure AD para todas estas instancias de aplicación. De este modo puede tener el mismo certificado para las aplicaciones y a la vez configurar un identificador y una dirección URL de respuesta diferentes para cada aplicación.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 

@@ -1,6 +1,6 @@
 ---
-title: 'Azure Front Door Service: compatibilidad con HTTP2 | Microsoft Docs'
-description: Este artículo le ayuda a comprender la compatibilidad con HTTP/2 en Azure Front Door Service
+title: 'Azure Front Door: Compatibilidad con HTTP2 | Microsoft Docs'
+description: Este artículo le ayuda a comprender la compatibilidad con HTTP/2 en Azure Front Door
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -11,18 +11,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: c3c1721454c0b3c96071c685a764f34d4fa540b9
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 8a3ae8065553b34a72528cb0f2681e327dc90097
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68775268"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985191"
 ---
-# <a name="http2-support-in-azure-front-door-service"></a>Compatibilidad con HTTP/2 en Azure Front Door Service
+# <a name="http2-support-in-azure-front-door"></a>Compatibilidad con HTTP/2 en Azure Front Door
 
-Actualmente, la compatibilidad con HTTP/2 está activa para todas las configuraciones de Front Door. No es necesaria ninguna otra acción por parte de los clientes.
+Actualmente, la compatibilidad con HTTP/2 está activa para todas las configuraciones de Azure Front Door. No es necesaria ninguna otra acción por parte de los clientes.
 
 HTTP/2 es una revisión principal de HTTP/1.1. Proporciona un rendimiento web más rápido, tiempo de respuesta reducido y experiencia de usuario mejorada, al tiempo que se mantienen los métodos HTTP conocidos, los códigos de estado y la semántica. Aunque HTTP/2 está diseñado para trabajar con HTTP y HTTPS, muchos exploradores web de cliente solo admiten HTTP/2 sobre Seguridad de la capa de transporte (TLS).
+
+> [!NOTE]
+> La compatibilidad con el protocolo HTTP/2 solo está disponible para las solicitudes de los clientes a Front Door. La comunicación entre Front Door y los servidores back-end en el grupo de back-end se produce a través de HTTP/1.1. 
 
 ### <a name="http2-benefits"></a>Ventajas de HTTP/2
 

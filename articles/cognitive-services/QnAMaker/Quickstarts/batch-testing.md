@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/08/2020
 ms.author: diberry
-ms.openlocfilehash: e16166c741b99c1af5b36f2c7ccd25b01f7544ba
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 3bc095d8949f177ccb6c4cc111ba4b272027904e
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77108998"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756700"
 ---
 # <a name="quickstart-test-knowledge-base-with-batch-questions-and-expected-answers"></a>Inicio rápido: Prueba de una base de conocimientos con preguntas por lotes y respuestas esperadas
 
@@ -149,7 +149,7 @@ Use el gráfico siguiente para saber cómo buscar los datos opcionales en los va
     |Cargue Surface Pro 4|
     |Compruebe el nivel de batería|
 
-    Dos conjuntos de QnA tienen los metadatos establecidos.
+    Dos pares de QnA tienen los metadatos establecidos.
 
     > [!TIP]
     > Para ver los metadatos y los identificadores de QnA de cada uno de los conjuntos, exporte la base de conocimiento. Seleccione la página **Setting** (Configuración) y, después, seleccione **Export** (Exportar) como archivo `.xls`. Busque el archivo descargado, ábralo con Excel y examine los metadatos y el identificador.
@@ -169,7 +169,7 @@ Hay dos escenarios principales para las pruebas por lotes:
 
 En el procedimiento siguiente se supone que el escenario es procesar los registros de chat como sigue
 
-1. Cree un archivo de prueba por lotes que incluya los datos opcionales, `batch-test-data-2.tsv`. Agregue las 6 filas del archivo de entrada de prueba por lotes original y, luego, agregue los metadatos, la respuesta principal y el identificador del conjunto de QnA de cada fila.
+1. Cree un archivo de prueba por lotes que incluya los datos opcionales, `batch-test-data-2.tsv`. Agregue las 6 filas del archivo de entrada de prueba por lotes original y, luego, agregue los metadatos, la respuesta principal y el identificador del par de QnA de cada fila.
 
     Para simular el proceso automatizado de comprobar el texto nuevo de los registros de chat con la base de conocimiento, establezca los metadatos de todas las columnas en el mismo valor: `topic:power`.
 

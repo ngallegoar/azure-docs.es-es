@@ -3,17 +3,17 @@ title: Descripción y uso de ámbitos de Azure Cost Management
 description: Este artículo le ayudará a comprender los ámbitos de administración de facturación y recursos disponibles en Azure y cómo usarlos en Cost Management y las API.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 04/06/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: bbed4209d26fe32f95b93b2c7411e1ab74f03ede
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ebae9d1c66a721926ca07b21059ec57b05b99a0f
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80131354"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80877939"
 ---
 # <a name="understand-and-work-with-scopes"></a>Descripción y uso de ámbitos
 
@@ -26,6 +26,10 @@ Un _ámbito_ es un nodo de la jerarquía de recursos de Azure al que los usuario
 - Servicios en la nube, como gobernanza de costos y directivas
 
 En los ámbitos es donde puede administrar los datos de facturación, tener roles específicos para pagos, ver facturas y realizar la administración de cuentas generales. Los roles de facturación y cuentas se administran independientemente de aquellos que se usan en la administración de recursos, los cuales usan el [control de acceso basado en rol de Azure](../../role-based-access-control/overview.md). Para distinguir claramente la finalidad de los ámbitos independientes, incluidas las diferencias en el control de acceso, estos se conocen como _ámbitos de facturación_ y _ámbitos con RBAC_, respectivamente.
+
+Para más información acerca de los ámbitos, vea el vídeo [Configuración de jerarquías de Cost Management](https://www.youtube.com/watch?v=n3TLRaYJ1NY). Para ver otros vídeos, visite el [canal de YouTube de Cost Management](https://www.youtube.com/c/AzureCostManagement).
+
+>[!VIDEO https://www.youtube.com/embed/n3TLRaYJ1NY]
 
 ## <a name="how-cost-management-uses-scopes"></a>Uso de los ámbitos por parte de Cost Management
 
@@ -71,7 +75,7 @@ Colaborador de Cost Management es el rol con menos privilegios que se recomienda
 
 Las cuentas de facturación del Contrato Enterprise (EA), también denominadas inscripciones, tienen los siguientes ámbitos:
 
-- [**Cuenta de facturación**](../manage/view-all-accounts.md): representa una inscripción de EA. Las facturas se generan en este ámbito. Las compras que no están basadas en uso, como Marketplace y las reservas, solo estarán disponibles en este ámbito. Dichas compras no están representadas en las cuentas de departamentos o de inscripción.
+- [**Cuenta de facturación**](../manage/view-all-accounts.md): representa una inscripción de EA. Las facturas se generan en este ámbito. Las compras que no están basadas en uso, como Marketplace y las reservas, solo estarán disponibles en este ámbito. Dichas compras no están representadas en las cuentas de departamentos o de inscripción. El uso de la reserva, junto con el resto del uso, se aplica a los recursos individuales. El uso se acumula en las suscripciones de la cuenta de facturación. Para ver los costos de reserva desglosados en cada recurso, cambie a la vista **Costo amortizado** en el análisis de costos.
 
     Tipo de recurso: `Microsoft.Billing/billingAccounts (accountType = Enrollment)`
 - **Departamento**: agrupación opcional de las cuentas de inscripción.

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 12/19/2019
-ms.openlocfilehash: 74d696c19ac2a2d0d367f5a018fde8cd3a0eedb2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 454138f8e0d92935126f446455810a444b0a053a
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79535211"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984153"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Direcciones IP que emplean Application Insights y Log Analytics
 El servicio [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) usa diversas direcciones IP. Quizás deba conocer estas direcciones si la aplicación que está supervisando se hospeda bajo el amparo de un firewall.
@@ -55,6 +55,8 @@ Configuración del Monitor de estado; solo lo necesitará en caso de que tenga q
 ## <a name="availability-tests"></a>Pruebas de disponibilidad
 Esta es la lista de direcciones a partir de las cuales se ejecutan [pruebas web de disponibilidad](../../azure-monitor/app/monitor-web-app-availability.md) . Si quiere ejecutar pruebas web en su aplicación, pero su servidor web está restringido atender únicamente las solicitudes de clientes específicos, tendrá que permitir el tráfico entrante de nuestros servidores de pruebas de disponibilidad.
 
+### <a name="service-tag"></a>Etiqueta de servicio
+
 Si usa grupos de seguridad de red de Azure, basta con agregar una **regla de puerto de entrada** para permitir el tráfico de las pruebas de disponibilidad de Application Insights. Para ello, seleccione **Etiqueta de servicio** como **Origen** y **ApplicationInsightsAvailability** como **Etiqueta de servicio de origen**.
 
 >[!div class="mx-imgBorder"]
@@ -64,6 +66,11 @@ Si usa grupos de seguridad de red de Azure, basta con agregar una **regla de pue
 >![Pestaña para agregar regla de seguridad de entrada](./media/ip-addresses/add-inbound-security-rule2.png)
 
 Abra los puertos 80 (http) y 443 (https) para asumir el tráfico entrante de estas direcciones (las IP se agrupan por ubicación):
+
+### <a name="addresses-grouped-by-location"></a>Direcciones agrupadas por ubicación
+
+> [!NOTE]
+> Estas direcciones IP se indican mediante la notación de Enrutamiento de interdominios sin clases (CIDR). Esto significa que una entrada como `51.144.56.112/28` es equivalente a 16 direcciones IP que comienzan en `51.144.56.112` y terminan en `51.144.56.127`.
 
 ```
 Australia East

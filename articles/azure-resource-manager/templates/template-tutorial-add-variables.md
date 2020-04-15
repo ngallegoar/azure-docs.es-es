@@ -2,21 +2,21 @@
 title: 'Tutorial: Adición de una variable a una plantilla'
 description: Agregue variables a la plantilla de Azure Resource Manager para simplificar la sintaxis.
 author: mumian
-ms.date: 10/04/2019
+ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 881d91d5b8ca06a9591b8752af0a73da7f00b0c1
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: b1df86e5b593edec784de21e21a4399274d820bb
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76765499"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411680"
 ---
-# <a name="tutorial-add-variables-to-your-resource-manager-template"></a>Tutorial: Adición de variables a la plantilla de Resource Manager
+# <a name="tutorial-add-variables-to-your-arm-template"></a>Tutorial: Incorporación de variables a la plantilla de Resource Manager
 
-En este tutorial, aprenderá a agregar una variable a la plantilla. Las variables simplifican las plantillas al permitirle escribir una expresión una vez y reutilizarla en toda la plantilla. Este tutorial se realiza en **7 minutos**.
+En este tutorial, aprenderá a agregar una variable a la plantilla de Resource Manager. Las variables simplifican las plantillas al permitirle escribir una expresión una vez y reutilizarla en toda la plantilla. Este tutorial se realiza en **7 minutos**.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Aunque no es obligatorio, se recomienda realizar el [tutorial sobre las funciones](template-tutorial-add-functions.md).
 
@@ -56,7 +56,7 @@ Vamos a implementar la plantilla. Implementar esta plantilla es más fácil que 
 
 Si no ha creado el grupo de recursos, consulte [Creación del grupo de recursos](template-tutorial-create-first-template.md#create-resource-group). En el ejemplo se supone que ha establecido la variable **templateFile** en la ruta de acceso al archivo de plantilla, como se muestra en el [primer tutorial](template-tutorial-create-first-template.md#deploy-template).
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -67,10 +67,12 @@ New-AzResourceGroupDeployment `
   -storageSKU Standard_LRS
 ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+Para ejecutar este comando de implementación, debe tener la [última versión](/cli/azure/install-azure-cli) de la CLI de Azure.
 
 ```azurecli
-az group deployment create \
+az deployment group create \
   --name addnamevariable \
   --resource-group myResourceGroup \
   --template-file $templateFile \
@@ -78,6 +80,9 @@ az group deployment create \
 ```
 
 ---
+
+> [!NOTE]
+> Si se ha producido un error en la implementación, use el modificador **debug** con el comando de implementación para mostrar los registros de depuración.  También puede usar el modificador **verbose** para mostrar los registros de depuración completos.
 
 ## <a name="verify-deployment"></a>Comprobación de la implementación
 

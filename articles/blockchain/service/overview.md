@@ -1,15 +1,15 @@
 ---
 title: Introducción a Azure Blockchain Service
 description: Introducción a Azure Blockchain Service
-ms.date: 03/12/2020
+ms.date: 03/30/2020
 ms.topic: overview
 ms.reviewer: ravastra
-ms.openlocfilehash: b9f5deb501fb93327fa5d5cfcfd5bb583ed6135e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 821bac0da13209e5126f5bab109aa0895ade840a
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79205067"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529154"
 ---
 # <a name="what-is-azure-blockchain-service"></a>¿Qué es Azure Blockchain Service?
 
@@ -19,7 +19,7 @@ Azure Blockchain Service es un servicio de libro de contabilidad totalmente admi
 * Administración de consorcios integrada
 * Desarrollo de contratos inteligentes con herramientas de desarrollo conocidas
 
-Azure Blockchain Service está diseñado para admitir varios protocolos de libro de contabilidad. Actualmente, ofrece compatibilidad con el libro de contabilidad [Quorum](https://www.goquorum.com/) de Ethereum utilizando el mecanismo de consenso [IBFT](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus).
+Azure Blockchain Service está diseñado para admitir varios protocolos de libro de contabilidad. Actualmente, ofrece compatibilidad con el libro de contabilidad [Quorum](https://www.goquorum.com/) de Ethereum mediante el mecanismo de consenso [Istanbul Byzantine Fault Tolerance (IBFT)](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus).
 
 Estas funcionalidades no requieren casi ninguna tarea de administración y todas se proporcionan sin ningún costo adicional. Puede centrarse en el desarrollo de aplicaciones y la lógica empresarial en lugar de asignar tiempo y recursos a la administración de máquinas virtuales e infraestructura. Además, puede seguir desarrollando la aplicación con las herramientas de código abierto y en la plataforma que prefiera para ofrecer sus soluciones sin necesidad de adquirir nuevas aptitudes.
 
@@ -33,7 +33,7 @@ Azure Blockchain Service ofrece dos niveles de servicio: *Básico* y *Estándar*
 
 ![Planes de tarifa](./media/overview/pricing-tiers.png)
 
-Además de ofrecer dos nodos de validación, el nivel *Estándar* proporciona dos *núcleos virtuales* para cada nodo de transacción y validación, mientras que el nivel Básico ofrece una configuración con un núcleo virtual.  Al ofrecer dos núcleos virtuales para los nodos de transacción y validación, un núcleo virtual puede dedicarse al libro de contabilidad Quorum, mientras que el otro puede usarse para otros servicios relacionados con la infraestructura, lo que garantiza un rendimiento óptimo para las cargas de trabajo de cadenas de bloques de producción. Para obtener más información sobre los detalles de precios, consulte [Precios de Azure Blockchain Service](https://azure.microsoft.com/pricing/details/blockchain-service).
+Además de ofrecer dos nodos de validación, el nivel *Estándar* proporciona dos *núcleos virtuales* para cada nodo de transacción y validación, mientras que el nivel *Básico* ofrece una configuración con un núcleo virtual.  Al ofrecer dos núcleos virtuales para los nodos de transacción y validación, un núcleo virtual puede dedicarse al libro de contabilidad Quorum, mientras que el otro puede usarse para otros servicios relacionados con la infraestructura, lo que garantiza un rendimiento óptimo para las cargas de trabajo de cadenas de bloques de producción. Para obtener más información sobre los detalles de precios, consulte [Precios de Azure Blockchain Service](https://azure.microsoft.com/pricing/details/blockchain-service).
 
 ### <a name="security-and-maintenance"></a>Seguridad y mantenimiento
 

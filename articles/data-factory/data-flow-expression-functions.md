@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/15/2019
-ms.openlocfilehash: 1b87fa795047070db9a10ceec4b69dd6f7c042a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d43650fc3dbd5fc1aabe676a4f2631e1655b25e5
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79217187"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80547936"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>Expresiones de transformación de datos en Asignación de Data Flow 
 
@@ -105,6 +105,12 @@ ___
 <code><b>coalesce(<i>&lt;value1&gt;</i> : any, ...) => any</b></code><br/><br/>
 Devuelve el primer valor no NULL de un conjunto de entradas. Todas las entradas deben ser del mismo tipo * ``coalesce(10, 20) -> 10``
 * ``coalesce(toString(null), toString(null), 'dumbo', 'bo', 'go') -> 'dumbo'``
+___
+### <code>columnNames</code>
+<code><b>columnNames(<i>&lt;value1&gt;</i> : string) => array</b></code><br/><br/>
+Obtiene todas las columnas de salida de una secuencia. Puede pasar un nombre de flujo opcional como segundo argumento.
+* ``columnNames()``
+* ``columnNames('DeriveStream')``
 ___
 ### <code>compare</code>
 <code><b>compare(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => integer</b></code><br/><br/>
@@ -223,7 +229,7 @@ Codifica la cadena especificada en Base64 * ``fromBase64('Z3VuY2h1cw==') -> 'gun
 ___
 ### <code>fromUTC</code>
 <code><b>fromUTC(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => timestamp</b></code><br/><br/>
-Convierte a la marca de tiempo de UTC. Si lo desea, puede pasar una zona horaria opcional en forma de "GMT", "PST", "UTC", "America/Cayman". Se toma como predeterminado el valor SimpleDateFormat de Java timezoneRefer actual para los formatos disponibles. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``fromUTC(currentTimeStamp()) == toTimestamp('2050-12-12 19:18:12') -> false``
+Convierte a la marca de tiempo de UTC. Si lo desea, puede pasar una zona horaria opcional en forma de "GMT", "PST", "UTC", "America/Cayman". Se toma como predeterminado el valor SimpleDateFormat de Java timezoneRefer actual para los formatos disponibles. [https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html ](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) * ``fromUTC(currentTimeStamp()) == toTimestamp('2050-12-12 19:18:12') -> false``
 * ``fromUTC(currentTimeStamp(), 'Asia/Seoul') != toTimestamp('2050-12-12 19:18:12') -> true``
 ___
 ### <code>greater</code>
@@ -250,7 +256,7 @@ Comprueba un valor de columna por el nombre en la secuencia. Puede pasar un nomb
 ___
 ### <code>hour</code>
 <code><b>hour(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => integer</b></code><br/><br/>
-Obtiene el valor de la hora de una marca de tiempo. Puede pasar una zona horaria opcional en forma de "GMT", "PST", "UTC", "America/Cayman". La zona horaria local se utiliza como valor SimpleDateFormat de Java default.Refer para obtener los formatos disponibles. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``hour(toTimestamp('2009-07-30 12:58:59')) -> 12``
+Obtiene el valor de la hora de una marca de tiempo. Puede pasar una zona horaria opcional en forma de "GMT", "PST", "UTC", "America/Cayman". La zona horaria local se utiliza como valor SimpleDateFormat de Java default.Refer para obtener los formatos disponibles. [https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html ](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) * ``hour(toTimestamp('2009-07-30 12:58:59')) -> 12``
 * ``hour(toTimestamp('2009-07-30 12:58:59'), 'PST') -> 12``
 ___
 ### <code>hours</code>
@@ -407,7 +413,7 @@ Calcula la síntesis del mensaje MD5 del conjunto de columnas de diferentes tipo
 ___
 ### <code>millisecond</code>
 <code><b>millisecond(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => integer</b></code><br/><br/>
-Obtiene el valor de los milisegundos de una fecha. Puede pasar una zona horaria opcional en forma de "GMT", "PST", "UTC", "America/Cayman". La zona horaria local se utiliza como valor SimpleDateFormat de Java default.Refer para obtener los formatos disponibles. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``millisecond(toTimestamp('2009-07-30 12:58:59.871', 'yyyy-MM-dd HH:mm:ss.SSS')) -> 871``
+Obtiene el valor de los milisegundos de una fecha. Puede pasar una zona horaria opcional en forma de "GMT", "PST", "UTC", "America/Cayman". La zona horaria local se utiliza como valor SimpleDateFormat de Java default.Refer para obtener los formatos disponibles. [https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html ](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) * ``millisecond(toTimestamp('2009-07-30 12:58:59.871', 'yyyy-MM-dd HH:mm:ss.SSS')) -> 871``
 ___
 ### <code>milliseconds</code>
 <code><b>milliseconds(<i>&lt;value1&gt;</i> : integer) => long</b></code><br/><br/>
@@ -424,7 +430,7 @@ Resta números. Resta un número de días de la fecha. Resta la vigencia de una 
 ___
 ### <code>minute</code>
 <code><b>minute(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => integer</b></code><br/><br/>
-Obtiene el valor de los minutos de una marca de tiempo. Puede pasar una zona horaria opcional en forma de "GMT", "PST", "UTC", "America/Cayman". La zona horaria local se utiliza como valor SimpleDateFormat de Java default.Refer para obtener los formatos disponibles. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``minute(toTimestamp('2009-07-30 12:58:59')) -> 58``
+Obtiene el valor de los minutos de una marca de tiempo. Puede pasar una zona horaria opcional en forma de "GMT", "PST", "UTC", "America/Cayman". La zona horaria local se utiliza como valor SimpleDateFormat de Java default.Refer para obtener los formatos disponibles. [https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html ](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) * ``minute(toTimestamp('2009-07-30 12:58:59')) -> 58``
 * ``minute(toTimestamp('2009-07-30 12:58:59'), 'PST') -> 58``
 ___
 ### <code>minutes</code>
@@ -442,7 +448,7 @@ Obtiene el valor del mes de una fecha o una marca de tiempo. * ``month(toDate('2
 ___
 ### <code>monthsBetween</code>
 <code><b>monthsBetween(<i>&lt;from date/timestamp&gt;</i> : datetime, <i>&lt;to date/timestamp&gt;</i> : datetime, [<i>&lt;roundoff&gt;</i> : boolean], [<i>&lt;time zone&gt;</i> : string]) => double</b></code><br/><br/>
-Obtiene el número de meses entre dos fechas. Puede redondear el cálculo. Puede pasar una zona horaria opcional con el formato "GMT", "PST", "UTC", "America/Cayman". La zona horaria local se utiliza como valor SimpleDateFormat de Java default.Refer para obtener los formatos disponibles. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``monthsBetween(toTimestamp('1997-02-28 10:30:00'), toDate('1996-10-30')) -> 3.94959677``
+Obtiene el número de meses entre dos fechas. Puede redondear el cálculo. Puede pasar una zona horaria opcional con el formato "GMT", "PST", "UTC", "America/Cayman". La zona horaria local se utiliza como valor SimpleDateFormat de Java default.Refer para obtener los formatos disponibles. [https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html ](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) * ``monthsBetween(toTimestamp('1997-02-28 10:30:00'), toDate('1996-10-30')) -> 3.94959677``
 ___
 ### <code>multiply</code>
 <code><b>multiply(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
@@ -567,7 +573,7 @@ Right recorta una cadena de caracteres iniciales. Si no se especifica el segundo
 ___
 ### <code>second</code>
 <code><b>second(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => integer</b></code><br/><br/>
-Obtiene el valor de los segundos de una fecha. Puede pasar una zona horaria opcional en forma de "GMT", "PST", "UTC", "America/Cayman". La zona horaria local se utiliza como valor SimpleDateFormat de Java default.Refer para obtener los formatos disponibles. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``second(toTimestamp('2009-07-30 12:58:59')) -> 59``
+Obtiene el valor de los segundos de una fecha. Puede pasar una zona horaria opcional en forma de "GMT", "PST", "UTC", "America/Cayman". La zona horaria local se utiliza como valor SimpleDateFormat de Java default.Refer para obtener los formatos disponibles. [https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html ](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) * ``second(toTimestamp('2009-07-30 12:58:59')) -> 59``
 ___
 ### <code>seconds</code>
 <code><b>seconds(<i>&lt;value1&gt;</i> : integer) => long</b></code><br/><br/>
@@ -718,14 +724,14 @@ Convierte un tipo de datos primitivo en una cadena. Para los números y la fecha
 ___
 ### <code>toTimestamp</code>
 <code><b>toTimestamp(<i>&lt;string&gt;</i> : any, [<i>&lt;timestamp format&gt;</i> : string], [<i>&lt;time zone&gt;</i> : string]) => timestamp</b></code><br/><br/>
-Convierte una cadena en una marca de tiempo dado un formato de marca de tiempo opcional. Consulte el formato SimpleDateFormat de Java para ver todos los formatos posibles. Si la marca de tiempo se omite, se usa el patrón predeterminado aaaa-[M]M-[d]d hh:mm:ss[.f...]. Puede usar una zona horaria opcional con el formato "GMT", "PST", "UTC", "America/Cayman". La marca de tiempo admite una precisión de hasta milisegundos con un valor de 999. Consulte en SimpleDateFormat de Java los formatos disponibles. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``toTimestamp('2016-12-31 00:12:00') -> toTimestamp('2016-12-31 00:12:00')``
+Convierte una cadena en una marca de tiempo dado un formato de marca de tiempo opcional. Consulte el formato SimpleDateFormat de Java para ver todos los formatos posibles. Si la marca de tiempo se omite, se usa el patrón predeterminado aaaa-[M]M-[d]d hh:mm:ss[.f...]. Puede usar una zona horaria opcional con el formato "GMT", "PST", "UTC", "America/Cayman". La marca de tiempo admite una precisión de hasta milisegundos con un valor de 999. Consulte en SimpleDateFormat de Java los formatos disponibles. [https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html ](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) * ``toTimestamp('2016-12-31 00:12:00') -> toTimestamp('2016-12-31 00:12:00')``
 * ``toTimestamp('2016-12-31T00:12:00', 'yyyy-MM-dd\'T\'HH:mm:ss', 'PST') -> toTimestamp('2016-12-31 00:12:00')``
 * ``toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss') -> toTimestamp('2016-12-31 00:12:00')``
 * ``millisecond(toTimestamp('2019-02-03 05:19:28.871', 'yyyy-MM-dd HH:mm:ss.SSS')) -> 871``
 ___
 ### <code>toUTC</code>
 <code><b>toUTC(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => timestamp</b></code><br/><br/>
-Convierte la marca de tiempo en UTC. Puede pasar una zona horaria opcional en forma de "GMT", "PST", "UTC", "America/Cayman". Se toma como predeterminado el valor SimpleDateFormat de Java timezoneRefer actual para los formatos disponibles. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``toUTC(currentTimeStamp()) == toTimestamp('2050-12-12 19:18:12') -> false``
+Convierte la marca de tiempo en UTC. Puede pasar una zona horaria opcional en forma de "GMT", "PST", "UTC", "America/Cayman". Se toma como predeterminado el valor SimpleDateFormat de Java timezoneRefer actual para los formatos disponibles. [https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html ](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) * ``toUTC(currentTimeStamp()) == toTimestamp('2050-12-12 19:18:12') -> false``
 * ``toUTC(currentTimeStamp(), 'Asia/Seoul') != toTimestamp('2050-12-12 19:18:12') -> true``
 ___
 ### <code>translate</code>

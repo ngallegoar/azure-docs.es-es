@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: de558ddad37e1621c633d26fff51d1506c237577
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 030ae5dcac85a88309b317be1edfab11d0da051a
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80155926"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878466"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>Tutorial: Optimización de los costos a partir de las recomendaciones
 
 Azure Cost Management funciona con Azure Advisor para proporcionar recomendaciones de optimización de costos. Azure Advisor le ayuda a optimizar y mejorar la eficiencia mediante la identificación de recursos inactivos e infrautilizados. Este tutorial le guiará a través de un ejemplo donde identificará los recursos de Azure infrautilizados y, a continuación, adoptará medidas para reducir los costos.
 
-Vea el vídeo [Optimización de las inversiones en la nube en Azure Cost Management](https://www.youtube.com/watch?v=cSNPoAb-TNc) para aprender a usar Advisor para optimizar los costos.
+Vea el vídeo [Optimización de las inversiones en la nube en Azure Cost Management](https://www.youtube.com/watch?v=cSNPoAb-TNc) para aprender a usar Advisor para optimizar los costos. Para ver otros vídeos, visite el [canal de YouTube de Cost Management](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/cSNPoAb-TNc]
 

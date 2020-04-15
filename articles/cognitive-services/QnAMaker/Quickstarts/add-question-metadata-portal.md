@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/08/2020
 ms.author: diberry
-ms.openlocfilehash: 25c0fe549dfc850a53b06f79f348a87cba3b70a1
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: f067bae55c38fc783c12bf9d0bc6fbcdf881e4e4
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77109934"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756686"
 ---
 # <a name="quickstart-add-questions-and-answer-with-qna-maker-portal"></a>Inicio rápido: Adición de preguntas y respuestas con el portal de QnA Maker
 
@@ -27,7 +27,7 @@ Una vez creada una base de conocimiento, agregue conjuntos de preguntas y respue
 |N.° 1|`How large a knowledge base can I create?`<br><br>`What is the max size of a knowledge base?`<br><br>`How many GB of data can a knowledge base hold?` |`The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment) for more details.`|`service=qna_maker`<br>`link_in_answer=true`|
 |N.° 2|`How many knowledge bases can I have for my QnA Maker service?`<br><br>`I selected a Azure Cognitive Search tier that holds 15 knowledge bases, but I can only create 14 - what is going on?`<br><br>`What is the connection between the number of knowledge bases in my QnA Maker service and the Azure Cognitive Search service size?` |`Each knowledge base uses 1 index, and all the knowledge bases share a test index. You can have N-1 knowledge bases where N is the number of indexes your Azure Cognitive Search tier supports.`|`service=search`<br>`link_in_answer=false`|
 
-Una vez que los metadatos se agregan a un conjunto de QnA, la aplicación cliente puede:
+Una vez que los metadatos se agregan a un par de QnA, la aplicación cliente puede:
 
 * Solicitar respuestas que solo coincidan con determinados metadatos
 * Recibir todas las respuestas, pero procesarlas posteriormente en función de los metadatos de cada una
@@ -45,7 +45,7 @@ Una vez que los metadatos se agregan a un conjunto de QnA, la aplicación client
 
 ## <a name="add-additional-alternatively-phrased-questions"></a>Adición de preguntas alternativas adicionales
 
-La base de conocimiento actual tiene los conjuntos de QnA de solución de problemas de QnA Maker. Estos conjuntos se crearon al agregar la dirección URL a la base de conocimiento durante el proceso de creación.
+La base de conocimiento actual tiene los pares de QnA de solución de problemas de QnA Maker. Estos conjuntos se crearon al agregar la dirección URL a la base de conocimiento durante el proceso de creación.
 
 Cuando se importó esta dirección URL, solo se creó una pregunta con una respuesta. En este procedimiento, agregue preguntas adicionales.
 
@@ -82,7 +82,7 @@ Agregar metadatos a un conjunto de preguntas y respuestas permite a la aplicaci�
 
 1. Seleccione **View options** (Ver opciones) y, luego, seleccione **Show metadata** (Mostrar metadatos).
 
-1. Para el conjunto de QnA que acaba de agregar, seleccione **Add metadata tags** (Agregar etiquetas de metadatos) y, luego, agregue el nombre de `service` y el valor de `search`. Su aspecto es similar a este: `service:search`.
+1. Para el para de QnA que acaba de agregar, seleccione **Add metadata tags** (Agregar etiquetas de metadatos) y, luego, agregue el nombre de `service` y el valor de `search`. Su aspecto es similar a este: `service:search`.
 
 1. Agregue otra etiqueta de metadatos con el nombre de `link_in_answer` y un valor de `false`. Su aspecto es similar a este: `link_in_answer:false`.
 

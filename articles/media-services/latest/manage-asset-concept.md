@@ -10,15 +10,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 08/29/2019
+ms.date: 03/26/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: b1ec4ee3d7a51c2a21a5bbd8888ea4662cf78bf5
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 9136fd702fad5c12a8ec97a68ff8a592a203d7d2
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78304164"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582195"
 ---
 # <a name="manage-assets"></a>Administración de recursos
 
@@ -54,7 +54,13 @@ Una vez que los archivos digitales se cargan en el almacenamiento y se asocian a
     ```azurecli
     az storage blob upload -f /path/to/file -c MyContainer -n MyBlob
     ```
-2. Obtenga una dirección URL de SAS con permisos de lectura y escritura que podrá usar para cargar archivos digitales en el contenedor de recursos. Puede usar la API de Media Services para [enumerar las direcciones URL del contenedor de recursos](https://docs.microsoft.com/rest/api/media/assets/listcontainersas).
+2. Obtenga una dirección URL de SAS con permisos de lectura y escritura que podrá usar para cargar archivos digitales en el contenedor de recursos.
+
+    Puede usar la API de Media Services para [enumerar las direcciones URL del contenedor de recursos](https://docs.microsoft.com/rest/api/media/assets/listcontainersas).
+
+    **AssetContainerSas.listContainerSas** toma un parámetro [ListContainerSasInput](https://docs.microsoft.com/rest/api/media/assets/listcontainersas#listcontainersasinput) en el que se establece `expiryTime`. La hora debe establecerse en < 24 horas.
+
+    [ListContainerSasInput](https://docs.microsoft.com/rest/api/media/assets/listcontainersas#listcontainersasinput) devuelve varias direcciones URL de SAS, ya que hay dos claves de cuenta de almacenamiento para cada cuenta de almacenamiento. Una cuenta de almacenamiento tiene dos claves porque ayuda con la conmutación por error y la rotación integral de las claves de la cuenta de almacenamiento. De las dos direcciones URL de SAS, la primera representa la primera clave de la cuenta de almacenamiento y la segunda representa la segunda clave.
 3. Use los SDK o las API de Azure Storage (por ejemplo, la [API de REST de Storage](../../storage/common/storage-rest-api-auth.md), el [SDK de .NET](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) para cargar archivos en el contenedor de recursos.
 4. Use las API de Media Services v3 para crear una transformación y un trabajo para procesar el recurso de "entrada". Para obtener más información, consulte [Transformaciones y trabajos](transform-concept.md).
 5. Haga streaming del contenido del recurso de "salida".

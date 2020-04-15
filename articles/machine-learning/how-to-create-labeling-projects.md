@@ -7,12 +7,12 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 03/01/2020
-ms.openlocfilehash: d39cf8745c6f53cb11bb12561fd452325fe52ac6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f6723992ac3335e6abdd78f2008130dfe136f7df
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79296955"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80873895"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Creación de un proyecto de etiquetado de datos y exportación de etiquetas 
 
@@ -20,14 +20,14 @@ ms.locfileid: "79296955"
 
 Etiquetar datos voluminosos en proyectos de Machine Learning suele ser una tarea compleja. Los proyectos que tienen un componente de Computer Vision (como la clasificación de imágenes o la detección de objetos) normalmente requieren etiquetar miles de imágenes.
  
-[Azure Machine Learning](https://ml.azure.com/) proporciona una ubicación central para crear, administrar y supervisar proyectos de etiquetado. Úselo para coordinar los datos, las etiquetas y los miembros del equipo para administrar de forma eficaz las tareas de etiquetado. Machine Learning permite la clasificación de imágenes (de varias etiquetas y varias clases) y la identificación de objetos mediante rectángulos de selección.
+[Azure Machine Learning](https://ml.azure.com/) proporciona una ubicación central para crear, administrar y supervisar proyectos de etiquetado (versión preliminar pública). Úselo para coordinar los datos, las etiquetas y los miembros del equipo para administrar de forma eficaz las tareas de etiquetado. Machine Learning permite la clasificación de imágenes (de varias etiquetas y varias clases) y la identificación de objetos mediante rectángulos de selección.
 
 Machine Learning realiza un seguimiento del progreso y el mantenimiento de la cola de tareas de etiquetado incompletas. Los etiquetadores no necesitan una cuenta de Azure para participar. Una vez que se hayan autenticado con su cuenta Microsoft (MSA) o [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis), pueden realizar todo el etiquetado que el tiempo les permita.
 
 Inicie y detenga el proyecto, agregue y quite etiquetadores y equipos, y supervise el progreso de etiquetado. Puede exportar los datos etiquetados en formato COCO o como un conjunto de datos de Azure Machine Learning.
 
 > [!Important]
-> Actualmente solo se admiten proyectos de etiquetado de clasificación de imágenes e identificación de objetos. Además, las imágenes de datos deben estar disponibles en un almacén de datos de blobs de Azure. (Si no tiene un almacén de datos existente, puede cargar las imágenes durante la creación del proyecto). 
+> Actualmente solo se admiten proyectos de etiquetado de clasificación de imágenes e identificación de objetos. Además, las imágenes de datos deben estar disponibles en un almacén de datos de blobs de Azure. (Si no tiene un almacén de datos existente, puede cargar las imágenes durante la creación del proyecto).
 
 En este artículo, aprenderá a:
 
@@ -41,6 +41,7 @@ En este artículo, aprenderá a:
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
+
 * Los datos que quiere etiquetar, ya sea en archivos locales o en el almacenamiento de blobs de Azure.
 * Conjunto de etiquetas que quiere aplicar.
 * Instrucciones para el etiquetado.
@@ -51,11 +52,12 @@ En este artículo, aprenderá a:
 
 Los proyectos de etiquetado se administran desde Azure Machine Learning. Use la página **Proyectos de etiquetado** para administrar sus proyectos y personas. Un proyecto tiene uno o varios equipos asignados y un equipo tiene una o más personas asignadas a él.
 
-Si los datos ya están en el almacenamiento de blobs de Azure, debe hacer que estén disponibles como un almacén de datos antes de crear el proyecto de etiquetado. Para más información, consulte [Creación y registro de almacenes de datos](https://docs.microsoft.com/azure/machine-learning/how-to-access-data#create-and-register-datastores).
+Si los datos ya están en el almacenamiento de blobs de Azure, debe hacer que estén disponibles como un almacén de datos antes de crear el proyecto de etiquetado. Para obtener un ejemplo del uso de un almacén de datos, consulte [Tutorial: Creación de un proyecto de etiquetado para la clasificación de imágenes](tutorial-labeling.md).
 
 Para crear un proyecto, seleccione **Agregar proyecto**. Asigne un nombre adecuado al proyecto y seleccione **Tipo de tarea de etiquetado**.
 
 ![Asistente para la creación de proyectos de etiquetado](./media/how-to-create-labeling-projects/labeling-creation-wizard.png)
+
 
 * Elija un proyecto de tipo **Clasificación de imágenes con varias clases** cuando quiera aplicar una *sola clase* de un conjunto de clases a una imagen.
 * Elija un proyecto de tipo **Clasificación de imágenes con varias etiquetas** cuando quiera aplicar *una o varias* etiquetas de un conjunto de clases a una imagen. Por ejemplo, una fotografía de un perro podría etiquetarse como *perro* y *diurno*.
@@ -168,9 +170,9 @@ Una vez inicializado el proyecto de etiquetado, algunos aspectos del proyecto so
 
 ## <a name="manage-teams-and-people"></a>Administración de equipos y personas
 
-De forma predeterminada, para cada proyecto de etiquetado se crea un nuevo equipo con usted como miembro. Sin embargo, los equipos pueden compartirse entre los proyectos. Y los proyectos pueden tener más de un equipo. Para crear un equipo, seleccione **Agregar equipo** en la página **Equipos**.
+De forma predeterminada, para cada proyecto de etiquetado se crea un nuevo equipo con usted como miembro. Sin embargo, los equipos pueden compartirse entre los proyectos. Y los proyectos pueden tener más de un equipo. Para crear un equipo, seleccione **Agregar equipo** en la página **Equipos**. 
 
-Los usuarios se administran en la página **Personas**. Agregue y quite las personas por dirección de correo electrónico. Cada etiquetador tiene que autenticarse con su cuenta Microsoft o con Azure Active Directory, si lo usa.  
+Los usuarios se administran en la página **etiquetadores**. Agregue y quite las personas por dirección de correo electrónico. Cada etiquetador tiene que autenticarse con su cuenta Microsoft o con Azure Active Directory, si lo usa.  
 
 Después de agregar a una persona, puede asignarla a uno o varios equipos: Vaya a la página **Equipos**, seleccione el equipo y, a continuación, seleccione **Asignar personas** o **Quitar personas**.
 
@@ -216,5 +218,6 @@ El archivo COCO se crea en el almacén de blobs predeterminado del área de trab
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+* [Tutorial: Creación de un proyecto de etiquetado para la clasificación de imágenes](tutorial-labeling.md).
 * Etiquetado de imágenes para la [clasificación de imágenes o la detección de objetos](how-to-label-images.md)
 * Obtenga más información sobre [Azure Machine Learning y Machine Learning Studio (clásico)](compare-azure-ml-to-studio-classic.md)

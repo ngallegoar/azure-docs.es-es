@@ -4,12 +4,12 @@ description: En este tutorial, aprenderá a utilizar PowerShell para actualizar 
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 2fb08d7aba3e35fb6147b75bbcee35b46873b5f6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a21de9d76a010b01da95b050a521178d8808bbdf
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78252736"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756077"
 ---
 # <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>Tutorial: Actualización del runtime de un clúster de Service Fabric en Azure
 
@@ -37,7 +37,7 @@ En esta serie de tutoriales, se aprende a:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de empezar este tutorial:
 
@@ -95,7 +95,7 @@ Set-AzServiceFabricUpgradeType -ResourceGroupName SFCLUSTERTUTORIALGROUP `
 
 El estado de la actualización se puede supervisar con PowerShell o la CLI de Azure Service Fabric (sfctl).
 
-En primer lugar, conéctese al clúster con el certificado SSL creado en la primera parte del tutorial. Utilice el cmdlet `Connect-ServiceFabricCluster` o `sfctl cluster upgrade-status`.
+En primer lugar, conéctese al clúster con el certificado TLS/SSL que se creó en la primera parte del tutorial. Utilice el cmdlet `Connect-ServiceFabricCluster` o `sfctl cluster upgrade-status`.
 
 ```powershell
 $endpoint = "<mycluster>.southcentralus.cloudapp.azure.com:19000"

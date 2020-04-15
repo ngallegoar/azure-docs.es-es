@@ -3,22 +3,26 @@ title: Configuración de la integración de AWS con Azure Cost Management
 description: En este artículo se le guiará a través de la instalación y configuración de la integración de informes de uso y costo de AWS con Azure Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 04/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: matrive
-ms.openlocfilehash: c0f6f18abf7c05cf5ae6dcaa31a57974ecfca806
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d3b1efabbf5f05c05ef939ee8713829fbd49f483
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79203090"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878993"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>Instalar y configurar la integración de informes de uso y costo de AWS
 
 Con la integración de informes de uso y costo (CUR) de Amazon Web Services (AWS), supervisa y controla los gastos de AWS en Azure Cost Management. La integración permite tener una sola ubicación en Azure Portal donde supervisar y controlar el gasto de Azure y AWS. En este artículo se explica cómo instalar la integración y cómo configurarla para usar las características de Azure Cost Management para analizar los costos y revisar los presupuestos.
 
 Cost Management procesa el informe de uso y costo de AWS almacenado en un bucket de S3 con sus credenciales de acceso de AWS para obtener las definiciones del informe y descargar archivos GZIP CSV del informe.
+
+Vea el vídeo [Configuración de conectores para AWS en Cost Management](https://www.youtube.com/watch?v=Jg5KC1cx5cA) para más información sobre cómo configurar la integración de informes de AWS. Para ver otros vídeos, visite el [canal de YouTube de Cost Management](https://www.youtube.com/c/AzureCostManagement).
+
+>[!VIDEO https://www.youtube.com/embed/Jg5KC1cx5cA]
 
 ## <a name="create-a-cost-and-usage-report-in-aws"></a>Crear un informe de uso y costo en AWS
 

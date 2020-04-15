@@ -6,28 +6,31 @@ services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.author: mimart
-ms.date: 10/14/2019
+ms.date: 04/04/2020
 ms.custom: mvc, seo-javascript-september2019
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 435800d9c6bfd9131d50681a9808f9836104fac0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d7cd437f597fc34fe83904715fc2e459dfe4550f
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78183353"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80875590"
 ---
-# <a name="tutorial-enable-authentication-in-a-single-page-application-using-azure-active-directory-b2c-azure-ad-b2c"></a>Tutorial: Habilitación de la autenticación en una aplicación de página única mediante Azure Active Directory B2C (Azure AD B2C)
+# <a name="tutorial-enable-authentication-in-a-single-page-application-with-azure-ad-b2c"></a>Tutorial: Habilitación de la autenticación en una aplicación de página única mediante Azure AD B2C
 
-En este tutorial se muestra cómo usar Azure Active Directory B2C (Azure AD B2C) para que los usuarios se registren e inicien sesión en una aplicación de página única (SPA). Azure AD B2C permite que las aplicaciones puedan autenticarse en cuentas de las redes sociales, cuentas de empresa y cuentas de Azure Active Directory mediante protocolos estándar abiertos.
+En este tutorial se muestra cómo usar Azure Active Directory B2C (Azure AD B2C) para que los usuarios se registren e inicien sesión en una aplicación de página única (SPA).
 
-En este tutorial, aprenderá a:
+Este tutorial es la primera parte de una serie de dos:
 
 > [!div class="checklist"]
-> * Actualizar la aplicación en Azure AD B2C
-> * Configurar el ejemplo para que use la aplicación
-> * Registrarse mediante el flujo de usuario
+> * Agregue una dirección URL de respuesta a una aplicación registrada en el inquilino de Azure AD B2C.
+> * Descargue un código de ejemplo de GitHub.
+> * Modifique el código de ejemplo de la aplicación para que funcione con el inquilino.
+> * Regístrese con el flujo de usuario de registro o inicio de sesión
+
+El [siguiente tutorial](tutorial-single-page-app-webapi.md) de la serie habilita la parte de la API web del código de ejemplo.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -41,13 +44,12 @@ Antes de continuar con los pasos en este tutorial, necesita tener los siguientes
 
 También necesita los siguientes elementos en su entorno de desarrollo:
 
-* Editor de código; por ejemplo, [Visual Studio Code](https://code.visualstudio.com/) o [Visual Studio 2019](https://www.visualstudio.com/downloads/).
-* [SDK de .NET Core 2.2](https://dotnet.microsoft.com/download) o versiones posteriores
+* [Visual Studio Code](https://code.visualstudio.com/) u otro editor de código
 * [Node.js](https://nodejs.org/en/download/)
 
 ## <a name="update-the-application"></a>Actualizar la aplicación
 
-En el segundo tutorial que completó como parte de los requisitos previos, registró una aplicación web en Azure AD B2C. Para habilitar la comunicación con el ejemplo en este tutorial, deberá agregar un identificador URI de redirección a la aplicación en Azure AD B2C.
+En el segundo tutorial que completó como parte de los requisitos previos, registró una aplicación web en Azure AD B2C. Para habilitar la comunicación con el código de ejemplo en este tutorial, agregue una dirección URL de respuesta (también denominado URI de redirección) al registro de aplicación.
 
 Para actualizar la aplicación, puede usar la experiencia **Aplicaciones** actual o la nueva experiencia **Registros de aplicaciones (versión preliminar)** unificada. [Más información acerca de la nueva experiencia](https://aka.ms/b2cappregintro).
 
@@ -76,7 +78,7 @@ Para actualizar la aplicación, puede usar la experiencia **Aplicaciones** actua
 
 ## <a name="get-the-sample-code"></a>Obtención del código de ejemplo
 
-En este tutorial, va a configurar un ejemplo de código que puede descargar desde GitHub. Este ejemplo muestra cómo una aplicación de página única puede usar Azure AD B2C para el registro del usuario, el inicio de sesión y llamar a una API web protegida.
+En este tutorial, va a configurar un código de ejemplo que puede descargar desde GitHub para que funcione con el inquilino de B2C. En este ejemplo se muestra cómo una aplicación de página única puede usar Azure AD B2C para el registro y el inicio de sesión de usuario, y llamar a una API web protegida (habilita la API web en el siguiente tutorial de la serie).
 
 [Descargue un archivo zip](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) o clone el ejemplo de GitHub.
 
@@ -88,14 +90,16 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
 
 Ahora que ha obtenido el ejemplo, actualice el código con el nombre del inquilino de Azure AD B2C y el identificador de aplicación que registró en el paso anterior.
 
-1. Abra el archivo `index.html` en el directorio raíz del proyecto.
-1. En la definición `msalConfig`, reemplace el valor de **clientId** por el identificador de aplicación que registró en el paso anterior. A continuación, reemplace el valor del identificador URI de **authority** por el nombre del inquilino de Azure AD B2C. Actualice también el URI con el nombre del flujo de registro o inicio de sesión de usuario que creó en uno de los requisitos previos (por ejemplo, *B2C_1_signupsignin1*).
+1. Abra el archivo *authConfig.js* en la carpeta *JavaScriptSPA*.
+1. En el objeto `msalConfig`, actualice:
+    * `clientId` con el valor que tenga el **Id. de aplicación (cliente)** que ha registrado en un paso anterior
+    * el URI `authority` con el nombre del inquilino de Azure AD B2C y el nombre del flujo de usuario de registro o inicio de sesión que ha creado como parte de los requisitos previos (por ejemplo, *B2C_1_signupsignin1*)
 
     ```javascript
-    var msalConfig = {
+    const msalConfig = {
         auth: {
-            clientId: "00000000-0000-0000-0000-000000000000", //This is your client ID
-            authority: "https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_susi", //This is your tenant info
+            clientId: "00000000-0000-0000-0000-000000000000", // Replace this value with your Application (client) ID
+            authority: "https://your-b2c-tenant.b2clogin.com/your-b2c-tenant.onmicrosoft.com/B2C_1_signupsignin1", // Update with your tenant and user flow names
             validateAuthority: false
         },
         cache: {
@@ -104,8 +108,6 @@ Ahora que ha obtenido el ejemplo, actualice el código con el nombre del inquili
         }
     };
     ```
-
-    El nombre del flujo de usuario que se ha utilizado en este tutorial es **B2C_1_signupsignin1**. Si va a usar otro nombre de flujo de usuario distinto, especifíquelo en el valor `authority`.
 
 ## <a name="run-the-sample"></a>Ejecución del ejemplo
 
@@ -116,64 +118,59 @@ Ahora que ha obtenido el ejemplo, actualice el código con el nombre del inquili
     ```
 1. Ejecute los comandos siguientes:
 
-    ```
+    ```console
     npm install && npm update
-    node server.js
+    npm start
     ```
 
     La ventana de consola muestra el número de puerto del servidor Node.js que se ejecuta localmente:
 
-    ```
+    ```console
     Listening on port 6420...
     ```
+1. Vaya a `http://localhost:6420` para ver la aplicación web que se ejecuta en la máquina local.
 
-1. Vaya a `http://localhost:6420` en el explorador para ver la aplicación.
-
-El ejemplo admite el registro, inicio de sesión, edición de un perfil y restablecimiento de una contraseña. Este tutorial ilustra cómo un usuario se registra mediante una dirección de correo electrónico.
+    :::image type="content" source="media/tutorial-single-page-app/web-app-spa-01-not-logged-in.png" alt-text="Explorador web que muestra la aplicación de página única que se ejecuta localmente":::
 
 ### <a name="sign-up-using-an-email-address"></a>Registro con una dirección de correo electrónico
 
-> [!WARNING]
-> Después del registro o el inicio de sesión, es posible que se muestre un [error de permisos insuficientes](#error-insufficient-permissions). Este error está previsto, debido a la implementación actual del código de ejemplo. Este problema se resolverá en una versión futura del código de ejemplo, momento en el que se quitará esta advertencia.
+Esta aplicación de ejemplo admite el registro, el inicio de sesión y el restablecimiento de contraseña. En este tutorial se registra mediante una dirección de correo electrónico.
 
-1. Seleccione **Iniciar sesión** para iniciar el flujo de usuario *B2C_1_signupsignin1* que especificó en un paso anterior.
-1. Azure AD B2C presenta una página de inicio de sesión con un vínculo de registro. Como no tiene aún una cuenta, seleccione el vínculo **Registrarse ahora**.
-1. El flujo de trabajo del registro presenta una página para recopilar y verificar la identidad del usuario con una dirección de correo electrónico. El flujo de trabajo de registro también recopila la contraseña del usuario y los atributos requeridos definidos en el flujo de usuario.
+1. Seleccione **Iniciar sesión** para iniciar el flujo de usuario *B2C_1_signupsignin1* que ha especificado en un paso anterior.
+1. Azure AD B2C presenta una página de inicio de sesión que incluye un vínculo de registro. Como no tiene aún una cuenta, seleccione el vínculo **Registrarse ahora**.
+1. El flujo de trabajo del registro presenta una página para recopilar y verificar la identidad del usuario con una dirección de correo electrónico. El flujo de trabajo del registro también recopila la contraseña de usuario y los atributos requeridos definidos en el flujo de usuario.
 
     Utilice una dirección de correo electrónico válida y valídela mediante el código de verificación. Establezca una contraseña. Especifique valores para los atributos solicitados.
 
-    ![Página de registro presentada por el flujo de usuario de inicio de sesión o registro](./media/tutorial-single-page-app/azure-ad-b2c-sign-up-workflow.png)
+    :::image type="content" source="media/tutorial-single-page-app/user-flow-sign-up-workflow-01.png" alt-text="Página de registro que muestra el flujo de usuario de Azure AD B2C":::
 
 1. Seleccione **Crear** para crear una cuenta local en el directorio de Azure AD B2C.
 
-Al seleccionar **Crear**, la página de registro se cierra y se muestra la página de inicio de sesión.
+Al seleccionar **Crear**, la aplicación muestra el nombre del usuario que ha iniciado sesión.
 
-Ahora puede usar su dirección de correo electrónico y contraseña para iniciar sesión en la aplicación.
+:::image type="content" source="media/tutorial-single-page-app/web-app-spa-02-logged-in.png" alt-text="Explorador web que muestra la aplicación de página única con el usuario que ha iniciado sesión":::
 
-### <a name="error-insufficient-permissions"></a>Error: permisos insuficientes
+Si desea probar el inicio de sesión, seleccione el botón **Cerrar sesión**, luego, **Iniciar sesión** e inicie sesión con la dirección de correo electrónico y la contraseña que especificó al registrarse.
 
-Después de iniciar sesión, es posible que la aplicación devuelva un error de permisos insuficientes:
+### <a name="what-about-calling-the-api"></a>¿Qué pasa si se llama a la API?
 
-```Output
-ServerError: AADB2C90205: This application does not have sufficient permissions against this web resource to perform the operation.
-Correlation ID: ce15bbcc-0000-0000-0000-494a52e95cd7
-Timestamp: 2019-07-20 22:17:27Z
-```
+Si selecciona el botón **Call API** (Llamar a la API) después de iniciar sesión, aparecerá la página del flujo de usuario del registro o inicio de sesión en lugar de los resultados de la llamada a la API. Esto se espera porque todavía no ha configurado la parte de la API de la aplicación para comunicarse con una aplicación de la API web registrada en *su* inquilino de Azure AD B2C.
 
-Recibirá este error porque la aplicación web está intentando acceder a una API web protegida por el directorio de demostración *fabrikamb2c*. Como el token de acceso solamente es válido para el directorio de Azure AD, la llamada a la API no tiene autorización.
+En este momento, la aplicación sigue intentando comunicarse con la API registrada en el inquilino de demostración (fabrikamb2c.onmicrosoft.com) y, como no se ha autenticado en ese inquilino, se muestra la página de registro o inicio de sesión.
 
-Para corregir este error, continúe en el siguiente tutorial de la serie (consulte [Siguientes pasos](#next-steps)) para crear una API web protegida para el directorio.
+Continúe con el siguiente tutorial de la serie para habilitar la API protegida (consulte la sección [Pasos siguientes](#next-steps)).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, ha aprendido cómo:
+En este tutorial, ha configurado una aplicación de página única a fin de que funcione con un flujo de usuario en el inquilino de Azure AD B2C para proporcionar la funcionalidad de registro e inicio de sesión. Ha completado estos pasos:
 
 > [!div class="checklist"]
-> * Actualizar la aplicación en Azure AD B2C
-> * Configurar el ejemplo para que use la aplicación
-> * Registrarse mediante el flujo de usuario
+> * Ha agregado una dirección URL de respuesta a una aplicación registrada en el inquilino de Azure AD B2C.
+> * Ha descargado un código de ejemplo desde GitHub.
+> * Ha modificado el código de ejemplo de la aplicación para que funcione con el inquilino.
+> * Se ha registrado con el flujo de usuario de registro o inicio de sesión.
 
 Pase al siguiente tutorial de la serie para conceder acceso a una API web protegida desde la SPA:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Concesión de acceso a una API web de ASP.NET Core desde una aplicación de página única mediante Azure Active Directory B2C >](tutorial-single-page-app-webapi.md)
+> [Tutorial: Protección y concesión de acceso a una API web desde una aplicación de página única >](tutorial-single-page-app-webapi.md)

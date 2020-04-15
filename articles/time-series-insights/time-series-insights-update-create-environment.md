@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
-ms.date: 02/20/2020
+ms.date: 04/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: af15a7366fd07cecb376ff76ad383f784202a887
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3ccb9c7aff6eb59c4883bc3218e205fb7877e86e
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77526828"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618378"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-preview-environment"></a>Tutorial: Configuración de un entorno en la versión preliminar de Azure Time Series Insights
 
@@ -30,7 +30,6 @@ En este tutorial, aprenderá a:
 > * Ejecutar un ejemplo del acelerador de soluciones para transmitir datos en el entorno de versión preliminar de Azure Time Series Insights.
 > * Realizar un análisis básico de los datos.
 > * Definir el tipo y la jerarquía de un modelo de Time Series y asociarlos con sus instancias.
-> * Use el conector de Power BI y visualice los datos en Power BI.
 
 >[!TIP]
 > Los [aceleradores de soluciones de IoT](https://www.azureiotsolutions.com/Accelerators) proporcionan soluciones preconfiguradas de nivel empresarial que se pueden usar puede usar para acelerar el desarrollo de soluciones de IoT personalizadas.
@@ -193,7 +192,7 @@ En esta sección, se va realizar un análisis básico de los datos de la serie t
 
     Aparece un gráfico con las series temporales. Cambie el **Intervalo** a **30s**.
 
-1. Repita el paso 3 con las otras dos instancias de Time Series para ver las tres, tal y como se muestra en este gráfico:
+1. Repita el paso anterior con las otras dos instancias de series temporales para ver las tres, como se muestra en este gráfico:
 
     [![Gráfico de todas las series temporales.](media/v2-update-provision/tsi-explorer-add-three-instances.png)](media/v2-update-provision/tsi-explorer-add-three-instances.png#lightbox)
 
@@ -359,3 +358,8 @@ Obtenga más información sobre los modelos de serie temporal:
 
 > [!div class="nextstepaction"]
 > [Modelado de datos de la versión preliminar de Azure Time Series Insights](./time-series-insights-update-tsm.md)
+
+Más información sobre cómo conectar un entorno a Power BI
+
+> [!div class="nextstepaction"]
+> [Visualización de datos de Time Series Insights en Power BI](./how-to-connect-power-bi.md)

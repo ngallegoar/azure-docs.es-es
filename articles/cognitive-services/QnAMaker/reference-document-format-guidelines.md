@@ -1,14 +1,14 @@
 ---
 title: 'Instrucciones de formato de documentos importados: QnA Maker'
-description: Comprenda cómo se usan los tipos de direcciones URL para importar y crear conjuntos de QnA.
+description: Comprenda cómo se usan los tipos de direcciones URL para importar y crear pares de QnA.
 ms.topic: reference
-ms.date: 01/02/2020
-ms.openlocfilehash: 6a954f2fd607b70c6db256ab6dcc1dbcd7a5a473
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/06/2020
+ms.openlocfilehash: 799e85e2200d3caa29c9b76bc57a62fc883d246d
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77651798"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804340"
 ---
 # <a name="format-guidelines-for-imported-documents-and-urls"></a>Instrucciones de formato para las direcciones URL y los documentos importados
 
@@ -20,6 +20,8 @@ Después de importar un archivo o una dirección URL, QnA Maker convierte y alma
 
 Si agrega o edita el contenido directamente en la base de conocimiento, use el **formato de Markdown** para crear contenido de texto enriquecido o cambiar el contenido de dicho formato que ya está en la respuesta. QnA Maker admite gran parte del formato de Markdown para aportar funcionalidades de texto enriquecido al contenido. Sin embargo, es posible que la aplicación cliente, como un bot de chat, no admita el mismo conjunto de formatos de Markdown. Es importante probar la presentación de las respuestas de la aplicación cliente.
 
+Vea una lista completa de [tipos de contenido y ejemplos](./Concepts/content-types.md#file-and-url-data-types).
+
 ## <a name="basic-document-formatting"></a>Formato básico de documentos
 
 QnA Maker identifica las secciones y subsecciones, así como las relaciones, en el archivo según las indicaciones visuales, como:
@@ -28,12 +30,6 @@ QnA Maker identifica las secciones y subsecciones, así como las relaciones, en 
 * estilo de fuente
 * numeración
 * colores
-
-|Ejemplos de documento|
-|--|
-||
-
-
 
 ## <a name="product-manuals"></a>Manuales de productos
 
@@ -116,7 +112,8 @@ Al importar una base de conocimiento, se reemplaza el contenido de la base de co
 * El primer carácter del encabezado debe escribirse en mayúsculas.
 * No termine un encabezado con un signo de interrogación, `?`.
 
+**Documentos de muestra**:<br>[Surface Pro (docx)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)<br>[Ventajas de Contoso (docx)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Multiturn-ContosoBenefits.docx)<br>[Ventajas de Contoso (pdf)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Multiturn-ContosoBenefits.pdf)
 
-|Ejemplos de documento|
-|--|
-||
+## <a name="next-steps"></a>Pasos siguientes
+
+Vea una lista completa de [tipos de contenido y ejemplos](./Concepts/content-types.md#file-and-url-data-types).

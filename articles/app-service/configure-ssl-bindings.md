@@ -1,28 +1,28 @@
 ---
-title: Protección de un DNS personalizado con un enlace SSL
+title: Protección de un DNS personalizado con un enlace TLS/SSL
 description: Proteja el acceso HTTPS al dominio personalizado mediante la creación de un enlace de TLS/SSL con un certificado. Mejore la seguridad de su sitio web mediante la aplicación de HTTPS o TLS 1.2.
 tags: buy-ssl-certificates
 ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 263b4e76d334aab82f6bbac9aa268a50f4dd3784
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 9792181379bfa6f9e0337bf14208fe853c16b745
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79223842"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811750"
 ---
-# <a name="secure-a-custom-dns-name-with-an-ssl-binding-in-azure-app-service"></a>Protección de un nombre DNS personalizado con un enlace SSL en Azure App Service
+# <a name="secure-a-custom-dns-name-with-a-tlsssl-binding-in-azure-app-service"></a>Protección de un nombre DNS personalizado con un enlace TLS/SSL en Azure App Service
 
 En este artículo se muestra cómo proteger el [dominio personalizado](app-service-web-tutorial-custom-domain.md) de la [aplicación de App Service](https://docs.microsoft.com/azure/app-service/) o de la [aplicación de funciones](https://docs.microsoft.com/azure/azure-functions/) mediante la creación de un enlace de certificado. Cuando haya terminado, podrá acceder a la aplicación de App Service en el punto de conexión `https://` del nombre DNS personalizado (por ejemplo, `https://www.contoso.com`). 
 
-![Aplicación web con certificado SSL personalizado](./media/configure-ssl-bindings/app-with-custom-ssl.png)
+![Aplicación web con certificado TLS/SSL personalizado](./media/configure-ssl-bindings/app-with-custom-ssl.png)
 
 La protección de un [dominio personalizado](app-service-web-tutorial-custom-domain.md) con un certificado implica dos pasos:
 
-- [Agregar un certificado privado a App Service](configure-ssl-certificate.md) que cumpla todos los [requisitos para los enlaces SSL](configure-ssl-certificate.md#private-certificate-requirements).
--  Crear un enlace SSL al dominio personalizado correspondiente. En este artículo se trata este segundo paso.
+- [Agregar un certificado privado a App Service](configure-ssl-certificate.md) que cumpla todos los [requisitos de los certificados privados](configure-ssl-certificate.md#private-certificate-requirements).
+-  Crear un enlace TLS al dominio personalizado correspondiente. En este artículo se trata este segundo paso.
 
 En este tutorial, aprenderá a:
 
@@ -33,7 +33,7 @@ En este tutorial, aprenderá a:
 > * Aplicación de TLS 1.1 y 1.2
 > * Automatización de la administración de TLS con scripts
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar esta guía paso a paso, debe:
 
@@ -77,17 +77,17 @@ Si la aplicación no tiene ningún certificado para el dominio personalizado sel
 
 ### <a name="create-binding"></a>Creación del enlace
 
-Utilice la siguiente tabla para ayudarle a configurar el enlace SSL en el cuadro de diálogo **Enlace TLS/SSL** y, a continuación, haga clic en **Agregar enlace**.
+Utilice la siguiente tabla como ayuda para configurar el enlace TLS en el cuadro de diálogo **Enlace TLS/SSL** y haga clic en **Agregar enlace**.
 
 | Configuración | Descripción |
 |-|-|
-| Dominio personalizado | El nombre de dominio para el que se agrega el enlace SSL. |
+| Dominio personalizado | Nombre de dominio para el que se agrega el enlace TLS/SSL. |
 | Huella digital de certificado privado | El certificado a enlazar. |
-| Tipo de TLS/SSL | <ul><li>**[SSL SNI](https://en.wikipedia.org/wiki/Server_Name_Indication)** : se pueden agregar varios enlaces SSL SNI. Esta opción permite que varios certificados SSL protejan varios dominios en una misma dirección IP. La mayoría de los exploradores modernos (incluidos Internet Explorer, Chrome, Firefox y Opera) admiten SNI (para más información, consulte [Server Name Indication](https://wikipedia.org/wiki/Server_Name_Indication) [Indicación del nombre del servidor]).</li><li>**SSL de IP**: solo se puede agregar un enlace SSL de IP. Esta opción solo permite que un único certificado SSL proteja una dirección IP dedicada. Tras configurar el enlace, siga los pasos descritos en [Reasignar un registro D en SSL de IP](#remap-a-record-for-ip-ssl).<br/>SSL de IP solo se admite en los niveles de producción o aislado. </li></ul> |
+| Tipo de TLS/SSL | <ul><li>**[SSL SNI](https://en.wikipedia.org/wiki/Server_Name_Indication)** : se pueden agregar varios enlaces SSL SNI. Esta opción permite que varios certificados TLS/SSL protejan diferentes dominios de una misma dirección IP. La mayoría de los exploradores modernos (incluidos Internet Explorer, Chrome, Firefox y Opera) admiten SNI (para más información, consulte [Server Name Indication](https://wikipedia.org/wiki/Server_Name_Indication) [Indicación del nombre del servidor]).</li><li>**SSL de IP**: solo se puede agregar un enlace SSL de IP. Esta opción solo permite que un único certificado TLS/SSL proteja una dirección IP pública dedicada. Tras configurar el enlace, siga los pasos descritos en [Reasignar un registro D en SSL de IP](#remap-a-record-for-ip-ssl).<br/>SSL de IP solo se admite en los niveles de producción o aislado. </li></ul> |
 
-Una vez completada la operación, el estado SSL del dominio personalizado cambia a **Seguro**.
+Una vez completada la operación, el estado TLS/SSL del dominio personalizado cambia a **Seguro**.
 
-![Enlace SSL correcto](./media/configure-ssl-bindings/secure-domain-finished.png)
+![Enlace TLS/SSL correcto](./media/configure-ssl-bindings/secure-domain-finished.png)
 
 > [!NOTE]
 > Un estado **Seguro** en **Dominios personalizados** significa que está protegido con un certificado, pero App Service no comprueba si el certificado es autofirmado o ha expirado, por ejemplo, lo que también puede provocar que los exploradores muestren un error o una advertencia.
@@ -147,9 +147,9 @@ En la página de la aplicación, en el panel de navegación izquierdo, seleccion
 
 Una vez completada la operación, la aplicación rechaza todas las conexiones con versiones inferiores de TLS.
 
-## <a name="handle-ssl-termination"></a>Control de la terminación de SSL
+## <a name="handle-tls-termination"></a>Administración de terminaciones TLS
 
-En App Service, la [terminación de SSL](https://wikipedia.org/wiki/TLS_termination_proxy) se produce en los equilibradores de carga de red, por lo que todas las solicitudes HTTPS llegan a su aplicación en forma de solicitudes HTTP sin cifrar. Si su aplicación lógica necesita comprobar si las solicitudes de usuario están cifradas, inspeccione el encabezado `X-Forwarded-Proto`.
+En App Service, la [terminación TLS](https://wikipedia.org/wiki/TLS_termination_proxy) tiene lugar en los equilibradores de carga de red, por lo que todas las solicitudes HTTPS llegan a la aplicación en forma de solicitudes HTTP sin cifrar. Si su aplicación lógica necesita comprobar si las solicitudes de usuario están cifradas, inspeccione el encabezado `X-Forwarded-Proto`.
 
 Guías de configuración específicas del lenguaje, como la guía [Configuración de Node.js en Linux](containers/configure-language-nodejs.md#detect-https-session), que muestra cómo detectar una sesión HTTPS en el código de la aplicación.
 
@@ -157,13 +157,13 @@ Guías de configuración específicas del lenguaje, como la guía [Configuració
 
 ### <a name="azure-cli"></a>Azure CLI
 
-[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom SSL certificate to a web app")] 
+[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom TLS/SSL certificate to a web app")] 
 
 ### <a name="powershell"></a>PowerShell
 
-[!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom SSL certificate to a web app")]
+[!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom TLS/SSL certificate to a web app")]
 
 ## <a name="more-resources"></a>Más recursos
 
-* [Uso de un certificado SSL en el código de la aplicación](configure-ssl-certificate-in-code.md)
-* [Preguntas frecuentes: Certificados de App Service](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)
+* [Uso de un certificado TLS/SSL en el código de Azure App Service](configure-ssl-certificate-in-code.md)
+* [Preguntas más frecuentes: Certificados de App Service](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)

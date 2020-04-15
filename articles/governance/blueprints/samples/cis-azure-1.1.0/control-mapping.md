@@ -3,12 +3,12 @@ title: Ejemplo de plano técnico de CIS Microsoft Azure Foundations Benchmark, c
 description: Asignación de recomendaciones del ejemplo de plano técnico de CIS Microsoft Azure Foundations Benchmark para Azure Policy.
 ms.date: 11/04/2019
 ms.topic: sample
-ms.openlocfilehash: 34d38f34dcd4233706f9b4578bc2dc2a644e4c2c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ea61ae4ea05b34c785485cbb5fd39c8a772565e3
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74707421"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656959"
 ---
 # <a name="recommendation-mapping-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Asignación de recomendaciones del ejemplo de plano técnico de CIS Microsoft Azure Foundations Benchmark
 
@@ -245,7 +245,7 @@ Este plano técnico asigna definiciones de [Azure Policy](../../../policy/overvi
 
 ## <a name="411-ensure-enforce-ssl-connection-is-set-to-enabled-for-mysql-database-server"></a>4.11 Asegúrese de que "Aplicar conexión SSL" esté establecido en "HABILITADO" para el servidor de bases de datos MySQL
 
-Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que contribuirá a garantizar que los servidores de bases de datos MySQL aplican la conexión SSL.
+Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que contribuirá a garantizar que los servidores de bases de datos MySQL aplican la conexión TLS/SSL.
 
 - La aplicación de la conexión SSL debe estar habilitada para los servidores de bases de datos MySQL
 
@@ -257,7 +257,7 @@ Este plano técnico asigna una definición de [Azure Policy](../../../policy/ove
 
 ## <a name="413-ensure-enforce-ssl-connection-is-set-to-enabled-for-postgresql-database-server"></a>4.13 Asegúrese de que "Aplicar conexión SSL" esté establecido en "HABILITADO" para el servidor de bases de datos PostgreSQL
 
-Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que contribuirá a garantizar que los servidores de bases de datos PostgreSQL aplican la conexión SSL.
+Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que contribuirá a garantizar que los servidores de bases de datos PostgreSQL aplican la conexión TLS/SSL.
 
 - La aplicación de la conexión SSL debe estar habilitada para los servidores de bases de datos PostgreSQL
 

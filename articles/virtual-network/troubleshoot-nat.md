@@ -1,6 +1,6 @@
 ---
-title: Solución de los problemas de conectividad de Azure Virtual Network NAT
-titleSuffix: Azure Virtual Network NAT troubleshooting
+title: Solución de problemas de conectividad de Azure Virtual Network NAT
+titleSuffix: Azure Virtual Network
 description: Solucione los problemas de Azure Virtual Network NAT.
 services: virtual-network
 documentationcenter: na
@@ -12,21 +12,18 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/05/2020
+ms.date: 03/30/2020
 ms.author: allensu
-ms.openlocfilehash: c629b3425cd095a6ac9d305b5cd6de58ed9d572a
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: c012a8d83761b88cc59b62d11fd3d5542ca7f7a1
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78674324"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396087"
 ---
-# <a name="troubleshoot-azure-virtual-network-nat-connectivity-problems"></a>Solución de los problemas de conectividad de Azure Virtual Network NAT
+# <a name="troubleshoot-azure-virtual-network-nat-connectivity"></a>Solución de problemas de conectividad de Azure Virtual Network NAT
 
 En este artículo se ayuda a los administradores a diagnosticar y resolver problemas de conectividad cuando se usa Virtual Network NAT.
-
->[!NOTE] 
->En este momento, Virtual Network NAT está disponible como versión preliminar pública. Actualmente solo está disponible en un conjunto limitado de [regiones](nat-overview.md#region-availability). Esta versión preliminar se ofrece sin contrato de nivel de servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms).
 
 ## <a name="problems"></a>Problemas
 
@@ -43,27 +40,39 @@ Para resolver estos problemas, siga los pasos de la siguiente sección.
 
 Un solo [recurso de puerta de enlace de NAT](nat-gateway-resource.md) admite entre 64 000 y 1 millón de flujos simultáneos.  Cada dirección IP proporciona 64 000 puertos de SNAT al inventario disponible. Se pueden usar un máximo de 16 direcciones IP por recurso de puerta de enlace de NAT.  El mecanismo de la arquitectura de redes de sistemas se describe [aquí](nat-gateway-resource.md#source-network-address-translation) de forma más detallada.
 
-Con frecuencia, la causa principal del agotamiento de SNAT es un antipatrón para la manera en que se establece y administra la conectividad saliente.  Consulte detenidamente esta sección.
+Con frecuencia, la causa principal del agotamiento de SNAT es un antipatrón de cómo se establece y administra la conectividad de salida o cómo se cambian los temporizadores configurables de sus valores predeterminados.  Consulte detenidamente esta sección.
 
 #### <a name="steps"></a>Pasos
 
-1. Investigue la forma en que la aplicación crea conectividad saliente (por ejemplo la revisión del código o la captura de paquetes). 
-2. Determine si esta actividad es el comportamiento esperado o si la aplicación no se comporta correctamente.  Use [métricas](nat-metrics.md) en Azure Monitor para apoyar sus conclusiones. Use la categoría "Error" para la métrica de las conexiones SNAT.
-3. Evalúe si se siguen los patrones adecuados.
-4. Evalúe si el agotamiento de puertos de SNAT debe mitigarse con la asignación de más direcciones IP a un recurso de puerta de enlace de NAT.
+1. Compruebe si ha modificado el tiempo de espera de inactividad predeterminado en un valor superior a cuatro minutos.
+2. Investigue la forma en que la aplicación crea conectividad saliente (por ejemplo la revisión del código o la captura de paquetes). 
+3. Determine si esta actividad es el comportamiento esperado o si la aplicación no se comporta correctamente.  Use [métricas](nat-metrics.md) en Azure Monitor para apoyar sus conclusiones. Use la categoría "Error" para la métrica de las conexiones SNAT.
+4. Evalúe si se siguen los patrones adecuados.
+5. Evalúe si el agotamiento de puertos de SNAT debe mitigarse con la asignación de más direcciones IP a un recurso de puerta de enlace de NAT.
 
 #### <a name="design-patterns"></a>Patrones de diseño
 
-Aproveche la reutilización de las conexiones y la agrupación de conexiones siempre que sea posible.  Estos patrones evitarán problemas de agotamiento total de los recursos y el resultado será un comportamiento predecible, confiable y escalable. Las primitivas de estos patrones se pueden encontrar en muchas bibliotecas y marcos de desarrollo.
+Aproveche la reutilización de las conexiones y la agrupación de conexiones siempre que sea posible.  Estos patrones evitarán problemas de agotamiento de los recursos y el resultado será un comportamiento predecible. Las primitivas de estos patrones se pueden encontrar en muchas bibliotecas y marcos de desarrollo.
 
-_**Solución:**_ Uso de patrones adecuados
+_**Solución:**_ Uso de patrones y procedimientos recomendados apropiados
 
+- Los recursos de puerta de enlace NAT tienen un tiempo de espera de inactividad de TCP predeterminado de cuatro minutos.  Si esta configuración cambia a un valor superior, NAT retendrá los flujos por más tiempo y puede causar una [presión innecesaria en el inventario de puertos SNAT](nat-gateway-resource.md#timers).
+- Las solicitudes atómicas (una solicitud por conexión) son una mala opción de diseño. Estos límites de antipatrón escalan, reducen el rendimiento y disminuyen la confiabilidad. En su lugar, reutilice las conexiones HTTP/S para reducir el número de conexiones y los puertos SNAT asociados. El escalado de la aplicación aumentará y mejorará el rendimiento debido a la reducción de los protocolos de enlace, a la sobrecarga y al costo de la operación criptográfica al usar TLS.
+- DNS puede introducir muchos flujos individuales en el volumen cuando el cliente no almacena en caché el resultado de la resolución DNS. Use el almacenamiento en caché.
+- Los flujos UDP (por ejemplo, las búsquedas de DNS) asignan puertos SNAT mientras dure el tiempo de espera de inactividad. Cuanto mayor sea el tiempo de espera de inactividad, mayor será la presión sobre los puertos SNAT. Use un tiempo de espera de inactividad corto (por ejemplo, 4 minutos).
+- Use los grupos de conexiones para dar forma al volumen de la conexión.
+- Nunca abandone de forma silenciosa un flujo TCP y confíe en temporizadores TCP para limpiar el flujo. Si no permite que TCP cierre explícitamente la conexión, el estado permanecerá asignado en los sistemas y puntos de conexión intermedios y hará que los puertos de SNAT no estén disponibles para otras conexiones. Esto puede desencadenar errores en la aplicación y el agotamiento de SNAT. 
+- No cambie los valores del temporizador relacionado con el cierre de TCP de nivel de sistema operativo sin el conocimiento experto de impacto. Aunque la pila de TCP se recuperará, el rendimiento de la aplicación puede verse afectado negativamente si los puntos de conexión de una conexión tienen expectativas no coincidentes. El deseo de cambiar los temporizadores suele ser un signo de un problema de diseño subyacente. Revise las siguientes recomendaciones.
+
+A menudo, el agotamiento de SNAT también puede amplificarse con otros antipatrones en la aplicación subyacente. Revise estos patrones y procedimientos recomendados adicionales para mejorar la escala y la confiabilidad del servicio.
+
+- Explore el impacto de reducir el [tiempo de espera de inactividad de TCP](nat-gateway-resource.md#timers) a valores inferiores, incluido el tiempo de espera predeterminado de inactividad de cuatro minutos para liberar antes el inventario de puertos SNAT.
 - Considere la posibilidad de usar [patrones de sondeo asincrónicos](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply) para las operaciones de ejecución prolongada, con el fin de liberar recursos de conexión para otras operaciones.
-- Los flujos de larga duración (como las conexiones TCP reutilizadas) deberían usar paquetes keepalive de TCP o de la capa de la aplicación para evitar que los sistemas intermedios superen el tiempo de espera.
+- Los flujos de larga duración (como las conexiones TCP reutilizadas) deberían usar paquetes keepalive de TCP o de la capa de la aplicación para evitar que los sistemas intermedios superen el tiempo de espera. Aumentar el tiempo de espera de inactividad es un último recurso y es posible que no resuelva la causa principal. Un tiempo de espera prolongado puede causar errores de baja tasa cuando expira el tiempo de espera e introducir retrasos y errores innecesarios.
 - Se deben usar [patrones de reintento](https://docs.microsoft.com/azure/architecture/patterns/retry) correctos para evitar reintentos o ráfagas agresivos durante un error transitorio o la recuperación de un error.
 La creación de una conexión TCP para cada operación HTTP (también conocidas como "conexiones atómicas") es un antipatrón.  Las conexiones atómicas evitarán que su aplicación se escale de forma correcta y malgastarán recursos.  Canalice siempre varias operaciones a la misma conexión.  Su aplicación aumentará la velocidad de las transacciones y reducirá los costos de los recursos.  Cuando la aplicación usa un cifrado de la capa de transporte (por ejemplo, TLS), se produce un considerable costo asociado con el procesamiento de nuevas conexiones.  Para conocer otros patrones de procedimientos recomendados, consulte [Patrones de diseño en la nube de Azure](https://docs.microsoft.com/azure/architecture/patterns/).
 
-#### <a name="possible-mitigations"></a>Posibles remedios
+#### <a name="additional-possible-mitigations"></a>Posibles mitigaciones adicionales
 
 _**Solución:**_ Escale la conectividad saliente como se indica a continuación:
 
@@ -90,7 +99,7 @@ La siguiente tabla se puede usar como punto de partida para saber qué herramien
 
 ### <a name="connectivity-failures"></a>Errores de conectividad
 
-Los problemas de conectividad con [Virtual Network NAT](nat-overview.md) pueden deberse a varios problemas:
+Los problemas de conectividad con [Virtual Network NAT](nat-overview.md) pueden estar causados por varios motivos:
 
 * El [agotamiento de SNAT](#snat-exhaustion) transitorio o persistente de la puerta de enlace NAT
 * Errores transitorios en la infraestructura de Azure 
@@ -110,7 +119,7 @@ Revise la sección sobre el [agotamiento de SNAT](#snat-exhaustion) en este art�
 
 #### <a name="azure-infrastructure"></a>Infraestructura de Azure
 
-Aunque Azure supervisa y opera su infraestructura con gran cuidado, pueden producirse errores transitorios, ya que no hay ninguna garantía de que las transmisiones sean sin pérdida.  Utilice patrones de diseño que permitan las retransmisiones SYN para las aplicaciones TCP. Use tiempos de espera de conexión lo bastante prolongados como para permitir la retransmisión TCP SYN a fin de reducir los efectos transitorios causados por la pérdida de un paquete SYN.
+Azure supervisa y opera su infraestructura con gran cuidado. Se pueden producir errores transitorios y no hay ninguna garantía de que las transmisiones sean sin pérdida.  Utilice patrones de diseño que permitan las retransmisiones SYN para las aplicaciones TCP. Use tiempos de espera de conexión lo bastante prolongados como para permitir la retransmisión TCP SYN a fin de reducir los efectos transitorios causados por la pérdida de un paquete SYN.
 
 _**Solución:**_
 
@@ -122,20 +131,20 @@ No se recomienda reducir artificialmente el tiempo de espera de la conexión TCP
 
 #### <a name="public-internet-transit"></a>Tránsito público por Internet
 
-La probabilidad de errores transitorios aumenta con una ruta de acceso más larga al destino y más sistemas intermedios. Se espera que los errores transitorios puedan aumentar la frecuencia en la [infraestructura de Azure](#azure-infrastructure). 
+Las posibilidades de errores transitorios aumentan con una ruta de acceso más larga al destino y más sistemas intermedios. Se espera que los errores transitorios puedan aumentar la frecuencia en la [infraestructura de Azure](#azure-infrastructure). 
 
 Siga las mismas instrucciones que en la sección [Infraestructura de Azure](#azure-infrastructure).
 
 #### <a name="internet-endpoint"></a>Punto de conexión de Internet
 
-Las secciones anteriores se aplican además de las consideraciones relacionadas con el punto de conexión de Internet con el que se establece la comunicación. Otros factores que pueden afectar al éxito de la conectividad son:
+Se aplican las secciones anteriores, junto con el punto de conexión de Internet con el que se establece la comunicación. Otros factores que pueden afectar al éxito de la conectividad son:
 
 * Administración del tráfico en el lado de destino, incluido
 - Limitación de la tasa de API impuesta por el lado de destino
 - Formas de tráfico de la capa de transporte o de mitigación de DDoS volumétricas
 * Firewall u otros componentes en el destino 
 
-Normalmente, se necesitan capturas de paquetes en el origen además de en el destino (si está disponible) para determinar lo que está teniendo lugar.
+Normalmente, se necesitan capturas de paquetes en el origen y en el destino (si está disponible) para determinar lo que está teniendo lugar.
 
 _**Solución:**_
 
@@ -147,9 +156,11 @@ _**Solución:**_
 
 #### <a name="tcp-resets-received"></a>Restablecimientos TCP recibidos
 
-Si observa que se reciben restablecimientos TCP (paquetes TCP RST) en la máquina virtual de origen, puede que los haya generado la puerta de enlace NAT en el lado privado para los flujos que no se reconocen como en curso.  Una posible razón es que la conexión TCP haya agotado el tiempo de espera.  Puede ajustar el tiempo de espera de inactividad entre 4 minutos y un máximo de 120 minutos.
+La puerta de enlace NAT genera restablecimientos TCP en la máquina virtual de origen para el tráfico que no se reconoce como en curso.
 
-Los restablecimientos TCP no se generan en el lado público de los recursos de puerta de enlace NAT. Si recibe restablecimientos TCP en el lado de destino, los genera la pila de la máquina virtual de origen y no el recurso de puerta de enlace NAT.
+Una posible razón es que la conexión TCP haya agotado el tiempo de espera.  Puede ajustar el tiempo de espera de inactividad entre 4 minutos y un máximo de 120 minutos.
+
+Los restablecimientos TCP no se generan en el lado público de los recursos de puerta de enlace NAT. Los restablecimientos TCP en el destino los genera la máquina virtual de origen, no el recurso de puerta de enlace NAT.
 
 _**Solución:**_
 
@@ -158,7 +169,7 @@ _**Solución:**_
 
 ### <a name="ipv6-coexistence"></a>Coexistencia de IPv6
 
-[Virtual Network NAT](nat-overview.md) admite los protocolos UDP y TCP de IPv4, y la implementación en una [subred con prefijo IPv6 no es compatible](nat-overview.md#limitations).
+[Virtual Network NAT](nat-overview.md) admite los protocolos UDP y TCP de IPv4, y la implementación en una [subred con un prefijo IPv6 no es compatible](nat-overview.md#limitations).
 
 _**Solución:**_ Implemente la puerta de enlace NAT en una subred sin prefijo IPv6.
 

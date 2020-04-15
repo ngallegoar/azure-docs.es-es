@@ -5,19 +5,21 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 0dbbc9b09d5d4770296223db9dc909c17f574fe8
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/30/2020
+ms.openlocfilehash: 332feffead74174ba0b9b278d8de1c5957d5b9e6
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74767031"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422467"
 ---
 # <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>Configuración de la replicación de datos de entrada en Azure Database for MariaDB
 
 En este artículo se describe cómo configurar la replicación de datos de entrada en Azure Database for MariaDB mediante la configuración de los servidores maestros y de réplica. En este artículo se asume que tiene alguna experiencia previa con servidores y bases de datos MariaDB.
 
 Para crear una réplica en el servicio Azure Database for MariaDB, la replicación de datos de entrada sincroniza los datos que proceden de un servidor MariaDB maestro local, de máquinas virtuales (VM) o de servicios de base de datos en la nube.
+
+Revise las [limitaciones y los requisitos](concepts-data-in-replication.md#limitations-and-considerations) de la replicación de datos de entrada antes de seguir los pasos de este artículo.
 
 > [!NOTE]
 > Si el servidor maestro es la versión 10.2 o posterior, se recomienda configurar la replicación de datos de entrada mediante el uso de [Identificador de transacción global](https://mariadb.com/kb/en/library/gtid/).
@@ -36,11 +38,21 @@ Para crear una réplica en el servicio Azure Database for MariaDB, la replicaci�
     
     Las cuentas de usuario no se replican desde el servidor maestro al servidor de réplica. Para proporcionar a los usuarios acceso al servidor de réplica, debe crear manualmente todas las cuentas y los privilegios correspondientes en el servidor recién creado de Azure Database for MariaDB.
 
+3. Agregue la dirección IP del servidor maestro a las reglas de firewall de la réplica. 
+
+   Actualice las reglas de firewall mediante [Azure Portal](howto-manage-firewall-portal.md) o la [CLI de Azure](howto-manage-firewall-cli.md).
+
 ## <a name="configure-the-master-server"></a>Configurar el servidor maestro
 
 En los siguientes pasos se prepara y configura el servidor MariaDB en el entorno local, en una VM o en un servicio de base de datos en la nube para la replicación de datos de entrada. El servidor MariaDB es el maestro en la replicación de datos de entrada.
 
-1. Active el registro binario.
+1. Revise los [requisitos del servidor maestro](concepts-data-in-replication.md#requirements) antes de continuar. 
+
+   Por ejemplo, asegúrese de que el servidor maestro permite el tráfico entrante y saliente en el puerto 3306 y de que el servidor maestro tiene una **dirección IP pública**, el DNS es accesible públicamente o tiene un nombre de dominio completo (FQDN). 
+   
+   Pruebe la conectividad con el servidor maestro; para ello, pruebe a conectarse desde una herramienta como la línea de comandos de MySQL hospedada en otra máquina o desde la instancia de [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) disponible en Azure Portal.
+
+2. Active el registro binario.
     
     Para ver si se ha habilitado el registro binario en el servidor maestro, introduzca el comando siguiente:
 
@@ -52,7 +64,7 @@ En los siguientes pasos se prepara y configura el servidor MariaDB en el entorno
 
    Si `log_bin` devuelve el valor `OFF`, edite el archivo **my.cnf** para que `log_bin=ON` active el registro binario. Reinicie el servidor para que el cambio surta efecto.
 
-2. Configure el servidor maestro.
+3. Configure el servidor maestro.
 
     La replicación de datos de entrada requiere el parámetro `lower_case_table_names` para ser coherente entre los servidores maestro y de réplica. El parámetro `lower_case_table_names` se establece de forma predeterminada en `1` en Azure Database for MariaDB.
 
@@ -60,7 +72,7 @@ En los siguientes pasos se prepara y configura el servidor MariaDB en el entorno
    SET GLOBAL lower_case_table_names = 1;
    ```
 
-3. Cree un nuevo rol de replicación y configure los permisos.
+4. Cree un nuevo rol de replicación y configure los permisos.
 
    Cree una cuenta de usuario en el servidor maestro que está configurado con privilegios de replicación. Puede crear una cuenta mediante el uso de comandos SQL o MySQL Workbench. Si va a replicar con SSL, debe especificarlo al crear la cuenta de usuario.
    
@@ -105,7 +117,7 @@ En los siguientes pasos se prepara y configura el servidor MariaDB en el entorno
    ![Servidor subordinado de replicación](./media/howto-data-in-replication/replicationslave.png)
 
 
-4. Establezca el servidor maestro en el modo de solo lectura.
+5. Establezca el servidor maestro en el modo de solo lectura.
 
    Antes de volcar una base de datos, el servidor debe configurarse en modo de solo lectura. En modo de solo lectura, el servidor maestro no puede procesar cualquier transacción de escritura. Para ayudar a evitar que afecte a la actividad de la empresa, programe la ventana de solo lectura durante un período de menor actividad.
 
@@ -114,7 +126,7 @@ En los siguientes pasos se prepara y configura el servidor MariaDB en el entorno
    SET GLOBAL read_only = ON;
    ```
 
-5. Obtenga el nombre de archivo de registro binario y el desplazamiento actuales.
+6. Obtenga el nombre de archivo de registro binario y el desplazamiento actuales.
 
    Ejecute el comando [`show master status`](https://mariadb.com/kb/en/library/show-master-status/) para determinar el nombre de archivo de registro binario actual y el desplazamiento actuales.
     
@@ -127,7 +139,7 @@ En los siguientes pasos se prepara y configura el servidor MariaDB en el entorno
 
    Asegúrese de anotar el nombre del archivo binario, ya que se utilizará en pasos posteriores.
    
-6. Obtenga la posición de GTID (opcional, es necesario para la replicación con GTID).
+7. Obtenga la posición de GTID (opcional, es necesario para la replicación con GTID).
 
    Ejecute la función [`BINLOG_GTID_POS`](https://mariadb.com/kb/en/library/binlog_gtid_pos/) para obtener la posición de GTID para el nombre de archivo binlog y el desplazamiento correspondientes.
   
@@ -171,7 +183,7 @@ En los siguientes pasos se prepara y configura el servidor MariaDB en el entorno
    CALL mysql.az_replication_change_master('<master_host>', '<master_user>', '<master_password>', 3306, '<master_log_file>', <master_log_pos>, '<master_ssl_ca>');
    ```
    
-   o
+   or
    
    ```sql
    CALL mysql.az_replication_change_master_with_gtid('<master_host>', '<master_user>', '<master_password>', 3306, '<master_gtid_pos>', '<master_ssl_ca>');
@@ -196,7 +208,7 @@ En los siguientes pasos se prepara y configura el servidor MariaDB en el entorno
 
        ```sql
        SET @cert = '-----BEGIN CERTIFICATE-----
-       PLACE YOUR PUBLIC KEY CERTIFICATE’S CONTEXT HERE
+       PLACE YOUR PUBLIC KEY CERTIFICATE\'S CONTEXT HERE
        -----END CERTIFICATE-----'
        ```
 

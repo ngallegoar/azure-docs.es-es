@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 3e0c56ed669ecda5a130dcf9df103bc8a19faf06
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 3334a19b1ba0e3949ab2670c5d2f70d3bcd02fe8
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80057425"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80983917"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Configuración de App Service Environment con tunelización forzada
 
@@ -60,7 +60,7 @@ Puede configurar la subred del ASE para omitir todas las rutas de BGP.  En este 
 Para configurar la subred del ASE para omitir las rutas de BGP:
 
 * Cree una UDR y asígnela a la subred del ASE si todavía no tiene una.
-* En Azure Portal, abra la interfaz de usuario de la tabla de rutas asignada a la subred del ASE.  Seleccione Configuración.  Establezca la propagación de ruta de BGP en Deshabilitado.  Haga clic en Guardar. La documentación sobre cómo desactivar eso se encuentra en el documento [Creación de una tabla de rutas][routetable].
+* En Azure Portal, abra la interfaz de usuario de la tabla de rutas asignada a la subred del ASE.  Seleccione Configuración.  Establezca la propagación de la ruta de la puerta de enlace de red virtual en Deshabilitado.  Haga clic en Guardar. La documentación sobre cómo desactivar eso se encuentra en el documento [Creación de una tabla de rutas][routetable].
 
 Después de configurar la subred de ASE para omitir todas las rutas BGP, ya no podrá comunicarse de forma local. Para permitir que las aplicaciones accedan a los recursos locales, edite la UDR asignada a la subred de ASE y agregue rutas para los intervalos de direcciones locales. El tipo de Próximo salto se debe establecer en Puerta de enlace de red virtual. 
 

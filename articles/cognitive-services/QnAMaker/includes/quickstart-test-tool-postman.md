@@ -10,16 +10,16 @@ ms.topic: include
 ms.custom: include file
 ms.date: 02/08/2020
 ms.author: diberry
-ms.openlocfilehash: 46947579ea72e2199af116442472eec330b38009
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: dd44d9cb01ff072d89afeb4efc4a59071c621315
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77112270"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80758752"
 ---
 En esta guía de inicio rápido basada en Postman se ofrece orientación sobre cómo obtener una respuesta de una base de conocimiento.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Última versión de [**Postman**](https://www.getpostman.com/).
 * Debe disponer de lo siguiente:
@@ -49,7 +49,7 @@ Use este procedimiento para configurar Postman y, luego, lea todas las secciones
 
 ## <a name="use-metadata-to-filter-answer"></a>Uso de metadatos para filtrar las respuestas
 
-En un inicio rápido anterior, se agregaron los metadatos a dos conjuntos de QnA para distinguir entre dos preguntas diferentes. Agregue los metadatos a la consulta para restringir el filtro solo al conjunto de QnA pertinente.
+En un inicio rápido anterior, se agregaron los metadatos a dos pares de QnA para distinguir entre dos preguntas diferentes. Agregue los metadatos a la consulta para restringir el filtro solo al par de QnA pertinente.
 
 1. En Postman, cambie solo el código JSON de la consulta agregando la propiedad `strictFilters` con el par nombre-valor de `service:qna_maker`. El código JSON del cuerpo debe ser:
 

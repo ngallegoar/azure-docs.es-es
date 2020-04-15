@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
 ms.date: 03/05/2020
-ms.openlocfilehash: 17a4652604c0faa804d24530869aac0848c972b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 530647c3d32b62f0cac250795ccce580b182fa92
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78399130"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756608"
 ---
 # <a name="manage-and-request-quotas-for-azure-resources"></a>Administración y solicitud de cuotas para recursos de Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -60,7 +60,7 @@ Recursos disponibles:
 
 + Los clústeres por región tienen un límite predeterminado de 200. Se comparten entre un clúster de entrenamiento y una instancia de proceso (que se considera un clúster de un solo nodo con fines de cuota). Póngase en contacto con el soporte técnico de Azure si desea solicitar un número que supere este límite.
 
-+ Hay **otros límites estrictos que no se pueden superar una vez alcanzados.
++ Hay otros límites estrictos que no se pueden superar una vez alcanzados.
 
 | **Recurso** | **Límite máximo** |
 | --- | --- |

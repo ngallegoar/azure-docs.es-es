@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 4a853871ef5f66881235e5a6ffec0886b81f5a92
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 19765bd28f365cc6f6d5b06646896613dd3e3e87
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77208546"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804561"
 ---
 # <a name="add-a-heat-map-layer"></a>Adición de una capa de mapa térmico
 
@@ -98,11 +98,11 @@ De forma predeterminada, los radios de los puntos de datos representados en la c
 
 Utilice una expresión `zoom` para ampliar el radio de cada nivel de zoom de forma que cada punto de datos cubra la misma superficie física del mapa. Esta expresión hará que la capa de mapa térmico parezca más estática y coherente. Cada nivel de zoom del mapa tiene dos veces tantos píxeles vertical y horizontalmente que nivel de zoom anterior. 
 
-Si el radio se amplía duplicándose con cada nivel de zoom, se creará un mapa térmico que parecerá coherente en todos los niveles de zoom. Para aplicar este escalado, utilice `zoom` con una expresión `exponential interpolation` de base 2, tal y como se muestra en el siguiente ejemplo. Amplía el mapa para ver cómo se escala el mapa térmico con el nivel de zoom.
+Si el radio se amplía duplicándose con cada nivel de zoom, se creará un mapa térmico que parecerá coherente en todos los niveles de zoom. Para aplicar este escalado, use `zoom` con una expresión de base 2 `exponential interpolation`, con el radio de píxel establecido para el nivel mínimo de zoom y un radio escalado para el nivel máximo de zoom calculado como `2 * Math.pow(2, minZoom - maxZoom)`, tal como se muestra a continuación. Amplía el mapa para ver cómo se escala el mapa térmico con el nivel de zoom.
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Mapa térmico con aplicación de zoom coherente" src="//codepen.io/azuremaps/embed/OGyMZr/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Mapa térmico con aplicación de zoom coherente" src="//codepen.io/azuremaps/embed/OGyMZr/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Consulte el Pen <a href='https://codepen.io/azuremaps/pen/OGyMZr/'>Consistent zoomable heat map</a> (Mapa térmico con aplicación de zoom coherente) de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 

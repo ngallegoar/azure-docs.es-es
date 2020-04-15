@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: malop
 ms.reviewer: kumud
-ms.openlocfilehash: 8b95bb45436f45dc0e62fb12d6ab1b24c37372e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d9ed11cd00909a104b5ea54463f8a98020837e10
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79235960"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477881"
 ---
 # <a name="virtual-network-traffic-routing"></a>Enrutamiento del tráfico de redes virtuales
 
@@ -122,7 +122,7 @@ Una puerta de enlace de red local puede intercambiar rutas con una puerta de enl
 
 Al intercambiar rutas con Azure mediante BGP, se agrega una ruta independiente a la tabla de rutas de todas las subredes de una red virtual para cada prefijo anunciado. La ruta se agrega con *Puerta de enlace de red virtual* como origen y tipo de próximo salto. 
 
-La propagación del enrutamiento de ER y VPN Gateway se puede deshabilitar en una subred mediante una propiedad en una tabla de rutas. Cuando intercambia rutas con Azure mediante BGP, las rutas no se agregan a la tabla de rutas de todas las subredes con la propagación de la ruta de la puerta de enlace de red virtual deshabilitada. La conectividad con las conexiones VPN se logra mediante [rutas personalizadas](#custom-routes) con un próximo salto de tipo *Puerta de enlace de red virtual*. Para más información, consulte [How to disable Virtual network gateway route propagation](manage-route-table.md#create-a-route-table) (Deshabilitar la propagación de rutas de la puerta de enlace de red virtual).
+La propagación del enrutamiento de ER y VPN Gateway se puede deshabilitar en una subred mediante una propiedad en una tabla de rutas. Cuando intercambia rutas con Azure mediante BGP, las rutas no se agregan a la tabla de rutas de todas las subredes con la propagación de la ruta de la puerta de enlace de red virtual deshabilitada. La conectividad con las conexiones VPN se logra mediante [rutas personalizadas](#custom-routes) con un próximo salto de tipo *Puerta de enlace de red virtual*. **La propagación de rutas no debe deshabilitarse en GatewaySubnet. La puerta de enlace no funcionará con esta opción deshabilitada.** Para más información, consulte [How to disable Virtual network gateway route propagation](manage-route-table.md#create-a-route-table) (Deshabilitar la propagación de rutas de la puerta de enlace de red virtual).
 
 ## <a name="how-azure-selects-a-route"></a>Selección de rutas por parte de Azure
 

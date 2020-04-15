@@ -2,17 +2,17 @@
 title: 'Tutorial: Creación e implementación de una plantilla'
 description: Creación de la primera plantilla de Azure Resource Manager En este tutorial, aprenderá sobre la sintaxis del archivo de plantilla y cómo implementar una cuenta de almacenamiento.
 author: mumian
-ms.date: 10/04/2019
+ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e31d4a5f513355e61cb53a6548b3091637bfe9a4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8b05bccf10ef5f273a74ca49e02162fd0408230f
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75471510"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411720"
 ---
-# <a name="tutorial-create-and-deploy-your-first-azure-resource-manager-template"></a>Tutorial: Creación e implementación de la primera plantilla de Azure Resource Manager
+# <a name="tutorial-create-and-deploy-your-first-arm-template"></a>Tutorial: Creación e implementación de su primera plantilla de Resource Manager
 
 Este tutorial es una introducción a las plantillas de Azure Resource Manager. Muestra cómo crear una plantilla de inicio e implementarla en Azure. Obtendrá información sobre la estructura de la plantilla y las herramientas que necesitará para trabajar con plantillas. Se tarda unos **12 minutos** en realizar este tutorial, pero el tiempo real variará en función del número de herramientas que necesite instalar.
 
@@ -32,7 +32,7 @@ Las plantillas son archivos JSON. Para crear plantillas, necesita un buen editor
 
 ### <a name="command-line-deployment"></a>Implementación desde la línea de comandos
 
-También necesita Azure PowerShell o la CLI de Azure para implementar la plantilla. Para obtener instrucciones de instalación, consulte:
+También necesita Azure PowerShell o la CLI de Azure para implementar la plantilla. Si usa la CLI de Azure, debe tener la versión más reciente. Para obtener instrucciones de instalación, consulte:
 
 - [Azure PowerShell](/powershell/azure/install-az-ps)
 - [Instalación de la CLI de Azure en Windows](/cli/azure/install-azure-cli-windows)
@@ -53,7 +53,7 @@ Bien, está listo para empezar a obtener información sobre las plantillas.
 
     ```json
     {
-      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
       "contentVersion": "1.0.0.0",
       "resources": []
     }
@@ -67,7 +67,7 @@ Bien, está listo para empezar a obtener información sobre las plantillas.
 
     El archivo JSON tiene estos elementos:
 
-    - **$schema**: Especifica la ubicación del archivo de esquema JSON. El archivo de esquema describe las propiedades que están disponibles dentro de una plantilla. Por ejemplo, el esquema define **resources** (recursos) como una de las propiedades válidas para una plantilla. No se preocupe de que la fecha del esquema sea 2015-01-01. Esta versión del esquema está actualizada e incluye todas las características más recientes. La fecha del esquema no ha cambiado porque no se han producido cambios importantes desde su introducción.
+    - **$schema**: Especifica la ubicación del archivo de esquema JSON. El archivo de esquema describe las propiedades que están disponibles dentro de una plantilla. Por ejemplo, el esquema define **resources** (recursos) como una de las propiedades válidas para una plantilla. No se preocupe de que la fecha del esquema sea 2019-04-01. Esta versión del esquema está actualizada e incluye todas las características más recientes. La fecha del esquema no ha cambiado porque no se han producido cambios importantes desde su introducción.
     - **contentVersion**: Especifica la versión de la plantilla (por ejemplo, 1.0.0.0). Puede especificar cualquier valor para este elemento. Use este valor para documentar los cambios importantes de la plantilla. Al implementar los recursos con la plantilla, este valor se puede usar para asegurarse de que se está usando la plantilla correcta.
     - **resources**: Contiene los recursos que desea implementar o actualizar. Actualmente está vacía, pero agregará recursos más adelante.
 
@@ -79,13 +79,13 @@ Enhorabuena, ha creado su primera plantilla.
 
 Para empezar a trabajar con Azure PowerShell o la CLI de Azure, inicie sesión con sus credenciales de Azure.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 Connect-AzAccount
 ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 ```azurecli
 az login
@@ -96,7 +96,7 @@ az login
 
 Al implementar una plantilla, se especifica un grupo de recursos que contendrá los recursos. Antes de ejecutar el comando de implementación, cree el grupo de recursos con la CLI de Azure o Azure PowerShell. Seleccione las pestañas en la siguiente sección de código para elegir entre Azure PowerShell y la CLI de Azure. Los ejemplos de la CLI de este artículo están escritos para el shell de Bash.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroup `
@@ -104,7 +104,7 @@ New-AzResourceGroup `
   -Location "Central US"
 ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 ```azurecli
 az group create \
@@ -118,21 +118,23 @@ az group create \
 
 Use la CLI de Azure o Azure PowerShell para implementar la plantilla. Use el grupo de recursos que creó. Asigne un nombre a la implementación para que pueda identificarla fácilmente en el historial de implementaciones. Para mayor comodidad, cree también una variable que almacene la ruta de acceso al archivo de plantilla. Esta variable facilita la ejecución de los comandos de implementación, ya que no es necesario volver a escribir la ruta de acceso cada vez que se implementa.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $templateFile = "{provide-the-path-to-the-template-file}"
 New-AzResourceGroupDeployment `
   -Name blanktemplate `
   -ResourceGroupName myResourceGroup `
-  -TemplateFile $templateFile
+  -TemplateFile $templateFile 
 ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+Para ejecutar este comando de implementación, debe tener la [última versión](/cli/azure/install-azure-cli) de la CLI de Azure.
 
 ```azurecli
 templateFile="{provide-the-path-to-the-template-file}"
-az group deployment create \
+az deployment group create \
   --name blanktemplate \
   --resource-group myResourceGroup \
   --template-file $templateFile
@@ -142,15 +144,18 @@ az group deployment create \
 
 El comando de implementación devuelve los resultados. Busque `ProvisioningState` para ver si la implementación se realizó correctamente.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ![Estado de aprovisionamiento de la implementación con PowerShell](./media/template-tutorial-create-first-template/resource-manager-deployment-provisioningstate.png)
 
-# <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 ![Estado de aprovisionamiento de la implementación con la CLI de Azure](./media/template-tutorial-create-first-template/azure-cli-provisioning-state.png)
 
 ---
+
+> [!NOTE]
+> Si se ha producido un error en la implementación, use el modificador **debug** con el comando de implementación para mostrar los registros de depuración.  También puede usar el modificador **verbose** para mostrar los registros de depuración completos.
 
 ## <a name="verify-deployment"></a>Comprobación de la implementación
 

@@ -1,6 +1,6 @@
 ---
-title: 'Azure Front Door Service: supervisión de la coincidencia de reglas de enrutamiento | Microsoft Docs'
-description: Este artículo le ayudará a comprender el modo en que Azure Front Door Service hace coincidir la regla de enrutamiento que se usará para una solicitud entrante
+title: 'Azure Front Door: Supervisión de la coincidencia de reglas de enrutamiento | Microsoft Docs'
+description: Este artículo le ayudará a comprender el modo en que Azure Front Door hace coincidir la regla de enrutamiento que se usará para una solicitud entrante
 services: front-door
 documentationcenter: ''
 author: sharad4u
@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: eec99bde0ea73a99a9dc1345f938b821a95a7c05
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 420aa52293da14a0dfe8fbdfe681440ee4309e6b
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60736297"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878602"
 ---
 # <a name="how-front-door-matches-requests-to-a-routing-rule"></a>Cómo hace coincidir Front Door las solicitudes con una regla de enrutamiento
 
-Después de establecer una conexión y hacer un protocolo de enlace SSL, cuando una solicitud llega a un entorno de Front Door, una de las acciones que emprende en primer lugar es determinar, de todas las configuraciones, con qué regla de enrutamiento concreta hacer coincidir la solicitud y, a continuación, toma la acción definida. El siguiente documento explica el modo en que Front Door determina qué configuración de enrutamiento se usará al procesar una solicitud HTTP.
+Después de establecer una conexión y hacer un protocolo de enlace TLS, cuando una solicitud llega a un entorno de Front Door, una de las primeras cosas que hace Front Door es determinar, de todas las configuraciones, con qué regla de enrutamiento concreta hacer coincidir la solicitud y, luego, emprender la acción definida. El siguiente documento explica el modo en que Front Door determina qué configuración de enrutamiento se usará al procesar una solicitud HTTP.
 
 ## <a name="structure-of-a-front-door-route-configuration"></a>Estructura de una configuración de enrutamiento de Front Door
 Una configuración de regla de enrutamiento de Front Door se compone de dos partes principales: un "lado izquierdo" y un "lado derecho". La solicitud entrante se hace coincidir con el lado izquierdo de la ruta mientras que el lado derecho define cómo se procesa la solicitud.
@@ -48,10 +48,10 @@ Al comparar los hosts de front-end, utilizamos la lógica como sigue:
 
 Para explicar más este proceso, echemos un vistazo a un ejemplo de configuración de rutas de Front Door (solo para el lado izquierdo):
 
-| Regla de enrutamiento | Hosts de front-end | Ruta de acceso |
+| Regla de enrutamiento | Hosts de front-end | Path |
 |-------|--------------------|-------|
-| Una | foo.contoso.com | /\* |
-| b | foo.contoso.com | /users/\* |
+| Un | foo.contoso.com | /\* |
+| B | foo.contoso.com | /users/\* |
 | C | www\.fabrikam.com, foo.adventure-works.com  | /\*, /images/\* |
 
 Si las siguientes solicitudes entrantes se enviaron a Front Door, coincidirían con las siguientes reglas de enrutamiento anteriores:
@@ -78,10 +78,10 @@ Después de determinar el host de front-end específico y filtrar las reglas de 
 
 Para explicarlo mejor, echemos un vistazo a otra serie de ejemplos:
 
-| Regla de enrutamiento | Host de front-end    | Ruta de acceso     |
+| Regla de enrutamiento | Host de front-end    | Path     |
 |-------|---------|----------|
-| Una     | www\.contoso.com | /        |
-| b     | www\.contoso.com | /\*      |
+| Un     | www\.contoso.com | /        |
+| B     | www\.contoso.com | /\*      |
 | C     | www\.contoso.com | /ab      |
 | D     | www\.contoso.com | /abc     |
 | E     | www\.contoso.com | /abc/    |
@@ -93,28 +93,28 @@ Dada esa configuración, daría lugar a la tabla de búsqueda de coincidencias d
 
 | Solicitud entrante    | Ruta coincidente |
 |---------------------|---------------|
-| www\.contoso.com/            | Una             |
-| www\.contoso.com/a           | b             |
+| www\.contoso.com/            | Un             |
+| www\.contoso.com/a           | B             |
 | www\.contoso.com/ab          | C             |
 | www\.contoso.com/abc         | D             |
-| www\.contoso.com/abzzz       | b             |
+| www\.contoso.com/abzzz       | B             |
 | www\.contoso.com/abc/        | E             |
 | www\.contoso.com/abc/d       | F             |
 | www\.contoso.com/abc/def     | G             |
 | www\.contoso.com/abc/defzzz  | F             |
 | www\.contoso.com/abc/def/ghi | F             |
-| www\.contoso.com/path        | b             |
+| www\.contoso.com/path        | B             |
 | www\.contoso.com/path/       | H             |
-| www\.contoso.com/path/zzz    | b             |
+| www\.contoso.com/path/zzz    | B             |
 
 >[!WARNING]
 > </br> Si no hay ninguna regla de enrutamiento para un host de front-end con coincidencia exacta con una ruta de acceso de ruta comodín (`/*`), entonces no será una coincidencia con una regla de enrutamiento.
 >
 > Configuración de ejemplo:
 >
-> | Enrutar | Host             | Ruta de acceso    |
+> | Enrutar | Host             | Path    |
 > |-------|------------------|---------|
-> | Una     | profile.contoso.com | /api/\* |
+> | Un     | profile.contoso.com | /api/\* |
 >
 > Tabla de búsqueda de coincidencias:
 >

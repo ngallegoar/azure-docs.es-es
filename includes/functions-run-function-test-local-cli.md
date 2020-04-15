@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 02/09/2020
 ms.author: glenga
-ms.openlocfilehash: d53c41752d57a27ebea9bd60f7e723dab1e7308a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 749b733039e89421ac33ef76a11f3291b296e718
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78190890"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80673181"
 ---
 ## <a name="run-the-function-locally"></a>Ejecución local de la función
 
@@ -25,6 +25,13 @@ func start
 ```
 npm install
 npm start
+```
+::: zone-end
+
+::: zone pivot="programming-language-java"
+```
+mvn clean package 
+mvn azure-functions:run
 ```
 ::: zone-end
 
@@ -44,12 +51,12 @@ Http Functions:
 </pre>
 
 >[!NOTE]  
-> Si HttpExample no aparece como se muestra a continuación, es probable que haya iniciado el host desde la carpeta *HttpExample*. En ese caso, use **Ctrl**+**C** para detener el host, vaya a la carpeta *LocalFunctionProj* primaria y vuelva a ejecutar el comando anterior.
+> Si HttpExample no aparece como se muestra a continuación, es probable que haya iniciado el host desde fuera de la carpeta raíz del proyecto. En ese caso, use **Ctrl**+**C** para detener el host, vaya a la carpeta raíz del proyecto y vuelva a ejecutar el comando anterior.
 
 Copie la dirección URL de la función `HttpExample` de esta salida en un explorador y anexe la cadena de consulta `?name=<your-name>`, lo que hará que la dirección URL completa sea `http://localhost:7071/api/HttpExample?name=Functions`. El explorador debe mostrar un mensaje como este `Hello Functions`:
 
 ![Resultado de la ejecución de la función localmente en el explorador](./media/functions-run-function-test-local-cli/function-test-local-browser.png)
 
-El terminal en el que ejecutó `func start` también muestra la salida del registro cuando realiza solicitudes.
+El terminal en el que inició el proyecto también muestra la salida del registro cuando realiza solicitudes.
 
 Cuando esté listo, presione **Ctrl**+**C** y elija `y` para detener el host de Functions.

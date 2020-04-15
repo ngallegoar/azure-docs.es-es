@@ -5,16 +5,16 @@ services: azure-portal
 keywords: ''
 author: mgblythe
 ms.author: mblythe
-ms.date: 12/20/2019
+ms.date: 04/06/2020
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 93c9ce45fd660f444146827e2f5bafaeb12fc471
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5aa1a677836be3f05269539d52abf7bd8704833d
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76310534"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80757072"
 ---
 # <a name="azure-portal-how-to-video-series"></a>Serie de vídeos sobre "procedimientos" de Azure Portal
 
@@ -22,18 +22,18 @@ La serie de vídeos de procedimientos de Azure Portal muestra cómo trabajar con
 
 ## <a name="featured-video"></a>Vídeo destacado
 
-En este vídeo destacado, exploramos cómo solucionar problemas comunes con máquinas virtuales.
+En este vídeo destacado, le mostramos cómo ahorrar dinero en Azure con las recomendaciones de costo de Azure Advisor.
 
-> [!VIDEO https://www.youtube.com/embed/MAJrN-2IPY8]
+> [!VIDEO https://www.youtube.com/embed/ky2WS3KWuYs]
 
-[Solución de problemas comunes con máquinas virtuales](https://www.youtube.com/watch?v=MAJrN-2IPY8)
+[Uso de las recomendaciones de costo de Azure Advisor](https://www.youtube.com/watch?v=ky2WS3KWuYs)
 
 Póngase al día con estos vídeos recientes que puede que haya perdido:
 
 |   |   |   |
 | ------| ------ | ------ |
-| [![Imagen del vídeo de YouTube sobre cómo crear una aplicación de función](https://i.ytimg.com/vi/BEIZKCDElMs/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAf2gcTSuNBP-DczGeEB7rQLKc4UQ)](http://www.youtube.com/watch?v=BEIZKCDElMs) | [![Imagen del vídeo de YouTube sobre cómo usar la nueva pantalla principal de Azure](https://i.ytimg.com/vi/Ddo__jkzgVo/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLBUZwS_xaZIkYNakpHFvFIiD8i-Tw)](http://www.youtube.com/watch?v=Ddo__jkzgVo) | [![Imagen del vídeo de YouTube sobre cómo aprovechar al máximo Azure Advisor](https://i.ytimg.com/vi/ANz3cCiFsJw/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAiBhmM0tZo_eV_u_JClkx3SXaWFw)](http://www.youtube.com/watch?v=ANz3cCiFsJw) |
-| [Cómo crear una aplicación de función](https://www.youtube.com/watch?v=BEIZKCDElMs) | [Cómo usar la nueva página principal de Azure](https://www.youtube.com/watch?v=Ddo__jkzgVo) | [Cómo sacar el máximo partido de Azure Advisor](https://www.youtube.com/watch?v=ANz3cCiFsJw) |
+| [![Imagen de vídeo de YouTube sobre el uso de libros de Azure Monitor](https://i.ytimg.com/vi/Z5xRyy3HB8U/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAf2gcTSuNBP-DczGeEB7rQLKc4UQ)](http://www.youtube.com/watch?v=Z5xRyy3HB8U) | [![Imagen de vídeo de YouTube sobre el filtrado de la vista de la lista de recursos en Azure Portal](https://i.ytimg.com/vi/L3I-xOZKWcg/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLBUZwS_xaZIkYNakpHFvFIiD8i-Tw)](http://www.youtube.com/watch?v=L3I-xOZKWcg) | [![Imagen de vídeo de YouTube sobre el uso de la actualización automática de paneles](https://i.ytimg.com/vi/tVoDXygZzWM/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAiBhmM0tZo_eV_u_JClkx3SXaWFw)](http://www.youtube.com/watch?v=tVoDXygZzWM) |
+| [Uso de libros de Azure Monitor](https://www.youtube.com/watch?v=Z5xRyy3HB8U) | [Filtrado de la vista de la lista de recursos en Azure Portal](https://www.youtube.com/watch?v=L3I-xOZKWcg) | [Uso de la actualización automática de paneles](https://www.youtube.com/watch?v=tVoDXygZzWM) |
 
 ## <a name="video-playlist"></a>Lista de reproducción de vídeo
 

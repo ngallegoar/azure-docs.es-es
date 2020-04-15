@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 02/10/2020
-ms.openlocfilehash: aa90655ecb14abe38ec8fdfc6c18e7d292abbef3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c8f259d2d4df46470a042c3f65ac1b8e1f66b1dd
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79222372"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546064"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Tutorial: Entrenamiento del primer modelo de Machine Learning
 
@@ -28,7 +28,7 @@ En este tutorial, ha aprendido las tareas siguientes:
 > [!div class="checklist"]
 > * Conexión con el área de trabajo y creación de un experimento
 > * Carga de datos y entrenamiento de modelos scikit-learn
-> * Visualización de los resultados del entrenamiento en el portal
+> * Visualización de los resultados del entrenamiento en Studio
 > * Recuperación del mejor modelo
 
 ## <a name="prerequisites"></a>Prerrequisitos
@@ -124,32 +124,33 @@ En el código anterior se consigue lo siguiente:
 
 1. Para cada valor de hiperparámetro alfa en la matriz `alphas`, se crea una nueva ejecución dentro del experimento. El valor alfa se registra para diferenciar entre cada ejecución.
 1. En cada ejecución, se crea una instancia de un modelo Ridge, se entrena y se usa para ejecutar las predicciones. El error cuadrático medio se calcula para los valores reales frente a los previstos y, a continuación, se registra en la ejecución. En este momento, la ejecución tiene metadatos adjuntos para el valor alfa y la precisión del error cuadrático medio (RMSE).
-1. Después, el modelo de cada ejecución se serializa y se carga en la ejecución. Esto le permite descargar el archivo de modelo desde la ejecución en el portal.
+1. Después, el modelo de cada ejecución se serializa y se carga en la ejecución. Esto le permite descargar el archivo de modelo desde la ejecución en Studio.
 1. Al final de cada iteración, la ejecución se completa llamando a `run.complete()`.
 
-Una vez completado el entrenamiento, llame a la variable `experiment` para capturar un vínculo al experimento en el portal.
+Una vez completado el entrenamiento, llame a la variable `experiment` para capturar un vínculo al experimento en Studio.
 
 ```python
 experiment
 ```
 
-<table style="width:100%"><tr><th>Nombre</th><th>Área de trabajo</th><th>Página del informe</th><th>Página de documentos</th></tr><tr><td>diabetes-experiment</td><td>Nombre-área-de-trabajo</td><td>Vínculo a Azure Portal</td><td>Vínculo a la documentación</td></tr></table>
+<table style="width:100%"><tr><th>Nombre</th><th>Área de trabajo</th><th>Página del informe</th><th>Página de documentos</th></tr><tr><td>diabetes-experiment</td><td>Nombre-área-de-trabajo</td><td>Vínculo a Azure Machine Learning Studio</td><td>Vínculo a la documentación</td></tr></table>
 
-## <a name="view-training-results-in-portal"></a>Visualización de los resultados del entrenamiento en el portal
+## <a name="view-training-results-in-studio"></a>Visualización de los resultados del entrenamiento en Estudio
 
-Si sigue el **vínculo a Azure Portal**, llegará a la página principal del experimento. Aquí verá todas las ejecuciones individuales del experimento. Cualquier valor de registro personalizado (`alpha_value` y `rmse`, en este caso) se convierten en campos para cada ejecución, y también están disponibles para los gráficos y los iconos en la parte superior de la página del experimento. Para agregar una métrica registrada a un gráfico o un icono, mantenga el mouse sobre ella, haga clic en el botón Editar y busque la métrica de registro personalizado.
+El **vínculo de Azure Machine Learning Studio** le llevará a la página principal del experimento. Aquí verá todas las ejecuciones individuales del experimento. Cualquier valor de registro personalizado (`alpha_value` y `rmse`, en este caso) se convierten en campos para cada ejecución, y también están disponibles para los gráficos y los iconos en la parte superior de la página del experimento. Para agregar una métrica registrada a un gráfico o un icono, mantenga el mouse sobre ella, haga clic en el botón Editar y busque la métrica de registro personalizado.
 
 Al entrenar modelos a escala sobre cientos y miles de ejecuciones independientes, esta página facilita la consulta de todos los modelos que haya entrenado, la forma específica en la que se entrenó cada uno y cómo han cambiado las métricas únicas a lo largo del tiempo.
 
-![Página principal del experimento en el portal](./media/tutorial-1st-experiment-sdk-train/experiment-main.png)
+:::image type="content" source="./media/tutorial-1st-experiment-sdk-train/experiment-main.png" alt-text="Página principal del experimento en Studio.":::
 
-Hacer clic en un vínculo de número de ejecución en la columna `RUN NUMBER`, le lleva hasta la página de cada ejecución individual. En la pestaña predeterminada **Detalles** se muestra información más detallada sobre cada ejecución. Vaya a la pestaña **Salidas** y verá el archivo `.pkl` del modelo que se cargó en la ejecución durante cada iteración de entrenamiento. Aquí puede descargar el archivo de modelo, en lugar de tener que volver a entrenarlo manualmente.
 
-![Página de detalles de ejecución en el portal](./media/tutorial-1st-experiment-sdk-train/model-download.png)
+Seleccione un vínculo de número de ejecución en la columna `RUN NUMBER` para ver la página de una ejecución individual. En la pestaña predeterminada **Detalles** se muestra información más detallada sobre cada ejecución. Vaya a la pestaña **Salidas + registros** y verá el archivo `.pkl` del modelo que se cargó en la ejecución durante cada iteración de entrenamiento. Aquí puede descargar el archivo de modelo, en lugar de tener que volver a entrenarlo manualmente.
+
+:::image type="content" source="./media/tutorial-1st-experiment-sdk-train/model-download.png" alt-text="Página de detalles de la ejecución en Studio.":::
 
 ## <a name="get-the-best-model"></a>Obtención del mejor modelo
 
-Además de poder descargar los archivos de modelo del experimento en el portal, también puede descargarlos mediante programación. El siguiente código recorre en iteración cada ejecución del experimento y obtiene acceso a las métricas de ejecución registradas y a los detalles de la ejecución (que contiene el run_id). Esto realiza un seguimiento de la mejor ejecución, en este caso, la ejecución con el error cuadrático medio más bajo.
+Además de poder descargar los archivos de modelo del experimento en Studio, también puede descargarlos mediante programación. El siguiente código recorre en iteración cada ejecución del experimento y obtiene acceso a las métricas de ejecución registradas y a los detalles de la ejecución (que contiene el run_id). Esto realiza un seguimiento de la mejor ejecución, en este caso, la ejecución con el error cuadrático medio más bajo.
 
 ```python
 minimum_rmse_runid = None
@@ -214,7 +215,7 @@ En este tutorial, ha realizado las tareas siguientes:
 > [!div class="checklist"]
 > * Ha conectado con el área de trabajo y creado un experimento
 > * Ha cargado datos y entrenado modelos scikit-learn
-> * Ha visualizado los resultados del entrenamiento en el portal y recuperado los modelos
+> * Ha visualizado los resultados del entrenamiento en Studio y recuperado los modelos
 
 [Implemente el modelo](tutorial-deploy-models-with-aml.md) con Azure Machine Learning.
 Aprenda a desarrollar experimentos de [aprendizaje automático automatizados](tutorial-auto-train-models.md).

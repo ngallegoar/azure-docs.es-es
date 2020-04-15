@@ -3,17 +3,17 @@ title: 'Tutorial: Creación y administración de presupuestos de Azure'
 description: Este tutorial le ayuda a planear y tener en cuenta los costos de los servicios de Azure que usted consume.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/24/2020
+ms.date: 04/03/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: f7c1ac65026fd366be1003842ff70a78b9082339
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 82094fadf7b11d97b0e9e74d9ba897baed16ee01
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80155943"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80874286"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutorial: Creación y administración de presupuestos de Azure
 
@@ -25,7 +25,7 @@ Los presupuestos se restablecen automáticamente al final de un período (mensua
 
 Los ejemplos de este tutorial le guiarán a través de la creación y edición de un presupuesto para una suscripción de Contrato Enterprise (EA) de Azure.
 
-Vea el vídeo [Aplicar presupuestos a las suscripciones mediante Azure Portal](https://www.youtube.com/watch?v=UrkHiUx19Po) si desea ver cómo puede crear presupuestos en Azure para supervisar los gastos.
+Vea el vídeo [Aplicar presupuestos a las suscripciones mediante Azure Portal](https://www.youtube.com/watch?v=UrkHiUx19Po) si desea ver cómo puede crear presupuestos en Azure para supervisar los gastos. Para ver otros vídeos, visite el [canal de YouTube de Cost Management](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/UrkHiUx19Po]
 
@@ -38,11 +38,32 @@ En este tutorial, aprenderá a:
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-Los presupuestos se admiten en distintos tipos de cuenta de Azure. Para ver la lista completa de tipos de cuenta compatibles, consulte [Understand Cost Management data](understand-cost-mgt-data.md) (Información sobre los datos de Cost Management). Para ver los presupuestos, se necesita al menos acceso de lectura en la cuenta de Azure.
+Se admiten los presupuestos para los siguientes tipos de cuentas y ámbitos de Azure:
+
+- Ámbitos del control de acceso basado en rol de Azure
+    - Grupos de administración
+    - Subscription
+- Ámbitos del Contrato Enterprise
+    - Cuenta de facturación
+    - department
+    - Cuenta de inscripción
+- Acuerdos individuales
+    - Cuenta de facturación
+- Ámbitos de contrato de cliente de Microsoft
+    - Cuenta de facturación
+    - Perfil de facturación
+    - Sección de factura
+    - Customer
+- Ámbitos de AWS
+    - Cuenta externa
+    - Suscripción externa
+
+
+Para ver los presupuestos, se necesita al menos acceso de lectura en la cuenta de Azure.
 
 Si tiene una suscripción nueva, no puede crear un presupuesto ni usar las características de Cost Management de inmediato. Para poder hacerlo deberán transcurrir un máximo de 48 horas.
 
-En el caso de las suscripciones con contrato Enterprise de Azure, debe tener acceso de lectura para ver los presupuestos. Para crear y administrar presupuestos, debe tener permiso de colaborador. Puede crear presupuestos individuales para las suscripciones de EA y los grupos de recursos. Sin embargo, no puede crear presupuestos para las cuentas de facturación de EA.
+En el caso de las suscripciones con contrato Enterprise de Azure, debe tener acceso de lectura para ver los presupuestos. Para crear y administrar presupuestos, debe tener permiso de colaborador.
 
 Se admiten los siguientes permisos o ámbitos de Azure por suscripción para los presupuestos por usuario y grupo. Para más información sobre los ámbitos, consulte [Descripción y uso de ámbitos](understand-work-scopes.md).
 
@@ -58,7 +79,7 @@ Para más información sobre cómo asignar permisos a los datos de Cost Manageme
 
 ## <a name="create-a-budget-in-the-azure-portal"></a>Crear un presupuesto en Azure Portal
 
-Puede crear un presupuesto de suscripción de Azure durante un período mensual, trimestral o anual. El contenido de navegación en Azure Portal determina si crea un presupuesto para una suscripción o para un grupo de administración.
+Puede crear un presupuesto de suscripción de Azure durante un período mensual, trimestral o anual.
 
 Para crear o ver un presupuesto, abra el ámbito deseado en Azure Portal y seleccione **Presupuestos** en el menú. Por ejemplo, vaya a **Suscripciones**, seleccione una suscripción de la lista y elija **Presupuestos** en el menú. Use la píldora **Ámbito** para cambiar a un ámbito diferente, como un grupo de administración, en los presupuestos. Para más información sobre los ámbitos, consulte [Descripción y uso de ámbitos](understand-work-scopes.md).
 
@@ -110,15 +131,11 @@ Las evaluaciones de los costos del presupuesto se basan en el costo real. No inc
 
 Al crear o editar un presupuesto para un ámbito de suscripción o grupo de recursos, puede configurarlo para que llame a un grupo de acciones. El grupo de acciones puede realizar varias acciones cuando se alcanza el umbral del presupuesto. Los grupos de acciones solo se admiten actualmente para ámbitos de suscripción y de grupo de recursos. Para más información sobre los grupos de acciones, consulte [Creación y administración de grupos de acciones en Azure Portal](../../azure-monitor/platform/action-groups.md). Para obtener más información sobre el uso de la automatización basada en presupuestos con grupos de acciones, vea [Administración de costos con presupuestos de Azure](../manage/cost-management-budget-scenario.md).
 
-
-
 Para crear o actualizar los grupos de acciones, seleccione **Administrar los grupos de acciones** al crear o editar un presupuesto.
 
 ![Ejemplo de creación de un presupuesto para mostrar la opción Administrar los grupos de acciones](./media/tutorial-acm-create-budgets/manage-action-groups01.png)
 
-
 Después, seleccione **Agregar grupo de acciones** y cree el grupo de acciones.
-
 
 ![Imagen del cuadro Agregar grupo de acciones](./media/tutorial-acm-create-budgets/manage-action-groups02.png)
 

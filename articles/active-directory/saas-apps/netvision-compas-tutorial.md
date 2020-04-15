@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12a83c6381d3f068eecc2dda4838b981a8b59ab7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c3015ea26d81505c4f058846dbcb3b7858f79267
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80135784"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520073"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netvision-compas"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Netvision Compas
 
@@ -69,7 +69,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con Netvision 
     1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Netvision Compas](#configure-netvision-compas-sso)** : para configurar los valores de inicio de sesión único en la aplicación.
-    1. **[Creación de un usuario de prueba en Netvision Compas](#create-netvision-compas-test-user)** : para tener un homólogo de B.Simon en Netvision Compas vinculado a la representación del usuario en Azure AD.
+    1. **[Creación de un usuario de prueba en Netvision Compas](#configure-netvision-compas-test-user)** , para tener un homólogo de B.Simon en Netvision Compas vinculado a la representación del usuario en Azure AD.
 1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
@@ -95,13 +95,11 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico para clientes de Netvision Compas](mailto:contact@net.vision) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
+1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **XML de metadatos de federación** y seleccione **Descargar** para descargar el archivo de metadatos y guardarlo en su equipo.
 
-    ![Vínculo de descarga del certificado](common/certificatebase64.png)
+    ![Vínculo de descarga del certificado](common/metadataxml.png)
 
-1. En la sección **Configurar Netvision Compas**, copie las direcciones URL adecuadas según sus necesidades.
 
-    ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -135,17 +133,58 @@ En esta sección va a permitir que B.Simon acceda a Netvision Compas mediante el
 
 ## <a name="configure-netvision-compas-sso"></a>Configuración del inicio de sesión único de Netvision Compas
 
-Para configurar el inicio de sesión único en **Netvision Compas**, es preciso enviar el **certificado (Base64)** descargado y las direcciones URL correspondientes copiadas de Azure Portal al [equipo de soporte técnico de Netvision Compas](mailto:contact@net.vision). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+En esta sección, habilitará el inicio de sesión único de SAML en **Netvision Compas**.
+1. Inicie sesión en **Netvision Compas** con una cuenta administrativa y acceda al área de administración.
 
-### <a name="create-netvision-compas-test-user"></a>Creación de un usuario de prueba de Netvision Compas
+    ![Área de administración](media/netvision-compas-tutorial/admin.png)
 
-En esta sección creará un usuario llamado B.Simon en Netvision Compas. Colabore con el [equipo de soporte técnico de Netvision Compas](mailto:contact@net.vision) para agregar los usuarios en la plataforma de Netvision Compas. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+1. Localice el área **System** (Sistema) y seleccione **Identity Providers** (Proveedores de identidades).
+
+    ![IdP de administración](media/netvision-compas-tutorial/admin-idps.png)
+
+1. Seleccione la acción **Add** (Agregar) para registrar Azure AD como un nuevo IdP.
+
+    ![Adición de IdP](media/netvision-compas-tutorial/idps-add.png)
+
+1. Seleccione **SAML** en **Provider type** (Tipo de proveedor).
+1. Escriba valores significativos en los campos **Display name** (Nombre para mostrar) y **Description** (Descripción).
+1. Asigne usuarios de **Netvision Compas** al IdP seleccionándolos en la lista **Available users** (Usuarios disponibles) y, a continuación, haciendo clic en el botón **Add selected** (Agregar selección). También se pueden asignar usuarios al IdP mientras se sigue el procedimiento de aprovisionamiento.
+1. En la opción **Metadata** (Metadatos) de SAML, haga clic en el botón **Choose File** (Elegir archivo) y seleccione el archivo de metadatos guardado anteriormente en el equipo.
+1. Haga clic en **Save**(Guardar).
+
+    ![Edición de IdP](media/netvision-compas-tutorial/idp-edit.png)
+
+
+### <a name="configure-netvision-compas-test-user"></a>Configuración de un usuario de prueba de Netvision Compas
+
+En esta sección, configurará un usuario existente en **Netvision Compas** para que use Azure AD para en el inicio de sesión único.
+1. Siga el procedimiento de aprovisionamiento de usuarios de **Netvision Compas**, tal como se define en la empresa, o edite una cuenta de usuario existente.
+1. Al definir el perfil del usuario, asegúrese de que la dirección que figura en **Email (Personal)** (Correo electrónico [personal]) coincide con el nombre de usuario de Azure AD: username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
+
+    ![Edit user](media/netvision-compas-tutorial/user-config.png)
+
+Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ## <a name="test-sso"></a>Prueba de SSO 
 
-En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
+En esta sección, probará la configuración de inicio de sesión único de Azure AD.
+
+### <a name="using-the-access-panel-idp-initiated"></a>Uso del Panel de acceso (iniciado por IdP)
 
 Al hacer clic en el icono de Netvision Compas del panel de acceso, debería iniciar sesión automáticamente en la instancia de Netvision Compas para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
+### <a name="directly-accessing-netvision-compas-sp-initiated"></a>Acceso directo a Netvision Compas (iniciado por el proveedor de servicios).
+
+1. Acceda a la dirección URL de **Netvision Compas**. Por ejemplo, `https://tenant.compas.cloud`.
+1. Escriba el nombre de usuario de **Netvision Compas** y seleccione **Next** (Siguiente).
+
+    ![Usuario de inicio de sesión](media/netvision-compas-tutorial/login-user.png)
+
+1. **(opcional)** Si se asignan varios IdP al usuario en **Netvision Compas**, se presenta una lista de los IdP disponibles. Seleccione el proveedor de identidades Azure AD configurado previamente en **Netvision Compas**.
+
+    ![Selección de inicio de sesión](media/netvision-compas-tutorial/login-choose.png)
+
+1. Se le redirigirá a Azure AD para realizar la autenticación. Una vez que se haya autenticado correctamente, iniciará sesión automáticamente en la versión de **Netvision Compas** para la que configuró el inicio de sesión único.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

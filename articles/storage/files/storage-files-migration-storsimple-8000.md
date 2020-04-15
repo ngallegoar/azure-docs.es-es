@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: d937852ace8d9bf39495f1fdd92e6edfc4452a0a
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 7f0c4da7caf71670746e84d5cfaa457ebae57156
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78943586"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80755032"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>Migración de las series 8100 y 8600 de StorSimple a Azure File Sync
 
@@ -137,12 +137,21 @@ Las especificaciones que decida deben abarcar todos los recursos compartidos y r
 El tamaño total de los datos no supone ningún cuello de botella, es el número de elementos a los que necesita adaptar las especificaciones de la máquina.
 
 * [Aprenda a cambiar el tamaño de un servidor de Windows Server según el número de elementos (archivos y carpetas) que necesite sincronizar.](storage-sync-files-planning.md#recommended-system-resources)
+
+    **Tenga en cuenta lo siguiente:** El artículo vinculado anteriormente presenta una tabla con un intervalo de memoria del servidor (RAM). Oriéntese hacia al número grande de la máquina virtual de Azure. Puede orientarse hacia el número más pequeño de la máquina local.
+
 * [Aprenda a implementar una máquina virtual de Windows Server.](../../virtual-machines/windows/quick-create-portal.md)
 
 > [!IMPORTANT]
 > Asegúrese de que la máquina virtual está implementada en la misma región de Azure que la aplicación virtual StorSimple 8020. Si, como parte de esta migración, también tiene que cambiar la región de los datos en la nube desde la región en la que están almacenados actualmente, puede hacerlo en un paso posterior, cuando aprovisione los recursos compartidos de archivos de Azure.
 
-### <a name="expose-the-storsimple-8020-volumes-to-the-vm"></a>Exposición de los volúmenes de StorSimple 8020 a la máquina virtual
+> [!IMPORTANT]
+> A menudo, se usa un servidor Windows Server local para el dispositivo StorSimple local. En esta configuración, es posible habilitar la característica de [desduplicación de datos](https://docs.microsoft.com/windows-server/storage/data-deduplication/install-enable) en Windows Server. **Si ha usado la desduplicación de datos con los datos de StorSimple, asegúrese de habilitar la desduplicación de datos también en esta VM de Azure.** No confunda esta desduplicación de nivel de archivo con la desduplicación de nivel de bloque integrada de StorSimple, para la que no es necesario realizar ninguna acción.
+
+> [!IMPORTANT]
+> Para optimizar el rendimiento, implemente un **disco de sistema operativo rápido** para la VM en la nube. Almacenará la base de datos de sincronización en el disco del sistema operativo de todos los volúmenes de datos. Además, asegúrese de crear un **disco del sistema operativo grande**. En función del número de elementos (archivos y carpetas) en los volúmenes de StorSimple, es posible que el disco del sistema operativo necesite **varios cientos de GiB** de espacio para acomodar la base de datos de sincronización.
+
+### <a name="expose-the-storsimple-8020-volumes-to-the-azure-vm"></a>Exposición de los volúmenes de StorSimple 8020 a la máquina virtual de Azure
 
 En esta fase, va a conectar uno o varios volúmenes de StorSimple desde la aplicación virtual 8020, mediante iSCSI, a la máquina virtual de Windows Server que ha aprovisionado.
 
@@ -339,7 +348,7 @@ Podemos hacer que la caché de Windows Server tenga el mismo estado de la aplic
 Comando RoboCopy:
 
 ```console
-Robocopy /MT:32 /UNILOG:<file name> /TEE /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
+Robocopy /MT:32 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
 ```
 
 Fondo:
@@ -366,6 +375,14 @@ Fondo:
    :::column-end:::
    :::column span="1":::
       Envía la salida a la ventana de la consola. Se usa junto con el envío a un archivo de registro.
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      /B
+   :::column-end:::
+   :::column span="1":::
+      Ejecuta RoboCopy en el mismo modo que usaría una aplicación de copia de seguridad. Permite que RoboCopy mueva los archivos para los que el usuario actual no tiene permisos.
    :::column-end:::
 :::row-end:::
 :::row:::

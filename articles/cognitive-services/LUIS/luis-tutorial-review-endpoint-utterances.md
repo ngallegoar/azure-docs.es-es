@@ -1,22 +1,15 @@
 ---
 title: 'Tutorial: Revisión de expresiones de punto de conexión: LUIS'
-titleSuffix: Azure Cognitive Services
 description: En este tutorial, va a mejorar las predicciones de las aplicaciones mediante la comprobación o corrección de las expresiones recibidas mediante el punto de conexión HTTPS de LUIS de las que LUIS no está seguro. Algunas expresiones puede que se comprueben para la intención y otras puede que necesiten comprobarse para la entidad.
 services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/17/2019
-ms.author: diberry
-ms.openlocfilehash: 06f51ca83449b39861e7565cc9accc29efbece3f
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.date: 04/01/2020
+ms.openlocfilehash: 307c18d3326cb1a64b884463a571985a015834ed
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76843980"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548722"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Tutorial: Corrección de predicciones poco seguras mediante la revisión de las expresiones del punto de conexión
 En este tutorial, va a mejorar las predicciones de las aplicaciones mediante la comprobación o corrección de las expresiones recibidas mediante el punto de conexión HTTPS de LUIS de las que LUIS no está seguro. Debe revisar las expresiones de punto de conexión como una parte convencional del mantenimiento programado de LUIS.
@@ -46,15 +39,11 @@ Siga estos pasos para importar una aplicación.
 
 1.  Descargue y guarde el [archivo JSON de la aplicación](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json?raw=true).
 
-1. En el [portal de LUIS (versión preliminar)](https://preview.luis.ai), importe el archivo .json en una nueva aplicación.
+[!INCLUDE [Import app steps](includes/import-app-steps.md)]
 
-1. Desde la sección **Manage** (Administrar), en la pestaña **Versions** (Versiones), clone la versión y asígnele el nombre `review`.
+## <a name="train-the-app-to-apply-the-entity-changes-to-the-app"></a>Entrenamiento de la aplicación para aplicar los cambios de la entidad a la aplicación
 
-    > [!TIP]
-    > La clonación en una nueva versión es un procedimiento recomendado antes de modificar la aplicación. Cuando finalice una versión, exporte la versión (como archivo .json o .lu), y compruebe el archivo en el sistema de control de código fuente.
-
-
-1. Para entrenar la aplicación, seleccione **Entrenar**.
+[!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
 
 ## <a name="publish-the-app-to-access-it-from-the-http-endpoint"></a>Publicación de la aplicación para tener acceso a ella desde el punto de conexión HTTP
 
@@ -66,7 +55,7 @@ En esta aplicación, tiene intenciones y entidades, pero no tiene ningún uso de
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. Use el punto de conexión para agregar las expresiones siguientes.
+1. Vaya al final de la dirección URL de la barra de direcciones y reemplace _YOUR_QUERY_HERE_ por las expresiones de la siguiente tabla. Con cada una, envíe la expresión y obtenga el resultado. Después, reemplace la expresión al final por la próxima expresión.
 
     |Expresión del punto de conexión|Intención alineada|
     |--|--|
@@ -110,9 +99,9 @@ Revise las expresiones del punto de conexión en busca de una intención alinead
 
 Para comprobar que las expresiones de ejemplo correctamente alineadas han mejorado la predicción de la aplicación, pruebe una expresión cercana a la expresión corregida.
 
-1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. Vaya al final de la dirección URL en la dirección y escriba `Are there any natural language processing jobs in my department right now?`. El último parámetro de la cadena de consulta es `q`, la expresión **query**.
+1. Vaya al final de la dirección URL de la barra de direcciones y reemplace _YOUR_QUERY_HERE_ por: `Are there any natural language processing jobs in my department right now?`.
 
    ```json
     {

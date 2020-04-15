@@ -1,19 +1,19 @@
 ---
-title: Utilización de la referencia de la plantilla
+title: Uso de referencia de plantilla
 description: Use la referencia de plantilla de Azure Resource Manager para crear una plantilla.
 author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: b742982121a20a2b057eba4211584b0386dde411
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b713d508a5e28291778d3727c15e12972eea3a77
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80373181"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878525"
 ---
-# <a name="tutorial-utilize-the-arm-template-reference"></a>Tutorial: Utilización de la referencia de la plantilla de Resource Manager
+# <a name="tutorial-utilize-the-resource-manager-template-reference"></a>Tutorial: Uso de la referencia de plantilla de Resource Manager
 
 Aprenda a encontrar la información del esquema de la plantilla y a usar esa información para crear plantillas de Azure Resource Manager.
 
@@ -65,9 +65,13 @@ Para completar este artículo, necesitará lo siguiente:
     * **recursos**: especifique los tipos de recursos que se implementan o actualizan en un grupo de recursos.
     * **salidas**: especifique los valores que se devuelven después de la implementación.
 
-1. Expanda **recursos**. Hay un recurso `Microsoft.Storage/storageAccounts` definido.
+1. Expanda **recursos**. Hay un recurso `Microsoft.Storage/storageAccounts` definido. El nombre de SKU usa un valor de parámetro.  El parámetro se denomina **storageAccountType**.
 
     ![Definición de cuenta de almacenamiento de la plantilla de Resource Manager](./media/template-tutorial-use-template-reference/resource-manager-template-storage-resource.png)
+
+1. Expanda **parámetros** para ver cómo se define **storageAccountType**. El parámetro tiene cuatro valores permitidos. Encontrará los demás valores permitidos. A continuación, revise la definición del parámetro.
+
+    ![SKU de recursos la cuenta de almacenamiento de la plantilla de Resource Manager](./media/template-tutorial-use-template-reference/resource-manager-template-storage-resources-skus-old.png)
 
 ## <a name="find-the-template-reference"></a>Búsqueda de la referencia de la plantilla
 
@@ -84,7 +88,7 @@ Para completar este artículo, necesitará lo siguiente:
 
     ![Versiones de los tipos de cuenta de almacenamiento de referencia de la plantilla de Resource Manager](./media/template-tutorial-use-template-reference/resource-manager-template-resources-reference-storage-accounts-types-versions.png)
 
-1. Seleccione la versión más reciente del tipo de recurso **storageAccount**.  En el momento en que se ha escrito el artículo, la versión más reciente es la **2019-06-01**.
+1. Seleccione la versión más reciente del tipo de recurso **storageAccount**. En el momento en que se ha escrito el artículo, la versión más reciente es la **2019-06-01**. Asegúrese de que esta versión coincide con la versión usada para el recurso de la cuenta de almacenamiento de la plantilla. Si actualiza la versión de la API, compruebe que la definición de recursos coincide con la referencia de la plantilla.
 
 1. En esta página se enumeran los detalles del tipo de recurso storageAccount.  Por ejemplo, enumera los valores permitidos para el objeto **Sku**. Hay más sku de las que aparecen en la lista de la plantilla de inicio rápido que abrió antes. La plantilla de inicio rápido se puede personalizar para incluir todos los tipos de almacenamiento disponibles.
 
@@ -98,7 +102,21 @@ En Visual Studio Code, agregue los tipos de cuenta de almacenamiento adicionale
 
 ## <a name="deploy-the-template"></a>Implementación de la plantilla
 
-Consulte la sección [Implementación de la plantilla](quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) de la guía de inicio rápido de Visual Studio Code para el procedimiento de implementación. Al implementar la plantilla, especifique el parámetro **storageAccountType** con un valor recién agregado, por ejemplo, **Premium_ZRS**. La implementación no se realizaría si se usa la plantilla de inicio rápido original, ya que **Premium_ZRS** no era un valor permitido.
+Consulte la sección [Implementación de la plantilla](quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) de la guía de inicio rápido de Visual Studio Code para el procedimiento de implementación. Al implementar la plantilla, especifique el parámetro **storageAccountType** con un valor recién agregado, por ejemplo, **Premium_ZRS**. La implementación no se realizaría si se usa la plantilla de inicio rápido original, ya que **Premium_ZRS** no era un valor permitido.  Para pasar el valor del parámetro, agregue el siguiente modificador al comando de implementación:
+
+# <a name="cli"></a>[CLI](#tab/CLI)
+
+```azurecli
+--parameters storageAccountType='Premium_ZRS'
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
+
+```azurepowershell
+-storageAccountType "Premium_ZRS"
+```
+
+---
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

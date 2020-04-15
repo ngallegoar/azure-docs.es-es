@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/14/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 8a83c2f6ac7599ff37237834a85b7771cf4ee502
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fc11c6932d625b119ad933f5d4d128b4355530c5
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79224824"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804442"
 ---
 # <a name="network-configuration-details-for-app-service-environment-for-powerapps-with-azure-expressroute"></a>Detalles de configuración de red para entornos de App Service para PowerApps con Azure ExpressRoute
 
@@ -39,7 +39,7 @@ App Service Environment requiere los siguientes valores de conectividad de red p
 
 * Conectividad de red saliente a los puntos de conexión del plano de administración de Azure (los del modelo de implementación clásica de Azure y los de Azure Resource Manager). La conectividad a esos puntos de conexión incluye los dominios management.core.windows.net y management.azure.com. 
 
-* Conectividad de red saliente a los dominios ocsp.msocsp.com, mscrl.microsoft.com y crl.microsoft.com. La conectividad a estos dominios es necesaria para admitir la funcionalidad SSL.
+* Conectividad de red saliente a los dominios ocsp.msocsp.com, mscrl.microsoft.com y crl.microsoft.com. La conectividad con estos dominios es necesaria para admitir la funcionalidad TLS.
 
 * La configuración de DNS para la red virtual debe ser capaz de resolver todos los puntos de conexión y dominios mencionados en este artículo. Si no se pueden resolver los puntos de conexión, se producirá un error en la creación de la instancia de App Service Environment. Todas las instancias de App Service Environment se marcarán como incorrectas.
 

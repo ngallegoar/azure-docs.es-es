@@ -7,14 +7,14 @@ ms.service: virtual-machines-linux
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/01/2019
+ms.date: 04/06/2020
 ms.author: banders
-ms.openlocfilehash: 3bb7a62433993f1af26b1ce8bcb4ed258c34623c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3e05920e495dd4aa14be6c849590a37a2bafa33f
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75973129"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80757231"
 ---
 # <a name="prepay-for-azure-software-plans"></a>Pago por adelantado de planes de software de Azure
 
@@ -38,6 +38,7 @@ Los costos anticipados de la reserva se cargan al método de pago de la suscripc
 4. Seleccione un ámbito. El ámbito puede cubrir una o varias suscripciones (ámbito compartido).
     - Suscripción única: el descuento del plan se aplica al uso correspondiente en la suscripción.
     - Compartido: el descuento del plan se aplica a las instancias correspondientes en cualquier suscripción del contexto de facturación. Para los clientes de Enterprise, el contexto de facturación es la inscripción e incluye todas las suscripciones que esta contiene. Para los clientes de planes individuales con precios de pago por uso, el contexto de facturación son todas las suscripciones de planes individuales con precios de pago por uso creadas por el administrador de cuenta.
+    - Grupo de recursos único: el descuento por reserva se aplica a los recursos coincidentes solo del grupo de recursos seleccionado.
 5. Seleccione un producto para elegir el tamaño de máquina virtual y el tipo de imagen. El descuento se aplica solo al tamaño de máquina virtual seleccionado.
 6. Seleccione un plazo de un año o tres años.
 7. Elija una cantidad, que es el número de instancias de máquina virtual de prepago a las que se aplica el descuento de facturación.

@@ -4,12 +4,12 @@ description: Aprenda a implementar una plantilla vinculada.
 ms.date: 03/13/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 70a09315b0947f41e7602e630460cb3e674a7bf8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 177a994450b6ffe5489a8c95c3b484521fd9b77b
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80081804"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80672916"
 ---
 # <a name="tutorial-deploy-a-linked-template"></a>Tutorial: Implementación de una plantilla vinculada
 
@@ -90,6 +90,9 @@ Write-Host "Press [ENTER] to continue ..."
 Para implementar una plantilla privada en una cuenta de almacenamiento, genere un token de SAS e inclúyalo en el identificador URI de la plantilla. Establezca el tiempo de expiración con un margen suficiente para completar la implementación. El blob que contiene la plantilla solo es accesible para el propietario de la cuenta. Sin embargo, cuando se crea un token de SAS para el blob, el blob es accesible para cualquier persona con ese URI. Si otro usuario intercepta el URI, ese usuario podrá tener acceso a la plantilla. Un token de SAS es una buena forma de limitar el acceso a las plantillas, pero no debe incluir datos confidenciales, como contraseñas, directamente en la plantilla.
 
 Si no ha creado el grupo de recursos, consulte [Creación del grupo de recursos](./deployment-tutorial-local-template.md#create-resource-group).
+
+> [!NOTE]
+> En el siguiente código de la CLI de Azure, el parámetro de fecha -d sería un argumento no válido en macOS. Por tanto, para los usuarios de macOS, es necesario usar -v+2H para agregar 2 horas a la hora actual en el terminal de macOS.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

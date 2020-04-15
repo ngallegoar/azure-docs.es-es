@@ -3,17 +3,17 @@ title: Optimización de la inversión en la nube con Azure Cost Management
 description: Este artículo le ayuda a obtener el máximo partido de las inversiones en la nube, reducir los costos y evaluar dónde se invierte su dinero.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/24/2020
+ms.date: 04/07/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 4941c1be8fd20dfa88e3ac36bfa30af77a2b1be1
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8df98514545a2670ea18a2b4b131a097244d7b46
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80157218"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80874592"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Optimización de la inversión en la nube con Azure Cost Management
 
@@ -36,6 +36,10 @@ Los tres grupos principales descritos a continuación deben estar alineados en l
 ### <a name="key-principles"></a>Principios fundamentales
 
 Use los principios descritos a continuación para posicionar a la organización para el éxito en la administración de los costos de la nube.
+
+Para más información, vea el vídeo [Configuración de Cost Management para el éxito](https://www.youtube.com/watch?v=dVuwITdSAZ4). Para ver otros vídeos, visite el [canal de YouTube de Cost Management](https://www.youtube.com/c/AzureCostManagement).
+
+>[!VIDEO https://www.youtube.com/embed/dVuwITdSAZ4]
 
 #### <a name="planning"></a>Planificación
 
@@ -125,7 +129,7 @@ Manténgase informado acerca de cómo evolucionan los costos de la organización
 
 Organice los recursos teniendo en cuenta el costo. Cuando cree las suscripciones y los grupos de recursos, piense en los equipos que son responsables de los costos asociados. Asegúrese de que los informes generados tienen en cuenta la organización. Las suscripciones y los grupos de recursos proporcionan buenos depósitos para organizar y atribuir el gasto en toda la organización. Las etiquetas proporcionan una buena forma de atribuir el costo. Puede usar las etiquetas como un filtro. Y las puede usar para agrupar por ellas al analizar los datos e investigar los costos. Los clientes con contrato Enterprise también pueden crear departamentos y colocar las suscripciones en ellos. La organización basada en el costo de Azure ayuda a que las personas relevantes de la organización sean responsables de la reducción del gasto de su equipo.
 
-Vea el vídeo [Revisión de las directivas de etiquetas con Azure Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw) para conocer las herramientas disponibles para aplicar el etiquetado de recursos escalable en su organización.
+Vea el vídeo [Revisión de las directivas de etiquetas con Azure Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw) para conocer las herramientas disponibles para aplicar el etiquetado de recursos escalable en su organización. Para ver otros vídeos, visite el [canal de YouTube de Cost Management](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/nHQYcYGKuyw]
 

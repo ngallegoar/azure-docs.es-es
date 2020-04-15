@@ -3,12 +3,12 @@ title: Implementación de Azure Policy en suscripciones delegadas a escala
 description: Obtenga información sobre cómo la administración de recursos delegados de Azure permite implementar una definición de directivas y una asignación de directivas en varios inquilinos.
 ms.date: 11/8/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9e061995b728e2864d1bd33a32d530634ab794d8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9015351c3fc8f374c5ce85712907fa05249cde11
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75456847"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984579"
 ---
 # <a name="deploy-azure-policy-to-delegated-subscriptions-at-scale"></a>Implementación de Azure Policy en suscripciones delegadas a escala
 
@@ -32,7 +32,7 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Storage/storageAccou
 
 ## <a name="deploy-a-policy-across-multiple-customer-tenants"></a>Implementación de una directiva en varios inquilinos de cliente
 
-En el ejemplo siguiente se muestra cómo usar una [plantilla de Azure Resource Manager](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/policy-enforce-https-storage/enforceHttpsStorage.json) para implementar una definición de directivas y una asignación de directivas entre las suscripciones delegadas en varios inquilinos de cliente. Esta definición de directivas requiere que todas las cuentas de almacenamiento usen tráfico HTTPS, lo que impide la creación de nuevas cuentas de almacenamiento que no cumplan con la especificación, y hace que las cuentas de almacenamiento existentes que no tengan esta configuración se marquen como no conformes.
+En el ejemplo siguiente se muestra cómo usar una [plantilla de Azure Resource Manager](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/policy-enforce-https-storage/enforceHttpsStorage.json) para implementar una definición de directivas y una asignación de directivas entre las suscripciones delegadas en varios inquilinos de cliente. Esta definición de directivas requiere que todas las cuentas de almacenamiento usen tráfico HTTPS, lo que impide la creación de nuevas cuentas de almacenamiento que no cumplan con la especificación, y hace que las cuentas de almacenamiento existentes que no tengan esta configuración se marquen como no conformes.
 
 ```powershell
 Write-Output "In total, there are $($ManagedSubscriptions.Count) delegated customer subscriptions to be managed"
@@ -43,7 +43,7 @@ foreach ($ManagedSub in $ManagedSubscriptions)
 
     New-AzDeployment -Name mgmt `
                      -Location eastus `
-                     -TemplateUri "https://raw.githubusercontent.com/Azure/Azure-Lighthouse-samples/master/Azure-Delegated-Resource-Management/templates/policy-enforce-https-storage/enforceHttpsStorage.json" `
+                     -TemplateUri "https://raw.githubusercontent.com/Azure/Azure-Lighthouse-samples/master/templates/policy-enforce-https-storage/enforceHttpsStorage.json" `
                      -AsJob
 }
 ```

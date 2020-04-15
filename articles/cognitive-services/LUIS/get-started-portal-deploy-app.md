@@ -1,21 +1,14 @@
 ---
 title: 'Inicio rápido: Implementación de una aplicación con el portal de LUIS'
-titleSuffix: Azure Cognitive Services
 description: En este inicio rápido se muestra cómo implementar una aplicación mediante la creación de un recurso de punto de conexión de predicción, la asignación del recurso, el entrenamiento y la publicación de la aplicación.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 01/27/2020
-ms.author: diberry
-ms.openlocfilehash: 0ee2b33aa3388b3cb99aa42c338ded800c9679a4
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.date: 04/06/2020
+ms.openlocfilehash: aaf86766c2357c5382b78cd4a35fd4b159e5c0f3
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "79218502"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756291"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Inicio rápido: Implementación de una aplicación en el portal de LUIS
 
@@ -29,35 +22,13 @@ En esta guía de inicio rápido, aprenderá a implementar una aplicación. Cree 
 * Completar el [inicio rápido del portal anterior](get-started-portal-build-app.md) o [descargar e importar la aplicación](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/in-portal/build-portal-app.json).
 * Si tiene aplicaciones anteriores a la autenticación de recursos de Azure, [migrar a un recurso de Azure](luis-migration-authoring.md). Algunas páginas del portal tienen un aspecto diferente cuando la autenticación de correo electrónico está en vigor.
 
-## <a name="create-the-endpoint-resource"></a>Creación del recurso del punto de conexión
+<a name="create-the-endpoint-resource"></a>
 
-Cree el recurso del punto de conexión de predicción en Azure Portal. Dicho recurso solo se debe usar para las consultas de predicción de punto de conexión. No se debe usar para la creación de los cambios en la aplicación.
-
-1. Inicie sesión y cree un recurso en [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne).
-
-1. Configure la suscripción con los valores siguientes:
-
-   |Configuración|Value|Propósito|
-   |--|--|--|
-   |Nombre|`my-luis-resource`|El nombre del recurso de Azure. Este nombre será necesario al asignar el recurso a la aplicación en el portal de LUIS.|
-   |Subscription|Su suscripción|Seleccione una de las suscripciones asociadas a su cuenta.|
-   |Resource group|`my-resource-group`|Cree un grupo de recursos para todos los recursos de Cognitive Services. Cuando haya terminado con los recursos, puede eliminar el grupo de recursos para limpiar la suscripción. |
-   |Creación de la ubicación|**Oeste de EE. UU.**|La región de Azure para la creación.|
-   |Creación del plan de tarifa|**F0**|El plan de tarifa predeterminado para la creación.|
-   |Ubicación del tiempo de ejecución|**Oeste de EE. UU.**|La región de Azure para las consultas del punto de conexión de predicción.|
-   |Plan de tarifa del tiempo de ejecución|**S0**|Este plan de tarifa proporciona sitios web de tráfico elevado.|
-   | | | |
-
-
-   ![Elección de la API de Azure](./media/luis-how-to-azure-subscription/create-resource-in-azure.png)
-
-1. Seleccione **Crear** para crear el recurso de Azure.
-
-   En la siguiente sección, aprenderá a conectar este recurso nuevo a una aplicación de LUIS en el portal de LUIS.
+[!INCLUDE [Create LUIS resource](includes/create-luis-resource.md)]
 
 ## <a name="assign-the-resource-key-to-the-luis-app-in-the-luis-portal"></a>Asignar la clave de recurso a la aplicación de LUIS en el portal de LUIS
 
-Cada vez que crea un recurso para LUIS, será preciso que lo asigne a la aplicación de LUIS. Una vez que lo asigne, no tendrá que volver a realizar este paso, a menos que cree otro recurso. Puede crear un recurso para expandir las regiones de la aplicación o para admitir un mayor número de consultas de predicción.
+Cada vez que crea un recurso de predicción de consultas o de creación para LUIS, es preciso asignarlo a la aplicación de LUIS. Una vez que lo asigne, no tendrá que volver a realizar este paso, a menos que cree otro recurso. Puede crear un recurso para expandir las regiones de la aplicación o para admitir un mayor número de consultas de predicción.
 
 1. Inicie sesión en el [portal de LUIS (versión preliminar)](https://preview.luis.ai) y elija la aplicación **myEnglishApp** en la lista de aplicaciones.
 

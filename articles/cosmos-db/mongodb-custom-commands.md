@@ -6,22 +6,22 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: sngun
-ms.openlocfilehash: f57b274715eb1c8a4d517f5655c09c366574d412
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f99c4d096bcbe1fbdc42cac80a491d6017266cb2
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75445222"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583580"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Usa comandos de la extensión de MongoDB para administrar los datos almacenados en la API de Azure Cosmos DB para MongoDB 
 
-Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede comunicarse con la API de Azure Cosmos DB para MongoDB con cualquiera de los [controladores del cliente de MongoDB](https://docs.mongodb.org/ecosystem/drivers) de código abierto. La API de Azure Cosmos DB para MongoDB permite usar los controladores de cliente existentes mediante la adhesión al [protocolo de conexión de MongoDB](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
+Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede comunicarse con la API de Azure Cosmos DB para MongoDB con cualquiera de los [controladores de cliente de MongoDB](https://docs.mongodb.org/ecosystem/drivers) de código abierto. La API de Azure Cosmos DB para MongoDB permite usar los controladores de cliente existentes mediante la adhesión al [protocolo de conexión de MongoDB](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 
 Mediante las API de Azure Cosmos DB para MongoDB, puede disfrutar de las ventajas de Cosmos DB, como distribución global, particionamiento automático, alta disponibilidad, garantías de latencia, cifrado en reposo automático, copias de seguridad, y muchas más, a la vez que conserva su inversión en la aplicación de MongoDB.
 
 ## <a name="mongodb-protocol-support"></a>Compatibilidad de protocolo para MongoDB
 
-De forma predeterminada, la API de Azure Cosmos DB para MongoDB es compatible con el servidor de MongoDB versión 3.2; para más información, consulte las [características y sintaxis admitidas](mongodb-feature-support.md). Las características o los operadores de consulta que se han agregado en la versión 3.4 de MongoDB están actualmente en versión preliminar en la API de Azure Cosmos DB para MongoDB. Los siguientes comandos de extensión admiten la funcionalidad específica de Azure Cosmos DB al realizar operaciones CRUD en los datos almacenados en la API de Azure Cosmos DB para MongoDB:
+De forma predeterminada, la API de Azure Cosmos DB para MongoDB es compatible con el servidor de MongoDB versión 3.2; para más información, consulte las [características y sintaxis admitidas](mongodb-feature-support.md). Las características o los operadores de consulta que se han agregado en la versión 3.4 de MongoDB están actualmente en versión preliminar en la API de Azure Cosmos DB para MongoDB. Los siguientes comandos de extensión admiten la funcionalidad específica de Azure Cosmos DB al realizar operaciones CRUD en los datos almacenados en la API de Azure Cosmos DB para MongoDB:
 
 * [Crear una base de datos](#create-database)
 * [Actualizar una base de datos](#update-database)
@@ -160,12 +160,12 @@ El comando de extensión de creación de colección crea una nueva colección de
 
 En la siguiente tabla se describen los parámetros del comando:
 
-|**Campo**|**Tipo** |**Descripción** |
-|---------|---------|---------|
-| customAction    | string | Nombre del comando personalizado. Debe ser "CreateCollection".     |
-| collection      | string | Nombre de la colección                                   |
-| offerThroughput | int    | Rendimiento aprovisionado para establecer en la base de datos. Es un parámetro opcional. |
-| shardKey        | string | Ruta de acceso de la clave de partición para crear una colección con particiones. Es un parámetro opcional. |
+| **Campo** | **Tipo** | **Obligatorio** | **Descripción** |
+|---------|---------|---------|---------|
+| customAction | string | Obligatorio | Nombre del comando personalizado. Debe ser "CreateCollection".|
+| collection | string | Obligatorio | Nombre de la colección. No se permiten caracteres especiales.|
+| offerThroughput | int | Opcional* | Rendimiento aprovisionado para establecer en la base de datos. Si no se proporciona este parámetro, el valor predeterminado será el mínimo, 400 RU/s. *Para especificar el rendimiento más allá de 10 000 RU/s, se requiere el parámetro `shardKey`.|
+| shardKey | string | Opcional* | La ruta de acceso a la clave de partición para la colección con particiones. Este parámetro es necesario si establece más de 10 000 RU/s en `offerThroughput`.  Si se especifica, todos los documentos insertados requerirán este valor. |
 
 ### <a name="output"></a>Output
 
@@ -184,7 +184,7 @@ db.runCommand({customAction: "CreateCollection", collection: "testCollection", o
 
 **Crear una colección con particiones**
 
-Para crear una colección con particiones con el nombre "testCollection" y el rendimiento aprovisionado de 1000 RU, use el siguiente comando:
+Para crear una colección con particiones con el nombre "testCollection" y el rendimiento aprovisionado de 1000 RU, junto con una propiedad shardkey, use el siguiente comando:
 
 ```shell
 use test

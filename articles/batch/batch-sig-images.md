@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 08/28/2019
 ms.author: labrenne
-ms.openlocfilehash: 2cff6a0e48fc7bf58a642f509fcda6b114e002ef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 95f27d913cd288c186bae1a6375212b072f50bb4
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77022943"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422431"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-pool"></a>Uso de Shared Image Gallery para crear un grupo personalizado
 
@@ -37,7 +37,10 @@ El uso de una imagen de Shared Image configurada para su escenario puede proporc
 * **Mejor rendimiento que la imagen personalizada.** Mediante el uso de imágenes de Shared Image, el tiempo que tarda el grupo en alcanzar el estado estable es hasta un 25 % más rápido y la latencia de inactividad de la VM es hasta un 30 % más breve.
 * **Control de versiones y agrupación de imágenes para facilitar su administración.** La definición de la agrupación de imágenes contiene información acerca de por qué se creó la imagen, para qué sistema operativo sirve e información acerca del uso de la imagen. La agrupación de imágenes permite una administración más sencilla de las imágenes. Para más información, consulte [Definiciones de imagen](../virtual-machines/windows/shared-image-galleries.md#image-definitions).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
+
+> [!NOTE]
+> Debe autenticarse mediante Azure AD. Si usa shared-key-auth, obtendrá un error de autenticación.  
 
 * **Una cuenta de Azure Batch** Para crear una cuenta de Batch, consulte las guías de inicio rápido de Batch con [Azure Portal](quick-create-portal.md) o la [CLI de Azure](quick-create-cli.md).
 
@@ -86,6 +89,9 @@ Una vez que haya creado correctamente la imagen administrada, debe crear una ins
 ## <a name="create-a-pool-from-a-shared-image-using-the-azure-cli"></a>Creación de un grupo a partir de una imagen de Shared Image con la CLI de Azure
 
 Para crear un grupo a partir de la imagen de Shared Image mediante la CLI de Azure, use el comando `az batch pool create`. Especifique el identificador de la imagen de Shared Image en el campo `--image`. Asegúrese de que el tipo de sistema operativo y la SKU coinciden con las versiones especificadas por `--node-agent-sku-id`.
+
+> [!NOTE]
+> Debe autenticarse mediante Azure AD. Si usa shared-key-auth, obtendrá un error de autenticación.  
 
 ```azurecli
 az batch pool create \

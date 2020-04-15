@@ -2,17 +2,17 @@
 title: Habilitación y uso de registros de diagnóstico de Azure Bastion
 description: En este artículo, aprenderá a habilitar y usar registros de diagnóstico de Azure Bastion.
 services: bastion
-author: cherylmc
+author: charwen
 ms.service: bastion
 ms.topic: conceptual
 ms.date: 02/03/2020
-ms.author: cherylmc
-ms.openlocfilehash: 2167a17d5d388c97ad357398c4ac2676e43be5a4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: charwen
+ms.openlocfilehash: 97f0cdb1e93ef2ad06d2daa04b2f4893fd5dfac2
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76989457"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619277"
 ---
 # <a name="enable-and-work-with-bastion-diagnostic-logs"></a>Habilitación y uso de registros de diagnóstico de Azure Bastion
 
@@ -43,7 +43,7 @@ Para acceder a los registros de diagnóstico, puede usar directamente la cuenta 
 2. A medida que se adentre en el contenedor, verá las distintas carpetas del blog. Estas carpetas indican la jerarquía de recursos de su recurso de Azure Bastion.
 
    ![Agregar configuración de diagnóstico](./media/diagnostic-logs/2-resource-h.png)
-3. Vaya a la jerarquía completa del recurso de Azure Bastion que contiene los registros de diagnóstico a los que quiere acceder o que quiere ver. The "y=", "m=", "d=", "h=" y "m=" indican el año, el mes, el día, la hora y los minutos, respectivamente, de los registros de diagnóstico.
+3. Vaya a la jerarquía completa del recurso de Azure Bastion que contiene los registros de diagnóstico a los que quiere acceder o que quiere ver. Las letras "y=", "m=", "d=", "h=" y "m=" indican el año, el mes, el día, la hora y los minutos, respectivamente, de los registros de diagnóstico.
 
    ![Seleccionar la ubicación de almacenamiento](./media/diagnostic-logs/3-resource-location.png)
 4. Busque el archivo JSON creado por Azure Bastion que contiene los datos del registro de diagnóstico del período de tiempo al que ha navegado.

@@ -1,5 +1,5 @@
 ---
-title: Vista de las latencias relativas a regiones de Azure desde ubicaciones específicas | Microsoft Docs
+title: Vista de latencias relativas a las regiones de Azure desde ubicaciones específicas
 description: Obtenga información sobre cómo ver las latencias relativas en distintos proveedores de Internet a regiones de Azure desde ubicaciones específicas.
 services: network-watcher
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 12/14/2017
 ms.author: damendo
 ms.custom: ''
-ms.openlocfilehash: c3a85de3a201a89d6d9500e4f4b2df9e667e3537
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 39f81731f20566d1a39f3f0931ff52c4e8b43ec0
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76840543"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521394"
 ---
 # <a name="view-relative-latency-to-azure-regions-from-specific-locations"></a>Vista de latencias relativas a las regiones de Azure desde ubicaciones específicas
 
@@ -45,7 +45,7 @@ New-AzNetworkWatcher -Name NetworkWatcher_eastus -ResourceGroupName NetworkWatch
 
 ## <a name="compare-relative-network-latencies-to-a-single-azure-region-from-a-specific-location"></a>Comparación de las latencias relativas de red a una sola región de Azure desde una ubicación específica
 
-Evalúe los proveedores de servicios o solucione los problemas que informa un usuario, como "El sitio estaba lento", desde una ubicación específica a la región de Azure donde está implementado un servicio. Por ejemplo, el comando siguiente devuelve las latencias relativas promedio del proveedor de servicios de Internet entre el estado de Washington en Estados Unidos y la región de Azure Oeste de EE. UU. 2 entre el 13 y el 15 de diciembre de 2017:
+Evalúe los proveedores de servicios o solucione los problemas que notifican los usuarios, como "El sitio funcionaba lento", desde una ubicación específica hasta la región de Azure donde está implementado un servicio. Por ejemplo, el comando siguiente devuelve las latencias relativas promedio del proveedor de servicios de Internet entre el estado de Washington en Estados Unidos y la región de Azure Oeste de EE. UU. 2 entre el 13 y el 15 de diciembre de 2017:
 
 ```powershell
 Get-AzNetworkWatcherReachabilityReport `

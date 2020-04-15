@@ -3,18 +3,18 @@ title: 'Tutorial: Ejemplo de plano técnico para un nuevo entorno'
 description: En este tutorial, usará un ejemplo de plano técnico para crear una definición de plano técnico que configura dos grupos de recursos y configura una asignación de roles para cada uno.
 ms.date: 03/25/2020
 ms.topic: tutorial
-ms.openlocfilehash: c4230282223b0a64f6254448fe069bf8f7ab9a15
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 79928822b41dfe0583afbeaf2f5f1a4a87dd3202
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80282025"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677090"
 ---
 # <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>Tutorial: Creación de un entorno a partir de un ejemplo de plano técnico
 
 Los planos técnicos de ejemplo proporcionan ejemplos de lo que se puede hacer con Azure Blueprints. Cada uno de ellos es un ejemplo con una intención o un propósito específicos, pero no crea un entorno completo por sí mismo. Cada uno está pensado como un punto de partida para explorar con Azure Blueprints mediante varias combinaciones de artefactos, diseños y parámetros incluidos.
 
-El siguiente tutorial usa el plano técnico de ejemplo **Grupos de recursos con RBAC** para presentar diferentes aspectos del servicio Blueprints. Se tratan los siguientes pasos:
+El siguiente tutorial usa el plano técnico de ejemplo **Grupos de recursos con RBAC** para presentar diferentes aspectos del servicio Azure Blueprints. Se tratan los siguientes pasos:
 
 > [!div class="checklist"]
 > - Crear una definición de plano técnico a partir del ejemplo

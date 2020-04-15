@@ -3,12 +3,12 @@ title: 'Configuración del servicio: QnA Maker'
 description: Comprenda cómo y dónde configurar los recursos.
 ms.topic: reference
 ms.date: 02/21/2020
-ms.openlocfilehash: 8ef6fecbfeb119d0c68ec5bc3bbc90ec449dbb7d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3be32d1778604121c2acac88415cbfbc4bdbca3d
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77651806"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804267"
 ---
 # <a name="service-configuration"></a>Configuración del servicio
 
@@ -27,8 +27,8 @@ Puede establecer una configuración individual a través de la lista de configur
 
 |Resource|Configuración|
 |--|--|
-|AzureSearchAdminKey|Cognitive Search: se usa para el almacenamiento de conjuntos de QnA y clasificador n.º 1|
-|AzureSearchName|Cognitive Search: se usa para el almacenamiento de conjuntos de QnA y clasificador n.º 1|
+|AzureSearchAdminKey|Cognitive Search: se usa para el almacenamiento de pares de QnA y clasificador n.º 1|
+|AzureSearchName|Cognitive Search: se usa para el almacenamiento de pares de QnA y clasificador n.º 1|
 |DefaultAnswer|Texto de respuesta cuando no se encuentra ninguna coincidencia|
 |UserAppInsightsAppId|Registro de chat y telemetría|
 |UserAppInsightsKey|Registro de chat y telemetría|

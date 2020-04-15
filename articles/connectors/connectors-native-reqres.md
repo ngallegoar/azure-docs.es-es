@@ -1,20 +1,20 @@
 ---
-title: Recepción de llamadas HTTPS y respuesta a ellas
-description: Administre las solicitudes y los eventos HTTPS en tiempo real mediante Azure Logic Apps
+title: Recepción y respuesta de llamadas mediante HTTPS
+description: Uso de Azure Logic Apps para controlar solicitudes HTTPS entrantes de servicios externos
 services: logic-apps
 ms.suite: integration
 ms.reviewers: klam, logicappspm
 ms.topic: conceptual
-ms.date: 01/14/2020
+ms.date: 03/12/2020
 tags: connectors
-ms.openlocfilehash: 0949e50c5a4993dfbcc83b41ef01d2cea82350a8
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 1885d7f8713b3801ce0c9846b7a8509b3864032a
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76900268"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656299"
 ---
-# <a name="receive-and-respond-to-incoming-https-calls-by-using-azure-logic-apps"></a>Recepción de llamadas HTTPS entrantes y respuesta e ellas mediante Azure Logic Apps
+# <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Recepción y respuesta de solicitudes HTTPS entrantes en Azure Logic Apps
 
 Con [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y el desencadenador de solicitud o la acción de respuesta integrados, puede crear tareas y flujos de trabajo automatizados que reciben solicitudes HTTP y respondan a ellas en tiempo real. Por ejemplo, puede hacer que la aplicación lógica:
 
@@ -25,7 +25,7 @@ Con [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y el desencadenador
 > [!NOTE]
 > El desencadenador de solicitud admite *solo* la seguridad de la capa de transporte (TLS) 1.2 para las llamadas entrantes. Las llamadas salientes continúan siendo compatibles con TLS 1.0, 1.1 y 1.2. Para más información, consulte [Solución del problema de TLS 1.0](https://docs.microsoft.com/security/solving-tls1-problem).
 >
-> Si ve errores de protocolo de enlace SSL, asegúrese de usar TLS 1.2. En el caso de las llamadas entrantes, estos son los conjuntos de cifrado compatibles:
+> Si ve errores de protocolo de enlace TLS, asegúrese de usar TLS 1.2. En el caso de las llamadas entrantes, estos son los conjuntos de cifrado compatibles:
 >
 > * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
 > * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
@@ -36,7 +36,7 @@ Con [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y el desencadenador
 > * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 > * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Suscripción a Azure. Si no tiene una suscripción, puede [registrarse para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/).
 
@@ -202,6 +202,19 @@ Aquí encontrará más información sobre las salidas del desencadenador de soli
 Puede usar la acción de respuesta para responder con una carga (datos) a una solicitud HTTP entrante, pero solo en una aplicación lógica que se desencadene mediante una solicitud HTTP. Puede agregar la acción de respuesta en cualquier punto del flujo de trabajo. Para obtener más información sobre la definición JSON subyacente de este desencadenador, consulte la sección [Tipo de acción de respuesta](../logic-apps/logic-apps-workflow-actions-triggers.md#response-action).
 
 La aplicación lógica solo mantiene la solicitud entrante abierta durante un minuto. Suponiendo que el flujo de trabajo de la aplicación lógica incluye una acción de respuesta, si la aplicación lógica no devuelve ninguna respuesta después de que transcurra este tiempo, la aplicación lógica devuelve `504 GATEWAY TIMEOUT` al autor de llamada. De lo contrario, si la aplicación lógica no incluye ninguna acción de respuesta, dicha aplicación lógica devuelve inmediatamente una respuesta `202 ACCEPTED` al autor de la llamada.
+
+> [!IMPORTANT]
+> Si una acción de respuesta incluye estos encabezados, Logic Apps quita estos encabezados del mensaje de respuesta generado sin mostrar ninguna advertencia o error:
+>
+> * `Allow`
+> * `Content-*` con estas excepciones: `Content-Disposition`, `Content-Encoding` y `Content-Type`
+> * `Cookie`
+> * `Expires`
+> * `Last-Modified`
+> * `Set-Cookie`
+> * `Transfer-Encoding`
+>
+> Aunque Logic Apps no le impedirá guardar aplicaciones lógicas que tengan una acción de respuesta con estos encabezados, Logic Apps omite estos encabezados.
 
 1. En el Diseñador de aplicación lógica, vaya al paso en que debe agregar una acción de respuesta y seleccione **Nuevo paso**.
 

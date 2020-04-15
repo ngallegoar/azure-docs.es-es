@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: 8b79e0fb24c15d2e9f16640e90d62f7df5c21f32
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 903881a1d15c1f043e381f50e5b69d661cd08192
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74234425"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80476443"
 ---
 # <a name="how-trust-relationships-work-for-resource-forests-in-azure-active-directory-domain-services"></a>Funcionamiento de las relaciones de confianza para los bosques de recursos en Azure Active Directory Domain Services
 
@@ -110,11 +110,11 @@ La confianza de bosque de salida para Azure AD Domain Services se crea en Azure
 
 Muchas transacciones entre dominios y entre bosques dependen de las confianzas de dominio o bosque para realizar diversas tareas. En esta sección se describen los procesos y las interacciones que se producen cuando se accede a los recursos a través de confianzas y se evalúan las referencias de autenticación.
 
-### <a name="overview-of-authentication-referral-processing"></a>Información general sobre el procesamiento de referencias de autenticación
+### <a name="overview-of-authentication-referral-processing"></a>Información general sobre el procesamiento de referencia de autenticación
 
 Cuando se refiere una solicitud de autenticación a un dominio, el controlador de dominio de este debe determinar si existe una relación de confianza con el dominio del que procede la solicitud. También se debe determinar la dirección de la confianza y si esta es transitiva o no transitiva antes de autenticar al usuario para acceder a los recursos del dominio. El proceso de autenticación que se produce entre los dominios de confianza varía según el protocolo de autenticación que se use. Los protocolos Kerberos V5 y NTLM procesan las referencias para la autenticación en un dominio de manera diferente.
 
-### <a name="kerberos-v5-referral-processing"></a>Procesamiento de referencias en Kerberos V5
+### <a name="kerberos-v5-referral-processing"></a>Procesamiento de referencia en Kerberos V5
 
 El protocolo de autenticación Kerberos V5 depende del servicio de Net Logon en los controladores de dominio para la autenticación de cliente y la información de autorización. El protocolo Kerberos se conecta a un Centro de distribución de claves (KDC) en línea y al almacén de cuentas de Active Directory para obtener vales de sesión.
 
@@ -130,7 +130,7 @@ Si el cliente usa Kerberos V5 para la autenticación, solicita un vale al servi
     * En caso afirmativo, envía al cliente una referencia al siguiente dominio en la ruta de acceso de confianza.
     * En caso negativo, envía al cliente un mensaje de inicio de sesión denegado.
 
-### <a name="ntlm-referral-processing"></a>Procesamiento de referencias en NTLM
+### <a name="ntlm-referral-processing"></a>Procesamiento de referencia en NTLM
 
 El protocolo de autenticación NTLM depende del servicio de Net Logon de los controladores de dominio para la autenticación de cliente y la información de autorización. Este protocolo autentica a los clientes que no usan la autenticación Kerberos. NTLM usa confianzas para pasar solicitudes de autenticación entre dominios.
 

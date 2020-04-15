@@ -8,12 +8,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: spelluru
-ms.openlocfilehash: d17026dba26b3c1cb846d60967180c29563c425d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 82773ab6decfe15ee1a9d839a1f10a158ae72c42
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74545588"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521316"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>Autenticación del acceso a recursos de Event Hubs mediante firmas de acceso compartido (SAS)
 La firma de acceso compartido (SAS) le ofrece un control pormenorizado sobre el tipo de acceso que se concede a los clientes que la tienen. Estos son algunos de los controles que puede establecer en una SAS: 
@@ -33,7 +33,7 @@ En este artículo se explica cómo autenticar el acceso a los recursos de Event 
 
 
 ## <a name="configuring-for-sas-authentication"></a>Configuración de la autenticación de SAS
-Puede configurar la regla de autorización de acceso compartido de EventHubs en un espacio de nombres de Event Hubs o una entidad (instancia de centro de eventos o tema de Kafka en una instancia de Event Hubs para el espacio de nombres habilitado para Kafka). Actualmente no se admite la configuración de una regla de autorización de acceso compartido en un grupo de consumidores, pero puede usar reglas configuradas en un espacio de nombres o una entidad para proteger el acceso a dicho grupo. 
+Puede configurar la regla de autorización de acceso compartido de EventHubs en un espacio de nombres de Event Hubs o una entidad (instancia de centro de eventos o tema de Kafka en un centro de eventos). Actualmente no se admite la configuración de una regla de autorización de acceso compartido en un grupo de consumidores, pero puede usar reglas configuradas en un espacio de nombres o una entidad para proteger el acceso a dicho grupo. 
 
 En la imagen siguiente se muestra cómo se aplican las reglas de autorización en las entidades de ejemplo. 
 

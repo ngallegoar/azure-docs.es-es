@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 46d566dc7527097d36b72886ada1f8c94f727535
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 8e79f4c791d0252c719846da3aa8024b0e622dca
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198758"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477009"
 ---
 # <a name="load-balancer-health-probes"></a>Sondeos de estado de Load Balancer
 
@@ -39,7 +39,10 @@ Los sondeos de estado admiten varios protocolos. La disponibilidad de un protoco
 >[!IMPORTANT]
 >Los sondeos de estado de Load Balancer parten de la dirección IP 168.63.129.16 y no se deben bloquear para que los sondeos marquen la instancia como activa.  Para más información, consulte el apartado [Probe source IP address](#probesource) (Dirección IP de origen de sondeo).
 
-## <a name="probes"></a>Configuración de sondeo
+>[!IMPORTANT]
+>Independientemente del umbral de tiempo de espera configurado, los sondeos de estado del equilibrador de carga HTTP o HTTPS comprobarán automáticamente una instancia si el servidor devuelve cualquier código de estado que no sea HTTP 200 u OK o si la conexión se termina a través del restablecimiento de TCP.
+
+## <a name="probe-configuration"></a><a name="probes"></a>Configuración de sondeo
 
 La configuración del sondeo de estado se compone de los siguientes elementos:
 
@@ -57,14 +60,14 @@ La configuración del sondeo de estado se compone de los siguientes elementos:
 El número de respuestas de sondeo se aplica a:
 
 - el número de sondeos correctos que permiten que una instancia se marque como activa y
-- el número de sondeos con error que hacen que una instancia se marque como inactiva.
+- el número de sondeos con tiempo de espera expirado que hacen que una instancia se marque como inactiva.
 
 Los valores de intervalo y tiempo de espera especificados determinan si una instancia se marca como activa o inactiva.  La duración del intervalo multiplicado por el número de respuestas de sondeo determina el período durante el cual se deben detectar las respuestas de sondeo.  El servicio reaccionará después de que se hayan logrado los sondeos necesarios.
 
-Se puede ilustrar mejor el comportamiento con un ejemplo. Si ha establecido el número de respuestas de sondeo en 2 y el intervalo en 5 segundos, esto significa que se deben observar dos errores de sondeo en un intervalo de 10 segundos.  Dado que la hora a la que se envía un sondeo no está sincronizada cuando la aplicación puede cambiar de estado, se puede enlazar el tiempo con la detección mediante dos escenarios:
+Se puede ilustrar mejor el comportamiento con un ejemplo. Si ha establecido el número de respuestas de sondeo en 2 y el intervalo en 5 segundos, esto significa que se deben observar dos errores de tiempo de espera expirado de sondeo en un intervalo de 10 segundos.  Dado que la hora a la que se envía un sondeo no está sincronizada cuando la aplicación puede cambiar de estado, se puede enlazar el tiempo con la detección mediante dos escenarios:
 
-1. Si la aplicación comienza a producir una respuesta de sondeo con error justo antes de que llegue el primer sondeo, la detección de estos eventos tardará 10 segundos (intervalos de 2 x 5 segundos) más lo que tarda la aplicación en empezar a señalar un error cuando llega el primer sondeo.  Puede suponer que esta detección tarda algo más de 10 segundos.
-2. Si la aplicación comienza a producir una respuesta de sondeo con error justo después de que llegue el primer sondeo, la detección de estos eventos no comenzará hasta que llegue el siguiente sondeo (y se produzca un error) más otros 10 segundos (intervalos de 2 x 5 segundos).  Puede suponer que esta detección tarda poco menos de 15 segundos.
+1. Si la aplicación comienza a producir una respuesta de sondeo con tiempo de espera expirado justo antes de que llegue el primer sondeo, la detección de estos eventos tardará 10 segundos (intervalos de 2 x 5 segundos) más lo que tarda la aplicación en empezar a señalar un error de tiempo de espera expirado cuando llega el primer sondeo.  Puede suponer que esta detección tarda algo más de 10 segundos.
+2. Si la aplicación comienza a producir una respuesta de sondeo con tiempo de espera expirado justo después de que llegue el primer sondeo, la detección de estos eventos no comenzará hasta que llegue el siguiente sondeo (con el tiempo de espera expirado) más otros 10 segundos (intervalos de 2 x 5 segundos).  Puede suponer que esta detección tarda poco menos de 15 segundos.
 
 En este ejemplo, una vez que se ha producido la detección, la plataforma tarda una pequeña cantidad de tiempo en reaccionar a este cambio.  Esto significa que, dependiendo de: 
 
@@ -72,9 +75,12 @@ En este ejemplo, una vez que se ha producido la detección, la plataforma tarda 
 2. el momento en que se detecta este cambio y se cumplen los criterios necesarios (número de sondeos enviados en el intervalo especificado) y
 3. el momento en que la detección se haya comunicado a través de la plataforma, 
 
-puede asumir que la reacción a un sondeo con error tardará entre poco más de 10 segundos como mínimo y algo más de 15 segundos como máximo en reaccionar ante un cambio en la señal de la aplicación.  Este ejemplo tiene como fin ilustrar lo que está teniendo lugar; no obstante, no es posible predecir una duración exacta aparte de la orientación aproximada que se acaba de mostrar.
- 
-## <a name="types"></a>Tipos de sondeo
+puede asumir que la reacción a un sondeo con tiempo de espera expirado tardará entre poco más de 10 segundos como mínimo y algo más de 15 segundos como máximo en reaccionar ante un cambio en la señal de la aplicación.  Este ejemplo tiene como fin ilustrar lo que está teniendo lugar; no obstante, no es posible predecir una duración exacta aparte de la orientación aproximada que se acaba de mostrar.
+
+>[!NOTE]
+>El sondeo de estado comprobará todas las instancias en ejecución en el grupo de back-end. Si se detiene una instancia, no se sondeará hasta que se haya iniciado de nuevo.
+
+## <a name="probe-types"></a><a name="types"></a>Tipos de sondeo
 
 El protocolo que usa el sondeo de estado puede configurarse con una de las siguientes opciones:
 
@@ -89,14 +95,14 @@ Los protocolos disponibles dependen de la SKU de Load Balancer usada:
 | SKU Estándar |    &#9989; |   &#9989; |   &#9989; |
 | SKU Básico |   &#9989; |   &#9989; | &#10060; |
 
-### <a name="tcpprobe"></a>Sondeo TCP
+### <a name="tcp-probe"></a><a name="tcpprobe"></a>Sondeo TCP
 
 Los sondeos TCP inician una conexión mediante la realización de un protocolo de enlace TCP abierto de tres vías con el puerto definido.  Los sondeos TCP terminan una conexión con un protocolo de enlace TCP cerrado de cuatro vías.
 
 El intervalo de sondeo mínimo es de 5 segundos y el número mínimo de respuestas incorrectas es 2.  La duración total de todos los intervalos no puede superar los 120 segundos.
 
 Un sondeo TCP genera un error cuando:
-* El agente de escucha TCP de la instancia no responde durante el período de tiempo de expiración.  El sondeo se marca como inactivo en función del número de solicitudes de sondeo con error, que se configuraron para quedarse sin respuesta antes de marcar el sondeo como inactivo.
+* El agente de escucha TCP de la instancia no responde durante el período de tiempo de expiración.  El sondeo se marca como inactivo en función del número de solicitudes de sondeo con tiempo de espera expirado, que se configuraron para quedarse sin respuesta antes de marcar el sondeo como inactivo.
 * El sondeo recibe un restablecimiento de TCP de la instancia.
 
 A continuación se muestra cómo puede expresar este tipo de configuración de sondeo en una plantilla de Resource Manager:
@@ -112,7 +118,7 @@ A continuación se muestra cómo puede expresar este tipo de configuración de s
       },
 ```
 
-### <a name="httpprobe"></a> <a name="httpsprobe"></a> Sondeo HTTP/HTTPS
+### <a name="http--https-probe"></a><a name="httpprobe"></a> <a name="httpsprobe"></a> Sondeo HTTP/HTTPS
 
 >[!NOTE]
 >El sondeo HTTPS solo está disponible para [Standard Load Balancer](load-balancer-standard-overview.md).
@@ -157,7 +163,7 @@ A continuación se muestra cómo puede expresar este tipo de configuración de s
       },
 ```
 
-### <a name="guestagent"></a>Sondeo de agente invitado (solo clásico)
+### <a name="guest-agent-probe-classic-only"></a><a name="guestagent"></a>Sondeo de agente invitado (solo clásico)
 
 Los roles del servicio en la nube (roles de trabajo y roles web) usan un agente invitado para la supervisión del sondeo de forma predeterminada.  Un sondeo de agente invitado es una configuración de último recurso.  Use siempre un sondeo de estado de forma explícita con un sondeo TCP o HTTP. Un sondeo del agente invitado no es tan eficaz como LOS sondeos definidos explícitamente en los escenarios de la mayor parte de las aplicaciones.
 
@@ -172,7 +178,7 @@ Si el agente invitado responde con un HTTP 200, el equilibrador de carga vuelve 
 Cuando se usa un rol web, el código de sitio web normalmente se ejecuta en w3wp.exe, que no está supervisado por el agente invitado ni el tejido de Azure. Los errores en w3wp.exe (por ejemplo, las respuestas de HTTP 500) no se notifican al agente invitado. Por lo tanto, el equilibrador de carga no toma esa instancia fuera de la rotación.
 
 <a name="health"></a>
-## <a name="probehealth"></a>Comportamiento del sondeo activo
+## <a name="probe-up-behavior"></a><a name="probehealth"></a>Comportamiento del sondeo activo
 
 Los sondeos de estado TCP, HTTP y HTTPS se consideran en buen estado y marcan el punto de conexión de back-end como tal en los casos siguientes:
 
@@ -184,7 +190,7 @@ Cualquier punto de conexión de back-end que haya logrado un estado correcto se 
 > [!NOTE]
 > Si el sondeo de estado fluctúa, el equilibrador de carga espera más tiempo antes de volver a poner el punto de conexión de back-end en buen estado. Este tiempo de espera adicional protege el usuario y la infraestructura y es una directiva intencionada.
 
-## <a name="probedown"></a>Comportamiento de sondeo inactivo
+## <a name="probe-down-behavior"></a><a name="probedown"></a>Comportamiento de sondeo inactivo
 
 ### <a name="tcp-connections"></a>Conexiones TCP
 
@@ -205,7 +211,7 @@ UDP no tiene conexión y no hay ningún estado de flujo que realice el seguimien
 Si se produce un error en todos los sondeos de todas las instancias de un grupo de back-end, los flujos UDP terminarán para las instancias de Basic Load Balancer y Standard Load Balancer.
 
 <a name="source"></a>
-## <a name="probesource"></a>Dirección IP de origen del sondeo
+## <a name="probe-source-ip-address"></a><a name="probesource"></a>Dirección IP de origen del sondeo
 
 Load Balancer usa un servicio de sondeo distribuido para su modelo de mantenimiento interno. El servicio de sondeos reside en todos los host donde residan las máquinas virtuales y se puede programar a petición para generar sondeos de estado por cada configuración de cliente. El tráfico del sondeo de estado se realiza directamente entre el servicio de sondeos que genera el sondeo de estado y la máquina virtual del cliente. Todos los sondeos de Load Balancer tienen como origen la dirección IP 168.63.129.16.  Puede usar el espacio de direcciones IP dentro de una red virtual que no sea el espacio RFC1918.  El uso de una dirección IP propiedad de Microsoft reservada de forma global reduce la posibilidad de un conflicto de dirección IP con el espacio de direcciones IP que se usa dentro de la red virtual.  Esta dirección IP es la misma en todas las regiones y no cambia, y no supone un riesgo de seguridad porque solo el componente de la plataforma interna de Azure puede originar un paquete desde esta dirección IP. 
 
@@ -217,7 +223,7 @@ Además de los sondeos de estado de Load Balancer, en las [operaciones siguiente
 - Permite la comunicación con el servidor virtual de DNS para proporcionar resolución de nombres filtrada a los clientes que no definen servidores DNS personalizados.  Este filtro garantiza que los clientes solo pueden resolver los nombres de host de su implementación.
 - Permite que la máquina virtual obtenga una dirección IP dinámica desde el servicio DHCP en Azure.
 
-## <a name="design"></a> Instrucciones de diseño
+## <a name="design-guidance"></a><a name="design"></a> Instrucciones de diseño
 
 Los sondeos de estado se usan para hacer que el servicio sea resistente y se pueda escalar. Una configuración o un patrón de diseño incorrectos pueden afectar a la disponibilidad y escalabilidad del servicio. Revise todo el documento y tenga en cuenta el impacto en su escenario es cuando esta respuesta de sondeo se marca como inactiva o activa, y cómo afecta a la disponibilidad del escenario de la aplicación.
 

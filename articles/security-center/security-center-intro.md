@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2019
 ms.author: memildin
-ms.openlocfilehash: 84ed5db54874231d8bde4d892eedbc60c42a3430
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: d2e7e157156a4049a5db37b1d5c0e02773adbcc3
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77918764"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879554"
 ---
 # <a name="what-is-azure-security-center"></a>¿Qué es el Centro de seguridad de Azure?
 
@@ -49,7 +49,7 @@ Para ayudarlo a protegerse contra estos desafíos, Security Center le brinda las
 
 Como Security Center forma parte nativa de Azure, los servicios de PaaS en Azure (como Service Fabric, bases de datos SQL y cuentas de almacenamiento) los supervisa y protege Security Center sin necesidad de realizar ninguna implementación.
 
-Además, Security Center protege las máquinas virtuales y los servidores que no son de Azure en la nube y en el entorno local, tanto servidores Windows como Linux, al instalar en ellos Microsoft Monitoring Agent. Las máquinas virtuales de Azure se aprovisionan automáticamente en Security Center.
+Además, Security Center protege las máquinas virtuales y los servidores que no son de Azure en la nube y en el entorno local, tanto servidores Windows como Linux, al instalar en ellos el agente de Log Analytics. Las máquinas virtuales de Azure se aprovisionan automáticamente en Security Center.
 
 Los eventos recopilado de los agentes y de Azure se correlacionan en el motor de análisis de seguridad para brindarle recomendaciones a medida (tareas de protección) que debe seguir para garantizar que las cargas de trabajo sean seguras, y alertas de seguridad. Debe investigar estas alertas tan pronto como sea posible para asegurarse de que no haya ataques malintencionados en sus cargas de trabajo.
 
@@ -146,5 +146,7 @@ Recopilación extensiva de registros: los registros de Windows y Linux se usan e
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para empezar a trabajar con el Centro de seguridad, necesita una suscripción a Microsoft Azure. Si no tiene una suscripción, puede registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/free/).
-- Con la suscripción a Azure se habilita el plan de tarifa gratis de Security Center. Para aprovechar las funcionalidades avanzadas de administración de seguridad y protección frente a amenazas, debe actualizar al plan de tarifa estándar. Dicho plan se puede probar de forma gratuita durante 30 días. Para más información, vea la [página de precios de Security Center](https://azure.microsoft.com/pricing/details/security-center/).
-- Si está listo para habilitar ahora el nivel estándar de Security Center, el [Inicio rápido: Incorporación de su suscripción de Azure al nivel Estándar de Security Center](security-center-get-started.md) lo guía a través de los pasos.
+
+- El plan de tarifa Gratis de Security Center está habilitado en todas las suscripciones de Azure actuales desde que visite el panel de Azure Security Center en Azure Portal por primera vez, o si se habilitó mediante programación a través de la API. Para aprovechar las funcionalidades avanzadas de administración de seguridad y detección de amenazas, debe actualizar al plan de tarifa Estándar. Dicho plan se puede probar de forma gratuita durante 30 días. Para más información, consulte la [página de precios de Security Center](https://azure.microsoft.com/pricing/details/security-center/).
+
+- Si está listo para habilitar ahora el nivel Estándar de Security Center, el [Inicio rápido: Incorporación de su suscripción de Azure al nivel Estándar de Security Center](security-center-get-started.md) lo guía a través de los pasos.

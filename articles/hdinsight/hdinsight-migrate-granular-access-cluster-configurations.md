@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/22/2019
-ms.openlocfilehash: f1fdb9dffbe06430ea7e3eb9339e23f5239e4e36
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bb78d84aa0f9a2832b6599edeac9d50e0e226437
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76310839"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546352"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Migración a acceso basado en rol detallado para configuraciones de clúster
 
@@ -131,8 +131,8 @@ Actualice a la [versión 1.0.0](https://pypi.org/project/azure-mgmt-hdinsight/1.
 
 Actualice a la [versión 1.0.0](https://search.maven.org/artifact/com.microsoft.azure.hdinsight.v2018_06_01_preview/azure-mgmt-hdinsight/1.0.0/jar) o posterior del SDK de HDInsight para Java. Es posible que sea necesario realizar modificaciones mínimas en el código si está utilizando un método afectado por estos cambios:
 
-- [`ConfigurationsInner.get`](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018__06__01__preview.implementation._configurations_inner.get)**ya no devuelve parámetros confidenciales** como claves de almacenamiento (sitio principal) o credenciales de HTTP (puerta de enlace).
-- [`ConfigurationsInner.update`](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018__06__01__preview.implementation._configurations_inner.update) está ahora en desuso.
+- `ConfigurationsInner.get` ya **no devuelve parámetros confidenciales** como claves de almacenamiento (sitio principal) o credenciales de HTTP (puerta de enlace).
+- `ConfigurationsInner.update` ahora está en desuso.
 
 ### <a name="sdk-for-go"></a>SDK para Go
 
@@ -193,9 +193,9 @@ Las configuraciones de clúster están ahora detrás del control de acceso basad
 
 ### <a name="why-do-i-see-insufficient-privileges-to-complete-the-operation-when-running-the-azure-cli-command-to-assign-the-hdinsight-cluster-operator-role-to-another-user-or-service-principal"></a>¿Por qué veo el mensaje "No tiene privilegios suficientes para completar la operación" al ejecutar el comando de la CLI de Azure para asignar el rol Operador de clúster de HDInsight a otro usuario o entidad de servicio?
 
-Además de tener el rol Propietario, el usuario o la entidad de servicio que ejecuta el comando debe tener suficientes permisos de AAD para buscar los identificadores de objeto del usuario asignado. Este mensaje indica que no tiene suficientes permisos de AAD. Intente reemplazar el argumento `-–assignee` por `–assignee-object-id` y proporcione el identificador de objeto del usuario asignado como parámetro en lugar del nombre (o el identificador de la entidad de seguridad en el caso de una identidad administrada). Consulte la sección de parámetros opcionales de la [documentación sobre el comando az role assignment create](https://docs.microsoft.com/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) para más información.
+Además de tener el rol Propietario, el usuario o la entidad de servicio que ejecuta el comando debe tener suficientes permisos de Azure AD para buscar los identificadores de objeto del usuario asignado. Este mensaje indica que no tiene suficientes permisos de Azure AD. Intente reemplazar el argumento `-–assignee` por `–assignee-object-id` y proporcione el identificador de objeto del usuario asignado como parámetro en lugar del nombre (o el identificador de la entidad de seguridad en el caso de una identidad administrada). Consulte la sección de parámetros opcionales de la [documentación sobre el comando az role assignment create](https://docs.microsoft.com/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) para más información.
 
-Si sigue sin funcionar, póngase en contacto con el administrador de AAD para adquirir los permisos correctos.
+Si sigue sin funcionar, póngase en contacto con el administrador de Azure AD para adquirir los permisos correctos.
 
 ### <a name="what-will-happen-if-i-take-no-action"></a>¿Qué ocurrirá si no se realiza ninguna acción?
 

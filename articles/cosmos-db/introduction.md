@@ -6,18 +6,18 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
 ms.date: 10/23/2019
-ms.openlocfilehash: 2a09d5af013e804f33327855fb7b9f2104bc225c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 6292c3c2d928581d0564fe457342ea7b1e17111c
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79215253"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80983031"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Bienvenido a Azure Cosmos DB
 
 Las aplicaciones actuales deben estar siempre en línea y tener una alta capacidad de respuesta. Para lograr baja latencia y alta disponibilidad, las instancias de estas aplicaciones deben implementarse en centros de datos que están cerca de sus usuarios. Es necesario que las aplicaciones respondan en tiempo real a grandes cambios, en cuanto a uso, en las horas punta, que almacenen volúmenes de datos que cada vez son mayores y que dichos datos estén a disposición de los usuarios en milisegundos.
 
-Azure Cosmos DB es un servicio de base de datos con varios modelos distribuido de forma global de Microsoft. Con tan solo un clic, Cosmos DB permite escalar de forma elástica e individual el rendimiento y el almacenamiento en cualquier número de regiones de Azure a nivel mundial. Puede escalar de forma elástica el rendimiento y almacenamiento, y sacar provecho del rápido acceso a datos (menos de 10 milisegundos) mediante la API que prefiera, entre las que se incluyen: SQL, MongoDB, Cassandra, Tables o Gremlin. Cosmos DB proporciona completos [Acuerdos de Nivel de Servicio](https://aka.ms/acdbsla) (SLA) con garantía de rendimiento, latencia, disponibilidad y consistencia, algo que no ofrecen otros servicios de base de datos.
+Azure Cosmos DB es un servicio de base de datos con varios modelos distribuido de forma global de Microsoft. Con tan solo un clic, Cosmos DB permite escalar de forma elástica e individual el rendimiento y el almacenamiento en cualquier número de regiones de Azure a nivel mundial. Puede escalar de forma elástica el rendimiento y almacenamiento, y sacar provecho del rápido acceso a datos (menos de 10 milisegundos) mediante la API que prefiera, entre las que se incluyen: SQL, MongoDB, Cassandra, Tables o Gremlin. Cosmos DB proporciona completos [Acuerdos de Nivel de Servicio](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/) (SLA) con garantía de rendimiento, latencia, disponibilidad y consistencia, algo que no ofrecen otros servicios de base de datos.
 
 Puede [probar Azure Cosmos DB de forma gratuita](https://azure.microsoft.com/try/cosmosdb/) sin necesidad de una suscripción de Azure y sin compromisos o bien usar una [cuenta de nivel Gratis de Azure Cosmos DB](optimize-dev-test.md#azure-cosmos-db-free-tier) para obtener una cuenta con los primeros 400 RU/s y 5 GB de almacenamiento totalmente gratis.
 
@@ -48,7 +48,7 @@ Mediante Cosmos DB se pueden crear aplicaciones de escala planetaria con una gra
 
 ### <a name="precisely-defined-multiple-consistency-choices"></a>Varias opciones de coherencia definidas con precisión
 
-Cuando compile aplicaciones distribuidas globalmente en Cosmos DB, ya no es preciso que haga [concesiones extremas entre coherencia, disponibilidad, latencia y rendimiento](consistency-levels-tradeoffs.md). El protocolo de replicación de la arquitectura multimaestro de Cosmos DB se ha diseñado meticulosamente para ofrecer [cinco opciones de coherencia bien definidas](consistency-levels.md) ( - *segura*, *obsolescencia limitada*, *sesión*, *prefijo coherente* y *eventual*) para disponer de un modelo de programación intuitivo con baja latencia y alta disponibilidad para aplicaciones distribuidas globalmente.
+Cuando compile aplicaciones distribuidas globalmente en Cosmos DB, ya no es preciso que haga [concesiones extremas entre coherencia, disponibilidad, latencia y rendimiento](consistency-levels-tradeoffs.md). El protocolo de replicación de la arquitectura multimaestro de Cosmos DB se ha diseñado meticulosamente para ofrecer [cinco opciones de coherencia bien definidas](consistency-levels.md) - *segura*, *obsolescencia limitada*, *sesión*, *prefijo coherente* y *eventual*, con el fin de disponer de un modelo de programación intuitivo con baja latencia y alta disponibilidad para aplicaciones distribuidas globalmente.
 
 ### <a name="no-schema-or-index-management"></a>Sin administración de índices o esquemas
 
@@ -56,11 +56,11 @@ Mantener la sincronización entre los índices y el esquema de una base de datos
 
 ### <a name="battle-tested-database-service"></a>Servicio de base de datos probado en el campo
 
-Cosmos DB es un servicio fundamental de Azure. Durante casi una década, muchos productos de Microsoft han utilizado Cosmos DB para aplicaciones críticas a escala global, entre las que se incluyen Skype, Xbox, Office 365, Azure, etc. En la actualidad, Cosmos DB es uno de los servicios de crecimiento más rápido de Azure y lo usan muchos clientes externos y aplicaciones críticas que requieren un escalado flexible, distribución global inmediata y replicación de la arquitectura multimaestro para ofrecer baja latencia y alta disponibilidad de operaciones de lectura y escritura.
+Cosmos DB es un servicio fundamental de Azure. Durante casi una década, muchos productos de Microsoft han utilizado Cosmos DB para aplicaciones críticas a escala global, entre las que se incluyen Skype, Xbox, Office 365, Azure, etc. En la actualidad, Cosmos DB es uno de los servicios de crecimiento más rápido de Azure y lo usan muchos clientes externos y aplicaciones críticas que requieren un escalado flexible, distribución global inmediata y replicación de la arquitectura multimaestro para ofrecer baja latencia y alta disponibilidad de operaciones de lectura y escritura.
 
 ### <a name="ubiquitous-regional-presence"></a>Presencia en todas las regiones
 
-Cosmos DB está disponible en todas las regiones de Azure del mundo, lo que incluye más de 54 regiones en la nube pública, [Azure China 21Vianet](https://www.azure.cn/en-us/), Azure Alemania, Azure Government y Azure Government para Department of Defense (DoD). Consulte [Presencia regional de Cosmos DB](regional-presence.md).
+Cosmos DB está disponible en todas las regiones de Azure del mundo, lo que incluye más de 54 regiones en la nube pública, [Azure China 21Vianet](https://www.azure.cn/en-us/), Azure Alemania, Azure Government y Azure Government para Department of Defense (DoD). Consulte [Presencia regional de Cosmos DB](regional-presence.md).
 
 ### <a name="secure-by-default-and-enterprise-ready"></a>Seguro de forma predeterminada y preparado para la empresa
 

@@ -3,14 +3,14 @@ title: Consulta de registros de Azure Update Management
 description: En este artículo se describe cómo consultar los registros de Update Management en el área de trabajo de Log Analytics.
 services: automation
 ms.subservice: update-management
-ms.date: 01/10/2020
+ms.date: 04/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5a1979b0e714f35694999c04e1f890b710d54ac9
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 81e12e775306cc8637dedd534f50e8a14bc09a26
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867069"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743872"
 ---
 # <a name="query-update-records-for-update-management-in-azure-monitor-logs"></a>Consulta de registros de actualización para Update Management en registros de Azure Monitor
 
@@ -112,7 +112,7 @@ Se crea un registro con un tipo de `UpdateRunProgress` que proporciona el estado
 | CorrelationId | Identificador único del trabajo de runbook ejecutado para la actualización. |
 | EndTime | La hora a la que ha finalizado el proceso de sincronización. | 
 | ErrorResult | Código de error de Windows Update generado si no se puede instalar una actualización. | 
-| InstallationStatus | Los estados de instalación posibles de una actualización en el equipo cliente, *En curso*, *Correcta*, *Error parcial*. |
+| InstallationStatus | Los estados de instalación posibles de una actualización en el equipo cliente,<br> *NotStarted*: el trabajo aún no se ha desencadenado.<br> *FailedToStart*: no se puede iniciar el trabajo en la máquina.<br> *Failed*: el trabajo se inició, pero devolvió una excepción.<br> *InProgress*: el trabajo está en curso.<br> *MaintenanceWindowExceeded*: si faltaba la ejecución, pero se alcanzó el intervalo de la ventana de mantenimiento.<br> *Succeeded*: el trabajo se completó correctamente.<br> *InstallFailed*: error de instalación de la actualización.<br> *NotIncluded*<br> *Excluded* |
 | KBID | Identificador del artículo de Knowledge base para la actualización de Windows. | 
 | ManagementGroupName | Nombre del grupo de administración de Operations Manager o del área de trabajo de Log Analytics. |
 | OSType | Especifica el tipo de sistema operativo, *Windows* o *Linux*. | 
@@ -144,8 +144,8 @@ Se crea un registro con un tipo de `UpdateSummary` que proporciona el resumen de
 | CriticalUpdatesMissing | Número de actualizaciones críticas pendientes que se pueden aplicar. | 
 | ManagementGroupName | Nombre del grupo de administración de Operations Manager o del área de trabajo de Log Analytics. |
 | NETRuntimeVersion | Versión de .NET Framework instalada en el equipo Windows. |
-| OldestMissingSecurityUpdateBucket | | 
-| OldestMissingSecurityUpdateInDays | |
+| OldestMissingSecurityUpdateBucket | Los valores son:<br> *Recent* si el valor es inferior a 30 días<br> *Hace 30 días*<br> *Hace 60 días*<br> *90 days ago*<br> *120 days ago*<br> *150 days ago*<br> *180 days ago*<br> *Older* si el valor supera los 180 días | 
+| OldestMissingSecurityUpdateInDays | Número total de días de la actualización más antigua detectada como aplicable que no se ha instalado. |
 | OsVersion | La versión del sistema operativo. |
 | OtherUpdatesMissing | Recuento de actualizaciones detectadas que faltan. |
 | Resource |  Nombre del recurso. | 

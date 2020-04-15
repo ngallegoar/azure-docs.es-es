@@ -4,12 +4,12 @@ description: A continuación, se indica cómo habilitar la compatibilidad con la
 ms.topic: article
 ms.date: 12/09/2019
 ms.custom: sfrev
-ms.openlocfilehash: cb6e4ab00afd80cba41881e46296f7046a905919
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 396978546b301884087c4ea51e242258d64a6b0b
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76934944"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80983813"
 ---
 # <a name="configure-managed-identity-support-in-an-existing-service-fabric-cluster-preview"></a>Configuración de la compatibilidad con la identidad administrada en un clúster de Service Fabric existente (versión preliminar)
 
@@ -40,7 +40,7 @@ Para habilitar el servicio de token de identidad administrado en un clúster exi
 ]
 ```
 
-Para que los cambios surtan efecto, también tendrá que cambiar la directiva de actualización para especificar un reinicio forzado del runtime de Service Fabric en cada nodo a medida que la actualización avanza a través del clúster. Con este reinicio se garantiza que el servicio de sistema recién habilitado se inicia y se ejecuta en cada uno de los nodos. En el siguiente fragmento de código, `forceRestart` es la opción esencial; use los valores existentes para el resto de la configuración.  
+Para que los cambios surtan efecto, también tendrá que cambiar la directiva de actualización para especificar un reinicio forzado del runtime de Service Fabric en cada nodo a medida que la actualización avanza a través del clúster. Con este reinicio se garantiza que el servicio de sistema recién habilitado se inicia y se ejecuta en cada uno de los nodos. En el siguiente fragmento de código, `forceRestart` es la configuración esencial para habilitar el reinicio. Para el resto de parámetros, use los valores que se describen a continuación o los valores personalizados existentes ya especificados para el recurso de clúster. Para ver la configuración personalizada de la directiva de actualización de Fabric ("upgradeDescription") desde Azure Portal, seleccione la opción "Actualizaciones de Fabric" en el recurso de Service Fabric o en resources.azure.com. Las opciones predeterminadas de la directiva de actualización ("upgradeDescription") no se pueden ver desde PowerShell ni desde resources.azure.com. Consulte [ClusterUpgradePolicy](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.servicefabric.models.clusterupgradepolicy?view=azure-dotnet) para obtener información adicional.  
 
 ```json
 "upgradeDescription": {

@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: markjbrown
 ms.author: mjbrown
 ms.date: 01/31/2020
-ms.openlocfilehash: 287933de6403d680c5aa5b6c78df49abe5f2ac56
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 9650bb3214c22926427717569f718ca0426ed729
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79222132"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618744"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Uso del emulador de Azure Cosmos para desarrollo y pruebas locales
 
@@ -99,7 +99,7 @@ Account key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZ
 > [!NOTE]
 > Si ha iniciado el emulador con la opción /Key, use la clave generada en lugar de `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`. Para más información sobre la opción /Key, consulte la [referencia de la herramienta de la línea de comandos](#command-line).
 
-Al igual que Azure Cosmos DB, el emulador de Azure Cosmos solo admite la comunicación segura a través de SSL.
+Al igual que Azure Cosmos DB, el emulador de Azure Cosmos solo admite la comunicación segura a través de TLS.
 
 ## <a name="running-on-a-local-network"></a>Ejecución en una red local
 
@@ -215,17 +215,17 @@ Inicie el emulador desde un símbolo del sistema como administrador con "/Enable
   :> g.V()
   ```
 
-## <a name="export-the-ssl-certificate"></a>Exportación del certificado SSL
+## <a name="export-the-tlsssl-certificate"></a>Exportación del certificado TLS/SSL
 
 El sistema en tiempo de ejecución y los lenguajes .NET utilizan el almacén de certificados de Windows para conectarse de forma segura al emulador local de Azure Cosmos DB. Otros lenguajes tienen sus propios métodos de administración y uso de certificados. Java utiliza su propio [almacén de certificados](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html), mientras que Python utiliza [contenedores de sockets](https://docs.python.org/2/library/ssl.html).
 
 Para obtener un certificado que se pueda utilizar con los lenguajes y runtimes que no están integrados en el almacén de certificados de Windows, tendrá que realizar la exportación por medio del administrador de certificados de Windows. Para iniciarlo, ejecute certlm.msc o siga las instrucciones paso a paso del artículo sobre la [Exportación de los certificados del emulador de Azure Cosmos](./local-emulator-export-ssl-certificates.md). Una vez que el Administrador de certificados se esté ejecutando, abra los certificados personales, tal y como se muestra a continuación, y exporte el certificado con el nombre descriptivo "DocumentDBEmulatorCertificate" como archivo X.509 codificado en BASE-64 (.cer).
 
-![Certificado SSL del emulador local de Azure Cosmos DB](./media/local-emulator/database-local-emulator-ssl_certificate.png)
+![Certificado TLS/SSL del emulador local de Azure Cosmos DB](./media/local-emulator/database-local-emulator-ssl_certificate.png)
 
 El certificado X.509 puede importarse en el almacén de certificados de Java siguiendo las instrucciones de [Incorporación de un certificado al almacén de certificados CA de Java](https://docs.microsoft.com/azure/java-add-certificate-ca-store). Cuando el certificado se haya importado en el almacén de certificados, los clientes para las API de SQL y Azure Cosmos DB para MongoDB podrán conectarse al emulador de Azure Cosmos.
 
-Al conectarse al emulador desde los SDK de Node.js y Python, se deshabilita la verificación de SSL.
+Al conectarse al emulador desde los SDK de Node.js y Python, se deshabilita la verificación de TLS.
 
 ## <a name="command-line-tool-reference"></a><a id="command-line"></a>Referencia de la herramienta de la línea de comandos
 Desde la ubicación de instalación, puede usar la línea de comandos para iniciar y detener el emulador, configurar las opciones y realizar otras operaciones.
@@ -260,8 +260,8 @@ Para ver la lista de opciones, escriba `Microsoft.Azure.Cosmos.Emulator.exe /?` 
 | StopTraces     | Deja de recopilar los registros de seguimiento de la depuración mediante LOGMAN. | Microsoft.Azure.Cosmos.Emulator.exe /StopTraces  | |
 | StartWprTraces  |  Inicia la recopilación de registros de seguimiento de depuración con la herramienta Windows Performance Recorder. | Microsoft.Azure.Cosmos.Emulator.exe /StartWprTraces | |
 | StopWprTraces     | Detiene la recopilación de registros de seguimiento de depuración con la herramienta Windows Performance Recorder. | Microsoft.Azure.Cosmos.Emulator.exe /StopWprTraces  | |
-|FailOnSslCertificateNameMismatch | De forma predeterminada, el emulador vuelve a generar su certificado SSL autofirmado, si los SAN de certificado no incluyen el nombre de dominio del host del emulador, la dirección IPv4 local, "localhost" y "127.0.0.1". Con esta opción, el emulador producirá un error al inicio en su lugar. A continuación, debe usar la opción /GenCert para crear e instalar un nuevo certificado SSL autofirmado. | Microsoft.Azure.Cosmos.Emulator.exe /FailOnSslCertificateNameMismatch  | |
-| GenCert | Genera e instala un nuevo certificado SSL autofirmado. Puede incluir una lista de nombres DNS adicionales separada por comas para acceder al emulador a través de la red. | Microsoft.Azure.Cosmos.Emulator.exe /GenCert=\<dns-names\> |\<dns-names\>: lista opcional de nombres dns adicionales separada por comas  |
+|FailOnSslCertificateNameMismatch | De forma predeterminada, el emulador vuelve a generar su certificado TLS/SSL autofirmado, si los SAN de certificado no incluyen el nombre de dominio del host del emulador, la dirección IPv4 local, "localhost" y "127.0.0.1". Con esta opción, el emulador producirá un error al inicio en su lugar. A continuación, debe usar la opción /GenCert para crear e instalar un nuevo certificado TLS/SSL autofirmado. | Microsoft.Azure.Cosmos.Emulator.exe /FailOnSslCertificateNameMismatch  | |
+| GenCert | Genera e instala un nuevo certificado TLS/SSL autofirmado. Puede incluir una lista de nombres DNS adicionales separada por comas para acceder al emulador a través de la red. | Microsoft.Azure.Cosmos.Emulator.exe /GenCert=\<dns-names\> |\<dns-names\>: lista opcional de nombres dns adicionales separada por comas  |
 | DirectPorts |Especifica los puertos que se usarán para la conectividad directa. Los valores predeterminados son 10251,10252,10253,10254. | Microsoft.Azure.Cosmos.Emulator.exe /DirectPorts:\<directports\> | \<directports\>: una lista delimitada por comas de 4 puertos |
 | Clave |Clave de autorización para el emulador. La clave debe ser la codificación en base 64 de un vector de 64 bytes. | Microsoft.Azure.Cosmos.Emulator.exe /Key:\<key\> | \<key\>: Las claves deben ser la codificación en base 64 de un vector de 64 bytes.|
 | EnableRateLimiting | Especifica que el comportamiento de limitación de velocidad de solicitudes está habilitado. |Microsoft.Azure.Cosmos.Emulator.exe /EnableRateLimiting | |
@@ -398,7 +398,7 @@ powershell .\importcert.ps1
 Starting interactive shell
 ```
 
-Ahora, use el punto de conexión y la clave maestra de la respuesta en el cliente e importe el certificado SSL en el host. Para importar el certificado SSL, haga lo siguiente desde un símbolo del sistema de administración:
+Ahora, use el punto de conexión y la clave maestra de la respuesta en el cliente e importe el certificado TLS/SSL en el host. Para importar el certificado TLS/SSL, haga lo siguiente desde un símbolo del sistema de administración:
 
 Desde la línea de comandos:
 
@@ -445,7 +445,7 @@ Por último, es necesario importar el certificado de entidad de certificación d
 
 Si trabaja en Linux, .NET confía en OpenSSL para realizar la validación:
 
-1. [Exporte el certificado en formato PFX](./local-emulator-export-ssl-certificates.md#how-to-export-the-azure-cosmos-db-ssl-certificate) (PFX está disponible al elegir exportar la clave privada). 
+1. [Exporte el certificado en formato PFX](./local-emulator-export-ssl-certificates.md#how-to-export-the-azure-cosmos-db-tlsssl-certificate) (PFX está disponible al elegir exportar la clave privada). 
 
 1. Copie el archivo PFX en el entorno Linux.
 
@@ -471,7 +471,7 @@ Si trabaja en Linux, .NET confía en OpenSSL para realizar la validación:
 
 Siga estos pasos si trabaja en Mac:
 
-1. [Exporte el certificado en formato PFX](./local-emulator-export-ssl-certificates.md#how-to-export-the-azure-cosmos-db-ssl-certificate) (PFX está disponible al elegir exportar la clave privada).
+1. [Exporte el certificado en formato PFX](./local-emulator-export-ssl-certificates.md#how-to-export-the-azure-cosmos-db-tlsssl-certificate) (PFX está disponible al elegir exportar la clave privada).
 
 1. Copie el archivo PFX en el entorno Mac.
 
@@ -527,7 +527,7 @@ Para recopilar los seguimientos de depuración, ejecute los siguientes comandos 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha aprendido a usar el emulador local para desarrollar código en un entorno local gratuito. Ahora puede pasar al siguiente tutorial y aprender a exportar certificados SSL del emulador.
+En este tutorial, ha aprendido a usar el emulador local para desarrollar código en un entorno local gratuito. Ahora puede pasar al siguiente tutorial y aprender a exportar certificados TLS/SSL del emulador.
 
 > [!div class="nextstepaction"]
 > [Exportación de los certificados del emulador de Azure Cosmos](local-emulator-export-ssl-certificates.md)

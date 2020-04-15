@@ -9,12 +9,12 @@ ms.author: mhopkins
 ms.date: 01/24/2020
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: da5db7d956b1ba8aa1ac245b77fe0d4cb31909c1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 5219af0ec343a6e7f87a07e4a7280ac5f4e85cd3
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80061463"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619126"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -90,7 +90,7 @@ Puede encontrar un poco críptica la serie de valores después de cada parámetr
 Ahora que se genera la SAS, copie el valor devuelto y guárdelo en alguna parte para usarlo en un próximo paso. Si ha generado la SAS con un método distinto de la CLI de Azure, deberá quitar el signo `?` inicial en caso de que esté presente. Este carácter es un separador de dirección URL que ya se ha proporcionado en la plantilla de dirección URL más adelante en este tema donde se usa la SAS.
 
 > [!IMPORTANT]
-> En producción, pase siempre los tokens de SAS mediante SSL. Además, los tokens de SAS deben generarse en el servidor y enviarse a la página HTML para pasarlos de vuelta a Azure Blob Storage. Un enfoque que se puede considerar consiste en utilizar una función sin servidor para generar tokens de SAS. Azure Portal incluye plantillas de función que ofrecen la posibilidad de generar una firma de acceso compartido con una función de JavaScript.
+> En producción, pase siempre los tokens de SAS mediante TLS. Además, los tokens de SAS deben generarse en el servidor y enviarse a la página HTML para pasarlos de vuelta a Azure Blob Storage. Un enfoque que se puede considerar consiste en utilizar una función sin servidor para generar tokens de SAS. Azure Portal incluye plantillas de función que ofrecen la posibilidad de generar una firma de acceso compartido con una función de JavaScript.
 
 ## <a name="implement-the-html-page"></a>Implementación de la página HTML
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: b1d0c070a9196eaa9a2706a607baa9a2926e2db4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 615a6afb0f7a3e133603db10e7c79add3322070c
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67051751"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80476694"
 ---
 # <a name="publish-media-services-content-using-net"></a>Publicación de contenido de Media Services con.NET  
 > [!div class="op_single_selector"]
@@ -108,7 +108,7 @@ Las salidas:
 
 
 > [!NOTE]
-> También puede transmitir el contenido por una conexión SSL. Para llevar a cabo este enfoque, asegúrese de que las direcciones URL de streaming comienzan por HTTPS. Actualmente, AMS no admite SSL con dominios personalizados.
+> También puede transmitir el contenido por una conexión TLS. Para llevar a cabo este enfoque, asegúrese de que las direcciones URL de streaming comienzan por HTTPS. Actualmente, AMS no admite TLS con dominios personalizados.
 > 
 > 
 

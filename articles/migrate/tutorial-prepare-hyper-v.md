@@ -2,20 +2,19 @@
 title: Preparación de máquinas virtuales de Hyper-V para evaluación y migración con Azure Migrate
 description: Aprenda a prepararse para la evaluación y migración de máquinas virtuales de Hyper-V con Azure Migrate.
 ms.topic: tutorial
-ms.date: 01/01/2020
+ms.date: 03/31/2020
 ms.custom: mvc
-ms.openlocfilehash: 1d327f558806e0205540c183c56b92ba31e33cb7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d14ae4282afb610d025d08419a69c6d10c2f1d08
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77031227"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80436216"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>Preparación de la evaluación y migración de máquinas virtuales de Hyper-V a Azure
 
-En este artículo se indica cómo prepararse para la evaluación y migración de máquinas virtuales de Hyper-V locales a Azure mediante [Azure Migrate](migrate-services-overview.md).
+En este artículo se describe cómo preparar la evaluación de máquinas virtuales de Hyper-V locales con Azure Migrate:Server Assessment(migrate-services-overview.md#azure-migrate-server-assessment-tool) y la migración de máquinas virtuales de Hyper-V con[Azure Migrate:Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool).
 
-[Azure Migrate](migrate-overview.md) proporciona un centro de herramientas que le ayuda a detecta las aplicaciones, la infraestructura y las cargas de trabajo, a evaluarlas y a migrarlas a Microsoft Azure. Este centro incluye herramientas de Azure Migrate y ofertas de fabricantes de software independientes (ISV) de terceros.
 
 Este tutorial es el primero de una serie que muestra cómo evaluar máquinas virtuales de Hyper-V y migrarlas a Azure. En este tutorial, aprenderá a:
 
@@ -39,10 +38,11 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Necesita configurar permisos para la implementación de Azure Migrate.
 
-**Task** | **Permisos**
---- | ---
-**Crear un proyecto de Azure Migrate** | La cuenta de Azure necesita permisos para crear un proyecto.
-**Registrar el dispositivo de Azure Migrate** | Azure Migrate usa un dispositivo ligero para detectar y evaluar máquinas virtuales de Hyper-V con Azure Migrate Server Assessment. Este dispositivo realiza la detección de máquinas virtuales y envía sus metadatos y sus datos de rendimiento a Azure Migrate.<br/><br/>Durante el registro del dispositivo, los siguientes proveedores de recursos se registran con la suscripción elegida en el dispositivo: Microsoft.OffAzure, Microsoft.Migrate y Microsoft.KeyVault. Al registrar un proveedor de recursos se configura la suscripción para que funcione con este. Para registrar los proveedores de recursos debe tener el rol colaborador o propietario de la suscripción.<br/><br/> Como parte del proceso de incorporación, Azure Migrate crea una aplicación de Azure Active Directory (Azure AD):<br/> Esta aplicación se usa para la comunicación (autenticación y autorización) entre los agentes que se ejecutan en el dispositivo con sus servicios respectivos que se ejecutan en Azure. Esta aplicación no tiene privilegios para realizar llamadas a ARM ni acceso RBAC en ningún recurso.
+**Task** | **Detalles** 
+--- | --- 
+**Crear un proyecto de Azure Migrate** | La cuenta de Azure necesita permisos de colaborador o propietario para crear un proyecto. | 
+**Registrar proveedores de recursos** | Azure Migrate usa un dispositivo ligero para detectar y evaluar máquinas virtuales de Hyper-V con Azure Migrate Server Assessment.<br/><br/> Durante el registro de la aplicación, los proveedores de recursos se registran con la suscripción elegida en la aplicación. [Más información](migrate-appliance-architecture.md#appliance-registration).<br/><br/> Para registrar los proveedores de recursos debe tener el rol colaborador o propietario de la suscripción.
+**Creación de una aplicación de Azure AD** | Al registrar la aplicación, Azure Migrate crea una aplicación de Azure Active Directory (Azure AD) que se usa para la comunicación entre los agentes que se ejecutan en la aplicación con sus respectivos servicios que se ejecutan en Azure. [Más información](migrate-appliance-architecture.md#appliance-registration).<br/><br/> Para crear aplicaciones de Azure AD, se necesitan permisos (disponibles en el Desarrollador de aplicaciones).
 
 
 
@@ -90,14 +90,14 @@ El administrador de inquilinos o administrador global puede asignar el rol de de
 
 ## <a name="prepare-hyper-v-for-assessment"></a>Preparación de Hyper-V para la evaluación
 
-Puede preparar Hyper-V para la evaluación de máquinas virtuales manualmente o mediante un script de configuración. Esto es lo que se debe preparar, ya sea con el script o [manualmente](#prepare-hyper-v-manually).
-
+Puede preparar Hyper-V para la evaluación de máquinas virtuales manualmente o mediante un script de configuración. Estos son los pasos de preparación:
 - [Compruebe](migrate-support-matrix-hyper-v.md#hyper-v-host-requirements) la configuración de los hosts de Hyper-V y asegúrese de que los [puertos necesarios](migrate-support-matrix-hyper-v.md#port-access) estén abiertos en ellos.
 - Configure la comunicación remota de PowerShell en cada host de modo que el dispositivo de Azure Migrate pueda ejecutar comandos de PowerShell en el host mediante una conexión de WinRM.
 - Delegue credenciales si los discos de máquina virtual se encuentran en recursos compartidos SMB remotos.
 - Configure una cuenta que el dispositivo usará para detectar máquinas virtuales en hosts de Hyper-V.
-- Configure Hyper-V Integration Services en las máquinas virtuales que desee detectar y evaluar.
+- Configure Hyper-V Integration Services en las máquinas virtuales que desee detectar y evaluar. Los valores predeterminados que se utilizan al habilitar Integration Services son suficientes para Azure Migrate.
 
+    ![Habilitación de Integration Services](./media/tutorial-prepare-hyper-v/integrated-services.png)
 
 
 ## <a name="prepare-with-a-script"></a>Preparación con un script
@@ -113,7 +113,7 @@ El script hace lo siguiente:
 - Comprueba que el host está ejecutando una versión compatible de Hyper-V y el rol de Hyper-V.
 - Habilita el servicio WinRM y abre los puertos 5985 (HTTP) y 5986 (HTTPS) en el host (necesario para la recopilación de metadatos).
 - Habilita la comunicación remota con PowerShell en el host.
-- Comprueba que el servicio de integración de Hyper-V está habilitado en todas las máquinas virtuales administradas por el host.
+- Comprueba que los servicios de integración de Hyper-V está habilitado en todas las máquinas virtuales administradas por el host.
 - Habilita CredSSP en el host si es necesario.
 
 Ejecute el script como se indica a continuación:
@@ -130,7 +130,7 @@ Ejecute el script como se indica a continuación:
     SHA256
     ```
 
-4.  Después de validar la integridad del script, ejecútelo en cada host de Hyper-V con este comando de PowerShell:
+4.    Después de validar la integridad del script, ejecútelo en cada host de Hyper-V con este comando de PowerShell:
     ```
     PS C:\Users\Administrators\Desktop> MicrosoftAzureMigrate-Hyper-V.ps1
     ```
@@ -145,7 +145,7 @@ Los valores de hash son:
 | **SHA256** | 0ad60e7299925eff4d1ae9f1c7db485dc9316ef45b0964148a3c07c80761ade2 |
 
 
-## <a name="prepare-hyper-v-manually"></a>Preparación de Hyper-V manualmente
+## <a name="prepare-manually"></a>Preparación manual
 
 Siga los procedimientos de esta sección para preparar Hyper-V manualmente, en lugar de usar el script.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Implementación de una aplicación de pila doble IPv6 en Azure Virtual Network: plantilla de Resource Manager (versión preliminar)'
+title: 'Implementación de una aplicación de pila doble IPv6 en Azure Virtual Network: plantilla de Resource Manager'
 titlesuffix: Azure Virtual Network
 description: En este artículo, se muestra cómo implementar una aplicación de pila doble IPv6 en Azure Virtual Network con Standard Load Balancer mediante las plantillas de máquina virtual de Azure Resource Manager.
 services: virtual-network
@@ -10,16 +10,16 @@ ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 07/15/2019
+ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 8f2c6bc7fb7ab0939da20932fd531c158549ce7a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1f9531b5d1decfd462a82b9d389c5af519591c83
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70012852"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80420638"
 ---
-# <a name="deploy-an-ipv6-dual-stack-application-in-azure-virtual-network---template-preview"></a>Implementación de una aplicación de pila doble IPv6 en Azure Virtual Network: plantilla (versión preliminar)
+# <a name="deploy-an-ipv6-dual-stack-application-in-azure-virtual-network---template"></a>Implementación de una aplicación de pila doble IPv6 en Azure Virtual Network: plantilla
 
 En este artículo se proporciona una lista de tareas de configuración de IPv6 con la parte de la plantilla de VM de Azure Resource Manager a la que se aplica. Use la plantilla que se describe en este artículo para implementar en Azure una aplicación de pila doble (IPv4 + IPv6) con Standard Load Balancer que incluya una red virtual de pila doble con subredes IPv4 e IPv6, una instancia de Standard Load Balancer con configuraciones de front-end duales (IPv4 + IPv6), VM con NIC que tengan una configuración de IP dual, un grupo de seguridad de red e IP públicas. 
 

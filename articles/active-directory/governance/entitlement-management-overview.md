@@ -16,12 +16,12 @@ ms.date: 03/22/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3deb87fec8241ad6126314f3f6ce5fb9600ad1fb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 65100e8584eba5c31edc2f9fd8c57ad8bd14c0d1
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80128561"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582538"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>¿Qué es la administración de derechos de Azure AD?
 
@@ -43,7 +43,7 @@ Estos problemas se agravan para los usuarios que necesitan acceso desde otra org
 - Es posible que nadie conozca a todos los individuos en concreto de los directorios de otra organización para poder invitarlos.
 - Incluso si las organizaciones pudieran invitar a estos usuarios, es posible que nadie de esa organización se acuerde de administrar todo el acceso de los usuarios de forma coherente.
 
-La administración de derechos de Azure AD puede ayudar a abordar estos desafíos.  Para más información sobre cómo los clientes han estado usando la administración de derechos de Azure AD, puede leer el [caso de estudio de Avanade](https://aka.ms/AvanadeELMCase) y el [caso de estudio de Centrica](https://aka.ms/CentricaELMCase).  Este vídeo proporciona información general sobre la administración de derechos y su valor:
+La administración de derechos de Azure AD puede ayudar a abordar estos desafíos.  Para más información sobre cómo los clientes han estado usando la administración de derechos de Azure AD, puede leer el [caso de estudio de Avanade](https://customers.microsoft.com/story/avanade-professional-services-azure-canada) y el [caso de estudio de Centrica](https://customers.microsoft.com/story/757467-centrica-energy-azure).  Este vídeo proporciona información general sobre la administración de derechos y su valor:
 
 >[!VIDEO https://www.youtube.com/embed/_Lss6bFrnQ8]
 
@@ -132,15 +132,16 @@ Para comprender mejor la administración de derechos y su documentación, puede 
 
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
-Las nubes especializadas, como Azure Government, Azure Alemania y Azure China 21Vianet, no están actualmente disponibles para su uso.
+Las nubes especializadas, como Azure Alemania y Azure China 21Vianet, no están actualmente disponibles para su uso.
 
 ### <a name="how-many-licenses-must-you-have"></a>¿Cuántas licencias debe tener?
 
-Asegúrese de que el directorio tiene al menos tantas licencias de Azure AD Premium P2 como usted empleados que van a realizar las tareas siguientes:
+Asegúrese de que el directorio tenga al menos tantas licencias de Azure AD Premium P2 como usted:
 
 - Usuarios miembros que **pueden** solicitar un paquete de acceso.
 - Usuarios miembros e invitados que solicitan un paquete de acceso.
 - Usuarios miembros e invitados que aprueban solicitudes para un paquete de acceso.
+- Usuarios miembros e invitados que tengan una asignación directa a un paquete de acceso.
 
 Las licencias de Azure AD Premium P2 **no** son necesarias para las tareas siguientes:
 

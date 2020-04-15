@@ -5,25 +5,25 @@ services: functions
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 03/06/2020
+ms.date: 03/26/2020
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 034e966d259f1ca5f22eec5935013de32c883b59
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 477f3cf270377bc1341e65ab500093e05277afa8
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80056670"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80657510"
 ---
 La plantilla del proyecto de Azure Functions de Visual Studio crea un proyecto que puede publicar en una aplicación de función en Azure. Una aplicación de funciones permite agrupar funciones como una unidad lógica para facilitar la administración, la implementación, el escalado y el uso compartido de recursos.
 
-1. En Visual Studio, en el menú **Archivo**, seleccione **Nuevo** > **Proyecto**.
+1. En el menú de Visual Studio, seleccione **Archivo** > **Nuevo** > **Proyecto**.
 
-1. En **Crear un nuevo proyecto**, escriba *funciones* en el cuadro de búsqueda y, a continuación, elija la plantilla **Azure Functions**.
+1. En **Crear un proyecto**, escriba *functions* en el cuadro de búsqueda, elija la plantilla **Azure Functions** y seleccione **Siguiente**.
 
 1. En **Configurar el nuevo proyecto**, escriba un **nombre de proyecto**  para el proyecto y, a continuación, seleccione **Crear**. El nombre de la aplicación de función debe ser válido como espacio de nombres de C#, por lo que no debe usar guiones bajos, guiones u otros caracteres no alfanuméricos.
 
-1. Para la configuración de **Nuevo proyecto - &lt;nombre del proyecto&gt;** , use los valores de la tabla siguiente:
+1. En la configuración de **Crear Azure Function Application**, use los valores de la tabla siguiente:
 
     | Configuración      | Value  | Descripción                      |
     | ------------ |  ------- |----------------------------------------- |
@@ -38,4 +38,4 @@ La plantilla del proyecto de Azure Functions de Visual Studio crea un proyecto q
 
     Asegúrese de establecer los **derechos de acceso** en **Anónimos**. Al elegir el nivel predeterminado de **Función**, tiene que presentar la [tecla de función](../articles/azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) en las solicitudes para acceder al punto de conexión de la función.
 
-1. Seleccione **Aceptar** para crear el proyecto de función y la función que se desencadena mediante HTTP.
+1. Seleccione **Crear** para crear el proyecto de función y la función con desencadenador HTTP.

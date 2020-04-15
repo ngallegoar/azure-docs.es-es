@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev
-ms.openlocfilehash: 34f0fb57b4432a8153f2cbaa8cb60edbb9a6f494
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 0affae56ef6998efe4bb370287ff3688f83f3878
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78271080"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80873963"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>Inicio rápido: Adición del inicio de sesión con Microsoft a una aplicación web de Python
 
@@ -41,8 +41,7 @@ Para ejecutar este ejemplo, necesitará lo siguiente:
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opción 1: registrar y configurar de modo automático la aplicación y, a continuación, descargar el código de ejemplo
 >
-> 1. Vaya a [Azure Portal: registros de aplicaciones](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps).
-> 1. Seleccione **Nuevo registro**.
+> 1. Vaya a [Azure Portal: registros de aplicaciones](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/PythonQuickstartPage/sourceType/docs).
 > 1. Escriba un nombre para la aplicación y seleccione **Registrar**.
 > 1. Siga las instrucciones para descargar y configurar automáticamente la nueva aplicación.
 >
@@ -59,8 +58,11 @@ Para ejecutar este ejemplo, necesitará lo siguiente:
 > 1. Cuando aparece la página **Registrar una aplicación**, escriba la información de registro de la aplicación:
 >      - En la sección **Nombre**, escriba un nombre significativo para la aplicación, que se mostrará a los usuarios de la aplicación, por ejemplo, `python-webapp`.
 >      - En **Supported account types** (Tipos de cuenta compatibles), seleccione **Accounts in any organizational directory and personal Microsoft accounts** (Cuentas en cualquier directorio de organización y cuentas personales de Microsoft).
->      - En la sección **URI de redirección**, en la lista desplegable seleccione la plataforma **Web** y establezca el valor en `http://localhost:5000/getAToken`.
->      - Seleccione **Registrar**. En la página de **información general** de la aplicación, anote el valor del **Identificador de aplicación (cliente)** para su uso posterior.
+>      - Seleccione **Registrar**.
+>      - En la página de **información general** de la aplicación, anote el valor del **Identificador de aplicación (cliente)** para su uso posterior.
+> 1. Seleccione la **Autenticación** en el menú y, después, agregue la siguiente información:
+>    - Agregue la configuración de la plataforma **web**. Agregue `http://localhost:5000/getAToken` como **URI de redirección**.
+>    - Seleccione **Guardar**.
 > 1. En el menú de la izquierda, elija **Certificates & secrets** (Certificados y secretos) y haga clic en **Nuevo secreto de cliente** en la sección **Client Secrets** (Secretos de cliente):
 >
 >      - Escriba una descripción de la clave (del secreto de la aplicación de instancia).
@@ -99,13 +101,17 @@ Para ejecutar este ejemplo, necesitará lo siguiente:
 > [!div renderon="portal" id="autoupdate" class="nextstepaction"]
 > [Descargar el código de ejemplo](https://github.com/Azure-Samples/ms-identity-python-webapp/archive/master.zip)
 
+> [!div class="sxs-lookup" renderon="portal"]
+> > [!NOTE]
+> > `Enter_the_Supported_Account_Info_Here`
+
 > [!div renderon="docs"]
 > #### <a name="step-3-configure-the-application"></a>Paso 3: Configuración de la aplicación
-> 
+>
 > 1. Extraiga el archivo ZIP en la carpeta local más próxima a la carpeta raíz (por ejemplo, **C:\Azure-Samples**).
 > 1. Si usa un entorno de desarrollo integrado, abra el ejemplo en su IDE favorito (opcional).
 > 1. Abra el archivo **app_config.py**, que se puede encontrar en la carpeta raíz, y reemplace el siguiente fragmento de código:
-> 
+>
 > ```python
 > CLIENT_ID = "Enter_the_Application_Id_here"
 > CLIENT_SECRET = "Enter_the_Client_Secret_Here"

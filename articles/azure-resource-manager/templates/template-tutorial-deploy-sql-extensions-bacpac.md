@@ -5,16 +5,16 @@ author: mumian
 ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 8e65ebbfa0971bf2156165b55ca18eee3cc74bc9
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 83108c056035b16d26343d82c721b275ebcad0c5
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80239279"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754331"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-arm-templates"></a>Tutorial: Importación de archivos BACPAC de SQL con plantillas de Resource Manager
 
-Aprenda a usar las extensiones de Azure SQL Database para importar un archivo BACPAC con las plantillas de Azure Resource Manager. Los artefactos de implementación son cualquier archivo, además de los archivos de la plantilla principal, que se necesitan para completar una implementación. El archivo BACPAC es un artefacto. 
+Aprenda a usar las extensiones de Azure SQL Database para importar un archivo BACPAC con las plantillas de Azure Resource Manager. Los artefactos de implementación son cualquier archivo, además de los archivos de la plantilla principal, que se necesitan para completar una implementación. El archivo BACPAC es un artefacto.
 
 En este tutorial creará una plantilla para implementar una instancia de Azure SQL Server y otra de SQL Database e importar un archivo BACPAC. Para más información sobre la implementación de extensiones de máquina virtual de Azure mediante plantillas de Azure Resource Manager, consulte [Tutorial: Implementación de extensiones de máquina virtual con plantillas de Resource Manager](./template-tutorial-deploy-vm-extensions.md).
 
@@ -255,7 +255,7 @@ Cuando los recursos de Azure ya no sean necesarios, limpie los recursos que impl
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial ha implementado una instancia de SQL Server y otra de SQL Database, y ha importado un archivo BACPAC. El archivo BACPAC se almacena en una cuenta Azure Storage. Cualquier persona con la dirección URL puede acceder al archivo. Para aprender a proteger el archivo BACPAC (artefacto), consulte:
+En este tutorial ha implementado una instancia de SQL Server y otra de SQL Database, y ha importado un archivo BACPAC. Para obtener información sobre cómo solucionar problemas de implementación de plantillas, consulte:
 
 > [!div class="nextstepaction"]
-> [Proteger los artefactos](./template-tutorial-secure-artifacts.md)
+> [Solución de problemas de las implementaciones de plantillas de Resource Manager](./template-tutorial-troubleshoot.md)

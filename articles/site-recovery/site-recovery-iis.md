@@ -7,18 +7,18 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 513a0f28fc03cbf24e35112245c9756d5ce00783
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dfed398124ca20771e169f6f9e7d08d4d799ee1e
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73954660"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478293"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Configuración de la recuperación ante desastres para una aplicación web basada en IIS de niveles múltiples
 
 El software de las aplicaciones es el motor que mantiene la productividad del negocio. En una organización, puede haber diversas aplicaciones web con diferentes propósitos. Algunas aplicaciones, como las que se usan para el procesamiento de nóminas, aplicaciones financieras y sitios web orientado al cliente, pueden resultar fundamentales para una organización. Para evitar la pérdida de productividad, es importante que la organización tenga estas aplicaciones continuamente en funcionamiento. Más importante aún, tener estas aplicaciones disponibles sistemáticamente puede ayudar a impedir que se perjudique la marca o la imagen de la organización.
 
-Las aplicaciones web que resultan esenciales suelen configurarse como aplicaciones de capas múltiples: web, base de datos y aplicación. Además de abarcar diferentes capas, las aplicaciones también pueden usar diferentes servidores en cada nivel para equilibrar la carga del tráfico. Por otra parte, las asignaciones entre las diferentes capas y en el servidor web podrían basarse en direcciones IP estáticas. Si se produce una conmutación por error, algunas de estas asignaciones deben actualizarse, especialmente, si hay varios sitios web configurados en el servidor web. Si las aplicaciones web usan SSL, debe actualizar los enlaces de certificado.
+Las aplicaciones web que resultan esenciales suelen configurarse como aplicaciones de capas múltiples: web, base de datos y aplicación. Además de abarcar diferentes capas, las aplicaciones también pueden usar diferentes servidores en cada nivel para equilibrar la carga del tráfico. Por otra parte, las asignaciones entre las diferentes capas y en el servidor web podrían basarse en direcciones IP estáticas. Si se produce una conmutación por error, algunas de estas asignaciones deben actualizarse, especialmente, si hay varios sitios web configurados en el servidor web. Si las aplicaciones web usan TLS, debe actualizar los enlaces de certificado.
 
 Con los métodos de recuperación tradicionales que no se basan en la replicación, es necesario realizar la copia de seguridad de varios archivos de configuración, valores del Registro, enlaces, componentes personalizados (COM o .NET), contenido y certificados. Los archivos se recuperan mediante un conjunto de pasos manuales. Los métodos tradicionales de copia de seguridad y recuperación manual de los archivos son complicados, propensos a errores y no se pueden escalar. Por ejemplo, es fácil olvidarse de realizar una copia de seguridad de los certificados. Después de la conmutación por error, no le queda más remedio que comprar nuevos certificados para el servidor.
 
@@ -118,22 +118,22 @@ Todos los sitios se componen de información de enlace. La información de enlac
 >
 > Si establece el enlace del sitio en **Todas sin asignar**, no es necesario actualizar este enlace después de la conmutación por error. Además, si la dirección IP asociada con un sitio no cambia después de la conmutación por error, no es necesario actualizar el enlace del sitio. (La retención de la dirección IP depende de la arquitectura de red y de las subredes asignadas a los sitios principal y de recuperación. Puede que actualizarlos no sea factible en su organización).
 
-![Captura de pantalla que muestra cómo establecer el enlace SSL](./media/site-recovery-iis/sslbinding.png)
+![Captura de pantalla que muestra la configuración del enlace de TLS/SSL](./media/site-recovery-iis/sslbinding.png)
 
 Si la dirección IP está asociada con un sitio, actualice todos los enlaces de sitio con la nueva dirección IP. Para cambiar los enlaces de sitio, agregue un [script de actualización de capa web de IIS](https://aka.ms/asr-web-tier-update-runbook-classic) después del grupo 3 en el plan de recuperación.
 
 #### <a name="update-the-load-balancer-ip-address"></a>Actualización de la dirección IP del equilibrador de carga
 Si tiene una máquina virtual de ARR, para actualizar la dirección IP, agregue un [script de conmutación por error de ARR para IIS](https://aka.ms/asr-iis-arrtier-failover-script-classic) después al grupo 4.
 
-#### <a name="ssl-certificate-binding-for-an-https-connection"></a>Enlace de certificado SSL para una conexión HTTPS
-Un sitio web puede tener un certificado SSL asociado que ayuda a garantizar una comunicación segura entre el servidor web y el explorador del servidor. Si el sitio web tiene una conexión HTTPS y también tiene un enlace de sitio HTTPS asociado a la dirección IP del servidor IIS con un enlace de certificado SSL, debe agregar un nuevo enlace de sitio para el certificado con la dirección IP de la máquina virtual de IIS después de la conmutación por error.
+#### <a name="tlsssl-certificate-binding-for-an-https-connection"></a>Enlace de certificado TLS/SSL para una conexión HTTPS
+Un sitio web puede tener un certificado TLS/SSL asociado que ayude a garantizar una comunicación segura entre el servidor web y el explorador del usuario. Si el sitio web tiene una conexión HTTPS y también tiene un enlace de sitio HTTPS asociado a la dirección IP del servidor IIS con un enlace de certificado TLS/SSL, debe agregar un nuevo enlace de sitio para el certificado con la dirección IP de la máquina virtual de IIS después de la conmutación por error.
 
-El certificado SSL se puede emitir para componentes:
+El certificado TLS/SSL se puede emitir para estos componentes:
 
 * El nombre de dominio completo del sitio web.
 * El nombre del servidor.
 * Un certificado comodín para el nombre de dominio.  
-* Una dirección IP. Si se emite el certificado SSL para la dirección IP del servidor IIS, se debe emitir otro certificado SSL para la dirección IP del servidor IIS en el sitio de Azure. Será necesario crear un enlace SSL adicional para este certificado. Por este motivo, se recomienda no usar un certificado SSL emitido para la dirección IP. Esta opción se usa mucho menos y dejará de utilizarse pronto con arreglo a los nuevos cambios del foro de entidad de certificación/explorador.
+* Una dirección IP. Si se emite el certificado TLS/SSL para la dirección IP del servidor IIS, se debe emitir otro certificado TLS/SSL para la dirección IP del servidor IIS en el sitio de Azure. Será necesario crear un enlace TLS adicional para este certificado. Por este motivo, se recomienda no usar un certificado TLS/SSL emitido para la dirección IP. Esta opción se usa mucho menos y dejará de utilizarse pronto con arreglo a los nuevos cambios del foro de entidad de certificación/explorador.
 
 #### <a name="update-the-dependency-between-the-web-tier-and-the-application-tier"></a>Actualización de la dependencia entre la capa web y la capa de aplicación
 Si tiene una dependencia específica de la aplicación basada en la dirección IP de las máquinas virtuales, debe actualizarla tras la conmutación por error.

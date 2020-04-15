@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/19/2020
+ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: f853d6d59a4c23b7b52a2a0ba800ace58c997f6e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1ac508fc9fee07482e475c46e1db262c8bfa1a12
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79481592"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80476265"
 ---
 # <a name="tutorial-join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Tutorial: Unión de una máquina virtual de Windows Server a un dominio administrado
 
@@ -76,8 +76,6 @@ Si ya tiene una máquina virtual que quiera unir a un dominio, vaya a la secció
 
     RDP solo se debe habilitar cuando sea necesario y limitarse a un conjunto de intervalos IP autorizados. Esta configuración ayuda a mejorar la seguridad de la máquina virtual y reduce el área de posibles ataques. También puede crear y usar un host de Azure Bastion que solo permite el acceso mediante Azure Portal a través de TLS. En el siguiente paso de este tutorial, usará un host de Azure Bastion para conectarse de forma segura a la máquina virtual.
 
-    Por ahora, deshabilite las conexiones RDP directas a la máquina virtual.
-
     En **Puertos de entrada públicos**, seleccione *Ninguno*.
 
 1. Cuando termine, seleccione **Siguiente: Discos**.
@@ -96,22 +94,23 @@ Si ya tiene una máquina virtual que quiera unir a un dominio, vaya a la secció
 
     ![Elija esta opción para administrar la configuración de la subred en Azure Portal](./media/join-windows-vm/manage-subnet.png)
 
-1. En el menú de la izquierda de la ventana de la red virtual, seleccione **Espacio de direcciones**. La red virtual se crea con un solo espacio de direcciones *10.0.1.0/24*, que la subred predeterminada utiliza.
+1. En el menú de la izquierda de la ventana de la red virtual, seleccione **Espacio de direcciones**. La red virtual se crea con un solo espacio de direcciones de *10.0.2.0/24*, que es la que utiliza la subred predeterminada. También pueden existir ya otras subredes como, por ejemplo, *cargas de trabajo* o Azure Bastion.
 
     Agregue un intervalo de direcciones IP adicional a la red virtual. El tamaño de este intervalo de direcciones y el intervalo de direcciones IP real que se usará dependerán de otros recursos de red ya implementados. El intervalo de direcciones IP no debe solaparse con los intervalos de direcciones existentes en el entorno de Azure o local. Asegúrese de que el intervalo de direcciones IP sea lo suficientemente grande para el número de máquinas virtuales que espera implementar en la subred.
 
-    En el ejemplo siguiente, se agrega un intervalo de direcciones IP adicional *10.0.2.0/24*. Cuando esté preparado, seleccione **Guardar**.
+    En el ejemplo siguiente, se agrega un intervalo de direcciones IP adicional de *10.0.5.0/24*. Cuando esté preparado, seleccione **Guardar**.
 
-    ![Adición de un intervalo de direcciones IP de red virtual adicional en Azure Portal](./media/tutorial-configure-networking/add-vnet-address-range.png)
+    ![Adición de un intervalo de direcciones IP de red virtual adicional en Azure Portal](./media/join-windows-vm/add-vnet-address-range.png)
 
 1. A continuación, en el menú de la izquierda de la ventana de la red virtual, seleccione **Subredes** y, a continuación, seleccione **+ Subred** para agregar una subred.
 
-1. Seleccione **+ Subred** y, a continuación, escriba un nombre para la subred como, por ejemplo, *management*. Proporcione un **Intervalo de direcciones (bloque CIDR)** como, por ejemplo, *10.0.2.0/24*. Asegúrese de que este intervalo de direcciones IP no se superponga con otros en el entorno local o de Azure existentes. Deje las restantes opciones con sus valores predeterminados y, después, seleccione **Aceptar**.
+1. Seleccione **+ Subred** y, a continuación, escriba un nombre para la subred como, por ejemplo, *management*. Proporcione un **Intervalo de direcciones (bloque CIDR)** como, por ejemplo, *10.0.5.0/24*. Asegúrese de que este intervalo de direcciones IP no se superponga con otros en el entorno local o de Azure existentes. Deje las restantes opciones con sus valores predeterminados y, después, seleccione **Aceptar**.
 
     ![Creación de la configuración de una subred en Azure Portal](./media/join-windows-vm/create-subnet.png)
 
 1. La subred tarda unos segundos en crearse. Una vez creada, seleccione la *X* para cerrar la ventana de la subred.
 1. De nuevo en el panel **Redes** para crear una máquina virtual, elija la subred que creó en el menú desplegable como, por ejemplo, *management*. De nuevo, asegúrese de elegir la subred correcta y no implemente la máquina virtual en la misma que el dominio administrado de Azure AD DS.
+1. En **IP pública**, seleccione *Ninguno* en el menú desplegable, ya que usa Azure Bastion para conectarse a la administración y no necesita una dirección IP pública asignada.
 1. Deje las restantes opciones con sus valores predeterminados y, después, seleccione **Administración**.
 1. Establezca **Diagnósticos de arranque** en *Desactivado*. Deje las restantes opciones con sus valores predeterminados y, después, seleccione **Revisar y crear**.
 1. Revise la configuración de la máquina virtual y seleccione **Crear**.

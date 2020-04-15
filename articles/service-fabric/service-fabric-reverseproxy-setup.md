@@ -4,12 +4,12 @@ description: Aprenda a iniciar y configurar el servicio de proxy inverso para un
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: pepogors
-ms.openlocfilehash: 131440036896d323cbf821d7a220328456e1db36
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 6e3edb0fe238dcaddb7d99cc68660591f081581c
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645453"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80476675"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Instalación y configuración del proxy inverso en Azure Service Fabric
 El proxy inverso es un servicio opcional de Azure Service Fabric que ayuda a los microservicios que se ejecutan en un clúster de Service Fabric a detectar otros servicios que tienen puntos de conexión HTTP y a comunicarse con ellos. Para más información, consulte [Proxy inverso en Azure Service Fabric](service-fabric-reverseproxy.md). Este artículo muestra cómo instalar y configurar el proxy inverso en el clúster. 
@@ -23,7 +23,7 @@ Para configurar el proxy inverso al [crear un clúster mediante Azure Portal](./
 1. En el **Paso 2: En Configuración del clúster**, en **Configuración del tipo de nodo**, seleccione **Habilitar proxy inverso**.
 
    ![Habilitación del proxy inverso en el portal](./media/service-fabric-reverseproxy-setup/enable-rp-portal.png)
-2. (Opcional) Para configurar un proxy inverso seguro, tiene que configurar un certificado SSL. En **Paso 3: Seguridad**, en **Configurar opciones de seguridad del clúster**, en **Tipo de configuración**, seleccione **Personalizado**. A continuación, en **Certificado SSL de proxy inverso**, seleccione **Include a SSL certificate for reverse proxy** (Incluir un certificado SSL para proxy inverso) y escriba los detalles del certificado.
+2. (Opcional) Para configurar un proxy inverso seguro, tiene que configurar un certificado TLS/SSL. En **Paso 3: Seguridad**, en **Configurar opciones de seguridad del clúster**, en **Tipo de configuración**, seleccione **Personalizado**. A continuación, en **Certificado SSL de proxy inverso**, seleccione **Include a SSL certificate for reverse proxy** (Incluir un certificado SSL para proxy inverso) y escriba los detalles del certificado.
 
    ![Configuración del proxy inverso seguro en el portal](./media/service-fabric-reverseproxy-setup/configure-rp-certificate-portal.png)
 
@@ -74,7 +74,7 @@ Una vez que tenga una plantilla de Resource Manager, puede seguir estos pasos pa
         ...
     }
     ```
-3. Para configurar certificados SSL en el puerto para el proxy inverso, agregue el certificado a la propiedad ***reverseProxyCertificate*** de la **sección del** tipo de recurso [Microsoft. ServiceFabric/clusters](../resource-group-authoring-templates.md).
+3. Para configurar certificados TLS/SSL en el puerto para el proxy inverso, agregue el certificado a la propiedad ***reverseProxyCertificate*** de la **sección de** tipo de recurso [Microsoft.ServiceFabric/clusters](../resource-group-authoring-templates.md).
 
     ```json
     {
@@ -252,7 +252,7 @@ Si desea exponer un proxy inverso públicamente para un clúster independiente, 
 
 ### <a name="expose-the-reverse-proxy-via-resource-manager-templates"></a>Exposición del proxy inverso mediante plantillas de Resource Manager
 
-El siguiente archivo JSON hace referencia a la misma plantilla que se usa en [Habilitación del proxy inverso mediante plantillas de Azure Resource Manager](#enable-reverse-proxy-via-azure-resource-manager-templates). Haga referencia a esa sección del documento para obtener información acerca de cómo crear una plantilla de Resource Manager o exportar una plantilla para un clúster existente.  Los cambios se realizan en la [ **** sección de cambios de recurso](https://docs.microsoft.com/azure/templates/microsoft.network/loadbalancers) [Microsoft. Network/loadBalancers](../resource-group-authoring-templates.md).
+El siguiente archivo JSON hace referencia a la misma plantilla que se usa en [Habilitación del proxy inverso mediante plantillas de Azure Resource Manager](#enable-reverse-proxy-via-azure-resource-manager-templates). Haga referencia a esa sección del documento para obtener información acerca de cómo crear una plantilla de Resource Manager o exportar una plantilla para un clúster existente.  Los cambios se realizan en la [**sección de cambios de recurso**](https://docs.microsoft.com/azure/templates/microsoft.network/loadbalancers) [Microsoft. Network/loadBalancers](../resource-group-authoring-templates.md).
 
     ```json
     {

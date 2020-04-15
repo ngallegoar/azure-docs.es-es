@@ -1,41 +1,44 @@
 ---
-title: 'Tutorial: Concesión de acceso a una API web de ASP.NET Core desde una aplicación de página única'
+title: 'Tutorial: Protección de una API web de Node.js mediante Azure AD B2C y concesión de acceso a una aplicación de página única (SPA)'
 titleSuffix: Azure AD B2C
-description: En este tutorial, aprenderá a usar Active Directory B2C para proteger una API web de .NET Core e invocarla desde una aplicación de una sola página de Node.js.
+description: En este tutorial aprenderá a usar Active Directory B2C para proteger una API web de Node.js y llamarla desde una aplicación de página única.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.author: mimart
-ms.date: 07/24/2019
+ms.date: 04/04/2020
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: f6f9ff7bb0d504ecc163f6ce1f87477b1ea9c2d1
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 50524159186987b7a30015c878fa3fac949afc79
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78186156"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80875707"
 ---
-# <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-application-using-azure-active-directory-b2c"></a>Tutorial: Concesión de acceso a una API web de ASP.NET Core desde una aplicación de página única mediante Azure Active Directory B2C
+# <a name="tutorial-protect-and-grant-access-to-a-nodejs-web-api-from-a-single-page-application-with-azure-ad-b2c"></a>Tutorial: Protección y concesión de acceso a una API web de Node.js desde una aplicación de página única con Azure AD B2C
 
-En este tutorial se muestra cómo llamar a un recurso de API web ASP.NET Core protegido mediante Azure Active Directory B2C (Azure AD B2C) desde una aplicación de página única.
+En este tutorial se muestra cómo llamar a una API web de Node.js protegida mediante Azure Active Directory B2C (Azure AD B2C) desde una aplicación de página única.
 
-En este tutorial, aprenderá a:
+Este tutorial es la segunda parte de una serie de dos:
 
 > [!div class="checklist"]
-> * Incorporar una aplicación de API web
-> * Configurar los ámbitos para una API web
+> * Crear un registro de aplicación de API web en el inquilino de Azure AD B2C
+> * Configurar los ámbitos para la API web
 > * Conceder permisos a la API web
-> * Configurar el ejemplo para que use la aplicación
+> * Modificar un código de ejemplo de la API web para que funcione con el inquilino
+
+En el [primer tutorial](tutorial-single-page-app.md) de esta serie, ha descargado el código de ejemplo y lo ha modificado para iniciar sesión con usuarios mediante un flujo de usuario en el inquilino de Azure AD B2C.
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* Complete los pasos y requisitos previos en [Tutorial: Habilitación de la autenticación en una aplicación de página única mediante Azure Active Directory B2C](tutorial-single-page-app.md).
-* Visual Studio 2019 o una versión posterior, o Visual Studio Code
-* .NET Core 2.2 o una versión posterior
-* Node.js
+* Complete los pasos y requisitos previos en [Tutorial: Habilitación de la autenticación en una aplicación de página única mediante Azure AD B2C](tutorial-single-page-app.md)
+* [Visual Studio Code](https://code.visualstudio.com/) u otro editor de código
+* [Node.js](https://nodejs.org/en/download/)
 
 ## <a name="add-a-web-api-application"></a>Incorporar una aplicación de API web
 
@@ -47,7 +50,7 @@ Los ámbitos proporcionan una manera de controlar el acceso a los recursos prote
 
 [!INCLUDE [active-directory-b2c-scopes](../../includes/active-directory-b2c-scopes.md)]
 
-Anote el valor indicado bajo **ÁMBITOS** correspondiente al ámbito `demo.read`; lo usará en un paso posterior al configurar la aplicación de página única. El valor de ámbito completo es similar a `https://contosob2c.onmicrosoft.com/api/demo.read`.
+Anote el valor indicado bajo **Ámbitos** correspondiente al ámbito `demo.read`; lo usará en un paso posterior al configurar la aplicación de página única. El valor de ámbito completo es similar a `https://contosob2c.onmicrosoft.com/api/demo.read`.
 
 ## <a name="grant-permissions"></a>Concesión de permisos
 
@@ -57,135 +60,109 @@ En el tutorial de requisitos previos, ha creado una aplicación web denominada *
 
 [!INCLUDE [active-directory-b2c-permissions-api](../../includes/active-directory-b2c-permissions-api.md)]
 
-La aplicación web de página única está registrada para llamar a la API web protegida. Un usuario se autentica con Azure AD B2C para utilizar la aplicación de página única. La aplicación de página única obtiene una concesión de autorización de Azure AD B2C para acceder a la API web protegida.
+Ahora, la aplicación web de página única tiene permisos concedidos a la API web protegida para los ámbitos especificados. Un usuario se autentica con Azure AD B2C para utilizar la aplicación de página única. La aplicación de página única usa el flujo de concesión de autorización para acceder a la API web protegida con un token de acceso devuelto por Azure AD B2C.
 
 ## <a name="configure-the-sample"></a>Configuración del ejemplo
 
-Ahora que se ha registrado la API web y tiene ámbitos definidos, debe configurar el código de la API web para usar el inquilino de Azure AD B2C. En este tutorial, configurará una aplicación web de ejemplo con .NET Core que se descarga desde GitHub.
+Ahora que se ha registrado la API web y ha definido ámbitos, configure el código de la API web para que funcione con el inquilino de Azure AD B2C. En este tutorial, configurará una API web de Node.js de ejemplo que descargará desde GitHub.
 
-[Descargue un \*archivo zip](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi/archive/master.zip) o clone el proyecto de API web de ejemplo desde GitHub.
+[Descargue un \*archivo zip](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi/archive/master.zip) o clone el proyecto de API web de ejemplo desde GitHub. También puede ir directamente al proyecto [Azure-Samples/active-directory-b2c-javascript-nodejs-webapi](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi) en GitHub.
 
 ```console
-git clone https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi.git
+git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi.git
 ```
 
 ### <a name="configure-the-web-api"></a>Configuración de la API web
 
-1. Abra el archivo <em>B2C-WebApi/**appsettings.json**</em> en Visual Studio o Visual Studio Code.
-1. Modifique el bloque `AzureAdB2C` para que refleje el nombre del inquilino, el identificador de la aplicación de API web, el nombre de la directiva de registro o de inicio de sesión y los ámbitos que definió anteriormente. El bloque debe ser similar al siguiente ejemplo (con los valores `Tenant` y `ClientId` adecuados):
+1. Abra el archivo *config.js* en el editor de código.
+1. Modifique los valores de las variables para que reflejen los del registro de aplicación creado anteriormente. Actualice igualmente `policyName` con el flujo de usuario que ha creado como parte de los requisitos previos. Por ejemplo, *B2C_1_signupsignin1*.
 
-    ```json
-    "AzureAdB2C": {
-      "Tenant": "<your-tenant-name>.onmicrosoft.com",
-      "ClientId": "<webapi-application-ID>",
-      "Policy": "B2C_1_signupsignin1",
-
-      "ScopeRead": "demo.read",
-      "ScopeWrite": "demo.write"
-    },
+    ```javascript
+    const clientID = "<your-webapi-application-ID>"; // Application (client) ID
+    const b2cDomainHost = "<your-tenant-name>.b2clogin.com";
+    const tenantId = "<your-tenant-ID>.onmicrosoft.com"; // Alternatively, you can use your Directory (tenant) ID (a GUID)
+    const policyName = "B2C_1_signupsignin1";
     ```
 
 #### <a name="enable-cors"></a>Habilitación de CORS
 
-Para permitir que la aplicación de página única llame a la API web de ASP.NET Core, debe habilitar [CORS](https://docs.microsoft.com/aspnet/core/security/cors) en la API web.
+Para permitir que la aplicación de página única llame a la API web de Node.js, debe habilitar [CORS](https://expressjs.com/en/resources/middleware/cors.html) en la API web. En una aplicación de producción, tenga cuidado con el dominio que realiza la solicitud, no obstante, para este tutorial, permita las solicitudes de cualquier dominio.
 
-1. En *Startup.cs*, agregue CORS al método `ConfigureServices()`.
+Para habilitar CORS, utilice el siguiente middleware. En el código de ejemplo de la API web de Node.js de este tutorial, ya se ha agregado al archivo *index.js*.
 
-    ```csharp
-    public void ConfigureServices(IServiceCollection services)
-    {
-        services.AddCors();
-    ```
-
-1. También en el método `ConfigureServices()`, establezca el valor `jwtOptions.Authority` en el siguiente URI de emisor de token.
-
-    Reemplace `<your-tenant-name>` por el nombre del inquilino de B2C.
-
-    ```csharp
-    jwtOptions.Authority = $"https://<your-tenant-name>.b2clogin.com/{Configuration["AzureAdB2C:Tenant"]}/{Configuration["AzureAdB2C:Policy"]}/v2.0";
-    ```
-
-1. En el método `Configure()`, configure CORS.
-
-    ```csharp
-    public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
-    {
-        app.UseCors(builder =>
-            builder.WithOrigins("http://localhost:6420").AllowAnyHeader().AllowAnyMethod());
-    ```
-
-1. (Solo Visual Studio) En el Explorador de soluciones, en **Propiedades**, abra el archivo *launchSettings.json* y busque el bloque `iisExpress`.
-1. (Solo Visual Studio) Actualice el valor `applicationURL` con el número de puerto que especificó al registrar la aplicación *webapi1* en un paso anterior. Por ejemplo:
-
-    ```json
-    "iisExpress": {
-      "applicationUrl": "http://localhost:5000/",
-      "sslPort": 0
-    }
-    ```
+```javascript
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Authorization, Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+```
 
 ### <a name="configure-the-single-page-application"></a>Configuración de la aplicación de página única
 
-La aplicación de página única (SPA) del [tutorial anterior](tutorial-single-page-app.md) de la serie usa Azure AD B2C para el registro y el inicio de sesión y llama a la API web de ASP.NET Core protegida por el inquilino de demostración *frabrikamb2c*.
+La aplicación de página única (SPA) del [tutorial anterior](tutorial-single-page-app.md) de la serie usa Azure AD B2C para el registro y el inicio de sesión de usuario y, de forma predeterminada, llama a la API web de Node.js protegida por el inquilino de demostración *fabrikamb2c*.
 
-En esta sección actualizará la aplicación de página única para que llame a la API web de ASP.net Core protegida por *su* inquilino de Azure AD B2C que ejecuta en la máquina local.
+En esta sección actualizará la aplicación web de página única para que llame a la API web de Node.js protegida por *su* inquilino de Azure AD B2C (y que ejecuta en la máquina local).
 
 Para cambiar la configuración en la aplicación de página única:
 
-1. Abra el archivo *index.html* del proyecto [active-directory-b2c-javascript-msal-singlepageapp][github-js-spa] que descargó o clonó en el tutorial anterior.
+1. En el proyecto [active-directory-b2c-javascript-msal-singlepageapp][github-js-spa] que ha descargado o clonado en el tutorial anterior, abra el archivo *apiConfig.js* en la carpeta *JavaScriptSPA*.
 1. Configure el ejemplo con el URI para el ámbito *demo.read* que creó anteriormente y la dirección URL de la API web.
-    1. En la definición de `appConfig`, reemplace el valor `b2cScopes` por el URI completo del ámbito (el valor **ÁMBITO** que anotó anteriormente).
-    1. Cambie el valor `webApi` por el URI de redirección que agregó al registrar la API web en un paso anterior.
+    1. En la definición de `apiConfig`, reemplace el valor `b2cScopes` por el URI completo del ámbito *demo.read* (el valor **Ámbito** que ha anotado anteriormente).
+    1. Cambie el dominio del valor `webApi` por el URI de redirección que agregó al registrar la API web en un paso anterior.
 
-    La definición de `appConfig` debe ser similar al siguiente bloque de código (con el nombre del inquilino en el lugar de `<your-tenant-name>`):
+    Dado que la API es accesible en el punto de conexión de `/hello`, deje */hello* en el URI.
+
+    La definición de `apiConfig` debe ser similar al siguiente bloque de código, pero con el nombre del inquilino de B2C en el lugar de `<your-tenant-name>`:
 
     ```javascript
     // The current application coordinates were pre-registered in a B2C tenant.
-    var appConfig = {
+    const apiConfig = {
       b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/api/demo.read"],
-      webApi: "http://localhost:5000/"
+      webApi: "http://localhost:5000/hello" // '/hello' should remain in the URI
     };
     ```
 
 ## <a name="run-the-spa-and-web-api"></a>Ejecución de la aplicación de página única y la API web
 
-Por último, ejecute la API web de ASP.NET Core y la aplicación de página única de Node.js en la máquina local. A continuación, inicie sesión en la aplicación de página única y presione un botón para iniciar una solicitud a la API protegida.
+Ya está preparado para probar el acceso de ámbito de la aplicación de página única a la API. Ejecute la API web de Node.js y la aplicación de página única de JavaScript de ejemplo en la máquina local. A continuación, inicie sesión en la aplicación de página única y seleccione el botón **Call API** (Llamar a la API) para iniciar una solicitud a la API protegida.
 
-Aunque ambas aplicaciones se ejecutan localmente en este tutorial, usan Azure AD B2C para el registro y el inicio de sesión seguros y para conceder acceso a la API web protegida.
+Aunque ambas aplicaciones se ejecutan localmente cuando sigue este tutorial, las ha configurado a fin de utilizar Azure AD B2C para el registro o el inicio de sesión seguros, y para conceder acceso a la API web protegida.
 
-### <a name="run-the-aspnet-core-web-api"></a>Ejecución de la API web de ASP.NET Core
+### <a name="run-the-nodejs-web-api"></a>Ejecución de la API web de Node.js
 
-En Visual Studio, presione **F5** para compilar y depurar la solución *B2C-WebAPI.sln*. Cuando se inicia el proyecto, se muestra una página web en el explorador predeterminado que anuncia que la API web está disponible para las solicitudes.
-
-Si prefiere usar la CLI de `dotnet` en lugar de Visual Studio:
-
-1. Abra una ventana de consola y cambie al directorio que contiene el archivo *\*.csproj*. Por ejemplo:
-
-    `cd active-directory-b2c-dotnetcore-webapi/B2C-WebApi`
-
-1. Compile y ejecute la API web mediante la ejecución de `dotnet run`.
-
-    Cuando la API esté en funcionamiento, debería ver una salida similar a la siguiente (para el tutorial, puede omitir cualquier advertencia `NETSDK1059` sin problema):
+1. Abra una ventana de consola y cambie al directorio que contiene la API web de Node.js de ejemplo. Por ejemplo:
 
     ```console
-    $ dotnet run
-    Hosting environment: Production
-    Content root path: /home/user/active-directory-b2c-dotnetcore-webapi/B2C-WebApi
-    Now listening on: http://localhost:5000
-    Application started. Press Ctrl+C to shut down.
+    cd active-directory-b2c-javascript-nodejs-webapi
     ```
-
-### <a name="run-the-single-page-app"></a>Ejecución de la aplicación de una sola página
-
-1. Abra una ventana de consola y cambie al directorio que contiene el ejemplo de Node.js. Por ejemplo:
-
-    `cd active-directory-b2c-javascript-msal-singlepageapp`
 
 1. Ejecute los comandos siguientes:
 
     ```console
     npm install && npm update
-    node server.js
+    node index.js
+    ```
+
+    La ventana de la consola muestra el número de puerto en el que se hospeda la aplicación.
+
+    ```console
+    Listening on port 5000...
+    ```
+
+### <a name="run-the-single-page-app"></a>Ejecución de una aplicación de página única
+
+1. Abra otra ventana de consola y cambie al directorio que contiene la aplicación de página única de JavaScript de ejemplo. Por ejemplo:
+
+    ```console
+    cd active-directory-b2c-javascript-msal-singlepageapp
+    ```
+
+1. Ejecute los comandos siguientes:
+
+    ```console
+    npm install && npm update
+    npm start
     ```
 
     La ventana de la consola muestra el número de puerto donde se hospeda la aplicación.
@@ -195,23 +172,23 @@ Si prefiere usar la CLI de `dotnet` en lugar de Visual Studio:
     ```
 
 1. Vaya a `http://localhost:6420` en el explorador para ver la aplicación.
-1. Inicie sesión con la dirección de correo electrónico y la contraseña que usó en el [tutorial anterior](tutorial-single-page-app.md). Tras iniciar sesión correctamente, debería ver el mensaje `User 'Your Username' logged-in`.
-1. Seleccione el botón **Call Web API** (Llamar a API web). La aplicación de página única obtiene una concesión de autorización de Azure AD B2C y accede a la API web protegida para mostrar el contenido de su página de índice:
 
-    ```Output
-    Web APi returned:
-    "<html>\r\n<head>\r\n  <title>Azure AD B2C API Sample</title>\r\n ...
-    ```
+    ![Aplicación de página única de ejemplo en el explorador](./media/tutorial-single-page-app-webapi/tutorial-01-sample-app-browser.png)
+
+1. Inicie sesión con la dirección de correo electrónico y la contraseña que usó en el [tutorial anterior](tutorial-single-page-app.md). Tras iniciar sesión correctamente, debería ver el mensaje `User 'Your Username' logged-in`.
+1. Seleccione el botón **Llamada a API**. La aplicación de página única obtiene una concesión de autorización de Azure AD B2C y accede a la API web protegida para mostrar el nombre del usuario que ha iniciado sesión:
+
+    ![Aplicación de página única en el explorador que muestra el resultado JSON del nombre de usuario devuelto por la API](./media/tutorial-single-page-app-webapi/tutorial-02-call-api.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha aprendido a:
+En este tutorial, hizo lo siguiente:
 
 > [!div class="checklist"]
-> * Incorporar una aplicación de API web
-> * Configurar los ámbitos para una API web
+> * Crear un registro de aplicación de la API web en el inquilino de Azure AD B2C
+> * Configurar ámbitos para la API web
 > * Conceder permisos a la API web
-> * Configurar el ejemplo para que use la aplicación
+> * Modificar un código de ejemplo de la API web para que funcione con el inquilino
 
 Ahora que ha visto una aplicación de página única solicitar un recurso de una API web protegida, entremos en detalles sobre cómo interactúan estos tipos de aplicaciones entre sí y con Azure AD B2C.
 

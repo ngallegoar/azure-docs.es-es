@@ -2,25 +2,22 @@
 title: Uso del modo de dispositivo compartido con MSAL para Android | Azure
 description: Aprenda a preparar un dispositivo Android para que se ejecute en modo compartido y ejecute una aplicación para trabajadores de primera línea.
 services: active-directory
-documentationcenter: dev-center-name
 author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 1/15/2020
 ms.author: hahamil
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: bf7e6bb22ce89d6be3f79efad1f1a3679e8780e7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b2f74d2d441007f195abd38ca26ca7fa73605318
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77086069"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886439"
 ---
 # <a name="tutorial-use-shared-device-mode-in-your-android-application"></a>Tutorial: Uso del modo de dispositivo compartido en la aplicación Android
 
@@ -96,9 +93,9 @@ Si establece `"account_mode":"SINGLE"` en el archivo de configuración MSAL, pue
 ```java
 private ISingleAccountPublicClientApplication mSingleAccountApp;
 
-/*Configure your sample app and save state for this activity*/ 
+/*Configure your sample app and save state for this activity*/
 PublicClientApplication.create(this.getApplicationCOntext(),
-  R.raw.auth_config, 
+  R.raw.auth_config,
   new PublicClientApplication.ApplicationCreatedListener(){
   @Override
   public void onCreated(IPublicClientApplication application){
@@ -109,12 +106,12 @@ PublicClientApplication.create(this.getApplicationCOntext(),
   public void onError(MsalException exception{
   /*Fail to initialize PublicClientApplication */
   }
-});  
+});
 ```
 
 ### <a name="detect-single-vs-multiple-account-mode"></a>Detección del modo de varias cuentas o de una sola
 
-Si va a escribir una aplicación que solo utilizarán los trabajadores de primera línea en un dispositivo compartido, se recomienda escribirla para que admita únicamente el modo de una sola cuenta. Esto incluye a la mayoría de las aplicaciones que se centran en tareas, como las de registros médicos, facturas y la mayor parte de las de línea de negocio. De este modo, se simplificará el desarrollo, ya que no es necesario acomodar muchas características del SDK.
+Si va a escribir una aplicación que solo utilizarán los trabajadores de primera línea en un dispositivo compartido, se recomienda escribirla para que admita únicamente el modo de una sola cuenta. Esto incluye la mayoría de las aplicaciones que se centran en tareas, como las de registros médicos, facturas y la mayor parte de las de línea de negocio. De este modo, se simplificará el desarrollo, ya que no es necesario acomodar muchas características del SDK.
 
 Si la aplicación admite varias cuentas, así como el modo de dispositivo compartido, debe realizar una comprobación de tipo y convertirla en la interfaz adecuada, como se muestra a continuación.
 
@@ -134,7 +131,7 @@ private IPublicClientApplication mApplication;
 
 El método `loadAccount` recupera la cuenta del usuario que ha iniciado sesión. El método `onAccountChanged` determina si el usuario con la sesión iniciada ha cambiado y, en tal caso, se limpia:
 
-```java 
+```java
 private void loadAccount()
 {
   mSingleAccountApp.getCurrentAccountAsync(new ISingleAccountPublicClientApplication.CurrentAccountCallback()
@@ -157,12 +154,12 @@ private void loadAccount()
         updateSingedOutUI();
       }
     }
-    @Override 
-    public void onError(@NonNull Exception exception) 
+    @Override
+    public void onError(@NonNull Exception exception)
     {
     }
   }
-}  
+}
 ```
 
 ### <a name="globally-sign-in-a-user"></a>Inicio de sesión de un usuario de forma global
@@ -233,7 +230,7 @@ Inicie la aplicación Authenticator y vaya a la página principal de la cuenta. 
 ![Pantalla Agregar cuenta de Authenticator](media/tutorial-v2-shared-device-mode/authenticator-add-account.png)
 
  Vaya al panel **Configuración** con la barra de menús del lado derecho. Seleccione **Registro del dispositivo** en **Cuentas profesionales y educativas**.
- 
+
  ![Pantalla Agregar cuenta de Authenticator](media/tutorial-v2-shared-device-mode/authenticator-settings.png)
 
  Al hacer clic en este botón, se le pedirá que autorice el acceso a los contactos del dispositivo. Esto se debe a la integración de la cuenta de Android en el dispositivo. Elija **permitir**.
@@ -266,4 +263,4 @@ El ejemplo es una aplicación sencilla que llamará a la instancia de Graph API 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Más información sobre el modo compartido en [Modo de dispositivo compartido para dispositivos Android](shared-device-mode.md)
+Más información sobre el modo compartido en [Modo de dispositivo compartido para dispositivos Android](msal-android-shared-devices.md)

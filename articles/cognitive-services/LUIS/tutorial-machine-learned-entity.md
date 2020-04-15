@@ -1,22 +1,14 @@
 ---
 title: 'Tutorial: Extracción de datos estructurados con una entidad de aprendizaje automático: LUIS'
-titleSuffix: Azure Cognitive Services
 description: Extraiga los datos estructurados de una expresión mediante la entidad de aprendizaje automático. Para aumentar la precisión de extracción, agregue subcomponentes con descriptores y restricciones.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/17/2019
-ms.author: diberry
-ms.openlocfilehash: e1709a5e86c8fed8d7f724ad1b105bd02df9fa56
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.date: 04/01/2020
+ms.openlocfilehash: 52bf2fb0b9f37e0c731a46c0aaf8b6c5e7f0e911
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75381773"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80545847"
 ---
 # <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learned-entities-in-language-understanding-luis"></a>Tutorial: Extracción de datos estructurados de una expresión de usuario con entidades con aprendizaje automático en Language Understanding (LUIS)
 
@@ -44,19 +36,19 @@ La entidad de aprendizaje automático admite el [concepto de descomposición de 
 
 En este tutorial se agrega una entidad de aprendizaje automático para extraer datos de una expresión.
 
-El propósito de una entidad es definir los datos que se van a extraer. Esto incluye asignar a los datos un nombre, un tipo (si es posible), cualquier resolución de los datos si existe ambigüedad y el texto exacto que compone los datos.
+La entidad define los datos que se van a extraer de la expresión. Esto incluye asignar a los datos un nombre, un tipo (si es posible), cualquier resolución de los datos si existe ambigüedad y el texto exacto que compone los datos.
 
-Para definir la entidad, debe crear la entidad y, a continuación, etiquetar el texto que representa la entidad en la expresión de ejemplo. Estos ejemplos etiquetados enseñan a LUIS qué es la entidad y dónde se puede encontrar en una expresión.
+Para definir la entidad, es preciso crear la entidad y, después, etiquetar el texto que representa la entidad en las expresiones de ejemplo en todas las intenciones. Estos ejemplos etiquetados enseñan a LUIS qué es la entidad y dónde se puede encontrar en una expresión.
 
 ## <a name="entity-decomposability-is-important"></a>La descomponibilidad de la entidad es importante
 
-La descomponibilidad de la entidad es importante tanto para la predicción de la intención como para la extracción de los datos.
+La descomponibilidad de la entidad es importante tanto para la predicción de la intención como para la extracción de los datos con la entidad.
 
 Comience con una entidad de aprendizaje automático, que es la entidad de inicio y de nivel superior para la extracción de datos. A continuación, descomponga la entidad en los elementos que necesita la aplicación cliente.
 
 Aunque es posible que no sepa qué detalle quiere que tenga la entidad al comenzar la aplicación, un procedimiento recomendado es empezar con una entidad de aprendizaje automático y, luego, descomponer los subcomponentes a medida que la aplicación crece.
 
-En términos prácticos, creará una entidad de aprendizaje automático para representar una aplicación de pedido de pizzas. El pedido debe tener todos los elementos necesarios para cumplir el pedido. Para empezar, la entidad extraerá texto relacionado con el pedido, como el tamaño y la cantidad.
+A este respecto, crea una entidad de aprendizaje automático para representar una aplicación de pedido de pizzas. El pedido debe tener todos los elementos necesarios para cumplir el pedido. Para empezar, la entidad extraerá texto relacionado con el pedido, como el tamaño y la cantidad.
 
 Una expresión para `Please deliver one large cheese pizza to me` debe extraer `one large cheese pizza` como el pedido y también `1` y `large`.
 
@@ -92,7 +84,7 @@ Para extraer detalles sobre un pedido de pizza, cree un nivel superior, una enti
     ![Agregar estructura a la entidad](media/tutorial-machine-learned-entity/add-structure-to-entity.png)
 
 1. En el cuadro **Create a machine learned entity** (Crear una entidad de aprendizaje automático), en el cuadro **Estructura**, agregue `Size` presione Entrar.
-1. Para agregar un **descriptor**, seleccione `+` en el área **Descriptors for Size** (Descriptores de tamaño) y, a continuación, seleccione **Crear lista de frases**.
+1. Para agregar un **descriptor**, seleccione `+` en el área **Descriptors** (Descriptores) y, después, seleccione **Crear lista de frases**.
 
 1. En el cuadro **Create new phrase list descriptor** (Crear descriptor de la lista de frases), escriba el nombre `SizeDescriptor` escriba los valores `small`, `medium`y `large`. Cuando se rellene el cuadro **Sugerencias**, seleccione `extra large` y `xl`. Seleccione **Listo** para crear la lista de frases.
 
@@ -108,7 +100,7 @@ Para extraer detalles sobre un pedido de pizza, cree un nivel superior, una enti
 
     ![Etiquete la entidad size para el texto en la expresión.](media/tutorial-machine-learned-entity/mark-and-create-size-entity.png)
 
-    La línea es sólida debajo del texto porque la etiqueta y la predicción coinciden porque el texto se etiquetó explícitamente.
+    La línea es sólida debajo del texto porque la etiqueta y la predicción coinciden porque el texto se etiquetó _explícitamente_.
 
 1. Etiquete la entidad `Order` en las expresiones restantes junto con la entidad size. Los corchetes en el texto indican la entidad `Order` etiquetada y la entidad `Size` en su interior.
 
@@ -132,7 +124,7 @@ Para extraer detalles sobre un pedido de pizza, cree un nivel superior, una enti
     |--|
     |`pickup XL meat lovers pizza`|
 
-    La entidad superior general, `Order`, está etiquetada, y el subcomponente `Size` también está etiquetado con líneas punteadas. Se trata de una predicción correcta.
+    La entidad superior general, `Order`, está etiquetada, y el subcomponente `Size` también está etiquetado con líneas punteadas.
 
     ![Nueva expresión de ejemplo predicha con la entidad](media/tutorial-machine-learned-entity/new-example-utterance-predicted-with-entity.png)
 
@@ -160,20 +152,20 @@ Comience agregando a la aplicación la entidad numérica precompilada.
 
 ## <a name="create-subcomponent-entity-with-constraint-to-help-extract-data"></a>Creación de una entidad con subcomponente con restricción para extraer datos
 
-La entidad `Order` debe tener un subcomponente `Quantity` para determinar cuánto de un elemento hay en el pedido. La cantidad se debe restringir a un número para que la aplicación cliente pueda usar inmediatamente los datos extraídos.
+La entidad `Order` debe tener un subcomponente `Quantity` para determinar cuánto de un elemento hay en el pedido. La cantidad se debe restringir a un número, con el fin de que los datos extraídos estén disponibles inmediatamente para la aplicación cliente por nombre.
 
 Una restricción se aplica como una coincidencia de texto, ya sea con coincidencia exacta (como una entidad de lista) o a través de expresiones regulares (como una entidad de expresión regular o una entidad predefinida).
 
 Al usar una restricción, solo se extrae el texto que coincida con esa restricción.
 
 1. Seleccione **Entidades** y seleccione la entidad `Order`.
-1. Seleccione **+ Agregar componente**, a continuación, escriba el nombre `Quantity` y presione Entrar para agregar la nueva entidad a la aplicación.
-1. Después de la notificación correcta, seleccione el subcomponente `Quantity` y seleccione el lápiz de Restricción.
+1. Seleccione **+ Agregar componente**, escriba el nombre `Quantity` y presione Entrar para agregar el nuevo subcomponente a la entidad `Order`.
+1. Después de la notificación correcta, en **Opciones avanzadas** y seleccione el lápiz de Restricción.
 1. En la lista desplegable, seleccione el número predefinido.
 
     ![Cree una entidad quantity con un número predefinido como restricción.](media/tutorial-machine-learned-entity/create-constraint-from-prebuilt-number.png)
 
-    La entidad `Quantity` se aplica si y solo si se encuentra texto que coincida con la entidad numérica precompilada.
+    La entidad `Quantity` se aplica cuando el texto coincide con la entidad de número pregenerada.
 
     La entidad con la restricción se ha creado, pero aún no se aplica a las expresiones de ejemplo.
 
@@ -182,7 +174,7 @@ Al usar una restricción, solo se extrae el texto que coincida con esa restricci
 
 ## <a name="label-example-utterance-to-teach-luis-about-the-entity"></a>Expresión de etiqueta de ejemplo para enseñar a LUIS la entidad
 
-1. Seleccione **Intenciones** desde el panel de navegación de la izquierda y, a continuación, seleccione **OrderPizza**. Los tres números de las siguientes expresiones se han etiquetado, pero se muestran visualmente debajo de la línea de entidad `Order`. Este nivel inferior significa que se han encontrado las entidades, pero que no se consideran aparte de la entidad `Order`.
+1. Seleccione **Intenciones** desde el panel de navegación de la izquierda y, a continuación, seleccione **OrderPizza**. Los tres números de las siguientes expresiones se han etiquetado, pero se muestran visualmente debajo de la línea de entidad `Order`. Este nivel inferior significa que se han encontrado las entidades, pero que no se consideran parte de la entidad `Order`.
 
     ![El número predefinido se ha encontrado, pero no se considera aparte de la entidad Order todavía.](media/tutorial-machine-learned-entity/prebuilt-number-not-part-of-order-entity.png)
 
@@ -192,7 +184,7 @@ Al usar una restricción, solo se extrae el texto que coincida con esa restricci
 
 ## <a name="train-the-app-to-apply-the-entity-changes-to-the-app"></a>Entrenamiento de la aplicación para aplicar los cambios de la entidad a la aplicación
 
-Seleccione **Entrenar** para entrenar la aplicación con estas nuevas expresiones.
+Seleccione **Entrenar** para entrenar la aplicación con estas nuevas expresiones. Después del entrenamiento, el subcomponente de `Quantity` se predice correctamente en el componente `Order`. Esta predicción correcta se indica con una línea continua.
 
 ![Entrene la aplicación y revise las expresiones de ejemplo.](media/tutorial-machine-learned-entity/trained-example-utterances.png)
 
@@ -213,7 +205,7 @@ Pruebe la aplicación mediante el panel **Prueba** interactivo. Este proceso per
 
     El tamaño se identificó correctamente. Recuerde que las expresiones de ejemplo en la intención `OrderPizza` no tiene un ejemplo de `medium` como tamaño, sino que usa un descriptor de una lista de frases de `SizeDescriptor` que incluye medium.
 
-    La cantidad no se predice correctamente. Para solucionarlo, puede agregar más expresiones de ejemplo usando esa palabra para indicar la cantidad y etiquetar esa palabra como entidad `Quantity`.
+    La cantidad no se predice correctamente. Para corregir este error en la aplicación cliente utilice como tamaño predeterminado el uno (1) si no se devuelve ningún tamaño en la predicción de LUIS.
 
 ## <a name="publish-the-app-to-access-it-from-the-http-endpoint"></a>Publicación de la aplicación para tener acceso a ella desde el punto de conexión HTTP
 
@@ -223,7 +215,7 @@ Pruebe la aplicación mediante el panel **Prueba** interactivo. Este proceso per
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. Vaya al final de la URL en la dirección y escriba la misma consulta que especificó en el panel de prueba interactivo.
+1. Vaya al final de la dirección URL en la barra de direcciones sustituya _YOUR_QUERY_HERE_ por la misma consulta que especificó en el panel de prueba interactivo.
 
     `deliver a medium veggie pizza`
 

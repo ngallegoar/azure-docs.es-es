@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2018
 ms.author: memildin
-ms.openlocfilehash: 49e2af8fd2d71e1e5103f5337d5c7104c2904322
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 971b93422e2b3f2053e0c5564c7ba924a631d810
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74559198"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585766"
 ---
-# <a name="tutorial-respond-to-security-incidents"></a>Tutorial: respuesta a incidentes relacionados con la seguridad
+# <a name="tutorial-respond-to-security-incidents"></a>Tutorial: Respuesta a incidentes de seguridad
 Security Center analiza continuamente las cargas de trabajo de la nube híbrida y usa el análisis avanzado e inteligencia de amenazas para alertarle de cualquier actividad malintencionada. Además, en Security Center se pueden integrar alertas de otros servicios y productos de seguridad, así como crear alertas personalizadas basadas en indicadores u orígenes de inteligencia propios. Una vez que se genera una alerta, es necesario investigarla y tomar las medidas correctoras de inmediato. En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
@@ -31,8 +31,8 @@ Security Center analiza continuamente las cargas de trabajo de la nube híbrida 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Prerequisites
-Para recorrer todas las características que se tratan en este tutorial, es preciso tener el plan de tarifa Estándar de Security Center. Dicho plan se puede probar de forma gratuita. Para más información, consulte la [página de precios](https://azure.microsoft.com/pricing/details/security-center/). En [Guía de inicio rápido de Azure Security Center](security-center-get-started.md) le explicamos cómo realizar la actualización al plan de tarifa Estándar.
+## <a name="prerequisites"></a>Prerrequisitos
+Para recorrer las características que se tratan en este tutorial, es preciso tener el plan de tarifa Estándar de Security Center. Dicho plan se puede probar de forma gratuita. Para más información, consulte la [página de precios](https://azure.microsoft.com/pricing/details/security-center/). En [Guía de inicio rápido de Azure Security Center](security-center-get-started.md) le explicamos cómo realizar la actualización al plan de tarifa Estándar.
 
 ## <a name="scenario"></a>Escenario
 Contoso migró recientemente algunos de sus recursos locales a Azure, incluidas algunas cargas de trabajo empresariales basadas en máquinas virtuales y bases de datos SQL. Actualmente el equipo de respuesta a incidentes de seguridad informática central de Contoso (CSIRT) tiene un problema para investigar asuntos de seguridad, debido a la falta de inteligencia de seguridad integrada en sus herramientas actuales de respuesta a incidentes. Esta falta de integración presenta un problema durante las fases de detección (demasiados falsos positivos), evaluación y diagnóstico. Como parte de esta migración, decidió participar en Security Center para ayudar a solucionar el problema.
@@ -87,7 +87,7 @@ Security Center proporciona una vista unificada de todas las alertas de segurida
 
    ![Investigación](./media/tutorial-security-incident/tutorial-security-incident-fig5.png)
 
-   El mapa de la investigación es una representación gráfica de las entidades que conectadas a esta alerta o incidente de seguridad. Al hacer clic en cualquiera de las entidades en la asignación, la información acerca de ella mostrará nuevas entidades, lo que hará que el mapa se expanda. Las propiedades de la entidad seleccionada en el mapa están resaltadas en el panel del lado derecho de la página. La información disponible en cada pestaña variará en función de la entidad seleccionada. Durante el proceso de investigación, revise toda la información relevante para comprender mejor el movimiento del atacante.
+   El mapa de la investigación es una representación gráfica de las entidades que conectadas a esta alerta o incidente de seguridad. Al hacer clic en cualquiera de las entidades en la asignación, la información acerca de ella mostrará nuevas entidades, lo que hará que el mapa se expanda. Las propiedades de la entidad seleccionada en el mapa están resaltadas en el panel del lado derecho de la página. La información disponible en cada pestaña variará en función de la entidad seleccionada. Durante el proceso de investigación, lea toda la información pertinente para conocer mejor el movimiento del atacante.
 
 2. Si necesita más pruebas o debe investigar más las entidades que se encontraron durante la investigación, continúe con el paso siguiente.
 
@@ -114,7 +114,7 @@ Si desea deshabilitar el aprovisionamiento automático:
 4. Seleccione **Guardar**.
 
 >[!NOTE]
-> La deshabilitación del aprovisionamiento automático no quita Microsoft Monitoring Agent de las máquinas virtuales de Azure en las que se ha aprovisionado el agente. La deshabilitación del aprovisionamiento automático limita la supervisión de seguridad de los recursos.
+> La deshabilitación del aprovisionamiento automático no quita el agente de Log Analytics de las máquinas virtuales de Azure en las que se ha aprovisionado. La deshabilitación del aprovisionamiento automático limita la supervisión de seguridad de los recursos.
 >
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -124,8 +124,3 @@ En este tutorial, ha obtenido información acerca de las características de Sec
 > * Incidente de seguridad, que es una agregación de las alertas relacionadas de un recurso
 > * Mapa de la investigación, que es una representación gráfica de las entidades que conectadas a un alerta o incidente de seguridad
 > * Capacidades de búsqueda, para buscar más evidencia de los sistemas en peligro
-
-Para más información acerca de las características de investigación de Security Center, consulte:
-
-> [!div class="nextstepaction"]
-> [Investigación de incidentes y alertas](security-center-investigation.md)

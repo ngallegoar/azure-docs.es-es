@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 03/03/2018
 ms.author: stefsch
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 51375c13d842bda2450a83e1bbc48b741adba39b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 987228c5cf0f5231006726718684528a777e92fd
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80057448"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804476"
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>Configuración de un firewall de aplicaciones web (WAF) para entornos de App Service
 ## <a name="overview"></a>Información general
@@ -71,7 +71,7 @@ Al hacer clic en la pestaña **Servicios**, podrá configurar el WAF para los se
 ![Administración de agregar servicios][ManagementAddServices]
 
 > [!NOTE]
-> En función de cómo se configuran las aplicaciones y qué características se utilizan en App Service Environment, deberá reenviar el tráfico para los puertos TCP distintos del 80 y el 443, por ejemplo, si ha configurado SSL de IP para una aplicación de App Service. Para obtener una lista de los puertos de red usados en entornos de App Service, vea la sección dedicada a los puertos de red en la [documentación del control del tráfico de entrada](app-service-app-service-environment-control-inbound-traffic.md).
+> En función de cómo se configuran las aplicaciones y qué características se utilizan en App Service Environment, deberá reenviar el tráfico a puertos TCP distintos del 80 y del 443, por ejemplo, si ha configurado TLS de dirección IP para una aplicación de App Service. Para obtener una lista de los puertos de red usados en entornos de App Service, vea la sección dedicada a los puertos de red en la [documentación del control del tráfico de entrada](app-service-app-service-environment-control-inbound-traffic.md).
 > 
 > 
 

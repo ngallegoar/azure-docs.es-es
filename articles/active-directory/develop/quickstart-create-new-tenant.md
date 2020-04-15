@@ -1,10 +1,9 @@
 ---
-title: Creación de un inquilino de Azure Active Directory | Microsoft Docs
+title: Creación de un inquilino de Azure Active Directory
 description: Obtenga más información acerca de cómo crear un inquilino de Azure AD para el registro y la creación de aplicaciones.
 services: active-directory
 author: rwike77
 manager: CelesteDG
-ms.assetid: 1f4b24eb-ab4d-4baa-a717-2a0e5b8d27cd
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
@@ -13,12 +12,12 @@ ms.date: 03/12/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 1d2140ca0064e2eb6b12726bcee7bf5362de8fbe
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 0e2247e94b20846f19c2ed26c96a5dc53972e770
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79408290"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80883820"
 ---
 # <a name="quickstart-set-up-a-tenant"></a>Inicio rápido: Configuración de un inquilino
 

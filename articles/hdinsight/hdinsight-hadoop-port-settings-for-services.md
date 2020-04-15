@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/15/2019
-ms.openlocfilehash: 67cafbb7934381cd4c2936d6e6dfe7fb19d70735
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: hdinsightactive
+ms.date: 04/06/2020
+ms.openlocfilehash: fe2cb04f36026740dc54f4668d3c3188592bd8ae
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76314698"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754216"
 ---
 # <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>Puertos utilizados por los servicios Apache Hadoop en HDInsight
 
@@ -21,9 +21,9 @@ En este documento se proporciona una lista de puertos que se usan con los servic
 
 ## <a name="public-ports-vs-non-public-ports"></a>Puertos públicos frente a puertos no públicos
 
-Los clústeres de HDInsight basados en Linux solo exponen tres puertos públicamente en Internet: 22, 23 y 443. Estos puertos se usan para el acceso seguro al clúster mediante SSH y a los servicios expuestos a través del protocolo HTTPS seguro.
+Los clústeres de HDInsight basados en Linux solo exponen tres puertos públicamente en Internet: 22, 23 y 443. Estos puertos protegen el acceso al clúster mediante SSH y servicios expuestos mediante el protocolo HTTPS seguro.
 
-Internamente, HDInsight se implementa mediante varias Azure Virtual Machines (los nodos del clúster) que se ejecutan en una instancia de Azure Virtual Network. Desde dentro de la red virtual, puede acceder a los puertos no expuestos a través de Internet. Por ejemplo, si se conecta a uno de los nodos principales con SSH, desde él puede acceder directamente a los servicios que se ejecutan en los nodos del clúster.
+HDInsight se implementa mediante varias instancias de Azure Virtual Machines (nodos del clúster) que se ejecutan en Azure Virtual Network. Desde dentro de la red virtual, puede acceder a los puertos no expuestos a través de Internet. Si se conecta mediante SSH al nodo principal, puede acceder directamente a los servicios que se ejecutan en los nodos de clúster.
 
 > [!IMPORTANT]  
 > Si no especifica una instancia de Azure Virtual Network como una opción de configuración de HDInsight, automáticamente se crea una. Sin embargo, no puede unir otras máquinas (por ejemplo, otras instancias de Azure Virtual Machines o su máquina de desarrollo de cliente) a esta red virtual.
@@ -32,7 +32,7 @@ Para unir equipos adicionales a la red virtual, debe crear primero la red virtua
 
 ## <a name="public-ports"></a>Puertos públicos
 
-Todos los nodos de un clúster de HDInsight se encuentran en una instancia de Azure Virtual Network y no son accesibles directamente desde Internet. Una puerta de enlace pública proporciona acceso desde Internet a los puertos siguientes, que son comunes a todos los tipos de clúster de HDInsight.
+Todos los nodos de un clúster de HDInsight se encuentran en una instancia de Azure Virtual Network. No se puede acceder a los nodos directamente desde Internet. Una puerta de enlace pública proporciona acceso desde Internet a los puertos siguientes, que son comunes a todos los tipos de clúster de HDInsight.
 
 | Servicio | Port | Protocolo | Descripción |
 | --- | --- | --- | --- |
@@ -49,7 +49,7 @@ Las siguientes opciones están disponibles para determinados tipos de clúster:
 
 | Servicio | Port | Protocolo | Tipo de clúster | Descripción |
 | --- | --- | --- | --- | --- |
-| Stargate |443 |HTTPS |HBase |API de REST de HBase. Consulte [Introducción a Apache HBase](hbase/apache-hbase-tutorial-get-started-linux.md). |
+| `Stargate` |443 |HTTPS |HBase |API de REST de HBase. Consulte [Introducción a Apache HBase](hbase/apache-hbase-tutorial-get-started-linux.md). |
 | Livy |443 |HTTPS |Spark |API de REST de Spark. Consulte [Envío de trabajos remotos de Apache Spark mediante Apache Livy](spark/apache-spark-livy-rest-interface.md). |
 | Servidor Thrift de Spark |443 |HTTPS |Spark |El servidor Thrift de Spark que se usa para enviar consultas de Hive. Consulte [Beeline con Apache Hive en HDInsight](hadoop/apache-hadoop-use-hive-beeline.md). |
 | Storm |443 |HTTPS |Storm |La interfaz de usuario web de Storm. Consulte [Implementación y administración de topologías de Apache Storm en HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md). |

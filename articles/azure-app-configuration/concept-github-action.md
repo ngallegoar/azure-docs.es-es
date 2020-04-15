@@ -1,26 +1,26 @@
 ---
-title: Uso de Acciones de GitHub con la sincronización de Azure App Configuration
-description: Uso de Acciones de GitHub para desencadenar una actualización de la instancia de App Configuration cuando se realizan acciones definidas en un repositorio de GitHub
+title: Sincronización del repositorio de GitHub con App Configuration
+description: Uso de Acciones de GitHub para actualizar automáticamente la instancia de App Configuration cuando se actualiza el repositorio de GitHub.
 author: lisaguthrie
 ms.author: lcozzens
 ms.date: 02/20/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 9d60f1885a85fd7d45090f1cb4905a3d95d9d1d6
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 602ccddf97938022df3c5903b573608558fe5d35
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77523720"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585478"
 ---
-# <a name="sync-your-app-configuration-instance-using-github-actions"></a>Sincronización de la instancia de App Configuration mediante Acciones de GitHub
-Azure App Configuration usa Acciones de GitHub para desencadenar actualizaciones en una instancia de App Configuration en función de acciones realizadas en un repositorio de GitHub. Los flujos de trabajo de GitHub desencadenan actualizaciones de configuración, lo que permite integrar estas actualizaciones en el mismo flujo de trabajo que se usa para actualizar el código de la aplicación.
+# <a name="sync-your-github-repository-to-app-configuration"></a>Sincronización del repositorio de GitHub con App Configuration
 
-Un [flujo de trabajo](https://help.github.com/articles/about-github-actions#workflow) de Acciones de GitHub define un proceso automatizado en un repositorio de GitHub. Este proceso indica a GitHub cómo crear e implementar el proyecto de GitHub. Azure App Configuration proporciona la acción de *sincronización de Azure App Configuration* para habilitar las actualizaciones en una instancia de configuración de App Configuration cuando se realizan cambios en el repositorio de origen. 
+Los equipos que quieran seguir usando sus procedimientos de control de código fuente existentes pueden usar Acciones de GitHub para sincronizar automáticamente su repositorio de GitHub con el almacén de App Configuration. Esto le permite realizar cambios en los archivos de configuración como haría normalmente y, al mismo tiempo, obtener ventajas adicionales de App Configuration como: <br>
+&nbsp;&nbsp;&nbsp;&nbsp;• Configuración centralizada fuera del código <br>
+&nbsp;&nbsp;&nbsp;&nbsp;• Actualizaciones de la configuración sin volver a implementar toda la aplicación <br>
+&nbsp;&nbsp;&nbsp;&nbsp;• Integración con servicios como Azure App Service y Functions 
 
-Un archivo YAML (.yml) incluido en la ruta de acceso `/.github/workflows/` del repositorio define el flujo de trabajo. En esta definición se incluyen los pasos y parámetros del flujo de trabajo.
-
-Los eventos de GitHub, como una inserción en un repositorio, pueden desencadenar un flujo de trabajo de Acciones de GitHub.  La acción *Azure App Configuration Sync* permite desencadenar una actualización de una instancia de App Configuration cuando se produce una acción de GitHub especificada. Puede desencadenar actualizaciones de configuración al insertar, revisar o bifurcar archivos de configuración de la aplicación, de la misma forma que lo hace con el código de la aplicación.
+Un [flujo de trabajo](https://help.github.com/articles/about-github-actions#workflow) de Acciones de GitHub define un proceso automatizado en un repositorio de GitHub. La acción *Sincronización de Azure App Configuration* desencadena actualizaciones en una instancia de configuración de App Configuration cuando se realizan cambios en el repositorio de origen. Asimismo, usa un archivo YAML (.yml) que se encuentra en la ruta de acceso `/.github/workflows/` del repositorio para definir los pasos y los parámetros. Puede desencadenar actualizaciones de configuración al insertar, revisar o bifurcar archivos de configuración de la aplicación, de la misma forma que lo hace con el código de la aplicación.
 
 La [documentación](https://help.github.com/actions/automating-your-workflow-with-github-actions/configuring-a-workflow) de GitHub proporciona una vista detallada de los flujos de trabajo y las acciones de GitHub. 
 
@@ -190,11 +190,11 @@ Los parámetros de entrada especifican los datos usados por la acción durante e
 | format | Sí | Formato del archivo de configuración.  Los formatos válidos son: Propiedades JSON, YAML. |
 | connectionString | Sí | Cadena de conexión para la instancia de App Configuration. La cadena de conexión debe almacenarse como un secreto en el repositorio de GitHub y solo se debe usar el nombre de secreto en el flujo de trabajo. |
 | separador | Sí | Separador utilizado al aplanar el archivo de configuración en pares de clave y valor.  Los valores válidos son: , ; : - _ __ / |
-| prefix | Sin | Prefijo que se va a agregar al inicio de las claves. |
-| etiqueta | Sin | Etiqueta que se usa al establecer pares de clave-valor. Si no se especifica, se usa una etiqueta null. |
-| strict | Sin | Valor booleano que determina si está habilitado el modo estricto. El valor predeterminado es false. |
-| depth | Sin | Profundidad máxima para aplanar el archivo de configuración.  La profundidad debe ser un número positivo.  El valor predeterminado no tendrá una profundidad máxima. |
-| etiquetas | Sin | Especifica el conjunto de etiquetas en los pares de clave-valor.  El formato esperado es un formato de cadena de un objeto JSON con la siguiente forma: { [propertyName: string]: string; } Cada propiedad nombre-valor se convierte en una etiqueta. |
+| prefix | No | Prefijo que se va a agregar al inicio de las claves. |
+| etiqueta | No | Etiqueta que se usa al establecer pares de clave-valor. Si no se especifica, se usa una etiqueta null. |
+| strict | No | Valor booleano que determina si está habilitado el modo estricto. El valor predeterminado es false. |
+| depth | No | Profundidad máxima para aplanar el archivo de configuración.  La profundidad debe ser un número positivo.  El valor predeterminado no tendrá una profundidad máxima. |
+| etiquetas | No | Especifica el conjunto de etiquetas en los pares de clave-valor.  El formato esperado es un formato de cadena de un objeto JSON con la siguiente forma: { [propertyName: string]: string; } Cada propiedad nombre-valor se convierte en una etiqueta. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

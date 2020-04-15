@@ -2,14 +2,14 @@
 title: 'Solución de problemas: QnA Maker'
 description: La lista de las preguntas frecuentes seleccionadas sobre QnA Maker le ayudará a adoptar este servicio de forma más rápida y a obtener mejores resultados.
 ms.topic: troubleshooting
-ms.date: 02/21/2020
+ms.date: 03/25/2020
 ms.author: diberry
-ms.openlocfilehash: 4596c16a5d7c9053bf0e27af476c66fe8fa9ed35
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 7847e21dbcf07f669d6802fffdd1e43623a72340
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78296106"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804357"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>Solución de problemas para QnA Maker
 
@@ -17,10 +17,20 @@ La lista de las preguntas frecuentes seleccionadas sobre QnA Maker le ayudará a
 
 <a name="how-to-get-the-qnamaker-service-hostname"></a>
 
+## <a name="manage-predictions"></a>Administración de predicciones
+
+<details>
+<summary><b>¿Cómo puedo mejorar el rendimiento de las predicciones de consulta?</b></summary>
+
+**Respuesta**: Los problemas de rendimiento indican que es necesario realizar un escalado vertical de sus instancias de App Service y Cognitive Search. Considere la posibilidad de agregar una réplica a su instancia de Cognitive Search para mejorar el rendimiento.
+
+Obtenga más información sobre los [planes de tarifa](Concepts/azure-resources.md).
+</details>
+
 <details>
 <summary><b>Cómo obtener el punto de conexión de servicio de QnAMaker</b></summary>
 
-**Respuesta**: El punto de conexión de servicio de QnAMaker es útil para fines de depuración cuando se ponga en contacto con el soporte técnico de QnAMaker o UserVoice. El punto de conexión es una dirección URL en este formato: https://your-resource-name.azurewebsites.net.
+**Respuesta**: El punto de conexión de servicio de QnAMaker es útil para fines de depuración cuando se ponga en contacto con el soporte técnico de QnAMaker o UserVoice. El punto de conexión es una dirección URL en este formato: `https://your-resource-name.azurewebsites.net`.
 
 1. Vaya a su servicio QnAMaker (grupo de recursos) en [Azure Portal](https://portal.azure.com)
 
@@ -132,7 +142,7 @@ Todas las eliminaciones son permanentes, incluidos los pares de preguntas y resp
 * Archivos: no compatibles.
 
 #### <a name="answer-text-in-markdown"></a>Texto de respuesta en formato Markdown
-Una vez que los conjuntos de QnA están en la base de conocimiento, puede editar el texto de Markdown de la respuesta para incluir vínculos a los elementos multimedia disponibles a través de las direcciones URL públicas.
+Una vez que los pares de QnA estén en knowledge base, puede editar el texto de Markdown de la respuesta para incluir vínculos a los elementos multimedia disponibles desde direcciones URL públicas.
 
 
 </details>

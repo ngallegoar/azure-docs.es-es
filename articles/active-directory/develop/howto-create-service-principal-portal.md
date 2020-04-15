@@ -8,16 +8,16 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
-ms.date: 02/26/2020
+ms.date: 04/01/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: c5f65adfe401f2f6e99234d08b8e8dabeff7d5db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d1ee8e90d1d690315b2727a050e0383d7d28dc03
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79231052"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546134"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procedimientos: Uso del portal para crear una aplicación de Azure AD y una entidad de servicio con acceso a los recursos
 
@@ -99,7 +99,7 @@ Exporte este certificado a un archivo con el complemento MMC [Administrar certif
 
 1. Para ver los certificados, en **Certificados - usuario actual** en el panel izquierdo, expanda el directorio **Personal**.
 1. Haga clic con el botón derecho en el certificado que ha creado y seleccione **Todas las tareas->Exportar**.
-1. Siga el Asistente para exportar certificados.  Exporte la clave privada, especifique una contraseña para el archivo de certificado y exporte a un archivo.
+1. Siga el Asistente para exportar certificados.  No exporte la clave privada ni realice exportaciones a un archivo .CER.
 
 Para cargar el certificado:
 

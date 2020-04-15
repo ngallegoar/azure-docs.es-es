@@ -2,21 +2,21 @@
 title: 'Tutorial: Uso de un archivo de parámetros para implementar la plantilla'
 description: Use archivos de parámetros que contengan los valores que se usarán para implementar la plantilla de Azure Resource Manager.
 author: mumian
-ms.date: 10/04/2019
+ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 6a12d92c0cfb9d86ebf4c335c351944997f79b4e
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: b91041b96a3819dbace3898d92226f0351f0f973
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773158"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411523"
 ---
-# <a name="tutorial-use-parameter-files-to-deploy-your-resource-manager-template"></a>Tutorial: Uso de archivos de parámetros para implementar la plantilla de Resource Manager
+# <a name="tutorial-use-parameter-files-to-deploy-your-arm-template"></a>Tutorial: Uso de archivos de parámetros para implementar la plantilla de Resource Manager
 
-En este tutorial, aprenderá a usar [archivos de parámetros](parameter-files.md) para almacenar los valores que se pasan durante la implementación. En los tutoriales anteriores, usó parámetros insertados con el comando de implementación. Este enfoque funcionó para probar la plantilla, pero al automatizar las implementaciones puede ser más fácil pasar un conjunto de valores del entorno. Los archivos de parámetros facilitan el empaquetado de los valores de los parámetros de un entorno específico. En este tutorial, creará archivos de parámetros para entornos de desarrollo y producción. Su tiempo de realización es de unos **12 minutos**.
+En este tutorial, aprenderá a usar [archivos de parámetros](parameter-files.md) para almacenar los valores que se pasan durante la implementación. En los tutoriales anteriores, usó parámetros insertados con el comando de implementación. Este enfoque funcionó para probar la plantilla de Azure Resource Manager, pero al automatizar las implementaciones puede ser más fácil pasar un conjunto de valores del entorno. Los archivos de parámetros facilitan el empaquetado de los valores de los parámetros de un entorno específico. En este tutorial, creará archivos de parámetros para entornos de desarrollo y producción. Su tiempo de realización es de unos **12 minutos**.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Aunque no es obligatorio, se recomienda realizar el [tutorial sobre etiquetas](template-tutorial-add-tags.md).
 
@@ -54,10 +54,10 @@ Como prueba final de la plantilla, vamos a crear dos nuevos grupos de recursos. 
 
 En primer lugar, se implementará en el entorno de desarrollo.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-$templateFile = "{provide-the-path-to-the-template-file}"
+$templateFile = "{path-to-the-template-file}"
 $parameterFile="{path-to-azuredeploy.parameters.dev.json}"
 New-AzResourceGroup `
   -Name myResourceGroupDev `
@@ -69,25 +69,28 @@ New-AzResourceGroupDeployment `
   -TemplateParameterFile $parameterFile
 ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+Para ejecutar este comando de implementación, debe tener la [última versión](/cli/azure/install-azure-cli) de la CLI de Azure.
 
 ```azurecli
-templateFile="{provide-the-path-to-the-template-file}"
+templateFile="{path-to-the-template-file}"
+devParameterFile="{path-to-azuredeploy.parameters.dev.json}"
 az group create \
   --name myResourceGroupDev \
   --location "East US"
-az group deployment create \
+az deployment group create \
   --name devenvironment \
   --resource-group myResourceGroupDev \
   --template-file $templateFile \
-  --parameters azuredeploy.parameters.dev.json
+  --parameters $devParameterFile
 ```
 
 ---
 
 Ahora, se implementará en el entorno de producción.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $parameterFile="{path-to-azuredeploy.parameters.prod.json}"
@@ -101,20 +104,24 @@ New-AzResourceGroupDeployment `
   -TemplateParameterFile $parameterFile
 ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 ```azurecli
+prodParameterFile="{path-to-azuredeploy.parameters.prod.json}"
 az group create \
   --name myResourceGroupProd \
   --location "West US"
-az group deployment create \
+az deployment group create \
   --name prodenvironment \
   --resource-group myResourceGroupProd \
   --template-file $templateFile \
-  --parameters azuredeploy.parameters.prod.json
+  --parameters $prodParameterFile
 ```
 
 ---
+
+> [!NOTE]
+> Si se ha producido un error en la implementación, use el modificador **debug** con el comando de implementación para mostrar los registros de depuración.  También puede usar el modificador **verbose** para mostrar los registros de depuración completos.
 
 ## <a name="verify-deployment"></a>Comprobación de la implementación
 
@@ -136,7 +143,7 @@ Para comprobar la implementación, explore el grupo de recursos desde Azure Port
 
 Enhorabuena, ha terminado esta introducción a la implementación de plantillas en Azure. Si tiene comentarios y sugerencias, háganoslo saber en la sección de comentarios. Gracias.
 
-Está listo para pasar a conceptos más avanzados sobre las plantillas. En el tutorial siguiente se explica con más detalle cómo usar la documentación de referencia de la plantilla para ayudar a definir los recursos que se van a implementar.
+En la siguiente serie de tutoriales encontrará más información sobre la implementación de plantillas.
 
 > [!div class="nextstepaction"]
-> [Utilización de la referencia de la plantilla](template-tutorial-create-encrypted-storage-accounts.md)
+> [Implementación de una plantilla local](./deployment-tutorial-local-template.md)

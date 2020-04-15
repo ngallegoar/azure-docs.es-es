@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 65fc4ed25b0fd360de8e3b1439d1766485eb2e58
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ba1d06ce83d50b6f0db84d1e423e66eae98f665d
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74688634"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477501"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>Certificados y App Service aislado 
 
@@ -22,12 +22,12 @@ App Service aislado es un sistema de inquilino único. Debido a esto, existen al
 
 ## <a name="ilb-ase-certificates"></a>Certificados de App Service aislado con ILB 
 
-Si usa una instancia de App Service aislado externo, se establece contacto con las aplicaciones en [appname].[asename].p.azurewebsites.net. De forma predeterminada, todas las instancias de App Service aislado, incluso las de App Service aislado con ILB, se crean con certificados que siguen ese formato. Cuando tiene una instancia de App Service aislado con ILB, se establece contacto con las aplicaciones según el nombre de dominio que especifique al crear App Service aislado con ILB. Para que las aplicaciones admitan SSL, deberá cargar los certificados. Obtenga un certificado SSL válido a través de las autoridades de certificados internas, adquiriendo un certificado de un emisor externo o usando un certificado autofirmado. 
+Si usa una instancia de App Service aislado externo, se establece contacto con las aplicaciones en [appname].[asename].p.azurewebsites.net. De forma predeterminada, todas las instancias de App Service aislado, incluso las de App Service aislado con ILB, se crean con certificados que siguen ese formato. Cuando tiene una instancia de App Service aislado con ILB, se establece contacto con las aplicaciones según el nombre de dominio que especifique al crear App Service aislado con ILB. Para que las aplicaciones admitan TLS, debe cargar los certificados. La obtención de un certificado TLS/SSL válido se realiza mediante autoridades de certificados internas, la adquisición de un certificado de un emisor externo o el uso de un certificado autofirmado. 
 
 Hay dos opciones para configurar certificados con App Service aislado con ILB.  Puede establecer un certificado predeterminado de carácter comodín para App Service aislado con ILB o bien certificados en las aplicaciones web individuales de App Service aislado.  Independientemente de la opción que escoja, es necesario configurar correctamente los siguientes atributos del certificado:
 
-- **Firmante**: el valor de este atributo debe ser *.[su-dominio-raíz] en el caso de un certificado de App Service aislado con ILB de carácter comodín. Si crea el certificado para la aplicación, debe ser [appname].[su-dominio-raíz].
-- **Nombre alternativo del firmante**: este atributo debe incluir tanto *.[su-dominio-raíz] como *.scm.[su-dominio-raíz] para el certificado de App Service aislado con ILB de carácter comodín. Si crea el certificado para la aplicación, debe ser [appname].[su-dominio-raíz] y [appname].scm.[su-dominio-raíz].
+- **Firmante:** el valor de este atributo tiene que establecerse como *.[su-dominio-raíz] en el caso de un certificado de App Service Environment con ILB de carácter comodín. Si crea el certificado para la aplicación, debe ser [appname].[su-dominio-raíz].
+- **Nombre alternativo del firmante**: este atributo tiene que incluir tanto *.[su-dominio-raíz] como *.scm.[su-dominio-raíz] para el certificado de App Service Environment con ILB de carácter comodín. Si crea el certificado para la aplicación, debe ser [appname].[su-dominio-raíz] y [appname].scm.[su-dominio-raíz].
 
 Como tercera variante, puede crear un certificado de App Service aislado con ILB que incluya todos los nombres de las aplicaciones individuales del SAN del certificado en lugar de usar una referencia de carácter comodín. El problema con este método es que necesita conocer por adelantado los nombres de las aplicaciones que va a incluir en App Service aislado o mantener actualizado el certificado de App Service aislado con ILB.
 
@@ -58,7 +58,7 @@ Las aplicaciones hospedadas en una instancia de App Service aislado pueden usar 
 - SSL basada en IP, que solo es compatible con una instancia de App Service aislado externo.  Una instancia de App Service aislado con ILB no es compatible con la SSL basada en IP.
 - Certificados hospedados en Key Vault 
 
-Las instrucciones para cargar y administrar dichos certificados están disponibles en [Adición de un certificado SSL en Azure App Service](../configure-ssl-certificate.md).  Si está configurando los certificados simplemente para que coincidan con un nombre de dominio personalizado que ha asignado a la aplicación web, esas instrucciones serán suficientes. Si va a cargar el certificado para una aplicación web de App Service aislado con ILB con el nombre de dominio predeterminado, a continuación, especifique el sitio de SCM en la SAN del certificado como se indicó anteriormente. 
+Las instrucciones para cargar y administrar dichos certificados están disponibles en [Adición de un certificado TLS/SSL en Azure App Service](../configure-ssl-certificate.md).  Si está configurando los certificados simplemente para que coincidan con un nombre de dominio personalizado que ha asignado a la aplicación web, esas instrucciones serán suficientes. Si va a cargar el certificado para una aplicación web de App Service aislado con ILB con el nombre de dominio predeterminado, a continuación, especifique el sitio de SCM en la SAN del certificado como se indicó anteriormente. 
 
 ## <a name="tls-settings"></a>Configuración de TLS 
 

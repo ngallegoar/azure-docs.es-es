@@ -3,22 +3,22 @@ title: 'Implementación de un módulo de Blob Storage en un dispositivo: Azure I
 description: Implementación de un módulo de Azure Blob Storage en un dispositivo de IoT Edge para almacenar datos en el perímetro.
 author: kgremban
 ms.author: kgremban
-ms.date: 12/13/2019
+ms.date: 3/10/2020
 ms.topic: conceptual
 ms.service: iot-edge
 ms.reviewer: arduppal
-ms.openlocfilehash: 8c2df4854f4cdb93c08e22f7dcdc23b1b69b13d6
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: da163e902d06bd98ac47a24256cb809cb222173b
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548788"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804629"
 ---
 # <a name="deploy-the-azure-blob-storage-on-iot-edge-module-to-your-device"></a>Implementación del módulo de Azure Blob Storage en IoT Edge en el dispositivo
 
 Hay varias maneras de implementar módulos en un dispositivo de IoT Edge, y todas ellas funcionan en los módulos de Azure Blob Storage en IoT Edge. Los dos métodos más sencillos son usar Azure Portal o las plantillas de Visual Studio Code.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Una instancia de [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) en la suscripción de Azure.
 - Un [dispositivo de IoT Edge](how-to-register-device.md) que tenga instalado el entorno de ejecución de Azure IoT Edge.
@@ -88,16 +88,16 @@ Un manifiesto de implementación es un documento JSON que describe qué módulos
 
    - Reemplace `<storage mount>` según el sistema operativo del contenedor. Especifique el nombre de un [volumen](https://docs.docker.com/storage/volumes/) o la ruta de acceso absoluta a un directorio del dispositivo de IoT Edge donde el módulo del blob almacenará sus datos. El montaje de almacenamiento asigna una ubicación del dispositivo proporcionada a una ubicación establecida del módulo.
 
-     - En el caso de contenedores de Linux, el formato es *\<ruta de acceso de almacenamiento o volumen>: /blobroot*. Por ejemplo
-         - use [montaje de volumen](https://docs.docker.com/storage/volumes/): **mi-volumen:/blobroot**
-         - use [montaje de enlace](https://docs.docker.com/storage/bind-mounts/): **/srv/containerdata:/blobroot**. Asegúrese de seguir los pasos para [conceder acceso al directorio al usuario del contenedor](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux).
-     - En el caso de contenedores de Windows, el formato es *\<ruta de acceso de almacenamiento o volumen>:C:/BlobRoot*. Por ejemplo
-         - use [montaje de volumen](https://docs.docker.com/storage/volumes/): **mi-volumen:C:/blobroot**.
-         - use [montaje de enlace](https://docs.docker.com/storage/bind-mounts/): **C:/ContainerData:C:/BlobRoot**.
+     - En el caso de contenedores Linux, el formato es **\<la ruta de acceso o el volumen de almacenamiento:/blobroot**. Por ejemplo:
+         - use [montaje de volumen](https://docs.docker.com/storage/volumes/): `my-volume:/blobroot`
+         - use [montaje de enlace](https://docs.docker.com/storage/bind-mounts/): `/srv/containerdata:/blobroot` Asegúrese de seguir los pasos para [conceder acceso al directorio al usuario del contenedor](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux).
+     - En el caso de contenedores Windows, el formato es **\<la ruta de acceso o el volumen de almacenamiento>:C:/BlobRoot**. Por ejemplo:
+         - use [montaje de volumen](https://docs.docker.com/storage/volumes/): `my-volume:C:/BlobRoot`.
+         - use [montaje de enlace](https://docs.docker.com/storage/bind-mounts/): `C:/ContainerData:C:/BlobRoot`.
          - En lugar de usar la unidad local, puede asignar la ubicación de red de SMB. Para más información, consulte [Uso del recurso compartido de SMB como almacenamiento local](how-to-store-data-blob.md#using-smb-share-as-your-local-storage).
 
      > [!IMPORTANT]
-     > No cambie la segunda mitad del valor del montaje de almacenamiento, que señala a una ubicación específica del módulo. El montaje de almacenamiento siempre debe terminar con **:/blobroot** para contenedores de Linux y **:C:/BlobRoot** para contenedores de Windows.
+     > No cambie la segunda mitad del valor de montaje de almacenamiento, que señala a una ubicación específica en Blob Storage en el módulo de IoT Edge. El montaje de almacenamiento siempre debe terminar con **:/blobroot** para contenedores Linux y **:C:/BlobRoot** para contenedores Windows.
 
 5. En la pestaña **Configuración de módulos gemelos**, copie el siguiente código JSON y péguelo en el cuadro.
 
@@ -200,16 +200,16 @@ Azure IoT Edge proporciona plantillas de Visual Studio Code que facilitan el des
 
 1. Reemplace `<storage mount>` según el sistema operativo del contenedor. Especifique el nombre de un [volumen](https://docs.docker.com/storage/volumes/) o la ruta de acceso absoluta a un directorio del dispositivo de IoT Edge en el que desea que el módulo del blob almacene sus datos. El montaje de almacenamiento asigna una ubicación del dispositivo proporcionada a una ubicación establecida del módulo.  
 
-     - En el caso de contenedores de Linux, el formato es *\<ruta de acceso de almacenamiento o volumen>: /blobroot*. Por ejemplo
-         - use [montaje de volumen](https://docs.docker.com/storage/volumes/): **mi-volumen:/blobroot**
-         - use [montaje de enlace](https://docs.docker.com/storage/bind-mounts/): **/srv/containerdata:/blobroot**. Asegúrese de seguir los pasos para [conceder acceso al directorio al usuario del contenedor](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux).
-     - En el caso de contenedores de Windows, el formato es *\<ruta de acceso de almacenamiento o volumen>:C:/BlobRoot*. Por ejemplo
-         - use [montaje de volumen](https://docs.docker.com/storage/volumes/): **mi-volumen:C:/blobroot**.
-         - use [montaje de enlace](https://docs.docker.com/storage/bind-mounts/): **C:/ContainerData:C:/BlobRoot**.
+     - En el caso de contenedores Linux, el formato es **\<la ruta de acceso o el volumen de almacenamiento:/blobroot**. Por ejemplo:
+         - use [montaje de volumen](https://docs.docker.com/storage/volumes/): `my-volume:/blobroot`
+         - use [montaje de enlace](https://docs.docker.com/storage/bind-mounts/): `/srv/containerdata:/blobroot` Asegúrese de seguir los pasos para [conceder acceso al directorio al usuario del contenedor](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux).
+     - En el caso de contenedores Windows, el formato es **\<la ruta de acceso o el volumen de almacenamiento>:C:/BlobRoot**. Por ejemplo
+         - use [montaje de volumen](https://docs.docker.com/storage/volumes/): `my-volume:C:/BlobRoot`.
+         - use [montaje de enlace](https://docs.docker.com/storage/bind-mounts/): `C:/ContainerData:C:/BlobRoot`.
          - En lugar de usar la unidad local, puede asignar la ubicación de red de SMB. Para obtener más información, consulte [uso del recurso compartido de SMB como almacenamiento local](how-to-store-data-blob.md#using-smb-share-as-your-local-storage).
 
      > [!IMPORTANT]
-     > No cambie la segunda mitad del valor del montaje de almacenamiento, que señala a una ubicación específica del módulo. El montaje de almacenamiento siempre debe terminar con **:/blobroot** para contenedores de Linux y **:C:/BlobRoot** para contenedores de Windows.
+     > No cambie la segunda mitad del valor de montaje de almacenamiento, que señala a una ubicación específica en Blob Storage en el módulo de IoT Edge. El montaje de almacenamiento siempre debe terminar con **:/blobroot** para contenedores Linux y **:C:/BlobRoot** para contenedores Windows.
 
 1. Configure los elementos [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) y [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties) del módulo. Para ello, agregue el siguiente código JSON al archivo *deployment.template.json*. Configure cada propiedad con un valor adecuado y guarde el archivo. Si usa el simulador de IoT Edge, establezca los valores en las variables de entorno relacionadas de estas propiedades, que puede encontrar en la sección de explicación de [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) y [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties)
 
@@ -260,8 +260,41 @@ Edite el campo **Opciones de creación del contenedor** (en Azure Portal) o **cr
 
 Cuando se conecta a módulos de Blob Storage adicionales, cambie el punto de conexión para que apunte al puerto de host actualizado.
 
+## <a name="configure-proxy-support"></a>Configuración de la compatibilidad de proxy
+
+Si su organización usa un servidor proxy, tendrá que configurar la compatibilidad con el proxy para los módulos en tiempo de ejecución de edgeAgent y edgeHub. Este proceso implica dos tareas:
+
+- Configuración de los demonios en el entorno en tiempo de ejecución y del agente de IoT Edge en el dispositivo.
+- Establezca la variable de entorno HTTPS_PROXY para los módulos en el archivo JSON del manifiesto de implementación.
+
+Este proceso se describe en [Configuración de un dispositivo de IoT Edge para que se comunique a través de un servidor proxy](how-to-configure-proxy-support.md).
+
+Además, un módulo de almacenamiento de blobs también requiere el valor HTTPS_PROXY en el archivo del manifiesto de implementación. Puede editar directamente el archivo del manifiesto de implementación o usar Azure Portal.
+
+1. Vaya a su instancia de IOT Hub en Azure Portal y seleccione **IOT Edge** en el menú del panel izquierdo.
+
+1. Seleccione el dispositivo con el módulo que desea configurar.
+
+1. Seleccione **Set modules** (Establecer módulos).
+
+1. En la sección **Módulos de IoT Edge** de la página, seleccione el módulo de almacenamiento de blobs.
+
+1. En la página **Actualizar módulo IoT Edge**, seleccione la pestaña **Variables de entorno**.
+
+1. Agregue `HTTPS_PROXY` para el **Nombre** y la dirección URL para el **Valor**.
+
+      ![Establecimiento de la variable de entorno HTTPS_PROXY](./media/how-to-deploy-blob/https-proxy-config.png)
+
+1. Haga clic en **Actualizar** y en **Revisar y crear**.
+
+1. Observe que el proxy se agrega al módulo en el manifiesto de implementación y seleccione **Crear**.
+
+1. Para comprobar la configuración, seleccione el módulo en la página de detalles del dispositivo y, en la parte inferior de la página de **Detalles de los módulos de IoT Edge**, seleccione la pestaña **Variables de entorno**.
+
+      ![Establecimiento de la variable de entorno HTTPS_PROXY](./media/how-to-deploy-blob/verify-proxy-config.png)
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga más información sobre [Azure Blob Storage en IoT Edge](how-to-store-data-blob.md).
+Más información sobre [Azure Blob Storage en IoT Edge](how-to-store-data-blob.md).
 
 Para más información sobre los manifiestos de implementación y cómo crearlos, consulte [Descripción de cómo se pueden utilizar, configurar y reutilizar los módulos de IoT Edge](module-composition.md).

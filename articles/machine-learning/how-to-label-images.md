@@ -7,16 +7,16 @@ ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 2e14b669aadeec4c6a7245be8940051ec604059b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 371b99c794feb4a64eb3e9af389020e25d14eedb
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79409565"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879435"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Etiquetado de imágenes en un proyecto de etiquetado
 
-Después de que el administrador del proyecto [cree un proyecto de etiquetado](https://docs.microsoft.com/azure/machine-learning/how-to-create-labeling-projects#create-a-labeling-project) en Azure Machine Learning, puede usar la herramienta de etiquetado para preparar rápidamente los datos para un proyecto de Machine Learning. En este artículo se describe:
+Después de que el administrador del proyecto [cree un proyecto de etiquetado](https://docs.microsoft.com/azure/machine-learning/how-to-create-labeling-projects#create-a-labeling-project) en Azure Machine Learning, puede usar la herramienta de etiquetado (versión preliminar pública) para preparar rápidamente los datos para un proyecto de Machine Learning. En este artículo se describe:
 
 > [!div class="checklist"]
 > * Cómo acceder a proyectos de etiquetado
@@ -45,7 +45,9 @@ Vaya a **View detailed instructions** (Ver instrucciones detalladas). Estas inst
 
 En todas las tareas de etiquetado de imágenes, elija una o varias etiquetas adecuadas del conjunto especificado por el administrador del proyecto. Puede seleccionar las nueve primeras etiquetas con las teclas numéricas del teclado.  
 
-En las tareas de clasificación de imágenes, puede elegir ver varias imágenes simultáneamente. Use los iconos situados encima del área de imagen para seleccionar el diseño. Para seleccionar todas las imágenes mostradas al mismo tiempo, use **Select all** (Seleccionar todo). Para seleccionar imágenes individuales, use el botón de selección circular en la esquina superior derecha de la imagen. Debe seleccionar al menos una imagen para aplicar una etiqueta. Si selecciona varias imágenes, la etiqueta que seleccione se aplicará a todas las imágenes seleccionadas.
+En las tareas de clasificación de imágenes, puede elegir ver varias imágenes simultáneamente. Use los iconos situados encima del área de imagen para seleccionar el diseño. 
+
+Para seleccionar todas las imágenes mostradas al mismo tiempo, use **Select all** (Seleccionar todo). Para seleccionar imágenes individuales, use el botón de selección circular en la esquina superior derecha de la imagen. Debe seleccionar al menos una imagen para aplicar una etiqueta. Si selecciona varias imágenes, la etiqueta que seleccione se aplicará a todas las imágenes seleccionadas.
 
 Aquí, hemos elegido un diseño de dos por dos y vamos a aplicar la etiqueta "Mammal" a las imágenes del oso y la orca. La imagen del tiburón ya se ha etiquetado como "Cartilaginous fish" y la iguana todavía no se ha etiquetado.
 

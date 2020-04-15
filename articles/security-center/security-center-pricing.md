@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/13/2019
 ms.author: memildin
-ms.openlocfilehash: 60a88e667918533f2c507846fa75b0e036ba5262
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fd84058c8421d144678c91fac3e5671511d0fd4a
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77921290"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435498"
 ---
 # <a name="upgrade-to-standard-tier-for-enhanced-security"></a>Actualizar al nivel estándar para mejorar la seguridad
 Azure Security Center ofrece una administración de seguridad unificada y una protección contra amenazas avanzada para las cargas de trabajo que se ejecutan en Azure, de forma local y en otras nubes. Ofrece visibilidad y control sobre las cargas de trabajo de nube híbrida, defensas activas que reducen la exposición a las amenazas y una detección inteligente, lo que le permitirá mantenerse al día de los ciberataques, que se expanden rápidamente.
@@ -29,7 +29,7 @@ Security Center se ofrece en dos niveles:
 - El nivel **Gratuito** está habilitado en todas las suscripciones de Azure desde que visite el panel de Azure Security Center en Azure Portal por primera vez, o si se habilitó mediante programación a través de la API. El nivel gratuito proporciona recomendaciones de directivas de seguridad, de evaluación continua de la seguridad y de seguridad que requieren acción para que pueda proteger sus recursos de Azure.
 - El nivel **Estándar** amplía las capacidades del nivel Gratis a las cargas de trabajo que se ejecutan en nubes privadas y otras nubes públicas, lo que ofrece una administración de seguridad unificada y protección contra amenazas en todas sus cargas de trabajo de nube híbrida. El nivel estándar también incorpora funcionalidades de protección contra amenazas, donde se emplea el análisis de comportamiento integrado y el aprendizaje automático para identificar ataques y vulnerabilidades de día cero, controles de acceso y de aplicación para reducir la exposición a los ataques a la red y al malware, etc. Además, el nivel estándar agrega detección de vulnerabilidades a las máquinas virtuales. Puede probar el nivel estándar de manera gratuita. El nivel estándar de Security Center es compatible con recursos de Azure, incluidas las máquinas virtuales, los conjuntos de escalado de máquinas virtuales, App Service, los servidores SQL Server y las cuentas de almacenamiento. Si tiene el nivel estándar de Azure Security Center, puede optar por no recibir soporte técnico en función del tipo de recurso. 
 
-La mayoría de las evaluaciones de seguridad de nivel gratuito para las VM, así como muchas de las alertas de seguridad de nivel estándar, requieren la instalación de la funcionalidad Microsoft Monitoring Agent (MMA). Puede habilitar el aprovisionamiento automático en Security Center para implementar automáticamente el agente para las máquinas virtuales de Azure.
+La mayoría de las evaluaciones de seguridad de nivel gratuito para las máquinas virtuales, así como muchas de las alertas de seguridad de nivel estándar, requieren la instalación de la funcionalidad del agente de Log Analytics. Puede habilitar el aprovisionamiento automático en Security Center para implementar automáticamente el agente para las máquinas virtuales de Azure.
 
 ## <a name="try-standard-tier-free-for-30-days"></a>Pruebe el nivel estándar de forma gratuita durante 30 días
 El nivel estándar es gratuito durante los primeros 30 días. Después de 30 días, si decide seguir usando el servicio, se empezará a cobrar automáticamente por su uso.
@@ -61,7 +61,7 @@ Security Center ofrece una seguridad mejorada y una protección contra amenazas 
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este artículo se han presentado los precios de Security Center. Para obtener más información sobre la seguridad mejorada y la protección contra amenazas avanzada del nivel Estándar, vea:
+En este artículo se han presentado los precios de Security Center. Para más información sobre la seguridad mejorada y la protección contra amenazas avanzada de nivel Estándar, consulte:
 
 - [Protección contra amenazas en Azure Security Center](threat-protection.md)
 - [Control de acceso a VM Just-In-Time](security-center-just-in-time.md)

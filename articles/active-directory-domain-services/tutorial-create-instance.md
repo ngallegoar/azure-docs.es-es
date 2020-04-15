@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/15/2020
+ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: 14b3292a08e9bb0a60710053cd0b7ffc9d0db115
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1bd5248e0a6a6c7c569c85e8c1af3e30f8b7f9e4
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79223082"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474259"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance"></a>Tutorial: Creación y configuración de una instancia de Azure Active Directory Domain Services
 
@@ -89,7 +89,7 @@ Complete los campos de la ventana *Datos básicos* de Azure Portal para crear un
 1. Escriba un **nombre de dominio DNS** para el dominio administrado, teniendo en cuenta los puntos anteriores.
 1. Elija la **ubicación** de Azure en que se debe crear el dominio administrado. Si elige una región que admite zonas de disponibilidad, los recursos de Azure AD DS se distribuyen entre las zonas para conseguir redundancia adicional.
 
-    Las zonas de disponibilidad son ubicaciones físicas exclusivas dentro de una región de Azure. Cada zona de disponibilidad consta de uno o varios centros de datos equipados con alimentación, refrigeración y redes independientes. Para garantizar la resistencia, hay tres zonas independientes como mínimo en todas las regiones habilitadas.
+    Las zonas de disponibilidad son ubicaciones físicas exclusivas dentro de una región de Azure. Cada zona de disponibilidad consta de uno o varios centros de datos equipados con alimentación, refrigeración y redes independientes. Para garantizar la resistencia, hay un mínimo de tres zonas independientes en todas las regiones habilitadas.
 
     No es necesario realizar ninguna configuración para que Azure AD DS se distribuya entre zonas. La plataforma Azure controla automáticamente la distribución en zonas de los recursos. Para más información y consulta de la disponibilidad en las regiones, consulte [¿Qué son las zonas de disponibilidad en Azure?][availability-zones]
 
@@ -104,8 +104,8 @@ Complete los campos de la ventana *Datos básicos* de Azure Portal para crear un
 
 Para crear rápidamente un dominio administrado de Azure AD DS, puede seleccionar **Revisión y creación** para aceptar otras opciones de configuración predeterminadas. Los siguientes valores predeterminados se configuran al elegir esta opción de creación:
 
-* Crea una red virtual llamada *aadds-vnet* que usa el intervalo de direcciones IP *10.0.1.0/24*.
-* Crea una subred denominada *aadds-subnet* mediante el intervalo de direcciones IP *10.0.1.0/24*.
+* Crea una red virtual llamada *aadds-vnet* que usa el intervalo de direcciones IP de *10.0.2.0/24*.
+* Crea una subred denominada *aadds-subnet* mediante el intervalo de direcciones IP de *10.0.2.0/24*.
 * Sincroniza *Todos* los usuarios de Azure AD con el dominio administrado de Azure AD DS.
 
 Seleccione **Revisión y creación** para aceptar estas opciones de configuración predeterminadas.
@@ -136,7 +136,7 @@ Ahora que Azure AD DS se ha implementado correctamente, es el momento de confi
 
 1. En la pestaña **Información general** del dominio administrado se muestran algunos de los **Pasos de configuración necesarios**. El primer paso de configuración es la actualización de la configuración de servidores DNS para la red virtual. Cuando la configuración de DNS esté correctamente establecida, ya no se mostrará este paso.
 
-    Las direcciones que aparecen son los controladores de dominio que se usan en la red virtual. En este ejemplo, las direcciones son *10.0.1.4* y *10.0.1.5*. Más adelante puede encontrar estas direcciones IP en la pestaña **Propiedades**.
+    Las direcciones que aparecen son los controladores de dominio que se usan en la red virtual. En este ejemplo, estas direcciones son *10.0.2.4* y *10.0.2.5*. Más adelante puede encontrar estas direcciones IP en la pestaña **Propiedades**.
 
     ![Configuración de los valores de DNS para la red virtual con las direcciones IP de Azure AD Domain Services](./media/tutorial-create-instance/configure-dns.png)
 

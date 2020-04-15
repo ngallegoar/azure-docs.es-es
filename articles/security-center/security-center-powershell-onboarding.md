@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2018
 ms.author: memildin
-ms.openlocfilehash: 5aaaf539c07a7ba2c2463d5bfd1f452853f52379
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b471fbb62862cd48ebbb239d65b563aa109ef629
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77603695"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435477"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>Automatización de la incorporación de Azure Security Center mediante PowerShell
 
@@ -33,15 +33,15 @@ En este ejemplo, se habilitará Security Center en una suscripción con el ident
 
 1. Establezca el [nivel de protección estándar de Security Center](https://azure.microsoft.com/pricing/details/security-center/). 
  
-2. Establezca el área de trabajo de Log Analytics a la que Microsoft Monitoring Agent enviará los datos que recopila de las máquinas virtuales asociada con la suscripción; en este ejemplo, un área de trabajo existente definida por el usuario (myWorkspace).
+2. Establezca el área de trabajo de Log Analytics a la que el agente de Log Analytics enviará los datos que recopila de las máquinas virtuales asociadas con la suscripción; en este ejemplo, un área de trabajo definida por el usuario existente (myWorkspace).
 
-3. Active el aprovisionamiento de automático de agentes que [implementa Microsoft Monitoring Agent](security-center-enable-data-collection.md#auto-provision-mma).
+3. Active el aprovisionamiento automático del agente de Security Center que [implementa el agente de Log Analytics](security-center-enable-data-collection.md#auto-provision-mma).
 
 5. Establezca el [CISO de la organización como contacto de seguridad de las alertas y eventos destacados de Security Center](security-center-provide-security-contact-details.md).
 
 6. Asigne [directivas de seguridad predeterminadas](tutorial-security-policy.md) de Security Center.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Estos pasos deben realizarse antes de ejecutar los cmdlets de Security Center:
 
@@ -68,7 +68,7 @@ Estos pasos deben realizarse antes de ejecutar los cmdlets de Security Center:
         Set-AzSecurityWorkspaceSetting -Name "default" -Scope
         "/subscriptions/d07c0080-170c-4c24-861d-9c817742786c" -WorkspaceId"/subscriptions/d07c0080-170c-4c24-861d-9c817742786c/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace"
 
-4.  Instalación de aprovisionamiento automático de Microsoft Monitoring Agent en las máquinas virtuales de Azure:
+4.  Instalación de aprovisionamiento automático del agente de Log Analytics en las máquinas virtuales de Azure:
     
         Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
     

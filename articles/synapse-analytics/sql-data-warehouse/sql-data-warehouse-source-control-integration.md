@@ -10,22 +10,22 @@ ms.subservice: ''
 ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 9898addfa840752e27de8716d2185e767aac809b
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 0ffa33811957af95fc10396ffecef0b3de7959fe
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350101"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633014"
 ---
 # <a name="source-control-integration-for-sql-pool"></a>Integración del control de código fuente para el grupo de SQL
 
-En este tutorial se describe cómo integrar el proyecto de base de datos de SQL Server Data Tools (SSDT) con control de código fuente.  La integración del control de código fuente es el primer paso en la creación de una canalización de integración e implementación continuas con el recurso de grupo de SQL en Azure Synapse Analytics. 
+En este tutorial se describe cómo integrar el proyecto de base de datos de SQL Server Data Tools (SSDT) con control de código fuente.  La integración del control de código fuente es el primer paso en la creación de una canalización de integración e implementación continuas con el recurso de grupo de SQL en Azure Synapse Analytics.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
 - Regístrese como [organización de Azure DevOps](https://azure.microsoft.com/services/devops/)
-- Realice el tutorial de [creación y conexión](https://docs.microsoft.com/azure/sql-data-warehouse/create-data-warehouse-portal)
--  [Instale Visual Studio 2019](https://visualstudio.microsoft.com/vs/older-downloads/) 
+- Realice el tutorial de [creación y conexión](create-data-warehouse-portal.md)
+- [Instale Visual Studio 2019](https://visualstudio.microsoft.com/vs/older-downloads/)
 
 ## <a name="set-up-and-connect-to-azure-devops"></a>Configuración y conexión con Azure DevOps
 
@@ -33,7 +33,7 @@ En este tutorial se describe cómo integrar el proyecto de base de datos de SQL�
 
    ![Crear proyecto](./media/sql-data-warehouse-source-control-integration/1-create-project-azure-devops.png "Crear proyecto")
 
-2. Abra Visual Studio y conéctese a su organización y proyecto de Azure DevOps desde el paso 1 seleccionando “Administrar conexiones”
+2. Abra Visual Studio y conéctese a su organización y proyecto de Azure DevOps desde el paso 1 y seleccione “Administrar conexiones”.
 
    ![Administrar conexiones](./media/sql-data-warehouse-source-control-integration/2-manage-connections.png "Administración de conexiones")
 
@@ -53,7 +53,7 @@ En este tutorial se describe cómo integrar el proyecto de base de datos de SQL�
 
    ![Importar proyecto](./media/sql-data-warehouse-source-control-integration/6-import-new-project.png "Importar proyecto")  
 
-3. En Team Explorer en Visual Studio, confirme todos los cambios en el repositorio local de Git 
+3. En Team Explorer en Visual Studio, confirme todos los cambios en el repositorio local de Git
 
    ![Confirmar](./media/sql-data-warehouse-source-control-integration/6.5-commit-push-changes.png "Commit")  
 

@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 03/04/2020
+ms.date: 04/03/2020
 ms.author: labrenne
 ms.custom: include file
-ms.openlocfilehash: e9460108499ca76d1b149b61cebe3d3081bf6544
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dc08dcded6418208751edbffcb5d263db059ec01
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79086261"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80657467"
 ---
 ### <a name="general-requirements"></a>Requisitos generales
 
@@ -75,6 +75,9 @@ Configure el tráfico de entrada en los puertos 3389 (Windows) o 22 (Linux) solo
 | --- | --- | --- | --- | --- | --- | --- |
 | N/D | `BatchNodeManagement` [Etiqueta de servicio](../articles/virtual-network/security-overview.md#service-tags) (si se usa una variante regional, en la misma región que la cuenta de Batch) | * | Any | 29876-29877 | TCP | Allow |
 | Las direcciones IP de origen de usuario para tener acceso remoto a los nodos de ejecución o la subred de nodo de ejecución para tareas de instancias múltiples de Linux, si es necesario. | N/D | * | Any | 3389 (Windows), 22 (Linux) | TCP | Allow |
+
+> [!WARNING]
+> Las direcciones IP del servicio Batch pueden cambiar con el tiempo. Por lo tanto, se recomienda encarecidamente usar la etiqueta de servicio `BatchNodeManagement` (o la variante regional) para las reglas de grupo de seguridad de red. No se recomienda rellenar las reglas de grupo de seguridad de red directamente con las direcciones IP del servicio Batch.
 
 **Reglas de seguridad de salida**
 

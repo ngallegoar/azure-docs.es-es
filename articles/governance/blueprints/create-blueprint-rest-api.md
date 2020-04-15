@@ -3,12 +3,12 @@ title: 'Inicio rápido: Creación de un plano técnico con la API de REST'
 description: En este inicio rápido se usa Azure Blueprints para crear, definir e implementar artefactos mediante la API REST.
 ms.date: 02/26/2020
 ms.topic: quickstart
-ms.openlocfilehash: 3e7e7c67822eec939c7d7752f8771d3b486abc3c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 93c9aef9efd826b88da59cdb77dedfb10fb11262
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79290373"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80676584"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Inicio rápido: Definición y asignación de un plano técnico de Azure Blueprint con API REST
 
@@ -25,7 +25,7 @@ Entender cómo crear y asignar planos técnicos permite la definición de patron
 
 Si no está familiarizado con la API REST, comience por revisar la [Referencia de la API REST de Azure](/rest/api/azure/) para obtener una descripción general de la API REST, específicamente el identificador URI de la solicitud y el cuerpo de la solicitud. En este artículo se utilizan estos conceptos para proporcionar instrucciones para trabajar con planos técnicos de Azure Blueprint y da por supuesto un conocimiento práctico de ellos. Herramientas como [ARMClient](https://github.com/projectkudu/ARMClient) y otras pueden controlar la autorización automáticamente y se recomiendan para principiantes.
 
-Para información sobre las especificaciones de planos técnicos, consulte [Azure Blueprints REST API](/rest/api/blueprints/).
+Para información sobre las especificaciones de Azure Blueprints, consulte [API REST de Azure Blueprints](/rest/api/blueprints/).
 
 ### <a name="rest-api-and-powershell"></a>API REST y PowerShell
 
@@ -406,7 +406,7 @@ En cada identificador URI de la API REST, hay variables usadas que se deben reem
      La **identidad administrada asignada por el usuario** puede estar en cualquier suscripción y grupo de recursos para los que tenga permiso el usuario que asigna el plano técnico.
 
      > [!IMPORTANT]
-     > Los planos técnicos no administran la identidad administrada asignada por el usuario. Los usuarios son responsables de asignar los roles y permisos necesarios o, de lo contrario, se producirá un error en la asignación del plano técnico.
+     > Azure Blueprints no administra la identidad administrada asignada por el usuario. Los usuarios son responsables de asignar los roles y permisos necesarios o, de lo contrario, se producirá un error en la asignación del plano técnico.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

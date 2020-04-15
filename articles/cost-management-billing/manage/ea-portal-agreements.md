@@ -3,16 +3,16 @@ title: Acuerdos y enmiendas de Contrato Enterprise de Azure
 description: En este artículo se explica cómo los acuerdos y enmiendas del Contrato Enterprise de Azure afectan al uso del portal del Contrato Enterprise de Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/04/2020
+ms.date: 04/01/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 5198bd240f0c4e23910504fd039d64a73ddb41c9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0b007e98f37246d17679761fd601ed76fd9fb875
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78301427"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586224"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Acuerdos y enmiendas de Contrato Enterprise de Azure
 
@@ -105,7 +105,7 @@ Asegúrese de revisar la información comercial —información de saldo monetar
 
 **Paso dos: Revisar y validar**
 
-Revise el incremento de precio en _Usage Summary_ (Resumen de uso) para el período de compromiso en la vista de cliente. El precio de Microsoft seguirá estando disponible en la vista de asociado. Las vistas se pueden alternar mediante el texto de alternancia "People" (Personas) de incremento de asociado en la parte superior derecha.
+Revise el incremento de precio en _Usage Summary_ (Resumen de uso) para el período de compromiso en la vista de cliente. El precio de Microsoft seguirá estando disponible en la vista de asociado. Las vistas se pueden alternar mediante el texto de alternancia "People" (Personas) de incremento del asociado en la parte superior derecha.
 
 1. Revise los precios de la hoja de precios.
 1. Se pueden realizar cambios antes de la publicación seleccionando **Edit** (Editar) en la pestaña _View Usage Summary > Customer View_ (Ver resumen de uso > Vista de cliente). 
@@ -168,7 +168,7 @@ El importe comprado anticipadamente se mostrará como un crédito en la columna 
 
 La forma en la que se compran los créditos se basa en el número de máquinas de una clase por mes. Por ejemplo, si compró 70 máquinas virtuales A2 en el Este de EE. UU. 2, no lo verá en EA Portal del mismo modo que lo adquirió.
 
-Las máquinas mensuales se calculan como una ejecución de 744 horas al mes. Al convertirlo en horas, supone 70 por 744, o lo que es lo mismo, 52 080 horas compradas de las máquinas virtuales A2 al mes. Dado que las máquinas virtuales A2 se presentan en el informe Usage Summary (Resumen de uso) de EA Portal en incrementos de 100 horas, lo que se ve es un crédito de 520,8 (52 080/100) unidades incluidas al mes y las unidades consumidas hasta el momento en el mes. Los cargos por uso deben aparecer como cero hasta que las unidades mensuales consumidas superen las unidades mensuales incluidas.
+Las máquinas mensuales se calculan como una ejecución de 744 horas al mes. Al convertirlo en horas, supone 70 por 744, o lo que es lo mismo, 52 080 horas compradas de las máquinas virtuales A2 al mes. Dado que las máquinas virtuales A2 se presentan en el informe Usage Summary (Resumen de uso) de EA Portal en incrementos de 100 horas, lo que se ve es un crédito de 520,8 (52 080/100) "unidades incluidas" al mes y las unidades consumidas hasta el momento en el mes. Los cargos por uso deben aparecer como cero hasta que las unidades mensuales consumidas superen las unidades mensuales incluidas.
 
 Los distintos tipos de máquina usan unidades de medida diferentes, por lo que, por ejemplo, las máquinas virtuales D3 y D4 usan una unidad de medida de 10 horas en el informe Usage Summary (Resumen de uso), por lo que una compra de 70 de estas máquinas mostraría 5208 unidades incluidas al mes (52 080/10).
 

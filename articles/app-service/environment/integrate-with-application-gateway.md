@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 03/03/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: dfb6d72b3f8f61e1350101173ecec6134a614edf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e4838597c50898748eb4b33e81ff22eaeea37b30
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74687149"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80476893"
 ---
 # <a name="integrate-your-ilb-app-service-environment-with-the-azure-application-gateway"></a>Integración de ILB App Service Environment con Azure Application Gateway #
 
@@ -20,7 +20,7 @@ ms.locfileid: "74687149"
 
 Los firewalls de aplicaciones web ayudan a proteger las aplicaciones web, ya que inspeccionan el tráfico web entrante y bloquean las inyecciones de código SQL, un posible ataque de scripts de sitios, cargas de malware y DDoS de aplicaciones, y otros ataques. También examina las respuestas de los servidores web back-end para prevención de pérdida de datos (DLP). Puede obtener un dispositivo WAF en Azure Marketplace o puede usar [Azure Application Gateway][appgw].
 
-Azure Application Gateway es una aplicación virtual que ofrece un equilibrio de carga de nivel 7, descarga de SSL y protección mediante firewall de aplicaciones web (WAF). Puede escuchar en una dirección IP pública y enrutar el tráfico hacia el punto de conexión de la aplicación. La siguiente información describe cómo integrar una puerta de enlace de aplicaciones configurada con firewall de aplicaciones web con una aplicación en una instancia de ILB App Service Environment.  
+Azure Application Gateway es una aplicación virtual que ofrece un equilibrio de carga de nivel 7, descarga de TLS/SSL y protección mediante firewall de aplicaciones web (WAF). Puede escuchar en una dirección IP pública y enrutar el tráfico hacia el punto de conexión de la aplicación. La siguiente información describe cómo integrar una puerta de enlace de aplicaciones configurada con firewall de aplicaciones web con una aplicación en una instancia de ILB App Service Environment.  
 
 La integración de la puerta de enlace de aplicaciones con ILB App Service Environment se produce en el nivel de la aplicación. Al configurar la puerta de enlace de aplicaciones con ILB App Service Environment, lo hace para aplicaciones específicas de este último. Esta técnica permite hospedar aplicaciones para varios inquilinos seguras en una única instancia de ILB App Service Environment.  
 

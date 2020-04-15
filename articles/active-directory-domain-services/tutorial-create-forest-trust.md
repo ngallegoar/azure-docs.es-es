@@ -7,15 +7,15 @@ manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 11/19/2019
+ms.topic: tutorial
+ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: 5620d1cdc7dc71bdac17057b9a13a74150b12d5c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9a76f72d3f01ab9253c452e49dde171280fe481d
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77612525"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80654412"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services-preview"></a>Tutorial: creación de una confianza de bosque de salida en un dominio local en Azure Active Directory Domain Services (versión preliminar)
 
@@ -59,7 +59,7 @@ Antes de configurar una confianza de bosque en Azure AD DS, asegúrese de que la
 
 * Use direcciones IP privadas. No use DHCP con asignación de direcciones IP dinámicas.
 * Evite los espacios de direcciones IP superpuestos para permitir el emparejamiento y el enrutamiento de redes virtuales con el fin de que Azure y el entorno local se comuniquen correctamente.
-* Una red virtual de Azure necesita una subred de puerta de enlace para configurar una conexión VPN de sitio a sitio (S2S) o ExpressRoute.
+* Una red virtual de Azure necesita una subred de puerta de enlace para configurar una conexión de [VPN de sitio a sitio (S2S) de Azure][vpn-gateway] o [ExpressRoute][expressroute].
 * Cree subredes con suficientes direcciones IP para admitir su escenario.
 * Asegúrese de que Azure AD DS tenga su propia subred; no comparta esta subred de red virtual con los servicios y las máquinas virtuales de la aplicación.
 * Las redes virtuales emparejadas no son transitivas.
@@ -74,7 +74,7 @@ Para resolver correctamente el dominio administrado de Azure AD DS desde el ento
 1. Seleccione **Inicio | Herramientas administrativas | DNS**.
 1. Haga clic con el botón derecho en el servidor DNS, como *myAD01*, y seleccione **Propiedades**.
 1. Elija **Reenviadores** y, después, **Editar** para agregar reenviadores adicionales.
-1. Agregue las direcciones IP del dominio administrado de Azure AD DS, como *10.0.1.4* y *10.0.1.5*.
+1. Agregue las direcciones IP del dominio administrado de Azure AD DS, como *10.0.2.4* y *10.0.2.5*.
 
 ## <a name="create-inbound-forest-trust-in-the-on-premises-domain"></a>Creación de una confianza de bosque de entrada en el dominio local
 
@@ -85,10 +85,6 @@ Para configurar la confianza de entrada en el dominio de AD DS local, complete l
 1. Seleccione **Inicio | Herramientas administrativas | Dominios y confianzas de Active Directory**.
 1. Haga clic derecho en el dominio, como *onprem.contoso.com*, y seleccione **Propiedades**.
 1. Elija la pestaña **Confianzas** y, a continuación, **Nueva confianza**.
-
-   > [!NOTE]
-   > Si no ve la opción de menú **Confianzas**, compruebe bajo **Propiedades** el *Tipo de bosque*. Solo los bosques de *recursos* pueden crear confianzas. Si el bosque es de tipo *Usuario*, no se pueden crear confianzas. Actualmente no hay ninguna manera de cambiar el tipo de bosque de un dominio administrado de Azure AD DS. Debe eliminar y volver a crear el dominio administrado como un bosque de recursos.
-
 1. Escriba el nombre en el nombre de dominio de Azure AD DS, por ejemplo, *aaddscontoso.com* y, después, seleccione **Siguiente**.
 1. Seleccione la opción para crear una **Confianza de bosque** y, a continuación, para crear una confianza **Unidireccional: de entrada**.
 1. Elija la opción para crear la confianza **Solo para este dominio**. En el paso siguiente, creará la confianza en Azure Portal para el dominio administrado de Azure AD DS.
@@ -104,12 +100,16 @@ Para crear la confianza de salida para el dominio administrado de Azure AD DS en
 
 1. En Azure Portal, busque y seleccione **Azure AD Domain Services** y después seleccione el dominio administrado, como *aaddscontoso.com*.
 1. En el menú del lado izquierdo del dominio administrado de Azure AD DS, seleccione **Confianzas** y, a continuación, elija **+ Agregar** una confianza.
+
+   > [!NOTE]
+   > Si no ve la opción de menú **Confianzas**, compruebe bajo **Propiedades** el *Tipo de bosque*. Solo los bosques de *recursos* pueden crear confianzas. Si el bosque es de tipo *Usuario*, no se pueden crear confianzas. Actualmente no hay ninguna manera de cambiar el tipo de bosque de un dominio administrado de Azure AD DS. Debe eliminar y volver a crear el dominio administrado como un bosque de recursos.
+
 1. Escriba un nombre para mostrar que identifique la confianza y, después, el nombre DNS del bosque de confianza local, como *onprem.contoso.com*.
 1. Proporcione la misma contraseña de confianza que usó al configurar la confianza de bosque de entrada para el dominio local de AD DS en la sección anterior.
-1. Proporcione al menos dos servidores DNS para el dominio local de AD DS, como *10.0.2.4* y *10.0.2.5*.
+1. Proporcione al menos dos servidores DNS para el dominio local de AD DS, como *10.1.1.4* y *10.1.1.5*.
 1. Cuando esté listo, **Guarde** la confianza de bosque de salida.
 
-    [Creación de una confianza de bosque de salida en Azure Portal](./media/create-forest-trust/portal-create-outbound-trust.png)
+    ![Creación de una confianza de bosque de salida en Azure Portal](./media/tutorial-create-forest-trust/portal-create-outbound-trust.png)
 
 ## <a name="validate-resource-authentication"></a>Validación de autenticación de recursos
 
@@ -126,18 +126,14 @@ Los siguientes escenarios habituales permiten validar que la confianza de bosque
 
 Debe tener una máquina virtual de Windows Server conectada al dominio de recursos de Azure AD DS. Use esta máquina virtual para probar si el usuario local puede autenticarse en una máquina virtual.
 
-1. Conéctese a la máquina virtual de Windows Server unida al bosque de recursos de Azure AD DS mediante Escritorio remoto y sus credenciales de administrador de Azure AD DS. Si obtiene un error de Autenticación a nivel de red (NLA), compruebe que la cuenta de usuario que usó no sea una cuenta de usuario de dominio.
-
-    > [!NOTE]
-    > Para conectarse de forma segura a las máquinas virtuales unidas a Azure AD Domain Services, puede usar el [servicio de host de Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview) en las regiones de Azure admitidas.
-
+1. Conéctese a la máquina virtual de Windows Server unida al bosque de recursos de Azure AD DS mediante [Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview) y sus credenciales de administrador de Azure AD DS.
 1. Abra un símbolo del sistema y use el comando `whoami` para mostrar el nombre distintivo del usuario autenticado actualmente:
 
     ```console
     whoami /fqdn
     ```
 
-1. Use el comando `runas` para autenticarse como un usuario del dominio local. En el siguiente comando, reemplace `userUpn@trusteddomain.com` por el UPN de un usuario del dominio local de confianza. El comando le solicita la contraseña del usuario:
+1. Use el comando `runas` para autenticarse como un usuario del dominio local. En el siguiente comando, reemplace `userUpn@trusteddomain.com` por el UPN de un usuario del dominio local de confianza. El comando le solicita la contraseña de usuario:
 
     ```console
     Runas /u:userUpn@trusteddomain.com cmd.exe
@@ -152,10 +148,7 @@ Con la máquina virtual de Windows Server unida al bosque de recursos de Azure A
 
 #### <a name="enable-file-and-printer-sharing"></a>Habilitación del uso compartido de archivos e impresoras
 
-1. Conéctese a la máquina virtual de Windows Server unida al bosque de recursos de Azure AD DS mediante Escritorio remoto y sus credenciales de administrador de Azure AD DS. Si obtiene un error de Autenticación a nivel de red (NLA), compruebe que la cuenta de usuario que usó no sea una cuenta de usuario de dominio.
-
-    > [!NOTE]
-    > Para conectarse de forma segura a las máquinas virtuales unidas a Azure AD Domain Services, puede usar el [servicio de host de Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview) en las regiones de Azure admitidas.
+1. Conéctese a la máquina virtual de Windows Server unida al bosque de recursos de Azure AD DS mediante [Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview) y sus credenciales de administrador de Azure AD DS.
 
 1. Abra **Configuración de Windows** y busque y seleccione **Centro de redes y recursos compartidos**.
 1. Elija la opción **Cambiar configuración de uso compartido avanzado**.
@@ -221,3 +214,5 @@ Para obtener más información conceptual sobre los tipos de bosque de Azure AD 
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
 [create-azure-ad-ds-instance-advanced]: tutorial-create-instance-advanced.md
 [howto-change-sku]: change-sku.md
+[vpn-gateway]: ../vpn-gateway/vpn-gateway-about-vpngateways.md
+[expressroute]: ../expressroute/expressroute-introduction.md

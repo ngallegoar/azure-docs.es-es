@@ -11,20 +11,20 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: a382ef2d93f10e69569ecbbed1399f256a7afbb3
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 6a38fe65b4aedf4f594531f5e9cd8cf9b5dfaac7
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351218"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631224"
 ---
 # <a name="analyze-your-workload-in-azure-synapse-analytics"></a>Análisis de la carga de trabajo en Azure Synapse Analytics
 
-Técnicas para analizar la carga de trabajo de SQL Analytics en Azure Synapse Analytics.
+Técnicas para analizar la carga de trabajo de Synapse SQL en Azure Synapse Analytics.
 
 ## <a name="resource-classes"></a>Clases de recursos
 
-SQL Analytics proporciona las clases de recursos para asignar los recursos del sistema a las consultas.  Para más información acerca de las clases de recursos, consulte [Clases de recursos y administración de cargas de trabajo](resource-classes-for-workload-management.md).  Las consultas esperarán si la clase de recursos asignada a una consulta necesita más recursos de los que están disponibles actualmente.
+Synapse SQL proporciona clases de recursos para asignar los recursos del sistema a las consultas.  Para más información acerca de las clases de recursos, consulte [Clases de recursos y administración de cargas de trabajo](resource-classes-for-workload-management.md).  Las consultas esperarán si la clase de recursos asignada a una consulta necesita más recursos de los que están disponibles actualmente.
 
 ## <a name="queued-query-detection-and-other-dmvs"></a>Detección de consulta en cola y otras DMV
 
@@ -63,12 +63,12 @@ WHERE   r.name IN ('mediumrc','largerc','xlargerc')
 ;
 ```
 
-SQL Analytics ofrece los siguientes tipos de espera:
+Synapse SQL ofrece los siguientes tipos de espera:
 
 * **LocalQueriesConcurrencyResourceType**: se refiere a las consultas que residen fuera del marco del espacio de simultaneidad. Las funciones del sistema y las consultas DMV como `SELECT @@VERSION` son ejemplos de consultas locales.
 * **UserConcurrencyResourceType**: se refiere a las consultas que residen dentro del marco del espacio de simultaneidad. Las consultas en tablas de usuario final representan ejemplos que usarían este tipo de recurso.
 * **DmsConcurrencyResourceType**: se refiere a las esperas que son el resultado de operaciones de movimiento de datos.
-* **BackupConcurrencyResourceType**: se refiere a una espera que indica que se está creando la copia de seguridad de una base de datos. El valor máximo para este tipo de recurso es 1. Si varias copias de seguridad se solicitaron al mismo tiempo, las demás se pondrán en la cola. En general, se recomienda un tiempo mínimo de 10 minutos entre instantáneas consecutivas. 
+* **BackupConcurrencyResourceType**: se refiere a una espera que indica que se está creando la copia de seguridad de una base de datos. El valor máximo para este tipo de recurso es 1. Si varias copias de seguridad se solicitaron al mismo tiempo, las demás se pondrán en la cola. En general, se recomienda un tiempo mínimo de 10 minutos entre instantáneas consecutivas.
 
 La DMV `sys.dm_pdw_waits` puede utilizarse para ver por qué recursos está esperando una solicitud.
 
@@ -153,4 +153,4 @@ FROM    sys.dm_pdw_wait_stats w
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre cómo administrar los usuarios y la seguridad de la base de datos, consulte [Proteger una base de datos en SQL Analytics](sql-data-warehouse-overview-manage-security.md). Para más información sobre cómo las clases de recursos mayores pueden mejorar la calidad de los índices de almacén de columnas agrupado, consulte [Regeneración de índices para mejorar la calidad de los segmentos](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).
+Para más información sobre cómo administrar los usuarios y la seguridad de la base de datos, consulte [Protección de una base de datos en Synapse SQL](sql-data-warehouse-overview-manage-security.md). Para más información sobre cómo las clases de recursos mayores pueden mejorar la calidad de los índices de almacén de columnas agrupado, consulte [Regeneración de índices para mejorar la calidad de los segmentos](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).

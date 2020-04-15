@@ -1,6 +1,6 @@
 ---
 title: Solucionar problemas de conexión de RDP de máquinas virtuales de Azure en función de los identificadores de eventos | Microsoft Docs
-description: ''
+description: Use los identificadores de evento para solucionar diversos problemas que impiden realizar una conexión del protocolo de Escritorio remoto (RDP) a una máquina virtual (VM) de Azure.
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
-ms.openlocfilehash: 166648402eec7f8033c090a3f7862a902bae4be6
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 2073d5f91b26cd2ae53e3291a6d1dad4d711b66d
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71154207"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437056"
 ---
 # <a name="troubleshoot-azure-vm-rdp-connection-issues-by-event-id"></a>Solucionar problemas de conexión de RDP de máquinas virtuales de Azure en función de los identificadores de eventos 
 
@@ -43,7 +43,7 @@ Para crear una instantánea de copia de seguridad, siga los pasos descritos en [
 
 Para conectarse a la máquina virtual de forma remota, use uno de los métodos que se detallan en [How to use remote tools to troubleshoot Azure VM issues](remote-tools-troubleshoot-azure-vm-issues.md) (Cómo usar herramientas remotas para solucionar problemas con la máquina virtual de Azure).
 
-## <a name="scenario-1"></a>Escenario 1.
+## <a name="scenario-1"></a>Escenario 1
 
 ### <a name="event-logs"></a>Registros de eventos
 
@@ -56,36 +56,36 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windo
 
 **Nombre de registro**:      Sistema <br />
 **Origen**:        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
-**Fecha:**          *time* <br />
+**Fecha:**          *hora* <br />
 **Id. de evento**:      1058 <br />
 **Categoría de tarea**: None <br />
 **Nivel**:         Error <br />
 **Palabras clave:**      Clásico <br />
 **Usuario**:          N/D <br />
-**Equipo:**      *computer* <br />
-**Descripción:** el servidor host de sesión de Escritorio remoto no pudo reemplazar el certificado autofirmado que expiró y que se usó para autenticar el servidor host de sesión de Escritorio remoto en las conexiones SSL. El código de estado correspondiente era Access y fue denegado.
+**Equipo:**      *equipo* <br />
+**Descripción:** El servidor host de sesión de Escritorio remoto no pudo reemplazar el certificado autofirmado que expiró y que se usó para autenticar el servidor host de sesión de Escritorio remoto en las conexiones TLS. El código de estado correspondiente era Access y fue denegado.
 
 **Nombre de registro**:      Sistema <br />
 **Origen**:        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
-**Fecha:**          *time* <br />
+**Fecha:**          *hora* <br />
 **Id. de evento**:      1058 <br />
 **Categoría de tarea**: None <br />
 **Nivel**:         Error <br />
 **Palabras clave:**      Clásico <br />
 **Usuario**:          N/D <br />
-**Equipo:**      *computer* <br />
-**Descripción:** El servidor host de sesión de Escritorio remoto no pudo crear el nuevo certificado autofirmado que se usará en la autenticación del servidor host de sesión Escritorio remoto en las conexiones SSL. El código de estado correspondiente era Object y ya existe.
+**Equipo:**      *equipo* <br />
+**Descripción:** el servidor host de sesión de Escritorio remoto no pudo crear el certificado autofirmado que se usará en la autenticación del servidor host de sesión de Escritorio remoto en las conexiones TLS. El código de estado correspondiente era un objeto que ya existe.
 
 **Nombre de registro**:      Sistema <br />
 **Origen**:        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
-**Fecha:**          *time* <br />
+**Fecha:**          *hora* <br />
 **Id. de evento**:      1057 <br />
 **Categoría de tarea**: None <br />
 **Nivel**:         Error <br />
 **Palabras clave:**      Clásico <br />
 **Usuario**:          N/D <br />
-**Equipo:**      *computer* <br />
-**Descripción:** El servidor host de sesión Escritorio remoto no pudo crear el nuevo certificado autofirmado que se usará en la autenticación del servidor host de sesión de Escritorio remoto en las conexiones SSL. El código de estado correspondiente era Keyset y no existe.
+**Equipo:**      *equipo* <br />
+**Descripción:** el servidor host de sesión de Escritorio remoto no pudo crear el certificado autofirmado que se usará en la autenticación del servidor host de sesión de Escritorio remoto en las conexiones TLS. El código de estado correspondiente era Keyset y no existe.
 
 También puede comprobar los eventos de error SCHANNEL 36872 y 36870 ejecutando los comandos siguientes:
 
@@ -102,8 +102,8 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and 
 **Nivel**:         Error <br />
 **Palabras clave:**       <br />
 **Usuario**:          SYSTEM <br />
-**Equipo:**      *computer* <br />
-**Descripción:** Se produjo un error grave al intentar obtener acceso a la clave privada de las credenciales del servidor SSL. El código de error devuelto del módulo criptográfico es 0x8009030D.  <br />
+**Equipo:**      *equipo* <br />
+**Descripción:** se produjo un error grave al intentar acceder a la clave privada de las credenciales del servidor TLS. El código de error devuelto del módulo criptográfico es 0x8009030D.  <br />
 El estado del error interno es 10001.
 
 ### <a name="cause"></a>Causa
@@ -113,7 +113,7 @@ Este problema se produce porque no se puede obtener acceso a las claves de cifra
 
 2. La clave RSA está dañada o falta.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Para solucionar este problema, debe configurar los permisos correctos en el certificado RDP siguiendo estos pasos.
 
@@ -186,9 +186,9 @@ Si no puede renovar el certificado, siga estos pasos para intentar eliminarlo:
 
 Intente obtener acceso a la máquina virtual mediante RDP.
 
-#### <a name="update-secure-sockets-layer-ssl-certificate"></a>Actualice el certificado de Capa de sockets seguros (SSL)
+#### <a name="update-tlsssl-certificate"></a>Actualización del certificado TLS/SSL
 
-Si configura la máquina virtual para usar un certificado SSL, ejecute el siguiente comando para obtener la huella digital. A continuación, compruebe si es la misma que la huella digital del certificado:
+Si configura la máquina virtual para usar un certificado TLS/SSL, ejecute el siguiente comando para obtener la huella digital. A continuación, compruebe si es la misma que la huella digital del certificado:
 
 ```cmd
 reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v SSLCertificateSHA1Hash
@@ -206,7 +206,7 @@ También puede intentar eliminar la clave para que RDP use el certificado autofi
 reg delete "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v SSLCertificateSHA1Hash
 ```
 
-## <a name="scenario-2"></a>Escenario 2.
+## <a name="scenario-2"></a>Escenario 2
 
 ### <a name="event-log"></a>Registro de eventos
 
@@ -224,20 +224,20 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and 
 **Nivel**:         Error <br />
 **Palabras clave:**       <br />
 **Usuario**:          SYSTEM <br />
-**Equipo:**      *computer* <br />
+**Equipo:**      *equipo* <br />
 **Descripción:** Se produjo un error grave al crear las credenciales del servidor TLS. El estado del error interno es 10013.
  
 ### <a name="cause"></a>Causa
 
 Este problema se debe a las directivas de seguridad. Cuando se deshabilitan las versiones anteriores de TLS (por ejemplo, 1.0), se produce un error de acceso de RDP.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 RDP usa TLS 1.0 como protocolo predeterminado. Sin embargo, el protocolo puede cambiarse a TLS 1.1, que es el nuevo estándar.
 
 Para solucionar este problema, consulte [Troubleshoot authentication errors when you use RDP to connect to Azure VM](troubleshoot-authentication-error-rdp-vm.md#tls-version) (Solucionar errores de autenticación cuando use RDP para conectarse a la máquina virtual de Azure).
 
-## <a name="scenario-3"></a>Escenario 3.
+## <a name="scenario-3"></a>Escenario 3
 
 Si ha instalado el rol del **agente de conexión a Escritorio remoto** en la máquina virtual, compruebe si se creó el evento 2056 o 1296 en las últimas 24 horas. En una instancia de CMD, ejecute los siguientes comandos: 
 
@@ -248,13 +248,13 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name=' Microsoft-Wind
 
 **Nombre de registro**:      Microsoft-Windows-TerminalServices-SessionBroker/Operational <br />
 **Origen**:        Microsoft-Windows-TerminalServices-SessionBroker <br />
-**Fecha:**          *time* <br />
+**Fecha:**          *hora* <br />
 **Id. de evento**:      2056 <br />
 **Categoría de tarea**: (109) <br />
 **Nivel**:         Error <br />
 **Palabras clave:**       <br />
 **Usuario**:          SERVICIO DE RED <br />
-**Equipo:**      *computer fqdn* <br />
+**Equipo:**      *equipo fqdn* <br />
 **Descripción:** No se puede encontrar la descripción del id. de evento 2056 del origen Microsoft-Windows-TerminalServices-SessionBroker. El componente que provoca este evento no está instalado en el equipo local o la instalación está dañada. Puede instalar o reparar el componente en el equipo local. <br />
 Si el evento se originó en otro equipo, la información que aparezca en pantalla se debe guardar con el evento. <br />
 La siguiente información se incluyó con el evento: <br />
@@ -264,13 +264,13 @@ No se pudo iniciar sesión en la base de datos.
 
 **Nombre de registro**:      Microsoft-Windows-TerminalServices-SessionBroker-Client/Operational <br />
 **Origen**:        Microsoft-Windows-TerminalServices-SessionBroker-Client <br />
-**Fecha:**          *time* <br />
+**Fecha:**          *hora* <br />
 **Id. de evento**:      1296 <br />
 **Categoría de tarea**: (104) <br />
 **Nivel**:         Error <br />
 **Palabras clave:**       <br />
 **Usuario**:          SERVICIO DE RED <br />
-**Equipo:**      *computer fqdn* <br />
+**Equipo:**      *equipo fqdn* <br />
 **Descripción:** No se puede encontrar la descripción del id. de evento 1296 del origen Microsoft-Windows-TerminalServices-SessionBroker-Client. El componente que provoca este evento no está instalado en el equipo local o la instalación está dañada. Puede instalar o reparar el componente en el equipo local.
 Si el evento se originó en otro equipo, la información que aparezca en pantalla se debe guardar con el evento.
 La siguiente información se incluyó con el evento:  <br />
@@ -284,7 +284,7 @@ Este problema se produce porque se cambia el nombre de host de servidor del Agen
 
 El nombre de host tiene entradas y dependencias en Windows Internal Database, las cuales son necesaria para que la granja del servicio de Escritorio remoto pueda funcionar correctamente. Si cambia el nombre de host después de que la granja ya esté integrada, provocará un sinfín de errores y puede hacer que el servidor del agente deje de funcionar.
 
-### <a name="resolution"></a>Resolución 
+### <a name="resolution"></a>Solución 
 
 Para corregir este problema, debe reinstalar el rol de Agente de conexión a Escritorio remoto y Windows Internal Database.
 

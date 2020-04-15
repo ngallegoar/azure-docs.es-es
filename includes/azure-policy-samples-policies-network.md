@@ -2,18 +2,18 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/12/2020
+ms.date: 04/03/2020
 ms.author: dacoulte
-ms.openlocfilehash: f64f09d89bc76d625ec09763ccac6df171f5954e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ecca4208d8c3d471e3ff4d1fc951888dcf18255d
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79381996"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80758246"
 ---
 |Nombre |Descripción |Efectos |Versión |GitHub |
 |---|---|---|---|---|
-|[Se debe aplicar una directiva IPsec/IKE personalizada a todas las conexiones de puerta de enlace de red virtual de Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F50b83b09-03da-41c1-b656-c293c914862b). |Esta directiva garantiza que todas las conexiones de puerta de enlace de Azure Virtual Network usen una directiva personalizada de protocolo de seguridad de Internet (IPsec) o Intercambio de claves por red (IKE). Consulte los algoritmos y los niveles de seguridad de las claves compatibles en https://aka.ms/AA62kb0. |Audit, Disabled |1.0.0 |[Vínculo](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VPNGateways_CustomIpSecPolicies_Audit.json)
+|[Se debe aplicar una directiva IPsec/IKE personalizada a todas las conexiones de puerta de enlace de red virtual de Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F50b83b09-03da-41c1-b656-c293c914862b). |Esta directiva garantiza que todas las conexiones de puerta de enlace de Azure Virtual Network usen una directiva personalizada de protocolo de seguridad de Internet (IPsec) o Intercambio de claves por red (IKE). Consulte los algoritmos y los niveles de seguridad de las claves compatibles en [https://aka.ms/AA62kb0](https://aka.ms/AA62kb0) |Audit, Disabled |1.0.0 |[Vínculo](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VPNGateways_CustomIpSecPolicies_Audit.json)
 |[App Service debe usar un punto de conexión del servicio de red virtual](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2d21331d-a4c2-4def-a9ad-ee4e1e023beb) |Esta directiva audita toda instancia de App Service no configurada para usar un punto de conexión del servicio de red virtual. |AuditIfNotExists, Disabled |1.0.0 |[Vínculo](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_AppService_AuditIfNotExists.json)
 |[Las instancias de Azure VPN Gateway no deben usar la SKU "básica"](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe345b6c3-24bd-4c93-9bbb-7e5e49a17b78). |Esta directiva garantiza que las instancias de VPN Gateway no usan la SKU "básica". |Audit, Disabled |1.0.0 |[Vínculo](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VPNGateways_BasicSKU_Audit.json)
 |[Container Registry debe usar un punto de conexión del servicio de red virtual](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc4857be7-912a-4c75-87e6-e30292bcdf78) |Esta directiva audita toda instancia de Container Registry no configurada para usar un punto de conexión del servicio de red virtual. |Audit, Disabled |1.0.0-preview |[Vínculo](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_ContainerRegistry_Audit.json)

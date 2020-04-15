@@ -4,62 +4,66 @@ description: Conexión privada a una aplicación web mediante el punto de conexi
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 03/12/2020
+ms.date: 03/18/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: 893a7a2c7483fccc3bbc7bd198929f65917457b3
-ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 4d139cfa50afa94621066995314737fac70bbafe
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79036943"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756281"
 ---
 # <a name="using-private-endpoints-for-azure-web-app-preview"></a>Uso de puntos de conexión privados para una aplicación web de Azure (versión preliminar)
 
-Puede usar el punto de conexión privado para la aplicación web de Azure a fin de permitir que los clientes ubicados en la red privada accedan de forma segura a la aplicación a través de un vínculo privado. El punto de conexión privado usa una dirección IP del espacio de direcciones de la red virtual de Azure. El tráfico de red entre el cliente en la red privada y la aplicación web atraviesa la red virtual y un servicio Private Link en la red troncal de Microsoft, lo que elimina la exposición desde la red pública de Internet.
+> [!Note]
+> La versión preliminar está disponible en las regiones del este y oeste 2 de EE. UU. para todas las funciones PremiumV2 de Windows y Linux Web Apps y Elastic Premium. 
+
+Puede usar el punto de conexión privado para la aplicación web de Azure a fin de permitir que los clientes ubicados en la red privada accedan de forma segura a la aplicación a través de un vínculo privado. El punto de conexión privado usa una dirección IP del espacio de direcciones de la red virtual de Azure. El tráfico de red entre un cliente en la red privada y la aplicación web atraviesa la red virtual y un servicio Private Link en la red troncal de Microsoft, lo que elimina la exposición desde la red pública de Internet.
 
 El uso de un punto de conexión privado para la aplicación web le permite:
 
-- Proteger la aplicación web mediante la configuración del punto de conexión de servicio, lo que elimina la exposición pública.
+- Proteger la aplicación web mediante la configuración del punto de conexión privado, lo que elimina la exposición pública.
 - Conectarse de forma segura a la aplicación web desde las redes locales que se conectan a la red virtual mediante VPN o el emparejamiento privado de ExpressRoute.
 
-Si solo necesita una conexión segura entre la red virtual y la aplicación web, el punto de conexión de servicio es la solución más sencilla. Si también necesita acceso a la aplicación web desde el entorno local mediante una puerta de enlace de Azure, una red virtual emparejada de forma regional o una red virtual emparejada globalmente, el punto de conexión privado es la solución.  
+Si solo necesita una conexión segura entre la red virtual y la aplicación web, los puntos de conexión de servicio son la solución más sencilla. Si también necesita acceso a la aplicación web desde el entorno local mediante una puerta de enlace de Azure, una red virtual emparejada de forma regional o una red virtual emparejada globalmente, el punto de conexión privado es la solución.  
 
-Para más información acerca del [punto de conexión de servicio][serviceendpoint]
+Para obtener más información, consulte [Puntos de conexión de servicio][serviceendpoint].
 
 ## <a name="conceptual-overview"></a>Información general conceptual
 
-Un punto de conexión privado es una interfaz de red (NIC) especial para la aplicación web de Azure en la subred dentro de la red virtual (Vnet).
+Un punto de conexión privado es una interfaz de red (NIC) especial para la aplicación web de Azure en una subred dentro de la red virtual (Vnet).
 Cuando se crea un punto de conexión privado para la aplicación web, se proporciona una conectividad segura entre los clientes de la red privada y la aplicación web. Al punto de conexión privado se le asigna una dirección IP del intervalo de direcciones IP de la red virtual.
 La conexión entre el punto de conexión privado y la aplicación web usa una instancia de [Private Link][privatelink] segura. El punto de conexión privado solo se usa para los flujos entrantes en la aplicación web. Los flujos salientes no usarán este punto de conexión privado, pero puede insertar flujos salientes en la red de una subred diferente mediante la [característica de integración de red virtual][vnetintegrationfeature].
 
 La subred en la que se conecta el punto de conexión privado puede tener otros recursos, no necesita una subred vacía dedicada.
-Puede implementar un punto de conexión privado en una región distinta a la de la aplicación web. 
+También puede implementar el punto de conexión privado en una región distinta a la de la aplicación web. 
 
 > [!Note]
 >La característica de integración de red virtual no puede usar la misma subred que el punto de conexión privado; esta es una limitación de la característica de integración de red virtual.
 
 Desde la perspectiva de seguridad:
 
-- Cuando se habilita el punto de conexión de servicio a la aplicación web, se deshabilita todo el acceso público.
+- Cuando se habilitan puntos de conexión privados a la aplicación web, se deshabilita todo el acceso público.
 - Puede habilitar varios puntos de conexión privados en otras redes virtuales y subredes, incluidas las redes virtuales de otras regiones.
 - La dirección IP de la NIC de punto de conexión privado debe ser dinámica, pero seguirá siendo la misma hasta que se elimine el punto de conexión privado.
 - La NIC del punto de conexión privado no puede tener un grupo de seguridad de red asociado.
-- La subred que hospeda el punto de conexión privado puede tener un grupo de seguridad de red asociado, pero debe deshabilitar la aplicación de directivas de red para el punto de conexión privado. Consulte [este artículo][disablesecuritype]. Como resultado, no puede filtrar por ningún grupo de seguridad de red el acceso al punto de conexión privado.
+- La subred que hospeda el punto de conexión privado puede tener un grupo de seguridad de red asociado, pero debe deshabilitar la aplicación de directivas de red para el punto de conexión privado. Consulte [Deshabilitar las directivas de red de puntos de conexión privados][disablesecuritype]. Como resultado, no puede filtrar por ningún grupo de seguridad de red el acceso al punto de conexión privado.
 - Al habilitar un punto de conexión privado en la aplicación web, no se evalúa la configuración de [restricciones de acceso ][accessrestrictions] de la aplicación web.
-- Puede reducir el riesgo de exfiltración de datos desde la red virtual mediante la eliminación de todas las reglas de grupo de seguridad de red en las que el destino es la etiqueta Internet o los servicios de Azure. Pero agregar un punto de conexión de servicio de aplicación web en la subred le permitirá acceder a cualquier aplicación web hospedada en la misma marca y expuesta a Internet.
+- Puede reducir el riesgo de exfiltración de datos desde la red virtual mediante la eliminación de todas las reglas de grupo de seguridad de red en las que el destino es la etiqueta Internet o los servicios de Azure. Pero agregar un punto de conexión privado de aplicación web en la subred le permitirá acceder a cualquier aplicación web hospedada en la misma marca de implementación y expuesta a Internet.
 
-El punto de conexión privado para la aplicación web está disponible para el nivel PremiumV2 y está aislado con un ASE externo.
+En los registros HTTP web de la aplicación web, encontrará la dirección IP de origen del cliente. Se implementa mediante el protocolo proxy TCP, reenviando la propiedad de la dirección IP de cliente hasta la aplicación web. Para obtener más información, consulte [Cómo obtener información de conexión mediante el proxy TCP V2][tcpproxy].
 
-En los registros HTTP web de la aplicación web, encontrará la dirección IP de origen del cliente. Hemos implementado el protocolo proxy TCP y hemos reenviado hasta la aplicación web la propiedad IP de cliente. Para obtener más información, consulte [este artículo][tcpproxy].
 
-![Información general global][1]
-
+  > [!div class="mx-imgBorder"]
+  > ![Información general global del punto de conexión privado de aplicación web](media/private-endpoint/global-schema-web-app.png)
 
 ## <a name="dns"></a>DNS
 
-Como esta característica está en la versión preliminar, durante la versión preliminar no se cambia la entrada DNS. Debe administrar la entrada DNS en el servidor DNS privado o en la zona privada de Azure DNS. Si necesita usar un nombre DNS personalizado, debe agregarlo en la aplicación web. Durante la versión preliminar, el nombre personalizado se debe validar como cualquier otro mediante la resolución DNS pública. [referencia técnica de la validación de DNS personalizada][dnsvalidation]
+Como esta característica está en la versión preliminar, durante la versión preliminar no se cambia la entrada DNS. Debe administrar la entrada DNS en el servidor DNS privado o en la zona privada de Azure DNS.
+Si necesita usar un nombre DNS personalizado, debe agregarlo en la aplicación web. Durante la versión preliminar, el nombre personalizado se debe validar como cualquier otro mediante la resolución DNS pública. Para obtener más información, consulte el artículo sobre cómo [validar un DNS personalizado][dnsvalidation].
 
 ## <a name="pricing"></a>Precios
 
@@ -74,8 +78,7 @@ Estamos mejorando la característica Private Link y el punto de conexión privad
 Para implementar un punto de conexión privado para la aplicación web mediante el portal, consulte [Cómo conectarse de forma privada a una aplicación web][howtoguide]
 
 
-<!--Image references-->
-[1]: ./media/private-endpoint/schemaglobaloverview.png
+
 
 <!--Links-->
 [serviceendpoint]: https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview
@@ -83,7 +86,7 @@ Para implementar un punto de conexión privado para la aplicación web mediante 
 [vnetintegrationfeature]: https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet
 [disablesecuritype]: https://docs.microsoft.com/azure/private-link/disable-private-endpoint-network-policy
 [accessrestrictions]: https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions
-[tcpproxy]: https://docs.microsoft.com/azure/private-link/rivate-link-service-overview#getting-connection-information-using-tcp-proxy-v2
+[tcpproxy]: ../../private-link/private-link-service-overview.md#getting-connection-information-using-tcp-proxy-v2
 [dnsvalidation]: https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain
 [pllimitations]: https://docs.microsoft.com/azure/private-link/private-endpoint-overview#limitations
 [pricing]: https://azure.microsoft.com/pricing/details/private-link/

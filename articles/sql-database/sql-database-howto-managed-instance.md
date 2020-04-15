@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlr
 ms.date: 04/16/2019
-ms.openlocfilehash: 906ae2a970ce1d5b82302d0277ca45bd93c23011
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b56375388f6293d27bcd2f2548d8b20205a92b15
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79228836"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80638029"
 ---
 # <a name="how-to-use-a-managed-instance-in-azure-sql-database"></a>Cómo usar una instancia administrada en Azure SQL Database
 
@@ -43,6 +43,7 @@ En este artículo encontrará varias guías, scripts y explicaciones que pueden 
 
 - La [replicación transaccional](replication-with-sql-database-managed-instance.md) le permite replicar los datos entre instancias administradas, o desde un entorno local de SQL Server a una instancia administrada y viceversa. Puede encontrar más información sobre cómo usar y configurar la replicación de transacciones en esta guía.
 - [Configurar la detección de amenazas](sql-database-managed-instance-threat-detection.md):la [detección de amenazas](sql-database-threat-detection-overview.md) es una característica integrada de Azure SQL Database que detecta diversos ataques potenciales, como la inyección de código SQL o el acceso desde ubicaciones sospechosas. En esta guía obtendrá información sobre cómo habilitar y configurar la [detección de amenazas](sql-database-threat-detection-overview.md) de una instancia administrada.
+- La [creación de alertas](sql-database-managed-instance-alerts.md) permite configurar las alertas de las métricas supervisadas, como el uso de CPU, el consumo de espacio de almacenamiento, el número de IOPS por segundo y demás para la instancia administrada. En esta guía aprenderá a habilitar y configurar alertas para la instancia administrada.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

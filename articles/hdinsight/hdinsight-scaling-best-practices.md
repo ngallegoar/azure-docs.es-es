@@ -6,21 +6,21 @@ ms.author: ashish
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/26/2020
-ms.openlocfilehash: 96a72541255ad0059abe5ad280f1728518dbf68c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/06/2020
+ms.openlocfilehash: 0fc067f0be4ac5d2b8fa7db9ad7999efe06625a0
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80234733"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804510"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Escala de clústeres de Azure HDInsight
 
-HDInsight proporciona elasticidad, lo que ofrece la opción de escalar y reducir verticalmente el número de nodos de trabajo de los clústeres. Esta elasticidad permite reducir un clúster una vez finalizada la jornada laboral o durante los fines de semana, así como expandirlo durante períodos de máxima demanda empresarial.
+HDInsight proporciona elasticidad con opciones para escalar y reducir verticalmente el número de nodos de trabajo de los clústeres. Esta elasticidad permite reducir un clúster una vez finalizada la jornada laboral o durante los fines de semana. También permite expandirlo durante períodos de máxima demanda empresarial.
 
-Si tiene un procesamiento por lotes periódico, el clúster de HDInsight se puede escalar verticalmente unos minutos antes de dicha operación, con el fin de que el clúster tenga suficiente memoria y potencia de CPU.  Después, una vez realizado el procesamiento y de que el uso vuelva a bajar, puede reducir verticalmente el clúster de HDInsight a menos nodos de trabajo.
+Escale verticalmente el clúster antes del procesamiento por lotes periódico para que el clúster tenga los recursos adecuados.  Una vez completado el procesamiento y reducido el uso, reduzca verticalmente el clúster de HDInsight a menos nodos de trabajo.
 
-Los clústeres se pueden escalar manualmente mediante uno de los métodos que se describen a continuación, pero también se pueden usar las opciones de [escalado automático](hdinsight-autoscale-clusters.md) para que el sistema realice automáticamente un escalado vertical y una reducción vertical en respuesta a la CPU, la memoria y otras métricas.
+Puede escalar un clúster manualmente con uno de los métodos que se describen a continuación. También puede usar opciones de [escalabilidad automática](hdinsight-autoscale-clusters.md) para escalar y reducir verticalmente de forma automática como respuesta a determinadas métricas.
 
 > [!NOTE]  
 > Solo son compatibles los clústeres con la versión 3.1.3 de HDInsight, o superior. Si no está seguro de la versión del clúster, puede comprobar la página de propiedades.
@@ -31,10 +31,10 @@ Microsoft proporciona las siguientes utilidades para escalar clústeres:
 
 |Utilidad | Descripción|
 |---|---|
-|[PowerShell Az](https://docs.microsoft.com/powershell/azure)|[Set-AzHDInsightClusterSize](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) -ClusterName \<NombreDeClúster> -TargetInstanceCount \<NuevoTamaño>|
-|[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm) |[Set-AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) -ClusterName \<Cluster Name> -TargetInstanceCount \<NewSize>|
-|[CLI de Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)| [az hdinsight resize](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) --resource-group \<GrupoDeRecursos> --name \<NombreDeClúster> --workernode-count \<NuevoTamaño>|
-|[CLI de Azure clásica](hdinsight-administer-use-command-line.md)|azure hdinsight cluster resize \<NombreDeClúster> \<NúmeroDeInstanciasDeDestino> |
+|[PowerShell Az](https://docs.microsoft.com/powershell/azure)|[`Set-AzHDInsightClusterSize`](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
+|[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm) |[`Set-AzureRmHDInsightClusterSize`](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
+|[CLI de Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) | [`az hdinsight resize`](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) `--resource-group RESOURCEGROUP --name CLUSTERNAME --workernode-count NEWSIZE`|
+|[CLI de Azure clásica](hdinsight-administer-use-command-line.md)|`azure hdinsight cluster resize CLUSTERNAME NEWSIZE` |
 |[Azure Portal](https://portal.azure.com)|Abra el panel del clúster de HDInsight, seleccione **Tamaño de clúster** en el menú izquierdo y, luego, en el panel Tamaño de clúster, escriba el número de nodos de trabajo y seleccione Guardar.|  
 
 ![Opción de escalado de clústeres de Azure Portal](./media/hdinsight-scaling-best-practices/azure-portal-settings-nodes.png)
@@ -42,26 +42,26 @@ Microsoft proporciona las siguientes utilidades para escalar clústeres:
 Con cualquiera de estos métodos, puede escalar o reducir verticalmente el clúster de HDInsight en cuestión de minutos.
 
 > [!IMPORTANT]  
-> * La CLI clásica de Azure está en desuso y solo debe usarse con el modelo de implementación clásico. Para las demás implementaciones, utilice la [CLI de Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).  
+> * La CLI clásica de Azure está en desuso y solo debe usarse con el modelo de implementación clásico. Para las demás implementaciones, utilice la [CLI de Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 > * El módulo AzureRM de PowerShell está en desuso.  Use el [módulo Az](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) siempre que sea posible.
 
 ## <a name="impact-of-scaling-operations"></a>Impacto de las operaciones de escalado
 
-Cuando se **agregan** nodos al clúster de HDInsight en ejecución (escalar verticalmente), ni los trabajos pendientes ni los que estén en ejecución resultarán afectados. Los trabajos nuevos pueden enviarse de forma segura mientras el proceso de escalado está en ejecución. Si se produce un error en la operación de escalado por cualquier motivo, se controlará para que el clúster sigue funcionando.
+Al **agregar** nodos al clúster de HDInsight en ejecución (escalado vertical), los trabajos no se ven afectados. Los trabajos nuevos pueden enviarse de forma segura mientras el proceso de escalado está en ejecución. Si se produce un error en la operación de escalado, este dejará el clúster en estado funcional.
 
-Si se **eliminan** nodos (reducir verticalmente), se producirá un error en los trabajos pendientes o en ejecución cuando finalice la operación de escalado. Dicho error se debe a que algunos de los servicios se reinician durante el proceso de escalado. También existe el riesgo de que el clúster se quede atascado en modo seguro durante una operación de escalado manual.
+Si se **quitan** nodos (reducción vertical), se producirá un error en los trabajos pendientes o en ejecución cuando finalice la operación de escalado. Dicho error se debe a que algunos de los servicios se reinician durante el proceso de escalado. El clúster podría quedarse atascado en el modo seguro durante una operación de escalado manual.
 
 A continuación se muestra cómo el efecto de cambiar el número de nodos de datos varía para cada tipo de clúster compatible con HDInsight:
 
 * Apache Hadoop
 
-    Puede aumentar sin ningún problema la cantidad de nodos de trabajo en un clúster de Hadoop que se encuentre en ejecución, sin que afecte a ningún trabajo pendiente o en ejecución. También se pueden enviar trabajos nuevos mientras la operación está en curso. Los errores que puedan surgir en una operación de escalado se enfrentan oportunamente, por lo que el clúster siempre queda en estado funcional.
+    Puede aumentar fácilmente la cantidad de nodos de trabajo en un clúster de Hadoop en ejecución sin que ello afecte a ningún trabajo. También se pueden enviar trabajos nuevos mientras la operación está en curso. Los errores de una operación de escalado se administran fácilmente. El clúster siempre se deja en un estado funcional.
 
-    Cuando se realiza la reducción vertical de un clúster de Hadoop al disminuir la cantidad de nodos de datos, se reinician algunos de los servicios del clúster. Este comportamiento hace que todos los trabajos pendientes y en ejecución fallen al completarse la operación de escalado. Sin embargo, puede volver a enviar los trabajos una vez finalizada la operación.
+    Cuando se reduce verticalmente un clúster de Hadoop con menos nodos de datos, se reinician algunos servicios. Este comportamiento hace que todos los trabajos pendientes y en ejecución fallen al completarse la operación de escalado. Sin embargo, puede volver a enviar los trabajos una vez finalizada la operación.
 
 * HBase Apache
 
-    Puede agregar nodos sin problemas al clúster de HBase mientras se encuentra en ejecución, así como eliminarlos. Los servidores regionales se equilibran automáticamente en unos pocos minutos tras completar la operación de escalado. Sin embargo, puede equilibrar manualmente los servidores regionales iniciando sesión en el nodo principal del clúster y ejecutando los comandos siguientes desde una ventana del símbolo del sistema:
+    Puede agregar nodos fácilmente al clúster de HBase mientras se encuentra en ejecución, así como quitarlos. Los servidores regionales se equilibran automáticamente en unos pocos minutos tras completar la operación de escalado. Sin embargo, puede equilibrar manualmente los servidores regionales. Inicie sesión en el nodo principal del clúster y ejecute los siguientes comandos:
 
     ```bash
     pushd %HBASE_HOME%\bin
@@ -73,14 +73,14 @@ A continuación se muestra cómo el efecto de cambiar el número de nodos de dat
 
 * Apache Storm
 
-    Puede agregar o quitar sin problemas nodos de datos de su clúster de Storm mientras se encuentra en ejecución. Sin embargo, después de finalizar correctamente la operación de escalado, deberá volver a equilibrar la topología.
+    Puede agregar o quitar sin problemas nodos de datos mientras se ejecuta Storm. Sin embargo, después de finalizar correctamente la operación de escalado, deberá volver a equilibrar la topología.
 
     Esto se puede realizar de dos formas:
 
   * La interfaz de usuario web de Storm
   * La herramienta de la interfaz de línea de comandos (CLI)
 
-    Consulte la [documentación de Apache Storm](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) para obtener más detalles.
+    Para más información, consulte la [documentación de Apache Storm](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
 
     La interfaz de usuario web de Storm se encuentra disponible en el clúster de HDInsight:
 
@@ -110,15 +110,15 @@ Para ver una lista de los trabajos pendientes y en ejecución, puede usar la **i
 1. En [Azure Portal](https://portal.azure.com/), seleccione su clúster.  Consulte [Enumeración y visualización de clústeres](./hdinsight-administer-use-portal-linux.md#showClusters) para obtener instrucciones. El clúster se abre en una nueva página del portal.
 2. En la vista principal, vaya a **Paneles de clúster** > **Inicio de Ambari**. Escriba las credenciales del clúster.
 3. En la interfaz de usuario de Ambari, seleccione **YARN** en la lista de servicios del menú de la izquierda.  
-4. En la página de YARN, seleccione **Quick Links** (Vínculos rápidos), mantenga el puntero sobre el nodo principal activo y después seleccione **ResourceManager UI** (UI de ResourceManager).
+4. En la página de YARN, seleccione **Vínculos rápidos**, mantenga el puntero sobre el nodo principal activo y, después, seleccione **ResourceManager UI** (UI de Resource Manager).
 
-    ![Interfaz de usuario ResourceManager de vínculos rápidos de Apache Ambari](./media/hdinsight-scaling-best-practices/resource-manager-ui1.png)
+    ![Interfaz de usuario de Resource Manager de vínculos rápidos de Apache Ambari](./media/hdinsight-scaling-best-practices/resource-manager-ui1.png)
 
-Puede acceder directamente a la UI de ResourceManager con `https://<HDInsightClusterName>.azurehdinsight.net/yarnui/hn/cluster`.
+Puede acceder directamente a la UI de Resource Manager con `https://<HDInsightClusterName>.azurehdinsight.net/yarnui/hn/cluster`.
 
 Verá una lista de trabajos, junto con su estado actual. En la captura de pantalla, hay un trabajo en ejecución:
 
-![Aplicaciones de la UI de ResourceManager](./media/hdinsight-scaling-best-practices/resourcemanager-ui-applications.png)
+![Aplicaciones de la UI de Resource Manager](./media/hdinsight-scaling-best-practices/resourcemanager-ui-applications.png)
 
 Para terminar manualmente dicha aplicación en ejecución, ejecute el siguiente comando del shell de SSH:
 
@@ -134,11 +134,11 @@ yarn application -kill "application_1499348398273_0003"
 
 ### <a name="getting-stuck-in-safe-mode"></a>Bloqueo en modo seguro
 
-Al reducir verticalmente un clúster, HDInsight utiliza las interfaces de administración de Apache Ambari para retirar antes los nodos de trabajo adicionales, que replican sus bloques DFS en otros nodos de trabajo en línea. Después, HDInsight reduce el nodo verticalmente de forma segura. HDFS entra en modo seguro durante la operación de escalado y se supone que sale una vez que el escalado ha finalizado. Sin embargo, en algunos casos, el HDFS se atasca en modo seguro durante una operación de escalado debido a la infra-replicación del bloque de archivos.
+Al reducir verticalmente un clúster, HDInsight utiliza las interfaces de administración de Apache Ambari para retirar antes los nodos de trabajo adicionales. Los nodos replican sus bloques HDFS en otros nodos de trabajo en línea. Después, HDInsight reduce el nodo verticalmente de forma segura. HDFS entra en modo seguro durante la operación de escalado. Se supone que HDFS saldrá al finalizar el escalado. Sin embargo, en algunos casos, el HDFS se atasca en modo seguro durante una operación de escalado debido a la infra-replicación del bloque de archivos.
 
 De forma predeterminada, HDFS se configura con el valor 1 en `dfs.replication`, que controla el número de copias de cada bloque de archivos que hay disponibles. Cada una de las copias de un bloque de archivos se almacena en un nodo diferente del clúster.
 
-Cuando HDFS detecta que el número esperado de copias del bloque no están disponible, HDFS entra en modo seguro y Ambari genera alertas. Si HDFS entra en modo seguro para realizar una operación de escalado, pero luego no puede salir del modo seguro porque no se detecta el número necesario de nodos para la replicación, el clúster puede quedarse bloqueado en modo seguro.
+Cuando el número esperado de copias del bloque no está disponible, HDFS entra en modo seguro y Ambari genera alertas. HDFS puede entrar en modo seguro para una operación de escalado. El clúster puede quedarse bloqueado en el modo seguro si no se detecta el número necesario de nodos para la replicación.
 
 ### <a name="example-errors-when-safe-mode-is-turned-on"></a>Ejemplos de errores cuando el modo seguro está activado
 
@@ -152,7 +152,7 @@ org.apache.http.conn.HttpHostConnectException: Connect to active-headnode-name.s
 
 Puede revisar los registros del nodo de nombre en la carpeta `/var/log/hadoop/hdfs/`, cerca del momento en que se escaló el clúster, para ver cuándo entró en modo seguro. Los archivos de registro se denominan `Hadoop-hdfs-namenode-<active-headnode-name>.*`.
 
-La causa de los errores anteriores es que Hive depende de los archivos temporales de HDFS durante la ejecución de consultas. Cuando HDFS entra en modo seguro, Hive no puede ejecutar las consultas porque no puede escribir en HDFS. Los archivos temporales de HDFS se encuentran en la unidad local montada en las máquinas virtuales de los nodos de trabajo individuales y se replican entre otros nodos de trabajo en tres réplicas, como mínimo.
+La causa principal es que Hive depende de los archivos temporales de HDFS durante la ejecución de consultas. Cuando HDFS entra en modo seguro, Hive no puede ejecutar las consultas porque no puede escribir en HDFS. Los archivos temporales de HDFS se encuentran en la unidad local montada en las VM del nodo de trabajo individual. Los archivos se replican entre otros nodos de trabajo en tres réplicas, como mínimo.
 
 ### <a name="how-to-prevent-hdinsight-from-getting-stuck-in-safe-mode"></a>Evitar que HDInsight se quede bloqueado en modo seguro
 
@@ -185,7 +185,8 @@ Si Hive ha dejado archivos temporales, puede limpiarlos manualmente antes de la 
     ```
 
 1. Detenga los servicios de Hive y asegúrese de que se hayan completado todas las consultas y los trabajos.
-2. Enumere el contenido del directorio temporal `hdfs://mycluster/tmp/hive/` para ver si contiene archivos:
+
+1. Enumere el contenido del directorio temporal `hdfs://mycluster/tmp/hive/` para ver si contiene archivos:
 
     ```bash
     hadoop fs -ls -R hdfs://mycluster/tmp/hive/hive
@@ -203,7 +204,7 @@ Si Hive ha dejado archivos temporales, puede limpiarlos manualmente antes de la 
     -rw-r--r--   3 hive hdfs         26 2017-07-06 20:30 hdfs://mycluster/tmp/hive/hive/c108f1c2-453e-400f-ac3e-e3a9b0d22699/inuse.info
     ```
 
-3. Si sabe que Hive ya no necesita estos archivos, puede eliminarlos. Asegúrese de que Hive no tiene ninguna consulta en ejecución; para ello, consulte la página de la interfaz de usuario de ResourceManager en Yarn.
+1. Si sabe que Hive ya no necesita estos archivos, puede eliminarlos. Asegúrese de que Hive no tiene ninguna consulta en ejecución; para ello, consulte la página de la interfaz de usuario de Resource Manager en Yarn.
 
     Línea de comandos de ejemplo para quitar archivos de HDFS:
 
@@ -213,17 +214,17 @@ Si Hive ha dejado archivos temporales, puede limpiarlos manualmente antes de la 
 
 #### <a name="scale-hdinsight-to-three-or-more-worker-nodes"></a>Escalado de HDInsight a tres, o más, nodos de trabajo
 
-Si los clústeres se quedan bloqueados en modo seguro cuando se realiza una reducción vertical a menos de tres nodos de trabajo y los pasos anteriores no funcionan, puede evitar que el clúster entre en modo seguro por completo manteniendo al menos tres nodos de trabajo.
+Si los clústeres se bloquean con frecuencia en el modo seguro al reducir verticalmente a menos de tres nodos de trabajo, conserve al menos tres nodos de trabajo.
 
-Conservar tres nodos de trabajo es más caro que realizar una reducción vertical a uno solo, pero impedirá que el clúster se quede bloqueado en modo seguro.
+Tener tres nodos de trabajo es más costoso que reducir verticalmente a uno solo. Sin embargo, esta acción impedirá que el clúster se quede bloqueado en modo seguro.
 
 ### <a name="scale-hdinsight-down-to-one-worker-node"></a>Reducción vertical de HDInsight a un nodo de trabajo
 
-Incluso cuando el clúster se reduce verticalmente a 1 nodo, el nodo de trabajo 0 aún sobrevive. El nodo de trabajo 0 nunca se puede retirar.
+Incluso cuando el clúster se reduce verticalmente a un nodo, el nodo de trabajo 0 aún sobrevive. El nodo de trabajo 0 nunca se puede retirar.
 
 #### <a name="run-the-command-to-leave-safe-mode"></a>Ejecución del comando para salir del modo seguro
 
-La última opción es ejecutar el comando para salir del modo seguro. Si sabe que el motivo para que HDFS entre en modo seguro es que hay poca replicación de archivos de Hive, puede ejecutar el siguiente comando para salir del modo seguro:
+La última opción es ejecutar el comando para salir del modo seguro. Si HDFS entró en modo seguro porque había poca replicación de archivos de Hive, ejecute el siguiente comando para salir del modo seguro:
 
 ```bash
 hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode leave

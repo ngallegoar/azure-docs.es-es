@@ -2,21 +2,21 @@
 title: 'Tutorial: Adición de salidas a una plantilla'
 description: Agregue salidas a la plantilla de Azure Resource Manager para simplificar la sintaxis.
 author: mumian
-ms.date: 10/04/2019
+ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 381f9f54a95b6d457aa65c7e8ef6abe49fe9eeea
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 2ee1a2c7037bde68b7858b57a03c78bd2016ff1c
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76765749"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743550"
 ---
-# <a name="tutorial-add-outputs-to-your-resource-manager-template"></a>Tutorial: Adición de salidas a una plantilla de Resource Manager
+# <a name="tutorial-add-outputs-to-your-arm-template"></a>Tutorial: Incorporación de salidas a la plantilla de Resource Manager
 
-En este tutorial, aprenderá a devolver un valor de una plantilla. Las salidas se usan cuando necesita un valor de un recurso implementado. Este tutorial se realiza en **7 minutos**.
+En este tutorial, aprenderá a devolver un valor a partir de una plantilla de Resource Manager. Las salidas se usan cuando necesita un valor de un recurso implementado. Este tutorial se realiza en **7 minutos**.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Aunque no es obligatorio, se recomienda realizar el [tutorial sobre variables](template-tutorial-add-variables.md).
 
@@ -52,7 +52,7 @@ Ya está listo para implementar la plantilla y examinar el valor devuelto.
 
 Si no ha creado el grupo de recursos, consulte [Creación del grupo de recursos](template-tutorial-create-first-template.md#create-resource-group). En el ejemplo se supone que ha establecido la variable **templateFile** en la ruta de acceso al archivo de plantilla, como se muestra en el [primer tutorial](template-tutorial-create-first-template.md#deploy-template).
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -63,10 +63,12 @@ New-AzResourceGroupDeployment `
   -storageSKU Standard_LRS
 ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+Para ejecutar este comando de implementación, debe tener la [última versión](/cli/azure/install-azure-cli) de la CLI de Azure.
 
 ```azurecli
-az group deployment create \
+az deployment group create \
   --name addoutputs \
   --resource-group myResourceGroup \
   --template-file $templateFile \
@@ -75,7 +77,7 @@ az group deployment create \
 
 ---
 
-En la salida del comando de implementación, verá un objeto similar al siguiente:
+En el resultado del comando de implementación, verá un objeto similar al siguiente ejemplo solo si el resultado está en formato JSON:
 
 ```json
 {
@@ -87,6 +89,9 @@ En la salida del comando de implementación, verá un objeto similar al siguient
     "file": "https://storeluktbfkpjjrkm.file.core.windows.net/"
 }
 ```
+
+> [!NOTE]
+> Si se ha producido un error en la implementación, use el modificador **debug** con el comando de implementación para mostrar los registros de depuración.  También puede usar el modificador **verbose** para mostrar los registros de depuración completos.
 
 ## <a name="review-your-work"></a>Revisión del trabajo
 

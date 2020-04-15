@@ -1,6 +1,6 @@
 ---
 title: Incorporación de equipos Windows a Azure Security Center
-description: En esta guía de inicio rápido se explica cómo aprovisionar Microsoft Monitoring Agent en un equipo Windows.
+description: En este artículo de inicio rápido se explica cómo aprovisionar el agente de Log Analytics en un equipo Windows.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: memildin
-ms.openlocfilehash: 417d8379d019a9ef0da41638cba4a1f9cb7b8bc2
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 2840b6636c2b511ab57a8bae8adf411f4d8a27d2
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "73686506"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435924"
 ---
-# <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Guía de inicio rápido: incorporación de equipos Windows a Azure Security Center
-Después de incorporar las suscripciones de Azure, puede habilitar Security Center para recursos que se ejecutan fuera de Azure, por ejemplo, en entornos locales o en otras nubes, mediante el aprovisionamiento de Microsoft Monitoring Agent.
+# <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Inicio rápido: Incorporación de equipos Windows a Azure Security Center
+Después de incorporar las suscripciones de Azure, puede habilitar Security Center para recursos que se ejecutan fuera de Azure, por ejemplo, en entornos locales o en otras nubes, mediante el aprovisionamiento del agente de Log Analytics.
 
-En esta guía de inicio rápido se explica cómo instalar Microsoft Monitoring Agent en un equipo Windows.
+En este artículo de inicio rápido se explica cómo instalar el agente de Log Analytics en un equipo Windows.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 Para empezar a trabajar con el Centro de seguridad, debe disponer de una suscripción a Microsoft Azure. Si no tiene una suscripción, puede registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 Debe disponer del plan de tarifa Estándar de Security Center para poder iniciar esta guía de inicio rápido. Vea [Incorporación de su suscripción de Azure al nivel Estándar de Security Center](security-center-get-started.md) para obtener instrucciones de actualización. Dicho plan se puede probar de forma gratuita. Para más información, consulte la [página de precios](https://azure.microsoft.com/pricing/details/security-center/).
@@ -72,7 +72,7 @@ Ahora, debe instalar el archivo descargado en el equipo de destino.
 9. En la página **Listo para instalar**, revise las opciones elegidas y seleccione **Instalar**.
 10. En la página **Configuración completada correctamente**, seleccione **Finalizar**.
 
-Una vez completado el proceso, el **Agente de administración de Microsoft** aparece en el **Panel de control**. Puede revisar ahí la configuración y verificar que el agente esté conectado.
+Una vez completado el proceso, el **agente de Log Analytics** aparece en el **Panel de control**. Puede revisar ahí la configuración y verificar que el agente esté conectado.
 
 Para más información sobre cómo instalar y configurar el agente, vea [Conexión de equipos Windows](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard).
 
@@ -93,10 +93,10 @@ Para eliminar el agente:
 
 1. Abra el **Panel de control**.
 2. Abra **Programas y características**.
-3. En **Programas y características**, seleccione **Microsoft Monitoring Agent** y haga clic en **Desinstalar**.
+3. En **Programas y características**, seleccione el **agente de Log Analytics** y haga clic en **Desinstalar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
-En esta guía de inicio rápido se ha explicado cómo aprovisionar Microsoft Monitoring Agent en un equipo Windows. Para más información acerca del uso de Security Center, siga con el tutorial para configurar una directiva de seguridad y evaluar la seguridad de los recursos.
+En este artículo de inicio rápido se ha explicado cómo aprovisionar el agente de Log Analytics en un equipo Windows. Para más información acerca del uso de Security Center, siga con el tutorial para configurar una directiva de seguridad y evaluar la seguridad de los recursos.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Definición y evaluación de las directivas de seguridad](tutorial-security-policy.md)
