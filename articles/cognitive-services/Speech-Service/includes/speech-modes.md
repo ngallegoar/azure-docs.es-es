@@ -1,0 +1,37 @@
+---
+author: IEvangelist
+manager: nitinme
+ms.service: cognitive-services
+ms.topic: include
+ms.date: 01/22/2020
+ms.author: dapine
+ms.openlocfilehash: bb177963b824e6d5d80d5f60e8b9f995b6ecd121
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80536996"
+---
+## <a name="speech-modes"></a>Modos de voz
+
+**Interactivo**
+- Diseñado para escenarios de comandos y controles.
+- Tiene un valor de tiempo de espera de segmentación de X.
+- Al final de una expresión reconocida, el servicio detiene el procesamiento de audio desde ese identificador de solicitud y finaliza el turno. La conexión no se cierra.
+- El límite máximo para el reconocimiento es de 20 s.
+- La llamada de Carbon típica que se va a invocar es `RecognizeOnceAsync`.
+
+**Conversación**
+- Diseñado para los reconocimientos de larga duración.
+- Tiene un valor de tiempo de espera de segmentación de Y. (Y != X)
+- Procesará varias expresiones completas sin finalizar el turno.
+- Finalizará el turno para un silencio demasiado grande.
+- Carbon continuará con un nuevo identificador de solicitud y reproducirá el audio según sea necesario.
+- El servicio se desconectará forzosamente después de 10 minutos de reconocimiento de voz.
+- Carbon volverá a conectarse y reproducirá audio no confirmado.
+- Se invoca en Carbon con `StartContinuousRecognition`.
+
+**Dictado**
+- Permite a los usuarios especificar la puntuación dictándola.
+- Se invoca en Carbon especificando `EnableDictation` en el objeto `SpeechConfig` independientemente de la llamada de API que inicia el reconocimiento.
+- El clúster de primera entidad devuelve mensajes de `speech.fragment` para los resultados intermedios, la tercera entidad devuelve mensajes de `speech.hypothesis`.
