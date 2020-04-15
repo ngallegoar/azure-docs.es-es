@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.subservice: compliance
-ms.date: 10/22/2019
+ms.date: 03/30/2020
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd4feeb83acc3842874e7a2e4bbd32dacabcc00d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c2d31ef46dfba31a8f217f68e8d5f98b67d58da5
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75422650"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80410584"
 ---
 # <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>Tutorial: Creación del primer paquete de acceso en la administración de derechos de Azure AD
 
@@ -84,79 +84,83 @@ Un *paquete de acceso* es un conjunto de recursos que un equipo o proyecto neces
 
 1. En la barra de navegación izquierda de Azure Portal, haga clic en **Azure Active Directory**.
 
-1. En el menú izquierdo, haga clic en **Gobernanza de identidades**.
+2. En el menú izquierdo, haga clic en **Gobernanza de identidades**.
 
-1. En el menú izquierdo, haga clic en **Paquetes de acceso**.  Si ve **Acceso denegado**, asegúrese de que haya una licencia Azure AD Premium P2 en el directorio.
+3. En el menú izquierdo, haga clic en **Paquetes de acceso**.  Si ve **Acceso denegado**, asegúrese de que haya una licencia Azure AD Premium P2 en el directorio.
 
-1. Haga clic en **New access package** (Nuevo paquete acceso).
+4. Haga clic en **New access package** (Nuevo paquete acceso).
 
     ![Administración de derechos en Azure Portal](./media/entitlement-management-shared/access-packages-list.png)
 
-1. En la pestaña **Básico**, escriba el nombre **Campaña de marketing** y la descripción **Acceso a los recursos de la campaña**.
+5. En la pestaña **Básico**, escriba el nombre **Campaña de marketing** y la descripción **Acceso a los recursos de la campaña**.
 
-1. Deje la lista desplegable **Catálogo** establecida en **General**.
+6. Deje la lista desplegable **Catálogo** establecida en **General**.
 
     ![New access package (Nuevo paquete de acceso): pestaña Datos básicos](./media/entitlement-management-access-package-first/basics.png)
 
-1. Haga clic en **Siguiente** para abrir la pestaña **Resource roles** (Roles de recursos).
+7. Haga clic en **Siguiente** para abrir la pestaña **Resource roles** (Roles de recursos).
 
     En esta pestaña se seleccionan los recursos y el rol de recurso que se incluirán en el paquete de acceso.
 
-1. Haga clic en **Grupos y equipos**.
+8. Haga clic en **Grupos y equipos**.
 
-1. En el panel Seleccionar grupos, busque y seleccione el grupo **Recursos de marketing** que creó anteriormente.
+9. En el panel Seleccionar grupos, busque y seleccione el grupo **Recursos de marketing** que creó anteriormente.
 
     De forma predeterminada, verá grupos dentro y fuera del catálogo **General**. Al seleccionar un grupo fuera del catálogo **General**, se agregará a dicho catálogo.
 
     ![New access package (Nuevo paquete de acceso): pestaña Resource roles (Roles de recursos)](./media/entitlement-management-access-package-first/resource-roles-select-groups.png)
 
-1. Haga clic en **Seleccionar** para agregar el grupo a la lista.
+10. Haga clic en **Seleccionar** para agregar el grupo a la lista.
 
-1. En la lista desplegable **Rol**, seleccione **Miembro**.
+11. En la lista desplegable **Rol**, seleccione **Miembro**.
 
     ![New access package (Nuevo paquete de acceso): pestaña Resource roles (Roles de recursos)](./media/entitlement-management-access-package-first/resource-roles.png)
 
-1. Haga clic en **Siguiente** para abrir la pestaña **Solicitudes**.
+    >[!NOTE]
+    > Si usa [grupos dinámicos](../users-groups-roles/groups-create-rule.md) no verá ningún otro rol disponible además del propietario; es así por diseño.
+    > ![Información general de los escenarios](./media/entitlement-management-access-package-first/dynamic-group-warning.png)
+
+12. Haga clic en **Siguiente** para abrir la pestaña **Solicitudes**.
 
     En esta pestaña creará una directiva de solicitud. Una *directiva* define las reglas o barreras para acceder a un paquete de acceso. Creará una directiva que permite que un usuario específico del directorio del recurso solicite este paquete de acceso.
 
-1. En la sección **Usuarios que pueden solicitar acceso**, haga clic en **Para los usuarios de su directorio** y, a continuación, haga clic en **Usuarios y grupos específicos**.
+13. En la sección **Usuarios que pueden solicitar acceso**, haga clic en **Para los usuarios de su directorio** y, a continuación, haga clic en **Usuarios y grupos específicos**.
 
     ![Nuevo paquete de acceso: pestaña Solicitudes](./media/entitlement-management-access-package-first/requests.png)
 
-1. Haga clic en **Agregar usuarios y grupos**.
+14. Haga clic en **Agregar usuarios y grupos**.
 
-1. En el panel Seleccionar usuarios y grupos, seleccione el usuario **Solicitante1** que creó anteriormente.
+15. En el panel Seleccionar usuarios y grupos, seleccione el usuario **Solicitante1** que creó anteriormente.
 
     ![Nuevo paquete de acceso: pestaña Solicitudes - Seleccionar usuarios y grupos](./media/entitlement-management-access-package-first/requests-select-users-groups.png)
 
-1. Haga clic en **Seleccionar**.
+16. Haga clic en **Seleccionar**.
 
-1. Desplácese hacia abajo hasta las secciones **Aprobación** y **Enable requests** (Habilitar solicitudes).
+17. Desplácese hacia abajo hasta las secciones **Aprobación** y **Enable requests** (Habilitar solicitudes).
 
-1. Deje **Requerir aprobación** establecido en **No**.
+18. Deje **Requerir aprobación** establecido en **No**.
 
-1. En **Enable requests** (Habilitar solicitudes), haga clic en **Sí** para permitir que este paquete de acceso se solicite en cuanto se cree.
+19. En **Enable requests** (Habilitar solicitudes), haga clic en **Sí** para permitir que este paquete de acceso se solicite en cuanto se cree.
 
     ![Nuevo paquete de acceso: pestaña Solicitudes - Aprobación y Enable requests (Habilitar solicitudes)](./media/entitlement-management-access-package-first/requests-approval-enable.png)
 
-1. Haga clic en **Siguiente** para abrir la pestaña **Ciclo de vida**.
+20. Haga clic en **Siguiente** para abrir la pestaña **Ciclo de vida**.
 
-1. En la sección **Expiración**, establezca **Las asignaciones de paquetes de acceso expiran** en **Número de días**.
+21. En la sección **Expiración**, establezca **Las asignaciones de paquetes de acceso expiran** en **Número de días**.
 
-1. Establezca **Las asignaciones expiran después de** en **30** días.
+22. Establezca **Las asignaciones expiran después de** en **30** días.
 
     ![Nuevo paquete de acceso: pestaña Ciclo de vida](./media/entitlement-management-access-package-first/lifecycle.png)
 
-1. Haga clic en **Siguiente** para abrir la pestaña **Revisar y crear**.
+23. Haga clic en **Siguiente** para abrir la pestaña **Revisar y crear**.
 
     ![New access package (Nuevo paquete de acceso): pestaña Revisar y crear](./media/entitlement-management-access-package-first/review-create.png)
 
     Transcurridos unos instantes, verá una notificación que dice que el paquete de acceso se ha creado correctamente.
 
-1. En el menú izquierdo del paquete de acceso Campaña de marketing, haga clic en **Información general**.
+24. En el menú izquierdo del paquete de acceso Campaña de marketing, haga clic en **Información general**.
 
-1. Copie el **vínculo del portal Mi acceso**.
+25. Copie el **vínculo del portal Mi acceso**.
 
     Este vínculo lo usará en el paso siguiente.
 

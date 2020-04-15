@@ -3,16 +3,16 @@ title: Introducción a Azure Enterprise Portal
 description: En este artículo se explica cómo los clientes de Contrato Enterprise de Azure (Azure EA) usan Azure Enterprise Portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/03/2020
+ms.date: 04/01/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 5b84cbf4ae7065f13442852cfbf646aa49771e1f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: da63960b312bde6ae8aafb659ef08ef2f52600cc
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78272426"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586297"
 ---
 # <a name="get-started-with-the-azure-enterprise-portal"></a>Introducción a Azure Enterprise Portal
 
@@ -111,7 +111,7 @@ El contacto para notificaciones recibe las notificaciones de uso relacionadas co
 
 Para activar el servicio, el administrador de empresa inicial abre [Azure Enterprise Portal](https://ea.azure.com) e inicia sesión con la dirección del correo electrónico de invitación.
 
-Si le han asignado el rol Administrador de empresa, no es preciso que reciba el correo electrónico de activación. Vaya a [Azure Enterprise Portal](https://ea.azure.com) e inicie sesión con la dirección de correo electrónico de su cuenta profesional, educativa o de Microsoft y su contraseña.
+Si le han asignado el rol de administrador de empresa, no es preciso que reciba el correo electrónico de activación. Vaya a [Azure Enterprise Portal](https://ea.azure.com) e inicie sesión con la dirección de correo electrónico de su cuenta profesional, educativa o de Microsoft y su contraseña.
 
 Si tiene más de una inscripción, elija la que desea activar. De forma predeterminada, solo se muestran las inscripciones activas. Para ver el historial de inscripciones, desactive la opción **Activa** en la parte superior derecha de Azure Enterprise Portal.
 

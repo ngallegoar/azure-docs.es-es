@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/08/2019
+ms.date: 04/07/2020
 ms.author: willzhan
-ms.openlocfilehash: 55ed849b6083435e70d0943a359c83793ca0842d
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 94edec8261d9916b7575fb247e1698273f244130
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705911"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80887204"
 ---
 # <a name="offline-widevine-streaming-for-android-with-media-services-v3"></a>Streaming de Widevine sin conexión para Android con Media Services v3
 
@@ -42,7 +42,7 @@ En el artículo también se responden algunas preguntas frecuentes relacionadas 
 > [!NOTE]
 > DRM sin conexión solo se factura para hacer una única solicitud de una licencia al descargar el contenido. Los errores no se facturan.
 
-## <a name="prerequisites"></a>Prerequisites 
+## <a name="prerequisites"></a>Prerrequisitos 
 
 Antes de implementar DRM para Widevine en dispositivos Android, debe hacer lo siguiente:
 
@@ -147,71 +147,19 @@ Si actualiza el explorador Chrome móvil a la versión 62 (o posterior) en un te
 
 La aplicación de PWA de código abierto anterior se creó en Node.js. Si desea hospedar su propia versión en un servidor de Ubuntu, tenga en cuenta los siguientes problemas habituales que pueden impedir la reproducción:
 
-1. Problema de CORS: el vídeo de ejemplo de la aplicación de ejemplo se hospeda en https://storage.googleapis.com/biograf-video-files/videos/. Google ha configurado CORS para todos sus ejemplos de prueba hospedados en el cubo de Google Cloud Storage. Se proporcionan con encabezados CORS, especificando explícitamente la entrada CORS: https://biograf-155113.appspot.com (el dominio en el que Google hospeda su ejemplo) impidiendo el acceso de cualquier otro sitio. Si lo intenta, verá el siguiente error HTTP: Failed to load https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: No 'Access-Control-Allow-Origin' header is present on the requested resource (No se pudo cargar, no se encontró el encabezado 'Access-Control-Allow-Origin' en el recurso solicitado). Así pues, el origen "https:\//13.85.80.81:8080" no tiene el acceso permitido. Si una respuesta opaca sirve a sus necesidades, establezca el modo de la solicitud en 'no-cors' para obtener el recurso con CORS deshabilitado.
+1. Problema de CORS: el vídeo de ejemplo de la aplicación de ejemplo se hospeda en https://storage.googleapis.com/biograf-video-files/videos/. Google ha configurado CORS para todos sus ejemplos de prueba hospedados en el cubo de Google Cloud Storage. Se proporcionan con encabezados CORS, especificando explícitamente la entrada CORS: `https://biograf-155113.appspot.com` (el dominio en el que Google hospeda su ejemplo) impidiendo el acceso de cualquier otro sitio. Si lo intenta, verá el siguiente error HTTP: `Failed to load https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'https:\//13.85.80.81:8080' is therefore not allowed access. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.`
 2. Problema de certificado: a partir de la versión 58 de Chrome, EME para Widevine requiere HTTPS. Por lo tanto, debe hospedar la aplicación de ejemplo a través de HTTPS con un certificado X509. Un certificado de prueba habitual no funciona debido a los siguientes requisitos: Es necesario obtener un certificado que cumpla con los siguientes requisitos mínimos:
     - Chrome y Firefox requieren que existan los parámetros de SAN (nombre alternativo del firmante) en el certificado
     - El certificado debe tener una entidad de certificación de confianza y un certificado de desarrollo autofirmado no sirve para ello
     - El certificado debe tener un CN que coincida con el nombre de DNS del servidor web o de la puerta de enlace
 
-## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
+## <a name="faqs"></a>Preguntas más frecuentes
 
-### <a name="question"></a>Pregunta
-
-¿Cómo se pueden entregar licencias persistentes (habilitadas para modo sin conexión) para algunos clientes/usuarios y licencias no persistentes (deshabilitadas para modo sin conexión) para otros? ¿Es necesario duplicar el contenido y usar la clave de contenido independiente?
-
-### <a name="answer"></a>Respuesta
-Ya que Media Services v3 permite que un recurso tenga varios StreamingLocators. Puede tener
-
-1.  Un ContentKeyPolicy con license_type = "persistente", ContentKeyPolicyRestriction con notificación de "persistente" y su StreamingLocator;
-2.  Otro ContentKeyPolicy con license_type="no persistente", ContentKeyPolicyRestriction con notificación en "nonpersistent" y su StreamingLocator.
-3.  Los dos StreamingLocators tienen diferentes ContentKey.
-
-Dependiendo de la lógica de negocio de la STS personalizada, se emiten diferentes notificaciones en el token de JWT. Con el token, solo se puede obtener la licencia correspondiente y solo se puede reproducir la dirección URL correspondiente.
-
-### <a name="question"></a>Pregunta
-
-En el caso de niveles de seguridad de Widevine, en el documento [Widevine DRM Architecture Overview](https://storage.googleapis.com/wvdocs/Widevine_DRM_Architecture_Overview.pdf) (Información general de la arquitectura de Widevine DRM) de Google, se definen tres niveles de seguridad diferentes. Sin embargo, en la [documentación de Azure Media Services sobre la plantillas de licencias de Widevine](widevine-license-template-overview.md), se describen cinco niveles de seguridad diferentes. ¿Cuál es la relación o la asignación entre los dos conjuntos diferentes de niveles de seguridad?
-
-### <a name="answer"></a>Respuesta
-
-En el documento [Widevine DRM Architecture Overview](https://storage.googleapis.com/wvdocs/Widevine_DRM_Architecture_Overview.pdf) (Información general de la arquitectura de Widevine DRM) de Google se definen los tres siguientes niveles de seguridad:
-
-1.  Nivel de seguridad 1: todo el procesamiento de contenido, la criptografía y el control se realizan en un entorno de ejecución de confianza (TEE). En algunos modelos de implementación, el procesamiento de seguridad puede realizarse en chips diferentes.
-2.  Nivel de seguridad 2: realiza la criptografía (pero no el procesamiento de vídeo) dentro de la TEE: los búferes descifrados se devuelven al dominio de aplicación y se procesan a través de software o hardware de vídeo independiente. En el nivel 2, sin embargo, la información criptográfica se sigue procesando solo dentro de TEE.
-3.  Nivel de seguridad 3: no tiene un TEE en el dispositivo. Es posible que tengan que adoptarse las medidas adecuadas para proteger la información criptográfica y el contenido descifrado en el sistema operativo del host. Una implementación de nivel 3 también puede incluir un motor de cifrado de hardware, pero esto solo mejora el rendimiento, no la seguridad.
-
-Al mismo tiempo, en la [documentación de Azure Media Services sobre la plantilla de licencia de Widevine](widevine-license-template-overview.md), la propiedad security_level de content_key_specs puede tener los siguientes cinco valores diferentes (requisitos de solidez de cliente para la reproducción):
-
-1.  Se requiere criptografía white-box basada en software.
-2.  Se requiere criptografía de software y un descodificador de ofuscación.
-3.  Las operaciones de criptografía y material clave deben realizarse en un TEE con respaldo de hardware.
-4.  La criptografía y la descodificación del contenido deben realizarse dentro de un TEE con respaldo de hardware.
-5.  La criptografía, la descodificación y todo el tratamiento de los medios (comprimidos y descomprimidos) deben administrarse dentro de TEE con respaldo de hardware.
-
-Los dos niveles de seguridad se definen mediante Google Widevine. La diferencia radica en su nivel de uso: nivel de API o de arquitectura. Los niveles de cinco seguridad se utilizan en la API de Widevine. El objeto content_key_specs, que contiene security_level, se deserializa y se pasa al servicio de entrega global de Widevine por parte del servicio de licencias de Widevine de Azure Media Services. En la tabla siguiente se muestra la asignación entre los dos conjuntos de niveles de seguridad.
-
-| **Niveles de seguridad definidos en la arquitectura de Widevine** |**Niveles de seguridad utilizados en la API de Widevine**|
-|---|---| 
-| **Nivel de seguridad 1**: todo el procesamiento de contenido, la criptografía y el control se realizan en un entorno de ejecución de confianza (TEE). En algunos modelos de implementación, el procesamiento de seguridad puede realizarse en chips diferentes.|**security_level=5**: La criptografía, la descodificación y todo el tratamiento de los medios (comprimidos y descomprimidos) deben administrarse dentro de TEE con respaldo de hardware.<br/><br/>**security_level=4**: La criptografía y la descodificación del contenido deben realizarse dentro de un TEE con respaldo de hardware.|
-**Nivel de seguridad 2**: realiza la criptografía (pero no el procesamiento de vídeo) dentro de la TEE: los búferes descifrados se devuelven al dominio de aplicación y se procesan a través de software o hardware de vídeo independiente. En el nivel 2, sin embargo, la información criptográfica se sigue procesando solo dentro de TEE.| **security_level=3**: Las operaciones de criptografía y material clave deben realizarse en un TEE con respaldo de hardware. |
-| **Nivel de seguridad 3**: no tiene un TEE en el dispositivo. Es posible que tengan que adoptarse las medidas adecuadas para proteger la información criptográfica y el contenido descifrado en el sistema operativo del host. Una implementación de nivel 3 también puede incluir un motor de cifrado de hardware, pero esto solo mejora el rendimiento, no la seguridad. | **security_level=2**: Se requiere criptografía de software y un descodificador de ofuscación.<br/><br/>**security_level=1**: Se requiere criptografía white-box basada en software.|
-
-### <a name="question"></a>Pregunta
-
-¿Por qué la descarga de contenido tarda tanto tiempo?
-
-### <a name="answer"></a>Respuesta
-
-Hay dos maneras de mejorar la velocidad de descarga:
-
-1.  Habilite la red CDN para que los usuarios tengan más probabilidades de utilizarla en lugar del punto de conexión de streaming/origen para la descarga de contenido. Si el usuario utiliza el punto de conexión de streaming, cada segmento HLS o fragmento DASH se empaqueta y cifra dinámicamente. Aunque esta latencia se encuentre en escala de milisegundos para cada segmento o fragmento, si tiene un vídeo de una hora de duración, la latencia acumulada puede ser grande (ocasionando una descarga más larga).
-2.  Proporcione a los usuarios finales la opción de descargar de forma selectiva las capas de la calidad del vídeo y las pistas de audio en lugar de todo el contenido. En el caso del modo sin conexión, no hay ningún punto para descargar todas las capas de calidad. Hay dos formas de lograrlo:
-    1.  Controlado por el cliente: la aplicación del reproductor selecciona automáticamente o el usuario selecciona la capa de calidad de vídeo y las pistas de audio para descargar.
-    2.  Controlado por el servicio: uno puede utilizar la característica Manifiesto dinámico de Azure Media Services para crear un filtro (global), que limita la lista de reproducción HLS o el MPD de DASH a una sola capa de calidad del vídeo y las pistas de audio seleccionadas. Así pues, la URL de descarga que se presenta a los usuarios finales incluirá este filtro.
+Para obtener más información, vea [P+F de Widevine](frequently-asked-questions.md#widevine-streaming-for-android).
 
 ## <a name="additional-notes"></a>Notas adicionales
 
-* Widevine es un servicio que ofrece Google Inc. y que está sujeto a los términos del servicio y la directiva de privacidad de Google, Inc.
+Widevine es un servicio que ofrece Google Inc. y que está sujeto a los términos del servicio y la directiva de privacidad de Google, Inc.
 
 ## <a name="summary"></a>Resumen
 

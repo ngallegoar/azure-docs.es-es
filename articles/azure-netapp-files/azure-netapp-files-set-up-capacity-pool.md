@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 04/02/2020
 ms.author: b-juche
-ms.openlocfilehash: 8f50b2ad34c705c8d3831d8243f136c41d750dc0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b21db3e842898e8ce11b560714888b946373300e
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60691111"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80616434"
 ---
 # <a name="set-up-a-capacity-pool"></a>Configuración de un grupo de capacidad
 
@@ -47,7 +47,7 @@ Debe haber creado ya una cuenta de NetApp.
 
    * **Nivel de servicio**   
      Este campo muestra el rendimiento de destino para el grupo de capacidad.  
-     Especifique el nivel de servicio del grupo de capacidad: [**Premium**](azure-netapp-files-service-levels.md#Premium) o [**Standard**](azure-netapp-files-service-levels.md#Standard).
+     Especifique el nivel de servicio del grupo de capacidad: [**Ultra**](azure-netapp-files-service-levels.md#Ultra), [**Premium**](azure-netapp-files-service-levels.md#Premium) o [**Estándar**](azure-netapp-files-service-levels.md#Standard).
 
    * **Tamaño**     
      Especifique el tamaño del grupo de capacidad que va a adquirir.        

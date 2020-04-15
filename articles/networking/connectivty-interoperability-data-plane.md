@@ -1,5 +1,5 @@
 ---
-title: 'Interoperabilidad de las características de conectividad del back-end de Azure: Análisis del plano de datos | Microsoft Docs'
+title: 'Interoperabilidad en Azure: Análisis del plano de datos'
 description: En este artículo se proporciona el análisis del plano de datos de la configuración de prueba que puede usar para analizar la interoperabilidad entre ExpressRoute, una VPN de sitio a sitio y el emparejamiento de redes virtuales en Azure.
 documentationcenter: na
 services: networking
@@ -10,14 +10,14 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
-ms.openlocfilehash: 815976c672272270e465610e17fef3aea79387f6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fe7b74b0d4d065d4f222fefbbdc4a1d434d1163b
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77526644"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80518261"
 ---
-# <a name="interoperability-in-azure-back-end-connectivity-features-data-plane-analysis"></a>Interoperabilidad de las características de conectividad del back-end de Azure: Análisis del plano de datos
+# <a name="interoperability-in-azure--data-plane-analysis"></a>Interoperabilidad en Azure: Análisis del plano de datos
 
 En este artículo se describe el análisis del plano de datos de la [configuración de prueba][Setup]. También puede revisar la [configuración de la prueba][Configuration] y el [análisis del plano de datos][Control-Analysis] de la configuración de prueba.
 

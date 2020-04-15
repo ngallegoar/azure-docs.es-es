@@ -4,12 +4,12 @@ description: En este tutorial, aprenderá a agregar un punto de conexión HTTPS 
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 077c2ab67efa51542baa3048eb678fa22b0bc2eb
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0e8b79a88fc173674caa0ca65e394e21d58d5f2f
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79222732"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756084"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Tutorial: Incorporación de un punto de conexión HTTPS a un servicio de front-end de API Web de ASP.NET Core mediante Kestrel
 
@@ -20,7 +20,7 @@ En la tercera parte de la serie, se aprende a:
 > [!div class="checklist"]
 > * Definir un punto de conexión HTTPS en el servicio
 > * Configurar Kestrel para que use HTTPS
-> * Instalar el certificado SSL en los nodos del clúster remoto
+> * Instalar el certificado TLS/SSL en los nodos del clúster remoto
 > * Conceder a NETWORK SERVICE acceso a la clave privada del certificado
 > * Abrir el puerto 443 en Azure Load Balancer
 > * Implementar la aplicación en un clúster remoto
@@ -36,7 +36,7 @@ En esta serie de tutoriales, se aprende a:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de empezar este tutorial:
 
@@ -396,7 +396,7 @@ En esta parte del tutorial, ha aprendido a:
 > [!div class="checklist"]
 > * Definir un punto de conexión HTTPS en el servicio
 > * Configurar Kestrel para que use HTTPS
-> * Instalar el certificado SSL en los nodos del clúster remoto
+> * Instalar el certificado TLS/SSL en los nodos del clúster remoto
 > * Conceder a NETWORK SERVICE acceso a la clave privada del certificado
 > * Abrir el puerto 443 en Azure Load Balancer
 > * Implementar la aplicación en un clúster remoto

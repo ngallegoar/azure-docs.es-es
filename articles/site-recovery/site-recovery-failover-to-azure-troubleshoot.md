@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 01/08/2020
 ms.author: mayg
-ms.openlocfilehash: 6de37daa0b9e0ebc711a5dacbdce352e3675a3db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 54e44a12f593d2074eefe5b2ff890863db3199f7
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79229092"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478957"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Solución de problemas cuando se conmuta por error una máquina física o una máquina virtual de VMware en Azure
 
@@ -138,7 +138,7 @@ Cree manualmente el destino maestro en la instancia de vCenter que administra la
 > 
 > Las operaciones de tejido de detección y actualización pueden tardar hasta 30 minutos en completarse. 
 
-## <a name="linux-master-target-registration-with-cs-fails-with-an-ssl-error-35"></a>El registro del destino maestro de Linux con CS produce un error de SSL 35 
+## <a name="linux-master-target-registration-with-cs-fails-with-a-tls-error-35"></a>El registro del destino maestro de Linux con CS produce un error de TLS 35. 
 
 Se produce un error en el registro del destino maestro de Azure Site Recovery con el servidor de configuración porque el servidor proxy autenticado se está habilitando en el destino maestro. 
  

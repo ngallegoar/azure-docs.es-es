@@ -11,19 +11,19 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.custom: seodec18
-ms.date: 02/20/2020
+ms.date: 04/02/2020
 ms.author: spelluru
-ms.openlocfilehash: 8047ac5d3db2db230a00583e888a4afea3b282b9
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: 9c678a91b88b87acb438311b4968be4cae46733b
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78969373"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632797"
 ---
 # <a name="tutorial-process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Tutorial: Procesamiento de eventos de Apache Kafka para Event Hubs mediante Stream Analytics 
-En este artículo se muestra cómo transmitir datos a Event Hubs habilitado para Kafka y cómo procesarlos con Azure Stream Analytics. Estos pasos son los siguientes: 
+En este artículo se muestra cómo transmitir en secuencias datos a Event Hubs y cómo procesarlos con Azure Stream Analytics. Estos pasos son los siguientes: 
 
-1. Cree un espacio de nombres de Event Hubs habilitado para Kafka.
+1. Cree un espacio de nombres de Event Hubs.
 2. Cree un cliente de Kafka que envíe mensajes al centro de eventos.
 3. Cree un trabajo de Stream Analytics que copie datos del centro de eventos en Azure Blob Storage. 
 
@@ -41,7 +41,7 @@ Para completar esta guía de inicio rápido, asegúrese de cumplir los siguiente
 * Una **cuenta de Azure Storage**. Si no tiene, [cree una](../storage/common/storage-account-create.md) antes de continuar. El trabajo de Stream Analytics en este tutorial almacena los datos de salida en Azure Blob Storage. 
 
 
-## <a name="create-a-kafka-enabled-event-hubs-namespace"></a>Creación de un espacio de nombres de Event Hubs habilitado para Kafka
+## <a name="create-an-event-hubs-namespace"></a>Creación de un espacio de nombres de Event Hubs
 Al crear un espacio de nombres en el nivel **estándar** de Event Hubs, se habilita automáticamente el punto de conexión de Kafka para el espacio de nombres. Puede transmitir eventos desde las aplicaciones que usan el protocolo de Kafka a instancias del nivel estándar de Event Hubs. Siga las instrucciones paso a paso de [Creación de un centro de eventos mediante Azure Portal](event-hubs-create.md) para crear un espacio de nombres de Event Hubs de nivel **estándar**. 
 
 > [!NOTE]
@@ -73,7 +73,7 @@ Al crear un espacio de nombres en el nivel **estándar** de Event Hubs, se habil
     ```
 
     Este código envía los datos del evento en formato **JSON**. Al configurar la entrada para un trabajo de Stream Analytics, especifique JSON como formato de los datos de entrada. 
-7. **Ejecute el productor** y transmítalo a Event Hubs habilitado para Kafka. En un equipo Windows, al usar un **símbolo del sistema Node.js**, cambie a la carpeta `azure-event-hubs-for-kafka/quickstart/java/producer` antes de ejecutar estos comandos. 
+7. **Ejecute el productor** y transmítalo a Event Hubs. En un equipo Windows, al usar un **símbolo del sistema Node.js**, cambie a la carpeta `azure-event-hubs-for-kafka/quickstart/java/producer` antes de ejecutar estos comandos. 
    
     ```shell
     mvn clean package
@@ -181,15 +181,4 @@ Ya tiene un trabajo de Stream Analytics configurado para leer un flujo de datos 
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este artículo se muestra cómo hacer streaming a instancias de Event Hubs habilitadas para Kafka sin cambiar los clientes del protocolo o ejecutar sus propios clústeres. Para obtener más información acerca de Event Hubs y Event Hubs para Kafka, consulte el tema siguiente:  
-
-- [Más información sobre Events Hubs](event-hubs-what-is-event-hubs.md)
-- [Event Hubs para Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)
-- [How to create Kafka enabled Event Hubs](event-hubs-create-kafka-enabled.md) (Cómo crear Event Hubs habilitados para Kafka)
-- [Stream into Event Hubs from your Kafka applications](event-hubs-quickstart-kafka-enabled-event-hubs.md) (Transmitir en Event Hubs desde sus aplicaciones de Kafka)
-- [Creación de un reflejo de un agente de Kafka en un centro de eventos habilitado para Kafka](event-hubs-kafka-mirror-maker-tutorial.md)
-- [Conexión de Apache Spark a un centro de eventos habilitado para Kafka](event-hubs-kafka-spark-tutorial.md)
-- [Conexión de Apache Flink a un centro de eventos habilitado para Kafka](event-hubs-kafka-flink-tutorial.md)
-- [Integración de Kafka Connect con un centro de eventos habilitado para Kafka](event-hubs-kafka-connect-tutorial.md)
-- [Conexión de Akka Streams a un centro de eventos habilitado para Kafka](event-hubs-kafka-akka-streams-tutorial.md)
-- [Exploración de ejemplos en nuestro GitHub](https://github.com/Azure/azure-event-hubs-for-kafka) 
+En este artículo se muestra cómo hacer streaming a instancias de Event Hubs sin cambiar los clientes del protocolo o ejecutar sus propios clústeres. Para más información sobre Event Hubs para Apache Kafka, consulte [Guía del desarrollador de Apache Kafka para Azure Event Hubs](apache-kafka-developer-guide.md). 

@@ -1,17 +1,17 @@
 ---
-title: Análisis de retención de usuarios para aplicaciones web con Azure Application Insights | Microsoft Docs
+title: Análisis de la retención de usuarios de aplicaciones web con Azure Application Insights
 description: ¿Cuántos usuarios regresan a la aplicación?
 ms.topic: conceptual
 author: NumberByColors
 ms.author: daviste
 ms.date: 05/03/2017
 ms.reviewer: mbullwin
-ms.openlocfilehash: 37ae97d5fbc62e507f726c452999a7f6e7c989c6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e6d9be6bc6d7f90153e2fb58aa404e281568dbdd
+ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77670974"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80892417"
 ---
 # <a name="user-retention-analysis-for-web-applications-with-application-insights"></a>Análisis de retención de usuarios para aplicaciones web con Application Insights
 

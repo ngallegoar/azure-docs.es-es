@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/21/2020
 ms.author: spelluru
-ms.openlocfilehash: 55bb6b620c7ba9ee13068213cbc867b165acc185
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 532e3c297c42ea16b1f462a01699fc2fd71c6cce
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76514891"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529107"
 ---
 # <a name="azure-relay-port-settings"></a>Configuración de puerto de Relay de Azure
 
@@ -27,7 +27,7 @@ En la tabla siguiente se describe la configuración que se requiere para los val
 
 ## <a name="hybrid-connections"></a>conexiones híbridas
 
-Las conexiones híbridas emplean protocolos WebSocket en el puerto 443 con SSL como mecanismo de transporte subyacente, utilizando solo **HTTPS**. 
+Las conexiones híbridas emplean protocolos WebSocket en el puerto 443 con TLS como mecanismo de transporte subyacente, utilizando solo **HTTPS**. 
 
 ## <a name="wcf-relays"></a>Relés de WCF
   

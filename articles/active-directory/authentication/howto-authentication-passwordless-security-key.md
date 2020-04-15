@@ -4,19 +4,19 @@ description: Habilitar el inicio de sesión con clave de seguridad sin contrase�
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/12/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d5ff722d4a035113af8528ed8adb396b01c81eb
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.openlocfilehash: b8574fcdff12e61f7039174ed6297d0558a66dc4
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77504947"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80653930"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>Habilitar el inicio de sesión con clave de seguridad sin contraseña (versión preliminar)
 

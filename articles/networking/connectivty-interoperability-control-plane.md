@@ -1,5 +1,5 @@
 ---
-title: 'Interoperabilidad de las características de conectividad del back-end de Azure: Análisis del plano de control | Microsoft Docs'
+title: 'Interoperabilidad en Azure: Análisis del plano de control'
 description: En este artículo se proporciona el análisis del plano de control de la configuración de prueba que puede usar para analizar la interoperabilidad entre ExpressRoute, una VPN de sitio a sitio y el emparejamiento de redes virtuales en Azure.
 documentationcenter: na
 services: networking
@@ -10,14 +10,14 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
-ms.openlocfilehash: 4921e4c4fc0da95250a0171c66d6a69093b10687
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5e41bc86533815c394077bf5276d930fe958cd19
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74873852"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80518273"
 ---
-# <a name="interoperability-in-azure-back-end-connectivity-features-control-plane-analysis"></a>Interoperabilidad de las características de conectividad del back-end de Azure: Análisis del plano de control
+# <a name="interoperability-in-azure--control-plane-analysis"></a>Interoperabilidad en Azure: Análisis del plano de control
 
 En este artículo se describe el análisis del plano de control de la [configuración de la prueba][Setup]. También puede revisar la [configuración de la prueba][Configuration] y el [análisis del plano de control][Data-Analysis] de la configuración de la prueba.
 
@@ -29,7 +29,7 @@ En la siguiente ilustración se muestra la red desde la perspectiva de un centro
 
 ![1][1]
 
-Tenga en cuenta que el ASN de la puerta de enlace de Azure ExpressRoute de la red virtual difiere del de los enrutadores de Microsoft Enterprise Edge (MSEE). Generalmente, la puerta de enlace de ExpressRoute usa un ASN privado (con valor **65515**) y los MSEE, uno público (**12076**). Al configurar el emparejamiento de ExpressRoute, como MSEE es del mismo nivel, se usa **12076** como ASN del mismo nivel. Del lado de Azure, MSEE establece emparejamiento de BGP externo con la puerta de enlace de ExpressRoute. El emparejamiento BGP externo dual que el MSEE establece para cada emparejamiento de ExpressRoute es transparente en el nivel del plano de control. Por tanto, al visualizar una tabla de enrutamiento de ExpressRoute, se ve el valor de ASN de la puerta de enlace de ExpressRoute de la red virtual para los prefijos de la esta. 
+Tenga en cuenta que el ASN de la puerta de enlace de Azure ExpressRoute de la red virtual difiere del de los enrutadores de Microsoft Enterprise Edge (MSEE). Generalmente, la puerta de enlace de ExpressRoute usa un ASN privado (con valor **65515**) y los MSEE, uno público (**12076**). Al configurar el emparejamiento de ExpressRoute, como MSEE es del mismo nivel, se usa **12076** como ASN del mismo nivel. Del lado de Azure, MSEE establece emparejamiento de BGP externo con la puerta de enlace de ExpressRoute. El emparejamiento BGP externo dual que el MSEE establece para cada emparejamiento de ExpressRoute es transparente en el nivel del plano de control. Por tanto, al visualizar una tabla de enrutamiento de ExpressRoute, se ve el valor de ASN de la puerta de enlace de ExpressRoute de la red virtual para los prefijos de esta. 
 
 En la siguiente ilustración se muestra una tabla de enrutamiento de ExpressRoute de ejemplo: 
 
@@ -45,7 +45,7 @@ Tanto la ubicación 1 local como la red virtual remota están conectadas al cent
 
 ## <a name="on-premises-location-1-and-the-branch-vnet-perspective-via-a-site-to-site-vpn"></a>Perspectiva de la ubicación 1 local y de la red virtual remota a través de ExpressRoute 1
 
-Tanto la ubicación 1 local como la red virtual de sucursal están conectadas a una puerta de enlace de centro de conectividad a través de una VPN de sitio a sitio. Comparten la misma perspectiva de la topología, como se muestra en el siguiente diagrama:
+Tanto la ubicación 1 local como la red virtual de la rama están conectadas a una puerta de enlace de centro de conectividad a través de una VPN de sitio a sitio. Comparten la misma perspectiva de la topología, como se muestra en el siguiente diagrama:
 
 ![3][3]
 

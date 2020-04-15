@@ -1,22 +1,24 @@
 ---
 title: Configuración de la autenticación de Microsoft
-description: Aprenda a configurar la autenticación de la cuenta Microsoft como proveedor de identidades para una aplicación App Service.
+description: Aprenda a configurar la autenticación de la cuenta Microsoft como proveedor de identidades para una aplicación App Service o Azure Functions.
 ms.assetid: ffbc6064-edf6-474d-971c-695598fd08bf
 ms.topic: article
 ms.date: 08/08/2019
-ms.custom: seodec18
-ms.openlocfilehash: 95c603d4a10eb0e4d0817e20755c0f9b36baa96f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom:
+- seodec18
+- fasttrack-edit
+ms.openlocfilehash: a78208ba592f86400e9b06b15d8a76923dda736f
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76842340"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80519899"
 ---
-# <a name="configure-your-app-service-app-to-use-microsoft-account-login"></a>Configuración de la aplicación App Service para usar el inicio de sesión de la cuenta de Microsoft
+# <a name="configure-your-app-service-or-azure-functions-app-to-use-microsoft-account-login"></a>Configuración de una aplicación de App Service o Azure Functions para usar el inicio de sesión de la cuenta Microsoft.
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-En este tema se muestra cómo configurar Azure App Service para usar AAD con el fin de admitir inicios de sesión de cuentas de Microsoft personales.
+En este tema se muestra cómo configurar Azure App Service o Azure Functions para usar AAD con el fin de admitir inicios de sesión de cuentas de Microsoft personales.
 
 > [!NOTE]
 > Tanto las cuentas personales de Microsoft como las cuentas de la organización usan el proveedor de identidades de AAD. En este momento, no es posible configurar este proveedor de identidades para admitir ambos tipos de inicios de sesión.

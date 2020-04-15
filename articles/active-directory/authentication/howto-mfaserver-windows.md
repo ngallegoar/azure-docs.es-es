@@ -4,26 +4,26 @@ description: Implementación de Autenticación de Windows y Servidor Azure Multi
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/11/2018
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: faab28a714b1a62e1e34de5b07119aa3018db24e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4abfb970ca322724adb0f8919b7509bc8a641378
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79230912"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80652796"
 ---
 # <a name="windows-authentication-and-azure-multi-factor-authentication-server"></a>Servidor de Autenticación de Windows y Azure Multi-Factor Authentication
 
 Use la sección Autenticación de Windows del Servidor Azure Multi-Factor Authentication para habilitar y configurar la autenticación de Windows para las aplicaciones. Antes de configurar la autenticación de Windows, tenga en cuenta la lista siguiente:
 
 * Después de la instalación, reinicie Azure Multi-Factor Authentication para aplicar la configuración de Terminal Services.
-* Si se encuentra marcada la opción “Requerir coincidencia de usuario de Azure Multi-Factor Authentication” y usted no está en la lista de usuarios, no podrá iniciar sesión en el equipo después del reinicio.
+* Si se encuentra marcada la opción "Requerir coincidencia de usuario de Azure Multi-Factor Authentication" y usted no está en la lista de usuarios, no podrá iniciar sesión en el equipo después del reinicio.
 * Las direcciones IP de confianza dependen de si la aplicación puede proporcionar la dirección IP de cliente con la autenticación. Actualmente solo se admite Terminal Services.  
 
 > [!IMPORTANT]

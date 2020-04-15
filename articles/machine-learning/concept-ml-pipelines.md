@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: laobri
 author: lobrien
-ms.date: 11/06/2019
-ms.openlocfilehash: fd10a3e62bcbe438eb17edfc71a5285ad071e29a
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.date: 04/01/2020
+ms.openlocfilehash: 0cefa78b6f52cc67df8817f68a9b793ab86b2a7f
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77366221"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878585"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>¿Qué son las canalizaciones de Azure Machine Learning?
 
@@ -64,7 +64,7 @@ Con Azure Machine Learning, puede usar diversos kits de herramientas y marcos, c
 
 Puede [realizar un seguimiento de las métricas de los experimentos de canalización](https://docs.microsoft.com/azure/machine-learning/how-to-track-experiments) directamente en Azure Portal o en la [página de aterrizaje del área de trabajo (versión preliminar)](https://ml.azure.com). Una vez que se publica una canalización, puede configurar un punto de conexión REST que le permite volver a ejecutar la canalización desde cualquier plataforma o pila.
 
-En resumen, las canalizaciones pueden ayudar con todas las tareas complejas del ciclo de vida del aprendizaje automático. Otras tecnologías de canalización de Azure tienen sus propias ventajas, como las [canalizaciones de Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) para trabajar con datos y [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) para la integración e implementación continuas. Pero si su enfoque es el aprendizaje automático, es probable que las canalizaciones de Azure Machine Learning sean la mejor opción para sus necesidades de flujo de trabajo. 
+En resumen, las canalizaciones pueden ayudar con todas las tareas complejas del ciclo de vida del aprendizaje automático. Otras tecnologías de canalización de Azure tienen sus propias ventajas. Las [canalizaciones de Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) destaca en el trabajo con datos y [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) es la herramienta correcta para la implementación y la integración continua. Pero si su enfoque es el aprendizaje automático, es probable que las canalizaciones de Azure Machine Learning sean la mejor opción para sus necesidades de flujo de trabajo. 
 
 ## <a name="what-are-azure-ml-pipelines"></a>¿Qué son las canalizaciones de Azure ML?
 
@@ -126,7 +126,7 @@ Al diseñar las canalizaciones visualmente, las entradas y salidas de un paso se
 
 Los pasos dentro de una canalización pueden tener dependencias en otros pasos. El servicio de canalización de Azure ML realiza el trabajo de análisis y orquestación de estas dependencias. Los nodos del "grafo de ejecución" resultante son los pasos del procesamiento. Cada paso puede implicar la creación o reutilización de una combinación determinada de hardware y software, la reutilización de los resultados almacenados en caché, etc. La orquestación y optimización del servicio de este grafo de ejecución puede acelerar considerablemente una fase de ML y reducir los costos. 
 
-Dado que los pasos se ejecutan de forma independiente, los objetos que contienen los datos de entrada y salida que fluyen entre los pasos se deben definir de manera externa. Este es el rol de [DataReference ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py), [PipelineData ](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) y las clases asociadas. Estos objetos de datos están asociados a un objeto [Datastore](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore%28class%29?view=azure-ml-py) que encapsula su configuración de almacenamiento. La clase base `PipelineStep` siempre se crea con una cadena `name`, una lista de `inputs` y una lista de `outputs`. Por lo general, también tiene una lista de `arguments` y, a menudo, tendrá una lista de `resource_inputs`. Las subclases suelen tener también argumentos adicionales (por ejemplo, `PythonScriptStep` requiere el nombre de archivo y la ruta de acceso del script que se va a ejecutar). 
+Dado que los pasos se ejecutan de forma independiente, los objetos que contienen los datos de entrada y salida que fluyen entre los pasos se deben definir de manera externa. Este es el rol de los objetos [DataSet](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py) y [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py). Estos objetos de datos están asociados a un objeto [Datastore](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore%28class%29?view=azure-ml-py) que encapsula su configuración de almacenamiento. La clase base `PipelineStep` siempre se crea con una cadena `name`, una lista de `inputs` y una lista de `outputs`. Por lo general, también tiene una lista de `arguments` y, a menudo, tendrá una lista de `resource_inputs`. Las subclases suelen tener también argumentos adicionales (por ejemplo, `PythonScriptStep` requiere el nombre de archivo y la ruta de acceso del script que se va a ejecutar). 
 
 El grafo de ejecución es acíclico, pero las canalizaciones se pueden ejecutar según una programación periódica y pueden ejecutar scripts de Python que pueden escribir información de estado en el sistema de archivos, lo que permite crear perfiles complejos. Si diseña la canalización para que determinados pasos se ejecuten en paralelo o de manera asincrónica, Azure Machine Learning controla de forma transparente el análisis de dependencias y la coordinación de la distribución ramificada de salida y entrada. Por lo general, no tiene que preocuparse por los detalles del grafo de ejecución, pero puede encontrarlo a través del atributo [Pipeline.graph](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline.pipeline?view=azure-ml-py#attributes). 
 
@@ -141,19 +141,16 @@ blob_store = Datastore(ws, "workspaceblobstore")
 compute_target = ws.compute_targets["STANDARD_NC6"]
 experiment = Experiment(ws, 'MyExperiment') 
 
-input_data = DataReference(
-    datastore=Datastore(ws, blob_store),
-    data_reference_name="test_data",
-    path_on_datastore="20newsgroups/20news.pkl")
+input_data = Dataset.File.from_files(
+    DataPath(datastore, '20newsgroups/20news.pkl'))
 
-output_data = PipelineData(
-    "output_data",
-    datastore=blob_store,
-    output_name="output_data1")
+output_data = PipelineData("output_data", datastore=blob_store)
+
+input_named = input_data.as_named_input('input')
 
 steps = [ PythonScriptStep(
     script_name="train.py",
-    arguments=["--input", input_data, "--output", output_data],
+    arguments=["--input", input_named.as_download(), "--output", output_data],
     inputs=[input_data],
     outputs=[output_data],
     compute_target=compute_target,
@@ -168,7 +165,7 @@ pipeline_run.wait_for_completion()
 
 El fragmento de código se inicia con objetos comunes de Azure Machine Learning, un `Workspace`, a `Datastore`, un [ComputeTarget](https://docs.microsoft.com/python/api/azureml-core/azureml.core.computetarget?view=azure-ml-py) y un `Experiment`. Luego, el código crea los objetos para contener `input_data` y `output_data`. La matriz `steps` contiene un elemento único, un `PythonScriptStep` que utilizará los objetos de datos y se ejecutará en el `compute_target`. A continuación, el código crea una instancia del propio objeto `Pipeline` y pasa la matriz de pasos y el área de trabajo. La llamada a `experiment.submit(pipeline)` inicia la ejecución de la canalización de Azure ML. La llamada a `wait_for_completion()` se bloquea hasta que finaliza la canalización. 
 
-Para más información sobre cómo conectar la canalización a los datos, consulte los artículos [Cómo tener acceso a los datos](how-to-access-data.md) y [Cómo registrar conjuntos de datos](how-to-create-register-datasets.md). 
+Para más información sobre cómo conectar la canalización con los datos, consulte los artículos [Acceso a los datos en Azure Machine Learning](concept-data.md) y [Movimiento de datos a los pasos de canalización de Machine Learning (Python) y entre ellos](how-to-move-data-in-out-of-pipelines.md). 
 
 ## <a name="best-practices-when-using-pipelines"></a>Procedimientos recomendados al usar canalizaciones
 
@@ -188,7 +185,7 @@ Es fácil entusiasmarse con la reutilización de los resultados almacenados en c
 
 * Acoplamiento intenso entre los pasos de la canalización. Si la refactorización de un paso dependiente suele requerir la modificación de las salidas de un paso anterior, es probable que los pasos independientes actualmente signifiquen más un costo que una ventaja. Otra pista de que los pasos están demasiado acoplados son los argumentos de un paso que no son datos, sino marcas para controlar el procesamiento. 
 
-* Optimización prematura de los recursos de proceso. Por ejemplo, a menudo hay varias fases para la preparación de datos y a menudo se puede ver "Oh, aquí podría usar `MpiStep` para la programación en paralelo, pero hay un lugar donde podría usar un `PythonScriptStep` con un destino de proceso menos eficaz", etc. Y quizás, a largo plazo, la creación de pasos específicos como este podría merecer la pena, especialmente si existe la posibilidad de usar resultados almacenados en caché en lugar de volver a calcular siempre. Sin embargo, las canalizaciones no pretenden sustituir el módulo `multiprocessing`. 
+* Optimización prematura de los recursos de proceso. Por ejemplo, a menudo hay varias fases para la preparación de datos y a menudo se puede ver "Oh, aquí podría usar `MpiStep` para la programación en paralelo, pero hay un lugar donde podría usar un `PythonScriptStep` con un destino de proceso menos eficaz", etc. Y quizás, a largo plazo, la creación de pasos específicos como este podría merecer la pena, especialmente si existe la posibilidad de usar resultados almacenados en caché en lugar de volver a calcular siempre. Sin embargo, las canalizaciones no pretenden sustituir el módulo `multiprocessing` nativo de Python. 
 
 Hasta que un proyecto llega a una implementación o cerca de esta, las canalizaciones deben ser más generales en lugar de precisas. Si considera que su proyecto de ML incluye _fases_  y una canalización que proporciona un flujo de trabajo completo para desplazarse por una fase determinada, está en la ruta de acceso correcta. 
 
@@ -204,6 +201,12 @@ Las ventajas clave de usar canalizaciones para los flujos de trabajo de aprendiz
 |**Seguimiento y control de versiones**|En lugar de hacer un seguimiento manual de los datos y los resultados conforme itera, use el SDK de canalizaciones para asignar de forma explícita un nombre y una versión a los orígenes de datos, las entradas y las salidas. También puede administrar scripts y datos por separado para aumentar la productividad.|
 | **Modularidad** | Separar las áreas de preocupación y aislar los cambios permite que el software evolucione más rápidamente con una mayor calidad. | 
 |**Colaboración**|Las canalizaciones permiten que los científicos de datos colaboren en todas las áreas del proceso de diseño de aprendizaje automático, a la vez que pueden trabajar de manera simultánea en los pasos de la canalización.|
+
+### <a name="choosing-the-proper-pipelinestep-subclass"></a>Elección de la subclase PipelineStep adecuada
+
+`PythonScriptStep` es la subclase más flexible del elemento `PipelineStep` abstracto. Otras subclases, como `EstimatorStep` y `DataTransferStep`, pueden realizar tareas específicas con menos código. Por ejemplo, se puede crear un elemento `EstimatorStep` simplemente pasando un nombre para el paso, un elemento `Estimator` y un destino de proceso. También se pueden invalidar las entradas y salidas, los parámetros de canalización y los argumentos. Para obtener más información, vea [Entrenamiento de modelos con Azure Machine Learning mediante un objeto Estimator](how-to-train-ml-models.md). 
+
+`DataTransferStep` facilita el traslado de datos entre orígenes y receptores de datos. El código para hacer esta transferencia manualmente es sencillo pero repetitivo. Como alternativa, puede simplemente crear un elemento `DataTransferStep` con un nombre, referencias a un origen de datos y a un receptor de datos, y un destino de proceso. El cuaderno [Canalización de Azure Machine Learning con DataTransferStep](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-data-transfer.ipynb) muestra esta flexibilidad.
 
 ## <a name="modules"></a>Módulos
 

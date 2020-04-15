@@ -1,15 +1,15 @@
 ---
 title: Actualización de un clúster de Azure Kubernetes Service (AKS)
-description: Aprenda a actualizar clústeres de Azure Kubernetes Service (AKS)
+description: Obtenga información sobre cómo actualizar un clúster de Azure Kubernetes Service (AKS) para obtener las últimas características y actualizaciones de seguridad.
 services: container-service
 ms.topic: article
 ms.date: 05/31/2019
-ms.openlocfilehash: 4520297e83f96f95b10ecafd5af52a913dc5f450
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 183e0a85f65d24dc7133307391931bea754a456d
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77621973"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632606"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Actualización de un clúster de Azure Kubernetes Service (AKS)
 

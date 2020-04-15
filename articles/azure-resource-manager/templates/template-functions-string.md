@@ -2,13 +2,13 @@
 title: 'Funciones de plantillas: cadena'
 description: Describe las funciones para usar en una plantilla de Azure Resource Manager para trabajar con cadenas.
 ms.topic: conceptual
-ms.date: 07/31/2019
-ms.openlocfilehash: 070133c3db538e5df76644b62c25ced916adc4af
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/08/2020
+ms.openlocfilehash: c0517375b273384f263e8ba421995d4afb6c193b
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80156283"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982421"
 ---
 # <a name="string-functions-for-arm-templates"></a>Funciones de cadena para plantillas de ARM
 
@@ -46,7 +46,6 @@ Resource Manager ofrece las siguientes funciones para trabajar con cadenas en la
 * [uri](#uri)
 * [uriComponent](#uricomponent)
 * [uriComponentToString](#uricomponenttostring)
-* [utcNow](#utcnow)
 
 ## <a name="base64"></a>base64
 
@@ -1097,6 +1096,8 @@ Solo puede usar esta función dentro de una expresión para el valor predetermin
 
 La función newGuid difiere de la función [guid](#guid) en que no toma ningún parámetro. Cuando se llama a guid con el mismo parámetro, devuelve el mismo identificador cada vez. Use guid cuando necesite generar de forma confiable el mismo GUID para un entorno específico. Use newGuid cuando necesite un identificador diferente cada vez, como en la implementación de recursos en un entorno de prueba.
 
+La función newGuid usa la [estructura de GUID](/dotnet/api/system.guid) en .NET Framework para generar el identificador único global.
+
 Si usa la [opción de volver a implementar una implementación que se completó correctamente en un momento anterior](rollback-on-error.md) y esa implementación anterior incluye un parámetro que usa newGuid, el parámetro no se vuelve a evaluar. En su lugar, el valor del parámetro de la implementación anterior se reutiliza automáticamente en la implementación de reversión.
 
 En un entorno de prueba, es posible que deba implementar repetidamente recursos que solo duran un corto tiempo. En lugar de construir nombres únicos, puede usar newGuid con [uniqueString](#uniquestring) para crear nombres únicos.
@@ -1876,7 +1877,7 @@ En el ejemplo siguiente se muestra cómo crear un nombre único para una cuenta 
     ...
 ```
 
-Si necesita crear un nuevo nombre único cada vez que implemente una plantilla y no tiene intención de actualizar el recurso, puede usar la función [utcNow](#utcnow) con uniqueString. Podría utilizar este enfoque en un entorno de prueba. Para ver un ejemplo, consulte [utcNow](#utcnow).
+Si necesita crear un nuevo nombre único cada vez que implemente una plantilla y no tiene intención de actualizar el recurso, puede usar la función [utcNow](template-functions-date.md#utcnow) con uniqueString. Podría utilizar este enfoque en un entorno de prueba. Para ver un ejemplo, consulte [utcNow](template-functions-date.md#utcnow).
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -2093,115 +2094,6 @@ La salida del ejemplo anterior con el valor predeterminado es:
 | uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
 | componentOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
 | toStringOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
-
-## <a name="utcnow"></a>utcNow
-
-`utcNow(format)`
-
-Devuelve el valor de fecha y hora (UTC) actual en el formato especificado. Si no se proporciona ningún formato, se utiliza el formato ISO 8601 (yyyyMMddTHHmmssZ). **Esta función solo puede utilizarse en el valor predeterminado para un parámetro.**
-
-### <a name="parameters"></a>Parámetros
-
-| Parámetro | Obligatorio | Tipo | Descripción |
-|:--- |:--- |:--- |:--- |
-| format |No |string |El valor codificado por el identificador URI para convertir en una cadena. Use [cadenas de formato estándar](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [cadenas de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
-
-### <a name="remarks"></a>Observaciones
-
-Solo puede usar esta función dentro de una expresión para el valor predeterminado de un parámetro. El uso de esta función en cualquier otro lugar de una plantilla genera un error. La función no se permite en otras partes de la plantilla porque devuelve un valor diferente cada vez que se le llama. La implementación de la misma plantilla con los mismos parámetros no produciría de forma confiable los mismos resultados.
-
-Si usa la [opción de volver a implementar una implementación que se completó correctamente en un momento anterior](rollback-on-error.md) y esa implementación anterior incluye un parámetro que usa utcNow, el parámetro no se vuelve a evaluar. En su lugar, el valor del parámetro de la implementación anterior se reutiliza automáticamente en la implementación de reversión.
-
-Tenga cuidado al volver a implementar una plantilla que se base en la función utcNow para un valor predeterminado. Si vuelve a implementar y no proporciona un valor para el parámetro, la función se vuelve a evaluar. Si desea actualizar un recurso existente en lugar de crear uno nuevo, pase el valor de parámetro de la implementación anterior.
-
-### <a name="return-value"></a>Valor devuelto
-
-El valor de fecha y hora UTC actual.
-
-### <a name="examples"></a>Ejemplos
-
-La plantilla de ejemplo siguiente muestra formatos diferentes para el valor de fecha y hora.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "utcValue": {
-            "type": "string",
-            "defaultValue": "[utcNow()]"
-        },
-        "utcShortValue": {
-            "type": "string",
-            "defaultValue": "[utcNow('d')]"
-        },
-        "utcCustomValue": {
-            "type": "string",
-            "defaultValue": "[utcNow('M d')]"
-        }
-    },
-    "resources": [
-    ],
-    "outputs": {
-        "utcOutput": {
-            "type": "string",
-            "value": "[parameters('utcValue')]"
-        },
-        "utcShortOutput": {
-            "type": "string",
-            "value": "[parameters('utcShortValue')]"
-        },
-        "utcCustomOutput": {
-            "type": "string",
-            "value": "[parameters('utcCustomValue')]"
-        }
-    }
-}
-```
-
-El resultado del ejemplo anterior varía para cada implementación, pero será similar a:
-
-| Nombre | Tipo | Value |
-| ---- | ---- | ----- |
-| utcOutput | string | 20190305T175318Z |
-| utcShortOutput | string | 05/03/2019 |
-| utcCustomOutput | string | 3 5 |
-
-El ejemplo siguiente muestra cómo usar un valor de la función cuando se establece un valor de etiqueta.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "utcShort": {
-            "type": "string",
-            "defaultValue": "[utcNow('d')]"
-        },
-        "rgName": {
-            "type": "string"
-        }
-    },
-    "resources": [
-        {
-            "type": "Microsoft.Resources/resourceGroups",
-            "apiVersion": "2018-05-01",
-            "name": "[parameters('rgName')]",
-            "location": "westeurope",
-            "tags":{
-                "createdDate": "[parameters('utcShort')]"
-            },
-            "properties":{}
-        }
-    ],
-    "outputs": {
-        "utcShort": {
-            "type": "string",
-            "value": "[parameters('utcShort')]"
-        }
-    }
-}
-```
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para obtener una descripción de las secciones de una plantilla de Azure Resource Manager, vea [Creación de plantillas de Azure Resource Manager](template-syntax.md).

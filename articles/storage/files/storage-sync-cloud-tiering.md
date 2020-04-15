@@ -4,15 +4,15 @@ description: Obtenga información sobre la característica Nube por niveles de A
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/21/2018
+ms.date: 03/17/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: fea9cebc5199fc7c1fc5c081aa45f08044c21e44
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: e8a8502b40410df221886cde2fa5f3db15bf3eed
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76768205"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80549169"
 ---
 # <a name="cloud-tiering-overview"></a>Información general de nube por niveles
 La nube por niveles es una característica opcional de Azure File Sync por la que los archivos a los que se tiene acceso con frecuencia se almacenan en caché localmente en el servidor mientras que todos los demás archivos se organizan en niveles en Azure Files, según la configuración de directiva. Cuando un archivo está en capas, el filtro del sistema de archivos de Azure File Sync (StorageSync.sys) sustituye al archivo localmente por un puntero o punto de repetición de análisis. El punto de repetición de análisis representa una dirección URL del archivo en Azure Files. Un archivo con niveles tiene los atributos “sin conexión” y FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS establecidos en NTFS para que las aplicaciones de terceros puedan identificar de forma segura archivos con niveles.
@@ -20,10 +20,8 @@ La nube por niveles es una característica opcional de Azure File Sync por la qu
 Cuando un usuario abre un archivo con niveles, Azure File Sync recupera completamente los datos de archivo de Azure Files sin necesidad de que el usuario sepa que el archivo está almacenado en Azure. 
  
  > [!Important]  
- > La nube por niveles no se admite para los puntos de conexión de servidor en los volúmenes del sistema de Windows y solo se pueden organizar por niveles en Azure Files los archivos mayores de 64 KiB.
+ > La nube por niveles no se admite en el volumen del sistema de Windows.
     
-Azure File Sync no admite la organización por niveles de archivos menores de 64 KiB ya que la sobrecarga de rendimiento de organizar por niveles y recuperar estos archivos pequeños superaría con creces los ahorros de espacio.
-
  > [!Important]  
  > Para recuperar los archivos que están organizados en niveles, el ancho de banda de red debe ser de al menos 1 Mbps. Si el ancho de banda de red es menor que 1 Mbps, puede ocurrir un error de tiempo de expiración al recuperar los archivos.
 
@@ -34,6 +32,10 @@ Azure File Sync no admite la organización por niveles de archivos menores de 64
 El filtro del sistema de Azure File Sync se basa en un “mapa térmico” del espacio de nombres en cada punto de conexión de servidor. Supervisa los accesos (operaciones de lectura y escritura) a lo largo del tiempo y después, en función de la frecuencia y la cercanía en el tiempo del acceso, asigna una puntuación de calor a todos los archivos. Un archivo al que se accede con frecuencia que se ha abierto recientemente se considerará como caliente, mientras que se considerará frío un archivo que apenas se toca y al que no se ha accedido desde hace algún tiempo. Cuando el volumen de archivos en un servidor supera el umbral de espacio disponible del volumen que estableció, organizará por niveles los archivos más fríos en Azure Files hasta que se cumpla el porcentaje de espacio libre.
 
 En las versiones 4.0 y posteriores del agente de Azure File Sync, también se puede especificar una directiva de fecha en cada punto de conexión del servidor que clasificará los archivos que no se modifiquen o a los que no se acceda en un número de días especificado.
+
+<a id="tiering-minimum-file-size"></a>
+### <a name="what-is-the-minimum-file-size-for-a-file-to-tier"></a>¿Cuál es el tamaño de archivo mínimo para organizar un archivo en niveles?
+Para las versiones del agente 9.x y más recientes, el tamaño de archivo mínimo para organizar un archivo en niveles se basa en el tamaño del clúster del sistema de archivos (el doble del tamaño del clúster del sistema de archivos). Por ejemplo, si el tamaño del clúster del sistema de archivos NTFS es 4 KB, el tamaño de archivo mínimo resultante para organizar un archivo en niveles es 8 KB. En el caso de las versiones del agente 8.x y anteriores, el tamaño de archivo mínimo para un organizar un archivo en niveles es 64 KB.
 
 <a id="afs-volume-free-space"></a>
 ### <a name="how-does-the-volume-free-space-tiering-policy-work"></a>¿Cómo funciona la directiva de organización por niveles de espacio disponible del volumen?
@@ -49,7 +51,22 @@ Cuando hay más de un punto de conexión de servidor en un volumen, el umbral de
 
 <a id="date-tiering-policy"></a>
 ### <a name="how-does-the-date-tiering-policy-work-in-conjunction-with-the-volume-free-space-tiering-policy"></a>¿Cómo funciona la directiva de organización por niveles basada en fechas junto con la directiva de organización por niveles del espacio disponible de volumen? 
-Cuando se habilita la nube por niveles en el punto de conexión de un servidor, se establece una directiva de espacio disponible en el volumen. Esta directiva siempre tiene prioridad sobre cualquier otra, incluidas las directivas de fecha. Si quiere, puede habilitar una directiva de fechas para cada punto de conexión de servidor en ese volumen, de forma que solo los archivos a los que accede (mediante lectura o escritura) durante el intervalo de días especificados en la directiva se mantienen de forma local, y los archivos obsoletos se organizan por niveles. Tenga en cuenta que la directiva de espacio disponible en el volumen siempre tiene prioridad, y cuando no haya espacio suficiente en el volumen para conservar todos los archivos que especifica la directiva de fechas, Azure File Sync seguirá organizando por niveles los archivos más antiguos hasta alcanzar el porcentaje de espacio libre en el volumen.
+Cuando se habilita la nube por niveles en el punto de conexión de un servidor, se establece una directiva de espacio disponible en el volumen. Esta directiva siempre tiene prioridad sobre cualquier otra, incluidas las directivas de fecha. Opcionalmente, puede habilitar una directiva de fecha para cada punto de conexión de servidor de ese volumen. Esta directiva administra que solo los archivos a los que se tiene acceso (es decir, los que se leen o en los que se escribe) dentro del intervalo de días que describe esta directiva se conservarán de forma local. Los archivos a los que no se tiene acceso con el número de días especificado se almacenarán en niveles. 
+
+La organización en niveles en la nube usa la hora de último acceso para determinar qué archivos deben estar organizados en niveles. El controlador de filtro de la nube por niveles (storagesync.sys) realiza un seguimiento de la hora del último acceso y registra la información en el almacén térmico de la nube por niveles. Puede ver el almacén térmico mediante un cmdlet de PowerShell local.
+
+```powershell
+Import-Module '<SyncAgentInstallPath>\StorageSync.Management.ServerCmdlets.dll'
+Get-StorageSyncHeatStoreInformation '<LocalServerEndpointPath>'
+```
+
+> [!IMPORTANT]
+> La marca de tiempo de último acceso no es una propiedad de la que NTFS hace seguimiento y, por lo tanto, no está visible de forma predeterminada en el Explorador de archivos. No use la marca de tiempo de última modificación en un archivo para comprobar si la directiva de fecha funciona según lo previsto. Esta marca de tiempo solo realiza el seguimiento de escrituras, no de lecturas. Use el cmdlet que se muestra para obtener la marca de tiempo del último acceso para esta evaluación.
+
+> [!WARNING]
+> No active la característica de NTFS de seguimiento de la marca de tiempo del último acceso para archivos y carpetas. Esta característica está desactivada de forma predeterminada porque incide en gran medida en el rendimiento. Azure File Sync realizará un seguimiento de las horas de acceso más reciente de forma automática y eficaz, y no utiliza esta característica de NTFS.
+
+Tenga en cuenta que la directiva de espacio disponible en el volumen siempre tiene prioridad, y cuando no haya espacio suficiente en el volumen para conservar todos los archivos que especifica la directiva de fechas, Azure File Sync seguirá organizando por niveles los archivos más antiguos hasta alcanzar el porcentaje de espacio libre en el volumen.
 
 Por ejemplo, supongamos que tiene una directiva de organización por niveles basada en fechas con un valor de 60 días y una directiva de espacio disponible en el volumen del 20 %. Si tras aplicar la directiva de fechas el espacio disponible en el volumen es menor al 20 %, la directiva de espacio libre se pondrá en marcha y anulará la directiva de fechas. Como resultado, se organizarán por niveles más archivos, de forma tal que la cantidad de datos almacenados en el servidor se reduzca quizá de 60 a 45 días de datos. En cambio, la directiva forzará la organización por niveles de los archivos que no coincidan con el intervalo de tiempo, incluso si no ha alcanzado el umbral de espacio libre; es decir, un archivo con una antigüedad de 61 días se organizará por niveles incluso si el volumen está vacío.
 

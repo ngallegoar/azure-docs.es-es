@@ -3,12 +3,12 @@ title: Preguntas más frecuentes sobre el dispositivo de Azure Migrate
 description: Respuestas a preguntas comunes sobre el dispositivo de Azure Migrate.
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: 3d0844b980ac418c5c334c2535c40dc5f3caeb16
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: a08423637f255b973f52616f53172ef6e48d0804
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78939309"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437613"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Dispositivo de Azure Migrate: Preguntas frecuentes
 
@@ -55,8 +55,8 @@ Consulte los artículos siguientes para obtener información acerca de los requi
 
 Consulte los artículos siguientes para obtener información sobre los datos que el dispositivo Azure Migrate recopila en las máquinas virtuales:
 
-- **Máquinas virtuales de VMware**: [datos de rendimiento](migrate-appliance.md#collected-performance-data-vmware) y [metadatos](migrate-appliance.md#collected-metadata-vmware)
-- **Máquinas virtuales de Hyper-V**: [datos de rendimiento](migrate-appliance.md#collected-performance-data-hyper-v) y [metadatos](migrate-appliance.md#collected-metadata-hyper-v)
+- **Máquina virtual de VMware**: [Revisión](migrate-appliance.md#collected-data---vmware) de los datos recopilados. [
+- **Máquina virtual de Hyper-V**: [Revisión](migrate-appliance.md#collected-data---hyper-v) de los datos recopilados.
 
 ## <a name="how-is-data-stored"></a>¿Cómo se almacenan los datos?
 
@@ -94,6 +94,9 @@ No. Hay una asignación unívoca entre un [dispositivo Azure Migrate](migrate-ap
 
 ## <a name="can-an-azure-migrate-project-have-multiple-appliances"></a>¿Puede un proyecto Azure Migrate tener varios dispositivos?
 Un proyecto puede tener varios dispositivos conectados. Sin embargo, un dispositivo solo se puede asociar a un proyecto. 
+
+## <a name="can-the-azure-migrate-appliancereplication-appliance-connect-to-the-same-vcenter"></a>¿El dispositivo de Azure Migrate o el dispositivo de replicación puede conectarse al mismo vCenter?
+Sí. Puede agregar el dispositivo de Azure Migrate (que se usa para la evaluación y la migración de VMware sin agente) y el dispositivo de replicación (que se usa para la migración basada en agente de máquinas virtuales de VMware) al mismo servidor vCenter.
 
 
 ## <a name="how-many-vms-or-servers-can-i-discover-with-an-appliance"></a>¿Cuántas máquinas virtuales o servidores puedo detectar con un dispositivo?

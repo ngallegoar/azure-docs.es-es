@@ -2,13 +2,13 @@
 title: Compatibilidad con la operación de traslado por tipo de recurso
 description: Enumera los tipos de recursos de Azure que se pueden trasladar a un nuevo grupo de recursos o suscripción.
 ms.topic: conceptual
-ms.date: 03/17/2020
-ms.openlocfilehash: 2250283136608161956716abadb63b9f706bf581
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/06/2020
+ms.openlocfilehash: 90fbec4dc076feb1fee8c38cf9757d3c5ddbafaf
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79460422"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804799"
 ---
 # <a name="move-operation-support-for-resources"></a>Compatibilidad con la operación de traslado para recursos
 En este artículo se indica si un tipo de recurso de Azure es compatible con la operación de traslado. También proporciona información sobre las condiciones especiales que se deben tener en cuenta a la hora de mover un recurso.
@@ -35,6 +35,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > - [Microsoft.BingMaps](#microsoftbingmaps)
 > - [Microsoft.BizTalkServices](#microsoftbiztalkservices)
 > - [Microsoft.Blockchain](#microsoftblockchain)
+> - [Microsoft.BlockchainTokens](#microsoftblockchaintokens)
 > - [Microsoft.Blueprint](#microsoftblueprint)
 > - [Microsoft.BotService](#microsoftbotservice)
 > - [Microsoft.Cache](#microsoftcache)
@@ -43,6 +44,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > - [Microsoft.ClassicCompute](#microsoftclassiccompute)
 > - [Microsoft.ClassicNetwork](#microsoftclassicnetwork)
 > - [Microsoft.ClassicStorage](#microsoftclassicstorage)
+> - [Microsoft.Cognition](#microsoftcognition)
 > - [Microsoft.CognitiveServices](#microsoftcognitiveservices)
 > - [Microsoft.Compute](#microsoftcompute)
 > - [Microsoft.Consumption](#microsoftconsumption)
@@ -72,6 +74,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > - [Microsoft.DBforMySQL](#microsoftdbformysql)
 > - [Microsoft.DBforPostgreSQL](#microsoftdbforpostgresql)
 > - [Microsoft.DeploymentManager](#microsoftdeploymentmanager)
+> - [Microsoft.DesktopVirtualization](#microsoftdesktopvirtualization)
 > - [Microsoft.Devices](#microsoftdevices)
 > - [Microsoft.DevOps](#microsoftdevops)
 > - [Microsoft.DevSpaces](#microsoftdevspaces)
@@ -82,6 +85,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > - [Microsoft.EnterpriseKnowledgeGraph](#microsoftenterpriseknowledgegraph)
 > - [Microsoft.EventGrid](#microsofteventgrid)
 > - [Microsoft.EventHub](#microsofteventhub)
+> - [Microsoft.Experimentation](#microsoftexperimentation)
 > - [Microsoft.Falcon](#microsoftfalcon)
 > - [Microsoft.Genomics](#microsoftgenomics)
 > - [Microsoft.GuestConfiguration](#microsoftguestconfiguration)
@@ -90,11 +94,13 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > - [Microsoft.HealthcareApis](#microsofthealthcareapis)
 > - [Microsoft.HybridCompute](#microsofthybridcompute)
 > - [Microsoft.HybridData](#microsofthybriddata)
+> - [Microsoft.Hydra](#microsofthydra)
 > - [Microsoft.ImportExport](#microsoftimportexport)
 > - [microsoft.insights](#microsoftinsights)
 > - [Microsoft.IoTCentral](#microsoftiotcentral)
 > - [Microsoft.IoTSpaces](#microsoftiotspaces)
 > - [Microsoft.KeyVault](#microsoftkeyvault)
+> - [Microsoft.Kubernetes](#microsoftkubernetes)
 > - [Microsoft.Kusto](#microsoftkusto)
 > - [Microsoft.LabServices](#microsoftlabservices)
 > - [Microsoft.LocationBasedServices](#microsoftlocationbasedservices)
@@ -106,7 +112,9 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > - [Microsoft.MachineLearningModelManagement](#microsoftmachinelearningmodelmanagement)
 > - [Microsoft.MachineLearningOperationalization](#microsoftmachinelearningoperationalization)
 > - [Microsoft.MachineLearningServices](#microsoftmachinelearningservices)
+> - [Microsoft.Maintenance](#microsoftmaintenance)
 > - [Microsoft.ManagedIdentity](#microsoftmanagedidentity)
+> - [Microsoft.ManagedNetwork](#microsoftmanagednetwork)
 > - [Microsoft.ManagedServices](#microsoftmanagedservices)
 > - [Microsoft.Maps](#microsoftmaps)
 > - [Microsoft.MarketplaceApps](#microsoftmarketplaceapps)
@@ -128,7 +136,9 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > - [Microsoft.ProjectBabylon](#microsoftprojectbabylon)
 > - [Microsoft.ProjectOxford](#microsoftprojectoxford)
 > - [Microsoft.ProviderHub](#microsoftproviderhub)
+> - [Microsoft.Quantum](#microsoftquantum)
 > - [Microsoft.RecoveryServices](#microsoftrecoveryservices)
+> - [Microsoft.RedHatOpenShift](#microsoftredhatopenshift)
 > - [Microsoft.Relay](#microsoftrelay)
 > - [Microsoft.ResourceGraph](#microsoftresourcegraph)
 > - [Microsoft.ResourceHealth](#microsoftresourcehealth)
@@ -149,6 +159,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > - [Microsoft.SqlVirtualMachine](#microsoftsqlvirtualmachine)
 > - [Microsoft.SqlVM](#microsoftsqlvm)
 > - [Microsoft.Storage](#microsoftstorage)
+> - [Microsoft.StorageCache](#microsoftstoragecache)
 > - [Microsoft.StorageSync](#microsoftstoragesync)
 > - [Microsoft.StorageSyncDev](#microsoftstoragesyncdev)
 > - [Microsoft.StorageSyncInt](#microsoftstoragesyncint)
@@ -157,13 +168,17 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > - [Microsoft.StreamAnalyticsExplorer](#microsoftstreamanalyticsexplorer)
 > - [Microsoft.Subscription](#microsoftsubscription)
 > - [microsoft.support](#microsoftsupport)
+> - [Microsoft.Synapse](#microsoftsynapse)
 > - [Microsoft.TerraformOSS](#microsoftterraformoss)
 > - [Microsoft.TimeSeriesInsights](#microsofttimeseriesinsights)
 > - [Microsoft.Token](#microsofttoken)
+> - [Microsoft.VirtualMachineImages](#microsoftvirtualmachineimages)
 > - [microsoft.visualstudio](#microsoftvisualstudio)
 > - [Microsoft.VMwareCloudSimple](#microsoftvmwarecloudsimple)
+> - [Microsoft.VnfManager](#microsoftvnfmanager)
 > - [Microsoft.VSOnline](#microsoftvsonline)
 > - [Microsoft.Web](#microsoftweb)
+> - [Microsoft.WindowsESU](#microsoftwindowsesu)
 > - [Microsoft.WindowsIoT](#microsoftwindowsiot)
 > - [Microsoft.WorkloadMonitor](#microsoftworkloadmonitor)
 
@@ -344,7 +359,15 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | blockchainmembers | No | No |
+> | cordamembers | No | No |
 > | watchers | No | No |
+
+## <a name="microsoftblockchaintokens"></a>Microsoft.BlockchainTokens
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Resource group | Subscription |
+> | ------------- | ----------- | ---------- |
+> | tokenservices | No | No |
 
 ## <a name="microsoftblueprint"></a>Microsoft.Blueprint
 
@@ -423,6 +446,13 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!IMPORTANT]
 > Vea [Guía de movimiento de implementación clásica](./move-limitations/classic-model-move-limitations.md). Los recursos de implementación clásica se pueden mover entre suscripciones con una operación específica de ese escenario.
 
+## <a name="microsoftcognition"></a>Microsoft.Cognition
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Resource group | Subscription |
+> | ------------- | ----------- | ---------- |
+> | syntheticsaccounts | No | No |
+
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 
 > [!div class="mx-tableFixed"]
@@ -446,6 +476,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | images | Sí | Sí |
 > | proximityplacementgroups | Sí | Sí |
 > | restorepointcollections | No | No |
+> | sharedvmextensions | No | No |
 > | sharedvmimages | No | No |
 > | sharedvmimages/versions | No | No |
 > | snapshots | Sí | Sí |
@@ -506,6 +537,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | registries | Sí | Sí |
+> | registries / agentpools | No | No |
 > | registries/buildtasks | Sí | Sí |
 > | registries/replications | Sí | Sí |
 > | registries / taskruns | Sí | Sí |
@@ -700,6 +732,15 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | servicetopologies/services/serviceunits | Sí | Sí |
 > | steps | Sí | Sí |
 
+## <a name="microsoftdesktopvirtualization"></a>Microsoft.DesktopVirtualization
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Resource group | Subscription |
+> | ------------- | ----------- | ---------- |
+> | applicationgroups | No | No |
+> | hostpools | No | No |
+> | workspaces | No | No |
+
 ## <a name="microsoftdevices"></a>Microsoft.Devices
 
 > [!div class="mx-tableFixed"]
@@ -774,6 +815,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | eventsubscriptions | No: no se puede mover de forma independiente, sino que se hace automáticamente con el recurso suscrito. | No: no se puede mover de forma independiente, sino que se hace automáticamente con el recurso suscrito. |
 > | extensiontopics | No | No |
 > | partnernamespaces | Sí | Sí |
+> | partnerregistrations | No | No |
 > | partnertopics | Sí | Sí |
 > | systemtopics | Sí | Sí |
 > | topics | Sí | Sí |
@@ -785,6 +827,13 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- | ---------- |
 > | clusters | Sí | Sí |
 > | espacios de nombres | Sí | Sí |
+
+## <a name="microsoftexperimentation"></a>Microsoft.Experimentation
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Resource group | Subscription |
+> | ------------- | ----------- | ---------- |
+> | experimentworkspaces | No | No |
 
 ## <a name="microsoftfalcon"></a>Microsoft.Falcon
 
@@ -805,6 +854,8 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
+> | automanagedaccounts | No | No |
+> | automanagedvmconfigurationprofiles | No | No |
 > | guestconfigurationassignments | No | No |
 > | software | No | No |
 > | softwareupdateprofile | No | No |
@@ -852,6 +903,14 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- | ---------- |
 > | datamanagers | Sí | Sí |
 
+## <a name="microsofthydra"></a>Microsoft.Hydra
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Resource group | Subscription |
+> | ------------- | ----------- | ---------- |
+> | components | No | No |
+> | networkscopes | No | No |
+
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
 
 > [!div class="mx-tableFixed"]
@@ -871,10 +930,12 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | baseline | No | No |
 > | calculatebaseline | No | No |
 > | components | Sí | Sí |
+> | datacollectionrules | No | No |
 > | diagnosticsettings | No | No |
 > | diagnosticsettingscategories | No | No |
 > | eventtypes | No | No |
 > | extendeddiagnosticsettings | No | No |
+> | guestdiagnosticsettings | No | No |
 > | logdefinitions | No | No |
 > | logs | No | No |
 > | metricalerts | No | No |
@@ -883,6 +944,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | metricnamespaces | No | No |
 > | Métricas | No | No |
 > | myworkbooks | No | No |
+> | notificationgroups | No | No |
 > | privatelinkscopes | Sí | Sí |
 > | scheduledqueryrules | Sí | Sí |
 > | Topología | No | No |
@@ -915,10 +977,18 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
+> | hsmpools | No | No |
 > | vaults | Sí | Sí |
 
 > [!IMPORTANT]
 > Los almacenes de claves usados para el cifrado de discos no se pueden mover a grupos de recursos de la misma suscripción ni entre suscripciones.
+
+## <a name="microsoftkubernetes"></a>Microsoft.Kubernetes
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Resource group | Subscription |
+> | ------------- | ----------- | ---------- |
+> | connectedclusters | No | No |
 
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
 
@@ -965,7 +1035,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | commitmentplans | Sí | Sí |
+> | commitmentplans | No | No |
 > | webservices | Sí | No |
 > | workspaces | Sí | Sí |
 
@@ -1010,6 +1080,16 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | workspaces | No | No |
 > | workspaces/computes | No | No |
 
+## <a name="microsoftmaintenance"></a>Microsoft.Maintenance
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Resource group | Subscription |
+> | ------------- | ----------- | ---------- |
+> | applyupdates | No | No |
+> | configurationassignments | No | No |
+> | maintenanceconfigurations | Sí | Sí |
+> | updates | No | No |
+
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 
 > [!div class="mx-tableFixed"]
@@ -1017,6 +1097,16 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- | ---------- |
 > | Identidades | No | No |
 > | userassignedidentities | No | No |
+
+## <a name="microsoftmanagednetwork"></a>Microsoft.ManagedNetwork
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Resource group | Subscription |
+> | ------------- | ----------- | ---------- |
+> | managednetworks | No | No |
+> | managednetworks / managednetworkgroups | No | No |
+> | managednetworks / managednetworkpeeringpolicies | No | No |
+> | notificación | No | No |
 
 ## <a name="microsoftmanagedservices"></a>Microsoft.ManagedServices
 
@@ -1032,6 +1122,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | accounts | Sí | Sí |
+> | accounts / privateatlases | Sí | Sí |
 
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
 
@@ -1063,6 +1154,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- | ---------- |
 > | assessmentprojects | Sí | Sí |
 > | migrateprojects | Sí | Sí |
+> | movecollections | No | No |
 > | projects | No | No |
 
 ## <a name="microsoftnetapp"></a>Microsoft.NetApp
@@ -1155,6 +1247,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
+> | clusters | No | No |
 > | storageinsightconfigs | No | No |
 > | workspaces | Sí | Sí |
 
@@ -1238,6 +1331,13 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- | ---------- |
 > | rollouts | No | No |
 
+## <a name="microsoftquantum"></a>Microsoft.Quantum
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Resource group | Subscription |
+> | ------------- | ----------- | ---------- |
+> | workspaces | No | No |
+
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 
 > [!div class="mx-tableFixed"]
@@ -1249,6 +1349,13 @@ Vaya a un espacio de nombres del proveedor de recursos:
 
 > [!IMPORTANT]
 > Vea [Guía de movimiento de Recovery Services](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json).
+
+## <a name="microsoftredhatopenshift"></a>Microsoft.RedHatOpenShift
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Resource group | Subscription |
+> | ------------- | ----------- | ---------- |
+> | openshiftclusters | No | No |
 
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 
@@ -1374,6 +1481,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | applications | Sí | Sí |
+> | containergroups | No | No |
 > | gateways | Sí | Sí |
 > | networks | Sí | Sí |
 > | secrets | Sí | Sí |
@@ -1449,6 +1557,13 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- | ---------- |
 > | storageaccounts | Sí | Sí |
 
+## <a name="microsoftstoragecache"></a>Microsoft.StorageCache
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Resource group | Subscription |
+> | ------------- | ----------- | ---------- |
+> | caches | No | No |
+
 ## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
 
 > [!div class="mx-tableFixed"]
@@ -1512,6 +1627,15 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- | ---------- |
 > | supporttickets | No | No |
 
+## <a name="microsoftsynapse"></a>Microsoft.Synapse
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Resource group | Subscription |
+> | ------------- | ----------- | ---------- |
+> | workspaces | No | No |
+> | workspaces / bigdatapools | No | No |
+> | workspaces / sqlpools | No | No |
+
 ## <a name="microsoftterraformoss"></a>Microsoft.TerraformOSS
 
 > [!div class="mx-tableFixed"]
@@ -1536,6 +1660,13 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- | ---------- |
 > | almacenes | Sí | Sí |
 
+## <a name="microsoftvirtualmachineimages"></a>Microsoft.VirtualMachineImages
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Resource group | Subscription |
+> | ------------- | ----------- | ---------- |
+> | imagetemplates | No | No |
+
 ## <a name="microsoftvisualstudio"></a>microsoft.visualstudio
 
 > [!div class="mx-tableFixed"]
@@ -1557,6 +1688,14 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | dedicatedcloudservices | No | No |
 > | virtualmachines | No | No |
 
+## <a name="microsoftvnfmanager"></a>Microsoft.VnfManager
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Resource group | Subscription |
+> | ------------- | ----------- | ---------- |
+> | devices | No | No |
+> | vnfs | No | No |
+
 ## <a name="microsoftvsonline"></a>Microsoft.VSOnline
 
 > [!div class="mx-tableFixed"]
@@ -1575,6 +1714,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | connections | Sí | Sí |
 > | customapis | Sí | Sí |
 > | hostingenvironments | No | No |
+> | kubeenvironments | Sí | Sí |
 > | serverfarms | Sí | Sí |
 > | sites | Sí | Sí |
 > | sites/premieraddons | Sí | Sí |
@@ -1583,6 +1723,13 @@ Vaya a un espacio de nombres del proveedor de recursos:
 
 > [!IMPORTANT]
 > Vea [Guía de movimiento de App Service](./move-limitations/app-service-move-limitations.md).
+
+## <a name="microsoftwindowsesu"></a>Microsoft.WindowsESU
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Resource group | Subscription |
+> | ------------- | ----------- | ---------- |
+> | multipleactivationkeys | No | No |
 
 ## <a name="microsoftwindowsiot"></a>Microsoft.WindowsIoT
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 88daecdf4490ffd4eef45e6cd664a16f86bad113
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2cdafa9a36a5f906151ca6946e18ef82bc7f1e01
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76170280"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529417"
 ---
 # <a name="configure-your-lab-in-azure-devtest-labs-to-use-a-remote-desktop-gateway"></a>Configuración del laboratorio de Azure DevTest Labs para usar una puerta de enlace de Escritorio remoto
 En Azure DevTest Labs, puede configurar una puerta de enlace de Escritorio remoto para el laboratorio con el fin de garantizar el acceso seguro a las máquinas virtuales (VM) del laboratorio sin tener que exponer el puerto RDP. El laboratorio proporciona un lugar central para que los usuarios del laboratorio vean todas las máquinas virtuales a las que tienen acceso y se conecten a ellas. El botón **Connect** (Conectar) de la página **Virtual Machine** (Máquina Virtual) crea un archivo RDP específico de la máquina que se puede abrir para conectarse a ella. Puede personalizar y proteger aún más la conexión RDP si conecta el laboratorio a una puerta de enlace de Escritorio remoto. 
@@ -43,7 +43,7 @@ Este enfoque es más seguro porque el usuario del laboratorio se autentica direc
 Para trabajar con la característica de autenticación de token de DevTest Labs, hay varios requisitos de configuración para las máquinas de puerta de enlace, los servicios de nombres de dominio (DNS) y las funciones.
 
 ### <a name="requirements-for-remote-desktop-gateway-machines"></a>Requisitos para máquinas de puerta de enlace de Escritorio remoto
-- En la máquina de puerta de enlace se debe instalar un certificado SSL para controlar el tráfico HTTPS. El certificado debe coincidir con el nombre de dominio completo (FQDN) del equilibrador de carga para la granja de servidores de puerta de enlace, o bien el FQDN de la propia máquina, si solo hay una. Los certificados SSL de comodín no funcionan.  
+- En la máquina de puerta de enlace se debe instalar un certificado TLS/SSL para controlar el tráfico HTTPS. El certificado debe coincidir con el nombre de dominio completo (FQDN) del equilibrador de carga para la granja de servidores de puerta de enlace, o bien el FQDN de la propia máquina, si solo hay una. Los certificados TLS/SSL de comodín no funcionan.  
 - Un certificado de firma instalado en las máquinas de puerta de enlace. Para crear un certificado de firma, use el script [Create-SigningCertificate.ps1](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/GatewaySample/tools/Create-SigningCertificate.ps1).
 - Instale el módulo [Autenticación conectable](https://code.msdn.microsoft.com/windowsdesktop/Remote-Desktop-Gateway-517d6273) que admite la autenticación de token para la puerta de enlace de Escritorio remoto. Un ejemplo de este tipo de módulo es `RDGatewayFedAuth.msi`, que se incluye con las [imágenes de System Center Virtual Machine Manager (VMM)](/system-center/vmm/install-console?view=sc-vmm-1807). Para más información sobre System Center, vea la [documentación de System Center](https://docs.microsoft.com/system-center/) y la [información sobre precios](https://www.microsoft.com/cloud-platform/system-center-pricing).  
 - El servidor de puerta de enlace puede controlar las solicitudes realizadas a `https://{gateway-hostname}/api/host/{lab-machine-name}/port/{port-number}`.
@@ -58,7 +58,7 @@ La función de Azure controla la solicitud con el formato de `https://{function-
 
 ## <a name="requirements-for-network"></a>Requisitos de red
 
-- El DNS para el FQDN asociado con el certificado SSL instalado en las máquinas de puerta de enlace debe dirigir el tráfico a la máquina de puerta de enlace o al equilibrador de carga de la granja de servidores de máquina de puerta de enlace.
+- El DNS para el FQDN asociado con el certificado TLS/SSL instalado en las máquinas de puerta de enlace debe dirigir el tráfico a la máquina de puerta de enlace o al equilibrador de carga de la granja de servidores de máquina de puerta de enlace.
 - Si en la máquina del laboratorio se usan direcciones IP privadas, debe haber una ruta de acceso de red desde la máquina de puerta de enlace a la máquina del laboratorio, ya sea mediante el uso compartido de la misma red virtual o mediante redes virtuales emparejadas.
 
 ## <a name="configure-the-lab-to-use-token-authentication"></a>Configuración del laboratorio para usar la autenticación de token 
@@ -79,7 +79,7 @@ Siga estos pasos para configurar el laboratorio para usar la autenticación de t
 1. En la lista de laboratorios, seleccione el **suyo**.
 1. En la página del laboratorio, seleccione **Configuración y directivas**.
 1. En el menú de la izquierda, en la sección **Configuración**, seleccione **Configuración del laboratorio**.
-1. En la sección **Escritorio remoto**, escriba el nombre de dominio completo (FQDN) o la dirección IP de la máquina de puerta de enlace de servicios de Escritorio remoto o de la granja de servidores en el campo **Nombre de host de puerta de enlace**. Este valor debe coincidir con el FQDN del certificado SSL que se usa en las máquinas de puerta de enlace.
+1. En la sección **Escritorio remoto**, escriba el nombre de dominio completo (FQDN) o la dirección IP de la máquina de puerta de enlace de servicios de Escritorio remoto o de la granja de servidores en el campo **Nombre de host de puerta de enlace**. Este valor debe coincidir con el FQDN del certificado TLS/SSL que se usa en las máquinas de puerta de enlace.
 
     ![Opciones de Escritorio remoto en la configuración del laboratorio](./media/configure-lab-remote-desktop-gateway/remote-desktop-options-in-lab-settings.png)
 1. En la sección **Escritorio remoto**, para el secreto de **token de puerta de enlace**, escriba el nombre del secreto que ha creado antes. Este valor no es la propia clave de función, sino el nombre del secreto en el almacén de claves del laboratorio que contiene la clave de función.
@@ -110,7 +110,7 @@ En el [repositorio de GitHub de Azure DevTest Labs](https://github.com/Azure/azu
 Siga estos pasos para configurar una solución de ejemplo para la granja de servidores de puerta de enlace de Escritorio remoto.
 
 1. Cree un certificado de firma.  Ejecute [Create-SigningCertificate.ps1](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/GatewaySample/tools/Create-SigningCertificate.ps1). Guarde la huella digital, la contraseña y la codificación Base64 del certificado que se ha creado.
-2. Obtenga un certificado SSL. El nombre de dominio completo asociado con el certificado SSL debe ser para el dominio que controla. Guarde la huella digital, la contraseña y la codificación Base64 de este certificado. Para obtener la huella digital con PowerShell, use los comandos siguientes.
+2. Obtenga un certificado TLS/SSL. El nombre de dominio completo asociado con el certificado TLS/SSL debe ser para el dominio que controla. Guarde la huella digital, la contraseña y la codificación Base64 de este certificado. Para obtener la huella digital con PowerShell, use los comandos siguientes.
 
     ```powershell
     $cer = New-Object System.Security.Cryptography.X509Certificates.X509Certificate;
@@ -132,9 +132,9 @@ Siga estos pasos para configurar una solución de ejemplo para la granja de serv
     - instanceCount: número de máquinas de puerta de enlace que se van a crear.  
     - alwaysOn: indica si la aplicación de Azure Functions que se ha creado se debe mantener en un estado activo o no. Mantener la aplicación de Azure Functions evitará retrasos cuando los usuarios intentan conectarse por primera vez a su máquina virtual de laboratorio, pero tiene implicaciones de costo.  
     - tokenLifetime: el período de tiempo de validez del token creado. El formato es HH:MM:SS.
-    - sslCertificate: la codificación Base64 del certificado SSL para la máquina de puerta de enlace.
-    - sslCertificatePassword: la contraseña del certificado SSL para la máquina de puerta de enlace.
-    - sslCertificateThumbprint: la huella digital del certificado para la identificación en el almacén de certificados local del certificado SSL.
+    - sslCertificate: la codificación Base64 del certificado TLS/SSL para la máquina de puerta de enlace.
+    - sslCertificatePassword: la contraseña del certificado TLS/SSL para la máquina de puerta de enlace.
+    - sslCertificateThumbprint: la huella digital del certificado para la identificación en el almacén de certificados local del certificado TLS/SSL.
     - signCertificate: la codificación Base64 del certificado de firma para la máquina de puerta de enlace.
     - signCertificatePassword: la contraseña del certificado de firma para la máquina de puerta de enlace.
     - signCertificateThumbprint: la huella digital del certificado para la identificación en el almacén de certificados local del certificado de firma.
@@ -157,7 +157,7 @@ Siga estos pasos para configurar una solución de ejemplo para la granja de serv
         - {utc-expiration-date} es la fecha (en formato UTC) a la que caducará el token de SAS y ya no se podrá usar para acceder a la cuenta de almacenamiento.
 
     Registre los valores de gatewayFQDN y gatewayIP desde la salida de la implementación de la plantilla. También tendrá que guardar el valor de la clave de la función recién creada, que se puede encontrar en la pestaña [Configuración de Function App](../azure-functions/functions-how-to-use-azure-function-app-settings.md).
-5. Configure DNS para dirigir el FQDN de ese certificado SSL a la dirección IP de gatewayIP del paso anterior.
+5. Configure DNS para dirigir el FQDN de ese certificado TLS/SSL a la dirección IP de gatewayIP del paso anterior.
 
     Después de crear la granja de servidores de puerta de enlace de Escritorio remoto y de realizar las actualizaciones de DNS correspondientes, está listo para usarse en un laboratorio de DevTest Labs. Las opciones de **nombre de host de puerta de enlace** y **secreto del token de puerta de enlace** se deben configurar para usar las máquinas de puerta de enlace que se hayan implementado. 
 

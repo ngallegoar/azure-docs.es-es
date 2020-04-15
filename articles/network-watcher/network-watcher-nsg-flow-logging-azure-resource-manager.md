@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/26/2020
 ms.author: damendo
-ms.openlocfilehash: 35d185a625a81a259c366a45999769ecf76c6a7d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 104311904b99cadbbc8c0267a98f2709443608ea
+ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77538165"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80891465"
 ---
 # <a name="configure-nsg-flow-logs-from-an-azure-resource-manager-template"></a>Configuración de registros de flujo de NSG a partir de una plantilla de Azure Resource Manager
 
@@ -169,6 +169,8 @@ New-AzResourceGroupDeployment -Name EnableFlowLog -ResourceGroupName NetworkWatc
 
 Hay un par de maneras de comprobar si la implementación se ha realizado correctamente. La consola de PowerShell debería mostrar "ProvisioningState" como "Succeeded". Además, puede visitar la [página del portal de registros de flujo de NSG](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) para confirmar los cambios. Si se produjeron problemas con la implementación, eche un vistazo a [Solución de errores comunes de implementación de Azure con Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/common-deployment-errors).
 
+## <a name="deleting-your-resource"></a>Eliminación del recurso
+Azure permite la eliminación de recursos mediante el modo de implementación "Completo". Para eliminar un recurso de registros de flujo, especifique una implementación en modo completo sin incluir el recurso que quiere eliminar. Obtenga más información sobre el [modo de implementación completo](https://docs.microsoft.com/azure/azure-resource-manager/templates/deployment-modes#complete-mode).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

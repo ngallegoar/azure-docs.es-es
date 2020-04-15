@@ -5,19 +5,21 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: eaebcf50084223e1c1f4df30294bece96cffda6d
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/27/2020
+ms.openlocfilehash: 18c1d8b42dc73951901ec4ae9b79715ddbd47617
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74774303"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474047"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Configuración de la replicación de datos internos de Azure Database for MySQL
 
-En este artículo, aprenderá a configurar Replicación de datos de entrada en el servicio Azure Database for MySQL mediante la configuración de los servidores maestros y de réplicas. Replicación de datos de entrada le permite sincronizar los datos que proceden de un servidor MySQL maestro que se ejecutan en el entorno local, en máquinas virtuales o en servidores de base de datos hospedados por otros proveedores de nube, con una réplica del servicio Azure Database for MySQL. 
+En este artículo se describe cómo configurar la replicación de datos de entrada en Azure Database for MySQL mediante la configuración de los servidores maestros y de réplica. En este artículo se asume que tiene alguna experiencia previa con servidores y bases de datos MySQL.
 
-En este artículo se asume que tiene al menos alguna experiencia previa con servidores y bases de datos MySQL Database.
+Para crear una réplica en el servicio Azure Database for MySQL, la replicación de datos de entrada sincroniza los datos que proceden de un servidor MySQL maestro local con máquinas virtuales (VM) o servicios de base de datos en la nube.
+
+Revise las [limitaciones y los requisitos](concepts-data-in-replication.md#limitations-and-considerations) de la replicación de datos de entrada antes de seguir los pasos de este artículo.
 
 ## <a name="create-a-mysql-server-to-be-used-as-replica"></a>Creación de un servidor de MySQL que se utilizará como réplica
 
@@ -33,10 +35,21 @@ En este artículo se asume que tiene al menos alguna experiencia previa con serv
 
    Las cuentas de usuario no se replican desde el servidor maestro al servidor de réplica. Si planea proporcionar a los usuarios acceso al servidor de réplica, necesita crear manualmente todas las cuentas y privilegios correspondientes en este servidor recién creado de Azure Database for MySQL.
 
-## <a name="configure-the-master-server"></a>Configurar el servidor maestro
-En los siguientes pasos se prepara y configura el servidor MySQL en el entorno local, en una máquina virtual o en un servicio de base de datos hospedado por otros proveedores de nube para Data-in Replication. Este servidor es el "maestro" en Replicación de datos de entrada. 
+3. Agregue la dirección IP del servidor maestro a las reglas de firewall de la réplica. 
 
-1. Activación del registro binario
+   Actualice las reglas de firewall mediante [Azure Portal](howto-manage-firewall-using-portal.md) o la [CLI de Azure](howto-manage-firewall-using-cli.md).
+
+## <a name="configure-the-master-server"></a>Configurar el servidor maestro
+En los siguientes pasos se prepara y configura el servidor MySQL en el entorno local, en una máquina virtual o en un servicio de base de datos hospedado por otros proveedores de nube para Data-in Replication. Este servidor es el "maestro" en Replicación de datos de entrada.
+
+
+1. Revise los [requisitos del servidor maestro](concepts-data-in-replication.md#requirements) antes de continuar. 
+
+   Por ejemplo, asegúrese de que el servidor maestro permite el tráfico entrante y saliente en el puerto 3306 y de que el servidor maestro tiene una **dirección IP pública**, el DNS es accesible públicamente o tiene un nombre de dominio completo (FQDN). 
+   
+   Pruebe la conectividad con el servidor maestro; para ello, pruebe a conectarse desde una herramienta como la línea de comandos de MySQL hospedada en otra máquina o desde la instancia de [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) disponible en Azure Portal.
+
+2. Activación del registro binario
 
    Compruebe si se ha habilitado el registro binario en el servidor maestro mediante la ejecución del comando siguiente: 
 
@@ -46,9 +59,9 @@ En los siguientes pasos se prepara y configura el servidor MySQL en el entorno l
 
    Si la variable [`log_bin`](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_log_bin) se devuelve con el valor "ON", el registro binario está habilitado en el servidor. 
 
-   Si `log_bin` es devuelve con el valor "OFF", active el registro binario mediante la edición del archivo my.cnf de modo que `log_bin=ON` y reinicie el servidor para que el cambio surta efecto.
+   Si `log_bin` se devuelve con el valor "OFF", active el registro binario mediante la edición del archivo my.cnf de modo que `log_bin=ON`, y reinicie el servidor para que el cambio se aplique.
 
-2. Configuración del servidor maestro
+3. Configuración del servidor maestro
 
    Replicación de datos de entrada requiere el parámetro `lower_case_table_names` para ser coherente entre los servidores maestro y de réplica. Este parámetro es 1 de forma predeterminada en Azure Database for MySQL. 
 
@@ -56,9 +69,9 @@ En los siguientes pasos se prepara y configura el servidor MySQL en el entorno l
    SET GLOBAL lower_case_table_names = 1;
    ```
 
-3. Creación de un nuevo rol de replicación y configuración de permisos
+4. Creación de un nuevo rol de replicación y configuración de permisos
 
-   Creación de una cuenta de usuario en el servidor maestro que está configurado con privilegios de replicación. Esto puede realizarse a través de los comandos SQL o una herramienta como MySQL Workbench. Tenga en cuenta si planea replicar con SSL, ya que necesitará especificarse al crear el usuario. Consulte la documentación de MySQL para entender cómo [agregar cuentas de usuario](https://dev.mysql.com/doc/refman/5.7/en/adding-users.html) en el servidor maestro. 
+   Creación de una cuenta de usuario en el servidor maestro que está configurado con privilegios de replicación. Esto puede realizarse a través de los comandos SQL o una herramienta como MySQL Workbench. Tenga en cuenta si planea replicar con SSL, ya que necesitará especificarse al crear el usuario. Consulte la documentación de MySQL para entender cómo [agregar cuentas de usuario](https://dev.mysql.com/doc/refman/5.7/en/user-names.html) en el servidor maestro. 
 
    En los siguientes comandos, el nuevo rol de replicación creado es capaz de acceder al servidor maestro desde cualquier máquina, no solo desde la máquina que hospeda al propio servidor maestro en sí. Esto se hace especificando "syncuser@'%'" en el comando create user. Consulte la documentación de MySQL para más información acerca de la [especificación de nombres de cuenta](https://dev.mysql.com/doc/refman/5.7/en/account-names.html).
 
@@ -97,7 +110,7 @@ En los siguientes pasos se prepara y configura el servidor MySQL en el entorno l
    ![Servidor subordinado de replicación](./media/howto-data-in-replication/replicationslave.png)
 
 
-4. Establecer el servidor maestro en el modo de solo lectura
+5. Establecer el servidor maestro en el modo de solo lectura
 
    Antes de comenzar a volcar la base de datos, el servidor debe colocarse en modo de solo lectura. En modo de solo lectura, el servidor maestro podrá procesar cualquier transacción de escritura. Evalúe el impacto para su negocio y la programación de la ventana de solo lectura en un momento de poco tráfico, si es necesario.
 
@@ -106,7 +119,7 @@ En los siguientes pasos se prepara y configura el servidor MySQL en el entorno l
    SET GLOBAL read_only = ON;
    ```
 
-5. Obtenga el nombre de archivo de registro binario y el desplazamiento
+6. Obtenga el nombre de archivo de registro binario y el desplazamiento
 
    Ejecute el comando [`show master status`](https://dev.mysql.com/doc/refman/5.7/en/show-master-status.html) para determinar el nombre de archivo de registro binario actual y el desplazamiento.
     
@@ -167,7 +180,7 @@ En los siguientes pasos se prepara y configura el servidor MySQL en el entorno l
 
    ```sql
    SET @cert = '-----BEGIN CERTIFICATE-----
-   PLACE YOUR PUBLIC KEY CERTIFICATE’S CONTEXT HERE
+   PLACE YOUR PUBLIC KEY CERTIFICATE'`S CONTEXT HERE
    -----END CERTIFICATE-----'
    ```
 

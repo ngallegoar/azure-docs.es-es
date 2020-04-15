@@ -3,12 +3,12 @@ title: Índice de ejemplos de planos técnicos
 description: Índice de ejemplos de cumplimiento y estándar para implementar entornos, directivas y las bases de Cloud Adoption Framework con Azure Blueprints.
 ms.date: 02/26/2020
 ms.topic: sample
-ms.openlocfilehash: 703c383f41cd833fb47ca489682258158f9fe179
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 745b16f8aff8fe003ec65449cdf3dc0d629ba6ff
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "78196831"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383523"
 ---
 # <a name="azure-blueprints-samples"></a>Ejemplos de Azure Blueprints
 
@@ -38,7 +38,7 @@ En la tabla siguiente se incluyen vínculos a ejemplos de Azure Blueprints. Cada
 
 ## <a name="samples-strategy"></a>Estrategia de ejemplos
 
-![Estrategia de ejemplos de planos técnicos](../media/blueprint-samples-strategy.png)
+:::image type="content" source="../media/blueprint-samples-strategy.png" alt-text="Estrategia de ejemplos de planos técnicos" border="false":::
 
 Los planos técnicos de la zona de aterrizaje de migración de CAF y de la fundación CAF asumen que el cliente prepara una suscripción individual limpia existente para migrar los recursos y cargas de trabajo locales a Azure
 (regiones A y B en la ilustración).  

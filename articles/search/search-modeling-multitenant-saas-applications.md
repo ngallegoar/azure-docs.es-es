@@ -8,12 +8,12 @@ ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: d37abd1b5d212c3d920cb68b6236029b2112ae24
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d8e453336005f3389f67e9571fac438bfc340c1b
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74113276"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80549024"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-cognitive-search"></a>Modelos de diseño para aplicaciones SaaS multiinquilino y Azure Cognitive Search
 Una aplicación multiinquilino es una que proporciona los mismos servicios y funcionalidades a cualquier número de inquilinos que no pueden ver o compartir los datos de cualquier otro inquilino. En este documento se describen estrategias de aislamiento de inquilinos para aplicaciones miltiinquilino creadas con Azure Cognitive Search.
@@ -51,7 +51,7 @@ En el plan de tarifa S3 de Azure Cognitive Search, hay una opción para el modo 
 
 S3 HD permite que los muchos índices pequeños se empaqueten bajo la administración de un solo servicio de búsqueda único mediante el intercambio de la capacidad de escalar horizontalmente índices usando particiones para la capacidad de hospedar más índices en un único servicio.
 
-En concreto, un servicio S3 podría tener entre 1 y 200 índices que juntos podrían hospedar hasta 1400 millones de documentos. Por el contrario, HD S3 permitiría que los índices individuales llegasen solo hasta 1 millón de documentos, pero puede controlar hasta 1000 índices por partición (hasta 3000 por servicio) con un número total de documentos de 200 millones por partición (hasta 600 millones por servicio).
+Un servicio S3 está diseñado para hospedar un número fijo de índices (200 máximo) y permite que cada índice se reduzca horizontalmente a medida que se agregan nuevas particiones al servicio. Al agregar particiones a servicios de S3 HD, se aumenta el número máximo de índices que puede hospedar el servicio. El tamaño máximo ideal para un índice de S3 HD individual es de aproximadamente 50 a 80 GB, aunque no hay ningún límite de tamaño estricto en cada índice impuesto por el sistema.
 
 ## <a name="considerations-for-multitenant-applications"></a>Consideraciones sobre las aplicaciones multiinquilino
 Las aplicaciones multiinquilino deben distribuir de forma eficaz los recursos entre los inquilinos y conservar al mismo tiempo cierto nivel de privacidad entre los distintos inquilinos. Existen algunas consideraciones que se deben tener en cuenta al diseñar la arquitectura para aplicaciones de este tipo:

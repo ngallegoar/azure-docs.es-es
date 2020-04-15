@@ -3,12 +3,12 @@ title: Orden de la secuencia de implementación
 description: Obtenga más detalles sobre el orden predeterminado en el que se implementan los artefactos de plano técnico durante una asignación de plano técnico y aprenda a personalizar el orden de implementación.
 ms.date: 08/22/2019
 ms.topic: conceptual
-ms.openlocfilehash: 51026862c989f15acf6d3e21702cfcfc8b2b27b0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 41b1b1ada5b7c6c919f227927001570332eeccbf
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74128825"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677559"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Información sobre la secuencia de implementación en Azure Blueprint
 
@@ -42,7 +42,7 @@ Dentro de cada artefacto de **grupo de recursos**, se usa el orden de secuencia 
 
 ## <a name="customizing-the-sequencing-order"></a>Personalización del orden de secuenciación
 
-Cuando crea definiciones de planos técnicos de gran tamaño, puede ser necesario que los recursos se creen en un orden específico. El patrón de uso más común de este escenario se da cuando una definición de plano técnico incluye varias plantillas de Azure Resource Manager. Para que Blueprints controle este patrón, permite definir el orden de secuenciación.
+Cuando crea definiciones de planos técnicos de gran tamaño, puede ser necesario que los recursos se creen en un orden específico. El patrón de uso más común de este escenario se da cuando una definición de plano técnico incluye varias plantillas de Azure Resource Manager. Para que Azure Blueprints controle este patrón, permite definir el orden de secuenciación.
 
 La ordenación se logra definiendo una propiedad `dependsOn` en JSON. La definición de plano técnico (para grupos de recursos) y los objetos de artefacto admiten esta propiedad. `dependsOn` es una matriz de cadenas de nombres de artefacto que el artefacto en particular debe crear antes de su propia creación.
 

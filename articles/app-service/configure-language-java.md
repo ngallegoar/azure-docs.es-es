@@ -9,12 +9,12 @@ ms.date: 04/12/2019
 ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: e5beb60107b3632da336a20f167e1c2f5b53140a
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 2b09a7765cff20fb49ce6ab3d1e7bce2e15f0e9e
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77461273"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475218"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>Configuración de una aplicación de Java en Windows para Azure App Service
 
@@ -37,6 +37,24 @@ No implemente el archivo .war mediante FTP. La herramienta FTP está diseñada p
 
 Encontrará informes de rendimiento, visualizaciones de tráfico y comprobaciones de mantenimiento de cada aplicación a través de Azure Portal. Para más información, consulte [Introducción a los diagnósticos de Azure App Service](overview-diagnostics.md).
 
+### <a name="use-flight-recorder"></a>Uso de Flight Recorder
+
+Todos los entornos de ejecución de Java en App Service que usan JVM de Azul incluyen Zulu Flight Recorder. Puede usarlo para registrar eventos de JVM, del sistema y de nivel de Java para supervisar el comportamiento y solucionar problemas en sus aplicaciones Java.
+
+Para realizar una grabación temporizada, necesitará el PID (identificador de proceso) de la aplicación Java. Para encontrar el PID, abra el sitio de SCM de su aplicación web en un explorador: https://<nombre-de-su-sitio>.scm.azurewebsites.net/ProcessExplorer/. En esta página se muestran los procesos en ejecución en la aplicación web. Busque el proceso denominado "Java" en la tabla y copie el PID (identificador de proceso) correspondiente.
+
+A continuación, abra la **Consola de depuración** en la barra de herramientas superior del sitio de SCM y ejecute el siguiente comando. Reemplace `<pid>` por el identificador de proceso que ha copiado anteriormente. Este comando iniciará una grabación de 30 segundos del generador de perfiles de su aplicación Java y generará un archivo denominado `timed_recording_example.jfr` en el directorio `D:\home`.
+
+```
+jcmd <pid> JFR.start name=TimedRecording settings=profile duration=30s filename="D:\home\timed_recording_example.JFR"
+```
+
+Para más información, consulte la [referencia del comando Jcmd ](https://docs.oracle.com/javacomponents/jmc-5-5/jfr-runtime-guide/comline.htm#JFRRT190).
+
+#### <a name="analyze-jfr-files"></a>Análisis de archivos `.jfr`
+
+Use [FTPS](deploy-ftp.md) para descargar el archivo JFR en el equipo local. Para analizar el archivo JFR, descargue e instale [Zulu Mission Control](https://www.azul.com/products/zulu-mission-control/). Para obtener instrucciones acerca de Zulu Mission Control, consulte la [documentación de Azul](https://docs.azul.com/zmc/) y [las instrucciones de instalación](https://docs.microsoft.com/java/azure/jdk/java-jdk-flight-recorder-and-mission-control).
+
 ### <a name="stream-diagnostic-logs"></a>Transmisión de registros de diagnóstico
 
 [!INCLUDE [Access diagnostic logs](../../includes/app-service-web-logs-access-no-h.md)]
@@ -56,7 +74,7 @@ Azure App Service admite la optimización y la personalización de serie a tra
 
 - [Configuración de aplicaciones](configure-common.md#configure-app-settings)
 - [Configuración de un dominio personalizado](app-service-web-tutorial-custom-domain.md)
-- [Configuración de enlaces SSL](configure-ssl-bindings.md)
+- [Configuración de enlaces TLS](configure-ssl-bindings.md)
 - [Adición de una red CDN](../cdn/cdn-add-to-web-app.md)
 - [Configuración del sitio de Kudu](https://github.com/projectkudu/kudu/wiki/Configurable-settings)
 
@@ -165,7 +183,7 @@ Para deshabilitar esta característica, cree una configuración de aplicación d
 
 ### <a name="configure-tlsssl"></a>Configuración de TLS/SSL
 
-Siga las instrucciones de [Protección de un nombre DNS personalizado con un enlace SSL en Azure App Service](configure-ssl-bindings.md) para cargar un certificado SSL y enlazarlo al nombre de dominio de la aplicación. De forma predeterminada, la aplicación seguirá permitiendo que las conexiones HTTP sigan los pasos específicos del tutorial para aplicar SSL y TLS.
+Siga las instrucciones de [Protección de un nombre DNS personalizado con un enlace TLS en Azure App Service](configure-ssl-bindings.md) para cargar un certificado TLS/SSL y enlazarlo al nombre de dominio de la aplicación. De forma predeterminada, la aplicación seguirá permitiendo que las conexiones HTTP sigan los pasos específicos del tutorial para aplicar SSL y TLS.
 
 ### <a name="use-keyvault-references"></a>Uso de referencias de KeyVault
 
@@ -214,7 +232,7 @@ Estas instrucciones se aplican a todas las conexiones de base de datos. Deberá 
 |------------|-----------------------------------------------|------------------------------------------------------------------------------------------|
 | PostgreSQL | `org.postgresql.Driver`                        | [Descargar](https://jdbc.postgresql.org/download.html)                                    |
 | MySQL      | `com.mysql.jdbc.Driver`                        | [Descargar](https://dev.mysql.com/downloads/connector/j/) (seleccione "Platform Independent") |
-| SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [Descargar](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017#available-downloads-of-jdbc-driver-for-sql-server)                                                           |
+| SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [Descargar](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017#download)                                                           |
 
 Para configurar Tomcat para que use Java Database Connectivity (JDBC) o Java Persistence API (JPA), personalice primero la variable de entorno `CATALINA_OPTS` que lee Tomcat al iniciarse. Establezca estos valores a través de un valor de la aplicación en el [complemento de Maven de App Service](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md):
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 8b0db4a1e55b53165e40e176834d66b62926e24b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c7eb1670ee911895bdba23921845b8795f4998af
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74421560"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811309"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Moving data between scaled-out cloud databases (Mover datos entre bases de datos en la nube escaladas horizontalmente)
 
@@ -62,7 +62,7 @@ La herramienta de división y combinación se ejecuta como servicio web de Azure
 
 - **Servicios hospedados por el cliente**
 
-  El servicio División y combinación es un servicio hospedado por el cliente. Debe implementar y hospedar el servicio en su suscripción a Microsoft Azure. El paquete que descarga de NuGet contiene una plantilla de configuración que se debe completar con la información correspondiente a la implementación específica. Consulte el [tutorial de División y combinación](sql-database-elastic-scale-configure-deploy-split-and-merge.md) para obtener más detalles. Dado que el servicio se ejecuta en su suscripción de Azure, es posible controlar y configurar la mayoría de los aspectos de seguridad del servicio. La plantilla predeterminada incluye las opciones para configurar SSL, autenticación de cliente basada en certificados, cifrado para credenciales almacenadas, protección ante denegación de servicio y restricciones de IP. Puede encontrar más información sobre los aspectos de seguridad en el siguiente documento [Configuración de seguridad de división y combinación](sql-database-elastic-scale-split-merge-security-configuration.md).
+  El servicio División y combinación es un servicio hospedado por el cliente. Debe implementar y hospedar el servicio en su suscripción a Microsoft Azure. El paquete que descarga de NuGet contiene una plantilla de configuración que se debe completar con la información correspondiente a la implementación específica. Consulte el [tutorial de División y combinación](sql-database-elastic-scale-configure-deploy-split-and-merge.md) para obtener más detalles. Dado que el servicio se ejecuta en su suscripción de Azure, es posible controlar y configurar la mayoría de los aspectos de seguridad del servicio. La plantilla predeterminada incluye las opciones para configurar TLS, autenticación de cliente basada en certificados, cifrado para credenciales almacenadas, protección ante denegación de servicio y restricciones de IP. Puede encontrar más información sobre los aspectos de seguridad en el siguiente documento [Configuración de seguridad de división y combinación](sql-database-elastic-scale-split-merge-security-configuration.md).
 
   El servicio implementado de manera predeterminada se ejecuta con un rol de trabajo y un rol web. Cada uno de ellos usa el tamaño A1 de máquina virtual en Azure Cloud Services. A pesar de que no puede modificar esta configuración cuando implementa el paquete, sí puede cambiarla después de una implementación exitosa en el servicio en la nube que está en ejecución (a través del portal de Azure). Tenga en cuenta que el rol de trabajo, por razones técnicas, no se debe configurar para más de una instancia.
 
@@ -212,7 +212,7 @@ El servicio División y combinación proporciona la tabla **RequestStatus** en l
 
 ### <a name="azure-diagnostics"></a>Diagnóstico de Azure
 
-El servicio División y combinación usa Diagnósticos de Azure basado en el SDK de Azure 2.5 para supervisión y diagnóstico. Para controlar la configuración de diagnóstico, consulte la información explicada aquí: [Habilitación de diagnósticos en Azure Cloud Services y Azure Virtual Machines](../cloud-services/cloud-services-dotnet-diagnostics.md). El paquete de descarga incluye dos configuraciones de diagnóstico: una para el rol web y otra para rol de trabajo. Incluye las definiciones para registrar los contadores de rendimiento, registros IIS, registros de eventos de Windows y registros de eventos de la aplicación de división y combinación.
+El servicio División y combinación usa Diagnósticos de Azure basado en el SDK de Azure 2.5 para supervisión y diagnóstico. Puede controlar la configuración de diagnósticos como se explica aquí: [Habilitación de diagnósticos en Azure Cloud Services y Virtual Machines](../cloud-services/cloud-services-dotnet-diagnostics.md). El paquete de descarga incluye dos configuraciones de diagnóstico: una para el rol web y otra para rol de trabajo. Incluye las definiciones para registrar los contadores de rendimiento, registros IIS, registros de eventos de Windows y registros de eventos de la aplicación de división y combinación.
 
 ## <a name="deploy-diagnostics"></a>Implementar diagnósticos
 
@@ -239,7 +239,7 @@ Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext `
     -Slot Production -Role "SplitMergeWorker"
 ```
 
-Puede encontrar más información sobre cómo configurar e implementar los ajustes de diagnóstico aquí: [Habilitación de diagnósticos en Azure Cloud Services ](../cloud-services/cloud-services-dotnet-diagnostics.md).
+Puede encontrar más información sobre cómo configurar e implementar la configuración de diagnósticos aquí: [Habilitación de diagnósticos en Azure Cloud Services y Virtual Machines](../cloud-services/cloud-services-dotnet-diagnostics.md).
 
 ## <a name="retrieve-diagnostics"></a>Recuperar diagnósticos
 

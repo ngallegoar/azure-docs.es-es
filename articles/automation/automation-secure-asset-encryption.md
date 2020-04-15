@@ -1,5 +1,5 @@
 ---
-title: Cifrado de recursos seguros en Automation
+title: Cifrado de recursos protegidos en Azure Automation
 description: Azure Automation protege los recursos seguros mediante varios niveles de cifrado. De forma predeterminada, el cifrado se realiza mediante claves administradas por Microsoft. Los clientes pueden configurar sus cuentas de automatización para usar claves administradas por el cliente para el cifrado. En este artículo se describen los detalles de ambos modos de cifrado y cómo se puede cambiar entre los dos.
 services: automation
 ms.service: automation
@@ -9,18 +9,18 @@ ms.author: snmuvva
 ms.date: 01/11/2020
 ms.topic: conceptual
 manager: kmadnani
-ms.openlocfilehash: 3c21e2fcdde9bffac91af56d49dfa0bf336e8c0c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0b1d194209122fa71272243c80a2d4c57f6834a1
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78246245"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80547754"
 ---
-# <a name="secure-assets-in-azure-automation"></a>Recursos protegidos en Azure Automation
+# <a name="encrypt-secure-assets-in-azure-automation"></a>Cifrado de recursos protegidos en Azure Automation
 
 Los recursos protegidos en Azure Automation incluyen credenciales, certificados, conexiones y variables cifradas. Estos recursos se protegen en Azure Automation mediante varios niveles de cifrado. En función de la clave de nivel superior utilizada para el cifrado, hay dos modelos de cifrado:
--   Usando claves administradas por Microsoft
--   Usando claves administradas por el cliente
+-    Usando claves administradas por Microsoft
+-    Usando claves administradas por el cliente
 
 ## <a name="microsoft-managed-keys"></a>Claves administradas por Microsoft
 

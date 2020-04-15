@@ -4,7 +4,6 @@ description: Conozca los conceptos básicos sobre la autenticación en Plataform
 services: active-directory
 author: rwike77
 manager: CelesteDG
-ms.assetid: 0c84e7d0-16aa-4897-82f2-f53c6c990fd9
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
@@ -13,12 +12,12 @@ ms.date: 02/03/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 6e14284b5d653af01631d56acf954f9c2a1f10ab
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: e78f822a88b093992f065a509c2250e6a5c0dec2
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77195002"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80885572"
 ---
 # <a name="authentication-basics"></a>Conceptos básicos sobre autenticación
 
@@ -50,7 +49,7 @@ Azure AD también dispone de Azure Active Directory B2C, de modo que las orga
 
 Los tokens de seguridad contienen información sobre los usuarios y las aplicaciones. Azure AD usa tokens basados en JSON (JWT) que contienen notificaciones.
 
-Una notificación proporciona aserciones sobre una entidad (como una [aplicación cliente](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#client-application) o un [propietario de recursos](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#resource-owner)), a otra entidad (como un [servidor de recursos](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#resource-server)).
+Una notificación proporciona aserciones sobre una entidad, como una [aplicación cliente](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#client-application) o un [propietario de recursos](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#resource-owner), a otra entidad, como un [servidor de recursos](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#resource-server).
 
 Las notificaciones son pares nombre-valor que retransmiten hechos sobre el firmante del token. Por ejemplo, una notificación puede contener hechos sobre la entidad de seguridad autenticada por el [servidor de autorización](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#authorization-server). Las notificaciones presentes en cualquier token dependen de muchas cosas, como el tipo de token, el tipo de credencial que se usa para autenticar el firmante, la configuración de la aplicación, etc.
 
@@ -76,6 +75,23 @@ La validación del token depende de la aplicación para la que se generó el tok
 Los tokens solo son válidos durante un período de tiempo limitado. Normalmente, el STS proporciona un par de tokens: un token de acceso para acceder a la aplicación o al recurso protegido, y un token de actualización que se usa para actualizar el token de acceso cuando está a punto de vencer.
 
 Los tokens de acceso se pasan a una API web en el encabezado de `Authorization` como un token de portador. Una aplicación puede proporcionar un token de actualización al STS y, si el acceso del usuario a la aplicación no se ha revocado, recibirá un nuevo token de acceso y un nuevo token de actualización. Así es cómo se administran los casos cuando alguien abandona la empresa. Cuando el STS recibe el token de actualización, si el usuario ya no está autorizado, no emitirá otro token de acceso válido.
+
+### <a name="how-each-flow-emits-tokens-and-codes"></a>Cómo emite cada flujo los tokens y los códigos
+
+En función de cómo se compile el cliente, puede usar uno o varios de los flujos de autenticación que admite Azure AD. Estos flujos pueden generar diversos tokens (id_tokens, tokens de actualización, tokens de acceso) además de códigos de autorización, y requieren distintos tokens para que funcionen. En este gráfico se ofrece una información general:
+
+|Flujo | Requiere | ID_token | de la aplicación Twitter | Token de actualización | código de autorización | 
+|-----|----------|----------|--------------|---------------|--------------------|
+|[Flujo de código de autorización](v2-oauth2-auth-code-flow.md) | | x | x | x | x|  
+|[Flujo implícito](v2-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |
+|[Flujo de OIDC híbrido](v2-protocols-oidc.md#get-access-tokens)| | x  | |          |            x   |
+|[Redención de token de actualización](v2-oauth2-auth-code-flow.md#refresh-the-access-token) | Token de actualización | x | x | x| |
+|[Flujo en nombre de](v2-oauth2-on-behalf-of-flow.md) | de la aplicación Twitter| x| x| x| |
+|[Credenciales de cliente](v2-oauth2-client-creds-grant-flow.md) | | | x (solo aplicación)| | |
+
+Los tokens emitidos a través del modo implícito tienen una limitación de longitud debido a que se pasan al explorador a través de la dirección URL (donde `response_mode` es `query` o `fragment`).  Algunos exploradores tienen un límite en el tamaño de la dirección URL que se puede colocar en la barra del explorador y producen un error cuando es demasiado larga.  Por lo tanto, estos tokens no tienen notificaciones `groups` ni `wids`. 
+
+Ahora que ya tiene información general sobre los conceptos básicos, siga leyendo para comprender la API y el modelo de aplicaciones de identidad, obtenga información sobre el funcionamiento del aprovisionamiento en Azure AD y obtenga vínculos a información detallada sobre los escenarios comunes que admite Azure AD.
 
 ## <a name="application-model"></a>Modelo de aplicación
 

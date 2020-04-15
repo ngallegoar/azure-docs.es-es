@@ -16,9 +16,11 @@
       href: powershell-samples.md
 - name: Conceptos
   items:
-    - name: Soporte técnico para el trabajo remoto
+    - name: Trabajo remoto
       items:
-        - name: Trabajo remoto
+        - name: Compatibilidad con el trabajo remoto
+          href: ../networking/working-remotely-support.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
+        - name: Uso de la VPN de Azure
           href: work-remotely-support.md
         - name: Configuraciones de NVA y trabajo remoto
           href: nva-work-remotely-support.md

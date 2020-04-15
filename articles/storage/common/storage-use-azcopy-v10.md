@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: c4e2681121a15e0b84a11c7cf35119c3f1b69f11
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8701fe6857e95334a5e1d24bfe70feb130d5512c
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75443720"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756030"
 ---
 # <a name="get-started-with-azcopy"></a>Introducción a AzCopy
 
@@ -21,7 +21,7 @@ AzCopy es una utilidad de línea de comandos que puede usar para copiar blobs o 
 > [!NOTE]
 > AzCopy **V10** es la versión admitida actualmente de AzCopy.
 >
-> Si necesita usar AzCopy **v8.1**, consulte la sección [Uso de la versión anterior de AzCopy](#previous-version) de este artículo.
+> Si necesita usar una versión anterior de AzCopy, consulte la sección [Uso de la versión anterior de AzCopy](#previous-version) de este artículo.
 
 <a id="download-and-install-azcopy" />
 
@@ -308,11 +308,11 @@ El Explorador de Azure Storage utiliza la clave de la cuenta para realizar opera
 
 ## <a name="use-the-previous-version-of-azcopy"></a>Uso de la versión anterior de AzCopy
 
-Si necesita usar la versión anterior de AzCopy (AzCopy v8.1), consulte alguno de los vínculos siguientes:
+Si necesita usar la versión anterior de AzCopy, consulte alguno de los vínculos siguientes:
 
 - [AzCopy en Windows (v8)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy)
 
-- [AzCopy en Linux (v8)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux)
+- [AzCopy en Linux (v7)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux)
 
 ## <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configuración, optimización y solución de problemas de AzCopy
 

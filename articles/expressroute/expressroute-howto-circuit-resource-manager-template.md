@@ -2,18 +2,17 @@
 title: 'Plantilla de Azure ExpressRoute: Creación de un circuito ExpressRoute'
 description: Cree, aprovisione, elimine y desaprovisione un circuito de ExpressRoute.
 services: expressroute
-author: cherylmc
+author: charwen
 ms.service: expressroute
 ms.topic: article
 ms.date: 11/13/2019
-ms.author: cherylmc
-ms.reviewer: ganesr
-ms.openlocfilehash: 78da84a462566cca1a2800174849159ace8dd6dc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: charwen
+ms.openlocfilehash: ac2fb2f884feb0fbe6fbb1731ebe7c8bdad5114b
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75981149"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80616525"
 ---
 # <a name="create-an-expressroute-circuit-by-using-azure-resource-manager-template"></a>Creación de un circuito de ExpressRoute mediante una plantilla de Azure Resource Manager
 
@@ -64,7 +63,7 @@ Para crear un circuito de ExpressRoute mediante la implementación de una planti
     Write-Host "Press [ENTER] to continue ..."
     ```
 
-   * El **nivel de SKU** determina si un circuito ExpressRoute es [Local](expressroute-faqs.md#expressroute-local), Estándar o [Premium](expressroute-faqs.md#expressroute-premium). Puede especificar *Local*, *Estándar* o *Premium*.
+   * El **nivel de SKU** determina si un circuito ExpressRoute es [Local](expressroute-faqs.md#expressroute-local), Estándar o [Premium](expressroute-faqs.md#expressroute-premium). Puede especificar *Local*, *Estándar o *Premium*.
    * La **familia de SKU** determina el tipo de facturación. Puede seleccionar *Metereddata* para el plan de datos limitado y *Unlimiteddata* para el plan de datos ilimitado. Puede cambiar el tipo de facturación de *Metereddata* a *Unlimiteddata*, pero no se puede cambiar el tipo de *Unlimiteddata* a *Metereddata*. Un circuito *Local* solo es *Unlimiteddata*.
    * La **ubicación de emparejamiento** es la ubicación física de emparejamiento con Microsoft.
 

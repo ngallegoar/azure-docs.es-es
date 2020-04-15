@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/17/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 4b10955a1d3b85acbcae109836bebc03ec04c72c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d73bab76860abf3e9fa442dad44e1ddb66d147a3
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76279304"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80519572"
 ---
 Azure proporciona los siguientes roles RBAC integrados para autorizar el acceso a datos de blob y cola con Azure AD y OAuth:
 
@@ -24,6 +24,8 @@ Azure proporciona los siguientes roles RBAC integrados para autorizar el acceso 
 - [Lector de datos de la cola de Storage](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-reader): se usa para conceder permisos de solo lectura a las colas de Azure.
 - [Procesador de mensajes de datos de la cola de Storage](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-processor): se usa para conceder permisos de inspección, recuperación y eliminación a los mensajes de las colas de Azure Storage.
 - [Emisor de mensajes de datos de la cola de Storage](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-sender): se usa para conceder permisos de adición a los mensajes de las colas de Azure Storage.
+
+Para obtener información detallada sobre los roles integrados de RBAC para Azure Storage para los servicios de datos y el servicio de administración, consulte la sección **Almacenamiento** en [Roles integrados de Azure para RBAC de Azure](../articles/role-based-access-control/built-in-roles.md#storage). Además, para obtener información sobre los diferentes tipos de roles que proporcionan permisos en Azure, consulte [Roles de administrador de suscripciones clásico, roles de Azure RBAC y roles de Azure AD](../articles/role-based-access-control/rbac-and-directory-admin-roles.md).
 
 > [!NOTE]
 > Las asignaciones de roles RBAC pueden tardar hasta cinco minutos en propagarse.

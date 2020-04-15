@@ -1,14 +1,14 @@
 ---
 title: Ejemplo de plano técnico de la norma ISO 27001 sobre servicios compartidos, introducción
 description: Introducción y arquitectura del ejemplo de plano técnico de la norma ISO 27001 sobre servicios compartidos. Este ejemplo de plano técnico de ejemplo ayuda a los clientes a evaluar determinados controles concretos de la norma ISO 27001.
-ms.date: 01/13/2020
+ms.date: 04/15/2020
 ms.topic: sample
-ms.openlocfilehash: 0b6a250ebac2744adca813219225388841f1776f
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 9b0b49582023ee5c68fea0f21b70290a102a038a
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "75922537"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81381566"
 ---
 # <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>Introducción al ejemplo de plano técnico de la norma ISO 27001 sobre servicios compartidos
 
@@ -21,7 +21,7 @@ El ejemplo de plano técnico para [cargas de trabajo de App Service Environment 
 El ejemplo de plano técnico de la norma ISO 27001 sobre servicios compartidos implementa una infraestructura básica en Azure que diferentes organizaciones pueden usar para hospedar varias cargas de trabajo según el enfoque de Virtual Datacenter (VDC).
 VDC es un conjunto probado de arquitecturas de referencia, herramientas de automatización y modelos de involucración que emplea Microsoft con sus clientes empresariales de mayor tamaño. El ejemplo de plano técnico de los servicios compartidos se basa en un entorno totalmente nativo de Azure VDC que se muestra a continuación.
 
-![Diseño de ejemplo de plano técnico de la norma ISO 27001 sobre servicios compartidos](../../media/sample-iso27001-shared/iso27001-shared-services-blueprint-sample-design.png)
+:::image type="content" source="../../media/sample-iso27001-shared/iso27001-shared-services-blueprint-sample-design.png" alt-text="Diseño de ejemplo de plano técnico de la norma ISO 27001 sobre servicios compartidos" border="false":::
 
 Este entorno se compone de varios servicios de Azure que se usan para proporcionar una infraestructura de servicios compartidos segura, totalmente supervisada y preparada para la empresa, que se basa en los estándares de la norma ISO 27001. Este entorno se compone de:
 

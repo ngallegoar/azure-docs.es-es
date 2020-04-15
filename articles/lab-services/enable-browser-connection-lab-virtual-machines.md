@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2019
 ms.author: takamath
-ms.openlocfilehash: e2dd642139ae082cc0d0838e61399c549d2d812a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 074d512767769fe434cd4a6d4f4e8e6a88f7ed2a
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74970803"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80549114"
 ---
 # <a name="enable-browser-connection-on-lab-virtual-machines"></a>Habilitar una conexión del explorador en máquinas virtuales de laboratorio 
 DevTest Labs se integra con [Azure Bastion](https://docs.microsoft.com/azure/bastion/), lo que le permite conectarse a sus máquinas virtuales a través de un explorador. En primer lugar, hay que habilitar una conexión del explorador en las máquinas virtuales de laboratorio en cuestión.
 
-Como propietario de un laboratorio, puede habilitar el acceso a todas las máquinas virtuales de laboratorio a través de un explorador. No es necesario un cliente, agente o componente de software adicional. Azure Bastion proporciona una conexión RDP/SSH segura e ininterrumpida a las máquinas virtuales directamente en Azure Portal a través de SSL. Cuando se conecta a través de Azure Bastion, las máquinas virtuales no necesitan una dirección IP pública. Para más información, vea [¿Qué es Azure Bastion?](../bastion/bastion-overview.md)
+Como propietario de un laboratorio, puede habilitar el acceso a todas las máquinas virtuales de laboratorio a través de un explorador. No es necesario un cliente, agente o componente de software adicional. Azure Bastion proporciona una conexión RDP/SSH segura e ininterrumpida a las máquinas virtuales directamente en Azure Portal a través de TLS. Cuando se conecta a través de Azure Bastion, las máquinas virtuales no necesitan una dirección IP pública. Para más información, vea [¿Qué es Azure Bastion?](../bastion/bastion-overview.md)
 
 
 En este artículo se explica cómo habilitar una conexión del explorador en máquinas virtuales de laboratorio.

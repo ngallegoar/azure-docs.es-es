@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: mimckitt
-ms.openlocfilehash: b75b232c048a1ea49256b12ce1b65c4bd87a1cf0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7afba24d6334991a694d43b2258244ec425884d5
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79535449"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985514"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Uso de la extensión de script personalizado de Azure versión 2 con máquinas virtuales Linux
 La extensión de script personalizado versión 2 descarga y ejecuta scripts en máquinas virtuales de Azure. Esta extensión es útil para la configuración posterior a la implementación, la instalación de software o cualquier otra tarea de configuración o administración. Los scripts se pueden descargar desde Azure Storage u otra ubicación de Internet accesible, o se pueden proporcionar al tiempo de ejecución de la extensión. 
@@ -209,6 +209,8 @@ CustomScript usa el algoritmo siguiente para ejecutar un script.
  1. Ejecute el script con _/bin/sh -c /var/lib/waagent/custom-script/#/script.sh.
 
 ####  <a name="property-managedidentity"></a>Propiedad: managedIdentity
+> [!NOTE]
+> Esta propiedad **debe** especificarse solo en la configuración protegida.
 
 CustomScript (versión 2.1 en adelante) admite la [identidad administrada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) para descargar archivos de las direcciones URL proporcionadas en el valor "fileUris". Permite a CustomScript acceder a blobs o contenedores privados de Azure Storage sin que el usuario tenga que enviar secretos como tokens de SAS o claves de cuenta de almacenamiento.
 
@@ -446,7 +448,7 @@ Aquí puede ver:
 * El archivo de descarga de la extensión y el resultado.
 * El comando que se ejecuta y el resultado.
 
-El estado de ejecución de la extensión de script personalizado también se puede recuperar con la CLI de Azure:
+También puede recuperar el estado de ejecución de la extensión de script personalizado, incluidos los argumentos reales pasados como `commandToExecute` mediante la CLI de Azure:
 
 ```azurecli
 az vm extension list -g myResourceGroup --vm-name myVM
@@ -455,15 +457,45 @@ az vm extension list -g myResourceGroup --vm-name myVM
 La salida tendrá un aspecto similar al siguiente:
 
 ```output
-info:    Executing command vm extension get
-+ Looking up the VM "scripttst001"
-data:    Publisher                   Name                                      Version  State
-data:    --------------------------  ----------------------------------------  -------  ---------
-data:    Microsoft.Azure.Extensions  CustomScript                              2.0      Succeeded
-data:    Microsoft.OSTCExtensions    Microsoft.Insights.VMDiagnosticsSettings  2.3      Succeeded
-info:    vm extension get command OK
+[
+  {
+    "autoUpgradeMinorVersion": true,
+    "forceUpdateTag": null,
+    "id": "/subscriptions/subscriptionid/resourceGroups/rgname/providers/Microsoft.Compute/virtualMachines/vmname/extensions/customscript",
+    "resourceGroup": "rgname",
+    "settings": {
+      "commandToExecute": "sh script.sh > ",
+      "fileUris": [
+        "https://catalogartifact.azureedge.net/publicartifacts/scripts/script.sh",
+        "https://catalogartifact.azureedge.net/publicartifacts/scripts/script.sh"
+      ]
+    },
+    "tags": null,
+    "type": "Microsoft.Compute/virtualMachines/extensions",
+    "typeHandlerVersion": "2.0",
+    "virtualMachineExtensionType": "CustomScript"
+  },
+  {
+    "autoUpgradeMinorVersion": true,
+    "forceUpdateTag": null,
+    "id": "/subscriptions/subscriptionid/resourceGroups/rgname/providers/Microsoft.Compute/virtualMachines/vmname/extensions/OmsAgentForLinux",
+    "instanceView": null,
+    "location": "eastus",
+    "name": "OmsAgentForLinux",
+    "protectedSettings": null,
+    "provisioningState": "Succeeded",
+    "publisher": "Microsoft.EnterpriseCloud.Monitoring",
+    "resourceGroup": "rgname",
+    "settings": {
+      "workspaceId": "workspaceid"
+    },
+    "tags": null,
+    "type": "Microsoft.Compute/virtualMachines/extensions",
+    "typeHandlerVersion": "1.0",
+    "virtualMachineExtensionType": "OmsAgentForLinux"
+  }
+]
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para ver el código, los problemas actuales y las versiones, consulte el [repositorio Linux de extensiones de custom-script](https://github.com/Azure/custom-script-extension-linux).
-

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 02/17/2020
-ms.openlocfilehash: fe006cebe9aab30a6aaa0bdf2bf3362a494f64d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/06/2020
+ms.openlocfilehash: cc9d129894cefaf2fab853d2099d754d68238e5f
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77426282"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80887357"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Creación y uso de la replicación geográfica activa
 
@@ -101,7 +101,7 @@ Para lograr una verdadera continuidad empresarial, agregar redundancia de base d
 
 - **Conmutación por error y conmutación por recuperación controladas por el usuario**
 
-  La aplicación o el usuario puede cambiar explícitamente una base de datos secundaria al rol principal en cualquier momento. Durante una interrupción real, debe utilizarse la opción "no planeada", que promueve inmediatamente una base de datos secundaria a principal. Cuando la base de datos principal que generó el error se recupera y vuelve a estar disponible, el sistema la marca automáticamente como secundaria y la pone al día con la nueva base de datos principal. Por la naturaleza asincrónica de la replicación, se puede perder una pequeña cantidad de datos durante las conmutaciones por error no planeadas antes de que se repliquen los cambios más recientes a la base de datos secundaria. Cuando una base de datos principal con varias secundarias conmuta por error, el sistema vuelve a configurar automáticamente las relaciones de replicación y vincula las bases de datos secundarias restantes a la principal recién promovida sin necesidad de que intervenga el usuario. Una vez que se mitiga la interrupción que causó la conmutación por error, sería conveniente devolver la aplicación a la región primaria. Para hacer esto, se debe invocar el comando de conmutación por error con la opción "planeada".
+  La aplicación o el usuario puede cambiar explícitamente una base de datos secundaria al rol principal en cualquier momento. Durante una interrupción real, debe utilizarse la opción "no planeada", que promueve inmediatamente una base de datos secundaria para que sea la principal. Cuando la base de datos principal que generó el error se recupera y vuelve a estar disponible, el sistema la marca automáticamente como secundaria y la pone al día con la nueva base de datos principal. Por la naturaleza asincrónica de la replicación, se puede perder una pequeña cantidad de datos durante las conmutaciones por error no planeadas antes de que se repliquen los cambios más recientes a la base de datos secundaria. Cuando una base de datos principal con varias secundarias conmuta por error, el sistema vuelve a configurar automáticamente las relaciones de replicación y vincula las bases de datos secundarias restantes a la principal recién promovida sin necesidad de que intervenga el usuario. Una vez que se mitiga la interrupción que causó la conmutación por error, sería conveniente devolver la aplicación a la región primaria. Para ello, se debe invocar el comando de conmutación por error con la opción "planeada".
 
 ## <a name="preparing-secondary-database-for-failover"></a>Preparación de la base de datos secundaria para la conmutación por error
 
@@ -113,14 +113,16 @@ Para asegurarse de que la aplicación pueda acceder de inmediato a la nueva base
 
 ## <a name="configuring-secondary-database"></a>Configuración de una base de datos secundaria
 
-Es necesario que tanto la base de datos principal como las secundarias tengan el mismo nivel de servicio. También se recomienda que la base de datos secundaria se cree con el mismo tamaño de proceso (unidades de transacción de base de datos o núcleos virtuales) que la principal. Si la base de datos principal está experimentando una carga de trabajo de escritura intensiva, es posible que una base de datos secundaria con un tamaño de proceso menor no pueda mantenerse al día. Provocará el retardo de la fase de puesta al día en la base de datos secundaria y una posible falta de disponibilidad. Una base de datos secundaria que se queda retrasada respecto a la base de datos principal supone también un riesgo de perder grandes cantidades de datos en el caso de que fuese necesario realizar una conmutación por error. Para mitigar estos riesgos, una replicación geográfica activa eficaz limitará la velocidad de los registros de la base de datos principal para permitir que sus secundarias se pongan al día. La otra consecuencia de una configuración de base de datos secundaria no equilibrada es que después de la conmutación por error, el rendimiento de la aplicación se verá afectado debido a una capacidad de proceso insuficiente de la nueva base de datos principal. Será necesario actualizar a un proceso superior al nivel necesario, que no será posible hasta que se mitigue la interrupción. 
+Es necesario que tanto la base de datos principal como las secundarias tengan el mismo nivel de servicio. También se recomienda que la base de datos secundaria se cree con el mismo tamaño de proceso (unidades de transacción de base de datos o núcleos virtuales) que la principal. Si la base de datos principal está experimentando una carga de trabajo de escritura intensiva, es posible que una base de datos secundaria con un tamaño de proceso menor no pueda mantenerla. Provocará el retardo de la fase de puesta al día en la base de datos secundaria y una posible falta de disponibilidad. Para mitigar estos riesgos, una replicación geográfica activa limitará la velocidad de los registros de transacción de la base de datos principal si es necesario para permitir que sus secundarias se pongan al día. 
 
+Otra consecuencia de una configuración de base de datos secundaria no equilibrada es que después de la conmutación por error, el rendimiento de la aplicación puede verse afectado debido a una capacidad de proceso insuficiente de la nueva base de datos principal. En ese caso, se deberá escalar verticalmente el objetivo del servicio de base de datos al nivel necesario, lo que puede tardar mucho tiempo y requerir un volumen considerable de recursos de proceso, así como una conmutación por error de [alta disponibilidad](sql-database-high-availability.md) al final del proceso de escalado vertical.
 
-> [!IMPORTANT]
-> No se puede garantizar el RPO publicado de cinco segundos a menos que la base de datos secundaria esté configurada con el mismo tamaño de proceso que la principal. 
+Si decide crear la base de datos secundaria con un tamaño de proceso más bajo, el gráfico de porcentaje de E/S de registro en Azure Portal proporciona un buen método para estimar el tamaño de proceso mínimo de la base de datos secundaria que es necesario para mantener la carga de replicación. Por ejemplo, si la base de datos principal es P6 (1000 DTU) y su porcentaje de escritura de registro es 50 %, la base de datos secundaria debe ser al menos P4 (500 DTU). Para recuperar datos históricos de E/S del registro, use la vista [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database). Para recuperar los datos de escritura de registro recientes con una granularidad mayor que refleje mejor los picos a corto plazo en la velocidad de registro, utilice la vista [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database).
 
+La limitación de la velocidad del registro de transacciones en la base de datos principal debido a un tamaño de proceso inferior en una base de datos secundaria se envía mediante el tipo de espera HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO, visible en las vistas de bases de datos [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) y [sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql). 
 
-Si decide crear la base de datos secundaria con un tamaño de proceso más bajo, el gráfico de porcentaje de E/S de registro en Azure Portal proporciona un buen método para estimar el tamaño de proceso mínimo de la base de datos secundaria que es necesario para mantener la carga de replicación. Por ejemplo, si la base de datos principal es P6 (1000 DTU) y su porcentaje de E/S de registro es 50 %, la base de datos secundaria debe ser al menos P4 (500 DTU). También puede recuperar los datos de E/S de registro mediante las vistas de base de datos [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) o [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database).  La limitación se indica como un estado de espera HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO en las vistas de base de datos [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) y [sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql). 
+> [!NOTE]
+> La velocidad del registro de transacciones de la base de datos principal puede estar limitada por motivos no relacionados con el tamaño de proceso inferior de una base de datos secundaria. Este tipo de limitación puede producirse aunque la base de datos secundaria tenga el mismo tamaño de proceso que la principal o uno superior. Para obtener más información, incluidos los tipos de espera para diferentes tipos de limitaciones de velocidad de registro, vea [Gobernanza de la velocidad del registro de transacciones](sql-database-resource-limits-database-server.md#transaction-log-rate-governance).
 
 Para más información sobre los tamaños de proceso de SQL Database, consulte [¿Qué son los niveles de servicio de SQL Database?](sql-database-purchase-models.md)
 
@@ -146,7 +148,7 @@ El cliente que realiza los cambios necesita acceso de red al servidor principal.
 
    ```sql
    create user geodrsetup for login geodrsetup
-   alter role geodrsetup dbmanager add member geodrsetup
+   alter role dbmanager add member geodrsetup
    ```
 
 1. Anote el SID del nuevo inicio de sesión con esta consulta: 

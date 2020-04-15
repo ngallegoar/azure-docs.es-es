@@ -63,6 +63,8 @@
               href: add-users-administrator.md
             - name: Adición de usuarios de B2B por los trabajadores de la información
               href: add-users-information-worker.md
+            - name: Invitación a usuarios internos a B2B
+              href: invite-internal-users.md
             - name: Federación de Google
               href: google-federation.md
             - name: Autenticación con código de acceso de un solo uso

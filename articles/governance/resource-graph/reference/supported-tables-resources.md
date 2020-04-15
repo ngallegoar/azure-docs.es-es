@@ -1,14 +1,14 @@
 ---
 title: Tipos de recurso de Resource Manager compatibles
 description: Proporcione una lista de los tipos de recurso de Resource Manager compatibles con Azure Resource Graph y el Historial de cambios.
-ms.date: 03/09/2020
+ms.date: 04/06/2020
 ms.topic: reference
-ms.openlocfilehash: 9844b2fe7f1cbaf069789a4083229b4a6f37f38f
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 85cab92981568f5ea3770e1102c3480ae4f3e638
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78943980"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677049"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Referencia de tipo de recurso y tabla de Azure Resource Graph
 
@@ -188,6 +188,7 @@ Azure Resource Graph admite estos **tipos de recurso** de [Azure Resource Manage
 - microsoft.eventhub/clusters
 - microsoft.eventhub/namespaces
 - microsoft.experimentation/experimentworkspaces
+- microsoft.falcon/namespaces
 - microsoft.gaming/titles
 - microsoft.genomics/accounts
 - microsoft.guestconfiguration/automanagedaccounts
@@ -244,6 +245,7 @@ Azure Resource Graph admite estos **tipos de recurso** de [Azure Resource Manage
 - microsoft.managednetwork/managednetworks/managednetworkgroups
 - microsoft.managednetwork/managednetworks/managednetworkpeeringpolicies
 - microsoft.maps/accounts
+- microsoft.maps/accounts/privateatlases
 - microsoft.marketplaceapps/classicdevservices
 - microsoft.media/mediaservices
 - microsoft.media/mediaservices/liveevents
@@ -289,8 +291,10 @@ Azure Resource Graph admite estos **tipos de recurso** de [Azure Resource Manage
 - microsoft.network/networkexperimentprofiles
 - microsoft.network/networkintentpolicies
 - microsoft.network/networkinterfaces
+- microsoft.network/networkmanagers
 - microsoft.network/networkprofiles
 - microsoft.network/networksecuritygroups
+- microsoft.network/networkvirtualappliances
 - microsoft.network/networkwatchers
 - microsoft.network/networkwatchers/connectionmonitors
 - microsoft.network/networkwatchers/flowlogs
@@ -307,6 +311,7 @@ Azure Resource Graph admite estos **tipos de recurso** de [Azure Resource Manage
 - microsoft.network/routefilters
 - microsoft.network/routetables
 - microsoft.network/sampleresources
+- microsoft.network/securitypartnerproviders
 - microsoft.network/serviceendpointpolicies
 - microsoft.network/trafficmanagerprofiles
 - microsoft.network/virtualhubs
@@ -339,6 +344,7 @@ Azure Resource Graph admite estos **tipos de recurso** de [Azure Resource Manage
 - microsoft.projectarcadia/workspaces/sparkcomputes
 - microsoft.projectarcadia/workspaces/sqlcomputes
 - microsoft.projectbabylon/accounts
+- microsoft.quantum/workspaces
 - microsoft.recoveryservices/vaults
 - microsoft.redhatopenshift/openshiftclusters
 - microsoft.relay/namespaces
@@ -441,6 +447,9 @@ Azure Resource Graph admite estos **tipos de recurso** de [Azure Resource Manage
 - u2uconsult.theidentityhub/services
 - wandisco.fusion/fusiongroups
 - wandisco.fusion/fusiongroups/azurezones
+- wandisco.fusion/fusiongroups/azurezones/plugins
+- wandisco.fusion/fusiongroups/hivereplicationrules
+- wandisco.fusion/fusiongroups/managedonpremzones
 - wandisco.fusion/fusiongroups/onpremzones
 - wandisco.fusion/fusiongroups/replicationrules
 

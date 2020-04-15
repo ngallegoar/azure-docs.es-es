@@ -4,12 +4,12 @@ description: En este tutorial, aprenderá a implementar un clúster de Azure Ser
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 086379e788966b300f988e06ec42c94b880b8281
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2d170057a85a8e223fa9d1bc2bfc17e0c284afcd
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75551733"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756041"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>Tutorial: Implementación de un clúster de Service Fabric con Windows una red virtual de Azure
 
@@ -156,7 +156,7 @@ El archivo de parámetros [azuredeploy.parameters.json][parameters] permite decl
 ## <a name="set-up-azure-active-directory-client-authentication"></a>Configuración de la autenticación de cliente de Azure Active Directory
 Para los clústeres de Service Fabric implementados en una red pública hospedada en Azure, la recomendación para la autenticación mutua de cliente a nodo es:
 * Usar Azure Active Directory para la identidad del cliente.
-* Usar un certificado para la identidad del servidor y el cifrado SSL de la comunicación HTTP.
+* Usar un certificado para la identidad del servidor y el cifrado TLS de la comunicación HTTP.
 
 La configuración de Azure Active Directory (Azure AD) para autenticar a los clientes de un clúster de Service Fabric se debe realizar antes de [crear el clúster](#createvaultandcert). Azure AD permite a las organizaciones (conocidas como inquilinos) administrar el acceso de los usuarios a las aplicaciones. 
 

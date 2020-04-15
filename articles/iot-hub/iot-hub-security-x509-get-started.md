@@ -8,18 +8,18 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 968241eff1bcab449f9a4def7a394a508461ec95
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a22808b1d7ab2b2451f50470e8da3770d07407a5
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79233224"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985667"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Configuración de la seguridad de X.509 en Azure IoT Hub
 
 Este tutorial muestra los pasos necesarios para proteger Azure IoT Hub mediante la *autenticación de certificado X.509*. Con fines ilustrativos, usaremos la herramienta de código abierto OpenSSL para crear certificados localmente en una máquina Windows. Se recomienda usar este tutorial solo para la realización de pruebas. Para el entorno de producción debe comprar los certificados a una *entidad de certificación (CA) raíz*.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Este tutorial requiere que tenga listos los siguientes recursos:
 
@@ -38,6 +38,9 @@ Puede elegir cualquiera de los siguientes métodos para obtener los certificados
 * Crear sus propios certificados X.509 mediante una herramienta de terceros como [OpenSSL](https://www.openssl.org/). Esta técnica es apropiada tanto para pruebas como para desarrollo. Consulte [Managing test CA certificates for samples and tutorials](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) (Administración de certificados de entidad de certificación para ejemplos y tutoriales) para información sobre la generación de certificados de entidad de certificación mediante PowerShell o Bash. En el resto de este tutorial se usan certificados de entidad de certificación generados siguiendo las instrucciones de [Managing test CA certificates for samples and tutorials](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) (Administración de certificados de entidad de certificación de prueba para ejemplos y tutoriales).
 
 * Genere un [certificado de entidad de certificación intermedio X.509](iot-hub-x509ca-overview.md#sign-devices-into-the-certificate-chain-of-trust) firmado por un certificado de entidad de certificación raíz existente y cárguelo en el centro. Una vez que el certificado intermedio se haya cargado y comprobado, como se indica a continuación, se puede usar en lugar de un certificado de entidad de certificación raíz mencionado a continuación. Se pueden usar herramientas como OpenSSL ([openssl req](https://www.openssl.org/docs/man1.1.0/man1/req.html) y [openssl ca](https://www.openssl.org/docs/man1.1.0/man1/ca.html)) para generar y firmar un certificado de entidad de certificación intermedio.
+
+> [!NOTE]
+> No cargue la raíz de terceros si no es única, ya que eso permitiría a otros clientes de terceros conectar sus dispositivos a su IoT Hub.
 
 ## <a name="register-x509-ca-certificates-to-your-iot-hub"></a>Registro de certificados de entidad de certificación X.509 en una instancia de IoT Hub
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/20/2020
 author: LuisBosquez
 ms.author: lbosq
-ms.openlocfilehash: 5a3ec79b27231f781b5e4104922993de38c7fe4f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c683ec0c4b3a536b0627a7c1c8abf28ee4f83663
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80063674"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80757034"
 ---
 # <a name="use-mongodb-compass-to-connect-to-azure-cosmos-dbs-api-for-mongodb"></a>Uso de MongoDB Compass para conectarse a la API de Azure Cosmos DB para MongoDB
 
@@ -22,10 +22,13 @@ Cosmos DB es el servicio de base de datos de varios modelos de distribución glo
 
 ## <a name="pre-requisites"></a>Requisitos previos
 
-Para conectar a una cuenta de Cosmos DB con Robo 3T, debe:
+Para conectarse a la cuenta de Cosmos DB con MongoDB Compass, debe:
 
 * Descargar e instalar [Compass](https://www.mongodb.com/download-center/compass?jmp=hero)
 * Tener información de la [cadena de conexión](connect-mongodb-account.md) de Cosmos DB
+
+> [!NOTE]
+> Actualmente, la versión 3.2 de la API para MongoDB Server de Azure Cosmos DB es compatible con MongoDB Compass.
 
 ## <a name="connect-to-cosmos-dbs-api-for-mongodb"></a>Conexión de la API de Cosmos DB para MongoDB
 

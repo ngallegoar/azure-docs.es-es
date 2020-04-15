@@ -3,16 +3,16 @@ title: Restricciones de nomenclatura de recursos
 description: Muestra las reglas y las restricciones de nomenclatura de recursos de Azure.
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.openlocfilehash: 580b7efd26d5729baf236b59452f63483c003e44
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: f6203f987654b33b32da72bfec030a9d0ab69df8
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80366219"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80981535"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Reglas y restricciones de nomenclatura para los recursos de Azure
 
-En este artículo se resumen las reglas y las restricciones de nomenclatura de los recursos de Azure. Para obtener recomendaciones sobre cómo asignar nombre a los recursos, consulte [Prepárese: Convenciones recomendadas de nomenclatura y etiquetado](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
+En este artículo se resumen las reglas y las restricciones de nomenclatura de los recursos de Azure. Para obtener recomendaciones sobre cómo asignar nombres a los recursos, vea [Convenciones de nomenclatura y etiquetado recomendados](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
 
 Los nombres de los recursos no distinguen mayúsculas de minúsculas, a menos que se indique específicamente en la columna de caracteres válidos.
 

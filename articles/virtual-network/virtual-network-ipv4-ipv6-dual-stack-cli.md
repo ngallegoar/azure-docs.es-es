@@ -11,23 +11,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/17/2019
+ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: b2dfdbafe0e72e550e44ef12fd53903d947ab3c2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 396c37d4c8de6a890102e435c5ec6cc70b598638
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75368327"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421016"
 ---
-# <a name="deploy-an-ipv6-dual-stack-application-using-basic-load-balancer---cli-preview"></a>Implementación de una aplicación de pila doble IPv6 con Basic Load Balancer: CLI (versión preliminar)
+# <a name="deploy-an-ipv6-dual-stack-application-using-basic-load-balancer---cli"></a>Implementación de una aplicación de pila doble IPv6 con Basic Load Balancer: CLI
 
 En este artículo se explica cómo se implementa una aplicación de pila doble (IPv4 + IPv6) con Basic Load Balancer mediante la CLI de Azure que contiene una red virtual de pila doble y una subred de pila doble, una instancia de Standard Load Balancer con configuraciones de front-end duales (IPv4 + IPv6), VM con NIC que tienen una configuración de IP dual, reglas de grupo de seguridad de red dual e IP públicas duales.
 
 Para implementar una aplicación de pila dual (IPv4 + IPv6) con Standard Load Balancer, consulte [Implementación de una aplicación de pila doble IPv6 con Standard Load Balancer con la CLI de Azure](virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md).
 
-> [!Important]
-> La pila doble IPv6 para Azure Virtual Network se encuentra actualmente en versión preliminar pública. Esta versión preliminar se ofrece sin contrato de nivel de servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) ahora.
 
@@ -35,24 +33,6 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Si, en su lugar, decide instalar y usar la CLI de Azure en un entorno local, para esta guía de inicio rápido se necesita la versión 2.0.49 de la CLI de Azure o una versión posterior. Ejecute `az --version` para buscar la versión instalada. Consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli) para obtener información sobre la instalación o actualización.
 
-## <a name="prerequisites"></a>Prerequisites
-Para usar IPv6 para la característica Azure Virtual Network, debe configurar la suscripción mediante la CLI de Azure como se indica a continuación:
-
-```azurecli
-az feature register --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
-az feature register --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
-```
-Se tarda hasta 30 minutos en completar el registro de características. Puede comprobar el estado del registro ejecutando el siguiente comando de la CLI de Azure:
-
-```azurelci
-az feature show --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
-az feature show --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
-```
-Una vez completado el registro, ejecute el siguiente comando:
-
-```azurelci
-az provider register --namespace Microsoft.Network
-```
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
 Para poder generar la red virtual de doble pila, debe crear primero un grupo de recursos con [az group create](/cli/azure/group). En el ejemplo siguiente, se crea un grupo de recursos denominado *DsResourceGroup01* en la ubicación *eastus*:
@@ -151,12 +131,14 @@ az network lb address-pool create \
 --name dsLbBackEndPool_v6  \
 --resource-group DsResourceGroup01
 ```
+
 ### <a name="create-a-health-probe"></a>Creación de un sondeo de estado
 Cree un sondeo de estado con [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest) para supervisar el estado de las máquinas virtuales. 
 
 ```azurecli
 az network lb probe create -g DsResourceGroup01  --lb-name dsLB -n dsProbe --protocol tcp --port 3389
 ```
+
 ### <a name="create-a-load-balancer-rule"></a>Creación de una regla de equilibrador de carga
 
 Las reglas de equilibrador de carga se utilizan para definir cómo se distribuye el tráfico a las máquinas virtuales. Defina la configuración de la IP de front-end para el tráfico entrante y el grupo de IP de back-end para el tráfico entrante, junto con los puertos de origen y destino requeridos. 
@@ -300,7 +282,7 @@ az network vnet subnet create \
 ### <a name="create-nics"></a>Creación de tarjetas NIC
 
 Cree NIC virtuales para cada VM con [az network nic create](https://docs.microsoft.com/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-create). El ejemplo siguiente crea una NIC virtual para cada VM. Cada NIC tiene dos configuraciones IP (una configuración IPv4 y una configuración IPv6). Debe crear la configuración IPV6 con [az network nic ip-config create](https://docs.microsoft.com/cli/azure/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-create).
- 
+
 ```azurecli
 # Create NICs
 az network nic create \
@@ -363,6 +345,7 @@ Cree la máquina virtual *dsVM0* de la siguiente manera:
 --availability-set dsAVset \
 --image MicrosoftWindowsServer:WindowsServer:2019-Datacenter:latest  
 ```
+
 Cree la máquina virtual *dsVM1* de la siguiente manera:
 
 ```azurecli
@@ -382,8 +365,6 @@ Para ver la red virtual de doble pila IPv6 en Azure Portal, siga estos pasos:
 
   ![Red virtual de doble pila IPv6 de Azure](./media/virtual-network-ipv4-ipv6-dual-stack-powershell/dual-stack-vnet.png)
 
-> [!NOTE]
-> En esta versión preliminar, la dirección IPv6 de la red virtual de Azure está disponible en Azure Portal en modo de solo lectura.
 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos

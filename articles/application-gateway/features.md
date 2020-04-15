@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 03/04/2020
+ms.date: 04/07/2020
 ms.author: victorh
-ms.openlocfilehash: 550d9f4f5396b2165260e39cd28222b083dd6756
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f021eed959ef88a1ef3671e1d0ace8080710c92a
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79235936"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80810234"
 ---
 # <a name="azure-application-gateway-features"></a>Características de Azure Application Gateway
 
@@ -161,6 +161,10 @@ En la tabla siguiente se muestra un promedio del rendimiento para cada instancia
 
 > [!NOTE]
 > Se trata de valores aproximados para un rendimiento de puerta de enlace de aplicaciones. El rendimiento real depende de varios detalles del entorno, como el tamaño medio de página, la ubicación de las instancias de back-end y el tiempo de procesamiento para proporcionar una página. Para los números de rendimiento exactos, debe ejecutar sus propias pruebas. Estos valores solo se proporcionan para obtener instrucciones de planeamiento de capacidad.
+
+## <a name="version-feature-comparison"></a>Comparación de las características de las versiones
+
+Para una comparación de las características de la versión 1 y de la versión 2 de Application Gateway, consulte [Escalabilidad automática y Application Gateway con redundancia de zona v2](application-gateway-autoscaling-zone-redundant.md#feature-comparison-between-v1-sku-and-v2-sku)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

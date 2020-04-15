@@ -3,12 +3,12 @@ title: Ejemplo de plano técnico para cargas de trabajo de ASE y SQL compatibles
 description: Introducción y arquitectura del ejemplo de plano técnico para cargas de trabajo de App Service Environment y SQL Database compatibles con ISO 27001.
 ms.date: 01/13/2020
 ms.topic: sample
-ms.openlocfilehash: d77029b93b1e77bdba85c5dd5608cbdc5d6543a5
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 9957ab1bef5b65fc90b5a357bd56d6f0013ea690
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "75920774"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81381744"
 ---
 # <a name="overview-of-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Introducción a un ejemplo de plano técnico para cargas de trabajo de App Service Environment y SQL Database compatibles con ISO 27001
 
@@ -24,7 +24,7 @@ Hay dos ejemplos de planos técnicos para la norma ISO 27001: este y el ejemplo 
 
 El ejemplo de plano técnico para cargas de trabajo de App Service Environment y SQL Database compatibles con ISO 27001 implementa un entorno web basado en una plataforma como servicio. El entorno se puede emplear para hospedar varias aplicaciones web, API web e instancias de SQL Database conforme a los estándares de la norma ISO 27001. Este ejemplo de plano técnico se basa en el de los [servicios compartidos de la norma ISO 27001](../iso27001-shared/index.md).
 
-![Diseño de ejemplo del plano técnico para cargas de trabajo de ASE y SQL compatibles con ISO 27001](../../media/sample-iso27001-ase-sql-workload/iso27001-ase-sql-workload-blueprint-sample-design.png)
+:::image type="content" source="../../media/sample-iso27001-ase-sql-workload/iso27001-ase-sql-workload-blueprint-sample-design.png" alt-text="Diseño de ejemplo del plano técnico para cargas de trabajo de ASE y SQL compatibles con ISO 27001" border="false":::
 
 Este entorno se compone de varios servicios de Azure que se usan para proporcionar una infraestructura de cargas de trabajo segura, totalmente supervisada y preparada para la empresa, que se basa en los estándares de la norma ISO 27001. Este entorno se compone de:
 

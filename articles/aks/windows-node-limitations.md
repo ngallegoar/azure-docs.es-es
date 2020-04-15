@@ -1,15 +1,16 @@
 ---
-title: Limitaciones de los grupos de nodos de Windows Server en Azure Kubernetes Service (AKS)
+title: Limitaciones para los grupos de nodos de Windows Server
+titleSuffix: Azure Kubernetes Service
 description: Obtenga información sobre las limitaciones conocidas al ejecutar cargas de trabajo de aplicaciones y grupos de nodos de Windows Server en Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 12/18/2019
-ms.openlocfilehash: f4e9f63d0da1797b92c123034e6775f5b07bd4b3
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: 934acf06a779c1c3b0b13e74b196b174dd944e66
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80366405"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886677"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Limitaciones actuales para las cargas de trabajo de aplicaciones y los grupos de nodos de Windows Server en Azure Kubernetes Service (AKS)
 

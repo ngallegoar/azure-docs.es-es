@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 2293618b0685fe71ae553a95797fe8bfe1fe968c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 496ee1bc97f6b72e09a62ae3491af7ccc7328583
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75749939"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811078"
 ---
 # <a name="azure-network-security-overview"></a>Introducción a Azure Network Security
 
@@ -160,7 +160,7 @@ También es posible que quiera que determinados desarrolladores o miembros del p
 
 La conexión VPN de punto a sitio le permite configurar una conexión privada y segura entre el usuario y la red virtual. Cuando se establece la conexión VPN, el usuario puede aplicar el protocolo de RDP o SSH a través del vínculo VPN en cualquier máquina virtual de la red virtual. (Se presupone que el usuario puede autenticarse y que está autorizado). VPN de punto a sitio admite:
 
-* El protocolo de túnel de sockets seguro (SSTP), que es un protocolo VPN propio basado en SSL. Una solución de VPN basada en SSL puede penetrar firewalls, puesto que la mayoría de ellos abre el puerto TCP 443, que utiliza SSL. El protocolo SSTP solo se admite en dispositivos Windows. Azure es compatible con todas las versiones de Windows que tienen SSTP (Windows 7 y versiones posteriores).
+* El protocolo de túnel de sockets seguro (SSTP), que es un protocolo VPN propio basado en SSL. Una solución de VPN basada en SSL puede penetrar firewalls, puesto que la mayoría de ellos abre el puerto TCP 443, que utiliza TLS/SSL. El protocolo SSTP solo se admite en dispositivos Windows. Azure es compatible con todas las versiones de Windows que tienen SSTP (Windows 7 y versiones posteriores).
 
 * La conexión VPN IKEv2, una solución de VPN con protocolo de seguridad de Internet basada en estándares. La conexión VPN IKEv2 puede utilizarse para la conexión desde dispositivos Mac (versión de OSX 10.11 y versiones posteriores).
 
@@ -232,7 +232,7 @@ Las organizaciones que ejecutan servicios basados en web, a menudo necesitan ten
 Azure Application Gateway se encarga de proporcionar equilibrio de carga basado en HTTP a los servicios basados en la web. Application Gateway admite:
 
 * Afinidad de sesión basada en cookies. Esta funcionalidad garantiza que las conexiones establecidas con uno de los servidores detrás del equilibrador de carga permanezcan intactas entre el cliente y el servidor. Gracias a ello, las transacciones permanecen estables.
-* Descarga de SSL. Cuando un cliente se conecta con el equilibrador de carga, dicha sesión se cifra mediante el protocolo HTTPS (SSL). Sin embargo, para aumentar el rendimiento, tiene la opción de usar el protocolo HTTP para realizar una conexión entre el equilibrador de carga y el servidor web que está detrás de ese equilibrador de carga. Esto se conoce como "descarga de SSL" porque los servidores web que hay detrás del equilibrador de carga no experimentan la sobrecarga del procesador implicada en el cifrado. Por lo tanto, deberían poder atender las solicitudes con mayor rapidez.
+* Descarga TLS. Cuando un cliente se conecta con el equilibrador de carga, dicha sesión se cifra mediante el protocolo HTTPS (TLS). Sin embargo, para aumentar el rendimiento, tiene la opción de usar el protocolo HTTP para realizar una conexión entre el equilibrador de carga y el servidor web que está detrás de ese equilibrador de carga. Esto se conoce como "descarga TLS" porque los servidores web que hay detrás del equilibrador de carga no experimentan la sobrecarga del procesador implicada en el cifrado. Por lo tanto, deberían poder atender las solicitudes con mayor rapidez.
 * Enrutamiento de contenido basado en direcciones URL. Esta característica hace posible que el equilibrador de carga tome decisiones sobre dónde reenviar las conexiones en función de la dirección URL de destino. Este método proporciona mucha más flexibilidad que las soluciones que toman decisiones sobre el equilibrio de carga según las direcciones IP.
 
 Más información:
@@ -336,7 +336,7 @@ Más información:
 
 ## <a name="azure-front-door"></a>Azure Front Door
 
-Azure Front Door Service le permite definir, administrar y supervisar el enrutamiento global del tráfico web. Optimiza el enrutamiento del tráfico para obtener un mejor rendimiento y alta disponibilidad. Azure Front Door permite crear reglas de firewall de aplicaciones web (WAF) personalizadas para el control de acceso con el fin de proteger la carga de trabajo HTTP/HTTPS frente a técnicas de explotación basadas en direcciones IP de cliente, código de país y parámetros HTTP. Además, Front Door también le permite crear reglas de limitación de velocidad para enfrentar el tráfico de bots malintencionados, lo que incluye la descarga SSL y el procesamiento de niveles de aplicación por solicitud HTTP/HTTPS.
+Azure Front Door Service le permite definir, administrar y supervisar el enrutamiento global del tráfico web. Optimiza el enrutamiento del tráfico para obtener un mejor rendimiento y alta disponibilidad. Azure Front Door permite crear reglas de firewall de aplicaciones web (WAF) personalizadas para el control de acceso con el fin de proteger la carga de trabajo HTTP/HTTPS frente a técnicas de explotación basadas en direcciones IP de cliente, código de país y parámetros HTTP. Además, Front Door también le permite crear reglas de limitación de velocidad para enfrentar el tráfico de bots malintencionados, lo que incluye la descarga TLS y el procesamiento de niveles de aplicación por solicitud HTTP/HTTPS.
 
 La plataforma misma de Front Door está protegida con el nivel básico de Azure DDoS Protection. Para lograr una mayor protección, se puede habilitar Azure DDoS Protection estándar en las redes virtuales y proteger los recursos contra ataques de nivel de red (TCP/UDP) a través de la optimización automática y la mitigación. Front Door es un proxy inverso de nivel 7, solo permite que el tráfico web pase a los servidores back-end y bloquea otros tipos de tráfico de forma predeterminada.
 

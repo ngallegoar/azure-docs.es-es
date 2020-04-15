@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1046c11e064e69ed0ddb18c77bf5935ba60fb5aa
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: d3d2117e913f292e92f37f31d2e123587c70a189
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77461290"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80803304"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy"></a>Inicio de sesión único de SAML para aplicaciones en el entorno local con Application Proxy
 
@@ -58,7 +58,7 @@ Los diagramas de protocolos siguientes describen la secuencia de inicio de sesi�
 
 Para proporcionar SSO para aplicaciones en el entorno local, tiene que habilitar Application Proxy e instalar un conector. Consulte el tutorial [Adición de una aplicación local para el acceso remoto mediante Application Proxy en Azure Active Directory](application-proxy-add-on-premises-application.md) para más información sobre cómo preparar el entorno local, instalar y registrar un conector, y probarlo. A continuación, siga estos pasos para publicar la nueva aplicación con Application Proxy. Para otras opciones de configuración que no se mencionan a continuación, consulte la sección [Adición de una aplicación local a Azure AD](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad) del tutorial.
 
-1. Con la aplicación todavía abierta en Azure Portal, seleccione **Application Proxy**. Proporcione la **dirección URL interna** para la aplicación. Si utiliza un dominio personalizado, también debe cargar el certificado SSL para la aplicación. 
+1. Con la aplicación todavía abierta en Azure Portal, seleccione **Application Proxy**. Proporcione la **dirección URL interna** para la aplicación. Si utiliza un dominio personalizado, también debe cargar el certificado TLS/SSL para la aplicación. 
    > [!NOTE]
    > Como procedimiento recomendado, use dominios personalizados siempre que sea posible para obtener la mejor experiencia de usuario. Más información acerca del [Uso de dominios personalizados en Azure AD Application Proxy](application-proxy-configure-custom-domain.md).
 
@@ -74,14 +74,14 @@ Para proporcionar SSO para aplicaciones en el entorno local, tiene que habilitar
 
 2. En la página **Configurar el inicio de sesión único con SAML**, vaya al encabezado **Configuración básica de SAML** y seleccione el icono de **edición** (un lápiz). Asegúrese de que la **dirección URL externa** que configuró en Application Proxy rellenará los campos **Identificador**, **URL de respuesta** y **URL de cierre de sesión**. Estas direcciones URL son necesarias para que Application Proxy funcione correctamente. 
 
-3. Edite la **URL de respuesta** configurada anteriormente para que Application Proxy pueda acceder a su dominio. Por ejemplo, si la **dirección URL externa** es `https://contosotravel-f128.msappproxy.net` y la **URL de respuesta** original era `https://contosotravel.com/acs`, deberá actualizar la **URL de respuesta** original a `https://contosotravel-f128.msappproxy.net/acs`. 
+3. Edite la **Dirección URL de respuesta** configurada anteriormente para que Application Proxy pueda acceder a su dominio a través de Internet. Por ejemplo, si la **dirección URL externa** es `https://contosotravel-f128.msappproxy.net` y la **URL de respuesta** original era `https://contosotravel.com/acs`, deberá actualizar la **URL de respuesta** original a `https://contosotravel-f128.msappproxy.net/acs`.
 
     ![Especificación de la configuración básica de SAML](./media/application-proxy-configure-single-sign-on-on-premises-apps/basic-saml-configuration.png)
 
 
 4. Seleccione la casilla situada junto a la **URL de respuesta** actualizada para marcarla como predeterminada.
 
-   * Si la **URL de respuesta** necesaria ya aparece en la lista, marque esta **URL de respuesta** como predeterminada y elimine la que configuró anteriormente.
+   * Después de marcar la **Dirección URL de respuesta** como el valor predeterminado, también puede eliminar la **Dirección URL de respuesta** configurada anteriormente que usó la dirección URL interna.
 
    * Con un flujo iniciado por el proveedor de servicios, asegúrese de que la aplicación de back-end especifica el valor de **URL de respuesta** correcto o la URL del Servicio de consumidor de aserciones que se utilizará para recibir el token de autenticación.
 

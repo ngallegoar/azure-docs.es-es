@@ -5,13 +5,13 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/05/2019
-ms.openlocfilehash: 5681efc202df511745532e4a314e88b319e9880a
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.date: 04/03/2020
+ms.openlocfilehash: 343e94fe681d398b695e0e24c22544bca470d75a
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623403"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80652181"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Cuotas de servicio de Azure Cosmos DB
 
@@ -70,7 +70,7 @@ Puede [aprovisionar y administrar su cuenta de Azure Cosmos](how-to-manage-datab
 > [!NOTE]
 > Las conmutaciones por error regionales solo se aplican a las cuentas de escritura de una sola región. Las cuentas de escritura de varias regiones no requieren ni tienen ningún límite para el cambio de la región de escritura.
 
-Cosmos DB crea automáticamente copias de seguridad de los datos a intervalos regulares. Para obtener más información sobre los intervalos y las ventanas de retención de copias de seguridad, consulte [Copias de seguridad en línea y restauración de datos a petición en Azure Cosmos DB](online-backup-and-restore.md).
+Cosmos DB crea automáticamente copias de seguridad de los datos a intervalos regulares. Para obtener más información sobre los intervalos y las ventanas de retención de copias de seguridad, consulte [Copias de seguridad en línea y restauración de datos a petición en Azure Cosmos DB](../synapse-analytics/sql-data-warehouse/backup-and-restore.md).
 
 ## <a name="per-account-limits"></a>Límites por cuenta
 
@@ -148,15 +148,15 @@ Cosmos DB admite la consulta de elementos mediante [SQL](how-to-sql-query.md). E
 
 | Resource | Límite predeterminado |
 | --- | --- |
-| Longitud máxima de la consulta SQL| 256 KB <sup>*</sup>|
+| Longitud máxima de la consulta SQL| 256 KB |
 | Número máximo de cláusulas JOIN por consulta| 5 <sup>*</sup>|
-| Número máximo de operadores AND por consulta| 2000 <sup>*</sup>|
-| Número máximo de operadores OR por consulta| 2000 <sup>*</sup>|
 | Número máximo de UDF por consulta| 10 <sup>*</sup>|
-| Número máximo de argumentos por expresión IN| 6000 <sup>*</sup>|
-| Número máximo de puntos por polígono| 4096 <sup>*</sup>|
+| Número máximo de puntos por polígono| 4096 |
+| Número máximo de rutas de acceso incluidas por contenedor| 500 |
+| Número máximo de rutas de acceso excluidas por contenedor| 500 |
+| Propiedades máximas de un índice compuesto| 8 |
 
-<sup>*</sup> Para aumentar cualquiera de estos límites de consulta SQL, puede ponerse en contacto con el equipo de soporte técnico de Azure.
+<sup>*</sup> Para aumentar estos límites de consulta SQL, puede ponerse en contacto con el equipo de soporte técnico de Azure.
 
 ## <a name="mongodb-api-specific-limits"></a>Límites específicos de la API de MongoDB
 
@@ -166,8 +166,11 @@ En la tabla siguiente se enumeran los límites específicos a la compatibilidad 
 
 | Resource | Límite predeterminado |
 | --- | --- |
-| Tamaño máximo de la memoria de consulta de MongoDB | 40 MB |
+| Tamaño máximo de la memoria de consulta de MongoDB (esta limitación es solo para la versión de servidor 3.2) | 40 MB |
 | Tiempo de ejecución máximo para las operaciones de MongoDB| 30 s |
+| Tiempo de espera de conexión inactiva para el cierre de la conexión del lado servidor* | 30 minutos |
+
+\* Se recomienda que las aplicaciones cliente establezcan el tiempo de espera de conexión inactiva en la configuración del controlador en 2-3 minutos, ya que el [tiempo de espera predeterminado de Azure LoadBalancer es de 4 minutos](../load-balancer/load-balancer-tcp-idle-timeout.md#tcp-idle-timeout).  Este tiempo de espera garantiza que un equilibrador de carga intermedio entre la máquina cliente y Azure Cosmos DB no cierre las conexiones inactivas.
 
 ## <a name="try-cosmos-db-free-limits"></a>Pruebe los límites gratuitos de Cosmos DB
 
@@ -183,6 +186,20 @@ En la tabla siguiente se enumeran los límites de la prueba de encontrará en [P
 | Almacenamiento total máximo por cuenta | 10 GB |
 
 La Prueba de Cosmos DB admite la distribución global solo en las regiones de Centro de EE. UU., el Norte de Europa y el Sudeste de Asia. No se pueden crear incidencias de soporte técnico de Azure para las cuentas de prueba de Azure Cosmos DB. Sin embargo, se ofrece soporte técnico para aquellos suscriptores que cuenten con planes de soporte técnico existentes.
+
+## <a name="free-tier-account-limits"></a>Límites de cuenta de nivel Gratis
+En la tabla siguiente se enumeran los límites de las [cuentas de nivel Gratis de Azure Cosmos DB](optimize-dev-test.md#azure-cosmos-db-free-tier).
+
+| Resource | Límite predeterminado |
+| --- | --- |
+| Número de cuentas de nivel Gratis por suscripción de Azure | 1 |
+| Duración del descuento por nivel Gratis | Vigencia de la cuenta. Debe participar durante la creación de la cuenta. |
+| Número máximo de RU/s gratis | 400 RU/s |
+| Almacenamiento máximo gratis | 5 GB |
+| Número máximo de bases de datos de rendimiento compartido | 5 |
+| Número máximo de contenedores en una base de datos de rendimiento compartido | 25 <br>En las cuentas de nivel Gratis, el número mínimo de RU/s para una base de datos de rendimiento compartido con un máximo de 25 contenedores es 400 RU/s. |
+
+  Además de lo anterior, los [límites por cuenta](#per-account-limits) también se aplican a las cuentas de nivel Gratis.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

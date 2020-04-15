@@ -5,16 +5,19 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/24/2019
+ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: b69ef8aa57393c5be8d23aaf4af1821697295235
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f4fb5fba78cdea7996d006d34b2f07f3ac5e58fa
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281687"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80981297"
 ---
 # <a name="power-bi-app-storefront-details-tab"></a>Pestaña Detalles del escaparate electrónico de aplicación de Power BI
+
+>[!Important]
+>A partir del 13 de abril de 2020, se comenzará a trasladar la administración de las ofertas de aplicaciones de Power BI al Centro de partners. Después de la migración, creará y administrará sus ofertas en el Centro de partners. Siga las instrucciones que se indican en [Información general sobre la creación de aplicaciones de Power BI](https://aka.ms/AzureCreatePBIServiceApp) para administrar las ofertas migradas.
 
 En la página **Nueva oferta**, use la pestaña **Detalles del escaparate electrónico** para proporcionar información de ventas, marketing y legal a sus clientes potenciales. En esta pestaña también puede configurar la administración de clientes potenciales que genera Azure Marketplace. Este largo formulario se divide en seis secciones: **Detalles de la oferta**, **Detalles del anuncio**, **Artefactos de marketing**, **Legal**, **Asistencia al cliente** y **Administración de clientes potenciales**.  Un asterisco (*) al final de la etiqueta de un campo indica que el campo es obligatorio.
 

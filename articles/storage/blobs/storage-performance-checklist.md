@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: e4103f8360f6fa80470b0f8002a61f8ac903bd8b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b94725d4d3eb9fd6f13a39d00486b4ab085b9ef9
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79228380"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80473939"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Lista de comprobación de escalabilidad y rendimiento para Blob Storage
 
@@ -246,7 +246,7 @@ La utilidad de línea de comandos AzCopy es una opción sencilla y eficaz para l
 
 ### <a name="use-azure-data-box"></a>Uso de Azure Data Box
 
-Para importar grandes volúmenes de datos en Blob Storage, tiene la opción de usar la familia Azure Data Box para las transferencias sin conexión. Los dispositivos Data Box que proporciona Microsoft son una buena opción para mover grandes cantidades de datos a Azure cuando se carezca del tiempo, la disponibilidad de red o los costos suficientes. Para más información, consulte la [documentación de Azure Data Box](/azure/databox/).
+Para importar grandes volúmenes de datos en Blob Storage, tiene la opción de usar la familia Azure Data Box para las transferencias sin conexión. Los dispositivos Data Box que proporciona Microsoft son una buena opción para mover grandes cantidades de datos a Azure cuando existan limitaciones de tiempo, disponibilidad de la red o costos. Para más información, consulte la [documentación de Azure Data Box](/azure/databox/).
 
 ## <a name="content-distribution"></a>Distribución de contenido
 
@@ -267,7 +267,7 @@ Para cargar blobs rápidamente, determine primero si va a cargar un blob o vario
 Para cargar un solo blob grande rápidamente, la aplicación cliente puede cargar sus bloques o páginas en paralelo, teniendo en cuenta los objetivos de escalabilidad de blobs individuales y la cuenta de almacenamiento como un todo. Las bibliotecas cliente de Azure Storage admiten la carga en paralelo. Por ejemplo, puede usar las siguientes propiedades para especificar el número de solicitudes simultáneas permitidas en .NET o Java. Las bibliotecas cliente de otros idiomas admitidos proporcionan opciones similares.
 
 - En .NET, establezca la propiedad [BlobRequestOptions.ParallelOperationThreadCount](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.paralleloperationthreadcount).
-- En Java/Android, llame al método [BlobRequestOptions.setConcurrentRequestCount(final Integer concurrentRequestCount)](/java/api/com.microsoft.azure.storage.blob._blob_request_options.setconcurrentrequestcount).
+- En Java/Android, llame al método [BlobRequestOptions.setConcurrentRequestCount(final Integer concurrentRequestCount)](/java/api/com.microsoft.azure.storage.blob.blobrequestoptions.setconcurrentrequestcount).
 
 ### <a name="upload-many-blobs-quickly"></a>Carga rápida de muchos blobs
 

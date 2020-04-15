@@ -11,12 +11,12 @@ author: memildin
 manager: rkarlin
 ms.reviewer: vanto
 ms.date: 03/31/2019
-ms.openlocfilehash: 1f0e6694e596dc60264dfe0789a2f80090e0da3d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: aed0bcb79dedf057c5943cea9f4b4399b2f630cb
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79232596"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677469"
 ---
 # <a name="advanced-data-security-for-azure-sql-database"></a>Advanced Data Security para Azure SQL Database
 
@@ -26,8 +26,8 @@ Advanced Data Security es un paquete unificado de funcionalidades avanzadas de s
 
 Advanced Data Security (ADS) proporciona un conjunto de funcionalidades avanzadas de seguridad de SQL, entre las que se incluyen Clasificación y detección de datos, Evaluación de vulnerabilidades y Advanced Threat Protection.
 
-- La [clasificación y detección de datos](sql-database-data-discovery-and-classification.md) proporciona funcionalidades integradas en Azure SQL Database para detectar, clasificar, etiquetar y proteger la información confidencial de las bases de datos. Se puede utilizar para proporcionar visibilidad del estado de clasificación de una base de datos y para realizar un seguimiento del acceso a información confidencial dentro de la base de datos y más allá de sus límites.
-- [Evaluación de vulnerabilidades](sql-vulnerability-assessment.md) es un servicio fácil de configurar que puede detectar, realizar un seguimiento y ayudarle a corregir posibles puntos vulnerables de una base de datos. Permite ver el estado de la seguridad e incluye los pasos necesarios para resolver problemas de seguridad y mejorar las defensas de cualquier base de datos.
+- La [clasificación y detección de datos](sql-database-data-discovery-and-classification.md) proporciona funcionalidades integradas en Azure SQL Database para detectar, clasificar, etiquetar y notificar la información confidencial de las bases de datos. Se puede utilizar para proporcionar visibilidad del estado de clasificación de una base de datos y para realizar un seguimiento del acceso a información confidencial dentro de la base de datos y más allá de sus límites.
+- [Evaluación de vulnerabilidad](sql-vulnerability-assessment.md) es un servicio fácil de configurar que puede detectar, realizar un seguimiento y ayudarle a corregir posibles puntos vulnerables de una base de datos. Permite ver el estado de la seguridad e incluye los pasos necesarios para resolver problemas de seguridad y mejorar las defensas de cualquier base de datos.
 - [Advanced Threat Protection](sql-database-threat-detection-overview.md) permite detectar actividades anómalas que indica intentos poco habituales y posiblemente dañinos de acceder a sus bases de datos o aprovecharse de ellas. Supervisa constantemente una base de datos para detectar actividades sospechosas y proporciona de forma inmediata alertas de seguridad de posibles puntos vulnerables, ataques por inyección de código SQL y patrones anómalos de acceso a las bases de datos. Las alertas de Advanced Threat Protection proporcionan detalles de la actividad sospechosa y recomiendan acciones para investigar y mitigar la amenaza.
 
 Habilite ADS de SQL una vez para habilitar todas estas características incluidas. Con un solo clic, puede habilitar ADS para todas las bases de datos en el servidor de SQL Database o la instancia administrada. La habilitación o administración de la configuración de ADS requiere la pertenencia a uno de los siguientes roles: [administrador de seguridad SQL](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager), administrador de base de datos SQL o administrador de SQL Server. 
@@ -74,7 +74,7 @@ También se puede acceder a la configuración de Advanced Data Security para el 
 
 ## <a name="next-steps"></a>Pasos siguientes 
 
-- Más información sobre la [clasificación y detección de datos](sql-database-data-discovery-and-classification.md) 
+- Más información acerca de [Clasificación y detección de datos](sql-database-data-discovery-and-classification.md) 
 - Más información sobre la [evaluación de vulnerabilidades](sql-vulnerability-assessment.md) 
 - Más información sobre [Advanced Threat Protection](sql-database-threat-detection.md)
-- Más información sobre [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
+- Más información acerca de [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)

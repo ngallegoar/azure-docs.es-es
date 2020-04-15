@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 06/03/2019
-ms.openlocfilehash: b48c37a6e607d121416ebae4d74e58f39670b79a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1dbcf953ad5f70c6ddf2a73eef2ea712f1e1278c
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73821923"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632080"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>Notificaciones por correo electrónico para el ajuste automático
 
@@ -45,7 +45,7 @@ Siga estos pasos para crear la cuenta de Azure Automation a través del método 
 
 ![Agregar Azure Automation](./media/sql-database-automatic-tuning-email-notifications/howto-email-01.png)
 
-- Una vez dentro del panel "Crear una cuenta de automatización", haga clic en "**Crear**".
+- Una vez dentro del panel "Crear una cuenta de Automation", haga clic en "**Crear**".
 - Rellene la información necesaria: escriba un nombre para esta cuenta de automatización y seleccione los recursos de Azure y el identificador de suscripción de Azure que se usará para la ejecución del script de PowerShell.
 - Para la opción "**Crear cuenta de ejecución de Azure**", seleccione **Sí** para configurar el tipo de cuenta en que el script de PowerShell se ejecuta con la ayuda de Azure Automation. Para obtener más información acerca de los tipos de cuenta, consulte [Cuenta de ejecución](https://docs.microsoft.com/azure/automation/automation-create-runas-account)
 - Para finalizar la creación de la cuenta de automatización, haga clic en **Crear**.
@@ -69,7 +69,7 @@ El siguiente paso consiste en crear un runbook en Azure Automation en el que se 
 Para crear un nuevo runbook de Azure Automation, siga estos pasos:
 
 - Acceda a la cuenta de Azure Automation que creó en el paso anterior.
-- Una vez esté en el panel de la cuenta de automatización, haga clic en el elemento de menú "**Runbooks**" en el lado izquierdo para crear un nuevo runbook de Azure Automation con el script de PowerShell. Para obtener más información sobre la creación de runbooks de automatización, consulte [Creación de un runbook](../automation/manage-runbooks.md#create-a-runbook).
+- Una vez esté en el panel de la cuenta de Automation, haga clic en el elemento de menú "**Runbooks**" en el lado izquierdo para crear un runbook de Azure Automation con el script de PowerShell. Para obtener más información sobre la creación de runbooks de automatización, consulte [Creación de un runbook](../automation/manage-runbooks.md#creating-a-runbook).
 - Para agregar un runbook nuevo, haga clic en la opción de menú " **+Agregar un runbook**" y, a continuación, haga clic en "**Creación rápida: Crear un runbook nuevo**".
 - En el panel Runbook, escriba el nombre de su runbook (en este ejemplo, se usa "**AutomaticTuningEmailAutomation**"), seleccione el tipo de runbook como **PowerShell** y escriba una descripción de este runbook para indicar su finalidad.
 - Haga clic en el botón **Crear** para terminar de crear un runbook.
@@ -88,7 +88,7 @@ Si tiene varias suscripciones, puede agregarlas como una lista delimitada por co
 ```powershell
 # PowerShell script to retrieve Azure SQL Database Automatic tuning recommendations.
 #
-# Provided “as-is” with no implied warranties or support.
+# Provided "as-is" with no implied warranties or support.
 # The script is released to the public domain.
 #
 # Replace <SUBSCRIPTION_ID_WITH_DATABASES> in the header with your Azure subscription ID.
@@ -184,8 +184,8 @@ Con los pasos anteriores, el script de PowerShell para recuperar las recomendaci
 
 Para completar la solución, como último paso, cree un flujo de automatización en Microsoft Flow que conste de tres acciones (trabajos):
 
-1. "**Azure Automation - Create job**" (Azure Automation - Crear un trabajo): se usa para ejecutar el script de PowerShell a fin de recuperar las recomendaciones de ajuste automático del runbook de Azure Automation.
-2. "**Azure Automation - Get job output**" (Azure Automation - Obtener la salida de trabajo): se usa para recuperar la salida del script de PowerShell ejecutado.
+1. "**Azure Automation - Crear trabajo**": se usa para ejecutar el script de PowerShell a fin de recuperar las recomendaciones de ajuste automático del runbook de Azure Automation.
+2. "**Azure Automation - Obtener resultado del trabajo**": se usa para recuperar la salida del script de PowerShell ejecutado.
 3. "**Office 365 Outlook - Enviar un correo electrónico**": se usa para enviar correos electrónicos. Los correos electrónicos se envían mediante la cuenta de Office 365 de la persona que crea el flujo.
 
 Para obtener más información sobre las funcionalidades de Microsoft Flow, consulte [Introducción a Microsoft Flow](https://docs.microsoft.com/flow/getting-started).
@@ -203,14 +203,14 @@ En el siguiente paso, debe agregar tres trabajos (crear, obtener salida y enviar
 1. Cree una acción para ejecutar el script de PowerShell para recuperar las recomendaciones de ajuste.
 
    - Seleccione " **+ Nuevo paso**", seguido de "**Agregar una acción**" dentro del panel de flujo Periodicidad.
-   - En el campo de búsqueda, escriba "**automation**" y seleccione "**Azure Automation – Create job**" (Azure Automation - Crear un trabajo) en los resultados de la búsqueda.
+   - En el campo de búsqueda, escriba "**automation**" y seleccione "**Azure Automation – Crear trabajo**" en los resultados de la búsqueda.
    - En el panel de trabajo Crear, configure las propiedades del trabajo. En esta configuración, necesitará los detalles del identificador de la suscripción de Azure, el grupo de recursos y la cuenta de automatización que se **registraron anteriormente** en el **panel Cuenta de automatización**. Para obtener más información acerca de las opciones disponibles en esta sección, consulte [Azure Automation – Create job](https://docs.microsoft.com/connectors/azureautomation/#create-job) (Azure Automation - Crear un trabajo).
    - Para completar la creación de esta acción, haga clic en "**Guardar flujo**".
 
 2. Crear una acción para recuperar la salida del script de PowerShell ejecutado.
 
    - Seleccione " **+ Nuevo paso**", seguido de "**Agregar una acción**" dentro del panel de flujo Periodicidad.
-   - En el campo de búsqueda, escriba "**automation**" y seleccione "**Azure Automation – Get job output**" (Azure Automation - Obtener la salida de trabajo) en los resultados de la búsqueda. Para obtener más información acerca de las opciones disponibles en esta sección, consulte [Azure Automation – Get job output](https://docs.microsoft.com/connectors/azureautomation/#get-job-output)" (Azure Automation - Obtener la salida de trabajo).
+   - En el campo de búsqueda, escriba "**automation**" y seleccione "**Azure Automation – Obtener resultado del trabajo**" en los resultados de la búsqueda. Para obtener más información acerca de las opciones disponibles en esta sección, consulte [Azure Automation – Get job output](https://docs.microsoft.com/connectors/azureautomation/#get-job-output)" (Azure Automation - Obtener la salida de trabajo).
    - Rellene los campos obligatorios (como cuando creó el trabajo anterior): rellene su identificador de suscripción de Azure, el grupo de recursos y la cuenta de automatización (tal y como se indicó en el panel de la cuenta de automatización).
    - Haga clic en el campo "**Id. de trabajo**" para que se muestre el menú "**Contenido dinámico**". En este menú, seleccione la opción "**Id. de trabajo**".
    - Para completar la creación de esta acción, haga clic en "**Guardar flujo**".
@@ -221,7 +221,7 @@ En el siguiente paso, debe agregar tres trabajos (crear, obtener salida y enviar
    - En el campo de búsqueda, escriba "**enviar un correo electrónico**" y seleccione "**Office 365 Outlook - Enviar un correo electrónico**" en los resultados de la búsqueda
    - En el campo "**Para**", escriba la dirección de correo electrónico a la que debe enviar el correo electrónico de notificación.
    - En el campo "**Asunto**", escriba el asunto del correo electrónico; por ejemplo, "Notificación por correo electrónico de las recomendaciones de ajuste automático".
-   - Haga clic en el campo "**Cuerpo**" para que se muestre el menú "**Contenido dinámico**". Desde dentro de este menú, en "**Get job output**" (Obtener salida de trabajo), seleccione "**Contenido**".
+   - Haga clic en el campo "**Cuerpo**" para que se muestre el menú "**Contenido dinámico**". Desde dentro de este menú, en "**Obtener resultado del trabajo**", seleccione "**Contenido**".
    - Para completar la creación de esta acción, haga clic en "**Guardar flujo**".
 
 > [!TIP]

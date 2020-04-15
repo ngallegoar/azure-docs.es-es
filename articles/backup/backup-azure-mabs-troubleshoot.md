@@ -4,12 +4,12 @@ description: Solucionar problemas de instalación, registro de Azure Backup Serv
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: cc0cf7e91c1aacbc637d33ab1e5546cc54836b28
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: deff49a7d00a335c396a6fa36d3846ef353331c5
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78673110"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421293"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Solución de problemas de Azure Backup Server
 
@@ -26,7 +26,7 @@ Antes de empezar a solucionar problemas de Microsoft Azure Backup Server (MABS),
 - Si se produce un error en el registro, asegúrese de que el servidor en el que está intentando instalar Azure Backup Server no esté registrado en otro almacén.
 - Si se produce un error de instalación automática, compruebe si el agente de DPM ya está presente. En caso afirmativo, desinstale al agente y vuelva a intentar la instalación.
 - [Asegúrese de que ningún otro proceso o software antivirus interfiera con Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-slow-backup-performance-issue#cause-another-process-or-antivirus-software-interfering-with-azure-backup).<br>
-- Asegúrese de que el servicio del agente SQL se esté ejecutando y esté establecido en Automático en el servidor MAB.<br>
+- Asegúrese de que el servicio del Agente SQL se esté ejecutando y esté establecido en el modo automático en el servidor MABS.<br>
 
 ## <a name="invalid-vault-credentials-provided"></a>Se han proporcionado credenciales de almacén no válidas
 

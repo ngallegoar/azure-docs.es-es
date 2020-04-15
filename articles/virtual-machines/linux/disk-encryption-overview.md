@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: ff1b37c3053ffa91dcb432cd97a7dd6fd71dad1c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d058ff5f9863642f73725db3472c942161447f25
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79226840"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548432"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Azure Disk Encryption para VM Linux 
 
@@ -32,7 +32,7 @@ Para obtener información sobre los aspectos básicos de Azure Disk Encryption p
 
 ## <a name="supported-vms-and-operating-systems"></a>VM y sistemas operativos compatibles
 
-### <a name="supported-vm-sizes"></a>Tamaños de máquinas virtuales que se admiten
+### <a name="supported-vms"></a>VM admitidas
 
 Las VM Linux están disponibles en una [variedad de tamaños](sizes.md). Azure Disk Encryption no está disponible en [VM básicas o de serie A](https://azure.microsoft.com/pricing/details/virtual-machines/series/) ni en las máquinas virtuales que no cumplen estos requisitos mínimos de memoria:
 
@@ -44,7 +44,9 @@ Las VM Linux están disponibles en una [variedad de tamaños](sizes.md). Azure D
 
 Una vez completado el proceso de cifrado de disco del sistema operativo en las máquinas virtuales de Linux, la VM se puede configurar para que se ejecute con menos memoria. 
 
-Azure Disk Encryption también está disponible para las VM con almacenamiento Premium. 
+Azure Disk Encryption también está disponible para las VM con almacenamiento Premium.
+
+Azure Disk Encryption no está disponible en [máquinas virtuales de segunda generación](generation-2.md#generation-1-vs-generation-2-capabilities) y [máquinas virtuales de la serie Lsc2](../lsv2-series.md). Para ver más excepciones, consulte [Azure Disk Encryption: escenarios no admitidos](disk-encryption-linux.md#unsupported-scenarios).
 
 ### <a name="supported-operating-systems"></a>Sistemas operativos admitidos
 

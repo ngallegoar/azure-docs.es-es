@@ -11,28 +11,28 @@ ms.date: 2/5/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: feb7b52c84e5e702202bc668cfda676d291ea82e
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: e281f8a1fb3959256d836134b4c59f5399deb9bd
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350434"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633298"
 ---
 # <a name="use-azure-stream-analytics-with-azure-synapse-analytics"></a>Uso de Azure Stream Analytics con Azure Synapse Analytics
 
-Azure Stream Analytics es un servicio totalmente administrado que proporciona un procesamiento completo de eventos de baja latencia, alta disponibilidad y escalable a través el streaming de datos en la nube. Para aprender los conceptos básicos, lea [Introducción a Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md). Después puede aprender a crear una solución de extremo a extremo siguiendo el tutorial [Introducción al uso de Azure Stream Analytics](../../stream-analytics/stream-analytics-real-time-fraud-detection.md) .
+Azure Stream Analytics es un servicio totalmente administrado que proporciona un procesamiento completo de eventos de baja latencia, alta disponibilidad y escalable a través el streaming de datos en la nube. Para aprender los conceptos básicos, lea [Introducción a Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Después puede aprender a crear una solución de extremo a extremo siguiendo el tutorial [Introducción al uso de Azure Stream Analytics](../../stream-analytics/stream-analytics-real-time-fraud-detection.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) .
 
 En este artículo, aprenderá a usar el almacenamiento de datos como receptor de salida para los trabajos de Azure Stream Analytics.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* Trabajo de Azure Stream Analytics: Para crear un trabajo de Azure Stream Analytics, siga los pasos descritos en el tutorial [Introducción al uso de Azure Stream Analytics](../../stream-analytics/stream-analytics-real-time-fraud-detection.md) relativos a lo siguiente:  
+* Trabajo de Azure Stream Analytics: Para crear un trabajo de Azure Stream Analytics, siga los pasos descritos en el tutorial [Introducción al uso de Azure Stream Analytics](../../stream-analytics/stream-analytics-real-time-fraud-detection.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) relativos a lo siguiente:  
 
     1. Creación de una entrada de Centro de eventos
     2. Configuración e inicio de la aplicación del generador de eventos
     3. Aprovisionamiento de un trabajo de Stream Analytics
     4. Especificación de una consulta y entrada de trabajo
-* Almacenamiento de datos de grupo de SQL de Azure Synapse: Para crear un almacenamiento de datos, siga los pasos descritos en [Inicio rápido: Creación de un almacenamiento de datos](https://docs.microsoft.com/azure/sql-data-warehouse/create-data-warehouse-portal).
+* Almacenamiento de datos de grupo de SQL de Azure Synapse: Para crear un almacenamiento de datos, siga los pasos descritos en [Inicio rápido: Creación de un almacenamiento de datos](create-data-warehouse-portal.md).
 
 ## <a name="specify-streaming-output-to-point-to-your-data-warehouse"></a>Especificación de la salida de streaming para que apunte al almacenamiento de datos
 
@@ -44,7 +44,7 @@ En Azure Portal, vaya a su trabajo de Stream Analytics y haga clic en **Salidas*
 
 Haga clic en el botón **Agregar** y elija **SQL Database** en el menú desplegable.
 
-![](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asaoutput.png)
+![Selección de SQL Database](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asaoutput.png)
 
 ### <a name="step-3"></a>Paso 3
 
@@ -60,7 +60,7 @@ Escriba los siguientes valores:
 * *Tabla*: especifique el nombre de la tabla de destino en la base de datos.
 * Haga clic en el botón **Guardar**.
 
-![](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asaoutputdbsettings.png)
+![Formulario de SQL Database completado](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asaoutputdbsettings.png)
 
 ### <a name="step-4"></a>Paso 4
 
@@ -102,25 +102,25 @@ WITH (DISTRIBUTION = ROUND_ROBIN)
 
 En Azure Portal para su trabajo de Stream Analytics, haga clic en el nombre del trabajo.  Haga clic en el botón ***Probar*** en el panel ***Detalles de salida***.
 
-![](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asatest.png) Cuando la conexión a la base de datos se realice correctamente, verá una notificación en el portal.
+![Botón Probar en Detalles de salida](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asatest.png) Cuando la conexión a la base de datos se realice correctamente, verá una notificación en el portal.
 
 ### <a name="step-6"></a>Paso 6
 
 Haga clic en el menú ***Consulta*** en ***Topología de trabajo*** y cambie la consulta para insertar datos en la salida de flujo que ha creado.  Haga clic en el botón ***Probar consulta seleccionada*** para probar la consulta.  Haga clic en el botón ***Guardar consulta*** cuando la prueba de la consulta sea correcta.
 
-![](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asaquery.png)
+![Guardar consulta](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asaquery.png)
 
 ### <a name="step-7"></a>Paso 7
 
 Inicie el trabajo de Azure Stream Analytics.  Haga clic en el botón ***Iniciar*** en el menú ***Información general***.
 
-![](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asastart.png)
+![Inicio del trabajo de Stream Analytics](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asastart.png)
 
 Haga clic en el botón ***Iniciar*** en el panel Iniciar trabajo.
 
-![](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asastartconfirm.png)
+![Hacer clic en Iniciar](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asastartconfirm.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener información general sobre la integración, consulte [Integrar otros servicios](sql-data-warehouse-overview-integrate.md).
-Para obtener más consejos de desarrollo, consulte [Decisiones de diseño y técnicas de codificación para almacenamientos de datos](sql-data-warehouse-overview-develop.md).
+Para obtener más consejos de desarrollo, consulte [Diseño de decisiones y técnicas de codificación para almacenamientos de datos](sql-data-warehouse-overview-develop.md).

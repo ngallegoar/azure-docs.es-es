@@ -4,12 +4,12 @@ description: Obtenga información sobre el clúster básico y los componentes de
 services: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: bcf56aa89a42d65fdb7bf03696faad13c64cbc8a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 019c886aba1c8fe34211e73e4d960b14e79303b9
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79229676"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80617441"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Conceptos básicos de Kubernetes de Azure Kubernetes Service (AKS)
 
@@ -65,9 +65,9 @@ Para ejecutar las aplicaciones y los servicios de soporte técnico, necesitará 
 
 ![Máquina virtual de Azure y recursos auxiliares para un nodo de Kubernetes](media/concepts-clusters-workloads/aks-node-resource-interactions.png)
 
-El tamaño de la máquina virtual de Azure para los nodos define el número de CPU, la cantidad de memoria y el tamaño y tipo de almacenamiento disponible (por ejemplo, SSD de alto rendimiento o HDD normal). Si prevé que las aplicaciones requerirán gran cantidad de CPU y memoria o almacenamiento de alto rendimiento, planifique el tamaño del nodo en consecuencia. También puede escalar verticalmente el número de nodos del clúster de AKS para satisfacer la demanda.
+El tamaño de la máquina virtual de Azure para los nodos define el número de CPU, la cantidad de memoria y el tamaño y tipo de almacenamiento disponible (por ejemplo, SSD de alto rendimiento o HDD normal). Si prevé que las aplicaciones requerirán gran cantidad de CPU y memoria o almacenamiento de alto rendimiento, planifique el tamaño del nodo en consecuencia. También puede escalar horizontalmente el número de nodos del clúster de AKS para satisfacer la demanda.
 
-En AKS, la imagen de la máquina virtual para los nodos del clúster se basa en Ubuntu Linux o en Windows Server 2019. Al crear un clúster de AKS o escalar verticalmente el número de nodos, la plataforma Azure crea el número solicitado de máquinas virtuales y las configura. No se puede realizar ninguna configuración manual. Los nodos de agente se facturan como máquinas virtuales estándar, por lo que cualquier descuento que tenga en el tamaño de la máquina virtual que esté utilizando (incluidas las [reservas de Azure][reservation-discounts]) se aplica automáticamente.
+En AKS, la imagen de la máquina virtual para los nodos del clúster se basa en Ubuntu Linux o en Windows Server 2019. Al crear un clúster de AKS o escalar horizontalmente el número de nodos, la plataforma Azure crea el número solicitado de máquinas virtuales y las configura. No se puede realizar ninguna configuración manual. Los nodos de agente se facturan como máquinas virtuales estándar, por lo que cualquier descuento que tenga en el tamaño de la máquina virtual que esté utilizando (incluidas las [reservas de Azure][reservation-discounts]) se aplica automáticamente.
 
 Si tiene que utilizar un sistema operativo de host diferente, otro entorno de ejecución del contenedor o incluir paquetes personalizados, puede implementar su propio clúster de Kubernetes mediante [aks-engine][aks-engine]. El componente `aks-engine` ascendente incluye y ofrece opciones de configuración antes de que se admitan oficialmente en los clústeres de AKS. Por ejemplo, si quiere usar un entorno de ejecución del contenedor que no sea Moby, puede usar `aks-engine` para configurar e implementar un clúster de Kubernetes que satisfaga sus necesidades actuales.
 
@@ -96,7 +96,7 @@ Para mantener la funcionalidad y el rendimiento de los nodos, AKS reserva los si
 
 1. El demonio kubelet se instala en todos los nodos de agente de Kubernetes para administrar la creación y terminación de contenedores. De forma predeterminada en AKS, este demonio tiene la siguiente regla de desalojo: *memory.available <750Mi*, lo que significa que un nodo siempre debe tener al menos 750 Mi asignables en todo momento.  Cuando un host está por debajo de ese umbral de memoria disponible, el kubelet terminará uno de los pods en ejecución para liberar memoria en la máquina host y protegerla. Se trata de una acción reactiva una vez que la memoria disponible disminuye más allá del umbral de 750 Mi.
 
-2. El segundo valor es una tasa progresiva de reservas de memoria para que el demonio kubelet funcione correctamente (kube-reserved).
+2. El segundo valor es una tasa de regresión de reservas de memoria para que el demonio kubelet funcione correctamente (kube-reserved).
     - 25 % de los primeros 4 GB de memoria
     - 20 % de los siguientes 4 GB de memoria (hasta 8 GB)
     - 10 % de los siguientes 8 GB de memoria (hasta 16 GB)

@@ -5,18 +5,21 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/24/2019
+ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 439de17ef9eb9c0c2c264884652236d47600b8ea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 45304e12bf959cb1f695384535360af283ee3f10
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286513"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80981875"
 ---
 # <a name="iot-edge-module-support-tab"></a>Pestaña Soporte técnico de los módulos IoT Edge
 
-Use la pestaña **Soporte técnico** de la página **Nueva oferta** para proporcionar recursos técnicos y de soporte técnico a los usuarios en relación con la oferta.  En el formulario Soporte se proporcionan las siguientes áreas de entrada: **Contacto de ingeniería**, **Soporte al cliente** y **Direcciones URL de soporte técnico**. Un asterisco (*) junto al nombre del campo indica que es obligatorio.
+>[!Important]
+>A partir del 13 de abril de 2020, se comenzará a trasladar la administración de las ofertas de módulos de IoT Edge al Centro de partners. Después de la migración, las ofertas se crearán y administrarán en el Centro de partners. Siga las instrucciones que se indican en [Creación de una oferta de módulo de IoT Edge](https://aka.ms/AzureCreateIoT) para administrar las ofertas migradas.
+
+Use la pestaña **Soporte técnico** de la página **Nueva oferta** para proporcionar recursos técnicos y de soporte técnico a los usuarios en relación con la oferta.  Las siguientes áreas de entrada se proporcionan en el formulario de soporte técnico: **Contacto de ingeniería**, **Asistencia al cliente** y **Direcciones URL de soporte técnico**. Un asterisco (*) junto al nombre del campo indica que es obligatorio.
 
 ![Pestaña Soporte técnico en el formulario Nueva oferta de Módulos IoT Edge](./media/iot-edge-module-support-tab.png)
 

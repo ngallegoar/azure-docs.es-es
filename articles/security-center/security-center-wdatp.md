@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/24/2019
+ms.date: 04/07/2020
 ms.author: memildin
-ms.openlocfilehash: 13852acb39a420e2f0da84e18bef4df823c1fa78
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a502541a5a01ec3304338054239fc3b50f4d3c61
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78206272"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80810296"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Protección contra amenazas avanzada de Microsoft Defender con Azure Security Center
 
@@ -36,7 +36,7 @@ Cuando usa ATP de Microsoft Defender, obtiene lo siguiente:
 
 Las siguientes funcionalidades ya están disponibles en Azure Security Center:
 
-- **Incorporación automatizada**: el sensor de ATP de Microsoft Defender se habilita automáticamente en los servidores Windows que se incorporan a Azure Security Center.
+- **Incorporación automatizada**: El sensor de ATP de Microsoft Defender se habilita automáticamente para los servidores de Windows que se incorporan a Azure Security Center (con la excepción de los que ejecutan Windows Server 2019).
 
 - **Panel único**: la consola de Azure Security Center muestra las alertas de ATP de Microsoft Defender.
 
@@ -62,7 +62,7 @@ Para incorporar servidores a Security Center, haga clic en **Ir a Azure Securi
 1. En el área de **incorporación**, seleccione o cree el área de trabajo en la que se almacenarán los datos. <br>
 2. Si no puede ver todas las áreas de trabajo, puede deberse a una falta de permisos. Asegúrese de que el área de trabajo se establece en el nivel Estándar de Azure Security. Para obtener más información, consulte [Actualización al nivel Estándar de Security Center para mejorar la seguridad](security-center-pricing.md).
     
-3. Seleccione **Agregar servidores** para ver instrucciones acerca de la instalación de Microsoft Monitoring Agent. 
+3. Seleccione **Agregar servidores** para ver instrucciones sobre cómo instalar el agente de Log Analytics. 
 
 4. Después de la incorporación, puede supervisar las máquinas en **Procesos y aplicaciones**.
 
@@ -107,11 +107,11 @@ Para generar una alerta de prueba inofensiva de ATP de Microsoft Defender:
 
    ![Una ventana de símbolo del sistema con el comando anterior](media/security-center-wdatp/image4.jpeg)
 
-3. Si el comando se ejecuta correctamente, verá una nueva alerta en el panel de Azure Security Center y el portal de ATP de Microsoft Defender. Esta alerta puede tardar unos minutos en aparecer.
+1. Si el comando se ejecuta correctamente, verá una nueva alerta en el panel de Azure Security Center y el portal de ATP de Microsoft Defender. Esta alerta puede tardar unos minutos en aparecer.
 
-4. Para revisar la alerta en Security Center, vaya a **Security Alerts (Alertas de seguridad)**  > **Suspicious Powershell CommandLine (Línea de comandos de PowerShell sospechosa)** .
+1. Para revisar la alerta en Security Center, vaya a **Security Alerts (Alertas de seguridad)**  > **Suspicious Powershell CommandLine (Línea de comandos de PowerShell sospechosa)** .
 
-5. En la ventana de la investigación, seleccione el vínculo para ir al portal de ATP de Microsoft Defender.
+1. En la ventana de la investigación, seleccione el vínculo para ir al portal de ATP de Microsoft Defender.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

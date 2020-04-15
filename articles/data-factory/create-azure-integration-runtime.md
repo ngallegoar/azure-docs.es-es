@@ -6,16 +6,16 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/15/2018
+ms.date: 03/13/2020
 author: nabhishek
 ms.author: abnarain
 manager: anandsub
-ms.openlocfilehash: 87633abaaae1f6034709c6e552be6647533115ec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cf3bb7e6733ef55a85d0b4ae26a4ce05059a8fb9
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79230020"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80887179"
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Cómo crear y configurar una instancia de Azure Integration Runtime
 Integration Runtime (IR) es la infraestructura de proceso que usa Azure Data Factory para proporcionar capacidades de integración de datos en distintos entornos de red. Para obtener más información sobre IR, vea [Integration Runtime](concepts-integration-runtime.md).
@@ -30,7 +30,11 @@ En este documento se muestra cómo crear y configurar Azure Integration Runtime.
 De forma predeterminada, cada factoría de datos tiene una instancia de Azure IR en el back-end que admite la ejecución de operaciones en almacenes de datos en la nube y servicios de proceso en la red pública. La ubicación de esa instancia de Azure IR es auto-resolve. Si la propiedad **connectVia** no se especifica en la definición del servicio vinculado, se usa la instancia de Azure IR predeterminada. Basta con crear una instancia de Azure IR de forma explícita cuando quiera definir de forma explícita la ubicación del IR o cuando quiera agrupar de forma virtual las ejecuciones de actividades en distintos IR con fines de administración. 
 
 ## <a name="create-azure-ir"></a>Crear una instancia de Azure IR
-Integration Runtime se puede crear con el cmdlet de PowerShell **Set-AzDataFactoryV2IntegrationRuntime**. Para crear una instancia de Azure IR, especifique el nombre, la ubicación y el tipo en el comando. A continuación se muestra un comando de ejemplo para crear una instancia de Azure IR{1}{2}con la ubicación establecida en "Europa Occidental":
+
+Para crear y configurar una instancia de Azure IR, puede usar los procedimientos siguientes.
+
+### <a name="create-an-azure-ir-via-azure-powershell"></a>Creación de una instancia de Azure IR mediante Azure PowerShell
+Integration Runtime se puede crear con el cmdlet de PowerShell **Set-AzDataFactoryV2IntegrationRuntime**. Para crear una instancia de Azure IR, especifique el nombre, la ubicación y el tipo en el comando. A continuación se muestra un comando de ejemplo para crear una instancia de Azure IRcon la ubicación establecida en "Europa Occidental":
 
 ```powershell
 Set-AzDataFactoryV2IntegrationRuntime -DataFactoryName "SampleV2DataFactory1" -Name "MySampleAzureIR" -ResourceGroupName "ADFV2SampleRG" -Type Managed -Location "West Europe"
@@ -39,9 +43,30 @@ Para Azure IR, el tipo se debe establecer en **Administrado**. No es necesario e
 
 Puede configurar una instancia de Azure IR existente para cambiar su ubicación mediante el cmdlet de PowerShell Set-AzDataFactoryV2IntegrationRuntime. Para más información sobre la ubicación de una instancia de Azure IR, vea [Introducción a Integration Runtime](concepts-integration-runtime.md).
 
+### <a name="create-an-azure-ir-via-azure-data-factory-ui"></a>Creación de una instancia de Azure IR mediante la interfaz de usuario de Azure Data Factory
+Use los pasos siguientes para crear una instancia de Azure IR mediante la interfaz de usuario de Azure Data Factory.
+
+1. En la página **Comencemos** de la interfaz de usuario de Azure Data Factory, seleccione la pestaña **Crear** en el panel izquierdo.
+
+   ![Botón Crear de la página principal](media/doc-common-process/get-started-page-author-button.png)
+
+1. Haga clic en **Conexiones** en la parte inferior del panel izquierdo y seleccione **Integration runtimes** (Entornos de ejecución de integración) en la ventana **Conexiones**. Seleccione **+New** (+Nuevo).
+
+   ![Creación de una instancia de Integration Runtime](media/create-azure-integration-runtime/new-integration-runtime.png)
+
+1. En la página **Configuración de Integration Runtime**, seleccione **Azure, Self-Hosted** (Azure, autohospedado) y, luego, seleccione **Continuar**. 
+
+1. En la página siguiente, seleccione **Azure** para crear una instancia de Azure IR y, luego, seleccione **Continuar**.
+   ![Creación de un entorno de ejecución de integración](media/create-azure-integration-runtime/new-azure-ir.png)
+
+1. Escriba un nombre para la instancia de Azure IR y seleccione **Crear**.
+   ![Creación de una instancia de Azure IR](media/create-azure-integration-runtime/create-azure-ir.png)
+
+1. Verá una notificación emergente cuando se complete la creación. En la página **Entornos de ejecución de integración**, asegúrese de que ve el entorno de ejecución de integración recién creado en la lista.
+
 ## <a name="use-azure-ir"></a>Usar Azure IR
 
-Una vez creada la instancia de Azure IR, puede hacer referencia a ella en la definición del servicio vinculado. A continuación se muestra un ejemplo de cómo hacer referencia a la instancia de Azure Integration Runtime creada anteriormente a partir de un servicio vinculado de Azure Storage:  
+Una vez creada la instancia de Azure IR, puede hacer referencia a ella en la definición del servicio vinculado. A continuación se muestra un ejemplo de cómo hacer referencia a la instancia de Azure Integration Runtime creada anteriormente a partir de un servicio vinculado de Azure Storage:
 
 ```json
 {

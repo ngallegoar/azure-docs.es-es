@@ -5,16 +5,19 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: ac7ac2cc049c87b3f619f68a9a93a2268d961114
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6a3c168d0bd13e7c335841ac4016f18464cd50d5
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80278576"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985123"
 ---
 # <a name="offer-settings-tab"></a>Pestaña Configuración de la oferta
+
+>[!Important]
+>A partir del 13 de abril de 2020, se comenzará a trasladar la administración de las ofertas de servicios de consultoría al Centro de partners. Después de la migración, creará y administrará sus ofertas en el Centro de partners. Siga las instrucciones que se indican en [Información general sobre la creación de servicios de consultoría](https://aka.ms/AzureCreateConsultingService) para administrar las ofertas migradas.
 
 En la pantalla **Nueva oferta**, el primer paso es crear la identidad de la oferta. La identidad de la oferta consta de tres partes: **Id. de oferta**, **Id. de anunciante** y **Nombre**. Cada una de estas partes se explica en las secciones siguientes.
 

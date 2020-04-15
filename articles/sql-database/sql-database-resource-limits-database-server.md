@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 11/19/2019
-ms.openlocfilehash: fa41649e002bd4845b95e787c1d0589ed1987588
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: afb30a17d7a1450f169402c18f41ce249415e89d
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587250"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804833"
 ---
 # <a name="sql-database-resource-limits-and-resource-governance"></a>Límites y regulación de recursos de SQL Database
 
@@ -58,7 +58,7 @@ Cuando el uso del proceso de base de datos (medido por las DTU y eDTU o los núc
 Al encontrar un uso de proceso elevado, las opciones de mitigación incluyen:
 
 - Aumentar el tamaño de proceso de la base de datos o del grupo elástico para proporcionar a la base de datos más recursos de proceso. Consulte [Scale single database resources](sql-database-single-database-scale.md) (Escala de recursos de bases de datos únicas) y [Scale elastic pool resources](sql-database-elastic-pool-scale.md) (Escala de recursos de grupos elásticos).
-- Optimizar las consultas para reducir el uso de recursos de cada consulta. Para más información, consulte [Optimización y sugerencias de consultas](sql-database-performance-guidance.md#query-tuning-and-hinting).
+- Optimice las consultas para reducir el uso de recursos de cada consulta. Para más información, consulte [Optimización y sugerencias de consultas](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
 ### <a name="storage"></a>Storage
 
@@ -78,6 +78,24 @@ Al encontrar un uso elevado de sesión o de trabajo, las opciones de mitigación
 
 - Aumentar el nivel de servicio o el tamaño de proceso de la base de datos o del grupo elástico. Consulte [Scale single database resources](sql-database-single-database-scale.md) (Escala de recursos de bases de datos únicas) y [Scale elastic pool resources](sql-database-elastic-pool-scale.md) (Escala de recursos de grupos elásticos).
 - Optimizar las consultas para reducir el uso de recursos de cada consulta si la causa del mayor uso de trabajo es debida a la contención de los recursos de proceso. Para más información, consulte [Optimización y sugerencias de consultas](sql-database-performance-guidance.md#query-tuning-and-hinting).
+- Reducir el valor de [MAXDOP](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option#Guidelines) (grado máximo de paralelismo).
+- Optimizar la carga de trabajo de consultas para reducir el número de repeticiones y la duración del bloqueo de consultas.
+
+### <a name="resource-consumption-by-user-workloads-and-internal-processes"></a>Consumo de recursos por cargas de trabajo de usuario y procesos internos
+
+El consumo de CPU y memoria de las cargas de trabajo de usuario en cada base de datos se indica en las vistas [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database?view=azuresqldb-current) y [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database?view=azuresqldb-current), en las columnas `avg_cpu_percent` y `avg_memory_usage_percent`. En el caso de los grupos elásticos, el consumo de recursos de nivel de grupo se indica en la vista [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database). El consumo de CPU de la carga de trabajo de usuario también se indica a través de la métrica de Azure Monitor `cpu_percent`, para [bases de datos únicas](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftsqlserversdatabases) y [grupos elásticos](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftsqlserverselasticpools) en el nivel de grupo.
+
+Azure SQL Database requiere recursos de proceso para implementar características de servicio principales, como alta disponibilidad y recuperación ante desastres, copia de seguridad y restauración de bases de datos, supervisión, Almacén de consultas, ajuste automático, etc. El sistema reserva una parte limitada de los recursos generales para estos procesos internos mediante mecanismos de [Regulación de recursos](#resource-governance), lo que permite que el resto de los recursos estén disponibles para las cargas de trabajo de usuario. A veces, cuando los procesos internos no usan recursos de proceso, el sistema los pone a disposición de las cargas de trabajo de usuario.
+
+El consumo total de CPU y memoria de las cargas de trabajo de usuario y los procesos internos en la instancia de SQL Server que hospeda una única base de datos o un grupo elástico se indica en las vistas [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database?view=azuresqldb-current) y [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database?view=azuresqldb-current), en las columnas `avg_instance_cpu_percent` y `avg_instance_memory_percent`. Estos datos también se indican a través de las métricas de Azure Monitor `sqlserver_process_core_percent` y `sqlserver_process_memory_percent` para [bases de datos únicas](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftsqlserversdatabases) y [grupos elásticos](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftsqlserverselasticpools) en el nivel de grupo.
+
+En las vistas [sys.dm_resource_governor_resource_pools_history_ex](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-resource-pools-history-ex-azure-sql-database) y [sys.dm_resource_governor_workload_groups_history_ex](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-workload-groups-history-ex-azure-sql-database), se muestra un desglose más detallado del consumo reciente de recursos por parte de cargas de trabajo de usuario y procesos internos. Para obtener más información sobre los grupos de recursos y los grupos de cargas de trabajo a los que se hace referencia en estas vistas, consulte [Regulación de recursos](#resource-governance). Estas vistas informan sobre el uso de recursos por parte de cargas de trabajo de usuario y procesos internos específicos en los grupos de recursos y grupos de cargas de trabajo asociados.
+
+En el contexto de supervisión y solución de problemas de rendimiento, es importante tener en cuenta el **consumo de CPU del usuario** (`avg_cpu_percent`, `cpu_percent`) y el **consumo de CPU total** de las cargas de trabajo de usuario y los procesos internos (`avg_instance_cpu_percent`,`sqlserver_process_core_percent`).
+
+El **consumo de CPU del usuario** se calcula como un porcentaje de los límites de carga de trabajo de usuario en cada objetivo de servicio. Un **uso de CPU del usuario** del 100 % indica que la carga de trabajo de usuario ha alcanzado el límite del objetivo del servicio. Sin embargo, cuando el **consumo de CPU total** alcanza el intervalo del 70-100 %, es posible ver una reducción del rendimiento de la carga de trabajo de usuario y un aumento de la latencia de las consultas, aunque se indique un **consumo de CPU del usuario** bastante por debajo del 100 %. Esto es más probable que suceda si se usan objetivos de servicio menores con una asignación moderada de recursos de proceso, pero cargas de trabajo de usuario relativamente intensas, como en [grupos elásticos densos](sql-database-elastic-pool-resource-management.md). Esto también puede suceder con objetivos de servicio menores si los procesos internos requieren temporalmente recursos adicionales, como, por ejemplo, al crear una nueva réplica de la base de datos.
+
+Si el **consumo de CPU total** es alto, las opciones de mitigación son las mismas que las indicadas anteriormente, e incluyen el aumento del objetivo de servicio y/o la optimización de la carga de trabajo de usuario.
 
 ## <a name="resource-governance"></a>Regulación de recursos
 
@@ -116,7 +134,7 @@ A medida que se generan los registros, se evalúa cada operación para ver si se
 
 Las tasas reales de generación de registros impuestas en tiempo de ejecución también podrían verse influenciadas por los mecanismos de comentarios, lo que reducirá de manera temporal las tasas de registros permitidas para que el sistema se pueda estabilizar. La administración del espacio de los archivos de registro, para evitar la falta de espacio para registros, y los mecanismos de replicación del grupo de disponibilidad pueden disminuir temporalmente los límites del sistema global.
 
-El modelado de tráfico del regulador de la tasas de registros se expone a través de los siguientes tipos de espera (expuesto en la DMV [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database)):
+El modelado de tráfico del regulador de las tasas de registros se expone a través de los tipos de espera siguiente (expuesto en las vistas [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) y [sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql)):
 
 | Tipo de espera | Notas |
 | :--- | :--- |
@@ -125,10 +143,11 @@ El modelado de tráfico del regulador de la tasas de registros se expone a trav�
 | INSTANCE_LOG_RATE_GOVERNOR | Limitación del nivel de instancia |  
 | HADR_THROTTLE_LOG_RATE_SEND_RECV_QUEUE_SIZE | Control de comentarios, la replicación física del grupo de disponibilidad en el nivel de servicio Crítico para la empresa/Premium no está al día |  
 | HADR_THROTTLE_LOG_RATE_LOG_SIZE | Control de comentarios, limitación de las tasas para evitar quedarse sin espacio para registros |
+| HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO | Control de comentarios de replicación geográfica, limitación de la velocidad de registro para evitar una alta latencia de los datos y la no disponibilidad de replicaciones geográficas secundarias|
 |||
 
 Cuando encuentre un límite para las tasas de registros que dificulte la alcanzar la escalabilidad deseada, considere estas opciones:
-- Escale verticalmente hasta un nivel de servicio superior para obtener la velocidad máxima de registro de 96 MB/s. 
+- Escale verticalmente hasta un nivel de servicio superior para obtener la velocidad máxima de registro de 96 MB/s, o cambie a un nivel de servicio diferente. El nivel de servicio [Hiperescala](sql-database-service-tier-hyperscale.md) proporciona una velocidad de registro de 100 MB/s, independientemente del nivel de servicio elegido.
 - Si los datos que se cargan son transitorios, como los datos de ensayo de un proceso de ETL, se pueden cargar en tempdb (que genera un mínimo de registros). 
 - En los escenarios de análisis, cárguelos en una tabla cubierta de almacén de columnas en clúster. Esto disminuye la tasa de registros necesario debido a la compresión. Esta técnica sí aumenta la utilización de la CPU y solo se aplica a los conjuntos de datos que se benefician de los índices de almacén de columnas en clúster. 
 

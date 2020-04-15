@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 04/07/2020
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d7c7d9f6d59ffd57ddb14f7c060d0a3f6f2a6eb
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: 0aafb971ca1ce812a68045f7d0c0c2ab7f532133
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78967753"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80877395"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Trabajo con servidores proxy locales existentes
 
@@ -27,6 +27,7 @@ Empezaremos examinando estos escenarios de implementación principales:
 
 * Configuración de conectores para omitir los proxy de salida locales.
 * Configuración de conectores para usar un proxy de salida para obtener acceso al Proxy de aplicación de Azure AD.
+* Configuración mediante un proxy entre el conector y la aplicación de back-end.
 
 Para más información sobre cómo funcionan los conectores, consulte [Descripción de los conectores del Proxy de aplicación de Azure AD](application-proxy-connectors.md).
 
@@ -104,7 +105,7 @@ Hay cuatro aspectos que se deben tener en cuenta en el servidor proxy saliente:
 * Las reglas de salida del proxy
 * La autenticación del proxy
 * Los puertos del proxy
-* La inspección de SSL
+* La inspección de TLS
 
 #### <a name="proxy-outbound-rules"></a>Las reglas de salida del proxy
 
@@ -129,14 +130,31 @@ Actualmente no se admite la autenticación del proxy. Nuestra recomendación act
 
 #### <a name="proxy-ports"></a>Los puertos del proxy
 
-El conector realiza las conexiones salientes basadas en SSL con el método CONNECT. Básicamente, este método configura un túnel a través del proxy de salida. Configure el servidor proxy para permitir la tunelización a los puertos no estándar 443 y 80.
+El conector realiza las conexiones salientes basadas en TLS con el método CONNECT. Básicamente, este método configura un túnel a través del proxy de salida. Configure el servidor proxy para permitir la tunelización a los puertos no estándar 443 y 80.
 
 > [!NOTE]
 > Service Bus, si se ejecuta a través de HTTPS, usa el puerto 443. Sin embargo, de forma predeterminada, Service Bus intenta crear conexiones TCP directas y recurrir a HTTPS solo si se produce un error en la conectividad directa.
 
-#### <a name="ssl-inspection"></a>La inspección de SSL
+#### <a name="tls-inspection"></a>La inspección de TLS
 
-No utilice la inspección de SSL para el tráfico del conector, ya que le causa problemas. El conector usa un certificado para autenticarse en el servicio de proxy de aplicación y ese certificado se puede perder durante la inspección de SSL.
+No utilice la inspección de TLS para el tráfico del conector, ya que le causa problemas. El conector usa un certificado para autenticarse en el servicio de proxy de aplicación y ese certificado se puede perder durante la inspección de TLS.
+
+## <a name="configure-using-a-proxy-between-the-connector-and-backend-application"></a>Configuración mediante un proxy entre el conector y la aplicación de back-end
+El uso de un proxy de reenvío para la comunicación hacia la aplicación de back-end puede ser un requisito especial en algunos entornos.
+Para habilitarlo, siga estos pasos:
+
+### <a name="step-1-add-the-required-registry-value-to-the-server"></a>Paso 1: Agregar el valor del Registro requerido al servidor
+1. Para habilitar el uso del proxy predeterminado, agregue el valor del Registro (DWORD) siguiente `UseDefaultProxyForBackendRequests = 1` a la clave del Registro de configuración del conector que se encuentra en "HKEY_LOCAL_MACHINE\Software\Microsoft\Microsoft AAD App Proxy Connector".
+
+### <a name="step-2-configure-the-proxy-server-manually-using-netsh-command"></a>Paso 2: Configurar el servidor proxy manualmente con el comando netsh
+1.  Habilite la directiva de grupo Configuración de proxy por equipo. Se encuentra en: Configuración del equipo\Directivas\Plantillas administrativas\Componentes de Windows\Internet Explorer. Se debe establecer esto en lugar de tener esta directiva establecida en por usuario.
+2.  Ejecute `gpupdate /force` en el servidor o reinicie el servidor para asegurarse de que usa la configuración de directiva de grupo actualizada.
+3.  Inicie un símbolo del sistema con privilegios elevados con derechos de administrador y especifique `control inetcpl.cpl`.
+4.  Configure los valores de proxy necesarios. 
+
+Esta configuración hace que el conector use el mismo proxy de reenvío para la comunicación a Azure y a la aplicación de back-end. Si el conector para la comunicación de Azure no requiere ningún proxy de reenvío ni un proxy de reenvío distinto, puede configurarlo mediante la modificación del archivo ApplicationProxyConnectorService.exe.config, como se describe en las secciones Omisión de servidores proxy de salida o Uso del servidor proxy saliente.
+
+El servicio de actualización del conector usará también el proxy del equipo. Este comportamiento se puede cambiar si modifica el archivo ApplicationProxyConnectorUpdaterService.exe.config.
 
 ## <a name="troubleshoot-connector-proxy-problems-and-service-connectivity-issues"></a>Solución de problemas del proxy del conector y de conectividad del servicio
 

@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
-ms.date: 11/06/2019
-ms.openlocfilehash: 29c1aaf18ea45d869d32a8817aeb03faa3b67c32
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 02/14/2020
+ms.openlocfilehash: 096943ff796f9c12c7f8715cadce5c3085965d4d
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75456582"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80657131"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Conexión a orígenes de datos locales desde Azure Logic Apps
 
@@ -59,6 +59,9 @@ Azure Logic Apps admite operaciones de lectura y escritura a través de la puert
 * La instalación de la puerta de enlace aún no está registrada ni ha sido reclamada por otro recurso de puerta de enlace en Azure.
 
   Al crear un recurso de puerta de enlace en Azure Portal, selecciona una instalación de la puerta de enlace que está vinculada al recurso de puerta de enlace y solo a ese recurso. En Azure Logic Apps, los desencadenadores y las acciones locales usan el recurso de puerta de enlace para conectarse a orígenes de datos locales. En estos desencadenadores y acciones, selecciona su suscripción de Azure y el recurso de puerta de enlace asociado que quiere utilizar. Cada recurso de puerta de enlace está vinculado a una única instalación de la puerta de enlace, que está vinculada a una sola cuenta de Azure.
+
+  > [!NOTE]
+  > Solo el administrador de la puerta de enlace puede crear el recurso de puerta de enlace en Azure Portal. Actualmente, no se admiten las entidades de servicio. 
 
 <a name="create-gateway-resource"></a>
 

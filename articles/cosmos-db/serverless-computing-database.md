@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: sngun
-ms.openlocfilehash: 70545020899b69508a4cedb0fd7cf5495c847104
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 079c246f87bb8294f3c7ad6dea3391f5c67ba0ad
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77462452"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985259"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Informática de base de datos sin servidor con Azure Cosmos DB y Azure Functions
 
@@ -110,7 +110,7 @@ En todos estos casos de uso, como la función desacopló la aplicación misma, n
 
 La integración nativa entre Azure Cosmos DB y Azure Functions está disponible en Azure Portal y en Visual Studio 2019.
 
-* En el portal de Azure Functions, puede crear un desencadenador. Para instrucciones de inicio rápido, consulte [Creación de un desencadenador de Azure Functions para Cosmos DB en Azure Portal](https://aka.ms/cosmosdbtriggerportalfunc).
+* En el portal de Azure Functions, puede crear un desencadenador. Para instrucciones de inicio rápido, consulte [Creación de un desencadenador de Azure Functions para Cosmos DB en Azure Portal](../azure-functions/functions-create-cosmos-db-triggered-function.md).
 * En el portal de Azure Cosmos DB, puede agregar un desencadenador de Azure Functions para Cosmos DB a una aplicación de Azure Function existente en el mismo grupo de recursos.
 * En Visual Studio 2019, puede crear el desencadenador mediante las [Herramientas de Azure Functions](../azure-functions/functions-develop-vs.md):
 
@@ -146,6 +146,6 @@ Si no está seguro si Flow, Logic Apps, Azure Functions o WebJobs es la mejor op
 
 Ahora conectaremos realmente Azure Cosmos DB y Azure Functions: 
 
-* [Creación de un desencadenador de Azure Functions para Cosmos DB en Azure Portal](https://aka.ms/cosmosdbtriggerportalfunc)
-* [Creación de un desencadenador HTTP de Azure Functions con un enlace de entrada de Azure Cosmos DB](https://aka.ms/cosmosdbinputbind)
+* [Creación de un desencadenador de Azure Functions para Cosmos DB en Azure Portal](../azure-functions/functions-create-cosmos-db-triggered-function.md)
+* [Creación de un desencadenador HTTP de Azure Functions con un enlace de entrada de Azure Cosmos DB](../azure-functions/functions-bindings-cosmosdb.md?tabs=csharp)
 * [Enlaces y desencadenadores de Azure Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2.md)

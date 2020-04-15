@@ -1,31 +1,41 @@
 ---
 title: Cómo usar el módulo de E/E espacial de Azure Maps | Microsoft Azure Maps
 description: Obtenga información sobre cómo usar el módulo de E/S espacial proporcionado por el SDK web de Azure Maps. Este módulo proporciona características sólidas para facilitar a los desarrolladores la integración de datos espaciales con el SDK web de Azure Maps.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 02/28/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: c309473529666d369e8accd1617021249867fb19
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 1de9dd9721700418b1aa9ba661fc070db1dbedcc
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78370395"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804646"
 ---
 # <a name="how-to-use-the-azure-maps-spatial-io-module"></a>Cómo usar el módulo de E/S espacial Azure Maps
 
 El SDK web de Azure Maps proporciona el **módulo de E/S espacial**, que integra los datos espaciales con el SDK web de Azure Maps mediante JavaScript o TypeScript. Las eficaces características de este módulo permiten a los desarrolladores:
 
-- [Leer y escribir los datos en archivos espaciales comunes](spatial-io-read-write-spatial-data.md). Entre otros, estos son los formatos de archivos admitidos: Archivos KML, KMZ, GPX, GeoRSS, GML y CSV que contienen columnas con información espacial.
-- [Conectarse a los servicios de Open Geospatial Consortium (OGC) e integre con el SDK web de Azure Maps. Superponga Web Mapping Services (WMS) y Web Map tile Services (WMTS) como capas en el mapa.](spatial-io-add-ogc-map-layer.md).
+- [Leer y escribir datos de archivos espaciales comunes](spatial-io-read-write-spatial-data.md). Entre otros, estos son los formatos de archivos admitidos: Archivos KML, KMZ, GPX, GeoRSS, GML, GeoJSON y CSV que contengan columnas con información espacial. También admite el texto Well-Known Text (WKT).
+- [Conectarse a los servicios de Open Geospatial Consortium (OGC) e integre con el SDK web de Azure Maps. Superponer Web Mapping Services (WMS) y Web Map tile Services (WMTS) como capas en el mapa](spatial-io-add-ogc-map-layer.md).
 - [Consultar los datos en Web Feature Service (WFS)](spatial-io-connect-wfs-service.md).
-- [Superponer los conjuntos de datos complejos que contienen información de estilo y hacer que se representen automáticamente](spatial-io-add-simple-data-layer.md).
+- [Superponer los conjuntos de datos complejos que contienen información de estilo y hacer que se representen automáticamente usando el mínimo código](spatial-io-add-simple-data-layer.md).
 - [Aprovechar las clases de lector y escritor de archivos XML y delimitados de alta velocidad](spatial-io-core-operations.md).
 
 En esta guía, aprenderá a integrar y usar el módulo de E/S espacial en una aplicación web.
+
+En este vídeo se proporciona información general del módulo de E/S espacial en el SDK web de Azure Maps.
+
+<br/>
+
+<iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Easily-integrate-spatial-data-into-the-Azure-Maps/player" width="960" height="540" allowFullScreen frameBorder="0" title="Integre fácilmente los datos espaciales en el vídeo Azure Maps - Microsoft Channel 9"></iframe>
+
+
+> [!WARNING]
+> Use solo los datos y servicios que procedan de un origen de confianza, sobre todo si se hace referencia a él desde otro dominio. El módulo de E/S espacial lleva a cabo pasos para minimizar el riesgo; sin embargo, el método más seguro consiste en no permitir que se inicien datos peligrosos en la aplicación. 
 
 ## <a name="prerequisites"></a>Prerrequisitos
 

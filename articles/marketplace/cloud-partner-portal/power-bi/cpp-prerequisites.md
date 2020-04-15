@@ -5,16 +5,19 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 5c95c50f5597eee51c66cc68273478b1b9f0e2df
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ac27a2c95789eac3e824e4ecb31138a6720868a6
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286343"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80981654"
 ---
 # <a name="power-bi-app-offer-prerequisites"></a>Requisitos previos de la oferta de la aplicación Power BI
+
+>[!Important]
+>A partir del 13 de abril de 2020, se comenzará a trasladar la administración de las ofertas de aplicaciones de Power BI al Centro de partners. Después de la migración, las ofertas se crearán y administrarán en el Centro de partners. Siga las instrucciones que se indican en [Información general sobre la creación de aplicaciones de Power BI](https://aka.ms/AzurePBIAppCreationOverview) para administrar las ofertas migradas.
 
 En este artículo se proporcionan tanto los requisitos técnicos como empresariales que se deben cumplir para poder publicar una oferta de aplicación Power BI en AppSource Marketplace.  Si aún no lo ha hecho, revise la [Guía de publicación de ofertas de Office 365, Dynamics 365, PowerApps y Power BI](../../appsource-offer-publishing-guide.md).
 

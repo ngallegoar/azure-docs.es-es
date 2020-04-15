@@ -6,12 +6,12 @@ author: zr-msft
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: zarhoads
-ms.openlocfilehash: 3c22f63b7085c7ab8d6b54e383528568dc9c12e7
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 00dcef4ae0f04fc7f550859238ae8c7e1ad19384
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77917040"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80549068"
 ---
 # <a name="rotate-certificates-in-azure-kubernetes-service-aks"></a>Rotación de certificados en Azure Kubernetes Service (AKS)
 
@@ -32,12 +32,12 @@ AKS genera y usa los siguientes certificados, entidades de certificación y cuen
 * Cada kubelet también crea una solicitud de firma de certificado (CSR), que está firmada por la CA del clúster, para la comunicación desde el kubelet al servidor de la API.
 * El almacén de valores de clave de etcd tiene un certificado firmado por la CA del clúster para la comunicación desde etcd al servidor de la API.
 * El almacén de valores de clave de etcd crea una CA que firma los certificados para autenticar y autorizar la replicación de datos entre las réplicas de etcd en el clúster de AKS.
-* El agregador de API usa la CA del clúster para emitir certificados para la comunicación con otras API, como Open Service Broker para Azure. El agregador de API también puede tener su propia CA para emitir esos certificados, pero actualmente usa la CA del clúster.
+* El agregador de API usa la CA del clúster para emitir certificados para la comunicación con otras API. El agregador de API también puede tener su propia CA para emitir esos certificados, pero actualmente usa la CA del clúster.
 * Cada nodo usa un token de cuenta de servicio (SA), que está firmado por la CA del clúster.
 * El cliente `kubectl` tiene un certificado para comunicarse con el clúster de AKS.
 
 > [!NOTE]
-> Los clústeres de AKS creados antes de marzo de 2019 tienen certificados que expiran después de dos años. Los clústeres creados después de marzo del 2019 o cualquier clúster que tenga rotados sus certificados tienen certificados que expiran luego de 30 años. Para comprobar cuándo se creó el clúster, use `kubectl get nodes` para ver la *Antigüedad* de los grupos de nodos.
+> Los clústeres de AKS creados antes de marzo de 2019 tienen certificados que expiran después de dos años. Los clústeres creados después de marzo del 2019 o cualquier clúster que tenga rotados sus certificados tienen certificados de CA del clúster que expiran a los 30 años. El resto de certificados expira transcurridos dos años. Para comprobar cuándo se creó el clúster, use `kubectl get nodes` para ver la *Antigüedad* de los grupos de nodos.
 > 
 > Además, puede comprobar la fecha de expiración del certificado del clúster. Por ejemplo, el comando siguiente muestra los detalles del certificado para el clúster *myAKSCluster*.
 > ```console
@@ -52,13 +52,13 @@ AKS genera y usa los siguientes certificados, entidades de certificación y cuen
 
 Use [az aks get-credentials][az-aks-get-credentials] para iniciar sesión en el clúster de AKS. Este comando también descarga y configura el certificado de cliente `kubectl` en el equipo local.
 
-```console
+```azurecli
 az aks get-credentials -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME
 ```
 
 Use `az aks rotate-certs` para rotar todos los certificados, entidades de certificación (CA) y cuentas de servicio (SA) del clúster.
 
-```console
+```azurecli
 az aks rotate-certs -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME
 ```
 
@@ -74,7 +74,7 @@ Unable to connect to the server: x509: certificate signed by unknown authority (
 
 Actualice el certificado usado por `kubectl` ejecutando `az aks get-credentials`.
 
-```console
+```azurecli
 az aks get-credentials -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME --overwrite-existing
 ```
 

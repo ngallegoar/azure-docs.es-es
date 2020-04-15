@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 11/15/2019
+ms.date: 03/24/2020
 ms.author: absha
-ms.openlocfilehash: 355909052a711773545114179cd5d1ca01811cec
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 89d894a5125a16f95e6ef8a15c2503d48f3a8e55
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77485087"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632187"
 ---
 # <a name="application-gateway-configuration-overview"></a>Introducción a la configuración de Application Gateway
 
@@ -20,7 +20,7 @@ Azure Application Gateway consta de varios componentes que se pueden configurar 
 
 ![Diagrama de flujo de los componentes de Application Gateway](./media/configuration-overview/configuration-overview1.png)
 
-Esta imagen muestra una aplicación que tiene tres clientes de escucha. Los dos primeros son clientes de escucha multisitio para `http://acme.com/*` y `http://fabrikam.com/*`, respectivamente. Ambos escuchan en el puerto 80. El tercero es un cliente de escucha básico que tiene la terminación de la capa de sockets seguros (SSL) de un extremo a otro.
+Esta imagen muestra una aplicación que tiene tres clientes de escucha. Los dos primeros son clientes de escucha multisitio para `http://acme.com/*` y `http://fabrikam.com/*`, respectivamente. Ambos escuchan en el puerto 80. El tercero es un cliente de escucha básico que tiene una terminación de seguridad de la capa de transporte (TLS) de un extremo a otro, antes conocida como terminación de Capa de sockets seguros (SSL).
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -36,11 +36,11 @@ Una puerta de enlace de aplicaciones es una implementación dedicada en su red v
 
 #### <a name="size-of-the-subnet"></a>Tamaño de la subred
 
-Application Gateway consume una dirección IP privada por instancia, más otra dirección IP privada si se configura una dirección IP de front-end privada.
+Application Gateway usa una dirección IP privada por instancia, más otra dirección IP privada si se configura una dirección IP de front-end privada.
 
-Además, Azure se reserva 5 direcciones IP en cada subred para uso interno: las 4 primeras direcciones IP y la última de cada subred. Por ejemplo, suponga que hay 15 instancias de Application Gateway sin ninguna dirección IP de front-end privada. Necesitará al menos 20 direcciones IP para esta subred: 5 para uso interno y 15 para las instancias de Application Gateway. Por lo tanto, necesita una subred de tamaño /27 o superior.
+Además, Azure se reserva cinco direcciones IP en cada subred para uso interno: las cuatro primeras direcciones IP y la última. Por ejemplo, suponga que hay 15 instancias de Application Gateway sin ninguna dirección IP de front-end privada. Necesita al menos 20 direcciones IP para esta subred: cinco para uso interno y 15 para las instancias de Application Gateway. Por lo tanto, necesita una subred de tamaño /27 o superior.
 
-Ahora imagine una subred que tiene 27 instancias de Application Gateway y una dirección IP de front-end privada. En este caso, necesita 33 direcciones IP: 27 para las instancias de Application Gateway, 1 para la dirección IP de front-end privada y 5 para uso interno. Por lo tanto, necesita una subred de tamaño /26 o superior.
+Ahora imagine una subred que tiene 27 instancias de Application Gateway y una dirección IP de front-end privada. En este caso, necesita 33 direcciones IP: 27 para las instancias de Application Gateway, una para el front-end privado y cinco para uso interno. Por lo tanto, necesita una subred de tamaño /26 o superior.
 
 Se recomienda que utilice un tamaño /28 como mínimo. Este tamaño le ofrece 11 direcciones IP utilizables. Si la carga de la aplicación requiere más de 10 instancias de Application Gateway, considere la posibilidad de usar un tamaño de subred /27 o /26.
 
@@ -69,23 +69,64 @@ En este escenario, puede usar grupos de seguridad de red en la subred de Applica
 
 #### <a name="user-defined-routes-supported-on-the-application-gateway-subnet"></a>Rutas definidas por el usuario admitidas en la subred de Application Gateway
 
-Para la SKU v1, las rutas definidas por el usuario (UDR) se admiten en la subred de la puerta de enlace de aplicaciones, siempre que no alteren la comunicación de solicitud y respuesta de un extremo a otro. Por ejemplo, puede configurar una ruta definida por el usuario en la subred de Application Gateway para que apunte a un dispositivo de firewall para la inspección de paquetes. Debe asegurarse de que el paquete puede llegar a su destino previsto después de la inspección. El no hacerlo podría resultar en un sondeo del estado o en un comportamiento de enrutamiento de tráfico incorrectos. Esto incluye las rutas aprendidas o las rutas 0.0.0.0/0 predeterminadas que se propagan por las puertas de enlace de VPN o de Azure ExpressRoute en la red virtual.
+> [!IMPORTANT]
+> El uso de UDR en la subred de Application Gateway podría hacer que el estado de mantenimiento en la [vista de mantenimiento de back-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health) se muestre como **Desconocido**. También podría provocar un error en la generación de registros y métricas de Application Gateway. Se recomienda que no use rutas definidas por el usuario en la subred de Application Gateway para que pueda ver el estado, los registros y las métricas del back-end.
 
-Las UDR en la subred de Application Gateway no son compatibles con la SKU v2. Para más información, consulte [Azure Application Gateway v2 SKU](application-gateway-autoscaling-zone-redundant.md#differences-with-v1-sku).
+- **v1**
 
-> [!NOTE]
-> No se admiten UDR para la SKU V2 desde ahora.
+   Para la SKU v1, las rutas definidas por el usuario (UDR) se admiten en la subred de la puerta de enlace de aplicaciones, siempre que no alteren la comunicación de solicitud y respuesta de un extremo a otro. Por ejemplo, puede configurar una ruta definida por el usuario en la subred de Application Gateway para que apunte a un dispositivo de firewall para la inspección de paquetes. Debe asegurarse de que el paquete puede llegar a su destino previsto después de la inspección. El no hacerlo podría resultar en un sondeo del estado o en un comportamiento de enrutamiento de tráfico incorrectos. Esto incluye las rutas aprendidas o las rutas 0.0.0.0/0 predeterminadas que se propagan por las puertas de enlace de VPN o de Azure ExpressRoute en la red virtual.
 
-> [!NOTE]
-> El uso de UDR en la subred Application Gateway podría hacer que el estado de mantenimiento en la [Vista de mantenimiento de back-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health) aparezca como "desconocido". También podría provocar un error en la generación de registros y métricas de Application Gateway. Se recomienda que no use rutas definidas por el usuario en la subred de Application Gateway para que pueda ver el estado, los registros y las métricas del back-end.
+- **v2**
+
+   En el caso de la SKU v2, existen escenarios admitidos y no admitidos:
+
+   **Escenarios admitidos de v2**
+   > [!WARNING]
+   > Una configuración incorrecta de la tabla de rutas podría dar lugar a un enrutamiento asimétrico en Application Gateway v2. Asegúrese de que todo el tráfico de plano de control o administración se envía directamente a Internet y no mediante una aplicación virtual. El registro y las métricas también podrían verse afectados.
+
+
+  **Escenario 1**: UDR para deshabilitar la propagación de rutas del Protocolo de puerta de enlace de borde (BGP) a la subred de Application Gateway
+
+   A veces, la ruta de puerta de enlace predeterminada (0.0.0.0/0) se anuncia mediante las puertas de enlace de VPN o ExpressRoute asociadas con la red virtual de Application Gateway. Esto interrumpe el tráfico del plano de administración, lo que requiere una ruta de acceso directa a Internet. En estos escenarios, se puede usar una UDR para deshabilitar la propagación de la ruta BGP. 
+
+   Para deshabilitar la propagación de la ruta BGP, siga estos pasos:
+
+   1. Cree un recurso de tabla de rutas en Azure.
+   2. Deshabilite el parámetro **Propagación de rutas de puerta de enlace de red virtual**. 
+   3. Asocie la tabla de rutas a la subred adecuada. 
+
+   La habilitación de UDR para este escenario no debe interrumpir las configuraciones existentes.
+
+  **Escenario 2**: UDR para dirigir 0.0.0.0/0 a Internet
+
+   Puede crear una UDR para enviar el tráfico 0.0.0.0/0 directamente a Internet. 
+
+  **Escenario 3**: UDR para kubenet de Azure Kubernetes Service
+
+  Si usa kubenet con Azure Kubernetes Service (AKS) y el Controlador de entrada de Application Gateway (AGIC), debe configurar una tabla de rutas para permitir que el tráfico enviado a los pods se redirija al nodo correcto. Esto no será necesario si usa Azure CNI. 
+
+   Para configurar la tabla de rutas de modo que kubenet funcione, siga estos pasos:
+
+  1. Cree un recurso de tabla de rutas en Azure. 
+  2. Una vez creado, vaya a la página **Rutas**. 
+  3. Agregue una ruta nueva:
+     - El prefijo de dirección debe ser el intervalo IP de los pods a los que quiere acceder en AKS. 
+     - El siguiente tipo de salto debe ser **Aplicación virtual**. 
+     - La siguiente dirección de salto debe ser la dirección IP del nodo que hospeda los pods en el intervalo IP definido en el campo del prefijo de dirección. 
+    
+  **Escenarios incompatibles de v2**
+
+  **Escenario 1**: UDR para aplicaciones virtuales
+
+  Cualquier escenario en que se necesite redirigir 0.0.0.0/0 a través de cualquier aplicación virtual, una red virtual radial o un entorno local (tunelización forzada) no se admite para la versión V2.
 
 ## <a name="front-end-ip"></a>Dirección IP de front-end
 
 Puede configurar la puerta de enlace de aplicaciones para que tenga una dirección IP pública, una dirección IP privada o ambas. Se necesita una dirección IP pública si hospeda un back-end al que los clientes deben acceder desde Internet mediante una IP virtual (VIP) accesible desde Internet. 
 
-No se necesita ninguna dirección IP pública para un punto de conexión interno que no está expuesto a Internet. Eso se conoce como un punto de conexión de *equilibrador de carga interno* (ILB) o una dirección IP de front-end privada. Un equilibrador de carga interno de puerta de enlace de aplicaciones es útil para aplicaciones de línea de negocio internas no expuestas a Internet. También es útil para los servicios y niveles de una aplicación de varios niveles dentro de un límite de seguridad que no están expuestos a Internet, pero que siguen necesitando distribución de carga round robin, permanencia de sesión o terminación SSL.
+No se necesita ninguna dirección IP pública para un punto de conexión interno que no está expuesto a Internet. Eso se conoce como un punto de conexión de *equilibrador de carga interno* (ILB) o una dirección IP de front-end privada. Un equilibrador de carga interno de puerta de enlace de aplicaciones es útil para aplicaciones de línea de negocio internas no expuestas a Internet. También es útil para los servicios y niveles de una aplicación de varios niveles dentro de un límite de seguridad que no están expuestos a Internet, pero que siguen necesitando distribución de carga round robin, permanencia de sesión o terminación TLS.
 
-Se admite solo 1 dirección IP pública o 1 dirección IP privada. Puede elegir la dirección IP de front-end cuando cree la puerta de enlace de aplicaciones.
+Se admite solo 1 dirección IP pública o una dirección IP privada. Puede elegir la dirección IP de front-end cuando cree la puerta de enlace de aplicaciones.
 
 - Para una dirección IP pública, puede crear una nueva dirección IP pública o usar una ya existente en la misma ubicación que la puerta de enlace de aplicaciones. Para más información, consulte esta comparación entre [direcciones IP públicas estáticas y dinámicas](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#static-versus-dynamic-public-ip-address).
 
@@ -127,13 +168,14 @@ Elija HTTP o HTTPS:
 
 - Si elige HTTP, se descifrará el tráfico entre el cliente y la puerta de enlace de aplicaciones.
 
-- Seleccione HTTPS si desea [terminación SSL](https://docs.microsoft.com/azure/application-gateway/overview#secure-sockets-layer-ssltls-termination) o [cifrado SSL de un extremo a otro](https://docs.microsoft.com/azure/application-gateway/ssl-overview). Si lo hace, se cifrará el tráfico entre el cliente y la puerta de enlace de aplicaciones. Y la conexión SSL termina en la puerta de enlace de aplicaciones. Si desea cifrado SSL de un extremo a otro, debe elegir HTTPS y configurar el valor de **HTTP de back-end**. Esto garantiza que el tráfico se volverá a cifrar cuando vaya desde la puerta de enlace de aplicaciones al back-end.
+- Seleccione HTTPS si desea [terminación TLS](features.md#secure-sockets-layer-ssltls-termination) o [cifrado TLS de un extremo a otro](https://docs.microsoft.com/azure/application-gateway/ssl-overview). Si lo hace, se cifrará el tráfico entre el cliente y la puerta de enlace de aplicaciones. Y la conexión TLS termina en la puerta de enlace de aplicaciones. Si quiere cifrado TLS de un extremo a otro, debe elegir HTTPS y configurar el valor de **HTTP de back-end**. Esto garantiza que el tráfico se volverá a cifrar cuando vaya desde la puerta de enlace de aplicaciones al back-end.
 
-Para configurar la terminación SSL y el cifrado de un extremo a otro, debe agregar un certificado al cliente de escucha para permitir a la puerta de enlace de aplicaciones derivar una clave simétrica. Esto viene determinado por la especificación del protocolo SSL. La clave simétrica se usa para cifrar y descifrar el tráfico que se envía a la puerta de enlace. El certificado de la puerta de enlace debe estar en formato de Intercambio de información personal (PFX). Este formato le permite exportar la clave privada que usa la puerta de enlace para cifrar y descifrar el tráfico.
+
+Para configurar la terminación TLS y el cifrado TLS de un extremo a otro, debe agregar un certificado al cliente de escucha para permitir a la puerta de enlace de aplicaciones derivar una clave simétrica. Esto viene determinado por la especificación del protocolo TLS. La clave simétrica se usa para cifrar y descifrar el tráfico que se envía a la puerta de enlace. El certificado de la puerta de enlace debe estar en formato de Intercambio de información personal (PFX). Este formato le permite exportar la clave privada que usa la puerta de enlace para cifrar y descifrar el tráfico.
 
 #### <a name="supported-certificates"></a>Certificados admitidos
 
-Consulte los [certificados compatibles con la terminación SSL](https://docs.microsoft.com/azure/application-gateway/ssl-overview#certificates-supported-for-ssl-termination).
+Consulte los [certificados compatibles con la terminación TLS](https://docs.microsoft.com/azure/application-gateway/ssl-overview#certificates-supported-for-ssl-termination).
 
 ### <a name="additional-protocol-support"></a>Compatibilidad con protocolos adicionales
 
@@ -161,11 +203,11 @@ Puede definir el error personalizado en el nivel global o en el nivel del client
 
 Para configurar una página de error personalizada global, consulte [Configuración de Azure PowerShell](https://docs.microsoft.com/azure/application-gateway/custom-error#azure-powershell-configuration).
 
-### <a name="ssl-policy"></a>Directiva SSL
+### <a name="tls-policy"></a>Directiva TLS
 
-Puede centralizar la administración de certificados SSL y reducir la sobrecarga de cifrado y descifrado de una granja de servidores back-end. El control centralizado de SSL también le permite especificar una directiva SSL central que se adapte a los requisitos de seguridad. Puede elegir la directiva SSL *predeterminada*, *predefinida* o *personalizada*.
+Puede centralizar la administración de certificados TLS/SSL y reducir la sobrecarga de cifrado y descifrado de una granja de servidores de back-end. El control centralizado de TLS también le permite especificar una directiva TLS central adaptada a sus requisitos de seguridad. Puede elegir la directiva TLS *predeterminada*, *predefinida* o *personalizada*.
 
-Puede configurar la directiva SSL para controlar las versiones del protocolo SSL. Puede configurar una puerta de enlace de aplicaciones para que use una versión de protocolo mínima para los protocolos de enlace TLS desde TLS 1.0, TLS 1.1 y TLS 1.2. De forma predeterminada, SSL 2.0 y 3.0 están deshabilitadas y no se pueden configurar. Para más información, consulte [Introducción a la directiva SSL de Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview).
+Puede configurar la directiva TLS para controlar las versiones del protocolo TLS. Puede configurar una puerta de enlace de aplicaciones para que use una versión de protocolo mínima para los protocolos de enlace TLS desde TLS 1.0, TLS 1.1 y TLS 1.2. De forma predeterminada, SSL 2.0 y 3.0 están deshabilitadas y no se pueden configurar. Para más información, consulte [Introducción a la directiva TLS de Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview).
 
 Después de crear un cliente de escucha, puede asociarlo a una regla de enrutamiento de solicitud. Esta regla determina cómo se enrutan las solicitudes que se reciben en el cliente de escucha hacia el back-end.
 
@@ -252,18 +294,18 @@ La puerta de enlace de aplicaciones enrutará el tráfico a los servidores back-
 
 ### <a name="cookie-based-affinity"></a>Afinidad basada en cookies
 
-Azure Application Gateway usa cookies administradas de puerta de enlace para mantener las sesiones de usuario. Cuando un usuario envía la primera solicitud a Application Gateway, establece una cookie de afinidad en la respuesta con un valor de hash que contiene los detalles de la sesión, de modo que las solicitudes posteriores que lleven la cookie de afinidad se enrutarán al mismo servidor back-end para mantener la adherencia. 
+Azure Application Gateway usa cookies administradas por la puerta de enlace para mantener las sesiones de usuario. Cuando un usuario envía la primera solicitud a Application Gateway, establece una cookie de afinidad en la respuesta con un valor de hash que contiene los detalles de la sesión, de modo que las solicitudes posteriores que lleven la cookie de afinidad se enrutarán al mismo servidor back-end para mantener la adherencia. 
 
 Esta característica es útil cuando se desea mantener una sesión de usuario en el mismo servidor y cuando el estado de la sesión se guarda localmente en el servidor para una sesión de usuario. Si la aplicación no puede administrar la afinidad basada en cookies, no podrá usar esta característica. Para poder utilizarla, asegúrese de que los clientes admiten cookies.
 
-A partir del **17 de febrero de 2020**, la [actualización v80](https://chromiumdash.appspot.com/schedule) de [Chromium](https://www.chromium.org/Home) incluye un mandato por el que las cookies HTTP sin el atributo SameSite se tratan como SameSite=Lax. En el caso de las solicitudes CORS (uso compartido de recursos de varios orígenes), si la cookie tiene que enviarse en un contexto de terceros, tiene que usar los atributos "SameSite=None; Secure" y solo se debe enviar a través de HTTPS. De lo contrario, en un escenario de solo HTTP, el explorador no enviará las cookies en el contexto de terceros. El objetivo de esta actualización de Chrome es mejorar la seguridad y evitar los ataques de falsificación de solicitudes entre sitios (CSRF). 
+La [actualización v80](https://chromiumdash.appspot.com/schedule) del [explorador Chromium](https://www.chromium.org/Home) establece un mandato por el que las cookies HTTP sin el atributo [SameSite](https://tools.ietf.org/id/draft-ietf-httpbis-rfc6265bis-03.html#rfc.section.5.3.7) se tratan como SameSite=Lax. En el caso de las solicitudes CORS (uso compartido de recursos entre orígenes), si la cookie tiene que enviarse en un contexto de terceros, debe usar los atributos *SameSite=None; Secure* y solo debe enviarse utilizando HTTPS. De lo contrario, en un escenario en que solo se utilice HTTP, el explorador no enviará las cookies en el contexto de terceros. El objetivo de esta actualización de Chrome es mejorar la seguridad y evitar los ataques de falsificación de solicitudes entre sitios (CSRF). 
 
-Para admitir este cambio, Application Gateway (todos los tipos de SKU) insertarán otra cookie idéntica llamada **ApplicationGatewayAffinityCORS** además de la cookie **ApplicationGatewayAffinity existente**, que es similar. Sin embargo, esta cookie ahora tendrá dos atributos más **"SameSite=None;Secure"** para que se pueda mantener la sesión incluso en solicitudes entre orígenes.
+Para admitir este cambio, a partir del 17 de febrero de 2020, Application Gateway (y todos los tipos de SKU) insertarán otra cookie llamada *ApplicationGatewayAffinityCORS* además de la cookie *ApplicationGatewayAffinity* existente. La cookie *ApplicationGatewayAffinityCORS* incorpora dos atributos más ( *"SameSite=None; Secure"* ) para que las sesiones persistentes se mantengan incluso en las solicitudes entre orígenes.
 
-Tenga en cuenta que el nombre predeterminado de la cookie de afinidad es **ApplicationGatewayAffinity** y los usuarios pueden cambiarlo. Si usa un nombre de cookie de afinidad personalizado, se agregará una cookie adicional con CORS como sufijo; por ejemplo, **CustomCookieNameCORS**.
+Tenga en cuenta que el nombre predeterminado de la cookie de afinidad es *ApplicationGatewayAffinity*, aunque puede cambiarlo. Si usa un nombre de cookie de afinidad personalizado, se agregará una cookie adicional con CORS como sufijo. Por ejemplo, *CustomCookieNameCORS*.
 
 > [!NOTE]
-> Es obligatorio que, si se establece el atributo **SameSite=None**, la cookie contenga también la marca **Secure** y se envíe a través de **HTTPS**. Por tanto, si la afinidad de la sesión se requiere a través de CORS, debe migrar la carga de trabajo a HTTPS. Consulte la documentación sobre la descarga de SSL y SSL de un extremo a otro para Application Gateway: [Introducción](ssl-overview.md), [Configuración de la descarga de SSL](create-ssl-portal.md), [Configuración de SSL de un extremo a otro](end-to-end-ssl-portal.md).
+> Si se establece el atributo *SameSite=None*, es obligatorio que la cookie contenga también la marca *Secure* y se envíe mediante HTTPS.  Si es necesario que la afinidad de la sesión se establezca mediante CORS, deberá migrar la carga de trabajo a HTTPS. Consulte la documentación sobre la descarga de TLS y TLS de un extremo a otro para Application Gateway aquí: [Introducción](ssl-overview.md), [Tutorial: Configuración de una puerta de enlace de aplicaciones con terminación SSL mediante de Azure Portal](create-ssl-portal.md), [Configuración de SSL de un extremo a otro con Application Gateway mediante el portal](end-to-end-ssl-portal.md).
 
 ### <a name="connection-draining"></a>Purga de la conexión
 
@@ -273,7 +315,7 @@ La purga de conexión ayuda a la correcta eliminación de miembros del grupo de 
 
 Application Gateway admite HTTP y HTTPS para las solicitudes de enrutamiento a los servidores back-end. Si elige HTTP, el tráfico a los servidores back-end no estará cifrado. Si la comunicación sin cifrar no es aceptable, seleccione HTTPS.
 
-Esta configuración combinada con HTTPS en el cliente de escucha admite [SSL de un extremo a otro](ssl-overview.md). Esto le permite transmitir de forma segura información confidencial cifrada al back-end. Cada servidor back-end del grupo con SSL de un extremo a otro habilitada debe configurarse con un certificado para permitir la comunicación segura.
+Esta configuración combinada con HTTPS en el cliente de escucha admite [TLS de un extremo a otro](ssl-overview.md). Esto le permite transmitir de forma segura información confidencial cifrada al back-end. Cada servidor back-end del grupo con TLS de un extremo a otro habilitada debe configurarse con un certificado para permitir la comunicación segura.
 
 ### <a name="port"></a>Port
 
@@ -317,7 +359,7 @@ Esta opción asocia un [sondeo personalizado](application-gateway-probe-overview
 > [!NOTE]
 > El sondeo personalizado no supervisa el estado del grupo de servidores back-end a menos que la configuración de HTTP correspondiente esté explícitamente asociada a un cliente de escucha.
 
-### <a id="pick"/></a>Seleccionar nombre de host de la dirección de back-end
+### <a name="pick-host-name-from-back-end-address"></a><a id="pick"/></a>Seleccionar nombre de host de la dirección de back-end
 
 Esta funcionalidad establece dinámicamente el encabezado *host* de la solicitud en el nombre de host del grupo de servidores back-end. Usa una dirección IP o FQDN.
 
@@ -336,11 +378,11 @@ Para un dominio personalizado cuyo nombre DNS personalizado ya existente está a
 
 Esta funcionalidad reemplaza el encabezado *host* de la solicitud entrante en la puerta de enlace de aplicaciones por el nombre de host que especifique.
 
-Por ejemplo, si se especifica *www.contoso.com* en el valor **Nombre de host**, la solicitud original * https://appgw.eastus.cloudapp.azure.com/path1 cambia a * https://www.contoso.com/path1 cuando la solicitud se reenvía al servidor back-end.
+Por ejemplo, si se especifica *www.contoso.com* en el valor **Nombre de host**, la solicitud original *`https://appgw.eastus.cloudapp.azure.com/path1` cambia a *`https://www.contoso.com/path1` cuando la solicitud se reenvía al servidor back-end.
 
 ## <a name="back-end-pool"></a>Grupo de servidores back-end
 
-Puede apuntar un grupo de servidores back-end a cuatro tipos de miembros de back-end: una máquina virtual específica, un conjunto de escalado de máquinas virtuales, una dirección IP o FQDN, o una instancia de App Service. Cada grupo de servidores back-end puede apuntar a varios miembros del mismo tipo. No se admite el apuntar a miembros de diferentes tipos en el mismo grupo de servidores back-end.
+Puede apuntar un grupo de servidores back-end a cuatro tipos de miembros de back-end: una máquina virtual específica, un conjunto de escalado de máquinas virtuales, una dirección IP o FQDN, o una instancia de App Service. 
 
 Después de crear un grupo de servidores back-end, debe asociarlo con una o varias reglas de enrutamiento de solicitudes. También debe configurar sondeos de estado para cada grupo de servidores back-end de la puerta de enlace de aplicaciones. Cuando se cumple una condición de la regla de enrutamiento de solicitudes, la puerta de enlace de aplicaciones reenvía el tráfico a los servidores correctos (los que determinen los sondeos de estado) del grupo de back-end correspondiente.
 

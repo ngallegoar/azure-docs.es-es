@@ -1,22 +1,24 @@
 ---
 title: Configuración de la autenticación de Twitter
-description: Aprenda a configurar la autenticación de Twitter como proveedor de identidades para una aplicación App Service.
+description: Aprenda a configurar la autenticación de Twitter como proveedor de identidades para una aplicación App Service o Azure Functions.
 ms.assetid: c6dc91d7-30f6-448c-9f2d-8e91104cde73
 ms.topic: article
 ms.date: 02/28/2020
-ms.custom: seodec18
-ms.openlocfilehash: 794f671b36b5aeb9f19cf5d80e488500cedb1098
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom:
+- seodec18
+- fasttrack-edit
+ms.openlocfilehash: 11c913b12b4dcb7d2a5ffa532064b347b82904ef
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78207153"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80519903"
 ---
-# <a name="configure-your-app-service-app-to-use-twitter-login"></a>Configuración de la aplicación de App Service para usar el inicio de sesión de Twitter
+# <a name="configure-your-app-service-or-azure-functions-app-to-use-twitter-login"></a>Configuración de una aplicación de App Service o Azure Functions para usar el inicio de sesión de Twitter
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-En este artículo se muestra cómo configurar Azure App Service para usar Twitter como proveedor de autenticación.
+En este artículo se muestra cómo configurar Azure App Service o Azure Functions para usar Twitter como proveedor de autenticación.
 
 Para llevar a cabo el procedimiento descrito en este artículo, debe tener una cuenta de Twitter asociada a una dirección de correo electrónico verificada y a un número de teléfono. Para crear una cuenta de Twitter, vaya a [twitter.com].
 

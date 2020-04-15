@@ -2,26 +2,22 @@
 title: Códigos de error de autenticación y autorización de Azure AD
 description: Obtenga información sobre los códigos de error AADSTS que devuelve el servicio de token de seguridad (STS) de Azure AD.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
-ms.date: 02/19/2020
+ms.date: 04/07/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: ba5af060a02e8525320f005b5d1c80534c5ca4ea
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 40a7406ea91c95daad2f180b9d0f4620cdbbf454
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77483931"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80875935"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Códigos de error de autenticación y autorización de Azure AD
 
@@ -33,9 +29,9 @@ ms.locfileid: "77483931"
 > Esta documentación se proporciona como una guía para desarrolladores y administradores, pero nunca la debe usar el cliente por sí solo. Los códigos de error están sujetos a cambio en cualquier momento con el fin de proporcionar mensajes de error más pormenorizados diseñados para ayudar al desarrollador mientras compila su aplicación. Las aplicaciones que tienen dependencia de números de código de error o texto se interrumpirán en el tiempo.
 
 ## <a name="lookup-current-error-code-information"></a>Búsqueda de información actual sobre códigos de error
-Los códigos y los mensajes de error están sujetos a cambios.  Para tener la información más actualizada, eche un vistazo a la página [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) para encontrar descripciones de errores de AADSTS, correcciones y algunas soluciones recomendadas.  
+Los códigos y los mensajes de error están sujetos a cambios.  Para disponer de la información más actualizada, eche un vistazo a la página `https://login.microsoftonline.com/error`, donde encontrará descripciones de errores de AADSTS, correcciones y algunas soluciones recomendadas.  
 
-Busque en la parte numérica del código de error devuelto.  Por ejemplo, si ha recibido el código de error "AADSTS16000", busque "16000" en [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error).  También puede agregar el número de código de error a la dirección URL: [https://login.microsoftonline.com/error?code=16000](https://login.microsoftonline.com/error?code=16000) para crear un vínculo directo a un error específico.
+Busque en la parte numérica del código de error devuelto.  Por ejemplo, si ha recibido el código de error "AADSTS16000", busque "16000" en `https://login.microsoftonline.com/error`.  También puede agregar el número de código de error a la dirección URL: `https://login.microsoftonline.com/error?code=16000` para crear un vínculo directo a un error específico.
 
 ## <a name="aadsts-error-codes"></a>Códigos de error AADSTS
 
@@ -133,6 +129,7 @@ Busque en la parte numérica del código de error devuelto.  Por ejemplo, si ha 
 | AADSTS50180 | WindowsIntegratedAuthMissing: es obligatoria la autenticación de Windows integrada. Habilite el inquilino para un inicio de sesión único de conexión directa. |
 | AADSTS50187 | DeviceInformationNotProvided: el servicio no pudo realizar la autenticación de dispositivos. |
 | AADSTS50196 | LoopDetected: se ha detectado un bucle de cliente. Compruebe la lógica de la aplicación para asegurarse de que el almacenamiento en caché de tokens está implementado y de que las condiciones de error se controlan correctamente.  La aplicación ha realizado demasiadas veces la misma solicitud en un período demasiado corto, lo que indica que se encuentra en un estado defectuoso o que solicita tokens de forma abusiva. |
+| AADSTS50197 | ConflictingIdentities: no se encontró el usuario. Intente iniciar sesión de nuevo. |
 | AADSTS50199 | CmsiInterrupt: por razones de seguridad, se requiere la confirmación del usuario para esta solicitud.  Dado que se trata de un error "interaction_required", el cliente debe realizar la autenticación interactiva.  Esto se debe a que se ha usado una vista web del sistema para solicitar un token para una aplicación nativa. Se debe pedir al usuario que pregunte si realmente se trata de la aplicación en la que pretendía iniciar sesión.|
 | AADSTS51000 | RequiredFeatureNotEnabled: la característica está deshabilitada. |
 | AADSTS51001 | DomainHintMustbePresent: la sugerencia de dominio debe estar presente con el identificador de seguridad local o UPN local. |
@@ -271,9 +268,12 @@ Busque en la parte numérica del código de error devuelto.  Por ejemplo, si ha 
 | AADSTS700020 | InteractionRequired: la concesión de acceso requiere interacción. |
 | AADSTS700022 | InvalidMultipleResourcesScope: el valor proporcionado para el ámbito de parámetro de entrada no es válido porque contiene más de un recurso. |
 | AADSTS700023 | InvalidResourcelessScope: el valor proporcionado para el ámbito de parámetro de entrada no es válido al solicitar un token de acceso. |
+| AADSTS7000222| InvalidClientSecretExpiredKeysProvided: las claves secretas de cliente que se proporcionaron expiraron. Visite Azure portal para crear claves nuevas para la aplicación o considere el uso de credenciales de certificado para mayor seguridad: https://aka.ms/certCreds |
+| AADSTS700005 | InvalidGrantRedeemAgainstWrongTenant: el código de autorización proporcionado está diseñado para usarlo con otro inquilino, por lo que se rechaza. El código de autorización de OAuth2 se debe canjear en el mismo inquilino para el cual se adquirió (/common o /{tenant-ID} según corresponda). |
 | AADSTS1000000 | UserNotBoundError: la API de Bind requiere que el usuario de Azure AD también se autentique con un IDP externo, que aún no se ha producido. |
 | AADSTS1000002 | BindCompleteInterruptError: el enlace se completó correctamente, pero debe informarse al usuario. |
 | AADSTS7000112 | UnauthorizedClientApplicationDisabled: la aplicación está deshabilitada. |
+| AADSTS7500529 | El valor "SAMLId-Guid" no es un identificador de SAML válido. Azure AD usa este atributo para rellenar el atributo InResponseTo de la respuesta devuelta. El id. no debe empezar con un número. La estrategia habitual consiste en anteponer una cadena como "id" en la representación de cadena de un GUID. Por ejemplo, id6c1c178c166d486687be4aaf5e482730 es un identificador válido. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

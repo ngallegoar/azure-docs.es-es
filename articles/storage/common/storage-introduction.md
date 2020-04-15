@@ -1,40 +1,53 @@
 ---
 title: 'Introducción a Azure Storage: almacenamiento en la nube en Azure | Microsoft Docs'
-description: Azure Storage es una solución de almacenamiento en la nube de Microsoft. Azure Storage proporciona almacenamiento para objetos de datos, que presenta una alta disponibilidad, es seguro, durable y redundante y se puede escalar de forma masiva.
+description: La plataforma principal de Azure Storage es la solución de almacenamiento en la nube de Microsoft. Azure Storage proporciona almacenamiento para objetos de datos, que presenta una alta disponibilidad, es seguro, durable y redundante y se puede escalar de forma masiva.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/16/2020
+ms.date: 04/08/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 5bab70b6b023a4e6510e32368d407a38388cde2f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1cc047ee60cf8287f32a42b878371c5fc9680b7a
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79228576"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985752"
 ---
-# <a name="introduction-to-azure-storage"></a>Introducción a Azure Storage
+# <a name="introduction-to-the-core-azure-storage-services"></a>Introducción a los servicios principales de Azure Storage
 
-Azure Storage es la solución de almacenamiento de Microsoft para los escenarios modernos de almacenamiento de datos. Azure Storage ofrece un almacén de objetos que se puede escalar de forma masiva destinado a objetos de datos, un servicio de sistema de archivos para la nube, un almacén de mensajería para mensajería confiable y un almacén NoSQL. Azure Storage se caracteriza por ofrecer lo siguiente:
+La plataforma de Azure Storage es la solución de almacenamiento en la nube de Microsoft para los escenarios modernos de almacenamiento de datos. Los servicios principales de almacenamiento ofrecen un almacén de objetos escalable de forma masiva para objetos de datos, un almacenamiento en disco para máquinas virtuales (VM) de Azure, un servicio de sistema de archivos para la nube, un almacén de mensajes para mensajería confiable y un almacén NoSQL. Los servicios son:
 
 - **Durabilidad y elevada disponibilidad.** La redundancia garantiza que los datos están seguros en caso de errores de hardware transitorios. También puede optar por replicar datos entre centros de datos o regiones geográficas para obtener protección adicional frente a catástrofes locales o desastres naturales. Los datos replicados de esta manera permanecen con una alta disponibilidad en caso de una interrupción inesperada.
-- **Seguridad.** Todos los datos escritos en Azure Storage se cifran mediante el servicio. Azure Storage proporciona un control pormenorizado sobre quién tiene acceso a los datos.
+- **Seguridad.** Todos los datos escritos en una cuenta de Azure Storage se cifran mediante el servicio. Azure Storage proporciona un control pormenorizado sobre quién tiene acceso a los datos.
 - **Escalabilidad.** Azure Storage está diseñado para poderse escalar de forma masiva para satisfacer las necesidades de rendimiento y almacenamiento de datos de las aplicaciones de hoy en día.
-- **Administración.** Microsoft Azure controla automáticamente el mantenimiento, las actualizaciones y los problemas críticos del hardware.
+- **Administración.** Azure controla automáticamente el mantenimiento, las actualizaciones y los problemas críticos del hardware.
 - **Accesibilidad.** Es posible acceder a los datos de Azure Storage desde cualquier parte del mundo a través de HTTP o HTTPS. Microsoft proporciona bibliotecas cliente para Azure Storage en diversos lenguajes, incluidos .NET, Java, Node.js, Python, PHP, Ruby, Go y otros, así como una API REST consolidada. Azure Storage admite la escritura en Azure PowerShell o la CLI de Azure. Y Azure Portal y el Explorador de Azure Storage ofrecen soluciones visuales sencillas para trabajar con los datos.  
 
-## <a name="azure-storage-services"></a>Servicios de Azure Storage
+## <a name="core-storage-services"></a>Servicios principales de almacenamiento
 
-Azure Storage incluye estos servicios de datos:
+La plataforma de Azure Storage incluye los servicios de datos siguientes:
 
-- [Blobs de Azure](../blobs/storage-blobs-introduction.md): un almacén de objetos que se puede escalar de forma masiva para datos de texto y binarios.
+- [Blobs de Azure](../blobs/storage-blobs-introduction.md): un almacén de objetos que se puede escalar de forma masiva para datos de texto y binarios. También incluye compatibilidad con el análisis de macrodatos a través de Data Lake Storage Gen2.
 - [Azure Files](../files/storage-files-introduction.md): recursos compartidos de archivos administrados para implementaciones locales y en la nube.
 - [Colas de Azure](../queues/storage-queues-introduction.md): un almacén de mensajería para mensajería confiable entre componentes de aplicación.
 - [Tablas de Azure](../tables/table-storage-overview.md): un almacén NoSQL para el almacenamiento sin esquema de datos estructurados.
+- [Azure Disks](../../virtual-machines/windows/managed-disks-overview.md): volúmenes de almacenamiento en el nivel de bloque para máquinas virtuales de Azure.
 
 Para acceder a cada servicio se usa una cuenta de almacenamiento. Para comenzar, consulte [Crear una cuenta de almacenamiento](storage-account-create.md).
+
+## <a name="example-scenarios"></a>Escenarios de ejemplo
+
+En la tabla siguiente se comparan Files, Blobs, Disks, Queues y Tables y se muestran escenarios de ejemplo para cada uno.
+
+| Característica | Descripción | Cuándo se usa |
+|--------------|-------------|-------------|
+| **Archivos de Azure** |Ofrece recursos compartidos de archivos en la nube totalmente administrados a los que puede acceder desde cualquier lugar a través del protocolo de bloque de mensajes del servidor (SMB) estándar del sector.<br><br>Los recursos compartidos de archivos de Azure se pueden montar desde implementaciones de Windows, Linux y macOS en la nube o locales. | Cuando desee migrar mediante lift-and-shift una aplicación a la nube que ya usa las API del sistema de archivos nativo para compartir datos entre ella y otras aplicaciones que se ejecutan en Azure.<br/><br/>Cuando quiera reemplazar o complementar los servidores de archivos locales o los dispositivos NAS.<br><br> Cuando desee almacenar herramientas de desarrollo y depuración a las que es necesario acceder desde muchas máquinas virtuales. |
+| **Azure Blobs** | Permite que los datos no estructurados se almacenen y accedan a una escala masiva en blobs en bloques.<br/><br/>También admite [Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md) para soluciones de análisis de macrodatos empresariales. | Cuando desea que la aplicación admita escenarios de streaming y de acceso aleatorio.<br/><br/>Cuando desea poder tener acceso a datos de aplicación desde cualquier lugar.<br/><br/>Desea crear una instancia empresarial de Data Lake en Azure y realizar análisis de macrodatos. |
+| **Azure Disks** | Permite que los datos se almacenen y se acceda a ellos desde un disco duro virtual conectado de manera persistente. | Cuando desea migrar mediante lift-and-shift aplicaciones que usan las API del sistema de archivos nativo para leer y escribir datos en discos persistentes.<br/><br/>Cuando desea almacenar datos a los que no se necesita acceder desde fuera de la máquina virtual a la que está conectado el disco. |
+| **Colas de Azure** | Permite la puesta en cola de mensajes asincrónica entre los componentes de la aplicación. | Cuando quiere desacoplar los componentes de la aplicación y usar la mensajería asincrónica para comunicarse entre ellos.<br><br>Para instrucciones sobre cuándo usar las colas de Queue Storage en comparación con las colas de Service Bus, consulte [Colas de Storage y de Service Bus: comparación y diferencias](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted). |
+| **Tablas de Azure** | Permite almacenar datos NoSQL estructurados en la nube, lo que proporciona un almacén de claves y atributos con un diseño sin esquema. | Cuando quiere almacenar conjuntos de datos flexibles, como datos de usuarios para aplicaciones web, libretas de direcciones, información de dispositivos u otros tipos de metadatos que el servicio requiera. <br/><br/>Para instrucciones sobre cuándo usar Table Storage en comparación con Table API de Azure Cosmos DB, consulte [Desarrollo con Table API de Azure Cosmos DB y Azure Table Storage](../../cosmos-db/table-support.md). |
 
 ## <a name="blob-storage"></a>Blob Storage
 
@@ -66,9 +79,9 @@ Los recursos compartidos de archivos se pueden utilizar para muchos escenarios c
 
 - Los registros de diagnóstico, las métricas y los volcados de memoria son solo tres ejemplos de datos que se pueden escribir en un recurso compartido de archivos y procesarse o analizarse posteriormente.
 
-En este momento, las listas de control de acceso (ACL) y la autenticación basada en Active Directory no se admiten, pero se admitirán en algún momento. Las credenciales de las cuentas de almacenamiento se usan para permitir la autenticación al recurso compartido de archivos. Esto significa que cualquier usuario con el recurso compartido montado tendrá acceso completo de lectura/escritura al recurso compartido.
-
 Para más información sobre Azure Files, consulte [Introducción a Azure Files](../files/storage-files-introduction.md).
+
+Algunas características SMB no son aplicables a la nube. Para más información, consulte [Features not supported by the Azure File service](/rest/api/storageservices/features-not-supported-by-the-azure-file-service) (Características que no admite el servicio Azure File).
 
 ## <a name="queue-storage"></a>Queue Storage
 
@@ -80,7 +93,7 @@ Para más información sobre las colas de Azure, consulte [Introducción a las c
 
 ## <a name="table-storage"></a>Almacenamiento de tablas
 
-Azure Table Storage ahora forma parte de Azure Cosmos DB. Para ver la documentación de Azure Table Storage, consulte [Introducción a Azure Table Storage](../tables/table-storage-overview.md). Además del servicio Azure Table Storage existente, hay una nueva Table API de Azure Cosmos DB que ofrece tablas con rendimiento optimizado, distribución global e índices secundarios automáticos. Para más información sobre la nueva experiencia prémium y poder probarla, consulte [Introducción a Table API de Azure Cosmos DB.](https://aka.ms/premiumtables)
+Azure Table Storage ahora forma parte de Azure Cosmos DB. Para ver la documentación de Azure Table Storage, consulte [Introducción a Azure Table Storage](../tables/table-storage-overview.md). Además del servicio Azure Table Storage existente, hay una nueva Table API de Azure Cosmos DB que ofrece tablas con rendimiento optimizado, distribución global e índices secundarios automáticos. Para más información al respecto y probar esta oferta, consulte [Introducción a Table API de Azure Cosmos DB](https://aka.ms/premiumtables).
 
 Para más información sobre Table Storage, consulte [Introducción a Azure Table Storage](../tables/table-storage-overview.md).
 
@@ -92,27 +105,25 @@ Para más información sobre discos administrados, consulte [Introducción a los
 
 ## <a name="types-of-storage-accounts"></a>Tipos de cuentas de almacenamiento
 
-[!INCLUDE [storage-account-types-include](../../../includes/storage-account-types-include.md)]
+Azure Storage ofrece varios tipos de cuentas de almacenamiento. Cada tipo admite diferentes características y tiene su propio modelo de precios. Para más información acerca de los tipos de cuentas de almacenamiento, consulte la [Introducción a la cuenta de Azure Storage](storage-account-overview.md).
 
-Para más información acerca de los tipos de cuentas de almacenamiento, consulte la [Introducción a la cuenta de Azure Storage](storage-account-overview.md).
-
-## <a name="securing-access-to-storage-accounts"></a>Protección del acceso a las cuentas de almacenamiento
+## <a name="secure-access-to-storage-accounts"></a>Protección del acceso a las cuentas de almacenamiento
 
 Cada solicitud para Azure Storage se debe autorizar. Azure Storage admite los siguientes métodos de autorización:
 
 - **Integración de Azure Active Directory (Azure AD) para datos de blob y cola.** Azure Storage admite la autenticación y autorización con Azure AD para los servicios Blob y Queue a través del control de acceso basado en rol (RBAC). Se recomiendan la autorización de solicitudes con Azure AD para mayor seguridad y facilidad de uso. Para más información, consulte [Autenticación del acceso a blobs y colas de Azure con Azure Active Directory](storage-auth-aad.md).
-- **Autorización de Azure AD a través de SMB para Azure Files (versión preliminar).** Azure Files admite la autorización basada en identidades a través de SMB (Bloque de mensajes del servidor) mediante Azure Active Directory Domain Services. Las máquinas virtuales (VM) Windows unidas al dominio pueden acceder a los recursos compartidos de archivos de Azure con las credenciales de Azure AD. Para más información, consulte [Introducción a la autenticación de Azure Active Directory sobre SMB para Azure Files (versión preliminar)](../files/storage-files-active-directory-overview.md).
-- **Autorización con clave compartida.** Los servicios de Azure Storage Blob, Queue y Table y Azure Files admiten la autorización con clave compartida. Un cliente que usa la autorización de clave compartida pasa un encabezado con cada solicitud que se firma con la clave de acceso de la cuenta de almacenamiento. Para más información, consulte el artículo sobre la [Autorización con clave compartida](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key).
+- **Autorización de Azure AD a través de SMB para Azure Files**. Azure Files admite la autorización basada en identidad a través de SMB (bloque de mensajes del servidor) a través de Azure Active Directory Domain Services (Azure AD DS) o Active Directory Domain Services locales (versión preliminar). Las máquinas virtuales Windows unidas al dominio pueden acceder a los recursos compartidos de archivos de Azure con las credenciales de Azure AD. Para más información, consulte [Introducción a la compatibilidad de la autenticación basada en la identidad de Azure Files con el acceso SMB](../files/storage-files-active-directory-overview.md) y [Planeamiento de una implementación de Azure Files](../files/storage-files-planning.md#identity).
+- **Autorización con clave compartida.** Los servicios de Azure Storage Blob, Files, Queue y Table admiten autorización con la clave compartida. Los clientes con autorización de clave compartida pasan un encabezado con cada solicitud que está firmado con la clave de acceso de la cuenta de almacenamiento. Para más información, consulte el artículo sobre la [Autorización con clave compartida](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key).
 - **Autorización mediante las firmas de acceso compartido (SAS).** Una firma de acceso compartido (SAS) es una cadena que contiene un token de seguridad que se puede asociar a un URI para un recurso de almacenamiento. El token de seguridad encapsula las restricciones, como pueden ser los permisos y el intervalo de acceso. Para más información, consulte [Uso de firmas de acceso compartido (SAS)](storage-sas-overview.md).
-- **Acceso anónimo a contenedores y blobs.** Un contenedor y sus blobs pueden estar disponibles públicamente. Cuando se especifica que un contenedor o blob es público, todos los usuarios pueden leerlo de forma anónima: no se requiere autenticación. Para más información, consulte [Manage anonymous read access to containers and blobs](../blobs/storage-manage-access-to-resources.md) (Administración del acceso de lectura anónimo a contenedores y blobs).
+- **Acceso anónimo a contenedores y blobs.** Un contenedor y sus blobs pueden estar disponibles públicamente. Cuando se especifica que un contenedor o blob es público, todos los usuarios pueden leerlo de forma anónima: no se requiere autenticación. Para más información, consulte [Administración del acceso de lectura anónimo a contenedores y blobs](../blobs/storage-manage-access-to-resources.md).
 
 ## <a name="encryption"></a>Cifrado
 
-Hay dos tipos básicos de cifrado disponibles para los servicios de almacenamiento. Para más información sobre la seguridad y el cifrado, consulte [Guía de seguridad de Azure Storage](../blobs/security-recommendations.md).
+Hay dos tipos básicos de cifrado disponibles para los servicios principales de almacenamiento. Para más información sobre la seguridad y el cifrado, consulte [Guía de seguridad de Azure Storage](../blobs/security-recommendations.md).
 
 ### <a name="encryption-at-rest"></a>Cifrado en reposo
 
-El cifrado de Azure Storage protege y salvaguarda los datos para satisfacer los compromisos de cumplimiento y seguridad de su organización. Azure Storage cifra automáticamente todos los datos antes de permanecer en la cuenta de almacenamiento y los descifra después de la recuperación. Los procesos de cifrado, descifrado y administración de claves son totalmente transparentes para los usuarios. Los clientes también pueden optar por administrar sus propias claves con Azure Key Vault. Para más información, consulte [Cifrado de Azure Storage para datos en reposo](storage-service-encryption.md).
+El cifrado de Azure Storage protege y salvaguarda los datos para satisfacer los compromisos de cumplimiento y seguridad de su organización. Azure Storage cifra automáticamente todos los datos antes de permanecer en la cuenta de almacenamiento y los descifra después de la recuperación. Los procesos de cifrado, descifrado y administración de claves son transparentes para los usuarios. Los clientes también pueden optar por administrar sus propias claves con Azure Key Vault. Para más información, consulte [Cifrado de Azure Storage para datos en reposo](storage-service-encryption.md).
 
 ### <a name="client-side-encryption"></a>Cifrado de cliente
 
@@ -120,21 +131,19 @@ Las bibliotecas cliente de Azure Storage proporcionan métodos para cifrar los d
 
 ## <a name="redundancy"></a>Redundancia
 
-Para asegurarse de que los datos son duraderos, Azure Storage almacena varias copias de los mismos. Al configurar la cuenta de almacenamiento, selecciona una opción de redundancia.
+Para asegurarse de que los datos son duraderos, Azure Storage almacena varias copias de los mismos. Al configurar la cuenta de almacenamiento, selecciona una opción de redundancia. Para obtener más información, consulte [Redundancia de Azure Storage](/storage-redundancy?toc=/azure/storage/blobs/toc.json).
 
-[!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
-
-## <a name="transferring-data-to-and-from-azure-storage"></a>Transferencia de datos hacia y desde Azure Storage
+## <a name="transfer-data-to-and-from-azure-storage"></a>Transferencia de datos hacia y desde Azure Storage
 
 Tiene varias opciones para introducir o sacar datos de Azure Storage. La opción que elija depende del tamaño del conjunto de datos y del ancho de banda de red. Para más información, consulte [Elección de la solución de Azure para la transferencia de datos](storage-choose-data-transfer-solution.md).
 
 ## <a name="pricing"></a>Precios
 
-Para información detallada sobre los precios de Azure Storage, consulte la [página de precios](https://azure.microsoft.com/pricing/details/storage/blobs/).
+Al tomar decisiones sobre cómo se almacenan los datos y cómo se accede a ellos, también debe tener en cuenta los costos implicados. Para más información, consulte [Precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
 
 ## <a name="storage-apis-libraries-and-tools"></a>API, bibliotecas y herramientas de Storage
 
-Es posible acceder a los recursos de Azure Storage por medio de cualquier lenguaje que pueda realizar solicitudes HTTP/HTTPS. Además, Azure Storage ofrece bibliotecas de programación para varios lenguajes de amplio uso. Estas bibliotecas simplifican muchos aspectos relacionados con el uso de Azure Storage, ya que abordan detalles como la invocación sincrónica y asincrónica, el procesamiento por lotes de las operaciones, la administración de excepciones, los reintentos automáticos y el comportamiento operativo, entre otros. Actualmente hay bibliotecas disponibles para los siguientes lenguajes y plataformas, además de otros previstos:
+Puede acceder a los recursos de una cuenta de almacenamiento mediante cualquier lenguaje que pueda hacer solicitudes HTTP/HTTPS. Además, los servicios principales de Azure Storage ofrecen bibliotecas de programación para varios lenguajes populares. Estas bibliotecas simplifican muchos aspectos relacionados con el uso de Azure Storage, ya que abordan detalles como la invocación sincrónica y asincrónica, el procesamiento por lotes de las operaciones, la administración de excepciones, los reintentos automáticos y el comportamiento operativo, entre otros. Actualmente hay bibliotecas disponibles para los siguientes lenguajes y plataformas, además de otros previstos:
 
 ### <a name="azure-storage-data-api-and-library-references"></a>Referencias de biblioteca y de API de datos de Azure Storage
 
@@ -169,4 +178,4 @@ Es posible acceder a los recursos de Azure Storage por medio de cualquier lengua
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para iniciar y ejecutar con Azure Storage, consulte [Crear una cuenta de almacenamiento](storage-account-create.md).
+Para empezar a trabajar con los servicios principales de Azure Storage, consulte [Creación de una cuenta de almacenamiento](storage-account-create.md).

@@ -4,19 +4,19 @@ description: Aquí se describe cómo utilizar la característica de informes de 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/30/2018
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52d9f7a0b2a7cebefdb5ade8e16417043c5c83d3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c5d5354f5bca7a4c9ab00066167ad19890536629
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425290"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80653622"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Informes en Azure Multi-Factor Authentication
 
@@ -90,7 +90,7 @@ Los informes de actividades de inicio de sesión referentes a la MFA le proporci
       - la llamada de teléfono se dirigió al correo de voz
       - el número de teléfono tiene un formato no válido
       - error del servicio
-      - no se puede acceder el teléfono del usuario
+      - no se puede acceder al teléfono del usuario
       - no se puede enviar la notificación de la aplicación móvil al dispositivo
       - no se puede enviar la notificación de la aplicación móvil
       - el usuario rechazó la autenticación
@@ -126,13 +126,13 @@ Los informes de actividades de inicio de sesión referentes a la MFA le proporci
 
 En primer lugar, asegúrese de que tiene el [módulo de PowerShell MSOnline V1](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-1.0) instalado.
 
-Identifique los usuarios que se han registrado en MFA mediante el PowerShell siguiente.
+Identifique los usuarios que se han registrado en MFA mediante el PowerShell siguiente. Este conjunto de comandos excluye los usuarios deshabilitados, ya que estas cuentas no se pueden autenticar en Azure AD.
 
-```Get-MsolUser -All | Where-Object {$_.StrongAuthenticationMethods -ne $null} | Select-Object -Property UserPrincipalName```
+```Get-MsolUser -All | Where-Object {$.StrongAuthenticationMethods -ne $null -and $.BlockCredential -eq $False} | Select-Object -Property UserPrincipalName```
 
-Identifique los usuarios que no se han registrado en MFA mediante el PowerShell siguiente.
+Identifique los usuarios que no se han registrado en MFA mediante el PowerShell siguiente. Este conjunto de comandos excluye los usuarios deshabilitados, ya que estas cuentas no se pueden autenticar en Azure AD.
 
-```Get-MsolUser -All | Where-Object {$_.StrongAuthenticationMethods.Count -eq 0} | Select-Object -Property UserPrincipalName```
+```Get-MsolUser -All | Where-Object {$.StrongAuthenticationMethods.Count -eq 0 -and $.BlockCredential -eq $False} | Select-Object -Property UserPrincipalName```
 
 Identifique los usuarios y los métodos de salida registrados. 
 

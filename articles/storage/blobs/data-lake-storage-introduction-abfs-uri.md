@@ -8,12 +8,12 @@ ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: jamesbak
-ms.openlocfilehash: 04df30c2a97e865d23999df26768b38cb38be607
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fa0f67e0d72ee5710a42b6de744ddae98e20220a
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68855553"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437129"
 ---
 # <a name="use-the-azure-data-lake-storage-gen2-uri"></a>Uso del URI de Azure Data Lake Storage Gen2
 
@@ -27,11 +27,11 @@ Si la cuenta compatible con Data Lake Storage Gen2 que quiere dirigir **no está
 
 <pre>abfs[s]<sup>1</sup>://&lt;file_system&gt;<sup>2</sup>@&lt;account_name&gt;<sup>3</sup>.dfs.core.windows.net/&lt;path&gt;<sup>4</sup>/&lt;file_name&gt;<sup>5</sup></pre>
 
-1. **Identificador de esquema**: el protocolo `abfs` se usa como el identificador de esquema. Tiene la opción de conectarse con o sin una conexión Capa de sockets seguros (SSL). Use `abfss` para conectarse con una conexión Capa de sockets seguros.
+1. **Identificador de esquema**: el protocolo `abfs` se usa como el identificador de esquema. Tiene la opción de conectar con o sin una conexión de seguridad de la capa de transporte (TLS), conocida anteriormente como capa de sockets seguros (SSL). Use `abfss` para conectarse con una conexión TLS.
 
 2. **Sistema de archivos**: ubicación principal que contiene los archivos y las carpetas. Es la misma que la de los contenedores del servicio de Azure Storage Blob.
 
-3. **Nombre de la cuenta**: nombre dado a la cuenta de almacenamiento durante la creación.
+3. **Nombre de cuenta**: nombre dado a la cuenta de almacenamiento durante la creación.
 
 4. **Rutas de acceso**: representación de barra diagonal delimitada (`/`) de la estructura del directorio.
 

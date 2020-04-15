@@ -3,12 +3,12 @@ title: Filtrado y preprocesamiento en el SDK de Azure Application Insights | Mic
 description: Escriba procesadores e inicializadores de telemetría para que el SDK filtre o agregue propiedades a los datos antes de enviar la telemetría al portal de Application Insights.
 ms.topic: conceptual
 ms.date: 11/23/2016
-ms.openlocfilehash: 9f4df83ed60ba94913702b9a32a298f0ac62f9f4
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 8f2064f73821a017046cbb552a8dcf592ce13267
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77666469"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80983765"
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Filtro y preprocesamiento de la telemetría en el SDK de Application Insights
 
@@ -21,7 +21,7 @@ Puede escribir y configurar complementos para el SDK de Application Insights con
 
 Antes de comenzar:
 
-* Instale el SDK adecuado para su aplicación: [ASP.NET](asp-net.md), [ASP.NET Core](asp-net-core.md), [No HTTP/Trabajo para .NET/.NET Core](worker-service.md), [Java](../../azure-monitor/app/java-get-started.md) o [JavaScript](javascript.md)
+* Instale el SDK adecuado para su aplicación: [ASP.NET](asp-net.md), [ASP.NET Core](asp-net-core.md), [No HTTP/Trabajo para .NET/.NET Core](worker-service.md) o [JavaScript](javascript.md)
 
 <a name="filtering"></a>
 
@@ -203,7 +203,7 @@ public void Process(ITelemetry item)
    ```JS
    var filteringFunction = (envelope) => {
      if (envelope.data.someField === 'tobefilteredout') {
-        return false;
+         return false;
      }
   
      return true;
@@ -307,26 +307,6 @@ Para las aplicaciones escritas mediante [ASP.NET Core](asp-net-core.md#adding-te
     services.AddSingleton<ITelemetryInitializer, MyTelemetryInitializer>();
 }
 ```
-
-### <a name="java-telemetry-initializers"></a>Inicializadores de telemetría de Java
-
-[Documentación del SDK de Java](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility.telemetryinitializer?view=azure-java-stable)
-
-```Java
-public interface TelemetryInitializer
-{ /** Initializes properties of the specified object. * @param telemetry The {@link com.microsoft.applicationinsights.telemetry.Telemetry} to initialize. */
-
-void initialize(Telemetry telemetry); }
-```
-
-A continuación, registre al inicializador personalizado en el archivo applicationinsights.xml.
-
-```xml
-<Add type="mypackage.MyConfigurableContextInitializer">
-    <Param name="some_config_property" value="some_value" />
-</Add>
-```
-
 ### <a name="javascript-telemetry-initializers"></a>Inicializadores de telemetría de JavaScript
 *JavaScript*
 
@@ -378,6 +358,14 @@ Puede agregar tantos inicializadores como desee. A estos se les llama en el orde
 ### <a name="opencensus-python-telemetry-processors"></a>Procesadores de telemetría de Python para OpenCensus
 
 Los procesadores de telemetría de Python para OpenCensus son simplemente funciones de devolución de llamada utilizadas para procesar la telemetría antes de que se exporten. La función de devolución de llamada debe aceptar un tipo de datos de [sobre](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/protocol.py#L86) como parámetro. Para filtrar la telemetría para que no se exporte, asegúrese de que la función de devolución de llamada devuelva `False`. Puede ver el esquema de los tipos de datos de Azure Monitor en los sobres [aquí](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/protocol.py).
+
+> [!NOTE]
+> `cloud_RoleName` se puede modificar cambiando el atributo `ai.cloud.role` del campo `tags`.
+
+```python
+def callback_function(envelope):
+    envelope.tags['ai.cloud.role'] = 'new_role_name.py'
+```
 
 ```python
 # Example for log exporter
@@ -486,7 +474,7 @@ El siguiente inicializador de ejemplo agrega una propiedad personalizada a cada 
 public void Initialize(ITelemetry item)
 {
   var itemProperties = item as ISupportProperties;
-  if(itemProperties != null && !itemProperties.ContainsKey("customProp"))
+  if(itemProperties != null && !itemProperties.Properties.ContainsKey("customProp"))
     {
         itemProperties.Properties["customProp"] = "customValue";
     }
@@ -534,7 +522,7 @@ public void Initialize(ITelemetry telemetry)
 * [SDK de ASP.NET](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [SDK de JavaScript](https://github.com/Microsoft/ApplicationInsights-JS)
 
-## <a name="next"></a>Pasos siguientes
+## <a name="next-steps"></a><a name="next"></a>Pasos siguientes
 * [Búsqueda de eventos y registros](../../azure-monitor/app/diagnostic-search.md)
 * [Muestreo](../../azure-monitor/app/sampling.md)
 * [Solución de problemas](../../azure-monitor/app/troubleshoot-faq.md)

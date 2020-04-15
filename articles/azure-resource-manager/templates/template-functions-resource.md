@@ -2,17 +2,17 @@
 title: 'Funciones de plantillas: recursos'
 description: Describe las funciones para usar en una plantilla de Azure Resource Manager para recuperar valores sobre recursos.
 ms.topic: conceptual
-ms.date: 02/10/2020
-ms.openlocfilehash: 10476f5a29c12d7437beb9a9f707feda815d7ba1
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.date: 04/06/2020
+ms.openlocfilehash: 90cee78c29c26c88d808cdef798e74a2184a5fcf
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78354948"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804765"
 ---
-# <a name="resource-functions-for-azure-resource-manager-templates"></a>Funciones de recursos para las plantillas de Azure Resource Manager
+# <a name="resource-functions-for-arm-templates"></a>Funciones de recursos para plantillas de ARM
 
-El Administrador de recursos ofrece las siguientes funciones para obtener valores de recursos:
+Resource Manager ofrece las siguientes funciones para obtener valores de recursos en la plantilla de Azure Resource Manager (ARM):
 
 * [extensionResourceId](#extensionresourceid)
 * [list*](#list)
@@ -41,7 +41,7 @@ Devuelve el identificador de recurso de un [recurso de extensión](../management
 | resourceId |Sí |string |El identificador de recurso para el recurso al que se aplica el recurso de extensión. |
 | resourceType |Sí |string |Tipo de recurso, incluido el espacio de nombres del proveedor de recursos. |
 | resourceName1 |Sí |string |Nombre del recurso. |
-| resourceName2 |Sin |string |Segmento con el nombre del siguiente segmento, si es necesario. |
+| resourceName2 |No |string |Segmento con el nombre del siguiente segmento, si es necesario. |
 
 Siga agregando nombres de recursos como parámetros cuando el tipo de recurso incluya más segmentos.
 
@@ -120,7 +120,7 @@ La sintaxis de esta función varía según el nombre de las operaciones de la li
 |:--- |:--- |:--- |:--- |
 | resourceName o resourceIdentifier |Sí |string |Identificador único para el recurso. |
 | apiVersion |Sí |string |Versión de API de estado en tiempo de ejecución de un recurso. Por lo general, en el formato, **aaaa-mm-dd**. |
-| functionValues |Sin |object | Un objeto que tiene valores para la función. Proporcione este objeto solo para las funciones que admiten la recepción de un objeto con valores de parámetro, como **listAccountSas** en una cuenta de almacenamiento. En este artículo se muestra un ejemplo de cómo pasar los valores de funciones. |
+| functionValues |No |object | Un objeto que tiene valores para la función. Proporcione este objeto solo para las funciones que admiten la recepción de un objeto con valores de parámetro, como **listAccountSas** en una cuenta de almacenamiento. En este artículo se muestra un ejemplo de cómo pasar los valores de funciones. |
 
 ### <a name="valid-uses"></a>Usos válidos
 
@@ -170,8 +170,8 @@ Los usos posibles de la lista* se muestran en la tabla siguiente.
 | Microsoft.DocumentDB/databaseAccounts | [listKeys](/rest/api/cosmos-db-resource-provider/databaseaccounts/listkeys) |
 | Microsoft.DomainRegistration | [listDomainRecommendations](/rest/api/appservice/domains/listrecommendations) |
 | Microsoft.DomainRegistration/topLevelDomains | [listAgreements](/rest/api/appservice/topleveldomains/listagreements) |
-| Microsoft.EventGrid/domains | [listKeys](/rest/api/eventgrid/domains/listsharedaccesskeys) |
-| Microsoft.EventGrid/topics | [listKeys](/rest/api/eventgrid/topics/listsharedaccesskeys) |
+| Microsoft.EventGrid/domains | [listKeys](/rest/api/eventgrid/version2019-06-01/domains/listsharedaccesskeys) |
+| Microsoft.EventGrid/topics | [listKeys](/rest/api/eventgrid/version2019-06-01/topics/listsharedaccesskeys) |
 | Microsoft.EventHub/namespaces/authorizationRules | [listkeys](/rest/api/eventhub/namespaces/listkeys) |
 | Microsoft.EventHub/namespaces/disasterRecoveryConfigs/authorizationRules | [listkeys](/rest/api/eventhub/disasterrecoveryconfigs/listkeys) |
 | Microsoft.EventHub/namespaces/eventhubs/authorizationRules | [listkeys](/rest/api/eventhub/eventhubs/listkeys) |
@@ -367,7 +367,7 @@ Devuelve información acerca de un proveedor de recursos y sus tipos de recursos
 | Parámetro | Obligatorio | Tipo | Descripción |
 |:--- |:--- |:--- |:--- |
 | providerNamespace |Sí |string |Espacio de nombres del proveedor |
-| resourceType |Sin |string |El tipo de recurso en el espacio de nombres especificado. |
+| resourceType |No |string |El tipo de recurso en el espacio de nombres especificado. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -444,12 +444,12 @@ Devuelve un objeto que representa el estado de tiempo de ejecución de un recurs
 | Parámetro | Obligatorio | Tipo | Descripción |
 |:--- |:--- |:--- |:--- |
 | resourceName o resourceIdentifier |Sí |string |Nombre o identificador único de un recurso. Al hacer referencia a un recurso en la plantilla actual, proporcione solo el nombre del recurso como parámetro. Al hacer referencia a un recurso implementado anteriormente o cuando el nombre del recurso sea ambiguo, proporcione el identificador del recurso. |
-| apiVersion |Sin |string |Versión de la API del recurso especificado. Incluya este parámetro cuando el recurso no esté aprovisionado en la misma plantilla. Por lo general, en el formato, **aaaa-mm-dd**. Para conocer las versiones válidas de la API para su recurso, consulte la [referencia de la plantilla](/azure/templates/). |
-| 'Full' |Sin |string |Valor que especifica si se devuelve el objeto de recurso completo. Si no se especifica `'Full'`, se devuelve solo el objeto de propiedades del recurso. El objeto completo incluye valores como el identificador de recurso y la ubicación. |
+| apiVersion |No |string |Versión de la API del recurso especificado. **Este parámetro es necesario no está aprovisionado dentro de la misma plantilla**. Por lo general, en el formato, **aaaa-mm-dd**. Para conocer las versiones válidas de la API para su recurso, consulte la [referencia de la plantilla](/azure/templates/). |
+| 'Full' |No |string |Valor que especifica si se devuelve el objeto de recurso completo. Si no se especifica `'Full'`, se devuelve solo el objeto de propiedades del recurso. El objeto completo incluye valores como el identificador de recurso y la ubicación. |
 
 ### <a name="return-value"></a>Valor devuelto
 
-Cada tipo de recurso devuelve propiedades diferentes para la función de referencia. La función no devuelve un solo formato predefinido. Además, el valor devuelto es diferente en función de si se especifica el objeto completo. Para ver las propiedades de un tipo de recurso, devuelva el objeto en la sección de resultados tal como se muestra en el ejemplo.
+Cada tipo de recurso devuelve propiedades diferentes para la función de referencia. La función no devuelve un solo formato predefinido. Además, el valor devuelto difiere en función del valor del argumento `'Full'`. Para ver las propiedades de un tipo de recurso, devuelva el objeto en la sección de resultados tal como se muestra en el ejemplo.
 
 ### <a name="remarks"></a>Observaciones
 
@@ -496,7 +496,9 @@ Utilice `'Full'` cuando necesite valores de recurso que no forman parte del esqu
 
 ### <a name="valid-uses"></a>Usos válidos
 
-La función de referencia solo se puede utilizar en las propiedades de una definición de recursos y en la sección de salidas de una plantilla o implementación. Cuando se usa con la [iteración de la propiedad](copy-properties.md), puede usar la función reference para `input` porque la expresión se asigna a la propiedad de recurso. No se puede utilizar con `count` porque debe determinarse el recuento antes de resolver la función reference.
+La función de referencia solo se puede utilizar en las propiedades de una definición de recursos y en la sección de salidas de una plantilla o implementación. Cuando se usa con la [iteración de la propiedad](copy-properties.md), puede usar la función reference para `input` porque la expresión se asigna a la propiedad de recurso.
+
+No se puede utilizar la función reference para establecer el valor de la propiedad `count` en un bucle de copia. Puede usarla para establecer otras propiedades en el bucle. La referencia está bloqueada para la propiedad count, porque esa propiedad se debe determinar antes de que se resuelva la función reference.
 
 No se puede usar la función reference en las salidas de una [plantilla anidada](linked-templates.md#nested-template) para devolver un recurso que ha implementado en la plantilla anidada. En su lugar, use una [plantilla vinculada](linked-templates.md#linked-template).
 
@@ -514,7 +516,7 @@ Al hacer referencia a un recurso que esté implementado en la misma plantilla, e
 "value": "[reference(parameters('storageAccountName'))]"
 ```
 
-Al hacer referencia a un recurso que no esté implementado en la misma plantilla, especifique el identificador del recurso.
+Al hacer referencia a un recurso que no esté implementado en la misma plantilla, especifique el identificador del recurso y `apiVersion`.
 
 ```json
 "value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2018-07-01')]"
@@ -758,11 +760,11 @@ Devuelve el identificador único de un recurso. Utilice esta función cuando el 
 
 | Parámetro | Obligatorio | Tipo | Descripción |
 |:--- |:--- |:--- |:--- |
-| subscriptionId |Sin |Cadena (en formato de GUID) |El valor predeterminado es la suscripción actual. Especifique este valor cuando necesite recuperar un recurso en otra suscripción. Proporcione solo este valor al realizar la implementación en el ámbito de un grupo de recursos o suscripción. |
-| resourceGroupName |Sin |string |El valor predeterminado es el grupo de recursos actual. Especifique este valor cuando necesite recuperar un recurso en otro grupo de recursos. Proporcione solo este valor al realizar la implementación en el ámbito de un grupo de recursos. |
+| subscriptionId |No |Cadena (en formato de GUID) |El valor predeterminado es la suscripción actual. Especifique este valor cuando necesite recuperar un recurso en otra suscripción. Proporcione solo este valor al realizar la implementación en el ámbito de un grupo de recursos o suscripción. |
+| resourceGroupName |No |string |El valor predeterminado es el grupo de recursos actual. Especifique este valor cuando necesite recuperar un recurso en otro grupo de recursos. Proporcione solo este valor al realizar la implementación en el ámbito de un grupo de recursos. |
 | resourceType |Sí |string |Tipo de recurso, incluido el espacio de nombres del proveedor de recursos. |
 | resourceName1 |Sí |string |Nombre del recurso. |
-| resourceName2 |Sin |string |Segmento con el nombre del siguiente segmento, si es necesario. |
+| resourceName2 |No |string |Segmento con el nombre del siguiente segmento, si es necesario. |
 
 Siga agregando nombres de recursos como parámetros cuando el tipo de recurso incluya más segmentos.
 
@@ -958,10 +960,10 @@ Devuelve el identificador único de un recurso implementado en el nivel de suscr
 
 | Parámetro | Obligatorio | Tipo | Descripción |
 |:--- |:--- |:--- |:--- |
-| subscriptionId |Sin |Cadena (en formato de GUID) |El valor predeterminado es la suscripción actual. Especifique este valor cuando necesite recuperar un recurso en otra suscripción. |
+| subscriptionId |No |Cadena (en formato de GUID) |El valor predeterminado es la suscripción actual. Especifique este valor cuando necesite recuperar un recurso en otra suscripción. |
 | resourceType |Sí |string |Tipo de recurso, incluido el espacio de nombres del proveedor de recursos. |
 | resourceName1 |Sí |string |Nombre del recurso. |
-| resourceName2 |Sin |string |Segmento con el nombre del siguiente segmento, si es necesario. |
+| resourceName2 |No |string |Segmento con el nombre del siguiente segmento, si es necesario. |
 
 Siga agregando nombres de recursos como parámetros cuando el tipo de recurso incluya más segmentos.
 
@@ -1044,7 +1046,7 @@ Devuelve el identificador único de un recurso implementado en el nivel de inqui
 |:--- |:--- |:--- |:--- |
 | resourceType |Sí |string |Tipo de recurso, incluido el espacio de nombres del proveedor de recursos. |
 | resourceName1 |Sí |string |Nombre del recurso. |
-| resourceName2 |Sin |string |Segmento con el nombre del siguiente segmento, si es necesario. |
+| resourceName2 |No |string |Segmento con el nombre del siguiente segmento, si es necesario. |
 
 Siga agregando nombres de recursos como parámetros cuando el tipo de recurso incluya más segmentos.
 

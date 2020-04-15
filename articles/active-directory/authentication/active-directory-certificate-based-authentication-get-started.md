@@ -4,19 +4,19 @@ description: Obtenga información sobre cómo configurar la autenticación basad
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b57c4f474b0b9def08005f32f48225d36ea8cf1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3a6c44a8253c81b44d02351b2df9c943d9f358f8
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74848840"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80654352"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Introducción a la autenticación basada en certificados de Azure Active Directory
 
@@ -40,7 +40,7 @@ Para configurar la autenticación basada en certificados, deben cumplirse las si
 - La entidad de certificación raíz y las intermedias deben configurarse en Azure Active Directory.
 - Cada entidad de certificación debe tener una lista de revocación de certificados (CRL) a la que puede hacerse referencia a través de una dirección URL con conexión a Internet.
 - Debe tener al menos una entidad de certificación configurada en Azure Active Directory. Puede encontrar pasos relacionados en la sección [Configuración de las entidades de certificación](#step-2-configure-the-certificate-authorities).
-- En Exchange Online, el certificado de cliente debe tener la dirección de correo electrónico enrutable del usuario en el valor de Nombre de la entidad de seguridad o Nombre RFC822 del campo Nombre alternativo del titular (para clientes de Exchange ActiveSync). Azure Active Directory asigna el valor de RFC822 al atributo de dirección de Proxy del directorio.
+- Si se trata de clientes de Exchange ActiveSync, en Exchange Online, el certificado de cliente debe tener la dirección de correo electrónico enrutable del usuario en el valor de Nombre de la entidad de seguridad o Nombre RFC822 del campo Nombre alternativo del titular. Azure Active Directory asigna el valor de RFC822 al atributo de dirección de Proxy del directorio.
 - El dispositivo cliente debe tener acceso al menos a una entidad de certificación que emite los certificados de cliente.
 - Se debe haber emitido al cliente un certificado de cliente para la autenticación de cliente.
 

@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Integración de Azure Active Directory con Amazon Web Services (AWS) para conectar varias cuentas | Microsoft Docs'
-description: Aprenda a configurar el inicio de sesión único entre Azure AD y Amazon Web Services (AWS).
+description: Obtenga información sobre cómo configurar el inicio de sesión único entre Azure AD y Amazon Web Services (AWS) (tutorial heredado).
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,21 +11,20 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2019
+ms.date: 04/03/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: edd54352b1328c95ae2c3e466003b64eaa0fcfde
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7a6ab13dea1a1db96cbb2f2ac70b9779eca60591
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77367998"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80885388"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-multiple-amazon-web-services-aws-accounts"></a>Tutorial: Integración de Azure Active Directory con varias cuentas de Amazon Web Services (AWS)
+# <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws-legacy-tutorial"></a>Tutorial: Integración de Azure Active Directory con Amazon Web Services (AWS) (tutorial heredado)
 
-En este tutorial, aprenderá a integrar Azure Active Directory (Azure AD) con varias cuentas de Amazon Web Services (AWS).
+En este tutorial, aprenderá a integrar Azure Active Directory (Azure AD) con Amazon Web Services (AWS) (tutorial heredado).
 
 La integración de Amazon Web Services (AWS) con Azure AD proporciona las siguientes ventajas:
 
@@ -37,8 +36,8 @@ Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, con
 
 ![Amazon Web Services (AWS) en la lista de resultados](./media/aws-multi-accounts-tutorial/amazonwebservice.png)
 
->[!NOTE]
->Tenga en cuenta que conectar una aplicación de AWS a todas las cuentas de AWS no es nuestro enfoque recomendado. En su lugar, se recomienda usar [este](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) enfoque para configurar varias instancias de la cuenta de AWS en varias instancias de aplicaciones de AWS en Azure AD.
+> [!NOTE]
+> Tenga en cuenta que conectar una aplicación de AWS a todas las cuentas de AWS no es nuestro enfoque recomendado. En su lugar, se recomienda usar [este](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) enfoque para configurar varias instancias de la cuenta de AWS en varias instancias de aplicaciones de AWS en Azure AD. Solo debe usar [este](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) enfoque si tiene un número muy inferior de roles y cuentas de AWS en él. [Este](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) modelo no se puede escalar a medida que incrementan las cuentas y los roles de AWS dentro de estas cuentas. Además, [este](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) enfoque no usa la funcionalidad de importación de roles de AWS con el Aprovisionamiento de usuarios de Azure AD, por lo que tiene que agregar, actualizar o eliminar los roles manualmente. Para conocer las otras limitaciones de [este](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) enfoque, consulte los detalles siguientes.
 
 **Tenga en cuenta que no se recomienda usar este enfoque por los siguientes motivos:**
 
@@ -70,32 +69,22 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * Amazon Web Services (AWS) admite el inicio de sesión único iniciado por **SP e IDP**.
+* Una vez configurado Amazon Web Services (AWS), puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad).
 
 ## <a name="adding-amazon-web-services-aws-from-the-gallery"></a>Adición de Amazon Web Services (AWS) desde la galería
 
 Para configurar la integración de Amazon Web Services (AWS) en Azure AD, es preciso agregar Amazon Web Services (AWS) desde la galería a la lista de aplicaciones SaaS administradas.
 
-**Para agregar Amazon Web Services (AWS) desde la galería, realice los pasos siguientes:**
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
+1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
+1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
+1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
+1. En la sección **Agregar desde la galería**, escriba **Amazon Web Services (AWS)** en el cuadro de búsqueda.
+1. Seleccione **Amazon Web Services (AWS)** en el panel de resultados y, luego, agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
+1. Una vez agregada la aplicación, vaya a la página **Propiedades** y copie el **identificador de objeto**.
 
-    ![Botón Azure Active Directory](common/select-azuread.png)
-
-2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones**.
-
-    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
-
-3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
-
-    ![Botón Nueva aplicación](common/add-new-app.png)
-
-4. En el cuadro de búsqueda, escriba **Amazon Web Services (AWS)** , seleccione **Amazon Web Services (AWS)** en el panel de resultados y, a continuación, haga clic en el botón **Agregar** para agregar la aplicación.
-
-     ![Amazon Web Services (AWS) en la lista de resultados](common/search-new-app.png)
-
-5. Una vez agregada la aplicación, vaya a la página **Propiedades** y copie el **identificador de objeto**.
-
-    ![Amazon Web Services (AWS) en la lista de resultados](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_properties.png)
+    ![Amazon Web Services (AWS) en la lista de resultados](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-properties.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
@@ -129,9 +118,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-4. En la sección **Configuración básica de SAML**, el usuario no tiene que realizar ningún paso porque la aplicación ya se ha integrado previamente con Azure.
-
-    ![imagen](common/preintegrated.png)
+4. En la sección **Configuración básica de SAML**, el usuario no tiene que realizar ningún paso porque la aplicación ya se ha integrado previamente con Azure, por lo que puede hacer clic en **Guardar**.
 
 5. La aplicación Amazon Web Services (AWS) espera las aserciones de SAML en un formato concreto. Configure las siguientes notificaciones para esta aplicación. Puede administrar los valores de estos atributos en la sección **User Attributes & Claims** (Atributos y notificaciones del usuario) de la página de integración de aplicaciones. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el botón **Editar** para abrir el cuadro de diálogo **User Attributes & Claims** (Atributos y notificaciones del usuario).
 
@@ -141,9 +128,9 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     | Nombre  | Atributo de origen  | Espacio de nombres |
     | --------------- | --------------- | --------------- |
-    | RoleSessionName | user.userprincipalname | https://aws.amazon.com/SAML/Attributes |
-    | Role            | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |
-    | SessionDuration             | "proporcione un valor comprendido entre 900 segundos (15 minutos) y 43200 segundos (12 horas)" |  https://aws.amazon.com/SAML/Attributes |
+    | RoleSessionName | user.userprincipalname | `https://aws.amazon.com/SAML/Attributes` |
+    | Role            | user.assignedroles |  `https://aws.amazon.com/SAML/Attributes`|
+    | SessionDuration             | "proporcione un valor comprendido entre 900 segundos (15 minutos) y 43200 segundos (12 horas)" |  `https://aws.amazon.com/SAML/Attributes` |
 
     a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
 
@@ -171,19 +158,19 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 1. En otra ventana del explorador, inicie sesión en su sitio de la compañía de Amazon Web Services (AWS) como administrador.
 
-2. Haga clic en **AWS Home** (Página principal de AWS).
+1. Haga clic en **AWS Home** (Página principal de AWS).
 
     ![Configurar página principal de inicio de sesión único][11]
 
-3. Haga clic en **Administración de identidades y acceso**.
+1. Haga clic en **Administración de identidades y acceso**.
 
     ![Configurar identidad de inicio de sesión único][12]
 
-4. Haga clic en **Proveedores de identidades** y, después, en **Create Provider** (Crear proveedor).
+1. Haga clic en **Proveedores de identidades** y, después, en **Create Provider** (Crear proveedor).
 
     ![Configurar proveedor de inicio de sesión único][13]
 
-5. En la página de diálogo **Configure Provider** (Configurar proveedor), realice los pasos siguientes:
+1. En la página de diálogo **Configure Provider** (Configurar proveedor), realice los pasos siguientes:
 
     ![Configurar cuadro de diálogo de inicio de sesión único][14]
 
@@ -195,15 +182,15 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     d. Haga clic en **Siguiente paso**.
 
-6. En la página de diálogo **Verify Provider Information** (Comprobar la información del proveedor), haga clic en **Crear**.
+1. En la página de diálogo **Verify Provider Information** (Comprobar la información del proveedor), haga clic en **Crear**.
 
     ![Configurar verificación de inicio de sesión único][15]
 
-7. Haga clic en **Roles** y, después, en **Crear rol**.
+1. Haga clic en **Roles** y, después, en **Crear rol**.
 
     ![Configurar roles de inicio de sesión único][16]
 
-8. En la página **Crear rol**, realice los pasos siguientes:  
+1. En la página **Crear rol**, realice los pasos siguientes:  
 
     ![Configurar confianza de inicio de sesión único][19]
 
@@ -215,69 +202,90 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
   
     d. Haga clic en **Siguiente: Permisos**.
 
-9. En el cuadro de diálogo **Attach Permissions Policies** (Adjuntar directivas de permisos), adjunte la directiva adecuada según su organización. Haga clic en **Siguiente: Review** (Siguiente: revisar).  
+1. Busque **Acceso de administrador** en la barra de búsqueda, seleccione la casilla **AdministratorAccess** y, a continuación, haga clic en **Siguiente: Etiquetas**.
 
-    ![Configurar directiva de inicio de sesión único][33]
+    ![Seleccione Acceso de administrador.](./media/aws-multi-accounts-tutorial/administrator-access.png)
 
-10. En el cuadro de diálogo **Revisar** , realice los pasos siguientes:
+1. En la sección **Add tags (optional)** (Agregar etiquetas [opcional]), lleve a cabo estos pasos:
+
+    ![Selección del acceso de administrador](./media/aws-multi-accounts-tutorial/config2.png)
+
+    a. En el cuadro de texto **Clave**, escriba el nombre de la clave, por ejemplo, Azureadtest.
+
+    b. En el cuadro de texto **Valor (opcional)** , escriba el valor de la clave con el siguiente formato `accountname-aws-admin`. El nombre de cuenta se debe escribir todo en minúsculas.
+
+    c. Haga clic en **Next: Review** (Siguiente: revisar).
+
+1. En el cuadro de diálogo **Revisar** , realice los pasos siguientes:
 
     ![Configurar revisión de inicio de sesión único][34]
 
-    a. En el cuadro de texto **Role name** (Nombre de rol), escriba su nombre de rol.
+    a. En el cuadro de texto **Nombre de rol**, escriba el valor con el patrón `accountname-aws-admin`.
 
-    b. En el cuadro de texto **Role description**, escriba la descripción.
+    b. En el cuadro de texto **Descripción del rol**, escriba el mismo valor que ha usado para el nombre del rol.
 
     c. Haga clic en **Crear rol**.
 
     d. Cree tantos roles como sea necesario y asígnelos al proveedor de identidades.
 
-11. Cerrar la sesión de la cuenta de AWS actual e inicie sesión con la cuenta en la que desee configurar el inicio de sesión único con Azure AD.
+    > [!NOTE]
+    > De forma similar, cree los otros roles restantes, como accountname-finance-admin, accountname-read-only-user, accountname-devops-user y accountname-tpm-user, con las distintas directivas que se deben adjuntar. Más adelante, también se pueden cambiar estas directivas de rol según los requisitos de la cuenta de AWS, pero siempre es mejor mantener las mismas para cada rol en las cuentas de AWS.
 
-12. Realice los pasos 2 a 10 para crear varios roles que quiera configurar en esta cuenta. Si tiene más de dos cuentas, realice los mismos pasos para todas las cuentas para crear roles en ellas.
+1. Tome nota del identificador de la cuenta de AWS en las propiedades de EC2 o en el panel de IAM, tal y como se indica a continuación:
 
-13. Una vez que se crean todos los roles en las cuentas, se muestran en la lista **Roles** de dichas cuentas.
+    ![Selección del acceso de administrador](./media/aws-multi-accounts-tutorial/aws-accountid.png)
 
-    ![Instalación de roles](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_listofroles.png)
+1. Ahora inicie sesión en [Azure Portal](https://portal.azure.com/) y vaya a **Grupos**.
 
-14. Es necesario capturar los valores de ARN de rol y Entidades de confianza de los roles, que necesitamos para asignar manualmente con la aplicación de Azure AD.
+1. Cree nuevos grupos con el mismo nombre que el de los roles de IAM creados anteriormente y anote los **identificadores de objeto** de estos nuevos grupos.
 
-15. Haga clic en los roles para copiar los valores de **ARN de rol** y **Entidades de confianza**. Estos valores son necesarios para todos los roles que se deben crear en Azure AD.
+    ![Selección del acceso de administrador](./media/aws-multi-accounts-tutorial/copy-objectids.png)
 
-    ![Instalación de roles](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_role_summary.png)
+1. Cerrar la sesión de la cuenta de AWS actual e inicie sesión con la cuenta en la que desee configurar el inicio de sesión único con Azure AD.
 
-16. Realice el paso anterior en todos los roles de todas las cuentas y almacenar todas ellas en el formato **ARN de rol,Entidades de confianza** en el Bloc de notas.
+1. Una vez que se crean todos los roles en las cuentas, se muestran en la lista **Roles** de dichas cuentas.
 
-17. Abra el [Explorador de Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer) en otra ventana.
+    ![Instalación de roles](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-listofroles.png)
 
-    a. Inicie sesión en el sitio del Probador de Graph con las credenciales de administrador o coadministrador globales del inquilino.
+1. Es necesario capturar los valores de ARN de rol y Entidades de confianza de los roles, que necesitamos para asignar manualmente con la aplicación de Azure AD.
+
+1. Haga clic en los roles para copiar los valores de **ARN de rol** y **Entidades de confianza**. Estos valores son necesarios para todos los roles que se deben crear en Azure AD.
+
+    ![Instalación de roles](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-role-summary.png)
+
+1. Realice el paso anterior en todos los roles de todas las cuentas y almacenar todas ellas en el formato **ARN de rol,Entidades de confianza** en el Bloc de notas.
+
+1. Abra el [Explorador de Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer) en otra ventana.
+
+    a. Inicie sesión en el sitio del Probador de Microsoft Graph con las credenciales de administrador o coadministrador globales del inquilino.
 
     b. Debe tener permisos suficientes para crear los roles. Haga clic en **Modificar permisos** para obtener los permisos necesarios.
 
-    ![Cuadro de diálogo del Probador de Graph](./media/aws-multi-accounts-tutorial/graph-explorer-new9.png)
+    ![Cuadro de diálogo de Probador de Microsoft Graph](./media/aws-multi-accounts-tutorial/graph-explorer-new9.png)
 
     c. Seleccione los siguientes permisos de la lista (si no los tiene ya) y haga clic en "Modificar permisos" 
 
-    ![Cuadro de diálogo del Probador de Graph](./media/aws-multi-accounts-tutorial/graph-explorer-new10.png)
+    ![Cuadro de diálogo de Probador de Microsoft Graph](./media/aws-multi-accounts-tutorial/graph-explorer-new10.png)
 
-    d. En este se le pedirá que vuelva a iniciar la sesión y acepte el consentimiento. Después de aceptar el consentimiento, habrá iniciado sesión en el Probador de Graph de nuevo.
+    d. En este se le pedirá que vuelva a iniciar la sesión y acepte el consentimiento. Después de aceptar el consentimiento, habrá iniciado sesión en el Probador de Microsoft Graph de nuevo.
 
     e. En la lista desplegable de la versión, cambie a **beta**. Para capturar todas las entidades de seguridad de su inquilino, utilice la siguiente consulta:
 
     `https://graph.microsoft.com/beta/servicePrincipals`
 
-    Si usa varios directorios, a continuación, puede usar el siguiente patrón, que contiene el dominio principal `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+    Si usa varios directorios, puede usar entonces el siguiente patrón, que contiene el dominio principal `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
 
-    ![Cuadro de diálogo del Probador de Graph](./media/aws-multi-accounts-tutorial/graph-explorer-new1.png)
+    ![Cuadro de diálogo del Probador de Microsoft Graph](./media/aws-multi-accounts-tutorial/graph-explorer-new1.png)
 
-    f. En la lista de entidades de servicio que se capturan, seleccione la que debe modificar. También puede usar CTRL + F para buscar la aplicación en todas las entidades de servicio enumeradas. Para usar la siguiente consulta, utilice el valor de **Id. de objeto** que ha copiado de la página Propiedades de Azure AD para acceder a entidad de servicio correspondiente.
+    f. En la lista de entidades de servicio que se capturan, seleccione la que debe modificar. También puede usar CTRL + F para buscar la aplicación en todas las entidades de servicio enumeradas. Para usar la siguiente consulta, utilice el valor de **id. de objeto** que ha copiado de la página Propiedades de Azure AD para acceder a la entidad de servicio correspondiente.
 
     `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
 
-    ![Cuadro de diálogo del Probador de Graph](./media/aws-multi-accounts-tutorial/graph-explorer-new2.png)
+    ![Cuadro de diálogo de Probador de Microsoft Graph](./media/aws-multi-accounts-tutorial/graph-explorer-new2.png)
 
     g. Extraiga la propiedad appRoles del objeto de entidad de servicio.
 
-    ![Cuadro de diálogo del Probador de Graph](./media/aws-multi-accounts-tutorial/graph-explorer-new3.png)
+    ![Cuadro de diálogo de Probador de Microsoft Graph](./media/aws-multi-accounts-tutorial/graph-explorer-new3.png)
 
     h. Ahora debe generar roles nuevos para la aplicación. 
 
@@ -325,22 +333,22 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     > [!Note]
     > Solo puede agregar nuevos roles además de **msiam_access** para la operación de revisión. Además, puede agregar tantos roles como desee según las necesidades de su organización. Azure AD enviará el **valor** de estos roles como valor de notificación en la respuesta de SAML.
 
-    j. Vuelva a Probador de Microsoft Graph y cambie el método de **GET** a **PATCH**. Revise el objeto de entidad de servicio para obtener los roles deseados mediante la actualización de la propiedad appRoles de manera similar a la que aparece anteriormente en el ejemplo. Haga clic en **Ejecutar consulta** para ejecutar la operación de revisión. Un mensaje de operación correcta confirma la creación del rol en la aplicación de Amazon Web Services.
+    j. Vuelva al Probador de Microsoft Graph y cambie el método de **GET** a **PATCH**. Revise el objeto de entidad de servicio para obtener los roles deseados mediante la actualización de la propiedad appRoles de manera similar a la que aparece anteriormente en el ejemplo. Haga clic en **Ejecutar consulta** para ejecutar la operación de revisión. Un mensaje de operación correcta confirma la creación del rol en la aplicación de Amazon Web Services.
 
-    ![Cuadro de diálogo de Probador de Microsoft Graph](./media/aws-multi-accounts-tutorial/graph-explorer-new11.png)
+    ![Cuadro de diálogo del Probador de Microsoft Graph](./media/aws-multi-accounts-tutorial/graph-explorer-new11.png)
 
-18. Una vez que haya revisado la entidad de servicio con más roles, podrá asignar usuarios o grupos a los roles correspondientes. Para hacer esto, vaya al portal y navegue hasta la aplicación Amazon Web Services. En la parte superior, haga clic en la pestaña **Usuarios y grupos**.
+1. Una vez que haya revisado la entidad de servicio con más roles, podrá asignar usuarios o grupos a los roles correspondientes. Para hacer esto, vaya al portal y navegue hasta la aplicación Amazon Web Services. En la parte superior, haga clic en la pestaña **Usuarios y grupos**.
 
-19. Se recomienda crear grupos nuevos para cada rol de AWS, con el fin de que pueda asignar dicho rol concreto en ese grupo. Tenga en cuenta que se trata de una asignación uno a uno de un grupo a un rol. Luego, puede agregar los miembros que pertenecen al grupo.
+1. Se recomienda crear grupos nuevos para cada rol de AWS, con el fin de que pueda asignar dicho rol concreto en ese grupo. Tenga en cuenta que se trata de una asignación uno a uno de un grupo a un rol. Luego, puede agregar los miembros que pertenecen al grupo.
 
-20. Una vez que se crean los grupos, seleccione el grupo y asígnelo a la aplicación.
+1. Una vez que se crean los grupos, seleccione el grupo y asígnelo a la aplicación.
 
     ![Configurar la adición del inicio de sesión único](./media/aws-multi-accounts-tutorial/graph-explorer-new5.png)
 
     > [!Note]
     > Al asignar grupos, no se admiten los grupos anidados.
 
-21. Para asignar el rol al grupo, seleccione el rol y haga clic en el botón **Asignar** de la parte inferior de la página.
+1. Para asignar el rol al grupo, seleccione el rol y haga clic en el botón **Asignar** de la parte inferior de la página.
 
     ![Configurar la adición del inicio de sesión único](./media/aws-multi-accounts-tutorial/graph-explorer-new6.png)
 
@@ -353,19 +361,21 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 Al hacer clic en el icono de Amazon Web Services (AWS) en el panel de acceso, debería acceder a la página de la aplicación Amazon Web Services (AWS) con la opción para seleccionar el rol.
 
-![Configurar la adición del inicio de sesión único](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_test_screen.png)
+![Configurar la adición del inicio de sesión único](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-test-screen.png)
 
 También puede comprobar la respuesta de SAML para ver los roles que se usan como notificaciones.
 
-![Configurar la adición del inicio de sesión único](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_test_saml.png)
+![Configurar la adición del inicio de sesión único](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-test-saml.png)
 
-Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md).
+Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Configuración del aprovisionamiento mediante las Microsoft Graph API](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-configure-api)
+* [Configuración del aprovisionamiento mediante Microsoft Graph API](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-configure-api)
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](tutorial-list.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [¿Qué es el control de sesiones en Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+* [Protección de Amazon Web Services (AWS) con controles y visibilidad avanzados](https://docs.microsoft.com/cloud-app-security/protect-aws)
 
 <!--Image references-->
 
@@ -380,11 +390,11 @@ Para más información sobre el Panel de acceso, consulte la [introducción al P
 [19]: ./media/aws-multi-accounts-tutorial/ic795025.png
 [32]: ./media/aws-multi-accounts-tutorial/ic7950251.png
 [33]: ./media/aws-multi-accounts-tutorial/ic7950252.png
-[35]: ./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices_provisioning.png
-[34]: ./media/aws-multi-accounts-tutorial/ic7950253.png
-[36]: ./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices_securitycredentials.png
-[37]: ./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices_securitycredentials_continue.png
-[38]: ./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices_createnewaccesskey.png
-[39]: ./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices_provisioning_automatic.png
-[40]: ./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices_provisioning_testconnection.png
+[35]: ./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-provisioning.png
+[34]: ./media/aws-multi-accounts-tutorial/config3.png
+[36]: ./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-securitycredentials.png
+[37]: ./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-securitycredentials-continue.png
+[38]: ./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-createnewaccesskey.png
+[39]: ./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-provisioning-automatic.png
+[40]: ./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-provisioning-testconnection.png
 [41]: ./media/aws-multi-accounts-tutorial/

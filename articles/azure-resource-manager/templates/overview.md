@@ -2,27 +2,27 @@
 title: Introducción a las plantillas
 description: Describe las ventajas del uso de plantillas de Azure Resource Manager para la implementación de recursos.
 ms.topic: conceptual
-ms.date: 01/02/2020
-ms.openlocfilehash: a4b0dff4b351098095de0b98ede21d9af8a7eef9
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.date: 04/06/2020
+ms.openlocfilehash: 02602b4d12ae4333c88b352e4c13923d67f2c591
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75689699"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80885742"
 ---
-# <a name="azure-resource-manager-templates-overview"></a>Información general sobre plantillas de Azure Resource Manager
+# <a name="what-are-arm-templates"></a>¿Qué son las plantillas de Resource Manager?
 
 Con el traslado a la nube, muchos equipos han adoptado métodos de desarrollo más ágiles. Estos equipos se iteran rápidamente. Necesitan implementar repetidamente sus soluciones en la nube y saber que su infraestructura se encuentra en un estado confiable. Dado que la infraestructura se ha convertido en parte del proceso iterativo, ha desaparecido la división entre las operaciones y el desarrollo. Por ello, los equipos necesitan administrar la infraestructura y el código de aplicación a través de un proceso unificado.
 
 Para cumplir estos desafíos, puede automatizar las implementaciones y usar la práctica de infraestructura como código. En el código, debe definir la infraestructura que va a implementar. Así pues, el código de infraestructura se convierte en parte del proyecto. Al igual que el código de la aplicación, puede almacenar el código de infraestructura en un repositorio de origen y agregarle un número de versión. Cualquier miembro del equipo podrá ejecutar el código e implementar entornos similares.
 
-Para implementar la infraestructura como código para las soluciones de Azure, use las plantillas de Azure Resource Manager. La plantilla es un archivo de notación de objetos JavaScript (JSON) que contiene la infraestructura y la configuración del proyecto. La plantilla usa sintaxis declarativa, lo que permite establecer lo que pretende implementar sin tener que escribir la secuencia de comandos de programación para crearla. En la plantilla se especifican los recursos que se van a implementar y las propiedades de esos recursos.
+Para implementar la infraestructura como código para las soluciones de Azure, use las plantillas de Azure Resource Manager (ARM). La plantilla es un archivo de notación de objetos JavaScript (JSON) que contiene la infraestructura y la configuración del proyecto. La plantilla usa sintaxis declarativa, lo que permite establecer lo que pretende implementar sin tener que escribir la secuencia de comandos de programación para crearla. En la plantilla se especifican los recursos que se van a implementar y las propiedades de esos recursos.
 
-## <a name="why-choose-resource-manager-templates"></a>¿Por qué elegir plantillas de Resource Manager?
+## <a name="why-choose-arm-templates"></a>¿Por qué elegir plantillas de Resource Manager?
 
-Si intenta decidir entre usar plantillas de Resource Manager o una de las demás infraestructuras como servicios de código, tenga en cuenta las siguientes ventajas del uso de plantillas:
+Si intenta decidir entre usar plantillas de Resource Manager o una de las demás infraestructuras como servicios de código, tenga en cuenta las ventajas siguientes del uso de plantillas:
 
-* **Sintaxis declarativa**: Las plantillas de Resource Manager le permiten crear e implementar una infraestructura de Azure completa de forma declarativa. Por ejemplo, puede implementar no solo máquinas virtuales, sino también la infraestructura de red, los sistemas de almacenamiento y cualquier otro recurso que pueda necesitar.
+* **Sintaxis declarativa**: las plantillas de Resource Manager permiten crear e implementar una infraestructura de Azure completa de forma declarativa. Por ejemplo, puede implementar no solo máquinas virtuales, sino también la infraestructura de red, los sistemas de almacenamiento y cualquier otro recurso que pueda necesitar.
 
 * **Resultados repetibles**: Implemente repetidamente la infraestructura a lo largo del ciclo de vida del desarrollo y tenga la seguridad de que los recursos se implementan de forma coherente. Las plantillas son idempotentes, lo que significa que puede implementar la misma plantilla varias veces y obtener los mismos tipos de recursos en el mismo estado. Puede desarrollar una plantilla que represente el estado deseado, en lugar de desarrollar muchas plantillas independientes para representar las actualizaciones.
 
@@ -30,11 +30,17 @@ Si intenta decidir entre usar plantillas de Resource Manager o una de las demás
 
    ![Comparación de la implementación de plantillas](./media/overview/template-processing.png)
 
-* **Validación integrada**: La plantilla solo se implementa después de pasar la validación. Resource Manager se encarga de comprobar la plantilla antes de iniciar la implementación para asegurarse de que esta se realizará correctamente. Es menos probable que la implementación se detenga a medio acabar.
-
 * **Archivos modulares**: Puede dividir las plantillas en componentes más pequeños y reutilizables y vincularlos en el momento de la implementación. También puede anidar una plantilla dentro de otras plantillas.
 
 * **Cree cualquier recurso de Azure**: Puede usar inmediatamente los nuevos servicios y características de Azure en las plantillas. En cuanto un proveedor de recursos introduce nuevos recursos, puede implementarlos a través de plantillas. No tiene que esperar a que se actualicen las herramientas o los módulos antes de usar los nuevos servicios.
+
+* **Extensibilidad**: con los [scripts de implementación](deployment-script-template.md), puede agregar scripts de PowerShell o Bash a las plantillas. Los scripts de implementación amplían su capacidad para configurar recursos durante la implementación. Un script se puede incluir en la plantilla o almacenar en un origen externo y hacer referencia a él en la plantilla. Los scripts de implementación le ofrecen la posibilidad de completar la configuración del entorno integral en una sola plantilla de ARM.
+
+* **Pruebas**: puede asegurarse de que la plantilla sigue las instrucciones recomendadas si la prueba con el kit de herramientas de la plantilla ARM (arm-ttk). Este kit de pruebas es un script de PowerShell que puede descargar de [GitHub](https://github.com/Azure/arm-ttk). El kit de herramientas facilita el desarrollo de conocimientos con el lenguaje de plantilla.
+
+* **Vista previa de los cambios**: puede usar la [operación hipotética](template-deploy-what-if.md) para obtener una vista previa de los cambios antes de implementar la plantilla. Con la operación hipotética puede ver qué recursos se crearán, actualizarán o eliminarán, así como las propiedades de los recursos que cambiarán. La operación hipotética comprueba el estado actual del entorno y elimina la necesidad de administrar el estado.
+
+* **Validación integrada**: La plantilla solo se implementa después de pasar la validación. Resource Manager se encarga de comprobar la plantilla antes de iniciar la implementación para asegurarse de que esta se realizará correctamente. Es menos probable que la implementación se detenga a medio acabar.
 
 * **Implementaciones con seguimiento**: En Azure Portal puede revisar el historial de implementación y obtener información sobre la implementación de la plantilla. También puede ver la plantilla que se implementó, los valores de parámetro agregados y los valores de salida. Recuerde que no se realiza el seguimiento de otras infraestructuras como servicios de código a través del portal.
 
@@ -44,7 +50,7 @@ Si intenta decidir entre usar plantillas de Resource Manager o una de las demás
 
 * **Planos técnicos de implementación**: Puede aprovechar las ventajas de los [Planos técnicos](../../governance/blueprints/overview.md) proporcionados por Microsoft para cumplir los estándares de cumplimiento normativo. Estos planos técnicos incluyen plantillas precompiladas para distintas arquitecturas.
 
-* **Integración de CI/CD**: Puede integrar plantillas en sus herramientas de integración e implementación continuas (CI/CD), que pueden automatizar las canalizaciones de versión para llevar a cabo actualizaciones de infraestructura y aplicaciones rápidas y confiables. Mediante la tarea de plantilla de Resource Manager y Azure DevOps puede usar Azure Pipelines para compilar e implementar proyectos de plantillas de Azure Resource Manager de manera continua. Para obtener más información, consulte [Proyecto de VS con canalizaciones](add-template-to-azure-pipelines.md) e [Integración continua con Azure Pipelines](template-tutorial-use-azure-pipelines.md).
+* **Integración de CI/CD**: Puede integrar plantillas en sus herramientas de integración e implementación continuas (CI/CD), que pueden automatizar las canalizaciones de versión para llevar a cabo actualizaciones de infraestructura y aplicaciones rápidas y confiables. Mediante la tarea de plantilla de Resource Manager y Azure DevOps puede usar Azure Pipelines para compilar e implementar proyectos de plantillas de Resource Manager de manera continua. Para obtener más información, consulte [Proyecto de VS con canalizaciones](add-template-to-azure-pipelines.md) e [Integración continua con Azure Pipelines](template-tutorial-use-azure-pipelines.md).
 
 * **Código exportable**: Puede recuperar una plantilla de un grupo de recursos existente mediante la exportación del estado actual del grupo de recursos o la visualización de la plantilla de una implementación determinada. Una buena estrategia para aprender sobre la sintaxis de una plantilla es consultar la [plantilla exportada](export-template-portal.md).
 
@@ -120,6 +126,6 @@ Para más información acerca de las plantillas anidadas, consulte [Uso de plant
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para obtener un tutorial paso a paso que le guíe en el proceso de creación de una plantilla, consulte [Tutorial: Creación e implementación de la primera plantilla de Azure Resource Manager](template-tutorial-create-first-template.md).
-* Para obtener más información sobre las propiedades en los archivos de plantilla, consulte [Información sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).
-* Para obtener información sobre la exportación de plantillas, consulte [Guía de inicio rápido: Creación e implementación de plantillas de Azure Resource Manager mediante Azure Portal](quickstart-create-templates-use-the-portal.md).
+* Para obtener un tutorial paso a paso que le guíe en el proceso de creación de una plantilla, consulte [Tutorial: Creación e implementación de su primera plantilla de Resource Manager](template-tutorial-create-first-template.md).
+* Para obtener información sobre las propiedades de los archivos de plantilla, vea [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).
+* Para obtener información sobre la exportación de plantillas, consulte [Guía de inicio rápido: Creación e implementación de plantillas de Resource Manager mediante Azure Portal](quickstart-create-templates-use-the-portal.md).

@@ -3,16 +3,16 @@ title: Importación y exportación de planos técnicos con PowerShell
 description: Obtenga información sobre cómo trabajar con sus definiciones de planos técnicos como código. Compártalas, controle su código fuente y adminístrelas mediante los comandos de exportación e importación.
 ms.date: 09/03/2019
 ms.topic: how-to
-ms.openlocfilehash: fc7b9818072665d79deaf8a456868943e8428730
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 98bd21aad944346a17d8bdce7fb74c0eb8be2ed7
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74873206"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677139"
 ---
 # <a name="import-and-export-blueprint-definitions-with-powershell"></a>Importación y exportación de definiciones de planos técnicos con PowerShell
 
-Azure Blueprints se puede administrar totalmente a través de Azure Portal. A medida que las organizaciones avanzan en su uso de Blueprints, deben empezar a pensar en las definiciones de planos técnicos como código administrado. Este concepto suele conocerse como Infraestructura como código (IaC). Tratar sus definiciones de planos técnicos como código ofrece ventajas adicionales más allá de lo que ofrece Azure Portal. Entre las ventajas se incluye lo siguiente:
+Azure Blueprints se puede administrar totalmente a través de Azure Portal. A medida que las organizaciones avanzan en su uso de Azure Blueprints, deben empezar a pensar en las definiciones de planos técnicos como código administrado. Este concepto suele conocerse como Infraestructura como código (IaC). Tratar sus definiciones de planos técnicos como código ofrece ventajas adicionales más allá de lo que ofrece Azure Portal. Entre las ventajas se incluye lo siguiente:
 
 - Uso compartido de las definiciones de planos técnicos
 - Copia de seguridad de las definiciones de planos técnicos
@@ -23,7 +23,7 @@ Azure Blueprints se puede administrar totalmente a través de Azure Portal. A me
 
 Independientemente de las razones, la administración de sus definiciones de planos técnicos como código tiene ventajas. En este artículo se muestra cómo usar los comandos `Import-AzBlueprintWithArtifact` y `Export-AzBlueprintWithArtifact` en el módulo [Az.Blueprint](https://powershellgallery.com/packages/Az.Blueprint/).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 En este artículo se presuponen conocimientos prácticos moderados de Azure Blueprints. Si aún no lo ha hecho, trabaje en los siguientes artículos:
 

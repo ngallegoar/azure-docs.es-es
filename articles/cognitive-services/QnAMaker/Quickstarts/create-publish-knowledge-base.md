@@ -3,12 +3,12 @@ title: 'Inicio rápido: Creación, entrenamiento y publicación de la base de co
 description: Puede crear una base de conocimiento (KB) de QnA Maker a partir de contenido propio, como por ejemplo preguntas más frecuentes o manuales de productos. En este artículo se incluye un ejemplo de la creación de una base de conocimiento de QnA Maker a partir de una página web sencilla de preguntas más frecuentes para responder a preguntas de QnA Maker.
 ms.topic: conceptual
 ms.date: 02/08/2020
-ms.openlocfilehash: b1f80006e2dc72b5b623f4c29c093c734dc1efea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5a3cd4a66ae3a7148b517050c3d1a8c6c8e7a712
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79219018"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756827"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Inicio rápido: Creación, entrenamiento y publicación de la base de conocimiento de QnA Maker
 
@@ -135,7 +135,7 @@ Si realiza cambios en la base de conocimiento y vuelve a publicarla, no es neces
 
 ## <a name="what-did-you-accomplish"></a>¿Qué ha logrado?
 
-Ha creado una nueva base de conocimiento, ha agregado una dirección URL pública a esta, ha agregado su propio conjunto de QnA y ha entrenado, probado y publicado la base de conocimiento.
+Ha creado una nueva base de conocimiento, ha agregado una dirección URL pública a esta, ha agregado su propio par de QnA y ha entrenado, probado y publicado la base de conocimiento.
 
 Después de publicar la base de conocimiento, ha creado un bot y lo ha probado.
 

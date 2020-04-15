@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/22/2020
 ms.author: kumud
-ms.openlocfilehash: a2a85d98bf29e78d58bf0c578ce79943bae21fc1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b5655a58c3538ac47e8649619b079dc46ee01242
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79225160"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80473223"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Incorporación, cambio o eliminación de direcciones IP para una interfaz de red de Azure
 
@@ -120,7 +120,7 @@ Además de una configuración IP principal, una interfaz de red puede tener ning
 
 - Debe tener asignada una dirección IPv4 o IPv6 privada. Si la dirección es IPv6, la interfaz de red solo puede tener una configuración IP secundaria. Si la dirección es IPv4, la interfaz de red puede tener asignadas varias configuraciones IP secundarias. Para más información sobre cuántas direcciones IPv4 privadas y públicas se pueden asignar a una interfaz de red, consulte el artículo sobre los [límites de Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 - También puede tener asignada una dirección IPv6 o IPv4 pública. Asignar varias direcciones IPv4 a una interfaz de red resulta útil en escenarios como:
-  - Hospede varios sitios web o servicios con direcciones IP y certificados SSL diferentes en un único servidor.
+  - Hospedaje de varios sitios web o servicios con direcciones IP y certificados TLS/SSL diferentes en un único servidor.
   - Una máquina virtual que actúa como una aplicación virtual de red, por ejemplo, un firewall o un equilibrador de carga.
   - La capacidad de agregar cualquiera de las direcciones IPv4 privadas para cualquiera de las interfaces de red a un grupo de servidores de back-end de Azure Load Balancer. En el pasado, solo la dirección IPv4 principal de la interfaz de red principal podía agregarse a un grupo de servidores back-end. Para más información sobre cómo equilibrar la carga de varias configuraciones IPv4, consulte el artículo [Equilibrio de carga en varias configuraciones IP](../load-balancer/load-balancer-multiple-ip.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
   - La capacidad de equilibrar carga una vez que se asigna una dirección IPv6 a una interfaz de red. Para más información sobre cómo equilibrar carga a una dirección IPv6 privada, consulte el artículo sobre el [equilibrio de carga de direcciones IPv6](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
@@ -175,7 +175,7 @@ Las direcciones IPv4 e IPv6 (opcionalmente) privadas dinámicas se asignan de ma
 De manera opcional, puede asignar una dirección IPv4 o IPv6 estática pública o privada a una configuración IP. Para más información sobre cómo Azure asigna direcciones IPv4 estáticas públicas, consulte [Dirección IP pública](virtual-network-public-ip-address.md).
 
 - **Solo pública**: Azure asigna la dirección de un intervalo único a cada región de Azure. Puede descargar la lista de intervalos (prefijos) para las nubes de Azure [Pública](https://www.microsoft.com/download/details.aspx?id=56519), [Gobierno de Estados Unidos](https://www.microsoft.com/download/details.aspx?id=57063), [China](https://www.microsoft.com/download/details.aspx?id=57062) y [Alemania](https://www.microsoft.com/download/details.aspx?id=57064). La dirección no cambia hasta que el recurso de dirección IP pública se asigna o se elimina, o el método de asignación cambia a dinámico. Si el recurso de dirección IP pública está asociado a una configuración de dirección IP, se debe desasociar de la configuración de dirección IP antes de cambiar su método de asignación.
-- **Solo privada**: se selecciona y asigna una dirección del intervalo de direcciones de la subred. La dirección que se asigna puede ser cualquiera que esté en el intervalo de direcciones de subred, salvo que sea una de las cuatro primeras y que no esté asignada a otro recurso de la subred. Las direcciones estáticas solo se liberan cuando se elimina la interfaz de red. Si cambia el método de asignación a estática, Azure asigna dinámicamente la dirección IP estática asignada anteriormente como dirección estática, aunque no sea la siguiente dirección disponible en el intervalo de direcciones de la subred. La dirección también cambia si la interfaz de red se asigna a otra subred de la misma red virtual, pero para ello, antes hay que cambiar el método de asignación de estática a dinámica. Una vez que ha asignado la interfaz de red a otra subred, puede volver a cambiar el método de asignación a estática y asignar una dirección IP del intervalo de direcciones de la nueva subred.
+- **Solo privado**: se selecciona y asigna una dirección del intervalo de direcciones de la subred. La dirección que se asigna puede ser cualquiera que esté en el intervalo de direcciones de subred, salvo que sea una de las cuatro primeras y que no esté asignada a otro recurso de la subred. Las direcciones estáticas solo se liberan cuando se elimina la interfaz de red. Si cambia el método de asignación a estática, Azure asigna dinámicamente la dirección IP estática asignada anteriormente como dirección estática, aunque no sea la siguiente dirección disponible en el intervalo de direcciones de la subred. La dirección también cambia si la interfaz de red se asigna a otra subred de la misma red virtual, pero para ello, antes hay que cambiar el método de asignación de estática a dinámica. Una vez que ha asignado la interfaz de red a otra subred, puede volver a cambiar el método de asignación a estática y asignar una dirección IP del intervalo de direcciones de la nueva subred.
 
 ## <a name="ip-address-versions"></a>Versiones de direcciones IP
 

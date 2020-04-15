@@ -23,7 +23,11 @@
 - name: Conceptos
   items:
     - name: Trabajo remoto
-      href: work-remotely-support.md
+      items:
+        - name: Compatibilidad con el trabajo remoto
+          href: ../networking/working-remotely-support.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
+        - name: Uso de Virtual WAN
+          href: work-remotely-support.md
     - name: Ubicaciones y asociados
       items:
         - name: Ubicaciones y asociados del centro de conectividad

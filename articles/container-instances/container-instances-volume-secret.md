@@ -2,26 +2,27 @@
 title: Montaje de un volumen secreto en un grupo de contenedores
 description: Más información acerca de cómo montar un volumen secreto para almacenar información confidencial para que accedan a ella las instancias de Container Instances
 ms.topic: article
-ms.date: 07/19/2018
-ms.openlocfilehash: 913e3d147519bc73c3c57b8da383f9d373f3666d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/03/2020
+ms.openlocfilehash: 756828e71174246450245938595c8872afc62961
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78249949"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80657144"
 ---
 # <a name="mount-a-secret-volume-in-azure-container-instances"></a>Montaje de un volumen secreto en Azure Container Instances
 
 Puede usar un volumen *secreto* para suministrar información confidencial en los contenedores de un grupo de contenedores. El volumen *secreto* almacena los secretos en los archivos del volumen, accesibles para los contenedores del grupo de contenedores. Mediante el almacenamiento de secretos en un volumen *secreto*, puede evitar agregar datos confidenciales, como claves SSH o credenciales de la base de datos, en el código de la aplicación.
 
-Todos los volúmenes *secretos* están respaldados por [tmpfs][tmpfs], un sistema de archivos basado en RAM; su contenido nunca se escribe en el almacenamiento no volátil.
+* Una vez implementado con secretos en un grupo de contenedores, un volumen secreto es *solo lectura*.
+* Todos los volúmenes secretos están respaldados por [tmpfs][tmpfs], un sistema de archivos basado en RAM; su contenido nunca se escribe en el almacenamiento no volátil.
 
 > [!NOTE]
 > Los volúmenes *secretos* están restringidos actualmente a los contenedores Linux. Obtenga información sobre cómo pasar variables de entorno seguras para contenedores Windows y Linux en [Establecimiento de variables de entorno](container-instances-environment-variables.md). Aunque se está trabajando para incorporar todas las características a los contenedores Windows, puede consultar las diferencias actuales entre plataformas en la [introducción](container-instances-overview.md#linux-and-windows-containers).
 
 ## <a name="mount-secret-volume---azure-cli"></a>Montaje de un volumen secreto: CLI de Azure
 
-Para implementar un contenedor con uno o más secretos mediante la CLI de Azure, incluya los parámetros `--secrets` y `--secrets-mount-path` en el comando [az container create][az-container-create]. En este ejemplo se monta un volumen *secreto* que consta de dos secretos, "mysecret1" y "mysecret2", en `/mnt/secrets`:
+Para implementar un contenedor con uno o más secretos mediante la CLI de Azure, incluya los parámetros `--secrets` y `--secrets-mount-path` en el comando [az container create][az-container-create]. En este ejemplo se monta un volumen *secreto* que consta de dos archivos que contienen secretos, "mysecret1" y "mysecret2", en `/mnt/secrets`:
 
 ```azurecli-interactive
 az container create \
@@ -35,11 +36,13 @@ az container create \
 La siguiente salida de [az container exec][az-container-exec] muestra la apertura de un shell en el contenedor en ejecución, que enumera los archivos incluidos en el volumen secreto y luego muestra su contenido:
 
 ```azurecli
-az container exec --resource-group myResourceGroup --name secret-volume-demo --exec-command "/bin/sh"
+az container exec \
+  --resource-group myResourceGroup \
+  --name secret-volume-demo --exec-command "/bin/sh"
 ```
 
 ```output
-/usr/src/app # ls -1 /mnt/secrets
+/usr/src/app # ls /mnt/secrets
 mysecret1
 mysecret2
 /usr/src/app # cat /mnt/secrets/mysecret1
@@ -56,7 +59,7 @@ También puede implementar grupos de contenedores con la CLI de Azure y una [pla
 
 Cuando se implementa con una plantilla YAML, los valores secretos deben estar **codificados en Base64** en la plantilla. Aunque los valores del secreto aparecen en texto sin formato dentro de los archivos en el contenedor.
 
-La siguiente plantilla YAML define un grupo de contenedores con un solo contenedor que monta un volumen *secreto* en `/mnt/secrets`. El volumen secreto tiene dos secretos, "mysecret1" y "mysecret2".
+La siguiente plantilla YAML define un grupo de contenedores con un solo contenedor que monta un volumen *secreto* en `/mnt/secrets`. El volumen secreto tiene dos archivos que contienen secretos, "mysecret1" y "mysecret2".
 
 ```yaml
 apiVersion: '2018-10-01'
@@ -91,7 +94,9 @@ Para implementar con la plantilla YAML, guarde el anterior código de YAML en un
 
 ```azurecli-interactive
 # Deploy with YAML template
-az container create --resource-group myResourceGroup --file deploy-aci.yaml
+az container create \
+  --resource-group myResourceGroup \
+  --file deploy-aci.yaml
 ```
 
 ## <a name="mount-secret-volume---resource-manager"></a>Montaje de un volumen secreto: Resource Manager
@@ -107,11 +112,13 @@ La siguiente plantilla de Resource Manager define un grupo de contenedores con u
 <!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-secret.json -->
 [!code-json[volume-secret](~/azure-docs-json-samples/container-instances/aci-deploy-volume-secret.json)]
 
-Para implementar con la plantilla de Resource Manager, guarde el anterior código JSON en un archivo denominado `deploy-aci.json` y luego ejecute el comando [az group deployment create][az-group-deployment-create] con el parámetro `--template-file`:
+Para implementar con la plantilla de Resource Manager, guarde el anterior código JSON en un archivo denominado `deploy-aci.json` y luego ejecute el comando [az deployment group create][az-deployment-group-create] con el parámetro `--template-file`:
 
 ```azurecli-interactive
 # Deploy with Resource Manager template
-az group deployment create --resource-group myResourceGroup --template-file deploy-aci.json
+az deployment group create \
+  --resource-group myResourceGroup \
+  --template-file deploy-aci.json
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -134,4 +141,4 @@ Otro método para especificar información confidencial en contenedores (incluid
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container#az-container-create
 [az-container-exec]: /cli/azure/container#az-container-exec
-[az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
+[az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create

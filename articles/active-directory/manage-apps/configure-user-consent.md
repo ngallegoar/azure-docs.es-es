@@ -12,12 +12,12 @@ ms.date: 10/22/2018
 ms.author: mimart
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5bd305d2943d1b12756171748f28d32300081d71
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 42337fe958a881ee263d16c866dda69f13fe09c1
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75443401"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80519627"
 ---
 # <a name="configure-how-end-users-consent-to-applications"></a>Configuración del consentimiento de los usuarios finales a las aplicaciones
 
@@ -143,11 +143,55 @@ Puede usar el módulo en versión preliminar de Azure AD PowerShell ([AzureADPr
     }
     ```
 
+## <a name="configure-risk-based-step-up-consent"></a>Configuración del consentimiento activo en función del riesgo
+
+El consentimiento activo en función del riesgo ayuda a reducir la exposición de los usuarios a aplicaciones malintencionadas que realizan [solicitudes de consentimiento ilícitas](https://docs.microsoft.com/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants). Si Microsoft detecta una solicitud de consentimiento de usuario final de riesgo, la solicitud requerirá un "paso activo" para el consentimiento de administrador. Esta funcionalidad está habilitada de forma predeterminada, pero solo producirá un cambio de comportamiento cuando esté habilitado el consentimiento del usuario final.
+
+Cuando se detecta una solicitud de consentimiento peligrosa, la petición de consentimiento mostrará un mensaje que indica que se necesita la aprobación del administrador. Si el [flujo de trabajo de solicitud de consentimiento de administrador](configure-admin-consent-workflow.md) está habilitado, el usuario puede enviar la solicitud a un administrador para que la revise de nuevo desde la propia petición de consentimiento. Si no está habilitado, se mostrará el mensaje siguiente:
+
+* **AADSTS90094:** &lt;clientAppDisplayName&gt; necesita permiso para acceder a recursos de su organización que solo un administrador puede conceder. Pida a un administrador que conceda permiso a esta aplicación antes de poder usarla.
+
+En este caso, también se registrará un evento de auditoría con la categoría "ApplicationManagement", el tipo de actividad "Consentimiento a la aplicación" y el motivo de estado "Aplicación arriesgada detectada".
+
+> [!IMPORTANT]
+> Los administradores deben [evaluar todas las solicitudes de consentimiento](manage-consent-requests.md#evaluating-a-request-for-tenant-wide-admin-consent) detenidamente antes de aprobarlas, especialmente cuando Microsoft haya detectado riesgo.
+
+### <a name="disable-or-re-enable-risk-based-step-up-consent-using-powershell"></a>Deshabilitación o nueva habilitación del consentimiento activo en función del riesgo con PowerShell
+
+Puede usar el módulo en versión preliminar de PowerShell de Azure AD ([AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview)) para deshabilitar el paso activo del consentimiento de administrador requerido en los casos en los que Microsoft detecta el riesgo o para volver a habilitarlo si estaba deshabilitado anteriormente.
+
+Para ello, siga los mismos pasos descritos anteriormente para [configurar el consentimiento del propietario del grupo mediante PowerShell](#configure-group-owner-consent-using-powershell), pero sustituyendo un valor de configuración diferente. Hay tres diferencias en los pasos: 
+
+1. Comprenda los valores de configuración para el consentimiento de paso activo en función del riesgo:
+
+    | Configuración       | Tipo         | Descripción  |
+    | ------------- | ------------ | ------------ |
+    | _BlockUserConsentForRiskyApps_   | Boolean |  Marca que indica si se bloqueará el consentimiento del usuario cuando se detecte una solicitud de riesgo. |
+
+2. Sustituya el siguiente valor en el paso 3:
+
+    ```powershell
+    $riskBasedConsentEnabledValue = $settings.Values | ? { $_.Name -eq "BlockUserConsentForRiskyApps" }
+    ```
+3. Sustituya uno de los siguientes en el paso 5:
+
+    ```powershell
+    # Disable risk-based step-up consent entirely
+    $riskBasedConsentEnabledValue.Value = "False"
+    ```
+
+    ```powershell
+    # Re-enable risk-based step-up consent, if disabled previously
+    $riskBasedConsentEnabledValue.Value = "True"
+    ```
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 [Configuración del flujo de trabajo de consentimiento del administrador](configure-admin-consent-workflow.md)
 
-[Concesión del consentimiento del administrador para todo el inquilino para una aplicación](grant-admin-consent.md)
+[Aprenda a administrar el consentimiento de aplicaciones y a evaluar las solicitudes de consentimiento](manage-consent-requests.md)
+
+[Concesión del consentimiento del administrador para todo el inquilino a una aplicación](grant-admin-consent.md)
 
 [Permisos y consentimiento en la plataforma de identidad de Microsoft](../develop/active-directory-v2-scopes.md)
 

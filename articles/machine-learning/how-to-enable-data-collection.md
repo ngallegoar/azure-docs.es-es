@@ -11,12 +11,12 @@ ms.author: copeters
 author: lostmygithubaccount
 ms.date: 11/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3c481a2e12d83e865025cd90e59e0eba572ad9a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 44acc81df9eb6dc6a6af28b5b0f4730aa93adffc
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75771400"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475433"
 ---
 # <a name="collect-data-for-models-in-production"></a>Recopilar datos de modelos en producción
 
@@ -58,7 +58,7 @@ La ruta de acceso a los datos de salida en el blob sigue esta sintaxis:
 >[!NOTE]
 > En las versiones del SDK de Azure Machine Learning para Python anteriores a la versión 0.1.0 A16, el argumento `designation` se denomina `identifier`. Si desarrolló el código con una versión anterior, debe actualizarlo en consecuencia.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://aka.ms/AMLFree) antes de empezar.
 
@@ -129,11 +129,7 @@ Si ya tiene un servicio con las dependencias instaladas en el archivo de entorno
 
    ![Edición del servicio](././media/how-to-enable-data-collection/EditService.PNG)
 
-1. En **Configuración avanzada**, seleccione **Habilitar recopilación de datos de modelos**.
-
-    [![Selección de la recopilación de datos](./media/how-to-enable-data-collection/CheckDataCollection.png)](././media/how-to-enable-data-collection/CheckDataCollection.png#lightbox)
-
-   También puede elegir **Enable AppInsights diagnostics** (Habilitar diagnósticos de AppInsights) para realizar un seguimiento del estado de su servicio.
+1. En **Configuración avanzada**, active **Enable Application Insights diagnostics and data collection** (Habilitar la recopilación de datos y el diagnóstico de Application Insights).
 
 1. Seleccione **Update** (Actualizar) para aplicar el cambio.
 
@@ -151,9 +147,7 @@ Puede dejar de recopilar datos en cualquier momento. Use código Python o Azure 
 
    [![Selección del icono de edición](././media/how-to-enable-data-collection/EditService.PNG)](./././media/how-to-enable-data-collection/EditService.PNG#lightbox)
 
-1. En **Advanced Settings** (Configuración avanzada), desactive **Enable Model data collection** (Habilitar recopilación de datos de modelo).
-
-    [![Desactivación de la casilla de recopilación de datos](./media/how-to-enable-data-collection/UncheckDataCollection.png)](././media/how-to-enable-data-collection/UncheckDataCollection.png#lightbox)
+1. En **Configuración avanzada**, desactive **Enable Application Insights diagnostics and data collection** (Habilitar la recopilación de datos y el diagnóstico de Application Insights).
 
 1. Seleccione **Actualizar** para aplicar el cambio.
 

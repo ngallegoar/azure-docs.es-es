@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: anilmur
 ms.reviewer: juliako
-ms.openlocfilehash: a32624c37cd8ca7fbef9e38ca61de9369791dd25
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b0569907537f91f7e84b8156dffa0f313461f6e1
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77162538"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677020"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Streaming en vivo con Azure Media Services para crear transmisiones con velocidad de bits múltiple
 
@@ -167,7 +167,7 @@ Un canal proporciona un extremo de entrada (dirección URL de ingesta) que usted
 
 Puede obtener las direcciones URL de ingesta al crear un canal. Para obtener estas direcciones URL, el canal no puede encontrarse en el estado **En ejecución** . Cuando esté listo para comenzar a insertar datos en el canal, este debe estar **En ejecución** . Una vez que el canal empieza a consumir datos, puede obtener una vista previa de la secuencia a través de la dirección URL de vista previa.
 
-Tiene la opción de consumir una secuencia en directo de MP4 fragmentado (Smooth Streaming) a través de una conexión SSL. Para introducir en SSL, asegúrese de actualizar la dirección URL de introducción a HTTPS. Actualmente, AMS no admite SSL con dominios personalizados.  
+Tiene la opción de consumir una secuencia en directo de MP4 fragmentado (Smooth Streaming) a través de una conexión TLS. Para ingerir en TLS, asegúrese de actualizar la dirección URL de introducción a HTTPS. Actualmente, AMS no admite TLS con dominios personalizados.  
 
 ### <a name="allowed-ip-addresses"></a>Direcciones IP permitidas
 Puede definir las direcciones IP permitidas para publicar vídeo en el canal. Las direcciones IP permitidas se pueden especificar como una dirección IP única (por ejemplo, "10.0.0.1"), un intervalo IP que usa una dirección IP y una máscara de subred CIDR (por ejemplo, "10.0.0.1/22") o un intervalo de IP que usa una máscara de subred decimal con puntos; por ejemplo, "10.0.0.1(255.255.252.0)".

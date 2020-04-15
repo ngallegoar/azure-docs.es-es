@@ -1,21 +1,20 @@
 ---
 title: Introducción al agente de Log Analytics
 description: En este tema se le ayudará a comprender cómo recopilar datos y supervisar equipos hospedados en Azure, localmente o en entornos en la nube con Log Analytics.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/04/2020
-ms.openlocfilehash: bf2939c28afb682d4053a27920b9cf57795d2e86
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: d52d8e6d0f6e3325b5c5cdc9a2e21654e6a2b621
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77467239"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520717"
 ---
 # <a name="log-analytics-agent-overview"></a>Introducción al agente de Log Analytics
-El agente de Log Analytics se desarrolló para administrar de forma integral máquinas virtuales de cualquier nube, máquinas del entorno local y máquinas supervisadas por [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/). Los agentes de Windows y Linux envían los datos recopilados de diferentes orígenes al área de trabajo de Log Analytics de Azure Monitor, así como cualquier registro o métrica únicos que se hayan definido en una solución de supervisión. El agente de Log Analytics también permite utilizar información detallada y otros servicios de Azure Monitor, como [Azure Monitor para VM](), [Azure Security Center]() y [Azure Automation]().
+El agente de Log Analytics se desarrolló para administrar de forma integral máquinas virtuales de cualquier nube, máquinas del entorno local y máquinas supervisadas por [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/). Los agentes de Windows y Linux envían los datos recopilados de diferentes orígenes al área de trabajo de Log Analytics de Azure Monitor, así como cualquier registro o métrica únicos que se hayan definido en una solución de supervisión. El agente de Log Analytics también permite utilizar información detallada y otros servicios de Azure Monitor, como [Azure Monitor para VM](../insights/vminsights-enable-overview.md), [Azure Security Center](/azure/security-center/) y [Azure Automation](../../automation/automation-intro.md).
 
 En este artículo se proporciona una descripción detallada del agente, de los requisitos del sistema y de la red, y de los diferentes métodos de implementación.
 
@@ -30,8 +29,8 @@ El agente [Azure Diagnostics Extension](diagnostics-extension-overview.md) de Az
 
 Las principales diferencias que debe tener en cuenta son:
 
-- Azure Diagnostics Extension solo se puede utilizar con máquinas virtuales de Azure. El agente de Log Analytics se puede usar con máquinas virtuales de Azure, de otras nubes y del entorno local.
-- Azure Diagnostics Extension envía datos a Azure Storage, a las [métricas de Azure Monitor](data-platform-metrics.md) (solo en Windows) y a Event Hubs. El agente de Log Analytics recopila los datos en los [registros de Azure Monitor](data-platform-logs.md).
+- Azure Diagnostics Extension solo se puede usar con máquinas virtuales de Azure. El agente de Log Analytics se puede usar con máquinas virtuales de Azure, de otras nubes y del entorno local.
+- Azure Diagnostics Extension envía datos a Azure Storage, a las [métricas de Azure Monitor](data-platform-metrics.md) (solo en Windows) y a Event Hubs. El agente de Log Analytics recopila los datos en los [registros en Azure Monitor](data-platform-logs.md).
 - El agente de Log Analytics es necesario para las [soluciones](../monitor-reference.md#insights-and-core-solutions), [Azure Monitor para VM](../insights/vminsights-overview.md) y otros servicios, como [Azure Security Center](/azure/security-center/).
 
 ## <a name="costs"></a>Costos
@@ -102,7 +101,7 @@ En esta sección se ofrecen detalles sobre las distribuciones de Linux compatibl
 A partir de las versiones publicadas después de agosto de 2018, hemos realizado los siguientes cambios en nuestro modelo de soporte técnico:  
 
 * Solo se admiten las versiones de servidor, no de cliente.  
-* Siempre se admiten las nuevas versiones de [distribuciones aprobadas para Linux de Azure](../../virtual-machines/linux/endorsed-distros.md).  
+* La compatibilidad se centra en cualquiera de las [distribuciones de Linux aprobadas en Azure](../../virtual-machines/linux/endorsed-distros.md). Tenga en cuenta que puede haber cierto retraso entre la aprobación de una distribución o versión de Linux en Azure y su compatibilidad con el agente de Linux de Log Analytics.
 * Se admiten todas las versiones secundarias de cada versión principal de la lista.
 * No se admiten las versiones que han superado la fecha de finalización de soporte técnico de su fabricante.  
 * No se admiten las nuevas versiones de AMI.  
@@ -143,24 +142,41 @@ En la tabla siguiente se indican los paquetes necesarios para las distribuciones
 Para garantizar la seguridad de los datos en tránsito hacia los registros de Azure Monitor, se recomienda encarecidamente configurar el agente para que use al menos Seguridad de la capa de transporte (TLS) 1.2. Las versiones anteriores de TLS/Capa de sockets seguros (SSL) han demostrado ser vulnerables y, si bien todavía funcionan para permitir la compatibilidad con versiones anteriores, **no se recomiendan**.  Para información adicional, revise [Sending data securely using TLS 1.2](data-security.md#sending-data-securely-using-tls-12) (Envío de datos de forma segura mediante TLS 1.2). 
 
 
+## <a name="sha-2-code-signing-support-requirement-for-windows"></a>Requisito de compatibilidad con la firma de código SHA-2 para Windows
+El agente de Windows empezará a usar exclusivamente la firma SHA-2 el 18 de mayo de 2020. Este cambio afectará a los clientes que usan el agente de Log Analytics en un sistema operativo heredado como parte de cualquier servicio de Azure (Azure Monitor, Azure Automation, Azure Update Management, Azure Change Tracking, Azure Security Center, Azure Sentinel, ATP de Windows Defender). El cambio no requiere ninguna acción del cliente a menos que esté ejecutando el agente en una versión de sistema operativo heredada (Windows 7, Windows Server 2008 R2 y Windows Server 2008). Los clientes que ejecutan una versión de sistema operativo heredada deben realizar las siguientes acciones en sus máquinas antes del 18 de mayo de 2020 o sus agentes dejarán de enviar datos a sus áreas de trabajo de Log Analytics:
+
+1. Instale el Service Pack más reciente para su sistema operativo. Las versiones de Service Pack necesarias son:
+    - Windows 7 SP1
+    - Windows Server 2008 SP2
+    - Windows Server 2008 R2 SP1
+
+2. Instale las actualizaciones de firma SHA-2 de Windows para su sistema operativo, como se describe en [Requisito de compatibilidad con la firma de código SHA-2 para Windows y WSUS de 2019](https://support.microsoft.com/help/4472027/2019-sha-2-code-signing-support-requirement-for-windows-and-wsus).
+3. Actualice el agente de Windows a la versión más reciente (versión 10.20.18029).
+4. Se recomienda para configurar el agente para [usar TLS 1.2](agent-windows.md#configure-agent-to-use-tls-12). 
+
+
 ## <a name="network-requirements"></a>Requisitos de red
 El agente para Linux y Windows se comunica con el servicio Azure Monitor en el puerto TCP 443. Si la máquina se conecta mediante un servidor proxy o firewall para comunicarse a través de Internet, consulte los requisitos siguientes para comprender qué configuración de red debe aplicarse. Si las directivas de seguridad de TI no permiten que los equipos de la red se conecten a Internet, puede configurar una [puerta de enlace de Log Analytics](gateway.md) y, luego, configurar el agente para conectarse a registros de Azure Monitor a través de la puerta de enlace. El agente, a continuación, puede recibir información de configuración y enviar los datos recopilados según qué reglas de recopilación de datos y soluciones de supervisión haya habilitado en el área de trabajo.
 
 ![Diagrama de comunicación del agente de Log Analytics](./media/log-analytics-agent/log-analytics-agent-01.png)
 
+En la tabla siguiente se muestra la información de configuración de proxy y firewall requerida para que el agente de Windows y Linux se comunique con los registros de Azure Monitor.
 
-## <a name="network-firewall-requirements"></a>Requisitos de firewall de red
-A continuación se muestra la información de configuración de proxy y firewall requerida para que el agente de Windows y Linux se comunique con los registros de Azure Monitor.  
+### <a name="firewall-requirements"></a>Requisitos de firewall
 
 |Recurso del agente|Puertos |Dirección |Omitir inspección de HTTPS|
 |------|---------|--------|--------|   
-|*.ods.opinsights.azure.com |Puerto 443 |Salida|Sí |  
-|*.oms.opinsights.azure.com |Puerto 443 |Salida|Sí |  
-|*.blob.core.windows.net |Puerto 443 |Salida|Sí |  
+|*.ods.opinsights.azure.com |Puerto 443 |Entrada y salida|Sí |  
+|*.oms.opinsights.azure.com |Puerto 443 |Entrada y salida|Sí |  
+|*.blob.core.windows.net |Puerto 443 |Entrada y salida|Sí |
+|*.azure-automation.net |Puerto 443 |Entrada y salida|Sí |
+|*.azure.com |Puerto 443|Entrada y salida|Sí |
 
 Para obtener información sobre el firewall necesaria para Azure Government, vea [Administración de Azure Government](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs). 
 
 Si tiene previsto usar Hybrid Runbook Worker de Azure Automation para conectarse al servicio Automation y registrarse en él para usar runbooks o soluciones de administración en el entorno, debe tener acceso al número de puerto y las direcciones URL descritos en [Configuración de la red para Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
+
+### <a name="proxy-configuration"></a>Configuración de proxy
 
 El agente de Linux y Windows admite la comunicación a través de un servidor proxy o la puerta de enlace de Log Analytics con Azure Monitor mediante el protocolo HTTPS.  Se admite la autenticación anónima y básica (nombre de usuario/contraseña).  Si el agente de Windows está conectado directamente al servicio, la configuración de proxy se especifica durante la instalación o [después de la implementación](agent-manage.md#update-proxy-settings) desde el Panel de control o con PowerShell.  
 

@@ -5,12 +5,12 @@ author: kavyako
 ms.topic: conceptual
 ms.date: 08/10/2017
 ms.author: kavyako
-ms.openlocfilehash: 4cfeaf34a39231ffa91ea970a61f66632bae40c7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 61a8d1e766ea576f7d2984add239b0da7e2e8183
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79236632"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80617108"
 ---
 # <a name="connect-to-a-secure-service-with-the-reverse-proxy"></a>Conexión a un servicio seguro con el proxy inverso
 
@@ -27,14 +27,14 @@ El proxy inverso se identifica él mismo con los servicios mediante su certifica
 Los servicios pueden implementar la lógica para comprobar el certificado presentado por el proxy inverso. Los servicios pueden especificar los detalles del certificado de cliente aceptado como valores de configuración en el paquete de configuración. Esto se puede leer en tiempo de ejecución y puede utilizarse para validar el certificado presentado por el proxy inverso. Consulte [Administración de los parámetros de la aplicación en varios entornos](service-fabric-manage-multiple-environment-app-configuration.md) para agregar los valores de configuración. 
 
 ### <a name="reverse-proxy-verifying-the-services-identity-via-the-certificate-presented-by-the-service"></a>Comprobación por parte del proxy inverso de la identidad del servicio mediante el certificado presentado por el servicio:
-El proxy inverso admite las siguientes directivas para realizar la validación de certificados de servidor de los certificados presentados por los servicios: None, ServiceCommonNameAndIssuer y ServiceCertificateThumbprints.
+El proxy inverso admite las siguientes directivas para realizar la validación de los certificados de servidor presentados por los servicios: Ninguna, ServiceCommonNameAndIssuer y ServiceCertificateThumbprints.
 Para seleccionar la directiva del proxy inverso, especifique **ApplicationCertificateValidationPolicy** en la sección **ApplicationGateway/Http** en [fabricSettings](service-fabric-cluster-fabric-settings.md).
 
 En la siguiente sección se muestran los detalles de configuración para cada una de estas opciones.
 
 ### <a name="service-certificate-validation-options"></a>Opciones de validación de certificados de servicio 
 
-- **Ninguno**: el proxy inverso omite la comprobación del certificado de los servicios con proxy y establece la conexión segura. Este es el comportamiento predeterminado.
+- **Ninguna**: el proxy inverso omite la comprobación del certificado de los servicios con proxy y establece la conexión segura. Este es el comportamiento predeterminado.
 Especifique **ApplicationCertificateValidationPolicy** con el valor **None** en la sección [**ApplicationGateway/Http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp).
 
    ```json
@@ -55,7 +55,7 @@ Especifique **ApplicationCertificateValidationPolicy** con el valor **None** en 
    }
    ```
 
-- **ServiceCommonNameAndIssuer**: el proxy inverso comprueba el certificado presentado por el servicio en función del nombre común del certificado y la huella digital del emisor inmediato. Especifique **ApplicationCertificateValidationPolicy** con el valor **ServiceCommonNameAndIssuer** en la sección [**ApplicationGateway/Http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp).
+- **ServiceCommonNameAndIssuer**: el proxy inverso comprueba el certificado presentado por el servicio según el nombre común del certificado y la huella digital del emisor inmediato: Especifique **ApplicationCertificateValidationPolicy** con el valor **ServiceCommonNameAndIssuer** en la sección [**ApplicationGateway/Http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp).
 
    ```json
    {
@@ -77,7 +77,7 @@ Especifique **ApplicationCertificateValidationPolicy** con el valor **None** en 
 
    Para especificar la lista de nombres comunes de servicio y huellas digitales de emisor, agregue una sección [**ApplicationGateway/Http/ServiceCommonNameAndIssuer**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttpservicecommonnameandissuer) en **fabricSettings**, tal y como se muestra a continuación. Pueden agregarse varios pares de huella digital de emisor y nombre común de certificado en la matriz **parameters**. 
 
-   Si el proxy inverso de punto de conexión al que se está conectando presenta un certificado cuya huella digital de emisor y nombre común coincide con cualquiera de los valores especificados aquí, se establece el canal SSL. 
+   Si el proxy inverso de punto de conexión al que se está conectando presenta un certificado cuya huella digital de emisor y nombre común coinciden con cualquiera de los valores especificados aquí, se establece el canal TLS.
    Si no se puede realizar la coincidencia de los detalles del certificado, el proxy inverso produce un error en la solicitud del cliente con el código de estado 502 (Puerta de enlace incorrecta). La línea de estado HTTP también contendrá la frase "Certificado SSL no válido". 
 
    ```json
@@ -102,7 +102,7 @@ Especifique **ApplicationCertificateValidationPolicy** con el valor **None** en 
    }
    ```
 
-- **ServiceCertificateThumbprints**: el proxy inverso comprobará el certificado de los servicios con proxy en función de su huella digital. Puede elegir esta ruta cuando los servicios están configurados con certificados autofirmados: especifique **ApplicationCertificateValidationPolicy** con el valor **ServiceCertificateThumbprints** en la sección [**ApplicationGateway/Http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp).
+- **ServiceCertificateThumbprints**: el proxy inverso comprobará el certificado de servicio con proxy en función de su huella digital. Puede elegir ir a esta ruta cuando los servicios estén configurados con certificados autofirmados: Especifique **ApplicationCertificateValidationPolicy** con el valor **ServiceCertificateThumbprints** en la sección [**ApplicationGateway/Http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp).
 
    ```json
    {
@@ -143,7 +143,7 @@ Especifique **ApplicationCertificateValidationPolicy** con el valor **None** en 
    }
    ```
 
-   Si la huella digital del certificado del servidor se muestra en esta entrada de configuración, el proxy inverso realiza correctamente la conexión SSL. En caso contrario, se termina la conexión y se produce un error en la solicitud del cliente con un 502 (Puerta de enlace incorrecta). La línea de estado HTTP también contendrá la frase "Certificado SSL no válido".
+   Si la huella digital del certificado de servidor se muestra en esta entrada de configuración, el proxy inverso realiza correctamente la conexión TLS. En caso contrario, se termina la conexión y se produce un error en la solicitud del cliente con un 502 (Puerta de enlace incorrecta). La línea de estado HTTP también contendrá la frase "Certificado SSL no válido".
 
 ## <a name="endpoint-selection-logic-when-services-expose-secure-as-well-as-unsecured-endpoints"></a>Lógica de selección de punto de conexión cuando los servicios exponen tanto puntos de conexión seguros como no seguros
 Service Fabric admite la configuración de varios puntos de conexión para un servicio. Para más información, vea [Especificación de recursos en un manifiesto de servicio](service-fabric-service-manifest-resources.md).
@@ -173,12 +173,12 @@ El proxy inverso selecciona uno de los puntos de conexión al que reenviar la so
 > Cuando se trabaja en **SecureOnlyMode**, si el cliente ha especificado un **ListenerName** correspondiente a un punto de conexión HTTP (no seguro), el proxy inverso produce un error en la solicitud con un código de estado HTTP 404 (No encontrado).
 
 ## <a name="setting-up-client-certificate-authentication-through-the-reverse-proxy"></a>Configuración de la autenticación de certificados de cliente mediante el proxy inverso
-Se produce la terminación SSL en el proxy inverso y se pierden todos los datos del certificado de cliente. Para que los servicios autentiquen el certificado de cliente, establezca el valor **ForwardClientCertificate** en la sección [**ApplicationGateway/Http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp).
+Se produce la terminación TLS en el proxy inverso y se pierden todos los datos del certificado de cliente. Para que los servicios autentiquen el certificado de cliente, establezca el valor **ForwardClientCertificate** en la sección [**ApplicationGateway/Http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp).
 
-1. Cuando **ForwardClientCertificate** está establecido en **false**, el proxy inverso no solicitará el certificado de cliente durante el protocolo de enlace SSL con el cliente.
+1. Cuando **ForwardClientCertificate** está establecido en **false**, el proxy inverso no solicitará el certificado de cliente durante el protocolo de enlace TLS con el cliente.
 Este es el comportamiento predeterminado.
 
-2. Cuando **ForwardClientCertificate** está establecido en **true**, el proxy inverso solicita el certificado del cliente durante el protocolo de enlace SSL con el cliente.
+2. Cuando **ForwardClientCertificate** está establecido en **true**, el proxy inverso solicita el certificado del cliente durante el protocolo de enlace TLS con el cliente.
 Luego, reenvía los datos del certificado de cliente en un encabezado HTTP personalizado denominado **X-Client-Certificate**. El valor del encabezado es la cadena en formato PEM con codificación base64 del certificado del cliente. El servicio puede completar correctamente la solicitud o no con el código de estado adecuado después de inspeccionar los datos del certificado.
 Si el cliente no presenta un certificado, el proxy inverso reenvía un encabezado vacío y deja que el servicio gestione el caso.
 

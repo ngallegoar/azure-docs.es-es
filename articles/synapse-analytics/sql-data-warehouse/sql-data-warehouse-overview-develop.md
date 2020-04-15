@@ -1,5 +1,5 @@
 ---
-title: Recursos para desarrollar un almacenamiento de datos en Azure Synapse Analytics
+title: Recursos para desarrollar un grupo de SQL de Synapse en Azure Synapse Analytics
 description: Conceptos de desarrollo, decisiones de diseño, recomendaciones y técnicas de codificación para SQL Data Warehouse.
 services: synapse-analytics
 author: XiaoyuMSFT
@@ -10,18 +10,18 @@ ms.subservice: ''
 ms.date: 08/29/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: aa0f5fd631dfa3e4deca4853c27a667fcf312fec
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 933a175213afd81c81eb237a2b2dd4c3e24e3315
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350281"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633153"
 ---
-# <a name="design-decisions-and-coding-techniques-for-a-data-warehouse-in-azure-synapse-analytics"></a>Decisiones de diseño y técnicas de codificación para un almacenamiento de datos en Azure Synapse Analytics 
- En este artículo, encontrará recursos adicionales que le ayudarán a comprender mejor las decisiones de diseño clave, las recomendaciones y las técnicas de codificación para un almacenamiento de datos en Azure Synapse.
+# <a name="design-decisions-and-coding-techniques-for-a-synapse-sql-pool-in-azure-synapse-analytics"></a>Decisiones de diseño y técnicas de codificación para un grupo de SQL de Synapse en Azure Synapse Analytics 
+ En este artículo, encontrará recursos adicionales que le ayudarán a comprender mejor las decisiones de diseño, las recomendaciones y las técnicas de codificación clave para un grupo de SQL en Azure Synapse.
 
 ## <a name="key-design-decisions"></a>Decisiones de diseño clave
-En los siguientes artículos se resaltan los conceptos y las decisiones de diseño para desarrollar un almacenamiento de datos distribuido mediante la funcionalidad SQL Analytics en Azure Synapse:
+En los siguientes artículos se resaltan los conceptos y las decisiones de diseño para desarrollar un almacenamiento de datos distribuido mediante la funcionalidad de grupos de SQL en Azure Synapse:
 
 * [connections](sql-data-warehouse-connect-overview.md)
 * [concurrency](resource-classes-for-workload-management.md)
@@ -34,7 +34,7 @@ En los siguientes artículos se resaltan los conceptos y las decisiones de dise�
 * [estadísticas](sql-data-warehouse-tables-statistics.md)
 
 ## <a name="development-recommendations-and-coding-techniques"></a>Recomendaciones de desarrollo y técnicas de codificación
-En los artículos siguientes se abordan técnicas de codificación, sugerencias y recomendaciones específicas para el desarrollo de un almacenamiento de datos con SQL Analytics:
+En los artículos siguientes se abordan técnicas de codificación, sugerencias y recomendaciones específicas para el desarrollo de un grupo de SQL:
 
 * [procedimientos almacenados](sql-data-warehouse-develop-stored-procedures.md)
 * [etiquetas](sql-data-warehouse-develop-label.md)

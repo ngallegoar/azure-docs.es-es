@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: 84cd201cd758293082a61a87528332c7d8c58811
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ef511c203caa11aad4dea1047c982158810c4038
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76264312"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982130"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---overview"></a>Introducción a la distribución de datos global con Azure Cosmos DB
 
@@ -41,7 +41,7 @@ Con las API de hospedaje múltiple de Azure Cosmos DB, la aplicación sabe cuá
 
 **Mantenimiento de la continuidad empresarial durante interrupciones regionales.** Azure Cosmos DB admite [conmutación por error automática](how-to-manage-database-account.md#automatic-failover) durante una interrupción regional. Durante una interrupción regional, Azure Cosmos DB sigue manteniendo sus SLA de rendimiento, coherencia, disponibilidad y latencia. Para ayudar a garantizar que toda la aplicación tiene una alta disponibilidad, Cosmos DB ofrece la API de conmutación por error manual para simular una interrupción regional. Con esta API, puede realizar maniobras de continuidad empresarial regulares.
 
-**Escalabilidad global del rendimiento de lectura y escritura.** Puede permitir que todas las regiones sean de escritura y que escale lecturas y escrituras en todo el mundo. El rendimiento que la aplicación configura en un contenedor o una base de datos de Azure Cosmos DB se entrega en todas las regiones asociadas a su cuenta de Azure Cosmos DB. El rendimiento aprovisionado se garantiza por [Acuerdo de Nivel de Servicio con respaldo financiero](https://aka.ms/acdbsla).
+**Escalabilidad global del rendimiento de lectura y escritura.** Puede permitir que todas las regiones sean de escritura y que escale lecturas y escrituras en todo el mundo. El rendimiento que la aplicación configura en un contenedor o una base de datos de Azure Cosmos DB se entrega en todas las regiones asociadas a su cuenta de Azure Cosmos DB. El rendimiento aprovisionado se garantiza por [Acuerdo de Nivel de Servicio con respaldo financiero](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/).
 
 **Elección entre varios modelos de coherencia bien definidos.** El protocolo de replicación de Azure Cosmos DB ofrece cinco modelos de coherencia prácticos, intuitivos y bien definidos. Cada modelo tiene un equilibrio entre coherencia y rendimiento. Use estos modelos de coherencia para compilar con facilidad las aplicaciones distribuidas globalmente.
 

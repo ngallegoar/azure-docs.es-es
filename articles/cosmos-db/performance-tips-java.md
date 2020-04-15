@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
-ms.openlocfilehash: 3b7d221c2afc952f40da035c6e2c282b3b932aa5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a20b7d91a927d48a14812110ca714491cd726071
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "69616754"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548778"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-java"></a>Sugerencias de rendimiento para Azure Cosmos DB y Java
 
@@ -29,7 +29,7 @@ Así que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la bas
 ## <a name="networking"></a>Redes
 <a id="direct-connection"></a>
 
-1. **Modo de conexión: Uso de DirectHttps**
+1. **Modo de conexión: uso de DirectHttps**
 
     El modo en que un cliente se conecta a Azure Cosmos DB tiene implicaciones importantes sobre el rendimiento, especialmente en los términos de la latencia observada en el lado cliente. Hay un valor de configuración clave disponible para configurar el cliente [ConnectionPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionpolicy) – [ConnectionMode](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionmode).  Las dos opciones de ConnectionModes disponibles son:
 
@@ -38,7 +38,7 @@ Así que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la bas
 
       El modo de puerta de enlace se admite en todas las plataformas de SDK y es el valor predeterminado configurado.  Si la aplicación se ejecuta dentro de una red corporativa con restricciones de firewall estrictas, el modo de puerta de enlace es la mejor opción, ya que utiliza el puerto HTTPS estándar y un único punto de conexión. La desventaja para el rendimiento, sin embargo, es que el modo de puerta de enlace implica un salto de red adicional cada vez que se leen o escriben datos en Azure Cosmos DB. Por este motivo, el modo DirectHttps ofrece mejor rendimiento debido al número menor de saltos de red. 
 
-      El SDK de Java usa HTTPS como protocolo de transporte. HTTPS usa SSL para la autenticación inicial y para cifrar el tráfico. Al usar el SDK de Java, solo es necesario que esté abierto el puerto HTTPS 443. 
+      El SDK de Java usa HTTPS como protocolo de transporte. HTTPS usa TLS para la autenticación inicial y para cifrar el tráfico. Al usar el SDK de Java, solo es necesario que esté abierto el puerto HTTPS 443. 
 
       ConnectionMode se configura durante la construcción de la instancia de DocumentClient con el parámetro ConnectionPolicy. 
 

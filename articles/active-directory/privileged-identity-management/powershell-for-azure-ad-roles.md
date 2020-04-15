@@ -16,12 +16,12 @@ ms.date: 02/26/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efb85b4a54b8f61e44f1f8bc75f893f93a0feb8a
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: 5fa241a261b8dcb21dd39b5dacacac9aa4889304
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78165406"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80519650"
 ---
 # <a name="powershell-for-azure-ad-roles-in-privileged-identity-management"></a>PowerShell para roles de Azure AD en Privileged Identity Management
 
@@ -29,7 +29,7 @@ En este artículo se incluyen instrucciones para usar los cmdlets de PowerShell 
 
 > [!Note]
 > PowerShell oficial solo es compatible si se usa la versión nueva de Azure AD Privileged Identity Management. Vaya a Privileged Identity Management y asegúrese de que aparece el banner siguiente en la hoja de inicio rápido.
-> [![compruebe la versión de Privileged Identity Management que tiene](media/pim-how-to-add-role-to-user/pim-new-version.png "Seleccionar Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox) Si no aparece este banner, tendrá que esperar porque estamos en proceso de implementar esta experiencia actualizada en las próximas semanas.
+> [![Compruebe la versión de Privileged Identity Management que tiene](media/pim-how-to-add-role-to-user/pim-new-version.png "Seleccionar Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox) Si no aparece este banner, tendrá que esperar porque estamos en proceso de implementar esta experiencia actualizada en las próximas semanas.
 > Los cmdlets de PowerShell de Privileged Identity Management se admiten a través del módulo de la versión preliminar de Azure AD. Si ha usado otro módulo y ese módulo ahora devuelve un mensaje de error, empiece a usar este módulo nuevo. Si tiene algún sistema de producción basado en un módulo distinto, póngase en contacto con pim_preview@microsoft.com.
 
 ## <a name="installation-and-setup"></a>Instalación y configuración
@@ -96,6 +96,8 @@ La programación, que define la hora de inicio y de finalización de la asignaci
     $schedule.Type = "Once"
     $schedule.StartDateTime = (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ss.fffZ")
     $schedule.endDateTime = "2020-07-25T20:49:11.770Z"
+> [!Note]
+> Si el valor de endDateTime se establece en null, indica una asignación permanente.
 
 ## <a name="activate-a-role-assignment"></a>Activación de una asignación de roles
 
@@ -128,7 +130,7 @@ Para actualizar la configuración de rol, debe definir primero un objeto de conf
 
 Luego, puede continuar y aplicar la configuración a uno de los objetos de un rol determinado, como se muestra a continuación. El identificador aquí es el identificador de la configuración de rol que se puede recuperar del resultado del cmdlet de configuración de roles de lista.
 
-    Set-AzureADMSPrivilegedRoleSetting -ProviderId ‘aadRoles’ -Id ‘ff518d09-47f5-45a9-bb32-71916d9aeadf' -ResourceId ‘3f5887ed-dd6e-4821-8bde-c813ec508cf9' -RoleDefinitionId ‘2387ced3-4e95-4c36-a915-73d803f93702' -UserMemberSettings $setting 
+    Set-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Id 'ff518d09-47f5-45a9-bb32-71916d9aeadf' -ResourceId '3f5887ed-dd6e-4821-8bde-c813ec508cf9' -RoleDefinitionId '2387ced3-4e95-4c36-a915-73d803f93702' -UserMemberSettings $setting 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

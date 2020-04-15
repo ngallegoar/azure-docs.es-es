@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 23e3c9db6302d2db597283358ff71c3693ecf435
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 4/2/2020
+ms.openlocfilehash: 1b79a49b2fb87ebf180aaaa40447f40c5a982c2e
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79530179"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632284"
 ---
 # <a name="create-users-in-azure-database-for-mariadb"></a>Crear usuarios en Azure Database for MariaDB 
 En este artículo se describe cómo puede crear usuarios en Azure Database for MariaDB.
@@ -21,6 +21,9 @@ La primera vez que creó su instancia de Azure Database for MariaDB, proporcion�
 El usuario administrador del servidor obtiene ciertos privilegios para el servidor, según se indica a continuación: SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT y TRIGGER
 
 Una vez creado el servidor de Azure Database for MariaDB, puede usar la primera cuenta de usuario administrador del servidor para crear usuarios adicionales y concederles acceso de administrador. Además, la cuenta de administrador del servidor puede usarse para crear usuarios con menos privilegios que tengan acceso a esquemas de base de datos individuales.
+
+> [!NOTE]
+> El privilegio SUPER y el rol DBA no se admiten. Revise los [privilegios](concepts-limits.md#privilege-support) en el artículo que trata sobre las limitaciones para saber lo que no se admite en el servicio.
 
 ## <a name="create-additional-admin-users"></a>Crear usuarios administradores adicionales
 1. Obtenga la información de conexión y el nombre de usuario administrador.
@@ -83,6 +86,6 @@ Una vez creado el servidor de Azure Database for MariaDB, puede usar la primera 
    Para obtener más información respecto a la administración de cuentas de usuario, consulte la documentación del producto MariaDB relativa a la [administración de cuentas de usuario](https://mariadb.com/kb/en/library/user-account-management/), la [sintaxis GRANT](https://mariadb.com/kb/en/library/grant/) y los [privilegios](https://mariadb.com/kb/en/library/grant/#privilege-levels).
 
 ## <a name="next-steps"></a>Pasos siguientes
-Abra el firewall de las direcciones IP para las máquinas de los nuevos usuarios y así permitirles que se conecten: [Creación y administración de reglas de firewall de Azure Database for MariaDB mediante Azure Portal](howto-manage-firewall-portal.md).  
+Abra el firewall para las direcciones IP de las máquinas de los nuevos usuarios para permitirles conectarse: [Crear y administrar reglas de firewall de Azure Database for MariaDB mediante Azure Portal](howto-manage-firewall-portal.md)  
 
 <!--or [Azure CLI](howto-manage-firewall-using-cli.md).-->

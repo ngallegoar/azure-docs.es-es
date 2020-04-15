@@ -1,6 +1,6 @@
 ---
 title: Asignación de variables
-description: Sugerencias para la asignación de variables de T-SQL en Azure SQL Data Warehouse para desarrollar soluciones.
+description: En este artículo, encontrará sugerencias esenciales para asignar variables de T-SQL en el grupo de SQL.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,20 +11,20 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 0adcd9bdf92b7ec649b7d91ca0e655fc006b3549
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 2dcf706ea59657abc2718a69e59191604dc2849d
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351662"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633405"
 ---
-# <a name="assigning-variables-in-azure-sql-data-warehouse"></a>Asignación de variables en Azure SQL Data Warehouse
+# <a name="assign-variables-in-synapse-sql-pool"></a>Asignación de variables en el grupo de SQL de Synapse
 
-Sugerencias para la asignación de variables de T-SQL en Azure SQL Data Warehouse para desarrollar soluciones.
+En este artículo, encontrará sugerencias esenciales para asignar variables de T-SQL en el grupo de SQL.
 
-## <a name="setting-variables-with-declare"></a>Configuración de variables con DECLARE
+## <a name="set-variables-with-declare"></a>Definición de variables con DECLARE
 
-Las variables en SQL Data Warehouse se establecen mediante las instrucciones `DECLARE` o `SET`. Inicializar variables con DECLARE es una de las maneras más flexibles de establecer el valor de una variable en SQL Data Warehouse.
+Las variables de SQL se establecen en el grupo de SQL mediante las instrucciones `DECLARE` o `SET`. Inicializar variables con DECLARE es una de las maneras más flexibles de establecer el valor de una variable en el grupo de SQL.
 
 ```sql
 DECLARE @v  int = 0
@@ -39,7 +39,7 @@ DECLARE @v  INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 
 ;
 ```
 
-No se puede inicializar ni utilizar una variable en la misma instrucción DECLARE. Para ilustrar esta cuestión, el ejemplo siguiente **no** está permitido, ya que @p1 se inicializa y se utiliza en la misma instrucción DECLARE. El siguiente ejemplo produce un error.
+No se puede inicializar ni utilizar una variable en la misma instrucción DECLARE. Para ilustrar esta cuestión, el ejemplo siguiente **no** está permitido, ya que @p1 se inicializa y se utiliza en la misma instrucción DECLARE. Por tanto, el siguiente ejemplo produce un error:
 
 ```sql
 DECLARE @p1 int = 0
@@ -47,7 +47,7 @@ DECLARE @p1 int = 0
 ;
 ```
 
-## <a name="setting-values-with-set"></a>Configuración de valores con SET
+## <a name="set-values-with-set"></a>Definición de valores con SET
 
 SET es un método muy común para configurar una sola variable.
 
@@ -64,7 +64,7 @@ Solo puede establecer una variable al mismo tiempo con SET. Aunque los operadore
 
 ## <a name="limitations"></a>Limitaciones
 
-Puede usar UPDATE para la asignación de variables.
+No se puede usar UPDATE para la asignación de variables.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
