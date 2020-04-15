@@ -31,9 +31,6 @@
     - name: Administración de gobernanza de etiquetas
       displayName: 'modify, append, effects'
       href: ./tutorials/govern-tags.md
-    - name: 'Laboratorios prácticos: Exploración de Azure Policy'
-      displayName: 'create, policy, training, learn'
-      href: 'https://handsonlabs.microsoft.com/handsonlabs/SelfPacedLabs?storyId=story://content-private/content/sp-azuregovernance/1-azpolicy/a-policy'
 - name: Ejemplos
   items:
     - name: Índice
