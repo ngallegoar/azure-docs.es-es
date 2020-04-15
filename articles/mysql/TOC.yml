@@ -204,6 +204,8 @@
           items:
             - name: Portal de Azure
               href: howto-configure-audit-logs-portal.md
+            - name: Azure CLI
+              href: howto-configure-audit-logs-cli.md
     - name: Supervisión
       items:
         - name: Creación de alertas basadas en métricas
