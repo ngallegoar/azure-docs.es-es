@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 8317a13b9ef87679836f55627268deefa4500dce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0dbad1a94479430426dae47df7ca3a3ecd9dc980
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79225316"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80436195"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>Preguntas frecuentes: preguntas sobre recopilación de datos, agentes y áreas de trabajo
 
-Security Center recopila datos de las máquinas virtuales de Azure, los conjuntos de escalado de máquinas virtuales, los contenedores de IaaS y los equipos que no son de Azure (incluidos los equipos locales) a fin de supervisar las amenazas y vulnerabilidades de seguridad. Los datos se recopilan con Microsoft Monitoring Agent, que lee distintas configuraciones relacionadas con la seguridad y distintos registros de eventos de la máquina y copia los datos en el área de trabajo para analizarlos.
+Security Center recopila datos de las máquinas virtuales de Azure, los conjuntos de escalado de máquinas virtuales, los contenedores de IaaS y los equipos que no son de Azure (incluidos los equipos locales) a fin de supervisar las amenazas y vulnerabilidades de seguridad. Los datos se recopilan con el agente de Log Analytics, que lee distintas configuraciones relacionadas con la seguridad y distintos registros de eventos de la máquina y copia los datos en el área de trabajo para analizarlos.
 
 
 ## <a name="am-i-billed-for-azure-monitor-logs-on-the-workspaces-created-by-security-center"></a>¿Se me facturan los registros de Azure Monitor en las áreas de trabajo que creada Security Center?
@@ -41,11 +41,11 @@ Para más información, vea [Precios de Security Center ](https://azure.microsof
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 
-## <a name="what-qualifies-a-vm-for-automatic-provisioning-of-the-microsoft-monitoring-agent-installation"></a>¿Qué hace que una máquina virtual sea apta para el aprovisionamiento automático de la instalación de Microsoft Monitoring Agent?
+## <a name="what-qualifies-a-vm-for-automatic-provisioning-of-the-log-analytics-agent-installation"></a>¿Qué hace que una máquina virtual sea apta para el aprovisionamiento automático de la instalación del agente de Log Analytics?
 
 Las máquinas virtuales Linux o Windows de IaaS son aptas si:
 
-- La extensión Microsoft Monitoring Agent no está instalada actualmente en la máquina virtual.
+- La extensión del agente de Log Analytics no está instalada actualmente en la máquina virtual.
 - El estado de la máquina virtual es en ejecución.
 - El [agente de máquina virtual de Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) de Windows o Linux está instalado.
 - La máquina virtual no se utiliza como dispositivo, es decir, firewall de aplicaciones web o de próxima generación.
@@ -55,7 +55,7 @@ Las máquinas virtuales Linux o Windows de IaaS son aptas si:
 
 **La eliminación del área de trabajo predeterminada no es recomendable.** Security Center utiliza las áreas de trabajo predeterminadas para almacenar los datos de seguridad de las VM. Si elimina un área de trabajo, Security Center no podrá recopilar estos datos y algunas recomendaciones de seguridad y alertas dejarán de estar disponibles.
 
-Para realizar la recuperación, quite Microsoft Monitoring Agent de las VM conectadas al área de trabajo eliminado. Security Center vuelve a instalar el agente y crea nuevas áreas de trabajo predeterminadas.
+Para realizar la recuperación, quite el agente de Log Analytics de las VM conectadas al área de trabajo eliminada. Security Center vuelve a instalar el agente y crea nuevas áreas de trabajo predeterminadas.
 
 ## <a name="how-can-i-use-my-existing-log-analytics-workspace"></a>¿Cómo puedo usar mi área de trabajo de Log Analytics existente?
 
@@ -77,7 +77,7 @@ Para seleccionar un área de trabajo de Log Analytics existente:
 
 1. Seleccione **Guardar**. Se le pregunta si quiere volver a configurar las máquinas virtuales supervisadas.
 
-    - Haga clic en **No** si quiere que la nueva configuración del área de trabajo **solo se aplique a las máquinas virtuales nuevas**. La nueva configuración del área de trabajo solo se aplica a las nuevas instalaciones de agente, aquellas máquinas virtuales recién detectadas que no tengan instalado Microsoft Monitoring Agent.
+    - Haga clic en **No** si quiere que la nueva configuración del área de trabajo **solo se aplique a las máquinas virtuales nuevas**. La nueva configuración del área de trabajo solo se aplica a las nuevas instalaciones de agente, aquellas máquinas virtuales recién detectadas que no tengan instalado el agente de Log Analytics.
     - Haga clic en **Sí** si quiere que la nueva configuración del área de trabajo **se aplique a todas las máquinas virtuales**. Además, cada máquina virtual conectada a un área de trabajo creada por Security Center se reconecta a la nueva área de trabajo de destino.
 
     > [!NOTE]
@@ -85,7 +85,7 @@ Para seleccionar un área de trabajo de Log Analytics existente:
 
     - Para cancelar la operación, seleccione **Cancelar**.
 
-## <a name="what-if-the-microsoft-monitoring-agent-was-already-installed-as-an-extension-on-the-vm"></a>¿Qué ocurre si Microsoft Monitoring Agent ya estaba instalado como una extensión en la VM?<a name="mmaextensioninstalled"></a>
+## <a name="what-if-the-log-analytics-agent-was-already-installed-as-an-extension-on-the-vm"></a>¿Qué ocurre si el agente de Log Analytics ya estaba instalado como una extensión en la VM?<a name="mmaextensioninstalled"></a>
 
 Cuando se instala Monitoring Agent como una extensión, la configuración de extensión permite enviar informes a una sola área de trabajo. Security Center no invalida las conexiones existentes con áreas de trabajo de usuario. Security Center almacenará datos de seguridad de una máquina virtual en un área de trabajo que ya esté conectada, siempre que se haya instalado la solución "Security" o "SecurityCenterFree". Durante este proceso, Security Center puede actualizar la versión de extensión a la versión más reciente.
 
@@ -93,9 +93,9 @@ Para obtener más información, consulte [Aprovisionamiento automático en los c
 
 
 
-## <a name="what-if-a-microsoft-monitoring-agent-is-directly-installed-on-the-machine-but-not-as-an-extension-direct-agent"></a>¿Qué ocurre si se instala una instancia de Microsoft Monitoring Agent directamente en la máquina pero no como extensión (Agente directo)?<a name="directagentinstalled"></a>
+## <a name="what-if-a-log-analytics-agent-is-directly-installed-on-the-machine-but-not-as-an-extension-direct-agent"></a>¿Qué sucede si el agente de Log Analytics se instala directamente en la máquina, pero no como una extensión (agente directo)?<a name="directagentinstalled"></a>
 
-Si Microsoft Monitoring Agent se instala directamente en la máquina virtual (no como una extensión de Azure), Security Center instalará la extensión de Microsoft Monitoring Agent y puede que la actualice a la versión más reciente.
+Si el agente de Log Analytics está instalado directamente en la máquina virtual (no como una extensión de Azure), Security Center instalará la extensión del agente de Log Analytics y puede que la actualice a la versión más reciente.
 
 El agente instalado continuará generando informes para las áreas de trabajo ya configuradas y, además, los generará para el área de trabajo configurada en Security Center (el hospedaje múltiple se admite en las máquinas Windows).
 
@@ -103,13 +103,13 @@ Si el área de trabajo configurada es un área de trabajo de usuario (no el áre
 
 El hospedaje múltiple del agente todavía no es compatible con las máquinas Linux; por lo tanto, si se detecta una instalación de agente existente, no se producirá el aprovisionamiento automático y no se modificará la configuración de la máquina.
 
-Para las máquinas existentes en suscripciones incorporadas a Security Center antes del 17 de marzo de 2019, cuando se detecte un agente existente, no se instalará la extensión de Microsoft Monitoring Agent y la máquina no se modificará. Para estas máquinas, consulte la recomendación "Resolver incidencias de supervisión de estado del agente en las máquinas" con el fin de resolver las incidencias de instalación del agente en estas máquinas.
+Para las máquinas existentes en suscripciones incorporadas a Security Center antes del 17 de marzo de 2019, cuando se detecte un agente existente, no se instalará la extensión del agente de Log Analytics y la máquina no se modificará. Para estas máquinas, consulte la recomendación "Resolver incidencias de supervisión de estado del agente en las máquinas" con el fin de resolver las incidencias de instalación del agente en estas máquinas.
 
 Para más información, consulte la sección siguiente [¿Qué ocurre si ya hay un agente directo de System Center Operations Manager o OMS instalado en mi máquina virtual?](#scomomsinstalled)
 
 ## <a name="what-if-a-system-center-operations-manager-agent-is-already-installed-on-my-vm"></a>¿Qué ocurre si ya hay un agente de System Center Operations Manager instalado en mi máquina virtual?<a name="scomomsinstalled"></a>
 
-Security Center instalará la extensión de Microsoft Monitoring Agent en paralelo a la versión del agente existente de System Center Operations Manager. El agente existente continuará generando informes con normalidad para el servidor de System Center Operations Manager. Tenga en cuenta que el agente de Operations Manager y Microsoft Monitoring Agent comparten bibliotecas en tiempo de ejecución, las cuales se actualizarán a la versión más reciente durante este proceso. Nota: Si está instalada la versión 2012 del agente de Operations Manager, no active el aprovisionamiento automático (las funcionalidades de administración pueden perderse cuando el servidor de Operations Manager también es de la versión 2012).
+Security Center instalará la extensión del agente de Log Analytics en paralelo a la versión del agente existente de System Center Operations Manager. El agente existente continuará generando informes con normalidad para el servidor de System Center Operations Manager. Tenga en cuenta que el agente de Operations Manager y el agente de Log Analytics comparten bibliotecas en tiempo de ejecución, las cuales se actualizarán a la versión más reciente durante este proceso. Nota: Si está instalada la versión 2012 del agente de Operations Manager, no active el aprovisionamiento automático (las funcionalidades de administración pueden perderse cuando el servidor de Operations Manager también es de la versión 2012).
 
 
 ## <a name="what-is-the-impact-of-removing-these-extensions"></a>¿Qué impacto tiene quitar estas extensiones?
@@ -136,24 +136,24 @@ Puede desactivar el aprovisionamiento automático en las suscripciones en la dir
 
 Quizá desee rechazar el aprovisionamiento automático si lo siguiente es aplicable en su caso:
 
-- La instalación automática del agente de Security Center se aplica a toda la suscripción. No se puede aplicar la instalación automática a un subconjunto de máquinas virtuales. Si hay máquinas virtuales críticas en las que no se puede instalar Microsoft Monitoring Agent, debe rechazar el aprovisionamiento automático.
-- La instalación de la extensión Microsoft Monitoring Agent (MMA) actualiza la versión del agente. Esto se aplica a un agente directo y a un agente de System Center Operations Manager (en este último, Operations Manager y MMA comparten bibliotecas de tiempo de ejecución comunes, que se actualizarán en el proceso). Si el agente de Operations Manager instalado es de la versión 2012 y se actualiza, las funcionalidades de administración pueden perderse si la versión del servidor de Operations Manager es también 2012. Plantéese rechazar el aprovisionamiento automático en caso de que la versión instalada del agente de Operations Manager sea 2012.
-- Si tiene un área de trabajo personalizada externa a la suscripción (centralizada), debe rechazar el aprovisionamiento automático. Puede instalar manualmente la extensión Microsoft Monitoring Agent y conectarla al área de trabajo sin que Security Center invalide la conexión.
+- La instalación automática del agente de Security Center se aplica a toda la suscripción. No se puede aplicar la instalación automática a un subconjunto de máquinas virtuales. Si hay máquinas virtuales críticas en las que no se puede instalar el agente de Log Analytics, debe rechazar el aprovisionamiento automático.
+- Al instalar la extensión del agente de Log Analytics, se actualiza la versión del agente. Esto se aplica a un agente directo y a un agente de System Center Operations Manager (en este último, Operations Manager y Log Analytics comparten bibliotecas de tiempo de ejecución comunes, que se actualizarán en el proceso). Si el agente de Operations Manager instalado es de la versión 2012 y se actualiza, las funcionalidades de administración pueden perderse si la versión del servidor de Operations Manager es también 2012. Plantéese rechazar el aprovisionamiento automático en caso de que la versión instalada del agente de Operations Manager sea 2012.
+- Si tiene un área de trabajo personalizada externa a la suscripción (centralizada), debe rechazar el aprovisionamiento automático. Puede instalar manualmente la extensión del agente de Log Analytics y conectarla al área de trabajo sin que Security Center invalide la conexión.
 - Si desea evitar la creación de varias áreas de trabajo por suscripción y tiene su propia área de trabajo personalizada en la suscripción, tiene dos opciones:
 
    1. Puede rechazar el aprovisionamiento automático. Tras la migración, establezca la configuración predeterminada del área de trabajo como se describe en [¿Cómo puedo usar mi área de trabajo de Log Analytics existente?](#how-can-i-use-my-existing-log-analytics-workspace)
 
-   1. O bien, puede permitir que la migración se complete, que Microsoft Monitoring Agent se instale en las máquinas virtuales y que estas se conecten al área de trabajo creada. A continuación, seleccione su propia área de trabajo personalizada; para ello, establezca la configuración predeterminada del área de trabajo con la opción de reconfigurar los agentes ya instalados activada. Para más información, consulte [¿Cómo puedo usar mi área de trabajo de Log Analytics existente?](#how-can-i-use-my-existing-log-analytics-workspace)
+   1. O bien, puede permitir que la migración se complete, que el agente de Log Analytics se instale en las máquinas virtuales y que estas se conecten al área de trabajo creada. A continuación, seleccione su propia área de trabajo personalizada; para ello, establezca la configuración predeterminada del área de trabajo con la opción de reconfigurar los agentes ya instalados activada. Para más información, consulte [¿Cómo puedo usar mi área de trabajo de Log Analytics existente?](#how-can-i-use-my-existing-log-analytics-workspace)
 
 
 ## <a name="what-are-the-implications-of-opting-out-of-automatic-provisioning"></a>¿Qué implica rechazar el aprovisionamiento automático?
 
-Cuando se completa la migración, Security Center no puede recopilar datos de seguridad de la VM y algunas recomendaciones y alertas de seguridad no están disponibles. Si lo rechaza, instale Microsoft Monitoring Agent manualmente. Consulte los [pasos recomendados al rechazarlo](#what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning).
+Cuando se completa la migración, Security Center no puede recopilar datos de seguridad de la VM y algunas recomendaciones y alertas de seguridad no están disponibles. Si rechaza la opción, instale el agente de Log Analytics de forma manual. Consulte los [pasos recomendados al rechazarlo](#what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning).
 
 
 ## <a name="what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning"></a>¿Cuáles son los pasos recomendados al rechazar el aprovisionamiento automático?
 
-Instale la extensión Microsoft Monitoring Agent manualmente para que Security Center pueda recopilar los datos de seguridad de las máquinas virtuales y proporcionar recomendaciones y alertas. Consulte la [instalación del agente de máquina virtual Windows](../virtual-machines/extensions/oms-windows.md) o la [instalación del agente de máquina virtual Linux](../virtual-machines/extensions/oms-linux.md) para obtener instrucciones sobre la instalación.
+Instale la extensión del agente de Log Analytics de forma manual para que Security Center pueda recopilar los datos de seguridad de las máquinas virtuales y proporcionar recomendaciones y alertas. Consulte la [instalación del agente de máquina virtual Windows](../virtual-machines/extensions/oms-windows.md) o la [instalación del agente de máquina virtual Linux](../virtual-machines/extensions/oms-linux.md) para obtener instrucciones sobre la instalación.
 
 Puede conectar al agente a cualquier área de trabajo personalizada existente o a la que creara Security Center. Si el área de trabajo personalizada no tiene las soluciones "Security" o "SecurityCenterFree" habilitadas, será necesario aplicar una solución. Para la aplicación, seleccione el área de trabajo personalizada o la suscripción y aplique un plan de tarifa desde la página **Directiva de seguridad: plan de tarifa**.
 
@@ -164,18 +164,18 @@ Security Center habilitará la solución correcta en el área de trabajo en func
 
 ## <a name="how-do-i-remove-oms-extensions-installed-by-security-center"></a>¿Cómo quito extensiones OMS instaladas por Security Center?<a name="remove-oms"></a>
 
-También puede quitar manualmente Microsoft Monitoring Agent. Sin embargo, no es recomendable porque limita las recomendaciones y las alertas de Security Center.
+Puede quitar el agente de Log Analytics de forma manual. Sin embargo, no es recomendable porque limita las recomendaciones y las alertas de Security Center.
 
 > [!NOTE]
 > Si la recopilación de datos está habilitada, Security Center volverá a instalar el agente después de quitarlo.  Debe deshabilitar la recopilación de datos antes de quitar manualmente el agente. Consulte ¿Cómo detengo la instalación automática del agente y la creación del área de trabajo? para obtener instrucciones acerca de la deshabilitación de una colección de datos.
 
 Para quitar manualmente el agente:
 
-1.  En el portal, abra **Log Analytics**.
+1.    En el portal, abra **Log Analytics**.
 
-1.  En la página Log Analytics, seleccione un área de trabajo:
+1.    En la página Log Analytics, seleccione un área de trabajo:
 
-1.  Seleccione las VM que no desea supervisar y seleccione **Desconectar**.
+1.    Seleccione las VM que no quiere supervisar y seleccione **Desconectar**.
 
    ![Eliminación del agente][3]
 
@@ -197,9 +197,9 @@ Puede habilitar la colección de datos de la suscripción de Azure en la directi
 
 ## <a name="what-happens-when-data-collection-is-enabled"></a>¿Qué sucede cuando se habilita la colección de datos?
 
-Si el aprovisionamiento automático está habilitado, Security Center aprovisiona Microsoft Monitoring Agent en todas las máquinas virtuales de Azure compatibles y en las que se creen. Se recomienda el aprovisionamiento automático pero la instalación manual del agente también está disponible. [Aprenda a instalar la extensión Microsoft Monitoring Agent](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension). 
+Si el aprovisionamiento automático está habilitado, Security Center aprovisiona el agente de Log Analytics en todas las máquinas virtuales de Azure compatibles y en las nuevas que se creen. Se recomienda el aprovisionamiento automático pero la instalación manual del agente también está disponible. [Obtenga información acerca de cómo instalar la extensión del agente de Log Analytics](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension). 
 
-El agente habilita el evento 4688 de creación de procesos y el campo *CommandLine* dentro del evento 4688. El registro de eventos registra los nuevos procesos creados en la VM y los servicios de detección de Security Center los supervisan. Para obtener más información sobre los detalles que se registran para cada nuevo proceso, consulte los [campos de descripción en 4688](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4688#fields). El agente también recopila los eventos 4688 creados en la máquina virtual y los almacena en la búsqueda.
+El agente habilita el evento 4688 de creación de procesos y el campo *CommandLine* dentro del evento 4688. El registro de eventos registra los nuevos procesos creados en la VM y los servicios de detección de Security Center supervisa dichos procesos. Para obtener más información sobre los detalles que se registran para cada nuevo proceso, consulte los [campos de descripción en 4688](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4688#fields). El agente también recopila los eventos 4688 creados en la máquina virtual y los almacena en la búsqueda.
 
 El agente también habilita la recopilación de datos para los [controles de aplicación adaptables](security-center-adaptive-application.md), Security Center configura una directiva de AppLocker local en el modo de auditoría para permitir todas las aplicaciones. Esta directiva hará que AppLocker genere eventos que luego Security Center recopilará y aprovechará. Es importante tener en cuenta que esta directiva no se configurará en las máquinas en las que ya se haya configurado una directiva de AppLocker. 
 
@@ -208,7 +208,7 @@ Cuando Security Center detecta actividad sospechosa en la máquina virtual, el c
 
 ## <a name="will-security-center-work-using-an-oms-gateway"></a>¿Security Center funcionará con una puerta de enlace de OMS?
 
-Sí. Azure Security Center aprovecha Azure Monitor para recopilar datos de máquinas virtuales y servidores de Azure mediante Microsoft Monitoring Agent.
+Sí. Azure Security Center aprovecha Azure Monitor para recopilar datos de máquinas virtuales y servidores de Azure mediante el agente de Log Analytics.
 Para recopilar los datos, cada máquina virtual y servidor deben conectarse a Internet mediante HTTPS. La conexión puede ser directa, a través de un proxy o a través de la [puerta de enlace de OMS](../azure-monitor/platform/gateway.md).
 
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: ce51c6415389ee52cf0371dfbddb98cb48747b05
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e06fcdbac097e85c039e34274c61cb51ee06bcd6
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75430464"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478323"
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Creación de una instancia de ASE mediante el uso de una plantilla de Azure Resource Manager
 
@@ -36,9 +36,9 @@ Para automatizar la creación del ASE:
 
 1. Cree el ASE a partir de una plantilla. Si crea un ASE externo, habrá terminado después de este paso. Si crea un ASE con ILB, hay que realizar algunas acciones adicionales.
 
-2. Una vez creado el ASE con un ILB, se carga un certificado SSL que coincide con su dominio de ASE con un ILB.
+2. Una vez creado el ASE con ILB, se carga un certificado TLS/SSL que coincide con su dominio de ASE con ILB.
 
-3. El certificado SSL cargado se asigna al ASE con un ILB como su certificado SSL "predeterminado".  Este certificado se usa para el tráfico SSL a las aplicaciones del ASE con ILB cuando usan el dominio raíz común asignado al ASE (por ejemplo, https://someapp.mycustomrootdomain.com) ).
+3. El certificado TLS/SSL cargado se asigna al ASE con ILB como certificado TLS/SSL "predeterminado".  Este certificado se usa en el tráfico TLS/SSL que va a las aplicaciones del ASE con ILB cuando usan el dominio raíz común asignado al ASE (por ejemplo, `https://someapp.mycustomrootdomain.com`).
 
 
 ## <a name="create-the-ase"></a>Creación del ASE
@@ -61,17 +61,17 @@ New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-
 
 La creación de un ASE tarda aproximadamente una hora. Luego el ASE se muestra en el portal en la lista de ASE de la suscripción que desencadenó la implementación.
 
-## <a name="upload-and-configure-the-default-ssl-certificate"></a>Carga y configuración del certificado SSL "predeterminado"
-Es preciso asociar un certificado SSL "predeterminado" con el ASE para establecer conexiones SSL con las aplicaciones. Si el sufijo DNS predeterminado del ASE es *internal-contoso.com*, una conexión a https://some-random-app.internal-contoso.com requiere un certificado SSL que sea válido para * *.internal-contoso.com*. 
+## <a name="upload-and-configure-the-default-tlsssl-certificate"></a>Carga y configuración del certificado TLS/SSL "predeterminado"
+Es preciso asociar un certificado TLS/SSL "predeterminado" con el ASE para establecer conexiones TLS/SSL con las aplicaciones. Si el sufijo DNS predeterminado del ASE es *internal-contoso.com*, una conexión a `https://some-random-app.internal-contoso.com` requiere un certificado TLS/SSL que sea válido para * *.internal-contoso.com*. 
 
-Obtenga un certificado SSL válido a través de las autoridades de certificados internas, adquiriendo un certificado de un emisor externo o usando un certificado autofirmado. Independientemente del origen del certificado SSL, es necesario configurar correctamente los siguientes atributos del certificado:
+Se puede obtener un certificado TLS/SSL válido mediante autoridades de certificados internas, al adquirir un certificado de un emisor externo o al usar un certificado autofirmado. Independientemente del origen del certificado TLS/SSL, es necesario configurar correctamente los siguientes atributos del certificado:
 
 * **Firmante**: Este atributo se debe establecer en * *.su-dominio-raíz.com*.
-* **Nombre alternativo del firmante**: Este atributo debe incluir tanto * *.su-dominio-raíz.com* como * *.scm.su-dominio-raíz.com*. Las conexiones SSL con el sitio de SCM/Kudu asociadas a cada aplicación usan una dirección cuyo formato será *your-app-name.scm.your-root-domain-here.com*.
+* **Nombre alternativo del firmante**: Este atributo debe incluir tanto * *.su-dominio-raíz.com* como * *.scm.su-dominio-raíz.com*. Las conexiones TLS con el sitio de SCM/Kudu asociadas a cada aplicación usan una dirección cuyo formato será *nombre-de-aplicación.scm.dominio-raíz.com*.
 
-Con un certificado SSL válido, se necesitan dos pasos preparatorios adicionales. Convierta/guarde el certificado SSL como un archivo .pfx. Recuerde que el archivo .pfx debe incluir todos los certificados intermedios y raíz. Protéjalo con una contraseña.
+Con un certificado TLS/SSL válido, se necesitan dos pasos preparatorios adicionales. Convierta/guarde el certificado TLS/SSL como un archivo .pfx. Recuerde que el archivo .pfx debe incluir todos los certificados intermedios y raíz. Protéjalo con una contraseña.
 
-El archivo .pfx debe convertirse en una cadena base64, ya que el certificado SSL se cargará mediante una plantilla de Resource Manager. Dado que las plantillas de Resource Manager son archivos de texto, el archivo .pfx debe convertirse en una cadena base64. De esta forma, se puede incluir como un parámetro de la plantilla.
+El archivo .pfx debe convertirse en una cadena base64, ya que el certificado TLS/SSL se cargará mediante una plantilla de Resource Manager. Dado que las plantillas de Resource Manager son archivos de texto, el archivo .pfx debe convertirse en una cadena base64. De esta forma, se puede incluir como un parámetro de la plantilla.
 
 Use el siguiente fragmento de código de PowerShell para:
 
@@ -96,7 +96,7 @@ $fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
 $fileContentEncoded | set-content ($fileName + ".b64")
 ```
 
-Una vez que el certificado SSL se genera y convierte correctamente en una cadena con codificación en base64, use el ejemplo de la plantilla de Resource Manager [Configuración del certificado SSL predeterminado][quickstartconfiguressl] en GitHub. 
+Una vez que el certificado TLS/SSL se genera y convierte correctamente en una cadena con codificación en base64, use el ejemplo de la plantilla de Resource Manager [Configuración del certificado SSL predeterminado][quickstartconfiguressl] en GitHub. 
 
 Los parámetros del archivo *azuredeploy.parameters.json* se enumeran aquí:
 
@@ -105,7 +105,7 @@ Los parámetros del archivo *azuredeploy.parameters.json* se enumeran aquí:
 * *pfxBlobString*: la representación de la cadena con codificación Base64 del archivo pfx. Use el fragmento de código mostrado anteriormente y copie la cadena incluida en "exportedcert.pfx.b64". Péguelo como el valor del atributo *pfxBlobString*.
 * *password*: la contraseña que se usa para proteger el archivo pfx.
 * *certificateThumbprint*: la huella digital del certificado. Si este valor se recupera de PowerShell (por ejemplo, *$certificate.Thumbprint* del fragmento de código anterior), se puede usar tal cual. Si copia el valor del cuadro de diálogo del certificado de Windows, no olvide eliminar los espacios superfluos. *certificateThumbprint* debería ser similar a AF3143EB61D43F6727842115BB7F17BBCECAECAE.
-* *certificateName*: es el identificador de cadena fácil de usar que elija y que se usa para identificar el certificado. El nombre se utiliza como parte del identificador único de Resource Manager para la entidad *Microsoft.Web/certificates* que representa el certificado SSL. El nombre *debe* terminar con el sufijo siguiente: \__yourASENameHere_InternalLoadBalancingASE. Azure Portal utiliza este sufijo como un indicador de que el certificado se usa para asegurar un ASE habilitado para ILB.
+* *certificateName*: es el identificador de cadena fácil de usar que elija y que se usa para identificar el certificado. El nombre se usa como parte del identificador único de Resource Manager para la entidad *Microsoft.Web/certificates* que representa el certificado TLS/SSL. El nombre *debe* terminar con el sufijo siguiente: \__yourASENameHere_InternalLoadBalancingASE. Azure Portal utiliza este sufijo como un indicador de que el certificado se usa para asegurar un ASE habilitado para ILB.
 
 Aquí se muestra un ejemplo abreviado de *azuredeploy.parameters.json* :
 
@@ -136,7 +136,7 @@ Aquí se muestra un ejemplo abreviado de *azuredeploy.parameters.json* :
 }
 ```
 
-Después de que se llene el archivo *azuredeploy.parameters.json*, configure el certificado SSL mediante el fragmento de código de PowerShell. Cambie las rutas del archivo para que coincidan con la ubicación de la máquina en la que se encuentran los archivos de plantilla de Resource Manager. Recuerde especificar sus propios valores para el nombre de implementación y el nombre del grupo de recursos de Resource Manager:
+Después de que se llene el archivo *azuredeploy.parameters.json*, configure el certificado TLS/SSL mediante el fragmento de código de PowerShell. Cambie las rutas del archivo para que coincidan con la ubicación de la máquina en la que se encuentran los archivos de plantilla de Resource Manager. Recuerde especificar sus propios valores para el nombre de implementación y el nombre del grupo de recursos de Resource Manager:
 
 ```powershell
 $templatePath="PATH\azuredeploy.json"
@@ -147,9 +147,9 @@ New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-
 
 La aplicación del cambio se tarda aproximadamente 40 minutos por cada front-end de ASE. Por ejemplo, para un ASE de un tamaño predeterminado que usa dos front-ends, la plantilla tarda aproximadamente una hora y veinte minutos en completarse. Mientras la plantilla se ejecute, el ASE no se puede escalar.  
 
-Una vez finalizada la plantilla, se puede tener acceso a aplicaciones en el ASE con ILB a través de HTTPS. Las conexiones se protegen mediante el certificado SSL predeterminado. El certificado SSL predeterminado se usa cuando las direcciones de las aplicaciones del ASE con ILB utilizan una combinación del nombre de la aplicación y el nombre de host predeterminado. Por ejemplo, https://mycustomapp.internal-contoso.com usa el certificado SSL predeterminado para * *.internal-contoso.com*.
+Una vez finalizada la plantilla, se puede tener acceso a aplicaciones en el ASE con ILB a través de HTTPS. Las conexiones se protegen mediante el certificado TLS/SSL predeterminado. El certificado TLS/SSL predeterminado se usa cuando las direcciones de las aplicaciones del ASE con ILB usan una combinación del nombre de la aplicación y el nombre de host predeterminado. Por ejemplo, `https://mycustomapp.internal-contoso.com` usa el certificado TLS/SSL predeterminado para * *.internal-contoso.com*.
 
-Sin embargo, al igual que las aplicaciones que se ejecutan en el servicio multiinquilino público, los desarrolladores pueden configurar nombres de host personalizados para las aplicaciones individuales. También pueden configurar enlaces de certificado SSL SNI únicos para las aplicaciones individuales.
+Sin embargo, al igual que las aplicaciones que se ejecutan en el servicio multiinquilino público, los desarrolladores pueden configurar nombres de host personalizados para las aplicaciones individuales. También pueden configurar enlaces de certificado TLS/SSL SNI únicos para las aplicaciones individuales.
 
 ## <a name="app-service-environment-v1"></a>App Service Environment v1 ##
 App Service Environment tiene dos versiones: ASEv1 y ASEv2. La información anterior se basa en ASEv2. En esta sección se muestran las diferencias entre ASEv1 y ASEv2.

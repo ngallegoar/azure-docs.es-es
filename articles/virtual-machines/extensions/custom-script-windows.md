@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: robreed
-ms.openlocfilehash: 698fab470cdc8b8d04fa4319fd71c31b58d1c5a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2c7cad2dfdcd55073a1cf09d79e5223b666ced5f
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80066890"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478153"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extensión de la secuencia de comandos personalizada para Windows
 
@@ -106,7 +106,7 @@ Estos elementos se deben tratar como datos confidenciales y se deben especificar
 > Solo se puede instalar una versión de una extensión en una máquina virtual en un momento dado. Si se especifica el script personalizado dos veces en la misma plantilla de Resource Manager para la misma máquina virtual, se produce un error.
 
 > [!NOTE]
-> Este esquema se puede usar dentro del recurso VirtualMachine o como un recurso independiente. El nombre del recurso debe tener el formato "virtualMachineName/extensionName" si se usa esta extensión como recurso independiente en la plantilla de ARM. 
+> Este esquema se puede usar dentro del recurso VirtualMachine o como un recurso independiente. El nombre del recurso debe tener el formato "virtualMachineName/extensionName" si se usa esta extensión como recurso independiente en la plantilla de ARM.
 
 ### <a name="property-values"></a>Valores de propiedad
 
@@ -146,6 +146,8 @@ El empleo de la configuración pública puede resultar útil para la depuración
 La configuración pública se envía en texto no cifrado a la máquina virtual donde se ejecutará el script.  La configuración protegida se cifra con una clave que solo conocen Azure y la máquina virtual. La configuración se guarda en la máquina virtual tal cual se ha enviado, es decir, si la configuración estaba cifrada, se guarda cifrada en la máquina virtual. El certificado usado para descifrar los valores cifrados se almacena en la máquina virtual y se usa para descifrar la configuración (si es necesario) en tiempo de ejecución.
 
 ####  <a name="property-managedidentity"></a>Propiedad: managedIdentity
+> [!NOTE]
+> Esta propiedad **debe** especificarse solo en la configuración protegida.
 
 CustomScript (versión 1.10 en adelante) admite la [identidad administrada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) para descargar archivos de las direcciones URL proporcionadas en el valor "fileUris". Permite a CustomScript acceder a blobs o contenedores privados de Azure Storage sin que el usuario tenga que enviar secretos como tokens de SAS o claves de cuenta de almacenamiento.
 

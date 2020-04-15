@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 22d98656f42f52f2fba0845fac6f1d210d2cf0bd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c8d32a6434db0fad18b9fe7c2d6e2117795eb651
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76264685"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80476747"
 ---
 # <a name="deliver-content-to-customers"></a>Entrega de contenido a los clientes
 Al proporcionar contenido de vídeo bajo demanda o streaming a los clientes, el objetivo consiste en entregar vídeo de alta calidad a varios dispositivos en condiciones de red diferentes.
@@ -82,10 +82,10 @@ Las tecnologías de velocidad de bits adaptable permiten a las aplicaciones para
 Para proporcionar direcciones URL de streaming a los usuarios, primero debe crear un localizador OnDemandOrigin. Crear el localizador brinda la ruta de acceso de base al recurso que contiene el contenido que desea transmitir. Sin embargo, para poder transmitir este contenido, es necesario modificar aún más esta ruta de acceso. Para crear una dirección URL completa al archivo de manifiesto del streaming, debe concatenar el valor de la ruta de acceso del localizador y el nombre de archivo del manifiesto (filename.ism). Luego, anexe **/Manifiest** y un formato adecuado (si corresponde) a la ruta de acceso del localizador.
 
 > [!NOTE]
-> También puede transmitir el contenido por una conexión SSL. Para ello, asegúrese de que las URL de streaming comienzan por HTTPS. Tenga en cuenta que, actualmente, AMS no admite SSL con dominios personalizados.  
+> También puede transmitir el contenido por una conexión TLS. Para ello, asegúrese de que las URL de streaming comienzan por HTTPS. Tenga en cuenta que, actualmente, AMS no admite TLS con dominios personalizados.  
 > 
 
-Solo puede transmitir por SSL si se creó el punto de conexión de streaming desde el que se entrega el contenido a partir del 10 de septiembre de 2014. Si las direcciones URL de streaming se basan en los puntos de conexión de streaming creados después del 10 de septiembre de 2014, la dirección URL contendrá streaming.mediaservices.windows.net. Las direcciones URL de streaming que contengan "origin.mediaservices.windows.net" (el formato anterior) no son compatibles con SSL. Si la dirección URL tiene un formato antiguo y desea poder transmitir a través de SSL, cree un extremo de streaming nuevo. Utilice direcciones URL creadas en función del nuevo punto de conexión de streaming para transmitir el contenido a través de SSL.
+Solo puede transmitir por TLS si se creó el punto de conexión de streaming desde el que se entrega el contenido a partir del 10 de septiembre de 2014. Si las direcciones URL de streaming se basan en los puntos de conexión de streaming creados después del 10 de septiembre de 2014, la dirección URL contendrá streaming.mediaservices.windows.net. Las direcciones URL de streaming que contengan "origin.mediaservices.windows.net" (el formato anterior) no son compatibles con TLS. Si la dirección URL tiene un formato antiguo y quiere transmitir a través de TLS, cree un punto de conexión de streaming nuevo. Use direcciones URL creadas en función del nuevo punto de conexión de streaming para transmitir el contenido a través de TLS.
 
 ## <a name="streaming-url-formats"></a><a id="URLs"/>Formatos de la dirección URL de streaming
 

@@ -7,12 +7,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: raynew
-ms.openlocfilehash: ccf258594aa68fc9b5d0189c9ada640078e0ba6f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 77b4dd4c0efbe6d03e64865f18c2c87614aaecb5
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76514874"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632520"
 ---
 # <a name="vmware-to-azure-disaster-recovery-architecture"></a>Arquitectura de recuperación ante desastres de VMware a Azure
 
@@ -35,7 +35,6 @@ En la tabla y el gráfico siguientes se proporciona una visión general de los c
 ![Componentes](./media/vmware-azure-architecture/arch-enhanced.png)
 
 
-
 ## <a name="replication-process"></a>Proceso de replicación
 
 1. Al habilitar la replicación para una VM, comienza la replicación inicial en el almacenamiento de Azure mediante la directiva de replicación especificada. Tenga en cuenta lo siguiente:
@@ -43,24 +42,33 @@ En la tabla y el gráfico siguientes se proporciona una visión general de los c
     - Se aplica la configuración de directivas de replicación:
         - **Umbral de RPO**. Esta configuración no afecta a la replicación. Ayuda con la supervisión. Se genera un evento y, opcionalmente, se envía un correo electrónico, si el RPO actual supera el límite del umbral que especifique.
         - **Retención de punto de recuperación**. Esta configuración especifica cuánto tiempo atrás quiere ir cuando se produce una interrupción. La retención máxima en almacenamiento premium es de 24 horas. En el almacenamiento estándar es de 72 horas. 
-        - **Instantáneas coherentes con la aplicación**. Las instantáneas coherentes con la aplicación pueden tomarse cada 1 a 12 horas, según las necesidades de su aplicación. Son instantáneas de blob de Azure estándar. El agente de movilidad que se ejecuta en una VM solicita una instantánea de VSS de acuerdo con esta configuración, y marca ese momento como punto coherente con la aplicación en el flujo de replicación.
+        - **Instantáneas coherentes con la aplicación**. Las instantáneas coherentes con la aplicación pueden tomarse cada 1 a 12 horas, según las necesidades de la aplicación. Son instantáneas de blob de Azure estándar. El agente de movilidad que se ejecuta en una VM solicita una instantánea de VSS de acuerdo con esta configuración, y marca ese momento como punto coherente con la aplicación en el flujo de replicación.
 
 2. El tráfico se replica en los puntos de conexión públicos de Azure Storage a través de Internet. Como alternativa, puede usar Azure ExpressRoute con [emparejamiento de Microsoft](../expressroute/expressroute-circuit-peerings.md#microsoftpeering). No se admite la replicación del tráfico entre un sitio local y Azure a través de una red privada virtual (VPN) de sitio a sitio.
-3. Una vez terminada la replicación inicial, comienza la de los cambios incrementales en Azure. Los cambios marcados para una máquina se envían al servidor de procesos.
+3. La operación de replicación inicial garantiza que los datos completos en el equipo al momento de habilitar la replicación se envían a Azure. Una vez terminada la replicación inicial, comienza la de los cambios incrementales en Azure. Los cambios marcados para una máquina se envían al servidor de procesos.
 4. Comunicación se realiza como se indica a continuación:
 
     - Las máquinas virtuales se comunican con el servidor de configuración local en el puerto HTTPS 443 entrante para la administración de la replicación.
     - El servidor de configuración organiza la replicación con Azure a través del puerto HTTPS 443 saliente.
     - Las máquinas virtuales envían datos de replicación al servidor de procesos (que se ejecuta en la máquina del servidor de configuración) en el puerto HTTPS 9443 entrante. Este puerto se puede modificar.
-    - El servidor de procesos recibe datos de replicación, los optimiza y los cifra para enviarlos después a Azure Storage a través del puerto 443 de salida.
+    - El servidor de procesos recibe los datos de la replicación, los optimiza, los cifra y los envía a Azure Storage a través del puerto 443 de salida.
 5. Los datos de replicación registran el primer aterrizaje en una cuenta de almacenamiento en caché de Azure. Estos registros se procesan y los datos se almacenan en un disco administrado de Azure (denominado disco de inicialización ASR). Los puntos de recuperación se crean en ese disco.
-
-
-
 
 **Proceso de replicación de VMware a Azure**
 
 ![Proceso de replicación](./media/vmware-azure-architecture/v2a-architecture-henry.png)
+
+## <a name="resynchronization-process"></a>Proceso de resincronización
+
+1. En ocasiones, durante la replicación inicial o mientras se transfieren los cambios diferenciales, puede haber problemas de conectividad de red entre la máquina de origen y el servidor de proceso, o entre el servidor de procesos y Azure. Cualquiera de estas situaciones puede producir errores momentáneos en la transferencia de datos a Azure.
+2. Para evitar problemas con la integridad de datos y minimizar los costos de transferencia de datos, Site Recovery marca una máquina para la resincronización.
+3. Un equipo también se puede marcar para la resincronización en situaciones como las siguientes para mantener la coherencia entre la máquina de origen y los datos almacenados en Azure.
+    - Si un equipo sufre un apagado forzado
+    - Si un equipo sufre cambios de configuración, como el cambio de tamaño de disco (modificar el tamaño del disco de 2 TB a 4 TB)
+4. La resincronización solo envía los datos diferenciales a Azure. La transferencia de datos entre el entorno local y Azure se minimiza mediante el cálculo de sumas de comprobación de los datos entre la máquina de origen y los datos almacenados en Azure.
+5. De forma predeterminada, la resincronización está programada para ejecutarse automáticamente fuera del horario de oficina. Si no desea esperar para volver a sincronizar fuera del horario de forma predeterminada, puede volver a sincronizar una máquina virtual manualmente. Para ello, vaya a Azure Portal y seleccione la máquina virtual > **Volver a sincronizar**.
+6. Si se produce un error en la resincronización predeterminada fuera del horario de oficina y es necesaria una intervención manual, se genera un error en el equipo específico en Azure Portal. Puede resolver el error y desencadenar la resincronización de forma manual.
+7. Una vez finalizada la resincronización, se reanudará la replicación de los cambios diferenciales.
 
 ## <a name="failover-and-failback-process"></a>Proceso de conmutación por error y conmutación por recuperación
 

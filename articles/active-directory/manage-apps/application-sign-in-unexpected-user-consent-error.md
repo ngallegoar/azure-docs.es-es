@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6dff3be9a9bc7fd897f340e5fe6a4775a4914810
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ea14e02920cf7ba6c5e0a7b415cb92137c915576
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65824954"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80519705"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Error inesperado al otorgar consentimiento a una aplicación
 
@@ -32,9 +32,12 @@ Muchas aplicaciones que se integran con Azure Active Directory requieren permiso
 Determinadas condiciones deben cumplirse para que un usuario otorgue su consentimiento a los permisos que requiere una aplicación. Si no se cumplen estas condiciones, pueden producirse estos errores.
 
 ## <a name="requesting-not-authorized-permissions-error"></a>Error por solicitud de permisos no autorizados
-* **AADSTS90093:** &lt;clientAppDisplayName&gt; solicita uno o más permisos que no está autorizado a conceder. Póngase en contacto con el administrador, que puede dar su consentimiento para esta aplicación en su nombre.
+* **AADSTS90093:** &lt;clientAppDisplayName&gt; solicita uno o varios permisos que no está autorizado a conceder. Póngase en contacto con el administrador, que puede dar su consentimiento para esta aplicación en su nombre.
+* **AADSTS90094:** &lt;clientAppDisplayName&gt; necesita permiso para acceder a recursos de su organización que solo un administrador puede conceder. Pida a un administrador que conceda permiso a esta aplicación antes de poder usarla.
 
 Este error se produce cuando un usuario que no es administrador de la empresa intenta usar una aplicación que está solicitando permisos que solo un administrador puede conceder. Este error se puede solucionar si un administrador otorga el acceso a la aplicación en nombre de la organización.
+
+Este error también puede producirse cuando se impide que un usuario otorgue consentimiento a una aplicación debido a que Microsoft detecta que la solicitud de permisos es arriesgada. En este caso, también se registrará un evento de auditoría con la categoría "ApplicationManagement", el tipo de actividad "Consentimiento a la aplicación" y el motivo de estado "Aplicación arriesgada detectada".
 
 ## <a name="policy-prevents-granting-permissions-error"></a>Error porque la directiva impide conceder permisos
 * **AADSTS90093:** Un administrador de &lt;tenantDisplayName&gt; ha establecido una directiva que le impide otorgar a &lt;nombre de la aplicación&gt; los permisos que está solicitando. Póngase en contacto con un administrador de &lt;tenantDisplayName&gt;, que puede conceder permisos a esta aplicación en su nombre.
@@ -52,7 +55,7 @@ Este error indica que se ha producido un problema de servicio intermitente. Se p
 Póngase en contacto con el desarrollador de aplicaciones.
 
 ##  <a name="resource-not-available-in-tenant-error"></a>Error de recurso no disponible en el inquilino
-* **AADSTS65005:** &lt;clientAppDisplayName&gt; solicitó permiso para acceder al recurso &lt;resourceAppDisplayName&gt; que no está disponible en su organización &lt;tenantDisplayName&gt;. 
+* **AADSTS65005:** &lt;clientAppDisplayName&gt; solicita permiso para acceder al recurso &lt;resourceAppDisplayName&gt; que no está disponible en su organización &lt;tenantDisplayName&gt;. 
 
 Asegúrese de que este recurso esté disponible o póngase en contacto con un administrador de &lt;tenantDisplayName&gt;.
 

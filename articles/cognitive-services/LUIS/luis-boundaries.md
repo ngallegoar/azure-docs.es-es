@@ -1,22 +1,14 @@
 ---
 title: 'Límites: LUIS'
-titleSuffix: Azure Cognitive Services
 description: En este artículo contiene los límites conocidos de Language Understanding (LUIS) de Azure Cognitive Services. LUIS tiene varias áreas de límites. El límite de modelo controla las intenciones, entidades y características de LUIS. Los límites de cuota se basan en el tipo de clave. La combinación de teclado controla el sitio web de LUIS.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 11/07/2019
-ms.author: diberry
-ms.custom: seodec18
-ms.openlocfilehash: d584b00caef628eb9dfd085b1fdce2bb7b353988
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/02/2020
+ms.openlocfilehash: 4aa69cb0fd36fe5bf4ea2928022aea602b8830d6
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79218838"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618863"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Límites de las claves y el modelo de LUIS
 LUIS tiene varias áreas de límites. La primera es el [límite de modelo](#model-boundaries), que controla las intenciones, entidades y características de LUIS. La segunda área son los [límites de cuota](#key-limits) según el tipo de clave. Una tercera área de límites es la [combinación de teclas](#keyboard-controls), para controlar el sitio web de LUIS. Una cuarta área es la [asignación de regiones del mundo](luis-reference-regions.md) entre el sitio web de creación de LUIS y las API de [punto de conexión](luis-glossary.md#endpoint) de LUIS.
@@ -40,7 +32,7 @@ Si la aplicación supera los límites del modelo LUIS, puede usar una aplicació
 | [Versión preliminar: entidades de lista dinámica](https://aka.ms/luis-api-v3-doc#dynamic-lists-passed-in-at-prediction-time)|2 listas de ~1 K por solicitud de punto de conexión de predicción de consulta|
 | [Patrones](luis-concept-patterns.md)|500 patrones por aplicación.<br>El patrón puede contener 400 caracteres como máximo.<br>3 entidades Pattern.any por patrón<br>Máximo de 2 textos opcionales anidados en el patrón|
 | [Pattern.any](./luis-concept-entity-types.md)|100 por aplicación, 3 entidades Pattern.any por patrón |
-| [Lista de frases][phrase-list]|500 listas de frases. La lista de frases no intercambiable tiene un máximo de 5000 frases. La lista de frases intercambiable tiene un máximo de 50 000 frases. Número máximo de frases totales por aplicación de 500 000 frases.|
+| [Lista de frases][phrase-list]|500 listas de frases. 10 listas de frases globales debido al modelo como límite de características. La lista de frases no intercambiable tiene un máximo de 5000 frases. La lista de frases intercambiables tiene un máximo de 50 000 frases. Número máximo de frases totales por aplicación de 500 000 frases.|
 | [Entidades precompiladas](./luis-prebuilt-entities.md) | ilimitado|
 | [Entidades de expresión regular](./luis-concept-entity-types.md)|20 entidades<br>Máximo de 500 caracteres por patrón de la entidad de expresiones regulares|
 | [Roles](luis-concept-roles.md)|300 roles por aplicación. 10 roles por entidad|
@@ -77,26 +69,41 @@ No use los siguientes caracteres en los siguientes nombres.
 |Nombres de intención, entidad y rol|`:`<br>`$` <br> `&`|
 |Nombre de versión|`\`<br> `/`<br> `:`<br> `?`<br> `&`<br> `=`<br> `*`<br> `+`<br> `(`<br> `)`<br> `%`<br> `@`<br> `$`<br> `~`<br> `!`<br> `#`|
 
-## <a name="key-usage"></a>Uso de las claves
+## <a name="resource-usage-and-limits"></a>Uso y límites de recursos
 
-Language Understanding tiene claves independientes, un tipo para la creación y un tipo para las consultas en el punto de conexión de la predicción. Para más información sobre las diferencias entre los tipos de claves, consulte [Claves de creación y del punto de conexión de consulta de predicciones en LUIS](luis-concept-keys.md).
+Language Understanding tiene recursos independientes, un tipo para la creación y un tipo para las consultas en el punto de conexión de la predicción. Para más información sobre las diferencias entre los tipos de claves, consulte [Claves de creación y del punto de conexión de consulta de predicciones en LUIS](luis-concept-keys.md).
 
 <a name="key-limits"></a>
 
-## <a name="resource-key-limits"></a>Límites de las claves de recurso
+### <a name="authoring-resource-limits"></a>Límites de recursos de creación
 
-Las claves de recurso tienen límites diferentes para la creación y el punto de conexión. La clave de punto de conexión de consultas de predicción de LUIS solo es válida para las consultas de punto de conexión.
+Use el elemento _kind_, `LUIS.Authoring`, al filtrar los recursos en Azure Portal. LUIS tiene un límite de 500 aplicaciones por recurso de creación de Azure.
 
-* 500 aplicaciones por recurso de creación de Azure
+|Recurso de creación|TPS de creación|
+|--|--|
+|Inicio|1 millón/mes, 5/segundo|
+|F0: nivel Gratis |1 millón/mes, 5/segundo|
 
-|Clave|Creación|Punto de conexión|Propósito|
-|--|--|--|--|
-|Inicio|1 millón/mes, 5/segundo|1000/mes, 5/segundo|Creación de la aplicación de LUIS|
-|F0: nivel Gratis |1 millón/mes, 5/segundo|10 000/mes, 5/segundo|Consultar el punto de conexión de LUIS|
-|S0: nivel Básico|-|50/segundo|Consultar el punto de conexión de LUIS|
-|S0: nivel Estándar|-|50/segundo|Consultar el punto de conexión de LUIS|
-|[Integración del análisis de sentimiento](luis-how-to-publish-app.md#enable-sentiment-analysis)|-|-|La incorporación de información de opinión, incluida la extracción de datos de frases clave, se proporciona sin necesidad de otro recurso de Azure. |
-|[Integración de voz](../speech-service/how-to-recognize-intents-from-speech-csharp.md)|-|1000 solicitudes de punto de conexión por costo de unidad|Convertir las expresiones habladas en expresiones de texto y devolver resultados de LUIS|
+* TPS: transacciones por segundo
+
+[Más información sobre precios.][pricing]
+
+### <a name="query-prediction-resource-limits"></a>Consulta de los límites de recurso de predicción
+
+Use el elemento _kind_, `LUIS`, al filtrar los recursos de Azure Portal. El recurso de punto de conexión para predicción de consulta de LUIS, que se utiliza en tiempo de ejecución, solo es válido para las consultas de punto de conexión.
+
+|Consulta de recurso de predicción|TPS de consulta|
+|--|--|
+|F0: nivel Gratis |10 000/mes, 5/segundo|
+|S0: nivel Estándar|50/segundo|
+
+### <a name="sentiment-analysis"></a>análisis de opiniones
+
+La [integración de análisis de opiniones](luis-how-to-publish-app.md#enable-sentiment-analysis), que proporciona información de opiniones, se ofrece sin necesidad de otro recurso de Azure.
+
+### <a name="speech-integration"></a>Integración de voz
+
+La [integración de voz](../speech-service/how-to-recognize-intents-from-speech-csharp.md) proporciona 1000 solicitudes de punto de conexión por costo de unidad.
 
 [Más información sobre precios.][pricing]
 

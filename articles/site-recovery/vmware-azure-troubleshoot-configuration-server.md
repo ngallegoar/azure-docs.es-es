@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
-ms.openlocfilehash: 25e2b488d3b6e7e5cabd1a71d1489efaf01231b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0383a512dfb7c2bb1ae2422b9ade1e3c7387a70c
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73748556"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478310"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Solución de problemas del servidor de configuración
 
@@ -42,7 +42,7 @@ La máquina de origen se registra con el servidor de configuración al instalar 
     3. Asegúrese de que las carpetas incluidas en [Exclusiones de carpetas de Site Recovery de programas antivirus](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) se excluyan del software antivirus.
     4. Cuando se resuelvan los problemas de red, vuelva a intentar el registro siguiendo las directrices en [Registrar la máquina de origen con el servidor de configuración](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server).
 
-6. Si no se encuentra la cadena **post request: (7) - Couldn't connect to server**, en el mismo archivo de registro, busque la cadena **request: (60) - Peer certificate cannot be authenticated with given CA certificates**. Este error podría producirse porque el certificado de servidor de configuración ha expirado o la máquina de origen no admite TLS 1.0 o los protocolos SSL posteriores. También puede producirse si un firewall bloquea la comunicación SSL entre la máquina de origen y el servidor de configuración. Si se encuentra la cadena: 
+6. Si no se encuentra la cadena **post request: (7) - Couldn't connect to server**, en el mismo archivo de registro, busque la cadena **request: (60) - Peer certificate cannot be authenticated with given CA certificates**. Este error podría producirse porque el certificado de servidor de configuración ha expirado o la máquina de origen no admite TLS 1.0 o protocolos posteriores. También puede producirse si un firewall bloquea la comunicación TLS entre la máquina de origen y el servidor de configuración. Si se encuentra la cadena: 
     1. Para resolverlo, conéctese a la dirección IP del servidor de configuración mediante un explorador web en la máquina de origen. Use la URI https:\/\/<dirección IP del servidor de configuración\>:443/. Asegúrese de que la máquina de origen pueda acceder al servidor de configuración a través del puerto 443.
     2. Compruebe si es necesario agregar o quitar alguna regla de firewall de la máquina de origen para que la máquina de origen se comunique con el servidor de configuración. Dada la variedad de software de firewall que podría estar en uso, no podemos incluir todas las configuraciones de firewall necesarias. Trabaje con el administrador de red para desbloquear los problemas de conexión.
     3. Asegúrese de que las carpetas incluidas en [Exclusiones de carpetas de Site Recovery de programas antivirus](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) se excluyan del software antivirus.  

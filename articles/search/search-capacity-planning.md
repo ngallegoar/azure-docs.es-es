@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/14/2020
-ms.openlocfilehash: e2ba5301b81b1a6f5de696ab4587cd8ff43e3c68
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/30/2020
+ms.openlocfilehash: 270ff3c3e8e4cffbb1f4b1987ee497530d0c0982
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77462571"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546261"
 ---
 # <a name="adjust-capacity-in-azure-cognitive-search"></a>Ajuste de la capacidad en Azure Cognitive Search
 
@@ -38,7 +38,8 @@ Un único servicio debe tener recursos suficientes para controlar todas las carg
 
 Como norma general, las aplicaciones de búsqueda tienden a necesitar más réplicas que particiones, sobre todo cuando las operaciones de servicio están orientadas a las cargas de trabajo de consulta. En la siguiente sección sobre [alta disponibilidad](#HA) se explica el motivo.
 
-La incorporación de más réplicas o particiones aumenta el costo de ejecución del servicio. Asegúrese de activar la [calculadora de precios](https://azure.microsoft.com/pricing/calculator/) para comprender las implicaciones que tiene en la facturación el agregar más nodos. El [gráfico siguiente](#chart) puede ayudarle a establecer una referencia cruzada con el número de unidades de búsqueda necesarias para una configuración específica.
+> [!NOTE]
+> La adición de más réplicas o particiones aumenta el costo de ejecución del servicio y puede generar pequeñas variaciones en cómo se ordenan los resultados. Asegúrese de activar la [calculadora de precios](https://azure.microsoft.com/pricing/calculator/) para comprender las implicaciones que tiene en la facturación el agregar más nodos. El [gráfico siguiente](#chart) puede ayudarle a establecer una referencia cruzada con el número de unidades de búsqueda necesarias para una configuración específica. Para obtener más información sobre cómo las réplicas adicionales afectan al procesamiento de las consultas, visite [Organización de los resultados](search-pagination-page-layout.md#ordering-results).
 
 ## <a name="how-to-allocate-replicas-and-partitions"></a>Cómo asignar réplicas y particiones
 

@@ -1,6 +1,6 @@
 ---
-title: Solución de problemas del control de acceso basado en rol para recursos de Azure | Microsoft Docs
-description: Solucione problemas con el control de acceso basado en rol (RBAC) para recursos de Azure.
+title: Solución de problemas de Azure RBAC
+description: Solución de problemas con el control de acceso basado en rol de Azure (Azure RBAC).
 services: azure-portal
 documentationcenter: na
 author: rolyon
@@ -11,39 +11,68 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/22/2019
+ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 67d624bb81105b8219030c57460b6d7bf7458671
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 09d5b7a126a1b8832bfe40e2e25dd4000d5d9155
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980987"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548285"
 ---
-# <a name="troubleshoot-rbac-for-azure-resources"></a>Solución de problemas del control de acceso basado en rol para recursos de Azure
+# <a name="troubleshoot-azure-rbac"></a>Solución de problemas de Azure RBAC
 
-En este artículo se responden preguntas comunes acerca del control de acceso basado en rol (RBAC) para los recursos de Azure, con el fin de que sepa qué esperar cuando usa los roles de Azure Portal y de que pueda solucionar los problemas de acceso.
+En este artículo se responden algunas preguntas comunes acerca del control de acceso basado en rol de Azure (Azure RBAC) para que sepa qué esperar cuando use los roles y para que pueda solucionar los problemas de acceso.
 
-## <a name="problems-with-rbac-role-assignments"></a>Problemas con las asignaciones de roles RBAC
+## <a name="azure-role-assignments-limit"></a>Límite de asignaciones de roles de Azure
+
+Azure admite hasta **2000** asignaciones de roles por suscripción. Si aparece el mensaje de error "No se pueden crear más asignaciones de roles (código: RoleAssignmentLimitExceeded)" al intentar asignar un rol, pruebe a reducir el número de asignaciones de roles de la suscripción.
+
+> [!NOTE]
+> El límite de **2000** asignaciones de roles por suscripción es fijo y no se puede aumentar.
+
+Si está cerca de este límite, estas son algunas maneras de reducir el número de asignaciones de roles:
+
+- Agregue usuarios a grupos y asigne los roles a los grupos. 
+- Combine varios roles integrados con un rol personalizado. 
+- Cree asignaciones de roles comunes en un ámbito superior, como en un grupo de suscripciones o en un grupo de administración.
+- Si tiene Azure AD Premium P2, permita que las asignaciones de roles se puedan establecer en [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md) en lugar de asignarlas de forma permanente. 
+- Agregue una suscripción adicional. 
+
+Para saber el número de asignaciones de roles, puede consultar el [gráfico de la página Control de acceso (IAM)](role-assignments-list-portal.md#list-number-of-role-assignments) en Azure Portal. También puede usar los siguientes comandos de Azure PowerShell:
+
+```azurepowershell
+$scope = "/subscriptions/<subscriptionId>"
+$ras = Get-AzRoleAssignment -Scope $scope | Where-Object {$_.scope.StartsWith($scope)}
+$ras.Count
+```
+
+## <a name="problems-with-azure-role-assignments"></a>Problemas con las asignaciones de roles de Azure
 
 - Si no puede agregar una asignación de roles en Azure Portal, en **Control de acceso (IAM)** porque la opción **Agregar** > **Agregar asignación de roles** está deshabilitada o porque recibe el error de permisos "El cliente con el identificador de objeto no está autorizado para realizar la acción", compruebe que ha iniciado sesión con un usuario que tenga asignado un rol con el permiso `Microsoft.Authorization/roleAssignments/write`, como [Propietario](built-in-roles.md#owner) o [Administrador de acceso de usuario](built-in-roles.md#user-access-administrator), en el ámbito en el que intenta asignar el rol.
-- Si aparece el mensaje de error "No se pueden crear más asignaciones de roles (código: RoleAssignmentLimitExceeded)" al intentar asignar un rol, pruebe a asignar los roles a grupos en su lugar para reducir el número de asignaciones de roles. Azure admite hasta **2000** asignaciones de roles por suscripción. Este límite de asignaciones de roles es fijo y no se puede aumentar.
 
 ## <a name="problems-with-custom-roles"></a>Problemas con roles personalizados
 
-- Si necesita conocer los pasos para crear un rol personalizado, consulte los tutoriales sobre roles personalizados con [Azure PowerShell](tutorial-custom-role-powershell.md) o la [CLI de Azure](tutorial-custom-role-cli.md).
+- Si necesita conocer los pasos para crear un rol personalizado, consulte los tutoriales sobre roles personalizados con [Azure Portal](custom-roles-portal.md) (actualmente en versión preliminar), [Azure PowerShell](tutorial-custom-role-powershell.md) o la [CLI de Azure](tutorial-custom-role-cli.md).
 - Si no puede actualizar un rol personalizado existente, compruebe que haya iniciado sesión con un usuario que tenga asignado un rol con el permiso `Microsoft.Authorization/roleDefinition/write`, como [Propietario](built-in-roles.md#owner) o [Administrador de acceso de usuario](built-in-roles.md#user-access-administrator).
 - Si no puede eliminar un rol personalizado y obtiene el mensaje de error "Hay asignaciones de roles existentes que hacen referencia al rol (código: RoleDefinitionHasAssignments)", significa que hay asignaciones de roles que siguen usando el rol personalizado. Quite las asignaciones de roles y vuelva a intentar eliminarlo.
-- Si recibe el mensaje de error "Se ha superado el límite de definiciones de roles. No se pueden crear más definiciones de roles (código: RoleDefinitionLimitExceeded)" al intentar crear un nuevo rol personalizado, elimine los roles personalizados que no se usan. Azure admite hasta **5000** roles personalizados en un inquilino. (Para nubes especializadas, como Azure Government, Azure Alemania y Azure China 21Vianet, el límite es de 2000 roles personalizados).
-- Si obtiene un error similar a "El cliente tiene permiso para realizar la acción 'Microsoft.Authorization/roleDefinitions/write' en el ámbito '/subscriptions/{subscriptionid}', aunque la suscripción vinculada no se encontró" al intentar actualizar un rol personalizado, consulte si se han eliminado uno o varios [ámbitos asignables](role-definitions.md#assignablescopes) del inquilino. Si el ámbito se ha eliminado, cree una incidencia de soporte técnico porque no hay ninguna solución de autoservicio disponible en este momento.
+- Si recibe el mensaje de error "Se ha superado el límite de definiciones de roles. No se pueden crear más definiciones de roles (código: RoleDefinitionLimitExceeded)" al intentar crear un nuevo rol personalizado, elimine los roles personalizados que no se usan. Azure admite hasta **5000** roles personalizados en un directorio. (Para Azure Alemania y Azure China 21Vianet, el límite es 2000 roles personalizados).
+- Si obtiene un error similar a "El cliente tiene permiso para realizar la acción 'Microsoft.Authorization/roleDefinitions/write' en el ámbito '/subscriptions/{subscriptionid}', aunque la suscripción vinculada no se encontró" al intentar actualizar un rol personalizado, consulte si se han eliminado uno o varios [ámbitos asignables](role-definitions.md#assignablescopes) del directorio. Si el ámbito se ha eliminado, cree una incidencia de soporte técnico porque no hay ninguna solución de autoservicio disponible en este momento.
 
-## <a name="recover-rbac-when-subscriptions-are-moved-across-tenants"></a>Recuperación de RBAC cuando las suscripciones se trasladan de un inquilino a otro
+## <a name="custom-roles-and-management-groups"></a>Roles personalizados y grupos de administración
 
-- Si necesita consultar los pasos para transferir una suscripción a otro inquilino de Azure AD, consulte [Transferencia de la propiedad de una suscripción de Azure a otra cuenta](../cost-management-billing/manage/billing-subscription-transfer.md).
-- Si transfiere una suscripción a un nuevo inquilino de Azure AD, todas las asignaciones de roles se eliminan permanentemente del inquilino de Azure AD de origen y no se migran al inquilino de Azure AD de destino. Debe volver a crear las asignaciones de roles en el inquilino de destino. También debe volver a crear manualmente las identidades administradas para los recursos de Azure. Para más información, consulte [Preguntas frecuentes y problemas conocidos con identidades administradas](../active-directory/managed-identities-azure-resources/known-issues.md).
-- Si es un administrador global de Azure AD y no tiene acceso a una suscripción después de trasladarla de un inquilino a otro, use la **administración de acceso a los recursos de Azure** para [elevar sus permisos de acceso](elevate-access-global-admin.md) temporalmente y obtener acceso a la suscripción.
+- Solo puede definir un grupo de administración en `AssignableScopes` de un rol personalizado. La adición de un grupo de administración a `AssignableScopes` está actualmente en versión preliminar.
+- No se pueden asignar roles personalizados con `DataActions` en el ámbito del grupo de administración.
+- Azure Resource Manager no valida la existencia del grupo de administración en el ámbito asignable de la definición de roles.
+- Para obtener más información sobre los roles personalizados y los grupos de administración, consulte el artículo [Organización de los recursos con grupos de administración de Azure](../governance/management-groups/overview.md#custom-rbac-role-definition-and-assignment).
+
+## <a name="transferring-a-subscription-to-a-different-directory"></a>Transferencia de una suscripción a un directorio diferente
+
+- Si necesita consultar los pasos para transferir una suscripción a otro directorio de Azure AD, consulte [Transferencia de la propiedad de una suscripción de Azure a otra cuenta](../cost-management-billing/manage/billing-subscription-transfer.md).
+- Si transfiere una suscripción a otro directorio de Azure AD, todas las asignaciones de roles se eliminan **permanentemente** del directorio de Azure AD de origen y no se migran al directorio de Azure AD de destino. Debe volver a crear las asignaciones de roles en el directorio de destino. También debe volver a crear manualmente las identidades administradas para los recursos de Azure. Para más información, consulte [Preguntas frecuentes y problemas conocidos con identidades administradas](../active-directory/managed-identities-azure-resources/known-issues.md).
+- Si es un administrador global de Azure AD y no tiene acceso a una suscripción después de transferirla de un directorio a otro, active la **Administración del acceso para los recursos de Azure** para [elevar sus permisos de acceso](elevate-access-global-admin.md) temporalmente y obtener acceso a la suscripción.
 
 ## <a name="issues-with-service-admins-or-co-admins"></a>Problemas con los administradores o coadministradores de servicios
 
@@ -62,7 +91,7 @@ Si asigna un rol a una entidad de seguridad (usuario, grupo, entidad de servicio
 
 Si enumera esta asignación de roles mediante Azure PowerShell, verá un elemento `DisplayName` vacío y un elemento `ObjectType` definido como Unknown. Por ejemplo, [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) devuelve una asignación de roles que es similar a la siguiente:
 
-```azurepowershell
+```
 RoleAssignmentId   : /subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222
 Scope              : /subscriptions/11111111-1111-1111-1111-111111111111
 DisplayName        :
@@ -76,7 +105,7 @@ CanDelegate        : False
 
 Del mismo modo, si enumera esta asignación de roles con la CLI de Azure, verá un elemento `principalName` vacío. Por ejemplo, [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list) devuelve una asignación de roles que es similar a la siguiente:
 
-```azurecli
+```
 {
     "canDelegate": null,
     "id": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222",
@@ -94,7 +123,7 @@ No es un problema dejar estas asignaciones de roles, pero puede quitarlas median
 
 En PowerShell, si intenta quitar las asignaciones de roles mediante el identificador de objeto y el nombre de la definición de roles, y más de una asignación de roles coincide con los parámetros, obtendrá el mensaje de error: "The provided information does not map to a role assignment" (La información proporcionada no se asigna a una asignación de roles). A continuación se muestra un ejemplo del mensaje de error:
 
-```Example
+```
 PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 -RoleDefinitionName "Storage Blob Data Contributor"
 
 Remove-AzRoleAssignment : The provided information does not map to a role assignment.
@@ -107,13 +136,15 @@ At line:1 char:1
 
 Si recibe este mensaje de error, asegúrese de especificar también los parámetros `-Scope` o `-ResourceGroupName`.
 
-```Example
+```
 PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 -RoleDefinitionName "Storage Blob Data Contributor" - Scope /subscriptions/11111111-1111-1111-1111-111111111111
 ```
 
-## <a name="rbac-changes-are-not-being-detected"></a>Los cambios RBAC no se detectan
+## <a name="role-assignment-changes-are-not-being-detected"></a>No se detectan los cambios en la asignación de roles
 
-Azure Resource Manager a veces almacena en caché las configuraciones y los datos para mejorar el rendimiento. Al crear o eliminar asignaciones de roles, los cambios pueden tardar hasta 30 minutos en aplicarse. Si usa Azure Portal, Azure PowerShell o la CLI de Azure, puede exigir una actualización de los cambios de asignación de roles cerrando e iniciando sesión. Si va a realizar cambios de asignación de roles con llamadas API de REST, puede exigir una actualización renovando el token de acceso.
+Azure Resource Manager a veces almacena en caché las configuraciones y los datos para mejorar el rendimiento. Al agregar o quitar asignaciones de roles, los cambios pueden tardar hasta 30 minutos en aplicarse. Si usa Azure Portal, Azure PowerShell o la CLI de Azure, puede exigir una actualización de los cambios de asignación de roles cerrando e iniciando sesión. Si va a realizar cambios de asignación de roles con llamadas API de REST, puede exigir una actualización renovando el token de acceso.
+
+Si agrega o quita una asignación de roles en el ámbito del grupo de administración y el rol tiene `DataActions`, es posible que el acceso en el plano de datos no se actualice hasta pasadas varias horas. Esto solo se aplica al ámbito del grupo de administración y al plano de datos.
 
 ## <a name="web-app-features-that-require-write-access"></a>Características de aplicaciones web que requieren acceso de escritura
 
@@ -148,7 +179,7 @@ Estos elementos requieren acceso de **escritura** al **plan de App Service** que
 
 Estos elementos requieren acceso de **escritura** a todo el **grupo de recursos** que contiene su sitio web:  
 
-* Enlaces y certificados SSL (los certificados SSL se pueden compartir entre sitios en el mismo grupo de recursos y la misma ubicación geográfica)  
+* Enlaces y certificados TLS/SSL (los certificados TLS/SSL se pueden compartir entre sitios en el mismo grupo de recursos y la misma ubicación geográfica)  
 * Las reglas de alertas  
 * Opciones de escala automática  
 * Componentes de Application Insights  
@@ -188,4 +219,3 @@ Un lector puede hacer clic en la pestaña **Características de la plataforma** 
 - [Solución de problemas de usuarios invitados](role-assignments-external-users.md#troubleshoot)
 - [Administración del acceso a los recursos de Azure mediante RBAC y Azure Portal](role-assignments-portal.md)
 - [Visualización de registros de actividad de cambios de RBAC en recursos de Azure](change-history-report.md)
-

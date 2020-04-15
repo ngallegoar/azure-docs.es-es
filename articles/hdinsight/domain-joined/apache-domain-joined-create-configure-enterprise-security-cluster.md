@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 12/10/2019
-ms.openlocfilehash: 4edafc0c07e967acfabf7fdc5b58c481b2cfccc3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fb3484d013314897ea2e9157b642d8f2b85dcd60
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75436041"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437646"
 ---
 # <a name="create-and-configure-enterprise-security-package-clusters-in-azure-hdinsight"></a>Creación y configuración de clústeres de Enterprise Security Package en Azure HDInsight
 
@@ -316,7 +316,7 @@ New-SelfSignedCertificate -Subject hdifabrikam.com `
 ```
 
 > [!NOTE]  
-> Cualquier utilidad o aplicación que crea una solicitud Public Key Cryptography Standards (PKCS) \#10 válida puede usarse para formar la solicitud de certificado SSL.
+> Cualquier utilidad o aplicación que crea una solicitud Public Key Cryptography Standards (PKCS) \#10 válida puede usarse para formar la solicitud de certificado TLS/SSL.
 
 Compruebe que el certificado está instalado en el almacén **Personal** del equipo:
 

@@ -6,14 +6,14 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/18/2019
+ms.date: 03/31/2020
 ms.author: tamram
-ms.openlocfilehash: 13adf6de420b54299d04a226dab81e75cbb9fef2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b4e91aa59168deb18375bf86ae77f655ca3dab47
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75975783"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521265"
 ---
 # <a name="manage-storage-account-access-keys"></a>Administración de las claves de acceso de la cuenta de almacenamiento
 
@@ -52,6 +52,8 @@ Para rotar las claves de la cuenta de almacenamiento, siga este proceso:
 
 > [!NOTE]
 > Microsoft recomienda usar solo una de las claves en todas las aplicaciones al mismo tiempo. Si utiliza la Clave 1 en algunos lugares y la Clave 2 en otros, no podrá rotar las claves sin que alguna aplicación pierda el acceso.
+
+Para rotar las claves de acceso de una cuenta, el usuario debe ser un administrador de servicios o debe tener asignado un rol de RBAC que incluya **Microsoft.Storage/storageAccounts/regeneratekey/Action**. Algunos de los roles de RBAC integrados que incluyen esta acción son **Propietario**, **Colaborador** y **Rol de servicio del operador de claves de cuentas de almacenamiento**. Para obtener más información sobre el rol de administrador de servicios, consulte [Roles de administrador de suscripciones clásico de RBAC de Azure y de administrador de Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md). Para obtener información detallada sobre los roles integrados de RBAC para Azure Storage, consulte la sección **Almacenamiento** en [Roles integrados de Azure para RBAC de Azure](../../role-based-access-control/built-in-roles.md#storage).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

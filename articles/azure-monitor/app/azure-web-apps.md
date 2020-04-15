@@ -3,12 +3,12 @@ title: Supervisar el rendimiento de Azure App Services | Microsoft Docs
 description: Supervisión del rendimiento de aplicaciones de Azure App Services. Carga y tiempo de respuesta de gráfico, información de dependencia y establecer alertas en el rendimiento.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 03d332af182f8f40ede634fbd563f7b064751f32
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: d2134e059a446c18108e8dd16bcc74504b42b15a
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77655823"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437192"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Supervisar el rendimiento de Azure App Service
 
@@ -28,7 +28,7 @@ Hay dos maneras de habilitar la supervisión de aplicaciones para las aplicacion
 
     * Este enfoque es mucho más personalizable, pero requiere la [incorporación de una dependencia en los paquetes NuGet del SDK de Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/asp-net). Este método también implica que el usuario tiene que administrar las actualizaciones a la versión más reciente de los paquetes.
 
-    * Si necesita realizar llamadas de API personalizadas para supervisar eventos o dependencias no capturados de manera predeterminada con la supervisión basada en agentes, deberá usar este método. Consulte el [artículo API de Application Insights para eventos y métricas personalizados](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics) para obtener más información.
+    * Si necesita realizar llamadas de API personalizadas para supervisar eventos o dependencias no capturados de manera predeterminada con la supervisión basada en agentes, deberá usar este método. Consulte el [artículo API de Application Insights para eventos y métricas personalizados](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics) para obtener más información. Actualmente, esta es la única opción admitida para las cargas de trabajo basadas en Linux.
 
 > [!NOTE]
 > Si se detectan tanto la supervisión basada en agentes como la instrumentación manual basada en SDK, solo se respetará la configuración de la instrumentación manual. Esto es para evitar que se envíen datos duplicados. Para más información sobre este tema, consulte la [sección de solución de problemas](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting) que encontrará a continuación.
@@ -394,6 +394,10 @@ Si usa APPINSIGHTS_JAVASCRIPT_ENABLED=true en casos donde el contenido está cod
 Esto se debe a que la configuración de la aplicación APPINSIGHTS_JAVASCRIPT_ENABLED está establecida en true y la codificación de contenido está presente al mismo tiempo. Este escenario aún no se admite. La solución consiste en quitar APPINSIGHTS_JAVASCRIPT_ENABLED de la configuración de la aplicación. Esto significa que si la instrumentación de JavaScript del lado cliente o explorador sigue siendo necesaria, se necesitan referencias del SDK manuales para las páginas web. Siga las [instrucciones](https://github.com/Microsoft/ApplicationInsights-JS#snippet-setup-ignore-if-using-npm-setup) para la instrumentación manual con el SDK de JavaScript.
 
 Para obtener la información más reciente sobre la extensión o el agente de Application Insights, consulte las [notas de la versión](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/app-insights-web-app-extensions-releasenotes.md).
+
+### <a name="php-and-wordpress-are-not-supported"></a>PHP y WordPress no se admiten
+
+Los sitios de PHP y WordPress no se admiten. Actualmente, no hay ningún SDK/agente compatible oficialmente para la supervisión del lado servidor de estas cargas de trabajo. Sin embargo, la instrumentación manual de transacciones del lado cliente en un sitio de PHP o WordPress agregando el JavaScript del lado cliente a las páginas web puede realizarse mediante el [SDK de JavaScript](https://docs.microsoft.com/azure/azure-monitor/app/javascript). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Ejecute el generador de perfiles en la aplicación activa](../app/profiler.md).

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2020
 ms.author: memildin
-ms.openlocfilehash: bcf92838483fbb6b54802cc0d44cc44ea086d705
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 93dde2e873a00303dcb8563caed4d56dbf11cc12
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79236752"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435627"
 ---
 # <a name="protect-your-machines-and-applications"></a>Protección de las aplicaciones y las máquinas
 Cuando Azure Security Center identifica posibles vulnerabilidades de seguridad, crea recomendaciones que lo guiarán por el proceso de configuración de los controles necesarios para reforzar y proteger sus recursos.
@@ -85,9 +85,9 @@ Aquí verá los detalles de seguridad de la máquina virtual o del equipo. En la
 
 
 ### <a name="virtual-machine-scale-sets"></a><a name="vmscale-sets"></a>Conjuntos de escala de las máquinas virtuales
-Security Center detecta automáticamente si tiene conjuntos de escalado y recomienda instalar Microsoft Monitoring Agent en ellos.
+Security Center detecta automáticamente si tiene conjuntos de escalado y recomienda instalar el agente de Log Analytics en ellos.
 
-Para la instalación de Microsoft Monitoring Agent: 
+Para instalar el agente de Log Analytics, haga lo siguiente: 
 
 1. Seleccione la recomendación **Instalar el agente de supervisión en conjuntos de escalado de máquinas virtuales**. Obtiene una lista de conjuntos de escalado no supervisados.
 
@@ -95,7 +95,7 @@ Para la instalación de Microsoft Monitoring Agent:
 
    ![Instalación de MMA](./media/security-center-virtual-machine-recommendations/install-mms.png)
 
-Para establecer nuevos conjuntos de escalado para instalar automáticamente Microsoft Monitoring Agent:
+Para establecer nuevos conjuntos de escalado para instalar automáticamente el agente de Log Analytics:
 1. Vaya a Azure Policy y haga clic en **Definiciones**.
 
 1. Busque la directiva **Implementar el agente de Log Analytics para conjuntos de escalado de máquinas virtuales de Windows** y haga clic en ella.
@@ -104,7 +104,7 @@ Para establecer nuevos conjuntos de escalado para instalar automáticamente Micr
 
 1. Elija el **ámbito** y el **área de trabajo de Log Analytics** y haga clic en **Asignar**.
 
-Si desea configurar todos los conjuntos de escalado existentes para instalar Microsoft Monitoring Agent, en Azure Policy, vaya a **Corrección** y aplique la directiva existente en conjuntos de escalado existentes.
+Si quiere configurar todos los conjuntos de escalado existentes para instalar el agente de Log Analytics, en Azure Policy, vaya a **Corrección** y aplique la directiva existente en conjuntos de escalado existentes.
 
 
 
@@ -195,7 +195,7 @@ Al hacer clic en una de las máquinas virtuales que ejecutan Docker, verá la p�
 
 Security Center examina las configuraciones de Docker y le ofrece visibilidad sobre los errores de configuración al proporcionarle una lista de todas las reglas con errores que se han evaluado. Security Center proporciona directrices para ayudarle a resolver estos problemas rápidamente y ahorrar tiempo. Security Center evalúa continuamente las configuraciones de Docker y le proporciona su estado más reciente.
 
-![pestaña contenedor](./media/security-center-container-recommendations/container-cis-benchmark.png)
+![pestaña contenedor](./media/security-center-virtual-machine-recommendations/container-cis-benchmark.png)
 
 
 ## <a name="next-steps"></a>Pasos siguientes

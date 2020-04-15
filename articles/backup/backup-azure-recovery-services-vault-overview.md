@@ -3,12 +3,12 @@ title: Introducción a los almacenes de Recovery Services
 description: Información general y comparación entre los almacenes de Recovery Services y los de Azure Backup.
 ms.topic: conceptual
 ms.date: 08/10/2018
-ms.openlocfilehash: 94a3e5a0865bcc8c0a9ecb866ca013f20a558e1a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e6a359287533c9ffdd688b5285b24b9c70fa7b7f
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78673237"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80436958"
 ---
 # <a name="recovery-services-vaults-overview"></a>Introducción a los almacenes de Recovery Services
 
@@ -32,11 +32,19 @@ Los almacenes de Recovery Services se basan en el modelo de Azure Resource Manag
 
 - **Restauración instantánea para máquinas virtuales de IaaS**: con los almacenes de Recovery Services, puede restaurar archivos y carpetas desde una máquina virtual de IaaS sin tener que restaurar toda la máquina virtual, lo que permite unos tiempos de restauración más rápidos. La restauración instantánea para máquinas virtuales de IaaS está disponible tanto para máquinas virtuales Windows como Linux. [Más información](backup-instant-restore-capability.md)
 
+## <a name="storage-settings-in-the-recovery-services-vault"></a>Configuración de almacenamiento en el almacén de Recovery Services
+
+Un almacén de Recovery Services es una entidad que almacena las copias de seguridad y los puntos de recuperación creados a lo largo del tiempo. También contiene las directivas de copia de seguridad asociadas con las máquinas virtuales protegidas.
+
+Azure Backup administra automáticamente el almacenamiento para el almacén. Consulte cómo [cambiar la configuración de almacenamiento](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy).
+
+Para obtener más información acerca de la redundancia de almacenamiento, consulte estos artículos sobre redundancia [geográfica](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs) y [local](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs).
+
 ## <a name="managing-your-recovery-services-vaults-in-the-portal"></a>Administración de almacenes de Recovery Services en el portal
 
 La creación y administración de almacenes de Recovery Services en Azure Portal es fácil porque el servicio Backup está integrado en otros servicios de Azure. Esta integración significa que se puede crear o administrar un almacén de Recovery Services *en el contexto del servicio de destino*. Por ejemplo, para ver los puntos de recuperación de una máquina virtual, selecciónela y haga clic en **Copia de seguridad** en el menú Operaciones.
 
-![Máquinas virtuales de detalles de almacén de Recovery Services](./media/backup-azure-recovery-services-vault-overview/rs-vault-in-context-vm.png)
+![Detalles del almacén de Recovery Services de máquina virtual](./media/backup-azure-recovery-services-vault-overview/rs-vault-in-context-vm.png)
 
 Si la máquina virtual no tiene una copia de seguridad configurada, se le pedirá que la configure. Si la copia de seguridad se ha configurado, verá información sobre la copia de seguridad de la máquina virtual, incluida una lista de puntos de restauración.  
 

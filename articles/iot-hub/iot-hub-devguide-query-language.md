@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: robinsh
-ms.openlocfilehash: b224de96f6b6baedc3b57e0245a4c4e8748576b4
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: bcc53322ac6942b52853be561bc3441e23fbf53b
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76767731"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632928"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Lenguaje de consulta de IoT Hub para dispositivos y módulos gemelos, trabajos y enrutamiento de mensajes
 
@@ -233,7 +233,7 @@ El objeto query expone varios valores **Next**, en función de la opción de des
 ### <a name="limitations"></a>Limitaciones
 
 > [!IMPORTANT]
-> Los resultados de las consultas pueden demorarse unos minutos con respecto a los valores más recientes en los dispositivos gemelos. Si se consultan dispositivos gemelos individuales por su identificador, use la [API de REST Get Twin](https://docs.microsoft.com/rest/api/iothub/service/gettwin). Esta API siempre devuelve los últimos valores y tiene límites restrictivos más altos. Puede emitir la API de REST directamente o usar la funcionalidad equivalente en uno de los [SDK del servicio Azure IoT Hub](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
+> Los resultados de las consultas pueden demorarse unos minutos con respecto a los valores más recientes en los dispositivos gemelos. Si se consultan dispositivos gemelos individuales por su identificador, use la [API de REST Get Twin](https://docs.microsoft.com/rest/api/iothub/service/twin/getdevicetwin). Esta API siempre devuelve los últimos valores y tiene límites restrictivos más altos. Puede emitir la API de REST directamente o usar la funcionalidad equivalente en uno de los [SDK del servicio Azure IoT Hub](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
 
 Actualmente, las comparaciones solo se admiten entre tipos primitivos (no objetos), por ejemplo `... WHERE properties.desired.config = properties.reported.config` solo se admite si esas propiedades tienen valores primitivos.
 
@@ -440,7 +440,7 @@ Para comprender lo que significa cada símbolo en la sintaxis de expresiones, co
 | binary_operator | Cualquier operador binario que figure en la sección [Operadores](#operators). |
 | function_name| Cualquier función que figure en la sección [Funciones](#functions). |
 | decimal_literal |Un valor float expresado en notación decimal. |
-| hexadecimal_literal |Un número expresado por la cadena "0x" seguida de una cadena de dígitos hexadecimales. |
+| hexadecimal_literal |Un número expresado por la cadena "0x" seguido de una cadena de dígitos hexadecimales. |
 | string_literal |Los literales de cadena son cadenas Unicode representadas por una secuencia de cero o varios caracteres Unicode o secuencias de escape. Los literales de cadena se cierran entre comillas simples o dobles. Caracteres de escape permitidos: `\'`, `\"`, `\\`, `\uXXXX` para los caracteres Unicode definidos con 4 dígitos hexadecimales. |
 
 ### <a name="operators"></a>Operadores
@@ -468,7 +468,7 @@ En condiciones de rutas, se admiten las siguientes funciones matemáticas:
 | ABS(x) | Devuelve el valor absoluto (positivo) de la expresión numérica especificada. |
 | EXP(x) | Devuelve el valor exponencial de la expresión numérica especificada (e^x). |
 | POWER(x,y) | Devuelve el valor de la expresión especificada a la potencia especificada (x^y).|
-| SQUARE(x) | Devuelve el cuadrado del valor numérico especificado. |
+| SQUARE(x)    | Devuelve el cuadrado del valor numérico especificado. |
 | CEILING(x) | Devuelve el valor entero más pequeño mayor o igual que la expresión numérica especificada. |
 | FLOOR(x) | Devuelve el entero más grande que sea menor o igual que la expresión numérica especificada. |
 | SIGN(x) | Devuelve el signo positivo (+1), cero (0) o negativo (-1) de la expresión numérica especificada.|
@@ -481,7 +481,7 @@ En condiciones de rutas, se admiten las funciones de conversión y comprobación
 | AS_NUMBER | Convierte la cadena de entrada en un número. `noop` si la entrada es un número; `Undefined` si la cadena no representa un número.|
 | IS_ARRAY | Devuelve un valor booleano que indica si el tipo de la expresión especificada es una matriz. |
 | IS_BOOL | Devuelve un valor booleano que indica si el tipo de la expresión especificada es un valor booleano. |
-| IS_DEFINED | Devuelve un valor booleano que indica si se ha asignado un valor a la propiedad. |
+| IS_DEFINED | Devuelve un valor booleano que indica si se ha asignado un valor a la propiedad. Solo se admite cuando el valor es de tipo primitivo. Los tipos primitivos son cadena, booleano, numérico o `null`. No se admiten los valores DateTime, los tipos de objeto ni las matrices. |
 | IS_NULL | Devuelve un valor booleano que indica si el tipo de la expresión especificada es nulo. |
 | IS_NUMBER | Devuelve un valor booleano que indica si el tipo de la expresión especificada es un número. |
 | IS_OBJECT | Devuelve un valor booleano que indica si el tipo de la expresión especificada es un objeto JSON. |

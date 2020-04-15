@@ -1,6 +1,6 @@
 ---
 title: Solucionar errores de autenticación cuando use RDP para conectarse a la máquina virtual de Azure | Microsoft Docs
-description: ''
+description: Obtenga información sobre cómo solucionar los errores de autenticación que se producen al usar el protocolo de escritorio remoto (RDP) para conectarse a una máquina virtual (VM) de Azure.
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
-ms.openlocfilehash: b7a561907e3f1968eb9adead3606822d7a1321c8
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 03356c0b4a93f4befdbc529523e58642137a8887
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155629"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80420814"
 ---
 # <a name="troubleshoot-authentication-errors-when-you-use-rdp-to-connect-to-azure-vm"></a>Solucionar errores de autenticación cuando use RDP para conectarse a la máquina virtual de Azure
 
@@ -124,7 +124,7 @@ REG add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-T
 REG add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v fAllowSecProtocolNegotiation /t REG_DWORD /d 1 /f
 ```
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 ### <a name="for-domain-joined-vms"></a>Para máquinas virtuales unidas al dominio
 
@@ -246,7 +246,7 @@ reg query "HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Prot
 > [!Note]
 > Obtenga la versión x.x de SSH/TLS de los registros de sistema operativo invitado en los errores de SCHANNEL.
 
-#### <a name="fips-compliant"></a> Compruebe las conexiones de algoritmos que cumplan el estándar federal de procesamiento de información.
+#### <a name="check-fips-compliant-algorithms-connections"></a><a name="fips-compliant"></a> Compruebe las conexiones de algoritmos que cumplan el estándar federal de procesamiento de información.
 
 Se puede configurar el Escritorio remoto para que use solo las conexiones de algoritmo que cumplan con el estándar FIPS. Esto se puede establecer mediante el uso de una clave del Registro. Para ello, abra una ventana de símbolo del sistema con privilegios elevados y, a continuación, consulte las siguientes claves:
 

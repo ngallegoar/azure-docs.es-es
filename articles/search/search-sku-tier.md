@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/30/2020
-ms.openlocfilehash: 35dbd064a09a96dae58e1b15a6d8889bda45ee0d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/30/2020
+ms.openlocfilehash: f103db1d0de7a9d538f56b8ade331dc856b26bce
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76899839"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80547008"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Selección de un plan de tarifa de Azure Cognitive Search
 
@@ -41,7 +41,9 @@ Los niveles se diferencian por:
 
 El nivel que se seleccione determina la tasa facturable. En la siguiente captura de pantalla de Azure Portal se muestran los niveles disponibles, menos los precios (que puede encontrar en el portal y en la [página de precios](https://azure.microsoft.com/pricing/details/search/). **Gratis**, **Básico** y **Estándar** son los niveles más comunes.
 
-**Gratis** crea un servicio de búsqueda limitado en un clúster, que se comparte con otros suscriptores. Puede realizar proyectos pequeños, incluidos inicios rápidos y tutoriales, pero no puede escalar el servicio ni ejecutar cargas de trabajo considerables. **Básico** y **Estándar** son los niveles facturables usados con mayor frecuencia, mientras que el valor predeterminado es **Estándar**.
+El nivel **Gratis** crea un servicio de búsqueda limitado para proyectos más pequeños, que incluye los inicios rápidos y los tutoriales. Internamente, las réplicas y las particiones se comparten entre varios suscriptores. No se puede escalar el servicio gratis, ni se pueden ejecutar grandes cargas de trabajo.
+
+**Básico** y **Estándar** son los niveles facturables usados con mayor frecuencia, mientras que el valor predeterminado es **Estándar**. Con recursos dedicados bajo su control, puede implementar proyectos más grandes, optimizar el rendimiento y configurar la capacidad.
 
 ![Planes de tarifa de Azure Cognitive Search](media/search-sku-tier/tiers.png "Planes de tarifa de Azure Cognitive Search")
 
@@ -55,10 +57,10 @@ Encontrará más información sobre los distintos niveles en la [página de prec
 
 Una solución basada en Azure Cognitive Search puede incurrir en costos de las siguientes maneras:
 
-+ Costo base del servicio con la configuración mínima (crear un servicio)
++ Costo fijo del servicio, que se ejecuta de forma ininterrumpida con una configuración mínima (una partición y una réplica)
 + Costo incremental al escalar (agregar réplicas o particiones)
 + Cargos de ancho de banda (transferencia de datos salientes) 
-+ Búsqueda cognitiva (asociar Cognitive Services para enriquecimiento de inteligencia artificial, Azure Storage para almacén de conocimiento)
++ Búsqueda cognitiva (conectar Cognitive Services para enriquecimiento de inteligencia artificial, o usar Azure Storage para el almacén de conocimiento)
 
 ### <a name="service-costs"></a>Costos de servicio
 
@@ -106,13 +108,13 @@ La mayoría de los clientes solo ponen en línea una parte de la capacidad total
 
 Las siguientes sugerencias pueden ayudarle a reducir los costos al mínimo:
 
-- Cree todos los recursos en la misma región, o en el menor número de regiones posible, para minimizar o eliminar los cargos de ancho de banda.
++ Cree todos los recursos en la misma región, o en el menor número de regiones posible, para minimizar o eliminar los cargos de ancho de banda.
 
-- Consolide todos los servicios en un grupo de recursos, como Azure Cognitive Search, Cognitive Services y cualquier otro servicio de Azure que se use en la solución. En Azure Portal, busque el grupo de recursos y use los comandos de **Administración de costos** para obtener información sobre el gasto real y previsto.
++ Consolide todos los servicios en un grupo de recursos, como Azure Cognitive Search, Cognitive Services y cualquier otro servicio de Azure que se use en la solución. En Azure Portal, busque el grupo de recursos y use los comandos de **Administración de costos** para obtener información sobre el gasto real y previsto.
 
-- Considere Azure Web App como aplicación de front-end para que las solicitudes y las respuestas permanezcan dentro del límite del centro de datos.
++ Considere Azure Web App como aplicación de front-end para que las solicitudes y las respuestas permanezcan dentro del límite del centro de datos.
 
-- Escale verticalmente las operaciones que consumen muchos recursos, como la indización, y vuelva a ajustar hacia abajo para las cargas de trabajo de consulta normales. Comience con la configuración mínima de Azure Cognitive Search (una SU compuesta de una partición y una réplica) y luego supervise la actividad de los usuarios para identificar patrones de uso que indiquen la necesidad de más capacidad. Si hay un patrón predecible, es posible que pueda sincronizar la escala con la actividad (necesitaría escribir código para automatizar esto).
++ Escale verticalmente las operaciones que consumen muchos recursos, como la indización, y vuelva a ajustar hacia abajo para las cargas de trabajo de consulta normales. Comience con la configuración mínima de Azure Cognitive Search (una SU compuesta de una partición y una réplica) y luego supervise la actividad de los usuarios para identificar patrones de uso que indiquen la necesidad de más capacidad. Si hay un patrón predecible, es posible que pueda sincronizar la escala con la actividad (necesitaría escribir código para automatizar esto).
 
 Además, visite [Facturación y administración de costos](https://docs.microsoft.com/azure/billing/billing-getting-started) para ver las herramientas y características integradas relacionadas con los gastos.
 
@@ -130,7 +132,6 @@ En Azure Cognitive Search, la capacidad se estructura como *réplicas* y *partic
 
 > [!NOTE]
 > Todos los niveles Estándar y Almacenamiento optimizado admiten [combinaciones flexibles de réplicas y particiones](search-capacity-planning.md#chart) para que pueda [optimizar el sistema para velocidad o para almacenamiento](search-performance-optimization.md) con solo cambiar el equilibrio. El nivel Básico ofrece hasta tres réplicas para alta disponibilidad, pero solo tiene una partición. El nivel Gratis no proporciona recursos dedicados: los recursos de cálculo se comparten entre varios suscriptores.
-
 
 ### <a name="evaluating-capacity"></a>Evaluar la capacidad
 
@@ -152,7 +153,7 @@ Un enfoque para calcular la capacidad es empezar con el nivel Gratis. Recuerde q
 
 + [Cree un servicio gratuito](search-create-service-portal.md).
 + Prepare un conjunto de datos pequeño y representativo.
-+ [Genere un índice inicial en el portal](search-create-index-portal.md) y anote su tamaño. Las características y los atributos afectan al almacenamiento. Por ejemplo, al agregar proveedores de sugerencias (escritura anticipada), aumentan los requisitos de almacenamiento. Con el mismo conjunto de datos, puede intentar crear varias versiones de un índice, con atributos diferentes en cada campo, para ver cómo varían los requisitos de almacenamiento. Para obtener más información, vea ["Implicaciones de almacenamiento" en Creación de un índice básico](search-what-is-an-index.md#index-size).
++ [Genere un índice inicial en el portal](search-create-index-portal.md) y anote su tamaño. Las características y los atributos afectan al almacenamiento. Por ejemplo, al agregar proveedores de sugerencias (consultas al escribir), aumentan los requisitos de almacenamiento. Con el mismo conjunto de datos, puede intentar crear varias versiones de un índice, con atributos diferentes en cada campo, para ver cómo varían los requisitos de almacenamiento. Para obtener más información, vea ["Implicaciones de almacenamiento" en Creación de un índice básico](search-what-is-an-index.md#index-size).
 
 Con una estimación aproximada, podría doblar esa cantidad a fin de presupuestar dos índices (desarrollo y producción) y luego elegir el nivel en consecuencia.
 

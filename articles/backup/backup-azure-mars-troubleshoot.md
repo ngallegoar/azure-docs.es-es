@@ -4,12 +4,12 @@ description: En este artículo se explica cómo solucionar problemas de instalac
 ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/15/2019
-ms.openlocfilehash: 24169356600c25e664221af397051bb0fec3e459
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a15f8a4531bc31dab5b99e125454b0d9c4fd4521
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78673098"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421274"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Solución de problemas del agente de Microsoft Azure Recovery Services (MARS)
 
@@ -132,6 +132,13 @@ Set-ExecutionPolicy Unrestricted
 
 > [!TIP]
 > Para garantizar que los cambios realizados se aplican de forma coherente, reinicie el servidor después de realizar los pasos anteriores.
+
+## <a name="resource-not-provisioned-in-service-stamp"></a>Recurso no aprovisionado en la marca de servicio
+
+Error | Causas posibles | Acciones recomendadas
+--- | --- | ---
+Error en la operación actual debido a un error interno del servicio de tipo "Recurso no aprovisionado en marca de servicio". Vuelva a intentar la operación más tarde. (Id.: 230006) | Se cambió el nombre del servidor protegido. | <li> Revierta el nombre del servidor al original, tal como está registrado en el almacén. <br> <li> Vuelva a registrar el servidor en el almacén con el nuevo nombre.
+
 
 ## <a name="troubleshoot-restore-problems"></a>Solución de problemas de restauración
 

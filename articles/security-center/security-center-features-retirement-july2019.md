@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 456f379e2b3c2ff411b196d45aef4663fddb0fe6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4a760fe1e5df7cf614a68f8fa8a05926326d3edf
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79225296"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583215"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>Retirada de características de Security Center (julio de 2019)
 
@@ -43,7 +43,7 @@ En este artículo se proporciona información detallada para cada característic
 
 ## <a name="events-dashboard"></a>Panel de eventos<a name="menu_events"></a>
 
-Security Center usa Microsoft Monitoring Agent para recopilar de los equipos distintos eventos y configuraciones relacionados con la seguridad. Almacena estos eventos en las áreas de trabajo. El [panel de eventos](https://docs.microsoft.com/azure/security-center/security-center-events-dashboard) le permite ver los datos y le ofrece un punto de entrada a Log Analytics.
+Security Center usa el agente de Log Analytics para recopilar distintos eventos y configuraciones relacionados con la seguridad de los equipos. Almacena estos eventos en las áreas de trabajo. El [panel de eventos](https://docs.microsoft.com/azure/security-center/security-center-events-dashboard) le permite ver los datos y le ofrece un punto de entrada a Log Analytics.
 
 Se ha retirado el panel de eventos que aparecía al seleccionar un área de trabajo:
 
@@ -97,7 +97,7 @@ Se puede acceder a todas las características del panel **Identidad y acceso** d
 
 ## <a name="security-events-map"></a>Mapa de eventos de seguridad<a name="menu_securityeventsmap"></a>
 
-Security Center proporciona un [mapa de las alertas de seguridad](https://docs.microsoft.com/azure/security-center/security-center-threat-intel) para ayudar a identificar las amenazas de seguridad. El botón **Ir al mapa de eventos de seguridad** de ese mapa abre un panel que le permite ver los eventos de seguridad sin procesar en el área de trabajo seleccionada.
+Security Center proporciona un mapa de las alertas de seguridad para ayudarle a identificar las amenazas de seguridad. El botón **Ir al mapa de eventos de seguridad** de ese mapa abre un panel que le permite ver los eventos de seguridad sin procesar en el área de trabajo seleccionada.
 
 Se ha quitado el botón **Ir al mapa de eventos de seguridad** y el panel por área de trabajo.
 
@@ -136,7 +136,7 @@ Para más información sobre la retirada de alertas personalizadas, vea [Reglas 
 
 ## <a name="security-alerts-investigation"></a>Investigación de alertas de seguridad<a name="menu_investigate"></a>
 
-[La característica Investigación](https://docs.microsoft.com/azure/security-center/security-center-investigation) de Security Center ayuda a evaluar un posible incidente de seguridad. La característica permite entender el ámbito de un incidente y localizar su causa raíz. Se ha quitado esta característica de Security Center porque se ha reemplazado por una experiencia mejorada en [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/).
+La característica Investigación de Security Center le ayuda a evaluar un posible incidente de seguridad. La característica permite entender el ámbito de un incidente y localizar su causa raíz. Se ha quitado esta característica de Security Center porque se ha reemplazado por una experiencia mejorada en [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/).
 
 ![Incidente de seguridad][14]
 
@@ -169,7 +169,7 @@ Si tiene soluciones conectadas existentes, le animamos a que realice la transici
 
 Azure Security Center supervisa las configuraciones de seguridad mediante un conjunto de [más de 150 reglas recomendadas](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) para proteger el sistema operativo. Estas reglas pertenecen a firewalls, auditoría, directivas de contraseñas, etc. Si se detecta que la configuración de una maquina es vulnerable, Security Center genera una recomendación de seguridad. La [pantalla Edición de las opciones de configuración de seguridad](https://docs.microsoft.com/azure/security-center/security-center-customize-os-security-config) permite a los clientes personalizar la configuración de seguridad predeterminada del sistema operativo en Security Center.
 
-Se ha retirado esta característica en versión preliminar. Si quiere restablecer las configuraciones de seguridad a sus valores predeterminados tras la fecha de retirada, puede hacerlo con la API o PowerShell si sigue las [siguientes instrucciones](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20samples/Reset%20security%20configurations%20customization).
+Se ha retirado esta característica en versión preliminar. Si quiere restablecer las configuraciones de seguridad a sus valores predeterminados tras la fecha de retirada, puede hacerlo con la API o PowerShell si sigue las [siguientes instrucciones](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20scripts/Reset%20security%20configurations%20customization).
 
 ![Edición de las opciones de configuración de seguridad][17]
 

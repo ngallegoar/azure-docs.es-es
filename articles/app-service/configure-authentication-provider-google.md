@@ -1,26 +1,28 @@
 ---
 title: Configuración de la autenticación de Google
-description: Aprenda a configurar la autenticación de Google como proveedor de identidades para una aplicación App Service.
+description: Aprenda a configurar la autenticación de Google como proveedor de identidades para una aplicación App Service o Azure Functions.
 ms.assetid: 2b2f9abf-9120-4aac-ac5b-4a268d9b6e2b
 ms.topic: article
 ms.date: 09/02/2019
-ms.custom: seodec18
-ms.openlocfilehash: 81ce3e393d308323c8d5a3d688c16c9b45e7be9d
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.custom:
+- seodec18
+- fasttrack-edit
+ms.openlocfilehash: e8a9fbe6072f3628d755ad3ad5aa5a623fc3ab23
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74670824"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80519943"
 ---
-# <a name="configure-your-app-service-app-to-use-google-login"></a>Configuración de la aplicación de App Service para usar el inicio de sesión de Google
+# <a name="configure-your-app-service-or-azure-functions-app-to-use-google-login"></a>Configuración de una aplicación de App Service o Azure Functions para usar el inicio de sesión de Google
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-En este tema se muestra cómo configurar Azure App Service para usar Google como proveedor de autenticación.
+En este tema se muestra cómo configurar Azure App Service o Azure Functions para usar Google como proveedor de autenticación.
 
 Para llevar a cabo el procedimiento descrito en este tema, debe tener una cuenta de Google asociada a una dirección de correo electrónico verificada. Para crear una cuenta de Google, vaya a [accounts.google.com](https://go.microsoft.com/fwlink/p/?LinkId=268302).
 
-## <a name="register"></a>Registro de la aplicación con Google
+## <a name="register-your-application-with-google"></a><a name="register"> </a>Registro de la aplicación con Google
 
 1. Siga la documentación de Google sobre el [inicio de sesión de Google para aplicaciones de servidor](https://developers.google.com/identity/sign-in/web/server-side-flow) para crear un identificador de cliente y un secreto de cliente. No es necesario realizar ningún cambio en el código. Use la siguiente información:
     - En **Authorized JavaScript Origins** (Orígenes de JavaScript autorizados), use `https://<app-name>.azurewebsites.net` con el nombre de su aplicación en *\<app-name>* .
@@ -30,7 +32,7 @@ Para llevar a cabo el procedimiento descrito en este tema, debe tener una cuenta
     > [!IMPORTANT]
     > El secreto de aplicación es una credencial de seguridad importante. No comparta este secreto con nadie ni lo distribuya en una aplicación cliente.
 
-## <a name="secrets"></a>Adición de información de Google a la aplicación
+## <a name="add-google-information-to-your-application"></a><a name="secrets"> </a>Incorporación de información de Google a la aplicación
 
 1. En [Azure Portal], vaya a la aplicación de App Service.
 1. Haga clic en **Configuración** > **Autenticación/autorización** y asegúrese de que la opción **Autenticación de App Service** está **Activada**.
@@ -48,7 +50,7 @@ Para llevar a cabo el procedimiento descrito en este tema, debe tener una cuenta
 
 De este modo ya estará listo para usar Google para realizar la autenticación en la aplicación.
 
-## <a name="related-content"> </a>Pasos siguientes
+## <a name="next-steps"></a><a name="related-content"> </a>Pasos siguientes
 
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
 

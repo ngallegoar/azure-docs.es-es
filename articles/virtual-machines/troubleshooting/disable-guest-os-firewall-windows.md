@@ -1,6 +1,6 @@
 ---
 title: Deshabilitar el firewall del sistema operativo invitado en la máquina virtual de Azure | Microsoft Docs
-description: ''
+description: Obtenga información sobre un método de solución alternativo para las situaciones en las que el firewall de un sistema operativo invitado filtra de forma parcial o completa el tráfico a una máquina virtual.
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 292b53fac6c970fb961e8ad4ce7774c080e52422
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: e4cd1595d963330bd5decb366310bf5e97f59bc8
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76718878"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422363"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Deshabilitar el firewall del sistema operativo invitado en Azure Virtual Machine
 
@@ -100,7 +100,7 @@ Siga estos pasos para utilizar [Registro remoto](https://support.microsoft.com/h
     <TARGET MACHINE>\SYSTEM\CurrentControlSet\services\SharedAccess\Parameters\FirewallPolicy\StandardProfile\EnableFirewall         -->        0
     ```
 
-3.  Reinicie el servicio. Dado que no puede hacerlo mediante el Registro remoto, debe usar Quitar la consola de servicio.
+3.  Reinicie el servicio. Dado que no puede hacerlo mediante el registro remoto, debe usar Remote Service Console (Quitar la consola de servicio).
 
 4.  Abra una instancia de **Services.msc**.
 

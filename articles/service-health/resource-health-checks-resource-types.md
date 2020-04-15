@@ -3,12 +3,12 @@ title: Tipos de recursos que compatibles con Azure Resource Health | Microsoft D
 description: Tipos de recursos que se admiten a través de Azure Resource Health
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: f5d1c720d3cbafafc81276a968abf2003bbd46ce
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 5cc80147730fdc97b1181690f6e70fc538d4afcc
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78303960"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478906"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Tipos de recursos y comprobaciones de estado en Azure Resource Health
 A continuación se muestra una lista completa de todas las comprobaciones que se ejecutan a través de Resource Health por tipos de recursos.
@@ -41,17 +41,22 @@ A continuación se muestra una lista completa de todas las comprobaciones que se
 ## <a name="microsoftclassiccomputevirtualmachines"></a>Microsoft.classiccompute/virtualmachines
 |Comprobaciones ejecutadas|
 |---|
-|<ul><li>¿Está el servidor en funcionamiento?</li><li>¿Se ha completado el arranque del sistema operativo host?</li><li>¿Está l contenedor de la máquina virtual aprovisionado y encendido?</li><li>¿Hay conectividad de red entre el host y la cuenta de almacenamiento?</li><li>¿Se ha completado el arranque del SO invitado?</li><li>¿Hay mantenimiento planeado en curso?</li></ul>|
+|<ul><li>¿Está el servidor en funcionamiento?</li><li>¿Se ha completado el arranque del sistema operativo host?</li><li>¿Está l contenedor de la máquina virtual aprovisionado y encendido?</li><li>¿Hay conectividad de red entre el host y la cuenta de almacenamiento?</li><li>¿Se ha completado el arranque del SO invitado?</li><li>¿Hay mantenimiento planeado en curso?</li><li>¿Se degrada el hardware del host y se prevé que produzca un error pronto?</li></ul>|
 
 ## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft.cognitiveservices/accounts
 |Comprobaciones ejecutadas|
 |---|
 |<ul><li>¿Se puede acceder a la cuenta desde el centro de datos?</li><li>¿Está disponible el proveedor de recursos de Cognitive Services?</li><li>¿Está disponible Cognitive Services en la región adecuada?</li><li>¿Se pueden realizar operaciones de lectura en la cuenta de almacenamiento que contiene los metadatos de recursos?</li><li>¿Se ha alcanzado la cuota de llamadas a la API?</li><li>¿Se ha alcanzado el límite de lectura de las llamadas a la API?</li></ul>|
 
+## <a name="microsoftcomputehostgroupshosts"></a>Microsoft.compute/hostgroups/hosts
+|Comprobaciones ejecutadas|
+|---|
+|<ul><li>¿El host está en funcionamiento?</li><li>¿Se redujo el hardware del host?</li><li>¿El host se desasignó?</li><li>¿El servicio de hardware del host se reparó en un hardware diferente?</li></ul>|
+
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft.compute/virtualmachines
 |Comprobaciones ejecutadas|
 |---|
-|<ul><li>¿Funciona el servidor que hospeda esta máquina virtual?</li><li>¿Se ha completado el arranque del sistema operativo host?</li><li>¿Está l contenedor de la máquina virtual aprovisionado y encendido?</li><li>¿Hay conectividad de red entre el host y la cuenta de almacenamiento?</li><li>¿Se ha completado el arranque del SO invitado?</li><li>¿Hay mantenimiento planeado en curso?</li></ul>|
+|<ul><li>¿Funciona el servidor que hospeda esta máquina virtual?</li><li>¿Se ha completado el arranque del sistema operativo host?</li><li>¿Está l contenedor de la máquina virtual aprovisionado y encendido?</li><li>¿Hay conectividad de red entre el host y la cuenta de almacenamiento?</li><li>¿Se ha completado el arranque del SO invitado?</li><li>¿Hay mantenimiento planeado en curso?</li><li>¿Se degrada el hardware del host y se prevé que produzca un error pronto?</li></ul>|
 
 ## <a name="microsoftdatafactoryfactories"></a>Microsoft.datafactory/factories
 |Comprobaciones ejecutadas|
@@ -188,6 +193,11 @@ A continuación se muestra una lista completa de todas las comprobaciones que se
 |Comprobaciones ejecutadas|
 |---|
 |<ul><li>¿Los clientes experimentan errores de Service Bus generados por el usuario?</li><li>¿Los usuarios están experimentando un aumento de los errores transitorios debido a una actualización del espacio de nombres de Service Bus?</li></ul>|
+
+## <a name="microsoftservicefabricclusters"></a>Microsoft.ServiceFabric/clusters
+|Comprobaciones ejecutadas|
+|---|
+|<ul><li>¿Está el clúster de Service Fabric en funcionamiento?</li><li>¿Se puede administrar el clúster de Service Fabric a través de Azure Resource Manager?</li></ul>|
 
 ## <a name="microsoftsqlmanagedinstancesdatabases"></a>Microsoft.SQL/managedInstances/databases
 |Comprobaciones ejecutadas|

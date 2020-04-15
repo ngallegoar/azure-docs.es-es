@@ -4,23 +4,21 @@ description: En este artículo se proporciona información sobre cómo usar Apac
 services: event-hubs
 documentationcenter: .net
 author: ShubhaVijayasarathy
-manager: timlt
 ms.service: event-hubs
-ms.topic: tutorial
-ms.custom: seodec18
-ms.date: 12/06/2018
+ms.topic: how-to
+ms.date: 04/02/2020
 ms.author: shvija
-ms.openlocfilehash: df7198b68a083abf9be4ffe88e7a5dd848b2c535
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 60c6207b1c90ca40f02097a1c82d2811a50f664d
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76119523"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632829"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview"></a>Integración de la compatibilidad con Apache Kafka Connect en Azure Event Hubs (versión preliminar)
-A medida que aumenta la ingesta para las necesidades del negocio, también aumenta la necesidad de ingerir para varios orígenes y receptores externos. [Apache Kafka Connect](https://kafka.apache.org/documentation/#connect) proporciona dicha plataforma para conectar e importar o exportar datos desde y hacia cualquier sistema externo como MySQL, HDFS y sistema de archivos mediante un clúster de Kafka. Este tutorial le guiará por el uso de la plataforma de Kafka Connect con centros de eventos habilitados para Kafka.
+A medida que aumenta la ingesta para las necesidades del negocio, también aumenta la necesidad de ingerir para varios orígenes y receptores externos. [Apache Kafka Connect](https://kafka.apache.org/documentation/#connect) proporciona dicha plataforma para conectar e importar o exportar datos desde y hacia cualquier sistema externo como MySQL, HDFS y sistema de archivos mediante un clúster de Kafka. Este tutorial le guiará por el uso del marco Kafka Connect con Event Hubs.
 
-Este tutorial le guiará por la integración de Kafka Connect con un centro de eventos de Azure habilitado para Kafka y la implementación de conectores básicos FileStreamSource y FileStreamSink. Esta funcionalidad actualmente está en su versión preliminar. Aunque estos conectores no están pensados para su uso en la producción, muestran un escenario de un extremo a otro de Kafka Connect en el que Azure Event Hubs actúa como un agente de Kafka.
+Este tutorial le guiará por la integración de Kafka Connect con un centro de eventos de Azure y la implementación de conectores básicos FileStreamSource y FileStreamSink. Esta funcionalidad actualmente está en su versión preliminar. Aunque estos conectores no están pensados para su uso en la producción, muestran un escenario de un extremo a otro de Kafka Connect en el que Azure Event Hubs actúa como un agente de Kafka.
 
 > [!NOTE]
 > Este ejemplo está disponible en [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/connect).
@@ -34,7 +32,7 @@ En este tutorial, realizará los siguientes pasos:
 > * Ejecución de Kafka Connect
 > * Creación de conectores
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
 
 - Suscripción de Azure. En caso de no tener ninguna, [cree una cuenta gratuita](https://azure.microsoft.com/free/).
@@ -44,7 +42,7 @@ Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
 - Lea el artículo de introducción [Event Hubs para Apache Kafka](https://docs.microsoft.com/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview).
 
 ## <a name="create-an-event-hubs-namespace"></a>Creación de un espacio de nombres de Event Hubs
-Se requiere un espacio de nombres de Event Hubs para enviar y recibir de cualquier servicio de Event Hubs. Consulte [Creación de un espacio de nombres de Event Hubs y un centro de eventos con Azure Portal](event-hubs-create.md) para obtener instrucciones sobre cómo obtener un punto de conexión de Kafka para Event Hubs. Obtenga la cadena de conexión de Event Hubs y el nombre de dominio completo (FQDN) para su uso posterior. Para obtener instrucciones, consulte [Get an Event Hubs connection string](event-hubs-get-connection-string.md) (Obtención de una cadena de conexión de Event Hubs). 
+Se requiere un espacio de nombres de Event Hubs para enviar y recibir de cualquier servicio de Event Hubs. Consulte [Creación de un centro de eventos](event-hubs-create.md) para obtener instrucciones sobre cómo crear un espacio de nombres y un centro de eventos. Obtenga la cadena de conexión de Event Hubs y el nombre de dominio completo (FQDN) para su uso posterior. Para obtener instrucciones, consulte [Get an Event Hubs connection string](event-hubs-get-connection-string.md) (Obtención de una cadena de conexión de Event Hubs). 
 
 ## <a name="clone-the-example-project"></a>Clonación del proyecto de ejemplo
 Clone el repositorio de Azure Event Hubs y vaya a la carpeta tutorials/connect: 
@@ -159,14 +157,11 @@ Kafka Connect crea temas de centro de eventos para almacenar las configuraciones
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información acerca de Event Hubs y Event Hubs para Kafka, consulte el tema siguiente:  
+Para obtener más información acerca de Event Hubs para Kafka, consulte los artículos siguientes:  
 
-- [Más información sobre Events Hubs](event-hubs-what-is-event-hubs.md)
-- [Event Hubs para Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)
-- [How to create Kafka enabled Event Hubs](event-hubs-create-kafka-enabled.md) (Cómo crear Event Hubs habilitados para Kafka)
-- [Stream into Event Hubs from your Kafka applications](event-hubs-quickstart-kafka-enabled-event-hubs.md) (Transmitir en Event Hubs desde sus aplicaciones de Kafka)
-- [Creación de un reflejo de un agente de Kafka en un centro de eventos habilitado para Kafka](event-hubs-kafka-mirror-maker-tutorial.md)
-- [Conexión de Apache Spark a un centro de eventos habilitado para Kafka](event-hubs-kafka-spark-tutorial.md)
-- [Conexión de Apache Flink a un centro de eventos habilitado para Kafka](event-hubs-kafka-flink-tutorial.md)
-- [Conexión de Akka Streams a un centro de eventos habilitado para Kafka](event-hubs-kafka-akka-streams-tutorial.md)
+- [Reflejo de un agente de Kafka en un centro de eventos](event-hubs-kafka-mirror-maker-tutorial.md)
+- [Conexión de Apache Spark a un centro de eventos](event-hubs-kafka-spark-tutorial.md)
+- [Conexión de Apache Flink a un centro de eventos](event-hubs-kafka-flink-tutorial.md)
 - [Exploración de ejemplos en nuestro GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
+- [Conexión de Akka Streams a un centro de eventos](event-hubs-kafka-akka-streams-tutorial.md)
+- [Guía del desarrollador de Apache Kafka para Azure Event Hubs](apache-kafka-developer-guide.md)

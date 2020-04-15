@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: d84085115816a8fe1cba65e191ea391dd91a4aed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0b7817539a26b7ebfa24efd086edf8b0ef82eae3
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77599657"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80436005"
 ---
 # <a name="faq---questions-about-virtual-machines"></a>Preguntas frecuentes: preguntas sobre máquinas virtuales
 
@@ -51,7 +51,7 @@ A continuación se muestran los tiempos de latencia para los exámenes de vulner
 Normalmente, Security Center busca nuevos datos cada hora y actualiza las recomendaciones en consecuencia. 
 
 > [!NOTE]
-> Security Center usa Microsoft Monitoring Agent para recopilar y almacenar datos. Para obtener más información, consulte [Migración de la plataforma de Azure Security Center](security-center-platform-migration.md).
+> Security Center usa el agente de Log Analytics para recopilar y almacenar datos. Para obtener más información, consulte [Migración de la plataforma de Azure Security Center](security-center-platform-migration.md).
 
 
 ## <a name="why-do-i-get-the-message-vm-agent-is-missing"></a>¿Por qué recibo el mensaje Falta el agente de máquina virtual?

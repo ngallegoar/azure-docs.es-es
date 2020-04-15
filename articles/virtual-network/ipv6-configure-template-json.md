@@ -1,5 +1,5 @@
 ---
-title: 'Implementación de una aplicación de pila doble IPv6 con Basic Load Balancer en Azure Virtual Network: plantilla de Resource Manager (versión preliminar)'
+title: 'Implementación de una aplicación de pila doble IPv6 con Basic Load Balancer en Azure Virtual Network: plantilla de Resource Manager'
 titlesuffix: Azure Virtual Network
 description: En este artículo, se explica cómo se implementa una aplicación de pila doble IPv6 en Azure Virtual Network mediante plantillas de máquina virtual de Azure Resource Manager.
 services: virtual-network
@@ -10,16 +10,16 @@ ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 06/26/2019
+ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: b397c874045a89f5992aeadacfbbd4434a486977
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7c2f66d92597801aa7c6b0b32f86f594d3effb05
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70012832"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80420595"
 ---
-# <a name="deploy-an-ipv6-dual-stack-application-with-basic-load-balancer-in-azure---template-preview"></a>Implementación de una aplicación de pila doble IPv6 con Basic Load Balancer en Azure: plantilla (versión preliminar)
+# <a name="deploy-an-ipv6-dual-stack-application-with-basic-load-balancer-in-azure---template"></a>Implementación de una aplicación de pila doble IPv6 con Basic Load Balancer en Azure: plantilla
 
 En este artículo se proporciona una lista de tareas de configuración de IPv6 con la parte de la plantilla de VM de Azure Resource Manager a la que se aplica. Use la plantilla que se describe en este artículo para implementar una aplicación de pila doble (IPv4 + IPv6) con Basic Load Balancer que contiene una red virtual de pila doble con subredes IPv4 e IPv6, Basic Load Balancer con configuraciones de front-end duales (IPv4 + IPv6), VM con NIC que tienen una configuración de IP dual, un grupo de seguridad de red e IP públicas.
 

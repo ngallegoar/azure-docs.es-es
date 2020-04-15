@@ -5,22 +5,33 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/25/2020
+ms.date: 03/31/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: calebb
+ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 158b3b34bf433c1da0d1c4bdc851fd99e5bd54d2
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: 957aa77e18ea8f910f258d1dc59de0d093b0eab6
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78671965"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80476662"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Procedimientos: Bloqueo de la autenticación heredada en Azure AD con acceso condicional   
 
 Para brindar a los usuarios un acceso sencillo a las aplicaciones en la nube, Azure Active Directory (Azure AD) admite una amplia variedad de protocolos de autenticación, incluida la autenticación heredada. Sin embargo, los protocolos heredados no admiten la autenticación multifactor (MFA). En muchos entornos, MFA es un requisito común para enfrentar el robo de identidad. 
+
+En su entrada de blog del 12 de marzo de 2020, [New tools to block legacy authentication in your organization](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/new-tools-to-block-legacy-authentication-in-your-organization/ba-p/1225302#), Alex Weinert, Director de seguridad de identidades en Microsoft, destaca los motivos por los que las organizaciones deben bloquear la autenticación heredada, y señala otras herramientas que Microsoft proporciona para realizar esta tarea:
+
+> Para que MFA sea efectivo, también es necesario bloquear la autenticación heredada. Esto se debe a que los protocolos de autenticación heredados como POP, SMTP, IMAP y MAPI no pueden aplicar MFA, lo que los convierte en los puntos de entrada preferidos de los adversarios que atacan su organización.
+> 
+>Las cifras relativas a la autenticación heredada que ha arrojado un análisis de tráfico de Azure Active Directory (Azure AD) son inapelables:
+> 
+> - Más del 99 por ciento de los ataques de difusión de contraseña usan protocolos de autenticación heredados.
+> - Más del 97 por ciento de los ataques de obtención de credenciales usan la autenticación heredada.
+> - Las cuentas de Azure AD de las organizaciones que han deshabilitado la autenticación heredada experimentaron un 67 % menos de riesgos que aquellas en las que la autenticación heredada está habilitada.
+>
 
 Si el entorno está listo para bloquear la autenticación heredada con el fin de mejorar la protección del inquilino, puede lograr este objetivo con el acceso condicional. En este artículo se explica cómo configurar las directivas de acceso condicional que bloquean la autenticación heredada para el inquilino.
 
@@ -65,6 +76,8 @@ Las siguientes opciones se consideran protocolos de autenticación heredados.
 - Servicios web de creación de informes: se usan para recuperar datos de informes en Exchange Online.
 - Otros clientes: otros protocolos que usen autenticación heredada.
 
+Para más información sobre estos protocolos y servicios de autenticación, vea [Informes de actividad de inicio de sesión en el portal de Azure Active Directory](../reports-monitoring/concept-sign-ins.md#filter-sign-in-activities).
+
 ### <a name="identify-legacy-authentication-use"></a>Identificación del uso de la autenticación heredada
 
 Para poder bloquear la autenticación heredada en su directorio, primero debe entender si los usuarios tienen aplicaciones que la usen y cómo afecta a su directorio global. Se pueden usar los registros de inicio de sesión de Azure AD para saber si usa la autenticación heredada.
@@ -79,7 +92,7 @@ Estos registros indicarán qué usuarios dependen todavía de la autenticación 
 
 ### <a name="block-legacy-authentication"></a>Bloquear la autenticación heredada 
 
-En una directiva de acceso condicional, puede establecer una condición vinculada a las aplicaciones cliente que se usan para acceder a los recursos. La condición de aplicaciones cliente le permite restringir el ámbito a las aplicaciones que usan la autenticación heredada mediante la selección de **Otros clientes** en **Aplicaciones móviles y aplicaciones de escritorio**.
+En una directiva de acceso condicional, puede establecer una condición vinculada a las aplicaciones cliente que se usan para acceder a los recursos. La condición de aplicaciones cliente le permite restringir el ámbito a las aplicaciones que usan la autenticación heredada mediante la selección de **clientes de Exchange ActiveSync** y **otros clientes** en **Aplicaciones móviles y aplicaciones de escritorio**.
 
 ![Otros clientes](./media/block-legacy-authentication/01.png)
 
@@ -106,6 +119,8 @@ La característica de seguridad es necesaria porque el *bloqueo de todos los usu
 ![Configuración de directiva no compatible](./media/block-legacy-authentication/05.png)
 
 Para satisfacer esta característica de seguridad, excluya un usuario de la directiva. Idealmente, debe definir algunas [cuentas administrativas de acceso de emergencia en Azure AD](../users-groups-roles/directory-emergency-access.md) y excluirlas de la directiva.
+
+El uso del [modo de solo informe](concept-conditional-access-report-only.md) al habilitar la directiva para bloquear la autenticación heredada brinda a la organización la oportunidad de ver cuál sería el impacto de la directiva.
 
 ## <a name="policy-deployment"></a>Implementación de directivas
 
@@ -136,5 +151,6 @@ Si bloquea la autenticación heredada con la condición **Otros clientes**, tamb
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+- [Determinación del impacto mediante el modo de solo informe de acceso condicional](howto-conditional-access-report-only.md)
 - Si todavía no sabe cómo configurar las directivas de acceso condicional, consulte [Exigir MFA para aplicaciones específicas con acceso condicional de Azure Active Directory](app-based-mfa.md) para ver un ejemplo.
 - Para más información sobre la compatibilidad con la autenticación moderna, consulte [Cómo funciona la autenticación moderna para las aplicaciones de cliente de Office 2013 y Office 2016](/office365/enterprise/modern-auth-for-office-2013-and-2016). 

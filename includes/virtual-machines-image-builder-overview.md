@@ -5,12 +5,12 @@ ms.date: 01/23/2020
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: ec1b77118f94501363d950d72a65a67ece79ff77
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 658910dc4291375c7b2ab22e88c599b970b885af
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76748968"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80419093"
 ---
 Las imágenes estandarizadas de máquinas virtuales permiten a las organizaciones migrar a la nube y garantizar la coherencia de las implementaciones. Normalmente, las imágenes incluyen opciones de seguridad y de configuración predefinidas y el software necesario. La configuración de su propia canalización de creación de imágenes requiere tiempo, una infraestructura y el programa de instalación, pero con Image Builder de máquina virtual de Azure, basta con que proporcione una configuración sencilla que describa la imagen y la envíe al servicio para que se cree y se distribuya.
  
@@ -26,10 +26,10 @@ En la versión preliminar se admiten estas características:
 
 - Creación de imágenes de línea de base para comercializar, que incluyen las configuraciones corporativas y de seguridad mínimas y permiten que los departamentos puedan personalizarlas aún más para sus necesidades.
 - Aplicación de revisiones de imágenes existentes. Image Builder permitirá revisar continuamente las imágenes personalizadas existentes.
+- Conecte el generador de imágenes a las redes virtuales existentes para que pueda conectarse a los servidores de configuración existentes (DSC, Chef, Puppet, etc.), los recursos compartidos de archivos o cualquier otro servidor o servicio enrutable.
 - Integración con Azure Shared Image Gallery, que permite distribuir, crear versiones y escalar imágenes globalmente y ofrece un sistema de administración de imágenes.
 - Integración con las canalizaciones de compilación de imágenes existentes. Simplemente llame a Image Builder desde la canalización o use la tarea sencilla de Azure DevOps de versión preliminar de Image Builder.
 - Migración de una canalización de personalización de imagen existente a Azure. Use los scripts, comandos y procesos existentes para personalizar las imágenes.
-- Use una asistencia de tipo traiga su propia suscripción de Red Hat. Cree imágenes de Red Hat Enterprise para su uso con las suscripciones aptas y sin usar de Red Hat.
 - Creación de imágenes en formato VHD.
  
 
@@ -40,6 +40,8 @@ El servicio Azure Image Builder estará disponible en versión preliminar en est
 - Centro-Oeste de EE. UU.
 - Oeste de EE. UU.
 - Oeste de EE. UU. 2
+- Norte de Europa
+- Oeste de Europa
 
 ## <a name="os-support"></a>SO compatible
 AIB será compatible con imágenes del sistema operativo base de Azure Marketplace:
@@ -49,16 +51,11 @@ AIB será compatible con imágenes del sistema operativo base de Azure Marketpla
 - CentOS 7.6, 7.7
 - SLES 12 SP4
 - SLES 15, SLES 15 SP1
-- Windows 10 RS5 Enterprise/Professional/Enterprise para escritorio virtual (EVD) 
+- Windows 10 RS5 Enterprise/Enterprise multisesión/Professional
 - Windows 2016
 - Windows 2019
 
-AIB será compatible con los ISO de RHEL, como un origen para:
-- RHEL 7.3
-- RHEL 7.4
-- RHEL 7.5
-
-ISO de RHEL 7.6 no se admite, pero está en proceso de prueba.
+La compatibilidad con archivos ISO de RHEL está en desuso. Consulte la documentación de la plantilla para obtener más detalles.
 
 ## <a name="how-it-works"></a>Funcionamiento
 

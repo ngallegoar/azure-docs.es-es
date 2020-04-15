@@ -1,6 +1,6 @@
 ---
 title: El firewall de SO invitado de máquina virtual de Azure está bloqueando el tráfico entrante | Microsoft Docs
-description: ''
+description: Obtenga información sobre cómo solucionar el problema de conexión del Portal de escritorio remoto (RDP) en el que el firewall del sistema operativo invitado bloquea el tráfico entrante.
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 0cbd1a24f5c460e248d55777735da6809befba63
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1b80fc997a4b3d2b472717b1ec2f379a4e958d8c
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72028799"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422552"
 ---
 # <a name="azure-vm-guest-os-firewall-is-blocking-inbound-traffic"></a>El firewall de SO invitado de máquina virtual de Azure está bloqueando el tráfico entrante
 
@@ -113,7 +113,7 @@ Conéctese a la [consola serie y abra una instancia de PowerShell](serial-consol
     > [!Note]
     > Las siguientes directrices se aplican a la directiva de firewall, dependiendo de cómo se configure:
     >    * *BlockInbound*: se bloqueará todo el tráfico entrante, a menos que tenga una regla en vigor para permitir ese tráfico.
-    >    * *BlockInboundAlways*: se omitirán todas las reglas de firewall y se bloqueará todo el tráfico.
+    >    * *BlockInboundAlways*: se omitirán todas las reglas del firewall y se bloqueará todo el tráfico.
 
 2.  Edite *DefaultInboundAction* para establecer estos perfiles en **Permitir** el tráfico. Para ello, ejecute el siguiente comando:
 

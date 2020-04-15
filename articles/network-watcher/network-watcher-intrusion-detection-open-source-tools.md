@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 781f3788c9001276315a2baed7060450fa00d77a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1bd823d94552d1e920b367b6576b0e3bb74aefb2
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76845030"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474928"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Realización de detección de intrusiones en la red con Azure Network Watcher y herramientas de código abierto
 
@@ -38,7 +38,7 @@ Ambas herramientas de código abierto se pueden configurar en una máquina virtu
 
 ### <a name="install-suricata"></a>Instalación de Suricata
 
-Para todos los demás métodos de instalación, visite https://suricata.readthedocs.io/en/latest/install.html.
+Para todos los demás métodos de instalación, visite https://suricata.readthedocs.io/en/suricata-5.0.2/quickstart.html#installation.
 
 1. En el terminal de la línea de comandos de la máquina virtual, ejecute los siguientes comandos:
 
@@ -274,7 +274,7 @@ El panel de ejemplo proporciona varias visualizaciones de los registros de alert
 
     ![imagen 7][7]
 
-Para ver más documentación sobre la creación de visualizaciones y paneles personalizados, consulte la [documentación oficial del Kibana](https://www.elastic.co/guide/en/kibana/current/introduction.html).
+Para ver más documentación sobre la creación de visualizaciones y paneles personalizados, consulte la [documentación oficial de Kibana](https://www.elastic.co/guide/en/kibana/current/introduction.html).
 
 ## <a name="conclusion"></a>Conclusión
 

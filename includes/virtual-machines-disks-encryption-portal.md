@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 01/13/2020
+ms.date: 03/23/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 8d68d2e83bba055e92b99ee9294daf6f2395d8dc
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: b8073240bdda38757a5e4feee66c9f54746966c4
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77206314"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632043"
 ---
 ### <a name="portal"></a>Portal
 
@@ -21,7 +21,7 @@ La configuración de claves administradas por el cliente para los discos requeri
 
 #### <a name="setting-up-your-azure-key-vault"></a>Configuración de Azure Key Vault
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com/) y busque Key Vault.
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
 1. Busque y seleccione **Key Vaults**.
 
     [ ![sse-key-vault-portal-search.png](media/virtual-machines-disk-encryption-portal/sse-key-vault-portal-search.png)](media/virtual-machines-disk-encryption-portal/sse-key-vault-portal-search-expanded.png#lightbox)
@@ -30,7 +30,7 @@ La configuración de claves administradas por el cliente para los discos requeri
     > La instancia de Azure Key Vault, el conjunto de cifrado de disco, la VM, los discos y las instantáneas deben estar en la misma región y suscripción para que la implementación se realice correctamente.
 
 1. Seleccione **+Agregar** para crear una nueva instancia de Key Vault.
-1. Creación de un nuevo grupo de recursos
+1. Cree un nuevo grupo de recursos.
 1. Escriba un nombre de almacén de claves, seleccione una región y seleccione un plan de tarifa.
 1. Seleccione **Revisar y crear**, compruebe las opciones y, a continuación, seleccione **Crear**.
 
@@ -42,17 +42,15 @@ La configuración de claves administradas por el cliente para los discos requeri
 
     ![Captura de pantalla del panel de configuración de recursos de Key Vault. Muestra el botón Generar/importar en la configuración.](media/virtual-machines-disk-encryption-portal/sse-key-vault-generate-settings.png)
 
-1. Deje **Tipo de clave** establecido en **RSA** y **Tamaño de la clave RSA** establecido en **2080**.
+1. Deje **Tipo de clave** establecido en **RSA** y **Tamaño de la clave RSA** establecido en **2048**.
 1. Rellene las selecciones restantes como desee y, a continuación, seleccione **Crear**.
 
     ![Captura de pantalla de la hoja Crear una clave que aparece cuando se selecciona el botón Generar/importar](media/virtual-machines-disk-encryption-portal/sse-create-a-key-generate.png)
 
 #### <a name="setting-up-your-disk-encryption-set"></a>Configuración del conjunto de cifrado de disco
 
-Para crear y configurar conjuntos de cifrado de disco, debe usar el siguiente vínculo: https://aka.ms/diskencryptionsets. La creación del conjunto de cifrado de disco todavía no está disponible en Azure Portal global.
-
-1. Abra el [vínculo de conjuntos de cifrado de disco](https://aka.ms/diskencryptionsets).
-1. Seleccione **+Agregar**.
+1. Busque **conjuntos de cifrado de disco** y seleccione la opción.
+1. Abra la hoja **Conjuntos de cifrado de disco** y seleccione **+Agregar**.
 
     ![Captura de pantalla de la pantalla principal del portal de cifrado de discos. Resaltado del botón Agregar](media/virtual-machines-disk-encryption-portal/sse-create-disk-encryption-set.png)
 
@@ -77,7 +75,6 @@ Dos notificaciones deberían aparecer y completarse correctamente. Esto le permi
 Ahora que ha creado y configurado el almacén de claves y el conjunto de cifrado de disco, puede implementar una VM mediante el cifrado.
 El proceso de implementación de VM es similar al proceso de implementación estándar, las únicas diferencias son que debe implementar la VM en la misma región que los demás recursos y optar por usar una clave administrada por el cliente.
 
-1. Abra el [vínculo de conjuntos de cifrado de disco](https://aka.ms/diskencryptionsets).
 1. Busque **Máquinas virtuales** y seleccione **+Agregar** para crear una VM.
 1. En la pestaña **Básico**, seleccione la misma región que el conjunto de cifrado de disco y Azure Key Vault.
 1. Rellene los demás valores en la pestaña **Básico** como desee.
@@ -92,12 +89,9 @@ El proceso de implementación de VM es similar al proceso de implementación est
 
 #### <a name="enable-on-an-existing-disk"></a>Habilitación en un disco existente
 
-Para administrar y configurar el cifrado de disco en los discos existentes, debe usar el siguiente vínculo: https://aka.ms/diskencryptionsets. La habilitación de claves administradas por el cliente en discos existentes todavía no está disponible en Azure Portal global.
-
 > [!CAUTION]
 > Para habilitar el cifrado de disco en todos los discos conectados a una VM, será necesario detener la VM.
-
-1. Abra el [vínculo de conjuntos de cifrado de disco](https://aka.ms/diskencryptionsets).
+    
 1. Vaya a una VM que esté en la misma región que uno de los conjuntos de cifrado de disco.
 1. Abra la VM y seleccione **Detener**.
 

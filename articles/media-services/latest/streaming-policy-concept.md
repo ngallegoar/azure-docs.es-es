@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 05/28/2019
 ms.author: juliako
-ms.openlocfilehash: a813c77e81e51bfe13e75ed6c8d0e24b4d0fa645
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9c80056fd62173ff1e5a6ed3979adba71b7706cc
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "66392921"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582760"
 ---
 # <a name="streaming-policies"></a>Directivas de streaming
 
@@ -34,7 +34,7 @@ El siguiente árbol de decisión le ayudará a elegir una directiva predefinida 
 
 > [!IMPORTANT]
 > * Las propiedades de **directivas de streaming** que son del tipo Datetime siempre están en formato UTC.
-> * Debería diseñar un conjunto limitado de directivas para su cuenta de Media Service y reutilizarlas con los objetos StreamingLocator siempre que se necesiten las mismas opciones. Para más información, consulte [Cuotas y limitaciones](limits-quotas-constraints.md).
+> * Debería diseñar un conjunto limitado de directivas para su cuenta de Media Service y reutilizarlas con los objetos StreamingLocator siempre que se necesiten las mismas opciones. Para obtener más información, consulte [Cuotas y límites](limits-quotas-constraints.md).
 
 ## <a name="decision-tree"></a>Árbol de decisión
 

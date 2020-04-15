@@ -1,6 +1,6 @@
 ---
 title: 'Límites de capacidad: Azure Synapse Analytics (anteriormente SQL DW)'
-description: Valores máximos permitidos para los distintos componentes de SQL Analytics en Azure Synapse.
+description: Valores máximos permitidos para los distintos componentes del grupo de SQL de Synapse en Azure Synapse.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -11,12 +11,12 @@ ms.date: 2/19/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: a0343dd55149fa3c2c17af1f246595a56e4c6ec2
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: f35a5da15ca1a672046844282626a6cb7b8ecbdf
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350075"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583524"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-capacity-limits"></a>Límites de capacidad de Azure Synapse Analytics (anteriormente SQL DW)
 

@@ -1,17 +1,17 @@
 ---
-title: Uso de las plantillas de Azure Resource Manager para crear y configurar un área de trabajo de Log Analytics | Microsoft Docs
+title: Plantilla de Azure Resource Manager para el área de trabajo de Log Analytics
 description: Puede utilizar las plantillas de Azure Resource Manager para crear y configurar áreas de trabajo de Log Analytics.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/09/2020
-ms.openlocfilehash: 1b084b8cbf87817a4ff12fdb56f44b740a6d6a12
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 60f85a30815bc1bace409b50af6332bb6622d7ca
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77658904"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477980"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Administración del área de trabajo de Log Analytics mediante las plantillas de Azure Resource Manager
 
@@ -48,6 +48,9 @@ En la tabla siguiente se muestra la versión de API de los recursos usados en es
 
 En el ejemplo siguiente se crea un área de trabajo mediante una plantilla desde la máquina local. La plantilla JSON está configurada para solicitar solo el nombre y la ubicación de la nueva área de trabajo. Usa los valores especificados para otros parámetros del área de trabajo, como el [modo de control de acceso](design-logs-deployment.md#access-control-mode), el plan de tarifa, la retención y el nivel de reserva de capacidad.
 
+> [!WARNING]
+> La siguiente plantilla crea un área de trabajo Log Analytics y configura la recopilación de datos. Esta acción puede cambiar la configuración de facturación. Revise cómo [Administrar el uso y los costos con los registros de Azure Monitor](manage-cost-storage.md) para obtener información sobre la facturación de los datos recopilados en un área de trabajo de Log Analytics antes de aplicarlos en el entorno de Azure.
+
 Para la reserva de capacidad, se define una reserva de capacidad determinada para la ingesta de datos al especificar la SKU `CapacityReservation` y un valor en GB para la propiedad `capacityReservationLevel`. En la siguiente lista se detallan los valores admitidos y el comportamiento resultante al configurarlos.
 
 - Una vez establecido el límite de reserva, no se puede cambiar a una SKU diferente durante un plazo de 31 días.
@@ -75,7 +78,7 @@ Para la reserva de capacidad, se define una reserva de capacidad determinada par
               "description": "Specifies the name of the workspace."
             }
         },
-      "pricingTier": {
+      "sku": {
         "type": "string",
         "allowedValues": [
           "pergb2018",
@@ -131,7 +134,7 @@ Para la reserva de capacidad, se define una reserva de capacidad determinada par
             "location": "[parameters('location')]",
             "properties": {
                 "sku": {
-          "name": "[parameters('pricingTier')]"
+                    "name": "[parameters('sku')]"
                 },
                 "retentionInDays": 120,
                 "features": {
@@ -145,15 +148,15 @@ Para la reserva de capacidad, se define una reserva de capacidad determinada par
     }
     ```
 
-> [Información] para la configuración de reserva de capacidad, use estas propiedades en "sku":
+   >[!NOTE]
+   >Para la configuración de reserva de capacidad, use estas propiedades en "sku":
+   >* "name": "CapacityReservation",
+   >* "capacityReservationLevel": 100
 
->   "name": "CapacityReservation",
+2. Edite la plantilla para adecuarla a sus requisitos. Plantéese la posibilidad de crear un [archivo de parámetros de Resource Manager](../../azure-resource-manager/templates/parameter-files.md) en lugar de pasar los parámetros como valores insertados. Consulte la referencia [Plantilla Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) para saber qué propiedades y valores son compatibles. 
 
->   "capacityReservationLevel": 100
-
-
-2. Edite la plantilla para adecuarla a sus requisitos. Consulte la referencia [Plantilla Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) para saber qué propiedades y valores son compatibles. 
 3. Guarde este archivo como **deploylaworkspacetemplate.json** en una carpeta local.
+
 4. Está listo para implementar esta plantilla. Puede usar PowerShell o la línea de comandos para crear el área de trabajo, especificando el nombre y la ubicación de dicha área como parte del comando. El nombre del área de trabajo debe ser único globalmente en todas las suscripciones de Azure.
 
    * En PowerShell, use los siguientes comandos desde la carpeta que contenga la plantilla:
@@ -176,7 +179,7 @@ La implementación puede demorar unos minutos en completarse. Cuando termine, ve
 El siguiente ejemplo de plantilla muestra cómo realizar estas tareas:
 
 1. Agregar soluciones al área de trabajo
-2. Crear búsquedas guardadas
+2. Cree búsquedas guardadas. Para asegurarse de que las implementaciones no reemplazan las búsquedas guardadas accidentalmente, se debe agregar una propiedad eTag en el recurso "savedSearches" para reemplazar y mantener la idempotencia de las búsquedas guardadas.
 3. Crear un grupo de equipos
 4. Habilitar la recopilación de registros de IIS en equipos con el agente de Windows instalado
 5. Recopilar contadores de rendimiento de discos lógicos de equipos Linux (% de inodos usados; megabytes libres; % de espacio usado; transferencias de disco/seg.; lecturas de disco/seg.; escrituras de disco/seg.)
@@ -197,7 +200,7 @@ El siguiente ejemplo de plantilla muestra cómo realizar estas tareas:
         "description": "Workspace name"
       }
     },
-    "pricingTier": {
+    "sku": {
       "type": "string",
       "allowedValues": [
         "PerGB2018",
@@ -306,7 +309,7 @@ El siguiente ejemplo de plantilla muestra cómo realizar estas tareas:
           "immediatePurgeDataOn30Days": "[parameters('immediatePurgeDataOn30Days')]"
         },
         "sku": {
-          "name": "[parameters('pricingTier')]"
+          "name": "[parameters('sku')]"
         }
       },
       "resources": [
@@ -318,11 +321,11 @@ El siguiente ejemplo de plantilla muestra cómo realizar estas tareas:
             "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
           ],
           "properties": {
-            "Category": "VMSS",
-            "ETag": "*",
-            "DisplayName": "VMSS Instance Count",
-            "Query": "Event | where Source == \"ServiceFabricNodeBootstrapAgent\" | summarize AggregatedValue = count() by Computer",
-            "Version": 1
+            "category": "VMSS",
+            "eTag": "*",
+            "displayName": "VMSS Instance Count",
+            "query": "Event | where Source == \"ServiceFabricNodeBootstrapAgent\" | summarize AggregatedValue = count() by Computer",
+            "version": 1
           }
         },
         {
@@ -605,7 +608,7 @@ El siguiente ejemplo de plantilla muestra cómo realizar estas tareas:
       "type": "string",
       "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').customerId]"
     },
-    "pricingTier": {
+    "sku": {
       "type": "string",
       "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').sku.name]"
     },

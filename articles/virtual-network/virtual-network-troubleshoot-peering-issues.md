@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: 1fddbe908ccebc1384dcccde0810366f1a6d5da7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 662619e101b45d1dd8b34ea97e31f214b254124a
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73796235"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521878"
 ---
 # <a name="troubleshoot-virtual-network-peering-issues"></a>Solución de problemas de emparejamiento de redes virtuales
 
@@ -234,6 +234,15 @@ Para resolver esta incidencia, elimine el emparejamiento de ambas redes virtuale
 ### <a name="failed-to-peer-a-databricks-virtual-network"></a>No se pudo emparejar una red virtual de Databricks
 
 Para resolver esta incidencia, configure el emparejamiento de red virtual en **Azure Databricks** y, después, especifique la red virtual de destino mediante el **Id. de recurso**. Para obtener más información, consulte [Peer a Databricks virtual network to a remote virtual network](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-peering.html#id2) (Emparejamiento de una red virtual de Databricks con una red virtual remota).
+
+### <a name="the-remote-virtual-network-lacks-a-gateway"></a>La red virtual remota no tiene una puerta de enlace
+
+Este problema se produce cuando se emparejan redes virtuales de distintos inquilinos y posteriormente se quiere configurar `Use Remote Gateways`. Una limitación de Azure Portal es que no puede validar la presencia de una puerta de enlace de red virtual en la red virtual de otro inquilino.
+
+Hay dos maneras de resolver este problema:
+
+ * Elimine los emparejamientos y active la opción `Use Remote Gateways` cuando cree uno nuevo.
+ * Use PowerShell o la CLI, en lugar de Azure Portal, para habilitar `Use Remote Gateways`.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

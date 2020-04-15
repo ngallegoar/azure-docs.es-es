@@ -2,13 +2,13 @@
 title: Traslado de máquinas virtuales de Azure a una nueva suscripción o grupo de recursos
 description: Use Azure Resource Manager para trasladar máquinas virtuales a un nuevo grupo de recursos o a una nueva suscripción.
 ms.topic: conceptual
-ms.date: 10/10/2019
-ms.openlocfilehash: 97c49f90dab2aafd89de322e57ad44ff1fc9d367
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/31/2020
+ms.openlocfilehash: df34268b7741f76621c290e9979cf24d828ddc09
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75474918"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478671"
 ---
 # <a name="move-guidance-for-virtual-machines"></a>Guía del traslado de máquinas virtuales
 
@@ -27,18 +27,40 @@ Todavía no se admiten los siguientes escenarios:
 
 ## <a name="virtual-machines-with-azure-backup"></a>Máquinas virtuales con Azure Backup
 
-Para mover máquinas virtuales configuradas con la copia de seguridad de Azure, use la siguiente solución alternativa:
+Para trasladar las máquinas virtuales configuradas con Azure Backup, debe eliminar los puntos de restauración del almacén.
+
+Si la [eliminación temporal](../../../backup/backup-azure-security-feature-cloud.md) está habilitada para la máquina virtual, no podrá moverla mientras se conserven esos puntos de restauración. [Deshabilite la eliminación temporal](../../../backup/backup-azure-security-feature-cloud.md#disabling-soft-delete) o espere 14 días después de eliminar los puntos de restauración.
+
+### <a name="portal"></a>Portal
+
+1. Seleccione la máquina virtual que está configurada para la copia de seguridad.
+
+1. En el panel izquierdo, seleccione **Copia de seguridad**.
+
+1. Seleccione **Detener copia de seguridad**.
+
+1. Seleccione **Delete back data** (Eliminar datos de copia de seguridad).
+
+1. Después de finalizar la eliminación, puede trasladar el almacén y la máquina virtual a la suscripción de destino. Tras el traslado, puede continuar realizando las copias de seguridad.
+
+### <a name="powershell"></a>PowerShell
 
 * Busque la ubicación de la máquina virtual.
 * Busque un grupo de recursos con el patrón de nombres siguiente: `AzureBackupRG_<location of your VM>_1`, por ejemplo, AzureBackupRG_westus2_1
-* Si está en Azure Portal, active "Mostrar tipos ocultos"
 * Si se encuentra en PowerShell, use el cmdlet `Get-AzResource -ResourceGroupName AzureBackupRG_<location of your VM>_1`
+* Busque el recurso con el tipo `Microsoft.Compute/restorePointCollections` que tiene el patrón de nombres `AzureBackup_<name of your VM that you're trying to move>_###########`
+* Elimine este recurso. Esta operación elimina solo los puntos de recuperación instantáneos, no los datos de copia de seguridad que se encuentran en el almacén.
+
+### <a name="azure-cli"></a>Azure CLI
+
+* Busque la ubicación de la máquina virtual.
+* Busque un grupo de recursos con el patrón de nombres siguiente: `AzureBackupRG_<location of your VM>_1`, por ejemplo, AzureBackupRG_westus2_1
 * Si está en la CLI, use `az resource list -g AzureBackupRG_<location of your VM>_1`
 * Busque el recurso con el tipo `Microsoft.Compute/restorePointCollections` que tiene el patrón de nombres `AzureBackup_<name of your VM that you're trying to move>_###########`
 * Elimine este recurso. Esta operación elimina solo los puntos de recuperación instantáneos, no los datos de copia de seguridad que se encuentran en el almacén.
-* Después de finalizar la eliminación, puede trasladar el almacén y la máquina virtual a la suscripción de destino. Tras el traslado, puede continuar realizando las copias de seguridad sin pérdida de datos.
-* Para más información sobre cómo mover los almacenes de Recovery Services para realizar copias de seguridad, consulte [Limitaciones de Recovery Services](../../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para ver los comandos para trasladar recursos, vea [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../move-resource-group-and-subscription.md).
+* Para ver los comandos para trasladar recursos, vea [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../move-resource-group-and-subscription.md).
+
+* Para más información sobre cómo mover los almacenes de Recovery Services para realizar copias de seguridad, consulte [Limitaciones de Recovery Services](../../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json).

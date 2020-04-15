@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e71d521dce40f6a8ec81286fcc95dc97bf10078c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2a919996d00f8ef3fa00109944b60d53b63d95ff
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78189743"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529129"
 ---
 # <a name="claimstransformations"></a>ClaimsTransformations
 
@@ -163,6 +163,7 @@ Para obtener ejemplos de transformaciones de notificaciones, consulte las págin
 - [Date](date-transformations.md)
 - [Entero](integer-transformations.md)
 - [JSON](json-transformations.md)
+- [Número de teléfono](phone-number-claims-transformations.md)
 - [General](general-transformations.md)
 - [Cuenta social](social-transformations.md)
 - [String](string-transformations.md)

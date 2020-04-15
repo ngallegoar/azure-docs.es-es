@@ -1,25 +1,18 @@
 ---
-title: Uso de una plantilla para implementar máquinas virtuales de Azure Spot (versión preliminar)
+title: Uso de una plantilla para implementar máquinas virtuales de Azure Spot
 description: Aprenda a usar una plantilla para implementar máquinas virtuales de Spot para ahorrar costos.
-services: virtual-machines-linux
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/11/2020
+ms.date: 03/25/2020
 ms.author: cynthn
-ms.openlocfilehash: 0e635fe7ce9b442a9cc8f0fdf614feef5a3a756a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1352761e308aa2e26864654dae65c290df47102b
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79082802"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548253"
 ---
 # <a name="deploy-spot-vms-using-a-resource-manager-template"></a>Implementación de máquinas virtuales de Spot con una plantilla de Resource Manager
 
@@ -29,11 +22,6 @@ Los precios de las máquinas virtuales de Spot varían en función de la región
 
 Puede establecer el precio máximo por hora que esté dispuesto por la máquina virtual. El precio máximo de una máquina virtual de Spot se puede establecer en dólares estadounidenses (USD), con un máximo de 5 decimales. Por ejemplo, el valor `0.98765` correspondería a un precio máximo de 0,98765 USD por hora. Si establece el precio máximo en `-1`, la máquina virtual no se expulsará por precio. El precio de la máquina virtual será el actual de Spot o el de una máquina virtual estándar, el menor de los dos, siempre que haya capacidad y cuota disponibles. Para más información sobre la configuración del precio máximo, consulte [Máquinas virtuales de Spot - Precios](spot-vms.md#pricing).
 
-> [!IMPORTANT]
-> Las instancias de Spot se encuentran actualmente en versión preliminar pública,
-> la cual no se recomienda para las cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
 
 ## <a name="use-a-template"></a>Uso de una plantilla
 

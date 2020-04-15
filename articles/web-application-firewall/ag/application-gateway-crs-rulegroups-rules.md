@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 0303f09e5e704a18576bf50d1f00007f7f86f320
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 563aa701c1403a1ef26c6073496e7e59c7c5096c
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79235708"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521841"
 ---
 # <a name="web-application-firewall-crs-rule-groups-and-rules"></a>Reglas y grupos de reglas de CRS de Firewall de aplicaciones Web
 
@@ -281,6 +281,7 @@ Los siguientes grupos de reglas y reglas están disponibles cuando se usa el Fir
 |---|---|
 |942100|Ataque por inyección de código SQL detectado mediante libinjection|
 |942110|Ataque por inyección de código SQL: Pruebas de inyección de código detectadas|
+|942120|Ataque por inyección de código SQL: Se detectó un operador SQL|
 |942130|Ataque por inyección de código SQL: Tautología de SQL detectada.|
 |942140|Ataque por inyección de código SQL = nombres de base de datos comunes detectados|
 |942150|Ataque por inyección de código SQL|

@@ -9,12 +9,12 @@ ms.topic: how-to
 author: peterclu
 ms.author: peterlu
 ms.date: 01/16/2020
-ms.openlocfilehash: 8cd49f9714746578ec701e22f9e6b0ccce772c6b
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 1ad7677607d625f673546a6ea29ea58b80a8d1b5
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78942297"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546755"
 ---
 # <a name="import-your-data-into-azure-machine-learning-designer-preview"></a>Importación de datos en el diseñador de Azure Machine Learning (versión preliminar)
 
@@ -46,7 +46,6 @@ Sus conjuntos de datos registrados se pueden encontrar en la paleta del módulo,
 ![Captura de pantalla que muestra la ubicación de los conjuntos de datos guardados en la paleta del diseñador](media/how-to-designer-import-data/use-datasets-designer.png)
 
 
-
 > [!NOTE]
 > Actualmente, el diseñador solo admite el procesamiento de [conjuntos de datos tabulares](how-to-create-register-datasets.md#dataset-types). Si desea usar [conjuntos de datos de archivo](how-to-create-register-datasets.md#dataset-types), use el SDK de Azure Machine Learning disponible para Python y R.
 
@@ -56,8 +55,8 @@ Aunque es aconsejable usar conjuntos de datos para importar datos, también se p
 
 Para más información acerca de cómo usar el módulo Import Data (Importar datos), consulte la [página de referencia Importar datos](algorithm-module-reference/import-data.md).
 
-[!NOTE]
-> Si los datos tienen muchas columnas, puede encontrar "Error en la validación debido a una limitación de tamaño" en el módulo de importación de datos. Esto se debe a que las columnas excluyen la longitud del parámetro del módulo máxima después de la codificación. En este caso, se recomienda [registrar el conjunto de datos en la interfaz de usuario de Datasets](how-to-create-register-datasets.md#use-the-ui), lo que puede evitar el error.  
+> [!NOTE]
+> Si el conjunto de datos tiene demasiadas columnas, puede encontrar el siguiente error: "Validation failed due to size limitation" (Error de validación debido a un límite de tamaño). Para evitar esto, [registre el conjunto de datos en la interfaz de conjuntos de datos](how-to-create-register-datasets.md#use-the-ui).
 
 ## <a name="supported-sources"></a>Orígenes compatibles
 

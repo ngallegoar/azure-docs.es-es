@@ -11,23 +11,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/29/2019
+ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: b90910614bcd86a54198b1a0961a3378427ea87e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6a751fa193c8dd530707f790af0292d536a6f47d
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73164154"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80420459"
 ---
-# <a name="deploy-virtual-machine-scale-sets-with-ipv6-in-azure-preview"></a>Implementación de conjuntos de escalado de máquinas virtuales con IPv6 en Azure (versión preliminar)
+# <a name="deploy-virtual-machine-scale-sets-with-ipv6-in-azure"></a>Implementación de conjuntos de escalado de máquinas virtuales con IPv6 en Azure
 
 En este artículo se muestra cómo implementar un conjunto de escalado de máquinas virtuales de pila doble (IPv4 + IPv6) con un equilibrador de carga externo de pila doble en una red virtual de Azure. El proceso para crear un conjunto de escalado de máquinas virtuales compatible con IPv6 es casi idéntico al de crear máquinas virtuales individuales que se describe [aquí](ipv6-configure-standard-load-balancer-template-json.md). Empezará con los pasos que son similares a los descritos para las máquinas virtuales individuales:
-1.  Crear direcciones IP públicas IPv4 e IPv6
-2.  Crear un equilibrador de carga de pila doble  
-3.  Crear reglas del grupo de seguridad de red (NSG)  
+1.    Crear direcciones IP públicas IPv4 e IPv6
+2.    Crear un equilibrador de carga de pila doble  
+3.    Crear reglas del grupo de seguridad de red (NSG)  
 
-El único paso que no es igual en las máquinas virtuales individuales es la creación de la configuración de interfaz de red (NIC) que usa el recurso del conjunto de escalado de máquinas virtuales networkProfile/networkInterfaceConfigurations. La estructura JSON es similar a la del objeto Microsoft.Network/networkInterfaces que se usa para las máquinas virtuales individuales, pero se agrega la NIC y la configuración de IpConfiguration de IPv4 como interfaz principal mediante el atributo **“primary”: true**, tal como se aprecia en el ejemplo siguiente:
+El único paso que no es igual en las máquinas virtuales individuales es la creación de la configuración de interfaz de red (NIC) que usa el recurso del conjunto de escalado de máquinas virtuales networkProfile/networkInterfaceConfigurations. La estructura JSON es similar a la del objeto Microsoft.Network/networkInterfaces que se usa para las máquinas virtuales individuales, pero se agrega la NIC y la configuración de IpConfiguration de IPv4 como interfaz principal mediante el atributo **"primary": true**, tal como se aprecia en el ejemplo siguiente:
 
 ```json
           "networkProfile": {

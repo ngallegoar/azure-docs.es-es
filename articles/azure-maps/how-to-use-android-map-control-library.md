@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 55bfb5030d0a168e7556240212fcd5f3be30a289
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6e0f0f311b7ec8adae6ddb25e01046141adadfa4
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80335359"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548533"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Introducción a Android SDK para Azure Maps
 
 Android SDK para Azure Maps es una biblioteca de mapas vectoriales para Android. En este artículo se ofrece orientación sobre los procesos para instalar Android SDK para Azure Maps y cargar un mapa.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 ### <a name="create-an-azure-maps-account"></a>Crear una cuenta de Azure Maps
 
@@ -267,6 +267,29 @@ Este es un ejemplo de Azure Maps con el idioma establecido en "fr-FR" y la vista
 </center>
 
 [Aquí](supported-languages.md) encontrará una lista completa de los idiomas y vistas regionales admitidos.
+
+## <a name="navigating-the-map"></a>Navegación por el mapa
+
+Hay varias maneras de ampliar, desplazar lateralmente, girar e inclinar el mapa. A continuación se detallan todas las formas de navegar por el mapa.
+
+**Acercamiento/alejamiento del mapa**
+
+- Toque el mapa con dos dedos y acérquelos para alejarse o aléjelos para acercarse.
+- Pulse dos veces el mapa para acercarse un nivel.
+- Pulse dos veces con dos dedos para alejar el mapa un nivel.
+- Pulse dos veces; en la segunda pulsación, mantenga presionado el dedo en el mapa y arrástrelo hacia arriba o hacia abajo para acercar o alejar la imagen, respectivamente.
+
+**Desplazamiento lateral del mapa**
+
+- Toque el mapa y arrastre en cualquier dirección.
+
+**Giro del mapa**
+
+- Toque el mapa con dos dedos y gírelos.
+
+**Inclinación del mapa**
+
+- Toque el mapa con dos dedos y arrástrelos hacia arriba o hacia abajo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

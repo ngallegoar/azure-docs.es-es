@@ -8,23 +8,31 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 967fd1fa182b7c8e581fd74cc287c5a6ba0e4038
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8c5de43ed29856451ad67e02a426b07cc34a0d54
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79127829"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422411"
 ---
 # <a name="linux-support"></a>Compatibilidad de Linux
 
-Puede usar el SDK de Linux para Windows Virtual Desktop para compilar un cliente independiente de Windows Virtual Desktop. También puede usarlo para habilitar la compatibilidad con Windows Virtual Desktop en la aplicación cliente. En esta guía rápida se explicará qué es el SDK de Linux y cómo puede empezar a usarlo.
+Los asociados pueden usar el SDK de Linux para Windows Virtual Desktop para compilar un cliente independiente de Windows Virtual Desktop. También puede usarlo para habilitar la compatibilidad con Windows Virtual Desktop en la aplicación cliente. En esta guía rápida se explicará qué es el SDK de Linux y cómo puede empezar a usarlo.
+
+## <a name="connect-with-your-linux-device"></a>Conexión con el dispositivo Linux
+
+Los siguientes asociados tienen clientes de Windows Virtual Desktop aprobados para dispositivos Linux.
+
+|Asociado|Documentación de asociado|Soporte técnico del asociado|
+|:------|:--------------------|:--------------|
+|![Logotipo de IGEL](./media/partners/igel.png)|[Documentación del cliente de IGEL](https://www.igel.com/igel-solution-family/windows-virtual-desktop/)|[Soporte técnico de IGEL](https://www.igel.com/support/)|
 
 ## <a name="what-is-the-linux-sdk"></a>¿Qué es el SDK de Linux?
 
 Puede usar las API del SDK para recuperar fuentes de recursos, conectarse a sesiones de escritorio o de aplicaciones remotas y usar muchos de los redireccionamientos que admiten los clientes de nuestra plataforma.
 
 > [!NOTE]
-> El SDK está actualmente en desarrollo. Este documento se actualizará con instrucciones para acceder al SDK cuando esté disponible.
+> El SDK está actualmente en desarrollo. Este documento se actualizará con instrucciones para acceder al SDK cuando tenga disponibilidad general.
 
 ### <a name="supported-linux-distributions"></a>Distribuciones de Linux compatibles
 

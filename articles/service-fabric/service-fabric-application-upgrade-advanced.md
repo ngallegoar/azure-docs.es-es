@@ -3,12 +3,12 @@ title: Temas avanzados de actualización de aplicación
 description: En este artículo se tratan algunos temas avanzados relacionados con la actualización de una aplicación de Service Fabric.
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: 09f3fdf1f26a13c6722eb039e132256f33be38ff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 182ab6dc1663e160561b8941ebf3a36b5af3d950
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76845437"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422805"
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Actualización de la aplicación de Service Fabric: temas avanzados
 
@@ -20,9 +20,9 @@ De manera similar, los tipos de servicio pueden quitarse de una aplicación como
 
 ## <a name="avoid-connection-drops-during-stateless-service-planned-downtime-preview"></a>Evitar interrupciones de la conexión durante el tiempo de inactividad planeado del servicio sin estado (versión preliminar)
 
-En el caso de tiempos de inactividad planeados de instancias sin estado, como la actualización de aplicaciones o clústeres o la desactivación de nodos, las conexiones se pueden interrumpir debido a que el punto de conexión expuesto se quita después de que se desactiva.
+En el caso de tiempos de inactividad planeados de instancias sin estado, como la actualización de aplicaciones o clústeres o la desactivación de nodos, las conexiones se pueden interrumpir debido a que el punto de conexión expuesto se quita después de que se desactiva. Como resultado, se realizan clausuras de conexión forzadas.
 
-Para evitar esto, configure la característica *RequestDrain* (versión preliminar) agregando una *duración de retraso del cierre de la instancia* de la réplica en la configuración del servicio. De esta forma se garantiza que el punto de conexión anunciado por la instancia sin estado se quita *antes* de que se inicie el temporizador de retraso para cerrar la instancia. Este retraso permite que las solicitudes existentes se vacíen correctamente antes de que la instancia se desactive realmente. A los clientes se les notifica el cambio del punto de conexión mediante la función de devolución de llamada, por lo que pueden volver a resolver el punto de conexión y evitar el envío de nuevas solicitudes a la instancia que se desactiva.
+Para evitar esta situación, configure la característica *RequestDrain* (versión preliminar). Para ello, agregue un*intervalo de retraso de clausura de instancia* en la configuración del servicio para permitir las purgas mientras se reciben solicitudes de otros servicios dentro del clúster que usan el proxy inverso o la API de resolución con el modelo de notificación para actualizar los puntos de conexión. De esta forma se garantiza que el punto de conexión anunciado por la instancia sin estado se quita *antes* de que se inicie el retraso antes de cerrar la instancia. Este retraso permite que las solicitudes existentes se vacíen correctamente antes de que la instancia se desactive realmente. A los clientes se les notifica el cambio del punto de conexión mediante una función de devolución de llamada en el momento en que inicia el retraso, por lo que pueden volver a resolver el punto de conexión y evitar el envío de nuevas solicitudes a la instancia que se desactivará.
 
 ### <a name="service-configuration"></a>Configuración del servicio
 
@@ -50,24 +50,8 @@ Hay varias maneras de configurar el retraso en el lado del servicio.
 
 ### <a name="client-configuration"></a>Configuración de cliente
 
-Para recibir una notificación cuando un punto de conexión ha cambiado, los clientes pueden registrar una devolución de llamada (`ServiceManager_ServiceNotificationFilterMatched`) como esta: 
-
-```csharp
-    var filterDescription = new ServiceNotificationFilterDescription
-    {
-        Name = new Uri(serviceName),
-        MatchNamePrefix = true
-    };
-    fbClient.ServiceManager.ServiceNotificationFilterMatched += ServiceManager_ServiceNotificationFilterMatched;
-    await fbClient.ServiceManager.RegisterServiceNotificationFilterAsync(filterDescription);
-
-private static void ServiceManager_ServiceNotificationFilterMatched(object sender, EventArgs e)
-{
-      // Resolve service to get a new endpoint list
-}
-```
-
-La notificación de cambios es una indicación de que los puntos de conexión han cambiado, de que el cliente debe volver a resolver los puntos de conexión y de que no se deben usar los puntos de conexión que ya no se anuncian, ya que se desactivarán pronto.
+Para recibir una notificación cuando un punto de conexión ha cambiado, los clientes deben registrar una devolución de llamada; consulte[ServiceNotificationFilterDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicenotificationfilterdescription).
+La notificación de cambios indica que los puntos de conexión han cambiado, que el cliente debe volver a resolver los puntos de conexión y que no se deben usar los puntos de conexión que ya no se anuncian, ya que se desactivarán pronto.
 
 ### <a name="optional-upgrade-overrides"></a>Invalidaciones de actualización opcionales
 
@@ -80,6 +64,16 @@ Start-ServiceFabricClusterUpgrade [-CodePackageVersion] <String> [-ClusterManife
 ```
 
 La duración del retraso solo se aplica a la instancia de actualización invocada y no cambia las configuraciones del retraso de los servicios individuales. Por ejemplo, puede usarla para especificar un retraso de `0` con el fin de omitir los retrasos de actualización preconfigurados.
+
+> [!NOTE]
+> La configuración para purgar solicitudes no es compatible con las solicitudes de Azure Load Balancer. No se respeta la configuración si el servicio que realiza la llamada usa la resolución basada en reclamaciones.
+>
+>
+
+> [!NOTE]
+> Esta característica se puede configurar en los servicios actuales mediante el cmdlet Update-ServiceFabricService, como se mencionó anteriormente, cuando la versión del código del clúster es 7.1.XXX o superior.
+>
+>
 
 ## <a name="manual-upgrade-mode"></a>Modo de actualización manual
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: f655b7793bfbb5bbeddfc2f1f8e7bc973dabeb4c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cd3881617227430488f8dd3f2f3d24072b24b8ce
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74687370"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478730"
 ---
 # <a name="introduction-to-app-service-environment-v1"></a>Introducción a App Service Environment v1
 
@@ -48,7 +48,7 @@ Todos los recursos de proceso de un entorno de App Service están dedicados excl
 
 Un entorno de este tipo se compone de un grupo de recursos de proceso front-end y de entre uno a tres grupos de recursos de proceso de trabajo.
 
-El grupo de servidores front-end contiene los recursos de proceso responsables de la terminación SSL y del equilibrio de carga automático de las solicitudes de aplicación dentro de un entorno de App Service.
+El grupo de servidores front-end contiene los recursos de proceso responsables de la terminación TLS y del equilibrio de carga automático de las solicitudes de aplicación dentro de un entorno de App Service.
 
 Cada grupo de trabajo contiene recursos de proceso asignados a [planes de App Service][AppServicePlan] que, a su vez, contienen una o más aplicaciones de Azure App Service.  Como en un entorno de App Service puede haber hasta tres grupos de trabajo distintos, tiene la flexibilidad de elegir diferentes recursos de proceso para cada grupo de trabajo.  
 

@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 03/30/2020
 ms.author: juliako
-ms.openlocfilehash: eacbeca275192e1a68b6682c3036da2d5c09bd54
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dd41596b6631bb63e1625325f8bec065b43881cd
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77619890"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421395"
 ---
 # <a name="video-indexer-frequently-asked-questions"></a>Preguntas más frecuentes sobre Video Indexer
 
@@ -175,6 +175,12 @@ Los tokens de acceso son necesarios para usar las API de Video Indexer por motiv
 ### <a name="how-often-do-i-need-to-get-a-new-access-token-when-do-access-tokens-expire"></a>¿Con qué frecuencia es necesario obtener un nuevo token de acceso? ¿Cuándo expiran los tokens de acceso?
 
 Los tokens de acceso expiran cada hora, por lo que tendrá que generar un nuevo token de acceso cada hora. 
+
+### <a name="what-are-the-login-options-to-video-indexer-developer-portal"></a>¿Cuáles son las opciones de inicio de sesión para el portal para desarrolladores de Video Indexer?
+
+Puede iniciar sesión con Azure AD o con una cuenta de Microsoft, Google o Facebook. 
+
+Una vez que haya registrado su cuenta de correo electrónico mediante un proveedor de identidades, no podrá usarla con otro proveedor de identidades.
 
 ## <a name="billing-questions"></a>Preguntas sobre facturación
 

@@ -12,19 +12,19 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: d061a132699e733e78a7d717ee32222b158d73b4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f265cdc955becd53ae7ba61ad827b2be69b92907
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74927533"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618268"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Actividad de eliminación en Azure Data Factory
 
 Puede usar la actividad de eliminación en Azure Data Factory para eliminar archivos o carpetas de almacenes locales o almacenes en la nube. Utilice esta actividad para limpiar o archivar los archivos cuando ya no se necesiten.
 
 > [!WARNING]
-> No se pueden restaurar las carpetas ni los archivos eliminados. Tenga cuidado al usar la actividad de eliminación para eliminar archivos o carpetas.
+> Los archivos o carpetas eliminados no se pueden restaurar (a menos que el almacenamiento tenga habilitada la función de eliminación temporal). Tenga cuidado al usar la actividad de eliminación para eliminar archivos o carpetas.
 
 ## <a name="best-practices"></a>Procedimientos recomendados
 

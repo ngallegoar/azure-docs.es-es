@@ -5,12 +5,12 @@ ms.assetid: dabda633-e72f-4dd4-bf1c-6e945da456fd
 ms.topic: article
 ms.date: 02/25/2016
 ms.custom: seodec18
-ms.openlocfilehash: 200effab70b369d69b4e89b1901578ecfe1a1b87
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 040f84288c66f4506919e775b9ea41324b617cfa
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74684099"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437896"
 ---
 # <a name="controlling-azure-app-service-traffic-with-azure-traffic-manager"></a>Control del tráfico de Azure App Service con Azure Traffic Manager
 > [!NOTE]
@@ -41,8 +41,9 @@ Cuando utilice el Administrador de tráfico de Azure con Azure, tenga en cuenta 
 * Solo puede especificar un punto de conexión de App Service por región en un perfil. Cuando selecciona una aplicación como un punto de conexión para una región, las aplicaciones restantes de esa región dejan de estar disponibles para su selección para ese perfil.
 * Los puntos de conexión de App Service que especifica en un perfil de Azure Traffic Manager aparecen en la sección **Nombres de dominio** de la página Configuración de la aplicación del perfil, pero no se configuran ahí.
 * Después de agregar una aplicación web a un perfil, la **URL del sitio** del panel de la página del portal de la aplicación web muestra la dirección URL del dominio personalizado de la aplicación web si ha configurado alguna. De lo contrario, muestra la del perfil de Traffic Manager (por ejemplo, `contoso.trafficmanager.net`). Tanto el nombre de dominio directo de la aplicación como la dirección URL de Traffic Manager se ven en la página Configuración de dicha aplicación, en la sección **Nombres de dominio**.
-* Los nombres de dominio personalizado funcionan según lo previsto, pero además de agregarlos a las aplicaciones, también debe configurar la asignación de DNS para que apunte a la dirección URL de Traffic Manager. Para información sobre cómo configurar un dominio personalizado para una aplicación de App Service, consulte [Asignación de un nombre DNS personalizado a Azure App Service](app-service-web-tutorial-custom-domain.md).
+* Los nombres de dominio personalizado funcionan según lo previsto, pero además de agregarlos a las aplicaciones, también debe configurar la asignación de DNS para que apunte a la dirección URL de Traffic Manager. Para obtener información sobre cómo configurar un dominio personalizado para una aplicación de App Service, consulte [Configuración de un nombre de dominio personalizado en Azure App Service con la integración de Traffic Manager](configure-domain-traffic-manager.md).
 * Solo puede agregar aplicaciones que estén en modo estándar o premium a un perfil de Azure Traffic Manager.
+* Al agregar una aplicación a un perfil de Traffic Manager, la aplicación se reinicia.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Si desea obtener información general de carácter técnico y conceptual del Administrador de tráfico de Azure, consulte [Información general sobre el Administrador de tráfico](../traffic-manager/traffic-manager-overview.md).

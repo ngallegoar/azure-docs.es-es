@@ -1,22 +1,14 @@
 ---
 title: 'Revisión de expresiones de usuario: LUIS'
-titleSuffix: Azure Cognitive Services
 description: Con el aprendizaje activo, puede revisar las expresiones de punto de conexión para intenciones y entidades correctas. LUIS elige las expresiones de punto de conexión de las cuales no está seguro.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/23/2020
-ms.author: diberry
-ms.openlocfilehash: 375d4b4e7c3fcafbdfde1ff447bedc3e16aff2f2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.openlocfilehash: 8d267fc441dc2cbf7f8ae3746486d5e7be55f135
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79218786"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546850"
 ---
 # <a name="concepts-for-enabling-active-learning-by-reviewing-endpoint-utterances"></a>Conceptos para habilitar el aprendizaje activo mediante la revisión de expresiones de punto de conexión
 El aprendizaje activo es una de las tres estrategias para mejorar la precisión de la predicción y la más fácil de implementar. Con el aprendizaje activo, puede revisar las expresiones de punto de conexión para intenciones y entidades correctas. LUIS elige las expresiones de punto de conexión de las cuales no está seguro.
@@ -29,6 +21,8 @@ En LUIS se agregan expresiones a la lista de revisión cuando la primera intenci
 
 ## <a name="single-pool-for-utterances-per-app"></a>Grupo único de expresiones por aplicación
 La lista **Review endpoint utterances** (Revisión de las expresiones de punto de conexión) no cambia según la versión. Existe un único grupo de expresiones para revisar, independientemente de la versión que esté editando activamente o de la versión de la aplicación que se haya publicado en el punto de conexión.
+
+En la [API REST](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/58b6f32139e2bb139ce823c9), el nombre de la versión es obligatorio y debe existir en la aplicación, aunque no se usa después de la validación. Los expresiones de revisión se aplican a toda la aplicación. Si quita expresiones de una _versión_, todas las versiones se verán afectadas.
 
 ## <a name="where-are-the-utterances-from"></a>De dónde provienen las expresiones
 Las expresiones de punto de conexión se obtienen de las consultas del usuario final en el punto de conexión HTTP de la aplicación. Si la aplicación no se ha publicado o todavía no ha recibido visitas, no hay ninguna expresión para revisar. Si las visitas del punto de conexión se reciben para una intención o entidad específica, no habrá expresiones para revisar que las contengan.

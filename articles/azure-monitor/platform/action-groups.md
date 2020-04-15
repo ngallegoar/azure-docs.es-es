@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 2/18/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 6ba48f3c40e45afa02e03a7589e968cca723118e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9bc191bb27ebb0bac631ef5cfa8ddc34bbd8214e
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79226560"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520890"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Creación y administración de grupos de acciones en Azure Portal
 Un grupo de acciones es una colección de las preferencias de notificación que el propietario de una suscripción de Azure define. Las alertas de Azure Monitor y Service Health usan grupos de acciones para notificar a los usuarios que se ha desencadenado una alerta. Varias alertas pueden usar el mismo grupo de acciones o distintos grupos de acciones en función de los requisitos del usuario. Puede configurar un máximo de 2000 grupos de acciones en una suscripción.
@@ -52,7 +52,7 @@ Para más información sobre el uso de plantillas de Azure Resource Manager para
 
     1. **Name**: escriba un identificador único para esta acción.
 
-    1. **Tipo de acción**: seleccione correo electrónico, SMS, notificación push, voz, aplicación lógica, webhook, ITSM o runbook de Automation.
+    1. **Tipo de acción**: seleccione runbook de Automation, función de Azure, rol de Azure Resource Manager de correo, acción de correo/SMS/push/voz, ITSM, aplicación lógica, webhook seguro, o webhook.
 
     1. **Detalles**: según el tipo de acción, proporcione un número de teléfono, una dirección de correo electrónico o un identificador URI de webhook, una aplicación de Azure, una conexión de ITSM o un runbook de Automation. Para la acción de ITSM, especifique además **Elemento de trabajo** y otros campos que requiera la herramienta ITSM.
     

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: a1dbabafe32e013d526ed88a83e446ee765cdb7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a3b738d95b5b777f1cf0329fb3c1bc3e2860421e
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76045870"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80545968"
 ---
 # <a name="introduction-to-azure-security"></a>Introducción a la seguridad de Azure
 ## <a name="overview"></a>Información general
@@ -233,11 +233,11 @@ Microsoft [Azure Application Gateway](../../application-gateway/overview.md) cue
 
 ![Application Gateway](./media/overview/azure-security-fig2.png)
 
-Le permite optimizar la productividad de las granjas de servidores web traspasando la carga de la terminación SSL con mayor actividad de la CPU a Application Gateway (lo que también se conoce como "descarga SSL" o "puente SSL"). Además, dispone de otras funcionalidades de enrutamiento de nivel 7, como la distribución round robin del tráfico entrante, la afinidad de sesiones basada en cookies, el enrutamiento basado en rutas de acceso URL y la capacidad de hospedar varios sitios web tras una única instancia de Application Gateway. Azure Application Gateway es un equilibrador de carga de nivel 7.
+Le permite optimizar la productividad de las granjas de servidores web al traspasar la carga de la terminación TLS con mayor actividad de la CPU a Application Gateway (lo que también se conoce como "descarga TLS" o "puente TLS"). Además, dispone de otras funcionalidades de enrutamiento de nivel 7, como la distribución round robin del tráfico entrante, la afinidad de sesiones basada en cookies, el enrutamiento basado en rutas de acceso URL y la capacidad de hospedar varios sitios web tras una única instancia de Application Gateway. Azure Application Gateway es un equilibrador de carga de nivel 7.
 
 Proporciona conmutación por error, solicitudes HTTP de enrutamiento de rendimiento entre distintos servidores, independientemente de que se encuentren en la nube o en una implementación local.
 
-La aplicación proporciona numerosas características de controlador de entrega de aplicaciones (ADC), entre las que se incluyen el equilibrio de carga HTTP, la afinidad de sesiones basada en cookies, la descarga [SSL (Capa de sockets seguros)](../../application-gateway/tutorial-restrict-web-traffic-powershell.md), los sondeos personalizados sobre el estado y la compatibilidad con sitios múltiples.
+La aplicación proporciona numerosas características de controlador de entrega de aplicaciones (ADC), entre las que se incluyen el equilibrio de carga HTTP, la afinidad de sesiones basada en cookies, la [descarga TLS](../../application-gateway/tutorial-restrict-web-traffic-powershell.md), los sondeos personalizados sobre el estado y la compatibilidad con sitios múltiples.
 
 ### <a name="web-application-firewall"></a>Firewall de aplicaciones web
 El firewall de aplicaciones web (WAF) es una característica de [Azure Application Gateway](../../application-gateway/overview.md) diseñada para proteger las aplicaciones web que utilizan la puerta de enlace de aplicaciones para funciones estándar de Application Delivery Control (ADC). El firewall de aplicaciones web ofrece protección contra las diez vulnerabilidades web más comunes identificadas por OWASP.

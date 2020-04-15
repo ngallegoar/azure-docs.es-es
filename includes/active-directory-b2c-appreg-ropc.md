@@ -5,12 +5,12 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 10/16/2019
 ms.author: mimart
-ms.openlocfilehash: 03329252c0ed4231585d1717d9361a2aef35b36f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cea3245176e6c38137d68e3ad4b47477bedc78be
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78187017"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529187"
 ---
 Para registrar una aplicación en el inquilino de Azure AD B2C, puede usar la experiencia **Aplicaciones** actual o la nueva experiencia **Registros de aplicaciones (versión preliminar)** unificada. [Más información acerca de la nueva experiencia](https://aka.ms/b2cappregintro).
 
@@ -37,4 +37,10 @@ Para registrar una aplicación en el inquilino de Azure AD B2C, puede usar la e
 1. En **Administrar**, seleccione **Autenticación**.
 1. Seleccione **Probar la nueva experiencia** (si se muestra).
 1. En **Tipo de cliente predeterminado**, seleccione **Sí** para tratar el cliente como un cliente público. Esta opción de configuración es necesaria para el flujo de ROPC.
+1. Seleccione **Guardar**.
+1. En el menú de la izquierda, seleccione **Manifiesto** para abrir el editor de manifiestos. 
+1. Establezca el atributo **oauth2AllowImplicitFlow** en *true*:
+    ```json
+    "oauth2AllowImplicitFlow": true,
+    ```
 1. Seleccione **Guardar**.

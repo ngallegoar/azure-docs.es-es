@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 02/08/2019
-ms.openlocfilehash: 41dd336bdb74fbe745ab48ebd3c168af0492ae2c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2a048ddefbcd76193436da13cd3ba68b8b6ffb0a
+ms.sourcegitcommit: 515482c6348d5bef78bb5def9b71c01bb469ed80
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75691016"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80607594"
 ---
 # <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>Replicación transaccional con bases de datos únicas, agrupadas y de instancia en Azure SQL Database
 
@@ -95,7 +95,7 @@ Existen distintos [tipos de replicación](https://docs.microsoft.com/sql/relatio
 - La conectividad usa la autenticación de SQL entre los participantes de la replicación. 
 - Un recurso compartido de cuenta de Azure Storage para el directorio de trabajo empleado para la replicación. 
 - El puerto 445 (salida TCP) debe estar abierto en las reglas de seguridad de la subred de la instancia administrada para acceder al recurso compartido de archivos de Azure. 
-- El puerto 1433 (salida TCP) debe estar abierto si el publicador o distribuidor se encuentran en una instancia administrada y el suscriptor es local.
+- El puerto 1433 (salida TCP) debe estar abierto si el publicador o distribuidor se encuentra en una instancia administrada y el suscriptor no. Es posible que también deba cambiar la regla de seguridad de NSG de la instancia administrada para `allow_linkedserver_outbound` de la **Etiqueta de servicio de destino** del puerto 1433 de `virtualnetwork` a `internet`. 
 - Todos los tipos de participantes de la replicación (editor, distribuidor, suscriptor de extracción y suscriptor de inserción) se pueden colocar en instancias administradas, pero el editor y el distribuidor deben estar tanto en la nube como en el entorno local.
 - Si el publicador, el distribuidor o el suscriptor existen en redes virtuales diferentes, se debe establecer el emparejamiento de VPN entre cada entidad, de modo que haya un emparejamiento de VPN entre el publicador y el distribuidor, y/o el emparejamiento de VPN entre el distribuidor y el suscriptor. 
 

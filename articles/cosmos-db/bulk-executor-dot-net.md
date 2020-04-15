@@ -6,23 +6,28 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 09/01/2019
+ms.date: 03/23/2020
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: d7600267dcd196a9a5c06c29774ea21d582cd7ce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 40ef05107f20a3396f6710f894a2dbad2d7fa6c9
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79225748"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478850"
 ---
 # <a name="use-the-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Uso de la biblioteca BulkExecutor en .NET para realizar operaciones en bloque en Azure Cosmos DB
+
+> [!NOTE]
+> La biblioteca de Bulk Executor que se describe en este artículo se mantiene para las aplicaciones que usan la versión 2.x del SDK de .NET. En el caso de las aplicaciones nuevas, puede usar la **compatibilidad con lotes** que está disponible directamente con el [SDK de .NET versión 3.x](tutorial-sql-api-dotnet-bulk-import.md) y no requiere ninguna biblioteca externa. 
+
+> Si actualmente usa la biblioteca Bulk Executor y planea migrar a la compatibilidad con lotes del SDK más reciente, siga los pasos descritos en la [guía de migración](how-to-migrate-from-bulk-executor-library.md) para migrar la aplicación.
 
 En este tutorial se proporcionan instrucciones sobre cómo usar la biblioteca BulkExecutor en .NET para importar y actualizar documentos en un contenedor de Azure Cosmos. Para información sobre la biblioteca BulkExecutor y cómo ayuda a aprovechar la capacidad masiva de almacenamiento y proceso, consulte el artículo de [información general sobre la biblioteca BulkExecutor](bulk-executor-overview.md). En este tutorial verá una aplicación de .NET de ejemplo que importa en bloque documentos generados de manera aleatoria en un contenedor de Azure Cosmos. Después de la importación, muestra cómo se pueden actualizar en masa los datos importados al especificar revisiones como operaciones que se deben realizar en campos de documentos específicos.
 
 Actualmente, la biblioteca BulkExecutor solo es compatible con las cuentas de API de SQL y de Gremlin API de Azure Cosmos DB. En este artículo se describe cómo usar la biblioteca BulkExecutor en .NET con las cuentas de API de SQL. Para obtener información acerca de cómo utilizar la biblioteca BulkExecutor en .NET con cuentas de Gremlin API, consulte la información sobre la [realización de operaciones en bloque en Gremlin API de Azure Cosmos DB](bulk-executor-graph-dotnet.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Si aún no tiene Visual Studio 2019 instalado, puede descargar y usar la versión [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Asegúrese de que habilita "Desarrollo de Azure" durante la instalación de Visual Studio.
 

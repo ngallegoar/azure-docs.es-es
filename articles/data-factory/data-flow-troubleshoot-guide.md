@@ -7,13 +7,13 @@ author: kromerm
 manager: anandsub
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 02/04/2020
-ms.openlocfilehash: e2e1ddd031041f49107545cd0b3d3de4eaebcd6d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/02/2020
+ms.openlocfilehash: a5244086c185c111762496086f8044f12f52be14
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77472135"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632588"
 ---
 # <a name="troubleshoot-data-flows-in-azure-data-factory"></a>Solución de problemas de flujos de datos en Azure Data Factory
 
@@ -55,6 +55,18 @@ En este artículo se exploran métodos comunes de solución de problemas de fluj
 - **Mensaje**: Column name needs to be specified in the query, set an alias if using a SQL function (Es necesario especificar el nombre de la columna en la consulta; establezca un alias si usa una función SQL).
 - **Causas**: no se ha especificado ningún nombre de columna.
 - **Recomendación:** establezca un alias si usa una función SQL, como min()/max(), etc.
+
+### <a name="error-code-getcommand-outputasync-failed"></a>Código de error: Error de GetCommand OutputAsync
+
+- **Mensaje**: Durante la depuración de Data Flow y la vista previa de datos: Error de GetCommand OutputAsync con...
+- **Causas**: Se trata de un error del servicio de back-end. Puede volver a intentar la operación y reiniciar la sesión de depuración.
+- **Recomendación:** Si reintentar y reiniciar no resuelven el problema, póngase en contacto con el soporte al cliente.
+
+### <a name="error-code-hit-unexpected-exception-and-execution-failed"></a>Código de error: Se obtuvo una excepción inesperada y se produjo un error de ejecución
+
+- **Mensaje**: Durante la ejecución de una actividad de Data Flow: Se obtuvo una excepción inesperada y se produjo un error de ejecución.
+- **Causas**: Se trata de un error del servicio de back-end. Puede volver a intentar la operación y reiniciar la sesión de depuración.
+- **Recomendación:** Si reintentar y reiniciar no resuelven el problema, póngase en contacto con el soporte al cliente.
 
 ## <a name="general-troubleshooting-guidance"></a>Guía de solución de problemas generales
 

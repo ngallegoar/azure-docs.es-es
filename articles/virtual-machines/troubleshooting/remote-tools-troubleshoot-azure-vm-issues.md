@@ -1,6 +1,6 @@
 ---
 title: Uso de herramientas remotas para solucionar problemas con la VM de Azure | Microsoft Docs
-description: ''
+description: Obtenga información sobre PsExec, scripts de PowerShell y otras herramientas remotas que puede usar para solucionar de forma remota los problemas de máquinas virtuales de Azure sin usar RDP.
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 01/11/2018
 ms.author: delhan
-ms.openlocfilehash: b86b1a2d8a49554cc3df99e0a32a2c0ccaacb560
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d29b2b7c2b9194f20afe4c74d117847f0e343b12
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77920015"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422600"
 ---
 # <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>Uso de herramientas remotas para solucionar problemas con la VM de Azure
 

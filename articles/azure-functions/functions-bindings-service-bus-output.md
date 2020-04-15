@@ -6,12 +6,12 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
-ms.openlocfilehash: 7e00d03a8b3ec7ef56935ff7714fd932bc343cd3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 02d9ce87d45c5f1c9a123aae18f7d710b268f03e
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79235152"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582250"
 ---
 # <a name="azure-service-bus-output-binding-for-azure-functions"></a>Enlace de salida de Azure Service Bus para Azure Functions
 
@@ -383,6 +383,7 @@ En esta sección se describen las opciones de configuración globales disponible
 
 |Propiedad  |Valor predeterminado | Descripción |
 |---------|---------|---------|
+|prefetchCount|0|Obtiene o establece el número de mensajes que el destinatario del mensaje puede solicitar simultáneamente.|
 |maxAutoRenewDuration|00:05:00|Duración máxima dentro de la cual el bloqueo de mensajes se renovará automáticamente.|
 |autoComplete|true|Si el desencadenador debe marcar inmediatamente el mensaje como completado (autocompletar) o esperar a que la función se cierre correctamente para la finalización.|
 |maxConcurrentCalls|16|Número máximo de llamadas simultáneas a la devolución de llamada que el bombeo de mensajes debe iniciar. De forma predeterminada, el entorno de ejecución de Functions procesa simultáneamente varios mensajes. Para indicar al entorno de ejecución que procese solo los mensajes de una única cola o tema, establezca `maxConcurrentCalls` en 1. |

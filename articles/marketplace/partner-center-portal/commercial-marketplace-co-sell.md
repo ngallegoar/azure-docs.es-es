@@ -6,27 +6,27 @@ ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 12/06/2019
-ms.openlocfilehash: 3b0b38b767495b1a06405f0d41222b73baee8d53
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/31/2020
+ms.openlocfilehash: e73ba110128f6d4f0bea008840b06572d7aee140
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80277080"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80517937"
 ---
 # <a name="co-sell-option-in-partner-center"></a>Opción de venta conjunta en el Centro de partners
 
-Proporcionar información en la pestaña de venta conjunta es totalmente opcional. Es necesario para lograr los estados Co-sell Ready e IP Co-sell Ready. Los equipos de ventas de Microsoft usarán la información que proporciona para obtener más información sobre su solución al evaluar su idoneidad para las necesidades de los clientes. No está disponible directamente para los clientes. Para obtener más información, consulte [Venta mediante Microsoft](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer#sell-through-microsoft).
+Proporcionar información en la pestaña de venta conjunta es totalmente opcional. Es necesario para lograr los estados Co-sell Ready e IP Co-sell Ready. Los equipos de ventas de Microsoft usarán la información que proporciona para obtener más información sobre su solución al evaluar su idoneidad para las necesidades de los clientes. No está disponible directamente para los clientes. Para obtener más información, consulte [Venta mediante Microsoft](https://partner.microsoft.com/membership/sell-with-microsoft).
 
 La opción de venta conjunta del Centro de partners está actualmente disponible para algunos tipos de ofertas. La compatibilidad con tipos de oferta adicionales estará disponible a lo largo del tiempo.
 
 | **Tipo de oferta** | **Página Venta conjunta disponible en el Centro de partners** |
 |    -----------------------    |    -----------------------------  |
-| Software como servicio (SaaS) |     Disponibilidad general en febrero de 2020      |
+| Software como servicio (SaaS) |     Disponibilidad general en abril de 2020      |
 | Dynamics 365 for Customer Engagement y Power Apps      |     Ahora disponible      |
 | Dynamics 365 for Operations     |     Ahora disponible       |
-| Dynamics 365 Business Central      |  Disponibilidad general en febrero de 2020     |
-| Aplicación de Azure     |     Disponibilidad general en febrero de 2020     |
+| Dynamics 365 Business Central      |  Disponibilidad general en abril de 2020     |
+| Aplicación de Azure     |     Disponibilidad general en abril de 2020     |
 | Máquina virtual de Azure      |     Por confirmar       |
 | Contenedor de Azure     |     Por confirmar       |
 | Servicio de consultoría      |     Por confirmar       |
@@ -66,8 +66,7 @@ Puede proporcionar garantías para que Microsoft las utilice para evaluar las ne
 
 | **Documentos**    | **Descripción**  |
 | :------------------- | :-------------------|
-| *Buscapersonas de cliente* | Descripción lista para el cliente de su oferta. Los equipos de ventas de Microsoft pueden compartir esta información con los clientes para ayudar a determinar si su oferta puede ser un buen ajuste, así como para asegurarse de que está lista para el cliente. <br> <br> Use una de las plantillas pertinentes disponibles en el centro de partners: <br> <ul> <li> Plantilla de una página de Microsoft Azure </li> <li> Plantilla de una página de Microsoft Dynamics 365 </li> <li> Plantilla de una página de Office 365 </li> <li> Plantilla de una página de Windows 10 </li> </ul>
- |
+| *Buscapersonas de cliente* | Descripción lista para el cliente de su oferta. Los equipos de ventas de Microsoft pueden compartir esta información con los clientes para ayudar a determinar si su oferta puede ser un buen ajuste, así como para asegurarse de que está lista para el cliente. <br> <br> Use una de las plantillas pertinentes disponibles en el centro de partners: <br> <ul> <li> Plantilla de una página de Microsoft Azure </li> <li> Plantilla de una página de Microsoft Dynamics 365 </li> <li> Plantilla de una página de Office 365 </li> <li> Plantilla de una página de Windows 10 </li> </ul> |
 | *Presentación del cliente* | Diapositivas para lanzar su solución y su propuesta de valor. Tras asegurarse de que su oferta está lista para el cliente, los equipos de ventas de Microsoft pueden compartir la presentación con los clientes para expresar el valor que traen ambas empresas al implementar una solución conjunta. En la presentación debe tratarse lo que hace su solución, cómo puede ayudar a los clientes, para qué sectores es la solución y cómo se compara con las soluciones de la competencia. <br> <br> Utilice la plantilla disponible en el centro de partners.|
 | *Caso práctico del cliente* | En esta información se muestra a un posible cliente cómo han implementado tanto Microsoft como usted esta solución en casos anteriores. <br> <br> Utilice la plantilla disponible en el centro de partners. |
 | *Logros de clientes comprobables (opcional)* | Ejemplos específicos de éxitos de clientes tras la implementación de su solución. |

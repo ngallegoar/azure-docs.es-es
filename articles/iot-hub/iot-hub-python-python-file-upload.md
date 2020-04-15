@@ -6,14 +6,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 03/31/2020
 ms.author: robinsh
-ms.openlocfilehash: f1c0c046c40ff8edbc33c5e93e4207d9fe2fc67a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 706e1920c6c4fe39e885fd3f5a631070545509ee
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77110751"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529280"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-python"></a>Carga de archivos de un dispositivo a la nube con IoT Hub (Python)
 
@@ -27,23 +27,17 @@ En este tutorial, se describe cómo usar las [funcionalidades de carga de archiv
 
 En el inicio rápido sobre el [Envío de telemetría desde un dispositivo a un centro de IoT](quickstart-send-telemetry-python.md) se explica la funcionalidad básica de mensajería del dispositivo a la nube de IoT Hub. Sin embargo, en algunos casos no se pueden asignar fácilmente los datos de que los dispositivos envían en los mensajes de dispositivo a nube con un tamaño relativamente reducido que acepta Azure IoT Hub. Cuando necesite cargar archivos desde un dispositivo, todavía puede usar la seguridad y confiabilidad de IoT Hub.
 
-> [!NOTE]
-> El SDK de Python de IoT Hub solo admite actualmente la carga de archivos basados en caracteres como, por ejemplo, archivos **.txt**.
-
 Al final de este tutorial, ejecutará la aplicación de consola de Python:
 
 * **FileUpload.py**, que carga un archivo en el almacenamiento con el SDK de dispositivo de Python.
 
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
-> [!NOTE]
-> En esta guía se usa la versión 1 del SDK de Python (en desuso), ya que la característica de carga de archivos aún no se ha implementado en la nueva versión 2.
+## <a name="prerequisites"></a>Prerrequisitos
 
-## <a name="prerequisites"></a>Prerequisites
+[!INCLUDE [iot-hub-include-python-v2-async-installation-notes](../../includes/iot-hub-include-python-v2-async-installation-notes.md)]
 
-[!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
-
-* Asegúrese de que está abierto el puerto 8883 del firewall. En el ejemplo de dispositivo de este artículo se usa el protocolo MQTT, que se comunica mediante el puerto 8883. Este puerto puede estar bloqueado en algunos entornos de red corporativos y educativos. Para más información y saber cómo solucionar este problema, consulte [Conexión a IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+* Asegúrese de que el puerto 8883 está abierto en el firewall. En el ejemplo de dispositivo de este artículo se usa el protocolo MQTT, que se comunica mediante el puerto 8883. Este puerto puede estar bloqueado en algunos entornos de red corporativos y educativos. Para más información y saber cómo solucionar este problema, consulte [Conexión a IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 [!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]
 
@@ -51,88 +45,140 @@ Al final de este tutorial, ejecutará la aplicación de consola de Python:
 
 En esta sección, creará la aplicación para dispositivos para cargar un archivo en IoT Hub.
 
-1. En el símbolo del sistema, ejecute el siguiente comando para instalar el paquete **azure-iothub-device-client**:
+1. En el símbolo del sistema, ejecute el siguiente comando para instalar el paquete **azure-iot-device**. Este paquete se usa para coordinar la carga de archivos con el centro de IoT.
 
     ```cmd/sh
-    pip install azure-iothub-device-client
+    pip install azure-iot-device
     ```
 
-2. Con un editor de texto, cree un archivo de prueba para cargarlo en Blob Storage.
+1. En el símbolo del sistema, ejecute el siguiente comando para instalar el paquete [**azure.storage.blob**](https://pypi.org/project/azure-storage-blob/). Este paquete se usa para realizar la carga de archivos.
 
-    > [!NOTE]
-    > El SDK de Python de IoT Hub solo admite actualmente la carga de archivos basados en caracteres como, por ejemplo, archivos **.txt**.
+    ```cmd/sh
+    pip install azure.storage.blob
+    ```
 
-3. Con un editor de texto, cree un archivo **FileUpload.py** en la carpeta de trabajo.
+1. Cree un archivo de prueba que se cargará en Blob Storage.
 
-4. Agregue las siguientes instrucciones y variables `import` al principio del archivo **FileUpload.py**. 
+1. Con un editor de texto, cree un archivo **FileUpload.py** en la carpeta de trabajo.
+
+1. Agregue las siguientes instrucciones y variables `import` al principio del archivo **FileUpload.py**.
 
     ```python
-    import time
-    import sys
-    import iothub_client
     import os
-    from iothub_client import IoTHubClient, IoTHubClientError, IoTHubTransportProvider, IoTHubClientResult, IoTHubError
+    import asyncio
+    from azure.iot.device.aio import IoTHubDeviceClient
+    from azure.core.exceptions import AzureError
+    from azure.storage.blob import BlobClient
 
     CONNECTION_STRING = "[Device Connection String]"
-    PROTOCOL = IoTHubTransportProvider.HTTP
-
-    PATHTOFILE = "[Full path to file]"
-    FILENAME = "[File name for storage]"
+    PATH_TO_FILE = r"[Full path to local file]"
     ```
 
-5. En el archivo, sustituya `[Device Connection String]` por la cadena de conexión del dispositivo de IoT Hub. Sustituya `[Full path to file]` por la ruta de acceso del archivo de prueba que creó o de cualquier archivo del dispositivo que desee cargar. Sustituya `[File name for storage]` por el nombre que desee proporcionar al archivo una vez cargado en Blob Storage. 
+1. En el archivo, sustituya `[Device Connection String]` por la cadena de conexión del dispositivo de IoT Hub. Reemplace `[Full path to local file]` por la ruta de acceso del archivo de prueba que creó o de cualquier archivo del dispositivo que quiera cargar.
 
-6. Cree una devolución de llamada para la función **upload_blob**:
+1. Cree una función para cargar el archivo a Blob Storage:
 
     ```python
-    def blob_upload_conf_callback(result, user_context):
-        if str(result) == 'OK':
-            print ( "...file uploaded successfully." )
-        else:
-            print ( "...file upload callback returned: " + str(result) )
+    async def store_blob(blob_info, file_name):
+        try:
+            sas_url = "https://{}/{}/{}{}".format(
+                blob_info["hostName"],
+                blob_info["containerName"],
+                blob_info["blobName"],
+                blob_info["sasToken"]
+            )
+
+            print("\nUploading file: {} to Azure Storage as blob: {} in container {}\n".format(file_name, blob_info["blobName"], blob_info["containerName"]))
+
+            # Upload the specified file
+            with BlobClient.from_blob_url(sas_url) as blob_client:
+                with open(file_name, "rb") as f:
+                    result = blob_client.upload_blob(f, overwrite=True)
+                    return (True, result)
+
+        except FileNotFoundError as ex:
+            # catch file not found and add an HTTP status code to return in notification to IoT Hub
+            ex.status_code = 404
+            return (False, ex)
+
+        except AzureError as ex:
+            # catch Azure errors that might result from the upload operation
+            return (False, ex)
     ```
 
-7. Agregue el siguiente código para conectar el cliente y cargar el archivo. Incluya también la rutina `main`:
+    Esta función analiza la estructura *blob_info* que se ha pasado para crear una dirección URL que se usa para inicializar un objeto [azure.storage.blob.BlobClient](https://docs.microsoft.com/python/api/azure-storage-blob/azure.storage.blob.blobclient?view=azure-python). Después, carga el archivo a Azure Blob Storage mediante este cliente.
+
+1. Agregue el siguiente código para conectar el cliente y cargar el archivo:
 
     ```python
-    def iothub_file_upload_sample_run():
+    async def main():
         try:
             print ( "IoT Hub file upload sample, press Ctrl-C to exit" )
 
-            client = IoTHubClient(CONNECTION_STRING, PROTOCOL)
+            conn_str = CONNECTION_STRING
+            file_name = PATH_TO_FILE
+            blob_name = os.path.basename(file_name)
 
-            f = open(PATHTOFILE, "r")
-            content = f.read()
+            device_client = IoTHubDeviceClient.create_from_connection_string(conn_str)
 
-            client.upload_blob_async(FILENAME, content, len(content), blob_upload_conf_callback, 0)
+            # Connect the client
+            await device_client.connect()
 
-            print ( "" )
-            print ( "File upload initiated..." )
+            # Get the storage info for the blob
+            storage_info = await device_client.get_storage_info_for_blob(blob_name)
 
-            while True:
-                time.sleep(30)
+            # Upload to blob
+            success, result = await store_blob(storage_info, file_name)
 
-        except IoTHubError as iothub_error:
-            print ( "Unexpected error %s from IoTHub" % iothub_error )
-            return
+            if success == True:
+                print("Upload succeeded. Result is: \n") 
+                print(result)
+                print()
+
+                await device_client.notify_blob_upload_status(
+                    storage_info["correlationId"], True, 200, "OK: {}".format(file_name)
+                )
+
+            else :
+                # If the upload was not successful, the result is the exception object
+                print("Upload failed. Exception is: \n") 
+                print(result)
+                print()
+
+                await device_client.notify_blob_upload_status(
+                    storage_info["correlationId"], False, result.status_code, str(result)
+                )
+
+        except Exception as ex:
+            print("\nException:")
+            print(ex)
+
         except KeyboardInterrupt:
-            print ( "IoTHubClient sample stopped" )
-        except:
-            print ( "generic error" )
+            print ( "\nIoTHubDeviceClient sample stopped" )
 
-    if __name__ == '__main__':
-        print ( "Simulating a file upload using the Azure IoT Hub Device SDK for Python" )
-        print ( "    Protocol %s" % PROTOCOL )
-        print ( "    Connection string=%s" % CONNECTION_STRING )
+        finally:
+            # Finally, disconnect the client
+            await device_client.disconnect()
 
-        iothub_file_upload_sample_run()
+
+    if __name__ == "__main__":
+        asyncio.run(main())
+        #loop = asyncio.get_event_loop()
+        #loop.run_until_complete(main())
+        #loop.close()
     ```
 
-8. Guarde y cierre el archivo **UploadFile.py**.
+    Este código crea un **IoTHubDeviceClient** asincrónico y usa las siguientes API para administrar la carga de archivos con el centro de IoT:
+
+    * **get_storage_info_for_blob** obtiene información del centro de IoT sobre la cuenta de almacenamiento vinculada que creó anteriormente. Esta información incluye el nombre de host, el nombre del contenedor, el nombre del blob y un token de SAS. La información de almacenamiento se pasa a la función **store_blob función de** (creada en el paso anterior), para que el elemento **BlobClient** en esa función pueda autenticarse con Azure Storage. El método **get_storage_info_for_blob** también devuelve un correlation_id, que se usa en el método **notify_blob_upload_status**. El correlation_id es la manera en que IoT Hub muestra en qué blob está trabajando.
+
+    * **notify_blob_upload_status** notifica a IoT Hub del estado de la operación de almacenamiento de blobs. Se le pasa el correlation_id que obtuvo a través del método **get_storage_info_for_blob**. IoT Hub lo usa para notificar a cualquier servicio que pueda estar escuchando sobre el estado de la tarea de carga de archivos.
+
+1. Guarde y cierre el archivo **UploadFile.py**.
 
 ## <a name="run-the-application"></a>Ejecución de la aplicación
 
-Ahora está preparado para ejecutar la aplicación.
+Ahora está listo para ejecutar la aplicación.
 
 1. En un símbolo del sistema de la carpeta de trabajo, ejecute el siguiente comando:
 
@@ -142,11 +188,11 @@ Ahora está preparado para ejecutar la aplicación.
 
 2. En la captura de pantalla siguiente se muestra la salida de la aplicación **FileUpload**:
 
-    ![Salida de la aplicación simulated-device](./media/iot-hub-python-python-file-upload/1.png)
+    ![Salida de la aplicación simulated-device](./media/iot-hub-python-python-file-upload/run-device-app.png)
 
 3. Puede usar el portal para ver el archivo cargado en el contenedor de almacenamiento que configuró:
 
-    ![Archivo cargado](./media/iot-hub-python-python-file-upload/2.png)
+    ![Archivo cargado](./media/iot-hub-python-python-file-upload/view-blob.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -157,3 +203,9 @@ En este tutorial ha aprendido a usar la funcionalidad de carga de archivos de Io
 * [Introducción a SDK para C](iot-hub-device-sdk-c-intro.md)
 
 * [SDK de IoT de Azure](iot-hub-devguide-sdks.md)
+
+Obtenga más información sobre Azure Blob Storage con los siguientes vínculos:
+
+* [Documentación de Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/)
+
+* [Documentación de Azure Blob Storage para la API de Python](https://docs.microsoft.com/python/api/overview/azure/storage-blob-readme?view=azure-python)

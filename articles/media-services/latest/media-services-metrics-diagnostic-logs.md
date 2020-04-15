@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: f075362f976e6abb26c9781c4b0cdeb7912c0862
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 75363212684bb09e84a4bc4881af26e6d2a8e7e3
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76514041"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585286"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs-via-azure-monitor"></a>Supervisión de métricas y registros de diagnóstico de Media Services a través de Azure Monitor
 
@@ -54,7 +54,7 @@ Puede supervisar las siguientes métricas de cuenta.
 |StreamingPolicyQuota|Cuota de directivas de streaming|Cuota de directivas de streaming en su cuenta.|
 |StreamingPolicyQuotaUsedPercentage|Porcentaje usado de la cuota de directiva de streaming|Porcentaje de la cuota de la directiva de streaming ya utilizado.|
 
-También debe revisar las [cuotas y limitaciones](limits-quotas-constraints.md) de la cuenta.
+También debe revisar las [cuotas y límites](limits-quotas-constraints.md) de la cuenta.
 
 ### <a name="streaming-endpoint"></a>Punto de conexión de streaming
 

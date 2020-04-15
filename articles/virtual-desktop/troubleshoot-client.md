@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 12/13/2019
+ms.date: 03/31/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e3a240901ffca2c126e2b61eaee0cf287cc31d6e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 595762e6e8f22dddff30f1cff8c4bb79e89624b1
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79127511"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80473856"
 ---
 # <a name="troubleshoot-the-remote-desktop-client"></a>Solución de problemas del cliente de Escritorio remoto
 
@@ -21,21 +21,15 @@ En este artículo se describen los problemas comunes relacionados con el cliente
 
 ## <a name="remote-desktop-client-for-windows-7-or-windows-10-stops-responding-or-cannot-be-opened"></a>El cliente de Escritorio remoto para Windows 7 o Windows 10 deja de responder o no se puede abrir
 
-Use los siguientes cmdlets de PowerShell para limpiar los registros de cliente fuera de banda (OOB).
+A partir de la versión 1.2.790, puede restablecer los datos de usuario desde la página Acerca de o mediante un comando.
 
-```PowerShell
-Remove-ItemProperty 'HKCU:\Software\Microsoft\Terminal Server Client\Default' - Name FeedURLs
+Use el siguiente comando para quitar los datos de usuario, restaurar la configuración predeterminada y cancelar la suscripción a todas las áreas de trabajo.
 
-#Remove RdClientRadc registry key
-Remove-Item 'HKCU:\Software\Microsoft\RdClientRadc' -Recurse
-
-#Remove all files under %appdata%\RdClientRadc
-Remove-Item C:\Users\pavithir\AppData\Roaming\RdClientRadc\* -Recurse
+```cmd
+msrdcw.exe /reset [/f]
 ```
 
-Vaya a **%AppData%\RdClientRadc** y elimine todo el contenido.
-
-Desinstale y vuelva a instalar el cliente de Escritorio remoto para Windows 7 y Windows 10.
+Si usa una versión anterior del cliente de Escritorio remoto, se recomienda desinstalar y volver a instalar el cliente.
 
 ## <a name="web-client-wont-open"></a>El cliente web no se abre
 

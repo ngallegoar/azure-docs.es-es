@@ -3,14 +3,14 @@ title: Métricas de plataforma de Azure Monitor que pueden exportarse con la con
 description: Lista de métricas disponibles para cada tipo de recurso con Azure Monitor.
 services: azure-monitor
 ms.topic: reference
-ms.date: 02/10/2020
+ms.date: 03/30/2020
 ms.subservice: metrics
-ms.openlocfilehash: 7a75655d1707dd2491065974ed8addc4c2da1a6a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6be8cb1b7e74301d16a1174f5ca2b774334dac3f
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77661369"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422104"
 ---
 # <a name="azure-monitor-platform-metrics-exportable-via-diagnostic-settings"></a>Métricas de plataforma de Azure Monitor que pueden exportarse con la configuración de diagnóstico
 
@@ -24,7 +24,9 @@ Debido a las complejidades del back-end de Azure Monitor, no todas las métricas
 
 ## <a name="change-to-behavior-for-nulls-and-zero-values"></a>Cambio en el comportamiento de valores NULL y cero 
  
-En el caso de las métricas de la plataforma que se pueden exportar a través de la configuración de diagnóstico, hay algunas métricas para las que Azure Monitor interpreta los 0 como valores Null. Esto ha provocado cierta confusión entre los 0 reales (emitidos por el recurso) y los 0 interpretados (valores NULL). A partir del **1 de abril de 2020**, las métricas de la plataforma exportadas a través de la configuración de diagnóstico ya no exportarán los 0, a menos que el recurso subyacente los haya emitido realmente. Tenga en cuenta lo siguiente:
+En el caso de las métricas de la plataforma que se pueden exportar a través de la configuración de diagnóstico, hay algunas métricas para las que Azure Monitor interpreta los 0 como valores Null. Esto ha provocado cierta confusión entre los 0 reales (emitidos por el recurso) y los 0 interpretados (valores NULL). Próximamente se producirá un cambio y las métricas de la plataforma exportadas a través de la configuración de diagnóstico ya no exportarán los 0, a menos que el recurso subyacente los haya emitido realmente. El cambio estaba programado para el 1 de abril de 2020, pero se ha retrasado debido a los cambios de prioridades ocasionados por la COVID-19. 
+
+Tenga en cuenta lo siguiente:
 
 1.  Si elimina un grupo de recursos o un recurso específico, los datos de métricas de los recursos afectados ya no se enviarán a los destinos de exportación de la configuración de diagnóstico. Es decir, ya no aparecerán en Event Hubs, cuentas de almacenamiento y áreas de trabajo de Log Analytics.
 2.  Esta mejora estará disponible en todas las nubes públicas y privadas.
@@ -49,7 +51,7 @@ La tabla contiene las columnas siguientes.
 > La tabla siguiente puede tener una barra de desplazamiento horizontal en la parte inferior. Si cree que falta información, compruebe que la barra de desplazamiento esté a la izquierda.  
 
 
-| ¿Se puede exportar con la configuración de diagnóstico?  | Emite valores NULL |  ResourceType  |  Métrica  |  MetricDisplayName  |  Unidad  |  AggregationType | 
+| ¿Se puede exportar con la configuración de diagnóstico?  | Ya se emiten valores NULL |  ResourceType  |  Métrica  |  MetricDisplayName  |  Unidad  |  AggregationType | 
 |---|---| ---- | ----- | ------ | ---- | ---- | 
 | ****Sí****  | No |  Microsoft.AnalysisServices/servers  |  CleanerCurrentPrice  |  Memoria: precio actual de limpieza  |  Count  |  Average | 
 | ****Sí****  | No |  Microsoft.AnalysisServices/servers  |  CleanerMemoryNonshrinkable  |  Memoria: memoria de limpieza no reducible  |  Bytes  |  Average | 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: c8eba538a7015648611e6054ce85b381dcfc9105
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a80fb97810fee04a4eb50c43178c168e66f29173
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76761005"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618726"
 ---
 # <a name="enable-diagnostics-logs-for-service-bus"></a>Habilitar registros de diagnóstico para Service Bus
 
@@ -76,10 +76,10 @@ Estas operaciones de administración se capturan en los registros operativos:
 
 | Ámbito | Operación|
 |-------| -------- |
-| Espacio de nombres | <ul> <li> Crear espacio de nombres</li> <li> Actualizar espacio de nombres </li> <li> Eliminar espacio de nombres </li>  </ul> | 
-| Cola | <ul> <li> Crear cola</li> <li> Actualizar cola</li> <li> Eliminar cola </li> </ul> | 
-| Tema | <ul> <li> Crear tema </li> <li> Actualizar tema </li> <li> Eliminar tema </li> </ul> |
-| Subscription | <ul> <li> Crear suscripción </li> <li> Actualizar suscripción </li> <li> Eliminar suscripción </li> </ul> |
+| Espacio de nombres | <ul> <li> Crear espacio de nombres</li> <li> Actualizar espacio de nombres </li> <li> Eliminar espacio de nombres </li> <li> Actualizar la directiva SharedAccess del espacio de nombres </li> </ul> | 
+| Cola | <ul> <li> Crear cola</li> <li> Actualizar cola</li> <li> Eliminar cola </li> <li> Eliminar cola automáticamente (AutoDelete) </li> </ul> | 
+| Tema | <ul> <li> Crear tema </li> <li> Actualizar tema </li> <li> Eliminar tema </li> <li> Eliminar tema automáticamente (AutoDelete) </li> </ul> |
+| Subscription | <ul> <li> Crear suscripción </li> <li> Actualizar suscripción </li> <li> Eliminar suscripción </li> <li> Eliminar suscripción automáticamente (AutoDelete) </li> </ul> |
 
 > [!NOTE]
 > Actualmente, no se realiza un seguimiento de las operaciones de *lectura* en los registros operativos.

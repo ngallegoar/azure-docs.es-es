@@ -10,12 +10,12 @@ ms.date: 02/24/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: b0f2ad7566d0204871a9c6441315d6201662d92b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 53eca8a0b9e7cc9abb8f89cd56fca5df28f2de0f
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77616287"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521925"
 ---
 # <a name="authorizing-access-to-data-in-azure-storage"></a>Autorización del acceso a datos en Azure Storage
 
@@ -33,7 +33,7 @@ En la tabla siguiente se describen las opciones que ofrece Azure Storage para au
 
 Cada opción de autorización se describe brevemente a continuación:
 
-- **Integración de Azure Active Directory (Azure AD)** para blobs y colas. Azure AD proporciona control de acceso basado en rol (RBAC) para el control específico de acceso de los clientes a los recursos de una cuenta de almacenamiento. Para más información sobre la integración de Azure AD en blobs y colas, consulte [Autorización del acceso a blobs y colas con Azure Active Directory](storage-auth-aad.md).
+- **Integración de Azure Active Directory (Azure AD)** para blobs y colas. Azure AD proporciona control de acceso basado en rol (RBAC) para controlar el acceso de los clientes a los recursos de una cuenta de almacenamiento. Para más información sobre la integración de Azure AD en blobs y colas, consulte [Autorización del acceso a blobs y colas con Azure Active Directory](storage-auth-aad.md).
 
 - **Autenticación de Azure Active Directory Domain Services (Azure DS)** para Azure Files. Azure Files admite la autorización basada en identidad sobre Bloque de mensajes del servidor(SMB) mediante Azure AD DS. Puede usar RBAC para el control específico de acceso de los clientes a los recursos de Azure Files en una cuenta de almacenamiento. Para más información acerca de la autenticación de Azure Files mediante servicios de dominio, consulte nuestra [introducción](../files/storage-files-active-directory-overview.md).
 

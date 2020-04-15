@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2019
 ms.author: kumud
-ms.openlocfilehash: 786b21e7571ed173d2da90f587a5b76d8c92a13d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 95a70a1d0c4367adb1dd276bff1b1eb20caafc59
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79235856"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80473381"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Administración de Protección contra DDoS de Azure estándar mediante Azure Portal
 
@@ -202,7 +202,7 @@ Los registros de flujo tienen los siguientes campos:
 - Tipo de protocolo 
 - Acción realizada durante la mitigación
 
-
+El análisis de ataques solo funcionará si el estándar DDoS Protection está habilitado en la red virtual de la dirección IP pública. 
 
 ## <a name="validate-ddos-detection"></a>Validación de la detección de DDoS
 

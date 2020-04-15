@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: aec8048c7ef2eb0d944cdd2a863e23578f4f87e5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: db36033ea524603416f16db27f40d5eefb8bf613
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77561687"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437118"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guía de solución de problemas del Explorador de Azure Storage
 
@@ -76,7 +76,7 @@ Hay varios roles de RBAC integrados que pueden proporcionar los permisos necesar
 Los errores de certificado habitualmente se producen en una de las situaciones siguientes:
 
 - La aplicación se conecta a través de un _proxy transparente_, lo que significa que un servidor (por ejemplo, el servidor de la empresa) intercepta el tráfico HTTPS, lo descifra y, después, lo cifra mediante un certificado autofirmado.
-- Ejecuta una aplicación que inserta un certificado SSL autofirmado en los mensajes HTTPS que recibe. Entre los ejemplos de aplicaciones que insertan certificados se incluyen los antivirus y el software de inspección del tráfico de red.
+- Ejecuta una aplicación que inserta un certificado TLS/SSL autofirmado en los mensajes HTTPS que recibe. Entre los ejemplos de aplicaciones que insertan certificados se incluyen los antivirus y el software de inspección del tráfico de red.
 
 Cuando el Explorador de Storage ve un certificado autofirmado o que no es de confianza, ya no sabe si se ha modificado el mensaje HTTPS recibido. Si tiene una copia del certificado autofirmado, puede indicar a Explorador de Storage que confíe en él. Para ello, debe seguir estos pasos:
 

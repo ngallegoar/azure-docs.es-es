@@ -4,15 +4,15 @@ description: Obtenga información sobre las características de red de Azure App
 author: ccompy
 ms.assetid: 5c61eed1-1ad1-4191-9f71-906d610ee5b7
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 03/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 0fd904b15a830e2b261057a11d1a8f3a4d584fe1
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 79f85261115dbddcb0b04cd2863a90912de2ab87
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77649233"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474908"
 ---
 # <a name="app-service-networking-features"></a>Características de redes de App Service
 
@@ -41,9 +41,8 @@ Para un caso de uso determinado, puede haber varias maneras de solucionar el pro
 | Compatibilidad con las necesidades de SSL basado en IP de la aplicación | direcciones asignadas a las aplicaciones |
 | Dirección entrante dedicada y no compartida para la aplicación | direcciones asignadas a las aplicaciones |
 | Restricción del acceso a la aplicación desde un conjunto de direcciones bien definidas | Restricciones de acceso |
-| Exponer la aplicación en direcciones IP privadas de mi red virtual | ASE de ILB </br> Application Gateway con puntos de conexión de servicio |
-| Restricción del acceso a la aplicación desde los recursos de una red virtual | Puntos de conexión de servicio </br> ASE de ILB |
-| Exponer la aplicación en una dirección IP privada de mi red virtual | ASE de ILB </br> dirección IP privada para la entrada en una instancia de Application Gateway con puntos de conexión de servicio |
+| Restricción del acceso a la aplicación desde los recursos de una red virtual | Puntos de conexión de servicio </br> ASE de ILB </br> Punto de conexión privado (versión preliminar) |
+| Exponer la aplicación en una dirección IP privada de mi red virtual | ASE de ILB </br> dirección IP privada para la entrada en una instancia de Application Gateway con puntos de conexión de servicio </br> Punto de conexión de servicio (versión preliminar) |
 | Proteger la aplicación con un WAF | Application Gateway + ASE de ILB </br> Application Gateway con puntos de conexión de servicio </br> Azure Front Door con restricciones de acceso |
 | Equilibrar la carga del tráfico a las aplicaciones en diferentes regiones | Azure Front Door con restricciones de acceso | 
 | Equilibrar la carga del tráfico en la misma región | [Application Gateway con puntos de conexión de servicio][appgwserviceendpoints] | 
@@ -82,7 +81,7 @@ Cuando se utiliza una dirección asignada a la aplicación, el tráfico sigue pa
 * Compatibilidad con las necesidades de SSL basado en IP de la aplicación
 * Establecer una dirección dedicada para la aplicación que no se comparta con nada más
 
-Puede obtener información sobre cómo establecer una dirección en la aplicación con el tutorial [Configuración de SSL basado en IP][appassignedaddress]. 
+Puede obtener información sobre cómo establecer una dirección en la aplicación con el tutorial [Adición de un certificado TLS/SSL en Azure App Service][appassignedaddress]. 
 
 ### <a name="access-restrictions"></a>Restricciones de acceso 
 
@@ -111,6 +110,11 @@ Los puntos de conexión de servicio le permite bloquear el acceso **entrante** a
 ![puntos de conexión de servicio con Application Gateway](media/networking-features/service-endpoints-appgw.png)
 
 Más información sobre cómo configurar los puntos de conexión de servicio con la aplicación en el tutorial [Configuración de restricciones de acceso del punto de conexión de servicio][serviceendpoints].
+
+### <a name="private-endpoint-preview"></a>Punto de conexión privado (versión preliminar)
+
+Un punto de conexión privado es una interfaz de red que le conecta de forma privada y segura a la aplicación web con Azure Private Link. El punto de conexión privado usa una dirección IP privada de la red virtual y así coloca el la aplicación web de manera eficaz en la red virtual. Esta característica es solo para flujos **entrantes** en la aplicación web.
+[Uso de puntos de conexión privados para una aplicación web de Azure (versión preliminar)][privateendpoints]
  
 ### <a name="hybrid-connections"></a>conexiones híbridas
 
@@ -227,3 +231,4 @@ Puede hacer que varias aplicaciones de front-end usen la misma aplicación de AP
 [vnetintegration]: https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet
 [networkinfo]: https://docs.microsoft.com/azure/app-service/environment/network-info
 [appgwserviceendpoints]: https://docs.microsoft.com/azure/app-service/networking/app-gateway-with-service-endpoints
+[privateendpoints]: https://docs.microsoft.com/azure/app-service/networking/private-endpoint
