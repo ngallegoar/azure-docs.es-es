@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/29/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e7d6b23aa3f35c99cf03f855152b2b231a60a965
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b117861a528b6983876d28d5b343ea88c2bcadc0
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75921620"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260690"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Tutorial: Integración continua de plantillas de Azure Resource Manager en Azure Pipelines
 
@@ -46,7 +46,7 @@ Para completar este artículo, necesitará lo siguiente:
 
 ## <a name="prepare-a-github-repository"></a>Preparación de un repositorio de GitHub
 
-GitHub sirve para almacenar el código fuente del proyecto, incluidas plantillas de Resource Manager. Para otros repositorios admitidos, consulta los [repositorios compatibles con Azure DevOps](/azure/devops/pipelines/repos/?view=azure-devops#supported-repository-types).
+GitHub sirve para almacenar el código fuente del proyecto, incluidas plantillas de Resource Manager. Para otros repositorios admitidos, consulta los [repositorios compatibles con Azure DevOps](/azure/devops/pipelines/repos/?view=azure-devops).
 
 ### <a name="create-a-github-repository"></a>Crear un repositorio de GitHub
 

@@ -4,14 +4,14 @@ description: Use la CLI de Azure para administrar la cuenta, la base de datos y 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 01/21/2020
+ms.date: 04/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: 325840f8961fac49e599f1aa567ad8d4137820b4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3f86468bcafe3d7ce78827aba761bb4e1bf920fa
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79227288"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273637"
 ---
 # <a name="manage-azure-cosmos-resources-using-azure-cli"></a>Administración de recursos de Azure Cosmos mediante la CLI de Azure
 
@@ -50,24 +50,24 @@ Cree una cuenta de Azure Cosmos con dos regiones, agregue una región y quite ot
 > Este comando permite agregar y quitar regiones, pero no permite modificar las prioridades de conmutación por error ni desencadenar una conmutación por error manual. Consulte [Establecimiento de la prioridad de conmutación por error](#set-failover-priority) y [Desencadenamiento de una conmutación por error manual](#trigger-manual-failover).
 
 ```azurecli-interactive
-resourceGroupName = 'myResourceGroup'
-accountName = 'mycosmosaccount' # must be lower case and <31 characters
+resourceGroupName='myResourceGroup'
+accountName='mycosmosaccount' # must be lower case and <31 characters
 
 # Create an account with 2 regions
 az cosmosdb create --name $accountName --resource-group $resourceGroupName \
-    --locations regionName= "West US 2" failoverPriority=0 isZoneRedundant=False \
-    --locations regionName= "East US 2" failoverPriority=1 isZoneRedundant=False
+    --locations regionName="West US 2" failoverPriority=0 isZoneRedundant=False \
+    --locations regionName="East US 2" failoverPriority=1 isZoneRedundant=False
 
 # Add a region
 az cosmosdb update --name $accountName --resource-group $resourceGroupName \
-    --locations regionName= "West US 2" failoverPriority=0 isZoneRedundant=False \
-    --locations regionName= "East US 2" failoverPriority=1 isZoneRedundant=False \
-    --locations regionName= "South Central US" failoverPriority=2 isZoneRedundant=False
+    --locations regionName="West US 2" failoverPriority=0 isZoneRedundant=False \
+    --locations regionName="East US 2" failoverPriority=1 isZoneRedundant=False \
+    --locations regionName="South Central US" failoverPriority=2 isZoneRedundant=False
 
 # Remove a region
 az cosmosdb update --name $accountName --resource-group $resourceGroupName \
-    --locations regionName= "West US 2" failoverPriority=0 isZoneRedundant=False \
-    --locations regionName= "East US 2" failoverPriority=1 isZoneRedundant=False
+    --locations regionName="West US 2" failoverPriority=0 isZoneRedundant=False \
+    --locations regionName="East US 2" failoverPriority=1 isZoneRedundant=False
 ```
 
 ## <a name="enable-multiple-write-regions"></a>Habilitar regiones de varias escrituras
@@ -76,8 +76,8 @@ Habilite la arquitectura multimaestro para una cuenta de Cosmos.
 
 ```azurecli-interactive
 # Update an Azure Cosmos account from single to multi-master
-resourceGroupName = 'myResourceGroup'
-accountName = 'mycosmosaccount'
+resourceGroupName='myResourceGroup'
+accountName='mycosmosaccount'
 
 # Get the account resource id for an existing account
 accountId=$(az cosmosdb show -g $resourceGroupName -n $accountName --query id -o tsv)
@@ -91,8 +91,8 @@ Establezca la prioridad de conmutación por error para una cuenta de Cosmos conf
 
 ```azurecli-interactive
 # Assume region order is initially 'West US 2'=0 'East US 2'=1 'South Central US'=2 for account
-resourceGroupName = 'myResourceGroup'
-accountName = 'mycosmosaccount'
+resourceGroupName='myResourceGroup'
+accountName='mycosmosaccount'
 
 # Get the account resource id for an existing account
 accountId=$(az cosmosdb show -g $resourceGroupName -n $accountName --query id -o tsv)
@@ -106,8 +106,8 @@ az cosmosdb failover-priority-change --ids $accountId \
 
 ```azurecli-interactive
 # Enable automatic failover on an existing account
-resourceGroupName = 'myResourceGroup'
-accountName = 'mycosmosaccount'
+resourceGroupName='myResourceGroup'
+accountName='mycosmosaccount'
 
 # Get the account resource id for an existing account
 accountId=$(az cosmosdb show -g $resourceGroupName -n $accountName --query id -o tsv)
@@ -122,8 +122,8 @@ az cosmosdb update --ids $accountId --enable-automatic-failover true
 
 ```azurecli-interactive
 # Assume region order is initially 'West US 2'=0 'East US 2'=1 'South Central US'=2 for account
-resourceGroupName = 'myResourceGroup'
-accountName = 'mycosmosaccount'
+resourceGroupName='myResourceGroup'
+accountName='mycosmosaccount'
 
 # Get the account resource id for an existing account
 accountId=$(az cosmosdb show -g $resourceGroupName -n $accountName --query id -o tsv)
@@ -273,17 +273,17 @@ Cree un contenedor de Cosmos con TTL habilitado.
 
 ```azurecli-interactive
 # Create an Azure Cosmos container with TTL of one day
-resourceGroupName = 'myResourceGroup'
-accountName = 'mycosmosaccount'
-databaseName = 'database1'
-containerName = 'container1'
+resourceGroupName='myResourceGroup'
+accountName='mycosmosaccount'
+databaseName='database1'
+containerName='container1'
 
 az cosmosdb sql container update \
     -g $resourceGroupName \
     -a $accountName \
     -d $databaseName \
     -n $containerName \
-    --ttl = 86400
+    --ttl=86400
 ```
 
 ## <a name="create-a-container-with-a-custom-index-policy"></a>Creación de un contenedor con directiva de índice personalizada

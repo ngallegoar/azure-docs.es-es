@@ -1,21 +1,21 @@
 ---
 title: 'Tutorial: Escalado automático de un conjunto de escalado con Azure PowerShell'
 description: Aprenda a escalar automáticamente un conjunto de escalado de máquinas virtuales con Azure PowerShell a medida que la demanda de la CPU aumenta y disminuye
-author: cynthn
+author: ju-shim
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: cynthn
+ms.author: jushiman
 ms.custom: mvc
-ms.openlocfilehash: 50fb0c1c13ceba88b1894fa0f3165dd40b8e23cf
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b2451779119ab8fb6c1446631797ce32fd376146
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76278405"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81009005"
 ---
-# <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Tutorial: escalado automático de conjuntos de escalado de máquinas virtuales con Azure PowerShell
+# <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Tutorial: Creación de reglas de escalado automático de conjuntos de escalado de máquinas virtuales con Azure PowerShell
 
 [!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
@@ -209,7 +209,7 @@ Para permitir que la herramienta **CPU Stress** continúe ejecutándose, deje ab
 
 
 ## <a name="monitor-the-active-autoscale-rules"></a>Supervisión de las reglas de escalado automático activas
-Para supervisar el número de instancias de máquina virtual del conjunto de escalado, use **while**. Las reglas de escalado automático tardan 5 minutos en empezar el aumento horizontal en respuesta a la carga de CPU generada por **CPUStress* en cada instancia de máquina virtual:
+Para supervisar el número de instancias de máquina virtual del conjunto de escalado, use **while**. Las reglas de escalado automático tardan 5 minutos en empezar el proceso de escalado horizontal en respuesta a la carga de CPU generada por **CPUStress** en cada instancia de máquina virtual:
 
 ```azurepowershell-interactive
 while (1) {Get-AzureRmVmssVM `

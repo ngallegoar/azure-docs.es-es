@@ -3,23 +3,23 @@ title: 'Tutorial: Creación y administración de reglas en la aplicación de Azu
 description: En este tutorial se muestra cómo las reglas de Azure IoT Central le permiten supervisar los dispositivos casi en tiempo real e invocar automáticamente acciones, como el envío de correo electrónico, cuando la regla se desencadena.
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/12/2020
+ms.date: 04/06/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: f61a41fa89c7006341db928472f6b20d272bc550
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 555da74da65f3b1897a276cf819a263334cfa053
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77167389"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80999053"
 ---
 # <a name="tutorial-create-a-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Tutorial: Creación de una regla y configuración de las notificaciones en la aplicación de Azure IoT Central
 
 *Este artículo se aplica a los administradores, operadores y compiladores.*
 
-Puede usar Azure IoT Central para supervisar de forma remota los dispositivos conectados. Las reglas de Azure IoT Central le permiten supervisar los dispositivos casi en tiempo real e invocar acciones automáticamente, como el envío de correo electrónico. Con unos pocos clics, puede definir una condición para supervisar los datos de telemetría de los dispositivos y configurar una acción correspondiente. En este artículo se explica cómo crear reglas para supervisar los datos de telemetría enviados por el dispositivo.
+Puede usar Azure IoT Central para supervisar de forma remota los dispositivos conectados. Las reglas de Azure IoT Central le permiten supervisar los dispositivos casi en tiempo real e invocar acciones automáticamente, como el envío de correo electrónico. En este artículo se explica cómo crear reglas para supervisar los datos de telemetría enviados por el dispositivo.
 
 Los dispositivos usan la telemetría para enviar datos numéricos. Cuando los datos de telemetría del dispositivo seleccionado superan un umbral especificado, se desencadena una regla.
 
@@ -34,11 +34,11 @@ En este tutorial, aprenderá a:
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-Antes de comenzar, debe completar los inicios rápidos [Creación de una aplicación de Azure IoT Central](./quick-deploy-iot-central.md) e [Incorporación de un dispositivo simulado a la aplicación de IoT Central](./quick-create-pnp-device.md) para crear la plantilla de dispositivo **MXChip IoT DevKit** con la que va a trabajar.
+Antes de comenzar, complete los inicios rápidos [Creación de una aplicación de Azure IoT Central](./quick-deploy-iot-central.md) e [Incorporación de un dispositivo simulado a la aplicación de IoT Central](./quick-create-simulated-device.md) para crear la plantilla de dispositivo **MXChip IoT DevKit** con la que va a trabajar.
 
 ## <a name="create-a-rule"></a>Crear una regla
 
-Para crear una regla de telemetría, la plantilla de dispositivos debe tener definida al menos una medida de telemetría. En este tutorial se usa un dispositivo de sensor ambiental que envía datos de telemetría de temperatura y humedad. Ha agregado esta plantilla de dispositivo y creado un dispositivo simulado en el inicio rápido [Incorporación de un dispositivo simulado a la aplicación de IoT Central](./quick-create-pnp-device.md). La regla supervisa la temperatura notificada por el dispositivo y envía un correo electrónico cada vez que sube de 70 grados.
+Para crear una regla de telemetría, la plantilla de dispositivo debe incluir al menos un valor de telemetría. En este tutorial se usa un dispositivo **MXChip IoT DevKit** simulado que envía datos de telemetría de temperatura y humedad. Ha agregado esta plantilla de dispositivo y creado un dispositivo simulado en el inicio rápido [Incorporación de un dispositivo simulado a la aplicación de IoT Central](./quick-create-simulated-device.md). La regla supervisa la temperatura notificada por el dispositivo y envía un correo electrónico cada vez que sube de 70 grados.
 
 1. En el panel izquierdo, seleccione **Rules** (Reglas).
 
@@ -66,8 +66,8 @@ Las condiciones definen los criterios que la regla supervisa. En este tutorial, 
 
 1. Opcionalmente, puede establecer un valor de **Time aggregation** (Agregación de tiempo). Al seleccionar una agregación de tiempo, también debe seleccionar un tipo de agregación, como la media o la suma, en la lista desplegable de agregación.
 
-    * Sin la agregación, la regla se desencadena para cada punto de datos de telemetría que cumple la condición. Por ejemplo, si la regla está configurada para desencadenarse cuando la temperatura está por encima de 70, la regla se desencadena casi al instante cuando el dispositivo informe de una temperatura > 70.
-    * Con la agregación, la regla se desencadena si el valor agregado de los puntos de datos de telemetría de la ventana de tiempo cumple la condición. Por ejemplo, si la regla está configurada para desencadenarse cuando la temperatura sea superior a 70, la agregación de tiempo se establece en 10 minutos y el tipo de agregación es la media, la regla se desencadena cuando el dispositivo informa de una temperatura media por encima de 70, calculada a lo largo de un intervalo de 10 minutos.
+    * Sin la agregación, la regla se desencadena para cada punto de datos de telemetría que cumple la condición. Por ejemplo, si configura la regla para desencadenarse cuando la temperatura está por encima de 70, la regla se desencadena casi al instante cuando la temperatura del dispositivo supere este valor.
+    * Con la agregación, la regla se desencadena si el valor agregado de los puntos de datos de telemetría de la ventana de tiempo cumple la condición. Por ejemplo, si configura la regla para desencadenarse cuando la temperatura sea superior a 70 con una agregación de tiempo media de 10 minutos, la regla se desencadena cuando el dispositivo informa de una temperatura media por encima de 70, calculada a lo largo de un intervalo de 10 minutos.
 
      ![Condición agregada](media/tutorial-create-telemetry-rules/aggregate-condition-filled-out1.png)
 
@@ -100,11 +100,11 @@ Si ya no necesita una regla, elimínela; para ello, abra la regla y seleccione *
 
 ## <a name="enable-or-disable-a-rule"></a>Habilitación o deshabilitación de una regla
 
-Elija la regla que quiere habilitar o deshabilitar. Alterne el botón **Habilitar** o **Deshabilitar** en la regla para habilitar o deshabilitar la regla para todos los dispositivos que tengan el ámbito de esta.
+Elija la regla que quiere habilitar o deshabilitar. Alterne el botón **Habilitado/Deshabilitado** en la regla para habilitar o deshabilitar la regla para todos los dispositivos que tengan el ámbito de esta.
 
-## <a name="enable-or-disable-a-rule-for-a-device"></a>Habilitación o deshabilitación de una regla para un dispositivo
+## <a name="enable-or-disable-a-rule-for-specific-devices"></a>Habilitación o deshabilitación de una regla para dispositivo específicos
 
-Elija la regla que quiere habilitar o deshabilitar. Agregue un filtro en la sección **Ámbitos** para incluir o excluir un determinado dispositivo en la plantilla de dispositivo.
+Elija la regla que quiere personalizar. Use uno o varios filtros de la sección **Dispositivos de destino** para restringir el ámbito de la regla a los dispositivos que desea supervisar.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

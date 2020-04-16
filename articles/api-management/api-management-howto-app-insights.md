@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 12aeea8393a00d7d2662c826f847265bdbdc0119
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 48a83fad3395f6ecf06fb1f1ba95aa1b06a53431
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75442708"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81259143"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Cómo integrar Azure API Management con Azure Application Insights
 
@@ -51,7 +51,7 @@ Antes de poder usar Azure Application Insights, debe crear una instancia del ser
     ![Registrador de App Insights](media/api-management-howto-app-insights/apim-app-insights-logger-2.png)  
 
 > [!NOTE]
-> En segundo plano, se crea una entidad [Logger](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/logger/createorupdate) en la instancia de API Management, que contiene la clave de instrumentación de la instancia de Application Insights.
+> En segundo plano, se crea una entidad [Logger](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/logger/createorupdate) en la instancia de API Management, que contiene la clave de instrumentación de la instancia de Application Insights.
 
 ## <a name="enable-application-insights-logging-for-your-api"></a>Habilitación del registro Application Insights para la API
 
@@ -70,7 +70,7 @@ Antes de poder usar Azure Application Insights, debe crear una instancia del ser
 > Reemplazar el valor predeterminado **0** en el campo **First bytes of body** (Primeros bytes del cuerpo) puede disminuir considerablemente el rendimiento de las API.
 
 > [!NOTE]
-> En segundo plano, se crea una entidad de [diagnóstico](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/diagnostic/createorupdate) denominada "applicationinsights" en el nivel de API.
+> En segundo plano, se crea una entidad de [diagnóstico](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/diagnostic/createorupdate) denominada "applicationinsights" en el nivel de API.
 
 | Nombre del valor                        | Tipo de valor                        | Descripción                                                                                                                                                                                                                                                                                                                                      |
 |-------------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

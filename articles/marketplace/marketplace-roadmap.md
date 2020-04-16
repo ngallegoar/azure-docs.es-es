@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/02/2019
-ms.openlocfilehash: c9c69bb475c943003f78a69df1142653c3d5249e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c6a3ac701442fb30e471bcc2c8f317e3988980f7
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288383"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261982"
 ---
 # <a name="microsoft-commercial-marketplace-roadmap"></a>Plan de desarrollo de Marketplace comercial de Microsoft
 
@@ -29,7 +29,7 @@ Una vez que se activa una funcionalidad, se quita de la hoja de ruta. La funcion
 
 * [Blog de actualización de Marketplace + CSP](https://aka.ms/marketplacemarchupdateblog)
 * [Publicación de ofertas en el canal CSP (ISV)](https://aka.ms/publishtocsp)
-* [Reventa de ofertas de Marketplace (CSP)](hhttps://aka.ms/marketplaceincsp)
+* [Reventa de ofertas de Marketplace (CSP)](https://aka.ms/marketplaceincsp)
 * [Contrato estándar](https://aka.ms/standardcontract)
 * [API de suministro de SaaS](https://aka.ms/saasapiv2)
 * [Geoáreas y monedas de Marketplace](https://aka.ms/marketplacegeos)

@@ -1,19 +1,19 @@
 ---
 title: 'Ejemplos de Azure PowerShell: Creación de un conjunto de escalado de máquinas virtuales'
 description: Este script crea un conjunto de escalado de máquinas virtuales de Azure que ejecutan Windows Server 2016 al que se puede acceder mediante RDP.
-author: cynthn
+author: ju-shim
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.topic: sample
 ms.date: 03/27/2018
-ms.author: cynthn
+ms.author: jushiman
 ms.custom: mvc
-ms.openlocfilehash: 123ba8ef931113b2c822fb1d02fa51e1d085c90e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 380b3d25bdcd5df5f095b2d87e832bf73422759e
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76276573"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011494"
 ---
 # <a name="create-a-basic-virtual-machine-scale-set-with-powershell"></a>Creación de un conjunto de escalado de máquinas virtuales básico con PowerShell
 Este script crea un conjunto de escalado de máquinas virtuales que ejecutan Windows Server 2016. Después de ejecutar el script, puede acceder a las instancias de máquina virtual mediante RDP.

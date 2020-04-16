@@ -6,12 +6,12 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 3/10/2020
-ms.openlocfilehash: 8a7dfd7c690d79d8430f7c33a25b38949dbd06c4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 31a5195038ef25acadc08e2acbedf8471b25833c
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79086330"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261421"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi"></a>Uso de la identidad administrada para autenticar el trabajo de Azure Stream Analytics en Power BI
 
@@ -160,7 +160,7 @@ Ahora que se ha creado el trabajo de Stream Analytics, se le puede conceder acce
 ### <a name="use-the-power-bi-ui"></a>Uso de la interfaz de usuario de Power BI
 
    > [!Note]
-   > Para agregar el trabajo de Stream Analytics al área de trabajo de Power BI mediante la interfaz de usuario, también debe habilitar el acceso de la entidad de servicio en **Configuración de desarrollador** en el portal de administración de Power BI. Vea [Introducción a una entidad de servicio](https://docs.microsoft.com/power-bi/developer/embed-service-principal#get-started-with-a-service-principal) para obtener más detalles.
+   > Para agregar el trabajo de Stream Analytics al área de trabajo de Power BI mediante la interfaz de usuario, también debe habilitar el acceso de la entidad de servicio en **Configuración de desarrollador** en el portal de administración de Power BI. Vea [Introducción a una entidad de servicio](https://docs.microsoft.com/power-bi/developer/embed-service-principal) para obtener más detalles.
 
 1. Vaya a la configuración de acceso del área de trabajo. Vea este artículo para obtener más información: [Concesión de acceso al área de trabajo](https://docs.microsoft.com/power-bi/service-create-the-new-workspaces#give-access-to-your-workspace).
 

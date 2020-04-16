@@ -1,19 +1,19 @@
 ---
 title: 'Tutorial: Creación y uso de discos para conjuntos de escalado con la CLI de Azure'
 description: Aprenda a usar la CLI de Azure para crear y usar discos administrados con conjuntos de escalado de máquinas virtuales, incluido cómo agregar, preparar, enumerar y desconectar discos.
-author: cynthn
+author: ju-shim
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: cynthn
+ms.author: jushiman
 ms.custom: mvc
-ms.openlocfilehash: 12bde51222e1e648f97476d5dab039b4ad2adfe8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3759fa426a712308e1956376d559c1ac84eadbd7
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80067060"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81008852"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>Tutorial: Creación y uso de discos con conjuntos de escalado de máquinas virtuales con la CLI de Azure
 Los conjuntos de escalado de máquinas virtuales usan discos para almacenar el sistema operativo, las aplicaciones y los datos de las máquinas virtuales. Al crear y administrar un conjunto de escalado, es importante elegir un tamaño de disco y la configuración adecuada para la carga de trabajo esperada. Este tutorial explica cómo crear y administrar discos de máquina virtual. En este tutorial, aprenderá a:
@@ -51,18 +51,7 @@ Cuando se crea o se escala un conjunto de escalado, se conectan automáticamente
 
 
 ## <a name="azure-data-disks"></a>Discos de datos de Azure
-Se pueden agregar discos de datos adicionales si necesita instalar aplicaciones y almacenar datos. Los discos de datos deben usarse en cualquier situación donde desee un almacenamiento de datos duradero y con capacidad de respuesta. Cada disco de datos tiene una capacidad máxima de 4 TB. El tamaño de la instancia de máquina virtual determina cuántos discos de datos se pueden conectar. Para cada vCPU de la máquina virtual, se pueden asociar dos discos de datos.
-
-### <a name="max-data-disks-per-vm"></a>Discos de datos máximos por máquina virtual
-| Tipo | Tamaños comunes | Discos de datos máximos por máquina virtual |
-|----|----|----|
-| [Uso general](../virtual-machines/linux/sizes-general.md) | Series A, B y D | 64 |
-| [Proceso optimizado](../virtual-machines/linux/sizes-compute.md) | Serie F | 64 |
-| [Memoria optimizada](../virtual-machines/linux/sizes-memory.md) | Series D, E, G y M | 64 |
-| [Almacenamiento optimizado](../virtual-machines/linux/sizes-storage.md) | Serie L | 64 |
-| [GPU](../virtual-machines/linux/sizes-gpu.md) | Serie N | 64 |
-| [Alto rendimiento](../virtual-machines/linux/sizes-hpc.md) | Series A y H | 64 |
-
+Se pueden agregar discos de datos adicionales si necesita instalar aplicaciones y almacenar datos. Los discos de datos deben usarse en cualquier situación donde desee un almacenamiento de datos duradero y con capacidad de respuesta. Cada disco de datos tiene una capacidad máxima de 4 TB. El tamaño de la instancia de máquina virtual determina cuántos discos de datos se pueden conectar. Para cada vCPU de máquina virtual, se pueden conectar dos discos de datos hasta un máximo de 64 discos por máquina virtual.
 
 ## <a name="vm-disk-types"></a>Tipos de disco de máquina virtual
 Azure proporciona dos tipos de disco.

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: erhopf
-ms.openlocfilehash: f820a2811ce4878d73b53a028998c51a1fed70bd
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: d3d0a807e8742419ee321f38daebf6f70d6b0be1
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80671119"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81275362"
 ---
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -196,7 +196,7 @@ Ya está listo para compilar la aplicación y probar la síntesis de voz con el 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[!INCLUDE [footer](./footer.md)]
+[!INCLUDE [Speech synthesis basics](../../text-to-speech-next-steps.md)]
 
 ## <a name="see-also"></a>Consulte también
 

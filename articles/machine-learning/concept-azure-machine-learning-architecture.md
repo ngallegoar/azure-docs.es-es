@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 03/17/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: f779781eee81bf85f6420e5bae6b0feb62680b8d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9f1d23f11cf73680a8861c9f1ac6cbd40ad497a4
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064185"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257341"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Funcionamiento de Azure Machine Learning: Arquitectura y conceptos
 
@@ -187,7 +187,7 @@ Para más información, consulte los siguientes artículos.
 * [Entrenamiento de modelos de aprendizaje automático con estimadores](how-to-train-ml-models.md).
 * [Entrenamiento de modelos de aprendizaje profundo de PyTorch a escala con Azure Machine Learning](how-to-train-pytorch.md).
 * [Entrenamiento y registro de modelos de TensorFlow a escala con Azure Machine Learning](how-to-train-tensorflow.md).
-* [Entrenamiento y registro de modelos de Chainer a escala con Azure Machine Learning](how-to-train-chainer.md).
+* [Entrenamiento y registro de modelos de Chainer a escala con Azure Machine Learning](how-to-train-ml-models.md).
 
 ### <a name="endpoints"></a>Puntos de conexión
 

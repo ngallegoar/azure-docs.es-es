@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 81b7fb687bb6ef88d1ed436923d0e5ff7561c22b
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.openlocfilehash: 27bb6abb7ae8eae46bc4dea3708270ecb4b731a6
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80803252"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260911"
 ---
 # <a name="api-management-transformation-policies"></a>Directivas de transformación de API Management
 En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -214,7 +214,7 @@ or
 ```
 
 > [!NOTE]
-> Las entidades de back-end pueden administrarse mediante [API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend) y [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
+> Las entidades de back-end pueden administrarse mediante [API](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/backend) y [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
 
 ### <a name="example"></a>Ejemplo
 
@@ -269,7 +269,7 @@ En este ejemplo, la directiva enruta la solicitud a un back-end de Service Fabri
 |Nombre|Descripción|Obligatorio|Valor predeterminado|
 |----------|-----------------|--------------|-------------|
 |base-url|Nueva dirección URL base del servicio back-end.|`base-url` o `backend-id` deben estar presentes.|N/D|
-|backend-id|Identificador del back-end al que se va a enrutar. (Las entidades de back-end se administran mediante [API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend) y [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement)).|`base-url` o `backend-id` deben estar presentes.|N/D|
+|backend-id|Identificador del back-end al que se va a enrutar. (Las entidades de back-end se administran mediante [API](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/backend) y [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement)).|`base-url` o `backend-id` deben estar presentes.|N/D|
 |sf-partition-key|Solo se aplica cuando el back-end es un servicio de Service Fabric y se especifica con "backend-id". Se usa para resolver una partición específica desde el servicio de resolución de nombres.|No|N/D|
 |sf-replica-type|Solo se aplica cuando el back-end es un servicio de Service Fabric y se especifica con "backend-id". Controla si la solicitud debe ir a la réplica principal o secundaria de una partición. |No|N/D|
 |sf-resolve-condition|Solo se aplica cuando el back-end es un servicio de Service Fabric. Condición que identifica si la llamada al back-end de Service Fabric tiene que repetirse con la nueva resolución.|No|N/D|

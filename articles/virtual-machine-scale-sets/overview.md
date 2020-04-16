@@ -1,19 +1,19 @@
 ---
 title: Introducción a los conjuntos de escalado de máquinas virtuales de Azure
 description: Información acerca de los conjuntos de escalado de máquinas virtuales de Azure y de cómo escalar automáticamente sus aplicaciones
-author: mayanknayar
+author: mimckitt
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.topic: overview
 ms.custom: mvc
 ms.date: 09/26/2019
-ms.author: manayar
-ms.openlocfilehash: e6201f9ac2e9b813de5a4622fc7996eb1202a164
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.author: mimckitt
+ms.openlocfilehash: 03e3c7b5c0696069729d3067faad8ceb91fc611f
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76273707"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81272549"
 ---
 # <a name="what-are-virtual-machine-scale-sets"></a>¿Qué son los conjuntos de escalado de máquina virtual?
 Los conjuntos de escalado de máquinas virtuales de Azure permiten crear y administrar un grupo de máquinas virtuales idénticas con equilibrio de carga y ajuste automático. El número de instancias de máquina virtual puede aumentar o disminuir automáticamente según la demanda, o de acuerdo a una programación definida. Los conjuntos de escalado proporcionan una alta disponibilidad a las aplicaciones y le permiten administrar, configurar y actualizar de forma centralizada un gran número de máquinas virtuales. Con los conjuntos de escalado de máquinas virtuales, puede crear servicios a gran escala para áreas como proceso, macrodatos y cargas de trabajo de contenedor.
@@ -27,7 +27,7 @@ Los conjuntos de escalado de máquinas virtuales de Azure proporcionan las capac
 - **Facilitan la creación y administración de varias máquinas virtuales**
     - Cuando tiene muchas máquinas virtuales que ejecutan la aplicación es importante mantener una configuración coherente en todo el entorno. Para obtener un rendimiento confiable de la aplicación, el tamaño de máquina virtual, la configuración de disco y las instalaciones de la aplicación deben coincidir en todas las máquinas virtuales.
     - Con los conjuntos de escalado se crean todas las instancias de máquina virtual desde la misma configuración e imagen base de sistema operativo. Este enfoque le permite administrar fácilmente cientos de máquinas virtuales sin tareas adicionales de configuración o administración de red.
-    - Los conjuntos de escalado admiten el uso de [Azure Load Balancer](../load-balancer/load-balancer-overview.md) para la distribución del tráfico de nivel 4 básico, y de [Azure Application Gateway](../application-gateway/application-gateway-introduction.md) para las características más avanzadas de distribución de nivel 7 y terminación SSL.
+    - Los conjuntos de escalado admiten el uso de [Azure Load Balancer](../load-balancer/load-balancer-overview.md) para la distribución del tráfico de nivel 4 básico, y de [Azure Application Gateway](../application-gateway/application-gateway-introduction.md) para las características más avanzadas de distribución de nivel 7 y terminación TLS.
 
 - **Proporcionan alta disponibilidad y resistencia de aplicación**
     - Los conjuntos de escalado se utilizan para ejecutar varias instancias de la aplicación. Si una de estas instancias de máquina virtual tiene un problema, los clientes siguen teniendo acceso a la aplicación a través de una de las otras instancias de máquina virtual con una interrupción mínima.

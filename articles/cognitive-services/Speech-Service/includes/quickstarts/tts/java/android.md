@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: yulili
-ms.openlocfilehash: 916626111c76a5d4b380a1225897a1eef719541b
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: d114e75a08f31a664772b84e19ec4d93b453af0b
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80671718"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81274764"
 ---
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -78,7 +78,7 @@ Escriba texto y presione el botón de la aplicación para empezar una sección d
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[!INCLUDE [footer](./footer.md)]
+[!INCLUDE [Speech synthesis basics](../../text-to-speech-next-steps.md)]
 
 ## <a name="see-also"></a>Consulte también
 

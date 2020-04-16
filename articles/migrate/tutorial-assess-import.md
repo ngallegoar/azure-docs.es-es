@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 23fa1a2a0b035d04334c51c02411de6de70f2cad
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2a30222902fd8797908202562a04018209842af2
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79453653"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115058"
 ---
 # <a name="assess-servers-by-using-imported-data"></a>Evaluación de servidores con datos importados
 
@@ -126,22 +126,8 @@ En la tabla siguiente se resumen los campos de archivo que se van a rellenar:
 **Network in throughput** (Rendimiento de entrada de red) | No | Datos recibidos por el servidor (en MB por segundo).
 **Network out throughput** (Rendimiento de salida de red) | No | Datos transmitidos por el servidor (en MB por segundo).
 **Firmware type** (Tipo de firmware) | No | Firmware del servidor. Los valores pueden ser "BIOS" o "UEFI".
-**Tipo de servidor** | No | Los valores pueden ser "Físico" o "Virtual".
-**Hipervisor** | No | Hipervisor en el que se está ejecutando una máquina. <br/> Los valores pueden ser "VMware", "Hyper-V", "Xen", "AWS", "GCP" u "Otro".
-**Hypervisor version number** (Número de versión de hipervisor) | No | Versión del hipervisor.
-**Virtual machine ID** (Identificador de máquina virtual) | No | Identificador de la máquina virtual. Este es el valor de **InstanceUUid** para una máquina virtual de VMware vCenter o el **identificador de máquina virtual de Hyper-V** para Hyper-V.
-**Virtual machine manager ID** (Identificador de Virtual Machine Manager) | No | Este es el valor de **InstanceUUid** para VMWare vCenter. No es necesario para Hyper-V.
 **MAC address** (Dirección MAC)| No | Dirección MAC de servidor.
-**BIOS ID** (IDENTIFICADOR DE BIOS) | No | Identificador del BIOS de servidor.
-**Custom server ID** (Identificador de servidor personalizado) | No | Identificador de servidor único local en el entorno local. <br/> Resulta útil para realizar el seguimiento del servidor importado mediante el identificador local.
-**Application 1 name** (Nombre de aplicación 1) | No | Nombre de la carga de trabajo que se ejecuta en el servidor.<br/>Puede agregar detalles de más aplicaciones si [agrega columnas](#add-multiple-applications) en la plantilla. Puede agregar hasta cinco aplicaciones.
-**Application 1 type** (Tipo de aplicación 1) | No | Tipo de la carga de trabajo que se ejecuta en el servidor.
-**Application 1 version** (Versión de aplicación 1) | No | Versión de la carga de trabajo que se ejecuta en el servidor.
-**Application 1 license expiry** (Expiración de licencia de aplicación 1) | No | Expiración de la licencia para la carga de trabajo (si procede).
-**Business unit** (Unidad de negocio) | No | Unidad de negocio a la que pertenece el servidor.
-**Business owner** (Propietario de empresa) | No | Propietario de la unidad de negocio.
-**Business application name** (Nombre de la aplicación empresarial) | No | Nombre de la aplicación a la que pertenece la aplicación.
-**Ubicación** | No | Centro de datos en el que se encuentra el servidor.
+
 
 ### <a name="add-operating-systems"></a>Incorporación de sistemas operativos
 
@@ -159,19 +145,6 @@ Por ejemplo, para especificar todos los campos de un segundo disco, agregue esta
 - Rendimiento de lectura de disco 2
 - Rendimiento de escritura de disco 2
 
-### <a name="add-multiple-applications"></a>Incorporación de varias aplicaciones
-
-La plantilla proporciona campos para una sola aplicación. Puede agregar columnas similares para un máximo de cinco aplicaciones.  
-
-Por ejemplo, para especificar todos los campos de una segunda aplicación, agregue estas columnas:
-
-- Nombre de aplicación 2
-- Tipo de aplicación 2
-- Versión de aplicación 2
-- Expiración de licencia de aplicación 2
-
-> [!NOTE]
-> La información de la aplicación es útil al evaluar el entorno local para la migración. Sin embargo, Server Assessment de Azure Migrate no realiza actualmente ninguna evaluación en el nivel de aplicación ni tiene en cuenta las aplicaciones al crear una evaluación.
 
 ## <a name="import-the-server-information"></a>Importación de la información de servidor
 

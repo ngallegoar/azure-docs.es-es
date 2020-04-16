@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/24/2020
 ms.author: damaerte
-ms.openlocfilehash: d4d59642f638e7b1221c35a4bb281923571d5066
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 37005a722d4a1962b4f6e1ddb8bb1c7a1229d28a
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80297600"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273297"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Persistencia de archivos en Azure Cloud Shell
 Cloud Shell utiliza Azure File Storage para conservar los archivos entre sesiones. En el primer inicio, Cloud Shell le pedirá que asocie un recurso compartido de archivos nuevo o existente para conservar los archivos entre sesiones.
@@ -50,7 +50,7 @@ Mediante la opción avanzada puede asociar recursos existentes. Al seleccionar u
 Cuando aparezca el mensaje del programa de instalación, seleccione **Mostrar configuración avanzada** para ver otras opciones. Las opciones de almacenamiento rellenadas se filtran por cuentas de almacenamiento con redundancia local (LRS), almacenamiento con redundancia geográfica (GRS) y almacenamiento con redundancia de zona (ZRS). 
 
 > [!NOTE]
-> Se recomienda usar cuentas de almacenamiento con redundancia geográfica o con redundancia de zona para contar con resistencia adicional para el recurso compartido de archivos de respaldo. El tipo de redundancia depende de los objetivos y las preferencias de precio. [Obtenga más información sobre las opciones de replicación para las cuentas de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy).
+> Se recomienda usar cuentas de almacenamiento con redundancia geográfica o con redundancia de zona para contar con resistencia adicional para el recurso compartido de archivos de respaldo. El tipo de redundancia depende de los objetivos y las preferencias de precio. [Obtenga más información sobre las opciones de replicación para las cuentas de Azure Storage](../storage/common/storage-redundancy.md).
 
 ![La configuración de grupo de recursos](media/persisting-shell-storage/advanced-storage.png)
 
@@ -169,5 +169,5 @@ Nota: si tiene que definir una función en un archivo y llamarla desde los cmdle
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Inicio rápido de Cloud Shell](quickstart.md) <br>
-[Información sobre el almacenamiento de Microsoft Azure Files](https://docs.microsoft.com/azure/storage/storage-introduction) <br>
+[Información sobre el almacenamiento de Microsoft Azure Files](../storage/files/storage-files-introduction.md) <br>
 [Información sobre las etiquetas de almacenamiento](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>

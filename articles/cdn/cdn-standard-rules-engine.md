@@ -2,17 +2,17 @@
 title: Uso de un motor de reglas para exigir HTTPS en Azure CDN estándar | Microsoft Docs
 description: Use el motor de reglas de Microsoft Standard Azure Content Delivery Network (Azure CDN) para personalizar el modo en que Azure CDN controla las solicitudes HTTP, incluido el bloqueo de la entrega de ciertos tipos de contenido, la definición de una directiva de almacenamiento en caché y la modificación de encabezados HTTP. En este artículo, aprenderá a crear una regla para redirigir a los usuarios a HTTPS.
 services: cdn
-author: mdgattuso
+author: asudbring
 ms.service: azure-cdn
 ms.topic: article
 ms.date: 11/01/2019
-ms.author: magattus
-ms.openlocfilehash: 724861305d7a25db409072200ac2bc3bd83f0682
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: 91a442573139bf4fdd09978290bf2380c8bcb97e
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74171584"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81259939"
 ---
 # <a name="set-up-the-standard-rules-engine-for-azure-cdn"></a>Configuración del motor de reglas estándar de Azure CDN
 

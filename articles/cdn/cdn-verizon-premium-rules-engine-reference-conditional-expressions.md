@@ -2,17 +2,17 @@
 title: 'Expresiones condicionales para Azure CDN: motor de reglas de Verizon Premium'
 description: Documentación de referencia sobre las condiciones y características de coincidencia del motor de reglas de Azure CDN de Verizon Premium.
 services: cdn
-author: mdgattuso
+author: asudbring
 ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/31/2019
-ms.author: magattus
-ms.openlocfilehash: d28bda28894477845c2a050666b3b4dd332b7d50
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: 25b3c1a011e39adea651a6daa1d4ab9aa3a9d186
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74082971"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81253516"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-conditional-expressions"></a>Expresiones condicionales del motor de reglas de Azure CDN de Verizon Premium | Microsoft Docs
 

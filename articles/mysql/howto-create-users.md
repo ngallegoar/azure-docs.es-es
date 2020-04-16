@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: c4e95164badaf0b255f5ee76d0fec7686c2abf8b
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.date: 4/2/2020
+ms.openlocfilehash: f8c020da72e9cdf8777a3eefac266e97e4a312bd
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80382875"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81263478"
 ---
 # <a name="create-users-in-azure-database-for-mysql-server"></a>Creación de usuarios en un servidor de Azure Database for MySQL
 
@@ -22,6 +22,9 @@ La primera vez que creó su instancia de Azure Database for MySQL, proporcionó 
 El usuario administrador del servidor obtiene ciertos privilegios para el servidor, según se indica a continuación: SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT y TRIGGER
 
 Una vez creado el servidor de Azure Database for MySQL, puede usar la primera cuenta de usuario administrador del servidor para crear usuarios adicionales y concederles acceso de administrador. Además, la cuenta de administrador del servidor puede usarse para crear usuarios con menos privilegios que tengan acceso a esquemas de base de datos individuales.
+
+> [!NOTE]
+> El privilegio SUPER y el rol DBA no se admiten. Revise los [privilegios](concepts-limits.md#privilege-support) en el artículo que trata sobre las limitaciones para saber lo que no se admite en el servicio.
 
 ## <a name="how-to-create-additional-admin-users-in-azure-database-for-mysql"></a>Creación de usuarios administradores adicionales en Azure Database for MySQL
 
@@ -89,4 +92,4 @@ Una vez creado el servidor de Azure Database for MySQL, puede usar la primera cu
 
 Abra el firewall para las direcciones IP de las máquinas de los nuevos usuarios para permitirles conectarse: [Creación y administración de reglas de firewall de Azure Database for MySQL mediante Azure Portal](howto-manage-firewall-using-portal.md) o la [CLI de Azure](howto-manage-firewall-using-cli.md).
 
-Para más información respecto a la administración de cuentas de usuario, consulte la documentación del producto de MySQL relativa a la [administración de cuentas de usuario](https://dev.mysql.com/doc/refman/5.7/en/user-account-management.html), la [sintaxis GRANT](https://dev.mysql.com/doc/refman/5.7/en/grant.html) y los [privilegios](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html).
+Para más información respecto a la administración de cuentas de usuario, consulte la documentación del producto de MySQL relativa a la [administración de cuentas de usuario](https://dev.mysql.com/doc/refman/5.7/en/access-control.html), la [sintaxis GRANT](https://dev.mysql.com/doc/refman/5.7/en/grant.html) y los [privilegios](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html).

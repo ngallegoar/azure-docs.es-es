@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 49ef78ac5a7d58d86583d91bf072f0f3131796fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 889d0d1e98f5c9947588011774d02e54f05edca1
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80089124"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257766"
 ---
 # <a name="set-up-a-lab-focused-on-deep-learning-in-natural-language-processing-using-azure-lab-services"></a>Configuración de un laboratorio centrado en el aprendizaje profundo en el procesamiento de lenguaje natural mediante Azure Lab Services
 En este artículo se muestra cómo configurar un laboratorio centrado en el aprendizaje profundo en el procesamiento de lenguaje natural (NLP) mediante Azure Lab Services. El procesamiento de lenguaje natural (NLP) es una forma de inteligencia artificial (AI) que permite a los equipos utilizar la traducción, el reconocimiento de voz y otras capacidades de comprensión de lenguajes.  
@@ -39,7 +39,7 @@ Siga [este tutorial](tutorial-setup-classroom-lab.md) para crear un laboratorio 
 | Configuración del laboratorio | Valor/instrucciones | 
 | ------------ | ------------------ |
 | Tamaño de la máquina virtual | GPU pequeña (proceso) Este tamaño es más adecuado para aplicaciones de proceso intensivo y uso intensivo de la red; por ejemplo, la inteligencia artificial y el aprendizaje profundo. |
-| Imagen de la máquina virtual | [Data Science Virtual Machine para Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.linux-data-science-vm-ubuntu). Esta imagen proporciona marcos y herramientas de aprendizaje profundo para aprendizaje automático y ciencia de datos. Para ver la lista completa de las herramientas instaladas en esta imagen, consulte el siguiente artículo: [¿Qué incluye DSVM?](../../machine-learning/data-science-virtual-machine/overview.md#whats-included-on-the-dsvm) |
+| Imagen de la máquina virtual | [Data Science Virtual Machine para Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). Esta imagen proporciona marcos y herramientas de aprendizaje profundo para aprendizaje automático y ciencia de datos. Para ver la lista completa de las herramientas instaladas en esta imagen, consulte el siguiente artículo: [¿Qué incluye DSVM?](../../machine-learning/data-science-virtual-machine/overview.md#whats-included-on-the-dsvm) |
 | Habilitar la conexión a Escritorio remoto | Enable (Habilitar). <p>Esta configuración permitirá a los profesores y alumnos conectarse a sus máquinas virtuales mediante Escritorio remoto (RDP).</p><p>**Importante**: Si RDP ya está instalado y configurado en la imagen de Data Science Virtual Machine para Linux. Como resultado, los profesores y alumnos pueden conectarse a las máquinas virtuales mediante el protocolo de escritorio remoto sin necesidad de pasos adicionales. Además, si necesita conectarse al escritorio gráfico, esta imagen ya tiene [X2Go Server](https://wiki.x2go.org/doku.php/doc:newtox2go) instalado en la máquina virtual. Los alumnos deben instalar el cliente de X2Go en sus máquinas locales y usar el cliente para la conexión. Para más información, consulte las siguientes guías: <ul><li>[Acceso a Data Science Virtual Machine para Linux](../../machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine)</li><li>[Conexión a la máquina virtual de plantilla para instalar los paquetes de RDP y GUI](how-to-enable-remote-desktop-linux.md#connect-to-the-template-vm)</li></ul></p>   |
 
 La imagen de Data Science Virtual Machine para Linux proporciona las herramientas y los marcos de aprendizaje profundo necesarios para este tipo de clase. Como resultado, después de la creación de la máquina de plantilla, no es necesario personalizarla más. Se puede publicar para que los alumnos la utilicen. Seleccione el botón **Publicar** en la página de la plantilla para publicarla en el laboratorio.  

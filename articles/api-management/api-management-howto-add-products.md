@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: 813117bce4abd3550ac559109c1650ea4a7cff5c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 686d6e2ff01fd4d8283350ab8097e1f73c914af0
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74538256"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261003"
 ---
 # <a name="create-and-publish-a-product"></a>Crear y publicar un producto  
 
@@ -85,7 +85,7 @@ En primer lugar, los desarrolladores deben suscribirse a un producto para accede
 4. Elija una API y haga clic en **Seleccionar**.
 
 > [!TIP]
-> Puede crear o actualizar la suscripción del usuario para un *producto* con claves de suscripción personalizadas [mediante la API REST](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/subscription/createorupdate) o un comando de PowerShell.
+> Puede crear o actualizar la suscripción del usuario para un *producto* con claves de suscripción personalizadas [mediante la API REST](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/subscription/createorupdate) o un comando de PowerShell.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

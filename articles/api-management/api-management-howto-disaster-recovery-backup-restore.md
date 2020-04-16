@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: apimpm
-ms.openlocfilehash: f9758678708338a284a35b45f7f9dd43b9a9017c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e74d7dcf8764d167e0080c9d7cca5573bd69ef1d
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80335952"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261013"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Procedimiento para implementar la recuperación ante desastres mediante copias de seguridad y restauración del servicio en Azure API Management
 
@@ -131,7 +131,7 @@ Reemplace `{tenant id}`, `{application id}` y `{redirect uri}` mediante las sigu
 
 ## <a name="calling-the-backup-and-restore-operations"></a>Llamada a operaciones de copia de seguridad y restauración
 
-Las API REST son [servicio API Management: Copia de seguridad](/rest/api/apimanagement/2019-01-01/apimanagementservice/backup) y [servicio API Management: Restauración](/rest/api/apimanagement/2019-01-01/apimanagementservice/restore).
+Las API REST son [servicio API Management: Copia de seguridad](/rest/api/apimanagement/2019-12-01/apimanagementservice/backup) y [servicio API Management: Restauración](/rest/api/apimanagement/2019-12-01/apimanagementservice/restore).
 
 Antes de llamar a las operaciones de "copia de seguridad y restauración" descritas en las secciones siguientes, establezca el encabezado de solicitud de autorización para la llamada REST.
 
