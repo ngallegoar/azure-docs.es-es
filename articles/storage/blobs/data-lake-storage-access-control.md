@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 192e46fd7f86b6053eaf658fa65e3c6cdfa3a4e7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 93c21656a768ae458572e0b4917412c8103b2f2d
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79528615"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80992222"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Control de acceso en Azure Data Lake Storage Gen2
 
@@ -54,7 +54,7 @@ Los tokens de SAS incluyen permisos permitidos como parte del token. Los permiso
 Puede asociar una entidad de seguridad a un nivel de acceso de archivos y directorios. Estas asociaciones se capturan en una *lista de control de acceso (ACL)* . Cada archivo y directorio de la cuenta de almacenamiento tiene una lista de control de acceso.
 
 > [!NOTE]
-> Las ACL se aplican solo a las entidades de seguridad del mismo inquilino. No se puede asociar un usuario invitado a un nivel de acceso.  
+> Las ACL se aplican solo a las entidades de seguridad del mismo inquilino. 
 
 Si ha asignado un rol a una entidad de seguridad en el nivel de cuenta de almacenamiento, puede usar listas de control de acceso para conceder a esta entidad de seguridad privilegios de acceso elevados a archivos y directorios específicos.
 

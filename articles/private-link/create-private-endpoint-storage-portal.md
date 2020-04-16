@@ -7,20 +7,17 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 8c76333d5a2be8a2c589dbe54389b023fef34854
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 111e6e2f80c3460f363c496b7b32befdca16250d
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78252531"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115109"
 ---
 # <a name="connect-privately-to-a-storage-account-using-azure-private-endpoint"></a>Conexión privada a una cuenta de almacenamiento mediante el punto de conexión privado de Azure
 Un punto de conexión privado de Azure es el bloque de creación fundamental para Private Link en Azure. Permite que los recursos de Azure, como las máquinas virtuales, se comuniquen de manera privada con recursos de Private Link.
 
 En este inicio rápido, obtendrá información sobre cómo crear una máquina virtual en una red virtual de Azure, una cuenta de almacenamiento con un punto de conexión privado mediante Azure Portal. Después, puede acceder de forma segura a la cuenta de almacenamiento desde la VM.
-
-> [!NOTE]
-> No se permiten puntos de conexión privados junto con los puntos de conexión de servicio en la misma subred.
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 

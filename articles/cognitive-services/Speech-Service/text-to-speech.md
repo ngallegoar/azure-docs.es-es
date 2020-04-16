@@ -3,19 +3,19 @@ title: 'Texto a voz: servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: La característica de texto a voz del servicio de voz permite que sus aplicaciones, herramientas o dispositivos conviertan el texto en una voz sintetizada natural similar a la humana. Elija voces preestablecidas o cree su voz personalizada.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
-ms.author: dapine
-ms.openlocfilehash: 7c7574ee4e9f75b9b650ff63a10666c5e379fca8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: trbye
+ms.openlocfilehash: 1a8b458eb004b44d0045f36b18d88e11e019c4d2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80131561"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399500"
 ---
 # <a name="what-is-text-to-speech"></a>¿Qué es el texto a voz?
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: dce3549bde4c62245e1d2b1f8ac0c88c0b70260c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 4e9077d06341ce5ecf6b2238374ce1ac8e13dca3
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "70241405"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415161"
 ---
 # <a name="tutorial-order-azure-data-box-heavy"></a>Tutorial: Pedir Azure Data Box Heavy
 
@@ -41,17 +41,9 @@ Antes de comenzar, asegúrese de que:
 - Si la instalación se realiza en una planta que no sea la baja, necesita acceso al dispositivo a través de un ascensor o una rampa. El dispositivo pesa aproximadamente 226 kg.
 - Asegúrese de que tiene una sitio llano en el centro de datos que se encuentra próximo a una conexión de red disponible con espacio para un dispositivo con esta superficie.
 
-
 ### <a name="for-service"></a>Para el servicio
 
-Antes de comenzar, asegúrese de que:
-- Tiene una cuenta de almacenamiento de Microsoft Azure con credenciales de acceso.
-- Asegúrese de que la suscripción que utilice para el servicio Data Box sea de uno de los siguientes tipos:
-    - Contrato Enterprise (EA) de Microsoft. Más información acerca de [las suscripciones de EA](https://azure.microsoft.com/pricing/enterprise-agreement/).
-    - Proveedor de soluciones en la nube (CSP). Más información acerca del [programa Azure CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
-    - Patrocinio de Microsoft Azure Obtenga más información sobre el [programa de patrocinio de Azure](https://azure.microsoft.com/offers/ms-azr-0036p/).
-
-- Asegúrese de que tiene acceso de propietario o colaborador a la suscripción para crear un pedido de Data Box Heavy.
+[!INCLUDE [Data Box service prerequisites](../../includes/data-box-supported-subscriptions.md)]
 
 ### <a name="for-device"></a>Para el dispositivo
 

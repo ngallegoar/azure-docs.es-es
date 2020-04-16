@@ -3,14 +3,14 @@ title: Implementar una aplicación de Service Fabric con una instancia administr
 description: En este artículo se muestra cómo asignar una identidad administrada asignada por el sistema a una aplicación de Azure Service Fabric.
 ms.topic: article
 ms.date: 07/25/2019
-ms.openlocfilehash: d5a14722363d642957904f9c7c699d3cf1d66c0f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c5c7a17c51eee18d9b7276f2c57289a5de5c8181
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75614832"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415651"
 ---
-# <a name="deploy-service-fabric-application-with-system-assigned-managed-identity-preview"></a>Implementación de una aplicación de Service Fabric con una identidad administrada asignada por el sistema (versión preliminar)
+# <a name="deploy-service-fabric-application-with-system-assigned-managed-identity"></a>Implementación de una aplicación de Service Fabric con una identidad administrada asignada por el sistema
 
 Para acceder a la característica de identidad administrada para las aplicaciones de Azure Service Fabric, primero debe habilitar el servicio de token de identidad administrada en el clúster. Este servicio es responsable de la autenticación de aplicaciones de Service Fabric que usan sus identidades administradas y de la obtención de los tokens de acceso en su nombre. Una vez habilitado el servicio, puede verlo en Service Fabric Explorer, bajo la sección **Sistema** del panel izquierdo. Se ejecuta con el nombre **fabric:/System/ManagedIdentityTokenService** junto a otros servicios del sistema.
 

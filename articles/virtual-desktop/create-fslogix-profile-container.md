@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 11/25/2019
+ms.date: 04/13/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 272188b50fe59435031a4a2fb9c252f3f358bb6c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 149fb5818ee360c7333997655ea9eb8d7ded346c
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79535738"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81270900"
 ---
 # <a name="create-an-fslogix-profile-container-for-a-host-pool-using-azure-netapp-files"></a>Creación de un contenedor de perfiles de FSLogix para un grupo host mediante Azure NetApp Files
 
@@ -117,9 +117,6 @@ Después, debe unirse a una conexión de Active Directory.
     - En **SMB Server (Computer Account) Prefix** (Prefijo de servidor SMB [cuenta de equipo]), escriba la cadena que quiere anexar al nombre de la cuenta de equipo.
     - En **Nombre de usuario**, escriba el nombre de la cuenta con permisos para realizar la unión a un dominio.
     - En **Contraseña**, escriba la contraseña de la cuenta.
-
-  >[!NOTE]
-  >Se recomienda confirmar que la cuenta de equipo que creó en [Unión a una conexión de Active Directory](create-fslogix-profile-container.md#join-an-active-directory-connection) ha aparecido en el controlador de dominio en la sección **Equipos** o en la **unidad organizativa correspondiente de su empresa**.
 
 ## <a name="create-a-new-volume"></a>Creación de un nuevo volumen
 

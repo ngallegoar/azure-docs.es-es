@@ -1,42 +1,36 @@
 ---
-title: 'Inicio rápido: Reconocimiento de la voz a través de un micrófono en C++ (Linux): servicio de voz'
-titleSuffix: Azure Cognitive Services
-services: cognitive-services
-author: wolfma61
-manager: nitinme
+author: trevorbye
 ms.service: cognitive-services
-ms.subservice: speech-service
 ms.topic: include
-ms.date: 12/17/2019
-ms.author: wolfma
-ms.openlocfilehash: 1ba1f2a61a293880e81dde0ce1f93460a555fa62
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.date: 04/03/2020
+ms.author: trbye
+ms.openlocfilehash: 57c66cb3597d8811be3caef74fa36af193b93be7
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78925646"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81400723"
 ---
 ## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de comenzar:
 
 > [!div class="checklist"]
-> * [Ha creado un recurso de Voz de Azure](../../../../get-started.md)
-> * [Configuración del entorno de desarrollo y creación de un proyecto vacío](../../../../quickstarts/setup-platform.md?tabs=linux)
+> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Creación de un recurso de voz de Azure <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+> * [Configuración del entorno de desarrollo y creación de un proyecto vacío](../../../../quickstarts/setup-platform.md?tabs=linux&pivots=programming-language-cpp)
 > * Asegúrese de que tiene acceso a un micrófono para capturar el audio.
 
-## <a name="add-sample-code"></a>Incorporación de código de ejemplo
+## <a name="source-code"></a>Código fuente
 
-1. Cree un archivo de código fuente C++ denominado `helloworld.cpp` y pegue el siguiente código en él.
+Cree un archivo de código fuente de C++ denominado *helloworld.cpp* y pegue el siguiente código en él.
 
-   [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp/linux/from-microphone/helloworld.cpp#code)]
+[!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp/linux/from-microphone/helloworld.cpp#code)]
 
-1. En este nuevo archivo, reemplace la cadena `YourSubscriptionKey` por su clave de suscripción del servicio Voz.
+[!INCLUDE [replace key and region](../replace-key-and-region.md)]
 
-1. Reemplace la cadena `YourServiceRegion` por el **identificador de región** de la [región](https://aka.ms/speech/sdkregion) asociada a su suscripción (por ejemplo, `westus` para la suscripción de evaluación gratuita).
+## <a name="code-explanation"></a>Explicación del código
 
-> [!NOTE]
-> El SDK de Voz se usará de forma predeterminada para reconocer el uso de en-us como idioma. Para más información sobre cómo elegir el idioma de origen, consulte [Especificación del idioma de origen para la conversión de voz a texto](../../../../how-to-specify-source-language.md).
+[!INCLUDE [code explanation](../code-explanation.md)]
 
 ## <a name="build-the-app"></a>Compilación de la aplicación
 
@@ -98,4 +92,5 @@ Antes de comenzar:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[!INCLUDE [footer](./footer.md)]
+[!INCLUDE [Speech recognition basics](../../speech-to-text-next-steps.md)]
+

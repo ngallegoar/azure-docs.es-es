@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/25/2020
-ms.openlocfilehash: 6de6f23fe9564b28a5d436ac00999dbb3e9183e1
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.date: 04/15/2020
+ms.openlocfilehash: fe7d076fab6a70736843fc644cd56bef44a55df2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548958"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415122"
 ---
 # <a name="security-and-data-privacy-in-azure-cognitive-search"></a>Seguridad y privacidad de datos en Azure Cognitive Search
 
@@ -31,7 +31,6 @@ Azure Cognitive Search está certificado por los siguientes estándares, tal com
 + [GxP (21 CFR Part 11)](https://en.wikipedia.org/wiki/Title_21_CFR_Part_11) (GxP [21 CFR Parte 11])
 + [HITRUST](https://en.wikipedia.org/wiki/HITRUST)
 + [PCI DSS Level 1](https://en.wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard) (PCI DSS de nivel 1)
-+ [Australia IRAP Unclassified DLM](https://asd.gov.au/infosec/irap/certified_clouds.htm) (DLM sin clasificar del programa IRAP en Australia)
 
 El cumplimiento de estándares se aplica a las características disponibles con carácter general. Las características en versión preliminar se certifican cuando pasan a disponibilidad general y no se deben usar en soluciones que tengan requisitos de estándares estrictos. La certificación de cumplimiento está documentada en [Overview of Microsoft Azure compliance](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) (Información general del cumplimiento de Microsoft Azure) y el [Centro de confianza](https://www.microsoft.com/en-us/trustcenter). 
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 362b35af191c1caebeb30149ce060a5366182ec4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cffefb294aaeeb4d66358ceae72c98becd04cc58
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80289341"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261965"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mysql"></a>Línea de base de seguridad de Azure para Azure Database for MySQL
 
@@ -134,7 +134,7 @@ Descripción del uso de etiquetas de servicio para Azure Database for MySQL: htt
 
 Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Ejemplos de Azure Policy para redes: https://docs.microsoft.com/azure/governance/policy/samples/#network
+Ejemplos de Azure Policy para redes: https://docs.microsoft.com/azure/governance/policy/samples/
 
 Creación de un plano técnico de Azure: https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
 
@@ -388,7 +388,7 @@ Configuración de Advanced Threat Protection para Azure Database for MySQL: http
 
 Implementación de Privileged Identity Management (PIM): https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan
 
-Descripción de las detecciones de riesgo de Azure AD: https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events
+Información sobre las detecciones de riesgo de Azure AD: https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -406,7 +406,7 @@ Configuración de ubicaciones con nombre en Azure: https://docs.microsoft.com/az
 
 ### <a name="39-use-azure-active-directory"></a>3.9: Uso de Azure Active Directory
 
-**Guía**: Use Azure Active Directory (AD) como el sistema central de autenticación y autorización. Azure AD protege los datos mediante un cifrado seguro para los datos en reposo y en tránsito. Azure AD también cifra con sal, convierte en hash y almacena de forma segura las credenciales de los usuarios.
+**Guía**: Use Azure Active Directory (AD) como sistema central de autenticación y autorización. Azure AD protege los datos mediante un cifrado seguro para los datos en reposo y en tránsito. Azure AD también cifra con sal, convierte en hash y almacena de forma segura las credenciales de los usuarios.
 
 Para iniciar sesión en Azure Database for MySQL, le recomendamos usar Azure AD y usar un token de Azure AD para conectarse. Al usar un token de Azure AD, se admiten varios métodos, como un usuario, un grupo o una aplicación de Azure AD que se conecten a la base de datos. 
 
@@ -1025,7 +1025,7 @@ Descripción de la copia de seguridad y restauración en Azure Database for MySQ
 
 Configuración de las automatizaciones de flujos de trabajo en Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide
 
-Instrucciones para crear su propio proceso de respuesta a incidentes de seguridad: https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
+Guía para crear su propio proceso de respuesta a incidentes de seguridad: https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
 
 Anatomía de un incidente del Centro de respuestas de seguridad de Microsoft: https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
 
@@ -1059,7 +1059,7 @@ Consulte la publicación de NIST: Guía para probar, entrenar y ejecutar program
 
 **Guía**: La información de contacto del incidente de seguridad la utilizará Microsoft para ponerse en contacto con usted si Microsoft Security Response Center (MSRC) detecta que un tercero no autorizado o ilegal ha accedido a los datos del cliente.  Revise los incidentes después del hecho para asegurarse de que se resuelven los problemas.
 
-Procedimiento para establecer el contacto de seguridad de Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details
+Cómo establecer el contacto de seguridad de Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details
 
 **Supervisión de Azure Security Center**: Sí
 

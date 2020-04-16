@@ -11,12 +11,12 @@ ms.date: 2/19/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: f35a5da15ca1a672046844282626a6cb7b8ecbdf
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: fbdf0fda51ae35fac4f3f8ae45bfcd788fc406ae
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80583524"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81413999"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-capacity-limits"></a>Límites de capacidad de Azure Synapse Analytics (anteriormente SQL DW)
 
@@ -42,7 +42,7 @@ Valores máximos permitidos para los distintos componentes de Azure Synapse.
 | Tabla |Tamaño máximo |Tamaño ilimitado para tablas del almacén de columnas. <br>60 TB para tablas del almacén de filas comprimidas en el disco. |
 | Tabla |Tablas por base de datos | 100 000 |
 | Tabla |Columnas por tabla |1024 columnas |
-| Tabla |Bytes por columna |Depende de la columna de [tipo de datos](sql-data-warehouse-tables-data-types.md). En el caso de los tipos de datos de caracteres, el límite máximo puede almacenar hasta 2 GB en el almacenamiento fuera de la página (desbordamiento de filas).  Los caracteres no Unicode como el límite char o varchar son 8000 en una página de datos; los caracteres Unicode como el límite de nchar o nvarchar son 4000 en una página de datos.  Use tamaños de almacenamiento de páginas de datos para aumentar el rendimiento. |
+| Tabla |Bytes por columna |Depende de la columna de [tipo de datos](sql-data-warehouse-tables-data-types.md). El límite es 8000 para los tipos de datos char, 4000 para nvarchar o 2 GB para los tipos de datos MAX. |
 | Tabla |Bytes por fila, tamaño definido |8060 bytes<br/><br/>El número de bytes por fila se calcula de la misma forma que para SQL Server con la compresión de página. Al igual que SQL Server, se admite el almacenamiento con desbordamiento de fila, lo que permite insertar **columnas de longitud variable** de forma no consecutiva. Cuando se insertan filas de longitud variable, solo se almacena la raíz de 24 bytes en el registro principal. Para obtener más información, consulte [Datos de desbordamiento de fila superiores a 8 KB](https://msdn.microsoft.com/library/ms186981.aspx). |
 | Tabla |Particiones por tabla |15,000<br/><br/>Para obtener un alto rendimiento, se recomienda reducir al mínimo el número de particiones que necesita, pero sin perder de vista sus requisitos empresariales. A medida que crece el número de particiones, la sobrecarga de operaciones de lenguaje de definición de datos (DDL) y lenguaje de manipulación de datos (DML) crece y da lugar a un rendimiento más lento. |
 | Tabla |Caracteres por valor de límite de partición |4000 |

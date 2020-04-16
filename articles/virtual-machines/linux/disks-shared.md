@@ -1,18 +1,18 @@
 ---
 title: Uso compartido de un disco administrado de Azure entre máquinas virtuales (versión preliminar)
-description: Obtenga información sobre el uso compartido de los discos administrados de Azure en varias VM.
+description: Obtenga información sobre el uso compartido de los discos administrados de Azure en varias máquinas virtuales.
 author: roygara
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 04/09/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 9f2aa2213faf092897b651d9d0e5f1cc641d52d9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3792a98c4ddcab36496f7e83482f2a1382c93d0d
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78970349"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81008575"
 ---
 # <a name="azure-shared-disks"></a>Discos compartidos de Azure
 

@@ -3,12 +3,12 @@ title: Actualización de un clúster para usar el nombre común del certificado
 description: Obtenga información acerca de cómo puede hacer que un clúster de Service Fabric use el nombre común del certificado en vez de las huellas digitales del mismo.
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: 66c49ccb7b7633d0eff392b676bb381118eb64a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1926b0501766eb0a5fe086ceada0c9bf45e3dcf6
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75610206"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81272634"
 ---
 # <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>Cambiar el clúster para que use un nombre común en vez de la huella digital del certificado
 No hay dos certificados que puedan tener la misma huella digital, lo que dificulta la sustitución o administración del certificado de clúster. Sin embargo, varios certificados pueden tener el mismo nombre o asunto común.  Si cambia un clúster implementado para que use nombres comunes del certificado en vez de las huellas digitales del mismo, será mucho más fácil administrar los certificados. En este artículo se describe cómo actualizar un clúster activo de Service Fabric para que use un nombre común del certificado en lugar de la huella digital del certificado.
@@ -20,12 +20,12 @@ No hay dos certificados que puedan tener la misma huella digital, lo que dificul
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="get-a-certificate"></a>Obtener un certificado
-Primero, obtenga un certificado de una [entidad de certificación (CA)](https://wikipedia.org/wiki/Certificate_authority).  El nombre común del certificado debe ser el nombre de host del clúster.  Por ejemplo, "myclustername.southcentralus.cloudapp.azure.com".  
+Primero, obtenga un certificado de una [entidad de certificación (CA)](https://wikipedia.org/wiki/Certificate_authority).  El nombre común del certificado debe ser para el dominio personalizado que posee, y que ha comprado de un registrador de dominios. Por ejemplo, "azureservicefabricbestpractices.com"; aquellos que no son empleados de Microsoft no pueden aprovisionar certificados para dominios de MS, por lo que no puede usar los nombres DNS del equilibrador de carga o Traffic Manager como los nombres comunes del certificado, y deberá aprovisionar una [zona de Azure DNS](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns) para que el dominio personalizado pueda resolverse en Azure. También deberá declarar el dominio personalizado que posee como el valor "managementEndpoint" del clúster si quiere que el portal refleje el alias del dominio personalizado para el clúster.
 
 Si quiere realizar pruebas, puede obtener un certificado que haya firmado una CA de una entidad de certificación gratuita o pública.
 
 > [!NOTE]
-> Recuerde que no se admiten certificados autofirmados (incluyendo aquellos que se crean al implementar un clúster de Service Fabric en Azure Portal).
+> Recuerde que no se admiten certificados autofirmados (incluyendo aquellos que se crean al implementar un clúster de Service Fabric en Azure Portal). 
 
 ## <a name="upload-the-certificate-and-install-it-in-the-scale-set"></a>Cargar el certificado e instalarlo en el conjunto de escalado
 En Azure, se implementa un clúster de Service Fabric en un conjunto de escalado de máquinas virtuales.  Cargue el certificado a un almacén de claves e instálelo en el conjunto de escalado de máquinas virtuales en el que se está ejecutando el clúster.

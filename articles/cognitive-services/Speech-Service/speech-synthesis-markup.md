@@ -3,19 +3,19 @@ title: 'Lenguaje de marcado de síntesis de voz (SSML): servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: Uso del lenguaje de marcado de síntesis de voz para controlar la pronunciación y la prosodia en la conversión de texto a voz.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
-ms.author: dapine
-ms.openlocfilehash: 7d5dd79399b15ade90173a55aeb71dacbc61fa78
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: trbye
+ms.openlocfilehash: dc11d26c73c52b5e6c4d8e05cc27dd6ebce0c5d8
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80365811"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399829"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Mejora de la síntesis con el Lenguaje de marcado de síntesis de voz (SSML)
 
@@ -196,7 +196,6 @@ De forma predeterminada, el servicio de texto a voz sintetiza el texto mediante 
 Actualmente, los ajustes de estilo de habla son compatibles con estas voces neuronales:
 * `en-US-AriaNeural`
 * `zh-CN-XiaoxiaoNeural`
-* `pt-BR-FranciscaNeural`
 
 Los cambios se aplican en el nivel de la oración y el estilo varía según la voz. Si no se admite un estilo, el servicio devolverá la voz con el estilo de habla neutro predeterminado.
 
@@ -214,18 +213,17 @@ Los cambios se aplican en el nivel de la oración y el estilo varía según la v
 
 Utilice esta tabla para determinar qué estilos de habla son compatibles para cada voz neuronal.
 
-| Voz | Estilo | Descripción |
-|-------|------|-------------|
-| `en-US-AriaNeural` | `style="newscast"` | Expresa un tono formal y profesional para narrar noticias |
-| | `style="customerservice"` | Expresa un tono amistoso y servicial para atender a clientes |
-| | `style="chat"` | Expresa un tono casual y relajado |
-| | `style="cheerful"` | Expresa un tono positivo y feliz |
-| | `style="empathetic"` | Expresa un sentimiento de cuidado y comprensión. |
-| `zh-CN-XiaoxiaoNeural` | `style="newscast"` | Expresa un tono formal y profesional para narrar noticias |
-| | `style="customerservice"` | Expresa un tono amistoso y servicial para atender a clientes |
-| | `style="assistant"` | Expresa un tono cálido y relajado para asistentes digitales  |
-| | `style="lyrical"` | Expresa emociones de forma melódica y sentimental |
-| `pt-BR-FranciscaNeural` | `style="cheerful"` | Expresa un tono positivo y feliz |
+| Voz                   | Estilo                     | Descripción                                                 |
+|-------------------------|---------------------------|-------------------------------------------------------------|
+| `en-US-AriaNeural`      | `style="newscast"`        | Expresa un tono formal y profesional para narrar noticias |
+|                         | `style="customerservice"` | Expresa un tono amistoso y servicial para atender a clientes  |
+|                         | `style="chat"`            | Expresa un tono casual y relajado                         |
+|                         | `style="cheerful"`        | Expresa un tono positivo y feliz                         |
+|                         | `style="empathetic"`      | Expresa un sentimiento de cuidado y comprensión.               |
+| `zh-CN-XiaoxiaoNeural`  | `style="newscast"`        | Expresa un tono formal y profesional para narrar noticias |
+|                         | `style="customerservice"` | Expresa un tono amistoso y servicial para atender a clientes  |
+|                         | `style="assistant"`       | Expresa un tono cálido y relajado para asistentes digitales    |
+|                         | `style="lyrical"`         | Expresa emociones de forma melódica y sentimental         |
 
 **Ejemplo**
 
@@ -263,15 +261,14 @@ Utilice el elemento `break` para insertar las pausas entre palabras, o para evit
 | `strength` | Especifica la duración relativa de una pausa mediante uno de los valores siguientes:<ul><li>None</li><li>x-weak</li><li>weak</li><li>medium (default)</li><li>strong</li><li>x-strong</li></ul> | Opcional |
 | `time` | Especifica la duración absoluta de una pausa en segundos o milisegundos. Los ejemplos de valores válidos son `2s` y `500` | Opcional |
 
-| Intensidad | Descripción |
-|----------|-------------|
-| Ninguno, o si no se ha proporcionado ningún valor | 0 ms |
-| x-weak | 250 ms |
-| weak | 500 ms |
-| medio | 750 ms |
-| strong | 1000 ms |
-| x-strong | 1250 ms |
-
+| Intensidad                      | Descripción |
+|-------------------------------|-------------|
+| Ninguno, o si no se ha proporcionado ningún valor | 0 ms        |
+| x-weak                        | 250 ms      |
+| weak                          | 500 ms      |
+| medio                        | 750 ms      |
+| strong                        | 1000 ms     |
+| x-strong                      | 1250 ms     |
 
 **Ejemplo**
 
@@ -372,9 +369,9 @@ A veces, TTS no puede pronunciar con precisión una palabra, por ejemplo, una em
 
 **Atributos**
 
-| Atributo | Descripción | Obligatorio u opcional |
-|-----------|-------------|---------------------|
-| `uri` | Dirección del documento PLS externo. | Necesario. |
+| Atributo | Descripción                               | Obligatorio u opcional |
+|-----------|-------------------------------------------|---------------------|
+| `uri`     | Dirección del documento PLS externo. | Necesario.           |
 
 **Uso**
 
@@ -614,9 +611,9 @@ Cualquier audio incluido en el documento SSML debe cumplir estos requisitos:
 
 **Atributos**
 
-| Atributo | Descripción | Obligatorio u opcional |
-|-----------|-------------|---------------------|
-| `src` | Especifica la ubicación o la URL del archivo de audio. | Es obligatorio si se usa el elemento de audio en el documento SSML. |
+| Atributo | Descripción                                   | Obligatorio u opcional                                        |
+|-----------|-----------------------------------------------|------------------------------------------------------------|
+| `src`     | Especifica la ubicación o la URL del archivo de audio. | Es obligatorio si se usa el elemento de audio en el documento SSML. |
 
 **Ejemplo**
 

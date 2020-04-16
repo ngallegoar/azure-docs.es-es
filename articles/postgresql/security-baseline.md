@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: f83cee2fb1435252f34d1a64f531b5befef66ffb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4034759dc4f20649c15236b057e348966d72409e
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80289927"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261167"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-postgresql-single-server"></a>Línea de base de seguridad de Azure para un único servidor de Azure Database for PostgreSQL
 
@@ -134,7 +134,7 @@ Descripción del uso de etiquetas de servicio para Azure Database for PostgreSQL
 
 Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Ejemplos de Azure Policy para redes: https://docs.microsoft.com/azure/governance/policy/samples/#network
+Ejemplos de Azure Policy para redes: https://docs.microsoft.com/azure/governance/policy/samples/
 
 Creación de un plano técnico de Azure: https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
 
@@ -234,9 +234,9 @@ Almacenamiento de los registros de recursos en una cuenta de Azure Storage: http
 
 **Guía**: Analice y supervise los registros de las instancias de Azure Database for PostgreSQL para comprobar si tienen comportamientos anómalos. Use Log Analytics de Azure Monitor para revisar los registros y realizar consultas en los datos de registro. Como alternativa, puede habilitar e incorporar datos en Azure Sentinel o en una herramienta SIEM de terceros.
 
-Incorporación de Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
+Incorporación de Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
-Para obtener más información sobre Log Analytics, consulte: https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal.
+Para más información sobre Log Analytics, consulte https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal.
 
 Realización de consultas personalizadas en Azure Monitor: https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries
 
@@ -258,7 +258,7 @@ Configuración de los registros de auditoría de Azure Database for PostgreSQL y
 
 Establecimiento de la configuración de diagnóstico para el registro de actividad de Azure: https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy
 
-Incorporación de Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
+Incorporación de Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -353,7 +353,7 @@ Descripción del SSO con Azure AD: https://docs.microsoft.com/azure/active-dire
 
 ### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3.5: Use la autenticación multifactor para todo el acceso basado en Azure Active Directory
 
-**Guía**: habilite Multi-Factor Authentication (MFA) de Azure Active Directory y siga las recomendaciones de administración de identidad y acceso de Azure Security Center. Al utilizar tokens de Azure AD para iniciar sesión en la base de datos, esto le permite requerir la autenticación multifactor para inicios de sesión de base de datos.
+**Guía**: Habilite Multi-Factor Authentication (MFA) de Azure Active Directory y siga las recomendaciones de administración de identidad y acceso de Azure Security Center. Al utilizar tokens de Azure AD para iniciar sesión en la base de datos, esto le permite requerir la autenticación multifactor para inicios de sesión de base de datos.
 
 Cómo habilitar la MFA en Azure: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
@@ -389,7 +389,7 @@ Configuración de Advanced Threat Protection para Azure Database for PostgreSQL:
 
 Implementación de Privileged Identity Management (PIM): https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan
 
-Descripción de las detecciones de riesgo de Azure AD: https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events
+Información sobre las detecciones de riesgo de Azure AD: https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -397,7 +397,7 @@ Descripción de las detecciones de riesgo de Azure AD: https://docs.microsoft.c
 
 ### <a name="38-manage-azure-resources-from-only-approved-locations"></a>3.8: Administre los recursos de Azure solo desde ubicaciones aprobadas
 
-**Guía**: use ubicaciones con nombre de acceso condicional para permitir al portal y a Azure Resource Manager el acceso solo desde agrupaciones lógicas específicas de intervalos de direcciones IP o países o regiones.
+**Guía**: Use ubicaciones con nombre de acceso condicional para permitir al portal y a Azure Resource Manager el acceso solo desde agrupaciones lógicas específicas de intervalos de direcciones IP o países o regiones.
 
 Configuración de ubicaciones con nombre en Azure: https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
 
@@ -407,7 +407,7 @@ Configuración de ubicaciones con nombre en Azure: https://docs.microsoft.com/az
 
 ### <a name="39-use-azure-active-directory"></a>3.9: Uso de Azure Active Directory
 
-**Guía**: Use Azure Active Directory (AD) como el sistema central de autenticación y autorización. Azure AD protege los datos mediante un cifrado seguro para los datos en reposo y en tránsito. Azure AD también cifra con sal, convierte en hash y almacena de forma segura las credenciales de los usuarios.
+**Guía**: Use Azure Active Directory (AD) como sistema central de autenticación y autorización. Azure AD protege los datos mediante un cifrado seguro para los datos en reposo y en tránsito. Azure AD también cifra con sal, convierte en hash y almacena de forma segura las credenciales de los usuarios.
 
 Para iniciar sesión en Azure Database for PostgreSQL, le recomendamos usar Azure AD y usar un token de Azure AD para conectarse. Al usar un token de Azure AD, se admiten varios métodos, como un usuario, un grupo o una aplicación de Azure AD que se conecten a la base de datos.
 
@@ -461,7 +461,7 @@ Información general de Azure AD Identity Protection: https://docs.microsoft.com
 
 Visualización de los inicios de sesión de riesgo de Azure AD: https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events
 
-Incorporación de Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
+Incorporación de Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -688,7 +688,7 @@ Creación y uso de etiquetas: https://docs.microsoft.com/azure/azure-resource-ma
 
 ### <a name="64-maintain-an-inventory-of-approved-azure-resources-and-software-titles"></a>6.4: Mantenimiento de un inventario de los recursos de Azure aprobados y títulos de software
 
-**Guía**: no es aplicable; esta recomendación está destinada a los recursos de proceso y a Azure en su conjunto.
+**Guía**: No aplicable; esta recomendación está destinada a los recursos de proceso y a Azure en su conjunto.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -722,7 +722,7 @@ Creación de consultas con Azure Graph: https://docs.microsoft.com/azure/governa
 
 ### <a name="67-remove-unapproved-azure-resources-and-software-applications"></a>6.7: Eliminación de aplicaciones de software y recursos de Azure no aprobadas
 
-**Guía**: no es aplicable; esta recomendación está destinada a los recursos de proceso y a Azure en su conjunto.
+**Guía**: No aplicable; esta recomendación está destinada a los recursos de proceso y a Azure en su conjunto.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -1029,7 +1029,7 @@ Descripción de la copia de seguridad y restauración en Azure Database for Post
 
 Configuración de las automatizaciones de flujos de trabajo en Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide
 
-Instrucciones para crear su propio proceso de respuesta a incidentes de seguridad: https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
+Guía para crear su propio proceso de respuesta a incidentes de seguridad: https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
 
 Anatomía de un incidente del Centro de respuestas de seguridad de Microsoft: https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
 
@@ -1063,7 +1063,7 @@ Consulte la publicación de NIST: Guía para probar, entrenar y ejecutar program
 
 **Guía**: La información de contacto del incidente de seguridad la utilizará Microsoft para ponerse en contacto con usted si Microsoft Security Response Center (MSRC) detecta que un tercero no autorizado o ilegal ha accedido a los datos del cliente.  Revise los incidentes después del hecho para asegurarse de que se resuelven los problemas.
 
-Establecimiento del contacto de seguridad de Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details
+Cómo establecer el contacto de seguridad de Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details
 
 **Supervisión de Azure Security Center**: Sí
 

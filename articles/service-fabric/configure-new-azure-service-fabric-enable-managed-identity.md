@@ -4,14 +4,14 @@ description: A continuación, se indica cómo habilitar la compatibilidad con la
 ms.topic: article
 ms.date: 12/09/2019
 ms.custom: sfrev
-ms.openlocfilehash: 0e35d2192fdcdb294b349105f3f0158564cec86b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dd0cbd3251185a7831852ead47ca0b120126cf55
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76930459"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415665"
 ---
-# <a name="configure-managed-identity-support-for-a-new-service-fabric-cluster-preview"></a>Configuración de la compatibilidad con la identidad administrada en un clúster nuevo de Service Fabric (versión preliminar)
+# <a name="configure-managed-identity-support-for-a-new-service-fabric-cluster"></a>Configuración de la compatibilidad con la identidad administrada en un clúster nuevo de Service Fabric
 
 Para utilizar las [identidades administradas de los recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md) en las aplicaciones de Service Fabric, primero debe habilitar el *servicio de token de identidad administrada* en el clúster. Este servicio es responsable de la autenticación de aplicaciones de Service Fabric que usan sus identidades administradas y de la obtención de los tokens de acceso en su nombre. Una vez habilitado el servicio, puede verlo en Service Fabric Explorer, bajo la sección **Sistema** del panel izquierdo. Se ejecuta con el nombre **fabric:/System/ManagedIdentityTokenService** junto a otros servicios del sistema.
 

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 6cb9dadc107c6907f1ccb28a876270e577f10395
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: d60f1101fc858e9dcaa22162be97417544e13693
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74977308"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405039"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-curl"></a>Inicio rápido: Generación de una miniatura mediante la API REST Computer Vision y cURL
 
@@ -28,23 +28,6 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 - Debe tener [cURL](https://curl.haxx.se/windows).
 - Debe tener una clave de suscripción para Computer Vision. Puede obtener una clave de evaluación gratuita en la página [Pruebe Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). O bien, siga las instrucciones que se indican en [Creación de una cuenta de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para suscribirse a Computer Vision y obtener su clave.
-
-## <a name="get-thumbnail-request"></a>Solicitud Get Thumbnail
-
-Con el método [Get Thumbnail](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb), puede generar una miniatura de una imagen.
-
-Para ejecutar el ejemplo, siga estos pasos:
-
-1. Copie el código siguiente en un editor.
-1. Reemplace `<Subscription Key>` por una clave de suscripción válida.
-1. Reemplace `<File>` por la ruta de acceso y el nombre de archivo para guardar la miniatura.
-1. Si es necesario, cambie la dirección URL de solicitud (`https://westcentralus.api.cognitive.microsoft.com/vision/v2.1`) para usar la ubicación donde obtuvo las claves de suscripción.
-1. Además, puede cambiar la imagen (`{\"url\":\"...`) que se va a analizar.
-1. Abra una ventana de comandos en un equipo que tenga instalado cURL.
-1. Pegue el código en la ventana y ejecute el comando.
-
->[!NOTE]
->Debe utilizar la misma ubicación en la llamada de REST que utilizó para obtener las claves de la suscripción. Por ejemplo, si obtuvo sus claves de suscripción de westus, reemplace "westcentralus" en la siguiente URL por "westus".
 
 ## <a name="create-and-run-the-sample-command"></a>Creación y ejecución del comando de ejemplo
 

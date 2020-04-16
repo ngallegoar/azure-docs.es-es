@@ -3,14 +3,14 @@ title: Creación de una identidad administrada asignada por el usuario
 description: En este artículo se muestra cómo implementar una aplicación de Service Fabric con una identidad administrada asignada por el usuario.
 ms.topic: article
 ms.date: 12/09/2019
-ms.openlocfilehash: a5eeaf0d6420fa36c0a78f7553ddfd82197d8ec4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9aef81db7a455b72c83cf96898a0c228f1c382fd
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75610342"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415640"
 ---
-# <a name="deploy-service-fabric-application-with-a-user-assigned-managed-identity-preview"></a>Implementación de una aplicación de Service Fabric con una identidad administrada asignada por el usuario (versión preliminar)
+# <a name="deploy-service-fabric-application-with-a-user-assigned-managed-identity"></a>Implementación de una aplicación de Service Fabric con una identidad administrada asignada por el usuario
 
 Para implementar una aplicación de Service Fabric con una identidad administrada, la aplicación debe implementarse a través de Azure Resource Manager, normalmente con una plantilla de Azure Resource Manager. Para obtener más información sobre cómo implementar la aplicación de Service Fabric a través de Azure Resource Manager, vea [Administración de aplicaciones y servicios como recursos de Azure Resource Manager](service-fabric-application-arm-resource.md).
 

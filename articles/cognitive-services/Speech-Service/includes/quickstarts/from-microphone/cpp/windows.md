@@ -1,53 +1,42 @@
 ---
-title: 'Inicio rápido: Reconocimiento de la voz a través de un micrófono en C++ (Windows): servicio de voz'
-titleSuffix: Azure Cognitive Services
-description: Aprenda a reconocer la voz en C++ para Windows mediante el SDK de Voz.
-services: cognitive-services
-author: wolfma61
-manager: nitinme
+author: trevorbye
 ms.service: cognitive-services
-ms.subservice: speech-service
 ms.topic: include
-ms.date: 12/17/2019
-ms.author: wolfma
-ms.openlocfilehash: 416c2893ebf07cd638f3f1c06c709db2586245d1
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.date: 04/03/2020
+ms.author: trbye
+ms.openlocfilehash: db87f31f4702d3487a11a6d833755105455d74c8
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78925591"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81400799"
 ---
 ## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de comenzar:
 
 > [!div class="checklist"]
-> * [Ha creado un recurso de Voz de Azure](../../../../get-started.md)
-> * [Configuración del entorno de desarrollo y creación de un proyecto vacío](../../../../quickstarts/setup-platform.md?tabs=windows)
+> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Creación de un recurso de voz de Azure <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+> * [Configuración del entorno de desarrollo y creación de un proyecto vacío](../../../../quickstarts/setup-platform.md?tabs=windows&pivots=programming-language-cpp)
 > * Asegúrese de que tiene acceso a un micrófono para capturar el audio.
 
-## <a name="add-sample-code"></a>Incorporación de código de ejemplo
+## <a name="source-code"></a>Código fuente
 
-1. Abra el archivo de origen **helloworld.cpp**.
+Cree un archivo de código fuente de C++ denominado *helloworld.cpp* y pegue el siguiente código en él.
 
-1. Reemplace todo el código por el fragmento siguiente:
+[!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-microphone/helloworld/helloworld.cpp#code)]
 
-   [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-microphone/helloworld/helloworld.cpp#code)]
+[!INCLUDE [replace key and region](../replace-key-and-region.md)]
 
-1. En el mismo archivo, reemplace la cadena `YourSubscriptionKey` por la clave de suscripción.
+## <a name="code-explanation"></a>Explicación del código
 
-1. Reemplace la cadena `YourServiceRegion` por el **identificador de región** de la [región](https://aka.ms/speech/sdkregion) asociada a su suscripción (por ejemplo, `westus` para la suscripción de evaluación gratuita).
+[!INCLUDE [code explanation](../code-explanation.md)]
 
-1. En la barra de menús, elija **Archivo** > **Guardar todo**.
-
-> [!NOTE]
-> El SDK de Voz se usará de forma predeterminada para reconocer el uso de en-us como idioma. Para más información sobre cómo elegir el idioma de origen, consulte [Especificación del idioma de origen para la conversión de voz a texto](../../../../how-to-specify-source-language.md).
-
-## <a name="build-and-run-the-application"></a>Compilación y ejecución de la aplicación
+## <a name="build-and-run-app"></a>Compilación y ejecución de una aplicación
 
 1. En la barra de menús, seleccione **Compilar** > **Compilar solución** para compilar la aplicación. El código se debería compilar sin errores ahora.
 
-1. Elija **Depurar** > **Iniciar depuración** o presione **F5** para iniciar la aplicación **HelloWorld**.
+1. Elija **Depurar** > **Iniciar depuración** o presione <kbd>F5</kbd> para iniciar la aplicación **HelloWorld**.
 
 1. Diga una oración o frase en inglés. La aplicación transmite la voz al servicio de voz, que la transcribe en texto y lo envía de vuelta a la aplicación para mostrarlo.
 
@@ -55,4 +44,4 @@ Antes de comenzar:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[!INCLUDE [footer](./footer.md)]
+[!INCLUDE [Speech recognition basics](../../speech-to-text-next-steps.md)]
