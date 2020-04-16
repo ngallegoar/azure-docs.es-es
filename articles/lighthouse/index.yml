@@ -9,13 +9,13 @@ metadata:
   ms.collection: collection
   author: JnHs
   ms.author: jenhayes
-  ms.date: 09/25/2019
-  ms.openlocfilehash: bdda8aca71f09cfe570ffea7e03c63d7c87abbb5
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.date: 04/14/2020
+  ms.openlocfilehash: 6d209715a86e580d402361189f4484e762c43706
+  ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "77212579"
+  ms.lasthandoff: 04/16/2020
+  ms.locfileid: "81414288"
 landingContent:
 - title: Acerca de Azure Lighthouse
   linkLists:
@@ -43,6 +43,8 @@ landingContent:
       url: ./concepts/cloud-solution-provider.md
     - text: Escenarios empresariales
       url: ./concepts/enterprise.md
+    - text: Inquilinos, roles y usuarios
+      url: ./concepts/tenants-users-roles.md
 - title: Ofertas de Marketplace
   linkLists:
   - linkListType: how-to-guide
@@ -61,14 +63,6 @@ landingContent:
       url: https://github.com/Azure/Azure-Lighthouse-samples/
     - text: Índice de ejemplos de Azure Lighthouse
       url: ./samples/index.md
-- title: Uso de los servicios de Azure
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: Uso de registros de Azure Monitor a escala
-      url: ./how-to/monitor-at-scale.md
-    - text: Implementación de Azure Policy a escala
-      url: ./how-to/policy-at-scale.md
 - title: Experiencias de Azure Portal
   linkLists:
   - linkListType: how-to-guide
@@ -77,16 +71,18 @@ landingContent:
       url: ./how-to/view-manage-customers.md
     - text: Visualización y administración de proveedores de servicios
       url: ./how-to/view-manage-service-providers.md
-- title: 'Referencia: descargas'
+- title: Uso de los servicios de Azure
   linkLists:
-  - linkListType: download
+  - linkListType: how-to-guide
     links:
-    - text: OpenAPI - 2019-06-01
-      url: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managedservices/resource-manager/Microsoft.ManagedServices/stable/2019-06-01
-    - text: 'SDK para .NET: NuGet'
-      url: https://www.nuget.org/packages/Microsoft.Azure.Management.ManagedServices/
-    - text: SDK para Python (Pypi)
-      url: https://pypi.org/project/azure-mgmt-managedservices/
+    - text: Uso de registros de Azure Monitor a escala
+      url: ./how-to/monitor-at-scale.md
+    - text: Supervisión de cambios en la delegación
+      url: ./how-to/monitor-at-scale.md
+    - text: Implementación de Azure Policy a escala
+      url: ./how-to/policy-at-scale.md
+    - text: Implementación de una directiva que se pueda corregir
+      url: ./how-to/deploy-policy-remediation.md
 - title: 'Referencia: SDK'
   linkLists:
   - linkListType: reference
@@ -101,6 +97,16 @@ landingContent:
       url: /dotnet/api/Microsoft.Azure.Management.ManagedServices
     - text: Python
       url: /python/api/azure-mgmt-managedservices
+- title: 'Referencia: descargas'
+  linkLists:
+  - linkListType: download
+    links:
+    - text: OpenAPI - 2019-06-01
+      url: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managedservices/resource-manager/Microsoft.ManagedServices/stable/2019-06-01
+    - text: 'SDK para .NET: NuGet'
+      url: https://www.nuget.org/packages/Microsoft.Azure.Management.ManagedServices/
+    - text: SDK para Python (Pypi)
+      url: https://pypi.org/project/azure-mgmt-managedservices/
 - title: Participación
   linkLists:
   - linkListType: get-started
