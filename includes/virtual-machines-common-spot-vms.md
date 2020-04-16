@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 10/23/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: d56964b7415e4ca5903950cd46c02b3c27f62d5e
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 4063751a71cd9cecc424dfe3daddaecfd9ea4071
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80547405"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81422157"
 ---
 El uso de máquinas virtuales de Spot permite aprovechar las ventajas de nuestra capacidad no utilizada con un importante ahorro en los costos. Siempre que Azure necesite recuperar la capacidad, su infraestructura expulsará las máquinas virtuales de Spot. Por lo tanto, estas son excelentes para cargas de trabajo que soportan interrupciones, como los trabajos de procesamiento por lotes, los entornos de desarrollo y pruebas, las grandes cargas de trabajo de proceso, etc.
 
@@ -88,6 +88,7 @@ La variabilidad en los precios permite establecer un precio máximo, en dólares
 | Contrato Enterprise         | Sí                               |
 | Pago por uso                | Sí                               |
 | Proveedor de servicios en la nube (CSP) | [Póngase en contacto con su asociado](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
+| Contrato de cliente de Microsoft | Sí                               |
 | Ventajas                     | No disponible                     |
 | Patrocinados                    | No disponible                     |
 | Versión de prueba gratuita                   | No disponible                     |
