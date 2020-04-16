@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 03/10/2020
-ms.openlocfilehash: 880072c9865e38e181869506e35968767fa95e8a
-ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
+ms.date: 04/06/2020
+ms.openlocfilehash: 9c9f069ad38c65aa0bbfdcde9eef3fed32585d9e
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80387910"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756422"
 ---
 # <a name="configure-streaming-export-of-azure-sql-database-diagnostic-telemetry"></a>Configuración de la exportación de streaming de los datos de telemetría de diagnóstico de Azure SQL Database
 
@@ -454,9 +454,15 @@ Consulte la siguiente tabla para ver los detalles de las métricas avanzadas.
 
 |**Métrica**|**Nombre de métrica para mostrar**|**Descripción**|
 |---|---|---|
-|tempdb_data_size| Kilobytes de tamaño de archivo de datos Tempdb |Kilobytes de tamaño de archivo de datos Tempdb. No es aplicable a los almacenes de datos. Esta métrica estará disponible para las bases de datos que usan el modelo de compra con 2 núcleos virtuales, o más, o 200 DTU, o más, para los modelos de compra basados en DTU. Esta métrica no está disponible actualmente para bases de datos de Hiperescala.|
-|tempdb_log_size| Kilobytes de tamaño de archivo de registro Tempdb |Kilobytes de tamaño de archivo de registro Tempdb. No es aplicable a los almacenes de datos. Esta métrica estará disponible para las bases de datos que usan el modelo de compra con 2 núcleos virtuales, o más, o 200 DTU, o más, para los modelos de compra basados en DTU. Esta métrica no está disponible actualmente para bases de datos de Hiperescala.|
-|tempdb_log_used_percent| Porcentaje de registro de tempdb usado |Porcentaje de registro de tempdb usado. No es aplicable a los almacenes de datos. Esta métrica estará disponible para las bases de datos que usan el modelo de compra con 2 núcleos virtuales, o más, o 200 DTU, o más, para los modelos de compra basados en DTU. Esta métrica no está disponible actualmente para bases de datos de Hiperescala.|
+|sqlserver_process_core_percent<sup>1</sup>|Porcentaje de núcleos de proceso de SQL Server|Porcentaje de uso de la CPU para el proceso de SQL Server, medido por el sistema operativo.|
+|sqlserver_process_memory_percent<sup>1</sup> |Porcentaje de memoria de proceso de SQL Server|Porcentaje de uso de la memoria para el proceso de SQL Server, medido por el sistema operativo.|
+|tempdb_data_size<sup>2</sup>| Kilobytes de tamaño de archivo de datos Tempdb |Kilobytes de tamaño de archivo de datos Tempdb.|
+|tempdb_log_size<sup>2</sup>| Kilobytes de tamaño de archivo de registro Tempdb |Kilobytes de tamaño de archivo de registro Tempdb.|
+|tempdb_log_used_percent<sup>2</sup>| Porcentaje de registro de tempdb usado |Porcentaje de registro de tempdb usado.|
+
+<sup>1</sup> Esta métrica está disponible para las bases de datos que usan el modelo de compra de núcleos virtuales con 2 núcleos virtuales, o más, o 200 DTU, o más, para los modelos de compra basados en DTU. 
+
+<sup>2</sup> Esta métrica está disponible para las bases de datos que usan el modelo de compra de núcleos virtuales con 2 núcleos virtuales, o más, o 200 DTU, o más, para los modelos de compra basados en DTU. Esta métrica no está disponible actualmente para bases de datos de hiperescala o almacenamientos de datos.
 
 ### <a name="basic-logs"></a>Registros básicos
 

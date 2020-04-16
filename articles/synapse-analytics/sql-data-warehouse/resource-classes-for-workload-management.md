@@ -11,20 +11,20 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 47fd30fbb6e6836d6edf18ac68164d515f3aeb93
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: c2ac05cb2a6b3bd185d5e3a84df4f3d9a01c5bef
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350746"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743270"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-synapse-analytics"></a>Administración de cargas de trabajo con clases de recursos en Azure Synapse Analytics
 
-Instrucciones de uso de las clases de recursos para administrar la memoria y la simultaneidad de las consultas de SQL Analytics en Azure Synapse.  
+Instrucciones de uso de las clases de recursos para administrar la memoria y la simultaneidad de las consultas del grupo de SQL de Synapse en Azure Synapse.  
 
 ## <a name="what-are-resource-classes"></a>¿Qué son las clases de recursos?
 
-La capacidad de rendimiento de una consulta viene determinada por la clase de recursos del usuario.  Las clases de recursos son límites de recursos predeterminados en SQL Analytics que rigen los recursos de proceso y la simultaneidad de la ejecución de las consultas. Las clases de recursos pueden ayudarle a configurar recursos para las consultas mediante el establecimiento de límites en el número de consultas que se ejecutan simultáneamente y en los recursos de proceso que se asignan a cada consulta.  Gracias a esto, la memoria y la simultaneidad se compensan.
+La capacidad de rendimiento de una consulta viene determinada por la clase de recursos del usuario.  Las clases de recursos son límites de recursos predeterminados en el grupo de SQL de Synapse que rigen los recursos de proceso y la simultaneidad de la ejecución de las consultas. Las clases de recursos pueden ayudarle a configurar recursos para las consultas mediante el establecimiento de límites en el número de consultas que se ejecutan simultáneamente y en los recursos de proceso que se asignan a cada consulta.  Gracias a esto, la memoria y la simultaneidad se compensan.
 
 - Las clases de recursos más pequeñas reducen la memoria máxima por cada consulta, pero aumentan la simultaneidad.
 - Las clases de recursos más grandes aumentan la memoria máxima por cada consulta, pero reducen la simultaneidad.
@@ -65,7 +65,7 @@ Las clases de recursos dinámicos se implementan con estos roles de base de dato
 - largerc
 - xlargerc
 
-La asignación de memoria para cada clase de recurso es la siguiente. 
+La asignación de memoria para cada clase de recurso es la siguiente.
 
 | Nivel de servicio  | smallrc           | mediumrc               | largerc                | xlargerc               |
 |:--------------:|:-----------------:|:----------------------:|:----------------------:|:----------------------:|
@@ -76,13 +76,11 @@ La asignación de memoria para cada clase de recurso es la siguiente.
 | DW500c         | 5 %                | 10 %                    | 22 %                    | 70%                    |
 | DW1000c a<br> DW30000c | 3 %       | 10 %                    | 22 %                    | 70%                    |
 
-
-
 ### <a name="default-resource-class"></a>Clase de recursos predeterminada
 
 De forma predeterminada, cada usuario es miembro de la clase de recursos dinámicos **smallrc**.
 
-La clase de recursos del administrador de servicios está fijada en smallrc y no se puede cambiar.  El administrador de servicios es el usuario que se creó durante el proceso de aprovisionamiento.  En este contexto, el administrador de servicios es el inicio de sesión especificado como inicio de sesión del administrador del servidor cuando se crea una instancia de SQL Analytics con un nuevo servidor.
+La clase de recursos del administrador de servicios está fijada en smallrc y no se puede cambiar.  El administrador de servicios es el usuario que se creó durante el proceso de aprovisionamiento.  En este contexto, el administrador de servicios es el inicio de sesión especificado como inicio de sesión del administrador del servidor cuando se crea un nuevo grupo de SQL de Synapse con un nuevo servidor.
 
 > [!NOTE]
 > Los usuarios o grupos definidos como administrador de Active Directory también son administradores de servicio.
@@ -164,13 +162,13 @@ WHERE  name LIKE '%rc%' AND type_desc = 'DATABASE_ROLE';
 
 Para implementar clases de recursos, debe asignar usuarios a los roles de base de datos. Cuando un usuario ejecuta una consulta, la consulta se ejecuta con la clase de recurso del usuario. Por ejemplo, si un usuario es miembro del rol de base de datos "staticrc10", las consultas se ejecutan con pequeñas cantidades de memoria. Si un usuario de base de datos es miembro del rol de base de datos "xlargerc" o "staticrc80", las consultas se ejecutan con grandes cantidades de memoria.
 
-Para aumentar la clase de recursos de un usuario, use [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql) para agregar el usuario a un rol de base de datos de una clase de recursos grande.  El siguiente código agrega un usuario al rol de base de datos "largerc".  Cada solicitud obtiene un 22 % de la memoria del sistema.
+Para aumentar la clase de recursos de un usuario, use [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para agregar el usuario a un rol de base de datos de una clase de recursos grande.  El siguiente código agrega un usuario al rol de base de datos "largerc".  Cada solicitud obtiene un 22 % de la memoria del sistema.
 
 ```sql
 EXEC sp_addrolemember 'largerc', 'loaduser';
 ```
 
-Para reducir la clase de recursos, use [sp_droprolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql).  Si "loaduser" no es un miembro o cualquier otra clase de recurso, entran en la clase de recursos "smallrc" predeterminada con una concesión de memoria del 3 %.  
+Para reducir la clase de recursos, use [sp_droprolemember](/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  Si "loaduser" no es un miembro o cualquier otra clase de recurso, entran en la clase de recursos "smallrc" predeterminada con una concesión de memoria del 3 %.  
 
 ```sql
 EXEC sp_droprolemember 'largerc', 'loaduser';
@@ -285,8 +283,8 @@ IF @DWU IS NULL
 BEGIN
 -- Selecting proper DWU for the current DB if not specified.
 
-SELECT @DWU = 'DW'+ CAST(CASE WHEN Mem> 4 THEN Nodes*500 
-  ELSE Mem*100 
+SELECT @DWU = 'DW'+ CAST(CASE WHEN Mem> 4 THEN Nodes*500
+  ELSE Mem*100
   END AS VARCHAR(10)) +'c'
     FROM (
       SELECT Nodes=count(distinct n.pdw_node_id), Mem=max(i.committed_target_kb/1000/1000/60)
@@ -595,4 +593,3 @@ GO
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre cómo administrar los usuarios y la seguridad de la base de datos, consulte [Proteger una base de datos en SQL Analytics](sql-data-warehouse-overview-manage-security.md). Para obtener más información sobre la manera en que las clases de recursos más grandes pueden mejorar la calidad de los índices de almacén de columnas en clúster, consulte [Memory optimizations for columnstore compression (Optimizaciones de memoria para la compresión del almacén de columnas)](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
-

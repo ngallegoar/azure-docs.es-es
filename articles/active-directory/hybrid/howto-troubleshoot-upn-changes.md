@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 695773da624bc8d4ccff09119d64fc43319ff488
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d11be1d971922095d4a1ace1c81c763134b4e58c
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80246439"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743322"
 ---
 # <a name="plan-and-troubleshoot-user-principal-name-changes-in-azure-active-directory"></a>Planeamiento y solución de problemas de los cambios de nombre principal de usuario en Azure Active Directory
 
@@ -58,7 +58,7 @@ Para cambiar un UPN, puede cambiar el prefijo, el sufijo o ambos.
 
    * Britta.Simon@contoso.com a Britta.Simon@contosolabs.com <br>
      Or<br>
-    *   Britta.Simon@corp.contoso.com a Britta.Simon@labs.contoso.com 
+    * Britta.Simon@corp.contoso.com a Britta.Simon@labs.contoso.com 
 
 Cambie el UPN del usuario cada vez que se actualice la dirección de correo electrónico principal de un usuario. Independientemente del motivo del cambio de correo electrónico, siempre se debe actualizar el UPN para que coincida.
 
@@ -108,7 +108,7 @@ Cree un procedimiento definido para cambiar los UPN en usuarios individuales com
 
 En las secciones siguientes se detallan posibles problemas conocidos y soluciones alternativas para cuando se cambian los UPN.
 
-## <a name="user-provisioning-known-issues-and-workarounds"></a>Problemas conocidos y soluciones alternativas para el aprovisionamiento de usuarios
+## <a name="apps-known-issues-and-workarounds"></a>Problemas conocidos de aplicaciones y soluciones alternativas
 
 Las aplicaciones de [software como servicio (SaaS)](https://azure.microsoft.com/overview/what-is-saas/) y de línea de negocio (LoB) se suelen basar en los UPN para buscar usuarios y almacenan la información del perfil de usuario, incluidos los roles. Los cambios de UPN pueden afectar las aplicaciones que usan el [aprovisionamiento Just in Time](https://docs.microsoft.com/azure/active-directory/app-provisioning/user-provisioning) para crear un perfil de usuario cuando los usuarios inician sesión por primera vez.
 
@@ -117,6 +117,7 @@ Cambiar el UPN de un usuario podría interrumpir la relación entre el usuario d
 
 **Solución alternativa**<br>
 El [aprovisionamiento automático de usuarios de Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) le permite crear, mantener y quitar de manera automática las identidades de los usuarios en aplicaciones en la nube compatibles. La configuración del aprovisionamiento automático de usuarios en las aplicaciones actualiza automáticamente los UPN en las aplicaciones. Pruebe las aplicaciones como parte de la implementación progresiva para validar que no se vean afectadas por los cambios de UPN.
+Si es un desarrollador, considere la posibilidad de [agregar compatibilidad con SCIM a la aplicación](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups) para habilitar el aprovisionamiento automático de usuarios desde Azure Active Directory. 
 
 ## <a name="managed-devices-known-issues-and-workarounds"></a>Problemas conocidos y soluciones alternativas para los dispositivos administrados
 
@@ -174,11 +175,9 @@ La [aplicación Microsoft Authenticator](https://docs.microsoft.com/azure/active
 
 La aplicación Microsoft Authenticator ofrece una opción de comprobación fuera de banda. En lugar de realizar una llamada de teléfono automatizada o enviar SMS al usuario durante el inicio de sesión, [Multi-Factor Authentication (MFA)](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks) inserta una notificación en la aplicación Microsoft Authenticator en el smartphone o en la tableta del usuario. El usuario simplemente pulsa Aprobar (o escribe un PIN o datos biométricos y pulsa "Autenticar") en la aplicación para completar el inicio de sesión.
 
-Al cambiar el UPN de un usuario, los dispositivos móviles pueden experimentar estos problemas:
-
 **Problemas conocidos** 
 
-El UPN anterior se sigue mostrando en la cuenta de usuario y es posible que no se reciba una notificación. Los [códigos de verificación](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-faq) siguen funcionando.
+Al cambiar el UPN de un usuario, el UPN anterior se sigue mostrando en la cuenta de usuario y es posible que no se reciba una notificación. Los [códigos de verificación](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-faq) siguen funcionando.
 
 **Solución alternativa**
 

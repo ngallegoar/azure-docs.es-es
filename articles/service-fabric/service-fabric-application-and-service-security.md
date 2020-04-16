@@ -3,12 +3,12 @@ title: Información sobre la seguridad de las aplicaciones de Azure Service Fabr
 description: Información general sobre cómo ejecutar de forma segura aplicaciones de microservicios en Service Fabric. Obtenga información acerca de cómo ejecutar un script de inicio y servicios en cuentas de seguridad diferentes, autenticar y autorizar a los usuarios, administrar secretos de aplicación, proteger las comunicaciones de servicios, usar una puerta de enlace de API y proteger los datos en reposo de las aplicaciones.
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: 6c40bf66d1068310790d1440174eeb5b2a571154
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e9b4a1209838bdd5eee401b0defb01839b5cf684
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75452251"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756240"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Seguridad del servicio y la aplicación de Service Fabric
 Una arquitectura de microservicios puede aportar [muchas ventajas](service-fabric-overview-microservices.md). Administrar la seguridad de los microservicios, sin embargo, es un desafío y no es lo mismo que administrar la seguridad de las aplicaciones tradicionales monolíticas. 
@@ -33,7 +33,7 @@ Después de la autenticación, los servicios tienen que autorizar el acceso de u
 La [autorización de ASP.NET Core](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/authorization-net-microservices-web-applications) puede llevarse a cabo según los roles de los usuarios o según una directiva personalizada, lo que puede incluir inspeccionar las notificaciones u otra heurística.
 
 ## <a name="restrict-and-secure-access-using-an-api-gateway"></a>Restricción y protección del acceso mediante una puerta de enlace de API
-Las aplicaciones en la nube normalmente necesitan una puerta de enlace front-end para proporcionar un único punto de entrada para usuarios, dispositivos u otras aplicaciones. Una [puerta de enlace de API](/azure/architecture/microservices/gateway) se ubica entre los clientes y los servicios, y es el punto de entrada a todos los servicios que proporciona la aplicación. Actúa como un proxy inverso, enrutando las solicitudes de los clientes a los servicios. También puede realizar diversas tareas transversales como la autenticación, la autorización, la terminación SSL y la limitación de velocidad. Si no implementa una puerta de enlace, los clientes deben enviar las solicitudes directamente a los servicios front-end.
+Las aplicaciones en la nube normalmente necesitan una puerta de enlace front-end para proporcionar un único punto de entrada para usuarios, dispositivos u otras aplicaciones. Una [puerta de enlace de API](/azure/architecture/microservices/gateway) se ubica entre los clientes y los servicios, y es el punto de entrada a todos los servicios que proporciona la aplicación. Actúa como un proxy inverso, enrutando las solicitudes de los clientes a los servicios. También puede realizar diversas tareas transversales como la autenticación, la autorización, la terminación TLS y la limitación de velocidad. Si no implementa una puerta de enlace, los clientes deben enviar las solicitudes directamente a los servicios front-end.
 
 En Service Fabric, una puerta de enlace puede ser cualquier servicio sin estado como una [aplicación ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) u otro servicio designado para la entrada de tráfico, como [Traefik](https://docs.traefik.io/), [Event Hubs](https://docs.microsoft.com/azure/event-hubs/), [IoT Hub](https://docs.microsoft.com/azure/iot-hub/) o [Azure API Management](https://docs.microsoft.com/azure/api-management).
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: surmb
-ms.openlocfilehash: 71e1f8be2af5556d86996175e8a1ddbccc9c7de1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a16120194b1b8015466005f42336828c2b4ace6c
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72001675"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80983847"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Solución de problemas de estado del back-end en Application Gateway
 ==================================================
@@ -170,7 +170,7 @@ Also check whether any NSG/UDR/Firewall is blocking access to the Ip and port of
 
 **Mensaje**: Status code of the backend\'s HTTP response did not match the probe setting. Expected:{HTTPStatusCode0} Received:{HTTPStatusCode1}. (El código de estado de la respuesta HTTP del back-end no coincidía con la configuración de sondeo. Se esperaba: {HTTPStatusCode0} Se recibió: {HTTPStatusCode1}).
 
-**Causa:** cuando haya establecido la conexión TCP y se haya realizado el protocolo de enlace SSL (si SSL está habilitado), Application Gateway enviará el sondeo como una solicitud GET HTTP al servidor back-end. Como se mencionó anteriormente, el sondeo predeterminado será en el \<protocolo\>://127.0.0.1:\<puerto\>/, y se considera que los códigos de estado de respuesta en el intervalo de 200 a 399 son correctos. Si el servidor devuelve cualquier otro código de estado, se marcará como incorrecto con este mensaje.
+**Causa:** cuando haya establecido la conexión TCP y se haya realizado el protocolo de enlace TLS (si TLS está habilitado), Application Gateway enviará el sondeo como una solicitud GET HTTP al servidor back-end. Como se mencionó anteriormente, el sondeo predeterminado será en el \<protocolo\>://127.0.0.1:\<puerto\>/, y se considera que los códigos de estado de respuesta en el intervalo de 200 a 399 son correctos. Si el servidor devuelve cualquier otro código de estado, se marcará como incorrecto con este mensaje.
 
 **Solución:** según el código de respuesta del servidor back-end, puede realizar los pasos siguientes. A continuación se enumeran algunos de los códigos de estado comunes:
 
@@ -208,7 +208,7 @@ Más información sobre la [coincidencia del sondeo de Application Gateway](http
 **Mensaje**: The server certificate used by the backend is not signed by a well-known Certificate Authority (CA). Whitelist the backend on the application gateway by uploading the root certificate of the server certificate used by the backend. (La entidad de certificación conocida no firma el certificado de servidor utilizado por el back-end. Incluya en la lista de elementos permitidos el back-end en la puerta de enlace de aplicaciones mediante la carga del certificado raíz del certificado de servidor utilizado por el back-end).
 
 **Causa:** SSL de un extremo a otro con Application Gateway v2 requiere que se compruebe el certificado del servidor back-end para que el estado del servidor se considere correcto.
-Para que un certificado SSL sea de confianza, ese certificado del servidor back-end se debe haber emitido por una entidad de certificación incluida en el almacén de confianza de Application Gateway. Si no ha sido así (por ejemplo, se usaron certificados autofirmados), los usuarios deben cargar el certificado del emisor en Application Gateway.
+Para que un certificado TLS o SSL sea de confianza, ese certificado del servidor back-end debe haberlo emitido una entidad de certificación incluida en el almacén de confianza de Application Gateway. Si no ha sido así (por ejemplo, se usaron certificados autofirmados), los usuarios deben cargar el certificado del emisor en Application Gateway.
 
 **Solución:** siga estos pasos para exportar y cargar el certificado raíz de confianza en Application Gateway. (Estos pasos son para clientes de Windows).
 
@@ -241,7 +241,7 @@ Para más información sobre cómo extraer y cargar certificados raíz de confia
 **Mensaje**: The root certificate of the server certificate used by the backend does not match the trusted root certificate added to the application gateway. Ensure that you add the correct root certificate to whitelist the backend (El certificado raíz del certificado de servidor utilizado por el back-end no coincide con el certificado raíz de confianza que se ha agregado a Application Gateway. Asegúrese de agregar el certificado raíz correcto para incluir en la lista de elementos permitidos en el back-end).
 
 **Causa:** SSL de un extremo a otro con Application Gateway v2 requiere que se compruebe el certificado del servidor back-end para que el estado del servidor se considere correcto.
-Para que un certificado SSL sea de confianza, el certificado del servidor back-end debe haberlo emitido una entidad de certificación incluida en el almacén de confianza de Application Gateway. Si el certificado no lo ha emitido una entidad de certificación de confianza (por ejemplo, se usó un certificado autofirmado), los usuarios deben cargar el certificado del emisor en Application Gateway.
+Para que un certificado TLS o SSL sea de confianza, el certificado del servidor back-end debe haberlo emitido una entidad de certificación incluida en el almacén de confianza de Application Gateway. Si el certificado no lo ha emitido una entidad de certificación de confianza (por ejemplo, se usó un certificado autofirmado), los usuarios deben cargar el certificado del emisor en Application Gateway.
 
 El certificado que se ha cargado en la configuración HTTP de Application Gateway debe coincidir con el certificado raíz del certificado del servidor back-end.
 
@@ -280,13 +280,13 @@ Si la salida no muestra la cadena completa del certificado que se devuelve, vuel
 
 **Mensaje**: The Common Name (CN) of the backend certificate does not match the host header of the probe. [El nombre común (CN) del certificado de back-end no coincide con el encabezado de host del sondeo].
 
-**Causa:** Application Gateway comprueba si el nombre de host especificado en la configuración HTTP del back-end coincide con el del nombre común (CN) presentado por el certificado SSL del servidor back-end. Este es un comportamiento de la SKU Standard_v2 y WAF_v2. La Indicación de nombre de servidor (SNI) de la SKU Standard y WAF se establece como el nombre de dominio completo en la dirección del grupo back-end.
+**Causa:** Application Gateway comprueba si el nombre de host especificado en la configuración HTTP del back-end coincide con el del nombre común (CN) presentado por el certificado TLS o SSL del servidor back-end. Este es un comportamiento de la SKU Standard_v2 y WAF_v2. La Indicación de nombre de servidor (SNI) de la SKU Standard y WAF se establece como el nombre de dominio completo en la dirección del grupo back-end.
 
 En la SKU v2, si hay un sondeo predeterminado (no se ha configurado ni asociado un sondeo personalizado), la SNI se establecerá a partir del nombre de host mencionado en la configuración HTTP. O bien, si se menciona "Seleccionar el nombre de host de la dirección de back-end" en la configuración HTTP, donde el grupo de direcciones de back-end contiene un nombre de dominio completo válido, se aplicará esta configuración.
 
 Si hay un sondeo personalizado asociado a la configuración HTTP, la SNI se establecerá a partir del nombre de host mencionado en la configuración de sondeo personalizada. O bien, si elige **Seleccionar el nombre de host de la configuración de HTTP** en el sondeo personalizado, la SNI se establecerá a partir del nombre de host mencionado en la configuración HTTP.
 
-En caso de que la opción para elegir el nombre de host desde la dirección de back-end se establezca en la configuración HTTP, el grupo de direcciones de back-end debe contener un nombre de dominio completo válido.
+En caso de que la opción para **elegir el nombre de host desde la dirección de back-end** se establezca en la configuración HTTP, el grupo de direcciones de back-end debe contener un nombre de dominio completo válido.
 
 Si recibe este mensaje de error, significa que el CN del certificado de back-end no coincide con el nombre de host configurado en el sondeo personalizado o en la configuración HTTP (si se elige **Seleccionar el nombre de host de la configuración de HTTP**). Si usa un sondeo predeterminado, el nombre de host se establecerá como **127.0.0.1**. Si no desea ese valor, debe crear un sondeo personalizado y asociarlo a la configuración HTTP.
 
@@ -321,9 +321,9 @@ En Linux con OpenSSL:
 
 **Mensaje**: Backend certificate is invalid. (El certificado de back-end no es válido). La fecha actual está dentro del intervalo de fechas \"Válido desde\" y \"Válido hasta\" en el certificado.
 
-**Causa:** cada certificado viene con un intervalo de validez y la conexión HTTPS no será segura a menos que el certificado SSL del servidor sea válido. Los datos actuales deben estar dentro del intervalo **válido desde** y **válido hasta**. Si no es así, el certificado se considera no válido y se creará una incidencia de seguridad en la que Application Gateway marca el servidor back-end como incorrecto.
+**Causa:** cada certificado viene con un intervalo de validez y la conexión HTTPS no será segura a menos que el certificado TLS o SSL del servidor sea válido. Los datos actuales deben estar dentro del intervalo **válido desde** y **válido hasta**. Si no es así, el certificado se considera no válido y se creará una incidencia de seguridad en la que Application Gateway marca el servidor back-end como incorrecto.
 
-**Solución:** si el certificado SSL ha expirado, renuévelo con el proveedor y actualice la configuración del servidor con el nuevo certificado. Si se trata de un certificado autofirmado, debe generar un certificado válido y cargar el certificado raíz en la configuración HTTP de Application Gateway. Para ello, sigue estos pasos:
+**Solución:** si el certificado TLS o SSL ha expirado, renuévelo con el proveedor y actualice la configuración del servidor con el nuevo certificado. Si se trata de un certificado autofirmado, debe generar un certificado válido y cargar el certificado raíz en la configuración HTTP de Application Gateway. Para ello, sigue estos pasos:
 
 1.  Abra la configuración HTTP de Application Gateway en el portal.
 
@@ -333,7 +333,7 @@ En Linux con OpenSSL:
 
 #### <a name="certificate-verification-failed"></a>Error en la verificación del certificado
 
-**Mensaje**: The validity of the backend certificate could not be verified. To find out the reason, check Open SSL diagnostics for the message associated with error code {errorCode}. [No se pudo comprobar la validez del certificado de back-end. Para averiguar el motivo, compruebe el diagnóstico de OpenSSL para el mensaje asociado al código de error {errorCode}]
+**Mensaje**: The validity of the backend certificate could not be verified. Para averiguar el motivo, compruebe el diagnóstico de OpenSSL para el mensaje asociado al código de error {errorCode}.
 
 **Causa:** este error se produce cuando Application Gateway no puede comprobar la validez del certificado.
 

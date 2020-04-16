@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 10/02/2019
+ms.date: 04/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 2e274aa353f6c3e485ae10a6a67ee2940eb88b08
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7d2e22804c06f589c7990bf8f19319b897363a93
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80246327"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743452"
 ---
 # <a name="troubleshoot-account-lockout-problems-with-an-azure-ad-domain-services-managed-domain"></a>Solución de problemas de bloqueo de cuentas con un dominio administrado de Azure AD Domain Services
 
@@ -33,11 +33,11 @@ Los umbrales predeterminados de bloqueo de cuentas se configuran mediante una di
 
 ### <a name="fine-grained-password-policy"></a>Directiva de contraseñas específica personalizada
 
-Las directivas de contraseñas específicas (FGPP) le permiten aplicar restricciones específicas de directivas de bloqueo de cuentas y contraseñas a diferentes usuarios de un dominio. FGPP solo afecta a los usuarios creados en Azure AD DS. Los usuarios de la nube y los usuarios del dominio sincronizados en el dominio administrado de Azure AD DS desde Azure AD no se ven afectados por las directivas de contraseñas.
+Las directivas de contraseñas específicas (FGPP) le permiten aplicar restricciones específicas de directivas de bloqueo de cuentas y contraseñas a diferentes usuarios de un dominio. FGPP solo afecta a los usuarios de un dominio administrado de Azure AD DS. Los usuarios de la nube y los usuarios del dominio sincronizados en el dominio administrado de Azure AD DS desde Azure AD solo se ven afectados por las directivas de contraseña de Azure AD DS. Sus cuentas en Azure AD o en un directorio local no se ven afectadas.
 
 Las directivas se distribuyen, mediante la asociación de grupos, en el dominio administrado de Azure AD DS y los cambios que realice se aplicarán en el siguiente inicio de sesión de usuario. Al cambiar la directiva, no se desbloquea una cuenta de usuario que ya esté bloqueada.
 
-Para más información sobre las directivas de contraseñas específicas, consulte [Configuración de directivas de contraseñas y bloqueo de cuentas][configure-fgpp].
+Para obtener más información acerca de las directivas de contraseña específicas y las diferencias entre los usuarios creados directamente en Azure AD DS y los sincronizados desde Azure AD, consulte [Configuración de las directivas de bloqueo de cuenta y contraseña][configure-fgpp].
 
 ## <a name="common-account-lockout-reasons"></a>Causas frecuentes del bloqueo de cuentas
 

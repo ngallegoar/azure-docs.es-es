@@ -4,19 +4,19 @@ description: Procedimientos para habilitar el autoservicio de restablecimiento d
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1f0e5242d87bc68efd92a52619e8d48cff9ac87
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d4f08161daf1d9c1a4431d9e3fba3ca741d88b16
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77370071"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743349"
 ---
 # <a name="how-to-enable-password-reset-from-the-windows-login-screen"></a>Procedimientos: Habilitar el restablecimiento de contraseña desde la pantalla de inicio de sesión de Windows
 
@@ -43,7 +43,7 @@ En el caso de los equipos que ejecutan Windows 7, 8, 8.1 y 10, puede permitir qu
 - La combinación de las tres configuraciones específicas siguientes puede hacer que esta característica no funcione.
     - Inicio de sesión interactivo: No requiere CTRL + ALT + SUPR = Deshabilitado
     - DisableLockScreenAppNotifications = 1 o Habilitado
-    - IsContentDeliveryPolicyEnforced = 1 o True
+    - La SKU de Windows no es Home o Professional Edition.
 
 ## <a name="windows-10-password-reset"></a>Restablecimiento de contraseña de Windows 10
 
@@ -128,8 +128,8 @@ Cuando los usuarios restablecen su contraseña desde la pantalla de inicio de se
 
 #### <a name="silent-installation"></a>Instalación silenciosa
 
-- Para una instalación silenciosa, use el comando "msiexec /i SsprWindowsLogon.PROD.msi /qn"
-- Para una desinstalación silenciosa, use el comando "msiexec /x SsprWindowsLogon.PROD.msi /qn"
+- Para una instalación silenciosa, use el comando "msiexec /i SsprWindowsLogon.PROD.msi /qn".
+- Para una desinstalación silenciosa, use el comando "msiexec /x SsprWindowsLogon.PROD.msi /qn".
 
 #### <a name="troubleshooting-windows-7-8-and-81-password-reset"></a>Solución de problemas de restablecimiento de contraseña de Windows 7, 8 y 8.1
 
@@ -141,8 +141,8 @@ Si se requiere un registro adicional, se puede cambiar una clave del Registro en
 
 `HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{86D2F0AC-2171-46CF-9998-4E33B3D7FD4F}`
 
-- Para habilitar el registro detallado, cree un `REG_DWORD: “EnableLogging”` y establézcalo en 1.
-- Para deshabilitar el registro detallado, cambie `REG_DWORD: “EnableLogging”` a 0.
+- Para habilitar el registro detallado, cree un `REG_DWORD: "EnableLogging"` y establézcalo en 1.
+- Para deshabilitar el registro detallado, cambie `REG_DWORD: "EnableLogging"` a 0.
 
 ## <a name="what-do-users-see"></a>Lo que ven los usuarios
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/30/2020
+ms.date: 03/23/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba579d6da8c759a4653b729f1a471efdedc2baa7
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.openlocfilehash: 402eaecbf03fd52fbb5e871fdd196da2bc9a3e1f
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77505755"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743524"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opciones de autenticación sin contraseña de Azure Active Directory
 
@@ -26,7 +26,7 @@ La autenticación multifactor (MFA) es una excelente manera de proteger la organ
 | --- | --- | --- |
 | Inicio de sesión sin contraseña | Dispositivo, teléfono o clave de seguridad con Windows 10 | PIN o biométrica |
 
-Cada organización tiene diferentes necesidades en cuanto a la autenticación. Microsoft ofrece las siguientes tres opciones de autenticación sin contraseña:
+Cada organización tiene diferentes necesidades en cuanto a la autenticación. Microsoft ofrece las tres opciones siguientes de autenticación sin contraseña que se integran con Azure Active Directory (Azure AD):
 
 - Windows Hello para empresas
 - Aplicación Microsoft Authenticator
@@ -36,7 +36,21 @@ Cada organización tiene diferentes necesidades en cuanto a la autenticación. M
 
 ## <a name="windows-hello-for-business"></a>Windows Hello para empresas
 
-Windows Hello para empresas resulta muy conveniente para los trabajadores de la información que tienen su propio PC con Windows designado. La información biométrica y el PIN están directamente asociados al equipo del usuario, lo que impide el acceso a cualquier otra persona que no sea el propietario. Con la integración de la infraestructura de clave pública (PKI) y la compatibilidad integrada con el inicio de sesión único (SSO), Windows Hello para empresas ofrece un método sencillo y práctico de acceder completamente a los recursos corporativos del entorno local y la nube.
+Windows Hello para empresas resulta muy conveniente para los trabajadores de la información que tienen su propio PC con Windows designado. La información biométrica y el PIN están directamente asociados al equipo del usuario, lo que impide el acceso a cualquier otra persona que no sea el propietario. Con la integración de la infraestructura de clave pública (PKI) y la compatibilidad integrada con el inicio de sesión único (SSO), Windows Hello para empresas ofrece un método sencillo y práctico de acceder directamente a los recursos corporativos del entorno local y la nube.
+
+![Ejemplo de inicio de sesión de un usuario con Windows Hello para empresas](./media/concept-authentication-passwordless/windows-hellow-sign-in.jpeg)
+
+En los pasos siguientes se muestra cómo funciona el proceso de inicio de sesión con Azure Active Directory.
+
+![Diagrama que describe los pasos necesarios para el inicio de sesión de un usuario con Windows Hello para empresas](./media/concept-authentication-passwordless/windows-hello-flow.png)
+
+1. Un usuario inicia sesión en Windows mediante gestos de PIN o de información biométrica. El gesto desbloquea la clave privada de Windows Hello para empresas y se envía al proveedor de compatibilidad para seguridad de la autenticación en la nube, conocido como el *proveedor de punto de acceso de nube*.
+1. El proveedor de punto de acceso de nube solicita un valor nonce a Azure AD.
+1. Azure AD devuelve un valor nonce que es válido durante 5 minutos.
+1. El proveedor de punto de acceso de nube firma el valor nonce con la clave privada del usuario y devuelve el valor nonce firmado a Azure AD.
+1. Azure AD valida el valor nonce firmado con la clave pública del usuario registrada de forma segura en la firma del valor nonce. Después de validar la firma, Azure AD valida el valor nonce firmado devuelto. Tras validar el valor nonce, Azure AD crea un token de actualización principal (PRT) con la clave de sesión que se ha cifrado con la clave de transporte del dispositivo y lo devuelve al proveedor de punto de acceso de nube.
+1. El proveedor de CloudAP recibe el PRT cifrado con la clave de sesión. Mediante la clave de transporte privada del dispositivo, el proveedor de punto de acceso de nube descifra la clave de sesión y la protege con el Módulo de plataforma segura (TPM) del dispositivo.
+1. El proveedor de acceso de punto de nube devuelve una respuesta de autenticación correcta a Windows. Después, el usuario puede acceder a Windows, así como a las aplicaciones locales y en la nube sin necesidad de autenticarse de nuevo (SSO).
 
 La [guía de planeamiento](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-planning-guide) de Windows Hello para empresas se puede usar para ayudarle a tomar decisiones sobre el tipo de implementación y las opciones que es necesario tener en cuenta.
 
@@ -46,7 +60,20 @@ Permita que el teléfono del empleado se convierta en un método de autenticaci�
 
 ![Inicio de sesión en Microsoft Edge con la aplicación Microsoft Authenticator](./media/concept-authentication-passwordless/concept-web-sign-in-microsoft-authenticator-app.png)
 
-La aplicación Authenticator convierte cualquier teléfono Android o iOS en una credencial segura sin contraseña. Los usuarios pueden iniciar sesión en cualquier plataforma o explorador con este proceso: reciben una notificación en su teléfono, comprueban que el número mostrado en la pantalla coincide con el de su teléfono y, a continuación, usan datos biométricos (reconocimiento táctil o facial) o el PIN para confirmarlo.
+La aplicación Authenticator convierte cualquier teléfono Android o iOS en una credencial segura sin contraseña. Los usuarios pueden iniciar sesión en cualquier plataforma o explorador con este proceso: reciben una notificación en su teléfono, comprueban que el número mostrado en la pantalla coincide con el de su teléfono y, a continuación, usan datos biométricos (reconocimiento táctil o facial) o el PIN para confirmarlo. Consulte [Descarga e instalación de la aplicación Microsoft Authenticator](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install) para obtener información detallada sobre la instalación.
+
+La autenticación sin contraseñas mediante la aplicación Authenticator sigue el mismo patrón básico que Windows Hello para empresas. Es un poco más complicado, ya que el usuario debe identificarse para que Azure AD pueda encontrar la versión de la aplicación Microsoft Authenticator que se está usando:
+
+![Diagrama que describe los pasos necesarios para el inicio de sesión de un usuario con la aplicación Microsoft Authenticator](./media/concept-authentication-passwordless/authenticator-app-flow.png)
+
+1. El usuario escribe su nombre de usuario.
+1. Azure AD detecta que el usuario tiene una credencial segura e inicia el flujo de credencial segura.
+1. Se envía una notificación a la aplicación mediante Apple Push Notification Service (APNS) en dispositivos iOS o por medio de Firebase Cloud Messaging (FCM) en dispositivos Android.
+1. El usuario recibe la notificación push y abre la aplicación.
+1. La aplicación llama a Azure AD y recibe un desafío de prueba de presencia y un valor nonce.
+1. Para completar el desafío, el usuario escribe su información biométrica o su PIN para desbloquear la clave privada.
+1. El valor nonce se firma con la clave privada y se envía a Azure AD.
+1. Azure AD realiza la validación de la clave pública-privada y devuelve un token.
 
 ## <a name="fido2-security-keys"></a>Claves de seguridad FIDO2
 
@@ -55,6 +82,20 @@ Las claves de seguridad FIDO2 son un método de autenticación sin contraseña b
 En la versión preliminar pública, los empleados pueden usar claves de seguridad para iniciar sesión en sus dispositivos Windows 10 unidos a Azure AD o Azure AD híbrido y lograr el inicio de sesión único en sus recursos de nube y locales. Los usuarios también pueden iniciar sesión en exploradores compatibles. Las claves de seguridad FIDO2 son una excelente opción para las empresas que son muy conscientes de la seguridad o tienen escenarios o empleados que no quieren o no pueden usar su teléfono como un segundo factor.
 
 ![Inicio de sesión en Microsoft Edge con una clave de seguridad](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
+
+El proceso siguiente se utiliza cuando un usuario inicia sesión con una clave de seguridad FIDO2:
+
+![Diagrama que describe los pasos necesarios para el inicio de sesión de un usuario con una clave de seguridad FIDO2](./media/concept-authentication-passwordless/fido2-security-key-flow.png)
+
+1. El usuario conecta la clave de seguridad FIDO2 en su equipo.
+2. Windows detecta la llave de seguridad FIDO2.
+3. Windows envía una solicitud de autenticación.
+4. Azure AD devuelve un valor nonce.
+5. El usuario realiza su gesto para desbloquear la clave privada almacenada en el enclave seguro de la llave de seguridad FIDO2.
+6. La llave de seguridad FIDO2 firma el valor nonce con la clave privada.
+7. La solicitud del token de actualización principal (PRT) con el valor nonce firmado se envía a Azure AD.
+8. Azure AD comprueba el valor nonce firmado con la clave pública FIDO2.
+9. Azure AD devuelve el PRT para permitir el acceso a los recursos locales.
 
 Aunque hay muchas claves certificadas como FIDO2 por FIDO Alliance, Microsoft necesita que el proveedor implemente algunas extensiones opcionales de la especificación Client-to-Authenticator Protocol (CTAP) FIDO2 para garantizar la máxima seguridad y la mejor experiencia.
 
@@ -77,6 +118,9 @@ Los siguientes proveedores ofrecen claves de seguridad FIDO2 o diferentes factor
 | Ensurity | [https://www.ensurity.com/contact](https://www.ensurity.com/contact) |
 | eWBM | [https://www.ewbm.com/support](https://www.ewbm.com/support) |
 | AuthenTrend | [https://authentrend.com/about-us/#pg-35-3](https://authentrend.com/about-us/#pg-35-3) |
+| Gemalto (Grupo Thales) | [https://safenet.gemalto.com/multi-factor-authentication/authenticators/passwordless-authentication/](https://safenet.gemalto.com/multi-factor-authentication/authenticators/passwordless-authentication/) |
+| OneSpan Inc. | [https://www.onespan.com/sites/default/files/2019-08/Digipass-SecureClick_datasheet.pdf](https://www.onespan.com/sites/default/files/2019-08/Digipass-SecureClick_datasheet.pdf) |
+| IDmelon Technologies Inc. | [https://www.idmelon.com/#idmelon](https://www.idmelon.com/#idmelon) | 
 
 > [!NOTE]
 > Si adquiere y planea usar claves de seguridad basadas en NFC, necesita un lector NFC compatible para la clave de seguridad. El lector NFC no es un requisito o limitación de Azure. Consulte al proveedor de la clave de seguridad basada en NFC para obtener una lista de lectores de NFC admitidos.
@@ -90,7 +134,31 @@ Si es proveedor y quiere que su dispositivo aparezca en esta lista de dispositiv
 - Los usuarios finales pueden registrar y administrar estos métodos de autenticación sin contraseña en el portal de la cuenta
 - Los usuarios finales pueden iniciar sesión con estos métodos de autenticación sin contraseña
    - Aplicación Microsoft Authenticator: Funciona en los escenarios donde se usa la autenticación de Azure AD, lo que incluye todos los exploradores, durante la configuración rápida (OOBE) de Windows 10 y con aplicaciones móviles integradas en cualquier sistema operativo.
-   - Claves de seguridad: Funcionan en la pantalla de bloqueo de Windows 10 e Internet en exploradores compatibles como Microsoft Edge.
+   - Claves de seguridad: funcionan en la pantalla de bloqueo de Windows 10 e Internet en exploradores compatibles como Microsoft Edge (tanto versiones heredadas como la nueva Edge).
+
+## <a name="choose-a-passwordless-method"></a>Elección de un método sin contraseña
+
+La elección entre estas tres opciones sin contraseña depende de los requisitos de seguridad, plataforma y aplicación de su empresa.
+
+Estos son algunos de los factores que se deben tener en cuenta al elegir la tecnología sin contraseña de Microsoft:
+
+||**Windows Hello para empresas**|**Inicio de sesión sin contraseña con la aplicación Microsoft Authenticator**|**Llaves de seguridad FIDO2**|
+|:-|:-|:-|:-|
+|**Requisito previo**| Windows 10, versión 1809 o posterior<br>Azure Active Directory| Aplicación Microsoft Authenticator<br>Teléfono (dispositivos iOS y Android que ejecutan Android 6.0 o posterior)|Windows 10, versión 1809 o posterior<br>Azure Active Directory|
+|**Modo**|Plataforma|Software|Hardware|
+|**Sistemas y dispositivos**|PC con un módulo de plataforma segura (TPM) integrado<br>Reconocimiento de PIN e información biométrica |PIN y reconocimiento biométrico en el teléfono|Dispositivos de seguridad FIDO2 que son compatibles con Microsoft|
+|**Experiencia del usuario**|Inicie sesión con un PIN o mediante reconocimiento biométrico (facial, iris o huella digital) con dispositivos Windows.<br>La autenticación de Windows Hello está vinculada al dispositivo; el usuario necesita el dispositivo y un componente de inicio de sesión, como un PIN o un factor biométrico, para acceder a los recursos corporativos.|Inicio de sesión con un teléfono móvil con la huella digital, el reconocimiento facial o del iris, o bien con un PIN.<br>Los usuarios inician sesión en su cuenta profesional o personal desde su PC o teléfono móvil.|Inicio de sesión con el dispositivo de seguridad FIDO2 (información biométrica, PIN y NFC)<br>El usuario puede acceder al dispositivo según los controles de la organización y autenticarse con un PIN, información biométrica mediante dispositivos como llaves de seguridad USB, y por medio de tarjetas inteligentes, llaves o dispositivos ponibles habilitados para NFC.|
+|**Escenarios habilitados**| Experiencia sin contraseña con dispositivos Windows.<br>Se aplica a PC de trabajo dedicados con posibilidad de inicio de sesión único en aplicaciones y dispositivos.|Solución en cualquier parte sin contraseña con el teléfono móvil.<br>Se aplica para el acceso a aplicaciones de trabajo o personales en la web desde cualquier dispositivo.|Experiencia sin contraseña para los trabajadores con NFC, información biométrica y PIN.<br>Aplicable a PC compartidos y cuando un teléfono móvil no es una opción viable (por ejemplo, personal del departamento de soporte técnico, quiosco multimedia público o equipo de hospital).|
+
+Use la tabla siguiente para elegir qué método será más adecuado para sus requisitos y usuarios.
+
+|Persona|Escenario|Entorno|Tecnología sin contraseña|
+|:-|:-|:-|:-|
+|**Administrador**|Acceso seguro a un dispositivo para tareas de administración|Dispositivo Windows 10 asignado|Windows Hello para empresas, llave de seguridad FIDO2 o ambos|
+|**Administrador**|Tareas de administración en dispositivos que no son Windows| Dispositivo móvil o que no sean Windows|Inicio de sesión sin contraseña con la aplicación Microsoft Authenticator|
+|**Trabajador de la información**|Trabajo de productividad|Dispositivo Windows 10 asignado|Windows Hello para empresas, llave de seguridad FIDO2 o ambos|
+|**Trabajador de la información**|Trabajo de productividad| Dispositivo móvil o que no sean Windows|Inicio de sesión sin contraseña con la aplicación Microsoft Authenticator|
+|**Trabajador de primera línea**|Quioscos multimedia de una fábrica, planta, comercio o entrada de datos|Dispositivos Windows 10 compartidos|Llaves de seguridad FIDO2|
 
 ## <a name="next-steps"></a>Pasos siguientes
 
