@@ -740,6 +740,8 @@
           href: insights/containers.md
     - name: Supervisión de otros recursos
       items:
+        - name: Key Vault
+          href: insights/key-vault-insights-overview.md
         - name: Storage
           items:
             - name: Azure Monitor para Storage
@@ -1075,6 +1077,8 @@
               href: platform/itsmc-connections.md
             - name: Creación de aplicación web de Service Manager
               href: platform/itsmc-service-manager-script.md
+            - name: Solución de problemas de sincronización de ITSM de ServiceNow
+              href: platform/itsmc-resync-servicenow.md
     - name: Automatizar
       items:
         - name: Escalado automático

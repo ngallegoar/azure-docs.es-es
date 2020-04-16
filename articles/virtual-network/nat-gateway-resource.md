@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/04/2020
+ms.date: 04/09/2020
 ms.author: allensu
-ms.openlocfilehash: d920bde856521f1e662536c1187881e143612039
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 4095b0b48e86b0aafcc86d74ca1fa25bacddf0ec
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78359105"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011725"
 ---
-# <a name="designing-virtual-networks-with-nat-gateway-resources-public-preview"></a>Diseño de redes virtuales con recursos de puertas de enlace de NAT (versión preliminar pública)
+# <a name="designing-virtual-networks-with-nat-gateway-resources"></a>Diseño de redes virtuales con recursos de puertas de enlace de NAT
 
 Los recursos de puerta de enlace de NAT forman parte de [Virtual Network NAT](nat-overview.md) y proporcionan conectividad saliente a Internet para una o varias subredes de una red virtual. La subred de la red virtual indica qué puerta de enlace de NAT se usará. NAT proporciona traducción de direcciones de red de origen (SNAT) para una subred.  Los recursos de puerta de enlace de NAT especifican las direcciones IP estáticas que usan las máquinas virtuales al crear flujos de salida. Las direcciones IP estáticas proceden de recursos de direcciones IP públicas, recursos de prefijos IP públicos, o ambos. Un recurso de puerta de enlace de NAT puede usar un máximo de 16 direcciones IP desde cualquiera de ellas.
 
@@ -32,10 +32,6 @@ Los recursos de puerta de enlace de NAT forman parte de [Virtual Network NAT](na
 
 *Ilustración: Virtual Network NAT para la salida a Internet*
 
-
->[!NOTE] 
->En este momento, Virtual Network NAT está disponible como versión preliminar pública. Actualmente solo está disponible en un conjunto limitado de [regiones](nat-overview.md#region-availability). Esta versión preliminar se ofrece sin contrato de nivel de servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms).
-
 ## <a name="how-to-deploy-nat"></a>Implementación de NAT
 
 La configuración y el uso de la puerta de enlace de NAT se ha hecho sencilla a propósito:  
@@ -43,7 +39,7 @@ La configuración y el uso de la puerta de enlace de NAT se ha hecho sencilla a 
 Recurso de puerta de enlace de NAT:
 - Cree un recurso de puerta de enlace de NAT regional o con aislamiento de zona.
 - Asigne direcciones IP.
-- Modifique el tiempo de espera de inactividad (opcional).
+- Si es necesario, modifique el tiempo de espera de inactividad de TCP (opcional).  Revise los [temporizadores](#timers) <ins>antes de</ins> cambiar el valor predeterminado.
 
 Red virtual:
 - Configure una subred de red virtual para que use una puerta de enlace de NAT.
@@ -66,75 +62,30 @@ NAT se recomienda para la mayoría de las cargas de trabajo, salvo que se tenga 
 
 Puede migrar desde escenarios del equilibrador de carga estándar, incluidas las [reglas salientes](../load-balancer/load-balancer-outbound-rules-overview.md), a una puerta de enlace de NAT. Para realizar la migración, mueva los recursos de IP pública y de prefijo de IP pública desde los servidores front-end de Load Balancer a la puerta de enlace de NAT. No se requieren direcciones IP nuevas para la puerta de enlace de NAT. Se pueden reutilizar tanto la IP pública como el prefijo estándar, siempre que el total no supere las 16 direcciones IP. Planee la migración y tenga en cuenta la interrupción del servicio durante la transición.  Si el proceso se automatiza, el periodo de interrupción se reduce considerablemente. Pruebe la migración en un entorno de ensayo primero.  Durante la transición, los flujos de entrada originados no resultan afectados.
 
-En el siguiente ejemplo se creará un recurso de puerta de enlace de NAT llamado _myNATGateway_ en la región _Este de EE. UU. 2, AZ 1_ con un tiempo de espera de inactividad de _4 minutos_. Las direcciones IP de salida que se proporcionan son:
-- Un conjunto de recursos de IP pública _myIP1_ y _myIP2_. 
-- Un conjunto de recursos de prefijo de IP pública _myPrefix1_ y _myPrefix2_. 
+El siguiente ejemplo es un fragmento de código de una plantilla de Azure Resource Manager.  Esta plantilla implementa varios recursos, incluida una puerta de enlace NAT.  La plantilla tiene los parámetros siguientes en este ejemplo:
 
-El número total de direcciones IP que proporcionan los cuatro recursos de direcciones IP no pueden superar un total de 16 direcciones IP. Se permite cualquier número de direcciones IP entre 1 y 16.
+- **natgatewayname**: nombre de la puerta de enlace NAT.
+- **location**: región de Azure donde se encuentra el recurso.
+- **publicipname**: nombre de la dirección IP pública saliente asociada a la puerta de enlace NAT.
+- **vnetname**: nombre de la red virtual.
+- **subnetname**: nombre de la subred asociada a la puerta de enlace NAT.
 
-```json
-{
-"name": "myNATGateway",
-   "type": "Microsoft.Network/natGateways",
-   "apiVersion": "2018-11-01",
-   "location": "East US 2",
-   "sku": { "name": "Standard" },
-   "zones": [ "1" ],
-   "properties": {
-      "idleTimeoutInMinutes": 4, 
-      "publicIPPrefixes": [
-         {
-            "id": "ref to myPrefix1"
-         },
-         {
-            "id": "ref to myPrefix2"
-         }
-      ],
-      "publicIPAddresses": [
-         {
-            "id": "ref to myIP1"
-         },
-         {
-            "id": "ref to myIP2"
-         }
-      ]
-   }
-}
-```
+El número total de direcciones IP proporcionado por todas las direcciones IP y recursos de prefijo no pueden superar un total de 16 direcciones IP. Se permite cualquier número de direcciones IP entre 1 y 16.
+
+:::code language="json" source="~/quickstart-templates/101-nat-gateway-vnet/azuredeploy.json" range="81-96":::
 
 Cuando se haya creado el recurso de puerta de enlace de NAT, se puede usar en una o varias subredes de una red virtual. Especifique qué subredes usan este recurso de puerta de enlace de NAT. Una puerta de enlace de NAT no puede abarcar más de una red virtual. No es preciso asignar la misma puerta de enlace de NAT a todas las subredes de una red virtual. Se pueden configurar subredes individuales con diferentes recursos de puerta de enlace de NAT.
 
 Los escenarios que no usen zonas de disponibilidad serán regionales (sin zona especificada). Si usa zonas de disponibilidad, puede especificar una de ellas para aislar NAT en una zona concreta. No se admite la redundancia de zonas. Examine las [zonas de disponibilidad](#availability-zones) de NAT.
 
+:::code language="json" source="~/quickstart-templates/101-nat-gateway-vnet/azuredeploy.json" range="1-146" highlight="81-96":::
 
-```json
-{
-   "name": "myVNet",
-   "apiVersion": "2018-11-01",
-   "type": "Microsoft.Network/virtualNetworks",
-   "location": "myRegion", 
-   "properties": {
-      "addressSpace": {
-          "addressPrefixes": [
-           "192.168.0.0/16"
-          ]
-      },
-      "subnets": [
-         {
-            "name": "mySubnet1",
-            "properties": {
-               "addressPrefix": "192.168.0.0/24",
-               "natGateway": {
-                  "id": "ref to myNATGateway"
-               }
-            }
-         } 
-      ]
-   }
-}
-```
-Las puertas de enlace de NAT se definen con una propiedad en una subred de una red virtual. Los flujos que creen las máquinas virtuales en la subred _mySubnet1_ de la red virtual _myVNet_ usarán la puerta de enlace de NAT. Toda la conectividad de salida usará las direcciones IP asociadas con _myNatGateway_ como dirección IP de origen.
+Las puertas de enlace de NAT se definen con una propiedad en una subred de una red virtual. Los flujos que creen las máquinas virtuales en la subred **subnetname** de la red virtual **vnetname** usarán la puerta de enlace NAT. Toda la conectividad de salida usará las direcciones IP asociadas con **natgatewayname** como dirección IP de origen.
 
+Para más información sobre la plantilla de Azure Resource Manager usada en este ejemplo, consulte:
+
+- [Inicio rápido: Creación de una puerta de enlace NAT: plantilla de Resource Manager](quickstart-create-nat-gateway-template.md)
+- [Virtual Network NAT](https://azure.microsoft.com/resources/templates/101-nat-gateway-1-vm/)
 
 ## <a name="design-guidance"></a>Guía de diseño
 
@@ -147,7 +98,7 @@ Lea esta sección para familiarizarse con las consideraciones para diseñar rede
 
 ### <a name="cost-optimization"></a>Optimización de costos
 
-Los [puntos de conexión de servicio](virtual-network-service-endpoints-overview.md) y el [vínculo privado](../private-link/private-link-overview.md) son dos opciones que deben tenerse en cuenta para optimizar el costo donde no se necesite NAT.  La NAT de la red virtual no procesa el tráfico dirigido a los puntos de conexión de servicio o a un vínculo privado.  
+Los [puntos de conexión de servicio](virtual-network-service-endpoints-overview.md) y el [vínculo privado](../private-link/private-link-overview.md) son opciones que deben tenerse en cuenta para optimizar el costo. No es necesario NAT para estos servicios. La NAT de la red virtual no procesa el tráfico dirigido a los puntos de conexión de servicio o a un vínculo privado.  
 
 Los puntos de conexión de servicio enlazan los recursos de servicio de Azure a su red virtual y controlan el acceso a los recursos de servicio de Azure. Por ejemplo, cuando se accede a Azure Storage, se usa un punto de conexión de servicio para almacenamiento, con el fin de evitar los cargos de NAT de datos procesados. Los puntos de conexión de servicio con gratuitos.
 
@@ -226,27 +177,50 @@ Las puertas de enlace de NAT tienen prioridad sobre los escenarios de salida de 
 
 ### <a name="availability-zones"></a>Zonas de disponibilidad
 
-Incluso sin zonas de disponibilidad, NAT es resistente y puede sobrevivir a los errores de varios componentes de la infraestructura. Si las zonas de disponibilidad forman parte de su escenario, debe configurar la NAT de una zona concreta.  Las operaciones del plano de control y el plano de datos están restringidos a la zona especificada. Se espera que los errores que se produzcan en una zona que no sea aquella en la que existe el escenario no tengan ningún impacto en NAT. El tráfico de salida de las máquinas virtuales de la misma zona generará un error debido al aislamiento de la zona.
+#### <a name="zone-isolation-with-zonal-stacks"></a>Aislamiento de zona con pilas de zonas
 
 <p align="center">
-  <img src="media/nat-overview/az-directions.svg" width="425" title="Virtual Network NAT con zonas de disponibilidad">
+  <img src="media/nat-overview/az-directions.svg" width="425" title="Virtual Network NAT con aislamiento de zona, creación de varias "zonal stacks"">
 </p>
 
-*Ilustración: Virtual Network NAT con zonas de disponibilidad*
+*Ilustración: Virtual Network NAT con aislamiento de zona, creación de "pilas de zonas"*
 
-Una puerta de enlace de NAT con una zona aislada requiere que las direcciones IP coincidan con la zona de la puerta de enlace de NAT. No se admiten recursos de la puerta de enlace de NAT con direcciones IP de otra zona o que no tengan ninguna zona.
+Incluso sin zonas de disponibilidad, NAT es resistente y puede sobrevivir a los errores de varios componentes de la infraestructura.  Las zonas de disponibilidad se basan en esta resistencia con escenarios de aislamiento de zona para NAT.
 
-Tanto las redes virtuales como las subredes se alinean con la región, no con la zona. Una máquina virtual tiene que estar en la misma zona que la puerta de enlace de NAT para que haya un compromiso de aislamiento de zona en las conexiones de salida. El aislamiento de zona se crea mediante la creación de una "pila" con aislamiento de zona por zona de disponibilidad. No existirá compromiso de aislamiento de zona si se cruzan zonas de una puerta de enlace de NAT zonal o se usa una puerta de enlace de NAT regional con máquinas virtuales zonales.
+Las redes virtuales y sus subredes son construcciones regionales.  Las subredes no están restringidas a una zona.
 
-Cuando se implementan conjuntos de escalado de máquinas virtuales para usarlos con NAT, se implementa un conjunto de escalado zonal en su propio subconjunto y se asocia la puerta de enlace de NAT de la zona correspondiente a esa subred. Si usa conjuntos de escalado que abarcan varias zonas, NAT no proporcionará un compromiso de aislamiento de zona.  NAT no admite la redundancia de zona.  Solo se admite el aislamiento regional o de zona.
+Existe un compromiso de aislamiento de zona cuando una instancia de máquina virtual que usa un recurso de puerta de enlace NAT está en la misma zona que el recurso de puerta de enlace NAT y sus direcciones IP públicas. El patrón que quiere usar para el aislamiento de zona crea una "pila de zona" por zona de disponibilidad.  Esta "pila de zona" se compone de instancias de máquina virtual, recursos de puerta de enlace NAT, dirección IP pública o recursos de prefijo en una subred que se supone que atiende solo a la misma zona.   Las operaciones del plano de control y el plano de datos están restringidos a la zona especificada. 
+
+Se espera que los errores que se produzcan en una zona que no sea aquella en la que existe el escenario no tengan ningún impacto en NAT. El tráfico de salida de las máquinas virtuales de la misma zona generará un error debido al aislamiento de la zona.  
+
+#### <a name="integrating-inbound-endpoints"></a>Integración de puntos de conexión de entrada
+
+Si su escenario requiere puntos de conexión de entrada, tiene dos opciones:
+
+| Opción | Patrón | Ejemplo | Pros | Contras |
+|---|---|---|---|---|
+| (1) | **Alinee** los puntos de conexión de entrada con las **pilas de zona** correspondientes que está creando para salida. | Cree de un equilibrador de carga estándar con el front-end de zona. | Mismo modelo de estado y el modo de error para entrada y salida. Más sencillo de operar. | Es posible que sea necesario enmascarar las direcciones IP individuales por zona con un nombre DNS común. |
+| (2) | **Superponga** las pilas de zona con un punto de conexión de entrada **entre zonas**. | Cree un equilibrador de carga estándar con redundancia de zona en el front-end. | Dirección IP única para el punto de conexión de entrada. | Modelo de estado variable y modos de error de entrada y salida.  Más complejo de operar. |
+
+>[!NOTE]
+> Una puerta de enlace de NAT con una zona aislada requiere que las direcciones IP coincidan con la zona de la puerta de enlace de NAT. No se admiten recursos de la puerta de enlace de NAT con direcciones IP de otra zona o que no tengan ninguna zona.
+
+#### <a name="cross-zone-outbound-scenarios-not-supported"></a>No se admiten escenarios de salida entre zonas
 
 <p align="center">
-  <img src="media/nat-overview/az-directions2.svg" width="425" title="Virtual Network NAT que abarca varias zonas">
+  <img src="media/nat-overview/az-directions2.svg" width="425" title="Virtual Network NAT no es compatible con la subred que abarca varias zonas">
 </p>
 
-*Ilustración: Virtual Network NAT que abarca varias zonas*
+*Ilustración: Virtual Network NAT no es compatible con la subred que abarca varias zonas*
 
-La propiedad zones no es mutable.  Vuelva a implementar el recurso de la puerta de enlace de NAT con la preferencia regional o de zona pretendida.
+No se puede lograr un compromiso de aislamiento de zona con recursos de puerta de enlace NAT cuando las instancias de máquina virtual se implementan en varias zonas dentro de la misma subred.   E incluso si había varias puertas de enlace NAT de zona conectadas a una subred, la instancia de máquina virtual no sabría qué recurso de puerta de enlace NAT seleccionar.
+
+No existe un compromiso de aislamiento de zona cuando a) la zona de una instancia de máquina virtual y las zonas de una puerta de enlace NAT de zona no están alineadas, o b) se usa un recurso de puerta de enlace NAT regional con instancias de máquina virtual de zona.
+
+Aunque parece que el escenario funciona, su modelo de estado y modo de error no están definidos desde el punto de vista de la zona de disponibilidad. Considere la posibilidad de trabajar con pilas de zonas o todas regionales en su lugar.
+
+>[!NOTE]
+>La propiedad de zonas de un recurso de puerta de enlace NAT no es mutable.  Vuelva a implementar el recurso de la puerta de enlace de NAT con la preferencia regional o de zona pretendida.
 
 >[!NOTE] 
 >Las direcciones IP en sí no tienen redundancia de zona si no se especifica ninguna zona.  El servidor front-end de un [equilibrador de carga estándar tiene redundancia de zona](../load-balancer/load-balancer-standard-availability-zones.md#frontend) si una dirección IP no se crea en una zona concreta.  Esto no se aplica a la NAT.  Solo se admite el aislamiento regional o de zona.
@@ -303,11 +277,9 @@ Una vez que se libera un puerto SNAT, este está disponible para que lo use cual
 
 ### <a name="scaling"></a>Ampliación
 
-NAT necesita un inventario de puertos SNAT suficiente para el escenario de salida completo. El escalado de NAT es primordialmente una función de la administración del inventario de puertos SNAT compartidos disponibles. Es preciso que exista inventario suficiente para afrontar el flujo máximo de salida en todas las subredes conectadas a un recurso de puerta de enlace de NAT.
+El escalado de NAT es primordialmente una función de la administración del inventario de puertos SNAT compartidos disponibles. NAT necesita inventario de puertos SNAT suficiente para afrontar el flujo máximo de salida previsto en todas las subredes conectadas a un recurso de puerta de enlace de NAT.  Puede usar recursos de direcciones IP públicas, recursos de prefijos IP públicos, o ambos para crear un inventario de puertos SNAT.
 
-SNAT asigna varias direcciones privadas a una dirección pública y usa varias direcciones IP públicas para escalar.
-
-Un recurso de puerta de enlace de NAT usará 64 000 puertos (puertos SNAT) de una dirección IP pública.  Estos puertos SNAT se convierten en el inventario disponible para la asignación de flujo privado a público. Y agregar más direcciones IP públicas aumenta los puertos SNAT del inventario disponibles. Los recursos de puerta de enlace de NAT se pueden escalar verticalmente hasta un máximo de 16 direcciones IP y un millón de puertos SNAT.  TCP y UDP son inventarios de puertos SNAT independientes y no están relacionados.
+SNAT asigna direcciones privadas a una o varias direcciones IP públicas y reescribe la dirección de origen y el puerto de origen en los procesos. Un recurso de puerta de enlace de NAT usará 64 000 puertos (puertos SNAT) por dirección IP pública para esta traducción. Los recursos de puerta de enlace de NAT se pueden escalar verticalmente hasta un máximo de 16 direcciones IP y un millón de puertos SNAT. Si se proporciona un recurso de prefijo de dirección IP pública, cada dirección IP dentro del prefijo proporciona un inventario de puertos SNAT. Y agregar más direcciones IP públicas aumenta los puertos SNAT del inventario disponibles. TCP y UDP son inventarios de puertos SNAT independientes y no están relacionados.
 
 Los recursos de puerta de enlace de NAT reutilizan los puertos de origen. Antes de realizar el escalado debe asumir que cada flujo requiere un nuevo puerto SNAT y escalar el número total de direcciones IP disponibles para el tráfico de salida.
 
@@ -317,7 +289,10 @@ Los recursos de puerta de enlace de NAT interactúan con la IP y los encabezados
 
 ### <a name="timers"></a>Temporizadores
 
-El tiempo de espera de inactividad se puede ajustar de 4 minutos (valor predeterminado) a 120 minutos (2 horas) para todos los flujos.  Además, puede restablecer el temporizador inactivo con tráfico del flujo.  Un patrón recomendado para actualizar las largas conexiones inactivas y para detectar la ejecución de puntos de conexión es usar mensajes TCP Keepalive.  Estos mensajes aparecen como ACK duplicados en los puntos de conexión, tienen una sobrecarga baja y son invisibles para la capa de aplicaciones.
+>[!IMPORTANT]
+>Un temporizador de inactividad prolongado puede aumentar innecesariamente la probabilidad de agotamiento de SNAT. Cuanto mayor sea el temporizador que especifique, más tiempo retendrá la NAT los puertos SNAT hasta que finalmente se agote el tiempo de espera. Si los flujos están inactivos, producirán un error en este momento y consumirán innecesariamente el inventario de puertos SNAT.  Los flujos que producen un error a las dos horas también lo habrían producido al valor predeterminado de cuatro minutos. Aumentar el tiempo de espera de inactividad es una opción de último recurso que debe usarse con moderación. Si un flujo nunca está inactivo, no se verá afectado por el temporizador de inactividad.
+
+El tiempo de espera de inactividad de TCP se puede ajustar de cuatro minutos (valor predeterminado) a 120 minutos (dos horas) para todos los flujos.  Además, puede restablecer el temporizador inactivo con tráfico del flujo.  Un patrón recomendado para actualizar las largas conexiones inactivas y para detectar la ejecución de puntos de conexión es usar mensajes TCP Keepalive.  Estos mensajes aparecen como ACK duplicados en los puntos de conexión, tienen una sobrecarga baja y son invisibles para la capa de aplicaciones.
 
 Para la liberación de los puertos SNAT se usan los siguientes temporizadores:
 
@@ -335,39 +310,36 @@ Los puertos SNAT están disponibles para volver a usarlos con la misma direcció
 ## <a name="limitations"></a>Limitaciones
 
 - NAT es compatible con la dirección IP pública de la SKU estándar, el prefijo de IP pública y los recursos del equilibrador de carga.   Ni los recursos básicos (por ejemplo, el equilibrador de carga básico) ni los productos derivados de ellos son compatibles con NAT.  Los recursos básicos se deben colocar en una subred que no esté configurada con NAT.
-- Se admite la familia de direcciones IPv4.  NAT no interactúa con la familia de direcciones IPv6.  NAT no se puede implementar en una subred con prefijo IPv6.
+- Se admite la familia de direcciones IPv4.  NAT no interactúa con la familia de direcciones IPv6.  NAT no se puede implementar en una subred con un prefijo IPv6.
 - El registro de flujos de grupos de seguridad de red no se admite cuando se usa NAT.
 - NAT no puede abarcar varias redes virtuales.
 
-## <a name="preview-participation"></a>Participación en la versión preliminar
-
-Siga estas [instrucciones para habilitar su suscripción](nat-overview.md#public-preview-participation).
 
 ## <a name="feedback"></a>Comentarios
 
-Queremos saber cómo podemos mejorar el servicio. Comparta sus [comentarios sobre la versión preliminar pública](https://aka.ms/natfeedback).  También puede proponer lo que debemos crear después (y votar por ello) en [UserVoice para NAT](https://aka.ms/natuservoice).
+Queremos saber cómo podemos mejorar el servicio. ¿Falta una funcionalidad? Proponga lo que debemos crear después en [UserVoice para NAT](https://aka.ms/natuservoice).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Obtenga información sobre [Virtual Network NAT](nat-overview.md).
 * Obtenga información acerca de las [métricas y alertas de los recursos de puerta de enlace NAT](nat-metrics.md).
 * Obtenga información sobre la [solución de los problemas de los recursos de la puerta de enlace de NAT](troubleshoot-nat.md).
-* [Indíquenos qué crear a continuación para Virtual Network NAT en UserVoice](https://aka.ms/natuservoice).
-* [Proporcione comentarios sobre la versión preliminar pública](https://aka.ms/natfeedback).
 * Tutorial para validar una puerta de enlace de NAT
   - [CLI de Azure](tutorial-create-validate-nat-gateway-cli.md)
-  - [PowerShell](tutorial-create-validate-nat-gateway-cli.md)
-  - [Portal](tutorial-create-validate-nat-gateway-cli.md)
+  - [PowerShell](tutorial-create-validate-nat-gateway-powershell.md)
+  - [Portal](tutorial-create-validate-nat-gateway-portal.md)
 * Inicio rápido para implementar recursos de puerta de enlace de NAT
   - [CLI de Azure](./quickstart-create-nat-gateway-cli.md)
   - [PowerShell](./quickstart-create-nat-gateway-powershell.md)
-  - [Portal](./quickstart-create-nat-gateway-portal.md).
+  - [Portal](./quickstart-create-nat-gateway-portal.md)
+  - [Plantilla](./quickstart-create-nat-gateway-template.md)
 * Información acerca de la API de recursos de la puerta de enlace de NAT
-  - [API REST](https://docs.microsoft.com/rest/api/virtualnetwork/natgateways)
+  - [REST API](https://docs.microsoft.com/rest/api/virtualnetwork/natgateways)
   - [CLI de Azure](https://docs.microsoft.com/cli/azure/network/nat/gateway?view=azure-cli-latest)
-  - [PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-aznatgateway).
+  - [PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-aznatgateway)
 * Información acerca de las [zonas de disponibilidad](../availability-zones/az-overview.md).
 * Información acerca del [equilibrador de carga estándar](../load-balancer/load-balancer-standard-overview.md).
 * Información sobre las [zonas de disponibilidad y el equilibrador de carga estándar](../load-balancer/load-balancer-standard-availability-zones.md).
+* [Indíquenos qué crear a continuación para Virtual Network NAT en UserVoice](https://aka.ms/natuservoice).
 
 
