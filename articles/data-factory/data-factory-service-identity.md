@@ -10,14 +10,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/16/2020
 ms.author: jingwang
-ms.openlocfilehash: 45699680ad2003c034bce588857f8b102a0b6d26
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d47450f3252074d3bae8df97766bf8858fca5972
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79230132"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416593"
 ---
 # <a name="managed-identity-for-data-factory"></a>Identidad administrada de Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Este artículo ayuda a entender qué es la identidad administrada de Data Factory (anteriormente conocida como Managed Service Identity/MSI) y cómo funciona.
 

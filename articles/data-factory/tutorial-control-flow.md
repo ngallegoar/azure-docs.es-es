@@ -11,14 +11,16 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
-ms.openlocfilehash: 7ba921656d0dad059b1d15f443bcefeff03ade50
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 77fa8f72d4d4d929d15859fde71f112de1ddd14e
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75977385"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418735"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Actividades de bifurcación y encadenamiento en una canalización de Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 En este tutorial creará una canalización de Data Factory que muestra algunas de las características del flujo de control. Esta canalización copia de un contenedor en Azure Blob Storage a otro contenedor en la misma cuenta de almacenamiento. Si la actividad de copia se realiza correctamente, la canalización envía los detalles de la operación de copia correcta en un correo electrónico. Esa información puede incluir la cantidad de datos escritos. Si se produce un error en la actividad de copia, la canalización envía los detalles del error de copia, como el mensaje de error, en un correo electrónico. A lo largo del tutorial, verá cómo pasar parámetros.
 

@@ -11,14 +11,15 @@ author: djpmsft
 manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 01/04/2019
-ms.openlocfilehash: f150234ecd3446858e8a6aa7d224eb3ad3d0efd3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 14f1d3b58996d438279bfa2a234c754a6d840c79
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74927340"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414728"
 ---
 # <a name="templates"></a>Plantillas
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Las plantillas son canalizaciones de Azure Data Factory predefinidas que le permiten empezar a trabajar rápidamente con Data Factory. Las plantillas son útiles cuando no está familiarizado con Data Factory y desea empezar a trabajar rápidamente. Estas plantillas reducen el tiempo de desarrollo para la creación de proyectos de integración de datos, con lo que mejoran la productividad del desarrollador.
 

@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 09/28/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: a852807ab685e85b76d26e5b39c99a32f645bbd7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 97fde67c3ac7649418ed0239a2c7aa4f1a4b3f96
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "71838160"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81275039"
 ---
-Las rutas definidas por el usuario con un destino 0.0.0.0/0 y NSG en GatewaySubnet **are no se admiten**. Se bloqueará la creación de puertas de enlace creadas con esta configuración. Las puertas de enlace requieren acceso a los controladores de administración para que funcionen correctamente.
+Las rutas definidas por el usuario con un destino 0.0.0.0/0 y NSG en GatewaySubnet **no se admiten**. Se bloqueará la creación de puertas de enlace creadas con esta configuración. Las puertas de enlace requieren acceso a los controladores de administración para que funcionen correctamente. [Propagación de rutas BGP](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#border-gateway-protocol) debe establecerse en "Habilitado" en GatewaySubnet para garantizar la disponibilidad de la puerta de enlace. Si se establece en deshabilitado, la puerta de enlace no funcionará.

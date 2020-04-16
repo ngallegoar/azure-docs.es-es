@@ -10,14 +10,17 @@ ms.workload: data-services
 ms.topic: overview
 ms.date: 04/09/2018
 ms.author: makromer
-ms.openlocfilehash: e964be548a2f82ecc268a147dd20817b232f51a6
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: ea625fbe28dad08ec2c3e2a64bada96460a04225
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74924804"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415568"
 ---
 # <a name="compare-azure-data-factory-with-data-factory-version-1"></a>Comparación de Azure Data Factory con Azure Data Factory versión 1
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 En este artículo se compara Data Factory con Data Factory versión 1. Para obtener una introducción a Data Factory, consulte [Introducción a Data Factory](introduction.md). Para obtener una introducción a Data Factory versión 1, consulte [Introducción a Azure Data Factory](v1/data-factory-introduction.md). 
 
 ## <a name="feature-comparison"></a>Comparación de características
@@ -25,7 +28,7 @@ En la tabla siguiente se comparan las características de Data Factory con las c
 
 | Característica | versión 1 | Versión actual | 
 | ------- | --------- | --------- | 
-| Conjuntos de datos | Una vista de datos con nombre que hace referencia a los datos que desea usar en sus actividades como entrada y salida. Los conjuntos de datos identifican datos en distintos almacenes de datos, como tablas, archivos, carpetas y documentos. Por ejemplo, un conjunto de datos de Blob de Azure especifica el contenedor de blobs y la carpeta de Azure Blob Storage de la que la actividad debe leer los datos.<br/><br/>La **disponibilidad** define el modelo de segmentación de la ventana de procesamiento para el conjunto de datos (por ejemplo, cada hora, cada día, etc.). | Los conjuntos de datos son los mismos en la versión actual. Sin embargo, no es preciso definir programaciones de **disponibilidad** para los conjuntos de datos. Se puede definir un recurso de desencadenador que puede programar las canalizaciones a partir de un paradigma de programador de reloj. Para más información, consulte [Desencadenadores](concepts-pipeline-execution-triggers.md#triggers) y [Conjuntos de datos](concepts-datasets-linked-services.md). | 
+| Conjuntos de datos | Una vista de datos con nombre que hace referencia a los datos que desea usar en sus actividades como entrada y salida. Los conjuntos de datos identifican datos en distintos almacenes de datos, como tablas, archivos, carpetas y documentos. Por ejemplo, un conjunto de datos de Blob de Azure especifica el contenedor de blobs y la carpeta de Azure Blob Storage de la que la actividad debe leer los datos.<br/><br/>La **disponibilidad** define el modelo de segmentación de la ventana de procesamiento para el conjunto de datos (por ejemplo, cada hora, cada día, etc.). | Los conjuntos de datos son los mismos en la versión actual. Sin embargo, no es preciso definir programaciones de **disponibilidad** para los conjuntos de datos. Se puede definir un recurso de desencadenador que puede programar las canalizaciones a partir de un paradigma de programador de reloj. Para más información, consulte [Desencadenadores](concepts-pipeline-execution-triggers.md#trigger-execution) y [Conjuntos de datos](concepts-datasets-linked-services.md). | 
 | Servicios vinculados | Los servicios vinculados son muy similares a las cadenas de conexión, que definen la información de conexión necesaria para que Data Factory se conecte a recursos externos. | Los servicios vinculados son los mismos que en la versión 1 de Data Factory, salvo en que tienen una nueva propiedad **connectVia** para utilizar el entorno de proceso de Integration Runtime de la versión actual de Data Factory. Para más información, consulte [Integration Runtime en Azure Data Factory](concepts-integration-runtime.md) y [Propiedades del servicio vinculado](connector-azure-blob-storage.md#linked-service-properties). |
 | Procesos | Una factoría de datos puede tener una o más canalizaciones. Una canalización es una agrupación lógica de actividades que realizan una tarea. Use startTime, endTime, isPaused para programar y ejecutar canalizaciones. | Las canalizaciones son grupos de actividades que se realizan en los datos. Sin embargo, la programación de actividades en la canalización se ha dividido en nuevos recursos de desencadenador. En la versión actual de Data Factory, las canalizaciones se pueden considerar más como "unidades de flujo de trabajo" que se programan por separado a través de desencadenadores. <br/><br/>Las canalizaciones no tienen "ventanas" de ejecución temporal en la versión actual de Data Factory. Los conceptos de startTime, endTime e isPaused, que están presentes en la versión 1 de Data Factory ya no están en la versión actual. Para más información, consulte [Ejecución y desencadenadores de canalización en Azure Data Factory](concepts-pipeline-execution-triggers.md) y [Canalizaciones y actividades en Azure Data Factory](concepts-pipelines-activities.md). |
 | Actividades | Las actividades definen las acciones que se realizan en los datos en una canalización. Se admiten las actividades de movimiento de datos (actividad de copia) y transformación de datos (como, Hive, Pig y MapReduce). | En la versión actual de Data Factory, las actividades siguen siendo acciones definidas en una canalización. La versión actual de Data Factory presenta nuevas [actividades del flujo de control](concepts-pipelines-activities.md#control-flow-activities). Dichas actividades se usan en un flujo de control (bucle y bifurcación). Las actividades de movimiento de datos y transformación de datos que se admitían en la versión 1 se admiten en la versión actual. En la versión actual, se pueden definir actividades de transformación sin usar conjuntos de datos. |

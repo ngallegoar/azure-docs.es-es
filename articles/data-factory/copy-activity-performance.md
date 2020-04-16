@@ -12,18 +12,20 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/11/2020
-ms.openlocfilehash: 231b0d77dc441e70dc0ec8de313291bb6b4f9292
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: aedb3df69821d1436b03b2eb1f12873b624d426e
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79230216"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414174"
 ---
 # <a name="copy-activity-performance-and-scalability-guide"></a>Guía de escalabilidad y rendimiento de la actividad de copia
 
 > [!div class="op_single_selector" title1="Seleccione la versión de Azure Data Factory que usa:"]
 > * [Versión 1](v1/data-factory-copy-activity-performance.md)
 > * [Versión actual](copy-activity-performance.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Si quiere realizar una migración de datos a gran escala desde un lago de datos o un almacenamiento de datos empresarial (EDW) a Azure, o si quiere ingerir datos a escala desde distintos orígenes en Azure para análisis de macrodatos, es fundamental lograr un rendimiento y escalabilidad óptimos.  Azure Data Factory proporciona un mecanismo eficaz, resistente y rentable para ingerir datos a escala, lo que lo convierte en una buena opción para los ingenieros de datos que buscan crear canalizaciones de ingesta de datos de alto rendimiento y escalabilidad.
 

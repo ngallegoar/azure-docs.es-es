@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 4faead13c10171c31e76fe2dd59be32a93a12f86
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7032f9e8f57ea9400bf6a92f89b13fa1866f8fc1
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80124749"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414394"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Usar reglas y puntos de conexión de servicio de red virtual para servidores de bases de datos
 
@@ -64,6 +64,7 @@ Si quiere, puede optar por usar el [control de acceso basado en rol (RBAC)][rbac
 
 > [!NOTE]
 > En algunos casos, Azure SQL Database y la subred de red virtual se encuentran en distintas suscripciones. En estos casos debe garantizar las siguientes configuraciones:
+>
 > - Ambas suscripciones deben estar en el mismo inquilino de Azure Active Directory.
 > - El usuario tiene los permisos necesarios para iniciar operaciones como habilitar los puntos de conexión de servicio y agregar una subred de red virtual al servidor especificado.
 > - Las dos suscripciones necesitan tener registrado el proveedor Microsoft.Sql.
@@ -134,7 +135,7 @@ PolyBase se suele usar para cargar datos en Azure SQL Data Warehouse desde cuent
    > [!NOTE]
    > - Si tiene una cuenta de uso general v1 o de Blob Storage, **primero debe actualizar a Uso general v2** mediante esta [guía](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
    > - Para saber los problemas conocidos con Azure Data Lake Storage Gen2, consulte esta [guía](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
-    
+
 1. En la cuenta de almacenamiento, vaya a **Control de acceso (IAM)** y haga clic en **Agregar asignación de roles**. Asigne el rol de RBAC de **Colaborador de datos de blobs de almacenamiento** al servidor de Azure SQL Server que hospeda la instancia de Azure SQL Data Warehouse que ha registrado con Azure Active Directory (AAD) en el paso 1.
 
    > [!NOTE]
@@ -264,6 +265,7 @@ Ya debe tener una subred que esté etiquetada con el punto de conexión de servi
 
 > [!NOTE]
 > Se aplican los siguientes estados a las reglas:
+>
 > - **Listo:** indica que la operación que se ha iniciado se ha realizado correctamente.
 > - **Error:** indica que se han producido errores en la operación que se ha iniciado.
 > - **Eliminado:** solo se aplica a la operación de eliminación e indica que se ha eliminado la regla y que ya no es aplicable.

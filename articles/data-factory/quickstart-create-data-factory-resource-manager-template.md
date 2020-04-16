@@ -10,18 +10,20 @@ ms.date: 02/20/2019
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: 7ad0367a89730c3aba37c5f75158cb42ae4ae668
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 5ea45346de5ea841867dd13dd4c9a0ed26647448
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79215753"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419126"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Tutorial: Creación de una instancia de Azure Data Factory mediante una plantilla de Azure Resource Manager
 
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](v1/data-factory-build-your-first-pipeline-using-arm.md)
 > * [Versión actual](quickstart-create-data-factory-resource-manager-template.md)
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 En esta guía de inicio rápido se describe cómo usar una plantilla de Azure Resource Manager para crear una instancia de Azure Data Factory. La canalización que ha creado en esta factoría de datos **copia** los datos de una carpeta a otra en Azure Blob Storage. Para ver un tutorial acerca de cómo **transformar** datos mediante Azure Data Factory, consulte [Tutorial: Transformación de datos con Spark](transform-data-using-spark.md).
 
@@ -636,7 +638,7 @@ Defina una canalización que copie los datos de un conjunto de datos binario a o
 
 #### <a name="trigger"></a>Desencadenador
 
-Defina un desencadenador que ejecute la canalización cada hora. El desencadenador implementado está en estado detenido. Inicie el desencadenador mediante el cmdlet **Start-AzDataFactoryV2Trigger**. Para más información acerca de los desencadenadores, consulte el artículo [Ejecución y desencadenadores de canalización en Azure Data Factory](concepts-pipeline-execution-triggers.md#triggers).
+Defina un desencadenador que ejecute la canalización cada hora. El desencadenador implementado está en estado detenido. Inicie el desencadenador mediante el cmdlet **Start-AzDataFactoryV2Trigger**. Para más información acerca de los desencadenadores, consulte el artículo [Ejecución y desencadenadores de canalización en Azure Data Factory](concepts-pipeline-execution-triggers.md#trigger-execution).
 
 ```json
 {  

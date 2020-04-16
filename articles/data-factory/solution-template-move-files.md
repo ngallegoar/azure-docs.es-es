@@ -11,14 +11,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 7/12/2019
-ms.openlocfilehash: b3165daa06ed975df9ccb677699d3ceb449327ab
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b36eb2615e98ee8ea7751c836fd43e81a5a0f4e2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74941963"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414758"
 ---
 # <a name="move-files-with-azure-data-factory"></a>Movimiento de archivos con Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 En este artículo se describe una plantilla de solución que puede usar para mover archivos de una carpeta a otra entre almacenes basados en archivos. Uno de los escenarios comunes de uso de esta plantilla: los archivos se colocan continuamente en una carpeta de aterrizaje del almacén de origen. Mediante la creación de un desencadenador de programación, la canalización de ADF puede mover de forma periódica esos archivos del almacén de origen al de destino.  Para "mover los archivos", la canalización de ADF los obtiene de la carpeta de aterrizaje, los copia en otra carpeta del almacén de destino y, después, elimina los mismos archivos de la carpeta de aterrizaje en el almacén de origen.
 

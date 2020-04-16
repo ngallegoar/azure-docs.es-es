@@ -9,14 +9,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/08/2019
-ms.openlocfilehash: fd0e6d526f0c47304e7bf53f91d08f42b924ff23
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4f839de6e276727fa910f91eccc34601cf34f85c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75440386"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418021"
 ---
 # <a name="switch-activity-in-azure-data-factory"></a>Actividad Switch en Azure Data Factory
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 La actividad Switch proporciona la misma funcionalidad que una instrucción switch en los lenguajes de programación. Evalúa un conjunto de actividades correspondientes a un caso que coincide con la evaluación de la condición.
 

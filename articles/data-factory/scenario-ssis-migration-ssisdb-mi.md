@@ -11,14 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 9/12/2019
-ms.openlocfilehash: 38010e3aaa2d0544dfbfe19135d25250d2b021a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2e35e4eb750aa2244df920111b201d886599eaf6
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74929778"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419058"
 ---
 # <a name="ssis-migration-with-azure-sql-database-managed-instance-as-the-database-workload-destination"></a>Migración de SSIS con Instancia administrada de Azure SQL Database como destino de la carga de trabajo de base de datos
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Al migrar cargas de trabajo de base de datos de SQL Server local a Instancia administrada de Azure SQL Database, debe estar familiarizado con [Azure Data Migration Service](https://docs.microsoft.com/azure/dms/dms-overview) (DMS ) y las [topologías de red para migraciones de Instancia administrada de Azure SQL Database con DMS](https://docs.microsoft.com/azure/dms/resource-network-topologies).
 
