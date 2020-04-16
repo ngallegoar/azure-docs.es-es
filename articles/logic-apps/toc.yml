@@ -83,10 +83,12 @@
           href: logic-apps-author-definitions.md
         - name: Control de los tipos de contenido
           href: logic-apps-content-type.md
-        - name: Control de errores y excepciones
+        - name: Controle las excepciones.
           href: logic-apps-exception-handling.md
         - name: Control de mensajes grandes
           href: logic-apps-handle-large-messages.md
+        - name: Control problemas de límites o de errores 429
+          href: handle-throttling-problems-429-errors.md
         - name: Seguridad
           items:
             - name: Mejora de la seguridad de las aplicaciones lógicas
