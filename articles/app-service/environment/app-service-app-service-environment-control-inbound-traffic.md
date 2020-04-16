@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 01/11/2017
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: aa43d44a691fa9151959e8817596bdfc9bba65f0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 857b2b00aadced567bc8ac191cdd9908f7bea7a3
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74687388"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804408"
 ---
 # <a name="how-to-control-inbound-traffic-to-an-app-service-environment"></a>Cómo controlar el tráfico de entrada a un entorno de App Service
 ## <a name="overview"></a>Información general
@@ -31,10 +31,10 @@ Antes de bloquear el tráfico de red entrante con un grupo de seguridad de red, 
 
 A continuación se muestra una lista de puertos utilizados por un entorno de App Service. Todos los puertos son **TCP**, a menos que indique claramente:
 
-* 454:  **puerto obligatorio** utilizado por la infraestructura de Azure para administrar y mantener instancias de App Service Environment a través de SSL.  No bloquee el tráfico a este puerto.  Este puerto siempre está enlazado a la dirección VIP pública de un ASE.
-* 455:  **puerto obligatorio** utilizado por la infraestructura de Azure para administrar y mantener instancias de App Service Environment a través de SSL.  No bloquee el tráfico a este puerto.  Este puerto siempre está enlazado a la dirección VIP pública de un ASE.
+* 454:  **puerto obligatorio** utilizado por la infraestructura de Azure para administrar y mantener instancias de App Service Environment a través de TLS.  No bloquee el tráfico a este puerto.  Este puerto siempre está enlazado a la dirección VIP pública de un ASE.
+* 455:  **puerto obligatorio** utilizado por la infraestructura de Azure para administrar y mantener instancias de App Service Environment a través de TLS.  No bloquee el tráfico a este puerto.  Este puerto siempre está enlazado a la dirección VIP pública de un ASE.
 * 80:  el puerto predeterminado para el tráfico HTTP entrante a aplicaciones que se ejecutan en planes de App Service en una instancia de App Service Environment.  En un ASE con un ILB, este puerto está enlazado a la dirección del ILB del ASE.
-* 443: el puerto predeterminado para el tráfico SSL entrante a aplicaciones que se ejecutan en planes de App Service en una instancia de App Service Environment.  En un ASE con un ILB, este puerto está enlazado a la dirección del ILB del ASE.
+* 443: el puerto predeterminado para el tráfico TLS entrante a aplicaciones que se ejecutan en planes de App Service en una instancia de App Service Environment.  En un ASE con un ILB, este puerto está enlazado a la dirección del ILB del ASE.
 * 21:  canal de control para FTP.  Este puerto se puede bloquear de forma segura si no se utiliza FTP.  En un ASE con un ILB, este puerto puede enlazarse a la dirección del ILB de un ASE.
 * 990:  canal de control para FTPS.  Este puerto se puede bloquear de forma segura si no se utiliza FTPS.  En un ASE con un ILB, este puerto puede enlazarse a la dirección del ILB de un ASE.
 * 10001-10020: canales de datos para FTP.  Al igual que con el canal de control, estos puertos pueden bloquear de forma segura si no se utiliza FTP.  En un ASE con un ILB, este puerto puede enlazarse a la dirección del ILB de un ASE.
@@ -62,7 +62,7 @@ Lo siguiente muestra la creación de un grupo de seguridad de red:
 
 Una vez creado un grupo de seguridad de red, una o varias reglas de seguridad de red se agregan a él.  Dado que el conjunto de reglas puede cambiar con el tiempo, se recomienda espaciar el esquema de numeración usado para las prioridades de reglas para facilitar la inserción de reglas adicionales con el tiempo.
 
-En el ejemplo siguiente se muestra una regla que concede acceso de forma explícita a los puertos de administración necesarios para que la infraestructura de Azure administre y mantenga un entorno de App Service.  Tenga en cuenta que todo el tráfico de administración fluye a través de SSL y se protege mediante certificados de cliente, por lo que aunque estén abiertos los puertos, son inaccesibles para cualquier entidad que no sea la infraestructura de administración de Azure.
+En el ejemplo siguiente se muestra una regla que concede acceso de forma explícita a los puertos de administración necesarios para que la infraestructura de Azure administre y mantenga un entorno de App Service.  Tenga en cuenta que todo el tráfico de administración fluye a través de TLS y se protege mediante certificados de cliente, por lo que aunque estén abiertos los puertos, son inaccesibles para cualquier entidad que no sea la infraestructura de administración de Azure.
 
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "ALLOW AzureMngmt" -Type Inbound -Priority 100 -Action Allow -SourceAddressPrefix 'INTERNET'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '454-455' -Protocol TCP
 

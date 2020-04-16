@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/24/2020
+ms.date: 4/2/2020
 ms.author: raiye
-ms.openlocfilehash: c4bdb6fec5c20940e0afe4ab2e94702a2b21a60c
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 95c27cd906717d52a232b5ed85eba2b93bc6569d
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76765311"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618290"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Matriz de compatibilidad del SDK y versiones del SO invitado de Azure
 Proporciona información actualizada sobre los lanzamientos del SO invitado de Azure más recientes para Cloud Services. Esta información le ayuda a planear la ruta de actualización antes de que se deshabilite un SO invitado. Si configura los roles para utilizar actualizaciones *automáticas* del SO invitado como se describe en la documentación sobre la [configuración de actualización del SO invitado de Azure][Azure Guest OS Update Settings], no es fundamental que lea esta página.
@@ -41,6 +41,12 @@ Proporciona información actualizada sobre los lanzamientos del SO invitado de A
 ¿No está seguro de cómo actualizar el SO invitado? Vea [esto][cloud updates].
 
 ## <a name="news-updates"></a>Actualizaciones de noticias
+
+###### <a name="april-2-2020"></a>**2 de abril de 2020**
+Se ha publicado el sistema operativo invitado de marzo. 
+
+###### <a name="march-5-2020"></a>**5 de marzo de 2020**
+Se ha publicado el SO invitado de febrero. 
 
 ###### <a name="january-24-2020"></a>**24 de enero de 2020**
 Se ha publicado el SO invitado de enero. 
@@ -114,12 +120,15 @@ Versión de .NET Framework instalada: 3.5, 4.7.2
 >5. Cambie la familia del SO a 6 y compile un paquete
 >6. Implemente el paquete en Azure mediante Azure Portal o Visual Studio
 >
+>La versión 6 del SO invitado aplica TLS 1.2 mediante la deshabilitación explícita de TLS 1.0 y 1.1, y la definición de una serie específica de conjuntos de cifrado. [Más información].
 
 
 | Cadena de configuración | Fecha de la versión | Fecha de deshabilitación |
 | --- | --- | --- |
-|  WA-GUEST-OS-6.15_202001-01  |  24 de enero de 2020  |  Post 6.17  |  
-| WA-GUEST-OS-6.14_201912-01 | 8 de enero de 2020 | Post 6.16 |  
+|  WA-GUEST-OS-6.17_202003-01  |  2 de abril de 2020  |  Post 6.19  |  
+|  WA-GUEST-OS-6.16_202002-01  |  5 de marzo de 2020  |  Post 6.18  |  
+|~~WA-GUEST-OS-6.15_202001-01~~|  24 de enero de 2020  |  2 de abril de 2020  |  
+|~~WA-GUEST-OS-6.14_201912-01~~| 8 de enero de 2020 | 5 de marzo de 2020 |  
 |~~WA-GUEST-OS-6.13_201911-01~~| 5 de diciembre de 2019 | 24 de enero de 2020 |  
 |~~WA-GUEST-OS-6.12_201910-01~~| 1 de noviembre de 2019 | 8 de enero de 2020 |  
 |~~WA-GUEST-OS-6.11_201909-01~~| 7 de octubre de 2019 | 5 de diciembre de 2019 |  
@@ -146,8 +155,10 @@ Versión de .NET Framework instalada: 3.5, 4.6
 
 | Cadena de configuración | Fecha de la versión | Fecha de deshabilitación |
 | --- | --- | --- |
-|  WA-GUEST-OS-5.39_202001-01  |  24 de enero de 2020  |  Post 5.41  |  
-| WA-GUEST-OS-5.38_201912-01 | 8 de enero de 2020 | Post 5.40 |  
+|  WA-GUEST-OS-5.41_202003-01  |  2 de abril de 2020  |  Post 5.43  |  
+|  WA-GUEST-OS-5.40_202002-01  |  5 de marzo de 2020  |  Post 5.42  |  
+|~~WA-GUEST-OS-5.39_202001-01~~|  24 de enero de 2020  |  2 de abril de 2020  |  
+|~~WA-GUEST-OS-5.38_201912-01~~| 8 de enero de 2020 | 5 de marzo de 2020 |  
 |~~WA-GUEST-OS-5.37_201911-01~~| 5 de diciembre de 2019 | 24 de enero de 2020 |  
 |~~WA-GUEST-OS-5.36_201910-01~~| 1 de noviembre de 2019 | 8 de enero de 2020 |  
 |~~WA-GUEST-OS-5.35_201909-01~~| 7 de octubre de 2019 | 5 de diciembre de 2019 |  
@@ -171,8 +182,10 @@ Versión de .NET Framework instalada: 3.5, 4.5.1, 4.5.2
 
 | Cadena de configuración | Fecha de la versión | Fecha de deshabilitación |
 | --- | --- | --- |
-|  WA-GUEST-OS-4.74_202001-01  |  24 de enero de 2020  |  Post 4.76  |  
-| WA-GUEST-OS-4.73_201912-01 | 8 de enero de 2020 | Post 4.75 |  
+|  WA-GUEST-OS-4.76_202003-01  |  2 de abril de 2020  |  Post 4.78  |  
+|  WA-GUEST-OS-4.75_202002-01  |  5 de marzo de 2020  |  Post 4.77  |  
+|~~WA-GUEST-OS-4.74_202001-01~~|  24 de enero de 2020  |  2 de abril de 2020  |  
+|~~WA-GUEST-OS-4.73_201912-01~~| 8 de enero de 2020 | 5 de marzo de 2020 |  
 |~~WA-GUEST-OS-4.72_201911-01~~| 5 de diciembre de 2019 | 24 de enero de 2020 |  
 |~~WA-GUEST-OS-4.71_201910-01~~| 1 de noviembre de 2019 | 8 de enero de 2020 |  
 |~~WA-GUEST-OS-4.70_201909-01~~| 7 de octubre de 2019 | 5 de diciembre de 2019 |  
@@ -196,8 +209,10 @@ Versión de .NET Framework instalada: 3.5, 4.5
 
 | Cadena de configuración | Fecha de la versión | Fecha de deshabilitación |
 | --- | --- | --- |
-|  WA-GUEST-OS-3.81_202001-01  |  24 de enero de 2020  |  Post 3.83  |  
-| WA-GUEST-OS-3.80_201912-01 | 8 de enero de 2020 | Post 3.82 |  
+|  WA-GUEST-OS-3.83_202003-01  |  2 de abril de 2020  |  Post 3.85  |  
+|  WA-GUEST-OS-3.82_202002-01  |  5 de marzo de 2020  |  Post 3.84  |  
+|~~WA-GUEST-OS-3.81_202001-01~~|  24 de enero de 2020  |  2 de abril de 2020  |  
+|~~WA-GUEST-OS-3.80_201912-01~~| 8 de enero de 2020 | 5 de marzo de 2020 |  
 |~~WA-GUEST-OS-3.79_201911-01~~| 5 de diciembre de 2019 | 24 de enero de 2020 |  
 |~~WA-GUEST-OS-3.78_201910-01~~| 1 de noviembre de 2019 | 8 de enero de 2020 |  
 |~~WA-GUEST-OS-3.77_201909-01~~| 7 de octubre de 2019 | 5 de diciembre de 2019 |  
@@ -221,8 +236,10 @@ Versión de .NET Framework instalada: 3.5 (incluye 2.0 y 3.0), 4.5
 
 | Cadena de configuración | Fecha de la versión | Fecha de deshabilitación |
 | --- | --- | --- |
-|  WA-GUEST-OS-2.94_202001-01  |  24 de enero de 2020  |  Post 2.96  |  
-| WA-GUEST-OS-2.93_201912-01 | 8 de enero de 2020 | Post 2.95 |  
+|  WA-GUEST-OS-2.96_202003-01  |  2 de abril de 2020  |  Post 2.98  |  
+|  WA-GUEST-OS-2.95_202002-01  |  5 de marzo de 2020  |  Post 2.97  |  
+|~~WA-GUEST-OS-2.94_202001-01~~|  24 de enero de 2020  |  2 de abril de 2020  |  
+|~~WA-GUEST-OS-2.93_201912-01~~| 8 de enero de 2020 | 5 de marzo de 2020 |  
 |~~WA-GUEST-OS-2.92_201911-01~~| 5 de diciembre de 2019 | 24 de enero de 2020 |  
 |~~WA-GUEST-OS-2.91_201910-01~~| 1 de noviembre de 2019 | 8 de enero de 2020 |  
 |~~WA-GUEST-OS-2.90_201909-01~~| 7 de octubre de 2019 | 5 de diciembre de 2019 |  
@@ -317,3 +334,4 @@ La directiva de compatibilidad y retirada del SO invitado se explica [aquí][ret
 [fam1retire]: cloud-services-guestos-family1-retirement.md
 [fix]: https://technet.microsoft.com/library/security/ms17-010.aspx
 [Windows Azure SDK]: https://www.microsoft.com/en-us/download/details.aspx?id=54917
+[Más información]: https://docs.microsoft.com/azure/cloud-services/applications-dont-support-tls-1-2  

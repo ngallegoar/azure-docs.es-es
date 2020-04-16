@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/21/2019
 ms.author: apimpm
-ms.openlocfilehash: 8b396b782c1254b3229aeeb8e51b61cc744d6318
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 300f44daeeea5e8a774575dabcb00686906bb5de
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77190362"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804374"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Protección de una API mediante OAuth 2.0 con Azure Active Directory API Management
 
@@ -27,7 +27,7 @@ En esta guía se muestra cómo configurar la instancia de Azure API Management p
 > [!NOTE]
 > Esta característica está disponible en los niveles **Desarrollador**, **Estándar** y **Premium** de API Management.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 Para seguir los pasos de este artículo, debe tener:
 * Una instancia de API Management
 * Una API que se vaya a publicar y que use la instancia de API Management
@@ -137,7 +137,7 @@ En este ejemplo, la consola del desarrollador es la aplicación cliente. En los 
 
 1. Si usa puntos de conexión **v1**, agregue un parámetro de cuerpo denominado **resource**. Como valor de este parámetro, use el **id. de aplicación** de la aplicación de back-end. 
 
-1. Si usa puntos de conexión **v2**, use el ámbito que creó para la aplicación de back-end en el campo **Ámbito predeterminado**.
+1. Si usa puntos de conexión **v2**, use el ámbito que creó para la aplicación de back-end en el campo **Ámbito predeterminado**. Además, asegúrese de establecer el valor de la propiedad [`accessTokenAcceptedVersion`](/azure/active-directory/develop/reference-app-manifest#accesstokenacceptedversion-attribute) en `2` en el [manifiesto de aplicación](/azure/active-directory/develop/reference-app-manifest).
 
 1. A continuación, especifique las credenciales del cliente. Estas son las credenciales para la aplicación cliente.
 

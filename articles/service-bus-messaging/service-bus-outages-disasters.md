@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/27/2020
 ms.author: aschhab
-ms.openlocfilehash: 2a7f5d5eacb2d03e64ae95d34e1cf0bd37bbc7f2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 07b071b0e8efc5d664dada133a214d778c6531d0
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79229556"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984953"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Procedimientos recomendados para aislar aplicaciones ante desastres e interrupciones de Service Bus
 
@@ -33,7 +33,7 @@ Service Bus Premium admite la recuperación ante desastres geográfica en el niv
 
 ### <a name="availability-zones"></a>Zonas de disponibilidad
 
-La SKU de Service Bus Premium es compatible con [Availability Zones](../availability-zones/az-overview.md), lo que proporciona ubicaciones con aislamiento de errores dentro de la misma región de Azure.
+La SKU de Service Bus Premium es compatible con [Availability Zones](../availability-zones/az-overview.md), lo que proporciona ubicaciones con aislamiento de errores dentro de la misma región de Azure. Service Bus administra tres copias del almacén de mensajería (una principal y dos secundarias). Service Bus mantiene las tres copias sincronizadas para operaciones de datos y administración. Si se produce un error en la copia principal, una de las copias secundarias se promueve a principal sin tiempo de inactividad perceptible. Si las aplicaciones experimentan desconexiones transitorias de Service Bus, la lógica de reintento en el SDK volverá a establecer la conexión con Service Bus automáticamente. 
 
 > [!NOTE]
 > La compatibilidad de Availability Zones con Azure Service Bus Premium solo está disponible en aquellas [regiones de Azure](../availability-zones/az-overview.md#services-support-by-region) en las que hay zonas de disponibilidad.

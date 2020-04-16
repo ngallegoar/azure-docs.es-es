@@ -1,6 +1,6 @@
 ---
 title: Conexión con sqlcmd
-description: Use la utilidad de línea de comandos sqlcmd para conectarse a Azure SQL Data Warehouse y realizar consultas.
+description: Use la utilidad de línea de comandos sqlcmd para conectarse a un grupo de SQL de Synapse y consultarlo.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,31 +11,32 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 118997c39b56254eb47bc24350a0558e0b7620f9
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 02157ca0d32d2347e50cc84a5c52e9c47b0f33b5
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350503"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745203"
 ---
-# <a name="connect-to-sql-data-warehouse-with-sqlcmd"></a>Conexión a SQL Data Warehouse con sqlcmd
+# <a name="connect-to-synapse-sql-pool-with-sqlcmd"></a>Conexión al grupo de SQL de Synapse con sqlcmd
+
 > [!div class="op_single_selector"]
+>
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
-> * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
+> * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
 > * [SSMS](sql-data-warehouse-query-ssms.md)
-> 
-> 
 
-Use la utilidad de línea de comandos [sqlcmd][sqlcmd] para conectarse a Azure SQL Data Warehouse y realizar consultas.  
+Use la utilidad de línea de comandos [sqlcmd][sqlcmd] para conectarse a un grupo de SQL y realizar consultas en él.  
 
 ## <a name="1-connect"></a>1. Conectar
-Para empezar a trabajar con [sqlcmd][sqlcmd], abra el símbolo del sistema y escriba **sqlcmd** seguido de la cadena de conexión de la base de datos de SQL Data Warehouse. La cadena de conexión requiere los siguientes parámetros:
+
+Para empezar a trabajar con [sqlcmd][sqlcmd], abra el símbolo del sistema y escriba **sqlcmd** seguido de la cadena de conexión de la base de datos del grupo de SQL. La cadena de conexión requiere los siguientes parámetros:
 
 * **Server (-S):** servidor con el formato `<`Nombre de servidor`>`.database.windows.net
 * **Database (-d):** nombre de base de datos.
-* **Enable Quoted Identifiers (-I):** los identificadores entre comillas deben estar habilitados para poder conectarse a una instancia de SQL Data Warehouse.
+* **Enable Quoted Identifiers (-I):** Los identificadores entre comillas tienen que estar habilitados para poder conectarse a una instancia del grupo de SQL.
 
 Para utilizar la autenticación de SQL Server, debe agregar los parámetros de nombre de usuario y contraseña:
 
@@ -60,10 +61,9 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
 
 > [!NOTE]
 > Necesita [habilitar la autenticación de Azure Active Directory](sql-data-warehouse-authentication.md) para autenticarse con Active Directory.
-> 
-> 
 
 ## <a name="2-query"></a>2. Consultar
+
 Después de la conexión, puede emitir cualquier instrucción Transact-SQL en la instancia.  En este ejemplo, las consultas se envían en modo interactivo.
 
 ```sql
@@ -84,14 +84,5 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más información sobre las opciones disponibles en sqlcmd, consulte la [documentación de sqlcmd][sqlcmd].
 
-<!--Image references-->
-
-<!--Article references-->
-
-<!--MSDN references--> 
-[sqlcmd]: https://msdn.microsoft.com/library/ms162773.aspx
-[Azure portal]: https://portal.azure.com
-
-<!--Other Web references-->
+Para más información sobre las opciones disponibles en sqlcmd, consulte la [documentación de sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).

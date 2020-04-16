@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: db886006ff5b9adf3de0932951f6cce4958e8ebd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 06225e284000d7f10f575be08cd683488abec339
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80158136"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985497"
 ---
 # <a name="create-and-manage-multiple-dashboards"></a>Creación y administración de varios paneles personales
 
-El **panel** es la página que se carga cuando navega por primera vez a la aplicación. Un **generador** en la aplicación define el panel predeterminado de la aplicación para todos los usuarios. Puede reemplazar este panel predeterminado por su propio panel de aplicación personalizado. Puede tener varios paneles que muestren datos diferentes y cambiar entre ellos. 
+El **panel** es la página que se carga cuando navega por primera vez a la aplicación. Un **generador** en la aplicación define el panel predeterminado de la aplicación para todos los usuarios. Además, puede crear su propio panel de aplicación personalizado. Puede tener varios paneles que muestren datos diferentes y cambiar entre ellos.
 
 Si es **administrador** de la aplicación, también puede crear hasta 10 paneles de nivel de aplicación para compartirlos con otros usuarios de la aplicación. Solo los **administradores** tienen capacidad para crear, editar y eliminar paneles de nivel de aplicación. 
 

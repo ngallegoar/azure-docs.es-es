@@ -3,12 +3,12 @@ title: P+F sobre Azure Resource Health
 description: Introducción a Azure Resource Health
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 5a15ded1c279e700fb71e5ea7aa866e5afc29f8a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7459a29dca01dc186d75b4545f89068569975607
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75912782"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985038"
 ---
 # <a name="azure-resource-health-faq"></a>P+F sobre Azure Resource Health
 Aprenda las respuestas a las preguntas más frecuentes sobre Azure Resource Health.
@@ -37,7 +37,7 @@ El estado es desconocido cuando Resource Health deja de recibir información sob
 ## <a name="how-can-i-get-help-for-a-resource-that-is-unavailable"></a>¿Cómo puedo obtener ayuda para un recurso no disponible?
 Puede enviar una solicitud de soporte técnico desde la hoja Resource Health. No necesita tener un contrato de soporte técnico con Microsoft para abrir una solicitud cuando el recurso no está disponible debido a eventos de plataforma.
 
-## <a name="does-resource-health-differentiate-between-unavailability-cased-by-platform-problems-versus-something-i-did"></a>¿Diferencia Resource Health entre la falta de disponibilidad por problemas de la plataforma o por alguna acción mía?
+## <a name="does-resource-health-differentiate-between-unavailability-caused-by-platform-problems-versus-something-i-did"></a>¿Resource Health diferencia entre la no disponibilidad a causa de problemas de plataforma y por alguna acción que yo hice?
 Sí, cuando un recurso no está disponible, Resource Health incluye la causa principal en una de estas categorías: 
 -   Acción iniciada por el usuario
 -   Evento planeado 

@@ -1,7 +1,7 @@
 ---
 title: 'Ética y uso responsable: Personalizer'
 titleSuffix: Azure Cognitive Services
-description: Estas instrucciones están pensadas para ayudarle a implementar la personalización de forma que le ayude a generar confianza en su empresa y servicio. Tómese un tiempo para investigar, conocer y deliberar sobre el impacto de la personalización en la vida de las personas. En caso de duda, busque orientación.
+description: Estas instrucciones están pensadas para ayudarle a implementar la personalización de forma que le ayude a generar confianza en su empresa y servicio. Asegúrese de que se toma un tiempo para investigar, conocer y deliberar sobre el impacto de la personalización en la vida de las personas. En caso de duda, busque orientación.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,22 +10,22 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: diberry
-ms.openlocfilehash: 11b626c0033814f0886ac76fff0c5d4087a80554
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e422284b871214dbeca31b5dd17b9177a18ad3c8
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "71720233"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478097"
 ---
 # <a name="guidelines-for-responsible-implementation-of-personalizer"></a>Directrices para la implementación responsable de Personalizer
 
-Para que los usuarios y la sociedad comprendan todo el potencial de la inteligencia artificial, las implementaciones se deben diseñar de modo que se ganen la confianza de aquellos que agregan la inteligencia artificial a sus aplicaciones y la de los usuarios de las aplicaciones compiladas con esta. Estas instrucciones están pensadas para ayudarle a implementar la Personalizer de forma que le ayude a generar confianza en su empresa y servicio. Tómese un tiempo para investigar, conocer y deliberar sobre el impacto de la personalización en la vida de las personas. En caso de duda, busque orientación.
+Para que los usuarios y la sociedad comprendan todo el potencial de la inteligencia artificial, las implementaciones se deben diseñar de modo que se ganen la confianza de aquellos que agregan la inteligencia artificial a sus aplicaciones y la de los usuarios de las aplicaciones compiladas con esta. Estas instrucciones están pensadas para ayudarle a implementar la Personalizer de forma que le ayude a generar confianza en su empresa y servicio. Asegúrese de que se toma un tiempo para investigar, conocer y deliberar sobre el impacto de la personalización en la vida de las personas. En caso de duda, busque orientación.
 
 Estas directrices no están pensadas para proporcionar asesoramiento legal y debería asegurarse por otro medio de que la aplicación cumple los cambiantes requisitos legales de esta área y del sector.
 
 Además, al diseñar la aplicación mediante Personalizer, debe tener en cuenta una serie de responsabilidades a la hora de desarrollar cualquier sistema de inteligencia artificial basado en datos, entre las que se incluyen temas éticos, de seguridad, inclusión, transparencia y responsabilidad. Puede leer más acerca de estos temas en la sección de [lecturas recomendadas](#recommended-reading).
 
-Puede usar el siguiente contenido como lista de comprobación inicial y personalizarlo y mejorarlo para adaptarlo a su escenario. Este documento incluye dos secciones principales: La primera está dedicada a resaltar consideraciones de uso responsables a la hora de elegir escenarios, características y recompensas para Personalizer. La segunda toma un conjunto de valores que Microsoft cree que se deben tener en cuenta al crear sistemas de inteligencia artificial y proporciona sugerencias prácticas sobre cómo el uso de Personalizer les afecta y habla también de los posibles riesgos. 
+Puede usar el siguiente contenido como lista de comprobación inicial y personalizarlo y mejorarlo para adaptarlo a su escenario. Este documento incluye dos secciones principales: La primera está dedicada a resaltar consideraciones de uso responsables a la hora de elegir escenarios, características y recompensas para Personalizer. La segunda toma un conjunto de valores que Microsoft cree que se deben tener en cuenta al crear sistemas de inteligencia artificial y proporciona sugerencias prácticas sobre cómo el uso de Personalizer les afecta y habla también de los posibles riesgos.
 
 
 ## <a name="your-responsibility"></a>Su responsabilidad
@@ -42,18 +42,18 @@ Microsoft se esfuerza constantemente en mejorar sus documentos y herramientas pa
 La implementación de Personalizer puede ser de gran valor para los usuarios y para su negocio. Para implementar Personalizer de forma responsable, empiece teniendo en cuenta las siguientes directrices:
 
 * Al elegir los casos de uso a los que aplicar la personalización.
-* Al generar [funciones de recompensa](https://github.com/Azure/personalization-rl/blob/master/docs/concepts-rewards.md).
-* Al elegir las [características](https://github.com/Azure/personalization-rl/blob/master/docs/concepts-features.md) del contexto y las posibles acciones que usará para la personalización.
+* Al generar [funciones de recompensa](concept-rewards.md).
+* Al elegir las [características](concepts-features.md) del contexto y las posibles acciones que usará para la personalización.
 
 
 ## <a name="choosing-use-cases-for-personalizer"></a>Elección de los casos de uso para Personalizer
 
-El uso de un servicio que aprende a personalizar contenido e interfaces de usuario resulta útil. También se pueden aplicar de forma incorrecta si la aplicación genera efectos secundarios negativos en el mundo real, incluyendo el hecho de que los usuarios no sean conscientes de la personalización del contenido. 
+El uso de un servicio que aprende a personalizar contenido e interfaces de usuario resulta útil. También se pueden aplicar de forma incorrecta si la aplicación genera efectos secundarios negativos en el mundo real, incluyendo el hecho de que los usuarios no sean conscientes de la personalización del contenido.
 
-Entre los ejemplos de usos de Personalizer con una posibilidad elevada de efectos secundarios negativos o una falta de transparencia se incluyen los escenarios en los que la "recompensa" depende de muchos factores complejos a largo plazo que, cuando se simplifican en una recompensa inmediata pueden tener resultados desfavorables para los usuarios. Estas opciones se suelen considerar como "consecuencias indirectas" u opciones que conllevan un riesgo de perjuicio. Por ejemplo: 
+Entre los ejemplos de usos de Personalizer con una posibilidad elevada de efectos secundarios negativos o una falta de transparencia se incluyen los escenarios en los que la "recompensa" depende de muchos factores complejos a largo plazo que, cuando se simplifican en una recompensa inmediata pueden tener resultados desfavorables para los usuarios. Estas opciones se suelen considerar como "consecuencias indirectas" u opciones que conllevan un riesgo de perjuicio. Por ejemplo:
 
 
-* **Finanzas**: La personalización de ofertas en préstamos, productos financieros o de seguros en los que los factores de riesgo se basan en datos que los individuos no conocen, no pueden obtener ni pueden impugnar. 
+* **Finanzas**: La personalización de ofertas en préstamos, productos financieros o de seguros en los que los factores de riesgo se basan en datos que los individuos no conocen, no pueden obtener ni pueden impugnar.
 * **Educación**: La personalización de la clasificación de cursos escolares e instituciones educativas en los que las recomendaciones pueden contribuir a propagar prejuicios o a reducir el conocimiento de los usuarios del resto de opciones.
 * **Democracia y participación cívica**: La personalización de contenido para usuarios con el objetivo de influenciar opiniones es consecuente y manipuladora.
 * **Evaluación de recompensas por parte de terceros**: La personalización de elementos en los que la recompensa se basa en una evaluación del usuario por parte de terceros en lugar de tener una recompensa generada por el propio comportamiento del usuario.
@@ -78,7 +78,7 @@ Analice el efecto de estas características:
 * **Datos demográficos de los usuarios**: Características relacionadas con el género, edad, raza, religión: Puede que estas características no se permitan en determinadas aplicaciones por motivos legales y que no sea ético personalizar el contenido mediante su uso ya que la personalización podría propagar generalizaciones y prejuicios. Un ejemplo de esta propagación de prejuicios sería una oferta de trabajo de ingeniería que no se les muestra a personas mayores ni a audiencias con determinado género.
 * **Información regional**: En muchos lugares del mundo, la información de ubicación (por ejemplo, un código postal o el nombre del barrio) puede estar muy relacionada con el nivel de ingresos, la raza o la religión.
 * **Percepción de la imparcialidad por parte del usuario**: Incluso en aquellos casos en los que la aplicación está tomando decisiones firmes, considere el efecto en usuarios que perciben que el contenido mostrado en la aplicación cambia de una forma que parece estar relacionada con características que podrían considerarse como discriminatorias.
-* **Prejuicios no intencionados en las características**:  Hay tipos de prejuicios que se pueden introducir con el uso de características que solo afectan a un subconjunto de la población. Esto requiere una atención adicional si las características se generan de forma algorítmica, como cuando se usa el análisis de imágenes para extraer los elementos de una imagen o el análisis de texto para detectar las entidades de este. Sea consciente de las características de los servicios que usa para crear estas características.
+* **Prejuicios no intencionados en las características**:       Hay tipos de prejuicios que se pueden introducir con el uso de características que solo afectan a un subconjunto de la población. Esto requiere una atención adicional si las características se generan de forma algorítmica, como cuando se usa el análisis de imágenes para extraer los elementos de una imagen o el análisis de texto para detectar las entidades de este. Sea consciente de las características de los servicios que usa para crear estas características.
 
 Aplique los siguientes procedimientos al elegir las características que se van a enviar en contextos y acciones a Personalizer:
 
@@ -86,7 +86,7 @@ Aplique los siguientes procedimientos al elegir las características que se van 
 * Sea transparente con los usuarios a la hora de explicarles los algoritmos y el análisis de datos que se usa para personalizar las opciones que ellos ven.
 * Pregúntese lo siguiente: ¿Les importaría a mis usuarios si uso esta información para personalizar el contenido para ellos? ¿Serían más felices si lo hago? ¿Me sentiría cómodo explicándoles cómo se tomó la decisión de mostrar u ocultar determinados elementos?
 * Use datos de comportamiento en lugar de datos de clasificaciones o segmentaciones basados en otras características. Los distribuidores solían usar tradicionalmente la información demográfica por motivos históricos: los atributos demográficos eran sencillos de recopilar y de trabajar con ellos antes de la era digital, pero pregúntese cómo de pertinente es la información demográfica cuando dispone de datos de interacciones reales, contextuales e históricos más relacionados con las preferencias e identidades de los usuarios.
-* Analice cómo impedir que las características sean "falsificadas" por usuarios malintencionados, ya que si se aprovechan de ellas en gran número podrían provocar que el entrenamiento de Personalizer fuera incorrecto para interrumpir, molestar e incluso acosar a propósito a determinadas clases de usuario. 
+* Analice cómo impedir que las características sean "falsificadas" por usuarios malintencionados, ya que si se aprovechan de ellas en gran número podrían provocar que el entrenamiento de Personalizer fuera incorrecto para interrumpir, molestar e incluso acosar a propósito a determinadas clases de usuario.
 * Si es apropiado y posible, diseñe la aplicación para permitir que los usuarios decidan si se deben usar o no determinadas características personales. Estas se podrían agrupar en epígrafes como, por ejemplo: "Información de ubicación", "Información de dispositivo", "Historial de compra anterior" etc.
 
 
@@ -101,7 +101,7 @@ Por ejemplo, si se recompensa por el número de clics esto hará que el servicio
 En el extremo opuesto, por ejemplo, un sitio web de noticias puede que desee establecer las recompensas ligadas a algo más significativo que el número de clics como, por ejemplo, "¿Ha pasado el usuario el tiempo suficiente como para leer el contenido?". "¿Han hecho clic en los artículos o referencias pertinentes?". Con Personalizer es fácil asociar las métricas estrechamente a las recompensas. Pero tenga cuidado de no confundir la involucración del usuario a corto plazo con buenos resultados.
 
 ### <a name="unintended-consequences-from-reward-scores"></a>Consecuencias no intencionadas de las puntuaciones de recompensa
-Las puntuaciones de recompensa se pueden diseñar con la mejor de las intenciones pero generar, aún así, consecuencias imprevistas o resultados no intencionados en la manera en que Personalizer clasifica el contenido. 
+Las puntuaciones de recompensa se pueden diseñar con la mejor de las intenciones pero generar, aún así, consecuencias imprevistas o resultados no intencionados en la manera en que Personalizer clasifica el contenido.
 
 Considere los ejemplos siguientes:
 
@@ -122,7 +122,7 @@ Las siguientes son áreas de diseño para implementaciones responsables de intel
 ![Valores de inteligencia artificial extraídos de "The Future Computed" (El futuro calculado)](media/ethics-and-responsible-use/ai-values-future-computed.png)
 
 ### <a name="accountability"></a>Rendición de cuentas
-*Las personas que diseñan e implementan sistemas de inteligencia artificial deben ser responsables de su funcionamiento*. 
+*Las personas que diseñan e implementan sistemas de inteligencia artificial deben ser responsables de su funcionamiento*.
 
 * Cree directrices internas sobre cómo implementar Personalizer, documéntelas y comuníquelas a su equipo, directivos y proveedores.
 * Realice revisiones periódicas sobre cómo se calculan las puntuaciones de recompensa, realice evaluaciones sin conexión para ver qué características están afectando a Personalizer y utilice los resultados para eliminar las características innecesarias.
@@ -155,9 +155,9 @@ Las siguientes son áreas de diseño para implementaciones responsables de intel
 *Los sistemas de inteligencia artificial deben ser seguros y respetar la privacidad*. Cuando use Personalizer:
 
 * *Informe por adelantado a los usuarios sobre los datos que se recopilarán y cómo se usará y se obtendrá su consentimiento*, siguiendo la normativa local y del sector.
-* *Proporcione controles de usuario de protección de la privacidad.* Para las aplicaciones que almacenan información personal, considere la posibilidad de incluir un botón que sea muy visible para funciones como: 
-   * `Show me all you know about me`    
-   * `Forget my last interaction` 
+* *Proporcione controles de usuario de protección de la privacidad.* Para las aplicaciones que almacenan información personal, considere la posibilidad de incluir un botón que sea muy visible para funciones como:
+   * `Show me all you know about me`
+   * `Forget my last interaction`
    * `Delete all you know about me`
 
 En algunos casos, esto puede constituir una exigencia legal. Considere los inconvenientes de tener que volver a entrenar los modelos periódicamente para que no contengan trazas de datos eliminados.
@@ -165,7 +165,7 @@ En algunos casos, esto puede constituir una exigencia legal. Considere los incon
 ### <a name="inclusiveness"></a>Inclusión
 *Dé respuesta a una amplia gama de necesidades humanas y experiencias*.
 * *Proporcione experiencias personalizadas para interfaces habilitadas para accesibilidad.* La eficacia procedente de una buena personalización (aplicada para reducir la cantidad de esfuerzo, el movimiento y la repetición innecesaria en las interacciones) puede resultar especialmente beneficiosa en el caso de personas con discapacidades.
-* *Ajuste el comportamiento de la aplicación al contexto*. Puede usar Personalizer para eliminar la ambigüedad entre las intenciones de un bot de chat, por ejemplo, la interpretación correcta puede ser contextual y una sola opción podría no ser adecuada para todos los casos. 
+* *Ajuste el comportamiento de la aplicación al contexto*. Puede usar Personalizer para eliminar la ambigüedad entre las intenciones de un bot de chat, por ejemplo, la interpretación correcta puede ser contextual y una sola opción podría no ser adecuada para todos los casos.
 
 
 ## <a name="proactive-readiness-for-increased-data-protection-and-governance"></a>Preparación proactiva para una mayor protección y gobernanza
@@ -185,7 +185,7 @@ Analice la posibilidad de crear métodos para que los miembros del equipo, los u
 Toda persona que reflexione sobre los efectos del uso de cualquier tecnología está limitada por su perspectiva y su experiencia de vida. Aumente el número de opiniones disponibles incluyendo a voces más diversas en los equipos, grupos de usuarios o consejos consultivos y anime a los usuarios a compartir sus opiniones. Considere la posibilidad de usar materiales de formación y de aprendizaje para expandir aún más el conocimiento del equipo sobre esta materia y para agregar una funcionalidad para discutir temas complejos o confidenciales.
 
 Considere la posibilidad de tratar las tareas relacionadas con un uso responsable de la misma forma que otras tareas transversales del ciclo de vida de la aplicación como, por ejemplo, la tareas relacionadas con la experiencia, la seguridad o las operaciones de desarrollo. Estas tareas y sus requisitos no pueden ser una idea tardía. Se debe analizar y comprobar el uso responsable a lo largo de todo el ciclo de vida de la aplicación.
- 
+
 ## <a name="questions-and-feedback"></a>Preguntas y comentarios
 
 Microsoft se esfuerza constantemente en mejorar sus documentos y herramientas para ayudarle a actuar en relación con estas responsabilidades. Nuestro equipo le anima a que [proporcione comentarios a Microsoft](mailto:cogsvcs-RL-feedback@microsoft.com?subject%3DPersonalizer%20Responsible%20Use%20Feedback&body%3D%5BPlease%20share%20any%20question%2C%20idea%20or%20concern%5D) si cree que hay herramientas, características de productos y documentos adicionales que le ayudarían a implementar estas directrices de uso de Personalizer.

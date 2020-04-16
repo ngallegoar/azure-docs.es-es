@@ -1,5 +1,5 @@
 ---
-title: Alta disponibilidad y recuperación ante desastres en Azure Kubernetes Service (AKS)
+title: Procedimientos recomendados para la continuidad empresarial y recuperación ante desastres en AKS
 description: Conozca los procedimientos recomendados del operador de un clúster para conseguir el máximo tiempo de actividad de las aplicaciones, ofreciendo una alta disponibilidad y preparándose para la recuperación ante desastres en Azure Kubernetes Service (AKS).
 services: container-service
 author: lastcoolnameleft
@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: thfalgou
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 894ec4e543f0c68cc652141d2c1578cda61d7f42
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7aa93d8ba21cafddc5511e16fa430b76942b1a6d
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77594760"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668289"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para continuidad empresarial y recuperación ante desastres en Azure Kubernetes Service (AKS)
 
-A medida que administra los clústeres en Azure Kubernetes Service (AKS), el tiempo de actividad de la aplicación pasa a ser importante. AKS proporciona alta disponibilidad mediante el uso de varios nodos en un conjunto de disponibilidad. Pero estos múltiples nodos no protegen al sistema frente a un error de la región. Para maximizar el tiempo de actividad, planee con antelación para mantener la continuidad empresarial y preparar la recuperación ante desastres.
+A medida que administra los clústeres en Azure Kubernetes Service (AKS), el tiempo de actividad de la aplicación pasa a ser importante. De forma predeterminada, AKS proporciona alta disponibilidad mediante el uso de varios nodos en un [conjunto de escalado de máquinas virtuales (VMSS)](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview). Pero estos múltiples nodos no protegen al sistema frente a un error de la región. Para maximizar el tiempo de actividad, planee con antelación para mantener la continuidad empresarial y preparar la recuperación ante desastres.
 
 Este artículo se centra en cómo planear la continuidad empresarial y la recuperación ante desastres en AKS. Aprenderá a:
 
@@ -59,7 +59,7 @@ Para información sobre cómo configurar estos puntos de conexión y el enrutami
 
 ### <a name="layer-7-application-routing-with-azure-front-door-service"></a>Enrutamiento de aplicaciones de nivel 7 con Azure Front Door Service
 
-Traffic Manager usa DNS (nivel 3) para dar forma al tráfico. [Azure Front Door Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview) proporciona una opción de enrutamiento HTTP/HTTPS (nivel 7). Las características adicionales de Azure Front Door Service incluyen la terminación SSL, el dominio personalizado, el firewall de aplicaciones web, la reescritura de dirección URL y la afinidad de la sesión. Revise los requisitos del tráfico de su aplicación para saber qué solución es la más conveniente.
+Traffic Manager usa DNS (nivel 3) para dar forma al tráfico. [Azure Front Door Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview) proporciona una opción de enrutamiento HTTP/HTTPS (nivel 7). Las características adicionales de Azure Front Door Service incluyen la terminación TLS, el dominio personalizado, el firewall de aplicaciones web, la reescritura de dirección URL y la afinidad de la sesión. Revise los requisitos del tráfico de su aplicación para saber qué solución es la más conveniente.
 
 ### <a name="interconnect-regions-with-global-virtual-network-peering"></a>Interconexión de regiones con el emparejamiento de redes virtuales globales
 

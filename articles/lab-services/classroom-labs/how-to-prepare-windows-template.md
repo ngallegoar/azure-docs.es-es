@@ -10,16 +10,16 @@ ms.service: lab-services
 ms.topic: article
 ms.date: 11/21/2019
 ms.author: enewman
-ms.openlocfilehash: c52a1212d160adce3a0a0638164833bc2907a856
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c1aaf588f61b329fa3b838b8a92f3e287897315b
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76515010"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521184"
 ---
 # <a name="guide-to-setting-up-a-windows-template-machine-in-azure-lab-services"></a>Guía para configurar una máquina de plantillas de Windows en Azure Lab Services
 
-Si está configurando una máquina de plantillas de Windows 10 para Azure Lab Services, aquí encontrará algunos procedimientos recomendados y sugerencias para tener en cuenta. Los pasos de configuración siguientes son todos opcionales.  Sin embargo, estos pasos preparatorias pueden ayudar a que sus alumnos sean más productivos, a minimizar las interrupciones del tiempo de clase y a asegurar que usen las tecnologías más recientes.
+Si va a configurar una máquina de plantilla con Windows 10 para Azure Lab Services, aquí encontrará algunos procedimientos recomendados y sugerencias para tener en cuenta. Los pasos de configuración siguientes son todos opcionales.  Sin embargo, estos pasos preparatorias pueden ayudar a que sus alumnos sean más productivos, a minimizar las interrupciones del tiempo de clase y a asegurar que usen las tecnologías más recientes.
 
 >[!IMPORTANT]
 >Este artículo contiene fragmentos de código de PowerShell para simplificar el proceso de modificación de plantillas de máquina.  Para todos los scripts de PowerShell que se muestran, querrá ejecutarlos en Windows PowerShell con privilegios de administrador. En Windows 10, una forma rápida de hacerlo es hacer clic con el botón derecho en el menú Inicio y elegir "Windows PowerShell (Administrador)".
@@ -66,7 +66,7 @@ Si se encuentra en una máquina que no usa Active Directory, los usuarios pueden
 
 Si la máquina virtual está conectada a Active Directory, puede establecer la máquina de plantillas para que solicite automáticamente a los alumnos que muevan las carpetas conocidas a OneDrive.  
 
-Primero deberá recuperar su identificador de inquilino de Office.  Para obtener más instrucciones, consulte [Buscar el identificador de inquilino de Office 365](https://docs.microsoft.com/onedrive/find-your-office-365-tenant-id).  También puede obtener el identificador de inquilino de Office 365 mediante el siguiente PowerShell.
+Primero deberá recuperar el identificador de inquilino de Office.  Para obtener más instrucciones, consulte [Buscar el identificador de inquilino de Office 365](https://docs.microsoft.com/onedrive/find-your-office-365-tenant-id).  También puede obtener el identificador de inquilino de Office 365 mediante el siguiente PowerShell.
 
 ```powershell
 Install-Module MSOnline -Confirm
@@ -133,7 +133,7 @@ New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive\DiskSpaceChec
 
 ### <a name="install-microsoft-office-365"></a>Instalación de Microsoft Office 365
 
-Si la máquina de plantillas necesita Office, se recomienda la instalación de Office a través de la [Herramienta de implementación de Office (ODT)](https://www.microsoft.com/download/details.aspx?id=49117 ). Tendrá que crear un archivo de configuración reutilizable mediante el [servicio de configuración de cliente de Office 365](https://config.office.com/) para elegir la arquitectura, las características que necesitará de Office y la frecuencia con que se actualiza.
+Si la máquina de plantillas necesita Office, se recomienda la instalación de Office a través de la [Herramienta de implementación de Office (ODT)](https://www.microsoft.com/download/details.aspx?id=49117 ). Tendrá que crear un archivo de configuración reutilizable mediante el [servicio de configuración de cliente de Office 365](https://config.office.com/) para elegir la arquitectura, las características que necesitará de Office y la frecuencia con que se actualiza.
 
 1. Vaya al [servicio de configuración de cliente de Office 365](https://config.office.com/) y descargue su propio archivo de configuración.
 2. Descargue la [Herramienta de implementación de Office](https://www.microsoft.com/download/details.aspx?id=49117).  El archivo descargado será `setup.exe`.
@@ -234,3 +234,6 @@ Instale otras aplicaciones que se usan habitualmente para la enseñanza a travé
 ## <a name="conclusion"></a>Conclusión
 
 En este artículo se han mostrado pasos opcionales para preparar la VM de plantillas de Windows para una clase eficaz.  Los pasos incluyen la instalación de OneDrive y la instalación de Office 365, la instalación de actualizaciones para Windows y la instalación de actualizaciones para aplicaciones de Microsoft Store.  También se ha explicado cómo establecer actualizaciones en un cronograma que funcione mejor para su clase.  
+
+## <a name="next-steps"></a>Pasos siguientes
+Consulte el artículo sobre cómo controlar el comportamiento de apagado de Windows para ayudar a administrar los costos: [Guía para controlar el comportamiento de apagado de Windows](how-to-windows-shutdown.md)

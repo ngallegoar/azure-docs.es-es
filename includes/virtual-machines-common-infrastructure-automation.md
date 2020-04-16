@@ -4,19 +4,19 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 04/11/2019
 ms.author: cynthn
-ms.openlocfilehash: 9cbc48d8bca2f7491d0464be1c5bd64054927dc9
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: f2eb503b58f1679d138b6a1dd9304896be098ad6
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77608724"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80419253"
 ---
 Para crear y administrar máquinas virtuales (VM) de Azure de manera coherente a escala, suele ser deseable alguna forma de automatización. Existen muchas herramientas y soluciones que le permiten automatizar la implementación de toda la infraestructura de Azure y el ciclo de vida de administración. En este artículo se detallan algunas de las herramientas de automatización de la infraestructura que puede usar en Azure. Estas herramientas se adaptan normalmente a alguno de los siguientes enfoques:
 
 - Automatización de la configuración de las máquinas virtuales
-    - Estas herramientas incluyen [Ansible](#ansible), [Chef](#chef) y [Puppet](#puppet).
+    - Entre las herramientas se incluyen [Ansible](#ansible), [Chef](#chef), [Puppet](#puppet) y la [plantilla de Azure Resource Manager](#azure-resource-manager-template).
     - Entre las herramientas específicas para la personalización de máquinas virtuales se incluye [cloud-init](#cloud-init) para máquinas virtuales Linux, [PowerShell Desired State Configuration (DSC)](#powershell-dsc) y la [extensión de script personalizado de Azure](#azure-custom-script-extension) para todas las máquinas virtuales de Azure.
- 
+
 - Automatización de la administración de la infraestructura
     - Entre las herramientas se incluye [Packer](#packer) para automatizar las compilaciones personalizadas de imágenes de máquina virtual, y [Terraform](#terraform) para automatizar el proceso de compilación de la infraestructura.
     - [Azure Automation](#azure-automation) puede realizar acciones en toda la infraestructura local y de Azure.
@@ -56,7 +56,8 @@ Obtenga información sobre cómo:
 
 cloud-init también funciona entre distribuciones. Por ejemplo, no use **apt-get install** o **yum install** para instalar un paquete. En su lugar, puede definir una lista de paquetes que se van a instalar. Cloud-init usará automáticamente la herramienta de administración de paquetes nativos para la distribución de Linux (distro) que seleccione.
 
-Estamos trabajando activamente con nuestros asociados de distribuciones de Linux certificadas para disponer de imágenes con cloud-init habilitado en Azure Marketplace. Estas imágenes harán que las implementaciones y configuraciones de cloud-init funcionen perfectamente con las máquinas virtuales y los conjuntos de escalado de máquinas virtuales. Obtener información más detallada sobre cloud-init en Azure:
+Estamos trabajando activamente con nuestros asociados de distribuciones de Linux certificadas para disponer de imágenes con cloud-init habilitado en Azure Marketplace. Estas imágenes harán que las implementaciones y configuraciones de cloud-init funcionen perfectamente con las máquinas virtuales y los conjuntos de escalado de máquinas virtuales.
+Obtener información más detallada sobre cloud-init en Azure:
 
 - [Compatibilidad con cloud-init para máquinas virtuales Linux en Azure](../articles/virtual-machines/linux/using-cloud-init.md)
 - [Consulte el tutorial sobre configuración automatizada de máquinas virtuales con cloud-init](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md).
@@ -75,7 +76,7 @@ Obtenga información sobre cómo:
 
 
 ## <a name="azure-custom-script-extension"></a>Extensión de script personalizado de Azure
-La extensión de script personalizado para [Linux](../articles/virtual-machines/linux/extensions-customscript.md) o [Windows](../articles/virtual-machines/windows/extensions-customscript.md) descarga y ejecuta scripts en máquinas virtuales de Azure. Puede utilizar la extensión al crear una máquina virtual o en cualquier momento después de empezar a usarla. 
+La extensión de script personalizado para [Linux](../articles/virtual-machines/linux/extensions-customscript.md) o [Windows](../articles/virtual-machines/windows/extensions-customscript.md) descarga y ejecuta scripts en máquinas virtuales de Azure. Puede utilizar la extensión al crear una máquina virtual o en cualquier momento después de empezar a usarla.
 
 Los scripts se pueden descargar desde Azure Storage o desde cualquier ubicación pública como, por ejemplo, un repositorio de GitHub. Con la extensión de script personalizado, puede escribir scripts en cualquier lenguaje que se pueda ejecutar en la máquina virtual de origen. Estos scripts se pueden usar para instalar aplicaciones o configurar la máquina virtual según sea necesario. Para proteger las credenciales, la información confidencial como las contraseñas se puede almacenar en una configuración protegida. Estas credenciales solo se descifran dentro de la máquina virtual.
 
@@ -130,6 +131,17 @@ Obtenga información sobre cómo:
 
 - [Crear una infraestructura de desarrollo en una máquina virtual Linux en Azure con Jenkins, GitHub y Docker](../articles/jenkins/tutorial-jenkins-github-docker-cicd.md).
 
+
+## <a name="azure-resource-manager-template"></a>Plantilla del Administrador de recursos de Azure
+[Azure Resource Manager](../articles/azure-resource-manager/templates/overview.md) es el servicio de implementación y administración para Azure. Proporciona una capa de administración que le permite crear, actualizar y eliminar recursos de su suscripción de Azure. Se usan las características de administración, como el control de acceso, la auditoría y las etiquetas, para proteger y organizar los recursos después de la implementación.
+
+Obtenga información sobre cómo:
+
+- [Implementar máquinas virtuales de Spot mediante una plantilla de Resource Manager](../articles/virtual-machines/linux/spot-template.md).
+- [Implementar una máquina virtual de Azure mediante C# y una plantilla de Resource Manager](../articles/virtual-machines/windows/csharp-template.md).
+- [Crear una máquina virtual Windows con una plantilla de Resource Manager](../articles/virtual-machines/windows/ps-template.md).
+- [Descargar la plantilla para una máquina virtual](../articles/virtual-machines/windows/download-template.md).
+- [Crear una plantilla de Azure Image Builder](../articles/virtual-machines/linux/image-builder-json.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Hay muchas opciones diferentes para utilizar herramientas de automatización de infraestructura en Azure. Es libre de elegir la solución que mejor se adapte a sus necesidades y entorno. Para empezar a trabajar y probar algunas de las herramientas integradas en Azure, vea cómo automatizar la personalización de una máquina virtual [Linux](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md) o [Windows](../articles/virtual-machines/windows/tutorial-automate-vm-deployment.md).

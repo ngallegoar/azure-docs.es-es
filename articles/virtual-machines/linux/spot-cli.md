@@ -1,27 +1,20 @@
 ---
-title: Uso de la CLI para implementar máquinas virtuales de Azure Spot (versión preliminar)
+title: Uso de la CLI para implementar máquinas virtuales de Azure Spot
 description: Aprenda a usar la CLI para implementar máquinas virtuales de Azure Spot para ahorrar costos.
-services: virtual-machines-linux
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/11/2020
+ms.date: 03/25/2020
 ms.author: cynthn
-ms.openlocfilehash: 110e935671ab1d640b2ff3dc26c203b262e999fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5b6a07bfbcf56f3ca78fa4991e7741a3d44c25b9
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77163099"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80544351"
 ---
-# <a name="preview-deploy-spot-vms-using-the-azure-cli"></a>Vista previa: Implementación de máquinas virtuales de Spot con la CLI de Azure
+# <a name="deploy-spot-vms-using-the-azure-cli"></a>Implementación de máquinas virtuales de Spot con la CLI de Azure
 
 El uso de [máquinas virtuales de Azure Spot](spot-vms.md) permite aprovechar las ventajas de nuestra capacidad no utilizada con un importante ahorro en los costos. Siempre que Azure necesite recuperar la capacidad, su infraestructura expulsará las máquinas virtuales de Spot. Por lo tanto, estas son excelentes para cargas de trabajo que soportan interrupciones, como los trabajos de procesamiento por lotes, los entornos de desarrollo y pruebas, las grandes cargas de trabajo de proceso, etc.
 
@@ -30,12 +23,6 @@ Los precios de las máquinas virtuales de Spot varían en función de la región
 Puede establecer el precio máximo por hora que esté dispuesto por la máquina virtual. El precio máximo de una máquina virtual de Spot se puede establecer en dólares estadounidenses (USD), con un máximo de 5 decimales. Por ejemplo, el valor `0.98765` correspondería a un precio máximo de 0,98765 USD por hora. Si establece el precio máximo en `-1`, la máquina virtual no se expulsará por precio. El precio de la máquina virtual será el actual de Spot o el de una máquina virtual estándar, el menor de los dos, siempre que haya capacidad y cuota disponibles. Para más información sobre la configuración del precio máximo, consulte [Máquinas virtuales de Spot - Precios](spot-vms.md#pricing).
 
 El proceso de creación de una máquina virtual con la CLI de Azure es el mismo que el que se detalla en el [artículo de inicio rápido](/azure/virtual-machines/linux/quick-create-cli). Solo tiene que agregar el parámetro "--priority Spot" y proporcionar un precio máximo o el valor `-1`.
-
-> [!IMPORTANT]
-> Las instancias de Spot se encuentran actualmente en versión preliminar pública,
-> la cual no se recomienda para las cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
-
 
 
 ## <a name="install-azure-cli"></a>Instalación de la CLI de Azure

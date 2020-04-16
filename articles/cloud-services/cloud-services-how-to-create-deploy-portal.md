@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: tagore
-ms.openlocfilehash: 53f53976b20359afc45abe1b25ca60325b5d6a2b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 63cf864a3f3b92728ad613ac45542bdbce2c9858
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75386177"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811344"
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Creación e implementación de un servicio en la nube
 Azure Portal le ofrece dos formas de crear e implementar un servicio en la nube: *Creación rápida* y *Creación personalizada*.
@@ -42,7 +42,7 @@ Antes de implementar un servicio en la nube, debe crear el paquete de servicio e
 
 Hay tres características del servicio en la nube que requieren configuraciones especiales antes de exportar un paquete de servicio:
 
-* Si desea implementar un servicio en la nube que utilice Capa de sockets seguros (SSL) para el cifrado de datos, [configure la aplicación](cloud-services-configure-ssl-certificate-portal.md#modify) para SSL.
+* Si desea implementar un servicio en la nube que utilice Seguridad de la capa de transporte (TLS), anteriormente conocido como Capa de sockets seguros (SSL) para el cifrado de datos, [configure la aplicación](cloud-services-configure-ssl-certificate-portal.md#modify) para TLS.
 * Si desea configurar una conexión de Escritorio remoto a instancias de rol, [configure los roles](cloud-services-role-enable-remote-desktop-new-portal.md) para Escritorio remoto.
 * Si desea configurar una supervisión exhaustiva para su servicio en la nube, habilite Diagnósticos de Azure para el servicio en la nube. *Supervisión mínima* (nivel predeterminado de supervisión) usa contadores de rendimiento recopilados de los sistemas operativos host para las instancias de rol (máquinas virtuales). *supervisión detallada* recopila métricas adicionales basadas en los datos del rendimiento dentro de las instancias de rol para permitir un análisis más profundo de los problemas que se producen durante el procesamiento de la aplicación. Para obtener información acerca de cómo habilitar Diagnósticos de Azure, consulte [Habilitación de Diagnósticos en Azure](cloud-services-dotnet-diagnostics.md).
 
@@ -70,7 +70,7 @@ Para crear un servicio en la nube con implementaciones de roles web o de trabajo
 ## <a name="upload-a-certificate"></a>Carga de un certificado
 Si el paquete de implementación se [configuró para usar certificados](cloud-services-configure-ssl-certificate-portal.md#modify), puede cargar el certificado ahora.
 
-1. Seleccione **Certificados** y, en el panel **Agregar certificados**, seleccione el archivo .pfx del certificado SSL y especifique la **contraseña** del certificado,
+1. Seleccione **Certificados** y, en el panel **Agregar certificados**, seleccione el archivo .pfx del certificado TLS/SSL y especifique la **contraseña** del certificado,
 2. Haga clic en **Adjuntar certificado** y luego en **Aceptar** en el panel **Agregar certificados**.
 3. Haga clic en **Crear** en el panel **Servicio en la nube**. Cuando la implementación haya llegado al estado **Listo** , puede continuar con los pasos siguientes.
 
@@ -90,7 +90,7 @@ Si el paquete de implementación se [configuró para usar certificados](cloud-se
 * [Configuración general de su servicio en la nube](cloud-services-how-to-configure-portal.md).
 * Configuración de un [nombre de dominio personalizado](cloud-services-custom-domain-name-portal.md).
 * [Administración del servicio en la nube](cloud-services-how-to-manage-portal.md).
-* Configuración de [certificados ssl](cloud-services-configure-ssl-certificate-portal.md).
+* Configure los [certificados TLS/SSL](cloud-services-configure-ssl-certificate-portal.md).
 
 
 

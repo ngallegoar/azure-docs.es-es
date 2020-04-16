@@ -7,12 +7,12 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 02/08/2020
 ms.author: victorh
-ms.openlocfilehash: 3e8cd2f1e594cd6a60296b2df135f275641df313
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e3738da806ff36cdb7e8d561b88a457a5264eb76
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77086982"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886932"
 ---
 # <a name="create-web-application-firewall-policies-for-application-gateway"></a>Cree directivas del Firewall de aplicaciones web para Application Gateway
 
@@ -24,6 +24,8 @@ Si el Application Gateway tiene una directiva aplicada y después aplica una dir
 
    > [!NOTE]
    > Las directivas de WAF por sitio y por URI se encuentran en Versión preliminar pública. Esto significa que esta característica está sujeta a las Condiciones de uso complementarias de Microsoft. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+   > [!NOTE]
+   > Una vez que una directiva de firewall se asocia a un WAF, siempre debe haber una directiva asociada a ese WAF. Puede sobrescribir esa directiva, pero no se admite la desasociación completa de una directiva del WAF. 
 
 Toda la nueva configuración de WAF del Firewall de aplicaciones web (reglas personalizadas, configuraciones de rulset administradas, exclusiones, etc.) se encuentra dentro de una Directiva de WAF. Si tiene un WAF existente, es posible que esta configuración siga existiendo en la configuración de WAF. Para conocer los pasos para cambiar a la nueva Directiva de WAF, consulte [Migrar la configuración de WAF a una directiva de WAF](#migrate) más adelante en este artículo. 
 

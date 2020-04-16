@@ -8,12 +8,12 @@ ms.subservice: data-science-vm
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: 5c184e7f1dc828c3f9ff8d449d29ab3aaa4d1cf6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 830668a78929a5e6a7e131ade5c62b81e6d725c3
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77525828"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631362"
 ---
 # <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>Referencia: Data Science Virtual Machine de Ubuntu
 
@@ -239,9 +239,9 @@ Puede acceder a [Azure Portal](https://portal.azure.com) desde el explorador Fir
 
 ## <a name="azure-machine-learning"></a>Azure Machine Learning
 
-Azure Machine Learning es un servicio en la nube totalmente administrado que permite crear, implementar y compartir soluciones de análisis predictivo. Puede crear sus experimentos y modelos desde Azure Machine Learning Studio (clásico). Puede acceder a él desde un explorador web en la instancia de Data Science Virtual Machine si visita la página de [Microsoft Azure Machine Learning](https://studio.azureml.net).
+Azure Machine Learning es un servicio en la nube totalmente administrado que permite crear, implementar y compartir soluciones de análisis predictivo. Puede crear sus experimentos y modelos desde Azure Machine Learning Studio (versión preliminar). Puede acceder a él desde un explorador web en la instancia de Data Science Virtual Machine si visita la página de [Microsoft Azure Machine Learning](https://ml.azure.com).
 
-Después de iniciar sesión en Azure Machine Learning Studio (clásico), puede usar un lienzo de experimentación para crear un flujo lógico para los algoritmos de aprendizaje automático. También tiene acceso a un cuaderno de Jupyter Notebook hospedado en Azure Machine Learning, que puede funcionar perfectamente con los experimentos de Machine Learning Studio (clásico). 
+Después de iniciar sesión en Azure Machine Learning Studio, puede usar un lienzo de experimentación para crear un flujo lógico para los algoritmos de aprendizaje automático. También tiene acceso a un cuaderno de Jupyter Notebook hospedado en Azure Machine Learning, que puede funcionar perfectamente con los experimentos de Machine Learning Studio. 
 
 Haga que los modelos de aprendizaje automático que ha creado estén operativos encapsulándolos en una interfaz de servicio web. El funcionamiento de modelos de aprendizaje automático permite a los clientes escritos en cualquier lenguaje invocar predicciones a partir de esos modelos. Para obtener más información, consulte la [documentación sobre Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/).
 

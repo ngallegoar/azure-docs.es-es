@@ -3,12 +3,12 @@ title: 'Recursos de Azure: QnA Maker'
 description: QnA Maker usa varios orígenes de Azure, cada uno con un propósito diferente. Entender cómo se usan individualmente le permite planear y seleccionar el plan de tarifa correcto o saber cuándo debe cambiar el plan de tarifa. Entender cómo se usan en combinación le permite encontrar y corregir los problemas cuando se producen.
 ms.topic: conceptual
 ms.date: 03/25/2020
-ms.openlocfilehash: 8a5cc0f4889e31470514015035a92d230c40ed43
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 581029d2372f7a2ef704dcf02f266b66440aa246
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80284252"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80873912"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Recursos de Azure para QnA Maker
 
@@ -50,11 +50,21 @@ En la tabla siguiente se proporcionan algunas directrices de alto nivel.
 | Entorno de Desarrollo/pruebas   | SKU Estándar         | Compartido      | Básica        | Publicaciones de hasta 14 KB; tamaño de 2 GB    |
 | Entorno de producción | SKU Estándar         | Básica       | Estándar     | Publicar hasta 49 KB; tamaño de 25 GB |
 
+## <a name="recommended-settings"></a>Configuración recomendada
+
+|QPS de destino | App Service | Azure Cognitive Search |
+| -------------------- | ----------- | ------------ |
+| 3             | S1, 1 instancia   | S1, 1 instancia    |
+| 50         | S3, 10 instancias       | S1, 12 instancias         |
+| 80         | S3, 10 instancias      |  S3, 12 instancias  |
+| 100         | P3V2, 10 instancias  | S3, 12 instancias, 3 particiones   |
+| 200 a 250         | P3V2, 20 instancias | S3, 12 instancias, 3 particiones    |
+
 ## <a name="when-to-change-a-pricing-tier"></a>Cuándo cambiar un plan de tarifa
 
 |Actualizar|Motivo|
 |--|--|
-|[Actualización](../How-to/set-up-qnamaker-service-azure.md#upgrade-qna-maker-sku) de la SKU de administración de QnA Maker|Quiere tener más conjuntos de QnA o orígenes de documento en la base de conocimiento.|
+|[Actualización](../How-to/set-up-qnamaker-service-azure.md#upgrade-qna-maker-sku) de la SKU de administración de QnA Maker|Desea tener más pares de QnA o orígenes de documento en la base de conocimiento.|
 |[Actualización](../How-to/set-up-qnamaker-service-azure.md#upgrade-app-service) de la SKU de App Service y comprobación del nivel de Cognitive Search y [creación de réplicas de Cognitive Search](../../../search/search-capacity-planning.md)|Su base de conocimiento debe atender más solicitudes de la aplicación cliente, como un bot de chat.|
 |[Actualización](../How-to/set-up-qnamaker-service-azure.md#upgrade-the-azure-cognitive-search-service) del servicio Azure Cognitive Search|Planea tener muchas bases de conocimiento.|
 
@@ -95,8 +105,8 @@ Cada recurso de Azure creado con QnA Maker tiene un propósito específico:
 
 El recurso de [Cognitive Search](../../../search/index.yml) se usa para:
 
-* Almacenar los conjuntos de QnA
-* Proporcionar la clasificación inicial (número 1 del clasificador) de los conjuntos de QnA en el entorno de ejecución
+* Almacenar los pares de QnA
+* Proporcionar la clasificación inicial (número 1 del clasificador) de los pares de QnA en el runtime
 
 #### <a name="index-usage"></a>Uso de índices
 
@@ -110,7 +120,7 @@ La primera base de conocimiento creada en el recurso de QnA Maker se utiliza par
 
 ### <a name="qna-maker-resource"></a>Recurso QnA Maker
 
-El recurso QnA Maker proporciona acceso a las API de creación y publicación, así como al procesamiento de lenguaje natural (NLP) basado en la segunda capa de clasificación (número 2 del clasificador) de los conjuntos de QnA en tiempo de ejecución.
+El recurso QnA Maker proporciona acceso a las API de creación y publicación, así como al procesamiento de lenguaje natural (NLP) basado en la segunda capa de clasificación (número 2 del clasificador) de los pares de QnA en el runtime.
 
 La segunda clasificación aplica filtros inteligentes que pueden incluir metadatos y mensajes de seguimiento.
 

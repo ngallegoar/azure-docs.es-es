@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
-ms.openlocfilehash: 89df941eb6ebaad6e078c278f1ed883db5528c7e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b892b1f4ff73679ab425d0e97f5361e0f3712252
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77152571"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80549182"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-async-java"></a>Sugerencias de rendimiento para Azure Cosmos DB y Async Java
 
@@ -230,9 +230,9 @@ Así que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la bas
     * - nofile 100000
     ```
 
-* **Usar la implementación de SSL nativa para Netty**
+* **Uso de la implementación de TLS/SSL nativa para Netty**
 
-    Netty puede usar OpenSSL directamente en la pila de implementación de SSL para conseguir un mejor rendimiento. En ausencia de esta configuración, Netty revertirá a la implementación de SSL predeterminada de Java.
+    Netty puede usar OpenSSL directamente en la pila de implementación de TLS para conseguir un mejor rendimiento. En ausencia de esta configuración, Netty revertirá a la implementación de TLS predeterminada de Java.
 
     En Ubuntu, ejecute:
     ```bash

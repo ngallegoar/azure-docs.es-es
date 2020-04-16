@@ -7,18 +7,18 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
-ms.openlocfilehash: 60acd128495176cd0a90418c61edf53bdcd88e5a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1cfc53dcd730262101c0e879e0419ba3f2db4d38
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77647576"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656999"
 ---
 # <a name="send-email-from-your-smtp-account-with-azure-logic-apps"></a>Envío de correo electrónico desde la cuenta de SMTP con Azure Logic Apps
 
 Con Azure Logic Apps y el conector de SMTP (protocolo simple de transferencia de correo) puede crear tareas automatizadas y flujos de trabajo para el envío de correo electrónico desde la cuenta de SMTP. También puede hacer que otras acciones usen la salida de las acciones de SMTP. Por ejemplo, una vez enviado un correo electrónico desde SMTP, puede notificar al equipo de Slack con el conector correspondiente. Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Suscripción a Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/). 
 
@@ -56,7 +56,7 @@ Con Azure Logic Apps y el conector de SMTP (protocolo simple de transferencia de
    | **Nombre de usuario** | Sí | El nombre de usuario de la cuenta de SMTP | 
    | **Contraseña** | Sí | La contraseña de la cuenta de SMTP | 
    | **Puerto del servidor SMTP** | No | El puerto específico del servidor SMTP que desea usar | 
-   | **¿Quiere habilitar SSL?** | No | Activar o desactivar el cifrado SSL. | 
+   | **¿Quiere habilitar SSL?** | No | Activar o desactivar el cifrado TLS/SSL. | 
    |||| 
 
 1. Proporcione la información necesaria para la acción seleccionada. 

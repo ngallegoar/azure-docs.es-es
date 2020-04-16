@@ -2,13 +2,13 @@
 title: Funciones de plantillas
 description: Describe las funciones que se van a usar en una plantilla del Administrador de recursos de Azure para recuperar valores, trabajar con cadenas y valores numéricos y recuperar información de implementación.
 ms.topic: conceptual
-ms.date: 02/13/2020
-ms.openlocfilehash: 1d2789e59c091b4e6c39be48b83fe610a592abe1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/06/2020
+ms.openlocfilehash: fbd82f89ed9a97a3f376a9ed6eaa8ae3760759ff
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80156266"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982385"
 ---
 # <a name="arm-template-functions"></a>Funciones de plantilla de ARM
 
@@ -77,6 +77,13 @@ Resource Manager proporciona varias funciones para realizar comparaciones en las
 <a id="deployment" aria-hidden="true" />
 <a id="parameters" aria-hidden="true" />
 <a id="variables" aria-hidden="true" />
+
+## <a name="date-functions"></a>Funciones de fecha
+
+Resource Manager ofrece las siguientes funciones para trabajar con fechas.
+
+* [dateTimeAdd](template-functions-date.md#datetimeadd)
+* [utcNow](template-functions-date.md#utcnow)
 
 ## <a name="deployment-value-functions"></a>Funciones con valores de implementación
 
@@ -224,7 +231,6 @@ El Administrador de recursos ofrece las siguientes funciones para trabajar con c
 * [uri](template-functions-string.md#uri)
 * [uriComponent](template-functions-string.md#uricomponent)
 * [uriComponentToString](template-functions-string.md#uricomponenttostring)
-* [utcNow](template-functions-string.md#utcnow)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

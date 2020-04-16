@@ -8,18 +8,19 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 19dcfb96f29939fd92f49ba288ddb6d9264e0f9a
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: 6b60ccc7a635e4b6071b43d7ff75e182aa96cd08
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78970595"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81313621"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Escenarios de Azure Disk Encryption en máquinas virtuales Linux
 
-Azure Disk Encryption usa la característica DM-Crypt de Linux para proporcionar cifrado de volumen tanto a los discos de datos como a los del sistema operativo de máquinas virtuales de Azure, y se integra con Azure Key Vault para ayudarle a controlar y administrar las claves y los secretos del cifrado de disco. Para obtener información general del servicio, consulte [Azure Disk Encryption para máquinas virtuales Linux](disk-encryption-overview.md).
 
-Hay muchos escenarios de cifrado de disco y los pasos pueden variar en función del escenario. En las secciones siguientes se tratan con más detalle los escenarios de las máquinas virtuales Linux.
+Azure Disk Encryption para máquinas virtuales Linux usa la característica DM-Crypt de Linux para proporcionar un cifrado completo tanto del disco del sistema operativo como de los discos de datos. Además, proporciona cifrado del disco de recursos efímeros cuando se usa la característica EncryptFormatAll.
+
+Azure Disk Encryption [se integra con Azure Key Vault](disk-encryption-key-vault.md) para ayudarle a controlar y administrar las claves y los secreto de cifrado de discos. Para obtener información general del servicio, consulte [Azure Disk Encryption para máquinas virtuales Linux](disk-encryption-overview.md).
 
 El cifrado de disco solo se puede aplicar a las máquinas virtuales que tengan [tamaños y sistemas operativos compatibles](disk-encryption-overview.md#supported-vms-and-operating-systems). También es preciso que se cumplan los siguientes requisitos previos:
 
@@ -202,9 +203,9 @@ En la tabla siguiente figuran los parámetros de la plantilla de Resource Manage
 |  keyEncryptionKeyURL | Dirección URL de la clave de cifrado de claves que se usa para cifrar la clave de cifrado. Este parámetro es opcional si selecciona **nokek** en la lista desplegable de UseExistingKek. Si selecciona **kek** en la lista desplegable de UseExistingKek, debe proporcionar el valor de _keyEncryptionKeyURL_. |
 | volumeType | Tipo de volumen en que se realiza la operación de cifrado. Los valores válidos son _SO_, _Datos_ y _Todo_. 
 | forceUpdateTag | Cada vez que la operación tenga que ejecutarse, pase un valor único como GUID. |
-| resizeOSDisk | Si se debería cambiar el tamaño de la partición del sistema operativo para ocupar el VHD del sistema operativo completo antes de dividir el volumen del sistema. |
 | ubicación | Ubicación para todos los recursos. |
 
+Para más información sobre la configuración de la plantilla de cifrado de discos de máquina virtual, consulte [Azure Disk Encryption para Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/azure-disk-enc-linux).
 
 ## <a name="use-encryptformatall-feature-for-data-disks-on-linux-vms"></a>Uso de la característica EncryptFormatAll para discos de datos en máquinas virtuales Linux
 
@@ -260,17 +261,22 @@ Se recomienda una configuración LVM-on-crypt. En todos los ejemplos siguientes,
 - Agregue los discos de datos que componen la máquina virtual.
 - Formatee, monte y agregue estos discos al archivo fstab.
 
-    1. Formatee el disco recién agregado. Aquí se usarán symlinks generados por Azure. El uso de symlinks evita los problemas relacionados con el cambio de los nombres de dispositivo. Para más información, consulte el artículo [Solución de problemas de nombres de dispositivo](troubleshoot-device-names-problems.md).
+    1. Elija una partición estándar, cree una partición que abarque toda la unidad y, a continuación, formatee la partición. Aquí se usarán symlinks generados por Azure. El uso de symlinks evita los problemas relacionados con el cambio de los nombres de dispositivo. Para más información, consulte el artículo [Solución de problemas de nombres de dispositivo](troubleshoot-device-names-problems.md).
     
-         `mkfs -t ext4 /dev/disk/azure/scsi1/lun0`
+         ```azurepowershell-interactive
+         parted /dev/disk/azure/scsi1/lun0 mklabel gpt
+         parted -a opt /dev/disk/azure/scsi1/lun0 mkpart primary ext4 0% 100%
+         
+         mkfs -t ext4 /dev/disk/azure/scsi1/lun0-part1
+         ```
     
     1. Monte los discos.
          
-         `mount /dev/disk/azure/scsi1/lun0 /mnt/mountpoint`
+         `mount /dev/disk/azure/scsi1/lun0-part1 /mnt/mountpoint`
     
     1. Agréguelos a fstab.
          
-        `echo "/dev/disk/azure/scsi1/lun0 /mnt/mountpoint ext4 defaults,nofail 1 2" >> /etc/fstab`
+        `echo "/dev/disk/azure/scsi1/lun0-part1 /mnt/mountpoint ext4 defaults,nofail 0 2" >> /etc/fstab`
     
     1. Ejecute el cmdlet Set-AzVMDiskEncryptionExtension PowerShell con -EncryptFormatAll para cifrar estos discos.
 
@@ -400,7 +406,11 @@ Azure Disk Encryption no funciona en los siguientes escenarios, características
 - Volúmenes dinámicos.
 - Discos de sistema operativo efímero.
 - Cifrado de sistemas de archivos compartidos o distribuidos como (pero no limitados a): DFS, GFS, DRDB y CephFS.
+- Traslado de máquinas virtuales cifradas a otra suscripción.
 - Volcado de memoria de kernel (kdump).
+- Oracle ACFS (ASM Cluster File System)
+- Máquinas virtuales de Gen2 (consulte: [Compatibilidad con máquinas virtuales de generación 2 en Azure](generation-2.md#generation-1-vs-generation-2-capabilities))
+- Máquinas virtuales de serie Lsv2 (consulte: [serie Lsv2](../lsv2-series.md))
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -4,18 +4,18 @@ description: Definición de los destinos de almacenamiento para que Azure HPC Ca
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 12/30/2019
+ms.date: 04/03/2020
 ms.author: rohogue
-ms.openlocfilehash: a68bf06bad995f71bedf6a5bdedcb676737a8c61
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3fbc4e683c2b0e72c3a084a59793dbf9eb4b658c
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79233444"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80657429"
 ---
 # <a name="add-storage-targets"></a>Incorporación de destinos de almacenamiento
 
-Los *destinos de almacenamiento* son espacios de almacenamiento en servidores back-end para archivos a los que se accede a través de una instancia de Azure HPC Cache. Puede agregar almacenamiento NFS (como un sistema de hardware local) o almacenar datos en Azure Blob Storage.
+Los *destinos de almacenamiento* son espacios de almacenamiento en servidores de back-end para archivos a los que se accede mediante una instancia de Azure HPC Cache. Puede agregar almacenamiento NFS (como un sistema de hardware local) o almacenar datos en Azure Blob Storage.
 
 Puede definir hasta diez destinos de almacenamiento diferentes para una caché. La caché presenta todos los destinos de almacenamiento en un espacio de nombres agregado.
 
@@ -35,9 +35,9 @@ Un nuevo destino de almacenamiento de Azure Blob Storage necesita un contenedo
 
 Puede crear un contenedor desde esta página justo antes de agregarlo.
 
-Para definir un contenedor de blobs de Azure, escriba esta información.
-
 ![captura de pantalla de la página de incorporación de destino de almacenamiento, rellenada con información para un nuevo destino de almacenamiento de Azure Blob Storage](media/hpc-cache-add-blob.png)
+
+Para definir un contenedor de blobs de Azure, escriba esta información.
 
 * **Storage target name** (Nombre de destino de almacenamiento): establezca un nombre que identifique este destino de almacenamiento en Azure HPC Cache.
 * **Target type** (Tipo de destino): elija **Blob**.
@@ -79,7 +79,7 @@ Pasos para agregar los roles de RBAC:
 1. En el campo **Seleccionar**, busque "hpc".  Esta cadena debe coincidir con una entidad de servicio, denominada "HPC Cache Resource Provider" (Proveedor de recursos de HPC Cache). Haga clic en ella para seleccionarla.
 
    > [!NOTE]
-   > Si una búsqueda de "hpc" no funciona, pruebe a usar la cadena "storagecache" en su lugar. Es posible que los usuarios que se han unido a las versiones preliminares (antes de la disponibilidad general) necesiten usar el nombre anterior de la entidad de servicio.
+   > Si una búsqueda de "hpc" no funciona, pruebe a usar la cadena "storagecache" en su lugar. Es posible que los usuarios que han participado en las versiones preliminares (antes de la disponibilidad general) necesiten usar el nombre anterior de la entidad de servicio.
 
 1. Haga clic en el botón **Guardar** en la parte inferior.
 
@@ -91,7 +91,10 @@ Pasos para agregar los roles de RBAC:
 
 Un destino de almacenamiento NFS tiene más campos que el destino de almacenamiento de blobs. Estos campos especifican cómo se llega a la exportación del almacenamiento y cómo se almacenan en caché sus datos de forma eficaz. Asimismo, un destino de almacenamiento NFS le permite crear varias rutas de acceso de espacio de nombres si el host NFS dispone de más de una exportación.
 
-![Captura de pantalla de la página para agregar destino de almacenamiento con destino NFS definido](media/hpc-cache-add-nfs-target.png)
+![Captura de pantalla de la página para agregar destino de almacenamiento con destino NFS definido](media/add-nfs-target.png)
+
+> [!NOTE]
+> Antes de crear un destino de almacenamiento NFS, asegúrese de que el sistema de almacenamiento sea accesible desde la instancia de Azure HPC Cache y cumple los requisitos de permisos. Se producirá un error en la creación del destino de almacenamiento si la memoria caché no tiene acceso suficiente al sistema de almacenamiento. Consulte [Requisitos de almacenamiento NFS](hpc-cache-prereqs.md#nfs-storage-requirements) y [Solución de problemas de configuración de NAS y problemas del destino de almacenamiento de NFS](troubleshoot-nas.md) para más información.
 
 Proporcione esta información para un destino de almacenamiento respaldado por NFS:
 
@@ -126,7 +129,7 @@ Cuando termine, haga clic en **Aceptar** para agregar el destino de almacenamien
 ### <a name="choose-a-usage-model"></a>Selección de un modelo de uso
 <!-- referenced from GUI - update aka.ms link if you change this heading -->
 
-Cuando cree un destino de almacenamiento que apunte a un sistema de almacenamiento NFS, deberá elegir el *modelo de uso* de ese destino. Este modelo determina cómo se almacenan los datos en caché.
+Cuando cree un destino de almacenamiento que apunte a un sistema de almacenamiento NFS, deberá elegir el modelo de uso de ese destino. Este modelo determina cómo se almacenan los datos en caché.
 
 Hay tres opciones:
 
@@ -138,7 +141,7 @@ Hay tres opciones:
 
 * **Mayor que el 15 % de textos**: esta opción acelera el rendimiento de lectura y escritura. Al usar esta opción, todos los clientes deben acceder a los archivos mediante Azure HPC Cache en lugar de montar el almacenamiento de back-end directamente. Los archivos almacenados en caché tendrán cambios recientes que no se almacenan en el back-end.
 
-  En este modelo de uso, los archivos de la memoria caché no se comparan con los archivos del almacenamiento de back-end. Se supone que la versión en caché del archivo es más actual. Un archivo modificado en la memoria caché solo se escribe en el sistema de almacenamiento de back-end después de que esté en la memoria caché durante una hora sin cambios adicionales.
+  En este modelo de uso, los archivos de la memoria caché no se comparan con los archivos del almacenamiento de back-end. Se supone que la versión en caché del archivo es más actual. Un archivo modificado en la memoria caché se escribe en el sistema de almacenamiento de back-end después de que esté en la memoria caché durante una hora sin cambios adicionales.
 
 * **Los clientes escriben en el destino NFS omitiendo la caché**: elija esta opción si algún cliente del flujo de trabajo escribe datos directamente en el sistema de almacenamiento sin escribir primero en la memoria caché. Los archivos que solicitan los clientes se almacenan en caché, pero los cambios que se realicen en esos archivos desde el cliente se devuelven al sistema de almacenamiento de back-end inmediatamente.
 

@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/15/2019
-ms.openlocfilehash: 69627c961d9224a124fda09f40901f837d627281
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: hdinsightactive
+ms.date: 04/07/2020
+ms.openlocfilehash: 4ede8833fdbdbd57654e6c02147f53e58a17b1de
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79233676"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80887000"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Planeamiento de la capacidad de los clústeres de HDInsight
 
@@ -41,13 +41,13 @@ El almacenamiento predeterminado, ya sea una cuenta de Azure Storage o Azure Dat
 
 ### <a name="location-of-existing-data"></a>Ubicación de los datos existentes
 
-Si ya tiene una cuenta de almacenamiento o un recurso de Data Lake Storage que contiene los datos y desea usar dicho almacenamiento como el predeterminado para el clúster, entonces debe implementar el clúster en esa misma ubicación.
+Si quiere usar una cuenta de almacenamiento existente o un recurso de Data Lake Store como el almacenamiento predeterminado del clúster, debe implementar el clúster en esa misma ubicación.
 
 ### <a name="storage-size"></a>Tamaño de almacenamiento
 
-Una vez que un clúster de HDInsight ya está implementado, puede adjuntar cuentas adicionales de Azure Storage o acceder a recursos de Data Lake Storage. Todas las cuentas de almacenamiento deben residir en la misma ubicación que el clúster. Un almacén de Data Lake Storage puede estar en una ubicación distinta, aunque esto puede ocasionar algo de latencia de lectura y escritura de datos.
+En un clúster implementado, puede adjuntar cuentas adicionales de Azure Storage o acceder a otros recursos de Data Lake Storage. Todas las cuentas de almacenamiento deben residir en la misma ubicación que el clúster. Un recurso de Data Lake Storage puede estar en una ubicación distinta, aunque una gran distancia puede presentar alguna latencia.
 
-Azure Storage tiene algunos [límites de capacidad](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits), mientras que Data Lake Storage Gen1 tiene una capacidad prácticamente ilimitada.
+Azure Storage tiene algunos [límites de capacidad](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits), mientras que Data Lake Storage Gen1 tiene una capacidad casi ilimitada.
 
 Un clúster puede acceder a una combinación de distintas cuentas de almacenamiento. Estos son ejemplos típicos:
 
@@ -60,27 +60,27 @@ Para mejorar el rendimiento, utilice un único contenedor por cada cuenta de alm
 
 ## <a name="choose-a-cluster-type"></a>Elección de un tipo de clúster
 
-El tipo de clúster determina la carga de trabajo configurada para que el clúster de HDInsight la ejecute, como [Apache Hadoop](https://hadoop.apache.org/), [Apache Storm](https://storm.apache.org/), [Apache Kafka](https://kafka.apache.org/) o [Apache Spark](https://spark.apache.org/). Para obtener una descripción detallada de los tipos de clúster disponibles, consulte [Introducción a Azure HDInsight](hdinsight-overview.md#cluster-types-in-hdinsight). Cada tipo de clúster tiene una topología de implementación específica que incluye los requisitos del tamaño y el número de nodos.
+El tipo de clúster determina la carga de trabajo configurada para que el clúster de HDInsight la ejecute. Entre los tipos se incluyen [Apache Hadoop](./hadoop/apache-hadoop-introduction.md), [Apache Storm](./storm/apache-storm-overview.md), [Apache Kafka](./kafka/apache-kafka-introduction.md) o [Apache Spark](./spark/apache-spark-overview.md). Para obtener una descripción detallada de los tipos de clúster disponibles, consulte [Introducción a Azure HDInsight](hdinsight-overview.md#cluster-types-in-hdinsight). Cada tipo de clúster tiene una topología de implementación específica que incluye los requisitos del tamaño y el número de nodos.
 
 ## <a name="choose-the-vm-size-and-type"></a>Elección del tipo y el tamaño de la máquina virtual
 
 Cada tipo de clúster tiene un conjunto de tipos de nodos, y cada uno de ellos incluye opciones específicas para el tamaño y el tipo de máquina virtual.
 
-Para determinar el tamaño de clúster óptimo de la aplicación, puede realizar pruebas comparativas de la capacidad del clúster y aumentar el tamaño como se indica. Por ejemplo, puede usar una carga de trabajo simulada o una *consulta de valor controlado*. Con una carga de trabajo simulada, ejecute las cargas de trabajo esperadas en clústeres de diferente tamaño, aumentando gradualmente el tamaño hasta alcanzar el rendimiento deseado. Una consulta de valor controlado puede insertarse periódicamente entre las demás consultas de producción para mostrar si el clúster tiene suficientes recursos.
+Para determinar el tamaño de clúster óptimo de la aplicación, puede realizar pruebas comparativas de la capacidad del clúster y aumentar el tamaño como se indica. Por ejemplo, puede usar una carga de trabajo simulada o una *consulta de valor controlado*. Ejecute las cargas de trabajo simuladas en clústeres de diferentes tamaños. Aumente gradualmente el tamaño hasta alcanzar el rendimiento previsto. Una consulta de valor controlado puede insertarse periódicamente entre las demás consultas de producción para mostrar si el clúster tiene suficientes recursos.
 
 Para obtener más información sobre cómo elegir la familia de máquinas virtuales adecuada para su carga de trabajo, consulte [Selección del tamaño de máquina virtual adecuado para el clúster](hdinsight-selecting-vm-size.md).
 
 ## <a name="choose-the-cluster-scale"></a>Elección de la escala del clúster
 
-La cantidad de nodos de una máquina virtual determina la escala de un clúster. Para todos los tipos de clúster, hay tipos de nodos que tienen una escala específica y otros que admiten el escalado horizontal. Por ejemplo, un clúster puede requerir exactamente tres nodos de [Apache ZooKeeper](https://zookeeper.apache.org/) o dos nodos principales. Los nodos de trabajo que procesan datos de forma distribuida pueden beneficiarse del escalado horizontal mediante la adición de nodos de trabajo adicionales.
+La cantidad de nodos de una máquina virtual determina la escala de un clúster. Para todos los tipos de clúster, hay tipos de nodos que tienen una escala específica y otros que admiten el escalado horizontal. Por ejemplo, un clúster puede requerir exactamente tres nodos de [Apache ZooKeeper](https://zookeeper.apache.org/) o dos nodos principales. Los nodos de trabajo que procesan datos de forma distribuida pueden beneficiarse de los nodos de trabajo adicionales.
 
-Dependiendo del tipo de clúster, aumentar el número de nodos de trabajo agrega capacidad de cálculo adicional (por ejemplo, más núcleos), pero también puede agregar la cantidad total de memoria necesaria para que todo el clúster admita el almacenamiento en memoria de los datos procesados. Al igual que sucede con la elección del tamaño y el tipo de máquina virtual, la selección de la escala correcta del clúster suele realizarse de forma empírica con la utilización de cargas de trabajo simuladas o consultas de valores controlados.
+En función del tipo de clúster, el aumento del número de nodos de trabajo agrega capacidad de proceso adicional (por ejemplo, más núcleos). Más nodos aumentarán la memoria total necesaria para que todo el clúster admita el almacenamiento en memoria de los datos que se procesan. Al igual que sucede con la elección del tamaño y el tipo de máquina virtual, la selección de la escala correcta del clúster suele realizarse de forma empírica. Use cargas de trabajo simuladas o consultas controladas.
 
-Puede escalar horizontalmente el clúster para satisfacer los picos de demandas de carga y, después, volver a reducir verticalmente cuando dichos nodos adicionales ya no sean necesarios. La [característica de escalabilidad automática](hdinsight-autoscale-clusters.md) le permite escalar automáticamente el clúster en función de las métricas y los intervalos predeterminados. Para obtener más información sobre cómo escalar los clústeres de forma manual, consulte [Escalabilidad de clústeres de HDInsight](hdinsight-scaling-best-practices.md).
+Puede escalar horizontalmente el clúster para satisfacer las demandas de carga máxima. A continuación, escale de nuevo cuando esos nodos adicionales ya no sean necesarios. La [característica de escalabilidad automática](hdinsight-autoscale-clusters.md) le permite escalar automáticamente el clúster en función de métricas y tiempos predeterminados. Para obtener más información sobre cómo escalar los clústeres de forma manual, consulte [Escalabilidad de clústeres de HDInsight](hdinsight-scaling-best-practices.md).
 
 ### <a name="cluster-lifecycle"></a>Ciclo de vida del clúster
 
-Se le cobra en función de la duración del clúster. Si solo necesita que el clúster funcione en momentos específicos, puede [crear clústeres a petición mediante Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md). También puede crear scripts de PowerShell que aprovisionen y eliminen el clúster y después programar dichos scripts con [Azure Automation](https://azure.microsoft.com/services/automation/).
+Se le cobra en función de la duración del clúster. Si solo hay ocasiones específicas en las que necesita el clúster, puede [crear clústeres a petición mediante Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md). También puede crear scripts de PowerShell que aprovisionen y eliminen el clúster y después programar dichos scripts con [Azure Automation](https://azure.microsoft.com/services/automation/).
 
 > [!NOTE]  
 > Cuando se elimina un clúster, su instancia de Hive Metastore predeterminada también se elimina. Para conservar Metastore para volver a crear el siguiente clúster, use un repositorio de metadatos externo, como Azure Database u [Apache Oozie](https://oozie.apache.org/).
@@ -88,17 +88,17 @@ Se le cobra en función de la duración del clúster. Si solo necesita que el cl
 
 ### <a name="isolate-cluster-job-errors"></a>Aislamiento de errores de trabajo del clúster
 
-A veces, los errores pueden producirse debido a la ejecución en paralelo de varios componentes de asignación y reducción en un clúster de varios nodos. Para facilitar el aislamiento del problema, intente realizar pruebas distribuidas mediante la ejecución de varios trabajos simultáneos en un clúster de un solo nodo de trabajo y luego expanda este enfoque para ejecutar varios trabajos simultáneamente en clústeres que contienen más de un nodo. Para crear un clúster de HDInsight de un solo nodo en Azure, use la opción *Custom (size,settings,apps)* (Personalizar [tamaño, configuración, aplicaciones]) y use un valor de 1 en *Number of Worker nodes* (Número de nodos de trabajo) en la sección **Tamaño de grupo** al aprovisionar un nuevo clúster en el portal.
+A veces, los errores pueden producirse debido a la ejecución en paralelo de varios componentes de asignación y reducción en un clúster de varios nodos. Para ayudar a aislar el problema, intente pruebas distribuidas. Ejecute varios trabajos simultáneos en un clúster de un solo nodo de trabajo. A continuación, expanda este enfoque para ejecutar varios trabajos simultáneamente en clústeres que contienen más de un nodo. Para crear un clúster de HDInsight de un solo nodo en Azure, use la opción *`Custom(size, settings, apps)`* y use un valor de 1 en *Number of Worker nodes* (Número de nodos de trabajo) en la sección **Cluster size** (Tamaño del clúster) al aprovisionar un nuevo clúster en el portal.
 
 ## <a name="quotas"></a>Cuotas
 
-Después de determinar el tamaño, la escala y el tipo de la máquina virtual del clúster de destino, compruebe los límites de capacidad de cuota actual de la suscripción. Cuando alcance un límite de cuota, puede que no sea capaz de implementar clústeres nuevos o de escalar horizontalmente los clústeres con la adición de más nodos de trabajo. El límite de cuota única es la cuota de núcleos de CPU que existe en el nivel de región para cada suscripción. Por ejemplo, la suscripción puede tener el límite de 30 núcleos en la región Este de EE. UU. 
+Después de determinar el tamaño, la escala y el tipo de la máquina virtual del clúster de destino, compruebe los límites de capacidad de cuota actual de la suscripción. Cuando alcance un límite de cuota, no podrá implementar clústeres nuevos. O bien, escale horizontalmente los clústeres existentes mediante la adición de más nodos de trabajo. El límite de cuota única es la cuota de núcleos de CPU que existe en el nivel de región para cada suscripción. Por ejemplo, la suscripción puede tener el límite de 30 núcleos en la región Este de EE. UU.
 
 Siga estos pasos para comprobar los núcleos disponibles:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-2. Vaya a la página **información general** para el clúster de HDInsight. 
-3. En el menú de la izquierda, haga clic en **Límites de cuota**.
+2. Vaya a la página **información general** para el clúster de HDInsight.
+3. En el menú de la izquierda, seleccione **Límites de cuota**.
 
    La página muestra el número de núcleos en uso, el número de núcleos disponibles y el total de núcleos.
 
@@ -125,9 +125,9 @@ Si fuera necesario solicitar un aumento de la cuota, siga estos pasos:
 
 Puede [ponerse en contacto con el servicio de soporte técnico para solicitar un aumento de la cuota](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request).
 
-Sin embargo, hay algunos límites de cuota fijos; por ejemplo, una única suscripción de Azure puede tener como máximo diez mil núcleos. Para obtener información detallada sobre estos límites, vea [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
+Hay algunos límites de cuota fijos. Por ejemplo, una sola suscripción de Azure puede tener como máximo 10 000 núcleos. Para obtener información detallada sobre estos límites, vea [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Configuración de clústeres en HDInsight con Hadoop, Spark, Kafka, etc.](hdinsight-hadoop-provision-linux-clusters.md): Aprenda a instalar y configurar clústeres en HDInsight con Apache Hadoop, Spark, Kafka, Interactive Hive, HBase, ML Services o Storm.
+* [Configuración de clústeres en HDInsight con Hadoop, Spark, Kafka, etc.](hdinsight-hadoop-provision-linux-clusters.md): Aprenda a instalar y configurar clústeres en HDInsight.
 * [Supervisión del rendimiento del clúster](hdinsight-key-scenarios-to-monitor.md): obtenga información sobre los escenarios claves para supervisar el clúster de HDInsight que podría afectar a la capacidad del clúster.

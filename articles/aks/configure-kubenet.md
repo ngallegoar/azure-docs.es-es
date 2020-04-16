@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/26/2019
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 9931c752d5ce33beb41dc00194c27d06b9469807
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 119265efa7b6504f3faf2e89cb68b9e9bd70bf9f
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77595900"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80617257"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Uso de redes kubenet con intervalos de direcciones IP propios en Azure Kubernetes Service (AKS)
 
@@ -25,7 +25,7 @@ En este artículo se muestra cómo usar las redes *kubenet* para crear y usar la
 * La red virtual del clúster AKS debe permitir la conectividad saliente de Internet.
 * No cree más de un clúster AKS en la misma subred.
 * Los clústeres AKS no pueden usar `169.254.0.0/16`, `172.30.0.0/16`, `172.31.0.0/16` ni `192.0.2.0/24` para el intervalo de direcciones del servicio Kubernetes.
-* La entidad de servicio usada por el clúster de AKS debe tener al menos permisos de [colaborador de la red](../role-based-access-control/built-in-roles.md#network-contributor) en la subred de la red virtual. Si quiere definir un [rol personalizado](../role-based-access-control/custom-roles.md) en lugar de usar el rol integrado de colaborador de red, se requieren los permisos siguientes:
+* La entidad de servicio usada por el clúster de AKS debe tener al menos el rol de [colaborador de la red](../role-based-access-control/built-in-roles.md#network-contributor) en la subred de la red virtual. Si quiere definir un [rol personalizado](../role-based-access-control/custom-roles.md) en lugar de usar el rol integrado de colaborador de red, se requieren los permisos siguientes:
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
 
@@ -118,9 +118,11 @@ az ad sp create-for-rbac --skip-assignment
 
 En la salida de ejemplo siguiente se muestran la contraseña y el identificador de aplicación de la entidad de servicio. Estos valores se usan en pasos adicionales para asignar un rol a la entidad de servicio y después crear el clúster de AKS:
 
-```console
-$ az ad sp create-for-rbac --skip-assignment
+```azurecli
+az ad sp create-for-rbac --skip-assignment
+```
 
+```output
 {
   "appId": "476b3636-5eda-4c0e-9751-849e70b5cfad",
   "displayName": "azure-cli-2019-01-09-22-29-24",
@@ -193,7 +195,7 @@ az aks create \
     --client-secret <password>
 ```
 
-Al crear un clúster de AKS, también se crean un grupo de seguridad de red y una tabla de ruta. Estos recursos de red los administra el plano de control de AKS. El grupo de seguridad de red se asocia automáticamente con la tarjetas de interfaz de red virtuales de los nodos. La tabla de ruta se asocia automáticamente con la subred de la red virtual. Las reglas y las tablas de ruta del grupo de seguridad de red se actualizan automáticamente cuando se crean y se exponen los servicios.
+Al crear un clúster de AKS, también se crean un grupo de seguridad de red y una tabla de ruta. Estos recursos de red los administra el plano de control de AKS. El grupo de seguridad de red se asocia automáticamente con la tarjetas de interfaz de red virtuales de los nodos. La tabla de ruta se asocia automáticamente con la subred de la red virtual. Las tablas de ruta y las reglas del grupo de seguridad de red se actualizan automáticamente cuando se crean y se exponen los servicios.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

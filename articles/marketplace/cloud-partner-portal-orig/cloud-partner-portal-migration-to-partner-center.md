@@ -5,14 +5,14 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 12/06/2019
+ms.date: 04/01/2020
 ms.author: dsindona
-ms.openlocfilehash: 8ef117425f945d14db535ea3ecedc50d18819868
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1245ed89376de4ce777137d8427e03487d0432ab
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80280174"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586108"
 ---
 # <a name="cloud-partner-portal-migration-to-partner-center"></a>Migración de Cloud Partner Portal al Centro de partners
 
@@ -20,14 +20,13 @@ Para simplificar su cuenta y ofrecer la experiencia de administración, Microsof
 
 | **Tipo de oferta** | **Administración de ofertas migrada de Cloud Partner Portal al Centro de partners** | **Capacidad para actualizar documentación y material adjunto de venta conjunta en el Centro de partners** |
 |    -----------------------    |    -----------------------------  |  -----------------------------  |
-| Software como servicio (SaaS) |     Ahora disponible       |   Disponibilidad general en febrero de 2020      |
+| Software como servicio (SaaS) |     Ahora disponible       |   Disponibilidad general en abril de 2020      |
 | Dynamics 365 for Customer Engagement y Power Apps      |     Ahora disponible        |   Ahora disponible      |
 | Dynamics 365 for Operations     |     Ahora disponible       |   Ahora disponible     |
-| Dynamics 365 Business Central      |     Ahora disponible        |   Disponibilidad general en febrero de 2020     |
-| Aplicación de Azure     |     Disponibilidad general de diciembre de 2019       |   Disponibilidad general en febrero de 2020     |
-| Máquina virtual de Azure      |     Por confirmar       |   Por confirmar    |
-| Contenedor de Azure     |     Por confirmar       |   Por confirmar     |
-| Servicio de consultoría      |     Por confirmar       |   Por confirmar     |
-| Módulo IoT Edge      |     Por confirmar       |   Por confirmar     |
-| Aplicación de servicio Power BI     |     Por confirmar       |   Por confirmar     |
-|  |  |
+| Dynamics 365 Business Central      |     Ahora disponible        |   Disponibilidad general en abril de 2020     |
+| Aplicación de Azure     |     Ahora disponible       |   Disponibilidad general en abril de 2020     |
+| Máquina virtual de Azure      |     Disponibilidad general en abril-mayo de 2020       |   Por confirmar    |
+| Contenedor de Azure     |     Disponibilidad general en abril-mayo de 2020       |   Por confirmar     |
+| Servicio de consultoría      |     Disponibilidad general en abril-mayo de 2020       |   Por confirmar     |
+| Módulo IoT Edge      |     Disponibilidad general en abril-mayo de 2020       |   Por confirmar     |
+| Aplicación de servicio Power BI     |     Disponibilidad general en abril-mayo de 2020       |   Por confirmar     |

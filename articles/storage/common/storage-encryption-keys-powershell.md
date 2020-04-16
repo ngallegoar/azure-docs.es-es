@@ -1,21 +1,21 @@
 ---
 title: Uso de PowerShell para configurar las claves administradas por el cliente
 titleSuffix: Azure Storage
-description: Configurar las claves que administra el cliente para el cifrado de Azure Storage desde PowerShell Las claves administradas por el cliente le permiten crear, rotar, deshabilitar y revocar los controles de acceso.
+description: Configurar las claves que administra el cliente para el cifrado de Azure Storage desde PowerShell
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/03/2019
+ms.date: 04/02/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 77324dff7e3f34574f36aa3bb775aed6a945a3bd
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: f24c89a53af5e618d64b78d6001040190c1f339c
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75665279"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618343"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-powershell"></a>Configuración de claves administradas por el cliente con Azure Key Vault mediante PowerShell
 
@@ -63,7 +63,7 @@ Para establecer la directiva de acceso del almacén de claves, llame a [Set-AzKe
 Set-AzKeyVaultAccessPolicy `
     -VaultName $keyVault.VaultName `
     -ObjectId $storageAccount.Identity.PrincipalId `
-    -PermissionsToKeys wrapkey,unwrapkey,get,recover
+    -PermissionsToKeys wrapkey,unwrapkey,get
 ```
 
 ## <a name="create-a-new-key"></a>Creación de una nueva clave
@@ -73,6 +73,8 @@ Después, cree una clave nueva en el almacén de claves. Para crear una clave nu
 ```powershell
 $key = Add-AzKeyVaultKey -VaultName $keyVault.VaultName -Name <key> -Destination 'Software'
 ```
+
+Solo se admiten las claves RSA y RSA-HSM de 2048 bits con el cifrado de Azure Storage. Para más información acerca de las claves, consulte la sección **Claves en Key Vault** en [Información acerca de claves, secretos y certificados de Azure Key Vault](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
 
 ## <a name="configure-encryption-with-customer-managed-keys"></a>Configuración del cifrado con claves que administra el cliente
 
@@ -97,9 +99,18 @@ Al crear una nueva versión de una clave, tendrá que actualizar la cuenta de al
 
 Para cambiar la clave usada para el cifrado de Azure Storage, llame a [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) tal y como se muestra en [Configuración del cifrado con claves que administra el cliente](#configure-encryption-with-customer-managed-keys) y proporcione el nombre y la versión de la nueva clave. Si la nueva clave se encuentra en otro almacén de claves, actualice también el URI del almacén de claves.
 
+## <a name="revoke-customer-managed-keys"></a>Revocación de claves administradas por el cliente
+
+Si cree que una clave puede estar en peligro, puede revocar las claves administradas por el cliente. Para ello, deberá quitar la directiva de acceso del almacén de claves. Para revocar una clave administrada por el cliente, llame al comando [Remove-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/remove-azkeyvaultaccesspolicy), como se muestra en el siguiente ejemplo. Recuerde reemplazar los valores de marcador de posición entre corchetes por sus propios valores y usar las variables definidas en los ejemplos anteriores.
+
+```powershell
+Remove-AzKeyVaultAccessPolicy -VaultName $keyVault.VaultName `
+    -ObjectId $storageAccount.Identity.PrincipalId `
+```
+
 ## <a name="disable-customer-managed-keys"></a>Deshabilitación de claves administradas por el cliente
 
-Cuando se deshabilitan las claves administradas por el cliente, la cuenta de almacenamiento se cifra con claves administradas por Microsoft. Para deshabilitar las claves administradas por el cliente, llame a [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) con la opción `-StorageEncryption` en, tal y como se muestra en el ejemplo siguiente. Recuerde reemplazar los valores de marcador de posición entre corchetes por sus propios valores y usar las variables definidas en los ejemplos anteriores.
+Cuando las claves administradas por el cliente se deshabilitan, la cuenta de almacenamiento se vuelve a cifrar con claves administradas por Microsoft. Para deshabilitar las claves administradas por el cliente, llame a [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) con la opción `-StorageEncryption` en, tal y como se muestra en el ejemplo siguiente. Recuerde reemplazar los valores de marcador de posición entre corchetes por sus propios valores y usar las variables definidas en los ejemplos anteriores.
 
 ```powershell
 Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `

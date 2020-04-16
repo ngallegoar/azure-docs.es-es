@@ -5,12 +5,12 @@ ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a
 ms.topic: article
 ms.date: 10/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 357ea2cc598bca3e008a74f021895e1e45a3874f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2f6dd455024aba184cbb16b5b9c7cfffd032dc70
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78301017"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811732"
 ---
 # <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>Configuración de la autenticación mutua de TLS en Azure App Service
 
@@ -41,7 +41,7 @@ Para configurar las rutas de exclusión, seleccione **Configuración** > **Confi
 
 ## <a name="access-client-certificate"></a>Acceso al certificado de cliente
 
-En App Service, la terminación SSL de la solicitud tiene lugar en el equilibrador de carga front-end. Al reenviar la solicitud al código de la aplicación con [certificados de cliente habilitados](#enable-client-certificates), App Service inserta un encabezado de solicitud `X-ARR-ClientCert` con el certificado de cliente. App Service no hace nada con este certificado de cliente aparte de reenviarlo a la aplicación. El código de la aplicación es responsable de validar el certificado de cliente.
+En App Service, la terminación TLS de la solicitud tiene lugar en el equilibrador de carga de front-end. Al reenviar la solicitud al código de la aplicación con [certificados de cliente habilitados](#enable-client-certificates), App Service inserta un encabezado de solicitud `X-ARR-ClientCert` con el certificado de cliente. App Service no hace nada con este certificado de cliente aparte de reenviarlo a la aplicación. El código de la aplicación es responsable de validar el certificado de cliente.
 
 En ASP.NET, el certificado de cliente está disponible mediante la propiedad **HttpRequest.ClientCertificate**.
 

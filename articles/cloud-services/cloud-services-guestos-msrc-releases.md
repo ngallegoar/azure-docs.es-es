@@ -10,40 +10,68 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 02/20/2020
+ms.date: 04/3/2020
 ms.author: raiye
-ms.openlocfilehash: 5411e47494668341a952a97268affe4157e85a9a
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.openlocfilehash: 758f0e3198ef83635ead3f9bd8565cd64f9d413c
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77506026"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656351"
 ---
 # <a name="azure-guest-os"></a>SO invitado de Azure
 En las tablas siguientes se muestran las actualizaciones del Centro de respuestas de seguridad de Microsoft (MSRC) aplicadas al sistema operativo invitado de Azure. Busque en este artículo para determinar si una actualización concreta se aplica al SO invitado que usa. Las actualizaciones siempre se realizan para la [familia][family-explain] determinada en la que se introdujeron.
 
-## <a name="february-2020-guest-os"></a>SO invitado de febrero de 2020
-
->[!NOTE]
->El sistema operativo invitado de febrero se está implementando actualmente en las máquinas virtuales del servicio en la nube que están configuradas para las actualizaciones automáticas. Una vez completada la implementación, esta versión estará disponible para las actualizaciones manuales mediante Azure Portal y los archivos de configuración. Las revisiones siguientes se incluyen en el sistema operativo invitado de febrero. Esta lista está sujeta a cambios.
+## <a name="march-2020-guest-os"></a>Sistema operativo invitado de marzo de 2020
 
 | Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
-|  Versión 20-02 |  [4537767]  |  Internet Explorer | 2.85, 3.82, 4.75 | 11 de febrero de 2020 |
-|  Versión 20-02 |  [4537813]  |  Seguridad de Windows | 2,85 | 11 de febrero de 2020 |
-|  Versión 20-02 |  [4537794]  |  Seguridad de Windows | 3.82 | 11 de febrero de 2020 |
-|  Versión 20-02 |  [4537803]  |  Seguridad de Windows | 4.75 | 11 de febrero de 2020 |
-|  Versión 20-02 |  [4537764]  |  Actualización acumulativa más reciente (LCU) | 5.4 | 11 de febrero de 2020 |
-|  Versión 20-02 |  [4532691]  |  Actualización acumulativa más reciente (LCU) | 6.16 | 11 de febrero de 2020 |
-|  Versión 20-02 |  [4534310]  |  Acumulación mensual | 2,85 | 14 de enero de 2020 |
-|  Versión 20-02 |  [4536952]  |  Actualización de la pila de servicio (SSU) | 2,85 | 14 de enero de 2020 |
-|  Versión 20-02 |  [4537829]  |  Actualización de la pila de servicio (SSU) | 2,85 | 11 de febrero de 2020 |
-|  Versión 20-02 |  [4538483]  |  Actualizaciones de seguridad ampliada (ESU) | 2,85 | 11 de febrero de 2020 |
-|  Versión 20-02 |  [4537820]  |  Acumulación mensual | 2,85 | 11 de febrero de 2020 |
-|  Versión 20-02 |  [4537759]  |  Actualización de seguridad (Flash) | 3.82, 4.75 | 11 de febrero de 2020 |
-|  Versión 20-02 |  [4534283]  |  Acumulación mensual | 3.82 | 14 de enero de 2020 |
-|  Versión 20-02 |  [4532920]  |  Actualización de la pila de servicio (SSU) | 3.82 | 10 de diciembre de 2020 |
-|  Versión 20-02 |  [4534297]  |  No relacionada con la seguridad | 4.75 | 14 de enero de 2020 |
+|  Versión 20-03  |  [4541500]  |  Seguridad de Windows  | [2.96] | 10 de marzo de 2020 |
+|  Versión 20-03  |  [4540671]  |  Internet Explorer  | [2.96], [3.83], [4.76] | 10 de marzo de 2020 |
+|  Versión 20-03  |  [4540694]  |  Seguridad de Windows  | [3.83] | 10 de marzo de 2020 |
+|  Versión 20-03  |  [4541505]  |  Seguridad de Windows  | [4.76] | 10 de marzo de 2020 |
+|  Versión 20-03  |  [4540670]  |  Actualización acumulativa más reciente (LCU)  | [5.41] | 10 de marzo de 2020 |
+|  Versión 20-03  |  [4538461]  |  Actualización acumulativa más reciente (LCU)  | [6.17] | 10 de marzo de 2020 |
+|  Versión 20-03  |  [4537820]  |  Acumulación mensual  | [2.96] | 11 de febrero de 2020 |
+|  Versión 20-03  |  [4537814]  |  Acumulación mensual  | [3.83] | 11 de febrero de 2020 |
+|  Versión 20-03  |  [4537821]  |  Acumulación mensual  | [4.76] | 11 de febrero de 2020 |
+
+[4541500]: https://support.microsoft.com/kb/4541500 
+[4540671]: https://support.microsoft.com/kb/4540671 
+[4540694]: https://support.microsoft.com/kb/4540694 
+[4541505]: https://support.microsoft.com/kb/4541505 
+[4540670]: https://support.microsoft.com/kb/4540670 
+[4538461]: https://support.microsoft.com/kb/4538461 
+[4537820]: https://support.microsoft.com/kb/4537820  
+[4537814]: https://support.microsoft.com/kb/4537814 
+[4537821]: https://support.microsoft.com/kb/4537821 
+
+[6.17]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+[5.41]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[4.76]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[3.83]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[2.96]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+
+
+## <a name="february-2020-guest-os"></a>SO invitado de febrero de 2020
+
+| Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| --- | --- | --- | --- | --- |
+|  Versión 20-02  |  [4537767]  |  Internet Explorer  |  [2.95], [3.82], [4.75]  |  11 de febrero de 2020  |
+|  Versión 20-02  |  [4537813]  |  Seguridad de Windows  |  [2.95]  |  11 de febrero de 2020  |
+|  Versión 20-02  |  [4537794]  |  Seguridad de Windows  |  [3.82]  |  11 de febrero de 2020  |
+|  Versión 20-02  |  [4537803]  |  Seguridad de Windows  |  [4.75]  |  11 de febrero de 2020  |
+|  Versión 20-02  |  [4537764]  |  Actualización acumulativa más reciente (LCU)  |  [5.40]  |  11 de febrero de 2020  |
+|  Versión 20-02  |  [4532691]  |  Actualización acumulativa más reciente (LCU)  |  [6.16]  |  11 de febrero de 2020  |
+|  Versión 20-02  |  [4534310]  |  Acumulación mensual  |  [2.95]  |  14 de enero de 2020  |
+|  Versión 20-02  |  [4536952]  |  Actualización de la pila de servicio (SSU)  |  [2.95]  |  14 de enero de 2020  |
+|  Versión 20-02  |  [4537829]  |  Actualización de la pila de servicio (SSU)  |  [2.95]  |  11 de febrero de 2020  |
+|  Versión 20-02  |  [4538483]  |  Actualizaciones de seguridad ampliada (ESU)  |  [2.95]  |  11 de febrero de 2020  |
+|  Versión 20-02  |  [4537820]  |  Acumulación mensual  |  [2.95]  |  11 de febrero de 2020  |
+|  Versión 20-02  |  [4537759]  |  Actualización de seguridad (Flash)  |  [3.82], [4.75]  |  11 de febrero de 2020  |
+|  Versión 20-02  |  [4534283]  |  Acumulación mensual  |  [3.82]  |  14 de enero de 2020  |
+|  Versión 20-02  |  [4532920]  |  Actualización de la pila de servicio (SSU)  |  [3.82]  |  10 de diciembre de 2020  |
+|  Versión 20-02  |  [4534297]  |  No relacionada con la seguridad  |  [4.75]  |  14 de enero de 2020  |
 
 [4537767]: https://support.microsoft.com/kb/4537767
 [4537813]: https://support.microsoft.com/kb/4537813
@@ -60,6 +88,12 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 [4534283]: https://support.microsoft.com/kb/4534283
 [4532920]: https://support.microsoft.com/kb/4532920
 [4534297]: https://support.microsoft.com/kb/4534297
+
+[6.16]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+[5.40]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[4.75]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[3.82]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[2.95]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
 
 
 ## <a name="january-2020-guest-os"></a>Sistema operativo invitado de enero de 2020
@@ -2133,36 +2167,36 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 [3002657]: https://support.microsoft.com/kb/3002657
 [3035126]: https://support.microsoft.com/kb/3035126
 
-[3049563]: https://support.microsoft.com/kb/3049563
-[3057110]: https://support.microsoft.com/kb/3057110
-[3046002]: https://support.microsoft.com/kb/3046002
-[3057134]: https://support.microsoft.com/kb/3057134
-[3055642]: https://support.microsoft.com/kb/3055642
-[3057191]: https://support.microsoft.com/kb/3057191
-[3050514]: https://support.microsoft.com/kb/3050514
-[3057263]: https://support.microsoft.com/kb/3057263
-[3051768]: https://support.microsoft.com/kb/3051768
-[3061518]: https://support.microsoft.com/kb/3061518
+[3049563]:https://support.microsoft.com/kb/3049563
+[3057110]:https://support.microsoft.com/kb/3057110
+[3046002]:https://support.microsoft.com/kb/3046002
+[3057134]:https://support.microsoft.com/kb/3057134
+[3055642]:https://support.microsoft.com/kb/3055642
+[3057191]:https://support.microsoft.com/kb/3057191
+[3050514]:https://support.microsoft.com/kb/3050514
+[3057263]:https://support.microsoft.com/kb/3057263
+[3051768]:https://support.microsoft.com/kb/3051768
+[3061518]:https://support.microsoft.com/kb/3061518
 
-[3038314]: https://support.microsoft.com/kb/3038314
-[3042553]: https://support.microsoft.com/kb/3042553
-[3046306]: https://support.microsoft.com/kb/3046306
-[3046269]: https://support.microsoft.com/kb/3046269
-[3049576]: https://support.microsoft.com/kb/3049576
-[3046482]: https://support.microsoft.com/kb/3046482
-[3045711]: https://support.microsoft.com/kb/3045711
-[3048010]: https://support.microsoft.com/kb/3048010
-[3047234]: https://support.microsoft.com/kb/3047234
-[3045755]: https://support.microsoft.com/kb/3045755
-[3030377]: https://support.microsoft.com/kb/3030377
-[3039976]: https://support.microsoft.com/kb/3039976
+[3038314]:https://support.microsoft.com/kb/3038314
+[3042553]:https://support.microsoft.com/kb/3042553
+[3046306]:https://support.microsoft.com/kb/3046306
+[3046269]:https://support.microsoft.com/kb/3046269
+[3049576]:https://support.microsoft.com/kb/3049576
+[3046482]:https://support.microsoft.com/kb/3046482
+[3045711]:https://support.microsoft.com/kb/3045711
+[3048010]:https://support.microsoft.com/kb/3048010
+[3047234]:https://support.microsoft.com/kb/3047234
+[3045755]:https://support.microsoft.com/kb/3045755
+[3030377]:https://support.microsoft.com/kb/3030377
+[3039976]:https://support.microsoft.com/kb/3039976
 
-[3058515]: https://support.microsoft.com/kb/3058515
-[3033890]: https://support.microsoft.com/kb/3033890
-[3059317]: https://support.microsoft.com/kb/3059317
-[3057839]: https://support.microsoft.com/kb/3057839
-[3062577]: https://support.microsoft.com/kb/3062577
-[3063858]: https://support.microsoft.com/kb/3063858
+[3058515]:https://support.microsoft.com/kb/3058515
+[3033890]:https://support.microsoft.com/kb/3033890
+[3059317]:https://support.microsoft.com/kb/3059317
+[3057839]:https://support.microsoft.com/kb/3057839
+[3062577]:https://support.microsoft.com/kb/3062577
+[3063858]:https://support.microsoft.com/kb/3063858
 
 
 [archive]: https://msdn.microsoft.com/library/azure/dn391773.aspx

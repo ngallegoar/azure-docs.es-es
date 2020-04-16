@@ -8,15 +8,15 @@ ms.assetid: 9389cf0f-0036-4b17-95da-80838edd2225
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.topic: article
-ms.date: 11/26/2019
+ms.topic: how-to
+ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: cc126af67a0d8627d61e595cee56f3df8973340d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9ef7e14cc2a290cc5583e3e599e278f98882152c
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77613047"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80654737"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-azure-active-directory-domain-services"></a>Configuración de la sincronización con ámbito entre Azure AD y Azure Active Directory Domain Services
 
@@ -47,13 +47,15 @@ Use Azure Portal o PowerShell para configurar la sincronización con ámbito:
 | Deshabilitación de la sincronización con ámbito | [Azure Portal](#disable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#disable-scoped-synchronization-using-powershell) |
 
 > [!WARNING]
-> Al cambiar el ámbito de sincronización el dominio administrado de Azure AD DS vuelve a sincronizar todos los datos.
+> Al cambiar el ámbito de sincronización el dominio administrado de Azure AD DS vuelve a sincronizar todos los datos. Se aplican las siguientes consideraciones:
 > 
 >  * Cuando se cambia el ámbito de sincronización de un dominio administrado de Azure AD DS, se produce una resincronización completa.
 >  * Los objetos que ya no son necesarios en el dominio administrado de Azure AD DS se eliminan. Se crean objetos en el dominio administrado.
 >  * La resincronización puede tardar mucho tiempo en completarse; depende del número de objetos, como usuarios, grupos y pertenencias a grupos en el dominio administrado de Azure AD DS y el directorio de Azure AD. En directorios grandes con muchos cientos de miles de objetos, la resincronización puede tardar algunos días.
 
 ## <a name="enable-scoped-synchronization-using-the-azure-portal"></a>Habilitación de la sincronización con ámbito mediante Azure Portal
+
+Para habilitar la sincronización con ámbito en Azure Portal, complete los pasos siguientes:
 
 1. Siga el [tutorial para crear y configurar una instancia de Azure AD DS](tutorial-create-instance-advanced.md). Aparte del ámbito de sincronización, complete todos los requisitos previos y los pasos de implementación.
 1. Elija **Ámbito** en el paso de sincronización y, después, seleccione los grupos de Azure AD que se van a sincronizar con la instancia de Azure AD DS.
@@ -173,7 +175,7 @@ Write-Output "******************************************************************
 
 ## <a name="enable-scoped-synchronization-using-powershell"></a>Habilitación de la sincronización con ámbito mediante PowerShell
 
-Use PowerShell para completar este conjunto de pasos. Consulte las instrucciones para [habilitar Azure Active Directory Domain Services mediante PowerShell](powershell-create-instance.md). Un par de pasos de este artículo se han modificado ligeramente para configurar la sincronización con ámbito.
+Utilice PowerShell para completar este conjunto de pasos. Consulte las instrucciones para [habilitar Azure Active Directory Domain Services mediante PowerShell](powershell-create-instance.md). Un par de pasos de este artículo se han modificado ligeramente para configurar la sincronización con ámbito.
 
 1. Lleve a cabo las siguientes tareas del artículo para habilitar Azure AD DS con PowerShell. Deténgase en el paso para crear realmente el dominio administrado. La sincronización con ámbito se configura para crear el dominio administrado de Azure AD DS.
 

@@ -3,33 +3,33 @@ title: Etapas de implementación de un plano técnico
 description: Conozca los pasos relacionados con la seguridad y los artefactos que recorren los servicios de Azure Blueprints al crear una asignación de plano técnico.
 ms.date: 11/13/2019
 ms.topic: conceptual
-ms.openlocfilehash: daa7722fa37547929aa21b76b870f70143ae71ab
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 61d19c84cd659b9df3a272c5c2743944e51df06e
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76156631"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677327"
 ---
 # <a name="stages-of-a-blueprint-deployment"></a>Etapas de implementación de un plano técnico
 
 Cuando se implementa un plano técnico, el servicio de Azure Blueprints lleva a cabo una serie de acciones para implementar los recursos definidos en el plano. En este artículo se proporcionan detalles sobre lo que implica cada paso.
 
-La implementación del plano técnico se desencadena mediante la asignación de un plano a una suscripción o [la actualización de una asignación existente](../how-to/update-existing-assignments.md). Durante la implementación, Azure Blueprints realiza los siguientes pasos generales:
+La implementación del plano técnico se desencadena mediante la asignación de un plano a una suscripción o [la actualización de una asignación existente](../how-to/update-existing-assignments.md). Durante la implementación, Azure Blueprints realiza los siguientes pasos generales:
 
 > [!div class="checklist"]
-> - Concesión a Blueprints de derechos de propietario
+> - Concesión a Azure Blueprints de derechos de propietario
 > - Creación del objeto de asignación del plano técnico
-> - Opcional: creación por Blueprints de la identidad administrada **asignada por el sistema**
+> - Opcional: Azure Blueprints crea la identidad administrada **asignada por el sistema**
 > - Implementación de artefactos del plano técnico por la identidad administrada
-> - Revocación de derechos de identidad administrada **asignada por el sistema** y del servicio Blueprints
+> - Revocación de derechos de la identidad administrada **asignada por el sistema** y del servicio Azure Blueprints
 
-## <a name="blueprints-granted-owner-rights"></a>Concesión a Blueprints de derechos de propietario
+## <a name="azure-blueprints-granted-owner-rights"></a>Concesión a Azure Blueprints de derechos de propietario
 
-Cuando se usa una [identidad administrada asignada por el sistema](../../../active-directory/managed-identities-azure-resources/overview.md), a la entidad de servicio de Azure Blueprints se le conceden derechos de propietario en la suscripción o suscripciones asignadas. El rol concedido permite a Blueprints crear y revocar después la identidad administrada **asignada por el sistema**. Si usa una identidad administrada **asignada por el usuario**, la entidad de servicio de Azure Blueprints no obtiene y no necesita derechos de propietario sobre la suscripción.
+Cuando se usa una [identidad administrada asignada por el sistema](../../../active-directory/managed-identities-azure-resources/overview.md), a la entidad de servicio de Azure Blueprints se le conceden derechos de propietario en la suscripción o suscripciones asignadas. El rol concedido permite a Azure Blueprints crear y revocar después la identidad administrada **asignada por el sistema**. Si usa una identidad administrada **asignada por el usuario**, la entidad de servicio de Azure Blueprints no obtiene y no necesita derechos de propietario sobre la suscripción.
 
 Los derechos se conceden automáticamente si la asignación se realiza a través del portal. Sin embargo, si la asignación se realiza a través de la API REST, la concesión de derechos debe hacerse con una llamada API independiente. El valor de AppId de Azure Blueprints es `f71766dc-90d9-4b7d-bd9d-4499c4331c3f`, pero la entidad de servicio varía según el inquilino. Use la [Graph API de Azure Active Directory](../../../active-directory/develop/active-directory-graph-api.md) y el punto de conexión REST [servicePrincipals](/graph/api/resources/serviceprincipal) para obtener la entidad de servicio. A continuación, conceda a Azure Blueprints el rol _Propietario_ a través del [Portal](../../../role-based-access-control/role-assignments-portal.md), la [CLI de Azure](../../../role-based-access-control/role-assignments-cli.md), [Azure PowerShell](../../../role-based-access-control/role-assignments-powershell.md), la [API REST](../../../role-based-access-control/role-assignments-rest.md) o una [plantilla de Resource Manager](../../../role-based-access-control/role-assignments-template.md).
 
-El servicio Blueprints no implementa directamente los recursos.
+El servicio Azure Blueprints no implementa directamente los recursos.
 
 ## <a name="the-blueprint-assignment-object-is-created"></a>Creación del objeto de asignación del plano técnico
 
@@ -37,9 +37,9 @@ Un usuario, grupo o entidad de servicio asigna un plano técnico a una suscripci
 
 Al crear la asignación del plano técnico, se selecciona el tipo de [identidad administrada](../../../active-directory/managed-identities-azure-resources/overview.md). El valor predeterminado es una identidad administrada **asignada por el sistema**. Se puede elegir una identidad administrada **asignada por el usuario**. Cuando se usa una identidad administrada **asignada por el usuario**, deben definirse y concederse los permisos antes de la creación de la asignación del plano técnico. Los roles integrados de [Propietario](../../../role-based-access-control/built-in-roles.md#owner) y [Operador de Azure Blueprints](../../../role-based-access-control/built-in-roles.md#blueprint-operator) tienen el permiso `blueprintAssignment/write` necesario para crear una asignación que utilice una identidad administrada **asignada por el usuario**.
 
-## <a name="optional---blueprints-creates-system-assigned-managed-identity"></a>Opcional: creación por Blueprints de la identidad administrada asignada por el sistema
+## <a name="optional---azure-blueprints-creates-system-assigned-managed-identity"></a>Opcional: Azure Blueprints crea la identidad administrada asignada por el sistema
 
-Cuando se selecciona una [identidad administrada asignada por el sistema](../../../active-directory/managed-identities-azure-resources/overview.md) durante la asignación, Blueprints crea la identidad y concede a la identidad administrada el rol de [propietario](../../../role-based-access-control/built-in-roles.md#owner). Si se [actualiza una asignación existente](../how-to/update-existing-assignments.md), Blueprints utiliza la identidad administrada creada anteriormente.
+Cuando se selecciona [identidad administrada asignada por el sistema](../../../active-directory/managed-identities-azure-resources/overview.md) durante la asignación, Azure Blueprints crea la identidad y concede a la identidad administrada el rol de [propietario](../../../role-based-access-control/built-in-roles.md#owner). Si se [actualiza una asignación existente](../how-to/update-existing-assignments.md), Azure Blueprints utiliza la identidad administrada creada anteriormente.
 
 La identidad administrada relacionada con la asignación del plano técnico se usa para implementar o volver a implementar los recursos definidos en el plano técnico. Este diseño evita que las asignaciones interfieran de forma inadvertida entre sí.
 Este diseño también admite la característica del [bloqueo de recursos](./resource-locking.md) mediante el control de la seguridad de cada recurso implementado desde el plano técnico.
@@ -48,11 +48,11 @@ Este diseño también admite la característica del [bloqueo de recursos](./reso
 
 La identidad administrada, a continuación, desencadena las implementaciones de Resource Manager de los artefactos en el plano en el [orden secuenciación](./sequencing-order.md) definido. El orden se puede ajustar para garantizar que los artefactos dependientes de otros artefactos se implementan en el orden correcto.
 
-Un error de acceso de una implementación suele ser el resultado del nivel de acceso concedido a la identidad administrada. El servicio Blueprints administra el ciclo de vida de la seguridad de la identidad administrada **asignada por el sistema**. Sin embargo, el usuario es responsable de administrar los derechos y el ciclo de vida de una identidad administrada **asignada por el usuario**.
+Un error de acceso de una implementación suele ser el resultado del nivel de acceso concedido a la identidad administrada. El servicio Azure Blueprints administra el ciclo de vida de la seguridad de la identidad administrada **asignada por el sistema**. Sin embargo, el usuario es responsable de administrar los derechos y el ciclo de vida de una identidad administrada **asignada por el usuario**.
 
 ## <a name="blueprint-service-and-system-assigned-managed-identity-rights-are-revoked"></a>Revocación de derechos de identidad administrada asignada por el sistema y del servicio Blueprints
 
-Una vez que se completan las implementaciones, Blueprints revoca los derechos de la identidad administrada **asignada por el sistema** de la suscripción. A continuación, el servicio Blueprints revoca sus derechos de la suscripción. La eliminación de derechos evita que Blueprints se convierta en un propietario permanente en una suscripción.
+Una vez que se completan las implementaciones, Azure Blueprints revoca los derechos de la identidad administrada **asignada por el sistema** de la suscripción. A continuación, el servicio Azure Blueprints revoca sus derechos de la suscripción. La eliminación de derechos evita que Azure Blueprints se convierta en un propietario permanente en una suscripción.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

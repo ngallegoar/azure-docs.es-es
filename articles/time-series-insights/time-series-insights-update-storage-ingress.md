@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.custom: seodec18
-ms.openlocfilehash: 2f12cf303c58f0fa614c59ffe643c6c2ee5d2415
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 95a579cacc339360295f5f25fa6415ab29cd68ff
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78246181"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80673897"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Almacenamiento y entrada de datos en la versión preliminar de Azure Time Series Insights
 
@@ -42,7 +42,7 @@ La versión preliminar de Azure Time Series Insights admite los siguientes oríg
 - [Azure IoT Hub](../iot-hub/about-iot-hub.md)
 - [Azure Event Hubs](../event-hubs/event-hubs-about.md)
 
-La versión preliminar de Azure Time Series Insights admite un máximo de dos orígenes de eventos por instancia.
+La versión preliminar de Azure Time Series Insights admite un máximo de dos orígenes de eventos por instancia. Cuando conecte un origen de eventos, el entorno TSI leerá todos los eventos almacenados actualmente en su lote o en Event Hub, empezando por el evento más antiguo. 
 
 > [!IMPORTANT] 
 > * Al conectar un origen del evento a un entorno de versión preliminar, puede experimentar una latencia inicial elevada. 
@@ -91,7 +91,7 @@ En general, las tasas de entrada se ven como el factor del número de dispositiv
 
 *  **Número de dispositivos** × **Frecuencia de emisión de eventos** × **Tamaño de cada evento**.
 
-De forma predeterminada, la versión preliminar de Time Series Insights puede ingerir datos entrantes a una velocidad de **hasta 1 megabyte por segundo (MBps) por entorno de Time Series Insights**.
+De forma predeterminada, la versión preliminar de Time Series Insights puede ingerir datos entrantes a una velocidad de **hasta 1 megabyte por segundo (MBps) por entorno de Time Series Insights**. Existen limitaciones adicionales [por partición de centro de conectividad](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-storage-ingress#hub-partitions-and-per-partition-limits).
 
 > [!TIP] 
 > * La compatibilidad del entorno con velocidades de ingesta de hasta 16 MBps se puede proporcionar a petición.
@@ -99,7 +99,7 @@ De forma predeterminada, la versión preliminar de Time Series Insights puede in
  
 * **Ejemplo 1:**
 
-    Contoso Shipping tiene 100.000 dispositivos que emiten un evento tres veces por minuto. El tamaño de un evento es de 200 bytes. Usan una instancia de Event Hubs con cuatro particiones como origen de eventos de Time Series Insights.
+    Contoso Shipping tiene 100.000 dispositivos que emiten un evento tres veces por minuto. El tamaño de un evento es de 200 bytes. Usan una instancia de IoT Hub con cuatro particiones como origen de eventos de Time Series Insights.
 
     * La tasa de ingesta para su entorno de Time Series Insights sería: **100 000 dispositivos * 200 bytes/evento * (3/60 evento/segundo) = 1 MBps**.
     * La tasa de ingesta por partición sería de 0,25 MBps.
@@ -107,11 +107,11 @@ De forma predeterminada, la versión preliminar de Time Series Insights puede in
 
 * **Ejemplo 2:**
 
-    Contoso Fleet Analytics tiene 60.000 dispositivos que emiten un evento cada segundo. Están utilizando un recuento de 24 particiones de IoT Hub de 4 como origen del evento de Time Series Insights. El tamaño de un evento es de 200 bytes.
+    Contoso Fleet Analytics tiene 60.000 dispositivos que emiten un evento cada segundo. Usan una instancia de Event Hub con un número de particiones de 4 como origen de eventos de Time Series Insights. El tamaño de un evento es de 200 bytes.
 
-    * La tasa de ingesta de entorno sería: **20 000 dispositivos * 200 bytes/evento * 1 evento/segundo = 4 MBps**.
-    * La tasa de ingesta por partición sería de 1 MBps.
-    * Contoso Fleet Analytics puede enviar una solicitud a Time Series Insights a través de Azure Portal para aumentar la tasa de ingesta de su entorno.
+    * La tasa de ingesta de entorno sería: **60 000 dispositivos * 200 bytes/evento * 1 evento/segundo = 12 MBps**.
+    * La velocidad por partición sería de 3 MBps.
+    * La tasa de ingesta de análisis de Contoso Fleet Analytics supera los límites del entorno y de la partición. Pueden enviar una solicitud a Time Series Insights a través de Azure Portal para aumentar la tasa de ingesta de su entorno y crear una instancia de Event Hub con más particiones que estén dentro de los límites de la versión preliminar.
 
 #### <a name="hub-partitions-and-per-partition-limits"></a>Particiones del centro y límites por partición
 

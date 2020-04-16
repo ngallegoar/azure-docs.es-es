@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/24/2019
-ms.openlocfilehash: 6c199a0dd75b89d9c9368e799c97a28b73758d06
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: hdinsightactive
+ms.date: 04/06/2020
+ms.openlocfilehash: 787d88d336abcf3b0ba9b14c3d3798850b665eca
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73097101"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745096"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Uso de Apache Ambari Hive View con Apache Hadoop en HDInsight
 
@@ -21,14 +21,13 @@ ms.locfileid: "73097101"
 
 Aprenda a ejecutar consultas de Hive utilizando Apache Ambari Hive View. La vista de Hive permite crear, optimizar y ejecutar consultas de Hive directamente desde el explorador web.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
-* Un clúster de Hadoop en HDInsight. Consulte [Introducción a HDInsight en Linux](./apache-hadoop-linux-tutorial-get-started.md).
-* Un explorador web
+Un clúster de Hadoop en HDInsight. Consulte [Introducción a HDInsight en Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
 ## <a name="run-a-hive-query"></a>Ejecución de una consulta de Hive
 
-1. En [Azure Portal](https://portal.azure.com/), seleccione su clúster.  Consulte [Enumeración y visualización de clústeres](../hdinsight-administer-use-portal-linux.md#showClusters) para obtener instrucciones. El clúster se abre en una nueva hoja del portal.
+1. En [Azure Portal](https://portal.azure.com/), seleccione su clúster.  Consulte [Enumeración y visualización de clústeres](../hdinsight-administer-use-portal-linux.md#showClusters) para obtener instrucciones. El clúster se abre en una nueva vista del portal.
 
 1. Desde **Paneles de clúster**, seleccione **Vistas de Ambari**. Cuando se le solicite autenticarse, use el nombre de cuenta y la contraseña de inicio de sesión del clúster (el valor predeterminado es `admin`) que proporcionó al crear el clúster. También puede ir a `https://CLUSTERNAME.azurehdinsight.net/#/main/views` en el explorador, donde `CLUSTERNAME` es el nombre del clúster.
 
@@ -61,16 +60,13 @@ Aprenda a ejecutar consultas de Hive utilizando Apache Ambari Hive View. La vist
 
     Estas instrucciones realizan las acciones siguientes:
 
-   * `DROP TABLE`: elimina la tabla y el archivo de datos, en caso de que ya exista la tabla.
-
-   * `CREATE EXTERNAL TABLE`: crea una nueva tabla "externa" en Hive.
-     Las tablas externas solo almacenan la definición de tabla en Hive. Los datos permanecen en la ubicación original.
-
-   * `ROW FORMAT`: indica el formato de los datos. En este caso, los campos de cada registro se separan mediante un espacio.
-
-   * `STORED AS TEXTFILE LOCATION`: indica dónde se almacenan los datos y que se almacenan como texto.
-
-   * `SELECT`: selecciona el número total de filas en las que la columna t4 contiene el valor [ERROR].
+    |. | Descripción |
+    |---|---|
+    |DROP TABLE|elimina la tabla y el archivo de datos, en caso de que ya exista la tabla.|
+    |CREATE EXTERNAL TABLE|crea una nueva tabla "externa" en Hive. Las tablas externas solo almacenan la definición de tabla en Hive. Los datos permanecen en la ubicación original.|
+    |ROW FORMAT|indica el formato de los datos. En este caso, los campos de cada registro se separan mediante un espacio.|
+    |STORED AS TEXTFILE LOCATION|indica dónde se almacenan los datos y que se almacenan como texto.|
+    |SELECT|selecciona un recuento de todas las filas donde la columna t4 contiene el valor [ERROR].|
 
    > [!IMPORTANT]  
    > Deje la selección de __base de datos__ en el __valor predeterminado__. Los ejemplos de este documento usan la base de datos predeterminada que se incluye en HDInsight.
@@ -131,7 +127,7 @@ Si desea declarar y guardar un conjunto de UDF, utilice la pestaña **UDF** situ
 
 ![Pantalla de la pestaña Ver UDF de Apache Hive](./media/apache-hadoop-use-hive-ambari-view/user-defined-functions.png)
 
-Cuando agregue una UDF a la vista de Hive, aparecerá el botón **Insert udfs** (Insertar UDF) en la parte inferior del **Editor de consultas**. Al seleccionar esta entrada se muestra una lista desplegable de UDF definidas en la vista de Hive. Al seleccionar una función definida por el usuario se agregan instrucciones HiveQL a la consulta para habilitar dicha función.
+Aparecerá el botón **Insertar UDF** en la parte inferior del **Editor de consultas**. Esta entrada muestra una lista desplegable de las UDF definidas en la vista de Hive. Al seleccionar una función definida por el usuario se agregan instrucciones HiveQL a la consulta para habilitar dicha función.
 
 Por ejemplo, si especificó una función definida por el usuario con las siguientes propiedades:
 
@@ -155,13 +151,13 @@ A continuación, puede usar la función definida por el usuario en la consulta. 
 Para más información sobre el uso de UDF con Hive en HDInsight, consulte los artículos siguientes:
 
 * [Uso de Python con Apache Hive y Apache Pig en Azure HDInsight](python-udf-hdinsight.md)
-* [Cómo agregar una UDF de Apache Hive personalizada a HDInsight](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
+* [Utilización de una función definida por el usuario de Java con Apache Hive en HDInsight](./apache-hadoop-hive-java-udf.md)
 
 ## <a name="hive-settings"></a>Configuración de Hive
 
 Puede modificar la configuración de Hive; por ejemplo, puede cambiar el motor de ejecución de Hive de Tez (valor predeterminado) a MapReduce.
 
-## <a name="next-steps"></a><a id="nextsteps"></a>Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para consultar información general sobre Hive en HDInsight:
 

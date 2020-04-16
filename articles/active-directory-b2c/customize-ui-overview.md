@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/30/2020
+ms.date: 04/04/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: dad4c156b088c28ccf199cb155278ac9a189e4be
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 37ddf57057b736cd76a74276e5593a865e7df8cc
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78189062"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80666870"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Personalización de la interfaz de usuario en Azure Active Directory B2C
 
@@ -84,13 +84,17 @@ Revise la siguiente guía antes de usar sus propios archivos HTML y CSS para per
   - Compatibilidad limitada con Internet Explorer 9 y 8.
   - Google Chrome 42.0 y versiones posteriores
   - Mozilla Firefox 38.0 y versiones posteriores
+  - Safari para iOS y macOS, versión 12 y posteriores
 - No incluya **etiquetas de formulario** en el código HTML. Las etiquetas de formulario interfieren con las operaciones POST generadas por el código HTML que Azure AD B2C inserta.
 
 ### <a name="where-do-i-store-ui-content"></a>¿Dónde se puede almacenar el contenido de la interfaz de usuario?
 
 Al utilizar sus propios archivos HTML y CSS para personalizar la interfaz de usuario, puede hospedar el contenido de la interfaz de usuario en cualquier punto de conexión HTTPS disponible públicamente que admita CORS. Por ejemplo, [Azure BLOB Storage](../storage/blobs/storage-blobs-introduction.md), servidores web, redes CDN, AWS S3 o sistemas de uso compartido de archivos.
 
-Recuerde que podrá continuar trabajando siempre y cuando el contenido se hospede en un punto de conexión HTTPS disponible públicamente con CORS habilitado. Debe usar una dirección URL absoluta cuando la especifique en el contenido.
+Recuerde que podrá continuar trabajando siempre y cuando el contenido se hospede en un punto de conexión HTTPS disponible públicamente con [CORS habilitado](https://enable-cors.org/server.html). Debe usar una dirección URL absoluta cuando la especifique en el contenido.
+
+> [!NOTE]
+> Para más información sobre la creación de contenido HTML, la carga de contenido en Azure Blob Storage y la configuración de CORS, consulte la sección [Tutorial sobre el contenido de la página personalizada](custom-policy-ui-customization.md#custom-page-content-walkthrough) en el artículo de personalización de la interfaz de usuario.
 
 ## <a name="get-started-with-custom-html-and-css"></a>Introducción al código HTML y CSS personalizado
 

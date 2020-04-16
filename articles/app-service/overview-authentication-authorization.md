@@ -1,22 +1,27 @@
 ---
 title: Autenticación y autorización
-description: Obtenga información sobre el soporte de autenticación y autorización integrado en Azure App Service y cómo puede ayudarle a proteger la aplicación frente al acceso no autorizado.
+description: Obtenga información sobre el soporte de autenticación y autorización integrado en Azure App Service y Azure Functions, y cómo puede ayudarle a proteger la aplicación frente al acceso no autorizado.
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.topic: article
 ms.date: 08/12/2019
 ms.reviewer: mahender
-ms.custom: seodec18
-ms.openlocfilehash: efef578f5c62bef4ae33b98b568fd6d5c1389c4a
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.custom:
+- seodec18
+- fasttrack-edit
+ms.openlocfilehash: 0fe436b1da551bbc8a0064cb3cfdff864d8f9eb8
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715116"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520697"
 ---
-# <a name="authentication-and-authorization-in-azure-app-service"></a>Autenticación y autorización en Azure App Service
+# <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Autenticación y autorización en Azure App Service y Azure Functions
 
 > [!NOTE]
-> En este momento, AAD V2 (incluido MSAL) no se admite para Azure App Services y Azure Functions. Compruebe si hay actualizaciones.
+> En este momento, [Azure Active Directory v2.0](../active-directory/develop/v2-overview.md) (incluido [MSAL](../active-directory/develop/msal-overview.md)) no se admite para Azure App Service y Azure Functions. Compruebe si hay actualizaciones.
+>
+> [!NOTE]
+> En la actualidad, ASP.NET Core no admite el rellenado del usuario actual con la característica de autenticación o autorización.
 >
 
 Azure App Service incluye compatibilidad con autenticación y autorización para que pueda proporcionar inicio de sesión a los usuarios y acceder a los datos escribiendo una cantidad mínima de código o directamente sin código en la aplicación web, API RESTful y back-end móvil, así como [Azure Functions](../azure-functions/functions-overview.md). En este artículo se describe cómo App Service le ayuda a simplificar la autenticación y autorización para la aplicación.
@@ -24,7 +29,7 @@ Azure App Service incluye compatibilidad con autenticación y autorización para
 Para proteger la autenticación y la autorización es necesario entender perfectamente la seguridad, incluida la federación, el cifrado, la administración de [JSON Web Token (JWT)](https://wikipedia.org/wiki/JSON_Web_Token), los [tipos de concesión](https://oauth.net/2/grant-types/), etc. App Service proporciona estas utilidades para que pueda dedicar más tiempo y energía a proporcionar un valor empresarial a su cliente.
 
 > [!IMPORTANT]
-> No es necesario que use App Service para AuthN/AuthO. Puede usar las características de seguridad agrupadas en el marco de trabajo web de su elección o puede escribir sus propias utilidades. Sin embargo, tenga en cuenta que [Chrome 80 realiza cambios importantes en su implementación de cookies de SameSite](https://www.chromestatus.com/feature/5088147346030592) (la fecha de lanzamiento es aproximadamente marzo de 2020) y la autenticación remota personalizada u otros escenarios que se basen en la publicación de cookies en todos los sitios se puede interrumpir cuando se actualizan los exploradores Chrome cliente. La solución alternativa es compleja porque necesita admitir distintos comportamientos de SameSite para exploradores diferentes. 
+> No es necesario usar esta característica para la autenticación y autorización. Puede usar las características de seguridad agrupadas en el marco de trabajo web de su elección o puede escribir sus propias utilidades. Sin embargo, tenga en cuenta que [Chrome 80 realiza cambios importantes en su implementación de cookies de SameSite](https://www.chromestatus.com/feature/5088147346030592) (la fecha de lanzamiento es aproximadamente marzo de 2020) y la autenticación remota personalizada u otros escenarios que se basen en la publicación de cookies en todos los sitios se puede interrumpir cuando se actualizan los exploradores Chrome cliente. La solución alternativa es compleja porque necesita admitir distintos comportamientos de SameSite para exploradores diferentes. 
 >
 > Las versiones ASP.NET Core 2.1 y posteriores hospedadas por App Service ya se han revisado para este cambio importante y administran los exploradores Chrome 80 y anteriores adecuadamente. Además, la misma revisión para ASP.NET Framework 4.7.2 se está implementando en las instancias de App Service a lo largo de enero de 2020. Para más información, incluido cómo saber si la aplicación ha recibido la revisión, consulte [Actualización de cookies de Azure App Service SameSite](https://azure.microsoft.com/updates/app-service-samesite-cookie-update/).
 >
@@ -46,11 +51,11 @@ Este módulo controla varios aspectos de la aplicación:
 
 El módulo se ejecuta por separado del código de aplicación y se configura mediante los parámetros de la aplicación. No se necesitan SDK, idiomas específicos o cambios en el código de aplicación. 
 
-### <a name="user-claims"></a>Notificaciones de usuario
+### <a name="userapplication-claims"></a>Notificaciones de usuario o aplicación
 
-Para todos los marcos de lenguaje, App Service pone las notificaciones de usuario a disposición del código inyectándolas en los encabezados de solicitud. Para las aplicaciones de ASP.NET 4.6, App Service rellena [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) con las notificaciones del usuario autenticado, de forma que usted puede seguir el patrón de código de .NET estándar, incluido el atributo `[Authorize]`. De forma similar, para las aplicaciones PHP, App Service rellena la variable `_SERVER['REMOTE_USER']`. En el caso de las aplicaciones Java, se puede acceder a las notificaciones [desde el servlet Tomcat](containers/configure-language-java.md#authenticate-users-easy-auth).
+En todos los marcos de lenguaje, App Service hace que las notificaciones del token de entrada (tanto si proceden de un usuario final autenticado como de una aplicación cliente) estén disponibles para el código. Para ello, se insertan en los encabezados de solicitud. Para las aplicaciones de ASP.NET 4.6, App Service rellena [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) con las notificaciones del usuario autenticado, de forma que usted puede seguir el patrón de código de .NET estándar, incluido el atributo `[Authorize]`. De forma similar, para las aplicaciones PHP, App Service rellena la variable `_SERVER['REMOTE_USER']`. En el caso de las aplicaciones Java, se puede acceder a las notificaciones [desde el servlet Tomcat](containers/configure-language-java.md#authenticate-users-easy-auth).
 
-Para [Azure Functions](../azure-functions/functions-overview.md), `ClaimsPrincipal.Current` no se hidrata para el código .NET, pero todavía puede encontrar las notificaciones de usuario en los encabezados de solicitud.
+Para [Azure Functions](../azure-functions/functions-overview.md), `ClaimsPrincipal.Current` no está relleno para el código .NET, pero todavía puede encontrar las notificaciones de usuario en los encabezados de solicitudes, u obtener el objeto `ClaimsPrincipal` del contexto de la solicitud o incluso a través de un parámetro de enlace. Consulte [Uso de identidades de cliente](../azure-functions/functions-bindings-http-webhook-trigger.md#working-with-client-identities) para más información.
 
 Para más información, consulte [Access user claims](app-service-authentication-how-to.md#access-user-claims) (Acceso a las notificaciones de usuario).
 
@@ -59,7 +64,7 @@ Para más información, consulte [Access user claims](app-service-authentication
 App Service proporciona un almacén de tokens integrado, que es un repositorio de tokens que están asociados a los usuarios de las aplicaciones web, API o aplicaciones móviles nativas. Al habilitar la autenticación con cualquier proveedor, este almacén de tokens pasa a estar inmediatamente disponible para la aplicación, si el código de aplicación necesita acceder a los datos de estos proveedores en nombre del usuario, como: 
 
 - publicar en la escala de tiempo de Facebook del usuario autenticado
-- leer los datos corporativos del usuario de Graph API de Azure Active Directory o incluso de Microsoft Graph
+- leer los datos corporativos del usuario mediante Microsoft Graph API
 
 Normalmente, debe escribir código para recopilar, almacenar y actualizar estos tokens en la aplicación. Con el almacén de tokens, simplemente [recupera los tokens](app-service-authentication-how-to.md#retrieve-tokens-in-app-code) cuando los necesita e [indica a App Service que los actualice](app-service-authentication-how-to.md#refresh-identity-provider-tokens) cuando dejan de ser válidos. 
 
@@ -93,7 +98,7 @@ El flujo de autenticación es el mismo para todos los proveedores, pero varía e
 - Con el SDK del proveedor: la aplicación inicia manualmente la sesión del usuario con el proveedor y luego envía el token de autenticación a App Service para su validación. Por lo general, suele ser el caso de las aplicaciones sin explorador, que no pueden presentar la página de inicio de sesión del proveedor al usuario. El código de aplicación administra el proceso de inicio de sesión, por lo que también se denomina _flujo dirigido por el cliente_ o _flujo de cliente_. Este caso se aplica a las API REST, [Azure Functions](../azure-functions/functions-overview.md) y los clientes de explorador de JavaScript, así como a las aplicaciones de explorador que necesitan más flexibilidad en el proceso de inicio de sesión. También se aplica a las aplicaciones móviles nativas que proporciona inicio de sesión a los usuarios con el SDK del proveedor.
 
 > [!NOTE]
-> Las llamadas desde una aplicación de explorador de confianza en App Service y las llamadas a otra REST API en App Service o [Azure Functions](../azure-functions/functions-overview.md) se pueden autenticar utilizando el flujo dirigido por el servidor. Para obtener más información, consulte [Personalización de la autenticación y autorización en Azure App Service](app-service-authentication-how-to.md).
+> Las llamadas desde una aplicación de explorador de confianza en App Service a otra REST API de App Service o [Azure Functions](../azure-functions/functions-overview.md) se pueden autenticar mediante el flujo dirigido por el servidor. Para obtener más información, consulte [Personalización de la autenticación y autorización en Azure App Service](app-service-authentication-how-to.md).
 >
 
 En la tabla siguiente se muestran los pasos del flujo de autenticación.
@@ -132,11 +137,17 @@ Con esta opción, no es necesario escribir ningún código de autenticación en 
 > [!CAUTION]
 > Este método de restricción del acceso se aplica a todas las llamadas a la aplicación, lo que puede no ser deseable para las aplicaciones que necesitan una página de inicio disponible públicamente, como muchas aplicaciones de una sola página.
 
+> [!NOTE]
+> La característica Autenticación/Autorización se conocía anteriormente como Easy Auth.
+>
+
 ## <a name="more-resources"></a>Más recursos
 
 [Tutorial: Autenticación y autorización de usuarios de un extremo a otro en Azure App Service (Windows)](app-service-web-tutorial-auth-aad.md)  
 [Tutorial: Autenticación y autorización de usuarios de un extremo a otro en Azure App Service para Linux](containers/tutorial-auth-aad.md)  
-[Customize authentication and authorization in App Service](app-service-authentication-how-to.md) (Personalización de la autenticación y autorización en App Service)
+[Personalización de la autenticación y autorización en App Service](app-service-authentication-how-to.md)
+[Integración de .NET Core de Azure AppService EasyAuth (terceros)](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth)
+[Funcionamiento de la autenticación de Azure App Service con .NET Core (terceros)](https://github.com/kirkone/KK.AspNetCore.EasyAuthAuthentication)
 
 Guías de procedimientos específicas del proveedor:
 

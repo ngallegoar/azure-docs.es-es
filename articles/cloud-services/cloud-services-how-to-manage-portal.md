@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
-ms.openlocfilehash: 185bb9d03bec042a5c8e9223616b40eba6629e36
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 80481bc11933b0404079221f23b5054024f00acb
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79225948"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811352"
 ---
 # <a name="manage-cloud-services-in-the-azure-portal"></a>Administración de Cloud Services en Azure Portal
 En el área de **Cloud Services** de Azure Portal, puede:
@@ -123,7 +123,7 @@ La hoja **Información general** tiene una barra de estado en la parte superior.
 * [Configuración general de su servicio en la nube](cloud-services-how-to-configure-portal.md).
 * Obtenga información sobre cómo [implementar un servicio en la nube](cloud-services-how-to-create-deploy-portal.md).
 * Configuración de un [nombre de dominio personalizado](cloud-services-custom-domain-name-portal.md).
-* Configure [certificados SSL](cloud-services-configure-ssl-certificate-portal.md).
+* Configuración de [certificados TLS/SSL](cloud-services-configure-ssl-certificate-portal.md).
 
 
 

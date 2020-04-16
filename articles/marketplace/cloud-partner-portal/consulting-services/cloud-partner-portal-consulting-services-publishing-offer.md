@@ -5,16 +5,19 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 02/27/2020
+ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 1015734ac0da6b4641c0bf32049146e3820f4616
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dace05715828395aed3953b42bf7926df292bbdb
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80278542"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80981348"
 ---
 # <a name="azure-and-dynamics-365-consulting-service-offer"></a>Oferta de servicios de consultoría de Azure y Dynamics 365
+
+>[!Important]
+>A partir del 13 de abril de 2020, se comenzará a trasladar la administración de las ofertas de servicios de consultoría al Centro de partners. Después de la migración, las ofertas se crearán y administrarán en el Centro de partners. Siga las instrucciones que se indican en [Información general sobre la creación de servicios de consultoría](https://aka.ms/AzureCreateConsultingService) para administrar las ofertas migradas.
 
 En este artículo se explica cómo publicar una oferta de servicios de consultoría en Microsoft <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a> o en <a href="https://appsource.microsoft.com">AppSource</a>. Las soluciones basadas en Microsoft <a href="https://dynamics.microsoft.com">Dynamics 365</a>, <a href="https://powerbi.microsoft.com">Power BI</a> y <a href="https://powerapps.microsoft.com">Power Apps</a> pueden anunciarse en AppSource. Otras ofertas basadas en otros <a href="https://azure.microsoft.com/services">servicios de Microsoft Azure</a> pueden anunciarse en Azure Marketplace.
 

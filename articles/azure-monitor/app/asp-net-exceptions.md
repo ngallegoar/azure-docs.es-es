@@ -3,12 +3,12 @@ title: Diagnóstico de errores y excepciones con Application Insights
 description: Capture las excepciones de las aplicaciones ASP.NET junto con la telemetría de solicitudes.
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: 24b7acfa6610c2040daf0f7d8d25f25391140303
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 9f24f09e7d2ef0a3e5f3a8f6546a9115118473ab
+ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77666163"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80892349"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnóstico de excepciones en aplicaciones web con Application Insights
 Las excepciones en la aplicación web en directo se notifican mediante [Application Insights](../../azure-monitor/app/app-insights-overview.md). Puede correlacionar las solicitudes con error con excepciones y otros eventos en el cliente y en el servidor, de modo que pueda diagnosticar rápidamente las causas.
@@ -19,7 +19,7 @@ Las excepciones en la aplicación web en directo se notifican mediante [Applicat
   * Aplicaciones hospedadas en IIS en máquina virtual de Azure y conjunto de escalado de máquinas virtuales de Azure: Incorporación de la [extensión de supervisión de aplicaciones](../../azure-monitor/app/azure-vm-vmss-apps.md)
   * Instale el [SDK de Application Insights](../../azure-monitor/app/asp-net.md) en su código de aplicación.
   * Servidores web IIS: Ejecute el [agente de Application Insights](../../azure-monitor/app/monitor-performance-live-website-now.md); o
-  * Aplicaciones web de Java: Instale el [agente de Java](../../azure-monitor/app/java-agent.md).
+  * Aplicaciones web de Java: Habilite el agente [Java](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)
 * Instale el [fragmento de código de JavaScript](../../azure-monitor/app/javascript.md) en las páginas web para capturar las excepciones del explorador.
 * En algunos marcos de aplicaciones o con algunas opciones de configuración, debe realizar algunos pasos adicionales para capturar más excepciones:
   * [Formularios web](#web-forms)
@@ -27,6 +27,8 @@ Las excepciones en la aplicación web en directo se notifican mediante [Applicat
   * [API web 1.*](#web-api-1x)
   * [API web 2.*](#web-api-2x)
   * [WCF](#wcf)
+
+  Este artículo se centra específicamente en aplicaciones de .NET Framework desde la perspectiva de un ejemplo de código. Algunos de los métodos que funcionan en .NET Framework son obsoletos en el SDK de .NET Core. Vea la [documentación del SDK de .NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) si tiene una aplicación .NET Core.
 
 ## <a name="diagnosing-exceptions-using-visual-studio"></a>Diagnóstico de excepciones mediante Visual Studio
 Abra la solución de aplicación en Visual Studio para ayudar con la depuración.
@@ -89,7 +91,7 @@ Los detalles de la solicitud no incluyen los datos enviados a la aplicación en 
 * Inserte código en la aplicación para llamar a [Microsoft.ApplicationInsights.TrackTrace()](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace). Envíe los datos de POST en el parámetro de mensaje. Hay un límite en cuanto al tamaño permitido, así que debe intentar enviar únicamente los datos fundamentales.
 * Cuando investigue una solicitud con error, busque los seguimientos asociados.
 
-## <a name="exceptions"></a> Captura de excepciones y datos de diagnóstico relacionados
+## <a name="capturing-exceptions-and-related-diagnostic-data"></a><a name="exceptions"></a> Captura de excepciones y datos de diagnóstico relacionados
 En primer lugar, no verá en el portal todas las excepciones que provocan errores en su aplicación. Verá las excepciones del explorador (si usa el [SDK de JavaScript](../../azure-monitor/app/javascript.md) en sus páginas web). Pero la mayoría de las excepciones de servidor las detecta IIS y debe escribir algo de código para verlas.
 
 Puede:

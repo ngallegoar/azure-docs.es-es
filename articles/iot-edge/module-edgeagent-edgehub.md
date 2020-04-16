@@ -8,12 +8,12 @@ ms.date: 06/17/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4684daf2a1095a40c478170be37edcae788868ef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f2d6603c264c9da3f2700f460a8c61b24681fac6
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79237428"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546188"
 ---
 # <a name="properties-of-the-iot-edge-agent-and-iot-edge-hub-module-twins"></a>Propiedades de los módulos gemelos del agente de IoT Edge y del centro de IoT Edge
 
@@ -55,6 +55,7 @@ El módulo gemelo del agente de IoT Edge se denomina `$edgeAgent` y coordina las
 | modules.{moduleId}.status | {"running" \| "stopped"} | Sí |
 | modules.{moduleId}.restartPolicy | {"never" \| "on-failure" \| "on-unhealthy" \| "always"} | Sí |
 | modules.{moduleId}.imagePullPolicy | {"on-create" \| "never"} | No |
+| modules.{moduleId}.env | Lista de variables de entorno que se van a pasar al módulo. Tiene el formato `"<name>": {"value": "<value>"}` | No |
 | modules.{moduleId}.settings.image | El URI de la imagen del módulo. | Sí |
 | modules.{moduleId}.settings.createOptions | Cadenas JSON que contienen las opciones de creación del contenedor del módulo. [Opciones de creación de Docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | No |
 | modules.{moduleId}.configuration.id | El identificador de la implementación que implementó este módulo. | Esta propiedad la establece IoT Hub cuando se aplica el manifiesto mediante una implementación. No forma parte de un manifiesto de implementación. |
@@ -77,7 +78,7 @@ La tabla siguiente no incluye la información que se copia de las propiedades de
 | Propiedad | Descripción |
 | -------- | ----------- |
 | lastDesiredVersion | Este entero hace referencia a la última versión de las propiedades deseadas procesadas mediante el agente de IoT Edge. |
-| lastDesiredStatus.code | Este código de estado hace referencia a las últimas propiedades que ha procesado el agente de IoT Edge. Valores permitidos: `200` (correcto), `400` (configuración no válida), `412` (versión de esquema no válido), `417` (las propiedades deseadas están vacías) y `500` (error). |
+| lastDesiredStatus.code | Este código de estado hace referencia a las últimas propiedades que ha procesado el agente de IoT Edge. Valores permitidos: `200` (correcto), `400` (configuración no válida), `412` (versión de esquema no válido), `417` (las propiedades deseadas están vacías) y `500` (error) |
 | lastDesiredStatus.description | Descripción de texto del estado. |
 | deviceHealth | `healthy` si el estado en tiempo de ejecución de todos los módulos es `running` o `stopped`; `unhealthy` otra condición. |
 | configurationHealth.{deploymentId}.health | `healthy` si el estado en tiempo de ejecución de todos los módulos establecidos mediante la implementación {deploymentId} es `running` o `stopped`; `unhealthy` otra condición. |
@@ -115,7 +116,7 @@ El módulo gemelo del centro de IoT Edge se denomina `$edgeHub` y coordina las c
 | Propiedad | Descripción |
 | -------- | ----------- |
 | lastDesiredVersion | Este entero hace referencia a la última versión de las propiedades deseadas procesadas mediante el centro de IoT Edge. |
-| lastDesiredStatus.code | El código de estado hace referencia a las últimas propiedades que ha procesado el centro de IoT Edge. Valores permitidos: `200` (correcto), `400` (configuración no válida) y `500` (error). |
+| lastDesiredStatus.code | El código de estado hace referencia a las últimas propiedades que ha procesado el centro de IoT Edge. Valores permitidos: `200` (correcto), `400` (configuración no válida) y `500` (error) |
 | lastDesiredStatus.description | Descripción de texto del estado. |
 | clients.{device or moduleId}.status | El estado de conectividad de este dispositivo o módulo. Valores posibles {"connected" \| "disconnected"}. Solo las identidades de módulo pueden estar en el estado disconnected. Los dispositivos de nivel inferior que se conectan al centro de IoT Edge solo aparecen cuando se conectan. |
 | clients.{device or moduleId}.lastConnectTime | Última vez que se ha conectado el dispositivo o módulo. |

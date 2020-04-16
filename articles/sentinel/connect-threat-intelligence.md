@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2019
 ms.author: yelevin
-ms.openlocfilehash: 5c79642d287224cd15531701d7cc87ebfd72eb69
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: eec07a01edc6b126bb7cd3a814912ea5c5b14195
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77588049"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529093"
 ---
 # <a name="connect-data-from-threat-intelligence-providers"></a>Conectar datos de proveedores de inteligencia sobre amenazas
 
@@ -42,6 +42,10 @@ Puede transmitir los indicadores de amenazas a Azure Sentinel mediante uno de lo
 - [Plataforma de inteligencia sobre amenazas de código abierto de MISP](https://www.misp-project.org/)
     
     Para ver un script de ejemplo que proporciona a los clientes instancias de MISP para migrar indicadores de amenazas a Microsoft Graph Security API, consulte el artículo [MISP to Microsoft Graph Security Script](https://github.com/microsoftgraph/security-api-solutions/tree/master/Samples/MISP) (MISP para un script de Microsoft Graph Security).
+
+- [Anomali ThreatStream](https://www.anomali.com/products/threatstream)
+
+    Para descargar ThreatStream Integrator y sus extensiones, así como las instrucciones para conectar ThreatStream Intelligence a la API de Microsoft Graph Security, consulte la página de [descargas de ThreatStream](https://ui.threatstream.com/downloads).
 
 - [Palo Alto Networks MineMeld](https://www.paloaltonetworks.com/products/secure-the-network/subscriptions/minemeld)
     

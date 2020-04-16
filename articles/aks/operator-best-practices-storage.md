@@ -1,15 +1,16 @@
 ---
-title: 'Procedimientos recomendados del operador: almacenamiento en Azure Kubernetes Service (AKS)'
+title: Procedimientos recomendados para el almacenamiento y las copias de seguridad
+titleSuffix: Azure Kubernetes Service
 description: Obtenga más información acerca de los procedimientos recomendados del operador de clústeres para el almacenamiento, el cifrado de datos y las copias de seguridad en Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: b1336d10b091be4f3eb2a711401cafd3f58221fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 843b775f7761af7cd40140c9bf34768d63eb5a50
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78399484"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80877905"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para el almacenamiento y las copias de seguridad en Azure Kubernetes Service (AKS)
 
@@ -33,13 +34,13 @@ En la tabla siguiente se describen los tipos de almacenamiento disponibles y sus
 
 | Caso de uso | Complemento de volumen | Lectura/escritura una vez | Solo lectura varias veces | Lectura/escritura varias veces | Compatibilidad con contenedores de Windows Server |
 |----------|---------------|-----------------|----------------|-----------------|--------------------|
-| Configuración compartida       | Archivos de Azure   | Sí | Sí | Sí | Sí |
+| Configuración compartida       | Azure Files   | Sí | Sí | Sí | Sí |
 | Datos de la aplicación estructurados        | Azure Disks   | Sí | No  | No  | Sí |
 | Datos no estructurados, operaciones del sistema de archivos | [BlobFuse][blobfuse] | Sí | Sí | Sí | No |
 
 Los dos tipos principales de almacenamiento proporcionados para volúmenes en AKS están respaldados por Azure Disks o Azure Files. Para mejorar la seguridad, ambos tipos de almacenamiento usan Azure Storage Service Encryption (SSE) de manera predeterminada para cifrar los datos en reposo. Actualmente no se pueden cifrar los discos con Azure Disk Encryption en el nivel de nodo de AKS.
 
-El servicio Azure Files está actualmente disponible en el nivel de rendimiento estándar. El servicio Azure Disks está disponible en los niveles de rendimiento estándar y premium:
+Tanto Azure Files como Azure Disks están disponibles en los niveles de rendimiento Estándar y Premium:
 
 - Los discos *premium* están respaldados por discos de estado sólido (SSD) de alto rendimiento. Los discos premium son aconsejables para cargas de trabajo de producción.
 - Los discos *estándar* están respaldados por discos giratorios normales (HDD) y son adecuados para archivar o guardar datos a los que se accede con poca frecuencia.

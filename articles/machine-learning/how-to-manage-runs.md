@@ -11,12 +11,12 @@ author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 01/09/2020
-ms.openlocfilehash: 8c261a010a1e8f4d1be9b3883510eb38c37a15ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c1b70aaef49cc2b993c873509dc935d71069efa2
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80296873"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985922"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Inicio, supervisión y cancelación de las ejecuciones de entrenamiento en Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -30,7 +30,7 @@ En este artículo se muestran ejemplos de las tareas siguientes:
 * Creación de ejecuciones secundarias.
 * Etiquetado y búsqueda de ejecuciones.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Necesitará los siguientes elementos:
 
@@ -264,16 +264,41 @@ Para crear muchas ejecuciones secundarias de forma eficaz, use el método [`crea
 
 ### <a name="submit-child-runs"></a>Envío de ejecuciones secundarias
 
-Las ejecuciones secundarias también se pueden enviar desde una ejecución principal. Esto permite crear jerarquías de ejecuciones principales y secundarias, cada una de las cuales se ejecuta en distintos destinos de proceso, conectadas por un identificador de ejecución principal común.
+Las ejecuciones secundarias también se pueden enviar desde una ejecución principal. Esto le permite crear jerarquías de ejecuciones primarias y secundarias. 
 
-Use el método ['submit_child()'](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#submit-child-config--tags-none----kwargs-) para enviar una ejecución secundaria desde una ejecución principal. Para hacerlo en el script de la ejecución principal, obtenga el contexto de ejecución y envíe la ejecución secundaria con el método ``submit_child`` de la instancia de contexto.
+Es posible que desee que las ejecuciones secundarias utilicen una configuración de ejecución diferente de la ejecución primaria. Por ejemplo, puede utilizar una configuración menos potente basada en CPU para el elemento primario, mientras usa configuraciones basadas en GPU para los elementos secundarios. Otro deseo habitual es pasar a cada ejecución secundaria argumentos y datos distintos. Para personalizar una ejecución secundaria, pase un objeto `RunConfiguration` al constructor `ScriptRunConfig` del elemento secundario. Este ejemplo de código, que formaría parte del script del objeto `ScriptRunConfig` primario:
+
+- Crea un objeto `RunConfiguration` al recuperar el recurso de proceso con nombre `"gpu-compute"`
+- Recorre en iteración los diferentes valores de los argumentos que se van a pasar a los objetos `ScriptRunConfig` secundarios
+- Crea y envía una nueva ejecución secundaria mediante el recurso de proceso personalizado y el argumento
+- Se bloquea hasta que se completan todas las ejecuciones secundarias
 
 ```python
-## In parent run script
-parent_run = Run.get_context()
-child_run_config = ScriptRunConfig(source_directory='.', script='child_script.py')
-parent_run.submit_child(child_run_config)
+# parent.py
+# This script controls the launching of child scripts
+from azureml.core import Run, ScriptRunConfig, RunConfiguration
+
+run_config_for_aml_compute = RunConfiguration()
+run_config_for_aml_compute.target = "gpu-compute"
+run_config_for_aml_compute.environment.docker.enabled = True 
+
+run = Run.get_context()
+
+child_args = ['Apple', 'Banana', 'Orange']
+for arg in child_args: 
+    run.log('Status', f'Launching {arg}')
+    child_config = ScriptRunConfig(source_directory=".", script='child.py', arguments=['--fruit', arg], run_config = run_config_for_aml_compute)
+    # Starts the run asynchronously
+    run.submit_child(child_config)
+
+# Experiment will "complete" successfully at this point. 
+# Instead of returning immediately, block until child runs complete
+
+for child in run.get_children():
+    child.wait_for_completion()
 ```
+
+Para crear muchas ejecuciones secundarias con configuraciones, argumentos y entradas idénticas de forma eficaz, use el método [`create_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#create-children-count-none--tag-key-none--tag-values-none-). Dado que cada creación da lugar a una llamada de red, la creación de un lote de ejecuciones es más eficaz que hacerlo una a una.
 
 Desde la ejecución secundaria, puede ver el identificador de la ejecución principal:
 

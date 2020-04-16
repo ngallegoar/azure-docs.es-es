@@ -16,12 +16,12 @@ ms.date: 06/25/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5486a8d8bd4c295f49e0ab847daf45d0fcab47ad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d3f6b698922440c6e3e9b488cca93ca8d98d9c59
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78300543"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80983082"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Características del servicio de sincronización de Azure AD Connect
 
@@ -94,7 +94,9 @@ Históricamente, las actualizaciones para el atributo UserPrincipalName con el s
 * El usuario está administrado (no federado).
 * Al usuario no se le ha asignado una licencia.
 
-Para obtener más información, consulte [Nombres de usuario en Office 365, Azure o Intune no coinciden con el UPN local o el identificador de inicio de sesión alternativo](https://support.microsoft.com/kb/2523192).
+> [!NOTE]
+> Desde marzo de 2019, se permite sincronizar los cambios de UPN para las cuentas de usuario federadas.
+> 
 
 La habilitación de esta característica permite al motor de sincronización actualizar el valor de userPrincipalName cuando se modifica de manera local y se usa la sincronización de hash de contraseñas o la autenticación de paso a través.
 

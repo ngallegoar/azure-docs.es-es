@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: a8aed646f03b777722518152354cfe80cea043a0
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 82608c98fc8ea15167b690547906c2238b1b3c04
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002799"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80544340"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Procedimientos recomendados de la matriz virtual de StorSimple
 
@@ -161,8 +161,8 @@ Tenga en cuenta los siguientes procedimientos recomendadas al aprovisionar recur
 
 * Los tamaños de archivo en relación al tamaño aprovisionado de un recurso compartido en capas pueden afectar al rendimiento de los niveles. Si trabaja con archivos de gran tamaño, la salida en niveles se realizará más lentamente. Cuando trabaje con esta clase de archivos, es recomendable que el archivo de mayor tamaño no ocupe más del 3 % del tamaño recurso compartido.
 * En la matriz virtual se pueden crear un máximo de 16 volúmenes o recursos compartidos. Para los límites de tamaño de los recursos compartidos y volúmenes en capas y anclados localmente, siempre haga referencia a los [límites de StorSimple Virtual Array](storsimple-ova-limits.md).
-* Al crear un volumen, tenga en cuenta tanto el consumo de datos esperado como el crecimiento futuro. El volumen no se puede expandir más adelante.
-* Una vez creado el volumen, no se puede reducir el tamaño del volumen de StorSimple.
+* Al crear un volumen, tenga en cuenta tanto el consumo de datos esperado como el crecimiento futuro. El volumen o recurso compartido no se puede expandir más adelante.
+* Una vez creado el volumen o recurso compartido, no se puede reducir su tamaño en StorSimple.
 * Si escribe en un volumen en capas en StorSimple, cuando los datos del volumen alcanzan un umbral concreto (en relación con el espacio local reservado para el volumen), se limitará la operación de E/S. Si se sigue escribiendo en este volumen, la E/S se ralentiza considerablemente. Aunque se puede escribir en un volumen en capas más allá de su capacidad aprovisionada (no impedimos activamente que el usuario escriba más allá de la capacidad aprovisionada), verá una notificación de alerta en el sentido de que haya una suscripción excesiva. Una vez que vea la alerta, es imperativo que tome medidas de subsanación como eliminar el volumen (en la actualidad no se admite la expansión de volúmenes).
 * Para casos de uso de recuperación ante desastres, cuando el número de recursos compartidos o volúmenes permitidos es 16 y el número máximo de volúmenes o recursos compartidos que se pueden procesar en paralelo también es 16, el número de recursos compartidos o volúmenes no tiene una incidencia en el RTO y los RPO.
 
@@ -200,7 +200,7 @@ Utilice los siguientes procedimientos recomendados al configurar ACR para volúm
 La matriz virtual de StorSimple tiene características de seguridad y cifrado de datos que garantizar la confidencialidad e integridad de los datos. Al usar estas características, se recomienda seguir estos procedimientos recomendados: 
 
 * Defina una clave de cifrado de almacenamiento en la nube para generar un cifrado AES-256 antes de que los datos se envíen desde la matriz virtual a la nube. Esta clave no se requiere si los datos están cifrados. La clave se puede generar y mantener segura mediante un sistema de administración de claves como [Almacén de claves de Azure](../key-vault/key-vault-overview.md).
-* Al configurar la cuenta de almacenamiento mediante el servicio StorSimple Manager, asegúrese de que habilita el modo SSL crear un canal seguro para la comunicación de red entre el dispositivo de StorSimple y la nube.
+* Al configurar la cuenta de almacenamiento a través del servicio StorSimple Manager, asegúrese de que habilita el modo TLS para crear un canal seguro para la comunicación de red entre el dispositivo StorSimple y la nube.
 * Regenere las claves de las cuentas de almacenamiento (para lo que debe acceder al servicio Azure Storage) periódicamente para representar todos los cambios en el acceso basándose en la lista de administradores modificada.
 * Los datos de la matriz virtual se comprimen y se desduplican antes de enviarlos a Azure. No se recomienda utilizar el servicio de rol de desduplicación de datos en el host de Windows Server.
 
@@ -287,6 +287,6 @@ Es posible que haya que implementar varias matrices virtuales en una cuenta para
 * Si se implementan varias matrices virtuales, se recomienda que, desde la perspectiva del equilibrio de carga, distribuya la matriz entre varios hosts de hipervisor.
 * Se pueden implementar varias matrices virtuales (cuando se configuran un servidor de archivos o un servidor de iSCSI) en un espacio de nombres de un sistema de archivos distribuido. Para conocer los pasos detallados, vaya a la [Guía de la solución del espacio de nombres de un sistema de archivos distribuido con implementación de almacenamiento en la nube híbrido](https://www.microsoft.com/download/details.aspx?id=45507). En la actualidad no se recomienda usar la replicación del sistema de archivos distribuido con la matriz virtual. 
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 Aprenda a [administrar una matriz virtual de StorSimple](storsimple-virtual-array-manager-service-administration.md) mediante el servicio StorSimple Manager.
 

@@ -1,21 +1,21 @@
 ---
 title: Uso de Azure Portal para configurar las claves administradas por el cliente
 titleSuffix: Azure Storage
-description: Aprenda a usar Azure Portal para configurar claves administradas por el cliente con Azure Key Vault para el cifrado de Azure Storage. Las claves administradas por el cliente le permiten crear, rotar, deshabilitar y revocar los controles de acceso.
+description: Aprenda a usar Azure Portal para configurar claves administradas por el cliente con Azure Key Vault para el cifrado de Azure Storage.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/02/2020
+ms.date: 03/19/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: f592872e67ff8559060706ddb3b1e45839b6acaf
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: e7878cae7bc6aabf1db58bfd63338955b9e830d3
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75665462"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478240"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-the-azure-portal"></a>Configuración de claves administradas por el cliente con Azure Key Vault mediante Azure Portal
 
@@ -32,16 +32,16 @@ Para aprender a habilitar estas propiedades en un almacén de claves existente, 
 - [Uso de la eliminación temporal con PowerShell](../../key-vault/key-vault-soft-delete-powershell.md).
 - [Uso de la eliminación temporal con la CLI](../../key-vault/key-vault-soft-delete-cli.md).
 
-Las claves RSA de tamaño 2048 son las únicas que admite el cifrado de Azure Storage. Para más información acerca de las claves, consulte la sección **Claves en Key Vault** en [Información acerca de claves, secretos y certificados de Azure Key Vault](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
+Solo se admiten las claves RSA y RSA-HSM de 2048 bits con el cifrado de Azure Storage. Para más información acerca de las claves, consulte la sección **Claves en Key Vault** en [Información acerca de claves, secretos y certificados de Azure Key Vault](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
 
 ## <a name="enable-customer-managed-keys"></a>Habilitar claves administradas del cliente
 
 Para habilitar claves administradas del cliente en Azure Portal, siga estos pasos:
 
 1. Vaya a la cuenta de almacenamiento.
-1. En la hoja **Configuración** de la cuenta de almacenamiento, haga clic en **Cifrado**. Seleccione la opción **Use su propia clave**, tal como se muestra en la imagen siguiente.
+1. En la hoja **Configuración** de la cuenta de almacenamiento, haga clic en **Cifrado**. Seleccione la opción **Claves administradas de cliente**, como se muestra en la siguiente imagen.
 
-    ![Captura de pantalla del portal que muestra la opción de cifrado](./media/storage-encryption-keys-portal/ssecmk1.png)
+    ![Captura de pantalla del portal que muestra la opción de cifrado](./media/storage-encryption-keys-portal/portal-configure-encryption-keys.png)
 
 ## <a name="specify-a-key"></a>Especificar una clave
 
@@ -54,12 +54,12 @@ Para especificar una clave como URI, siga estos pasos:
 1. Para buscar el URI de la clave en Azure Portal, vaya al almacén de claves y seleccione la opción de configuración **Claves**. Seleccione la clave que desee y luego haga clic en ella para ver sus versiones. Seleccione cualquiera de las versiones de clave para ver su configuración.
 1. Copie el valor del campo **Identificador de clave**, que proporciona el URI.
 
-    ![Captura de pantalla en que se muestra el URI de la clave del almacén de claves](media/storage-encryption-keys-portal/key-uri-portal.png)
+    ![Captura de pantalla en que se muestra el URI de la clave del almacén de claves](media/storage-encryption-keys-portal/portal-copy-key-identifier.png)
 
 1. En las opciones de configuración de **cifrado** de la cuenta de almacenamiento, elija la opción **Introducir URI de la clave**.
 1. Pegue el identificador URI que ha copiado en el campo **URI de clave**.
 
-   ![Captura de pantalla en que se muestra cómo introducir el URI de la clave](./media/storage-encryption-keys-portal/ssecmk2.png)
+   ![Captura de pantalla en que se muestra cómo introducir el URI de la clave](./media/storage-encryption-keys-portal/portal-specify-key-uri.png)
 
 1. Especifique el identificador de la suscripción que contiene el almacén de claves.
 1. Guarde los cambios.
@@ -69,10 +69,10 @@ Para especificar una clave como URI, siga estos pasos:
 Para especificar una clave a partir de un almacén de claves, asegúrese de tener un almacén de claves que contenga una clave. Para especificar una clave a partir de un almacén de claves, siga estos pasos:
 
 1. Elija la opción **Select from Key Vault** (Seleccionar desde almacén de claves).
-2. Seleccione el almacén de claves que contiene la clave que desea usar.
-3. Seleccione la clave en el almacén de claves.
+1. Seleccione el almacén de claves que contiene la clave que desea usar.
+1. Seleccione la clave en el almacén de claves.
 
-   ![Captura de pantalla en que se muestra la opción de clave administrada del cliente](./media/storage-encryption-keys-portal/ssecmk3.png)
+   ![Captura de pantalla en que se muestra la opción de clave administrada del cliente](./media/storage-encryption-keys-portal/portal-select-key-from-key-vault.png)
 
 1. Guarde los cambios.
 
@@ -94,7 +94,7 @@ Para cambiar la clave que se usa para el cifrado de Azure Storage, siga estos pa
 
 ## <a name="disable-customer-managed-keys"></a>Deshabilitación de claves administradas por el cliente
 
-Cuando se deshabilitan las claves administradas por el cliente, la cuenta de almacenamiento se cifra con claves administradas por Microsoft. Para deshabilitar las claves administradas por el cliente, siga estos pasos:
+Cuando las claves administradas por el cliente se deshabilitan, la cuenta de almacenamiento se vuelve a cifrar con claves administradas por Microsoft. Para deshabilitar las claves administradas por el cliente, siga estos pasos:
 
 1. Vaya a la cuenta de almacenamiento y muestre las opciones de configuración de **cifrado**.
 1. Anule la selección de la casilla que se encuentra junto al valor **Usar su propia clave**.

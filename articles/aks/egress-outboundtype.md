@@ -3,13 +3,13 @@ title: Personalización de rutas definidas por el usuario (UDR) en Azure Kuberne
 description: Obtenga información sobre cómo definir una ruta de salida personalizada en Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 01/31/2020
-ms.openlocfilehash: d108c6f49a8f483dc489fd644db6b480fc0e74fc
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.date: 03/16/2020
+ms.openlocfilehash: 3780680c485aebf1ffc654d31c577821a9b96fff
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77595814"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80676504"
 ---
 # <a name="customize-cluster-egress-with-a-user-defined-route-preview"></a>Personalización de la salida de un clúster con una ruta definida por el usuario (versión preliminar)
 
@@ -318,7 +318,11 @@ az role assignment list --assignee $APPID --all -o table
 
 ### <a name="deploy-aks"></a>Implementación de AKS
 
-Por último, el clúster de AKS se puede implementar en la subred existente que hemos dedicado al clúster. La subred de destino en la que se va a realizar la implementación se define con la variable de entorno `$SUBNETID`.
+Por último, el clúster de AKS se puede implementar en la subred existente que hemos dedicado al clúster. La subred de destino en la que se va a realizar la implementación se define con la variable de entorno `$SUBNETID`. No definimos la variable `$SUBNETID` en los pasos anteriores. Para establecer el valor del id. de la subred, puede usar el comando siguiente:
+
+```azurecli
+SUBNETID="/subscriptions/$SUBID/resourceGroups/$RG/providers/Microsoft.Network/virtualNetworks/$VNET_NAME/subnets/$AKSSUBNET_NAME"
+```
 
 Definiremos el tipo de salida para que siga la UDR que existe en la subred. Esto permite a AKS omitir la configuración y el aprovisionamiento de IP para el equilibrador de carga, que ahora puede ser estrictamente interno.
 
@@ -356,6 +360,12 @@ CURRENT_IP=$(dig @resolver1.opendns.com ANY myip.opendns.com +short)
 az aks update -g $RG -n $AKS_NAME --api-server-authorized-ip-ranges $CURRENT_IP/32
 
 ```
+
+ Use el comando [az aks get-credentials][az-aks-get-credentials] para configurar `kubectl` para conectarse a su clúster de Kubernetes recién creado. 
+
+ ```azure-cli
+ az aks get-credentials -g $RG -n $AKS_NAME
+ ```
 
 ### <a name="setup-the-internal-load-balancer"></a>Configuración del equilibrador de carga interno
 
@@ -532,3 +542,6 @@ Verá una imagen de la aplicación de votación de Azure.
 Consulte [Información general de redes de Microsoft Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview).
 
 Consulte [cómo crear, modificar o eliminar una tabla de rutas](https://docs.microsoft.com/azure/virtual-network/manage-route-table).
+
+<!-- LINKS - internal -->
+[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials

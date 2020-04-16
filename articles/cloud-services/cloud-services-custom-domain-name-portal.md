@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
-ms.openlocfilehash: b1f75a5f7a97907bf5b8bb460ff2df420d053f9e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e764e6a474b9843d43f9e8af9cf3b6a8ddf37189
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75386806"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811650"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Configuración de un nombre de dominio personalizado para un servicio en la nube de Azure
 Cuando se crea un servicio en la nube, Azure lo asigna a un subdominio de **cloudapp.net**. Por ejemplo, si el nombre del servicio en la nube es "contoso", los usuarios podrán tener acceso a la aplicación en una dirección URL como `http://contoso.cloudapp.net`. Azure también asigna una dirección IP virtual.
@@ -30,7 +30,7 @@ Sin embargo, también puede exponer su aplicación en su propio nombre de domini
 <p/>
 
 > [!TIP]
-> Póngase en marcha más rápido: use el NUEVO [tutorial guiado](https://support.microsoft.com/kb/2990804)de Azure.  Con este tutorial, asociar un nombre de dominio personalizado y proteger las comunicaciones (SSL) con Azure Cloud Services o Azure Websites es facilísimo.
+> Póngase en marcha más rápido: use el NUEVO [tutorial guiado](https://support.microsoft.com/kb/2990804)de Azure.  Con este tutorial, asociar un nombre de dominio personalizado y proteger las comunicaciones (TLS) con Azure Cloud Services o Azure Websites es facilísimo.
 > 
 > 
 
@@ -128,7 +128,7 @@ En este ejemplo se crea un registro D para el dominio raíz. Si desea crear una 
 * [Asignación del contenido de la red CDN a un dominio personalizado](../cdn/cdn-map-content-to-custom-domain.md)
 * [Configuración general de su servicio en la nube](cloud-services-how-to-configure-portal.md).
 * Obtenga información sobre cómo [implementar un servicio en la nube](cloud-services-how-to-create-deploy-portal.md).
-* Configuración de [certificados ssl](cloud-services-configure-ssl-certificate-portal.md).
+* Configure los [certificados TLS/SSL](cloud-services-configure-ssl-certificate-portal.md).
 
 [Expose Your Application on a Custom Domain]: #access-app
 [Add a CNAME Record for Your Custom Domain]: #add-cname

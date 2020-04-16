@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 03/03/2020
+ms.date: 04/06/2020
 ms.author: jgao
-ms.openlocfilehash: 3129d4c664ec487f2def6cc0d2668b7493f4c988
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: f84707adfa406011989c8f9bfdf1e8d9270698a6
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78272645"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984800"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Uso de scripts de implementación en plantillas (versión preliminar)
 
@@ -34,8 +34,7 @@ Ventajas del script de implementación:
 - Permite pasar cuatro argumentos de la línea de comandos al script.
 - Puede especificar salidas de script y pasarlas de nuevo a la implementación.
 
-> [!NOTE]
-> El script de implementación se encuentra actualmente en versión preliminar. Para usarlo, debe [registrarse en la versión preliminar](https://aka.ms/armtemplatepreviews).
+El recurso de script de implementación solo está disponible en las regiones donde Azure Container Instances está disponible.  Consulte [Disponibilidad de recursos para Azure Container Instances en las regiones de Azure](../../container-instances/container-instances-region-availability.md).
 
 > [!IMPORTANT]
 > En el mismo grupo de recursos que se usa para la ejecución de scripts y la solución de problemas, se crean dos recursos de script de implementación, una cuenta de almacenamiento y una instancia de contenedor. Estos recursos los suele eliminar el servicio de scripts cuando la ejecución del script de implementación llega a un estado terminal. Los recursos se le facturarán hasta que se eliminen. Para más información, consulte [Limpieza de los recursos del script de implementación](#clean-up-deployment-script-resources).
@@ -45,7 +44,7 @@ Ventajas del script de implementación:
 - **Una identidad administrada asignada por el usuario con el rol de colaborador en el grupo de recursos de destino**. Esta identidad se usa para ejecutar scripts de implementación. Para realizar operaciones fuera del grupo de recursos, debe conceder permisos adicionales. Por ejemplo, asigne la identidad al nivel de suscripción si desea crear un nuevo grupo de recursos.
 
   > [!NOTE]
-  > El motor de scripts de implementación tiene que crear una cuenta de almacenamiento y una instancia de contenedor en segundo plano.  Se requiere una identidad administrada asignada por el usuario con el rol de colaborador en el nivel de suscripción si la suscripción no ha registrado los proveedores de recursos de la cuenta de almacenamiento de Azure (Microsoft.Storage) y la instancia de contenedor de Azure (Microsoft.ContainerInstance).
+  > El motor de scripts de implementación crea una cuenta de almacenamiento y una instancia de contenedor en segundo plano.  Se requiere una identidad administrada asignada por el usuario con el rol de colaborador en el nivel de suscripción si la suscripción no ha registrado los proveedores de recursos de la cuenta de almacenamiento de Azure (Microsoft.Storage) y la instancia de contenedor de Azure (Microsoft.ContainerInstance).
 
   Para crear una identidad, consulte [Creación de una identidad administrada asignada por el usuario mediante Azure Portal](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) o [la CLI de Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md) o [Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md). Necesitará el identificador de identidad al implementar la plantilla. El formato de la identidad es:
 
@@ -73,9 +72,15 @@ Ventajas del script de implementación:
 
   (Get-AzUserAssignedIdentity -resourcegroupname $idGroup -Name $idName).Id
   ```
+
   ---
 
-- **Azure PowerShell versión 3.0.0, 2.8.0 o 2.7.0** o **CLI de Azure versión 2.0.80, 2.0.79, 2.0.78 o 2.0.77**. No necesita estas versiones para implementar plantillas. Pero estas versiones son necesarias para probar los scripts de implementación de forma local. Consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps). Puede usar una imagen de Docker preconfigurada.  Consulte [Configuración del entorno de desarrollo](#configure-development-environment).
+- **Azure PowerShell** o la **CLI de Azure**. Para una lista de las versiones compatibles de Azure PowerShell, consulte [aquí](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list); para una lista de las versiones compatibles de la CLI de Azure, vaya [aquí](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list).
+
+    >[!IMPORTANT]
+    > El script de implementación usa las imágenes de la CLI disponibles de Microsoft Container Registry (MCR). Se tarda aproximadamente un mes en certificar una imagen de la CLI para el script de implementación. No utilice las versiones de la CLI que se publicaron en un plazo de 30 días. Para buscar las fechas de publicación de las imágenes, consulte las [notas de la versión de la CLI de Azure](https://docs.microsoft.com/cli/azure/release-notes-azure-cli?view=azure-cli-latest). Si se usa una versión no compatible, el mensaje de error enumera las versiones admitidas.
+
+    No necesita estas versiones para implementar plantillas. Pero estas versiones son necesarias para probar los scripts de implementación de forma local. Consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps). Puede usar una imagen de Docker preconfigurada.  Consulte [Configuración del entorno de desarrollo](#configure-development-environment).
 
 ## <a name="sample-templates"></a>Plantillas de ejemplo
 
@@ -98,6 +103,12 @@ El código JSON siguiente es un ejemplo.  [Aquí](/azure/templates/microsoft.res
     "forceUpdateTag": 1,
     "azPowerShellVersion": "3.0",  // or "azCliVersion": "2.0.80"
     "arguments": "[concat('-name ', parameters('name'))]",
+    "environmentVariables": [
+      {
+        "name": "someSecret",
+        "secureValue": "if this is really a secret, don't put it here... in plain text..."
+      }
+    ],
     "scriptContent": "
       param([string] $name)
       $output = 'Hello {0}' -f $name
@@ -121,8 +132,9 @@ Detalles de los valores de propiedad:
 - **Identidad**: el servicio de scripts de implementación utiliza una identidad administrada asignada por el usuario para ejecutar los scripts. Actualmente, solo se admiten identidades asignadas por el usuario.
 - **kind**: especifique el tipo de script. Actualmente, se admiten los scripts de Azure PowerShell y de la CLI de Azure. Los valores son **AzurePowerShell** y **AzureCLI**.
 - **forceUpdateTag**: el cambio de este valor entre implementaciones de plantilla obliga a que se vuelva a ejecutar el script de implementación. Utilice la función newGuid() o utcNow() que hay que establecer como defaultValue de un parámetro. Para más información, consulte la sección [Ejecución de un script varias veces](#run-script-more-than-once).
-- **azPowerShellVersion**/**azCliVersion**: Especifique la versión del módulo que se va a usar. Actualmente, el script de implementación admite las versiones de Azure PowerShell 2.7.0, 2.8.0, 3.0.0 y de la CLI de Azure 2.0.80, 2.0.79, 2.0.78, 2.0.77.
+- **azPowerShellVersion**/**azCliVersion**: Especifique la versión del módulo que se va a usar. Para una lista de las versiones compatibles de PowerShell y de la CLI, consulte los [requisitos previos](#prerequisites).
 - **arguments**: Especifique los valores de los parámetros. Los valores se separan con espacios.
+- **environmentVariables**: especifique las variables de entorno que se van a pasar al script. Para más información, consulte [Desarrollo de scripts de implementación](#develop-deployment-scripts).
 - **scriptContent**: especifique el contenido del script. Para ejecutar un script externo, use `primaryScriptUri` en su lugar. Para ver ejemplos, consulte [Uso scripts en línea](#use-inline-scripts) y [Uso de scripts externos](#use-external-scripts).
 - **primaryScriptUri**: Especifique una dirección URL de acceso público al script de implementación principal con las extensiones de archivo compatibles.
 - **supportingScriptUris**: Especifique una matriz de direcciones URL de acceso público a los archivos auxiliares a los que se llame en `ScriptContent` o `PrimaryScriptUri`.
@@ -141,16 +153,16 @@ Detalles de los valores de propiedad:
 
 ## <a name="use-inline-scripts"></a>Uso de scripts en línea
 
-La plantilla siguiente tiene un recurso definido con el tipo `Microsoft.Resources/deploymentScripts`.
+La plantilla siguiente tiene un recurso definido con el tipo `Microsoft.Resources/deploymentScripts`. La parte resaltada es el script insertado.
 
-[!code-json[](~/resourcemanager-templates/deployment-script/deploymentscript-helloworld.json?range=1-54)]
+:::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-helloworld.json" range="1-54" highlight="34-40":::
 
 > [!NOTE]
 > Dado que los scripts de implementación en línea se incluyen entre comillas dobles, las cadenas dentro de los scripts de implementación deben incluirse entre comillas simples. El carácter de escape de PowerShell es **&#92;** . También puede plantearse la posibilidad de usar la sustitución de cadenas tal y como se muestra en el ejemplo anterior de JSON. Consulte el valor predeterminado del nombre de parámetro.
 
 El script toma un parámetro y genera el valor del parámetro. **DeploymentScriptOutputs** se usa para almacenar las salidas.  En la sección de salidas, la línea **value** muestra cómo acceder a los valores almacenados. `Write-Output` se utiliza con fines de depuración. Para obtener información sobre cómo acceder al archivo de salida, vea [Depuración de scripts de implementación](#debug-deployment-scripts).  Para ver las descripciones de las propiedades, consulte [Plantillas de ejemplo](#sample-templates).
 
-Para ejecutar el script, seleccione **Pruébelo** para abrir Azure Cloud Shell y luego pegue el código siguiente en el panel de Shell.
+Para ejecutar el script, seleccione **Pruébelo** para abrir Cloud Shell y luego pegue el código siguiente en el panel de Shell.
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the name of the resource group to be created"
@@ -180,6 +192,8 @@ Para ver un ejemplo, seleccione [aquí](https://github.com/Azure/azure-docs-json
 
 Los archivos de script externos deben ser accesibles.  Para proteger los archivos de script que se almacenan en cuentas de Azure Storage, consulte [Tutorial: Protección de los artefactos de las implementaciones de plantillas de Azure Resource Manager](./template-tutorial-secure-artifacts.md).
 
+Tiene la responsabilidad de garantizar la integridad de los scripts a los que hace referencia el script de implementación, ya sea **PrimaryScriptUri** o **SupportingScriptUris**.  Haga referencia solo a scripts en los que confíe.
+
 ## <a name="use-supporting-scripts"></a>Uso de scripts auxiliares
 
 Puede separar las lógicas complicadas en uno o varios archivos de script auxiliar. En caso necesario, la propiedad `supportingScriptURI` le permite especificar una matriz de identificadores URI para los archivos de script auxiliar:
@@ -204,7 +218,7 @@ Los archivos auxiliares se copian en azscripts/azscriptinput en el tiempo de eje
 
 En la plantilla siguiente se muestra cómo pasar valores entre dos recursos deploymentScripts:
 
-[!code-json[](~/resourcemanager-templates/deployment-script/deploymentscript-basic.json?range=1-84)]
+:::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-basic.json" range="1-84" highlight="39-40,66":::
 
 En el primer recurso, defina una variable denominada **$DeploymentScriptOutputs** y úsela para almacenar los valores de salida. Para acceder al valor de salida de otro recurso dentro de la plantilla, use:
 
@@ -216,9 +230,9 @@ reference('<ResourceName>').output.text
 
 A diferencia del script de implementación de PowerShell, la compatibilidad con la CLI/Bash no expone una variable común para almacenar las salidas del script, sino que hay una variable de entorno denominada **AZ_SCRIPTS_OUTPUT_PATH** que almacena la ubicación donde reside el archivo de salida del script. Si se ejecuta un script de implementación desde una plantilla de Resource Manager, esta variable de entorno se establece automáticamente en el shell de Bash.
 
-Las salidas del script de implementación se deben guardar en la ubicación AZ_SCRIPTS_OUTPUT_PATH, y las salidas deben ser un objeto de cadena JSON válido. El contenido del archivo se debe guardar como par clave-valor. Por ejemplo, una matriz de cadenas se almacena como { “MyResult”: [ “foo”, “bar”] }.  No es válido almacenar solo los resultados de la matriz, por ejemplo [ “foo”, “bar” ].
+Las salidas del script de implementación se deben guardar en la ubicación AZ_SCRIPTS_OUTPUT_PATH, y las salidas deben ser un objeto de cadena JSON válido. El contenido del archivo se debe guardar como par clave-valor. Por ejemplo, una matriz de cadenas se almacena como { "MyResult": [ "foo", "bar"] }.  No es válido almacenar solo los resultados de la matriz, por ejemplo [ "foo", "bar" ].
 
-[!code-json[](~/resourcemanager-templates/deployment-script/deploymentscript-basic-cli.json?range=1-44)]
+:::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-basic-cli.json" range="1-44" highlight="32":::
 
 [jq](https://stedolan.github.io/jq/) se usa en el ejemplo anterior. Se incluye con las imágenes de contenedor. Consulte [Configuración del entorno de desarrollo](#configure-development-environment).
 
@@ -231,7 +245,7 @@ Puede controlar el modo en que PowerShell responde a los errores de no terminaci
 
 ### <a name="pass-secured-strings-to-deployment-script"></a>Paso de cadenas protegidas al script de implementación
 
-El establecimiento de variables de entorno en las instancias de contenedor le permite proporcionar configuración dinámica de la aplicación o el script ejecutados por el contenedor. El script de implementación controla las variables de entorno no protegidas y protegidas de la misma manera que Azure Container Instance. Para más información, consulte [Establecimiento de variables de entorno en instancias de contenedor](../../container-instances/container-instances-environment-variables.md#secure-values).
+El establecimiento de variables de entorno (EnvironmentVariable) en las instancias de contenedor le permite proporcionar configuración dinámica de la aplicación o el script ejecutados por el contenedor. El script de implementación controla las variables de entorno no protegidas y protegidas de la misma manera que Azure Container Instance. Para más información, consulte [Establecimiento de variables de entorno en instancias de contenedor](../../container-instances/container-instances-environment-variables.md#secure-values).
 
 ## <a name="debug-deployment-scripts"></a>Depuración de scripts de implementación
 
@@ -262,7 +276,7 @@ armclient get /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourcegroups
 
 La salida es parecida a esta:
 
-[!code-json[](~/resourcemanager-templates/deployment-script/deploymentscript-status.json?range=1-48)]
+:::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-status.json" range="1-37" highlight="15,34":::
 
 La salida muestra el estado de implementación y los identificadores de recursos del script de implementación.
 
@@ -299,7 +313,7 @@ El ciclo de vida de estos recursos se controla mediante las siguientes propiedad
 
 La ejecución del script de implementación es una operación idempotente. Si no se cambia ninguna de las propiedades del recurso deploymentScripts (incluido el script en línea), el script no se ejecutará al volver a implementar la plantilla. El servicio de scripts de implementación compara los nombres de recursos de la plantilla con los recursos existentes en el mismo grupo de recursos. Hay dos opciones si quiere ejecutar el mismo script de implementación varias veces:
 
-- Cambie el nombre del recurso deploymentScripts. Por ejemplo, use la función de plantilla [utcNow](./template-functions-string.md#utcnow) como nombre del recurso o como parte del nombre del recurso. Al cambiar el nombre del recurso se crea otro recurso deploymentScripts. Es conveniente mantener un historial de ejecución del script.
+- Cambie el nombre del recurso deploymentScripts. Por ejemplo, use la función de plantilla [utcNow](./template-functions-date.md#utcnow) como nombre del recurso o como parte del nombre del recurso. Al cambiar el nombre del recurso se crea otro recurso deploymentScripts. Es conveniente mantener un historial de ejecución del script.
 
     > [!NOTE]
     > La función utcNow solo puede utilizarse en el valor predeterminado de un parámetro.

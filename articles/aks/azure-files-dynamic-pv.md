@@ -1,15 +1,16 @@
 ---
-title: Creación dinámica de un volumen de archivos para varios pods en Azure Kubernetes Service (AKS)
+title: Creación dinámica de recursos compartidos de Azure Files
+titleSuffix: Azure Kubernetes Service
 description: Aprenda a crear un volumen persistente de forma dinámica con Azure Files para usarlo con varios pods simultáneos en Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 09/12/2019
-ms.openlocfilehash: ef9ef10a5523bd91b346e16e105c5ff5cd9cb669
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.openlocfilehash: 59b773cd4608187fedb24358eac57715e1c271ea
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78897711"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80803541"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Creación dinámica y uso de un volumen persistente con Azure Files en Azure Kubernetes Service (AKS)
 
@@ -29,7 +30,7 @@ Una clase de almacenamiento se utiliza para definir cómo se crea un recurso com
 
 * *Standard_LRS*: almacenamiento estándar con redundancia local (LRS)
 * *Standard_GRS*: almacenamiento estándar con redundancia geográfica (GRS)
-* *Standard_ZRS*: almacenamiento estándar con redundancia de zona (GRS)
+* *Standard_ZRS*: almacenamiento estándar con redundancia de zona (ZRS)
 * *Standard_RAGRS*: almacenamiento estándar con redundancia geográfica con acceso de lectura (RA-GRS)
 * *Premium_LRS*: almacenamiento con redundancia local premium (LRS)
 * *Premium_ZRS*: almacenamiento premium con redundancia de zona (GRS)

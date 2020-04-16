@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: diberry
-ms.openlocfilehash: 4b6d954d06f09bef5240bddc4860ddbc83513d69
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 82efa70b30e829cfedd0b1fa7a21fd06949aa6d5
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79219118"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80744152"
 ---
 # <a name="language-and-region-support-for-luis"></a>Compatibilidad de idiomas y regiones para LUIS
 
@@ -35,18 +35,25 @@ LUIS entiende expresiones en los idiomas siguientes:
 | Inglés de Estados Unidos |`en-US` | ✔ | ✔  |✔|✔|
 | Árabe (versión preliminar: Árabe estándar moderno) |`ar-AR`|-|-|-|-|
 | *[Chino](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
-| Neerlandés |`nl-NL` |✔|  -   |-|✔|
+| Neerlandés |`nl-NL` |✔|-|-|✔|
 | Francés (Francia) |`fr-FR` |✔| ✔ |✔ |✔|
-| Francés (Canadá) |`fr-CA` |-|   -   |-|✔|
+| Francés (Canadá) |`fr-CA` |-|-|-|✔|
 | Alemán |`de-DE` |✔| ✔ |✔ |✔|
-| Hindi | `hi-IN`|-|-|-|-|
+| Gujarati | `gu-IN`|-|-|-|-|
+| Hindi | `hi-IN`|-|✔|-|-|
 | Italiano |`it-IT` |✔| ✔ |✔|✔|
 | *[Japonés](#japanese-support-notes) |`ja-JP` |✔| ✔ |✔|Solo la frase clave|
-| Coreano |`ko-KR` |✔|   -   |-|Solo la frase clave|
+| Coreano |`ko-KR` |✔|-|-|Solo la frase clave|
+| Maratí | `mr-IN`|-|-|-|-|
 | Portugués (Brasil) |`pt-BR` |✔| ✔ |✔ |No todas las referencias culturales secundarias|
 | Español (España) |`es-ES` |✔| ✔ |✔|✔|
-| Español (México)|`es-MX` |-|  -   |✔|✔|
-| Turco | `tr-TR` |✔|-|-|Solo opiniones|
+| Español (México)|`es-MX` |-|-|✔|✔|
+| Tamil | `ta-IN`|-|-|-|-|
+| Telugu | `te-IN`|-|-|-|-|
+| Turco | `tr-TR` |✔|✔|-|Solo opiniones|
+
+
+
 
 La compatibilidad con idiomas varía para las [entidades creadas previamente](luis-reference-prebuilt-entities.md) y los [dominios creados previamente](luis-reference-prebuilt-domains.md).
 
@@ -77,22 +84,28 @@ Los idiomas híbridos combinan palabras de dos referencias culturales como el in
 ## <a name="tokenization"></a>Tokenización
 Para realizar el aprendizaje automático, LUIS divide una expresión en [tokens](luis-glossary.md#token) en función de la referencia cultural.
 
-|Idioma|  todos los espacios o caracteres especiales | nivel de carácter|palabras compuestas|[se devuelve una entidad con tokens](luis-concept-data-extraction.md#tokenized-entity-returned)
-|--|:--:|:--:|:--:|:--:|
-|Árabe|||||
-|Chino||✔||✔|
-|Neerlandés|||✔|✔|
-|Español (es-es)|✔ ||||
-|Francés (fr-FR)|✔||||
-|Francés (fr-CA)|✔||||
-|Alemán|||✔|✔|
-| Hindi |✔|-|-|-|-|
-|Italiano|✔||||
-|Japonés||||✔|
-|Coreano||✔||✔|
-|Portugués (Brasil)|✔||||
-|Español (es-ES)|✔||||
-|Español (es-MX)|✔||||
+|Idioma|  todos los espacios o caracteres especiales | nivel de carácter|palabras compuestas
+|--|:--:|:--:|:--:|
+|Árabe|✔|||
+|Chino||✔||
+|Neerlandés|✔||✔|
+|Español (es-es)|✔ |||
+|Francés (fr-FR)|✔|||
+|Francés (fr-CA)|✔|||
+|Alemán|✔||✔|
+|Gujarati|✔|||
+|Hindi|✔|||
+|Italiano|✔|||
+|Japonés|||✔
+|Coreano||✔||
+|Maratí|✔|||
+|Portugués (Brasil)|✔|||
+|Español (es-ES)|✔|||
+|Español (es-MX)|✔|||
+|Tamil|✔|||
+|Telugu|✔|||
+|Turco|✔|||
+
 
 ### <a name="custom-tokenizer-versions"></a>Versiones de tokenizador personalizadas
 
@@ -102,6 +115,9 @@ Las referencias culturales siguientes tienen versiones de tokenizador personaliz
 |--|--|--|
 |Alemán<br>`de-de`|1.0.0|Acorta las palabras mediante su división por medio de un tokenizador basado en aprendizaje automático que intenta desglosar las palabras compuestas en sus componentes únicos.<br>Si un usuario escribe `Ich fahre einen krankenwagen` como expresión, se convierte en `Ich fahre einen kranken wagen`. Esto permite el marcado de `kranken` y `wagen` por separado como entidades diferentes.|
 |Alemán<br>`de-de`|1.0.2|Acorta las palabras mediante su división en espacios.<br> Si un usuario escribe `Ich fahre einen krankenwagen` como expresión, sigue siendo un token único. Por lo tanto, `krankenwagen` se marca como una única entidad. |
+|Neerlandés<br>`de-de`|1.0.0|Acorta las palabras mediante su división por medio de un tokenizador basado en aprendizaje automático que intenta desglosar las palabras compuestas en sus componentes únicos.<br>Si un usuario escribe `Ik ga naar de kleuterschool` como expresión, se convierte en `Ik ga naar de kleuter school`. Esto permite el marcado de `kleuter` y `school` por separado como entidades diferentes.|
+|Neerlandés<br>`de-de`|1.0.1|Acorta las palabras mediante su división en espacios.<br> Si un usuario escribe `Ik ga naar de kleuterschool` como expresión, sigue siendo un token único. Por lo tanto, `kleuterschool` se marca como una única entidad. |
+
 
 ### <a name="migrating-between-tokenizer-versions"></a>Migración entre versiones de tokenizador
 <!--

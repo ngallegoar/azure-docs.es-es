@@ -5,16 +5,19 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 02/27/2020
+ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: b7a3374e8b1bb5c7624f41c994f7f9a6135506c0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 35ef732111ff0b75bba7397f7cc22b3ff08c00d5
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80278525"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985106"
 ---
 # <a name="consulting-service-prerequisites"></a>Requisitos previos de los servicios de consultoría
+
+>[!Important]
+>A partir del 13 de abril de 2020, se comenzará a trasladar la administración de las ofertas de servicios de consultoría al Centro de partners. Después de la migración, las ofertas se crearán y administrarán en el Centro de partners. Siga las instrucciones que se indican en [Información general sobre la creación de servicios de consultoría](https://aka.ms/AzureCreateConsultingService) para administrar las ofertas migradas.
 
 Revise la descripción y los requisitos para este tipo de oferta en [Servicios de consultoría de Azure Marketplace y AppSource](../../consulting-services.md).  Los siguientes tipos de servicio de consultoría específicos tienen requisitos adicionales:
 

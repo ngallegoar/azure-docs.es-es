@@ -1,6 +1,6 @@
 ---
 title: El firewall de SO invitado de máquina virtual de Azure no está correctamente configurado | Microsoft Docs
-description: ''
+description: Aprenda a usar la consola serie o el método sin conexión para diagnosticar y reparar un firewall del sistema operativo invitado mal configurado en una máquina virtual de Azure remota.
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 8f04d943e1db49beed13c183fbd06e401546fc03
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e6f42bdf462ac5261f77bc05c62e50500345fe37
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71153889"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422532"
 ---
 # <a name="azure-vm-guest-os-firewall-is-misconfigured"></a>El firewall de SO invitado de máquina virtual de Azure no está correctamente configurado
 
@@ -55,7 +55,7 @@ Para habilitar el acceso a la máquina virtual (mediante RDP) o para proporciona
 
 *   Compartir archivos e impresoras (SMB de entrada): esta regla permite el acceso de recurso compartido de red como una opción de solución de problemas.
 
-*   Compartir archivos e impresoras (solicitud de eco - ICMPv4 de entrada): esta regla le permite hacer ping a la máquina virtual.
+*   Compartir archivos e impresoras (solicitud de eco: ICMPv4 de entrada): esta regla le permite hacer ping a la máquina virtual.
 
 En la instancia de acceso a la consola serie, puede consultar el estado actual de la regla de firewall.
 

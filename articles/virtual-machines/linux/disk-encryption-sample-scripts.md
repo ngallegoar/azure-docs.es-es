@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: c98da4b41da183f56d80fad1e8c01706d1cfcf23
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b54f9f3466fe5f7e2da622077f53575d6f43f72d
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78970506"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585959"
 ---
 # <a name="azure-disk-encryption-sample-scripts"></a>Scripts de ejemplo de Azure Disk Encryption 
 
@@ -80,7 +80,7 @@ En la siguiente tabla se muestran los parámetros que se pueden usar en el scrip
 
 ### <a name="prerequisites-for-os-disk-encryption"></a>Requisitos previos para el cifrado de disco del sistema operativo
 
-* La máquina virtual debe usar una distribución compatible con el cifrado del disco del sistema operativo, como se muestra en el artículo [Sistemas operativos compatibles con Azure Disk Encryption](disk-encryption-overview.md#supported-vm-sizes) 
+* La máquina virtual debe usar una distribución compatible con el cifrado del disco del sistema operativo, como se muestra en el artículo [Sistemas operativos compatibles con Azure Disk Encryption](disk-encryption-overview.md#supported-vms) 
 * La máquina virtual debe crearse a partir de la imagen de Marketplace en Azure Resource Manager.
 * La máquina virtual de Azure con al menos 4 GB de RAM (el tamaño recomendado es 7 GB).
 * (Para RHEL y CentOS) Deshabilite SELinux. Para deshabilitar SELinux, consulte "4.4.2. Disabling SELinux" (Deshabilitar SELinux) en el documento [SELinux User's and Administrator's Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/SELinux_Users_and_Administrators_Guide/sect-Security-Enhanced_Linux-Working_with_SELinux-Changing_SELinux_Modes.html#sect-Security-Enhanced_Linux-Enabling_and_Disabling_SELinux-Disabling_SELinux) (Guía del administrador y del usuario de SELinux) en la máquina virtual.
@@ -294,7 +294,7 @@ Para configurar el cifrado de manera que funcione con Azure, siga estos pasos:
    ```bash
     if [ 1 ]; then
    ```
-4. Edite /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh y anéxelo a "# Open LUKS device":
+4. Edite /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh and append it to "# Open LUKS device":
 
     ```bash
     MountPoint=/tmp-keydisk-mount

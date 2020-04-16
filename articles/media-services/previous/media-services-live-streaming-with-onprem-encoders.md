@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: f6366f162cb09898b694b14440718401c57c0adf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c0d19d68d016a47762fb5d2646ea6ccf74d3ef75
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79227028"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80476556"
 ---
 # <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>Uso de canales que reciben streaming en vivo con velocidad de bits múltiple de codificadores locales
 
@@ -112,7 +112,7 @@ Un canal proporciona un punto de conexión de entrada (dirección URL de ingesta
 
 Puede obtener las direcciones URL de ingesta al crear el canal. Para obtener estas direcciones URL, el estado del canal no puede ser **En ejecución**. Cuando esté listo para comenzar a insertar datos en el canal, su estado debe ser **En ejecución**. Una vez que el canal empieza a ingerir datos, puede obtener una vista previa de la transmisión a través de la dirección URL de vista previa.
 
-Tiene la opción de ingerir una transmisión en vivo de MP4 fragmentado (Smooth Streaming) a través de una conexión SSL. Para introducir en SSL, asegúrese de actualizar la dirección URL de introducción a HTTPS. Actualmente, no se puede consumir RTMP a través de SSL.
+Tiene la opción de ingerir una transmisión en vivo de MP4 fragmentado (Smooth Streaming) sobre una conexión TLS. Para ingerir en TLS, asegúrese de actualizar la dirección URL de ingesta a HTTPS. Actualmente, no se puede ingerir RTMP sobre TLS.
 
 #### <a name="keyframe-interval"></a><a id="keyframe_interval"></a>Intervalo de fotogramas clave
 Cuando se usa un codificador en vivo local para generar una transmisión de velocidad de bits múltiple, el intervalo de fotogramas clave especifica la duración de grupo de imágenes (GOP) tal como la usa el codificador externo. Una vez que el canal recibe esta transmisión de entrada, puede entregar su transmisión en vivo a las aplicaciones de reproducción del cliente en cualquiera de estos formatos: Smooth Streaming, Streaming adaptable dinámico a través de HTTP (DASH) y HTTP Live Streaming (HLS). Cuando se realiza el streaming en vivo, HLS siempre se empaqueta dinámicamente. De forma predeterminada, Media Services calcula automáticamente la proporción de empaquetado por segmento HLS (fragmentos por segmento) según el intervalo de fotogramas clave que se recibe del codificador en vivo.

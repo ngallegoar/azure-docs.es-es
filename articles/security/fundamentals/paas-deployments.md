@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 8fd5a063683d09cb94b45205426871d880119cc2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0643ae792c890b65f239d9a0c16a05639dd4f8b9
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77138020"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811474"
 ---
 # <a name="securing-paas-deployments"></a>Protección de implementaciones de PaaS
 
@@ -101,7 +101,7 @@ En esta tabla se enumeran las amenazas STRIDE y se incluyen algunos ejemplos de 
 | Threat | Propiedad de seguridad | Posibles mitigaciones de la plataforma Azure |
 | --- | --- | --- |
 | Suplantación de identidad | Authentication | Necesita conexiones HTTPS. |
-| Alteración de datos | Integridad | Valida certificados SSL. |
+| Alteración de datos | Integridad | Valida certificados TLS/SSL. |
 | Rechazo | No rechazo | Habilita opciones de [supervisión y diagnóstico](/azure/architecture/best-practices/monitoring) de Azure. |
 | Divulgación de información | Confidencialidad | Cifra datos confidenciales en reposo mediante [certificados de servicio](/rest/api/appservice/certificates). |
 | Denegación de servicio | Disponibilidad | Supervisa las métricas de rendimiento de las posibles condiciones de denegación de servicio. Implementa filtros de conexión. |

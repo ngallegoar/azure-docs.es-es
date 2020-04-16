@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/06/2019
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f7d14da6c7436120e013c979b108f61b82640d13
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cabfc84d2bc0c9d08a457e67c0182d7550f04ceb
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75647890"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668883"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Configuración de uno o varios agentes de escucha de grupo de disponibilidad AlwaysOn: Resource Manager
 En este tema se muestra cómo llevar a cabo dos tareas:
@@ -58,9 +58,13 @@ Si restringe el acceso con Azure Network Security Group, asegúrese de que las r
 
 ## <a name="determine-the-load-balancer-sku-required"></a>Determinar la SKU requerida del equilibrador de carga
 
-[Azure Load Balancer](../../../load-balancer/load-balancer-overview.md) está disponible en 2 SKU: Básico y Estándar. Se recomienda el equilibrador de carga estándar. Si las máquinas virtuales están en un conjunto de disponibilidad, se permite el equilibrador de carga básico. El equilibrador de carga estándar requiere que todas las direcciones IP de las VM usen direcciones IP estándar.
+[Azure Load Balancer](../../../load-balancer/load-balancer-overview.md) está disponible en 2 SKU: Básico y Estándar. Se recomienda el equilibrador de carga estándar. Si las máquinas virtuales están en un conjunto de disponibilidad, se permite el equilibrador de carga básico. Si las máquinas virtuales están en una zona de disponibilidad, se requiere un equilibrador de carga estándar. El equilibrador de carga estándar requiere que todas las direcciones IP de las VM usen direcciones IP estándar.
 
 La [plantilla de Microsoft](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) actual para un grupo de disponibilidad usa un equilibrador de carga básico con direcciones IP básicas.
+
+   > [!NOTE]
+   > Si usa un equilibrador de carga estándar y Azure Storage para el testigo en la nube, tendrá que configurar un [punto de conexión de servicio ](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network). 
+
 
 En los ejemplos de este artículo se especifica un equilibrador de carga estándar. En los ejemplos, el script incluye `-sku Standard`.
 
@@ -226,6 +230,8 @@ Cuando utilice un equilibrador de carga interno, tenga en cuenta las siguientes 
 * Como solo hay un equilibrador de carga interno, el acceso al agente de escucha se realizará desde la misma red virtual.
 
 * Si restringe el acceso con Azure Network Security Group, asegúrese de que las reglas de permiso incluyan las direcciones IP de back-end de VM con SQL Server, y direcciones IP flotantes del equilibrador de carga para la escucha de grupo de disponibilidad y la dirección IP principal del clúster, si corresponde.
+
+* Cree un punto de conexión de servicio cuando use un equilibrador de carga estándar con Azure Storage para el testigo en la nube. Para más información, consulte [Concesión de acceso desde una red virtual](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network).
 
 ## <a name="for-more-information"></a>Para obtener más información
 Para más información, consulte [Configuración manual de grupos de disponibilidad AlwaysOn en máquinas virtuales de Azure](virtual-machines-windows-portal-sql-availability-group-tutorial.md).

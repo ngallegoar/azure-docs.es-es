@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 93b10d56ae34ebdfe78dd20705634dea58721274
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 56c53b9e2388cc0594076a5ef35b072216aec20d
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79228948"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80672732"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>Administración del servidor de configuración para la recuperación ante desastres del servidor físico o VM de VMware
 
@@ -93,6 +93,32 @@ La plantilla OVF (Open Virtualization Format) implementa la máquina virtual del
 - Puede [agregar otro adaptador a la máquina virtual](vmware-azure-deploy-configuration-server.md#add-an-additional-adapter), pero debe hacerlo antes de registrar el servidor de configuración en el almacén.
 - Para agregar un adaptador después de registrar el servidor de configuración en el almacén, agregue el adaptador en las propiedades de la máquina virtual. A continuación, es necesario [volver a registrar](#reregister-a-configuration-server-in-the-same-vault) el servidor en el almacén.
 
+## <a name="how-to-renew-ssl-certificates"></a>Renovación de certificados SSL
+
+El servidor de configuración lleva integrado un servidor web, que coordina las actividades de los agentes de Mobility en todas las máquinas protegidas, los servidores de procesos integrados o de escalabilidad horizontal y los servidores de destino maestros conectados a él. El servidor web usa un certificado SSL para autenticar clientes. El certificado expira después de tres años y se puede renovar en cualquier momento.
+
+### <a name="check-expiry"></a>Comprobación de expiración
+
+La fecha de expiración aparece en **Configuration Server health** (Mantenimiento del servidor de configuración). En lo que respecta a las implementaciones de servidores de configuración antes de mayo de 2016, la expiración del certificado se estableció en 1 año. Si tiene un certificado que va a expirar, ocurre lo siguiente:
+
+- Cuando la fecha de expiración es dos meses o menos, el servicio comienza a enviar notificaciones en el portal y por correo electrónico (si está suscrito a las notificaciones de Azure Site Recovery).
+- Aparece un banner de notificación en la página de recursos de almacén. Para más información, seleccione el banner.
+- Si ve el botón **Actualizar ahora**, quiere decir que algunos componentes en el entorno no se han actualizado a la versión 9.4.xxxx.x o superior. Actualice los componentes antes de renovar el certificado. La renovación no es posible en versiones anteriores.
+
+### <a name="if-certificates-are-yet-to-expire"></a>Si los certificados aún no han expirado
+
+1. Para renovarlos, en el almacén, abra **Infraestructura de Site Recovery** > **Servidor de configuración**. Seleccione el servidor de configuración necesario.
+2. Asegúrese de que los servidores de procesos de escalabilidad horizontal, los servidores de destino maestros y los agentes de movilidad de todos los componentes en todas las máquinas protegidas tengan las versiones más recientes y estén conectados.
+3. A continuación, seleccione **Renovar certificados**.
+4. Siga detenidamente las instrucciones de esta página y haga clic en Aceptar para renovar los certificados en el servidor de configuración seleccionado y en sus componentes asociados.
+
+### <a name="if-certificates-have-already-expired"></a>Si los certificados ya han expirado
+
+1. Si ya han expirado, los certificados **no se pueden renovar desde Azure Portal**. Antes de continuar, asegúrese de que los servidores de procesos de escalabilidad horizontal, los servidores de destino maestros y los agentes de movilidad de todos los componentes en todas las máquinas protegidas tengan las versiones más recientes y estén conectados.
+2. **Siga este procedimiento solo si los certificados ya han expirado.** Inicie sesión en el servidor de configuración, vaya a la unidad C > ProgramData > Site Recovery > home > svsystems > bin y ejecute la herramienta de ejecutor "RenewCerts" como administrador.
+3. Aparecerá una ventana de ejecución de PowerShell y se desencadenará la renovación de certificados. Esta operación puede tardar hasta 15 minutos. No cierre la ventana hasta que finalice la renovación.
+
+:::image type="content" source="media/vmware-azure-manage-configuration-server/renew-certificates.png" alt-text="RenewCertificates":::
 
 ## <a name="reregister-a-configuration-server-in-the-same-vault"></a>Proceso para volver a registrar el servidor de configuración en el mismo almacén
 
@@ -112,7 +138,7 @@ Si lo necesita, puede volver a registrar el servidor de configuración en el mis
    ```
 
     >[!NOTE]
-    >Para **extraer los últimos certificados** del servidor de configuración y escalar horizontalmente el servidor de procesos, ejecute el comando *"\<Unidad de instalación\Microsoft Azure Site Recovery\agent\cdpcli.exe>" --registermt*
+    >Para **extraer los últimos certificados** del servidor de configuración y escalar horizontalmente el servidor de procesos, ejecute el comando *"\<Unidad de instalación\Microsoft Azure Site Recovery\agent\cdpcli.exe>"--registermt*
 
 8. Por último, reinicie el servicio OBEngine con la ejecución del siguiente comando.
    ```
@@ -269,24 +295,6 @@ También puede eliminar el servidor de configuración con PowerShell.
 2. Para cambiar el directorio a la carpeta bin, ejecute el comando **cd %ProgramData%\ASR\home\svsystems\bin**
 3. Para generar el archivo de frase de contraseña, ejecute **genpassphrase.exe -v > MobSvc.passphrase**.
 4. La frase de contraseña se almacenará en el archivo ubicado en **%ProgramData%\ASR\home\svsystems\bin\MobSvc.passphrase**.
-
-## <a name="renew-ssl-certificates"></a>Renovación de certificados SSL
-
-El servidor de configuración lleva integrado un servidor web, que coordina las actividades de Mobility Service, los servidores de procesos y los servidores de destino maestros conectados a él. El servidor web usa un certificado SSL para autenticar clientes. El certificado expira después de tres años y se puede renovar en cualquier momento.
-
-### <a name="check-expiry"></a>Comprobación de expiración
-
-En lo que respecta a las implementaciones de servidores de configuración antes de mayo de 2016, la expiración del certificado se estableció en 1 año. Si tiene un certificado que va a expirar, ocurre lo siguiente:
-
-- Cuando la fecha de expiración es dos meses o menos, el servicio comienza a enviar notificaciones en el portal y por correo electrónico (si está suscrito a las notificaciones de Azure Site Recovery).
-- Aparece un banner de notificación en la página de recursos de almacén. Para más información, seleccione el banner.
-- Si ve el botón **Actualizar ahora**, quiere decir que algunos componentes en el entorno no se han actualizado a la versión 9.4.xxxx.x o superior. Actualice los componentes antes de renovar el certificado. La renovación no es posible en versiones anteriores.
-
-### <a name="renew-the-certificate"></a>Renovación del certificado
-
-1. En el almacén, abra **Site Recovery Infrastructure** >  (Infraestructura de Site Recovery) **Configuration Servers** (Servidores de configuración). Seleccione el servidor de configuración necesario.
-2. La fecha de expiración aparece en **Configuration Server health** (Mantenimiento del servidor de configuración).
-3. Haga clic en **Renew Certificates** (Renovar certificados).
 
 ## <a name="refresh-configuration-server"></a>Actualización del servidor de configuración
 

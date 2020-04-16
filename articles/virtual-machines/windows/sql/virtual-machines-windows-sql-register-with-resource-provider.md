@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 01e683e31905281d25fdcf976bc58397c052a6c3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d9c1cff53d5d0f0385d3d61938c7fb6309efb7b1
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79224612"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985395"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>Registro de una máquina virtual con SQL Server en Azure con el proveedor de recursos de máquina virtual con SQL
 
@@ -178,9 +178,9 @@ Para registrar la VM de SQL Server directamente en modo completo (y posiblemente
 
 SQL Server 2008 y 2008 R2 instalados en Windows Server 2008 (_no R2_) se pueden registrar con el proveedor de recursos de VM con SQL en [modo NoAgent](#management-modes). Esta opción garantiza el cumplimiento de normas y permite que la VM con SQL Server se supervise en Azure Portal con una funcionalidad limitada.
 
-Especifique `AHUB`, `PAYG` o `DR` como **sqlLicenseType** y `SQL2008-WS2008` o `SQL2008R2-WS2008` como **sqlImageOffer**. 
+Especifique `AHUB`, `PAYG` o `DR` como valores de **sqlLicenseType** y `SQL2008-WS2008` o `SQL2008R2-WS2008` como valores de **sqlImageOffer**. 
 
-Para registrar su instancia de SQL Server 2008 o 2008 R2 en una instancia de Windows Server 2008, use el siguiente fragmento de código de la CLI de Azure o Powershell: 
+Para registrar SQL Server 2008 o 2008 R2 en una instancia de Windows Server 2008, use el siguiente fragmento de código de la CLI de Azure o PowerShell: 
 
 
 # <a name="az-cli"></a>[CLI de AZ](#tab/bash)
@@ -190,7 +190,7 @@ Registre la VM con SQL Server 2008 en modo NoAgent con la CLI de Azure:
   ```azurecli-interactive
    az sql vm create -n sqlvm -g myresourcegroup -l eastus |
    --license-type PAYG --sql-mgmt-type NoAgent 
-   --image-sku Enterprise --image-offer SQL2008-WS2008R2
+   --image-sku Enterprise --image-offer SQL2008-WS2008
  ```
  
  
@@ -199,7 +199,7 @@ Registre la VM con SQL Server 2008 R2 en modo NoAgent con la CLI de Azure:
   ```azurecli-interactive
    az sql vm create -n sqlvm -g myresourcegroup -l eastus |
    --license-type PAYG --sql-mgmt-type NoAgent 
-   --image-sku Enterprise --image-offer SQL2008R2-WS2008R2
+   --image-sku Enterprise --image-offer SQL2008R2-WS2008
  ```
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)

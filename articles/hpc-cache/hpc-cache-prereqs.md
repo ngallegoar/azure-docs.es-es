@@ -4,14 +4,14 @@ description: Requisitos previos para usar Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 04/03/2020
 ms.author: rohogue
-ms.openlocfilehash: 40d282ad30a800a5e5a36a8d2211ec8da7ce63ec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6da35cb60dc5f22be01ae25393bd62327db64867
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79233432"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80655654"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Requisitos previos para Azure HPC Cache
 
@@ -113,7 +113,7 @@ Se puede encontrar más información en [Solución de problemas de configuració
 
   Asegúrese de que todos los puertos devueltos por la consulta ``rpcinfo`` permitan tráfico sin restricciones desde la subred de Azure HPC Cache.
 
-  * Además de los puertos devueltos por el comando `rpcinfo`, asegúrese de que estos puertos usados comúnmente permitan el tráfico entrante y saliente:
+  * Si no puede usar el comando `rpcinfo`, asegúrese de que estos puertos usados comúnmente permiten el tráfico entrante y saliente:
 
     | Protocolo | Port  | Servicio  |
     |----------|-------|----------|
@@ -122,6 +122,8 @@ Se puede encontrar más información en [Solución de problemas de configuració
     | TCP/UDP  | 4045  | nlockmgr |
     | TCP/UDP  | 4046  | mountd   |
     | TCP/UDP  | 4047  | status   |
+
+    Algunos sistemas utilizan números de puerto diferentes para estos servicios. Consulte la documentación del sistema de almacenamiento para asegurarse.
 
   * Compruebe la configuración del firewall para asegurarse de que permite el tráfico en todos estos puertos necesarios. Asegúrese de comprobar los firewalls que se usan en Azure, así como los firewalls locales de su centro de datos.
 
@@ -132,7 +134,7 @@ Se puede encontrar más información en [Solución de problemas de configuració
 
   Aprenda más sobre el acceso a la lista de directorios en el [artículo de solución de problemas](troubleshoot-nas.md#enable-export-listing) del destino de almacenamiento.
 
-* **Acceso a la raíz:** La memoria caché se conecta al sistema back-end como el ID. de usuario 0. Compruebe esta configuración en el sistema de almacenamiento:
+* **Acceso raíz** (lectura y escritura): La memoria caché se conecta al sistema back-end como el ID. de usuario 0. Compruebe esta configuración en el sistema de almacenamiento:
   
   * Habilite `no_root_squash`. Esta opción garantiza que el usuario raíz remoto pueda tener acceso a los archivos que pertenecen a la raíz.
 

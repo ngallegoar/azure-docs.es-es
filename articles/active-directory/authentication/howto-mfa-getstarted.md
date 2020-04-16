@@ -1,30 +1,37 @@
 ---
-title: 'Implementar Azure Multi-Factor Authentication: Azure Active Directory'
-description: Planificación de la implementación de Azure Multi-Factor Authentication
+title: Consideraciones relativas a la implementación de Azure Multi-Factor Authentication
+description: Obtenga información sobre las consideraciones relativas a la implementación de Azure Multi-Factor Authentication y la estrategia para realizarla correctamente
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6da67589b15b4ab043510c0375c26c12f645adb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a70c6ae3ebc7f5b39550508594bd4d4907e68a67
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79230980"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80667340"
 ---
-# <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>Planificación de una implementación de Azure Multi-Factor Authentication basada en la nube
+# <a name="plan-an-azure-multi-factor-authentication-deployment"></a>Planificación de una implementación de Azure Multi-Factor Authentication
 
 Las personas se conectan con recursos de la organización en escenarios cada vez más complicados. Los usuarios se conectan desde dispositivos propiedad de la organización, personales y públicos, desde redes corporativas y no corporativas mediante smartphones, tabletas, PC y equipos portátiles, a menudo en varias plataformas. En este mundo conectado siempre, multidispositivo y multiplataforma, la seguridad de las cuentas de usuario es más importante que nunca. Las contraseñas, independientemente de su complejidad, que se usan en varios dispositivos, redes y plataformas ya no son suficientes para garantizar la seguridad de la cuenta de usuario, especialmente cuando los usuarios tienden a reutilizar contraseñas entre cuentas. El "phishing" sofisticado y otros ataques de ingeniería social pueden dar lugar a que los nombres de usuario y contraseñas se publiquen y vendan en la web oscura.
 
 [Azure Multi-Factor Authentication (MFA)](concept-mfa-howitworks.md) ayuda a proteger el acceso a los datos y las aplicaciones. Proporciona una capa adicional de seguridad mediante una segunda forma de autenticación. Las organizaciones pueden usar el [acceso condicional](../conditional-access/overview.md) para que la solución se ajuste a sus necesidades específicas.
 
-## <a name="prerequisites"></a>Prerequisites
+En esta guía de implementación se muestra cómo planear y probar un lanzamiento de Azure Multi-Factor Authentication.
+
+Para ver rápidamente Azure Multi-Factor Authentication en acción y, después, volver para conocer otras consideraciones acerca de la implementación:
+
+> [!div class="nextstepaction"]
+> [Habilitación de Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md)
+
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de iniciar una implementación de Azure Multi-Factor Authentication, existen requisitos previos que deben tenerse en cuenta.
 
@@ -137,7 +144,7 @@ Se envía al usuario un mensaje de texto que contiene un código de verificació
 
 ## <a name="plan-registration-policy"></a>Planificación de la directiva de registro
 
-Los administradores deben determinar la forma en que los usuarios registrarán sus métodos. Las organizaciones deben [habilitar la nueva experiencia de registro combinado](howto-registration-mfa-sspr-combined.md) para Azure MFA y el autoservicio de restablecimiento de contraseña (SSPR). Dicho servicio permite que los usuarios restablezcan su contraseña de forma segura con los mismos métodos que se usan para la autenticación multifactor. Se recomienda usar este registro combinado (actualmente en versión preliminar pública) porque es una excelente experiencia para los usuarios, con la capacidad de registrarse una vez en ambos servicios. Si habilita los mismos métodos para SSPR y Azure MFA, permitirá a los usuarios a registrarse para utilizar ambas características.
+Los administradores deben determinar la forma en que los usuarios registrarán sus métodos. Las organizaciones deben [habilitar la nueva experiencia de registro combinado](howto-registration-mfa-sspr-combined.md) para Azure MFA y el autoservicio de restablecimiento de contraseña (SSPR). Dicho servicio permite que los usuarios restablezcan su contraseña de forma segura con los mismos métodos que se usan para la autenticación multifactor. Se recomienda usar este registro combinado, que actualmente está en versión preliminar pública, porque es una excelente experiencia para los usuarios, con la capacidad de registrarse una vez en ambos servicios. Si habilita los mismos métodos para SSPR y Azure MFA, permitirá a los usuarios a registrarse para utilizar ambas características.
 
 ### <a name="registration-with-identity-protection"></a>Registro con Identity Protection
 
@@ -173,7 +180,7 @@ Get-MsolUser -All | where {$_.StrongAuthenticationMethods.Count -eq 0} | Select-
 
 Si los usuarios se habilitaron con Azure Multi-Factor Authentication habilitado y aplicado por usuario, el siguiente comando de PowerShell pueden ayudarle a realizar la conversión a Azure Multi-Factor Authentication basado en acceso condicional.
 
-Ejecútelo en una ventana de ISE o guárdelo como un archivo .PS1 para ejecutarlo localmente.
+Ejecútelo en una ventana de ISE o guárdelo como un archivo `.PS1` para ejecutarlo localmente.
 
 ```PowerShell
 # Sets the MFA requirement state
@@ -275,7 +282,7 @@ Si tiene una instancia de NPS implementada y está en uso, consulte [Integració
 
 #### <a name="prepare-nps-for-users-that-arent-enrolled-for-mfa"></a>Preparación de los usuarios NPS que no están inscritos en MFA
 
-Elija qué sucede cuando los usuarios que no están inscritos en MFA intentan autenticarse. Use la configuración del registro `REQUIRE_USER_MATCH` en la ruta de acceso del registro `HKLM\Software\Microsoft\AzureMFA` para controlar el comportamiento de la característica. Esta opción tiene una única opción de configuración.
+Elija lo que sucede cuando los usuarios que no están inscritos en MFA intentan autenticarse. Use la configuración del registro `REQUIRE_USER_MATCH` en la ruta de acceso del registro `HKLM\Software\Microsoft\AzureMFA` para controlar el comportamiento de la característica. Esta opción tiene una única opción de configuración.
 
 | Clave | Value | Valor predeterminado |
 | --- | --- | --- |
@@ -317,7 +324,7 @@ En todos los servidores de AD FS del equipo local My Store habrá un certificado
 
 Si el período de validez de los certificados está próximo a expirar, [genere y compruebe un nuevo certificado MFA en cada servidor de AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa#configure-the-ad-fs-servers).
 
-Las instrucciones siguientes detallan cómo administrar los certificados de Azure MFA en los servidores de AD FS. Cuando se configura AD FS con Azure MFA, los certificados que se generan a través del cmdlet `New-AdfsAzureMfaTenantCertificate` de PowerShell son válidos durante 2 años. Renueve e instale los certificados renovados antes de que expiren para evitar interrupciones en el servicio de MFA.
+Las instrucciones siguientes detallan cómo administrar los certificados de Azure MFA en los servidores de AD FS. Cuando se configura AD FS con Azure MFA, los certificados que se generan a través del cmdlet `New-AdfsAzureMfaTenantCertificate` de PowerShell son válidos durante dos años. Renueve e instale los certificados renovados antes de que expiren para evitar interrupciones en el servicio de MFA.
 
 ## <a name="implement-your-plan"></a>Implementación del plan
 
@@ -357,6 +364,7 @@ Busque las soluciones para problemas comunes con Azure MFA en el [artículo de s
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [¿Qué son los métodos de autenticación?](concept-authentication-methods.md)
-* [Habilitación del registro convergente para el restablecimiento de contraseña de autoservicio de Azure Multi-Factor Authentication y Azure AD](concept-registration-mfa-sspr-converged.md)
-* ¿Por qué se solicitó o no a un usuario que realizará MFA? Consulte la sección [Informe de inicios de sesión de Azure AD en los informes del documento Azure Multi-factor Authentication](howto-mfa-reporting.md#azure-ad-sign-ins-report).
+Para ver Multi-Factor Authentication de Azure en acción, complete el siguiente tutorial:
+
+> [!div class="nextstepaction"]
+> [Habilitación de Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md)

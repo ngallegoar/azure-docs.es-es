@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 10/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 05db717f5d3adc2429431503f588f2cc7f79aef6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e00fee8841a2d5a817a00b942bfe0733a80b2cfc
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79231872"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546334"
 ---
 # <a name="azure-disk-encryption-for-windows-vms"></a>Azure Disk Encryption para máquinas virtuales Windows 
 
@@ -30,11 +30,13 @@ Para obtener información sobre los aspectos básicos de Azure Disk Encryption p
 
 ## <a name="supported-vms-and-operating-systems"></a>VM y sistemas operativos compatibles
 
-### <a name="supported-vm-sizes"></a>Tamaños de máquinas virtuales que se admiten
+### <a name="supported-vms"></a>VM admitidas
 
 Las máquinas virtuales Windows están disponibles en una [variedad de tamaños](sizes-general.md). Azure Disk Encryption no está disponible en [VM básicas o de serie A](https://azure.microsoft.com/pricing/details/virtual-machines/series/) ni en las máquinas virtuales que tengan menos de 2 GB de memoria.
 
 Azure Disk Encryption también está disponible para las VM con almacenamiento Premium.
+
+Azure Disk Encryption no está disponible en [máquinas virtuales de segunda generación](generation-2.md#generation-1-vs-generation-2-capabilities) ni en las [máquinas virtuales de la serie Lsv2](../lsv2-series.md). Para ver más excepciones, consulte [Azure Disk Encryption: escenarios no admitidos](disk-encryption-windows.md#unsupported-scenarios).
 
 ### <a name="supported-operating-systems"></a>Sistemas operativos admitidos
 

@@ -1,6 +1,6 @@
 ---
-title: Solución de problemas en certificados SSL y dominios
-description: Encuentre soluciones a los problemas habituales que pueden surgir al configurar un dominio o un certificado SSL en Azure App Service.
+title: Solución de problemas en certificados TLS/SSL y dominios
+description: Encuentre soluciones a los problemas habituales que pueden surgir al configurar un dominio o un certificado TLS/SSL en Azure App Service.
 author: genlin
 manager: dcscontentpm
 tags: top-support-issue
@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: e299821b54692327cbb7d497af0295e3b93658cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d61b95c7136a4cbce11789a58d27cc1a164ae374
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75966976"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668017"
 ---
-# <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Solución de problemas de dominio y certificado SSL en Azure App Service
+# <a name="troubleshoot-domain-and-tlsssl-certificate-problems-in-azure-app-service"></a>Solución de problemas de dominio y certificado TLS/SSL en Azure App Service
 
-En este artículo se indican los problemas que pueden surgir al configurar un dominio o un certificado SSL para las aplicaciones web en Azure App Service. También se describen las posibles causas de estos problemas y sus soluciones.
+En este artículo se indican los problemas que pueden surgir al configurar un dominio o un certificado TLS/SSL para las aplicaciones web en Azure App Service. También se describen las posibles causas de estos problemas y sus soluciones.
 
 Si necesita más ayuda con cualquier aspecto de este artículo, puede ponerse en contacto con los expertos de Azure en los [foros de MSDN o Stack Overflow](https://azure.microsoft.com/support/forums/). Como alternativa, puede registrar un incidente de soporte técnico de Azure. Vaya al [sitio de soporte técnico de Azure](https://azure.microsoft.com/support/options/) y seleccione **Soporte técnico**.
 
@@ -26,17 +26,17 @@ Si necesita más ayuda con cualquier aspecto de este artículo, puede ponerse en
 
 ## <a name="certificate-problems"></a>Problemas con el certificado
 
-### <a name="you-cant-add-an-ssl-certificate-binding-to-an-app"></a>No puede agregar un enlace de certificado SSL a una aplicación 
+### <a name="you-cant-add-a-tlsssl-certificate-binding-to-an-app"></a>No puede agregar un enlace de certificado TLS/SSL a una aplicación 
 
 #### <a name="symptom"></a>Síntoma
 
-Cuando agrega un enlace SSL, recibe el mensaje de error siguiente:
+Cuando agrega un enlace TLS, recibe el mensaje de error siguiente:
 
 "Error al agregar enlace SSL. No se puede configurar el certificado para la IP virtual existente porque otra IP virtual ya usa ese certificado".
 
 #### <a name="cause"></a>Causa
 
-Este problema puede producirse si tiene varios enlaces SSL basados en IP para la misma dirección IP en varias aplicaciones. Por ejemplo, la aplicación A tiene un enlace SSL basado en IP con un certificado antiguo. La aplicación B tiene un enlace SSL basado en IP con un certificado nuevo para la misma dirección IP. Cuando se actualiza el enlace SSL de la aplicación con el nuevo certificado, se produce este error porque se usa la misma dirección IP para otra aplicación. 
+Este problema puede producirse si tiene varios enlaces SSL basados en IP para la misma dirección IP en varias aplicaciones. Por ejemplo, la aplicación A tiene un enlace SSL basado en IP con un certificado antiguo. La aplicación B tiene un enlace SSL basado en IP con un certificado nuevo para la misma dirección IP. Cuando se actualiza el enlace TLS de la aplicación con el nuevo certificado, se produce este error porque se usa la misma dirección IP para otra aplicación. 
 
 #### <a name="solution"></a>Solución 
 
@@ -51,7 +51,7 @@ Para corregirlo, use uno de los siguientes métodos:
 
 Al intentar eliminar un certificado, recibirá el mensaje de error siguiente:
 
-"No se puede eliminar el certificado porque se está utilizando actualmente en un enlace SSL. Es necesario quitar el enlace SSL para eliminar el certificado".
+"No se puede eliminar el certificado porque se está utilizando actualmente en un enlace TLS/SSL. Es necesario quitar el enlace TLS para eliminar el certificado".
 
 #### <a name="cause"></a>Causa
 
@@ -59,7 +59,7 @@ Este problema puede producirse si otra aplicación usa el certificado.
 
 #### <a name="solution"></a>Solución
 
-Quite el enlace SSL para el certificado de las aplicaciones. A continuación, intente eliminar el certificado. Si todavía no puede eliminarlo, borre la caché del explorador de Internet y vuelva a abrir Azure Portal en una nueva ventana del explorador. A continuación, intente eliminar el certificado.
+Quite el enlace TLS para el certificado de las aplicaciones. A continuación, intente eliminar el certificado. Si todavía no puede eliminarlo, borre la caché del explorador de Internet y vuelva a abrir Azure Portal en una nueva ventana del explorador. A continuación, intente eliminar el certificado.
 
 ### <a name="you-cant-purchase-an-app-service-certificate"></a>No se puede adquirir un certificado de App Service 
 
@@ -69,7 +69,7 @@ No puede adquirir un [certificado de Azure App Service](./configure-ssl-certific
 #### <a name="cause-and-solution"></a>Causa y solución
 Este problema puede producirse por alguno de los siguientes motivos:
 
-- El plan de App Service es Gratis o Compartido. Estos planes de tarifa no admiten SSL. 
+- El plan de App Service es Gratis o Compartido. Estos planes de tarifa no admiten TLS. 
 
     **Solución**: actualice el plan de App Service para la aplicación al Estándar.
 
@@ -165,7 +165,7 @@ Si hace menos de siete días se eliminó el dominio, aún no se ha iniciado el p
 
 ## <a name="domain-problems"></a>Problemas de dominio
 
-### <a name="you-purchased-an-ssl-certificate-for-the-wrong-domain"></a>Adquirió un certificado SSL para un dominio incorrecto
+### <a name="you-purchased-a-tlsssl-certificate-for-the-wrong-domain"></a>Adquirió un certificado TLS/SSL para un dominio incorrecto
 
 #### <a name="symptom"></a>Síntoma
 
@@ -306,7 +306,7 @@ Al comprar un dominio, no se le cobra durante un período de cinco días, tiempo
 
 **¿Puedo usar el dominio en otra aplicación de Azure App Service de mi suscripción?**
 
-Sí. Cuando acceda a la hoja Dominios personalizados y SSL en Azure Portal, verá los dominios que ha comprado. Puede configurar la aplicación para usar cualquiera de esos dominios.
+Sí. Cuando acceda a la hoja Dominios personalizados y TLS en Azure Portal, verá los dominios que ha comprado. Puede configurar la aplicación para usar cualquiera de esos dominios.
 
 **¿Puedo transferir un dominio de una suscripción a otra?**
 

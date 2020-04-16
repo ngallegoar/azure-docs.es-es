@@ -1,57 +1,61 @@
 ---
 title: Conectar una aplicación de MongoDB a Azure Cosmos DB
 description: Aprenda a conectar una aplicación de MongoDB a Azure Cosmos DB mediante una cadena de conexión de Azure Portal
-author: markjbrown
-ms.author: mjbrown
+author: timsander1
+ms.author: tisande
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 03/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 0f2cd1b7228f2cc9cadb84232222f658a512a81f
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: cba16d79b6506f9809a76f0128938a68afd15c92
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872169"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80617053"
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Conectar una aplicación de MongoDB a Azure Cosmos DB
-Aprenda a conectar su aplicación de MongoDB a una instancia de Azure Cosmos DB mediante una cadena de conexión de MongoDB. Después, puede usar una base de datos de Azure Cosmos como almacén de datos de la aplicación MongoDB. 
+
+Aprenda a conectar su aplicación de MongoDB a una instancia de Azure Cosmos DB mediante una cadena de conexión de MongoDB. Después, puede usar una base de datos de Azure Cosmos como almacén de datos de la aplicación MongoDB.
 
 En este tutorial se proporcionan dos maneras de recuperar información de la cadena de conexión:
 
-- [El método de inicio rápido](#QuickstartConnection), para su uso con controladores de .NET, Node.js, MongoDB Shell, Java y Python.
-- [El método de la cadena de conexión personalizada](#GetCustomConnection), para su uso con otros controladores.
+- [El método de inicio rápido](#get-the-mongodb-connection-string-by-using-the-quick-start), para su uso con controladores de .NET, Node.js, MongoDB Shell, Java y Python.
+- [El método de la cadena de conexión personalizada](#get-the-mongodb-connection-string-to-customize), para su uso con otros controladores.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
-- Una cuenta de Azure. Si no tiene una cuenta de Azure, cree ahora una [cuenta de Azure gratuita](https://azure.microsoft.com/free/). 
+- Una cuenta de Azure. Si no tiene una cuenta de Azure, cree ahora una [cuenta de Azure gratuita](https://azure.microsoft.com/free/).
 - Una cuenta de Cosmos. Para obtener instrucciones, consulte [Compilación de una aplicación web con la API de Azure Cosmos DB para MongoDB y .NET SDK](create-mongodb-dotnet.md).
 
-## <a id="QuickstartConnection"></a>Obtener la cadena de conexión de MongoDB mediante el menú de inicio rápido
+## <a name="get-the-mongodb-connection-string-by-using-the-quick-start"></a>Obtención de la cadena de conexión de MongoDB mediante el menú de inicio rápido
+
 1. En un explorador de Internet, inicie sesión en [Azure Portal](https://portal.azure.com).
-2. En la hoja **Azure Cosmos DB**, seleccione la API. 
-3. En el panel izquierdo de la hoja de la cuenta, haga clic en **Inicio rápido**. 
-4. Elija la plataforma ( **.NET**, **Node.js**, **Shell de MongoDB**, **Java**, **Python**). Si no ve el controlador o la herramienta en la lista, no se preocupe, documentamos constantemente más fragmentos de código de conexión. Comente a continuación lo que le gustaría ver. Para aprender a crear su propia conexión, lea la sección sobre cómo [obtener información de la cadena de conexión de la cuenta](#GetCustomConnection).
+2. En la hoja **Azure Cosmos DB**, seleccione la API.
+3. En el panel izquierdo de la hoja de la cuenta, haga clic en **Inicio rápido**.
+4. Elija la plataforma ( **.NET**, **Node.js**, **Shell de MongoDB**, **Java**, **Python**). Si no ve el controlador o la herramienta en la lista, no se preocupe, documentamos constantemente más fragmentos de código de conexión. Comente a continuación lo que le gustaría ver. Para aprender a crear su propia conexión, lea la sección sobre cómo [obtener información de la cadena de conexión de la cuenta](#get-the-mongodb-connection-string-to-customize).
 5. Copie y pegue el fragmento de código en la aplicación MongoDB.
 
     ![Hoja de inicio rápido](./media/connect-mongodb-account/QuickStartBlade.png)
 
-## <a id="GetCustomConnection"></a> Obtención de la cadena de conexión de MongoDB para personalizar
+## <a name="get-the-mongodb-connection-string-to-customize"></a>Obtención de la cadena de conexión de MongoDB para personalizar
+
 1. En un explorador de Internet, inicie sesión en [Azure Portal](https://portal.azure.com).
-2. En la hoja **Azure Cosmos DB**, seleccione la API. 
-3. En el panel izquierdo de la hoja de la cuenta, haga clic en **Cadena de conexión**. 
+2. En la hoja **Azure Cosmos DB**, seleccione la API.
+3. En el panel izquierdo de la hoja de la cuenta, haga clic en **Cadena de conexión**.
 4. Se abre la hoja **Cadena de conexión**, que contiene toda la información necesaria para conectarse a la cuenta con un controlador para MongoDB, incluida una cadena de conexión precreada.
 
-    ![Hoja Cadena de conexión](./media/connect-mongodb-account/ConnectionStringBlade.png)
+   [ ![Hoja Cadena de conexión](./media/connect-mongodb-account/ConnectionStringBlade.png) ](./media/connect-mongodb-account/ConnectionStringBlade.png#lightbox)
 
 ## <a name="connection-string-requirements"></a>Requisitos de la cadena de conexión
+
 > [!Important]
-> Azure Cosmos DB tiene estándares y requisitos de seguridad estrictos. Las cuentas de Azure Cosmos DB requieren autenticación y comunicación segura a través de *SSL*. 
+> Azure Cosmos DB tiene estándares y requisitos de seguridad estrictos. Las cuentas de Azure Cosmos DB requieren autenticación y comunicación segura mediante *TLS*. 
 >
 >
 
-Azure Cosmos DB es compatible con el formato URI de la cadena de conexión de MongoDB estándar con un par de requisitos específicos: Las cuentas de Azure Cosmos DB requieren autenticación y comunicación segura a través de SSL. Por tanto, el formato de la cadena de conexión es:
+Azure Cosmos DB es compatible con el formato URI de la cadena de conexión de MongoDB estándar con un par de requisitos específicos: Las cuentas de Azure Cosmos DB requieren autenticación y comunicación segura mediante TLS. Por tanto, el formato de la cadena de conexión es:
 
     mongodb://username:password@host:port/[database]?ssl=true
 

@@ -15,12 +15,12 @@ ms.date: 12/10/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 555fb39836054be05102f4c28167d72016805639
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 241d90981ed9ba54d253e6c22c00f9e5a9197863
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481507"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80884892"
 ---
 # <a name="how-provisioning-works"></a>Funcionamiento del aprovisionamiento
 
@@ -67,7 +67,7 @@ Al configurar el aprovisionamiento para una aplicación SaaS, uno de los tipos d
 
 Para el aprovisionamiento saliente desde Azure AD a una aplicación SaaS, confiar en las [asignaciones de usuarios o grupos](../manage-apps/assign-user-or-group-access-portal.md) es la forma más común de determinar qué usuarios se encuentran en el ámbito para el aprovisionamiento. Debido a que las asignaciones de usuarios también se usan para habilitar el inicio de sesión único, se puede usar el mismo método para administrar tanto el acceso como el aprovisionamiento. El ámbito basado en la asignación no se aplica a escenarios de aprovisionamiento entrante como Workday y Successfactors.
 
-* **Grupos.** Con un plan de licencia de Azure AD Premium, puede usar grupos para asignar acceso a una aplicación SaaS. Después, cuando el ámbito de aprovisionamiento se establezca en **Sincronizar solo los usuarios y grupos asignados**, el servicio de aprovisionamiento de Azure AD aprovisionará o desaprovisionará los usuarios en función de si son miembros de un grupo que está asignado a la aplicación. El objeto de grupo en sí no se aprovisiona a menos que la aplicación admita objetos de grupo.
+* **Grupos.** Con un plan de licencia de Azure AD Premium, puede usar grupos para asignar acceso a una aplicación SaaS. Después, cuando el ámbito de aprovisionamiento se establezca en **Sincronizar solo los usuarios y grupos asignados**, el servicio de aprovisionamiento de Azure AD aprovisionará o desaprovisionará los usuarios en función de si son miembros de un grupo que está asignado a la aplicación. El objeto de grupo en sí no se aprovisiona a menos que la aplicación admita objetos de grupo. Asegúrese de que los grupos asignados a la aplicación tienen la propiedad "SecurityEnabled" establecida en "False".
 
 * **Grupos dinámicos.** El servicio de aprovisionamiento de usuarios de Azure AD puede leer y aprovisionar usuarios en [grupos dinámicos](../users-groups-roles/groups-create-rule.md). Tenga en cuenta estas advertencias y recomendaciones:
 

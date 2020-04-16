@@ -1,15 +1,16 @@
 ---
-title: Uso de una dirección IP estática y una etiqueta DNS con el equilibrador de carga de Azure Kubernetes Service (AKS)
+title: Uso de una dirección IP estática con el equilibrador de carga
+titleSuffix: Azure Kubernetes Service
 description: Aprenda a crear y usar una dirección IP estática con el equilibrador de carga de Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
 ms.date: 03/09/2020
-ms.openlocfilehash: 32889dbbcafd9510f8d04cb9c602d4802c6d1a1a
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 5051232f29ad51d9fee893a4a660fc81f6e60d77
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78943581"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886745"
 ---
 # <a name="use-a-static-public-ip-address-and-dns-label-with-the-azure-kubernetes-service-aks-load-balancer"></a>Uso de una dirección IP pública estática y una etiqueta DNS con el equilibrador de carga de Azure Kubernetes Service (AKS)
 
@@ -70,6 +71,8 @@ az role assignment create \
     --role "Network Contributor" \
     --scope /subscriptions/<subscription id>/resourceGroups/<resource group name>
 ```
+
+De forma alternativa, puede usar la identidad administrada asignada por el sistema en los permisos en lugar de la entidad de servicio. Para más información, consulte [Uso de identidades administradas](use-managed-identity.md).
 
 Para crear un servicio *LoadBalancer* con la dirección IP pública estática, agregue la propiedad `loadBalancerIP` y el valor de la dirección IP pública estática al manifiesto YAML. Cree un archivo denominado `load-balancer-service.yaml` y cópielo en el siguiente código YAML. Indique su propia dirección IP pública que creó en el paso anterior. En el ejemplo siguiente también se establece el grupo de recursos denominado *myResourceGroup*. Indique su propio nombre del grupo de recursos.
 

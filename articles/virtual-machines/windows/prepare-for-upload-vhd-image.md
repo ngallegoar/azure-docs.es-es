@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2019
 ms.author: genli
-ms.openlocfilehash: 933f0c52cf0d65c7dca480971589c0d0f2ebabf0
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 8118ecde698b54213547e717d25613c0c3e0d3fd
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906787"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631553"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparación de un VHD o un VHDX de Windows antes de cargarlo en Azure
 
-Antes de cargar una máquina virtual Windows desde un entorno local en Azure, debe preparar el disco duro virtual (VHD o VHDX). Azure admite máquinas virtuales de generación 1 y de generación 2 que estén en el formato de archivo VHD y tengan un disco de tamaño fijo. El tamaño máximo permitido para los discos duros virtuales es de 1023 GB. 
+Antes de cargar una máquina virtual Windows desde un entorno local en Azure, debe preparar el disco duro virtual (VHD o VHDX). Azure admite máquinas virtuales de generación 1 y de generación 2 que estén en el formato de archivo VHD y tengan un disco de tamaño fijo. El tamaño máximo que se permite para los discos duros virtuales es de 2 TB.
 
 En una máquina virtual de generación 1, un sistema de archivos VHDX se puede convertir a VHD. También se puede convertir un disco de expansión dinámica en un disco de tamaño fijo. Sin embargo, no puede cambiar la generación de una máquina virtual. Para más información, vea [¿Debería crear una máquina virtual de generación 1 o 2 en Hyper-V?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v) y [Compatibilidad de Azure con máquinas virtuales de generación 2 (versión preliminar)](generation-2.md).
 
@@ -267,7 +267,13 @@ Asegúrese de que la siguiente configuración está establecida correctamente pa
    ```PowerShell
    Set-NetFirewallRule -DisplayName "File and Printer Sharing (Echo Request - ICMPv4-In)" -Enabled True
    ``` 
-5. Si la máquina virtual va a formar parte de un dominio, compruebe las siguientes directivas de Azure AD para asegurarse de que la configuración anterior no se revierte. 
+5. Cree una regla para la red de la plataforma Azure:
+
+   ```PowerShell
+    New-NetFirewallRule -DisplayName "AzurePlatform" -Direction Inbound -RemoteAddress 168.63.129.16 -Profile Any -Action Allow -EdgeTraversalPolicy Allow
+    New-NetFirewallRule -DisplayName "AzurePlatform" -Direction Outbound -RemoteAddress 168.63.129.16 -Profile Any -Action Allow
+   ``` 
+6. Si la máquina virtual va a formar parte de un dominio, compruebe las siguientes directivas de Azure AD para asegurarse de que la configuración anterior no se revierte. 
 
     | Objetivo                                 | Directiva                                                                                                                                                  | Value                                   |
     |--------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
@@ -418,7 +424,7 @@ Lo ideal es mantener la máquina actualizada en el *nivel de revisión* pero, si
 > [!NOTE]
 > Para evitar un reinicio accidental durante el aprovisionamiento de la máquina virtual, es aconsejable asegurarse de que todas las instalaciones de Windows Update han finalizado y de que no hay actualizaciones pendientes. Una manera de hacerlo es instalar todas las actualizaciones de Windows posibles y reiniciar una vez antes de ejecutar el comando Sysprep.
 
-### Determinar cuándo usar Sysprep <a id="step23"></a>    
+### <a name="determine-when-to-use-sysprep"></a>Determinar cuándo usar Sysprep <a id="step23"></a>    
 
 Herramienta de preparación del sistema (Sysprep) es un proceso que se puede ejecutar para restablecer una instalación de Windows. Sysprep proporciona una experiencia original, al eliminar todos los datos personales y restablecer varios componentes. 
 

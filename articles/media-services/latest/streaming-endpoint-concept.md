@@ -12,23 +12,25 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/13/2020
 ms.author: juliako
-ms.openlocfilehash: 849d1187d6b854d48ad75ab1e55f600407420346
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 72cfdf172e4524e302ef2e22826d4f78ce32daf0
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77562367"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582726"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Puntos de conexión de streaming (origen) en Azure Media Services
 
-En Microsoft Azure Media Services, un [punto de conexión de streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints) representa un servicio dinámico (Just-In-Time) de empaquetado y origen que puede entregar directamente el contenido en directo y a petición a una aplicación de reproducción cliente, mediante uno de los protocolos de streaming multimedia habituales (HLS o DASH). Además, el **punto de conexión de streaming** proporciona cifrado dinámico (Just-In-Time) para los sistemas de DRM líderes del sector.
+En Microsoft Azure Media Services, un [punto de conexión de streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints) representa un servicio dinámico (Just-In-Time) de empaquetado y origen que puede entregar directamente el contenido en directo y a petición a una aplicación de reproducción cliente, mediante uno de los protocolos de streaming multimedia habituales (HLS o DASH). Además, el **punto de conexión de streaming** proporciona cifrado dinámico (Just-In-Time) para los sistemas de DRM líderes del sector. 
 
-Cuando se crea una cuenta de Media Services, se genera automáticamente un punto de conexión de streaming **predeterminado** en estado detenido. No se puede eliminar el punto de conexión de streaming **predeterminado**. Es posible crear puntos de conexión de streaming adicionales en la cuenta (consulte [Cuotas y limitaciones](limits-quotas-constraints.md)).
+Cuando se crea una cuenta de Media Services, se genera automáticamente un punto de conexión de streaming **predeterminado** en estado detenido. No se puede eliminar el punto de conexión de streaming **predeterminado**. Es posible crear puntos de conexión de streaming adicionales en la cuenta (consulte [Cuotas y límites](limits-quotas-constraints.md)).
 
 > [!NOTE]
 > Para iniciar la transmisión de vídeos, es preciso que inicie el **punto de conexión de streaming** desde el que desee transmitir en secuencias el vídeo.
 >
 > Solo se le cobrará cuando el punto de conexión de streaming esté en estado de ejecución.
+
+Asegúrese de revisar también el tema [Empaquetado dinámico](dynamic-packaging-overview.md). 
 
 ## <a name="naming-convention"></a>Convención de nomenclatura
 
@@ -116,7 +118,7 @@ En esta sección se proporcionan detalles sobre algunas de las propiedades del p
     > [!NOTE]
     > Los puntos de conexión de streaming ubicados en el mismo centro de datos no pueden compartir el mismo nombre de host personalizado.
 
-    Actualmente, Media Services no admite SSL con dominios personalizados.
+    Actualmente, Media Services no admite TLS con dominios personalizados.
 
 - `maxCacheAge`: invalida el encabezado max-age de control de caché HTTP predeterminado establecido por el punto de conexión de streaming en fragmentos multimedia y manifiestos a petición. El valor se establece en segundos.
 - `resourceState` -
@@ -157,10 +159,14 @@ Vea los artículos siguientes:
 - [Información general de la red CDN](../../cdn/cdn-overview.md)
 - [Escalado de streaming con CDN](scale-streaming-cdn.md)
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Formule preguntas, realice comentarios y obtenga actualizaciones
+## <a name="ask-questions-and--get-updates"></a>Formulación de preguntas y obtención de actualizaciones
 
 Consulte el artículo [Comunidad de Azure Media Services](media-services-community.md) para ver diferentes formas de formular preguntas, enviar comentarios y obtener actualizaciones de Media Services.
 
+## <a name="see-also"></a>Consulte también
+
+[Empaquetado dinámico](dynamic-packaging-overview.md)
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-En el ejemplo [de este repositorio](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs) se muestra cómo iniciar el punto de conexión de streaming predeterminado con .NET.
+[Administración de puntos de conexión de streaming](manage-streaming-endpoints-howto.md)

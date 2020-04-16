@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 05/24/2019
-ms.openlocfilehash: efa498ba600a664beab4b9a49eae2b2c3f1c8397
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2355cb7ab995cab3060c7a94c9e7ea344bd9e92b
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80298312"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984647"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>Inicio rápido: Introducción a Application Insights en un proyecto web de Java
 
@@ -223,7 +223,7 @@ También sirve para la nomenclatura automática de las operaciones.
 
 El SDK de Java de Application Insights ahora admite el [seguimiento distribuido de W3C](https://w3c.github.io/trace-context/).
 
-La configuración del SDK de entrada se explica más en detalle en nuestro artículo sobre [correlación](correlation.md#telemetry-correlation-in-the-java-sdk).
+La configuración del SDK de entrada se explica más en detalle en nuestro artículo sobre [correlación](correlation.md).
 
 La configuración del SDK de salida se define en el archivo [AI-Agent.xml](java-agent.md).
 
@@ -258,7 +258,7 @@ Puede especificar contadores de rendimiento adicionales que se van a recopilar.
 * `displayName` : el nombre mostrado en el portal de Application Insights.
 * `objectName` : el nombre del objeto JMX.
 * `attribute` : el atributo del nombre del objeto JMX que se va a capturar
-* `type` (opcional): el tipo de atributo del objeto JMX:
+* `type` (opcional): el tipo del atributo del objeto JMX:
   * Valor predeterminado: un tipo simple como int o long.
   * `composite`: los datos del contador de rendimiento tienen el formato 'Attribute.Data'
   * `tabular`: los datos del contador de rendimiento tienen el formato de una fila de tabla

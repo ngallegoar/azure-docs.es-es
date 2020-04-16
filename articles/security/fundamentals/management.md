@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/31/2019
+ms.date: 04/08/2020
 ms.author: terrylan
-ms.openlocfilehash: 45efaadf7d15fff290165fe831c45c0bc063db53
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e1223560c5d7b19bf9da4c7c16a56c4741e582a0
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73643797"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80981314"
 ---
 # <a name="security-management-in-azure"></a>Administración de la seguridad en Azure
 Los suscriptores de Azure pueden administrar sus entornos de nube desde diversos dispositivos, incluidas estaciones de trabajo de administración, equipos de desarrollador e incluso dispositivos de usuario final con privilegios que tengan permisos específicos para la tarea. En algunos casos, las funciones administrativas se realizan mediante consolas web tales como [Azure Portal](https://azure.microsoft.com/features/azure-portal/). En otros casos, puede haber conexiones directas a Azure desde sistemas locales a través de redes privadas virtuales (VPN), Terminal Services, protocolos de aplicación de cliente o Azure Service Management API (SMAPI). Además, los puntos de conexión de cliente pueden estar unidos a un dominio o aislados y no administrados, como tabletas o smartphones.
@@ -119,7 +119,7 @@ Puerta de enlace de Escritorio remoto es un servicio de proxy RDP basado en dire
 En general, para ayudar a proteger las estaciones de trabajo de administrador para su uso con la nube se usan procedimientos similares a los usados para cualquier estación de trabajo local; por ejemplo, compilación minimizada y permisos restrictivos. Algunos aspectos únicos de la administración en la nube son más parecidos a la administración remota o empresarial fuera de banda. Estos incluyen el uso y la auditoría de credenciales, el acceso remoto con seguridad mejorada y la detección de amenazas y respuesta a las mismas.
 
 ### <a name="authentication"></a>Authentication
-Puede usar las restricciones de inicio de sesión de Azure para impedir que direcciones IP de origen tengan acceso a herramientas administrativas y solicitudes de acceso de auditoría. Para ayudar a Azure a identificar los clientes de administración (estaciones de trabajo o aplicaciones), puede configurar SMAPI (mediante herramientas desarrolladas por el cliente tales como cmdlets de Windows PowerShell) y Azure Portal para que requieran la instalación de certificados de administración del lado cliente, además de los certificados SSL. Se recomienda también que el acceso de administrador requiera autenticación multifactor.
+Puede usar las restricciones de inicio de sesión de Azure para impedir que direcciones IP de origen tengan acceso a herramientas administrativas y solicitudes de acceso de auditoría. Para ayudar a Azure a identificar los clientes de administración (estaciones de trabajo o aplicaciones), puede configurar SMAPI (mediante herramientas desarrolladas por el cliente tales como cmdlets de Windows PowerShell) y Azure Portal para que requieran la instalación de certificados de administración del cliente, además de los certificados SSL/TLS. Se recomienda también que el acceso de administrador requiera autenticación multifactor.
 
 Algunas aplicaciones o servicios que se implementan en Azure pueden tener sus propios mecanismos de autenticación para el acceso de usuario final y de administrador, mientras que otras aprovechan toda la funcionalidad de Azure AD. Dependiendo de si desea federar credenciales mediante Servicios de federación de Active Directory (AD FS), usar la sincronización de directorios o mantener las cuentas de usuario únicamente en la nube, el uso de [Microsoft Identity Manager](https://technet.microsoft.com/library/mt218776.aspx) (parte de Azure AD Premium) lo ayuda a administrar los ciclos de vida de las identidades entre los recursos.
 
@@ -145,9 +145,6 @@ Se recomiendan tres configuraciones principales para una estación de trabajo pr
 | - | Clara separación de las tareas | - |
 | Equipo corporativo como máquina virtual |Menores costos de hardware | - |
 | - | Separación de roles y aplicaciones | - |
-| Windows con cifrado de unidad BitLocker |Compatibilidad con la mayoría de los equipos |Seguimiento de activos |
-| - | Rentabilidad y portabilidad | - |
-| - | Entorno de administración aislado |- |
 
 Es importante que la estación de trabajo protegida sea el host y no el invitado, y que no haya nada entre el sistema operativo host y el hardware. Para seguir el "principio del origen limpio" (también conocido como "origen seguro"), el host debe estar lo más protegido posible. De lo contrario, la estación de trabajo protegida (invitado) puede ser objeto de ataques en el sistema en el que se hospeda.
 
@@ -171,15 +168,6 @@ Para evitar varios riesgos de seguridad que pueden surgir del uso de una estaci�
 
 La máquina virtual del equipo corporativo se ejecuta en un espacio protegido y proporciona aplicaciones de usuario. El host sigue siendo un "origen limpio" y aplica directivas de red estrictas en el sistema operativo de raíz (por ejemplo, bloqueo del acceso RDP desde la máquina virtual).
 
-### <a name="windows-to-go"></a>Windows To Go
-Otra alternativa al uso de una estación de trabajo protegida independiente es usar una unidad [Windows To Go](https://technet.microsoft.com/library/hh831833.aspx), una característica que admite la funcionalidad de arranque USB del lado cliente. Windows To Go permite a los usuarios iniciar un equipo compatible con una imagen de sistema aislada ejecutando desde una unidad flash USB cifrada. Proporciona controles adicionales para los puntos de conexión de administración remota porque la imagen se puede administrar totalmente con un grupo de TI corporativo, con directivas de seguridad estrictas, una compilación de sistema operativo mínima y compatibilidad con TPM.
-
-En la ilustración siguiente, la imagen portátil es un sistema unido a un dominio que está preconfigurado para conectarse únicamente a Azure, requiere autenticación multifactor y bloquea todo el tráfico no sea de administración. Si un usuario inicia el mismo equipo con la imagen corporativa estándar e intenta obtener acceso a las herramientas de administración de Azure mediante Puerta de enlace de Escritorio remoto, se bloquea la sesión. Windows To Go se convierte en el sistema operativo del nivel raíz y no se necesitan capas adicionales (sistema operativo host, hipervisor, máquina virtual) que pueden ser más vulnerables a ataques del exterior.
-
-![](./media/management/hardened-workstation-using-windows-to-go-on-a-usb-flash-drive.png)
-
-Es importante tener en cuenta que las unidades flash USB se pierden más fácilmente que un equipo de escritorio promedio. Si se utiliza BitLocker para cifrar todo el volumen junto con una contraseña segura, se reducen las probabilidades de que un atacante pueda usar la imagen de la unidad con fines malintencionados. Además, si se pierde la unidad flash USB, puede revocar y [emitir un nuevo certificado de administración](https://technet.microsoft.com/library/hh831574.aspx), y restablecer la contraseña rápidamente, para reducir la exposición. Los registros de auditoría administrativa residen en Azure, no en el cliente, lo que reduce aún más las posibles pérdida de datos.
-
 ## <a name="best-practices"></a>Procedimientos recomendados
 Tenga en cuenta las siguientes directrices adicionales cuando administre aplicaciones y datos en Azure.
 
@@ -188,7 +176,7 @@ No dé por sentado que si una estación de trabajo está bloqueada ya no es nece
 
 | Lo que debe evitar: | Lo que es necesario hacer: |
 | --- | --- |
-| No envíe por correo electrónico credenciales de acceso de administrador ni otros secretos (por ejemplo, certificados SSL o de administración) |Mantenga la confidencialidad; para ello, entregue los nombres y las contraseñas de las cuentas de palabra (pero no los almacene en buzones de voz), realice una instalación remota de los certificados de cliente y servidor (a través de una sesión cifrada), descárguelos desde un recurso compartido de red protegido o distribúyalos manualmente mediante soportes físicos extraíbles. |
+| No envíe por correo electrónico credenciales de acceso de administrador ni otros secretos (por ejemplo, certificados TLS/SSL o de administración) |Mantenga la confidencialidad; para ello, entregue los nombres y las contraseñas de las cuentas de palabra (pero no los almacene en buzones de voz), realice una instalación remota de los certificados de cliente y servidor (a través de una sesión cifrada), descárguelos desde un recurso compartido de red protegido o distribúyalos manualmente mediante soportes físicos extraíbles. |
 | - | Administre activamente los ciclos de vida de sus certificados de administración. |
 | No almacene contraseñas de cuentas sin cifrar o sin hash en almacenamiento de aplicaciones (por ejemplo, en hojas de cálculo, recursos compartidos de archivos o sitios de SharePoint). |Establezca principios de administración de seguridad y directivas de protección del sistema, y aplíquelos a su entorno de desarrollo. |
 | - | Use reglas de asignación de certificados de [Enhanced Mitigation Experience Toolkit 5.5](https://technet.microsoft.com/security/jj653751) para garantizar el acceso correcto a los sitios SSL/TLS de Azure. |
@@ -215,7 +203,7 @@ Reducir el número de tareas que los administradores pueden realizar en una esta
 * Directiva de grupo. Cree una directiva administrativa global que se aplique a cualquier estación de trabajo del dominio que se use para administración (y bloquee el acceso de todas los demás), así como a las cuentas de usuario autenticadas en esas estaciones de trabajo.
 * Aprovisionamiento con seguridad mejorada. Proteja la imagen de su estación de trabajo protegida de referencia contra la manipulación. Use medidas de seguridad tales como cifrado y aislamiento para almacenar imágenes, máquinas virtuales y scripts, y restrinja el acceso (quizás con un proceso de inserción y extracción del repositorio que se pueda auditar).
 * Aplicación de revisiones. Mantenga una compilación coherente (o use imágenes diferentes para desarrollo, operaciones y otras tareas administrativas), examine de forma rutinaria si hay cambios y malware, mantenga la compilación al día y active los equipos solo cuando se necesiten.
-* Cifrado. Asegúrese de que las estaciones de trabajo de administración tengan TPM para habilitar [Sistema de cifrado de archivos](https://technet.microsoft.com/library/cc700811.aspx) (EFS) y BitLocker de forma más segura. Si usa Windows To Go, utilice solo llaves USB cifradas junto con BitLocker.
+* Cifrado. Asegúrese de que las estaciones de trabajo de administración tengan TPM para habilitar [Sistema de cifrado de archivos](https://technet.microsoft.com/library/cc700811.aspx) (EFS) y BitLocker de forma más segura.
 * Gobernanza. Use GPO de AD DS para controlar todas las interfaces de Windows de los administradores, como el uso compartido de archivos. Incluya las estaciones de trabajo de administración de procesos de auditoría, supervisión y registro. Realice un seguimiento del acceso y uso de los administradores y programadores.
 
 ## <a name="summary"></a>Resumen

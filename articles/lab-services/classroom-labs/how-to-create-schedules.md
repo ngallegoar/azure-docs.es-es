@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 4e3cf302437c3e4954ac977ac3f4ff6b2021a760
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4887b4359451ca5ce85042b4de42d5376bf4a730
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72330500"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80667763"
 ---
 # <a name="create-and-manage-schedules-for-classroom-labs-in-azure-lab-services"></a>Creación y administración de programaciones para laboratorios educativos en Azure Lab Services 
 Las programaciones le permiten configurar un laboratorio educativo de forma que las máquinas virtuales que contiene se inicien y apaguen automáticamente a una hora determinada. Puede definir una programación puntual o periódica. Los procedimientos siguientes le proporcionan los pasos para crear y administrar programaciones para un laboratorio educativo: 
@@ -28,6 +28,12 @@ Las programaciones le permiten configurar un laboratorio educativo de forma que 
 
 ## <a name="set-a-schedule-for-the-lab"></a>Configuración de una programación para el laboratorio
 Cree un evento programado para el laboratorio de modo que las máquinas virtuales que este contiene se inicien o se detengan automáticamente en momentos concretos. La cuota de usuarios que especificó anteriormente es el tiempo adicional asignado a cada usuario fuera de esta hora programada. 
+
+> [!NOTE]
+> Antes de empezar, aquí se muestra cómo afectan las programaciones a las máquinas virtuales de laboratorio: 
+>- La máquina virtual de plantilla no se incluye en las programaciones. 
+>- Solo se inician las máquinas virtuales asignadas. Esto significa que, si un usuario final (alumno) no reclama una máquina, esta no se iniciará en las horas programadas. 
+>- Todas las máquinas virtuales (tanto las reclamadas por un usuario como si no) se detienen según la programación del laboratorio. 
 
 1. Cambie a la página **Schedules** (Programaciones) y seleccione **Add scheduled event** (Agregar evento programado) en la barra de herramientas. 
 

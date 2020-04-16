@@ -1,14 +1,14 @@
 ---
 title: 'Referencia de importación y exportación de datos: QnA Maker'
-description: Comprenda cómo se usan los tipos de direcciones URL para importar y crear conjuntos de QnA.
+description: Aprenda a usar los tipos de direcciones URL para importar y crear pares de QnA.
 ms.topic: reference
 ms.date: 01/02/2020
-ms.openlocfilehash: 6560a43a6fbcf9fbd2ce021d782f00f916442bfd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e4a423ef9478cd39181c6440801f9fe954dc896c
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77651802"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804250"
 ---
 # <a name="import-and-export-data-reference"></a>Referencia de importación y exportación de datos
 

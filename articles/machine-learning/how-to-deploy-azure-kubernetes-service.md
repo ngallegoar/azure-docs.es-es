@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 01/16/2020
-ms.openlocfilehash: db2e80ebb6cbe5f31f2d99a1403a15daf38fd877
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: aec1b7f7bf60be34d21d52ca652a776cf3275fe8
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76722414"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811768"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Implementación de un modelo en un clúster de Azure Kubernetes Service
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -131,7 +131,7 @@ Si establece `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`, el clúster
 > [!WARNING]
 > No cree varios datos adjuntos simultáneos en el mismo clúster de AKS desde su área de trabajo. Por ejemplo, adjuntar un clúster de AKS a un área de trabajo con dos nombres diferentes. Cada adjunto nuevo interrumpirá los adjuntos anteriores existentes.
 >
-> Si desea volver a conectar un clúster de AKS, por ejemplo, para cambiar la configuración de SSL u otra configuración del clúster, primero debe quitar los adjuntos existentes mediante [AksCompute.detach()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#detach--).
+> Si desea volver a conectar un clúster de AKS, por ejemplo, para cambiar la configuración de TLS u otra configuración del clúster, primero debe eliminar la conexión existente mediante [AksCompute.detach()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#detach--).
 
 Para más información acerca de cómo crear un clúster de AKS mediante la CLI de Azure o Azure Portal, consulte los artículos siguientes:
 
@@ -233,10 +233,28 @@ Para obtener información acerca del uso de Visual Studio Code, consulte cómo s
 > La implementación a través de Visual Studio Code requiere que el clúster de AKS se cree o se adjunte al área de trabajo de antemano.
 
 ## <a name="deploy-models-to-aks-using-controlled-rollout-preview"></a>Implementación de modelos en AKS mediante el lanzamiento controlado (versión preliminar)
-Analice y promocione las versiones del modelo de un modo controlado mediante puntos de conexión. Implemente hasta 6 versiones detrás de un solo punto de conexión y configure el porcentaje de tráfico de puntuación para cada versión implementada. Puede habilitar App Insights para ver las métricas operativas de los puntos de conexión y las versiones implementadas.
+
+Analice y promocione las versiones del modelo de un modo controlado mediante puntos de conexión. Puede implementar hasta seis versiones detrás de un solo punto de conexión. Los puntos de conexión proporcionan las siguientes funcionalidades:
+
+* Configure el __porcentaje de tráfico de puntuación que se envía a cada punto de conexión__. Por ejemplo, enrute el 20 % del tráfico al punto de conexión "test" y el 80 % a "production".
+
+    > [!NOTE]
+    > Si no tiene en cuenta el 100 % del tráfico, el porcentaje restante se enruta a la versión __predeterminada__ del punto de conexión. Por ejemplo, si configura la versión del punto de conexión "test" para obtener el 10 % del tráfico y "prod" para un 30 %, el 60 % restante se envía a la versión predeterminada del punto de conexión.
+    >
+    > La primera versión del punto de conexión creada se configura automáticamente como la predeterminada. Para cambiarlo, establezca `is_default=True` al crear o actualizar una versión del punto de conexión.
+     
+* Etiquete una versión del punto de conexión como __control__ o __tratamiento__. Por ejemplo, la versión del punto de conexión de producción actual podría ser el control, mientras que los nuevos modelos posibles se implementan como versiones de tratamiento. Después de evaluar el rendimiento de las versiones de tratamiento, si una supera el rendimiento del control actual, podría promoverse a ser la nueva versión de producción o control.
+
+    > [!NOTE]
+    > Solo puede tener __un__ control. Puede tener varias versiones de tratamiento.
+
+Puede habilitar App Insights para ver las métricas operativas de los puntos de conexión y las versiones implementadas.
 
 ### <a name="create-an-endpoint"></a>Crear un punto de conexión
-Cuando esté listo para implementar los modelos, cree un punto de conexión de puntuación e implemente la primera versión. En el paso siguiente se muestra cómo implementar y crear el punto de conexión mediante el SDK. La primera implementación se definirá como la versión predeterminada, lo que significa que el percentil de tráfico sin especificar en todas las versiones irá a la versión predeterminada.  
+Cuando esté listo para implementar los modelos, cree un punto de conexión de puntuación e implemente la primera versión. En el ejemplo siguiente se muestra cómo implementar y crear el punto de conexión mediante el SDK. La primera implementación se definirá como la versión predeterminada, lo que significa que el percentil de tráfico sin especificar en todas las versiones irá a la versión predeterminada.  
+
+> [!TIP]
+> En el ejemplo siguiente, la configuración establece que la versión inicial del punto de conexión va a controlar el 20 % del tráfico. Como este es el primer punto de conexión, también es la versión predeterminada. Y como no tenemos ninguna otra versión para el otro 80 % del tráfico, también se enruta a la versión predeterminada. Hasta que se implementen otras versiones que tomen un porcentaje del tráfico, esta recibe el 100 % del tráfico.
 
 ```python
 import azureml.core,
@@ -247,8 +265,8 @@ from azureml.core.compute import ComputeTarget
 compute = ComputeTarget(ws, 'myaks')
 namespace_name= endpointnamespace
 # define the endpoint and version name
-endpoint_name = "mynewendpoint",
-version_name= "versiona",
+endpoint_name = "mynewendpoint"
+version_name= "versiona"
 # create the deployment config and define the scoring traffic percentile for the first deployment
 endpoint_deployment_config = AksEndpoint.deploy_configuration(cpu_cores = 0.1, memory_gb = 0.2,
                                                               enable_app_insights = True,
@@ -258,11 +276,16 @@ endpoint_deployment_config = AksEndpoint.deploy_configuration(cpu_cores = 0.1, m
                                                               traffic_percentile = 20)
  # deploy the model and endpoint
  endpoint = Model.deploy(ws, endpoint_name, [model], inference_config, endpoint_deployment_config, compute)
+ # Wait for he process to complete
+ endpoint.wait_for_deployment(True)
  ```
 
 ### <a name="update-and-add-versions-to-an-endpoint"></a>Actualizar y agregar versiones a un punto de conexión
 
-Agregue otra versión al punto de conexión y configure el percentil de tráfico de puntuación que va a la versión. Hay dos tipos de versiones, una versión control y otra de tratamiento. Pueden haber varias versiones de tratamiento para ayudar a comparar con una versión de control única.
+Agregue otra versión al punto de conexión y configure el percentil de tráfico de puntuación que va a la versión. Hay dos tipos de versiones, una versión control y otra de tratamiento. Puede haber varias versiones de tratamiento para ayudar a comparar con una sola versión de control.
+
+> [!TIP]
+> La segunda versión, creada por el siguiente fragmento de código, acepta el 10 % del tráfico. La primera versión está configurada para un 20 %, por lo que solo el 30 % del tráfico está configurado para versiones específicas. El 70 % restante se envía a la primera versión del punto de conexión, ya que también es la versión predeterminada.
 
  ```python
 from azureml.core.webservice import AksEndpoint
@@ -275,9 +298,13 @@ endpoint.create_version(version_name = version_name_add,
                         tags = {'modelVersion':'b'},
                         description = "my second version",
                         traffic_percentile = 10)
+endpoint.wait_for_deployment(True)
 ```
 
-Actualice las versiones existentes o elimínelas en un punto de conexión. Puede cambiar el tipo predeterminado de la versión, el tipo de control y el percentil de tráfico.
+Actualice las versiones existentes o elimínelas en un punto de conexión. Puede cambiar el tipo predeterminado de la versión, el tipo de control y el percentil de tráfico. En el ejemplo siguiente, la segunda versión aumenta su tráfico al 40 % y ahora es la predeterminada.
+
+> [!TIP]
+> Después del fragmento de código siguiente, la segunda versión es ahora la predeterminada. Ahora está configurada para el 40 %, mientras que la versión original todavía está configurada para un 20 %. Esto significa que las configuraciones de versión no tienen en cuenta el 40 % del tráfico. El tráfico restante se enrutará a la segunda versión, ya que ahora es la predeterminada. Recibe el 80 % del tráfico.
 
  ```python
 from azureml.core.webservice import AksEndpoint
@@ -288,7 +315,8 @@ endpoint.update_version(version_name=endpoint.versions["versionb"].name,
                         traffic_percentile=40,
                         is_default=True,
                         is_control_version_type=True)
-
+# Wait for the process to complete before deleting
+endpoint.wait_for_deployment(true)
 # delete a version in an endpoint
 endpoint.delete_version(version_name="versionb")
 
@@ -348,7 +376,7 @@ print(token)
 * [Protección de experimentos e inferencias en una red virtual](how-to-enable-virtual-network.md)
 * [Cómo implementar un modelo con una imagen personalizada de Docker](how-to-deploy-custom-docker-image.md)
 * [Solución de problemas de implementación](how-to-troubleshoot-deployment.md)
-* [Protección de los servicios web de Azure Machine Learning con SSL](how-to-secure-web-service.md)
+* [Uso de TLS para proteger un servicio web con Azure Machine Learning](how-to-secure-web-service.md)
 * [Consumir un modelo de ML que está implementado como un servicio web](how-to-consume-web-service.md)
 * [Supervisión de los modelos de Azure Machine Learning con Application Insights](how-to-enable-app-insights.md)
 * [Recopilar datos de modelos en producción](how-to-enable-data-collection.md)

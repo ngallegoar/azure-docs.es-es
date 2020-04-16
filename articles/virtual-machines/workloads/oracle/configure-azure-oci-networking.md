@@ -2,7 +2,7 @@
 title: Conectar Azure ExpressRoute con Oracle Cloud Infrastructure | Microsoft Docs
 description: Conectar Azure ExpressRoute con Oracle Cloud Infrastructure (OCI) FastConnect para habilitar soluciones de aplicaciones de Oracle en la nube
 documentationcenter: virtual-machines
-author: romitgirdhar
+author: mimckitt
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -11,21 +11,26 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/02/2019
-ms.author: rogirdh
-ms.openlocfilehash: 0e2e16ccc04ff6df80597d646a00c40551e4cfd0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/16/2020
+ms.author: mimckitt
+ms.openlocfilehash: d85c0fc8986adfa00559eab1c49a79daacdeb33f
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78302056"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81263189"
 ---
 # <a name="set-up-a-direct-interconnection-between-azure-and-oracle-cloud-infrastructure"></a>Configurar una interconexión directa entre Azure y Oracle Cloud Infrastructure  
 
-Para crear una [experiencia integrada de nube múltiple](oracle-oci-overview.md) (versión preliminar), Microsoft y Oracle ofrecen interconexión directa entre Azure y Oracle Cloud Infrastructure (OCI) a través de [ExpressRoute](../../../expressroute/expressroute-introduction.md) y [FastConnect](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnectoverview.htm). A través de la interconexión de ExpressRoute y FastConnect, los clientes pueden experimentar una baja latencia, un alto rendimiento y una conectividad privada directa entre las dos nubes.
+Para crear una [experiencia integrada de nube múltiple](oracle-oci-overview.md) , Microsoft y Oracle ofrecen interconexión directa entre Azure y Oracle Cloud Infrastructure (OCI) a través de [ExpressRoute](../../../expressroute/expressroute-introduction.md) y [FastConnect](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnectoverview.htm). A través de la interconexión de ExpressRoute y FastConnect, los clientes pueden experimentar una baja latencia, un alto rendimiento y una conectividad privada directa entre las dos nubes.
 
 > [!IMPORTANT]
-> La conexión entre Microsoft Azure y OCI se encuentra en su etapa de versión preliminar. Para establecer la conectividad de baja latencia entre Azure y OCI, primero se debe habilitar su suscripción de Azure para esta funcionalidad. Debe inscribirse en la vista previa completando este breve [formulario de encuesta](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyzVVsi364tClw522rL9tkpUMVFGVVFWRlhMNUlRQTVWSTEzT0dXMlRUTyQlQCN0PWcu). Recibirá un correo electrónico una vez inscrita la suscripción. No puede usar la funcionalidad hasta que reciba un correo electrónico de confirmación. También puede contactar con su representante de ventas de Microsoft para que le tengan en cuenta para esta versión preliminar. El acceso a la capacidad de vista previa está sujeto a disponibilidad y está restringido por Microsoft según su exclusivo criterio. La finalización de la encuesta no garantiza el acceso. Esta versión preliminar se proporciona sin un contrato de nivel de servicio y no debe usarse para cargas de trabajo de producción. Puede que algunas características no se admitan, que tengan funcionalidades limitadas o que no estén disponibles en todas las ubicaciones de Azure. Para más información, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Es posible que algunos de los aspectos de esta característica cambien antes de ofrecer disponibilidad general.
+> Oracle certificará estas aplicaciones para que se ejecuten en Azure cuando se use la solución de interconexión en la nube de Azure/Oracle hasta mayo de 2020.
+> * E-Business Suite
+> * JD Edwards EnterpriseOne
+> * PeopleSoft
+> * Aplicaciones comerciales de Oracle
+> * Oracle Hyperion Financial Management
 
 En la siguiente imagen se muestra una descripción general de alto nivel de la interconexión:
 
@@ -36,8 +41,6 @@ En la siguiente imagen se muestra una descripción general de alto nivel de la i
 * Para establecer la conectividad entre Azure y OCI, debe tener una suscripción activa de Azure y una tenencia activa de OCI.
 
 * Esta conectividad solo es posible cuando una ubicación de emparejamiento de Azure ExpressRoute está cerca o en la misma ubicación de emparejamiento que FastConnect de OCI. Consulte la [Disponibilidad regional](oracle-oci-overview.md#region-availability).
-
-* Para disfrutar de esta funcionalidad de la versión preliminar, su suscripción de Azure debe estar habilitada.
 
 ## <a name="configure-direct-connectivity-between-expressroute-and-fastconnect"></a>Configurar la conectividad directa entre ExpressRoute y FastConnect
 

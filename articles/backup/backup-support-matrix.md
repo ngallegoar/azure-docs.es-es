@@ -3,12 +3,12 @@ title: Matriz de compatibilidad de Azure Backup
 description: Proporciona un resumen de opciones de compatibilidad y limitaciones para el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: 15c2fdfbe63dd73e665a4bac01dd2cd1b1144949
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.openlocfilehash: 120882b15dcf9f27c280984ff6d0df31e38ebb73
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77505857"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878959"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de compatibilidad para Azure Backup
 
@@ -32,10 +32,10 @@ En esta tabla se describen las características de los almacenes de Recovery Ser
 --- | ---
 **Vaults in subscription** (Almacenes en la suscripción) | Hasta 500 almacenes de Recovery Services en una suscripción única.
 **Machines in a vault** (Máquinas en un almacén) | Hasta 1000 máquinas virtuales de Azure en un solo almacén.<br/><br/> Se pueden registrar hasta 50 servidores MABS en un único almacén.
-**Data sources in vault storage** (Origen de datos en almacenamiento de almacén) | 54 400 GB como máximo. No hay límite para las copias de seguridad de las máquinas virtuales de Azure.
+**Orígenes de datos** | El tamaño máximo de un [origen de datos](https://docs.microsoft.com/azure/backup/backup-azure-backup-faq#how-is-the-data-source-size-determined) individual es de 54 400 KB. Este límite no se aplica a las copias de seguridad de máquinas virtuales de Azure. No se aplica ningún límite a la cantidad total de datos de los que se puede hacer copia de seguridad en el almacén.
 **Backups to vault** (Copias de seguridad en el almacén) | **Máquinas virtuales de Azure:** una vez al día.<br/><br/>**Máquinas protegidas por DPM/MABS:** dos veces al día.<br/><br/> **Máquinas con copia de seguridad realizada directamente con el agente de MARS:** tres veces al día.
 **Backups between vaults** (Copias de seguridad entre almacenes) | Las copias de seguridad se realizan dentro de una región.<br/><br/> Necesita un almacén en cada región de Azure que contenga máquinas virtuales de las que desee realizar copias de seguridad. No se pueden realizar copias de seguridad en una región diferente.
-**Move vaults** (Mover almacenes) | Puede [mover almacenes](https://review.docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault) entre suscripciones o entre grupos de recursos de la misma suscripción. Sin embargo, no se admite el traslado de almacenes entre regiones.
+**Move vaults** (Mover almacenes) | Puede [mover almacenes](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault) entre suscripciones o entre grupos de recursos de la misma suscripción. Sin embargo, no se admite el traslado de almacenes entre regiones.
 **Move data between vaults** (Movimiento de datos entre almacenes) | No se admite el movimiento de datos con copia de seguridad realizada entre almacenes.
 **Modify vault storage type** (Modificación del tipo de almacenamiento de almacén) | Puede modificar el tipo de replicación de almacenamiento (almacenamiento con redundancia geográfica o almacenamiento con redundancia local) para un almacén antes de que se almacenen las copias de seguridad. Una vez iniciadas las copias de seguridad en el almacén, el tipo de replicación no se puede modificar.
 
@@ -84,7 +84,7 @@ Esto es lo que se admite si quiere hacer copias de seguridad de máquinas Linux:
 
 ## <a name="daylight-saving-time-support"></a>Compatibilidad con horario de verano
 
-Azure Backup no admite el ajuste automático del reloj para el horario de verano para realizar copias de seguridad de máquinas virtuales de Azure. Modifique las directivas de copia de seguridad manualmente según sea necesario.
+Azure Backup no admite el ajuste automático del reloj para el horario de verano para realizar copias de seguridad de máquinas virtuales de Azure. No adelanta ni retrasa la hora de la copia de seguridad. Para asegurarse de que la copia de seguridad se ejecute en el momento deseado, modifique las directivas de copia de seguridad manualmente según sea necesario.
 
 ## <a name="disk-deduplication-support"></a>Compatibilidad con desduplicación de disco
 
@@ -151,12 +151,10 @@ Azure Backup ha agregado la característica Restauración entre regiones para re
 
 | Tipo de administración de copias de seguridad | Compatible                                                    | Regiones admitidas |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
-| Azure VM               | Sí. Versión preliminar pública limitada que se admite para las VM cifradas y las VM con discos de menos de 4 TB. | Centro-Oeste de EE. UU.   |
-| Agente de MARS/local | Sin                                                           | N/D               |
-| SQL/SAP HANA          | Sin                                                           | N/D               |
-| AFS                    | Sin                                                           | N/D               |
-
-
+| Azure VM               | Sí.   Se admite para las máquinas virtuales cifradas y las máquinas virtuales con discos de menos de 4 TB. | Todas las regiones públicas de Azure.  |
+| Agente de MARS/local | No                                                           | N/D               |
+| SQL/SAP HANA          | No                                                           | N/D               |
+| AFS                    | No                                                           | N/D               |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

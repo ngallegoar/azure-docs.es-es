@@ -4,12 +4,12 @@ description: Información acerca de los escenarios de seguridad para un clúster
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.custom: sfrev
-ms.openlocfilehash: 92d2c4d03075eaafce039f94b4f03c0791985b40
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5912f98f6a1c82250a66ec4d9fe39f2f69b1cc8f
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79229380"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80753800"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Escenarios de seguridad de los clústeres de Service Fabric
 
@@ -74,7 +74,7 @@ Para los clústeres que se ejecutan en Azure también se puede proteger el acces
 Para los clústeres de Service Fabric implementados en una red pública hospedada en Azure, la recomendación para la autenticación mutua de cliente a nodo es:
 
 * Usar Azure Active Directory para la identidad del cliente
-* Un certificado para la identidad del servidor y el cifrado SSL de la comunicación HTTP
+* Un certificado para la identidad del servidor y el cifrado TLS de la comunicación HTTP
 
 Para los clústeres de Service Fabric implementados en una red pública hospedada en Azure, la recomendación para la seguridad de nodo a nodo es usar un certificado de clúster para autenticar los nodos.
 
@@ -103,13 +103,13 @@ Algunos puntos importantes que hay que tener en cuenta:
 
 Estos certificados (uno principal y, opcionalmente, uno secundario) son necesarios para proteger un clúster e impedir que se acceda a él sin autorización. Estos certificados permiten la autenticación del servidor y del clúster.
 
-La autenticación del clúster autentica la comunicación de nodo a nodo para la federación del clúster. Solo los nodos que pueden probar su identidad con este certificado pueden unirse al clúster. La autenticación del servidor autentica los puntos de conexión de administración del clúster en un cliente de administración, de forma que este sabe que está hablando con el clúster real y no con un intermediario. Este certificado proporciona también SSL para la API de administración de HTTPS y para Service Fabric Explorer sobre HTTPS. Cuando un nodo o un cliente autentica un nodo, una de las comprobaciones iniciales se ocupa del valor del nombre común en el campo **Firmante**. Este nombre común o uno de los nombres alternativos del sujeto (SAN) del certificado deben encontrarse en la lista de nombres comunes permitidos.
+La autenticación del clúster autentica la comunicación de nodo a nodo para la federación del clúster. Solo los nodos que pueden probar su identidad con este certificado pueden unirse al clúster. La autenticación del servidor autentica los puntos de conexión de administración del clúster en un cliente de administración, de forma que este sabe que está hablando con el clúster real y no con un intermediario. Este certificado proporciona también TLS para la API de administración de HTTPS y para Service Fabric Explorer sobre HTTPS. Cuando un nodo o un cliente autentica un nodo, una de las comprobaciones iniciales se ocupa del valor del nombre común en el campo **Firmante**. Este nombre común o uno de los nombres alternativos del sujeto (SAN) del certificado deben encontrarse en la lista de nombres comunes permitidos.
 
 El certificado debe cumplir los siguientes requisitos:
 
 * El certificado debe contener una clave privada. Estos certificados suelen tener normalmente las extensiones .pfx o .pem  
 * El certificado debe crearse para el intercambio de claves, que se pueda exportar a un archivo Personal Information Exchange (.pfx).
-* El **nombre de sujeto del certificado debe coincidir con el dominio usado para acceder al clúster de Service Fabric**. Esta coincidencia es necesaria para proporcionar un certificado SSL al punto de conexión de administración HTTPS y a la utilidad Service Fabric Explorer del clúster. No puede obtener un certificado SSL de una entidad de certificación (CA) para el dominio *.cloudapp.azure.com. Debe adquirir un nombre de dominio personalizado para el clúster. Cuando solicite un certificado de una CA, el nombre de sujeto del certificado debe coincidir con el nombre del dominio personalizado del clúster.
+* El **nombre de sujeto del certificado debe coincidir con el dominio usado para acceder al clúster de Service Fabric**. Esta coincidencia es necesaria para proporcionar un certificado TLS al punto de conexión de administración HTTPS y a la utilidad Service Fabric Explorer del clúster. No puede obtener un certificado TLS/SSL de una entidad de certificación (CA) para el dominio *.cloudapp.azure.com. Debe adquirir un nombre de dominio personalizado para el clúster. Cuando solicite un certificado de una CA, el nombre de sujeto del certificado debe coincidir con el nombre del dominio personalizado del clúster.
 
 Hay otras cuestiones que deben tenerse en cuenta:
 

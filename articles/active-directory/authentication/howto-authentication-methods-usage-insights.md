@@ -4,19 +4,19 @@ description: Creación de informes sobre el uso del autoservicio de restablecimi
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b448e6ce7c8b4522d5e7bdbafb39eccca982fdee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1730939de399cacd13c62988259904ba84ee78ff
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74848517"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80654150"
 ---
 # <a name="authentication-methods-usage--insights-preview"></a>Conclusiones y uso de los métodos de autenticación (versión preliminar)
 
@@ -90,7 +90,7 @@ Mediante los controles de la parte superior de la lista, puede buscar un usuario
 
 ## <a name="limitations"></a>Limitaciones
 
-Los datos que se muestran en estos informes se retrasarán en hasta 60 minutos. Existe un campo de "Última actualización" en Azure Portal para identificar la vigencia de los datos.
+Los datos que se muestran en estos informes se retrasarán en hasta 60 minutos. Existe un campo de "Última actualización" en Azure Portal para identificar la antigüedad de los datos.
 
 Los datos de uso y conclusiones no sustituyen los informes de actividad de la autenticación multifactor de Azure ni la información del informe de inicios de sesión de Azure AD.
 

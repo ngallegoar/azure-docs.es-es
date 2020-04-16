@@ -2,20 +2,22 @@
 title: Recopilar y analizar registros de recursos
 description: Obtenga información sobre cómo enviar registros de recursos y datos de eventos de grupos de contenedores en Azure Container Instances a los registros de Azure Monitor.
 ms.topic: article
-ms.date: 01/08/2020
+ms.date: 04/07/2020
 ms.author: danlep
-ms.openlocfilehash: 304e98fff386911b878877d2f03d489d0eef5dd7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bd21a511641d5ea027c18bedb4dce47749110bcb
+ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75770550"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80892400"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Registro de instancias y grupos de contenedores con registros de Azure Monitor
 
 Las áreas de trabajo de Log Analytics proporcionan una ubicación centralizada para almacenar y consultar datos de registro no solo de los recursos de Azure, sino también de los recursos locales y de los recursos de otras nubes. Azure Container Instances incluye compatibilidad integrada para el envío de registros y datos de evento a los registros de Azure Monitor.
 
-Para enviar un registro de grupo de contenedores y datos de eventos a los registros de Azure Monitor, especifique una clave y un identificador del área de trabajo de Log Analytics al crear un grupo de contenedores. En las secciones siguientes se describe cómo crear un grupo de contenedores con el registro habilitado y cómo consultar registros.
+Para enviar un registro de grupo de contenedores y datos de eventos a los registros de Azure Monitor, especifique una clave y un identificador de un área de trabajo de Log Analytics existente al configurar un grupo de contenedores. 
+
+En las secciones siguientes se describe cómo crear un grupo de contenedores con el registro habilitado y cómo consultar registros. También puede [actualizar un grupo de contenedores](container-instances-update.md) con un identificador de área de trabajo y una clave de área de trabajo para habilitar el registro.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 

@@ -3,12 +3,12 @@ title: Movimiento de recursos de Azure App Service
 description: Use Azure Resource Manager para trasladar recursos de App Service a un nuevo grupo de recursos o a una nueva suscripción.
 ms.topic: conceptual
 ms.date: 12/13/2019
-ms.openlocfilehash: 338b0559a5de9468ff60024b88d0f676a9fc3e8b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d0ecd117bdcda9238e310a3020dba19a6871a3fc
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75474930"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80655782"
 ---
 # <a name="move-guidance-for-app-service-resources"></a>Orientaciones para el traslado de recursos de App Service
 
@@ -21,10 +21,10 @@ Al trasladar una instancia de Web App entre suscripciones, se aplican las guías
 - El grupo de recursos de destino no debe tener ningún recurso de App Service. Entre los recursos de App Service se incluyen:
     - Web Apps
     - Planes de App Service
-    - Certificados SSL cargados o importados
+    - Certificados TLS/SSL cargados o importados
     - Entornos de App Service
 - Todos los recursos de App Service del grupo de recursos se deben mover conjuntamente. Tenga en cuenta que los entornos de App Service Environment no se pueden trasladar a un nuevo grupo de recursos ni a una nueva suscripción.
-- Puede trasladar un certificado enlazado a una web sin eliminar los enlaces SSL, siempre y cuando el certificado se mueva con el resto de recursos del grupo de recursos.
+- Puede trasladar un certificado enlazado a una web sin eliminar los enlaces TLS, siempre y cuando el certificado se mueva con el resto de recursos del grupo.
 - Los recursos de App Service solo se pueden mover del grupo de recursos en el que se crearon originalmente. Si un recurso de App Service ya no está en su grupo de recursos original, muévalo a su grupo de recursos original. A continuación, mueva el recurso entre las suscripciones.
 
 Si no recuerda el grupo de recursos original, se puede encontrar a través de un diagnóstico. Para la aplicación web, seleccione **Diagnosticar y solucionar problemas**. A continuación, seleccione **Configuración y administración**.

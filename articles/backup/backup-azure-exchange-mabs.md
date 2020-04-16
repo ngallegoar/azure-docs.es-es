@@ -4,18 +4,18 @@ description: Obtenga información sobre cómo realizar una copia de seguridad de
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.openlocfilehash: b9c8cfb32adce39dab47159c7d644b92e0ced46e
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: 1d7d28d813df82a5e1ea0fe424bba2ef5a9a2684
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80397958"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421350"
 ---
 # <a name="back-up-an-exchange-server-to-azure-with-azure-backup-server"></a>Realización de una copia de seguridad de un servidor Exchange en Azure con Azure Backup Server
 
 En este artículo se describe cómo configurar Microsoft Azure Backup Server (MABS) para realizar una copia de seguridad de un servidor Microsoft Exchange en Azure.  
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de continuar, asegúrese de que Azure Backup Server esté [instalado y preparado](backup-azure-microsoft-azure-backup.md).
 
@@ -53,7 +53,7 @@ Para instalar al agente de protección MABS en el servidor Exchange, siga estos 
     Después de seleccionar esta opción, se ejecutará una comprobación de coherencia de copia de seguridad en MABS para evitar el tráfico de E/S que se genera al ejecutar el comando **eseutil** en el servidor Exchange.
 
    > [!NOTE]
-   > Para usar esta opción, debe copiar los archivos Ese.dll y Eseutil.exe en el directorio C:\Archivos de programa\Microsoft Azure Backup\DPM\DPM\bin del servidor MAB. De lo contrario, se desencadena el siguiente error:  
+   > Para usar esta opción, debe copiar los archivos Ese.dll y Eseutil.exe en el directorio C:\Archivos de programa\Microsoft Azure Backup\DPM\DPM\bin del servidor MABS. De lo contrario, se desencadena el siguiente error:  
    > ![Error de eseutil](./media/backup-azure-backup-exchange-server/eseutil-error.png)
    >
    >
@@ -66,7 +66,7 @@ Para instalar al agente de protección MABS en el servidor Exchange, siga estos 
    >
 10. Configure los objetivos de **Copia de seguridad a corto plazo** y haga clic en **Siguiente**.
 11. Revise el espacio en disco disponible y haga clic en **Siguiente**.
-12. Seleccione la hora a la que el servidor MAB creará la replicación inicial y haga clic en **Siguiente**.
+12. Seleccione la hora a la que el servidor MABS creará la replicación inicial y haga clic en **Siguiente**.
 13. Seleccione las opciones de comprobación de coherencia y haga clic en **Siguiente**.
 14. Elija la base de datos de la que desea realizar una copia de seguridad en Azure y haga clic en **Siguiente**. Por ejemplo:
 
@@ -97,11 +97,11 @@ Para instalar al agente de protección MABS en el servidor Exchange, siga estos 
 
 Para los puntos de recuperación en línea, existen cinco tipos de recuperación:
 
-* **Recuperar en ubicación original de servidor de Exchange :** los datos se recuperarán en el servidor Exchange original.
-* **Recuperar en otra base de datos en un servidor de Exchange:** los datos se recuperarán en otra base de datos de otro servidor Exchange.
-* **Recuperar en una base de datos de recuperación:** los datos se recuperarán en una base de datos de recuperación de Exchange (RDB).
-* **Copiar en una carpeta de red:** los datos se recuperarán en una carpeta de red.
-* **Copiar en cinta:** si tiene una biblioteca de cintas o una unidad de cinta independiente conectada y configurada en MABS, el punto de recuperación se copiará en una cinta libre.
+* **Recuperación en la ubicación original de Exchange Server**: los datos se recuperarán en la ubicación original de Exchange Server.
+* **Recuperación en otra base de datos de Exchange Server**: los datos se recuperarán en otra base de datos en otra ubicación de Exchange Server.
+* **Recuperación en una base de datos de recuperación**: los datos se recuperarán en una base de datos de recuperación de Exchange (RDB).
+* **Copia en una carpeta de red**: los datos se recuperarán en una carpeta de red.
+* **Copia en cinta**: si tiene una biblioteca de cintas o una unidad de cinta independiente conectada y configurada en MABS, el punto de recuperación se copiará en una cinta disponible.
 
     ![Elegir replicación en línea](./media/backup-azure-backup-exchange-server/choose-online-replication.png)
 

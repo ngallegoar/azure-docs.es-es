@@ -1,26 +1,28 @@
 ---
 title: Configuración de la autenticación de Facebook
-description: Aprenda a configurar la autenticación de Facebook como proveedor de identidades para una aplicación App Service.
+description: Aprenda a configurar la autenticación de Facebook como proveedor de identidades para una aplicación de App Service o Azure Functions.
 ms.assetid: b6b4f062-fcb4-47b3-b75a-ec4cb51a62fd
 ms.topic: article
 ms.date: 06/06/2019
-ms.custom: seodec18
-ms.openlocfilehash: cd9c8a1bab3616b9b4eb1fe97ee3a9b2307ba77b
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.custom:
+- seodec18
+- fasttrack-edit
+ms.openlocfilehash: b6aad323c0d6fa8f59c9fad203640c477b162503
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671935"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80519958"
 ---
-# <a name="configure-your-app-service-app-to-use-facebook-login"></a>Configuración de la aplicación de App Service para usar el inicio de sesión de Facebook
+# <a name="configure-your-app-service-or-azure-functions-app-to-use-facebook-login"></a>Configuración de una aplicación de App Service o Azure Functions para usar el inicio de sesión de Facebook
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-En este artículo se muestra cómo configurar Azure App Service para usar Facebook como proveedor de autenticación.
+En este artículo se muestra cómo configurar Azure App Service o Azure Functions para usar Facebook como proveedor de autenticación.
 
 Para llevar a cabo el procedimiento descrito en este artículo, debe tener una cuenta de Facebook asociada a una dirección de correo electrónico verificada y a un número de teléfono móvil. Para crear una cuenta de Facebook, vaya a [facebook.com].
 
-## <a name="register"></a>Registro de la aplicación con Facebook
+## <a name="register-your-application-with-facebook"></a><a name="register"> </a>Registro de la aplicación con Facebook
 
 1. Vaya al sitio web para [desarrolladores de Facebook] e inicie sesión con las credenciales de su cuenta de Facebook.
 
@@ -48,7 +50,7 @@ Para llevar a cabo el procedimiento descrito en este artículo, debe tener una c
 
    Para autenticar otras cuentas de Facebook, seleccione **App Review** (Revisión de aplicaciones) y habilite **Make \<your-app-name> public** (Hacer pública <nombre-de-su-aplicación>) para permitir que el público general acceda a la aplicación mediante la autenticación de Facebook.
 
-## <a name="secrets"></a>Agregar información de Facebook a la aplicación
+## <a name="add-facebook-information-to-your-application"></a><a name="secrets"> </a>Agregar información de Facebook a la aplicación
 
 1. Inicie sesión en [Azure Portal] y vaya a la aplicación App Service.
 1. Haga clic en **Configuración** > **Autenticación/autorización** y asegúrese de que la opción **Autenticación de App Service** está **Activada**.
@@ -67,7 +69,7 @@ Para llevar a cabo el procedimiento descrito en este artículo, debe tener una c
 
 De este modo ya estará listo para usar Facebook para realizar la autenticación en la aplicación.
 
-## <a name="related-content"> </a>Pasos siguientes
+## <a name="next-steps"></a><a name="related-content"> </a>Pasos siguientes
 
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
 

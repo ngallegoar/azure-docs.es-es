@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: juliako
-ms.openlocfilehash: 49959ff12744f28e930959c43a449800c76818f5
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: 76ef9f92b6b6633982242ccafab1950e0ef5f410
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78969789"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582795"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de la versión de Azure Media Services v3
 
@@ -89,7 +89,7 @@ Se ha agregado compatibilidad con los siguientes nuevos asociados de codificador
 ### <a name="file-encoding-enhancements"></a>Mejoras en la codificación de archivos
 
 - Ahora hay disponible un nuevo valor preestablecido de codificación compatible con el contenido. Genera un conjunto de archivos MP4 con alineación GOP mediante la codificación compatible con el contenido. Dado cualquier contenido de entrada, el servicio realiza un análisis ligero inicial del contenido de entrada. Utiliza esos resultados para determinar automáticamente el número óptimo de capas, la velocidad de bits adecuada y la configuración de resolución para la entrega a través del streaming adaptable. Este valor predefinido resulta particularmente eficaz en los vídeos de complejidad media y baja, donde los archivos de salida tendrán velocidades de bits más lentas, pero una calidad que seguirá ofreciendo una buena experiencia a los espectadores. La salida contendrá archivos MP4 con el vídeo y audio intercalados. Para obtener más información, consulte las [especificaciones de API abiertas](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/Encoding.json).
-- Rendimiento mejorado y subprocesos múltiples en el cambio de tamaño de Media Encoder Standard. En condiciones específicas, el cliente apreciará un aumento del rendimiento de la codificación VOD entre un 5 % y un 40 %. El contenido de poca complejidad codificado en varias velocidades de bits experimentará los mayores aumentos del rendimiento. 
+- Rendimiento mejorado y subprocesos múltiples en el cambio de tamaño de Standard Encoder. En condiciones específicas, el cliente apreciará un aumento del rendimiento de la codificación VOD entre un 5 % y un 40 %. El contenido de poca complejidad codificado en varias velocidades de bits experimentará los mayores aumentos del rendimiento. 
 - La codificación estándar ahora mantiene una cadencia normal del GOP para el contenido de velocidad de fotogramas variable (VFR) durante la codificación VOD cuando se usa el valor GOP basado en el tiempo.  Esto significa que, por ejemplo, el cliente que envía contenido de velocidad de fotogramas mixta que varía entre 15 y 30 fps observará ahora distancias de GOP normales calculadas en la salida a archivos MP4 de streaming con velocidad de bits adaptable. Este hecho mejorará la posibilidad de cambiar sin problemas entre pistas al realizar las entregas a través de HLS o DASH. 
 -  Sincronización de AV mejorada en el contenido de origen de velocidad de fotogramas variable (VFR)
 
@@ -177,7 +177,7 @@ Si desea obtener más información, vea [Nubes y regiones donde existe Azure Med
 
 Se han agregado actualizaciones que incluyen mejoras de rendimiento de Media Services.
 
-* Se actualizó el tamaño de archivo máximo admitido para el procesamiento. Consulte [Cuotas y limitaciones](limits-quotas-constraints.md).
+* Se actualizó el tamaño de archivo máximo admitido para el procesamiento. Consulte [Cuotas y límites](limits-quotas-constraints.md).
 * [Mejoras de velocidades de codificación](media-reserved-units-cli-how-to.md#choosing-between-different-reserved-unit-types).
 
 ## <a name="april-2019"></a>Abril de 2019

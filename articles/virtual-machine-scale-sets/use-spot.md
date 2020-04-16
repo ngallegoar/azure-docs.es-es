@@ -1,30 +1,25 @@
 ---
-title: Creación de un conjunto de escalado que use máquinas virtuales de Azure Spot (versión preliminar)
+title: Creación de un conjunto de escalado que use máquinas virtuales de Azure Spot
 description: Aprenda a crear conjuntos de escalado de Azure que usen máquinas virtuales de Spot para ahorrar costos.
 author: cynthn
-tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
-ms.topic: conceptual
-ms.date: 02/11/2020
+ms.topic: article
+ms.date: 03/25/2020
 ms.author: cynthn
-ms.openlocfilehash: 37e914fe6bafe9587be525faf3e01c897cdd8230
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a7bd22032a554c83a2ea2323ffdb3ae52dfe4faf
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77162691"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80545936"
 ---
-# <a name="preview-azure-spot-vms-for-virtual-machine-scale-sets"></a>Vista previa: Máquinas virtuales de Azure Spot para los conjuntos de escalado 
+# <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>Máquinas virtuales de Azure Spot para los conjuntos de escalado 
 
 El uso de Azure Spot en los conjuntos de escalado permite aprovechar las ventajas de nuestra capacidad sin usar con un importante ahorro en los costos. Siempre que Azure necesite recuperar la capacidad, su infraestructura expulsará las máquinas virtuales de Spot. Por lo tanto, las instancias de Spot son excelentes para las cargas de trabajo que soporten las interrupciones, como los trabajos de procesamiento por lotes, los entornos de desarrollo y pruebas, las grandes cargas de trabajo de proceso, etc.
 
 La cantidad de capacidad sin usar disponible varía, por ejemplo, en función del tamaño, la región o la hora del día. Al implementar máquinas virtuales de Spot en los conjuntos de escalado, Azure asigna las instancias solo si hay capacidad disponible, aunque estas no tienen un Acuerdo de Nivel de Servicio. Los conjuntos de escalado de Spot se implementan en un dominio de error único y no ofrecen garantías de alta disponibilidad.
 
-> [!IMPORTANT]
-> Las instancias de Spot se encuentran actualmente en versión preliminar pública,
-> la cual no se recomienda para las cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
 
 ## <a name="pricing"></a>Precios
 
@@ -172,6 +167,5 @@ Para eliminar la instancia después de que se haya expulsado, cambie el parámet
 **R:** Puede publicar y etiquetar la pregunta con `azure-spot` en [Q&A](https://docs.microsoft.com/answers/topics/azure-spot.html) (Preguntas y respuestas). 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Ahora que ha creado un conjunto de escalado con máquinas virtuales de Spot, pruebe a implementar nuestra [plantilla de escalado automático con Spot](https://github.com/Azure/vm-scale-sets/tree/master/preview/lowpri).
 
 Consulte la [página de precios del conjunto de escalado de máquinas virtuales](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/) para ver información de precios.

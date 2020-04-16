@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: sashan, carlrab
 manager: jroth
 ms.date: 08/27/2019
-ms.openlocfilehash: bf83155e971061f22e5f5fc33d216b58621c9249
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0f1a56fa6ea38acd8061180407eb47fe416b61e9
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77462656"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631711"
 ---
 # <a name="tutorial-add-a-sql-database-managed-instance-to-a-failover-group"></a>Tutorial: adición de una instancia administrada de SQL Database a un grupo de conmutación por error
 
@@ -756,7 +756,7 @@ Cree la puerta de enlace para la red virtual de la instancia administrada princi
     | --- | --- |
     | **Suscripción** |  Suscripción en la que reside la instancia administrada principal. |
     | **Nombre** | Nombre de la puerta de enlace de red virtual, como `primary-mi-gateway`. | 
-    | **Región** | Región donde se encuentra la instancia administrada secundaria. |
+    | **Región** | Región donde se encuentra la instancia administrada principal. |
     | **Tipo de puerta de enlace** | Seleccione **VPN**. |
     | **Tipo de VPN** | Seleccione **Basada en rutas**. |
     | **SKU**| Deje el valor predeterminado de `VpnGw1`. |

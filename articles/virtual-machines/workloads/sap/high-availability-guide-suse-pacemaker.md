@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/17/2020
+ms.date: 04/07/2020
 ms.author: radeltch
-ms.openlocfilehash: 9d3d0ddbd1282827f17cd82228fcf0f3fba3a60f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 06ee1b6184e69ace68adcbfa36ad2384dc9fdd99
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79471989"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811578"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configuración de Pacemaker en SUSE Linux Enterprise Server en Azure
 
@@ -365,6 +365,9 @@ Los elementos siguientes tienen el prefijo **[A]** : aplicable a todos los nodos
    </code></pre>
 
 1. **[A]** Configure cloud-netconfig-azure para el clúster de alta disponibilidad
+
+   >[!NOTE]
+   > Compruebe la versión instalada del paquete **cloud-netconfig-Azure**, para lo que debe ejecutar **zypper info cloud-netconfig-azure**. Si la versión del entorno es la 1.3 o superior, ya no es necesario suprimir la administración de las interfaces de red por el complemento de red en la nube. Si la versión es inferior a la 1.3, se recomienda actualizar el paquete **cloud-netconfig-Azure** a la última versión disponible.  
 
    Cambia el archivo de configuración de la interfaz de red como se muestra a continuación para evitar que el complemento de la red en la nube quite la dirección IPR virtual (Pacemaker debe controlar la asignación de VIP). Para más información, consulte [KB 7023633 de SUSE](https://www.suse.com/support/kb/doc/?id=7023633). 
 

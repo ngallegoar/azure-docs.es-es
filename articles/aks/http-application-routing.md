@@ -1,17 +1,17 @@
 ---
 title: Complemento de enrutamiento de aplicación HTTP en Azure Kubernetes Service (AKS)
-description: Uso del complemento de enrutamiento de aplicación HTTP en Azure Kubernetes Service (AKS).
+description: Uso del complemento de enrutamiento de aplicación HTTP para acceder a aplicaciones en Azure Kubernetes Service (AKS).
 services: container-service
 author: lachie83
 ms.topic: article
 ms.date: 08/06/2019
 ms.author: laevenso
-ms.openlocfilehash: 5794e46f10abec1ceef4c79a881f7f353e729634
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6ffc9daaf1b87fc9fb6ebbb0f2787f07282afe5e
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77595695"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632399"
 ---
 # <a name="http-application-routing"></a>Enrutamiento de aplicación HTTP
 

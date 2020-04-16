@@ -5,16 +5,19 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 01/31/2019
+ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 04e10b9c5410d15d3509829af7502c9a93c7267d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ee8f67a41d339e6e5f65548867c5458739857d50
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281636"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80981263"
 ---
 # <a name="update-a-power-bi-app-offer"></a>Actualización de una oferta de aplicación de Power BI
+
+>[!Important]
+>A partir del 13 de abril de 2020, se comenzará a trasladar la administración de las ofertas de aplicaciones de Power BI al Centro de partners. Después de la migración, las ofertas se crearán y administrarán en el Centro de partners. Siga las instrucciones que se indican en [Información general sobre la creación de aplicaciones de Power BI](https://aka.ms/AzureCreatePBIServiceApp) para administrar las ofertas migradas.
 
 En este artículo se muestra cómo actualizar la oferta de aplicación de Microsoft Power BI en [Cloud Partner Portal](https://cloudpartner.azure.com/) y, luego, volver a publicar la oferta. Estas son algunas de las razones comunes para actualizar una oferta:
 

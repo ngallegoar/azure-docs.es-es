@@ -1,6 +1,6 @@
 ---
-title: Uso de transacciones
-description: Sugerencias para implementar transacciones en Azure SQL Data Warehouse para el desarrollo de soluciones.
+title: Uso de transacciones en el grupo de SQL de Synapse
+description: En este artículo se incluyen sugerencias para implementar transacciones y desarrollar soluciones en el grupo de SQL de Synapse.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -10,34 +10,41 @@ ms.subservice: ''
 ms.date: 03/22/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: a14201131eac5ce1efc4020c9ce0f40a80cac8a3
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 558b16fc348728c507af1fa0260a67ccacefed0f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351556"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416141"
 ---
-# <a name="using-transactions-in-sql-data-warehouse"></a>Uso de transacciones en SQL Data Warehouse
-Sugerencias para implementar transacciones en Azure SQL Data Warehouse para el desarrollo de soluciones.
+# <a name="use-transactions-in-synapse-sql-pool"></a>Uso de transacciones en el grupo de SQL de Synapse
+
+En este artículo se incluyen sugerencias para implementar transacciones y desarrollar soluciones en el grupo de SQL.
 
 ## <a name="what-to-expect"></a>Qué esperar
-Como cabría esperar, SQL Data Warehouse admite transacciones como parte de la carga de trabajo de dicho servicio. Sin embargo, para garantizar que se mantiene a escala el rendimiento de SQL Data Warehouse, algunas características están limitadas en comparación con SQL Server. En este artículo se destacan las diferencias entre las características y se enumeran las demás. 
+
+Como cabría esperar, el grupo de SQL admite transacciones como parte de la carga de trabajo de almacenamiento de datos. Sin embargo, para asegurarse de que el grupo de SQL se mantiene a escala, algunas características están limitadas en comparación con SQL Server. En este artículo se resaltan las diferencias.
 
 ## <a name="transaction-isolation-levels"></a>Niveles de aislamiento de transacciones
-SQL Data Warehouse implementa las transacciones ACID. El nivel de aislamiento de la compatibilidad transaccional se establece de forma predeterminada en READ UNCOMMITTED.  Para cambiarlo a READ COMMITTED SNAPSHOT ISOLATION, active la opción de base de datos READ_COMMITTED_SNAPSHOT de una base de datos de usuario cuando se conecte a la base de datos maestra.  Una vez habilitada, todas las transacciones de esta base de datos se ejecutan en READ COMMITTED SNAPSHOT ISOLATION y no se respeta la opción de configuración READ UNCOMMITTED en el nivel de sesión. Consulte [Opciones de ALTER DATABASE SET (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest) para obtener más información.
+
+El grupo de SQL implementa transacciones ACID. El nivel de aislamiento de la compatibilidad transaccional se establece de forma predeterminada en READ UNCOMMITTED.  Para cambiarlo a READ COMMITTED SNAPSHOT ISOLATION, active la opción de base de datos READ_COMMITTED_SNAPSHOT de una base de datos de usuario cuando se conecte a la base de datos maestra.  
+
+Una vez habilitada, todas las transacciones de esta base de datos se ejecutan en READ COMMITTED SNAPSHOT ISOLATION y no se respeta la opción de configuración READ UNCOMMITTED en el nivel de sesión. Consulte [Opciones de ALTER DATABASE SET (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para obtener más información.
 
 ## <a name="transaction-size"></a>Tamaño de la transacción
-Una transacción de modificación de datos única tiene un tamaño limitado. El límite se aplica por distribución. Por lo tanto, la asignación total puede calcularse multiplicando el límite por el recuento de distribución. Para aproximar el número máximo de filas de la transacción, divida el extremo de la distribución entre el tamaño total de cada fila. Para las columnas de longitud variable, plantéese utilizar la longitud media de la columna en lugar del tamaño máximo.
 
-En la tabla siguiente se han considerado estas hipótesis:
+Una transacción de modificación de datos única tiene un tamaño limitado. El límite se aplica por distribución. Por lo tanto, la asignación total puede calcularse multiplicando el límite por el recuento de distribución.
 
-* Se ha producido una distribución uniforme de los datos 
+Para aproximar el número máximo de filas de la transacción, divida el extremo de la distribución entre el tamaño total de cada fila. Para las columnas de longitud variable, plantéese utilizar la longitud media de la columna en lugar del tamaño máximo.
+
+En la tabla siguiente se han realizado dos supuestos:
+
+* Se ha producido una distribución uniforme de los datos
 * La longitud media de la fila es de 250 bytes
 
 ## <a name="gen2"></a>Gen2
 
-| [DWU](sql-data-warehouse-overview-what-is.md) | Extremo por distribución (GB) | Número de distribuciones | Tamaño de la transacción MAX (GB) | N-º de filas por distribución | Máximo de filas por transacción |
+| [DWU](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Extremo por distribución (GB) | Número de distribuciones | Tamaño de la transacción MAX (GB) | N-º de filas por distribución | Máximo de filas por transacción |
 | --- | --- | --- | --- | --- | --- |
 | DW100c |1 |60 |60 |4 000 000 |240 000 000 |
 | DW200c |1.5 |60 |90 |6\.000.000 |360 000 000 |
@@ -58,7 +65,7 @@ En la tabla siguiente se han considerado estas hipótesis:
 
 ## <a name="gen1"></a>Gen1
 
-| [DWU](sql-data-warehouse-overview-what-is.md) | Extremo por distribución (GB) | Número de distribuciones | Tamaño de la transacción MAX (GB) | N-º de filas por distribución | Máximo de filas por transacción |
+| [DWU](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Extremo por distribución (GB) | Número de distribuciones | Tamaño de la transacción MAX (GB) | N-º de filas por distribución | Máximo de filas por transacción |
 | --- | --- | --- | --- | --- | --- |
 | DW100 |1 |60 |60 |4 000 000 |240 000 000 |
 | DW200 |1.5 |60 |90 |6\.000.000 |360 000 000 |
@@ -73,25 +80,26 @@ En la tabla siguiente se han considerado estas hipótesis:
 | DW3000 |22.5 |60 |1,350 |90,000,000 |5,400,000,000 |
 | DW6000 |45 |60 |2,700 |180,000,000 |10,800,000,000 |
 
-Se aplica el límite de tamaño de la transacción por transacción u operación. No se aplica en todas las transacciones simultáneas. Por tanto, cada transacción puede escribir esta cantidad de datos en el registro. 
+Se aplica el límite de tamaño de la transacción por transacción u operación. No se aplica en todas las transacciones simultáneas. Por tanto, cada transacción puede escribir esta cantidad de datos en el registro.
 
 Para optimizar y minimizar la cantidad de datos que se escriben en el registro, consulte el artículo [Procedimientos recomendados relacionados con las transacciones](sql-data-warehouse-develop-best-practices-transactions.md).
 
 > [!WARNING]
 > El tamaño máximo de la transacción solo se puede conseguir para las tablas de distribución HASH o ROUND_ROBIN donde la propagación de los datos es uniforme. Si la transacción está escribiendo datos de forma sesgada en las distribuciones, es posible que el límite se alcance antes de que la transacción llegue al máximo de su tamaño.
 > <!--REPLICATED_TABLE-->
-> 
-> 
 
 ## <a name="transaction-state"></a>Estado de las transacciones
-SQL Data Warehouse usa la función XACT_STATE() para notificar una transacción errónea con el valor -2. Este valor indica que la transacción no se ha realizado y que solo se marca para reversión.
+
+El grupo de SQL usa la función XACT_STATE() para notificar una transacción errónea con el valor -2. Este valor indica que la transacción no se ha realizado y que solo se marca para reversión.
 
 > [!NOTE]
-> El uso de -2 por la función XACT_STATE para denotar una transacción errónea representa un comportamiento diferente para SQL Server. SQL Server utiliza el valor -1 para representar una transacción no confirmable. SQL Server puede tolerar algunos errores en una transacción sin necesidad de que se marque como no confirmable. Por ejemplo, `SELECT 1/0` produciría un error pero no forzaría una transacción a un estado no confirmable. SQL Server también permite lecturas en la transacción no confirmable. Sin embargo, SQL Data Warehouse no permite hacerlo. Si se produce un error dentro de una transacción de SQL Data Warehouse, especificará automáticamente el estado 2 y no podrá realizar más instrucciones select hasta que la instrucción se haya revertido. Por lo tanto, es importante comprobar el código de aplicación para ver si utiliza XACT_STATE() cuando necesite realizar modificaciones de código.
-> 
-> 
+> El uso de -2 por la función XACT_STATE para denotar una transacción errónea representa un comportamiento diferente para SQL Server. SQL Server utiliza el valor -1 para representar una transacción no confirmable. SQL Server puede tolerar algunos errores en una transacción sin necesidad de que se marque como no confirmable. Por ejemplo, `SELECT 1/0` produciría un error, pero no forzaría una transacción a un estado no confirmable.
 
-Por ejemplo, puede que vea una transacción con el siguiente aspecto en SQL Server:
+SQL Server también permite lecturas en la transacción no confirmable. Sin embargo, el grupo de SQL no permite hacer esto. Si se produce un error dentro de una transacción del grupo de SQL, especificará automáticamente el estado -2 y no podrá realizar más instrucciones select hasta que la instrucción se haya revertido.
+
+Como tal, es importante comprobar el código de aplicación para ver si utiliza XACT_STATE() cuando necesite realizar modificaciones del código.
+
+Por ejemplo, puede que vea una transacción con el siguiente aspecto en SQL Server:
 
 ```sql
 SET NOCOUNT ON;
@@ -131,11 +139,11 @@ SELECT @xact_state AS TransactionState;
 
 El código anterior muestra el siguiente mensaje de error:
 
-Msg 111233, Level 16, State 1, Line 1 111233; La transacción actual se ha anulado y los cambios pendientes se han revertido. Causa: Una transacción en estado de solo reversión no se ha revertido explícitamente antes de una instrucción DDL, DML o SELECT.
+Msg 111233, Level 16, State 1, Line 1 111233; La transacción actual se ha anulado y los cambios pendientes se han revertido. La causa de este problema es que una transacción en estado de solo reversión no se revierte explícitamente antes de una instrucción DDL, DML o SELECT.
 
 Tampoco obtendrá el resultado de las funciones ERROR_*.
 
-En SQL Data Warehouse debe modificarse ligeramente el código:
+En el grupo de SQL, el código debe modificarse ligeramente:
 
 ```sql
 SET NOCOUNT ON;
@@ -177,17 +185,22 @@ Ahora se observa el comportamiento esperado. Se administra el error en la transa
 Lo único que ha cambiado es que la operación ROLLBACK de la transacción tenía que producirse antes de la lectura de la información de error en el bloque CATCH.
 
 ## <a name="error_line-function"></a>Función Error_Line()
-También cabe destacar que SQL Data Warehouse no implementa o admite la función ERROR_LINE(). Si ha incluido esta función en el código, tendrá que quitarla para que sea compatible con SQL Data Warehouse. En su lugar, utilice etiquetas de consulta en el código para implementar una funcionalidad equivalente. Para obtener más información, vea el artículo sobre [etiquetas](sql-data-warehouse-develop-label.md).
+
+También cabe destacar que el grupo de SQL no implementa o admite la función ERROR_LINE(). Si ha incluido esta función en el código, tendrá que quitarla para que sea compatible con el grupo de SQL.
+
+En su lugar, utilice etiquetas de consulta en el código para implementar una funcionalidad equivalente. Para obtener más información, vea el artículo sobre [etiquetas](sql-data-warehouse-develop-label.md).
 
 ## <a name="using-throw-and-raiserror"></a>Uso de THROW y RAISERROR
-THROW es la implementación más moderna para producir excepciones en SQL Data Warehouse, pero también se admite RAISERROR. Sin embargo, hay algunas diferencias a las que se debe prestar atención.
+
+THROW es la implementación más moderna para producir excepciones en el grupo de SQL, pero también se admite RAISERROR. Sin embargo, hay algunas diferencias a las que se debe prestar atención.
 
 * Los números de mensajes de error definidos por el usuario no pueden encontrarse en el intervalo de 100 000 a 150 000 para THROW.
 * Los mensajes de error RAISERROR se fijan en 50.000.
 * No se admite el uso de sys.messages.
 
 ## <a name="limitations"></a>Limitaciones
-SQL Data Warehouse tiene algunas otras restricciones relacionadas con las transacciones.
+
+El grupo de SQL tiene algunas otras restricciones relacionadas con las transacciones.
 
 Los pasos son los siguientes:
 
@@ -199,5 +212,5 @@ Los pasos son los siguientes:
 * No existe compatibilidad con DDL como el elemento CREATE TABLE de una transacción definida por el usuario
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener más información sobre la optimización de transacciones, vea [Procedimientos recomendados relacionados con las transacciones](sql-data-warehouse-develop-best-practices-transactions.md). Para obtener más información sobre otros procedimientos recomendados de SQL Data Warehouse, vea [Procedimientos recomendados para Azure SQL Data Warehouse](sql-data-warehouse-best-practices.md).
 
+Para obtener más información sobre la optimización de transacciones, vea [Procedimientos recomendados relacionados con las transacciones](sql-data-warehouse-develop-best-practices-transactions.md). Para más información sobre otros procedimientos recomendados del grupo de SQL, consulte [Procedimientos recomendados del grupo de SQL](sql-data-warehouse-best-practices.md).

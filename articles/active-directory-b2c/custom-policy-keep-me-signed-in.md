@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a0de94cdce1d7f0e9da9d2844b300956ad6f6970
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 041fb8d881307b52fb170a11618f930debc522a4
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80330836"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80803167"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Habilitación de Mantener la sesión iniciada (KMSI) en Azure Active Directory B2C
 
@@ -36,7 +36,7 @@ Los usuarios no deben habilitar esta opción en equipos públicos.
 
 Para habilitar KMSI, establezca el elemento de `DataUri` de la definición de contenido en [identificador de página](contentdefinitions.md#datauri) `unifiedssp` y [versión de la página](page-layout.md) *1.1.0* o superior.
 
-1. Abra el archivo de extensión de la directiva. Por ejemplo, <em>`SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`** </em>. Este archivo de extensión es uno de los archivos de directivas incluidos en el paquete de inicio de directivas personalizadas, que debería haber obtenido en el requisito previo, [Introducción a las directivas personalizadas](custom-policy-get-started.md).
+1. Abra el archivo de extensión de la directiva. Por ejemplo, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>. Este archivo de extensión es uno de los archivos de directivas incluidos en el paquete de inicio de directivas personalizadas, que debería haber obtenido en el requisito previo, [Introducción a las directivas personalizadas](custom-policy-get-started.md).
 1. Busque el elemento **BuildingBlocks**. Si el elemento no existe, agréguelo.
 1. Agregue el elemento **ContentDefinitions** al elemento **BuildingBlocks** de la directiva.
 
@@ -54,7 +54,7 @@ Para habilitar KMSI, establezca el elemento de `DataUri` de la definición de co
 
 ## <a name="add-the-metadata-to-the-self-asserted-technical-profile"></a>Incorporación de los metadatos al perfil técnico autoafirmado
 
-Para agregar la casilla KMSI a la página de registro e inicio de sesión, establezca los metadatos de `setting.enableRememberMe` en false. Invalide los perfiles técnicos de SelfAsserted-LocalAccountSignin-Email en el archivo de extensión.
+Para agregar la casilla KMSI a la página de registro e inicio de sesión, establezca los metadatos de `setting.enableRememberMe` en true. Invalide los perfiles técnicos de SelfAsserted-LocalAccountSignin-Email en el archivo de extensión.
 
 1. Busque el elemento ClaimsProviders. Si el elemento no existe, agréguelo.
 1. Agregue el siguiente proveedor de notificaciones al elemento ClaimsProviders:

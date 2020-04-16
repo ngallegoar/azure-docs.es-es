@@ -6,12 +6,12 @@ ms.assetid: 4859d0d5-3e3c-40cc-96eb-f318b2c51a3d
 ms.topic: article
 ms.date: 10/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 68cabbd00dd0b738590109cc39d8df82f5b7362d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d40f5db65ce9ca90ae978bac4491bdebccc2a328
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79236172"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811717"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Administración de un plan de App Service en Azure
 
@@ -61,7 +61,7 @@ Puede mover una aplicación a otro plan de App Service siempre que el plan de or
 4. Si crea un plan, puede seleccionar su plan de tarifa. En **Plan de tarifa**, seleccione el existente para cambiarlo. 
    
    > [!IMPORTANT]
-   > Si va a mover una aplicación de un plan de tarifa superior a un plan de tarifa inferior, como desde **D1** a **F1**, la aplicación puede perder ciertas funcionalidades en el plan de destino. Por ejemplo, si su aplicación usa certificados SSL, podría aparecer este mensaje de error:
+   > Si va a mover una aplicación de un plan de tarifa superior a un plan de tarifa inferior, como desde **D1** a **F1**, la aplicación puede perder ciertas funcionalidades en el plan de destino. Por ejemplo, si su aplicación usa certificados TLS/SSL, podría aparecer este mensaje de error:
    >
    > `Cannot update the site with hostname '<app_name>' because its current SSL configuration 'SNI based SSL enabled' is not allowed in the target compute mode. Allowed SSL configuration is 'Disabled'.`
 

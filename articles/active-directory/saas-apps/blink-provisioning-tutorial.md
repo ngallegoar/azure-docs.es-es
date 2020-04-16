@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: 455036652836c6cfd2055e9a747f30b6dfe41295
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 314445275f99898913bd91eb8abc2a5acdab098a
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77059163"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81381014"
 ---
 # <a name="tutorial-configure-blink-for-automatic-user-provisioning"></a>Tutorial: Configuración de Blink para el aprovisionamiento automático de usuarios
 
-El objetivo de este tutorial es mostrar los pasos que se deben realizar en Blink y Azure Active Directory (Azure AD) a fin de configurar Azure AD para aprovisionar y cancelar automáticamente el aprovisionamiento de usuarios o grupos en Blink.
+El objetivo de este tutorial es mostrar los pasos que se deben realizar en Blink y Azure Active Directory (Azure AD) a fin de configurar Azure AD para aprovisionar y cancelar automáticamente el aprovisionamiento de usuarios en Blink.
 
 > [!NOTE]
 > Este tutorial describe un conector que se crea sobre el servicio de aprovisionamiento de usuarios de Azure AD. Para obtener información importante acerca de lo que hace este servicio, cómo funciona y ver preguntas frecuentes al respecto, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md).
@@ -41,9 +41,9 @@ En el escenario descrito en este tutorial se supone que ya cuenta con los requis
 
 ## <a name="assigning-users-to-blink"></a>Asignación de usuarios a Blink
 
-Azure Active Directory usa un concepto denominado *asignaciones* para determinar qué usuarios deben recibir acceso a determinadas aplicaciones. En el contexto del aprovisionamiento automático de usuarios, solo se sincronizan los usuarios y grupos que se han asignado a una aplicación en Azure AD.
+Azure Active Directory usa un concepto denominado *asignaciones* para determinar qué usuarios deben recibir acceso a determinadas aplicaciones. En el contexto del aprovisionamiento automático de usuarios, solo se sincronizan los usuarios o miembros de grupos que se han asignado a una aplicación en Azure AD.
 
-Antes de configurar y habilitar el aprovisionamiento automático de usuarios, debe decidir qué usuarios o grupos de Azure AD necesitan acceder a Blink. Una vez decidido, puede asignar esos usuarios o grupos a Blink mediante estas instrucciones:
+Antes de configurar y habilitar el aprovisionamiento automático de usuarios, debe decidir qué usuarios o miembros de grupos de Azure AD necesitan acceder a Blink. Una vez decidido, puede asignar esos usuarios o grupos a Blink mediante estas instrucciones:
 * [Asignar un usuario o grupo a una aplicación empresarial](../manage-apps/assign-user-or-group-access-portal.md)
 
 ## <a name="important-tips-for-assigning-users-to-blink"></a>Sugerencias importantes para asignar usuarios a Blink
@@ -54,7 +54,7 @@ Antes de configurar y habilitar el aprovisionamiento automático de usuarios, de
 
 ## <a name="setup-blink-for-provisioning"></a>Configuración de Blink para el aprovisionamiento
 
-1. Registre un [cas de soporte técnico](https://help.joinblink.com/hc/requests/new) o envíe un correo electrónico de **soporte técnico de Blink** a support@joinblink.com para solicitar un token de SCIM. .
+1. Registre un [cas de soporte técnico](https://support.joinblink.com) o envíe un correo electrónico de **soporte técnico de Blink** a support@joinblink.com para solicitar un token de SCIM. .
 
 2.  Copie el valor de **SCIM Authentication Token** (Token de autenticación de SCIM). Este valor se escribirá en el campo Token secreto de la pestaña Aprovisionamiento en la aplicación Blink en Azure Portal.
 
@@ -82,7 +82,7 @@ Antes de configurar Blink para el aprovisionamiento automático de usuarios con 
 
 ## <a name="configuring-automatic-user-provisioning-to-blink"></a>Configuración del aprovisionamiento automático de usuarios en Blink 
 
-Esta sección le guía por los pasos necesarios para configurar el servicio de aprovisionamiento de Azure AD para crear, actualizar y deshabilitar usuarios o grupos en Blink en función de las asignaciones de grupos o usuarios de Azure AD.
+Esta sección le guía por los pasos necesarios para configurar el servicio de aprovisionamiento de Azure AD para crear, actualizar y deshabilitar usuarios en Blink en función de las asignaciones de grupos o usuarios de Azure AD.
 
 > [!TIP]
 > También puede optar por habilitar el inicio de sesión único basado en SAML para Blink siguiendo las instrucciones del [tutorial de inicio de sesión único de Blink](https://docs.microsoft.com/azure/active-directory/saas-apps/blink-tutorial). El inicio de sesión único puede configurarse independientemente del aprovisionamiento automático de usuarios, aunque estas dos características se complementan entre sí.
@@ -121,7 +121,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 9. Examine los atributos de grupo que se sincronizan entre Azure AD y Blink en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de Blink con el objetivo de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 
-    ![Atributos de usuario de Blink](media/blink-provisioning-tutorial/User_attributes.png)
+    ![Atributos de usuario de Blink](media/blink-provisioning-tutorial/user-attributes.png)
 
 10. Para configurar filtros de ámbito, consulte las siguientes instrucciones, que se proporcionan en el artículo [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -137,7 +137,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Guardar la configuración de aprovisionamiento](common/provisioning-configuration-save.png)
 
-Esta operación inicia la sincronización inicial de todos los usuarios o grupos definidos en **Ámbito** en la sección **Configuración**. La sincronización inicial tarda más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 40 minutos si el servicio de aprovisionamiento de Azure AD está ejecutándose. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y seguir los vínculos al informe de actividad de aprovisionamiento, donde se describen todas las acciones que ha llevado a cabo el servicio de aprovisionamiento de Azure AD en Blink.
+Esta operación inicia la sincronización inicial de todos los usuarios definidos en **Ámbito** en la sección **Configuración**. La sincronización inicial tarda más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 40 minutos si el servicio de aprovisionamiento de Azure AD está ejecutándose. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y seguir los vínculos al informe de actividad de aprovisionamiento, donde se describen todas las acciones que ha llevado a cabo el servicio de aprovisionamiento de Azure AD en Blink.
 
 Para más información sobre cómo leer los registros de aprovisionamiento de Azure AD, consulte el tutorial de [Creación de informes sobre el aprovisionamiento automático de cuentas de usuario](../app-provisioning/check-status-user-account-provisioning.md).
 

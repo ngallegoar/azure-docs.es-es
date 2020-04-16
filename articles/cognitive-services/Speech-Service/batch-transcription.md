@@ -1,34 +1,43 @@
 ---
-title: 'Uso de la transcripción por lotes: servicio de voz'
+title: ¿Qué es la transcripción por lotes? Servicio de Voz
 titleSuffix: Azure Cognitive Services
 description: La transcripción de lotes es ideal si desea transcribir una gran cantidad de audio en el almacenamiento, como los blobs de Azure. Mediante la API REST dedicada, puede apuntar a archivos de audio con un identificador URI de firma de acceso compartido (SAS) y recibir las transcripciones de forma asincrónica.
 services: cognitive-services
-author: PanosPeriorellis
+author: wolfma61
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/17/2019
-ms.author: panosper
-ms.openlocfilehash: 6d5ec5f798617d03072ec5931b0d1d3623df3d42
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.date: 03/18/2020
+ms.author: wolfma
+ms.openlocfilehash: 1f88df186526c2f9903337bb3331940be0989c3d
+ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77500016"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80892468"
 ---
-# <a name="how-to-use-batch-transcription"></a>Uso de la transcripción por lotes
+# <a name="what-is-batch-transcription"></a>¿Qué es la transcripción por lotes?
 
-La transcripción por lotes es ideal para transcribir una gran cantidad de audio en el almacenamiento. Mediante la API REST dedicada, puede apuntar a archivos de audio con un identificador URI de firma de acceso compartido (SAS) y recibir los resultados de las transcripciones de forma asincrónica.
+La transcripción por lotes es un conjunto de operaciones de API REST que permite transcribir una gran cantidad de audio en el almacenamiento. Puede apuntar a archivos de audio con un identificador URI de firma de acceso compartido (SAS) y recibir los resultados de las transcripciones de forma asincrónica.
 
-La API ofrece transcripción de voz a texto asincrónica y otras características. Puede usar la API REST para exponer métodos con los siguientes propósitos:
+La transcripción de voz a texto asincrónica es solo una de las características. Puede usar las API REST de transcripción por lotes para llamar a los métodos siguientes:
 
-- Crear solicitudes de procesamiento por lotes
-- Consultar el estado
-- Descargar los resultados de las transcripciones
-- Eliminar información de transcripciones del servicio
 
-La API detallada está disponible como [documento de Swagger](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A), debajo del encabezado `Custom Speech transcriptions`.
+
+|    Operación de transcripción por lotes                                             |    Método    |    Llamada a API REST                                   |
+|------------------------------------------------------------------------------|--------------|----------------------------------------------------|
+|    Crea una transcripción nueva.                                              |    POST      |    api/speechtotext/v2.0/transcriptions            |
+|    Recupera una lista de transcripciones para la suscripción autenticada.    |    GET       |    api/speechtotext/v2.0/transcriptions            |
+|    Obtiene una lista de configuraciones regionales admitidas para las transcripciones sin conexión.              |    GET       |    api/speechtotext/v2.0/transcriptions/locales    |
+|    Actualiza los detalles mutables de la transcripción identificada por su id.    |    PATCH     |    api/speechtotext/v2.0/transcriptions/{id}       |
+|    Elimina la tarea de transcripción especificada.                                 |    Delete    |    api/speechtotext/v2.0/transcriptions/{id}       |
+|    Obtiene la transcripción identificada por el id. especificado.                        |    GET       |    api/speechtotext/v2.0/transcriptions/{id}       |
+
+
+
+
+Puede revisar y probar la API detallada, que está disponible como un [documento de Swagger](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A), bajo el encabezado `Custom Speech transcriptions`.
 
 Los trabajos de transcripción por lotes se programan de la mejor manera posible. Actualmente no hay ninguna estimación de cuándo un trabajo cambia al estado en ejecución. En la carga normal del sistema, se debe producir en cuestión de minutos. En este estado, la transcripción real se procesa más rápido que el audio en tiempo real.
 
@@ -41,7 +50,7 @@ Además de esta intuitiva API, no es necesario implementar puntos de conexión p
 Como sucede con todas las características del servicio Voz, puede crear una clave de suscripción en [Azure Portal](https://portal.azure.com) siguiendo nuestra [guía de inicio](get-started.md).
 
 >[!NOTE]
-> Se requiere una suscripción estándar (S0) para el servicio de voz para usar la transcripción de lotes. Las claves de suscripción gratuita (F0) no funcionarán. Para obtener más información, consulte los [precios y límites](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+> Se requiere una suscripción estándar (S0) para el servicio de voz para usar la transcripción de lotes. Las claves de suscripción gratuita (F0) no funcionan. Para obtener más información, consulte los [precios y límites](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 ### <a name="custom-models"></a>Modelos personalizados
 
@@ -53,11 +62,11 @@ Si tiene previsto personalizar modelos acústicos o de lenguaje, siga los pasos 
 
 Transcription API de Batch admite los siguientes formatos:
 
-| Formato | Códec | Bitrate | Velocidad de muestreo |
-|--------|-------|---------|-------------|
-| WAV | PCM | 16 bits | 8 kHz o 16 kHz, mono o estéreo |
-| MP3 | PCM | 16 bits | 8 kHz o 16 kHz, mono o estéreo |
-| OGG | OPUS | 16 bits | 8 kHz o 16 kHz, mono o estéreo |
+| Formato | Códec | Bitrate | Velocidad de muestreo                     |
+|--------|-------|---------|---------------------------------|
+| WAV    | PCM   | 16 bits  | 8 kHz o 16 kHz, mono o estéreo |
+| MP3    | PCM   | 16 bits  | 8 kHz o 16 kHz, mono o estéreo |
+| OGG    | OPUS  | 16 bits  | 8 kHz o 16 kHz, mono o estéreo |
 
 En el caso de las secuencias de audio estéreo, los canales izquierdo y derecho se dividen durante la transcripción. Para cada canal se crea un archivo de resultados JSON. Las marcas de tiempo por expresión generadas permiten al desarrollador crear una transcripción final ordenada.
 
@@ -120,7 +129,7 @@ Utilice estas propiedades opcionales para configurar la transcripción:
       `AddSentiment`
    :::column-end:::
    :::column span="2":::
-      Especifica que la opinión se debe agregar a la expresión. Los valores aceptados son `true`, para permitir la opinión por expresión y `false` (el valor predeterminado) para deshabilitarla.
+      Especifica si el análisis de sentimiento se debe aplicar a la expresión. Los valores aceptados son `true` para habilitarlo y `false` (el valor predeterminado) para deshabilitarlo. Consulte [Análisis de sentimiento](#sentiment-analysis) para más información.
 :::row-end:::
 :::row:::
    :::column span="1":::
@@ -134,7 +143,7 @@ Utilice estas propiedades opcionales para configurar la transcripción:
       `TranscriptionResultsContainerUrl`
    :::column-end:::
    :::column span="2":::
-      URL opcional con [SAS de servicio](../../storage/common/storage-sas-overview.md) en un contenedor grabable de Azure. El resultado se almacenará en este contenedor.
+      URL opcional con [SAS de servicio](../../storage/common/storage-sas-overview.md) en un contenedor grabable de Azure. El resultado se almacena en este contenedor.
 :::row-end:::
 
 ### <a name="storage"></a>Storage
@@ -147,7 +156,7 @@ Para el audio de entrada mono, se crea un archivo de resultado de transcripción
 
 ```json
 {
-  "AudioFileResults":[ 
+  "AudioFileResults":[
     {
       "AudioFileName": "Channel.0.wav | Channel.1.wav"      'maximum of 2 channels supported'
       "AudioFileUrl": null                                  'always null'
@@ -209,18 +218,47 @@ Para el audio de entrada mono, se crea un archivo de resultado de transcripción
 
 El resultado contiene estas formas:
 
-|Form|Contenido|
-|-|-|
-|`Lexical`|Las palabras reales reconocidas.
-|`ITN`|El formato de normalización inversa de texto del texto reconocido. Se aplican las abreviaturas ("doctor Pérez" a "Dr Pérez"), los números de teléfono y otras transformaciones.
-|`MaskedITN`|El formato ITN con enmascaramiento de palabras soeces aplicado.
-|`Display`|El formato mostrado del texto reconocido. Esto incluye el uso de mayúsculas y minúsculas y la puntuación que se agrega.
+:::row:::
+   :::column span="1":::
+      **Forma**
+   :::column-end:::
+   :::column span="2":::
+      **Contenido**
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `Lexical`
+   :::column-end:::
+   :::column span="2":::
+      Las palabras reales reconocidas.
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `ITN`
+   :::column-end:::
+   :::column span="2":::
+      El formato de normalización inversa de texto del texto reconocido. Se aplican las abreviaturas ("doctor Pérez" a "Dr Pérez"), los números de teléfono y otras transformaciones.
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `MaskedITN`
+   :::column-end:::
+   :::column span="2":::
+      El formato ITN con enmascaramiento de palabras soeces aplicado.
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `Display`
+   :::column-end:::
+   :::column span="2":::
+      El formato mostrado del texto reconocido. Se incluyen el uso de mayúsculas y minúsculas y la puntuación que se agrega.
+:::row-end:::
 
 ## <a name="speaker-separation-diarization"></a>Separación de altavoces (diarización)
 
 La diarización es el proceso de separación de los altavoces en una parte del audio. Nuestra canalización de Batch admite la diarización y es capaz de reconocer dos altavoces en las grabaciones de un canal mono. La característica no está disponible en las grabaciones estéreo.
 
-Toda la salida de transcripción contiene un elemento `SpeakerId`. Si no se utiliza la diarización, se mostrará `"SpeakerId": null` en la salida JSON. Para la diarización, se admiten dos voces, por lo que los oradores se identificarán como `"1"` o `"2"`.
+Toda la salida de transcripción contiene un elemento `SpeakerId`. Si no se utiliza la diarización, se muestra `"SpeakerId": null` en la salida JSON. Para la diarización, se admiten dos voces, por lo que los oradores se identifican como `"1"` o `"2"`.
 
 Para solicitar la diarización, basta con agregar el parámetro correspondiente en la solicitud HTTP, como se muestra a continuación.
 
@@ -250,7 +288,11 @@ La característica de opiniones calcula la opinión expresada en el audio. La op
 - Identificar lo que salió bien al convertir una llamada negativa en positiva
 - Identificar lo que les gusta a los clientes y lo que no les gusta de un producto o servicio
 
-La opinión se puntúa por segmento de audio basado en la forma léxica. Todo el texto dentro de ese segmento de audio se utiliza para calcular la opinión. No se calcula ninguna opinión agregada en toda la transcripción.
+La opinión se puntúa por segmento de audio basado en la forma léxica. Todo el texto dentro de ese segmento de audio se utiliza para calcular la opinión. No se calcula ninguna opinión agregada en toda la transcripción. Actualmente, el análisis de opinión solo está disponible para el idioma inglés.
+
+> [!NOTE]
+> En su lugar, se recomienda usar la API Microsoft Text Analytics. Ofrece características más avanzadas, más allá del análisis de sentimiento, como la extracción de frases clave, la detección automática de idioma, etc. Puede encontrar información y ejemplos en la [documentación de Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/).
+>
 
 Un ejemplo de salida JSON tiene el siguiente aspecto:
 
@@ -290,7 +332,7 @@ Un ejemplo de salida JSON tiene el siguiente aspecto:
 
 ## <a name="best-practices"></a>Procedimientos recomendados
 
-El servicio transcripción puede controlar un gran número de transcripciones enviadas. Puede consultar el estado de las transcripciones a través de un elemento `GET` en el [método de transcripciones](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A/GetTranscriptions). Consiga que la información devuelta se mantenga en un tamaño razonable especificando el parámetro `take` (unos cientos). [Elimine las transcripciones](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A/DeleteTranscription) periódicamente del servicio una vez que recuperen los resultados. Esto garantizará respuestas rápidas en las llamadas de administración de transcripciones.
+El servicio transcripción puede controlar un gran número de transcripciones enviadas. Puede consultar el estado de las transcripciones a través de un elemento `GET` en el [método de transcripciones](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A/GetTranscriptions). Consiga que la información devuelta se mantenga en un tamaño razonable especificando el parámetro `take` (unos cientos). [Elimine las transcripciones](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A/DeleteTranscription) periódicamente del servicio una vez que recuperen los resultados. Esto garantiza respuestas rápidas en las llamadas de administración de transcripciones.
 
 ## <a name="sample-code"></a>Código de ejemplo
 
@@ -300,7 +342,7 @@ Si quiere usar un modelo acústico o de lenguaje personalizado, deberá personal
 
 [!code-csharp[Configuration variables for batch transcription](~/samples-cognitive-services-speech-sdk/samples/batch/csharp/program.cs#batchdefinition)]
 
-El código de ejemplo configurará el cliente y enviará la solicitud de transcripción. A continuación, sondeará la información de estado e imprimirá los detalles sobre el progreso de la transcripción.
+El código de ejemplo configura el cliente y envía la solicitud de transcripción. A continuación, sondea la información de estado e imprime los detalles sobre el progreso de la transcripción.
 
 [!code-csharp[Code to check batch transcription status](~/samples-cognitive-services-speech-sdk/samples/batch/csharp/program.cs#batchstatus)]
 
@@ -319,4 +361,4 @@ Puede encontrar el ejemplo en el directorio `samples/batch` en el [repositorio d
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Obtenga su suscripción de prueba a Voz](https://azure.microsoft.com/try/cognitive-services/)
+- [Obtenga su suscripción de prueba a Voz](https://azure.microsoft.com/try/cognitive-services/)

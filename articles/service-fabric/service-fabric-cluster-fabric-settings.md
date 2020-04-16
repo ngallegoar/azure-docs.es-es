@@ -3,12 +3,12 @@ title: Cambio de la configuración de un clúster de Azure Service Fabric
 description: En este artículo se describe la configuración de Fabric y las directivas de actualización de Fabric que se pueden personalizar.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: f42cfd1b41ab463c3c3042987b5d0a0b3b00f67e
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: c2e280af814a3e10ad84c5ba07fc376868fcd851
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76986196"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416240"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalización de la configuración de un clúster de Service Fabric
 En este documento se describen las distintas configuraciones de tejido para el clúster de Service Fabric que puede personalizar. Para clústeres hospedados en Azure, puede personalizar la configuración en [Azure Portal](https://portal.azure.com) o mediante una plantilla de Azure Resource Manager. Para más información, consulte el artículo sobre la [actualización de la configuración de un clúster de Azure](service-fabric-cluster-config-upgrade-azure.md). En clústeres independientes, para personalizar la configuración debe actualizar el archivo *ClusterConfig.json* y realizar una actualización de la configuración en el clúster. Para más información, consulte el artículo sobre la [actualización de la configuración de un clúster independiente](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -29,7 +29,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |BodyChunkSize |Uint, el valor predeterminado es 16384. |Dinámica| Proporciona el tamaño del fragmento en bytes usado para leer el cuerpo. |
 |CrlCheckingFlag|uint, el valor predeterminado es 0x40000000 |Dinámica| Marcas para la validación de la cadena de certificados del servicio o aplicación; p. ej., comprobación de CRL 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY. Establecer la configuración en 0 deshabilita la comprobación de CRL. dwFlags de CertGetCertificateChain proporciona una lista completa de valores admitidos: https://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx  |
 |DefaultHttpRequestTimeout |Tiempo en segundos. El valor predeterminado es 120 |Dinámica|Especifique el intervalo de tiempo en segundos.  Proporciona el tiempo de espera de solicitud predeterminado para las solicitudes HTTP que se van a procesar en la puerta de enlace de aplicaciones HTTP. |
-|ForwardClientCertificate|bool, el valor predeterminado es FALSE|Dinámica|Si se establece en false, el proxy inverso no solicitará el certificado de cliente. Si se establece en true, el proxy inverso solicitará el certificado de cliente durante el protocolo de enlace SSL y reenviará la cadena con formato PEM con codificación Base64 al servicio en un encabezado denominado X-Client-Certificate. El servicio puede producir un error en la solicitud con un código de estado apropiado después de inspeccionar los datos del certificado. Si el valor es true y el cliente no presenta un certificado, el proxy inverso reenviará un encabezado vacío y dejará que el servicio gestione el caso. El proxy inverso actuará como una capa transparente. Para más información, consulte [Configuración de la autenticación de certificado](service-fabric-reverseproxy-configure-secure-communication.md#setting-up-client-certificate-authentication-through-the-reverse-proxy). |
+|ForwardClientCertificate|bool, el valor predeterminado es FALSE|Dinámica|Si se establece en false, el proxy inverso no solicitará el certificado de cliente. Si se establece en true, el proxy inverso solicitará el certificado de cliente durante el protocolo de enlace TLS y reenviará la cadena con formato PEM con codificación Base64 al servicio en un encabezado denominado X-Client-Certificate. El servicio puede producir un error en la solicitud con un código de estado apropiado después de inspeccionar los datos del certificado. Si el valor es true y el cliente no presenta un certificado, el proxy inverso reenviará un encabezado vacío y dejará que el servicio gestione el caso. El proxy inverso actuará como una capa transparente. Para más información, consulte [Configuración de la autenticación de certificado](service-fabric-reverseproxy-configure-secure-communication.md#setting-up-client-certificate-authentication-through-the-reverse-proxy). |
 |GatewayAuthCredentialType |string, el valor predeterminado es "None" |estática| Indica el tipo de credenciales de seguridad que se usarán en el punto de conexión de la puerta de enlace de aplicaciones HTTP. Los valores válidos son None/X509. |
 |GatewayX509CertificateFindType |string, el valor predeterminado es "FindByThumbprint". |Dinámica| Indica cómo buscar el certificado en el almacén especificado mediante el valor admitido GatewayX509CertificateStoreName: FindByThumbprint; FindBySubjectName. |
 |GatewayX509CertificateFindValue | string, el valor predeterminado es "". |Dinámica| Valor del filtro de búsqueda usado para encontrar el certificado de puerta de enlace de aplicaciones HTTP. Este certificado se configura en el punto de conexión HTTP y también puede usarse para comprobar la identidad de la aplicación en caso de que la necesiten los servicios. Primero se busca FindValue y, si no existe, se busca FindValueSecondary. |
@@ -55,10 +55,10 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 | **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
 | --- | --- | --- | --- |
 |MinReplicaSetSize|int, el valor predeterminado es 0|estática|MinReplicaSetSize para BackupRestoreService |
-|PlacementConstraints|string, el valor predeterminado es "".|estática|  PlacementConstraints para el servicio BackupRestore |
+|PlacementConstraints|string, el valor predeterminado es "".|estática|    PlacementConstraints para el servicio BackupRestore |
 |SecretEncryptionCertThumbprint|string, el valor predeterminado es "".|Dinámica|Huella digital del certificado X509 de cifrado de secretos |
-|SecretEncryptionCertX509StoreName|string, el valor predeterminado es "My".|   Dinámica|    Indica qué certificado se va a usar para cifrar y descifrar el nombre de las credenciales en el almacén de certificados X509 que usa el servicio Backup Restore |
-|TargetReplicaSetSize|int, el valor predeterminado es 0|estática| TargetReplicaSetSize para BackupRestoreService |
+|SecretEncryptionCertX509StoreName|string, el valor predeterminado es "My"|    Dinámica|    Indica qué certificado se va a usar para cifrar y descifrar el nombre de las credenciales en el almacén de certificados X509 que usa el servicio Backup Restore |
+|TargetReplicaSetSize|Int, el valor predeterminado es 0|estática| TargetReplicaSetSize para BackupRestoreService |
 
 ## <a name="clustermanager"></a>ClusterManager
 
@@ -147,8 +147,8 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 | **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
 | --- | --- | --- | --- |
 |MinReplicaSetSize|int, el valor predeterminado es 0|estática|MinReplicaSetSize para el evento EventStore |
-|PlacementConstraints|string, el valor predeterminado es "".|estática|  PlacementConstraints para el servicio EventStore |
-|TargetReplicaSetSize|int, el valor predeterminado es 0|estática| TargetReplicaSetSize para el servicio EventStore |
+|PlacementConstraints|string, el valor predeterminado es "".|estática|    PlacementConstraints para el servicio EventStore |
+|TargetReplicaSetSize|Int, el valor predeterminado es 0|estática| TargetReplicaSetSize para el servicio EventStore |
 
 ## <a name="fabricclient"></a>FabricClient
 
@@ -270,7 +270,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |CommonNameNtlmPasswordSecret|SecureString, el valor predeterminado es Common::SecureString("").| estática|Secreto de contraseña que se usa como valor de inicialización para generar la misma contraseña cuando se usa la autenticación NTLM. |
 |DiskSpaceHealthReportingIntervalWhenCloseToOutOfDiskSpace |TimeSpan, el valor predeterminado es Common::TimeSpan::FromMinutes(5)|Dinámica|Especifique el intervalo de tiempo en segundos. Intervalo de tiempo entre la comprobación de espacio en disco para notificar eventos de estado cuando el disco está casi sin espacio. |
 |DiskSpaceHealthReportingIntervalWhenEnoughDiskSpace |TimeSpan, el valor predeterminado es Common::TimeSpan::FromMinutes(15)|Dinámica|Especifique el intervalo de tiempo en segundos. Intervalo de tiempo entre la comprobación de espacio en disco para notificar eventos de estado cuando hay suficiente espacio en disco. |
-|EnableImageStoreHealthReporting |bool, el valor predeterminado es TRUE |estática|Configuración para determinar si el servicio de almacenamiento de archivos debe notificar su estado. |
+|EnableImageStoreHealthReporting |bool, el valor predeterminado es TRUE    |estática|Configuración para determinar si el servicio de almacenamiento de archivos debe notificar su estado. |
 |FreeDiskSpaceNotificationSizeInKB|int64, el valor predeterminado es 25\*1024. |Dinámica|Tamaño del espacio libre en disco por debajo del cual se puede producir la advertencia de estado. El valor mínimo de esta configuración y de la configuración de FreeDiskSpaceNotificationThresholdPercentage se usa para determinar el envío de la advertencia de estado. |
 |FreeDiskSpaceNotificationThresholdPercentage|double, el valor predeterminado es 0.02. |Dinámica|Porcentaje de espacio libre en disco por debajo del cual se puede producir la advertencia de estado. El valor mínimo de esta configuración y de la configuración de FreeDiskSpaceNotificationInMB se usa para determinar el envío de la advertencia de estado. |
 |GenerateV1CommonNameAccount| bool, el valor predeterminado es TRUE|estática|Especifica si generar una cuenta con el algoritmo de generación de nombre de usuario V1. A partir de la versión 6.1 de Service Fabric, siempre se crea una cuenta con la generación V2. La cuenta V1 es necesaria para las actualizaciones desde y hacia las versiones que no admiten la generación V2 (anteriores a 6.1).|
@@ -556,16 +556,20 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |PlacementSearchTimeout | Tiempo en segundos, el valor predeterminado es 0.5. |Dinámica| Especifique el intervalo de tiempo en segundos. Al ubicar servicios, busque como máximo este período antes de devolver un resultado. |
 |PLBRefreshGap | Tiempo en segundos, el valor predeterminado es 1. |Dinámica| Especifique el intervalo de tiempo en segundos. Define la cantidad mínima de tiempo que debe transcurrir antes de que PLB actualice el estado de nuevo. |
 |PreferredLocationConstraintPriority | Int, el valor predeterminado es 2.| Dinámica|Determina la prioridad de la restricción de ubicación preferida: 0: máxima; 1: mínima; 2: optimización; negativo: Ignore |
+|PreferredPrimaryDomainsConstraintPriority| Int, el valor predeterminado es 1. | Dinámica| Determina la prioridad de la restricción de dominio principal preferida: 0: máxima; 1: mínima; negativo: Ignore |
 |PreferUpgradedUDs|bool, el valor predeterminado es FALSE.|Dinámica|Activa o desactiva la lógica que prefiere mover a UD ya actualizados. A partir de SF 7.0, el valor predeterminado de este parámetro cambia de TRUE a FALSE.|
 |PreventTransientOvercommit | Bool, el valor predeterminado es false. | Dinámica|Determina si PLB cuenta inmediatamente con los recursos que liberarán los movimientos iniciados. De forma predeterminada, PLB puede iniciar movimientos dentro y fuera en el mismo nodo, lo que puede generar confirmaciones en exceso transitorias. Si establece este parámetro en true, impedirá esta clase de confirmaciones en exceso y se deshabilitará la desfragmentación a petición (también conocida como placementWithMove). |
 |ScaleoutCountConstraintPriority | Int, el valor predeterminado es 0. |Dinámica| Determina la prioridad de la restricción de recuento de escalado horizontal: 0: máxima; 1: mínima; negativo: omitir |
+|SubclusteringEnabled|Bool, el valor predeterminado es FALSE | Dinámica |Confirma la agrupación en subclústeres al calcular la desviación estándar para lograr el equilibrio. |
+|SubclusteringReportingPolicy| Int, el valor predeterminado es 1. |Dinámica|Define cómo y si se envían informes de estado de agrupación en subclústeres: 0: No notificar; 1: Advertencia; 2: Aceptar |
 |SwapPrimaryThrottlingAssociatedMetric | string, el valor predeterminado es "".|estática| El nombre de métrica asociado de esta limitación. |
 |SwapPrimaryThrottlingEnabled | Bool, el valor predeterminado es false.|Dinámica| Determina si está habilitada la limitación principal de intercambio. |
 |SwapPrimaryThrottlingGlobalMaxValue | Int, el valor predeterminado es 0. |Dinámica| El número máximo de réplicas principales de intercambio que se permiten a nivel global. |
 |TraceCRMReasons |Bool, el valor predeterminado es true. |Dinámica|Especifica si se rastrearán los motivos de los movimientos emitidos por CRM al canal de eventos operativos. |
 |UpgradeDomainConstraintPriority | Int, el valor predeterminado es 1.| Dinámica|Determina la prioridad de la restricción del dominio de actualización: 0: máxima; 1: mínima; negativo: omitir |
 |UseMoveCostReports | Bool, el valor predeterminado es false. | Dinámica|Indica a LB que ignore el elemento de coste de la función de puntuación. Esto da lugar a un número posiblemente grande de movimientos para una ubicación mejor equilibrada. |
-|UseSeparateSecondaryLoad | Bool, el valor predeterminado es true. | Dinámica|Valor que determina si se deben usar cargas secundarias diferentes. |
+|UseSeparateSecondaryLoad | Bool, el valor predeterminado es true. | Dinámica|Valor que determina si se debe usar una carga independiente para las réplicas secundarias. |
+|UseSeparateSecondaryMoveCost | Bool, el valor predeterminado es false. | Dinámica|Valor que determina si se debe usar un costo de movimiento independiente para las réplicas secundarias. |
 |ValidatePlacementConstraint | Bool, el valor predeterminado es true. |Dinámica| Especifica si la expresión PlacementConstraint de un servicio se valida o no cuando se actualiza la descripción de un servicio. |
 |ValidatePrimaryPlacementConstraintOnPromote| Bool, el valor predeterminado es TRUE. |Dinámica|Especifica si la expresión PlacementConstraint de un servicio se evalúa o no para la preferencia principal en la conmutación por error. |
 |VerboseHealthReportLimit | Int, el valor predeterminado es 20. | Dinámica|Define el número de veces que una réplica tiene que ir sin colocar antes de que se notifique una advertencia de mantenimiento para ella (si está habilitado el informe de mantenimiento detallado). |
@@ -671,7 +675,8 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |DisableFirewallRuleForDomainProfile| bool, el valor predeterminado es TRUE |estática| Indica si no se debe habilitar la regla de firewall para el perfil de dominio. |
 |DisableFirewallRuleForPrivateProfile| bool, el valor predeterminado es TRUE |estática| Indica si no se debe habilitar la regla de firewall para el perfil privado. | 
 |DisableFirewallRuleForPublicProfile| bool, el valor predeterminado es TRUE | estática|Indica si no se debe habilitar la regla de firewall para el perfil público. |
-| EnforceLinuxMinTlsVersion | bool, el valor predeterminado es FALSE | Dinámica | Si se establece en "true", solo se admite la versión 1.2+ de TLS.  Si es "false", se admiten versiones anteriores de TLS. Solo se aplica a Linux. |
+| EnforceLinuxMinTlsVersion | bool, el valor predeterminado es FALSE | estática | Si se establece en "true", solo se admite la versión 1.2+ de TLS.  Si es "false", se admiten versiones anteriores de TLS. Solo se aplica a Linux. |
+| EnforcePrevalidationOnSecurityChanges | bool, el valor predeterminado es FALSE| Dinámica | Marca que controla el comportamiento de la actualización de clúster al detectar cambios en su configuración de seguridad. Si se establece en "true", la actualización de clúster intentará asegurarse de que al menos uno de los certificados que coincide con alguna de las reglas de presentación puede superar una regla de validación correspondiente. La validación previa se ejecuta antes de que la nueva configuración se aplique a cualquier nodo, pero solo se ejecuta en el nodo que hospeda la réplica principal del servicio Administrador de clústeres en el momento de iniciar la actualización. El valor predeterminado está establecido actualmente en "false"; a partir de la versión 7.1, el valor se establecerá en "true" en los nuevos clústeres de Azure Service Fabric.|
 |FabricHostSpn| string, el valor predeterminado es "". |estática| Nombre de entidad de seguridad de servicio de FabricHost cuando Fabric se ejecuta como usuario de dominio único (cuenta de usuario de dominio o gMSA) y FabricHost se ejecuta en la cuenta de la máquina. Es el SPN del agente de escucha de IPC para FabricHost, que, de forma predeterminada, se debe dejar vacío, ya que FabricHost se ejecuta con la cuenta de la máquina. |
 |IgnoreCrlOfflineError|bool, el valor predeterminado es FALSE|Dinámica|Especifica si se omitirán los errores de CRL sin conexión cuando el lado servidor compruebe los certificados de cliente entrantes. |
 |IgnoreSvrCrlOfflineError|bool, el valor predeterminado es TRUE|Dinámica|Especifica si se omitirán los errores de CRL sin conexión cuando el lado cliente compruebe los certificados de servidor entrantes; el valor predeterminado es true. Los ataques con certificados de servidor revocados requieren poner en peligro el DNS; más difícil que con certificados de cliente revocados. |
@@ -680,6 +685,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |SettingsX509StoreName| string, el valor predeterminado es "MY".| Dinámica|Almacén de certificados X509 que usa Fabric para la protección de la configuración. |
 |UseClusterCertForIpcServerTlsSecurity|bool, el valor predeterminado es FALSE|estática|Si se utiliza el certificado de clúster para proteger la unidad de transporte TLS en el servidor IPC. |
 |X509Folder|string,el valor predeterminado es /var/lib/waagent|estática|Carpeta donde se encuentran los certificados X509 y las claves privadas. |
+|TLS1_2_CipherList| string| estática|Si se establece en una cadena no vacía; invalida la lista de cifrado admitida para TLS 1.2 y versiones anteriores. Consulte la documentación de "openssl-ciphers" para recuperar la lista de cifrado admitida y el ejemplo de formato de lista de la lista de cifrado seguro para TLS 1.2: "ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES-128-GCM-SHA256:ECDHE-ECDSA-AES256-CBC-SHA384:ECDHE-ECDSA-AES128-CBC-SHA256:ECDHE-RSA-AES256-CBC-SHA384:ECDHE-RSA-AES128-CBC-SHA256" Se aplica solo a Linux. |
 
 ## <a name="securityadminclientx509names"></a>Security/AdminClientX509Names
 

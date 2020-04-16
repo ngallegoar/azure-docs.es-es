@@ -3,12 +3,12 @@ title: 'Importación de orígenes de datos: QnA Maker'
 description: Una base de conocimiento de QnA Maker consta de una serie de conjuntos de preguntas y respuestas, así como metadatos opcionales asociados a cada par de pregunta y respuesta.
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: e7772b2c76dfb92ced4d2c0d4b8dae97a59d1b83
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f648e15be803159dadb3f8bd047b2f46885eec91
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79457828"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804289"
 ---
 # <a name="importing-from-data-sources"></a>Importación de orígenes de datos
 
@@ -56,7 +56,7 @@ La propiedad **displayOrder** es numérica, y **displayText** es texto que no de
 
 ## <a name="export-as-example"></a>Exportación como ejemplo
 
-Si no está seguro de cómo representar el conjunto de QnA en el archivo `.tsv`:
+Si no está seguro de cómo representar el par de QnA en el archivo `.tsv`:
 * Use este [ejemplo descargable de GitHub](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Structured-multi-turn-format.xlsx?raw=true).
 * O bien, cree el conjunto en el portal de QnA Maker, guárdelo y, luego, exporte la base de conocimiento para ver un ejemplo de cómo representar el conjunto.
 
