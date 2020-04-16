@@ -5,12 +5,12 @@ ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
 ms.date: 03/17/2020
 ms.custom: mvc, devcenter, vs-azure, seodec18
-ms.openlocfilehash: 7fb76a3189e7650183b3000fe2e1b4e7614312bb
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: be7c4a2fb65f913bc97617af1a0f21ee8fcca714
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79532917"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81313278"
 ---
 # <a name="quickstart-create-an-aspnet-core-web-app-in-azure"></a>Inicio rápido: Creación de una aplicación web ASP.NET Core en Azure
 
@@ -20,7 +20,7 @@ Cuando termine, tendrá un grupo de recursos de Azure que consta de un plan de h
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-- Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/dotnet/).
 - En este inicio rápido se implementa una aplicación en App Service en Windows. Para realizar implementaciones en App Service en _Linux_, consulte [Creación de una aplicación web de .NET Core en App Service en Linux](./containers/quickstart-dotnetcore.md).
 - Instalar <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> con la carga de trabajo de **ASP.NET y desarrollo web**.
 

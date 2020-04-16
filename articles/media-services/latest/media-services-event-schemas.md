@@ -11,18 +11,18 @@ ms.workload: ''
 ms.topic: reference
 ms.date: 02/25/2020
 ms.author: juliako
-ms.openlocfilehash: d4a206bbddedfe9f23a943df27c6ac4b5fe17e8a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3733a641bc116b57556c5ad4f5750bec69e10e9b
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79227124"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393727"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Esquemas de Azure Event Grid para eventos de Media Services
 
 En este artículo se proporcionan los esquemas y las propiedades para los eventos de Media Services.
 
-Para obtener una lista de scripts de ejemplo y los tutoriales, consulte [Orígenes de eventos de Media Services](../../event-grid/event-sources.md#azure-subscriptions).
+Para obtener una lista de scripts de ejemplo y los tutoriales, consulte [Orígenes de eventos de Media Services](../../event-grid/event-schema-subscriptions.md).
 
 ## <a name="job-related-event-types"></a>Tipos de eventos relacionados con el trabajo
 

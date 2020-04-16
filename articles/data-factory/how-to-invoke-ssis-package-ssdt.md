@@ -12,14 +12,17 @@ ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/31/2019
-ms.openlocfilehash: 5f21623af9b89bbb020063dfb72f7b60e65a6ebe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 11e76fea87c60ae2b56cc15d5827be6e1b2b5a01
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74927723"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399440"
 ---
 # <a name="execute-ssis-packages-in-azure-from-ssdt"></a>Ejecución de paquetes SSIS en Azure desde SSDT
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 En este artículo se describe la característica de los proyectos de SQL Server Integration Services (SSIS) habilitados para Azure en SQL Server Data Tools (SSDT), que permite ejecutar paquetes de Azure-SSIS Integration Runtime (IR) en Azure Data Factory (ADF).  Esta característica se puede usar para probar los paquetes SSIS existentes antes de migrarlos mediante lift-and-shift a Azure o desarrollar nuevos paquetes SSIS para ejecutarlos en Azure.
 
 Con esta característica, puede crear un nuevo Azure-SSIS Integration Runtime o adjuntar uno existente a los proyectos de SSIS y, después, ejecutar los paquetes en él.  Admitimos la ejecución de paquetes que se van a implementar en el catálogo de SSIS (SSISDB) en el modelo de implementación de proyectos y los que se van a implementar en sistemas de archivos, recursos compartidos de archivos o Azure Files en el modelo de implementación de paquetes. 

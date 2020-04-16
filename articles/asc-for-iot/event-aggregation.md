@@ -1,5 +1,5 @@
 ---
-title: Información acerca de la agregación de eventos de Azure Security Center para IoT | Microsoft Docs
+title: Agregación de datos
 description: Obtenga información sobre la agregación de eventos de Azure Security Center para IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2019
 ms.author: mlottner
-ms.openlocfilehash: ca1d1a5761e62b2838a474dcb83f450987972998
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f72ef8cc5161bd6f885249e7d39344a57fa2368e
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73928970"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81311408"
 ---
 # <a name="azure-security-center-for-iot-event-aggregation"></a>Agregación de eventos de Azure Security Center para IoT
 
@@ -31,18 +31,20 @@ Para reducir la cuota y los costos adicionales, a la vez que se mantienen los di
 La agregación de eventos está **activada** de forma predeterminada y, aunque no se recomienda, puede **desactivarse** manualmente en cualquier momento.
 
 La agregación está disponible actualmente para los siguientes tipos de eventos:
+
 * ProcessCreate
 * ConnectionCreate
 * ProcessTerminate (solo Windows)
 
 ## <a name="how-does-event-aggregation-work"></a>¿Cómo funciona la agregación de eventos?
+
 Cuando la agregación de eventos se deja **activada**, los agentes de Azure Security Center para IoT agregan eventos para el período de intervalo o ventana de tiempo.
 Una vez transcurrido el período de intervalo, el agente envía los eventos agregados a la nube de Azure para su posterior análisis.
 Los eventos agregados se almacenan en memoria hasta que se envían a la nube de Azure.
 
 Para reducir la superficie de memoria del agente, cada vez que este recopila un evento idéntico a otro que ya está guardado en la memoria, el agente aumenta el número de llamadas de este evento específico. Cuando ha transcurrido la ventana de tiempo de agregación, el agente envía el número de llamadas de cada tipo específico de evento que se ha producido. La agregación de eventos es simplemente la agregación de los números de llamadas de cada tipo de evento recopilado.
 
-Los eventos se consideran idénticos solo cuando se cumplen las condiciones siguientes: 
+Los eventos se consideran idénticos solo cuando se cumplen las condiciones siguientes:
 
 * Eventos ProcessCreate: cuando **commandLine**, **executable**, **username** y **userid** son idénticos
 * Eventos ConnectionCreate: cuando **commandLine**, **userId**, **direction**, **local address**, **remote address**, **protocol y **destination port** son idénticos
@@ -50,18 +52,21 @@ Los eventos se consideran idénticos solo cuando se cumplen las condiciones sigu
 
 ### <a name="working-with-aggregated-events"></a>Trabajo con eventos agregados
 
-Durante la agregación, se descartan las propiedades de evento que no se están agregadas y aparecen en el análisis de registros con un valor de 0. 
+Durante la agregación, se descartan las propiedades de evento que no se están agregadas y aparecen en el análisis de registros con un valor de 0.
+
 * Eventos ProcessCreate: **processId**  y **parentProcessId** se establecen en 0
 * Eventos ConnectionCreate: **processId** y **puerto de origen** se establecen en 0
 
-## <a name="event-aggregation-based-alerts"></a>Alertas basadas en la agregación de eventos 
+## <a name="event-aggregation-based-alerts"></a>Alertas basadas en la agregación de eventos
+
 Después del análisis, Azure Security Center para IoT crea alertas de seguridad para los eventos agregados sospechosos. Las alertas que se crean a partir de eventos agregados aparecen solo una vez para cada evento agregado.
 
-La hora de inicio de la agregación, la hora de finalización y el número de llamadas para cada evento se registran en el campo **ExtraDetails** del evento en Log Analytics para su uso durante las investigaciones. 
+La hora de inicio de la agregación, la hora de finalización y el número de llamadas para cada evento se registran en el campo **ExtraDetails** del evento en Log Analytics para su uso durante las investigaciones.
 
-Cada evento agregado representa un período de 24 horas de alertas recopiladas. Con el menú de opciones de evento de la parte superior izquierda de cada evento, puede **descartar** cada evento agregado individual.    
+Cada evento agregado representa un período de 24 horas de alertas recopiladas. Con el menú de opciones de evento de la parte superior izquierda de cada evento, puede **descartar** cada evento agregado individual.
 
 ## <a name="event-aggregation-twin-configuration"></a>Configuración gemela de agregación de eventos
+
 Realice cambios en la configuración de la agregación de eventos de Azure Security Center para IoT dentro del [objeto de configuración del agente](how-to-agent-configuration.md) de la identidad gemela del módulo **azureiotsecurity**.
 
 | Nombre de la configuración | Valores posibles | Detalles | Observaciones |

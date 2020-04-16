@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 3172c92ecae094ab5d978803d2ccac7e6404a5e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 599f48ed241010d8551bd110c7f778c9ef508eac
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76721513"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393173"
 ---
 # <a name="subscribe-to-events-through-portal"></a>Suscripción a eventos a través del portal
 
@@ -20,7 +20,7 @@ En este artículo se describe cómo crear suscripciones de Event Grid a través 
 
 ## <a name="create-event-subscriptions"></a>Creación de suscripciones de eventos
 
-Para crear una suscripción de Event Grid para cualquiera de los [orígenes de eventos](event-sources.md) admitidos, siga estos pasos. En este artículo se muestra cómo crear una suscripción de Event Grid para una suscripción a Azure.
+Para crear una suscripción de Event Grid para cualquiera de los [orígenes de eventos](overview.md#event-sources) admitidos, siga estos pasos. En este artículo se muestra cómo crear una suscripción de Event Grid para una suscripción a Azure.
 
 1. Seleccione **Todos los servicios**.
 

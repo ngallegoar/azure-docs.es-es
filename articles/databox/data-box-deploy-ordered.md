@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 04/23/2019
 ms.author: alkohli
-ms.openlocfilehash: b0204673c0706403c8c5a7367be19e590d9cb134
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 46dd89694857138d28255d5b1a86a8c947680520
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "65604091"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81398662"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Tutorial: Realización de pedidos de Azure Data Box
 
@@ -27,27 +27,19 @@ En En este tutorial se describe cómo se puede solicitar Azure Data Box. En este
 > * Seguimiento del pedido
 > * Cancelar el pedido
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de implementar el dispositivo, complete los siguientes requisitos previos de configuración tanto del servicio Data Box como del dispositivo.
 
 ### <a name="for-service"></a>Para el servicio
 
-Antes de comenzar, asegúrese de que:
-- Tiene una cuenta de almacenamiento de Microsoft Azure con credenciales de acceso.
-- Asegúrese de que la suscripción que utilice para el servicio Data Box sea de uno de los siguientes tipos:
-    - Contrato Enterprise (EA) de Microsoft. Más información acerca de [las suscripciones de EA](https://azure.microsoft.com/pricing/enterprise-agreement/).
-    - Proveedor de soluciones en la nube (CSP). Más información acerca del [programa Azure CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
-    - Patrocinio de Microsoft Azure Obtenga más información sobre el [programa de patrocinio de Azure](https://azure.microsoft.com/offers/ms-azr-0036p/).
-
-- Asegúrese de que tiene acceso de propietario o colaborador a la suscripción para crear un pedido de Data Box.
+[!INCLUDE [Data Box service prerequisites](../../includes/data-box-supported-subscriptions.md)]
 
 ### <a name="for-device"></a>Para el dispositivo
 
 Antes de comenzar, asegúrese de que:
 - Tiene un equipo host conectado a la red del centro de datos. Data Box copiará los datos de dicho equipo. El equipo host debe ejecutar un sistema operativo compatible, como se describe en [Azure Data Box system requirements](data-box-system-requirements.md) (Requisitos del sistema de Azure Data Box).
 - El centro de datos debe tener una red de alta velocidad. Es muy recomendable tener una conexión de 10 GbE como mínimo. Si no hay disponible una conexión 10 GbE, se puede usar un vínculo de datos de 1 GbE, pero la velocidad de copia resultará afectada.
-
 
 ## <a name="order-data-box"></a>Realización de un pedido de Data Box
 

@@ -11,12 +11,12 @@ ms.date: 06/13/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 1d8975f8fa0d298384b72f66c0958ce725a28dcd
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 1696e227b26283cdb26a0493bef819768de756e6
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80874390"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81411663"
 ---
 # <a name="t-sql-language-elements-supported-in-synapse-sql-pool"></a>Elementos de lenguaje T-SQL admitidos en el grupo de SQL de Synapse
 
@@ -290,4 +290,4 @@ Vínculos a la documentación de los elementos de lenguaje T-SQL admitidos en el
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información de referencia, vea [Instrucciones T-SQL en el grupo de SQL de Synapse](sql-data-warehouse-reference-tsql-statements.md) y [Vistas del sistema en el grupo de SQL de Synapse](sql-data-warehouse-reference-tsql-system-views.md).
+Para obtener más información de referencia, vea [Instrucciones T-SQL en el grupo de SQL de Synapse](sql-data-warehouse-reference-tsql-statements.md) y [Vistas del sistema en el grupo de SQL de Synapse](../sql/reference-tsql-system-views.md).

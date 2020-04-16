@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 35025bf1592f1293b9326d643f76322b4af590c8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 46bceeb31fa38068c6c4f9f3a86ed556ad39effb
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79501197"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393164"
 ---
 # <a name="system-topics-in-azure-event-grid"></a>Temas del sistema en Azure Event Grid
 El servicio Azure Event Grid crea temas del sistema cuando se crea una primera suscripción de evento para un origen del evento de Azure. Actualmente, Event Grid no crea temas del sistema para los orígenes de tema que se crearon antes del 15 de marzo de 2020. En el caso de todos los orígenes de tema que se hayan creado en esta fecha o con posterioridad a la misma, Event Grid crea automáticamente temas del sistema. En este artículo se describen los **temas del sistema** en Azure Event Grid.
@@ -38,5 +38,5 @@ Si intentar eliminar el grupo de recursos con la cuenta de almacenamiento, verá
 ## <a name="next-steps"></a>Pasos siguientes
 Vea los artículos siguientes: 
 
-- [Temas personalizados](event-sources.md#custom-topics)
+- [Temas personalizados](custom-topics.md)
 - [Dominios](event-domains.md)

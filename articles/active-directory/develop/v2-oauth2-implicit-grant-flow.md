@@ -2,27 +2,22 @@
 title: 'Flujo de concesión implícita de OAuth 2.0: plataforma de identidad de Microsoft | Azure'
 description: Proteja las aplicaciones de página única con el flujo implícito de la plataforma de identidad de Microsoft.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
-ms.assetid: 3605931f-dc24-4910-bb50-5375defec6a8
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.author: ryanwi
+ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 6e3f021fd888bbb408fa66964c54d22f0d68e84e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0a884850d57418e9daafba980d0a08dc86fc0974
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80297695"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81309394"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Plataforma de identidad de Microsoft y concesión implícita de flujo
 
@@ -32,7 +27,7 @@ Con el punto de conexión de la plataforma de identidad de Microsoft, puede inic
 * Muchos proveedores de identidades y servidores de autorización no admiten solicitudes CORS.
 * Los redireccionamientos del explorador a una página completa fuera de la aplicación se vuelven especialmente invasivos para la experiencia del usuario.
 
-Para estas aplicaciones (AngularJS, Ember.js, React.js, etc.), la plataforma de identidad de Microsoft admite el flujo de concesión implícita de OAuth 2.0. El flujo implícito se describe en la [especificación de OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-4.2). Su principal ventaja es que hace posible que la aplicación obtenga tokens de la plataforma de identidad de Microsoft sin necesidad de realizar un intercambio de credenciales con el servidor back-end. De esta forma, la aplicación puede iniciar la sesión del usuario, mantenerla y recibir tokens para otras API web, y todo dentro del código de cliente de JavaScript. Existen algunas consideraciones de seguridad importantes que se deben tener en cuenta al usar el flujo implícito, en concreto en lo referente a la suplantación de identidad del [cliente](https://tools.ietf.org/html/rfc6749#section-10.3) y el [usuario](https://tools.ietf.org/html/rfc6749#section-10.3).
+Para estas aplicaciones (Angular, Ember.js, React.js, etc.), la Plataforma de identidad de Microsoft admite el flujo de concesión implícita de OAuth 2.0. El flujo implícito se describe en la [especificación de OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-4.2). Su principal ventaja es que hace posible que la aplicación obtenga tokens de la plataforma de identidad de Microsoft sin necesidad de realizar un intercambio de credenciales con el servidor back-end. De esta forma, la aplicación puede iniciar la sesión del usuario, mantenerla y recibir tokens para otras API web, y todo dentro del código de cliente de JavaScript. Existen algunas consideraciones de seguridad importantes que se deben tener en cuenta al usar el flujo implícito, en concreto en lo referente a la suplantación de identidad del [cliente](https://tools.ietf.org/html/rfc6749#section-10.3) y el [usuario](https://tools.ietf.org/html/rfc6749#section-10.3).
 
 En este artículo se describe cómo programar directamente con el protocolo de la aplicación.  Cuando sea posible, se recomienda usar las bibliotecas de autenticación de Microsoft (MSAL) admitidas, en lugar de [adquirir tokens y API web protegidas por llamadas](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Además, eche un vistazo a las [aplicaciones de ejemplo que usan MSAL](sample-v2-code.md).
 
@@ -68,7 +63,7 @@ La concesión implícita presenta más riesgos que otras concesiones, y las áre
 
 Si su aplicación es un cliente nativo, el flujo implícito no es una buena elección. La ausencia de la cookie de sesión de Azure AD en el contexto de un cliente nativo priva a su aplicación de los medios de mantener una sesión de larga duración. Lo que significa que la aplicación pedirá confirmación repetidamente al usuario al obtener los tokens de acceso para los nuevos recursos.
 
-Si está desarrollando una aplicación web que incluye un back-end y que usa una API desde el código de back-end, el flujo implícito tampoco es una buena elección. Otras concesiones ofrecen muchas más posibilidades. Por ejemplo, la concesión de credenciales de cliente de OAuth2 proporciona la capacidad de obtener tokens que reflejan los permisos asignados a la misma aplicación, a diferencia de las delegaciones de usuario. Esto significa que el cliente tiene la capacidad de mantener el acceso mediante programación a los recursos, incluso cuando el usuario no está activamente implicado en una sesión. No solo eso, sino que dichas concesiones ofrecen mayores garantías de seguridad. Por ejemplo, los tokens de acceso nunca pasan por el explorador del usuario, porque no se arriesgan a ser guardados en el historial del explorador. La aplicación cliente también puede realizar una autenticación segura cuando se solicita un token.
+Si está desarrollando una aplicación web que incluye un back-end y que usa una API desde el código de back-end, el flujo implícito tampoco es una buena elección. Otras concesiones ofrecen muchas más posibilidades. Por ejemplo, la concesión de credenciales de cliente de OAuth2 proporciona la capacidad de obtener tokens que reflejan los permisos asignados a la misma aplicación, a diferencia de las delegaciones de usuario. Esto significa que el cliente tiene la capacidad de mantener el acceso mediante programación a los recursos, incluso cuando el usuario no está activamente implicado en una sesión. No solo eso, sino que dichas concesiones ofrecen mayores garantías de seguridad. Por ejemplo, los tokens de acceso nunca pasan por el explorador del usuario, porque no asumen el riesgo de guardarse en el historial del explorador. La aplicación cliente también puede realizar una autenticación segura cuando se solicita un token.
 
 [OAuth2-Spec-Implicit-Misuse]: https://tools.ietf.org/html/rfc6749#section-10.16
 [OAuth2-Threat-Model-And-Security-Implications]: https://tools.ietf.org/html/rfc6819
@@ -161,7 +156,7 @@ error=access_denied
 
 Ahora que ha iniciado la sesión del usuario en su aplicación de página única, puede obtener tokens de acceso de forma silenciosa para llamar a las API web protegidas por la plataforma de identidad de Microsoft, como las de [Microsoft Graph](https://developer.microsoft.com/graph). Incluso si ya recibió un token mediante el `token` response_type, puede usar este método para adquirir tokens para recursos adicionales sin tener que redirigir al usuario para que vuelva a iniciar sesión.
 
-En el flujo normal de OpenID Connect y OAuth, haría esto mediante una solicitud al punto de conexión `/token` de la plataforma de identidad de Microsoft. Sin embargo, el punto de conexión de la plataforma de identidad de Microsoft no admite solicitudes CORS, así que las llamadas a AJAX para obtener y actualizar los tokens no son posibles. En su lugar, puede usar el flujo implícito en un iframe oculto para obtener nuevos tokens para otras API web: 
+En el flujo normal de OpenID Connect y OAuth, haría esto mediante una solicitud al punto de conexión `/token` de la plataforma de identidad de Microsoft. Sin embargo, el punto de conexión de la plataforma de identidad de Microsoft no admite solicitudes CORS, así que las llamadas a AJAX para obtener y actualizar los tokens no son posibles. En su lugar, puede usar el flujo implícito en un iframe oculto para obtener nuevos tokens para otras API web:
 
 ```
 // Line breaks for legibility only
@@ -170,7 +165,7 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &response_type=token
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
-&scope=https%3A%2F%2Fgraph.microsoft.com%2Fuser.read 
+&scope=https%3A%2F%2Fgraph.microsoft.com%2Fuser.read
 &response_mode=fragment
 &state=12345
 &nonce=678910

@@ -5,12 +5,12 @@ services: container-service
 manager: gwallace
 ms.topic: article
 ms.date: 03/24/2020
-ms.openlocfilehash: 1ca4b70139ed5e0a136f6f5f2b0382b8c1688983
-ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
+ms.openlocfilehash: b121830192a2b88185bbbbc9a92934e51b32a61c
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80389416"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114644"
 ---
 # <a name="integrate-azure-ad-in-azure-kubernetes-service-preview"></a>Integración de Azure AD en Azure Kubernetes Service (versión preliminar)
 
@@ -50,10 +50,9 @@ az extension list
 ```
 
 Para instalar kubectl, use lo siguiente:
+
 ```azurecli
-curl -LO "https://storage.googleapis.com/kubernetes-release/release/v1.18.0-beta.2/bin/linux/amd64/kubectl"
-chmod +x ./kubectl
-sudo mv ./kubectl /usr/local/bin/kubectl
+sudo az aks install-cli
 kubectl version --client
 ```
 
@@ -99,12 +98,12 @@ El comando anterior crea un clúster de AKS de tres nodos, pero, de forma predet
 Después de crear un grupo y agregarse usted mismo (y a otros) como miembro, puede actualizar el clúster con el grupo de Azure AD mediante el siguiente comando:
 
 ```azurecli-interactive
-az aks update -g MyResourceGroup -n MyManagedCluster --enable-aad [--aad-admin-group-object-ids <id1,id2>] [--aad-tenant-id <id>]
+az aks update -g MyResourceGroup -n MyManagedCluster [--aad-admin-group-object-ids <id>] [--aad-tenant-id <id>]
 ```
 De forma alternativa, si primero crea un grupo y agrega miembros, puede habilitar el grupo de Azure AD en el momento de la creación con el siguiente comando:
 
 ```azurecli-interactive
-az aks create -g MyResourceGroup -n MyManagedCluster --enable-aad [--aad-admin-group-object-ids <id1,id2>] [--aad-tenant-id <id>]
+az aks create -g MyResourceGroup -n MyManagedCluster --enable-aad [--aad-admin-group-object-ids <id>] [--aad-tenant-id <id>]
 ```
 
 Un clúster de Azure AD v2 creado correctamente contiene la siguiente sección en el cuerpo de la respuesta:

@@ -4,14 +4,14 @@ description: Obtenga información sobre la cláusula GROUP BY de SQL para Azure 
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/11/2019
+ms.date: 04/10/2020
 ms.author: tisande
-ms.openlocfilehash: e41e81457421bfe27e3c0313fc06e39e6df4cdce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8a3cbbafc066747b62f79934f2cd12301aa1ba17
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73819102"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261608"
 ---
 # <a name="group-by-clause-in-azure-cosmos-db"></a>Cláusula GROUP BY en Azure Cosmos DB
 
@@ -52,6 +52,12 @@ La cláusula GROUP BY divide los resultados de la consulta de acuerdo con los va
 - Propiedades de alias o funciones del sistema de alias (el alias sigue estando permitido en la cláusula SELECT)
 - Subconsultas
 - Funciones del sistema de agregado (solo se permiten en la cláusula SELECT)
+
+No se admiten las consultas con una función del sistema agregada y una subconsulta con `GROUP BY`. Por ejemplo, la siguiente consulta no se admite:
+
+```sql
+SELECT COUNT(UniqueLastNames) FROM (SELECT AVG(f.age) FROM f GROUP BY f.lastName) AS UniqueLastNames
+```
 
 ## <a name="examples"></a>Ejemplos
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/19/2020
 ms.author: thweiss
 ROBOTS: noindex, nofollow
-ms.openlocfilehash: 6e2a90b8f81b9b945905ee98beb1686c54a62e8a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 733a85e492185e7e83922a3cc91d53c848b939a1
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80063761"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81411143"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Configuración de claves administradas por el cliente para una cuenta de Azure Cosmos con Azure Key Vault
 
@@ -231,7 +231,7 @@ Actualmente, no. Sin embargo, se está analizando la posibilidad de incluir clav
 
 ### <a name="how-do-customer-managed-keys-affect-a-backup"></a>¿Cómo afectan las claves administradas por el cliente a una copia de seguridad?
 
-Azure Cosmos DB realiza [copias de seguridad periódicas y automáticas](../synapse-analytics/sql-data-warehouse/backup-and-restore.md) de los datos almacenados en su cuenta. Esta operación realiza una copia de seguridad de los datos cifrados. Para usar la copia de seguridad restaurada, se requiere la clave de cifrado que se usó en el momento de la copia de seguridad. Esto significa que no se ha realizado ninguna revocación y que la versión de la clave que se usó en el momento de la copia de seguridad aún estará habilitada.
+Azure Cosmos DB realiza [copias de seguridad periódicas y automáticas](./online-backup-and-restore.md) de los datos almacenados en su cuenta. Esta operación realiza una copia de seguridad de los datos cifrados. Para usar la copia de seguridad restaurada, se requiere la clave de cifrado que se usó en el momento de la copia de seguridad. Esto significa que no se ha realizado ninguna revocación y que la versión de la clave que se usó en el momento de la copia de seguridad aún estará habilitada.
 
 ### <a name="how-do-i-revoke-an-encryption-key"></a>¿Cómo se revoca una clave de cifrado?
 

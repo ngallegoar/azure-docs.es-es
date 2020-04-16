@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 8752585e731f905636f57d31741e2be67f7140b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ee4d629d80ff8265d58a1d05b8dca1652ddac6fb
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80335038"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81112872"
 ---
 ### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Límites de redes - Azure Resource Manager
 Los límites siguientes solo se aplican a los recursos de redes administrados mediante **Azure Resource Manager** por región y por suscripción. Aprenda a [ver el uso de recursos actual comparado con los límites de su suscripción](../articles/networking/check-usage-against-limits.md).
@@ -72,10 +72,12 @@ Los límites siguientes solo se aplican a los recursos de redes administrados a 
 | Reglas por NIC (en todas las direcciones IP de una NIC) | 300                           |
 | Configuraciones de direcciones IP de front-end              | 600                           |
 | Tamaño de grupo de back-end                       | 1000 configuraciones de IP, una sola red virtual |
+| Recursos de back-end por Load Balancer <sup>1<sup> | 150                   |
 | Puertos de alta disponibilidad                 | 1 por front-end interno       |
-| Reglas de salida por Load Balancer        | 20                            |
+| Reglas de salida por Load Balancer        | 600                           |
 | [Tiempo de espera de inactividad de TCP](https://docs.microsoft.com/azure/load-balancer/load-balancer-tcp-idle-timeout#tcp-idle-timeout) | 4 minutos/30 minutos          |
 
+<sup>1</sup>El límite es de hasta 150 recursos, en cualquier combinación de recursos de máquinas virtuales independientes, recursos de conjuntos de disponibilidad y recursos de conjuntos de escalado de máquinas virtuales.
 
 **Load Balancer básico**
 

@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: overview
 ms.date: 07/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: b4aa5dfd288819930da2f7af36b7d70df709e638
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 0615830e525ab60bbb2167dd39d9c4bf14cc91b3
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79473037"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81391582"
 ---
 # <a name="azure-managed-applications-overview"></a>Introducción a las aplicaciones administradas de Azure
 
@@ -84,4 +84,4 @@ Puede aplicar una directiva de [Azure Policy](../../governance/policy/overview.m
 En este artículo, ha aprendido acerca de las ventajas de uso de las aplicaciones administradas. Vaya al siguiente artículo para crear una definición de aplicación administrada.
 
 > [!div class="nextstepaction"]
-> [Inicio rápido: Publicación de una definición de aplicación administrada de Azure](publish-managed-app-definition-quickstart.md)
+> [Inicio rápido: Publicación de una definición de aplicación administrada de Azure](publish-service-catalog-app.md)

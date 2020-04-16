@@ -5,12 +5,12 @@ description: Aprenda a crear y usar un equilibrador de carga interno para expone
 services: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.openlocfilehash: 4decd66a558b031f1aaaf9c64556dae545ed05d3
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 9c2966215d07c4ddf052d30a5757a2deee2e0b5c
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668412"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392787"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Uso de un equilibrador de carga interno con Azure Kubernetes Service (AKS)
 
@@ -25,7 +25,7 @@ En este artículo se supone que ya tiene un clúster de AKS. Si necesita un clú
 
 También es preciso que esté instalada y configurada la versión 2.0.59 de la CLI de Azure u otra versión posterior. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte  [Install Azure CLI][install-azure-cli] (Instalación de la CLI de Azure).
 
-Si usa una subred o un grupo de recursos existentes, la entidad de servicio del clúster de AKS necesita permiso para administrar los recursos de red. En general, asigne el rol *Colaborador de red* a la entidad de servicio en los recursos delegados. Para más información sobre los permisos, consulte [Delegación del acceso de AKS a otros recursos de Azure][aks-sp].
+Si usa una subred o un grupo de recursos existentes, la entidad de servicio del clúster de AKS necesita permiso para administrar los recursos de red. En general, asigne el rol *Colaborador de red* a la entidad de servicio en los recursos delegados. En lugar de una entidad de servicio, puede usar la identidad administrada asignada por el sistema para los permisos. Para más información, consulte [Uso de identidades administradas](use-managed-identity.md). Para más información sobre los permisos, consulte [Delegación del acceso de AKS a otros recursos de Azure][aks-sp].
 
 ## <a name="create-an-internal-load-balancer"></a>Creación de un conjunto de equilibrador de carga interno
 

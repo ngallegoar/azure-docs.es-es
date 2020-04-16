@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/12/2020
-ms.openlocfilehash: ab107a0afe8be1d95de8dafb21f239e6da733271
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a418841d91ab6b8fe5457f3fd64d91306fe08dfe
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199337"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383125"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-data-explorer"></a>Aplicación del descuento por reserva a Azure Data Explorer
 
@@ -65,7 +65,7 @@ Si tiene alguna pregunta o necesita ayuda, [cree una solicitud de soporte técni
 
 Para más información acerca de las reservas de Azure, consulte los siguientes artículos:
 
-* [Pago por adelantado de los recursos de proceso de Azure Data Explorer con la capacidad reservada de Azure Data Explorer](../../data-explorer/pricing-reserved-capacity.md)  
+* [Pago por adelantado de los recursos de proceso de Azure Data Explorer con la capacidad reservada de Azure Data Explorer](/azure/data-explorer/pricing-reserved-capacity)  
 * [Qué son las reservas de Azure](save-compute-costs-reservations.md)  
 * [Administración de reservas de Azure](manage-reserved-vm-instance.md)  
 * [Información sobre el uso de reservas para suscripciones de pago por uso](understand-reserved-instance-usage.md)

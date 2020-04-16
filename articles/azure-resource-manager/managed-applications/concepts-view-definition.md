@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 06/12/2019
-ms.openlocfilehash: d0c60f5738bf634f9d43d6d4f0d78c1239b7ff3c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7a3d2234a140d1fb2eede50e3fe2eef5575da648
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75649272"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81391689"
 ---
 # <a name="view-definition-artifact-in-azure-managed-applications"></a>Artefacto de definición de vistas en Azure Managed Applications
 
@@ -20,7 +20,7 @@ En este artículo se proporciona una introducción al artefacto de definición d
 
 ## <a name="view-definition-artifact"></a>Ver definición de artefacto
 
-El artefacto de definición de vistas debe denominarse **viewDefinition.json** y debe colocarse en el mismo nivel que **createUiDefinition.json** y **mainTemplate.json** en el paquete .zip que crea la definición de una aplicación administrada. Para obtener información sobre cómo crear el paquete .zip y publicar la definición de una aplicación administrada, consulte [Publicación de la definición de una aplicación administrada de Azure](publish-managed-app-definition-quickstart.md).
+El artefacto de definición de vistas debe denominarse **viewDefinition.json** y debe colocarse en el mismo nivel que **createUiDefinition.json** y **mainTemplate.json** en el paquete .zip que crea la definición de una aplicación administrada. Para obtener información sobre cómo crear el paquete .zip y publicar la definición de una aplicación administrada, consulte [Publicación de la definición de una aplicación administrada de Azure](publish-service-catalog-app.md).
 
 ## <a name="view-definition-schema"></a>Esquema de la definición de vistas
 

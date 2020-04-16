@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
-ms.openlocfilehash: 31e85876d60ae6fcd8f3b29633506d698a323acb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a53037b5f6c43de0e08bb1c5143f27d14600ca62
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79233612"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81381419"
 ---
 # <a name="connect-to-hdinsight-apache-hadoop-using-ssh"></a>Conexión a HDInsight (Apache Hadoop) mediante SSH
 
@@ -108,7 +108,7 @@ Las cuentas SSH se pueden proteger mediante una contraseña. Cuando se conecte a
 | --------------- | ---------------- |
 | Portal de Azure | De forma predeterminada, la cuenta de usuario SSH tiene la misma contraseña que la cuenta de inicio de sesión de clúster. Para usar una contraseña diferente, desactive la opción __Usar contraseña de inicio de sesión de clúster para SSH__ y, a continuación, escriba la contraseña en el campo __Contraseña SSH__.</br>![Cuadro de diálogo de contraseña SSH en la creación de clústeres de HDInsight](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-password.png)|
 | Azure PowerShell | Use el parámetro `--SshCredential` del cmdlet [New-AzHdinsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) y pase un objeto `PSCredential` que contenga el nombre de cuenta de usuario SSH y la contraseña. |
-| Azure CLI | Use el parámetro `--sshPassword` del comando [az hdinsight create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) y proporcione el valor de contraseña. |
+| Azure CLI | Use el parámetro `--ssh-password` del comando [az hdinsight create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) y proporcione el valor de contraseña. |
 | Plantilla de Resource Manager | Para obtener un ejemplo del uso de contraseña con una plantilla, consulte la [implementación de HDInsight en Linux con una contraseña SSH](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/). El elemento `linuxOperatingSystemProfile` en el archivo [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-password/azuredeploy.json) se usa para pasar el nombre de cuenta de SSH y la contraseña a Azure al crear el clúster.|
 
 ### <a name="change-the-ssh-password"></a>Cambio de contraseña de SSH
@@ -178,7 +178,7 @@ Los nodos de trabajo y los nodos de Zookeeper no son directamente accesibles des
     ssh sshuser@wn0-myhdi
     ```
 
-    Para recuperar una lista de los nombres de nodos, consulte el documento [Administración de HDInsight con la API REST de Apache Ambari](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes).
+    Para recuperar una lista de los nombres de nodos, consulte el documento [Administración de HDInsight con la API REST de Apache Ambari](hdinsight-hadoop-manage-ambari-rest-api.md#get-the-fqdn-of-cluster-nodes).
 
 Si la cuenta SSH se protege utilizando un __contraseña__, escriba la contraseña al conectarse.
 

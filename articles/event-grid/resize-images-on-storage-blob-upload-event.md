@@ -9,15 +9,15 @@ ms.service: event-grid
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/06/2020
+ms.date: 04/01/2020
 ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: d01d749300c6ad07e498c75c9487b554810e68cd
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: fc5e379aae7d8ff0d7cb685b0dd7e7e0a46bb677
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79454081"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393291"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Tutorial: Automatizar el cambio de tamaño de imágenes cargadas mediante Event Grid
 
@@ -161,12 +161,12 @@ az functionapp deployment source config --name $functionapp --resource-group $re
 
 # <a name="nodejs-v10-sdk"></a>[Node.js V10 SDK](#tab/nodejsv10)
 
-La función de cambio de tamaño de Node.js de ejemplo está disponible en [GitHub](https://github.com/Azure-Samples/storage-blob-resize-function-node). Implemente este proyecto de código de Functions en la Function App mediante el comando [az functionapp deployment source config](/cli/azure/functionapp/deployment/source).
+La función de cambio de tamaño de Node.js de ejemplo está disponible en [GitHub](https://github.com/Azure-Samples/storage-blob-resize-function-node-v10). Implemente este proyecto de código de Functions en la Function App mediante el comando [az functionapp deployment source config](/cli/azure/functionapp/deployment/source).
 
 ```azurecli-interactive
 az functionapp deployment source config --name $functionapp \
   --resource-group $resourceGroupName --branch master --manual-integration \
-  --repo-url https://github.com/Azure-Samples/storage-blob-resize-function-node
+  --repo-url https://github.com/Azure-Samples/storage-blob-resize-function-node-v10
 ```
 ---
 
@@ -213,7 +213,7 @@ Una suscripción de eventos indica los eventos generados por el proveedor que se
     | **Recurso** | La cuenta de Blob Storage | Elija la cuenta de Blob Storage que ha creado. |
     | **Tipos de evento** | Blob creado | Desactive todos los tipos que no sean **Blob creado**. Solo los tipos de evento de `Microsoft.Storage.BlobCreated` se pasan a la función. |
     | **Tipo de punto de conexión** | generado automáticamente | Definido previamente como instancia de **Azure Functions**. |
-    | **Punto de conexión** | generado automáticamente | Use la dirección URL del punto de conexión generado automáticamente. |
+    | **Punto de conexión** | generado automáticamente | El nombre de la función. En este caso, es **Thumbnail**. |
 
 4. Cambie a la pestaña **Filtros** y realice las siguientes acciones:
     1. Seleccione la opción **Habilitar el filtrado del asunto**.

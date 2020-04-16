@@ -3,19 +3,19 @@ title: 'Referencia de Speech to Text API (REST): servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: Aprenda a usar speech-to-text API REST. En este artículo, obtendrá más información sobre las opciones de autorización y de consulta y sobre cómo estructurar una solicitud y recibir una respuesta.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.author: dapine
-ms.openlocfilehash: 759ea697e4093da5bfc1c082c886c6dfda636f42
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: trbye
+ms.openlocfilehash: fbb4d114d1fee21d7950e53b06fc16c96b5c930b
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79474805"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81400179"
 ---
 # <a name="speech-to-text-rest-api"></a>Speech-to-text REST API
 

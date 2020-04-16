@@ -3,16 +3,16 @@ title: Ejemplos de consultas avanzadas
 description: Use Azure Resource Graph para ejecutar consultas avanzadas, incluido el trabajo con columnas, la enumeración de todas las etiquetas usadas y la coincidencia de los recursos con expresiones regulares.
 ms.date: 03/20/2020
 ms.topic: sample
-ms.openlocfilehash: 98e80d0977ec23cba8b8c497373b6e89b52d430e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3d0e7a9be37f9baf471584ee3fe26c52d13b3084
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80130505"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81381503"
 ---
 # <a name="advanced-resource-graph-query-samples"></a>Ejemplos de consultas avanzadas de Resource Graph
 
-El primer paso para entender las consultas con Azure Resource Graph es el reconocimiento básico del [lenguaje de consultas](../concepts/query-language.md). Si aún no está familiarizado con [Azure Data Explorer](../../../data-explorer/data-explorer-overview.md), se recomienda repasar los conceptos básicos para entender cómo componer solicitudes para los recursos que está buscando.
+El primer paso para entender las consultas con Azure Resource Graph es el reconocimiento básico del [lenguaje de consultas](../concepts/query-language.md). Si aún no está familiarizado con [Azure Data Explorer](/azure/data-explorer/data-explorer-overview), se recomienda repasar los conceptos básicos para entender cómo componer solicitudes para los recursos que está buscando.
 
 Le guiaremos por las siguientes consultas avanzadas:
 

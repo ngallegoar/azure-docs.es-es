@@ -7,14 +7,16 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 8f91ed926c733b211443805722b6817b1ce005b6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 71df574602518fdc252d9d86859ed772a17be443
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77048357"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81408965"
 ---
 # <a name="what-are-wrangling-data-flows"></a>¿Qué son los flujos de datos de limpieza y transformación?
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Las organizaciones deben encargarse de la preparación, y la limpieza y transformación de datos para un análisis preciso de los datos complejos que crecen cada día más. La preparación de datos es necesaria para que las organizaciones puedan usar los datos en diversos procesos empresariales y reducir el plazo de amortización.
 

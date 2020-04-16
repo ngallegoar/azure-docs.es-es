@@ -11,25 +11,16 @@ ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 8aaca40961b1294336b236305ecdffcc92c5a4d9
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: d69c8dd28b946df3fff500c31c7cdefa4767c0c4
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80742579"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81408206"
 ---
 # <a name="troubleshooting-connectivity-issues"></a>Solución de problemas de conectividad
 
 En este artículo se enumeran las técnicas de solución de problemas comunes en torno a la conexión a la base de datos de SQL Analytics.
-
-- [Comprobación de la disponibilidad del servicio](sql-data-warehouse-troubleshoot-connectivity.md#check-service-availability)
-- [Comprobación de la operación de pausa o escalado](sql-data-warehouse-troubleshoot-connectivity.md#check-for-paused-or-scaling-operation)
-- [Comprobación de la configuración de firewall](sql-data-warehouse-troubleshoot-connectivity.md#check-your-firewall-settings)
-- [Comprobación de la configuración del punto de conexión de servicio o red virtual](sql-data-warehouse-troubleshoot-connectivity.md#check-your-vnetservice-endpoint-settings)
-- [Comprobación de los controladores más recientes](sql-data-warehouse-troubleshoot-connectivity.md#check-for-the-latest-drivers)
-- [Comprobación de la cadena de conexión](sql-data-warehouse-troubleshoot-connectivity.md#check-your-connection-string)
-- [Problemas de conexión intermitente](sql-data-warehouse-troubleshoot-connectivity.md#intermittent-connection-issues)
-- [Mensajes comunes de error](sql-data-warehouse-troubleshoot-connectivity.md#common-error-messages)
 
 ## <a name="check-service-availability"></a>Comprobación de la disponibilidad del servicio
 

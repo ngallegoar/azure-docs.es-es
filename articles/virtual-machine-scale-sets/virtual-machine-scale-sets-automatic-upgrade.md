@@ -1,18 +1,18 @@
 ---
 title: Actualizaciones automáticas de imágenes del SO con conjuntos de escalado de máquinas virtuales de Azure
 description: Aprenda a actualizar automáticamente la imagen del sistema operativo en instancias de máquina virtual de un conjunto de escalado
-author: mayanknayar
+author: mimckitt
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
-ms.date: 03/18/2020
-ms.author: manayar
-ms.openlocfilehash: 6d550e8e960cb8e212702796467c91d1cd1ebb23
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.author: mimckitt
+ms.openlocfilehash: ee6a25ac5a4cc7de8b8340afb186d170cc147a38
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80235178"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393788"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Actualización automática de imágenes del sistema operativo en un conjunto de escalado de máquinas virtuales de Azure
 
@@ -109,7 +109,7 @@ GET on `/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/M
 Una vez que la característica se ha registrado para su suscripción, complete el proceso de participación mediante la propagación del cambio en el proveedor de recursos de Compute.
 
 ```
-POST on `/subscriptions/{subscriptionId}/providers/Microsoft.Compute/register?api-version=2019-10-01`
+POST on `/subscriptions/{subscriptionId}/providers/Microsoft.Compute/register?api-version=2019-12-01`
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
@@ -168,7 +168,7 @@ Para configurar la actualización automática de las imágenes del sistema opera
 En el ejemplo siguiente se describe cómo establecer las actualizaciones automáticas del sistema operativo en un modelo del conjunto de escalado:
 
 ```
-PUT or PATCH on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet?api-version=2018-10-01`
+PUT or PATCH on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet?api-version=2019-12-01`
 ```
 
 ```json
@@ -247,7 +247,7 @@ Puede comprobar el historial de la actualización más reciente del sistema oper
 En el ejemplo siguiente se usa la [API REST](/rest/api/compute/virtualmachinescalesets/getosupgradehistory) para comprobar el estado del conjunto de escalado denominado *ScaleSet* en el grupo de recursos denominado *myResourceGroup*:
 
 ```
-GET on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/osUpgradeHistory?api-version=2018-10-01`
+GET on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/osUpgradeHistory?api-version=2019-12-01`
 ```
 
 La llamada GET devuelve propiedades similares a la salida del ejemplo siguiente:
@@ -307,7 +307,7 @@ Puede obtener las versiones de las imágenes disponibles para la actualización 
 
 ### <a name="rest-api"></a>API DE REST
 ```
-GET on `/subscriptions/subscription_id/providers/Microsoft.Compute/locations/{location}/publishers/{publisherName}/artifacttypes/vmimage/offers/{offer}/skus/{skus}/versions?api-version=2018-10-01`
+GET on `/subscriptions/subscription_id/providers/Microsoft.Compute/locations/{location}/publishers/{publisherName}/artifacttypes/vmimage/offers/{offer}/skus/{skus}/versions?api-version=2019-12-01`
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
@@ -332,7 +332,7 @@ En casos concretos en los que no desee esperar a que el orquestador aplique la i
 Use la llamada API [Start OS Upgrade](/rest/api/compute/virtualmachinescalesetrollingupgrades/startosupgrade) para iniciar una actualización gradual para mover todas las máquinas virtuales del conjunto de escalado a la versión más reciente disponible del sistema operativo con imagen. Las instancias que ya ejecutan la última versión del sistema operativo disponible no se ven afectadas. En el ejemplo siguiente se detalla cómo empezar una actualización de sistema operativo en un conjunto de escalado denominado *myScaleSet* en el grupo de recursos denominado *myResourceGroup*:
 
 ```
-POST on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/osRollingUpgrade?api-version=2018-10-01`
+POST on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/osRollingUpgrade?api-version=2019-12-01`
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell

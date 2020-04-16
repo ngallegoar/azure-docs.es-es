@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.author: jobreen
 author: jjbfour
 ms.date: 09/16/2019
-ms.openlocfilehash: 88e42fd9626276f6c77b46b33c138407f91d06ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7b7fff913c177703f959bfa103c8e310d01059e2
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75649292"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81391823"
 ---
 # <a name="custom-role-definition-artifact-in-azure-managed-applications"></a>Artefacto de definición de roles personalizada en Azure Managed Applications
 
@@ -20,7 +20,7 @@ En este artículo se proporciona información general sobre el artefacto de defi
 
 ## <a name="custom-role-definition-artifact"></a>Artefacto de definición de roles personalizada
 
-Debe asignar un nombre al artefacto de definición de roles personalizada customRoleDefinition.json. Colóquelo en el mismo nivel que createUiDefinition.json y mainTemplate.json en el paquete .zip que crea una definición de aplicación administrada. Para obtener información sobre cómo crear el paquete .zip y publicar una definición de aplicación administrada, vea [Publicación de una definición de aplicación administrada](publish-managed-app-definition-quickstart.md).
+Debe asignar un nombre al artefacto de definición de roles personalizada customRoleDefinition.json. Colóquelo en el mismo nivel que createUiDefinition.json y mainTemplate.json en el paquete .zip que crea una definición de aplicación administrada. Para obtener información sobre cómo crear el paquete .zip y publicar una definición de aplicación administrada, vea [Publicación de una definición de aplicación administrada](publish-service-catalog-app.md).
 
 ## <a name="custom-role-definition-schema"></a>Esquema de definición de roles personalizada
 

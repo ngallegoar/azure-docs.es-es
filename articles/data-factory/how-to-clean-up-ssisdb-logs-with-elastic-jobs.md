@@ -10,14 +10,16 @@ author: swinarko
 ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
-ms.openlocfilehash: 331a2317f11fbb6f0dd1437a0b41f7ad110a63c7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9d509a40c129cab0f5d2f614c6989f81a928a254
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74928021"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81412910"
 ---
 # <a name="clean-up-ssisdb-logs-with-azure-elastic-database-jobs"></a>Limpieza de los registros de SSISDB con trabajos de Azure Elastic Database
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 En este artículo se describe cómo usar trabajos de Azure Elastic Database para desencadenar el procedimiento almacenado que limpia los registros de la base de datos del catálogo de SQL Server Integration Services, `SSISDB`.
 

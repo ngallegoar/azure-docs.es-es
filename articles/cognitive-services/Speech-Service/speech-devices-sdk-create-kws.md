@@ -3,19 +3,19 @@ title: Creación de palabras clave personalizadas - Servicio de voz
 titleSuffix: Azure Cognitive Services
 description: El dispositivo siempre espera una palabra clave (o frase). Cuando el usuario dice la palabra clave, el dispositivo envía todo el audio subsiguiente a la nube, hasta que el usuario deja de hablar. La personalización de la palabra clave es una forma eficaz de diferenciar el dispositivo y de reforzar la marca.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.author: dapine
-ms.openlocfilehash: 46e9f8e660c3fd62807d630481e6b3057d2351a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: trbye
+ms.openlocfilehash: 8e67d624c77eb838f7646731bbdedd8f97f81b96
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76717014"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81400057"
 ---
 # <a name="create-a-custom-keyword-using-speech-studio"></a>Creación de una palabra clave personalizada mediante Speech Studio
 

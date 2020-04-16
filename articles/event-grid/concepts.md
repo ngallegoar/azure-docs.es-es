@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 0821c749a6cb718e1b8abb74a2925bc041850eaf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 348d82f704b89b97e11a09b8f88e92831901b3bf
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79231344"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393459"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Concepts de Azure Event Grid
 
@@ -35,7 +35,7 @@ Un publicador es el usuario o la organización que decide enviar eventos a Event
 
 Un origen de evento es donde se produce el evento. Cada origen de evento está relacionado con uno o más tipos de eventos. Por ejemplo, Azure Storage es el origen de evento de los eventos creados por blob. IoT Hub es el origen de evento de los eventos creados por dispositivo. La aplicación es el origen de evento de los eventos personalizados que defina. Los orígenes de evento son responsables de enviar eventos a Event Grid.
 
-Para información sobre la implementación de cualquiera de los orígenes de Event Grid admitidos, consulte [Event sources in Azure Event Grid](event-sources.md) (Orígenes de eventos en Azure Event Grid).
+Para información sobre la implementación de cualquiera de los orígenes de Event Grid admitidos, consulte [Event sources in Azure Event Grid](overview.md#event-sources) (Orígenes de eventos en Azure Event Grid).
 
 ## <a name="topics"></a>Temas
 

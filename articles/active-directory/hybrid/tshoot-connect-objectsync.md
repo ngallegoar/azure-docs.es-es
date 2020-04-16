@@ -15,12 +15,12 @@ ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e56d4d94e38e5095ef2223d0cc2875cbf1dcd46
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6e10d00ed90248319801974c7c1e7fadf835024b
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "64919121"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81407018"
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>Solución de problemas de sincronización de objetos con Azure AD Connect Sync
 En este artículo se proporcionan los pasos para solucionar problemas relacionados con la sincronización de objetos mediante la tarea de solución de problemas. Para ver cómo se solucionan problemas en Azure Active Directory (Azure AD) Connect, vea [este breve vídeo](https://aka.ms/AADCTSVideo).
@@ -61,11 +61,6 @@ En el resto de esta sección se describen los resultados concretos que devuelve 
 Cuando el sufijo del identificador de inicio de sesión UserPrincipalName (UPN)/alternativo no se comprueba con el inquilino de Azure AD, Azure Active Directory reemplaza los sufijos de UPN por el nombre de dominio predeterminado "onmicrosoft.com".
 
 ![Azure AD reemplaza a UPN](media/tshoot-connect-objectsync/objsynch2.png)
-
-### <a name="changing-upn-suffix-from-one-federated-domain-to-another-federated-domain"></a>Cambio del sufijo de UPN de un dominio federado a otro
-Azure Active Directory no permite la sincronización del cambio de sufijo del identificador de inicio de sesión UserPrincipalName (UPN)/alternativo de un dominio federado a otro. Esto se aplica a los dominios, que se comprueban con el inquilino de Azure AD y que tienen el tipo de autenticación como federada.
-
-![No hay sincronización UPN de un dominio federado a otro](media/tshoot-connect-objectsync/objsynch3.png) 
 
 ### <a name="azure-ad-tenant-dirsync-feature-synchronizeupnformanagedusers-is-disabled"></a>La característica "SynchronizeUpnForManagedUsers" de DirSync del inquilino de Azure AD está deshabilitada
 Cuando la característica "SynchronizeUpnForManagedUsers" de DirSync del inquilino de Azure AD está deshabilitada, Azure Active Directory no permite actualizaciones de sincronización con el identificador de inicio de sesión UserPrincipalName/alternativo en las cuentas de usuario con licencia con autenticación administrada.

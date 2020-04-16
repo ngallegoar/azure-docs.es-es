@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: seodec18
-ms.openlocfilehash: 433f8fa36f17f7cb145261273586a684658acda5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6f22d5b2140e42f5f4b8ef5787d22b4be399c7e8
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79236084"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81272532"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Habilitar el registro de diagnósticos para las aplicaciones de Azure App Service
 ## <a name="overview"></a>Información general
@@ -188,7 +188,7 @@ En la tabla siguiente se muestran las descripciones y los tipos de registros adm
 | AppServiceHTTPLogs | Sí | Sí | Registros de servidor web |
 | AppServiceEnvironmentPlatformLogs | Sí | Sí | App Service Environment: escalado, cambios de configuración y registros de estado|
 | AppServiceAuditLogs | Sí | Sí | Actividad de inicio de sesión a través de FTP y KUDU |
-| AppServiceFileAuditLogs | TBA | Sí | Cambios de archivos a través de FTP y KUDU |
+| AppServiceFileAuditLogs | Sí | TBD | Cambios de archivos a través de FTP y KUDU |
 | AppServiceAppLogs | TBA | Java SE y Tomcat | Registros de aplicación |
 
 ## <a name="next-steps"></a><a name="nextsteps"></a> Pasos siguientes

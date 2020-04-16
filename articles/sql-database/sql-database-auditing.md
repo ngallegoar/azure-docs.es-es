@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 03/27/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 682735e1189333c2455863b8fde8e57d815111ba
-ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
+ms.openlocfilehash: 4e20129502e7538bd2f3354b75b33095970e1595
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80387706"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81411857"
 ---
 # <a name="azure-sql-auditing"></a>Auditoría de Azure SQL
 
@@ -81,7 +81,7 @@ En la sección siguiente se describe la configuración de auditoría mediante Az
 2. Vaya a **Auditoría** bajo el encabezado Seguridad en el panel de la base de datos/servidor SQL.
 3. Si prefiere configurar una directiva de auditoría de servidor, puede seleccionar el vínculo **Ver configuración del servidor** en la hoja de auditoría de base de datos. Después, puede ver o modificar la configuración de auditoría del servidor. Las directivas de auditoría de servidor se aplican a todas las bases de datos existentes y recién creadas en este servidor.
 
-    ![Panel de navegación][2]
+    ![Panel de navegación](./media/sql-database-auditing-get-started/2_auditing_get_started_server_inherit.png)
 
 4. Si prefiere habilitar la auditoría en el nivel de base de datos, cambie **Auditoría** a **Activado**. Si está habilitada la auditoría del servidor, la auditoría configurada de base de datos se producirá de forma paralela a la auditoría del servidor.
 
@@ -164,7 +164,7 @@ Si eligió escribir los registros de auditoría en una cuenta de almacenamiento 
 
 - Usar [Azure Portal](https://portal.azure.com).  Abra la base de datos pertinente. En la parte superior de la página **Auditoría** de la base de datos, haga clic en **Ver registros de auditoría**.
 
-    ![Panel de navegación][7]
+    ![Panel de navegación](./media/sql-database-auditing-get-started/7_auditing_get_started_blob_view_audit_logs.png)
 
     Se abre la hoja **Registros de auditoría**, desde la que podrá ver los registros.
 
@@ -172,14 +172,14 @@ Si eligió escribir los registros de auditoría en una cuenta de almacenamiento 
   - Puede cambiar entre los registros de auditoría que se crearon con la *directiva de auditoría de servidor* y la *directiva de auditoría de base de datos* alternando **Origen de auditoría**.
   - Para ver solo los registros de auditoría relacionados con la inyección de código SQL, puede activar la casilla **Mostrar solo los registros de auditoría de inyección de código SQL**.
 
-       ![Panel de navegación][8]
+       ![Panel de navegación]( ./media/sql-database-auditing-get-started/8_auditing_get_started_blob_audit_records.png)
 
 - Use la función del sistema **sys.fn_get_audit_file** (T-SQL) para devolver los datos de registro de auditoría en formato tabular. Para más información sobre el uso de esta función, consulte [sys.fn_get_audit_file](/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
 - Use **Combinar archivos de auditoría** en SQL Server Management Studio (a partir de SSMS 17):
     1. En el menú SSMS, seleccione **Archivo** > **Abrir** > **Combinar archivos de auditoría**.
 
-        ![Panel de navegación][9]
+        ![Panel de navegación](./media/sql-database-auditing-get-started/9_auditing_get_started_ssms_1.png)
     2. Se abre el cuadro de diálogo **Agregar archivos de auditoría**. Seleccione una de las opciones **Agregar** para elegir si quiere combinar los archivos de auditoría desde un disco local o importarlos desde Azure Storage. Debe proporcionar los detalles de Azure Storage y la clave de cuenta.
 
     3. Una vez agregados todos los archivos que se van a combinar, haga clic en **Aceptar** para completar la operación de combinación.
@@ -220,10 +220,10 @@ En el entorno de producción, es probable que actualice periódicamente las clav
 
 1. Abra **Detalles de almacenamiento**. En el cuadro **Clave de acceso de almacenamiento**, seleccione **Secundaria** y haga clic en **Aceptar**. Después, haga clic en **Guardar** en la parte superior de la página de configuración de auditoría.
 
-    ![Panel de navegación][5]
+    ![Panel de navegación](./media/sql-database-auditing-get-started/5_auditing_get_started_storage_key_regeneration.png)
 2. Vaya al panel de configuración de almacenamiento y vuelva a generar la clave de acceso principal.
 
-    ![Panel de navegación][6]
+    ![Panel de navegación](./media/sql-database-auditing-get-started/6_auditing_get_started_regenerate_key.png)
 3. Vuelva a la página de configuración de auditoría, cambie el valor de la clave de acceso de almacenamiento de secundaria a principal y haga clic en **Aceptar**. Después, haga clic en **Guardar** en la parte superior de la página de configuración de auditoría.
 4. Vuelva a la página de configuración de almacenamiento y vuelva a generar la clave de acceso secundaria (como preparación para el siguiente ciclo de actualización de claves).
 
@@ -268,15 +268,3 @@ Puede administrar auditorías de Azure SQL Database mediante plantillas de [Azur
 
 > [!NOTE]
 > Los ejemplos vinculados se encuentran en un repositorio público externo y se proporcionan "tal cual", sin ninguna garantía y no se admiten en todos los programas o servicios de soporte técnico de Microsoft.
-
-<!--Image references-->
-[1]: ./media/sql-database-auditing-get-started/1_auditing_get_started_settings.png
-[2]: ./media/sql-database-auditing-get-started/2_auditing_get_started_server_inherit.png
-[3]: ./media/sql-database-auditing-get-started/3_auditing_get_started_turn_on.png
-[4]: ./media/sql-database-auditing-get-started/4_auditing_get_started_storage_details.png
-[5]: ./media/sql-database-auditing-get-started/5_auditing_get_started_storage_key_regeneration.png
-[6]: ./media/sql-database-auditing-get-started/6_auditing_get_started_regenerate_key.png
-[7]: ./media/sql-database-auditing-get-started/7_auditing_get_started_blob_view_audit_logs.png
-[8]: ./media/sql-database-auditing-get-started/8_auditing_get_started_blob_audit_records.png
-[9]: ./media/sql-database-auditing-get-started/9_auditing_get_started_ssms_1.png
-[10]: ./media/sql-database-auditing-get-started/10_auditing_get_started_ssms_2.png 

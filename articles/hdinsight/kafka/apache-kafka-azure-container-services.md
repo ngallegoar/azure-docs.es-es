@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/04/2019
-ms.openlocfilehash: 6abb4f632535f1bda7e9f337f111ba372a624f2b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 55373f71c78b6d45b9c78c52dea61a37b89b4a00
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80239615"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383057"
 ---
 # <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>Usar Azure Kubernetes Service con Apache Kafka en HDInsight
 
@@ -163,7 +163,7 @@ En este momento, Kafka y Azure Kubernetes Service se están comunicando a travé
     * `var topic = 'mytopic'`: reemplace `mytopic` por el nombre del tema de Kafka usado por esta aplicación.
     * `var brokerHost = '176.16.0.13:9092`: reemplace `176.16.0.13` por la dirección IP interna de uno de los hosts agentes del clúster.
 
-        Para encontrar la dirección IP interna de los host agentes (nodos de trabajo) en el clúster, consulte el documento sobre la [API REST de Apache Ambari](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-internal-ip-address-of-cluster-nodes). Seleccione la dirección IP de una de las entradas donde el nombre de dominio comience con `wn`.
+        Para encontrar la dirección IP interna de los host agentes (nodos de trabajo) en el clúster, consulte el documento sobre la [API REST de Apache Ambari](../hdinsight-hadoop-manage-ambari-rest-api.md#get-the-internal-ip-address-of-cluster-nodes). Seleccione la dirección IP de una de las entradas donde el nombre de dominio comience con `wn`.
 
 4. Desde una línea de comandos del directorio `src`, instale dependencias y use Docker para crear una imagen para la implementación:
 

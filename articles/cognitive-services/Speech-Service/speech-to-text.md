@@ -3,19 +3,19 @@ title: 'Conversión de voz en texto: servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: La característica de conversión de voz en texto permite la transcripción en tiempo real de secuencias de audio en texto. Las aplicaciones, las herramientas o los dispositivos pueden consumir y mostrar esta entrada de texto, así como manipularla. Este servicio funciona perfectamente con las características de conversión de texto a voz (síntesis de voz) y de traducción de voz.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.author: dapine
-ms.openlocfilehash: 2854f4e8d91164c8ae1f35761d6f605cae725245
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: trbye
+ms.openlocfilehash: e0aea7e55381e9571b156701699f5f45315bb384
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80052642"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399703"
 ---
 # <a name="what-is-speech-to-text"></a>¿Qué es la conversión de voz a texto?
 

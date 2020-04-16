@@ -3,19 +3,19 @@ title: 'Introducción a Habla personalizada: Servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: Habla personalizada es un conjunto de herramientas en línea que permiten evaluar y mejorar la precisión de la conversión de voz a texto para las aplicaciones, las herramientas y los productos. Para comenzar solo se necesita una serie de archivos de audio de prueba. Siga los vínculos que se incluyen a continuación para empezar a crear una experiencia personalizada de conversión de voz a texto.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.author: dapine
-ms.openlocfilehash: e30587ed4d09ba792516ebc7b16529a6ee5ac57c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: trbye
+ms.openlocfilehash: a52735ee62f564a5dc536fd2b7d3539406388341
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77918961"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81402061"
 ---
 # <a name="what-is-custom-speech"></a>¿Qué es Habla personalizada?
 

@@ -10,14 +10,14 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 02/03/2020
+ms.date: 04/14/2020
 ms.custom: seodec18
-ms.openlocfilehash: ff5f7a80e2dcedb1795bae14ee9140c2842303a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: beefad41a270233336bb9134268c98341e81a7cd
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76984601"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81380803"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autenticación y autorización para la API de Azure Time Series Insights
 
@@ -104,7 +104,7 @@ En esta sección, se describen los encabezados y parámetros comunes de la solic
 
 ### <a name="authentication"></a>Authentication
 
-Para realizar consultas autenticadas en las [API de REST de Time Series Insights](https://docs.microsoft.com/rest/api/time-series-insights/), se debe pasar un token de portador OAuth 2.0 válido en el [Encabezado de autorización](/rest/api/apimanagement/2019-01-01/authorizationserver/createorupdate) mediante un cliente de REST de su elección (Postman, JavaScript, C#). 
+Para realizar consultas autenticadas en las [API de REST de Time Series Insights](https://docs.microsoft.com/rest/api/time-series-insights/), se debe pasar un token de portador OAuth 2.0 válido en el [Encabezado de autorización](/rest/api/apimanagement/2019-12-01/authorizationserver/createorupdate) mediante un cliente de REST de su elección (Postman, JavaScript, C#). 
 
 > [!TIP]
 > Lea la [visualización de muestra del SDK de cliente](https://tsiclientsample.azurewebsites.net/) hospedado de Azure Time Series Insights para aprender a autenticarse con las API de Time Series Insights mediante programación, usando el [SDK de cliente de JavaScript](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) junto con gráficos.

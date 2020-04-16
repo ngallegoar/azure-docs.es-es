@@ -3,19 +3,19 @@ title: Reconocimiento de intenciones a partir de contenido de voz mediante el SD
 titleSuffix: Azure Cognitive Services
 description: En esta guía aprenderá a reconocer intenciones a partir de contenido de voz con el SDK de Voz para C#.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.author: dapine
-ms.openlocfilehash: 5d3c77c307739f9014010a592aa496a1cc83b333
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: trbye
+ms.openlocfilehash: 41ebcb7b44ea88af06a30a611960fd8bb0ceddee
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77120042"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81402216"
 ---
 # <a name="how-to-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Reconocimiento de intenciones a partir de contenido de voz mediante el SDK de Voz para C#
 

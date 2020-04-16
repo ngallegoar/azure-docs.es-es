@@ -1,5 +1,5 @@
 ---
-title: Referencia de token de id. de la plataforma de identidad de Microsoft | Microsoft Docs
+title: Referencia de tokens de id. de la plataforma de identidad de Microsoft
 description: Obtenga información sobre cómo usar los id_tokens emitidos por Azure AD v1.0 y los puntos de conexión de la plataforma de identidad de Microsoft (v2.0).
 services: active-directory
 author: rwike77
@@ -9,16 +9,16 @@ ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/16/2020
-ms.author: ryanwi
+ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.openlocfilehash: 1efd027edb85cabcfdc2a170771ef19182b5c9f8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 23ff71bf24c3acbce3d27276981739305e1d074a
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77160957"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81309554"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Tokens de id. de la plataforma de identidad de Microsoft
 

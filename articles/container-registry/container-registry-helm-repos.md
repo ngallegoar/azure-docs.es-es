@@ -3,12 +3,12 @@ title: Almacenamiento de gráficos de Helm
 description: Información sobre cómo almacenar gráficos de Helm para las aplicaciones de Kubernetes mediante repositorios en Azure Container Registry
 ms.topic: article
 ms.date: 03/20/2020
-ms.openlocfilehash: 6304486ac493e235ed74f26ab4be4f843ef52513
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3f1a68258b758380a66b63e3c3137f1d460d288c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80131477"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399387"
 ---
 # <a name="push-and-pull-helm-charts-to-an-azure-container-registry"></a>Inserción y extracción de gráficos de Helm en Azure Container Registry
 
@@ -77,18 +77,21 @@ helm create hello-world
 Como ejemplo básico, cambie el directorio a la carpeta `templates` y, en primer lugar, elimine el contenido aquí:
 
 ```console
+cd hello-world/templates
 rm -rf *
 ```
 
 En la carpeta `templates`, cree un archivo denominado `configmap.yaml` con el siguiente contenido:
 
-```yml
+```console
+cat <<EOF > configmap.yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:
   name: hello-world-configmap
 data:
   myvalue: "Hello World"
+EOF
 ```
 
 Para más información sobre cómo crear y ejecutar este ejemplo, consulte [Introducción](https://helm.sh/docs/chart_template_guide/getting_started/) en los documentos de Helm.

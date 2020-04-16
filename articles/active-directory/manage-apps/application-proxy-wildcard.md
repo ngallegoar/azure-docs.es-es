@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ad2032497b4b01476389428f5a2ef4a3961a1c7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e17cc4bf6f70901e3bb5d250f0a55f073ad8d99e
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481252"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81406726"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Aplicaciones con comodín en Azure Active Directory Application Proxy
 
@@ -116,7 +116,7 @@ La aplicación con comodín se representa con un solo icono en el [panel MyApps]
 
 ### <a name="kerberos-constrained-delegation"></a>Delegación limitada de Kerberos
 
-Para las aplicaciones que usan la [delegación restringida de Kerberos como método de inicio de sesión único](application-proxy-configure-single-sign-on-with-kcd.md), puede que el nombre de entidad de seguridad de servicio que aparece para el método de inicio de sesión único también necesite un carácter comodín. Por ejemplo, el nombre de entidad de seguridad de servicio podría ser: `HTTP/*.adventure-works.com`. Debe tener los nombres de entidad de seguridad de servicio individuales configurados en los servidores back-end (por ejemplo, `http://expenses.adventure-works.com and HTTP/travel.adventure-works.com`).
+Para las aplicaciones que usan la [delegación restringida de Kerberos como método de inicio de sesión único](application-proxy-configure-single-sign-on-with-kcd.md), puede que el nombre de entidad de seguridad de servicio que aparece para el método de inicio de sesión único también necesite un carácter comodín. Por ejemplo, el nombre de entidad de seguridad de servicio podría ser: `HTTP/*.adventure-works.com`. Debe tener los nombres de entidad de seguridad de servicio individuales configurados en los servidores back-end (por ejemplo, `HTTP/expenses.adventure-works.com and HTTP/travel.adventure-works.com`).
 
 ## <a name="scenario-1-general-wildcard-application"></a>Escenario 1: aplicación con comodín general
 

@@ -3,23 +3,62 @@ title: Despliegue de plantillas hipotéticas (Vista previa)
 description: Determine los cambios que se producirán en los recursos antes de implementar una plantilla de Azure Resource Manager.
 author: mumian
 ms.topic: conceptual
-ms.date: 03/05/2020
+ms.date: 04/09/2020
 ms.author: jgao
-ms.openlocfilehash: b9d4150779842614a5dc284a2b3a489593fabfe1
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: b8e94d0b4f364e2873dfc21792a67f11c33483bf
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78388539"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010196"
 ---
-# <a name="resource-manager-template-deployment-what-if-operation-preview"></a>Operación hipotética de la implementación de plantilla al Administrador de recursos (vista previa)
+# <a name="arm-template-deployment-what-if-operation-preview"></a>Operación hipotética de la implementación de plantilla de Resource Manager (vista previa)
 
-Antes de implementar una plantilla, es posible que desee obtener una vista previa de los cambios que se producirán. Azure Resource Manager proporciona la operación hipotética que le permite ver cómo cambiarán los recursos si implementa la plantilla. La operación hipotética no realiza ningún cambio en los recursos existentes. En su lugar, predice los cambios si se implementa la plantilla especificada.
+Antes de implementar una plantilla de Azure Resource Manager, es posible que desee obtener una vista previa de los cambios que se producirán. Azure Resource Manager proporciona la operación hipotética que le permite ver cómo cambiarán los recursos si implementa la plantilla. La operación hipotética no realiza ningún cambio en los recursos existentes. En su lugar, predice los cambios si se implementa la plantilla especificada.
 
 > [!NOTE]
-> La operación hipotética se encuentra actualmente en versión preliminar. Para usarlo, debe [registrarse en la versión preliminar](https://aka.ms/armtemplatepreviews). Como versión preliminar, los resultados a veces pueden mostrar que un recurso cambiará cuando realmente no se produzca ningún cambio. Trabajamos para reducir estos problemas, pero necesitamos su ayuda. Informe de estos problemas en [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
+> La operación hipotética se encuentra actualmente en versión preliminar. Como versión preliminar, los resultados a veces pueden mostrar que un recurso cambiará cuando realmente no se produzca ningún cambio. Trabajamos para reducir estos problemas, pero necesitamos su ayuda. Informe de estos problemas en [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
 
 Puede usar la operación what-if con los comandos de PowerShell o las operaciones de la API REST.
+
+## <a name="install-powershell-module"></a>Instalación del módulo de PowerShell
+
+Para usar hipótesis en PowerShell, instale una versión preliminar del módulo Az.Resources de la galería de PowerShell.
+
+### <a name="install-preview-version"></a>Instalación de la versión preliminar
+
+Para instalar el módulo de versión preliminar, use lo siguiente:
+
+```powershell
+Install-Module Az.Resources -RequiredVersion 1.12.1-preview -AllowPrerelease
+```
+
+### <a name="uninstall-alpha-version"></a>Desinstalación de la versión alfa
+
+Si previamente ha instalado una versión alfa del módulo de hipótesis, desinstale ese módulo. La versión alfa solo estaba disponible para los usuarios que se suscribieron para obtener una versión preliminar anticipada. Si no instaló dicha versión preliminar, puede omitir esta sección.
+
+1. Ejecute PowerShell como administrador.
+1. Compruebe las versiones instaladas del módulo Az.Resources.
+
+   ```powershell
+   Get-InstalledModule -Name Az.Resources -AllVersions | select Name,Version
+   ```
+
+1. Si tiene una versión instalada con un número de versión con el formato **2.x.x-alpha**, desinstale esa versión.
+
+   ```powershell
+   Uninstall-Module Az.Resources -RequiredVersion 2.0.1-alpha5 -AllowPrerelease
+   ```
+
+1. Anule el registro del repositorio de hipótesis que usó para instalar la versión preliminar.
+
+   ```powershell
+   Unregister-PSRepository -Name WhatIfRepository
+   ```
+
+Está listo para usar hipótesis.
+
+## <a name="see-results"></a>Ver los resultados
 
 En PowerShell, la salida incluye resultados codificados por colores que le ayudarán a apreciar los distintos tipos de cambios.
 
@@ -72,11 +111,8 @@ O bien, puede usar el parámetro de modificador `-Confirm` para obtener una vist
 
 Los comandos anteriores devuelven un resumen de texto que puede inspeccionar manualmente. Para obtener un objeto en el que pueda inspeccionar los cambios mediante programación, use:
 
-* `$results = Get-AzResourceGroupDeploymentWhatIf` para implementaciones de grupos de recursos
-* `$results = Get-AzSubscriptionDeploymentWhatIf` o `$results = Get-AzDeploymentWhatIf` para implementaciones de nivel de suscripción
-
-> [!NOTE]
-> Antes del lanzamiento de la versión 2.0.1-alpha5, usó el comando `New-AzDeploymentWhatIf`. Este comando se ha reemplazado por los comandos `Get-AzDeploymentWhatIf`, `Get-AzResourceGroupDeploymentWhatIf` y `Get-AzSubscriptionDeploymentWhatIf`. Si ha usado una versión anterior, debe actualizar esa sintaxis. El parámetro `-ScopeType` se ha quitado.
+* `$results = Get-AzResourceGroupDeploymentWhatIfResult` para implementaciones de grupos de recursos
+* `$results = Get-AzSubscriptionDeploymentWhatIfResult` o `$results = Get-AzDeploymentWhatIfResult` para implementaciones de nivel de suscripción
 
 ### <a name="azure-rest-api"></a>API REST de Azure
 
@@ -223,7 +259,7 @@ Algunas de las propiedades que se enumeran como eliminadas no cambiarán realmen
 Ahora, vamos a establecer el comando en una variable para evaluar mediante programación los resultados de what-if.
 
 ```azurepowershell
-$results = Get-AzResourceGroupDeploymentWhatIf `
+$results = Get-AzResourceGroupDeploymentWhatIfResult `
   -ResourceGroupName ExampleGroup `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/what-if/what-if-after.json"
 ```
@@ -287,5 +323,5 @@ Verá los cambios esperados y puede confirmar que desea que se ejecute la implem
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Si observa resultados incorrectos de la versión preliminar de what-if, informe de los problemas en [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
-- Para implementar plantillas con Azure PowerShell, consulte [Implementar recursos con plantillas del Administrador de recursos y Azure PowerShell](deploy-powershell.md).
-- Para implementar plantillas con REST, consulte [Implementación de recursos con plantillas del Administrador de recursos y Administrador de recursos API de REST](deploy-rest.md).
+- Para implementar plantillas con Azure PowerShell, consulte [Implementar recursos con plantillas de Resource Manager y Azure PowerShell](deploy-powershell.md).
+- Para implementar plantillas con REST, consulte [Implementación de recursos con plantillas de Resource Manager y Administrador de recursos API de REST](deploy-rest.md).

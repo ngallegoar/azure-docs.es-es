@@ -12,12 +12,12 @@ ms.date: 11/26/2019
 ms.author: hahamil
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 5c8bd5accefceee042601c3cf7d71f5e9131e04e
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: b899e1d651f41c9c1e1e54af1b5ec19162dfc28d
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80880829"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81380059"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-from-an-android-application"></a>Tutorial: Inicio de sesión de usuarios y llamada a Microsoft Graph desde una aplicación Android 
 
@@ -91,7 +91,7 @@ Si aún no tiene una aplicación Android, siga estos pasos para configurar un nu
 
 1. En el panel del proyecto de Android Studio, vaya a **app\src\main\res**.
 2. Haga clic con el botón derecho en **res** y elija **New** > **Directory** (Nuevo > Directorio). Escriba `raw` como el nombre del nuevo directorio y haga clic en **OK** (Aceptar).
-3. En **app** > **src** > **main** > **res** > **raw**, cree un nuevo archivo JSON llamado `auth_configbn_single_account.json` y pegue la configuración de MSAL que guardó anteriormente. 
+3. En **app** > **src** > **main** > **res** > **raw**, cree un nuevo archivo JSON llamado `auth_config_single_account.json` y pegue la configuración de MSAL que guardó anteriormente. 
 
     Debajo del identificador URI de redirección, pegue: 
     ```json
@@ -190,7 +190,7 @@ import com.microsoft.identity.client.exception.*;
 ## <a name="instantiate-publicclientapplication"></a>Creación de instancia de PublicClientApplication
 #### <a name="initialize-variables"></a>Inicialización de variables 
 ```java
-private final static String[] SCOPES = {"File.Read"};
+private final static String[] SCOPES = {"Files.Read"};
 /* Azure AD v2 Configs */
 final static String AUTHORITY = "https://login.microsoftonline.com/common";
 private ISingleAccountPublicClientApplication mSingleAccountApp;
@@ -583,8 +583,3 @@ Cuando ya no lo necesite, elimine el objeto de aplicación que creó en el paso 
 ## <a name="get-help"></a>Obtener ayuda
 
 Visite [Ayuda y soporte técnico](https://docs.microsoft.com/azure/active-directory/develop/developer-support-help-options) si tienes algún problema con este tutorial o con la plataforma de identidad de Microsoft.
-
-Ayúdenos a mejorar la Plataforma de identidad de Microsoft. Rellene una breve encuesta de dos preguntas y háganos saber su opinión.
-
-> [!div class="nextstepaction"]
-> [Encuesta sobre la Plataforma de identidad de Microsoft](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

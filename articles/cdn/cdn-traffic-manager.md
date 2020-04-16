@@ -3,7 +3,7 @@ title: Configuración de la conmutación por error entre varios puntos de conexi
 description: Obtenga información sobre cómo configurar Azure Traffic Manager con puntos de conexión de Azure CDN.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
-ms.author: magattus
+ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: de91f61385942db077bc98721eabe9f3f0b8624c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3d4f77a0fb9b8005729a6e9d35f254eb522b690e
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74082998"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81259857"
 ---
 # <a name="set-up-failover-across-multiple-azure-cdn-endpoints-with-azure-traffic-manager"></a>Configurar la conmutación por error entre varios puntos de conexión de Azure CDN con Azure Traffic Manager
 
@@ -82,7 +82,7 @@ Después de configurar los perfiles de CDN y Traffic Manager, siga estos pasos p
     Azure CDN usa el subdominio *cdnverify* para validar la asignación de DNS para completar este proceso de registro. Para más información, consulte [Creación de un registro DNS de CNAME](cdn-map-content-to-custom-domain.md#create-a-cname-dns-record). En este paso se habilita a Azure CDN para que reconozca el dominio personalizado de modo que pueda responder a sus solicitudes.
     
     > [!NOTE]
-    > Para habilitar SSL en una instancia de **Azure CDN desde perfiles de Akamai**, debe aplicar directamente cname de dominio personalizado al punto de conexión. cdnverify para habilitar SSL aún no se admite. 
+    > Para habilitar TLS en una instancia de **Azure CDN desde perfiles de Akamai**, debe aplicar directamente cname de dominio personalizado al punto de conexión. cdnverify para habilitar TLS aún no se admite. 
     >
 
 3.  Vuelva al sitio web para el proveedor del dominio personalizado y actualice la primera asignación de DNS que creó para que el dominio personalizado se asigne al segundo punto de conexión de CDN.

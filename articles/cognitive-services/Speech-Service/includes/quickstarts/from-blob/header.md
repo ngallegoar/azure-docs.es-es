@@ -3,20 +3,20 @@ title: 'Inicio rápido: Reconocimiento de la voz almacenada en Blob Storage: ser
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 03/13/2020
-ms.author: dapine
+ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 567d8cec10543f233a384635daba1474b41bde9b
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: 514d1197c5e6d0f4c0f38faf24c6c2522d489820
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80573231"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81400894"
 ---
 En este inicio rápido, usará una API REST para reconocer la voz de los archivos en un proceso por lotes. Un proceso por lotes ejecuta la transcripción de voz sin ninguna interacción del usuario. Proporciona un modelo de programación simple, sin necesidad de administrar la simultaneidad, los modelos de voz personalizados u otros detalles. Conlleva opciones de control avanzadas, a la vez que se realiza un uso eficaz de los recursos del servicio de voz de Azure.
 

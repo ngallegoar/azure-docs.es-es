@@ -3,19 +3,19 @@ title: 'Direct Line Speech: servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: Introducción a las características, las funcionalidades y las restricciones de los asistentes de voz mediante Direct Line Speech con el kit de desarrollo de software (SDK) de Voz.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.author: dapine
-ms.openlocfilehash: 714cdefa7100160a510d1922a2547ae53692d76c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: trbye
+ms.openlocfilehash: 6dc125b68af8f9a07731aaae9d858c19c51f934f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79367812"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81402386"
 ---
 # <a name="what-is-direct-line-speech"></a>¿Qué es Direct Line Speech?
 

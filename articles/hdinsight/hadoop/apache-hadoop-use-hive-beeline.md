@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: 77a451cb9f6598bbe7013f4215cfa7cab40186bd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 426294f20dd51538920182a0e7a2915f6a47ba54
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79037540"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383555"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Usar el cliente de Apache Beeline con Apache Hive
 
@@ -40,8 +40,7 @@ Si se conecta desde un cliente a HDInsight a través de una instancia de Azure V
 beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
 ```
 
-Reemplace `<headnode-FQDN>` por el nombre de dominio completo de un nodo principal primario. Para buscar el nombre de dominio completo de un nodo principal, use la información del documento [Administración de clústeres de HDInsight con la API REST de Apache Ambari](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes).
-
+<a name="replace-headnode-fqdn-with-the-fully-qualified-domain-name-of-a-cluster-headnode-to-find-the-fully-qualified-domain-name-of-a-headnode-use-the-information-in-the-manage-hdinsight-using-the-apache-ambari-rest-api-document"></a>Reemplace `<headnode-FQDN>` por el nombre de dominio completo de un nodo principal primario. Para buscar el nombre de dominio completo de un nodo principal, use la información del documento [Administración de clústeres de HDInsight con la API REST de Apache Ambari](../hdinsight-hadoop-manage-ambari-rest-api.md#get-the-fqdn-of-cluster-nodes).
 ---
 
 ### <a name="to-hdinsight-enterprise-security-package-esp-cluster-using-kerberos"></a>Al clúster de Enterprise Security Package (ESP) de HDInsight mediante Kerberos
@@ -65,7 +64,7 @@ Para buscar la dirección URL de JDBC desde Ambari:
 
 ### <a name="over-public-or-private-endpoints"></a>A través de puntos de conexión públicos o privados
 
-Al conectarse a un clúster mediante los puntos de conexión públicos o privados, debe proporcionar el nombre de la cuenta de inicio de sesión (valor predeterminado `admin`) y la contraseña del clúster. Por ejemplo, al usar Beeline desde un sistema cliente para conectarse a la dirección `clustername.azurehdinsight.net`. Esta conexión se realiza a través del puerto `443` y se cifra mediante SSL.
+Al conectarse a un clúster mediante los puntos de conexión públicos o privados, debe proporcionar el nombre de la cuenta de inicio de sesión (valor predeterminado `admin`) y la contraseña del clúster. Por ejemplo, al usar Beeline desde un sistema cliente para conectarse a la dirección `clustername.azurehdinsight.net`. Esta conexión se realiza a través del puerto `443` y se cifra mediante TLS/SSL.
 
 Reemplace `clustername` por el nombre del clúster de HDInsight. Reemplace `admin` por la cuenta de inicio de sesión del clúster. Para los clústeres de ESP, use el UPN completo (por ejemplo, user@domain.com). Reemplace `password` por la contraseña de la cuenta de inicio de sesión del clúster.
 
