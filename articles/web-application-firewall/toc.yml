@@ -22,6 +22,7 @@
   expanded: true
   items:
     - name: Application Gateway
+      expanded: true
       items:
         - name: 'Implementación de WAF v2: plantilla de Resource Manager'
           displayName: Resource Manager

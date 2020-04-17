@@ -40,6 +40,8 @@
           href: ../../key-vault/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Load Balancer
           href: ../../load-balancer/quickstart-load-balancer-standard-public-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: Aplicación administrada
+          href: ../managed-applications/publish-service-catalog-app.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Directiva
           href: ../../governance/policy/assign-policy-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Mensajería de Service Bus
@@ -50,6 +52,8 @@
           href: ../../virtual-machine-scale-sets/quick-create-template-linux.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: 'Conjuntos de escalado de máquinas virtuales: Windows'
           href: ../../virtual-machine-scale-sets/quick-create-template-windows.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: Firewall de aplicaciones web
+          href: ../../web-application-firewall/ag/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
 - name: Tutoriales
   items:
     - name: Plantillas para principiantes
