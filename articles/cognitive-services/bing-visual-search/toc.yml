@@ -80,7 +80,7 @@
       maintainContext: true
 - name: Recursos
   items:
-    - name: Compatibilidad de idioma y región
+    - name: Compatibilidad con idiomas
       href: language-support.md
     - name: Obtener clave de acceso gratis
       href: 'https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api'
