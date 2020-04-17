@@ -3,12 +3,12 @@ title: Ejemplo de plano técnico de la norma ISO 27001 sobre servicios compartid
 description: Introducción y arquitectura del ejemplo de plano técnico de la norma ISO 27001 sobre servicios compartidos. Este ejemplo de plano técnico de ejemplo ayuda a los clientes a evaluar determinados controles concretos de la norma ISO 27001.
 ms.date: 04/15/2020
 ms.topic: sample
-ms.openlocfilehash: 9b0b49582023ee5c68fea0f21b70290a102a038a
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 5a18af942e1d1088b681712f7035f57d354ecb19
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81381566"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458461"
 ---
 # <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>Introducción al ejemplo de plano técnico de la norma ISO 27001 sobre servicios compartidos
 
@@ -34,7 +34,7 @@ Este entorno se compone de varios servicios de Azure que se usan para proporcion
   - Un jumpbox o un host de tipo bastión que se usa con fines de administración y al que solo se puede acceder a través de una instancia de [Azure Firewall](../../../../firewall/overview.md) implementada en la subred de la pila de entrada.
   - Dos máquinas virtuales que ejecutan Active Directory Domain Services (ADDS) y un sistema de nombres de dominio al que solo se puede acceder mediante el jumpbox, y que únicamente se puede configurar para que replique AD en una conexión VPN o de [ExpressRoute](../../../../expressroute/expressroute-introduction.md) (que el plano técnico no implementa).
   - Uso de [Azure Net Watcher](../../../../network-watcher/network-watcher-monitoring-overview.md) y protección contra DDoS estándar
-- Una instancia de [Azure Key Vault](../../../../key-vault/key-vault-overview.md) utilizada para hospedar los secretos empleados por las máquinas virtuales implementadas en el entorno de servicios compartidos
+- Una instancia de [Azure Key Vault](../../../../key-vault/general/overview.md) utilizada para hospedar los secretos empleados por las máquinas virtuales implementadas en el entorno de servicios compartidos
 
 Todos estos elementos se atienen a los procedimientos probados que se publicaron en [Centro de arquitectura de Azure: Arquitecturas de referencia](/azure/architecture/reference-architectures/).
 
