@@ -3,12 +3,12 @@ title: Ejemplo de plano técnico de la zona de aterrizaje de la migración de CA
 description: Introducción y arquitectura del ejemplo de plano técnico de la zona de aterrizaje de la migración de Cloud Adoption Framework (CAF) para Azure.
 ms.date: 04/15/2020
 ms.topic: sample
-ms.openlocfilehash: d0328a590d86677e098504a7498a696697fc38c8
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: c4720ec3e94ee928553cd62017831e5158ac9b97
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383546"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81459872"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-migration-landing-zone-blueprint-sample"></a>Introducción al ejemplo de plano técnico de la zona de aterrizaje de migración de Microsoft Cloud Adoption Framework para Azure
 
@@ -24,7 +24,7 @@ El ejemplo de plano técnico de la zona de aterrizaje de migración de CAF imple
 
 Este entorno se compone de varios servicios de Azure que se usan para proporcionar una gobernanza segura, totalmente supervisada y preparada para la empresa. Este entorno se compone de:
 
-- Una instancia de [Azure Key Vault](../../../../key-vault/key-vault-overview.md) utilizada para hospedar los secretos empleados por los certificados, las claves y los secretos implementados en el entorno de servicios compartidos
+- Una instancia de [Azure Key Vault](../../../../key-vault/general/overview.md) utilizada para hospedar los secretos empleados por los certificados, las claves y los secretos implementados en el entorno de servicios compartidos
 - La implementación de [Log Analytics](../../../../azure-monitor/overview.md), que se realiza para garantizar que todas las acciones y servicios se registran en una ubicación central desde el momento en que empieza la migración
 - La implementación de [Azure Security Center](../../../../security-center/security-center-intro.md) (versión estándar), que proporciona protección contra amenazas para las cargas de trabajo migradas
 - La implementación de [Azure Virtual Network](../../../../virtual-network/virtual-networks-overview.md), que proporciona tanto redes como subredes aisladas para la máquina virtual

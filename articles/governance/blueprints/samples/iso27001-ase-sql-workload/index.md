@@ -3,12 +3,12 @@ title: Ejemplo de plano técnico para cargas de trabajo de ASE y SQL compatibles
 description: Introducción y arquitectura del ejemplo de plano técnico para cargas de trabajo de App Service Environment y SQL Database compatibles con ISO 27001.
 ms.date: 01/13/2020
 ms.topic: sample
-ms.openlocfilehash: 9957ab1bef5b65fc90b5a357bd56d6f0013ea690
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 834096ec529673bae1728877310ba7153ae94cb3
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81381744"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460586"
 ---
 # <a name="overview-of-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Introducción a un ejemplo de plano técnico para cargas de trabajo de App Service Environment y SQL Database compatibles con ISO 27001
 
@@ -32,7 +32,7 @@ Este entorno se compone de varios servicios de Azure que se usan para proporcion
 - [Directivas de Azure](../../../policy/overview.md) para bloquear los servicios que se pueden implementar en el entorno y denegar la creación de cualquier recurso de dirección IP pública (PIP)
 - Una red virtual que contiene una única subred y que está emparejada a un entorno de [servicios compartidos](../iso27001-shared/index.md) que existe con anterioridad y que obliga a que todo el tráfico pase a través del firewall de los [servicios compartidos](../iso27001-shared/index.md). La red virtual hospeda los recursos siguientes:
   - Una instancia de [Azure App Service Environment](../../../../app-service/environment/intro.md) que se puede utilizar para hospedar una o varias aplicaciones web, API web o funciones.
-  - Una instancia de [Azure Key Vault](../../../../key-vault/key-vault-overview.md) que usa un punto de conexión de servicio de red virtual para almacenar los secretos que usan las aplicaciones que se ejecutan en el entorno de la carga de trabajo.
+  - Una instancia de [Azure Key Vault](../../../../key-vault/general/overview.md) que usa un punto de conexión de servicio de red virtual para almacenar los secretos que usan las aplicaciones que se ejecutan en el entorno de la carga de trabajo.
   - Una instancia de servidor de [Azure SQL Database](../../../../sql-database/sql-database-technical-overview.md) que usa un punto de conexión de servicio de red virtual para hospedar las bases de datos que usan las aplicaciones en el entorno de la carga de trabajo.
 
 ## <a name="next-steps"></a>Pasos siguientes
