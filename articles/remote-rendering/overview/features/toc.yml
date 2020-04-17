@@ -1,5 +1,7 @@
 - name: Corte de planos
   href: cut-planes.md
+- name: Depuración de representación
+  href: debug-rendering.md
 - name: Invalidación de estado jerárquico
   href: override-hierarchical-state.md
 - name: Reproyección de fase tardía

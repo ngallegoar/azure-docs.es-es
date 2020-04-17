@@ -4,9 +4,11 @@
   href: regions.md
 - name: Requisitos de red
   href: network-requirements.md
-- name: límites
+- name: Limitaciones
   href: limits.md
-- name: Repositorio arrClient (GitHub)
-  href: 'https://dev.azure.com/arrClient/arrClient/_git/arrClient'
+- name: Repositorio de ejemplos de Remote Rendering (GitHub)
+  href: 'https://github.com/Azure/azure-remote-rendering'
 - name: API REST de administración de recursos de Azure Mixed Reality
   href: 'https://docs.microsoft.com/rest/api/mixedreality/'
+- name: 'Documentación de la API de C#'
+  href: 'https://docs.microsoft.com/dotnet/api/Microsoft.Azure.RemoteRendering'

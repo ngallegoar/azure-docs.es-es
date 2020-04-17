@@ -129,7 +129,7 @@
       maintainContext: true
     - name: Modos de orquestación
       href: orchestration-modes.md
-    - name: Almacenamiento en disco
+    - name: Disk Storage
       items:
         - name: Managed Disks
           href: ../virtual-machines/windows/managed-disks-overview.md
@@ -252,7 +252,7 @@
           href: virtual-machine-scale-sets-networking.md
         - name: Actualizaciones automáticas del sistema operativo
           href: virtual-machine-scale-sets-automatic-upgrade.md
-        - name: Reparaciones de instancias automáticas (versión preliminar)
+        - name: Reparaciones de instancias automáticas
           href: virtual-machine-scale-sets-automatic-instance-repairs.md
         - name: Protección de instancias
           href: virtual-machine-scale-sets-instance-protection.md

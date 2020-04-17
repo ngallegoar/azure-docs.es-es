@@ -50,6 +50,8 @@
           href: class-type-jupyter-notebook.md
         - name: Desarrollo de aplicaciones móviles con Android Studio
           href: class-type-mobile-dev-android-studio.md
+        - name: Análisis de macrodatos
+          href: class-type-big-data-analytics.md
     - name: Creación y configuración de cuentas de laboratorio (propietario de la cuenta de laboratorio)
       items:
         - name: Creación y administración de cuentas de laboratorio

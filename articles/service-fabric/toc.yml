@@ -133,6 +133,8 @@
           href: service-fabric-cluster-security.md
         - name: Controles de seguridad integrados
           href: service-fabric-security-controls.md
+        - name: Autenticación basada en certificados en Service Fabric
+          href: cluster-security-certificates.md
     - name: Terminología
       href: service-fabric-technical-overview.md
     - name: Creación de aplicaciones
@@ -145,6 +147,8 @@
               href: service-fabric-containers-overview.md
             - name: Docker Compose (versión preliminar)
               href: service-fabric-docker-compose.md
+            - name: Probes
+              href: probes-codepackage.md
         - name: Reliable Services
           items:
             - name: Información general sobre Reliable Services
@@ -264,6 +268,10 @@
               href: service-fabric-backup-restore-service-trigger-restore.md
             - name: Copia de seguridad a petición de partición
               href: service-fabric-backup-restore-service-ondemand-backup.md
+        - name: Inicializador CodePackages
+          href: initializer-codepackages.md
+        - name: RunToCompletion
+          href: run-to-completion.md
     - name: Clústeres
       items:
         - name: Introducción a los clústeres
@@ -316,6 +324,8 @@
               href: service-fabric-cluster-resource-manager-defragmentation-metrics.md
             - name: Equilibrado de un clúster
               href: service-fabric-cluster-resource-manager-balancing.md
+            - name: Agrupación en subclústeres
+              href: cluster-resource-manager-subclustering.md
             - name: Limitaciones
               href: service-fabric-cluster-resource-manager-advanced-throttling.md
             - name: Movimiento de servicio
@@ -354,7 +364,7 @@
       href: service-fabric-api-management-overview.md
     - name: Modelo de recursos de aplicación
       href: service-fabric-concept-resource-model.md
-    - name: Identidad administrada (versión preliminar)
+    - name: Identidad administrada
       href: concepts-managed-identity.md
     - name: Configuración de las credenciales del repositorio del contenedor
       href: configure-container-repository-credentials.md
@@ -751,7 +761,7 @@
           href: service-fabric-reverse-proxy-diagnostics.md
         - name: Solución de problemas de un clúster local
           href: service-fabric-troubleshoot-local-cluster-setup.md
-    - name: Uso de Identidad administrada para aplicaciones de Service Fabric (versión preliminar)
+    - name: Uso de Identidad administrada para aplicaciones de Service Fabric
       items:
         - name: Configuración del clúster
           items:

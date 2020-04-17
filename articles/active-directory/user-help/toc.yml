@@ -24,6 +24,10 @@
       href: active-directory-passwords-reset-register.md
     - name: Restablecimiento de la contraseña
       href: active-directory-passwords-update-your-own-password.md
+- name: Ayuda del portal de Mi personal
+  items:
+    - name: Administración de usuarios de Mi personal
+      href: my-staff-team-manager.md
 - name: Ayuda de la aplicación Microsoft Authenticator
   items:
     - name: ¿Qué es la aplicación Microsoft Authenticator?
@@ -74,6 +78,8 @@
           href: security-info-setup-text-msg.md
         - name: Configuración de llamadas telefónicas
           href: security-info-setup-phone-number.md
+        - name: Configuración del inicio de sesión de SMS
+          href: sms-sign-in-explainer.md
         - name: Configuración de claves de seguridad
           href: security-info-setup-security-key.md
         - name: Configuración del correo electrónico

@@ -22,44 +22,38 @@
   items:
     - name: Métodos de autenticación
       href: concept-authentication-methods.md
-    - name: Autenticación sin contraseñas
-      href: concept-authentication-passwordless.md
-    - name: Registro de información de seguridad
-      href: concept-registration-mfa-sspr-combined.md
-    - name: Restablecimiento de contraseña
+    - name: Restablecimiento de la contraseña de autoservicio
       items:
         - name: Funcionamiento del restablecimiento de contraseñas
           href: concept-sspr-howitworks.md
-        - name: Opciones de restablecimiento de contraseña
-          href: concept-sspr-customization.md
-        - name: Directivas de restablecimiento de contraseña
-          href: concept-sspr-policy.md
-        - name: ¿Qué licencia necesito?
-          href: concept-sspr-licensing.md
         - name: Integración local
           href: concept-sspr-writeback.md
+        - name: Directivas
+          href: concept-sspr-policy.md
+        - name: Licencias
+          href: concept-sspr-licensing.md
     - name: Multi-Factor Authentication
       items:
         - name: Funcionamiento de Multi-Factor Authentication
           href: concept-mfa-howitworks.md
-        - name: Concesión de licencias a sus usuarios
-          href: concept-mfa-licensing.md
-        - name: Administración de un proveedor de autenticación
-          href: concept-mfa-authprovider.md
-        - name: Guía de seguridad
-          href: multi-factor-authentication-security-best-practices.md
         - name: Residencia de datos
           href: concept-mfa-data-residency.md
+        - name: Licencias
+          href: concept-mfa-licensing.md
         - name: Multi-Factor Authentication para Office 365
           href: 'https://docs.microsoft.com/office365/admin/security-and-compliance/set-up-multi-factor-authentication?view=o365-worldwide'
-        - name: Preguntas frecuentes sobre Multi-Factor Authentication
+        - name: Preguntas más frecuentes
           href: multi-factor-authentication-faq.md
-    - name: Protección de contraseñas de Azure AD
+    - name: Autenticación sin contraseñas
+      href: concept-authentication-passwordless.md
+    - name: Protección con contraseña
       items:
         - name: Eliminación de contraseñas no seguras en la nube
           href: concept-password-ban-bad.md
         - name: Eliminación de contraseñas no seguras en dispositivos locales
           href: concept-password-ban-bad-on-premises.md
+    - name: Registro de información de seguridad
+      href: concept-registration-mfa-sspr-combined.md
     - name: Controles de acceso resistentes
       href: concept-resilient-controls.md
 - name: Guías paso a paso
@@ -68,20 +62,24 @@
       items:
         - name: Guía de implementación
           href: howto-sspr-deployment.md
+        - name: Opciones de personalización de usuario
+          href: howto-sspr-customization.md
         - name: Registro previo de los datos de autenticación
           href: howto-sspr-authenticationdata.md
         - name: SSPR para clientes Windows
           href: howto-sspr-windows.md
-    - name: Multi-Factor Authentication basado en la nube
+    - name: Azure Multi-Factor Authentication
       items:
         - name: Guía de implementación
           href: howto-mfa-getstarted.md
-        - name: Multi-Factor Authentication por usuario
-          href: howto-mfa-userstates.md
-        - name: Configuración de usuario y de dispositivo
-          href: howto-mfa-userdevicesettings.md
         - name: Definición de configuración
           href: howto-mfa-mfasettings.md
+        - name: Configuración de usuarios
+          href: howto-mfa-userdevicesettings.md
+        - name: Habilitación de Multi-Factor Authentication por usuario
+          href: howto-mfa-userstates.md
+        - name: Configuración de proveedores de autenticación
+          href: concept-mfa-authprovider.md
         - name: Federación de directorios
           items:
             - name: Adaptador de AD FS para Windows Server 2016
@@ -102,28 +100,6 @@
               href: howto-mfa-nps-extension-rdg.md
             - name: VPN
               href: howto-mfa-nps-extension-vpn.md
-    - name: Registro de información de seguridad
-      items:
-        - name: Habilitar registro combinado
-          href: howto-registration-mfa-sspr-combined.md
-        - name: Solución de problemas de registro combinado
-          href: howto-registration-mfa-sspr-combined-troubleshoot.md
-    - name: Protección de contraseñas de Azure AD
-      items:
-        - name: Planeación e implementación locales
-          href: howto-password-ban-bad-on-premises-deploy.md
-        - name: Habilitación y configuración locales
-          href: howto-password-ban-bad-on-premises-operations.md
-        - name: Supervisión de implementaciones locales
-          href: howto-password-ban-bad-on-premises-monitor.md
-        - name: Solución de problemas de implementaciones locales
-          href: howto-password-ban-bad-on-premises-troubleshoot.md
-        - name: Preguntas frecuentes sobre el entorno local
-          href: howto-password-ban-bad-on-premises-faq.md
-        - name: Historial de versiones del agente local
-          href: howto-password-ban-bad-on-premises-agent-versions.md
-    - name: Bloqueo inteligente de Azure AD
-      href: howto-password-smart-lockout.md
     - name: Inicio de sesión sin contraseña
       items:
         - name: Implementación sin contraseña
@@ -140,14 +116,38 @@
           href: howto-authentication-passwordless-phone.md
         - name: Windows Hello para empresas
           href: 'https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification'
+    - name: Registro de información de seguridad
+      items:
+        - name: Habilitar registro combinado
+          href: howto-registration-mfa-sspr-combined.md
+        - name: Solución de problemas de registro combinado
+          href: howto-registration-mfa-sspr-combined-troubleshoot.md
+    - name: Protección con contraseña local
+      items:
+        - name: Planeamiento e implementación
+          href: howto-password-ban-bad-on-premises-deploy.md
+        - name: Habilitación y configuración
+          href: howto-password-ban-bad-on-premises-operations.md
+        - name: Supervisión
+          href: howto-password-ban-bad-on-premises-monitor.md
+        - name: Solución de problemas
+          href: howto-password-ban-bad-on-premises-troubleshoot.md
+        - name: Preguntas más frecuentes
+          href: howto-password-ban-bad-on-premises-faq.md
+        - name: Historial de versiones del agente
+          href: howto-password-ban-bad-on-premises-agent-versions.md
+    - name: Uso de autenticación basada en SMS (versión preliminar)
+      href: howto-authentication-sms-signin.md
+    - name: Bloqueo inteligente de Azure AD
+      href: howto-password-smart-lockout.md
     - name: Autenticación basada en certificados
       items:
         - name: Introducción a la autenticación de certificados
           href: active-directory-certificate-based-authentication-get-started.md
           items:
-            - name: CBA en dispositivos Android
+            - name: Uso en dispositivos Android
               href: active-directory-certificate-based-authentication-android.md
-            - name: CBA en dispositivos iOS
+            - name: Uso en dispositivos iOS
               href: active-directory-certificate-based-authentication-ios.md
     - name: Notificación
       items:
