@@ -95,7 +95,7 @@
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/search-api/web/'
     - name: Disponibilidad regional
       href: 'https://azure.microsoft.com/global-infrastructure/services/'
-    - name: Compatibilidad de idioma y región
+    - name: Compatibilidad con idiomas
       href: language-support.md
     - name: Análisis para Bing Web Search API
       href: bing-web-stats.md

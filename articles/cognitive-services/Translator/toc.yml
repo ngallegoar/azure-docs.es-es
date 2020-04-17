@@ -98,7 +98,7 @@
           href: 'https://aka.ms/TranslatorGitHub'
         - name: Preguntas más frecuentes
           href: 'https://www.microsoft.com/translator/faq.aspx'
-        - name: Compatibilidad de idioma y región
+        - name: Compatibilidad con idiomas
           href: language-support.md
         - name: Precios
           href: 'https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/'

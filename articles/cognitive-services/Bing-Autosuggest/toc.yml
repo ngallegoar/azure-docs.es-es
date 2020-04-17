@@ -79,7 +79,7 @@
       href: 'https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api'
     - name: ¡Pruébelo!
       href: 'https://azure.microsoft.com/services/cognitive-services/autosuggest/'
-    - name: Compatibilidad de idioma y región
+    - name: Compatibilidad con idiomas
       href: language-support.md
     - name: Análisis de Bing Autosuggest API
       maintainContext: true

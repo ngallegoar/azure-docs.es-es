@@ -72,7 +72,7 @@
     - name: Análisis para Bing Spell Check API
       maintainContext: true
       href: ../bing-web-search/bing-web-stats.md
-    - name: Compatibilidad de idioma y región
+    - name: Compatibilidad con idiomas
       href: language-support.md
     - name: Precios
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/spellcheck-api/'

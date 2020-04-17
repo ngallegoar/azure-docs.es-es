@@ -107,7 +107,7 @@
       href: 'https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/'
     - name: Puntos de conexión de Bing Image Search
       href: image-search-endpoint.md
-    - name: Compatibilidad de idioma y región
+    - name: Compatibilidad con idiomas
       href: language-support.md
     - name: Análisis para Bing Image Search API
       maintainContext: true

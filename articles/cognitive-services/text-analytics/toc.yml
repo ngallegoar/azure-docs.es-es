@@ -48,7 +48,7 @@
   items:
     - name: Tipos de entidades con nombre
       href: named-entity-types.md
-    - name: Compatibilidad de idioma y región
+    - name: Compatibilidad con idiomas
       href: language-support.md
     - name: Desplazamientos de texto
       href: concepts/text-offsets.md
