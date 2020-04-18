@@ -553,8 +553,6 @@
           href: data-factory-service-identity.md
     - name: Supervisión y administración
       items:
-        - name: Supervisión visual
-          href: monitor-visually.md
         - name: Supervisión con Azure Monitor
           href: monitor-using-azure-monitor.md
         - name: Supervisar con SDK
@@ -581,6 +579,8 @@
       items:
         - name: Ejecución de paquetes SSIS en Azure
           href: how-to-invoke-ssis-package-ssdt.md
+        - name: Ejecución de paquetes SSIS con el agente de Instancia administrada de Azure SQL
+          href: how-to-invoke-ssis-package-managed-instance-agent.md
         - name: Ejecución de paquetes SSIS con dtexec habilitado para Azure
           href: how-to-invoke-ssis-package-azure-enabled-dtexec.md
         - name: Ejecución de paquetes de SSIS con la actividad Ejecutar paquete de SSIS
