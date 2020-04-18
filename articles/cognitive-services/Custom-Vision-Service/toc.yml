@@ -9,41 +9,33 @@
       href: whats-new.md
 - name: Guías de inicio rápido
   items:
-    - name: Uso del portal web
+    - name: Compilación de un clasificador
       items:
-        - name: Compilación de un clasificador
+        - name: Uso del portal web
           href: getting-started-build-a-classifier.md
-        - name: Creación de un detector de objetos
-          href: get-started-build-detector.md
-    - name: Uso del SDK de .NET
-      items:
-        - name: Clasificación de imágenes
+        - name: Uso del SDK de .NET
           href: csharp-tutorial.md
-        - name: Detección de objetos
-          href: csharp-tutorial-od.md
-    - name: Uso del SDK de Python
-      items:
-        - name: Clasificación de imágenes
+        - name: Uso del SDK de Python
           href: python-tutorial.md
-        - name: Detección de objetos
-          href: python-tutorial-od.md
-    - name: Uso del SDK de Java
-      items:
-        - name: Clasificación de imágenes
+        - name: Uso del SDK de Java
           href: java-tutorial.md
-        - name: Detección de objetos
-          href: java-tutorial-od.md
-    - name: Uso del SDK de Node.js
-      items:
-        - name: Clasificación de imágenes
+        - name: Uso del SDK de Node.js
           href: node-tutorial.md
-        - name: Detección de objetos
-          href: node-tutorial-object-detection.md
-    - name: Uso del SDK para Go
-      items:
-        - name: Clasificación de imágenes
+        - name: Uso del SDK para Go
           href: go-tutorial.md
-        - name: Detección de objetos
+    - name: Creación de un detector de objetos
+      items:
+        - name: Uso del portal web
+          href: get-started-build-detector.md
+        - name: Uso del SDK de .NET
+          href: csharp-tutorial-od.md
+        - name: Uso del SDK de Python
+          href: python-tutorial-od.md
+        - name: Uso del SDK de Java
+          href: java-tutorial-od.md
+        - name: Uso del SDK de Node.js
+          href: node-tutorial-object-detection.md
+        - name: Uso del SDK para Go
           href: go-tutorial-object-detection.md
 - name: Tutoriales
   items:
