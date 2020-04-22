@@ -28,8 +28,8 @@
       href: tutorial-custom-role-cli.md
 - name: Conceptos
   items:
-    - name: PIM para recursos de Azure
-      href: pim-azure-resource.md
+    - name: Procedimientos recomendados
+      href: best-practices.md
     - name: Acceso condicional para la administración de Azure
       href: conditional-access-azure-management.md
 - name: Guías paso a paso

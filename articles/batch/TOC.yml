@@ -85,8 +85,6 @@
           href: batch-aad-auth-management.md
         - name: Acceso seguro a Key Vault con Batch
           href: credential-access-key-vault.md
-    - name: Uso de paquetes de aplicaciones
-      href: batch-application-packages.md
     - name: Copia de archivos y aplicaciones en nodos de grupo
       items:
         - name: Copia de aplicaciones y datos en nodos de grupo
