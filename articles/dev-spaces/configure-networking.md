@@ -5,12 +5,12 @@ ms.date: 03/17/2020
 ms.topic: conceptual
 description: Se describen los requisitos de red para ejecutar Azure Dev Spaces en Azure Kubernetes Services.
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, CNI, Kubenet, SDN, red
-ms.openlocfilehash: 82d046aa36fe9caf6337aa7f58ca0db525062283
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3e344576caf276ae7cb5fe00395c84810a4e7d32
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80240566"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262050"
 ---
 # <a name="configure-networking-for-azure-dev-spaces-in-different-network-topologies"></a>Configuración de red para Azure Dev Spaces en distintas topologías de red
 
@@ -20,7 +20,7 @@ Azure Dev Spaces se ejecuta en clústeres de Azure Kubernetes Service (AKS) con 
 
 ## <a name="virtual-network-or-subnet-configurations"></a>Configuraciones de la red virtual o subred
 
-El clúster de AKS puede tener una configuración diferente de red virtual o subred para restringir el tráfico de entrada o salida para el clúster de AKS. Por ejemplo, el clúster puede estar detrás de un firewall, como Azure Firewall, o puede usar grupos de seguridad de red o roles personalizados para restringir el tráfico de red.
+El clúster de AKS puede tener una configuración diferente de red virtual o subred para restringir el tráfico de entrada o salida para el clúster de AKS. Por ejemplo, el clúster puede estar detrás de un firewall, como Azure Firewall, o puede usar grupos de seguridad de red o roles personalizados para restringir el tráfico de red. Puede encontrar un ejemplo de configuración de red en el [repositorio de ejemplos de Azure Dev Spaces en GitHub][sample-repo].
 
 Azure Dev Spaces tiene ciertos requisitos para el tráfico de red de *entrada y salida*, así como para el tráfico de *solo entrada*. Si usa Azure Dev Spaces en un clúster de AKS con una configuración de red virtual o subred que restringe el tráfico para el clúster de AKS, debe seguir los siguientes requisitos de tráfico de entrada y salida y de solo entrada para que Azure Dev Spaces funcione correctamente.
 
@@ -109,4 +109,5 @@ Obtenga información acerca de la forma en que Azure Dev Spaces le ayuda a desar
 [endpoint-options]: #using-different-endpoint-options
 [traefik-ingress]: how-to/ingress-https-traefik.md
 [nginx-ingress]: how-to/ingress-https-nginx.md
+[sample-repo]: https://github.com/Azure/dev-spaces/tree/master/advanced%20networking
 [team-quickstart]: quickstart-team-development.md

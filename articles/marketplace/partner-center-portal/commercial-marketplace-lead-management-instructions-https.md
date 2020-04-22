@@ -5,20 +5,23 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/31/2019
+ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 6a0131cf94759fc529a52ea33d5392a60c5ef30c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 33359883df86091120295b93618a13476e428d2f
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281602"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262760"
 ---
 # <a name="configure-lead-management-using-an-https-endpoint"></a>Configuración de la administración de clientes potenciales mediante un punto de conexión HTTPS
 
-Si el sistema de administración de las relaciones con el cliente (CRM) no se admite explícitamente en el Centro de partners para recibir clientes potenciales de Azure Marketplace y AppSource, puede usar un punto de conexión HTTPS en MS Flow para controlar estos clientes potenciales. Con un punto de conexión HTTPS, estos avisos de clientes potenciales se pueden enviar como notificación por correo electrónico o pueden escribirse en un sistema de administración de relaciones con clientes (CRM) admitido por MS Flow. Las instrucciones de este artículo le guiarán por el proceso básico para crear un nuevo flujo con Microsoft Flow, lo que generará la dirección URL de HTTP POST que escribirá en el portal de publicación para Administración de clientes potenciales > campo **Dirección URL del punto de conexión HTTPS**. Además, se incluyen instrucciones sobre cómo puede probar el flujo con la ayuda de una herramienta denominada [Postman](https://www.getpostman.com/downloads/) que se puede encontrar en línea.
+>[!Note]
+>El conector de Power Automate usado en estas instrucciones requiere una suscripción de pago de Power Automate. Antes de seguir las instrucciones de este documento, tenga en cuenta esta información.
 
-## <a name="create-a-flow-using-microsoft-flow"></a>Creación de un flujo mediante Microsoft Flow
+Si el sistema de administración de relaciones con clientes (CRM) no se admite explícitamente en el Centro de partners para recibir clientes potenciales de Azure Marketplace y AppSource, puede usar un punto de conexión HTTPS en Power Automate para controlar estos clientes potenciales. Con un punto de conexión HTTPS, estos avisos de clientes potenciales se pueden enviar como notificación por correo electrónico o pueden escribirse en un sistema de administración de relaciones con clientes (CRM) admitido por Power Automate. Las instrucciones de este artículo le guiarán por el proceso básico para crear un nuevo flujo con Power Automate, lo que generará la dirección URL de HTTP POST que escribirá en el portal de publicación para Administración de clientes potenciales > campo **Dirección URL del punto de conexión HTTPS**. Además, se incluyen instrucciones sobre cómo puede probar el flujo con la ayuda de una herramienta denominada [Postman](https://www.getpostman.com/downloads/) que se puede encontrar en línea.
+
+## <a name="create-a-flow-using-power-automate"></a>Creación de un flujo con Power Automate
 
 1. Abra la página web de [Flow](https://flow.microsoft.com/). Seleccione **Iniciar sesión** o, si aún no tiene una cuenta, **Regístrese gratis** para crear una cuenta gratuita de Flow.
 
@@ -168,7 +171,7 @@ Puede probar que todo funcione según lo previsto siguiendo los pasos a continua
 
    ![Probar mi flujo](./media/commercial-marketplace-lead-management-instructions-https/test-my-flow.png)
 
-4. Pegue la dirección URL de HTTP POST del flujo que creó en MS Flow, donde dice *Escribir la dirección URL de la solicitud*.
+4. Pegue la dirección URL de HTTP POST del flujo que creó en Power Automate, donde dice *Escribir la dirección URL de la solicitud*.
 
    ![Pegue la dirección URL de HTTP POST](./media/commercial-marketplace-lead-management-instructions-https/paste-http-post-url.png)
 
@@ -202,7 +205,10 @@ Cuando esté listo para configurar la información de administración de cliente
 1. Vaya a la página **Configuración de la oferta** de su oferta.
 2. Seleccione **Conectar** en la sección Administración de clientes potenciales.
 3. En la ventana emergente Detalles de conexión, seleccione **Punto de conexión HTTPS** para el **Destino de clientes potenciales** y péguelo en la dirección URL de HTTP POST del flujo que creó siguiendo los pasos anteriores en el campo **Dirección URL del punto de conexión HTTPS**.
-4. Seleccione **Guardar**. 
+4. **Correo electrónico de contacto**: proporcione correos electrónicos de los usuarios de su empresa que deban recibir notificaciones de correo electrónico cuando se reciba un nuevo cliente potencial. Puede proporcionar varias direcciones de correo electrónico separadas con un punto y coma.
+5. Seleccione **Aceptar**.
+
+Para asegurarse de que se ha conectado correctamente a un destino de clientes potenciales, haga clic en el botón validar. Si se realiza correctamente, tendrá un cliente potencial de prueba en el destino de clientes potenciales.
 
 >[!Note] 
 >Debe terminar de configurar el resto de las partes de la oferta y publicarla para poder recibir clientes potenciales para la oferta.
@@ -213,5 +219,5 @@ Cuando se generan los clientes potenciales, Microsoft los envía a Flow que los 
 
 ![Detalles de conexión](./media/commercial-marketplace-lead-management-instructions-https/connection-details.png)
 
-![Detalles de conexión](./media/commercial-marketplace-lead-management-instructions-https/connection-details-1.png)
+![Detalles de conexión](./media/commercial-marketplace-lead-management-instructions-https/https-connection-details.png)
 

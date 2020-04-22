@@ -9,16 +9,17 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 04/15/2020
 ms.author: jingwang
-ms.openlocfilehash: 9ae07e2a471cc417b467092a2616a5a0cdafb1fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9f04955fb910a6159dc09ac40a87a398e67d59d6
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79230036"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414127"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Asignación de esquemas en la actividad de copia
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artículo describe el modo en que la actividad de copia de Azure Data Factory realiza la asignación de esquemas y la asignación del tipo de datos de los datos de origen a los datos receptores al ejecutar la copia de datos.
 
@@ -278,11 +279,7 @@ La actividad de copia realiza la asignación de tipos de origen a tipos receptor
 1. Conversión de los tipos de origen nativo a tipos de datos provisionales de Azure Data Factory
 2. Conversión de los tipos de datos provisionales de Azure Data Factory al tipo de receptor nativo
 
-Puede encontrar la asignación entre un tipo nativo y un tipo provisional en la sección "Asignación de tipos de datos" en cada tema de conector.
-
-### <a name="supported-data-types"></a>Tipos de datos admitidos
-
-Data Factory admite los siguientes tipos de datos provisionales: Puede especificar los siguientes valores cuando configure la información del tipo en la configuración de la [estructura del conjunto de datos](concepts-datasets-linked-services.md#dataset-structure-or-schema):
+La actividad de copia admite los siguientes tipos de datos provisionales: 
 
 * Byte[]
 * Boolean

@@ -5,14 +5,14 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 8af6b3a451d20bcc9cab3fa4adb9643f82b85e49
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5b3e35b6d19905e3c5262dfea3e52511510c9ffe
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288825"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81252969"
 ---
 # <a name="configure-lead-management-for-dynamics-365-for-customer-engagement"></a>Configurar la administración de clientes potenciales para Dynamics 365 for Customer Engagement
 
@@ -180,6 +180,7 @@ Cuando esté listo para configurar la información de administración de cliente
     ![Detalles de la conexión: Destino de clientes potenciales](./media/commercial-marketplace-lead-management-instructions-dynamics/connection-details-lead-destination.png)
 
 4. Proporcione la **dirección URL de la instancia de Dynamics 365**, como `https://contoso.crm4.dynamics.com`.
+
 5. Seleccione el método de **Autenticación**, Azure Active Directory u Office 365. 
 6. Si ha seleccionado Azure Active Directory, proporcione el **Id. de aplicación (cliente)** (ejemplo: `23456052-aaaa-bbbb-8662-1234df56788f`), **Id. de directorio** (ejemplo: `12345678-8af1-4asf-1234-12234d01db47`) y **Secreto de cliente** (ejemplo: `1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc=`).
 
@@ -188,6 +189,13 @@ Cuando esté listo para configurar la información de administración de cliente
 7. Si ha seleccionado Office 365, proporcione el **Nombre de usuario** (por ejemplo: `contoso@contoso.onmicrosoft.com`) y la Contraseña (por ejemplo: `P@ssw0rd`).
 
     ![Detalles de conexión: Nombre de usuario](./media/commercial-marketplace-lead-management-instructions-dynamics/connection-details-authentication.png)
+
+8. **Correo electrónico de contacto**: proporcione correos electrónicos de los usuarios de su empresa que deban recibir notificaciones de correo electrónico cuando se reciba un nuevo cliente potencial. Puede proporcionar varias direcciones de correo electrónico separadas con un punto y coma.
+9. Seleccione **Aceptar**.
+
+Para asegurarse de que se ha conectado correctamente a un destino de clientes potenciales, haga clic en el botón validar. Si se realiza correctamente, tendrá un cliente potencial de prueba en el destino de clientes potenciales.
+
+![Administración de clientes potenciales: detalles de conexión de la cuenta de almacenamiento](./media/commercial-marketplace-lead-management-instructions-dynamics/dynamics-connection-details.png)
 
 >[!Note]
 >Debe terminar de configurar el resto de las partes de la oferta y publicarla para poder recibir clientes potenciales para la oferta.

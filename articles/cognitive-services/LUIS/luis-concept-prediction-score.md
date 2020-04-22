@@ -1,28 +1,20 @@
 ---
 title: 'Puntuaciones de predicción: LUIS'
-titleSuffix: Azure Cognitive Services
 description: Una puntuación de predicción indica el grado de confianza que tiene el servicio API de LUIS en los resultados de predicción, según una expresión del usuario.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/10/2019
-ms.author: diberry
-ms.openlocfilehash: b360bc82b80e834492b524acc5c4535b0409eda1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.openlocfilehash: 709a34f0a278d8a17267c7544583798d54167dad
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "74280821"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382379"
 ---
 # <a name="prediction-scores-indicate-prediction-accuracy-for-intent-and-entities"></a>Las puntuaciones de predicción indican la precisión de la predicción de las intenciones y las entidades.
 
 Una puntuación de predicción indica el grado de confianza que tiene LUIS en los resultados de la predicción de una expresión del usuario.
 
-Una puntuación de predicción se encuentra entre cero (0) y uno (1). Un ejemplo de una puntuación de LUIS de gran confianza es 0,99. Un ejemplo de una puntuación de confianza baja es 0,01. 
+Una puntuación de predicción se encuentra entre cero (0) y uno (1). Un ejemplo de una puntuación de LUIS de gran confianza es 0,99. Un ejemplo de una puntuación de confianza baja es 0,01.
 
 |Valor de la puntuación|Confianza|
 |--|--|
@@ -33,11 +25,11 @@ Una puntuación de predicción se encuentra entre cero (0) y uno (1). Un ejemplo
 
 ## <a name="top-scoring-intent"></a>Intención de puntuación superior
 
-Todas las predicciones de expresión devuelven una intención de puntuación superior. Esta predicción es una comparación numérica de las puntuaciones de predicción. 
+Todas las predicciones de expresión devuelven una intención de puntuación superior. Esta predicción es una comparación numérica de las puntuaciones de predicción.
 
 ## <a name="proximity-of-scores-to-each-other"></a>Proximidad de puntuaciones entre sí
 
-Puede haber una diferencia muy pequeña entre las dos puntuaciones mayores. LUIS no indica esta proximidad de otra forma que no sea devolver la mayor puntuación.  
+Puede haber una diferencia muy pequeña entre las dos puntuaciones mayores. LUIS no indica esta proximidad de otra forma que no sea devolver la mayor puntuación.
 
 ## <a name="return-prediction-score-for-all-intents"></a>Devolver la puntuación de predicción de todas las intenciones
 
@@ -74,9 +66,11 @@ Las puntuaciones de predicción pueden usar la notación exponencial, de forma q
 |--|--|
 |9,910309E-07|,0000009910309|
 
-## <a name="punctuation"></a>Signos de puntuación
+<a name="punctuation"></a>
 
-[Obtenga más información](luis-concept-utterance.md#punctuation-marks) sobre cómo usar o ignorar la puntuación. 
+## <a name="application-settings"></a>Configuración de la aplicación
+
+Utilice la [configuración de la aplicación](luis-reference-application-settings.md) para controlar cómo los diacríticos y los signos de puntuación afectan a las puntuaciones de predicción.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

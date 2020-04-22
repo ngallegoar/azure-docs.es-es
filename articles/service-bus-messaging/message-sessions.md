@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 4df6396d156c3fe1b75e3cac3d3f4aad7f23553a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1e22641e9d4f9959c26cd2043ea2acd7e260e0f0
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77660672"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314055"
 ---
 # <a name="message-sessions"></a>Sesiones de mensajes
 Las sesiones de Microsoft Azure Service Bus permiten la administración ordenada y conjunta de secuencias sin enlace de mensajes relacionados. Se pueden usar sesiones en patrones FIFO (primero en entrar, primero en salir) y de solicitud-respuesta. En este artículo se muestra cómo usar sesiones para implementar estos patrones al utilizar Service Bus. 
@@ -78,7 +78,7 @@ Las API para administrar el estado de sesión, [SetState](/dotnet/api/microsoft.
 
 El estado de sesión permanecerá siempre y cuando no se borre (se devuelva **null**), incluso si se consumen todos los mensajes de una sesión.
 
-Todas las sesiones existentes de una cola o suscripción se pueden enumerar con el método **SessionBrowser** de la API de Java y con [GetMessageSessions](/dotnet/api/microsoft.servicebus.messaging.queueclient.getmessagesessions#Microsoft_ServiceBus_Messaging_QueueClient_GetMessageSessions) en [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) y [SubscriptionClient](/dotnet/api/microsoft.azure.servicebus.subscriptionclient) en el cliente .NET.
+Todas las sesiones existentes de una cola o suscripción se pueden enumerar con el método **SessionBrowser** de la API de Java y con [GetMessageSessions](/dotnet/api/microsoft.servicebus.messaging.queueclient.getmessagesessions#Microsoft_ServiceBus_Messaging_QueueClient_GetMessageSessions) en [QueueClient](/dotnet/api/microsoft.servicebus.messaging.queueclient) y [SubscriptionClient](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient) en el cliente de .NET Framework.
 
 El estado de sesión mantenido en una cola o en que una suscripción se tiene en cuenta en la cuota de almacenamiento de esa entidad. Cuando la aplicación se termina con una sesión, se recomienda por lo tanto que dicha aplicación limpie su estado retenido para evitar costos de administración externos.
 

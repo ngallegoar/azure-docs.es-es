@@ -5,18 +5,21 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 1720026b4beff941b02a60cd1c755a043d66bdb5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 087cdafe8b819e4929e1608ed7e00be2c1169414
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281500"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81263101"
 ---
 # <a name="configure-lead-management-for-salesforce"></a>Configuración de la administración de clientes potenciales en Salesforce
 
-En este artículo se describe cómo configurar el sistema de Salesforce para procesar clientes potenciales de la oferta de Marketplace.
+En este artículo se describe cómo configurar el sistema de Salesforce para procesar clientes potenciales de la oferta comercial de Marketplace.
+
+> [!Note]
+> Marketplace no admite listas completadas previamente, como una lista de valores para el campo **País o región**. Asegúrese de que no haya ninguna lista configurada antes de continuar. Como alternativa, puede configurar un [punto de conexión HTTPS](./commercial-marketplace-lead-management-instructions-https.md) o una [tabla de Azure](./commercial-marketplace-lead-management-instructions-azure-table.md) para recibir clientes potenciales.
 
 ## <a name="set-up-your-salesforce-system"></a>Configurar el sistema de Salesforce
 
@@ -26,14 +29,16 @@ En este artículo se describe cómo configurar el sistema de Salesforce para pro
     ![Configuración de Salesforce](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-1.png)
 
     1. En la página Configuración, navegue mediante el panel izquierdo a **Platform Tools (Herramientas de la plataforma) -> Configuración de la característica -> Marketing-> Web-to-Lead (Web para clientes potenciales)** .
-    ![Web para clientes potenciales de Salesforce](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-2.png)
+
+        ![Web para clientes potenciales de Salesforce](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-2.png)
 
 3. Si usa la experiencia Salesforce Classic:
     1. Seleccione **Configuración** en la página principal de Salesforce.
     ![Configuración de Salesforce Classic](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-classic-setup.png)
 
     1. En la página Configuración, navegue mediante el panel izquierdo a **Compilación -> Personalizar -> Clientes potenciales -> Web-to-Lead (Web para clientes potenciales)** .
-    ![Web para clientes potenciales de Salesforce Classic](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-classic-web-to-lead.png)
+
+        ![Web para clientes potenciales de Salesforce Classic](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-classic-web-to-lead.png)
 
 El resto de las instrucciones son las mismas independientemente de la experiencia de Salesforce que esté usando.
 
@@ -59,11 +64,15 @@ Cuando esté listo para configurar la información de administración de cliente
 
 1. En la ventana emergente Detalles de conexión, seleccione **Salesforce** para el valor de **Destino de clientes potenciales** y péguelo en `oid` desde el formulario web para clientes potenciales que creó siguiendo los pasos anteriores en el campo **Identificador de la organización**.
 
-1. Seleccione **Guardar**. 
+1. **Correo electrónico de contacto**: proporcione correos electrónicos de los usuarios de su empresa que deban recibir notificaciones de correo electrónico cuando se reciba un nuevo cliente potencial. Puede proporcionar varias direcciones de correo electrónico separadas con un punto y coma.
 
-    >[!Note]
-    >Debe terminar de configurar el resto de las partes de la oferta y publicarla para poder recibir clientes potenciales para la oferta.
+1. Seleccione **Aceptar**.
 
-    ![Detalles de la conexión: elegir un destino de cliente potencial](./media/commercial-marketplace-lead-management-instructions-salesforce/choose-lead-destination.png)
+Para asegurarse de que se ha conectado correctamente a un destino de clientes potenciales, haga clic en el botón validar. Si se realiza correctamente, tendrá un cliente potencial de prueba en el destino de clientes potenciales.
 
-    ![Detalles de la conexión: elegir un destino de cliente potencial](./media/commercial-marketplace-lead-management-instructions-salesforce/connection-details.png)
+>[!Note]
+>Debe terminar de configurar el resto de las partes de la oferta y publicarla para poder recibir clientes potenciales para la oferta.
+
+![Detalles de la conexión: elegir un destino de cliente potencial](./media/commercial-marketplace-lead-management-instructions-salesforce/choose-lead-destination.png)
+
+![Detalles de la conexión: elegir un destino de cliente potencial](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-connection-details.png)

@@ -1,15 +1,16 @@
 ---
-title: Creación de nodos virtuales mediante la CLI de Azure en Azure Kubernetes Service (AKS)
+title: Creación de nodos virtuales mediante la CLI de Azure
+titleSuffix: Azure Kubernetes Service
 description: Aprenda a usar la CLI de Azure para crear un clúster de Azure Kubernetes Service (AKS) que usa los nodos virtuales para ejecutar pods.
 services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 2b726dff1e2c23b94118a11fb6b6ccf1f9622d4d
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: b3dec8a7d46226b9d6f4416c98332f0023c0c294
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77592751"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392600"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Creación y configuración de un clúster de Azure Kubernetes Service (AKS) para usar nodos virtuales mediante la CLI de Azure
 
@@ -19,7 +20,7 @@ En este artículo se muestra cómo crear y configurar los recursos de red virtua
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Los nodos virtuales permiten la comunicación de red entre los pods que se ejecutan en ACI y el clúster de AKS. Para proporcionar esta comunicación, se crea una subred de red virtual y se asignan permisos delegados. Los nodos virtuales solo funcionan con clústeres de AKS creados mediante redes *avanzadas*. De forma predeterminada, los clústeres de AKS se crean con redes *básicas*. En este artículo se explica cómo crear una red virtual y subredes y, después, cómo implementar un clúster de AKS que usa redes avanzadas.
+Los nodos virtuales permiten la comunicación de red entre los pods que se ejecutan en Azure Container Instances (ACI) y el clúster de AKS. Para proporcionar esta comunicación, se crea una subred de red virtual y se asignan permisos delegados. Los nodos virtuales solo funcionan con clústeres de AKS creados mediante redes *avanzadas*. De forma predeterminada, los clústeres de AKS se crean con redes *básicas*. En este artículo se explica cómo crear una red virtual y subredes y, después, cómo implementar un clúster de AKS que usa redes avanzadas.
 
 Si no ha utilizado anteriormente ACI, registre el proveedor de servicio con su suscripción. Puede comprobar el estado de registro del proveedor de ACI mediante el comando [az provider list][az-provider-list], tal como se muestra en el siguiente ejemplo:
 
@@ -29,10 +30,10 @@ az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" 
 
 El proveedor *Microsoft.ContainerInstance* debería notificar como *Registrado*, tal como se muestra en el siguiente ejemplo de salida:
 
-```
-Namespace                    RegistrationState
----------------------------  -------------------
-Microsoft.ContainerInstance  Registered
+```output
+Namespace                    RegistrationState    RegistrationPolicy
+---------------------------  -------------------  --------------------
+Microsoft.ContainerInstance  Registered           RegistrationRequired
 ```
 
 Si el proveedor se muestra como *NotRegistered*, registre el proveedor con el comando [az provider register][az-provider-register] tal como se muestra en el siguiente ejemplo:
@@ -66,7 +67,7 @@ La funcionalidad de nodos virtuales es muy dependiente del conjunto de caracter�
 * [Hospedaje de alias](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
 * [Argumentos](../container-instances/container-instances-exec.md#restrictions) para la ejecución en ACI
 * [DaemonSets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) no implementará los pods en el nodo virtual
-* Los [nodos de Windows Server (actualmente en versión preliminar en AKS)](windows-container-cli.md) no son compatibles con los nodos virtuales. Puede usar los nodos virtuales para programar los contenedores de Windows Server sin necesidad de nodos de Windows Server en un clúster de AKS.
+* Los nodos virtuales admiten la programación de pods de Linux. Puede instalar manualmente el proveedor de código abierto [ACI de Kubelet virtual](https://github.com/virtual-kubelet/azure-aci) para programar contenedores de Windows Server en ACI. 
 
 ## <a name="launch-azure-cloud-shell"></a>Inicio de Azure Cloud Shell
 
@@ -107,9 +108,9 @@ az network vnet subnet create \
     --address-prefixes 10.241.0.0/16
 ```
 
-## <a name="create-a-service-principal"></a>Creación de una entidad de servicio
+## <a name="create-a-service-principal-or-use-a-managed-identity"></a>Creación de una entidad de servicio o uso de una identidad administrada
 
-Para permitir que un clúster de AKS interactúe con otros recursos de Azure, se usa una entidad de servicio de Azure Active Directory. Esta entidad de servicio puede crearse automáticamente mediante la CLI de Azure o el portal, o puede crear una previamente y asignar permisos adicionales.
+Para permitir que un clúster de AKS interactúe con otros recursos de Azure, se usa una entidad de servicio de Azure Active Directory. Esta entidad de servicio puede crearse automáticamente mediante la CLI de Azure o el portal, o puede crear una previamente y asignar permisos adicionales. También puede usar una identidad administrada para los permisos en lugar de una entidad de servicio. Para más información, consulte [Uso de identidades administradas](use-managed-identity.md).
 
 Cree una entidad de servicio mediante el comando [az ad sp create-for-rbac][az-ad-sp-create-for-rbac]. El parámetro `--skip-assignment` impide que se asignen permisos adicionales.
 
@@ -119,7 +120,7 @@ az ad sp create-for-rbac --skip-assignment
 
 La salida es similar a la del ejemplo siguiente:
 
-```
+```output
 {
   "appId": "bef76eb3-d743-4a97-9534-03e9388811fc",
   "displayName": "azure-cli-2018-11-21-18-42-00",
@@ -155,7 +156,7 @@ Implemente el clúster de AKS en la subred de AKS creada en un paso anterior. Ob
 az network vnet subnet show --resource-group myResourceGroup --vnet-name myVnet --name myAKSSubnet --query id -o tsv
 ```
 
-Use el comando [az aks create][az-aks-create] para crear un clúster de AKS. En el siguiente ejemplo se crea un clúster denominado *myAKSCluster* con un nodo. Reemplace `<subnetId>` con el identificador obtenido en el paso anterior y, a continuación, `<appId>` y `<password>` con: 
+Use el comando [az aks create][az-aks-create] para crear un clúster de AKS. En el siguiente ejemplo se crea un clúster denominado *myAKSCluster* con un nodo. Reemplace `<subnetId>` con el identificador obtenido en el paso anterior y, a continuación, `<appId>` y `<password>` con los valores recopilados en la sección anterior.
 
 ```azurecli-interactive
 az aks create \
@@ -201,9 +202,7 @@ kubectl get nodes
 
 La salida de ejemplo siguiente muestra el nodo de máquina virtual único creado y luego el nodo virtual para Linux, *virtual-node-aci-linux*:
 
-```
-$ kubectl get nodes
-
+```output
 NAME                          STATUS    ROLES     AGE       VERSION
 virtual-node-aci-linux        Ready     agent     28m       v1.11.2
 aks-agentpool-14693408-0      Ready     agent     32m       v1.11.2
@@ -252,9 +251,11 @@ kubectl apply -f virtual-node.yaml
 
 Use el comando [kubectl get pods][kubectl-get] con el argumento `-o wide` para generar una lista de los pods y el nodo programado. Observe que el pod `aci-helloworld` se ha programado en el nodo `virtual-node-aci-linux`.
 
+```console
+kubectl get pods -o wide
 ```
-$ kubectl get pods -o wide
 
+```output
 NAME                            READY     STATUS    RESTARTS   AGE       IP           NODE
 aci-helloworld-9b55975f-bnmfl   1/1       Running   0          4m        10.241.0.4   virtual-node-aci-linux
 ```
@@ -286,9 +287,7 @@ curl -L http://10.241.0.4
 
 Se muestra la aplicación de demostración, tal como se muestra en la siguiente salida de ejemplo reducida:
 
-```
-$ curl -L 10.241.0.4
-
+```output
 <html>
 <head>
   <title>Welcome to Azure Container Instances!</title>
@@ -302,9 +301,11 @@ Cierre la sesión de terminal en su pod de prueba con `exit`. Cuando la sesión 
 
 Si ya no desea usar los nodos virtuales, puede deshabilitarlos mediante el comando [az aks disable-addons][az aks disable-addons]. 
 
-En primer lugar, elimine el pod helloworld que se ejecuta en el nodo virtual:
+Si es necesario, vaya a [https://shell.azure.com](https://shell.azure.com) para abrir Azure Cloud Shell en el explorador.
 
-```azurecli-interactive
+En primer lugar, elimine el pod `aci-helloworld` que se ejecuta en el nodo virtual:
+
+```console
 kubectl delete -f virtual-node.yaml
 ```
 

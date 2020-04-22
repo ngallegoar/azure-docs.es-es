@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
-ms.date: 08/06/2019
-ms.openlocfilehash: 8139ed8f4f4799a963a051eed96dd87c4ac38aec
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.date: 04/09/2020
+ms.openlocfilehash: 3252ecb030234e4c5543c07dfb4fc702f850a73e
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/09/2020
-ms.locfileid: "80981433"
+ms.locfileid: "80998983"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Los grupos elásticos pueden ayudarle a administrar y escalar varias bases de datos de Azure SQL
 
@@ -110,9 +110,9 @@ El mejor tamaño para un grupo depende de los recursos agregados necesarios para
 - Los recursos máximos que usan todas las bases de datos del grupo (DTU máximas o núcleos virtuales máximos, según la elección del modelo de recursos).
 - Número máximo de bytes de almacenamiento utilizado por todas las bases de datos en el grupo.
 
-Para obtener información sobre los niveles de servicio disponibles para cada modelo de recursos, consulte el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) o el [modelo de compra basado en núcleo virtual](sql-database-service-tiers-vcore.md).
+Para obtener información sobre los niveles de servicio disponibles y los límites de cada modelo de recursos, consulte los artículos acerca del [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) o del [modelo de compra basado en núcleo virtual](sql-database-service-tiers-vcore.md).
 
-En casos donde no se pueden usar herramientas, las siguientes instrucciones paso a paso pueden ayudarle a estimar si un grupo es más rentable que las bases de datos únicas:
+Los siguientes pasos pueden ayudarle a calcular si un grupo es más rentable que las bases de datos únicas:
 
 1. Calcule las eDTU o los núcleos virtuales necesarios para el grupo de la siguiente forma:
 
@@ -126,6 +126,10 @@ En casos donde no se pueden usar herramientas, las siguientes instrucciones paso
 3. El modelo de compra basado en DTU toma las estimaciones de eDTU más grandes del paso 1 y el paso 2. El modelo de compra basado en núcleo virtual toma la estimación de núcleos virtuales del paso 1.
 4. Consulte la [página de precios de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/) y busque el tamaño de grupo más pequeño que sea mayor que la estimación del paso 3.
 5. Compare el precio del grupo del paso 5 con el precio que supone usar los tamaños de proceso adecuados para bases de datos únicas.
+
+> [!IMPORTANT]
+> Si el número de bases de datos de un grupo se aproxima al máximo admitido, asegúrese de consultar [Administración de recursos en grupos elásticos densos](sql-database-elastic-pool-resource-management.md).
+> 
 
 ## <a name="using-other-sql-database-features-with-elastic-pools"></a>Empleo de otras características de SQL Database con grupos elásticos
 
@@ -218,7 +222,7 @@ Para más información, consulte cómo [crear alertas de SQL Database en Azure P
 
 - [Daxko/CSI](https://customers.microsoft.com/story/726277-csi-daxko-partner-professional-service-azure)    
 
-   Daxko/CSI usa grupos elásticos con Azure SQL Database para acelerar su ciclo de desarrollo y mejorar sus servicios al cliente y el rendimiento.   
+   Daxko/CSI usa grupos elásticos con Azure SQL Database para acelerar su ciclo de desarrollo y mejorar sus servicios al cliente y el rendimiento.    
 
 ## <a name="next-steps"></a>Pasos siguientes
 

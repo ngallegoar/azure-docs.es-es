@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: dc87628d8b47435012c3d20ec2e72ac186983555
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 856bd6c2a3546a438293e89a0b576e1392d9c6a5
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78189334"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81407285"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Introducción a las directivas personalizadas en Azure Active Directory B2C
 
@@ -116,7 +116,7 @@ A continuación, exponga la API agregando un ámbito:
 1. En **Registros de aplicaciones (característica heredada)** , seleccione **Nuevo registro de aplicaciones**.
 1. En **Nombre**, escriba `ProxyIdentityExperienceFramework`.
 1. En **Tipo de aplicación**, elija **Nativa**.
-1. En **URI de redirección**, escriba `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, donde `your-tenant-name` es el inquilino de Azure AD B2C.
+1. En **URI de redirección**, escriba `myapp://auth`.
 1. Seleccione **Crear**. Una vez creada, copie el identificador de aplicación y guárdelo para usarlo más adelante.
 1. Seleccione **Configuración**, **Permisos necesarios** y, después, **Agregar**.
 1. Elija **Seleccionar una API**, busque y seleccione **IdentityExperienceFramework** y, después, haga clic en **Seleccionar**.
@@ -129,7 +129,7 @@ A continuación, exponga la API agregando un ámbito:
 1. En **Nombre**, escriba `ProxyIdentityExperienceFramework`.
 1. En **Tipos de cuenta admitidos**, seleccione **Solo las cuentas de este directorio organizativo**.
 1. En **URI de redirección**, use la lista desplegable para seleccionar **Cliente público o nativo (móvil y escritorio)** .
-1. En **URI de redirección**, escriba `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, donde `your-tenant-name` es el inquilino de Azure AD B2C.
+1. En **URI de redirección**, escriba `myapp://auth`.
 1. En **Permisos**, active la casilla *Conceda consentimiento del administrador a los permisos openid y offline_access*.
 1. Seleccione **Registrar**.
 1. Anote el **Id. de aplicación (cliente)** para usarlo en un paso posterior.
@@ -190,7 +190,7 @@ Obtenga los paquetes de inicio de directivas personalizadas en GitHub y, luego, 
 
 Agregue los identificadores de aplicación al archivo de extensiones *TrustFrameworkExtensions.xml*.
 
-1. Abra `SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`** y busque el elemento `<TechnicalProfile Id="login-NonInteractive">`.
+1. Abra `SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`** y busque el elemento `<TechnicalProfile Id="login-NonInteractive">`.
 1. Reemplace ambas instancias de `IdentityExperienceFrameworkAppId` por el identificador de la aplicación IdentityExperienceFramework que creó antes.
 1. Reemplace ambas instancias de `ProxyIdentityExperienceFrameworkAppId` por el identificador de la aplicación ProxyIdentityExperienceFramework que creó antes.
 1. Guarde el archivo.
@@ -225,7 +225,7 @@ A medida que cargue los archivos, Azure agregará el prefijo `B2C_1A_` a cada un
 
 Como se mencionó en [Requisitos previos](#prerequisites), *no* se requiere Facebook para el uso de directivas personalizadas, pero aquí se usa para mostrar cómo se puede habilitar el inicio de sesión social federado en una directiva personalizada.
 
-1. En el archivo `SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`** , sustituya el valor de `client_id` por el identificador de aplicación de Facebook:
+1. En el archivo `SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`** , sustituya el valor de `client_id` por el identificador de aplicación de Facebook:
 
    ```xml
    <TechnicalProfile Id="Facebook-OAUTH">

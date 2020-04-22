@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 01/19/2020
-ms.openlocfilehash: 18e9c9d330ffb8cc4e284fc649cff0840ec2c82c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7e14cc00d1bd716b3e4880e585b05447d2e55e2b
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79232976"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257443"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Guía de referencia de esquema para los tipos de desencadenador y de acción en Azure Logic Apps
 
@@ -2407,11 +2407,17 @@ Puede cambiar el comportamiento predeterminado de los desencadenadores y accione
 
 De forma predeterminada, todas las instancias del flujo de trabajo de la aplicación lógica se ejecutan al mismo tiempo (simultáneamente o en paralelo). Este comportamiento implica la activación de todas las instancias del desencadenador antes de que finalice la ejecución de la instancia del ejecución activo anteriormente. Sin embargo, el número de instancias en ejecución simultáneas tiene un [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Cuando el número de instancias de flujo de trabajo que se ejecutan simultáneamente alcanza este límite, las nuevas deben esperar un tiempo para ejecutarse. Este límite ayuda a controlar el número de solicitudes que reciben los sistemas de back-end.
 
-Para cambiar el límite predeterminado, puede usar el editor de la vista Código o el diseñador de Logic Apps ya que al cambiar el valor de simultaneidad a través del diseñador se agrega o actualiza la propiedad `runtimeConfiguration.concurrency.runs` en la definición del desencadenador subyacente y viceversa. Esta propiedad controla el número máximo de instancias de flujo de trabajo que se pueden ejecutar en paralelo. Estas son algunas consideraciones que debe plantearse cuando quiera usar el control de simultaneidad:
+Al activar el control de simultaneidad del desencadenador, las instancias de desencadenador se ejecutan en paralelo hasta el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para cambiar este límite predeterminado de simultaneidad, puede usar el editor de la vista Código o el Diseñador de Logic Apps, ya que al cambiar el valor de simultaneidad mediante el Diseñador se agrega o actualiza la propiedad `runtimeConfiguration.concurrency.runs` en la definición del desencadenador subyacente y viceversa. Esta propiedad controla el número máximo de nuevas instancias de flujo de trabajo que se pueden ejecutar en paralelo.
+
+Estas son algunas consideraciones que debe plantearse cuando quiera usar el control de simultaneidad en un desencadenador:
 
 * Cuando la simultaneidad está habilitada, se reduce significativamente el [límite SplitOn](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) para [matrices de desagrupación](#split-on-debatch). Si el número de elementos supera este límite, se deshabilita la funcionalidad de SplitOn.
 
-* Aunque la simultaneidad está habilitada, una instancia de aplicación lógica de larga duración puede provocar que las nuevas instancias de aplicación lógica entren en un estado de espera. Este estado impide que Azure Logic Apps cree instancias y se produce incluso cuando el número de ejecuciones simultáneas es menor que el número máximo de ejecuciones simultáneas especificado.
+* No se puede deshabilitar la simultaneidad después de habilitar el control de simultaneidad.
+
+* Cuando la simultaneidad está habilitada, se reduce significativamente el [límite SplitOn](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) para [matrices de desagrupación](#split-on-debatch). Si el número de elementos supera este límite, se deshabilita la funcionalidad de SplitOn.
+
+* Cuando la simultaneidad está habilitada, una instancia de aplicación lógica de larga duración puede provocar que las nuevas instancias de aplicación lógica entren en un estado de espera. Este estado impide que Azure Logic Apps cree instancias y se produce incluso cuando el número de ejecuciones simultáneas es menor que el número máximo de ejecuciones simultáneas especificado.
 
   * Para interrumpir este estado, cancele las instancias más tempranas que estén *todavía en ejecución*.
 

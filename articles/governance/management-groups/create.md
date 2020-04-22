@@ -1,26 +1,27 @@
 ---
 title: 'Creación de grupos de administración para organizar los recursos: gobernanza en Azure'
 description: Aprenda a crear grupos de administración de Azure para administrar varios recursos mediante el portal, Azure PowerShell y la CLI de Azure.
-ms.date: 12/18/2019
+ms.date: 04/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: d9bb2e82404c0188094298f40da3346ee132eec3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 34815089367512c4aa54f148c118a669625d0ea3
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75436527"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81381582"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Creación de grupos de administración para la organización y la administración de recursos
 
 Los grupos de administración son contenedores que ayudan a administran el acceso, las directivas y el cumplimiento de varias suscripciones. Cree estos contenedores para construir una jerarquía eficaz y eficiente que pueda usarse con [Azure Policy](../policy/overview.md) y los [controles de acceso basados en roles de Azure](../../role-based-access-control/overview.md). Para obtener más información sobre los grupos de administración, consulte [Organización de los recursos con grupos de administración de Azure](overview.md).
 
-El primer grupo de administración creado en el directorio puede tardar hasta 15 minutos en completarse. Hay procesos que se ejecutan la primera vez para configurar el servicio de grupos de administración dentro de Azure para su directorio. Recibirá una notificación cuando finalice el proceso. Para obtener más información, vea [Instalación inicial de los grupos de administración](./overview.md#initial-setup-of-management-groups). 
+El primer grupo de administración creado en el directorio puede tardar hasta 15 minutos en completarse. Hay procesos que se ejecutan la primera vez para configurar el servicio de grupos de administración dentro de Azure para su directorio. Recibirá una notificación cuando finalice el proceso. Para obtener más información, vea [Instalación inicial de los grupos de administración](./overview.md#initial-setup-of-management-groups).
 
 ## <a name="create-a-management-group"></a>Creación de un grupo de administración
 
-Cualquier usuario de Azure AD del inquilino puede crear un grupo de administración sin el permiso de escritura del grupo de administración asignado a ese usuario.  Este nuevo grupo de administración será un elemento secundario del grupo de administración raíz y se le asignará una asignación de rol de "Propietario" al creador. El servicio del grupo de administración ofrece esta funcionalidad para que las asignaciones de roles no sean necesarias en el nivel raíz. Ningún usuario tiene acceso al grupo de administración raíz cuando se crea.  Para sortear el obstáculo de buscar administradores globales de Azure AD para empezar a usar grupos de administración, se permite la creación de grupos de administración iniciales en el nivel raíz.      
+Cualquier usuario de Azure AD del inquilino puede crear un grupo de administración sin el permiso de escritura del grupo de administración asignado a ese usuario. Este nuevo grupo de administración será un elemento secundario del grupo de administración raíz y se le asignará una asignación de rol de "Propietario" al creador. El servicio del grupo de administración ofrece esta funcionalidad para que las asignaciones de roles no sean necesarias en el nivel raíz. Ningún usuario tiene acceso al grupo de administración raíz cuando se crea. Para sortear el obstáculo de buscar administradores globales de Azure AD para empezar a usar grupos de administración, se permite la creación de grupos de administración iniciales en el nivel de  
+raíz.
 
-Puede crear el grupo de administración mediante el portal, PowerShell o la CLI de Azure. Actualmente no se pueden usar plantillas de Resource Manager para crear grupos de administración.
+Puede crear el grupo de administración mediante el portal, una [plantilla de Resource Manager](../../azure-resource-manager/templates/deploy-to-tenant.md#create-management-group), PowerShell o la CLI de Azure.
 
 ### <a name="create-in-portal"></a>Crear en el portal
 
@@ -34,14 +35,15 @@ Puede crear el grupo de administración mediante el portal, PowerShell o la CLI 
 
 1. Seleccione **+ Agregar grupo de administración**.
 
-   ![Página para trabajar con grupos de administración](./media/main.png)
+   :::image type="content" source="./media/main.png" alt-text="Página para trabajar con grupos de administración" border="false":::
 
 1. Rellene el campo de identificador de grupo de administración.
 
    - El **identificador de grupo de administración** es el identificador único de directorio que se usa para enviar comandos en este grupo de administración. Este identificador no es editable una vez creado, dado que se usa en todo el sistema de Azure para identificar este grupo. El [grupo de administración raíz](overview.md#root-management-group-for-each-directory) se crea automáticamente con un ID que es el identificador de Azure Active Directory. Para el resto de grupos de administración, asigne un identificador único.
-   - El campo de nombre para mostrar es el nombre que se muestra en Azure Portal. Un nombre para mostrar independiente es un campo opcional al crear el grupo de administración y se puede cambiar en cualquier momento.  
+   - El campo de nombre para mostrar es el nombre que se muestra en Azure Portal. Un nombre para mostrar independiente es un campo opcional al crear el grupo de administración y se puede cambiar en cualquier  
+     momento.
 
-   ![Panel de opciones para crear un nuevo grupo de administración](./media/create_context_menu.png)  
+   :::image type="content" source="./media/create_context_menu.png" alt-text="Panel de opciones para crear un nuevo grupo de administración" border="false":::
 
 1. Seleccione **Guardar**.
 
@@ -94,8 +96,8 @@ az account management-group create --name ContosoSubGroup --parent Contoso
 
 Para más información sobre los grupos de administración, consulte:
 
-- [Creación de grupos de administración para organizar los recursos de Azure](create.md)
-- [Cambio, eliminación y administración de los grupos de administración](manage.md)
+- [Creación de grupos de administración para organizar los recursos de Azure](./create.md)
+- [Cambio, eliminación y administración de los grupos de administración](./manage.md)
 - [Revisión de grupos de administración en el módulo de recursos de Azure PowerShell](/powershell/module/az.resources#resources)
 - [Revisión de grupos de administración en la API REST](/rest/api/resources/managementgroups)
 - [Revisión de grupos de administración en la CLI de Azure](/cli/azure/account/management-group)

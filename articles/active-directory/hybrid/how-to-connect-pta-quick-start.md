@@ -1,5 +1,5 @@
 ---
-title: 'Autenticación de paso a través de Azure AD: inicio rápido | Microsoft Docs'
+title: 'Autenticación de paso a través de Azure AD: inicio rápido | Microsoft Docs'
 description: En este artículo se describe cómo empezar a usar la autenticación de paso a través de Azure Active Directory (Azure AD).
 services: active-directory
 keywords: Autenticación de paso a través de Azure AD Connect, instalación de Active Directory, componentes necesarios para Azure AD, SSO, inicio de sesión único
@@ -12,18 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/15/2019
+ms.date: 04/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fc45033cdf1bdaa6d4ecd6ab58cc7f90ff9c1ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b84e972584562be741919c7dccb6bdfe1bdea628
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80331415"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312852"
 ---
-# <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Autenticación de paso a través de Azure Active Directory: Inicio rápido
+# <a name="azure-active-directory-pass-through-authentication-quickstart"></a>Autenticación de paso a través de Azure Active Directory: Guía de inicio rápido
 
 ## <a name="deploy-azure-ad-pass-through-authentication"></a>Implementación de la autenticación de paso a través de Azure AD
 
@@ -61,14 +61,19 @@ Asegúrese de que se cumplen los siguientes requisitos previos.
 
      | Número de puerto | Cómo se usa |
      | --- | --- |
-     | **80** | Descarga las listas de revocación de certificados (CRL) al validar el certificado TLS/SSL |
+     | **80** | Descarga las listas de revocación de certificados (CRL) al validar el certificado TLS/SSL. |
      | **443** | Controla toda la comunicación saliente con el servicio |
      | **8080** (opcional) | Los agentes de autenticación notifican su estado cada diez minutos a través del puerto 8080, si el puerto 443 no está disponible. Este estado se muestra en el portal de Azure AD. El puerto 8080 _no_ se usa para inicios de sesión de usuario. |
      
      Si el firewall fuerza las reglas según los usuarios que las originan, abra estos puertos para el tráfico de servicios de Windows que se ejecutan como un servicio de red.
-   - Si el firewall o el proxy permiten la creación de listas blancas con DNS, cree una lista blanca para las conexiones a **\*.msappproxy.net** y **\*.servicebus.windows.net**. En caso contrario, permita el acceso a los [intervalos de direcciones IP del centro de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653), que se actualizan cada semana.
+   - Si el firewall o el proxy permiten la creación de listas blancas con DNS, agregue conexiones a **\*.msappproxy.net** y **\*.servicebus.windows.net**. En caso contrario, permita el acceso a los [intervalos de direcciones IP del centro de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653), que se actualizan cada semana.
    - Los agentes de autenticación necesitan acceder a **login.windows.net** y **login.microsoftonline.com** para el registro inicial. Abra el firewall también para esas direcciones URL.
    - Para la validación de certificados, desbloquee las siguientes direcciones URL: **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80** y **www\.microsoft.com:80**. Como estas direcciones URL se utilizan para la validación de certificados con otros productos de Microsoft, es posible que estas direcciones URL ya estén desbloqueadas.
+
+### <a name="azure-government-cloud-prerequisite"></a>Requisitos previos de la nube de Azure Government
+Antes de habilitar la autenticación de paso a través mediante Azure AD Connect con el paso 2, descargue la versión más reciente del agente de PTA de Azure Portal.  Debe asegurarse de que la versión del agente es **x.x.xxx.x** o posterior.  Para comprobar el agente, consulte el tema sobre [actualización de los agentes de autenticación](how-to-connect-pta-upgrade-preview-authentication-agents.md)
+
+Después de descargar la versión más reciente del agente, continúe con las instrucciones siguientes para configurar la autenticación de paso a través mediante Azure AD Connect.
 
 ## <a name="step-2-enable-the-feature"></a>Paso 2: Habilitar la característica
 
@@ -114,8 +119,8 @@ Si tiene previsto implementar la autenticación de paso a través en un entorno 
 La instalación de varios agentes de autenticación de paso a través solo garantiza una alta disponibilidad, pero no un equilibrio de carga determinista entre los agentes de autenticación. Para determinar cuántos agentes de autenticación necesita para su inquilino, considere la carga máxima y la carga media de las solicitudes de inicio de sesión que espera ver en el inquilino. Como referencia, un solo agente de autenticación puede administrar entre 300 y 400 autenticaciones por segundo en un servidor estándar con CPU de 4 núcleos y 16 GB de RAM.
 
 Para calcular el tráfico de red, use la guía sobre el tamaño siguiente:
-- Cada solicitud tiene un tamaño de carga de trabajo de (0.5K + 1K * num_of_agents) bytes; es decir, los datos de Azure AD al Agente de autenticación. Aquí, "num_of_agents" indica el número de agentes de autenticación que hay registrados en su inquilino.
-- Cada respuesta tiene un tamaño de carga de trabajo de 1K bytes; es decir, los datos del Agente de autenticación a Azure AD.
+- Cada solicitud tiene un tamaño de carga de trabajo de (500 + 1000 * num_of_agents) bytes; es decir, los datos de Azure AD al agente de autenticación. Aquí, "num_of_agents" indica el número de agentes de autenticación que hay registrados en su inquilino.
+- Cada respuesta tiene un tamaño de carga de trabajo de 1000 bytes; es decir, los datos del Agente de autenticación a Azure AD.
 
 Para la mayoría de los clientes, tres agentes de autenticación en total son suficientes para obtener alta disponibilidad y capacidad. Debe instalar agentes de autenticación cerca de los controladores de dominio para mejorar la latencia de inicio de sesión.
 

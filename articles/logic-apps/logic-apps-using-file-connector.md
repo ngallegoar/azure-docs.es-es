@@ -8,12 +8,12 @@ ms.author: deli
 ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 01/13/2019
-ms.openlocfilehash: 2a00405a2100c3e565ca4f8ea4149540a5199b43
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ab17137f162b893b54942d870b07a36f87d1b71d
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77651413"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115067"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Conexión a sistemas de archivos locales con Azure Logic Apps
 
@@ -69,7 +69,7 @@ En este artículo se muestra cómo conectar a un sistema de archivos local como 
    | -------- | -------- | ----- | ----------- |
    | **Nombre de la conexión** | Sí | <*connection-name*> | El nombre que quiere para la conexión |
    | **Carpeta raíz** | Sí | <*root-folder-name*> | La carpeta raíz para el sistema de archivos, por ejemplo, si ha instalado la puerta de enlace de datos local, como una carpeta local en el equipo donde está instalada la puerta de enlace de datos local, o la carpeta para un recurso compartido de red al que el equipo puede acceder. <p>Por ejemplo: `\\PublicShare\\DropboxFiles` <p>La carpeta raíz es la carpeta primaria principal, que se usa para las rutas de acceso relativas para todas las acciones relacionadas con archivos. |
-   | **Tipo de autenticación** | No | <*auth-type*> | El tipo de autenticación que usa el sistema de archivos, por ejemplo, **Windows** |
+   | **Tipo de autenticación** | No | <*auth-type*> | El tipo de autenticación que usa el sistema de archivos: **Windows** |
    | **Nombre de usuario** | Sí | <*domain*>\\<*username*> | El nombre de usuario para el equipo donde tiene el sistema de archivos |
    | **Contraseña** | Sí | <*your-password*> | La contraseña para el equipo donde tiene el sistema de archivos |
    | **puerta de enlace** | Sí | <*installed-gateway-name*> | El nombre de la puerta de enlace instalada previamente |

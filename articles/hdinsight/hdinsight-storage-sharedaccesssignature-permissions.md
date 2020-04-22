@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/13/2019
-ms.openlocfilehash: 1a4ae0701174278203023c156a86aad8feb1ca4c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: hdinsightactive
+ms.date: 04/14/2020
+ms.openlocfilehash: d68f7dc6368c2b3de7f26f2946c5fb47237a820d
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80240623"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81313931"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Uso de firmas de acceso compartido de Azure Storage para restringir el acceso a datos en HDInsight
 
@@ -27,8 +27,6 @@ HDInsight tiene acceso total a los datos de las cuentas de Azure Storage asociad
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* Suscripción a Azure.
-
 * Un cliente SSH. Para más información, consulte [Conexión a través de SSH con HDInsight (Apache Hadoop)](./hdinsight-hadoop-linux-use-ssh-unix.md).
 
 * Un [contenedor de almacenamiento](../storage/blobs/storage-quickstart-blobs-portal.md) existente.  
@@ -41,7 +39,7 @@ HDInsight tiene acceso total a los datos de las cuentas de Azure Storage asociad
 
 * Si usa C#, debe usar la versión 2013 de Visual Studio o superior.
 
-* El [esquema de URI](./hdinsight-hadoop-linux-information.md#URI-and-scheme) para la cuenta de almacenamiento. Sería `wasb://` para Azure Storage, `abfs://` para Azure Data Lake Storage Gen2 o `adl://` para Azure Data Lake Storage Gen1. Si se habilita la transferencia segura para Azure Storage, el identificador URI sería `wasbs://`. Consulte también el artículo acerca de la [transferencia segura](../storage/common/storage-require-secure-transfer.md).
+* El [esquema de URI](./hdinsight-hadoop-linux-information.md#URI-and-scheme) para la cuenta de almacenamiento. Este esquema sería `wasb://` para Azure Storage, `abfs://` para Azure Data Lake Storage Gen2 o `adl://` para Azure Data Lake Storage Gen1. Si se habilita la transferencia segura para Azure Storage, el identificador URI sería `wasbs://`. Consulte también el artículo acerca de la [transferencia segura](../storage/common/storage-require-secure-transfer.md).
 
 * Un clúster de HDInsight existente al que agregar una firma de acceso compartido. Si no es así, puede usar Azure PowerShell para crear un clúster y agregar una firma de acceso compartido durante la creación del clúster.
 
@@ -56,11 +54,11 @@ HDInsight tiene acceso total a los datos de las cuentas de Azure Storage asociad
 
 Hay dos formas de firmas de acceso compartido:
 
-* Ad hoc: la hora de inicio, la hora de expiración y los permisos para la firma de acceso compartido se especifican en el URI de esta.
+* `Ad hoc`: la hora de inicio, la hora de expiración y los permisos para la firma de acceso compartido se especifican en el URI de esta.
 
-* Directiva de acceso compartido: se define una directiva de acceso almacenada en un contenedor de recursos, como un contenedor de blobs. Una directiva puede usarse para administrar las restricciones de una o varias firmas de acceso compartido. Cuando asocia una SAS a una directiva de acceso almacenada, la SAS hereda las restricciones (hora de inicio, hora de expiración y permisos) definidas para la directiva de acceso almacenada.
+* `Stored access policy`: se define una directiva de acceso almacenada en un contenedor de recursos, como un contenedor de blobs. Una directiva puede usarse para administrar las restricciones de una o varias firmas de acceso compartido. Cuando asocia una SAS a una directiva de acceso almacenada, la SAS hereda las restricciones (hora de inicio, hora de expiración y permisos) definidas para la directiva de acceso almacenada.
 
-La diferencia entre las dos formas es importante para un escenario principal: revocación. Una SAS es una dirección URL, por lo que cualquier persona que obtenga la SAS puede usarla, independientemente de quién la solicitó para comenzar. Si una SAS se encuentra disponible públicamente, cualquier persona del mundo puede usarla. Una SAS distribuida es válida hasta que se produzca una de las cuatro situaciones:
+La diferencia entre las dos formas es importante para un escenario principal: revocación. Una SAS es una dirección URL, por lo que cualquier persona que obtenga la SAS puede usarla. No importa quién la solicitó originalmente. Si una SAS se encuentra disponible públicamente, cualquier persona del mundo puede usarla. Una SAS distribuida es válida hasta que se produzca una de las cuatro situaciones:
 
 1. Se alcanza el tiempo de expiración especificado en la SAS.
 
@@ -82,7 +80,7 @@ Para más información sobre firmas de acceso compartido, consulte [Firmas de ac
 
 ## <a name="create-a-stored-policy-and-sas"></a>Creación de una directiva almacenada y una SAS
 
-Guarde el token de SAS que se crea al final de cada método. El token será similar al siguiente:
+Guarde el token de SAS que se crea al final de cada método. El token será similar al siguiente resultado:
 
 ```output
 ?sv=2018-03-28&sr=c&si=myPolicyPS&sig=NAxefF%2BrR2ubjZtyUtuAvLQgt%2FJIN5aHJMj6OsDwyy4%3D
@@ -205,7 +203,7 @@ Abra el archivo `SASToken.py` y reemplace `storage_account_name`, `storage_accou
 
 Es posible que tenga que ejecutar `pip install --upgrade azure-storage` si recibe el mensaje de error `ImportError: No module named azure.storage`.
 
-### <a name="using-c"></a>Con C#
+### <a name="using-c"></a>Uso de C\#
 
 1. Abra la solución en Visual Studio.
 
@@ -213,21 +211,20 @@ Es posible que tenga que ejecutar `pip install --upgrade azure-storage` si recib
 
 3. Seleccione **Configuración** y agregue valores para las siguientes entradas:
 
-   * StorageConnectionString: la cadena de conexión de la cuenta de almacenamiento para la que desea crear una directiva almacenada y una SAS. El formato debe ser `DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey` donde `myaccount` es el nombre de la cuenta de almacenamiento y `mykey` es la clave para la cuenta de almacenamiento.
-
-   * ContainerName: El contenedor de la cuenta de almacenamiento a la que desea restringir el acceso.
-
-   * SASPolicyName: El nombre que se usará para la directiva almacenada que se va a crear.
-
-   * FileToUpload: La ruta de acceso a un archivo que se carga en el contenedor.
+    |Elemento |Descripción |
+    |---|---|
+    |StorageConnectionString|la cadena de conexión de la cuenta de almacenamiento para la que desea crear una directiva almacenada y una SAS. El formato debe ser `DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey` donde `myaccount` es el nombre de la cuenta de almacenamiento y `mykey` es la clave para la cuenta de almacenamiento.|
+    |ContainerName|El contenedor de la cuenta de almacenamiento a la que desea restringir el acceso.|
+    |SASPolicyName|El nombre que se usará para la directiva almacenada que se va a crear.|
+    |FileToUpload|La ruta de acceso a un archivo que se carga en el contenedor.|
 
 4. Ejecute el proyecto. Guarde el token de directiva de SAS, el nombre de la cuenta de almacenamiento y el nombre del contenedor. Estos valores se usan al asociar la cuenta de almacenamiento con el clúster de HDInsight.
 
 ## <a name="use-the-sas-with-hdinsight"></a>Uso de las SAS con HDInsight
 
-Al crear un clúster de HDInsight, debe especificar una cuenta de almacenamiento principal y puede especificar, opcionalmente, cuentas de almacenamiento adicionales. Estos dos métodos para agregar almacenamiento requieren tener un acceso total a las cuentas de almacenamiento y los contenedores que se utilizan.
+Al crear un clúster de HDInsight, debe especificar una cuenta de almacenamiento principal. También puede especificar cuentas de almacenamiento adicionales. Estos dos métodos para agregar almacenamiento requieren tener un acceso total a las cuentas de almacenamiento y los contenedores que se utilizan.
 
-Para usar una firma de acceso compartido a fin de limitar el acceso a un contenedor, agregue una entrada personalizada a la configuración **core-site** para el clúster. Puede agregar la entrada durante la creación del clúster mediante PowerShell, o bien con Ambari después de crearlo.
+Use una firma de acceso compartido para limitar el acceso al contenedor. Agregue una entrada personalizada a la configuración de **core-site** para el clúster. Puede agregar la entrada durante la creación del clúster mediante PowerShell, o bien con Ambari después de crearlo.
 
 ### <a name="create-a-cluster-that-uses-the-sas"></a>Crear un clúster que usa la SAS
 

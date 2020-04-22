@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: a2eade6c5a9c826d28d435a09861ba58463ae8c4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f6c4fb5caf746650f95872d50afe31e5693422be
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79236104"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382911"
 ---
 # <a name="azure-active-directory-integration-for-azure-red-hat-openshift"></a>Integración de Azure Active Directory para Red Hat OpenShift en Azure
 
@@ -25,13 +25,13 @@ En [Azure Portal](https://portal.azure.com), asegúrese de que el inquilino apar
 
 ![Captura de pantalla del portal en el que aparece el inquilino en la parte superior derecha](./media/howto-create-tenant/tenant-callout.png). Si se muestra el inquilino incorrecto, haga clic en el nombre de usuario en la parte superior derecha, luego haga clic en **Cambiar directorio** y seleccione el inquilino correcto de la lista **Todos los directorios**.
 
-Cree un nuevo usuario de administrador global de Azure Active Directory para iniciar sesión en el clúster de Red Hat OpenShift en Azure.
+Cree un nuevo usuario "Propietario" de Azure Active Directory para iniciar sesión en el clúster de Red Hat OpenShift en Azure.
 
 1. Vaya a la hoja [Usuarios: todos los usuarios](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers).
 2. Haga clic en **+Nuevo usuario** para abrir el panel **Usuario**.
 3. Escriba un **Nombre** para este usuario.
 4. Cree un **Nombre de usuario** basado en el nombre del inquilino que haya creado, con `.onmicrosoft.com` anexado al final. Por ejemplo, `yourUserName@yourTenantName.onmicrosoft.com`. Anote este nombre de usuario. Lo necesitará para conectarse en el clúster.
-5. Haga clic en **Rol de directorio** para abrir el panel de rol de directorio, seleccione **Administrador global** y luego haga clic en **Aceptar** en la parte inferior del panel.
+5. Haga clic en **Rol de directorio** para abrir el panel de rol de directorio, seleccione **Propietario** y luego haga clic en **Aceptar** en la parte inferior del panel.
 6. En el panel **Usuario**, haga clic en **Mostrar contraseña** y anote la contraseña temporal. Después de iniciar sesión por primera vez, se le pedirá que la restablezca.
 7. Haga clic en **Crear** en la parte inferior del panel para crear el usuario.
 

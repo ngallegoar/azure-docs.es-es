@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 89bdd209315445519c35f3ef2c2f1ad2555106ba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 4/13/2020
+ms.openlocfilehash: 1e67637d36eaba55e4c6baaf6f775fc7b79fcd14
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79531403"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81270609"
 ---
 # <a name="configure-and-access-slow-query-logs-from-the-azure-portal"></a>Configuración y acceso a los registros de consultas lentas en Azure Portal
 
@@ -32,11 +32,15 @@ Configure el acceso al registro de consultas lentas.
 
 4. Seleccione **Haga clic aquí para habilitar los registros y configurar los parámetros** para ver los parámetros del servidor.
 
-5. Cambie los parámetros que quiera ajustar, y cambie el estado de **slow_query_log** a **ON**. Todos los cambios que realice en esta sesión se resaltan en color púrpura. 
+5. Sitúe **slow_query_log** en la posición **ON** (ACTIVADO).
 
-   Después de cambiar los parámetros, seleccione **Guardar**. O bien puede descartar los cambios.
+6. Seleccione la ubicación en la que se van a generar los registros con **log_output**. Para enviar registros al almacenamiento local y a los registros de diagnóstico de Azure Monitor, seleccione **File** (Archivo). 
 
-   ![Captura de pantalla de las opciones de los parámetros del servidor](./media/howto-configure-server-logs-portal/3-save-discard.png)
+7. Cambie cualquier otro parámetro necesario. 
+
+8. Seleccione **Guardar**. 
+
+   :::image type="content" source="./media/howto-configure-server-logs-portal/3-save-discard.png" alt-text="Captura de pantalla de parámetros de registro de consultas lentas y la acción de guardar.":::
 
 Desde la página **Parámetros de servidor**, puede volver a la lista de los registros cerrando la página.
 

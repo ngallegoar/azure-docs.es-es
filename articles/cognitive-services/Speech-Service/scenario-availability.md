@@ -10,19 +10,25 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: cbasoglu
-ms.openlocfilehash: 6f8f892e7ca81881b0cc00e1708e3f05052c573c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a72e5055a3b0f858a732ec28eeab511b09dd450c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76264210"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81400143"
 ---
 # <a name="scenario-availability"></a>Disponibilidad de escenarios
 
 El SDK de Voz presenta muchos escenarios en una amplia variedad de lenguajes y entornos de programación. No todos los escenarios están disponibles en todos los lenguajes de programación o todos los entornos. A continuación se indica la disponibilidad de cada escenario.
 
 - **Reconocimiento de voz (SR), lista de frases, intención, traducción y contenedores locales**
-  - Todos los lenguajes de programación y entornos donde haya un vínculo de flecha <img src="media/index/link.jpg" height="15" width="15"></img> en [esta](https://aka.ms/csspeech) tabla de inicio rápido.
+  - C++/Windows, Linux y macOS
+  - C# (Framework y .NET Core)/Windows, UWP, Unity, Xamarin, Linux y macOS
+  - Java (JRE y Android)
+  - JavaScript (Brower y NodeJS)
+  - Python
+  - Swift
+  - Objective-C  
 - **Texto a voz (TTS)**
   - C++/Windows y Linux
   - C#/Windows, UWP y Unity

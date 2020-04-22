@@ -5,12 +5,12 @@ ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 48d98d6fef896f9288be88824a62fa1c8179217f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7155a3fa9481ef5f2da62d85d4a932ad5e8e8ab1
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79234984"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382518"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatización de la implementación de recursos para una aplicación de función en Azure Functions
 
@@ -33,7 +33,7 @@ Normalmente, una implementación de Azure Functions consta de estos recursos:
 | Un componente de [Application Insights](../azure-monitor/app/app-insights-overview.md) | Opcional    | [Microsoft.Insights/components](/azure/templates/microsoft.insights/components)         |   |
 | Un [Plan de hospedaje](./functions-scale.md)                                             | Opcional<sup>1</sup>    | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)                 |   |
 
-<sup>1</sup>un plan de hospedaje solo es necesario si decide ejecutar la aplicación de funciones en un [plan Premium](./functions-premium-plan.md) (en versión preliminar) o en un [plan de App Service](../app-service/overview-hosting-plans.md).
+<sup>1</sup>Un plan de hospedaje solo es necesario si decide ejecutar la aplicación de función en un [plan Premium](./functions-premium-plan.md) o en un [plan de App Service](../app-service/overview-hosting-plans.md).
 
 > [!TIP]
 > Aunque no es necesario, se recomienda encarecidamente configurar Application Insights para su aplicación.
@@ -111,7 +111,7 @@ Además, se debe proporcionar la clave de instrumentación a la aplicación de f
 
 La definición del plan de hospedaje varía y puede ser una de las siguientes:
 * [Plan de consumo](#consumption) (opción predeterminada)
-* [Plan Premium](#premium) (en versión preliminar)
+* [Plan Premium](#premium)
 * [plan de App Service](#app-service-plan)
 
 ### <a name="function-app"></a>Aplicación de función

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 554508b1bf784e306cd12a4a601f908e06320933
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a644e211cc933ca686f0bd6a13b0d2ba8ae20162
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71154975"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114103"
 ---
 # <a name="common-issues-that-cause-roles-to-recycle"></a>Problemas comunes que causan el reciclaje de los roles
 En este artículo se describen algunas de las causas comunes de problemas relacionados con la implementación y se proporcionan sugerencias para la resolución de dichos problemas. Aparece una indicación de que existe un problema con una aplicación cuando la instancia de rol no se inicia o cuando alterna entre los estados inicializando, ocupado y deteniendo.
@@ -58,7 +58,7 @@ Para asegurarse de que el valor de `DiagnosticsConnectionString` sea correcto an
   Si está desarrollando una aplicación con Azure Tools para Microsoft Visual Studio, puede usar las páginas de propiedades para establecer este valor.
 
 ## <a name="exported-certificate-does-not-include-private-key"></a>El certificado exportado no incluye una clave privada
-Para ejecutar un rol web con SSL, debe asegurarse de que el certificado de administración exportado incluye la clave privada. Si usa el *administrador de certificados de Windows* para exportar el certificado, asegúrese de seleccionar **Sí** en la opción **Exportar la clave privada**. El certificado se debe exportar al formato PFX, que es el único formato que se admite actualmente.
+Para ejecutar un rol web con TLS, debe asegurarse de que el certificado de administración exportado incluya la clave privada. Si usa el *administrador de certificados de Windows* para exportar el certificado, asegúrese de seleccionar **Sí** en la opción **Exportar la clave privada**. El certificado se debe exportar al formato PFX, que es el único formato que se admite actualmente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Vea más [artículos de solución de problemas](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) para servicios en la nube.

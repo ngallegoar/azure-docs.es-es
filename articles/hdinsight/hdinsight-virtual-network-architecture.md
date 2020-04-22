@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/31/2019
-ms.openlocfilehash: b3f622b360f565ef5b16d5376cb1aa2498655017
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.openlocfilehash: ad0e0250b32f2bdef4944e6e148be3215f3822f7
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79233524"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81390220"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Arquitectura de red virtual de Azure HDInsight
 
@@ -30,11 +30,11 @@ Los clústeres de Azure HDInsight tienen distintos tipos de máquinas virtuales 
 | Nodo perimetral de R Server | El nodo perimetral de R Server representa el nodo al que puede acceder mediante SSH y ejecutar aplicaciones que después se coordinan para ejecutarse en los recursos de clúster. El nodo perimetral no participa en el análisis de datos dentro del clúster. Este nodo también hospeda R Studio Server, lo que permite ejecutar la aplicación de R con un explorador. |
 | Nodo regional | Para el tipo de clúster de HBase, el nodo regional (también denominado un nodo de datos) ejecuta el servidor de regiones. Los servidores de regiones atienden y administran una parte de los datos administrados por HBase. Los nodos regionales se pueden agregar o quitar del clúster para escalar la funcionalidad de computación y administrar los costos.|
 | Nodo Nimbus | Para el tipo de clúster de Storm, el nodo Nimbus proporciona una funcionalidad similar a la del nodo principal. El nodo de Nimbus asigna tareas a otros nodos de un clúster mediante ZooKeeper, que coordina la ejecución de topologías de Storm. |
-| Nodo de supervisión | Para el tipo de clúster de Storm, el nodo de supervisor ejecuta las instrucciones que el nodo Nimbus proporciona para realizar el procesamiento deseado. |
+| Nodo de supervisión | Para el tipo de clúster de Storm, el nodo de supervisor ejecuta las instrucciones que el nodo Nimbus proporciona para realizar el procesamiento. |
 
 ## <a name="resource-naming-conventions"></a>Convenciones de nomenclatura de recursos
 
-Use nombres de dominio completos (FQDN) al tratar nodos del clúster. Puede obtener los FQDN de varios tipos de nodo del clúster mediante [Ambari API](hdinsight-hadoop-manage-ambari-rest-api.md). 
+Use nombres de dominio completos (FQDN) al tratar nodos del clúster. Puede obtener los FQDN de varios tipos de nodo del clúster mediante [Ambari API](hdinsight-hadoop-manage-ambari-rest-api.md).
 
 Estos FQDN tendrán el formato `<node-type-prefix><instance-number>-<abbreviated-clustername>.<unique-identifier>.cx.internal.cloudapp.net`.
 
@@ -48,9 +48,9 @@ El siguiente diagrama muestra la colocación de los nodos de HDInsight y los rec
 
 ![Diagrama de entidades de HDInsight creadas en una red virtual personalizada de Azure](./media/hdinsight-virtual-network-architecture/hdinsight-vnet-diagram.png)
 
-Los recursos predeterminados presentes cuando HDInsight se implementa en una red virtual de Azure incluyen los tipos de nodo de clúster que se han mencionado en la tabla anterior, así como los dispositivos de red que admiten la comunicación entre la red virtual y las redes externas.
+Los recursos predeterminados de una instancia de Azure Virtual Network incluyen los tipos de nodo de clúster que se mencionan en la tabla anterior. Y los dispositivos de red que admiten la comunicación entre la red virtual y las redes externas.
 
-En la tabla siguiente se resumen los nueve nodos de clúster que se crean cuando HDInsight se implementa en una red virtual de Azure personalizada.
+En la tabla siguiente se resumen los nueve nodos de clúster que se crean cuando HDInsight se implementa en una instancia personalizada de Azure Virtual Network.
 
 | Tipo de recurso | Número presente | Detalles |
 | --- | --- | --- |
@@ -64,7 +64,7 @@ Los siguientes recursos de red presentes se crean automáticamente dentro de la 
 | Recursos de redes | Número presente | Detalles |
 | --- | --- | --- |
 |Equilibrador de carga | three | |
-|Interfaces de red | nueve | Este valor se basa en un clúster normal, donde cada nodo tiene su propia interfaz de red. Las nueve interfaces son para los dos nodos principales, tres nodos de ZooKeeper, dos nodos de trabajo y dos nodos de puerta de enlace que se mencionan en la tabla anterior. |
+|Interfaces de red | nueve | Este valor se basa en un clúster normal, donde cada nodo tiene su propia interfaz de red. Las nueve interfaces son para los dos nodos principales, los tres nodos de ZooKeeper, los dos nodos de trabajo y los dos nodos de puerta de enlace que se mencionan en la tabla anterior. |
 |Direcciones IP públicas | two |    |
 
 ## <a name="endpoints-for-connecting-to-hdinsight"></a>Puntos de conexión para conectarse a HDInsight
@@ -73,7 +73,7 @@ Puede acceder al clúster de HDInsight de tres formas:
 
 - Un punto de conexión HTTPS fuera de la red virtual en `CLUSTERNAME.azurehdinsight.net`.
 - Un punto de conexión SSH para conectarse directamente al nodo principal en `CLUSTERNAME-ssh.azurehdinsight.net`.
-- Un punto de conexión HTTPS dentro de la red virtual `CLUSTERNAME-int.azurehdinsight.net`. Observe "-int" en esta dirección URL. Este punto de conexión se resolverá en una dirección IP privada en esa red virtual y será inaccesible desde Internet pública.
+- Un punto de conexión HTTPS dentro de la red virtual `CLUSTERNAME-int.azurehdinsight.net`. Observe "`-int`" en esta dirección URL. Este punto de conexión se resolverá en una dirección IP privada en esa red virtual y será inaccesible desde Internet pública.
 
 A estos tres puntos de conexión se les asigna un equilibrador de carga.
 

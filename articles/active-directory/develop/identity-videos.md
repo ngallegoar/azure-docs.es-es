@@ -1,6 +1,6 @@
 ---
 title: Vídeos de la plataforma de identidad de Microsoft | Azure
-description: Lista de vídeos sobre la plataforma de identidad de Microsoft
+description: Lista de vídeos sobre la autenticación moderna y la Plataforma de identidad de Microsoft
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -8,24 +8,73 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 01/29/2020
+ms.date: 04/08/2020
 ms.author: marsma
 ms.custom: aaddev
 ms.reviewer: celested
-ms.openlocfilehash: 22149ccfa258852b36da61ffbabde5e1856df9de
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e8c7ec6cf1d15e414a6db54d5bc2ad7e4994cd82
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77085199"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991303"
 ---
 # <a name="microsoft-identity-platform-videos"></a>Vídeos de la plataforma de identidad de Microsoft
 
-Obtenga información sobre la plataforma de identidad de Microsoft y las bibliotecas de autenticación de Microsoft (MSAL). Normalmente tienen una duración de 1-2 minutos.
+Conozca los conceptos básicos de la autenticación moderna, la Plataforma de identidad de Microsoft y las bibliotecas de autenticación de Microsoft (MSAL).
+
+## <a name="authentication-fundamentals"></a>Aspectos básicos de la autenticación
+
+Si no está familiarizado con conceptos como proveedores de identidades, tokens de seguridad, notificaciones y audiencias, esta serie de vídeos es un buen punto de partida.
+___
+
+:::row:::
+    :::column:::
+        1\. Aspectos básicos: conceptos de la autenticación moderna (4:33)
+    :::column-end:::
+    :::column:::
+        > [!VIDEO https://www.youtube.com/embed/fbSVgC8nGz4?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
+    :::column-end:::
+     :::column:::
+        2\. Autenticación moderna para aplicaciones web (6:02)
+    :::column-end:::
+    :::column:::
+        > [!VIDEO https://www.youtube.com/embed/tCNcG1lcCHY?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        3\. Inicio de sesión único web (4:13)
+    :::column-end:::
+    :::column:::
+        > [!VIDEO https://www.youtube.com/embed/51B-jSOBF8U?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
+    :::column-end:::
+    :::column:::
+        4\. Autenticación web federada (6:19)
+    :::column-end:::
+    :::column:::
+        > [!VIDEO https://www.youtube.com/embed/CjarTgjKcX8?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        5\. Aplicaciones cliente nativas: parte 1 (8:12)
+    :::column-end:::
+    :::column:::
+        > [!VIDEO https://www.youtube.com/embed/OGMDnuDrAcQ?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
+    :::column-end:::
+    :::column:::
+        6\. Aplicaciones cliente nativas: parte 2 (5:33)
+    :::column-end:::
+    :::column:::
+        > [!VIDEO https://www.youtube.com/embed/2RE6IhXfmHY?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
+    :::column-end:::
+:::row-end:::
 
 ## <a name="microsoft-identity-platform-basics"></a>Conceptos básicos de la plataforma de identidad de Microsoft
 
-**Obtención de los conceptos básicos de la plataforma de identidad de Microsoft**
+Obtenga información sobre los componentes de la Plataforma de identidad de Microsoft, las bibliotecas de autenticación de Microsoft (MSAL) y cómo interactúan estos componentes con Azure Active Directory. Los vídeos de preguntas de desarrollo tienen una duración de 1 a 2 minutos.
+___
 
 :::row:::
     :::column:::
@@ -112,7 +161,8 @@ Obtenga información sobre la plataforma de identidad de Microsoft y las bibliot
 
 ## <a name="migrate-from-v10-to-v20"></a>Migración desde la versión 1.0 a la 2.0
 
-**Obtención de información sobre cómo migrar a la versión más reciente de la plataforma de identidad de Microsoft**
+Obtenga información sobre cómo migrar a la versión más reciente de la Plataforma de identidad de Microsoft, incluida la migración de la Biblioteca de autenticación de Active Directory (ADAL) a MSAL.
+___
 
 :::row:::
     :::column:::

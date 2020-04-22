@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: dsindona
-ms.openlocfilehash: 7d5269cf8865faeb65356bc8fd3eea087cb7653c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6e39f1c70cd94c14b12e54817941ea9106aacfdd
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80277980"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273875"
 ---
 # <a name="deploy-a-virtual-machine-from-the-azure-marketplace"></a>Implementación de una máquina virtual desde Azure Marketplace
+
+> [!IMPORTANT]
+> A partir del 13 de abril de 2020, comenzaremos el traslado de la administración de las ofertas de máquinas virtuales de Azure al Centro de partners. Después de la migración, las ofertas se crearán y administrarán en el Centro de partners. Siga las instrucciones que se indican en [Certificación de imágenes de máquina virtual de Azure](https://aks.ms/CertifyVMimage) para administrar las ofertas migradas.
 
 En este artículo se explica cómo implementar una máquina virtual (VM) configurada previamente desde Azure Marketplace, mediante el script de Azure PowerShell proporcionado.  Este script también expone los puntos de conexión HTTP y HTTPS de WinRM en la VM.  El script requiere que ya tenga un certificado cargado en Azure Key Vault, como se describe en [Create certificates for Azure Key Vault](./cpp-create-key-vault-cert.md) (Creación de certificados para Azure Key Vault). 
 
@@ -26,16 +29,16 @@ La plantilla de implementación de VM de Azure de inicio rápido está disponibl
 
 |  **Parámetro**        |   **Descripción**                                 |
 |  -------------        |   ---------------                                 |
-| newStorageAccountName | Nombre de la cuenta de almacenamiento                       |
+| newStorageAccountName    | Nombre de la cuenta de almacenamiento                       |
 | dnsNameForPublicIP    | Nombre DNS para la dirección IP pública. Debe estar en minúscula.    |
-| adminUserName         | Nombre de usuario del administrador                          |
-| adminPassword         | Contraseña del administrador                          |
+| adminUserName            | Nombre de usuario del administrador                          |
+| adminPassword            | Contraseña del administrador                          |
 | imagePublisher        | Editor de la imagen                                   |
 | imageOffer            | Oferta de la imagen                                       |
-| imageSku              | SKU de la imagen                                         |
+| imageSku                | SKU de la imagen                                         |
 | vmSize                | Tamaño de la VM                                    |
 | vmName                | Nombre de la máquina virtual                                    |
-| vaultName             | Nombre del almacén de claves.                             |
+| vaultName                | Nombre del almacén de claves.                             |
 | vaultResourceGroup    | Grupo de recursos del almacén de claves.                   |
 | certificateUrl        | Dirección URL para el certificado, incluida la versión en KeyVault, por ejemplo `https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7` |
 |  |  |

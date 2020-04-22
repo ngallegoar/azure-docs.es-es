@@ -5,19 +5,19 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/04/2019
-ms.openlocfilehash: d80f4cb12c79519818f6eccb2bb565bac472b471
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.custom: hdinsightactive
+ms.date: 04/13/2020
+ms.openlocfilehash: a3884fdfbbc215c305053d8615d690880f4026ea
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80397691"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314157"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-hdinsight-cluster"></a>Uso de Azure Toolkit for IntelliJ para crear aplicaciones de Apache Spark para un clúster de HDInsight
 
-En este artículo se muestra cómo desarrollar aplicaciones de Apache Spark en Azure HDInsight con el complemento **Azure Toolkit** para el IDE de IntelliJ. [Azure HDInsight](../hdinsight-overview.md) es un servicio de análisis de código abierto administrado en la nube que le permite usar marcos de código abierto como Hadoop, Apache Spark, Apache Hive y Apache Kafka.
+En este artículo se muestra cómo desarrollar aplicaciones de Apache Spark en Azure HDInsight con el complemento **Azure Toolkit** para el IDE de IntelliJ. [Azure HDInsight](../hdinsight-overview.md) es un servicio de análisis administrado de código abierto en la nube. El servicio le permite usar marcos de código abierto como Hadoop, Apache Spark, Apache Hive y Apache Kafka.
 
 Puede usar el complemento **Azure Toolkit** de varias maneras:
 
@@ -43,17 +43,17 @@ En este artículo aprenderá a:
 
 ## <a name="install-scala-plugin-for-intellij-idea"></a>Instale el complemento de Scala para IntelliJ IDEA.
 
-Para instalar el complemento Scala, siga estos pasos:
+Pasos de instalación del complemento Scala:
 
 1. Abra IntelliJ IDEA.
 
 2. En la pantalla de bienvenida, vaya a **Configure** > **Plugins** (Configurar > Complementos) para abrir la ventana **Plugins** (Complementos).
 
-    ![IDEA de IntelliJ: habilitar complemento Scala](./media/apache-spark-intellij-tool-plugin/enable-scala-plugin1.png)
+    ![IDEA de IntelliJ habilita el complemento Scala](./media/apache-spark-intellij-tool-plugin/enable-scala-plugin1.png)
 
 3. Seleccione **Install** (Instalar) para el complemento de Scala que se presenta en la nueva ventana.  
 
-    ![IDEA de IntelliJ: instalar complemento Scala](./media/apache-spark-intellij-tool-plugin/install-scala-plugin.png)
+    ![IDEA de IntelliJ instala el complemento Scala](./media/apache-spark-intellij-tool-plugin/install-scala-plugin.png)
 
 4. Después de que el complemento se instale correctamente, debe reiniciar el IDE.
 
@@ -65,7 +65,7 @@ Para instalar el complemento Scala, siga estos pasos:
 
 3. Seleccione **Spark Project (Scala)** (Proyecto de Spark [Scala]) en la ventana principal.
 
-4. En la lista desplegable **Build tool** (Herramienta de compilación), seleccione una de las siguientes:
+4. En la lista desplegable **Build tool** (Herramienta de compilación), seleccione una de las siguientes opciones:
    * **Maven**: para agregar compatibilidad con el asistente para la creación de proyectos de Scala.
    * **SBT** para administrar las dependencias y compilar el proyecto de Scala.
 
@@ -78,15 +78,15 @@ Para instalar el complemento Scala, siga estos pasos:
     |  Propiedad   | Descripción   |  
     | ----- | ----- |  
     |Nombre de proyecto| Escriba un nombre.  En este artículo se usa `myApp`.|  
-    |Project&nbsp;location (Ubicación del proyecto)| Escriba la ubicación deseada para guardar el proyecto.|
-    |Project SDK (SDK del proyecto)| Podría quedarse en blanco la primera vez que se usa IDEA.  Seleccione **New...** (Nuevo...) y vaya a su JDK.|
+    |Project&nbsp;location (Ubicación del proyecto)| Escriba la ubicación para guardar el proyecto.|
+    |Project SDK (SDK del proyecto)| Este campo puede estar en blanco la primera vez que se usa IDEA.  Seleccione **New...** (Nuevo...) y vaya a su JDK.|
     |Versión de Spark|El asistente de creación integra la versión adecuada de los SDK de Spark y Scala. Si la versión del clúster de Spark es anterior a 2.0, seleccione **Spark 1.x**. De lo contrario, seleccione **Spark2.x**. En este ejemplo se usa **Spark 2.3.0 (Scala 2.11.8)** .|
 
     ![Selección del SDK de Apache Spark](./media/apache-spark-intellij-tool-plugin/intellij-new-project.png)
 
 7. Seleccione **Finalizar**.  El proyecto puede tardar unos minutos en estar disponible.
 
-8. El proyecto de Spark crea automáticamente un artefacto. Para ver el artefacto, haga lo siguiente:
+8. El proyecto de Spark crea automáticamente un artefacto. Para ver el artefacto, siga estos pasos:
 
    a. En la barra de menús, vaya a **Archivo** > **Estructura del proyecto...** .
 
@@ -96,7 +96,7 @@ Para instalar el complemento Scala, siga estos pasos:
 
       ![Información del artefacto en el cuadro de diálogo](./media/apache-spark-intellij-tool-plugin/default-artifact-dialog.png)
 
-9. Agregue el código fuente de aplicación de la siguiente forma:
+9. Agregue el código fuente de aplicación mediante los siguientes pasos:
 
     a. En Proyecto, vaya a **myApp** > **src** > **main** > **scala**.  
 
@@ -110,37 +110,37 @@ Para instalar el complemento Scala, siga estos pasos:
 
    d. A continuación, el archivo **myApp.scala** se abre en la vista principal. Reemplace el código predeterminado por el código encontrado a continuación:  
 
-        ```scala
-        import org.apache.spark.SparkConf
-        import org.apache.spark.SparkContext
-    
-        object myApp{
-            def main (arg: Array[String]): Unit = {
-            val conf = new SparkConf().setAppName("myApp")
-            val sc = new SparkContext(conf)
-    
-            val rdd = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
-    
-            //find the rows that have only one digit in the seventh column in the CSV file
-            val rdd1 =  rdd.filter(s => s.split(",")(6).length() == 1)
-    
-            rdd1.saveAsTextFile("wasbs:///HVACOut")
-            }
-    
+    ```scala
+    import org.apache.spark.SparkConf
+    import org.apache.spark.SparkContext
+
+    object myApp{
+        def main (arg: Array[String]): Unit = {
+        val conf = new SparkConf().setAppName("myApp")
+        val sc = new SparkContext(conf)
+
+        val rdd = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+
+        //find the rows that have only one digit in the seventh column in the CSV file
+        val rdd1 =  rdd.filter(s => s.split(",")(6).length() == 1)
+
+        rdd1.saveAsTextFile("wasbs:///HVACOut")
         }
-        ```
+
+    }
+    ```
 
     El código lee los datos de HVAC.csv (disponible en todos los clústeres de HDInsight Spark), recupera las filas que solo tienen un dígito en la séptima columna del archivo CSV y escribe la salida en `/HVACOut` en el contenedor de almacenamiento predeterminado para el clúster.
 
 ## <a name="connect-to-your-hdinsight-cluster"></a>Conéctese a su clúster de HDInsight
 
-El usuario puede [iniciar sesión en la suscripción a Azure](#sign-in-to-your-azure-subscription) o [vincular un clúster de HDInsight](#link-a-cluster) con el nombre de usuario y la contraseña de Ambari o credenciales unidas a un dominio para conectarse a su clúster de HDInsight.
+El usuario puede [iniciar sesión en la suscripción a Azure](#sign-in-to-your-azure-subscription) o [vincular un clúster de HDInsight](#link-a-cluster). Use el nombre de usuario y la contraseña de Ambari o credenciales unidas a un dominio para conectarse al clúster de HDInsight.
 
 ### <a name="sign-in-to-your-azure-subscription"></a>Inicie sesión en la suscripción de Azure
 
 1. En la barra de menús, vaya a **Ver** > **Ventanas de herramientas** > **Azure Explorer**.
 
-   ![IDEA de IntelliJ: mostrar Azure Explorer](./media/apache-spark-intellij-tool-plugin/show-azure-explorer1.png)
+   ![IntelliJ IDEA muestra Azure Explorer](./media/apache-spark-intellij-tool-plugin/show-azure-explorer1.png)
 
 2. En Azure Explorer, haga clic con el botón derecho en el nodo **Azure** y después seleccione **Iniciar sesión**.
 
@@ -148,19 +148,19 @@ El usuario puede [iniciar sesión en la suscripción a Azure](#sign-in-to-your-a
 
 3. En el cuadro de diálogo de **inicio de sesión en Azure**, seleccione **Inicio de sesión del dispositivo** y, a continuación, **Iniciar sesión**.
 
-    ![IDEA de IntelliJ: inicio de sesión del dispositivo en inicio de sesión en Azure](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer2.png)
+    ![`IntelliJ IDEA azure sign-in device login`](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer2.png)
 
 4. En el cuadro de diálogo **Inicio de sesión del dispositivo de Azure**, haga clic en **Copiar y abrir**.
 
-   ![IDEA de IntelliJ: inicio de sesión del dispositivo de Azure](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer5.png)
+   ![`IntelliJ IDEA azure device login`](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer5.png)
 
 5. En la interfaz del explorador, pegue el código y, a continuación, haga clic en **Siguiente**.
 
-   ![Cuadro de diálogo para escribir código de Microsoft para HDI](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer6.png)
+   ![`Microsoft enter code dialog for HDI`](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer6.png)
 
 6. Escriba sus credenciales de Azure y, a continuación, cierre el explorador.
 
-   ![Cuadro de diálogo para escribir correo electrónico de Microsoft para HDI](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer7.png)
+   ![`Microsoft enter e-mail dialog for HDI`](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer7.png)
 
 7. Cuando haya iniciado sesión, en el cuadro de diálogo **Select Subscriptions** (Seleccionar suscripciones) se enumeran todas las suscripciones de Azure asociadas a las credenciales. Seleccione su suscripción y luego seleccione el botón **Seleccionar**.
 
@@ -248,17 +248,17 @@ Después de crear una aplicación de Scala, puede enviarla al clúster.
 
     ![Cuadro de diálogo de envío de Spark](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-02.png)
 
-4. Seleccione **SparkJobRun** para enviar el proyecto para el clúster seleccionado. La pestaña **Remote Spark Job in Cluster** (Trabajo de Spark remoto en clúster) muestra el progreso de la ejecución del trabajo en la parte inferior. Puede detener la aplicación si hace clic en el botón rojo. Para obtener información sobre cómo tener acceso a la salida de trabajo, consulte la sección "Acceso y administración de clústeres de HDInsight Spark mediante el uso del kit de herramientas de Azure para IntelliJ" que encontrará más adelante en este artículo.  
+4. Seleccione **SparkJobRun** para enviar el proyecto para el clúster seleccionado. La pestaña **Remote Spark Job in Cluster** (Trabajo de Spark remoto en clúster) muestra el progreso de la ejecución del trabajo en la parte inferior. Puede detener la aplicación si hace clic en el botón rojo.
 
     ![Ventana de envío de Apache Spark](./media/apache-spark-intellij-tool-plugin/hdi-spark-app-result.png)
 
 ## <a name="debug-apache-spark-applications-locally-or-remotely-on-an-hdinsight-cluster"></a>Depuración de aplicaciones Apache Spark de forma local o remota en un clúster de HDInsight
 
-También se recomienda otra manera de enviar la aplicación Spark al clúster. Puede hacerlo estableciendo los parámetros del IDE de **configuraciones de ejecución o depuración**. Para más información, consulte [Depuración de aplicaciones Apache Spark en un clúster de HDInsight con Azure Toolkit for IntelliJ mediante SSH](apache-spark-intellij-tool-debug-remotely-through-ssh.md).
+También se recomienda otra manera de enviar la aplicación Spark al clúster. Puede hacerlo estableciendo los parámetros del IDE de **configuraciones de ejecución o depuración**. Consulte [Depuración de aplicaciones de Apache Spark de forma local o remota en un clúster de HDInsight con Azure Toolkit for IntelliJ mediante SSH](apache-spark-intellij-tool-debug-remotely-through-ssh.md).
 
 ## <a name="access-and-manage-hdinsight-spark-clusters-by-using-azure-toolkit-for-intellij"></a>Acceso y administración de clústeres de HDInsight Spark mediante el uso del kit de herramientas de Azure para IntelliJ
 
-Puede realizar varias operaciones mediante el Kit de herramientas de Azure para IntelliJ.  La mayoría de las operaciones se inician desde **Azure Explorer**.  En la barra de menús, vaya a **Ver** > **Ventanas de herramientas** > **Azure Explorer**.
+Puede realizar varias operaciones mediante Azure Toolkit for IntelliJ.  La mayoría de las operaciones se inician desde **Azure Explorer**.  En la barra de menús, vaya a **Ver** > **Ventanas de herramientas** > **Azure Explorer**.
 
 ### <a name="access-the-job-view"></a>Acceso a la vista de trabajo
 
@@ -278,14 +278,14 @@ Puede realizar varias operaciones mediante el Kit de herramientas de Azure para 
 
     ![Detalles de registro en vista de trabajos de Spark](./media/apache-spark-intellij-tool-plugin/intellij-job-log-info.png)
 
-5. También puede ver Spark History UI (IU de historial de Spark) y YARN UI (IU de YARN), en el nivel de aplicación, al seleccionar los vínculos correspondientes de la parte superior de la ventana.
+5. Puede ver la interfaz de usuario del historial de Spark y la interfaz de usuario de YARN (en el nivel de aplicación). Seleccione un enlace en la parte superior de la ventana.
 
 ### <a name="access-the-spark-history-server"></a>Acceso al servidor de historial de Spark
 
 1. En Azure Explorer, expanda **HDInsight**, haga clic con el botón derecho en el nombre del clúster de Spark y seleccione **Abrir IU de historial de Spark**.  
 2. Cuando se le solicite, escriba las credenciales de administrador del clúster, que especificó al configurar el clúster.
 
-3. En el panel del servidor de historial de Spark, puede usar el nombre de aplicación para buscar la aplicación que acaba de terminar de ejecutar. En el código anterior, se establece el nombre de la aplicación mediante `val conf = new SparkConf().setAppName("myApp")`. Por lo tanto, el nombre de aplicación Spark es **myApp**.
+3. En el panel del servidor de historial de Spark, puede usar el nombre de aplicación para buscar la aplicación que acaba de terminar de ejecutar. En el código anterior, se establece el nombre de la aplicación mediante `val conf = new SparkConf().setAppName("myApp")`. El nombre de la aplicación de Spark es **myApp**.
 
 ### <a name="start-the-ambari-portal"></a>Inicio del portal de Ambari
 
@@ -313,7 +313,7 @@ Asegúrese de que cumple el requisito previo de WINUTILS.EXE.
 
 2. En la ventana **Ejecutar/depurar configuraciones**, en el panel izquierdo, vaya a **Apache Spark en HDInsight** >  **[Spark en HDInsight] myApp**.
 
-3. En la ventana principal, seleccione la pestaña **Ejecutar de forma local**.
+3. En la ventana principal, seleccione la pestaña **`Locally Run`** .
 
 4. Proporcione los valores siguientes y seleccione **Aceptar**:
 
@@ -335,7 +335,7 @@ Asegúrese de que cumple el requisito previo de WINUTILS.EXE.
 
     ![IDEA de IntelliJ: cuadro de diálogo 2 de corrección automática de Spark](./media/apache-spark-intellij-tool-plugin/intellij-console-autofix2.png)
 
-8. El aspecto de la consola debería ser similar al de la siguiente imagen. En la ventana de la consola, escriba `sc.appName` y presione CTRL + Entrar.  Se muestra el resultado. Puede cerrar la consola local si hace clic en el botón rojo.
+8. El aspecto de la consola debería ser similar al de la siguiente imagen. En la ventana de la consola, escriba `sc.appName` y presione CTRL + Entrar.  Se muestra el resultado. Para detener la consola local, haga clic en el botón rojo.
 
     ![IDEA de IntelliJ: resultado de la consola local](./media/apache-spark-intellij-tool-plugin/local-console-result.png)
 
@@ -345,7 +345,7 @@ Asegúrese de que cumple el requisito previo de WINUTILS.EXE.
 
 2. En la ventana **Ejecutar/depurar configuraciones**, en el panel izquierdo, vaya a **Apache Spark en HDInsight** >  **[Spark en HDInsight] myApp**.
 
-3. En la ventana principal, seleccione la pestaña **Remotely Run in Cluster** (Ejecutar en clúster de forma remota).
+3. En la ventana principal, seleccione la pestaña **`Remotely Run in Cluster`** .
 
 4. Proporcione los valores siguientes y seleccione **Aceptar**:
 
@@ -360,25 +360,25 @@ Asegúrese de que cumple el requisito previo de WINUTILS.EXE.
 
 6. En la barra de menús, vaya a **Herramientas** > **Consola de Spark** > **Run Spark Livy Interactive Session Console(Scala)** (Ejecutar consola interactiva de Spark Livy (Scala)).
 
-7. El aspecto de la consola debería ser similar al de la siguiente imagen. En la ventana de la consola, escriba `sc.appName` y presione CTRL + Entrar.  Se muestra el resultado. Puede cerrar la consola local si hace clic en el botón rojo.
+7. El aspecto de la consola debería ser similar al de la siguiente imagen. En la ventana de la consola, escriba `sc.appName` y presione CTRL + Entrar.  Se muestra el resultado. Para detener la consola local, haga clic en el botón rojo.
 
     ![IDEA de IntelliJ: resultado de la consola interactiva](./media/apache-spark-intellij-tool-plugin/interactive-console-result.png)
 
 ### <a name="send-selection-to-spark-console"></a>Envío de la selección a la consola de Spark
 
-Resulta cómodo predecir el resultado del script mediante el envío de código a la consola local o a Livy Interactive Session Console(Scala). Puede resaltar parte del código en el archivo de Scala y hacer clic con el botón derecho en **Send Selection To Spark Console** (Enviar selección a consola de Spark). El código seleccionado se envía a la consola y se ejecuta. El resultado se muestra después del código en la consola. La consola comprueba si hay errores.  
+Resulta cómodo predecir el resultado del script mediante el envío de código a la consola local o a la consola de sesión interactiva de Livy (Scala). Puede resaltar parte del código en el archivo de Scala y hacer clic con el botón derecho en **Send Selection To Spark Console** (Enviar selección a consola de Spark). El código seleccionado se envía a la consola. El resultado se muestra después del código en la consola. La consola comprueba si hay errores.  
 
    ![Envío de la selección a la consola de Spark](./media/apache-spark-intellij-tool-plugin/send-selection-to-console.png)
 
-## <a name="integrate-with-hdinsight-identity-broker-hib"></a>Integración con HDInsight Identity Broker (HIB) 
+## <a name="integrate-with-hdinsight-identity-broker-hib"></a>Integración con HDInsight Identity Broker (HIB)
 
 ### <a name="connect-to-your-hdinsight-esp-cluster-with-id-broker-hib"></a>Conexión al clúster de HDInsight ESP con el agente de HDInsight Identity Broker (HIB)
 
 Puede seguir los pasos normales para iniciar sesión en la suscripción de Azure para conectarse a su clúster de HDInsight ESP con el agente de HDInsight Identity Broker (HIB). Después de iniciar sesión, verá la lista de clústeres en Azure Explorer. Para conocer más instrucciones, consulte [Conexión al clúster de HDInsight](#connect-to-your-hdinsight-cluster).
 
-### <a name="run-a-spark-scala-application-on-an-hdinsight-esp-cluster-with-id-broker-hib"></a>Ejecución de una aplicación Spark en Scala en un clúster de HDInsight Spark con HDInsight Identity Broker (HIB)
+### <a name="run-a-spark-scala-application-on-an-hdinsight-esp-cluster-with-id-broker-hib"></a>Ejecución de una aplicación Spark en Scala en un clúster de HDInsight Spark con el agente de HDInsight Identity Broker (HIB)
 
-Puede seguir los pasos normales para enviar el trabajo a un clúster de HDInsight ESP con HDInsight Identity Broker (HIB). Consulte [Ejecución de una aplicación Spark en Scala en un clúster de HDInsight Spark](#run-a-spark-scala-application-on-an-hdinsight-spark-cluster) para más instrucciones.
+Puede seguir los pasos normales para enviar el trabajo a un clúster de HDInsight ESP con el agente de HDInsight Identity Broker (HIB). Consulte [Ejecución de una aplicación Spark en Scala en un clúster de HDInsight Spark](#run-a-spark-scala-application-on-an-hdinsight-spark-cluster) para más instrucciones.
 
 Cargaremos los archivos necesarios en una carpeta denominada con su cuenta de inicio de sesión y podrá ver la ruta de acceso de carga en el archivo de configuración.
 
@@ -386,7 +386,7 @@ Cargaremos los archivos necesarios en una carpeta denominada con su cuenta de in
 
 ### <a name="spark-console-on-an-hdinsight-esp-cluster-with-id-broker-hib"></a>Consola de Spark en un clúster de HDInsight ESP con el agente de HDInsight Identity Broker (HIB)
 
-Puede ejecutar Spark Local Console(Scala) o ejecutar Spark Livy Interactive Session Console(Scala) en un clúster de HDInsight ESP con HDInsight Identity Broker (HIB). Consulte [Consola de Spark](#spark-console) para obtener más instrucciones.
+Puede ejecutar Spark Local Console (Scala) o ejecutar Spark Livy Interactive Session Console (Scala) en un clúster de HDInsight ESP con el agente de HDInsight Identity Broker (HIB). Consulte [Consola de Spark](#spark-console) para obtener más instrucciones.
 
    > [!NOTE]  
    > En el caso del clúster de HDInsight ESP con HDInsight Identity Broker (HIB), las opciones para [vincular un clúster](#link-a-cluster) y [depurar las aplicaciones de Apache Spark de forma remota](#debug-apache-spark-applications-locally-or-remotely-on-an-hdinsight-cluster) no se admiten actualmente.
@@ -401,7 +401,7 @@ Cuando los usuarios envían trabajos a un clúster con el permiso de rol de solo
 
 2. En **Azure Explorer**, expanda **HDInsight** para ver los clústeres de HDInsight de su suscripción. Los clústeres marcados como **"Role:Reader"** tienen únicamente permiso de solo lectura.
 
-    ![Azure Explorer de IntelliJ: Rol:Reader](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer15.png)
+    ![`IntelliJ Azure Explorer Role:Reader`](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer15.png)
 
 3. Haga clic derecho en el clúster con el permiso de rol de solo lectura. Seleccione **Link this cluster** (Vincular este clúster) en el menú contextual para vincular el clúster. Escriba el nombre de usuario y la contraseña de Ambari.
 
@@ -432,13 +432,13 @@ Cuando los usuarios envían trabajos a un clúster con el permiso de rol de solo
 
 * Para los clústeres con permiso de rol de solo lectura, haga clic en el nodo **Cuentas de almacenamiento** y aparecerá la ventana emergente **Storage Access Denied** (Se denegó el acceso al almacenamiento). Seleccione **Abrir Explorador de Azure Storage** para abrir el explorador de Storage.
 
-   ![IDEA de IntelliJ: acceso denegado a almacenamiento](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer14.png)
+   ![`IntelliJ IDEA Storage Access Denied`](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer14.png)
 
    ![IDEA de IntelliJ: botón de acceso denegado a almacenamiento](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer10.png)
 
 * Para los clústeres vinculados, haga clic en el nodo **Cuentas de almacenamiento** y aparecerá la ventana emergente **Storage Access Denied** (Se denegó el acceso al almacenamiento). Puede hacer clic en **Open Azure Storage** (Abrir Azure Storage) para abrir el Explorador de Storage.
 
-   ![IDEA de IntelliJ: acceso denegado a almacenamiento 2](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer13.png)
+   ![`IntelliJ IDEA Storage Access Denied2`](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer13.png)
 
    ![IDEA de IntelliJ: botón de acceso denegado a almacenamiento 2](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer12.png)
 
@@ -446,15 +446,15 @@ Cuando los usuarios envían trabajos a un clúster con el permiso de rol de solo
 
 Puede convertir las aplicaciones Spark en Scala existentes creadas en IntelliJ IDEA para que sean compatibles con el kit de herramientas de Azure para IntelliJ. Esto le permitirá utilizar el complemento para enviar las aplicaciones a un clúster de HDInsight Spark.
 
-1. Para una aplicación Spark en Scala existente creada con IntelliJ IDEA, abra el archivo .iml asociado.
+1. Para una aplicación Spark en Scala existente creada con IntelliJ IDEA, abra el archivo `.iml` asociado.
 
-2. En el nivel raíz, hay un elemento de **module** similar al siguiente:
+2. En el nivel raíz, hay un elemento de **module** similar al siguiente texto:
 
         ```
         <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
         ```
 
-   Edite el elemento para agregar `UniqueKey="HDInsightTool"` de forma que el elemento de **module** sea similar a lo siguiente:
+   Edite el elemento para agregar `UniqueKey="HDInsightTool"` de forma que el elemento de **module** sea similar al siguiente texto:
 
         ```
         <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4" UniqueKey="HDInsightTool">
@@ -476,11 +476,11 @@ Si no va a seguir usando esta aplicación, elimine el clúster que creó mediant
 
 1. Seleccione **Eliminar**. Seleccione **Sí**.
 
-![Azure Portal: eliminación de un clúster de HDInsight](./media/apache-spark-intellij-tool-plugin/hdinsight-azure-portal-delete-cluster.png "Eliminación de un clúster de HDInsight")
+![Azure Portal elimina un clúster de HDInsight](./media/apache-spark-intellij-tool-plugin/hdinsight-azure-portal-delete-cluster.png "Eliminación de un clúster de HDInsight")
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, ha aprendido a usar el complemento de Azure Toolkit for IntelliJ con el fin de desarrollar aplicaciones Apache Spark escritas en [Scala](https://www.scala-lang.org/) y enviarlas a continuación a un clúster de HDInsight Spark directamente desde el entorno de desarrollo integrado (IDE) de IntelliJ. En el siguiente artículo podrá ver cómo extraer en una herramienta de análisis de BI, como Power BI, los datos que registró en Apache Spark.
+En este artículo, ha aprendido a usar el complemento Azure Toolkit for IntelliJ para desarrollar aplicaciones de Apache Spark escritas en [Scala](https://www.scala-lang.org/). Después, las ha enviado a un clúster de HDInsight Spark directamente desde el entorno de desarrollo integrado (IDE) de IntelliJ. En el siguiente artículo podrá ver cómo extraer en una herramienta de análisis de BI, como Power BI, los datos que registró en Apache Spark.
 
 > [!div class="nextstepaction"]
 > [Análisis de datos de Apache Spark mediante Power BI](apache-spark-use-bi-tools.md)

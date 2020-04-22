@@ -1,15 +1,15 @@
 ---
 title: 'Configuración de Blockchain Data Manager con la CLI de Azure: Azure Blockchain Service'
 description: Crear y administrar una instancia de Blockchain Data Manager para Azure Blockchain Service mediante la CLI de Azure
-ms.date: 11/04/2019
+ms.date: 03/30/2020
 ms.topic: article
-ms.reviewer: chroyal
-ms.openlocfilehash: a8061aad6d6a1513de70e7c2bc57aa109c666611
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.reviewer: ravastra
+ms.openlocfilehash: e490803fabeed7d6234bd6984acbfb9f5270e0c0
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74455929"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81254417"
 ---
 # <a name="configure-blockchain-data-manager-using-azure-cli"></a>Configuración de la cadena de bloques Data Manager con la CLI de Azure
 
@@ -26,7 +26,7 @@ Para configurar una instancia de cadena de bloques Data Manager, puede:
 ## <a name="prerequisites"></a>Prerrequisitos
 
 * Instale el [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) más reciente y con la sesión iniciada`az login`.
-* Realizar el tutorial [Quickstart: Uso de Visual Studio Code para conectarse a una red del consorcio de Azure Blockchain Service](connect-vscode.md)
+* Realizar el tutorial [Quickstart: Uso de Visual Studio Code para conectarse a una red del consorcio de Azure Blockchain Service](connect-vscode.md). Se recomienda el nivel *Estándar* de Azure Blockchain Service cuando se usa Blockchain Data Manager.
 * Crear un [tema de Event Grid](../../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic)
 * Más información sobre [Controladores de eventos en Azure Event Grid](../../event-grid/event-handlers.md)
 
@@ -48,7 +48,7 @@ az group create --name myRG --location eastus
 
 ## <a name="create-instance"></a>Crear instancia
 
-Una instancia de la cadena de bloques Data Manager supervisa un nodo de transacción de servicio de Azure Blockchain. Una instancia captura todos los datos de transacciones y bloques sin procesar del nodo de transacción.
+Una instancia de la cadena de bloques Data Manager supervisa un nodo de transacción de servicio de Azure Blockchain. Una instancia captura todos los datos de transacciones y bloques sin procesar del nodo de transacción. Blockchain Data Manager publica un mensaje **RawBlockAndTransactionMsg**, que es un superconjunto de la información devuelta por las consultas web3.eth [getBlock](https://web3js.readthedocs.io/en/v1.2.0/web3-eth.html#getblock) y [getTransaction](https://web3js.readthedocs.io/en/v1.2.0/web3-eth.html#gettransaction).
 
 ``` azurecli
 az resource create \

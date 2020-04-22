@@ -7,21 +7,21 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 3da3109bd813fc3b99a4f59e5a357fa351c75394
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 86bce85c6ec273b4ab5f9f00cbae68fc054f53f5
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281381"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262407"
 ---
-# <a name="summary-dashboard-in-commercial-marketplace-analytics"></a>Panel Resumen en los análisis de Marketplace comercial
+# <a name="summary-dashboard-in-commercial-marketplace-analytics"></a>Panel Resumen de los análisis de marketplace comercial
 
 En este artículo se proporciona información sobre el panel Resumen del Centro de partners. Este panel muestra gráficos, tendencias y valores de datos agregados que resumen la actividad de Marketplace para las ofertas.
 
 Para acceder al panel Resumen, abra el **[panel Analizar](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** en Marketplace comercial.
 
 >[!NOTE]
-> Para obtener definiciones detalladas de la terminología de análisis, consulte [Preguntas más frecuentes y terminología para el análisis de Marketplace comercial](./faq-terminology.md).
+> Para obtener definiciones detalladas de la terminología de análisis, consulte [Preguntas más frecuentes y terminología del análisis de marketplace comercial](./faq-terminology.md).
 
 ## <a name="summary-dashboard"></a>Panel Resumen
 
@@ -115,10 +115,10 @@ En el gráfico de **tendencias de los pedidos de SaaS de evaluación gratuita** 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener información general sobre los informes de análisis disponibles en el Marketplace comercial del Centro de partners, consulte [Análisis para Marketplace comercial en el Centro de partners](./analytics.md).
-- Para información sobre los pedidos en un formato gráfico que se pueda descargar, consulte [Panel Pedidos de los análisis de Marketplace comercial](./orders-dashboard.md).
-- Para información sobre las métricas de uso y facturación de las ofertas de máquina virtual (VM), consulte [Panel de uso de los análisis de Marketplace comercial](./usage-dashboard.md).
-- Para obtener información detallada acerca de los clientes, incluidas las tendencias de crecimiento, consulte [Panel Cliente de los análisis de Marketplace comercial](./customer-dashboard.md).
-- Para obtener una lista de las solicitudes de descarga de los últimos 30 días, consulte [Panel Descargas de los análisis de Marketplace comercial](./downloads-dashboard.md).
-- Para obtener una vista consolidada de comentarios de los clientes para las ofertas de Azure Marketplace y AppSource, consulte [Panel Calificaciones y opiniones de los análisis de Marketplace comercial](./ratings-reviews.md).
-- Para consultar las preguntas más frecuentes sobre los análisis de Marketplace comercial y obtener un diccionario completo de términos de datos, consulte [Preguntas más frecuentes y terminología de los análisis de Marketplace comercial](./faq-terminology.md).
+- Para más información sobre los informes de análisis disponibles en el marketplace comercial del Centro de partners, consulte [Análisis del marketplace comercial en el Centro de partners](./analytics.md).
+- Para información sobre los pedidos en un formato gráfico que se pueda descargar, consulte [Panel Pedidos de los análisis de marketplace comercial](./orders-dashboard.md).
+- Para información sobre las métricas de uso y facturación de las ofertas de máquina virtual, consulte [Panel Uso de los análisis de marketplace comercial](./usage-dashboard.md).
+- Para información detallada sobre los clientes, incluidas las tendencias de crecimiento, consulte [Panel Cliente de los análisis de marketplace comercial](./customer-dashboard.md).
+- Para ver una lista de las solicitudes de descarga de los últimos 30 días, consulte [Panel Descargas de los análisis de marketplace comercial](./downloads-dashboard.md).
+- Para tener una vista consolidada de comentarios de los clientes sobre las ofertas de Azure Marketplace y AppSource, consulte [Panel Calificaciones y opiniones de los análisis de marketplace comercial](./ratings-reviews.md).
+- Para ver las preguntas más frecuentes sobre los análisis de marketplace comercial y un diccionario completo de términos de datos, consulte [Preguntas más frecuentes y terminología del análisis de marketplace comercial](./faq-terminology.md).

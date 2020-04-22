@@ -3,12 +3,12 @@ title: Gobernanza de recursos para contenedores y servicios
 description: Azure Service Fabric permite especificar los límites de recursos de servicios que se ejecutan dentro o fuera de contenedores.
 ms.topic: conceptual
 ms.date: 8/9/2017
-ms.openlocfilehash: 85520876d7f0c89450b572d28dee6cb66ed2231d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 11ca6e29829d911717a829b3e4dee0a190856a52
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75772387"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115143"
 ---
 # <a name="resource-governance"></a>Regulación de recursos
 
@@ -31,7 +31,8 @@ Para estas dos métricas, [Cluster Resource Manager](service-fabric-cluster-reso
 * El clúster puede [desfragmentarse](service-fabric-cluster-resource-manager-defragmentation-metrics.md) en función de estas dos métricas.
 * Para [describir un clúster](service-fabric-cluster-resource-manager-cluster-description.md), se puede establecer la capacidad de almacenamiento en búfer para estas dos métricas.
 
-El [informe de carga dinámica](service-fabric-cluster-resource-manager-metrics.md) no es compatible con estas métricas, y las cargas para estas métricas se definen en el momento de la creación.
+> [!NOTE]
+> El [informe de carga dinámica](service-fabric-cluster-resource-manager-metrics.md) no es compatible con estas métricas, y las cargas para estas métricas se definen en el momento de la creación.
 
 ## <a name="resource-governance-mechanism"></a>Mecanismo de gobernanza de recursos
 

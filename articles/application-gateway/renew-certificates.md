@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 8/15/2018
 ms.author: victorh
-ms.openlocfilehash: c7c27f00b9f8b4fdcd8f735f842edb8f66803c6a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4c0c0ab84e60335f58ac075459b95cfabb9135ac
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76278013"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81311962"
 ---
 # <a name="renew-application-gateway-certificates"></a>Renovar certificados de Application Gateway
 
-En algún momento, tendrá que renovar los certificados si ha configurado Application Gateway para el cifrado SSL.
+En algún momento, tendrá que renovar los certificados si ha configurado Application Gateway para el cifrado TLS/SSL.
 
 Puede renovar un certificado asociado con un agente de escucha a través de Azure Portal, Azure PowerShell o la CLI de Azure:
 
@@ -62,4 +62,4 @@ az network application-gateway ssl-cert update \
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para aprender a configurar la descarga de SSL con Azure Application Gateway, consulte [Configuración de la descarga SSL](application-gateway-ssl-portal.md)
+Para aprender a configurar la descarga de TLS con Azure Application Gateway, consulte [Configuración de la descarga TLS](application-gateway-ssl-portal.md).

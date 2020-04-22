@@ -4,18 +4,18 @@ description: Lista de servicios que admiten identidades administradas para recur
 services: active-directory
 author: MarkusVi
 ms.author: markvi
-ms.date: 04/03/2020
+ms.date: 04/09/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c7a65df100cd58561ce12ac2ae01281eebd419a
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 45a248300cd61a0e57b9f35c8905d7c335069a27
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656044"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991286"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Servicios que admiten identidades administradas para recursos de Azure
 
@@ -109,7 +109,7 @@ Tipo de identidad administrada | Regiones globales de Azure<br>con disponibilida
 Consulte la lista siguiente para configurar la identidad administrada para Azure Logic Apps (en las regiones donde esté disponible):
 
 - [Azure Portal](/azure/logic-apps/create-managed-service-identity#enable-system-assigned-identity-in-azure-portal)
-- [Plantilla de Azure Resource Manager](/azure/app-service/overview-managed-identity)
+- [Plantilla de Azure Resource Manager](https://docs.microsoft.com/azure/logic-apps/logic-apps-azure-resource-manager-templates-overview)
 
 ### <a name="azure-data-factory-v2"></a>Azure Data Factory V2
 
@@ -270,6 +270,9 @@ Consulte la siguiente lista para configurar el acceso a Azure Resource Manager:
 | Azure Government | `https://*.asazure.usgovcloudapi.net` | ![Disponible][check] |
 | Azure Alemania | `https://*.asazure.cloudapi.de` | ![Disponible][check] |
 | Azure China 21Vianet | `https://*.asazure.chinacloudapi.cn` | ![Disponible][check] |
+
+> [!Note]
+> Microsoft Power BI también [admite identidades administradas](https://docs.microsoft.com/azure/stream-analytics/powerbi-output-managed-identity).
 
 
 [check]: media/services-support-managed-identities/check.png "Disponible"

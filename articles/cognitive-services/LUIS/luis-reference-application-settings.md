@@ -1,26 +1,20 @@
 ---
 title: 'Configuración de la aplicación: LUIS'
-titleSuffix: Azure Cognitive Services
 description: La configuración de las aplicaciones de Language Understanding de Azure Cognitive Services se almacena en la aplicación y en el portal.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 11/12/2019
-ms.author: diberry
-ms.openlocfilehash: d1ead09f6248a6ad14646371aa70b42b57cf8e3f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.openlocfilehash: 9e17736cd6ff5074a6eab76a6cf5bdb8acedc185
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78270814"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382204"
 ---
 # <a name="application-settings"></a>Configuración de la aplicación
 
 Esta configuración de la aplicación se almacena en la aplicación [exportada](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) y [actualizada](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) con las API REST. Al cambiar la configuración de la versión de la aplicación, se restablece el estado de entrenamiento de la aplicación a no entrenado.
+
+Obtenga información sobre los [conceptos](luis-concept-utterance.md#utterance-normalization-for-diacritics-and-punctuation) de diacríticos y puntuación.
 
 |Configuración|Valor predeterminado|Notas|
 |--|--|--|
@@ -183,3 +177,7 @@ Se quita la siguiente puntuación con `NormalizePunctuation` establecido en true
 |`}`|
 |`+`|
 |`¡`|
+
+## <a name="next-steps"></a>Pasos siguientes
+
+* Obtenga información sobre los [conceptos](luis-concept-utterance.md#utterance-normalization-for-diacritics-and-punctuation) de diacríticos y puntuación.

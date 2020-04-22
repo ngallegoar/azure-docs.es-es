@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: dsindona
-ms.openlocfilehash: d4fc8762e25825b21637b16b751d57a0dcbf369e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 22538047adc17a40438359e11bff7fd20e43bcc6
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288808"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273093"
 ---
 # <a name="virtual-machine-test-drive-tab"></a>Pestaña Versión de prueba de máquina virtual
+
+> [!IMPORTANT]
+> A partir del 13 de abril de 2020, comenzaremos el traslado de la administración de las ofertas de máquinas virtuales de Azure al Centro de partners. Después de la migración, las ofertas se crearán y administrarán en el Centro de partners. Siga las instrucciones que se indican en [Creación de una oferta de máquina virtual de Azure](https://aka.ms/CreateAzureVMoffer) para administrar las ofertas migradas.
 
 La pestaña **Versión de prueba** de la página **Nueva oferta** permite proporcionar a los clientes potenciales una demostración práctica y autodidacta de las principales características y ventajas del producto, ilustradas en un escenario estandarizado.  Versión de prueba es una característica opcional para los tipos de oferta que admiten la versión de prueba.  Versión de prueba requiere que los recursos complementarios se implementen correctamente.  Para obtener más información, vea el artículo [Azure Marketplace Test Drive](https://azure.microsoft.com/blog/azure-marketplace-test-drive/) (Versión de prueba de Azure Marketplace).  <!--TD: Replace with migrated version of Test Drive article! -->
 

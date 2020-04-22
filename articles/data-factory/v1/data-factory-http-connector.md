@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: e668f44bbc3d2e381edeb80c568a41355584a4ee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 36592151385a08d75b9b34e85bfa9d62342fc8cd
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79229916"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991576"
 ---
 # <a name="move-data-from-an-http-source-by-using-azure-data-factory"></a>Movimiento de datos desde un origen HTTP mediante Azure Data Factory
 
@@ -55,7 +55,7 @@ En la tabla siguiente se describen los elementos JSON específicos del servicio 
 | type | La propiedad **type** debe establecerse en **Http**. | Sí |
 | url | La dirección URL base para el servidor web. | Sí |
 | authenticationType | Especifica el tipo de autenticación. Los valores permitidos son: **Anonymous**, **Basic**, **Digest**, **Windows** y **ClientCertificate**. <br><br> Consulte las secciones posteriores de este artículo para obtener más propiedades y ejemplos de JSON para estos tipos de autenticación. | Sí |
-| enableServerCertificateValidation | Especifique si desea habilitar la validación de certificados SSL de servidor si el origen es un servidor web HTTPS. Si el servidor HTTPS usa un certificado autofirmado, establezca esta propiedad en **false**. | No<br /> (El valor predeterminado es: **true**) |
+| enableServerCertificateValidation | Especifique si desea habilitar la validación de certificados TLS/SSL de servidor si el origen es un servidor web HTTPS. Si el servidor HTTPS usa un certificado autofirmado, establezca esta propiedad en **false**. | No<br /> (El valor predeterminado es: **true**) |
 | gatewayName | El nombre de la instancia de Data Management Gateway que se usará para conectarse a un origen HTTP local. | Sí, si va a copiar datos de un origen HTTP local. |
 | encryptedCredential | Las credenciales cifradas para acceder al punto de conexión HTTP. El valor se genera automáticamente cuando configura la información de autenticación en el Asistente para copia o al usar el cuadro de diálogo **ClickOnce**. | No<br /> (se aplica solo cuando copia datos de un servidor HTTP local) |
 
@@ -106,7 +106,7 @@ Si utiliza **certThumbprint** para la autenticación y el certificado está inst
 3. Haga clic con el botón derecho en el certificado del almacén personal y seleccione **Todas las tareas** >**Administrar claves privadas**.
 3. En la pestaña **Seguridad**, agregue la cuenta de usuario en que se ejecuta el servicio de host de Data Management Gateway con acceso de lectura al certificado.  
 
-**Ejemplo: Uso del certificado de cliente**
+**Ejemplo: Uso de un certificado de cliente**
 
 Este servicio vinculado vincula su factoría de datos a un servidor de web HTTP local. Usa un certificado de cliente que está instalado en la máquina que tiene Data Management Gateway instalado.
 
@@ -128,7 +128,7 @@ Este servicio vinculado vincula su factoría de datos a un servidor de web HTTP 
 }
 ```
 
-**Ejemplo: Uso del certificado de cliente en un archivo**
+**Ejemplo: Uso de un certificado de cliente en un archivo**
 
 Este servicio vinculado vincula su factoría de datos a un servidor de web HTTP local. Usa un certificado de cliente en la máquina que tiene Data Management Gateway instalado.
 
@@ -164,8 +164,8 @@ La sección **typeProperties** es diferente para cada tipo de conjunto de datos.
 | requestMethod | Método HTTP. Los valores permitidos son **GET** y **POST**. | No <br />(el valor predeterminado es **GET**) |
 | additionalHeaders | Encabezados de solicitud HTTP adicionales. | No |
 | requestBody | Cuerpo de la solicitud HTTP. | No |
-| format | Si quiere *recuperar los datos de un punto de conexión HTTP tal cual* sin analizarlos, omita la opción **format**. <br><br> Si quiere analizar el contenido de la respuesta HTTP durante la copia, se admiten los siguientes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** y **ParquetFormat**. Para más información, consulte las secciones [Formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [Formato JSON](data-factory-supported-file-and-compression-formats.md#json-format), [Formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format) y [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). |No |
-| compression | Especifique el tipo y el nivel de compresión de los datos. Tipos admitidos: **GZip**, **Deflate**, **BZip2** y **ZipDeflate**. Niveles admitidos: **Optimal** y **Fastest**. Para más información, consulte el artículo sobre [formatos de compresión de archivos en Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
+| format | Si quiere *recuperar los datos de un punto de conexión HTTP tal cual* sin analizarlos, omita la opción **format**. <br><br> Si desea analizar el contenido de la respuesta HTTP durante la copia, se admiten los siguientes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** y **ParquetFormat**. Para más información, consulte las secciones [Formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [Formato JSON](data-factory-supported-file-and-compression-formats.md#json-format), [Formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format) y [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). |No |
+| compression | Especifique el tipo y el nivel de compresión de los datos. Tipos que se admiten: **GZip**, **Deflate**, **BZip2** y **ZipDeflate**. Niveles que se admiten: **Optimal** y **Fastest**. Para más información, consulte el artículo sobre [formatos de compresión de archivos en Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
 
 **Ejemplo: Uso del método GET (predeterminado)**
 
@@ -232,7 +232,7 @@ Para más información, consulte [Formatos de compresión de archivos en Azure D
 
 En los siguientes ejemplos, se proporcionan definiciones JSON de ejemplo que puede usar para crear una canalización mediante [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). En los ejemplos se muestra cómo copiar datos de un origen HTTP a Azure Blob Storage. Sin embargo, los datos se pueden copiar *directamente* de cualquiera de los orígenes a cualquiera de los receptores [admitidos](data-factory-data-movement-activities.md#supported-data-stores-and-formats) mediante la actividad de copia en Azure Data Factory.
 
-**Ejemplo: Copia de datos del origen HTTP a Azure Blob Storage**
+**Ejemplo: Copia de datos de un origen HTTP a Azure Blob Storage**
 
 La solución Data Factory de este ejemplo contiene las siguientes entidades de Data Factory:
 

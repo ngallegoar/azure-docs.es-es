@@ -1,22 +1,14 @@
 ---
 title: 'Planificación de la aplicación: LUIS'
-titleSuffix: Azure Cognitive Services
 description: Resuma las intenciones y entidades de aplicación relevantes y cree los planes de aplicación en Language Understanding Intelligent Services (LUIS).
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/20/2019
-ms.author: diberry
-ms.openlocfilehash: 6a155f4c43da03ccdc40d289742918973aa6da7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.openlocfilehash: dfed27a05973a2ea2e9a97eaa1c233b847b33d87
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "74326774"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382302"
 ---
 # <a name="plan-your-luis-app-schema-with-subject-domain-and-data-extraction"></a>Planeamiento del esquema de aplicación de LUIS con el dominio de sujeto y la extracción de datos
 
@@ -44,7 +36,7 @@ Si no necesita identificar la intención general del usuario, agregue todas las 
 
 ## <a name="create-example-utterances-for-each-intent"></a>Creación de expresiones de ejemplo para cada intención
 
-Para empezar, evite crear demasiadas expresiones para cada intento. Cuando haya determinado las intenciones, cree 15 o 30 expresiones de ejemplo por intención. Cada expresión debe ser diferente de la expresión anteriormente proporcionada. Una buena variedad de expresiones incluye el recuento total de palabras, la elección de palabras, el tiempo verbal y la puntuación.
+Para empezar, evite crear demasiadas expresiones para cada intento. Cuando haya determinado las intenciones, cree 15 o 30 expresiones de ejemplo por intención. Cada expresión debe ser diferente de la expresión anteriormente proporcionada. Una buena variedad de expresiones incluyen el recuento total de palabras, la elección de las palabras, el tiempo verbal y la [puntuación](luis-reference-application-settings.md#punctuation-normalization).
 
 Para más información, consulte [Comprender cuáles son las expresiones correctas para la aplicación de LUIS](luis-concept-utterance.md).
 

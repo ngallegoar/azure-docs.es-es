@@ -5,12 +5,12 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 02/16/2020
-ms.openlocfilehash: 9345138e948d84e0ea3c804dbd7a4b3c21daca2f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1d21c7ed93ac2ce2ab61282707d57fbf43e0b71a
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77668152"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261081"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Alertas de métricas con umbrales dinámicos en Azure Monitor
 
@@ -93,7 +93,8 @@ La primera vez que se crea una alerta, los umbrales que aparecen en el gráfico 
 
 ## <a name="how-much-data-is-needed-to-trigger-an-alert"></a>¿Cuántos datos se necesitan para desencadenar una alerta?
 
-Si tiene un nuevo recurso o faltan datos de las métricas, los umbrales dinámicos no desencadenarán alertas antes de que haya disponibles tres días o 30 datos de datos de métricas, para así poder garantizar que los umbrales son precisos.
+Si tiene un nuevo recurso o faltan datos de las métricas, los umbrales dinámicos no desencadenarán alertas antes de que haya disponibles tres días o al menos 30 ejemplos de datos de métrica, para así poder garantizar que los umbrales son precisos.
+En el caso de los recursos existentes con datos de métrica suficientes, los umbrales dinámicos pueden desencadenar alertas inmediatamente.
 
 ## <a name="dynamic-thresholds-best-practices"></a>Procedimientos recomendados para umbrales dinámicos
 

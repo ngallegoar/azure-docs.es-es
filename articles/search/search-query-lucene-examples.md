@@ -9,21 +9,21 @@ tags: Lucene query analyzer syntax
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 745be21c2a7a09a09fdbbfd57a305d09a4fac3ed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bc691299f38d562aee5c08a89e10372331663f8e
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72793443"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262815"
 ---
 # <a name="use-the-full-lucene-search-syntax-advanced-queries-in-azure-cognitive-search"></a>Uso de la sintaxis de búsqueda "completa" de Lucene (consultas avanzadas en Azure Cognitive Search)
 
 Al construir consultas para Azure Cognitive Search, puede reemplazar el [analizador de consultas sencillo](query-simple-syntax.md) predeterminado por el [analizador de consultas de Lucene más completo de Azure Cognitive Search](query-lucene-syntax.md) para formular definiciones de consultas especializadas y avanzadas. 
 
-El analizador de Lucene admite construcciones de consulta más complejas, como las consultas de ámbito de campo, la búsqueda aproximada y con caracteres comodín de prefijo, la búsqueda por proximidad, la priorización de términos y las expresiones regulares. La potencia adicional trae consigo requisitos de procesamiento adicional, por lo que debe esperar un tiempo de ejecución un poco más largo. En este artículo, puede ir a través de ejemplos de operaciones de consulta disponibles cuando se usa la sintaxis completa.
+El analizador de Lucene admite construcciones de consulta más complejas, como las consultas de ámbito de campo, la búsqueda aproximada y con caracteres comodín de infijos y sufijos, la búsqueda por proximidad, la priorización de términos y las expresiones regulares. La potencia adicional trae consigo requisitos de procesamiento adicional, por lo que debe esperar un tiempo de ejecución un poco más largo. En este artículo, puede ir a través de ejemplos de operaciones de consulta disponibles cuando se usa la sintaxis completa.
 
 > [!Note]
-> Muchas de las construcciones de consulta especializadas habilitadas mediante la sintaxis de consulta completa de Lucene no son [de análisis de texto](search-lucene-query-architecture.md#stage-2-lexical-analysis), lo que puede ser sorprendente si espera lematización. Solo se realizan análisis léxicos en términos completos (consulta de término o de expresión). Los tipos de consulta con términos incompletos (consulta de prefijo, de carácter comodín, de expresión regular o aproximada) se agregan directamente en el árbol de la consulta, omitiéndose la fase de análisis. La única transformación que se realiza en los términos de consulta incompletos es el establecimiento de minúsculas. 
+> Muchas de las construcciones de consulta especializadas habilitadas mediante la sintaxis de consulta completa de Lucene no son [de análisis de texto](search-lucene-query-architecture.md#stage-2-lexical-analysis), lo que puede ser sorprendente si espera lematización. Solo se realizan análisis léxicos en términos completos (consulta de término o de expresión). Los tipos de consulta con términos incompletos (consulta de prefijo, de carácter comodín, de expresión regular o aproximada) se agregan directamente en el árbol de la consulta, omitiéndose la fase de análisis. La única transformación que se realiza en los términos de consulta parciales es el establecimiento de minúsculas. 
 >
 
 ## <a name="formulate-requests-in-postman"></a>Formulación de solicitudes en Postman
@@ -86,7 +86,7 @@ El primer ejemplo no es específico de Lucene, pero sirve para introducir el pri
 
 Por brevedad, la consulta tiene como destino únicamente el campo *business_title* y especifica que se devuelvan solo los puestos de empresa. El parámetro **searchFields** restringe la ejecución de la consulta solamente al campo business_title y **select** especifica qué campos se incluyen en la respuesta.
 
-### <a name="partial-query-string"></a>Cadena de consulta parcial
+### <a name="search-expression"></a>Expresión de búsqueda
 
 ```http
 &search=*&searchFields=business_title&$select=business_title
@@ -119,7 +119,7 @@ Tal vez haya notado la puntuación de búsqueda en la respuesta. Las puntuacione
 
 La sintaxis completa de Lucene admite expresiones de búsqueda individuales para un campo específico. En este ejemplo se buscan puestos de empresa con el término "senior" en ellos, pero no "junior".
 
-### <a name="partial-query-string"></a>Cadena de consulta parcial
+### <a name="search-expression"></a>Expresión de búsqueda
 
 ```http
 $select=business_title&search=business_title:(senior NOT junior)
@@ -156,7 +156,7 @@ El campo especificado en **fieldName:searchExpression** debe ser un campo que pe
 
 La sintaxis completa de Lucene también admite la búsqueda aproximada, que busca términos que tienen una construcción similar. Para realizar una búsqueda aproximada, agregue la virgulilla, `~`, al final de una sola palabra con un parámetro opcional y un valor entre 0 y 2 para especificar la distancia de edición. Por ejemplo, `blue~` o `blue~1` devolverían blue, blues y glue.
 
-### <a name="partial-query-string"></a>Cadena de consulta parcial
+### <a name="search-expression"></a>Expresión de búsqueda
 
 ```http
 searchFields=business_title&$select=business_title&search=business_title:asosiate~
@@ -186,7 +186,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 ## <a name="example-4-proximity-search"></a>Ejemplo 4: Búsqueda por proximidad
 Las búsquedas de proximidad se utilizan para buscar términos que están cerca entre sí en un documento. Inserte un símbolo "~" de la tilde de la Ñ al final de una frase seguido del número de palabras que crea el límite de proximidad. Por ejemplo, "hotel airport"~5 buscará los términos "hotel" y "airport" dentro de 5 palabras en un documento.
 
-### <a name="partial-query-string"></a>Cadena de consulta parcial
+### <a name="search-expression"></a>Expresión de búsqueda
 
 ```http
 searchFields=business_title&$select=business_title&search=business_title:%22senior%20analyst%22~1
@@ -239,7 +239,7 @@ Al establecer el nivel de factor, cuanto más alto sea el factor de prioridad, m
 
 Una búsqueda de expresión regular encuentra una coincidencia en función del contenido entre barras diagonales "/", como se documentó en la [clase RegExp](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/util/automaton/RegExp.html).
 
-### <a name="partial-query-string"></a>Cadena de consulta parcial
+### <a name="search-expression"></a>Expresión de búsqueda
 
 ```http
 searchFields=business_title&$select=business_title&search=business_title:/(Sen|Jun)ior/
@@ -262,7 +262,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 ## <a name="example-7-wildcard-search"></a>Ejemplo 7: Búsqueda con caracteres comodín
 Puede usar la sintaxis generalmente reconocida para búsquedas con caracteres comodín únicas (?) o múltiples (\*). Tenga en cuenta que el Analizador de consultas de Lucene admite el uso de estos símbolos con un único término y no una frase.
 
-### <a name="partial-query-string"></a>Cadena de consulta parcial
+### <a name="search-expression"></a>Expresión de búsqueda
 
 ```http
 searchFields=business_title&$select=business_title&search=business_title:prog*

@@ -1,179 +1,279 @@
 ---
-title: Recursos de etiquetado para la organización lógica
+title: Etiquetado de recursos, grupos de recursos y suscripciones para una organización lógica
 description: Muestra cómo aplicar etiquetas para organizar los recursos de Azure para la facturación y administración.
 ms.topic: conceptual
-ms.date: 01/03/2020
-ms.openlocfilehash: c7f8d8672e205fa677bff33c8ed173c1105b26c6
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.date: 04/10/2020
+ms.openlocfilehash: 2f437682a2ac415ce8478b09a44bff044bd9511b
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77166601"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255131"
 ---
-# <a name="use-tags-to-organize-your-azure-resources"></a>Uso de etiquetas para organizar los recursos de Azure
+# <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Uso de etiquetas para organizar los recursos de Azure y la jerarquía de administración
 
-Se aplican etiquetas a los recursos de Azure para organizarlos de forma lógica en una taxonomía. Cada etiqueta consta de un nombre y un par de valores. Por ejemplo, puede aplicar el nombre "Environment" y el valor "Production" a todos los recursos en producción.
+Puede aplicar etiquetas a los recursos, grupos de recursos y suscripciones de Azure con el fin de organizarlos de manera lógica en una taxonomía. Cada etiqueta consta de un nombre y un par de valores. Por ejemplo, puede aplicar el nombre "Environment" y el valor "Production" a todos los recursos en producción.
 
-Después de aplicar las etiquetas, puede recuperar todos los recursos de la suscripción que tengan ese nombre y valor de etiqueta. Las etiquetas le permiten recuperar los recursos relacionados que se encuentran en distintos grupos de recursos. Este enfoque puede resultar útil si necesita organizar recursos para facturación o administración.
+Para recomendaciones sobre cómo implementar una estrategia de etiquetado, consulte [Guía de decisiones de nomenclatura y etiquetado de recursos](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json).
 
-La taxonomía debe considerar una estrategia de autoservicio de etiquetado de metadatos además de una estrategia de autoetiquetado para reducir la carga sobre los usuarios y aumentar la precisión.
+> [!IMPORTANT]
+> Las nombres de etiqueta no distinguen mayúsculas de minúsculas. Los valores de etiqueta distinguen mayúsculas de minúsculas.
 
 [!INCLUDE [Handle personal data](../../../includes/gdpr-intro-sentence.md)]
 
-## <a name="limitations"></a>Limitaciones
-
-Se aplican las siguientes limitaciones a las etiquetas:
-
-* No todos los tipos de recursos admiten etiquetas. Para determinar si se puede aplicar una etiqueta a un tipo de recurso determinado, consulte [Tag support for Azure resources](tag-support.md) (Compatibilidad con etiquetas para los recursos de Azure).
-* Cada recurso o grupo de recursos puede tener un máximo de cincuenta pares de nombre/valor de etiqueta. Si necesita aplicar más etiquetas que el número máximo permitido, use una cadena JSON para el valor de etiqueta. La cadena JSON puede contener muchos valores que se aplican a un sol nombre de etiqueta. Un grupo de recursos puede contener muchos recursos con cincuenta pares de clave/valor de etiqueta cada uno.
-* El nombre de etiqueta está limitado a 512 caracteres y el valor de la etiqueta, a 256. En las cuentas de almacenamiento, el nombre de etiqueta se limita a 128 caracteres y el valor de la etiqueta, a 256.
-* Las VM generalizadas no admiten etiquetas.
-* Los recursos de un grupo de recursos no heredan las etiquetas aplicadas a este.
-* No se pueden aplicar etiquetas a recursos clásicos como Cloud Services.
-* Los nombres de etiqueta no pueden contener estos caracteres: `<`, `>`, `%`, `&`, `\`, `?`, `/`
-
-   > [!NOTE]
-   > Actualmente las zonas de Azure DNS y los servicios de Traffic Manager tampoco permiten el uso de espacios en la etiqueta. 
-
 ## <a name="required-access"></a>Acceso necesario
 
-Para aplicar etiquetas a los recursos, el usuario debe tener acceso de escritura en ese tipo de recurso. Para aplicar etiquetas a todos los tipos de recursos, use el rol [Colaborador](../../role-based-access-control/built-in-roles.md#contributor). Para aplicar etiquetas a un solo tipo de recurso, use el rol de colaborador para ese recurso. Por ejemplo, para aplicar etiquetas a las máquinas virtuales, use [Colaborador de la máquina virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
+Para aplicar etiquetas a un recurso, debe tener acceso de escritura al tipo de recurso **Microsoft.Resources/tags**. El rol [Colaborador de etiquetas](../../role-based-access-control/built-in-roles.md#tag-contributor) le permite aplicar etiquetas a una entidad sin tener acceso a la entidad misma. Actualmente, el rol colaborador de etiquetas no puede aplicar etiquetas a recursos o grupos de recursos a través del portal. Puede aplicar etiquetas a las suscripciones a través del portal. Este admite todas las operaciones de etiqueta a través de PowerShell y la API REST.  
 
-## <a name="policies"></a>Directivas
-
-Puede usar [Azure Policy](../../governance/policy/overview.md) para aplicar reglas de etiquetado y convenciones. Mediante la creación de una directiva, evitará el escenario de recursos que se vayan a implementar en su suscripción que no cumplen con las etiquetas esperadas para su organización. En lugar de aplicar manualmente las etiquetas o buscar recursos que no son compatibles, puede crear una directiva que aplica automáticamente las etiquetas necesarias durante la implementación. También se pueden aplicar etiquetas a los recursos existentes con el nuevo efecto de [modificación](../../governance/policy/concepts/effects.md#modify) y una [tarea de corrección](../../governance/policy/how-to/remediate-resources.md). La sección siguiente muestra las directivas de ejemplo para las etiquetas.
-
-[!INCLUDE [Tag policies](../../../includes/azure-policy-samples-policies-tags.md)]
+El rol [Colaborador](../../role-based-access-control/built-in-roles.md#contributor) también concede el acceso necesario para aplicar etiquetas a cualquier entidad. Para aplicar etiquetas a un solo tipo de recurso, use el rol de colaborador para ese recurso. Por ejemplo, para aplicar etiquetas a las máquinas virtuales, use [Colaborador de la máquina virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
 
 ## <a name="powershell"></a>PowerShell
 
-Para ver las etiquetas existentes de un *grupo de recursos*, use:
+### <a name="apply-tags"></a>Aplicación de etiquetas
+
+Azure PowerShell ofrece dos comandos para aplicar etiquetas: [New-AzTag](/powershell/module/az.resources/new-aztag) y [Update-AzTag](/powershell/module/az.resources/update-aztag). Debe tener el módulo Az.Resources 1.12.0 o una versión posterior. Puede consultar su versión con `Get-Module Az.Resources`. Puede instalar ese módulo o [Azure PowerShell](/powershell/azure/install-az-ps) 3.6.1 o una versión posterior.
+
+**New-AzTag** reemplaza todas las etiquetas en el recurso, el grupo de recursos o la suscripción. Al llamar al comando, pase el id. de recurso de la entidad que desea etiquetar.
+
+En el ejemplo siguiente se aplica un conjunto de etiquetas a una cuenta de almacenamiento:
 
 ```azurepowershell-interactive
-(Get-AzResourceGroup -Name examplegroup).Tags
+$tags = @{"Dept"="Finance"; "Status"="Normal"}
+$resource = Get-AzResource -Name demoStorage -ResourceGroup demoGroup
+New-AzTag -ResourceId $resource.id -Tag $tags
 ```
 
-Ese script devuelve el siguiente formato:
+Cuando se complete el comando, observe que el recurso tiene dos etiquetas.
 
-```powershell
-Name                           Value
-----                           -----
-Dept                           IT
-Environment                    Test
+```output
+Properties :
+        Name    Value
+        ======  =======
+        Dept    Finance
+        Status  Normal
 ```
 
-Para ver las etiquetas existentes para un *recurso que tiene un nombre y un grupo de recursos especificados*, use:
+Si vuelve a ejecutar el comando, pero esta vez con etiquetas diferentes, observe que se quitaron las etiquetas anteriores.
 
 ```azurepowershell-interactive
-(Get-AzResource -ResourceName examplevnet -ResourceGroupName examplegroup).Tags
+$tags = @{"Team"="Compliance"; "Environment"="Production"}
+New-AzTag -ResourceId $resource.id -Tag $tags
 ```
 
-O bien, si tiene el identificador de recurso de un recurso, puede pasar ese identificador de recurso para obtener las etiquetas.
-
-```azurepowershell-interactive
-(Get-AzResource -ResourceId /subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>).Tags
+```output
+Properties :
+        Name         Value
+        ===========  ==========
+        Environment  Production
+        Team         Compliance
 ```
 
-Para obtener *grupos de recursos que tengan un nombre y valor de etiqueta específicos*, use :
+Para agregar etiquetas a un recurso que ya tiene etiquetas, use **Update-AzTag**. Establezca el parámetro **-Operation** en **Merge**.
 
 ```azurepowershell-interactive
-(Get-AzResourceGroup -Tag @{ "Dept"="Finance" }).ResourceGroupName
+$tags = @{"Dept"="Finance"; "Status"="Normal"}
+Update-AzTag -ResourceId $resource.id -Tag $tags -Operation Merge
 ```
 
-Para obtener *recursos que tengan un nombre y valor de etiqueta específicos*, use :
+Observe que las dos etiquetas nuevas se agregaron a las dos etiquetas existentes.
 
-```azurepowershell-interactive
-(Get-AzResource -Tag @{ "Dept"="Finance"}).Name
+```output
+Properties :
+        Name         Value
+        ===========  ==========
+        Status       Normal
+        Dept         Finance
+        Team         Compliance
+        Environment  Production
 ```
 
-Para obtener *recursos que tengan un nombre de etiqueta específico*, use:
+Cada nombre de etiqueta solo puede tener un valor. Si proporciona un valor nuevo para una etiqueta, el valor anterior se reemplaza incluso si se usa la operación de combinación. En el ejemplo siguiente se cambia la etiqueta Status (Estado) de Normal a Green (Verde).
 
 ```azurepowershell-interactive
-(Get-AzResource -TagName "Dept").Name
+$tags = @{"Status"="Green"}
+Update-AzTag -ResourceId $resource.id -Tag $tags -Operation Merge
 ```
 
-Cada vez que aplique etiquetas a un recurso o grupo de recursos, sobrescribirá las etiquetas existentes en ese recurso o grupo de recursos. Por lo tanto, tiene que utilizar un enfoque diferente en función de si el recurso o grupo de recursos tienen etiquetas existentes.
-
-Para agregar etiquetas a un *grupo de recursos sin etiquetas existentes*, use:
-
-```azurepowershell-interactive
-Set-AzResourceGroup -Name examplegroup -Tag @{ "Dept"="IT"; "Environment"="Test" }
+```output
+Properties :
+        Name         Value
+        ===========  ==========
+        Status       Green
+        Dept         Finance
+        Team         Compliance
+        Environment  Production
 ```
 
-Para agregar etiquetas a un *grupo de recursos que ya tiene etiquetas*, recupere las etiquetas existentes, agregue la nueva y vuelva a aplicar todas:
+Al establecer el parámetro **-Operation** en **Replace**, el nuevo conjunto de etiquetas reemplaza a las etiquetas existentes.
 
 ```azurepowershell-interactive
-$tags = (Get-AzResourceGroup -Name examplegroup).Tags
-$tags.Add("Status", "Approved")
-Set-AzResourceGroup -Tag $tags -Name examplegroup
+$tags = @{"Project"="ECommerce"; "CostCenter"="00123"; "Team"="Web"}
+Update-AzTag -ResourceId $resource.id -Tag $tags -Operation Replace
 ```
 
-Para agregar etiquetas a un *recurso sin etiquetas*, use:
+Solo las etiquetas nuevas siguen en el recurso.
+
+```output
+Properties :
+        Name        Value
+        ==========  =========
+        CostCenter  00123
+        Team        Web
+        Project     ECommerce
+```
+
+Los mismos comandos también funcionan con grupos de recursos o suscripciones. Puede pasar el identificador del grupo de recursos o de la suscripción que quiere etiquetar.
+
+Para agregar un nuevo conjunto de etiquetas a un grupo de recursos, use:
 
 ```azurepowershell-interactive
-$resource = Get-AzResource -ResourceName examplevnet -ResourceGroupName examplegroup
-Set-AzResource -Tag @{ "Dept"="IT"; "Environment"="Test" } -ResourceId $resource.ResourceId -Force
+$tags = @{"Dept"="Finance"; "Status"="Normal"}
+$resourceGroup = Get-AzResourceGroup -Name demoGroup
+New-AzTag -ResourceId $resourceGroup.ResourceId -tag $tags
+```
+
+Para actualizar las etiquetas de un grupo de recursos, use:
+
+```azurepowershell-interactive
+$tags = @{"CostCenter"="00123"; "Environment"="Production"}
+$resourceGroup = Get-AzResourceGroup -Name demoGroup
+Update-AzTag -ResourceId $resourceGroup.ResourceId -Tag $tags -Operation Merge
+```
+
+Para agregar un nuevo conjunto de etiquetas a una suscripción, use:
+
+```azurepowershell-interactive
+$tags = @{"CostCenter"="00123"; "Environment"="Dev"}
+$subscription = (Get-AzSubscription -SubscriptionName "Example Subscription").Id
+New-AzTag -ResourceId "/subscriptions/$subscription" -Tag $tags
+```
+
+Para actualizar las etiquetas de una suscripción, use:
+
+```azurepowershell-interactive
+$tags = @{"Team"="Web Apps"}
+$subscription = (Get-AzSubscription -SubscriptionName "Example Subscription").Id
+Update-AzTag -ResourceId "/subscriptions/$subscription" -Tag $tags -Operation Merge
 ```
 
 Puede tener más de un recurso con el mismo nombre en un grupo de recursos. En ese caso, puede establecer cada recurso con los siguientes comandos:
 
 ```azurepowershell-interactive
 $resource = Get-AzResource -ResourceName sqlDatabase1 -ResourceGroupName examplegroup
-$resource | ForEach-Object { Set-AzResource -Tag @{ "Dept"="IT"; "Environment"="Test" } -ResourceId $_.ResourceId -Force }
+$resource | ForEach-Object { Update-AzTag -Tag @{ "Dept"="IT"; "Environment"="Test" } -ResourceId $_.ResourceId -Operation Merge }
 ```
 
-Para agregar etiquetas a un *recurso que ya tiene etiquetas*, use:
+### <a name="list-tags"></a>Lista de etiquetas
+
+Para obtener las etiquetas de un recurso, un grupo de recursos o una suscripción, use el comando [Get-AzTag](/powershell/module/az.resources/get-aztag) y pase el id. de recurso de la entidad.
+
+Para ver las etiquetas de un recurso, use:
 
 ```azurepowershell-interactive
-$resource = Get-AzResource -ResourceName examplevnet -ResourceGroupName examplegroup
-$resource.Tags.Add("Status", "Approved")
-Set-AzResource -Tag $resource.Tags -ResourceId $resource.ResourceId -Force
+$resource = Get-AzResource -Name demoStorage -ResourceGroup demoGroup
+Get-AzTag -ResourceId $resource.id
 ```
 
-Para aplicar todas las etiquetas de un grupo de recursos a sus recursos y *no conservar ninguna de las etiquetas existentes en los recursos*, use el siguiente script:
+Para ver las etiquetas de un grupo de recursos, use:
 
 ```azurepowershell-interactive
-$group = Get-AzResourceGroup -Name examplegroup
-Get-AzResource -ResourceGroupName $group.ResourceGroupName | ForEach-Object {Set-AzResource -ResourceId $_.ResourceId -Tag $group.Tags -Force }
+$resourceGroup = Get-AzResourceGroup -Name demoGroup
+Get-AzTag -ResourceId $resourceGroup.ResourceId
 ```
 
-Para aplicar todas las etiquetas de un grupo de recursos a sus recursos y *conservar las etiquetas existentes en los recursos que no son duplicados*, use el siguiente script:
+Para ver las etiquetas de una suscripción, use:
 
 ```azurepowershell-interactive
-$group = Get-AzResourceGroup -Name examplegroup
-if ($null -ne $group.Tags) {
-    $resources = Get-AzResource -ResourceGroupName $group.ResourceGroupName
-    foreach ($r in $resources)
-    {
-        $resourcetags = (Get-AzResource -ResourceId $r.ResourceId).Tags
-        if ($resourcetags)
-        {
-            foreach ($key in $group.Tags.Keys)
-            {
-                if (-not($resourcetags.ContainsKey($key)))
-                {
-                    $resourcetags.Add($key, $group.Tags[$key])
-                }
-            }
-            Set-AzResource -Tag $resourcetags -ResourceId $r.ResourceId -Force
-        }
-        else
-        {
-            Set-AzResource -Tag $group.Tags -ResourceId $r.ResourceId -Force
-        }
-    }
-}
+$subscription = (Get-AzSubscription -SubscriptionName "Example Subscription").Id
+Get-AzTag -ResourceId "/subscriptions/$subscription"
 ```
 
-Para quitar todas las etiquetas, pase una tabla hash vacía:
+### <a name="list-by-tag"></a>Enumerar por etiqueta
+
+Para obtener recursos que tengan un nombre y valor de etiqueta específicos, use:
 
 ```azurepowershell-interactive
-Set-AzResourceGroup -Tag @{} -Name examplegroup
+(Get-AzResource -Tag @{ "CostCenter"="00123"}).Name
+```
+
+Para obtener recursos que tengan un nombre de etiqueta específico y cualquier valor de etiqueta, use:
+
+```azurepowershell-interactive
+(Get-AzResource -TagName "Dept").Name
+```
+
+Para obtener grupos de recursos que tengan un nombre y valor de etiqueta específicos, use:
+
+```azurepowershell-interactive
+(Get-AzResourceGroup -Tag @{ "CostCenter"="00123" }).ResourceGroupName
+```
+
+### <a name="remove-tags"></a>Eliminación de etiquetas
+
+Para quitar etiquetas específicas, use **Update-AzTag** y establezca **-Operation** en **Delete**. Pase las etiquetas que quiere eliminar.
+
+```azurepowershell-interactive
+$removeTags = @{"Project"="ECommerce"; "Team"="Web"}
+Update-AzTag -ResourceId $resource.id -Tag $removeTags -Operation Delete
+```
+
+Se quitan las etiquetas especificadas.
+
+```output
+Properties :
+        Name        Value
+        ==========  =====
+        CostCenter  00123
+```
+
+Para quitar todas las etiquetas, use el comando [Remove-AzTag](/powershell/module/az.resources/remove-aztag).
+
+```azurepowershell-interactive
+$subscription = (Get-AzSubscription -SubscriptionName "Example Subscription").Id
+Remove-AzTag -ResourceId "/subscriptions/$subscription"
 ```
 
 ## <a name="azure-cli"></a>Azure CLI
 
-Para ver las etiquetas existentes de un *grupo de recursos*, use:
+### <a name="apply-tags"></a>Aplicación de etiquetas
+
+Al agregar etiquetas a un grupo de recursos o recurso, puede sobrescribir las etiquetas existentes o agregar nuevas etiquetas a las etiquetas existentes.
+
+Para sobrescribir las etiquetas en un recurso, use:
+
+```azurecli-interactive
+az resource tag --tags 'Dept=IT' 'Environment=Test' -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
+```
+
+Para anexar una etiqueta a las etiquetas existentes en un recurso, use:
+
+```azurecli-interactive
+az resource update --set tags.'Status'='Approved' -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
+```
+
+Para sobrescribir las etiquetas existentes en un grupo de recursos, use:
+
+```azurecli-interactive
+az group update -n examplegroup --tags 'Environment=Test' 'Dept=IT'
+```
+
+Para anexar una etiqueta a las etiquetas existentes en un grupo de recursos, use:
+
+```azurecli-interactive
+az group update -n examplegroup --set tags.'Status'='Approved'
+```
+
+Actualmente, la CLI de Azure no admite la aplicación de etiquetas a las suscripciones.
+
+### <a name="list-tags"></a>Lista de etiquetas
+
+Para ver las etiquetas existentes de un recurso, use:
+
+```azurecli-interactive
+az resource show -n examplevnet -g examplegroup --resource-type "Microsoft.Network/virtualNetworks" --query tags
+```
+
+Para ver las etiquetas existentes de un grupo de recursos, use:
 
 ```azurecli-interactive
 az group show -n examplegroup --query tags
@@ -188,16 +288,12 @@ Ese script devuelve el siguiente formato:
 }
 ```
 
-O bien, para ver las etiquetas existentes para un *recurso que tiene un nombre, un tipo y un grupo de recursos especificados*, use:
+### <a name="list-by-tag"></a>Enumerar por etiqueta
+
+Para obtener todos los recursos que tengan una etiqueta y un valor particulares, use `az resource list`:
 
 ```azurecli-interactive
-az resource show -n examplevnet -g examplegroup --resource-type "Microsoft.Network/virtualNetworks" --query tags
-```
-
-Al recorrer en iteración una colección de recursos, puede mostrar el identificador de recurso por recurso. Más adelante en este artículo se muestra un ejemplo completo. Para ver las etiquetas existentes de un *recurso que tiene un identificador de recurso especificado*, use:
-
-```azurecli-interactive
-az resource show --id <resource-id> --query tags
+az resource list --tag Dept=Finance
 ```
 
 Para obtener grupos de recursos que tengan una etiqueta específica, use `az group list`:
@@ -206,64 +302,7 @@ Para obtener grupos de recursos que tengan una etiqueta específica, use `az gro
 az group list --tag Dept=IT
 ```
 
-Para obtener todos los recursos que tengan una etiqueta y un valor particulares, use `az resource list`:
-
-```azurecli-interactive
-az resource list --tag Dept=Finance
-```
-
-Al agregar etiquetas a un grupo de recursos o recurso, puede sobrescribir las etiquetas existentes o agregar nuevas etiquetas a las etiquetas existentes.
-
-Para sobrescribir las etiquetas existentes en un grupo de recursos, use:
-
-```azurecli-interactive
-az group update -n examplegroup --tags 'Environment=Test' 'Dept=IT'
-```
-
-Para anexar una etiqueta a las etiquetas existentes en un grupo de recursos, use:
-
-```azurecli-interactive
-az group update -n examplegroup --set tags.'Status'='Approved'
-```
-
-Para sobrescribir las etiquetas en un recurso, use:
-
-```azurecli-interactive
-az resource tag --tags 'Dept=IT' 'Environment=Test' -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
-```
-
-Para anexar una etiqueta a las etiquetas existentes en un recurso, use:
-
-```azurecli-interactive
-az resource update --set tags.'Status'='Approved' -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
-```
-
-Para aplicar todas las etiquetas de un grupo de recursos a sus recursos y *no conservar ninguna de las etiquetas existentes en los recursos*, use el siguiente script:
-
-```azurecli-interactive
-jsontags=$(az group show --name examplegroup --query tags -o json)
-tags=$(echo $jsontags | tr -d '"{},' | sed 's/: /=/g')
-resourceids=$(az resource list -g examplegroup --query [].id --output tsv)
-for id in $resourceids
-do
-  az resource tag --tags $tags --id $id
-done
-```
-
-Para aplicar todas las etiquetas de un grupo de recursos a sus recursos y *conservar ninguna de las etiquetas existentes en los recursos*, use el siguiente script:
-
-```azurecli-interactive
-jsontags=$(az group show --name examplegroup --query tags -o json)
-tags=$(echo $jsontags | tr -d '"{},' | sed 's/: /=/g')
-
-resourceids=$(az resource list -g examplegroup --query [].id --output tsv)
-for id in $resourceids
-do
-  resourcejsontags=$(az resource show --id $id --query tags -o json)
-  resourcetags=$(echo $resourcejsontags | tr -d '"{},' | sed 's/: /=/g')
-  az resource tag --tags $tags$resourcetags --id $id
-done
-```
+### <a name="handling-spaces"></a>Control de los espacios
 
 Si los nombres o valores de etiqueta incluyen espacios, debe realizar un par de pasos adicionales. En el ejemplo siguiente se aplican todas las etiquetas de un grupo de recursos a sus recursos cuando las etiquetas pueden contener espacios.
 
@@ -283,17 +322,21 @@ IFS=$origIFS
 
 ## <a name="templates"></a>Plantillas
 
-Para etiquetar un recurso durante la implementación, agregue el elemento `tags` al recurso que se va a implementar. Proporcione el nombre y el valor de la etiqueta.
+Puede etiquetar recursos, grupos de recursos y suscripciones durante la implementación con una plantilla de Resource Manager.
 
-### <a name="apply-a-literal-value-to-the-tag-name"></a>Aplicación de un valor literal al nombre de etiqueta
+### <a name="apply-values"></a>Aplicación de valores
 
-En el ejemplo siguiente se muestra una cuenta de almacenamiento con dos etiquetas (`Dept` y `Environment`) que se establecen en valores literales:
+En el ejemplo siguiente se implementa una cuenta de almacenamiento con tres etiquetas. Dos de las etiquetas (`Dept` y `Environment`) se establecen en valores literales. Una etiqueta (`LastDeployed`) se establece en un parámetro que tiene como valor predeterminado la fecha actual.
 
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
+        "utcShort": {
+            "type": "string",
+            "defaultValue": "[utcNow('d')]"
+        },
         "location": {
             "type": "string",
             "defaultValue": "[resourceGroup().location]"
@@ -307,7 +350,8 @@ En el ejemplo siguiente se muestra una cuenta de almacenamiento con dos etiqueta
             "location": "[parameters('location')]",
             "tags": {
                 "Dept": "Finance",
-                "Environment": "Production"
+                "Environment": "Production",
+                "LastDeployed": "[parameters('utcShort')]"
             },
             "sku": {
                 "name": "Standard_LRS"
@@ -319,11 +363,9 @@ En el ejemplo siguiente se muestra una cuenta de almacenamiento con dos etiqueta
 }
 ```
 
-Para establecer una etiqueta en un valor de datetime, use la [función utcNow](../templates/template-functions-string.md#utcnow).
+### <a name="apply-an-object"></a>Aplicación de un objeto
 
-### <a name="apply-an-object-to-the-tag-element"></a>Aplicación de un objeto al elemento de etiqueta
-
-Puede definir un parámetro de objeto que almacene varias etiquetas y aplicar ese objeto al elemento de etiqueta. Cada propiedad del objeto se convierte en una etiqueta independiente para el recurso. El siguiente ejemplo tiene un parámetro denominado `tagValues` que se aplica al elemento de etiqueta.
+Puede definir un parámetro de objeto que almacene varias etiquetas y aplicar ese objeto al elemento de etiqueta. Este enfoque proporciona más flexibilidad que el ejemplo anterior, porque el objeto puede tener propiedades diferentes. Cada propiedad del objeto se convierte en una etiqueta independiente para el recurso. El siguiente ejemplo tiene un parámetro denominado `tagValues` que se aplica al elemento de etiqueta.
 
 ```json
 {
@@ -359,7 +401,7 @@ Puede definir un parámetro de objeto que almacene varias etiquetas y aplicar es
 }
 ```
 
-### <a name="apply-a-json-string-to-the-tag-name"></a>Aplicación de una cadena JSON al nombre de etiqueta
+### <a name="apply-a-json-string"></a>Aplicación de una cadena JSON
 
 Para almacenar muchos valores en una única etiqueta, aplique una cadena JSON que represente los valores. Toda la cadena JSON se almacena como una etiqueta que no puede superar los 256 caracteres. En el ejemplo siguiente se muestra una etiqueta denominada `CostCenter` que contiene varios valores de una cadena JSON:  
 
@@ -426,13 +468,107 @@ Para aplicar etiquetas desde un grupo de recursos a un recurso, use la función 
 }
 ```
 
+### <a name="apply-tags-to-resource-groups-or-subscriptions"></a>Aplicación de etiquetas a grupos de recursos o suscripciones
+
+Puede agregar etiquetas a un grupo de recursos o una suscripción mediante la implementación del tipo de recurso **Microsoft.Resources/tags**. Las etiquetas se aplican al grupo de recursos o a la suscripción de destino correspondiente a la implementación. Cada vez que implemente la plantilla, reemplace cualquier etiqueta que haya aplicado anteriormente.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "tagName": {
+            "type": "string",
+            "defaultValue": "TeamName"
+        },
+        "tagValue": {
+            "type": "string",
+            "defaultValue": "AppTeam1"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Resources/tags",
+            "name": "default",
+            "apiVersion": "2019-10-01",
+            "dependsOn": [],
+            "properties": {
+                "tags": {
+                    "[parameters('tagName')]": "[parameters('tagValue')]"
+                }
+            }
+        }
+    ]
+}
+```
+
+Para aplicar las etiquetas a un grupo de recursos, use PowerShell o la CLI de Azure. Implemente en el grupo de recursos que quiere etiquetar.
+
+```azurepowershell-interactive
+New-AzResourceGroupDeployment -ResourceGroupName exampleGroup -TemplateFile https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/tags.json
+```
+
+```azurecli-interactive
+az deployment group create --resource-group exampleGroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/tags.json
+```
+
+Para aplicar las etiquetas a una suscripción, use PowerShell o la CLI de Azure. Implemente en la suscripción que quiere etiquetar.
+
+```azurepowershell-interactive
+New-AzSubscriptionDeployment -name tagresourcegroup -Location westus2 -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/tags.json
+```
+
+```azurecli-interactive
+az deployment sub create --name tagresourcegroup --location westus2 --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/tags.json
+```
+
+La plantilla siguiente agrega las etiquetas de un objeto a un grupo de recursos o a una suscripción.
+
+```json
+"$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "tags": {
+            "type": "object",
+            "defaultValue": {
+                "TeamName": "AppTeam1",
+                "Dept": "Finance",
+                "Environment": "Production"
+            }
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Resources/tags",
+            "name": "default",
+            "apiVersion": "2019-10-01",
+            "dependsOn": [],
+            "properties": {
+                "tags": "[parameters('tags')]"
+            }
+        }
+    ]
+}
+```
+
 ## <a name="portal"></a>Portal
 
 [!INCLUDE [resource-manager-tag-resource](../../../includes/resource-manager-tag-resources.md)]
 
 ## <a name="rest-api"></a>API DE REST
 
-Tanto Azure Portal como PowerShell usan la [API de REST de Resource Manager](/rest/api/resources/) en segundo plano. Si necesita integrar el etiquetado en otro entorno, puede obtener etiquetas con un comando **GET** en el identificador de recurso y actualizar el conjunto de etiquetas con una llamada **PATCH**.
+Para trabajar con etiquetas a través de la API REST de Azure, use:
+
+* [Etiquetas: crear o actualizar en el ámbito](/rest/api/resources/tags/createorupdateatscope) (operación PUT)
+* [Etiquetas: actualizar en el ámbito](/rest/api/resources/tags/updateatscope) (operación PATCH)
+* [Etiquetas: obtener en el ámbito](/rest/api/resources/tags/getatscope) (operación GET)
+* [Etiquetas: eliminar en el ámbito](/rest/api/resources/tags/deleteatscope) (operación DELETE)
+
+## <a name="inherit-tags"></a>Herencia de etiquetas
+
+Los recursos no heredan las etiquetas aplicadas al grupo de recursos ni a la suscripción. Para aplicar etiquetas de un grupo de recursos o una suscripción a los recursos, consulte [Azure Policies: etiquetas](tag-policies.md).
 
 ## <a name="tags-and-billing"></a>Etiquetas y facturación
 
@@ -442,7 +578,22 @@ Puede recuperar información sobre las etiquetas a través de las [API de RateCa
 
 Para las operaciones de API de REST, vea [Referencia de API de REST de facturación de Azure](/rest/api/billing/).
 
+## <a name="limitations"></a>Limitaciones
+
+Se aplican las siguientes limitaciones a las etiquetas:
+
+* No todos los tipos de recursos admiten etiquetas. Para determinar si se puede aplicar una etiqueta a un tipo de recurso determinado, consulte [Tag support for Azure resources](tag-support.md) (Compatibilidad con etiquetas para los recursos de Azure).
+* Los grupos de administración no admiten etiquetas actualmente.
+* Cada recurso, grupo de recursos y suscripción puede tener un máximo de 50 pares nombre-valor de etiqueta. Si necesita aplicar más etiquetas que el número máximo permitido, use una cadena JSON para el valor de etiqueta. La cadena JSON puede contener muchos valores que se aplican a un sol nombre de etiqueta. Un grupo de recursos o una suscripción puede contener muchos recursos con 50 pares clave-valor de etiqueta cada uno.
+* El nombre de etiqueta está limitado a 512 caracteres y el valor de la etiqueta, a 256. En las cuentas de almacenamiento, el nombre de etiqueta se limita a 128 caracteres y el valor de la etiqueta, a 256.
+* Las VM generalizadas no admiten etiquetas.
+* No se pueden aplicar etiquetas a recursos clásicos como Cloud Services.
+* Los nombres de etiqueta no pueden contener estos caracteres: `<`, `>`, `%`, `&`, `\`, `?`, `/`
+
+   > [!NOTE]
+   > Actualmente las zonas de Azure DNS y los servicios de Traffic Manager tampoco permiten el uso de espacios en la etiqueta.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 * No todos los tipos de recursos admiten etiquetas. Para determinar si se puede aplicar una etiqueta a un tipo de recurso determinado, consulte [Tag support for Azure resources](tag-support.md) (Compatibilidad con etiquetas para los recursos de Azure).
-* Para obtener información sobre cómo usar el portal, consulte [Uso de Azure Portal para administrar los recursos de Azure](manage-resource-groups-portal.md).  
+* Para recomendaciones sobre cómo implementar una estrategia de etiquetado, consulte [Guía de decisiones de nomenclatura y etiquetado de recursos](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json).

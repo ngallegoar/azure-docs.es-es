@@ -4,15 +4,15 @@ description: Describe cómo usar la API de REST de Azure Analysis Services para 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/14/2020
+ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6457f062a40e60a491220fcf977585e8b07445b2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c5f6cec8b7fd1169a4f04649fcaf7bb7ada33833
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78273715"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81406288"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Actualización asincrónica con la API de REST
 
@@ -208,8 +208,8 @@ Este es un ejemplo de código de C# para comenzar, [RestApiSample en GitHub](htt
 
 ### <a name="to-use-the-code-sample"></a>Para usar el código de ejemplo
 
-1.  Clone o descargue el repositorio. Abra la solución RestApiSample.
-2.  Busque la línea **client.BaseAddress = …** y proporcione su [dirección URL base](#base-url).
+1.    Clone o descargue el repositorio. Abra la solución RestApiSample.
+2.    Busque la línea **client.BaseAddress = …** y proporcione su [dirección URL base](#base-url).
 
 El ejemplo de código usa autenticación de [entidad de servicio](#service-principal).
 
@@ -217,9 +217,9 @@ El ejemplo de código usa autenticación de [entidad de servicio](#service-princ
 
 Consulte [Creación de una entidad de servicio: Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md) e [Adición de una entidad de servicio al rol de administrador del servidor](analysis-services-addservprinc-admins.md) para más información sobre cómo configurar una entidad de servicio y asignar los permisos necesarios en Azure AS. Una vez completados los pasos, siga estos pasos adicionales:
 
-1.  En el código de ejemplo, busque **string authority = …** , reemplace **common** por el identificador del inquilino de su organización.
-2.  Comente o quite la marca de comentario para que se use la clase ClientCredential para crear una instancia del objeto creado. Asegúrese de que se accede a los valores \<Id. de aplicación> y \<Clave de la aplicación> de forma segura o use una autenticación basada en certificado para las entidades de servicio.
-3.  Ejecute el ejemplo.
+1.    En el código de ejemplo, busque **string authority = …** y reemplace **common** por el identificador del inquilino de su organización.
+2.    Comente o quite la marca de comentario para que se use la clase ClientCredential para crear una instancia del objeto creado. Asegúrese de que se accede a los valores \<Id. de aplicación> y \<Clave de la aplicación> de forma segura o use una autenticación basada en certificado para las entidades de servicio.
+3.    Ejecute el ejemplo.
 
 
 ## <a name="see-also"></a>Consulte también

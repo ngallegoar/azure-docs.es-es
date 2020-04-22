@@ -1,18 +1,18 @@
 ---
 title: Trabajo con procedimientos almacenados, desencadenadores y funciones definidas por el usuario en Azure Cosmos DB
 description: En este artículo se introducen conceptos como procedimientos almacenados, desencadenadores y funciones definidas por el usuario en Azure Cosmos DB.
-author: markjbrown
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/01/2019
-ms.author: mjbrown
+ms.date: 04/09/2020
+ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 23a14e7590eca6f63c92acdf6336ffaef8b54381
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 13256377b8a8aaebf59196df57eef67d3b960cb8
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80065891"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010552"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Procedimientos almacenados, desencadenadores y funciones definidas por el usuario
 
@@ -90,7 +90,7 @@ De forma similar a los desencadenadores previos, los desencadenadores posteriore
 
 ## <a name="user-defined-functions"></a><a id="udfs"></a>Funciones definidas por el usuario
 
-Las funciones definidas por el usuario (UDF) se utilizan para ampliar la sintaxis del lenguaje de consultas de la API de SQL e implementar fácilmente la lógica empresarial personalizada. Solo se pueden llamar dentro de las consultas. Las UDF no tienen acceso al objeto de contexto y se supone que se deben utilizar como un JavaScript únicamente de cálculo. Por lo tanto, se pueden ejecutar en réplicas secundarias. Para obtener ejemplos, vea el artículo [Escritura de funciones definidas por el usuario](how-to-write-stored-procedures-triggers-udfs.md#udfs).
+Las [funciones definidas por el usuario](sql-query-udfs.md) (UDF) se utilizan para ampliar la sintaxis del lenguaje de consultas de la API de SQL e implementar fácilmente la lógica de negocio personalizada. Solo se pueden llamar dentro de las consultas. Las UDF no tienen acceso al objeto de contexto y se supone que se deben utilizar como un JavaScript únicamente de cálculo. Por lo tanto, se pueden ejecutar en réplicas secundarias. Para obtener ejemplos, vea el artículo [Escritura de funciones definidas por el usuario](how-to-write-stored-procedures-triggers-udfs.md#udfs).
 
 ## <a name="javascript-language-integrated-query-api"></a><a id="jsqueryapi"></a>Language-integrated query API de JavaScript
 

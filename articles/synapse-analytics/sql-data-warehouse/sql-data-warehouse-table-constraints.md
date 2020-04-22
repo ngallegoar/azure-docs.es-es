@@ -1,6 +1,6 @@
 ---
 title: Claves principales, externas y únicas
-description: Compatibilidad con las restricciones de tabla de SQL Analytics en Azure Synapse Analytics
+description: Compatibilidad con las restricciones de tabla del grupo de SQL de Synapse en Azure Synapse Analytics
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,28 +11,33 @@ ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: b9336a5e230e90e1abd7f2d40d431b988385c009
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: f97163d02836442430037e18439bcf0724046332
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350030"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80990776"
 ---
-# <a name="primary-key-foreign-key-and-unique-key-in-sql-analytics"></a>Clave principal, clave externa y clave única en SQL Analytics
+# <a name="primary-key-foreign-key-and-unique-key-in-synapse-sql-pool"></a>Clave principal, clave externa y clave única en el grupo de SQL de Synapse
 
-Conozca las restricciones de tabla de SQL Analytics, incluida la clave principal, la clave externa y la clave única.
+Conozca las restricciones de tabla del grupo de SQL de Synapse, incluida la clave principal, la clave externa y la clave única.
 
-## <a name="table-constraints"></a>Restricciones de tabla 
-SQL Analytics admite estas restricciones de tabla: 
+## <a name="table-constraints"></a>Restricciones de tabla
+
+El grupo de SQL de Synapse admite estas restricciones de tabla: 
 - PRIMARY KEY solo se admite cuando se usan NONCLUSTERED y NOT ENFORCED.    
-- Solo se admite la restricción UNIQUE cuando se usa NOT ENFORCED.   
+- Solo se admite la restricción UNIQUE cuando se usa NOT ENFORCED.
 
-No se admite la restricción FOREIGN KEY en SQL Analytics.  
+Para conocer la sintaxis, consulte [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql) y [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse). 
+
+No se admite la restricción FOREIGN KEY en el grupo de SQL de Synapse.  
+
 
 ## <a name="remarks"></a>Observaciones
-Tener una clave principal o una clave única permite al motor de SQL Analytics generar un plan de ejecución óptimo para una consulta.  Todos los valores de una columna de clave principal o de una columna de restricción única deben ser únicos. 
 
-Después de crear una tabla con una clave principal o una restricción única en SQL Analytics, los usuarios deben asegurarse de que todos los valores de esas columnas sean únicos.  En caso contrario, la consulta podría devolver resultados inexactos.  En este ejemplo se muestra cómo una consulta puede devolver resultados inexactos si la columna de restricción única o de clave principal incluye valores duplicados.  
+Tener una clave principal o una clave única permite que el motor del grupo de SQL de Synapse genere un plan de ejecución óptimo para una consulta.  Todos los valores de una columna de clave principal o de una columna de restricción única deben ser únicos.
+
+Después de crear una tabla con una clave principal o una restricción única en el grupo de SQL de Synapse, los usuarios deben asegurarse de que todos los valores de esas columnas sean únicos.  En caso contrario, la consulta podría devolver resultados inexactos.  En este ejemplo se muestra cómo una consulta puede devolver resultados inexactos si la columna de restricción única o de clave principal incluye valores duplicados.  
 
 ```sql
  -- Create table t1
@@ -158,12 +163,13 @@ a1          total
 ```
 
 ## <a name="examples"></a>Ejemplos
-Creación de una tabla de SQL Analytics con una clave principal: 
+
+Cree una tabla de grupo de SQL de Synapse con una clave principal: 
 
 ```sql 
 CREATE TABLE mytable (c1 INT PRIMARY KEY NONCLUSTERED NOT ENFORCED, c2 INT);
 ```
-Creación de una tabla de SQL Analytics con una restricción única:
+Cree una tabla de grupo de SQL de Synapse con una restricción única:
 
 ```sql
 CREATE TABLE t6 (c1 INT UNIQUE NOT ENFORCED, c2 INT);
@@ -171,4 +177,4 @@ CREATE TABLE t6 (c1 INT UNIQUE NOT ENFORCED, c2 INT);
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Después de crear las tablas para la base de datos de SQL Analytics, el paso siguiente es cargar los datos en la tabla. Puede encontrar un tutorial al respecto en [Carga de datos en bases de datos de SQL Analytics](load-data-wideworldimportersdw.md).
+Después de crear las tablas para el grupo de SQL de Synapse, el paso siguiente es cargar datos en la tabla. Para obtener un tutorial de carga, consulte [Carga de datos en el grupo de SQL de Synapse](load-data-wideworldimportersdw.md).

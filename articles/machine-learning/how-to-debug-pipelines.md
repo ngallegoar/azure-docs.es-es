@@ -1,7 +1,7 @@
 ---
-title: Depuración y solución de problemas de canalizaciones de aprendizaje automático
+title: Depuración y solución de problemas de canalizaciones de ML
 titleSuffix: Azure Machine Learning
-description: Depure y resuelva los problemas de las canalizaciones de aprendizaje automático con el SDK de Azure Machine Learning para Python. Obtenga información sobre los errores comunes en el desarrollo de las canalizaciones y sugerencias que le ayudarán a depurar los scripts antes y durante la ejecución remota. Obtenga información sobre cómo usar Visual Studio Code para depurar interactivamente las canalizaciones de aprendizaje automático.
+description: Depure las canalizaciones de Azure Machine Learning en Python. Obtenga información sobre los errores comunes en el desarrollo de las canalizaciones y sugerencias que le ayudarán a depurar los scripts antes y durante la ejecución remota. Obtenga información sobre cómo usar Visual Studio Code para depurar interactivamente las canalizaciones de aprendizaje automático.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.date: 03/18/2020
-ms.openlocfilehash: b68efbb64e9634ade001373e8cd9d61355bf786f
-ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
+ms.openlocfilehash: 9c2e00ed14a45c6df7cf72845db2ecd069381ca5
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80388991"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257225"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Depuración y solución de problemas de canalizaciones de aprendizaje automático
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]

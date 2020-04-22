@@ -1,24 +1,26 @@
 ---
-title: Esquema de eventos de Azure Maps con Azure Event Grid
+title: Azure Maps como origen de Event Grid
 description: Describe las propiedades y los esquemas que se proporcionan para los eventos de Azure Maps con Azure Event Grid
 services: event-grid
-author: femila
+author: banisadr
 ms.service: event-grid
-ms.topic: reference
-ms.date: 02/08/2019
-ms.author: femila
-ms.openlocfilehash: 9acef524521e8fac6ce6f8f61e5ff3fbbb81d18d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.topic: conceptual
+ms.date: 04/09/2020
+ms.author: babanisa
+ms.openlocfilehash: e879ec3442f2e7912acb450a97079d80d7d95a01
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77486366"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393417"
 ---
-# <a name="azure-event-grid-event-schema-for-azure-maps"></a>Esquema de eventos de Azure Event Grid para Azure Maps
+# <a name="azure-maps-as-an-event-grid-source"></a>Azure Maps como origen de Event Grid
 
-En este artículo se proporcionan las propiedades y los esquemas de los eventos de Azure Maps. Para una introducción a los esquemas de eventos, consulte [Esquema de eventos de Azure Event Grid](https://docs.microsoft.com/azure/event-grid/event-schema).
+En este artículo se proporcionan las propiedades y los esquemas de los eventos de Azure Maps. Para una introducción a los esquemas de eventos, consulte [Esquema de eventos de Azure Event Grid](https://docs.microsoft.com/azure/event-grid/event-schema). También proporciona una lista de inicios rápidos y tutoriales para usar Azure Maps como un origen de eventos.
 
-## <a name="available-event-types"></a>Tipos de eventos disponibles
+## <a name="event-grid-event-schema"></a>Esquema de eventos de Event Grid
+
+### <a name="available-event-types"></a>Tipos de eventos disponibles
 
 Una cuenta de Azure Maps emite los siguientes tipos de eventos:
 
@@ -28,7 +30,7 @@ Una cuenta de Azure Maps emite los siguientes tipos de eventos:
 | Microsoft.Maps.GeofenceExited | Se genera cuando se mueven las coordenadas recibidas desde dentro de una determinada geovalla a fuera |
 | Microsoft.Maps.GeofenceResult | Se genera cada vez que una consulta de geovalla devuelve un resultado, independientemente del estado |
 
-## <a name="event-examples"></a>Ejemplos de eventos
+### <a name="event-examples"></a>Ejemplos de eventos
 
 En el ejemplo siguiente, se muestra el esquema de un evento **GeofenceEntered**
 
@@ -98,7 +100,7 @@ En el ejemplo siguiente, se muestra el esquema de un evento **GeofenceResult**
 }
 ```
 
-## <a name="event-properties"></a>Propiedades de evento
+### <a name="event-properties"></a>Propiedades de evento
 
 Un evento tiene los siguientes datos de nivel superior:
 
@@ -162,6 +164,12 @@ El objeto data tiene las siguientes propiedades:
 | geometries | geometries[] |Muestra las geometrías de valla que contienen la posición de la coordenada o superpone searchBuffer en torno a esa posición. |
 | invalidPeriodGeofenceGeometryId | string[]  | Muestra el identificador de geometría de la geovalla que está en un período no válido en relación con la hora que especificó el usuario en la solicitud. |
 | isEventPublished | boolean | El valor es "true" si se publica al menos un evento en el suscriptor de eventos de Azure Maps y "false" en caso contrario. |
+
+## <a name="tutorials-and-how-tos"></a>Tutoriales y procedimientos
+|Título  |Descripción  |
+|---------|---------|
+| [Reaccionar a eventos de Azure Maps mediante Event Grid](../azure-maps/azure-maps-event-grid-integration.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Información general de la integración de Azure Maps con Event Grid. |
+| [Tutorial: configuración de una geovalla](../azure-maps/tutorial-geofence.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Este tutorial le guiará por los pasos básicos para configurar la geovalla con Azure Maps. Usará Azure Event Grid para transmitir los resultados de la geovalla y establecer una notificación basada en los resultados de esa geovalla. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

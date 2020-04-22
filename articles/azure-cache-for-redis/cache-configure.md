@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: f10be8efcd2d8e838b4b5f62310eb405f6ed0158
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3f0de52782694e6cbc8fdb6b55d545191dbbb350
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79235552"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010314"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Configuración de Azure Cache for Redis
 En este tema se describe la configuración disponible para las instancias de Azure Cache for Redis. En este tema también se describe la configuración predeterminada del servidor Redis para las instancias de Azure Cache for Redis.
@@ -117,10 +117,10 @@ Los siguientes ajustes se configuran en la hoja **Configuración avanzada**.
 * [Notificaciones de espacio de claves (configuración avanzada)](#keyspace-notifications-advanced-settings)
 
 #### <a name="access-ports"></a>Puertos de acceso
-El acceso no SSL está deshabilitado de forma predeterminada para las nuevas cachés. Para habilitar el puerto no SSL, haga clic en **No** en la opción **Permitir el acceso solo mediante SSL** de la hoja **Configuración avanzada** y seleccione **Guardar**.
+El acceso no TLS/SSL está deshabilitado de forma predeterminada para las nuevas memorias caché. Para habilitar el puerto no TLS, haga clic en **No** en la opción **Permitir el acceso solo mediante SSL** de la hoja **Configuración avanzada** y seleccione **Guardar**.
 
 > [!NOTE]
-> El acceso SSL a Azure Cache for Redis admite TLS 1.0, 1.1 y 1.2 actualmente, pero las versiones 1.0 y 1.1 se retirarán pronto.  Lea la [página Quitar TLS 1.0 y 1.1](cache-remove-tls-10-11.md) para obtener más detalles.
+> El acceso TLS a Azure Cache for Redis admite TLS 1.0, 1.1 y 1.2 actualmente, pero las versiones 1.0 y 1.1 se retirarán pronto.  Lea la [página Quitar TLS 1.0 y 1.1](cache-remove-tls-10-11.md) para obtener más detalles.
 
 ![Puertos de acceso de Azure Cache for Redis](./media/cache-configure/redis-cache-access-ports.png)
 

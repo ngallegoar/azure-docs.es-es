@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: dsindona
-ms.openlocfilehash: 63f49946b14b003348758a5ae7ebadd7a4acf383
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0d08caf5444216666e7296b830f0af6af606dd4f
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80277675"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273841"
 ---
 # <a name="key-vault-deployment-template"></a>Plantilla de implementación de Key Vault
+
+> [!IMPORTANT]
+> A partir del 13 de abril de 2020, comenzaremos el traslado de la administración de las ofertas de máquinas virtuales de Azure al Centro de partners. Después de la migración, las ofertas se crearán y administrarán en el Centro de partners. Siga las instrucciones que se indican en [Certificación de imágenes de máquina virtual de Azure](https://aks.ms/CertifyVMimage) para administrar las ofertas migradas.
 
 La siguiente plantilla de Azure Resource Manager define una nueva instancia de Azure Key Vault.  Se usa en el artículo [Creación del certificado del almacén de claves](cpp-create-key-vault-cert.md). 
 

@@ -1,27 +1,26 @@
 ---
-title: Esquema de eventos de Service Bus de Azure Event Grid
+title: Azure Service Bus como origen de Event Grid
 description: Describe las propiedades que se proporcionan para los eventos de Service Bus con Azure Event Grid
 services: event-grid
 author: banisadr
-manager: darosa
 ms.service: event-grid
-ms.topic: reference
-ms.date: 01/17/2019
+ms.topic: conceptual
+ms.date: 04/09/2020
 ms.author: babanisa
-ms.openlocfilehash: f44d2c1c5be6ac895b6f5ea9feca29c0f8ed09f3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 141a0e96071014dc3705d30f72b1a9257737298a
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60561768"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393238"
 ---
-# <a name="azure-event-grid-event-schema-for-service-bus"></a>Esquema de eventos de Azure Event Grid para Service Bus
+# <a name="azure-service-bus-as-an-event-grid-source"></a>Azure Service Bus como origen de Event Grid
 
 En este artículo se proporcionan las propiedades y los esquemas de los eventos de Service Bus. Para una introducción a los esquemas de eventos, consulte [Esquema de eventos de Azure Event Grid](event-schema.md).
 
-Para obtener una lista de scripts de ejemplo y tutoriales, consulte [Origen de eventos de Service Bus](event-sources.md#service-bus).
+## <a name="event-grid-event-schema"></a>Esquema de eventos de Event Grid
 
-## <a name="available-event-types"></a>Tipos de eventos disponibles
+### <a name="available-event-types"></a>Tipos de eventos disponibles
 
 Service Bus emite los siguientes tipos de eventos:
 
@@ -30,7 +29,7 @@ Service Bus emite los siguientes tipos de eventos:
 | Microsoft.ServiceBus.ActiveMessagesAvailableWithNoListeners | Este evento se genera si hay mensajes activos en una cola o suscripción y no hay receptores a la escucha. |
 | Microsoft.ServiceBus.DeadletterMessagesAvailableWithNoListener | Este evento se genera si hay mensajes activos en una cola de mensajes fallidos y no hay receptores a la escucha. |
 
-## <a name="example-event"></a>Evento de ejemplo
+### <a name="example-event"></a>Evento de ejemplo
 
 En el ejemplo siguiente se muestra el esquema de mensajes activos sin ningún evento de agentes de escucha:
 
@@ -76,7 +75,7 @@ El esquema para un evento de cola de mensajes fallidos es similar:
 }]
 ```
 
-## <a name="event-properties"></a>Propiedades de evento
+### <a name="event-properties"></a>Propiedades de evento
 
 Un evento tiene los siguientes datos de nivel superior:
 
@@ -101,6 +100,12 @@ El objeto data tiene las siguientes propiedades:
 | queueName | string | La cola con mensajes activos si se suscribe a una cola. El valor null si se usan temas o suscripciones. |
 | topicName | string | El tema al que pertenece la suscripción de Service Bus con mensajes activos. El valor null si se usa una cola. |
 | subscriptionName | string | La suscripción de Service Bus con mensajes activos. El valor null si se usa una cola. |
+
+## <a name="tutorials-and-how-tos"></a>Tutoriales y procedimientos
+|Título  |Descripción  |
+|---------|---------|
+| [Tutorial: Ejemplos de integración de Azure Service Bus en Azure Event Grid](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid envía mensajes de temas de Service Bus a la aplicación de función y a la aplicación lógica. |
+| [Integración de Azure Service Bus en Event Grid](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md) | Información general de la integración de Service Bus con Event Grid. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

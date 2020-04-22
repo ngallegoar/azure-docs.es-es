@@ -1,21 +1,14 @@
 ---
 title: Etiquetado de una entidad en una expresión de ejemplo
-titleSuffix: Azure Cognitive Services
 description: Obtenga información sobre cómo etiquetar una entidad de aprendizaje automático con subcomponentes en una expresión de ejemplo en una página de detalles de la intención del portal de LUIS.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 12/16/2019
-ms.author: diberry
-ms.openlocfilehash: 5499e8362e1107a18b997a6a485e11343c328d0d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.openlocfilehash: ea5fbea902c9694d9a8a6a8a5bffcf5e7234bbbd
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78898373"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382397"
 ---
 # <a name="label-machine-learned-entity-in-an-example-utterance"></a>Etiquetado de una entidad de aprendizaje automático en una expresión de ejemplo
 
@@ -87,6 +80,10 @@ Los roles de entidad se etiquetan mediante la paleta de entidades.
 1. Una vez que se abra la paleta de entidades, seleccione la entidad en la lista de entidades.
 1. Vaya al **inspector de entidades** y seleccione un rol existente o cree uno nuevo.
 1. En el texto de la expresión de ejemplo, etiquete el texto con el rol de entidad.
+
+## <a name="labeling-for-punctuation"></a>Etiquetado para la puntuación
+
+No es necesario etiquetar para la puntuación. Utilice la [configuración de la aplicación](luis-reference-application-settings.md) para controlar si la puntuación afecta a las predicciones de expresiones.
 
 ## <a name="unlabel-entities"></a>Anulación de etiquetas de entidades
 

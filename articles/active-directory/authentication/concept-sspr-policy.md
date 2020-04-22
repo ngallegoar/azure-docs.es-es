@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fba4dae66b5adcea6cc33e61d8cf88946e29546e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5f5987bee82dc22d3742cb5d87040930e5d2c52d
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80051167"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393031"
 ---
 # <a name="self-service-password-reset-policies-and-restrictions-in-azure-active-directory"></a>Directivas y restricciones de autoservicio de restablecimiento de contraseña en Azure Active Directory
 
@@ -160,16 +160,6 @@ Para empezar, [descargue e instale el módulo Azure AD para PowerShell](https:/
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En los siguientes artículos se proporciona información adicional sobre el restablecimiento de contraseña con Azure AD:
+Para empezar a trabajar con SSPR, consulte [Tutorial: Habilitación del autoservicio de restablecimiento de contraseña de Azure Active Directory para que los usuarios puedan desbloquear su cuenta o restablecer contraseñas](tutorial-enable-sspr.md)
 
-* [¿Cómo se realiza un lanzamiento correcto de SSPR?](howto-sspr-deployment.md)
-* [Restablecimiento o modificación de la contraseña](../user-help/active-directory-passwords-update-your-own-password.md).
-* [Registro para el autoservicio de restablecimiento de contraseñas](../user-help/active-directory-passwords-reset-register.md).
-* [¿Tiene alguna pregunta acerca de las licencias?](concept-sspr-licensing.md)
-* [¿Qué datos usa SSPR y cuáles se deben rellenar en lugar de los usuarios?](howto-sspr-authenticationdata.md)
-* [¿Qué métodos de autenticación están disponibles para los usuarios?](concept-sspr-howitworks.md#authentication-methods)
-* [¿Qué es la escritura diferida de contraseñas y por qué nos interesa?](howto-sspr-writeback.md)
-* [¿Cómo se informa sobre la actividad de SSPR?](howto-sspr-reporting.md)
-* [¿Cuáles son todas las opciones en SSPR y qué significan?](concept-sspr-howitworks.md)
-* [Creo que algo se ha roto. ¿Cómo se solucionan problemas en SSPR?](active-directory-passwords-troubleshoot.md)
-* [Tengo una pregunta que no se ha comentado en ningún otro sitio](active-directory-passwords-faq.md)
+Si usted o los usuarios tienen problemas con SSPR, consulte [Solución de problemas de autoservicio de restablecimiento de contraseña](active-directory-passwords-troubleshoot.md).

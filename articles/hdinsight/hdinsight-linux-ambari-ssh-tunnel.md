@@ -5,19 +5,19 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/28/2019
-ms.openlocfilehash: 6f4efd9a316b92f17f89cea66a7c81e84ac3cf06
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: hdinsightactive
+ms.date: 04/14/2020
+ms.openlocfilehash: 9bdf7360ce00637b0eed3de7a3349da8656a3ed0
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72991348"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314174"
 ---
 # <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-uis"></a>Use la tunelización SSH para tener acceso a la interfaz de usuario web de Apache Ambari, JobHistory, NameNode, Apache Oozie y otras interfaces de usuario.
 
-Los clústeres de HDInsight proporcionan acceso a la interfaz de usuario web de Apache Ambari en Internet, pero no a algunas características que necesitan un túnel SSH. Por ejemplo, la interfaz de usuario web para el servicio de Apache Oozie no es accesible a través de Internet sin un túnel SSH.
+Los clústeres de HDInsight proporcionan acceso a la interfaz de usuario web de Apache Ambari en Internet. Algunas características requieren un túnel SSH. Por ejemplo, la interfaz de usuario web de Apache Oozie no es accesible a través de Internet sin un túnel SSH.
 
 ## <a name="why-use-an-ssh-tunnel"></a>¿Por qué usar un túnel SSH?
 
@@ -31,7 +31,7 @@ Las siguientes interfaces de usuario web requieren un túnel SSH:
 * Interfaz de usuario web de Oozie
 * Interfaz de usuario de registros y maestro de HBase
 
-Si usa las acciones de script para personalizar el clúster, todos los servicios o utilidades que instale y expongan un servicio web requerirán un túnel SSH. Por ejemplo, si instala Hue mediante una acción de script, debe usar un túnel SSH para tener acceso a la interfaz de usuario web de Hue.
+Los servicios instalados con acciones de script que exponen un servicio web requerirán un túnel SSH. Hue instalado con la acción de script requiere un túnel SSH para acceder a la interfaz de usuario web.
 
 > [!IMPORTANT]  
 > Si tiene acceso directo a HDInsight a través de una red virtual, no es necesario usar túneles SSH. Para ver un ejemplo de acceso directo a HDInsight a través de una red virtual, consulte el documento [Conexión de HDInsight a la red local](connect-on-premises-network.md).
@@ -40,7 +40,7 @@ Si usa las acciones de script para personalizar el clúster, todos los servicios
 
 La [tunelización Secure Shell (SSH) ](https://en.wikipedia.org/wiki/Tunneling_protocol#Secure_Shell_tunneling) conecta un puerto del equipo local a un nodo principal en HDInsight. El tráfico enviado al puerto local se enruta a través de una conexión SSH en el nodo principal. La solicitud se resuelve como si se originara en el nodo principal. A continuación, la respuesta se enruta a través del túnel a la estación de trabajo.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Un cliente SSH. Para más información, consulte [Conexión a través de SSH con HDInsight (Apache Hadoop)](hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -64,14 +64,16 @@ ssh -C2qTnNf -D 9876 sshuser@CLUSTERNAME-ssh.azurehdinsight.net
 
 Este comando crea una conexión que enruta el tráfico al puerto local 9876 al clúster a través de SSH. Las opciones son:
 
-* **D 9876** : el puerto local que enruta el tráfico a través del túnel.
-* **C** : comprimir todos los datos, debido a que el tráfico web es principalmente texto.
-* **2** : forzar a SSH a que intente solo la versión 2 del protocolo.
-* **q** : modo silencioso.
-* **T**: deshabilitar la asignación seudotty, ya que solo está desviando un puerto.
-* **n**: evitar la lectura de STDIN, ya que solo está desviando un puerto.
-* **N**: no ejecutar un comando remoto, ya que solo está desviando un puerto.
-* **f** : ejecutar en segundo plano.
+    |Opción |Descripción |
+    |---|---|
+    |D 9876|Puerto local que enruta el tráfico a través del túnel.|
+    |C|Comprimir todos los datos, debido a que el tráfico web es principalmente texto.|
+    |2|Forzar a SSH a que intente solo la versión 2 del protocolo.|
+    |q|Modo silencioso.|
+    |T|Deshabilitar la asignación seudotty, ya que solo está desviando un puerto.|
+    |n|Evitar la lectura de STDIN, ya que solo está desviando un puerto.|
+    |N|No ejecutar un comando remoto, ya que solo está desviando un puerto.|
+    |f|Ejecutar en segundo plano.|
 
 Una vez que se completa el comando, el tráfico enviado al puerto 9876 de la máquina local se enruta al nodo principal del cluster.
 

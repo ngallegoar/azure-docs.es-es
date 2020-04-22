@@ -1,21 +1,24 @@
 ---
-title: Restablecer las credenciales de un clúster de Azure Kubernetes Service (AKS)
+title: Restablecimiento de las credenciales de un clúster
+titleSuffix: Azure Kubernetes Service
 description: Aprenda a actualizar o restablecer las credenciales de la entidad de servicio de la aplicación AAD de un clúster en Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 03/11/2019
-ms.openlocfilehash: b7d652be3733cb130a3973909de59489047efe0a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8420771e32aa792aa79a07fdf4362ad0d9b45d48
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79475551"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392627"
 ---
 # <a name="update-or-rotate-the-credentials-for-azure-kubernetes-service-aks"></a>Actualización o modificación de las credenciales de un clúster de Azure Kubernetes Service (AKS)
 
 De forma predeterminada, los clústeres de AKS se crean con una entidad de servicio que tiene un período de expiración de un año. A medida que se aproxima a la fecha de expiración, puede restablecer las credenciales para ampliar la entidad de servicio durante un período de tiempo adicional. También puede actualizar o rotar las credenciales como parte de una directiva de seguridad definida. En este artículo se describe cómo actualizar estas credenciales para un clúster de AKS.
 
-Es posible que también haya [integrado el clúster de AKS con Azure Active Directory][aad-integration] y que lo utilice como proveedor de autenticación del clúster. En ese caso, tendrá dos identidades más creadas para el clúster: la aplicación de servidor de AAD y la aplicación cliente de AAD, y también puede restablecer esas credenciales. 
+Es posible que también haya [integrado el clúster de AKS con Azure Active Directory][aad-integration] y que lo utilice como proveedor de autenticación del clúster. En ese caso, tendrá dos identidades más creadas para el clúster: la aplicación de servidor de AAD y la aplicación cliente de AAD, y también puede restablecer esas credenciales.
+
+También puede usar una identidad administrada para los permisos en lugar de una entidad de servicio. Las identidades administradas son más fáciles de administrar que las entidades de servicio y no requieren actualizaciones ni rotaciones. Para más información, consulte [Uso de identidades administradas](use-managed-identity.md).
 
 ## <a name="before-you-begin"></a>Antes de empezar
 

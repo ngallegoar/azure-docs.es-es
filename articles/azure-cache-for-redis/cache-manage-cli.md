@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: yegu
-ms.openlocfilehash: e2b1ed693ea57e3414d465a57a5ba2b1203f67c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f71476d7d41ae45d2f1014ed1b257870622487e6
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79235320"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010841"
 ---
 # <a name="how-to-create-and-manage-azure-cache-for-redis-using-the-azure-classic-cli"></a>Creación y administración de Azure Cache for Redis mediante la CLI de Azure clásica
 > [!div class="op_single_selector"]
@@ -25,7 +25,7 @@ La CLI de Azure clásica es una excelente manera de administrar la infraestructu
 > [!NOTE]
 > Para conocer los scripts de ejemplo más recientes de la CLI de Azure, consulte [Azure CLI Azure Cache for Redis samples](cli-samples.md) (Ejemplos de instancias de Azure Cache for Redis).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 Para crear y administrar instancias de Azure Cache for Redis mediante la CLI de Azure clásica, debe realizar los pasos siguientes.
 
 * Debe tener una cuenta de Azure. En caso de no tener ninguna, puede crear una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) en tan solo unos momentos.
@@ -43,7 +43,7 @@ Las siguientes propiedades se utilizan al crear y actualizar instancias de Azure
 | ubicación |-l, --location |Ubicación donde crear la caché. |
 | tamaño |-z, --size |Tamaño de la instancia de Azure Cache for Redis. Valores válidos: [C0, C1, C2, C3, C4, C5, C6, P1, P2, P3, P4] |
 | sku |-x, --sku |SKU de Redis. Debe ser uno de estos valores: [Basic, Standard, Premium] |
-| EnableNonSslPort |-e, --enable-non-ssl-port |Propiedad EnableNonSslPort de la instancia Azure Cache for Redis. Agregue esta marca si desea habilitar el puerto que no es SSL de la caché |
+| EnableNonSslPort |-e, --enable-non-ssl-port |Propiedad EnableNonSslPort de la instancia Azure Cache for Redis. Agregue esta marca si desea habilitar el puerto que no es TLS/SSL de la memoria caché |
 | Configuración de Redis |-c, --redis-configuration |Configuración de Redis. Escriba una cadena con formato JSON de valores y claves de configuración aquí. Formato:"{"":"","":""}" |
 | Configuración de Redis |-f, --redis-configuration-file |Configuración de Redis. Escriba la ruta de acceso de un archivo que contiene valores y claves de configuración aquí. Formato de la entrada del archivo: {"":"","":""} |
 | Número de particiones |-r, --shard-count |Número de particiones que se creará en una caché de clúster premium con la agrupación de clústeres. |
@@ -108,7 +108,7 @@ Para más información sobre este comando, ejecute el comando `azure rediscache 
     help:      -l, --location <location>                                Location to create cache.
     help:      -z, --size <size>                                        Size of the Azure Cache for Redis. Valid values: [C0, C1, C2, C3, C4, C5, C6, P1, P2, P3, P4]
     help:      -x, --sku <sku>                                          Redis SKU. Should be one of : [Basic, Standard, Premium]
-    help:      -e, --enable-non-ssl-port                                EnableNonSslPort property of the Azure Cache for Redis. Add this flag if you want to enable the Non SSL Port for your cache
+    help:      -e, --enable-non-ssl-port                                EnableNonSslPort property of the Azure Cache for Redis. Add this flag if you want to enable the non-TLS/SSL Port for your cache
     help:      -c, --redis-configuration <redis-configuration>          Redis Configuration. Enter a JSON formatted string of configuration keys and values here. Format:"{"<key1>":"<value1>","<key2>":"<value2>"}"
     help:      -f, --redis-configuration-file <redisConfigurationFile>  Redis Configuration. Enter the path of a file containing configuration keys and values here. Format for the file entry: {"<key1>":"<value1>","<key2>":"<value2>"}
     help:      -r, --shard-count <shard-count>                          Number of Shards to create on a Premium Cluster Cache

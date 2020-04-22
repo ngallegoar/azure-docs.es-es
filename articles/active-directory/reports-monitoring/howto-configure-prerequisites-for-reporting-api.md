@@ -17,12 +17,12 @@ ms.date: 03/04/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12abfc0d345c937ae886f9bfacfb8ce30227cc45
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7fd3580ca03fa49d428904c6da78fdf9cda202c7
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78399311"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991269"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Requisitos previos para acceder a la API de generación de informes de Azure Active Directory
 
@@ -33,9 +33,10 @@ La API de generación de informes utiliza [OAuth](https://docs.microsoft.com/azu
 Para preparar el acceso a la API de generación de informes, necesita lo siguiente:
 
 1. [Asignar roles](#assign-roles)
-2. [Registro de una aplicación](#register-an-application)
-3. [Concesión de permisos](#grant-permissions)
-4. [Recopilación de configuraciones](#gather-configuration-settings)
+2. [Requisitos de licencia](#license-requirements)
+3. [Registro de una aplicación](#register-an-application)
+4. [Concesión de permisos](#grant-permissions)
+5. [Recopilación de configuraciones](#gather-configuration-settings)
 
 ## <a name="assign-roles"></a>Asignación de roles
 
@@ -46,6 +47,10 @@ Para acceder a los datos de informes a través de la API, debe tener asignado un
 - Administrador de seguridad
 
 - Administrador global
+
+## <a name="license-requirements"></a>Requisitos de licencia
+
+Un inquilino de Azure AD debe tener asociada una licencia de Azure AD Premium para acceder a los informes de inicio de sesión de inquilino. Se necesita una licencia Azure AD Premium P1 (o superior) para acceder a los informes de inicio de sesión de cualquier inquilino de Azure AD. Como alternativa, si el tipo de directorio es Azure AD B2C, se puede acceder a los informes de inicio de sesión a través de la API sin ningún requisito de licencia adicional. 
 
 
 ## <a name="register-an-application"></a>Registro de una aplicación

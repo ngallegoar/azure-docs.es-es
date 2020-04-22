@@ -11,23 +11,26 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/05/2018
-ms.openlocfilehash: 20a5a9c5513c165cd5add2e97f019a741dfd0b03
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fac9933c57a54736aed5ccfdd54d126f0ca32973
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79225540"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418361"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Ejecución y desencadenadores de canalización en Azure Data Factory
+
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](v1/data-factory-scheduling-and-execution.md)
 > * [Versión actual](concepts-pipeline-execution-triggers.md)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Una _ejecución de canalización_ en Azure Data Factory define una instancia de dicha ejecución. Por ejemplo, supongamos que tiene una canalización que se ejecuta las 8:00 a. m., 9:00 a. m. y 10:00 a. m. En este caso, hay tres ejecuciones independientes de la canalización o ejecuciones de canalización. Cada canalización ejecutar tiene un identificador de canalización único. El identificador de ejecución es un GUID que define de forma exclusiva una ejecución de canalización concreta.
 
 Normalmente las instancias de ejecuciones de canalización se crean al pasar argumentos a parámetros que se definen en las canalizaciones. Puede ejecutar una canalización manualmente o mediante un _desencadenador_. En este artículo se proporcionan detalles sobre ambas maneras de ejecutar una canalización.
 
 ## <a name="manual-execution-on-demand"></a>Ejecución manual (a petición)
+
 La ejecución manual de una canalización también se conoce como ejecución _a petición_.
 
 Por ejemplo, supongamos que tiene una canalización básica denominada **copyPipeline** que desea ejecutar. La canalización tiene una única actividad que copia de una carpeta de origen en Azure Blob Storage a una carpeta de destino en el mismo almacenamiento. En la siguiente definición de JSON se muestra esta canalización de ejemplo:
@@ -83,7 +86,8 @@ Puede ejecutar manualmente la canalización mediante uno de los métodos siguien
 - SDK de Python
 
 ### <a name="rest-api"></a>API DE REST
-El comando de ejemplo siguiente muestra cómo ejecutar manualmente la canalización mediante la API de REST:
+
+El comando de ejemplo siguiente muestra cómo ejecutar manualmente la canalización mediante la API REST:
 
 ```
 POST
@@ -122,6 +126,7 @@ La carga de respuesta es un identificador único de la ejecución de canalizaci�
 Para obtener un ejemplo completo, vea [Inicio rápido: Creación de una factoría de datos de Azure PowerShell](quickstart-create-data-factory-powershell.md).
 
 ### <a name="net-sdk"></a>.NET SDK
+
 La llamada de ejemplo siguiente muestra cómo ejecutar manualmente la canalización mediante el SDK de .NET:
 
 ```csharp
@@ -131,9 +136,10 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 Para obtener un ejemplo completo, vea [Inicio rápido: Creación de una factoría de datos y una canalización con SDK de .NET](quickstart-create-data-factory-dot-net.md).
 
 > [!NOTE]
-> Puede utilizar el SDK de .NET para invocar las canalizaciones de Data Factory desde Azure Functions o de sus propios servicios web, entre otros.
+> Puede utilizar el SDK de .NET para invocar las canalizaciones de Data Factory desde Azure Functions o de sus servicios web, entre otros.
 
-<h2 id="triggers">Ejecución del desencadenador</h2>
+## <a name="trigger-execution"></a>Ejecución del desencadenador
+
 Los desencadenadores son otra forma de realizar una ejecución de canalización. Los desencadenadores representan una unidad de procesamiento que determina cuándo es necesario poner en marcha una ejecución de canalización. Actualmente, Data Factory admite tres tipos de desencadenadores:
 
 - Desencadenador de programación: un desencadenador que invoca una canalización en una programación de reloj.
@@ -143,7 +149,6 @@ Los desencadenadores son otra forma de realizar una ejecución de canalización.
 - Desencadenador basado en eventos: un desencadenador que responde a un evento.
 
 Las canalizaciones y los desencadenadores tienen una relación de varios a varios (excepto el desencadenador de la ventana de saltos de tamaño constante). Varios desencadenadores pueden iniciar una sola canalización o un único desencadenador puede iniciar varias canalizaciones. En la siguiente definición de un desencadenador, la propiedad **pipelines** hace referencia a una lista de canalizaciones que desencadena un desencadenador en particular. La definición de propiedad incluye los valores para los parámetros de la canalización.
-
 ### <a name="basic-trigger-definition"></a>Definición básica del desencadenador
 
 ```json
@@ -174,7 +179,7 @@ Las canalizaciones y los desencadenadores tienen una relación de varios a vario
 ## <a name="schedule-trigger"></a>Desencadenador de programación
 Un desencadenador de programación ejecuta canalizaciones según una programación de reloj. Este desencadenador admite opciones de calendario periódicas y avanzadas. Por ejemplo, el desencadenador admite intervalos como "semanal" o "lunes a las 5:00 p. m. y jueves a las 9:00 p. m". El desencadenador de programación es flexible porque el patrón de conjunto de datos es independiente y el desencadenador no distingue entre datos de series temporales y datos de series no temporales.
 
-Para más información sobre los desencadenadores de programación y ejemplos, consulte [Creación de un desencadenador que ejecuta una canalización en una programación](how-to-create-schedule-trigger.md).
+Para más información sobre los desencadenadores de programación y ejemplos, consulte [Creación de un desencadenador de programación](how-to-create-schedule-trigger.md).
 
 ## <a name="schedule-trigger-definition"></a>Definición de desencadenador de programación
 Cuando se crea un desencadenador de programación, debe especificar la programación y periodicidad mediante una definición de JSON.
@@ -244,33 +249,33 @@ En la tabla siguiente se muestra información general de los elementos del esque
 
 ```json
 {
-    "properties": {
-        "name": "MyTrigger",
-        "type": "ScheduleTrigger",
-        "typeProperties": {
-            "recurrence": {
-                "frequency": "Hour",
-                "interval": 1,
-                "startTime": "2017-11-01T09:00:00-08:00",
-                "endTime": "2017-11-02T22:00:00-08:00"
-            }
+  "properties": {
+    "name": "MyTrigger",
+    "type": "ScheduleTrigger",
+    "typeProperties": {
+      "recurrence": {
+        "frequency": "Hour",
+        "interval": 1,
+        "startTime": "2017-11-01T09:00:00-08:00",
+        "endTime": "2017-11-02T22:00:00-08:00"
+      }
+    },
+    "pipelines": [{
+        "pipelineReference": {
+          "type": "PipelineReference",
+          "referenceName": "SQLServerToBlobPipeline"
         },
-        "pipelines": [{
-                "pipelineReference": {
-                    "type": "PipelineReference",
-                    "referenceName": "SQLServerToBlobPipeline"
-                },
-                "parameters": {}
-            },
-            {
-                "pipelineReference": {
-                    "type": "PipelineReference",
-                    "referenceName": "SQLServerToAzureSQLPipeline"
-                },
-                "parameters": {}
-            }
-        ]
-    }
+        "parameters": {}
+      },
+      {
+        "pipelineReference": {
+          "type": "PipelineReference",
+          "referenceName": "SQLServerToAzureSQLPipeline"
+        },
+        "parameters": {}
+      }
+    ]
+  }
 }
 ```
 
@@ -320,7 +325,7 @@ En la siguiente tabla se describen los elementos de **schedule** con detalle:
 ## <a name="tumbling-window-trigger"></a>Desencadenador de ventana de saltos de tamaño constante
 Los desencadenadores de ventana de saltos de tamaño constante son un tipo de desencadenador que se activa en un intervalo de tiempo periódico a partir de una hora de inicio especificada, mientras conserva el estado. Las ventanas de saltos de tamaño constante son una serie de intervalos de tiempo de tamaño fijo, contiguos y que no se superponen.
 
-Para más información sobre los desencadenadores de ventanas de saltos de tamaño constante y ejemplos, consulte [Creación de un desencadenador que ejecuta una canalización en una ventana de saltos de tamaño constante](how-to-create-tumbling-window-trigger.md).
+Para más información sobre los desencadenadores de ventanas de saltos de tamaño constante y ejemplos, consulte [Creación de un desencadenador de ventana de saltos de tamaño constante](how-to-create-tumbling-window-trigger.md).
 
 ## <a name="event-based-trigger"></a>Desencadenador basado en eventos
 

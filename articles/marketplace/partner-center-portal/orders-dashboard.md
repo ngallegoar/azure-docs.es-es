@@ -7,21 +7,21 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: d0db6553a774a69bb8a55538cbd2b4a333be9316
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 148b80a6843168b11e4feb3558f6bf08eaeb3ace
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281415"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261268"
 ---
-# <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Panel Pedidos de los análisis de Marketplace comercial
+# <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Panel Pedidos de los análisis de marketplace comercial
 
 En este artículo se proporciona información sobre el **panel Pedidos** del Centro de partners. En este panel se muestra información sobre pedidos en formato gráfico y descargable.
 
 Para obtener acceso al **panel Pedidos** de las herramientas de análisis del Centro de partners, abra el **[panel Analizar](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** bajo Marketplace comercial.
 
 >[!NOTE]
-> Para obtener definiciones detalladas de la terminología de análisis, consulte [Preguntas más frecuentes y terminología de los análisis de Marketplace comercial](./faq-terminology.md).
+> Para obtener definiciones detalladas de la terminología de análisis, consulte [Preguntas más frecuentes y terminología del análisis de marketplace comercial](./faq-terminology.md).
 
 ## <a name="orders-dashboard"></a>Panel Pedidos
 
@@ -36,7 +36,7 @@ En el **panel Pedidos** del menú **Analizar** se muestran los pedidos actuales 
 - [Tabla de detalles de pedidos](#order-details-table)
 
 > [!NOTE]
-> Hay diferencias entre la forma en que se muestran los informes analíticos en Cloud Partner Portal (CPP) y el nuevo programa Marketplace comercial del Centro de partners. Una manera específica es que la característica **Información para el vendedor** en CPP tiene una pestaña sobre **pedidos y uso** que muestra datos de ofertas basadas en el uso y de ofertas no basadas en el uso. En el Centro de partners, la página **Pedidos** tiene una pestaña independiente para las ofertas de SaaS.
+> Hay diferencias entre la forma en que se muestran los informes analíticos en Cloud Partner Portal (CPP) y el nuevo programa de marketplace comercial del Centro de partners. Una manera específica es que la característica **Información para el vendedor** en CPP tiene una pestaña sobre **pedidos y uso** que muestra datos de ofertas basadas en el uso y de ofertas no basadas en el uso. En el Centro de partners, la página **Pedidos** tiene una pestaña independiente para las ofertas de SaaS.
 
 ## <a name="order-dashboard-details"></a>Detalles del panel Pedidos
 
@@ -66,7 +66,7 @@ En el mapa térmico **Pedidos por geografía** se muestran el recuento de los pe
 
 El gráfico de anillos **Pedidos por ofertas** organiza los pedidos (incluidos los cancelados) según sus nombres de oferta.
 
-- Las ofertas principales se muestran en el gráfico y el resto se agrupan como "Rest all" (Todo el resto).
+- Las ofertas principales se muestran en el gráfico y el resto se agrupan como "Todo el resto".
 - Puede seleccionar las ofertas específicas de la leyenda para mostrar solo esas ofertas en el gráfico.
 - Al mantener el puntero sobre un sector del gráfico aparecerá el número de pedidos y el porcentaje de esa oferta en comparación con el número total de pedidos de todas las demás ofertas.
 - La **tendencia de los pedidos por ofertas** muestra las tendencias de crecimiento mensualmente. La columna de mes representa el número de pedidos por nombre de la oferta. El gráfico de líneas muestra la tendencia del porcentaje de crecimiento trazada en un eje z.
@@ -91,7 +91,7 @@ El gráfico **Tendencia de pedidos y puestos** presenta las 50 ofertas principa
 
 ### <a name="canceled-orders-by-offers"></a>Pedidos cancelados por ofertas
 
-En el gráfico de anillos **Pedidos cancelados por ofertas** se organizan todos los pedidos cancelados según sus nombres de oferta. Las ofertas principales se muestran en el gráfico y el resto se agrupan como "Rest all" (Todo el resto). Puede seleccionar las ofertas específicas de la leyenda para mostrarlas en el gráfico.
+En el gráfico de anillos **Pedidos cancelados por ofertas** se organizan todos los pedidos cancelados según sus nombres de oferta. Las ofertas principales se muestran en el gráfico y el resto se agrupan como "Todo el resto". Puede seleccionar las ofertas específicas de la leyenda para mostrarlas en el gráfico.
 
 - Al mantener el puntero sobre un sector del gráfico, se mostrará el número de pedidos y el porcentaje de la oferta seleccionada en comparación con el número total de pedidos de todas las demás ofertas.
 - En el gráfico de columnas se muestran las tendencias mensualmente. Las columnas representan el número de pedidos cancelados por nombre de oferta. Puede usar el control deslizante de la parte superior del gráfico para desplazarse hacia la derecha y la izquierda a lo largo del eje x y centrarse en puntos de datos específicos. Puede mostrar el gráfico de tendencias seleccionando un elemento específico en la leyenda.
@@ -124,10 +124,10 @@ Puede seleccionar varios filtros para representar el gráfico para los criterios
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener información general sobre los informes de análisis disponibles en el Marketplace comercial del Centro de partners, consulte [Análisis de Marketplace comercial en el Centro de partners](./analytics.md).
-- Para ver gráficos, tendencias y valores de datos agregados que resuman la actividad de Marketplace de la oferta, vea [Panel Resumen de los análisis de Marketplace comercial](./summary-dashboard.md).
-- Para que la máquina virtual (VM) ofrezca métricas de uso y de facturación de uso medido, consulte [Panel Uso de los análisis de Marketplace comercial](./usage-dashboard.md).
-- Para obtener información detallada sobre los clientes, incluidas las tendencias de crecimiento, vea [Panel Clientes de los análisis de Marketplace comercial](./customer-dashboard.md).
-- Para obtener una lista de las solicitudes de descarga de los últimos 30 días, vea [Panel Descargas de los análisis de Marketplace comercial](./downloads-dashboard.md).
-- Para obtener una vista consolidada de comentarios de clientes de las ofertas de Azure Marketplace y AppSource, consulte [Panel Valoraciones y opiniones de los análisis de Marketplace comercial](./ratings-reviews.md).
-- Para consultar las preguntas más frecuentes sobre los análisis de Marketplace comercial y obtener un diccionario completo de términos de datos, consulte [Preguntas más frecuentes y terminología de los análisis de Marketplace comercial](./faq-terminology.md).
+- Para más información sobre los informes de análisis disponibles en el marketplace comercial del Centro de partners, consulte [Análisis del marketplace comercial en el Centro de partners](./analytics.md).
+- Para ver los gráficos, las tendencias y los valores de datos agregados que resumen la actividad de la oferta en el marketplace, consulte [Panel Resumen de los análisis de marketplace comercial](./summary-dashboard.md).
+- Para información sobre las métricas de uso y facturación de las ofertas de máquina virtual, consulte [Panel Uso de los análisis de marketplace comercial](./usage-dashboard.md).
+- Para obtener información detallada acerca de los clientes, incluidas las tendencias de crecimiento, consulte [Panel Cliente de los análisis de marketplace comercial](./customer-dashboard.md).
+- Para obtener una lista de las solicitudes de descarga de los últimos 30 días, consulte [Panel Descargas de los análisis de marketplace comercial](./downloads-dashboard.md).
+- Para tener una vista consolidada de comentarios de los clientes sobre las ofertas de Azure Marketplace y AppSource, consulte [Panel Calificaciones y opiniones de los análisis de marketplace comercial](./ratings-reviews.md).
+- Para ver las preguntas más frecuentes sobre los análisis de marketplace comercial y un diccionario completo de términos de datos, consulte [Preguntas más frecuentes y terminología del análisis de marketplace comercial](./faq-terminology.md).

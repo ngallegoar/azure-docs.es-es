@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: dsindona
-ms.openlocfilehash: 2db8c05d086c7b4e8537a1c17b1ca84eedb19857
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 506412c23288d58c2f59b91a300265ddd79428bf
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80277878"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273926"
 ---
-# <a name="virtual-hard-disk-deployment-template"></a>Plantilla de implementación de disco duro virtual 
+# <a name="virtual-hard-disk-deployment-template"></a>Plantilla de implementación de disco duro virtual
+
+> [!IMPORTANT]
+> A partir del 13 de abril de 2020, comenzaremos el traslado de la administración de las ofertas de máquinas virtuales de Azure al Centro de partners. Después de la migración, las ofertas se crearán y administrarán en el Centro de partners. Siga las instrucciones que se indican en [Certificación de imágenes de máquina virtual de Azure](https://aks.ms/CertifyVMimage) para administrar las ofertas migradas.
 
 La siguiente plantilla de Azure Resource Manager define una nueva instancia de máquina virtual (VM) de Azure, creada a partir del disco duro virtual (VHD) local.  Esta plantilla se usa en el artículo [Deploy an Azure VM from a user VHD](./cpp-deploy-vm-user-image.md) (Implementación de una máquina virtual de Azure desde un disco duro virtual de usuario). 
 

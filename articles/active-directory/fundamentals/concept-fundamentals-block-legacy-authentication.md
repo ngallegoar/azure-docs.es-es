@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/06/2019
+ms.date: 04/13/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63271567e70955f6dfb0b10a5c882b6dce9545ce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 55ce0233fdefb8360376e94c0baafabe4c62ced7
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74932189"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81309210"
 ---
 # <a name="blocking-legacy-authentication"></a>Bloqueo de la autenticación heredada
  
@@ -31,11 +31,11 @@ Hoy en día, la mayoría de los intentos de inicio de sesión que ponen en pelig
 
 Para poder bloquear la autenticación heredada en su directorio, primero debe entender si los usuarios tienen aplicaciones que la usen y cómo afecta a su directorio global. Se pueden usar los registros de inicio de sesión de Azure AD para saber si usa la autenticación heredada.
 
-1. Vaya a Azure Portal > Azure Active Directory > Inicios de sesión.
-1. Agregue la columna Aplicación cliente si no se muestra; para ello, haga clic en Columnas > Aplicación cliente.
-1. Filtre por Aplicación cliente > compruebe todas las demás opciones de cliente presentadas y haga clic en Aplicar.
-1. Filtre por Estado > Correcto y haga clic en Aplicar. 
-1. Expanda el intervalo de fechas si es necesario con el filtro Fecha.
+1. Vaya a  **Azure Portal** > **Azure Active Directory** > **Inicios de sesión**.
+1. Agregue la columna **Aplicación cliente** si no se muestra; para ello, haga clic en  **Columnas** > **Aplicación cliente**.
+1. Filtre por  **Aplicación cliente**  y marque todas las opciones de **Clientes de autenticación heredados** que se presentan.
+1. Filtre por **Estado** > **Correcto**. 
+1. Expanda el intervalo de fechas si es necesario con el filtro **Fecha**.
 
 Al filtrar solo se mostrarán los intentos de inicio de sesión correctos que se realizaron con los protocolos seleccionados de autenticación heredada. Al hacer clic en cada intento de inicio de sesión individual se muestran detalles adicionales. La columna Aplicación cliente o el campo Aplicación cliente de la pestaña Información básica indicará el protocolo de autenticación heredado que se usó, después de seleccionar una fila de datos individual. Estos registros indicarán qué usuarios dependen todavía de la autenticación heredada y qué aplicaciones usan protocolos heredados para realizar solicitudes de autenticación. Para los usuarios que no aparecen en estos registros y se les confirme que no van a usar la autenticación heredada, implemente una directiva de acceso condicional o habilite la directiva de base de referencia: bloqueo de la autenticación heredada solo para estos usuarios.
 
@@ -62,7 +62,7 @@ Si usa clientes de Windows con Office 2013 o una versión anterior, se recomien
 
 Office 2010 no admite la autenticación moderna. Deberá actualizar todos los usuarios con Office 2010 a una versión más reciente de Office. Le recomendamos que actualice a Office 2016 o posterior, ya que bloquea la autenticación heredada de forma predeterminada.
 
-Si usa MacOS, le recomendamos que actualice a Office para Mac 2016 o posterior. Si usa el cliente de correo electrónico nativo, deberá tener la versión de MacOS 10.14 o posterior en todos los dispositivos.
+Si usa macOS, se recomienda actualizar a Office para Mac 2016 o posterior. Si usa el cliente de correo electrónico nativo, deberá tener la versión de macOS 10.14 o posterior en todos los dispositivos.
 
 ### <a name="step-3-exchange-and-sharepoint"></a>Paso 3: Exchange y SharePoint
 

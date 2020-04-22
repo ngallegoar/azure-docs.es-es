@@ -13,6 +13,9 @@
     - name: Evento en directo con Portal y Wirecast
       displayName: 'live, event, portal, wirecast'
       href: live-events-wirecast-quickstart.md
+    - name: Evento en directo con Portal y OBS
+      displayName: 'live, event, portal, obs'
+      href: live-events-obs-quickstart.md
 - name: Tutoriales
   items:
     - name: Codificación de archivos remotos y streaming de vídeo
@@ -406,3 +409,5 @@
       href: limits-quotas-constraints.md
     - name: Nubes y regiones de Azure
       href: azure-clouds-regions.md
+    - name: Actualizaciones de la documentación
+      href: docs-release-notes.md

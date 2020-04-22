@@ -7,14 +7,16 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: e2517ec4a02a5d61fb3ce1d9ca9ffa2b5f4e8bf8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7235e95e5b33fb931411a51796a8dbec96c46355
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74287027"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417664"
 ---
 # <a name="transformation-functions-in-wrangling-data-flow"></a>Funciones de transformación en flujos de datos de limpieza y transformación
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 El flujo de datos de limpieza y transformación en Azure Data Factory permite la ágil preparación, y limpieza y transformación de datos sin código a escala de nube. El flujo de datos de limpieza y transformación se integra en [Power Query Online](https://docs.microsoft.com/powerquery-m/power-query-m-reference) y pone las funciones de Power Query M a disposición para la limpieza y transformación de datos a través de la ejecución de Spark. 
 
@@ -86,7 +88,7 @@ Mantener y quitar la parte superior, mantener el rango (funciones M correspondie
 | Función | Status |
 | -- | -- |
 | Table.PromoteHeaders | No compatible. Se puede lograr el mismo resultado si se establece "Primera fila como encabezado" en el conjunto de resultados. |
-| Table.CombineColumns | Se trata de un escenario habitual que no se admite directamente, pero se puede realizar si se agrega una nueva columna que concatene dos columnas concretas.  Por ejemplo, Table.AddColumn(RemoveEmailColumn, “Name”, each [FirstName] & ” ” & [LastName]) |
+| Table.CombineColumns | Se trata de un escenario habitual que no se admite directamente, pero se puede realizar si se agrega una nueva columna que concatene dos columnas concretas.  Por ejemplo, Table.AddColumn(RemoveEmailColumn, "Name", each [FirstName] & " " & [LastName]) |
 | Table.TransformColumnTypes | Esto se admite en la mayoría de los casos. No se admiten los siguientes escenarios: transformar una cadena al tipo de moneda, transformar una cadena al tipo de hora, transformar una cadena al tipo de porcentaje. |
 | Table.NestedJoin | Si realiza una combinación, se producirá un error de validación. Las columnas deben expandirse para que funcione. |
 | Table.Distinct | No se admite la eliminación de filas duplicadas. |

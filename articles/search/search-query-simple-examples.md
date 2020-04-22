@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 42ace2444c7d8e790c7575a7c1a7b3b1219d090a
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 3a801af7b97954510139a009a6d1344b281cf056
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656421"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261812"
 ---
 # <a name="create-a-simple-query-in-azure-cognitive-search"></a>Creación de una consulta simple en Azure Cognitive Search
 
 En Azure Cognitive Search, la [sintaxis de consulta simplificada](query-simple-syntax.md) invoca el analizador de consultas predeterminado para ejecutar consultas de búsqueda de texto completo en un índice. Este analizador es rápido y gestiona escenarios comunes, incluida la búsqueda de texto completo, la búsqueda por facetas, la búsqueda filtrada y la búsqueda geográfica. 
 
-En este artículo, usamos ejemplos para ilustrar la sintaxis simple.
+En este artículo, usamos ejemplos para ilustrar la sintaxis simple, rellenando el parámetro `search=` de una operación de [búsqueda de documentos](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
 Una sintaxis de consulta alternativa es [Lucene completa](query-lucene-syntax.md), compatible con estructuras de consulta más complejas, como la búsqueda aproximada y la búsqueda con caracteres comodín, por lo que puede tardar más tiempo en procesarse. Para más información y ejemplos que muestran la sintaxis completa, consulte [Uso de la sintaxis comleta de Lucene](search-query-lucene-examples.md).
 

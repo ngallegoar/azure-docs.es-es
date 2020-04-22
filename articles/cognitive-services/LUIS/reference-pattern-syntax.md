@@ -1,25 +1,19 @@
 ---
 title: 'Referencia de la sintaxis del patrón: LUIS'
-titleSuffix: Azure Cognitive Services
 description: Cree entidades para extraer datos clave de las expresiones de usuario de las aplicaciones de Language Understanding (LUIS). La aplicación cliente utiliza los datos extraídos.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 12/09/2019
+ms.date: 04/14/2020
 ms.author: diberry
-ms.openlocfilehash: 696f4bdc22bed01a4b5be8bff63ade482a8dbe0a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cc24667f43dfedc032f52c40fc5f8fe5c80bad70
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79218710"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382157"
 ---
 # <a name="pattern-syntax"></a>Sintaxis del patrón
 
-La sintaxis del patrón es una plantilla para una expresión. La plantilla debe contener las palabras y entidades que quiere que coincidan, así como las palabras y los signos de puntuación que quiere omitir. **No** es una expresión regular.
+La sintaxis del patrón es una plantilla para una expresión. La plantilla debe contener las palabras y entidades que quiere que coincidan, así como las palabras y la [puntuación](luis-reference-application-settings.md#punctuation-normalization) que quiere omitir. **No** es una expresión regular.
 
 > [!CAUTION]
 > Los patrones solo incluyen elementos primarios de la entidad de aprendizaje automático, no los subcomponentes.

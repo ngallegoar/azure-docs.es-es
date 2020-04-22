@@ -1,5 +1,5 @@
 ---
-title: Descripción de la línea de base de Azure Security Center para IoT | Microsoft Docs
+title: Comprobaciones personalizadas y de línea de base
 description: Obtenga información sobre el concepto de línea de base de Azure Security Center para IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/07/2019
 ms.author: mlottner
-ms.openlocfilehash: ce5a0625a16c5a02d03ee74f894c585820414fa4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c52a3e55e3801eaaac885b9a3c364283f74906ba
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72176612"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81311659"
 ---
 # <a name="azure-security-center-for-iot-baseline-and-custom-checks"></a>Comprobaciones personalizadas y línea de base de Azure Security Center para IoT
 
@@ -28,11 +28,11 @@ En este artículo se explica la línea de base de Azure Security Center para IoT
 
 ## <a name="baseline"></a>Línea base
 
-Una línea de base establece el comportamiento estándar para cada dispositivo y facilita el establecimiento de comportamiento inusual o la desviación de las normas esperadas.  
+Una línea de base establece el comportamiento estándar para cada dispositivo y facilita el establecimiento de comportamiento inusual o la desviación de las normas esperadas.
 
 ## <a name="baseline-custom-checks"></a>Comprobaciones personalizadas de línea de base
 
-Las comprobaciones personalizadas de base de referencia establecen una lista de comprobaciones personalizada para cada base de referencia del dispositivo mediante **Identidad de módulo gemela** del dispositivo. 
+Las comprobaciones personalizadas de base de referencia establecen una lista de comprobaciones personalizada para cada base de referencia del dispositivo mediante **Identidad de módulo gemela** del dispositivo.
 
 ## <a name="setting-baseline-properties"></a>Establecimiento de propiedades de línea de base
 

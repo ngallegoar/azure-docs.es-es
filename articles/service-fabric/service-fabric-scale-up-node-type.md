@@ -3,12 +3,12 @@ title: Escalado vertical de un tipo de nodo de Azure Service Fabric
 description: Aprenda a escalar un clúster de Service Fabric mediante la adición de un conjunto de escalado de máquinas virtuales.
 ms.topic: article
 ms.date: 02/13/2019
-ms.openlocfilehash: 33d535cb093eeb95e0ce95bdd5722bfd21150a40
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4dbb9e4fbfeb27c5b8b13f70207888cf37bbb0e0
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75464235"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80998938"
 ---
 # <a name="scale-up-a-service-fabric-cluster-primary-node-type"></a>Escalado vertical del tipo de nodo principal de un clúster de Service Fabric
 En este artículo, se explica cómo se escala verticalmente el tipo de nodo principal de un clúster Service Fabric aumentando los recursos de las máquinas virtuales. Un clúster de Service Fabric es un conjunto de máquinas físicas o virtuales conectadas a la red, en las que se implementan y administran los microservicios. Un equipo o máquina virtual que forma parte de un clúster se denomina nodo. Los conjuntos de escalado de máquinas virtuales son un recurso de proceso de Azure que se puede usar para implementar y administrar una colección de máquinas virtuales de forma conjunta. Cada tipo de nodo que se define en un clúster de Azure está [configurado como un conjunto de escalado independiente](service-fabric-cluster-nodetypes.md). Cada tipo de nodo, a continuación, se puede administrar por separado. Después de crear un clúster de Service Fabric, puede escalar el tipo de nodo del clúster verticalmente (cambiar los recursos de los nodos) o actualizar el sistema operativo de las máquinas virtuales del tipo de nodo.  Puede escalar el clúster en cualquier momento, incluso con cargas de trabajo en ejecución en el clúster.  Según se escala el clúster, las aplicaciones se escalan automáticamente.
@@ -34,7 +34,7 @@ Este es el proceso para actualizar el tamaño de máquina virtual y el sistema o
     Para buscar el nuevo conjunto de escalado en la plantilla, busque el recurso "Microsoft.Compute/virtualMachineScaleSets" nombrado por el parámetro *vmNodeType2Name*.  El nuevo conjunto de escalado se agrega al tipo de nodo principal con el valor properties->virtualMachineProfile->extensionProfile->extensions->properties->settings->nodeTypeRef.
 4. Compruebe el mantenimiento del clúster y que todos los nodos están en buen estado.
 5. Deshabilite los nodos del conjunto de escalado anterior del tipo de nodo principal con la intención de eliminar el nodo. Puede deshabilitar todos los nodos a la vez y las operaciones se pondrán en cola. Espere hasta que todos los nodos estén deshabilitados, lo que puede llevar algún tiempo.  Como los nodos anteriores del tipo de nodo están deshabilitados, los servicios del sistema y los nodos de inicialización migran a las máquinas virtuales del nuevo conjunto de escalado en el tipo de nodo principal.
-6. Elimine el conjunto de escalado anterior del tipo de nodo principal.
+6. Elimine el conjunto de escalado anterior del tipo de nodo principal. (Una vez deshabilitados los nodos como en el paso 5, en la hoja del conjunto de escalado de máquinas virtuales de Azure Portal, desasigne los nodos del tipo de nodo anterior uno a uno).
 7. Elimine el equilibrador de carga asociado al conjunto de escalado anterior. El clúster no está disponible mientras que la nueva dirección IP pública y el equilibrador de carga se configuran para el nuevo conjunto de escalado.  
 8. Almacene la configuración DNS de la dirección IP pública asociada al conjunto de escalado del tipo de nodo principal anterior en una variable y elimine esa dirección IP pública.
 9. Reemplace la configuración DNS de la dirección IP pública asociada al conjunto de escalado del tipo de nodo principal nuevo por la configuración DNS de la dirección IP pública eliminada.  El clúster ahora está accesible de nuevo.

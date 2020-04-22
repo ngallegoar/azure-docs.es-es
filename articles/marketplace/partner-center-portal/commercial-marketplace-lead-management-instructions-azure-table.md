@@ -5,14 +5,14 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: f511a60b533d6d1e0b1ae8847d0ee0fb6be3500c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a36c411b9ababc42adb51d82a316df4252c01e24
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288842"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81252009"
 ---
 # <a name="configure-lead-management-using-an-azure-table"></a>Configuración de la administración de clientes potenciales mediante una tabla de Azure
 
@@ -66,12 +66,12 @@ Utilice este ejemplo como guía para crear un flujo simple que envíe automátic
 
    ![Mis flujos **+ Programado: desde cero**](./media/commercial-marketplace-lead-management-instructions-azure-table/ms-flow-scheduled-from-blank.png)
 
-5.  En la ventana *Crear un flujo programado* en *Repetir cada* seleccione "1" para el intervalo y "hora" para la frecuencia. Además, asigne un nombre al flujo si lo desea. Seleccione **Crear**.
+5.    En la ventana *Crear un flujo programado* en *Repetir cada* seleccione "1" para el intervalo y "hora" para la frecuencia. Además, asigne un nombre al flujo si lo desea. Seleccione **Crear**.
 
-    >[!Note]
-    >Aunque en este ejemplo se usa un intervalo de 1 hora, puede seleccionar el intervalo y la frecuencia más apropiada para sus necesidades empresariales.
+>[!Note]
+>Aunque en este ejemplo se usa un intervalo de 1 hora, puede seleccionar el intervalo y la frecuencia más apropiada para sus necesidades empresariales.
 
-    ![Cree un flujo programado.](./media/commercial-marketplace-lead-management-instructions-azure-table/build-scheduled-flow.png)
+![Cree un flujo programado.](./media/commercial-marketplace-lead-management-instructions-azure-table/build-scheduled-flow.png)
 
 6. Seleccione **+ New step**(+ Nuevo paso).
 7. En la ventana *Elegir una acción*, busque "obtener la hora pasada" y, luego, seleccione **Obtener la hora pasada** en Acciones.
@@ -92,23 +92,17 @@ En el siguiente conjunto de pasos, se conectará a la tabla de Azure y configura
 
 9. Después del paso de obtener la hora pasada, seleccione **+Nuevo paso** y, luego, busque "Obtener entidades" en la ventana *Elegir una acción*.
 10. En **Acciones**,seleccione **Obtener entidades (Almacenamiento de tablas de Azure)** .
-11. En la ventana de **Almacenamiento de tablas de Azure**, proporcione información para los campos siguientes y seleccione **Crear**:
+11.    En la ventana de **Almacenamiento de tablas de Azure**, proporcione información para los campos siguientes y seleccione **Crear**:
+* *Nombre de conexión*: Proporcione un nombre descriptivo para la conexión que va a establecer entre este flujo y la tabla de Azure.
+* *Nombre de cuenta de almacenamiento*: Proporcione el nombre de la cuenta de almacenamiento para la tabla de Azure. Puede encontrarlo en la página **Claves de acceso** de la cuenta de almacenamiento.
+* *Clave de almacenamiento compartida*: Proporcione el valor de clave de la cuenta de almacenamiento de la tabla de Azure. Puede encontrarlo en la página **Claves de acceso** de la cuenta de almacenamiento.
+    ![Almacenamiento de tabla de Azure.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-storage.png)
 
-    * *Nombre de conexión*: Proporcione un nombre descriptivo para la conexión que va a establecer entre este flujo y la tabla de Azure.
-    * *Nombre de cuenta de almacenamiento*: Proporcione el nombre de la cuenta de almacenamiento para la tabla de Azure. Puede encontrarlo en la página **Claves de acceso** de la cuenta de almacenamiento.
-    * *Clave de almacenamiento compartida*: Proporcione el valor de clave de la cuenta de almacenamiento de la tabla de Azure. Puede encontrarlo en la página **Claves de acceso** de la cuenta de almacenamiento.
+Después de hacer clic en Crear, verá una ventana *Obtener entidades*. Aquí, seleccione **Mostrar opciones avanzadas** y proporcione información para los campos siguientes:
+* *Tabla*: Seleccione el nombre del almacenamiento de tablas de Azure (del paso 6 de las instrucciones sobre cómo configurar una tabla de Azure). La captura de pantalla siguiente muestra el símbolo del sistema cuando se selecciona "marketplaceleads" en este ejemplo.
+    ![Obtener entidades de tabla de Azure.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities.png)
 
-        ![Azure Table Storage](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-storage.png)
-
-    Después de hacer clic en Crear, verá una ventana *Obtener entidades*. Aquí, seleccione **Mostrar opciones avanzadas** y proporcione información para los campos siguientes:
-
-       * *Tabla*: Seleccione el nombre del almacenamiento de tablas de Azure (del paso 6 de las instrucciones sobre cómo configurar una tabla de Azure). La captura de pantalla siguiente muestra el símbolo del sistema cuando se selecciona "marketplaceleads" en este ejemplo.
-
-            ![Obtener entidades de tabla de Azure.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities.png)
-
-        * *Consulta de filtro*: Seleccione este campo y pegue esta función en el campo: `Timestamp gt datetime'@{body('Get_past_time')}'`
-
-            ![Obtener entidades de tabla de Azure: consulta de filtro.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities-filter-query.png)
+* *Consulta de filtro*: seleccione este campo y pegue esta función en el campo: `Timestamp gt datetime'@{body('Get_past_time')}'` ![Obtener entidades de tabla de Azure: consulta de filtro.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities-filter-query.png)
 
 12. Ahora que ha completado la configuración de la conexión a la tabla de Azure, seleccione **Nuevo paso** para agregar una condición para examinar la tabla de Azure para los nuevos clientes potenciales. 
 
@@ -178,7 +172,10 @@ Cuando esté listo para configurar la información de administración de cliente
 1. Vaya a la página **Configuración de la oferta** de su oferta.
 2. Seleccione **Conectar** en la sección Administración de clientes potenciales.
 3. En la ventana emergente Detalles de conexión, seleccione **Tabla de Azure** para el **Destino de clientes potenciales** y pegue la cadena de conexión de la cuenta de Azure Storage que creó siguiendo los pasos anteriores en el campo **Cadena de conexión de cuenta de almacenamiento**.
-4. Seleccione **Guardar**. 
+4. **Correo electrónico de contacto**: proporcione correos electrónicos de los usuarios de su empresa que deban recibir notificaciones de correo electrónico cuando se reciba un nuevo cliente potencial. Puede proporcionar varias direcciones de correo electrónico separadas con un punto y coma.
+5. Seleccione **Aceptar**.
+
+Para asegurarse de que se ha conectado correctamente a un destino de clientes potenciales, haga clic en el botón validar. Si se realiza correctamente, tendrá un cliente potencial de prueba en el destino de clientes potenciales.
 
 >[!Note]
 >Debe terminar de configurar el resto de las partes de la oferta y publicarla para poder recibir clientes potenciales para la oferta.

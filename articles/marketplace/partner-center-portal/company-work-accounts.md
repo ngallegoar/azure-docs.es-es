@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: c4e7427d87c5f88d8c686b867ef88ceb05f28286
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3c0ee2f8d5291f7904435dea32d913adeaaf25c5
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281432"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262373"
 ---
 # <a name="company-work-accounts-and-partner-center"></a>Cuentas profesionales y el Centro de partners
 
@@ -54,4 +54,4 @@ Si tiene problemas para iniciar sesión en la cuenta profesional (también conoc
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Administración de la cuenta de Marketplace comercial en el Centro de partners](./manage-account.md) 
+- [Administración de la cuenta de marketplace comercial en el Centro de partners](./manage-account.md) 

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/05/2018
-ms.openlocfilehash: 367b7c2e1ce1c8b3c0dbc02003218b76096b409d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 55537fb923b26de4e02be35fdb817dee147584d7
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75354646"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115123"
 ---
 # <a name="understand-time-handling-in-azure-stream-analytics"></a>Descripción del control del tiempo en Azure Stream Analytics
 
@@ -96,7 +96,7 @@ Es posible que haya observado otro concepto de período de llegada temprana, que
 
 Dado que Azure Stream Analytics garantiza que siempre genera los resultados completos, solo se puede especificar la **hora de inicio del trabajo** como la primera hora de salida del trabajo, no la hora de entrada. La hora de inicio del trabajo es necesaria para que se procese el período completo, no solo desde la mitad del período.
 
-Después, Stream Analytics, deriva la hora de inicio de la especificación de consulta. Sin embargo, dado que el agente de eventos de entrada solo se indexa por hora de llegada, el sistema tiene que convertir la hora del evento inicial a la hora de llegada. El sistema puede iniciar el procesamiento de eventos desde ese punto en el agente de eventos de entrada. Con el límite de período de llegada temprana, la conversión es sencilla. Es la hora del evento de inicio menos el período de llegada temprana de cinco minutos. Este cálculo también significa que el sistema quita todos los eventos que se ve que tienen un tiempo de evento cinco minutos superior a la hora de llegada.
+Después, Stream Analytics, deriva la hora de inicio de la especificación de consulta. Sin embargo, dado que el agente de eventos de entrada solo se indexa por hora de llegada, el sistema tiene que convertir la hora del evento inicial a la hora de llegada. El sistema puede iniciar el procesamiento de eventos desde ese punto en el agente de eventos de entrada. Con el límite de período de llegada temprana, la conversión es sencilla. Es la hora del evento de inicio menos el período de llegada temprana de cinco minutos. Este cálculo también significa que el sistema quita todos los eventos que se ve que tienen un tiempo de evento cinco minutos anterior a la hora de llegada.
 
 Este concepto se utiliza para garantizar que el procesamiento es repetible con independencia de dónde se inicie la salida. Sin este mecanismo, no sería posible garantizar la repetibilidad, como muchos otros sistemas de transmisión afirman que hacen.
 

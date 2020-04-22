@@ -8,18 +8,18 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: victorh
-ms.openlocfilehash: 0547f254a64cecc7072ee9ff79eb50204b34bc17
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 5ceefb076b63df942cfff202946f6b82050bbab9
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548861"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81311937"
 ---
 # <a name="generate-an-azure-application-gateway-self-signed-certificate-with-a-custom-root-ca"></a>Generación de un certificado autofirmado de Azure Application Gateway con una entidad de certificación raíz personalizada
 
-La SKU de Application Gateway v2 introduce el uso de certificados raíz de confianza para permitir servidores back-end. De este modo, se quitan los certificados de autenticación necesarios en la SKU v1. El *certificado raíz* es un certificado raíz en formato X.509 (.CER) codificado en base 64 del servidor de certificados de back-end. Identifica la entidad de certificación raíz que emitió el certificado de servidor y, a continuación, se usa el certificado de servidor para la comunicación SSL.
+La SKU de Application Gateway v2 introduce el uso de certificados raíz de confianza para permitir servidores back-end. De este modo, se quitan los certificados de autenticación necesarios en la SKU v1. El *certificado raíz* es un certificado raíz en formato X.509 (.CER) codificado en base 64 del servidor de certificados de back-end. Identifica la entidad de certificación raíz que emitió el certificado de servidor que, a continuación, se usa para la comunicación TLS/SSL.
 
-Application Gateway confía en el certificado del sitio web de forma predeterminada si está firmado por una entidad de certificación conocida (por ejemplo, GoDaddy o DigiCert). En ese caso, no es necesario cargar explícitamente el certificado raíz. Para obtener más información, consulte [Introducción a la terminación SSL y a SSL de extremo a extremo con Application Gateway](ssl-overview.md). Sin embargo, si tiene un entorno de desarrollo y pruebas y no quiere comprar ningún certificado firmado por una entidad de certificación comprobada, puede crear su propia entidad de certificación personalizada y crear un certificado autofirmado. 
+Application Gateway confía en el certificado del sitio web de forma predeterminada si está firmado por una entidad de certificación conocida (por ejemplo, GoDaddy o DigiCert). En ese caso, no es necesario cargar explícitamente el certificado raíz. Para obtener más información, consulte [Introducción a la terminación TLS y a TLS de extremo a extremo con Application Gateway](ssl-overview.md). Sin embargo, si tiene un entorno de desarrollo y pruebas y no quiere comprar ningún certificado firmado por una entidad de certificación comprobada, puede crear su propia entidad de certificación personalizada y crear un certificado autofirmado. 
 
 > [!NOTE]
 > De forma predeterminada, los certificados autofirmados no son de confianza y pueden ser difíciles de mantener. Además, pueden usar conjuntos hash y de cifrado no actualizados que podrían no ser seguros. Para mejorar la seguridad, compre un certificado firmado por una entidad de certificación conocida.
@@ -125,15 +125,15 @@ La CSR es una clave pública que se asigna a una entidad de certificación al so
    - fabrikam.crt
    - fabrikam.key
 
-## <a name="configure-the-certificate-in-your-web-servers-ssl-settings"></a>Configuración del certificado en la configuración de SSL del servidor web
+## <a name="configure-the-certificate-in-your-web-servers-tls-settings"></a>Configuración del certificado en la configuración de TLS del servidor web
 
-En el servidor web, configure SSL con los archivos fabrikam.crt y fabrikam.key. Si el servidor web no puede recibir dos archivos, puede combinarlos en un único archivo .pem o .pfx mediante comandos de OpenSSL.
+En el servidor web, configure TLS con los archivos fabrikam.crt y fabrikam.key. Si el servidor web no puede recibir dos archivos, puede combinarlos en un único archivo .pem o .pfx mediante comandos de OpenSSL.
 
 ### <a name="iis"></a>IIS
 
 Para obtener instrucciones sobre cómo importar el certificado y cargarlo como un certificado de servidor en IIS, consulte [Procedimiento: Instalación de certificados importados en un servidor web en Windows Server 2003](https://support.microsoft.com/help/816794/how-to-install-imported-certificates-on-a-web-server-in-windows-server).
 
-Para obtener instrucciones de enlace SSL, consulte [Configuración de SSL en IIS 7](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis#create-an-ssl-binding-1).
+Para obtener instrucciones de enlace TLS, consulte [Configuración de SSL en IIS 7](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis#create-an-ssl-binding-1).
 
 ### <a name="apache"></a>Apache
 
@@ -151,9 +151,9 @@ La configuración siguiente es un ejemplo de [host virtual configurado para SSL]
 
 ### <a name="nginx"></a>NGINX
 
-La configuración siguiente es un ejemplo de [bloque de servidor NGINX](https://nginx.org/docs/http/configuring_https_servers.html) con configuración de SSL:
+La configuración siguiente es un ejemplo de [bloque de servidor NGINX](https://nginx.org/docs/http/configuring_https_servers.html) con configuración de TLS:
 
-![NGINX con SSL](media/self-signed-certificates/nginx-ssl.png)
+![NGINX con TLS](media/self-signed-certificates/nginx-ssl.png)
 
 ## <a name="access-the-server-to-verify-the-configuration"></a>Acceso al servidor para comprobar la configuración
 
@@ -232,7 +232,7 @@ $probe = Get-AzApplicationGatewayProbeConfig `
 
 ## Add the configuration to the HTTP Setting and don't forget to set the "hostname" field
 ## to the domain name of the server certificate as this will be set as the SNI header and
-## will be used to verify the backend server's certificate. Note that SSL handshake will
+## will be used to verify the backend server's certificate. Note that TLS handshake will
 ## fail otherwise and might lead to backend servers being deemed as Unhealthy by the probes
 
 Add-AzApplicationGatewayBackendHttpSettings `
@@ -272,5 +272,5 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información sobre SSL\TLS en Application Gateway, consulte [Introducción a la terminación SSL y a SSL de extremo a extremo con Application Gateway](ssl-overview.md).
+Para obtener más información sobre SSL\TLS en Application Gateway, consulte [Introducción a la terminación TLS y a TLS de extremo a extremo con Application Gateway](ssl-overview.md).
 

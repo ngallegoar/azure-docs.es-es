@@ -9,14 +9,14 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 01/21/2020
+ms.date: 04/13/2020
 ms.custom: seodec18
-ms.openlocfilehash: 972bb2a804057037deedb448674abafcc175b21f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 85910ee5467ecc9f4fe3c1a8bc13110b6f218e5c
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76314817"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81272719"
 ---
 # <a name="plan-your-azure-time-series-insights-ga-environment"></a>Planificación del entorno de Azure Time Series Insights de disponibilidad general
 
@@ -30,7 +30,7 @@ En este artículo se describe cómo planear el entorno de disponibilidad general
 
 ## <a name="best-practices"></a>Procedimientos recomendados
 
-Para empezar a trabajar con Azure Time Series Insights, se recomienda saber cuántos datos espera insertar por minuto, así como también durante cuánto tiempo debe almacenarlos.  
+Para empezar a trabajar con Azure Time Series Insights, se recomienda saber cuántos datos se espera insertar por minuto, así como durante cuánto tiempo se deben almacenar.  
 
 Para más información sobre la capacidad y la retención de ambas SKU de Time Series Insights, consulte los [precios de Time Series Insights](https://azure.microsoft.com/pricing/details/time-series-insights/).
 
@@ -55,7 +55,7 @@ Azure Time Series Insights tiene dos modos:
 * Un modo se optimiza para los datos más actualizados. Aplica una directiva **Purgar datos antiguos** y mantiene los datos recientes disponibles con la instancia. Este modo está activado, de forma predeterminada. 
 * El otro optimiza los datos para que permanezcan por debajo de los límites de retención configurados. **Pausar entrada** impide que los nuevos datos entren cuando está seleccionado como **Comportamiento correspondiente a un exceso del límite de almacenamiento** .
 
-Puede ajustar la retención y alternar entre ambos modos en la página de configuración del entorno en Azure Portal.
+Puede ajustar la retención y alternar entre ambos modos en la página de configuración del entorno de Azure Portal.
 
 > [!IMPORTANT]
 > Puede configurar un máximo de 400 días de retención de datos en el entorno de Azure Time Series Insights de disponibilidad general.
@@ -79,9 +79,7 @@ Puede ajustar la retención y alternar entre ambos modos en la página de config
 
 ### <a name="environment-planning"></a>Planeamiento del entorno
 
-La segunda área de interés para planear un entorno de Time Series Insights es la capacidad de entrada. La capacidad de entrada es una derivación de la asignación por minuto.
-
-Desde la perspectiva de la limitación, un paquete de datos de entrada con un tamaño de 32 KB se trata como 32 eventos de 1 KB cada uno. El tamaño de evento máximo permitido es 32 KB. Los paquetes de datos mayores de 32 KB se truncan.
+La segunda área de interés para planear un entorno de Time Series Insights es la capacidad de entrada. Tanto el almacenamiento de entrada diario como la capacidad de evento se miden por minuto, en bloques de 1 KB. El tamaño de paquete máximo permitido es 32 KB. Los paquetes de datos mayores de 32 KB se truncan.
 
 Puede aumentar la capacidad de una SKU S1 o S2 a 10 unidades en un solo entorno. No puede migrar desde un entorno de S1 a uno de S2. No puede migrar desde un entorno de S2 a uno de S1.
 

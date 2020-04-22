@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 12/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: f38b0895b0d6eddcf63c082d3df205f4d9de9d50
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4b4b64bcca57e1dc98cdba10626597532ae1461c
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80297058"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81269742"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Creación y administración de áreas de trabajo de Azure Machine Learning en Azure Portal
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -24,7 +24,7 @@ En este artículo creará, verá y eliminará [**áreas de trabajo de Azure Mach
 
 ## <a name="create-a-workspace"></a>Crear un área de trabajo
 
-Para crear un área de trabajo, necesita una suscripción de Azure. Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
+Para crear un área de trabajo, necesita una suscripción de Azure. Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con las credenciales de la suscripción de Azure. 
 
@@ -90,6 +90,8 @@ Puede actualizar el área de trabajo de la edición Basic a la edición Enterpri
 
 ## <a name="find-a-workspace"></a><a name="view"></a>Buscar un área de trabajo
 
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
+
 1. En el campo de búsqueda superior, escriba **Machine Learning**.  
 
 1. Seleccione **Machine Learning**.
@@ -102,9 +104,9 @@ Puede actualizar el área de trabajo de la edición Basic a la edición Enterpri
 
 ## <a name="delete-a-workspace"></a>Eliminar un área de trabajo
 
-Use el botón Eliminar en la parte superior del área de trabajo que desea eliminar.
+En [Azure Portal](https://portal.azure.com/), seleccione **Eliminar** en la parte superior del área de trabajo que desea eliminar.
 
-  ![Botón Eliminar](./media/how-to-manage-workspace/delete-workspace.png)
+:::image type="content" source="./media/how-to-manage-workspace/delete-workspace.png" alt-text="Eliminación del área de trabajo":::
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

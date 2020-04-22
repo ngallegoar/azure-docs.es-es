@@ -3,12 +3,12 @@ title: 'Copias de seguridad de archivos y carpetas: preguntas comunes'
 description: Responde las preguntas habituales acerca de la realización de copias de seguridad de archivos y carpetas con Azure Backup.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: adcbf5c3b404de46634423f8f59c4798d44bebe0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6e9f265672ff15e40444a46a3e440e73a0051a5b
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79233916"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81254757"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>Preguntas comunes acerca de la realización de copias de seguridad de archivos y carpetas
 
@@ -22,7 +22,7 @@ La versión más reciente del agente de MARS que se usa al hacer copias de segur
 
 ### <a name="how-long-are-vault-credentials-valid"></a>¿Cuál es el tiempo de validez de las credenciales de un almacén?
 
-Las credenciales de almacén expiran a las 48 horas. Si el archivo de credenciales expira, vuelva a descargarlo de Azure Portal.
+Las credenciales del almacén expiran después de 10 días. Si el archivo de credenciales expira, vuelva a descargarlo de Azure Portal.
 
 ### <a name="from-what-drives-can-i-back-up-files-and-folders"></a>¿De qué unidades se pueden hacer copias de seguridad de archivos y carpetas?
 
@@ -57,6 +57,10 @@ Los datos de la copia de seguridad se envían al centro de datos del almacén en
 ### <a name="does-the-mars-agent-support-windows-server-2012-deduplication"></a>¿Admite el agente de MARS la desduplicación de Windows Server 2012?
 
 Sí. El agente de MARS convierte los datos desduplicados en datos normales cuando prepara la operación de copia de seguridad. Luego optimiza los datos para la copia de seguridad, los cifra y los envía al almacén.
+
+### <a name="do-i-need-administrator-permissions-to-install-and-configure-the-mars-agent"></a>¿Necesito permisos de administrador para instalar y configurar el agente de MARS?
+
+Sí, la instalación del agente de MARS y la configuración de las copias de seguridad mediante la consola de MARS necesitan que el usuario sea un administrador local del servidor protegido.
 
 ## <a name="manage-backups"></a>Administración de copias de seguridad
 
@@ -181,7 +185,6 @@ Si tiene la misma frase de contraseña (que proporcionó durante el registro) de
 | --- | --- | --- |
 | Perdida |Disponible |Puede instalar y registrar el agente de MARS en otro equipo con la misma frase de contraseña que proporcionó durante el registro de la máquina original. Elija **Opción de recuperación** > **Otra ubicación** para realizar la restauración. Para más información, consulte este [artículo](https://docs.microsoft.com/azure/backup/backup-azure-restore-windows-server#use-instant-restore-to-restore-data-to-an-alternate-machine).
 | Perdida |Perdida |No es posible recuperar los datos o los datos no están disponibles |
-
 
 ### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>¿Qué ocurre si se cancela un trabajo de restauración en curso?
 

@@ -87,7 +87,7 @@
             - name: Soluciones basadas en CEF
               href: connect-common-event-format.md
               items:
-                - name: 'PASO 1: implementación del agente'
+                - name: 'Paso 1: implementación del reenviador de registros'
                   href: connect-cef-agent.md
                 - name: 'PASO 2: configuración de una solución de seguridad'
                   href: connect-cef-solution-config.md

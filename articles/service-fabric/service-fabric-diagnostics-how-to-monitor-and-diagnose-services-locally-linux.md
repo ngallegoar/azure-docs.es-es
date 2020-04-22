@@ -3,12 +3,12 @@ title: Depuración de aplicaciones Azure Service Fabric en Linux
 description: Aprenda a supervisar y diagnosticar sus servicios de Service Fabric en una máquina de desarrollo local Linux.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: d8b5ec2f2190586f5eced5eee112b190a82504c3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fa8c4053a348c539c2e9e7a87d002d0fcf4a4d52
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75526301"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991337"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-linux-machine-development-setup"></a>Supervisión y diagnóstico de servicios en una configuración de desarrollo de máquina Linux local
 
@@ -59,7 +59,7 @@ Para más información, consulte los [ejemplos de código en GitHub](https://git
 ## <a name="debugging-service-fabric-c-applications"></a>Depuración de aplicaciones C# de Service Fabric
 
 
-Hay varios marcos disponibles para realizar un seguimiento de aplicaciones de CoreCLR en Linux. Para obtener más información, consulte [GitHub: logging](http:/github.com/aspnet/logging) (registro).  Dado que los desarrolladores de C# ya conocen EventSource, este artículo utiliza EventSource para realizar un seguimiento en muestras de CoreCLR en Linux.
+Hay varios marcos disponibles para realizar un seguimiento de aplicaciones de CoreCLR en Linux. Para obtener más información, consulte [Extensiones de .NET para el registro](https://github.com/dotnet/extensions/tree/master/src/Logging).  Dado que los desarrolladores de C# ya conocen EventSource, este artículo utiliza EventSource para realizar un seguimiento en muestras de CoreCLR en Linux.
 
 El primer paso es incluir System.Diagnostics.Tracing para que pueda escribir los registros en la memoria, en flujos de salida o en archivos de consola.  Para registrarse mediante EventSource, añada el siguiente proyecto a project.json:
 

@@ -3,27 +3,23 @@ title: Anotaciones de la versión de Application Insights | Microsoft Docs
 description: Agregue marcadores de implementación o compilación a sus gráficos del Explorador de métricas en Application Insights.
 ms.topic: conceptual
 ms.date: 07/01/2019
-ms.openlocfilehash: e0e2a106b276110e13b3c68889e4d1d349ba73a4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0ad773ca6a7102ac718d43dfbbf6a4f834e681a0
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77666520"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010747"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Anotaciones sobre gráficos de métricas en Application Insights
 
-En las anotaciones sobre gráficos del [Explorador de métricas](../../azure-monitor/app/metrics-explorer.md) se muestra donde ha implementado una nueva compilación u otros eventos importantes. Las anotaciones permiten ver fácilmente si los cambios tuvieron algún efecto en el rendimiento de la aplicación. Se pueden crear automáticamente con el sistema de compilación de [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/tasks/). También puede crear anotaciones para marcar los eventos que prefiera si los crea desde PowerShell.
-
-> [!NOTE]
-> En este artículo se refleja la **experiencia de métricas clásicas** en desuso. Las anotaciones solo están disponibles actualmente en la experiencia clásica y en los **[libros](../../azure-monitor/app/usage-workbooks.md)** . Para más información acerca de la experiencia de métricas actual, consulte [Características avanzadas del Explorador de métricas de Azure](../../azure-monitor/platform/metrics-charts.md).
-
-![Ejemplo de anotaciones](./media/annotations/0-example.png)
+Las anotaciones muestran dónde ha implementado una nueva compilación u otros eventos importantes. Las anotaciones permiten ver fácilmente si los cambios tuvieron algún efecto en el rendimiento de la aplicación. Se pueden crear automáticamente con el sistema de compilación de [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/tasks/). También puede crear anotaciones para marcar los eventos que prefiera si los crea desde PowerShell.
 
 ## <a name="release-annotations-with-azure-pipelines-build"></a>Anotaciones de la versión con una compilación de Azure Pipelines
 
 Las anotaciones de la versión son una característica del servicio Azure Pipelines basado en la nube de Azure DevOps.
 
 ### <a name="install-the-annotations-extension-one-time"></a>Instalación de la extensión Anotaciones (una vez)
+
 Para poder crear anotaciones de la versión, debe instalar una de las muchas extensiones de Azure DevOps disponibles en Visual Studio Marketplace.
 
 1. Inicie sesión en su proyecto de [Azure DevOps](https://azure.microsoft.com/services/devops/).
@@ -74,11 +70,26 @@ Cree una clave de API independiente para cada una de las plantillas de versión 
 1. Seleccione **Guardar** en la ventana de la plantilla de versión principal para guardar la plantilla.
 
 ## <a name="view-annotations"></a>Ver anotaciones
-Ahora, cuando utilice la plantilla de versión para implementar una nueva versión, se enviará una anotación a Application Insights. Las anotaciones se mostrarán en los gráficos del **Explorador de métricas**.
 
-Seleccione cualquier marcador de anotación (flecha de color gris claro) para abrir los detalles de la versión, incluidos el solicitante, la rama de control de código fuente, la canalización de la versión y el entorno.
 
-![Seleccione un marcador de anotación de la versión.](./media/annotations/8-release.png)
+   > [!NOTE]
+   > Las anotaciones de versión no están disponibles actualmente en el panel de métricas de Application Insights
+
+Ahora, cuando utilice la plantilla de versión para implementar una nueva versión, se enviará una anotación a Application Insights. Las anotaciones se pueden ver en las siguientes ubicaciones:
+
+El panel de uso, donde también puede crear anotaciones de versión manualmente:
+
+![Captura de pantalla del gráfico de barras con el número de visitas de usuario mostradas durante un período de horas. Las anotaciones de versión aparecen como marcas de verificación verdes sobre el gráfico e indican el momento dado en que se produjo una versión](./media/annotations/usage-pane.png)
+
+En cualquier consulta de libro basada en registros en la que la visualización muestre el tiempo a lo largo del eje x.
+
+![Captura de pantalla del panel de libros con una consulta basada en registro de serie temporal con las anotaciones mostradas](./media/annotations/workbooks-annotations.png)
+
+Para habilitar anotaciones en el libro, vaya a **Configuración avanzada** y seleccione **Mostrar anotaciones**.
+
+![Captura de pantalla del menú Configuración avanzada con las palabras Mostrar anotaciones resaltadas con una marca de verificación junto a la opción para habilitar la opción.](./media/annotations/workbook-show-annotations.png)
+
+Seleccione un marcador de anotación para abrir los detalles de la versión, incluidos el solicitante, la rama de control de código fuente, la canalización de la versión y el entorno.
 
 ## <a name="create-custom-annotations-from-powershell"></a>Crear anotaciones personalizadas desde PowerShell
 Puede usar el script de PowerShell [CreateReleaseAnnotation](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1) de GitHub para crear anotaciones desde cualquier proceso que desee, sin usar Azure DevOps. 

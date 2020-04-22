@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 55c8bf2210eb0990a91aeff1f90e4af4db2c22ab
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: eeeb122d240d8c3eae4ebe1650f67cf0e4b9dac6
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79236372"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80992052"
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>Movimiento de datos de un servidor FTP mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -73,7 +73,7 @@ En la tabla siguiente se describen los elementos JSON específicos del servicio 
 | gatewayName |Especifique el nombre de la puerta de enlace en Data Management Gateway para conectarse a un servidor FTP local. |No |&nbsp; |
 | port |Especifique el puerto en el que se está realizando la escucha del servidor FTP. |No |21 |
 | enableSsl |Especificar si desea usar FTP a través del canal SSL/TLS. |No |true |
-| enableServerCertificateValidation |Especifique si desea habilitar la validación de certificados de servidor SSL al usar FTP sobre el canal SSL/TLS. |No |true |
+| enableServerCertificateValidation |Especifique si desea habilitar la validación de certificados de servidor TLS/SSL al usar FTP sobre el canal SSL/TLS. |No |true |
 
 >[!NOTE]
 >El conector FTP permite el acceso al servidor FTP sin cifrado o con cifrado de SSL/TLS explícito, pero no permite el cifrado SSL/TLS implícito.

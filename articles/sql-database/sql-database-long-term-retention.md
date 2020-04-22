@@ -1,6 +1,6 @@
 ---
-title: Almacenamiento de copias de seguridad durante un máximo de 10 años
-description: Obtenga información acerca de cómo Azure SQL Database admite almacenar copias de seguridad de bases de datos completas durante un máximo de 10 años.
+title: Retención de copia de seguridad a largo plazo
+description: Obtenga información sobre la forma en que Azure SQL Database admite el almacenamiento de copias de seguridad de bases de datos completas durante un máximo de 10 años a través de la directiva de retención a largo plazo.
 services: sql-database
 ms.service: sql-database
 ms.subservice: backup-restore
@@ -11,20 +11,22 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 05/18/2019
-ms.openlocfilehash: 15a2d58d2fc14c370c41d5454d62c74a5b66ad42
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d015eea21bcfa499d6751e024a882a7316b7f1a5
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77499976"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81380757"
 ---
-# <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Almacenamiento de copias de seguridad de Azure SQL Database durante diez años como máximo
+# <a name="azure-sql-database-long-term-retention"></a>Retención a largo plazo de Azure SQL Database
 
-Muchas aplicaciones tienen finalidades normativas, de conformidad u otras de carácter empresarial que requieren que se conserven copias de seguridad de las bases de datos más allá de entre los 7 y 35 días proporcionados por las [copias de seguridad automáticas](sql-database-automated-backups.md) de Azure SQL Database. Con la característica Retención a largo plazo, puede almacenar copias de seguridad completas de SQL Database en Azure Blob Storage con almacenamiento con redundancia geográfica con acceso de lectura durante un máximo de 10 años. Así, podrá restaurar cualquier copia de seguridad como si fuera una base de datos nueva. Para más información sobre la redundancia de Azure Storage, consulte [Redundancia de Azure Storage](../storage/common/storage-redundancy.md).
+Muchas aplicaciones tienen finalidades normativas, de conformidad u otras de carácter empresarial que requieren que se conserven copias de seguridad de las bases de datos más allá de entre los 7 y 35 días proporcionados por las [copias de seguridad automáticas](sql-database-automated-backups.md) de Azure SQL Database. Con la característica Retención a largo plazo, puede almacenar copias de seguridad completas de SQL Database en Azure Blob Storage con almacenamiento con redundancia geográfica con acceso de lectura durante un máximo de 10 años. Así, podrá restaurar cualquier copia de seguridad como si fuera una base de datos nueva. Para más información sobre la redundancia de Azure Storage, consulte [Redundancia de Azure Storage](../storage/common/storage-redundancy.md). 
+
+La retención a largo plazo se puede habilitar para bases de datos únicas y agrupadas, y se encuentra en versión preliminar pública limitada para las instancias administradas de Azure SQL Database. 
 
 > [!NOTE]
-> LTR puede habilitarse para bases de datos únicas y agrupadas. Aún no está disponible para las bases de datos de instancia en Instancias administradas. Puede usar los trabajos del Agente SQL para programar [copias de seguridad de base de datos de solo copia](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server) como alternativa a la retención a largo plazo después de 35 días.
-> 
+> Puede usar los trabajos del Agente SQL para programar [copias de seguridad de base de datos de solo copia](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server) como alternativa a la retención a largo plazo después de 35 días.
+
 
 ## <a name="how-sql-database-long-term-retention-works"></a>Funcionamiento de la retención a largo plazo de SQL Database
 
@@ -74,6 +76,16 @@ Si usa grupos de conmutación por error o de replicación geográfica activa com
 
 > [!NOTE]
 > Cuando la base de datos principal original se recupere de una interrupción que provoque la conmutación por error, se convertirá en una nueva base de datos secundaria. Por lo tanto, no se reanudará la creación de copia de seguridad y la directiva LTR existente no surtirá efecto hasta que vuelva a ser la base de datos principal de nuevo. 
+
+## <a name="managed-instance-support"></a>Compatibilidad con Instancia administrada
+
+El uso de la retención de copias de seguridad a largo plazo con instancias administradas de Azure SQL Database tiene las siguientes limitaciones:
+
+- **Versión preliminar pública limitada**: esta versión preliminar solo está disponible para las suscripciones EA y CSP, y está sujeta a una disponibilidad limitada.  
+- [**Solo PowerShell**](sql-database-managed-instance-long-term-backup-retention-configure.md): actualmente no hay compatibilidad con Azure Portal. La retención a largo plazo sebe habilitarse mediante PowerShell. 
+
+Para solicitar la inscripción, cree una [incidencia de soporte técnico de Azure](https://azure.microsoft.com/support/create-ticket/) en el tema de soporte técnico **Copia de seguridad, restauración y continuidad empresarial/retención de copias de seguridad a largo plazo**.
+
 
 ## <a name="configure-long-term-backup-retention"></a>Configuración de la retención de copia de seguridad a largo plazo
 

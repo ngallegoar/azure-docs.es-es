@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b097ce3781a77a8c5e8a94b9c2bf0977f3efcfd9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7f1b8b9af8f90629d087246edf0cb3426bd9b66c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481337"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81406831"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Descripción de los conectores del Proxy de aplicación de Azure AD
 
@@ -153,12 +153,17 @@ Para proporcionar un servicio seguro, los conectores tienen que autenticarse hac
 
 Los certificados utilizados son específicos del servicio de Proxy de aplicación. Se crean durante el registro inicial y se renuevan automáticamente por los conectores cada dos meses.
 
+Después de la primera renovación correcta del certificado, el servicio de conector de Azure Active Directory Application Proxy (servicio de red) no tiene permiso para quitar el certificado antiguo del almacén de la máquina local. Si el certificado ha expirado o el servicio ya no lo va a usar, no hay problema en que lo elimine.
+
+Para evitar problemas con la renovación de certificados, asegúrese de que la comunicación de red del conector hacia los [destinos documentados](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment) está habilitada.
+
 Si un conector no se conecta al servicio durante varios meses, puede que tenga los certificados caducados. En este caso, desinstale y vuelva a instalar el conector para provocar el registro. Puede ejecutar los siguientes comandos de PowerShell:
 
 ```
 Import-module AppProxyPSModule
 Register-AppProxyConnector
 ```
+Para más información acerca de cómo comprobar el certificado y solucionar problemas, consulte [Comprobación de que los componentes de máquina y back-end admitan el certificado de confianza del proxy de aplicación](application-proxy-connector-installation-problem.md#verify-machine-and-backend-components-support-for-application-proxy-trust-certificate).
 
 ## <a name="under-the-hood"></a>En segundo plano
 

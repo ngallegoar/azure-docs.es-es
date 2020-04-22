@@ -11,15 +11,16 @@ ms.date: 04/17/2018
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 05d5e4f7334c6a9ef7a4f9e8ce7acbdf007a6a44
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 1d36da49bfdddaa612a71652504584c32b66490d
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351433"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261452"
 ---
 # <a name="azure-synapse-analytics-data-management-partners"></a>Asociados de administración de datos de Azure Synapse Analytics
-Para crear la solución de almacenamiento de datos con la característica SQL Analytics de Azure Synapse, dispone de una amplia variedad de herramientas líderes del sector entre las que elegir. En este artículo se destacan las empresas asociadas de Microsoft con soluciones y herramientas de administración de datos compatibles con Azure Synapse.
+
+Para crear la solución de almacenamiento de datos con la característica del grupo de SQL de Synapse de Azure Synapse, dispone de una amplia variedad de herramientas líderes del sector entre las que elegir. En este artículo se destacan las empresas asociadas de Microsoft con soluciones y herramientas de administración de datos compatibles con Azure Synapse.
 
 ## <a name="data-management-partners"></a>Asociados de administración de datos
 | Asociado | Descripción | Vínculo del sitio web o el producto |
@@ -30,6 +31,7 @@ Para crear la solución de almacenamiento de datos con la característica SQL An
 | ![Kyligence](./media/sql-data-warehouse-partner-data-management/kyligence-logo.png) |**Kyligence**<br>Kyligence la fundaron los creadores de Apache Kylin y su misión es acelerar la productividad de sus clientes mediante la automatización de la administración de datos, la detección, la interacción y la generación de información, y todo ello sin barreras. Kyligence Cloud permite la implementación de clústeres, mejora el acceso a los datos y agiliza drásticamente el análisis de datos. La plataforma de administración del análisis de macrodatos mediante la inteligencia artificial aumentada de Kyligence hace que la difícil tarea de crear lagos de datos a escala empresarial sea rápida y sencilla.|[Página de producto](https://kyligence.io/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/kyligence.kyligence)<br> |
 | ![Redpoint Global](./media/sql-data-warehouse-partner-data-management/redpoint-global-logo.png) |**Administración de datos de RedPoint**<br>RedPoint Data Management permite que los vendedores apliquen todos los datos a generar el compromiso del cliente en todos los canales, mientras se realiza la administración de datos estructurados y no estructurados. Con Azure Synapse y RedPoint, puede maximizar el valor de los datos estructurados y no estructurados a fin de entregar las interacciones contextuales e hiperpersonalizadas que se necesitan para atraer al cliente presente en todos los canales de hoy en día. La interfaz de arrastrar y soltar facilita el diseño y la ejecución de los procesos de administración de datos. |[Página de producto](http://www.redpoint.net/products/data-management-solutions/)<br> [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/redpoint-global/redpoint-rpdm/)<br> |
 | ![Sentry One](./media/sql-data-warehouse-partner-data-management/sql-sentry-logo.png) |**SentryOne (DW Sentry)**<br>Con el calendario de eventos y el panel de movimiento de datos inteligente, siempre sabrá exactamente qué es lo que afecta a su carga de trabajo. Diseñado para brindarle visibilidad sobre sus consultas y los trabajos que se ejecutan para cargar los datos, crear copias de seguridad de ellos o restaurarlos, nunca tendrá que preocuparse por obtener el máximo provecho de los recursos de Azure. |[Página de producto](https://sentryone.com/platform/azure-sql-dw-performance-monitoring/)<br>[Azure Marketplace](https://sentryone.com/platform/azure-sql-dw-performance-monitoring/)<br> |
+| ![SqlDBM](./media/sql-data-warehouse-partner-data-management/sqldbm-logo.png) |**SqlDBM**<br>SqlDBM es una herramienta de modelado de datos basada en la nube que ofrece una forma fácil y cómoda de desarrollar una base de datos en cualquier explorador. Todo mientras incorpora todos los objetos y reglas de base de datos necesarios, como claves de base de datos, esquemas, índices, restricciones de columna y relaciones. |[Página de producto](http://sqldbm.com/)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/sqldbm1583438206845.sqldbm-data-modeling-tool?tab=Overview)<br>|
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre otros partners, consulte [Partners de inteligencia empresarial](sql-data-warehouse-partner-business-intelligence.md) y [Partners de integración de datos](sql-data-warehouse-partner-data-integration.md).

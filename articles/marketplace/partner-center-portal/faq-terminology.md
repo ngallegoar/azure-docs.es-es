@@ -1,20 +1,20 @@
 ---
-title: Preguntas más frecuentes y terminología para el análisis de Marketplace comercial en el Centro de partners
-description: Obtenga información sobre cómo abordar las preguntas más frecuentes sobre el análisis de Marketplace comercial. Incluye un diccionario de datos para la terminología de análisis.
+title: Preguntas más frecuentes y terminología del análisis de marketplace comercial en el Centro de partners
+description: Obtenga información sobre cómo abordar las preguntas más frecuentes sobre el análisis de marketplace comercial. Incluye un diccionario de datos para la terminología de análisis.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: d53ae01fb302382ca5bc2d31e729e153aea6c838
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b7367e58de818c20723c02a6763b1bf1e3b18f24
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286088"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81251833"
 ---
-# <a name="frequently-asked-questions-and-terminology-for-commercial-marketplace-analytics"></a>Preguntas más frecuentes y terminología para el análisis de Marketplace comercial
+# <a name="frequently-asked-questions-and-terminology-for-commercial-marketplace-analytics"></a>Preguntas más frecuentes y terminología del análisis de marketplace comercial
 
 En este artículo se abordan las preguntas más frecuentes sobre los mensajes de análisis en el Centro de partners y también se proporciona un diccionario de terminología de análisis.
 
@@ -29,14 +29,14 @@ En esta sección se proporcionan respuestas a las preguntas más frecuentes sobr
 Por qué podría recibir este mensaje:
 
 - Actualmente no existe ninguna adquisición para las ofertas publicadas en Marketplace. Esto puede significar que las ofertas están activas en Marketplace y obtienen vistas de los clientes en las páginas de presentación del producto, pero que los clientes aún no han realizado acciones para comprarlas e implementarlas.
-- La publicación de la oferta podría estar en curso y no activa aún. Los clientes solo pueden adquirir ofertas en directo. Para comprobar el estado de las ofertas, consulte la información general en el [panel Analizar](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary). Para obtener más información, consulte [Panel de resumen del análisis de Marketplace comercial](./summary-dashboard.md).
+- La publicación de la oferta podría estar en curso y no activa aún. Los clientes solo pueden adquirir ofertas en directo. Para comprobar el estado de las ofertas, consulte la información general en el [panel Analizar](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary). Para más información, consulte [Panel Resumen del análisis de marketplace comercial](./summary-dashboard.md).
 - Sus ofertas pueden aparecer como **Ponerse en contacto conmigo**, que son ofertas solo de anuncio y no pueden ser adquiridas por los clientes en Marketplace. Aunque estas ofertas generan clientes potenciales y se comparten con usted, no se crean pedidos para estas ofertas, ya que no se pueden comprar. Para consultar el tipo de anuncio de la oferta, vaya a la página de configuración.
 
 **Sé que tengo datos de análisis, pero aparece el mensaje siguiente:**
 
 ![Sin datos para el intervalo de fechas proporcionado](./media/analytics-faq-data-range.png)
 
-Si recibe este mensaje, significa que tiene datos de análisis pero no hay datos para el intervalo de fechas seleccionado. Seleccione un intervalo de fechas diferente o un intervalo de fechas personalizado para ver los datos desde 2010. Para obtener más información, consulte la sección Intervalo de fechas de la documentación [Panel de resumen del análisis de Marketplace comercial](./summary-dashboard.md).
+Si recibe este mensaje, significa que tiene datos de análisis pero no hay datos para el intervalo de fechas seleccionado. Seleccione un intervalo de fechas diferente o un intervalo de fechas personalizado para ver los datos desde 2010. Para más información, consulte la sección Intervalo de fechas de [Panel Resumen del análisis de marketplace comercial](./summary-dashboard.md).
 
 ## <a name="dictionary-of-data-terms"></a>Diccionario de términos de datos
 
@@ -96,10 +96,10 @@ Si recibe este mensaje, significa que tiene datos de análisis pero no hay datos
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener información general sobre los informes de análisis disponibles en el Marketplace comercial del Centro de partners, consulte [Análisis para Marketplace comercial en el Centro de partners](./analytics.md).
-- Para ver gráficos, tendencias y valores de datos agregados que resuman la actividad de Marketplace de la oferta, vea [Panel Resumen en los análisis de Marketplace comercial](./summary-dashboard.md).
-- Para información sobre los pedidos en un formato gráfico que se pueda descargar, consulte [Panel Pedidos de los análisis de Marketplace comercial](./orders-dashboard.md).
-- Para información sobre las métricas de uso y facturación de las ofertas de máquina virtual (VM), consulte [Panel de uso de los análisis de Marketplace comercial](./usage-dashboard.md).
-- Para obtener información detallada acerca de los clientes, incluidas las tendencias de crecimiento, consulte [Panel Cliente de los análisis de Marketplace comercial](./customer-dashboard.md).
-- Para obtener una lista de las solicitudes de descarga de los últimos 30 días, consulte [Panel Descargas de los análisis de Marketplace comercial](./downloads-dashboard.md).
-- Para obtener una vista consolidada de comentarios de clientes de las ofertas de Azure Marketplace y AppSource, consulte [Panel Valoraciones y opiniones de los análisis de Marketplace comercial](./ratings-reviews.md).
+- Para más información sobre los informes de análisis disponibles en el marketplace comercial del Centro de partners, consulte [Análisis del marketplace comercial en el Centro de partners](./analytics.md).
+- Para ver los gráficos, las tendencias y los valores de datos agregados que resumen la actividad de la oferta en el marketplace, consulte [Panel Resumen de los análisis de marketplace comercial](./summary-dashboard.md).
+- Para información sobre los pedidos en un formato gráfico que se pueda descargar, consulte [Panel Pedidos de los análisis de marketplace comercial](./orders-dashboard.md).
+- Para información sobre las métricas de uso y facturación de las ofertas de máquina virtual, consulte [Panel Uso de los análisis de marketplace comercial](./usage-dashboard.md).
+- Para información detallada sobre los clientes, incluidas las tendencias de crecimiento, consulte [Panel Cliente de los análisis de marketplace comercial](./customer-dashboard.md).
+- Para ver una lista de las solicitudes de descarga de los últimos 30 días, consulte [Panel Descargas de los análisis de marketplace comercial](./downloads-dashboard.md).
+- Para tener una vista consolidada de comentarios de los clientes sobre las ofertas de Azure Marketplace y AppSource, consulte [Panel Calificaciones y opiniones de los análisis de marketplace comercial](./ratings-reviews.md).

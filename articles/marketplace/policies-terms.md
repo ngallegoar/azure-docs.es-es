@@ -5,14 +5,14 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 03/27/2020
+ms.date: 04/10/2020
 ms.author: dsindona
-ms.openlocfilehash: a370b7b21d25f117e44d613d060dd8cdd060c062
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d2fdf40dde287a65548f1db04d34ed3cf67d0374
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336259"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262169"
 ---
 # <a name="commercial-marketplace-policies-and-terms"></a>Términos y directivas de Marketplace comercial
 
@@ -21,7 +21,7 @@ ms.locfileid: "80336259"
 
 Le agradecemos el interés mostrado en publicar ofertas en el Marketplace comercial. Nos comprometemos a asociarnos con usted para crear una valiosa fuente de soluciones en la nube y una línea de ofertas empresariales que satisfagan a los clientes de todo el mundo y le ayuden a desarrollar su negocio.
 
-Las ofertas en Marketplace deben cumplir con nuestros términos y directivas. Actualizamos estos términos y directivas de vez en cuando para ayudar a garantizar una experiencia satisfactoria para el cliente y proporcionar a los asociados una oportunidad para tener éxito. Si tiene comentarios sobre nuestros términos o directivas,infórmenos mediante comentarios en el [foro de Azure Marketplace y AppSource](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222).
+Las ofertas en Marketplace deben cumplir con nuestros términos y directivas. Actualizamos estos términos y directivas de vez en cuando para ayudar a garantizar una experiencia satisfactoria para el cliente y proporcionar a los asociados una oportunidad para tener éxito. Si tiene comentarios sobre nuestros términos o directivas, envíenos sus comentarios al [foro de Azure Marketplace y Microsoft AppSource](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222).
 
 ## <a name="policies-and-terms"></a>Términos y directivas
 
@@ -35,6 +35,6 @@ Las ofertas en Marketplace deben cumplir con nuestros términos y directivas. Ac
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Visite la página [Guía de publicación de Azure Marketplace y AppSource](./marketplace-publishers-guide.md).
+Consulte la [guía del publicador de marketplace comercial](./marketplace-publishers-guide.md).
 
 ---

@@ -11,14 +11,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: c7e17f7c4493560bd6118b8d4837fd795a6ab0c8
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 89efa8dc9989f693964415741299042c63f93780
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80422861"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418123"
 ---
 # <a name="copy-data-from-netezza-by-using-azure-data-factory"></a>Copia de datos de Netezza con Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos de Netezza. El artículo se basa en [Actividad de copia en Azure Data Factory](copy-activity-overview.md), en el que se ofrece información general acerca de la actividad de copia.
 
@@ -63,8 +64,8 @@ Una cadena de conexión típica es `Server=<server>;Port=<port>;Database=<databa
 
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
-| SecurityLevel | El nivel de seguridad (SSL/TLS) que usa el controlador para la conexión con el almacén de datos. Ejemplo: `SecurityLevel=preferredSecured`. Los valores admitidos son:<br/>- **Solo sin protección** (**onlyUnSecured**): el controlador no usa SSL.<br/>- **Sin protección preferido (preferredUnSecured) (valor predeterminado)** : si el servidor proporciona una opción, el controlador no usa SSL. <br/>- **Con protección preferido (preferredSecured)** : si el servidor proporciona una opción, el controlador usa SSL. <br/>- **Solo con protección (onlySecured)** : el controlador no se conectará a menos que haya una conexión SSL disponible. | No |
-| CaCertFile | La ruta de acceso completa al certificado SSL que usa el servidor. Ejemplo: `CaCertFile=<cert path>;`| Sí, si se ha habilitado SSL |
+| SecurityLevel | El nivel de seguridad (SSL/TLS) que usa el controlador para la conexión con el almacén de datos. Ejemplo: `SecurityLevel=preferredSecured`. Los valores admitidos son:<br/>- **Solo sin protección** (**onlyUnSecured**): el controlador no usa TLS.<br/>- **Sin protección preferido (preferredUnSecured) (valor predeterminado)** : si el servidor proporciona una opción, el controlador no usa TLS. <br/>- **Con protección preferido (preferredSecured)** : si el servidor proporciona una opción, el controlador usa TLS. <br/>- **Solo con protección (onlySecured)** : el controlador no se conectará a menos que haya una conexión TLS disponible. | No |
+| CaCertFile | La ruta de acceso completa al certificado TLS/SSL que usa el servidor. Ejemplo: `CaCertFile=<cert path>;`| Sí, si se ha habilitado TLS |
 
 **Ejemplo**
 

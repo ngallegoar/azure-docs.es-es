@@ -1,15 +1,16 @@
 ---
-title: Pods seguros con directivas de redes en Azure Kubernetes Service (AKS)
+title: Protección del tráfico de pod con la directiva de red
+titleSuffix: Azure Kubernetes Service
 description: Obtenga información sobre cómo proteger el tráfico que fluye dentro y fuera de los pods mediante directivas de red de Kubernetes en Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.openlocfilehash: 37b6ebd1c8b147db0a9cead4678a0b2bb4ed234d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a2794f53407be3ce3d7e69caa8039c13217a0356
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79473615"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392607"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Protección del tráfico entre pods mediante directivas de red en Azure Kubernetes Service (AKS)
 
@@ -81,6 +82,8 @@ En el ejemplo siguiente se invoca el script:
 * Asigna permisos de *colaborador* para la entidad de servicio de clúster de AKS en la red virtual.
 * Crea un clúster de AKS en la red virtual definida y habilita la directiva de red.
     * Se usa la opción de directiva de red de *Azure*. Para usar Calico como opción de directiva de red, use el parámetro `--network-policy calico`. Nota: Calico se puede usar con `--network-plugin azure` o `--network-plugin kubenet`.
+
+Recuerde que en lugar de una entidad de servicio, puede usar una identidad administrada para los permisos. Para más información, consulte [Uso de identidades administradas](use-managed-identity.md).
 
 Proporcione su propia variable segura *SP_PASSWORD*. Puede reemplazar las variables *RESOURCE_GROUP_NAME* y *CLUSTER_NAME*:
 

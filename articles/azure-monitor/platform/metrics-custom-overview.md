@@ -7,24 +7,41 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: e104877ef641a87eac4ba19bb3342c6e029bf80c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 099ab150cde763551c2ad10a4e9159909ccff4dd
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294592"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81270713"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Métricas personalizadas en Azure Monitor
 
-A medida que implementa recursos y aplicaciones en Azure, querrá empezar a recopilar datos de telemetría para obtener conclusiones detalladas sobre su rendimiento y mantenimiento. Azure pone algunas métricas a su disposición de manera estándar. Se denominan métricas estándar o de plataforma. Sin embargo, están limitadas por naturaleza. Es posible que quiera recopilar algunos indicadores de rendimiento personalizados o métricas específicas del negocio para obtener conclusiones más detalladas.
+A medida que implementa recursos y aplicaciones en Azure, querrá empezar a recopilar datos de telemetría para obtener conclusiones detalladas sobre su rendimiento y mantenimiento. Azure pone algunas métricas a su disposición de manera estándar. Estas métricas se denominan [estándar o de plataforma](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported). Sin embargo, están limitadas por naturaleza. Es posible que quiera recopilar algunos indicadores de rendimiento personalizados o métricas específicas del negocio para obtener conclusiones más detalladas.
 Estas métricas **personalizadas** pueden recopilarse a través de los datos de telemetría de la aplicación, un agente que se ejecute en sus recursos de Azure o, incluso, fuera del sistema de supervisión y enviarse directamente a Azure Monitor. Una vez publicadas en Azure Monitor, puede examinar, consultar y generar una alerta sobre métricas personalizadas para sus recursos y aplicaciones de Azure en paralelo con las métricas estándar emitidas por Azure.
 
-## <a name="send-custom-metrics"></a>Envío de métricas personalizadas
+## <a name="methods-to-send-custom-metrics"></a>Métodos para enviar métricas personalizadas
+
 Las métricas personalizadas pueden enviarse a Azure Monitor a través de distintos métodos:
 - Instrumente la aplicación con el SDK de Azure Application Insights y envíe datos de telemetría personalizados a Azure Monitor. 
 - Instale la extensión Windows Azure Diagnostics (WAD) en su [máquina virtual Azure](collect-custom-metrics-guestos-resource-manager-vm.md), [conjunto de escalado de máquinas virtuales](collect-custom-metrics-guestos-resource-manager-vmss.md), [máquina virtual clásica](collect-custom-metrics-guestos-vm-classic.md) o [Cloud Services clásico](collect-custom-metrics-guestos-vm-cloud-service-classic.md), y envíe los contadores de rendimiento a Azure Monitor. 
 - Instale el [agente de InfluxData Telegraf](collect-custom-metrics-linux-telegraf.md) en su máquina virtual Linux de Azure y envíe las métricas mediante el complemento de salida de Azure Monitor.
 - Envíe las métricas personalizadas [directamente a la API REST de Azure Monitor](../../azure-monitor/platform/metrics-store-custom-rest-api.md), `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics`.
+
+## <a name="pricing-model"></a>Modelo de precios
+
+Ingerir métricas estándar (métricas de plataforma) en el almacén de métricas de Azure Monitor no tiene ningún costo. Las métricas personalizadas que se ingieran en el almacén de métricas de Azure Monitor se facturarán por MBytes con cada punto de entrada de métrica personalizado escrito, considerado como 8 bytes de tamaño. Todas las métricas ingeridas se conservan durante 90 días.
+
+Las consultas de métricas se cobrarán en función del número de llamadas a API estándar. Una llamada a API estándar es la que analiza 1440 puntos de datos (1440 también es el número total de puntos de datos que se pueden almacenar por métrica al día). Si una llamada a API analiza más de 1440 puntos de datos, se contará como varias llamadas a API estándar. Si una llamada a API analiza menos de 1440 puntos de datos, se contará como menos de una llamada a API. El número de llamadas a API estándar se calcula cada día como el número total de puntos de datos analizados por día dividido por 1440.
+
+Los detalles de precios específicos de las métricas personalizadas y las consultas de métricas están disponibles en la [página de tarifas de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
+
+> [!NOTE]  
+> Las métricas enviadas a Azure Monitor a través del SDK de Application Insights se facturarán como datos de registro ingeridos y solo supondrán cargos de métricas adicionales si se ha seleccionado la característica de Application Insights para [habilitar alertas en dimensiones de métricas personalizadas](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation). Obtenga más información sobre el [modelo de tarifas de Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/pricing#pricing-model) y las [tarifas en su región](https://azure.microsoft.com/pricing/details/monitor/).
+
+> [!NOTE]  
+> Consulte la [página de tarifas de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/) para más información sobre cuándo se habilitará la facturación para las consultas de métricas y las métricas personalizadas. 
+
+## <a name="how-to-send-custom-metrics"></a>Cómo enviar métricas personalizadas
 
 Al enviar las métricas personalizadas a Azure Monitor, cada punto de datos (o valor) notificado debe incluir la siguiente información:
 
@@ -34,7 +51,7 @@ Para enviar métricas personalizadas a Azure Monitor, la entidad que envía la m
 2. [Entidad de servicio de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals). En este escenario, en una aplicación de Azure AD, o servicio, pueden asignarse permisos para emitir métricas sobre un recurso de Azure.
 Para autenticar la solicitud, Azure Monitor valida el token de aplicación mediante las claves públicas de Azure AD. El rol **Supervisión del publicador de métricas** existente ya tiene este permiso. Está disponible en Azure Portal. La entidad de servicio, en función de para qué recursos vaya a emitir las métricas personalizadas, puede recibir el rol **Supervisión del publicador de métricas** en el ámbito necesario. Algunos ejemplos son una suscripción, un grupo de recursos o un recurso específico.
 
-> [!NOTE]  
+> [!TIP]  
 > Cuando solicite un token de Azure AD para emitir métricas personalizadas, asegúrese de que la audiencia o el recurso para el que se solicita el token sea `https://monitoring.azure.com/`. Asegúrese de incluir la barra diagonal "/" final.
 
 ### <a name="subject"></a>Asunto
@@ -42,8 +59,7 @@ Esta propiedad captura para cuál identificador de recurso de Azure se notifica 
 
 > [!NOTE]  
 > No se pueden emitir métricas personalizadas con el identificador de recurso de un grupo de recursos o una suscripción.
->
->
+
 
 ### <a name="region"></a>Region
 Esta propiedad captura en qué región de Azure se implementa el recurso para el que se van a emitir las métricas. Las métricas se deben emitir al mismo punto de conexión regional de Azure Monitor que la región donde se implementa el recurso. Por ejemplo, las métricas personalizadas para una máquina virtual que se implementa en el Oeste de EE. UU. deben enviarse al punto de conexión de Azure Monitor regional WestUS. La información de región también está codificada en la dirección URL de la llamada API.
@@ -84,7 +100,7 @@ Azure Monitor almacena todas las métricas a intervalos de granularidad de un mi
 * **Suma**: el sumatorio de todos los valores observados de todas las muestras y medidas durante el minuto.
 * **Recuento**: el número de muestras y medidas tomadas durante el minuto.
 
-Por ejemplo, si hubo cuatro transacciones de inicio de sesión a la aplicación durante un minuto dado, las latencias medidas resultantes para cada una podrían ser las siguientes:
+Por ejemplo, si hubo cuatro transacciones de inicio de sesión a la aplicación durante un minuto determinado, las latencias medidas resultantes para cada una podrían ser las siguientes:
 
 |Transacción 1|Transacción 2|Transacción 3|Transacción 4|
 |---|---|---|---|

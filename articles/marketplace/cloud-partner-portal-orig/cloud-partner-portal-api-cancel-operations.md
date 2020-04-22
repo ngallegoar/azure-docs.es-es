@@ -5,24 +5,26 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 09/13/2018
+ms.date: 04/08/2020
 ms.author: dsindona
-ms.openlocfilehash: 6d4c1f52f0f3b1e05ec06f5a66a36323f346d4eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f9e55ff2c581f9392a125f6dc3ec8d903e9876a4
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80280548"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81256440"
 ---
-# <a name="cancel-operation"></a>Cancelar operación 
+# <a name="cancel-operation"></a>Cancelar operación
+
+> [!NOTE]
+> Las API de Cloud Partner Portal se integran con el Centro de partners y seguirán funcionando después de migrar a él las ofertas. La integración presenta pequeños cambios. Revise los cambios que se muestran en [Referencia de API de Cloud Partner Portal](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) para asegurarse de que el código sigue funcionando después de la migración al Centro de partners.
 
 Esta API cancela una operación en curso en la oferta. Use [Retrieve operations API](./cloud-partner-portal-api-retrieve-operations.md) para obtener `operationId` para pasar a esta API. La cancelación suele ser una operación sincrónica pero, en algunos escenarios complejos, es posible que se necesite una operación nueva para cancelar una existente. En este caso, el cuerpo de la respuesta HTTP contiene la ubicación de la operación que se debe usar para consultar el estado.
 
-Puede proporcionar una lista de direcciones de correo electrónico delimitadas por coma con la solicitud y la API enviará una notificación a estas direcciones sobre el progreso de la operación.
-
   `POST https://cloudpartner.azure.com/api/publishers/<publisherId>/offers/<offerId>/cancel?api-version=2017-10-31`
 
-<a name="uri-parameters"></a>Parámetros del identificador URI
+## <a name="uri-parameters"></a>Parámetros del identificador URI
+
 --------------
 
 |  **Nombre**    |      **Descripción**                                  |    **Tipo de datos**  |
@@ -32,21 +34,19 @@ Puede proporcionar una lista de direcciones de correo electrónico delimitadas p
 | api-version  |  Versión actual de la API                               |    Date           |
 |  |  |  |
 
-
-<a name="header"></a>Encabezado
+## <a name="header"></a>Encabezado
 ------
 
-|  **Nombre**              |  **Value**         |
+|  **Nombre**              |  **Valor**         |
 |  ---------             |  ----------        |
 |  Content-Type          |  application/json  |
-|  Autorización         |  SU TOKEN de portador |
+|  Authorization         |  SU TOKEN de portador |
 |  |  |
 
-
-<a name="body-example"></a>Ejemplo de cuerpo
+## <a name="body-example"></a>Ejemplo de cuerpo
 ------------
 
-### <a name="request"></a>Request
+### <a name="request"></a>Solicitud
 
 ``` json
 {
@@ -63,23 +63,26 @@ Puede proporcionar una lista de direcciones de correo electrónico delimitadas p
 |  notification-emails     | Lista de identificadores de correo electrónico delimitados por coma para recibir una notificación del progreso de la operación de publicación. |
 |  |  |
 
-
 ### <a name="response"></a>Response
 
-  `Operation-Location: https://cloudpartner.azure.com/api/publishers/contoso/offers/contoso-virtualmachineoffer/operations/56615b67-2185-49fe-80d2-c4ddf77bb2e8`
+#### <a name="migrated-offers"></a>Ofertas migradas
 
+`Location: /api/publishers/contoso/offers/contoso-offer/operations/56615b67-2185-49fe-80d2-c4ddf77bb2e8?api-version=2017-10-31`
+
+#### <a name="non-migrated-offers"></a>Ofertas no migradas
+
+`Location: /api/operations/contoso$contoso-offer$2$preview?api-version=2017-10-31`
 
 ### <a name="response-header"></a>Encabezado de respuesta
 
-|  **Nombre**             |    **Value**                       |
+|  **Nombre**             |    **Valor**                       |
 |  ---------            |    ----------                      |
-| Operation-Location    | Dirección URL que se puede consultar para determinar el estado actual de la operación. |
+| Location    | La ruta de acceso relativa para recuperar el estado de esta operación. |
 |  |  |
-
 
 ### <a name="response-status-codes"></a>Códigos de estado de respuesta
 
-| **(Código:**  |  **Descripción**                                                                       |
+| **Código**  |  **Descripción**                                                                       |
 |  ------   |  ------------------------------------------------------------------------               |
 |  200      | OK. La solicitud se procesó correctamente y la operación se canceló de manera sincrónica. |
 |  202      | Accepted. La solicitud se procesó correctamente y la operación está en proceso de ser cancelada. La ubicación de la operación de cancelación se devuelve en el encabezado de la respuesta. |

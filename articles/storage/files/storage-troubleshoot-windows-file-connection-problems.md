@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 17ecc80fee3b024c334b8d36533663f1f3cebe4d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b4e1ef4fbc3ade38b55fc06f8e4e9a119938581b
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79136912"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383900"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Solucione problemas de Azure Files en Windows
 
@@ -50,7 +50,7 @@ Si los usuarios acceden al recurso compartido de archivos de Azure mediante la a
 
 ### <a name="solution-for-cause-3"></a>Solución para la causa 3
 
-Para actualizar los permisos de nivel de recurso compartido, consulte [Asignar permisos de acceso a una identidad](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-domain-service-enable#assign-access-permissions-to-an-identity).
+Para actualizar los permisos de nivel de recurso compartido, consulte [Asignar permisos de acceso a una identidad](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-domain-service-enable#2-assign-access-permissions-to-an-identity).
 
 <a id="error53-67-87"></a>
 ## <a name="error-53-error-67-or-error-87-when-you-mount-or-unmount-an-azure-file-share"></a>Error 53, Error 67 o Error 87 al montar o desmontar un recurso compartido de archivos de Azure
@@ -324,6 +324,30 @@ El error "Error de sistema 1359. Error interno" se produce cuando intenta conect
 Actualmente, puede considerar la posibilidad de volver a implementar el AAD DS con un nombre DNS de dominio nuevo que se aplique con las reglas siguientes:
 - Los nombres no pueden empezar con un carácter numérico.
 - Los nombres deben tener entre 3 y 63 caracteres de longitud.
+
+## <a name="unable-to-mount-azure-files-with-ad-credentials"></a>No se puede montar Azure Files con las credenciales de AD 
+
+### <a name="self-diagnostics-steps"></a>Pasos del diagnóstico automático
+En primer lugar, asegúrese de que ha seguido los cuatro pasos para [habilitar la autenticación de Azure Files AD](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable).
+
+En segundo lugar, pruebe a [montar un recurso compartido de archivos de Azure con la clave de la cuenta de almacenamiento](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows). Si se produce un error al montar, descargue [AzFileDiagnostics.ps1](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) para ayudarle a validar el cliente que ejecuta el entorno, detectar la configuración de cliente incompatible que podría provocar un error de acceso en Azure Files, proporcionar instrucciones preceptivas sobre la solución autónoma de problemas y recopilar los seguimientos de diagnóstico.
+
+En tercer lugar, puede ejecutar el cmdlet Debug-AzStorageAccountAuth para realizar un conjunto de comprobaciones básicas en la configuración de AD con el usuario de AD que ha iniciado sesión. Este cmdlet se admite en las [versiones posteriores a AzFilesHybrid v 0.1.2](https://github.com/Azure-Samples/azure-files-samples/releases). Este cmdlet se debe ejecutar con un usuario de AD que tenga permisos de propietario en la cuenta de almacenamiento de destino.  
+```PowerShell
+$ResourceGroupName = "<resource-group-name-here>"
+$StorageAccountName = "<storage-account-name-here>"
+
+Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName -Verbose
+```
+El cmdlet realiza estas comprobaciones de forma secuencial y proporciona instrucciones que seguir cuando aparezcan errores:
+1. CheckPort445Connectivity: compruebe que el puerto 445 está abierto para la conexión SMB
+2. CheckDomainJoined: valide que la máquina cliente está unido por el dominio a AD
+3. CheckADObject: confirme que el usuario que ha iniciado sesión tiene una representación válida en el dominio de AD al que está asociada la cuenta de almacenamiento.
+4. CheckGetKerberosTicket: intente obtener un vale de Kerberos para conectarse a la cuenta de almacenamiento. 
+5. CheckADObjectPasswordIsCorrect: asegúrese de que la contraseña configurada en la identidad de AD que representa la cuenta de almacenamiento coincide con la de la clave Kerb. de la cuenta de almacenamiento.
+6. CheckSidHasAadUser: compruebe que el usuario de AD que ha iniciado sesión está sincronizado con Azure AD
+
+Estamos trabajando activamente en la extensión de este cmdlet de diagnóstico para proporcionar una mejor guía de solución de problemas.
 
 ## <a name="need-help-contact-support"></a>¿Necesita ayuda? Póngase en contacto con el servicio de soporte técnico.
 Si sigue necesitando ayuda, [póngase en contacto con el soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.

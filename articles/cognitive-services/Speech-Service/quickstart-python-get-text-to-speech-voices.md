@@ -3,19 +3,19 @@ title: 'Enumeración de voces de texto a voz en Python: servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: En este artículo, aprenderá a obtener la lista completa de voces estándar y neuronales para una región o un punto de conexión mediante Python. La lista se devuelve como JSON y la disponibilidad de las voces varía por regiones.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 02/10/2020
-ms.author: dapine
-ms.openlocfilehash: 51fe6cea80e097f34432ab8dc7293c758bd8d720
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/13/2020
+ms.author: trbye
+ms.openlocfilehash: b388c8d8b61e2fc638ae2bce5bc6d9eeb25ee0d4
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77119796"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81401008"
 ---
 # <a name="get-the-list-of-text-to-speech-voices-using-python"></a>Obtención de la lista de voces de texto a voz mediante Python
 
@@ -23,10 +23,10 @@ En este artículo, aprenderá a obtener la lista completa de voces estándar y n
 
 Para este artículo se requiere una [cuenta de Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con un recurso del servicio de voz. Si no tiene una cuenta, puede usar la [evaluación gratuita](get-started.md) para obtener una clave de suscripción.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Python 2.7.x o 3.x
-* [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) o su editor favorito de código
+* <a href="https://visualstudio.microsoft.com/downloads/" target="_blank">Visual Studio <span class="docon docon-navigate-external x-hidden-focus"></span></a>, <a href="https://code.visualstudio.com/download" target="_blank">Visual Studio Code <span class="docon docon-navigate-external x-hidden-focus"></span></a> o su editor de texto favorito
 * Una clave de suscripción de Azure para el servicio de voz.
 
 ## <a name="create-a-project-and-import-required-modules"></a>Creación de un proyecto e importación de los módulos necesarios

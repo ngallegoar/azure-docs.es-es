@@ -9,19 +9,21 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 04/09/2020
 ms.author: jingwang
-ms.openlocfilehash: 68e234b9db269c30dc9f24106ae1942c01304da7
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: d37a9bd4cc29ee60f9833ffbcb5a2701a19bbaa7
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80422495"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416822"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copia de datos con Oracle como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](v1/data-factory-onprem-oracle-connector.md)
 > * [Versión actual](connector-oracle.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 En este artículo se resume el uso de la actividad de copia de Azure Data Factory para copiar datos con una base de datos Oracle como origen o destino. Se basa en la [introducción a la actividad de copia](copy-activity-overview.md).
 
@@ -37,6 +39,7 @@ Puede copiar datos desde una base de datos de Oracle en cualquier almacén de da
 En concreto, este conector de Oracle admite lo siguiente:
 
 - Las siguientes versiones de una base de datos de Oracle:
+    - Oracle 19c R1 (19.1) y superior
     - Oracle 18c R1 (18.1) y superior
     - Oracle 12c R1 (12.1) y superior
     - Oracle 11g R1 (11.1) y superior
@@ -84,9 +87,9 @@ Para habilitar el cifrado en la conexión de Oracle, tiene dos opciones:
 
 -   Para usar **el cifrado Triple-DES (3DES) y el Estándar de cifrado avanzado (AES)** , en el lado servidor de Oracle, vaya a Oracle Advanced Security (OAS) y configure las opciones de cifrado. Para más información, consulte esta [documentación de Oracle](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759). El conector de Oracle Application Development Framework (ADF) negocia automáticamente el método de cifrado para usar el que configura en OAS al establecer la conexión con Oracle.
 
--   Para usar **SSL**:
+-   Para usar **TLS**:
 
-    1.  Obtenga la información del certificado SSL. Obtenga la información del certificado codificado con reglas de codificación distinguida (DER) de su certificado SSL y guarde la salida (----- Begin Certificate… End Certificate -----) como archivo de texto.
+    1.  Obtenga la información del certificado TLS/SSL. Obtenga la información del certificado codificado con reglas de codificación distinguida (DER) de su certificado TLS/SSL y guarde la salida (----- Begin Certificate… End Certificate -----) como archivo de texto.
 
         ```
         openssl x509 -inform DER -in [Full Path to the DER Certificate including the name of the DER Certificate] -text

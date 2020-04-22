@@ -5,17 +5,19 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 09/14/2018
+ms.date: 04/08/2020
 ms.author: dsindona
-ms.openlocfilehash: 4fc77407ae1c5854d3fe977da5a81f4226bf5305
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 93b2ca700a987b86aedfdae55d58540c8ffe84ed
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80280480"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255880"
 ---
-<a name="retrieve-operations"></a>Retrieve operations
-===================
+# <a name="retrieve-operations"></a>Retrieve operations
+
+> [!NOTE]
+> Las API de Cloud Partner Portal se integran con el Centro de partners y seguirán funcionando después de migrar a él las ofertas. La integración presenta pequeños cambios. Revise los cambios que se muestran en [Referencia de API de Cloud Partner Portal](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) para asegurarse de que el código sigue funcionando después de la migración al Centro de partners.
 
 Recupera todas las operaciones en la oferta u obtiene una determinada operación para el operationId especificado. El cliente puede utilizar los parámetros de consulta para filtrar según las operaciones de ejecución.
 
@@ -28,21 +30,18 @@ Recupera todas las operaciones en la oferta u obtiene una determinada operación
 ```
 
 
-<a name="uri-parameters"></a>Parámetros del identificador URI
---------------
+## <a name="uri-parameters"></a>Parámetros del identificador URI
 
 |  **Nombre**          |      **Descripción**                                                                                           | **Tipo de datos** |
 |  ----------------  |     --------------------------------------------------------------------------------------------------------   |  -----------  |
 |  publisherId       |  Identificador del publicador, por ejemplo `Contoso`.                                                                   |  String       |
 |  offerId           |  Identificador de la oferta.                                                                                              |  String       |
 |  operationId       |  GUID que identifica de manera única la operación de la oferta. El operationId se puede recuperar mediante el uso de esta API y también se puede devolver en el encabezado HTTP de la respuesta para cualquier operación de larga ejecución, como la API de [publicación de oferta](./cloud-partner-portal-api-publish-offer.md).  |   Guid   |
-|  filteredStatus    | Parámetro de consulta opcional que se utiliza para filtrar por estado (por ejemplo `running`) en la colección devuelta por esta API.  |   String |
-|  api-version       | Última versión de la API.                                                                                           |    Date      |
+|  api-version       | Última versión de la API. |    Date      |
 |  |  |  |
 
+## <a name="header"></a>Encabezado
 
-<a name="header"></a>Encabezado
-------
 
 |  **Nombre**          |  **Valor**           |
 |  ---------------   | -------------------- |
@@ -51,8 +50,7 @@ Recupera todas las operaciones en la oferta u obtiene una determinada operación
 |  |  |
 
 
-<a name="body-example"></a>Ejemplo de cuerpo
-------------
+## <a name="body-example"></a>Ejemplo de cuerpo
 
 ### <a name="response"></a>Response
 
@@ -167,25 +165,35 @@ Recupera todas las operaciones en la oferta u obtiene una determinada operación
                     ],
                 "previewLinks": [],
                 "liveLinks": [],
-                "notificationEmails": "jondoe@contoso.com"
-            } 
+            }
         }
     ]
 ```
-
 
 ### <a name="response-body-properties"></a>Propiedades del cuerpo de la respuesta
 
 |  **Nombre**                    |  **Descripción**                                                                                  |
 |  --------------------        |  ------------------------------------------------------------------------------------------------ |
 |  id                          | GUID que identifica de manera única la operación.                                                       |
-|  submissionType              | Identifica el tipo de operación sobre el que informa la oferta, por ejemplo `Publish/GGoLive`.      |
+|  submissionType              | Identifica el tipo de operación sobre el que informa la oferta, por ejemplo `Publish/GoLive`.      |
 |  createdDateTime             | Datetime de UTC cuando se creó la operación.                                                       |
 |  lastActionDateTime          | Datetime de UTC cuando se realizó la última actualización en la operación.                                       |
 |  status                      | Estado de la operación, que puede ser `not started` \| `running` \| `failed` \| `completed`. Solo una operación puede tener el estado `running` a la vez. |
 |  error                       | Mensaje de error de las operaciones incorrectas                                                               |
 |  |  |
 
+### <a name="response-step-properties"></a>Propiedades de paso de respuesta
+
+|  **Nombre**                    |  **Descripción**                                                                                  |
+|  --------------------        |  ------------------------------------------------------------------------------------------------ |
+| estimatedTimeFrame | La duración estimada de esta operación. |
+| id | El identificador único del proceso de paso. |
+| description | Descripción del paso |
+| stepName | El nombre descriptivo del paso. |
+| status | El estado del paso, either `notStarted` \| `running` \| `failed` \| `completed` |
+| messages | Cualquier notificación o advertencia detectada durante el paso. Matriz de cadenas |
+| progressPercentage | Entero de 0 al 100 que indica la progresión del paso. |
+| | |
 
 ### <a name="response-status-codes"></a>Códigos de estado de respuesta
 

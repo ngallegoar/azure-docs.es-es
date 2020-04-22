@@ -1,20 +1,20 @@
 ---
-title: 'Descarga SSL mediante PowerShell: Azure Application Gateway'
-description: En este artículo se ofrecen instrucciones para crear una puerta de enlace de aplicaciones con descarga SSL mediante el modelo de implementación clásica de Azure.
+title: 'Descarga TLS mediante PowerShell: Azure Application Gateway'
+description: En este artículo se ofrecen instrucciones para crear una puerta de enlace de aplicaciones con descarga TLS mediante el modelo de implementación clásica de Azure.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: c456a0856adb0d36349b5f96ba0ab8bab3eec5c9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2ead16b61784b8073d50b7e0e6079805a1e48e9b
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74047914"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312338"
 ---
-# <a name="configure-an-application-gateway-for-ssl-offload-by-using-the-classic-deployment-model"></a>Configuración de una puerta de enlace de aplicaciones para la descarga SSL mediante el modelo de implementación clásica
+# <a name="configure-an-application-gateway-for-tls-offload-by-using-the-classic-deployment-model"></a>Configuración de una puerta de enlace de aplicaciones para la descarga TLS mediante el modelo de implementación clásica
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](application-gateway-ssl-portal.md)
@@ -22,7 +22,7 @@ ms.locfileid: "74047914"
 > * [PowerShell clásico de Azure](application-gateway-ssl.md)
 > * [CLI de Azure](application-gateway-ssl-cli.md)
 
-Azure Application Gateway puede configurarse para terminar la sesión Capa de sockets seguros (SSL) en la puerta de enlace para evitar las costosas tareas de descifrado SSL que tienen lugar en la granja de servidores web. La descarga SSL también simplifica la configuración del servidor front-end y la administración de la aplicación web.
+Azure Application Gateway puede configurarse para terminar la sesión de Seguridad de la capa de transporte (TLS), antes conocida como Capa de sockets seguros (SSL), en la puerta de enlace para evitar las costosas tareas de descifrado TLS que tienen lugar en la granja de servidores web. La descarga TLS también simplifica la configuración del servidor front-end y la administración de la aplicación web.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -30,10 +30,10 @@ Azure Application Gateway puede configurarse para terminar la sesión Capa de so
 2. Compruebe que tiene una red virtual de trabajo con una subred válida. Asegúrese de que ninguna máquina virtual o implementación en la nube usan la subred. La puerta de enlace de aplicaciones debe encontrarse en una subred de red virtual.
 3. Los servidores que configure para que usen la puerta de enlace de aplicaciones deben existir, o bien sus puntos de conexión deben haberse creado en la red virtual o tener asignada una dirección IP pública o una dirección IP virtual (VIP).
 
-Para configurar la descarga SSL en una puerta de enlace de aplicaciones, siga los pasos que se indican a continuación en el orden mostrado:
+Para configurar la descarga TLS en una puerta de enlace de aplicaciones, siga los pasos que se indican a continuación en el orden mostrado:
 
 1. [Creación de una puerta de enlace de aplicaciones](#create-an-application-gateway)
-2. [Carga de certificados SSL](#upload-ssl-certificates)
+2. [Carga de certificados TLS/SSL](#upload-tlsssl-certificates)
 3. [Configuración de la puerta de enlace](#configure-the-gateway)
 4. [Establecimiento de la configuración de la puerta de enlace](#set-the-gateway-configuration)
 5. [Inicio de la puerta de enlace](#start-the-gateway)
@@ -55,7 +55,7 @@ En el ejemplo, **Description**, **InstanceCount** y **GatewaySize** son parámet
 Get-AzureApplicationGateway AppGwTest
 ```
 
-## <a name="upload-ssl-certificates"></a>Carga de certificados SSL
+## <a name="upload-tlsssl-certificates"></a>Carga de certificados TLS/SSL
 
 Escriba `Add-AzureApplicationGatewaySslCertificate` para cargar el certificado del servidor en formato PFX en la puerta de enlace de aplicaciones. El nombre del certificado es un nombre elegido por el usuario y debe ser único dentro de la puerta de enlace de aplicaciones. Este certificado se conoce con este nombre en todas las operaciones de administración de certificados en la puerta de enlace de aplicaciones.
 
@@ -92,17 +92,17 @@ Una configuración de puerta de enlace de aplicaciones consta de varios valores.
 
 Los valores son:
 
-* **Back-end server pool** (Grupo de servidores back-end): lista de direcciones IP de los servidores back-end. Las direcciones IP de la lista deben pertenecer a la subred de la red virtual o ser una dirección VIP/IP pública.
-* **Configuración del grupo de servidores back-end:** cada grupo tiene una configuración en la que se incluye el puerto, el protocolo y la afinidad basada en cookies. Estos valores están vinculados a un grupo y se aplican a todos los servidores del grupo.
-* **Front-end port** (Puerto front-end): este puerto es el puerto público que se abre en la puerta de enlace de aplicaciones. El tráfico llega a este puerto y después se redirige a uno de los servidores back-end.
-* **Agente de escucha**: el agente de escucha tiene un puerto front-end, un protocolo (Http o Https; estos valores distinguen mayúsculas de minúsculas) y el nombre del certificado SSL (si se configura la descarga de SSL).
-* **Regla:** la regla enlaza el agente de escucha y el grupo de servidores back-end y define a qué grupo de servidores back-end se va a dirigir el tráfico cuando llegue a un determinado agente de escucha. Actualmente, solo se admite la regla *básica* . La regla *básica* es la distribución de carga round robin.
+* **Grupo de servidores back-end**: lista de direcciones IP de los servidores back-end. Las direcciones IP de la lista deben pertenecer a la subred de la red virtual o ser una dirección VIP/IP pública.
+* **Configuración del grupo de servidores back-end:** : cada grupo tiene una configuración como el puerto, el protocolo y la afinidad basada en las cookies. Estos valores están vinculados a un grupo y se aplican a todos los servidores del grupo.
+* **Puerto de front-end**: este puerto es el puerto público que se abre en la puerta de enlace de aplicaciones. El tráfico llega a este puerto y después se redirige a uno de los servidores back-end.
+* **Agente de escucha**: tiene un puerto front-end, un protocolo (Http o Https; estos valores distinguen mayúsculas de minúsculas) y el nombre del certificado TLS/SSL (si se configura una descarga de TLS).
+* **Regla**: la regla enlaza el agente de escucha y el grupo de servidores back-end y define a qué grupo de servidores back-end se va a dirigir el tráfico cuando llegue a un determinado agente de escucha. Actualmente, solo se admite la regla *básica* . La regla *básica* es la distribución de carga round robin.
 
 **Notas de configuración adicionales**
 
-Para la configuración de certificados SSL, el protocolo de **HttpListener** debería cambiar a **Https** (con distinción entre mayúsculas y minúsculas). Agregue el elemento **SslCert** a **HttpListener** con el valor establecido en el mismo nombre que utilizó en la sección [Carga de certificados SSL](#upload-ssl-certificates). El puerto front-end debe actualizarse a **443**.
+Para la configuración de certificados TLS/SSL, el protocolo de **HttpListener** debería cambiar a **Https** (con distinción entre mayúsculas y minúsculas). Agregue el elemento **SslCert** a **HttpListener** con el valor establecido en el mismo nombre que utilizó en la sección [Carga de certificados TLS/SSL](#upload-tlsssl-certificates). El puerto front-end debe actualizarse a **443**.
 
-**Para habilitar la afinidad basada en cookies:** puede configurar una puerta de enlace de aplicaciones para asegurarse de que las solicitudes de una sesión de cliente siempre se dirigen a la misma máquina virtual de la granja de servidores web. Para conseguirlo, inserte una cookie de sesión que permita a la puerta de enlace dirigir el tráfico de forma adecuada. Para habilitar la afinidad basada en cookies, establezca **CookieBasedAffinity** en **Habilitado** en el elemento **BackendHttpSettings**.
+**Para habilitar la afinidad basada en cookies**: puede configurar una puerta de enlace de aplicaciones para asegurarse de que las solicitudes de una sesión de cliente siempre se dirigen a la misma máquina virtual de la granja de servidores web. Para conseguirlo, inserte una cookie de sesión que permita a la puerta de enlace dirigir el tráfico de forma adecuada. Para habilitar la afinidad basada en cookies, establezca **CookieBasedAffinity** en **Habilitado** en el elemento **BackendHttpSettings**.
 
 Puede llevar a cabo la configuración mediante la creación de un objeto de configuración o usando un archivo XML de configuración.
 Para establecer la configuración con un archivo XML, use el siguiente ejemplo:

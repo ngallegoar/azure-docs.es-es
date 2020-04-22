@@ -8,27 +8,33 @@ manager: rkarlin
 ms.assetid: 33c45447-3181-4b75-aa8e-c517e76cd50d
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 08/25/2019
+ms.date: 03/15/2020
 ms.author: memildin
-ms.openlocfilehash: 7d078fb93f933320d13bfeb768b27923748b1262
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: fdf22e4d981549b876a14aed2b0a1d7e0c76e40e
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623948"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81263461"
 ---
 # <a name="threat-protection-in-azure-security-center"></a>Protección contra amenazas en Azure Security Center
 
-En esta página se describen brevemente los orígenes de las alertas de seguridad que muestra Azure Security Center para los usuarios con el plan de tarifa estándar.
+Cuando Security Center detecta una amenaza en cualquiera de las áreas del entorno, genera una alerta. Estas alertas describen los detalles de los recursos afectados, los pasos de corrección sugeridos y, en algunos casos, una opción para desencadenar una aplicación lógica como respuesta.
 
-Cuando Security Center detecta una amenaza en cualquiera de las áreas del entorno que se enumeran a continuación, genera una alerta. Estas alertas describen los detalles de los recursos afectados, los pasos de corrección sugeridos y, en algunos casos, una opción para desencadenar una aplicación lógica como respuesta.
+La protección contra amenazas de Azure Security Center proporciona defensas completas para el entorno:
 
-Tanto si Security Center genera una alerta, como si la recibe de un producto de seguridad diferente, puede exportarla. Para exportar las alertas a Azure Sentinel (o a un SIEM de terceros) o a cualquier otra ubicación externa, siga las instrucciones de [Exportación de alertas y recomendaciones](continuous-export.md). 
+* **Protección contra amenazas para los recursos de proceso de Azure**: máquinas Windows, máquinas Linux, Azure App Service y contenedores de Azure
+
+* **Protección contra amenazas para los recursos de datos de Azure**: SQL Database y SQL Data Warehouse, Azure Storage y Azure Cosmos DB
+
+* **Protección contra amenazas para capas de servicios de Azure**: capa de red de Azure, capa de administración de Azure (Azure Resource Manager) (versión preliminar) y Azure Key Vault (versión preliminar)
+
+Tanto si Security Center genera una alerta, como si la recibe de un producto de seguridad diferente, puede exportarla. Para exportar las alertas a Azure Sentinel (o a un SIEM de terceros) o a cualquier otra herramienta externa, siga las instrucciones de [Exportación de alertas a un SIEM](continuous-export.md). 
 
 
 
 
-## Protección contra amenazas para máquinas Windows <a name="windows-machines"></a>
+## <a name="threat-protection-for-windows-machines"></a>Protección contra amenazas para máquinas Windows <a name="windows-machines"></a>
 
 Azure Security Center se integra con servicios de Azure para supervisar y proteger las máquinas Windows. Security Center presenta las alertas y las sugerencias de corrección de todos estos servicios en un formato fácil de usar.
 
@@ -63,13 +69,13 @@ Azure Security Center se integra con servicios de Azure para supervisar y proteg
 
 
 
-## Protección contra amenazas para máquinas Linux <a name="linux-machines"></a>
+## <a name="threat-protection-for-linux-machines"></a>Protección contra amenazas para máquinas Linux <a name="linux-machines"></a>
 
 Security Center recopila registros de auditoría de máquinas Linux mediante **auditd**, uno de los marcos de trabajo de Linux más comunes. auditd se encuentra en el kernel de línea principal. 
 
-* **La integración de alertas y Microsoft Monitoring Agent (MMA) de Linux** <a name="linux-auditd"></a>: el sistema auditado está compuesto por un subsistema de nivel de kernel, que es responsable de supervisar las llamadas del sistema. Las filtra según un conjunto de reglas especificado y escribe mensajes para ellas en un socket. Security Center integra funcionalidades del paquete auditd dentro de Microsoft Monitoring Agent (MMA). Esta integración permite una colección de eventos de auditd en todas las distribuciones de Linux admitidas sin requisitos previos.  
+* **Integración de las alertas de auditd de Linux y el agente de Log Analytics** <a name="linux-auditd"></a>: el sistema de auditd consta de un subsistema de nivel de kernel, que es responsable de supervisar las llamadas del sistema. Las filtra según un conjunto de reglas especificado y escribe mensajes para ellas en un socket. Security Center integra funcionalidades del paquete auditd dentro del agente de Log Analytics. Esta integración permite una colección de eventos de auditd en todas las distribuciones de Linux admitidas sin requisitos previos.
 
-    Los registros de auditd se recopilan, enriquecen y agregan en eventos mediante el agente de MMA de Linux. Security Center agrega continuamente análisis nuevos que usan señales de Linux para detectar comportamientos malintencionados en máquinas Linux locales y en la nube. De manera similar a las funcionalidades de Windows, estos análisis abarcan varios procesos sospechosos, intentos de inicio de sesión dudosos, carga de módulos de kernel y otras actividades. Estas actividades pueden indicar que una máquina está sufriendo un ataque o se ha vulnerado.  
+    Los registros de auditd se recopilan, enriquecen y agregan en eventos mediante el agente de Log Analytics para Linux. Security Center agrega continuamente análisis nuevos que usan señales de Linux para detectar comportamientos malintencionados en máquinas Linux locales y en la nube. De manera similar a las funcionalidades de Windows, estos análisis abarcan varios procesos sospechosos, intentos de inicio de sesión dudosos, carga de módulos de kernel y otras actividades. Estas actividades pueden indicar que una máquina está sufriendo un ataque o se ha vulnerado.  
 
     Para obtener una lista de las alertas de Linux, consulte la [Tabla de referencia de alertas](alerts-reference.md#alerts-linux).
 
@@ -80,7 +86,7 @@ Security Center recopila registros de auditoría de máquinas Linux mediante **a
 
 
 
-## Protección contra amenazas para Azure App Service <a name="app-services"></a>
+## <a name="threat-protection-for-azure-app-service"></a>Protección contra amenazas para Azure App Service <a name="app-services"></a>
 
 > [!NOTE]
 > Este servicio no está disponible actualmente en Azure Government ni en las regiones de nubes soberanas.
@@ -89,7 +95,7 @@ Security Center usa la escala de la nube para identificar ataques dirigidos a ap
 
 Al usar la visibilidad que Azure tiene como proveedor de nube, Security Center analiza los registros internos de App Service para metodología de ataques en múltiples destinos, como, por ejemplo, la metodología incluye el análisis generalizado y los ataques distribuidos. Este tipo de ataque normalmente procede de un pequeño subconjunto de direcciones IP y muestra patrones de rastreo a puntos de conexión similares en varios hosts. Los ataques buscan una página o complemento vulnerables y no se pueden identificar desde el punto de vista de un solo host.
 
-Si va a ejecutar un plan de App Service basado en Windows, Security Center también tiene acceso a las máquinas virtuales y los espacios aislados subyacentes. Junto con los datos de registro mencionados anteriormente, la infraestructura puede contar lo que ocurre, desde un nuevo ataque que circula por la red hasta riesgos concretos para las máquinas de los clientes. Por lo tanto, incluso si se implementa Security Center una vez que se han aprovechado las vulnerabilidades de una aplicación web, es posible que pueda detectar los ataques en curso.
+Si está usando un plan de App Service basado en Windows, Security Center también tiene acceso a las máquinas virtuales y los espacios aislados subyacentes. Junto con los datos de registro mencionados anteriormente, la infraestructura puede contar lo que ocurre, desde un nuevo ataque que circula por la red hasta riesgos concretos para las máquinas de los clientes. Por lo tanto, incluso si se implementa Security Center una vez que se han aprovechado las vulnerabilidades de una aplicación web, es posible que pueda detectar los ataques en curso.
 
 Para obtener una lista de las alertas de Azure App Service, consulte la [Tabla de referencia de alertas](alerts-reference.md#alerts-azureappserv).
 
@@ -99,7 +105,7 @@ Para más información sobre los planes de App Service, consulte [Planes de App 
 
 
 
-## Protección contra amenazas para contenedores de Azure <a name="azure-containers"></a>
+## <a name="threat-protection-for-azure-containers"></a>Protección contra amenazas para contenedores de Azure <a name="azure-containers"></a>
 
 > [!NOTE]
 > Este servicio no está disponible actualmente en Azure Government ni en las regiones de nubes soberanas.
@@ -113,7 +119,7 @@ Security Center proporciona protección contra amenazas en diferentes niveles:
     Para obtener una visión más detallada de la seguridad del entorno en el contenedor, el agente supervisa el análisis específico de ese contenedor. Esto desencadenará alertas de eventos como la creación de contenedores con privilegios, las actividades sospechosas de acceso a los servidores de API y los servidores de Secure Shell (SSH) que se ejecutan dentro de un contenedor de Docker.
 
     >[!IMPORTANT]
-    > Si decide no instalar los agentes en los hosts, solo recibirá un subconjunto de las ventajas y alertas de detección de amenazas. Aún así, seguirá recibiendo alertas relacionadas con el análisis de redes y las comunicaciones con servidores malintencionados.
+    > Si decide no instalar los agentes en los hosts, solo recibirá un subconjunto de las ventajas de la protección contra amenazas y las alertas de seguridad. Aún así, seguirá recibiendo alertas relacionadas con el análisis de redes y las comunicaciones con servidores malintencionados.
 
     Para obtener una lista de las alertas de nivel de host, consulte la [Tabla de referencia de alertas](alerts-reference.md#alerts-containerhost).
 
@@ -127,12 +133,66 @@ Security Center proporciona protección contra amenazas en diferentes niveles:
 
 Además, nuestro equipo global de investigadores de seguridad supervisa constantemente el panorama de las amenazas. Agregan alertas específicas del contenedor y vulnerabilidades a medida que se detectan.
 
+> [!TIP]
+> Puede simular las alertas de contenedor al seguir las instrucciones de [esta entrada de blog](https://techcommunity.microsoft.com/t5/azure-security-center/how-to-demonstrate-the-new-containers-features-in-azure-security/ba-p/1011270).
 
 
 
 
 
-## Protección contra amenazas para la capa de red de Azure <a name="network-layer"></a>
+
+
+
+## <a name="threat-protection-for-sql-database-and-sql-data-warehouse"></a>Protección contra amenazas para SQL Database y SQL Data Warehouse <a name="data-sql"></a>
+
+Advanced Threat Protection para Azure SQL Database detecta actividades anómalas que indican intentos inusuales y potencialmente dañinos de acceso o ataque a las bases de datos.
+
+Verá alertas cuando haya actividades sospechosas en las bases de datos, posibles vulnerabilidades o ataques por inyección de código SQL, y patrones anómalos de acceso y consulta a las bases de datos.
+
+Advanced Threat Protection para Azure SQL Database y SQL forma parte del paquete unificado [Advanced Data Security (ADS)](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security) para funcionalidades de seguridad SQL avanzadas, que abarca instancias de Azure SQL Database, instancias administradas de Azure SQL Database, bases de datos de Azure SQL Data Warehouse y servidores SQL Server en Azure Virtual Machines.
+
+Para más información, consulte:
+
+* [Cómo habilitar Advanced Threat Protection para Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview)
+* [Cómo habilitar Advanced Threat Protection para servidores SQL Server en Azure Virtual Machines](security-center-iaas-advanced-data.md)
+* [La lista de alertas de protección contra amenazas para SQL Database y SQL Data Warehouse](alerts-reference.md#alerts-sql-db-and-warehouse)
+
+
+
+## <a name="threat-protection-for-azure-storage"></a>Protección contra amenazas para Azure Storage <a name="azure-storage"></a>
+
+Advanced Threat Protection para Storage detecta los intentos poco habituales y potencialmente peligrosos de acceder a las cuentas de almacenamiento o de vulnerarlas. Esta capa de protección le permite afrontar las amenazas sin necesidad de ser un experto en seguridad y le ayuda a administrar sus sistemas de supervisión de la seguridad.
+
+Advanced Threat Protection para Azure Storage está actualmente disponible solo para [Blob Storage](https://azure.microsoft.com/services/storage/blobs/). 
+
+Este servicio está disponible en todas las nubes públicas y en las nubes de la administración pública de EE. UU., pero no en otras regiones de nubes soberanas o de Azure Government.
+
+Para obtener más información, incluida una evaluación gratuita de 30 días, consulte la [página de precios de Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/).
+
+Para más información, consulte:
+
+* [Cómo habilitar Advanced Threat Protection para Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection)
+* [La lista de alertas de protección contra amenazas para Azure Storage](alerts-reference.md#alerts-azurestorage)
+
+> [!TIP]
+> Puede simular las alertas de Azure Storage. Para ello, siga las instrucciones de [esta entrada de blog](https://techcommunity.microsoft.com/t5/azure-security-center/validating-atp-for-azure-storage-detections-in-azure-security/ba-p/1068131).
+
+
+
+
+## <a name="threat-protection-for-azure-cosmos-db"></a>Protección contra amenazas para Azure Cosmos DB <a name="cosmos-db"></a>
+
+Las alertas de Azure Cosmos DB las generan los intentos inusuales y potencialmente dañinos de acceso o aprovechamiento de cuentas de Azure Cosmos DB.
+
+Para más información, consulte:
+
+* [Advanced Threat Protection para Azure Cosmos DB (versión preliminar)](../cosmos-db/cosmos-db-advanced-threat-protection.md)
+* [La lista de alertas de protección contra amenazas para Azure Cosmos DB (versión preliminar)](alerts-reference.md#alerts-azurecosmos)
+
+
+
+
+## <a name="threat-protection-for-azure-network-layer"></a>Protección contra amenazas para la capa de red de Azure <a name="network-layer"></a>
 
 El análisis de la capa de red de Security Center se basa en [datos IPFIX](https://en.wikipedia.org/wiki/IP_Flow_Information_Export) de ejemplo, que son encabezados de paquete recopilados por los enrutadores principales de Azure. En función de esta fuente de distribución de datos, Security Center utiliza modelos de Machine Learning para identificar y marcar actividades de tráfico malintencionado. Security Center también utiliza la base de datos de Microsoft Threat Intelligence para enriquecer las direcciones IP.
 
@@ -150,11 +210,34 @@ Para obtener detalles sobre cómo Security Center pueden usar señales relaciona
 
 
 
+## <a name="threat-protection-for-azure-management-layer-azure-resource-manager-preview"></a>Protección contra amenazas para la capa de administración de Azure (Azure Resource Manager) (versión preliminar)<a name ="management-layer"></a>
+
+La capa de protección de Security Center basada en Azure Resource Manager está actualmente en versión preliminar.
+
+Security Center ofrece una capa adicional de protección al usar eventos de Azure Resource Manager, lo que se considera el plano de control de Azure. Al analizar los registros de Azure Resource Manager, Security Center detecta operaciones inusuales o potencialmente peligrosas en el entorno de suscripción de Azure.
+
+Para obtener una lista de las alertas de Azure Resource Manager (versión preliminar), consulte la [Tabla de referencia de alertas](alerts-reference.md#alerts-azureresourceman).
+
+
+
+>[!NOTE]
+> Varios de los análisis anteriores se realizan mediante Microsoft Cloud App Security. Para beneficiarse de estos análisis, debe activar una licencia de Cloud App Security. Si tiene una licencia de Cloud App Security, estas alertas están habilitadas de forma predeterminada. Para deshabilitar las alertas:
+>
+> 1. En la hoja **Security Center**, seleccione **Directiva de seguridad**. Para la suscripción que quiere cambiar, elija **Editar la configuración**.
+> 2. Seleccione **Detección de amenazas**.
+> 3. En **Habilitar integraciones**, desactive la opción **Allow Microsoft Cloud App Security to access my data** (Permitir que Microsoft Cloud App Security acceda a mis datos) y seleccione **Guardar**.
+
+>[!NOTE]
+>Security Center almacena datos de clientes relacionados con la seguridad en la misma zona geográfica que su recurso. Si Microsoft aún no ha implementado Security Center en la zona geográfica del recurso, almacenará los datos en Estados Unidos. Cuando Cloud App Security esté habilitado, esta información se almacenará con arreglo a las reglas de ubicación geográfica de Cloud App Security. Para obtener más información, consulte [Almacenamiento de datos para servicios no regionales](https://azuredatacentermap.azurewebsites.net/).
 
 
 
 
-## Protección contra amenazas para Azure Key Vault (versión preliminar)<a name="azure-keyvault"></a>
+
+
+
+
+## <a name="threat-protection-for-azure-key-vault-preview"></a>Protección contra amenazas para Azure Key Vault (versión preliminar)<a name="azure-keyvault"></a>
 
 > [!NOTE]
 > Este servicio no está disponible actualmente en Azure Government ni en las regiones de nubes soberanas.
@@ -171,89 +254,9 @@ Para obtener una lista de las alertas de Azure Key Vault, consulte la [Tabla de 
 
 
 
+## <a name="threat-protection-for-other-microsoft-services"></a>Protección contra amenazas para otros servicios de Microsoft <a name="alerts-other"></a>
 
-
-
-## Protección contra amenazas para SQL Database y SQL Data Warehouse <a name="data-sql"></a>
-
-Advanced Threat Protection para Azure SQL Database detecta actividades anómalas que indican intentos inusuales y potencialmente dañinos de acceso o ataque a las bases de datos.
-
-Verá alertas cuando haya actividades sospechosas en las bases de datos, posibles vulnerabilidades o ataques por inyección de código SQL, y patrones anómalos de acceso y consulta a las bases de datos.
-
-Advanced Threat Protection para Azure SQL Database y SQL forma parte del paquete unificado [Advanced Data Security (ADS)](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security) para funcionalidades de seguridad SQL avanzadas, que abarca instancias de Azure SQL Database, instancias administradas de Azure SQL Database, bases de datos de Azure SQL Data Warehouse y servidores SQL Server en Azure Virtual Machines.
-
-Para más información, consulte:
-
-* [Cómo habilitar Advanced Threat Protection para Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview)
-* [Cómo habilitar Advanced Threat Protection para servidores SQL Server en Azure Virtual Machines](security-center-iaas-advanced-data.md)
-* [La lista de alertas de protección contra amenazas para SQL Database y SQL Data Warehouse](alerts-reference.md#alerts-sql-db-and-warehouse)
-
-
-
-
-
-
-
-
-
-## Protección contra amenazas para Azure Storage <a name="azure-storage"></a>
-
-> [!NOTE]
-> Este servicio no está disponible actualmente en Azure Government ni en las regiones de nubes soberanas.
-
-Advanced Threat Protection para Storage (disponible actualmente solo para Blob Storage) detecta los intentos poco habituales y potencialmente peligrosos de acceder a las cuentas de almacenamiento o de vulnerarlas. Esta capa de protección le permite afrontar las amenazas sin necesidad de ser un experto en seguridad y le ayuda a administrar sus sistemas de supervisión de la seguridad.
-
-Para más información, consulte:
-
-* [Cómo habilitar Advanced Threat Protection para Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection)
-* [La lista de alertas de protección contra amenazas para Azure Storage](alerts-reference.md#alerts-azurestorage)
-
-
-
-
-
-
-
-## Protección contra amenazas para Azure Cosmos DB <a name="cosmos-db"></a>
-
-Las alertas de Azure Cosmos DB las generan los intentos inusuales y potencialmente dañinos de acceso o aprovechamiento de cuentas de Azure Cosmos DB.
-
-Para más información, consulte:
-
-* [Advanced Threat Protection para Azure Cosmos DB (versión preliminar)](../cosmos-db/cosmos-db-advanced-threat-protection.md)
-* [La lista de alertas de protección contra amenazas para Azure Cosmos DB (versión preliminar)](alerts-reference.md#alerts-azurecosmos)
-
-
-
-
-
-
-
-## Protección contra amenazas para la capa de administración de Azure (Azure Resource Manager) (versión preliminar)<a name ="management-layer"></a>
-
-La capa de protección de Security Center basada en Azure Resource Manager está actualmente en versión preliminar.
-
-Security Center ofrece una capa adicional de protección al usar eventos de Azure Resource Manager, lo que se considera el plano de control de Azure. Al analizar los registros de Azure Resource Manager, Security Center detecta operaciones inusuales o potencialmente peligrosas en el entorno de suscripción de Azure.
-
-Para obtener una lista de las alertas de Azure Resource Manager (versión preliminar), consulte la [Tabla de referencia de alertas](alerts-reference.md#alerts-azureresourceman).
-
-
-
->[!NOTE]
-> Varios de los análisis anteriores se realizan mediante Microsoft Cloud App Security. Para beneficiarse de estos análisis, debe activar una licencia de Cloud App Security. Si tiene una licencia de Cloud App Security, estas alertas están habilitadas de forma predeterminada. Para deshabilitarlas:
->
-> 1. En la hoja **Security Center**, seleccione **Directiva de seguridad**. Para la suscripción que quiere cambiar, elija **Editar la configuración**.
-> 2. Seleccione **Detección de amenazas**.
-> 3. En **Habilitar integraciones**, desactive la opción **Allow Microsoft Cloud App Security to access my data** (Permitir que Microsoft Cloud App Security acceda a mis datos) y seleccione **Guardar**.
-
->[!NOTE]
->Security Center almacena datos de clientes relacionados con la seguridad en la misma zona geográfica que su recurso. Si Microsoft aún no ha implementado Security Center en la zona geográfica del recurso, almacenará los datos en Estados Unidos. Cuando Cloud App Security esté habilitado, esta información se almacenará con arreglo a las reglas de ubicación geográfica de Cloud App Security. Para obtener más información, consulte [Almacenamiento de datos para servicios no regionales](https://azuredatacentermap.azurewebsites.net/).
-
-
-
-## Alertas de seguridad de otros servicios de Microsoft <a name="alerts-other"></a>
-
-### Protección contra amenazas para el firewall de aplicaciones web de Azure <a name="azure-waf"></a>
+### <a name="threat-protection-for-azure-waf"></a>Protección contra amenazas para el firewall de aplicaciones web de Azure <a name="azure-waf"></a>
 
 Firewall de aplicaciones web (WAF) es una característica de Azure Application Gateway que proporciona a las aplicaciones web una protección centralizada contra vulnerabilidades de seguridad comunes.
 
@@ -262,7 +265,7 @@ Las aplicaciones web son cada vez más el objetivo de ataques malintencionados q
 Si tiene una licencia para el firewall de aplicaciones web de Azure, las alertas de este se transmitirán a Security Center sin necesidad de configuración adicional. Para más información sobre las alertas generadas por WAF, consulte [Reglas y grupos de reglas de CRS del firewall de aplicaciones web](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md?tabs=owasp31#crs911-31).
 
 
-### Protección contra amenazas para Azure DDoS Protection <a name="azure-ddos"></a>
+### <a name="threat-protection-for-azure-ddos-protection"></a>Protección contra amenazas para Azure DDoS Protection <a name="azure-ddos"></a>
 
 Los ataques de denegación de servicio distribuido (DDoS) son conocidos por lo fáciles que son de ejecutar. Se han convertido en un problema de seguridad muy importante, especialmente si va a trasladar sus aplicaciones a la nube. 
 

@@ -4,20 +4,23 @@ description: Este artículo contiene una colección de comandos de ejemplo de Az
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 04/10/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: fbdb447905ae43fe92693dfe45c1add710f76355
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 73685f124f93bb541f33b3b70727d90ce22b3cdd
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78933589"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81263444"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Transferencia de datos con AzCopy y Blob Storage
 
 AzCopy es una utilidad de línea de comandos que puede usar para copiar datos entre cuentas de almacenamiento. Este artículo contiene comandos de ejemplo que funcionan con Blob Storage.
+
+> [!TIP]
+> En los ejemplos de este artículo se delimitan los argumentos de ruta de acceso con comillas simples (''). Use comillas simples en todos los shells de comandos excepto en el shell de comandos de Windows (cmd.exe). Si usa un shell de comandos de Windows (cmd.exe), incluya los argumentos de la ruta de acceso entre comillas dobles ("") en lugar de comillas simples ('').
 
 ## <a name="get-started"></a>Introducción
 
@@ -31,9 +34,6 @@ Vea el artículo [Introducción a AzCopy](storage-use-azcopy-v10.md) para descar
 > Por ejemplo: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
 
 ## <a name="create-a-container"></a>Crear un contenedor
-
-> [!TIP]
-> En los ejemplos de esta sección se delimitan los argumentos de ruta de acceso con comillas simples (''). Use comillas simples en todos los shells de comandos excepto en el shell de comandos de Windows (cmd.exe). Si usa un shell de comandos de Windows (cmd.exe), incluya los argumentos de la ruta de acceso entre comillas dobles ("") en lugar de comillas simples ('').
 
 Para crear un contenedor puede usar el comando [azcopy make](storage-ref-azcopy-make.md). En los ejemplos de esta sección se crea un contenedor denominado `mycontainer`.
 
@@ -57,10 +57,16 @@ En esta sección se incluyen los ejemplos siguientes:
 > * Subir el contenido de un directorio 
 > * Carga de archivos específicos
 
-Para obtener documentos de referencia detallados, consulte [azcopy copy](storage-ref-azcopy-copy.md).
-
 > [!TIP]
-> En los ejemplos de esta sección se delimitan los argumentos de ruta de acceso con comillas simples (''). Use comillas simples en todos los shells de comandos excepto en el shell de comandos de Windows (cmd.exe). Si usa un shell de comandos de Windows (cmd.exe), incluya los argumentos de la ruta de acceso entre comillas dobles ("") en lugar de comillas simples ('').
+> Puede modificar las operaciones de carga mediante marcas opcionales. Estos son algunos ejemplos.
+>
+> |Escenario|Marca|
+> |---|---|
+> |Cargar los archivos como blobs en anexos o blobs en páginas.|**--blob-type**=\[BlockBlob\|PageBlob\|AppendBlob\]|
+> |Cargar en un nivel de acceso específico (como el nivel de archivo).|**--block-blob-tier**=\[None\|Hot\|Cool\|Archive\]|
+> |Descomprimir archivos automáticamente.|**--decompress**=\[gzip\|deflate\]|
+> 
+> Para obtener una lista completa, vea las [opciones](storage-ref-azcopy-copy.md#options).
 
 ### <a name="upload-a-file"></a>Cargar un archivo
 
@@ -71,10 +77,6 @@ Para obtener documentos de referencia detallados, consulte [azcopy copy](storage
 | **Ejemplo** (espacio de nombres jerárquico) | `azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myTextFile.txt'` |
 
 También puede cargar un archivo mediante un símbolo comodín (*) en cualquier lugar de la ruta de acceso o del nombre de archivo. Por ejemplo: `'C:\myDirectory\*.txt'` o `C:\my*\*.txt`.
-
-> [!NOTE]
-> De manera predeterminada, AzCopy carga los datos como blobs en bloques. Para cargar archivos como blobs en anexos o blobs en páginas, use la marca `--blob-type=[BlockBlob|PageBlob|AppendBlob]`.
-> De manera predeterminada, AzCopy carga los datos para heredar el nivel de acceso de la cuenta. Para cargar archivos en un [nivel de acceso](../blobs/storage-blob-storage-tiers.md) concreto, use la marca `--block-blob-tier=[Hot|Cool|Archive]`.
 
 ### <a name="upload-a-directory"></a>Subir un directorio
 
@@ -152,13 +154,19 @@ En esta sección se incluyen los ejemplos siguientes:
 > * Descargar el contenido de un directorio
 > * Descarga de archivos específicos
 
+> [!TIP]
+> Puede modificar las operaciones de descarga mediante marcas opcionales. Estos son algunos ejemplos.
+>
+> |Escenario|Marca|
+> |---|---|
+> |Descomprimir archivos automáticamente.|**--decompress**=\[gzip\|deflate\]|
+> |Especifique el grado de detalles que quiere que sean las entradas de registro relacionadas con la copia.|**--log-level**=\[WARNING\|ERROR\|INFO\|NONE\]|
+> |Especifique si desea sobrescribir los archivos y blobs en conflicto en el destino, y cómo hacerlo.|**--overwrite**=\[true\|false\|ifSourceNewer\|prompt\]|
+> 
+> Para obtener una lista completa, vea las [opciones](storage-ref-azcopy-copy.md#options).
+
 > [!NOTE]
 > Si el valor de la propiedad `Content-md5` de un blob contiene un hash, AzCopy calcula un hash MD5 para los datos descargados y comprueba que el hash MD5 almacenado en la propiedad `Content-md5` del blob coincide con el hash calculado. Si estos valores no coinciden, se produce un error en la descarga a menos que invalide este comportamiento mediante la anexión de `--check-md5=NoCheck` o `--check-md5=LogOnly` al comando de copia.
-
-Para obtener documentos de referencia detallados, consulte [azcopy copy](storage-ref-azcopy-copy.md).
-
-> [!TIP]
-> En los ejemplos de esta sección se delimitan los argumentos de ruta de acceso con comillas simples (''). Use comillas simples en todos los shells de comandos excepto en el shell de comandos de Windows (cmd.exe). Si usa un shell de comandos de Windows (cmd.exe), incluya los argumentos de la ruta de acceso entre comillas dobles ("") en lugar de comillas simples ('').
 
 ### <a name="download-a-file"></a>Descarga de un archivo
 
@@ -245,12 +253,18 @@ En esta sección se incluyen los ejemplos siguientes:
 > * Copia de un contenedor a otra cuenta de almacenamiento
 > * Copia de todos los contenedores, directorios y archivos a otra cuenta de almacenamiento
 
-Para obtener documentos de referencia detallados, consulte [azcopy copy](storage-ref-azcopy-copy.md).
+Estos ejemplos también funcionan con las cuentas que tienen un espacio de nombres jerárquico. El [acceso multiprotocolo en Data Lake Storage](../blobs/data-lake-storage-multi-protocol-access.md) le permite usar la misma sintaxis de URL (`blob.core.windows.net`) en esas cuentas.
 
 > [!TIP]
-> En los ejemplos de esta sección se delimitan los argumentos de ruta de acceso con comillas simples (''). Use comillas simples en todos los shells de comandos excepto en el shell de comandos de Windows (cmd.exe). Si usa un shell de comandos de Windows (cmd.exe), incluya los argumentos de la ruta de acceso entre comillas dobles ("") en lugar de comillas simples ('').
-
- Estos ejemplos también funcionan con las cuentas que tienen un espacio de nombres jerárquico. El [acceso multiprotocolo en Data Lake Storage](../blobs/data-lake-storage-multi-protocol-access.md) le permite usar la misma sintaxis de URL (`blob.core.windows.net`) en esas cuentas. 
+> Puede modificar las operaciones de copia mediante marcas opcionales. Estos son algunos ejemplos.
+>
+> |Escenario|Marca|
+> |---|---|
+> |Copiar los archivos como blobs en anexos o blobs en páginas.|**--blob-type**=\[BlockBlob\|PageBlob\|AppendBlob\]|
+> |Copiar en un nivel de acceso específico (como el nivel de archivo).|**--block-blob-tier**=\[None\|Hot\|Cool\|Archive\]|
+> |Descomprimir archivos automáticamente.|**--decompress**=\[gzip\|deflate\]|
+> 
+> Para obtener una lista completa, vea las [opciones](storage-ref-azcopy-copy.md#options).
 
 ### <a name="copy-a-blob-to-another-storage-account"></a>Copia de un blob a otra cuenta de almacenamiento
 
@@ -306,10 +320,16 @@ Si establece la marca `--delete-destination` en `true`, AzCopy elimina los archi
 > [!NOTE]
 > Para evitar eliminaciones accidentales, asegúrese de habilitar la característica de [eliminación temporal](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) antes de usar la marca `--delete-destination=prompt|true`.
 
-Para obtener documentos de referencia detallados, consulte [azcopy sync](storage-ref-azcopy-sync.md).
-
 > [!TIP]
-> En los ejemplos de esta sección se delimitan los argumentos de ruta de acceso con comillas simples (''). Use comillas simples en todos los shells de comandos excepto en el shell de comandos de Windows (cmd.exe). Si usa un shell de comandos de Windows (cmd.exe), incluya los argumentos de la ruta de acceso entre comillas dobles ("") en lugar de comillas simples ('').
+> Puede modificar las operaciones de sincronización mediante marcas opcionales. Estos son algunos ejemplos.
+>
+> |Escenario|Marca|
+> |---|---|
+> |Especificar cómo de estrictamente se deben validar los hashes MD5 al descargarse.|**--check-md5**=\[NoCheck\|LogOnly\|FailIfDifferent\|FailIfDifferentOrMissing\]|
+> |Excluir archivos en función de un patrón.|**--exclude-path**|
+> |Especifique el grado de detalles que quiere que sean las entradas de registro relacionadas con la sincronización.|**--log-level**=\[WARNING\|ERROR\|INFO\|NONE\]|
+> 
+> Para obtener una lista completa, vea las [opciones](storage-ref-azcopy-sync.md#options).
 
 ### <a name="update-a-container-with-changes-to-a-local-file-system"></a>Actualización de un contenedor con los cambios realizados en un sistema de archivos local
 

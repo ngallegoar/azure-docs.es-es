@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/22/2019
+ms.date: 04/09/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46e29fff3308f35b16dbff2f9cead82abc222a5c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0822bdd886a9a29f2cdb6843d3dc4404d7360f32
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79231800"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261030"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Registros de actividad de Azure AD en Azure Monitor
 
@@ -98,12 +98,13 @@ Los eventos se agrupan en intervalos de aproximadamente cinco minutos y se enví
 
 Por ejemplo, unos 18 eventos por segundo se producen normalmente para un inquilino de gran tamaño de más de 100 000 usuarios, una tasa que equivale a 5 400 eventos cada cinco minutos. Dado que los registros de auditoría son de aproximadamente 2 KB por evento, esto equivale a 10,8 MB de datos. Por lo tanto, se envían 43 mensajes al centro de eventos en ese intervalo de cinco minutos. 
 
-La siguiente tabla contiene los costos aproximados al mes para un centro de eventos básico en la región Oeste de EE. UU., en función del volumen de datos de eventos. Para calcular una estimación precisa del volumen de datos previstos para la aplicación, use la [calculadora de precios de Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
+En la tabla siguiente se incluyen los costos estimados al mes para un centro de eventos básico en la región Oeste de EE. UU., según el volumen de datos de eventos que pueden variar de un inquilino a otro en función de muchos factores, como el comportamiento de inicio de sesión de usuario, etc. Para calcular una estimación precisa del volumen de datos previstos para la aplicación, use la [calculadora de precios de Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 | Categoría del registro | Número de usuarios | Eventos por segundo | Eventos por intervalo de cinco minutos | Volumen por intervalo | Mensajes por intervalo | Mensajes al mes | Costo al mes (aprox.) |
 |--------------|-----------------|-------------------------|----------------------------------------|---------------------|---------------------------------|------------------------------|----------------------------|
 | Auditoría | 100 000 | 18 | 5 400 | 10,8 MB | 43 | 371,520 | 10,83 USD |
 | Auditoría | 1,000 | 0,1 | 52 | 104 KB | 1 | 8 640 | 10,80 USD |
+| Inicios de sesión | 100 000 | 18000 | 5 400 000 | 10,8 GB | 42188 | 364 504 320 | 23,9 USD |  
 | Inicios de sesión | 1,000 | 178 | 53 400 | 106,8&nbsp;MB | 418 | 3 611 520 | 11,06 USD |  
 
 ### <a name="azure-monitor-logs-cost-considerations"></a>Consideraciones acerca del costo de registros de Azure Monitor
@@ -179,7 +180,7 @@ En esta sección se responden las preguntas más frecuentes y se abordan los pro
 
 **P: ¿Qué herramientas SIEM se admiten actualmente?** 
 
-**R.** : Actualmente, [Splunk](tutorial-integrate-activity-logs-with-splunk.md), QRadar y [Sumo Logic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory) admiten Azure Monitor. Para más información sobre cómo funcionan los conectores, consulte [Flujo de datos de supervisión de Azure a un centro de eventos para que lo consuma una herramienta externa](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
+**R.** : **R.** : Actualmente, Azure Monitor es compatible con [Splunk](tutorial-integrate-activity-logs-with-splunk.md), IBM QRadar, [Sumo Logic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory), [ArcSight](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-arcsight), LogRhythm y Logz.io. Para más información sobre cómo funcionan los conectores, consulte [Flujo de datos de supervisión de Azure a un centro de eventos para que lo consuma una herramienta externa](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
 
 ---
 

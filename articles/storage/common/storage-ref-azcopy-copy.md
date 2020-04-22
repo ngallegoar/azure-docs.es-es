@@ -4,16 +4,16 @@ description: En este artículo se proporciona información de referencia del com
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 10/16/2019
+ms.date: 04/10/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 431372b930269c3dfa6bdc6e8b2fe4d291a8162e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0325a71fb069f3d96f05d106afac1639fc38fe42
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78933793"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81253346"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -169,6 +169,8 @@ Copia de un subconjunto de cubos mediante un símbolo comodín (*) en el nombre 
 
 ## <a name="options"></a>Opciones
 
+**--backup** activa los privilegios SeBackupPrivilege de Windows para cargas, o SeRestorePrivilege para descargas, para que AzCopy pueda leer todos los archivos, independientemente de los permisos del sistema de archivos, y restaurar todos los permisos. Requiere que la cuenta que ejecuta AzCopy ya tenga estos permisos (por ejemplo, que tenga derechos de administrador o que sea miembro del grupo "Operadores de copia de seguridad"). Esta marca lo único que hace es activar los privilegios que ya tiene la cuenta.
+
 **--blob-type** string                     Define el tipo de blob en el destino. Se usa para cargar blobs y al copiar entre cuentas (el valor predeterminado es "Detect"). Los valores válidos incluyen "Detect", "BlockBlob", "PageBlob" y "AppendBlob". Al copiar entre cuentas, un valor "Detect" hace que AzCopy use el tipo de blob de origen para determinar el tipo del blob de destino. Al cargar un archivo, "Detect" determina si el archivo es un archivo VHD o VHDX en función de la extensión del archivo. Si el archivo es VHD o VHDX, AzCopy lo trata como un blob en páginas. (el valor predeterminado es "Detect")
 
 **--block-blob-tier** string               Carga los blobs en bloques directamente en el [nivel de acceso](../blobs/storage-blob-storage-tiers.md) que prefiera. (el valor predeterminado es "None") Entre los valores válidos se incluyen "None", "Hot", "Cool" y "Archive". Si el valor es "None" o no se pasa ningún nivel, el blob heredará el nivel de la cuenta de almacenamiento.
@@ -222,6 +224,12 @@ Copia de un subconjunto de cubos mediante un símbolo comodín (*) en el nombre 
 **--page-blob-tier** string                Carga un blob en páginas en Azure Storage con este nivel de blobs. (el valor predeterminado es "None")
 
 **--preserve-last-modified-time**          Solo está disponible si el destino es un sistema de archivos.
+
+Cadena **--preserve-smb-permissions**      False de manera predeterminada. Conserva las listas de control de acceso de SMB entre los recursos compatibles (Windows y Azure Files). En el caso de las descargas, también tendrá que usar la marca `--backup` para restaurar los permisos si el nuevo propietario no es el usuario que ejecuta AzCopy. Esta marca se aplica tanto a archivos como a carpetas, salvo que se especifique un filtro de que solo permita archivos (por ejemplo, `include-pattern`).
+
+Cadena **--preserve-smb-info**             False de manera predeterminada. Conserva la información de las propiedades de SMB (hora de la última escritura, hora de creación, bits de atributo) entre los recursos compatibles con SMB (Windows y Azure Files). Solo se transferirán los bits de atributo que admite Azure Files; los restantes se omitirán. Esta marca se aplica tanto a archivos como a carpetas, salvo que se especifique un filtro de que solo permita archivos (por ejemplo, include-pattern). La información transferida a las carpetas es la misma que la transferida a los archivos, excepto la hora de la última escritura, que nunca se conserva para las carpetas.
+
+**--preserve-owner**                       Solo tiene efecto al descargar datos, y solo cuando se usa `--preserve-smb-permissions`. Si es true (valor predeterminado), el propietario del archivo y el grupo se conservan en las descargas. Si esta marca se establece en false, `--preserve-smb-permissions` conservará las listas de control de acceso, pero el propietario y el grupo se basarán en el usuario que ejecuta AzCopy.
 
 **--put-md5**                             Crea un hash MD5 de cada archivo y lo guarda como la propiedad Content-MD5 del blob o archivo de destino. (De forma predeterminada, NO se crea el hash). Solo está disponible al cargar.
 

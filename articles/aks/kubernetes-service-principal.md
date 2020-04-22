@@ -3,17 +3,17 @@ title: Entidades de servicio para Azure Kubernetes Service (AKS)
 description: Cree y administre una entidad de servicio de Azure Active Directory para un clúster en Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: conceptual
-ms.date: 04/25/2019
-ms.openlocfilehash: 523f08ddbf22e175af5b0604b04d4a2460ffd634
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/02/2020
+ms.openlocfilehash: 2c792eb4dc060e3f5d7fa2d8f2176bdd51538c43
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79229608"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392737"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Entidades de servicio con Azure Kubernetes Service (AKS)
 
-Para interactuar con las API de Azure, un clúster de AKS requiere una [entidad de servicio de Azure Active Directory (AD)][aad-service-principal]. La entidad de servicio se necesita para crear y administrar dinámicamente otros recursos de Azure, como Azure Load Balancer o Container Registry.
+Para interactuar con las API de Azure, un clúster de AKS requiere una [entidad de servicio de Azure Active Directory (AD)][aad-service-principal] o una [identidad administrada](use-managed-identity.md). Estos elementos se necesitan para crear y administrar dinámicamente otros recursos de Azure, como Azure Load Balancer o Container Registry.
 
 En este artículo se muestra cómo crear y usar una entidad de servicio para los clústeres de AKS.
 

@@ -1,23 +1,22 @@
 ---
-title: Creación de una nueva oferta de Dynamics 365 Business Central en Marketplace comercial
-description: Cómo crear una nueva oferta de Dynamics 365 Business Central para mostrarla o venderla en Azure Marketplace, AppSource, o bien a través del programa Proveedor de soluciones en la nube (CSP) mediante el portal de Marketplace comercial del Centro de partners de Microsoft.
-author: ChJenk
-manager: evansma
-ms.author: v-chjen
+title: Creación de una nueva oferta de Dynamics 365 Business Central en el marketplace comercial de Microsoft
+description: Cómo crear una nueva oferta de Dynamics 365 Business Central para mostrarla o venderla en Azure Marketplace, Microsoft AppSource o bien mediante el programa Proveedor de soluciones en la nube (CSP) mediante el portal de marketplace comercial del Centro de partners de Microsoft.
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 01/13/2020
-ms.openlocfilehash: 4c0467039cf4fefd7625f1146c4bade99b49304d
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.date: 04/09/2020
+ms.openlocfilehash: 9bb1059087bdf8fc4eb852be7a995febc3336713
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048726"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115281"
 ---
 # <a name="create-a-new-dynamics-365-business-central-offer"></a>Creación de una nueva oferta de Dynamics 365 Business Central
 
-En este tema se explica cómo crear una nueva oferta de Dynamics 365 Business Central. [Microsoft Dynamics 365 Business Central](https://dynamics.microsoft.com/business-central) es una sistema de planeación de recursos empresariales (ERP) que controla una amplia gama de procesos empresariales, incluidas las finanzas, las operaciones, la cadena de suministro, la administración de relaciones con el cliente, la administración de proyectos y el comercio electrónico. Los paquetes Premium también admiten el modelo de implementación clásico y la fabricación. Todas las ofertas de Dynamics 365 Business Central deben pasar por nuestro proceso de certificación.
+En este artículo se explica cómo crear una nueva oferta de Dynamics 365 Business Central. [Microsoft Dynamics 365 Business Central](https://dynamics.microsoft.com/business-central) es una sistema de planeación de recursos empresariales (ERP) que controla una amplia gama de procesos empresariales, incluidas las finanzas, las operaciones, la cadena de suministro, la administración de relaciones con el cliente, la administración de proyectos y el comercio electrónico. Los paquetes Premium también admiten el modelo de implementación clásico y la fabricación. Todas las ofertas de Dynamics 365 Business Central deben pasar por nuestro proceso de certificación.
 
 Para empezar a crear ofertas de Dynamics 365 Business Central, asegúrese de que primero [crea una cuenta del Centro de partners](./create-account.md) y después abre el [panel de Marketplace comercial](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), con la página **Información general** seleccionada.
 
@@ -114,12 +113,10 @@ Proporcione sus propios términos y condiciones legales en el campo **Términos 
 
 ## <a name="offer-listing"></a>Descripción de la oferta
 
-La página de descripción de la oferta muestra los idiomas en los que se mostrará la oferta. La única opción disponible actualmente es **Inglés (Estados Unidos)** .
-
-Tendrá que definir los detalles de Marketplace (nombre de la oferta, descripción, imágenes, etc.) para cada idioma y mercado. Seleccione el nombre de idioma o mercado para proporcionar esta información.
+En la página Descripción de la oferta se definen los detalles de la oferta (nombre, descripción, imágenes, etc).
 
 > [!NOTE]
-> No es necesario que el contenido del anuncio de la oferta (por ejemplo, la descripción, los documentos, las capturas de pantallas, los términos de uso, etc.) esté en inglés siempre que la descripción de la oferta empiece por la frase "Esta aplicación solo está disponible en [idioma distinto del inglés]". También es aceptable proporcionar una *dirección URL de vínculo útil* para ofrecer contenido en un idioma distinto del que se usa en el contenido del anuncio de la oferta.
+> Solo puede proporcionar los detalles de la descripción de la oferta en un idioma. No es necesario que los detalles de la oferta estén en inglés si la descripción de la oferta comienza con la frase "Esta aplicación solo está disponible en [idioma distinto del inglés]". También es aceptable proporcionar una *dirección URL de vínculo de ayuda* para ofrecer contenido en un idioma distinto del que se usa en el contenido del anuncio de la oferta.
 
 ### <a name="name"></a>Nombre
 
@@ -170,23 +167,23 @@ Opcionalmente, puede escribir un máximo de tres palabras clave de búsqueda par
 
 Si quiere permitir que los clientes sepan que su aplicación funciona con productos específicos, escriba hasta tres nombres de productos aquí.
 
-### <a name="support-urls"></a>Direcciones URL de soporte técnico
+### <a name="helpprivacy-urls"></a>Direcciones URL de ayuda y privacidad
 
 Esta sección le permite proporcionar vínculos para ayudar a los clientes a comprender mejor su oferta.
 
 #### <a name="help-link"></a>Vínculo de ayuda
 
-Escriba la dirección URL en la que los clientes pueden obtener más información sobre su oferta.
+Escriba la dirección URL en la que los clientes pueden obtener más información sobre su oferta. El **vínculo de ayuda** no puede ser el mismo que la **dirección URL de soporte técnico** (se explica a continuación).
 
-#### <a name="privacy-policy-url"></a>Dirección URL de la directiva de privacidad
+#### <a name="privacy-policy-link"></a>Vínculo de la directiva de privacidad
 
 Escriba la dirección URL a la directiva de privacidad de su organización. Usted es el responsable no solo de garantizar que la aplicación cumple la normativa y la legislación en lo tocante a la privacidad, sino también de proporcionar una directiva de privacidad válida.
 
-### <a name="contacts"></a>Contactos
+### <a name="contact-information"></a>Información de contacto
 
 En esta sección, debe proporcionar el nombre, el correo electrónico y el número de teléfono de un **contacto de soporte técnico** y un **contacto de ingeniería**. Esta información no se muestra a los clientes, pero estará disponible para Microsoft y puede proporcionarse a los asociados de CSP.
 
-En la sección **Contacto de soporte técnico**, también debe proporcionar la **dirección URL de soporte técnico** en la que los asociados de CSP pueden encontrar soporte técnico para la oferta.
+En la sección **Contacto de soporte técnico**, también debe proporcionar la **dirección URL de soporte técnico** en la que los asociados de CSP pueden encontrar soporte técnico para la oferta. La dirección URL de soporte técnico no puede ser la misma que el **vínculo de ayuda**.
 
 ### <a name="supporting-documents"></a>Documentos relacionados
 
@@ -194,15 +191,7 @@ Proporcione al menos un documento de marketing relacionado (y un máximo de tres
 
 ### <a name="marketplace-images"></a>Imágenes de Marketplace
 
-En esta sección, puede proporcionar logotipos e imágenes que se usarán al mostrar la oferta al cliente. Todas las imágenes deben estar en formato .PNG.
-
-#### <a name="store-logos"></a>Logotipos de Store
-
-Proporcione el logotipo de la oferta en dos tamaños: **Pequeño (48 x 48)** y **grande (216 x 216)** .
-
-#### <a name="hero"></a>Imagen prominente
-
-La imagen prominente es opcional. Si proporciona una, debe medir 815 x 290 píxeles.
+En esta sección, puede proporcionar logotipos e imágenes que se usarán al mostrar la oferta al cliente. Todas las imágenes deben estar en formato .PNG. Cargue el logotipo de la oferta en dos tamaños: **Pequeño (48 x 48)** y **grande (216 x 216)** .
 
 #### <a name="screenshots"></a>Capturas de pantalla
 
@@ -268,7 +257,7 @@ Se requiere si la oferta debe instalarse junto con otra extensión que ya se ha 
 
 ### <a name="url-to-app-installation"></a>Dirección URL a la instalación de la aplicación
 
-Si seleccionó **Connect** anteriormente, proporcione la dirección URL de la instalación de la aplicación aquí.
+Si seleccionó **Connect** anteriormente, proporcione la dirección URL de la instalación de la aplicación aquí. En el caso de los servicios conectados que no requieren instalación, proporcione la dirección URL de la página de aterrizaje del servicio o la página de registro.
 
 ## <a name="test-drive-technical-configuration"></a>Configuración técnica de la versión de prueba
 
@@ -307,9 +296,9 @@ Microsoft puede eliminar la complejidad de configurar una versión de prueba hos
 
 - **Duración de la versión de prueba (horas)** (se requiere): Especifique el período de tiempo que la versión de prueba permanecerá activa. Para ello debe definir el número de horas. Después de este número de horas, la sesión finalizará y dejará de consumir una de las licencias. Se recomienda un valor que oscile entre 2 y 24 horas, en función de la complejidad de la oferta. Esta duración solo se puede indicar con un número completo de horas (p. ej. "2" horas; "1,5" no es un valor válido).  El usuario puede solicitar una nueva sesión si se agota el tiempo y desea volver a acceder a la versión de prueba.
 
-- **Dirección URL de la instancia** (se requiere): la dirección URL en la que el cliente comenzará su versión de prueba. Normalmente es la dirección URL de la instancia de Dynamics 365 en la que se ejecuta la aplicación con los datos de ejemplo instalados (por ejemplo, https://testdrive.crm.dynamics.com).
+- **Dirección URL de la instancia** (se requiere): la dirección URL en la que el cliente comenzará su versión de prueba. Normalmente es la dirección URL de la instancia de Dynamics 365 en la que se ejecuta la aplicación con los datos de ejemplo instalados (por ejemplo, `https://testdrive.crm.dynamics.com`).
 
-- **Dirección URL de API web de la instancia** (se requiere): Recupere la dirección URL de la API web de la instancia de Dynamics 365. Para ello, inicie sesión en su cuenta de Microsoft 365 y vaya a **Configuración** \&gt; **Personalización** \&gt; **Recursos para desarrolladores** \&gt; **API web de instancia (URL raíz de servicio)** . Copie la dirección URL que se encuentra aquí (por ejemplo, https://testdrive.crm.dynamics.com/api/data/v9.0).
+- **Dirección URL de API web de la instancia** (se requiere): Recupere la dirección URL de la API web de la instancia de Dynamics 365. Para ello, inicie sesión en su cuenta de Microsoft 365 y vaya a **Configuración** \&gt; **Personalización** \&gt; **Recursos para desarrolladores** \&gt; **API web de instancia (URL raíz de servicio)** . Copie la dirección URL que se encuentra aquí (por ejemplo, `https://testdrive.crm.dynamics.com/api/data/v9.0`).
 
 - **Nombre de rol** (se requiere): proporcione el nombre del rol de seguridad que ha definido en la versión de prueba de Dynamics 365 personalizada, que se asignará al usuario durante la versión de prueba (por ejemplo, test-drive-role).
 
@@ -351,7 +340,11 @@ No olvide **guardar** antes de pasar a la siguiente sección.
 
 ### <a name="test-drive-marketplace-listings"></a>Listas de Marketplace de la versión de prueba
 
-La opción **Lista de Marketplace** que se encuentra en la pestaña **Versión de prueba** muestra los idiomas en los que está disponible la versión de prueba. La única ubicación disponible actualmente es **Inglés (Estados Unidos)** . Seleccione el nombre de idioma para especificar la información que describe la experiencia de la versión de prueba.
+La opción **Listas de marketplace** que se encuentra en la pestaña **Versión de prueba** es donde se definen los detalles de la experiencia de la versión de prueba.
+
+> [!NOTE]
+> Solo puede proporcionar los detalles de la descripción de la versión de prueba en un idioma. No es necesario que los detalles estén en inglés si la descripción de la oferta comienza con la frase "Esta aplicación solo está disponible en [idioma distinto del inglés]". También es aceptable proporcionar una *dirección URL de vínculo de ayuda* para ofrecer contenido en un idioma distinto del que se usa en el contenido del anuncio de la versión de prueba.
+
 
 - **Descripción** (se requiere): se describe la versión de prueba, lo que se demostrará, los objetivos con los que experimentará el usuario, las características que se van a explorar y cualquier información relevante que ayude al usuario a determinar si debe adquirir la oferta. En este campo se puede escribir hasta 3000 caracteres de texto. 
 
