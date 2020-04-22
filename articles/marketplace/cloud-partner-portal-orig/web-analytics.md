@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: dsindona
-ms.openlocfilehash: 446e579a7205f0e785d7e940c1dbdd36cff8f370
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bd6d6375b19689c582c0f129378c76936e624e04
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80285340"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416277"
 ---
 <a name="web-analytics"></a>Web Analytics
 =============
@@ -40,7 +40,7 @@ Hay dos maneras de generar su propia campaña.
 
 1. Agregue a la dirección URL el parámetro de consulta **mktcmpid** que describe qué es la campaña y de qué página o evento provienen estos clientes.
 
-Por ejemplo, puede usar: <https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign>
+Por ejemplo, puede usar: ```https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign```
 
 1. (Avanzado): Use uno de nuestros identificadores de campaña compatibles y genéricos en la dirección URL. Queremos ajustarnos a las etiquetas de referencia adicionales que necesita usar, por lo que admitimos la convención para reconocer de manera automática estas etiquetas adicionales:
     
@@ -49,14 +49,14 @@ Por ejemplo, puede usar: <https://appsource.microsoft.com/product/dynamics-365/c
     3. **ref**
     4. **src**
 
-Por ejemplo, puede usar: <https://appsource.microsoft.com/product/dynamics-365/contoso.offername?utm_campaign=NewCampaign>
+Por ejemplo, puede usar: ```https://appsource.microsoft.com/product/dynamics-365/contoso.offername?utm_campaign=NewCampaign```
 
 Puede elegir tener una combinación de varios de estos identificadores de campaña para seguir identificando los diversos orígenes que impulsan el tráfico de la campaña, como de dónde proviene el cliente (correo electrónico, blog, origen de redes sociales, etc.).
 
 Por ejemplo:
 
-1. Origen de referencia de boletín: <https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign&src=newsletter>
-2. Origen de referencia de LinkedIn: <https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign&src=LinkedIn>
+1. Origen de referencia de boletín: ```https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign&src=newsletter```
+2. Origen de referencia de LinkedIn: ```https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign&src=LinkedIn```
 
 ### <a name="ensuring-campaigns-pass-through-all-your-pages"></a>**Asegúrese de que las campañas pasen por todas las páginas**
 
@@ -64,13 +64,13 @@ Puede haber un escenario en el que las campañas tengan una página intermedia a
 
 Este es un ejemplo:
 
-1. Un empleado de marketing compra anuncios a Google para impulsar el tráfico a la página de aterrizaje de la empresa <https://contoso.com>. Esta página de aterrizaje tiene un vínculo para \"probar el producto\" que va a <https://appsource.com>.
+1. Un empleado de marketing compra anuncios a Google para impulsar el tráfico a la página de aterrizaje de la empresa ```https://contoso.com```. Esta página de aterrizaje tiene un vínculo para \"probar el producto\" que va a ```https://appsource.com```.
 2. Un usuario hace clic en el anuncio y llega a la página de aterrizaje de su empresa.
     1.  Dirección URL de referencia = google.com
-    2.  Dirección URL de la página de aterrizaje = <https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName>
+    2.  Dirección URL de la página de aterrizaje = ```https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName```
 3. El usuario hace clic en el vínculo para \"probar el producto\" y llega a AppSource.
-    1. Dirección URL de referencia = <https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName>
-    2. Dirección URL de la página de aterrizaje (**Asegúrese de que se agregó utm\_campaign y utm\_source a esta dirección URL**) =  [https://appsource.microsoft.com/product/dynamics-365/contoso.offername?**utm\_ campaign=MyCampaignAdName&utm\_ source=MySourceAdName**](https://appsource.microsoft.com/product/dynamics-365/contoso.offername?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName)
+    1. Dirección URL de referencia = ```https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName```
+    2. Dirección URL de la página de aterrizaje (**asegúrese de que esta dirección URL tiene utm\_campaign y utm\_source agregados**) =  ```https://appsource.microsoft.com/product/dynamics-365/contoso.offername?**utm\_campaign=MyCampaignAdName&utm\_source=MySourceAdName**```
 
 <a name="how-to-evaluate-the-success-of-a-campaign"></a>Evaluación de los resultados de una campaña
 -----------------------------------------
