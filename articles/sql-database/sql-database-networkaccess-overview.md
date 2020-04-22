@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 822fab5c00501d415c3c184587141e869523e417
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8b4ee679b21d904f997f727f5f26275c86acc9c5
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78945393"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414412"
 ---
 # <a name="azure-sql-database-and-data-warehouse-network-access-controls"></a>Controles de acceso a la red para Azure SQL Database y Data Warehouse
 
@@ -29,7 +29,7 @@ ms.locfileid: "78945393"
 
 Al crear una nueva instancia de Azure SQL Server en [Azure Portal](sql-database-single-database-get-started.md), el resultado es un punto de conexión público con el formato *nombreDelServidor.database.windows.net*.
 
-Puede usar los siguientes controles de acceso a la red para permitir el acceso a la base de datos SQL de forma selectiva mediante el punto de conexión público:
+Puede usar los siguientes controles de acceso a la red para permitir el acceso a SQL Database de forma selectiva mediante el punto de conexión público:
 - Allow Azure Services (Permitir servicios de Azure): cuando se establece en ACTIVADO, otros recursos dentro de los límites de Azure, por ejemplo, una máquina virtual de Azure, pueden acceder a SQL Database.
 
 - Reglas de firewall de IP: use esta característica para permitir explícitamente las conexiones desde una dirección IP específica, por ejemplo, desde máquinas locales.
@@ -56,13 +56,13 @@ También puede cambiar esta configuración desde el panel de firewall después d
 
 Cuando se establece en **ACTIVADO**, Azure SQL Server permite la comunicación de todos los recursos dentro de los límites de Azure, que pueden o no formar parte de la suscripción.
 
-En muchos casos, el valor **ACTIVADO** es más permisivo que el que desean la mayoría de los clientes. Es posible que deseen establecer esta opción en **DESACTIVADO** y reemplazarla por reglas de firewall de IP más restrictivas o reglas de firewall de red virtual. Esta acción afecta a las siguientes características que se ejecutan en máquinas virtuales de Azure que no forman parte de la red virtual y, por tanto, se conectan a SQL Database a través de una dirección IP de Azure.
+En muchos casos, el valor **ACTIVADO** es más permisivo de lo que desea la mayoría de los clientes. Es posible que deseen establecer esta opción en **DESACTIVADO** y reemplazarla por reglas de firewall de IP más restrictivas o reglas de firewall de red virtual. Esta acción afecta a las siguientes características que se ejecutan en máquinas virtuales de Azure que no forman parte de la red virtual y, por tanto, se conectan a SQL Database a través de una dirección IP de Azure.
 
 ### <a name="import-export-service"></a>Import Export Service
-Import Export Service no funciona, **Permitir que los servicios de Azure accedan al servidor** está establecido en OFF. Sin embargo, puede solucionar el problema [al ejecutar manualmente sqlpackage.exe desde una máquina virtual de Azure o realizar la exportación](https://docs.microsoft.com/azure/sql-database/import-export-from-vm) directamente en el código mediante la API de DACFx.
+El servicio de importación y exportación no funciona cuando **Permitir el acceso a servicios de Azure** se establece en **DESACTIVADO**. Sin embargo, puede solucionar el problema [al ejecutar manualmente sqlpackage.exe desde una máquina virtual de Azure o realizar la exportación](https://docs.microsoft.com/azure/sql-database/import-export-from-vm) directamente en el código mediante la API de DACFx.
 
 ### <a name="data-sync"></a>Sincronización de datos
-Para usar la característica de sincronización de datos con **Permitir que los servicios de Azure accedan al servidor** establecido en OFF, debe crear entradas de reglas de firewall individuales para [agregar direcciones IP](sql-database-server-level-firewall-rule.md) de la **etiqueta de servicio SQL** para la región que hospeda la base de datos **central**.
+Para usar la característica de sincronización de datos con **Permitir el acceso a servicios de Azure** establecido en **DESACTIVADO**, debe crear entradas de reglas de firewall individuales para [agregar direcciones IP](sql-database-server-level-firewall-rule.md) de la **etiqueta de servicio SQL** para la región que hospeda la base de datos **central**.
 Agregue estas reglas de firewall de nivel de servidor a los servidores lógicos que hospedan las bases de datos **central** y **miembro** (que pueden estar en regiones diferentes).
 
 Use el siguiente script de PowerShell para generar las direcciones IP correspondientes a la etiqueta de servicio de SQL para la región Oeste de EE. UU.

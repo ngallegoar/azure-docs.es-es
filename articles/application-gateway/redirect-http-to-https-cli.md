@@ -1,23 +1,23 @@
 ---
 title: Redireccionamiento de HTTP a HTTPS mediante la CLI
 titleSuffix: Azure Application Gateway
-description: Aprenda a crear una puerta de enlace de aplicaciones y a agregar un certificado para la terminación SSL mediante la CLI de Azure.
+description: Aprenda a crear un instancia de Application Gateway y a agregar un certificado para la terminación TLS mediante la CLI de Azure.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: victorh
-ms.openlocfilehash: 41b2fb754f1d6ead3a7475ca146ab99758aa8134
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6bf8f3b7bfb446db78f0c97a246977fec6cd54cb
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78246870"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312140"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-cli"></a>Creación de una puerta de enlace de aplicaciones con redirección de HTTP a HTTPS mediante la CLI de Azure
 
-Puede usar la CLI de Azure para crear una [puerta de enlace de aplicaciones](overview.md) con un certificado para la terminación SSL. Para redirigir el tráfico HTTP al puerto HTTPS en la puerta de enlace de aplicaciones se usa una regla de enrutamiento. En este ejemplo, también crea un [conjunto de escalado de máquinas virtuales](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para el grupo de back-end de la puerta de enlace de aplicaciones que contiene dos instancias de máquina virtual.
+Puede usar la CLI de Azure para crear una instancia de [Application Gateway](overview.md) con un certificado para la terminación TLS/SSL. Para redirigir el tráfico HTTP al puerto HTTPS en la puerta de enlace de aplicaciones se usa una regla de enrutamiento. En este ejemplo, también crea un [conjunto de escalado de máquinas virtuales](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para el grupo de back-end de la puerta de enlace de aplicaciones que contiene dos instancias de máquina virtual.
 
 En este artículo aprenderá a:
 

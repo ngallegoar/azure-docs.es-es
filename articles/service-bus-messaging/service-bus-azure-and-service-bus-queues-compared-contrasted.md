@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 09/04/2019
 ms.author: aschhab
-ms.openlocfilehash: 8379b7f48e7e494370f3fdba81676d34821d7b6f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ffa98e511053edc75fd0e6f25f7b0e21ee9ddda0
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75563384"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414526"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Colas de Storage y de Service Bus: comparación y diferencias
-En este artículo se analizan las diferencias y similitudes entre los dos tipos de colas que ofrece Microsoft Azure en la actualidad: colas de Storage y colas de Service Bus. Con esta información, puede comparar y contrastar las tecnologías respectivas y puede tomar una decisión más fundamentada sobre la solución que satisfaga mejor sus necesidades.
+En este artículo se analizan las diferencias y similitudes entre los dos tipos de cola que actualmente ofrece Microsoft Azure: las colas de Storage y las colas de Service Bus. Con esta información, puede comparar y contrastar las tecnologías respectivas y puede tomar una decisión más fundamentada sobre la solución que satisfaga mejor sus necesidades.
 
 ## <a name="introduction"></a>Introducción
 Azure admite dos tipos de mecanismos de cola: **colas de Storage** y **colas de Service Bus**.
@@ -73,7 +73,7 @@ En esta sección se comparan algunas de las funcionalidades de puesta en cola fu
 | Garantía de entrega |**Al menos una vez** |**Al menos una vez** (con el modo de recepción PeekLock: este es el valor predeterminado) <br/><br/>**Por lo menos un meme** (mediante el modo de recepción ReceiveAndDelete) <br/> <br/> Más información sobre los [distintos modos de recepción](service-bus-queues-topics-subscriptions.md#receive-modes).  |
 | Compatibilidad con la operación atómica |**No** |**Sí**<br/><br/> |
 | Comportamiento de recepción |**Sin bloqueo**<br/><br/>(se completa inmediatamente si no se encuentra ningún mensaje nuevo) |**Bloqueo con/sin tiempo de espera**<br/><br/>(ofrece sondeo largo o ["Técnica de cometa"](https://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>**Sin bloqueo**<br/><br/>(solo mediante el uso de la API administrada de .NET) |
-| API de estilo de inserción |**No** |**Sí**<br/><br/>API de .NET de sesiones de [OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage#Microsoft_ServiceBus_Messaging_QueueClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__) y **OnMessage**. |
+| API de estilo de inserción |**No** |**Sí**<br/><br/>API de .NET de las sesiones [QueueClient.OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage#Microsoft_ServiceBus_Messaging_QueueClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__) y [MessageSessionHandler.OnMessage](/dotnet/api/microsoft.servicebus.messaging.messagesessionhandler.onmessage#Microsoft_ServiceBus_Messaging_MessageSessionHandler_OnMessage_Microsoft_ServiceBus_Messaging_MessageSession_Microsoft_ServiceBus_Messaging_BrokeredMessage__). |
 | Modo de recepción |**Ojear y alquilar** |**Ojear y bloquear**<br/><br/>**Recibir y eliminar** |
 | Modo de acceso exclusivo |**Basado en concesión** |**Basado en bloqueo** |
 | Duración de concesión/bloqueo |**30 segundos (valor predeterminado)**<br/><br/>**7 días (máximo)** (puede renovar o liberar una concesión de mensaje mediante la API de [UpdateMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.updatemessage)). |**60 segundos (valor predeterminado)**<br/><br/>Puede renovar un bloqueo de mensaje mediante la API de [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock). |
@@ -133,7 +133,7 @@ En esta sección se comparan las colas de Storage y las colas de Service Bus des
 | Criterios de comparación | Colas de Storage | Colas de Service Bus |
 | --- | --- | --- |
 | Tamaño de cola máximo |**500 TB**<br/><br/>(limitado a una [capacidad de cuenta de almacenamiento única](../storage/common/storage-introduction.md#queue-storage)) |**De 1 GB a 80 GB**<br/><br/>(definido al crear una cola y [habilitar particiones](service-bus-partitioning.md): vea la sección "Información adicional") |
-| Tamaño de mensaje máximo |**64 KB**<br/><br/>(48 K cuando se usa la codificación **Base64**)<br/><br/>Azure admite mensajes de gran tamaño mediante la combinación de colas y blobs, momento en el que puede poner en cola hasta 200 GB para un solo elemento. |**256 KB** o **1 MB**<br/><br/>(incluidos tanto el encabezado como el cuerpo, tamaño de encabezado máximo: 64 KB).<br/><br/>Depende del [nivel de servicio](service-bus-premium-messaging.md). |
+| Tamaño de mensaje máximo |**64 KB**<br/><br/>(48 K cuando se usa la codificación **Base64**)<br/><br/>Azure admite mensajes de gran tamaño mediante la combinación de colas y blobs, momento en el que puede poner en cola hasta 200 GB para un solo elemento. |**256 KB** o **1 MB**<br/><br/>(incluidos tanto el encabezado como el cuerpo, el tamaño máximo de encabezado es: 64 KB).<br/><br/>Depende del [nivel de servicio](service-bus-premium-messaging.md). |
 | TTL de mensaje máximo |**Infinitas** (a partir de la versión de API 2017-07-27) |**TimeSpan.Max** |
 | Número máximo de colas |**Sin límite** |**10.000**<br/><br/>(por espacio de nombres de servicio) |
 | Número máximo de clientes simultáneos |**Sin límite** |**Sin límite**<br/><br/>(el límite de 100 conexiones simultáneas solo se aplica a la comunicación basada en protocolo TCP) |

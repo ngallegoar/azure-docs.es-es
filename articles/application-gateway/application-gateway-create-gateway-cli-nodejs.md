@@ -7,18 +7,18 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 4/15/2019
 ms.author: victorh
-ms.openlocfilehash: 7107f45253c4f13b3378489726bf5034e104fa30
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ed7bbbf55956d655115b94c8ac46432b3e36c49b
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "62095989"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312642"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli"></a>Creación de una puerta de enlace de aplicaciones mediante la CLI de Azure
 
-Azure Application Gateway es un equilibrador de carga de nivel 7. Proporciona conmutación por error, solicitudes HTTP de enrutamiento de rendimiento entre distintos servidores, independientemente de que se encuentren en la nube o en una implementación local. Puerta de enlace de aplicaciones tiene las siguientes características de entrega de aplicaciones: equilibrio de carga HTTP, afinidad de sesiones basada en cookies, descarga SSL (capa de sockets seguros), sondeos personalizados sobre el estado y compatibilidad con sitios múltiples.
+Azure Application Gateway es un equilibrador de carga de nivel 7. Proporciona conmutación por error, solicitudes HTTP de enrutamiento de rendimiento entre distintos servidores, independientemente de que se encuentren en la nube o en una implementación local. Application Gateway presenta las siguientes características de entrega de aplicaciones: equilibrio de carga HTTP, afinidad de sesiones basada en cookies, descarga de Seguridad de la capa de transporte (TLS), previamente conocida como Capa de sockets seguros (SSL), sondeos de estado personalizados y compatibilidad con varios sitios.
 
-## <a name="prerequisite-install-the-azure-cli"></a>Requisito previo: instalar la CLI de Azure
+## <a name="prerequisite-install-the-azure-cli"></a>Requisito previo: Instalación de la CLI de Azure
 
 Para seguir los pasos de este artículo, es preciso [instalar la CLI de Azure](../xplat-cli-install.md) e [iniciar sesión en Azure](/cli/azure/authenticate-azure-cli). 
 
@@ -104,7 +104,7 @@ azure network vnet subnet create \
 
 ## <a name="create-the-application-gateway"></a>Creación de la puerta de enlace de aplicaciones
 
-Una vez que se crean la red virtual y la subred, los requisitos previos de la puerta de enlace de aplicaciones están completos. Además, para el paso siguiente son necesarios un certificado .pfx exportado previamente y la contraseña para el certificado. La direcciones IP que se usan para el back-end son las direcciones IP para el servidor back-end. Estos valores pueden ser direcciones IP privadas de la red virtual, direcciones IP públicas o nombres de dominio completos de los servidores back-end.
+Una vez que se crean la red virtual y la subred, los requisitos previos de la puerta de enlace de aplicaciones están completos. Además, son necesarios un certificado .pfx exportado previamente y la contraseña para el certificado para el paso siguiente: Las direcciones IP usadas para el back-end son las direcciones IP del servidor back-end. Estos valores pueden ser direcciones IP privadas de la red virtual, direcciones IP públicas o nombres de dominio completos de los servidores back-end.
 
 ```azurecli-interactive
 azure network application-gateway create \
@@ -135,7 +135,7 @@ Si ya definió una aplicación web con el grupo de back-end en los pasos anterio
 
 Para aprender a crear sondeos de estado personalizados, visite [Creación de un sondeo personalizado para Application Gateway desde el portal](application-gateway-create-probe-portal.md)
 
-Para aprender a configurar la descarga de SSL y eliminar la cara descripción de SSL de los servidores web, visite [Configuración de una puerta de enlace de aplicaciones para la descarga SSL mediante Azure Resource Manager](application-gateway-ssl-arm.md)
+Para aprender a configurar la descarga de TLS y eliminar el caro descifrado de TLS de los servidores web, visite [Configuración de la descarga de TLS](application-gateway-ssl-arm.md)
 
 <!--Image references-->
 

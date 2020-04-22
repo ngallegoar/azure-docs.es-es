@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 1fef24f4065ca6fc749f35a07143487e049ee6ea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f720a94d3467ce15ea5d58a8ece6de2a669f6258
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74075277"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312585"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-by-using-powershell-for-azure-resource-manager"></a>Creación de un sondeo personalizado para Puerta de enlace de aplicaciones de Azure mediante PowerShell en el Administrador de recursos de Azure
 
@@ -197,5 +197,5 @@ DnsSettings              : {
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Aprenda a configurar la descarga de SSL visitando [Configuración de la descarga SSL](application-gateway-ssl-arm.md).
+Aprenda a configurar la descarga de TLS visitando: [Configuración de la descarga de TLS](application-gateway-ssl-arm.md)
 

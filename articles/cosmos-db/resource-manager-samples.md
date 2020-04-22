@@ -1,17 +1,17 @@
 ---
 title: Plantillas de Azure Resource Manager para Azure Cosmos DB
 description: Use las plantillas de Azure Resource Manager para crear y configurar Azure Cosmos DB.
-author: TheovanKraay
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/08/2019
-ms.author: thvankra
-ms.openlocfilehash: 7b08ca98f25b079d831033b9393effd4ee4b65e3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.author: mjbrown
+ms.openlocfilehash: 1c4f1a1920d98052231eaa3a7d5c0454441c88ee
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73961856"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81390875"
 ---
 # <a name="azure-resource-manager-templates-for-azure-cosmos-db"></a>Plantillas de Azure Resource Manager para Azure Cosmos DB
 
@@ -23,6 +23,7 @@ En las tablas siguientes se incluyen vínculos a plantillas de Azure Resource Ma
 |---|---|
 |[Crear una cuenta, una base de datos y un contenedor de Azure Cosmos](manage-sql-with-resource-manager.md#create-resource) | Esta plantilla crea una cuenta de API de SQL (Core) en dos regiones con dos contenedores con rendimiento de base de datos compartido y un contenedor con rendimiento dedicado. El rendimiento se puede actualizar mediante el reenvío de la plantilla con el valor de la propiedad de rendimiento actualizado. |
 |[Creación de una cuenta, una base de datos y un contenedor de Azure Cosmos con un procedimiento almacenado, un desencadenador y una UDF](manage-sql-with-resource-manager.md#create-sproc) | Esta plantilla crea una cuenta de API de SQL (Core) en dos regiones con un procedimiento almacenado, un desencadenador y una UDF para un contenedor. |
+|[Creación de un punto de conexión privado para la cuenta de Azure Cosmos](how-to-configure-private-endpoints.md#create-a-private-endpoint-by-using-a-resource-manager-template) |  Esta plantilla crea un punto de conexión privado para una cuenta existente de la API de Azure Cosmos SQL en una red virtual existente. |
 
 ## <a name="mongodb-api"></a>MongoDB API
 

@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 6fdfbce6dce2428a8f2757b0755e6f982f02240f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2028aac9c01aedc4baa568d370c9f7d21c920647
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79228684"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419270"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arquitectura de conectividad de Azure SQL
 > [!NOTE]
@@ -45,7 +45,7 @@ En los pasos siguientes se describe cómo se establece una conexión a una base 
 Azure SQL Database admite las siguientes tres opciones para la configuración de directiva de conexión de un servidor de SQL Database:
 
 - **Redirigir (recomendado):** Los clientes establecen conexiones directamente con el nodo que hospeda la base de datos, con lo que se reduce la latencia y se mejora el rendimiento. Para que las conexiones usen este modo, los clientes deben hacer lo siguiente:
-   - Permitir la comunicación saliente entre el cliente y todas las direcciones IP de Azure de la región en los puertos en el intervalo de 11000 a 11999. Usar las etiquetas de servicio de SQL para facilitar la administración.  
+   - Permitir la comunicación saliente entre el cliente y todas las direcciones IP de Azure SQL de la región en los puertos en el intervalo de 11000 a 11999. Usar las etiquetas de servicio de SQL para facilitar la administración.  
    - Permitir la comunicación saliente entre el cliente y las direcciones IP de la puerta de enlace de Azure SQL Database en el puerto 1433.
 
 - **Proxy:** En este modo, todas las conexiones se realizan mediante proxy a través de las puertas de enlace de Azure SQL Database, lo que provoca una mayor latencia y un rendimiento inferior. Para que las conexiones usen este modo, los clientes deben permitir la comunicación saliente entre el cliente y las direcciones IP de la puerta de enlace de Azure SQL Database en el puerto 1433.

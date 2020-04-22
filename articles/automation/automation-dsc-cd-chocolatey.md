@@ -1,111 +1,134 @@
 ---
 title: Implementación continua de Azure Automation State Configuration con Chocolatey
-description: Implementación continua de DevOps mediante Azure Automation State Configuration, DSC y el administrador de paquetes Chocolatey.  Ejemplo con plantilla de Resource Manager de JSON completo y código fuente de PowerShell.
+description: Se describe la implementación continua de DevOps mediante Azure Automation State Configuration con el administrador de paquetes Chocolatey. Se incluye un ejemplo con plantilla de Resource Manager de JSON completo y origen de PowerShell.
 services: automation
 ms.subservice: dsc
 ms.date: 08/08/2018
 ms.topic: conceptual
-ms.openlocfilehash: 4445f6e9b72380b66f3282d50871b4283f7fc7fa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0c61a431b985e494148500ed0a7aeb106534ed2c
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75966737"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392118"
 ---
-# <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Ejemplo de uso: implementación continua en máquinas virtuales con Automation State Configuration y Chocolatey
+# <a name="provide-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Aprovisionamiento de la implementación continua en máquinas virtuales con Automation State Configuration y Chocolatey
 
-En el mundo del desarrollo de software con DevOps, existen muchas herramientas que ayudan en diversos puntos de la canalización de integración continua. Azure Automation State Configuration es una opción nueva, y bienvenida, que puede ser de utilidad para los equipos de DevOps. En este artículo, se muestra cómo configurar la implementación continua (CD) para un equipo de Windows. Puede ampliar fácilmente la técnica para incluir tantos equipos de Windows como sean necesarios en el rol (por ejemplo, un sitio web) y, a partir de ahí, también a los roles adicionales.
+En el mundo de DevOps, existen muchas herramientas que ayudan en diversos puntos de la canalización de integración continua. Azure Automation [State Configuration](automation-dsc-overview.md) es una opción nueva, y bienvenida, que puede ser de utilidad para los equipos de DevOps. 
+
+Azure Automation es un servicio administrado de Microsoft Azure que le permite automatizar diversas tareas con runbooks, nodos y recursos compartidos, como credenciales, programaciones y variables globales. Azure Automation State Configuration amplía esta funcionalidad de automatización para incluir las herramientas Desired State Configuration (DSC) de PowerShell. Aquí hay una [introducción](automation-dsc-overview.md) muy buena.
+
+En este artículo, se muestra cómo configurar la implementación continua (CD) para un equipo Windows. Puede ampliar fácilmente la técnica para incluir tantos equipos Windows como sean necesarios en el rol, por ejemplo, un sitio web y, a partir de ahí, a roles adicionales.
 
 ![Implementación continua para máquinas virtuales IaaS](./media/automation-dsc-cd-chocolatey/cdforiaasvm.png)
+
+>[!NOTE]
+>Este artículo se ha actualizado para usar el nuevo módulo Az de Azure PowerShell. Aún puede usar el módulo de AzureRM que continuará recibiendo correcciones de errores hasta diciembre de 2020 como mínimo. Para más información acerca del nuevo módulo Az y la compatibilidad con AzureRM, consulte [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0) (Presentación del nuevo módulo Az de Azure PowerShell). Para obtener instrucciones sobre la instalación del módulo Az en Hybrid Runbook Worker, consulte [Instalación del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Puede actualizar los módulos de su cuenta de Automation a la versión más reciente mediante [Actualización de módulos de Azure PowerShell en Azure Automation](automation-update-azure-modules.md).
 
 ## <a name="at-a-high-level"></a>A nivel general
 
 Aunque todo esto pueda parecer bastante complicado, afortunadamente puede dividirse en dos procesos principales:
 
 - Escribir código y probarlo, y después crear y publicar paquetes de instalación para las versiones principales y secundarias del sistema;
-- Crear y administrar las máquinas virtuales que instalarán y ejecutarán el código en los paquetes.  
+- Crear y administrar las máquinas virtuales que instalen y ejecuten el código en los paquetes.  
 
-Una vez que estos dos procesos principales se hayan puesto en práctica, queda poco para actualizar automáticamente el paquete que se ejecuta en cualquier máquina virtual concreta a medida que se creen e implementen las nuevas versiones.
+Una vez que estos dos procesos principales se hayan puesto en práctica, es fácil actualizar automáticamente el paquete en las máquinas virtuales a medida que se crean e implementan las nuevas versiones.
 
 ## <a name="component-overview"></a>Información general sobre los componentes
 
 Los administradores de paquetes como [apt-get](https://en.wikipedia.org/wiki/Advanced_Packaging_Tool) son muy conocidos en el mundo de Linux, pero no tanto en el de Windows.
-[Chocolatey](https://chocolatey.org/) es uno de ellos, y Scott Hanselman proporciona una estupenda introducción al tema en su [blog](https://www.hanselman.com/blog/IsTheWindowsUserReadyForAptget.aspx). En pocas palabras, Chocolatey permite instalar paquetes desde un repositorio central de paquetes en un sistema de Windows mediante la línea de comandos. Puede crear y administrar su propio repositorio y Chocolatey puede instalar paquetes desde cualquier número de repositorios que designe.
+[Chocolatey](https://chocolatey.org/) es uno de ellos, y Scott Hanselman proporciona una estupenda introducción al tema en su [blog](https://www.hanselman.com/blog/IsTheWindowsUserReadyForAptget.aspx). En pocas palabras, Chocolatey permite usar la línea de comandos para instalar paquetes desde un repositorio central en un sistema operativo Windows. Puede crear y administrar su propio repositorio y Chocolatey puede instalar paquetes desde cualquier número de repositorios que designe.
 
-Configuración de estado deseado (DSC) ([introducción](/powershell/scripting/dsc/overview/overview)) es una herramienta de PowerShell que permite declarar la configuración que desee para un equipo. Por ejemplo, puede indicar "Quiero instalar Chocolatey, quiero instalar IIS, necesito abrir el puerto 80, quiero instalar la versión 1.0.0 de mi sitio web". El Administrador de configuración local (LCM) de DSC implementa esa configuración. Un servidor de extracción de DSC contiene un repositorio de configuraciones para los equipos. El LCM de cada equipo comprueba periódicamente para ver si su configuración coincide con la almacenada. Después, notifica el estado o intenta equiparar la configuración del equipo a la almacenada. Puede editar la configuración almacenada en el servidor de extracción para hacer que un equipo o un conjunto de equipos se adapten a la configuración modificada.
+[DSC de PowerShell](/powershell/scripting/dsc/overview/overview) es una herramienta de PowerShell que permite declarar la configuración que quiera para un equipo. Por ejemplo, si quiere que se instale Chocolatey, se instale IIS, se abra el puerto 80 y se instale la versión 1.0.0 de su sitio web, Local Configuration Manager (LCM) de DSC implementa esa configuración. Un servidor de extracción de DSC contiene un repositorio de configuraciones para los equipos. El LCM de cada equipo comprueba periódicamente para ver si su configuración coincide con la almacenada. Después, notifica el estado o intenta equiparar la configuración del equipo a la almacenada. Puede editar la configuración almacenada en el servidor de extracción para hacer que un equipo o un conjunto de equipos se adapten a la configuración modificada.
 
-Azure Automation es un servicio administrado de Microsoft Azure que le permite automatizar diversas tareas con runbooks, nodos, credenciales, recursos y otros activos como programaciones y variables globales.
-Azure Automation State Configuration amplía esta funcionalidad de automatización para incluir las herramientas de DSC de PowerShell. Aquí hay una [introducción](automation-dsc-overview.md) muy buena.
+Un recurso de DSC es un módulo de código con capacidades específicas, como la administración de redes, Active Directory o SQL Server. El recurso de DSC de Chocolatey sabe cómo acceder a un servidor NuGet (entre otros), descargar paquetes, instalar paquetes, etc. Existen muchos otros recursos de DSC en la [Galería de PowerShell](https://www.powershellgallery.com/packages?q=dsc+resources&prerelease=&sortOrder=package-title). Estos módulos se instalan en el servidor de extracción de Azure Automation State Configuration para que las configuraciones puedan utilizarlas.
 
-Un recurso de DSC es un módulo de código con capacidades específicas, como la administración de redes, Active Directory o SQL Server. El recurso de DSC de Chocolatey sabe cómo acceder a un servidor NuGet (entre otros), descargar paquetes, instalar paquetes, etc. Existen muchos otros recursos de DSC en la [Galería de PowerShell](https://www.powershellgallery.com/packages?q=dsc+resources&prerelease=&sortOrder=package-title).
-Estos módulos se instalan en el servidor de extracción de Azure Automation State Configuration (manualmente) para que se puedan usar con sus configuraciones.
+Las plantillas de Resource Manager proporcionan una forma declarativa de generar la infraestructura, por ejemplo, las redes, las subredes, la seguridad de red y el enrutamiento, los equilibradores de carga, las NIC, las máquinas virtuales, etc. En este [artículo](../azure-resource-manager/management/deployment-models.md), se compara el modelo de implementación de Resource Manager (declarativo) con el de Administración de servicios de Azure (ASM o clásico), que es imperativo. En este artículo se incluye una explicación de los proveedores de recursos principales: proceso, almacenamiento y red.
 
-Las plantillas de Resource Manager proporcionan una forma declarativa de generar la infraestructura: como las redes, las subredes, la seguridad de red y el enrutamiento, los equilibradores de carga, las NIC, las máquinas virtuales, etc. Este es un [artículo](../azure-resource-manager/management/deployment-models.md) que compara el modelo de implementación de Resource Manager (declarativo) con el modelo de implementación (imperativo) de Azure Service Management (ASM o clásico) y describe los proveedores de recursos principales, proceso, almacenamiento y red.
-
-Una característica clave de una plantilla de Resource Manager es su capacidad para instalar una extensión de máquina virtual en la máquina virtual cuando se aprovisiona. Una extensión de máquina virtual posee capacidades específicas, como ejecutar un script personalizado, instalar software antivirus o ejecutar un script de configuración de DSC. Existen muchos otros tipos de extensiones de máquina virtual.
+Una característica clave de una plantilla de Resource Manager es su capacidad para instalar una extensión de máquina virtual en la máquina virtual cuando se aprovisiona. Una extensión de máquina virtual posee capacidades específicas, como ejecutar un script personalizado, instalar software antivirus y ejecutar un script de configuración de DSC. Existen muchos otros tipos de extensiones de máquina virtual.
 
 ## <a name="quick-trip-around-the-diagram"></a>Vista rápida al diagrama
 
-Empezando desde arriba, se escribe el código, se compila y prueba, y después se crea un paquete de instalación.
-Chocolatey admite diversos tipos de paquetes de instalación, como MSI, MSU o ZIP. Además, cuenta con toda la funcionalidad de PowerShell para realizar la instalación en sí si las funcionalidades nativas de Chocolatey no son suficientes. Coloque el paquete en un lugar accesible: un repositorio de paquetes. En este ejemplo de uso se emplea una carpeta pública en una cuenta de almacenamiento de blobs de Azure, pero vale cualquier lugar. Chocolatey funciona de forma nativa con los servidores NuGet y otros para administrar los metadatos de los paquetes. [este artículo](https://github.com/chocolatey/choco/wiki/How-To-Host-Feed) se describen las opciones. Este ejemplo de uso utiliza NuGet. Nuspec son los metadatos de los paquetes. Los nuspecs se "compilan" en forma de NuPkg y se almacenan en un servidor NuGet. Cuando la configuración solicita un paquete por su nombre y hace referencia a un servidor NuGet, el recurso de DSC de Chocolatey (ahora en la máquina virtual) toma el paquete y lo instala automáticamente. También se puede solicitar una versión específica de un paquete.
+Empezando desde arriba, se escribe el código, se compila, se prueba y después se crea un paquete de instalación. Chocolatey admite diversos tipos de paquetes de instalación, como MSI, MSU o ZIP. Además, cuenta con toda la funcionalidad de PowerShell para realizar la instalación en sí si las capacidades nativas de Chocolatey no son suficientes. Coloque el paquete en un lugar accesible: un repositorio de paquetes. En este ejemplo de uso se emplea una carpeta pública en una cuenta de almacenamiento de blobs de Azure, pero vale cualquier lugar. Chocolatey funciona de forma nativa con los servidores NuGet y otros para administrar los metadatos de los paquetes. [este artículo](https://github.com/chocolatey/choco/wiki/How-To-Host-Feed) se describen las opciones. En este ejemplo de uso se utiliza NuGet. Nuspec son los metadatos de los paquetes. La información de Nuspec se compila en un NuPkg y se almacena en un servidor NuGet. Cuando la configuración solicita un paquete por su nombre y hace referencia a un servidor NuGet, el recurso de DSC de Chocolatey en la máquina virtual toma el paquete y lo instala. También se puede solicitar una versión específica de un paquete.
 
-En la parte inferior izquierda de la imagen, se ve una plantilla de Azure Resource Manager. En este ejemplo de uso, la extensión de máquina virtual registra la máquina virtual con el servidor de extracción de Azure Automation State Configuration (es decir, un servidor de extracción) como nodo. La configuración se almacena en el servidor de extracción.
-En realidad, se almacena dos veces: una vez como texto sin formato y otra como archivo MOF (para aquellos a quienes les interese). En el portal, el MOF es una "configuración de nodo" (en lugar de simplemente una "configuración"). Es el artefacto que se asocia con un nodo para que el nodo conozca su configuración. Los siguientes detalles muestran cómo asignar la configuración de nodo al nodo.
+En la parte inferior izquierda de la imagen, se ve una plantilla de Azure Resource Manager. En este ejemplo de uso, la extensión de máquina virtual registra la máquina virtual con el servidor de extracción de Azure Automation State Configuration como nodo. La configuración se almacena en el servidor de extracción dos veces: una vez como texto sin formato y una vez compilada como un archivo MOF. En Azure Portal, MOF representa una configuración de nodo, en lugar de una configuración simple. Es el artefacto que se asocia con un nodo para que el nodo conozca su configuración. Los siguientes detalles muestran cómo asignar la configuración de nodo al nodo.
 
-Se supone que ya está haciendo lo de arriba, al menos en su mayor parte. Crear el nuspec, compilarlo y almacenarlo en un servidor NuGet no es muy complicado y, además, ya está administrando máquinas virtuales. Para dar el siguiente paso en la implementación continua, se debe configurar el servidor de extracción (una vez), registrar los nodos con él (una vez) y crear y almacenar la configuración allí (inicialmente). Luego, como los paquetes se actualizan e implementan en el repositorio, actualice la configuración y la configuración de nodo en el servidor de extracción (repítalo si es necesario).
+Crear el nuspec, compilarlo y almacenarlo en un servidor NuGet no es muy complicado y, además, ya está administrando máquinas virtuales. 
 
-No comenzar con una plantilla de Resource Manager también es perfectamente válido. Hay cmdlets de PowerShell diseñados para ayudarlo a registrar sus máquinas virtuales con el servidor de extracción y todo lo demás. Para más información, consulte este artículo: [Incorporación de máquinas para su administración mediante Azure Automation State Configuration](automation-dsc-onboarding.md).
+Para dar el siguiente paso en la implementación continua, se debe configurar el servidor de extracción una vez, registrar los nodos con él una vez y crear y almacenar la configuración inicial en el servidor. Como los paquetes se actualizan e implementan en el repositorio, solo debe actualizar la configuración y la configuración de nodo en el servidor de extracción si es necesario.
 
-## <a name="step-1-setting-up-the-pull-server-and-automation-account"></a>Paso 1: Configurar la cuenta de automatización y el servidor de extracción
+No comenzar con una plantilla de Resource Manager es perfectamente válido. Hay comandos de PowerShell para ayudar a registrar las máquinas virtuales con el servidor de extracción. Para más información, consulte [Incorporación de máquinas para administrarlas con State Configuration de Azure Automation](automation-dsc-onboarding.md).
 
-En una línea de comandos de PowerShell (`Connect-AzureRmAccount`) autenticada: (puede tardar unos minutos mientras se configura el servidor de extracción)
+## <a name="about-the-usage-example"></a>Acerca del ejemplo de uso
+
+En este ejemplo de uso de este artículo se comienza con una máquina virtual de una imagen genérica de Windows Server 2012 R2 procedente de Azure Gallery. Puede iniciarla desde cualquier imagen almacenada y después ajustarla con la configuración de DSC.
+Sin embargo, cambiar la configuración que se incluye en una imagen es mucho más difícil que actualizar dinámicamente la configuración con DSC.
+
+No es necesario usar una plantilla de Resource Manager ni la extensión de máquina virtual para emplear esta técnica con sus máquinas virtuales. Además, sus máquinas virtuales tampoco tienen que estar en Azure para administrarlas mediante CD. Todo lo que se necesita es que Chocolatey esté instalado y LCM esté configurado en la máquina virtual para que conozca la ubicación del servidor de extracción.
+
+Cuando se actualiza un paquete en una máquina virtual que se encuentra en producción, debe sacar esa máquina virtual de la rotación mientras se instala la actualización. Existen métodos muy diversos de hacerlo. Por ejemplo, con una máquina virtual tras un equilibrador de carga de Azure, puede agregar un sondeo personalizado. Al actualizar la máquina virtual, haga que el extremo de sondeo devuelva 400. El ajuste necesario para ocasionar este cambio puede estar dentro de la configuración, al igual que el ajuste para devolver de nuevo 200 una vez completada la actualización.
+
+El código fuente completo de este ejemplo de uso se encuentra en [este proyecto de Visual Studio](https://github.com/sebastus/ARM/tree/master/CDIaaSVM) en GitHub.
+
+## <a name="step-1-set-up-the-pull-server-and-automation-account"></a>Paso 1: Configurar la cuenta de Automation y el servidor de extracción
+
+En una línea de comandos de PowerShell (`Connect-AzAccount`) autenticada: (puede tardar unos minutos mientras se configura el servidor de extracción)
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES
-New-AzureRmAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT
+New-AzResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES
+New-AzAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT
 ```
 
-Puede colocar su cuenta de Automation en cualquiera de las siguientes regiones (o ubicaciones): Este de EE. UU. 2, Centro-sur de EE. UU., US Gov Virginia, Oeste de Europa, Sudeste de Asia, Este de Japón, Centro de la India y Sudeste de Australia, Centro de Canadá, Norte de Europa.
+Puede colocar su cuenta de Automation en cualquiera de las siguientes regiones (denominadas ubicaciones): Este de EE. UU. 2, Centro-sur de EE. UU., US Gov Virginia, Oeste de Europa, Sudeste de Asia, Este de Japón, Centro de la India y Sudeste de Australia, Centro de Canadá, Norte de Europa.
 
-## <a name="step-2-vm-extension-tweaks-to-the-resource-manager-template"></a>Paso 2: Ajustes de la extensión de máquina virtual en la plantilla de Resource Manager
+## <a name="step-2-make-vm-extension-tweaks-to-the-resource-manager-template"></a>Paso 2: Realizar ajustes de la extensión de máquina virtual en la plantilla de Resource Manager
 
 Se proporcionan detalles sobre el registro de máquina virtual (con la extensión de máquina virtual de DSC de PowerShell) en esta [plantilla de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/dsc-extension-azure-automation-pullserver).
 En este paso, se registra la nueva máquina virtual con el servidor de extracción en la lista de nodos de State Configuration. Parte de este registro es especificar la configuración del nodo que se aplica al nodo. Esta configuración de nodo no tiene que existir aún en el servidor de extracción, por lo que es correcto que sea el paso 4 en donde se realice esto por primera vez. Sin embargo, aquí en el paso 2 debe haber decidido el nombre del nodo y el nombre de la configuración. En este ejemplo de uso, el nodo es "isvbox" y la configuración es "ISVBoxConfig". Por tanto, el nombre de configuración del nodo (que se especificará en DeploymentTemplate.json) es "ISVBoxConfig.isvbox".
 
-## <a name="step-3-adding-required-dsc-resources-to-the-pull-server"></a>Paso 3: Agregar recursos de DSC necesarios al servidor de extracción
+## <a name="step-3-add-required-dsc-resources-to-the-pull-server"></a>Paso 3: Agregar recursos de DSC necesarios al servidor de extracción
 
 La Galería de PowerShell está equipada para instalar recursos de DSC en su cuenta de Azure Automation.
-Desplácese hasta el recurso que desee y haga clic en el botón "Deploy to Azure Automation".
+Navegue hasta el recurso que desee y haga clic en el botón "Deploy to Azure Automation" (Implementar en Azure Automation).
 
 ![Ejemplo de la Galería de PowerShell](./media/automation-dsc-cd-chocolatey/xNetworking.PNG)
 
-Otra técnica agregada hace poco a Azure Portal permite extraer módulos nuevos o actualizar los existentes. Haga clic en el recurso Cuenta de Automation, el icono Activos y, por último, el icono Módulos. El icono de examinar la galería permite ver la lista de módulos de la galería, profundizar en los detalles y, en última instancia, importarlos en su cuenta de Automation. Se trata de un modo excelente de actualizar los módulos de vez en cuando. Además, la característica de importación comprueba las dependencias con otros módulos para asegurarse de que nada se queda sin sincronizarse.
+Otra técnica agregada hace poco a Azure Portal permite extraer módulos nuevos o actualizar los existentes. Haga clic en el recurso Cuenta de Automation, el icono Activos y, por último, el icono Módulos. El icono de examinar la galería permite ver la lista de módulos de la galería, profundizar en los detalles y, en última instancia, importarlos a la cuenta de Automation. Se trata de un modo excelente de actualizar los módulos de vez en cuando. Además, la característica de importación comprueba las dependencias con otros módulos para asegurarse de que nada se queda sin sincronizarse.
 
-También podemos aplicar el enfoque manual. La estructura de carpetas de un módulo de integración de PowerShell para un equipo de Windows es algo diferente de la estructura de carpetas que espera Azure Automation.
-Por tanto, es necesario hacer algunos ajustes. Pero no es difícil y solo es necesario hacerlos una vez para cada recurso (a menos que desee actualizarlo en el futuro.) Para más información sobre la creación de módulos de integración de PowerShell, consulte este artículo: [Creación de módulos de integración para Azure Automation](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/)
+También hay un enfoque manual, que se usa solo una vez por recurso, a menos que desee actualizarlo más adelante. Para más información sobre la creación de módulos de integración de PowerShell, consulte [Creación de módulos de integración para Azure Automation](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/).
 
-- Instale el módulo que necesita en su estación de trabajo, como sigue:
-  - Instale [Windows Management Framework, v5](https://aka.ms/wmf5latest) (no es necesario para Windows 10).
-  - `Install-Module –Name MODULE-NAME` &lt;—toma el módulo de la Galería de PowerShell.
-- Copie la carpeta del módulo de `c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME` a una carpeta temporal.
-- Elimine los ejemplos y la documentación de la carpeta principal.
-- Comprima la carpeta principal y asigne al archivo comprimido el mismo nombre que la carpeta. 
-- Coloque el archivo comprimido en una ubicación HTTP accesible, como un almacenamiento de blobs en una cuenta de Azure Storage.
-- Ejecute este código de PowerShell:
+>[!NOTE]
+>La estructura de carpetas de un módulo de integración de PowerShell para un equipo Windows es algo diferente de la estructura de carpetas que espera Azure Automation. 
 
-  ```powershell
-  New-AzureRmAutomationModule `
-    -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT `
-    -Name MODULE-NAME –ContentLink 'https://STORAGE-URI/CONTAINERNAME/MODULE-NAME.zip'
-  ```
+1. Instale [Windows Management Framework v5](https://aka.ms/wmf5latest) (no es necesario para Windows 10).
 
-El ejemplo incluido realiza estos pasos para cChoco y xNetworking. Consulte las [Notas](#notes) del control especial para cChoco.
+2. Instale el módulo de integración.
 
-## <a name="step-4-adding-the-node-configuration-to-the-pull-server"></a>Paso 4: Agregar la configuración de nodo al servidor de extracción
+    ```azurepowershell-interactive
+    Install-Module –Name MODULE-NAME`    <—grabs the module from the PowerShell Gallery
+    ```
 
-No hay nada especial que mencionar acerca de la primera vez que se importa la configuración al servidor de extracción y se compila. Todas las importaciones y compilaciones posteriores de la misma configuración tendrán exactamente el mismo aspecto. Cada vez que actualice el paquete y deba enviarlo a producción, realice este paso después de asegurarse de que el archivo de configuración sea correcto, incluida la nueva versión del paquete. Este es el archivo de configuración y el código de PowerShell:
+3. Copie la carpeta del módulo desde **C:\Archivos de programa\WindowsPowerShell\Modules\MODULE-NAME** en una carpeta temporal.
 
-ISVBoxConfig.ps1:
+4. Elimine los ejemplos y la documentación de la carpeta principal.
+
+5. Comprima la carpeta principal y asigne al archivo comprimido el nombre de la carpeta.
+
+6. Coloque el archivo comprimido en una ubicación HTTP accesible, como un almacenamiento de blobs en una cuenta de Azure Storage.
+
+7. Ejecute el siguiente comando:
+
+    ```azurepowershell-interactive
+    New-AzAutomationModule `
+      -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT `
+      -Name MODULE-NAME –ContentLinkUri 'https://STORAGE-URI/CONTAINERNAME/MODULE-NAME.zip'
+    ```
+
+El ejemplo incluido implementa estos pasos para cChoco y xNetworking. 
+
+## <a name="step-4-add-the-node-configuration-to-the-pull-server"></a>Paso 4: Agregar la configuración de nodo al servidor de extracción
+
+No hay nada especial que mencionar acerca de la primera vez que se importa la configuración al servidor de extracción y se compila. Todas las importaciones o compilaciones posteriores de la misma configuración tendrán exactamente el mismo aspecto. Cada vez que actualice el paquete y deba enviarlo a producción, realice este paso después de asegurarse de que el archivo de configuración sea correcto, incluida la nueva versión del paquete. Este es el archivo de configuración **ISVBoxConfig.ps1**:
 
 ```powershell
 Configuration ISVBoxConfig
@@ -150,58 +173,49 @@ Configuration ISVBoxConfig
 }
 ```
 
-New-ConfigurationScript.ps1:
+Este es el script **New-ConfigurationScript.ps1** (modificado para usar el módulo Az):
 
 ```powershell
-Import-AzureRmAutomationDscConfiguration `
+Import-AzAutomationDscConfiguration `
     -ResourceGroupName MY-AUTOMATION-RG –AutomationAccountName MY-AUTOMATION-ACCOUNT `
     -SourcePath C:\temp\AzureAutomationDsc\ISVBoxConfig.ps1 `
     -Published –Force
 
-$jobData = Start-AzureRmAutomationDscCompilationJob `
+$jobData = Start-AzAutomationDscCompilationJob `
     -ResourceGroupName MY-AUTOMATION-RG –AutomationAccountName MY-AUTOMATION-ACCOUNT `
     -ConfigurationName ISVBoxConfig
 
 $compilationJobId = $jobData.Id
 
-Get-AzureRmAutomationDscCompilationJob `
+Get-AzAutomationDscCompilationJob `
     -ResourceGroupName MY-AUTOMATION-RG –AutomationAccountName MY-AUTOMATION-ACCOUNT `
     -Id $compilationJobId
 ```
 
-Estos pasos dan como resultado que se coloque una nueva configuración de nodo denominada "ISVBoxConfig.isvbox" en el servidor de extracción. El nombre de configuración del nodo se crea como "configurationName.nodeName".
+Estos pasos dan como resultado que se coloque una nueva configuración de nodo denominada **ISVBoxConfig.isvbox** en el servidor de extracción. El nombre de configuración de nodo se genera como `configurationName.nodeName`.
 
-## <a name="step-5-creating-and-maintaining-package-metadata"></a>Paso 5: Crear y mantener los metadatos del paquete
+## <a name="step-5-create-and-maintain-package-metadata"></a>Paso 5: Crear y mantener los metadatos de paquetes
 
-Cada paquete que incluya en el repositorio de paquetes necesita un nuspec que lo describa.
-Ese nuspec se debe compilar y almacenar en el servidor NuGet. Este proceso se describe [aquí](https://docs.nuget.org/create/creating-and-publishing-a-package). Puede usar MyGet.org como servidor NuGet. Se vende este servicio, pero también se ofrece una SKU de inicio gratis. En NuGet.org encontrará instrucciones para instalar su propio servidor NuGet para los paquetes privados.
+Cada paquete que incluya en el repositorio de paquetes necesita un nuspec que lo describa. Se debe compilar y almacenar en el servidor NuGet. Este proceso se describe [aquí](https://docs.nuget.org/create/creating-and-publishing-a-package). 
 
-## <a name="step-6-tying-it-all-together"></a>Paso 6: Unión de todos los elementos
+Puede usar **MyGet.org** como servidor NuGet. Puede comprar este servicio, pero existe una SKU de inicio gratuita. En [NuGet](https://www.nuget.org/) encontrará instrucciones para instalar su propio servidor NuGet para los paquetes privados.
 
-Cada vez que una versión pasa un control de calidad y se aprueba para implementación, se crea el paquete, se actualizan nuspec y nupkg, y se implementan en el servidor NuGet. Además, se debe actualizar la configuración (el paso 4 anterior) para que coincida con el nuevo número de versión. Se debe enviar al servidor de extracción y se debe compilar.
-Desde ese momento, corresponderá a las máquinas virtuales que dependen de esa configuración extraer la actualización e instalarla. Cada una de estas actualizaciones son sencillas: solo una línea o dos de PowerShell. En el caso de Azure DevOps, algunas de ellas se encapsulan en tareas de compilación que se pueden encadenar de manera conjunta en una compilación. En [este artículo](https://www.visualstudio.com/docs/alm-devops-feature-index#continuous-delivery) se ofrecen más detalles. En este [repositorio de GitHub](https://github.com/Microsoft/vso-agent-tasks) se detallan las diversas tareas de compilación disponibles.
+## <a name="step-6-tie-it-all-together"></a>Paso 6: Unirlo todo
 
-## <a name="notes"></a>Notas
+Cada vez que una versión pasa un control de calidad y se aprueba para implementación, se crea el paquete, se actualizan nuspec y nupkg, y se implementan en el servidor NuGet. Se debe actualizar también la configuración (paso 4) para que coincida con el nuevo número de versión. A continuación, se debe enviar al servidor de extracción y se debe compilar.
 
-Este ejemplo de uso comienza con una máquina virtual de una imagen genérica de Windows Server 2012 R2 procedente de la galería de Azure. Puede iniciarla desde cualquier imagen almacenada y después ajustarla con la configuración de DSC.
-Sin embargo, cambiar la configuración que se incluye en una imagen es mucho más difícil que actualizar dinámicamente la configuración con DSC.
-
-No es necesario usar una plantilla de Resource Manager ni la extensión de máquina virtual para emplear esta técnica con sus máquinas virtuales. Además, sus máquinas virtuales tampoco tienen que estar en Azure para administrarlas mediante CD. Todo lo que se necesita es que Chocolatey esté instalado y LCM esté configurado en la máquina virtual para que conozca la ubicación del servidor de extracción.
-
-Por supuesto, cuando se actualiza un paquete en una máquina virtual que se encuentra en producción, debe sacar esa máquina virtual de producción mientras se instala la actualización. Existen métodos muy diversos de hacerlo. Por ejemplo, con una máquina virtual tras un equilibrador de carga de Azure, puede agregar un sondeo personalizado. Al actualizar la máquina virtual, haga que el extremo de sondeo devuelva 400. El ajuste necesario para ocasionar este cambio puede estar dentro de la configuración, al igual que el ajuste para devolver de nuevo 200 una vez completada la actualización.
-
-El código fuente completo de este ejemplo de uso se encuentra en [este proyecto de Visual Studio](https://github.com/sebastus/ARM/tree/master/CDIaaSVM) en GitHub.
+Desde ese momento, corresponderá a las máquinas virtuales que dependen de esa configuración extraer la actualización e instalarla. Cada una de estas actualizaciones es sencilla: solo una línea o dos de PowerShell. En el caso de Azure DevOps, algunas de ellas se encapsulan en tareas de compilación que se pueden encadenar de manera conjunta en una compilación. En [este artículo](https://www.visualstudio.com/docs/alm-devops-feature-index#continuous-delivery) se ofrecen más detalles. En este [repositorio de GitHub](https://github.com/Microsoft/vso-agent-tasks) se detallan las tareas de compilación disponibles.
 
 ## <a name="related-articles"></a>Artículos relacionados
 * [Información general de DSC de Azure Automation](automation-dsc-overview.md)
-* [Cmdlets de DSC de Azure Automation](https://docs.microsoft.com/powershell/module/azurerm.automation#automation)
 * [Incorporación de máquinas para administrarlas con DSC de Azure Automation](automation-dsc-onboarding.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para obtener información general, consulte [Azure Automation State Configuration](automation-dsc-overview.md).
-- Para empezar a usar Azure Automation State Configuration, consulte [Introducción a Azure Automation State Configuration](automation-dsc-getting-started.md)
-- Para obtener información acerca de la compilación de configuraciones de DSC para que poder asignarlas a los nodos de destino, consulte [Compilación de configuraciones en Azure Automation State Configuration](automation-dsc-compile.md)
-- Para la referencia de cmdlets de PowerShell, consulte [cmdlets de Azure Automation State Configuration](/powershell/module/azurerm.automation/#automation)
-- Para obtener información de precios, consulte [Precios de Azure Automation State Configuration](https://azure.microsoft.com/pricing/details/automation/)
-- Para ver un ejemplo del uso de Azure Automation State Configuration en una canalización de implementación continua, consulte [Implementación continua mediante Azure Automation State Configuration y Chocolatey](automation-dsc-cd-chocolatey.md)
+- Para empezar a trabajar, consulte [Introducción a State Configuration de Azure Automation](automation-dsc-getting-started.md).
+- Para obtener información acerca de la compilación de configuraciones de DSC para poder asignarlas a los nodos de destino, consulte [Compilación de configuraciones en State Configuration de Azure Automation](automation-dsc-compile.md).
+- Para obtener una referencia de los cmdlets de PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).
+- Para obtener información de precios, consulte [Precios de State Configuration de Azure Automation](https://azure.microsoft.com/pricing/details/automation/).
+- Para ver un ejemplo del uso de State Configuration de Azure Automation en una canalización de implementación continua, consulte [Implementación continua mediante State Configuration de Azure Automation y Chocolatey](automation-dsc-cd-chocolatey.md).

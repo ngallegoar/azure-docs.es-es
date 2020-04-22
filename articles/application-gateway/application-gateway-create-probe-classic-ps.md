@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: e01a1cad98ded9d7ce8683b6adf38b5d53959774
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0ba3e9ae7b5075d1f5457cb2960423ad1c737e94
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75966815"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312549"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Creación de un sondeo personalizado para la Puerta de enlace de aplicaciones de Azure (clásica) mediante PowerShell
 
@@ -200,7 +200,7 @@ Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si quiere configurar la descarga de Capa de sockets seguros (SSL), vea [Configure an application gateway for SSL offload](application-gateway-ssl.md)(Configuración de una puerta de enlace de aplicaciones para la descarga SSL mediante el modelo de implementación clásica).
+Si quiere configurar la descarga de Seguridad de la capa de transporte (TLS), previamente conocida como Capa de sockets seguros (SSL), vea [Configuración de una puerta de enlace de aplicaciones para la descarga TLS](application-gateway-ssl.md).
 
 Si quiere configurar una puerta de enlace de aplicaciones para usarla con el equilibrador de carga interno, consulte [Creación de una puerta de enlace de aplicaciones con un equilibrador de carga interno (ILB)](application-gateway-ilb.md).
 

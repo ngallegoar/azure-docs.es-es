@@ -1,26 +1,26 @@
 ---
-title: Configuración de SSL de un extremo a otro con Azure Application Gateway
-description: En este artículo se describe cómo configurar SSL de un extremo a otro con Azure Application Gateway mediante PowerShell
+title: Configuración de TLS de un extremo a otro con Azure Application Gateway
+description: En este artículo se describe cómo configurar TLS de un extremo a otro con Azure Application Gateway mediante PowerShell.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.date: 4/8/2019
 ms.author: victorh
-ms.openlocfilehash: 7ba273cddb6cf41872c4db1c34560c104b992787
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 481cbda1d35f7d630dabca00fd01677f542447c2
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72286453"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312510"
 ---
-# <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>Configuración de SSL de un extremo a otro con Application Gateway mediante PowerShell
+# <a name="configure-end-to-end-tls-by-using-application-gateway-with-powershell"></a>Configuración de TLS de un extremo a otro con Application Gateway mediante PowerShell
 
 ## <a name="overview"></a>Información general
 
-Azure Application Gateway admite el cifrado de un extremo a otro del tráfico. Application Gateway termina la conexión SSL en la puerta de enlace de aplicaciones. La puerta de enlace aplica entonces las reglas de enrutamiento al tráfico, vuelve a cifrar el paquete y lo reenvía al servidor back-end adecuado según las reglas de enrutamiento definidas. Cualquier respuesta del servidor web pasa por el mismo proceso en su regreso al usuario final.
+Azure Application Gateway admite el cifrado de un extremo a otro del tráfico. Application Gateway termina la conexión TLS/SSL en Application Gateway. La puerta de enlace aplica entonces las reglas de enrutamiento al tráfico, vuelve a cifrar el paquete y lo reenvía al servidor back-end adecuado según las reglas de enrutamiento definidas. Cualquier respuesta del servidor web pasa por el mismo proceso en su regreso al usuario final.
 
-Application Gateway admite la definición de opciones SSL personalizadas. También admite deshabilitar las siguientes versiones de protocolo: **TLSv1.0**, **TLSv1.1** y **TLSv1.2**, así como definir qué conjuntos de cifrado usar y el orden de preferencia. Para más información sobre las opciones configurables de SSL, consulte la [introducción a la directiva SSL](application-gateway-SSL-policy-overview.md).
+Application Gateway admite la definición de opciones TLS personalizadas. También admite deshabilitar las siguientes versiones de protocolo: **TLSv1.0**, **TLSv1.1** y **TLSv1.2**, así como definir qué conjuntos de cifrado usar y el orden de preferencia. Para más información sobre las opciones configurables de TLS, consulte [Introducción a la directiva TLS](application-gateway-SSL-policy-overview.md).
 
 > [!NOTE]
 > SSL 2.0 y SSL 3.0 están deshabilitados de manera predeterminada y no se pueden habilitar. Se considera que no son seguros y no se pueden usar con Application Gateway.
@@ -29,22 +29,22 @@ Application Gateway admite la definición de opciones SSL personalizadas. Tambi�
 
 ## <a name="scenario"></a>Escenario
 
-En este escenario, aprenderá a crear una puerta de enlace de aplicaciones mediante SSL de un extremo a otro con PowerShell.
+En este escenario, aprenderá a crear una instancia de Application Gateway mediante TLS de un extremo a otro con PowerShell.
 
 En este escenario:
 
 * Creará un grupo de recursos llamado **appgw-rg**.
 * Creará una red virtual denominada **appgwvnet** con un espacio de direcciones de **10.0.0.0/16**.
 * Creará dos subredes llamadas **appgwsubnet** y **appsubnet**.
-* Creará una puerta de enlace de aplicaciones pequeña que admite el cifrado SSL de un extremo a otro que limita las versiones del protocolo SSL y los conjuntos de cifrado.
+* Creará una pequeña instancia de Application Gateway que admite el cifrado TLS de un extremo a otro que limita las versiones del protocolo TLS y los conjuntos de cifrado.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Para configurar SSL de un extremo a otro con una puerta de enlace de aplicaciones, hacen falta certificados para la puerta de enlace y los servidores back-end. El certificado de puerta de enlace se usa para derivar una clave simétrica según la especificación del protocolo SSL. A continuación, la clave simétrica se usa para cifrar y descifrar el tráfico que se envía a la puerta de enlace. El certificado de la puerta de enlace debe estar en formato de Intercambio de información personal (PFX). Este formato de archivo permite la exportación de la clave privada, lo que es necesario para que la puerta de enlace de aplicaciones pueda realizar el cifrado y descifrado del tráfico.
+Para configurar TLS de un extremo a otro con una instancia de Application Gateway, hace falta un certificado para la puerta de enlace y certificados para los servidores back-end. El certificado de puerta de enlace se usa para derivar una clave simétrica según la especificación del protocolo TLS. A continuación, la clave simétrica se usa para cifrar y descifrar el tráfico que se envía a la puerta de enlace. El certificado de la puerta de enlace debe estar en formato de Intercambio de información personal (PFX). Este formato de archivo permite la exportación de la clave privada, lo que es necesario para que la puerta de enlace de aplicaciones pueda realizar el cifrado y descifrado del tráfico.
 
-Para el cifrado SSL de un extremo a otro, la instancia de Application Gateway debe permitir el back-end de forma explícita. Cargue el certificado público de los servidores back-end en la puerta de enlace de aplicaciones. Al agregar el certificado, se garantiza que la puerta de enlace de aplicaciones solo se comunique con instancias back-end conocidas. Esto protege aún más la comunicación de un extremo a otro.
+Para el cifrado TLS de un extremo a otro, la instancia de Application Gateway debe permitir el back-end de forma explícita. Cargue el certificado público de los servidores back-end en la puerta de enlace de aplicaciones. Al agregar el certificado, se garantiza que la puerta de enlace de aplicaciones solo se comunique con instancias back-end conocidas. Esto protege aún más la comunicación de un extremo a otro.
 
 El proceso de configuración se describe en las secciones siguientes.
 
@@ -154,20 +154,20 @@ Se deben establecer todos los elementos de configuración antes de crear la puer
    ```
 
    > [!NOTE]
-   > En este ejemplo se configura el certificado que se usa para la conexión SSL. Es preciso que el certificado tenga el formato .pfx, y que la contraseña tenga entre 4 y 12 caracteres.
+   > En este ejemplo se configura el certificado que se usa para la conexión TLS. Es preciso que el certificado tenga el formato .pfx, y que la contraseña tenga entre 4 y 12 caracteres.
 
-6. Cree el agente de escucha HTTP para la puerta de enlace de aplicaciones. Asigne la configuración IP de front-end, el puerto y el certificado SSL que se usarán.
+6. Cree el agente de escucha HTTP para la puerta de enlace de aplicaciones. Asigne la configuración de IP de front-end, el puerto y el certificado de TLS/SSL que se usarán.
 
    ```powershell
    $listener = New-AzApplicationGatewayHttpListener -Name listener01 -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SSLCertificate $cert
    ```
 
-7. Cargue el certificado que se utilizará en los recursos del grupo de back-end habilitado para SSL.
+7. Cargue el certificado que se usará en los recursos del grupo de back-end habilitado para TLS.
 
    > [!NOTE]
-   > El sondeo predeterminado obtiene la clave pública del enlace SSL *predeterminado* en la dirección IP del back-end y compara el valor de la clave pública que recibe con el valor de la clave pública que se proporciona aquí. 
+   > El sondeo predeterminado obtiene la clave pública del enlace TLS *predeterminado* en la dirección IP del back-end y compara el valor de la clave pública que recibe con el valor de la clave pública que se proporciona aquí. 
    > 
-   > Si usa encabezados de host y de Indicación de nombre de servidor (SNI) en el back-end, es posible que la clave pública recuperada no sea el sitio previsto al que el tráfico fluirá. En caso de duda, visite https://127.0.0.1/ en los servidores back-end para confirmar qué certificado se usa para el enlace SSL *predeterminado*. Utilice la clave pública de dicha solicitud en esta sección. Si usa encabezados de host y SNI en enlaces HTTPS y no recibe una respuesta y un certificado de una solicitud manual de un explorador a https://127.0.0.1/ en los servidores back-end, debe configurar un enlace SSL de forma predeterminada en ellos. Si no lo hace, se producirán errores en los sondeos y el back-end no estará en la lista de permitidos.
+   > Si usa encabezados de host y de Indicación de nombre de servidor (SNI) en el back-end, es posible que la clave pública recuperada no sea el sitio previsto al que el tráfico fluirá. En caso de duda, visite https://127.0.0.1/ en los servidores back-end para confirmar qué certificado se usa para el enlace TLS *predeterminado*. Utilice la clave pública de dicha solicitud en esta sección. Si usa encabezados de host y SNI en enlaces HTTPS y no recibe una respuesta y un certificado de una solicitud manual de un explorador a https://127.0.0.1/ en los servidores back-end, debe configurar un enlace TLS de forma predeterminada en ellos. Si no lo hace, se producirán errores en los sondeos y el back-end no estará en la lista de permitidos.
 
    ```powershell
    $authcert = New-AzApplicationGatewayAuthenticationCertificate -Name 'allowlistcert1' -CertificateFile C:\cert.cer
@@ -176,7 +176,7 @@ Se deben establecer todos los elementos de configuración antes de crear la puer
    > [!NOTE]
    > El certificado proporcionado en el paso anterior debe ser la clave pública del certificado .pfx presente en el back-end. Exporte el certificado (no el certificado raíz) instalado en el servidor back-end en formato Afirmación, Evidencia y Razonamiento (CER) y utilícelo en este paso. En este paso se coloca el back-end en la lista de permitidos con la puerta de enlace de aplicaciones.
 
-   Si usa la SKU V2 de Application Gateway, cree un certificado raíz de confianza en lugar de un certificado de autenticación. Para obtener más información, consulte [Introducción a SSL de extremo a extremo con Application Gateway](ssl-overview.md#end-to-end-ssl-with-the-v2-sku):
+   Si usa la SKU V2 de Application Gateway, cree un certificado raíz de confianza en lugar de un certificado de autenticación. Para más información, consulte [Introducción a TLS de un extremo a otro con Application Gateway](ssl-overview.md#end-to-end-tls-with-the-v2-sku):
 
    ```powershell
    $trustedRootCert01 = New-AzApplicationGatewayTrustedRootCertificate -Name "test1" -CertificateFile  <path to root cert file>
@@ -209,7 +209,7 @@ Se deben establecer todos los elementos de configuración antes de crear la puer
     > [!NOTE]
     > Para las pruebas se puede elegir 1 en Número de instancias. Es importante saber que el Acuerdo de Nivel de Servicio no cubre ningún número de instancias que esté por debajo de las dos instancias y, por consiguiente, no se recomienda. Las puertas de enlace pequeñas se deben usar para pruebas de desarrollo, no con fines de producción.
 
-11. Configure la directiva SSL que se usará en la puerta de enlace de aplicaciones. Application Gateway admite la posibilidad de establecer una versión mínima para las versiones del protocolo SSL.
+11. Configure la directiva TLS que se usará en Application Gateway. Application Gateway admite la posibilidad de establecer una versión mínima para las versiones del protocolo TLS.
 
     Los valores siguientes son una lista de versiones de protocolo que se pueden definir:
 
@@ -247,7 +247,7 @@ Use este procedimiento para aplicar un certificado nuevo si el certificado de ba
    $gw = Get-AzApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
    ```
    
-2. Agregue el nuevo recurso de certificado desde el archivo .cer, que contiene la clave pública del certificado y que también puede ser el mismo certificado que se agrega al agente de escucha para la terminación SSL en la instancia de Application Gateway.
+2. Agregue el nuevo recurso de certificado desde el archivo .cer, que contiene la clave pública del certificado y que también puede ser el mismo certificado que se agrega al agente de escucha para la terminación TLS en Application Gateway.
 
    ```powershell
    Add-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw -Name 'NewCert' -CertificateFile "appgw_NewCert.cer" 
@@ -300,9 +300,9 @@ Use este procedimiento para eliminar un certificado expirado sin usar de la conf
    ```
 
    
-## <a name="limit-ssl-protocol-versions-on-an-existing-application-gateway"></a>Límite de las versiones del protocolo SSL en una puerta de aplicaciones existente
+## <a name="limit-tls-protocol-versions-on-an-existing-application-gateway"></a>Límite de las versiones del protocolo TLS en una puerta de aplicaciones existente
 
-Los pasos anteriores le han llevado por la creación de una aplicación con SSL de un extremo a otro y la deshabilitación de determinadas versiones del protocolo SSL. En el ejemplo siguiente se deshabilitan determinadas directivas SSL en una puerta de enlace de aplicaciones existente.
+En los pasos anteriores se ha realizado la creación de una aplicación con TLS de un extremo a otro y la deshabilitación de determinadas versiones del protocolo TLS. En el ejemplo siguiente se deshabilitan determinadas directivas TLS en una instancia de Application Gateway existente.
 
 1. Recupere la puerta de enlace de aplicaciones que se actualizará.
 
@@ -310,14 +310,14 @@ Los pasos anteriores le han llevado por la creación de una aplicación con SSL 
    $gw = Get-AzApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
    ```
 
-2. Defina una directiva SSL. En el ejemplo siguiente, se deshabilitan **TLSv1.0** y **TLSv1.1** y los conjuntos de cifrado **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384** y **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256** son los únicos permitidos.
+2. Defina una directiva de TLS. En el ejemplo siguiente, se deshabilitan **TLSv1.0** y **TLSv1.1** y los conjuntos de cifrado **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384** y **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256** son los únicos permitidos.
 
    ```powershell
    Set-AzApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -PolicyType Custom -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -ApplicationGateway $gw
 
    ```
 
-3. Por último, actualice la puerta de enlace. Este último paso es una tarea de ejecución prolongada. Una vez terminado, SSL de un extremo a otro está configurado en la puerta de enlace de aplicaciones.
+3. Por último, actualice la puerta de enlace. Este último paso es una tarea de ejecución prolongada. Una vez terminado, TLS de un extremo a otro está configurada en Application Gateway.
 
    ```powershell
    $gw | Set-AzApplicationGateway

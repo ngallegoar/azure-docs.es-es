@@ -9,14 +9,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: jingwang
-ms.openlocfilehash: 423706c391e8d8c2c609798d9f50e5a22f5c39bb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b1f11a1ff25117c07e61475e7e83fc0c170cd552
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79229996"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414649"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory-legacy"></a>Formatos de archivo y códecs de compresión admitidos en Azure Data Factory (heredados)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 *Este artículo se aplica a los conectores siguientes: [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md) y [SFTP](connector-sftp.md).*
 

@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: efa2885ce0534c5d78bb08bbf24da59850f6ea22
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a171dc795e685655b5a3c73d088d3963c2aaa4ae
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74075188"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312316"
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends-such-as-app-service"></a>Compatibilidad de Application Gateway con back-ends multiinquilino como App Service
 
@@ -30,9 +30,9 @@ Application Gateway proporciona una funcionalidad que permite a los usuarios ree
 
 La posibilidad de especificar un reemplazo del host se define en la [configuración de HTTP](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http-settings) y se puede aplicar a cualquier grupo de back-end durante la creación de reglas. Se admiten las dos formas siguientes de reemplazar el encabezado de host y la extensión SNI en los back-end multiinquilino:
 
-- La posibilidad de establecer el nombre de host en un valor fijo que se especifica de forma explícita en la configuración de HTTP. Esta funcionalidad garantiza que el encabezado de host se reemplaza por este valor para todo el tráfico que va al grupo de servidores back-end donde se aplica la configuración de HTTP concreta. Al usar SSL de extremo a extremo, este nombre de host invalidado se usa en la extensión SNI. Esta funcionalidad permite escenarios donde un grupo de servidores back-end espera un encabezado de host que es diferente del encabezado de host del cliente de entrada.
+- La posibilidad de establecer el nombre de host en un valor fijo que se especifica de forma explícita en la configuración de HTTP. Esta funcionalidad garantiza que el encabezado de host se reemplaza por este valor para todo el tráfico que va al grupo de servidores back-end donde se aplica la configuración de HTTP concreta. Al usar TLS de extremo a extremo, este nombre de host invalidado se usa en la extensión SNI. Esta funcionalidad permite escenarios donde un grupo de servidores back-end espera un encabezado de host que es diferente del encabezado de host del cliente de entrada.
 
-- La posibilidad de obtener el nombre de host de la dirección IP o FQDN de los miembros del grupo de servidores back-end. La configuración de HTTP también permite seleccionar dinámicamente el nombre de host del FQDN de un miembro del grupo de back-end si está configurado con la opción de derivar el nombre de host de un miembro de grupo de back-end individual. Al usar SSL de extremo a extremo, este nombre de host se obtiene del FQDN y se usa en la extensión SNI. Esta funcionalidad permite escenarios donde un grupo de servidores back-end puede tener dos o más servicios PaaS multiinquilino, como Azure Web Apps y el encabezado de host de la solicitud para que cada miembro contenga el nombre de host obtenido de su FQDN. Para implementar este escenario se usa un modificador en Configuración de HTTP llamado [Elegir nombre de host de dirección de back-end](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address) que reemplazará dinámicamente el encabezado de host invalidará el encabezado de host en la solicitud original por el mencionado en el grupo de back-end.  Por ejemplo, si el FQDN del grupo de back-end contiene "contoso11.azurewebsites.net" y "contoso22.azurewebsites.net", se reemplazará el encabezado de host de la solicitud original, que es contoso.com, por contoso11.azurewebsites.net o contoso22.azurewebsites.net cuando la solicitud se envíe al servidor back-end adecuado. 
+- La posibilidad de obtener el nombre de host de la dirección IP o FQDN de los miembros del grupo de servidores back-end. La configuración de HTTP también permite seleccionar dinámicamente el nombre de host del FQDN de un miembro del grupo de back-end si está configurado con la opción de derivar el nombre de host de un miembro de grupo de back-end individual. Al usar TLS de extremo a extremo, este nombre de host se obtiene del FQDN y se usa en la extensión SNI. Esta funcionalidad permite escenarios donde un grupo de servidores back-end puede tener dos o más servicios PaaS multiinquilino, como Azure Web Apps y el encabezado de host de la solicitud para que cada miembro contenga el nombre de host obtenido de su FQDN. Para implementar este escenario se usa un modificador en Configuración de HTTP llamado [Elegir nombre de host de dirección de back-end](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address) que reemplazará dinámicamente el encabezado de host invalidará el encabezado de host en la solicitud original por el mencionado en el grupo de back-end.  Por ejemplo, si el FQDN del grupo de back-end contiene "contoso11.azurewebsites.net" y "contoso22.azurewebsites.net", se reemplazará el encabezado de host de la solicitud original, que es contoso.com, por contoso11.azurewebsites.net o contoso22.azurewebsites.net cuando la solicitud se envíe al servidor back-end adecuado. 
 
   ![escenario de aplicación web](./media/application-gateway-web-app-overview/scenario.png)
 
@@ -40,11 +40,11 @@ Con esta funcionalidad, los clientes especifican las opciones en la configuraci�
 
 ## <a name="special-considerations"></a>Consideraciones especiales
 
-### <a name="ssl-termination-and-end-to-end-ssl-with-multi-tenant-services"></a>Terminación SSL y SSL de un extremo a otro con servicios multiinquilino
+### <a name="tls-termination-and-end-to-end-tls-with-multi-tenant-services"></a>Terminación TLS y TLS de un extremo a otro con servicios multiinquilino
 
-Tanto la terminación SSL como el cifrado SSL de un extremo a otro son compatibles con los servicios multiinquilino. En el caso de la terminación SSL en la puerta de enlace de aplicaciones, sigue siendo necesario agregar el certificado SSL al cliente de escucha de la puerta de enlace de aplicaciones. Sin embargo, en el caso del SSL de un extremo a otro, los servicios de Azure de confianza, como App Service Web Apps de Azure, no requieren crear listas blancas en los back-end de la puerta de enlace de aplicaciones. Por lo tanto, no hay necesidad de agregar certificados de autenticación. 
+Tanto la terminación TLS como el cifrado TLS de un extremo a otro son compatibles con los servicios multiinquilino. En el caso de la terminación TLS en Application Gateway, sigue siendo necesario agregar el certificado TLS al cliente de escucha de Application Gateway. Sin embargo, en el caso de TLS de un extremo a otro, los servicios de Azure de confianza, como aplicaciones web de Azure App Service, no requieren crear listas blancas en los back-end de Application Gateway. Por lo tanto, no hay necesidad de agregar certificados de autenticación. 
 
-![SSL de un extremo a otro](./media/application-gateway-web-app-overview/end-to-end-ssl.png)
+![TLS de un extremo a otro](./media/application-gateway-web-app-overview/end-to-end-ssl.png)
 
 Tenga en cuenta que en la imagen anterior, no se necesita agregar certificados de autenticación cuando App Service se selecciona como back-end.
 

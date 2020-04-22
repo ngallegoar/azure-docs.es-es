@@ -6,15 +6,17 @@ ms.author: nimoolen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/24/2020
-ms.openlocfilehash: 92421125ecb5f4336922c6e6b4508fcdaf92be6e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/13/2020
+ms.openlocfilehash: e0042960c25d58b72bc0ab884de5a2db62e566d9
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80246405"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81413444"
 ---
 # <a name="data-flow-script-dfs"></a>Script de flujo de datos (DFS)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 El script de flujo de datos (DFS) son los metadatos subyacentes, similares a un lenguaje de codificación, que se usan para ejecutar las transformaciones que se incluyen en un flujo de datos de asignación. Cada transformación se representa mediante una serie de propiedades que proporcionan la información necesaria para ejecutar el trabajo correctamente. El script se puede ver y editar en ADF haciendo clic en el botón "Script" de la cinta de opciones superior de la interfaz de usuario del explorador.
 
@@ -139,6 +141,11 @@ derive1 sink(allowSchemaDrift: true,
 ```
 
 ## <a name="script-snippets"></a>Script de fragmentos de código
+
+Los fragmentos de script son código compartible del script de flujo de datos que puede usar para compartir entre flujos de datos. En el siguiente vídeo se habla de cómo usar fragmentos de script y el uso del script de flujo de datos para copiar y pegar partes del script detrás de los gráficos de flujo de datos:
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4tA9b]
+
 
 ### <a name="aggregated-summary-stats"></a>Estadísticas de resumen agregadas
 Añada una transformación agregado al flujo de datos denominada "SummaryStats" y, a continuación, pegue el siguiente código para la función de agregado en el script, reemplazando el SummaryStats existente. Esto proporcionará un patrón genérico para las estadísticas de resumen de perfil de datos.

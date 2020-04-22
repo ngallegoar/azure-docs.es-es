@@ -11,14 +11,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 3e0dd6e0bb81aef340dc83288e6e5c0af0bf11c6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2657f1998e3ca908bc52166154ac3353e1e5a66b
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75867362"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415039"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Copia de datos desde un punto de conexión REST mediante Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos desde un punto de conexión REST. El artículo se basa en [Actividad de copia en Azure Data Factory](copy-activity-overview.md), en el que se ofrece información general acerca de la actividad de copia.
 
@@ -60,7 +61,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de REST:
 |:--- |:--- |:--- |
 | type | La propiedad **type** debe establecerse en **RestService**. | Sí |
 | url | La dirección URL base del servicio REST. | Sí |
-| enableServerCertificateValidation | Si se debe validar el certificado SSL del lado servidor al conectarse al punto de conexión. | No<br /> (El valor predeterminado es: **true**) |
+| enableServerCertificateValidation | Si se debe validar el certificado TLS/SSL del lado servidor al conectarse al punto de conexión. | No<br /> (El valor predeterminado es: **true**) |
 | authenticationType | El tipo de autenticación usado para conectarse al servicio REST. Los valores que se permiten son: **Anónima**, **Básica**, **AadServicePrincipal** y **ManagedServiceIdentity**. Haga referencia a las siguientes secciones correspondientes para obtener más información sobre propiedades y ejemplos, respectivamente. | Sí |
 | connectVia | Instancia de [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Obtenga más información en la sección [Requisitos previos](#prerequisites). Si no se especifica, esta propiedad se usará Azure Integration Runtime. |No |
 

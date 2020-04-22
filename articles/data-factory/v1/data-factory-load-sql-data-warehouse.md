@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 079d29c241cfbbdcc991f024c07b07b378670c10
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0bef6b5e87e7f0964989db371014c305b97f1d12
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80130881"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419313"
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Carga de 1 TB en Azure SQL Data Warehouse en 15 minutos con Data Factory
 > [!NOTE]
@@ -160,7 +160,7 @@ En esta sección se muestran los pasos para configurar el origen: blob de Azure 
 
     ![Asistente para copia: Selección de carpeta de entrada](media/data-factory-load-sql-data-warehouse/select-input-folder.png)
 
-4. Al hacer clic en **Siguiente**, se detectan automáticamente los ajustes de formato de archivo.  Asegúrese de que el delimitador de columnas es " | " en lugar del ajuste predeterminado de la coma ",".  Haga clic en **Siguiente** después de realizar una vista previa de los datos.
+4. Al hacer clic en **Siguiente**, se detectan automáticamente los ajustes de formato de archivo.  Asegúrese de que el delimitador de columnas sea "|" en lugar del valor predeterminado de la coma ",".  Haga clic en **Siguiente** después de realizar una vista previa de los datos.
 
     ![Herramienta de copia: Ajustes de formato de archivo](media/data-factory-load-sql-data-warehouse/file-format-settings.png)
 

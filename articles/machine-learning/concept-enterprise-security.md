@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 01/09/2020
-ms.openlocfilehash: b37b386273947f8c39fe182e4f29b7b080addf7b
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.date: 03/13/2020
+ms.openlocfilehash: 9f3a1c3455aadfbd243cdc6ab2920849c8558841
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77605628"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414640"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Seguridad de empresa para Azure Machine Learning
 
@@ -107,12 +107,42 @@ Azure Machine Learning depende de otros servicios de Azure para los recursos de 
 
 Para más información, consulte [Ejecución de experimentos y realización de inferencias en una red virtual](how-to-enable-virtual-network.md).
 
+También puede habilitar Azure Private Link para el área de trabajo. Private Link le permite restringir las comunicaciones con el área de trabajo desde una instancia de Azure Virtual Network. Para más información, consulte [Configuración de Private Link](how-to-configure-private-link.md).
+
+> [!TIP]
+> Puede combinar la red virtual y Private Link para proteger la comunicación entre el área de trabajo y otros recursos de Azure. Sin embargo, algunas combinaciones requieren un área de trabajo de Enterprise Edition. Use la tabla siguiente para comprender qué escenarios requieren Enterprise Edition:
+>
+> | Escenario | Enterprise</br>edition | Básica</br>edition |
+> | ----- |:-----:|:-----:| 
+> | Sin red virtual ni Private Link | ✔ | ✔ |
+> | Área de trabajo sin Private Link. Otros recursos (excepto Azure Container Registry) en una red virtual | ✔ | ✔ |
+> | Área de trabajo sin Private Link. Otros recursos con Private Link | ✔ | |
+> | Área de trabajo con Private Link. Otros recursos (excepto Azure Container Registry) en una red virtual | ✔ | ✔ |
+> | Área de trabajo y cualquier otro recurso con Private Link | ✔ | |
+> | Área de trabajo con Private Link. Otros recursos sin Private Link ni red virtual | ✔ | ✔ |
+> | Azure Container Registry en una red virtual | ✔ | |
+> | Claves administradas por el cliente para el área de trabajo | ✔ | |
+> 
+
+> [!WARNING]
+> No se admite la vista previa de instancias de proceso de Azure Machine Learning en un área de trabajo en la que Private Link está habilitado.
+> 
+> Azure Machine Learning no admite el uso de un servicio Azure Kubernetes Service que tenga habilitado Private Link. En su lugar, puede usar Azure Kubernetes Service en una red virtual. Para obtener más información, consulte [Protección de los trabajos de experimentación e inferencia de ML en una instancia de Azure Virtual Network](how-to-enable-virtual-network.md).
+
 ## <a name="data-encryption"></a>Cifrado de datos
 
 ### <a name="encryption-at-rest"></a>Cifrado en reposo
 
 > [!IMPORTANT]
-> Si su área de trabajo contiene datos confidenciales, se recomienda establecer el parámetro [hbi_workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) a la hora de crearla. Esto controla la cantidad de datos que Microsoft recopila para fines de diagnóstico y permite el cifrado adicional en entornos administrados por Microsoft.
+> Si su área de trabajo contiene datos confidenciales, se recomienda establecer el parámetro [hbi_workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) a la hora de crearla. 
+
+La marca `hbi_workspace` controla la cantidad de datos que Microsoft recopila para fines de diagnóstico y permite el cifrado adicional en entornos administrados por Microsoft. Además, permite lo siguiente:
+
+* Inicia el cifrado del disco temporal local en el clúster de Amlcompute siempre que no haya creado ningún clúster anterior en esa suscripción. En caso contrario, debe generar una incidencia de soporte técnico para habilitar el cifrado del disco temporal de los clústeres de proceso. 
+* Limpia el disco temporal local entre ejecuciones.
+* Pasa de forma segura las credenciales de la cuenta de almacenamiento, el registro de contenedor y la cuenta SSH desde la capa de ejecución a los clústeres de proceso mediante el almacén de claves.
+* Habilita el filtrado de IP para asegurarse de que los servicios externos que no sean AzureMachineLearningService no puedan llamar a los grupos de lotes subyacentes.
+
 
 Para más información sobre cómo funciona el cifrado en reposo en Azure, consulte [Cifrado en reposo de datos de Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest).
 
@@ -124,6 +154,8 @@ Para más información sobre el uso de claves propias para los datos almacenados
 
 Los datos de entrenamiento también se almacenan en Azure Blob Storage, de modo que están accesibles para los destinos de proceso de entrenamiento. Este almacenamiento no está administrado por Azure Machine Learning, sino que está montado en destinos de proceso como un sistema de archivos remoto.
 
+Si necesita __girar o revocar__ la clave, puede hacerlo en cualquier momento. Al rotar una clave, la cuenta de almacenamiento comenzará a usar la nueva clave (versión más reciente) para cifrar los datos en reposo. Al revocar (deshabilitar) una clave, la cuenta de almacenamiento se encarga de las solicitudes con error. Normalmente, se tarda una hora para que la rotación o la revocación surtan efecto.
+
 Para más información sobre cómo regenerar una clave de acceso, vea el artículo [Regeneración de las claves de la cuenta de almacenamiento](how-to-change-storage-access-key.md).
 
 #### <a name="azure-cosmos-db"></a>Azure Cosmos DB
@@ -131,9 +163,6 @@ Para más información sobre cómo regenerar una clave de acceso, vea el artícu
 Azure Machine Learning almacena métricas y metadatos en una instancia de Azure Cosmos DB. Esta instancia está asociada a una suscripción de Microsoft administrada por Azure Machine Learning. Todos los datos almacenados en Azure Cosmos DB se cifran en reposo con claves administradas por Microsoft.
 
 Si quiere usar sus propias claves (administradas por el cliente) para cifrar su instancia de Azure Cosmos DB, puede crear una instancia de Cosmos DB dedicada para usarla con el área de trabajo. Recomendamos este método si quiere almacenar los datos, como la información del historial de ejecución, fuera de la instancia de Cosmos DB multiinquilino hospedada en la suscripción de Microsoft. 
-
-> [!NOTE]
-> Esta característica solo está disponible actualmente en las regiones Este de EE. UU., Oeste de EE. UU. 2 y Centro y Sur de EE. UU.
 
 Para habilitar el aprovisionamiento de una instancia de Cosmos DB en su suscripción con claves administradas por el cliente, realice estas acciones:
 
@@ -160,6 +189,8 @@ Esta instancia de Cosmos DB se crea en un grupo de recursos administrados por Mi
 > * Si necesita eliminarla, primero debe eliminar el área de trabajo de Azure Machine Learning que la usa. 
 > * Las [__Unidades de solicitud__](../cosmos-db/request-units.md) predeterminadas para esta cuenta de Cosmos DB son __8000__. Este valor no se puede cambiar. 
 
+Si necesita __girar o revocar__ la clave, puede hacerlo en cualquier momento. Al rotar una clave, Cosmos DB comenzará a usar la nueva clave (versión más reciente) para cifrar los datos en reposo. Al revocar (deshabilitar) una clave, Cosmos DB se encarga de las solicitudes con error. Normalmente, se tarda una hora para que la rotación o la revocación surtan efecto.
+
 Para más información sobre las claves administradas por el cliente con Cosmos DB, vea el artículo [Configuración de claves administradas por el cliente para la cuenta de Azure Cosmos DB](../cosmos-db/how-to-setup-cmk.md).
 
 #### <a name="azure-container-registry"></a>Azure Container Registry
@@ -175,7 +206,21 @@ Para ver ejemplos de cómo crear un área de trabajo con una instancia existente
 
 #### <a name="azure-container-instance"></a>Azure Container Instances
 
-Azure Container Instances no admite el cifrado de discos. Si necesita usar el cifrado de discos, se recomienda [implementar un modelo en una instancia de Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md) en su lugar. En este caso, puede que también quiera usar la compatibilidad de Azure Machine Learning con los controles de acceso basado en roles para evitar que se lleven a cabo implementaciones en una instancia de Azure Container en su suscripción.
+Puede cifrar un recurso de Azure Container Instance (ACI) implementado mediante claves administradas por el cliente. La clave administrada por el cliente que se usa para ACI puede almacenarse en el almacén Azure Key Vault del área de trabajo. Para obtener información sobre cómo generar una clave, consulte [Cifrado de datos con una clave administrada por el cliente](../container-instances/container-instances-encrypt-data.md#generate-a-new-key).
+
+Para usar la clave al implementar un modelo en una instancia de Azure Container Instances, cree una nueva configuración de implementación mediante `AciWebservice.deploy_configuration()`. Proporcione la información de clave con los parámetros siguientes:
+
+* `cmk_vault_base_url`: La dirección URL del almacén de claves que contiene la clave.
+* `cmk_key_name`: El nombre de la clave.
+* `cmk_key_version`: La versión de la clave.
+
+Para obtener más información sobre la creación y el uso de una configuración de implementación, vea los siguientes artículos:
+
+* Referencia de [AciWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none-)
+* [Implementación de modelos con Azure Machine Learning](how-to-deploy-and-where.md)
+* [Implementación de un modelo en Azure Container Instances](how-to-deploy-azure-container-instance.md)
+
+Para obtener más información sobre el uso de una clave administrada por el cliente con ACI, consulte [Cifrado de datos con una clave administrada por el cliente](../container-instances/container-instances-encrypt-data.md#encrypt-data-with-a-customer-managed-key).
 
 #### <a name="azure-kubernetes-service"></a>Azure Kubernetes Service
 
@@ -198,9 +243,9 @@ Azure Databricks se puede utilizar en canalizaciones de Azure Machine Learning. 
 
 ### <a name="encryption-in-transit"></a>Cifrado en tránsito
 
-Puede usar SSL para proteger la comunicación interna entre los microservicios de Azure Machine Learning y para proteger las llamadas externas al punto de conexión de puntuación. Todo el acceso de Azure Storage se realiza también a través de un canal seguro.
+Azure Machine Learning usa TLS para proteger la comunicación interna entre varios microservicios de Azure Machine Learning. Todo el acceso de Azure Storage se realiza también a través de un canal seguro.
 
-Para más información, consulte [Uso de SSL para proteger un servicio web con Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-secure-web-service).
+Para proteger las llamadas externas al punto de conexión de puntuación, Azure Machine Learning usa TLS. Para obtener más información, vea [Uso de TLS para proteger un servicio web mediante Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-secure-web-service).
 
 ### <a name="using-azure-key-vault"></a>Uso de Azure Key Vault
 
@@ -338,7 +383,7 @@ Estos son los detalles:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Protección de los servicios web de Azure Machine Learning con SSL](how-to-secure-web-service.md)
+* [Protección de los servicios web Azure Machine Learning con TLS](how-to-secure-web-service.md)
 * [Consumir un modelo de Machine Learning implementado como un servicio web](how-to-consume-web-service.md)
 * [Cómo ejecutar predicciones por lotes](how-to-use-parallel-run-step.md)
 * [Supervisión de los modelos de Azure Machine Learning con Application Insights](how-to-enable-app-insights.md)

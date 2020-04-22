@@ -5,12 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: vturecek
-ms.openlocfilehash: 4a489993f982993d5703a9b46d42fffaa6134038
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4d2138935122b9e08b21963519fce3f72466ab1f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79229496"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414508"
 ---
 # <a name="manage-encrypted-secrets-in-service-fabric-applications"></a>Administración de secretos cifrados en aplicaciones de Service Fabric
 Esta guía le lleva por los pasos para administrar secretos en una aplicación de Service Fabric. Los secretos pueden ser cualquier información confidencial, como cadenas de conexión de almacenamiento, contraseñas u otros valores que no se deben administrar en texto sin formato.
@@ -57,6 +57,11 @@ Los secretos también se deben incluir en la aplicación Service Fabric mediante
   </Certificates>
 </ApplicationManifest>
 ```
+> [!NOTE]
+> Al activar una aplicación que especifica un elemento SecretsCertificate, Service Fabric encontrará el certificado coincidente y concederá a la identidad, bajo la que se ejecuta la aplicación, permisos completos para la clave privada del certificado. Service Fabric también supervisará los cambios del certificado y volverá a aplicar los permisos en consecuencia. Para detectar los cambios en los certificados declarados por nombre común, Service Fabric ejecuta una tarea periódica que encuentra todos los certificados coincidentes y los compara con una lista en caché de huellas digitales. Cuando se detecta una nueva huella digital, significa que ese sujeto ha renovado un certificado. La tarea se ejecuta una vez por minuto en cada nodo del clúster.
+>
+> Aunque el elemento SecretsCertificate permite declaraciones basadas en sujeto, tenga en cuenta que la configuración cifrada está asociada al par de claves que se usó para cifrar la configuración en el cliente. Debe asegurarse de que el certificado de cifrado original (o equivalente) coincide con la declaración basada en sujeto y que está instalado, incluida su clave privada correspondiente, en todos los nodos del clúster que pueden hospedar la aplicación. Todos los certificados válidos en el tiempo que coinciden con la declaración basada en sujeto y creados a partir del mismo par de claves que el certificado de cifrado original se consideran equivalentes.
+>
 
 ### <a name="inject-application-secrets-into-application-instances"></a>Inserción de secretos de aplicación en instancias de aplicación
 Lo más conveniente es que la implementación en entornos diferentes sea lo más automatizada posible. Para lograr esto, se puede realizar el cifrado del secreto en un entorno de compilación y proporcionar los secretos cifrados como parámetros al crear instancias de aplicación.

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: victorh
-ms.openlocfilehash: 4cd2969f9a56c96af2b2c6db216f6829a080260c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7feb0f00c5431048d19d4ad6cb3860f6eb8ed052
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371274"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312701"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Escalabilidad automática y Application Gateway con redundancia de zona v2 
 
@@ -26,9 +26,9 @@ La nueva SKU v2 incluye las siguientes mejoras:
   La redundancia de zona están disponibles solo donde estén disponibles las zonas de Azure. En otras regiones, se admiten todas las demás características. Para más información, consulte [¿Qué son las zonas de disponibilidad en Azure?](../availability-zones/az-overview.md#services-support-by-region)
 - **VIP estática**: la SKU v2 de Application Gateway admite ahora exclusivamente el tipo de IP virtual estática. Con esto se garantiza que la IP virtual asociada a la puerta de enlace de aplicaciones no cambia durante la vigencia de la implementación, ni siquiera tras un reinicio.  No hay una IP virtual estática en la v1, por lo que debe usar la URL de la puerta de enlace de aplicaciones en lugar de la dirección IP para el enrutamiento del nombre de dominio a App Services a través de la puerta de enlace de aplicaciones.
 - **Reescritura de encabezados**: Application Gateway permite agregar, quitar o actualizar los encabezados de solicitud y respuesta HTTP con la SKU v2. Para más información, consulte [Rescritura de encabezados HTTP con Application Gateway](rewrite-http-headers.md).
-- **Integración de Key Vault**: Application Gateway v2 admite la integración con Key Vault para certificados de servidor adjuntos a clientes de escucha con HTTPS habilitado. Para obtener más información, consulte [Terminación SSL con certificados de Key Vault](key-vault-certs.md).
+- **Integración de Key Vault**: Application Gateway v2 admite la integración con Key Vault para certificados de servidor adjuntos a clientes de escucha con HTTPS habilitado. Para obtener más información, consulte [Terminación TLS con certificados de Key Vault](key-vault-certs.md).
 - **Controlador de entrada de Azure Kubernetes Service (AKS)** : El controlador de entrada de Application Gateway v2 permite que Azure Application Gateway se utilice como entrada para una instancia de Azure Kubernetes Service (AKS) llamada clúster AKS. Para más información, consulte [¿Qué es el controlador de entrada de Application Gateway?](ingress-controller-overview.md)
-- **Mejoras de rendimiento**: la SKU v2 ofrece un rendimiento cinco veces superior en la descarga de SSL en comparación con la SKU Standard/WAF.
+- **Mejoras de rendimiento**: la SKU v2 ofrece un rendimiento cinco veces superior en la descarga de TLS en comparación con la SKU Standard/WAF.
 - **Menores tiempos de implementación y actualización**: la SKU v2 proporciona menores tiempos de implementación y actualización en comparación con la SKU Standard/WAF. Esto también incluye los cambios de configuración en WAF.
 
 ![](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
@@ -77,7 +77,7 @@ Precio total: 148,8 $ + 297,6 $ = 446,4 $
 
 **Ejemplo 2**
 
-Se aprovisiona un servicio de Application Gateway Standard_v2 durante un mes, con un mínimo de cero instancias, y en este tiempo recibe 25 nuevas conexiones SSL por segundo, un promedio de transferencia de datos de 8,88 Mbps. Suponiendo que las conexiones tienen una duración breve, el precio sería:
+Se aprovisiona un servicio de Application Gateway Standard_v2 durante un mes, con un mínimo de cero instancias, y en este tiempo recibe 25 nuevas conexiones TLS por segundo, un promedio de transferencia de datos de 8,88 Mbps. Suponiendo que las conexiones tienen una duración breve, el precio sería:
 
 Precio fijo = 744(horas) * 0,20 $ = 148,8 $
 
@@ -105,7 +105,7 @@ En este caso, se le facturará la totalidad de las cinco instancias, aunque no h
 
 **Ejemplo 4**
 
-Se aprovisiona un servicio de Application Gateway Standard_v2 durante un mes, con un mínimo de cinco instancias, pero esta vez hay un promedio de transferencia de datos de 125 Mbps y 25 conexiones SSL por segundo. Suponiendo que no haya tráfico y las conexiones tengan una duración breve, el precio sería:
+Se aprovisiona un servicio de Application Gateway Standard_v2 durante un mes, con un mínimo de cinco instancias, pero esta vez hay un promedio de transferencia de datos de 125 Mbps y 25 conexiones TLS por segundo. Suponiendo que no haya tráfico y las conexiones tengan una duración breve, el precio sería:
 
 Precio fijo = 744(horas) * 0,20 $ = 148,8 $
 
@@ -117,7 +117,7 @@ En este caso, se le facturarán las cinco instancias completas, además de siete
 
 **Ejemplo 5**
 
-Se aprovisiona un servicio Application Gateway WAF_v2 durante un mes. En este tiempo, recibe 25 nuevas conexiones SSL por segundo, un promedio de transferencia de datos de 8,88 mbps, y realiza 80 solicitudes por segundo. Suponiendo que las conexiones son de corta duración, y que el cálculo de unidad de proceso para la aplicación admite 10 solicitudes por segundo por unidad de proceso, el precio sería:
+Se aprovisiona un servicio Application Gateway WAF_v2 durante un mes. En este tiempo, recibe 25 nuevas conexiones TLS por segundo, un promedio de transferencia de datos de 8,88 mbps, y realiza 80 solicitudes por segundo. Suponiendo que las conexiones son de corta duración, y que el cálculo de unidad de proceso para la aplicación admite 10 solicitudes por segundo por unidad de proceso, el precio sería:
 
 Precio fijo = 744(horas) * 0,36 $ = 267,84 $
 
@@ -152,8 +152,8 @@ En la tabla siguiente se comparan las características disponibles con cada SKU.
 | Redireccionamiento de tráfico                               | &#x2713; | &#x2713; |
 | Firewall de aplicaciones web (WAF)                    | &#x2713; | &#x2713; |
 | Reglas personalizadas del firewall de aplicaciones web                                  |          | &#x2713; |
-| Terminación de la Capa de sockets seguros (SSL)            | &#x2713; | &#x2713; |
-| Cifrado SSL de un extremo a otro                         | &#x2713; | &#x2713; |
+| Terminación de la Seguridad de la capa de transporte (TLS) o Capa de sockets seguros (SSL)            | &#x2713; | &#x2713; |
+| Cifrado TLS de un extremo a otro                         | &#x2713; | &#x2713; |
 | Afinidad de sesión                                  | &#x2713; | &#x2713; |
 | Páginas de error personalizadas                                | &#x2713; | &#x2713; |
 | Compatibilidad con WebSocket                                 | &#x2713; | &#x2713; |
@@ -167,7 +167,7 @@ En la tabla siguiente se comparan las características disponibles con cada SKU.
 
 |Diferencia|Detalles|
 |--|--|
-|Certificado de autenticación|No compatible.<br>Para más información, consulte [Introducción a SSL de un extremo a otro con Application Gateway](ssl-overview.md#end-to-end-ssl-with-the-v2-sku).|
+|Certificado de autenticación|No compatible.<br>Para más información, consulte [Introducción a TLS de un extremo a otro con Application Gateway](ssl-overview.md#end-to-end-tls-with-the-v2-sku).|
 |Combinación de Application Gateway Standard y Standard_v2 en la misma subred|No compatible|
 |Ruta definida por el usuario (UDR) en la subred de Application Gateway|Se admite (escenarios específicos). En versión preliminar.<br> Para obtener más información sobre los escenarios admitidos, consulte [Introducción a la configuración de Application Gateway](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet).|
 |NSG para el intervalo de puertos de entrada| - 65200 a 65535 para la SKU Standard_v2<br>- 65503 a 65534 para la SKU Standard.<br>Para más información, consulte las [preguntas más frecuentes](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|

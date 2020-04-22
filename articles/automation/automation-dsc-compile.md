@@ -1,18 +1,18 @@
 ---
-title: Compilación de configuraciones en Azure Automation State Configuration
+title: Compilación de configuraciones de DSC en Azure Automation State Configuration
 description: En este artículo se describe cómo compilar configuraciones de configuración de estado deseado (DSC) para Azure Automation.
 services: automation
 ms.subservice: dsc
-ms.date: 09/10/2018
+ms.date: 04/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 48593920bdfcf743fceaeaeec891c0d5c4f2e108
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f7558745442ac26fc33a063ff66fe170d08487ac
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80057633"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392083"
 ---
-# <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Compilación de configuraciones de DSC en Azure Automation State Configuration
+# <a name="compile-dsc-configurations-in-azure-automation-state-configuration"></a>Compilación de configuraciones de DSC en Azure Automation State Configuration
 
 Azure Automation State Configuration permite compilar las configuraciones de Desired State Configuration (DSC) de las siguientes formas:
 
@@ -27,7 +27,10 @@ Azure Automation State Configuration permite compilar las configuraciones de Des
   - Trabajo con datos de nodo y datos que no son de nodo a escala
   - Mejora significativa del rendimiento
 
-Para obtener información detallada sobre la compilación, consulte [Extensión Desired State Configuration con plantillas de Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/extensions/dsc-template#details).
+También puede usar plantillas de Azure Resource Manager con la extensión de Azure Desired State Configuration (DSC) para insertar configuraciones en las máquinas virtuales de Azure. La extensión DSC de Azure usa el marco del agente de máquina virtual de Azure para entregar y aplicar las configuraciones de DSC que se ejecutan en las máquinas virtuales de Azure, así como informar sobre estas. Para obtener información detallada sobre la compilación mediante plantillas de Azure Resource Manager, consulte [Extensión Desired State Configuration con plantillas de Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/extensions/dsc-template#details). 
+
+>[!NOTE]
+>Este artículo se ha actualizado para usar el nuevo módulo Az de Azure PowerShell. Aún puede usar el módulo de AzureRM que continuará recibiendo correcciones de errores hasta diciembre de 2020 como mínimo. Para más información acerca del nuevo módulo Az y la compatibilidad con AzureRM, consulte [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0) (Presentación del nuevo módulo Az de Azure PowerShell). Para obtener instrucciones sobre la instalación del módulo Az en Hybrid Runbook Worker, consulte [Instalación del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Puede actualizar los módulos de su cuenta de Automation a la versión más reciente mediante [Actualización de módulos de Azure PowerShell en Azure Automation](automation-update-azure-modules.md).
 
 ## <a name="compiling-a-dsc-configuration-in-azure-state-configuration"></a>Compilación de una configuración de DSC en Azure State Configuration
 
@@ -41,13 +44,13 @@ Para obtener información detallada sobre la compilación, consulte [Extensión 
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Puede usar [Start-AzAutomationDscCompilationJob](/powershell/module/az.automation/start-azautomationdsccompilationjob) para empezar a compilar con Windows PowerShell. El código de ejemplo siguiente inicia la compilación de una configuración de DSC llamada SampleConfig.
+Puede usar [Start-AzAutomationDscCompilationJob](/powershell/module/az.automation/start-azautomationdsccompilationjob) para empezar a compilar con Windows PowerShell. El código de ejemplo siguiente inicia la compilación de una configuración de DSC llamada **SampleConfig**.
 
 ```powershell
 Start-AzAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'MyAutomationAccount' -ConfigurationName 'SampleConfig'
 ```
 
-**Start-AzAutomationDscCompilationJob** devuelve un objeto de trabajo de compilación que puede usar para realizar el seguimiento del estado de trabajo. Después, puede utilizar este objeto de trabajo de compilación con [Get-AzAutomationDscCompilationJob](/powershell/module/az.automation/get-azautomationdsccompilationjob) para determinar el estado del trabajo de compilación y [Get-AzAutomationDscCompilationJobOutput](/powershell/module/az.automation/get-azautomationdscconfiguration) para ver sus flujos (salida). El ejemplo siguiente inicia la compilación de la configuración SampleConfig, espera hasta que finalice y, a continuación, muestra sus flujos.
+`Start-AzAutomationDscCompilationJob` devuelve un objeto de trabajo de compilación que puede usar para realizar el seguimiento del estado del trabajo. Después, puede utilizar este objeto de trabajo de compilación con [Get-AzAutomationDscCompilationJob](/powershell/module/az.automation/get-azautomationdsccompilationjob) para determinar el estado del trabajo de compilación y [Get-AzAutomationDscCompilationJobOutput](/powershell/module/az.automation/get-azautomationdscconfiguration) para ver sus flujos (salida). El ejemplo siguiente inicia la compilación de la configuración SampleConfig, espera hasta que finalice y, a continuación, muestra sus flujos.
 
 ```powershell
 $CompilationJob = Start-AzAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'MyAutomationAccount' -ConfigurationName 'SampleConfig'
@@ -65,7 +68,7 @@ $CompilationJob | Get-AzAutomationDscCompilationJobOutput –Stream Any
 
 La declaración de parámetro en configuraciones DSC, incluidos los tipos de parámetro y las propiedades, funciona igual que en los runbooks de Azure Automation. Vea [Inicio de un runbook en Azure Automation](automation-starting-a-runbook.md) para obtener más información acerca de los parámetros del runbook.
 
-En el ejemplo siguiente se usan dos parámetros, *FeatureName* e *IsPresent*, para determinar los valores de las propiedades de la configuración del nodo ParametersExample.sample, que se ha generado durante la compilación.
+En el ejemplo siguiente se usan los parámetros `FeatureName` y `IsPresent` para determinar los valores de las propiedades de la configuración del nodo **ParametersExample.sample**, que se han generado durante la compilación.
 
 ```powershell
 Configuration ParametersExample
@@ -116,7 +119,7 @@ $Parameters = @{
 Start-AzAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'MyAutomationAccount' -ConfigurationName 'ParametersExample' -Parameters $Parameters
 ```
 
-Para obtener información acerca de cómo pasar PSCredentials como parámetros, consulte más abajo la sección [Recursos de credenciales](#credential-assets).
+Para obtener información acerca de cómo pasar objetos `PSCredential` como parámetros, consulte [Recursos de credenciales](#credential-assets).
 
 ### <a name="compile-configurations-containing-composite-resources-in-azure-automation"></a>Compilación de configuraciones que contienen recursos compuestos en Azure Automation
 
@@ -127,12 +130,12 @@ La característica **Recursos compuestos** le permite utilizar las configuracion
 
 ### <a name="manage-configurationdata-when-compiling-configurations-in-azure-automation"></a>Administración de ConfigurationData al compilar configuraciones en Azure Automation
 
-**ConfigurationData** le permite separar las opciones estructurales de cualquier configuración específica del entorno al usar DSC de PowerShell. Para obtener más información, consulte [Diferenciación de "Qué" y "Dónde" en DSC de PowerShell](https://devblogs.microsoft.com/powershell/separating-what-from-where-in-powershell-dsc/).
+`ConfigurationData` es un parámetro de DSC integrado que le permite separar la configuración estructural de cualquier configuración específica del entorno al usar DSC de PowerShell. Para obtener más información, consulte [Diferenciación de "Qué" y "Dónde" en DSC de PowerShell](https://devblogs.microsoft.com/powershell/separating-what-from-where-in-powershell-dsc/).
 
 > [!NOTE]
-> Al compilar en State Configuration de Azure Automation, puede usar **ConfigurationData** en Azure PowerShell, pero no en Azure Portal.
+> Al compilar en Azure Automation State Configuration, puede usar `ConfigurationData` en Azure PowerShell, pero no en Azure Portal.
 
-En el siguiente ejemplo, la configuración de DSC usa **ConfigurationData** mediante las palabras clave $ConfigurationData y $AllNodes. En este ejemplo, también necesitará el [módulo xWebAdministration](https://www.powershellgallery.com/packages/xWebAdministration/).
+En el siguiente ejemplo de configuración de DSC se usa `ConfigurationData` mediante las palabras clave `$ConfigurationData` y `$AllNodes`. En este ejemplo, también necesitará el [módulo xWebAdministration](https://www.powershellgallery.com/packages/xWebAdministration/).
 
 ```powershell
 Configuration ConfigurationDataSample
@@ -153,7 +156,7 @@ Configuration ConfigurationDataSample
 }
 ```
 
-Puede compilar la configuración de DSC anterior con Windows PowerShell. El siguiente script agrega dos configuraciones de nodo al servicio de extracción de State Configuration de Azure Automation: ConfigurationDataSample.MyVM1 y ConfigurationDataSample.MyVM3.
+Puede compilar la configuración de DSC anterior con Windows PowerShell. El siguiente script agrega dos configuraciones de nodo al servicio de extracción de State Configuration de Azure Automation: **ConfigurationDataSample.MyVM1** y **ConfigurationDataSample.MyVM3**.
 
 ```powershell
 $ConfigData = @{
@@ -191,11 +194,11 @@ Las referencias de recursos son las mismas en State Configuration de Azure Autom
 
 #### <a name="credential-assets"></a>Recursos de credenciales
 
-Las configuraciones de DSC en Azure Automation pueden hacer referencia a los recursos de credenciales de Automation mediante el uso del cmdlet **Get-AutomationPSCredential**. Si una configuración tiene un parámetro que especifica un objeto **PSCredential**, use **Get-AutomationPSCredential** pasando el nombre de cadena de un recurso de credencial de Azure Automation al cmdlet para recuperar la credencial. Luego use ese objeto para el parámetro que requiere el objeto **PSCredential**. En segundo plano, se recuperará el recurso de credenciales de Azure Automation con ese nombre y se pasará a la configuración. El ejemplo siguiente muestra este escenario en acción.
+Las configuraciones de DSC en Azure Automation pueden hacer referencia a los activos de credenciales de Automation mediante el uso del cmdlet `Get-AutomationPSCredential`. Si una configuración tiene un parámetro que especifica un objeto `PSCredential`, use `Get-AutomationPSCredential` pasando el nombre de cadena de un recurso de credencial de Azure Automation al cmdlet para recuperar la credencial. Luego use ese objeto para el parámetro que requiere el objeto `PSCredential`. En segundo plano, se recuperará el recurso de credenciales de Azure Automation con ese nombre y se pasará a la configuración. El ejemplo siguiente muestra este escenario en acción.
 
 Mantener las credenciales seguras en configuraciones de nodo (documentos de configuración MOF) exige el cifrado de las credenciales en el archivo MOF de configuración de nodo. Actualmente, debe proporcionar a DSC de PowerShell permiso para mostrar en la salida las credenciales en texto sin formato durante la generación del archivo MOF de configuración de nodo. DSC de PowerShell no sabe que Azure Automation cifra todo el archivo MOF después de su generación mediante un trabajo de compilación.
 
-Puede indicar a DSC de PowerShell que es correcto que las credenciales tengan salida como texto sin formato en el MOF de configuración de nodo generado mediante ConfigurationData. Debe pasar `PSDscAllowPlainTextPassword = $true` a través de **ConfigurationData** para el nombre de cada bloque de nodo que aparezca en la configuración de DSC y use las credenciales.
+Puede indicar a DSC de PowerShell que es correcto que las credenciales tengan salida como texto sin formato en los MOF de configuración de nodo generado mediante Datos de configuración. Debe pasar `PSDscAllowPlainTextPassword = $true` a través de `ConfigurationData` para el nombre de cada bloque de nodo que aparezca en la configuración de DSC y use las credenciales.
 
 En el ejemplo siguiente se muestra una configuración de DSC que usa un recurso de la credencial de Automation.
 
@@ -217,7 +220,7 @@ Configuration CredentialSample
 }
 ```
 
-Puede compilar la configuración de DSC anterior con PowerShell. El siguiente código de PowerShell agrega las configuraciones de dos nodos al servidor de extracción de State Configuration de Azure Automation: CredentialSample.MyVM1 y CredentialSample.MyVM2.
+Puede compilar la configuración de DSC anterior con PowerShell. El siguiente código de PowerShell agrega las configuraciones de dos nodos al servidor de extracción de State Configuration de Azure Automation: **CredentialSample.MyVM1** y **CredentialSample.MyVM2**.
 
 ```powershell
 $ConfigData = @{
@@ -239,16 +242,16 @@ Start-AzAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -Automa
 ```
 
 > [!NOTE]
-> Cuando se completa la compilación, puede recibir el mensaje de error "The 'Microsoft.PowerShell.Management' module was not imported because the 'Microsoft.PowerShell.Management' snap-in was already imported." ("El módulo "Microsoft.PowerShell.Management" no se importó porque el complemento "Microsoft.PowerShell.Management" ya se había importado"). Puede omitir este mensaje sin problemas.
+> Una vez completada la compilación, puede recibir el mensaje de error `The 'Microsoft.PowerShell.Management' module was not imported because the 'Microsoft.PowerShell.Management' snap-in was already imported.`. Puede omitir este mensaje con seguridad.
 
 ## <a name="compiling-your-dsc-configuration-in-windows-powershell"></a>Compilación de su configuración de DSC en Windows PowerShell
 
-También puede importar las configuraciones de nodo (MOF) que se hayan compilado fuera de Azure. La importación incluye la compilación desde una estación de trabajo de desarrollador o en un servicio como [Azure DevOps](https://dev.azure.com). Este enfoque tiene múltiples ventajas, como el rendimiento y la confiabilidad.
+También puede importar las configuraciones de nodo (archivos MOF) que se hayan compilado fuera de Azure. La importación incluye la compilación desde una estación de trabajo de desarrollador o en un servicio como [Azure DevOps](https://dev.azure.com). Este enfoque tiene múltiples ventajas, como el rendimiento y la confiabilidad.
 
 La compilación en Windows PowerShell también ofrece la opción de firmar el contenido de la configuración. El agente de DSC comprueba una configuración de nodo firmada localmente en un nodo administrado. La comprobación garantiza que la configuración que se aplica al nodo proviene de un origen autorizado.
 
 > [!NOTE]
-> Un archivo de configuración de nodo debe ocupar más de 1 MB para poderlo importar en Azure Automation.
+> Un archivo de configuración de nodo no debe ser superior a 1 MB para que Azure Automation pueda importarlo.
 
 Para más información sobre la firma de configuraciones de nodo, consulte [Mejoras en WMF 5.1: firma de la configuración y del módulo](/powershell/scripting/wmf/whats-new/dsc-improvements#dsc-module-and-configuration-signing-validations).
 
@@ -260,8 +263,8 @@ Puede ejecutar este proceso desde una estación de trabajo de desarrollador o de
 ### <a name="import-a-node-configuration-in-the-azure-portal"></a>Importación de una configuración de nodo en Azure Portal
 
 1. En la cuenta de Automation, haga clic en **State Configuration (DSC)** en **Administración de configuración**.
-1. En la página State Configuration (DSC), haga clic en la pestaña **Configuraciones** y, después, haga clic en **+ Agregar**.
-1. En la página Importar, haga clic en el icono de carpeta situado junto al cuadro de texto **Archivo de configuración de nodo** para buscar un archivo de configuración de nodo (MOF) en el equipo local.
+1. En la página State Configuration (DSC), haga clic en la pestaña **Configuraciones** y, después, haga clic en **Agregar**.
+1. En la página Importar, haga clic en el icono de carpeta situado junto al cuadro de texto **Archivo de configuración de nodo** para buscar un archivo MOF de configuración de nodo en el equipo local.
 
    ![Buscar archivo local](./media/automation-dsc-compile/import-browse.png)
 
@@ -280,6 +283,7 @@ Import-AzAutomationDscNodeConfiguration -AutomationAccountName 'MyAutomationAcco
 
 - Para empezar a trabajar, consulte [Introducción a State Configuration de Azure Automation](automation-dsc-getting-started.md).
 - Para obtener información acerca de la compilación de configuraciones de DSC para poder asignarlas a los nodos de destino, consulte [Compilación de configuraciones en State Configuration de Azure Automation](automation-dsc-compile.md).
-- Para la referencia de cmdlets de PowerShell, consulte [Cmdlets de State Configuration de Azure Automation](/powershell/module/az.automation).
+- Para obtener una referencia de los cmdlets de PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).
 - Para obtener información de precios, consulte [Precios de State Configuration de Azure Automation](https://azure.microsoft.com/pricing/details/automation/).
 - Para ver un ejemplo del uso de State Configuration de Azure Automation en una canalización de implementación continua, consulte [Implementación continua en máquinas virtuales mediante State Configuration de Azure Automation y Chocolatey](automation-dsc-cd-chocolatey.md).

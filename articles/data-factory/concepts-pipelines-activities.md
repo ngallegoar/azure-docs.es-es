@@ -9,18 +9,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: 6e466675a9bd86693ce0ee048480712a55829ce6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ad4ffa71480a5af06c31872cbafcaab7719c55e0
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79225528"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418344"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Canalizaciones y actividades en Azure Data Factory
 
-> [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
+> [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que esté usando:"]
 > * [Versión 1](v1/data-factory-create-pipelines.md)
 > * [Versión actual](concepts-pipelines-activities.md)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artículo ayuda a conocer las canalizaciones y actividades de Azure Data Factory y a usarlas para construir flujos de trabajo controlados por datos de un extremo para los escenarios de procesamiento de datos y movimiento de datos.
 
@@ -55,7 +56,7 @@ Actividad de transformación de datos | Entorno de procesos
 [de Hadoop](transform-data-using-hadoop-map-reduce.md) | HDInsight [Hadoop]
 [Hadoop Streaming](transform-data-using-hadoop-streaming.md) | HDInsight [Hadoop]
 [Spark](transform-data-using-spark.md) | HDInsight [Hadoop]
-[Actividades de Machine Learning: ejecución de Batch y recurso de actualización](transform-data-using-machine-learning.md) | Azure VM
+[Actividades de Machine Learning: ejecución de lotes y recurso de actualización](transform-data-using-machine-learning.md) | Azure VM
 [Procedimiento almacenado](transform-data-using-stored-procedure.md) | SQL Azure, Azure SQL Data Warehouse o SQL Server
 [U-SQL](transform-data-using-data-lake-analytics.md) | Análisis con Azure Data Lake
 [Actividad personalizada](transform-data-using-dotnet-custom-activity.md) | Azure Batch
@@ -73,14 +74,14 @@ Actividad de control | Descripción
 [Append Variable](control-flow-append-variable-activity.md) | Agrega un valor a una variable de matriz existente.
 [Execute Pipeline](control-flow-execute-pipeline-activity.md) | La actividad de ejecución de canalización permite que una canalización de Data Factory invoque otra canalización.
 [Filter](control-flow-filter-activity.md) | Aplicar una expresión de filtro a una matriz de entrada
-[For Each](control-flow-for-each-activity.md) | La actividad ForEach define un flujo de control repetido en la canalización. Esta actividad se usa para iterar una colección y ejecuta las actividades especificadas en un bucle. La implementación del bucle de esta actividad es similar a la estructura de bucle ForEach de los lenguajes de programación.
+[For Each](control-flow-for-each-activity.md) | La actividad ForEach define un flujo de control repetido en la canalización. Esta actividad se usa para iterar una colección y ejecuta las actividades especificadas en un bucle. La implementación del bucle de esta actividad es similar a la estructura del bucle ForEach de los lenguajes de programación.
 [Get Metadata (Obtener metadatos)](control-flow-get-metadata-activity.md) | La actividad GetMetadata se puede usar para recuperar metadatos de cualquier dato en Azure Data Factory.
-[Actividad If Condition](control-flow-if-condition-activity.md) | La condición If puede usarse para crear una rama basada en una condición que evalúa como true o false. La actividad de la condición IF proporciona la misma funcionalidad que proporciona una instrucción If en lenguajes de programación. Evalúa un conjunto de actividades cuando la condición se evalúa como `true` y otro conjunto de actividades cuando la condición se evalúa como `false`.
+[Actividad If Condition](control-flow-if-condition-activity.md) | La condición If puede usarse para crear una rama basada en una condición que evalúa como true o false. La actividad de la condición IF proporciona la misma funcionalidad que proporciona una instrucción If en lenguajes de programación. Evalúa un conjunto de actividades cuando la condición se evalúa como `true` y otro conjunto de actividades cuando la condición se evalúa como `false.`.
 [Actividad Lookup](control-flow-lookup-activity.md) | La actividad de búsqueda puede usarse para leer o buscar un registro, un nombre de tabla o un valor de cualquier origen externo. Además, las actividades posteriores pueden hacer referencia a esta salida.
 [Set Variable](control-flow-set-variable-activity.md) | Establece el valor de una variable existente.
 [Actividad Until](control-flow-until-activity.md) | Implementa el bucle Do-Until, que es similar a la estructura de bucle Do-Until de los lenguajes de programación. Ejecuta un conjunto de actividades en un bucle hasta que la condición asociada a la actividad la evalúa como "true". Puede especificar un valor de tiempo de espera para la actividad Until en Data Factory.
 [Actividad de validación](control-flow-validation-activity.md) | Asegúrese de que una canalización solo continúa la ejecución si existe un conjunto datos de referencia, cumple los criterios especificados o se ha alcanzado el tiempo de espera.
-[Actividad Wait](control-flow-wait-activity.md) | Cuando use una actividad Wait en una canalización, esta espera durante el período de tiempo especificado antes de continuar con la ejecución de actividades sucesivas.
+[Actividad Wait](control-flow-wait-activity.md) | Cuando use una actividad Wait en una canalización, esta espera durante el tiempo especificado antes de continuar con la ejecución de actividades sucesivas.
 [Actividad web](control-flow-web-activity.md) | La actividad Web puede usarse para llamar a un punto de conexión REST personalizado desde una canalización de Data Factory. Puede pasar conjuntos de datos y servicios vinculados que la actividad consumirá y a los que tendrá acceso.
 [Actividad de webhook](control-flow-webhook-activity.md) | Use la actividad de webhook para llamar a un punto de conexión y pasar una dirección URL de devolución de llamada. La ejecución de canalización espera a que la devolución de llamada se invoque antes de continuar con la siguiente actividad.
 
@@ -107,15 +108,15 @@ Aquí encontrará cómo se define una canalización en formato JSON:
 
 Etiqueta | Descripción | Tipo | Obligatorio
 --- | ----------- | ---- | --------
-name | Nombre de la canalización. Especifique un nombre que represente la acción que realizará la canalización. <br/><ul><li>Número máximo de caracteres: 140</li><li>Debe empezar por una letra, un número o un carácter de subrayado (\_)</li><li>No se permiten los caracteres siguientes: “.”, “+”, “?”, “/”, “<”, “>”, “*”, “%”, “&”, “:”, “\”</li></ul> | String | Sí
+name | Nombre de la canalización. Especifique un nombre que represente la acción que realizará la canalización. <br/><ul><li>Número máximo de caracteres: 140</li><li>Debe empezar por una letra, un número o un carácter de subrayado (\_)</li><li>No se permiten los caracteres siguientes: ".", "+", "?", "/", "<",">","*"," %"," &",":"," \" </li></ul> | String | Sí
 description | Especifique el texto que describe para qué se usa la canalización. | String | No
 activities | La sección **activities** puede contener una o más actividades definidas. Consulte la sección [JSON de actividades](#activity-json) para obtener más información sobre el elemento JSON de actividades. | Array | Sí
 parámetros | La sección **parámetros** puede tener uno o varios de los parámetros definidos dentro de la canalización, lo que hace que la canalización sea flexible para su reutilización. | List | No
-simultaneidad | Número máximo de ejecuciones simultáneas que puede tener la canalización. De forma predeterminada, no hay ningún máximo. Si se alcanza el límite de simultaneidad, las ejecuciones de canalización adicionales se pondrán en cola hasta que se completen las anteriores. | Number | No 
+simultaneidad | Número máximo de ejecuciones simultáneas que puede tener la canalización. De forma predeterminada, no hay ningún máximo. Si se alcanza el límite de simultaneidad, las ejecuciones de canalización adicionales se ponen en cola hasta que se completan las anteriores. | Number | No 
 annotations | Lista de etiquetas asociadas a la canalización | Array | No
 
 ## <a name="activity-json"></a>Actividad de JSON
-La sección **activities** puede contener una o más actividades definidas. Hay dos tipos principales de actividades principales: actividades de ejecución y de control.
+La sección **activities** puede contener una o más actividades definidas. Existen dos tipos principales de actividades: Actividades de ejecución y de control.
 
 ### <a name="execution-activities"></a>Actividades de ejecución
 Las actividades de ejecución incluyen las actividades de [movimiento de datos](#data-movement-activities) y de [transformación de datos](#data-transformation-activities). Tienen la siguiente estructura de nivel superior:
@@ -142,12 +143,12 @@ En la tabla siguiente se describen las propiedades en la definición JSON de la 
 
 Etiqueta | Descripción | Obligatorio
 --- | ----------- | ---------
-name | Nombre de la actividad. Especifique un nombre que represente la acción que realizará la actividad. <br/><ul><li>Número máximo de caracteres: 55</li><li>Debe empezar por una letra, un número o un carácter de subrayado (\_)</li><li>No se permiten los caracteres siguientes: “.”, “+”, “?”, “/”, “<”, “>”, “*”, “%”, “&”, “:”, “\” | Sí</li></ul>
+name | Nombre de la actividad. Especifique un nombre que represente la acción que realizará la actividad. <br/><ul><li>Número máximo de caracteres: 55</li><li>Debe empezar por una letra, un número o un carácter de subrayado (\_)</li><li>No se permiten los caracteres siguientes: ".", "+", "?", "/", "<",">","*"," %"," &",":"," \" | Sí</li></ul>
 description | Texto que describe para qué se usa la actividad. | Sí
 type | Tipo de la actividad. Consulte las secciones [Actividades de movimiento de datos](#data-movement-activities), [Actividades de transformación de datos](#data-transformation-activities) y [Actividades de control](#control-flow-activities) para ver los diferentes tipos de actividades. | Sí
 linkedServiceName | Nombre del servicio vinculado utilizado por la actividad.<br/><br/>Una actividad puede requerir que especifique el servicio vinculado que enlaza con el entorno de procesos necesario. | Sí para la actividad de HDInsight, la actividad Scoring de Azure Machine Learning y la actividad de procedimiento almacenado. <br/><br/>No para todos los demás
 typeProperties | Las propiedades en la sección typeProperties dependen de cada tipo de actividad. Para ver las propiedades de tipo de una actividad, haga clic en vínculos a la actividad de la sección anterior. | No
-policy | Directivas que afectan al comportamiento en tiempo de ejecución de la actividad. Esta propiedad incluye el comportamiento de tiempo de espera y reintento. Si no se especifica, se usan los valores predeterminados. Para obtener más información, consulte la sección [Directiva de actividades](#activity-policy). | No
+policy | Directivas que afectan al comportamiento en tiempo de ejecución de la actividad. Esta propiedad incluye un comportamiento de tiempo de espera y reintento. Si no se especifica, se usan los valores predeterminados. Para obtener más información, consulte la sección [Directiva de actividades](#activity-policy). | No
 dependsOn | Esta propiedad se utiliza para definir las dependencias de actividad, y cómo las actividades siguientes dependen de actividades anteriores. Para obtener más información, consulte [Dependencia de actividades](#activity-dependency). | No
 
 ### <a name="activity-policy"></a>Directiva de actividades
@@ -186,7 +187,7 @@ Nombre JSON | Descripción | Valores permitidos | Obligatorio
 timeout | Especifica el tiempo de espera para que se ejecute la actividad. | TimeSpan | No. El tiempo de espera predeterminado es de 7 días.
 retry | Número máximo de reintentos | Entero | No. El valor predeterminado es 0.
 retryIntervalInSeconds | El retraso entre reintentos, en segundos. | Entero | No. El valor predeterminado es 30 segundos.
-secureOutput | Cuando se establece en true, la salida de la actividad se considera segura y no se registrará en la supervisión. | Boolean | No. El valor predeterminado es False.
+secureOutput | Cuando se establece en true, la salida de la actividad se considera segura y no se registra para la supervisión. | Boolean | No. El valor predeterminado es False.
 
 ### <a name="control-activity"></a>Actividad de control
 Las actividades de control tienen la siguiente estructura de nivel superior:
@@ -207,7 +208,7 @@ Las actividades de control tienen la siguiente estructura de nivel superior:
 
 Etiqueta | Descripción | Obligatorio
 --- | ----------- | --------
-name | Nombre de la actividad. Especifique un nombre que represente la acción que realizará la actividad.<br/><ul><li>Número máximo de caracteres: 55</li><li>Debe empezar por una letra, un número o un carácter de subrayado (\_)</li><li>No se permiten los caracteres siguientes: “.”, “+”, “?”, “/”, “<”, “>”, “*”, “%”, “&”, “:”, “\” | Sí</li><ul>
+name | Nombre de la actividad. Especifique un nombre que represente la acción que realizará la actividad.<br/><ul><li>Número máximo de caracteres: 55</li><li>Debe empezar por una letra, un número o un carácter de subrayado (\_)</li><li>No se permiten los caracteres siguientes: ".", "+", "?", "/", "<",">","*"," %"," &",":"," \" | Sí</li><ul>
 description | Texto que describe para qué se usa la actividad. | Sí
 type | Tipo de la actividad. Consulte las secciones [Actividades de movimiento de datos](#data-movement-activities), [Actividades de transformación de datos](#data-transformation-activities) y [Actividades de control](#control-flow-activities) para ver los diferentes tipos de actividades. | Sí
 typeProperties | Las propiedades en la sección typeProperties dependen de cada tipo de actividad. Para ver las propiedades de tipo de una actividad, haga clic en vínculos a la actividad de la sección anterior. | No
@@ -223,7 +224,7 @@ Por ejemplo, si una canalización tiene la actividad A -> actividad B, los disti
 - La actividad B tiene una condición de dependencia en la actividad A con **correcto**: la actividad B solo se ejecuta si la actividad A tiene un estado final correcto.
 - La actividad B tiene una condición de dependencia en la actividad A con **error**: la actividad B solo se ejecuta si la actividad A tiene un estado final de error.
 - La actividad B tiene una condición de dependencia en la actividad A con **completado**: la actividad B se ejecuta si la actividad A tiene un estado final correcto o de error.
-- La actividad B tiene una condición de dependencia en la actividad A con **omitido**: la actividad B se ejecuta si la actividad A tiene un estado final de omitido. La omisión se produce en el escenario de la actividad X -> actividad Y -> actividad Z, donde cada actividad se ejecuta solo si la actividad anterior se realiza correctamente. Si se produce un error en la actividad X, la actividad Y tiene un estado de “Omitido” porque nunca se ejecuta. De forma similar, la actividad Z también tiene un estado de “Omitido”.
+- La actividad B tiene una condición de dependencia de la actividad A con **omitido**: la actividad B se ejecuta si la actividad A tiene un estado final de omitido. La omisión se produce en el escenario de la actividad X -> actividad Y -> actividad Z, donde cada actividad se ejecuta solo si la actividad anterior se realiza correctamente. Si se produce un error en la actividad X, la actividad Y tiene un estado de "Omitido" porque nunca se ejecuta. De forma similar, la actividad Z también tiene un estado de "Omitido".
 
 #### <a name="example-activity-2-depends-on-the-activity-1-succeeding"></a>Ejemplo: La actividad 2 depende de que la actividad 1 se realice correctamente
 
@@ -264,10 +265,10 @@ Por ejemplo, si una canalización tiene la actividad A -> actividad B, los disti
     }
 }
 
-```
+`"
 
-## <a name="sample-copy-pipeline"></a>Canalización de copia de ejemplo
-En la canalización de ejemplo siguiente, hay una actividad del tipo **Copy** in the **actividades** . En este ejemplo, [Copiar actividad](copy-activity-overview.md) copia datos desde un almacén de Azure Blob Storage en una base de datos de Azure SQL.
+## Sample copy pipeline
+In the following sample pipeline, there is one activity of type **Copy** in the **activities** section. In this sample, the [copy activity](copy-activity-overview.md) copies data from an Azure Blob storage to an Azure SQL database.
 
 ```json
 {
@@ -357,7 +358,7 @@ En la canalización de ejemplo siguiente, hay una actividad del tipo **HDInsight
 Tenga en cuenta los siguientes puntos:
 
 - En la sección de actividades, solo hay una actividad con **type** establecido en **HDInsightHive**.
-- El archivo de script de Hive, **partitionweblogs.hql**, se almacena en la cuenta de Azure Storage (especificada por la propiedad scriptLinkedService, llamada AzureStorageLinkedService) en una carpeta de script en el contenedor `adfgetstarted`.
+- El archivo de script de Hive, **partitionweblogs.hql**, se almacena en la cuenta de Azure Storage (especificada por la propiedad scriptLinkedService, llamada AzureStorageLinkedService) y en una carpeta de script en el contenedor `adfgetstarted`.
 - La sección `defines` se usa para especificar la configuración de runtime n que se pasa al script de Hive como valores de configuración de Hive (por ejemplo, $`{hiveconf:inputtable}`, `${hiveconf:partitionedtable}`).
 
 La sección **typeProperties** es diferente para cada actividad de transformación. Para obtener información sobre las propiedades de tipo compatibles con una actividad de transformación, haga clic en la actividad de transformación en [Actividades de transformación de datos](#data-transformation-activities).
@@ -370,11 +371,11 @@ Las dos canalizaciones de ejemplo anteriores solo tienen una actividad, pero se 
 Puede encadenar dos actividades con la [dependencia de actividades](#activity-dependency), que define cómo las actividades siguientes dependen de las actividades anteriores, lo que determina la condición de si se debe continuar ejecutando la tarea siguiente. Una actividad puede depender de una o más actividades anteriores con distintas condiciones de dependencia.
 
 ## <a name="scheduling-pipelines"></a>Programación de canalizaciones
-Las canalizaciones se programan mediante desencadenadores. Hay diferentes tipos de desencadenadores (desencadenador de programador, que permiten que las canalizaciones se desencadenen según una programación de reloj, así como desencadenadores manuales, que desencadenan canalizaciones a petición). Para obtener más información sobre los desencadenadores, consulte el artículo [Ejecución y desencadenadores de canalización](concepts-pipeline-execution-triggers.md).
+Las canalizaciones se programan mediante desencadenadores. Hay diferentes tipos de desencadenadores (desencadenador Scheduler, que permite que las canalizaciones se desencadenen según una programación de reloj, así como el desencadenador manual, que desencadena canalizaciones a petición). Para obtener más información sobre los desencadenadores, consulte el artículo [Ejecución y desencadenadores de canalización](concepts-pipeline-execution-triggers.md).
 
 Para hacer que el desencadenador dé inicio a una ejecución de canalización, debe incluir una referencia de canalización de la canalización en particular en la definición del desencadenador. Las canalizaciones y los desencadenadores tienen una relación "de n a m". Varios desencadenadores pueden dar comienzo a una única canalización y el mismo desencadenador puede iniciar varias canalizaciones. Una vez definido el desencadenador, debe iniciar el desencadenador para que comience a desencadenar la canalización. Para obtener más información sobre los desencadenadores, consulte el artículo [Ejecución y desencadenadores de canalización](concepts-pipeline-execution-triggers.md).
 
-Por ejemplo, supongamos que tiene un desencadenador del programador, "Trigger A" que deseo que inicie la canalización, "MyCopyPipeline". Define el desencadenador tal como se muestra en el ejemplo siguiente:
+Por ejemplo, supongamos que tiene un desencadenador Scheduler, "Trigger A" que quiere que inicie la canalización, "MyCopyPipeline". El desencadenador se define tal como se muestra en el ejemplo siguiente:
 
 ### <a name="trigger-a-definition"></a>Definición de TriggerA
 
@@ -399,8 +400,6 @@ Por ejemplo, supongamos que tiene un desencadenador del programador, "Trigger A"
   }
 }
 ```
-
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte los siguientes tutoriales para obtener instrucciones paso a paso sobre cómo crear canalizaciones con actividades:

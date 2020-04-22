@@ -1,17 +1,17 @@
 ---
-title: Limitación del número de webhooks y notificaciones de inserción de App de Azure, correos electrónicos y SMS
+title: Limitación del número de SMS, correos electrónicos y notificaciones push
 description: Conozca cómo limita Azure el número de notificaciones de webhook o notificaciones push de App de Azure, mensajes de correo electrónico o SMS posibles de un grupo de acciones.
 author: dkamstra
 ms.author: dukek
 ms.topic: conceptual
 ms.date: 3/12/2018
 ms.subservice: alerts
-ms.openlocfilehash: 066fcac24571c8e982784a3845a010525ff9088a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 61e6cc22171815b15b865dd6ed5670bd9c446ead
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77665534"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114327"
 ---
 # <a name="rate-limiting-for-voice-sms-emails-azure-app-push-notifications-and-webhook-posts"></a>Limitación del número de SMS, llamadas de voz, correos electrónicos, notificaciones push de App de Azure y publicaciones de webhooks
 La limitación de número supone una suspensión de las notificaciones que se produce cuando se envían demasiadas a un número de teléfono, dirección de correo electrónico o dispositivo determinados. La limitación del índice asegura que las alertas son fáciles de administrar y procesar.
@@ -19,7 +19,7 @@ La limitación de número supone una suspensión de las notificaciones que se pr
 Los umbrales del límite de número son:
 
 - **SMS**: no más de 1 SMS cada 5 minutos.
-- **Llamadas de voz**: no más de 1 llamada de voz cada 5 minutos.
+- **Voz**: no más de 1 llamada de voz cada 5 minutos.
 - **Correo electrónico**: no más de 100 mensajes de correo electrónico en una hora.
  
   Otras acciones no tienen velocidad limitada.

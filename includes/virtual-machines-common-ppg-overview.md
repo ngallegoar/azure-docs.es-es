@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/30/2019
 ms.author: zivr
 ms.custom: include file
-ms.openlocfilehash: 3215f5952daef053c94432bc8fdef15e1775047a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fb2eb2d237a1245627bbdb6f4f2eacbb9966a2c6
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73171112"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81421719"
 ---
 Si coloca las máquinas virtuales en una sola región, reducirá la distancia física entre las instancias. Además, si las coloca en una sola zona de disponibilidad, estarán todavía más cercanas físicamente. Aun así, a medida que la superficie de Azure crece, una sola zona de disponibilidad puede abarcar varios centros de datos físicos, lo que es posible que provoque una latencia de red que puede afectar al rendimiento de la aplicación. 
 
@@ -39,6 +39,13 @@ También puede mover un recurso existente a un grupo de selección de ubicación
 En el caso de conjuntos de disponibilidad y conjuntos de escalado de máquinas virtuales, debe establecer el grupo de selección de ubicación de proximidad en el nivel de recursos, en lugar de en las máquinas virtuales individuales. 
 
 Un grupo de selección de ubicación de proximidad es una restricción de colocación y no un mecanismo de anclaje. Se ancla a un centro de datos específico con la implementación del primer recurso para usarlo. Una vez que todos los recursos que usan el grupo de selección de ubicación de proximidad se han detenido (desasignado) o eliminado, ya no se anclan. Por lo tanto, cuando se usa un grupo de selección de ubicación de proximidad con varias series de máquinas virtuales, es importante especificar todos los tipos necesarios al principio en una plantilla cuando sea posible o seguir una secuencia de implementación, lo que mejorará las oportunidades de una implementación correcta. Si se produce un error en la implementación, reinicie esta con el tamaño de máquina virtual que ha dado error como el primer tamaño que se va a implementar.
+
+## <a name="what-to-expect-when-using-proximity-placement-groups"></a>Qué esperar al usar los grupos con ubicación por proximidad 
+Los grupos con ubicación por proximidad ofrecen colocalización en el mismo centro de datos. Sin embargo, dado que los grupos con ubicación por proximidad representan una restricción de implementación adicional, pueden producirse errores de asignación. Hay pocos casos de uso en los que puede ver errores de asignación al usar grupos con ubicación por proximidad:
+
+- Al solicitar la primera máquina virtual en el grupo con ubicación por proximidad, el centro de datos se selecciona automáticamente. En algunos casos, se puede generar un error en la segunda solicitud de una SKU de máquina virtual diferente si no existe en ese centro de datos. En este caso, se devuelve un error **OverconstrainedAllocationRequest**. Para evitar esto, intente cambiar el orden en el que implementa las SKU o haga que ambos recursos se implementen mediante una sola plantilla de ARM.
+-   En el caso de las cargas de trabajo elásticas, en las que se agregan y quitan instancias de máquina virtual, es posible que tener una restricción de grupo con ubicación por proximidad en la implementación produzca un error al realizar la solicitud, lo que da como resultado un error **AllocationFailure**. 
+- Otra manera de lograr la elasticidad consiste en detener (desasignar) e iniciar las máquinas virtuales según sea necesario. Dado que la capacidad no se conserva una vez que se detiene (desasigna) una máquina virtual, si se vuelve a iniciar, puede producirse un error **AllocationFailure**.
 
 
 ## <a name="best-practices"></a>Procedimientos recomendados 

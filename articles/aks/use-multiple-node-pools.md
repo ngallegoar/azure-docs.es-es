@@ -3,17 +3,17 @@ title: Uso de grupos de varios nodos de Azure Kubernetes Service (AKS)
 description: Aprenda a crear y administrar grupos de varios nodos para un clúster de Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 02/14/2020
-ms.openlocfilehash: 3e0890a0e8600526da2047cabc0b50af8177ea37
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.date: 04/08/2020
+ms.openlocfilehash: f948c115b86abc532a121c68fa7a148ff15caae9
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77615690"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81259092"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Creación y administración de varios grupos de nodos para un clúster de Azure Kubernetes Service (AKS)
 
-En Azure Kubernetes Service, los nodos de la misma configuración se agrupan en *grupos de nodos*. Estos grupos de nodos contienen las máquinas virtuales subyacentes que ejecutan las aplicaciones. El número de nodos y su tamaño (SKU) inicial se definen al crear un clúster de AKS, lo cual crea un *grupo de nodos predeterminado*. Para admitir aplicaciones con diferentes necesidades de proceso o almacenamiento, puede crear grupos de nodos adicionales. Por ejemplo, puede usar estos grupos de nodos adicionales para proporcionar GPU para aplicaciones de proceso intensivo o acceso a almacenamiento SSD de alto rendimiento.
+En Azure Kubernetes Service, los nodos de la misma configuración se agrupan en *grupos de nodos*. Estos grupos de nodos contienen las máquinas virtuales subyacentes que ejecutan las aplicaciones. El número de nodos y su tamaño (SKU) inicial se definen al crear un clúster de AKS, lo cual crea un [grupo de nodos del sistema][use-system-pool]. Para admitir aplicaciones con diferentes necesidades de proceso o almacenamiento, puede crear *grupos de nodos de usuario*. Los grupos de nodos del sistema tienen el propósito principal de hospedar los pods críticos del sistema, como CoreDNS y tunnelfront. Los grupos de nodos de usuario tienen el propósito principal de hospedar los pods de aplicación. Sin embargo, se pueden programar pods de aplicación en grupos de nodos del sistema si quiere tener solo un grupo en el clúster de AKS. En los grupos de nodos del usuario es donde se colocan los pods específicos de la aplicación. Por ejemplo, puede usar estos grupos de nodos de usuario adicionales para proporcionar GPU para aplicaciones de proceso intensivo o acceso a almacenamiento SSD de alto rendimiento.
 
 > [!NOTE]
 > Esta característica le permite obtener un mayor control sobre cómo crear y administrar varios grupos de nodos. Como resultado, se requieren comandos separados para crear, actualizar y eliminar elementos. Anteriormente, las operaciones de clúster a través de `az aks create` o `az aks update` usaban la API managedCluster y eran la única opción para cambiar el plano de control y un grupo de nodo único. Esta característica expone un conjunto de operaciones independiente para los grupos de agentes a través de la API agentPool y requiere el uso del conjunto de comandos `az aks nodepool` para ejecutar operaciones en un grupo de nodos individual.
@@ -22,26 +22,30 @@ Este artículo le muestra cómo crear y administrar grupos de varios nodos en un
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Es preciso que esté instalada y configurada la versión 2.0.76 de la CLI de Azure, o cualquier otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][install-azure-cli].
+Es preciso que esté instalada y configurada la versión 2.2.0 de la CLI de Azure, o cualquier otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][install-azure-cli].
 
 ## <a name="limitations"></a>Limitaciones
 
 Se aplican las siguientes limitaciones cuando crea y administra clústeres de AKS que admiten varios grupos de nodos:
 
 * Consulte [Cuotas, restricciones de tamaño de máquinas virtuales y disponibilidad de regiones en Azure Kubernetes Service (AKS)][quotas-skus-regions].
-* No se puede eliminar el grupo de nodos del sistema, de forma predeterminada, el primer grupo de nodos.
+* Puede eliminar grupos de nodos del sistema, siempre que disponga de otro grupo de nodos del sistema que ocupe su lugar en el clúster de AKS.
+* Los grupos del sistema deben contener al menos un nodo mientras que los grupos de nodos del usuario pueden contener varios nodos o ninguno.
 * El clúster de AKS debe usar el equilibrador de carga de SKU estándar para usar varios grupos de nodos; la característica no es compatible con los equilibradores de carga de SKU básica.
 * El clúster de AKS debe usar conjuntos de escalado de máquinas virtuales para los nodos.
 * El nombre de un grupo de nodos solo puede contener caracteres alfanuméricos en minúsculas y debe comenzar con una letra minúscula. En el caso de los grupos de nodos de Linux, la longitud debe estar comprendida entre 1 y 12 caracteres. Para los grupos de nodos de Windows, la longitud debe estar comprendida entre 1 y 6 caracteres.
-* Todos los grupos de nodos deben residir en la misma red virtual y la misma subred.
+* Todos los grupos de nodos deben residir en la misma red virtual.
 * Al crear varios grupos de nodos durante la creación del clúster, todas las versiones de Kubernetes que se usen en los grupos de nodos deben coincidir con la versión establecida para el plano de control. Se puede actualizar después de aprovisionar el clúster mediante operaciones en función del grupo de nodos.
 
 ## <a name="create-an-aks-cluster"></a>Creación de un clúster de AKS
 
+> [!Important]
+> Si ejecuta un único grupo de nodos del sistema para el clúster de AKS en un entorno de producción, se recomienda usar al menos tres nodos para el grupo de nodos.
+
 Para empezar, cree un clúster de AKS con un grupo de nodo único. El ejemplo siguiente usa el comando [az group create][az-group-create] para crear un grupo de recursos denominado *myResourceGroup* en la región *eastus*. Se crea un clúster de AKS denominado *myAKSCluster* mediante el comando [az aks create][az-aks-create]. Se emplea la línea de código *--kubernetes-version* con el valor *1.15.7* para mostrar cómo se actualiza un grupo de nodos en un paso posterior. Puede especificar cualquier [versión admitida de Kubernetes][supported-versions].
 
 > [!NOTE]
-> **No se admite** la SKU *Básico* del equilibrador de carga cuando se usan varios grupos de nodos. De forma predeterminada, los clústeres de AKS se crean con el equilibrador de carga de SKU *Estándar* de la CLI de Azure y Azure Portal.
+> **No se admite** la SKU *Básico* del equilibrador de carga cuando se usan varios grupos de nodos. De forma predeterminada, los clústeres de AKS se crean con el SKU de equilibrador de carga *Estándar* de la CLI de Azure y Azure Portal.
 
 ```azurecli-interactive
 # Create a resource group in East US
@@ -93,9 +97,7 @@ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSCluste
 
 En la siguiente salida de ejemplo se puede ver que *mynodepool* se ha creado correctamente con tres nodos en el grupo de nodos. Cuando se creó el clúster de AKS en el paso anterior, también se creó un grupo de nodos predeterminado denominado *nodepool1* con *2* nodos.
 
-```console
-$ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSCluster
-
+```output
 [
   {
     ...
@@ -123,6 +125,29 @@ $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSClus
 > [!TIP]
 > Si no se especifica *VmSize* al agregar un grupo de nodos, el tamaño predeterminado será *Standard_DS2_v3* para los grupos de nodos de Windows y *Standard_DS2_v2* para los grupos de nodos de Linux. Si no se especifica *OrchestratorVersion*, se establecerá de forma predeterminada en la misma versión que el plano de control.
 
+### <a name="add-a-node-pool-with-a-unique-subnet-preview"></a>Adición de un grupo de nodos con una subred única (versión preliminar)
+
+Una carga de trabajo puede requerir la división de los nodos de un clúster en grupos independientes para el aislamiento lógico. Este aislamiento se puede admitir con subredes independientes dedicadas a cada grupo de nodos del clúster. Esto puede satisfacer requisitos tales como tener un espacio de direcciones de red virtual no contiguo para dividirlo en grupos de nodos.
+
+#### <a name="limitations"></a>Limitaciones
+
+* Todas las subredes asignadas a grupos de nodos deben pertenecer a la misma red virtual.
+* Los pods del sistema deben tener acceso a todos los nodos del clúster para proporcionar una funcionalidad crítica, como la resolución de DNS mediante coreDNS.
+* La asignación de una subred única por grupo de nodos está limitada a Azure CNI durante la versión preliminar.
+* No se admite el uso de directivas de red con una subred única por grupo de nodos durante la versión preliminar.
+
+Para crear un grupo de nodos con una subred dedicada, pase el identificador de recurso de subred como parámetro adicional al crear un grupo de nodos.
+
+```azurecli-interactive
+az aks nodepool add \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --name mynodepool \
+    --node-count 3 \
+    --kubernetes-version 1.15.5
+    --vnet-subnet-id <YOUR_SUBNET_RESOURCE_ID>
+```
+
 ## <a name="upgrade-a-node-pool"></a>Actualización de un grupo de nodos
 
 > [!NOTE]
@@ -148,9 +173,11 @@ az aks nodepool upgrade \
 
 Muestre el estado de los grupos de nodos de nuevo mediante el comando [az aks node pool list][az-aks-nodepool-list]. En el ejemplo siguiente, se muestra que *mynodepool* se encuentra en el estado *Actualizando* a la versión *1.15.7*:
 
-```console
-$ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+```azurecli
+az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+```
 
+```output
 [
   {
     ...
@@ -195,11 +222,11 @@ Un clúster de AKS tiene dos objetos de recursos de clúster con las versiones d
 
 Un plano de control se asigna a uno o varios grupos de nodos. El comportamiento de una operación de actualización depende del comando de la CLI de Azure que se use.
 
-La actualización de un plano de control de AKS requiere el uso de `az aks upgrade`. De este modo se actualiza la versión del plano de control y todos los grupos de nodos del clúster. 
+La actualización de un plano de control de AKS requiere el uso de `az aks upgrade`. Este comando actualiza la versión del plano de control y todos los grupos de nodos del clúster.
 
 Si se emite el comando `az aks upgrade` con la marca `--control-plane-only`, solo se actualiza el plano de control del clúster. No se cambia ninguno de los grupos de nodos asociados del clúster.
 
-La actualización de los grupos de nodos individuales requiere el uso de `az aks nodepool upgrade`. Esto actualiza solo el grupo de nodos de destino con la versión de Kubernetes especificada.
+La actualización de los grupos de nodos individuales requiere el uso de `az aks nodepool upgrade`. Este comando actualiza solo el grupo de nodos de destino con la versión de Kubernetes especificada.
 
 ### <a name="validation-rules-for-upgrades"></a>Reglas de validación para actualizaciones
 
@@ -234,9 +261,11 @@ az aks nodepool scale \
 
 Muestre el estado de los grupos de nodos de nuevo mediante el comando [az aks node pool list][az-aks-nodepool-list]. El ejemplo siguiente muestra que *mynodepool* está en el estado *Escalando* con un nuevo recuento de *5* nodos:
 
-```console
-$ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+```azurecli
+az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+```
 
+```output
 [
   {
     ...
@@ -284,9 +313,11 @@ az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster --name myn
 
 En la siguiente salida de ejemplo del comando [az aks node pool list][az-aks-nodepool-list] se puede ver que *mynodepool* se encuentra en el estado *Eliminando*:
 
-```console
-$ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+```azurecli
+az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+```
 
+```output
 [
   {
     ...
@@ -337,9 +368,11 @@ az aks nodepool add \
 
 En la siguiente salida de ejemplo del comando [az aks node pool list][az-aks-nodepool-list] se puede ver que *gpunodepool* está *Creando* nodos con el *VmSize* especificado:
 
-```console
-$ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+```azurecli
+az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+```
 
+```output
 [
   {
     ...
@@ -375,8 +408,10 @@ Tarda unos minutos en crear correctamente *gpunodepool*.
 Ahora tiene dos grupos de nodos en el clúster, el grupo de nodos predeterminado que se creó inicialmente y el grupo de nodos basado en GPU. Use el comando [kubectl get nodes][kubectl-get] para ver los nodos del clúster. En la siguiente salida de ejemplo se muestran los nodos:
 
 ```console
-$ kubectl get nodes
+kubectl get nodes
+```
 
+```output
 NAME                                 STATUS   ROLES   AGE     VERSION
 aks-gpunodepool-28993262-vmss000000  Ready    agent   4m22s   v1.15.7
 aks-nodepool1-28993262-vmss000000    Ready    agent   115m    v1.15.7
@@ -389,7 +424,7 @@ El programador de Kubernetes puede utilizar taints y tolerations para limitar la
 
 Para más información sobre cómo usar las características avanzadas programadas de Kubernetes, consulte [Best practices for advanced scheduler features in AKS][taints-tolerations] (Procedimientos recomendados para las características avanzadas del programador en AKS).
 
-En este ejemplo, aplique un valor taint al nodo basado en GPU mediante el comando --node-taints. Especifique el nombre del nodo basado en GPU de la salida del comando `kubectl get nodes` anterior. El valor taint se aplica como *key:value* y como una opción de programación. En el ejemplo siguiente se usa el par *sku=gpu* y se definen los pods que, en caso contrario, tendrán la capacidad *NoSchedule*:
+En este ejemplo, aplique un valor taint al nodo basado en GPU mediante el comando --node-taints. Especifique el nombre del nodo basado en GPU de la salida del comando `kubectl get nodes` anterior. El valor taint se aplica como un par *key=value* y como una opción de programación. En el ejemplo siguiente se usa el par *sku=gpu* y se definen los pods que, en caso contrario, tendrán la capacidad *NoSchedule*:
 
 ```console
 az aks nodepool add --node-taints aks-gpunodepool-28993262-vmss000000 sku=gpu:NoSchedule
@@ -431,8 +466,10 @@ kubectl apply -f gpu-toleration.yaml
 Se tarda unos segundos en programar el pod y extraer la imagen NGINX. Use el comando [kubectl describe pod][kubectl-describe] para ver el estado del pod. En la siguiente salida de ejemplo reducida se puede ver que se aplica el valor *sku=gpu:NoSchedule* a toleration. En la sección de eventos, el programador ha asignado el pod al nodo basado en GPU *aks-gpunodepool-28993262-vmss000000*:
 
 ```console
-$ kubectl describe pod mypod
+kubectl describe pod mypod
+```
 
+```output
 [...]
 Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
                  node.kubernetes.io/unreachable:NoExecute for 300s
@@ -447,24 +484,95 @@ Events:
   Normal  Started    4m40s  kubelet, aks-gpunodepool-28993262-vmss000000  Started container
 ```
 
-Solo los pods a los que se ha aplicado este valor taint se pueden programar en los nodos de *gpunodepool*. Cualquier otro pod se tendría que programar en el grupo de nodos *nodepool1*. Si crea grupos de nodos adicionales, puede usar valores taint y toleration adicionales para limitar los pods que se pueden programar en esos recursos del nodo.
+Solo los pods a los que se ha aplicado este valor toleration se pueden programar en los nodos de *gpunodepool*. Cualquier otro pod se tendría que programar en el grupo de nodos *nodepool1*. Si crea grupos de nodos adicionales, puede usar valores taint y toleration adicionales para limitar los pods que se pueden programar en esos recursos del nodo.
 
-## <a name="specify-a-tag-for-a-node-pool"></a>Especificación de una etiqueta para un grupo de nodos
+## <a name="specify-a-taint-label-or-tag-for-a-node-pool"></a>Especificación de un valor taint o una etiqueta para un grupo de nodos
+
+Al crear un grupo de nodos, puede agregar valores taint o etiquetas a ese grupo de nodos. Al agregar un valor taint o una etiqueta, todos los nodos de ese grupo de nodos también obtienen ese valor taint o etiqueta.
+
+Para crear un grupo de nodos con un valor taint, use [az aks nodepool add][az-aks-nodepool-add]. Especifique el nombre *taintnp* y use el parámetro `--node-taints` para especificar *sku=gpu:NoSchedule* para el valor taint.
+
+```azurecli-interactive
+az aks nodepool add \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --name taintnp \
+    --node-count 1 \
+    --node-taints sku=gpu:NoSchedule \
+    --no-wait
+```
+
+En la siguiente salida de ejemplo del comando [az aks nodepool list][az-aks-nodepool-list] se puede ver que *taintnp* está creando (*Creating*) nodos con el valor *nodeTaints* especificado:
+
+```console
+$ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+
+[
+  {
+    ...
+    "count": 1,
+    ...
+    "name": "taintnp",
+    "orchestratorVersion": "1.15.7",
+    ...
+    "provisioningState": "Creating",
+    ...
+    "nodeTaints":  [
+      "sku=gpu:NoSchedule"
+    ],
+    ...
+  },
+ ...
+]
+```
+
+La información del valor taint está visible en Kubernetes para controlar las reglas de programación de los nodos.
+
+También puede agregar etiquetas a un grupo de nodos durante la creación del mismo. Las etiquetas establecidas en el grupo de nodos se agregan a cada nodo del grupo de nodos. Estas [etiquetas están visibles en Kubernetes][kubernetes-labels] para controlar las reglas de programación de los nodos.
+
+Para crear un grupo de nodos con una etiqueta, use [az aks nodepool add][az-aks-nodepool-add]. Especifique el nombre *labelnp* y use el parámetro `--labels` para especificar *dept=IT* y *costcenter=9999* para las etiquetas.
+
+```azurecli-interactive
+az aks nodepool add \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --name labelnp \
+    --node-count 1 \
+    --labels dept=IT costcenter=9999 \
+    --no-wait
+```
+
+> [!NOTE]
+> La etiqueta solo se puede establecer para los grupos de nodos durante la creación de estos. Las etiquetas también deben ser un par clave-valor y tener una [sintaxis válida][kubernetes-label-syntax].
+
+En la siguiente salida de ejemplo del comando [az aks nodepool list][az-aks-nodepool-list] se puede ver que *labelnp* está creando (*Creating*) nodos con el valor *nodeLabels* especificado:
+
+```console
+$ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+
+[
+  {
+    ...
+    "count": 1,
+    ...
+    "name": "labelnp",
+    "orchestratorVersion": "1.15.7",
+    ...
+    "provisioningState": "Creating",
+    ...
+    "nodeLabels":  {
+      "dept": "IT",
+      "costcenter": "9999"
+    },
+    ...
+  },
+ ...
+]
+```
 
 Puede aplicar una etiqueta de Azure a grupos de nodos en su clúster de AKS. Las etiquetas aplicadas a un grupo de nodos se aplican a cada nodo del grupo y se conservan de una actualización a otra. También se aplican etiquetas a los nuevos nodos que se agregan a un grupo durante las operaciones de escalado horizontal. Agregar una etiqueta puede ayudar con tareas como el seguimiento de directivas o la estimación de costos.
 
-> [!IMPORTANT]
-> Para usar etiquetas de grupo de nodos, necesitará la extensión de la CLI *aks-preview* versión 0.4.29 o posterior. Instale la extensión de la CLI de Azure *aks-preview* con el comando [az extension add][az-extension-add] y, a continuación, busque las actualizaciones disponibles con el comando [az extension update][az-extension-update]:
-> 
-> ```azurecli-interactive
-> # Install the aks-preview extension
-> az extension add --name aks-preview
-> 
-> # Update the extension to make sure you have the latest version installed
-> az extension update --name aks-preview
-> ```
-
-Cree un grupo de nodos mediante el comando [az aks node pool add][az-aks-nodepool-add] de nuevo. Especifique el nombre *tagnodepool* y use el parámetro `--tag` para especificar *dept=IT* y *costcenter=9999* para las etiquetas.
+Cree un grupo de nodos mediante el comando [az aks nodepool add][az-aks-nodepool-add]. Especifique el nombre *tagnodepool* y use el parámetro `--tag` para especificar *dept=IT* y *costcenter=9999* para las etiquetas.
 
 ```azurecli-interactive
 az aks nodepool add \
@@ -481,9 +589,11 @@ az aks nodepool add \
 
 En la siguiente salida de ejemplo del comando [az aks nodepool list][az-aks-nodepool-list] se puede ver que *tagnodepool* está creando (*Creating*) nodos con el valor de *tag* especificado:
 
-```console
-$ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+```azurecli
+az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+```
 
+```output
 [
   {
     ...
@@ -612,18 +722,22 @@ az group deployment create \
 
 Puede que tarde unos minutos en actualizarse el clúster de AKS según la configuración del grupo de nodos y las operaciones que defina en la plantilla de Resource Manager.
 
-## <a name="assign-a-public-ip-per-node-in-a-node-pool"></a>Asignar una IP pública por nodo en un grupo de nodos
+## <a name="assign-a-public-ip-per-node-for-a-node-pool-preview"></a>Asignación de una IP pública por nodo para un grupo de nodos (versión preliminar)
 
 > [!WARNING]
 > Durante la vista previa de la asignación de una IP pública por nodo, no se puede usar con la *SKU de Standard Load Balancer en AKS* debido a posibles reglas de equilibrador de carga en conflicto con el aprovisionamiento de la máquina virtual. Como consecuencia de esta limitación, los grupos de agentes de Windows no se admiten con esta característica en vista previa. Durante la versión preliminar, debe usar la *SKU básica de Load Balancer* si necesita asignar una dirección IP pública por nodo.
 
-Los nodos de AKS no necesitan sus propias direcciones IP públicas para la comunicación. Sin embargo, algunos escenarios pueden requerir que los nodos de un grupo de nodos tengan sus propias direcciones IP públicas. Un ejemplo son los juegos, en los que se necesita una consola para tener una conexión directa a una máquina virtual en la nube para minimizar los saltos. Esto se puede lograr si se registra para una característica en vista previa (GB) independiente: IP pública de nodo (versión preliminar).
+Los nodos de AKS no necesitan sus propias direcciones IP públicas para la comunicación. Sin embargo, los escenarios pueden requerir que los nodos de un grupo de nodos reciban sus propias direcciones IP públicas dedicadas. Un escenario común es para las cargas de trabajo de juegos, en las que se necesita una consola para tener una conexión directa a una máquina virtual en la nube para minimizar los saltos. Este escenario se puede lograr en AKS si se registra para una característica en vista preliminar, IP pública de nodo (versión preliminar).
+
+Regístrese para la característica de IP pública de nodo mediante la emisión del siguiente comando de la CLI de Azure.
 
 ```azurecli-interactive
 az feature register --name NodePublicIPPreview --namespace Microsoft.ContainerService
 ```
 
-Después de realizar el registro correctamente, implemente una plantilla de Azure Resource Manager siguiendo las mismas instrucciones que se detallaron [antes](#manage-node-pools-using-a-resource-manager-template) y agregue la propiedad de valor booleano `enableNodePublicIP` en agentPoolProfiles. Establezca el valor en `true` ya que, de forma predeterminada, se establece en `false` si no se especifica. Esta es una propiedad de tiempo de creación y requiere una versión mínima de API de 2019-06-01. Esto se puede aplicar a los grupos de nodos de Linux y Windows.
+Después de realizar el registro correctamente, implemente una plantilla de Azure Resource Manager siguiendo las mismas instrucciones que se detallaron [antes](#manage-node-pools-using-a-resource-manager-template) y agregue la propiedad de booleano `enableNodePublicIP` en agentPoolProfiles. Establezca el valor en `true` ya que, de forma predeterminada, se establece en `false` si no se especifica. 
+
+Esta es una propiedad de tiempo de creación y requiere una versión mínima de API de 2019-06-01. Esto se puede aplicar a los grupos de nodos de Linux y Windows.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -643,6 +757,8 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+Más información sobre los [grupos de nodos del sistema][use-system-pool].
+
 En este artículo ha aprendido a crear y administrar grupos de varios nodos en un clúster de AKS. Para más información sobre cómo controlar pods en grupos de nodos, consulte [Best practices for advanced scheduler features in AKS][operator-best-practices-advanced-scheduler] (Procedimientos recomendados para las características avanzadas del programador en AKS).
 
 Para crear y usar grupos de nodos de contenedores de Windows Server, consulte [Creación de un contenedor de Windows Server en AKS][aks-windows].
@@ -652,6 +768,8 @@ Para crear y usar grupos de nodos de contenedores de Windows Server, consulte [C
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-taint]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#taint
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
+[kubernetes-labels]: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
+[kubernetes-label-syntax]: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set
 
 <!-- INTERNAL LINKS -->
 [aks-windows]: windows-container-cli.md
@@ -676,3 +794,4 @@ Para crear y usar grupos de nodos de contenedores de Windows Server, consulte [C
 [tag-limitation]: ../azure-resource-manager/resource-group-using-tags.md
 [taints-tolerations]: operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations
 [vm-sizes]: ../virtual-machines/linux/sizes.md
+[use-system-pool]: use-system-pools.md

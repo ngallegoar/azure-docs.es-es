@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2df49e65603573e4a3adcdda0635982252e70b18
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4335763269f4a39b4893d9022f4789296b178e92
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80130816"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419330"
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Copia de datos hacia y desde SQL Data Warehouse mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -147,7 +147,7 @@ GO
 | sqlWriterCleanupScript |Especifique una consulta para que se ejecute la actividad de copia de tal forma que se limpien los datos de un segmento específico. Consulte la [sección sobre repetibilidad](#repeatability-during-copy)para más información. |Una instrucción de consulta. |No |
 | allowPolyBase |Indica si se usa PolyBase (si procede) en lugar del mecanismo BULKINSERT. <br/><br/> **El uso de PolyBase es el método recomendado para cargar datos en SQL Data Warehouse.** Consulte [Uso de PolyBase para cargar datos en SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) para ver restricciones y más información. |True <br/>False (valor predeterminado) |No |
 | polyBaseSettings |Un grupo de propiedades que se pueden especificar si el valor de la propiedad **allowPolybase** está establecido en **true**. |&nbsp; |No |
-| rejectValue |Especifica el número o porcentaje de filas que se pueden rechazar antes de que se produzca un error en la consulta. <br/><br/>Más información sobre las opciones de rechazo de PolyBase en la sección **Argumentos** del tema [CREATE EXTERNAL TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx) [CREAR UNA TABLA EXTERNA (Transact-SQL)]. |0 (predeterminado), 1, 2, … |No |
+| rejectValue |Especifica el número o porcentaje de filas que se pueden rechazar antes de que se produzca un error en la consulta. <br/><br/>Más información sobre las opciones de rechazo de PolyBase en la sección **Argumentos** del tema [CREATE EXTERNAL TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx). |0 (predeterminado), 1, 2, … |No |
 | rejectType |Especifica si se indica la opción rejectValue como un valor literal o un porcentaje. |Valor (predeterminado), Porcentaje |No |
 | rejectSampleValue |Determina el número de filas que se van a recuperar antes de que PolyBase vuelva a calcular el porcentaje de filas rechazadas. |1, 2, … |Sí, si el valor de **rejectType** es **percentage** |
 | useTypeDefault |Especifica cómo administrar valores que faltan en archivos de texto delimitado cuando PolyBase recupera datos del archivo de texto.<br/><br/>Más información sobre esta propiedad en la sección de argumentos de [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx). |True, False (predeterminada) |No |
@@ -421,9 +421,9 @@ El ejemplo copia los datos que pertenecen a una serie temporal (por horas, días
 ```
 **Conjunto de datos de entrada de Azure SQL Data Warehouse:**
 
-El ejemplo supone que ha creado una tabla "MyTable" en Azure SQL Data Warehouse y que contiene una columna denominada "timestampcolumn" para los datos de series temporales.
+En el ejemplo se supone que ha creado una tabla "MyTable" en Azure SQL Data Warehouse y que contiene una columna denominada "timestampcolumn" para los datos de series temporales.
 
-Si se establece "external": "true", se informa al servicio Data Factory que el conjunto de datos es externo a la factoría de datos y que no lo genera ninguna actividad de la factoría de datos.
+Si se establece "external": "true", se informa al servicio Data Factory de que el conjunto de datos es externo a la factoría de datos y que no lo genera ninguna actividad de la factoría de datos.
 
 ```JSON
 {

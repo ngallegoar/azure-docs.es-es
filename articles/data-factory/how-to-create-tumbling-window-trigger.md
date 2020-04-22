@@ -11,14 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: f9e31b8f0fce1af8408b80afb1049dae8c8ecf1c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 97c8f8a5bb2111264e9459a7d2128c1ab7c2503d
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73673709"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414429"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Creación de un desencadenador que ejecuta una canalización en una ventana de saltos de tamaño constante
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 En este artículo se explica cómo crear, iniciar y supervisar un desencadenador de ventana de saltos de tamaño constante. Para obtener información general sobre los desencadenadores y los tipos compatibles, vea [Ejecución y desencadenadores de canalización](concepts-pipeline-execution-triggers.md).
 
 Los desencadenadores de ventana de saltos de tamaño constante son un tipo de desencadenador que se activa en un intervalo de tiempo periódico a partir de una hora de inicio especificada, mientras conserva el estado. Las ventanas de saltos de tamaño constante son una serie de intervalos de tiempo de tamaño fijo, contiguos y que no se superponen. Un desencadenador de ventana de saltos de tamaño constante tiene una relación uno a uno con una canalización y solo puede hacer referencia a una única canalización.
@@ -97,7 +99,7 @@ En la tabla siguiente se muestra una descripción general de los elementos JSON 
 | **type** | El tipo del desencadenador. El tipo es el valor fijo "TumblingWindowTrigger". | String | "TumblingWindowTrigger" | Sí |
 | **runtimeState** | Estado actual del tiempo de ejecución del desencadenador.<br/>**Nota**: Este elemento es \<readOnly>. | String | "Started," "Stopped," "Disabled" | Sí |
 | **frequency** | Una cadena que representa la unidad de frecuencia (minutos u horas) con que se repite el desencadenador. Si los valores de fecha **startTime** son más granulares que el valor **frequency**, las fechas **startTime** se tienen en cuenta para calcular los límites de ventana. Por ejemplo, si el valor **frequency** es cada hora y el valor **startTime** es 2017-09-01T10:10:10Z, la primera ventana es (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | String | "minute", "hour"  | Sí |
-| **interval** | Un entero positivo que indica el intervalo para el valor **frequency**, que determina la frecuencia con la que se ejecuta el desencadenador. Por ejemplo, si **interval** es 3 y **frequency** es "hour", el desencadenador se repite cada tres horas. <br/>**Nota**: El intervalo de ventana mínimo es de 15 minutos. | Entero | Un número entero positivo. | Sí |
+| **interval** | Un entero positivo que indica el intervalo para el valor **frequency**, que determina la frecuencia con la que se ejecuta el desencadenador. Por ejemplo, si **interval** es 3 y **frequency** es "hour", el desencadenador se repite cada tres horas. <br/>**Nota**: El intervalo de ventana mínimo es de 5 minutos. | Entero | Un número entero positivo. | Sí |
 | **startTime**| La primera repetición, que puede ser en el pasado. El primer intervalo de desencadenador es (**startTime**, **startTime** + **interval**). | DateTime | Un valor DateTime. | Sí |
 | **endTime**| La última repetición, que puede ser en el pasado. | DateTime | Un valor DateTime. | Sí |
 | **delay** | La cantidad de tiempo para retrasar el inicio del procesamiento de datos de la ventana. La ejecución de la canalización se inicia después del tiempo de ejecución esperado más el tiempo de retraso establecido en **delay**. **delay** define el tiempo de espera del desencadenador antes de desencadenar una nueva ejecución. El valor de **delay** no altera el valor de **startTime** de la ventana. Por ejemplo, un valor **delay** de 00:10:00 implica un retraso de diez minutos. | TimeSpan<br/>(hh:mm:ss)  | Un valor de intervalo de tiempo donde el valor predeterminado es 00:00:00. | No |
@@ -229,5 +231,5 @@ Para supervisar las ejecuciones del desencadenador o de la canalización en Azur
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para obtener información detallada acerca de los desencadenadores, consulte el artículo [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#triggers) (Ejecución de canalizaciones y desencadenadores).
+* Para obtener información detallada acerca de los desencadenadores, consulte el artículo [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#trigger-execution) (Ejecución de canalizaciones y desencadenadores).
 * [Creación de una dependencia de un desencadenador de ventana de saltos de tamaño constante](tumbling-window-trigger-dependency.md)

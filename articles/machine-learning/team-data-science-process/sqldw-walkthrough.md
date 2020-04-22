@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 96d0a5b2fb59e4612107d8ccbf7285fff7576585
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9c4c1cfdb927cfd2ee607bfe2a951e06c80f9bfb
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80128390"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418548"
 ---
 # <a name="the-team-data-science-process-in-action-using-azure-synapse-analytics"></a>Proceso de ciencia de datos en equipos en acción: uso de Azure Synapse Analytics
 En este tutorial le guiaremos a través de la creación e implementación de un modelo de aprendizaje automático mediante Azure Synapse Analytics para un conjunto de datos disponible públicamente: el conjunto de datos [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/). El modelo de clasificación binaria construido predice si se dará propina por la carrera o no.  Los modelos incluyen la clasificación multiclase (si hay una propina o si no la hay) y la regresión (la distribución de los importes de propinas pagadas).
@@ -24,7 +24,7 @@ En este tutorial le guiaremos a través de la creación e implementación de un 
 El procedimiento sigue el flujo de trabajo del [proceso de ciencia de datos en equipos (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) . Se muestra cómo configurar un entorno de ciencia de datos, cómo cargar los datos en Azure Synapse Analytics y cómo usar Azure Synapse Analytics o un IPython Notebook para explorar las características de datos y de diseño para modelar. Luego se muestra cómo compilar e implementar un modelo con Azure Machine Learning.
 
 ## <a name="the-nyc-taxi-trips-dataset"></a><a name="dataset"></a>Conjunto de datos NYC Taxi Trips
-El conjunto de datos NYC Taxi Trip consta de aproximadamente 20 GB de archivos CSV comprimidos (aproximadamente, 48 GB sin comprimir), que registran más de 173 millones de carreras individuales y las tarifas pagadas por cada carrera. Cada registro de carrera incluye la hora y el lugar de recogida y llegada, el número de licencia del taxista anonimizado y el número de placa (número de identificación único del taxi). Los datos cubren todos los viajes del año 2013 y se proporcionan en los dos conjuntos de datos siguientes para cada mes:
+El conjunto de datos NYC Taxi Trip consta de aproximadamente 20 GB de archivos CSV comprimidos (aproximadamente, 48 GB sin comprimir), que registran más de 173 millones de carreras individuales y las tarifas pagadas por cada carrera. Cada registro de carrera incluye la hora y la ubicación de recogida y llegada, el número de licencia del taxista anonimizado y el número de placa (id. único del taxi). Los datos cubren todos los viajes del año 2013 y se proporcionan en los dos conjuntos de datos siguientes para cada mes:
 
 1. El archivo **trip_data.csv** contiene información detallada de las carreras, como el número de pasajeros, los puntos de recogida y destino, la duración de las carreras y la longitud del recorrido. Estos son algunos registros de ejemplo:
 
@@ -84,7 +84,7 @@ Siga la documentación en [Creación de una instancia de Azure SQL Data Warehous
 
 **Instale Visual Studio y SQL Server Data Tools.** Para obtener instrucciones, consulte [Introducción a Visual Studio 2019 para SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
 
-**Conéctese a Azure Synapse Analytics con Visual Studio.** Para obtener instrucciones, consulte los pasos 1 y 2 de [Conexión a Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-connect-overview.md).
+**Conéctese a Azure Synapse Analytics con Visual Studio.** Para obtener instrucciones, consulte los pasos 1 y 2 en [Conexión a SQL Analytics en Azure Synapse Analytics](../../synapse-analytics/sql/connect-overview.md).
 
 > [!NOTE]
 > Ejecute la siguiente consulta SQL en la base de datos que creó en Azure Synapse Analytics (en lugar de la consulta proporcionada en el paso 3 del tema sobre la conexión) para **crear una clave maestra**.
@@ -882,7 +882,7 @@ Microsoft comparte este tutorial de ejemplo y sus scripts adjuntos y Blocs de no
 
 ## <a name="references"></a>Referencias
 - [Página de descarga de NYC Taxi Trips de Andrés Monroy](https://www.andresmh.com/nyctaxitrips/)
-- [FOILing NYC’s Taxi Trip Data de Chris Whong](https://chriswhong.com/open-data/foil_nyc_taxi/)
+- [FOILing NYC's Taxi Trip Data de Chris Whong](https://chriswhong.com/open-data/foil_nyc_taxi/)
 - [Estadísticas e investigación de la Comisión de taxis y limusinas de la Ciudad de Nueva York](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
 [1]: ./media/sqldw-walkthrough/sql-walkthrough_26_1.png

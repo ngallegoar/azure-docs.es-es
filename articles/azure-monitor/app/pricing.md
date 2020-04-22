@@ -6,12 +6,12 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 11/27/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: b782477fd29b34eda70813fc2aff29157f02acb3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0225484de06ae4e595f1dcbcdd520f4e0e4d53f5
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79234692"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405392"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Administración del uso y los costos de Application Insights
 
@@ -27,6 +27,8 @@ Si tiene preguntas sobre cómo funcionan los precios para Application Insights, 
 Los precios de [Azure Application Insights][start] son de un modelo de **pago por uso**, que se basa en el volumen de datos ingeridos y, opcionalmente, para obtener una mayor retención de datos. Cada recurso de Application Insights se cobra como un servicio independiente y contribuye a la factura de la suscripción a Azure. El volumen de datos se mide como el tamaño del paquete de datos JSON sin comprimir que recibe Application Insights de su aplicación. No hay ningún cargo por volumen de datos para usar [Live Metrics Stream](../../azure-monitor/app/live-stream.md).
 
 Las [pruebas web de varios pasos](../../azure-monitor/app/availability-multistep.md) conllevan un cargo adicional. Las pruebas web de varios pasos son pruebas web que realizan una secuencia de acciones. No hay ningún cargo aparte para las *pruebas de ping* de una sola página. La telemetría de las pruebas de ping y de las de varios pasos se carga igual que el resto de la telemetría de su aplicación.
+
+La opción Application Insights para [Habilitar la creación de alertas sobre las dimensiones de las métricas personalizadas](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation) también puede generar costos adicionales, ya que puede dar lugar a la creación de métricas de agregación previas adicionales. [Obtenga más información](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics) sobre las métricas basadas en registro y las agregadas previamente en Application Insights y sobre los [precios](https://azure.microsoft.com/pricing/details/monitor/) para las métricas personalizadas de Azure Monitor.
 
 ## <a name="estimating-the-costs-to-manage-your-application"></a>Estimación de los costos de administración de la aplicación
 
@@ -216,7 +218,9 @@ Para cambiar la retención, en el recurso de Application Insights, vaya a la pá
 
 ![Ajuste del límite de volumen de telemetría diario](./media/pricing/pricing-005.png)
 
-La retención también se puede [establecer mediante programación con PowerShell](powershell.md#set-the-data-retention) con el parámetro `retentionInDays`. Además, si configura la retención de datos en 30 días, puede desencadenar una purga inmediata de los datos más antiguos mediante el parámetro `immediatePurgeDataOn30Days`, que puede serle útil en los escenarios relacionados con el cumplimiento. Esta funcionalidad de purga solo se expone con Azure Resource Manager y debe utilizarse con extrema precaución. El tiempo de restablecimiento diario del extremo de volumen de datos se puede configurar mediante Azure Resource Manager para establecer el parámetro `dailyQuotaResetTime`.
+Cuando se reduce la retención, hay un período de gracia de varios días antes de que se quiten los datos más antiguos.
+
+La retención también se puede [establecer mediante programación con PowerShell](powershell.md#set-the-data-retention) con el parámetro `retentionInDays`. Si configura la retención de datos en 30 días, puede desencadenar una purga inmediata de los datos más antiguos mediante el parámetro `immediatePurgeDataOn30Days`, que puede serle útil en los escenarios relacionados con el cumplimiento. Esta funcionalidad de purga solo se expone con Azure Resource Manager y debe utilizarse con extrema precaución. El tiempo de restablecimiento diario del extremo de volumen de datos se puede configurar mediante Azure Resource Manager para establecer el parámetro `dailyQuotaResetTime`.
 
 ## <a name="data-transfer-charges-using-application-insights"></a>Cargos por transferencia de datos al usar Application Insights
 

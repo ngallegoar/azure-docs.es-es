@@ -11,14 +11,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2019
-ms.openlocfilehash: ec9c8e29adaa03620cc60d189ff4a830e107e782
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e387d8329249fff0b3e84460bd753f35dd275507
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74931053"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415191"
 ---
 # <a name="copy-data-from-shopify-using-azure-data-factory-preview"></a>Copiar datos de Shopify mediante Azure Data Factory (versión preliminar)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos de Shopify. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
 
@@ -52,8 +53,8 @@ Las siguientes propiedades son compatibles con el servicio vinculado Shopify:
 | host | Punto de conexión del servidor de Shopify (es decir, mystore.myshopify.com).  | Sí |
 | accessToken | Token de acceso de API que puede utilizarse para tener acceso a los datos del Shopify. El token no expira si está en modo sin conexión. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
 | useEncryptedEndpoints | Especifica si los puntos de conexión de origen de datos se cifran mediante HTTPS. El valor predeterminado es true.  | No |
-| useHostVerification | Especifica si se requiere que el nombre de host del certificado del servidor coincida con el nombre de host del servidor al conectarse a través de SSL. El valor predeterminado es true.  | No |
-| usePeerVerification | Especifica si se debe verificar la identidad del servidor al conectarse a través de SSL. El valor predeterminado es true.  | No |
+| useHostVerification | Especifica si se requiere que el nombre de host del certificado del servidor coincida con el nombre de host del servidor al conectarse a través de TLS. El valor predeterminado es true.  | No |
+| usePeerVerification | Especifica si se debe verificar la identidad del servidor al conectarse a través de TLS. El valor predeterminado es true.  | No |
 
 **Ejemplo**:
 

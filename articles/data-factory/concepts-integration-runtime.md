@@ -2,7 +2,6 @@
 title: Tiempo de ejecución de integración
 description: Obtenga más información sobre Integration Runtime en Azure Data Factory.
 services: data-factory
-documentationcenter: ''
 ms.author: abnarain
 author: nabhishek
 manager: shwang
@@ -12,14 +11,17 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/26/2020
-ms.openlocfilehash: 4077e1e00b606480ec93feacbad3c841c0de1ed9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ffa348c796a4d9d4e3bdb8e7ce18ba0eb82e17ad
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336176"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418395"
 ---
-# <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime en Azure Data Factory
+# <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime en Azure Data Factory 
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 Integration Runtime (IR) es la infraestructura de proceso que usa Azure Data Factory para proporcionar las siguientes capacidades de integración de datos en distintos entornos de red:
 
 - **Data Flow**: ejecute una instancia de [Data Flow](concepts-data-flow-overview.md) en el entorno de proceso de Azure administrado.  
@@ -30,7 +32,8 @@ Integration Runtime (IR) es la infraestructura de proceso que usa Azure Data Fac
 En Data Factory, una actividad define la acción que se realizará. Un servicio vinculado define un almacén de datos o un servicio de proceso de destino. Una instancia de Integration Runtime proporciona el puente entre la actividad y los servicios vinculados.  La actividad o el servicio vinculado hace referencia a él, y proporciona el entorno de proceso donde se ejecuta la actividad o desde donde se distribuye. De esta manera, la actividad puede realizarse en la región más cercana posible al almacén de datos o servicio de proceso de destino de la manera con mayor rendimiento, a la vez que se satisfacen las necesidades de seguridad y cumplimiento.
 
 ## <a name="integration-runtime-types"></a>Tipos de instancias de Integration Runtime
-Data Factory ofrece tres tipos de instancias de Integration Runtime, y debe elegir el tipo que atienda mejor las funcionalidades de integración de datos y las necesidades del entorno de red que está buscando.  Estos tres tipos son:
+
+Data Factory ofrece tres tipos de instancias de Integration Runtime (IR), y debe elegir el tipo que atienda mejor las funcionalidades de integración de datos y las necesidades del entorno de red que está buscando.  Estos tres tipos son:
 
 - Azure
 - Autohospedado
@@ -49,13 +52,15 @@ En el diagrama siguiente se muestra cómo pueden utilizarse los distintos tipos 
 ![Diferentes tipos de instancias de Integration Runtime](media/concepts-integration-runtime/different-integration-runtimes.png)
 
 ## <a name="azure-integration-runtime"></a>Tiempo de ejecución de integración de Azure
-Una instancia de Integration Runtime de Azure es capaz de:
+
+Una instancia de Azure Integration Runtime puede:
 
 - Ejecución de flujos de datos en Azure 
 - Ejecutar la actividad de copia entre los almacenes de datos en la nube
 - Distribuir las siguientes actividades de transformación en la red pública: actividad Notebook, Jar o Python de Databricks, actividad Hive de HDInsight, actividad Pig de HDInsight, actividad MapReduce de HDInsight, actividad Spark de HDInsight, actividad Streaming de HDInsight, actividad de ejecución de lotes de Machine Learning, actividad de recurso de actualización de Machine Learning, actividad de procedimiento almacenado, actividad de U-SQL de Data Lake Analytics, actividad personalizada de .Net, actividad web, actividad de Búsqueda y actividad de Obtener metadatos.
 
 ### <a name="azure-ir-network-environment"></a>Entorno de red de Azure Integration Runtime
+
 Azure Integration Runtime admite la conexión con almacenes de datos y servicios de proceso con puntos de conexión de acceso público. Use Integration Runtime autohospedado para el entorno de Azure Virtual Network.
 
 ### <a name="azure-ir-compute-resource-and-scaling"></a>Recursos de proceso y escalado de Azure Integration Runtime
@@ -65,12 +70,13 @@ Integration Runtime de Azure proporciona el proceso nativo para mover datos entr
 
 La distribución de actividades es una operación ligera para enrutar la actividad al servicio de proceso de destino, por lo que no hay necesidad de escalar verticalmente el tamaño de proceso para este escenario.
 
-Para obtener información sobre cómo crear y configurar una instancia de Integration Runtime de Azure, consulte cómo crear y configurar una instancia de Integration Runtime de Azure en las guías de procedimientos. 
+Para obtener información sobre cómo crear y configurar una instancia de Azure IR, consulte cómo crear y configurar una instancia de Azure IR en las guías de procedimientos. 
 
 > [!NOTE] 
 > Azure Integration Runtime tiene propiedades relacionadas con el flujo de datos en el entorno de ejecución de Data Flow, que define la infraestructura de proceso subyacente que se usaría para ejecutar los flujos de datos. 
 
 ## <a name="self-hosted-integration-runtime"></a>Integration Runtime autohospedado
+
 Una instancia de Integration Runtime autohospedado es capaz de:
 
 - Ejecutar la actividad de copia entre los almacenes de datos en la nube y un almacén de datos en la red privada.
@@ -83,20 +89,25 @@ Una instancia de Integration Runtime autohospedado es capaz de:
 > Java Runtime Environment (JRE) es una dependencia de IR autohospedado. Asegúrese de que tiene instalado JRE en el mismo host.
 
 ### <a name="self-hosted-ir-network-environment"></a>Entorno de red de IR autohospedado
+
 Si desea realizar la integración de datos de manera segura en un entorno de red privada, que no tiene una línea de vista directa desde el entorno de nube pública, puede instalar IR autohospedado en el entorno local detrás del firewall corporativo, o dentro de un red privada virtual.  Integration Runtime autohospedado establece conexiones salientes basadas en HTTP para abrir Internet.
 
 ### <a name="self-hosted-ir-compute-resource-and-scaling"></a>Recursos de proceso y escalado de IR autohospedado
-IR autohospedado debe instalarse en un equipo local o en una máquina virtual dentro de una red privada. Actualmente, solo se admite ejecutar instancias de Integration Runtime autohospedados en un sistema operativo Windows.  
+
+Instale IR autohospedado en un equipo local o en una máquina virtual dentro de una red privada. Actualmente, solo se admite ejecutar instancias de Integration Runtime autohospedados en un sistema operativo Windows.  
 
 Para una alta disponibilidad y escalabilidad, puede escalar horizontalmente IR autohospedado mediante la asociación de la instancia lógica con varias máquinas locales en modo activo-activo.  Para más información, consulte el artículo sobre cómo [crear y configurar un IR autohospedado](create-self-hosted-integration-runtime.md) en las guías de procedimientos.
 
 ## <a name="azure-ssis-integration-runtime"></a>Integration Runtime de SSIS de Azure
+
 Para levantar y mover la carga de trabajo de SSIS existente, puede crear una instancia de Integration Runtime de SSIS de Azure para ejecutar paquetes SSIS de forma nativa.
 
 ### <a name="azure-ssis-ir-network-environment"></a>Entorno de red de una instancia de Integration Runtime para la integración de SSIS en Azure
+
 Integration Runtime de SSIS de Azure se puede aprovisionar en la red pública o la red privada.  El acceso a datos locales se admite mediante la combinación de Integration Runtime de SSIS de Azure a una red virtual que está conectada a la red local.  
 
 ### <a name="azure-ssis-ir-compute-resource-and-scaling"></a>Recursos de proceso y escalado de una instancia de Integration Runtime para la integración de SSIS en Azure
+
 Integration Runtime de SSIS de Azure es un clúster totalmente administrado de máquinas virtuales de Azure dedicado a ejecutar los paquetes de SSIS. Puede hacer que su propio servidor de Azure SQL Database o Instancia administrada hospede el catálogo de proyectos y paquetes de SSIS (SSISDB) al que se va a adjuntar. Puede escalar verticalmente la eficacia de los procesos especificando el tamaño de nodo y escalar horizontalmente especificando el número de nodos del clúster. Puede administrar el coste de funcionamiento de Integration Runtime de SSIS de Azure deteniéndolo e iniciándolo según lo considere oportuno.
 
 Para más información, consulte el artículo sobre cómo crear y configurar un IR de SSIS de Azure en las guías de procedimientos.  Una vez creado, puede implementar y administrar los paquetes de SSIS existentes con poco o ningún cambio utilizando herramientas conocidas, como SQL Server Data Tools (SSDT) y SQL Server Management Studio (SSMS), de manera similar a usar SSIS de forma local.
@@ -110,17 +121,12 @@ Consulte los siguientes artículos para más información sobre Integration Runt
 - [Unión de una instancia de Integration Runtime para la integración de SSIS en Azure a una red virtual](join-azure-ssis-integration-runtime-virtual-network.md). En este artículo se proporciona información conceptual sobre cómo unir una instancia de Integration Runtime de SSIS de Azure a una red virtual de Azure. También se proporcionan los pasos para configurar la red virtual mediante Azure Portal para que se una la instancia de Integration Runtime de SSIS de Azure. 
 
 ## <a name="integration-runtime-location"></a>Ubicación de Integration Runtime
+
 La ubicación de Data Factory es donde se almacenan los metadatos de la factoría de datos y desde donde se inicia el desencadenamiento de la canalización. Sin embargo, una factoría de datos puede acceder a almacenes de datos y a servicios de proceso en otras regiones de Azure para mover datos entre los almacenes de datos o para procesar datos mediante servicios de proceso. Este comportamiento se lleva a cabo a través de la instancia de [Integration Runtime disponible globalmente](https://azure.microsoft.com/global-infrastructure/services/) para garantizar el cumplimiento de los datos, la eficacia y los menores costes de salida de la red.
 
 La ubicación de Integration Runtime define la ubicación de su proceso de back-end y, en esencia, la ubicación donde se realizan el movimiento de datos, la distribución de actividades y la ejecución de paquetes de SSIS. La ubicación de Integration Runtime puede ser diferente de la ubicación de la factoría de datos a la que pertenece. 
 
 ### <a name="azure-ir-location"></a>Ubicación de Azure Integration Runtime
-Puede establecer una ubicación determinada para una instancia de Azure Integration Runtime, en cuyo caso el movimiento de datos y la distribución de actividades se producirá en esa región específica. 
-
->[!TIP]
->Si tiene requisitos estrictos de cumplimiento de datos y debe garantizar que los datos no salen de una determinada región geográfica, puede crear explícitamente una instancia de Azure IR en una determinada región y dirigir el servicio vinculado a esta instancia de IR con la propiedad ConnectVia. Por ejemplo, si desea copiar datos de un blob de la región Sur de Reino Unido en SQL DW de esa misma región y desea garantizar que los datos no salen del Reino Unido, cree una instancia de Azure IR en Reino Unido y vincule ambos servicios vinculados a ella.
-
-Si opta por utilizar la **resolución automática de Azure IR**, que es la opción predeterminada: 
 
 - En la actividad de copia, ADF intentará detectar automáticamente la ubicación del almacén de datos del receptor y luego usará IR en la misma región si está disponible, o la más cercana en la misma ubicación geográfica; si la región del almacén de datos del receptor no se puede detectar, se usa IR en la región de la factoría de datos como alternativa.
 
@@ -129,9 +135,11 @@ Si opta por utilizar la **resolución automática de Azure IR**, que es la opci�
   - Cuando copie datos en un blob de Azure en la región Oeste de EE. UU., si ADF detecta correctamente que el blob está en esa región, la actividad de copia se ejecuta en IR en la región Oeste de EE. UU. Si se produce un error en la detección de la región, la actividad de copia se ejecuta en IR en la región Este de EE. UU.
   - Cuando copie datos en Salesforce cuya región no se puede detectar, la actividad de copia se ejecuta en IR en la región Este de EE. UU.
 
-- Para la ejecución de las actividades de Búsqueda, Obtener metadatos o Eliminar (también conocidas como actividades de canalización), la distribución de actividades de transformación (también conocidas como actividades externas) y las operaciones de creación (probar conexión, examinar lista de carpetas y lista de tablas, obtener una vista previa de datos), ADF usará IR en la región de la factoría de datos.
+- En la actividad de copia, ADF intenta detectar automáticamente el receptor y el almacén de datos de origen para elegir la mejor ubicación en la misma región (si está disponible), o la más cercana en la misma ubicación geográfica, o si esta no se puede detectar, para usar la región de la factoría de datos como alternativa.
 
-- Para Data Flow, ADF usará IR en la región de la factoría de datos. 
+- Para la ejecución de las actividades de Búsqueda, Obtener metadatos o Eliminar (también conocidas como actividades de canalización), la distribución de actividades de transformación (también conocidas como actividades externas) y las operaciones de creación (probar conexión, examinar lista de carpetas y lista de tablas, obtener una vista previa de datos), ADF usa IR en la región de la factoría de datos.
+
+- Para Data Flow, ADF usa IR en la región de la factoría de datos. 
 
   > [!TIP] 
   > Una buena práctica sería asegurarse de que Data Flow se ejecuta en la misma región que los almacenes de datos correspondiente (si es posible). Puede conseguirlo mediante la resolución automática de Azure IR (si la ubicación del almacén de datos coincide con la ubicación de Data Factory), o mediante la creación de una nueva instancia de Azure IR en la misma región que los almacenes de datos y la posterior ejecución del flujo de datos en ella. 
@@ -139,11 +147,13 @@ Si opta por utilizar la **resolución automática de Azure IR**, que es la opci�
 Puede supervisar qué ubicación de IR se usa durante la ejecución de la actividad en la vista de supervisión de actividades de la canalización en la interfaz de usuario, o en la carga de supervisión de actividades.
 
 ### <a name="self-hosted-ir-location"></a>Ubicación de IR autohospedado
+
 IR autohospedado se registra lógicamente en Data Factory, y el usuario proporciona el proceso que se usa para admitir sus capacidades. Por lo tanto, no hay ninguna propiedad de ubicación explícita para la instancia de Integration Runtime autohospedado. 
 
 Cuando se utiliza para realizar el movimiento de datos, IR autohospedado extrae datos del origen y los escribe en el destino.
 
 ### <a name="azure-ssis-ir-location"></a>Ubicación de la instancia de Integration Runtime para la integración de SSIS en Azure
+
 Al seleccionar la ubicación adecuada para Integration Runtime de SSIS de Azure, es esencial lograr un alto rendimiento en los flujos de trabajo de extracción, transformación y carga (ETL).
 
 - La ubicación de Azure-SSIS IR no tiene que ser igual que la ubicación de la factoría de datos, pero debe ser la misma que la ubicación de su propio servidor de Azure SQL Database o Instancia administrada donde se hospedará SSISDB. De esta manera, Integration Runtime de SSIS de Azure puede acceder fácilmente a SSISDB sin incurrir en un tráfico excesivo entre las distintas ubicaciones.
@@ -160,7 +170,7 @@ En el diagrama siguiente se muestra la configuración de la ubicación de Data F
 
 Para la actividad de copia, necesita servicios vinculados de origen y receptor para definir la dirección del flujo de datos. Se utiliza la lógica siguiente para determinar qué instancia de Integration Runtime se utiliza para realizar la copia: 
 
-- **Copia entre dos orígenes de datos en la nube**: si el servicio vinculado de origen y el receptor usan Azure IR, ADF usará la instancia regional de Azure IR, si la especificó, o determinará automáticamente una ubicación para Azure IR si decidió usar la opción de resolución automática de IR (la opción predeterminada) como se ha descrito en la sección [Ubicación de Integration Runtime](#integration-runtime-location).
+- **Copia entre dos orígenes de datos en la nube**: si los servicios vinculados del origen y receptor usan Azure IR, ADF usa la instancia regional de Azure IR, si la especificó, o determina automáticamente una ubicación para Azure IR si decidió usar la opción de resolución automática de IR (la opción predeterminada) como se ha descrito en la sección [Ubicación de Integration Runtime](#integration-runtime-location).
 - **Copia de datos entre un origen de datos en la nube y un origen de datos en una red privada**: si el servicio vinculado de origen o de receptor apunta a una instancia de IR autohospedado, la actividad de copia se ejecuta en esa instancia de Integration Runtime autohospedado.
 - **Copia entre dos orígenes de datos en una red privada**: el servicio vinculado de origen y de receptor deben apuntar a la misma instancia de Integration Runtime y esa instancia se usa para ejecutar la actividad de copia.
 
@@ -177,6 +187,7 @@ Cada actividad de transformación externa que usa un motor de proceso externo ti
 Las actividades de Data Flow se ejecutan en el entorno de ejecución de integración asociado a ella. El proceso de Spark que usan los flujos de datos viene determinado por las propiedades del flujo de datos de su instancia de Azure Integration Runtime y se administran por completo en ADF.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 Vea los artículos siguientes:
 
 - [Cómo crear y configurar una instancia de Azure Integration Runtime](create-azure-integration-runtime.md)

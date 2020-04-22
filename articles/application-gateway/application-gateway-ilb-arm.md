@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: 9fbde84c499ba5b086ce812de63602c626b416b0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 406dcdb419dba2e8044a173f4c05028abbaba3da
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74179327"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312417"
 ---
 # <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>Creación de una puerta de enlace de aplicaciones con un equilibrador de carga interno (ILB)
 
-Puerta de enlace de aplicaciones de Azure se puede configurar con una VIP conexión a Internet o con un punto de conexión interno no expuesto a Internet, también conocido como punto de conexión ILB (equilibrador de carga interno). La configuración de la puerta de enlace con un ILB es útil para aplicaciones de línea de negocio internas no expuestas a Internet. También es útil para los distintos servicios y niveles de una aplicación de niveles múltiples que se encuentran dentro de un límite de seguridad no expuesto a Internet, pero que aún así siguen necesitando distribución de carga round robin, permanencia de sesión o terminación SSL (Capa de sockets seguros).
+Puerta de enlace de aplicaciones de Azure se puede configurar con una VIP conexión a Internet o con un punto de conexión interno no expuesto a Internet, también conocido como punto de conexión ILB (equilibrador de carga interno). La configuración de la puerta de enlace con un ILB es útil para aplicaciones de línea de negocio internas no expuestas a Internet. También es útil para los distintos servicios y niveles de una aplicación de niveles múltiples que se encuentran dentro de un límite de seguridad no expuesto a Internet, pero que aun así siguen necesitando distribución de carga round robin, permanencia de sesión o terminación de Seguridad de la capa de transporte (TLS), conocida previamente como Capa de sockets seguros (SSL).
 
 Este artículo le guía por los pasos necesarios para configurar una puerta de enlace de aplicaciones con un ILB.
 
@@ -31,9 +31,9 @@ Este artículo le guía por los pasos necesarios para configurar una puerta de e
 ## <a name="what-is-required-to-create-an-application-gateway"></a>¿Qué se necesita para crear una puerta de enlace de aplicaciones?
 
 * **Grupo de servidores back-end:** lista de direcciones IP de los servidores back-end. Las direcciones IP que se enumeran deben pertenecer a la red virtual, pero a otra subred de la puerta de enlace de aplicaciones, o deben ser IP/VIP públicas.
-* **Configuración del grupo de servidores back-end:** cada grupo tiene una configuración en la que se incluye el puerto, el protocolo y la afinidad basada en cookies. Estos valores están vinculados a un grupo y se aplican a todos los servidores del grupo.
-* **Puerto front-end:** este puerto es el puerto público que se abre en la puerta de enlace de aplicaciones. El tráfico llega a este puerto y después se redirige a uno de los servidores back-end.
-* **Agente de escucha** : tiene un puerto front-end, un protocolo (Http o Https, que distinguen mayúsculas de minúsculas) y el nombre del certificado SSL (si se configura la descarga de SSL).
+* **Configuración del grupo de servidores back-end:** cada grupo tiene una configuración como el puerto, el protocolo y la afinidad basada en las cookies. Estos valores están vinculados a un grupo y se aplican a todos los servidores del grupo.
+* **Puerto de front-end:** este puerto es el puerto público que se abre en la puerta de enlace de aplicaciones. El tráfico llega a este puerto y después se redirige a uno de los servidores back-end.
+* **Agente de escucha:** tiene un puerto front-end, un protocolo (Http o Https, que distinguen mayúsculas de minúsculas) y el nombre del certificado SSL (si se configura la descarga de SSL).
 * **Regla:** enlaza el agente de escucha y el grupo de servidores back-end y define a qué grupo de servidores back-end se dirigirá el tráfico cuando llega a un agente de escucha concreto. Actualmente, solo se admite la regla *básica* . La regla *básica* es la distribución de carga round robin.
 
 ## <a name="create-an-application-gateway"></a>Creación de una puerta de enlace de aplicaciones

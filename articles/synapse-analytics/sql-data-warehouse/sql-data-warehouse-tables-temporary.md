@@ -1,6 +1,6 @@
 ---
 title: Tablas temporales
-description: Directrices esenciales para el uso de tablas temporales en Azure SQL Data Warehouse, con énfasis en los principios de las tablas temporales de nivel de sesión.
+description: Directrices esenciales para el uso de tablas temporales en el grupo de SQL de Synapse, con énfasis en los principios de las tablas temporales de nivel de sesión.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -10,21 +10,33 @@ ms.subservice: ''
 ms.date: 04/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 3a8772550e67c250b1a84dbae17d1d3fe6c5c90e
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 56d8ab81fcf9200fec2cfb4a741724b8f79db820
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351166"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81408044"
 ---
-# <a name="temporary-tables-in-sql-data-warehouse"></a>Tablas temporales en SQL Data Warehouse
-Este artículo contiene directrices esenciales para el uso de tablas temporales y resalta los principios de las tablas temporales de nivel de sesión. La información de este artículo puede ayudarle a dividir en secciones el código y así mejorar su reusabilidad y facilidad de mantenimiento.
+# <a name="temporary-tables-in-synapse-sql-pool"></a>Tablas temporales en el grupo de SQL de Synapse
+Este artículo contiene directrices esenciales para el uso de tablas temporales y resalta los principios de las tablas temporales de nivel de sesión. 
+
+La información de este artículo puede ayudarle a dividir en secciones el código y así mejorar su reusabilidad y facilidad de mantenimiento.
 
 ## <a name="what-are-temporary-tables"></a>¿Qué son las tablas temporales?
-Las tablas temporales son útiles al procesar datos, especialmente durante la transformación donde los resultados intermedios son transitorios. Las tablas temporales de SQL Data Warehouse existen en el nivel de sesión.  Solo son visibles para la sesión en la que se crearon y se eliminan automáticamente cuando esa sesión se cierra.  Las tablas temporales ofrecen ventajas para el rendimiento porque sus resultados se escriben en el almacenamiento local en lugar de en el remoto.
+Las tablas temporales son útiles al procesar datos, especialmente durante la transformación donde los resultados intermedios son transitorios. En el grupo de SQL, las tablas temporales existen en el nivel de sesión.  
 
-## <a name="create-a-temporary-table"></a>Creación de una tabla temporal
+Solo son visibles para la sesión en la que se crearon y se eliminan automáticamente cuando esa sesión se cierra.  
+
+Las tablas temporales ofrecen ventajas para el rendimiento porque sus resultados se escriben en el almacenamiento local en lugar de en el remoto.
+
+Las tablas temporales son útiles al procesar datos, especialmente durante la transformación donde los resultados intermedios son transitorios. Con SQL Analytics, las tablas temporales existen en el nivel de sesión.  Solo están visibles para la sesión en la que se crearon. Como tales, se quitan automáticamente cuando se cierra la sesión. 
+
+## <a name="temporary-tables-in-sql-pool"></a>Tablas temporales en el grupo de SQL
+
+En el recurso de grupo de SQL, las tablas temporales ofrecen ventajas para el rendimiento porque sus resultados se escriben en el almacenamiento local en lugar de en el remoto.
+
+### <a name="create-a-temporary-table"></a>Creación de una tabla temporal
+
 Las tablas temporales se crean colocando `#` delante del nombre de la tabla.  Por ejemplo:
 
 ```sql
@@ -83,7 +95,7 @@ GROUP BY
 ,        st.[has_filter]
 )
 ;
-``` 
+```
 
 > [!NOTE]
 > `CTAS` es un comando eficaz y ofrece un uso eficiente del espacio del registro de transacciones. 
@@ -91,7 +103,9 @@ GROUP BY
 > 
 
 ## <a name="dropping-temporary-tables"></a>Eliminación de tablas temporales
-Cuando se crea una nueva sesión, no debe existir ninguna tabla temporal.  Sin embargo, si llama al mismo procedimiento almacenado, lo que crea un archivo temporal con el mismo nombre, para tener la seguridad de que las instrucciones `CREATE TABLE` se ejecutan correctamente, se puede usar una sencilla comprobación de existencia previa con `DROP`, como en el ejemplo siguiente:
+Cuando se crea una nueva sesión, no debe existir ninguna tabla temporal.  
+
+Si va a llamar al mismo procedimiento almacenado, lo que crea un archivo temporal con el mismo nombre, para tener la seguridad de que las instrucciones `CREATE TABLE` se ejecutan correctamente, se puede usar una sencilla comprobación de existencia previa con `DROP`, como en el ejemplo siguiente:
 
 ```sql
 IF OBJECT_ID('tempdb..#stats_ddl') IS NOT NULL
@@ -100,14 +114,18 @@ BEGIN
 END
 ```
 
-Por coherencia con la codificación, se recomienda usar este patrón tanto para tablas como para tablas temporales.  También es buena idea usar `DROP TABLE` para quitar las tablas temporales cuando ya no las necesite en el código.  En el desarrollo de procedimientos almacenados, es habitual que los comandos de eliminación se empaqueten juntos al final de un procedimiento para garantizar que estos objetos se limpian.
+Por coherencia con la codificación, se recomienda usar este patrón tanto para tablas como para tablas temporales.  También es buena idea usar `DROP TABLE` para quitar las tablas temporales cuando ya no las necesite en el código.  
+
+En el desarrollo de procedimientos almacenados, es habitual que los comandos de eliminación se empaqueten juntos al final de un procedimiento para garantizar que estos objetos se limpian.
 
 ```sql
 DROP TABLE #stats_ddl
 ```
 
 ## <a name="modularizing-code"></a>Modularización de código
-Como las tablas temporales se pueden ver en cualquier parte de una sesión de usuario, se puede aprovechar este hecho para ayudarle a dividir en secciones el código de aplicación.  Por ejemplo, el siguiente procedimiento almacenado genera DDL para actualizar todas las estadísticas de la base de datos por nombre de la estadística.
+Como las tablas temporales se pueden ver en cualquier parte de una sesión de usuario, se puede aprovechar esta funcionalidad para ayudarle a dividir en secciones el código de aplicación.  
+
+Por ejemplo, el siguiente procedimiento almacenado genera DDL para actualizar todas las estadísticas de la base de datos por nombre de la estadística:
 
 ```sql
 CREATE PROCEDURE    [dbo].[prc_sqldw_update_stats]
@@ -181,7 +199,13 @@ FROM    t1
 GO
 ```
 
-En este punto, la única acción que se ha producido es la creación de un procedimiento almacenado que genera una tabla temporal, #stats_ddl, con instrucciones DDL.  Este procedimiento almacenado quita #stats_ddl si ya existe para tener la seguridad de que no dará error si se ejecuta más de una vez dentro de una sesión.  Sin embargo, puesto que no hay ningún elemento `DROP TABLE` al final del procedimiento almacenado, cuando se complete este, saldrá de la tabla creada para que se pueda leer fuera del procedimiento almacenado.  En SQL Data Warehouse, a diferencia de otras bases de datos SQL Server, es posible usar la tabla temporal fuera del procedimiento almacenado que la ha creado.  Las tablas temporales de SQL Data Warehouse se pueden usar **en cualquier parte** dentro de la sesión. Esto puede dar lugar a código más modular y administrable como en el ejemplo siguiente:
+En este punto, la única acción que se ha producido es la creación de un procedimiento almacenado que genera una tabla temporal, #stats_ddl, con instrucciones DDL.  
+
+Este procedimiento almacenado quita #stats_ddl si ya existe para tener la seguridad de que no dará error si se ejecuta más de una vez dentro de una sesión.  
+
+Sin embargo, puesto que no hay ningún elemento `DROP TABLE` al final del procedimiento almacenado, cuando se complete este, saldrá de la tabla creada para que se pueda leer fuera del procedimiento almacenado.  
+
+En el grupo de SQL, a diferencia de otras bases de datos SQL Server, es posible usar la tabla temporal fuera del procedimiento almacenado que la ha creado.  Las tablas temporales del grupo de SQL se pueden usar **en cualquier parte** dentro de la sesión. Esta característica puede dar lugar a código más modular y administrable como en el ejemplo siguiente:
 
 ```sql
 EXEC [dbo].[prc_sqldw_update_stats] @update_type = 1, @sample_pct = NULL;
@@ -203,8 +227,11 @@ DROP TABLE #stats_ddl;
 ```
 
 ## <a name="temporary-table-limitations"></a>Limitaciones de tablas temporales
-SQL Data Warehouse impone algunas limitaciones al implementar las tablas temporales.  Actualmente, solo se admiten tablas temporales con ámbito de sesión.  No se admiten tablas temporales globales.  Además, no se pueden crear vistas en las tablas temporales.  Solo se pueden crear tablas temporales con distribución hash o round robin.  No se admite la distribución de tablas temporales replicadas. 
+El grupo de SQL impone algunas limitaciones al implementar tablas temporales.  Actualmente, solo se admiten tablas temporales con ámbito de sesión.  No se admiten tablas temporales globales.  
+
+Además, no se pueden crear vistas en tablas temporales.  Solo se pueden crear tablas temporales con distribución hash o round robin.  No se admite la distribución de tablas temporales replicadas. 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para aprender a desarrollar tablas, consulte la [Información general sobre tablas](sql-data-warehouse-tables-overview.md).
+
+Para más información sobre el desarrollo de tablas, consulte el artículo [Diseño de tablas mediante los recursos de SQL Analytics](sql-data-warehouse-tables-overview.md).
 

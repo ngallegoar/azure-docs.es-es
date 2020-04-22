@@ -5,29 +5,29 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/14/2019
-ms.openlocfilehash: 144d51d08a61526ec0f183a63e1fdf5658136293
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: hdinsightactive
+ms.date: 04/14/2020
+ms.openlocfilehash: 4955df718dcc8f169232052979ccf4a636c3be80
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79233580"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81390294"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Optimización de las consultas de Azure Hive en Azure HDInsight
 
-En Azure HDInsight, hay varios tipos de clúster y tecnologías que pueden ejecutar consultas de Apache Hive. Al crear el clúster de HDInsight, elija el tipo de clúster adecuado para ayudar a optimizar el rendimiento de sus necesidades de carga de trabajo.
+En Azure HDInsight, hay varios tipos de clúster y tecnologías que pueden ejecutar consultas de Apache Hive. Elija el tipo de clúster adecuado para ayudar a optimizar el rendimiento de sus necesidades de carga de trabajo.
 
-Por ejemplo, elija el tipo de clúster **Interactive Query** para optimizar las consultas interactivas ad hoc. Elija el tipo de clúster Apache **Hadoop** para optimizar la consultas de Hive utilizadas como un proceso por lotes. Los tipos de clúster **Spark** y **HBase** también pueden ejecutar consultas de Hive. Para más información sobre la ejecución de consultas de Hive en diversos tipos de clúster de HDInsight, vea [¿Qué son Apache Hive y HiveQL en Azure HDInsight?](hadoop/hdinsight-use-hive.md)
+Por ejemplo, elija el tipo de clúster **Interactive Query** para optimizar las consultas interactivas `ad hoc`. Elija el tipo de clúster Apache **Hadoop** para optimizar la consultas de Hive utilizadas como un proceso por lotes. Los tipos de clúster **Spark** y **HBase** también pueden ejecutar consultas de Hive. Para más información sobre la ejecución de consultas de Hive en diversos tipos de clúster de HDInsight, vea [¿Qué son Apache Hive y HiveQL en Azure HDInsight?](hadoop/hdinsight-use-hive.md)
 
 Los clústeres de HDInsight del tipo clúster de Hadoop no están optimizados para el rendimiento de forma predeterminada. En este artículo se describen algunos de los métodos de optimización de rendimiento de Hive más comunes que se pueden aplicar a nuestras consultas.
 
 ## <a name="scale-out-worker-nodes"></a>Escalar horizontalmente nodos de trabajo
 
-El aumento del número de nodos de trabajo de un clúster de HDInsight permite que el trabajo aproveche más asignadores y reductores para ejecutarse en paralelo. Hay dos maneras de aumentar la escala horizontal en HDInsight:
+El aumento del número de nodos de trabajo de un clúster de HDInsight permite que el trabajo use más asignadores y reductores para ejecutarse en paralelo. Hay dos maneras de aumentar la escala horizontal en HDInsight:
 
-* En el momento de crear un clúster, puede especificar el número de nodos de trabajo mediante Azure Portal, Azure PowerShell o la interfaz de la línea de comandos.  Para más información, consulte [Creación de clústeres de Hadoop en HDInsight](hdinsight-hadoop-provision-linux-clusters.md). En la siguiente captura de pantalla se muestra la configuración del nodo de trabajo en Azure Portal:
+* Al crear un clúster, puede especificar el número de nodos de trabajo mediante Azure Portal, Azure PowerShell o la interfaz de la línea de comandos.  Para más información, consulte [Creación de clústeres de Hadoop en HDInsight](hdinsight-hadoop-provision-linux-clusters.md). En la siguiente captura de pantalla se muestra la configuración del nodo de trabajo en Azure Portal:
   
     ![Nodos de tamaño de clúster en Azure Portal](./media/hdinsight-hadoop-optimize-hive-query/azure-portal-cluster-configuration.png "scaleout_1")
 
@@ -45,10 +45,10 @@ Para más información sobre la escalabilidad de HDInsight, vea [Escalabilidad d
 
 Tez es más rápido porque:
 
-* **Ejecuta el grafo acíclico dirigido (DAG) como un único trabajo en el motor de MapReduce**. El DAG requiere que cada conjunto de asignadores vaya seguido de un conjunto de reductores. Esto hace que se ponga en marcha varios trabajos de MapReduce para cada consulta de Hive. Tez no tiene tal restricción y puede procesar un DAG complejo como un trabajo, lo que minimiza la sobrecarga de inicio del trabajo.
+* **Ejecuta el grafo acíclico dirigido (DAG) como un único trabajo en el motor de MapReduce**. El DAG requiere que cada conjunto de asignadores vaya seguido de un conjunto de reductores. Este requisito hace que se pongan en marcha varios trabajos MapReduce para cada consulta de Hive. Tez no tiene tal restricción y puede procesar un DAG complejo como un trabajo, lo que minimiza la sobrecarga de inicio del trabajo.
 * **Evita escrituras innecesarias**. Se usan varios trabajos para procesar la misma consulta de Hive en el motor de MapReduce. La salida de cada trabajo de MapReduce se escribe en HDFS para los datos intermedios. Puesto que Tez minimiza el número de trabajos para cada consulta de Hive, puede evitar escrituras innecesarias.
 * **Reduce retrasos de inicio**. Tez puede reducir mejor el retraso de inicio disminuyendo el número de asignadores que necesita para iniciar y mejorando también la optimización.
-* **Reutiliza contenedores**. Siempre que es posible, Tez puede reutilizar contenedores para asegurarse de que se reduce la latencia debido al reinicio de contenedores.
+* **Reutiliza contenedores**. Siempre que es posible, Tez reutilizará contenedores para asegurarse de que se reduce la latencia del reinicio de contenedores.
 * **Técnicas de optimización continua**. Tradicionalmente, la optimización se realizó durante la fase de compilación. Sin embargo, hay más información disponible acerca de las entradas que permiten una mejor optimización en tiempo de ejecución. Tez usa las técnicas de optimización continua que le permiten optimizar más el plan en la fase de tiempo de ejecución.
 
 Para obtener más detalles sobre estos conceptos, consulte [Apache TEZ](https://tez.apache.org/).
@@ -69,8 +69,8 @@ La creación de particiones de Hive se implementa mediante la reorganización de
 
 Algunas consideraciones de particiones:
 
-* **No cree particiones insuficientes**: la creación de particiones en columnas con solo unos pocos valores puede generar pocas particiones. Por ejemplo, la creación de particiones por sexo solo crea dos particiones (hombres y mujeres); por tanto, solo se reduce la latencia a un máximo de la mitad.
-* **No cree particiones en exceso**: por el contrario, la creación de una partición en una columna con un valor único (por ejemplo, userid) da lugar a varias particiones. La creación de particiones en exceso provoca mucho esfuerzo en el nodo de nombre del clúster, ya que tiene que administrar una gran cantidad de directorios.
+* **No cree particiones insuficientes**: la creación de particiones en columnas con solo unos pocos valores puede generar pocas particiones. Por ejemplo, la creación de particiones por sexo solo crea dos particiones (hombres y mujeres); por lo que solo se reduce la latencia a un máximo de la mitad.
+* **No cree particiones en exceso**: por el contrario, la creación de una partición en una columna con un valor único (por ejemplo, id. de usuario) da lugar a varias particiones. La creación de particiones en exceso provoca mucho esfuerzo en el nodo de nombre del clúster, ya que tiene que administrar una gran cantidad de directorios.
 * **Evite el sesgo de datos** : elija su clave de creación de particiones con cuidado de manera que todas las particiones tengan el mismo tamaño. Por ejemplo, la creación de particiones en la columna *Estado* puede sesgar la distribución de datos. Puesto que el estado de California tiene una población treinta veces mayor que Vermont, el tamaño de la partición puede estar sesgado y el rendimiento puede variar significativamente.
 
 Para crear una tabla de particiones, use la cláusula *Particionado por* :
@@ -198,5 +198,5 @@ Hay más métodos de optimización que puede considerar, por ejemplo:
 En este artículo, ha aprendido varios métodos comunes de optimización de consultas de Hive. Para más información, vea los siguientes artículos:
 
 * [Uso de Apache Hive en HDInsight](hadoop/hdinsight-use-hive.md)
-* [Análisis de datos de retraso de vuelos con Interactive Query en HDInsight](/azure/hdinsight/interactive-query/interactive-query-tutorial-analyze-flight-data)
+* [Análisis de datos de retraso de vuelos con Interactive Query en HDInsight](./interactive-query/interactive-query-tutorial-analyze-flight-data.md)
 * [Análisis de datos de Twitter con Apache Hive en HDInsight](hdinsight-analyze-twitter-data-linux.md)

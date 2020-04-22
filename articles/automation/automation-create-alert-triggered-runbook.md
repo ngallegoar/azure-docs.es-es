@@ -5,16 +5,19 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: df28116c588ed77f02c78a42a85feb91ca339e7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e8ddcaf6a5c9ab51147e540e2426ef8c4a1fdd3a
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75366707"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392366"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Uso de una alerta para desencadenar un runbook de Azure Automation
 
 Puede usar [Azure Monitor](../azure-monitor/overview.md?toc=%2fazure%2fautomation%2ftoc.json) para supervisar métricas de nivel básico y registros para la mayoría de los servicios de Azure. Puede llamar a runbooks de Azure Automation mediante [grupos de acciones](../azure-monitor/platform/action-groups.md?toc=%2fazure%2fautomation%2ftoc.json) o mediante alertas clásicas para automatizar las tareas basadas en alertas. En este artículo se muestra cómo configurar y ejecutar un runbook mediante alertas.
+
+>[!NOTE]
+>Este artículo se ha actualizado para usar el nuevo módulo Az de Azure PowerShell. Aún puede usar el módulo de AzureRM que continuará recibiendo correcciones de errores hasta diciembre de 2020 como mínimo. Para más información acerca del nuevo módulo Az y la compatibilidad con AzureRM, consulte [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0) (Presentación del nuevo módulo Az de Azure PowerShell). Para obtener instrucciones sobre la instalación del módulo Az en Hybrid Runbook Worker, consulte [Instalación del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Puede actualizar los módulos de su cuenta de Automation a la versión más reciente mediante [Actualización de módulos de Azure PowerShell en Azure Automation](automation-update-azure-modules.md).
 
 ## <a name="alert-types"></a>Tipos de alerta
 
@@ -32,8 +35,8 @@ Cuando una alerta llama a un runbook, la llamada real es una solicitud HTTP POST
 |Alerta  |Descripción|Esquema de carga  |
 |---------|---------|---------|
 |[Alerta común](../azure-monitor/platform/alerts-common-schema.md?toc=%2fazure%2fautomation%2ftoc.json)|Esquema de alerta común que normaliza la experiencia de consumo de notificaciones de alerta en Azure en la actualidad.|Esquema de carga de alerta común|
-|[Alerta de registro de actividad](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |Envía una notificación cuando cualquier evento nuevo del registro de actividad de Azure coincide con las condiciones específicas. Por ejemplo, cuando un operación `Delete VM` se produce en **myProductionResourceGroup** o cuando aparece un nuevo evento de Azure Service Health con un estado **Activo**.| [Esquema de carga de alertas de registros de actividad](../azure-monitor/platform/activity-log-alerts-webhook.md)        |
-|[Alertas de métricas casi en tiempo real](../azure-monitor/platform/alerts-metric-near-real-time.md?toc=%2fazure%2fautomation%2ftoc.json)    |Envía una notificación con más rapidez que las alertas de métrica cuando una o varias métricas de nivel de plataforma cumplen las condiciones especificadas. Por ejemplo, cuando el valor de **% de CPU** en una VM es mayor que **90** y el valor de **Entrada de red** es mayor que **500 MB** durante los últimos cinco minutos.| [Esquema de carga de alertas de métricas casi en tiempo real](../azure-monitor/platform/alerts-webhooks.md#payload-schema)          |
+|[Alerta de registro de actividad](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |Envía una notificación cuando cualquier evento nuevo del registro de actividad de Azure coincide con las condiciones específicas. Por ejemplo, cuando una operación `Delete VM` se produce en **myProductionResourceGroup** o cuando aparece un nuevo evento de Azure Service Health con un estado Activo.| [Esquema de carga de alertas de registros de actividad](../azure-monitor/platform/activity-log-alerts-webhook.md)        |
+|[Alertas de métricas casi en tiempo real](../azure-monitor/platform/alerts-metric-near-real-time.md?toc=%2fazure%2fautomation%2ftoc.json)    |Envía una notificación con más rapidez que las alertas de métrica cuando una o varias métricas de nivel de plataforma cumplen las condiciones especificadas. Por ejemplo, cuando el valor de **% de CPU** en una VM es mayor que 90 y el valor de **Entrada de red** es mayor que 500 MB durante los últimos cinco minutos.| [Esquema de carga de alertas de métricas casi en tiempo real](../azure-monitor/platform/alerts-webhooks.md#payload-schema)          |
 
 Dado que los datos que cada tipo de alerta proporciona son diferentes, cada tipo de alerta se administra de manera diferente. En la siguiente sección, aprenderá a crear un runbook para administrar distintos tipos de alertas.
 
@@ -41,11 +44,11 @@ Dado que los datos que cada tipo de alerta proporciona son diferentes, cada tipo
 
 Para usar Automation con alertas, necesita un runbook que incorpore lógica que administre la carga de JSON de alerta que se pasa al runbook. El siguiente runbook de ejemplo se debe llamar desde una alerta de Azure.
 
-Como se ha descrito en la sección anterior, cada tipo de alerta tiene un esquema diferente. El script toma los datos del webhook del parámetro de entrada del runbook `WebhookData` desde una alerta. Después, el script evalúa la carga de JSON para determinar qué tipo de alerta se usó.
+Como se ha descrito en la sección anterior, cada tipo de alerta tiene un esquema diferente. El script toma los datos del webhook de una alerta del parámetro de entrada del runbook `WebhookData`. Después, el script evalúa la carga de JSON para determinar qué tipo de alerta se usa.
 
-Este ejemplo usa una alerta de una VM. Los datos de la VM se recuperan de la carga y luego se usa esa información para detener dicha VM. La conexión debe estar configurada en la cuenta de Automation donde se ejecuta el runbook. Al usar alertas para desencadenar runbooks, es importante comprobar el estado de la alerta en el runbook que se desencadena. El runbook se desencadena cada vez que la alerta cambia el estado. Las alertas tienen varios estados, siendo los dos más comunes `Activated` y `Resolved`. Compruebe si la lógica de su runbook tiene este estado para asegurarse de que el runbook no se ejecuta más de una vez. En el ejemplo de este artículo se muestra cómo buscar únicamente alertas `Activated`.
+Este ejemplo usa una alerta de una VM. Los datos de la VM se recuperan de la carga y luego se usa esa información para detener dicha VM. La conexión debe estar configurada en la cuenta de Automation donde se ejecuta el runbook. Al usar alertas para desencadenar runbooks, es importante comprobar el estado de la alerta en el runbook que se desencadena. El runbook se desencadena cada vez que la alerta cambia el estado. Las alertas tienen varios estados, y los dos más comunes son Activado y Resuelto. Compruebe el estado de la lógica del runbook para asegurarse de que no se ejecuta más de una vez. En el ejemplo de este artículo se muestra cómo buscar únicamente alertas con el estado Activado.
 
-El runbook usa **AzureRunAsConnection** como la [cuenta de ejecución](automation-create-runas-account.md) para autenticarse en Azure con el fin de realizar la acción de administración en la máquina virtual.
+El runbook usa el activo de conexión `AzureRunAsConnection` [Ejecutar como cuenta](automation-create-runas-account.md) para autenticarse en Azure con el fin de realizar la acción de administración en la máquina virtual.
 
 Use este ejemplo para crear un runbook llamado **AzureVmInResponsetoVMAlert Stop**. Puede modificar el script de PowerShell y usarlo con muchos recursos diferentes.
 
@@ -139,13 +142,13 @@ Use este ejemplo para crear un runbook llamado **AzureVmInResponsetoVMAlert Stop
                     throw "Could not retrieve connection asset: $ConnectionAssetName. Check that this asset exists in the Automation account."
                 }
                 Write-Verbose "Authenticating to Azure with service principal." -Verbose
-                Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint | Write-Verbose
+                Add-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint | Write-Verbose
                 Write-Verbose "Setting subscription to work against: $SubId" -Verbose
-                Set-AzureRmContext -SubscriptionId $SubId -ErrorAction Stop | Write-Verbose
+                Set-AzContext -SubscriptionId $SubId -ErrorAction Stop | Write-Verbose
 
                 # Stop the Resource Manager VM
                 Write-Verbose "Stopping the VM - $ResourceName - in resource group - $ResourceGroupName -" -Verbose
-                Stop-AzureRmVM -Name $ResourceName -ResourceGroupName $ResourceGroupName -Force
+                Stop-AzVM -Name $ResourceName -ResourceGroupName $ResourceGroupName -Force
                 # [OutputType(PSAzureOperationResponse")]
             }
             else {
@@ -195,3 +198,5 @@ Las alertas usan grupos de acciones, que son colecciones de acciones que la aler
 * Para más información acerca de diferentes maneras de iniciar un Runbook, consulte [Inicio de un runbook en Automatización de Azure](automation-starting-a-runbook.md).
 * Para aprender a crear una alerta de registro de actividad, consulte [Creación de alertas del registro de actividad](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json).
 * Para aprender a crear una alerta casi en tiempo real, consulte [Creación de una regla de alertas en Azure Portal](../azure-monitor/platform/alerts-metric.md?toc=/azure/azure-monitor/toc.json).
+* Para obtener una referencia de los cmdlets de PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).

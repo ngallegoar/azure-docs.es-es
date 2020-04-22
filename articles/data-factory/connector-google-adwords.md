@@ -11,14 +11,17 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/25/2019
-ms.openlocfilehash: b01dcad71747da6b7aa770e3993cb82892ae55fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 79e277cb3d512ee17da866a61e9d6d66a50cd902
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74929437"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415021"
 ---
 # <a name="copy-data-from-google-adwords-using-azure-data-factory"></a>Copia de datos de Google AdWords mediante Azure Data Factory
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 
 En este artículo se describe el uso de la actividad de copia de Azure Data Factory para copiar datos de Google AdWords. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
 
@@ -55,7 +58,7 @@ Las propiedades siguientes son compatibles con el servicio vinculado de Google A
 | clientSecret | El secreto de cliente de la aplicación de Google que se ha usado para adquirir el token de actualización. Puede elegir marcar este campo como SecureString para almacenarlo de forma segura en ADF o almacenar la contraseña en Azure Key Vault y permitir que la actividad de copia de ADF incorpore los cambios desde allí al realizar la copia de datos. Obtenga más información sobre el [Almacenamiento de credenciales en Key Vault](store-credentials-in-key-vault.md). | No |
 | email | Id. de correo electrónico de la cuenta de servicio usado para ServiceAuthentication y que solo puede utilizarse en IR autohospedados.  | No |
 | keyFilePath | Ruta de acceso completa al archivo de clave. p12 que se usa para autenticar la dirección de correo electrónico de la cuenta de servicio y que solo puede utilizarse en IR autohospedados.  | No |
-| trustedCertPath | Ruta de acceso completa del archivo .pem que contiene certificados de CA de confianza para comprobar el servidor al conectarse a través de SSL. Esta propiedad solo puede establecerse al utilizar SSL en IR autohospedados. El valor predeterminado es el archivo cacerts.pem instalado con el IR.  | No |
+| trustedCertPath | Ruta de acceso completa del archivo .pem que contiene certificados de CA de confianza para comprobar el servidor al conectarse a través de TLS. Esta propiedad solo puede establecerse al utilizar TLS en IR autohospedados. El valor predeterminado es el archivo cacerts.pem instalado con el IR.  | No |
 | useSystemTrustStore | Especifica si se utiliza un certificado de CA del almacén de confianza del sistema o de un archivo PEM especificado. El valor predeterminado es false.  | No |
 
 **Ejemplo**:

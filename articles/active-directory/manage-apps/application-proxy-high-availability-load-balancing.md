@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3202c2fbfedfce0b0b52be94b1e0d165a6e72546
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 992075378737552e890bd2d6fed3c519e6c62aa7
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481320"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312951"
 ---
 # <a name="high-availability-and-load-balancing-of-your-application-proxy-connectors-and-applications"></a>Alta disponibilidad y equilibrio de carga de los conectores y las aplicaciones de Application Proxy
 
@@ -40,16 +40,12 @@ Los conectores establecen sus conexiones en función de principios de alta dispo
 1. Un usuario de un dispositivo cliente intenta acceder a una aplicación local publicada a través de Application Proxy.
 2. La solicitud pasa por una instancia de Azure Load Balancer para determinar qué instancia de servicio de Application Proxy debe llevarla a cabo. Hay decenas de instancias disponibles por región para aceptar la solicitud. Este método ayuda a distribuir uniformemente el tráfico entre las instancias de servicio.
 3. La solicitud se envía a [Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/).
-4. Service Bus comprueba si la conexión usó previamente un conector existente del grupo de conectores. Si es así, reutiliza la conexión. Si todavía no hay ningún conector emparejado con la conexión, elige de forma aleatoria un conector disponible al que enviar la señal. A continuación, el conector recoge la solicitud de Service Bus.
-
+4. Service Bus señala a un conector disponible. A continuación, el conector recoge la solicitud de Service Bus.
    - En el paso 2, las solicitudes van a diferentes instancias de servicio de Application Proxy, por lo que es más probable que las conexiones se realicen con conectores diferentes. Como resultado, los conectores se usan de manera casi uniforme dentro del grupo.
-
-   - Una conexión solo se restablece si se interrumpe o si se produce un período de inactividad de 10 minutos. Por ejemplo, la conexión se puede interrumpir cuando se reinicia un equipo o un servicio de conector, o bien si se produce una interrupción de la red.
-
 5. El conector pasa la solicitud al servidor back-end de la aplicación. A continuación, la aplicación envía la respuesta de vuelta al conector.
 6. El conector completa la respuesta abriendo una conexión de salida a la instancia de servicio desde donde llegó la solicitud. Después, esta conexión se cierra inmediatamente. De forma predeterminada, cada conector está limitado a 200 conexiones de salida simultáneas.
 7. A continuación, la respuesta se devuelve al cliente desde la instancia de servicio.
-8. Las solicitudes posteriores procedentes de la misma conexión repiten los pasos anteriores hasta que esta conexión se interrumpe o está inactiva durante 10 minutos.
+8. Las solicitudes posteriores de la misma conexión repiten los pasos anteriores.
 
 Una aplicación suele tener muchos recursos y abre varias conexiones cuando se carga. Cada conexión sigue los pasos anteriores para su asignación a una instancia de servicio; si todavía no se ha emparejado con un conector, se selecciona un nuevo conector disponible.
 

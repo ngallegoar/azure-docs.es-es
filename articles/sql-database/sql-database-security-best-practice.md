@@ -9,12 +9,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 02/20/2020
 ms.reviewer: ''
-ms.openlocfilehash: 9c1260bb1fab23ede2d1a96725c3086dc128fffc
-ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
+ms.openlocfilehash: 7b3a223ca504bff380afad54afda73880717814f
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80387655"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115379"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database"></a>Cuaderno de estrategias para abordar requisitos de seguridad comunes con Azure SQL Database
 
@@ -89,14 +89,14 @@ La administración de identidades central ofrece estas ventajas:
 
 - Cree un inquilino de Azure AD y [cree usuarios](../active-directory/fundamentals/add-users-azure-active-directory.md) para representar a los usuarios humanos y cree [entidades de servicio](../active-directory/develop/app-objects-and-service-principals.md) para representar aplicaciones, servicios y herramientas de automatización. Las entidades de servicio son equivalentes a las cuentas de servicio de Windows y Linux. 
 
-- Asigne derechos de acceso a los recursos a entidades de seguridad de Azure AD a través de la asignación de grupos: Cree grupos de Azure AD, conceda acceso a los grupos y agregue miembros individuales a los grupos. En la base de datos, cree usuarios de bases de datos independientes que asignen los grupos de Azure AD. Para asignar permisos dentro de la base de datos, coloque los usuarios en los roles de base de datos con los permisos adecuados.
+- Asigne derechos de acceso a los recursos a entidades de seguridad de Azure AD a través de la asignación de grupos: Cree grupos de Azure AD, conceda acceso a los grupos y agregue miembros individuales a los grupos. En la base de datos, cree usuarios de bases de datos independientes que asignen los grupos de Azure AD. Para asignar permisos dentro de la base de datos, coloque los usuarios que están asociados con los grupos de Azure AD en los roles de base de datos con los permisos adecuados.
   - Consulte los artículos [Configuración y administración de la autenticación de Azure Active Directory con SQL](sql-database-aad-authentication-configure.md) y [Usar la autenticación de Azure Active Directory para autenticación con SQL](sql-database-aad-authentication.md).
   > [!NOTE]
   > En una instancia administrada, también puede crear inicios de sesión que se asignan a las entidades de seguridad de Azure AD de la base de datos maestra. Consulte [CREATE LOGIN (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
 
 - El uso de grupos de Azure AD simplifica la administración de permisos y tanto el propietario del grupo como el propietario del recurso puede agregar o quitar miembros del grupo. 
 
-- Cree un grupo independiente para el administrador de Azure AD para los servidores de base de datos de SQL.
+- Cree un grupo independiente para los administradores de Azure AD para cada servidor de SQL DB.
 
   - Consulte el artículo [Aprovisionamiento de un administrador de Azure Active Directory para el servidor de Azure SQL Database](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server).
 
@@ -213,7 +213,7 @@ La autenticación de SQL hace referencia a la autenticación de un usuario al co
 
 ## <a name="access-management"></a>Administración de acceso
 
-La administración de acceso es el proceso de controlar y administrar los privilegios y el acceso de los usuarios autorizados a Azure SQL Database.
+La administración de acceso (también denominada Autorización) es el proceso de controlar y administrar los privilegios y el acceso de los usuarios autorizados a Azure SQL Database.
 
 ### <a name="implement-principle-of-least-privilege"></a>Implementación del principio de privilegio mínimo
 
@@ -225,7 +225,7 @@ El principio de privilegio mínimo indica que los usuarios no deben tener más p
 
 Asigne solo los permisos [necesarios](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) para completar las tareas necesarias:
 
-- En SQL Data Plane: 
+- En SQL Database: 
     - Use permisos granulares y roles de bases de datos definidos por el usuario (o roles de servidor en MI): 
         1. Cree los roles necesarios.
             - [CREATE ROLE](https://docs.microsoft.com/sql/t-sql/statements/create-role-transact-sql)
@@ -294,7 +294,7 @@ La separación de tareas, que también se denomina "separación de obligaciones"
   - Cree roles de servidor para las tareas de servidor (crear inicios de sesión y bases de datos) en una instancia administrada. 
   - Cree roles de base de datos para las tareas en el nivel de base de datos.
 
-- En el caso de ciertas tareas confidenciales, considere la posibilidad de crear procedimientos almacenados especiales firmados por un certificado para ejecutar las tareas en nombre de los usuarios. 
+- En el caso de ciertas tareas confidenciales, considere la posibilidad de crear procedimientos almacenados especiales firmados por un certificado para ejecutar las tareas en nombre de los usuarios. Una ventaja importante de los procedimientos almacenados firmados digitalmente es que, si se cambia el procedimiento, se quitan inmediatamente los permisos concedidos a la versión anterior del procedimiento.
   - Ejemplo: [Tutorial: Firmar procedimientos almacenados con un certificado](https://docs.microsoft.com/sql/relational-databases/tutorial-signing-stored-procedures-with-a-certificate) 
 
 - Implemente el Cifrado de datos transparente (TDE) con claves administradas por el cliente en Azure Key Vault para habilitar la separación de tareas entre el propietario de los datos y el propietario de la seguridad. 
@@ -303,7 +303,7 @@ La separación de tareas, que también se denomina "separación de obligaciones"
 - Para asegurarse de que un DBA no pueda ver los datos que se consideran muy sensibles y pueda seguir realizando las tareas de DBA, puede usar Always Encrypted con separación de roles. 
   - Consulte los artículos [Información general de administración de claves de Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/overview-of-key-management-for-always-encrypted), [Aprovisionamiento de claves con separación de roles](https://docs.microsoft.com/sql/relational-databases/security/encryption/configure-always-encrypted-keys-using-powershell#KeyProvisionWithRoles) y [Rotación de claves maestras de columna con separación de roles](https://docs.microsoft.com/sql/relational-databases/security/encryption/rotate-always-encrypted-keys-using-powershell#column-master-key-rotation-with-role-separation). 
 
-- En los casos en los que no sea factible, al menos sin costos importantes y esfuerzos que puedan hacer que el sistema quede casi inutilizable, es posible llegar a consensos y mitigar los riesgos mediante el uso de controles de compensación como: 
+- En los casos en los que no sea factible el uso de Always Encrypted, al menos sin costos importantes y esfuerzos que puedan hacer que el sistema quede casi inutilizable, es posible llegar a consensos y mitigar los riesgos mediante el uso de controles de compensación como: 
   - Intervención humana en los procesos. 
   - Pistas de auditoría: para más información sobre la auditoría, consulte [Auditoría de eventos de seguridad críticos](#audit-critical-security-events).
 
@@ -315,17 +315,17 @@ La separación de tareas, que también se denomina "separación de obligaciones"
 
 - Use roles integrados cuando los permisos coincidan exactamente con los permisos necesarios: si la unión de todos los permisos de varios roles integrados genera una coincidencia del 100 %, puede asignar también varios roles de manera simultánea. 
 
-- Cree y use roles personalizados cuando los roles integrados concedan demasiados permisos o permisos insuficientes. 
+- Cree y use roles definidos por el usuario cuando los roles integrados concedan demasiados permisos o permisos insuficientes. 
 
 - Las asignaciones de roles también se pueden realizar de manera temporal, algo que también se conoce como "separación dinámica de tareas" (DSD), ya sea dentro de los pasos de trabajo del Agente SQL en T-SQL o mediante Azure PIM para los roles de RBAC. 
 
-- Asegúrese de que los administradores de bases de datos no tengan acceso a las claves de cifrado o los almacenes de claves y que los administradores de seguridad con acceso a las claves no tengan, a su vez, acceso a la base de datos. 
+- Asegúrese de que los administradores de bases de datos no tengan acceso a las claves de cifrado o los almacenes de claves y que los administradores de seguridad con acceso a las claves no tengan, a su vez, acceso a la base de datos. El uso de la [Administración extensible de claves (EKM)](https://docs.microsoft.com/sql/relational-databases/security/encryption/extensible-key-management-ekm) puede facilitar esta separación. [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) se puede usar para implementar EKM. 
 
 - Asegúrese siempre de tener una pista de auditoría para las acciones relacionadas con la seguridad. 
 
 - Puede recuperar la definición de los roles de RBAC integrados para ver los permisos usados y crear un rol personalizado basado en extractos y acumulaciones de estos a través de PowerShell.
 
-- Como cualquier miembro del rol de base de datos db_owner puede cambiar una configuración de seguridad como Cifrado de datos transparente (TDE) o cambiar el SLO, es necesario tener cuidado al conceder esta pertenencia. No obstante, existen muchas tareas que requieren privilegios db_owner. Tareas como cambiar cualquier valor de base de datos (por ejemplo, opciones de la base de datos). La auditoría desempeña un papel clave en cualquier solución.
+- Puesto que cualquier miembro del rol de base de datos db_owner puede cambiar una configuración de seguridad como Cifrado de datos transparente (TDE) o cambiar el SLO, es necesario tener cuidado al conceder esta pertenencia. No obstante, existen muchas tareas que requieren privilegios db_owner. Tareas como cambiar cualquier valor de base de datos (por ejemplo, opciones de la base de datos). La auditoría desempeña un papel clave en cualquier solución.
 
 - No es posible restringir los permisos de db_owner ni, por consiguiente, impedir que una cuenta administrativa vea datos de usuario. Si hay datos altamente confidenciales en una base de datos, Always Encrypted se pueden usar para impedir que db_owners o cualquier otro DBA puedan verlos.
 
@@ -440,7 +440,7 @@ Las directivas que determinan qué datos son confidenciales y si estos datos se 
 
 - Always Encrypted no admite fácilmente la concesión de acceso temporal a las claves (y a los datos protegidos). Por ejemplo, si necesita compartir las claves con un DBA para permitir que el DBA realice algunas operaciones de limpieza en datos confidenciales y cifrados. La única forma de revocar de forma confiable el acceso a los datos del DBA será girar las claves de cifrado de columnas y las claves maestras de columna que protegen los datos, lo que es una operación costosa. 
 
-- Para acceder a los valores de texto no cifrado de las columnas cifradas, un usuario debe tener acceso a la CMK que protege las columnas, que están configuradas en el almacén de claves que contiene la CMK. El usuario también debe tener los permisos de base de datos **VIEW ANY COLUMN MASTER KEY DEFINITION** y **VIEW ANY COLUMN ENCRYPTION KEY DEFINITION**.
+- Para acceder a los valores de texto no cifrado de las columnas cifradas, un usuario debe tener acceso a la Clave maestra de columna (CMK) que protege las columnas, que están configuradas en el almacén de claves que contiene la CMK. El usuario también debe tener los permisos de base de datos **VIEW ANY COLUMN MASTER KEY DEFINITION** y **VIEW ANY COLUMN ENCRYPTION KEY DEFINITION**.
 
 ### <a name="control-access-of-application-users-to-sensitive-data-through-encryption"></a>Controle el acceso de los usuarios de la aplicación a los datos confidenciales a través del cifrado
 
@@ -735,7 +735,7 @@ Supervise quién tiene acceso a los datos confidenciales y capture consultas sob
 **Implementación**:
 
 - Use la auditoría de SQL y la clasificación de datos en combinación. 
-  - En el registro de [auditoría de SQL Database](sql-database-auditing.md), puede realizar un seguimiento del acceso a datos confidenciales específicamente. También puede ver información, como los datos a los que se accedió, así como su etiqueta de confidencialidad. Para obtener más información, consulte [Auditoría del acceso a datos confidenciales](sql-database-data-discovery-and-classification.md#subheading-3). 
+  - En el registro de [auditoría de SQL Database](sql-database-auditing.md), puede realizar un seguimiento del acceso a datos confidenciales específicamente. También puede ver información, como los datos a los que se accedió, así como su etiqueta de confidencialidad. Para más información, consulte [Clasificación y detección de datos](sql-database-data-discovery-and-classification.md) y [Auditoría del acceso a datos confidenciales](sql-database-data-discovery-and-classification.md#audit-sensitive-data). 
 
 **Procedimientos recomendados**:
 

@@ -11,12 +11,12 @@ ms.date: 10/12/2018
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: b4742f48ee9ad0db60e21dd53c5c0f447c1ded67
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 8f164232a3b1782511758f93a9e9b8d17d3714d5
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80348918"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414280"
 ---
 # <a name="quickstart-fivetran-with-data-warehouse"></a>Inicio rápido: Fivetran con almacenamiento de datos 
 
@@ -26,7 +26,7 @@ En este inicio rápido se describe cómo configurar un nuevo usuario de Fivetran
 
 1. Busque el nombre completo del servidor y la base de datos que se usarán para conectarse al almacenamiento de datos.
     
-    Si necesita ayuda para encontrar esta información, consulte [Conexión al almacenamiento de datos](sql-data-warehouse-connect-overview.md).
+    Si necesita ayuda para encontrar esta información, consulte [Conexión al almacenamiento de datos](../sql/connect-overview.md).
 
 2. En el Asistente para instalación, elija si desea conectarse a la base de datos directamente o mediante un túnel SSH.
 
@@ -75,9 +75,9 @@ En este inicio rápido se describe cómo configurar un nuevo usuario de Fivetran
     Para más información, lea sobre los [límites de memoria y simultaneidad](memory-concurrency-limits.md) y las [clases de recursos](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md#ways-to-allocate-more-memory).
 
 
-## <a name="sign-in-to-fivetran"></a>Inicio de sesión en Fivetran
+## <a name="connect-from-fivetran"></a>Conexión desde Fivetran
 
-Para iniciar sesión en Fivetran, escriba las credenciales que usa para acceder al almacenamiento de datos: 
+Para conectarse a su almacenamiento de datos desde su cuenta de Fivetran, escriba las credenciales que usa para acceder al almacenamiento de datos: 
 
 * Host (el nombre del servidor)
 * Puerto

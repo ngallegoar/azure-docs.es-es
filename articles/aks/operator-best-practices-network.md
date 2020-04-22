@@ -1,15 +1,16 @@
 ---
-title: 'Procedimientos recomendados para el operador: conectividad de red en Azure Kubernetes Service (AKS)'
+title: Procedimientos recomendados de seguridad de la red
+titleSuffix: Azure Kubernetes Service
 description: Procedimientos recomendados con los recursos de red virtual y la conectividad para el operador del clúster en Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: 93659a0891b09c83db9f63fe0756fcf4d7e87f6a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1eed6f1f82a8a91b2335760e99ea6b895d15547e
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77594692"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392711"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados con la conectividad de red y la seguridad en Azure Kubernetes Service (AKS)
 
@@ -42,7 +43,7 @@ Al usar redes de Azure CNI, el recurso de red virtual se encuentra en un grupo d
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
 
-Para obtener más información sobre la delegación en entidad de servicio de AKS, consulte [Delegación del acceso a otros recursos de Azure][sp-delegation].
+Para obtener más información sobre la delegación en entidad de servicio de AKS, consulte [Delegación del acceso a otros recursos de Azure][sp-delegation]. En lugar de una entidad de servicio, también puede usar la identidad administrada asignada por el sistema para los permisos. Para más información, consulte [Uso de identidades administradas](use-managed-identity.md).
 
 Como cada pod y cada nodo recibe su propia dirección IP, planee los intervalos de direcciones para las subredes de AKS. La subred debe ser lo suficientemente grande como para proporcionar direcciones IP para cada nodo, pod y recurso de red que implemente. Cada clúster de AKS se debe colocar en su propia subred. Para permitir la conectividad con redes locales o emparejadas en Azure, no use intervalos de direcciones IP que se superpongan con recursos de red existentes. El número de pods que cada nodo ejecuta con las redes de kubenet y de Azure CNI tiene un límite predeterminado. Para controlar los eventos de escalado horizontal o las actualizaciones de clúster, también es necesario que haya otras direcciones IP disponibles para utilizarlas en la subred asignada. Este espacio de direcciones adicional es especialmente importante si usa contenedores de Windows Server (actualmente en versión preliminar de AKS), como aquellos grupos de nodos que requieren una actualización para aplicar las revisiones de seguridad más recientes. Para obtener más información sobre los nodos de Windows Server, consulte [Actualización de un grupo de nodos en AKS][nodepool-upgrade].
 
@@ -115,7 +116,7 @@ Un controlador de entrada que distribuye el tráfico a servicios y aplicaciones 
 
 ![Un firewall de aplicaciones web (WAF), como Azure Application Gateway, puede proteger y distribuir el tráfico del clúster de AKS.](media/operator-best-practices-network/web-application-firewall-app-gateway.png)
 
-Un firewall de aplicaciones web (WAF) proporciona una capa adicional de seguridad mediante el filtrado del tráfico entrante. Open Web Application Security Project (OWASP) proporciona un conjunto de reglas para detectar ataques, como el {1}cross site scripting{2} o el envenenamiento de cookies. [Azure Application Gateway][app-gateway] (actualmente en versión preliminar en AKS) es una solución WAF que se puede integrar con los clústeres de AKS para proporcionar estas características de seguridad antes de que el tráfico llegue al clúster y a las aplicaciones de AKS. Otras soluciones de terceros también realizan estas funciones, por lo que puede seguir usando las inversiones existentes o la experiencia en un producto determinado.
+Un firewall de aplicaciones web (WAF) proporciona una capa adicional de seguridad mediante el filtrado del tráfico entrante. Open Web Application Security Project (OWASP) proporciona un conjunto de reglas para detectar ataques, como el cross site scripting o el envenenamiento de cookies. [Azure Application Gateway][app-gateway] (actualmente en versión preliminar en AKS) es una solución WAF que se puede integrar con los clústeres de AKS para proporcionar estas características de seguridad antes de que el tráfico llegue al clúster y a las aplicaciones de AKS. Otras soluciones de terceros también realizan estas funciones, por lo que puede seguir usando las inversiones existentes o la experiencia en un producto determinado.
 
 Los recursos de entrada o el equilibrador de carga continúan ejecutándose en el clúster de AKS para refinar aún más la distribución del tráfico. Application Gateway se puede administrar de manera centralizada como controlador de entrada con definición de recurso. Para empezar, [cree un controlador de entrada de Application Gateway][app-gateway-ingress].
 

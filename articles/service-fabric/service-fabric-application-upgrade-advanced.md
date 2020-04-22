@@ -2,13 +2,13 @@
 title: Temas avanzados de actualización de aplicación
 description: En este artículo se tratan algunos temas avanzados relacionados con la actualización de una aplicación de Service Fabric.
 ms.topic: conceptual
-ms.date: 1/28/2020
-ms.openlocfilehash: 182ab6dc1663e160561b8941ebf3a36b5af3d950
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.date: 03/11/2020
+ms.openlocfilehash: a12d2ec55bda95c1c61d4a73c76f4a777f4237f2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80422805"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414501"
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Actualización de la aplicación de Service Fabric: temas avanzados
 
@@ -18,7 +18,7 @@ Si se agrega un nuevo tipo de servicio a una aplicación publicada como parte de
 
 De manera similar, los tipos de servicio pueden quitarse de una aplicación como parte de una actualización. Sin embargo, todas las instancias de servicio del tipo de servicio que va a quitarse se deben quitar antes de continuar con la actualización (consulte [Remove-ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricservice?view=azureservicefabricps)).
 
-## <a name="avoid-connection-drops-during-stateless-service-planned-downtime-preview"></a>Evitar interrupciones de la conexión durante el tiempo de inactividad planeado del servicio sin estado (versión preliminar)
+## <a name="avoid-connection-drops-during-stateless-service-planned-downtime"></a>Evitar interrupciones de la conexión durante el tiempo de inactividad planeado del servicio sin estado
 
 En el caso de tiempos de inactividad planeados de instancias sin estado, como la actualización de aplicaciones o clústeres o la desactivación de nodos, las conexiones se pueden interrumpir debido a que el punto de conexión expuesto se quita después de que se desactiva. Como resultado, se realizan clausuras de conexión forzadas.
 

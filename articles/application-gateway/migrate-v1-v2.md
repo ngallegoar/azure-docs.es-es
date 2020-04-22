@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 11/14/2019
+ms.date: 03/31/2020
 ms.author: victorh
-ms.openlocfilehash: 9909c46015fffb3bea3eef094599312e28b935c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2a6165cf2739482805d712ddffb5c6a9f5ebabf8
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77046197"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312051"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Migración de Azure Application Gateway y Firewall de aplicaciones web de v1 a v2
 
@@ -36,10 +36,11 @@ Existe un script de Azure PowerShell que hace lo siguiente:
 
 * La nueva puerta de enlace v2 tiene nuevas direcciones IP públicas y privadas. Es complicado mover las direcciones IP asociadas con la puerta de enlace v1 existente a la v2, pero puede asignar una dirección IP pública o privada existente (sin asignar) a la nueva puerta de enlace v2.
 * Debe proporcionar un espacio de direcciones IP para otra subred dentro de la red virtual en la que está ubicada la puerta de enlace v1. El script no puede crear la puerta de enlace v2 en las subredes existentes que ya tengan una puerta de enlace v1. Aun así, si la subred existente ya tiene una puerta de enlace v2, esto podría funcionar siempre y cuando haya suficiente espacio de direcciones IP.
-* Para migrar una configuración de SSL, debe especificar todos los certificados SSL que se usan en la puerta de enlace v1.
+* Para migrar una configuración de TLS/SSL, debe especificar todos los certificados TLS/SSL que se usan en la puerta de enlace v1.
 * Si tiene el modo FIPS habilitado para la puerta de enlace v1, no se migrará a la nueva puerta de enlace v2. El modo FIPS no se admite en v2.
 * v2 no es compatible con IPv6, por lo que las puertas de enlace v1 con IPv6 habilitado no se pueden migrar. Si ejecuta el script, podría no completarse.
 * Si la puerta de enlace v1 solo tiene una dirección IP privada, el script crea una dirección IP pública y una dirección IP privada para la nueva puerta de enlace v2. Las puertas de enlace v2 actualmente no admiten solo direcciones IP privadas.
+* Los encabezados con nombres que contienen caracteres que no son letras, dígitos, guiones y caracteres de subrayado no se pasan a la aplicación. Esto solo se aplica a los nombres de encabezado, no a los valores de encabezado. Este es un cambio importante de la versión v1.
 
 ## <a name="download-the-script"></a>Descarga del script
 
@@ -100,7 +101,7 @@ Para ejecutar el script:
 
    * **subnetAddressRange: [cadena]:  obligatorio**. Se trata el espacio de direcciones IP que ha asignado (o quiere asignar) a la nueva subred que contiene la nueva puerta de enlace v2. Debe especificarse en la notación CIDR. Por ejemplo: 10.0.0.0/24. No es necesario crear de antemano esta subred, ya que el script la crea automáticamente si no existe.
    * **appgwName: [cadena]: opcional**. Se trata de una cadena que se especifica para su uso como nombre de la nueva puerta de enlace Standard_v2 o WAF_v2. Si no se proporciona este parámetro, se usará el nombre de la puerta de enlace v1 existente con el sufijo *_v2* anexado.
-   * **sslCertificates: [PSApplicationGatewaySslCertificate]: opcional**.  La lista separada por comas de objetos PSApplicationGatewaySslCertificate que cree para representar los certificados SSL de la puerta de enlace v1 debe cargarse en la nueva puerta de enlace v2. Para cada uno de los certificados SSL configurados para la puerta de enlace Standard v1 o WAF v1, puede crear un objeto PSApplicationGatewaySslCertificate con el comando `New-AzApplicationGatewaySslCertificate` que se muestra aquí. Necesita la ruta de acceso del archivo del certificado SSL y la contraseña.
+   * **sslCertificates: [PSApplicationGatewaySslCertificate]: opcional**.  La lista separada por comas de objetos PSApplicationGatewaySslCertificate que cree para representar los certificados TLS/SSL de la puerta de enlace v1 debe cargarse en la nueva puerta de enlace v2. Para cada uno de los certificados TLS/SSL configurados para la puerta de enlace Standard v1 o WAF v1, puede crear un objeto PSApplicationGatewaySslCertificate con el comando `New-AzApplicationGatewaySslCertificate` que se muestra aquí. Necesita la ruta de acceso del archivo del certificado TLS/SSL y la contraseña.
 
      Este parámetro solo es opcional si no tiene agentes de escucha HTTPS configurados para la puerta de enlace v1 o WAF. Si tiene al menos un programa de instalación del agente de escucha HTTPS, debe especificar este parámetro.
 

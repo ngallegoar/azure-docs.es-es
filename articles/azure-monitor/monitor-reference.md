@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/17/2020
-ms.openlocfilehash: 0ef7e5d869ab2d7e085cbf861bfc32e57b1fad4b
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 27503defa23b2a35e767156139228aa2e177652f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80408486"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405179"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>¿Qué supervisa Azure Monitor?
 En este artículo se describen las distintas aplicaciones y servicios que se supervisan mediante Azure Monitor. 
@@ -31,7 +31,7 @@ Insights proporciona una experiencia de supervisión personalizada para determin
 | [Azure Monitor para Networks (versión preliminar)](insights/network-insights-overview.md) | Proporciona una vista completa del estado y las métricas de todos los recursos de red. La capacidad de búsqueda avanzada ayuda a identificar dependencias de recursos, lo que habilita escenarios como la identificación de recursos que hospedan el sitio web con una simple búsqueda del nombre del sitio web. |
 [Azure Monitor para grupos de recursos (versión preliminar)](insights/resource-group-insights.md) |  Clasifica y diagnostica cualquier problema que encuentren sus recursos individuales, a la vez que ofrece un contexto en cuanto al estado y el rendimiento del grupo de recursos como un todo. |
 | [Azure Monitor para Storage (versión preliminar)](insights/storage-insights-overview.md) | Proporciona una supervisión completa de las cuentas de Azure Storage al ofrecer una vista unificada del rendimiento, la capacidad y la disponibilidad de los servicios de Azure Storage. |
-| [Azure Monitor para VM (versión preliminar)](insights/container-insights-overview.md) | Supervisa las máquinas virtuales (VM) y los conjuntos de escalado de máquinas virtuales de Azure. El servicio analiza el rendimiento y el estado de las VM Windows y Linux, y supervisa sus procesos y dependencias en otros recursos y procesos externos. |
+| [Azure Monitor para VM ](insights/container-insights-overview.md) | Supervisa las máquinas virtuales (VM) y los conjuntos de escalado de máquinas virtuales de Azure. El servicio analiza el rendimiento y el estado de las VM Windows y Linux, y supervisa sus procesos y dependencias en otros recursos y procesos externos. |
 
 ### <a name="core-solutions"></a>Soluciones principales
 
@@ -205,7 +205,6 @@ Hay otras soluciones disponibles para supervisar diferentes aplicaciones y servi
 | [Evaluaciones a petición](https://docs.microsoft.com/services-hub/health/getting_started_with_on_demand_assessments) | Evalúe y optimice la disponibilidad, la seguridad y el rendimiento de los entornos de tecnología de Microsoft locales, híbridos y en la nube. |
 | [Comprobación de mantenimiento de SQL](insights/sql-assessment.md) | Evalúe el riesgo y el estado de los entornos de SQL Server.  |
 | [Datos de conexión](insights/wire-data.md) | Datos consolidados de rendimiento y de red recopilados de equipos conectados a Windows y Linux con el agente de Log Analytics. |
-
 
 ## <a name="third-party-integration"></a>Integración de terceros
 

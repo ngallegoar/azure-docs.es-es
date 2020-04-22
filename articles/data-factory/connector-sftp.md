@@ -12,18 +12,19 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/02/2020
-ms.openlocfilehash: 06428d4a9c4a4178212d16d42b8b3adffb5c9718
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e6d29f73716b04699e0cd250396df7f7d744d4c4
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78250283"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415243"
 ---
 # <a name="copy-data-from-and-to-sftp-server-using-azure-data-factory"></a>Copia de datos de un servidor SFTP o en este mediante Azure Data Factory
 
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](v1/data-factory-sftp-connector.md)
 > * [Versión actual](connector-sftp.md)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 En este artículo se describe cómo copiar datos del servidor SFTP o en este. Para información sobre Azure Data Factory, lea el [artículo de introducción](introduction.md).
 

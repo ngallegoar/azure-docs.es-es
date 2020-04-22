@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: jpe316
 ms.author: jordane
-ms.date: 02/21/2020
+ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 6671b9c83ab71b4a92fe36d647e5a4e4d781154e
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.openlocfilehash: 7857d11c625911cd1b49dfcf0e0d612fc6a3871e
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79096193"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314309"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: Administración, implementación y supervisión de modelos con Azure Machine Learning
 
@@ -24,7 +24,7 @@ En este artículo, obtendrá información sobre cómo usar Azure Machine Learnin
 
 ## <a name="what-is-mlops"></a>¿Qué es MLOps?
 
-Operaciones de Machine Learning (MLOps) se basa en los principios y prácticas de [DevOps](https://azure.microsoft.com/overview/what-is-devops/) que aumentan la eficacia de los flujos de trabajo. Por ejemplo, integración continua, entrega e implementación. MLOps aplica estas entidades de seguridad al proceso de aprendizaje automático, con el objetivo de:
+Operaciones de Machine Learning (MLOps) se basa en los principios y prácticas de [DevOps](https://azure.microsoft.com/overview/what-is-devops/) que aumentan la eficacia de los flujos de trabajo. Por ejemplo, integración continua, entrega e implementación. MLOps aplica estos principios al proceso de aprendizaje automático, con el objetivo de:
 
 * Conseguir una experimentación y desarrollo de modelos más rápidos
 * Conseguir una implementación más rápida de los modelos en producción
@@ -70,6 +70,11 @@ Los modelos registrados se identifican por el nombre y la versión. Cada vez que
 
 No se puede eliminar un modelo registrado que se esté usando en una implementación activa.
 Para más información, consulte la sección de registro de modelos de [Implementación de modelos](how-to-deploy-and-where.md#registermodel).
+
+### <a name="profile-models"></a>Modelos de perfil
+
+Azure Machine Learning puede ayudarle a comprender los requisitos de CPU y memoria del servicio que se creará al implementar el modelo. La generación de perfiles prueba el servicio que ejecuta el modelo y devuelve información como el uso de la CPU, el uso de memoria y la latencia de respuesta. También proporciona una recomendación de CPU y memoria basada en el uso de recursos.
+Para más información, consulte la sección de generación de perfiles de [Implementación de modelos](how-to-deploy-and-where.md#profilemodel).
 
 ### <a name="package-and-debug-models"></a>Empaquetado y depuración de modelos
 
@@ -119,6 +124,16 @@ Para implementar el modelo como un servicio web, debe proporcionar los siguiente
 
 Para obtener más información, consulte [Implementación de modelos](how-to-deploy-and-where.md).
 
+#### <a name="controlled-rollout"></a>Lanzamiento controlado
+
+Al implementar en Azure Kubernetes Service, puede usar el lanzamiento controlado para habilitar los siguientes escenarios:
+
+* Creación de varias versiones de un punto de conexión para una implementación
+* Realización de pruebas A/B mediante el enrutamiento del tráfico a diferentes versiones del punto de conexión
+* Cambio entre versiones del punto de conexión actualizando el porcentaje de tráfico en la configuración del punto de conexión.
+
+Para más información, consulte [Lanzamiento controlado de modelos de ML](how-to-deploy-azure-kubernetes-service.md#deploy-models-to-aks-using-controlled-rollout-preview).
+
 #### <a name="iot-edge-devices"></a>Dispositivos de IoT Edge
 
 Puede usar modelos con dispositivos IoT a través de los **módulos de Azure IoT Edge**. Los módulos de IoT Edge se implementan en un dispositivo de hardware, lo que permite la inferencia o puntuación de modelos en el dispositivo.
@@ -131,12 +146,20 @@ Microsoft Power BI admite el uso de modelos de Machine Learning para el análisi
 
 ## <a name="capture-the-governance-data-required-for-capturing-the-end-to-end-ml-lifecycle"></a>Captura de los datos de gobernanza necesarios para capturar el ciclo de vida de ML de un extremo a otro
 
-Azure Machine Learning ofrece la capacidad de realizar un seguimiento del registro de auditoría de un extremo a otro de todos los recursos de ML. Concretamente:
+Azure Machine Learning ofrece la capacidad de realizar un seguimiento del registro de auditoría de un extremo a otro de todos los recursos de ML mediante metadatos.
 
 - Azure Machine Learning [se integra con Git](how-to-set-up-training-targets.md#gitintegration) para realizar un seguimiento de la información sobre el repositorio, rama o commit del que procede el código.
-- Los [conjuntos de datos de Azure Machine Learning](how-to-create-register-datasets.md) ayudan a realizar un seguimiento, generar perfiles y realizar versiones de sus datos. 
+- Los [conjuntos de datos de Azure Machine Learning](how-to-create-register-datasets.md) ayudan a realizar un seguimiento, generar perfiles y realizar versiones de sus datos.
+- La [interpretabilidad](how-to-machine-learning-interpretability.md) permite explicar los modelos, satisfacer el cumplimiento normativo y comprender cómo llegan los modelos a un resultado para la entrada determinada.
 - El historial de ejecución de Azure Machine Learning almacena una instantánea del código, los datos y los procesos utilizados para entrenar un modelo.
 - El registro de modelos de Azure Machine Learning captura todos los metadatos asociados al modelo (el experimento que lo entrenó, dónde se está implementando, si las implementaciones son correctas).
+- La [integración con Azure Event Grid](concept-event-grid-integration.md) permite actuar en los eventos del ciclo de vida de Machine Learning. Por ejemplo, el registro de modelos, la implementación, el desfase de datos y los eventos de aprendizaje (ejecución).
+
+> [!TIP]
+> Aunque parte de la información sobre los modelos y conjuntos de datos se capturan automáticamente, puede agregar información adicional mediante __etiquetas__. Al buscar modelos y conjuntos de datos registrados en el área de trabajo, puede usar etiquetas como filtro.
+>
+> Asociar un conjunto de datos a un modelo registrado es un paso opcional. Para obtener información sobre cómo hacer referencia a un conjunto de datos al registrar un modelo, vea la referencia de clase [Modelo](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model(class)?view=azure-ml-py).
+
 
 ## <a name="notify-automate-and-alert-on-events-in-the-ml-lifecycle"></a>Notificación, automatización y alerta sobre eventos en el ciclo de vida de ML
 Azure Machine Learning publica eventos clave en Azure EventGrid, que se puede usar para notificar y automatizar eventos en el ciclo de vida de ML. Para obtener más información, vea [este documento](how-to-use-event-grid.md).
@@ -152,7 +175,7 @@ Para más información, consulte [cómo habilitar la recopilación de datos de u
 
 ## <a name="retrain-your-model-on-new-data"></a>Nuevo entrenamiento del modelo con datos nuevos
 
-A menudo, querrá actualizar el modelo o incluso volver a entrenarlo desde cero, a medida que reciba información nueva. A veces, la recepción de nuevos datos es una parte esperada del dominio. Otras veces, como se explica en [Detección del desfase de datos (versión preliminar) en los conjuntos de datos](how-to-monitor-datasets.md), el rendimiento del modelo puede reducirse en función de los cambios realizados en un sensor determinado, los cambios naturales en los datos, como los efectos estacionales, o las características que se desplazan en relación con otras características. 
+A menudo, querrá validar el modelo, actualizarlo o incluso volver a entrenarlo desde cero, a medida que reciba información nueva. A veces, la recepción de nuevos datos es una parte esperada del dominio. Otras veces, como se explica en [Detección del desfase de datos (versión preliminar) en los conjuntos de datos](how-to-monitor-datasets.md), el rendimiento del modelo puede reducirse en función de los cambios realizados en un sensor determinado, los cambios naturales en los datos, como los efectos estacionales, o las características que se desplazan en relación con otras características. 
 
 No hay ninguna respuesta universal a la pregunta "Cómo puedo saber si debo volver a entrenarlo?" Sin embargo, las herramientas de supervisión y eventos de Azure ML descritas anteriormente son buenos puntos de partida para la automatización. Una vez que haya decidido volver a entrenarlo, debe: 
 
@@ -172,7 +195,11 @@ La [extensión de Azure Machine Learning](https://marketplace.visualstudio.com/i
 * Habilita la selección de áreas de trabajo al definir una conexión de servicio.
 * Permite que los modelos entrenados creados con una canalización de entrenamiento desencadenen las canalizaciones de versión.
 
-Para más información sobre el uso de Azure Pipelines con Azure Machine Learning, consulte el artículo sobre [integración continua e implementación de modelos de Machine Learning con Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning) y el repositorio de [MLOps de Azure Machine Learning](https://aka.ms/mlops).
+Para obtener más información sobre el uso de Azure Pipelines con Azure Machine Learning, consulte los vínculos siguientes:
+
+* [Integración continua e implementación de modelos de Machine Learning con Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning). 
+* Repositorio de [MLOPs de Azure Machine Learning](https://aka.ms/mlops).
+* Repositorio de [MLOPs de Python en Azure Machine Learning](https://github.com/Microsoft/MLOpspython).
 
 También puede usar Azure Data Factory para crear una canalización de ingesta de datos que prepare los datos para su uso con el entrenamiento. Para más información, consulte [Canalización de ingesta de datos](how-to-cicd-data-ingestion.md).
 

@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: victorh
-ms.openlocfilehash: c7b38ad40977e1042032210d3a82a73ff6169adc
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: b458537c7cf8a254cd188c565ab1925afa202369
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80411055"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312647"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Mantenimiento del back-end y registros de diagnóstico para Application Gateway
 
@@ -172,7 +172,7 @@ El registro de acceso solo se genera si lo habilitó para cada instancia de Appl
 |receivedBytes     | Tamaño de paquete recibido, en bytes.        |
 |sentBytes| Tamaño de paquete enviado, en bytes.|
 |timeTaken| Período de tiempo (en milisegundos) que se tarda en procesar una solicitud y en enviar la respuesta. Esto se calcula como el intervalo desde el momento en que Application Gateway recibe el primer byte de una solicitud HTTP hasta el momento en que termina la operación de envío de la respuesta. Es importante tener en cuenta que el campo Time-Taken normalmente incluye la hora a la que los paquetes de solicitud y respuesta se desplazan a través de la red. |
-|sslEnabled| Indica si la comunicación con los grupos de back-end utilizaron SSL. Los valores válidos son on y off.|
+|sslEnabled| Indica si la comunicación con los grupos de back-end utilizaron TLS/SSL. Los valores válidos son on y off.|
 |host| El nombre de host con el que se envió la solicitud al servidor back-end. Si se está reemplazando el nombre de host de back-end, se reflejará en este nombre.|
 |originalHost| Nombre de host con el que Application Gateway recibió la solicitud del cliente.|
 ```json
@@ -215,9 +215,9 @@ En el caso de Application Gateway y WAF v2, los registros muestran un poco más 
 |receivedBytes     | Tamaño de paquete recibido, en bytes.        |
 |sentBytes| Tamaño de paquete enviado, en bytes.|
 |timeTaken| Período de tiempo (en **segundos**) que se tarda en procesar una solicitud y en enviar la respuesta. Esto se calcula como el intervalo desde el momento en que Application Gateway recibe el primer byte de una solicitud HTTP hasta el momento en que termina la operación de envío de la respuesta. Es importante tener en cuenta que el campo Time-Taken normalmente incluye la hora a la que los paquetes de solicitud y respuesta se desplazan a través de la red. |
-|sslEnabled| Indica si la comunicación con los grupos de back-end utilizaron SSL. Los valores válidos son on y off.|
-|sslCipher| Conjunto de cifrado que se usa para la comunicación SSL (si SSL está habilitado).|
-|sslProtocol| Protocolo SSL/TLS que se usa (si se ha habilitado SSL).|
+|sslEnabled| Indica si la comunicación con los grupos de back-end utilizaron TLS. Los valores válidos son on y off.|
+|sslCipher| Conjunto de cifrado que se usa para la comunicación TLS (si TLS está habilitado).|
+|sslProtocol| Protocolo SSL/TLS que se usa (si se ha habilitado TLS).|
 |serverRouted| Servidor back-end al que Application Gateway redirige la solicitud.|
 |serverStatus| Código de estado HTTP del servidor back-end.|
 |serverResponseLatency| Latencia de la respuesta del servidor back-end.|

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 902734ddc7195d643c3aedb4054f57723d1a51c2
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: b65c72e0c65cf9aa84cb614478fbdf78258f3054
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632140"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405826"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Ejecución de runbooks en Hybrid Runbook Worker
 
@@ -27,7 +27,7 @@ Puesto que acceden a recursos que no son de Azure, los runbooks que se ejecutan 
 
 ### <a name="runbook-authentication"></a>Autenticación de runbook
 
-De forma predeterminada, los runbooks se ejecutan en el equipo local. En Windows, se ejecutan en el contexto de la cuenta de sistema local. En el caso de Linux, se ejecutan en el contexto de la cuenta de usuario especial **nxautomation**. En cualquier escenario, los runbooks deben proporcionar su propia autenticación a los recursos a los que tienen acceso.
+De forma predeterminada, los runbooks se ejecutan en el equipo local. En Windows, se ejecutan en el contexto de la cuenta local **Sistema**. En el caso de Linux, se ejecutan en el contexto de la cuenta de usuario especial **nxautomation**. En cualquier escenario, los runbooks deben proporcionar su propia autenticación a los recursos a los que tienen acceso.
 
 Puede usar los recursos de [Credencial](automation-credentials.md) y [Certificado](automation-certificates.md) en el runbook con cmdlets que le permitan especificar las credenciales, para que el runbook pueda autenticarse en los distintos recursos. El ejemplo siguiente muestra una porción de un runbook que reinicia un equipo. Recupera las credenciales desde un recurso de credencial y el nombre del equipo desde un recurso de variable y, a continuación, usa estos valores con el cmdlet `Restart-Computer`.
 
@@ -84,7 +84,7 @@ Realice los pasos siguientes para usar una identidad administrada para los recur
 ```
 
 > [!NOTE]
-> `Connect-AzAccount -Identity` funciona para una instancia de Hybrid Runbook Worker que use una identidad asignada por el sistema y una única identidad asignada por el usuario. Si usa varias identidades asignadas por el usuario en Hybrid Runbook Worker, el runbook debe especificar el parámetro *AccountId* para `Connect-AzAccount` a fin de seleccionar una identidad asignada por el usuario específica.
+> `Connect-AzAccount -Identity` funciona para una instancia de Hybrid Runbook Worker que use una identidad asignada por el sistema y una única identidad asignada por el usuario. Si usa varias identidades asignadas por el usuario en Hybrid Runbook Worker, el runbook debe especificar el parámetro `AccountId` para `Connect-AzAccount` a fin de seleccionar una identidad específica asignada por el usuario.
 
 ### <a name="automation-run-as-account"></a><a name="runas-script"></a>Cuenta de ejecución de Automation
 
@@ -185,14 +185,14 @@ Recuerde que los trabajos de Hybrid Runbook Worker se ejecutan en la cuenta del 
 
 Cuando inicie un runbook en Azure Portal, verá la opción **Ejecutar en**, para la que puede seleccionar **Azure** o **Hybrid Worker**. Si selecciona **Hybrid Worker**, puede elegir el grupo de Hybrid Runbook Worker en una lista desplegable.
 
-Utilice el parámetro `RunOn` con el cmdlet `Start-AzureAutomationRunbook`. En el ejemplo siguiente se usa Windows PowerShell para iniciar un runbook llamado **Test-Runbook** en un grupo de Hybrid Runbook Worker llamado MyHybridGroup.
+Use el parámetro `RunOn` con el cmdlet [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0). En el ejemplo siguiente se usa Windows PowerShell para iniciar un runbook llamado **Test-Runbook** en un grupo de Hybrid Runbook Worker llamado MyHybridGroup.
 
 ```azurepowershell-interactive
-Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" -RunOn "MyHybridGroup"
+Start-AzAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" -RunOn "MyHybridGroup"
 ```
 
 > [!NOTE]
-> El parámetro `RunOn` se agregó a `Start-AzureAutomationRunbook` en la versión 0.9.1 de Microsoft Azure PowerShell. Si tiene instalada una versión anterior, deberá [descargar la versión más reciente](https://azure.microsoft.com/downloads/) . Solo necesita instalar esta versión en la estación de trabajo en la que inicia el runbook desde PowerShell. No es necesario que la instale en el equipo de Hybrid Runbook Worker, a menos que tenga la intención de iniciar runbooks desde ese equipo.
+> Si tiene instalada una versión anterior, debe [descargar la versión más reciente de PowerShell](https://azure.microsoft.com/downloads/). Solo necesita instalar esta versión en la estación de trabajo en la que inicia el runbook desde PowerShell. No es necesario que la instale en el equipo de Hybrid Runbook Worker, a menos que tenga la intención de iniciar runbooks desde ese equipo.
 
 ## <a name="working-with-signed-runbooks-on-a-windows-hybrid-runbook-worker"></a>Trabajo con runbooks firmados en Hybrid Runbook Worker en Windows
 
@@ -307,7 +307,7 @@ Una vez configurada la validación de firmas, use el siguiente comando de GPG pa
 gpg –-clear-sign <runbook name>
 ```
 
-El runbook firmado se llama `<runbook name>.asc`.
+El runbook firmado se llama **<runbook name>.asc**.
 
 El runbook firmado ahora se puede cargar en Azure Automation y se puede ejecutar como un runbook normal.
 
@@ -317,3 +317,5 @@ El runbook firmado ahora se puede cargar en Azure Automation y se puede ejecutar
 * Para más información sobre cómo usar el editor de texto para trabajar con runbooks de PowerShell en Azure Automation, consulte [Edición de un runbook en Azure Automation](automation-edit-textual-runbook.md).
 * Si los runbooks no finalizan correctamente, revise la guía de solución de problemas sobre [errores de ejecución de un runbook](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails).
 * Para obtener más información sobre PowerShell, incluidos los módulos de referencia de lenguaje y aprendizaje, consulte la [documentación de PowerShell](https://docs.microsoft.com/powershell/scripting/overview).
+* Para obtener una referencia de los cmdlets de PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).

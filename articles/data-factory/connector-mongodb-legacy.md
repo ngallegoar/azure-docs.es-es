@@ -12,18 +12,19 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 08/12/2019
-ms.openlocfilehash: 0bdd8d454b979250b57cf657d347309b99a86ede
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 803e34a93e8019cfc2577bfaab3ba13c409c6b01
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75892566"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418174"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Copia de datos desde MongoDB mediante Azure Data Factory de Azure
 
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](v1/data-factory-on-premises-mongodb-connector.md)
 > * [Versión actual](connector-mongodb.md)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos desde una base de datos MongoDB. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
 
@@ -39,7 +40,7 @@ En concreto, este conector MongoDB admite las siguientes funcionalidades:
 - **Versiones 2.4, 2.6, 3.0, 3.2, 3.4 y 3.6** de MongoDB.
 - Copiar datos mediante la autenticación **Básica** o **Anónima**.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -57,15 +58,15 @@ Las siguientes propiedades son compatibles con el servicio vinculado de MongoDB:
 
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
-| type |La propiedad type debe establecerse en: **MongoDb**. |Sí |
+| type |La propiedad type debe establecerse en: **MongoDB** |Sí |
 | server |Dirección IP o nombre de host del servidor de MongoDB. |Sí |
 | port |Puerto TCP que el servidor de MongoDB utiliza para escuchar las conexiones del cliente. |No (el valor predeterminado es 27017) |
 | databaseName |Nombre de la base de datos de MongoDB a la que desea acceder. |Sí |
-| authenticationType | Tipo de autenticación usado para conectarse a la base de datos MongoDB.<br/>Los valores permitidos son: **Básica** y **Anónima**. |Sí |
+| authenticationType | Tipo de autenticación usado para conectarse a la base de datos MongoDB.<br/>Los valores permitidos son: **Basic** (básica) y **Anonymous** (anónima). |Sí |
 | username |Cuenta de usuario para tener acceso a MongoDB. |Sí (si se usa la autenticación básica). |
 | password |Contraseña del usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí (si se usa la autenticación básica). |
 | authSource |Nombre de la base de datos de MongoDB que desea usar para comprobar las credenciales de autenticación. |No. Para la autenticación básica, el valor predeterminado se utiliza la cuenta de administrador y la base de datos especificada mediante la propiedad databaseName. |
-| enableSsl | Especifica si las conexiones al servidor se cifran mediante SSL. El valor predeterminado es false.  | No |
+| enableSsl | Especifica si las conexiones al servidor se cifran mediante TLS. El valor predeterminado es false.  | No |
 | allowSelfSignedServerCert | Especifica si se permiten los certificados autofirmados del servidor. El valor predeterminado es false.  | No |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Obtenga más información en la sección [Requisitos previos](#prerequisites). Si no se especifica, se usará Azure Integration Runtime. |No |
 
@@ -100,7 +101,7 @@ Para ver una lista completa de las secciones y propiedades disponibles para defi
 
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type del conjunto de datos debe establecerse en: **MongoDbCollection**. | Sí |
+| type | La propiedad type del conjunto de datos debe establecerse en: **MongoDbCollection** | Sí |
 | collectionName |Nombre de la colección en la base de datos de MongoDB. |Sí |
 
 **Ejemplo**:
@@ -131,7 +132,7 @@ Se admiten las siguientes propiedades en la sección **source** de la actividad 
 
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type del origen de la actividad de copia debe establecerse en: **MongoDbSource**. | Sí |
+| type | La propiedad type del origen de la actividad de copia debe establecerse en: **MongoDbSource** | Sí |
 | Query |Utilice la consulta SQL-92 personalizada para leer los datos. Por ejemplo: select * from MyTable. |No (si se especifica "collectionName" en el conjunto de datos) |
 
 **Ejemplo**:
@@ -193,7 +194,7 @@ Al copiar datos desde MongoDB, se utilizan las siguientes asignaciones de tipos 
 > [!NOTE]
 > Para obtener más información sobre la compatibilidad con matrices con tablas virtuales, consulte la sección [Compatibilidad para tipos complejos que usan tablas virtuales](#support-for-complex-types-using-virtual-tables) que aparece más adelante.
 >
-> Actualmente, no se admiten los siguientes tipos de datos de MongoDB: DBPointer, JavaScript, Clave Max y Min, Expresión regular, Símbolo, Marca de tiempo y Sin definir.
+> Actualmente, los siguientes tipos de datos de MongoDB no se admiten: DBPointer, JavaScript, clave máx./mín., expresión regular, símbolo, marca de tiempo, sin definir.
 
 ## <a name="support-for-complex-types-using-virtual-tables"></a>Compatibilidad para tipos complejos que usan tablas virtuales
 

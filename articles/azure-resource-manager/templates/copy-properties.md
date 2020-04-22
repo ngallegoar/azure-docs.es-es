@@ -2,13 +2,13 @@
 title: Definición de varias instancias de una propiedad
 description: Utilice la operación de copia en una plantilla de Azure Resource Manager para realizar varias iteraciones cuando cree una propiedad en un recurso.
 ms.topic: conceptual
-ms.date: 02/13/2020
-ms.openlocfilehash: e86d38b0e5d2e39d54b3c419b6eebdcda74022db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.openlocfilehash: 831ae1af202a1cdf52bdd2bdf0d9a042a97ba52f
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80258114"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81391333"
 ---
 # <a name="property-iteration-in-arm-templates"></a>Iteración de propiedades en las plantillas de ARM
 
@@ -30,7 +30,9 @@ El elemento copy tiene el siguiente formato general:
 ]
 ```
 
-En **nombre**, especifique el nombre de la propiedad del recurso que desea crear. La propiedad **count** especifica el número de iteraciones que desea realizar en la propiedad.
+En **nombre**, especifique el nombre de la propiedad del recurso que desea crear.
+
+La propiedad **count** especifica el número de iteraciones que desea realizar en la propiedad.
 
 La propiedad **input** especifica las propiedades que desea repetir. Tiene que crear una matriz de elementos construida a partir del valor de la propiedad **input**.
 
@@ -78,11 +80,7 @@ En el ejemplo siguiente se muestra cómo aplicar `copy` a la propiedad dataDisks
 }
 ```
 
-Tenga en cuenta que, cuando se usa `copyIndex` dentro de una iteración de propiedad, debe proporcionar el nombre de la iteración.
-
-> [!NOTE]
-> La iteración de propiedades también admite un argumento de desplazamiento. El desplazamiento debe aparecer después del nombre de la iteración, como copyIndex ("dataDisks", 1).
->
+Tenga en cuenta que, cuando se usa `copyIndex` dentro de una iteración de propiedad, debe proporcionar el nombre de la iteración. La iteración de propiedades también admite un argumento de desplazamiento. El desplazamiento debe aparecer después del nombre de la iteración, como copyIndex ("dataDisks", 1).
 
 Resource Manager expande la matriz `copy` durante la implementación. El nombre de la matriz se convierte en el nombre de la propiedad. Los valores de entrada se convierten en las propiedades del objeto. La plantilla implementada se convierte en:
 
@@ -111,6 +109,66 @@ Resource Manager expande la matriz `copy` durante la implementación. El nombre 
         }
       ],
       ...
+```
+
+La operación de copia es útil al trabajar con matrices, ya que puede iterar a través de cada elemento de la matriz. Use la función `length` en la matriz para especificar el número de iteraciones, y `copyIndex` para recuperar el índice actual de la matriz.
+
+En la plantilla de ejemplo siguiente se crea un grupo de conmutación por error para las bases de datos que se pasan como una matriz.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "primaryServerName": {
+            "type": "string"
+        },
+        "secondaryServerName": {
+            "type": "string"
+        },
+        "databaseNames": {
+            "type": "array",
+            "defaultValue": [
+                "mydb1",
+                "mydb2",
+                "mydb3"
+            ]
+        }
+    },
+    "variables": {
+        "failoverName": "[concat(parameters('primaryServerName'),'/', parameters('primaryServerName'),'failovergroups')]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Sql/servers/failoverGroups",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[variables('failoverName')]",
+            "properties": {
+                "readWriteEndpoint": {
+                    "failoverPolicy": "Automatic",
+                    "failoverWithDataLossGracePeriodMinutes": 60
+                },
+                "readOnlyEndpoint": {
+                    "failoverPolicy": "Disabled"
+                },
+                "partnerServers": [
+                    {
+                        "id": "[resourceId('Microsoft.Sql/servers', parameters('secondaryServerName'))]"
+                    }
+                ],
+                "copy": [
+                    {
+                        "name": "databases",
+                        "count": "[length(parameters('databaseNames'))]",
+                        "input": "[resourceId('Microsoft.Sql/servers/databases', parameters('primaryServerName'), parameters('databaseNames')[copyIndex('databases')])]"
+                    }
+                ]
+            }
+        }
+    ],
+    "outputs": {
+    }
+}
 ```
 
 El elemento de copia es una matriz por lo que puede especificar más de una propiedad para el recurso.

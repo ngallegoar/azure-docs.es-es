@@ -6,19 +6,22 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/21/2019
+ms.date: 04/12/2020
 author: swinarko
 ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
-ms.openlocfilehash: a5540eea91937319a6ac947b50698ccaa8b25847
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dce7fb87ee49aefdedf5653243fa5729eee34519
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74931700"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414323"
 ---
 # <a name="run-sql-server-integration-services-packages-with-the-azure-enabled-dtexec-utility"></a>Ejecución de paquetes de SQL Server Integration Services con la utilidad dtexec habilitada para Azure
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 En este artículo se describe la utilidad de símbolo del sistema dtexec (AzureDTExec) habilitada para Azure. Se utiliza para ejecutar paquetes de SQL Server Integration Services en Azure-SSIS Integration Runtime (IR) de Azure Data Factory.
 
 La utilidad dtexec tradicional está incluida con SQL Server. Para obtener más información, consulte [utilidad dtexec](https://docs.microsoft.com/sql/integration-services/packages/dtexec-utility?view=sql-server-2017). A menudo, los orquestadores o programadores de terceros, como ActiveBatch o Control-M, entre otros, invocan esta utilidad para ejecutar paquetes SSIS de forma local. 
@@ -46,19 +49,19 @@ En la ventana **AzureDTExecConfig**, especifique las opciones de configuración 
 - **ApplicationId**: escriba el identificador único de la aplicación de Azure AD que cree con los permisos adecuados para generar canalizaciones en la factoría de datos. Para más información, consulte [Creación de una aplicación de Azure AD y entidad de servicio mediante Azure Portal](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 - **AuthenticationKey**: escriba la clave de autenticación de la aplicación de Azure AD.
 - **TenantId**: escriba el identificador único del inquilino de Azure AD, en el que se crea la aplicación de Azure AD.
-- **SubscriptionId**: escriba el identificador único de la suscripción de Azure, en el que se crea la factoría de datos.
-- **ResourceGroup**: escriba el nombre del grupo de recursos de Azure en el que se creó la factoría de datos.
 - **DataFactory**: escriba el nombre de la factoría de datos, en la que las canalizaciones únicas con la actividad Ejecutar paquete de SSIS en ellas se generan en función de los valores de las opciones proporcionadas al invocar AzureDTExec.
 - **IRName**: escriba el nombre de Azure-SSIS IR en la factoría de datos, en la que se ejecutarán los paquetes especificados en la ruta de acceso de la convención de nomenclatura universal (UNC) al invocar AzureDTExec.
-- **PackageAccessDomain**: escriba la credencial de dominio para acceder a los paquetes en su ruta de acceso UNC especificada al invocar AzureDTExec.
-- **PackageAccessUserName**: escriba la credencial de nombre de usuario para acceder a los paquetes en su ruta de acceso UNC especificada al invocar AzureDTExec.
-- **PackageAccessPassword**: escriba la credencial de contraseña para acceder a los paquetes en su ruta de acceso UNC especificada al invocar AzureDTExec.
-- **LogPath**: escriba la ruta de acceso UNC de la carpeta de registro, en la que se escribirán los archivos de registro de las ejecuciones del paquete en Azure-SSIS IR.
-- **LogLevel**: escriba el ámbito seleccionado de registro de las opciones predefinidas **null**, **Basic**, **Verbose** o **Performance** para las ejecuciones de paquetes en Azure-SSIS IR.
-- **LogAccessDomain**: Escriba la credencial de dominio para acceder a la carpeta de registro en la ruta de acceso UNC cuando se escriban los archivos de registro, necesaria cuando se especifica **LogPath** y **LogLevel** no es un valor **null**.
-- **LogAccessUserName**: Escriba la credencial de nombre de usuario para acceder a la carpeta de registro en la ruta de acceso UNC cuando se escriban los archivos de registro, necesaria cuando se especifica **LogPath** y **LogLevel** no es un valor **null**.
-- **LogAccessPassword**: Escriba la credencial de contraseña para acceder a la carpeta de registro en la ruta de acceso UNC cuando se escriban los archivos de registro, necesaria cuando se especifica **LogPath** y **LogLevel** no es un valor **null**.
 - **PipelineNameHashStrLen**: escriba la longitud de las cadenas hash que se generarán a partir de los valores de las opciones que se proporcionan al invocar AzureDTExec. Las cadenas se usan para formar nombres únicos para las canalizaciones de Data Factory que ejecutan los paquetes en Azure-SSIS IR. Normalmente una longitud de 32 caracteres es suficiente.
+- **ResourceGroup**: escriba el nombre del grupo de recursos de Azure en el que se creó la factoría de datos.
+- **SubscriptionId**: escriba el identificador único de la suscripción de Azure, en el que se crea la factoría de datos.
+- **LogAccessDomain**: Escriba la credencial de dominio para acceder a la carpeta de registro en la ruta de acceso UNC cuando se escriban los archivos de registro, necesaria cuando se especifica **LogPath** y **LogLevel** no es un valor **null**.
+- **LogAccessPassword**: Escriba la credencial de contraseña para acceder a la carpeta de registro en la ruta de acceso UNC cuando se escriban los archivos de registro, necesaria cuando se especifica **LogPath** y **LogLevel** no es un valor **null**.
+- **LogAccessUserName**: Escriba la credencial de nombre de usuario para acceder a la carpeta de registro en la ruta de acceso UNC cuando se escriban los archivos de registro, necesaria cuando se especifica **LogPath** y **LogLevel** no es un valor **null**.
+- **LogLevel**: escriba el ámbito seleccionado de registro de las opciones predefinidas **null**, **Basic**, **Verbose** o **Performance** para las ejecuciones de paquetes en Azure-SSIS IR.
+- **LogPath**: escriba la ruta de acceso UNC de la carpeta de registro, en la que se escribirán los archivos de registro de las ejecuciones del paquete en Azure-SSIS IR.
+- **PackageAccessDomain**: escriba la credencial de dominio para acceder a los paquetes en su ruta de acceso UNC especificada al invocar AzureDTExec.
+- **PackageAccessPassword**: escriba la credencial de contraseña para acceder a los paquetes en su ruta de acceso UNC especificada al invocar AzureDTExec.
+- **PackageAccessUserName**: escriba la credencial de nombre de usuario para acceder a los paquetes en su ruta de acceso UNC especificada al invocar AzureDTExec.
 
 Para almacenar los paquetes y archivos de registro en los sistemas de archivos o recursos compartidos de archivos de forma local, una la instancia de Azure-SSIS IR a una red virtual conectada a la red local. De este modo, esta última puede capturar los paquetes y escribir los archivos de registro. Para más información, consulte [Unión de una instancia de Azure-SSIS IR a una red virtual](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).
 
@@ -92,7 +95,7 @@ La invocación de AzureDTExec ofrece opciones similares al invocar dtexec. Para 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Después de que las canalizaciones únicas con la actividad Ejecutar paquete de SSIS en ellas se generan y ejecutan tras invocar a AzureDTExec, se pueden supervisar en el portal de Data Factory. Para obtener más información, consulte [Ejecución de paquetes de SSIS como actividades de Data Factory](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity).
+Después de que las canalizaciones únicas con la actividad Ejecutar paquete de SSIS en ellas se generen y ejecuten cuando se invoca AzureDTExec, se pueden supervisar en el portal de Data Factory. También puede asignarles desencadenadores de Data Factory si desea orquestarlas o programarlas mediante Data Factory. Para obtener más información, consulte [Ejecución de paquetes de SSIS como actividades de Data Factory](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity).
 
 > [!WARNING]
 > Se espera que únicamente AzureDTExec use la canalización generada. Sus propiedades o parámetros podrían cambiar en el futuro, así que no debe modificarlos o reutilizarlos para otros fines. Las modificaciones podrían interrumpir AzureDTExec. Si esto ocurre, elimine la canalización. AzureDTExec genera una nueva canalización la próxima vez que se invoca.

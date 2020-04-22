@@ -4,12 +4,12 @@ description: Supervisión de topologías de aplicaciones complejas con el mapa d
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.reviewer: sdash
-ms.openlocfilehash: dce2fdbe7e0c390309be38d2ebab4c73dbb4ed2e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7c5c9173704535b1e34ffde5867bd512e3e02ed8
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77666282"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80989534"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mapa de aplicación: Evaluación de prioridades de las aplicaciones distribuidas
 
@@ -85,7 +85,7 @@ Para ver las alertas activas y las reglas subyacentes que provocan el desencaden
 
 El mapa de aplicación usa la propiedad **nombre de rol en la nube** para identificar los componentes en el mapa. El SDK de Application Insights agrega de forma automática la propiedad de nombre de rol en la nube a la telemetría emitida por los componentes. Por ejemplo, el SDK agregará un nombre de sitio web o un nombre de rol de servicio a la propiedad. Pero hay casos en los que le interesará reemplazar el valor predeterminado. Para reemplazar el nombre de rol en la nube y cambiar lo que se muestra en el mapa de aplicación:
 
-### <a name="netnet-core"></a>.NET/.NET Core
+# <a name="netnetcore"></a>[.NET/.NetCore](#tab/net)
 
 **Escriba un elemento TelemetryInitializer personalizado como el siguiente.**
 
@@ -153,7 +153,44 @@ Para aplicaciones de [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers
 }
 ```
 
-### <a name="nodejs"></a>Node.js
+# <a name="java"></a>[Java](#tab/java)
+
+**Agente de Java**
+
+Para [Agente de Java 3.0](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) el nombre del rol en la nube se establece de la manera siguiente:
+
+```json
+{
+  "instrumentationSettings": {
+    "preview": {
+      "roleName": "my cloud role name"
+    }
+  }
+}
+```
+
+También puede establecer el nombre de rol en la nube mediante la variable de entorno ```APPLICATIONINSIGHTS_ROLE_NAME```.
+
+**SDK de Java**
+
+Si utiliza el SDK, a partir del SDK de Java 2.5.0 para Application Insights, puede especificar el nombre del rol en la nube si agrega `<RoleName>` al archivo `ApplicationInsights.xml`, por ejemplo,
+
+```XML
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
+   <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
+   <RoleName>** Your role name **</RoleName>
+   ...
+</ApplicationInsights>
+```
+
+Si usa Spring Boot con el iniciador de Spring Boot de Application Insights, el único cambio necesario es establecer el nombre personalizado para la aplicación en el archivo application.properties.
+
+`spring.application.name=<name-of-app>`
+
+El iniciador de Spring Boot asignará de forma automática el nombre de rol en la nube al valor proporcionado para la propiedad spring.application.name.
+
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 ```javascript
 var appInsights = require("applicationinsights");
@@ -174,26 +211,7 @@ appInsights.defaultClient.addTelemetryProcessor(envelope => {
 });
 ```
 
-### <a name="java"></a>Java
-
-A partir del SDK de Java 2.5.0 para Application Insights, puede especificar el nombre del rol en la nube si agrega `<RoleName>` al archivo `ApplicationInsights.xml`, por ejemplo,
-
-```XML
-<?xml version="1.0" encoding="utf-8"?>
-<ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
-   <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
-   <RoleName>** Your role name **</RoleName>
-   ...
-</ApplicationInsights>
-```
-
-Si usa Spring Boot con el iniciador de Spring Boot de Application Insights, el único cambio necesario es establecer el nombre personalizado para la aplicación en el archivo application.properties.
-
-`spring.application.name=<name-of-app>`
-
-El iniciador de Spring Boot asignará de forma automática el nombre de rol en la nube al valor proporcionado para la propiedad spring.application.name.
-
-### <a name="clientbrowser-side-javascript"></a>JavaScript del lado cliente o explorador
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 appInsights.queue.push(() => {
@@ -203,6 +221,7 @@ appInsights.addTelemetryInitializer((envelope) => {
 });
 });
 ```
+---
 
 ### <a name="understanding-cloud-role-name-within-the-context-of-the-application-map"></a>Comprensión del nombre de rol en la nube dentro del contexto del mapa de aplicación
 
@@ -258,7 +277,7 @@ Además, el mapa de aplicación solo admite hasta 1000 nodos sin agrupar indepen
 
 Para solucionar este problema, deberá cambiar la instrumentación para establecer correctamente el nombre de rol en la nube, el tipo de dependencia y los campos de destino de dependencia.
 
-* El destino de dependencia debe representar el nombre lógico de una dependencia. En muchos casos, es equivalente al servidor o el nombre de recurso de la dependencia. Por ejemplo, en el caso de las dependencias HTTP se establece en el nombre de host. No debe contener id. exclusivos o parámetros que cambian de una solicitud a otra.
+* El destino de dependencia debe representar el nombre lógico de una dependencia. En muchos casos, es equivalente al nombre del servidor o del recurso de la dependencia. Por ejemplo, en el caso de las dependencias HTTP se establece en el nombre de host. No debe contener id. exclusivos o parámetros que cambian de una solicitud a otra.
 
 * El tipo de dependencia debe representar el tipo lógico de una dependencia. Por ejemplo, HTTP, SQL o Azure Blob son tipos de dependencia típicos. No debe contener id. exclusivos.
 

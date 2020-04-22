@@ -11,12 +11,12 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 ms.date: 03/14/2019
-ms.openlocfilehash: 7b7ef3b6f2d400dafb28cfb7a15cf95cbbe2c457
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 76085dc29d40944cf704dbc5efc578b3314f499a
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351009"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419245"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-purchasing-model"></a>Límites de recursos para grupos elásticos que utilizan el modelo de compra de DTU
 
@@ -32,6 +32,9 @@ Para los grupos elásticos de SQL Database, las siguientes tablas muestran los r
 > Para obtener información sobre la guía y otras consideraciones del escalado, consulte [Escalar un grupo elástico](sql-database-elastic-pool-scale.md).
 > [!NOTE]
 > Los límites de recursos de las bases de datos individuales de los grupos elásticos suelen ser los mismos que para las bases de datos únicas fuera de los grupos basados en DTU y el nivel de servicio. Por ejemplo, el número máximo de trabajadores simultáneos de una base de datos S2 es de 120 trabajadores. Por lo tanto, el número máximo de trabajadores simultáneos de una base de datos de un grupo estándar también es de 120 trabajadores si el número máximo de DTU por base de datos del grupo es de 50 DTU (que es equivalente a S2).
+
+> [!NOTE]
+> El límite de recursos de almacenamiento por grupo de cada una de las tablas siguientes no incluye tempdb ni el almacenamiento de registros.
 
 ### <a name="basic-elastic-pool-limits"></a>Límites de grupo elástico básico
 

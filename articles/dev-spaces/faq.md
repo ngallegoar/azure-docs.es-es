@@ -5,16 +5,20 @@ ms.date: 01/28/2020
 ms.topic: conceptual
 description: Encuentre respuestas a algunas de las preguntas comunes sobre Azure Dev Spaces.
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, service mesh, enrutamiento de service mesh, kubectl, k8s '
-ms.openlocfilehash: e7b4620faa01aa9f6d46c34bafb1c623c338beb7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b5a380f20640b9bc328aa30289ff7f915cc0b73c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80240497"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414309"
 ---
 # <a name="frequently-asked-questions-about-azure-dev-spaces"></a>Preguntas más frecuentes sobre Azure Dev Spaces
 
 Aborda las preguntas más frecuentes sobre Azure Dev Spaces.
+
+## <a name="what-versions-of-kubernetes-are-supported-for-azure-dev-spaces"></a>¿Qué versiones de Kubernetes son compatibles con Azure Dev Spaces?
+
+Azure Dev Spaces admite todas las [versiones de disponibilidad general (GA) de Kubernetes admitidas actualmente en AKS][aks-supported-k8s].
 
 ## <a name="which-azure-regions-currently-provide-azure-dev-spaces"></a>¿Qué regiones de Azure proporcionan actualmente Azure Dev Spaces?
 
@@ -79,7 +83,19 @@ Al usar Visual Studio para preparar el proyecto, tiene la opción de habilitar 
 
 ## <a name="can-i-use-pod-managed-identities-with-azure-dev-spaces"></a>¿Puedo usar identidades administradas de pod con Azure Dev Spaces?
 
-Actualmente, Azure Dev Spaces no admite el uso de [identidades administradas de pod][aks-pod-managed-id] en clústeres de AKS con Azure Dev Spaces habilitado. Si tiene identidades administradas de pod instaladas y desea desinstalarlas, puede encontrar más detalles en las [notas de desinstalación][aks-pod-managed-id-uninstall].
+Sí, puede usar las [identidades administradas de pod][aks-pod-managed-id] en clústeres de AKS con Azure Dev Spaces habilitado, pero hay [pasos de configuración adicionales][dev-spaces-pod-managed-id-steps] después de habilitar Azure Dev Spaces en el clúster con identidades administradas de pod. Si tiene identidades administradas de pod instaladas y desea desinstalarlas, puede encontrar más detalles en las [notas de desinstalación][aks-pod-managed-id-uninstall].
+
+## <a name="can-i-use-azure-dev-spaces-with-multiple-microservices-in-an-application"></a>¿Puedo usar Azure Dev Spaces con varios microservicios en una aplicación?
+
+Sí, puede usar Azure Dev Spaces en una aplicación con varios microservicios, pero debe preparar y ejecutar los microservicios individuales en su raíz. La CLI de Azure Dev Spaces, la extensión de Azure Dev Spaces VS Code y la carga de trabajo de desarrollo de Visual Studio Azure esperan que el archivo *azds.yaml* esté en la raíz del microservicio para poder ejecutarse y depurarse. Consulte la [aplicación de ejemplo Bike Sharing][bike-sharing] para ver un ejemplo de varios microservicios en una sola aplicación.
+
+En Visual Studio Code, es posible [abrir proyectos independientes en una sola área de trabajo][vs-code-multi-root-workspaces] y depurarlos por separado a través de Azure Dev Spaces. Cada uno de los proyectos debe ser independiente y estar preparado para Azure Dev Spaces.
+
+En Visual Studio, es posible configurar soluciones de .NET Core para la depuración a través de Azure Dev Spaces.
+
+## <a name="can-i-use-azure-dev-spaces-with-a-service-mesh"></a>¿Puedo usar Azure Dev Spaces con una red de servicios?
+
+En este momento, no puede usar Azure Dev Spaces con una red de servicios como [Istio][istio] o [Linkerd][linkerd]. Puede ejecutar Azure Dev Spaces y una red de servicios en el mismo clúster de AKS, pero no puede tener Azure Dev Spaces y una red de servicios habilitados en el mismo espacio de nombres.
 
 [aks-auth-range]: ../aks/api-server-authorized-ip-ranges.md
 [aks-auth-range-create]: ../aks/api-server-authorized-ip-ranges.md#create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled
@@ -89,12 +105,18 @@ Actualmente, Azure Dev Spaces no admite el uso de [identidades administradas de 
 [aks-pod-managed-id]: ../aks/developer-best-practices-pod-security.md#use-pod-managed-identities
 [aks-pod-managed-id-uninstall]: https://github.com/Azure/aad-pod-identity#uninstall-notes
 [aks-restrict-egress-traffic]: ../aks/limit-egress-traffic.md
+[aks-supported-k8s]: ../aks/supported-kubernetes-versions.md#list-currently-supported-versions
+[bike-sharing]: https://github.com/Azure/dev-spaces/tree/master/samples/BikeSharingApp
+[dev-spaces-pod-managed-id-steps]: troubleshooting.md#error-no-azureassignedidentity-found-for-podazdsazds-webhook-deployment-id-in-assigned-state
 [dev-spaces-prep]: how-dev-spaces-works-prep.md
 [dev-spaces-routing]: how-dev-spaces-works-routing.md#how-routing-works
 [ingress-nginx]: how-to/ingress-https-nginx.md#configure-a-custom-nginx-ingress-controller
 [ingress-traefik]: how-to/ingress-https-traefik.md#configure-a-custom-traefik-ingress-controller
 [ingress-https-nginx]: how-to/ingress-https-nginx.md#configure-the-nginx-ingress-controller-to-use-https
 [ingress-https-traefik]: how-to/ingress-https-traefik.md#configure-the-traefik-ingress-controller-to-use-https
+[istio]: https://istio.io/
+[linkerd]: https://linkerd.io/
 [quickstart-cli]: quickstart-cli.md
 [supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
+[vs-code-multi-root-workspaces]: https://code.visualstudio.com/docs/editor/multi-root-workspaces
 [windows-containers]: how-to/run-dev-spaces-windows-containers.md

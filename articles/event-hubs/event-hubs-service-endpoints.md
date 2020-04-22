@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 11/26/2019
 ms.author: shvija
-ms.openlocfilehash: 6de51c23bd6358a6f54fe3baf9e9b256047d4ab5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 91b08d6130da640adc28a3b7d85bd33f0e876caf
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064890"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81390278"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Usar puntos de conexión de servicio de red virtual con Azure Event Hubs
 
@@ -25,6 +25,23 @@ La integración de Event Hubs con los [puntos de conexión de servicio de red vi
 Una vez realizada la configuración para enlazarse con al menos un punto de conexión de servicio de subred de red virtual, el espacio de nombres respectivo de Event Hubs ya solo aceptará el tráfico procedente de redes virtuales autorizadas. Desde la perspectiva de la red virtual, el enlace de un espacio de nombres de Event Hubs a un punto de conexión de servicio configura un túnel de redes aislado desde la subred de la red virtual al servicio de mensajería. 
 
 El resultado es una relación privada y aislada entre las cargas de trabajo enlazadas a la subred y el espacio de nombres respectivo de Event Hubs, a pesar de que la dirección de red que se puede observar en el punto de conexión de servicio de mensajería esté en un intervalo IP público. Hay una excepción a este comportamiento. Al habilitar un punto de conexión de servicio, de forma predeterminada, se habilita la regla `denyall` en el [firewall de IP](event-hubs-ip-filtering.md) asociado a la red virtual. Puede agregar direcciones IP específicas en el firewall de IP para habilitar el acceso al punto de conexión público del centro de eventos. 
+
+>[!WARNING]
+> La implementación de la integración de instancias de Virtual Network puede evitar que otros servicios de Azure interactúen con Event Hubs.
+>
+> Los servicios de confianza de Microsoft no se admiten cuando se implementan instancias de Virtual Network.
+>
+> Estos son los escenarios comunes de Azure que no funcionan con instancias de Virtual Network (tenga en cuenta que la lista **NO** está completa).
+> - Azure Monitor (configuración de diagnósticos)
+> - Azure Stream Analytics
+> - Integración con Azure Event Grid
+> - Enrutamientos de Azure IoT Hub
+> - Azure IoT Device Explorer
+>
+> Los siguientes servicios de Microsoft deben estar en una red virtual
+> - Azure Web Apps
+> - Azure Functions
+
 
 > [!IMPORTANT]
 > Las redes virtuales se admiten en los niveles **estándar** y **dedicado** de Event Hubs. No se admiten en el nivel **básico**.

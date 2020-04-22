@@ -1,6 +1,6 @@
 ---
 title: Uso de opciones de Group by
-description: Sugerencias para implementar opciones de Group by en Azure SQL Data Warehouse para el desarrollo de soluciones.
+description: Sugerencias para implementar las opciones de Group by en el grupo de SQL de Synapse.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,30 +11,31 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f77445e80e701053b7fbfa1aa559248cf505353c
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 5d8d4c6d47e33ca365415542c2da9779b4d7d1dd
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350523"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416195"
 ---
-# <a name="group-by-options-in-sql-data-warehouse"></a>Opciones de Group by en SQL Data Warehouse
-Sugerencias para implementar opciones de Group by en Azure SQL Data Warehouse para el desarrollo de soluciones.
+# <a name="group-by-options-in-synapse-sql-pool"></a>Opciones de Group by en el grupo de SQL de Synapse
+
+En este artículo, encontrará sugerencias para implementar las opciones de Group by en el grupo de SQL.
 
 ## <a name="what-does-group-by-do"></a>¿Qué hace GROUP BY?
 
-La cláusula [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql) de T-SQL se usa para agregar datos a un conjunto de filas de resumen. GROUP BY tiene algunas opciones que no admite SQL Data Warehouse. Estas opciones tienen soluciones alternativas.
-
-Estas opciones son:
+La cláusula [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) de T-SQL se usa para agregar datos a un conjunto de filas de resumen. GROUP BY tiene algunas opciones que el grupo de SQL no admite. Estas opciones tienen soluciones alternativas, que son las siguientes:
 
 * GROUP BY con ROLLUP
 * GROUPING SETS
 * GROUP BY con CUBE
 
 ## <a name="rollup-and-grouping-sets-options"></a>Opciones Rollup y Grouping sets
-Aquí, la opción más sencilla consiste en usar UNION ALL en su lugar para realizar la acumulación en lugar de depender de la sintaxis explícita. El resultado es exactamente el mismo
+
+Aquí, la opción más sencilla consiste en usar UNION ALL para realizar la acumulación en lugar de depender de la sintaxis explícita. El resultado es exactamente el mismo.
 
 En el siguiente ejemplo se utiliza la instrucción GROUP BY con la opción de ROLLUP:
+
 ```sql
 SELECT [SalesTerritoryCountry]
 ,      [SalesTerritoryRegion]
@@ -84,11 +85,12 @@ JOIN  dbo.DimSalesTerritory t     ON s.SalesTerritoryKey       = t.SalesTerritor
 Para reemplazar GROUPING SETS, se aplica el principio de ejemplo. Basta con crear secciones UNION ALL para los niveles de agregación que desea ver.
 
 ## <a name="cube-options"></a>Opciones de Cube
-Es posible crear una cláusula GROUP BY WITH CUBE con el método UNION ALL. El problema es que el código puede volverse rápidamente complicado y difícil de manejar. Para mitigar esta situación, puede usar este enfoque más avanzado.
 
-Vamos a usar el ejemplo anterior.
+Es posible crear una cláusula GROUP BY WITH CUBE con el método UNION ALL. El problema es que el código puede volverse rápidamente complicado y difícil de manejar. Para mitigar este problema, puede usar este enfoque más avanzado.
 
-El primer paso es definir el 'cubo' que define todos los niveles de agregación que se van a crear. Es importante tomar nota de la cláusula CROSS JOIN de las dos tablas derivadas. De esta forma se nos generan todos los niveles. El resto del código está realmente ahí para dar formato.
+Con el ejemplo anterior, el primer paso es definir el "cubo" que define todos los niveles de agregación que se van a crear.
+
+Tome nota de la CROSS JOIN de las dos tablas derivadas, ya que esto es lo que genera todos los niveles. El resto del código está realmente ahí para dar formato:
 
 ```sql
 CREATE TABLE #Cube
@@ -146,7 +148,7 @@ WITH
 ;
 ```
 
-El tercer paso es recorrer el cubo de columnas al realizar la agregación. La consulta se ejecuta una vez para cada fila de la tabla temporal #Cube y almacena los resultados en la tabla temporal #Results
+El tercer paso es recorrer el cubo de columnas al realizar la agregación. La consulta se ejecutará una vez por cada fila de la tabla temporal #Cube. Los resultados se almacenan en la tabla temporal #Results:
 
 ```sql
 SET @nbr =(SELECT MAX(Seq) FROM #Cube);
@@ -170,7 +172,7 @@ BEGIN
 END
 ```
 
-Por último, se pueden devolver los resultados simplemente leyendo en la tabla temporal #Results.
+Por último, se pueden devolver los resultados simplemente leyendo en la tabla temporal #Results:
 
 ```sql
 SELECT *
@@ -182,5 +184,5 @@ ORDER BY 1,2,3
 Al dividir el código en secciones y generar una construcción de bucle, el código resulta más fácil de administrar y mantener.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener más sugerencias sobre desarrollo, vea la [información general sobre desarrollo](sql-data-warehouse-overview-develop.md).
 
+Para obtener más sugerencias sobre desarrollo, vea la [información general sobre desarrollo](sql-data-warehouse-overview-develop.md).

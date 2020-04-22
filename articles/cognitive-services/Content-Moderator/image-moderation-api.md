@@ -1,25 +1,25 @@
 ---
 title: 'Moderación de imágenes: Content Moderator'
 titleSuffix: Azure Cognitive Services
-description: Use la moderación de imágenes asistida por máquina de Content Moderator y la herramienta de revisión humana para moderar imágenes con contenido para adultos y explícitas.
+description: Use la moderación de imágenes asistida por máquina de Content Moderator y la Herramienta de revisión humana para moderar imágenes con contenido para adultos y explícitas.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 6d419135a1da68d23689f66d3134a638d71a3eab
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 36777208dc8ac179f1aaf345c374a33001e3f8bd
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73044096"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81404264"
 ---
 # <a name="learn-image-moderation-concepts"></a>Información sobre los conceptos de moderación de imágenes
 
-Use la moderación de imágenes asistida por máquina de Content Moderator y la [herramienta de revisión humana](Review-Tool-User-Guide/human-in-the-loop.md) para moderar imágenes con contenido para adultos y subido de tono. Digitalice imágenes por su contenido de texto y extraiga dicho texto y detecte caras. Puede comparar las imágenes con las de listas personalizadas y, posteriormente, realizar las acciones necesarias.
+Use la moderación de imágenes asistida por máquina de Content Moderator y la [Herramienta de revisión humana](Review-Tool-User-Guide/human-in-the-loop.md) para moderar imágenes con contenido para adultos y explícitas. Digitalice imágenes por su contenido de texto y extraiga dicho texto y detecte caras. Puede comparar las imágenes con las de listas personalizadas y, posteriormente, realizar las acciones necesarias.
 
 ## <a name="evaluating-for-adult-and-racy-content"></a>Evaluación de contenido para adultos y subido de tono
 
@@ -139,9 +139,9 @@ Extracción de ejemplo:
     ....
     }
 
-## <a name="human-review-tool"></a>Herramienta de revisión humana
+## <a name="review-tool"></a>Herramienta de revisión
 
-Para casos especiales, utilice la [herramienta de revisión](Review-Tool-User-Guide/human-in-the-loop.md) de Content Moderator y su API para exponer los resultados de la moderación y el contenido de la revisión a los moderadores humanos. Ellos son los que revisan las etiquetas de asignadas por la máquina y confirman sus decisiones finales.
+Para casos especiales, utilice la [Herramienta de revisión](Review-Tool-User-Guide/human-in-the-loop.md) de Content Moderator y su API para exponer los resultados de la moderación y el contenido de la revisión a los moderadores humanos. Ellos son los que revisan las etiquetas de asignadas por la máquina y confirman sus decisiones finales.
 
 ![Revisión de imagen para moderadores humanos](images/moderation-reviews-quickstart-dotnet.PNG)
 

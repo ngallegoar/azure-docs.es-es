@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/18/2020
+ms.date: 04/08/2020
 ms.author: juliako
-ms.openlocfilehash: e6f2ad2c5c30e3c75e8d3588e386ea14e8e3350b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8eca95f9fca47fca4d54bacbab35f3a0ffc3ba31
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80065943"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010586"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Eventos en directo y salidas activas en Media Services
 
@@ -111,9 +111,12 @@ Puede usar direcciones URL que sean mnemónicas o no mnemónicas.
 
 * Dirección URL mnemónica
 
-    El modo mnemónico es el preferido de los grandes operadores de difusión multimedia que usan codificadores de difusión y no quieren volver a configurarlos cuando inician un evento en directo. Quieren una dirección URL de ingesta predictiva que no cambie con el tiempo.
+    El modo mnemónico es el preferido de los grandes operadores de difusión multimedia que usan codificadores de difusión y no quieren volver a configurarlos cuando inician un evento en directo. Estos operadores de difusión quieren una dirección URL de ingesta predictiva que no cambie con el tiempo.
+    
+    > [!NOTE]
+    > En Azure Portal, la dirección URL de personalización se llama "*dirección URL de entrada persistente*".
 
-    Para especificar este modo, establezca `vanityUrl` en `true` en tiempo de creación (el valor predeterminado es `false`). También debe pasar su propio token de acceso (`LiveEventInput.accessToken`) en tiempo de creación. El valor del token se especifica para evitar un token aleatorio en la dirección URL. El token de acceso debe ser una cadena GUID válida (con o sin guiones). Una vez establecido el modo, no se puede actualizar.
+    Para especificar este modo en la API, establezca `vanityUrl` en `true` en tiempo de creación (el valor predeterminado es `false`). También debe pasar su propio token de acceso (`LiveEventInput.accessToken`) en tiempo de creación. El valor del token se especifica para evitar un token aleatorio en la dirección URL. El token de acceso debe ser una cadena GUID válida (con o sin guiones). Una vez establecido el modo, no se puede actualizar.
 
     El token de acceso debe ser único en su centro de datos. Si la aplicación necesita usar una dirección URL mnemónica, se recomienda crear siempre una instancia de GUID para el token de acceso (en lugar de reutilizar cualquier GUID existente).
 

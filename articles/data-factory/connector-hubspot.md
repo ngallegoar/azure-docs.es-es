@@ -11,14 +11,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/08/2020
 ms.author: jingwang
-ms.openlocfilehash: 9ef8d6a8d97b2f2c2cff62c629219efb43077c77
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2d60a1b03da6fdf4af6b0d0378456c08d927f451
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75754137"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415206"
 ---
 # <a name="copy-data-from-hubspot-using-azure-data-factory-preview"></a>Copiar datos de HubSpot con Azure Data Factory (versión preliminar)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos de HubSpot. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
 
@@ -55,8 +56,8 @@ Las siguientes propiedades son compatibles con el servicio vinculado de HubSpot:
 | accessToken | Token de acceso que se obtiene al autenticar inicialmente la integración de OAuth. Obtenga información sobre cómo obtener el token de acceso con el identificador y el secreto de cliente desde [aquí](https://developers.hubspot.com/docs/methods/oauth2/get-access-and-refresh-tokens). Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
 | refreshToken | Token de actualización que se obtiene al autenticar inicialmente la integración de OAuth. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
 | useEncryptedEndpoints | Especifica si los puntos de conexión de origen de datos se cifran mediante HTTPS. El valor predeterminado es true.  | No |
-| useHostVerification | Especifica si se requiere que el nombre de host del certificado del servidor coincida con el nombre de host del servidor al conectarse a través de SSL. El valor predeterminado es true.  | No |
-| usePeerVerification | Especifica si se debe verificar la identidad del servidor al conectarse a través de SSL. El valor predeterminado es true.  | No |
+| useHostVerification | Especifica si se requiere que el nombre de host del certificado del servidor coincida con el nombre de host del servidor al conectarse a través de TLS. El valor predeterminado es true.  | No |
+| usePeerVerification | Especifica si se debe verificar la identidad del servidor al conectarse a través de TLS. El valor predeterminado es true.  | No |
 
 **Ejemplo**:
 
