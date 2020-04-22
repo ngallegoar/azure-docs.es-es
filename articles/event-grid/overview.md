@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 02/20/2020
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: 65fd9d06c8b25e0aff94429f8eb95bb922da330c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: b6f987eb283edea7f2d8e6b207b5b4e5b14f9120
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77505907"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393187"
 ---
 # <a name="what-is-azure-event-grid"></a>¿Qué es Azure Event Grid?
 
@@ -32,22 +32,21 @@ En esta imagen se muestra cómo se conectan los orígenes y los controladores en
 
 ## <a name="event-sources"></a>Orígenes de eventos
 
-Para obtener una información completa sobre las funcionalidades de cada origen, así como los artículos relacionados, consulte [orígenes de eventos](event-sources.md). Actualmente, los siguientes servicios de Azure admiten el envío de eventos a Event Grid:
+Actualmente, los siguientes servicios de Azure admiten el envío de eventos a Event Grid:
 
-* [Suscripciones de Azure (operaciones de administración)](event-sources.md#azure-subscriptions)
-* [Container Registry](event-sources.md#container-registry)
-* [Temas personalizados](event-sources.md#custom-topics)
-* [Event Hubs](event-sources.md#event-hubs)
-* [IoT Hub](event-sources.md#iot-hub)
-* [Key Vault (versión preliminar)](event-sources.md#key-vault-preview)
-* [Media Services](event-sources.md#media-services)
-* [Grupos de recursos (operaciones de administración)](event-sources.md#resource-groups)
-* [Service Bus](event-sources.md#service-bus)
-* [Storage Blob](event-sources.md#storage)
-* [Azure Maps](event-sources.md#maps)
-* [App Configuration](event-sources.md#app-configuration)
-* [SignalR](event-sources.md#azure-signalr)
-* [Machine Learning](event-sources.md#azure-machine-learning)
+- [Azure App Configuration](event-schema-app-configuration.md)
+- [Azure Blob Storage](event-schema-blob-storage.md)
+- [Azure Container Registry](event-schema-container-registry.md)
+- [Azure Event Hubs](event-schema-event-hubs.md)
+- [Azure IoT Hub](event-schema-iot-hub.md)
+- [Azure Key Vault](event-schema-key-vault.md)
+- [Azure Machine Learning](event-schema-machine-learning.md)
+- [Azure Maps](event-schema-azure-maps.md)
+- [Azure Media Services](event-schema-media-services.md)
+- [Grupos de recursos de Azure](event-schema-resource-groups.md)
+- [Azure Service Bus](event-schema-service-bus.md)
+- [Azure SignalR](event-schema-azure-signalr.md)
+- [Suscripciones de Azure](event-schema-subscriptions.md)
 
 ## <a name="event-handlers"></a>Controladores de eventos
 

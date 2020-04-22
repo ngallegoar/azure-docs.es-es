@@ -1,22 +1,22 @@
 ---
-title: 'Tutorial: Configuración de la terminación de SSL en el portal en Azure Application Gateway'
-description: En este tutorial, aprenderá a configurar una puerta de enlace de aplicaciones y a agregar un certificado para la terminación SSL mediante Azure Portal.
+title: 'Tutorial: Configuración de la terminación TLS en el portal en Azure Application Gateway'
+description: En este tutorial aprenderá a configurar una puerta de enlace de aplicaciones y a agregar un certificado para la terminación TLS mediante Azure Portal.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: b4278fc6d44f32921713681cb094b659901cc87c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b40eb107fc975d2ef0170944892b936680de3c9f
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74012317"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312387"
 ---
-# <a name="tutorial-configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Tutorial: Configuración de una puerta de enlace de aplicaciones con terminación SSL mediante de Azure Portal
+# <a name="tutorial-configure-an-application-gateway-with-tls-termination-using-the-azure-portal"></a>Tutorial: Configuración de una puerta de enlace de aplicaciones con terminación TLS mediante Azure Portal
 
-Puede usar Azure Portal para configurar una [puerta de enlace de aplicaciones](overview.md) con un certificado para terminación SSL que use máquinas virtuales para servidores back-end.
+Puede usar Azure Portal para configurar una [puerta de enlace de aplicaciones](overview.md) con un certificado para terminación TLS que use máquinas virtuales para servidores back-end.
 
 En este tutorial, aprenderá a:
 
@@ -265,4 +265,4 @@ En este ejemplo se instala IIS en las máquinas virtuales con el fin de comproba
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Más información sobre la compatibilidad con SSL de Application Gateway](ssl-overview.md)
+> [Más información sobre la compatibilidad con TLS de Application Gateway](ssl-overview.md)

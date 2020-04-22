@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: tutorial
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 02/24/2020
-ms.openlocfilehash: 583071ee22e4fb9cffc741520b1583790002a5bf
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 04/13/2020
+ms.openlocfilehash: 731ab18346ac9f100862174312c2c9950026f1eb
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77604872"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81272935"
 ---
 # <a name="set-up-azure-machine-learning-visual-studio-code-extension"></a>Configuración de la extensión Azure Machine Learning para Visual Studio Code
 
@@ -70,36 +70,36 @@ Ahora que ha iniciado sesión en Azure con sus credenciales de cuenta, siga los 
 1. Cuando se expanda la paleta de comandos, siga las indicaciones.
 
     1. Seleccione su suscripción a Azure.
-    1. Seleccione **Create a new Azure ML workspace** (Crear un área de trabajo de Azure Machine Learning)
-    1. Seleccione el tipo de trabajo **TensorFlow Single-Node Training** (Entrenamiento de nodo único de TensorFlow).
-    1. Escriba `train.py` como el script que se va a entrenar. Este es el archivo que contiene el código de un modelo de aprendizaje automático que clasifica imágenes de dígitos manuscritos.
-    1. Especifique los paquetes siguientes como requisitos de ejecución.
-
-        ```text
-        pip: azureml-defaults; conda: python=3.6.2, tensorflow=1.15.0
-        ```
+    1. Seleccione **Archivo de dependencias de Conda** en la lista de entornos.
+    1. Presione **Entrar** para examinar el archivo de dependencias de Conda. Este archivo contiene las dependencias necesarias para ejecutar el script. En este caso, el archivo de dependencias es el archivo `env.yml` dentro del directorio `mnist-vscode-docs-sample`.
+    1. Presione **Entrar** para examinar el archivo del script de entrenamiento. Este es el archivo que contiene el código de un modelo de aprendizaje automático que clasifica imágenes de dígitos manuscritos. En este caso, el script para entrenar el modelo es el archivo `train.py` dentro del directorio `mnist-vscode-docs-sample`.
 
 1. En este momento aparecerá un archivo de configuración similar al siguiente en el editor de texto. La configuración contiene la información necesaria para ejecutar el trabajo de entrenamiento, como el archivo que contiene el código para entrenar el modelo y las dependencias de Python especificadas en el paso anterior.
 
     ```json
     {
-        "workspace": "WS01311608",
-        "resourceGroup": "WS01311608-rg1",
+        "workspace": "WS04131142",
+        "resourceGroup": "WS04131142-rg1",
         "location": "South Central US",
-        "experiment": "WS01311608-exp1",
+        "experiment": "WS04131142-exp1",
         "compute": {
-            "name": "WS01311608-com1",
+            "name": "WS04131142-com1",
             "vmSize": "Standard_D1_v2, Cores: 1; RAM: 3.5GB;"
         },
         "runConfiguration": {
-            "filename": "WS01311608-com1-rc1",
-            "condaDependencies": [
-                "python=3.6.2",
-                "tensorflow=1.15.0"
-            ],
-            "pipDependencies": [
-                "azureml-defaults"
-            ]
+            "filename": "WS04131142-com1-rc1",
+            "environment": {
+                "name": "WS04131142-env1",
+                "conda_dependencies": [
+                    "python=3.6.2",
+                    "tensorflow=1.15.0",
+                    "pip"
+                ],
+                "pip_dependencies": [
+                    "azureml-defaults"
+                ],
+                "environment_variables": {}
+            }
         }
     }
     ```

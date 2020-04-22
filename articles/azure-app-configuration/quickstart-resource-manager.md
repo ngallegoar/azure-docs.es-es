@@ -3,18 +3,18 @@ title: Inicio rápido para la implementación automatizada de máquina virtual c
 description: En este inicio rápido se muestra cómo usar el módulo Azure PowerShell y las plantillas de Azure Resource Manager para implementar un almacén de Azure App Configuration. Y a continuación, utilizar los valores del almacén para implementar una máquina virtual.
 author: lisaguthrie
 ms.author: lcozzens
-ms.date: 03/05/2020
+ms.date: 04/14/2020
 ms.topic: quickstart
 ms.service: azure-app-configuration
 ms.custom:
 - mvc
 - subject-armqs
-ms.openlocfilehash: c45f6855c33dff2790ced306fd7f049b98dd1387
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 02afa2cb36323e0c3c38c2451b1924b636f7faed
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79126385"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81309108"
 ---
 # <a name="quickstart-automated-vm-deployment-with-app-configuration-and-resource-manager-template"></a>Inicio rápido: Implementación automatizada de máquina virtual con App Configuration y la plantilla de Resource Manager
 
@@ -152,6 +152,9 @@ Puede crear un almacén de App Configuration mediante una plantilla de Azure Res
 ## <a name="deploy-vm-using-stored-key-values"></a>Implementación de máquina virtual con pares clave-valor almacenados
 
 Ahora que ha agregado pares clave-valor al almacén, ya está preparado para implementar una máquina virtual mediante una plantilla de Azure Resource Manager. La plantilla hace referencia a las claves **windowsOsVersion** y **diskSizeGB** que creó.
+
+> [!WARNING]
+> Las plantillas de Resource Manager no pueden hacer referencia a claves de un almacén de App Configuration que tiene habilitado Private Link.
 
 1. Copie y pegue el siguiente código JSON en un nuevo archivo denominado *azuredeploy.json*, o bien descargue el archivo desde [plantillas de Inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/101-app-configuration/azuredeploy.json).
 
@@ -423,13 +426,13 @@ Ahora que ha agregado pares clave-valor al almacén, ya está preparado para imp
    |storageAccountName|Un nombre único para una cuenta de almacenamiento asociada a la máquina virtual.|
    |domainNameLabel|Un nombre de dominio único.|
 
-1. En la ventana de PowerShell, ejecute el siguiente comando para implementar el almacén de Azure App Configuration. No olvide reemplazar el nombre del grupo de recursos, la ruta de acceso del archivo de plantilla y la ruta de acceso del archivo de parámetros de plantilla.
+1. En la ventana de PowerShell, ejecute el siguiente comando para implementar la máquina virtual. No olvide reemplazar el nombre del grupo de recursos, la ruta de acceso del archivo de plantilla y la ruta de acceso del archivo de parámetros de plantilla.
 
    ```azurepowershell
    New-AzResourceGroupDeployment `
-       -ResourceGroupName "<your resource group>" 
-       -TemplateFile "<path to prereq.azuredeploy.json>" `
-       -TemplateParameterFile "<path to prereq.azuredeploy.parameters.json>"
+       -ResourceGroupName "<your resource group>"
+       -TemplateFile "<path to azuredeploy.json>" `
+       -TemplateParameterFile "<path to azuredeploy.parameters.json>"
    ```
 
 Felicidades. Ha implementado una máquina virtual mediante configuraciones almacenadas en Azure App Configuration.

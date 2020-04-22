@@ -6,14 +6,14 @@ ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 3/30/2020
+ms.date: 04/10/2020
 ms.author: banders
-ms.openlocfilehash: 79af6f78e8e9bf93c49deafe79f6a421cbb77d1a
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: b1986a4cb59e0f276ba59eb99acfb459b48615d8
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80475259"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262112"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Prevención de cargos inesperados con la administración de costos y facturación de Azure
 
@@ -193,6 +193,17 @@ Los cargos de la factura de Azure se suman para el mes por _medidor_. Los medido
 Filtre el archivo CSV de uso basándose en el parámetro _MeterName_ que se muestra en la factura que desea analizar para ver todos los elementos de línea que se aplican al medidor. El parámetro _InstanceID_ para el elemento de línea corresponde al recurso de Azure que generó el cargo.
 
 Cuando haya identificado el recurso en cuestión, puede usar el análisis de costos en Azure Cost Management para analizar aún más los costos relacionados con el recurso. Para más información sobre el uso del análisis de costos, consulte [Inicio del análisis de costos](../costs/quick-acm-cost-analysis.md).
+
+### <a name="review-invoiced-charges-in-cost-analysis"></a>Revisión de los cargos facturados en Análisis de costos
+
+Para ver los detalles de la factura en Azure Portal, vaya a Análisis de costos para el ámbito asociado a la factura que está analizando. Seleccione la vista **Detalles de la factura**. Los detalles de la factura muestran los cargos según se muestran en la factura.
+
+[![Ejemplo que muestra los detalles de la factura](./media/getting-started/invoice-details.png)](./media/getting-started/invoice-details.png#lightbox)
+
+Al ver los detalles de la factura, puede identificar el servicio que tiene costos inesperados y determinar qué recursos se asocian directamente con el recurso en Análisis de costos. Por ejemplo, si desea analizar los cargos del servicio Virtual Machines, vaya a la vista **Costo acumulado**. A continuación, establezca la granularidad en **Diario** y filtre los cargos **Nombre de servicio: Máquinas virtuales** y agrupe los cargos por **Recurso**.
+
+[![Ejemplo que muestra los costos acumulados de las máquinas virtuales](./media/getting-started/virtual-machines.png)](./media/getting-started/virtual-machines.png#lightbox)
+
 
 ### <a name="identify-spikes-in-cost-over-time"></a>Identificación de picos en el costo a lo largo del tiempo
 

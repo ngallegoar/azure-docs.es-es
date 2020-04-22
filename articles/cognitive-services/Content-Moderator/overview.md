@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: overview
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 570d55c8523e1c1deca3242a8841b0cc34322786
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: f28f2bcf5d04c9a6354b8135bd39546b9d8b9bf3
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80053874"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81404292"
 ---
 # <a name="what-is-azure-content-moderator"></a>¿Qué es Azure Content Moderator?
 
@@ -38,7 +38,7 @@ Los siguientes son algunos escenarios en los que un desarrollador de software o 
 
 ## <a name="what-it-includes"></a>Qué incluye
 
-El servicio Content Moderator consta de varias API de servicio de web disponibles mediante llamadas REST y un SDK de .NET. También incluye la herramienta de revisión humana, que permite a los revisores humanos ayudar el servicio y mejorar o ajustar su función de moderación.
+El servicio Content Moderator consta de varias API de servicio de web disponibles mediante llamadas REST y un SDK de .NET. También incluye la herramienta de revisión, que permite a los revisores humanos ayudar al servicio y mejorar o ajustar su función de moderación.
 
 ## <a name="moderation-apis"></a>API de moderación
 
@@ -58,18 +58,18 @@ En la tabla siguiente se describen los distintos tipos de API de moderación.
 
 ## <a name="review-apis"></a>Revisión de las API
 
-Las API de revisión le permiten integrar la canalización de moderación con revisores humanos. Use las operaciones [Jobs](review-api.md#jobs) (Trabajos), [Reviews](review-api.md#reviews) (Revisiones) y [Workflow](review-api.md#workflows) (Flujo de trabajo) para crear y automatizar los flujos de trabajo de revisión humana en bucle con la [herramienta de revisión](#the-review-tool) (a continuación).
+Las API de revisión le permiten integrar la canalización de moderación con revisores humanos. Use las operaciones [Jobs](review-api.md#jobs) (Trabajos), [Reviews](review-api.md#reviews) (Revisiones) y [Workflow](review-api.md#workflows) (Flujo de trabajo) para crear y automatizar los flujos de trabajo de revisión humana en bucle con la [herramienta de revisión](#review-tool) (a continuación).
 
 > [!NOTE]
 > La API de flujo de trabajo aún no está disponible en .NET SDK pero se puede usar con el punto de conexión REST.
 
 ![Diagrama de bloques de las API de revisión de Content Moderator](images/content-moderator-rev-api.png)
 
-## <a name="the-review-tool"></a>Herramienta de revisión
+## <a name="review-tool"></a>Herramienta de revisión
 
 El servicio Content Moderator también incluye la [herramienta de revisión](Review-Tool-User-Guide/human-in-the-loop.md) basada en web, que hospeda las revisiones del contenido para su procesamiento por parte de moderadores humanos. La entrada humana no entrena el servicio, pero el trabajo combinado del servicio y los equipos de revisión humana permite a los desarrolladores lograr un equilibrio adecuado entre eficacia y precisión. La herramienta de revisión también proporciona un servidor front-end sencillo para diversos recursos de Content Moderator.
 
-![Página principal de la herramienta de revisión humana de Content Moderator](images/homepage.PNG)
+![Herramienta de revisión de Content Moderator](images/homepage.PNG)
 
 ## <a name="data-privacy-and-security"></a>Seguridad y privacidad de datos
 

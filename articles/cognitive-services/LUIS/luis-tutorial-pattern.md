@@ -1,26 +1,18 @@
 ---
 title: 'Tutorial: Patrones: LUIS'
-titleSuffix: Azure Cognitive Services
 description: Use patrones para aumentar la predicción de intenciones y entidades, a la vez que se proporcionan menos expresiones de ejemplo, con este tutorial. El patrón se proporciona como un ejemplo de plantilla de expresión, que incluye la sintaxis para identificar las entidades y el texto que se puede pasar por alto.
-services: cognitive-services
-author: diberry
-ms.custom: seodec18
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/17/2019
-ms.author: diberry
-ms.openlocfilehash: 69894dfc6bcbe9eb56451524c78e82da2745aa52
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.date: 04/14/2020
+ms.openlocfilehash: 826334fafd04a6357f529b1dc07408ff1c15ce5c
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75979763"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81380782"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats-to-improve-predictions"></a>Tutorial: Incorporación de formatos comunes de expresión de plantilla de patrón para mejorar las predicciones
 
-En este tutorial se usan patrones para aumentar la predicción de intenciones y entidades, lo cual le permite proporcionar menos expresiones de ejemplo. El patrón es una plantilla de expresión que se asigna a una intención y que contiene la sintaxis para identificar las entidades y el texto que se puede pasar por alto.
+En este tutorial se usan patrones para aumentar la predicción de intenciones y entidades, lo cual le permite proporcionar menos expresiones de ejemplo. El patrón es una expresión de plantilla que se asigna a una intención, que contiene la sintaxis para identificar las entidades y el texto que se puede pasar por alto.
 
 **En este tutorial, aprenderá a:**
 
@@ -41,7 +33,7 @@ Hay dos tipos de expresiones que se almacenan en la aplicación LUIS:
 
 La incorporación de expresiones de plantilla como patrón le permite proporcionar menos expresiones de ejemplo en total a una intención.
 
-Un patrón se aplica como una combinación de coincidencia de expresión y aprendizaje automático.  La expresión de plantilla, junto con las expresiones de ejemplo, permiten que LUIS comprenda mejor qué expresiones se ajustan a la intención.
+Un patrón se aplica como una combinación de aprendizaje automático y coincidencia de texto.  La expresión de plantilla del patrón, junto con las expresiones de ejemplo de la intención, permiten que LUIS comprenda mejor qué expresiones se ajustan a la intención.
 
 ## <a name="import-example-app-and-clone-to-new-version"></a>Importación de una aplicación de ejemplo y clonación en una nueva versión
 
@@ -49,11 +41,13 @@ Siga estos pasos:
 
 1.  Descargue y guarde el [archivo JSON de la aplicación](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json?raw=true).
 
-1. En el [portal de LUIS (versión preliminar)](https://preview.luis.ai), importe el archivo JSON en una nueva aplicación.
+1. En el [portal de LUIS (versión preliminar)](https://preview.luis.ai), importe el archivo JSON en una nueva aplicación. En la página **Mis aplicaciones**, seleccione **+ New app for conversation** (+ Nueva aplicación para conversación) y, después, seleccione **Import as JSON** (Importar como JSON). Seleccione el archivo que descargó en el paso anterior.
 
-1. Desde la sección **Manage** (Administrar), en la pestaña **Versions** (Versiones), clone la versión y asígnele el nombre `patterns`. La clonación es una excelente manera de trabajar con distintas características de LUIS sin que afecte a la versión original. Dado que el nombre de la versión se usa como parte de la ruta de la dirección URL, el nombre no puede contener ningún carácter que no sea válido en una dirección URL.
+1. En la sección **Administrar**, en la pestaña **Versiones**, seleccione la versión activa y, luego, seleccione **Clonar**. Asigne un nombre a la versión clonada `patterns`. La clonación es una excelente manera de trabajar con distintas características de LUIS sin que afecte a la versión original. Dado que el nombre de la versión se usa como parte de la ruta de la dirección URL, el nombre no puede contener ningún carácter que no sea válido en una dirección URL.
 
 ## <a name="create-new-intents-and-their-utterances"></a>Creación de intenciones nuevas y sus expresiones
+
+Las dos intenciones encuentran el administrador o los informes directos del administrador, según el texto de la expresión. La dificultad es que las dos intenciones _significan_ cosas diferentes, pero la mayoría de las palabras coinciden. Lo único que cambia es su orden. Para que la intención se prediga correctamente, tendría que tener muchos ejemplos.
 
 1. Seleccione **Compilar** en la barra de navegación.
 
@@ -105,7 +99,7 @@ Siga estos pasos:
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. Vaya al final de la dirección URL en la dirección y escriba `Who is the boss of Jill Jones?`. El último parámetro querystring es la expresión `query`.
+1. Vaya al final de la dirección URL de la barra de direcciones y reemplace _YOUR_QUERY_HERE_ por: `Who is the boss of Jill Jones?`.
 
     ```json
     {
@@ -195,16 +189,16 @@ Siga estos pasos:
     }
     ```
 
-¿Se realizó correctamente esta consulta? Para este ciclo de entrenamiento, sí. Las puntuaciones de las dos intenciones principales están bastante cercanas, pero la intención con mayor puntuación no tiene una puntuación considerablemente alta (más del 60 %) y no está lo suficientemente por encima de la puntuación de la siguiente intención.
+Las puntuaciones de las dos intenciones principales están bastante cercanas, pero la intención con mayor puntuación no tiene una puntuación considerablemente alta (más del 60 %) y no está lo suficientemente por encima de la puntuación de la siguiente intención.
 
-Como el entrenamiento de LUIS no es exactamente igual cada vez, hay un poco de variación, que estas dos puntuaciones se podrían invertir en el próximo ciclo de entrenamiento. El resultado es que se podría devolver la intención incorrecta.
+Como el entrenamiento de LUIS no es siempre exactamente igual (hay una pequeña variación) estas dos puntuaciones se podrían invertir en el próximo ciclo de entrenamiento. El resultado es que se podría devolver la intención incorrecta.
 
 Use los patrones para que la puntuación de la intención correcta sea considerablemente más alta en porcentaje y esté más lejos de la puntuación más alta siguiente.
 
 Deje esta segunda ventana del explorador abierta. Se usará más adelante en el tutorial.
 
 ## <a name="template-utterances"></a>Expresiones de plantilla
-Dada la naturaleza del dominio de recursos humanos, hay algunas formas habituales de preguntar por relaciones de empleados en las organizaciones. Por ejemplo:
+Dada la naturaleza del dominio del tema de recursos humanos, hay algunas formas habituales de preguntar por relaciones de empleados en las organizaciones. Por ejemplo:
 
 |Grabaciones de voz|
 |--|
@@ -220,11 +214,11 @@ Los ejemplos de expresiones de plantilla de esta intención incluyen:
 |`Who does {Employee} report to[?]`|interchangeable `{Employee}`<br>ignore `[?]`|
 |`Who reports to {Employee}[?]`|interchangeable `{Employee}`<br>ignore `[?]`|
 
-La sintaxis `{Employee}` marca la ubicación de la entidad dentro de la expresión de plantilla, así como qué entidad. La sintaxis opcional, `[?]`, marca palabras, o signos de puntuación, que son opcionales. LUIS coincide con la expresión y omite el texto opcional entre corchetes.
+La sintaxis `{Employee}` marca la ubicación de la entidad dentro de la expresión de plantilla, así como qué entidad. La sintaxis opcional, `[?]`, marca palabras o [signos de puntuación](luis-reference-application-settings.md#punctuation-normalization) que son opcionales. LUIS coincide con la expresión y omite el texto opcional entre corchetes.
 
 Aunque la sintaxis se asemeja a una expresión regular, no lo es. Solo se admite la sintaxis de llave, `{}`, y corchete, `[]`. Se pueden anidar hasta dos niveles.
 
-Para que un patrón coincida con una expresión, las entidades dentro de la expresión primero tienen que coincidir con las entidades de la expresión de plantilla. Esto significa que las entidades deben tener suficientes ejemplos de expresiones con un alto grado de predicción antes de que los patrones con entidades sean correctos. Sin embargo, la plantilla no ayuda a predecir las entidades, solo las intenciones.
+Para que un patrón coincida con una expresión, _primero_ las entidades dentro de la expresión tienen que coincidir con las de la expresión de plantilla. Esto significa que las entidades deben tener suficientes ejemplos de expresiones con un alto grado de predicción antes de que los patrones con entidades sean correctos. Sin embargo, la plantilla no ayuda a predecir las entidades, solo las intenciones.
 
 **Si bien los patrones permiten proporcionar menos expresiones de ejemplo, si no se detectan las entidades, el patrón no coincide.**
 
@@ -245,6 +239,8 @@ Para que un patrón coincida con una expresión, las entidades dentro de la expr
     |`Who is {Employee}['s] supervisor[?]`|
     |`Who is the boss of {Employee}[?]`|
 
+    Estas expresiones de plantilla incluyen la entidad **Employee** con la notación entre corchetes.
+
 1. Mientras sigue en la página de patrones, seleccione la intención **OrgChart-Reports** y luego escriba las siguientes expresiones de plantilla:
 
     |Expresiones de plantilla|
@@ -264,7 +260,7 @@ Ahora que los patrones se han agregado a la aplicación, entrenar, publique y co
 
 1. Cuando finalice la publicación, cambie las pestañas de explorador de vuelta a la pestaña de la dirección URL del punto de conexión.
 
-1. Vaya al final de la dirección URL en la dirección y escriba `Who is the boss of Jill Jones?` como la expresión. El último parámetro querystring es `query`.
+1. Vaya al final de la dirección URL de la barra de direcciones y reemplace _YOUR_QUERY_HERE_ por: `Who is the boss of Jill Jones?`.
 
     ```json
     {
@@ -375,7 +371,7 @@ Ejemplo de declaraciones de plantilla que permiten esta información opcional:
 
 |Intención|Expresiones de ejemplo con texto opcional y entidades creadas previamente|
 |:--|:--|
-|OrgChart-Manager (Organigrama-Administrador)|`who was {Employee}['s] manager [[on]{datetimeV2}?`]|
+|OrgChart-Manager (Organigrama-Administrador)|`who was {Employee}['s] manager [[on]{datetimeV2}?]`|
 |OrgChart-Manager (Organigrama-Administrador)|`who is {Employee}['s] manager [[on]{datetimeV2}?]`|
 
 
@@ -389,14 +385,6 @@ El uso de la sintaxis opcional de corchetes, `[]`, facilita la adición de este 
 **Pregunta: ¿Qué sucede con las expresiones de composición incorrecta como `Who will {Employee}['s] manager be on March 3?`?** Los tiempos verbales diferentes gramaticalmente, como este en el que `will` y `be` son independientes, deben ser una nueva expresión de plantilla. La expresión de plantilla existente no producirá coincidencia. Aunque no ha cambiado la intención de la expresión, ha cambiado la colocación de las palabras en la expresión. Este cambio afecta a la predicción de LUIS. También puede usar la sintaxis [group y OR](#use-the-or-operator-and-groups) con los tiempos verbales para combinar estas expresiones.
 
 **Recuerde: primero se encuentran las entidades y, a continuación, se compara el patrón.**
-
-### <a name="edit-the-existing-pattern-template-utterance"></a>Edición de la expresión de plantilla del patrón existente
-
-1. En la versión preliminar del portal de LUIS, seleccione **Build** (Crear) en el menú superior y, a continuación, seleccione **Patterns** (Patrones) en el menú izquierdo.
-
-1. Busque la expresión de plantilla existente, `Who is {Employee}['s] manager[?]`, seleccione los puntos suspensivos (***...*** ) a la derecha y, luego, seleccione **Edit** (Editar).
-
-1. Cambie la expresión de plantilla a: `who is {Employee}['s] manager [[on]{datetimeV2}?]`
 
 ### <a name="add-new-pattern-template-utterances"></a>Adición de nuevas expresiones de plantilla del patrón
 
@@ -428,9 +416,9 @@ El uso de la sintaxis opcional de corchetes, `[]`, facilita la adición de este 
 Todas estas expresiones encuentran las entidades, por lo tanto coinciden con el mismo patrón y tienen una puntuación de predicción alta. Ha agregado algunos patrones que coincidirán con muchas variantes de expresiones. No necesitó agregar ninguna expresión de ejemplo a la intención para hacer que la expresión de plantilla funcionara en el patrón.
 
 Este uso de patrones proporcionó:
-* mayores puntuaciones de predicción
-* con las mismas expresiones de ejemplo de la intención
-* con solo unas pocas expresiones de plantilla construidas correctamente en el patrón
+* Mayores puntuaciones de predicción
+* Con las mismas expresiones de ejemplo de la intención
+* Con solo unas pocas expresiones de plantilla construidas correctamente en el patrón
 
 ### <a name="use-the-or-operator-and-groups"></a>Uso del operador OR y los grupos
 
@@ -472,7 +460,7 @@ Esta expresión usa un elemento **group** alrededor del tiempo verbal necesario 
     |`Who will be Jill Jones manager in a month`|
     |`Who will be Jill Jones manager on July 5th`|
 
-Con el uso de una sintaxis de más patrones, puede reducir el número de expresiones de plantilla que tiene que mantener en la aplicación, a la vez que sigue teniendo una alta puntuación de predicción.
+Mediante el uso de una sintaxis de más patrones reduce el número de expresiones de plantilla que tiene que mantener en la aplicación, a la vez que sigue teniendo una alta puntuación de predicción.
 
 ### <a name="use-the-utterance-beginning-and-ending-anchors"></a>Uso de los delimitadores inicial y final de la expresión
 
@@ -514,7 +502,7 @@ La diferencia de longitud incluye palabras que pueden confundir a LUIS con respe
 
 1. Seleccione **FindForm** en la lista de las intenciones.
 
-1. Agregue algunas expresiones de ejemplo:
+1. Agregue algunas expresiones de ejemplo. El texto que debe predecirse como Pattern.any se encuentra en **negrita**. El nombre del formulario es difícil de determinar a partir de las palabras que le rodean en la expresión. La ayudará que le prestará Pattern.any será marcar los límites de la entidad.
 
     |Expresión de ejemplo|Nombre de formulario|
     |--|--|

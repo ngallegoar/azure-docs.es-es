@@ -5,14 +5,14 @@ author: mumami
 tags: billing
 ms.service: cost-management-billing
 ms.topic: reference
-ms.date: 02/14/2020
+ms.date: 04/14/2020
 ms.author: banders
-ms.openlocfilehash: 10275bac8cd9363939f9b6f298c49d7ef08ab7bf
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: aeca9aede4c1b2d8c27de749c7e07c0153000825
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79202920"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383168"
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Información general de API de informes para clientes de Enterprise
 Las API de informes permiten a los clientes de Azure Enterprise extraer datos de facturación y consumo mediante programación en las herramientas de análisis de datos preferidas. Los clientes de empresa han firmado un [Contrato Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) con Azure para negociar compromisos monetarios y conseguir acceso a precios personalizados por los recursos de Azure.
@@ -51,7 +51,9 @@ Como respuesta a todas las API anteriores, se devuelven etiquetas ETag. Un cambi
 |Código de estado de respuesta|Message|Descripción|
 |-|-|-|
 |200| Aceptar|Sin errores|
+|400| Bad Request| Parámetros no válidos: intervalos de fechas, números EA, etc.|
 |401| No autorizado| Clave de API no encontrada, no válida, expirada, etc.|
 |404| No disponible| Punto de conexión de informe no encontrado|
-|400| Bad Request| Parámetros no válidos: intervalos de fechas, números EA, etc.|
+|429 | TooManyRequests | La solicitud se limitó. Vuelva a intentarlo después de esperar el tiempo especificado en el encabezado <code>x-ms-ratelimit-microsoft.consumption-retry-after</code>.|
 |500| Error de servidor| Error inesperado al procesar la solicitud|
+| 503 | ServiceUnavailable | El servicio no está disponible temporalmente. Vuelva a intentarlo después de esperar el tiempo especificado en el encabezado <code>Retry-After</code>.|

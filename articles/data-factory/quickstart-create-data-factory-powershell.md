@@ -11,20 +11,22 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: quickstart
-ms.date: 01/22/2018
+ms.date: 04/10/2020
 ms.author: jingwang
-ms.openlocfilehash: 7f527d3c57f086e7941505a9ca4396885c746762
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: ad757e3d65d3094ca6883d747404906a871ed850
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75440077"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419347"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-powershell"></a>Inicio rápido: Creación de una factoría de datos de Azure con PowerShell
 
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Versión actual](quickstart-create-data-factory-powershell.md)
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 En esta guía de inicio rápido se describe cómo usar PowerShell para crear una instancia de Azure Data Factory. La canalización que ha creado en esta factoría de datos **copia** los datos de una carpeta a otra en Azure Blob Storage. Para ver un tutorial acerca de cómo **transformar** datos mediante Azure Data Factory, consulte [Tutorial: Transformación de datos con Spark](transform-data-using-spark.md).
 
@@ -111,6 +113,10 @@ Tenga en cuenta los siguientes puntos:
 ## <a name="create-a-linked-service"></a>Creación de un servicio vinculado
 
 Cree servicios vinculados en una factoría de datos para vincular los almacenes de datos y los servicios de proceso a la factoría de datos. En esta guía de inicio rápido, creará un servicio vinculado de Azure Storage que se utiliza para ambos almacenes: de origen y de recepción. El servicio vinculado tiene la información de conexión que usa el servicio Data Factory en el entorno de tiempo de ejecución para conectarse a él.
+
+>[!TIP]
+>En este inicio rápido, usará *Clave de cuenta* como el tipo de autenticación para el almacén de datos, pero puede elegir otros métodos de autenticación compatibles: *identificador URI de SAS*,*entidad de servicio* e *identidad administrada*, si es necesario. Consulte las secciones correspondientes en [este artículo](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#linked-service-properties) para más información.
+>Para almacenar los secretos de los almacenes de datos de forma segura, también se recomienda usar Azure Key Vault. Consulte [este artículo](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault) para obtener instrucciones detalladas.
 
 1. Cree un archivo JSON con el nombre **AzureStorageLinkedService.json** en la carpeta **C:\ADFv2QuickStartPSH** con el siguiente contenido: (Cree la carpeta ADFv2QuickStartPSH si todavía no existe).
 

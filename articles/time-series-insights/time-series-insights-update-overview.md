@@ -8,14 +8,14 @@ ms.author: dpalled
 manager: cshankar
 ms.workload: big-data
 ms.topic: overview
-ms.date: 02/04/2020
+ms.date: 04/13/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1e4f72300752c93659db4edd4610464dbebf2503
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 73244a635bbf14efcf33f1b978db14e9e2589581
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77014426"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81271070"
 ---
 # <a name="what-is-azure-time-series-insights-preview"></a>¿Qué es la versión preliminar de Azure Time Series Insights?
 
@@ -55,8 +55,8 @@ Una plataforma de análisis operativo enriquecida combinada con nuestras funcion
 
 * Una solución de almacenamiento multicapa con compatibilidad con análisis intermedios y en frío que proporcionan a los clientes la opción de enrutar los datos entre intermedios y en frío para el análisis interactivo sobre datos intermedios, así como la inteligencia operativa en décadas de datos históricos. 
 
-    *   Una solución de análisis intermedio muy interactiva para realizar numerosas y frecuentes consultas a través de datos con intervalos de tiempo más cortos. 
-    *   Un lago de datos de serie temporal escalable, de gran rendimiento y con un costo optimizado basado en Azure Storage que permite a los clientes analizar tendencias de años de datos de series temporales en cuestión de segundos. 
+    *    Una solución de análisis intermedio muy interactiva para realizar numerosas y frecuentes consultas a través de datos con intervalos de tiempo más cortos. 
+    *    Un lago de datos de serie temporal escalable, de gran rendimiento y optimizado para costo basado en Azure Storage que permite a los clientes analizar tendencias de años de datos de series temporales en cuestión de segundos. 
 
 * Compatibilidad con el modelo semántico que describe el dominio y los metadatos asociados con las señales derivadas y sin procesar de los recursos y dispositivos.
 
@@ -64,7 +64,7 @@ Una plataforma de análisis operativo enriquecida combinada con nuestras funcion
 
 * Análisis enriquecidos con mejores API de consulta y experiencia del usuario que combina conclusiones de datos basadas en activos con análisis de datos ad hoc enriquecidos con compatibilidad con interpolación, funciones escalares y de agregado, variables categóricas, gráficos de dispersión y señales de series temporales con pausas en directo para un análisis en profundidad.
 
-*   Plataforma de nivel empresarial para admitir las necesidades de escalado, rendimiento, seguridad y confiabilidad de nuestros clientes de IoT empresariales.
+*    Plataforma de nivel empresarial para admitir las necesidades de escalado, rendimiento, seguridad y confiabilidad de nuestros clientes de IoT empresariales.
 
 * Extensibilidad y compatibilidad con la integración para el análisis de un extremo a otro. Time Series Insights proporciona una plataforma de análisis extensible para una amplia gama de escenarios de datos. El conector de Azure Time Series Insights para Power BI permite a los clientes llevar las consultas que realizan en Azure Time Series Insights directamente a Power BI para obtener una vista unificada de sus análisis de BI y series temporales en una sola pantalla.
 

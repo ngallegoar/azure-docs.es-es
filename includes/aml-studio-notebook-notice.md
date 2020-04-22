@@ -7,14 +7,14 @@ ms.custom: include file
 ms.topic: include
 author: peterclu
 ms.author: peterclu
-ms.date: 03/12/2020
-ms.openlocfilehash: 900eea5b7807b718274690bc34a32213bfe7ea7c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/15/2020
+ms.openlocfilehash: 1ae0b4bda584e86bc3a25f6cd5181175fc7fa282
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79204073"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81411891"
 ---
 > [!NOTE]
-> La característica Notebooks (versión preliminar) en Studio (Classic) se cerrará el 13 de abril de 2020. Después del 13 de abril, se quitará la pestaña Notebooks junto con los cuadernos guardados. Para obtener instrucciones sobre cómo puede descargar sus cuadernos, consulte [este artículo](../articles/machine-learning/studio/download-notebooks-data.md).
+> La característica Cuadernos (versión preliminar) se quitó el *13 de abril de 2020*. La eliminación de la pestaña Cuadernos y los archivos de cuaderno de usuario se está implementando actualmente en regiones de Azure de todo el mundo.
       

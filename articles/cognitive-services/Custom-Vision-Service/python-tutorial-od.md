@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Creación de un proyecto de detección de objetos con el SDK de Custom Vision para Python'
+title: 'Inicio rápido: Creación de un proyecto de detección de objetos con el SDK de Custom Vision para Python'
 titleSuffix: Azure Cognitive Services
 description: Cree un proyecto, agregue etiquetas, cargue imágenes, entrene el proyecto y detecte objetos mediante el SDK de Python.
 services: cognitive-services
@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: areddish
-ms.openlocfilehash: 68d63fbc71ea2dcd07522c6ba42808f88966cd7b
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: e527f81ad01cc9c06773fbfd4f76c1630ffa21aa
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76166622"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81403602"
 ---
-# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-python-sdk"></a>Guía de inicio rápido: Creación de un proyecto de detección de objetos con el SDK de Python de Custom Vision
+# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-python-sdk"></a>Inicio rápido: Creación de un proyecto de detección de objetos con el SDK de Custom Vision para Python
 
 En este artículo se muestra cómo empezar a utilizar el SDK de Custom Vision con Python para crear un modelo de detección de objetos. Después de crearlo, puede agregar regiones etiquetadas, cargar imágenes, entrenar el proyecto, obtener la dirección URL publicada del punto de conexión de predicción del proyecto y utilizar el punto de conexión para probar una imagen mediante programación. Utilice este ejemplo como plantilla para crear su propia aplicación de Python.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - [Python 2.7+ o 3.5+](https://www.python.org/downloads/)
 - Herramienta [pip](https://pip.pypa.io/en/stable/installing/)
@@ -230,7 +230,7 @@ La salida de la aplicación debe aparecer en la consola. Luego puede comprobar q
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ya ha visto cómo todos los pasos del proceso de detección de objetos se pueden realizar en código. En este ejemplo se ejecuta una sola iteración de entrenamiento, pero a menudo necesitará entrenar y probar su modelo varias veces para hacerlo más preciso. En la guía siguiente se trata la clasificación de imágenes, pero sus principios son similares a los de la detección de objetos.
+Ya ha visto cómo todos los pasos del proceso de detección de objetos se pueden realizar en código. En este ejemplo se ejecuta una sola iteración de entrenamiento, pero a menudo necesitará entrenar y probar el modelo varias veces para hacerlo más preciso. En la guía de aprendizaje siguiente se trata la clasificación de imágenes, pero sus principios son similares a los de la detección de objetos.
 
 > [!div class="nextstepaction"]
 > [Prueba y reentrenamiento del modelo](test-your-model.md)

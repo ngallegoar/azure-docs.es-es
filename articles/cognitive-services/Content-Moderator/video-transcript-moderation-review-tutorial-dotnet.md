@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 2fbd4270221cb23a4f99a0f8155bb1de76472f31
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 2171bbaea065ce1ab3a8d90f32e6ea6dc1f1e821
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74976985"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81404222"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>Tutorial: Moderación de vídeos y transcripciones
 
@@ -82,7 +82,7 @@ La clase `Program` en `Program.cs` es el punto de entrada principal para la apli
 Si no hay argumentos de línea de comandos, `Main()` llama a `GetUserInputs()`. Este método solicita al usuario que escriba la ruta de acceso a un único archivo de vídeo y especifique si se debe generar una transcripción de texto.
 
 > [!NOTE]
-> La aplicación de consola utiliza la [API de Azure Media Indexer](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) para generar las transcripciones a partir de la pista de audio del vídeo cargado. Los resultados se muestran en formato WebVTT. Para obtener más información sobre este formato, vea [Web Video Text Tracks Format](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API) (Formato de pistas de texto de vídeo web).
+> La aplicación de consola utiliza la [API de Azure Media Indexer](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) para generar las transcripciones a partir de la pista de audio del vídeo cargado. Los resultados se muestran en formato WebVTT. Para obtener más información sobre este formato, vea [Web Video Text Tracks Format](https://developer.mozilla.org/docs/Web/API/WebVTT_API) (Formato de pistas de texto de vídeo web).
 
 ### <a name="initialize-and-processvideo-methods"></a>Métodos Initialize y ProcessVideo
 
@@ -223,7 +223,7 @@ El resultado del trabajo de moderación de vídeo (vea el [inicio rápido de mod
 También se produce una transcripción de audio del vídeo cuando está configurada la marca `GenerateVTT`.
 
 > [!NOTE]
-> La aplicación de consola utiliza la [API de Azure Media Indexer](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) para generar las transcripciones a partir de la pista de audio del vídeo cargado. Los resultados se muestran en formato WebVTT. Para obtener más información sobre este formato, vea [Web Video Text Tracks Format](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API) (Formato de pistas de texto de vídeo web).
+> La aplicación de consola utiliza la [API de Azure Media Indexer](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) para generar las transcripciones a partir de la pista de audio del vídeo cargado. Los resultados se muestran en formato WebVTT. Para obtener más información sobre este formato, vea [Web Video Text Tracks Format](https://developer.mozilla.org/docs/Web/API/WebVTT_API) (Formato de pistas de texto de vídeo web).
 
 ## <a name="create-a-human-review"></a>Crear una revisión humana
 

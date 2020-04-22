@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 03/19/2020
+ms.date: 04/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e62b3c551f41bca0055f35cf6bf62c59d921c73b
-ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
+ms.openlocfilehash: 927696d029bf1b8742dc0001e03799322f368191
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80294831"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261727"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>¿Qué es Windows Virtual Desktop? 
 
@@ -89,21 +89,36 @@ Las máquinas virtuales de Azure que cree para Windows Virtual Desktop deben cum
 
 Las máquinas virtuales de Azure que cree para Windows Virtual Desktop deben tener acceso a las siguientes direcciones URL:
 
-|Dirección|Puerto de salida|Propósito|
-|---|---|---|
-|*.wvd.microsoft.com|Puerto TCP 443|Tráfico de servicio|
-|*.blob.core.windows.net|Puerto TCP 443|Agente, actualizaciones de pila SXS y tráfico de agente|
-|*.core.windows.net|Puerto TCP 443|Tráfico de agente|
-|*.servicebus.windows.net|Puerto TCP 443|Tráfico de agente|
-|prod.warmpath.msftcloudes.com|Puerto TCP 443|Tráfico de agente|
-|catalogartifact.azureedge.net|Puerto TCP 443|Azure Marketplace|
-|kms.core.windows.net|Puerto TCP 1688|Activación de Windows 10|
+|Dirección|Puerto TCP de salida|Propósito|Etiqueta de servicio|
+|---|---|---|---|
+|*.wvd.microsoft.com|443|Tráfico de servicio|WindowsVirtualDesktop|
+|mrsglobalsteus2prod.blob.core.windows.net|443|Actualizaciones de la pila de agentes y SXS|AzureCloud|
+|*.core.windows.net|443|Tráfico de agente|AzureCloud|
+|*.servicebus.windows.net|443|Tráfico de agente|AzureCloud|
+|prod.warmpath.msftcloudes.com|443|Tráfico de agente|AzureCloud|
+|catalogartifact.azureedge.net|443|Azure Marketplace|AzureCloud|
+|kms.core.windows.net|1688|Activación de Windows|Internet|
 
 >[!IMPORTANT]
->Es esencial abrir estas direcciones URL para una implementación confiable de Windows Virtual Desktop. No se admite el bloqueo del acceso a estas direcciones URL y afectará a la funcionalidad del servicio. Estas direcciones URL solo se corresponden con sitios y recursos de Windows Virtual Desktop y no incluyen direcciones URL para otros servicios como Azure Active Directory.
+>Se recomienda usar las etiquetas de servicio en lugar de las direcciones URL en la mayoría de los casos para evitar problemas de servicio. Es esencial desbloquear estas direcciones URL para una implementación confiable de Windows Virtual Desktop. No se admite el bloqueo del acceso a estas direcciones URL y afectará a la funcionalidad del servicio. Estas direcciones URL solo se corresponden con sitios y recursos de Windows Virtual Desktop y no incluyen direcciones URL para otros servicios como Azure Active Directory.
+
+En la tabla siguiente se enumeran las direcciones URL opcionales a las que pueden tener acceso las máquinas virtuales de Azure:
+
+|Dirección|Puerto TCP de salida|Propósito|Etiqueta de servicio|
+|---|---|---|---|
+|*.microsoftonline.com|443|Autenticación en MS Online Services|None|
+|*.events.data.microsoft.com|443|Servicio de telemetría|None|
+|www.msftconnecttest.com|443|Detecta si el sistema operativo está conectado a Internet.|None|
+|*.prod.do.dsp.mp.microsoft.com|443|Windows Update|None|
+|login.windows.net|443|Inicio de sesión en MS Online Services, Office 365|None|
+|*.sfx.ms|443|Actualizaciones del software cliente de OneDrive|None|
+|*.digicert.com|443|Comprobación de revocación de certificados|None|
+
 
 >[!NOTE]
 >Windows Virtual Desktop actualmente no tiene una lista de intervalos de direcciones IP que puede incluir en la lista blanca para permitir el tráfico de red. En este momento, solo se admiten direcciones URL específicas en las listas blancas.
+>
+>Para obtener una lista de direcciones URL relacionadas con Office, incluidas las direcciones URL requeridas relacionadas con Azure Active Directory, consulte [Direcciones URL e intervalos de direcciones IP de Office 365](/office365/enterprise/urls-and-ip-address-ranges).
 >
 >Debe usar el carácter comodín (*) para las direcciones URL que impliquen tráfico de servicio. Si prefiere no usar el carácter comodín (*) para el tráfico relacionado con el agente, aquí se muestra cómo buscar las direcciones URL sin estos caracteres:
 >
@@ -137,15 +152,15 @@ Los clientes de Escritorio remoto siguientes admiten Windows Virtual Desktop:
 
 Los clientes de Escritorio remoto deben tener acceso a las siguientes direcciones URL:
 
-|Dirección|Puerto de salida|Propósito|Cliente(s)|
+|Dirección|Puerto TCP de salida|Propósito|Cliente(s)|
 |---|---|---|---|
-|*.wvd.microsoft.com|Puerto TCP 443|Tráfico de servicio|All|
-|*.servicebus.windows.net|Puerto TCP 443|Solución de problemas de los datos|All|
-|go.microsoft.com|Puerto TCP 443|Microsoft FWLinks|All|
-|aka.ms|Puerto TCP 443|Acortador de direcciones URL de Microsoft|All|
-|docs.microsoft.com|Puerto TCP 443|Documentación|All|
-|privacy.microsoft.com|Puerto TCP 443|Declaración de privacidad|All|
-|query.prod.cms.rt.microsoft.com|Puerto TCP 443|Actualizaciones de clientes|Escritorio de Windows|
+|*.wvd.microsoft.com|443|Tráfico de servicio|All|
+|*.servicebus.windows.net|443|Solución de problemas de los datos|All|
+|go.microsoft.com|443|Microsoft FWLinks|All|
+|aka.ms|443|Acortador de direcciones URL de Microsoft|All|
+|docs.microsoft.com|443|Documentación|All|
+|privacy.microsoft.com|443|Declaración de privacidad|All|
+|query.prod.cms.rt.microsoft.com|443|Actualizaciones de clientes|Escritorio de Windows|
 
 >[!IMPORTANT]
 >Para conseguir una experiencia de cliente confiable, es esencial abrir estas direcciones URL. No se admite el bloqueo del acceso a estas direcciones URL y afectará a la funcionalidad del servicio. Estas direcciones URL solo se corresponden con sitios y recursos de cliente y no incluyen direcciones URL para otros servicios como Azure Active Directory.

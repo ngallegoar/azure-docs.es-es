@@ -4,16 +4,20 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 01/12/2020
 ms.author: glenga
-ms.openlocfilehash: 256510f855256e648ae9203f46eb9f66c9ffaed6
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: d8665b4cec3357baee5d6c1b77b5719645575419
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77029057"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81112890"
 ---
 ## <a name="publish-the-project-to-azure"></a>Publicar el proyecto en Azure
 
 En esta sección, va a crear una aplicación de funciones y los recursos relacionados en su suscripción de Azure y, después, va a implementar el código. 
+
+> [!IMPORTANT]
+> La publicación en una aplicación de función existente sobrescribe el contenido de esa aplicación en Azure. 
+
 
 1. Seleccione el icono de Azure en la barra de actividades y después en el área **Azure: Functions**, seleccione el botón de **implementación en la aplicación de funciones**.
 
@@ -23,11 +27,8 @@ En esta sección, va a crear una aplicación de funciones y los recursos relacio
 
     + **Seleccione la suscripción**: elija la suscripción que desee usar. No se mostrará esta opción si solo tiene una suscripción.
 
-    + **Seleccione la aplicación de funciones en Azure**: Elija `+ Create new Function App` (no `Advanced`). En este artículo no se admite el [flujo de publicación avanzada](../articles/azure-functions/functions-develop-vs-code.md#enable-publishing-with-advanced-create-options). 
-    
-    >[!IMPORTANT]
-    > La publicación en una aplicación de función existente sobrescribe el contenido de esa aplicación en Azure. 
-    
+    + **Seleccione la aplicación de funciones en Azure**: Elija `+ Create new Function App`. (No elija la opción `Advanced`, que no se trata en este artículo).
+      
     + **Escriba un nombre único global para la aplicación de funciones**: Escriba un nombre que sea válido en una ruta de acceso de la dirección URL. El nombre que escriba se valida para asegurarse de que es único en Azure Functions. 
     
     ::: zone pivot="programming-language-python"
@@ -40,13 +41,13 @@ En esta sección, va a crear una aplicación de funciones y los recursos relacio
 
     + **Seleccione una ubicación para los nuevos recursos**:  Para mejorar el rendimiento, elija una [región](https://azure.microsoft.com/regions/) cerca de usted. 
     
-1.  Cuando se complete, se crearán los siguientes recursos de Azure en la suscripción:
-
-    + **[Grupo de recursos](../articles/azure-resource-manager/management/overview.md)** : contiene todos los recursos de Azure creados. El nombre se basa en el nombre de la aplicación de función.
-    + **[Cuenta de almacenamiento](../articles//storage/common/storage-introduction.md#types-of-storage-accounts)** : se crea una cuenta de almacenamiento estándar con un nombre único en función del nombre de la aplicación de función.
-    + **[Plan de hospedaje](../articles/azure-functions/functions-scale.md)** : se crea un plan de consumo en la región Oeste de EE. UU. para hospedar la aplicación de función sin servidor.
-    + **Aplicación de función**: el proyecto se implementa y ejecuta en esta aplicación de función nueva.
-    + **Application Insights**: Se crea una instancia, que está conectada a la aplicación de funciones, en función del nombre de la función.
+1.  Cuando se complete, se crearán los siguientes recursos de Azure en la suscripción con nombres que se basan en el nombre de la aplicación de funciones:
+    
+    + Un grupo de recursos, que es un contenedor lógico de recursos relacionados.
+    + Una cuenta de Azure Storage estándar, que mantiene el estado e información adicional sobre los proyectos.
+    + Un plan de consumo, que define el host subyacente para su aplicación de funciones sin servidor. 
+    + Una aplicación de funciones, que proporciona el entorno para ejecutar el código de función. Una aplicación de funciones permite agrupar funciones como una unidad lógica para facilitar la administración, la implementación y el uso compartido de recursos en el mismo plan de hospedaje.
+    + Una instancia de Application Insights conectada a la aplicación de funciones, que realiza un seguimiento del uso de la función sin servidor.
 
     Una vez que se haya creado la aplicación de función se mostrará una notificación y se aplicará el paquete de implementación. 
     

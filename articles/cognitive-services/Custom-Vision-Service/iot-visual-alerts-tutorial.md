@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 9f3802ada79ee87d1a04634f7caac3b1b4286dce
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: f66347727ad3c1b8eaf1f0e023abe1f2eeefcacb
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74978039"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81403718"
 ---
 # <a name="tutorial-use-custom-vision-with-an-iot-device-to-report-visual-states"></a>Tutorial: Uso de Custom Vision con un dispositivo IoT para notificar estados visuales
 
-En esta aplicación de ejemplo se muestra cómo usar Custom Vision para entrenar un dispositivo con una cámara para detectar estados visuales. Este escenario de detección se puede ejecutar en un dispositivo IoT mediante el modelo de ONNX exportado desde el servicio Custom Vision.
+En esta aplicación de ejemplo se muestra cómo usar Custom Vision para entrenar un dispositivo con una cámara para detectar estados visuales. Puede ejecutar este escenario de detección en un dispositivo IoT mediante un modelo de ONNX exportado.
 
 Un estado visual describe el contenido de una imagen: una sala vacía o con gente, una calzada vacía o con un camión, etc. En la imagen siguiente, puede ver la detección de la aplicación cuando un plátano o una manzana se colocan delante de la cámara.
 
@@ -41,7 +41,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 * También necesitará [crear un recurso de IoT Hub](https://ms.portal.azure.com/#create/Microsoft.IotHub) en Azure.
 * [Visual Studio 2015 o posterior](https://www.visualstudio.com/downloads/)
 * Opcionalmente, un dispositivo IoT que ejecute Windows 10 IoT Core versión 17763 o posterior. También puede ejecutar la aplicación directamente desde su equipo.
-   * Si tiene Raspberry Pi 2 y 3, puede configurar Windows 10 directamente desde la aplicación del panel de IoT. Si tiene otros dispositivos, como DrangonBoard, deberá instalarla con el [método eMMC](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup#flashing-with-emmc-for-dragonboard-410c-other-qualcomm-devices). Si necesita ayuda para configurar un nuevo dispositivo, consulte [Configuración del dispositivo](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup) en la documentación de Windows IoT.
+   * Si tiene Raspberry Pi 2 y 3, puede configurar Windows 10 directamente desde la aplicación del panel de IoT. Si tiene otros dispositivos, como DrangonBoard, deberá instalarla con el [método eMMC](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup#flashing-with-emmc-for-dragonboard-410c-other-qualcomm-devices). Si necesita ayuda para configurar un dispositivo nuevo, consulte [Configuración del dispositivo](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup) en la documentación de Windows IoT.
 
 ## <a name="about-the-visual-alerts-app"></a>Sobre la aplicación de alertas visuales
 
@@ -92,7 +92,7 @@ Para configurar un modelo, debe colocar la aplicación en el estado **Capturing 
 * Si ejecuta la aplicación en el equipo, use el botón de la esquina superior derecha de la interfaz de usuario.
 * Si ejecuta la aplicación en un dispositivo IoT, llame al método `EnterLearningMode` en el dispositivo mediante IoT Hub. Puede llamarlo mediante la entrada del dispositivo en el menú de IoT Hub en Azure Portal o con una herramienta como [IoT Hub Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
  
-Cuando la aplicación entre en el estado **Capturing Training Images** (Capturando imágenes de entrenamiento), capturará aproximadamente dos imágenes por segundo hasta que alcance el número de imágenes de destino. De forma predeterminada, son 30 imágenes, pero puede establecer este parámetro si pasa el número deseado como argumento al método `EnterLearningMode` de IoT Hub. 
+Cuando la aplicación entre en el estado **Capturing Training Images** (Capturando imágenes de entrenamiento), capturará aproximadamente dos imágenes por segundo hasta que alcance el número de imágenes de destino. De forma predeterminada, son 30 imágenes, pero puede establecer este parámetro si pasa el número deseado como argumento al método `EnterLearningMode` de IoT Hub. 
 
 Mientras la aplicación captura las imágenes, debe exponer la cámara a los tipos de estados visuales que quiera detectar (por ejemplo, una sala vacía o con gente, un escritorio vacío o con un camión de juguete, etc.).
 

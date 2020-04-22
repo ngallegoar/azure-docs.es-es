@@ -5,12 +5,12 @@ author: mumian
 ms.date: 05/21/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: f88f141257e8e614f62c7441c313002b5735116d
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 8f51c65489efeed1fa18e70bd75e7370a9e59903
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80239191"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260665"
 ---
 # <a name="tutorial-use-condition-in-arm-templates"></a>Tutorial: Uso de condiciones en plantillas de Resource Manager
 
@@ -55,23 +55,25 @@ Para completar este artículo, necesitará lo siguiente:
 Plantillas de inicio rápido de Azure es un repositorio de plantillas de Azure Resource Manager. En lugar de crear una plantilla desde cero, puede buscar una plantilla de ejemplo y personalizarla. La plantilla que se usa en este tutorial se denomina [Deploy a simple Windows VM](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
 1. En Visual Studio Code, seleccione **Archivo**>**Abrir archivo**.
-2. En **Nombre de archivo**, pegue el código URL siguiente:
+1. En **Nombre de archivo**, pegue el código URL siguiente:
 
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
     ```
 
-3. Seleccione **Abrir** para abrir el archivo.
-4. La plantilla define cinco recursos:
+1. Seleccione **Abrir** para abrir el archivo.
+1. La plantilla define seis recursos:
 
-   * `Microsoft.Storage/storageAccounts`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
-   * `Microsoft.Network/publicIPAddresses`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
-   * `Microsoft.Network/virtualNetworks`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
-   * `Microsoft.Network/networkInterfaces`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
-   * `Microsoft.Compute/virtualMachines`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
+   * [**Microsoft.Storage/storageAccounts**](/azure/templates/Microsoft.Storage/storageAccounts).
+   * [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses).
+   * [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups).
+   * [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks).
+   * [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces).
+   * [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines).
 
-     Resulta útil obtener cierta información básica de la plantilla antes de personalizarla.
-5. Seleccione **Archivo**>**Guardar como** para guardar una copia del archivo en la máquina local con el nombre **azuredeploy.json**.
+    Puede resultar útil revisar la referencia de la plantilla antes de personalizar una plantilla.
+
+1. Seleccione **Archivo**>**Guardar como** para guardar una copia del archivo en la máquina local con el nombre **azuredeploy.json**.
 
 ## <a name="modify-the-template"></a>Modificación de la plantilla
 
@@ -83,12 +85,12 @@ Realice dos cambios en la plantilla existente:
 Éste es el procedimiento para realizar los cambios:
 
 1. Abra **azuredeploy.json** en Visual Studio Code.
-2. Reemplace las tres apariciones de **variables("storageAccountName")** por **parameters("storageAccountName")** en toda la plantilla.
-3. Quite la siguiente definición de variable:
+1. Reemplace las tres apariciones de **variables("storageAccountName")** por **parameters("storageAccountName")** en toda la plantilla.
+1. Quite la siguiente definición de variable:
 
     ![Diagrama de las condiciones de uso de la plantilla de Resource Manager](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-remove-storageaccountname.png)
 
-4. Agregue los dos parámetros siguientes a la plantilla:
+1. Agregue los dos parámetros siguientes al principio de la sección parameters:
 
     ```json
     "storageAccountName": {
@@ -103,11 +105,13 @@ Realice dos cambios en la plantilla existente:
     },
     ```
 
+    Presione **[ALT]+[SHIFT]+F** para dar formato a la plantilla en Visual Studio Code.
+
     La definición de parámetros actualizada se parece a esta:
 
     ![Condición de uso de Resource Manager](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-parameters.png)
 
-5. Agregue la siguiente línea al principio de la definición de la cuenta de almacenamiento.
+1. Agregue la siguiente línea al principio de la definición de la cuenta de almacenamiento.
 
     ```json
     "condition": "[equals(parameters('newOrExisting'),'new')]",
@@ -118,7 +122,7 @@ Realice dos cambios en la plantilla existente:
     La definición de la cuenta de almacenamiento actualizada se parece a esta:
 
     ![Condición de uso de Resource Manager](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template.png)
-6. Actualice la propiedad **storageUri** de la definición de recursos de la máquina virtual con el siguiente valor:
+1. Actualice la propiedad **storageUri** de la definición de recursos de la máquina virtual con el siguiente valor:
 
     ```json
     "storageUri": "[concat('https://', parameters('storageAccountName'), '.blob.core.windows.net')]"
@@ -126,20 +130,25 @@ Realice dos cambios en la plantilla existente:
 
     Este cambio es necesario cuando se usa una cuenta de almacenamiento existente en otro grupo de recursos.
 
-7. Guarde los cambios.
+1. Guarde los cambios.
 
 ## <a name="deploy-the-template"></a>Implementación de la plantilla
 
 Siga las instrucciones de [Implementación de la plantilla](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) para abrir Cloud Shell y cargar la plantilla modificada y, después, ejecute el siguiente script de PowerShell para implementar la plantilla.
 
+> [!IMPORTANT]
+> El nombre de la cuenta de almacenamiento debe ser único en Azure. El nombre debe tener solo letras minúsculas o números. No debe superar los 24 caracteres. El nombre de la cuenta de almacenamiento es el nombre del proyecto con "store" anexado. Asegúrese de que el nombre del proyecto y el nombre de la cuenta de almacenamiento generada cumplen los requisitos para el nombre de la cuenta de almacenamiento.
+
 ```azurepowershell
-$resourceGroupName = Read-Host -Prompt "Enter the resource group name"
-$storageAccountName = Read-Host -Prompt "Enter the storage account name"
+$projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name and resource names"
 $newOrExisting = Read-Host -Prompt "Create new or use existing (Enter new or existing)"
 $location = Read-Host -Prompt "Enter the Azure location (i.e. centralus)"
 $vmAdmin = Read-Host -Prompt "Enter the admin username"
 $vmPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
 $dnsLabelPrefix = Read-Host -Prompt "Enter the DNS Label prefix"
+
+$resourceGroupName = "${projectName}rg"
+$storageAccountName = "${projectName}store"
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment `
@@ -150,6 +159,8 @@ New-AzResourceGroupDeployment `
     -storageAccountName $storageAccountName `
     -newOrExisting $newOrExisting `
     -TemplateFile "$HOME/azuredeploy.json"
+
+Write-Host "Press [ENTER] to continue ..."
 ```
 
 > [!NOTE]
@@ -159,11 +170,15 @@ Pruebe otra implementación con **newOrExisting** establecido en "existing" y es
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando los recursos de Azure ya no sean necesarios, limpie los recursos que implementó eliminando el grupo de recursos. Para eliminar el grupo de recursos, seleccione **Pruébelo** para que se abra Cloud Shell. Para pegar el script de PowerShell, haga clic con el botón derecho en el panel de Shell y, a continuación, seleccione **Pegar**.
+Cuando los recursos de Azure ya no sean necesarios, limpie los recursos que implementó eliminando el grupo de recursos. Para eliminar el grupo de recursos, seleccione **Pruébelo** para abrir Cloud Shell. Para pegar el script de PowerShell, haga clic con el botón derecho en el panel de Shell y, a continuación, seleccione **Pegar**.
 
 ```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the same resource group name you used in the last procedure"
+$projectName = Read-Host -Prompt "Enter the same project name you used in the last procedure"
+$resourceGroupName = "${projectName}rg"
+
 Remove-AzResourceGroup -Name $resourceGroupName
+
+Write-Host "Press [ENTER] to continue ..."
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

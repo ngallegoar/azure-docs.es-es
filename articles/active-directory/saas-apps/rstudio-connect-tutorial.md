@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9a9b49f75ad377a9377a2311ed16c17ca3d749e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2bb5dd845b03bd94f0a94db50c01b804cf6f55c2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67092573"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81407096"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rstudio-connect"></a>Tutorial: Integración de Azure Active Directory con RStudio Connect
 
@@ -158,9 +158,9 @@ IdPAttributeProfile = azure
 SSOInitiated = IdPAndSP
 ```
 
-Almacene la **Dirección del servidor** en el valor `Server.Address`, y la **Dirección URL de metadatos de federación de aplicación** en el valor `SAML.IdPMetaData`.
+Almacene la **Dirección del servidor** en el valor `Server.Address`, y la **Dirección URL de metadatos de federación de aplicación** en el valor `SAML.IdPMetaData`. Tenga en cuenta que esta configuración de ejemplo usa una conexión HTTP sin cifrar, en tanto que Azure AD requiere el uso de una conexión HTTPS cifrada. Puede usar un [proxy inverso](https://docs.rstudio.com/connect/admin/proxy/) delante de RStudio Connect o configurar RStudio Connect para que [use HTTPS directamente](https://docs.rstudio.com/connect/admin/appendix/configuration/#HTTPS). 
 
-Si tiene problemas con la configuración, puede leer la [guía del administrador de RStudio Connect](https://docs.rstudio.com/connect/admin/authentication.html#authentication-saml) o enviar un correo electrónico al [equipo de soporte técnico de RStudio](mailto:support@rstudio.com) para obtener ayuda.
+Si tiene problemas con la configuración, puede leer la [guía del administrador de RStudio Connect](https://docs.rstudio.com/connect/admin/authentication/saml/) o enviar un correo electrónico al [equipo de soporte técnico de RStudio](mailto:support@rstudio.com) para obtener ayuda.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 

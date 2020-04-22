@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: tutorial
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 8d5bef141f83eedaa996bb63c1fb814aeb6af197
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: dd986a7557f468b939aefe1da825c9834618047f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76165976"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81402918"
 ---
 # <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>Tutorial: Creación de una aplicación Android para detectar y enmarcar caras en una imagen
 
-En este tutorial, creará una aplicación Android que usa el servicio Azure Face, con el SDK de Java, para detectar rostros humanos en una imagen. La aplicación muestra una imagen seleccionada y dibuja un marco alrededor de cada cara detectada.
+En este tutorial, creará una aplicación Android que usa el servicio Azure Face, con el SDK para Java, para detectar rostros humanos en una imagen. La aplicación muestra una imagen seleccionada y dibuja un marco alrededor de cada cara detectada.
 
 En este tutorial se muestra cómo realizar las siguientes acciones:
 
@@ -35,11 +35,11 @@ El código de ejemplo completo está disponible en el repositorio [Cognitive Ser
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Una clave de suscripción de Face. Puede obtener una clave de la suscripción de evaluación gratuita en la página [Pruebe Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). O bien, siga las instrucciones para la [creación de una cuenta de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para poder suscribirse al servicio Face y obtener la clave. Después, [cree variables de entorno](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para la cadena de punto de conexión del servicio y la clave denominadas `FACE_SUBSCRIPTION_KEY` y `FACE_ENDPOINT`, respectivamente.
 - Cualquier edición de [Visual Studio 2015 o 2017](https://www.visualstudio.com/downloads/).
-- [Android Studio](https://developer.android.com/studio/) con el nivel de API 22, o posterior (requerido por la biblioteca cliente de Face).
+- [Android Studio](https://developer.android.com/studio/) con el nivel de API 22 o posterior.
 
 ## <a name="create-the-android-studio-project"></a>Creación del proyecto de Android Studio
 
@@ -123,7 +123,7 @@ Ejecute esta aplicación y busque una imagen con una cara. Espere unos segundos 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha aprendido el proceso básico para usar el SDK de Java de Face y ha creado una aplicación que detecta y enmarca las caras de una imagen. Después, obtendrá más información acerca de los detalles de la detección de caras.
+En este tutorial, ha aprendido a usar el SDK de Java de Face para crea una aplicación que detecta y enmarca las caras de una imagen. Después, obtendrá más información acerca de los detalles de la detección de caras.
 
 > [!div class="nextstepaction"]
 > [Detección de caras en una imagen](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md)

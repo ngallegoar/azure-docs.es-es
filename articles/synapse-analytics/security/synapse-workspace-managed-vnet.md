@@ -1,0 +1,65 @@
+---
+title: Red virtual administrada en Azure Synapse Analytics
+description: En este artículo se explica la red virtual administrada en Azure Synapse Analytics.
+author: RonyMSFT
+ms.service: synapse-analytics
+ms.topic: overview
+ms.date: 04/15/2020
+ms.author: ronytho
+ms.reviewer: jrasnick
+ms.openlocfilehash: 162d96244b01f8c5e1acf224475aadb9508f0aa5
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419489"
+---
+# <a name="azure-synapse-analytics-managed-virtual-network-preview"></a>Red virtual administrada de Azure Synapse Analytics (versión preliminar)
+
+En este artículo se explica la red virtual administrada en Azure Synapse Analytics.
+
+## <a name="managed-workspace-vnet"></a>Red virtual de área de trabajo administrada
+
+Al crear el área de trabajo de Azure Synapse, puede elegir asociarla a una red virtual. La red virtual asociada al área de trabajo se administra mediante Azure Synapse. Esta red virtual se conoce como *red virtual de área de trabajo administrada*.
+
+La red virtual de área de trabajo administrada resulta valiosa de cuatro formas:
+
+- Con una red virtual de área de trabajo administrada puede dejar que Azure Synapse se ocupe de la pesada tarea de administrar la red virtual.
+- No es necesario configurar reglas de grupo de seguridad de red de entrada en sus propias redes virtuales para permitir que el tráfico de administración de Azure Synapse entre en la red virtual. La configuración incorrecta de estas reglas de grupo de seguridad de red provoca la interrupción del servicio para los clientes.
+- No es necesario crear una subred para los clústeres de Spark en función de la carga máxima.
+- La red virtual de área de trabajo administrada junto con los puntos de conexión privados administrados protege contra la filtración de datos. Solo puede crear puntos de conexión privados administrados en un área de trabajo que tenga asociada una red virtual de área de trabajo administrada.
+
+La creación de un área de trabajo con una red virtual de área de trabajo administrada asociada garantiza que el área de trabajo esté aislada por la red de otras áreas de trabajo. Azure Synapse ofrece varias funcionalidades de análisis en un área de trabajo: integración de datos, Apache Spark, grupo de SQL y SQL a petición.
+
+Si el área de trabajo tiene una red virtual de área de trabajo administrada, en ella se implementan la integración de datos y los recursos de Spark. Una red virtual de área de trabajo administrada también proporciona aislamiento de nivel de usuario para las actividades de Spark, ya que cada clúster de Spark está en su propia subred.
+
+El grupo de SQL y SQL a petición son funcionalidades de varios inquilinos y, por tanto, residen fuera de la red virtual de área de trabajo administrada. En la comunicación dentro del área de trabajo con el grupo de SQL y SQL a petición se usan vínculos privados de Azure. Estos vínculos privados se crean automáticamente cuando se crea un área de trabajo con una red virtual de área de trabajo administrada asociada.
+
+>[!IMPORTANT]
+>Esta configuración del área de trabajo no se puede cambiar una vez creada el área de trabajo. Por ejemplo, no puede volver a volver a configurar un área de trabajo que no tenga una red virtual de área de trabajo administrada asociada y asociarle una red virtual. Del mismo modo, no puede volver a configurar un área de trabajo con una red virtual de área de trabajo administrada asociada y eliminarle la asociación de la red virtual.
+
+## <a name="create-an-azure-synapse-workspace-with-a-managed-workspace-vnet"></a>Creación de un área de trabajo de Azure Synapse con una red virtual de área de trabajo administrada
+
+Para crear un área de trabajo de Azure Synapse que tenga asociada una red virtual de área de trabajo administrada, seleccione la pestaña **Security + Networking** (Seguridad y red) en Azure Portal y active la casilla **Enable managed virtual network** (Habilitar la red virtual administrada).
+
+Si deja la casilla desactivada, el área de trabajo no tendrá asociada una red virtual.
+
+>[!IMPORTANT]
+>Solo puede usar vínculos privados en un área de trabajo que tenga una red virtual de área de trabajo administrada.
+
+![Habilitación de la red virtual de área de trabajo administrada](./media/synapse-workspace-managed-vnet/enable-managed-vnet-1.png)
+
+>[!NOTE]
+>Todo el tráfico saliente de la red virtual de área de trabajo administrada se bloqueará en el futuro. Se recomienda conectarse a todos los orígenes de datos mediante puntos de conexión privados administrados.
+
+Puede comprobar si el área de trabajo de Azure Synapse está asociada a una red virtual de área de trabajo administrada en **Información general** de Azure Portal.
+
+![Introducción al área de trabajo en Azure Portal](./media/synapse-workspace-managed-vnet/enable-managed-vnet-2.png)
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Creación de un [área de trabajo de Azure Synapse](../quickstart-create-workspace.md)
+
+Más información sobre los [puntos de conexión privados administrados](./synapse-workspace-managed-private-endpoints.md)
+
+[Creación de puntos de conexión privados administrados a los orígenes de datos](./how-to-create-managed-private-endpoints.md)

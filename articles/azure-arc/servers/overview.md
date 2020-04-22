@@ -7,14 +7,14 @@ ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
 keywords: azure automation, DSC, powershell, desired state configuration, update management, change tracking, inventory, runbooks, python, graphical, hybrid
-ms.date: 02/24/2020
+ms.date: 03/24/2020
 ms.topic: overview
-ms.openlocfilehash: 57b44db9c1bb9a607ad8478b7208df40441020c2
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 5fa39028f1041a063bab295adabf8145a8b46ae4
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79290133"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81308783"
 ---
 # <a name="what-is-azure-arc-for-servers-preview"></a>¿Qué es Azure Arc para servidores (versión preliminar)?
 
@@ -43,7 +43,7 @@ En Azure Arc para servidores (versión preliminar), solo se admiten determinadas
 
 En la mayoría de los casos, la ubicación que seleccione al crear el script de instalación debe ser la región de Azure más cercana geográficamente a la ubicación de la máquina. Los datos en reposo se almacenarán en la ubicación geográfica de Azure que contiene la región que especifique, lo que también puede afectar a su elección de región si tiene requisitos de residencia de datos. Aunque la región de Azure a la que está conectada la máquina experimente una interrupción, la máquina conectada no se verá afectada, aunque es posible que las operaciones de administración que usan Azure no se puedan completar. Para lograr resistencia en caso de una interrupción regional, si dispone de varias ubicaciones que proporcionan un servicio con redundancia geográfica, es mejor conectar las máquinas de cada ubicación a una región diferente de Azure.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 ### <a name="supported-operating-systems"></a>Sistemas operativos admitidos
 
@@ -54,7 +54,7 @@ Las siguientes versiones de los sistemas operativos Windows y Linux son compatib
 - CentOS Linux 7
 - SUSE Linux Enterprise Server (SLES) 15
 - Red Hat Enterprise Linux (RHEL) 7
-- Amazon Linux 7
+- Amazon Linux 2
 
 >[!NOTE]
 >Esta versión preliminar del agente de Connected Machine para Windows solo admite la configuración de Windows Server para usar el idioma inglés.
@@ -143,11 +143,11 @@ Puede descargar el paquete del agente de Azure Connected Machine para Windows y 
 >[!NOTE]
 >Durante esta versión preliminar, solo se ha lanzado un paquete, que es adecuado para Ubuntu 16.04 o 18.04.
 
-El agente de Azure Connected Machine para Windows y Linux se puede actualizar a la versión más reciente de forma manual o automática según sus necesidades. En Windows, la actualización del agente se puede realizar automáticamente mediante Windows Update y, para Ubuntu, mediante la herramienta de línea de comandos [apt](https://help.ubuntu.com/lts/serverguide/apt.html).
+El agente de Azure Connected Machine para Windows y Linux se puede actualizar a la versión más reciente de forma manual o automática según sus necesidades. Para más información, consulte [esta página](manage-agent.md).
 
 ### <a name="agent-status"></a>Estado del agente
 
-El agente Connected Machine envía un mensaje de latido al servicio cada 5 minutos. Si no se recibe uno durante 15 minutos, se considera la máquina sin conexión y el estado se cambiará automáticamente a **Desconectado** en el portal. Al recibir un mensaje de latido subsiguiente del agente de Connected Machine, su estado se cambiará automáticamente a **Conectado**.
+El agente Connected Machine envía un mensaje de latido al servicio cada 5 minutos. Si el servicio deja de recibir estos mensajes de latido de una máquina, esa máquina se considera sin conexión y el estado cambiará automáticamente a **Desconectado** en el portal en un plazo de 15 a 30 minutos. Al recibir un mensaje de latido subsiguiente del agente de Connected Machine, su estado se cambiará automáticamente a **Conectado**.
 
 ## <a name="install-and-configure-agent"></a>Instalación y configuración del agente
 
@@ -157,6 +157,7 @@ La conexión de máquinas del entorno híbrido directamente con Azure se puede l
 |--------|-------------|
 | interactivamente, | Instale manualmente el agente en una máquina, o en un grupo reducido de estas, siguiendo los pasos que se indican en [Conexión de máquinas desde Azure Portal](onboard-portal.md).<br> En Azure Portal, puede generar un script y ejecutarlo en la máquina para automatizar los pasos de instalación y configuración del agente.|
 | A escala | Instale y configure el agente para varias máquinas según lo que se indica en [Conexión de máquinas mediante una entidad de servicio](onboard-service-principal.md).<br> Este método crea una entidad de servicio para conectar máquinas de forma no interactiva.|
+| A escala | Instale y configure el agente para varias máquinas según el método [Uso de DSC de Windows PowerShell](onboard-dsc.md).<br> Este método usa una entidad de servicio para conectar máquinas de forma no interactiva con DSC de PowerShell. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

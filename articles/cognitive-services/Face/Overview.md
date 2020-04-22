@@ -7,22 +7,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: c433d99fd96e99d418fd5500c1075e68dfb1742c
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 6714a0c4b967d80ad683ef023b5811423bdcb022
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80053594"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81403465"
 ---
 # <a name="what-is-the-azure-face-service"></a>¿Qué es el servicio Azure Face?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-El servicio Face de Azure Cognitive Services ofrece algoritmos que se utilizan para detectar, reconocer y analizar caras humanas en imágenes. La capacidad de procesar la información de caras humanas es importante en muchos escenarios de software diferentes. Los escenarios de ejemplo son seguridad, interfaz de usuario natural, análisis y administración de contenido de imagen, aplicaciones móviles y robótica.
+El servicio Face de Azure Cognitive Services ofrece algoritmos para detectar, reconocer y analizar caras humanas en imágenes. La capacidad de procesar la información de caras humanas es importante en muchos escenarios de software diferentes. Algunos escenarios de ejemplo son el de la seguridad, la interfaz de usuario natural, el análisis y la administración del contenido de imagen, las aplicaciones móviles y la robótica.
 
-El servicio Face proporciona varias funciones diferentes. Cada función se describe en las secciones siguientes. Siga leyendo para obtener más información sobre ellas.
+El servicio Face proporciona varias funciones distintas, que se describen en las secciones siguientes.
 
 ## <a name="face-detection"></a>Detección de caras
 
@@ -69,7 +69,7 @@ Una vez creada y entrenada la base de datos, puede realizar la identificación e
 
 Para más información sobre la identificación de personas, vea la guía de conceptos de [reconocimiento de facial](concepts/face-recognition.md) o la documentación de referencia sobre [Identify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
 
-## <a name="use-containers"></a>Uso de contenedores
+## <a name="containers"></a>Contenedores
 
 [Utilice el contenedor de caras](face-how-to-install-containers.md) para detectar, reconocer e identificar caras, mediante la instalación de un contenedor de Docker estándar más cercano a los datos.
 

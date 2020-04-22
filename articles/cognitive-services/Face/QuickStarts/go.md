@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Detección de caras en una imagen mediante la API REST y Go'
+title: 'Inicio rápido: Detección de caras en una imagen mediante la API REST y Go'
 titleSuffix: Azure Cognitive Services
 description: En este inicio rápido se detectan caras de una imagen mediante el servicio Face con Go.
 services: cognitive-services
@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 246b9c81e3cb726236143b9749486ba362128756
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: b3e6f5746df6197938d3a91de5ff11b1a311d762
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76165833"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81402945"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-go"></a>Guía de inicio rápido: Detección de caras en una imagen mediante la API REST y Go
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-go"></a>Inicio rápido: Detección de caras en una imagen mediante la API REST y Go
 
 En este inicio rápido, usará la API REST de Azure Face con Go para detectar caras humanas en una imagen.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Una clave de suscripción de Face. Puede obtener una clave de la suscripción de evaluación gratuita en la página [Pruebe Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). O bien, siga las instrucciones para la [creación de una cuenta de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para poder suscribirse al servicio Face y obtener la clave.
 - Un editor de código como [Visual Studio Code](https://code.visualstudio.com/download)

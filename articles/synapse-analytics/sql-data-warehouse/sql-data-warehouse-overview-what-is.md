@@ -10,16 +10,16 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 397eb6fbfea88b0eab0648275fc59764505f7d42
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: a9506d45350a567e3643b6edd6afc7668662f6e5
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80633105"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416023"
 ---
 # <a name="what-is-azure-synapse-analytics-formerly-sql-dw"></a>¿Qué es Azure Synapse Analytics (anteriormente SQL Data Warehouse)?
 
-Azure Synapse es un servicio de análisis ilimitado que reúne el almacenamiento de datos empresariales y el análisis de macrodatos. Le ofrece la libertad de consultar los datos como prefiera, ya sea a petición sin servidor o con recursos aprovisionados, a escala. Azure Synapse reúne estos dos mundos con una experiencia unificada para ingerir, preparar, administrar y servir datos para las necesidades inmediatas de inteligencia empresarial y aprendizaje automático.
+Azure Synapse es un servicio de análisis que engloba el almacenamiento de datos empresariales y el análisis de macrodatos. Le ofrece la libertad de consultar los datos como prefiera, ya sea a petición sin servidor o con recursos aprovisionados, a escala. Azure Synapse reúne estos dos mundos con una experiencia unificada para ingerir, preparar, administrar y servir datos para las necesidades inmediatas de inteligencia empresarial y aprendizaje automático.
 
 Azure Synapse tiene cuatro componentes:
 
@@ -27,11 +27,13 @@ Azure Synapse tiene cuatro componentes:
   - Grupo de SQL (pago por DWU aprovisionado)
   - SQL a petición (pago por TB procesados): (versión preliminar).
 - Spark: profunda integración con Apache Spark (versión preliminar).
-- Integración de datos: integración de datos híbridos (versión preliminar).
+- Canalizaciones de Synapse: integración de datos híbridos (versión preliminar).
 - Studio: Experiencia de usuario unificada  (versión preliminar)
 
 > [!NOTE]
 > Para acceder a las características en versión preliminar de Azure Synapse, solicite acceso [aquí](https://aka.ms/synapsepreview). Microsoft evaluará todas las solicitudes y responderá lo antes posible.
+>
+> Vea la [documentación de la versión preliminar de Azure Synapse](../overview-what-is.md).
 
 ## <a name="synapse-sql-pool-in-azure-synapse"></a>Grupo de SQL de Synapse en Azure Synapse
 

@@ -1,14 +1,14 @@
 ---
 title: 'Patrón: operadores lógicos en una definición de directiva'
 description: Este patrón de Azure Policy proporciona un ejemplo de cómo usar los operadores lógicos en una definición de directiva.
-ms.date: 01/31/2020
+ms.date: 04/15/2020
 ms.topic: sample
-ms.openlocfilehash: 8e57efaea81848c6b2d0188dbf3f91e06ed74c67
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 691383b1f8ae34bbd51ce7f4f9310980e3c66537
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77170243"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81272515"
 ---
 # <a name="azure-policy-pattern-logical-operators"></a>Patrón de Azure Policy: operadores lógicos
 
@@ -38,6 +38,18 @@ Esta definición de directiva evalúa los recursos según un patrón de nomencla
 :::code language="json" source="~/policy-templates/patterns/pattern-logical-operators-2.json" range="7-21" highlight="2,3,9":::
 
 Este bloque **policyRule.if** también incluye un único operador **allOf**, pero cada condición se encapsula con el operador lógico **not**. El condicional dentro del operador lógico **not** se evalúa primero y, a continuación, se evalúa el operador **not** para determinar si la cláusula completa es verdadera o falsa. Si ambos operadores lógicos **not** se evalúan como verdaderos, se desencadena el efecto de la directiva.
+
+## <a name="sample-3-combining-logical-operators"></a>Ejemplo 3: Combinación de operadores lógicos
+
+Esta definición de directiva evalúa las cuentas de Java Spring para ver si el seguimiento no está habilitado o si el seguimiento no se encuentra en un estado correcto.
+
+:::code language="json" source="~/policy-templates/patterns/pattern-logical-operators-3.json":::
+
+### <a name="sample-3-explanation"></a>Ejemplo 3: Explicación
+
+:::code language="json" source="~/policy-templates/patterns/pattern-logical-operators-3.json" range="6-28" highlight="3,8":::
+
+Este bloque **policyRule.if** incluye los operadores lógicos **allOf** y **anyOf**. El operador lógico **anyOf** se evalúa como True siempre que se cumpla una condición incluida. Dado que _type_ está en el núcleo de **allOf**, siempre se evalúa como True. Si _type_ y una de las condiciones de **anyOf** son True, se desencadena el efecto de la directiva.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

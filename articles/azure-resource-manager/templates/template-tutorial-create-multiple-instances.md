@@ -5,12 +5,12 @@ author: mumian
 ms.date: 04/08/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 70c86c82cb28bf767da50cca20f7c1d052d4bf01
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 83afff3aa15caa1743f66eea9eaee541492b8d1c
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80982552"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260843"
 ---
 # <a name="tutorial-create-multiple-resource-instances-with-arm-templates"></a>Tutorial: Creación de varias instancias de recursos con plantillas de Resource Manager
 
@@ -124,7 +124,8 @@ Para mostrar las tres cuentas de almacenamiento, omita el parámetro --name:
 echo "Enter a project name that is used to generate resource group name:" &&
 read projectName &&
 resourceGroupName="${projectName}rg" &&
-az storage account list --resource-group $resourceGroupName
+az storage account list --resource-group $resourceGroupName &&
+echo "Press [ENTER] to continue ..."
 ```
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
@@ -133,6 +134,7 @@ az storage account list --resource-group $resourceGroupName
 $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name"
 $resourceGroupName = "${projectName}rg"
 Get-AzStorageAccount -ResourceGroupName $resourceGroupName
+Write-Host "Press [ENTER] to continue ..."
 ```
 
 ---
@@ -145,7 +147,7 @@ Cuando los recursos de Azure ya no sean necesarios, limpie los recursos que impl
 
 1. En Azure Portal, seleccione **Grupos de recursos** en el menú de la izquierda.
 2. Escriba el nombre del grupo de recursos en el campo **Filtrar por nombre**.
-3. Seleccione el nombre del grupo de recursos.  Verá un total de seis recursos en el grupo de recursos.
+3. Seleccione el nombre del grupo de recursos.  Verá un total de tres recursos en el grupo de recursos.
 4. Seleccione **Eliminar grupo de recursos** del menú superior.
 
 ## <a name="next-steps"></a>Pasos siguientes
