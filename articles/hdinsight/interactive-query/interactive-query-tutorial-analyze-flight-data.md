@@ -1,23 +1,23 @@
 ---
 title: 'Tutorial: Operaciones ETL con Interactive Query en Azure HDInsight'
-description: En este tutorial, aprenderá a extraer datos de un conjunto de datos CSV sin procesar mediante Interactive Query en HDInsight y a cargar luego los datos transformados en una base de datos de Azure SQL mediante Apache Sqoop.
+description: 'Tutorial: Aprenda cómo extraer datos de un conjunto de datos CSV sin formato. Transfórmelos mediante Interactive Query en HDInsight. A continuación, cargue los datos transformados en Azure SQL Database con Apache Sqoop.'
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
-ms.date: 07/02/2019
-ms.author: hrasheed
 ms.custom: hdinsightactive,mvc
-ms.openlocfilehash: d1136c153a529f58db1de277ec84ac332b9f78ae
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 07/02/2019
+ms.openlocfilehash: 7413a32fdddb579bad61c9cfe539be6aaeae9881
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73494163"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81313737"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-interactive-query-in-azure-hdinsight"></a>Tutorial: Extracción, transformación y carga de datos mediante Interactive Query en Azure HDInsight
 
-En este tutorial, usará un archivo CSV de datos de vuelo sin procesar, disponible públicamente, lo importará en un almacenamiento de clúster de HDInsight y, después, transformará los datos mediante Interactive Query en Azure HDInsight. Una vez que los datos se han transformado, se cargan en una base de datos de Azure SQL mediante [Apache Sqoop](https://sqoop.apache.org/).
+En este tutorial, descargará un archivo de datos CSV sin formato con datos de vuelos disponibles públicamente. Impórtelo en el almacenamiento del clúster de HDInsight y, a continuación, transforme los datos mediante Interactive Query en Azure HDInsight. Una vez que los datos se han transformado, se cargan en una base de datos de Azure SQL mediante [Apache Sqoop](https://sqoop.apache.org/).
 
 En este tutorial se describen las tareas siguientes:
 
@@ -46,7 +46,7 @@ En este tutorial se describen las tareas siguientes:
    | --- | --- |
    | Filter Year |2019 |
    | Filter Period |January |
-   | Fields |Year, FlightDate, Reporting_Airline, DOT_ID_Reporting_Airline, Flight_Number_Reporting_Airline, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. |
+   | Fields |`Year, FlightDate, Reporting_Airline, DOT_ID_Reporting_Airline, Flight_Number_Reporting_Airline, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay`. |
 
 3. Seleccione **Descargar**. Obtenga un archivo .zip con los campos de datos que ha seleccionado.
 
@@ -60,7 +60,7 @@ Hay muchas maneras de cargar datos en el almacenamiento asociado a un clúster d
     scp FILENAME.zip sshuser@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.zip
     ```
 
-    Si se le pide que escriba yes o no para continuar, escriba yes en el símbolo del sistema y presione Entrar. El texto no es visible en la ventana mientras lo escribe.
+    Escriba sí o no para continuar si se le solicita. El texto no es visible en la ventana mientras lo escribe.
 
 2. Cuando la carga haya finalizado, conéctese al clúster mediante SSH. Modifique el comando siguiente: reemplace `CLUSTERNAME` por el nombre del clúster de HDInsight. Después, escriba el comando siguiente:
 
@@ -283,13 +283,13 @@ En las secciones anteriores, copió los datos transformados en `/tutorials/fligh
     GO
     ```
 
-    Debería ver una lista de los datos de la tabla. La tabla incluye el nombre de la ciudad y el tiempo medio de retraso de los vuelos promedio a la ciudad. 
+    Debería ver una lista de los datos de la tabla. La tabla incluye el nombre de la ciudad y el tiempo medio de retraso de los vuelos promedio a la ciudad.
 
     Escriba `exit` para salir de la utilidad de tsql.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Después de completar el tutorial, puede ser conveniente eliminar el clúster. Con HDInsight, los datos se almacenan en Azure Storage, por lo que puede eliminar un clúster de forma segura cuando no se esté usando. También se le cobrará por un clúster de HDInsight aunque no se esté usando. Como en muchas ocasiones los cargos por el clúster son mucho más elevados que los cargos por el almacenamiento, desde el punto de vista económico tiene sentido eliminar clústeres cuando no se estén usando.
+Después de completar el tutorial, puede ser conveniente eliminar el clúster. Con HDInsight, los datos se almacenan en Azure Storage, por lo que puede eliminar un clúster de forma segura cuando no se esté usando. Los clústeres de HDInsight se cobran aunque no se estén usando. Como en muchas ocasiones los cargos por el clúster son mucho más elevados que los cargos por el almacenamiento, desde el punto de vista económico tiene sentido eliminar clústeres cuando no se usen.
 
 Para eliminar un clúster, consulte [Eliminación de un clúster de HDInsight con el explorador, PowerShell o la CLI de Azure](../hdinsight-delete-cluster.md).
 
@@ -298,4 +298,4 @@ Para eliminar un clúster, consulte [Eliminación de un clúster de HDInsight co
 En este tutorial, ha usado un archivo de datos CSV sin procesar, lo ha importado en un almacenamiento de clúster de HDInsight y, después, ha transformado los datos mediante Interactive Query en Azure HDInsight.  Avance al siguiente tutorial para aprender sobre el conector de Apache Hive Warehouse.
 
 > [!div class="nextstepaction"]
->[Integración de Apache Spark y Apache Hive con el conector de Hive Warehouse](./apache-hive-warehouse-connector.md)
+> [Integración de Apache Spark y Apache Hive con el conector de Hive Warehouse](./apache-hive-warehouse-connector.md)

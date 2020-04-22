@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/10/2020
 ms.author: sethm
 ms.custom: include file
-ms.openlocfilehash: bf2596f5a8e287799285f97f3d1be9f3fe10f644
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a9e8574ea2d7222871c7f065383e6c0c62057dd3
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77123169"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "81007871"
 ---
 ## <a name="generate-the-certificate-signing-request-file"></a>Generación del archivo de solicitud de firma de certificado
 
@@ -72,13 +72,23 @@ Para enviar notificaciones push a una aplicación iOS, registre la aplicación e
 
       Tras seleccionar **Register**, (Registrar), verá el nuevo identificador de aplicación como un elemento de línea en la página **Certificates, Identifiers & Profiles** (Certificados, identificadores y perfiles).
 
-4. En esta página, en **Identifiers** (Identificadores), busque el elemento de línea con el identificador de aplicación que acaba de crear y seleccione su fila para mostrar la pantalla **Edit your App ID Configuration** (Editar la configuración del id. de aplicación).
+4. En esta página **,** en **Identifiers** (Identificadores), busque el elemento de línea con el identificador de aplicación que acaba de crear y seleccione su fila para mostrar la pantalla **Edit your App ID Configuration** (Editar la configuración del id. de aplicación).
 
-5. Desplácese hacia abajo hasta la opción activada **Push Notifications** (Notificaciones push) y, luego, seleccione **Configure** (Configurar) para crear el certificado.
+## <a name="creating-a-certificate-for-notification-hubs"></a>Creación de un certificado para Notification Hubs
+Para que el centro de notificaciones funcione con **APNs**, se requiere un certificado. Esto se puede hacer de dos maneras:
+
+1. Cree un certificado **.p12** que se pueda cargar directamente en el centro de notificaciones.  
+2. Cree un certificado **.p8** que se pueda usar para [autenticación basada en tokens](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-http2-token-authentification) (*enfoque más reciente*).
+
+El enfoque más reciente tiene varias ventajas (en comparación con el uso de certificados), como se documenta en [Autenticación basada en token (HTTP/2) para APNs](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-http2-token-authentification). Sin embargo, se han proporcionado pasos para ambos enfoques. 
+
+### <a name="option-1-creating-a-p12-push-certificate-that-can-be-uploaded-directly-to-notification-hub"></a>OPCIÓN 1: Creación de un certificado push .p12 que se pueda cargar directamente en el centro de notificaciones
+
+1. Desplácese hacia abajo hasta la opción activada **Push Notifications** (Notificaciones push) y, luego, seleccione **Configure** (Configurar) para crear el certificado.
 
     ![Editar página de identificadores de aplicaciones](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-edit-appid.png)
 
-6. Aparece la ventana **Apple Push Notification service SSL Certificates** (Certificados SSL de Apple Push Notification Service). Seleccione el botón **Create Certificate** (Crear certificado) en la sección **Development SSL Certificate** (Certificado SSL de desarrollo).
+2. Aparece la ventana **Apple Push Notification service SSL Certificates** (Certificados SSL de Apple Push Notification Service). Seleccione el botón **Create Certificate** (Crear certificado) en la sección **Development SSL Certificate** (Certificado SSL de desarrollo).
 
     ![Crear certificado para el botón de identificador de aplicación](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-create-cert.png)
 
@@ -87,9 +97,9 @@ Para enviar notificaciones push a una aplicación iOS, registre la aplicación e
     > [!NOTE]
     > Este tutorial usa un certificado de desarrollo. Se usa el mismo proceso cuando se registra un certificado de producción. Asegúrese de usa el mismo tipo de certificado cuando envíe notificaciones.
 
-1. Seleccione **Choose File** (Elegir archivo), vaya a la ubicación donde guardó el archivo CSR de la primera tarea y, después, haga doble clic en el nombre del certificado para cargarlo. Después, seleccione **Continuar**.
+3. Seleccione **Choose File** (Elegir archivo), vaya a la ubicación donde guardó el archivo CSR de la primera tarea y, después, haga doble clic en el nombre del certificado para cargarlo. Después, seleccione **Continuar**.
 
-1. Una vez que el portal cree el certificado, seleccione el botón **Download** (Descargar). Guarde el certificado y recuerde la ubicación donde se ha guardado.
+4. Una vez que el portal cree el certificado, seleccione el botón **Download** (Descargar). Guarde el certificado y recuerde la ubicación donde se ha guardado.
 
     ![Página de descarga de certificados generados](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-download-cert.png)
 
@@ -100,14 +110,14 @@ Para enviar notificaciones push a una aplicación iOS, registre la aplicación e
     > [!NOTE]
     > De manera predeterminada, el certificado de desarrollo descargado se denomina **aps_development.cer**.
 
-1. Haga doble clic en el certificado de inserción **aps_development.cer** descargado. Esta operación instala el certificado nuevo en la cadena de llaves, tal como se muestra en la siguiente imagen:
+5. Haga doble clic en el certificado de inserción **aps_development.cer** descargado. Esta operación instala el certificado nuevo en la cadena de llaves, tal como se muestra en la siguiente imagen:
 
     ![Lista de certificados de Acceso a llaves en la que aparece el nuevo certificado](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-cert-in-keychain.png)
 
     > [!NOTE]
     > Aunque el nombre del certificado puede ser diferente, llevará el prefijo **Apple Development iOS Push Services** (Servicios push de desarrollo de Apple iOS).
 
-1. En Acceso a llaves, haga clic en el nuevo certificado de inserción que creó, en la categoría **Certificados** . Haga clic en **Export** (Exportar), asigne un nombre al archivo, seleccione el formato **.p12** y, después, haga clic en **Save** (Guardar).
+6. En Acceso a llaves, haga clic en el nuevo certificado de inserción que creó, en la categoría **Certificados** . Haga clic en **Export** (Exportar), asigne un nombre al archivo, seleccione el formato **.p12** y, después, haga clic en **Save** (Guardar).
 
     ![Exportación del certificado en formato p12](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-export-cert-p12.png)
 
@@ -115,6 +125,45 @@ Para enviar notificaciones push a una aplicación iOS, registre la aplicación e
 
     > [!NOTE]
     > El nombre y la ubicación del archivo .p12 pueden ser diferentes a los que se ilustran en este tutorial.
+
+### <a name="option-2-creating-a-p8-certificate-that-can-be-used-for-token-based-authentication"></a>OPCIÓN 2: Creación de un certificado .p8 que se pueda usar para autenticación basada en tokens
+
+1. Anote los siguientes datos:
+
+    - **App ID Prefix** (Prefijo de identificador de aplicación) (es un **identificador de equipo**)
+    - **Bundle ID** (Identificador de lote)
+    
+2. De vuelta en **Certificates, Identifiers & Profiles** (Certificados, identificadores y perfiles), haga clic en **Keys** (Claves).
+
+   > [!NOTE]
+   > Si ya tiene configurada una clave para **APNs**, puede volver a usar el certificado .p8 que descargó justo después de crearlo. En tal caso, puede omitir los pasos **3** a **5**.
+
+3. Haga clic en el botón **+** [o en el botón **Create a key** (Crear una clave)] para crear una nueva clave.
+4. Proporcione un valor de **Key Name** (Nombre de clave) adecuado, active la opción **Apple Push Notifications service (APNs)** y, a continuación, haga clic en **Continue** (Continuar), seguido de **Register** (Registrar) en la pantalla siguiente.
+5. Haga clic en **Download** (Descargar) y, a continuación, mueva el archivo **.p8** (con el prefijo *AuthKey_* ) a un directorio local seguro y, a continuación, haga clic en **Done** (Listo).
+
+   > [!NOTE] 
+   > Asegúrese de mantener el archivo .p8 en un lugar seguro (y guardar una copia de seguridad). Después de descargar la clave, no se puede volver a descargar, ya que se quita la copia del servidor.
+  
+6. En **Keys** (Claves), haga clic en la clave que acaba de crear (o en una clave existente si decide utilizarla en su lugar).
+7. Anote el valor de **Key ID** (Id. de clave).
+8. Abra el certificado .p8 en una aplicación adecuada, como [**Visual Studio Code**](https://code.visualstudio.com) y anote el valor de la clave. Este es el valor que aparece entre **-----BEGIN PRIVATE KEY-----** y **-----END PRIVATE KEY-----** .
+
+    ```
+    -----BEGIN PRIVATE KEY-----
+    <key_value>
+    -----END PRIVATE KEY-----
+    ```
+
+    > [!NOTE]
+    > Este es el **valor de token** que se usará más adelante para configurar el **centro de notificaciones**. 
+
+Al completar estos pasos, debe tener la siguiente información para usarla más adelante en [Configuración de un centro de notificaciones con información de APNs](#configure-your-notification-hub-with-apns-information):
+
+- **Identificador de equipo** (consulte el paso 1)
+- **Identificador de lote** (consulte el paso 1)
+- **Identificador de clave** (consulte el paso 7)
+- **Valor de token**, es decir, el valor de la clave del certificado .p8 (consulte el paso 8)
 
 ## <a name="create-a-provisioning-profile-for-the-app"></a>Creación de un perfil de aprovisionamiento para la aplicación
 
@@ -153,13 +202,18 @@ Para enviar notificaciones push a una aplicación iOS, registre la aplicación e
 
 ## <a name="create-a-notification-hub"></a>Creación de un centro de notificaciones
 
-En esta sección, va a crear un centro de notificaciones y configurar la autenticación con APNs mediante el certificado push .p12 que creó anteriormente. Si desea usar un centro de notificaciones ya creado, puede omitir los pasos hasta el paso 5.
+En esta sección, va a crear un centro de notificaciones y configurar la autenticación con APNs mediante el certificado push .p12 o autenticación basada en tokens. Si desea usar un centro de notificaciones ya creado, puede omitir los pasos hasta el paso 5.
 
 [!INCLUDE [notification-hubs-portal-create-new-hub](notification-hubs-portal-create-new-hub.md)]
 
 ## <a name="configure-your-notification-hub-with-apns-information"></a>Configuración de un centro de notificaciones con información de APNs
 
-1. En **Notification Services** (Servicios de notificación), seleccione **Apple (APNS)** .
+En **Notification Services** (Servicios de notificación), seleccione **Apple (APNS)** y siga los pasos adecuados en función del enfoque elegido anteriormente en la sección [Creación de un certificado para Notification Hubs](#creating-a-certificate-for-notification-hubs).  
+
+> [!NOTE]
+> Use **Production** (Producción) como **Application Mode** (Modo de aplicación) solo si desea enviar notificaciones push a los usuarios que compraron la aplicación en la tienda.
+
+### <a name="option-1-using-a-p12-push-certificate"></a>OPCIÓN 1: Uso de un certificado push .p12
 
 1. Seleccione **Certificado**.
 
@@ -169,10 +223,23 @@ En esta sección, va a crear un centro de notificaciones y configurar la autenti
 
 1. Si es necesario, especifique la contraseña correcta.
 
-1. Seleccione el modo **Espacio aislado**. Use el modo **Producción** solo si desea enviar notificaciones push a los usuarios que compraron la aplicación en la tienda.
+1. Seleccione el modo **Espacio aislado**.
 
     ![Configuración del certificado de APNs en Azure Portal](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-apple-config-cert.png)
 
 1. Seleccione **Guardar**.
+
+### <a name="option-2-using-token-based-authentication"></a>OPCIÓN 2: Uso de autenticación basada en tokens
+
+1. Seleccione **Token**.
+1. Escriba los siguientes valores adquiridos anteriormente:
+
+    - **Identificador de clave**
+    - **Identificador de lote**
+    - **Identificador de equipo**
+    - **Token** 
+
+1. Seleccione **Sandbox** (Espacio aislado).
+1. Seleccione **Guardar**. 
 
 Ahora ya ha configurado el centro de notificaciones con APNs. Tiene también la cadena de conexión para registrar la aplicación y enviar notificaciones push.
