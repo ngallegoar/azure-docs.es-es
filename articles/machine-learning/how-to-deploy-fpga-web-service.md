@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 8cb6cf49e302122849dc2402bcff008e72e15608
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 870f7b0ab0f1d7b247435cdbb74e21801b3b052a
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79472365"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257188"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>Descripción de las matrices de puertas programables por campo (FPGA) y procedimiento para realizar la implementación
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -51,7 +51,7 @@ Microsoft Azure es la mayor inversión en la nube del mundo en FPGA. Con esta ar
 FPGA en Azure es compatible con:
 
 + Escenarios de reconocimiento y clasificación de imágenes
-+ Implementación de TensorFlow
++ Implementación de TensorFlow (requiere Tensorflow 1.x)
 + Hardware de FPGA de Intel
 
 Actualmente están disponibles los siguientes modelos de DNN:
@@ -115,9 +115,8 @@ Puede implementar un modelo como servicio web en FPGA con modelos acelerados med
 - El SDK de Python para modelos acelerados por hardware:
 
     ```bash
-    pip install --upgrade azureml-accel-models
+    pip install --upgrade azureml-accel-models[cpu]
     ```
-
 
 ## <a name="1-create-and-containerize-models"></a>1. Creación e inclusión de modelos en un contenedor
 

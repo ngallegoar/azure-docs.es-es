@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/11/2018
+ms.date: 04/15/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae3ace24d6f33702c15a364b913f841d90fd8872
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: d1246b5b980f60c2f3e65aa5b32a7d79dd6efc7d
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80654190"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81407176"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Preguntas más frecuentes sobre la administración de contraseñas
 
@@ -235,7 +235,7 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
   >
 * **P:  ¿Existe una API para acceder a los datos de informes de registro o de restablecimiento de contraseña?**
 
-  > **R:** Sí. Para obtener información sobre cómo acceder a informes de flujo de datos de restablecimiento de contraseña, consulte la [información sobre cómo acceder a eventos de informes de restablecimiento de contraseña mediante programación](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent).
+  > **R:** Sí. Para saber cómo puede acceder a los datos de informes de restablecimiento de contraseña, consulte la [referencia de API REST de Azure Log Analytics](/rest/api/loganalytics/).
   >
   >
 

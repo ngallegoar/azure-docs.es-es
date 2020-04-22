@@ -1,19 +1,18 @@
 ---
 title: 'Control de seguridad de Azure: recuperación de datos'
-description: Recuperación de datos del control de seguridad
+description: Recuperación de datos del control de seguridad de Azure
 author: msmbaldwin
-manager: rkarlin
 ms.service: security
 ms.topic: conceptual
-ms.date: 12/30/2019
+ms.date: 04/14/2020
 ms.author: mbaldwin
-ms.custom: security-recommendations
-ms.openlocfilehash: c585ebd903d4070f6247456e06efffbc6ec45270
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: security-benchmark
+ms.openlocfilehash: 4f3e8540902809f951a441aa2fe8d00026c44d82
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75934506"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81408594"
 ---
 # <a name="security-control-data-recovery"></a>Control de seguridad: Recuperación de datos
 
@@ -27,9 +26,7 @@ Asegúrese de que se realiza una copia de seguridad de todos los datos, configur
 
 Habilite Azure Backup y configure el origen de la copia de seguridad (máquinas virtuales de Azure, SQL Server o recursos compartidos de archivos), así como la frecuencia y el período de retención deseados.
 
-Habilitación de Azure Backup:
-
-https://docs.microsoft.com/azure/backup/
+- [Habilitación de Azure Backup](https://docs.microsoft.com/azure/backup/)
 
 ## <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9.2: Realización de copias de seguridad completas del sistema y copia de seguridad de las claves administradas por el cliente
 
@@ -39,13 +36,9 @@ https://docs.microsoft.com/azure/backup/
 
 Habilite Azure Backup y las máquinas virtuales de destino, así como la frecuencia y los períodos de retención deseados. Realice una copia de seguridad de las claves administradas del cliente con Azure Key Vault.
 
-Habilitación de Azure Backup:
+- [Habilitación de Azure Backup](https://docs.microsoft.com/azure/backup/)
 
-https://docs.microsoft.com/azure/backup/
-
-Realización de una copia de seguridad de las claves del almacén de claves en Azure:
-
-https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0
+- [Creación de una copia de seguridad de las claves del almacén de claves en Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
 
 ## <a name="93-validate-all-backups-including-customer-managed-keys"></a>9.3: Validación de todas las copias de seguridad, incluidas las claves administradas por el cliente
 
@@ -53,15 +46,11 @@ https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvau
 |--|--|--|
 | 9.3 | 10,3 | Customer |
 
-Garantice la capacidad de realizar la restauración de datos de contenido en Azure Backup de forma periódica. Si es necesario, pruebe la restauración en una VLAN aislada. Pruebe la restauración de las claves administradas por el cliente de la copia de seguridad.
+Garantice la capacidad de realizar la restauración de datos de contenido en Azure Backup de forma periódica. Pruebe la restauración de las claves administradas por el cliente de la copia de seguridad.
 
-Recuperación de archivos desde una copia de seguridad de máquina virtual de Azure:
+- [Recuperación de archivos desde una copia de seguridad de máquina virtual de Azure](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm)
 
-https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm
-
-Restauración de las claves del almacén de claves en Azure:
-
-https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0
+- [Restauración de las claves del almacén de claves en Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
 ## <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4: Garantía de la protección de las copias de seguridad y las claves administradas del cliente
 
@@ -69,12 +58,17 @@ https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyva
 |--|--|--|
 | 9,4 | 10,4 | Customer |
 
-Para la copia de seguridad local, el cifrado en reposo se proporciona con la frase de contraseña que proporcione durante la copia de seguridad en Azure. Para máquinas virtuales de Azure, los datos están cifrados en reposo con Storage Service Encryption (SSE). Puede habilitar la eliminación temporal en Key Vault para proteger las claves contra la eliminación accidental o malintencionada.
+Para la copia de seguridad local, el cifrado en reposo se proporciona con la frase de contraseña que proporcione durante la copia de seguridad en Azure. Para máquinas virtuales de Azure, los datos están cifrados en reposo con Storage Service Encryption (SSE). Use el control de acceso basado en rol para proteger las copias de seguridad y las claves administradas por el cliente.  
 
-Habilitación de la eliminación temporal en Key Vault:
+Habilite la eliminación temporal y la protección de purga en Key Vault para proteger las claves contra la eliminación accidental o malintencionada.  Si Azure Storage se usa para almacenar las copias de seguridad, habilite la eliminación temporal para guardar y recuperar los datos cuando se eliminen blobs o instantáneas de blobs. 
 
-https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
+- [Descripción de Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
+
+- [Procedimiento para habilitar la eliminación temporal y la protección de purga en Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+
+- [Eliminación temporal de blobs de Azure Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Vea el siguiente control de seguridad: [Respuesta a los incidentes](security-control-incident-response.md)
+- Consulte el control de seguridad siguiente:  [Respuesta a los incidentes](security-control-incident-response.md)

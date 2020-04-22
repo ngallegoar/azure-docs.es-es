@@ -10,14 +10,14 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 01/15/2020
+ms.date: 04/14/2020
 ms.custom: seodec18
-ms.openlocfilehash: b8c2ba54fcc69ba126bf5f68aed99b25f8156155
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b564373780da5bba71bc46ddbac3dc69a0c94a4a
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76046180"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382779"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Explorador de Azure Time Series Insights
 
@@ -82,7 +82,7 @@ Minutos después de conectar el origen del evento al entorno de Times Series Ins
 
          [![Consultas de disponibilidad general de ejemplo](media/time-series-insights-explorer/tsi-ga-example-queries.png)](media/time-series-insights-explorer/tsi-ga-example-queries.png#lightbox)
 
-1. Puede usar la herramienta de control deslizante **Interval Size** (Tamaño del intervalo) para acercar y alejar los intervalos del mismo intervalo de tiempo. El control deslizante proporciona un control más preciso del movimiento entre intervalos de tiempo de gran tamaño que muestran tendencias uniformes hasta intervalos tan pequeños como un milisegundo, lo que permite mostrar y analizar cortes pormenorizados y de alta resolución de los datos. El punto inicial predeterminado del control deslizante está establecido como la vista óptima de los datos de la selección para equilibrar la resolución, la velocidad de la consulta y la granularidad.
+1. Puede usar la herramienta de control deslizante **Interval Size** (Tamaño del intervalo) para acercar y alejar los intervalos del mismo intervalo de tiempo. El control deslizante proporciona un control más preciso del movimiento entre intervalos de tiempo de gran tamaño que muestran tendencias uniformes hasta intervalos tan pequeños como un milisegundo, lo que permite mostrar y analizar cortes pormenorizados y de alta resolución de los datos. El punto inicial predeterminado del control deslizante está establecido como la vista más óptima de los datos de la selección para equilibrar la resolución, la velocidad de la consulta y la granularidad.
 
 1. La herramienta **Time brush** (Pincel de tiempo) facilita el paso de un intervalo de tiempo a otro.
 

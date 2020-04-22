@@ -1,6 +1,6 @@
 ---
-title: Administración de la retención de copia de seguridad a largo plazo
-description: Aprenda a almacenar copias de seguridad automatizadas en el almacenamiento de SQL Azure y, después, a restaurarlas
+title: 'Base de datos única: Administración de la retención de copia de seguridad a largo plazo'
+description: Obtenga información sobre cómo almacenar y restaurar copias de seguridad automatizadas para una base de datos única o agrupada de Azure SQL Database en Azure Storage (durante un máximo de 10 años) mediante Azure Portal y PowerShell.
 services: sql-database
 ms.service: sql-database
 ms.subservice: backup-restore
@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 08/21/2019
-ms.openlocfilehash: a560f4f1399792a7b150b37c3c048ccc0079b98d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.openlocfilehash: 2564fd0ffd980dae4ca1835f4211fee0a0cf040c
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74420792"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81380931"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Administración de la retención de copias de seguridad a largo plazo de Azure SQL Database
 

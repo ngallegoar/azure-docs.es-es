@@ -4,16 +4,16 @@ description: Automatice las tareas que supervisan, crean, administran, envían y
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
-ms.reviewer: estfan, klam, logicappspm
+ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 03/7/2020
+ms.date: 04/13/2020
 tags: connectors
-ms.openlocfilehash: d4ab7425c967d3a176c0a576d0be38ece1701b8b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d7fafdd5830ec2825771d4d611a5f4bd5d87260a
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79128399"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393634"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Supervisión, creación y administración de archivos SFTP mediante SSH y Azure Logic Apps
 
@@ -147,6 +147,16 @@ Si la clave privada está en formato PuTTy, que usa la extensión de nombre de a
 
 1. Guarde el archivo de clave privada con la extensión de nombre de archivo `.pem`.
 
+## <a name="considerations"></a>Consideraciones
+
+En esta sección se describen las consideraciones para revisar las acciones y los desencadenadores de este conector.
+
+<a name="create-file"></a>
+
+### <a name="create-file"></a>Crear archivo
+
+Para crear un archivo en el servidor SFTP, puede usar la acción **Crear archivo** de SFTP-SSH. Cuando esta acción crea el archivo, el servicio Logic Apps también llama automáticamente al servidor SFTP para obtener los metadatos del archivo. Sin embargo, si mueve el archivo recién creado antes de que el servicio Logic Apps pueda realizar la llamada para obtener los metadatos, recibirá un mensaje de error `404`, `'A reference was made to a file or folder which does not exist'`. Para omitir la lectura de los metadatos del archivo tras la creación de este, siga los pasos para [agregar y establecer la propiedad **Obtener todos los metadatos del archivo** en **No**](#file-does-not-exist).
+
 <a name="connect"></a>
 
 ## <a name="connect-to-sftp-with-ssh"></a>Conexión a SFTP con SSH
@@ -211,9 +221,27 @@ Este desencadenador inicia un flujo de trabajo de aplicación lógica cuando se 
 
 <a name="get-content"></a>
 
-### <a name="sftp---ssh-action-get-content-using-path"></a>SFTP - acción SSH: Obtener contenido mediante la ruta de acceso
+### <a name="sftp---ssh-action-get-file-content-using-path"></a>SFTP - acción SSH: Obtener contenido de archivo mediante la ruta de acceso
 
-Esta acción obtiene el contenido de un archivo en un servidor SFTP. Por ejemplo, puede agregar el desencadenador del ejemplo anterior y una condición que debe cumplir el contenido del archivo. Si la condición es verdadera, se puede ejecutar la acción que obtiene el contenido.
+Esta acción obtiene el contenido de un archivo en un servidor SFTP especificando la ruta de acceso del archivo. Por ejemplo, puede agregar el desencadenador del ejemplo anterior y una condición que debe cumplir el contenido del archivo. Si la condición es verdadera, se puede ejecutar la acción que obtiene el contenido.
+
+<a name="troubleshooting-errors"></a>
+
+## <a name="troubleshoot-errors"></a>Solución de errores
+
+En esta sección se describen posibles soluciones a errores o problemas comunes.
+
+<a name="file-does-not-exist"></a>
+
+### <a name="404-error-a-reference-was-made-to-a-file-or-folder-which-does-not-exist"></a>Error 404: "Se ha hecho referencia a un archivo o carpeta que no existe"
+
+Este error puede producirse cuando la aplicación lógica crea un nuevo archivo en el servidor SFTP a través de la acción **Crear archivo** de SFTP-SSH, pero el archivo recién creado se mueve inmediatamente antes de que el servicio Logic Apps pueda obtener los metadatos del archivo. Cuando la aplicación lógica ejecuta la acción **Crear archivo**, el servicio Logic Apps también llama automáticamente al servidor SFTP para obtener los metadatos del archivo. Sin embargo, si se mueve el archivo, el servicio Logic Apps ya no podrá encontrarlo, por lo que obtendrá el mensaje de error `404`.
+
+Si no puede evitar o retrasar el traslado del archivo, puede omitir la lectura de los metadatos del mismo después de la creación del archivo en su lugar siguiendo estos pasos:
+
+1. En la acción **Crear archivo**, abra la lista **Agregar nuevo parámetro**, seleccione la propiedad **Obtener todos los metadatos del archivo** y establezca el valor en **No**.
+
+1. Si necesita estos metadatos del archivo más adelante, puede usar la acción **Obtener metadatos de archivo**.
 
 ## <a name="connector-reference"></a>Referencia de conectores
 

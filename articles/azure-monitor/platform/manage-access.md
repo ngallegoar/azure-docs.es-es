@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/22/2019
-ms.openlocfilehash: 1e559309b8e8d9768ca2f79dabfb01ec6086a961
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.date: 04/10/2019
+ms.openlocfilehash: b8d7f995997b828c2323b3e6934b97354c2f8c8b
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80348715"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255250"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Administración del acceso a los datos de registro y las áreas de trabajo en Azure Monitor
 
@@ -273,7 +273,7 @@ Para crear un rol con acceso solo a la tabla _SecurityBaseline_, cree un rol per
 
  Los registros personalizados se crean a partir de orígenes de datos, como los registros personalizados y la API HTTP Data Collector. La manera más fácil de identificar el tipo de registro es mediante la comprobación de las tablas que aparecen en [Registros personalizados del esquema del registro](../log-query/get-started-portal.md#understand-the-schema).
 
- Actualmente no se puede conceder el acceso a registros personalizados individuales, pero puede conceder el acceso a todos los registros personalizados. Para crear un rol con acceso a todos los registros personalizados, cree un rol personalizado con las siguientes acciones:
+ No se puede conceder el acceso a registros personalizados individuales, pero puede conceder el acceso a todos los registros personalizados. Para crear un rol con acceso a todos los registros personalizados, cree un rol personalizado con las siguientes acciones:
 
 ```
 "Actions":  [
@@ -282,6 +282,9 @@ Para crear un rol con acceso solo a la tabla _SecurityBaseline_, cree un rol per
     "Microsoft.OperationalInsights/workspaces/query/Tables.Custom/read"
 ],
 ```
+Un enfoque alternativo para administrar el acceso a los registros personalizados es asignarlos a un recurso de Azure y administrar el acceso mediante el paradigma del contexto del recurso. Para usar este método, debe incluir el identificador de recurso; para ello, debe especificarlo en el encabezado [x-ms-AzureResourceId](data-collector-api.md#request-headers), donde se introducen los datos en Log Analytics mediante la [API del recopilador de datos HTTP](data-collector-api.md). El identificador de recurso debe ser válido y tener reglas de acceso aplicadas. Una vez ingeridos los registros, se puede acceder a ellos con acceso de lectura al recurso, como se explica aquí.
+
+A veces, los registros personalizados proceden de orígenes que no están directamente asociados a un recurso específico. En este caso, cree un grupo de recursos solo para administrar el acceso a estos registros. El grupo de recursos no incurre en ningún costo, pero proporciona un identificador de recurso válido para controlar el acceso a los registros personalizados. Por ejemplo, si un firewall específico envía registros personalizados, cree un grupo de recursos denominado "MyFireWallLogs" y asegúrese de que las solicitudes de API contienen el identificador de recurso de "MyFireWallLogs". Solo los usuarios a los que se les ha concedido acceso a MyFireWallLogs o los que tienen acceso total al área de trabajo pueden acceder a los registros del firewall.          
 
 ### <a name="considerations"></a>Consideraciones
 

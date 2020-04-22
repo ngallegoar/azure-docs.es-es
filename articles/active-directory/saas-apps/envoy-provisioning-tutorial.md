@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Configuración de Envoy para el aprovisionamiento automático de usuarios con Azure Active Directory | Microsoft Docs'
-description: Aprenda a configurar Azure Active Directory para aprovisionar y cancelar automáticamente el aprovisionamiento de cuentas de usuario en Envoy.
+description: Aprenda a aprovisionar y cancelar el aprovisionamiento de forma automática de las cuentas de usuario de Azure AD para Envoy.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -14,73 +14,75 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/3/2019
-ms.author: jeedes
-ms.openlocfilehash: 30faae80f1af4ff63924a76b26a03b8fe354a7df
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: Zhchia
+ms.openlocfilehash: 68e17ba1dd5981e565e56d6c8137f77d33ad755b
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77058032"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393517"
 ---
 # <a name="tutorial-configure-envoy-for-automatic-user-provisioning"></a>Tutorial: Configuración de Envoy para el aprovisionamiento automático de usuarios
 
-El objetivo de este tutorial es mostrar los pasos que se realizan en Envoy y Azure Active Directory (Azure AD) para configurar Azure AD a fin de aprovisionar y cancelar automáticamente el aprovisionamiento de usuarios o grupos en Envoy.
+En este tutorial, se describen los pasos que debe realizar en Envoy y Azure Active Directory (Azure AD) para configurar el aprovisionamiento automático de usuarios. Cuando se configura, Azure AD aprovisiona y cancela el aprovisionamiento de usuarios y grupos de manera automática en [Envoy](https://envoy.com/pricing/) mediante el servicio de aprovisionamiento de Azure AD. Para obtener información importante acerca de lo que hace este servicio, cómo funciona y ver preguntas frecuentes al respecto, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../manage-apps/user-provisioning.md). 
 
-> [!NOTE]
-> Este tutorial describe un conector que se crea sobre el servicio de aprovisionamiento de usuarios de Azure AD. Para obtener información importante acerca de lo que hace este servicio, cómo funciona y ver preguntas frecuentes al respecto, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md).
->
-> Este conector está actualmente en versión preliminar pública. Para más información sobre los términos de uso generales de Microsoft Azure para las características en versión preliminar, consulte [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+## <a name="capabilities-supported"></a>Funcionalidades admitidas
+> [!div class="checklist"]
+> * Crear usuarios en Envoy
+> * Quitar usuarios de Envoy cuando ya no necesiten acceso
+> * Mantener los atributos de usuario sincronizados entre Azure AD y Envoy
+> * Aprovisionar grupos y pertenencias a grupos en Envoy
+> * [Inicio de sesión único](https://docs.microsoft.com/azure/active-directory/saas-apps/envoy-tutorial) en Envoy (recomendado)
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
 En el escenario descrito en este tutorial se supone que ya cuenta con los requisitos previos siguientes:
 
-* Un inquilino de Azure AD
-* [Un inquilino de Envoy](https://envoy.com/pricing/)
+* [Un inquilino de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
+* Una cuenta de usuario en Azure AD con [permiso](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) para configurar el aprovisionamiento (por ejemplo, Administrador de aplicaciones, Administrador de aplicaciones en la nube, Propietario de la aplicación o Administrador global). 
+* [Un inquilino de Envoy](https://envoy.com/pricing/).
 * Una cuenta de usuario de Envoy con permisos de administrador.
 
-## <a name="add-envoy-from-the-gallery"></a>Adición de Envoy desde la galería
+## <a name="step-1-plan-your-provisioning-deployment"></a>Paso 1. Planeación de la implementación de aprovisionamiento
+1. Obtenga información sobre [cómo funciona el servicio de aprovisionamiento](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+2. Determine quién estará en el [ámbito de aprovisionamiento](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
+3. Determine qué datos quiere [asignar entre Azure AD y Envoy](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-Antes de configurar Envoy para el aprovisionamiento automático de usuarios con Azure AD, es preciso agregar Envoy desde la galería de aplicaciones de Azure AD a la lista de aplicaciones SaaS administradas.
+## <a name="step-2-configure-envoy-to-support-provisioning-with-azure-ad"></a>Paso 2. Configuración de Envoy para admitir el aprovisionamiento con Azure AD
 
-**Para agregar Envoy desde la galería de aplicaciones de Azure AD, siga estos pasos:**
+1. Inicie sesión en la [consola de administración de Envoy](https://dashboard.envoy.com/login). Haga clic en **Integrations** (Integraciones).
 
-1. En **[Azure Portal](https://portal.azure.com)** , en el panel de navegación izquierdo, seleccione **Azure Active Directory**.
+    ![Integraciones de Envoy](media/envoy-provisioning-tutorial/envoy01.png)
 
-    ![Botón Azure Active Directory](common/select-azuread.png)
+2. Haga clic en **Install** (Instalar) para la **integración de Microsoft Azure SCIM**.
 
-2. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
+    ![Instalar de Envoy](media/envoy-provisioning-tutorial/envoy02.png)
 
-    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
+3. Haga clic en **Save** (Guardar) para **sincronizar todos los usuarios**. 
 
-3. Para agregar una nueva aplicación, seleccione el botón **Nueva aplicación** en la parte superior del panel.
+    ![Guardar de Envoy](media/envoy-provisioning-tutorial/envoy03.png)
 
-    ![Botón Nueva aplicación](common/add-new-app.png)
+4. Copie el **TOKEN DE PORTADOR DE OAUTH**. Este valor se escribirá en el campo **Token secreto** de la pestaña Aprovisionamiento de la aplicación Envoy en Azure Portal.
+    
+    ![OAUTH en Envoy](media/envoy-provisioning-tutorial/envoy04.png)
 
-4. En el cuadro de búsqueda, escriba **Envoy**, seleccione **Envoy** en el panel de resultados y luego haga clic en el botón **Agregar** para agregar la aplicación.
+## <a name="step-3-add-envoy-from-the-azure-ad-application-gallery"></a>Paso 3. Adición de Envoy desde la galería de aplicaciones de Azure AD
 
-    ![Envoy en la lista de resultados](common/search-new-app.png)
+Para empezar a administrar el aprovisionamiento de Envoy, agregue Envoy desde la galería de aplicaciones de Azure AD. Si ha configurado previamente Envoy para el inicio de sesión único, puede usar la misma aplicación. Sin embargo, se recomienda que cree una aplicación independiente al probar la integración inicialmente. Puede encontrar más información sobre cómo agregar una aplicación desde la galería [aquí](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
 
-## <a name="assigning-users-to-envoy"></a>Asignación de usuarios a Envoy
+## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Paso 4. Determinar quién estará en el ámbito de aprovisionamiento 
 
-Azure Active Directory usa un concepto denominado *asignaciones* para determinar qué usuarios deben recibir acceso a determinadas aplicaciones. En el contexto del aprovisionamiento automático de usuarios, solo se sincronizan los usuarios y grupos que se han asignado a una aplicación en Azure AD.
+El servicio de aprovisionamiento de Azure AD le permite definir quién se aprovisionará, en función de la asignación a la aplicación y de los atributos del usuario o grupo. Si elige el ámbito del que se aprovisionará en la aplicación en función de la asignación, puede usar los pasos [siguientes](../manage-apps/assign-user-or-group-access-portal.md) para asignar usuarios y grupos a la aplicación. Si elige el ámbito del que se aprovisionará en función únicamente de los atributos del usuario o grupo, puede usar un filtro de ámbito, tal como se describe [aquí](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-Antes de configurar y habilitar el aprovisionamiento automático de usuarios, debe decidir qué usuarios o grupos de Azure AD necesitan acceder a Envoy. Una vez que lo decida, puede seguir estas instrucciones para asignar dichos usuarios o grupos a Envoy:
+* Al asignar usuarios y grupos a Envoy, debe seleccionar un rol que no sea **Acceso predeterminado**. Los usuarios con el rol de acceso predeterminado se excluyen del aprovisionamiento y se marcarán como no autorizados en los registros de aprovisionamiento. Si el único rol disponible en la aplicación es el rol de acceso predeterminado, puede [actualizar el manifiesto de aplicación](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) para agregar roles adicionales. 
 
-* [Asignar un usuario o grupo a una aplicación empresarial](../manage-apps/assign-user-or-group-access-portal.md)
+* Empiece por algo pequeño. Pruebe con un pequeño conjunto de usuarios y grupos antes de implementarlo en todos. Cuando el ámbito del aprovisionamiento se define en los usuarios y grupos asignados, puede controlarlo asignando uno o dos usuarios o grupos a la aplicación. Cuando el ámbito se establece en todos los usuarios y grupos, puede especificar un [filtro de ámbito basado en atributos](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-### <a name="important-tips-for-assigning-users-to-envoy"></a>Sugerencias importantes para asignar usuarios a Envoy
 
-* Se recomienda asignar un único usuario de Azure AD a Envoy para probar la configuración de aprovisionamiento automático de usuarios. Más tarde, se pueden asignar otros usuarios o grupos.
+## <a name="step-5-configure-automatic-user-provisioning-to-envoy"></a>Paso 5. Configuración del aprovisionamiento automático de usuarios en Envoy 
 
-* Al asignar un usuario a Envoy, debe seleccionar un rol válido específico de la aplicación (si está disponible) en el cuadro de diálogo de asignación. Los usuarios con el rol de **Acceso predeterminado** quedan excluidos del aprovisionamiento.
-
-## <a name="configuring-automatic-user-provisioning-to-envoy"></a>Configuración del aprovisionamiento automático de usuarios en Envoy 
-
-Esta sección le guía por los pasos necesarios para configurar el servicio de aprovisionamiento de AD Azure para crear, actualizar y deshabilitar usuarios o grupos en Envoy en función de las asignaciones de grupos y usuarios de Azure AD.
-
-> [!TIP]
-> También puede optar por habilitar el inicio de sesión único basado en SAML para Envoy siguiendo las instrucciones del [tutorial de inicio de sesión único de Envoy](envoy-tutorial.md). El inicio de sesión único puede configurarse independientemente del aprovisionamiento automático de usuarios, aunque estas dos características se complementan entre sí.
+Esta sección le guía por los pasos necesarios para configurar el servicio de aprovisionamiento de Azure AD a fin de crear, actualizar y deshabilitar usuarios o grupos en TestApp en función de las asignaciones de grupos o usuarios de Azure AD.
 
 ### <a name="to-configure-automatic-user-provisioning-for-envoy-in-azure-ad"></a>Para configurar el aprovisionamiento automático de usuarios para Envoy en Azure AD:
 
@@ -100,74 +102,80 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Pestaña Aprovisionamiento](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador**, escriba `https://app.envoy.com/scim/v2` en la **URL de inquilino**. Para recuperar el valor del **token secreto** de su cuenta de Envoy, siga el tutorial tal y como se describe en el paso 6.
+5. En la sección **Credenciales de administrador**, escriba `https://app.envoy.com/scim/v2` en la **URL de inquilino**. Escriba el valor **TOKEN DE PORTADOR DE OAUTH** recuperado anteriormente en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Envoy. Si la conexión no se establece, asegúrese de que la cuenta de Envoy tiene permisos de administrador y pruebe de nuevo.
 
-6. Inicie sesión en la [consola de administración de Envoy](https://dashboard.envoy.com/login). Haga clic en **Integrations** (Integraciones).
+   ![Aprovisionamiento](./media/envoy-tutorial/provisioning.png)
 
-    ![Integraciones de Envoy](media/envoy-provisioning-tutorial/envoy01.png)
-
-    Haga clic en **Install** (Instalar) para la **integración de Microsoft Azure SCIM**.
-
-    ![Instalar de Envoy](media/envoy-provisioning-tutorial/envoy02.png)
-
-    Haga clic en **Save** (Guardar) para **sincronizar todos los usuarios**. 
-
-    ![Guardar de Envoy](media/envoy-provisioning-tutorial/envoy03.png)
-
-    Recupere el token secreto rellenado.
-    
-    ![OAUTH en Envoy](media/envoy-provisioning-tutorial/envoy04.png)
-
-7. Tras rellenar los campos que se muestran en el paso 5, haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Envoy. Si la conexión no se establece, asegúrese de que la cuenta de Envoy tiene permisos de administrador y pruebe de nuevo.
-
-    ![Token](common/provisioning-testconnection-tenanturltoken.png)
-
-8. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que deba recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-9. Haga clic en **Save**(Guardar).
+7. Seleccione **Guardar**.
 
-10. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Envoy** (Sincronizar usuarios de Azure Active Directory con Envoy).
-    
-    ![Atributos de usuario de Envoy](media/envoy-provisioning-tutorial/envoy-user-mappings.png)
-    
-11. Examine los atributos de usuario que se sincronizan entre Azure AD y Envoy en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades **Coincidentes** se usan para establecer correspondencia con las cuentas del usuario en Envoy a fin de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
+8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Envoy** (Sincronizar usuarios de Azure Active Directory con Envoy).
 
-    ![Atributos de usuario de Envoy](media/envoy-provisioning-tutorial/envoy-user-attribute.png)
+9. Examine los atributos de usuario que se sincronizan entre Azure AD y Envoy en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades **Coincidentes** se usan para establecer correspondencia con las cuentas del usuario en Envoy a fin de realizar operaciones de actualización. Si decide cambiar el [atributo de destino coincidente](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes), deberá asegurarse de que la API de Envoy admite el filtrado de usuarios basado en ese atributo. Seleccione el botón **Guardar** para confirmar los cambios.
 
-12. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Groups to Envoy** (Sincronizar grupos de Azure Active Directory con Envoy).
+   |Atributo|Tipo|
+   |---|---|
+   |userName|String|
+   |externalId|String|
+   |DisplayName|String|
+   |title|String|
+   |emails[type eq "work"].value|String|
+   |preferredLanguage|String|
+   |department|String|
+   |addresses[type eq "work"].country|String|
+   |addresses[type eq "work"].locality|String|
+   |addresses[type eq "work"].region|String|
+   |addresses[type eq "work"].postalCode|String|
+   |addresses[type eq "work"].formatted|String|
+   |addresses[type eq "work"].streetAddress|String|
+   |name.givenName|String|
+   |name.familyName|String|
+   |name.formatted|String|
+   |phoneNumbers[type eq "mobile"].value|String|
+   |phoneNumbers[type eq "work"].value|String|
+   |locale|String|
 
-    ![Asignaciones de usuario de Envoy](media/envoy-provisioning-tutorial/envoy-group-mapping.png)
+10. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Groups to Envoy** (Sincronizar grupos de Azure Active Directory con Envoy).
 
-13. Examine los atributos de grupo que se sincronizan entre Azure AD y Envoy en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades **Coincidentes** se usan para establecer correspondencia con las cuentas del usuario en Envoy a fin de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
+11. Examine los atributos de grupo que se sincronizan entre Azure AD y Envoy en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades **Coincidentes** se usan para establecer correspondencia con las cuentas del usuario en Envoy a fin de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 
-    ![Asignaciones de usuario de Envoy](media/envoy-provisioning-tutorial/envoy-group-attributes.png)
-    
-14. Para configurar filtros de ámbito, consulte las siguientes instrucciones, que se proporcionan en el artículo [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+      |Atributo|Tipo|
+      |---|---|
+      |DisplayName|String|
+      |externalId|String|
+      |members|Referencia|
 
-15. Para habilitar el servicio de aprovisionamiento de Azure AD para Envoy, cambie la opción **Estado de aprovisionamiento** a **Activado** en la sección **Configuración**.
+12. Para configurar filtros de ámbito, consulte las siguientes instrucciones, que se proporcionan en el artículo [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+
+13. Para habilitar el servicio de aprovisionamiento de Azure AD para Envoy, cambie la opción **Estado de aprovisionamiento** a **Activado** en la sección **Configuración**.
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-16. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que desea que se aprovisionen en Envoy.
+14. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que desea que se aprovisionen en Envoy.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 
-17. Cuando esté listo para realizar el aprovisionamiento, haga clic en **Guardar**.
+15. Cuando esté listo para realizar el aprovisionamiento, haga clic en **Guardar**.
 
     ![Guardar la configuración de aprovisionamiento](common/provisioning-configuration-save.png)
 
-Esta operación inicia la sincronización inicial de todos los usuarios o grupos definidos en **Ámbito** en la sección **Configuración**. La sincronización inicial tarda más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 40 minutos si el servicio de aprovisionamiento de Azure AD está ejecutándose. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y seguir los vínculos al informe de actividad de aprovisionamiento, donde se describen todas las acciones que ha llevado a cabo el servicio de aprovisionamiento de Azure AD en Envoy.
+Esta operación inicia el ciclo de sincronización inicial de todos los usuarios y grupos definidos en **Ámbito** en la sección **Configuración**. El ciclo de sincronización inicial tarda más tiempo en realizarse que los ciclos posteriores, que se producen aproximadamente cada 40 minutos si el servicio de aprovisionamiento de Azure AD está ejecutándose. 
 
-Para más información sobre cómo leer los registros de aprovisionamiento de Azure AD, consulte el tutorial de [Creación de informes sobre el aprovisionamiento automático de cuentas de usuario](../app-provisioning/check-status-user-account-provisioning.md).
+## <a name="step-6-monitor-your-deployment"></a>Paso 6. Supervisión de la implementación
+Una vez configurado el aprovisionamiento, use los recursos siguientes para supervisar la implementación:
+
+* Use los [registros de aprovisionamiento](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) para determinar qué usuarios se han aprovisionado correctamente o sin éxito.
+* Consulte la [barra de progreso](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) para ver el estado del ciclo de aprovisionamiento y cuánto falta para que finalice.
+* Si la configuración de aprovisionamiento parece estar en mal estado, la aplicación pasará a estar en cuarentena. Más información sobre los estados de cuarentena [aquí](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Aprenda a revisar los registros y a obtener informes sobre la actividad de aprovisionamiento](../app-provisioning/check-status-user-account-provisioning.md)
-
+* [Aprenda a revisar los registros y a obtener informes sobre la actividad de aprovisionamiento](../manage-apps/check-status-user-account-provisioning.md)

@@ -5,42 +5,28 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/28/2020
-ms.openlocfilehash: 9a3a58cab2d9673a4660967e3a11d7f88900e718
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 4/13/2020
+ms.openlocfilehash: f834ba3355d362e59e2e44f37eca0560b9bf4d7a
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79232688"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81271988"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql"></a>Registros de consultas lentas en Azure Database for MySQL
 En Azure Database for MySQL, el registro de consultas lentas está disponible para los usuarios. No se admite el acceso al registro de transacciones. El registro de consultas lentas puede utilizarse para identificar cuellos de botella que afectan al rendimiento a fin de solucionar el problema.
 
 Para obtener más información sobre el registro de consultas lentas de MySQL, vea la [sección de registro de consultas lentas](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) del manual de referencia.
 
-## <a name="access-slow-query-logs"></a>Acceso a registros de consultas lentas
-Puede enumerar y descargar los registros de consultas lentas de Azure Database for MySQL mediante Azure Portal y la CLI de Azure.
-
-En Azure Portal, seleccione el servidor de Azure Database for MySQL. En el encabezado **Supervisión**, seleccione la página **Registros de servidor**.
-
-Para más información sobre la CLI de Azure, consulte [Configuración y acceso a los registros de consultas lentas con la CLI de Azure](howto-configure-server-logs-in-cli.md).
-
-Del mismo modo, puede canalizar los registros a Azure Monitor mediante los registros de diagnóstico. Para más información, [siga leyendo](concepts-server-logs.md#diagnostic-logs).
-
-## <a name="log-retention"></a>Retención de registros
-Los registros están disponibles hasta siete días después de su creación. Si el tamaño total de los registros disponibles supera los 7 GB, se eliminan los archivos más antiguos hasta que haya espacio disponible. 
-
-Los registros se rotan cada 24 horas o 7 GB, lo que ocurra primero.
-
 ## <a name="configure-slow-query-logging"></a>Configuración del registro de consultas lentas 
-De forma predeterminada, el registro de consultas lentas está deshabilitado. Para habilitarlo, establezca low_query_log en ON.
+De forma predeterminada, el registro de consultas lentas está deshabilitado. Para habilitarlo, cambie `slow_query_log` a Activado. Para ello, se puede usar Azure Portal o la CLI de Azure. 
 
 Otros parámetros que se pueden ajustar son los siguientes:
 
 - **long_query_time**: si una consulta tarda más que long_query_time (en segundos), esa consulta se registra. El valor predeterminado es 10 segundos.
 - **log_slow_admin_statements**: si ON incluye instrucciones administrativas como ALTER_TABLE y ANALYZE_TABLE en las instrucciones escritas en slow_query_log.
 - **log_queries_not_using_indexes**: determina si las consultas que no utilizan índices se registran en slow_query_log.
-- **log_throttle_queries_not_using_indexes**: este parámetro limita el número de consultas no de índice que se pueden escribir en el registro de consultas lentas. Este parámetro surte efecto cuando log_queries_not_using_indexes está configurado en ON.
+- **log_throttle_queries_not_using_indexes**: este parámetro limita el número de consultas que no son de índice que se pueden escribir en el registro de consultas lentas. Este parámetro surte efecto cuando log_queries_not_using_indexes está configurado en ON.
 - **log_output**: si es "File", permite escribir el registro de consultas lento en el almacenamiento del servidor local y en los registros de diagnóstico de Azure Monitor. Si es "None", el registro de consultas lentas solo se escribirá en los registros de diagnóstico de Azure Monitor. 
 
 > [!IMPORTANT]
@@ -48,6 +34,21 @@ Otros parámetros que se pueden ajustar son los siguientes:
 > Si planea registrar consultas lentas durante un periodo prolongado, se recomienda establecer `log_output` en "None" (No). Si se establece en "File" (Archivo), estos registros se escriben en el almacenamiento del servidor local, lo que puede afectar al rendimiento de MySQL. 
 
 Consulte la [documentación rel registro de consultas lentas](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) de MySQL para obtener una descripción completa de los parámetros de registro de consultas lentas.
+
+## <a name="access-slow-query-logs"></a>Acceso a registros de consultas lentas
+Hay dos opciones para acceder a los registros de consultas lentas en Azure Database for MySQL: almacenamiento del servidor local o registros de diagnóstico de Azure Monitor. Esto se establece mediante el parámetro `log_output`.
+
+Para el almacenamiento en el servidor local, puede enumerar y descargar los registros de consultas lentas mediante Azure Portal o la CLI de Azure. En Azure Portal, vaya al servidor en Azure Portal. En el encabezado **Supervisión**, seleccione la página **Registros de servidor**. Para más información sobre la CLI de Azure, consulte [Configuración y acceso a los registros de consultas lentas con la CLI de Azure](howto-configure-server-logs-in-cli.md). 
+
+Los registros de diagnóstico de Azure Monitor permiten canalizar los registros de consultas lentas a los registros de Azure Monitor (Log Analytics), Azure Storage o Event Hubs. Para más información, [siga leyendo](concepts-server-logs.md#diagnostic-logs).
+
+## <a name="local-server-storage-log-retention"></a>Retención de registros de almacenamiento del servidor local
+Al iniciar sesión en el almacenamiento local del servidor, los registros están disponibles hasta siete días desde su creación. Si el tamaño total de los registros disponibles supera los 7 GB, se eliminan los archivos más antiguos hasta que haya espacio disponible.
+
+Los registros se rotan cada 24 horas o 7 GB, lo que ocurra primero.
+
+> [!Note]
+> La retención de registros anterior no se aplica a los registros que se canalizan mediante los registros de diagnóstico de Azure Monitor. Puede cambiar el período de retención de los receptores de datos que se emiten a, por ejemplo, Azure Storage.
 
 ## <a name="diagnostic-logs"></a>Registros de diagnóstico
 Azure Database for MySQL se integra con los registros de diagnóstico de Azure Monitor. Después de habilitar los registros de consultas lentas en el servidor MySQL, puede optar por hacer que se emitan a los registros de Azure Monitor, Event Hubs o Azure Storage. Para más información sobre cómo habilitar los registros de diagnóstico, consulte la sección de la [documentación de registros de diagnóstico](../azure-monitor/platform/platform-logs-overview.md).

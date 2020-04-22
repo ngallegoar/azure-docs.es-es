@@ -13,12 +13,12 @@ ms.date: 04/12/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: a0a2c5fc971c3f1f3283d95c5617bdf1e88a6a58
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fbd700c787a844fa7538ed198f76ed5c06af2c28
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77084030"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010161"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>Inicialización de aplicaciones cliente con MSAL.js
 En este artículo se describe la inicialización de la biblioteca de autenticación de Microsoft para JavaScript (MSAL.js) con una instancia de una aplicación de agente de usuario. La aplicación de agente de usuario es una forma de aplicación cliente pública en la que el código cliente se ejecuta en un agente de usuario, como un explorador web. Estos clientes no almacenan secretos, ya que el contexto del explorador es de acceso público. Para obtener más información sobre los tipos de aplicaciones cliente y las opciones de configuración de la aplicación, lea la [Introducción](msal-client-applications.md).
@@ -35,7 +35,7 @@ Antes de inicializar una aplicación, primero tendrá que [registrarla en Azure 
 
 Puede usar MSAL.js como se indica a continuación en una aplicación JavaScript o Typescript sin formato. Para inicializar el contexto de autenticación de MSAL, cree una instancia de `UserAgentApplication` con un objeto de configuración. La configuración mínima necesaria para inicializar MSAL.js es el valor clientID de la aplicación, que debe obtener en el portal de registro de la aplicación.
 
-Para los métodos de autenticación con flujos de redirección (`loginRedirect` y `acquireTokenRedirect`), tendrá que registrar de forma explícita una devolución de llamada para los casos correctos o con error a través del método `handleRedirectCallback()`. Esto es necesario ya que los flujos de redirección no devuelven promesas como hacen los métodos con una experiencia emergente.
+Para los métodos de autenticación con flujos de redireccionamiento (`loginRedirect` y `acquireTokenRedirect`), en MSAL.js 1.2.x o en versiones anteriores, tendrá que registrar de forma explícita una devolución de llamada para los casos correctos o con error mediante el método `handleRedirectCallback()`. Esto es necesario ya que los flujos de redirección no devuelven promesas como hacen los métodos con una experiencia emergente. Se convirtió en opcional en MSAL.js 1.3.0.
 
 ```javascript
 // Configuration object constructed

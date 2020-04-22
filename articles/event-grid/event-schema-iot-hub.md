@@ -1,29 +1,27 @@
 ---
-title: Esquema de Azure Event Grid para IoT Hub | Microsoft Docs
+title: Azure IoT Hub como origen de Event Grid
 description: En este artículo se proporcionan las propiedades y los esquemas de los eventos de Azure IoT Hub. Enumera los tipos de eventos disponibles, un evento de ejemplo y las propiedades de evento.
 services: iot-hub
 documentationcenter: ''
-author: kgremban
-manager: timlt
+author: spelluru
 editor: ''
 ms.service: event-grid
-ms.topic: reference
-ms.date: 01/21/2020
-ms.author: kgremban
-ms.openlocfilehash: cfbd46ad961bd1dc914bae98e761cd83d445ff88
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.topic: conceptual
+ms.date: 04/09/2020
+ms.author: spelluru
+ms.openlocfilehash: f9bf807884ab5592fa320532f3ca10a223081263
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76513038"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393323"
 ---
-# <a name="azure-event-grid-event-schema-for-iot-hub"></a>Esquema de eventos de Azure Event Grid para IoT Hub
-
+# <a name="azure-iot-hub-as-an-event-grid-source"></a>Azure IoT Hub como origen de Event Grid
 En este artículo se proporcionan las propiedades y los esquemas de los eventos de Azure IoT Hub. Para una introducción a los esquemas de eventos, consulte [Esquema de eventos de Azure Event Grid](event-schema.md). 
 
-Para una lista de scripts de ejemplo y tutoriales, consulte los [orígenes de eventos de IoT Hub](event-sources.md#iot-hub).
+## <a name="event-grid-event-schema"></a>Esquema de eventos de Event Grid
 
-## <a name="available-event-types"></a>Tipos de eventos disponibles
+### <a name="available-event-types"></a>Tipos de eventos disponibles
 
 Azure IoT Hub emite los siguientes tipos de eventos:
 
@@ -37,7 +35,7 @@ Azure IoT Hub emite los siguientes tipos de eventos:
 
 Todos los eventos del dispositivo, excepto los eventos de telemetría del dispositivo, están disponibles con carácter general en todas las regiones admitidas por Event Grid. El evento de telemetría del dispositivo está en versión preliminar pública y está disponible en todas las regiones, excepto en Este de EE. UU., Oeste de EE. UU., Oeste de Europa, [Azure Government](../azure-government/documentation-government-welcome.md), [Azure China 21Vianet](/azure/china/china-welcome) y [Azure Alemania](https://azure.microsoft.com/global-infrastructure/germany/).
 
-## <a name="example-event"></a>Evento de ejemplo
+### <a name="example-event"></a>Evento de ejemplo
 
 El esquema para los eventos de dispositivo conectado y dispositivo desconectado tiene la misma estructura. Este evento de ejemplo muestra el esquema de un evento que se genera cuando se conecta un dispositivo a una instancia de IoT Hub:
 
@@ -205,6 +203,13 @@ Para los eventos de IoT Hub de **Dispositivo creado** y **Dispositivo eliminado*
 | desired | object | Una parte de las propiedades que solo el back-end de la aplicación puede escribir y que el dispositivo puede leer. | 
 | reported | object | Una parte de las propiedades que solo el dispositivo puede escribir y que el back-end de la aplicación puede leer. |
 | lastUpdated | string | La marca de tiempo ISO8601 de la última actualización de propiedades del dispositivo gemelo. | 
+
+## <a name="tutorials-and-how-tos"></a>Tutoriales y procedimientos
+|Título  |Descripción  |
+|---------|---------|
+| [Envío de notificaciones por correo electrónico sobre eventos de Azure IoT Hub mediante Logic Apps](publish-iot-hub-events-to-logic-apps.md) | Una aplicación lógica envía un correo electrónico de notificación cada vez que se agrega un dispositivo a IoT Hub. |
+| [Reacción a eventos de IoT Hub usando Event Grid para desencadenar acciones](../iot-hub/iot-hub-event-grid.md) | Información general sobre la integración de IoT Hub con Event Grid. |
+| [Ordenación de los eventos de dispositivo conectado y dispositivo desconectado](../iot-hub/iot-hub-how-to-order-connection-state-events.md) | Muestra cómo ordenar los eventos de estado de conexión del dispositivo. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

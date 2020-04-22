@@ -1,5 +1,5 @@
 ---
-title: Hoja de características de los algoritmos de Machine Learning
+title: 'Hoja de características de los algoritmos de Machine Learning: diseñador'
 titleSuffix: Azure Machine Learning
 description: Una hoja de características de los algoritmos de Machine Learning que pueda imprimirse le ayuda a elegir el algoritmo correcto para el modelo de predicción en el diseñador de Azure Machine Learning.
 services: machine-learning
@@ -9,16 +9,16 @@ ms.topic: conceptual
 author: FrancescaLazzeri
 ms.author: lazzeri
 ms.date: 03/05/2020
-ms.openlocfilehash: 85fbb1c1d26f71903adab2eb96b0c1dd3bf74c33
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: accc4766f25f5d58ba2f31c153fe1c5d23413170
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78328629"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399078"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-designer"></a>Hoja de características de los algoritmos de Machine Learning para el diseñador de Azure Machine Learning
 
-La **hoja de referencia rápida de algoritmos de Azure Machine Learning** le ayuda a elegir el algoritmo correcto para un modelo de análisis predictivo.
+La **hoja de características de los algoritmos de Azure Machine Learning** lo ayuda a elegir el algoritmo correcto para un modelo de análisis predictivo.
 
 Azure Machine Learning tiene una gran biblioteca de algoritmos de las familias ***clasificación***, ***sistemas de recomendación***, ***agrupación en clústeres***, ***detección de anomalías***, ***regresión*** y ***análisis de texto***. Cada uno de ellos está diseñado para resolver un tipo de problema de aprendizaje automático diferente.
 
@@ -38,7 +38,7 @@ Las sugerencias ofrecidas en esta hoja de referencia rápida de algoritmos son r
 
 Cada algoritmo de aprendizaje automático tiene su propio estilo o sesgo inductivo. Para un problema específico, varios algoritmos pueden ser apropiados y un algoritmo puede servir mejor que otros. Pero no siempre es posible saber de antemano cuál es la mejor opción. En estos casos, varios algoritmos se muestran juntos en la hoja de referencia rápida. Una estrategia adecuada sería probar un algoritmo y, si los resultados no resultan satisfactorios, probar los demás. 
 
-Para más información sobre los algoritmos de Azure Machine Learning, vaya a la [Referencia de módulo y algoritmo](algorithm-module-reference/module-reference.md).
+Para más información sobre los algoritmos del diseñador de Azure Machine Learning, vaya a la [referencia de módulo y algoritmo](algorithm-module-reference/module-reference.md).
 
 ## <a name="kinds-of-machine-learning"></a>Variantes del aprendizaje automático
 

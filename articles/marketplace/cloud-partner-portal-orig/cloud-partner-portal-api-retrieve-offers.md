@@ -5,22 +5,24 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 09/13/2018
+ms.date: 04/08/2020
 ms.author: dsindona
-ms.openlocfilehash: a1f15e269481b9706f81fd02f19effc9ad37df32
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0413bc71c113bf1eef9f761dbeed4c0d0afe735c
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80280497"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255964"
 ---
 <a name="retrieve-offers"></a>Recuperación de ofertas
 ===============
 
+> [!NOTE]
+> Las API de Cloud Partner Portal se integran con el Centro de partners y seguirán funcionando después de migrar las ofertas al Centro de partners. La integración presenta pequeños cambios. Revise los cambios que se muestran en la [referencia de las API de Cloud Partner Portal](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) para asegurarse de que el código sigue funcionando después de la migración al Centro de partners.
+
 Recupera una lista resumida de ofertas de un espacio de nombres del anunciante.
 
  `GET https://cloudpartner.azure.com/api/publishers/<publisherId>/offers?api-version=2017-10-31`
-
 
 <a name="uri-parameters"></a>Parámetros del identificador URI
 --------------
@@ -35,10 +37,10 @@ Recupera una lista resumida de ofertas de un espacio de nombres del anunciante.
 <a name="header"></a>Encabezado
 ------
 
-|  **Nombre**        |         **Value**       |
+|  **Nombre**        |         **Valor**       |
 |  --------------- |       ----------------  |
 |  Content-Type    | `application/json`      |
-|  Autorización   | `Bearer YOUR_TOKEN`     |
+|  Authorization   | `Bearer YOUR_TOKEN`     |
 |  |  |
 
 
@@ -80,7 +82,7 @@ Recupera una lista resumida de ofertas de un espacio de nombres del anunciante.
 
 ### <a name="response-status-codes"></a>Códigos de estado de respuesta
 
-| **(Código:**  |  **Descripción**                                                                                                   |
+| **Código**  |  **Descripción**                                                                                                   |
 | -------   |  ----------------------------------------------------------------------------------------------------------------- |
 |  200      | `OK`: La solicitud se ha procesado correctamente y todas las ofertas del anunciante se han devuelto al cliente.  |
 |  400      | `Bad/Malformed request`: El cuerpo de la respuesta del error puede contener más información.                                    |

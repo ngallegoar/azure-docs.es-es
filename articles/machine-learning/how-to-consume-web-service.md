@@ -1,7 +1,7 @@
 ---
 title: Creación de un cliente para el modelo implementado como servicio web
 titleSuffix: Azure Machine Learning
-description: Obtenga información sobre cómo consumir un servicio web generado al implementar un modelo con el modelo de Azure Machine Learning. El servicio web que expone una API REST. Cree clientes para esta API mediante el lenguaje de programación que quiera.
+description: Obtenga información sobre cómo llamar a un punto de conexión de servicio web generado al implementar un modelo desde Azure Machine Learning. El punto de conexión expone una API de REST, a la que puede llamar para realizar una inferencia con el modelo. Cree clientes para esta API mediante el lenguaje de programación que quiera.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,21 +9,21 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 01/07/2020
+ms.date: 04/14/2020
 ms.custom: seodec18
-ms.openlocfilehash: a86b8ddb59719db9bdaffea44aecd5428ad16834
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0222b63323c4e546628d790fabb881eba006494e
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80282671"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383391"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Consumir un modelo de Azure Machine Learning que está implementado como un servicio web
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-La implementación de un modelo de Azure Machine Learning como un servicio web crea una API REST. Puede enviar datos a esta API y recibir la predicción que devuelve el modelo. En este documento aprenderá a crear clientes para el servicio web usando C #, Go, Java y Python.
+La implementación de un modelo de Azure Machine Learning como un servicio web crea un punto de conexión de la API de REST. Puede enviar datos a este punto de conexión y recibir la predicción que devuelve el modelo. En este documento aprenderá a crear clientes para el servicio web usando C #, Go, Java y Python.
 
-Al implementar una imagen en una instancia de Azure Container, en Azure Kubernetes Service o en matrices de puertas programables (FPGA) creará un servicio web. Creará imágenes a partir de modelos registrados y archivos de puntuación. Recuperará el URI que se usa para obtener acceso a un servicio web gracias al [SDK de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Si la autenticación está habilitada, también puede usar el SDK para obtener las claves o tokens de autenticación.
+Al implementar un modelo en el entorno local, en Azure Container Instances, en Azure Kubernetes Service o en matrices de puertas programables (FPGA) creará un servicio web. Recuperará el URI que se usa para obtener acceso al servicio web gracias al [SDK de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Si la autenticación está habilitada, también puede usar el SDK para obtener las claves o tokens de autenticación.
 
 El flujo de trabajo general al crear un cliente que usa un servicio web de Machine Learning es:
 
@@ -174,6 +174,17 @@ El servicio web puede aceptar varios conjuntos de datos en una solicitud. Devuel
 ### <a name="binary-data"></a>Datos binarios
 
 Para obtener información sobre cómo habilitar la compatibilidad con datos binarios en un servicio, consulte [Datos binarios](how-to-deploy-and-where.md#binary).
+
+> [!TIP]
+> La habilitación de la compatibilidad con datos binarios se produce en el archivo score.py que usa el modelo implementado. En el cliente, use la funcionalidad HTTP del lenguaje de programación. Por ejemplo, el siguiente fragmento de código envía el contenido de un archivo JPG a un servicio web:
+>
+> ```python
+> import requests
+> # Load image data
+> data = open('example.jpg', 'rb').read()
+> # Post raw data to scoring URI
+> res = request.post(url='<scoring-uri>', data=data, headers={'Content-Type': 'application/> octet-stream'})
+> ```
 
 ### <a name="cross-origin-resource-sharing-cors"></a>Uso compartido de recursos entre orígenes (CORS)
 

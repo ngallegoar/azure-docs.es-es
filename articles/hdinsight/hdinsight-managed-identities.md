@@ -7,17 +7,17 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 11/20/2019
-ms.openlocfilehash: daae9c16797ad9c1b85635f5aec7d0cf884e003f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/15/2020
+ms.openlocfilehash: 1081865a2e138af38ba171197719f08dedf6ffdb
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78206017"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81408931"
 ---
 # <a name="managed-identities-in-azure-hdinsight"></a>Identidades administradas en Azure HDInsight
 
-Una identidad administrada es una identidad registrada en Azure Active Directory (Azure AD) cuyas credenciales son administradas por Azure. Con las identidades administradas, no es necesario registrar las entidades de servicio en Azure AD ni mantener credenciales, tales como los certificados.
+Una identidad administrada es una identidad registrada en Azure Active Directory (Azure AD) cuyas credenciales son administradas por Azure. Con identidades administradas, no es necesario registrar entidades de servicio en Azure AD. Tampoco mantener credenciales como certificados.
 
 Se usan identidades administradas en Azure HDInsight para acceder a servicios de dominio de Azure AD o a archivos de Azure Data Lake Storage Gen2 cuando sea necesario.
 
@@ -25,7 +25,7 @@ Hay dos tipos de identidades administradas: asignadas por el sistema y asignadas
 
 ## <a name="hdinsight-managed-identity-implementation"></a>Implementación de la identidad administrada de HDInsight
 
-En Azure HDInsight, las identidades administradas se aprovisionan en cada nodo del clúster. Estos componentes de identidad, sin embargo, solo son utilizables por el servicio HDInsight. Actualmente, no hay ningún método admitido para generar tokens de acceso con las identidades administradas instaladas en los nodos de clúster de HDInsight. Para algunos servicios de Azure, las identidades administradas se implementan con un punto de conexión que puede usar para adquirir tokens de acceso para interactuar con otros servicios de Azure por su cuenta.
+En Azure HDInsight, las identidades administradas se aprovisionan en cada nodo del clúster. Estos componentes de identidad, sin embargo, solo son utilizables por el servicio HDInsight. Actualmente, no hay ningún método admitido para generar tokens de acceso con las identidades administradas instaladas en los nodos de clúster de HDInsight. En algunos servicios de Azure, las identidades administradas se implementan con un punto de conexión que puede usar para adquirir tokens de acceso. Use los tokens para interactuar con otros servicios de Azure por su cuenta.
 
 ## <a name="create-a-managed-identity"></a>Creación de una entidad administrada
 
@@ -47,7 +47,9 @@ Las identidades administradas se usan en Azure HDInsight en varios escenarios. C
 * [Cifrado de disco mediante claves administradas por el cliente](disk-encryption.md)
 
 ## <a name="faq"></a>Preguntas más frecuentes
+
 ### <a name="what-happens-if-i-delete-the-managed-identity-after-the-cluster-creation"></a>¿Qué ocurre si elimino la identidad administrada después de la creación del clúster?
+
 El clúster tendrá problemas cuando se necesite la identidad administrada. Actualmente no hay ninguna manera de actualizar o cambiar la identidad administrada una vez creado el clúster. Por lo tanto, nuestra recomendación es asegurarse de que la identidad administrada no se elimina durante el tiempo de ejecución del clúster. También puede volver a crear el clúster y asignar una nueva identidad administrada.
 
 ## <a name="next-steps"></a>Pasos siguientes

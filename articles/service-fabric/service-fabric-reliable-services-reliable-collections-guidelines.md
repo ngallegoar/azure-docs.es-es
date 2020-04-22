@@ -2,13 +2,13 @@
 title: Directrices para colecciones de confianza
 description: Directrices y recomendaciones para el uso de colecciones de confianza de Service Fabric en una aplicación de Azure Service Fabric.
 ms.topic: conceptual
-ms.date: 12/10/2017
-ms.openlocfilehash: 37c734205877f9e0cb98ef2834462691e8e483d9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/10/2020
+ms.openlocfilehash: db37067069b2a9eb08009eb6bb373f6fce1cafa9
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75645487"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81398539"
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Directrices y recomendaciones de Reliable Collections en Azure Service Fabric
 Esta sección proporciona directrices para el uso de Reliable State Manager y Reliable Collections. El objetivo es ayudar a los usuarios a evitar problemas comunes.
@@ -34,21 +34,33 @@ Algunos aspectos que debe tener en cuenta:
 
 * El tiempo de espera predeterminado es de 4 segundos para todas las API de Reliable Collection. La mayoría de los usuarios debe utilizar el tiempo de espera predeterminado.
 * El token de cancelación predeterminado es `CancellationToken.None` en todas las API de colecciones confiables.
-* El parámetro de tipo de clave (*TKey*) de un diccionario confiable debe implementar correctamente`GetHashCode()` y `Equals()`. Las claves deben ser inmutables.
+* El parámetro de tipo de clave (*TKey`Equals()`) de un diccionario confiable debe implementar correctamente* y `GetHashCode()`. Las claves deben ser inmutables.
 * Para lograr una alta disponibilidad para las colecciones confiables, cada servicio debe tener al menos un destino y un tamaño de conjunto de réplicas mínimo de 3.
 * Las operaciones de lectura de la base de datos secundaria pueden leer versiones que no están confirmadas en el cuórum.
   Esto significa que una versión de datos leída desde una única base de datos secundaria podría progresar como false.
   Las lecturas de la base de datos principal siempre son estables, es decir, que nunca pueden progresar como false.
 * La seguridad y privacidad de los datos que la aplicación conserva en una colección de confianza es su decisión, y está sujeta a las protecciones proporcionadas por la administración de almacenamiento; ES DECIR El cifrado de disco de sistema operativo puede utilizarse para proteger los datos en reposo.  
 
-### <a name="next-steps"></a>Pasos siguientes
+## <a name="volatile-reliable-collections"></a>Colecciones volátiles de confianza
+Cuando decida usar colecciones volátiles de confianza, tenga en cuenta lo siguiente:
+
+* ```ReliableDictionary``` tiene compatibilidad volátil
+* ```ReliableQueue``` tiene compatibilidad volátil
+* ```ReliableConcurrentQueue``` NO tiene compatibilidad volátil
+* Los servicios persistentes NO SE PUEDEN convertir en volátiles. Cambiar la marca de ```HasPersistedState``` a ```false``` requiere volver a crear todo el servicio desde cero
+* Los servicios volátiles NO SE PUEDEN convertir en persistentes. Cambiar la marca de ```HasPersistedState``` a ```true``` requiere volver a crear todo el servicio desde cero
+* ```HasPersistedState``` es una configuración de nivel de servicio. Esto significa que **TODAS** las colecciones serán persistentes o volátiles. No se pueden mezclar las colecciones volátiles y las persistentes
+* La pérdida de cuórum de una partición volátil genera una pérdida de datos completa
+* La copia de seguridad y restauración NO están disponibles para los servicios volátiles
+
+## <a name="next-steps"></a>Pasos siguientes
 * [Trabajo con Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Transacciones y bloqueos](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
 * Administración de datos
   * [Copia de seguridad y restauración](service-fabric-reliable-services-backup-restore.md)
-  * [Notifications](service-fabric-reliable-services-notifications.md)
+  * [Notificaciones](service-fabric-reliable-services-notifications.md)
   * [Serialización y actualización](service-fabric-application-upgrade-data-serialization.md)
   * [Configuración del administrador de estado confiable](service-fabric-reliable-services-configuration.md)
 * Otros
-  * [Introducción a Reliable Services de Service Fabric de Microsoft Azure](service-fabric-reliable-services-quick-start.md)
+  * [Guía de inicio rápido de Reliable Services](service-fabric-reliable-services-quick-start.md)
   * [Referencia para desarrolladores de colecciones confiables](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)

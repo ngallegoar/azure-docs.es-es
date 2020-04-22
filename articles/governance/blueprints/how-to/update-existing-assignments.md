@@ -1,14 +1,14 @@
 ---
 title: Actualización de una asignación existente desde el portal
 description: Obtenga información acerca del mecanismo para actualizar una asignación de plano técnico existente desde el portal en Azure Blueprints.
-ms.date: 11/21/2019
+ms.date: 04/15/2020
 ms.topic: how-to
-ms.openlocfilehash: 2c1a24399d8fa1529665bfa60d1b889a84a29a60
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a00a8bcc10b37af576777e3816a794225a3832f7
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79231220"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81381787"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Procedimiento para actualizar una asignación de plano técnico
 
@@ -26,18 +26,18 @@ Cuando se asigna un plano técnico, se puede actualizar la asignación. Hay vari
 
 1. En la lista de planos técnicos, haga clic con el botón izquierdo en la asignación del plano técnico. Después, haga clic en el botón **Actualizar asignación** o haga clic con el botón derecho en la asignación del plano técnico y seleccione **Actualizar asignación**.
 
-   ![Actualización de una asignación de plano técnico existente](../media/update-existing-assignments/update-assignment.png)
+   :::image type="content" source="../media/update-existing-assignments/update-assignment.png" alt-text="Actualización de una asignación de plano técnico existente" border="false":::
 
 1. La página **Asignar plano técnico** se cargará con todos los valores rellenados de la asignación original.
    Puede cambiar la **versión de la definición de plano técnico**, el estado de **Asignación de bloqueo** y cualquiera de los parámetros dinámicos que existan en la definición del plano técnico. Haga clic en **Asignar** cuando haya terminado de realizar los cambios.
 
 1. En la página de detalles de la asignación actualizada, consulte el nuevo estado. En este ejemplo, hemos agregado el **bloqueo** a la asignación.
 
-   ![Se ha actualizado una asignación de plano técnico existente: modo de bloqueo cambiado](../media/update-existing-assignments/updated-assignment.png)
+   :::image type="content" source="../media/update-existing-assignments/updated-assignment.png" alt-text="Se ha actualizado una asignación de plano técnico existente: modo de bloqueo cambiado" border="false":::
 
 1. Explore los detalles acerca de otras **operaciones de asignación** con la lista desplegable. La tabla de **recursos administrados** se actualiza mediante la operación de asignación seleccionada.
 
-   ![Operaciones de asignación de una asignación de plano técnico](../media/update-existing-assignments/assignment-operations.png)
+   :::image type="content" source="../media/update-existing-assignments/assignment-operations.png" alt-text="Operaciones de asignación de una asignación de plano técnico" border="false":::
 
 ## <a name="rules-for-updating-assignments"></a>Reglas de la actualización de asignaciones
 

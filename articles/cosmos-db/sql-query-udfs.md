@@ -1,27 +1,38 @@
 ---
 title: Funciones definidas por el usuario (UDF) en Azure Cosmos DB
 description: Obtenga información sobre las funciones definidas por el usuario en Azure Cosmos DB.
-author: markjbrown
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/31/2019
-ms.author: mjbrown
-ms.openlocfilehash: b67202da7293ef55cfe3390ca676f7944da80fba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/09/2020
+ms.author: tisande
+ms.openlocfilehash: 455f44fb365152b75a3811563b646c6243f686db
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "69614337"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011130"
 ---
 # <a name="user-defined-functions-udfs-in-azure-cosmos-db"></a>Funciones definidas por el usuario (UDF) en Azure Cosmos DB
 
 La API de SQL proporciona compatibilidad con las funciones definidas por el usuario (UDF). Con las funciones definidas por el usuario escalares, puede pasar ningún argumento o muchos, y devolver un resultado con un único argumento. La API comprueba que cada argumento sea un valor JSON válido.  
 
-La API amplía la sintaxis de SQL para admitir una lógica de aplicación personalizada con funciones definidas por el usuario. Puede registrar las funciones definidas por el usuario con la API de SQL y hacer referencia a ellas en las consultas SQL. De hecho, dichas funciones están exquisitamente diseñadas para que se las pueda llamar desde consultas. Como consecuencia, las funciones definidas por el usuario no tienen acceso al objeto de contexto, como lo tienen otros tipos de JavaScript, por ejemplo, los procedimientos almacenados y desencadenadores. Las consultas son de solo lectura y pueden ejecutarse en réplicas principales o secundarias. Las funciones definidas por el usuario, a diferencia de otros tipos de JavaScript, están diseñadas para ejecutarse en réplicas secundarias.
+## <a name="udf-use-cases"></a>Casos de uso de UDF
 
-En el ejemplo siguiente se registra una función definida por el usuario en un contenedor de elementos en la base de datos de Cosmos. El ejemplo crea una función definida por el usuario cuyo nombre es `REGEX_MATCH`. Acepta dos valores de cadena JSON, `input` y `pattern`, y comprueba si el primero coincide con el patrón especificado en el segundo mediante la función `string.match()` de JavaScript.
+La API amplía la sintaxis de SQL para admitir una lógica de aplicación personalizada con funciones definidas por el usuario. Puede registrar las funciones definidas por el usuario con la API de SQL y hacer referencia a ellas en las consultas SQL. A diferencia de los procedimientos almacenados y los desencadenadores, las UDF son de solo lectura.
+
+Con las UDF, puede extender el lenguaje de consulta de Azure Cosmos DB. Las UDF son una excelente manera de expresar una lógica de negocios compleja en la proyección de una consulta.
+
+Sin embargo, se recomienda evitar las UDF cuando:
+
+- Ya existe una [función del sistema](sql-query-system-functions.md) equivalente en Azure Cosmos DB. Las funciones del sistema siempre usarán menos RU que la UDF equivalente.
+- La UDF es el único filtro de la cláusula `WHERE` de la consulta. Las UDF no usan el índice para que la evaluación de la UDF requiera la carga de documentos. La combinación de predicados de filtro adicionales que usan el índice, junto con una UDF, en la cláusula `WHERE` reducirá el número de documentos procesados por la UDF.
+
+Si debe usar la misma UDF varias veces en una consulta, debe hacer referencia a la UDF en una [subconsulta](sql-query-subquery.md#evaluate-once-and-reference-many-times), lo que le permite usar una expresión JOIN para evaluar la UDF una vez, pero puede hacer referencia a ella muchas veces.
 
 ## <a name="examples"></a>Ejemplos
+
+En el ejemplo siguiente se registra una función definida por el usuario en un contenedor de elementos en la base de datos de Cosmos. El ejemplo crea una función definida por el usuario cuyo nombre es `REGEX_MATCH`. Acepta dos valores de cadena JSON, `input` y `pattern`, y comprueba si el primero coincide con el patrón especificado en el segundo mediante la función `string.match()` de JavaScript.
 
 ```javascript
        UserDefinedFunction regexMatchUdf = new UserDefinedFunction

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: 3b73c329c3db54ba78db15ced8e919af4d4a45d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0d6d69b82e80ff9bc33e49302cf59766b9c2e8d4
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79226628"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81270832"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Preguntas más frecuentes para SQL Server en máquinas virtuales de Windows en Azure
 
@@ -53,9 +53,17 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más comunes 
 
    Sí, mediante PowerShell. Para obtener más información sobre cómo implementar VM con SQL Server mediante PowerShell, consulte [Aprovisionamiento de máquinas virtuales de SQL Server con Azure PowerShell](virtual-machines-windows-ps-sql-create.md).
 
-1. **¿Puedo crear una imagen de Marketplace de Azure SQL Server generalizada de mi VM con SQL Server y usarla para implementar VM?**
+1. **¿Cómo puedo generalizar SQL Server en máquinas virtuales de Azure y usarlo para implementar nuevas máquinas virtuales?**
 
-   Sí, pero debe [registrar todas las máquinas virtuales con SQL Server con el proveedor de recursos de máquina virtual con SQL Server](virtual-machines-windows-sql-register-with-resource-provider.md) para administrarlas en el portal y poder usar características como la aplicación automática de revisiones y las copias de seguridad automáticas. Al registrar con el proveedor de recursos, también deberá especificar el tipo de licencia para cada máquina virtual con SQL Server. 
+   Puede implementar una máquina virtual de Windows Server (sin SQL Server instalado) y usar el proceso [sysprep de SQL](/sql/database-engine/install-windows/install-sql-server-using-sysprep?view=sql-server-ver15) para generalizar SQL Server en máquinas virtuales de Azure (Windows) con los medios de instalación de SQL Server. Los clientes que cuenten con [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot%3aprimaryr3) pueden obtener el soporte de instalación desde el [centro de licencias por volumen](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Los clientes que no tengan Software Assurance pueden usar los medios de instalación de una imagen de VM con SQL Server de Marketplace que tenga la edición que deseen.
+
+   Como alternativa, use una de las imágenes de SQL Server de Azure Marketplace para generalizar SQL Server en máquinas virtuales de Azure. Tenga en cuenta que debe eliminar la siguiente clave del Registro en la imagen de origen antes de crear su propia imagen. Si no lo hace, se puede producir un sobredimensionamiento de la carpeta de arranque del programa de instalación de SQL Server o un estado de error en la extensión de IaaS de SQL.
+
+   Ruta de acceso a la clave del Registro:  
+   `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\SysPrepExternal\Specialize`
+
+   > [!NOTE]
+   > Se recomienda que todas máquinas virtuales de Azure con SQL Server, incluidas las implementadas a partir de imágenes generalizadas personalizadas, estén [registradas con un proveedor de recursos de máquinas virtuales de SQL](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-register-with-resource-provider?tabs=azure-cli%2Cbash) para cumplir los requisitos de cumplimiento y para usar características opcionales como la revisión automatizada y las copias de seguridad automáticas. También le permitirá [especificar el tipo de licencia](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-ahb?tabs=azure-portal) para cada VM con SQL Server.
 
 1. **¿Puedo usar mi propio disco duro virtual para implementar una máquina virtual con SQL Server?**
 
@@ -117,7 +125,7 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más comunes 
    La instancia de SQL Server pasiva no proporciona datos de SQL Server a los clientes ni ejecuta cargas de trabajo de SQL Server activas. Solo se utiliza para sincronizar con el servidor principal y mantener la base de datos pasiva en un estado de espera semiactiva. Si está proporcionando datos, como informes a clientes que ejecutan cargas de trabajo de SQL Server activas, o si realiza cualquier trabajo, que no se especifique en los términos del producto, debe ser una instancia de SQL Server con licencia de pago. La siguiente actividad se permite en la instancia secundaria: comprobaciones de coherencia de base de datos o CHECKDB, copias de seguridad completas, copias de seguridad de registros de transacciones y supervisión de datos de uso de recursos. También puede ejecutar la instancia principal y la instancia de recuperación ante desastres correspondiente de forma simultánea durante breves períodos de pruebas de recuperación ante desastres cada 90 días.
    
 
-1. **¿Qué escenarios pueden aprovechar la ventaja de recuperación de la recuperación ante desastres (DR)?**
+1. **¿Qué escenarios pueden aprovechar la ventaja de recuperación ante desastres (DR)?**
 
    En la [guía de licencias](https://aka.ms/sql2019licenseguide) se proporcionan escenarios en los que se puede aprovechar la ventaja de recuperación ante desastres. Consulte los términos del producto y póngase en contacto con sus contactos de licencias o con el administrador de cuentas para más información.
 

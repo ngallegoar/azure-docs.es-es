@@ -5,21 +5,21 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/18/2020
-ms.openlocfilehash: 4e3d29471064616039bf946bb2762c15ce67bf8d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/06/2020
+ms.openlocfilehash: e5966f142ece32f148c56edb5b0ef5dfd88603aa
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79530264"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81380075"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Niveles de coherencia en Azure Cosmos DB
 
-Las bases de datos distribuidas que dependen de la replicación para su alta disponibilidad, su baja latencia o ambas, constituyen el compromiso fundamental entre la coherencia de lectura y la disponibilidad, la latencia y el rendimiento. La mayoría de las bases de datos distribuidas disponibles comercialmente solicitan a los desarrolladores que elijan entre los dos modelos de coherencia extrema: coherencia *alta* y *posible* coherencia. La linearización o el modelo de coherencia fuerte es el estándar de oro de la programación de datos, pero obliga a pagar el precio de una latencia más alta (en estado estable) y una menor disponibilidad (durante los errores). Por otro lado, la posible coherencia ofrece una mayor disponibilidad y un mejor rendimiento, pero es difícil programar aplicaciones. 
+Las bases de datos distribuidas que dependen de la replicación para su alta disponibilidad, su baja latencia o ambas, constituyen el compromiso fundamental entre la coherencia de lectura y la disponibilidad, la latencia y el rendimiento. La mayoría de las bases de datos distribuidas disponibles comercialmente solicitan a los desarrolladores que elijan entre los dos modelos de coherencia extrema: coherencia *alta* y *posible* coherencia. La linearización del modelo de coherencia fuerte es el estándar de oro de la programación de datos, pero obliga a pagar el precio de una latencia de escritura más alta (en estado estable) y una menor disponibilidad (durante los errores). Por otro lado, la posible coherencia ofrece una mayor disponibilidad y un mejor rendimiento, pero es difícil programar aplicaciones.
 
-Azure Cosmos DB se aproxima a la coherencia de datos como un espectro de opciones en lugar de como dos extremos. La coherencia fuerte y la posible coherencia están en los extremos del espectro, pero existen muchas opciones de coherencia en todo el espectro. Los desarrolladores pueden usar estas opciones para elegir opciones precisas y compensaciones pormenorizadas con respecto a la alta disponibilidad y al rendimiento. 
+Azure Cosmos DB se aproxima a la coherencia de datos como un espectro de opciones en lugar de como dos extremos. Los desarrolladores pueden usar estas opciones para elegir opciones precisas y compensaciones pormenorizadas con respecto a la alta disponibilidad y al rendimiento.
 
-Con Azure Cosmos DB, los desarrolladores pueden elegir entre cinco modelos de coherencia bien definidos en el espectro de coherencia. Desde la coherencia más sólida a una más relajada, los modelos incluyen una coherencia *fuerte*, de *obsolescencia limitada*, de *sesión*, *de prefijo coherente* y *posible* coherencia. Los modelos están bien definidos, son intuitivos y se pueden usar en escenarios reales específicos. Cada modelo proporciona [compensaciones entre la disponibilidad y el rendimiento](consistency-levels-tradeoffs.md) y cuenta con el respaldo de Acuerdos de Nivel de Servicio. En la imagen siguiente se muestran los distintos niveles de coherencia como un espectro.
+Con Azure Cosmos DB, los desarrolladores pueden elegir entre cinco niveles de coherencia bien definidos en el espectro de coherencia. Estos niveles incluyen *Alta*, *Obsolescencia limitada*, *Sesión*, *Prefijo coherente* y Coherencia *final*. Los niveles están bien definidos, son intuitivos y se pueden usar en escenarios reales específicos. Cada nivel proporciona [compensaciones entre la disponibilidad y el rendimiento](consistency-levels-tradeoffs.md) y cuenta con el respaldo de Acuerdos de Nivel de Servicio. En la imagen siguiente se muestran los distintos niveles de coherencia como un espectro.
 
 ![Coherencia como un espectro](./media/consistency-levels/five-consistency-levels.png)
 
@@ -27,7 +27,7 @@ Los niveles de coherencia son independientes de la región y están garantizados
 
 ## <a name="scope-of-the-read-consistency"></a>Ámbito de la coherencia de lectura
 
-La coherencia de lectura se aplica a una operación de lectura limitada a un intervalo de claves de partición o una partición lógica. Un cliente remoto o un procedimiento almacenado pueden emitir la operación de lectura.
+La coherencia de lectura se aplica a una sola operación de lectura limitada a una partición lógica. Un cliente remoto o un procedimiento almacenado pueden emitir la operación de lectura.
 
 ## <a name="configure-the-default-consistency-level"></a>Configuración del nivel de coherencia predeterminado
 
@@ -45,26 +45,49 @@ Aquí se describe la semántica de los cinco niveles de coherencia:
 
   ![video](media/consistency-levels/strong-consistency.gif)
 
-- **De obsolescencia entrelazada**: Se garantiza que las lecturas respetan la garantía de prefijo coherente. Las lecturas pueden ir con retraso respecto a las escrituras en un máximo de versiones *"K"* (es decir, "actualizaciones") de un elemento o en el intervalo de tiempo *"T"* . En otras palabras, cuando elige la obsolescencia limitada, la "obsolescencia" se puede configurar de dos maneras: 
+- **De obsolescencia entrelazada**: Se garantiza que las lecturas respetan la garantía de prefijo coherente. Las lecturas pueden ir con retraso respecto a las escrituras en un máximo de versiones *"K"* (es decir, "actualizaciones") de un elemento o en el intervalo de tiempo *"T"* . En otras palabras, cuando elige la obsolescencia limitada, la "obsolescencia" se puede configurar de dos maneras:
 
-  * El número de versiones (*K*) del elemento
-  * El intervalo de tiempo (*T*) que las lecturas pueden retrasarse con respecto a las escrituras 
+- El número de versiones (*K*) del elemento
+- El intervalo de tiempo (*T*) que las lecturas pueden retrasarse con respecto a las escrituras
 
-  La obsolescencia limitada ofrece un orden global total, excepto dentro de la "ventana de obsolescencia". La garantía de lectura monotónica existe dentro de una región, tanto dentro como fuera de la ventana de obsolescencia. La coherencia fuerte tiene la misma semántica que la que ofrece la obsolescencia limitada. La ventana de obsolescencia es igual a cero. La obsolescencia limitada también se conoce como linealidad retardada. Cuando un cliente realiza operaciones de lectura en una región que acepta las escrituras, las garantías que proporciona la obsolescencia limitada son idénticas a las garantías por la coherencia fuerte.
+La obsolescencia limitada ofrece un orden global total fuera de la "ventana de obsolescencia". Cuando un cliente realiza operaciones de lectura en una región que acepta las escrituras, las garantías que proporciona la obsolescencia limitada son idénticas a las garantías por la coherencia fuerte.
+
+Dentro de la ventana de obsolescencia, Obsolescencia limitada proporciona las siguientes garantías de coherencia:
+
+- Coherencia para clientes de la misma región para una cuenta de un solo maestro = Alta
+- Coherencia para clientes de regiones diferentes para una cuenta de un solo maestro = Prefijo coherente
+- Coherencia para clientes que escriben en una sola región para una cuenta de varios maestros = Prefijo coherente
+- Coherencia para clientes que escriben en regiones diferentes para una cuenta de varios maestros = Final
 
   Las aplicaciones distribuidas globalmente que esperan bajas latencias de escritura pero que necesitan una garantía de orden global, suelen elegir la obsolescencia limitada. La obsolescencia limitada es ideal para las aplicaciones que se caracterizan por la colaboración en grupo y el uso compartido, el tablero de cotizaciones, la publicación o suscripción, la puesta en cola, etc. En el gráfico siguiente se ilustra la coherencia de obsolescencia limitada con notas musicales. Una vez que los datos se han escrito en la región "Oeste de EE. UU. 2", las regiones "Este de EE. UU. 2" y "Este de Australia" leen el valor escrito según el tiempo de retardo máximo configurado o las operaciones máximas:
 
   ![video](media/consistency-levels/bounded-staleness-consistency.gif)
 
-- **Sesión**:  en una sesión de cliente individual, se garantiza que las lecturas respetan las garantías de prefijo coherente (suponiendo que hay una sola sesión de "escritor"), lecturas monotónicas, escrituras monotónicas, lectura de las escrituras y escritura tras lecturas. Los clientes que están fuera de la sesión que realiza escrituras verán la coherencia final.
+- **Sesión**:  en una sesión de cliente individual, se garantiza que las lecturas respetan las garantías de prefijo coherente, lecturas monotónicas, escrituras monotónicas, lectura de la escritura y escritura tras las lecturas. Esto da por hecho una sesión de "escritor" individual o el uso compartido del token de sesión para varios escritores.
 
-  La coherencia de la sesión es el nivel de coherencia más usado para regiones únicas, así como para aplicaciones distribuidas globalmente. Proporciona latencias de escritura, disponibilidad y rendimiento de lectura equiparables a los de la coherencia final, pero también proporciona las garantías de coherencia que satisfacen las necesidades de aplicaciones escritas para funcionar en el contexto de un usuario. En el gráfico siguiente se ilustra la coherencia de la sesión con notas musicales. La región "Oeste de EE. UU. 2" y la región "Este de EE. UU. 2" usan la misma sesión (sesión A), por lo que ambas leen los datos al mismo tiempo. Sin embargo, la región "Este de Australia" usa la "sesión B", por lo que recibe los datos más tarde pero en el mismo orden en que se escriben.
+Los clientes que están fuera de la sesión que realiza escrituras verán las garantías siguientes:
+
+- Coherencia para clientes de la misma región para una cuenta de un solo maestro = Prefijo coherente
+- Coherencia para clientes de regiones diferentes para una cuenta de un solo maestro = Prefijo coherente
+- Coherencia para clientes que escriben en una sola región para una cuenta de varios maestros = Prefijo coherente
+- Coherencia para clientes que escriben en varias regiones para una cuenta de varios maestros = Final
+
+  La coherencia de la sesión es el nivel de coherencia más usado para regiones únicas, así como para aplicaciones distribuidas globalmente. Proporciona latencias de escritura, disponibilidad y rendimiento de lectura equiparables a los de la coherencia final, pero también proporciona las garantías de coherencia que satisfacen las necesidades de aplicaciones escritas para funcionar en el contexto de un usuario. En el gráfico siguiente se ilustra la coherencia de la sesión con notas musicales. El "escritor de Oeste de EE. UU. 2" y el "lector de Oeste de EE. UU. 2" usan la misma sesión (sesión A), por lo que ambos leen los mismos datos al mismo tiempo. Sin embargo, la región "Este de Australia" usa la "sesión B", por lo que recibe los datos más tarde pero en el mismo orden en que se escriben.
 
   ![video](media/consistency-levels/session-consistency.gif)
 
 - **De prefijo coherente**: Las actualizaciones que se devuelven contienen prefijos para todas las actualizaciones, sin espacios. El nivel de coherencia del prefijo coherente garantiza que las lecturas nunca vean escrituras desordenadas.
 
-  Si se realizan escrituras en el orden `A, B, C`, un cliente ve `A`, `A,B` o `A,B,C`, pero nunca un desorden como `A,C` o `B,A,C`. El prefijo coherente proporciona latencias de escritura, disponibilidad y rendimiento de lectura equiparables a los de la coherencia final, pero también proporciona las garantías de orden que se ajustan a las necesidades de escenarios en los que el orden es importante. En el gráfico siguiente se ilustra la coherencia del prefijo de coherencia con notas musicales. En todas las regiones, las lecturas no ven nunca las escrituras desordenadas:
+Si se realizan escrituras en el orden `A, B, C`, un cliente ve `A`, `A,B` o `A,B,C`, pero nunca un desorden como `A,C` o `B,A,C`. El prefijo coherente proporciona latencias de escritura, disponibilidad y rendimiento de lectura equiparables a los de la coherencia final, pero también proporciona las garantías de orden que se ajustan a las necesidades de escenarios en los que el orden es importante. 
+
+A continuación se muestran las garantías de coherencia para Prefijo coherente:
+
+- Coherencia para clientes de la misma región para una cuenta de un solo maestro = Prefijo coherente
+- Coherencia para clientes de regiones diferentes para una cuenta de un solo maestro = Prefijo coherente
+- Coherencia para clientes que escriben en una sola región para una cuenta de varios maestros = Prefijo coherente
+- Coherencia para clientes que escriben en varias regiones para una cuenta de varios maestros = Final
+
+En el gráfico siguiente se ilustra la coherencia del prefijo de coherencia con notas musicales. En todas las regiones, las lecturas no ven nunca las escrituras desordenadas:
 
   ![video](media/consistency-levels/consistent-prefix.gif)
 
@@ -79,7 +102,7 @@ Para más información sobre los conceptos de coherencia, lea los artículos sig
 
 - [High-level TLA+ specifications for the five consistency levels offered by Azure Cosmos DB](https://github.com/Azure/azure-cosmos-tla) (Especificaciones TLA+ de alto nivel de los cinco niveles de coherencia que ofrece Azure Cosmos DB)
 - [Replicated Data Consistency Explained Through Baseball (video)](https://www.youtube.com/watch?v=gluIh8zd26I) (Vídeo sobre Coherencia de datos replicados explicada mediante el béisbol), por Doug Terry
-- [Replicated Data Consistency Explained Through Baseball (whitepaper)](https://www.microsoft.com/en-us/research/publication/replicated-data-consistency-explained-through-baseball/?from=http%3A%2F%2Fresearch.microsoft.com%2Fpubs%2F157411%2Fconsistencyandbaseballreport.pdf) (Coherencia de datos replicados explicada mediante el béisbol [notas del producto]), por Doug Terry
+- [Replicated Data Consistency Explained Through Baseball (whitepaper)](https://www.microsoft.com/research/publication/replicated-data-consistency-explained-through-baseball/) (Coherencia de datos replicados explicada mediante el béisbol [notas del producto]), por Doug Terry
 - [Session guarantees for weakly consistent replicated data](https://dl.acm.org/citation.cfm?id=383631) (Garantías de sesión para datos replicados con coherencia débil)
 - [Consistency Tradeoffs in Modern Distributed Database Systems Design: CAP is Only Part of the Story](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k) (Compromisos de coherencia en el diseño de sistemas modernos de bases de datos distribuidas: CAP es solo parte de la historia)
 - [Probabilistic Bounded Staleness (PBS) for Practical Partial Quorums](https://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf) [Obsolescencia limitada probabilística (PBS) para cuórums parciales prácticos].
@@ -89,9 +112,8 @@ Para más información sobre los conceptos de coherencia, lea los artículos sig
 
 Para más información sobre los niveles de coherencia de Azure Cosmos DB, lea los artículos siguientes:
 
-* [Elección del nivel de coherencia adecuado para la aplicación](consistency-levels-choosing.md)
-* [Niveles de coherencia en Azure Cosmos DB](consistency-levels-across-apis.md)
-* [Availability and performance tradeoffs for various consistency levels](consistency-levels-tradeoffs.md) (Compromisos entre rendimiento y disponibilidad en los distintos niveles de coherencia)
-* [Configuración del nivel de coherencia predeterminado](how-to-manage-consistency.md#configure-the-default-consistency-level)
-* [Invalidación del nivel de coherencia predeterminado](how-to-manage-consistency.md#override-the-default-consistency-level)
-
+- [Elección del nivel de coherencia adecuado para la aplicación](consistency-levels-choosing.md)
+- [Niveles de coherencia en Azure Cosmos DB](consistency-levels-across-apis.md)
+- [Availability and performance tradeoffs for various consistency levels](consistency-levels-tradeoffs.md) (Compromisos entre rendimiento y disponibilidad en los distintos niveles de coherencia)
+- [Configuración del nivel de coherencia predeterminado](how-to-manage-consistency.md#configure-the-default-consistency-level)
+- [Invalidación del nivel de coherencia predeterminado](how-to-manage-consistency.md#override-the-default-consistency-level)

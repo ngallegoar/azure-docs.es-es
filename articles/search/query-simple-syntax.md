@@ -7,49 +7,69 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/10/2020
-translation.priority.mt:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pt-br
-- ru-ru
-- zh-cn
-- zh-tw
-ms.openlocfilehash: fc1eb1836badc3ced688750bbc7c7a164773d022
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/12/2020
+ms.openlocfilehash: 066190ff6b735d30db351ff90c0b6e5173b7f583
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77152676"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81258871"
 ---
 # <a name="simple-query-syntax-in-azure-cognitive-search"></a>Sintaxis de consulta simple en Azure Cognitive Search
 
-Azure Cognitive Search implementa dos lenguajes de consulta basados en Lucene: [Analizador de consultas simple](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) y [Analizador de consultas de Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). En Azure Cognitive Search, la sintaxis de consulta simple excluye las opciones de búsqueda aproximada y de desecho.  
+Azure Cognitive Search implementa dos lenguajes de consulta basados en Lucene: [Analizador de consultas simple](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) y [Analizador de consultas de Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). 
+
+En Azure Cognitive Search, la sintaxis de consulta simple excluye las operaciones de búsqueda aproximada. En su lugar, use la sintaxis de Lucene completa para la [búsqueda aproximada](search-query-fuzzy.md).
 
 > [!NOTE]
 > La sintaxis de consulta simple se usa para las expresiones de consulta que se pasan en el parámetro **search** de la API [Buscar documentos](https://docs.microsoft.com/rest/api/searchservice/search-documents), no se debe confundir con la [sintaxis de OData](query-odata-filter-orderby-syntax.md) que se usa para el parámetro [$filter](search-filters.md) de esa API. Estas distintas sintaxis tienen sus propias reglas para construir consultas, cadenas de escape, etc.
 >
 > Azure Cognitive Search proporciona una [sintaxis de consulta completa de Lucene](query-lucene-syntax.md) alternativa para consultas más complejas en el parámetro **search**. Para más información sobre la arquitectura de análisis de consulta y las ventajas de cada sintaxis, consulte [Cómo funciona la búsqueda de texto completo en Azure Cognitive Search](search-lucene-query-architecture.md).
 
-## <a name="how-to-invoke-simple-parsing"></a>Invocación del análisis simple
+## <a name="invoke-simple-parsing"></a>Invocación del análisis simple
 
-La sintaxis simple es la opción predeterminada. La invocación solo es necesaria si se está restableciendo la sintaxis de completa a simple. Para establecer la sintaxis explícitamente, use el parámetro de búsqueda `queryType`. Los valores válidos incluyen `simple|full`, siendo `simple` el predeterminado, y `full` en Lucene. 
+La sintaxis simple es la opción predeterminada. La invocación solo es necesaria si se está restableciendo la sintaxis de completa a simple. Para establecer la sintaxis explícitamente, use el parámetro de búsqueda `queryType`. Entre los valores válidos se incluyen `queryType=simple` o `queryType=full`, donde `simple` es el valor predeterminado y `full` invoca el [analizador de consultas completas de Lucene](query-lucene-syntax.md) para consultas más avanzadas. 
 
-## <a name="query-behavior-anomalies"></a>Anomalías del comportamiento de las consultas
+## <a name="syntax-fundamentals"></a>Fundamentos de sintaxis
 
-Cualquier texto con uno o varios términos se considera un punto inicial válido para la ejecución de consultas. Azure Cognitive Search encontrará coincidencias en los documentos que contengan cualquiera de los términos o todos ellos, incluidas las variaciones encontradas durante el análisis del texto. 
+Cualquier texto con uno o varios términos se considera un punto inicial válido para la ejecución de consultas. Azure Cognitive Search encontrará coincidencias en los documentos que contengan cualquiera de los términos o todos ellos, incluidas las variaciones encontradas durante el análisis del texto.
 
-Tan sencillo como suena: hay un aspecto de la ejecución de consultas en Azure Cognitive Search que *podría* producir resultados inesperados, aumentando (en lugar de disminuir) los resultados de búsqueda a medida que se agregan más términos y operadores a la cadena de entrada. Que se produzca o no esta expansión realmente depende de la inclusión de un operador NOT, combinado con una configuración del parámetro `searchMode`, que determina cómo se interpreta NOT en términos de comportamientos de AND u OR. Dado el valor predeterminado, `searchMode=Any`, y un operador NOT, la operación se calcula como una acción OR, tal que `"New York" NOT Seattle` devuelve todas las ciudades que no son Seattle.  
+Tan sencillo como suena: hay un aspecto de la ejecución de consultas en Azure Cognitive Search que *podría* producir resultados inesperados, aumentando (en lugar de disminuir) los resultados de búsqueda a medida que se agregan más términos y operadores a la cadena de entrada. Que se produzca o no esta expansión realmente depende de la inclusión de un operador NOT, combinado con una configuración del parámetro **searchMode**, que determina cómo se interpreta NOT en términos de comportamientos de AND u OR. Para más información, vea [NOT operator](#not-operator) (Operador NOT).
 
-Por lo general, es más probable ver estos comportamientos en los patrones de interacción del usuario para las aplicaciones que buscar en el contenido, donde es más probable que los usuarios incluyan un operador en una consulta, a diferencia de los sitios de comercio electrónico, que tienen estructuras de navegación más integradas. Para más información, vea [NOT operator](#not-operator) (Operador NOT). 
+### <a name="precedence-operators-grouping"></a>Operadores de precedencia (agrupación)
 
-## <a name="boolean-operators-and-or-not"></a>Operadores booleanos (AND, OR, NOT) 
+Puede usar paréntesis para crear subconsultas, incluidos los operadores dentro de la instrucción entre paréntesis. Por ejemplo, `motel+(wifi||luxury)` buscará los documentos que contengan el término "motel" y "wifi" o "luxury" (o ambos).
 
-Puede insertar operadores en una cadena de consulta para crear un conjunto enriquecido de criterios en los que se encuentran los documentos coincidentes. 
+La agrupación de campos es parecida pero establece el ámbito de la agrupación en un único campo. Por ejemplo, `hotelAmenities:(gym+(wifi||pool))` busca "gym" y "wifi", o "gym" y "pool" en el campo "hotelAmenities".  
+
+### <a name="escaping-search-operators"></a>Escape de los operadores de búsqueda  
+
+Para usar cualquiera de los operadores de búsqueda como parte del texto de búsqueda, debe anteponer el carácter como prefijo con una sola barra diagonal inversa (`\`). Por ejemplo, para realizar una búsqueda con caracteres comodín en `https://`, donde `://` forma parte de la cadena de consulta, debe especificar `search=https\:\/\/*`. Del mismo modo, un patrón de número de teléfono con escape podría ser similar a este `\+1 \(800\) 642\-7676`.
+
+Los caracteres especiales que requieren escape son los siguientes: `- * ? \ /`.  
+
+Con el fin de simplificar las cosas para los casos más típicos, existen dos excepciones a esta regla donde la secuencia de escape no es necesaria:  
+
++ El operador NOT `-` necesita escaparse solamente si es el primer carácter después de un espacio en blanco, no si se encuentra en medio de un término. Por ejemplo, el siguiente GUID es válido sin el carácter de escape: `3352CDD0-EF30-4A2E-A512-3B30AF40F3FD`.
+
++ El operador de sufijo `*` necesita escaparse solamente si es el último carácter antes de un espacio en blanco, no si se encuentra en medio de un término. Por ejemplo, `4*4=16` no requiere una barra diagonal inversa.
+
+> [!NOTE]  
+> Aunque el escape mantiene juntos los tokens, el [análisis léxico](search-lucene-query-architecture.md#stage-2-lexical-analysis) durante la indexación puede eliminarlos. Por ejemplo, el analizador de Lucene estándar eliminará y dividirá palabras con guiones, espacios en blanco y otros caracteres. Si necesita caracteres especiales en la cadena de consulta, es posible que necesite un analizador que los conserve en el índice. Algunas opciones incluyen [analizadores de lenguaje](index-add-language-analyzers.md) natural de Microsoft, que conserva palabras con guiones o un analizador personalizado para patrones más complejos. Para más información, vea [Términos parciales, patrones y caracteres especiales](search-query-partial-matching.md).
+
+### <a name="encoding-unsafe-and-reserved-characters-in-urls"></a>Codificación de caracteres reservados y no seguros en las direcciones URL
+
+Asegúrese de que todos los caracteres reservados y no seguros están codificados en una dirección URL. Por ejemplo, "#" es un carácter no seguro porque es un identificador de delimitador o fragmento en una dirección URL. El carácter debe codificarse con `%23` si se usa en una dirección URL. "&" y "=" son ejemplos de caracteres reservados, ya que delimitan parámetros y especifican valores en Azure Cognitive Search. Consulte [RFC1738: Localizadores uniformes de recursos (URL)](https://www.ietf.org/rfc/rfc1738.txt) para más información.
+
+Los caracteres no seguros son ``" ` < > # % { } | \ ^ ~ [ ]``. Los caracteres reservados son `; / ? : @ = + &`.
+
+###  <a name="query-size-limits"></a><a name="bkmk_querysizelimits"></a> Límites de tamaño de consulta
+
+ Existe un límite en el tamaño de las consultas que se pueden enviar a Azure Cognitive Search. En concreto, puede tener como máximo 1024 cláusulas (expresiones separadas por AND, OR, etc.). También hay un límite de aproximadamente 32 KB en el tamaño de cualquier término individual en una consulta. Si la aplicación genera consultas de búsqueda mediante programación, se recomienda que la diseña de manera que no genere consultas de tamaño ilimitado.  
+
+## <a name="boolean-search"></a>Búsqueda booleana
+
+Puede insertar operadores booleanos (AND, OR o NOT) en una cadena de consulta para crear un conjunto enriquecido de criterios en los que se encuentran los documentos coincidentes. 
 
 ### <a name="and-operator-"></a>Operador AND `+`
 
@@ -63,35 +83,34 @@ El operador OR es una barra vertical o el carácter de barra vertical. Por ejemp
 
 ### <a name="not-operator--"></a>Operador NOT `-`
 
-El operador NOT es un signo menos. Por ejemplo, `wifi –luxury` buscará documentos que tengan el término `wifi` y/o no tengan `luxury` (y/o se controle mediante `searchMode`).
+El operador NOT es un signo menos. Por ejemplo, `wifi –luxury` buscará documentos que contengan el término `wifi` o que no tengan `luxury`.
 
-> [!NOTE]  
->  La opción `searchMode` controla si se aplica AND u OR a un término con el operador NOT con los otros términos de la consulta en ausencia de un operador `+` o `|`. Recuerde que `searchMode` se puede establecer en `any` (opción predeterminada) o `all`. Si usa `any`, aumentará la recuperación de consultas incluyendo más resultados y, de forma predeterminada, `-` se interpretará como "OR NOT". Por ejemplo, `wifi -luxury` encontrará coincidencias en los documentos que contengan el término `wifi` o en aquellos que no contengan el término `luxury`. Si usa `all`, aumentará la precisión de las consultas incluyendo menos resultados y, de forma predeterminada, - se interpretará como "OR NOT". Por ejemplo, `wifi -luxury` encontrará coincidencias en los documentos que contengan el término `wifi` y no contengan el término "luxury". Este es posiblemente un comportamiento más intuitivo para el operador `-`. Por lo tanto, debe considerar el uso de `searchMode=all` en lugar de `searchMode=any` si desea optimizar las búsquedas para precisión en lugar de para recuperación, *y* si los usuarios utilizan con frecuencia el operador `-` en las búsquedas.
+El parámetro **searchMode** de una solicitud de consulta controla si un término con el operador NOT es ANDed o ORed con otros términos de la consulta (suponiendo que no haya ningún operador `+` o `|` en los demás términos). Los valores válidos son `any` o `all`.
 
-## <a name="suffix-operator"></a>Operador de sufijo
+`searchMode=any` aumenta la recuperación de consultas al incluirse más resultados y, de forma predeterminada, `-` se interpretará como "OR NOT". Por ejemplo, `wifi -luxury` encontrará coincidencias en los documentos que contengan el término `wifi` o en aquellos que no contengan el término `luxury`.
 
-El operador de sufijo es un asterisco `*`. Por ejemplo, `lux*` buscará documentos que tengan un término que empiece por `lux`, sin distinguir entre mayúsculas y minúsculas.  
+`searchMode=all` aumenta la precisión de las consultas al incluirse menos resultados y, de forma predeterminada, - se interpretará como "AND NOT". Por ejemplo, `wifi -luxury` encontrará coincidencias en los documentos que contengan el término `wifi` y no contengan el término "luxury". Este es posiblemente un comportamiento más intuitivo para el operador `-`. Por lo tanto, debe considerar el uso de `searchMode=all` en lugar de `searchMode=any` si desea optimizar las búsquedas para precisión en lugar de para recuperación, *y* si los usuarios utilizan con frecuencia el operador `-` en las búsquedas.
 
-## <a name="phrase-search-operator"></a>Operador de búsquedas de frases
+Al decidir sobre una configuración de **searchMode**, tenga en cuenta los patrones de interacción del usuario para las consultas en varias aplicaciones. Es más probable que los usuarios que buscan información incluyan un operador en una consulta, en lugar de sitios de comercio electrónico que tengan más estructuras de navegación integradas.
 
-El operador de frase encierra una frase entre comillas `" "`. Por ejemplo, mientras que `Roach Motel` (sin comillas) buscaría documentos que contuvieran `Roach` y/o `Motel` en cualquier lugar y en cualquier orden, `"Roach Motel"` (con comillas) solo encontrará coincidencias en documentos que contengan esa frase completa junta y en ese orden (el análisis de texto sigue aplicándose).
+<a name="prefix-search"></a>
 
-## <a name="precedence-operator"></a>Operador de precedencia
+## <a name="prefix-search"></a>Búsqueda de prefijo
 
-El operador de precedencia incluye la cadena entre paréntesis `( )`. Por ejemplo, `motel+(wifi | luxury)` buscará documentos que contengan el término motel y `wifi` o `luxury` (o ambos).  
+El operador de sufijo es un asterisco `*`. Por ejemplo, `lingui*` encontrará "linguistic" o "Linguini", sin distinción de mayúsculas y minúsculas. 
 
-## <a name="escaping-search-operators"></a>Escape de los operadores de búsqueda  
+De forma similar a los filtros, una consulta de prefijo busca una coincidencia exacta. Como tal, no hay ninguna puntuación de relevancia (todos los resultados reciben una puntuación de búsqueda de 1,0). Las consultas de prefijo pueden ser lentas, en especial si el índice es grande y el prefijo está formado por un número pequeño de caracteres. 
 
- Para poder usar los símbolos anteriores como parte real del texto de búsqueda, se deben escapar utilizando una barra diagonal inversa como prefijo. Por ejemplo, `luxury\+hotel` dará como resultado el término `luxury+hotel`. Con el fin de simplificar las cosas para los casos más típicos, existen dos excepciones a esta regla donde la secuencia de escape no es necesaria:  
+Si desea ejecutar una consulta de sufijo, que coincida en la última parte de la cadena, utilice una [búsqueda con caracteres comodín](query-lucene-syntax.md#bkmk_wildcard) y la sintaxis de Lucene completa.
 
-- El operador NOT `-` necesita escaparse solamente si es el primer carácter después de un espacio en blanco, no si se encuentra en medio de un término. Por ejemplo, `wi-fi` es un solo término; mientras que los GUID (como `3352CDD0-EF30-4A2E-A512-3B30AF40F3FD`) se tratan como un token único.
-- El operador de sufijo `*` necesita escaparse solamente si es el último carácter antes de un espacio en blanco, no si se encuentra en medio de un término. Por ejemplo, `wi*fi` se trata como un token único.
+## <a name="phrase-search-"></a>Búsqueda de frases `"`
 
-> [!NOTE]  
->  Aunque la operación de escape mantiene los tokens juntos, el análisis de texto puede dividirlos, dependiendo del modo de análisis. Consulte [Compatibilidad con idiomas &#40;API REST de Azure Cognitive Search&#41;](index-add-language-analyzers.md) para más información.  
+Una búsqueda de términos es una consulta para uno o varios términos, donde cualquiera de los términos se considera una coincidencia. Una búsqueda de frases es una frase exacta entre comillas `" "`. Por ejemplo, mientras que `Roach Motel` (sin comillas) buscaría documentos que contuvieran `Roach` y/o `Motel` en cualquier lugar y en cualquier orden, `"Roach Motel"` (con comillas) solo encontrará coincidencias en documentos que contengan esa frase completa junta y en ese orden (el análisis de texto sigue aplicándose).
 
 ## <a name="see-also"></a>Consulte también  
 
-+ [Búsqueda de documentos &#40;API REST de Azure Cognitive Search&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) 
++ [Ejemplos de consulta para una búsqueda simple](search-query-simple-examples.md)
++ [Ejemplos de consulta para una búsqueda completa de Lucene](search-query-lucene-examples.md)
++ [Búsqueda de documentos &#40;API REST de Azure Cognitive Search&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
 + [Sintaxis de consulta de Lucene](query-lucene-syntax.md)
 + [Sintaxis de expresión de OData](query-odata-filter-orderby-syntax.md) 

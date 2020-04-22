@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 06/13/2018
-ms.openlocfilehash: 761c464730096eba36bc7c04227745cf362e5cc6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4a0e5b0c18264e1f7a98e81bcdfd56a7159235da
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79235336"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010926"
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-cache-for-redis"></a>Configuración de la agrupación en clústeres de Redis para una instancia de Azure Cache for Redis de nivel Prémium
 Azure Cache for Redis cuenta con diferentes opciones de caché, lo que proporciona flexibilidad en la elección del tamaño y las características de la memoria caché, incluidas algunas características del nivel Prémium, como la agrupación en clústeres, la persistencia y la compatibilidad con las redes virtuales. En este artículo se describe cómo configurar la agrupación en clústeres en una instancia de Azure Cache for Redis de nivel Prémium.
@@ -24,7 +24,7 @@ Azure Cache for Redis ofrece clúster de Redis como [implementado en Redis](http
 * La capacidad de dividir automáticamente el conjunto de datos entre varios nodos. 
 * La capacidad de continuar las operaciones cuando un subconjunto de los nodos está teniendo errores o no se puede comunicar con el resto del clúster. 
 * Mayor rendimiento: el rendimiento aumenta de manera lineal a medida que aumenta el número de particiones. 
-* Mayor tamaño de memoria: aumenta de manera lineal a medida que aumenta el número de particiones.  
+* Más tamaño de memoria: aumenta de manera lineal a medida que aumenta el número de particiones.  
 
 La agrupación en clústeres no aumenta el número de conexiones disponibles para una caché en clúster. Para más información sobre el tamaño, el rendimiento y el ancho de banda con memorias caché prémium, vea [What Azure Cache for Redis offering and size should I use?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use) (¿Qué oferta y tamaño de Azure Cache for Redis debo utilizar?).
 
@@ -125,7 +125,7 @@ Puede conectarse a su memoria caché con los mismos [puntos de conexión](cache-
 ### <a name="can-i-directly-connect-to-the-individual-shards-of-my-cache"></a>¿Puedo conectarme directamente a las particiones individuales de mi memoria caché?
 El protocolo de agrupación en clústeres requiere que el cliente realice las conexiones de la partición correcta. Así, el cliente debe hacer esto correctamente en su lugar. Dicho esto, cada partición consta de un par de caché principal/réplica que se conoce colectivamente como una instancia de caché. Puede conectarse a estas instancias de caché mediante la utilidad redis-cli en la rama [inestable](https://redis.io/download) del repositorio de Redis en GitHub. Esta versión implementa compatibilidad básica cuando se inicia con el conmutador `-c` . Para más información, consulte la sección [Jugar con el clúster](https://redis.io/topics/cluster-tutorial#playing-with-the-cluster) en [https://redis.io](https://redis.io), en el [tutorial de clústeres de Redis](https://redis.io/topics/cluster-tutorial).
 
-Cuando no sea ssl, use los siguientes comandos.
+Cuando no sea TLS, use los siguientes comandos.
 
     Redis-cli.exe –h <<cachename>> -p 13000 (to connect to instance 0)
     Redis-cli.exe –h <<cachename>> -p 13001 (to connect to instance 1)
@@ -133,7 +133,7 @@ Cuando no sea ssl, use los siguientes comandos.
     ...
     Redis-cli.exe –h <<cachename>> -p 1300N (to connect to instance N)
 
-Para ssl, reemplace `1300N` por `1500N`.
+Para TLS, reemplace `1300N` por `1500N`.
 
 ### <a name="can-i-configure-clustering-for-a-previously-created-cache"></a>¿Puedo configurar la agrupación en clústeres para una memoria caché creada anteriormente?
 Sí. En primer lugar, asegúrese de que la memoria caché es Premium y realice un escalado si no lo es. A continuación, debería poder ver las opciones de configuración del clúster, incluida una opción para habilitarlo. Puede cambiar el tamaño del clúster una vez creada la memoria caché o después de habilitar la agrupación en clústeres por primera vez.

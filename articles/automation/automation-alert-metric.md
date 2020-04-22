@@ -4,12 +4,12 @@ description: En este artículo se indica cómo supervisar runbooks de Azure Auto
 services: automation
 ms.date: 11/01/2018
 ms.topic: article
-ms.openlocfilehash: 9bd028157b33817898ef69f9e47cb8b5d9b8f381
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f288029bb35fe4e3c71db37a1de265edbcd913b1
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75367100"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81310555"
 ---
 # <a name="monitoring-runbooks-with-metric-alerts"></a>Supervisión de runbooks con alertas de métricas
 
@@ -23,7 +23,7 @@ Inicie sesión en Azure en https://portal.azure.com
 
 Las alertas le permiten definir una condición para supervisar y una acción para realizar cuando se cumple esa condición.
 
-En Azure Portal, vaya a la cuenta de Automation. En **Supervisión**, seleccione **Alertas** y haga clic en **+ Nueva regla de alertas**. El ámbito del destino ya está definido para la cuenta de Automation.
+En Azure Portal, vaya a su cuenta de Automation. En **Supervisión**, seleccione **Alertas** y haga clic en **+ Nueva regla de alertas**. El ámbito del destino ya está definido para la cuenta de Automation.
 
 ### <a name="configure-alert-criteria"></a>Configuración de los criterios de alerta
 

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2020
+ms.date: 04/10/2020
 ms.author: spelluru
-ms.openlocfilehash: a2d0b9bdfba1b96ad42e45d54faf106b2361e29d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7cdc9f9a4503c786065b6d514f61fe17eae4ce5e
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76264801"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81270917"
 ---
 # <a name="configure-autoshutdown-for-lab-and-compute-virtual-machines-in-azure-devtest-labs"></a>Configuración del apagado automático de máquinas virtuales de laboratorio y proceso en Azure DevTest Labs
 
@@ -28,7 +28,7 @@ En este artículo se explica cómo configurar las opciones de apagado automátic
 ## <a name="configure-autoshutdown-for-lab-vms-devtest-labs"></a>Configuración del apagado automático de las máquinas virtuales de laboratorio (DevTest Labs)
 Azure DevTest Labs permite controlar los costos y desperdiciar lo mínimo posible en sus laboratorios gracias a la posibilidad de administrar políticas (configuración) en cada uno de ellos. En este artículo le mostramos cómo configurar la directiva de apagado automático para una cuenta de laboratorio y cómo configurar el apagado automático para un laboratorio de la cuenta de laboratorio. Para ver cómo establecer cada una de las directivas de laboratorio, vea [Definición de directivas de laboratorio en Azure DevTest Labs](devtest-lab-set-lab-policy.md).  
 
-### <a name="set-auto-shut-down-policy-for-a-lab"></a>Establecimiento de la directiva de apagado automático de un laboratorio
+### <a name="set-auto-shutdown-policy-for-a-lab"></a>Establecer la directiva de apagado automático para un laboratorio
 Como propietario del laboratorio, puede configurar una programación de apagado para todas las máquinas virtuales de su laboratorio. Al hacerlo, puede ahorrar costos derivados de la ejecución de máquinas que no se usan (inactivas). Puede aplicar una directiva de apagado en todas las máquinas del laboratorio a nivel central, pero también ahorrarles a los usuarios del laboratorio el trabajo de configurar una programación para sus máquinas individuales. Esta característica le permite definir la directiva en la programación del laboratorio: desde no ofrecer ningún control a ofrecer control completo a los usuarios del laboratorio. Como propietario del laboratorio, puede configurar esta directiva mediante los pasos siguientes:
 
 1. En la página principal del laboratorio, seleccione **Configuration and policies** (Configuración y directivas).
@@ -191,13 +191,34 @@ Para comenzar, cree una aplicación lógica en su suscripción de Azure siguiend
 
 ## <a name="configure-autoshutdown-for-compute-vms"></a>Configuración del apagado automático de máquinas virtuales de proceso
 
-1. En la página **Máquina virtual**, seleccione **Apagado automático** en el menú de la izquierda. 
+1. En la página **Máquina virtual**, seleccione **Apagado automático** en el menú de la izquierda de la sección **Operaciones**. 
 2. En la página **Apagado automático**, seleccione **Activado** para habilitar esta directiva y **Desactivado** para deshabilitarla.
 3. Si habilita esta directiva, especifique la **hora** (y la **zona horaria**) a la que se deben apagar las máquinas virtuales.
 4. Especifique **Sí** o **No** en la opción de enviar una notificación 30 minutos antes de la hora especificada para el apagado automático. Si elige **Sí**, escriba un punto de conexión de URL del webhook o una dirección de correo electrónico para especificar dónde quiere que se publique o se envíe la notificación. El usuario recibe la notificación y se le ofrece la opción de retrasar el apagado. Para obtener más información, consulte la sección [Notificaciones](#notifications). 
 9. Seleccione **Guardar**.
 
     ![Configuración del apagado automático de una máquina virtual de proceso](./media/devtest-lab-auto-shutdown/comnpute-auto-shutdown.png)
+
+### <a name="view-activity-logs-for-auto-shutdown-updates"></a>Visualización de registros de actividad para las actualizaciones del apagado automático
+Al actualizar la configuración del apagado automático, verá la actividad registrada en el registro de actividad de la máquina virtual. 
+
+1. En [Azure Portal](https://portal.azure.com), vaya a la página principal de la máquina virtual.
+2. Seleccione **Registro de actividad** en el menú de la izquierda. 
+3. Quite **Recurso: mycomputevm** de los filtros.
+3. Confirme que ve la operación **Agregar o modificar programaciones** en el registro de actividad. Si no lo ve, espere unos minutos y actualice el registro de actividad.
+
+    ![Entrada de registro de actividad](./media/devtest-lab-auto-shutdown/activity-log-entry.png)
+4. Seleccione la operación **Agregar o modificar programaciones** para ver la información siguiente en la página **Resumen**:
+
+    - Nombre de la operación (Agregar o modificar programaciones)
+    - Fecha y hora en que se actualizó la configuración del apagado automático.
+    - La dirección de correo electrónico del usuario que actualizó la configuración. 
+
+        ![Resumen de entradas del registro de actividad](./media/devtest-lab-auto-shutdown/activity-log-entry-summary.png)
+5. Cambie a la pestaña **Historial de cambios** de la página **Agregar o modificar programaciones** y verá el historial de cambios de la configuración. En el ejemplo siguiente, la hora de apagado se cambió de 7 p.m. a 6 p.m. el 10 de abril de 2020 a las 15:18:47 EST. Y la configuración se deshabilitó a las 15:25:09 EST. 
+
+    ![Registro de actividad - historial de cambios](./media/devtest-lab-auto-shutdown/activity-log-entry-change-history.png)
+6. Para ver más detalles sobre la operación, cambie a la pestaña **JSON** de la página **Agregar o modificar programaciones**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para saber cómo configurar todas las directivas, consulte [Administración de las directivas de un laboratorio de Azure DevTest Labs](devtest-lab-set-lab-policy.md).

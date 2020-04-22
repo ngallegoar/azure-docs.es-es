@@ -1,30 +1,30 @@
 ---
-title: Esquema de eventos de Event Hubs de Azure Event Grid
+title: Azure Event Hubs como origen de Event Grid
 description: Describe las propiedades que se proporcionan para los eventos de Event Hubs con Azure Event Grid
 services: event-grid
 author: spelluru
 ms.service: event-grid
-ms.topic: reference
-ms.date: 01/17/2019
+ms.topic: conceptual
+ms.date: 04/09/2020
 ms.author: spelluru
-ms.openlocfilehash: 9c0113687d27bf43375f298057129a5594ec0a06
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fd65c20f07a091fa1fc8a6cbf003986e1096ebe3
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60561835"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393340"
 ---
-# <a name="azure-event-grid-event-schema-for-event-hubs"></a>Esquema de eventos de Azure Event Grid para Event Hubs
+# <a name="azure-event-hubs-as-an-event-grid-source"></a>Azure Event Hubs como origen de Event Grid
 
 En este artículo se proporcionan las propiedades y los esquemas de los eventos de Event Hubs. Para una introducción a los esquemas de eventos, consulte [Esquema de eventos de Azure Event Grid](event-schema.md).
 
-Para obtener una lista de scripts de ejemplo y tutoriales, consulte [Origen de eventos de Event Hubs](event-sources.md#event-hubs).
+## <a name="event-grid-event-schema"></a>Esquema de eventos de Event Grid
 
 ### <a name="available-event-types"></a>Tipos de eventos disponibles
 
 Event Hubs emite el tipo de evento **Microsoft.EventHub.CaptureFileCreated** cuando se crea un archivo de captura.
 
-## <a name="example-event"></a>Evento de ejemplo
+### <a name="example-event"></a>Evento de ejemplo
 
 Este evento de ejemplo muestra el esquema de un evento de Event Hubs que se genera cuando la característica de captura almacena un archivo: 
 
@@ -53,7 +53,7 @@ Este evento de ejemplo muestra el esquema de un evento de Event Hubs que se gene
 ]
 ```
 
-## <a name="event-properties"></a>Propiedades de evento
+### <a name="event-properties"></a>Propiedades de evento
 
 Un evento tiene los siguientes datos de nivel superior:
 
@@ -81,6 +81,12 @@ El objeto data tiene las siguientes propiedades:
 | lastSequenceNumber | integer | Último número de secuencia de la cola. |
 | firstEnqueueTime | string | Primera vez desde la cola. |
 | lastEnqueueTime | string | Última vez desde la cola. |
+
+## <a name="tutorials-and-how-tos"></a>Tutoriales y procedimientos
+
+|Título  |Descripción  |
+|---------|---------|
+| [Tutorial: transmisión de macrodatos a un almacén de datos](event-grid-event-hubs-integration.md) | Cuando Event Hubs crea un archivo de captura, Event Grid envía un evento a una aplicación de función. La aplicación recupera el archivo de captura y migra los datos a un almacenamiento de datos. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

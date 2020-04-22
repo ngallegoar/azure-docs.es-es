@@ -2,13 +2,13 @@
 title: Trabajo con Reliable Collections
 description: Conozca los procedimientos recomendados para trabajar con Reliable Collections dentro de una aplicación de Azure Service Fabric.
 ms.topic: conceptual
-ms.date: 02/22/2019
-ms.openlocfilehash: 4a1f48d9523e5d753c222f0526e210a30e1927e2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/10/2020
+ms.openlocfilehash: 94836a37a62e3eeffb94d891980cc02694bd973e
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75645980"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81409802"
 ---
 # <a name="working-with-reliable-collections"></a>Trabajo con Reliable Collections
 Service Fabric ofrece un modelo de programación con estado a los desarrolladores de .NET a través de Reliable Collections. En concreto, Service Fabric proporciona un diccionario confiable y clases de cola confiables. Al utilizar estas clases, se crean particiones en el estado (para escalabilidad) y este se replica (para disponibilidad) y se tramita dentro de una partición (para semántica ACID). Veamos un uso típico de un objeto de diccionario de confianza y verá lo que está haciendo realmente.
@@ -38,11 +38,11 @@ catch (TimeoutException)
 }
 ```
 
-Todas las operaciones en los objetos de diccionario de confianza (excepto ClearAsync, que no se puede deshacer) requieren un objeto ITransaction. Este objeto tiene asociados todos los cambios que está intentando realizar en cualquiera diccionario confiable y/u objeto de cola confiable dentro de una sola partición. Un objeto ITransaction se adquiere llamando al método CreateTransaction de StateManager de la partición.
+Todas las operaciones en los objetos de diccionario de confianza (excepto ClearAsync, que no se puede deshacer) requieren un objeto ITransaction. Este objeto tiene asociados todos los cambios que está intentando realizar en cualquiera diccionario de confianza u objeto de cola de confianza dentro de una sola partición. Un objeto ITransaction se adquiere llamando al método CreateTransaction de StateManager de la partición.
 
-En el código anterior, el objeto ITransaction se pasa al método AddAsync de un diccionario confiable. Internamente, los métodos de diccionario que aceptan una clave tienen un bloqueo de lectura o escritura asociado a dicha clave. Si el método modifica el valor de la clave, dicho método toma un bloqueo de escritura en la clave; si el método solo lee el valor de la clave, se toma un bloqueo de lectura en la clave. Puesto que AddAsync modifica el valor de la clave al nuevo valor pasado, se toma el bloqueo de escritura de la clave. Por lo tanto, si 2 (o más) subprocesos intentan agregar valores con la misma clave simultáneamente, un subproceso adquirirá el bloqueo de escritura y los otros subprocesos se bloquearán. De forma predeterminada, los métodos se bloquean hasta 4 segundos para adquirir el bloqueo; después de 4 segundos, los métodos inician una excepción TimeoutException. Existen sobrecargas de método que le permiten pasar un valor de tiempo de espera explícito si lo prefiere.
+En el código anterior, el objeto ITransaction se pasa al método AddAsync de un diccionario de confianza. Internamente, los métodos de diccionario que aceptan una clave tienen un bloqueo de lectura o escritura asociado a dicha clave. Si el método modifica el valor de la clave, dicho método toma un bloqueo de escritura en la clave; si el método solo lee el valor de la clave, se toma un bloqueo de lectura en la clave. Como AddAsync modifica el valor de la clave al nuevo valor pasado, se toma el bloqueo de escritura de la clave. Por lo tanto, si 2 (o más) subprocesos intentan agregar valores con la misma clave simultáneamente, un subproceso adquirirá el bloqueo de escritura y los otros subprocesos se bloquearán. De forma predeterminada, los métodos se bloquean hasta 4 segundos para adquirir el bloqueo; después de 4 segundos, los métodos inician una excepción TimeoutException. Existen sobrecargas de método que le permiten pasar un valor de tiempo de espera explícito si lo prefiere.
 
-Normalmente, el código se escribe para reaccionar ante una excepción TimeoutException capturándola y reintentando la operación completa (como se muestra en el código anterior). En mi sencillo código, simplemente llamo a Task.Delay pasando 100 milisegundos cada vez. Sin embargo, en realidad, podría ser mejor usar algún tipo de retraso de interrupción exponencial en su lugar.
+Normalmente, el código se escribe para reaccionar ante una excepción TimeoutException capturándola y reintentando la operación completa (como se muestra en el código anterior). En mi código sencillo, simplemente llamo a Task.Delay y paso 100 milisegundos cada vez. Sin embargo, en realidad, podría ser mejor usar algún tipo de retraso de interrupción exponencial en su lugar.
 
 Una vez que se adquiere el bloqueo, AddAsync agrega las referencias de objeto de clave y valor a un diccionario temporal interno asociado al objeto ITransaction. Esto se hace para proporcionar una semántica de lectura de escrituras propias. Es decir, después de llamar a AddAsync, una llamada posterior a TryGetValueAsync (con el mismo objeto ITransaction) devolverá el valor incluso si todavía no ha confirmado la transacción. A continuación, AddAsync serializa los objetos de clave y valor en matrices de bytes y anexa estas matrices de bytes a un archivo de registro en el nodo local. Finalmente, AddAsync envía las matrices de bytes a todas las réplicas secundarias, por lo que tienen la misma información de clave y valor. Aunque la información de clave y valor se ha escrito en un archivo de registro, la información no se considera parte del diccionario hasta que se ha confirmado la transacción a la que están asociados.
 
@@ -50,8 +50,21 @@ En el código anterior, la llamada a CommitAsync confirma todas las operaciones 
 
 Si no se llama a CommitAsync (normalmente debido a una excepción iniciada), se elimina el objeto ITransaction. Al desechar un objeto ITransaction sin confirmar, Service Fabric anexa información de anulación al archivo de registro del nodo local y no es necesario enviar nada a ninguna de las réplicas secundarias. Y después, se liberan los bloqueos asociados a las claves que se manipularon a través de la transacción.
 
+## <a name="volatile-reliable-collections"></a>Colecciones volátiles de confianza 
+En algunas cargas de trabajo, como por ejemplo, una caché replicada, se puede tolerar una pérdida de datos ocasional. Evitar la persistencia de los datos en el disco puede permitir más latencias y rendimiento al escribir en diccionarios de confianza. La desventaja de una falta de persistencia es que si se produce una pérdida de cuórum, se producirá una pérdida completa de los datos. Como la pérdida de cuórum es una situación poco frecuente, el mayor rendimiento puede merecer la posibilidad de que se pierdan datos para esas cargas de trabajo.
+
+Actualmente, la compatibilidad volátil solo está disponible para diccionarios de confianza y colas de confianza y no ReliableConcurrentQueues. Consulte la lista de [Advertencias](service-fabric-reliable-services-reliable-collections-guidelines.md#volatile-reliable-collections) para tomar una decisión informada sobre si usar las colecciones volátiles.
+
+Para habilitar la compatibilidad volátil en el servicio, establezca la marca ```HasPersistedState``` de la declaración de tipos de servicio en ```false```, como se indica a continuación:
+```xml
+<StatefulServiceType ServiceTypeName="MyServiceType" HasPersistedState="false" />
+```
+
+>[!NOTE]
+>Los servicios persistentes existentes no pueden convertirse en volátiles ni viceversa. Si quiere hacerlo, deberá eliminar el servicio existente y, luego, implementar el servicio con la marca actualizada. Esto significa que debe estar dispuesto a incurrir en una pérdida completa de los datos si desea cambiar la marca ```HasPersistedState```. 
+
 ## <a name="common-pitfalls-and-how-to-avoid-them"></a>Dificultades comunes y cómo evitarlas
-Ahora que entiende cómo funcionan internamente las colecciones confiables, echemos un vistazo a algunos usos incorrectos comunes de ellas. Vea el código siguiente:
+Ahora que entiende cómo funcionan internamente las colecciones de confianza, echemos un vistazo a algunos usos incorrectos comunes de ellas. Vea el código siguiente:
 
 ```csharp
 using (ITransaction tx = StateManager.CreateTransaction())
@@ -60,7 +73,7 @@ using (ITransaction tx = StateManager.CreateTransaction())
    // & sends the bytes to the secondary replicas.
    await m_dic.AddAsync(tx, name, user);
 
-   // The line below updates the property’s value in memory only; the
+   // The line below updates the property's value in memory only; the
    // new value is NOT serialized, logged, & sent to secondary replicas.
    user.LastLogin = DateTime.UtcNow;  // Corruption!
 
@@ -87,13 +100,13 @@ Este es otro ejemplo que muestra un error común:
 ```csharp
 using (ITransaction tx = StateManager.CreateTransaction())
 {
-   // Use the user’s name to look up their data
+   // Use the user's name to look up their data
    ConditionalValue<User> user = await m_dic.TryGetValueAsync(tx, name);
 
    // The user exists in the dictionary, update one of their properties.
    if (user.HasValue)
    {
-      // The line below updates the property’s value in memory only; the
+      // The line below updates the property's value in memory only; the
       // new value is NOT serialized, logged, & sent to secondary replicas.
       user.Value.LastLogin = DateTime.UtcNow; // Corruption!
       await tx.CommitAsync();
@@ -110,7 +123,7 @@ El código siguiente muestra la manera adecuada de actualizar un valor en una co
 ```csharp
 using (ITransaction tx = StateManager.CreateTransaction())
 {
-   // Use the user’s name to look up their data
+   // Use the user's name to look up their data
    ConditionalValue<User> currentUser = await m_dic.TryGetValueAsync(tx, name);
 
    // The user exists in the dictionary, update one of their properties.
@@ -124,7 +137,7 @@ using (ITransaction tx = StateManager.CreateTransaction())
       // In the new object, modify any properties you desire
       updatedUser.LastLogin = DateTime.UtcNow;
 
-      // Update the key’s value to the updateUser info
+      // Update the key's value to the updateUser info
       await m_dic.SetValue(tx, name, updatedUser);
       await tx.CommitAsync();
    }
@@ -138,7 +151,7 @@ El tipo UserInfo siguiente muestra cómo definir un tipo inmutable aprovechando 
 
 ```csharp
 [DataContract]
-// If you don’t seal, you must ensure that any derived classes are also immutable
+// If you don't seal, you must ensure that any derived classes are also immutable
 public sealed class UserInfo
 {
    private static readonly IEnumerable<ItemId> NoBids = ImmutableList<ItemId>.Empty;
@@ -190,7 +203,7 @@ public struct ItemId
 ```
 
 ## <a name="schema-versioning-upgrades"></a>Control de versiones de esquema (actualizaciones)
-Internamente, Reliable Collections serializa los objetos mediante DataContractSerializer de NET. Los objetos serializados se conservan en el disco local de la réplica principal y también se transmiten a las réplicas secundarias. A medida que se desarrolle el servicio, es probable que desee cambiar el tipo de datos (esquema) que el servicio requiere. Debe abordar el control de versiones de los datos con mucho cuidado. En primer lugar y ante todo, siempre debe ser capaz de deserializar los datos antiguos. En concreto, esto significa que el código de deserialización debe ser compatible con todas las versiones anteriores: la versión 333 del código de servicio debe ser capaz de funcionar en los datos colocados en una colección de confianza por la versión 1 del código de servicio de hace 5 años.
+Internamente, las colecciones de confianza serializan los objetos mediante DataContractSerializer de NET. Los objetos serializados se conservan en el disco local de la réplica principal y también se transmiten a las réplicas secundarias. A medida que se desarrolle el servicio, es probable que desee cambiar el tipo de datos (esquema) que el servicio requiere. Debe abordar el control de versiones de los datos con mucho cuidado. En primer lugar y ante todo, siempre debe ser capaz de deserializar los datos antiguos. En concreto, esto significa que el código de deserialización debe ser compatible con todas las versiones anteriores: la versión 333 del código de servicio debe ser capaz de funcionar en los datos colocados en una colección de confianza por la versión 1 del código de servicio de hace 5 años.
 
 Además, el código de servicio se actualiza con un dominio de actualización en cada momento. Por lo tanto, durante una actualización, tiene dos versiones diferentes del código de servicio ejecutándose simultáneamente. Debe evitar que la nueva versión del código de servicio utilice el nuevo esquema, ya que las versiones anteriores de dicho código podrían no ser capaces de controlar el nuevo esquema. Cuando le sea posible, diseñe cada versión del servicio para que sea compatible con versiones posteriores mediante una versión. En concreto, esto significa que la versión 1 (V1) del código de servicio debe ser capaz de omitir cualquier elemento de esquema que no controle explícitamente. Sin embargo, debe ser capaz de guardar todos los datos que no conoce explícitamente y reescribirlos al actualizar un valor o una clave de diccionario.
 

@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 03/22/2020
+ms.date: 04/14/2020
 ms.author: barclayn
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 070b7c5e0fef7d50f84271190432a65d29699bdf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d59a508d03730a51e793a5e30e2c99a91af77ce8
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80128622"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81380191"
 ---
 # <a name="archive-logs-and-reporting-on-azure-ad-entitlement-management-in-azure-monitor"></a>Archivado de registros e informes sobre la administración de derechos de Azure AD en Azure Monitor
 
@@ -49,6 +49,38 @@ El archivado de los registros de auditoría de Azure AD requiere tener Azure Mo
 1. Seleccione **Uso y costos estimados** y haga clic en **Retención de datos**. Cambie el control deslizante al número de días que desea conservar los datos para cumplir los requisitos de auditoría.
 
     ![Panel Áreas de trabajo de Log Analytics](./media/entitlement-management-logs-and-reporting/log-analytics-workspaces.png)
+
+1. Más adelante, para ver el intervalo de fechas que se mantiene en su área de trabajo, puede usar el libro *Intervalo de fechas de registros archivados*:  
+    
+    1. Seleccione **Azure Active Directory** y después haga clic en **Libros**. 
+    
+    1. Expanda la sección **Solución de problemas de Azure Active Directory**y haga clic en **Intervalo de fechas de registros archivados**. 
+
+
+## <a name="view-events-for-an-access-package"></a>Ver los eventos de un paquete de acceso  
+
+Para ver los eventos de un paquete de acceso, debe tener acceso al área de trabajo subyacente de Azure Monitor (consulte [Administración del acceso a los datos de registro y las áreas de trabajo en Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-azure-permissions) para obtener información) y en uno de los roles siguientes: 
+
+- Administrador global  
+- Administrador de seguridad  
+- Lector de seguridad  
+- Lector de informes  
+- Administrador de aplicaciones  
+
+Use el procedimiento siguiente para ver los eventos: 
+
+1. En Azure Portal, seleccione **Azure Active Directory** y, a continuación, haga clic en **Libros**. Si solo tiene una suscripción, vaya al paso 3. 
+
+1. Si tiene varias suscripciones, seleccione la suscripción que contenga el área de trabajo.  
+
+1. Seleccione el libro llamado *Actividad de acceso a paquetes*. 
+
+1. En ese libro, seleccione un intervalo de tiempo (cambie a **Todo** si no está seguro) y seleccione un identificador de paquete de acceso en la lista desplegable de todos los paquetes de acceso que tenían actividad durante ese intervalo de tiempo. Se mostrarán los eventos relacionados con el paquete de acceso que se produjeron durante el intervalo de tiempo seleccionado.  
+
+    ![Ver eventos de paquete de acceso](./media/entitlement-management-logs-and-reporting/view-events-access-package.png) 
+
+    Cada fila incluye la hora, el identificador de paquete de acceso, el nombre de la operación, el identificador de objeto, el UPN y el nombre para mostrar del usuario que inició la operación.  Se incluyen detalles adicionales en JSON.   
+
 
 ## <a name="create-custom-azure-monitor-queries-using-the-azure-portal"></a>Creación de consultas personalizadas de Azure Monitor mediante Azure Portal
 Puede crear sus propias consultas en eventos de auditoría de Azure AD, incluidos los eventos de administración de derechos.  
@@ -86,6 +118,7 @@ Puede acceder a los registros a través de PowerShell después de haber configur
 Asegúrese de que tener, como usuario o entidad de servicio que se va a autenticar en Azure AD, el rol de Azure adecuado en el área de trabajo de Log Analytics. Las opciones de rol son Lector de Log Analytics o Colaborador de Log Analytics. Si ya tiene uno de esos roles, vaya directamente a [Recuperación del id. de Log Analytics con una suscripción a Azure](#retrieve-log-analytics-id-with-one-azure-subscription).
 
 Para establecer la asignación de roles y crear una consulta, siga estos pasos:
+
 1. En Azure Portal, seleccione el [área de trabajo de Log Analytics](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.OperationalInsights%2Fworkspaces
 ).
 
@@ -150,7 +183,7 @@ $aResponse.Results |ft
 También puede recuperar los eventos de administración de derechos mediante una consulta como la siguiente:
 
 ```azurepowershell
-$bQuery = = 'AuditLogs | where Category == "EntitlementManagement"'
+$bQuery = 'AuditLogs | where Category == "EntitlementManagement"'
 $bResponse = Invoke-AzOperationalInsightsQuery -WorkspaceId $wks[0].CustomerId -Query $Query
 $bResponse.Results |ft 
 ```

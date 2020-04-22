@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 04/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1c8f14bb1bca082a9d887e5d6d88aec213448c3e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1735daf66483df496141a642ac6633973aa0abf0
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79228048"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81407545"
 ---
 # <a name="grant-data-access-to-an-environment"></a>Concesión de acceso a datos en un entorno
 
@@ -28,7 +28,7 @@ En este artículo se tratan los dos tipos de directivas de acceso de la versión
 ## <a name="sign-in-to-time-series-insights"></a>Iniciar sesión en Time Series Insights
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-1. Busque el entorno de Time Series Insights. Especifique `Time Series` en el cuadro **Búsqueda**. Seleccione **Entorno de Time Series** en los resultados de búsqueda.
+1. Busque el entorno de Time Series Insights. Especifique `Time Series` en el cuadro **Búsqueda**. Seleccione **Entornos de Time Series** en los resultados de búsqueda.
 1. Seleccione el entorno de Time Series Insights de la lista.
 
 ## <a name="grant-data-access"></a>Concesión de acceso a datos

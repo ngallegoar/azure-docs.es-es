@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: dsindona
-ms.openlocfilehash: 524ae203a311d538431205bf8c6498de45aeb4d1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d64c8460f5653f28b96396025f29ea13af15c8c3
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80280310"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416319"
 ---
 # <a name="configure-lead-management-for-dynamics-crm-online"></a>Configure la administración de clientes potenciales de Dynamics CRM Online
 
@@ -142,4 +142,4 @@ El paso final es permitir que el usuario que ha creado escriba los clientes pote
 Finalice la configuración de Dynamics CRM para la administración de clientes potenciales agregando la información de cuentas generada a Cloud Partner Portal. Por ejemplo:
 
 -   **Azure Active Directory** - **Id. de aplicación** (ejemplo: *23456052-aaaa-bbbb-8662-1234df56788f*), **Identificador de directorio** (ejemplo: *12345678-8af1-4asf-1234-12234d01db47*) y **Clave de la aplicación** (ejemplo: *1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc=* ).
--   **Office 365** - **Url** (ejemplo: *https://contoso.crm4.dynamics.com* ), **Nombre de usuario** (ejemplo: *contoso\@ contoso.onmicrosoft.com*) y **Contraseña** (ejemplo: *P\@ ssw0rd*).
+-   **Office 365** - **Dirección URL** (ejemplo: **`https://contoso.crm4.dynamics.com`** ), **Nombre de usuario** (ejemplo: **`contoso\@contoso.onmicrosoft.com`** ) y **Contraseña** (ejemplo: *P\@ssw0rd*).

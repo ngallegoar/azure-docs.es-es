@@ -5,75 +5,81 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 02/06/2019
+ms.date: 04/15/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f93586d46aa01116990f8f02f344c6952d3c1b1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0429cfb62c319675806d76b4759b776a7b32dbcb
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "65768364"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81407209"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Elementos del correo electrónico de invitación para la colaboración B2B: Azure Active Directory
 
-Los correos electrónicos de invitación son un componente fundamental para incorporar a los asociados como usuarios de colaboración B2B en Azure AD. Puede usarlos para aumentar la confianza del destinatario. Puede agregar legitimidad y prueba social al correo electrónico para asegurarse de que el destinatario se sienta cómodo al seleccionar el botón **Empezar** para aceptar la invitación. Esta confianza es clave para reducir la fricción en el uso compartido. Y puede que también quiera que el correo electrónico tenga un buen aspecto.
+Los correos electrónicos de invitación son un componente fundamental para incorporar a los asociados como usuarios de colaboración B2B en Azure AD. Si bien [no es necesario que envíe un correo electrónico para invitar a alguien a usar la colaboración B2B](add-user-without-invite.md), al hacerlo, se le proporciona al usuario toda la información que necesita para tomar una decisión sobre si aceptar la invitación. También le proporciona un vínculo al que siempre puede hacer referencia en el futuro cuando necesiten volver a los recursos.
 
 ![Captura de pantalla que muestra el correo electrónico de invitación de B2B](media/invitation-email-elements/invitation-email.png)
 
+> [!NOTE]
+> Esta plantilla de correo electrónico nueva todavía se está implementando en todos los inquilinos, por lo que algunos inquilinos siguen usando un diseño anterior. A fines de mayo de 2020, las invitaciones de todos los inquilinos utilizarán esta plantilla.
+
 ## <a name="explaining-the-email"></a>Explicación del correo electrónico
+
 Se van a tratar algunos elementos del correo electrónico para saber cómo hacer el mejor uso de estas funcionalidades.
 
 ### <a name="subject"></a>Asunto
-El asunto del correo electrónico sigue este patrón: está invitado a la organización de &lt;nombreInquilino&gt;.
+
+El asunto del correo electrónico sigue este patrón:
+
+&lt;username&gt; lo ha invitado a acceder a las aplicaciones de su organización.
 
 ### <a name="from-address"></a>Dirección De
-Se usa un patrón similar a LinkedIn para la dirección De.  Es necesario tener claro quién es el invitador y a qué empresa pertenece y también aclarar que el correo electrónico procede de una dirección de correo electrónico de Microsoft. El formato es: Invitaciones de Microsoft<invites@microsoft.com> o &lt;Nombre para mostrar del invitador&gt; de &lt;tenantname&gt; (a través de Microsoft) <invites@microsoft.com>.
+
+Se usa un patrón similar a LinkedIn para la dirección De. Este patrón debe aclarar que, aunque el correo electrónico procede de invites@microsoft.com, la invitación viene de otra organización. El formato es: Microsoft Invitations <invites@microsoft.com> o invitaciones de Microsoft en nombre de &lt;tenantname&gt; <invites@microsoft.com>. 
 
 ### <a name="reply-to"></a>Responder a
+
 En la respuesta al correo electrónico se indica el correo electrónico del invitador si está disponible, para que al responder al correo electrónico se vuelva a enviar un correo al invitador.
 
-### <a name="branding"></a>Personalización de marca
-Los correos electrónicos de invitación del inquilino usan la personalización de marca de la empresa que puede haberse configurado para el inquilino. Si desea beneficiarse de esta funcionalidad, [aquí](https://docs.microsoft.com/azure/active-directory/active-directory-branding-custom-signon-azure-portal) se proporcionan los detalles sobre cómo configurarla. El logotipo del banner aparece en el correo electrónico. Siga el tamaño de la imagen y las instrucciones de calidad indicadas [aquí](https://docs.microsoft.com/azure/active-directory/active-directory-branding-custom-signon-azure-portal) para obtener los mejores resultados. Además, el nombre de la empresa también se presenta en la llamada a la acción.
+### <a name="phishing-warning"></a>Advertencia de suplantación de identidad (phishing)
 
-### <a name="call-to-action"></a>Llamada a la acción
-La llamada a la acción consta de dos partes: explicar por qué el destinatario ha recibido el correo electrónico y qué se pide al destinatario que haga al respecto.
-- La sección “por qué” puede seguir este patrón: Se le ha invitado a acceder a aplicaciones en la organización de &lt;nombreInquilino&gt;.
+El correo electrónico comienza con una breve advertencia para el usuario sobre la suplantación de identidad (phishing) y lo alerta de que solo debe aceptar las invitaciones que espera. Es recomendable asegurarse de que los asociados a los que está invitando no se vean sorprendidos por su invitación, así es que es bueno que lo mencione con tiempo.
 
-- Y la sección “qué se le pide que haga” está indicada por la presencia del botón **Introducción**. Cuando el destinatario se agrega sin necesidad de invitaciones, este botón no se muestra.
+![Imagen de la advertencia de suplantación de identidad (phishing) en el correo electrónico](media/invitation-email-elements/phishing-warning.png)
 
 ### <a name="inviters-information"></a>Información sobre el invitador
-El nombre para mostrar del invitador se incluye en el correo electrónico. Y, además, si ha configurado una imagen de perfil para la cuenta de Azure AD, el correo electrónico de invitación incluye también esa imagen. Ambas opciones están diseñadas para aumentar la confianza del destinatario en el correo electrónico.
 
-Si aún no ha configurado la imagen del perfil, se muestra un icono con las iniciales del invitador en lugar de la imagen:
+El correo electrónico incluye información sobre el invitador y la organización de la que está enviando la invitación. Esto incluye el nombre y la dirección de correo electrónico del remitente, así como el nombre y el dominio principal asociados con la organización. Toda esta información debe ayudar al invitado a tomar una decisión informada sobre si aceptar la invitación.
 
-  ![Captura de pantalla que muestra la invitación con las iniciales del invitador](media/invitation-email-elements/inviters-initials.png)
+![Imagen de la información del invitador en el correo electrónico](media/invitation-email-elements/inviters-information.png)
 
-### <a name="body"></a>Body
-El cuerpo contiene el mensaje que el invitador redacta al [invitar a un usuario invitado al directorio, grupo o aplicación](add-users-administrator.md) o al [usar la API de invitación](customize-invitation-api.md). Al ser un área de texto, por motivos de seguridad no se procesan las etiquetas HTML.
+### <a name="invitation-message"></a>Mensaje de invitación
 
-  ![Captura de pantalla que muestra el cuerpo del correo electrónico de invitación](media/invitation-email-elements/invitation-email-body.png)
+Si el invitador incluye un mensaje como parte de su invitación cuando [invita a un usuario invitado al directorio, grupo o aplicación](add-users-administrator.md) o cuando [usa la API de invitación](customize-invitation-api.md), el mensaje aparece resaltado en la sección principal del correo electrónico. También se incluye el nombre y la imagen de perfil del invitador, si se estableció. El mensaje mismo es un área de texto por lo que, por motivos de seguridad, no procesa etiquetas HTML.
+
+![Imagen del mensaje de invitación en el correo electrónico](media/invitation-email-elements/invitation-message.png)
+
+### <a name="accept-button-and-redirect-url"></a>Botón Aceptar y URL de redireccionamiento
+
+La sección siguiente del correo electrónico contiene información sobre adónde irá el invitado después de aceptar la invitación, así como un botón para hacerlo.  En el futuro, el invitado siempre podrá usar este vínculo para volver directamente a los recursos.
+
+![Imagen del botón Aceptar y la URL de redireccionamiento en el correo electrónico](media/invitation-email-elements/accept-button.png)
 
 ### <a name="footer-section"></a>Sección de pie de página
-El pie de página contiene la marca de empresa de Microsoft y permite que el destinatario sepa si el correo electrónico se envía desde un alias no supervisado. 
 
-Casos especiales:
+El pie de página contiene más información sobre la invitación que se envía. Siempre debe haber una opción para que el invitado bloquee las invitaciones futuras. Si la organización [estableció una declaración de privacidad](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-properties-area), aquí debe aparecer el vínculo a dicha declaración.  De lo contrario, una nota indica que la organización no ha establecido una declaración de privacidad.
 
-- El invitador no tiene una dirección de correo electrónico en el espacio empresarial invitador.
-
-  ![Captura de pantalla que muestra cuando un invitador no tiene un correo electrónico en el inquilino invitador](media/invitation-email-elements/inviter-no-email.png)
-
-
-- El destinatario no necesita canjear la invitación.
-
-  ![Captura de pantalla que muestra cuando el destinatario no necesita canjear la invitación](media/invitation-email-elements/when-recipient-doesnt-redeem.png)
-
+![Imagen de la sección de pie de página del correo electrónico](media/invitation-email-elements/footer-section.png)
+ 
 ## <a name="how-the-language-is-determined"></a>Cómo se determina el idioma
-Las opciones siguientes determinan el idioma que el usuario invitado ve en el correo electrónico de invitación. Estas opciones de configuración se muestran en el siguiente orden de prioridad. Si una opción no está configurada, la siguiente de la lista será la que determine el idioma. 
+
+Las opciones siguientes determinan el idioma que el usuario invitado ve en el correo electrónico de invitación. Estas opciones de configuración se muestran en el siguiente orden de prioridad. Si una opción no está configurada, la siguiente de la lista será la que determine el idioma.
+
 - La propiedad **messageLanguage** del objeto [guestUserMessageInfo](https://docs.microsoft.com/graph/api/resources/invitedusermessageinfo?view=graph-rest-1.0), si se usa la API para crear una invitación.
 -   La propiedad **preferredLanguage** especificada en el [objeto de usuario](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0) del invitado.
 -   El **idioma de notificación** establecido en las propiedades del inquilino principal del usuario invitado (solo para inquilinos de Azure AD).

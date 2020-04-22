@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: dsindona
-ms.openlocfilehash: 7c799c4a56ee5fc2074e4d644bdbcbc6d2b1ca5a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b2a4bb107309894a7180e0a4585cdba6f04d1bee
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288757"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273042"
 ---
 # <a name="windows-remote-management-over-https"></a>Administración remota de Windows a través de HTTPS
+
+> [!IMPORTANT]
+> A partir del 13 de abril de 2020, comenzaremos a trasladar la administración de las ofertas de máquinas virtuales de Azure al Centro de partners. Después de la migración, las ofertas se crearán y administrarán en el Centro de partners. Siga las instrucciones que se indican en [Creación de una oferta de máquina virtual de Azure](https://aka.ms/CreateAzureVMoffer) para administrar las ofertas migradas.
 
 En esta sección se explica cómo configurar una VM basada en Windows hospedada en Azure para que pueda administrarse e implementarse de forma remota con PowerShell.  Para habilitar la comunicación remota de PowerShell, la VM de destino debe exponer un punto de conexión HTTPS de Administración remota de Windows (WinRM).  Para más información sobre la comunicación remota de PowerShell, consulte [Running Remote Commands](https://docs.microsoft.com/powershell/scripting/learn/remoting/running-remote-commands) (Ejecución de comandos remotos).  Para más información sobre WinRM, consulte [Administración remota de Windows](https://docs.microsoft.com/windows/desktop/WinRM/portal).
 

@@ -9,12 +9,12 @@ ms.date: 01/21/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 77ad8579f31ce900a67e2ba3ddc53a5b034b6d42
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7120ba2cf71c9af5373b830d04d0b67952922887
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79454676"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81113517"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configuración de redes virtuales y firewalls de Azure Storage
 
@@ -252,7 +252,7 @@ Las reglas de red IP solo se permiten para direcciones IP de **Internet público
    > Las reglas de red IP no tienen ningún efecto en las solicitudes que proceden de la misma región de Azure que la cuenta de almacenamiento. Use [reglas de red virtual](#grant-access-from-a-virtual-network) para permitir solicitudes de la misma región.
 
   > [!NOTE]
-  > Los servicios implementados en la misma región que la cuenta de almacenamiento usan direcciones IP privadas de Azure para la comunicación. Por lo tanto, no puede restringir el acceso a servicios específicos de Azure en función de su intervalo de direcciones IP entrantes públicas.
+  > Los servicios implementados en la misma región que la cuenta de almacenamiento usan direcciones IP privadas de Azure para la comunicación. Por lo tanto, no puede restringir el acceso a servicios específicos de Azure en función de su intervalo de direcciones IP salientes públicas.
 
 Solo se admiten direcciones IPV4 para la configuración de reglas de firewall de almacenamiento.
 

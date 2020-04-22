@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/02/2018
 ms.author: dsindona
-ms.openlocfilehash: 9c0b4ca6e9a26f13d1539845ca9fb43f31a1a9dd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cd9f98d42efcb35dbab4f3c0a06c5a11360e36b6
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281721"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81270356"
 ---
 # <a name="containers"></a>Contenedores
+
+> [!IMPORTANT]
+> A partir del 13 de abril de 2020, se comenzará a trasladar la administración de las ofertas de contenedores de Azure al Centro de partners. Después de la migración, las ofertas se crearán y administrarán en el Centro de partners. Siga las instrucciones que se indican en [Creación de una oferta de contenedor de Azure](https://aka.ms/CreateContainerOffer) para administrar las ofertas migradas.
 
 <table> <tr> <td>En esta sección se explica cómo publicar una imagen de contenedor en <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a>.  
 El tipo de oferta de contenedor admite imágenes de contenedor de Docker aprovisionadas como instancias de <a href="https://docs.microsoft.com/azure/aks/index">Azure Kubernetes Service</a> o <a href="https://docs.microsoft.com/azure/container-instances/container-instances-overview">Azure Container Instances</a> y hospedadas en un repositorio de <a href="https://docs.microsoft.com/azure/container-registry">Azure Container Registry</a>. </td> <td><img src="./media/container-icon.png"  alt="Azure container icon" /></td> </tr> </table>

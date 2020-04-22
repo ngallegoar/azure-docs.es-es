@@ -5,19 +5,30 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 02/18/2020
+ms.date: 04/09/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 77fc6070010791bf96c944114929eba95842c9d4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1e53dda2c6cb293a9204f344d152daa1937aa38b
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77471720"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81008371"
 ---
-En la versión preliminar, los discos administrados que tienen discos compartidos habilitados están sujetos a las siguientes limitaciones:
+Durante la versión preliminar, los discos compartidos solo se pueden habilitar para un subconjunto de tipos de disco. Actualmente, solo los discos Ultra Disks y SSD Premium pueden habilitar discos compartidos. Cada disco administrado que tiene discos compartidos habilitados está sujeto a las siguientes limitaciones, organizadas según el tipo de disco:
 
-- Actualmente solo están disponible con los discos SSD prémium.
+### <a name="ultra-disks"></a>Discos Ultra
+
+Los discos Ultra Disks tienen su propia lista independiente de limitaciones, que no están relacionadas con los discos compartidos. Para conocer las limitaciones de Ultra Disks, vea [Uso de Azure Ultra Disks](../articles/virtual-machines/linux/disks-enable-ultra-ssd.md).
+
+Al compartir discos Ultra Disks, estos tienen las siguientes limitaciones adicionales:
+
+- Actualmente, solo se admite en Oeste de EE. UU.
+- Actualmente, se limita a la compatibilidad con Azure Resource Manager o SDK.
+- Solo se pueden usar discos básicos con algunas versiones del clúster de conmutación por error de Windows Server. Para más información, consulte [Requisitos de hardware y opciones de almacenamiento de clústeres de conmutación por error](https://docs.microsoft.com/windows-server/failover-clustering/clustering-requirements).
+
+### <a name="premium-ssds"></a>SSD Premium
+
 - Solo se admite actualmente en la región Centro-oeste de EE. UU.
 - Todas las máquinas virtuales que comparten un disco deben implementarse en los mismos [grupos de selección de ubicación de proximidad](../articles/virtual-machines/windows/proximity-placement-groups.md).
 - Solo se puede habilitar en discos de datos, no en discos de sistema operativo.

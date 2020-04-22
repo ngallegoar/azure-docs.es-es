@@ -7,18 +7,18 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: b4795eeb24d1d0ac373a700a6b60b8facec0e37d
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: f7b6e667df95d9279ad5c44caa4ba33a17909935
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73064005"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81113155"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Escenarios de Azure Disk Encryption en máquinas virtuales Windows
 
-Azure Disk Encryption usa el protector de claves externas BitLocker para proporcionar cifrado de volumen tanto a los discos de datos como a los del sistema operativo de máquinas virtuales de Azure, y se integra con Azure Key Vault para ayudarle a controlar y administrar las claves y los secretos del cifrado de disco. Para obtener información general del servicio, consulte [Azure Disk Encryption para máquinas virtuales Windows](disk-encryption-overview.md).
+Azure Disk Encryption para máquinas virtuales (VM) Windows usa la característica de Bitlocker de Windows para proporcionar el cifrado de disco completo del disco del OS y los discos de datos. Además, proporciona cifrado del disco de recursos efímeros cuando el parámetro VolumeType es Todo.
 
-Hay muchos escenarios de cifrado de disco y los pasos pueden variar en función del escenario. En las secciones siguientes se tratan con más detalle los escenarios de máquinas virtuales Windows.
+Azure Disk Encryption [se integra con Azure Key Vault](disk-encryption-key-vault.md) para ayudarle a controlar y administrar las claves y los secreto de cifrado de discos. Para obtener información general del servicio, consulte [Azure Disk Encryption para máquinas virtuales Windows](disk-encryption-overview.md).
 
 El cifrado de disco solo se puede aplicar a las máquinas virtuales que tengan [tamaños y sistemas operativos compatibles](disk-encryption-overview.md#supported-vms-and-operating-systems). También es preciso que se cumplan los siguientes requisitos previos:
 
@@ -39,9 +39,6 @@ El cifrado de disco solo se puede aplicar a las máquinas virtuales que tengan [
 
 ## <a name="enable-encryption-on-an-existing-or-running-windows-vm"></a>Habilitación del cifrado en una máquina virtual Windows existente o en ejecución
 En este escenario, puede habilitar el cifrado mediante la plantilla de Resource Manager, los cmdlets de PowerShell o los comandos de la CLI. Si necesita información de esquema para la extensión de máquina virtual, consulte el artículo sobre la [extensión de Azure Disk Encryption para Windows](../extensions/azure-disk-enc-windows.md).
-
-## <a name="enable-encryption-on-existing-or-running-iaas-windows-vms"></a>Habilitación del cifrado en máquinas virtuales IaaS de Windows existentes o en ejecución
-Puede habilitar el cifrado mediante una plantilla, los cmdlets de PowerShell o los comandos de la CLI. Si necesita información de esquema para la extensión de máquina virtual, consulte el artículo sobre la [extensión de Azure Disk Encryption para Windows](../extensions/azure-disk-enc-windows.md).
 
 ### <a name="enable-encryption-on-existing-or-running-vms-with-azure-powershell"></a>Habilitación del cifrado en máquinas virtuales existentes o en ejecución con Azure PowerShell 
 Use el cmdlet [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) para habilitar el cifrado en una máquina virtual IaaS en ejecución en Azure. 
@@ -131,7 +128,7 @@ Puede habilitar el cifrado de disco en máquinas virtuales IaaS de Windows exist
 
 En la tabla siguiente figuran los parámetros de la plantilla de Resource Manager para máquinas virtuales existentes o en ejecución:
 
-| Parámetro | DESCRIPCIÓN |
+| Parámetro | Descripción |
 | --- | --- |
 | vmName | Nombre de la máquina virtual para ejecutar la operación de cifrado. |
 | keyVaultName | Nombre del almacén de claves en el que se que debe cargar la clave de BitLocker. Puede obtenerlo mediante el cmdlet `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` o el comando de la CLI de Azure `az keyvault list --resource-group "MyKeyVaultResourceGroup"`|
@@ -140,7 +137,7 @@ En la tabla siguiente figuran los parámetros de la plantilla de Resource Manage
 | volumeType | Tipo de volumen en que se realiza la operación de cifrado. Los valores válidos son _SO_, _Datos_ y _Todo_. 
 | forceUpdateTag | Cada vez que la operación tenga que ejecutarse, pase un valor único como GUID. |
 | resizeOSDisk | Si se debería cambiar el tamaño de la partición del sistema operativo para ocupar el VHD del sistema operativo completo antes de dividir el volumen del sistema. |
-| location | Ubicación para todos los recursos. |
+| ubicación | Ubicación para todos los recursos. |
 
 
 ## <a name="new-iaas-vms-created-from-customer-encrypted-vhd-and-encryption-keys"></a>Máquinas virtuales IaaS creadas a partir de discos duros virtuales cifrados por el cliente y claves de cifrado
@@ -250,6 +247,9 @@ Azure Disk Encryption no funciona para los siguientes escenarios, característic
 - Contenedores de Windows Server, que crean volúmenes dinámicos para cada contenedor.
 - Discos de sistema operativo efímero.
 - Cifrado de sistemas de archivos compartidos o distribuidos como DFS, GFS, DRDB, and CephFS (sin limitarse solo a estos).
+- Traslado de máquinas virtuales cifradas a otra suscripción.
+- VM de Gen2 (consulte: [Compatibilidad para VM de generación 2 en Azure](generation-2.md#generation-1-vs-generation-2-capabilities))
+- VM de serie Lsv2 (consulte: [Serie Lsv2](../lsv2-series.md))
 
 ## <a name="next-steps"></a>Pasos siguientes
 

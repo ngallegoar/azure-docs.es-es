@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2019
 ms.author: spelluru
-ms.openlocfilehash: 8608aaab7bb8b6d10e67f27678c17f20a6c243da
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 55e319ba8aecb9205c00dda4a400e37f7c010649
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80370854"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257783"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services: guía del administrador
 Los administradores de tecnología de la información (TI) que administran los recursos en la nube de una universidad suelen ser también responsables de configurar la cuenta de laboratorio en su institución. Una vez configurada una cuenta de laboratorio, los administradores o educadores crean laboratorios educativos que están incluidos en la cuenta de laboratorio. En este artículo se proporciona información general de alto nivel sobre los recursos de Azure relacionados e instrucciones para crearlos.
@@ -59,7 +59,7 @@ En la lista siguiente se resaltan escenarios en los que puede ser beneficioso te
     
     Cuando se configura una cuenta de laboratorio, se establecen directivas que se aplican a *todos* los laboratorios educativos de la cuenta de laboratorio, por ejemplo:
     - La red virtual de Azure con recursos compartidos a los que puede acceder el laboratorio educativo. Por ejemplo, puede tener un conjunto de laboratorios educativos que necesiten acceso a un conjunto de datos compartido dentro de una red virtual.
-    - Las imágenes de máquina virtual (VM) que los laboratorios educativos pueden usar para crear máquinas virtuales. Por ejemplo, puede tener un conjunto de laboratorios educativos que necesiten acceso a la imagen de Marketplace de [Data Science VM para Linux](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.linux-data-science-vm-ubuntu). 
+    - Las imágenes de máquina virtual (VM) que los laboratorios educativos pueden usar para crear máquinas virtuales. Por ejemplo, puede tener un conjunto de laboratorios educativos que necesiten acceso a la imagen de Marketplace de [Data Science VM para Linux](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). 
     
     Si tiene laboratorios educativos con requisitos de directivas únicos entre sí, puede ser beneficioso crear cuentas de laboratorio independientes para administrar estos laboratorios por separado.
 
@@ -156,6 +156,9 @@ La ubicación en la que existe un laboratorio educativo varía en función de es
        
     Cuando **no** hay ninguna red virtual emparejada y [los creadores del laboratorio pueden elegir la ubicación del laboratorio](https://docs.microsoft.com/azure/lab-services/classroom-labs/allow-lab-creator-pick-lab-location), el creador del laboratorio puede seleccionar las ubicaciones según la capacidad disponible.
 
+> [!NOTE]
+> Para asegurarse de que hay suficiente capacidad de máquina virtual para una región, es importante que primero solicite capacidad mediante la cuenta de laboratorio o al crear el laboratorio.
+
 Una regla general es establecer la región de un recurso en la más próxima a sus usuarios. En el caso de los laboratorios educativos, esto significa crear el laboratorio lo más cerca posible de sus alumnos. En el caso de los cursos en línea donde los alumnos están ubicados en cualquier parte del mundo, deberá usar su mejor criterio para crear un laboratorio educativo que esté ubicado en un lugar central. También puede dividir una clase en varios laboratorios educativos según la región de los alumnos.
 
 ### <a name="shared-image-gallery"></a>Galería de imágenes compartidas
@@ -169,7 +172,7 @@ Cuando los administradores o creadores de laboratorios crean un laboratorio educ
 | ---- | ----- | ------ | ------------- |
 | Pequeña| <ul><li>2 núcleos</li><li>3,5 GB de RAM</li> | [Standard_A2_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Este tamaño es el más adecuado para la línea de comandos, apertura de navegador web, servidores web de poco tráfico, bases de datos pequeñas o medianas. |
 | Media | <ul><li>4 núcleos</li><li>7 GB de RAM</li> | [Standard_A4_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Este tamaño es el más adecuado para bases de datos relacionales, análisis y almacenamiento en caché en memoria. |
-| Mediano (virtualización anidada) | <ul><li>4 núcleos</li><li>16 GB de RAM</li></ul> | [Standard_DC4s_v2](https://docs.microsoft.com/azure/virtual-machines/dcv2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Este tamaño es el más adecuado para bases de datos relacionales, análisis y almacenamiento en caché en memoria.  Este tamaño admite la virtualización anidada. |
+| Mediano (virtualización anidada) | <ul><li>4 núcleos</li><li>16 GB de RAM</li></ul> | [Standard_D4s_v3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#dsv3-series) | Este tamaño es el más adecuado para bases de datos relacionales, análisis y almacenamiento en caché en memoria.  Este tamaño admite la virtualización anidada. |
 | grande | <ul><li>8 núcleos</li><li>32 GB de RAM</li></ul>  | [Standard_DC8_v2](https://docs.microsoft.com/azure/virtual-machines/dcv2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Este tamaño es ideal para aplicaciones que necesitan CPU más rápidas, un mejor rendimiento de los discos locales, bases de datos grandes y memorias caché grandes.  Este tamaño admite la virtualización anidada. |
 | GPU pequeña (visualización) | <ul><li>6 núcleos</li><li>56 GB de RAM</li>  | [Standard_NV6](https://docs.microsoft.com/azure/virtual-machines/nv-series) | Este tamaño es más adecuado para visualización remota, streaming, juegos y codificación mediante plataformas como OpenGL y DirectX. |
 | GPU pequeña (proceso) | <ul><li>6 núcleos</li><li>56 GB de RAM</li></ul>  | [Standard_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) |Este tamaño es más adecuado para aplicaciones de proceso intensivo, como la inteligencia artificial y el aprendizaje profundo. |

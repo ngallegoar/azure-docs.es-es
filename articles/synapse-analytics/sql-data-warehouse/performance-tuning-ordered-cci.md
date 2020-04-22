@@ -11,12 +11,12 @@ ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 2113e5ac3563a22c5f2c6b755230b05fb9a2cb35
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 088a0d10b96a30ef830b4e8a8dc12c19127141db
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80583866"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417053"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>Optimización del rendimiento con el índice de almacén de columnas agrupado ordenado  
 
@@ -28,7 +28,7 @@ De forma predeterminada, para cada tabla creada sin una opción de índice, un c
 
 Al crear un CCI ordenado, el motor de Synapse SQL ordena los datos existentes en memoria por las claves de orden antes de que el generador de índices los comprima en segmentos de índice.  Con los datos ordenados, se reduce la superposición de segmentos, lo que permite que las consultas tengan una eliminación de segmentos más eficaz y, por tanto, un rendimiento más rápido, ya que el número de segmentos que se leerán desde el disco es menor.  Si todos los datos se pueden ordenar en memoria de una vez, se puede evitar la superposición de segmentos.  Dado el gran tamaño de las tablas de los almacenamientos de datos, este escenario no se produce con frecuencia.  
 
-Para comprobar los intervalos de segmentos de una columna, ejecute este comando con el nombre de la tabla y el nombre de la columna:
+Para comprobar los intervalos de segmentos de una columna, ejecute el comando siguiente con el nombre de la tabla y el nombre de la columna:
 
 ```sql
 SELECT o.name, pnp.index_id, 

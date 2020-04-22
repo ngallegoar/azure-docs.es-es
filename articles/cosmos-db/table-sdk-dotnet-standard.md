@@ -8,14 +8,14 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/18/2019
-ms.openlocfilehash: 48fd85e27feb3d0c7f7f722dbbd502be55684385
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f7c6829d858e36b55f079f8ee03e431f67995e66
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76771590"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81272583"
 ---
-# <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>Table .NET Standard API de Azure Cosmos DB: descarga y notas de la versión
+# <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>Table API de .NET Standard de Azure Cosmos DB: descarga y notas de la versión
 > [!div class="op_single_selector"]
 > 
 > * [.NET](table-sdk-dotnet.md)
@@ -41,6 +41,9 @@ La serie 2.0.0 toma la dependencia de [Microsoft.Azure.Cosmos](https://www.nuget
 
 ## <a name="release-notes-for-100-series"></a>Notas de la versión de la serie 1.0.0
 La serie 1.0.0 toma la dependencia de [Microsoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/).
+
+### <a name="107"></a><a name="1.0.7"/>1.0.7
+* Mejora del rendimiento al establecer el nivel de seguimiento predeterminado de SDK de Table en SourceLevels.Off, aplicable mediante app.config.
 
 ### <a name="105"></a><a name="1.0.5"/>1.0.5
 * Presenta una nueva configuración en TableClientConfiguration para usar el ejecutor de REST para comunicarse con Table API de Cosmos DB

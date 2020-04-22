@@ -6,18 +6,18 @@ ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 93840af61a69599447588be01869a20290b2db94
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 4/13/2020
+ms.openlocfilehash: 87db1a2af0bfdc854c909ef4221a3d97f9bf10d5
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80062477"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81270679"
 ---
 # <a name="configure-and-access-slow-query-logs-by-using-azure-cli"></a>Configuración y acceso a los registros de consultas lentas con la CLI de Azure
 Puede descargar los registros de consultas lentas de Azure Database for MySQL mediante la CLI de Azure, la utilidad de línea de comandos de Azure.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 Para seguir esta guía, necesitará:
 - [Servidor de Azure Database for MySQL](quickstart-create-mysql-server-database-using-azure-cli.md)
 - La [CLI de Azure](/cli/azure/install-azure-cli) o Azure Cloud Shell en el explorador
@@ -25,27 +25,29 @@ Para seguir esta guía, necesitará:
 ## <a name="configure-logging"></a>registro
 Puede configurar el servidor para acceder al registro de consultas lentas de MySQL con los pasos siguientes:
 1. Active el registro de consultas lentas al establecer el parámetro **slow\_query\_log** en ON.
-2. Ajuste otros parámetros, como **long\_query\_time** y **log\_slow\_admin\_statements**.
+2. Seleccione la ubicación en la que se van a generar los registros con **log\_output**. Para enviar registros al almacenamiento local y a los registros de diagnóstico de Azure Monitor, seleccione **Archivo**. Para enviar registros solo a los registros de Azure Monitor, seleccione **Ninguno**.
+3. Ajuste otros parámetros, como **long\_query\_time** y **log\_slow\_admin\_statements**.
 
 Para aprender a establecer el valor de estos parámetros mediante la CLI de Azure, consulte [Cómo configurar parámetros del servidor](howto-configure-server-parameters-using-cli.md).
 
 Por ejemplo, el siguiente comando de la CLI activará el registro de consultas lentas, establecerá el tiempo de consultas largas en 10 segundos y desactivará el registro de la instrucción de administración lenta. Por último, se muestran las opciones de configuración para su revisión.
 ```azurecli-interactive
 az mysql server configuration set --name slow_query_log --resource-group myresourcegroup --server mydemoserver --value ON
+az mysql server configuration set --name log_output --resource-group myresourcegroup --server mydemoserver --value FILE
 az mysql server configuration set --name long_query_time --resource-group myresourcegroup --server mydemoserver --value 10
 az mysql server configuration set --name log_slow_admin_statements --resource-group myresourcegroup --server mydemoserver --value OFF
 az mysql server configuration list --resource-group myresourcegroup --server mydemoserver
 ```
 
 ## <a name="list-logs-for-azure-database-for-mysql-server"></a>Enumeración de registros del servidor de Azure Database for MySQL
-Para mostrar la lista de archivos de registro de consultas lentas disponibles para el servidor, ejecute el comando [az mysql server-logs list](/cli/azure/mysql/server-logs#az-mysql-server-logs-list).
+Si **log_output** está configurado en "Archivo", puede acceder a los registros directamente desde el almacenamiento local del servidor. Para mostrar la lista de archivos de registro de consultas lentas disponibles para el servidor, ejecute el comando [az mysql server-logs list](/cli/azure/mysql/server-logs#az-mysql-server-logs-list).
 
 Puede enumerar archivos de registro del servidor **mydemoserver.mysql.database.azure.com** en el grupo de recursos **myresourcegroup**. A continuación, dirija la lista de archivos de registro a un archivo de texto denominado **log\_files\_list.txt**.
 ```azurecli-interactive
 az mysql server-logs list --resource-group myresourcegroup --server mydemoserver > log_files_list.txt
 ```
 ## <a name="download-logs-from-the-server"></a>Descarga de registros del servidor
-Con el comando [az mysql server-logs download](/cli/azure/mysql/server-logs#az-mysql-server-logs-download), puede descargar archivos de registro individuales para su servidor. 
+Si **log_output** está configurado como "Archivo", puede descargar archivos de registro individuales desde el servidor con el comando [az mysql server-logs download](/cli/azure/mysql/server-logs#az-mysql-server-logs-download).
 
 Use el ejemplo siguiente para descargar el archivo de registro específico para el servidor **mydemoserver.mysql.database.azure.com** en el grupo de recursos **myresourcegroup** a su entorno local.
 ```azurecli-interactive

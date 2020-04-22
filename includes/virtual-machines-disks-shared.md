@@ -5,25 +5,25 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 02/18/2020
+ms.date: 04/08/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: a14ae76e15c1adb59917e61fbcbdaa34a7efa2d8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c3e5beaef7fcc9d407103834e2040957ff32984c
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77472030"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81008578"
 ---
-Los discos compartidos de Azure (versión preliminar) son una nueva característica de Azure Managed Disks que permite adjuntar un disco administrado de Azure en varias máquinas virtuales (VM) al mismo tiempo. Si adjunta un disco administrado en varias VM, podrá implementar nuevas aplicaciones en clúster o migrar las existentes a Azure.
+Los discos compartidos de Azure (versión preliminar) son una nueva característica de Azure Managed Disks que permite adjuntar un disco administrado en varias máquinas virtuales (VM) al mismo tiempo. Si adjunta un disco administrado en varias VM, podrá implementar nuevas aplicaciones en clúster o migrar las existentes a Azure.
 
 ## <a name="how-it-works"></a>Funcionamiento
 
-Las VM del clúster pueden leer o escribir en el disco adjunto en función de la reserva elegida por la aplicación en clúster mediante las [reservas persistentes de SCSI](https://www.t10.org/members/w_spc3.htm) (SCSI PR). SCSI PR es un conocido estándar del sector aprovechado por aplicaciones que se ejecutan en el entorno local de la red de área de almacenamiento (SAN). La habilitación de SCSI PR en un disco administrado le permite migrar estas aplicaciones a Azure tal cual.
+Las VM del clúster pueden leer o escribir en el disco adjunto en función de la reserva elegida por la aplicación en clúster mediante las [reservas persistentes de SCSI](https://www.t10.org/members/w_spc3.htm) (SCSI PR). SCSI PR es un estándar del sector aprovechado por aplicaciones que se ejecutan en el entorno local de la red de área de almacenamiento (SAN). La habilitación de SCSI PR en un disco administrado le permite migrar estas aplicaciones a Azure tal cual.
 
-Los discos administrados con discos compartidos habilitados ofrecen almacenamiento en bloque compartido, al que pueden acceder varias VM, y se exponen como números de unidad lógica (LUN). Los LUN se presentan como un iniciador (VM) de un destino (disco). Estos LUN tienen el aspecto de un almacenamiento conectado directamente (DAS) o de una unidad local en la VM.
+Los discos administrados compartidos ofrecen almacenamiento en bloque compartido, al que pueden acceder varias VM, y se exponen como números de unidad lógica (LUN). Los LUN se presentan como un iniciador (VM) de un destino (disco). Estos LUN tienen el aspecto de un almacenamiento conectado directamente (DAS) o de una unidad local en la VM.
 
-Los discos administrados con discos compartidos habilitados no ofrecen de forma nativa un sistema de archivos totalmente administrado al que se pueda obtener acceso mediante SMB/NFS. Deberá usar un administrador de clústeres, como el Clúster de conmutación por error de Windows Server (WSFC) o Pacemaker, que controle la comunicación del nodo de clúster, así como el bloqueo de escritura.
+Los discos administrados compartidos no ofrecen de forma nativa un sistema de archivos totalmente administrado al que se pueda obtener acceso mediante SMB/NFS. Debe usar un administrador de clústeres, como el Clúster de conmutación por error de Windows Server (WSFC) o Pacemaker, que controle la comunicación del nodo de clúster, así como el bloqueo de escritura.
 
 ## <a name="limitations"></a>Limitaciones
 
@@ -76,3 +76,61 @@ El flujo es el siguiente:
 1. La instancia de la aplicación en la VM1 toma una reserva exclusiva para escribir en el disco mientras abre las lecturas en el disco de otras VM.
 1. Esta reserva se aplica en el disco de Azure.
 1. Ya se pueden leer todos los nodos del clúster desde el disco. Solo un nodo reescribe los resultados en el disco en nombre de los demás nodos del clúster.
+
+### <a name="ultra-disks-reservation-flow"></a>Flujo de reserva de Ultra Disks
+
+Ultra Disks ofrece una limitación adicional, para un total de dos limitaciones. Debido a esto, el flujo de reserva de Ultra Disks puede funcionar tal y como se describe en la sección anterior, o puede limitar y distribuir el rendimiento de manera más pormenorizada.
+
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-reservation-table.png" alt-text=" ":::
+
+## <a name="ultra-disk-performance-throttles"></a>Limitaciones de rendimiento de Ultra Disks
+
+Ultra Disks tiene la capacidad única de permitirle establecer el rendimiento mediante la exposición de atributos modificables y la posibilidad de modificarlos. De forma predeterminada, solo hay dos atributos modificables, pero las instancias compartidas de Ultra Disks tienen dos atributos adicionales.
+
+
+|Atributo  |Descripción  |
+|---------|---------|
+|DiskIOPSReadWrite     |El número total de IOPS permitido en todas las máquinas virtuales que montan el disco compartido con acceso de escritura.         |
+|DiskMBpsReadWrite     |El rendimiento total (MB/s) permitido en todas las máquinas virtuales que montan el disco compartido con acceso de escritura.         |
+|DiskIOPSReadOnly*     |El número total de IOPS permitido en todas las máquinas virtuales que montan el disco compartido con acceso de solo lectura.         |
+|DiskMBpsReadOnly*     |El rendimiento total (MB/s) permitido en todas las máquinas virtuales que montan el disco compartido con acceso de solo lectura.         |
+
+\* Solo se aplica a instancias compartidas de Ultra Disks.
+
+Las fórmulas siguientes explican cómo se pueden establecer los atributos de rendimiento, ya que el usuario puede modificarlos:
+
+- DiskIOPSReadWrite/DiskIOPSReadOnly: 
+    - Límites de IOPS de 300 IOPS/GiB y hasta un máximo de 160K IOPS por disco.
+    - Mínimo de 100 IOPS
+    - DiskIOPSReadWrite  + DiskIOPSReadOnly es al menos 2 IOPS/GiB
+- DiskMBpsRead Write/DiskMBpsReadOnly:
+    - El límite de rendimiento de un solo disco es de 256 KiB/s por cada IOPS aprovisionada, y hasta 2000 MBps como máximo por disco.
+    - El rendimiento mínimo garantizado por disco es 4 KiB/s por cada IOPS aprovisionada, con una base de referencia total mínima de 1 MBps.
+
+### <a name="examples"></a>Ejemplos
+
+En los siguientes ejemplos se muestran algunos escenarios en los que se muestra cómo la limitación puede funcionar, en concreto, con instancias compartidas de Ultra Disks.
+
+#### <a name="two-nodes-cluster-using-cluster-shared-volumes"></a>Clúster de dos nodos con volúmenes compartidos en clúster
+
+A continuación, se presenta un ejemplo de un WSFC de dos nodos mediante volúmenes compartidos en clúster. Con esta configuración, ambas máquinas virtuales tienen acceso de escritura simultáneo al disco, lo que da lugar a que se divida la limitación de lectura y escritura entre las dos máquinas virtuales y a que no se use la limitación de solo lectura.
+
+:::image type="complex" source="media/virtual-machines-disks-shared-disks/ultra-two-node-example.png" alt-text="Ejemplo de disco Ultra de dos nodos en CSV":::
+
+:::image-end:::
+
+#### <a name="two-node-cluster-without-cluster-share-volumes"></a>Clúster de dos nodos sin volúmenes compartidos en clúster
+
+A continuación, se presenta un ejemplo de un WSFC de dos nodos que no usa volúmenes compartidos en clúster. Con esta configuración, solo una máquina virtual tiene acceso de escritura al disco. Esto da como resultado que la limitación de lectura y escritura se use exclusivamente para la máquina virtual principal y que solo la secundaria use la limitación de solo lectura.
+
+:::image type="complex" source="media/virtual-machines-disks-shared-disks/ultra-two-node-no-csv.png" alt-text="Ejemplo de disco Ultra no CSV de dos nodos en CSV":::
+
+:::image-end:::
+
+#### <a name="four-node-linux-cluster"></a>Clúster Linux de cuatro nodos
+
+A continuación, se proporciona un ejemplo de un clúster Linux de cuatro nodos con un solo escritor y tres lectores de escalabilidad horizontal. Con esta configuración, solo una máquina virtual tiene acceso de escritura al disco. Esto da como resultado que la limitación de lectura y escritura se use exclusivamente para la máquina virtual principal y que la limitación de solo lectura se divida entre las máquinas virtuales secundarias.
+
+:::image type="complex" source="media/virtual-machines-disks-shared-disks/ultra-four-node-example.png" alt-text="Ejemplo de limitación en disco Ultra de cuatro nodos":::
+
+:::image-end:::

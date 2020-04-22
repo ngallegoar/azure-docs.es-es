@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 188ef3a1b9777c37f8557a69e19887638a973611
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 4/13/2020
+ms.openlocfilehash: fcd436f87b24d8cdc246d2f1d33a49311e72d46b
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80062525"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81380302"
 ---
 # <a name="configure-and-access-audit-logs-for-azure-database-for-mysql-in-the-azure-portal"></a>Configuración de los registros de auditoría de Azure Database for MySQL y acceso a ellos en Azure Portal
 
@@ -20,7 +20,7 @@ Puede configurar los [registros de auditoría de Azure Database for MySQL](conce
 > [!IMPORTANT]
 > La funcionalidad del registro de auditoría se encuentra actualmente en versión preliminar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para seguir esta guía, necesitará:
 
@@ -70,3 +70,4 @@ Habilite y configure el registro de auditoría.
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Obtenga más información sobre los [registros de auditoría](concepts-audit-logs.md) en Azure Database for MySQL.
+- Aprenda a configurar los registros de auditoría en la [CLI de Azure](howto-configure-audit-logs-cli.md).

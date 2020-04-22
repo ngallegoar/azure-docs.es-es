@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: article
 ms.date: 02/06/2020
 ms.author: cherylmc
-ms.openlocfilehash: 17d0e678008c76da32f20562aa795e83e49c80e4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9515058bc78a2d56dc1734c046dac5d5b04f68d9
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77064978"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81113174"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Arquitectura de red de tránsito global y Virtual WAN
 
@@ -47,7 +47,7 @@ En la arquitectura de Azure Virtual WAN, los centros WAN virtuales se aprovision
 
 Puede establecer una WAN virtual mediante la creación de un centro único de Virtual WAN en la región con el mayor número de radios (sucursales, redes virtuales, usuarios) y, luego, la conexión con el centro de radios que están en otras regiones. Esta es una buena opción cuando la superficie de una empresa está principalmente en una región con algunos radios remotos.  
   
-## <a name="hub-to-hub-connectivity"></a><a name="hubtohub"></a>Conectividad de centro a centro
+## <a name="hub-to-hub-connectivity-preview"></a><a name="hubtohub"></a>Conectividad de centro a centro (versión preliminar)
 
 La superficie en la nube empresarial puede abarcar varias regiones en la nube y resulta óptimo (en términos de latencia) tener acceso a la nube desde una región más cercana a su sitio físico y a los usuarios. Uno de los principios clave de la arquitectura de red de tránsito global es habilitar la conectividad entre regiones entre todos los puntos de conexión de red locales y en la nube. Esto significa que el tráfico de una sucursal que está conectada a la nube en una región puede llegar a otra sucursal o a una red virtual en otra región mediante la conectividad de centro a centro que permite la [red global de Azure](https://azure.microsoft.com/global-infrastructure/global-network/).
 

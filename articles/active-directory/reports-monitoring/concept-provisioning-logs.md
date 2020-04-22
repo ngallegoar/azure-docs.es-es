@@ -17,12 +17,12 @@ ms.date: 11/04/2019
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6e0c697f9ab9796feade9b4d5c2a64794f3980b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 30cc8be6ad9ebffcad58c5b2412ae15ff3f26fa5
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73612794"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81113375"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Informes de aprovisionamiento en el portal de Azure Active Directory (versión preliminar)
 
@@ -90,38 +90,19 @@ Seleccione un elemento de la vista de lista para obtener información más detal
 
 ## <a name="filter-provisioning-activities"></a>Filtrado de las actividades de aprovisionamiento
 
-Para restringir los datos del informe a un nivel que se adapte a sus necesidades, puede filtrar los datos de aprovisionamiento con los campos predeterminados que se indican a continuación. Tenga en cuenta que los valores de los filtros se rellenan dinámicamente en función del inquilino. Por ejemplo, si no tiene ningún evento de creación en el inquilino, no habrá una opción de filtro para la creación.
+Puede filtrar los datos de aprovisionamiento. Algunos valores de los filtros se rellenan dinámicamente en función del inquilino. Por ejemplo, si no tiene ningún evento de creación en el inquilino, no habrá una opción de filtro para la creación.
+En la vista predeterminada, puede seleccionar los siguientes filtros:
 
 - Identidad
-- Acción
-- Sistema de origen
-- Sistema de destino
-- Status
 - Date
+- Status
+- Acción
 
 
-![Filter](./media/concept-provisioning-logs/filter.png "Filter")
+![Filter](./media/concept-provisioning-logs/default-filter.png "Filter")
 
 El filtro **Identidad** le permite especificar el nombre o la identidad que le interesa. Esta identidad podría ser un usuario, un grupo, un rol u otro objeto. Puede buscar por nombre o por identificador de objeto. El identificador varía según el escenario. Por ejemplo, al aprovisionar un objeto de Azure AD en SalesForce, el identificador de origen es el identificador de objeto del usuario en Azure AD, mientras que el identificador de destino es el identificador del usuario en Salesforce. Al aprovisionar de Workday a Active Directory, el identificador de origen es el identificador de empleado del trabajador de Workday. Tenga en cuenta que el nombre del usuario puede no estar siempre presente en la columna de identidad. Siempre habrá un identificador. 
 
-El filtro **Sistema de origen** le permite especificar desde dónde se aprovisiona la identidad. Por ejemplo, al aprovisionar un objeto de Azure AD a ServiceNow, el sistema de origen es Azure AD. 
-
-El filtro **Sistema de destino** le permite especificar en dónde se aprovisiona la identidad. Por ejemplo, al aprovisionar un objeto de Azure AD a ServiceNow, el sistema de destino es ServiceNow. 
-
-El filtro **Estado** le permite seleccionar:
-
-- All
-- Correcto
-- Error
-- Omitido
-
-El filtro **Acción** permite filtrar:
-
-- Crear 
-- Actualizar
-- Eliminar
-- Disable
-- Otros
 
 El filtro **Fecha** le permite definir un período de tiempo para los datos devueltos.  
 Los valores posibles son:
@@ -135,7 +116,35 @@ Los valores posibles son:
 Cuando se selecciona un período de tiempo personalizado, puede configurar una fecha de inicio y una fecha de finalización.
 
 
-Además de los campos predeterminados, cuando se selecciona, también puede incluir los siguientes campos en el filtro:
+El filtro **Estado** le permite seleccionar:
+
+- All
+- Correcto
+- Error
+- Omitido
+
+
+
+El filtro **Acción** permite filtrar:
+
+- Crear 
+- Actualizar
+- Eliminar
+- Disable
+- Otros
+
+Además, en los filtros de la vista predeterminada, también puede establecer los siguientes filtros:
+
+- Id. del trabajo
+- Id. de ciclo
+- Id. de cambio
+- Id. de origen
+- Id. de destino
+- Application
+
+
+![Seleccionar un campo](./media/concept-provisioning-logs/add-filter.png "Seleccionar un campo")
+
 
 - **Id. de trabajo**: es un identificador de trabajo único que está asociado a cada aplicación para la que se ha habilitado el aprovisionamiento.   
 
@@ -144,8 +153,13 @@ Además de los campos predeterminados, cuando se selecciona, también puede incl
 - **Id. de cambio**: identificador único para el evento de aprovisionamiento. Puede compartir este identificador para permitir buscar el evento de aprovisionamiento.   
 
 
+- **Sistema de origen**: permite especificar desde dónde se aprovisiona la identidad. Por ejemplo, al aprovisionar un objeto de Azure AD a ServiceNow, el sistema de origen es Azure AD. 
 
-  
+- **Sistema de destino**: permite especificar dónde se aprovisiona la identidad. Por ejemplo, al aprovisionar un objeto de Azure AD a ServiceNow, el sistema de destino es ServiceNow. 
+
+- **Aplicación**: permite mostrar solo los registros de aplicaciones con un nombre para mostrar que contenga una cadena específica.
+
+ 
 
 ## <a name="provisioning-details"></a>Detalles de aprovisionamiento 
 

@@ -6,12 +6,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/19/2019
 ms.reviewer: sdash
-ms.openlocfilehash: e0c1a93ef663762bec199abc5aa7eabbc821168d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5af6aec2267384c37f664522d075bf26c632e7e9
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77654960"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382882"
 ---
 # <a name="availability-alerts"></a>Alertas de disponibilidad
 
@@ -33,6 +33,9 @@ Las alertas ahora se habilitan automáticamente de forma predeterminada, pero pa
 2. Establezca el nivel de gravedad deseado, la descripción de la regla y lo más importante: el grupo de acciones con las preferencias de notificación que le gustaría usar para esta regla de alertas.
 
    ![Editar después de guardar](./media/availability-alerts/set-action-group.png)
+
+> [!NOTE]
+> Las alertas de disponibilidad creadas a través de esta experiencia están basadas en el estado. Esto significa que, cuando se cumplan los criterios de alerta, se generará una única alerta cuando el sitio se detecte como no disponible. Si el sitio sigue fuera de servicio la próxima vez que se evalúen los criterios de alerta, no se generará una nueva alerta. Por lo tanto, si el sitio estuvo fuera de servicio durante una hora y había configurado una alerta de correo electrónico, solo recibiría un correo electrónico cuando el sitio estuviera fuera de servicio y un correo electrónico posterior cuando se realizara una copia de seguridad del sitio. No recibiría alertas continuas recordándole que el sitio seguía sin estar disponible.
 
 ### <a name="alert-on-x-out-of-y-locations-reporting-failures"></a>Alertas para X de las Y ubicaciones que notifican errores
 

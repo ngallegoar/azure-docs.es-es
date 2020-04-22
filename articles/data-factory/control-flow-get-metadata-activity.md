@@ -10,16 +10,17 @@ ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 03/02/2020
+ms.date: 04/15/2020
 ms.author: jingwang
-ms.openlocfilehash: a0c07aaf27825254f776a03b9b9ca2cbeddca02d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 344ad8e106c119c1de59570d1ec4e3df5e1cc8af
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78250275"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417119"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Actividad de obtención de metadatos en Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 La actividad de obtención de metadatos se puede usar para recuperar metadatos de cualquier dato en Azure Data Factory. Esta actividad se puede usar en los siguientes escenarios:
 
@@ -54,6 +55,7 @@ La actividad de obtención de metadatos toma un conjunto de datos como entrada y
 | [SFTP](connector-sftp.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [FTP](connector-ftp.md) | √/√ | √/√ | √ | x/x | x/x | √ | x | √ | √ | √/√ |
 
+- Cuando use la actividad Obtener metadatos en una carpeta, asegúrese de tener el permiso LIST/EXECUTE en la carpeta en cuestión.
 - En el caso de Amazon S3 y Google Cloud Storage, `lastModified` se aplica al cubo y a la clave, pero no a la carpeta virtual, y `exists` se aplica al cubo y a la clave, pero no al prefijo ni a la carpeta virtual.
 - En el caso de Azure Blob Storage, `lastModified` se aplica al contenedor y al blob, pero no a la carpeta virtual.
 - El filtro `lastModified` se aplica actualmente para filtrar elementos secundarios, pero no el propio archivo o carpeta especificados.

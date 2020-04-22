@@ -5,28 +5,30 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 03/10/2020
+ms.date: 04/10/2020
 ms.author: victorh
-ms.openlocfilehash: d3f8e52b4582c9467ae3ec61ee984771b801fe4f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 93677b3e473ab825665fed5590ac345a8cfcc300
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79231256"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81113450"
 ---
 # <a name="azure-firewall-rule-processing-logic"></a>Lógica de procesamiento de reglas de Azure Firewall
-Puede configurar reglas NAT, reglas de red y reglas de aplicaciones en Azure Firewall. Las reglas se procesan en función del tipo de regla. 
+Puede configurar reglas NAT, reglas de red y reglas de aplicaciones en Azure Firewall. Las colecciones de reglas se procesan según el tipo de regla en orden de prioridad, de números inferiores a números mayores desde 100 hasta 65 000. El nombre de una colección de reglas solo puede contener letras, números, guiones bajos, puntos o guiones. Debe comenzar con una letra o un número y terminar con una letra, un número o un guión bajo. La longitud máxima del nombre es de 80 caracteres.
+
+Es mejor espaciar inicialmente los números de prioridad de la colección de reglas en incrementos de 100 (100, 200, 300, etc.) para disponer de espacio para agregar más colecciones de reglas si es necesario.
 
 > [!NOTE]
 > Si habilita el filtrado basado en la inteligencia sobre amenazas, esas reglas tienen la prioridad más alta y siempre se procesan primero. El filtrado de inteligencia sobre amenazas puede denegar el tráfico antes de que se procesen las reglas configuradas. Para más información, consulte [Filtrado basado en inteligencia sobre amenazas de Azure Firewall](threat-intel.md).
 
-## <a name="outbound"></a>Salida
+## <a name="outbound-connectivity"></a>Conectividad de salida
 
 ### <a name="network-rules-and-applications-rules"></a>Reglas de red y reglas de aplicaciones
 
 Si configura reglas de red y reglas de aplicación, las reglas de red se aplican en orden de prioridad antes que las reglas de aplicación. Las reglas están terminando. Por lo tanto, si se encuentra una coincidencia en una regla de red, no se procesa ninguna otra regla.  Si no coincide ninguna regla de red, y el protocolo es HTTP, HTTPS o MSSQL, las reglas de aplicación evalúan el paquete en orden de prioridad. Si sigue sin haber coincidencias, el paquete se evalúa con la [colección de reglas de infraestructura](infrastructure-fqdns.md). Si sigue sin haber coincidencias, el paquete se deniega de forma predeterminada.
 
-## <a name="inbound"></a>Entrada
+## <a name="inbound-connectivity"></a>Conectividad de entrada
 
 ### <a name="nat-rules"></a>Reglas NAT
 

@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo implementar un clúster de Service
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: mvc
-ms.openlocfilehash: f5788f07dd4a4f03a95efaea4b741cd64c930ac5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a9026e46f2fd386892af5a3d8f4ec8d7e0c9f649
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78251781"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81411005"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Implementación de un clúster de Service Fabric de Linux en una red virtual de Azure
 
@@ -31,8 +31,17 @@ Los siguientes procedimientos crean un clúster de Service Fabric de siete nodos
 
 Descargue los siguientes archivos de plantilla de Resource Manager:
 
+Para Ubuntu 16.04 LTS:
+
 * [AzureDeploy.json][template]
 * [AzureDeploy.Parameters.json][parameters]
+
+Para Ubuntu 18.04 LTS:
+
+* [AzureDeploy.json][template2]
+* [AzureDeploy.Parameters.json][parameters2]
+
+La diferencia entre ambas plantillas es que el atributo **vmImageSku** se establece en "18.04-LTS" y que el atributo **typeHandlerVersion** de cada nodo se establece en 1.1.
 
 Esta plantilla implementa un clúster seguro de siete máquinas virtuales y tres tipos de nodo en una red virtual.  Se pueden encontrar otras plantillas de ejemplo en [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). El archivo [AzureDeploy.json][template] permite implementar varios recursos, como los siguientes.
 
@@ -42,7 +51,7 @@ En el recurso **Microsoft.ServiceFabric/clusters**, se ha implementado un clúst
 
 * tres tipos de nodo
 * cinco nodos en el tipo de nodo principal (configurable en los parámetros de la plantilla), cada nodo está presente en cada uno de los otros tipos de nodo
-* Sistema operativo: Ubuntu 16.04 LTS (configurable en los parámetros de la plantilla)
+* Sistema operativo: (Ubuntu 16.04 LTS / Ubuntu 18.04 LTS) (configurable en los parámetros de la plantilla)
 * protección con certificado (configurable en los parámetros de la plantilla)
 * se habilita el [servicio DNS](service-fabric-dnsservice.md)
 * [Nivel de durabilidad](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster): Bronze (configurable en los parámetros de plantilla)
@@ -70,7 +79,7 @@ Si se necesitan otros puertos de aplicación, deberá ajustar el recurso Microso
 
 ## <a name="set-template-parameters"></a>Configuración de los parámetros de plantilla
 
-El archivo de parámetros [AzureDeploy.Parameters][parameters] permite declarar muchos valores que se usan para implementar el clúster y los recursos asociados. Estos son algunos de los parámetros que debe modificar para su implementación:
+El archivo **AzureDeploy.Parameters** permite declarar muchos valores que se usan para implementar el clúster y los recursos asociados. Estos son algunos de los parámetros que debe modificar para su implementación:
 
 |Parámetro|Valor de ejemplo|Notas|
 |---|---||
@@ -86,7 +95,7 @@ El archivo de parámetros [AzureDeploy.Parameters][parameters] permite declarar 
 
 ## <a name="deploy-the-virtual-network-and-cluster"></a>Implementación de la red virtual y el clúster
 
-A continuación, configure la topología de red e implemente el clúster de Service Fabric. La plantilla [AzureDeploy.json][template] de Resource Manager crea una red virtual (VNET) y una subred para Service Fabric. La plantilla permite también implementar un clúster con seguridad mediante certificados habilitada.  Para los clústeres de producción, use un certificado de una entidad de certificación (CA) como certificado del clúster. Un certificado autofirmado se puede usar para proteger los clústeres de prueba.
+A continuación, configure la topología de red e implemente el clúster de Service Fabric. La plantilla **AzureDeploy.json** de Resource Manager crea una red virtual (VNET) y una subred para Service Fabric. La plantilla permite también implementar un clúster con seguridad mediante certificados habilitada.  Para los clústeres de producción, use un certificado de una entidad de certificación (CA) como certificado del clúster. Un certificado autofirmado se puede usar para proteger los clústeres de prueba.
 
 La plantilla de este artículo implementa un clúster que usa la huella digital del certificado para identificar el certificado del clúster.  No hay dos certificados que puedan tener la misma huella digital, lo que dificulta la administración de certificados. Si cambia un clúster implementado para que use nombres comunes del certificado en vez de las huellas digitales del mismo, será mucho más fácil administrar los certificados.  Para más información sobre cómo actualizar el clúster para que use nombres comunes del certificado para la administración de certificados, consulte cómo [cambiar el clúster a administración de nombre común del certificado](service-fabric-cluster-change-cert-thumbprint-to-cn.md).
 
@@ -163,3 +172,5 @@ La plantilla de este artículo implementa un clúster que usa la huella digital 
 
 [template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-3-NodeTypes-Secure/AzureDeploy.json
 [parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-3-NodeTypes-Secure/AzureDeploy.Parameters.json
+[template2]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-1804-3-NodeTypes-Secure/AzureDeploy.json
+[parameters2]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-1804-3-NodeTypes-Secure/AzureDeploy.Parameters.json

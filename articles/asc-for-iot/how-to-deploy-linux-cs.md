@@ -1,5 +1,5 @@
 ---
-title: Guía para instalar e implementar el agente basado en C# de Linux de Azure Security Center para IoT | Microsoft Docs
+title: Instalación e implementación del agente basado en C# para Linux
 description: Aprenda a instalar el agente de Azure Security Center for IoT en máquinas Linux de 32 bits y 64 bits.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -15,34 +15,34 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2019
 ms.author: mlottner
-ms.openlocfilehash: b675198756ff7bc0791d49fee3649717e3e4da7f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 40c6ea91fd84a0f088ed770cd7c4c3ea7b8b1c91
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75367423"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81311143"
 ---
 # <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>Implementar el agente de seguridad basado en C# de Azure Security Center para IoT para Linux
 
-
 En esta guía se explica cómo instalar e implementar el agente de seguridad basado en C# de Azure Security Center para IoT en Linux.
 
-En esta guía, aprenderá a: 
+En esta guía, aprenderá a:
+
 > [!div class="checklist"]
 > * Instalar
 > * Comprobación de la implementación
 > * Desinstalación del agente
-> * Solución de problemas 
+> * Solución de problemas
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para obtener información sobre otras plataformas y tipos de agente, vea [Elegir el agente de seguridad correcto](how-to-deploy-agent.md).
 
-1. Para implementar el agente de seguridad, se necesitan derechos de administrador local en el equipo en el que se desee instalar. 
+1. Para implementar el agente de seguridad, se necesitan derechos de administrador local en el equipo en el que se desee instalar.
 
 1. [Crear un módulo de seguridad](quickstart-create-security-twin.md) para el dispositivo.
 
-## <a name="installation"></a>Instalación 
+## <a name="installation"></a>Instalación
 
 Para implementar el agente de seguridad, realice los pasos siguientes:
 
@@ -50,14 +50,14 @@ Para implementar el agente de seguridad, realice los pasos siguientes:
 
 1. Extraiga el contenido del paquete y vaya a la carpeta _/Install_.
 
-1. Agregue permisos de ejecución al **script de InstallSecurityAgent**, para lo que debe ejecutar `chmod +x InstallSecurityAgent.sh` 
+1. Agregue permisos de ejecución al **script de InstallSecurityAgent**, para lo que debe ejecutar `chmod +x InstallSecurityAgent.sh`
 
-1. A continuación, ejecute el siguiente comando con **privilegios raíz**: 
+1. A continuación, ejecute el siguiente comando con **privilegios raíz**:
 
    ```
    ./InstallSecurityAgent.sh -i -aui <authentication identity>  -aum <authentication method> -f <file path> -hn <host name>  -di <device id> -cl <certificate location kind>
    ```
-   
+
    Para más información sobre los parámetros de autenticación, vea [Procedimiento para configurar la autenticación](concept-security-agent-authentication-methods.md).
 
 Este script realiza las acciones siguientes:
@@ -72,23 +72,22 @@ Este script realiza las acciones siguientes:
 
 - Configura al agente con los parámetros de autenticación proporcionados.
 
-
 Para obtener ayuda adicional, ejecute el script con el parámetro – help: `./InstallSecurityAgent.sh --help`
 
 ### <a name="uninstall-the-agent"></a>Desinstalación del agente
 
-Para desinstalar al agente, ejecute el script con el parámetro – u: `./InstallSecurityAgent.sh -u`. 
+Para desinstalar al agente, ejecute el script con el parámetro – u: `./InstallSecurityAgent.sh -u`.
 
 > [!NOTE]
 > La desinstalación no quita los requisitos previos que falten que se hayan instalado durante la instalación.
 
-## <a name="troubleshooting"></a>Solución de problemas  
+## <a name="troubleshooting"></a>Solución de problemas
 
 1. Compruebe el estado de implementación, para lo que debe ejecutar:
 
     `systemctl status ASCIoTAgent.service`
 
-2. Habilite el registro.  
+1. Habilite el registro.
    Si el agente no se inicia el agente, active el registro para más información.
 
    Para activar el registro:
@@ -97,15 +96,16 @@ Para desinstalar al agente, ejecute el script con el parámetro – u: `./Instal
 
         `vi /var/ASCIoTAgent/General.config`
 
-   1. Edite los valores siguientes: 
+   1. Edite los valores siguientes:
 
       ```
       <add key="logLevel" value="Debug"/>
       <add key="fileLogLevel" value="Debug"/>
-      <add key="diagnosticVerbosityLevel" value="Some" /> 
+      <add key="diagnosticVerbosityLevel" value="Some" />
       <add key="logFilePath" value="IotAgentLog.log"/>
       ```
-       El valor **logFilePath** se puede configurar. 
+
+       El valor **logFilePath** se puede configurar.
 
        > [!NOTE]
        > Se recomienda **desactivar** el registro una vez que se complete la solución de problemas, ya que si se deja **activado** aumenta el tamaño del archivo de registro y el uso de datos.
@@ -114,11 +114,11 @@ Para desinstalar al agente, ejecute el script con el parámetro – u: `./Instal
 
        `systemctl restart ASCIoTAgent.service`
 
-   1. Vea el archivo de registro para más información acerca del error.  
+   1. Vea el archivo de registro para más información acerca del error.
 
        La ubicación del archivo de registro es: `/var/ASCIoTAgent/IotAgentLog.log`
 
-       Cambie la ruta de acceso de la ubicación del archivo en función del nombre que eligió para el **logFilePath** en el paso 2. 
+       Cambie la ruta de acceso de la ubicación del archivo en función del nombre que eligió para el **logFilePath** en el paso 2.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

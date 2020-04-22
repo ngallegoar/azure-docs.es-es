@@ -1,5 +1,5 @@
 ---
-title: Interpretación de modelo en aprendizaje automático automatizado
+title: Explicación del aprendizaje automático automatizado
 titleSuffix: Azure Machine Learning
 description: Aprenda a obtener explicaciones sobre cómo el modelo de aprendizaje automático automatizado determina la importancia de las características y realiza predicciones al usar el SDK de Azure Machine Learning.
 services: machine-learning
@@ -8,20 +8,19 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: mesameki
 author: mesameki
-ms.reviewer: trbye
 ms.date: 03/11/2020
-ms.openlocfilehash: e2465a2df3fab736c8f118911da14ef23c8aec86
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: ecf7cde1a7f804ef1c43b21ac5c1d2a488660590
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437279"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257171"
 ---
-# <a name="model-interpretability-in-automated-machine-learning"></a>Interpretación de modelo en aprendizaje automático automatizado
+# <a name="interpretability-model-explanations-in-automated-machine-learning"></a>Interpretación: explicaciones de los modelos de aprendizaje automático automatizado
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-En este artículo, obtendrá información sobre cómo habilitar las características de interpretación para el aprendizaje automático automatizado con Azure Machine Learning. El aprendizaje automático automatizado le permite reconocer la importancia de las características diseñadas. 
+En este artículo, obtendrá información sobre cómo obtener explicaciones del aprendizaje automático (ML) automatizado con Azure Machine Learning. El aprendizaje automático automatizado le permite reconocer la importancia de las características diseñadas. 
 
 De forma predeterminada, todas las versiones del SDK posteriores a 1.0.85 establecen `model_explainability=True`. En la versión 1.0.85 del SDK y anteriores, los usuarios deben establecer `model_explainability=True` en el objeto `AutoMLConfig` para poder usar la interpretación de modelos. 
 

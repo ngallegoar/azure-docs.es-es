@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/24/2020
-ms.openlocfilehash: 4265f6050b237cb40afeddfc228ade9be06be039
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.date: 04/14/2020
+ms.openlocfilehash: 098aeaa06a26c57744402722aa3eacc51ea85fb7
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80396767"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382866"
 ---
 # <a name="collect-and-analyze-azure-activity-log-in-azure-monitor"></a>Recopilar y analizar el registro de actividad de Azure en Azure Monitor
 El [Registro de actividad de Azure](platform-logs-overview.md) es un [registro de plataforma](platform-logs-overview.md) que proporciona información de los eventos de nivel de suscripción que se han producido en Azure. Aunque puede ver el registro de actividad en Azure Portal, debe configurarlo para enviarlo a un área de trabajo de Log Analytics para habilitar características adicionales de Azure Monitor. En este artículo se describe cómo realizar esta configuración y cómo enviar el registro de actividad a Azure Storage y Event Hubs.
@@ -25,7 +25,8 @@ Recopilar el registro de actividad en un área de trabajo de Log Analytics propo
 - Almacenar las entradas del registro de actividad durante más de 90 días.
 - Consolidar las entradas de registro de varias suscripciones e inquilinos de Azure en una ubicación para su análisis conjunto.
 
-
+> [!IMPORTANT]
+> La recopilación de registros entre inquilinos requiere [Azure Lighthouse](/azure/lighthouse).
 
 ## <a name="collecting-activity-log"></a>Recopilación del registro de actividad
 El registro de actividad se recopila automáticamente para [verlo en Azure Portal](activity-log-view.md). Para recopilarlo en un área de trabajo de Log Analytics o enviarlo a Azure Storage o Event Hubs, cree una [configuración de diagnóstico](diagnostic-settings.md). Este es el mismo método que usan los registros de recursos, lo que hace que sea coherente para todos los [registros de plataforma](platform-logs-overview.md).  

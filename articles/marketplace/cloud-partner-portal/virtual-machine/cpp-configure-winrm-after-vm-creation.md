@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: dsindona
-ms.openlocfilehash: 673fe1f31f6a8602225e7cde3bf1eb4c3b28b8a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b80325594eedb87293c31de3236bb4690eb89e05
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80278151"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273025"
 ---
 # <a name="configure-winrm-after-virtual-machine-creation"></a>Configuración de WinRM después de la creación de una máquina virtual
+
+> [!IMPORTANT]
+> A partir del 13 de abril de 2020, comenzaremos a trasladar la administración de las ofertas de máquinas virtuales de Azure al Centro de partners. Después de la migración, las ofertas se crearán y administrarán en el Centro de partners. Siga las instrucciones que se indican en [Creación de una oferta de máquina virtual de Azure](https://aka.ms/CreateAzureVMoffer) para administrar las ofertas migradas.
 
 En este artículo se explica cómo configurar una máquina virtual (VM) hospedada en Azure existente para habilitar WinRM a través de HTTPS.  Esta configuración solo se aplica a las VM basadas en Windows y requiere el siguiente proceso de dos pasos:
 
@@ -26,8 +29,8 @@ En este artículo se explica cómo configurar una máquina virtual (VM) hospedad
 
 WinRM a través del protocolo HTTPS usa el puerto 5986, que no está habilitado de manera predeterminada en las VM Windows preconfiguradas que se ofrecen en Azure Marketplace. Para habilitar este protocolo, siga estos pasos para agregar una nueva regla para el grupo de seguridad de red (NSG) con [Azure Portal](https://portal.azure.com).  Para más información sobre NSG, consulte [Grupos de seguridad](https://docs.microsoft.com/azure/virtual-network/security-overview).
 
-1.  Vaya a la hoja **Máquinas virtuales >**   <*vm-name*>   **> Configuración/Redes**.
-2.  Haga clic en el nombre del NSG (en este ejemplo, **testvm11002**) para mostrar sus propiedades:
+1. Vaya a la hoja **Máquinas virtuales >**   <*vm-name*>   **> Configuración/Redes**.
+2. Haga clic en el nombre del NSG (en este ejemplo, **testvm11002**) para mostrar sus propiedades:
 
     ![Propiedades del grupo de seguridad de red](./media/nsg-properties.png)
  

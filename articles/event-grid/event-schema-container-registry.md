@@ -1,25 +1,27 @@
 ---
-title: Esquema de eventos de Container Registry de Azure Event Grid
+title: Azure Container Registry como origen de Event Grid
 description: Describe las propiedades que se proporcionan para eventos de Container Registry con Azure Event Grid
 services: event-grid
 author: spelluru
 manager: timlt
 ms.service: event-grid
-ms.topic: reference
-ms.date: 03/12/2019
+ms.topic: conceptual
+ms.date: 04/09/2020
 ms.author: spelluru
-ms.openlocfilehash: c5998ff428c4b6f4c1f7a4087c6ccb27d93773eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7e33feb04edf42f1e2a32b9b8c8e2fd214692f31
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60345471"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393360"
 ---
-# <a name="azure-event-grid-event-schema-for-container-registry"></a>Esquema de eventos de Azure Event Grid para Container Registry
+# <a name="azure-container-registry-as-an-event-grid-source"></a>Azure Container Registry como origen de Event Grid
 
 En este artículo se proporcionan las propiedades y los esquemas de los eventos de Container Registry. Para una introducción a los esquemas de eventos, consulte [Esquema de eventos de Azure Event Grid](event-schema.md).
 
-## <a name="available-event-types"></a>Tipos de eventos disponibles
+## <a name="event-grid-event-schema"></a>Esquema de eventos de Event Grid
+
+### <a name="available-event-types"></a>Tipos de eventos disponibles
 
 Azure Container Registry emite los siguientes tipos de evento:
 
@@ -30,7 +32,7 @@ Azure Container Registry emite los siguientes tipos de evento:
 | Microsoft.ContainerRegistry.ChartPushed | Se genera cuando se inserta un gráfico Helm. |
 | Microsoft.ContainerRegistry.ChartDeleted | Se genera cuando se elimina un gráfico Helm. |
 
-## <a name="example-event"></a>Evento de ejemplo
+### <a name="example-event"></a>Evento de ejemplo
 
 En el ejemplo siguiente, se muestra el esquema de un evento de inserción de una imagen: 
 
@@ -151,7 +153,7 @@ El esquema para un evento que se elimina de un gráfico es similar al esquema de
 }]
 ```
 
-## <a name="event-properties"></a>Propiedades de evento
+### <a name="event-properties"></a>Propiedades de evento
 
 Un evento tiene los siguientes datos de nivel superior:
 
@@ -198,6 +200,12 @@ El objeto request tiene las siguientes propiedades:
 | host | string | El nombre de host accesible desde el exterior de la instancia del registro, según lo especificado por el encabezado de host http en las solicitudes entrantes. |
 | method | string | El método de la solicitud que generó el evento. |
 | useragent | string | El encabezado de agente de usuario de la solicitud. |
+
+## <a name="tutorials-and-how-tos"></a>Tutoriales y procedimientos
+|Título |Descripción  |
+|---------|---------|
+| [Guía de inicio rápido: Envío de eventos de Container Registry](../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Explica cómo utilizar la CLI de Azure para enviar eventos de Container Registry. |
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

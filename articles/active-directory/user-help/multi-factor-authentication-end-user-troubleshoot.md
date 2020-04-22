@@ -9,15 +9,15 @@ ms.workload: identity
 ms.service: active-directory
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 04/02/2020
 ms.author: curtand
 ms.reviewer: kexia
-ms.openlocfilehash: c28b63749cfdbcd16b94cbd3ca7dd4023f46a351
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3df79fb1e103ddfaafeb348641e675cd250f5858
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78897723"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81271699"
 ---
 # <a name="common-problems-with-two-factor-verification-and-your-work-or-school-account"></a>Problemas comunes con la verificación en dos fases y la cuenta profesional o educativa
 
@@ -65,6 +65,7 @@ Asegurarse de que el dispositivo tenga cobertura y conexión a Internet | Asegú
 Desactivar la opción No molestar | Asegúrese de que no ha activado la característica **No molestar** del dispositivo móvil. Si esta característica está activada, no permite que reciba notificaciones en su dispositivo móvil. Consulte el manual del dispositivo móvil para obtener instrucciones sobre cómo desactivar esta característica.
 Desbloquear los números de teléfono | En Estados Unidos, las llamadas de voz de Microsoft proceden de los números siguientes: +1 (866) 539 4191, +1 (855) 330 8653 y +1 (877) 668 6536.
 Comprobar la configuración relacionada con la batería | Esto puede parecer extraño de entrada, pero si ha configurado la optimización de la batería para que impida que las aplicaciones menos usadas permanezcan activas en segundo plano, lo más probable es que esto haya afectado al sistema de notificaciones. Para intentar solucionar este problema, desactive la optimización de batería para las aplicaciones de autenticación y mensajería, e intente iniciar sesión de nuevo en su cuenta.
+Deshabilitación de aplicaciones de seguridad de terceros | Si tiene una aplicación que protege mensajes de texto o llamadas telefónicas para minimizar la cantidad de llamadas procedentes de orígenes desconocidos, esta puede impedir que se reciba el código de verificación. Pruebe a deshabilitar las aplicaciones de seguridad de terceros en el teléfono y, a continuación, solicite que se envíe otro código de verificación.
 
 ## <a name="im-not-getting-prompted-for-my-second-verification-information"></a>No se me pide la segunda información de verificación
 
@@ -99,6 +100,8 @@ Las contraseñas de aplicación reemplazan a las contraseñas normales de las ap
 ## <a name="i-cant-turn-two-factor-verification-off"></a>¿Por qué no se puede desactivar la verificación en dos fases?
 
 Si usa la verificación en dos pasos con su cuenta profesional o educativa (por ejemplo, alain@contoso.com), lo más probable es que la organización haya decidido que debe usar esta característica de seguridad adicional. Si este es el caso, no hay ninguna manera de desactivarla individualmente. Sin embargo, si usa la verificación en dos pasos con una cuenta personal, como alain@outlook.com, tiene la posibilidad de activar y desactivar la característica. Para instrucciones sobre cómo controlar la verificación en dos fases en sus cuentas personales, consulte [Activar o desactivar la verificación en dos pasos para la cuenta de Microsoft](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
+
+Si no puede desactivar la comprobación en dos fases, también podría deberse a los valores predeterminados de seguridad que se aplicaron en el nivel de organización. Para más información sobre los valores predeterminados de seguridad, vea [¿Qué son los valores predeterminados de seguridad?](../fundamentals/concept-fundamentals-security-defaults.md)
 
 ## <a name="i-didnt-find-an-answer-to-my-problem"></a>No encuentro una respuesta a mi problema.
 

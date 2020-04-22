@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 49b41715d95a5f210e6e70faf09aa016d1478728
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f75e5a28f7ec56750432e74ee48ba68491a5e481
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80158818"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81310298"
 ---
 # <a name="configure-the-application-dashboard"></a>Configuración del panel de la aplicación
 
@@ -74,7 +74,7 @@ En la tabla siguiente se resume el uso de iconos en Azure IoT Central:
 | Contenido | Paneles de conjunto de dispositivos y paneles de aplicación |Los iconos admitidos de Markdown son iconos clicables que muestran texto para el encabezado y la descripción. También puede usar este icono como icono de vínculo para que los usuarios puedan navegar a una dirección URL relacionada con la aplicación.|
 | Imagen | Paneles de conjunto de dispositivos y paneles de aplicación |Los iconos de imagen muestran una imagen personalizada y se puede hacer clic en ellos. Use un icono de imagen para agregar gráficos a un panel y, opcionalmente, permitir a los usuarios navegar a una dirección URL que es relevante para la aplicación.|
 | Etiqueta | Paneles de aplicación |Los iconos de etiqueta muestran texto personalizado en un panel. Puede elegir el tamaño del texto. Use un icono de etiqueta para agregar información relevante al panel como, por ejemplo, descripciones, detalles de contacto o ayuda.|
-| Map | Paneles de conjunto de dispositivos y paneles de aplicación |Los iconos de mapa muestran la ubicación y el estado de un dispositivo en un mapa. Por ejemplo, puede mostrar dónde está un dispositivo y si el ventilador está encendido.|
+| Map | Paneles de aplicación y paneles de dispositivo |Los iconos de mapa muestran la ubicación de un dispositivo en un mapa. También puede mostrar hasta cien puntos del historial de ubicación de un dispositivo. Por ejemplo, puede mostrar una ruta muestreada en la que un dispositivo ha estado en la última semana.|
 | Gráfico de líneas | Paneles de aplicación y paneles de dispositivo |Los iconos de gráfico de líneas muestran un gráfico de medidas agregadas para un dispositivo durante un período de tiempo. Por ejemplo, puede mostrar un gráfico de líneas que muestre la temperatura y presión medias en un dispositivo durante la última hora.|
 | Gráfico de barras | Paneles de aplicación y paneles de dispositivo |Los iconos de gráfico de barras muestran un gráfico de mediciones agregadas para un dispositivo durante un período de tiempo. Por ejemplo, puede mostrar un gráfico de barras que muestre la temperatura y presión medias en un dispositivo durante la última hora.|
 | Gráfico circular | Paneles de conjunto de dispositivos y paneles de aplicación |Los iconos de gráfico circular muestran un gráfico de mediciones agregadas para un dispositivo durante un período de tiempo.|

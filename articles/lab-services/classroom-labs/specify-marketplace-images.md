@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2020
+ms.date: 04/10/2020
 ms.author: spelluru
-ms.openlocfilehash: ad56041f853d030e3a286610fe4872bffecaee12
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a64dee6da521764a38fc60bee06545f6a561c297
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77444897"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257712"
 ---
 # <a name="specify-marketplace-images-available-to-lab-creators"></a>Especificación de las imágenes de Marketplace disponibles para los creadores de laboratorios
 Como propietario de una cuenta de laboratorio, puede especificar las imágenes de Marketplace que los creadores de laboratorios pueden usar para este fin en la cuenta de laboratorio. 
@@ -50,6 +50,19 @@ Para deshabilitar varias imágenes al mismo tiempo, seleccione las casillas que 
 Para habilitar una imagen deshabilitada, seleccione **... (puntos suspensivos)**  en la última columna y seleccione **Habilitar imagen**. También puede activar la casilla que aparece delante del nombre de la imagen y seleccionar **Habilitar las imágenes seleccionadas** en la barra de herramientas. 
 
 Para deshabilitar varias imágenes al mismo tiempo, active las casillas que aparecen delante de los nombres de las imágenes y seleccione **Deshabilitar las imágenes seleccionadas** en la barra de herramientas. 
+
+## <a name="enable-images-at-the-time-of-lab-creation"></a>Habilitar las imágenes al crear el laboratorio
+Puede habilitar más imágenes en el momento de crear el laboratorio: 
+
+1. Inicie sesión en el [sitio web de Azure Lab Services](https://labs.azure.com) con las credenciales del **propietario de la cuenta del laboratorio**.
+2. Seleccione la imagen de máquina virtual predeterminada o la flecha abajo. 
+3. Seleccione **Habilitar más opciones de imagen**. 
+
+    ![Habilitar más opciones de imagen](../media/specify-marketplace-images/enable-more-images-menu.png)
+4. Siga las instrucciones de la sección anterior para habilitar las imágenes seleccionadas. 
+5. Es posible que tenga que cerrar la ventana **Nuevo laboratorio** y volver a abrirla para ver las imágenes seleccionadas en el paso anterior. 
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 Vea los artículos siguientes:

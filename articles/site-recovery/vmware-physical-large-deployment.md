@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 36cc63721fe003934aabfb3ae2a03a4113937ca4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a3a2317554f02dc1f1198d8019bbfdb50e3cc71c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79228844"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81409765"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Configuración de recuperación ante desastres a escala para servidores físicos o máquinas virtuales de VMware
 
@@ -210,7 +210,7 @@ Puede prepararse por adelantado para una conmutación por error como sigue:
 Para ejecutar una conmutación por error a gran escala, se recomienda lo siguiente:
 
 1. Cree planes de recuperación para la conmutación por error de cargas de trabajo.
-    - Cada plan de recuperación puede desencadenar la conmutación por error de hasta 50 máquinas.
+    - Cada plan de recuperación puede desencadenar la conmutación por error de hasta 100 máquinas.
     - [Obtenga más información](recovery-plan-overview.md) sobre los planes de recuperación.
 2. Agregue scripts de runbook de Azure Automation a los planes de recuperación para automatizar cualquier tarea manual en Azure. Las tareas típicas incluyen la configuración de los equilibradores de carga, la actualización de DNS, etc. [Más información](site-recovery-runbook-automation.md)
 2. Antes de realizar la conmutación por error, prepare las máquinas Windows para que puedan cumplir con el entorno de Azure. Los [límites de conmutación por error](#plan-azure-subscriptions-and-quotas) son más altos para las máquinas compatibles. [Obtenga más información](site-recovery-failover-to-azure-troubleshoot.md#failover-failed-with-error-id-170010) sobre los runbooks.

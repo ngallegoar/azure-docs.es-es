@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 04/14/2020
 ms.custom: seodec18
-ms.openlocfilehash: 34cf1e91b1fe5aae516c77bf2c280dfe70000611
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fd34595d5ea942602efc920904ff326fc203c088
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75894755"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81380691"
 ---
 # <a name="understand-data-retention-in-azure-time-series-insights"></a>Descripción de la retención de datos en Azure Time Series Insights
 
@@ -45,7 +45,7 @@ A continuación se describen con más detalle ambas directivas de retención de 
 
 - **Purgar datos antiguos** es la configuración predeterminada para los entornos de Azure Time Series Insights.  
 - **Purgar datos antiguos** es la opción preferida cuando los usuarios quieren tener siempre los *datos más recientes* de su entorno de Time Series Insights.
-- La configuración **Purgar datos antiguos***purga* los datos una vez que se alcanzan los límites del entorno (tiempo de retención, tamaño o cantidad, lo que llegue antes). La retención está establecida en 30 días de forma predeterminada.
+- La configuración **Purgar datos antiguos** *purga* los datos una vez que se alcanzan los límites del entorno (tiempo de retención, tamaño o cantidad, lo que llegue antes). La retención está establecida en 30 días de forma predeterminada.
 - Los datos ingeridos hace más tiempo se purgan primero (enfoque "primero en entrar, primero en salir").
 
 ### <a name="example-one"></a>Ejemplo 1
