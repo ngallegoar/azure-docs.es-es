@@ -3,12 +3,12 @@ title: Creación de un clúster de Azure Service Fabric
 description: Obtenga información sobre cómo configurar un clúster de Service Fabric seguro en Azure mediante Azure Resource Manager.  Puede crear un clúster mediante una plantilla predeterminada o con su propia plantilla de clúster.
 ms.topic: conceptual
 ms.date: 08/16/2018
-ms.openlocfilehash: 8cf14230f3abd37d91f1ec369f597ee594876100
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 24bc80a7ab3ce61b79466cdd943c60efd367ce01
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77624124"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458307"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Creación de un clúster de Service Fabric con Azure Resource Manager 
 > [!div class="op_single_selector"]
@@ -251,7 +251,7 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 
 ### <a name="use-a-pointer-to-a-secret-uploaded-into-a-key-vault"></a>Uso de un puntero a un secreto cargado en un almacén de claves
 
-Para usar un almacén de claves existente, este debe estar [habilitado para la implementación](../key-vault/key-vault-manage-with-cli2.md#bkmk_KVperCLI), de forma que el proveedor de recursos de proceso pueda recibir de él certificados e instalarlos en nodos de clúster.
+Para usar un almacén de claves existente, este debe estar [habilitado para la implementación](../key-vault/general/manage-with-cli2.md#bkmk_KVperCLI), de forma que el proveedor de recursos de proceso pueda recibir de él certificados e instalarlos en nodos de clúster.
 
 Implemente el clúster mediante PowerShell:
 

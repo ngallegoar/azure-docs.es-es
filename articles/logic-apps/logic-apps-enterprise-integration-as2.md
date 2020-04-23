@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/27/2020
-ms.openlocfilehash: 0ce813e91750db3cdfa1e651a68fbb82d593eb32
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0e7c34e42d0ab68a5dab9718075f02a85322ce6c
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77650576"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458835"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Intercambio de mensajes AS2 para la integración empresarial B2B en Azure Logic Apps con Enterprise Integration Pack
 
@@ -61,7 +61,7 @@ En este artículo se muestra cómo agregar la codificación AS2 y las acciones d
 
 * Para poder usar el conector AS2, debe crear un [contrato](../logic-apps/logic-apps-enterprise-integration-agreements.md) AS2 entre las entidades y almacenarlo en la cuenta de integración.
 
-* Si usa [Azure Key Vault](../key-vault/key-vault-overview.md) para la administración de certificados, compruebe que las claves de almacén permitan las operaciones **Cifrar** y **Descifrar**. En caso contrario, las acciones de codificación y descodificación producirán un error.
+* Si usa [Azure Key Vault](../key-vault/general/overview.md) para la administración de certificados, compruebe que las claves de almacén permitan las operaciones **Cifrar** y **Descifrar**. En caso contrario, las acciones de codificación y descodificación producirán un error.
 
   En Azure Portal, vaya a la clave en el almacén de claves, consulte las **operaciones permitidas** de esta y confirme que las operaciones **Cifrar** y **Descifrar** están seleccionadas, por ejemplo:
 

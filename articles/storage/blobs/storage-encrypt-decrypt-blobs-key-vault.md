@@ -10,12 +10,12 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 3f4f1f5e163dfed9f356aed538d934d0e4258790
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: c1d26fda57d665cc8d83f594f4efeebebc7bf139
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618877"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81456896"
 ---
 # <a name="tutorial---encrypt-and-decrypt-blobs-using-azure-key-vault"></a>Tutorial: Cifrado y descifrado de blobs mediante Azure Key Vault
 
@@ -23,7 +23,7 @@ Este tutorial explica cómo hacer uso del cifrado de almacenamiento del lado cli
 
 **Tiempo estimado para completarla:** 20 minutos
 
-Para información general sobre Azure Key Vault, consulte [¿Qué es Azure Key Vault?](../../key-vault/key-vault-overview.md).
+Para información general sobre Azure Key Vault, consulte [¿Qué es Azure Key Vault?](../../key-vault/general/overview.md).
 
 Para obtener información general sobre el cifrado de cliente para Azure Storage, consulte [Cifrado del lado de cliente y Azure Key Vault para Microsoft Azure Storage](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
@@ -48,7 +48,7 @@ Esta es una breve descripción de cómo funciona el cifrado del lado cliente:
 
 ## <a name="set-up-your-azure-key-vault"></a>Configuración de Azure Key Vault
 
-Para continuar con este tutorial, debe seguir los siguientes pasos que se describen en el tutorial [Inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante una aplicación web de .NET](../../key-vault/quick-create-net.md):
+Para continuar con este tutorial, debe seguir los siguientes pasos que se describen en el tutorial [Inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante una aplicación web de .NET](../../key-vault/secrets/quick-create-net.md):
 
 * Cree un almacén de claves.
 * Agregue una clave o un secreto al almacén de claves.

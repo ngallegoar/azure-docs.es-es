@@ -1,22 +1,15 @@
 ---
 title: 'Preguntas más frecuentes (P+F): LUIS'
-titleSuffix: Azure Cognitive Services
 description: Este artículo contiene respuestas a las preguntas más frecuentes sobre Language Understanding (LUIS).
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-services: cognitive-services
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/08/2019
+ms.date: 04/14/2020
 ms.author: diberry
-ms.openlocfilehash: a2472064720af0a25568a2f173b971898b1f2e25
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 59d9b1f21e1936b7d03293ec3d338677380a7c99
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79218702"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81530273"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Preguntas más frecuentes de Language Understanding
 
@@ -59,7 +52,10 @@ La **característica de patrón** anterior está en desuso actualmente, y se ree
 Consulte las [entidades](luis-concept-entity-types.md) y la [extracción de datos](luis-concept-data-extraction.md).
 
 ### <a name="should-variations-of-an-example-utterance-include-punctuation"></a>¿Las variaciones de una expresión de ejemplo deberían incluir signos de puntuación?
-Puede agregar las variaciones distintas como expresiones de ejemplo de la intención o agregar el patrón de la expresión de ejemplo con la [sintaxis para pasar por alto](luis-concept-patterns.md#pattern-syntax) los signos de puntuación.
+Pruebe una de estas soluciones:
+* Ignorar la [puntuación](luis-reference-application-settings.md#punctuation-normalization)
+* Agregar las distintas variantes como expresiones de ejemplo a la intención
+* Agregue el patrón de la expresión de ejemplo con la [sintaxis para ignorar](luis-concept-patterns.md#pattern-syntax) la puntuación.
 
 ### <a name="does-luis-currently-support-cortana"></a>¿LUIS es compatible actualmente con Cortana?
 
@@ -68,11 +64,11 @@ Las aplicaciones precompiladas de Cortana están en desuso desde 2017. Ya no se 
 ### <a name="how-do-i-transfer-ownership-of-a-luis-app"></a>¿Cómo puedo transferir la propiedad de la aplicación de LUIS?
 Para transferir una aplicación de LUIS a otra suscripción de Azure, exporte la aplicación de LUIS e impórtela con una cuenta nueva. Actualice el id. de aplicación de LUIS en la aplicación cliente que lo llama. La aplicación nueva puede devolver puntuaciones de LUIS ligeramente distintas a las de la aplicación original.
 
-### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>Una entidad compilada previamente se etiqueta en una expresión de ejemplo en lugar de en mi entidad personalizada. ¿Cómo puedo corregirlo? 
+### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>Una entidad compilada previamente se etiqueta en una expresión de ejemplo en lugar de en mi entidad personalizada. ¿Cómo puedo corregirlo?
 
-En el portal de LUIS, puede etiquetar el texto de la entidad exacta que le interese extraer. Si el portal de LUIS no muestra la predicción de entidad correcta, puede que necesite agregar más expresiones y etiquetar la entidad en el texto o agregar un descriptor (por ejemplo, una característica). 
+En el portal de LUIS, puede etiquetar el texto de la entidad exacta que le interese extraer. Si el portal de LUIS no muestra la predicción de entidad correcta, puede que necesite agregar más expresiones y etiquetar la entidad en el texto o agregar un descriptor (por ejemplo, una característica).
 
-### <a name="i-tried-to-import-an-app-or-version-file-but-i-got-an-error-what-happened"></a>Se intentó importar un archivo de aplicación o versión pero se produjo un error, ¿a qué se debe? 
+### <a name="i-tried-to-import-an-app-or-version-file-but-i-got-an-error-what-happened"></a>Se intentó importar un archivo de aplicación o versión pero se produjo un error, ¿a qué se debe?
 
 Obtenga más información sobre los [errores de importación de versión](luis-how-to-manage-versions.md#import-errors).
 
@@ -82,7 +78,7 @@ Obtenga más información sobre los [errores de importación de versión](luis-h
 
 ### <a name="how-do-i-give-collaborators-access-to-luis-with-azure-active-directory-azure-ad-or-role-based-access-control-rbac"></a>¿Cómo puedo dar acceso a LUIS a los colaboradores mediante Azure Active Directory (Azure AD) o el control de acceso basado en roles (RBAC)?
 
-Consulte los [recursos de Azure Active Directory](luis-how-to-collaborate.md#azure-active-directory-resources) y el [usuario inquilino de Azure Active Directory](luis-how-to-collaborate.md#azure-active-directory-tenant-user) para obtener información sobre cómo otorgar acceso de colaboradores. 
+Consulte los [recursos de Azure Active Directory](luis-how-to-collaborate.md#azure-active-directory-resources) y el [usuario inquilino de Azure Active Directory](luis-how-to-collaborate.md#azure-active-directory-tenant-user) para obtener información sobre cómo otorgar acceso de colaboradores.
 
 <a name="luis-endpoint"></a>
 
@@ -92,7 +88,7 @@ Consulte los [recursos de Azure Active Directory](luis-how-to-collaborate.md#azu
 
 Recibirá los códigos de estado HTTP 403 y 429 cuando supere las transacciones por segundo o las transacciones al mes del plan de tarifa. Aumente el plan de tarifa o use los [contenedores](luis-container-howto.md) de Language Understanding.
 
-Al usar las 1000 consultas de punto de conexión gratuitas o al superar la cuota mensual de transacciones de su plan de tarifa, recibirá un código de estado de error HTTP 403. 
+Al usar las 1000 consultas de punto de conexión gratuitas o al superar la cuota mensual de transacciones de su plan de tarifa, recibirá un código de estado de error HTTP 403.
 
 Para corregir este error, tendrá que [cambiar su plan de tarifa](luis-how-to-azure-subscription.md#change-pricing-tier) a un nivel superior o [crear un nuevo recurso](get-started-portal-deploy-app.md#create-the-endpoint-resource) y [asignarlo a la aplicación](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal).
 
@@ -105,23 +101,23 @@ Las soluciones para este error incluyen:
 
 Recibirá los códigos de estado HTTP 403 y 429 cuando supere las transacciones por segundo o las transacciones al mes del plan de tarifa. Aumente el plan de tarifa o use los [contenedores](luis-container-howto.md) de Language Understanding.
 
-Este código de estado se devuelve cuando las transacciones por segundo superan su plan de tarifa.  
+Este código de estado se devuelve cuando las transacciones por segundo superan su plan de tarifa.
 
 Entre las soluciones, se incluyen las siguientes:
 
 * También puede [aumentar el plan de tarifa](luis-how-to-azure-subscription.md#change-pricing-tier), si no está en el nivel más alto.
 * Si el uso supera el plan de tarifa más alto, agregue más recursos de Language Understanding con un equilibrador de carga delante. El [contenedor de Language Understanding](luis-container-howto.md) con Kubernetes o Docker Compose puede ayudarle en esto.
-* También puede programar las solicitudes de la aplicación cliente con una [directiva de reintentos](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) que implemente al recibir este código de estado. 
+* También puede programar las solicitudes de la aplicación cliente con una [directiva de reintentos](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) que implemente al recibir este código de estado.
 
 ### <a name="my-endpoint-query-returned-unexpected-results-what-should-i-do"></a>Mi consulta de punto de conexión devuelve resultados inesperados. ¿Cuál debo hacer?
 
-Los resultados inesperados de las consultas dependen del estado del modelo publicado. Para corregir el modelo, quizás tenga que hacer cambios, entrenarlo y publicarlo de nuevo. 
+Los resultados inesperados de las consultas dependen del estado del modelo publicado. Para corregir el modelo, quizás tenga que hacer cambios, entrenarlo y publicarlo de nuevo.
 
 La corrección del modelo comienza con un [aprendizaje activo](luis-how-to-review-endpoint-utterances.md).
 
 Puede quitar el aprendizaje no determinista actualizando la [API de configuración de versión de la aplicación](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) para que así pueda utilizar todos los datos de aprendizaje.
 
-Consulte los [procedimientos recomendados](luis-concept-best-practices.md) para encontrar más sugerencias. 
+Consulte los [procedimientos recomendados](luis-concept-best-practices.md) para encontrar más sugerencias.
 
 ### <a name="why-does-luis-add-spaces-to-the-query-around-or-in-the-middle-of-words"></a>¿Por qué LUIS agrega espacios a la consulta alrededor o en medio de las palabras?
 LUIS [acorta](luis-glossary.md#token) la expresión según la [referencia cultural](luis-language-support.md#tokenization). El valor original y el valor acortado están disponibles para la [extracción de datos](luis-concept-data-extraction.md#tokenized-entity-returned).
@@ -145,7 +141,7 @@ Puede usar un comando de PowerShell para ver la cuota de punto de conexión:
 
 ```powershell
 Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Name <your-resource-name>
-``` 
+```
 
 ### <a name="my-luis-app-was-working-yesterday-but-today-im-getting-403-errors-i-didnt-change-the-app-how-do-i-fix-it"></a>La aplicación LUIS funcionaba ayer, pero hoy recibo errores 403. No hice cambios en la aplicación. ¿Cómo puedo corregirlo?
 Siga estas [instrucciones](#how-do-i-create-and-assign-a-luis-endpoint-key) para crear una clave de punto de conexión de LUIS y asignarla a la aplicación. Después, debe cambiar la solicitud HTTP de la aplicación cliente al punto de conexión para [usar la nueva clave de punto de conexión](luis-concept-keys.md). Si ha creado un recurso nuevo en otra región, cambie también la región de la solicitud de cliente HTTP.
@@ -186,7 +182,7 @@ Consulte el tutorial sobre [Pruebas en lote](luis-tutorial-batch-testing.md).
 
 Consulte las [diferencias de predicción entre las copias de la misma aplicación](luis-concept-prediction-score.md#review-intents-with-similar-scores).
 
-### <a name="some-utterances-go-to-the-wrong-intent-after-i-made-changes-to-my-app-the-issue-seems-to-disappear-at-random-how-do-i-fix-it"></a>Después de haber hecho cambios en la aplicación, algunas expresiones van a la intención incorrecta. El problema parece desaparecer de forma aleatoria. ¿Cómo puedo corregirlo? 
+### <a name="some-utterances-go-to-the-wrong-intent-after-i-made-changes-to-my-app-the-issue-seems-to-disappear-at-random-how-do-i-fix-it"></a>Después de haber hecho cambios en la aplicación, algunas expresiones van a la intención incorrecta. El problema parece desaparecer de forma aleatoria. ¿Cómo puedo corregirlo?
 
 Vea [Entrenamiento con todos los datos](luis-how-to-train.md#train-with-all-data).
 
@@ -202,27 +198,27 @@ En Azure, un inquilino representa al cliente o a la organización que están aso
 
 
 ### <a name="why-are-there-more-endpoint-keys-assigned-to-my-app-than-i-assigned"></a>¿Por qué hay más claves de punto de conexión asignadas a mi aplicación de las que yo he asignado?
-Cada aplicación de LUIS tiene la clave de creación/inicio en la lista de puntos de conexión para su comodidad. Esta clave permite solo unas pocas visitas al punto de conexión para que pueda probar LUIS.  
+Cada aplicación de LUIS tiene la clave de creación/inicio en la lista de puntos de conexión para su comodidad. Esta clave permite solo unas pocas visitas al punto de conexión para que pueda probar LUIS.
 
 Si la aplicación ya existía antes de que LUIS estuviera disponible con carácter general (GA), las claves de punto de conexión de LUIS de la suscripción se asignan automáticamente. Esto facilita la migración de GA. Cualquier nueva clave de punto de conexión de LUIS de Azure Portal _no_ se asigna automáticamente a LUIS.
 
 ## <a name="key-management"></a>Administración de claves
 
-### <a name="how-do-i-know-what-key-i-need-where-i-get-it-and-what-i-do-with-it"></a>¿Cómo puedo saber qué clave necesito, dónde obtenerla y qué hacer con ella? 
+### <a name="how-do-i-know-what-key-i-need-where-i-get-it-and-what-i-do-with-it"></a>¿Cómo puedo saber qué clave necesito, dónde obtenerla y qué hacer con ella?
 
-Consulte [Claves de creación y del punto de conexión de consulta de predicciones en LUIS](luis-concept-keys.md) para más información sobre las diferencias entre la claves de creación y la clave del runtime de predicción. 
+Consulte [Claves de creación y del punto de conexión de consulta de predicciones en LUIS](luis-concept-keys.md) para más información sobre las diferencias entre la claves de creación y la clave del runtime de predicción.
 
-### <a name="i-got-an-error-about-being-out-of-quota-how-do-i-fix-it"></a>He recibido un error que me indicaba que había superado la cuota. ¿Cómo puedo corregirlo? 
+### <a name="i-got-an-error-about-being-out-of-quota-how-do-i-fix-it"></a>He recibido un error que me indicaba que había superado la cuota. ¿Cómo puedo corregirlo?
 
 Para más información, consulte Corrección de los códigos de estado HTTP [403 and 429](#i-received-an-http-403-error-status-code-how-do-i-fix-it) y [429](#i-received-an-http-429-error-status-code-how-do-i-fix-it).
 
-### <a name="i-need-to-handle-more-endpoint-queries-how-do-i-do-that"></a>Necesito administrar más consultas de punto de conexión. ¿Cómo se hace? 
+### <a name="i-need-to-handle-more-endpoint-queries-how-do-i-do-that"></a>Necesito administrar más consultas de punto de conexión. ¿Cómo se hace?
 
 Para más información, consulte Corrección de los códigos de estado HTTP [403 and 429](#i-received-an-http-403-error-status-code-how-do-i-fix-it) y [429](#i-received-an-http-429-error-status-code-how-do-i-fix-it).
 
 ### <a name="i-created-an-authoring-key-but-it-isnt-showing-in-the-luis-portal-what-happened"></a>He creado una clave de creación, pero no se muestra en el portal LUIS. ¿Qué ha ocurrido?
 
-Las claves de creación están disponibles en el portal LUIS después de que se [migrarlas a la experiencia de la clave de creación](luis-migration-authoring.md).  
+Las claves de creación están disponibles en el portal LUIS después de que se [migrarlas a la experiencia de la clave de creación](luis-migration-authoring.md).
 
 ## <a name="app-management"></a>Administración de la aplicación
 
@@ -266,28 +262,28 @@ La clave de creación/inicio solo permite 1000 consultas de punto de conexión 
 
 ### <a name="my-luis-bot-isnt-working-what-do-i-do"></a>Mi bot de LUIS no funciona. ¿Qué puedo hacer?
 
-Lo primero que hay que hacer es determinar si el problema está solo relacionado con LUIS o si sucede fuera del middleware de LUIS. 
+Lo primero que hay que hacer es determinar si el problema está solo relacionado con LUIS o si sucede fuera del middleware de LUIS.
 
 #### <a name="resolve-issue-in-luis"></a>Solución del problema en LUIS
 Pase la misma expresión a LUIS desde el [punto de conexión de LUIS](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint). Si recibe un error, resuelva el problema en LUIS hasta que deje de devolverse este. Estos son algunos de los errores comunes:
 
-* `Out of call volume quota. Quota will be replenished in <time>.`: este problema indica que debe cambiar de una clave de creación a una [clave de punto de conexión](luis-how-to-azure-subscription.md) o que debe cambiar de [nivel de servicio](luis-how-to-azure-subscription.md#change-pricing-tier). 
+* `Out of call volume quota. Quota will be replenished in <time>.`: este problema indica que debe cambiar de una clave de creación a una [clave de punto de conexión](luis-how-to-azure-subscription.md) o que debe cambiar de [nivel de servicio](luis-how-to-azure-subscription.md#change-pricing-tier).
 
 #### <a name="resolve-issue-in-azure-bot-service"></a>Solución del problema en Azure Bot Service
 
 Si utiliza Azure Bot Service y el problema es que las **pruebas en el chat web** devuelven `Sorry, my bot code is having an issue`, compruebe los registros:
 
 1. En Azure Portal, para el bot, seleccione **Compilar** en la sección **Bot Management** (Administración del bot).
-1. Abra el editor de código en línea. 
+1. Abra el editor de código en línea.
 1. En la barra de navegación superior azul, seleccione el nombre del bot (el segundo elemento a la derecha).
 1. En la lista desplegable resultante, seleccione **Open Kudu Console** (Abrir la consola de Kudu).
-1. Seleccione **LogFiles** y **Aplicación**. Revise todos los archivos de registro. Si no ve el error en la carpeta de la aplicación, revise todos los archivos de registro en **LogFiles**. 
+1. Seleccione **LogFiles** y **Aplicación**. Revise todos los archivos de registro. Si no ve el error en la carpeta de la aplicación, revise todos los archivos de registro en **LogFiles**.
 1. Recuerde recompilar el proyecto si está utilizando un lenguaje compilado como C#.
 
-> [!Tip] 
-> La consola también puede instalar los paquetes. 
+> [!Tip]
+> La consola también puede instalar los paquetes.
 
-#### <a name="resolve-issue-while-debugging-on-local-machine-with-bot-framework"></a>Resuelva el problema durante la depuración en la máquina local con Bot Framework. 
+#### <a name="resolve-issue-while-debugging-on-local-machine-with-bot-framework"></a>Resuelva el problema durante la depuración en la máquina local con Bot Framework.
 
 Para más información sobre la depuración local de un bot, consulte [Debug a bot](https://docs.microsoft.com/azure/bot-service/bot-service-debug-bot?view=azure-bot-service-4.0) (Depuración de un bot).
 
@@ -303,19 +299,19 @@ La [preparación para la voz](https://docs.microsoft.com/bot-framework/bot-servi
 
 ## <a name="api-programming-strategies"></a>Estrategias de programación de la API
 
-### <a name="how-do-i-programmatically-get-the-luis-region-of-a-resource"></a>¿Cómo puedo obtener mediante programación la región LUIS de un recurso? 
+### <a name="how-do-i-programmatically-get-the-luis-region-of-a-resource"></a>¿Cómo puedo obtener mediante programación la región LUIS de un recurso?
 
-Use el ejemplo de LUIS para [buscar regiones](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/find-region) mediante programación con C# o Node.Js. 
+Use el ejemplo de LUIS para [buscar regiones](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/find-region) mediante programación con C# o Node.Js.
 
 ## <a name="luis-service"></a>Servicio de LUIS
 
 ### <a name="is-language-understanding-luis-available-on-premises-or-in-private-cloud"></a>¿Está Language Understanding (LUIS) disponible localmente o en la nube privada?
 
-Sí, puede usar el [contenedor](luis-container-howto.md) de LUIS para estos escenarios, si tiene la conectividad necesaria para medir el uso. 
+Sí, puede usar el [contenedor](luis-container-howto.md) de LUIS para estos escenarios, si tiene la conectividad necesaria para medir el uso.
 
 ## <a name="migrating-to-the-next-version"></a>Migración a la siguiente versión
 
-### <a name="how-do-i-migrate-to-preview-v3-api"></a>¿Cómo migro a la versión preliminar de la API v3? 
+### <a name="how-do-i-migrate-to-preview-v3-api"></a>¿Cómo migro a la versión preliminar de la API v3?
 
 Vea [Guía de migración la API v2 a v3 para las aplicaciones de LUIS](luis-migration-api-v3.md)
 
@@ -325,8 +321,8 @@ Las siguientes características se presentaron en el congreso Build 2019:
 
 * [Versión preliminar de la guía de migración de la API v3](luis-migration-api-v3.md)
 * [Panel de análisis mejorado](luis-how-to-use-dashboard.md)
-* [Dominios creados previamente mejorados](luis-reference-prebuilt-domains.md) 
-* [Entidades de lista dinámica](luis-migration-api-v3.md#dynamic-lists-passed-in-at-prediction-time)
+* [Dominios creados previamente mejorados](luis-reference-prebuilt-domains.md)
+* [Entidades de lista dinámica](schema-change-prediction-runtime.md#dynamic-lists-passed-in-at-prediction-time)
 * [Entidades externas](luis-migration-api-v3.md#external-entities-passed-in-at-prediction-time)
 
 Videos:

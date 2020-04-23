@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.date: 02/18/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 5749b2fc58c4e1c5c75142f85a5132946714e25b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ace34cf4a72b871ba6646b279007b8ce21c03e9b
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77473204"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457440"
 ---
 # <a name="use-customer-managed-keys-to-encrypt-your-app-configuration-data"></a>Uso de claves administradas por el cliente para cifrar los datos de configuración de App Configuration
 Azure App Configuration [cifra la información confidencial en reposo](../security/fundamentals/encryption-atrest.md). El uso de claves administradas por el cliente proporciona una mejor protección de los datos al permitirle administrar las claves de cifrado.  Cuando se usa el cifrado de claves administradas, toda la información confidencial de App Configuration se cifra con una clave de Azure Key Vault proporcionada por el usuario.  De esta manera, existe la posibilidad de rotar la clave de cifrado a petición.  También existe la posibilidad de revocar el acceso de Azure App Configuration a información confidencial mediante la revocación del acceso de la instancia de Azure App Configuration a la clave.
@@ -20,7 +20,7 @@ Azure App Configuration [cifra la información confidencial en reposo](../securi
 Azure App Configuration cifra la información confidencial en reposo mediante una clave de cifrado AES de 256 bits proporcionada por Microsoft. Cada instancia de App Configuration tiene su propia clave de cifrado que administra el servicio y que se usa para cifrar la información confidencial. La información confidencial incluye los valores que se encuentran en los pares clave-valor.  Cuando está habilitada la funcionalidad de claves administradas por el cliente, App Configuration usa una identidad administrada asignada a la instancia de App Configuration para autenticarse con Azure Active Directory. Luego, la identidad administrada llama a Azure Key Vault y encapsula la clave de cifrado de la instancia de App Configuration. La clave de cifrado encapsulada se almacena y la clave de cifrado desencapsulada se almacena en caché en App Configuration durante una hora. App Configuration actualiza la versión desencapsulada de la clave de cifrado de la instancia de App Configuration cada hora. De esta forma, se garantiza la disponibilidad en condiciones de funcionamiento normales. 
 
 >[!IMPORTANT]
-> Si la identidad asignada a la instancia de App Configuration ya no está autorizada para desencapsular la clave de cifrado de la instancia, o si la clave administrada se elimina de forma permanente, ya no será posible descifrar la información confidencial almacenada en la instancia de App Configuration. El uso de la función [eliminación temporal](../key-vault/key-vault-ovw-soft-delete.md) de Azure Key Vault reduce la posibilidad de eliminación accidental de la clave de cifrado.
+> Si la identidad asignada a la instancia de App Configuration ya no está autorizada para desencapsular la clave de cifrado de la instancia, o si la clave administrada se elimina de forma permanente, ya no será posible descifrar la información confidencial almacenada en la instancia de App Configuration. El uso de la función [eliminación temporal](../key-vault/general/overview-soft-delete.md) de Azure Key Vault reduce la posibilidad de eliminación accidental de la clave de cifrado.
 
 Cuando los usuarios habilitan la funcionalidad de claves administradas por el cliente en su instancia de App Configuration, controlan la capacidad del servicio para acceder a su información confidencial. La clave administrada funciona como clave de cifrado raíz. Un usuario puede revocar el acceso de la instancia de App Configuration a su clave administrada mediante la modificación de su directiva de acceso del almacén de claves. Cuando se revoca este acceso, App Configuration pierde la capacidad de descifrar los datos del usuario en una hora. En este momento, la instancia de App Configuration prohibirá todos los intentos de acceso. Esta situación es recuperable; solo hay que volver a conceder al servicio acceso a la clave administrada.  En una hora, App Configuration podrá descifrar los datos del usuario y funcionar en condiciones normales.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/19/2020
 ms.author: thweiss
 ROBOTS: noindex, nofollow
-ms.openlocfilehash: 733a85e492185e7e83922a3cc91d53c848b939a1
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 8f58887a056c8ca0cd175a44127556562338de38
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81411143"
+ms.locfileid: "81450039"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Configuración de claves administradas por el cliente para una cuenta de Azure Cosmos con Azure Key Vault
 
@@ -23,7 +23,7 @@ Los datos almacenados en su cuenta de Azure Cosmos se cifran de forma automátic
 
 ![Capas de cifrado en torno a los datos de clientes](./media/how-to-setup-cmk/cmk-intro.png)
 
-Debe almacenar las claves administradas por el cliente en [Azure Key Vault](../key-vault/key-vault-overview.md) y proporcionar una clave para cada cuenta de Azure Cosmos que tenga habilitadas las claves administradas por el cliente. Esta clave se usa para cifrar todos los datos almacenados en esa cuenta.
+Debe almacenar las claves administradas por el cliente en [Azure Key Vault](../key-vault/general/overview.md) y proporcionar una clave para cada cuenta de Azure Cosmos que tenga habilitadas las claves administradas por el cliente. Esta clave se usa para cifrar todos los datos almacenados en esa cuenta.
 
 > [!NOTE]
 > Actualmente, las claves administradas por el cliente solo están disponibles para las nuevas cuentas de Azure Cosmos. Debe configurarlas durante la creación de la cuenta.
@@ -44,8 +44,8 @@ El uso de claves administradas por el cliente con Azure Cosmos DB requiere que e
 
 Para aprender a habilitar estas propiedades en una instancia existente de Azure Key Vault, consulte las secciones "Habilitación de la eliminación temporal" y "Habilitación de la protección de purgas" en cualquiera de los siguientes artículos:
 
-- [Uso de la eliminación temporal con PowerShell](../key-vault/key-vault-soft-delete-powershell.md)
-- [Uso de la eliminación temporal con la CLI de Azure](../key-vault/key-vault-soft-delete-cli.md)
+- [Uso de la eliminación temporal con PowerShell](../key-vault/general/soft-delete-powershell.md)
+- [Uso de la eliminación temporal con la CLI de Azure](../key-vault/general/soft-delete-cli.md)
 
 ## <a name="add-an-access-policy-to-your-azure-key-vault-instance"></a>Adición de una directiva de acceso a la instancia de Azure Key Vault
 

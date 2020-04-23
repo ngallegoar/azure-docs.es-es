@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 2cdafa9a36a5f906151ca6946e18ef82bc7f1e01
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: eac195babebf300aa9770d35b7b98eba29c234cf
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80529417"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460994"
 ---
 # <a name="configure-your-lab-in-azure-devtest-labs-to-use-a-remote-desktop-gateway"></a>Configuración del laboratorio de Azure DevTest Labs para usar una puerta de enlace de Escritorio remoto
 En Azure DevTest Labs, puede configurar una puerta de enlace de Escritorio remoto para el laboratorio con el fin de garantizar el acceso seguro a las máquinas virtuales (VM) del laboratorio sin tener que exponer el puerto RDP. El laboratorio proporciona un lugar central para que los usuarios del laboratorio vean todas las máquinas virtuales a las que tienen acceso y se conecten a ellas. El botón **Connect** (Conectar) de la página **Virtual Machine** (Máquina Virtual) crea un archivo RDP específico de la máquina que se puede abrir para conectarse a ella. Puede personalizar y proteger aún más la conexión RDP si conecta el laboratorio a una puerta de enlace de Escritorio remoto. 
@@ -64,7 +64,7 @@ La función de Azure controla la solicitud con el formato de `https://{function-
 ## <a name="configure-the-lab-to-use-token-authentication"></a>Configuración del laboratorio para usar la autenticación de token 
 En esta sección se muestra cómo configurar un laboratorio para usar una máquina de puerta de enlace de Escritorio remoto que admite la autenticación de token. En esta sección no se describe cómo configurar una granja de servidores de puerta de enlace de Escritorio remoto. Para obtener esa información, vea la sección [Ejemplo para crear una puerta de enlace de Escritorio remoto](#sample-to-create-a-remote-desktop-gateway) al final de este artículo. 
 
-Antes de actualizar la configuración del laboratorio, almacene la clave necesaria para ejecutar de forma correcta la función para que devuelva un token de autenticación en el almacén de claves del laboratorio. Puede obtener el valor de clave de función en la página **Administrar** de la función en Azure Portal. Para más información sobre cómo guardar un secreto en un almacén de claves, vea [Incorporación de un secreto a Key Vault](../key-vault/quick-create-portal.md#add-a-secret-to-key-vault). Guarde el nombre del secreto para usarlo más tarde.
+Antes de actualizar la configuración del laboratorio, almacene la clave necesaria para ejecutar de forma correcta la función para que devuelva un token de autenticación en el almacén de claves del laboratorio. Puede obtener el valor de clave de función en la página **Administrar** de la función en Azure Portal. Para más información sobre cómo guardar un secreto en un almacén de claves, vea [Incorporación de un secreto a Key Vault](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault). Guarde el nombre del secreto para usarlo más tarde.
 
 Para buscar el identificador del almacén de claves del laboratorio, ejecute el siguiente comando de la CLI de Azure: 
 

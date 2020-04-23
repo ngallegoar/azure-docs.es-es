@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 7ac657e6627aff4eb588506118e5eeeaef70efba
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: ce78ade4df3c5bcea9e4e44750c430065cbfc5b0
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548603"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81454652"
 ---
 # <a name="azure-encryption-overview"></a>Información general del cifrado de Azure
 
@@ -61,7 +61,7 @@ Los tres modelos de cifrado del servidor ofrecen características de administrac
 
 Para proteger las máquinas virtuales Windows y Linux, puede usar [Azure Disk Encryption](/azure/security/fundamentals/azure-disk-encryption-vms-vmss), que usa la tecnología de [BitLocker de Windows](https://technet.microsoft.com/library/cc766295(v=ws.10).aspx) y [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) de Linux para proteger los discos del sistema operativo y los discos de datos con el cifrado de volumen completo.
 
-Las claves de cifrado y secretos se protegen en la [suscripción a Azure Key Vault](../../key-vault/key-vault-overview.md). El servicio Azure Backup permite hacer copias de seguridad y restauraciones de máquinas virtuales (VM) cifradas que usan la configuración de clave de cifrado de claves (KEK).
+Las claves de cifrado y secretos se protegen en la [suscripción a Azure Key Vault](../../key-vault/general/overview.md). El servicio Azure Backup permite hacer copias de seguridad y restauraciones de máquinas virtuales (VM) cifradas que usan la configuración de clave de cifrado de claves (KEK).
 
 ### <a name="azure-storage-service-encryption"></a>Cifrado del servicio Azure Storage
 

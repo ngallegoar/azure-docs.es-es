@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 89de6bf80d14ec77fe6b1f98b6e1d15c6e573fbe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 46a1db94d576174b837a40c646fcf9e082e339c8
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76756290"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461623"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Autenticación de una identidad administrada con Azure Active Directory para acceder a recursos de Azure Service Bus
 [Identidades administradas para recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md) es una característica de Azure que permite crear una identidad segura asociada a la implementación en la que se ejecuta el código de la aplicación. A continuación, puede asociar esa identidad con los roles de control de acceso que conceden permisos personalizados para acceder a recursos específicos de Azure que la aplicación necesita.
@@ -140,7 +140,7 @@ Para enviar o recibir mensajes, escriba el nombre del espacio de nombres y el no
 
 
 > [!NOTE]
-> - La identidad administrada solo funciona en el entorno de Azure, en servicios de aplicaciones, en máquinas virtuales de Azure y en conjuntos de escalado. En el caso de las aplicaciones de .NET, la biblioteca Microsoft.Azure.Services.AppAuthentication, que es la que usa el paquete NuGet de Service Bus, proporciona una abstracción sobre este protocolo y admite una experiencia de desarrollo local. Esta biblioteca también permite probar el código localmente en una máquina de desarrollo, con su cuenta de usuario de Visual Studio, la CLI de Azure 2.0 o la autenticación integrada de Active Directory. Para más información acerca de las opciones de desarrollo local con esta biblioteca, consulte [Autenticación entre servicios en Azure Key Vault mediante .NET](../key-vault/service-to-service-authentication.md).  
+> - La identidad administrada solo funciona en el entorno de Azure, en servicios de aplicaciones, en máquinas virtuales de Azure y en conjuntos de escalado. En el caso de las aplicaciones de .NET, la biblioteca Microsoft.Azure.Services.AppAuthentication, que es la que usa el paquete NuGet de Service Bus, proporciona una abstracción sobre este protocolo y admite una experiencia de desarrollo local. Esta biblioteca también permite probar el código localmente en una máquina de desarrollo, con su cuenta de usuario de Visual Studio, la CLI de Azure 2.0 o la autenticación integrada de Active Directory. Para más información acerca de las opciones de desarrollo local con esta biblioteca, consulte [Autenticación entre servicios en Azure Key Vault mediante .NET](../key-vault/general/service-to-service-authentication.md).  
 > 
 > - Actualmente, las identidades administradas no funcionan con las ranuras de implementación de App Service.
 

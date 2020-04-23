@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 02/18/2020
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 50c209483a12adc3545b63fb66685e386d9ad10a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 212624b857d65297830995018603c2627f83369b
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78252133"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81453530"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Implementación en Azure Container Instances desde Azure Container Registry
 
@@ -36,7 +36,7 @@ En la siguiente sección, cree un almacén de claves de Azure y una entidad de s
 
 ### <a name="create-key-vault"></a>Creación del almacén de claves
 
-Si todavía no tiene un almacén en [Azure Key Vault](../key-vault/key-vault-overview.md), cree uno con la CLI de Azure mediante los siguientes comandos.
+Si todavía no tiene un almacén en [Azure Key Vault](../key-vault/general/overview.md), cree uno con la CLI de Azure mediante los siguientes comandos.
 
 Actualice la variable `RES_GROUP` con el nombre de un grupo de recursos existente en el que crear el almacén de claves, y la variable `ACR_NAME` con el nombre de su registro de contenedor. Para abreviar, los comandos de este artículo suponen que el registro, el almacén de claves y las instancias de contenedor se han creado en el mismo grupo de recursos.
 

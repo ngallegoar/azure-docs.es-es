@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, carlrab, emlisa
 ms.date: 05/14/2019
-ms.openlocfilehash: 2a4c6dd3dd6f1bb2f15e31226086c73fb8e63521
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1d08770d81ade2d976142b2ce1fd94dae044cf32
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80124831"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461402"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Información general sobre las funcionalidades de seguridad de Azure SQL Database
 
@@ -112,11 +112,11 @@ Por ejemplo, cuando se utiliza el controlador ADO.NET, esto se logra a través d
 
 [Cifrado de datos transparente (TDE) para Azure SQL Database](transparent-data-encryption-azure-sql.md) agrega una capa de seguridad para ayudar a proteger los datos en reposo frente al acceso no autorizado o sin conexión a archivos sin formato o copias de seguridad. Entre los escenarios habituales se incluyen el robo del centro de datos o la eliminación no segura de hardware o medios, como unidades de disco y cintas de copia de seguridad. TDE cifra toda la base de datos mediante un algoritmo de cifrado de AES, lo que no requiere que los desarrolladores de aplicaciones hagan cambios en las aplicaciones existentes.
 
-En Azure, todas las bases de datos SQL recién creadas se cifran de forma predeterminada, y la clave de cifrado de la base de datos se protege mediante un certificado de servidor integrado.  El servicio administra el mantenimiento y la rotación de certificados, y no se requiere ninguna acción por parte del usuario. Los clientes que prefieren tomar el control de las claves de cifrado pueden administrar las claves en [Azure Key Vault](../key-vault/key-vault-secure-your-key-vault.md).
+En Azure, todas las bases de datos SQL recién creadas se cifran de forma predeterminada, y la clave de cifrado de la base de datos se protege mediante un certificado de servidor integrado.  El servicio administra el mantenimiento y la rotación de certificados, y no se requiere ninguna acción por parte del usuario. Los clientes que prefieren tomar el control de las claves de cifrado pueden administrar las claves en [Azure Key Vault](../key-vault/general/secure-your-key-vault.md).
 
 ### <a name="key-management-with-azure-key-vault"></a>Administración de claves con Azure Key Vault
 
-La compatibilidad de [Bring Your Own Key](transparent-data-encryption-byok-azure-sql.md) (BYOK) para  [Cifrado de datos transparente](/sql/relational-databases/security/encryption/transparent-data-encryption) (TDE) permite a los clientes apropiarse de la administración y la rotación de claves con  [Azure Key Vault](../key-vault/key-vault-secure-your-key-vault.md), el sistema externo de administración de claves basado en la nube de Azure. Si se revoca el acceso de la base de datos al almacén de claves, una base de datos no se puede descifrar y leer en la memoria. Azure Key Vault ofrece una plataforma de administración central de claves, aprovecha los módulos de seguridad de hardware (HSM) extremadamente supervisados y permite la separación de obligaciones entre la administración de claves y los datos para ayudar a cumplir los requisitos de cumplimiento de seguridad.
+La compatibilidad de [Bring Your Own Key](transparent-data-encryption-byok-azure-sql.md) (BYOK) para  [Cifrado de datos transparente](/sql/relational-databases/security/encryption/transparent-data-encryption) (TDE) permite a los clientes apropiarse de la administración y la rotación de claves con  [Azure Key Vault](../key-vault/general/secure-your-key-vault.md), el sistema externo de administración de claves basado en la nube de Azure. Si se revoca el acceso de la base de datos al almacén de claves, una base de datos no se puede descifrar y leer en la memoria. Azure Key Vault ofrece una plataforma de administración central de claves, aprovecha los módulos de seguridad de hardware (HSM) extremadamente supervisados y permite la separación de obligaciones entre la administración de claves y los datos para ayudar a cumplir los requisitos de cumplimiento de seguridad.
 
 ### <a name="always-encrypted-encryption-in-use"></a>Always Encrypted (cifrado en uso)
 

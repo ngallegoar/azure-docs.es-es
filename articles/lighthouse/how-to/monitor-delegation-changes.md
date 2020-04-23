@@ -3,12 +3,12 @@ title: Supervisión de los cambios en la delegación en el inquilino de administ
 description: Aprenda a supervisar la actividad de delegación en los inquilinos de clientes o en el inquilino de administración.
 ms.date: 03/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 322580cc3d0246f7a34e28cdae94da57fda070b5
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: a4593b34311eca34e4fb68926a3820899ab3f324
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985157"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458818"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Supervisión de los cambios en la delegación en el inquilino de administración
 
@@ -44,7 +44,7 @@ Dado que se trata de un amplio nivel de acceso, se recomienda que asigne este ro
 
 - [Cree una nueva cuenta de entidad de servicio](../../active-directory/develop/howto-create-service-principal-portal.md) que se usará solo para esta función, en vez de asignar este rol a una entidad de servicio existente usada para otra automatización.
 - Asegúrese de que esta entidad de servicio no tiene acceso a ningún recurso de cliente delegado.
-- [Use un certificado para la autenticación](../../active-directory/develop/howto-create-service-principal-portal.md#certificates-and-secrets) y [almacénelo de forma segura en Azure Key Vault](../../key-vault/key-vault-best-practices.md).
+- [Use un certificado para la autenticación](../../active-directory/develop/howto-create-service-principal-portal.md#certificates-and-secrets) y [almacénelo de forma segura en Azure Key Vault](../../key-vault/general/best-practices.md).
 - Limite los usuarios que tienen acceso para actuar en nombre de la entidad de servicio.
 
 Use uno de los métodos siguientes para realizar las asignaciones en el ámbito raíz.

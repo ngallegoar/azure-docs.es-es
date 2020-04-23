@@ -7,12 +7,12 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: befe8945468d220a04ec7f0b515f22159cb72b0f
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 4548bf77c01194802c2e6203bcbf9fbd240370a2
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80549243"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461657"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Procedimientos recomendados de seguridad de Azure Service Fabric
 La implementación de una aplicación en Azure es un proceso rápido, sencillo y rentable. Antes de implementar la aplicación en la nube en producción, revise la lista de procedimientos recomendados y fundamentales para implementar clústeres seguros en la aplicación.
@@ -155,7 +155,7 @@ Service Fabric usa certificados para proporcionar autenticación y cifrado con e
 
 Service Fabric usa certificados X.509 para proteger un clúster y proporcionar características de seguridad de las aplicaciones. Azure Key Vault se usa para [administrar certificados](../../service-fabric/service-fabric-cluster-security-update-certs-azure.md) para clústeres de Service Fabric en Azure. El proveedor de recursos de Azure que crea los clústeres extrae los certificados de un almacén de claves. El proveedor, a continuación, instala los certificados en las máquinas virtuales cuando el clúster se implementa en Azure.
 
-Existe una relación de certificados entre [Azure Key Vault](../../key-vault/key-vault-secure-your-key-vault.md), el clúster de Service Fabric y el proveedor de recursos que usa los certificados. Cuando se crea el clúster, la información sobre la relación de certificados se almacena en un almacén de claves.
+Existe una relación de certificados entre [Azure Key Vault](../../key-vault/general/secure-your-key-vault.md), el clúster de Service Fabric y el proveedor de recursos que usa los certificados. Cuando se crea el clúster, la información sobre la relación de certificados se almacena en un almacén de claves.
 
 Hay dos pasos básicos para configurar un almacén de claves:
 1. Crear un grupo de recursos específico para el almacén de claves.
@@ -166,7 +166,7 @@ Hay dos pasos básicos para configurar un almacén de claves:
 
     El almacén de claves debe estar habilitado para la implementación. El proveedor de recursos de proceso, a continuación, puede obtener los certificados del almacén e instalarlos en las instancias de máquina virtual.
 
-Para obtener más información sobre cómo configurar un almacén de claves, consulte [¿Qué es Azure Key Vault?](../../key-vault/key-vault-overview.md).
+Para obtener más información sobre cómo configurar un almacén de claves, consulte [¿Qué es Azure Key Vault?](../../key-vault/general/overview.md).
 
 ## <a name="assign-users-to-roles"></a>Asignación de usuarios a roles
 Una vez que haya creado las aplicaciones para representar el clúster, debe asignar los usuarios a los roles compatibles con Service Fabric: solo lectura y administrador. Puede asignar los roles mediante Azure Portal.

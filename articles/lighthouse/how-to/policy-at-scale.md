@@ -3,12 +3,12 @@ title: Implementación de Azure Policy en suscripciones delegadas a escala
 description: Obtenga información sobre cómo la administración de recursos delegados de Azure permite implementar una definición de directivas y una asignación de directivas en varios inquilinos.
 ms.date: 11/8/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9015351c3fc8f374c5ce85712907fa05249cde11
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 3fe7e48c56e9a5af93e9642ee16c50cfbce34f9e
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80984579"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81481817"
 ---
 # <a name="deploy-azure-policy-to-delegated-subscriptions-at-scale"></a>Implementación de Azure Policy en suscripciones delegadas a escala
 
@@ -41,7 +41,7 @@ foreach ($ManagedSub in $ManagedSubscriptions)
 {
     Select-AzSubscription -SubscriptionId $ManagedSub.subscriptionId
 
-    New-AzDeployment -Name mgmt `
+    New-AzSubscriptionDeployment -Name mgmt `
                      -Location eastus `
                      -TemplateUri "https://raw.githubusercontent.com/Azure/Azure-Lighthouse-samples/master/templates/policy-enforce-https-storage/enforceHttpsStorage.json" `
                      -AsJob
@@ -70,7 +70,7 @@ foreach ($ManagedSub in $ManagedSubscriptions)
 {
     select-azsubscription -subscriptionId $ManagedSub.subscriptionId
 
-    Remove-AzDeployment -Name mgmt -AsJob
+    Remove-AzSubscriptionDeployment -Name mgmt -AsJob
 
     $Assignment = Get-AzPolicyAssignment | where-object {$_.Name -like "enforce-https-storage-assignment"}
 

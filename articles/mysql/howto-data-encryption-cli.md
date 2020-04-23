@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/30/2020
-ms.openlocfilehash: fca9b9eea3697a10650e5dbf0522f795fe0a8e0b
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 37f6f0dc9c1221207273110252bff445d2e1245b
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80522596"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81459107"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-cli"></a>Cifrado de datos para Azure Database for MySQL mediante la CLI de Azure
 
@@ -33,13 +33,13 @@ Aprenda a usar la CLI de Azure para configurar y administrar el cifrado de datos
     ```
 
 * Para usar un almacén de claves existente, este debe tener las siguientes propiedades para usarse como una clave administrada por el cliente:
-  * [Eliminación temporal](../key-vault/key-vault-ovw-soft-delete.md)
+  * [Eliminación temporal](../key-vault/general/overview-soft-delete.md)
 
     ```azurecli-interactive
     az resource update --id $(az keyvault show --name \ <key_vault_name> -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true
     ```
 
-  * [Protegido contra purgas](../key-vault/key-vault-ovw-soft-delete.md#purge-protection)
+  * [Protegido contra purgas](../key-vault/general/overview-soft-delete.md#purge-protection)
 
     ```azurecli-interactive
     az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --enable-purge-protection true
@@ -82,14 +82,14 @@ Aprenda a usar la CLI de Azure para configurar y administrar el cifrado de datos
 
     URL de clave: https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>
 
-## <a name="using-data-encryption-for-restore-or-replica-servers"></a>Uso del cifrado de datos para servidores de restauración o réplica
+## <a name="using-data-encryption-for-restore-or-replica-servers"></a>Uso del cifrado de datos con servidores de restauración o réplica
 
 Después de cifrar Azure Database for MySQL con la clave administrada de un cliente almacenada en Key Vault, también se cifra cualquier copia recién creada del servidor. Puede crear esta nueva copia mediante una operación de restauración local o geográfica, o por medio de una operación de réplica (local o entre regiones). De modo que, con un servidor MySQL cifrado, puede usar los siguientes pasos para crear un servidor restaurado cifrado.
 
 ### <a name="creating-a-restoredreplica-server"></a>Creación de un servidor restaurado o de réplica
 
   *  [Creación de un servidor de restauración](howto-restore-server-cli.md) 
-  *  [Creación de una servidor de réplica de lectura](howto-read-replicas-cli.md) 
+  *  [Creación de un servidor de réplica de lectura](howto-read-replicas-cli.md) 
 
 ### <a name="once-the-server-is-restored-revalidate-data-encryption-the-restored-server"></a>Una vez restaurado el servidor, vuelva a validar el cifrado de datos del servidor restaurado.
 
@@ -132,7 +132,7 @@ Esta plantilla de Azure Resource Manager crea un servidor de Azure Database for 
 ### <a name="for-an-existing-server"></a>Para un servidor existente
 Además, puede usar plantillas de Azure Resource Manager para habilitar el cifrado de datos en los servidores existentes de Azure Database for MySQL.
 
-* Pase el id. de recurso de la clave de Azure Key Vault que copió anteriormente en la propiedad `Uri` en el objeto properties.
+* Pase el URI del recurso de la clave de Azure Key Vault que copió anteriormente en la propiedad `Uri` en el objeto properties.
 
 * Use *2020-01-01-preview* como la versión de API.
 

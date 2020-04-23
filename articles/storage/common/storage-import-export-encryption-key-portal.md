@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.date: 03/12/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: a7077b5e94800d93833f259fefd0cd4c168ec867
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: ddcb47bfe8ba2b77efd8ff0aed52f1412107f0c5
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811442"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81456505"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-importexport-service"></a>Uso de claves administradas por el cliente en Azure Key Vault para el servicio Import/Export
 
 Azure Import/Export protege las claves de BitLocker que se usan para bloquear las unidades mediante una clave de cifrado. De manera predeterminada, las claves de BitLocker se cifran con claves administradas por Microsoft. Para tener un mayor control sobre las claves de cifrado, puede proporcionar también claves administradas por el cliente.
 
-Las claves administradas por el cliente se deben crear y almacenar en una instancia de Azure Key Vault. Para obtener más información sobre Azure Key Vault, consulte [¿Qué es Azure Key Vault?](../../key-vault/key-vault-overview.md)
+Las claves administradas por el cliente se deben crear y almacenar en una instancia de Azure Key Vault. Para obtener más información sobre Azure Key Vault, consulte [¿Qué es Azure Key Vault?](../../key-vault/general/overview.md)
 
 En este artículo se muestra cómo usar las claves administradas por el cliente con el servicio Import/Export en [Azure Portal](https://portal.azure.com/).
 
@@ -33,12 +33,12 @@ Antes de comenzar, asegúrese de que:
     - [Creación de un trabajo de importación para archivos](storage-import-export-data-to-files.md).
     - [Creación de un trabajo de exportación para blobs](storage-import-export-data-from-blobs.md).
 
-2. Tiene una instancia existente de Azure Key Vault con una clave en ella, que puede usar para proteger su clave de BitLocker. Para obtener información sobre cómo crear un almacén de claves mediante Azure Portal, consulte [Inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante Azure Portal](../../key-vault/quick-create-portal.md).
+2. Tiene una instancia existente de Azure Key Vault con una clave en ella, que puede usar para proteger su clave de BitLocker. Para obtener información sobre cómo crear un almacén de claves mediante Azure Portal, consulte [Inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante Azure Portal](../../key-vault/secrets/quick-create-portal.md).
 
     - **Eliminación temporal** y **No purgar** se han establecido en la instancia existente de Key Vault. Estas propiedades no están habilitadas de forma predeterminada. Para habilitar estas propiedades, consulte las secciones **Habilitación de la eliminación temporal** y **Habilitación de la protección de purgas** en cualquiera de los siguientes artículos:
 
-        - [Uso de la eliminación temporal con PowerShell](../../key-vault/key-vault-soft-delete-powershell.md).
-        - [Uso de la eliminación temporal con la CLI](../../key-vault/key-vault-soft-delete-cli.md).
+        - [Uso de la eliminación temporal con PowerShell](../../key-vault/general/soft-delete-powershell.md).
+        - [Uso de la eliminación temporal con la CLI](../../key-vault/general/soft-delete-cli.md).
     - El almacén de claves existente debe tener una clave RSA con un tamaño de 2048 o más. Para obtener más información acerca de las claves, consulte la sección **Claves en Key Vault** en [Información acerca de claves, secretos y certificados de Azure Key Vault](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
     - El almacén de claves debe estar en la misma región que la cuenta de almacenamiento para los datos.  
     - Si no tiene una instancia existente de Azure Key Vault, también puede crearla insertada, como se describe en la sección siguiente.

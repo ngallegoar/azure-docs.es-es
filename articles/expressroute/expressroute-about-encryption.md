@@ -7,19 +7,19 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: cherylmc
-ms.openlocfilehash: 7dd9106539b6756d74629ac663241a5b5562cefb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d48f83df4e83fd1d1fe38eea76432e1b1c711b76
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75437046"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461470"
 ---
 # <a name="expressroute-encryption"></a>Cifrado de ExpressRoute
  
 ExpressRoute admite un par de tecnologías de cifrado para garantizar la confidencialidad y la integridad de los datos que atraviesan su red y la red de Microsoft.
 
 ## <a name="point-to-point-encryption-by-macsec-faq"></a>Preguntas frecuentes sobre el cifrado punto a punto mediante MACsec
-MACsec es un [estándar IEEE](https://1.ieee802.org/security/802-1ae/). Cifra los datos en el nivel de Media Access Control (MAC) o Network Layer 2. Puede usar MACsec para cifrar los vínculos físicos entre los dispositivos de red y los dispositivos de red de Microsoft cuando se conecte a Microsoft a través de [ExpressRoute Direct](expressroute-erdirect-about.md). De forma predeterminada, MACsec está deshabilitado en los puertos de ExpressRoute Direct. Traiga su propia clave de MACsec para el cifrado y almacénela en [Azure Key Vault](../key-vault/key-vault-overview.md). Decida cuándo desea rotar la clave. Vea otras preguntas frecuentes a continuación.
+MACsec es un [estándar IEEE](https://1.ieee802.org/security/802-1ae/). Cifra los datos en el nivel de Media Access Control (MAC) o Network Layer 2. Puede usar MACsec para cifrar los vínculos físicos entre los dispositivos de red y los dispositivos de red de Microsoft cuando se conecte a Microsoft a través de [ExpressRoute Direct](expressroute-erdirect-about.md). De forma predeterminada, MACsec está deshabilitado en los puertos de ExpressRoute Direct. Traiga su propia clave de MACsec para el cifrado y almacénela en [Azure Key Vault](../key-vault/general/overview.md). Decida cuándo desea rotar la clave. Vea otras preguntas frecuentes a continuación.
 ### <a name="can-i-enable-macsec-on-my-expressroute-circuit-provisioned-by-an-expressroute-provider"></a>¿Puedo habilitar MACsec en mi circuito ExpressRoute aprovisionado por un proveedor de ExpressRoute?
 No. MACsec cifra todo el tráfico de un vínculo físico con una clave que pertenece a una entidad (es decir, un cliente). Por tanto, solo está disponible en ExpressRoute Direct.
 ### <a name="can-i-encrypt-some-of-the-expressroute-circuits-on-my-expressroute-direct-ports-and-leave-other-circuits-on-the-same-ports-unencrypted"></a>¿Puedo cifrar algunos circuitos ExpressRoute en mis puertos de ExpressRoute Direct y dejar otros circuitos en los mismos puertos sin cifrar? 

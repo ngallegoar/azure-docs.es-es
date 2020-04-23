@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/17/2018
-ms.openlocfilehash: c1b48ae8191e2e5313d9037c791eca73c8a55691
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 19a1883685193e80da5f1365ec2a30db0b8754f6
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77191384"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81450163"
 ---
 # <a name="improve-security-for-b2b-messages-by-using-certificates"></a>Mejora de la seguridad de los mensajes B2B mediante certificados
 
@@ -66,7 +66,7 @@ Después de definir las propiedades en los [contratos](logic-apps-enterprise-int
 > [!NOTE]
 > En el caso de los certificados privados, asegúrese de agregar un certificado público correspondiente que aparezca en la opción [Enviar y recibir](logic-apps-enterprise-integration-as2.md) del **contrato de AS2** para la firma y el cifrado de mensajes.
 
-1. [Añada la clave privada a Azure Key Vault](../key-vault/certificate-scenarios.md#import-a-certificate) y especifique un **nombre de clave**.
+1. [Añada la clave privada a Azure Key Vault](../key-vault/certificates/certificate-scenarios.md#import-a-certificate) y especifique un **nombre de clave**.
    
 2. Autorice a Azure Logic Apps para que pueda realizar operaciones en Azure Key Vault. Para conceder acceso a la entidad de seguridad de servicio de Logic Apps, use el comando de PowerShell [Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy), como en el ejemplo siguiente:
 

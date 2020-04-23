@@ -4,18 +4,18 @@ description: Obtenga información sobre el cifrado en reposo de una instancia de
 ms.topic: article
 ms.date: 03/10/2020
 ms.custom: ''
-ms.openlocfilehash: fe0736f83db2ba5b872d50bcf1262ca423de9f09
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2d5561998cf0b19698c8059a861a4014a171a7e7
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79498951"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461759"
 ---
 # <a name="encryption-using-customer-managed-keys"></a>Cifrado con claves administradas por el cliente
 
 Cuando se almacenan imágenes y otros artefactos en una instancia de Azure Container Registry, Azure cifra automáticamente el contenido del registro en reposo con [claves administradas por el servicio](../security/fundamentals/encryption-atrest.md#data-encryption-models). Puede complementar el cifrado predeterminado con una capa de cifrado adicional mediante una clave que se crea y administra en Azure Key Vault. Este artículo le guía a través del proceso mediante la CLI de Azure y Azure Portal.
 
-Se admite el cifrado de lado servidor con claves administradas por el cliente por medio de la integración con [Azure Key Vault](../key-vault/key-vault-overview.md). Puede crear sus propias claves de cifrado y almacenarlas en un almacén de claves, o puede usar las API de Azure Key Vault para generar las claves de cifrado. Con Azure Key Vault, también puede auditar el uso de claves.
+Se admite el cifrado de lado servidor con claves administradas por el cliente por medio de la integración con [Azure Key Vault](../key-vault/general/overview.md). Puede crear sus propias claves de cifrado y almacenarlas en un almacén de claves, o puede usar las API de Azure Key Vault para generar las claves de cifrado. Con Azure Key Vault, también puede auditar el uso de claves.
 
 Esta característica está disponible en el nivel de servicio de un registro de contenedor **Premium**. Para obtener información sobre los límites y niveles de servicio de registro, consulte [SKU de Azure Container Registry](container-registry-skus.md).
 
@@ -176,7 +176,7 @@ Anote el **Nombre del recurso** de la identidad administrada. Necesita este nomb
 
 ### <a name="create-a-key-vault"></a>Creación de un Almacén de claves
 
-Para conocer los pasos para crear un almacén de claves, vea [Inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante Azure Portal](../key-vault/quick-create-portal.md).
+Para conocer los pasos para crear un almacén de claves, vea [Inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante Azure Portal](../key-vault/secrets/quick-create-portal.md).
 
 Al crear un almacén de claves para una clave administrada por el cliente, en la pestaña **Datos básicos**, debe habilitar los siguientes valores de protección: **Eliminación temporal** y **Protección de purga**. Estos valores ayudan a evitar la pérdida de datos causada por eliminaciones accidentales de la clave o el almacén de claves.
 
@@ -392,7 +392,7 @@ Al revocar la clave realmente, se bloquea el acceso a todos los datos del regist
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Obtenga más información sobre el [cifrado en reposo en Azure](../security/fundamentals/encryption-atrest.md).
-* Obtenga más información sobre las directivas de acceso y la [Protección del acceso a un almacén de claves](../key-vault/key-vault-secure-your-key-vault.md).
+* Obtenga más información sobre las directivas de acceso y la [Protección del acceso a un almacén de claves](../key-vault/general/secure-your-key-vault.md).
 * Para proporcionar comentarios sobre las claves administradas por el cliente de Azure Container Registry, visite el [sitio de GitHub de ACR](https://aka.ms/acr/issues).
 
 

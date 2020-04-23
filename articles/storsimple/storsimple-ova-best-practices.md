@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 82608c98fc8ea15167b690547906c2238b1b3c04
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: bdf69a9ff7b3260b47042f296a47826e3c52387b
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80544340"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460654"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Procedimientos recomendados de la matriz virtual de StorSimple
 
@@ -199,7 +199,7 @@ Utilice los siguientes procedimientos recomendados al configurar ACR para volúm
 ### <a name="data-security-and-encryption"></a>Seguridad y cifrado de datos
 La matriz virtual de StorSimple tiene características de seguridad y cifrado de datos que garantizar la confidencialidad e integridad de los datos. Al usar estas características, se recomienda seguir estos procedimientos recomendados: 
 
-* Defina una clave de cifrado de almacenamiento en la nube para generar un cifrado AES-256 antes de que los datos se envíen desde la matriz virtual a la nube. Esta clave no se requiere si los datos están cifrados. La clave se puede generar y mantener segura mediante un sistema de administración de claves como [Almacén de claves de Azure](../key-vault/key-vault-overview.md).
+* Defina una clave de cifrado de almacenamiento en la nube para generar un cifrado AES-256 antes de que los datos se envíen desde la matriz virtual a la nube. Esta clave no se requiere si los datos están cifrados. La clave se puede generar y mantener segura mediante un sistema de administración de claves como [Almacén de claves de Azure](../key-vault/general/overview.md).
 * Al configurar la cuenta de almacenamiento a través del servicio StorSimple Manager, asegúrese de que habilita el modo TLS para crear un canal seguro para la comunicación de red entre el dispositivo StorSimple y la nube.
 * Regenere las claves de las cuentas de almacenamiento (para lo que debe acceder al servicio Azure Storage) periódicamente para representar todos los cambios en el acceso basándose en la lista de administradores modificada.
 * Los datos de la matriz virtual se comprimen y se desduplican antes de enviarlos a Azure. No se recomienda utilizar el servicio de rol de desduplicación de datos en el host de Windows Server.

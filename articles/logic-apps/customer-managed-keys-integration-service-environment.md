@@ -6,18 +6,18 @@ ms.suite: integration
 ms.reviewer: klam, rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: fa39c8f65b00283044ef31dc7577a4668b3e634b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7314559849f0b2019820ec3cb4fb10c684d330d6
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79127636"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458444"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>Configure claves administradas por el cliente para cifrar los datos en reposo para los entornos de servicio de integración (ISE) en Azure Logic Apps
 
 Azure Logic Apps se basa en Azure Storage para almacenar y [cifrar automáticamente los datos en reposo](../storage/common/storage-service-encryption.md). Este cifrado protege los datos y le ayuda a cumplir los compromisos de cumplimiento y seguridad de la organización. De forma predeterminada, Azure Storage usa claves que administra Microsoft para cifrar sus datos. Para más información sobre cómo funciona el cifrado de Azure Storage, consulte [Cifrado de Azure Storage para datos en reposo](../storage/common/storage-service-encryption.md) y [Cifrado de datos de Azure en reposo](../security/fundamentals/encryption-atrest.md).
 
-Al crear un [entorno de servicio de integración (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) para hospedar las aplicaciones lógicas y desea tener un mayor control sobre las claves de cifrado que usa Azure Storage, puede configurar, usar y administrar su propia clave mediante [Azure Key Vault](../key-vault/key-vault-overview.md). Esta funcionalidad también se conoce como "Bring Your Own Key" (BYOK) y la clave se denomina "clave administrada por el cliente".
+Al crear un [entorno de servicio de integración (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) para hospedar las aplicaciones lógicas y desea tener un mayor control sobre las claves de cifrado que usa Azure Storage, puede configurar, usar y administrar su propia clave mediante [Azure Key Vault](../key-vault/general/overview.md). Esta funcionalidad también se conoce como "Bring Your Own Key" (BYOK) y la clave se denomina "clave administrada por el cliente".
 
 En este tema se muestra cómo configurar y especificar su propia clave de cifrado que se usará al crear el ISE mediante la API REST de Logic Apps. Para ver los pasos generales para crear un ISE mediante la API REST de Logic Apps, consulte [Creación de un entorno del servicio de integración (ISE) mediante la API REST de Logic Apps](../logic-apps/create-integration-service-environment-rest-api.md).
 
@@ -39,7 +39,7 @@ En este tema se muestra cómo configurar y especificar su propia clave de cifrad
 
 * Un almacén de claves de Azure con las propiedades **Soft Delete** y **Do Not Purge**
 
-  Para obtener más información acerca de cómo habilitar estas propiedades, consulte [Información general sobre la eliminación temporal Azure Key Vault ](../key-vault/key-vault-ovw-soft-delete.md) y [Configurar las claves administradas por el cliente con Azure Key Vault](../storage/common/storage-encryption-keys-portal.md). Si no está familiarizado con Azure Key Vault, obtenga información acerca de [cómo crear un almacén de claves](../key-vault/quick-create-portal.md#create-a-vault) mediante el Azure Portal o mediante el comando de Azure PowerShell, [New-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvault).
+  Para obtener más información acerca de cómo habilitar estas propiedades, consulte [Información general sobre la eliminación temporal Azure Key Vault ](../key-vault/general/overview-soft-delete.md) y [Configurar las claves administradas por el cliente con Azure Key Vault](../storage/common/storage-encryption-keys-portal.md). Si no está familiarizado con Azure Key Vault, obtenga información acerca de [cómo crear un almacén de claves](../key-vault/secrets/quick-create-portal.md#create-a-vault) mediante el Azure Portal o mediante el comando de Azure PowerShell, [New-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvault).
 
 * En el almacén de claves, una clave se crea con estos valores de propiedad:
 
@@ -225,8 +225,8 @@ Para esta tarea, puede usar el comando de Azure PowerShell [Set-AzKeyVaultAccess
 
    1. Cuando haya terminado con el panel **Directivas de acceso**, seleccione **Guardar**.
 
-Para más información, consulte [Autenticación de Key Vault con una identidad administrada](../key-vault/managed-identity.md#grant-your-app-access-to-key-vault).
+Para más información, consulte [Autenticación de Key Vault con una identidad administrada](../key-vault/general/managed-identity.md#grant-your-app-access-to-key-vault).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Más información sobre [Azure Key Vault](../key-vault/key-vault-overview.md)
+* Más información sobre [Azure Key Vault](../key-vault/general/overview.md)

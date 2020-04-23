@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: 81927575b99604e71f7b0920bc3a448f7796f565
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5b1c985eeec9af25ec576f4e2375c417dc376f95
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80067185"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81452764"
 ---
 # <a name="powershell-and-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell y CLI: Habilitación de Cifrado de datos transparente con una clave administrada por el cliente de Azure Key Vault
 
@@ -28,9 +28,9 @@ En este artículo se explica cómo usar una clave de Azure Key Vault para Cifrad
 - [Recomendado, pero opcional] Debe tener un módulo de seguridad de hardware (HSM) o un almacén de claves locales para crear una copia local del material de claves del protector de TDE.
 - Es preciso tener instalado y en ejecución Azure PowerShell.
 - Cree una instancia de Azure Key Vault y una clave para usar para TDE.
-  - [Instrucciones para usar un módulo de seguridad de hardware (HSM) y Key Vault](../key-vault/key-vault-hsm-protected-keys.md)
+  - [Instrucciones para usar un módulo de seguridad de hardware (HSM) y Key Vault](../key-vault/keys/hsm-protected-keys.md)
     - El almacén de claves debe tener la siguiente propiedad que se usará para TDE:
-  - [eliminación temporal](../key-vault/key-vault-ovw-soft-delete.md) y protección de purgas
+  - [eliminación temporal](../key-vault/general/overview-soft-delete.md) y protección de purgas
 - La clave debe tener los siguientes atributos que se usarán para TDE:
    - Sin fecha de expiración
    - No deshabilitado
@@ -40,7 +40,7 @@ En este artículo se explica cómo usar una clave de Azure Key Vault para Cifrad
 
 Para obtener instrucciones sobre la instalación del módulo Az, consulte [Instalación de Azure PowerShell](/powershell/azure/install-az-ps). Para los cmdlets concretos, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/).
 
-Para obtener información específica sobre Key Vault, consulte las [instrucciones de PowerShell de Key Vault](../key-vault/quick-create-powershell.md) y [Uso de la eliminación temporal de Key Vault con PowerShell](../key-vault/key-vault-soft-delete-powershell.md).
+Para obtener información específica sobre Key Vault, consulte las [instrucciones de PowerShell de Key Vault](../key-vault/secrets/quick-create-powershell.md) y [Uso de la eliminación temporal de Key Vault con PowerShell](../key-vault/general/soft-delete-powershell.md).
 
 > [!IMPORTANT]
 > El módulo de Azure Resource Manager (RM) para PowerShell todavía es compatible con Azure SQL Database, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. El módulo de AzureRM continuará recibiendo correcciones de errores hasta diciembre de 2020 como mínimo.  Los argumentos para los comandos del módulo Az y los módulos AzureRm son esencialmente idénticos. Para obtener más información sobre la compatibilidad, vea [Presentación del nuevo módulo Az de Azure PowerShell](/powershell/azure/new-azureps-module-az).
@@ -123,7 +123,7 @@ Get-AzSqlDatabaseTransparentDataEncryptionActivity -ResourceGroupName <SQLDataba
 
 Para instalar la versión 2.0 o posterior de la interfaz de la línea de comandos necesaria y conectar con la suscripción a Azure, consulte [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-Para obtener información específica sobre Key Vault, consulte [Administración de Key Vault mediante la CLI 2.0](../key-vault/key-vault-manage-with-cli2.md) y [Uso de la eliminación temporal de Key Vault con la CLI](../key-vault/key-vault-soft-delete-cli.md).
+Para obtener información específica sobre Key Vault, consulte [Administración de Key Vault mediante la CLI 2.0](../key-vault/general/manage-with-cli2.md) y [Uso de la eliminación temporal de Key Vault con la CLI](../key-vault/general/soft-delete-cli.md).
 
 ## <a name="assign-an-azure-ad-identity-to-your-server"></a>Asignar una identidad de Azure AD al servidor
 

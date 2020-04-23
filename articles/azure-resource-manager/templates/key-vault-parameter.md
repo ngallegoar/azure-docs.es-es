@@ -3,16 +3,16 @@ title: Secreto de Key Vault con plantilla
 description: Muestra cómo pasar un secreto de un almacén de claves como un parámetro durante la implementación.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 08b4042c6bad83f13ebaea0f46046ea7707fd868
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d21a7d727091b427fee59e22db6a77a495a4eab7
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79460201"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458273"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Uso de Azure Key Vault para pasar el valor de parámetro seguro durante la implementación
 
-En lugar de pasar un valor seguro (como una contraseña) directamente en la plantilla o el archivo de parámetro, puede recuperar el valor de [Azure Key Vault](../../key-vault/key-vault-overview.md) durante una implementación. El valor se recupera haciendo referencia a Key Vault y al secreto del archivo de parámetros. El valor nunca se expone debido a que solo hace referencia a su identificador de almacén de claves. El almacén de claves puede existir en una suscripción distinta a la que usa para implementar el grupo de recursos.
+En lugar de pasar un valor seguro (como una contraseña) directamente en la plantilla o el archivo de parámetro, puede recuperar el valor de [Azure Key Vault](../../key-vault/general/overview.md) durante una implementación. El valor se recupera haciendo referencia a Key Vault y al secreto del archivo de parámetros. El valor nunca se expone debido a que solo hace referencia a su identificador de almacén de claves. El almacén de claves puede existir en una suscripción distinta a la que usa para implementar el grupo de recursos.
 
 Este artículo se centra en el escenario de pasar un valor confidencial en como un parámetro de plantilla. No cubre el escenario de configuración de una propiedad de máquina virtual en la dirección URL de un certificado en un Key Vault. Para obtener una plantilla de inicio rápido de este escenario, consulte [Instalar un certificado de Azure Key Vault en una máquina virtual](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-winrm-keyvault-windows).
 
@@ -91,11 +91,11 @@ Set-AzKeyVaultAccessPolicy `
 
 Para más información sobre cómo crear almacenes de claves y agregar secretos, vea:
 
-- [Establecimiento y recuperación de un secreto mediante la CLI](../../key-vault/quick-create-cli.md)
-- [Establecimiento y recuperación de un secreto mediante Powershell](../../key-vault/quick-create-powershell.md)
-- [Establecimiento y recuperación de un secreto mediante Portal](../../key-vault/quick-create-portal.md)
-- [Establecimiento y recuperación de un secreto mediante .NET](../../key-vault/quick-create-net.md)
-- [Establecimiento y recuperación de un secreto mediante Node.js](../../key-vault/quick-create-node.md)
+- [Establecimiento y recuperación de un secreto mediante la CLI](../../key-vault/secrets/quick-create-cli.md)
+- [Establecimiento y recuperación de un secreto mediante Powershell](../../key-vault/secrets/quick-create-powershell.md)
+- [Establecimiento y recuperación de un secreto mediante Portal](../../key-vault/secrets/quick-create-portal.md)
+- [Establecimiento y recuperación de un secreto mediante .NET](../../key-vault/secrets/quick-create-net.md)
+- [Establecimiento y recuperación de un secreto mediante Node.js](../../key-vault/secrets/quick-create-node.md)
 
 ## <a name="grant-access-to-the-secrets"></a>Concesión de acceso a los secretos
 
@@ -375,5 +375,5 @@ La siguiente plantilla crea dinámicamente el identificador de almacén de clave
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener más información sobre los almacenes de claves, consulte [¿Qué es Azure Key Vault?](../../key-vault/key-vault-overview.md)
+- Para obtener más información sobre los almacenes de claves, consulte [¿Qué es Azure Key Vault?](../../key-vault/general/overview.md)
 - Para obtener ejemplos completos de secretos de clave de referencia, consulte [Ejemplos de Key Vault](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
