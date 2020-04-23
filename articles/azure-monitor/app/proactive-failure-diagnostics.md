@@ -4,12 +4,12 @@ description: Alerta de cambios no habituales en la frecuencia de solicitudes con
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.reviewer: yalavi
-ms.openlocfilehash: e1c07fca3a4eee19e56c313a889e5b86ce2b4c42
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a1bce3ab86748d8247a72da3bd70e0f2e8155dbf
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671756"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536818"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Detección inteligente: anomalías de error
 [Application Insights](../../azure-monitor/app/app-insights-overview.md) le avisa automáticamente casi en tiempo real si la aplicación web sufre un aumento anómalo en la frecuencia de solicitudes erróneas. Asimismo, detecta un aumento inusual de la tasa de solicitudes HTTP o llamadas de dependencia notificadas como errores. En el caso de las solicitudes, las solicitudes con error suelen tener códigos de respuesta de 400 o superiores. Para ayudarle a evaluar las prioridades y a diagnosticar el problema, en los detalles de la alerta se proporciona un análisis de las características de los errores, así como datos de la aplicación relacionados. También hay vínculos en el portal de Application Insights para obtener un diagnóstico más amplio. La característica no necesita ninguna instalación o configuración, ya que usa algoritmos de aprendizaje automático para predecir la tasa normal de errores.
@@ -353,7 +353,7 @@ La detección inteligente de anomalías de errores complementa otras caracterís
 ## <a name="next-steps"></a>Pasos siguientes
 Estas herramientas de diagnóstico lo ayudarán a inspeccionar los datos de su aplicación:
 
-* [Explorador de métricas](../../azure-monitor/app/metrics-explorer.md)
+* [Explorador de métricas](../../azure-monitor/platform/metrics-charts.md)
 * [Explorador de búsqueda](../../azure-monitor/app/diagnostic-search.md)
 * [Analytics: Lenguaje de consulta eficaz](../../azure-monitor/log-query/get-started-portal.md)
 

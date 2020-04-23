@@ -2,13 +2,13 @@
 title: Definición de varias instancias de un valor de salida
 description: Utilice la operación de copia en una plantilla de Azure Resource Manager para realizar varias iteraciones al devolver un valor desde una implementación.
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.openlocfilehash: 3889260d02f438274c80e99e99136515499443e6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/17/2020
+ms.openlocfilehash: 0315af2f083285c4704b08fec608341b6f0b2231
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80153393"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617830"
 ---
 # <a name="output-iteration-in-arm-templates"></a>Iteración de salida en las plantillas de ARM
 
@@ -21,12 +21,10 @@ También puede utilizar el elemento copy con [recursos](copy-resources.md), [pro
 El elemento copy tiene el siguiente formato general:
 
 ```json
-"copy": [
-  {
-    "count": <number-of-iterations>,
-    "input": <values-for-the-variable>
-  }
-]
+"copy": {
+  "count": <number-of-iterations>,
+  "input": <values-for-the-output>
+}
 ```
 
 La propiedad **count** especifica el número de iteraciones que desea para el valor de salida.

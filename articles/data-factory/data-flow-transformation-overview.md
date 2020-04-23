@@ -7,16 +7,16 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 68423bee6096357add9b5d4b107c984ac67c9cab
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 0442c701f39fd3e84361ad0201aaf8d1840d8851
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81412964"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606284"
 ---
 # <a name="mapping-data-flow-transformation-overview"></a>Introducción a las transformaciones en el flujo de datos de asignación
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)] 
 
 A continuación se muestra una lista de las transformaciones admitidas actualmente en el flujo de datos de asignación. Haga clic en cada una de las transformaciones para obtener información detallada sobre su configuración.
 

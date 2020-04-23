@@ -3,12 +3,12 @@ title: Supervisión de una aplicación web de ASP.NET con Azure Application Insi
 description: Supervise el rendimiento de un sitio web sin volver a implementarlo. Funciona con las aplicaciones web de ASP.NET hospedadas en local o en máquinas virtuales.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 63d632df61548d15a1e0a606cf2e198207faf341
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ba17ee275a744b88f2c76e7e3f99a1ac9cc8e758
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77670056"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536835"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrumentación de aplicaciones web en tiempo de ejecución con Adjuntar sin código de Application Insights
 
@@ -314,7 +314,7 @@ En el caso de las aplicaciones ya instrumentadas en el momento de la compilació
 
 Vea la telemetría:
 
-* [Explore las métricas](../../azure-monitor/app/metrics-explorer.md) para supervisar el rendimiento y uso.
+* [Explore las métricas](../../azure-monitor/platform/metrics-charts.md) para supervisar el rendimiento y uso.
 * [Busque en los eventos y los registros][diagnostic] para diagnosticar problemas.
 * [Análisis](../../azure-monitor/app/analytics.md) para más consultas avanzadas
 

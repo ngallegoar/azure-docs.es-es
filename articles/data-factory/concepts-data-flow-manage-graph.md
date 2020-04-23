@@ -7,16 +7,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/04/2019
-ms.openlocfilehash: 1618011dc3c281cb2ef06ef80cfc7c8e69c4e091
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 0d357c4c671070a5c5e9d4587e2f90b6628996f4
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415504"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605353"
 ---
 # <a name="mapping-data-flow-graphs"></a>Asignar gráficos de flujo de datos
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 La superficie de diseño de flujo de datos de asignación es una superficie de "construcción" en la que se crean flujos de datos de arriba abajo, de izquierda a derecha. Hay un cuadro de herramientas asociado a cada transformación con el símbolo de más (+). Concéntrese en su lógica de negocios, en lugar de en conectar los nodos a través de los extremos de un entorno de DAG de forma libre.
 

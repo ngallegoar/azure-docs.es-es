@@ -12,18 +12,18 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: a6c9ccb3dc29865c790e5d8cc9cfc35e68f5561d
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: b3b0114bb5d545755fe59c49605d6def341d2275
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886150"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535781"
 ---
 # <a name="supported-account-types"></a>Tipos de cuenta admitidos
 
 En este artículo se explica qué tipos de cuentas (a veces denominados audiencias) se admiten en las aplicaciones.
 
-<!-- This section can be in an include for many of the scenarios (SPA, Web App signing-in users, protecting a Web API, Desktop (depending on the flows), Mobile -->
+<!-- This section can be in an include for many of the scenarios (SPA, web app signing-in users, protecting a web API, Desktop (depending on the flows), Mobile -->
 
 ## <a name="supported-accounts-types-in-microsoft-identity-platform-applications"></a>Tipos de cuentas admitidos en aplicaciones de la plataforma de identidad de Microsoft
 
@@ -44,7 +44,7 @@ En la nube pública de Microsoft Azure, la mayoría de los tipos de aplicaciones
 
 No es posible usar algunos tipos de cuenta con determinados flujos de autenticación. Por ejemplo, en aplicaciones de escritorio, UWP o demonio:
 
-- Las aplicaciones de demonio solo pueden usarse con organizaciones de Azure Active Directory. No tiene sentido intentar utilizar aplicaciones de demonio para manipular las cuentas personales de Microsoft (nunca se concederá el consentimiento del administrador).  
+- Las aplicaciones de demonio solo pueden usarse con organizaciones de Azure Active Directory. No tiene sentido intentar utilizar aplicaciones de demonio para manipular las cuentas personales de Microsoft (nunca se concederá el consentimiento del administrador).
 - Solo puede usar el flujo de autenticación integrada con cuentas profesionales o educativas (en su organización o en cualquier organización). De hecho, la autenticación integrada funciona con cuentas de dominio, y requiere que las máquinas estén unidas a dominio o a Azure AD. Este flujo no tiene sentido para cuentas personales de Microsoft.
 - La [concesión de contraseña del propietario del recursos](./v2-oauth-ropc.md) (nombre de usuario/contraseña) no puede utilizarse con cuentas personales de Microsoft. De hecho, las cuentas personales de Microsoft requieren que el usuario dé su consentimiento para obtener acceso a los recursos de personales en cada inicio de sesión. Por este motivo, este comportamiento no es compatible con los flujos no interactivos.
 - El flujo de código de dispositivo todavía no funciona con cuentas personales de Microsoft.

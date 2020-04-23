@@ -3,12 +3,12 @@ title: Configuración del análisis de aplicaciones web para ASP.NET con Azure A
 description: Configure las herramientas de análisis del rendimiento, la disponibilidad y de comportamiento de usuarios para un sitio web de ASP.NET, hospedado localmente o en Azure.
 ms.topic: conceptual
 ms.date: 05/08/2019
-ms.openlocfilehash: 0843d6c04bf6fc9bab07207072990fb3fb8f1844
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bdd5b1131a0d2d3e2f53840d21cedce1577fde03
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77665925"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536903"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Configuración de Application Insights para un sitio web de ASP.NET
 
@@ -93,7 +93,7 @@ El portal se abrirá en una vista de los datos de telemetría de su aplicación.
 En el portal, haga clic en cualquier icono para ver su contenido con mayor detalle.
 
 ## <a name="step-4-publish-your-app"></a>Paso 4: Publicación de la aplicación
-Publique su aplicación en el servidor IIS o en Azure. Consulte [Secuencia de métricas en directo](../../azure-monitor/app/metrics-explorer.md#live-metrics-stream) para asegurarse de que todo está ejecutándose sin problemas.
+Publique su aplicación en el servidor IIS o en Azure. Consulte [Secuencia de métricas en directo](../../azure-monitor/app/live-stream.md) para asegurarse de que todo está ejecutándose sin problemas.
 
 La telemetría se crea en el portal de Application Insights, donde puede supervisar las métricas y buscar la telemetría. También puede usar el eficaz [lenguaje de consulta de Kusto](/azure/kusto/query/) para analizar el uso y rendimiento o para buscar eventos concretos.
 

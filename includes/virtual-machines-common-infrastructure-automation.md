@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 04/11/2019
 ms.author: cynthn
-ms.openlocfilehash: f2eb503b58f1679d138b6a1dd9304896be098ad6
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 7c1ad2581d025a9259c5cb2a84e4237f938fc892
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80419253"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81637152"
 ---
 Para crear y administrar máquinas virtuales (VM) de Azure de manera coherente a escala, suele ser deseable alguna forma de automatización. Existen muchas herramientas y soluciones que le permiten automatizar la implementación de toda la infraestructura de Azure y el ciclo de vida de administración. En este artículo se detallan algunas de las herramientas de automatización de la infraestructura que puede usar en Azure. Estas herramientas se adaptan normalmente a alguno de los siguientes enfoques:
 
@@ -125,7 +125,7 @@ Más información sobre:
 
 
 ## <a name="jenkins"></a>Jenkins
-[Jenkins](https://www.jenkins.io) es un servidor de integración continua que ayuda a implementar y probar aplicaciones, y a crear canalizaciones automatizadas para la entrega de código. Existen cientos de complementos para ampliar la plataforma principal de Jenkins y también lo puede integrar con muchos otros productos y soluciones mediante los webhooks. Puede instalar Jenkins de forma manual en una máquina virtual de Azure, ejecutar Jenkins desde dentro de un contenedor de Docker o utilizar una imagen de Azure Marketplace que se haya creado previamente.
+[Jenkins](https://jenkins.io) es un servidor de integración continua que ayuda a implementar y probar aplicaciones, y a crear canalizaciones automatizadas para la entrega de código. Existen cientos de complementos para ampliar la plataforma principal de Jenkins y también lo puede integrar con muchos otros productos y soluciones mediante los webhooks. Puede instalar Jenkins de forma manual en una máquina virtual de Azure, ejecutar Jenkins desde dentro de un contenedor de Docker o utilizar una imagen de Azure Marketplace que se haya creado previamente.
 
 Obtenga información sobre cómo:
 

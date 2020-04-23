@@ -10,12 +10,12 @@ ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 07/31/2018
-ms.openlocfilehash: 1f920f2672c19455a8e8ac979e8d6d1eb14d4c35
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fdb10894ab9d1c6b805b8b43c90e54126d67b8dd
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74924294"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606627"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Transformar datos en Azure Data Factory
 
@@ -33,6 +33,8 @@ ms.locfileid: "74924294"
 > * [Jar en Databricks](transform-data-databricks-jar.md)
 > * [Python en Databricks](transform-data-databricks-python.md)
 > * [.NET personalizado](transform-data-using-dotnet-custom-activity.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 ## <a name="overview"></a>Información general
 En este artículo se explican las actividades de transformación de datos de Azure Data Factory que puede usar para transformar y procesar los datos sin procesar en predicciones e información a escala. Una actividad de transformación se ejecuta en un entorno informático, como Azure Databricks o Azure HDInsight. Proporciona vínculos a artículos con información detallada sobre cada actividad de transformación.
