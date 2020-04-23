@@ -134,7 +134,7 @@
           href: source-control-integration.md
     - name: Administración de la configuración
       items:
-        - name: Administración de State Configuration (DSC)
+        - name: Configuración de estado deseado (DSC)
           items:
             - name: Información general
               href: automation-dsc-overview.md
@@ -156,7 +156,7 @@
               href: automation-dsc-diagnostics.md
             - name: Solución de problemas con DSC
               href: troubleshoot/desired-state-configuration.md
-        - name: Administración de Change Tracking e Inventario
+        - name: Change Tracking e Inventario
           items:
             - name: Información general
               href: change-tracking.md
@@ -182,7 +182,7 @@
                   href: troubleshoot/onboarding.md
                 - name: Uso de Change Tracking y del inventario
                   href: troubleshoot/change-tracking.md
-    - name: Inicio y detención de máquinas virtuales fuera del horario laboral
+    - name: Inicio y detención de máquinas virtuales durante las horas de trabajo
       items:
         - name: Información general
           href: automation-solution-vm-management.md

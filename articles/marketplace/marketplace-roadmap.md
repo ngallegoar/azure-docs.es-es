@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/02/2019
-ms.openlocfilehash: c6a3ac701442fb30e471bcc2c8f317e3988980f7
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 24e622f76e604d7c0c48e2f3c354e3b4aa64e549
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261982"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084913"
 ---
 # <a name="microsoft-commercial-marketplace-roadmap"></a>Plan de desarrollo de Marketplace comercial de Microsoft
 
@@ -33,7 +33,7 @@ Una vez que se activa una funcionalidad, se quita de la hoja de ruta. La funcion
 * [Contrato estándar](https://aka.ms/standardcontract)
 * [API de suministro de SaaS](https://aka.ms/saasapiv2)
 * [Geoáreas y monedas de Marketplace](https://aka.ms/marketplacegeos)
-* [Seller Insights](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/si-changes)
+* [Seller Insights](./partner-center-portal/analytics.md)
 * [Blog de Marketplace de Microsoft Build](https://aka.ms/marketplacebuildblog)
 * [Blog de actualizaciones de mayo de Marketplace](https://azure.microsoft.com/blog/microsoft-commercial-marketplace-updates-may-2019/)
 * Centro de partners: [Creación de una cuenta](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) / [Administración de una cuenta](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account) / [Migración desde CPP](https://docs.microsoft.com/azure/marketplace/partner-center-portal/account-migration-from-cpp-to-pc)

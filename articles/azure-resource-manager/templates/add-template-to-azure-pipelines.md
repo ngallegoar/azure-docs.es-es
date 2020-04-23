@@ -3,12 +3,12 @@ title: CI/CD con Azure Pipelines y plantillas
 description: Se describe cómo configurar la integración continua de Azure Pipelines mediante proyectos de implementación del grupo de recursos de Azure en Visual Studio.
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: 7617bf47595fce7baa533b0f7cc94a1803ddd349
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d8eff1c7efae319106eb8a85af7823a820a0da39
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80153461"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084658"
 ---
 # <a name="integrate-arm-templates-with-azure-pipelines"></a>Integración de plantillas de ARM con Azure Pipelines
 
@@ -28,7 +28,7 @@ En este artículo se presupone que su proyecto de Visual Studio y la organizaci
 
 * Tiene una organización de Azure DevOps. Si no tiene ninguna, [cree una gratis](/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops). Si su equipo ya tiene una organización de Azure DevOps, compruebe que es administrador del proyecto de Azure DevOps que quiere utilizar.
 
-* Ha configurado una [conexión al servicio](/azure/devops/pipelines/library/connect-to-azure?view=azure-devops) en su suscripción de Azure. Las tareas en la canalización se ejecutan con la identidad de la entidad de servicio. Para conocer los pasos para crear la conexión, consulte [Crear un proyecto de DevOps](template-tutorial-use-azure-pipelines.md#create-a-devops-project).
+* Ha configurado una [conexión al servicio](/azure/devops/pipelines/library/connect-to-azure?view=azure-devops) en su suscripción de Azure. Las tareas en la canalización se ejecutan con la identidad de la entidad de servicio. Para conocer los pasos para crear la conexión, consulte [Crear un proyecto de DevOps](deployment-tutorial-pipeline.md#create-a-devops-project).
 
 * Tiene un proyecto de Visual Studio que se creó a partir de la plantilla de inicio **Grupo de recursos de Azure**. Para más información sobre cómo crear ese tipo de proyecto, consulte [Creación e implementación de grupos de recursos de Azure mediante Visual Studio](create-visual-studio-deployment-project.md).
 
@@ -261,4 +261,4 @@ Puede seleccionar la canalización en ejecución para ver información detallada
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para ver el proceso paso a paso sobre el uso de Azure Pipelines con plantillas de ARM, consulte [Tutorial: Integración continua de plantillas de ARM en Azure Pipelines](template-tutorial-use-azure-pipelines.md).
+Para ver el proceso paso a paso sobre el uso de Azure Pipelines con plantillas de ARM, consulte [Tutorial: Integración continua de plantillas de Azure Resource Manager en Azure Pipelines](deployment-tutorial-pipeline.md).

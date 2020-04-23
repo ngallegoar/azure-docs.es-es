@@ -2,17 +2,17 @@
 title: 'Cifrado del lado servidor de Azure Managed Disks: PowerShell'
 description: Azure Storage protege los datos mediante su cifrado en reposo antes de guardarlos en los clústeres de Storage. Puede confiar en las claves administradas por Microsoft para el cifrado de los discos administrados, o puede usar claves administradas por el cliente para administrar el cifrado con sus propias claves.
 author: roygara
-ms.date: 04/02/2020
+ms.date: 04/21/2020
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: 25b8df0d8565686737b33aac16d4bf698ce43280
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 930fcb4c023dc58fe0eeea65aa3fa5f78569e628
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80757213"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085678"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Cifrado del lado servidor de Azure Managed Disks
 
@@ -34,7 +34,7 @@ De forma predeterminada, los discos administrados usan claves de cifrado adminis
 
 ## <a name="customer-managed-keys"></a>Claves administradas por el cliente
 
-Puede optar por administrar el cifrado en el nivel de cada disco administrado, con sus propias claves. El cifrado del lado servidor de discos administrados con claves administradas por el cliente ofrece una experiencia integrada con Azure Key Vault. Puede importar [las claves RSA](../../key-vault/key-vault-hsm-protected-keys.md) a su instancia de Key Vault o generar nuevas claves RSA en Azure Key Vault. 
+Puede optar por administrar el cifrado en el nivel de cada disco administrado, con sus propias claves. El cifrado del lado servidor de discos administrados con claves administradas por el cliente ofrece una experiencia integrada con Azure Key Vault. Puede importar [las claves RSA](../../key-vault/keys/hsm-protected-keys.md) a su instancia de Key Vault o generar nuevas claves RSA en Azure Key Vault. 
 
 Azure Managed Disks controla el cifrado y descifrado de forma totalmente transparente con [cifrado de sobre](../../storage/common/storage-client-side-encryption.md#encryption-and-decryption-via-the-envelope-technique). Cifra los datos con una clave de cifrado de datos (DEK) basada en [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256, que, a su vez, está protegida con las claves del usuario. El servicio Storage genera claves de cifrado de datos y las cifra con claves administradas por el cliente mediante el cifrado RSA. El cifrado de sobres permite rotar (cambiar) las claves periódicamente según las directivas de cumplimiento sin afectar a las VM. Al rotar las claves, el servicio Storage vuelve a cifrar las claves de cifrado de datos con las nuevas claves administradas por el cliente. 
 
@@ -72,7 +72,7 @@ Por ahora, las claves administradas por el cliente tienen las siguientes restric
 
 - Si esta característica está habilitada para el disco, no puede deshabilitarla.
     Si necesita encontrar una solución alternativa, debe [copiar todos los datos](disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk) en un disco administrado totalmente diferente que no use claves administradas por el cliente.
-- Solo se admiten las [claves RSA "suaves" y "fuertes"](../../key-vault/about-keys-secrets-and-certificates.md#keys-and-key-types) con el tamaño 2080, sin incluir ninguna otra clave ni tamaño.
+- Solo se admiten las [claves RSA "suaves" y "fuertes"](../../key-vault/keys/about-keys.md) con el tamaño 2080, sin incluir ninguna otra clave ni tamaño.
 - Los discos creados a partir de imágenes personalizadas que están cifradas con cifrado del lado servidor y las claves administradas por el cliente deben cifrarse con las mismas claves administradas por el cliente y deben estar en la misma suscripción.
 - Las instantáneas creadas a partir de discos que están cifrados con cifrado del lado servidor y claves administradas por el cliente deben cifrarse con las mismas claves administradas por el cliente.
 - Las imágenes personalizadas cifradas con cifrado del lado servidor y claves administradas por el cliente no se pueden usar en la galería de imágenes compartidas.
@@ -288,7 +288,7 @@ $disk.Encryption.Type
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Explore las plantillas de Azure Resource Manager para crear discos cifrados con claves administradas por el cliente](https://github.com/ramankumarlive/manageddiskscmkpreview)
-- [¿Qué es Azure Key Vault?](../../key-vault/key-vault-overview.md)
+- [¿Qué es Azure Key Vault?](../../key-vault/general/overview.md)
 - [Replicación de máquinas con discos habilitados para claves administradas por el cliente](../../site-recovery/azure-to-azure-how-to-enable-replication-cmk-disks.md)
 - [Configuración de la recuperación ante desastres de máquinas virtuales de VMware en Azure con PowerShell](../../site-recovery/vmware-azure-disaster-recovery-powershell.md#replicate-vmware-vms)
 - [Configuración de la recuperación ante desastres en Azure para máquinas virtuales de Hyper-V mediante PowerShell y Azure Resource Manager](../../site-recovery/hyper-v-azure-powershell-resource-manager.md#step-7-enable-vm-protection)

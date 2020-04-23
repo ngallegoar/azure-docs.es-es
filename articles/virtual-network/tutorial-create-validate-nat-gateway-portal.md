@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/24/2020
 ms.author: allensu
-ms.openlocfilehash: 7c26487018b9632b5780dcd7c56ab36f286f8cac
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ceadbb4297ad0c5ce28470dd75b3f3496c9c5152
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80059993"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084750"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-the-azure-portal-and-test-the-nat-service"></a>Tutorial: Creación de una puerta de enlace de NAT mediante Azure Portal y prueba del servicio NAT
 
@@ -46,9 +46,9 @@ En los pasos de esta sección, tendrá que reemplazar los siguientes parámetros
 | **\<nombre-de-grupo-recursos>**  | myResourceGroupNAT |
 | **\<nombre-de-red-virtual>** | myVNetsource          |
 | **\<nombre-de-región>**          | Este de EE. UU. 2      |
-| **\<espacio-de-direcciones-IPv4>**   | 192.168.0.0\16          |
+| **\<espacio-de-direcciones-IPv4>**   | 192.168.0.0/16          |
 | **\<nombre-de-subred>**          | mySubnetsource        |
-| **\<intervalo-de-direcciones-de-subred>** | 192.168.0.0\24          |
+| **\<subnet-address-range>** | 192.168.0.0/24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
@@ -169,9 +169,9 @@ En los pasos de esta sección, tendrá que reemplazar los siguientes parámetros
 | **\<nombre-de-grupo-recursos>**  | myResourceGroupNAT |
 | **\<nombre-de-red-virtual>** | myVNetdestination          |
 | **\<nombre-de-región>**          | Este de EE. UU. 2      |
-| **\<espacio-de-direcciones-IPv4>**   | 192.168.0.0\16          |
+| **\<espacio-de-direcciones-IPv4>**   | 192.168.0.0/16          |
 | **\<nombre-de-subred>**          | mySubnetdestination        |
-| **\<intervalo-de-direcciones-de-subred>** | 192.168.0.0\24          |
+| **\<subnet-address-range>** | 192.168.0.0/24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 

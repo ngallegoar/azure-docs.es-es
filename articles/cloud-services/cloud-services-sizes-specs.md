@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
-ms.openlocfilehash: 34cb4282f64544e67b3724699380d1d54fd9b806
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2549cb0408c9dad3e92f2cec9625757de45a10dc
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79225932"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086256"
 ---
 # <a name="sizes-for-cloud-services"></a>Tamaños de Cloud Services
 En este tema se describen las opciones y los tamaños disponibles para las instancias de rol de servicio en la nube (roles web y roles de trabajo). También ofrece consideraciones de implementación que hay que tener en cuenta a la hora de planear usar estos recursos. Cada tamaño tiene un identificador que pondrá en su [archivo de definición de servicio](cloud-services-model-and-package.md#csdef). Los precios para cada tamaño están disponibles en la página [Precios de Cloud Services](https://azure.microsoft.com/pricing/details/cloud-services/).
@@ -147,6 +147,7 @@ Para más información y consideraciones sobre el uso de estos tamaños, consult
 | Standard_D8_v3  | 8         | 32            | 200                  | 4 / alto |
 | Standard_D16_v3 | 16        | 64            | 400                  | 8 / extremadamente alto |
 | Standard_D32_v3 | 32        | 128           | 800                  | 8 / extremadamente alto |
+| Standard_D48_v3 | 48        | 192           | 1200                 | 8 / extremadamente alto |
 | Standard_D64_v3 | 64        | 256           | 1600                 | 8 / extremadamente alto |
 
 ## <a name="ev3-series"></a>Serie Ev3
@@ -158,6 +159,7 @@ Para más información y consideraciones sobre el uso de estos tamaños, consult
 | Standard_E8_v3  | 8         | 64            | 200                  | 4 / alto |
 | Standard_E16_v3 | 16        | 128           | 400                  | 8 / extremadamente alto |
 | Standard_E32_v3 | 32        | 256           | 800                  | 8 / extremadamente alto |
+| Standard_E48_v3 | 48        | 384           | 1200                 | 8 / extremadamente alto |
 | Standard_E64_v3 | 64        | 432           | 1600                 | 8 / extremadamente alto |
 
 

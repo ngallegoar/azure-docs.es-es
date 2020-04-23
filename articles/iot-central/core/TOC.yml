@@ -132,7 +132,7 @@
     - name: Plantillas de aplicaciones del sector
       items:
         - name: Minoristas
-          href: ../retail/overview-iot-central-retail-pnp.md
+          href: ../retail/overview-iot-central-retail.md
         - name: Sector energético
           href: ../energy/overview-iot-central-energy.md
         - name: Government
