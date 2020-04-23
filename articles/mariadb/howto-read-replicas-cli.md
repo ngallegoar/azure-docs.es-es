@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: abf80e98881b73bed53c5a939a79bc8b3a9de2db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 4/21/2020
+ms.openlocfilehash: c5062bce572fbeda4143902ae6a04b31b9a89754
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79530587"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82025057"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-cli-and-rest-api"></a>Creación y administración de réplicas de lectura en Azure Database for MariaDB mediante la CLI de Azure y API REST
 
@@ -20,7 +20,7 @@ En este artículo aprenderá a crear y administrar réplicas de lectura en el se
 ## <a name="azure-cli"></a>Azure CLI
 Puede crear y administrar réplicas de lectura mediante la CLI de Azure.
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Prerrequisitos
 
 - [Instalación de la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 - Un [servidor de Azure Database for MariaDB](quickstart-create-mariadb-server-database-using-azure-portal.md) que se usará como servidor maestro. 
@@ -45,9 +45,6 @@ El comando `az mariadb server replica create` requiere los siguientes parámetro
 | source-server | mydemoserver | Nombre o identificador del servidor principal existente desde el que replicar. |
 
 Para crear una réplica de lectura entre regiones, use el parámetro `--location`. 
-
-> [!NOTE]
-> La replicación entre regiones está en versión preliminar.
 
 El siguiente ejemplo de la CLI crea la réplica en Oeste de EE. UU.
 

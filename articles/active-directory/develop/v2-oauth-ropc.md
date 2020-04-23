@@ -13,12 +13,12 @@ ms.date: 11/19/2019
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 828bdab26684b29d664ea42d0b36f475c7872a80
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: a282264ed3e9539bcc96babfc41376d2c6c35628
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309460"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868648"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-resource-owner-password-credentials"></a>Plataforma de identidad de Microsoft y credenciales de contraseña de propietario de recursos de OAuth 2.0
 
@@ -50,8 +50,8 @@ El flujo de ROPC es una solicitud única que envía la identificación del clien
 > [![Pruebe a ejecutar esta solicitud en Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 
-```
-// Line breaks and spaces are for legibility only.  This is a public client, so no secret is required. 
+```HTTP
+// Line breaks and spaces are for legibility only.  This is a public client, so no secret is required.
 
 POST {tenant}/oauth2/v2.0/token
 Host: login.microsoftonline.com
@@ -67,13 +67,13 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parámetro | Condición | Descripción |
 | --- | --- | --- |
 | `tenant` | Obligatorio | El inquilino del directorio en el que desea iniciar la sesión del usuario. Puede estar en formato de nombre descriptivo o GUID. Este parámetro no se puede establecer en `common` ni en `consumers`, pero sí se puede establecer en `organizations`. |
-| `client_id` | Obligatorio | El identificador de aplicación (cliente) que la página [Azure Portal: Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) asignó a la aplicación. | 
+| `client_id` | Obligatorio | El identificador de aplicación (cliente) que la página [Azure Portal: Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) asignó a la aplicación. |
 | `grant_type` | Obligatorio | Se debe establecer en `password`. |
 | `username` | Obligatorio | La dirección de correo electrónico del usuario. |
 | `password` | Obligatorio | La contraseña del usuario. |
 | `scope` | Recomendado | Una lista de [ámbitos](v2-permissions-and-consent.md) o permisos separada por espacios que requiere la aplicación. En un flujo interactivo, el administrador o el usuario deben dar su consentimiento a estos ámbitos de antemano. |
-| `client_secret`| A veces es necesario | Si la aplicación es un cliente público, no se puede incluir el valor de `client_secret` o `client_assertion`.  Si la aplicación es un cliente confidencial, se debe incluir. | 
-| `client_assertion` | A veces es necesario | Una forma diferente de `client_secret`, que se genera mediante un certificado.  Consulte [Credenciales de certificado](active-directory-certificate-credentials.md) para más información. | 
+| `client_secret`| A veces es necesario | Si la aplicación es un cliente público, no se puede incluir el valor de `client_secret` o `client_assertion`.  Si la aplicación es un cliente confidencial, se debe incluir. |
+| `client_assertion` | A veces es necesario | Una forma diferente de `client_secret`, que se genera mediante un certificado.  Consulte [Credenciales de certificado](active-directory-certificate-credentials.md) para más información. |
 
 ### <a name="successful-authentication-response"></a>Respuesta de autenticación correcta
 

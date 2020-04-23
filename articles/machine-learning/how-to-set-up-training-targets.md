@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.custom: seodec18
-ms.openlocfilehash: 24c0d9955a857e8bbc1e1c09e600031a7541026c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 625efcce7305cd7b1dd415a286e6b1e92682cc0a
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80296962"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81616820"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configuración y uso de destinos de proceso para el entrenamiento del modelo 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -152,32 +152,19 @@ Utilice Azure Data Science Virtual Machine (DSVM) como máquina virtual de Azure
     > [!WARNING]
     > Azure Machine Learning solo admite máquinas virtuales que ejecuten Ubuntu. Al crear una máquina virtual o elegir una máquina virtual existente, debe seleccionar una máquina virtual que use Ubuntu.
 
-1. **Adjuntar**: Para asociar una máquina virtual existente como destino de proceso, debe proporcionar el nombre de dominio completo (FQDN), el nombre de usuario y la contraseña de la máquina virtual. En el ejemplo, reemplace \<fqdn> por el FQDN de la máquina virtual o por la dirección IP pública. Reemplace \<username> y \<password> por el nombre de usuario y contraseña de SSH para la máquina virtual.
+1. **Adjuntar**: para asociar una máquina virtual existente como destino de proceso, debe proporcionar el identificador de recurso, el nombre de usuario y la contraseña de la máquina virtual. El identificador de recurso de la máquina virtual se puede construir con el identificador de la suscripción, el nombre del grupo de recursos y el nombre de la máquina virtual con el siguiente formato de cadena: `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Compute/virtualMachines/<vm_name>`.
 
-    > [!IMPORTANT]
-    > Las siguientes regiones de Azure no admiten la conexión de una máquina virtual mediante la dirección IP pública de la máquina virtual. En su lugar, use el identificador de Azure Resource Manager de la máquina virtual con el parámetro `resource_id`:
-    >
-    > * Este de EE. UU.
-    > * Oeste de EE. UU. 2
-    > * Centro y Sur de EE. UU.
-    >
-    > El identificador de recurso de la máquina virtual se puede construir con el identificador de la suscripción, el nombre del grupo de recursos y el nombre de la máquina virtual con el siguiente formato de cadena: `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Compute/virtualMachines/<vm_name>`.
-
-
+ 
    ```python
    from azureml.core.compute import RemoteCompute, ComputeTarget
 
    # Create the compute config 
    compute_target_name = "attach-dsvm"
-   attach_config = RemoteCompute.attach_configuration(address='<fqdn>',
-                                                    ssh_port=22,
-                                                    username='<username>',
-                                                    password="<password>")
-   # If in US East, US West 2, or US South Central, use the following instead:
-   # attach_config = RemoteCompute.attach_configuration(resource_id='<resource_id>',
-   #                                                 ssh_port=22,
-   #                                                 username='<username>',
-   #                                                 password="<password>")
+   
+   attach_config = RemoteCompute.attach_configuration(resource_id='<resource_id>',
+                                                   ssh_port=22,
+                                                   username='<username>',
+                                                   password="<password>")
 
    # If you authenticate with SSH keys instead, use this code:
    #                                                  ssh_port=22,
@@ -211,16 +198,7 @@ Azure HDInsight es una plataforma popular para el análisis de macrodatos. La pl
     
     Cuando se ha creado el clúster, conéctelo al nombre de host \<clustername>-ssh.azurehdinsight.net, donde \<clustername> es el nombre que ha proporcionado para el clúster. 
 
-1. **Adjuntar**: Para asociar un clúster de HDInsight como destino de proceso, debe proporcionar el nombre de host, el nombre de usuario y la contraseña para el clúster de HDInsight. El ejemplo siguiente usa el SDK para asociar un clúster al área de trabajo. En el ejemplo, reemplace \<clustername> por el nombre del clúster. Reemplace \<username> y \<password> por el nombre de usuario y contraseña de SSH para el clúster.
-
-    > [!IMPORTANT]
-    > Las siguientes regiones de Azure no admiten la conexión de un clúster de HDInsight mediante la dirección IP pública del clúster. En su lugar, use el identificador de Azure Resource Manager del clúster con el parámetro `resource_id`:
-    >
-    > * Este de EE. UU.
-    > * Oeste de EE. UU. 2
-    > * Centro y Sur de EE. UU.
-    >
-    > El identificador de recurso del clúster se puede construir con el identificador de la suscripción, el nombre del grupo de recursos y el nombre del clúster con el siguiente formato de cadena: `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.HDInsight/clusters/<cluster_name>`.
+1. **Adjuntar**: para asociar un clúster de HDInsight como destino de proceso, debe proporcionar el nombre de host, el nombre de usuario y la contraseña del clúster de HDInsight. El identificador de recurso del clúster de HDInsight se puede construir con el identificador de la suscripción, el nombre del grupo de recursos y el nombre del clúster de HDInsight con el siguiente formato de cadena: `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.HDInsight/clusters/<cluster_name>`.
 
    ```python
    from azureml.core.compute import ComputeTarget, HDInsightCompute
@@ -228,15 +206,11 @@ Azure HDInsight es una plataforma popular para el análisis de macrodatos. La pl
 
    try:
     # if you want to connect using SSH key instead of username/password you can provide parameters private_key_file and private_key_passphrase
-    attach_config = HDInsightCompute.attach_configuration(address='<clustername>-ssh.azurehdinsight.net', 
+
+    attach_config = HDInsightCompute.attach_configuration(resource_id='<resource_id>',
                                                           ssh_port=22, 
                                                           username='<ssh-username>', 
                                                           password='<ssh-pwd>')
-    # If you are in US East, US West 2, or US South Central, use the following instead:
-    # attach_config = HDInsightCompute.attach_configuration(resource_id='<resource_id>',
-    #                                                      ssh_port=22, 
-    #                                                      username='<ssh-username>', 
-    #                                                      password='<ssh-pwd>')
     hdi_compute = ComputeTarget.attach(workspace=ws, 
                                        name='myhdi', 
                                        attach_configuration=attach_config)
@@ -451,7 +425,7 @@ Para obtener más información, consulte la documentación de [ScriptRunConfig](
 
 Puede usar la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) y la [extensión de la CLI de Machine Learning](reference-azure-machine-learning-cli.md) para crear configuraciones de ejecución y enviar esas ejecuciones a distintos destinos del proceso. En los ejemplos siguientes se supone que ya tiene un área de trabajo de Azure Machine Learning y que ha iniciado sesión en Azure mediante el comando de la CLI `az login`. 
 
-[!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)]
+[!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
 
 ### <a name="create-run-configuration"></a>Creación de una configuración de ejecución
 

@@ -1,53 +1,95 @@
 ---
-title: Atribución de uso de los clientes y asociados de Azure | Azure Marketplace
-description: Información general sobre cómo hacer seguimiento del uso del cliente de las soluciones de Azure Marketplace
+title: Atribución de uso de partners y clientes de marketplace comercial
+description: Obtenga información general sobre el seguimiento del uso de clientes de las soluciones de Azure Marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 9/23/2019
+ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: 348633ffc91bc25a226b05743a18d2c87533a01d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e061baa8e7eb73bae0a78f4215f0d48610e85fcb
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80280650"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686730"
 ---
-# <a name="azure-partner-customer-usage-attribution"></a>Atribución de uso del cliente para asociados de Azure
+# <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Atribución de uso de partners y clientes de marketplace comercial
 
-Como asociado de software de Azure, sus soluciones requieren componentes de Azure o necesitan implementarse directamente en la infraestructura de Azure. A los clientes que implementen una solución de asociado y aprovisionen sus propios recursos de Azure puede que les resulte difícil ver el estado de la implementación y lo que esta afecta al crecimiento de Azure. Al agregar un mayor nivel de visibilidad, se alinea con el equipo de ventas de Microsoft y obtiene crédito para los programas para partners de Microsoft.
+La atribución del uso de clientes es un método para asociar los recursos de Azure que se ejecutan en las suscripciones de cliente, implementado para ejecutar la solución, con usted como partner. La formación de estas asociaciones en sistemas internos de Microsoft aporta mayor visibilidad de la superficie de Azure que ejecuta el software. Al adoptar esta capacidad de seguimiento, se alinea con los equipos de ventas de Microsoft y obtiene crédito para los programas para partners de Microsoft.
 
-Ahora, Microsoft ofrece un método que ayuda a los asociados a mejorar el seguimiento del uso de Azure de las implementaciones de clientes de su software en Azure. Este nuevo método usa Azure Resource Manager para organizar la implementación de los servicios de Azure.
+Puede formar la asociación a través de Azure Marketplace, el repositorio del Inicio rápido, los repositorios privados de GitHub y la involucración del cliente 1:1 que crea IP durables (como el desarrollo de una aplicación).
 
-Como asociado de Microsoft, puede asociar el uso de Azure con todos los recursos de Azure que aprovisione en nombre de un cliente. La asociación puede formarla a través de Azure Marketplace, el repositorio del Inicio rápido, repositorios privados de GitHub y la involucración del cliente cara a cara. La atribución de uso del cliente admite tres opciones de implementación:
+La atribución de uso del cliente admite tres opciones de implementación:
 
 - Plantillas de Azure Resource Manager: los asociados pueden usar plantillas de Resource Manager para implementar los servicios de Azure para ejecutar su software. Los asociados pueden crear una plantilla de Resource Manager para definir la infraestructura y configuración de su solución de Azure. Una plantilla de Resource Manager les permite tanto a usted como a sus clientes implementar la solución a lo largo de su ciclo de vida. Puede estar seguro de que los recursos se implementan de forma consistente.
 - API de Azure Resource Manager: los asociados pueden llamar a las API de Resource Manager directamente para implementar una plantilla de Azure Resource Manager o para generar las llamadas a API para aprovisionar directamente los servicios de Azure.
-- Terraform: los asociados pueden usar orquestador en la nube, como Terraform, para implementar una plantilla de Resource Manager o servicios de Azure directamente.
+- Terraform: los asociados pueden usar Terraform para implementar una plantilla de Resource Manager o servicios de Azure directamente.
 
-La atribución de uso del cliente es para implementaciones nuevas y NO admite el etiquetado de recursos existentes que ya se hayan implementado.
-
-Se requiere la atribución de uso del cliente en [Aplicación de Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer): la oferta de plantilla de solución está publicada en Azure Marketplace.
-
+>[!IMPORTANT]
+>- La atribución de uso de clientes no está pensada para realizar un seguimiento del trabajo de los integradores de sistemas, los proveedores de servicios administrados o las herramientas diseñadas para implementar y administrar el software que se ejecuta en Azure.
+>
+>- La atribución de uso de clientes es para implementaciones nuevas y NO admite el etiquetado de recursos existentes que ya se hayan implementado.
+>
+>- Se requiere la atribución de uso de clientes en las ofertas de [aplicación de Azure](./partner-center-portal/create-new-azure-apps-offer.md) publicadas en Azure Marketplace.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
+## <a name="create-guids"></a>Creación de los identificadores únicos globales
+
+Un GUID es un identificador de referencia único que tiene 32 dígitos hexadecimales. Para crear identificadores únicos globales para el seguimiento, debe usar un generador de GUID. El equipo de Azure Storage ha creado un [formulario de generación de GUID](https://aka.ms/StoragePartners) que enviará por correo electrónico un GUID en el formato correcto. Este GUID se puede reutilizar en los distintos sistemas de seguimiento.
+
+> [!NOTE]
+> Es muy recomendable usar el [formulario del generador de GUID de Azure Storage](https://aka.ms/StoragePartners) para crear el identificador único global. Para más información, consulte las [P+F](#faq).
+
+Se recomienda crear un GUID único para todos los canales de distribución y oferta de cada producto. Puede optar por usar un solo GUID para los múltiples canales de distribución del producto si no quiere que los informes se dividan.
+
+Si implementa un producto mediante una plantilla y está disponible tanto en Azure Marketplace como en GitHub, puede crear y registrar dos GUID distintos:
+
+- Producto A en Azure Marketplace
+- Producto A en GitHub
+
+La creación de informes se realiza mediante un id. y un GUID de Microsoft Partner Network.
+
+También puede realizar un seguimiento del uso en un nivel más granular registrando GUID adicionales y cambiando los GUID entre planes, donde los planes son variantes de una oferta.
+
+## <a name="register-guids"></a>Registro de GUID
+
+Los GUID deben estar registrados en el Centro de partners para permitir la atribución de uso de clientes.
+
+Después de agregar un GUID a la plantilla o en el agente de usuario, y registrarlo en el Centro de partners, se realizará un seguimiento de las futuras implementaciones.
+
+1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard).
+
+1. Regístrese como [publicador comercial de Marketplace](https://aka.ms/JoinMarketplace).
+
+   * Los partners deben [tener un perfil en el Centro de partners](https://docs.microsoft.com/azure/marketplace/become-publisher). Le recomendamos que vea la oferta en Azure Marketplace o AppSource.
+   * Los asociados pueden registrar varios identificadores únicos globales.
+   * Los partners pueden registrar los GUID para las plantillas de solución que no son de marketplace y las ofertas.
+
+1. En la esquina superior derecha, seleccione el icono de engranaje de la configuración y, a continuación, **Configuración de desarrollador**.
+
+1. En la **página de configuración de la cuenta**, seleccione **Add Tracking GUID** (Agregar GUID de seguimiento).
+
+1. En el cuadro **GUID**, escriba su identificador único global de seguimiento. Escriba solo el GUID, sin el prefijo **pid -** . En el cuadro **Descripción**, escriba el nombre o la descripción de la oferta.
+
+1. Para registrar varios identificadores únicos globales, vuelva a seleccionar **Add Tracking GUID** (Agregar GUID de seguimiento). Aparecen más cuadros en la página.
+
+1. Seleccione **Guardar**.
+
 ## <a name="use-resource-manager-templates"></a>Uso de plantillas de Resource Manager
-Muchas soluciones de los partners se implementan en una suscripción de cliente mediante plantillas de Resource Manager. Si tiene una plantilla de Resource Manager disponible en Azure Marketplace, en GitHub o como Inicio rápido, el proceso de modificación de esta para habilitar la atribución de uso del cliente debería ser sencillo.
+Muchas soluciones de partners se implementan mediante plantillas de Azure Resource Manager. Si tiene una plantilla de Resource Manager disponible en Azure Marketplace, en GitHub o como Inicio rápido, el proceso de modificación de esta para habilitar la atribución de uso de clientes debe ser sencillo.
 
-Para más información sobre la creación y publicación de plantillas de solución, consulte
+> [!NOTE]
+> Para más información sobre la creación y publicación de plantillas de solución, consulte
+> * [Creación e implementación de plantillas de Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+>* [Oferta de aplicación de Azure](./partner-center-portal/create-new-azure-apps-offer.md).
+>* Vídeo: [Building Solution Templates, and Managed Applications for the Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603) (Creación de plantillas de soluciones y aplicaciones administradas para Azure Marketplace).
 
-* [Creación e implementación de plantillas de Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
-* [Oferta de aplicación de Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer).
-* Vídeo: [Building Solution Templates, and Managed Applications for the Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603) (Creación de plantillas de soluciones y aplicaciones administradas para Azure Marketplace).
-
-
-## <a name="add-a-guid-to-your-template"></a>Adición de un identificador único global a una plantilla
 
 Para agregar un identificador único global (GUID), se realizas una modificación única en el archivo de plantilla principal:
 
-1. [Cree un GUID](#create-guids) mediante el método sugerido y [registre el GUID](#register-guids-and-offers).
+1. [Cree un GUID](#create-guids) mediante el método sugerido y [registre el GUID](#register-guids).
 
 1. Abra la plantilla de Resource Manager.
 
@@ -96,7 +138,7 @@ Para habilitar la atribución de uso del cliente, al diseñar las llamadas API, 
 
 ![Formato de GUID de ejemplo](media/marketplace-publishers-guide/tracking-sample-guid-for-lu-2.PNG)
 
-> [!Note]
+> [!NOTE]
 > El formato de la cadena es importante. Si no se incluye el prefijo **pid-** , no es posible consultar los datos. El seguimiento de los distintos SDK se hace de forma diferente. Para implementar este método, revise la compatibilidad y el enfoque del seguimiento de su SDK de Azure preferido.
 
 #### <a name="example-the-python-sdk"></a>Ejemplo: SDK de Python
@@ -105,7 +147,7 @@ Para Python, use el atributo **config**. El atributo solo se puede agregar a un 
 
 ![Agregar el atributo a un agente de usuario](media/marketplace-publishers-guide/python-for-lu.PNG)
 
-> [!Note]
+> [!NOTE]
 > Agregue el atributo a cada cliente. No hay ninguna configuración estática global. Puede etiquetar una fábrica de cliente para asegurarse de que todos los clientes realizan el seguimiento. Para más información, consulte este [ejemplo de fábrica de cliente en GitHub](https://github.com/Azure/azure-cli/blob/7402fb2c20be2cdbcaa7bdb2eeb72b7461fbcc30/src/azure-cli-core/azure/cli/core/commands/client_factory.py#L70-L79).
 
 #### <a name="tag-a-deployment-by-using-the-azure-powershell"></a>Etiquetado de una implementación mediante Azure PowerShell
@@ -143,50 +185,6 @@ Los asociados que deseen que la implementación mediante Terraform tenga un segu
 
 * Crear un identificador único global (que se debe agregar para cada oferta o SKU).
 * Actualizar el proveedor de Azure para establecer el valor de *partner_id* con el identificador único global (NO añadir el prefijo "pid-" al identificador único global, simplemente establecerlo con el valor real).
-
-## <a name="create-guids"></a>Creación de los identificadores únicos globales
-
-Un GUID es un número de referencia único que tiene 32 dígitos hexadecimales. Para crear identificadores únicos globales para el seguimiento, debe usar un generador de GUID. El equipo de Azure Storage ha creado un [formulario de generación de GUID](https://aka.ms/StoragePartners) que enviará por correo electrónico un GUID en el formato correcto. Este GUID se puede reutilizar en los distintos sistemas de seguimiento.
-
-> [!Note]
-> Es muy recomendable usar el [formulario del generador de GUID de Azure Storage](https://aka.ms/StoragePartners) para crear el identificador único global. Para más información, consulte las [P+F](#faq).
-
-Se recomienda crear un GUID único para todos los canales de distribución y oferta de cada producto. Puede optar por usar un solo GUID para los múltiples canales de distribución del producto si no quiere que los informes se dividan.
-
-Si implementa un producto mediante una plantilla y está disponible tanto en Azure Marketplace como en GitHub, puede crear y registrar 2 GUID distintos:
-
-*   Producto A en Azure Marketplace
-*   Producto A en GitHub
-
-La creación de informes se realiza en función del valor de asociado comercial (id. de Partner de Microsoft) y de los GUID.
-
-Asimismo, si lo desea también puede realizar un seguimiento de los identificadores únicos globales a un nivel más detallado como el SKU donde las SKU son variantes de una oferta.
-
-## <a name="register-guids-and-offers"></a>Registro de identificadores únicos globales y ofertas
-
-El identificador único global debe estar registrado para permitir la atribución de uso del cliente.
-
-Todos los registros de los GUID de plantilla se realizan en el Centro de partners.
-
-Después de agregar el GUID a la plantilla o en el agente de usuario, y registrarlo en el Centro de partners, se realizará un seguimiento de todas las implementaciones.
-
-1. Regístrese como [publicador comercial de Marketplace](https://aka.ms/JoinMarketplace).
-
-   * Los partners deben [tener un perfil en el Centro de partners](https://docs.microsoft.com/azure/marketplace/become-publisher). Le recomendamos que vea la oferta en Azure Marketplace o AppSource.
-   * Los asociados pueden registrar varios identificadores únicos globales.
-   * Los asociados puede registrar un identificador único global tanto para las plantillas de solución que no sean de Marketplace como para las ofertas.
-
-1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard).
-
-1. En la esquina superior derecha, seleccione el icono de engranaje de la configuración y, a continuación, **Configuración de desarrollador**.
-
-1. En la **página de configuración de la cuenta**, seleccione **Add Tracking GUID** (Agregar GUID de seguimiento).
-
-1. En el cuadro **GUID**, escriba su identificador único global de seguimiento. Escriba solo el GUID, sin el prefijo **pid -** . En el cuadro **Descripción**, escriba el nombre o la descripción de la oferta.
-
-1. Para registrar varios identificadores únicos globales, vuelva a seleccionar **Add Tracking GUID** (Agregar GUID de seguimiento). Aparecen más cuadros en la página.
-
-1. Seleccione **Guardar**.
 
 
 ## <a name="verify-the-guid-deployment"></a>Comprobación de la implementación de GUID
@@ -232,7 +230,7 @@ foreach ($deployment in $deployments){
 
 ## <a name="report"></a>Informe
 
-Puede encontrar el informe de atribución de uso del cliente en el panel de análisis del Centro de asociados ([https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)). Para ver el informe, tendrá que iniciar sesión con las credenciales del Centro de asociados. Si tiene problemas con los informes o el inicio de sesión, cree una solicitud de soporte técnico siguiendo las instrucciones de la sección de soporte técnico de Get.
+Puede encontrar el informe de atribución de uso del cliente en el panel del Centro de partners ([https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)). Para ver el informe, tendrá que iniciar sesión con las credenciales del Centro de asociados. Si tiene problemas con los informes o el inicio de sesión, cree una solicitud de soporte técnico siguiendo las instrucciones de la sección de soporte técnico de Get.
 
 Elija Tracked Templates (Plantillas en seguimiento) en la lista desplegable de Partner Association Type (Tipo de asociación del asociado) para ver el informe.
 
@@ -267,7 +265,7 @@ Si necesita ayuda para la atribución de uso de del cliente o la incorporación 
 1. En **Category** (Categoría), elija la categoría del problema:
 
    - Para problemas de asociación de uso, seleccione **Other** (Otros).
-   - Para problemas de acceso al CPP de Azure Marketplace, seleccione **Access Problem** (Problema de acceso).
+   - Para problemas de acceso a Azure Marketplace, seleccione **Access Problem** (Problema de acceso).
 
      ![Elegir la categoría de problema](media/marketplace-publishers-guide/lu-article-incident.png)
 
@@ -277,7 +275,7 @@ Si necesita ayuda para la atribución de uso de del cliente o la incorporación 
 
 1. En la página siguiente, especifique los valores necesarios.
 
-   > [!Important]
+   > [!IMPORTANT]
    > En el cuadro **Incident title** (Título de la incidencia), escriba **Seguimiento del uso de ISV**. Describa el problema de forma detallada.
 
    ![Escribir Seguimiento del uso de ISV como título de la incidencia](media/marketplace-publishers-guide/guid-dev-center-help-hd%201.png)
@@ -315,11 +313,11 @@ Sí, cualquier cliente o asociado de implementación puede personalizar la plant
 
 **¿Puedo realizar un seguimiento de las plantillas implementadas desde un repositorio que no sea de Microsoft, como GitHub?**
 
-Sí, si el GUID está presente cuando se implemente la plantilla, se realiza el seguimiento. Los asociados deben tener un perfil en CPP para registrar los identificadores únicos globales que se usen para la implementación fuera de Azure Marketplace.
+Sí, si el GUID está presente cuando se implemente la plantilla, se realiza el seguimiento. Los partners todavía deben registrar sus GUID.
 
 **¿El cliente recibe también un informe?**
 
-Los clientes pueden realizar el seguimiento del uso tanto de recursos individuales como de grupos de recursos definidos por los usuarios en Azure Portal.
+Los clientes pueden realizar el seguimiento del uso tanto de recursos individuales como de grupos de recursos definidos por los usuarios en Azure Portal. Los clientes no ven el uso desglosado por GUID.
 
 **¿Es esta metodología similar al asociado digital de registro (DPOR)?**
 

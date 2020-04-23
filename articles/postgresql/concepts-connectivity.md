@@ -2,17 +2,17 @@
 title: 'Administración de errores de conectividad transitorios en Azure Database for PostgreSQL: servidor único'
 description: 'Aprenda a administrar errores de conectividad transitorios en Azure Database for PostgreSQL: servidor único.'
 keywords: postgresql connection,connection string,connectivity issues,transient error,connection error
-author: jan-eng
-ms.author: janeng
+author: jasonwhowell
+ms.author: jasonh
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: fe5b772946bece165a4e09f170355dc7b595a48f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8138512dfc893f3523c5ad78a93aef1bcdedfe70
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74768850"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81768040"
 ---
 # <a name="handling-transient-connectivity-errors-for-azure-database-for-postgresql---single-server"></a>Control de errores de conectividad transitorios para Azure Database for PostgreSQL con un único servidor
 

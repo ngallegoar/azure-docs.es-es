@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f789f82288c9820214c4ab32c271bb547945d4d1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 48b9f2dc64d1d3ddd8253a253dcab8ef972032f9
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77057386"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869740"
 ---
 # <a name="tutorial-configure-linkedin-sales-navigator-for-automatic-user-provisioning"></a>Tutorial: Configuración de LinkedIn Sales Navigator para el aprovisionamiento automático de usuarios
 
@@ -99,7 +99,7 @@ El primer paso consiste en recuperar el token de acceso de LinkedIn. Si es admin
 
 11. Rellene los campos siguientes en **Credenciales de administrador**:
 
-    * En el campo **URL de inquilino**, escriba https://api.linkedin.com.
+    * En el campo **URL de inquilino**, escriba https://developer.linkedin.com.
 
     * En el campo **Token secreto**, escriba el token de acceso que ha generado en el paso 1 y haga clic en **Probar conexión**.
 

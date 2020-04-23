@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c683e9847864de4e3409fb6dbd533497a5ae3cea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bd7726d2bbf2830d18d78b5f0b0d7202b734124d
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80060993"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537685"
 ---
 # <a name="enable-and-create-large-file-shares"></a>Habilitación y creación de recursos compartidos de archivos grandes
 
 Cuando se habilitan recursos compartidos de archivos de gran tamaño en la cuenta de almacenamiento, los recursos compartidos de archivos se pueden escalar verticalmente hasta 100 TiB. Esta escalabilidad se puede habilitar para los recursos compartidos de archivos existentes en las cuentas de almacenamiento existentes.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 - Si planea usar la CLI de Azure, [instale la versión más reciente](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
@@ -43,7 +43,7 @@ La habilitación de recursos compartidos de archivos grandes en una cuenta es un
     ![Captura de pantalla que muestra cómo crear un grupo de recursos en el portal](media/storage-files-how-to-create-large-file-share/create-large-file-share.png)
 
 1. Después, escriba un nombre para la cuenta de almacenamiento. El nombre debe ser único en Azure. El nombre también debe tener entre 3 y 24 caracteres de longitud y solo puede incluir números y letras minúsculas.
-1. Seleccione una ubicación para la cuenta de almacenamiento y asegúrese de que sea [uno de los recursos compartidos de la replicación admitida con archivos grandes](storage-files-planning.md#regional-availability).
+1. Seleccione la ubicación para la cuenta de almacenamiento.
 1. Establezca la replicación en **Almacenamiento con redundancia local** o **Almacenamiento con redundancia de zona**.
 1. Deje estos campos con sus valores predeterminados:
 

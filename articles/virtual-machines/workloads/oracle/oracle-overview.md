@@ -3,8 +3,7 @@ title: Soluciones de Oracle en Microsoft Azure | Microsoft Docs
 description: Obtenga información sobre las opciones para implementar aplicaciones y soluciones de Oracle en Microsoft Azure, incluidos la ejecución completa en la infraestructura de Azure o el uso de la conectividad entre nubes con Oracle Cloud Infrastructure (OCI).
 services: virtual-machines-linux
 documentationcenter: ''
-author: mimckitt
-manager: gwallace
+author: BorisB2015
 tags: azure-resource-management
 ms.assetid: ''
 ms.service: virtual-machines-linux
@@ -12,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/16/2020
-ms.author: mimckitt
-ms.openlocfilehash: 8c266986ac795be48f3a8439afc5ae4752ff3ed7
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.author: borisb
+ms.openlocfilehash: c737189650d571fb62a770707e84ed15c5a37a57
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81263257"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870500"
 ---
 # <a name="overview-of-oracle-applications-and-solutions-on-azure"></a>Introducción a las aplicaciones y soluciones de Oracle en Azure
 
@@ -50,7 +49,7 @@ Ejecute aplicaciones empresariales en Azure en sistemas operativos compatibles c
 
 * Use [Azure Site Recovery](../../../site-recovery/site-recovery-overview.md) para orquestar y administrar la recuperación ante desastres para las máquinas virtuales de Oracle Linux en Azure y en sus servidores físicos o locales. 
 
-* Habilite Oracle Real Application Clusters (RAC) en Azure mediante [Azure VMWare Solution](https://docs.azure.cloudsimple.com/oracle-rac/) o [FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/).
+* Habilite Oracle Real Application Clusters (RAC) en Azure mediante [Azure VMWare Solution](https://docs.microsoft.com/azure/vmware-cloudsimple/oracle-real-application-clusters/) o [FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/).
 
 ## <a name="backup-oracle-workloads"></a>Copia de seguridad de cargas de trabajo de Oracle
 

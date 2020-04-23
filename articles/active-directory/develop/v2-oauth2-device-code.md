@@ -13,21 +13,18 @@ ms.date: 11/19/2019
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 9186f633b773a243a84692c30ddc2c2261fb69ba
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 42f3ca233597d0fbc31ce656bd856875e873e3c2
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309408"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868485"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-authorization-grant-flow"></a>Flujo de concesión de autorización de dispositivo de OAuth 2.0 y la Plataforma de identidad de Microsoft
 
-La Plataforma de identidad de Microsoft admite la [concesión de autorización de dispositivo](https://tools.ietf.org/html/rfc8628), lo que permite que los usuarios inicien sesión en dispositivos con limitaciones de entrada, como un televisor inteligente, un dispositivo IoT o una impresora.  Para habilitar este flujo, el dispositivo pide que el usuario visite una página web en su explorador en otro dispositivo para iniciar sesión.  Una vez que el usuario inicia sesión, el dispositivo es capaz de obtener tokens de acceso y tokens de actualización según sea necesario.  
+La Plataforma de identidad de Microsoft admite la [concesión de autorización de dispositivo](https://tools.ietf.org/html/rfc8628), lo que permite que los usuarios inicien sesión en dispositivos con limitaciones de entrada, como un televisor inteligente, un dispositivo IoT o una impresora.  Para habilitar este flujo, el dispositivo pide que el usuario visite una página web en su explorador en otro dispositivo para iniciar sesión.  Una vez que el usuario inicia sesión, el dispositivo es capaz de obtener tokens de acceso y tokens de actualización según sea necesario.
 
 En este artículo se describe cómo programar directamente con el protocolo de la aplicación.  Cuando sea posible, se recomienda usar las bibliotecas de autenticación de Microsoft (MSAL) admitidas, en lugar de [adquirir tokens y API web protegidas por llamadas](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Además, eche un vistazo a las [aplicaciones de ejemplo que usan MSAL](sample-v2-code.md).
-
-> [!NOTE]
-> No todas las características y escenarios de Azure Active Directory son compatibles con el punto de conexión de la Plataforma de identidad de Microsoft. Para determinar si debe usar el punto de conexión de la Plataforma de identidad de Microsoft, conozca las [limitaciones de esta plataforma](active-directory-v2-limitations.md).
 
 ## <a name="protocol-diagram"></a>Diagrama de protocolo
 
@@ -43,7 +40,7 @@ El cliente debe primero realizar una comprobación con el servidor de autenticac
 > Pruebe a ejecutar esta solicitud en Postman
 > [![Pruebe a ejecutar esta solicitud en Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
-```
+```HTTP
 // Line breaks are for legibility only.
 
 POST https://login.microsoftonline.com/{tenant}/oauth2/v2.0/devicecode
@@ -62,7 +59,7 @@ scope=user.read%20openid%20profile
 
 ### <a name="device-authorization-response"></a>Respuesta de autorización de dispositivo
 
-Una respuesta correcta será un objeto JSON que contiene la información necesaria para permitir que el usuario inicie sesión.  
+Una respuesta correcta será un objeto JSON que contiene la información necesaria para permitir que el usuario inicie sesión.
 
 | Parámetro | Formato | Descripción |
 | ---              | --- | --- |
@@ -80,11 +77,11 @@ Una respuesta correcta será un objeto JSON que contiene la información necesar
 
 Después de recibir `user_code` y `verification_uri`, el cliente los muestra al usuario y le pide que inicie sesión con su teléfono móvil o explorador de PC.
 
-Si el usuario se autentica con una cuenta personal (en /common o /consumers), se le pedirá que vuelva a iniciar sesión para transferir el estado de autenticación al dispositivo.  También se les pedirá que den su consentimiento para asegurarse de que son conscientes de los permisos que se conceden.  Esto no se aplica a las cuentas profesionales o educativas usadas para la autenticación. 
+Si el usuario se autentica con una cuenta personal (en /common o /consumers), se le pedirá que vuelva a iniciar sesión para transferir el estado de autenticación al dispositivo.  También se les pedirá que den su consentimiento para asegurarse de que son conscientes de los permisos que se conceden.  Esto no se aplica a las cuentas profesionales o educativas usadas para la autenticación.
 
 Mientras el usuario se autentica en `verification_uri`, el cliente debe sondear el punto de conexión `/token` para obtener el token solicitado mediante el uso de `device_code`.
 
-``` 
+```HTTP
 POST https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
 Content-Type: application/x-www-form-urlencoded
 
@@ -95,21 +92,21 @@ device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8...
 
 | Parámetro | Obligatorio | Descripción|
 | -------- | -------- | ---------- |
-| `tenant`  | Obligatorio | El mismo inquilino o alias de inquilino usado en la solicitud inicial. | 
+| `tenant`  | Obligatorio | El mismo inquilino o alias de inquilino usado en la solicitud inicial. |
 | `grant_type` | Obligatorio | Debe ser `urn:ietf:params:oauth:grant-type:device_code`|
 | `client_id`  | Obligatorio | Debe coincidir con el valor de `client_id` utilizado en la solicitud inicial. |
 | `device_code`| Obligatorio | Valor de `device_code` devuelto en la solicitud de autorización de dispositivo.  |
 
 ### <a name="expected-errors"></a>Errores esperados
 
-El flujo de código de dispositivo es un protocolo de sondeo, por lo que el cliente debe esperar recibir errores antes de que el usuario haya terminado la autenticación.  
+El flujo de código de dispositivo es un protocolo de sondeo, por lo que el cliente debe esperar recibir errores antes de que el usuario haya terminado la autenticación.
 
 | Error | Descripción | Acción del cliente |
 | ------ | ----------- | -------------|
 | `authorization_pending` | El usuario no ha finalizado la autenticación, pero canceló el flujo. | Repetir la solicitud después de, por lo menos, los segundos especificados en `interval`. |
 | `authorization_declined` | El usuario final ha denegado la solicitud de autorización.| Detener el sondeo y revertir a un estado de no autenticado.  |
 | `bad_verification_code`| No se reconoció el valor de `device_code` que se envió al punto de conexión `/token`. | Comprobar que el cliente está enviando el valor correcto de `device_code` en la solicitud. |
-| `expired_token` | Han transcurrido al menos `expires_in` segundos y la autenticación ya no es posible con este `device_code`. | Detener el sondeo y revertir a un estado de no autenticado. |   
+| `expired_token` | Han transcurrido al menos `expires_in` segundos y la autenticación ya no es posible con este `device_code`. | Detener el sondeo y revertir a un estado de no autenticado. |
 
 ### <a name="successful-authentication-response"></a>Respuesta de autenticación correcta
 
@@ -135,4 +132,4 @@ Una respuesta de token correcta tendrá un aspecto similar al siguiente:
 | `id_token`   | JWT | Se emite si el parámetro `scope` original incluye el ámbito `openid`.  |
 | `refresh_token` | Cadena opaca | Se emite si el parámetro `scope` original incluye `offline_access`.  |
 
-Puede usar el token de actualización para adquirir nuevos tokens de acceso y tokens de actualización con el mismo flujo que se indica en la [documentación del flujo de código de OAuth](v2-oauth2-auth-code-flow.md#refresh-the-access-token).  
+Puede usar el token de actualización para adquirir nuevos tokens de acceso y tokens de actualización con el mismo flujo que se indica en la [documentación del flujo de código de OAuth](v2-oauth2-auth-code-flow.md#refresh-the-access-token).

@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8ca8c5cacd2b1a1a7b4f70615831d2901510045e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d7c137a75c0a021aa8bca3aec23da6c4d1ada300
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77024439"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868029"
 ---
 # <a name="quickstart---create-azure-vmware-solution-by-cloudsimple-service"></a>Inicio rápido: creación de un servicio de Azure VMware Solution by CloudSimple
 
@@ -87,4 +87,4 @@ Para configurar la capacidad de pago por uso de un entorno de nube privada de Cl
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Creación de la nube privada y configuración del entorno](quickstart-create-private-cloud.md)
-* Más información sobre el [servicio CloudSimple](https://docs.azure.cloudsimple.com/cloudsimple-service)
+* Más información sobre el [servicio CloudSimple](https://docs.microsoft.com/azure/vmware-cloudsimple/cloudsimple-service)

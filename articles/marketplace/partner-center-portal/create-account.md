@@ -6,17 +6,17 @@ ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: guide
-ms.date: 03/10/2020
-ms.openlocfilehash: 82caf46905c0b76deae524d8b172d70b436361d0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.openlocfilehash: 1bd71a4fb150d544125703679cf0fa0b8951e1eb
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281364"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684136"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Creación de una cuenta de Marketplace comercial en el Centro de partners
 
-Para poder publicar ofertas en [Azure Marketplace](https://azuremarketplace.microsoft.com/) o [AppSource](https://appsource.microsoft.com/), tendrá que crear una cuenta en el programa Marketplace comercial en el Centro de partners. En este artículo, explicaremos cómo crear una cuenta del Centro de partners y cómo agregar nuevos publicadores al programa Marketplace comercial.
+Para poder publicar ofertas en [Azure Marketplace](https://azuremarketplace.microsoft.com/) o [Microsoft AppSource](https://appsource.microsoft.com/), tendrá que crear una cuenta en el programa Marketplace comercial en el Centro de partners. En este artículo, explicaremos cómo crear una cuenta del Centro de partners y cómo agregar nuevos publicadores al programa Marketplace comercial.
 
 >[!IMPORTANT]
 >Si tiene una cuenta en [Cloud Partner Portal (CPP)](https://cloudpartner.azure.com) que se ha trasladado al Centro de partners, no es necesario que cree una cuenta. Consulte [Publicadores que se trasladan desde CPP](#publishers-moving-from-cpp) para obtener más información.
@@ -75,7 +75,7 @@ Una vez que haya confirmado la información del perfil de publicador, acepte los
 
 Una vez inscrito, se le dirige a la página de introducción a Marketplace comercial. **Marketplace comercial** se muestra en la barra de navegación izquierda. Si selecciona **Configuración** > **Configuración de partners** > **Programas**, verá que Marketplace comercial aparece como registrado.
 
-Gracias por crear una cuenta de Marketplace comercial en el Centro de partners. Para obtener ayuda, consulte [Información general de Marketplace comercial](./commercial-marketplace-overview.md). Para obtener ayuda con la incorporación de publicadores, consulte [Incorporación de nuevos publicadores al programa Marketplace comercial](#add-new-publishers-to-the-commercial-marketplace-program).
+Gracias por crear una cuenta de Marketplace comercial en el Centro de partners. Para obtener ayuda, consulte [Información general de Marketplace comercial](./commercial-marketplace-overview.md). Para obtener ayuda con la incorporación de publicadores, consulte [Incorporación de nuevos publicadores a Marketplace comercial](#add-new-publishers-to-the-commercial-marketplace-program).
 
 ## <a name="create-an-account-using-existing-microsoft-partner-center-enrollments"></a>Creación de una cuenta mediante las inscripciones existentes del Centro de partners de Microsoft
 
@@ -100,7 +100,7 @@ Asegúrese de tener a mano la información de la cuenta.
 
 Si ya está inscrito en Microsoft Partner Network, use esta sección para crear su cuenta directamente desde el Centro de partners.
 
-Inicie sesión en el [Centro de partners](https://partner.microsoft.com/) con su cuenta de Microsoft Partner Network para vincular el dominio de cuenta de correo electrónico de trabajo de su empresa con la nueva cuenta del Centro de partners. Mediante la asociación de estas cuentas, los empleados de la empresa pueden iniciar sesión en el Centro de partners con los nombres de usuario y contraseñas de sus cuentas profesionales.
+Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) con su cuenta de Microsoft Partner Network para vincular el dominio de cuenta de correo electrónico de trabajo de su empresa con la nueva cuenta del Centro de partners. Mediante la asociación de estas cuentas, los empleados de la empresa pueden iniciar sesión en el Centro de partners con los nombres de usuario y contraseñas de sus cuentas profesionales.
 
 >[!NOTE]
 >Para comprobar si su compañía ya tiene una cuenta profesional del Centro de partners y obtener información sobre cómo crear una cuenta profesional o cómo configurar varias cuentas profesionales para usarlas con el Centro de partners, visite la [cuenta profesional de su empresa y el Centro de partners](./company-work-accounts.md).
@@ -119,7 +119,7 @@ Después de iniciar sesión, siga estos pasos para terminar de configurar su cue
 
 Una vez inscrito, se le dirige a la página de introducción a Marketplace comercial. **Marketplace comercial** se muestra en la barra de navegación izquierda. Si selecciona **Configuración** > **Configuración de partners** > **Programas**, verá que Marketplace comercial aparece como registrado.
 
-Le agradecemos que haya creado una cuenta en el Centro de partners. Para obtener ayuda, consulte [Información general de Marketplace comercial](./commercial-marketplace-overview.md). Para obtener ayuda con la incorporación de publicadores, consulte [Incorporación de nuevos publicadores al programa Marketplace comercial](#add-new-publishers-to-the-commercial-marketplace-program).
+Le agradecemos que haya creado una cuenta en el Centro de partners. Para obtener ayuda, consulte [Información general de Marketplace comercial](./commercial-marketplace-overview.md). Para obtener ayuda con la incorporación de publicadores, consulte [Incorporación de nuevos publicadores a Marketplace comercial](#add-new-publishers-to-the-commercial-marketplace-program).
 
 ### <a name="enrolled-in-a-developer-program"></a>Inscrito en un programa para desarrolladores
 
@@ -130,7 +130,7 @@ Si ya está inscrito en un programa para desarrolladores del Centro de partners,
 >
 >Las cuentas individuales son para desarrolladores que trabajan por su cuenta. Las cuentas de empresa son para organizaciones y negocios. Las cuentas de empresa proporcionan acceso al envío de aplicaciones con funcionalidad adicional. A las cuentas de empresa se les exige una comprobación mayor después de registrarse para confirmar que está autorizado a configurar la cuenta para su empresa. Esta comprobación puede tardar desde unos días hasta un par de semanas y, a menudo, incluye una llamada telefónica a su empresa. Ambos tipos de cuentas permiten enviar aplicaciones, complementos y servicios. Para más información, consulte  [Tipos de cuenta, ubicaciones y precios](https://docs.microsoft.com/windows/uwp/publish/account-types-locations-and-fees).
 
-Inicie sesión en el [Centro de partners](https://partner.microsoft.com/) con su cuenta del Centro de partners de Microsoft para inscribirse en el programa de Marketplace comercial con la misma cuenta. Al registrarse en Marketplace comercial con la misma cuenta, puede ver las inscripciones existentes en los programas y en Marketplace comercial en el menú de navegación izquierdo del Centro de partners.
+Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) con su cuenta del Centro de partners de Microsoft para inscribirse en el programa de Marketplace comercial con la misma cuenta. Al registrarse en Marketplace comercial con la misma cuenta, puede ver las inscripciones existentes en los programas y en Marketplace comercial en el menú de navegación izquierdo del Centro de partners.
 
 Después de iniciar sesión, use los siguientes pasos para terminar de configurar su cuenta:
 
@@ -143,7 +143,7 @@ Después de iniciar sesión, use los siguientes pasos para terminar de configura
 
 Una vez inscrito, se le dirige a la página de introducción a Marketplace comercial. **Marketplace comercial** se muestra en la barra de navegación izquierda. Si selecciona **Configuración** > **Opciones de desarrollador** > **Programas**, verá que Marketplace comercial aparece como registrado.
 
-Le agradecemos que haya creado una cuenta en el Centro de partners. Para obtener ayuda, consulte [Información general de Marketplace comercial](./commercial-marketplace-overview.md). Para obtener ayuda con la incorporación de publicadores, consulte [Incorporación de nuevos publicadores al programa Marketplace comercial](#add-new-publishers-to-the-commercial-marketplace-program).
+Le agradecemos que haya creado una cuenta en el Centro de partners. Para obtener ayuda, consulte [Información general de Marketplace comercial](./commercial-marketplace-overview.md). Para obtener ayuda con la incorporación de publicadores, consulte [Incorporación de nuevos publicadores a Marketplace comercial](#add-new-publishers-to-the-commercial-marketplace-program).
 
 ## <a name="publishers-moving-from-cpp"></a>Publicadores que se trasladan desde CPP
 
@@ -164,13 +164,13 @@ Una organización puede tener varios publicadores asociados con una cuenta de Ma
 
 Otro usuario del mismo inquilino de Azure Active Directory puede agregar un nuevo publicador con los pasos siguientes:
 
-1. Inicie el flujo de suscripción en el [Centro de partners de Microsoft](https://partner.microsoft.com/en-us/dashboard/account/v3/enrollment/introduction/azureisv).
+1. Inicie el flujo de suscripción en el [Centro de partners de Microsoft](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership).
 2. Seleccione **Sign in with a work account** (Iniciar sesión con una cuenta profesional) y escriba su dirección de correo electrónico profesional.
 3. Seleccione el botón **Agregar publicador**.
 4. Elija el identificador de MPN que quiere asociar al publicador.
 5. Actualice los **detalles del publicador** en el formulario.
 
-   1. **Nombre de publicador**: nombre que se mostrará en Azure Marketplace o AppSource con la oferta.
+   1. **Nombre de publicador**: nombre que se mostrará en Marketplace comercial con la oferta.
    1. **PublisherID**: identificador que usa el Centro de partners para identificar de forma única el publicador. El valor predeterminado de este campo se asigna a un `PublisherID` existente y único en el sistema, que no se puede volver a usar, por lo que es necesario actualizar este campo.
    1. **Información de contacto**: actualice la información de contacto cuando sea necesario.
 

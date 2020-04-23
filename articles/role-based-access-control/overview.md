@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/19/2020
+ms.date: 04/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 6e3313e3ae201d0b730d8582fed9659d89f0d0c1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 4a1db200b88d0eabde967961d956cdd2854e828d
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80063054"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686488"
 ---
 # <a name="what-is-role-based-access-control-rbac-for-azure-resources"></a>¿Qué es el control de acceso basado en rol (RBAC) para los recursos de Azure?
 
@@ -35,14 +35,6 @@ Estos son algunos ejemplos de lo que puede hacer con RBAC:
 - Permitir que un grupo de DBA administre bases de datos SQL en una suscripción
 - Permitir que un usuario administre todos los recursos de un grupo de recursos, como las máquinas virtuales, los sitios web y las subredes
 - Permitir que una aplicación acceda a todos los recursos de un grupo de recursos
-
-## <a name="best-practice-for-using-rbac"></a>Procedimiento recomendado para el uso de RBAC
-
-También podrá repartir las tareas entre el equipo y conceder a los usuarios únicamente el nivel de acceso que necesitan para realizar su trabajo. En lugar de proporcionar a todos los empleados permisos no restringidos en los recursos o la suscripción de Azure, puede permitir solo determinadas acciones en un ámbito concreto.
-
-Al planear la estrategia de control de acceso, es recomendable conceder a los usuarios el privilegio mínimo para que realicen su trabajo. El siguiente diagrama muestra un patrón sugerido para la asignación de RBAC.
-
-![RBAC y privilegios mínimos](./media/overview/rbac-least-privilege.png)
 
 ## <a name="how-rbac-works"></a>Funcionamiento de RBAC
 
@@ -139,4 +131,4 @@ Los siguientes son los pasos de alto nivel que RBAC usa para determinar si tiene
 - [Inicio rápido: Visualización del acceso de un usuario a los recursos de Azure mediante Azure Portal](check-access.md)
 - [Administración del acceso a los recursos de Azure mediante RBAC y Azure Portal](role-assignments-portal.md)
 - [Descripción de los distintos roles en Azure](rbac-and-directory-admin-roles.md)
-- [Adopción de la nube empresarial: Administración del acceso a recursos de Azure](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)
+- [Plataforma de adopción de la nube: Administración del acceso a recursos de Azure](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)

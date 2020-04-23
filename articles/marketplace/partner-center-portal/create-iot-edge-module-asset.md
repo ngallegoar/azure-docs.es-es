@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: e83c70424c131e5324192b07e65321d63bf06e2e
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: 2c0cd47acbd4639ff5eff2af78dcebdfc26270a7
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80674867"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81730695"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>Preparar los recursos técnicos del módulo IoT Edge
 
@@ -25,8 +25,8 @@ En este artículo se describen los requisitos que deben cumplir los recursos té
 
 Un módulo IoT Edge es un contenedor compatible con Docker que se ejecuta en un dispositivo IoT Edge.
 
-- Para obtener más información sobre los módulos de IoT Edge, vea [Información sobre los módulos de Azure IoT Edge](https://aka.ms/UnderstandAzureIoTEdgemodules).
-- Para empezar a trabajar en el desarrollo del módulo IoT Edge, consulte [Desarrollar sus propios módulos de IoT Edge](https://aka.ms/DevelopyourownIoTEdgemodules).
+- Para obtener más información sobre los módulos de IoT Edge, vea [Información sobre los módulos de Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/iot-edge-modules).
+- Para empezar a trabajar en el desarrollo del módulo IoT Edge, consulte [Desarrollar sus propios módulos de IoT Edge](https://docs.microsoft.com/azure/iot-edge/module-development).
 
 ## <a name="technical-requirements"></a>Requisitos técnicos
 
@@ -38,15 +38,15 @@ El módulo IoT Edge debe admitir una de las siguientes opciones de plataforma:
 
 #### <a name="tier-1-platforms-supported-by-iot-edge"></a>Plataformas de nivel 1 compatibles con IoT Edge
 
-El módulo debe admitir todas las plataformas de nivel 1 compatibles con IoT Edge (según el registro de [Compatibilidad de Azure IoT Edge](https://aka.ms/AzureIoTEdgesupport)). Se recomienda esta opción porque proporciona una mejor experiencia de cliente. Se presentarán los módulos que cumplan este criterio. Un módulo que use esta opción de plataforma debe:
+El módulo debe admitir todas las plataformas de nivel 1 compatibles con IoT Edge (según el registro de [Compatibilidad de Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/support)). Se recomienda esta opción porque proporciona una mejor experiencia de cliente. Se presentarán los módulos que cumplan este criterio. Un módulo que use esta opción de plataforma debe:
 
-- Proporcionar una etiqueta más reciente y una etiqueta de versión (por ejemplo, 1.0.1) que sean etiquetas de manifiesto compiladas con la [herramienta de manifiestos de GitHub](https://aka.ms/GitHubmanifest-tool).
+- Proporcionar una etiqueta más reciente y una etiqueta de versión (por ejemplo, 1.0.1) que sean etiquetas de manifiesto compiladas con la [herramienta de manifiestos de GitHub](https://github.com/estesp/manifest-tool).
 
-- Use la pestaña Descripción de la oferta del [Centro de partners](https://partner.microsoft.com/dashboard/commercial-marketplace) para agregar un vínculo en la sección **Vínculos útiles** al [catálogo de dispositivos certificados Azure IoT Edge](https://catalog.azureiotsolutions.com/). Puede usar el vínculo de redireccionamiento https://aka.ms/iot-edge-certified que se resuelve como el [catálogo de dispositivos de Azure IoT Edge](https://catalog.azureiotsolutions.com/).
+- Use la pestaña Descripción de la oferta del [Centro de partners](https://partner.microsoft.com/dashboard/commercial-marketplace) para agregar un vínculo en la sección **Vínculos útiles** al [catálogo de dispositivos certificados Azure IoT Edge](https://catalog.azureiotsolutions.com/alldevices?filters={%2218%22:[%221%22]}/).
 
 #### <a name="a-subset-of-tier-1-platforms-supported-by-iot-edge"></a>Un subconjunto de plataformas de nivel 1 compatibles con IoT Edge
 
-El módulo debe admitir un subconjunto (al menos uno) de plataformas de nivel 1 compatibles con IoT Edge (según el registro de [Compatibilidad de Azure IoT Edge](https://aka.ms/AzureIoTEdgesupport)). Un módulo que use esta opción de plataforma debe:
+El módulo debe admitir un subconjunto (al menos uno) de plataformas de nivel 1 compatibles con IoT Edge (según el registro de [Compatibilidad de Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/support)). Un módulo que use esta opción de plataforma debe:
 
 - Proporcionar una etiqueta más reciente y una etiqueta de versión (por ejemplo, 1.0.1) que sean etiquetas de manifiesto compiladas con la [herramienta de manifiestos](https://github.com/estesp/manifest-tool) de GitHub, si hay más de una plataforma compatible. Las etiquetas de manifiesto son opcionales solo cuando hay una plataforma compatible.
 - Use la pestaña Descripción de la oferta del [Centro de partners](https://partner.microsoft.com/dashboard/commercial-marketplace) para agregar un vínculo en la sección **Vínculos útiles** a al menos un dispositivo IoT Edge del [catálogo de dispositivos certificados Azure IoT Edge](https://catalog.azureiotsolutions.com/).
@@ -146,4 +146,4 @@ Para cargar el módulo IoT Edge en Azure Marketplace, primero debe hospedarlo en
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Creación de una oferta del módulo de IoT Edge](https://aka.ms/AzureCreateIoT)
+- [Creación de una oferta de módulo de IoT Edge](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation)

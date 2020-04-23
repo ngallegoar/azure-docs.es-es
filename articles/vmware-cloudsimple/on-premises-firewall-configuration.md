@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: df4c51953c6f50e30ba61b993cdb35856fcb8e25
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 539665c4756a7dc87078922421b45a88404f58f1
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77082975"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868142"
 ---
 # <a name="accessing-your-cloudsimple-private-cloud-environment-and-applications-from-on-premises"></a>Acceso al entorno y las aplicaciones de la nube privada de CloudSimple desde el entorno local
 
@@ -35,7 +35,7 @@ Para acceder al vCenter de la nube privada y al administrador de NSX-T, los puer
 
 ## <a name="ports-required-for-using-on-premises-active-directory-as-an-identity-source"></a>Puertos necesarios para usar Active Directory local como origen de identidades
 
-Para configurar Active Directory local como un origen de identidades en vCenter de la nube privada, los puertos definidos en la tabla deben estar abiertos.  Para ver los pasos de configuración, consulte el artículo sobre el [uso de Azure AD como proveedor de identidades para vCenter en la nube privada de CloudSimple](https://docs.azure.cloudsimple.com/azure-ad/).
+Para configurar Active Directory local como un origen de identidades en vCenter de la nube privada, los puertos definidos en la tabla deben estar abiertos.  Para ver los pasos de configuración, consulte el artículo sobre el [uso de Azure AD como proveedor de identidades para vCenter en la nube privada de CloudSimple](https://docs.microsoft.com/azure/vmware-cloudsimple/azure-ad/).
 
 | Port         | Source                           | Destination                                         | Propósito                                                                                                                                          |
 |--------------|----------------------------------|-----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -60,6 +60,6 @@ El acceso a las máquinas virtuales de carga de trabajo que se ejecutan en la nu
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Creación y administración de VLAN y subredes](https://docs.azure.cloudsimple.com/create-vlan-subnet/)
-* [Conexión a la red local mediante Azure ExpressRoute](https://docs.azure.cloudsimple.com/on-premises-connection/)
-* [Configurar una VPN de sitio a sitio desde un entorno local](https://docs.azure.cloudsimple.com/vpn-gateway/)
+* [Creación y administración de VLAN y subredes](https://docs.microsoft.com/azure/vmware-cloudsimple/create-vlan-subnet/)
+* [Conexión a la red local mediante Azure ExpressRoute](https://docs.microsoft.com/azure/vmware-cloudsimple/on-premises-connection/)
+* [Configurar una VPN de sitio a sitio desde un entorno local](https://docs.microsoft.com/azure/vmware-cloudsimple/vpn-gateway/)

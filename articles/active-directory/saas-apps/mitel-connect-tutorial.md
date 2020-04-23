@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/03/2019
 ms.author: jeedes
-ms.openlocfilehash: 30a4dcbd15d8a47d99b3a61879a7e61938d3b133
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 26a761708f56ff7aba8daf86d2991579e60291cb
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73160537"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870206"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mitel-micloud-connect"></a>Tutorial: Integración de Azure Active Directory con Mitel MiCloud Connect
 
@@ -202,7 +202,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 En esta sección, creará un usuario llamado Britta Simon en su cuenta de MiCloud Connect. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
-Para obtener más información sobre cómo agregar usuarios en el portal de Mitel Account, consulte el artículo [Adding a user](https://docs.shoretel.com/connectcloud/Account/Users/AddUser) (Adición de un usuario en la base de conocimientos de Mitel).
+Para obtener más información sobre cómo agregar usuarios en el portal de Mitel Account, consulte el artículo [Adding a user](https://oneview.mitel.com/s/article/Adding-a-User-092815) (Adición de un usuario en la base de conocimientos de Mitel).
 
 Cree un usuario en su cuenta de MiCloud Connect con los detalles siguientes:
 

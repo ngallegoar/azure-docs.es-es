@@ -1,17 +1,17 @@
 ---
 title: 'Planes de tarifa: Azure Database for MySQL'
 description: Obtenga información sobre los distintos planes de tarifa para Azure Database for MySQL, incluidas las generaciones de procesos, los tipos de almacenamiento, el tamaño de almacenamiento, los núcleos virtuales, la memoria y los períodos de retención de copias de seguridad.
-author: jan-eng
-ms.author: janeng
+author: jasonwhowell
+ms.author: jasonh
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.openlocfilehash: cf959112a2a717da1005be062dda3b83163d8d6c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0123436eab2cdfa91066a2bd0652e16896ee838a
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79232692"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767855"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Planes de tarifa de Azure Database for MySQL
 

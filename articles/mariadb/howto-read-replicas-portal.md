@@ -5,19 +5,19 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 5c28697b27e9cf910302b7379e1443f7e78e96b8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 4/21/2020
+ms.openlocfilehash: 20d8e46d6fa6b031c809d629a6af41e8e682bcef
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79530621"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82025091"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-portal"></a>Procedimientos para crear y administrar réplicas de lectura en Azure Database for MariaDB mediante Azure Portal
 
 En este artículo, obtendrá información sobre cómo crear y administrar réplicas de lectura en el servicio Azure Database for MariaDB mediante Azure Portal.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Un [servidor de Azure Database for MariaDB](quickstart-create-mariadb-server-database-using-azure-portal.md) que se usará como servidor maestro.
 
@@ -45,9 +45,6 @@ Para crear un servidor de réplica de lectura, puede seguir estos siguientes pas
 6. Seleccione la ubicación del servidor de réplica. La ubicación predeterminada es la misma que la del servidor maestro.
 
     ![Azure Database for MariaDB: ubicación de la réplica](./media/howto-read-replica-portal/replica-location.png)
-
-   > [!NOTE]
-   > La replicación entre regiones está en versión preliminar. Para más información sobre las regiones en las que puede crear una réplica, consulte el [artículo sobre los conceptos de la réplica de lectura](concepts-read-replicas.md). 
 
 7. Seleccione **Aceptar** para confirmar la creación de la réplica.
 

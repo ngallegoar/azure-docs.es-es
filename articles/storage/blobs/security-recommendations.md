@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: 8dcefdfba3aba632e0592f0dea30c7e523ba81dc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0ceef2561d84a1fa491ab9577e1eac789b62bef7
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80061476"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81454635"
 ---
 # <a name="security-recommendations-for-blob-storage"></a>Recomendaciones de seguridad para Blob Storage
 
@@ -43,7 +43,7 @@ Azure Security Center analiza periódicamente el estado de seguridad de los recu
 | Usar Azure Active Directory (Azure AD) para autorizar el acceso a los datos de los blobs | Azure AD proporciona mayor seguridad y facilidad de uso que la clave compartida para autorizar solicitudes en Blob Storage. Para más información, consulte [Autenticación del acceso a blobs y colas de Azure con Azure Active Directory](../common/storage-auth-aad.md). | - |
 | Tener en cuenta la entidad de seguridad de menor privilegio al asignar permisos a una entidad de seguridad de Azure AD a través de RBAC | Al asignar un rol a un usuario, grupo o aplicación, conceda a esa entidad de seguridad exclusivamente los permisos necesarios para que pueda realizar sus tareas. La limitación del acceso a los recursos ayuda a prevenir el mal uso involuntario y malintencionado de los datos. | - |
 | Usar una SAS de delegación de usuario para conceder a los clientes acceso limitado a los datos de los blobs | Una SAS de delegación de usuarios está protegida con credenciales de Azure Active Directory (Azure AD) y también con los permisos especificados para la SAS. Una SAS de delegación de usuario tiene el mismo ámbito y función que una SAS de servicio, pero ofrece más seguridad. Para obtener más información, consulte [Otorgar acceso limitado a recursos de Azure Storage con firmas de acceso compartido (SAS)](../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). | - |
-| Proteger las claves de acceso de su cuenta con Azure Key Vault | Microsoft recomienda usar Azure AD para autorizar las solicitudes que se realicen a Azure Storage. Sin embargo, si debe usar la autorización de clave compartida, proteja sus claves de cuenta con Azure Key Vault. Estas claves se pueden recuperar del almacén de claves en tiempo de ejecución, en lugar de guardarlas con la aplicación. Para más información sobre Azure Key Vault, consulte [Introducción a Azure Key Vault](../../key-vault/key-vault-overview.md). | - |
+| Proteger las claves de acceso de su cuenta con Azure Key Vault | Microsoft recomienda usar Azure AD para autorizar las solicitudes que se realicen a Azure Storage. Sin embargo, si debe usar la autorización de clave compartida, proteja sus claves de cuenta con Azure Key Vault. Estas claves se pueden recuperar del almacén de claves en tiempo de ejecución, en lugar de guardarlas con la aplicación. Para más información sobre Azure Key Vault, consulte [Introducción a Azure Key Vault](../../key-vault/general/overview.md). | - |
 | Volver a generar las claves de cuenta periódicamente | El cambio periódico de las claves de una cuenta reduce el riesgo de exponer los datos a actores malintencionados. | - |
 | Tener en cuenta la entidad de seguridad de menor privilegio al asignar permisos a una SAS | Al crear una SAS, especifique solo aquellos permisos que el cliente requiera para realizar su función. La limitación del acceso a los recursos ayuda a prevenir el mal uso involuntario y malintencionado de los datos. | - |
 | Tener en vigor un plan de revocación para cualquier SAS que emita a los clientes | Si alguna SAS corre peligro, seguro que deseará poder revocarla lo antes posible. Para revocar una SAS de delegación de usuario, revoque la clave de delegación de usuario para invalidar rápidamente todas las firmas asociadas con ella. Para revocar una SAS de servicio asociada a una directiva de acceso almacenado, puede eliminar esta, cambiar el nombre de la directiva, o bien cambiar su tiempo de vencimiento a un tiempo pasado. Para obtener más información, consulte [Otorgar acceso limitado a recursos de Azure Storage con firmas de acceso compartido (SAS)](../common/storage-sas-overview.md).  | - |

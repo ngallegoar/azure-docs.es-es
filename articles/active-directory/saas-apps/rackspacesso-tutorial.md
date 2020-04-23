@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 31826f5d4d88c977f859a009bface2fddf3a1c88
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 98a160b361e316c87e61855825c2cc36fdbb06d1
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67093198"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870296"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rackspace-sso"></a>Tutorial: integración de Azure Active Directory con Rackspace SSO
 
@@ -187,7 +187,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 ### <a name="set-up-attribute-mapping-in-the-rackspace-control-panel"></a>Configuración de la asignación de atributos en el panel de control de Rackspace
 
-Rackspace usa una **directiva de asignación de atributos** para asignar roles y grupos de Rackspace a los usuarios de inicio de sesión único. La **directiva de asignación de atributos** convierte las notificaciones SAML de Azure AD en los campos de la configuración de usuario que Rackspace requiere. Se puede encontrar más información en la [documentación de los conceptos básicos de la asignación de atributos](https://developer.rackspace.com/docs/rackspace-federation/attribmapping-basics/) de Rackspace. Algunas consideraciones:
+Rackspace usa una **directiva de asignación de atributos** para asignar roles y grupos de Rackspace a los usuarios de inicio de sesión único. La **directiva de asignación de atributos** convierte las notificaciones SAML de Azure AD en los campos de la configuración de usuario que Rackspace requiere. Se puede encontrar más información en la [documentación de los conceptos básicos de la asignación de atributos](https://developer.rackspace.com/docs/rackspace-federation/appendix/map/) de Rackspace. Algunas consideraciones:
 
 * Si desea asignar distintos niveles de acceso a Rackspace mediante grupos de Azure AD, deberá habilitar la notificación de grupos en la configuración del inicio de sesión único de **Rackspace SSO** en Azure. La **directiva de asignación de atributos** se usará para que coincidan esos grupos con los roles y grupos de Rackspace deseados:
 
@@ -226,7 +226,7 @@ mapping:
 > [!TIP]
 > Asegúrese de que utiliza un editor de texto que valide la sintaxis de YAML al editar el archivo de directiva.
 
-Para ver más ejemplos, consulte la [documentación de los documentación de los conceptos básicos de la asignación de atributos](https://developer.rackspace.com/docs/rackspace-federation/attribmapping-basics/) de Rackspace.
+Para ver más ejemplos, consulte la [documentación de los documentación de los conceptos básicos de la asignación de atributos](https://developer.rackspace.com/docs/rackspace-federation/appendix/map/) de Rackspace.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 

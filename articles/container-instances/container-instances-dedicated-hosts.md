@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 01/17/2020
 author: dkkapur
 ms.author: dekapur
-ms.openlocfilehash: adad0ddfc78530b3a3a7c139d9a95ec4790c8053
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a614d6b5d0cf5c6c1df5ffcb90e56960d6b8a2a9
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76934144"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82025040"
 ---
 # <a name="deploy-on-dedicated-hosts"></a>Implementación en hosts dedicados
 
@@ -37,7 +37,7 @@ La propiedad `sku` admite cualquiera de los siguientes valores:
 ## <a name="modify-your-json-deployment-template"></a>Modificar la plantilla de implementación JSON
 
 En la plantilla de implementación, modifique o agregue las siguientes propiedades:
-* En `resources`, establezca `apiVersion` en `2012-12-01`.
+* En `resources`, establezca `apiVersion` en `2019-12-01`.
 * En las propiedades del grupo de contenedores, agregue una propiedad `sku` con el valor `Dedicated`.
 
 Este es un fragmento de ejemplo para la sección de recursos de una plantilla de implementación de grupo de contenedores que usa la SKU dedicada:

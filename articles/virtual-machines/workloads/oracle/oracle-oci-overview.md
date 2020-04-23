@@ -3,7 +3,7 @@ title: Integración de Microsoft Azure con Oracle Cloud Infrastructure | Microso
 description: Obtenga información acerca de las soluciones que integran las aplicaciones de Oracle que se ejecutan en Microsoft Azure con bases de datos de Oracle Cloud Infrastructure (OCI).
 services: virtual-machines-linux
 documentationcenter: ''
-author: romitgirdhar
+author: BorisB2015
 manager: gwallace
 tags: ''
 ms.assetid: ''
@@ -11,30 +11,30 @@ ms.service: virtual-machines
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/04/2019
-ms.author: rogirdh
+ms.date: 03/16/2020
+ms.author: borisb
 ms.custom: ''
-ms.openlocfilehash: e1249913300be532cc6514f1478bbc6f4183c001
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e70eedcfcdf548965b79e4a48a3a8bfa643f0396
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78300560"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687428"
 ---
-# <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure-preview"></a>Soluciones de aplicaciones de Oracle que integran Microsoft Azure y Oracle Cloud Infrastructure (versión preliminar)
+# <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure"></a>Soluciones de aplicaciones de Oracle que integran Microsoft Azure y Oracle Cloud Infrastructure
 
 Microsoft y Oracle se han asociado para proporcionar baja latencia y conectividad de alto rendimiento entre nubes, lo que permite sacar provecho de lo mejor de ambas nubes. 
 
 Mediante esta conectividad entre nubes, puede particionar una aplicación de niveles múltiples para que ejecute su nivel de base de datos en Oracle Cloud Infrastructure (OCI) y la aplicación y los restantes niveles en Microsoft Azure. La experiencia es similar a ejecutar la pila de toda la solución en una nube individual. 
-
-> [!IMPORTANT]
-> Esta funcionalidad está actualmente en versión preliminar y se [aplican limitaciones](#region-availability). Para establecer la conectividad de baja latencia entre Azure y OCI, primero se debe habilitar su suscripción de Azure para esta funcionalidad. Debe inscribirse en la vista previa completando este breve [formulario de encuesta](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyzVVsi364tClw522rL9tkpUMVFGVVFWRlhMNUlRQTVWSTEzT0dXMlRUTyQlQCN0PWcu). Recibirá un correo electrónico una vez inscrita la suscripción. No puede usar la funcionalidad hasta que reciba un correo electrónico de confirmación. También puede contactar con su representante de ventas de Microsoft para que le tengan en cuenta para esta versión preliminar. El acceso a la capacidad de vista previa está sujeto a disponibilidad y está restringido por Microsoft según su exclusivo criterio. La finalización de la encuesta no garantiza el acceso. Esta versión preliminar se proporciona sin un contrato de nivel de servicio y no debe usarse para cargas de trabajo de producción. Puede que algunas características no se admitan, que tengan funcionalidades limitadas o que no estén disponibles en todas las ubicaciones de Azure. Para más información, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Es posible que algunos de los aspectos de esta característica cambien antes de ofrecer disponibilidad general.
 
 Si está interesado en implementar soluciones de Oracle por completo en la infraestructura de Azure, consulte [Imágenes de máquina virtual de Oracle y su implementación en Microsoft Azure](oracle-vm-solutions.md).
 
 ## <a name="scenario-overview"></a>Información general de escenario
 
 La conectividad entre nubes proporciona una solución para ejecutar no solo las aplicaciones líderes del sector de Oracle, sino también sus propias aplicaciones personalizadas, en máquinas virtuales de Azure y disfrutar de las ventajas de servicios de base de datos hospedada en OCI. 
+
+> [!IMPORTANT]
+> Oracle certificará estas aplicaciones para que se ejecuten en Azure cuando se use la solución de interconexión en la nube de Azure/Oracle hasta mayo de 2020.
 
 Entre las aplicaciones que se pueden ejecutar en una configuración entre nubes se incluyen:
 
@@ -55,6 +55,7 @@ La conectividad entre nubes está limitada a las siguientes regiones:
 * Sur de Reino Unido de Azure (uksouth) y OCI London (Sur de Reino Unido)
 * Centro de Canadá de Azure (canadacentral) y OCI Toronto (Sudeste de Canadá)
 * Oeste de Europa de Azure (westeurope) y OCI Amsterdam (Noroeste de Países Bajos)
+* Japón Oriental de Azure (japaneast) y OCI Tokio (Este de Japón)
 
 ## <a name="networking"></a>Redes
 

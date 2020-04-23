@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 620c0226d3aca907352658ebbe1b94c7673d91cd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 13496a18f4c99b69a5b8095caf5b74a04d1bba88
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77014834"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869298"
 ---
 # <a name="manage-private-cloud-resources-and-activity"></a>Administrar la actividad y los recursos de la nube privada
 
@@ -37,13 +37,13 @@ Seleccione una nube privada para acciones e información adicionales.
 
 ## <a name="private-cloud-summary"></a>Resumen de nube privada
 
-Vea un resumen completo de la nube privada seleccionada.  La página Resumen incluye los servidores DNS que se han implementado en la nube privada.  Puede configurar el reenvío DNS desde los servidores DNS locales hacia los servidores DNS de la nube privada.  Para más información sobre el reenvío de DNS, consulte [Configure DNS for name resolution for Private Cloud vCenter from on-premises](https://docs.azure.cloudsimple.com/on-premises-dns-setup/) (Configurar DNS para la resolución de nombres para la nube privada de vCenter local).
+Vea un resumen completo de la nube privada seleccionada.  La página Resumen incluye los servidores DNS que se han implementado en la nube privada.  Puede configurar el reenvío DNS desde los servidores DNS locales hacia los servidores DNS de la nube privada.  Para más información sobre el reenvío de DNS, consulte [Configure DNS for name resolution for Private Cloud vCenter from on-premises](https://docs.microsoft.com/azure/vmware-cloudsimple/on-premises-dns-setup/) (Configurar DNS para la resolución de nombres para la nube privada de vCenter local).
 
 ![Resumen de nube privada](media/private-cloud-summary.png)
 
 ### <a name="available-actions"></a>Acciones disponibles
 
-* [Inicie el cliente de vSphere](https://docs.azure.cloudsimple.com/vsphere-access/). Acceda a vCenter para esta nube privada.
+* [Inicie el cliente de vSphere](https://docs.microsoft.com/azure/vmware-cloudsimple/vcenter-access). Acceda a vCenter para esta nube privada.
 * [Compre nodos](create-nodes.md). Agregue nodos a esta nube privada.
 * [Expanda](expand-private-cloud.md). Agregue nodos a esta nube privada.
 * **Actualice**. Actualice la información de esta página.
@@ -58,10 +58,10 @@ Vea la lista de VLAN y subredes definidas para la nube privada seleccionada.  En
 
 ### <a name="available-actions"></a>Acciones disponibles
 
-* [Agregue las VLAN y subredes](https://docs.azure.cloudsimple.com/create-vlan-subnet/). Agregue una VLAN o subconjunto a esta nube privada.
+* [Agregue las VLAN y subredes](https://docs.microsoft.com/azure/vmware-cloudsimple/create-vlan-subnet/). Agregue una VLAN o subconjunto a esta nube privada.
 
 Seleccione una VLAN o subred para las acciones siguientes:
-* [Adjuntar una tabla de firewall](https://docs.azure.cloudsimple.com/firewall/). Adjunte una tabla de firewall a esta nube privada.
+* [Adjuntar una tabla de firewall](https://docs.microsoft.com/azure/vmware-cloudsimple/firewall/). Adjunte una tabla de firewall a esta nube privada.
 * **Edición**
 * **Eliminar** (solo VLAN y subredes definidas por el usuario)
 

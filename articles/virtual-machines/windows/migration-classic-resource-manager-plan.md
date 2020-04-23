@@ -1,30 +1,24 @@
 ---
 title: Planificación de la migración del modelo clásico a Azure Resource Manager
 description: Planificación de la migración de recursos de IaaS del modelo clásico a Azure Resource Manager
-services: virtual-machines-windows
-documentationcenter: ''
 author: tanmaygore
 manager: vashan
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 78492a2c-2694-4023-a7b8-c97d3708dcb7
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 62cc33b9cfe1a0dc96f0a6a771b753ff48bfb9f4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 10ae2e1a85d5250e4da836c6f57e3619befd9330
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77919556"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81865926"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planificación de la migración de recursos de IaaS del modelo clásico a Azure Resource Manager
 
 > [!IMPORTANT]
-> En la actualidad, aproximadamente el 90 % de las VM de IaaS usan [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). A partir del 28 de febrero de 2020, las máquinas virtuales clásicas han quedado en desuso y se van a retirar por completo el 1 de marzo de 2023. [Obtenga más información]( https://aka.ms/classicvmretirement) sobre esta caída en desuso y [cómo se verá afectado](https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation#how-does-this-affect-me).
+> En la actualidad, aproximadamente el 90 % de las VM de IaaS usan [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). A partir del 28 de febrero de 2020, las máquinas virtuales clásicas han quedado en desuso y se van a retirar por completo el 1 de marzo de 2023. [Obtenga más información]( https://aka.ms/classicvmretirement) sobre esta caída en desuso y [cómo se va a ver afectado](https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation#how-does-this-affect-me).
 
 Aunque Azure Resource Manager ofrece muchas características increíbles, es fundamental planear la trayectoria de migración para asegurarse de que el proceso se desarrolla con facilidad. Dedicar tiempo a la planificación garantizará que no se planteen problemas al ejecutar las actividades de migración.
 
@@ -88,7 +82,7 @@ Los clientes de éxito disponen de planes detallados en los que se abordan, docu
 
 A continuación se indican problemas detectados en muchas de las migraciones más grandes. No se trata de una lista exhaustiva, por lo que debe remitirse a [Configuraciones y características no admitidas](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#unsupported-features-and-configurations) para más detalles.  Puede encontrarse o no con estos problemas técnicos, pero, de plantearse, podrá tener una experiencia más fluida si los soluciona antes de intentar realizar la migración.
 
-- **Realice un simulacro de validación, preparación y anulación**: se trata quizás del paso más importante para asegurarse de que la migración del modelo clásico a Azure Resource Manager se realiza correctamente. La API de migración consta de tres pasos principales: validación, preparación y confirmación. Con la validación se leerá el estado del entorno clásico y se devolverá un resultado de todos los problemas. Sin embargo, como algunos problemas pueden existir en la pila de Azure Resource Manager, la validación puede no detectarlo todo. En el paso siguiente del proceso de migración, la preparación ayudará a exponer los problemas detectados. Con la preparación, todos los metadatos se moverán del modelo clásico a Azure Resource Manager, pero no se confirmará la migración ni se eliminará ni modificará nada del modelo clásico. El simulacro conlleva preparar la migración y después anular (**no confirmar**) la preparación de la migración. El objetivo del simulacro de validación, preparación y anulación es que todos los metadatos se encuentren en la pila de Azure Resource Manager, para después examinarlos (*mediante programación o en el portal*) y verificar que todo se ha migrado correctamente, pero también con el propósito de abordar los problemas técnicos.  También le permitirá hacerse una idea de la duración de la migración, a fin de que pueda planear el tiempo de inactividad.  Un simulacro de validación, preparación y anulación no causa ningún tiempo de inactividad al usuario, por lo que no produce ninguna interrupción del uso de la aplicación.
+- **Realice un simulacro de validación, preparación y anulación**: se trata quizás del paso más importante para asegurarse de que la migración del modelo clásico a Azure Resource Manager se realiza correctamente. La API de migración se compone de tres pasos principales: validación, preparación y confirmación. Con la validación se leerá el estado del entorno clásico y se devolverá un resultado de todos los problemas. Sin embargo, como algunos problemas pueden existir en la pila de Azure Resource Manager, la validación puede no detectarlo todo. En el paso siguiente del proceso de migración, la preparación ayudará a exponer los problemas detectados. Con la preparación, todos los metadatos se moverán del modelo clásico a Azure Resource Manager, pero no se confirmará la migración ni se eliminará ni modificará nada del modelo clásico. El simulacro conlleva preparar la migración y después anular (**no confirmar**) la preparación de la migración. El objetivo del simulacro de validación, preparación y anulación es que todos los metadatos se encuentren en la pila de Azure Resource Manager, para después examinarlos (*mediante programación o en el portal*) y verificar que todo se ha migrado correctamente, pero también con el propósito de abordar los problemas técnicos.  También le permitirá hacerse una idea de la duración de la migración, a fin de que pueda planear el tiempo de inactividad.  Un simulacro de validación, preparación y anulación no causa ningún tiempo de inactividad al usuario, por lo que no produce ninguna interrupción del uso de la aplicación.
   - Será necesario solucionar los puntos siguientes antes del simulacro, aunque, en caso de omitirlos, la prueba de simulacro eliminará con seguridad estos pasos de preparación. Durante la migración empresarial, se ha observado que el simulacro es una forma segura e inestimable de garantizar la preparación de la migración.
   - Cuando la preparación se encuentra en ejecución, el plano de control (operaciones de administración de Azure) se bloquearán en toda la red virtual, por lo que no se puede realizar ninguna modificación en los metadatos de máquinas virtuales durante el proceso de validación, preparación y anulación.  No obstante, en caso contrario, ninguna función de la aplicación (Escritorio remoto, uso de máquina virtual, etc.) se verá afectada.  Los usuarios de las máquinas virtuales no sabrán que el simulacro está en ejecución.
 
