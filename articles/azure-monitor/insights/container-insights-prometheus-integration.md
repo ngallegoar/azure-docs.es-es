@@ -2,13 +2,13 @@
 title: Configurar la integración de Prometheus con Azure Monitor para contenedores | Microsoft Docs
 description: En este artículo se describe cómo puede configurar Azure Monitor para que el agente de contenedores extraiga métricas de Prometheus con el clúster de Kubernetes.
 ms.topic: conceptual
-ms.date: 01/13/2020
-ms.openlocfilehash: b774bf042778ca9118a7bc9f051655b200d87659
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/16/2020
+ms.openlocfilehash: 7fcf52cceb69834f68f8e4ce7a2674972a6430fd
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75931418"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537379"
 ---
 # <a name="configure-scraping-of-prometheus-metrics-with-azure-monitor-for-containers"></a>Configuración de la extracción de métricas de Prometheus con Azure Monitor para contenedores
 
@@ -22,7 +22,6 @@ ms.locfileid: "75931418"
 La recopilación de métricas de Prometheus es compatible con los clústeres de Kubernetes hospedados en:
 
 - Azure Kubernetes Service (AKS)
-- Azure Container Instances
 - Azure Stack o el entorno local
 - Red Hat OpenShift en Azure
 

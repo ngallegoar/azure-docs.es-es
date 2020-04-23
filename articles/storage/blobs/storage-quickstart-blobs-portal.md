@@ -7,20 +7,20 @@ author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.date: 12/04/2019
+ms.date: 04/16/2020
 ms.author: tamram
-ms.openlocfilehash: 3ceeb878121782ea3664e1ed62d5d632b606f08e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: a9a048801c6bea74e6b5318eeedf76f92709bee6
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80061393"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535183"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-with-the-azure-portal"></a>Guía de inicio rápido: Carga, descarga y enumeración de blobs con Azure Portal
+# <a name="quickstart-upload-download-and-list-blobs-with-the-azure-portal"></a>Inicio rápido: Carga, descarga y enumeración de blobs con Azure Portal
 
 En esta guía de inicio rápido, aprenderá a usar [Azure Portal](https://portal.azure.com/) para crear un contenedor en Azure Storage y para cargar y descargar los blobs en bloques en ese contenedor.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
@@ -39,27 +39,25 @@ Para crear un contenedor en Azure Portal, siga estos pasos:
 
 ## <a name="upload-a-block-blob"></a>Carga de un blob en bloques
 
-Los blobs en bloques se componen de bloques de datos que se ensamblan para formar un blob. En la mayoría de los escenarios en los que se usa Blog Storage se emplean blobs en bloques. Resultan ideales para almacenar datos de texto y binarios en la nube, como archivos, imágenes y vídeos. Esta guía de inicio rápido muestra cómo trabajar con blobs en bloques. 
+Los blobs en bloques se componen de bloques de datos que se ensamblan para formar un blob. En la mayoría de los escenarios en los que se usa Blog Storage se emplean blobs en bloques. Resultan ideales para almacenar datos de texto y binarios en la nube, como archivos, imágenes y vídeos. Esta guía de inicio rápido muestra cómo trabajar con blobs en bloques.
 
 Para cargar un blob en bloques en el nuevo contenedor en Azure Portal, siga estos pasos:
 
 1. En Azure Portal, vaya al contenedor que creó en la sección anterior.
-2. Seleccione el contenedor para mostrar una lista de los blobs que contiene. Como este contenedor es nuevo, aún no contiene ningún blob.
-3. Seleccione el botón **Cargar** para abrir la hoja Cargar.
-4. Examine el sistema de archivos local para buscar un archivo que cargar como un blob en bloques.
-     
+1. Seleccione el contenedor para mostrar una lista de los blobs que contiene. Este contenedor es nuevo, por lo que aún no contiene blobs.
+1. Seleccione el botón **Cargar** para abrir la hoja Cargar y examine el sistema de archivos local para buscar un archivo para cargarlo como un blob en bloques. Opcionalmente, puede expandir la sección de opciones avanzadas para configurar otros valores de la operación de carga.
+
     ![Captura de pantalla que muestra cómo cargar un blob desde la unidad local](media/storage-quickstart-blobs-portal/upload-blob.png)
 
-5. Opcionalmente, expanda la sección de opciones avanzadas para definir otra configuración, como el tipo de autenticación, el nivel de acceso o la ruta de acceso de la carpeta virtual.
-6. Seleccione el botón **Cargar** para confirmar la carga.
-7. Cargue tantos blobs como desee de esta manera. Verá que ahora aparecen los nuevos blobs dentro del contenedor.
+1. Seleccione botón **Upload** para cargar el blob.
+1. Cargue tantos blobs como desee de esta manera. Verá que ahora aparecen los nuevos blobs dentro del contenedor.
 
 ## <a name="download-a-block-blob"></a>Descarga de un blob en bloques
 
 Puede descargar un blob en bloques para mostrarlo en el explorador o guardarlo en el sistema de archivos local. Para descargar un blob en bloques, siga estos pasos:
 
-1. Vaya a la lista de blobs que cargó en la sección anterior. 
-2. Haga clic con el botón derecho en el blob que va a descargar y seleccione **Descargar**. 
+1. Vaya a la lista de blobs que cargó en la sección anterior.
+1. Haga clic con el botón derecho en el blob que va a descargar y seleccione **Descargar**.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -68,9 +66,9 @@ Para quitar los recursos creados en esta guía de inicio rápido, puede eliminar
 Para eliminar el contenedor:
 
 1. En Azure Portal, vaya a la lista de contenedores en la cuenta de almacenamiento.
-2. Seleccione el contenedor que desee eliminar.
-3. Seleccione el botón **Más** ( **...** ) y, después, **Eliminar**.
-4. Confirme que desea eliminar el contenedor.
+1. Seleccione el contenedor que desee eliminar.
+1. Seleccione el botón **Más** ( **...** ) y, después, **Eliminar**.
+1. Confirme que desea eliminar el contenedor.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -78,4 +76,3 @@ En esta guía de inicio rápido ha aprendido a transferir archivos entre un disc
 
 > [!div class="nextstepaction"]
 > [Procedimientos de las operaciones de Blob Storage](storage-dotnet-how-to-use-blobs.md)
-

@@ -1,213 +1,158 @@
 ---
 title: 'Creación de plantilla: Visual Studio Code'
 description: Use Visual Studio Code y la extensión de herramientas de Azure Resource Manager para trabajar con plantillas de Resource Manager.
-author: mumian
-ms.date: 03/04/2019
+author: neilpeterson
+ms.date: 04/17/2020
 ms.topic: quickstart
-ms.author: jgao
-ms.openlocfilehash: a0c80f18e9cd09b765804aaddbd178b4b3e32a9d
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.author: nepeters
+ms.openlocfilehash: cd107db5220a96d75092a94736e060ae46672926
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80984459"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686614"
 ---
-# <a name="quickstart-create-arm-templates-by-using-visual-studio-code"></a>Inicio rápido: Creación de plantillas de ARM mediante Visual Studio Code
+# <a name="quickstart-create-azure-resource-manager-templates-with-visual-studio-code"></a>Inicio rápido: Creación de plantillas de Azure Resource Manager con Visual Studio Code
 
-Obtenga información sobre cómo usar el código de Visual Studio y la extensión de herramientas de Azure Resource Manager para crear y modificar las plantillas de Azure Resource Manager. Puede crear plantillas de Azure Resource Manager en Visual Studio Code sin la extensión, pero la extensión proporciona opciones de autocompletar que simplifican el desarrollo de la plantilla. Para entender los conceptos asociados a la implementación y administración de sus soluciones de Azure, consulte la [introducción a la implementación de plantillas](overview.md).
+Las herramientas de Azure Resource Manager para Visual Studio Code proporcionan compatibilidad con lenguajes, fragmentos de código de los recursos y la finalización automática de los recursos. Además, ayudan a crear y validar plantillas de Azure Resource Manager. En este inicio rápido, usará la extensión para crear una plantilla de Azure Resource Manager desde cero. Al hacerlo, utilizará las funcionalidades de las extensiones, como los fragmentos de código de las plantillas de Resource Manager, la validación, las finalizaciones y la compatibilidad con archivos de parámetros.
 
-En este inicio rápido, implementará una cuenta de almacenamiento:
-
-![resource manager template quickstart visual studio code diagram](./media/quickstart-create-templates-use-visual-studio-code/resource-manager-template-quickstart-vscode-diagram.png)
+Para completar este inicio rápido, necesita [Visual Studio Code](https://code.visualstudio.com/) con la [extensión de herramientas de Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) instalada. También necesita la [CLI de Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) o el [módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.7.0) instalados y autenticados.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="create-an-arm-template"></a>Creación de una plantilla de Resource Manager
 
-Para completar este artículo, necesitará lo siguiente:
+Cree y abra con Visual Studio Code un archivo llamado *azuredeploy.json*. Escriba `arm` en el editor de código, lo cual inicia fragmentos de código de Azure Resource Manager para aplicar la técnica scaffolding a una plantilla de Resource Manager.
 
-- [Visual Studio Code](https://code.visualstudio.com/).
-- Extensión de herramientas de Resource Manager Para instalarla, siga estos pasos:
+Seleccione `arm!` para crear una plantilla limitada a la implementación de un grupo de recursos de Azure.
 
-    1. Abra Visual Studio Code.
-    2. Presione **CTRL + MAYÚS + X** para abrir el panel de extensiones.
-    3. Busque **Herramientas de Azure Resource Manager** y seleccione **Instalar**.
-    4. Seleccione **Recargar** para finalizar la instalación de la extensión.
+![Imagen que muestra la técnica scaffolding de Azure Resource Manager](./media/quickstart-create-templates-use-visual-studio-code/1.png)
 
-## <a name="open-a-quickstart-template"></a>Abra una plantilla de inicio rápido.
+Este fragmento de código crea los bloques de creación básicos para una plantilla de Resource Manager.
 
-En lugar de crear una plantilla desde cero, abra una plantilla en las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/). Plantillas de inicio rápido de Azure es un repositorio de plantillas de Azure Resource Manager.
+![Imagen en la que se muestra una plantilla de Resource Manager con scaffolding completo](./media/quickstart-create-templates-use-visual-studio-code/2.png)
 
-La plantilla usada en esta guía de inicio rápido se denomina [Crear una cuenta de almacenamiento estándar](https://azure.microsoft.com/resources/templates/101-storage-account-create/). La plantilla define un recurso de la cuenta de almacenamiento de Azure.
+Tenga en cuenta que el modo de lenguaje de Visual Studio Code ha cambiado de *JSON* a la *plantilla de Azure Resource Manager*. La extensión incluye un servidor de lenguaje específico para plantillas de Resource Manager que proporciona una validación específica para estas plantillas, finalización y otros servicios de lenguaje.
 
-1. En Visual Studio Code, seleccione **Archivo**>**Abrir archivo**.
-2. En **Nombre de archivo**, pegue el código URL siguiente:
+![Imagen que muestra Azure Resource Manager como el modo de lenguaje de Visual Studio Code](./media/quickstart-create-templates-use-visual-studio-code/3.png)
 
-    ```url
-    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
-    ```
+## <a name="add-an-azure-resource"></a>Incorporación de un recurso de Azure
 
-3. Seleccione **Abrir** para abrir el archivo.
-4. Seleccione **Archivo**>**Guardar como** para guardar el archivo como **azuredeploy.json** en el equipo local.
+La extensión incluye fragmentos de código para muchos recursos de Azure. Estos fragmentos se pueden usar para agregar fácilmente recursos a la implementación de la plantilla.
 
-## <a name="edit-the-template"></a>Edición de la plantilla
+Coloque el cursor en el bloque **resources** de la plantilla, escriba `storage` y seleccione el fragmento de código *arm-storage*.
 
-Para experimentar cómo se edita una plantilla mediante Visual Studio Code, agregue un elemento más a la sección `outputs` para mostrar el identificador URI.
+![Imagen que muestra cómo se agrega un recurso a la plantilla de Resource Manager](./media/quickstart-create-templates-use-visual-studio-code/4.png)
 
-1. Agregue una salida más a la plantilla exportada:
+Esta acción agrega un recurso de almacenamiento a la plantilla.
 
-    ```json
-    "storageUri": {
-      "type": "string",
-      "value": "[reference(variables('storageAccountName')).primaryEndpoints.blob]"
-    }
-    ```
+![Imagen que muestra un recurso de Azure Storage en una plantilla de Resource Manager](./media/quickstart-create-templates-use-visual-studio-code/5.png)
 
-    Cuando haya terminado, la sección outputs tendrá este aspecto:
+La tecla **TAB** se puede usar para recorrer las distintas propiedades configurables de la cuenta de almacenamiento.
 
-    ```json
-    "outputs": {
-      "storageAccountName": {
-        "type": "string",
-        "value": "[variables('storageAccountName')]"
-      },
-      "storageUri": {
-        "type": "string",
-        "value": "[reference(variables('storageAccountName')).primaryEndpoints.blob]"
-      }
-    }
-    ```
+![Imagen que muestra cómo se puede usar la tecla TAB para desplazarse por la configuración de recursos](./media/quickstart-create-templates-use-visual-studio-code/6.png)
 
-    Si ha copiado y pegado el código en Visual Studio Code, intente volver a escribir el elemento **value** para probar la funcionalidad IntelliSense de la extensión de herramientas de Resource Manager.
+## <a name="completion-and-validation"></a>Finalización y validación
 
-    ![Plantilla de Resource Manager visual studio code IntelliSense](./media/quickstart-create-templates-use-visual-studio-code/resource-manager-templates-visual-studio-code-intellisense.png)
+Una de las funcionalidades más eficaces de la extensión es su integración con los esquemas de Azure. Estos esquemas proporcionan a la extensión funcionalidades de validación y finalización de recursos. Vamos a modificar la cuenta de almacenamiento para ver tanto la validación como la finalización en acción. 
 
-2. Seleccione **File**>**Guardar** para guardar los cambios.
+En primer lugar, actualice el tipo de cuenta de almacenamiento a un valor no válido, como `megaStorage`. Tenga en cuenta que esta acción genera una advertencia que indica que `megaStorage` no es un valor válido.
+
+![Imagen que muestra una configuración de almacenamiento no válida](./media/quickstart-create-templates-use-visual-studio-code/7.png)
+
+Para usar las funcionalidades de finalización, quite `megaStorage`, coloque el cursor dentro de las comillas dobles y presione `ctrl` + `space`. Esta acción presenta una lista de finalización de valores válidos.
+
+![Imagen que muestra la finalización automática de la extensión](./media/quickstart-create-templates-use-visual-studio-code/8.png)
+
+## <a name="add-template-parameters"></a>Incorporación de parámetros de plantilla
+
+Ahora cree y use un parámetro para especificar el nombre de la cuenta de almacenamiento.
+
+Coloque el cursor en el bloque de parámetros, agregue un retorno de carro, escriba `par` y seleccione el fragmento de código `arm-param-value`. Esta acción agrega un parámetro genérico a la plantilla.
+
+![Imagen que muestra cómo se agrega un parámetro a la plantilla de Resource Manager](./media/quickstart-create-templates-use-visual-studio-code/9.png)
+
+Actualice el nombre del parámetro a `storageAccountName` y la descripción a `Storage Account Name`.
+
+![Imagen que muestra el parámetro completado en una plantilla de Resource Manager](./media/quickstart-create-templates-use-visual-studio-code/10.png)
+
+Los nombres de cuenta de Azure Storage tienen una longitud mínima de 3 caracteres, mientras que el máximo son 24. Agregue `minLength` y `maxLength` al parámetro y especifique los valores adecuados.
+
+![Imagen que muestra cómo se agregan minLength y maxLength a un parámetro de la plantilla de Resource Manager](./media/quickstart-create-templates-use-visual-studio-code/11.png)
+
+Ahora, en el recurso de almacenamiento, actualice la propiedad name para usar el parámetro. Para ello, quite el valor actual de la propiedad. Escriba una comilla doble y un corchete de apertura `[`, que genera una lista de funciones de la plantilla de Resource Manager. Seleccione *parameters* en la lista. 
+
+![Imagen que muestra la finalización automática cuando se usan parámetros en los recursos de plantilla de Resource Manager](./media/quickstart-create-templates-use-visual-studio-code/12.png)
+
+Al escribir una comilla simple `'` dentro de los paréntesis se genera una lista de todos los parámetros definidos en la plantilla, en este caso, *storageAccountName*. Seleccione el parámetro.
+
+![Imagen que muestra el parámetro completado en un recurso de la plantilla de Resource Manager](./media/quickstart-create-templates-use-visual-studio-code/13.png)
+
+## <a name="create-a-parameter-file"></a>Creación de un archivo de parámetros
+
+Los archivos de parámetros de las plantillas de Resource Manager permiten almacenar valores de parámetro específicos del entorno y usarlos como un grupo en el momento de la implementación. Por ejemplo, puede tener un archivo de parámetros con valores específicos para un entorno de prueba y otro para un entorno de producción.
+
+La extensión facilita la creación de un archivo de parámetros a partir de las plantillas existentes. Para ello, haga clic con el botón derecho en la plantilla en el editor de código y seleccione `Select/Create Parameter File`.
+
+![Imagen que muestra el proceso de hacer clic con el botón derecho para crear un archivo de parámetros a partir de una plantilla de Resource Manager](./media/quickstart-create-templates-use-visual-studio-code/14.png)
+
+Seleccione `New` > `All Parameters` > Seleccione el nombre y la ubicación del archivo de parámetros.
+
+![Imagen que muestra el nombre y el cuadro de diálogo para guardar el archivo al crear un archivo de parámetros a partir de una plantilla de Resource Manager](./media/quickstart-create-templates-use-visual-studio-code/15.png)
+
+Esta acción crea un archivo de parámetros y lo asigna a la plantilla a partir de la que se creó. La asignación de archivos de la plantilla o parámetro actuales se puede ver y modificar en la barra de estado de Visual Studio Code mientras la plantilla esté seleccionada.
+
+![](./media/quickstart-create-templates-use-visual-studio-code/16.png)
+
+Ahora que el archivo de parámetros se ha asignado a la plantilla, la extensión se valida tanto en la plantilla como en el archivo de parámetros a la vez. Para ver esta validación en la práctica, agregue un valor de dos caracteres al parámetro `storageAccountName` del archivo de parámetros y guarde el archivo.
+
+![Imagen que muestra una plantilla no válida debido a un problema en el archivo de parámetros](./media/quickstart-create-templates-use-visual-studio-code/17.png)
+
+Vuelva a la plantilla de Resource Manager y observe que aparece un error que indica que el valor no cumple los criterios de los parámetros.
+
+![Imagen que muestra una plantilla de Resource Manager válida](./media/quickstart-create-templates-use-visual-studio-code/18.png)
+
+Actualice el valor a algo adecuado, guarde el archivo y vuelva a la plantilla. Observe que se ha resuelto el error en el parámetro.
 
 ## <a name="deploy-the-template"></a>Implementación de la plantilla
 
-Existen muchos métodos para la implementación de plantillas. En este inicio rápido se usa Azure Cloud Shell. Cloud Shell admite la CLI de Azure y Azure PowerShell. Use el selector de pestañas para elegir entre la CLI y PowerShell.
+Abra el terminal de Visual Studio Code integrado con la combinación de teclas `ctrl` + ```` ` ```` y use la CLI de Azure o el módulo de Azure PowerShell para implementar la plantilla.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+# <a name="cli"></a>[CLI](#tab/CLI)
 
-1. Inicio de sesión en [Azure Cloud Shell](https://shell.azure.com)
+```azurecli
+az group create --name arm-vscode --location eastus
 
-2. Elija el entorno que prefiera; para ello, seleccione **PowerShell** o **Bash** en la esquina superior izquierda.  Es necesario reiniciar el shell cuando realiza el cambio.
+az deployment group create --resource-group arm-vscode --template-file azuredeploy.json --parameters azuredeploy.parameters.json
+```
 
-    # <a name="cli"></a>[CLI](#tab/CLI)
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
-    ![CLI de Cloud Shell de Azure Portal](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-choose-cli.png)
+```azurepowershell
+New-AzResourceGroup -Name arm-vscode -Location eastus
 
-    # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
-
-    ![Azure portal Cloud shell PowerShell](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-choose-powershell.png)
-
-    ---
-
-3. Seleccione **Cargar/descargar archivos** y, después, seleccione **Cargar**.
-
-    # <a name="cli"></a>[CLI](#tab/CLI)
-
-    ![Archivo de carga de Cloud Shell de Azure Portal](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-upload-file.png)
-
-    # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
-
-    ![Archivo de carga de Cloud Shell de Azure Portal](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-upload-file-powershell.png)
-
-    ---
-
-    Seleccione el archivo que guardó en la sección anterior. El nombre predeterminado es **azuredeploy.json**. Al archivo de plantilla se debe poder acceder desde el shell.
-
-    Si lo desea, puede usar el comando **ls** y el comando **cat** para comprobar que el archivo se ha cargado correctamente.
-
-    # <a name="cli"></a>[CLI](#tab/CLI)
-
-    ![Archivo de lista de Cloud Shell de Azure Portal](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-list-file.png)
-
-    # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
-
-    ![Archivo de lista de Cloud Shell de Azure Portal](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-list-file-powershell.png)
-
-    ---
-4. En Cloud Shell, ejecute los comandos siguientes. Seleccione la pestaña para mostrar el código de PowerShell o el código de la CLI.
-
-    # <a name="cli"></a>[CLI](#tab/CLI)
-
-    ```azurecli
-    echo "Enter a project name that is used to generate resource group name:" &&
-    read projectName &&
-    echo "Enter the location (i.e. centralus):" &&
-    read location &&
-    resourceGroupName="${projectName}rg" &&
-    az group create --name $resourceGroupName --location "$location" &&
-    az deployment group create --resource-group $resourceGroupName --template-file "$HOME/azuredeploy.json"
-    ```
-
-    # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
-
-    ```azurepowershell
-    $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name"
-    $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-    $resourceGroupName = "${projectName}rg"
-
-    New-AzResourceGroup -Name $resourceGroupName -Location "$location"
-    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "$HOME/azuredeploy.json"
-    ```
-
-    ---
-
-    Actualice el nombre del archivo de plantilla si guarda el archivo en un nombre distinto a **azuredeploy.json**.
-
-    En la captura de pantalla siguiente se muestra una implementación de ejemplo:
-
-    # <a name="cli"></a>[CLI](#tab/CLI)
-
-    ![Plantilla de implementación de Cloud Shell de Azure Portal](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-deploy-template.png)
-
-    # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
-
-    ![Plantilla de implementación de Cloud Shell de Azure Portal](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-deploy-template-powershell.png)
-
-    ---
-
-    El nombre de la cuenta de almacenamiento y la dirección URL de almacenamiento en la sección outputs se resaltan en la captura de pantalla. Necesita el nombre de la cuenta de almacenamiento en el paso siguiente.
-
-5. Ejecute el siguiente comando de la CLI o de PowerShell para enumerar la cuenta de almacenamiento recién creada:
-
-    # <a name="cli"></a>[CLI](#tab/CLI)
-
-    ```azurecli
-    echo "Enter the Resource Group name:" &&
-    read resourceGroupName &&
-    echo "Enter the Storage Account name:" &&
-    read storageAccountName &&
-    az storage account show --resource-group $resourceGroupName --name $storageAccountName
-    ```
-
-    # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
-
-    ```azurepowershell
-    $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-    $storageAccountName = Read-Host -Prompt "Enter the Storage Account name"
-    Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
-    ```
-
-    ---
-
-Para más información sobre las cuentas de almacenamiento de Azure, consulte [Inicio rápido: Carga, descarga y enumeración de blobs mediante Azure Portal](../../storage/blobs/storage-quickstart-blobs-portal.md).
+New-AzResourceGroupDeployment -ResourceGroupName arm-vscode -TemplateFile ./azuredeploy.json -TemplateParameterFile ./azuredeploy.parameters.json
+```
+---
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando los recursos de Azure ya no sean necesarios, limpie los recursos que implementó eliminando el grupo de recursos.
+Cuando los recursos de Azure dejen de ser necesarios, use la CLI de Azure o el módulo de Azure PowerShell para eliminar el grupo de recursos y el recurso del servidor del inicio rápido.
 
-1. En Azure Portal, seleccione **Grupos de recursos** en el menú de la izquierda.
-2. Escriba el nombre del grupo de recursos en el campo **Filtrar por nombre**.
-3. Seleccione el nombre del grupo de recursos.  Verá un total de seis recursos en el grupo de recursos.
-4. Seleccione **Eliminar grupo de recursos** del menú superior.
+# <a name="cli"></a>[CLI](#tab/CLI)
+
+```azurecli
+az group delete --name arm-vscode
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
+
+```azurepowershell
+Remove-AzResourceGroup -Name arm-vscode
+```
+---
 
 ## <a name="next-steps"></a>Pasos siguientes
-
-El objetivo principal de este tutorial consiste en utilizar Visual Studio Code para editar una plantilla existente de las plantillas de inicio rápido de Azure. También ha aprendido a implementar la plantilla mediante la CLI o mediante PowerShell desde Azure Cloud Shell. Es posible que las plantillas de inicio rápido de Azure no le proporcionen todo lo que necesita. Para más información sobre el desarrollo de plantillas, consulte nuestra nueva serie de tutoriales para principiantes:
 
 > [!div class="nextstepaction"]
 > [Tutoriales para principiantes](./template-tutorial-create-first-template.md)

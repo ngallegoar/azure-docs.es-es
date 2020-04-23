@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 4aa0cce83f9adc8c648656899ec6dc12d498e26b
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1ff92b8a9477800477ebb2d79145ddaa78831f30
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77160455"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536070"
 ---
 # <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>Inicio rápido: Incorporación del inicio de sesión mediante OpenID Connect a una aplicación web de Node.js
 
@@ -30,7 +30,7 @@ Para ejecutar este ejemplo, necesitará lo siguiente:
 
 * Una [cuenta de Microsoft](https://www.outlook.com) o del [programa de desarrolladores de Office 365](/office/developer-program/office-365-developer-program).
 
-## <a name="register-your-application"></a>Registrar su aplicación 
+## <a name="register-your-application"></a>Registrar su aplicación
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con una cuenta personal, profesional o educativa de Microsoft.
 1. Si su cuenta está presente en más de un inquilino de Azure AD:
     - Seleccione su perfil en el menú en la esquina superior derecha de la página y, a continuación, **Cambiar directorio**.
@@ -78,7 +78,7 @@ or
 
 En el directorio raíz del proyecto, ejecute el comando:
 
-`$ npm install`  
+`$ npm install`
 
 ## <a name="configure-the-application"></a>Configuración de la aplicación
 

@@ -4,14 +4,14 @@ description: Descripción de Azure HPC Cache, una solución de aceleración del 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: overview
-ms.date: 10/30/2019
-ms.author: rohogue
-ms.openlocfilehash: 2a008d22de5df8d091e868153205697b4bb343ee
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 04/15/2020
+ms.author: v-erkel
+ms.openlocfilehash: 084c33874b474fc1789df93e088d3cec4263eac9
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79216393"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536648"
 ---
 # <a name="what-is-azure-hpc-cache"></a>¿Qué es Azure HPC Cache?
 
@@ -49,22 +49,20 @@ La implementación de Azure HPC Cache puede ayudar a acelerar los cálculos en l
 
 Azure HPC Cache está disponible en estas regiones de Azure:
 
+| Norteamérica      | Europa         | Asia            | Australia      |
+|--------------------|----------------|-----------------|----------------|
+| Este de EE. UU.            | Norte de Europa   | Centro de Corea del Sur   | Este de Australia |
+| Este de EE. UU. 2          | Oeste de Europa    | Sudeste de Asia  |               |
+| Centro-sur de EE. UU. | | | |
+| Oeste de EE. UU. 2        | | | |
+
+La [característica de claves administradas por el cliente](customer-keys.md) solo se admite en estas regiones:
+
 * Este de EE. UU.
-* Este de EE. UU. 2
-* Norte de Europa
-* Oeste de Europa
-* Sudeste de Asia
-* Sidney
+* Centro-sur de EE. UU.
 * Oeste de EE. UU. 2
-* Centro de Corea del Sur
 
 Consulte la [página del producto Azure HPC Cache](https://azure.microsoft.com/services/hpc-cache) para la información de disponibilidad más reciente.
-
-## <a name="service-availability"></a>Disponibilidad del servicio
-
-Debe solicitar acceso para cada suscripción que va a usar con Azure HPC Cache. Esta restricción le permite garantizar la calidad del servicio en los meses iniciales de la disponibilidad general.
-
-Rellene [este formulario](https://aka.ms/onboard-hpc-cache) para solicitar acceso. Cuando se agrega la suscripción a la lista de acceso, puede crear cachés.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

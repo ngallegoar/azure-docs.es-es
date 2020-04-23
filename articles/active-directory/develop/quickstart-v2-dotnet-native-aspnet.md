@@ -11,18 +11,18 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 582afef8929da2ba75aab70c1ed0fa9e57fd3f19
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 084083a704a007e6675234883c62350d1d9a0849
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76703480"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536155"
 ---
 # <a name="quickstart-call-an-aspnet-web-api-protected-by-microsoft-identity-platform"></a>Inicio rápido: Llamada a una instancia de ASP.NET Web API protegida por una plataforma de identidad de Microsoft
 
-En esta guía de inicio rápido, expondrá una API web y la protegerá para que solo el usuario autenticado pueda acceder a ella. En este ejemplo se muestra cómo exponer una instancia de ASP.NET Web API para que pueda aceptar los tokens emitidos por cuentas personales (como outlook.com, live.com, etc.), así como cuentas profesionales y educativas de cualquier empresa u organización que se haya integrado en una plataforma de identidad de Microsoft.
+En este inicio rápido se expone una API web y se protegerá, con el fin de que solo pueda acceder a ella el usuario autenticado. En este ejemplo se muestra cómo exponer una instancia de ASP.NET Web API para que pueda aceptar los tokens que emiten no solo las cuentas personales (como outlook.com, live.com, etc.), sino también las cuentas profesionales y educativas de cualquier empresa u organización que se haya integrado en una plataforma de identidad de Microsoft.
 
-El ejemplo también incluye un cliente de aplicación de escritorio de Windows (WPF) que muestra cómo puede solicitar un token de acceso para acceder a una API web.
+El ejemplo también incluye un cliente de aplicación de escritorio de Windows (WPF) que muestra cómo se puede solicitar un token de acceso para acceder a una API web.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -42,7 +42,7 @@ Puede clonar este ejemplo desde el shell o la línea de comandos:
 
 O bien puede [descargar el código de ejemplo como un archivo ZIP](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet/archive/complete.zip).
 
-## <a name="register-your-web-api-in-the-application-registration-portal"></a>Registro de la API web en el portal de registro de aplicaciones
+## <a name="register-your-web-api-in-the-application-registration-portal"></a>Registro de una API web en el portal de registro de aplicación
 
 ### <a name="choose-the-azure-ad-tenant-where-you-want-to-create-your-applications"></a>Selección del inquilino de Azure AD en el que quiere crear las aplicaciones
 
@@ -69,13 +69,13 @@ Si quiere registrar las aplicaciones manualmente, como primer paso, necesitará:
      - para **Nombre del ámbito**, use `access_as_user`.
      - Asegúrese de que esté seleccionada la opción **Administradores y usuarios** para **¿Quién puede dar el consentimiento?**
      - en **Nombre para mostrar del consentimiento del administrador**, escriba `Access TodoListService as a user`.
-     - en **Descripción del consentimiento del administrador**, escriba `Accesses the TodoListService Web API as a user`.
+     - en **Descripción del consentimiento del administrador**, escriba `Accesses the TodoListService web API as a user`.
      - en **Nombre para mostrar del consentimiento del usuario**, escriba `Access TodoListService as a user`.
-     - en **Descripción del consentimiento del usuario**, escriba `Accesses the TodoListService Web API as a user`.
+     - en **Descripción del consentimiento del usuario**, escriba `Accesses the TodoListService web API as a user`.
      - Mantenga el **Estado** como **Habilitado**.
      - Seleccione **Agregar ámbito**.
 
-### <a name="configure-the-service-project-to-match-the-registered-web-api"></a>Configuración del proyecto del servicio para que coincida con la API web registrada 
+### <a name="configure-the-service-project-to-match-the-registered-web-api"></a>Configuración del proyecto del servicio para que coincida con la API web registrada
 
 1. Abra la solución en Visual Studio y después abra el archivo **Web.config** en la raíz de proyecto de **TodoListService**.
 1. Reemplace el valor del parámetro `ida:ClientId` por el **Id. de cliente (Id. de aplicación)** de la aplicación que acaba de registrar en el portal de registro de aplicaciones.
@@ -86,7 +86,7 @@ Si quiere registrar las aplicaciones manualmente, como primer paso, necesitará:
 
    > Nota: Asegúrese de usar el siguiente formato:
    >
-   > `api://{TodoListService-Application-ID}/access_as_user` 
+   > `api://{TodoListService-Application-ID}/access_as_user`
    >
    >(donde {TodoListService-Application-ID} es el GUID que representa al Id. de aplicación de TodoListService).
 
@@ -141,7 +141,7 @@ Una de las formas de permitir que los usuarios de otros directorios accedan a la
 
 ## <a name="optional-restrict-sign-in-access-to-your-application"></a>Opcional: Restringir el acceso de inicio de sesión a la aplicación
 
-De forma predeterminada, cuando descargue este ejemplo de código y configure la aplicación para usar el punto de conexión de Azure Active Directory v2 siguiendo los pasos anteriores, las cuentas personales (como outlook.com, live.com, etc.) y las cuentas profesionales o educativas de cualquier organización integrada con Azure AD pueden solicitar tokens y acceder a la API web. 
+De forma predeterminada, cuando descargue este ejemplo de código y configure la aplicación para usar el punto de conexión de Azure Active Directory v2 siguiendo los pasos anteriores, las cuentas personales (como outlook.com, live.com, etc.) y las cuentas profesionales o educativas de cualquier organización integrada con Azure AD pueden solicitar tokens y acceder a la API web.
 
 Para restringir quién puede iniciar sesión a la aplicación, use una de las siguientes opciones:
 

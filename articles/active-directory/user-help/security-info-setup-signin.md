@@ -1,24 +1,24 @@
 ---
-title: 'Configuración de la información de seguridad (versión preliminar) desde un mensaje de inicio de sesión: Azure AD'
-description: Cómo configurar la información de seguridad (versión preliminar) de una cuenta profesional o educativa después de que se ha enviado un mensaje desde la página de inicio de sesión de una organización.
+title: 'Configuración de la información de seguridad desde un mensaje de inicio de sesión: Azure AD'
+description: Cómo configurar la información de seguridad de una cuenta profesional o educativa después de que se ha enviado un mensaje desde la página de inicio de sesión de una organización.
 services: active-directory
 author: curtand
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: rhicock
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: overview
-ms.date: 08/05/2019
+ms.date: 04/07/2020
 ms.author: curtand
-ms.openlocfilehash: c216dbfef99422fc49fde774dc57d5cbcc9f879a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: eb6b124ea0ec036cd9846652fbd9eac5f81eb560
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77063992"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81454492"
 ---
-# <a name="set-up-your-security-info-preview-from-a-sign-in-prompt"></a>Configuración de la información de seguridad (versión preliminar) desde un mensaje de inicio de sesión
+# <a name="set-up-your-security-info-from-a-sign-in-prompt"></a>Configuración de la información de seguridad desde un mensaje de inicio de sesión
 
 Puede seguir estos pasos si se le pide que configure la información de seguridad inmediatamente después de que iniciar sesión con su cuenta profesional o educativa.
 
@@ -122,7 +122,7 @@ Siga estos pasos para configurar la información de seguridad de su cuenta profe
 Determinadas aplicaciones, como Outlook 2010, no admiten la verificación en dos pasos. Esta falta de compatibilidad significa que si usa la verificación en dos pasos en la organización, la aplicación no funcionará. Para solucionar este problema, puede crear una contraseña generada automáticamente para usar con cada aplicación sin explorador, independiente de la contraseña normal.
 
 >[!Note]
->Si no ve esta opción en el asistente, significa que el administrador no la ha configurado. Si no está configurada, pero sabe que tiene que usar contraseñas de aplicación, puede seguir los pasos de la [configuración de contraseñas de aplicación desde la página de información de seguridad (versión preliminar)](security-info-app-passwords.md).
+>Si no ve esta opción en el asistente, significa que el administrador no la ha configurado. Si no está configurada, pero sabe que tiene que usar contraseñas en las aplicaciones, puede seguir los pasos que encontrará en [Configuración de contraseñas de aplicación desde la página Información de seguridad](security-info-app-passwords.md).
 
 Al utilizar las contraseñas de aplicaciones, es importante recordar:
 
