@@ -12,12 +12,12 @@ metadata:
   title: Documentación de Language Understanding (LUIS)
   titleSuffix: Azure Cognitive Services
   description: El servicio Language Understanding permite que las aplicaciones entiendan lo que una persona quiere en sus propias palabras. LUIS utiliza el aprendizaje automático para permitir a los desarrolladores crear aplicaciones que pueden recibir las aportaciones de los usuarios en lenguaje natural y extraer significado de las mismas.
-  ms.openlocfilehash: c05d10b4b732a466ff4a6a4abe352e78e898c857
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.openlocfilehash: f1fab99692fbd02cf3a8b659aad0069ac73ce8e6
+  ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 03/24/2020
-  ms.locfileid: "80053373"
+  ms.lasthandoff: 04/23/2020
+  ms.locfileid: "82101678"
 landingContent:
 - title: Acerca de Language Understanding (LUIS)
   linkLists:
@@ -124,7 +124,7 @@ landingContent:
     - text: Recursos para desarrolladores
       url: developer-reference-resource.md
     - text: Limitaciones de la aplicación
-      url: luis-boundaries.md
+      url: luis-limits.md
     - text: Entidades precompiladas
       url: luis-reference-prebuilt-entities.md
     - text: Entidades personalizadas
