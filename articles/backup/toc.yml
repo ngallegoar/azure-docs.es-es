@@ -60,6 +60,8 @@
           href: sql-support-matrix.md
         - name: Matriz de compatibilidad de SAP HANA
           href: sap-hana-backup-support-matrix.md
+        - name: Matriz de compatibilidad de copia de seguridad de recursos compartidos de archivos de Azure
+          href: azure-file-share-support-matrix.md
         - name: Referencias de almacén de máquina virtual admitidas en Azure Policy
           href: backup-azure-policy-supported-skus.md
     - name: Preguntas más frecuentes
@@ -346,6 +348,8 @@
           href: backup-azure-security-feature.md
         - name: Controles de seguridad integrados
           href: backup-security-controls.md
+        - name: Línea de base de seguridad
+          href: security-baseline.md
     - name: Solución de problemas
       items:
         - name: Azure VM

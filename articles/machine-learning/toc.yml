@@ -149,8 +149,9 @@
             - name: Uso de Private Link
               displayName: private endpoint
               href: how-to-configure-private-link.md
-            - name: Protección de servicios web con SSL
+            - name: Protección de servicios web con TLS
               href: how-to-secure-web-service.md
+              displayName: ssl
             - name: "Uso de la identidad de Azure\_AD en implementaciones de AKS"
               href: how-to-use-azure-ad-identity.md
             - name: Nueva generación de las claves de acceso de almacenamiento

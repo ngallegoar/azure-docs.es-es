@@ -20,8 +20,8 @@
       href: quickstart-synapse-studio.md
     - name: Creación de grupos
       items:
-        - name: Creación de grupos de Apache Spark mediante herramientas web
-          href: ./spark/apache-spark-notebook-create-spark-use-sql.md
+        - name: Creación de cuadernos de Apache Spark mediante herramientas web
+          href: quickstart-apache-spark-notebook.md
         - name: Creación de grupos de Apache Spark mediante Azure Portal
           href: quickstart-create-apache-spark-pool.md
         - name: Creación de grupos de SQL

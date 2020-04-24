@@ -79,6 +79,8 @@
   items:
     - name: "Compatibilidad del protocolo SCIM\_2.0"
       href: application-provisioning-config-problem-scim-compatibility.md
+    - name: Escenarios de SCIM y de Graph
+      href: scim-graph-scenarios.md
     - name: Elija un método de aprovisionamiento
       href: isv-automatic-provisioning-multi-tenant-apps.md
     - name: "Aprovisionamiento de RR.\_HH. en la nube"

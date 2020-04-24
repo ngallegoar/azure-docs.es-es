@@ -26,6 +26,8 @@
       href: learn/automation-tutorial-runbook-textual-python2.md
 - name: Conceptos
   items:
+    - name: Introducción a la autenticación de cuentas de Automation
+      href: automation-security-overview.md
     - name: Introducción a la ejecución de runbooks
       href: automation-runbook-execution.md
     - name: Introducción a Hybrid Runbook Worker
@@ -48,6 +50,8 @@
           href: automation-create-standalone-account.md
         - name: Creación de una cuenta de Automation con una plantilla de Resource Manager
           href: automation-create-account-template.md
+        - name: Configuración de la autenticación con Amazon Web Services
+          href: automation-config-aws-account.md
         - name: Administración de una cuenta de ejecución de Automation
           href: manage-runas-account.md
         - name: Administración de seguridad y permisos de roles
@@ -156,6 +160,8 @@
               href: automation-dsc-diagnostics.md
             - name: Solución de problemas con DSC
               href: troubleshoot/desired-state-configuration.md
+            - name: Historial de versiones de la extensión DSC de Azure
+              href: automation-dsc-extension-history.md
         - name: Change Tracking e Inventario
           items:
             - name: Información general
@@ -248,8 +254,6 @@
           href: automation-create-alert-triggered-runbook.md
         - name: Administración de servicios de Office 365
           href: manage-office-365.md
-        - name: Autenticación de runbooks con Amazon Web Services
-          href: automation-config-aws-account.md
         - name: Implementación de una máquina virtual de AWS con un runbook de Automation
           href: automation-scenario-aws-deployment.md
         - name: Implementación de una plantilla de Resource Manager con un runbook

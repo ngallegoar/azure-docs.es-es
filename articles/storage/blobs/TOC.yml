@@ -49,6 +49,8 @@
                   href: storage-quickstart-blobs-nodejs.md
                 - name: "JavaScript (SDK, versión\_10, para Node. js)"
                   href: storage-quickstart-blobs-nodejs-legacy.md
+                - name: "JavaScript (SDK, versión\_12, para explorador web)"
+                  href: quickstart-blobs-javascript-browser.md
                 - name: "JavaScript (SDK, versión\_10, para explorador web)"
                   href: storage-quickstart-blobs-javascript-client-libraries-legacy.md
             - name: Go
@@ -113,6 +115,8 @@
           items:
             - name: Recomendaciones de seguridad
               href: security-recommendations.md
+            - name: Línea de base de seguridad
+              href: ../common/security-baseline.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Cifrado en reposo de Azure Storage
               href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
               items:

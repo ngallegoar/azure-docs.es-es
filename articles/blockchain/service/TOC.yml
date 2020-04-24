@@ -7,10 +7,12 @@
 - name: Guías de inicio rápido
   expanded: true
   items:
-    - name: Creación de miembros (Portal)
+    - name: Creación de miembros desde el portal
       href: create-member.md
-    - name: Creación de miembros (CLI)
+    - name: Creación de miembros mediante la CLI
       href: create-member-cli.md
+    - name: Creación de miembros mediante plantilla
+      href: create-member-template.md
     - name: Conexión al nodo de transacción
       items:
         - name: Uso de Visual Studio Code

@@ -1199,6 +1199,8 @@
           href: platform/diagnostic-logs-schema.md
         - name: Esquema de registro de actividad
           href: platform/activity-log-schema.md
+    - name: Referencia de tabla de registros de Azure Monitor
+      href: 'https://docs.microsoft.com/azure/azure-monitor/reference/'
     - name: Azure CLI
       href: /cli/azure/monitor?view=azure-cli-latest
     - name: 'CLI de Azure: Application Insights (versión preliminar)'

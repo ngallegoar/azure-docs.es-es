@@ -10,6 +10,9 @@
       items:
         - name: Inicio del análisis de costos
           href: quick-acm-cost-analysis.md
+        - name: Creación de presupuestos mediante plantilla
+          href: quick-create-budget-template.md
+          displayName: 'ARM template, resource manager template'
     - name: Tutoriales
       items:
         - name: Creación y administración de presupuestos

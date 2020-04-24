@@ -45,9 +45,13 @@
       href: ../../jenkins/tutorial-jenkins-github-docker-cicd.md
     - name: 14b - Integración de Jenkins con Azure DevOps
       href: ../../jenkins/tutorial-build-deploy-jenkins.md
-    - name: 15A - DevOps para IaaS y PaaS en Azure
+    - name: 15a - Configuración de la estrategia de implementación Rolling (Gradual)
       href: tutorial-devops-azure-pipelines-classic.md
-    - name: 15 - CI/CD con Azure Pipelines (YAML)
+    - name: 15b - Configuración de la estrategia de implementación Canary (Valor controlado)
+      href: tutorial-azure-devops-canary-strategy.md
+    - name: 15c - Configuración de la estrategia de implementación Blue-Green (Azul-verde)
+      href: tutorial-azure-devops-blue-green-strategy.md
+    - name: 15d - CI/CD con Azure Pipelines (YAML)
       href: tutorial-build-deploy-azure-pipelines.md
     - name: 16a - Creación de pila LAMP
       href: tutorial-lamp-stack.md
@@ -202,7 +206,7 @@
       href: dedicated-hosts.md
     - name: Mantenimiento y actualizaciones
       href: ../maintenance-and-updates.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-    - name: Almacenamiento en disco
+    - name: Disk Storage
       items:
         - name: Introducción a los discos administrados
           href: managed-disks-overview.md

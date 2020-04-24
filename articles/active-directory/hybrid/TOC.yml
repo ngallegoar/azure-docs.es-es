@@ -152,6 +152,8 @@
               href: plan-migrate-adfs-pass-through-authentication.md
             - name: Traslado de grupos de un bosque a otro
               href: how-to-connect-migrate-groups.md
+            - name: Migración a la autenticación en la nube mediante un lanzamiento almacenado preconfigurado
+              href: how-to-connect-staged-rollout.md
         - name: Consideraciones de diseño de identidad híbrida
           items:
             - name: Introducción sobre las consideraciones de diseño de identidad híbrida
