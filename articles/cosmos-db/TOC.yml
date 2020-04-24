@@ -112,7 +112,7 @@
           displayName: 'request units, RUs, RU'
           href: scaling-throughput.md
         - name: Tipos de conflicto y directivas de resolución de conflictos
-          displayName: 'last write wins, custom'
+          displayName: 'last write wins, custom, multi master, multi-master'
           href: conflict-resolution-policies.md
         - name: Distribución global en segundo plano
           href: global-dist-under-the-hood.md
@@ -1180,8 +1180,8 @@
       href: 'https://azure.microsoft.com/try/cosmosdb/'
     - name: Precios
       href: 'https://azure.microsoft.com/pricing/details/cosmos-db/'
-    - name: Ventajas de la arquitectura multimaestro
-      href: multi-master-benefits.md
+    - name: Niveles de rendimiento
+      href: performance-levels.md
     - name: Casos de uso
       items:
         - name: Casos de uso comunes
