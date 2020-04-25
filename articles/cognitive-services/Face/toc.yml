@@ -3,18 +3,12 @@
 - name: Información general
   expanded: true
   items:
-    - name: ¿Qué es el servicio API?
+    - name: ¿Qué es el servicio Face?
       href: Overview.md
 - name: Guías de inicio rápido
   items:
-    - name: Uso del SDK de cliente
-      items:
-        - name: .NET SDK
-          href: Quickstarts/csharp-sdk.md
-        - name: SDK de Python
-          href: QuickStarts/python-sdk.md
-        - name: Go SDK
-          href: QuickStarts/go-sdk.md
+    - name: Uso de la biblioteca cliente
+      href: Quickstarts/client-libraries.md
     - name: Uso de la API de REST
       items:
         - name: Detectar caras en una imagen
