@@ -278,7 +278,7 @@
       href: dedicated-hosts.md
     - name: Mantenimiento y actualizaciones
       href: ../maintenance-and-updates.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-    - name: Almacenamiento en disco
+    - name: Disk Storage
       items:
         - name: Introducción a los discos administrados
           href: managed-disks-overview.md
@@ -501,10 +501,14 @@
               href: ../maintenance-notifications-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Control de mantenimiento
           items:
-            - name: PowerShell
-              href: ../maintenance-control-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: Información general
+              href: ../maintenance-control.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: CLI
               href: ../maintenance-control-cli.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: PowerShell
+              href: ../maintenance-control-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: Portal
+              href: ../maintenance-control-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Eventos programados
           href: scheduled-events.md
         - name: Servicio de eventos programados de Windows

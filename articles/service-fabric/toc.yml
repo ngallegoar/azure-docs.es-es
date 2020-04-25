@@ -7,6 +7,9 @@
 - name: Guías de inicio rápido
   expanded: true
   items:
+    - name: Plantilla ARM
+      displayName: Resource Manager
+      href: quickstart-cluster-template.md
     - name: Creación de una aplicación .NET
       href: service-fabric-quickstart-dotnet.md
     - name: Implementación de una aplicación contenedora de Linux

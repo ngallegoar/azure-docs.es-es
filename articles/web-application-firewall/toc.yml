@@ -107,7 +107,7 @@
           href: ./ag/bot-protection.md
         - name: Asociación de una directiva a una instancia de Application Gateway existente
           href: ./ag/associate-waf-policy-existing-gateway.md
-        - name: Registros de diagnóstico
+        - name: Registros del recurso
           href: ./ag/web-application-firewall-logs.md
         - name: Solución de problemas de WAF
           href: ./ag/web-application-firewall-troubleshoot.md
