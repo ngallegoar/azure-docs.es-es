@@ -10,27 +10,25 @@ ms.date: 02/14/2020
 ms.topic: include
 ms.custom: include file
 ms.author: diberry
-ms.openlocfilehash: 3bb0b9fb8b268c3e036ffb365eb8d5b80a241269
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 2ba136cd479da0cd394b5e5afe6ebe7c22b539d5
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77372059"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732071"
 ---
 La biblioteca cliente de predicción de Language Understanding (LUIS) para .NET puede usarse con los siguientes fines:
 
 * Obtener predicciones por espacio
+* Predicción por versión
 
 [Documentación de referencia](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-dotnet) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Language.LUIS.Runtime) | [Paquete (NuGet) del entorno de ejecución de predicción](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/) | [Ejemplos de C#](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/LanguageUnderstanding/predict-with-sdk-3x)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Cuenta de portal de Language Understanding (LUIS): [cree una de forma gratuita](https://www.luis.ai).
 * La versión actual de [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
-
-¿Busca más documentación?
-
- * [Documentación de referencia del SDK](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-dotnet)
+* Un identificador de aplicación de LUIS: use el identificador de aplicación de IoT público de `df67dcdb-c37d-46af-88e1-8b97951ca1c2`. La consulta de usuario que se usa en el código del inicio rápido es específica de esa aplicación.
 
 ## <a name="setting-up"></a>Instalación
 

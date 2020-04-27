@@ -1,50 +1,48 @@
 ---
-title: Tutorial de C# sobre la función Autocompletar y las sugerencias
+title: Autocompletar y sugerencias
 titleSuffix: Azure Cognitive Search
 description: En este tutorial se muestran las funciones Autocompletar y las sugerencias como una manera de recopilar la entrada de términos de búsqueda de los usuarios mediante una lista desplegable. Se basa en un proyecto de hoteles existente.
 manager: nitinme
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 02/10/2020
-ms.openlocfilehash: 8f244d64fe33a1529cf66314515bbe16e05ccffb
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 04/15/2020
+ms.openlocfilehash: 6b74c3bbb811c122950fd969a8797e87f8f77f86
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77121535"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641070"
 ---
-# <a name="c-tutorial-add-autocompletion-and-suggestions---azure-cognitive-search"></a>Tutorial de C#: Incorporación de la función Autocompletar y las sugerencias en Azure Cognitive Search
+# <a name="c-tutorial-add-autocomplete-and-suggestions---azure-cognitive-search"></a>Tutorial de C#: Incorporación de la función Autocompletar y las sugerencias: Azure Cognitive Search
 
-Obtenga información sobre cómo implementar la función Autocompletar (escritura anticipada y sugerencias) cuando un usuario empieza a escribir en el cuadro de búsqueda. En este tutorial, se le muestran los resultados de escritura automática y los de sugerencias por separado, y luego se presenta un método para combinarlas y crear una experiencia del usuario más variada. Un usuario puede que solo tenga que escribir dos o tres claves para buscar todos los resultados disponibles. Este tutorial se basa en el proyecto de paginación que se creó en el [Tutorial de C#: Paginación de los resultados de búsqueda: Azure Cognitive Search](tutorial-csharp-paging.md).
+Obtenga información sobre cómo implementar la función Autocompletar (escritura anticipada de consultas y documentos sugeridos) cuando un usuario empieza a escribir en el cuadro de búsqueda. En este tutorial, se mostrarán las consultas autocompletadas y los resultados de sugerencias por separado y luego juntos. Un usuario puede que solo tenga que escribir dos o tres caracteres para buscar todos los resultados disponibles.
 
 En este tutorial, aprenderá a:
 > [!div class="checklist"]
 > * Adición de sugerencias
 > * Agregar resaltado para las sugerencias
-> * Agregar la función Autocompletar
+> * Adición de la función Autocompletar
 > * Combinar la función Autocompletar y las sugerencias
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-Para completar este tutorial, necesita:
+Este tutorial forma parte de una serie y se basa en el proyecto de paginación creado en [Tutorial de C#: Paginación de los resultados de la búsqueda: Azure Cognitive Search](tutorial-csharp-paging.md).
 
-Tener listo y en ejecución el proyecto [Tutorial de C#: El proyecto Paginación de los resultados de búsqueda: Azure Cognitive Search](tutorial-csharp-paging.md) en funcionamiento. Este proyecto puede ser su propia versión, que completó en el tutorial anterior, o instalarlo desde GitHub: [Create first app](https://github.com/Azure-Samples/azure-search-dotnet-samples) (Crear la primera aplicación).
+Como alternativa, puede descargar y ejecutar la solución para este tutorial específico: [3-add-typeahead](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/3-add-typeahead).
 
 ## <a name="add-suggestions"></a>Adición de sugerencias
 
 Comencemos con el caso más simple de la oferta de alternativas para el usuario: una lista desplegable de sugerencias.
 
-1. En el archivo index.cshtml, cambie la declaración **TextBoxFor** por la siguiente.
+1. En el archivo index.cshtml, cambie `@id` de la instrucción **TextBoxFor** a **azureautosuggest**.
 
     ```cs
      @Html.TextBoxFor(m => m.searchText, new { @class = "searchBox", @id = "azureautosuggest" }) <input value="" class="searchBoxSubmit" type="submit">
     ```
 
-    La clave aquí es que hemos configurado el identificador del cuadro de búsqueda como **azureautosuggest**.
-
-2. Siguiendo esta aclaración, tras el **&lt;/div&gt;** del cierre, escriba este script.
+2. Siguiendo esta aclaración, tras el **&lt;/div&gt;** del cierre, escriba este script. Este script aprovecha el [widget Autocomplete](https://api.jqueryui.com/autocomplete/) de la biblioteca de la interfaz de usuario de jQuery de código abierto para presentar la lista desplegable de resultados sugeridos. 
 
     ```javascript
     <script>
@@ -59,13 +57,11 @@ Comencemos con el caso más simple de la oferta de alternativas para el usuario:
     </script>
     ```
 
-    Hemos conectado este script al cuadro de búsqueda mediante el mismo identificador. Además, se necesita un mínimo de dos caracteres para desencadenar la búsqueda y llamamos a la acción **Suggest** en el controlador principal con dos parámetros de consulta: **highlights** y **fuzzy**, ambos establecidos en false en este caso.
+    El identificador "azureautosuggest" conecta el script anterior al cuadro de búsqueda. La opción de origen del widget está establecida en un método Suggest que llama a la API Suggest con dos parámetros de consulta: **highlights** y **fuzzy**, ambos establecidos en false en este caso. Además, se necesita un mínimo de dos caracteres para desencadenar la búsqueda.
 
-### <a name="add-references-to-jquery-scripts-to-the-view"></a>Incorporación de referencias a los scripts jquery para la vista
+### <a name="add-references-to-jquery-scripts-to-the-view"></a>Incorporación de referencias a scripts de jQuery para la vista
 
-No es necesario escribir la función de Autocompletar llamada en el script anterior ya que está disponible en la biblioteca de jquery. 
-
-1. Para obtener acceso a la biblioteca de jquery, cambie la sección el &lt;head&gt; del archivo de vista por el código siguiente.
+1. Para acceder a la biblioteca de jQuery, cambie la sección &lt;head&gt; del archivo de vista por el código siguiente:
 
     ```cs
     <head>
@@ -80,7 +76,7 @@ No es necesario escribir la función de Autocompletar llamada en el script anter
     </head>
     ```
 
-2. También es necesario quitar o marcar como comentario, una línea que haga referencia a jquery en el archivo _Layout.cshtml (en la carpeta **Views/Shared**). Busque las líneas siguientes y marque como comentario la primera línea del script como se muestra. Este cambio evita conflictos de referencias a jquery.
+2. Dado que estamos introduciendo una nueva referencia de jQuery, también es necesario quitar o comentar la referencia de jQuery predeterminada en el archivo _Layout.cshtml (en la carpeta **Views/Shared**). Busque las líneas siguientes y marque como comentario la primera línea del script como se muestra. Este cambio evita conflictos de referencias a jQuery.
 
     ```html
     <environment include="Development">
@@ -90,7 +86,7 @@ No es necesario escribir la función de Autocompletar llamada en el script anter
     </environment>
     ```
 
-    Ahora podemos usar las funciones jquery de autocompletar predefinidas.
+    Ahora se pueden usar las funciones jQuery de Autocompletar predefinidas.
 
 ### <a name="add-the-suggest-action-to-the-controller"></a>Incorporación de la acción Suggest al controlador
 
@@ -114,7 +110,8 @@ No es necesario escribir la función de Autocompletar llamada en el script anter
                 parameters.HighlightPostTag = "</b>";
             }
 
-            // Only one suggester can be specified per index. The name of the suggester is set when the suggester is specified by other API calls.
+            // Only one suggester can be specified per index. It is defined in the index schema.
+            // The name of the suggester is set when the suggester is specified by other API calls.
             // The suggester for the hotel database is called "sg", and simply searches the hotel name.
             DocumentSuggestResult<Hotel> suggestResult = await _indexClient.Documents.SuggestAsync<Hotel>(term, "sg", parameters);
 
@@ -128,7 +125,7 @@ No es necesario escribir la función de Autocompletar llamada en el script anter
 
     El parámetro **Top** especifica cuántos resultados deben devolverse (si no se especifica, el valor predeterminado es 5). Un _proveedor de sugerencias_ se especifica en el índice de Azure, que se realiza cuando los datos se configuran y no por una aplicación cliente como en este tutorial. En este caso, el proveedor de sugerencias se denomina "sg" y busca el campo **HotelName** y ningún otro. 
 
-    La coincidencia aproximada permite que se incluyan percances en la salida. Si el parámetro **highlights** se establece en true, las etiquetas HTML en negrita se agregan a la salida. Se establecerá estos dos parámetros en true en la sección siguiente.
+    La coincidencia aproximada permite que se incluyan las anomalías en la salida, hasta una edición de distancia. Si el parámetro **highlights** se establece en true, las etiquetas HTML en negrita se agregan a la salida. Se establecerá estos dos parámetros en true en la sección siguiente.
 
 2. Es posible que obtenga algunos errores de sintaxis. Si es así, agregue las siguientes dos instrucciones **using** en la parte superior del archivo.
 
@@ -151,7 +148,7 @@ No es necesario escribir la función de Autocompletar llamada en el script anter
 
 ## <a name="add-highlighting-to-the-suggestions"></a>Agregar resaltado para las sugerencias
 
-Podemos mejorar la apariencia de las sugerencias para el usuario un poco, estableciendo el parámetro **highlights** en true. Sin embargo, primero debemos agregar código a la vista para mostrar el texto en negrita.
+Se puede mejorar la apariencia de las sugerencias para el usuario si se establece el parámetro **highlights** en true. Sin embargo, primero debemos agregar código a la vista para mostrar el texto en negrita.
 
 1. En la vista (index.cshtml), agregue el siguiente script después del script **azureautosuggest** que especificó antes.
 
@@ -194,11 +191,11 @@ Podemos mejorar la apariencia de las sugerencias para el usuario un poco, establ
 
 4. La lógica utilizada en el script de resaltado anterior no es infalible. Si escribe un término que aparece dos veces en el mismo nombre, los resultados en negrita no son lo que usted desearía. Pruebe a escribir "mo".
 
-    Una de las preguntas a las que un desarrollador debe responder es, cuando es un script funciona "lo suficientemente bien" y cuándo deben solucionarse también sus peculiaridades. No se redundará más en el resaltado en este tutorial, pero se encontrará que un algoritmo preciso es algo que tener en cuenta si tarda más el resaltado.
+    Una de las preguntas a las que un desarrollador debe responder es, cuando es un script funciona "lo suficientemente bien" y cuándo deben solucionarse también sus peculiaridades. No seguiremos más con el resaltado en este tutorial, pero es importante considerar la búsqueda de un algoritmo preciso si el resaltado no resulta efectivo para sus datos. Para más información, consulte [Resaltado de referencias](search-pagination-page-layout.md#hit-highlighting).
 
-## <a name="add-autocompletion"></a>Agregar la función Autocompletar
+## <a name="add-autocomplete"></a>Adición de la función Autocompletar
 
-Otra variación, que es ligeramente diferente de las sugerencias, es la función Autocompletar (a veces denominada "escritura anticipada"). Nuevamente, comenzaremos con la implementación más sencilla, antes de pasar a mejorar la experiencia del usuario.
+Otra variación, que es ligeramente diferente de las sugerencias, es la función Autocompletar (a veces denominada "escritura anticipada") que completa un término de consulta. Nuevamente, comenzaremos con la implementación más sencilla antes de mejorar la experiencia del usuario.
 
 1. Escriba el siguiente script en la vista, después de los scripts anteriores.
 
@@ -246,7 +243,7 @@ Otra variación, que es ligeramente diferente de las sugerencias, es la función
 
     Tenga en cuenta que estamos usando la misma función de *proveedor de sugerencias*, denominada "sg", en la búsqueda de autocompletar que cuando obtuvimos la sugerencias (por lo que intentamos solo para autocompletar los nombres de hotel).
 
-    Hay diversas opciones de **AutocompleteMode** y estamos usando **OneTermWithContext**. Consulte [Autocompletar de Azure](https://docs.microsoft.com/rest/api/searchservice/autocomplete) para obtener una descripción de la variedad de opciones aquí.
+    Hay diversas opciones de **AutocompleteMode** y estamos usando **OneTermWithContext**. Consulte [Autocomplete API](https://docs.microsoft.com/rest/api/searchservice/autocomplete) para obtener una descripción de las opciones adicionales.
 
 4. Ejecute la aplicación. Observe cómo la variedad de opciones que se muestra en la lista desplegable son las palabras individuales. Pruebe a escribir palabras que empiezan por "re". Tenga en cuenta cómo se reduce el número de opciones a medida que se escriben más letras.
 

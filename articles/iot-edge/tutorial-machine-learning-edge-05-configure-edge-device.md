@@ -8,12 +8,13 @@ ms.date: 2/5/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d2bad581c925bb62cbe65a45000f6d3ae35db011
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: amqp
+ms.openlocfilehash: 353ed321ce3b6161b28bf67d852a81f809880603
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80372688"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81733006"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>Tutorial: Configure un dispositivo IoT Edge
 
@@ -288,7 +289,7 @@ A continuación, actualizará los certificados y el nombre de host editando dire
     systemctl status iotedge
     ```
 
-8. Si ve errores (coloree el texto con el prefijo "\[ERROR\]") en el estado, examine los registros del demonio para obtener información detallada del error.
+8. Si ve errores (texto en color con el prefijo "\[ERROR\]") en el estado, examine los registros del demonio para obtener información detallada del error.
 
     ```bash
     journalctl -u iotedge --no-pager --no-full

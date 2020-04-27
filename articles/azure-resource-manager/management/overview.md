@@ -2,17 +2,17 @@
 title: Información general
 description: Describe cómo utilizar Administrador de recursos de Azure para la implementación, la administración y el control de acceso de los recursos en Azure.
 ms.topic: overview
-ms.date: 03/25/2020
-ms.openlocfilehash: 1e2a6959117749b4e7d08a9768b4189b97ef08bd
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 04/21/2020
+ms.openlocfilehash: 253fc2f296fa764a6c22fa1331221df60ca21bb5
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80258148"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870482"
 ---
 # <a name="what-is-azure-resource-manager"></a>¿Qué es Azure Resource Manager?
 
-Azure Resource Manager es el servicio de implementación y administración para Azure. Proporciona una capa de administración que le permite crear, actualizar y eliminar recursos de su suscripción de Azure. Se usan las características de administración, como el control de acceso, la auditoría y las etiquetas, para proteger y organizar los recursos después de la implementación.
+Azure Resource Manager es el servicio de implementación y administración para Azure. Proporciona una capa de administración que le permite crear, actualizar y eliminar recursos de la cuenta de Azure. Se usan las características de administración, como el control de acceso, la auditoría y las etiquetas, para proteger y organizar los recursos después de la implementación.
 
 Para información acerca de las plantillas de Azure Resource Manager, consulte [Información general de la implementación de plantillas](../templates/overview.md).
 
@@ -30,10 +30,10 @@ Todas las funcionalidades que están disponibles en el portal también lo están
 
 Si no conoce Azure Resource Manager, estos son algunos términos con los que puede no estar familiarizado.
 
-* **recurso**: elemento administrable que está disponible a través de Azure. Las máquinas virtuales, cuentas de almacenamiento, aplicaciones web, bases de datos y redes virtuales son ejemplos de recursos.
+* **recurso**: elemento administrable que está disponible a través de Azure. Las máquinas virtuales, cuentas de almacenamiento, aplicaciones web, bases de datos y redes virtuales son ejemplos de recursos. Los grupos de recursos, las suscripciones, los grupos de administración y las etiquetas también son ejemplos de recursos.
 * **grupo de recursos**: contenedor que almacena los recursos relacionados con una solución de Azure. El grupo de recursos incluye los recursos que se desean administrar como grupo. Decida qué recursos pertenecen a un grupo de recursos según lo que más convenga a su organización. Consulte [Grupos de recursos](#resource-groups).
 * **proveedor de recursos**: un servicio que proporciona recursos de Azure. Por ejemplo, un proveedor de recursos común es Microsoft.Compute, que proporciona el recurso de máquina virtual. Microsoft.Storage es otro proveedor de recursos común. Consulte [Tipos y proveedores de recursos](resource-providers-and-types.md).
-* **Plantilla de Resource Manager**: archivo de notación de objetos JavaScript (JSON) que define uno o más recursos para implementar en un grupo de recursos o suscripción. La plantilla se puede usar para implementar los recursos de manera repetida y uniforme. Consulte [Información general de la implementación de plantillas](../templates/overview.md).
+* **Plantilla de Resource Manager**: archivo de notación de objetos JavaScript (JSON) que define uno o más recursos para implementar en un grupo de recursos, una suscripción, un grupo de administración o un inquilino. La plantilla se puede usar para implementar los recursos de manera repetida y uniforme. Consulte [Información general de la implementación de plantillas](../templates/overview.md).
 * **sintaxis declarativa**: sintaxis que permite establecer lo que pretende crear sin tener que escribir la secuencia de comandos de programación para crearla. La plantilla de Resource Manager es un ejemplo de sintaxis declarativa. En el archivo, puede definir las propiedades de la infraestructura que se va a implementar en Azure.  Consulte [Información general de la implementación de plantillas](../templates/overview.md).
 
 ## <a name="the-benefits-of-using-resource-manager"></a>Ventajas de usar Administrador de recursos
@@ -48,7 +48,7 @@ Con Resource Manager puede:
 
 * Definir las dependencias entre recursos de modo que se implementen en el orden correcto.
 
-* Aplicar control de acceso a todos los servicios del grupo de recursos al integrarse de forma nativa Control de acceso basado en rol (RBAC) en la plataforma de administración.
+* Aplicar control de acceso a todos los servicios porque el Control de acceso basado en rol (RBAC) se integra de forma nativa en la plataforma de administración.
 
 * Aplicar etiquetas a los recursos para organizar de manera lógica todos los recursos de la suscripción.
 
@@ -58,11 +58,11 @@ Con Resource Manager puede:
 
 Azure proporciona cuatro niveles de ámbito: [grupos de administración](../../governance/management-groups/overview.md), suscripciones, [grupos de recursos](#resource-groups) y recursos. En la imagen siguiente se muestra un ejemplo de estos niveles:
 
-![Ámbito](./media/overview/scope-levels.png)
+![Niveles de administración](./media/overview/scope-levels.png)
 
 Aplicará la configuración de administración en cualquiera de estos niveles de ámbito. El nivel que seleccione determina el grado de amplitud con que se aplica la configuración. Los niveles inferiores heredan la configuración de los niveles superiores. Por ejemplo, al aplicar una [directiva](../../governance/policy/overview.md) a la suscripción, esta se aplica a todos los grupos de recursos y recursos de la suscripción. Al aplicar una directiva al grupo de recursos, esta también se aplica al grupo de recursos y a todos sus recursos. Sin embargo, otro grupo de recursos no tiene la asignación de dicha directiva.
 
-Puede implementar plantillas en grupos de administración, suscripciones o grupos de recursos.
+Puede implementar plantillas en inquilinos, grupos de administración, suscripciones o grupos de recursos.
 
 ## <a name="resource-groups"></a>Grupos de recursos
 
@@ -71,6 +71,8 @@ Hay algunos factores importantes que se deben tener en cuenta al definir el grup
 * Todos los recursos del grupo deben compartir el mismo ciclo de vida. Se implementan, actualizan y eliminan de forma conjunta. Si un recurso, como un servidor de base de datos, debe existir en un ciclo de implementación diferente, debe estar en otro grupo de recursos.
 
 * Cada recurso solo puede existir en un grupo de recursos.
+
+* Algunos recursos pueden existir fuera de un grupo de recursos. Estos recursos se implementan en la [suscripción](../templates/deploy-to-subscription.md), el [grupo de administración](../templates/deploy-to-management-group.md) o el [inquilino](../templates/deploy-to-tenant.md). En estos ámbitos solo se admiten tipos de recursos específicos.
 
 * Puede agregar o quitar un recurso de un grupo de recursos en cualquier momento.
 

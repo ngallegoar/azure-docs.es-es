@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: ec2791911d1461ae47d9353629d23a5d7dc30791
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 00a98fdeb4b8febbcb9d1183fabffc7298cc9e4c
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81420939"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770725"
 ---
 # <a name="azure-synapse-analytics-workspace-preview-frequently-asked-questions"></a>Preguntas frecuentes sobre Azure Synapse Analytics (versión preliminar para área de trabajo)
 
@@ -92,7 +92,7 @@ A. El flujo de datos permite a los ingenieros de datos desarrollar una lógica d
 
 ## <a name="security-and-access"></a>Seguridad y acceso
 
-A. La experiencia de inicio de sesión único de un extremo a otro es un proceso de autenticación importante en Synapse Analytics. La administración y el paso de la identidad mediante una integración completa de AAD es imprescindible.
+A. La experiencia de inicio de sesión único de un extremo a otro es un proceso de autenticación importante en Synapse Analytics. La administración y el paso de la identidad mediante una integración completa de AAD son imprescindibles.
 
 ### <a name="q-how-do-i-get-access-to-files-and-folders-in-the-adlsg2"></a>P: ¿Cómo se obtiene acceso a archivos y carpetas en ADLSg2?
 

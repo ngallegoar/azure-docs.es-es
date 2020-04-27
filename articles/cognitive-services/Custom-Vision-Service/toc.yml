@@ -13,30 +13,14 @@
       items:
         - name: Uso del portal web
           href: getting-started-build-a-classifier.md
-        - name: Uso del SDK de .NET
-          href: csharp-tutorial.md
-        - name: Uso del SDK de Python
-          href: python-tutorial.md
-        - name: Uso del SDK de Java
-          href: java-tutorial.md
-        - name: Uso del SDK de Node.js
-          href: node-tutorial.md
-        - name: Uso del SDK para Go
-          href: go-tutorial.md
+        - name: Uso del SDK de Custom Vision
+          href: quickstarts/image-classification.md
     - name: Creación de un detector de objetos
       items:
         - name: Uso del portal web
           href: get-started-build-detector.md
-        - name: Uso del SDK de .NET
-          href: csharp-tutorial-od.md
-        - name: Uso del SDK de Python
-          href: python-tutorial-od.md
-        - name: Uso del SDK de Java
-          href: java-tutorial-od.md
-        - name: Uso del SDK de Node.js
-          href: node-tutorial-object-detection.md
-        - name: Uso del SDK para Go
-          href: go-tutorial-object-detection.md
+        - name: Uso del SDK de Custom Vision
+          href: quickstarts/object-detection.md
 - name: Tutoriales
   items:
     - name: Informe de estados visuales en un dispositivo IoT

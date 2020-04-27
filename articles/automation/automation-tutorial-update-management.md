@@ -6,12 +6,12 @@ ms.subservice: update-management
 ms.topic: tutorial
 ms.date: 04/06/2020
 ms.custom: mvc
-ms.openlocfilehash: 888dc99162551482afc715f1a793614d2c866384
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 62c661f75aef77117a61be7e802562e6dde17ba5
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80677032"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604673"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Administración de actualizaciones y revisiones para las máquinas virtuales de Azure
 
@@ -40,13 +40,13 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
 
 ## <a name="view-update-assessment"></a>Ver evaluación de la actualización
 
-Cuando habilite Update Management, se abrirá el panel **Update Management**. Si alguna actualización se identifica como que falta, verá una lista de las actualizaciones que faltan en la pestaña **Actualizaciones que faltan**.
+Cuando habilite Update Management, se abrirá la página Update Management. Si alguna actualización se identifica como que falta, verá una lista de las actualizaciones que faltan en la pestaña **Actualizaciones que faltan**.
 
 En **Vínculo de información**, seleccione el vínculo de la actualización para abrir el artículo de soporte técnico sobre la actualización. Encontrará información importante acerca de la actualización.
 
 ![Ver el estado de la actualización](./media/automation-tutorial-update-management/manageupdates-view-status-win.png)
 
-Haga clic en cualquier otro lugar de la actualización para abrir el panel **Búsqueda de registros** de la actualización seleccionada. La consulta para la búsqueda de registros está predefinida para esa actualización específica. Puede modificar esta consulta o crear una propia para ver información detallada sobre las actualizaciones implementadas o las actualizaciones que faltan en el entorno.
+Haga clic en cualquier otro lugar de la actualización para abrir el panel Búsqueda de registros de la actualización seleccionada. La consulta para la búsqueda de registros está predefinida para esa actualización específica. Puede modificar esta consulta o crear una propia para ver información detallada sobre las actualizaciones implementadas o las actualizaciones que faltan en el entorno.
 
 ![Ver el estado de la actualización](./media/automation-tutorial-update-management/logsearch.png)
 
@@ -58,7 +58,7 @@ En este paso, aprenderá a configurar una alerta, cosa que le permitirá saber e
 
 En su cuenta de Automation, en **Supervisión**, vaya a **Alertas** y haga clic en **Nueva regla de alertas**.
 
-La cuenta de Automation ya está seleccionada como recurso. Si desea cambiarla, haga clic en **Seleccionar**. En la página **Seleccionar un recurso**, elija **Cuentas de Automation** en el menú desplegable **Filtrar por tipo de recurso**. Seleccione la cuenta de Automation y haga clic en **Listo**.
+La cuenta de Automation ya está seleccionada como recurso. Si desea cambiarla, haga clic en **Seleccionar**. En la página Seleccionar un recurso, elija **Cuentas de Automation** en el menú desplegable **Filtrar por tipo de recurso**. Seleccione la cuenta de Automation y haga clic en **Listo**.
 
 Haga clic en **Agregar condición** para seleccionar la señal adecuada para su implementación de actualizaciones. En la tabla siguiente, se muestran los detalles de las dos señales disponibles.
 
@@ -85,11 +85,11 @@ En el campo **Nombre del grupo de acciones**, escriba el nombre de la alerta y u
 
 En **Acciones**, escriba el nombre de la acción, como **Notificaciones por correo electrónico**. En **Tipo de acción**, seleccione **Correo electrónico/SMS/Push/Voz**. En **Detalles**, seleccione **Editar detalles**.
 
-En el panel **Correo electrónico/SMS/Push/Voz**, escriba un nombre. Seleccione la casilla de verificación **Correo electrónico** y, a continuación, escriba una dirección de correo electrónico válida.
+En el panel Correo electrónico/SMS/Push/Voz, escriba un nombre. Seleccione la casilla de verificación **Correo electrónico** y, a continuación, escriba una dirección de correo electrónico válida.
 
 ![Configuración de un grupo de acciones de correo electrónico](./media/automation-tutorial-update-management/configure-email-action-group.png)
 
-En el panel **Correo electrónico/SMS/Push/Voz**, haga clic en **Aceptar**. En el panel **Agregar grupo de acciones**, seleccione **Aceptar**.
+En el panel Correo electrónico/SMS/Push/Voz, haga clic en **Aceptar**. En el panel Agregar grupo de acciones, haga clic en **Aceptar**.
 
 Para personalizar el asunto del correo electrónico de alerta, en **Crear regla**, en **Personalizar las acciones**, seleccione **Asunto del correo electrónico**. Cuando finalice, seleccione **Crear regla de alertas**. La regla le indica si la implementación de una actualización es correcta y qué máquinas formaron parte de su ejecución.
 
@@ -132,7 +132,7 @@ En **Nueva implementación de actualizaciones**, especifique la siguiente inform
 > No puede especificar actualizaciones que se hayan descartado para incluirlas en la implementación de actualizaciones.
 >
 
-* **Configuración de la programación**: se abre el panel de **configuración de la programación**. La hora de inicio predeterminada es 30 minutos después de la hora actual. Puede establecer la hora de inicio en cualquier momento a partir de 10 minutos en el futuro.
+* **Configuración de la programación**: se abre el panel de configuración de la programación. La hora de inicio predeterminada es 30 minutos después de la hora actual. Puede establecer la hora de inicio en cualquier momento a partir de 10 minutos en el futuro.
 
    También puede especificar si la implementación se produce una vez o configurar una programación periódica. Seleccione **Una vez** en **Periodicidad**. Deje el valor predeterminado de 1 día y haga clic en **Aceptar**. Estas entradas definen una programación periódica.
 

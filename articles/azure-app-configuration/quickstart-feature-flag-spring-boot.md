@@ -4,14 +4,14 @@ description: Adición de marcas de características a aplicaciones de Spring Boo
 author: lisaguthrie
 ms.service: azure-app-configuration
 ms.topic: quickstart
-ms.date: 01/21/2020
+ms.date: 04/18/2020
 ms.author: lcozzens
-ms.openlocfilehash: 489bc0234580e8df8dcc85c1d3cc0add547818b1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: e6dc51250987e0282530209ffa13e52d6e75aa9c
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78944339"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687360"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Inicio rápido: Incorporación de marcas de características a una aplicación de Spring Boot
 
@@ -57,7 +57,7 @@ Para crear un proyecto de Spring Boot, use [Spring Initializr](https://start.spr
 
 1. Abra el archivo *pom.xml* en un editor de texto y agregue lo siguiente a la lista de `<dependencies>`:
 
-### <a name="spring-cloud-11x"></a>Spring Cloud 1.1.x
+    **Spring Cloud 1.1.x**
 
     ```xml
     <dependency>
@@ -76,7 +76,7 @@ Para crear un proyecto de Spring Boot, use [Spring Initializr](https://start.spr
     </dependency>
     ```
 
-### <a name="spring-cloud-12x"></a>Spring Cloud 1.2.x
+    **Spring Cloud 1.2.x**
 
     ```xml
     <dependency>
@@ -103,7 +103,7 @@ Para crear un proyecto de Spring Boot, use [Spring Initializr](https://start.spr
 1. Vaya al directorio `resources` de la aplicación y abra `bootstrap.properties`.  Si el archivo no existe, créelo. Agregue la siguiente línea al archivo.
 
     ```properties
-    spring.cloud.azure.appconfiguration.stores[0].name= ${APP_CONFIGURATION_CONNECTION_STRING}
+    spring.cloud.azure.appconfiguration.stores[0].connection-string= ${APP_CONFIGURATION_CONNECTION_STRING}
     ```
 
 1. En el portal de App Configuration del almacén de configuración, seleccione `Access keys`en la barra lateral. Seleccione la pestaña Claves de solo lectura. Copie el valor de la cadena de conexión principal.
@@ -283,7 +283,7 @@ Para crear un proyecto de Spring Boot, use [Spring Initializr](https://start.spr
     mvn spring-boot:run
     ```
 
-1. Inicie una ventana del explorador y vaya a la dirección URL predeterminada de una aplicación web hospedada localmente: `https://localhost:8080`.
+1. Abra una ventana del explorador y vaya a la dirección URL: `http://localhost:8080/welcome`.
 
     ![Inicio de la aplicación del artículo de inicio rápido en un entorno local](./media/quickstarts/spring-boot-feature-flag-local-before.png)
 

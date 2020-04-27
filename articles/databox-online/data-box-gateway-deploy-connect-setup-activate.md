@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: alkohli
-ms.openlocfilehash: c2a0dde496d6af66387210ca9b2ebf9cb4bdae7f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b3cf4fd958202c28586b7c15932dc88a21d7c60f
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79087938"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686874"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway"></a>Tutorial: Conexión, configuración y activación de Azure Data Box Gateway
 
@@ -41,7 +41,7 @@ Antes de instalar y configurar Data Box Gateway, asegúrese de que:
 
 1. Abra una ventana del explorador y acceda a la interfaz de usuario web local del dispositivo en:
    
-   [https://ip-address-of-network-interface](https://ip-address-of-network-interface)
+   https:\//ip-address-of-network-interface
    
    Use la dirección URL de conexión que anotó en el tutorial anterior. Ve un error o advertencia que indica que hay un problema con el certificado de seguridad del sitio web.
 

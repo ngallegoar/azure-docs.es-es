@@ -1,0 +1,45 @@
+---
+title: Galería de complementos de Azure Media Player
+description: Este artículo contiene una lista de complementos disponibles para Azure Media Player.
+author: IngridAtMicrosoft
+ms.author: inhenkel
+ms.service: media-services
+ms.topic: overview
+ms.date: 04/20/2020
+ms.openlocfilehash: 206200f3ba0757cd738439b58c8b94874cf5a938
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81727502"
+---
+# <a name="azure-media-player-plugin-gallery"></a>Galería de complementos de Azure Media Player #
+
+## <a name="plugins"></a>Complementos ##
+
+| Nombre del complemento                         | URL de demostración                    | Código fuente                | Descripción    |
+|-------------------------------------|-----------------------------|----------------------------|----------------|
+| Características adicionales                 | | | |
+| **¡Nuevo!** AMP360Video                | [Demostración](http://www.babylonjs.com/demos/amp360video/)                        | [GitHub](https://github.com/BabylonJS/Extensions/tree/master/Amp360Video)                     | El complemento le permite visualizar vídeo 360 º en Amp, ya sea en el escritorio o en los dispositivos compatibles con realidad virtual. La documentación completa está disponible [aquí](https://doc\.babylonjs\.com/extensions/amp360video): |
+|  Sprite Tip                         | [Demostración](http://www.skymedia.tv/asset/sprite)                        | [GitHub](https://github.com/RickShahid/SpriteTip)                    | Complemento de Azure Media Player (AMP) para la representación de escalas de tiempo de un sprite de imagen en miniatura de vídeo que se genera a partir de Media Encoder Standard (MES) de Azure Media Services (AMS). |
+| Diagnostics Overlay                 | [Demostración](https://openidconnectweb.azurewebsites.net/Diagnoverlay.html)                        | [GitHub](https://github.com/willzhan/diagnoverlay)                     | Este complemento muestra: todos los parámetros clave, estadísticas de vídeo, todos los eventos del ciclo de vida de reproducción de vídeo e información de protección DRM, como el identificador de clave, las direcciones URL de adquisición de licencias, si están protegidas.                                                                                                                                                                      |
+| Velocidad de fotogramas y calculadora de código de tiempo | [Demostración](http://mconvertitest001.blob.core.windows.net/public/example.html)                        | [GitHub](https://github.com/mconverti/media-services-javascript-azure-media-player-framerate-timecode-calculator-plugin)                     | Este complemento calcula la velocidad de fotogramas de vídeo en función de los `tfhd`/`trun` cuadros MP4 del primer fragmento de vídeo MPEG-DASH, analiza el valor de la escala de tiempo del manifiesto de cliente MPEG-DASH y, además, proporciona una forma de generar el código de tiempo para una hora absoluta determinada desde el reproductor (y proporciona el tiempo absoluto del reproductor dado el código de tiempo) |
+| <strike>Playback Speed</strike>                      | [Demostración](https://azure-samples.github.io/media-services-javascript-Azure-Media-Player-playback-rate-plugin/)                        | [GitHub](https://github.com/Azure-Samples/media-services-javascript-azure-media-player-time-tip-plugin)                     | Este complemento permite a los visores controlar la velocidad del vídeo. *Tenga en cuenta que esta funcionalidad está disponible automáticamente a partir de la versión 2.0.0 de AMP, pero está deshabilitada de forma predeterminada.* Para aprender a habilitarla, consulte nuestros ejemplos [aquí](https://github.com/Azure-Samples/azure-media-player-samples) |
+| Hover Time Tip                      | [Demostración](http://sr-test.azurewebsites.net/Tests/Plugin%20Gallery/plugins/timetip/example.html)                        | [GitHub](https://github.com/Azure-Samples/media-services-javascript-azure-media-player-time-tip-plugin)                     | Muestra información acerca del tiempo en la barra de progreso al pasar el cursor para una búsqueda precisa del tiempo. *Nota: Este complemento ya está integrado en AMP* pero, si le interesa ver cómo está programado, no dude en echar un vistazo.                                                                                                                       |
+| Title Overlay                       | [Demostración](https://azure-samples.github.io/media-services-javascript-azure-media-player-title-overlay-plugin/")                        | [GitHub](https://github.com/Azure-Samples/media-services-javascript-azure-media-player-title-overlay-plugin)                     | Superpone el título de vídeo configurable en la pantalla |
+| Timeline Markers                    | [Demostración](http://sr-test.azurewebsites.net/Tests/Plugin%20Gallery/plugins/timelinemarkers/example.html)                        | [GitHub](https://github.com/Azure-Samples/media-services-javascript-azure-media-player-timeline-markers-plugin)                     | Este complemento toma una matriz de tiempos y superpone pequeños marcadores en la barra de progreso en esos tiempos. |
+| Análisis                           | | | |
+| Application Insights                | [Entrada de blog](https://azure.microsoft.com/blog/player-analytics-azure-media-player-plugin/)                   | [GitHub](https://github.com/Azure-Samples/media-services-javascript-azure-media-player-application-insights-plugin)                     | Complemento que realiza un seguimiento de las métricas del reproductor y las traslada a Power BI para que realice una representación gráfica intuitiva de la experiencia del reproductor que han tenido los usuarios. |
+| Google Analytics                    | N/D                         | [GitHub](https://github.com/Azure-Samples/media-services-javascript-azure-media-player-google-analytics-plugin)                     | Complemento Google Analytics para Azure Media Player |
+| Diagnóstico                         | | | |
+| Diagnostics Output                  | [Demostración](http://sr-test.azurewebsites.net/Tests/Plugin%20Gallery/plugins/diagnosticslogger/example.html)                        | [GitHub](https://github.com/Azure-Samples/media-services-javascript-azure-media-player-diagnostic-logger-plugin)                     | Este complemento genera una matriz de diagnósticos desde el reproductor. Para verla en acción, vaya al vínculo de la demostración y abra la consola JavaScript. |
+| Facilidad de acceso                      | | | |
+| Acercar                             | [Demostración](http://sr-test.azurewebsites.net/Tests/Plugin%20Gallery/plugins/zoom/example.html)                        | [GitHub](https://github.com/Azure-Samples/media-services-javascript-azure-media-player-zoom-plugin)                     | Este complemento muestra una escala de zoom que se puede arrastrar en la pantalla de reproductores, con el fin de que los usuarios puedan acercar el contenido |
+| Live Captions                       | [Entrada de blog de Azure](https://azure.microsoft.com/blog/live-real-time-captions-with-azure-media-services-and-player/),[Publicación de SubPly](http://www.subply.com/en/Products/AzureLiveCaptions.htm) | N/D | *Para más información, consulte la publicación.* Flujo de trabajo de un extremo a otro diseñado para el complemento integrado de subtítulos en directo para Azure Media Player, haga clic en el vínculo más a la izquierda para ir al sitio de SubPly y obtener más información sobre la solución |
+| Hot Keys                            | <strike>[Demostración](http://sr-test.azurewebsites.net/Tests/Plugin%20Gallery/plugins/hotkeys/example.html)</strike>                        | <strike>[GitHub](https://github.com/Azure-Samples/media-services-javascript-azure-media-player-hot-keys-plugin)</strike>                     | El complemento de teclas de acceso rápido permite a los usuarios controlar distintos aspectos del reproductor con combinaciones de complementos genéricas, como F para pantalla completa, M para silenciar y las teclas de dirección para el control de la barra de progreso. *Nota: Este complemento ya está integrado en AMP, pero no dude en usarlo como un recurso* |
+| Redes sociales                              | | | |
+| Compartir                               | [Demostración](http://sr-test.azurewebsites.net/Tests/Plugin%20Gallery/plugins/share/example.html)                        | [GitHub](https://github.com/Azure-Samples/media-services-javascript-azure-media-player-social-share-plugin)                     | Este complemento agrega un botón para compartir a la barra de control del reproductor, con el fin de que los usuarios puedan compartir el vídeo que están viendo con sus amigos a través de Facebook, Twitter o LinkedIn. |
+
+## <a name="next-steps"></a>Pasos siguientes ##
+
+- [Inicio rápido de Azure Media Player](azure-media-player-quickstart.md)

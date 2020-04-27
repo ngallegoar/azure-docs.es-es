@@ -1,16 +1,17 @@
 ---
-title: Evaluación de máquinas virtuales de VMware para la migración a Azure
+title: Evaluación de las máquinas virtuales de VMware con Azure Migrate Server Assessment
 description: Se describe cómo evaluar máquinas virtuales de VMware locales para su migración a Azure mediante Azure Migrate Server Assessment.
 ms.topic: tutorial
-ms.date: 03/23/2019
-ms.openlocfilehash: 944b7c12a353a29a172576974261eece63ebf668
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.date: 04/15/2020
+ms.custom: mvc
+ms.openlocfilehash: bd9e6b5923207297b1aa70a67052a7796b901781
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548741"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535373"
 ---
-# <a name="assess-vmware-vms-by-using-azure-migrate-server-assessment"></a>Evaluación de máquinas virtuales de VMware mediante Server Assessment de Azure Migrate
+# <a name="assess-vmware-vms-with-server-assessment"></a>Evaluación de máquinas virtuales de VMware con Server Assessment
 
 En este artículo se muestra cómo evaluar máquinas virtuales de VMware locales mediante la herramienta [Azure Migrate:Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool).
 
@@ -48,9 +49,7 @@ Para configurar un proyecto nuevo de Azure Migrate, haga lo siguiente:
 
 1. En **Introducción**, seleccione **Agregar herramientas**.
 1. En **Migrar proyecto**, seleccione la suscripción a Azure y cree un grupo de recursos, en caso de que no lo tenga.     
-1. En **Detalles del proyecto**, especifique el nombre del proyecto y la región geográfica en la que quiere crearlo. Se admiten Asia, Europa, Reino Unido y Estados Unidos.
-
-   La geografía del proyecto solo se utiliza para almacenar los metadatos que se recopilan de las máquinas virtuales locales. Al realizar una migración se puede seleccionar cualquier región de destino.
+1. En **Detalles del proyecto**, especifique el nombre del proyecto y la región geográfica en la que quiere crearlo. Revise las zonas geográficas admitidas para nubes [públicas](migrate-support-matrix.md#supported-geographies-public-cloud) y [nubes gubernamentales](migrate-support-matrix.md#supported-geographies-azure-government).
 
    ![Cuadros de nombre de proyecto y región](./media/tutorial-assess-vmware/migrate-project.png)
 
@@ -65,12 +64,12 @@ Para configurar un proyecto nuevo de Azure Migrate, haga lo siguiente:
 
 ## <a name="set-up-the-azure-migrate-appliance"></a>Configuración del dispositivo de Azure Migrate
 
-Azure Migrate:Server Assessment usa una aplicación de Azure Migrate ligera. La aplicación realiza la detección de la máquina virtual y envía tanto los metadatos como los datos de rendimiento de esta a Azure Migrate.
-- La aplicación se puede configurar en una máquina virtual de VMware mediante una plantilla de OVA descargada. Como alternativa, se puede configurar en una máquina virtual o máquina física con un script de instalador de PowerShell.
-- En este tutorial se usa la plantilla de OVA. Consulte [este artículo](deploy-appliance-script.md) si desea configurar la aplicación mediante un script.
+Azure Migrate:Server Assessment usa una aplicación de Azure Migrate ligera. La aplicación realiza la detección de la máquina virtual y envía tanto los metadatos como los datos de rendimiento de esta a Azure Migrate. El dispositivo se puede configurar de varias maneras.
+
+- Configúrelo en una máquina virtual de VMware mediante una plantilla de OVA descargada. Este es el método que se usa en este tutorial.
+- Configúrelo en una máquina virtual de VMware o en una máquina física con un script del instalador de PowerShell. Debe usarse [este método](deploy-appliance-script.md) si no se puede configurar una máquina virtual mediante una plantilla de OVA, o si se encuentra en Azure Government.
 
 Una vez creada la aplicación, compruebe que se puede conectar a Azure Migrate:Server Assessment, configúrela por primera vez y regístrela en el proyecto de Azure Migrate.
-
 
 
 ### <a name="download-the-ova-template"></a>Descarga de la plantilla OVA
@@ -115,9 +114,9 @@ Importe el archivo descargado y cree una máquina virtual:
 1. En **Network Mapping** (Asignación de red), especifique la red a la que se conectará la máquina virtual. La red necesita conectividad a Internet para enviar metadatos a Server Assessment de Azure Migrate.
 1. Revise y confirme la configuración y, a continuación, seleccione **Finish** (Finalizar).
 
-### <a name="verify-appliance-access-to-azure"></a>Comprobación de que el dispositivo puede acceder a Azure
+## <a name="verify-appliance-access-to-azure"></a>Comprobación de que el dispositivo puede acceder a Azure
 
-Asegúrese de que la máquina virtual del dispositivo se puede conectar a las [direcciones URL de Azure](migrate-appliance.md#url-access).
+Asegúrese de que la máquina virtual del dispositivo pueda conectarse a las direcciones URL de Azure para las nubes [públicas](migrate-appliance.md#public-cloud-urls) y [gubernamentales](migrate-appliance.md#government-cloud-urls).
 
 ### <a name="configure-the-appliance"></a>Configuración del dispositivo
 
@@ -136,7 +135,7 @@ Configure el dispositivo por primera vez.
    - **Connectivity** (Conectividad): la aplicación comprueba que la máquina virtual tiene acceso a Internet. Si la máquina virtual usa un proxy:
      - Seleccione **Proxy settings** (Configuración de proxy) y especifique el puerto de escucha y la dirección del proxy con el formato http://ProxyIPAddress o http://ProxyFQDN.
      - Especifique las credenciales si el proxy requiere autenticación.
-     - Observe que solo se admite un proxy HTTP.
+     - Solo se admite un proxy HTTP.
    - **Time sync** (Sincronización de hora): Para que la detección funcione correctamente, la hora del dispositivo debe estar sincronizada con la hora de Internet.
    - **Instalación de actualizaciones**: el dispositivo garantiza que se instalan las actualizaciones más recientes.
    - **Install VDDK** (Instalar VDDK): el dispositivo comprueba si VMWare vSphere Virtual Disk Development Kit (VDDK) está instalado. Si no está instalado, descargue VDDK 6.7 de VMware y extraiga el contenido del archivo ZIP descargado en la ubicación especificada del dispositivo.
@@ -167,7 +166,7 @@ El dispositivo necesita conectarse a vCenter Server para detectar los datos de c
     - Si desea limitar el ámbito de la detección a objetos específicos de VMware (centros de datos de vCenter Server, clústeres, una carpeta de clústeres, hosts, una carpeta de hosts o máquinas virtuales individuales), consulte las instrucciones de [este artículo](set-discovery-scope.md) para restringir la cuenta usada por Azure Migrate.
 
 3. Seleccione **Validar conexión** para asegurarse de que el dispositivo puede conectarse a vCenter Server.
-4. En **Discover applications and dependencies on VMs** (Detectar aplicaciones y dependencias en máquinas virtuales), puede hacer clic en **Add credentials**  (Agregar credenciales) y especificar el sistema operativo para el que las credenciales son apropiadas, así como el nombre de usuario y la contraseña de las credenciales. Luego, haga clic en **Add** (Agregar).
+4. En **Discover applications and dependencies on VMs** (Detectar aplicaciones y dependencias en máquinas virtuales), puede hacer clic en **Add credentials**  (Agregar credenciales) y especificar el sistema operativo para el que las credenciales son apropiadas, así como el nombre de usuario y la contraseña de las credenciales. A continuación, haga clic en **Agregar**.
 
     - Si lo desea, agregue las credenciales aquí si ha creado una cuenta para utilizarla en la [característica de detección de aplicaciones](how-to-discover-applications.md) o [en la característica de análisis de dependencias sin agente](how-to-create-group-machine-dependencies-agentless.md).
     - Si no usa estas características, puede omitir este valor.
@@ -255,7 +254,7 @@ Los costos de almacenamiento agregado del grupo evaluado se dividen por los dife
 
 ### <a name="review-confidence-rating"></a>Examen de la clasificación de confianza
 
-Server Assessment de Azure Migrate asigna una clasificación de confianza a una evaluación basada en el rendimiento: de 1 estrella (la más baja) a 5 estrellas (la más alta).
+Azure Migrate Server Assessment asigna una clasificación de confianza a una evaluación basada en el rendimiento de una estrella (la más baja) a cinco estrellas (la más alta).
 
 ![Clasificación de confianza](./media/tutorial-assess-vmware/confidence-rating.png)
 

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 02/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 5469c2512e133d17e4d18cebb64ab9e2a21b1f83
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 36ded3bd85cd7acdffbfe46b9e931a811994fa30
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77482304"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81531107"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-rest-api-and-python"></a>Entrenamiento de un modelo de Form Recognizer con etiquetas mediante la API REST y Python
 
@@ -40,7 +40,7 @@ Asegúrese de que todos los documentos de entrenamiento tienen el mismo formato.
 
 Para entrenar un modelo con datos etiquetados, necesitará los siguientes archivos como entradas en la subcarpeta. A continuación, aprenderá a crear estos archivos.
 
-* **Formularios de origen**: los formularios de los que se van a extraer datos. Los tipos admitidos son JPEG, PNG, BMP, PDF o TIFF.
+* **Formularios de origen**: los formularios de los que se van a extraer datos. Los tipos admitidos son JPEG, PNG, PDF o TIFF.
 * **Archivos de diseño OCR**: archivos JSON que describen los tamaños y posiciones de todo el texto legible de cada formulario de origen. Usará la API de diseño de Form Recognizer para generar estos datos. 
 * **Archivos de etiqueta**: archivos JSON que describen las etiquetas de datos que un usuario ha escrito manualmente.
 
@@ -219,7 +219,7 @@ headers = {
     'Ocp-Apim-Subscription-Key': '<subsription key>',
 }
 
-body =  {
+body =     {
     "source": source,
     "sourceFilter": {
         "prefix": prefix,
@@ -455,7 +455,7 @@ Cuando se complete el proceso, recibirá una respuesta `202 (Success)` con conte
                     "#/readResults/0/lines/8/words/1"
                   ]
                 },
-                ...     
+                ...        
               ]
             }
           ]

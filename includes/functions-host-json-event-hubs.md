@@ -4,13 +4,41 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: b5d8f67a70961aab21312b6f241081dcb33f66fb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2604a1608f21d7239db755027e15b8198fb3f9f2
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "67186109"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81791666"
 ---
+### <a name="functions-2x-and-higher"></a>Functions 2.x y superiores
+
+```json
+{
+    "version": "2.0",
+    "extensions": {
+        "eventHubs": {
+            "batchCheckpointFrequency": 5,
+            "eventProcessorOptions": {
+                "maxBatchSize": 256,
+                "prefetchCount": 512
+            }
+        }
+    }
+}  
+```
+
+|Propiedad  |Valor predeterminado | Descripción |
+|---------|---------|---------|
+|maxBatchSize|10|Número máximo de eventos recibido por cada bucle de recepción.|
+|prefetchCount|300|Número predeterminado de capturas previas utilizado por el elemento `EventProcessorHost` subyacente.|
+|batchCheckpointFrequency|1|Número de lotes de eventos que se va a procesar antes de crear un punto de comprobación de cursor de EventHub.|
+
+> [!NOTE]
+> Para una referencia de host.json en Azure Functions 2.x y versiones posteriores, consulte [Referencia de host.json para Azure Functions](../articles/azure-functions/functions-host-json.md).
+
+### <a name="functions-1x"></a>Functions 1.x
+
 ```json
 {
     "eventHub": {
@@ -24,5 +52,9 @@ ms.locfileid: "67186109"
 |Propiedad  |Valor predeterminado | Descripción |
 |---------|---------|---------| 
 |maxBatchSize|64|Número máximo de eventos recibido por cada bucle de recepción.|
-|prefetchCount|N/D|Valor predeterminado de PrefetchCount que utilizará el host de procesador de eventos subyacente.| 
+|prefetchCount|N/D|Número predeterminado de capturas previas que utilizará el elemento `EventProcessorHost` subyacente.| 
 |batchCheckpointFrequency|1|Número de lotes de eventos que se va a procesar antes de crear un punto de comprobación de cursor de EventHub.| 
+
+> [!NOTE]
+> Para una referencia de host.json en Azure Functions 1.x, consulte [Referencia de host.json para Azure Functions 1.x](../articles/azure-functions/functions-host-json-v1.md).
+

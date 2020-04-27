@@ -210,7 +210,7 @@
       items:
         - name: Configuración de alertas basadas en métricas
           href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md
-        - name: Configuración de alertas basadas en registros de diagnóstico
+        - name: Configuración de alertas basadas en registros de recursos
           href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md
     - name: Configuración de captura de paquetes
       href: packet-capture.md

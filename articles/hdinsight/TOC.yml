@@ -39,6 +39,8 @@
       items:
         - name: Componentes de Apache Hadoop en HDInsight
           href: ./hdinsight-component-versioning.md
+        - name: Notas de la versión de Hortonworks
+          href: ./hortonworks-release-notes.md
         - name: Componentes de alta disponibilidad
           href: ./hdinsight-high-availability-components.md
         - name: Apache Ambari en Azure HDInsight
@@ -59,10 +61,17 @@
           href: ./cluster-management-best-practices.md
         - name: Disponibilidad y confiabilidad
           href: ./hdinsight-high-availability-linux.md
-        - name: Comparación entre las opciones de almacenamiento
-          href: ./hdinsight-hadoop-compare-storage-options.md
         - name: Descripción de identidades administradas
           href: ./hdinsight-managed-identities.md
+        - name: Comparación entre las opciones de almacenamiento
+          href: hdinsight-hadoop-compare-storage-options.md
+          items:
+            - name: introducción a Azure Storage
+              href: overview-azure-storage.md
+            - name: Introducción a Azure Data Lake Storage Gen1
+              href: overview-data-lake-storage-gen1.md
+            - name: Introducción a Azure Data Lake Storage Gen2
+              href: overview-data-lake-storage-gen2.md
     - name: Procedimientos
       items:
         - name: Creación de clústeres
@@ -122,6 +131,8 @@
               href: hdinsight-hadoop-linux-use-ssh-unix.md
             - name: Uso de la tunelización de SSH
               href: hdinsight-linux-ambari-ssh-tunnel.md
+            - name: Uso de SCP con HDInsight
+              href: ./use-scp.md
             - name: Restricción del acceso a los datos
               href: hdinsight-storage-sharedaccesssignature-permissions.md
             - name: Autorización de usuarios para Apache Ambari Views
@@ -216,6 +227,8 @@
           items:
             - name: Solución de problemas de acciones de script
               href: ./troubleshoot-script-action.md
+            - name: Errores de creación de recursos
+              href: ./troubleshoot-resource-creation-fails.md
     - name: Referencia
       items:
         - name: Azure PowerShell

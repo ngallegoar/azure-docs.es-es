@@ -1,25 +1,25 @@
 ---
-title: 'CLI: Carga y enlace de un certificado SSL a una aplicación'
-description: Aprenda a usar la CLI de Azure para automatizar la implementación y administración de la aplicación App Service. En este ejemplo se indica cómo enlazar un certificado SSL personalizado a una aplicación.
+title: 'CLI: Carga y enlace de un certificado TLS/SSL a una aplicación'
+description: Aprenda a usar la CLI de Azure para automatizar la implementación y administración de la aplicación App Service. En este ejemplo se indica cómo enlazar un certificado TLS/SSL personalizado a una aplicación.
 tags: azure-service-management
 ms.assetid: eb95d350-81ea-4145-a1e2-6eea3b7469b2
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 12/11/2017
 ms.custom: mvc, seodec18
-ms.openlocfilehash: d519ae31359890430c3e0f690e51d95acfacf1ef
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d1775f3af390bb71b6895dc6d43c5ae574371aef
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80058750"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537668"
 ---
-# <a name="bind-a-custom-ssl-certificate-to-an-app-service-app-using-cli"></a>Enlace de un certificado SSL personalizado a una aplicación de App Service mediante la CLI
+# <a name="bind-a-custom-tlsssl-certificate-to-an-app-service-app-using-cli"></a>Enlace de un certificado TLS/SSL personalizado a una aplicación de App Service mediante la CLI
 
-Este script de ejemplo crea una aplicación en App Service con sus recursos relacionados y, luego, enlaza a ella el certificado SSL de un nombre de dominio personalizado. Para este ejemplo, se necesita:
+Este script de ejemplo crea una aplicación en App Service con sus recursos relacionados y, luego, enlaza a ella el certificado TLS/SSL de un nombre de dominio personalizado. Para este ejemplo, se necesita:
 
 * Acceso a la página de configuración DNS de su registrador de dominios.
-* Un archivo PFX válido y su contraseña para el certificado SSL que desea cargar y enlazar.
+* Un archivo PFX válido y su contraseña para el certificado TLS/SSL que desea cargar y enlazar.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -29,7 +29,7 @@ Si decide instalar y usar la CLI localmente, necesitará la CLI de Azure versió
 
 ## <a name="sample-script"></a>Script de ejemplo
 
-[!code-azurecli-interactive[main](../../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom SSL certificate to an app")]
+[!code-azurecli-interactive[main](../../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom TLS/SSL certificate to an app")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
@@ -43,8 +43,8 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Crea un plan de App Service, |
 | [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Crea una aplicación de App Service. |
 | [`az webapp config hostname add`](/cli/azure/webapp/config/hostname?view=azure-cli-latest#az-webapp-config-hostname-add) | Asigna un dominio personalizado a una aplicación de App Service. |
-| [`az webapp config ssl upload`](/cli/azure/webapp/config/ssl?view=azure-cli-latest#az-webapp-config-ssl-upload) | Carga un certificado SSL en una aplicación de App Service. |
-| [`az webapp config ssl bind`](/cli/azure/webapp/config/ssl?view=azure-cli-latest#az-webapp-config-ssl-bind) | Enlaza un certificado SSL cargado a una aplicación de App Service. |
+| [`az webapp config ssl upload`](/cli/azure/webapp/config/ssl?view=azure-cli-latest#az-webapp-config-ssl-upload) | Carga un certificado TLS/SSL en una aplicación de App Service. |
+| [`az webapp config ssl bind`](/cli/azure/webapp/config/ssl?view=azure-cli-latest#az-webapp-config-ssl-bind) | Enlaza un certificado TLS/SSL cargado a una aplicación de App Service. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/14/2020
 ms.author: allensu
-ms.openlocfilehash: a94b51e49951948974b8f42f6c89cd3c84f95d65
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 7a7210915920ed9ab2a5ddc47a27c2587895a57a
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80064274"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81768252"
 ---
 # <a name="load-balancer-components-and-limitations"></a>Componentes y limitaciones de Load Balancer
 Azure Load Balancer contiene varios componentes clave para su funcionamiento.  Estos componentes se pueden configurar en la suscripción mediante Azure Portal, la CLI de Azure o Azure PowerShell.  
@@ -171,6 +171,8 @@ El equilibrador de carga admite las SKU básica y estándar. Estas SKU difieren 
 
 La configuración completa del escenario podría diferir ligeramente en función de la SKU. La documentación del equilibrador de carga indica si un artículo se aplica únicamente a una SKU específica. Para comparar y comprender las diferencias, consulte la siguiente tabla. Para más información, consulte [Información general sobre Standard Load Balancer de Azure](load-balancer-standard-overview.md).
 
+Para actualizar un equilibrador de carga de la versión Básico a Estándar, consulte [Actualización de la versión Básico de un equilibrador de carga](upgrade-basic-standard.md).
+
 >[!NOTE]
 > Microsoft recomienda Standard Load Balancer.
 Las máquinas virtuales independientes, los conjuntos de disponibilidad y los conjuntos de escalado de máquinas virtuales solo se pueden conectar a una SKU, nunca a ambas. Load Balancer y la SKU de la dirección IP pública deben coincidir cuando se usan con direcciones IP públicas. Load Balancer y las SKU de IP públicas no son mutables.
@@ -207,6 +209,7 @@ Para más información, consulte [Límites del equilibrador de carga](https://do
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+- Consulte [Actualización de la versión Básico de un equilibrador de carga](upgrade-basic-standard.md) para actualizar a la versión Estándar.
 - Consulte [Creación de una instancia de Standard Load Balancer](quickstart-load-balancer-standard-public-portal.md) para empezar a usar una instancia de Load Balancer: crear una, crear máquinas virtuales con una extensión de IIS personalizada instalada y equilibrar la carga de la aplicación web entre las máquinas virtuales.
 - Más información sobre [Azure Load Balancer](load-balancer-overview.md).
 - Más información en [Standard Load Balancer y Availability Zones](load-balancer-standard-availability-zones.md).

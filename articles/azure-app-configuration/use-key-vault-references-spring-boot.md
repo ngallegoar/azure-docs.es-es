@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 12/16/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: b6b6d10165eed331c397e17a18e382b095e1f74f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6a5bc947c3ea414f197df9cfcdd5f233e4654cbc
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79216743"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085032"
 ---
 # <a name="tutorial-use-key-vault-references-in-a-java-spring-app"></a>Tutorial: Uso de referencias de Key Vault en una aplicación de Java Spring
 
@@ -140,6 +140,14 @@ Para agregar un secreto al almacén, debe llevar a cabo algunos pasos adicionale
 
 ## <a name="update-your-code-to-use-a-key-vault-reference"></a>Actualización del código para usar una referencia de Key Vault
 
+1. Cree una variable de entorno denominada **APP_CONFIGURATION_ENDPOINT**. Establezca su valor en el punto de conexión para el almacén de App Configuration. Puede encontrar el punto de conexión en la hoja **Claves de acceso** de Azure Portal.
+
+1. Abra *bootstrap.properties* en la carpeta *resources*. Actualice este archivo para usar el punto de conexión de App Configuration, en lugar de una cadena de conexión.
+
+    ```properties
+    spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_ENDPOINT}
+    ```
+
 1. Abra *MessageProperties.java*. Agregue una nueva variable denominada *keyVaultMessage*:
 
     ```java
@@ -166,7 +174,7 @@ Para agregar un secreto al almacén, debe llevar a cabo algunos pasos adicionale
 1. Cree un nuevo archivo llamado *AzureCredentials.java* y agregue el código siguiente.
 
     ```java
-    package com.example;
+    package com.example.demo;
 
     import com.azure.core.credential.TokenCredential;
     import com.azure.identity.EnvironmentCredentialBuilder;
@@ -195,7 +203,7 @@ Para agregar un secreto al almacén, debe llevar a cabo algunos pasos adicionale
 1. Cree un nuevo archivo llamado *AppConfiguration.java*. Y agregue el código siguiente.
 
     ```java
-    package com.example;
+    package com.example.demo;
 
     import org.springframework.context.annotation.Bean;
     import org.springframework.context.annotation.Configuration;
@@ -214,7 +222,7 @@ Para agregar un secreto al almacén, debe llevar a cabo algunos pasos adicionale
 
     ```factories
     org.springframework.cloud.bootstrap.BootstrapConfiguration=\
-    com.example.AppConfiguration
+    com.example.demo.AppConfiguration
     ```
 
 1. Compile la aplicación de Spring Boot con Maven y ejecútela; por ejemplo:

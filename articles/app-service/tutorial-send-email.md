@@ -4,12 +4,12 @@ description: Aprenda a invocar procesos empresariales desde una aplicación de A
 ms.topic: tutorial
 ms.date: 04/08/2020
 ms.custom: mvc
-ms.openlocfilehash: 44f2dfb83e96e1d8fa31ee1acf350193b954dbd8
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.openlocfilehash: 4073b49a134356943bd7da8d54bf574f2e0d5eea
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80892574"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604846"
 ---
 # <a name="tutorial-send-email-and-invoke-other-business-processes-from-app-service"></a>Tutorial: Envío de correo electrónico e invocación de otros procesos empresariales desde App Service
 
@@ -199,7 +199,7 @@ var statusCode = result.StatusCode.ToString();
 ```
 
 > [!NOTE]
-> Este código se ha escrito así para simplificar la demostración. En la práctica, no cree instancias de un objeto `HttpClient` en cada solicitud. Siga las instrucciones que se indican en [Uso de IHttpClientFactory para implementar solicitudes HTTP resistentes] (https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient -http-requests).
+> Este código se ha escrito así para simplificar la demostración. En la práctica, no cree instancias de un objeto `HttpClient` en cada solicitud. Siga las instrucciones que se indican en [Uso de IHttpClientFactory para implementar solicitudes HTTP resistentes](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests).
 
 Si está probando este código en la aplicación de ejemplo de [Tutorial: Compilación de una aplicación ASP.NET Core y SQL Database en Azure App Service](app-service-web-tutorial-dotnetcore-sqldb.md), podrá utilizarla para enviar una confirmación por correo electrónico en la [acción Create](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial/blob/master/Controllers/TodosController.cs#L56-L65) después de agregar el elemento `Todo`.
 

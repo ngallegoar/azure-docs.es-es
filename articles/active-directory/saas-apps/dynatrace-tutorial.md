@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ba96dd2fcfb995afa6e3b1302a2c8b075abfd90
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 275215a69f97d93a1b1741a8fa8f3ca752c8c9ef
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "72968688"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758986"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-dynatrace"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Dynatrace
 
@@ -140,7 +140,7 @@ En esta sección va a permitir que B.Simon acceda a Dynatrace mediante el inicio
 
 ## <a name="configure-dynatrace-sso"></a>Configuración del inicio de sesión único de Dynatrace
 
-Para configurar el inicio de sesión único en **Dynatrace**, es preciso enviar el **XML de metadatos de federación** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de Dynatrace](https://www.dynatrace.com/services-support/). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **Dynatrace**, es preciso enviar el archivo **XML de metadatos de federación** descargado y las direcciones URL apropiadas copiadas de Azure Portal a [Dynatrace](https://www.dynatrace.com/support/help/shortlink/users-sso-hub). Puede seguir las instrucciones del sitio web de Dynatrace para configurar la conexión de inicio de sesión único de SAML en ambos lados.
 
 ### <a name="create-dynatrace-test-user"></a>Creación de un usuario de prueba de Dynatrace
 

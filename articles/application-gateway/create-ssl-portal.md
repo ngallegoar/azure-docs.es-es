@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 11/13/2019
+ms.date: 04/22/2019
 ms.author: victorh
-ms.openlocfilehash: b40eb107fc975d2ef0170944892b936680de3c9f
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 62f5375a0d468f5b137c4628c89c802d83dee102
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312387"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024500"
 ---
 # <a name="tutorial-configure-an-application-gateway-with-tls-termination-using-the-azure-portal"></a>Tutorial: Configuración de una puerta de enlace de aplicaciones con terminación TLS mediante Azure Portal
 
@@ -56,13 +56,11 @@ Thumbprint                                Subject
 E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630  CN=www.contoso.com
 ```
 
-Use [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) con la huella digital que se devolvió al exportar un archivo pfx del certificado:
+Use [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) con la huella digital que se devolvió al exportar un archivo PFX del certificado. Asegúrese de que la contraseña tiene entre 4 y 12 caracteres de longitud:
 
-> [!NOTE]
-> No use ningún carácter especial en la contraseña del archivo .pfx. Solo se admiten caracteres alfanuméricos.
 
 ```powershell
-$pwd = ConvertTo-SecureString -String "Azure123456" -Force -AsPlainText
+$pwd = ConvertTo-SecureString -String <your password> -Force -AsPlainText
 Export-PfxCertificate `
   -cert cert:\localMachine\my\E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630 `
   -FilePath c:\appgwcert.pfx `
@@ -150,7 +148,7 @@ En la pestaña **Configuración**, conecte el grupo de front-end y back-end que 
 
    - **Archivo de certificado PFX**: busque y seleccione el archivo c:\appgwcert.pfx que creó anteriormente.
    - **Nombre del certificado**: escriba *mycert1* como nombre del certificado.
-   - **Contraseña**: escriba *Azure123456* como contraseña.
+   - En **Contraseña**, escriba su contraseña.
   
         Acepte los valores predeterminados para las demás opciones de la pestaña **Cliente de escucha** y, a continuación, seleccione la pestaña **Destinos de back-end** para configurar el resto de opciones de la regla de enrutamiento.
 
@@ -194,10 +192,10 @@ Para ello, necesitará lo siguiente:
     - **Grupo de recursos**: Seleccione **myResourceGroupAG** como nombre del grupo de recursos.
     - **Nombre de la máquina virtual**: Especifique *myVM* como nombre de la máquina virtual.
     - **Nombre de usuario**: Escriba *azureuser* como nombre del usuario administrador.
-    - **Contraseña**: escriba *Azure123456* como contraseña del administrador.
-4. Acepte los valores predeterminados y haga clic en **Siguiente: Discos**.  
-5. Acepte los valores predeterminados de la pestaña **Discos** y seleccione **Siguiente: Redes**.
-6. En la pestaña **Redes**, compruebe que **myVNet** está seleccionada como **red virtual** y que la **subred** es **myBackendSubnet**. Acepte los valores predeterminados y haga clic en **Siguiente: Administración**.
+    - **Contraseña**: Escriba una contraseña para la cuenta de administrador.
+1. Acepte los valores predeterminados y haga clic en **Siguiente: Discos**.  
+2. Acepte los valores predeterminados de la pestaña **Discos** y seleccione **Siguiente: Redes**.
+3. En la pestaña **Redes**, compruebe que **myVNet** está seleccionada como **red virtual** y que la **subred** es **myBackendSubnet**. Acepte los valores predeterminados y haga clic en **Siguiente: Administración**.
 
    Application Gateway puede comunicarse con instancias fuera de la red virtual en la que se encuentra, pero hay que comprobar que haya conectividad IP.
 1. En la pestaña **Administración**, establezca **Diagnósticos de arranque** en **Desactivado**. Acepte los demás valores predeterminados y seleccione **Revisar y crear**.

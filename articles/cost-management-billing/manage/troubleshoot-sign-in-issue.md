@@ -1,19 +1,20 @@
 ---
 title: Solución de problemas de inicio de sesión en la suscripción a Azure
 description: Ayuda a resolver problemas por los que no se puede iniciar sesión en Azure Portal o en el Centro de cuentas de Azure.
+services: cost-management-billing
 author: v-miegge
-ms.reviewer: dcscontentpm
+manager: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: v-miegge
-ms.openlocfilehash: 4213df57423f5211517b019a8b58be99d2e12e7a
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 08f278d56e742659ebe197695fae8dfa35383b17
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80409337"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81639199"
 ---
 # <a name="troubleshoot-azure-subscription-sign-in-issues"></a>Solución de problemas de inicio de sesión en la suscripción a Azure
 
@@ -41,7 +42,7 @@ Para solucionar este problema, pruebe uno de los métodos siguientes:
 
 ### <a name="i-can-sign-in-but-i-see-no-subscriptions-found"></a>Puedo iniciar sesión, pero veo el mensaje *No se encontró ninguna suscripción*
 
-Este problema se produce si seleccionó el directorio equivocado, o si la cuenta no tiene permisos suficientes.
+Este problema se produce si ha seleccionado el directorio equivocado o si la cuenta no tiene permisos suficientes.
 
 **Escenario 1:** El mensaje de error se recibe en [Azure Portal](https://portal.azure.com/)
 

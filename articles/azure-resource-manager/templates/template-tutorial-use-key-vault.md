@@ -2,20 +2,20 @@
 title: Uso de Azure Key Vault en plantillas
 description: Aprenda a usar Azure Key Vault para pasar valores de parámetros seguros durante la implementación de la plantilla de Resource Manager
 author: mumian
-ms.date: 05/23/2019
+ms.date: 04/16/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 440835f50d2ef9c03dabc7a66e8f162e3fa15b2f
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: c33ad17927dae701e4201e76b7a75690c59dc374
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81260826"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536713"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-your-arm-template-deployment"></a>Tutorial: Integración de Azure Key Vault en la implementación de la plantilla de Resource Manager
 
-Aprenda a recuperar los secretos de Azure Key Vault y a pasarlos como parámetros durante la implementación de una plantilla de Azure Resource Manager. El valor del parámetro nunca se expone, ya que solo se hace referencia a su identificador de almacén de claves. Para más información, consulte [Uso de Azure Key Vault para pasar el valor de parámetro seguro durante la implementación](./key-vault-parameter.md).
+Aprenda a recuperar los secretos de Azure Key Vault y a pasarlos como parámetros durante la implementación de una plantilla de Azure Resource Manager. El valor del parámetro nunca se expone, ya que solo se hace referencia a su identificador de almacén de claves. Puede hacer referencia al secreto del almacén de claves mediante un identificador estático o un identificador dinámico. En este tutorial se usa un identificador estático. Con el método del identificador estático, se hace referencia al almacén de claves en el archivo de parámetros de plantilla, no en el archivo de plantilla. Para más información acerca de ambos métodos, consulte [Uso de Azure Key Vault para pasar el valor de parámetro seguro durante la implementación](./key-vault-parameter.md).
 
 En el tutorial [Establecimiento del orden de implementación de los recursos](./template-tutorial-create-templates-with-dependent-resources.md), se crea una máquina virtual (VM). Deberá proporcionar el nombre de usuario y la contraseña de administrador de la VM. En lugar de proporcionar la contraseña, puede almacenar previamente la contraseña en Azure Key Vault y luego personalizar la plantilla para recuperar la contraseña desde el almacén de claves durante la implementación.
 
@@ -33,8 +33,6 @@ En este tutorial se describen las tareas siguientes:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
 ## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este artículo, necesitará lo siguiente:
@@ -49,7 +47,7 @@ Para completar este artículo, necesitará lo siguiente:
 
 ## <a name="prepare-a-key-vault"></a>Preparación de un almacén de claves
 
-En esta sección, creará un almacén de claves y le agregará un secreto, de manera que pueda recuperar el secreto al implementar la plantilla. Un almacén de claves se puede crear de muchas maneras. En este tutorial, se usa Azure PowerShell para implementar una [plantilla de Resource Manager](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorials-use-key-vault/CreateKeyVault.json). Esta plantilla hace lo siguiente:
+En esta sección, creará un almacén de claves y le agregará un secreto, de manera que pueda recuperar el secreto al implementar la plantilla. Un almacén de claves se puede crear de muchas maneras. En este tutorial, se usa Azure PowerShell para implementar una [plantilla de Resource Manager](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorials-use-key-vault/CreateKeyVault.json). Esta plantilla hace dos cosas:
 
 * Se crea un almacén de claves con la propiedad `enabledForTemplateDeployment` habilitada. El valor de esta propiedad debe ser *true* para que el proceso de implementación de plantilla pueda acceder a los secretos definidos en este almacén de claves.
 * Se agrega un secreto al almacén de claves. El secreto almacena la contraseña de administrador de la VM.
@@ -72,14 +70,16 @@ $templateUri = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -keyVaultName $keyVaultName -adUserId $adUserId -secretValue $secretValue
+
+Write-Host "Press [ENTER] to continue ..."
 ```
 
 > [!IMPORTANT]
 > * Observe que el nombre del grupo de recursos es el nombre del proyecto, con **rg** anexado. Para que resulte más fácil [limpiar los recursos que creó en este tutorial](#clean-up-resources), use el mismo nombre de proyecto y de grupo de recursos al [implementar la siguiente plantilla](#deploy-the-template).
 > * El nombre predeterminado para el secreto es **vmAdminPassword**. Está codificado de forma rígida en la plantilla.
-> * Para permitir que la plantilla recupere el secreto, debe habilitar una directiva de acceso llamada "Habilitar el acceso a Azure Resource Manager para la implementación de plantillas" para el almacén de claves. Esta directiva está habilitada en la plantilla. Para más información sobre esta directiva de acceso, consulte [Implementación de almacenes de claves y secretos](./key-vault-parameter.md#deploy-key-vaults-and-secrets).
+> * Para permitir que la plantilla recupere el secreto, debe habilitar una directiva de acceso llamada **Habilitar el acceso a Azure Resource Manager para la implementación de plantillas** para el almacén de claves. Esta directiva está habilitada en la plantilla. Para más información sobre esta directiva de acceso, consulte [Implementación de almacenes de claves y secretos](./key-vault-parameter.md#deploy-key-vaults-and-secrets).
 
-La plantilla tiene un valor de salida denominado *keyVaultId*. Anote el valor de identificador para su uso posterior, cuando se implemente la máquina virtual. El formato del identificador de recurso es:
+La plantilla tiene un valor de salida denominado *keyVaultId*. Usará este identificador junto con el nombre del secreto para recuperar el valor del secreto más adelante en el tutorial. El formato del identificador de recurso es:
 
 ```json
 /subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>
@@ -108,13 +108,14 @@ Plantillas de inicio rápido de Azure es un repositorio de plantillas de Azure R
     ```
 
 1. Seleccione **Abrir** para abrir el archivo. El escenario es el mismo que el que se usa en [Tutorial: Creación de plantillas de Resource Manager con recursos dependientes](./template-tutorial-create-templates-with-dependent-resources.md).
-   La plantilla define cinco recursos:
+   La plantilla define seis recursos:
 
-   * `Microsoft.Storage/storageAccounts`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
-   * `Microsoft.Network/publicIPAddresses`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
-   * `Microsoft.Network/virtualNetworks`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
-   * `Microsoft.Network/networkInterfaces`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
-   * `Microsoft.Compute/virtualMachines`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
+   * [**Microsoft.Storage/storageAccounts**](/azure/templates/Microsoft.Storage/storageAccounts).
+   * [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses).
+   * [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups).
+   * [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks).
+   * [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces).
+   * [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines).
 
    Resulta útil disponer cierto conocimientos básicos sobre la plantilla antes de personalizarla.
 
@@ -128,7 +129,7 @@ Plantillas de inicio rápido de Azure es un repositorio de plantillas de Azure R
 
 ## <a name="edit-the-parameters-file"></a>Edición del archivo de parámetros
 
-No es necesario hacer ningún cambio en el archivo de plantilla.
+Al usar el método del identificador estático, no es necesario realizar ningún cambio en el archivo de plantilla. La recuperación del valor de secreto se realiza mediante la configuración del archivo de parámetros de plantilla.
 
 1. En Visual Studio Code, abra *azuredeploy.parameters.json* si aún no está abierto.
 1. Actualice el parámetro `adminPassword` a:
@@ -145,7 +146,7 @@ No es necesario hacer ningún cambio en el archivo de plantilla.
     ```
 
     > [!IMPORTANT]
-    > Reemplace el valor de **id** por el identificador de recurso del almacén de claves que creó en el procedimiento anterior.
+    > Reemplace el valor de **id** por el identificador de recurso del almacén de claves que creó en el procedimiento anterior. El valor de secretName se codifica como **vmAdminPassword**.  Consulte [Preparación de un almacén de claves](#prepare-a-key-vault).
 
     ![Integrar el almacén de claves y el archivo de parámetros de implementación de máquina virtual de la plantilla de Resource Manager](./media/template-tutorial-use-key-vault/resource-manager-tutorial-create-vm-parameters-file.png)
 

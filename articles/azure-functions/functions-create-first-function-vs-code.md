@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 01/10/2020
 ms.custom: mvc, devcenter
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 3e1cf95d3c6ac8918e9e7e5593d687ee2d398810
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 08575164334db965a9e5592b761a06205208de9e
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886626"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732768"
 ---
 # <a name="quickstart-create-an-azure-functions-project-using-visual-studio-code"></a>Inicio rápido: Creación de un proyecto de Azure Functions en Visual Studio Code
 
@@ -22,7 +22,7 @@ También hay una [versión basada en la CLI](functions-create-first-azure-functi
 
 ::: zone pivot="programming-language-java"  
 > [!NOTE]
-> Si VS Code no es la herramienta de desarrollo elegida, consulte nuestros tutoriales análogos para desarrolladores de Java con [Maven](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java), [Gradle](/azure/azure-functions/functions-create-first-java-gradle) e [IntelliJ IDEA](/azure/java/intellij/azure-toolkit-for-intellij-quickstart-functions).
+> Si VS Code no es la herramienta de desarrollo elegida, consulte nuestros tutoriales análogos para desarrolladores de Java con [Maven](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java), [Gradle](/azure/azure-functions/functions-create-first-java-gradle) e [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions).
 ::: zone-end  
 
 ## <a name="configure-your-environment"></a>Configurar su entorno
@@ -47,7 +47,7 @@ Antes de empezar, asegúrese de que cumple los siguientes requisitos:
 + El [SDK de .NET Core 2.2+](https://www.microsoft.com/net/download)  
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
-+ [Kit para desarrolladores de Java](https://aka.ms/azure-jdks), versión 8.
++ [Kit para desarrolladores de Java](https://aka.ms/azure-jdks), versión 8.
 
 + [Apache Maven](https://maven.apache.org), versión 3.0 o posterior.
 ::: zone-end  

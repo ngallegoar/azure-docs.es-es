@@ -8,15 +8,15 @@ ms.topic: include
 ms.date: 12/27/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 625b7fc8d49c91a9f2b1c09e1add72993e828d43
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 27e3f0ef7539f3fb875c087ff7d1351916877d19
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77597873"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536506"
 ---
-Existen recursos compartidos de archivos estándar con un límite de capacidad de 100 TiB a nivel global disponibles en todas las regiones de Azure, excepto:
+Los recursos compartidos de archivos Estándar con 100 TiB de capacidad tienen algunas limitaciones.
 
-- Almacenamiento con redundancia local: todas las regiones, excepto Norte de Sudáfrica, Oeste de Sudáfrica, Centro-oeste de Alemania y Norte de Alemania.
-- Almacenamiento con redundancia de zona: se admite en todas las regiones donde se admite el almacenamiento con redundancia de zona, excepto Japón Oriental, Norte de Europa y Norte de Sudáfrica.
-- Almacenamiento con redundancia geográfica o redundancia de zona geográfica: No compatible.
+- Actualmente, solo se admiten cuentas de almacenamiento con redundancia local (LRS) y almacenamiento con redundancia de zona (ZRS).
+- Una vez que habilite los recursos compartidos de archivos de gran tamaño, no podrá convertir las cuentas de almacenamiento en cuentas de almacenamiento con redundancia geográfica (GRS) o con redundancia de zona geográfica (GZRS).
+- Una vez que habilite los recursos compartidos de archivos de gran tamaño, no podrá deshabilitarlos.

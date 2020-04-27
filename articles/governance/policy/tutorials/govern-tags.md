@@ -1,19 +1,19 @@
 ---
 title: 'Tutorial: Administración de gobernanza de etiquetas'
 description: En este tutorial, usará el efecto Modify de Azure Policy para crear y aplicar un modelo de gobernanza de etiquetas en los recursos nuevos y existentes.
-ms.date: 11/25/2019
+ms.date: 04/21/2020
 ms.topic: tutorial
-ms.openlocfilehash: 5e9cb9a4acb930c117374281a3debaeecce47110
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6319bbde2fdc8f78e2743dd5f1565c8680433fea
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75965998"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759067"
 ---
 # <a name="tutorial-manage-tag-governance-with-azure-policy"></a>Tutorial: Administración de la gobernanza de etiquetas con Azure Policy
 
 Las [etiquetas](../../../azure-resource-manager/management/tag-resources.md) son una parte fundamental de la organización de los recursos de Azure en una taxonomía. Cuando se siguen [procedimientos recomendados para la administración de etiquetas](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources), las etiquetas pueden ser la base para aplicar las directivas empresariales con Azure Policy o para realizar el [seguimiento de los costos con Cost Management](../../../cost-management-billing/costs/cost-mgt-best-practices.md#organize-and-tag-your-resources).
-Independientemente de cómo o por qué use las etiquetas, es importante que pueda agregar, cambiar y quitar rápidamente estas etiquetas en los recursos de Azure.
+Independientemente de cómo o por qué use las etiquetas, es importante que pueda agregar, cambiar y quitar rápidamente estas etiquetas en los recursos de Azure. Para ver si el recurso de Azure admite el etiquetado, consulte [Compatibilidad de etiqueta](../../../azure-resource-manager/management/tag-support.md).
 
 El efecto [Modify](../concepts/effects.md#modify) de Azure Policy está diseñado para ayudar en la gobernanza de las etiquetas, sin importar la fase de gobernanza de los recursos en la que se encuentre. **Modify** sirve de ayuda en las siguientes circunstancias:
 

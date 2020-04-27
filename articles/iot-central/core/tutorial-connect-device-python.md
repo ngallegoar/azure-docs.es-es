@@ -7,16 +7,18 @@ ms.date: 03/24/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 493dcd71905970434dd2ab2997cfebd17b8e47ff
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.openlocfilehash: d6c44c81db78fa76eeaf4b7181cca34fb8e81523
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80891601"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758185"
 ---
-# <a name="tutorial-create-and-connect-a-python-client-application-to-your-azure-iot-central-application-python"></a>Tutorial: Creación y conexión de un aplicación cliente Python genérica a una aplicación de Azure IoT Central (Python)
+# <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application-python"></a>Tutorial: Creación y conexión de un aplicación cliente a una aplicación de Azure IoT Central (Python)
 
 [!INCLUDE [iot-central-selector-tutorial-connect](../../../includes/iot-central-selector-tutorial-connect.md)]
+
+*Este artículo se aplica a los generadores de soluciones y a los desarrolladores de dispositivos.*
 
 En este tutorial se muestra cómo los desarrolladores de dispositivos pueden conectar una aplicación cliente Python a la aplicación de Azure IoT Central. La aplicación de Python simula el comportamiento de un dispositivo sensor ambiental. Para crear una _plantilla de dispositivo_ en IoT Central, se usa un _modelo de funcionalidad del dispositivo_ de muestra. Agregue vistas a la plantilla de dispositivo para permitir que un operador interactúe con un dispositivo.
 
@@ -303,7 +305,12 @@ Puede ver cómo responde el dispositivo a los comandos y las actualizaciones de 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre los modelos de funcionalidad del dispositivo y cómo crear sus propias plantillas de dispositivo, continúe con la guía paso a paso:
+Como desarrollador de dispositivos, ahora que ha aprendido los aspectos básicos de cómo crear un dispositivo mediante Node.js, se recomiendan los siguientes pasos:
+
+- Aprenda a conectar un dispositivo real a IoT Central en el artículo de procedimientos [Conexión de un dispositivo MXChip IoT DevKit a una aplicación de Microsoft IoT Central](./howto-connect-devkit.md).
+- Lea [Conexión a Azure IoT Central](./concepts-get-connected.md) para más información sobre cómo registrar dispositivos con IoT Central y cómo IoT Central protege las conexiones de dispositivos.
+
+Si prefiere continuar con el conjunto de tutoriales de IoT Central y obtener más información sobre la creación de una solución de IoT Central, consulte:
 
 > [!div class="nextstepaction"]
-> [Definición de un nuevo tipo de dispositivo IoT](./howto-set-up-template.md)
+> [Creación de una plantilla de dispositivo de puerta de enlace](./tutorial-define-gateway-device-type.md)

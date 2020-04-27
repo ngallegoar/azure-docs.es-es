@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 03/09/2020
+ms.date: 04/09/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63ec58711c5dd142064e2d5cb29ccaa9eb9c0ed9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1c2427fff37158745e416f4b2f0641697ad62ea9
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79300359"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682692"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-invision"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con InVision
 
@@ -157,13 +157,15 @@ En esta sección, va a permitir que B.Simon acceda a InVision mediante el inicio
 
     e. En el cuadro de texto **SAML Certificate** (Certificado de SAML), abra el archivo **Certificado (base 64)** descargado en el Bloc de notas, copie el contenido y péguelo en el cuadro de texto SAML Certificate (Certificado de SAML).
 
-    f. Seleccione **SHA-256** en la lista desplegable **HASH Algorithm** (Algoritmo hash).
+    f. En el cuadro de texto **Name ID Format** (Formato del identificador de nombre), use `Unspecified` para el campo **Name ID Format** (Formato del identificador de nombre).
 
-    g. Escriba el nombre adecuado para **SSO Button Label** (Etiqueta del botón de SSO).
+    g. Seleccione **SHA-256** en la lista desplegable **HASH Algorithm** (Algoritmo hash).
 
-    h. Cambie **Allow Just-in-Time provisioning** (Permitir aprovisionamiento Just-In-Time) a On (Activado).
+    h. Escriba el nombre adecuado para **SSO Button Label** (Etiqueta del botón de SSO).
 
-    i. Haga clic en **Update**(Actualizar).
+    i. Cambie **Allow Just-in-Time provisioning** (Permitir aprovisionamiento Just-In-Time) a On (Activado).
+
+    j. Haga clic en **Update**(Actualizar).
 
 ### <a name="create-invision-test-user"></a>Creación de un usuario de prueba de InVision
 

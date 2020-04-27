@@ -2,17 +2,17 @@
 title: Evaluación de servidores físicos para la migración a Azure con Azure Migrate Server Assessment
 description: Describe cómo evaluar los servidores físicos en el entorno local para la migración a Azure con Azure Migrate Server Assessment.
 ms.topic: tutorial
-ms.date: 11/18/2019
-ms.openlocfilehash: c89c731712a625e5f3b7a1a7e9306f6a7480b96b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 04/15/2020
+ms.openlocfilehash: b36cba18bd154cd5d14e16a9f8bf85cda6bf87a8
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76990307"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535441"
 ---
-# <a name="assess-physical-servers-with-azure-migrate-server-assessment"></a>Evaluación de los servidores físicos con Azure Migrate: Server Assessment
+# <a name="assess-physical-servers-with-azure-migrateserver-assessment"></a>Evaluación de los servidores físicos con Azure Migrate:Server Assessment
 
-En este artículo se muestra cómo evaluar servidores físicos en el entorno local mediante Azure Migrate: Server Assessment.
+En este artículo se muestra cómo evaluar servidores físicos locales mediante la herramienta Azure Migrate:Server Assessment.
 
 [Azure Migrate](migrate-services-overview.md) proporciona un centro de herramientas que le ayuda a detecta las aplicaciones, la infraestructura y las cargas de trabajo, a evaluarlas y a migrarlas a Microsoft Azure. Este centro incluye herramientas de Azure Migrate y ofertas de fabricantes de software independientes (ISV) de terceros.
 
@@ -34,8 +34,10 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 - [Complete](tutorial-prepare-physical.md) el primer tutorial de esta serie. Si no lo hace, las instrucciones de este tutorial no funcionarán.
 - Esto es lo que debería haber hecho en el primer tutorial:
-    - [Configurar los permisos de Azure](tutorial-prepare-physical.md#prepare-azure) para Azure Migrate.
+    - [Configurar los permisos de Azure](tutorial-prepare-physical.md) para Azure Migrate.
     - [Preparar los servidores físicos](tutorial-prepare-physical.md#prepare-for-physical-server-assessment) para la evaluación. Se deben comprobar los requisitos del dispositivo. También es preciso tener una cuenta configurada para la detección de servidores físicos. Los puertos necesarios deben estar disponibles y es preciso saber cuáles son las direcciones URL necesarias para acceder a Azure.
+
+
 
 
 ## <a name="set-up-an-azure-migrate-project"></a>Configuración de un proyecto de Azure Migrate
@@ -49,8 +51,8 @@ Para configurar un proyecto nuevo de Azure Migrate, siga los pasos que se indica
     ![Detección y evaluación de servidores](./media/tutorial-assess-physical/assess-migrate.png)
 
 4. En **Introducción**, haga clic en **Agregar herramientas**.
-5. En **Migrar proyecto**, seleccione la suscripción a Azure y cree un grupo de recursos, en caso de que no lo tenga.     
-6. En **Detalles del proyecto**, especifique el nombre del proyecto y la geografía en que desea crearlo. Se admiten Asia, Europa, Reino Unido y Estados Unidos.
+5. En **Migrar proyecto**, seleccione la suscripción a Azure y cree un grupo de recursos, en caso de que no lo tenga.  
+6. En **Detalles del proyecto**, especifique el nombre del proyecto y la geografía en que desea crearlo. Revise las zonas geográficas admitidas para nubes [públicas](migrate-support-matrix.md#supported-geographies-public-cloud) y [nubes gubernamentales](migrate-support-matrix.md#supported-geographies-azure-government).
 
     - La geografía del proyecto solo se utiliza para almacenar los metadatos que se recopilan de los servidores en el entorno local.
     - Al realizar una migración se puede seleccionar cualquier región de destino.
@@ -96,16 +98,24 @@ Descargue el archivo comprimido del dispositivo.
 Compruebe que el archivo comprimido es seguro, antes de implementarlo.
 
 1. En la máquina en la que descargó el archivo, abra una ventana de comandos de administrador.
-2. Ejecute el siguiente comando para generar el código hash para el archivo ZIP.
+2. Ejecute el siguiente comando para generar el código hash para el archivo ZIP:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Ejemplo de uso: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256```
+    - Ejemplo de uso para la nube pública: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
+    - Ejemplo de uso para la nube gubernamental: ```  C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip MD5 ```
+3.  Compruebe los valores hash:
+ 
+    - Para la nube pública (para la versión más reciente del dispositivo):
 
-3.  El código hash generado debe coincidir con esta configuración para la versión más reciente del dispositivo.
+        **Algoritmo** | **Valor del código hash**
+          --- | ---
+          MD5 | 1e92ede3e87c03bd148e56a708cdd33f
+          SHA256 | a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
 
-  **Algoritmo** | **Valor del código hash**
-  --- | ---
-  MD5 | 1e92ede3e87c03bd148e56a708cdd33f
-  SHA256 | a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
+    - Para Azure Government (para la versión más reciente del dispositivo):
+
+        **Algoritmo** | **Valor del código hash**
+          --- | ---
+          MD5 | f81c155fc4a1409901caea948713913f
 
 ### <a name="run-the-azure-migrate-installer-script"></a>Ejecución del script del instalador de Azure Migrate
 
@@ -116,28 +126,26 @@ El script del instalador hace lo siguiente:
 - Descarga e instala un módulo de reescritura de IIS. [Más información](https://www.microsoft.com/download/details.aspx?id=7435).
 - Actualiza una clave del registro (HKLM) con detalles de configuración persistentes para Azure Migrate.
 - Crea los siguientes archivos en la ruta de acceso:
-    - **Archivos de configuración**: %ProgramData%\Microsoft Azure\Config
-    - **Archivos de registro**: %ProgramData%\Microsoft Azure\Logs
+    - **Archivos de configuración**:%Programdata%\Microsoft Azure\Config
+    - **Archivos de registro**:%Programdata%\Microsoft Azure\Logs
 
 Ejecute el script como se indica a continuación:
 
-1. Extraiga el archivo comprimido en la carpeta del servidor que hospedará el dispositivo.
+1. Extraiga el archivo comprimido en la carpeta del servidor que hospedará el dispositivo.  No ejecute el script en una máquina en un dispositivo de Azure Migrate existente.
 2. Inicie PowerShell en el servidor anterior con privilegios administrativos (elevados).
 3. Cambie el directorio de PowerShell a la carpeta en la que se ha extraído el contenido del archivo comprimido descargado.
 4. Ejecute el script denominado **AzureMigrateInstaller.ps1** ejecutando el comando siguiente:
-    ```
-    PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1
-    ```
-El script iniciará la aplicación web del dispositivo cuando finalice correctamente.
 
-En caso de que surja algún problema, puede acceder a los registros de script en C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log para solucionarlos.
+    - Para la nube pública: ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1 ```
+    - Para Azure Government: ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>AzureMigrateInstaller.ps1 ```
 
-> [!NOTE]
-> No ejecute el script del instalador de Azure Migrate en un dispositivo de Azure Migrate existente.
+    El script iniciará la aplicación web del dispositivo cuando finalice correctamente.
+
+En caso de que surja algún problema, puede acceder a los registros de script en C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log para solucionarlo.
 
 ### <a name="verify-appliance-access-to-azure"></a>Comprobación de que el dispositivo puede acceder a Azure
 
-Asegúrese de que el dispositivo se puede conectar a las [direcciones URL de Azure](migrate-appliance.md#url-access).
+Asegúrese de que el dispositivo pueda conectarse a las direcciones URL de Azure para las nubes [públicas](migrate-appliance.md#public-cloud-urls) y [gubernamentales](migrate-appliance.md#government-cloud-urls).
 
 
 ### <a name="configure-the-appliance"></a>Configuración del dispositivo
@@ -173,7 +181,7 @@ Configure el dispositivo por primera vez.
 Ahora, conecte desde el dispositivo a los servidores físicos que se van a detectar e inicie la detección.
 
 1. Haga clic en **Agregar credenciales** para especificar las credenciales de la cuenta que el dispositivo utilizará para detectar los servidores.  
-2. Especifique el **sistema operativo**, el nombre descriptivo de las credenciales, el **nombre de usuario** y la **contraseña**, y haga clic en **Agregar**.
+2. Especifique el **sistema operativo**, el nombre descriptivo de las credenciales, el nombre de usuario y la contraseña. A continuación, haga clic en **Agregar**.
 Puede agregar un conjunto de credenciales para los servidores Windows y Linux.
 4. Haga clic en **Agregar servidor** y especifique los detalles del servidor: FQDN/dirección IP y nombre descriptivo de las credenciales (una entrada por fila) para conectarse al servidor.
 3. Haga clic en **Validar**. Después de la validación, se muestra la lista de servidores que se pueden detectar.

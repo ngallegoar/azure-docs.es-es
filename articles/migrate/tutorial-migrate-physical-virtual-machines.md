@@ -2,14 +2,14 @@
 title: Migración de máquinas como servidor físico a Azure con Azure Migrate.
 description: En este artículo se describe cómo migrar máquinas físicas a Azure con Azure Migrate.
 ms.topic: tutorial
-ms.date: 02/03/2020
+ms.date: 04/15/2020
 ms.custom: MVC
-ms.openlocfilehash: 51ce45b091fe2d8845963953c2c50cd7be618f58
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 1824fc6c7cbc0fd0390770027f4a15d9130139de
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80297997"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535390"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>Migración de máquinas como servidores físicos a Azure
 
@@ -22,12 +22,10 @@ En este artículo se indica cómo migrar máquinas como servidores físicos a Az
 - Migración de máquinas virtuales que se ejecutan en nubes públicas, como Amazon Web Services (AWS) o Google Cloud Platform (GCP).
 
 
-[Azure Migrate](migrate-services-overview.md) proporciona un centro principal para realizar el seguimiento de la detección, evaluación y migración a Azure de las aplicaciones y cargas de trabajo locales, así como de las instancias de máquinas virtuales en la nube. El centro proporciona herramientas de Azure Migrate para la evaluación y la migración, así como ofertas de proveedores de software independientes (ISV).
+Este tutorial es el tercero de una serie que muestra cómo evaluar y migrar servidores físicos a Azure. En este tutorial, aprenderá a:
 
-
-En este tutorial, aprenderá a:
 > [!div class="checklist"]
-> * Preparar Azure para la migración con la herramienta Azure Migrate Server Migration.
+> * Prepararse para usar Azure con Azure Migrate:Server Migration.
 > * Comprobar los requisitos de las máquinas que desea migrar y preparar un equipo para el dispositivo de replicación de Azure Migrate que se usa para detectar y migrar las máquinas a Azure.
 > * Agregar la herramienta Azure Migrate Server Migration en el centro de Azure Migrate.
 > * Configurar el destino de replicación.
@@ -46,21 +44,20 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Antes de comenzar este tutorial, debe:
 
-1. [Revisar](migrate-architecture.md) la arquitectura de migración.
-2. Asegurarse de que la cuenta de Azure tiene asignado el rol Colaborador de máquina virtual, con el fin de que tenga permisos para:
+[Revisar](migrate-architecture.md) la arquitectura de migración.
 
-    - Crear una máquina virtual en el grupo de recursos seleccionado.
-    - Crear una máquina virtual en la red virtual seleccionada.
-    - Escribir en un disco administrado de Azure. 
 
-3. [Configure una red de Azure](../virtual-network/manage-virtual-network.md#create-a-virtual-network). Al replicar en Azure, se crean máquinas virtuales de Azure y se unen a una red de Azure que se especifica al configurar la migración.
 
 
 ## <a name="prepare-azure"></a>Preparación de Azure
 
-Configure los permisos de Azure para migrar con la herramienta Azure Migrate Server Migration.
+Prepare Azure para la migración con Server Migration.
 
-- **Crear un proyecto**: la cuenta de Azure necesita permisos para crear un proyecto de Azure Migrate. 
+**Task** | **Detalles**
+--- | ---
+**Crear un proyecto de Azure Migrate** | La cuenta de Azure necesita permisos de colaborador o propietario para crear un proyecto.
+**Comprobación de los permisos de la cuenta de Azure** | Su cuenta de Azure necesita permisos para crear una máquina virtual y escribir en un disco administrado de Azure.
+
 
 ### <a name="assign-permissions-to-create-project"></a>Asignación de permisos para crear un proyecto
 
@@ -70,32 +67,51 @@ Configure los permisos de Azure para migrar con la herramienta Azure Migrate Ser
     - Si acaba de crear una cuenta de Azure gratuita, es el propietario de la suscripción.
     - Si no es el propietario, trabaje con él para asignar el rol.
 
+
+### <a name="assign-azure-account-permissions"></a>Asignación de los permisos de la cuenta de Azure
+
+Asigne el rol de colaborador de la máquina virtual a la cuenta de Azure. Este rol proporciona permisos para:
+
+    - Crear una máquina virtual en el grupo de recursos seleccionado.
+    - Crear una máquina virtual en la red virtual seleccionada.
+    - Escribir en un disco administrado de Azure. 
+
+### <a name="create-an-azure-network"></a>Creación de una red de Azure
+
+[Configure](../virtual-network/manage-virtual-network.md#create-a-virtual-network) una red virtual de Azure. Al realizar la replicación en Azure, se crean máquinas virtuales de Azure y se unen a la red virtual de Azure que se especifica al configurar la migración.
+
 ## <a name="prepare-for-migration"></a>Preparación para la migración
+
+Para preparar la migración del servidor físico, debe comprobar la configuración del servidor físico y preparar la implementación de un dispositivo de replicación.
 
 ### <a name="check-machine-requirements-for-migration"></a>Comprobación de los requisitos de las máquinas para la migración
 
 Asegúrese de que las máquinas cumplen los requisitos para la migración a Azure. 
 
 > [!NOTE]
-> La migración basada en agente con Migración de servidores de Azure Migrate tiene la misma arquitectura de replicación que la característica de recuperación ante desastres basada en agente del servicio Azure Site Recovery y algunos de los componentes que se usan comparten el mismo código base. Es posible que algunos requisitos lleven a la documentación de Site Recovery.
+> Al migrar máquinas físicas, Azure Migrate:Server Migration emplea la misma arquitectura de replicación que la recuperación ante desastres basada en agente del servicio Azure Site Recovery, y algunos componentes comparten el mismo código base. Puede que algún contenido se vincule a la documentación de Site Recovery.
 
 1. [Compruebe](migrate-support-matrix-physical-migration.md#physical-server-requirements) los requisitos del servidor físico.
-2. Compruebe la configuración de la máquina virtual. Las máquinas locales que replique en Azure tienen que cumplir los [requisitos de máquina virtual de Azure](migrate-support-matrix-physical-migration.md#azure-vm-requirements).
+2. Compruebe que las máquinas locales que replique en Azure cumplan los [requisitos de máquina virtual de Azure](migrate-support-matrix-physical-migration.md#azure-vm-requirements).
 
 
 ### <a name="prepare-a-machine-for-the-replication-appliance"></a>Preparación de un equipo para el dispositivo de replicación
 
-La herramienta de migración de servidores de Azure Migrate usa un dispositivo de replicación para replicar máquinas en Azure. Este dispositivo ejecuta los siguientes componentes.
+Azure Migrate:Server Migration usa un dispositivo de replicación para replicar máquinas en Azure. Este dispositivo ejecuta los siguientes componentes.
 
 - **Servidor de configuración**: El servidor de configuración coordina la comunicación entre el entorno local y Azure, además de administrar la replicación de datos.
 - **Servidor de proceso**: El servidor de procesos actúa como puerta de enlace de replicación. Recibe los datos de la replicación; los optimiza mediante el almacenamiento en la caché, la compresión y el cifrado, y los envía a una cuenta de almacenamiento en Azure. 
 
-Antes de empezar, debe preparar un equipo con Windows Server 2016 para hospedar el dispositivo de replicación. El equipo debe cumplir [estos requisitos](migrate-replication-appliance.md). El dispositivo no debe instalarse en una máquina de origen que quiera proteger.
+Para prepararse para la implementación del dispositivo, siga estos pasos:
 
+- Prepare una máquina para hospedar el dispositivo de replicación. [Revise](migrate-replication-appliance.md#appliance-requirements) los requisitos de la máquina. El dispositivo no debe instalarse en una máquina de origen que quiera replicar.
+- El dispositivo de replicación usa MySQL. Revise las [opciones](migrate-replication-appliance.md#mysql-installation) para instalar MySQL en el dispositivo.
+- Revise las direcciones URL de Azure necesarias para que el dispositivo de replicación acceda a las nubes [públicas](migrate-replication-appliance.md#url-access) y [gubernamentales](migrate-replication-appliance.md#azure-government-url-access).
+- Revise los requisitos de acceso [port] (migrate-replication-appliance.md#port-access) del dispositivo de replicación.
 
-## <a name="add-the-azure-migrate-server-migration-tool"></a>Incorporación de la herramienta Azure Migrate Server Migration
+## <a name="add-the-server-migration-tool"></a>Incorporación de la herramienta Server Migration
 
-Configure un proyecto de Azure Migrate y, a continuación, agréguele la herramienta de migración de servidores de Azure Migrate.
+Configure un proyecto de Azure Migrate y, luego, agréguele la herramienta Server Migration.
 
 1. En Azure Portal > **Todos los servicios**, busque **Azure Migrate**.
 2. En **Servicios**, seleccione **Azure Migrate**.
@@ -106,19 +122,10 @@ Configure un proyecto de Azure Migrate y, a continuación, agréguele la herrami
 
 5. En **Detectar, evaluar y migrar servidores**, haga clic en **Agregar herramientas**.
 6. En **Migrar proyecto**, seleccione la suscripción a Azure y cree un grupo de recursos, en caso de que no lo tenga.
-7. En **Detalles del proyecto**, especifique el nombre del proyecto y la zona geográfica en la que desea crearlo; después, haga clic en **Siguiente**.
+7. En **Detalles del proyecto**, especifique el nombre del proyecto y la zona geográfica en la que quiere crearlo; después, haga clic en **Siguiente**. Revise las zonas geográficas admitidas para nubes [públicas](migrate-support-matrix.md#supported-geographies-public-cloud) y [nubes gubernamentales](migrate-support-matrix.md#supported-geographies-azure-government).
 
     ![Crear un proyecto de Azure Migrate](./media/tutorial-migrate-physical-virtual-machines/migrate-project.png)
 
-    Puede crear un proyecto de Azure Migrate en cualquiera de estas zonas geográficas.
-
-    **Geografía** | **Región**
-    --- | ---
-    Asia | Sudeste de Asia
-    Europa | Norte de Europa y Oeste de Europa
-    Estados Unidos | Centro-oeste de EE. UU. o Este de EE. UU.
-
-    La ubicación geográfica especificada para el proyecto solo se utiliza para almacenar los metadatos que se recopilan a partir de máquinas virtuales locales. Puede seleccionar cualquier región de destino para la migración real.
 8. En **Seleccione una herramienta de evaluación**, seleccione **Omitir por ahora la adición de una herramienta de evaluación** > **Siguiente**.
 9. En **Seleccione una herramienta de migración**, seleccione **Azure Migrate: Migración del servidor** > **Siguiente**.
 10. En **Revisar y agregar herramientas**, revise la configuración y haga clic en **Agregar herramientas**.
@@ -126,7 +133,7 @@ Configure un proyecto de Azure Migrate y, a continuación, agréguele la herrami
 
 ## <a name="set-up-the-replication-appliance"></a>Configuración del dispositivo de replicación
 
-El primer paso de la migración consiste en configurar el dispositivo de replicación. Para ello, se descarga el archivo de instalación para el dispositivo y se ejecuta en el [equipo que se preparó](#prepare-a-machine-for-the-replication-appliance). Después de instalar el dispositivo, puede registrarse en Azure Migrate Server Migration.
+El primer paso de la migración consiste en configurar el dispositivo de replicación. Para configurar el dispositivo para la migración del servidor físico, descargue el archivo del instalador del dispositivo y, luego, ejecútelo en la [máquina que ha preparado](#prepare-a-machine-for-the-replication-appliance). Después de instalar el dispositivo, puede registrarse en Azure Migrate Server Migration.
 
 
 ### <a name="download-the-replication-appliance-installer"></a>Descarga del instalador del dispositivo de replicación

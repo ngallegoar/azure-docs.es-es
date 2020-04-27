@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integración de Azure Active Directory con HR2day by Merces | Microsoft Docs'
+title: 'Tutorial: Integración de Azure Active Directory con HR2day by Merces | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y HR2day by Merces.
 services: active-directory
 documentationCenter: na
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: e76ca7198bfded725d89f04fd162d470a85da904
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5b9de6c2b8d9f7b11b686e820aab54fdd8e8a02f
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67442837"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81866799"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>Tutorial: Integración de Azure Active Directory con HR2day by Merces
 
@@ -34,7 +34,7 @@ La integración de HR2day by Merces con Azure AD proporciona las siguientes vent
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para configurar la integración de Azure AD con HR2day by Merces, necesita los siguientes elementos:
 
@@ -163,7 +163,7 @@ Para configurar el inicio de sesión único de Azure AD con HR2day by Merces, s
 Para configurar el inicio de sesión único en **HR2day by Merces**, es preciso enviar el **certificado (Base64)** descargado y las direcciones URL correspondientes copiadas de Azure Portal al [equipo de soporte técnico de HR2day by Merces](mailto:servicedesk@merces.nl). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 > [!NOTE]
-> Indique al equipo de Merces que esta integración necesita que el id. de entidad se establezca con el patrón **https://hr2day.force.com/INSTANCENAME** .
+> Indique al equipo de Merces que esta integración necesita que el identificador de entidad se establezca con el patrón **https:\//hr2day.force.com/nombre_de_instancia**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 

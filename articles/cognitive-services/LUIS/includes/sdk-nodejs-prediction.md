@@ -10,12 +10,12 @@ ms.date: 02/14/2020
 ms.topic: include
 ms.custom: include file
 ms.author: diberry
-ms.openlocfilehash: 05e668ff5b0ec19c5e380cf6bfee4b6e46900b2f
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 9c15e4217c5331346c5a95329bae7e2a4f0e0841
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77371849"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732074"
 ---
 La biblioteca cliente de entorno de ejecución de Language Understanding (LUIS) para Node.js puede usarse con los siguientes fines:
 
@@ -28,6 +28,7 @@ La biblioteca cliente de entorno de ejecución de Language Understanding (LUIS) 
 
 * Recurso de entorno de ejecución de Language Understanding: [Crear uno en Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
 * [Node.js](https://nodejs.org)
+* Un identificador de aplicación de LUIS: use el identificador de aplicación de IoT público de `df67dcdb-c37d-46af-88e1-8b97951ca1c2`. La consulta de usuario que se usa en el código del inicio rápido es específica de esa aplicación.
 
 ## <a name="setting-up"></a>Instalación
 
@@ -37,9 +38,9 @@ Para obtener una [clave de entorno de ejecución](../luis-how-to-azure-subscript
 
 [!INCLUDE [Set up environment variables for prediction quickstart](sdk-prediction-environment-variables.md)]
 
-### <a name="create-a-new-javascript-nodejs-file"></a>Creación de un archivo en JavaScript (Node.js)
+### <a name="create-a-new-javascript-nodejs-file"></a>Creación de un archivo de JavaScript (Node.js)
 
-Cree un nuevo archivo en JavaScript en el entorno de desarrollo integrado o en el editor que prefiera y llámelo `luis_prediction.js`.
+Cree un archivo de JavaScript en el entorno de desarrollo integrado (IDE) o editor que prefiera y llámelo `luis_prediction.js`.
 
 ### <a name="install-the-npm-library-for-the-luis-runtime"></a>Instalación de la biblioteca NPM para el entorno de ejecución de LUIS
 

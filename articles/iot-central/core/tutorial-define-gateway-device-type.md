@@ -9,16 +9,18 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 7bb386d39f53331e77bee4d863c431c2e3655f5c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2411eab50cc921a09ba55780b3c6620744a78f3f
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79298842"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758132"
 ---
 # <a name="define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Definición de un nuevo tipo de dispositivo de puerta de enlace de IoT en la aplicación de Azure IoT Central
 
-Este tutorial le muestra, como desarrollador, cómo usar una plantilla de dispositivo de puerta de enlace para definir un dispositivo de puerta de enlace en la aplicación de IoT Central. A continuación, puede configurar varios dispositivos de nivel inferior que se conecten a la aplicación de IoT Central mediante el dispositivo de puerta de enlace. 
+*Este artículo se aplica a los generadores de soluciones y a los desarrolladores de dispositivos.*
+
+Como generador de soluciones, este tutorial le muestra cómo usar una plantilla de dispositivo de puerta de enlace para definir un dispositivo de puerta de enlace en la aplicación de IoT Central. A continuación, puede configurar varios dispositivos de nivel inferior que se conecten a la aplicación de IoT Central mediante el dispositivo de puerta de enlace. 
 
 En este tutorial va a crear una plantilla de dispositivo de puerta de enlace **Smart Building**. Un dispositivo de puerta de enlace **Smart Building** tiene relaciones con otros dispositivos de nivel inferior.
 
@@ -207,7 +209,7 @@ En este tutorial, ha aprendido a:
 > [!NOTE]
 > La generación de código basado en VS Code actualmente no se admite para dispositivos de puerta de enlace modelados en IoT Central.
 
-A continuación, puede realizar:
+A continuación, como desarrollador de dispositivos, puede obtener información sobre:
 
 > [!div class="nextstepaction"]
-> [Conexión de un dispositivo](tutorial-connect-device.md)
+> [Incorporación de un dispositivo Azure IoT Edge a la aplicación Azure IoT Central](tutorial-add-edge-as-leaf-device.md)

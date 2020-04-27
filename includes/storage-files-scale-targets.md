@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 05/06/2019
 ms.author: rogarana
-ms.openlocfilehash: 8a8619da831dfa5b240bd93d3a046c49cc30affa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6cf9be653da2dd587b93724b6e319dc4d20686c2
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76901424"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536456"
 ---
 | Resource | Recursos compartidos de archivos estándar | Recursos compartidos de archivos Prémium |
 |----------|---------------|------------------------------------------|
@@ -27,4 +27,4 @@ ms.locfileid: "76901424"
 | Longitud máxima del nombre de objeto (archivos y directorios) | 2048 caracteres | 2048 caracteres |
 | Número máximo de componentes de la ruta de acceso (en la ruta de acceso \A\B\C\D, cada letra es un componente) | 255 caracteres | 255 caracteres |
 
-\* Disponible en la mayoría de las regiones. Consulte [Disponibilidad regional](../articles/storage/files/storage-files-planning.md#regional-availability) para más información al respecto.
+\* El valor predeterminado en recursos compartidos de archivos estándar es de 5 TiB, consulte [Habilitar y crear recursos compartidos de archivos de gran tamaño](../articles/storage/files/storage-files-how-to-create-large-file-share.md) para obtener información detallada sobre cómo aumentar en escala los recursos compartidos de archivos estándar hasta 100 TiB.

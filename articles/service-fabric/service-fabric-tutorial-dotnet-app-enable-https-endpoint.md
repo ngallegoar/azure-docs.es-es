@@ -4,12 +4,12 @@ description: En este tutorial, aprenderá a agregar un punto de conexión HTTPS 
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 0e8b79a88fc173674caa0ca65e394e21d58d5f2f
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 2b867a65fa11e14cdc3fc3e5c269686fa4d559de
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80756084"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81757182"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Tutorial: Incorporación de un punto de conexión HTTPS a un servicio de front-end de API Web de ASP.NET Core mediante Kestrel
 
@@ -41,7 +41,7 @@ En esta serie de tutoriales, se aprende a:
 Antes de empezar este tutorial:
 
 * Si no tiene ninguna suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Instale Visual Studio 2019](https://www.visualstudio.com/) versión 15.5 o posteriores con las cargas de trabajo de **desarrollo de Azure** y de **desarrollo de ASP.NET y web**.
+* [Instale Visual Studio 2019](https://www.visualstudio.com/) versión 16.5 o posterior con las cargas de trabajo **Desarrollo de Azure** y **Desarrollo de ASP.NET y web**.
 * [Instale el SDK de Service Fabric](service-fabric-get-started.md)
 
 ## <a name="obtain-a-certificate-or-create-a-self-signed-development-certificate"></a>Obtención de un certificado o creación de un certificado de desarrollo autofirmado
@@ -156,27 +156,42 @@ Reemplace "&lt;your_CN_value&gt;" por "mytestcert" si ha creado un certificado a
 Tenga en cuenta que, en el caso de la implementación local en `localhost`, es preferible usar "CN=localhost" para evitar las excepciones de autenticación.
 
 ```csharp
-private X509Certificate2 GetHttpsCertificateFromStore()
+private X509Certificate2 FindMatchingCertificateBySubject(string subjectCommonName)
 {
     using (var store = new X509Store(StoreName.My, StoreLocation.LocalMachine))
     {
-        store.Open(OpenFlags.ReadOnly);
+        store.Open(OpenFlags.OpenExistingOnly | OpenFlags.ReadOnly);
         var certCollection = store.Certificates;
-        var currentCerts = certCollection.Find(X509FindType.FindBySubjectDistinguishedName, "CN=<your_CN_value>", false);
+        var matchingCerts = new X509Certificate2Collection();
+    
+    foreach (var enumeratedCert in certCollection)
+    {
+      if (StringComparer.OrdinalIgnoreCase.Equals(subjectCommonName, enumeratedCert.GetNameInfo(X509NameType.SimpleName, forIssuer: false))
+        && DateTime.Now < enumeratedCert.NotAfter
+        && DateTime.Now >= enumeratedCert.NotBefore)
+        {
+          matchingCerts.Add(enumeratedCert);
+        }
+    }
+
+        if (matchingCerts.Count == 0)
+    {
+        throw new Exception($"Could not find a match for a certificate with subject 'CN={subjectCommonName}'.");
+    }
         
-        if (currentCerts.Count == 0)
-                {
-                    throw new Exception("Https certificate is not found.");
-                }
-        
-        return currentCerts[0];
+        return matchingCerts[0];
     }
 }
+
+
 ```
 
-## <a name="give-network-service-access-to-the-certificates-private-key"></a>Conceder a NETWORK SERVICE acceso a la clave privada del certificado
+## <a name="grant-network-service-access-to-the-certificates-private-key"></a>Conceder a NETWORK SERVICE acceso a la clave privada del certificado
 
 En un paso anterior, se importa el certificado del almacén `Cert:\LocalMachine\My` en el equipo de desarrollo.  Ahora, proporcione explícitamente a la cuenta que ejecuta el servicio (NETWORK SERVICE de forma predeterminada) acceso a la clave privada del certificado. Puede hacerlo manualmente (mediante la herramienta certlm.msc), pero es mejor ejecutar automáticamente un script de PowerShell realizando la [configuración de un script de inicio](service-fabric-run-script-at-service-startup.md) en el punto **SetupEntryPoint** del manifiesto de servicio.
+
+>[!NOTE]
+> Service Fabric admite la declaración de certificados de punto de conexión por huella digital o nombre común del firmante. En ese caso, el entorno de ejecución configurará el enlace e incluirá en la ACL la clave privada del certificado para la identidad en la que se ejecuta el servicio. El entorno de ejecución también supervisará el certificado en busca de cambios y renovaciones y volverá a incluir en la ACL la clave privada correspondiente según corresponda.
 
 ### <a name="configure-the-service-setup-entry-point"></a>Configuración del punto de entrada de instalación del servicio
 
@@ -385,7 +400,7 @@ $slb | Set-AzLoadBalancer
 
 Guarde todos los archivos, cambie de depurar a liberar y presione F6 para recompilar.  En el Explorador de soluciones, haga clic con el botón derecho en **Voting** y seleccione **Publicar**. Seleccione el punto de conexión del clúster creado en [Implementar una aplicación en un clúster.](service-fabric-tutorial-deploy-app-to-party-cluster.md), o seleccione otro clúster.  Haga clic en **Publicar** para publicar la aplicación en el clúster remoto.
 
-Cuando se implemente la aplicación, abra un explorador web y vaya a [https://mycluster.region.cloudapp.azure.com:443](https://mycluster.region.cloudapp.azure.com:443) (actualice la dirección URL con el punto de conexión del clúster). Si va a usar un certificado autofirmado, aparecerá una advertencia que le indica que el PC no confía en la seguridad de este sitio web.  Continúe en la página web.
+Cuando se implemente la aplicación, abra un explorador web y vaya a `https://mycluster.region.cloudapp.azure.com:443` (actualice la dirección URL con el punto de conexión del clúster). Si va a usar un certificado autofirmado, aparecerá una advertencia que le indica que el PC no confía en la seguridad de este sitio web.  Continúe en la página web.
 
 ![Aplicación de votación][image3]
 

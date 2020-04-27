@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 6919849d28573ad7388a7f2e317d2b8433f35559
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 5b7a060aa2313902e4644fdd15068e06816e3f58
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81399450"
+ms.locfileid: "81529899"
 ---
 # <a name="what-is-form-recognizer"></a>¿Qué es Form Recognizer?
 
@@ -92,7 +92,7 @@ Explore la [documentación de referencia de API REST](https://westus2.dev.cognit
 
 Los requisitos de entrada para el modelo de recibo son ligeramente diferentes.
 
-* El formato debe ser JPEG, PNG, BMP, PDF (texto o escaneado) o TIFF.
+* El formato debe ser JPG, PNG, PDF (texto o digitalizado) o TIFF.
 * El tamaño del archivo debe ser inferior a 20 MB.
 * Las imágenes deben tener unas dimensiones entre 50 x 50 píxeles y 10 000 x 10 000 píxeles.
 * Los archivos PDF deben tener unas dimensiones de 17 x 17 pulgadas como máximo, lo que se corresponde con los tamaños de papel Legal o A3 y más pequeños.

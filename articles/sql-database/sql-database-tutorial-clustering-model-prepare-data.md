@@ -13,12 +13,13 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/29/2019
-ms.openlocfilehash: 2241b69e36e3b17475dba115b8d2ae94fe2189a7
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ROBOTS: NOINDEX
+ms.openlocfilehash: abe7d5ed1d4ba1308abde04aee32a3ea222456b8
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80345847"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81452883"
 ---
 # <a name="tutorial-prepare-data-to-perform-clustering-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Tutorial: Preparación de los datos para realizar una agrupación en clústeres en R con Azure SQL Database Machine Learning Services (versión preliminar)
 
@@ -43,13 +44,11 @@ En la [segunda parte](sql-database-tutorial-clustering-model-build.md) aprender�
 
 En la [tercera parte](sql-database-tutorial-clustering-model-deploy.md) aprenderá a crear un procedimiento almacenado en una base de datos de Azure SQL que puede realizar una agrupación en clústeres en R basada en datos nuevos.
 
-[!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
-
 ## <a name="prerequisites"></a>Prerrequisitos
 
 * Suscripción a Azure: si no tiene una suscripción a Azure, [cree una cuenta](https://azure.microsoft.com/free/) antes de empezar.
 
-* Servidor de Azure SQL Database con Machine Learning Services habilitado: durante la versión preliminar pública, Microsoft incorporará a los usuarios y habilitará el aprendizaje automático para las bases de datos nuevas o existentes. Siga los pasos que se indican en [Suscríbase a la versión preliminar](sql-database-machine-learning-services-overview.md#signup).
+* [Azure SQL Database con Machine Learning Services (con R)](sql-database-machine-learning-services-overview.md) habilitado.
 
 * Paquete de RevoScaleR: consulte [RevoScaleR](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-revoscaler?view=sql-server-2017#versions-and-platforms) para ver las opciones de instalación de este paquete localmente.
 

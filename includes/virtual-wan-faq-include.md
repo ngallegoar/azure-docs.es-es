@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/24/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: ad821036047dcf46821b2b2722e3dd17f8e318c2
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 2b30c176cf3c9dd31ae3efa85d308b3f89bd4dbe
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80386107"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81735291"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>¿El usuario necesita disponer de una topología radial con los dispositivos SD-WAN/VPN para usar Azure Virtual WAN?
 
@@ -131,6 +131,8 @@ Sí. Consulte la página [Precios](https://azure.microsoft.com/pricing/details/v
 
 * Si tuviera una puerta de enlace de ExpressRoute debido a la existencia de circuitos ExpressRoute que se conectan a un centro de conectividad virtual, pagaría por el precio de la unidad de escalado. Cada unidad de escalado en ER es de 2 Gbps y cada unidad de conexión se cobra a la misma tarifa que la unidad de conexión VPN.
 
+* Si tiene redes virtuales de radio conectadas al centro, se seguirán aplicando cargos de emparejamiento en las redes virtuales de radio. 
+
 ### <a name="how-do-new-partners-that-are-not-listed-in-your-launch-partner-list-get-onboarded"></a>¿Cómo consiguen los nuevos asociados que no aparecen en la lista de asociados de partida ser incluidos en ella?
 
 Todas las API de Virtual WAN son API abiertas. Puede consultar la documentación para valorar la viabilidad técnica. Si tiene alguna pregunta, envíe un correo electrónico a azurevirtualwan@microsoft.com. Un asociado ideal es aquel que tiene un dispositivo que se puede aprovisionar para la conectividad IPsec de IKEv1 o IKEv2.
@@ -206,6 +208,13 @@ Sí. Una conexión a Internet y un dispositivo físico que admita IPsec, preferi
 ### <a name="how-do-i-enable-default-route-00000-in-a-connection-vpn-expressroute-or-virtual-network"></a>¿Cómo habilito la ruta predeterminada (0.0.0.0/0) de una conexión? (VPN, ExpressRoute o Virtual Network):
 
 Un centro de conectividad virtual puede propagar una ruta predeterminada aprendida en una red virtual, una VPN de sitio a sitio y una conexión ExpressRoute si la marca está "habilitada" en la conexión. Esta marca está visible cuando el usuario edita una conexión de red virtual, una conexión VPN o una conexión ExpressRoute. De forma predeterminada, esta marca está deshabilitada cuando un sitio o circuito de ExpressRoute se conecta a un centro. Está habilitada de forma predeterminada cuando se agrega una conexión de red virtual para conectar una red virtual a un centro de conectividad virtual. La ruta predeterminada no se origina en el centro de conectividad de Virtual WAN; la ruta se propaga si ya la ha aprendido el centro de Virtual WAN como resultado de la implementación de un firewall en el centro o en caso de que otro sitio conectado tenga habilitada la tunelización forzada.
+
+### <a name="how-does-the-virtual-hub-in-a-virtual-wan-select-the-best-path-for-a-route-from-multiple-hubs"></a>Cómo selecciona el centro virtual de una instancia de Virtual WAN la mejor ruta de varios centros
+
+Si un centro virtual aprende la misma ruta de varios centros remotos, el orden en el que decide es el siguiente:
+1) Origen de la ruta: a) rutas de red (prefijos de red virtual aprendidos directamente por las puertas de enlace del centro virtual; b) RouteTable del centro (rutas configuradas estáticamente); c) BGP; d) rutas de InterHub.
+2)  Métrica de ruta: Virtual WAN prefiere ExpressRoute a VPN. El emparejamiento de ExpressRoute tiene una ponderación mayor en comparación con el emparejamiento de VPN
+3)  Longitud de la ruta de acceso del sistema autónomo
 
 ### <a name="what-are-the-differences-between-the-virtual-wan-types-basic-and-standard"></a>¿Cuáles son las diferencias entre los tipos de instancias de Virtual WAN (básico y estándar)?
 

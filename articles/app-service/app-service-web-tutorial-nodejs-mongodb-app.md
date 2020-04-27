@@ -6,12 +6,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 05/04/2017
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: 947bfe88443489084a20653d835ab849087ac92d
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: 5dd99d9aa7e63066ac4801282e548f2995e57e67
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80810570"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085612"
 ---
 # <a name="tutorial-build-a-nodejs-and-mongodb-app-in-azure"></a>Tutorial: Compilación de una aplicación Node.js y MongoDB en Azure
 
@@ -87,17 +87,12 @@ npm start
 
 Cuando la aplicación se haya cargado completamente, verá algo similar al siguiente mensaje:
 
-```console
+<pre>
 --
-MEAN.JS - Development Environment
+MEAN.JS: entorno de desarrollo
 
-Environment:     development
-Server:          http://0.0.0.0:3000
-Database:        mongodb://localhost/mean-dev
-App version:     0.5.0
-MEAN.JS version: 0.5.0
---
-```
+Entorno: servidor de desarrollo:          http://0.0.0.0:3000 Base de datos: mongodb://localhost/mean-dev Versión de la aplicación:     0.5.0 MEAN.JS versión: 0.5.0 --
+</pre>
 
 Vaya a `http://localhost:3000` en un explorador. Haga clic en **Registrarse** en el menú superior y cree un usuario de prueba. 
 
@@ -142,7 +137,7 @@ El parámetro *--kind MongoDB* habilita las conexiones de cliente de MongoDB.
 
 Cuando se crea la cuenta de Cosmos DB, la CLI de Azure muestra información similar a la del ejemplo siguiente:
 
-```json
+<pre>
 {
   "consistencyPolicy":
   {
@@ -151,12 +146,12 @@ Cuando se crea la cuenta de Cosmos DB, la CLI de Azure muestra información simi
     "maxStalenessPrefix": 100
   },
   "databaseAccountOfferType": "Standard",
-  "documentEndpoint": "https://<cosmosdb_name>.documents.azure.com:443/",
+  "documentEndpoint": "https://&lt;cosmosdb_name&gt;.documents.azure.com:443/",
   "failoverPolicies": 
   ...
-  < Output truncated for readability >
+  &lt; Output truncated for readability &gt;
 }
-```
+</pre>
 
 ## <a name="connect-app-to-production-mongodb"></a>Conexión de la aplicación a la base de datos MongoDB de producción
 
@@ -172,14 +167,14 @@ az cosmosdb list-keys --name <cosmosdb_name> --resource-group myResourceGroup
 
 La CLI de Azure muestra información similar a la del ejemplo siguiente:
 
-```json
+<pre>
 {
   "primaryMasterKey": "RS4CmUwzGRASJPMoc0kiEvdnKmxyRILC9BWisAYh3Hq4zBYKr0XQiSE4pqx3UchBeO4QRCzUt1i7w0rOkitoJw==",
   "primaryReadonlyMasterKey": "HvitsjIYz8TwRmIuPEUAALRwqgKOzJUjW22wPL2U8zoMVhGvregBkBk9LdMTxqBgDETSq7obbwZtdeFY7hElTg==",
   "secondaryMasterKey": "Lu9aeZTiXU4PjuuyGBbvS1N9IRG3oegIrIh95U6VOstf9bJiiIpw3IfwSUgQWSEYM3VeEyrhHJ4rn3Ci0vuFqA==",
   "secondaryReadonlyMasterKey": "LpsCicpVZqHRy7qbMgrzbRKjbYCwCKPQRl0QpgReAOxMcggTvxJFA94fTi0oQ7xtxpftTJcXkjTirQ0pT7QFrQ=="
 }
-```
+</pre>
 
 Copie el valor de `primaryMasterKey`. Esta información la necesitará en el siguiente paso.
 
@@ -225,16 +220,12 @@ node server.js
 
 Cuando se cargue la aplicación, compruebe que se ejecuta en el entorno de producción:
 
-```console
+<pre>
 --
 MEAN.JS
 
-Environment:     production
-Server:          http://0.0.0.0:8443
-Database:        mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true&sslverifycertificate=false
-App version:     0.5.0
-MEAN.JS version: 0.5.0
-```
+Entorno:        producción Servidor:          http://0.0.0.0:8443 Database:        mongodb://&lt; cosmosdb_name&gt;:&lt; primary_master_key&gt;@&lt; cosmosdb_name&gt;.documents.azure.com:10250/mean?ssl=true&sslverifycertificate=false Versión de App:     0.5.0 MEAN.JS versión: 0.5.0
+</pre>
 
 Vaya a `http://localhost:8443` en un explorador. Haga clic en **Registrarse** en el menú superior y cree un usuario de prueba. Si crea un usuario e inicia sesión con él correctamente, la aplicación escribe datos en la base de datos de Cosmos DB en Azure. 
 
@@ -284,7 +275,7 @@ db: {
 
 [!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-git-push-to-azure-no-h.md)]
 
-```bash
+<pre>
 Counting objects: 5, done.
 Delta compression using up to 4 threads.
 Compressing objects: 100% (5/5), done.
@@ -300,9 +291,9 @@ remote: Handling node.js deployment.
 .
 .
 remote: Deployment successful.
-To https://<app_name>.scm.azurewebsites.net/<app_name>.git
+To https://&lt;app_name&gt;.scm.azurewebsites.net/&lt;app_name&gt;.git
  * [new branch]      master -> master
-``` 
+</pre>
 
 Puede observar que el proceso de implementación ejecuta [Gulp](https://gulpjs.com/) después de `npm install`. App Service no ejecuta tareas Gulp o Grunt durante la implementación, así que este repositorio de ejemplo tiene dos archivos adicionales en su directorio raíz para permitirlo: 
 

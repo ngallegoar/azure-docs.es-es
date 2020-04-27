@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: 159b38962fe91cedfc8d313bef943dbc74e9974e
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 04cd28db52630e9de26e30ef4bf35db983f48b50
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80520248"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086069"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Creación de una aplicación web HTML estática en Azure
 
@@ -42,16 +42,12 @@ git clone https://github.com/Azure-Samples/html-docs-hello-world.git
 
 ## <a name="create-a-web-app"></a>Creación de una aplicación web
 
-Cambie al directorio que contiene el código de ejemplo y ejecute el comando `az webapp up`.
-
-En el siguiente ejemplo, reemplace <app_name > por un nombre único.
+Cambie al directorio que contiene el código de ejemplo y ejecute el comando `az webapp up`. En el siguiente ejemplo, reemplace <app_name > por un nombre único. El contenido estático se indica mediante la marca de `--html`.
 
 ```bash
 cd html-docs-hello-world
-```
 
-```azurecli
-az webapp up --location westeurope --name <app_name> 
+az webapp up --location westeurope --name <app_name> --html
 ```
 
 El comando `az webapp up` realiza las acciones siguientes:
@@ -66,19 +62,19 @@ El comando `az webapp up` realiza las acciones siguientes:
 
 Este comando puede tardar varios minutos en ejecutarse. Durante la ejecución, muestra información similar a la del ejemplo siguiente:
 
-```json
+<pre>
 {
-  "app_url": "https://<app_name>.azurewebsites.net",
+  "app_url": "https://&lt;app_name&gt;.azurewebsites.net",
   "location": "westeurope",
-  "name": "<app_name>",
+  "name": "&lt;app_name&gt;",
   "os": "Windows",
   "resourcegroup": "appsvc_rg_Windows_westeurope",
   "serverfarm": "appsvc_asp_Windows_westeurope",
   "sku": "FREE",
-  "src_path": "/home/<username>/quickstart/html-docs-hello-world ",
-  < JSON data removed for brevity. >
+  "src_path": "/home/&lt;username&gt;/quickstart/html-docs-hello-world ",
+  &lt; JSON data removed for brevity. &gt;
 }
-```
+</pre>
 
 Anote el valor `resourceGroup`. Lo necesitará en la sección de [limpieza de recursos](#clean-up-resources).
 
@@ -102,7 +98,7 @@ Guarde los cambios y salga de nano. Use el comando `^O` para guardar y `^X` para
 
 Ahora podrá volver a implementar la aplicación con el mismo comando `az webapp up`.
 
-```azurecli
+```bash
 az webapp up --location westeurope --name <app_name> --html
 ```
 
@@ -130,7 +126,7 @@ El menú izquierdo proporciona distintas páginas para configurar la aplicación
 
 En los pasos anteriores, creó recursos de Azure en un grupo de recursos. Si prevé que no necesitará estos recursos en el futuro, elimine el grupo de recursos ejecutando el siguiente comando en Cloud Shell. Recuerde que el nombre del grupo de recursos se generó automáticamente para el usuario en el paso [Creación de una aplicación web](#create-a-web-app).
 
-```azurecli
+```bash
 az group delete --name appsvc_rg_Windows_westeurope
 ```
 

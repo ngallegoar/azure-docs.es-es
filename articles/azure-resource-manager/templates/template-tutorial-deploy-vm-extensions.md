@@ -2,15 +2,15 @@
 title: Implementación de extensiones de máquina virtual con una plantilla
 description: Aprenda a implementar extensiones de máquina virtual con plantillas de Azure Resource Manager.
 author: mumian
-ms.date: 03/31/2020
+ms.date: 04/16/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 7397e9387fe3354a926ed607a9132ab6ddc7e785
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 280b4a9775346c719e82d1fef4162fa6ea666798
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80477598"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81616872"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-arm-templates"></a>Tutorial: Implementación de extensiones de máquina virtual con plantillas de Resource Manager
 
@@ -23,7 +23,6 @@ En este tutorial se describen las tareas siguientes:
 > * Apertura de una plantilla de inicio rápido
 > * Edición de la plantilla
 > * Implementación de la plantilla
-> * Comprobar la implementación
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -42,29 +41,34 @@ Para completar este artículo, necesitará lo siguiente:
 
 ## <a name="prepare-a-powershell-script"></a>Preparación de un script de PowerShell.
 
-Un script de PowerShell con el siguiente contenido se comparte desde [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-vm-extension/installWebServer.ps1):
+Puede usar un script de PowerShell en línea o un archivo de script.  En este tutorial se muestra cómo usar un archivo de script. Un script de PowerShell con el siguiente contenido se comparte desde [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-vm-extension/installWebServer.ps1):
 
 ```azurepowershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-Si elige publicar el archivo en su propia ubicación, tendrá que actualizar el elemento `fileUri` de la plantilla más adelante en el tutorial.
+Si elige publicar el archivo en su propia ubicación, actualice el elemento `fileUri` de la plantilla más adelante en el tutorial.
 
 ## <a name="open-a-quickstart-template"></a>Apertura de una plantilla de inicio rápido
 
 Plantillas de inicio rápido de Azure es un repositorio de plantillas de Azure Resource Manager. En lugar de crear una plantilla desde cero, puede buscar una plantilla de ejemplo y personalizarla. La plantilla que se usa en este tutorial se denomina [Deploy a simple Windows VM](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
 1. En Visual Studio Code, seleccione **Archivo** > **Abrir archivo**.
-1. En **Nombre de archivo**, pegue el código URL siguiente: https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
+1. En el cuadro **Nombre de archivo**, pegue la siguiente dirección URL:
+
+    ```url
+    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
+    ```
 
 1. Para abrir el archivo, seleccione **Abrir**.
     La plantilla define cinco recursos:
 
-   * **Microsoft.Storage/storageAccounts**. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
-   * **Microsoft.Network/publicIPAddresses**. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
-   * **Microsoft.Network/virtualNetworks**. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
-   * **Microsoft.Network/networkInterfaces**. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
-   * **Microsoft.Compute/virtualMachines**. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
+   * [**Microsoft.Storage/storageAccounts**](/azure/templates/Microsoft.Storage/storageAccounts).
+   * [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses).
+   * [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups).
+   * [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks).
+   * [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces).
+   * [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines).
 
      Resulta útil obtener cierta información básica de la plantilla antes de personalizarla.
 
@@ -77,7 +81,7 @@ Agregue un recurso de extensión de máquina virtual a la plantilla existente co
 ```json
 {
   "type": "Microsoft.Compute/virtualMachines/extensions",
-  "apiVersion": "2018-06-01",
+  "apiVersion": "2019-12-01",
   "name": "[concat(variables('vmName'),'/', 'InstallWebServer')]",
   "location": "[parameters('location')]",
   "dependsOn": [
@@ -105,6 +109,14 @@ Si necesita más información acerca de la definición de este recurso, consulte
 * **fileUris**: son las ubicaciones donde se almacenan los archivos de script. Si elige no utilizar la ubicación que se proporciona, deberá actualizar los valores.
 * **commandToExecute**: Este comando invoca el script.
 
+Para usar el script en línea, quite **fileUris** y actualice **commandToExecute** a:
+
+```powershell
+powershell.exe Install-WindowsFeature -name Web-Server -IncludeManagementTools && powershell.exe remove-item 'C:\\inetpub\\wwwroot\\iisstart.htm' && powershell.exe Add-Content -Path 'C:\\inetpub\\wwwroot\\iisstart.htm' -Value $('Hello World from ' + $env:computername)
+```
+
+Este script en línea también actualiza el contenido de Iisstart.html.
+
 También debe abrir el puerto HTTP para poder acceder al servidor web.
 
 1. Busque **securityRules** en la plantilla.
@@ -130,10 +142,13 @@ También debe abrir el puerto HTTP para poder acceder al servidor web.
 
 Para conocer el procedimiento de implementación, consulte la sección "Implementación de la plantilla" de [Tutorial: Creación de plantillas de Resource Manager con recursos dependientes](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template). Se recomienda usar una contraseña generada para la cuenta de administrador de la máquina virtual. Consulte la sección [Requisitos previos](#prerequisites) de este artículo.
 
-## <a name="verify-the-deployment"></a>Comprobar la implementación
+En Cloud Shell, ejecute el siguiente comando para recuperar la dirección IP pública de la máquina virtual:
 
-1. En Azure Portal, seleccione la máquina virtual.
-1. En la información general de la máquina virtual, copie la dirección IP; para ello, seleccione **Hacer clic para copiar** y, a continuación, péguela en una pestaña del explorador. Se abre la página de bienvenida predeterminada de Internet Information Services (IIS):
+```azurepowershell
+(Get-AzPublicIpAddress -ResourceGroupName $resourceGroupName).IpAddress
+```
+
+Pegue la dirección IP en un explorador web. Se abre la página de bienvenida predeterminada de Internet Information Services (IIS):
 
 ![Página de bienvenida de Internet Information Services](./media/template-tutorial-deploy-vm-extensions/resource-manager-template-deploy-extensions-customer-script-web-server.png)
 

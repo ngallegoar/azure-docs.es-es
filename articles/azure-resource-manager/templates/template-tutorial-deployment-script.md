@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 03/23/2020
+ms.date: 04/07/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 94b351ddb18ca596f47e8ef40cff8229c838d7bd
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: f369eb54dc92a29ba122a8a645262dc085b1ed36
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80239202"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80930049"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate-preview"></a>Tutorial: Uso de scripts de implementación para crear un certificado autofirmado (versión preliminar)
 
@@ -48,13 +48,12 @@ Para completar este artículo, necesitará lo siguiente:
   /subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<IdentityID>
   ```
 
-  Use el script de PowerShell siguiente para obtener el identificador; para ello, proporcione el nombre del grupo de recursos y el nombre de la identidad.
+  Use el script de la CLI siguiente para obtener el identificador; para ello, proporcione el nombre del grupo de recursos y el nombre de la identidad.
 
-  ```azurepowershell-interactive
-  $idGroup = Read-Host -Prompt "Enter the resource group name for the managed identity"
-  $idName = Read-Host -Prompt "Enter the name of the managed identity"
-
-  $id = (Get-AzUserAssignedIdentity -resourcegroupname $idGroup -Name idName).Id
+  ```azurecli-interactive
+  echo "Enter the Resource Group name:" &&
+  read resourceGroupName &&
+  az identity list -g $resourceGroupName
   ```
 
 ## <a name="open-a-quickstart-template"></a>Abra una plantilla de inicio rápido.

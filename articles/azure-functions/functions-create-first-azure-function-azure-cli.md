@@ -4,12 +4,12 @@ description: Aprenda a crear una función desde la línea de comandos y, luego, 
 ms.date: 03/30/2020
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 1e3ce26894e9e89d196c068bd32245c8c891b2e2
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 547acb42be6a0c89dbc315031c46192b5c9a4a0d
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81255556"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732807"
 ---
 # <a name="quickstart-create-a-function-in-azure-that-responds-to-http-requests"></a>Inicio rápido: Creación de una función en Azure que responda a solicitudes HTTP
 
@@ -21,7 +21,7 @@ También hay una [versión basada en Visual Studio Code](functions-create-first-
 
 ::: zone pivot="programming-language-java"  
 > [!NOTE]
-> Si Maven no es la herramienta de desarrollo elegida, consulte nuestros tutoriales análogos para desarrolladores de Java con [Gradle](/azure/azure-functions/functions-create-first-java-gradle), [IDEA](/azure/java/intellij/azure-toolkit-for-intellij-quickstart-functions) y [VS Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java).
+> Si Maven no es la herramienta de desarrollo elegida, consulte nuestros tutoriales análogos para desarrolladores de Java con [Gradle](/azure/azure-functions/functions-create-first-java-gradle), [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions) y [VS Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java).
 ::: zone-end  
 
 [!INCLUDE [functions-requirements-cli](../../includes/functions-requirements-cli.md)]
@@ -222,9 +222,9 @@ Use los siguientes comandos de la CLI de Azure para crear estos elementos. Cada 
 
 Si aún no lo ha hecho, inicie sesión en Azure con el comando [az login](/cli/azure/reference-index#az-login):
 
-    ```azurecli
-    az login
-    ```
+```azurecli
+az login
+```
     
 Para crear un grupo de recursos, use el comando [az group create](/cli/azure/group#az-group-create). En el ejemplo siguiente se crea un grupo de recursos denominado `AzureFunctionsQuickstart-rg` en la región `westeurope`. (Por lo general, tanto los grupos de recursos como los recursos se crean en una región cercana y se utiliza alguna de las regiones disponibles del comando `az account list-locations`).
 

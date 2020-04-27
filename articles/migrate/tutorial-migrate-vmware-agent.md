@@ -4,18 +4,16 @@ description: Aprenda a ejecutar una migración de máquinas virtuales de VMware 
 ms.topic: tutorial
 ms.date: 03/09/2020
 ms.custom: MVC
-ms.openlocfilehash: 64873c5185660c58cd4d07d60df3d086364d6288
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6855c3e81aece0358146608b6cf179fb923c54c8
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79222032"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535339"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>Migración de máquinas virtuales de VMware a Azure (basada en agente)
 
 En este artículo se muestra cómo migrar máquinas virtuales de VMware locales a Azure mediante la migración basada en agente con la herramienta Azure Migrate Server Migration.
-
-[Azure Migrate](migrate-services-overview.md) proporciona un centro de conectividad para realizar el seguimiento de la detección, evaluación y migración a Azure de las aplicaciones y cargas de trabajo locales, así como de las instancias de máquinas virtuales de AWS o GCP. El centro proporciona herramientas de Azure Migrate para la evaluación y la migración, así como ofertas de proveedores de software independientes (ISV).
 
 
 En este tutorial, aprenderá a:
@@ -191,23 +189,15 @@ Si no ha seguido el tutorial para evaluar las máquinas virtuales de VMware, con
 3. En **Información general**, haga clic en **Evaluar y migrar servidores**.
 4. En **Detectar, evaluar y migrar servidores**, haga clic en **Evaluar y migrar servidores**.
 
-    ![Detección y evaluación de servidores](./media/tutorial-migrate-vmware-agent/assess-migrate.png)
+    ![Detección y evaluación de servidores](./media/tutorial-migrate-vmware-agent/assess-migrate.png
 
 1. En **Detectar, evaluar y migrar servidores**, haga clic en **Agregar herramientas**.
 2. En **Migrar proyecto**, seleccione la suscripción a Azure y cree un grupo de recursos, en caso de que no lo tenga.
-3. En **Detalles del proyecto**, especifique el nombre del proyecto y la zona geográfica en la que desea crearlo; después, haga clic en **Siguiente**.
+3. En **Detalles del proyecto**, especifique el nombre del proyecto y la zona geográfica en la que quiere crearlo; después, haga clic en **Siguiente**. Revise las zonas geográficas admitidas para nubes [públicas](migrate-support-matrix.md#supported-geographies-public-cloud) y [nubes gubernamentales](migrate-support-matrix.md#supported-geographies-azure-government).
 
     ![Crear un proyecto de Azure Migrate](./media/tutorial-migrate-vmware-agent/migrate-project.png)
 
-    Puede crear un proyecto de Azure Migrate en cualquiera de estas zonas geográficas.
 
-    **Geografía** | **Región**
-    --- | ---
-    Asia | Sudeste de Asia
-    Europa | Norte de Europa y Oeste de Europa
-    Estados Unidos | Centro-oeste de EE. UU. o Este de EE. UU.
-
-    La ubicación geográfica especificada para el proyecto solo se utiliza para almacenar los metadatos que se recopilan a partir de máquinas virtuales locales. Puede seleccionar cualquier región de destino para la migración real.
 4. En **Seleccione una herramienta de evaluación**, seleccione **Omitir por ahora la adición de una herramienta de evaluación** > **Siguiente**.
 5. En **Seleccione una herramienta de migración**, seleccione **Azure Migrate: Migración del servidor** > **Siguiente**.
 6. En **Revisar y agregar herramientas**, revise la configuración y haga clic en **Agregar herramientas**.
@@ -221,7 +211,10 @@ El primer paso de la migración consiste en configurar el dispositivo de replica
 - **Servidor de proceso**: El servidor de procesos actúa como puerta de enlace de replicación. Recibe los datos de la replicación; los optimiza mediante el almacenamiento en la caché, la compresión y el cifrado, y los envía a una cuenta de almacenamiento en Azure. El servidor de procesos también instala el agente de Mobility Service en las máquinas virtuales que se desean replicar, además de realizar la detección automática de las máquinas virtuales de VMware locales.
 
 
-Para configurar el dispositivo de replicación, debe descargar una plantilla de Open Virtualization Application (OVA) preparada. Después debe importar la plantilla en VMware y crear la máquina virtual del dispositivo de replicación. 
+Puede configurar el dispositivo de replicación de dos maneras.
+
+- Configúrelo con una plantilla de Open Virtualization Application (OVA). Después debe importar la plantilla en VMware y crear la máquina virtual del dispositivo de replicación. Este es el método que se usa en este tutorial.
+- Configúrelo con un script.
 
 ### <a name="download-the-replication-appliance-template"></a>Descarga de la plantilla del dispositivo de replicación
 

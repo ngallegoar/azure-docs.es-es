@@ -9,14 +9,16 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: bf74784998de6bbad6310c48c24d6353512bff13
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c60cf4b90b089d271c0ccd91031420efe9017b1e
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77026398"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758167"
 ---
 # <a name="tutorial-add-an-azure-iot-edge-device-to-your-azure-iot-central-application"></a>Tutorial: Incorporación de un dispositivo Azure IoT Edge a la aplicación Azure IoT Central
+
+*Este artículo se aplica a los generadores de soluciones y a los desarrolladores de dispositivos.*
 
 En este tutorial se explica cómo configurar y agregar un dispositivo Azure IoT Edge a la aplicación de Azure IoT Central. En el tutorial se usa una máquina virtual Linux habilitada para IoT Edge de Azure Marketplace para simular un dispositivo IoT Edge. El dispositivo IoT Edge usa un módulo que genera datos de telemetría ambiental simulados. Puede ver los datos de telemetría en un panel en la aplicación de IoT Central.
 
@@ -262,9 +264,9 @@ En la página **Módulos** se muestra el estado de los módulos de IoT Edge:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha aprendido a trabajar y a administrar dispositivos IoT Edge en IoT Central, este es el siguiente paso sugerido:
+Como desarrollador de dispositivos, ahora que ha aprendido a trabajar y a administrar dispositivos IoT Edge en IoT Central, este es el siguiente paso sugerido:
 
 <!-- Next how-tos in the sequence -->
 
 > [!div class="nextstepaction"]
-> [Configuración de una puerta de enlace transparente](../../iot-edge/how-to-create-transparent-gateway.md)
+> [Conexión a Azure IoT Central](./concepts-get-connected.md)

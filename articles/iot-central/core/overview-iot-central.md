@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: 6c50e5892aca37bac47e68a9ae17435611c99817
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 38152889ad43b41aeb345f59963cbfb869964b98
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80157473"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82025244"
 ---
 # <a name="what-is-azure-iot-central"></a>¿Qué es Azure IoT Central?
 
@@ -60,7 +60,7 @@ Como generador de soluciones, use IoT Central para crear una solución de IoT pe
 - Una aplicación basada en la nube que recibe los datos de telemetría de los dispositivos y le permite administrar los dispositivos.
 - Varios dispositivos que ejecutan código personalizado y que están conectados a la aplicación en la nube.
 
-Puede implementar rápidamente una aplicación IoT Central nueva y, luego, personalizarla según sus requisitos específicos en el explorador. Puede empezar con una _plantilla de aplicación_ genérica o con una de las plantillas de aplicación específicas para los sectores [minorista](../retail/overview-iot-central-retail-pnp.md), [energético](../energy/overview-iot-central-energy.md), [gubernamental](../government/overview-iot-central-government.md) o [sanitario](../healthcare/overview-iot-central-healthcare.md).
+Puede implementar rápidamente una aplicación IoT Central nueva y, luego, personalizarla según sus requisitos específicos en el explorador. Puede empezar con una _plantilla de aplicación_ genérica o con una de las plantillas de aplicación específicas para los sectores [minorista](../retail/overview-iot-central-retail.md), [energético](../energy/overview-iot-central-energy.md), [gubernamental](../government/overview-iot-central-government.md) o [sanitario](../healthcare/overview-iot-central-healthcare.md).
 
 Como generador de soluciones, se usan las herramientas web para crear una _plantilla de dispositivo_ para los dispositivos que se conectan a la aplicación. Una plantilla de dispositivo es el plano técnico que define las características y el comportamiento de un tipo de dispositivo, por ejemplo:
 
@@ -205,3 +205,5 @@ Ahora que tiene una visión general de IoT Central, estos son los siguientes pas
 - Más información sobre [IoT Plug and Play (versión preliminar)](../../iot-pnp/overview-iot-plug-and-play.md).
 - Más información sobre cómo [conectar un dispositivo de Azure IoT Edge](./tutorial-add-edge-as-leaf-device.md).
 - Más información sobre las [tecnologías y servicios de IoT de Azure](../../iot-fundamentals/iot-services-and-technologies.md).
+
+Si es un desarrollador de dispositivos y desea profundizar en algún código, el paso siguiente que se sugiere se indica en [Creación y conexión de un aplicación cliente a una aplicación de Azure IoT Central](./tutorial-connect-device-nodejs.md).

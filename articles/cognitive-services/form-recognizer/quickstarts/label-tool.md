@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 02/19/2020
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 0cfe58ab0d161019d5f53d9135c65db7beff2bb4
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: 790e2a148385f9da54df82f597c2ca52124dc2be
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80397992"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81529880"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Entrenamiento de un modelo de Form Recognizer con etiquetas mediante la herramienta de etiquetado de ejemplo
 
@@ -104,7 +104,7 @@ Rellene los campos con los siguientes valores:
 En la herramienta de etiquetado de ejemplo, los proyectos almacenan las configuraciones y los valores. Cree un nuevo proyecto y rellene los campos con los siguientes valores:
 
 * **Nombre para mostrar**: el nombre para mostrar del proyecto
-* **Token de seguridad**: algunos valores de configuración del proyecto pueden incluir valores confidenciales, como claves de API u otros secretos compartidos. Cada proyecto generará un token de seguridad que se puede usar para cifrar o descifrar los valores de configuración confidenciales del proyecto. Puede buscar los tokens de seguridad en la configuración de la aplicación. Para acceder a ella, haga clic en el icono de engranaje situado en la esquina inferior de la barra de navegación izquierda.
+* **Token de seguridad**: algunos valores de configuración del proyecto pueden incluir valores confidenciales, como claves de API u otros secretos compartidos. Cada proyecto generará un token de seguridad que se puede usar para cifrar o descifrar los valores de configuración confidenciales del proyecto. Puede buscar los tokens de seguridad en la configuración de la aplicación. Para ello, haga clic en el icono de engranaje situado en la esquina inferior de la barra de navegación izquierda.
 * **Conexión de origen**: la conexión de Azure Blob Storage que creó en el paso anterior que le gustaría usar para este proyecto.
 * **Ruta de acceso a la carpeta** (opcional): si los formularios de origen se encuentran en una carpeta en el contenedor de blobs, especifique aquí el nombre de la carpeta.
 * **URI de servicio del servicio Form Recognizer**: la dirección URL del punto de conexión de Form Recognizer.
@@ -130,9 +130,9 @@ Haga clic en **Run OCR on all files** (Ejecutar OCR en todos los archivos) en el
 A continuación, creará etiquetas y las aplicará a los elementos de texto que desea que reconozca el modelo.
 
 1. Primero, use el panel del editor de etiquetas para crear las etiquetas que le gustaría identificar.
-  1. Haga clic en **+** para crear una nueva etiqueta.
-  1. Escriba el nombre de la etiqueta.
-  1. Presione Entrar para guardar la etiqueta.
+   1. Haga clic en **+** para crear una nueva etiqueta.
+   1. Escriba el nombre de la etiqueta.
+   1. Presione Entrar para guardar la etiqueta.
 1. En el editor principal, haga clic y arrastre para seleccionar una o varias palabras de los elementos de texto resaltados.
 1. Haga clic en la etiqueta que desea aplicar o presione la tecla correspondiente del teclado. Las teclas numéricas se asignan como teclas de acceso rápido para las diez primeras etiquetas. Puede volver a ordenar las etiquetas con los iconos de flecha arriba y abajo del panel del editor de etiquetas.
     > [!Tip]
@@ -144,15 +144,30 @@ A continuación, creará etiquetas y las aplicará a los elementos de texto que 
     > * No incluya claves en los campos etiquetados, solo los valores.
     > * Los datos de la tabla se deben detectar automáticamente y estarán disponibles en el archivo JSON de salida final. Sin embargo, si el modelo no detecta todos los datos de la tabla, también puede etiquetar manualmente estos campos. Etiquete cada celda de la tabla con una etiqueta diferente. Si los formularios tienen tablas con un número variable de filas, asegúrese de etiquetar al menos un formulario con la tabla más grande posible.
 
-
-Siga los pasos anteriores para etiquetar cinco de los formularios y, después, continúe con el paso siguiente.
-
 ![Ventana principal del editor de la herramienta de etiquetado de ejemplo](../media/label-tool/main-editor.png)
 
+Siga los pasos anteriores para etiquetar al menos cinco de sus formularios.
+
+### <a name="specify-tag-value-types"></a>Especificación de los tipos de valores de etiqueta
+
+Opcionalmente, puede establecer el tipo de datos esperado para cada etiqueta. Abra el menú contextual a la derecha de una etiqueta y seleccione un tipo del menú. Esta característica permite que el algoritmo de detección realice determinadas suposiciones que mejorarán la precisión de la detección de texto. También garantiza que los valores detectados se devuelvan en un formato estandarizado en la salida JSON final. 
+
+> [!div class="mx-imgBorder"]
+> ![Selección del tipo de valor con la herramienta de etiquetado de ejemplo](../media/whats-new/formre-value-type.png)
+
+Actualmente se admiten los siguientes tipos de valor y variaciones:
+* `string`
+    * predeterminado, `no-whitespaces`, `alphanumeric`
+* `number`
+    * predeterminado, `currency`
+* `date` 
+    * predeterminado, `dmy`, `mdy`, `ymd`
+* `time`
+* `integer`
 
 ## <a name="train-a-custom-model"></a>Entrenamiento de un modelo personalizado
 
-Haga clic en el icono Entrenar (el vagón de tren) en el panel izquierdo para abrir la página de entrenamiento. A continuación, haga clic en el botón **Entrenar** para empezar a entrenar el modelo. Una vez completado el proceso de entrenamiento, verá la siguiente información:
+Haga clic en el icono Train (Entrenar) en el panel izquierdo para abrir la página de entrenamiento. A continuación, haga clic en el botón **Entrenar** para empezar a entrenar el modelo. Una vez completado el proceso de entrenamiento, verá la siguiente información:
 
 * **Id. del modelo**: el identificador del modelo que se ha creado y entrenado. Cada llamada de entrenamiento crea un nuevo modelo con su propio identificador. Copie esta cadena en una ubicación segura; la necesitará si desea realizar llamadas de predicción mediante la API REST.
 * **Precisión media**: el promedio de precisión del modelo. Puede mejorar la precisión del modelo mediante el etiquetado de formularios adicionales y el entrenamiento de nuevo para crear un nuevo modelo. Se recomienda empezar por etiquetar cinco formularios y agregar más formularios según sea necesario.
@@ -167,7 +182,7 @@ Una vez finalizado el entrenamiento, examine el valor de **Precisión media**. S
 
 ## <a name="analyze-a-form"></a>Análisis de un formulario
 
-Haga clic en el icono Predecir (rectángulos) de la izquierda para probar el modelo. Cargue un documento de formulario que no haya utilizado en el proceso de entrenamiento. A continuación, haga clic en el botón **Predecir** de la derecha para obtener las predicciones de clave y valor del formulario. La herramienta aplicará etiquetas en los cuadros de límite e informará de la confianza de cada etiqueta.
+Haga clic en el icono Predict (Predecir) (bombilla) de la izquierda para probar el modelo. Cargue un documento de formulario que no haya utilizado en el proceso de entrenamiento. A continuación, haga clic en el botón **Predecir** de la derecha para obtener las predicciones de clave y valor del formulario. La herramienta aplicará etiquetas en los cuadros de límite e informará de la confianza de cada etiqueta.
 
 > [!TIP]
 > También puede ejecutar la API de análisis con una llamada a REST. Para aprender a hacerlo, consulte [Entrenamiento con etiquetas mediante Python](./python-labeled-data.md).

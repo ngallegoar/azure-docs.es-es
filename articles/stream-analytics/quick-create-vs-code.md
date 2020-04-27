@@ -7,16 +7,19 @@ ms.author: mamccrea
 ms.date: 01/18/2020
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: e3e878b4f548da64ab04eb079d51b0846cf35c57
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: fe666359b9ed2773f615ff496f4032bda5e74dc2
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76313882"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767769"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-in-visual-studio-code-preview"></a>Inicio rápido: Creación de un trabajo de Azure Stream Analytics en Visual Studio Code (versión preliminar)
 
 En este inicio rápido se muestra cómo crear y ejecutar un trabajo de Azure Stream Analytics mediante la extensión Azure Stream Analytics Tools for Visual Studio Code. El trabajo de ejemplo lee los datos de streaming desde el dispositivo de Azure IoT Hub. Va a definir un trabajo que calcula la temperatura media cuando se sobrepasan los 27 ° y escribe los eventos de salida resultantes en un nuevo archivo del almacenamiento de blobs.
+
+> [!NOTE]
+> Las herramientas Visual Studio y Visual Studio Code no admiten trabajos de las regiones de Este de China, Norte de China, Centro de Alemania y Noreste de Alemania.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -140,14 +143,6 @@ Antes de definir el trabajo de Stream Analytics, debe preparar los datos, que se
    FROM Input
    HAVING Temperature > 27
    ```
-
-## <a name="test-the-query-locally-with-sample-data"></a>Prueba local de la consulta con datos de ejemplo
-
-Antes de ejecutar la consulta en la nube, puede probarla localmente con un archivo de datos de ejemplo local o con los datos capturados de la entrada activa para comprobar la lógica de la consulta.
-
-Siga las instrucciones de [Prueba local de consultas con datos de ejemplo](visual-studio-code-local-run.md) para más información.
-
- ![Prueba con datos de ejemplo en Visual Studio Code](./media/vscode-local-run/localrun-localinput.gif)
 
 ## <a name="define-a-live-input"></a>Definición de una entrada activa
 
@@ -279,6 +274,8 @@ Si piensa utilizar el trabajo en el futuro, puede detenerlo y volver a iniciarlo
 En este inicio rápido, ha implementado un sencillo trabajo de Stream Analytics mediante Visual Studio Code. También puede implementar trabajos de Stream Analytics mediante [Azure Portal](stream-analytics-quick-create-portal.md), [PowerShell](stream-analytics-quick-create-powershell.md) y [Visual Studio](stream-analytics-quick-create-vs.md).
 
 Para más información sobre Azure Stream Analytics Tools for Visual Studio Code, consulte los artículos siguientes:
+
+* [Prueba de consultas de Stream Analytics localmente con datos de ejemplo mediante Visual Studio Code](visual-studio-code-local-run.md)
 
 * [Prueba de las consultas de Azure Stream Analytics localmente en una entrada activa con Visual Studio Code](visual-studio-code-local-run-live-input.md)
 

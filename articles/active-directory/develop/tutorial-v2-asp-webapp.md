@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 94d3993c6a0c62a68ea77a888d3351c8fea1d935
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 29f5a48feaaafee64a20745b3cdf09726a6372ac
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80990997"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81533844"
 ---
 # <a name="add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Adición del inicio de sesión en Microsoft a una aplicación web ASP.NET
 
@@ -117,7 +117,7 @@ Los pasos siguientes se usan para crear una clase de inicio del middleware de OW
         string authority = String.Format(System.Globalization.CultureInfo.InvariantCulture, System.Configuration.ConfigurationManager.AppSettings["Authority"], tenant);
 
         /// <summary>
-        /// Configure OWIN to use OpenIdConnect 
+        /// Configure OWIN to use OpenIdConnect
         /// </summary>
         /// <param name="app"></param>
         public void Configuration(IAppBuilder app)
@@ -208,7 +208,7 @@ Para crear un controlador que exponga los métodos de inicio de sesión y cierre
                 OpenIdConnectAuthenticationDefaults.AuthenticationType);
         }
     }
-    
+
     /// <summary>
     /// Send an OpenID Connect sign-out request.
     /// </summary>
@@ -291,19 +291,19 @@ Este controlador muestra los usos del atributo `[Authorize]` para proteger un co
         public ActionResult Index()
         {
             var userClaims = User.Identity as System.Security.Claims.ClaimsIdentity;
-    
+
             //You get the user’s first and last name below:
             ViewBag.Name = userClaims?.FindFirst("name")?.Value;
-    
+
             // The 'preferred_username' claim can be used for showing the username
             ViewBag.Username = userClaims?.FindFirst("preferred_username")?.Value;
-    
+
             // The subject/ NameIdentifier claim can be used to uniquely identify the user across the web
             ViewBag.Subject = userClaims?.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
-    
+
             // TenantId is the unique Tenant Id - which represents an organization in Azure AD
             ViewBag.TenantId = userClaims?.FindFirst("http://schemas.microsoft.com/identity/claims/tenantid")?.Value;
-    
+
             return View();
         }
     }
@@ -311,7 +311,7 @@ Este controlador muestra los usos del atributo `[Authorize]` para proteger un co
 
 <!--start-collapse-->
 > ### <a name="more-information"></a>Más información
-> Debido al uso del atributo `[Authorize]`, todos los métodos de este controlador solo pueden ejecutarse si el usuario está autenticado. Si no lo está e intenta acceder al controlador, OWIN inicia un desafío de autenticación y le obliga al usuario a autenticarse. El código anterior busca en la lista de notificaciones atributos de usuario específicos que se hayan incluido en el token del usuario. Estos atributos incluyen el nombre completo del usuario y el nombre de usuario, así como el firmante del identificador de usuario global. También contienen el *Id. del inquilino*, que representa el identificador de la organización del usuario. 
+> Debido al uso del atributo `[Authorize]`, todos los métodos de este controlador solo pueden ejecutarse si el usuario está autenticado. Si no lo está e intenta acceder al controlador, OWIN inicia un desafío de autenticación y le obliga al usuario a autenticarse. El código anterior busca en la lista de notificaciones atributos de usuario específicos que se hayan incluido en el token del usuario. Estos atributos incluyen el nombre completo del usuario y el nombre de usuario, así como el firmante del identificador de usuario global. También contienen el *Id. del inquilino*, que representa el identificador de la organización del usuario.
 <!--end-collapse-->
 
 ## <a name="create-a-view-to-display-the-users-claims"></a>Creación de una vista que muestre las notificaciones del usuario
@@ -487,7 +487,7 @@ Obtenga información acerca de la forma en que las aplicaciones web pueden llama
 Más información acerca de las aplicaciones web que llaman a API web con la plataforma de identidad de Microsoft:
 
 > [!div class="nextstepaction"]
-> [Aplicaciones web que llaman a API web](scenario-web-app-sign-user-overview.md)
+> [Aplicaciones web que llaman a las API web](scenario-web-app-sign-user-overview.md)
 
 Aprenda a crear aplicaciones web que llamen a Microsoft Graph:
 

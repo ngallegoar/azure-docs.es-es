@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
 ms.custom: seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: c8427333a0a395ca4a0998662cacf13dea662e04
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: e3517804cb66a9f98351e4c68f4f7c4387cee8fe
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77212852"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82083808"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-table-api-data"></a>Inicio rápido: Creación de una aplicación Java para administrar los datos de Table API de Azure Cosmos DB
 
@@ -52,7 +52,7 @@ En este inicio rápido se crea una cuenta de Azure Cosmos DB para Table API y s
 
 ## <a name="clone-the-sample-application"></a>Clonación de la aplicación de ejemplo
 
-Ahora vamos a clonar una aplicación de Table desde GitHub, establecer la cadena de conexión y ejecutarla. Verá lo fácil que es trabajar con datos mediante programación. 
+Ahora vamos a clonar una aplicación de Table desde GitHub, establecer la cadena de conexión y ejecutarla. Verá lo fácil que es trabajar con datos mediante programación.
 
 1. Abra un símbolo del sistema, cree una carpeta nueva denominada ejemplos de GIT y, después, cierre el símbolo del sistema.
 
@@ -71,6 +71,8 @@ Ahora vamos a clonar una aplicación de Table desde GitHub, establecer la cadena
     ```bash
     git clone https://github.com/Azure-Samples/storage-table-java-getting-started.git 
     ```
+
+> ![SUGERENCIA] Puede encontrar un tutorial más detallado de código similar en el artículo del [ejemplo de Table API de Cosmos DB](table-storage-how-to-use-java.md). 
 
 ## <a name="update-your-connection-string"></a>Actualización de la cadena de conexión
 

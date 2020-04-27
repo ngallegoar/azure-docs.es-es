@@ -24,6 +24,8 @@
       href: private-endpoint-overview.md
     - name: Servicio Private Link
       href: private-link-service-overview.md
+    - name: Integración de DNS de punto de conexión privado
+      href: private-endpoint-dns.md
 - name: Procedimientos
   items:
     - name: Conexión de forma privada a una cuenta de almacenamiento

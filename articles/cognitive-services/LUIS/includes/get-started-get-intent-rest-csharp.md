@@ -6,20 +6,20 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 01/31/2020
+ms.date: 04/20/2020
 ms.author: diberry
-ms.openlocfilehash: 4cbec342bc20de35c0c62284e4e1fe1ae8b8e8a4
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 20916ff80ae52ee9fc215d87c0987900d89e590a
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76967011"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81733340"
 ---
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * [.NET Core V2.2+](https://dotnet.microsoft.com/download)
 * [Visual Studio Code](https://code.visualstudio.com/)
-* Identificador de la aplicación pública: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`
+* Un identificador de aplicación de LUIS: use el identificador de aplicación de IoT público de `df67dcdb-c37d-46af-88e1-8b97951ca1c2`. La consulta de usuario que se usa en el código del inicio rápido es específica de esa aplicación.
 
 ## <a name="create-luis-runtime-key-for-predictions"></a>Creación de una clave de tiempo de ejecución de LUIS para predicciones
 

@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: a7ab79fe7ccfbf6d292b6ba7be58026955a06516
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: f2d7f1725623dcc031f3c2b36bacd6dbc9ad339d
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80519313"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81639948"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance-with-advanced-configuration-options"></a>Tutorial: Creación y configuración de una instancia de Azure Active Directory Domain Services con opciones de configuración avanzada
 
@@ -207,7 +207,7 @@ Los pasos necesarios para generar y almacenar estos hash de contraseña son dife
 > [!TIP]
 > Si el inquilino de Azure AD tiene una combinación entre usuarios solo de nube y usuarios de la instancia local de AD, debe realizar ambos procedimientos.
 
-En el caso de las cuentas de usuario solo de nube, los usuarios deben cambiar sus contraseñas para poder usar Azure AD DS. Este proceso de cambio de contraseña hace que los valores hash de contraseña para la autenticación Kerberos y NTLM se generen y almacenen en Azure AD. Puede hacer expirar las contraseñas de todos los usuarios del inquilino que tienen que usar Azure AD DS, lo que fuerza un cambio de contraseña en el siguiente inicio de sesión, o bien indicarles que cambien manualmente sus contraseñas. En este tutorial vamos a cambiar manualmente una contraseña de usuario.
+En el caso de las cuentas de usuario solo de nube, los usuarios deben cambiar sus contraseñas para poder usar Azure AD DS. Este proceso de cambio de contraseña hace que los valores hash de contraseña para la autenticación Kerberos y NTLM se generen y almacenen en Azure AD. La cuenta no se sincroniza desde Azure AD a Azure AD DS hasta que se cambia la contraseña. Puede hacer expirar las contraseñas de todos los usuarios en la nube del inquilino que tenga que usar Azure AD DS, lo que fuerza un cambio de contraseña en el siguiente inicio de sesión, o bien indicarles que cambien sus contraseñas manualmente. En este tutorial vamos a cambiar manualmente una contraseña de usuario.
 
 Para que un usuario pueda restablecer su contraseña, el inquilino de Azure AD debe estar [configurado para el autoservicio de restablecimiento de contraseña][configure-sspr].
 

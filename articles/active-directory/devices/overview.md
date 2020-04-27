@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c895a13eb9b2bed9e3a8a5a250c4e925dfa834c5
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: ba0630474224c34eb96429cd7592028362e03381
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80331810"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024445"
 ---
 # <a name="what-is-a-device-identity"></a>¿Qué es una identidad de dispositivo?
 
@@ -53,6 +53,9 @@ Para obtener un dispositivo en Azure AD, tiene varias opciones:
 
 ![Dispositivos que se muestran en la hoja de dispositivos de Azure AD](./media/overview/azure-active-directory-devices-all-devices.png)
 
+> [!NOTE]
+> Un estado híbrido hace referencia a algo más que el estado de un dispositivo. Para que un estado híbrido sea válido, también se necesita un usuario de Azure AD válido.
+
 ## <a name="device-management"></a>Administración de dispositivos
 
 Los dispositivos de Azure AD pueden administrarse mediante herramientas de administración de dispositivos móviles (MDM) como Microsoft Intune, Microsoft Endpoint Configuration Manager, directiva de grupo (unido a Azure AD híbrido), herramientas de administración de aplicaciones móviles (MAM) u otras herramientas de terceros.
@@ -63,6 +66,8 @@ El registro y la unión de dispositivos a Azure AD proporciona a los usuarios un
 
 > [!NOTE]
 > Las directivas de acceso condicional basadas en dispositivos requieren dispositivos híbridos unidos a Azure AD o unidos a Azure AD compatibles o dispositivos registrados de Azure AD.
+
+El token de actualización principal (PRT) contiene información sobre el dispositivo y es necesario para el inicio de sesión único. Si tiene una directiva de acceso condicional basada en un dispositivo establecida en una aplicación, sin el PRT, se deniega el acceso. Las directivas de acceso condicional híbridas requieren un dispositivo de estado híbrido y un usuario válido que haya iniciado sesión.
 
 Los dispositivos que están unidos a Azure AD o híbridos unidos a Azure AD se benefician del Inicio de sesión único de conexión directa para los recursos locales de la organización, al igual que para los recursos en la nube. Para más información, consulte [How SSO to on-premises resources works on Azure AD joined devices](azuread-join-sso.md) (Funcionamiento del inicio de sesión único en los recursos locales en dispositivos unidos a Azure AD).
 

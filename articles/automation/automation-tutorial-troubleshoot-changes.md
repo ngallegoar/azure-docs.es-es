@@ -7,12 +7,12 @@ keywords: cambio, seguimiento, automatización
 ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 60ca1ef3d5c14a0f3dea5b662fc5c95184e6574d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 89f5e00c75b6b85c9a14de02504136907cde62b5
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75420633"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604691"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Solución de problemas en el entorno
 
@@ -30,7 +30,7 @@ En este tutorial, aprenderá a:
 > * Ver los cambios
 > * Configurar alertas
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este tutorial, necesita:
 
@@ -46,15 +46,17 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
 
 En primer lugar, debe habilitar Change Tracking e Inventario para la máquina virtual en este tutorial. Si habilitó previamente otra solución de automatización para una máquina virtual, este paso no es necesario.
 
-1. En el menú de la izquierda, seleccione **Máquinas virtuales** y seleccione una máquina virtual de la lista.
-1. En el menú de la izquierda, en la sección **OPERACIONES**, haga clic en **Inventario**. Se abre la página **Change Tracking**.
+1. En el menú de la izquierda, seleccione **Máquinas virtuales** y una máquina virtual de la lista.
+1. En el menú de la izquierda, seleccione **Inventario** en **Operaciones**. Se abre la página Inventario.
 
-![Habilitar cambios](./media/automation-tutorial-troubleshoot-changes/enableinventory.png) Se abre la pantalla **Change Tracking**. Configure la ubicación, el área de trabajo de Log Analytics y la cuenta de Automation que use y haga clic en **Habilitar**. Si los campos aparecen atenuados, significa que otra solución de automatización está habilitada para la máquina virtual y que deben usarse la misma área de trabajo y cuenta de Automation.
+![Habilitación del cambio](./media/automation-tutorial-troubleshoot-changes/enableinventory.png)
+
+Configure la ubicación, el área de trabajo de Log Analytics y la cuenta de Automation que use y haga clic en **Habilitar**. Si los campos aparecen atenuados, significa que otra solución de automatización está habilitada para la máquina virtual y que deben usarse la misma área de trabajo y cuenta de Automation.
 
 Un área de trabajo de [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) se usa para recopilar datos que se generan mediante características y servicios, como, por ejemplo, Inventario.
 El área de trabajo proporciona una única ubicación para revisar y analizar datos desde varios orígenes.
 
-Durante la incorporación, la máquina virtual se aprovisiona con Microsoft Monitoring Agent (MMA) e Hybrid Worker.
+Durante la incorporación, la máquina virtual se aprovisiona con el agente de Log Analytics para Windows y un Hybrid Runbook Worker.
 Este agente se usa para comunicarse con la máquina virtual y obtener información sobre el software instalado.
 
 La habilitación de la solución puede tardar hasta 15 minutos. Durante este tiempo, no debería cerrar la ventana del explorador.
@@ -63,11 +65,11 @@ Los datos pueden tardar entre 30 minutos y 6 horas en estar disponibles para el 
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="using-change-tracking-in-azure-monitor-logs"></a>Uso del seguimiento de cambios en los registros de Azure Monitor
+## <a name="using-change-tracking-in-azure-monitor-logs"></a>Uso de Change Tracking en los registros de Azure Monitor
 
 El seguimiento de cambios genera datos de registro que se envían a los registros de Azure Monitor.
-Para buscar los registros mediante la ejecución de consultas, seleccione **Log Analytics** en la parte superior de la ventana **Seguimiento de cambios**.
-Los datos de Change Tracking se almacenan con el tipo **ConfigurationChange**.
+Para buscar los registros mediante la ejecución de consultas, seleccione **Log Analytics** en la parte superior de la página Change Tracking.
+Los datos de seguimiento de cambios se almacenan bajo el tipo `ConfigurationChange`.
 La siguiente consulta de Log Analytics de ejemplo devuelve todos los servicios de Windows que se hayan detenido.
 
 ```loganalytics
@@ -81,19 +83,18 @@ Para más información sobre la ejecución y la búsqueda de archivos de registr
 
 Change Tracking le ofrece la posibilidad de realizar un seguimiento de los cambios en la configuración de su máquina virtual. En los pasos siguientes se muestra cómo configurar el seguimiento de las claves del Registro y los archivos.
 
-Para elegir de qué archivos y claves del Registro se realizará la recopilación y el seguimiento, seleccione **Editar configuración** en la parte superior de la página **Change Tracking**.
+Para elegir de qué archivos y claves del Registro se realizará la recopilación y el seguimiento, seleccione **Editar configuración** en la parte superior de la página Change Tracking.
 
 > [!NOTE]
 > Change Tracking e Inventario usan la misma configuración de recopilación y se configuran en un nivel de área de trabajo.
 
-En la ventana **Configuración del área de trabajo**, agregue las claves del Registro de Windows, los archivos de Windows o los archivos de Linux de los que desea realizar un seguimiento, tal como se describe en las tres secciones siguientes.
+En la página Configuración del área de trabajo, agregue las claves del Registro de Windows, los archivos de Windows o los archivos de Linux de los que desea realizar un seguimiento, tal como se describe en las tres secciones siguientes.
 
 ### <a name="add-a-windows-registry-key"></a>Agregar una clave del Registro de Windows
 
-1. En la pestaña **Registro de Windows**, seleccione **Agregar**.
-    Se abrirá la ventana **Agregar Registro de Windows para el seguimiento de cambios**.
+1. En la pestaña **Registro de Windows**, seleccione **Agregar**. 
 
-1. En **Agregar Registro de Windows para el seguimiento de cambios**, introduzca la información de la clave cuyo seguimiento se va a realizar y haga clic en **Guardar**.
+1. En la página Agregar registro de Windows a Change Tracking, escriba la información de la clave cuyo seguimiento se va a realizar y haga clic en **Guardar**.
 
 |Propiedad  |Descripción  |
 |---------|---------|
@@ -104,9 +105,9 @@ En la ventana **Configuración del área de trabajo**, agregue las claves del Re
 
 ### <a name="add-a-windows-file"></a>Agregar un archivo de Windows
 
-1. En la pestaña **Archivos de Windows**, seleccione **Agregar**. Se abrirá la ventana **Agregar archivo de Windows para el seguimiento de cambios**.
+1. En la pestaña **Archivos de Windows**, seleccione **Agregar**. 
 
-1. En **Agregar archivo de Windows para el seguimiento de cambios**, introduzca la información del archivo o directorio cuyo seguimiento se va a realizar y haga clic en **Guardar**.
+1. En la página Agregar archivo de Windows para el seguimiento de cambios, escriba la información del archivo o directorio cuyo seguimiento se va a realizar y haga clic en **Guardar**.
 
 |Propiedad  |Descripción  |
 |---------|---------|
@@ -119,9 +120,9 @@ En la ventana **Configuración del área de trabajo**, agregue las claves del Re
 
 ### <a name="add-a-linux-file"></a>Agregar un archivo de Linux
 
-1. En la pestaña **Archivos de Linux**, seleccione **Agregar**. Se abrirá la ventana **Agregar archivo de Linux para el seguimiento de cambios**.
+1. En la pestaña **Archivos de Linux**, seleccione **Agregar**. 
 
-1. En **Agregar archivo de Linux para el seguimiento de cambios**, introduzca la información del archivo o directorio cuyo seguimiento se va a realizar y haga clic en **Guardar**.
+1. En la página Agregar archivo de Linux para el seguimiento de cambios, escriba la información del archivo o directorio cuyo seguimiento se va a realizar y haga clic en **Guardar**.
 
 |Propiedad  |Descripción  |
 |---------|---------|
@@ -133,24 +134,24 @@ En la ventana **Configuración del área de trabajo**, agregue las claves del Re
 |Recursividad     | Determina si se usa recursividad al buscar el elemento cuyo seguimiento se va a realizar.        |
 |Usar sudo     | Esta configuración determina si se va a utilizar sudo al buscar el elemento.         |
 |Vínculos     | Esta configuración determina cómo se tratan los vínculos simbólicos cuando se recorren directorios.<br> **Omitir**: ignora los vínculos simbólicos y no incluye los archivos y directorios de referencia.<br>**Seguir**: sigue los vínculos simbólicos durante la recursión y también incluye los archivos y directorios de referencia.<br>**Administrar**: sigue los vínculos simbólicos y permite modificar el tratamiento del contenido devuelto.      |
-|Cargar archivo de contenido para toda la configuración| Activa o desactiva la carga de contenido de archivos en los cambios sometidos a seguimiento. Opciones disponibles: **True** o **False**.|
+|Cargar archivo de contenido para toda la configuración| Activa o desactiva la carga de contenido de archivos en los cambios sometidos a seguimiento. Opciones disponibles: True o False.|
 
    > [!NOTE]
-   > La opción de administración de vínculos no se recomienda. No se admite la recuperación de contenido de los archivos.
+   > La opción **Administrar vínculos** no se recomienda. No se admite la recuperación de contenido de los archivos.
 
 ## <a name="enable-activity-log-connection"></a>Habilitar la conexión del registro de actividad
 
-Desde la página **Change Tracking** en la máquina virtual, seleccione **Administrar conexión de registro de actividad**. Esta tarea abrirá la página **Registro de actividad de Azure**. Seleccione **Conectar** para conectar Change Tracking al registro de actividad de Azure en la máquina virtual.
+Desde la página Change Tracking en la máquina virtual, seleccione **Administrar conexión de registro de actividad**. Esta tarea abrirá la página Registro de actividad de Azure. Haga clic en **Conectar** para conectar Change Tracking al registro de actividad de Azure de la máquina virtual.
 
-Con esta opción habilitada, navegue hasta la página **Información general** en la máquina virtual y seleccione **Detener** para detenerla. Cuando se le solicite, seleccione **Sí** para detener la máquina virtual. Cuando esté desasignada, seleccione **Iniciar** para reiniciar la máquina virtual.
+Con esta opción habilitada, vaya a la página Información general de la máquina virtual y seleccione **Detener** para detenerla. Cuando se le solicite, seleccione **Sí** para detener la máquina virtual. Cuando esté desasignada, seleccione **Iniciar** para reiniciar la máquina virtual.
 
-Si se detiene y se inicia una máquina virtual, se registra un evento en el registro de actividad. Vuelva a la página **Change Tracking**. Seleccione la pestaña **Eventos** en la parte inferior de la página. Después de un tiempo, los eventos se mostrarán en el gráfico y la tabla. Al igual que en el paso anterior, cada evento puede seleccionarse para ver información detallada.
+Si se detiene y se inicia una máquina virtual, se registra un evento en el registro de actividad. Vuelva a la página Change Tracking. Seleccione la pestaña **Eventos** en la parte inferior de la página. Después de un tiempo, los eventos se mostrarán en el gráfico y la tabla. Al igual que en el paso anterior, cada evento puede seleccionarse para ver información detallada.
 
 ![Visualización de los detalles de cambio en el portal](./media/automation-tutorial-troubleshoot-changes/viewevents.png)
 
 ## <a name="view-changes"></a>Ver los cambios
 
-Una vez habilitadas la solución Change Tracking e Inventario, puede ver los resultados en la página **Change tracking**.
+Una vez habilitadas la solución Change Tracking e Inventario, puede ver los resultados en la página Change tracking.
 
 Desde dentro de la máquina virtual, seleccione **Change Tracking** en **OPERACIONES**.
 
@@ -165,7 +166,7 @@ En la tabla de la pestaña **Eventos** se muestran los eventos del registro de a
 
 En los resultados puede ver que se produjeron varios cambios en el sistema, incluidos cambios en el software y los servicios. Puede usar los filtros en la parte superior de la página para filtrar los resultados por **Tipo de cambio** o por el intervalo de tiempo.
 
-Seleccione un cambio de tipo **WindowsServices**. Se abrirá la ventana **Detalles del cambio**. En la ventana de detalles del cambio se muestran los detalles, así como los valores antes y después del cambio. El servicio de protección de software se detuvo en esta instancia.
+Seleccione un cambio de **WindowsServices**. Esta selección abre la página Cambiar detalles que muestra los detalles del cambio y los valores antes y después del cambio. El servicio de protección de software se detuvo en esta instancia.
 
 ![Visualización de los detalles de cambio en el portal](./media/automation-tutorial-troubleshoot-changes/change-details.png)
 
@@ -175,11 +176,11 @@ Ver los cambios en Azure Portal puede ser útil, pero poder recibir una alerta c
 
 Para agregar una alerta para un servicio detenido, en Azure Portal, vaya a **Monitor**. Y, después, en **Servicios compartidos**, seleccione **Alertas** y haga clic en **+ Nueva regla de alertas**.
 
-Haga clic en **Seleccionar** para elegir un recurso. En la página **Seleccionar un recurso**, seleccione **Log Analytics** en el menú desplegable **Filtrar por tipo de recurso**. Seleccione el área de trabajo de Log Analytics y, a continuación, seleccione **Listo**.
+Haga clic en **Seleccionar** para elegir un recurso. En la página Seleccionar un recurso, seleccione **Log Analytics** en el menú desplegable **Filtrar por tipo de recurso**. Seleccione el área de trabajo de Log Analytics y, a continuación, seleccione **Listo**.
 
 ![Selección de un recurso](./media/automation-tutorial-troubleshoot-changes/select-a-resource.png)
 
-Haga clic en **Agregar condición**, en la página **Configurar lógica de señal**, en la tabla, seleccione **Búsqueda de registros personalizada**. Escriba la consulta siguiente en el cuadro de texto de consulta de búsqueda:
+Haga clic en **Agregar condición**, en la página Configurar lógica de señal, en la tabla, seleccione **Búsqueda de registros personalizada**. Escriba la consulta siguiente en el cuadro de texto de consulta de búsqueda:
 
 ```loganalytics
 ConfigurationChange | where ConfigChangeType == "WindowsServices" and SvcName == "W3SVC" and SvcState == "Stopped" | summarize by Computer
@@ -201,7 +202,7 @@ En **Acciones**, escriba un nombre para la acción, como **Administradores de co
 
 ![Adición del grupo de acciones](./media/automation-tutorial-troubleshoot-changes/add-action-group.png)
 
-En el panel **Correo electrónico/SMS/Push/Voz**, escriba un nombre. Seleccione la casilla de verificación **Correo electrónico** y, a continuación, escriba una dirección de correo electrónico válida. Haga clic en **Aceptar** en la página **Email/SMS/Push/Voice** (Correo electrónico/SMS/Inserción/Voz) y haga clic en **Aceptar** en la página **Agregar grupo de acciones**.
+En el panel Correo electrónico/SMS/Push/Voz, escriba un nombre. Seleccione la casilla de verificación **Correo electrónico** y, a continuación, escriba una dirección de correo electrónico válida. Haga clic en **Aceptar** en el panel y, a continuación, haga clic en **Aceptar** en la página Agregar grupo de acciones.
 
 Para personalizar el asunto de las alertas por correo electrónico, en **Crear regla**, en **Personalizar las acciones**, seleccione **Asunto del correo electrónico**. Cuando finalice, seleccione **Crear regla de alertas**. La regla le indica cuando la implementación de una actualización es correcta y qué máquinas formaron parte de la ejecución de la implementación de actualizaciones.
 

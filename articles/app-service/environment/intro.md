@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 04/19/2018
 ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 9bc40e71c1da6eb60b62cd08c51df89a7f35af09
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 08a97f0f7b1a6a65feb7a2ec041001f2199ffdf7
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80057384"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770644"
 ---
 # <a name="introduction-to-the-app-service-environments"></a>Introducción a App Service Environment #
  
@@ -34,7 +34,7 @@ Las instancias de App Service Environment (ASE) son adecuadas para cargas de tra
 
 Los clientes pueden crear varias instancias de ASE en una o en varias regiones de Azure. Esta flexibilidad hace que las instancias de ASE sean perfectas para capas de aplicación sin estado de escalado horizontal que apoyan a cargas de trabajo RPS elevadas.
 
-Las instancias de ASE están aisladas para ejecutar únicamente las aplicaciones de un solo cliente y siempre se implementan en una red virtual. Los clientes tienen un mayor control sobre el tráfico de red entrante y saliente de la aplicación. Las aplicaciones pueden establecer conexiones seguras a alta velocidad por redes virtuales a los recursos corporativos locales.
+Los ASE hospedan aplicaciones de un solo cliente y lo hacen en una de sus redes virtuales. Los clientes tienen un mayor control sobre el tráfico de red entrante y saliente de la aplicación. Las aplicaciones pueden establecer conexiones seguras a alta velocidad por redes virtuales a los recursos corporativos locales.
 
 * ASE viene con su propio plan de tarifa. Vea cómo la [oferta Aislado](https://channel9.msdn.com/Shows/Azure-Friday/Security-and-Horsepower-with-App-Service-The-New-Isolated-Offering?term=app%20service%20environment) ayuda a potenciar la hiperescala y la seguridad.
 * [App Service Environments v2](https://channel9.msdn.com/Blogs/Azure/Azure-Application-Service-Environments-v2-Private-PaaS-Environments-in-the-Cloud?term=app%20service%20environment) proporciona un entorno que protege las aplicaciones de una subred de la red y proporciona su propia implementación privada de Azure App Service.

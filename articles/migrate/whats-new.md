@@ -2,18 +2,30 @@
 title: Novedades de Azure Migrate
 description: Obtenga información sobre las novedades y actualizaciones recientes del servicio Azure Migrate.
 ms.topic: overview
-ms.date: 03/22/2020
+ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: 9767f3ea31b57d23c8a6772ff5eb6500f7550802
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: ba85b0a4ed30320099388ccb48dd91ad6445efd5
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80127588"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677244"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Novedades de Azure Migrate
 
 [Azure Migrate](migrate-services-overview.md) le ayuda a detectar, evaluar y migrar servidores, aplicaciones y datos locales a la nube de Microsoft Azure. En este artículo se resumen las nuevas versiones y características de Azure Migrate.
+
+
+## <a name="update-april-2020"></a>Actualización (abril de 2020)
+
+Azure Migrate admite implementaciones en Azure Government. 
+
+- Puede descubrir y evaluar máquinas virtuales de VMware, máquinas virtuales de Hyper-V y servidores físicos.
+- Puede migrar máquinas virtuales de VMware locales, máquinas virtuales Hyper-V y servidores físicos a Azure.
+- En el caso de VMware, puede realizar una migración con agente o sin agente. [Más información](server-migrate-overview.md).
+- [Examine](migrate-support-matrix.md#supported-geographies-azure-government) regiones y zonas geográficas compatibles para obtener Azure Government.
+- El [análisis de dependencias basado en agente](concepts-dependency-visualization.md#agent-based-analysis) no está disponible en Azure Government.
+- Las características en versión preliminar se admiten en Azure Government, concretamente el [análisis de dependencias sin agente ](concepts-dependency-visualization.md#agentless-analysis) y la [detección de aplicaciones](how-to-discover-applications.md).
 
 ## <a name="update-march-2020"></a>Actualización (marzo de 2020)
 

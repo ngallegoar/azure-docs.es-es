@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 195fa26a38d89d9ef738e6060ff7dab602d5c234
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 875114c53cb3193b1b140e95be19daf7fb6415a9
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67095910"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870323"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-oneteam"></a>Tutorial: Integración de Azure Active Directory con Oneteam
 
@@ -34,7 +34,7 @@ La integración de Oneteam con Azure AD proporciona las siguientes ventajas:
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para configurar la integración de Azure AD con Oneteam, necesita los siguientes elementos:
 
@@ -118,7 +118,7 @@ Para configurar el inicio de sesión único de Azure AD con Oneteam, realice los
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<team name>.one-team.io/`
 
     > [!NOTE]
-    > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de soporte de cliente de Oneteam](https://support.one-team.com/hc/requests/new) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Póngase en contacto con el equipo de soporte de cliente de Oneteam para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 6. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **XML de metadatos de federación** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
@@ -136,7 +136,7 @@ Para configurar el inicio de sesión único de Azure AD con Oneteam, realice los
 
 ### <a name="configure-oneteam-single-sign-on"></a>Configuración del inicio de sesión único de Oneteam
 
-Para configurar el inicio de sesión único en **Oneteam**, es preciso enviar el **XML de metadatos de federación** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de Oneteam](https://support.one-team.com/hc/requests/new). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **Oneteam**, es preciso enviar el archivo **XML de metadatos de federación** descargado y las direcciones URL apropiadas copiadas de Azure Portal al equipo de soporte técnico de Oneteam. Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 
@@ -194,7 +194,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, se crea un usuario llamado Britta Simon en Oneteam. Oneteam admite el aprovisionamiento de usuarios Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si un usuario ya no existe en Oneteam, se crea uno después de la autenticación.
 
 >[!NOTE]
->Si tiene que crear manualmente un usuario, puede presentar la incidencia de soporte técnico al [equipo de soporte técnico de Oneteam](https://support.one-team.com/hc/requests/new).
+>Si tiene que crear manualmente un usuario, puede presentar la incidencia de soporte técnico al equipo de soporte técnico de Oneteam.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
 
