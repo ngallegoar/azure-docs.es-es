@@ -320,8 +320,6 @@
           href: troubleshoot/troubleshoot-synapse-studio.md
         - name: Solución de problemas de Azure Synapse Analytics Studio con PowerShell
           href: troubleshoot/troubleshoot-synapse-studio-powershell.md
-        - name: Integración con Power BI
-          items: null
 - name: Procedimientos
   items:
     - name: Seguridad
