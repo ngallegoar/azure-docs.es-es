@@ -1,25 +1,25 @@
 ---
 title: Supervisión y administración de Azure HDInsight mediante la interfaz de usuario web de Ambari
-description: Aprenda a usar Ambari para supervisar y administrar clústeres de HDInsight basado en Linux. Con este documento aprende a usar la interfaz de usuario web de Ambari incluida con clústeres de HDInsight.
+description: Aprenda a usar la interfaz de usuario de Apache Ambari para supervisar y administrar clústeres de HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 02/05/2020
-ms.openlocfilehash: bf780897317d41c7da85140f64313546cf5c31d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/16/2020
+ms.openlocfilehash: bceafc5c9c238db7b73a9a3a781fa0fe26274984
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064697"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81866575"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Administración de clústeres de HDInsight con la interfaz de usuario web de Apache Ambari
 
 [!INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
 
-Apache Ambari simplifica la administración y la supervisión de un clúster de Apache Hadoop al brindar una API de REST y una interfaz de usuario web fácil de usar. Ambari se incluye en los clústeres de HDInsight y, además, se usa para supervisar el clúster y realizar cambios en la configuración.
+Apache Ambari simplifica la administración y la supervisión de un clúster de Apache Hadoop, La simplificación se lleva a cabo al proporcionar una forma fácil de usar la interfaz de usuario web y la API REST. Ambari se incluye en los clústeres de HDInsight y, además, se usa para supervisar el clúster y realizar cambios en la configuración.
 
 Con este documento aprende a usar la interfaz de usuario web de Ambari con un clúster de HDInsight.
 
@@ -82,7 +82,7 @@ Para administrar los grupos, use el menú **Actions** (Acciones) y seleccione **
 
 ![Administrar grupos de alertas de Apache Ambari](./media/hdinsight-hadoop-manage-ambari/ambari-manage-alerts.png)
 
-También puede administrar métodos de alerta y crear notificaciones de alerta a partir del menú **Actions** (Acciones) seleccionando __Administrar notificaciones__. Se muestran las notificaciones actuales. También puede crear notificaciones desde aquí. Se pueden enviar notificaciones a través de **CORREO ELECTRÓNICO** o **SNMP** cuando se producen combinaciones de alerta/gravedad específicas. Por ejemplo, puede enviar un mensaje de correo electrónico cuando alguna de las alertas del grupo **YARN Default** (Predeterminado de YARN) está definida en **Critical** (Crítica).
+Para administrar métodos de alerta y crear notificaciones de alerta, en el menú **Acciones**, seleccione __Administrar notificaciones__. Se muestran las notificaciones actuales. Cree notificaciones desde aquí. Se pueden enviar notificaciones a través de **CORREO ELECTRÓNICO** o **SNMP** cuando se producen combinaciones de alerta/gravedad específicas. Por ejemplo, puede enviar un mensaje de correo electrónico cuando alguna de las alertas del grupo **YARN Default** (Predeterminado de YARN) está definida en **Critical** (Crítica).
 
 ![Crear una notificación de alerta en Apache Ambari](./media/hdinsight-hadoop-manage-ambari/create-alert-notification.png)
 
@@ -122,7 +122,7 @@ Al seleccionar un servicio se muestra información más detallada sobre el mismo
 Algunos servicios muestran un vínculo **Quick Links** (Vínculos rápidos) en la parte superior de la página. Este vínculo puede usarse para tener acceso a interfaces de usuario web específicas del servicio, como:
 
 * **Job History** : el historial de trabajos de MapReduce.
-* **Resource Manager** : la interfaz de usuario del administrador de recursos de YARN.
+* **Resource Manager**: la interfaz de usuario de YARN Resource Manager.
 * **NameNode** : la interfaz de usuario de NameNode del Sistema de archivos distribuido de Hadoop (HDFS).
 * **Oozie Web UI** : interfaz de usuario de Oozie.
 
@@ -135,7 +135,7 @@ Seleccione cualquiera de estos vínculos para abrir una pestaña nueva del explo
 
 ### <a name="ambari-users-groups-and-permissions"></a>Usuarios, grupos y permisos de Ambari
 
-Se puede trabajar con usuarios, grupos y permisos cuando se usa un clúster de HDInsight [unido a un dominio](./domain-joined/hdinsight-security-overview.md). Para más información sobre el uso de la interfaz de usuario de administración de Ambari en un clúster unidos a un dominio, consulte [Manage domain-joined HDInsight clusters](./domain-joined/hdinsight-security-overview.md) (Administración de clústeres de HDInsight unidos a dominio).
+Se puede trabajar con usuarios, grupos y permisos cuando se usa un clúster de HDInsight unido a un dominio. Para más información sobre el uso de la interfaz de usuario de administración de Ambari en un clúster unidos a un dominio, consulte [Manage domain-joined HDInsight clusters](./domain-joined/hdinsight-security-overview.md) (Administración de clústeres de HDInsight unidos a dominio).
 
 > [!WARNING]  
 > No cambie la contraseña del guardián Ambari (hdinsightwatchdog) en el clúster de HDInsight basado en Linux. El cambio de la contraseña impide usar acciones de script o realizar operaciones de escalado con el clúster.
@@ -151,7 +151,7 @@ La página **Hosts** muestra todos los hosts existentes en el clúster. Siga est
 
 1. Seleccione los hosts que desee administrar.
 
-2. Use el menú **Actions** para seleccionar la acción que desea realizar:
+2. Use el menú **Acciones** para seleccionar la acción que quiere realizar:
 
     |Elemento |Descripción |
     |---|---|
@@ -179,7 +179,7 @@ A pesar de que el botón **Actions** puede reiniciar todos los servicios, con fr
 
 1. En la página **Dashboard** (Panel) o **Services** (Servicios), seleccione un servicio.
 
-2. En la parte superior de la pestaña **Summary** (Resumen), use el botón **Service Actions** (Acciones de servicio) y seleccione la acción que se realizará. Con esto se reinicia el servicio en todos los nodos.
+2. En la parte superior de la pestaña **Summary** (Resumen), use el botón **Service Actions** (Acciones de servicio) y seleccione la acción que se realizará. Con esta acción se reinicia el servicio en todos los nodos.
 
     ![Acciones de un servicio individual de Apache Ambari](./media/hdinsight-hadoop-manage-ambari/individual-service-actions.png)
 
@@ -203,7 +203,7 @@ Para configurar un servicio, use los siguientes pasos:
 
 ## <a name="ambari-views"></a>Vistas de Ambari
 
-Las vistas de Ambari permiten a los desarrolladores conectar elementos de interfaz de usuario a la interfaz de usuario web de Ambari mediante el [marco de vistas de Apache Ambari](https://cwiki.apache.org/confluence/display/AMBARI/Views). HDInsight proporciona las siguientes vistas con los tipos de clúster de Hadoop:
+Las vistas de Ambari permiten a los desarrolladores conectar elementos de interfaz de usuario a la interfaz de usuario web de Ambari mediante el marco de vistas de Apache Ambari. HDInsight proporciona las siguientes vistas con los tipos de clúster de Hadoop:
 
 * Vista de Hive: la vista de Hive permite ejecutar consultas de Hive directamente desde el explorador web. Puede guardar consultas, ver resultados, guardar resultados en el almacenamiento del clúster o descargar los resultados en el sistema local. Para más información sobre el uso de vistas de Hive, consulte [Uso de vistas de Apache Hive con HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md).
 
@@ -213,8 +213,10 @@ Las vistas de Ambari permiten a los desarrolladores conectar elementos de interf
 
 Las operaciones de Ambari siguientes no son compatibles con HDInsight:
 
-* __Migración del servicio Recopilador de métricas__. Cuando se ve información en el servicio Recopilador de métricas, una de las acciones disponibles en el menú Acciones del servicio es la __migración del recopilador de métricas__. Esto no es compatible con HDInsight.
+* __Migración del servicio Recopilador de métricas__. Cuando se ve información en el servicio Recopilador de métricas, una de las acciones disponibles en el menú Acciones del servicio es la __migración del recopilador de métricas__. Esta acción no es compatible con HDInsight.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga información sobre cómo usar la [API de REST de Apache Ambari](hdinsight-hadoop-manage-ambari-rest-api.md) con HDInsight.
+* [AP REST de Apache Ambari](hdinsight-hadoop-manage-ambari-rest-api.md) con HDInsight.
+* [Uso de Apache Ambari para optimizar configuraciones de clúster de HDInsight](./hdinsight-changing-configs-via-ambari.md)
+* [Escala de clústeres de Azure HDInsight](./hdinsight-scaling-best-practices.md)

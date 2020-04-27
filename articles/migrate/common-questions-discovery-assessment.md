@@ -2,13 +2,13 @@
 title: Preguntas sobre la detección, la valoración y el análisis de dependencias en Azure Migrate
 description: Obtenga respuestas a preguntas comunes sobre detección, valoración y análisis de dependencias en Azure Migrate.
 ms.topic: conceptual
-ms.date: 02/17/2020
-ms.openlocfilehash: 7a63271811053ee2da79f134ac117559e31b0fed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/15/2020
+ms.openlocfilehash: b4b2a50bc88768d46c82f6bce73447dc901e5dfd
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79460813"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81681912"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Detección, valoración y análisis de dependencias: preguntas comunes
 
@@ -19,9 +19,20 @@ En este artículo se responde a preguntas comunes sobre detección, valoración 
 - Preguntas sobre la [migración de servidores](common-questions-server-migration.md)
 - Obtenga respuestas a sus preguntas en el [foro de Azure Migrate](https://aka.ms/AzureMigrateForum)
 
+
+## <a name="what-geographies-are-supported-for-discovery-and-assessment-with-azure-migrate"></a>¿Qué zonas geográficas se admiten para la detección y evaluación con Azure Migrate?
+
+Revise las zonas geográficas admitidas para [nubes públicas](migrate-support-matrix.md#supported-geographies-public-cloud) y [gubernamentales](migrate-support-matrix.md#supported-geographies-azure-government).
+
+
 ## <a name="how-many-vms-can-i-discover-with-an-appliance"></a>¿Cuántas máquinas virtuales puedo detectar con un dispositivo?
 
 Puede detectar hasta 10 000 VM de VMware, 5000 VM de Hyper-V y 250 servidores físicos con un único dispositivo. Si tiene más máquinas, lea acerca de [escalar una valoración de Hyper-V](scale-hyper-v-assessment.md), [escalar una valoración de VMware](scale-vmware-assessment.md) y [escalar una valoración de servidor físico](scale-physical-assessment.md).
+
+## <a name="i-cant-see-some-vm-types-in-azure-government"></a>No puedo ver algunos tipos de VM en Azure Government
+
+Los tipos de VM que se admiten para la evaluación y la migración dependen de la disponibilidad en la ubicación de Azure Government. Puede [revisar y comparar](https://azure.microsoft.com/global-infrastructure/services/?regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia&products=virtual-machines) los tipos de VM en Azure Government.
+
 
 ## <a name="the-size-of-my-vm-changed-can-i-run-an-assessment-again"></a>El tamaño de mi VM ha cambiado. ¿Puedo volver a ejecutar una valoración?
 
@@ -80,7 +91,7 @@ Las valoraciones basadas en la importación son valoraciones creadas con máquin
 La visualización de dependencias puede ayudarle a evaluar grupos de VM para realizar la migración con mayor confianza. La visualización de dependencias comprueba las dependencias de las máquinas antes de llevar a cabo una valoración. Este proceso ayuda a asegurar que nada se queda atrás y evita interrupciones inesperadas al migrar a Azure. Azure Migrate usa la solución Service Map en Azure Monitor para habilitar la visualización de dependencias. [Más información](concepts-dependency-visualization.md).
 
 > [!NOTE]
-> La visualización de dependencias no está disponible en Azure Government.
+> El análisis de dependencias basado en agente no está disponible en Azure Government. Puede usar el análisis de dependencias sin agente
 
 ## <a name="whats-the-difference-between-agent-based-and-agentless"></a>¿Cuál es la diferencia entre basado en agente y sin agente?
 

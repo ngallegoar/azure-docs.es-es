@@ -12,21 +12,18 @@ ms.date: 04/12/2019
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: d83e336c73d9288b97a0564472caa497ab64b4b1
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 161f97dc99ce5ce16d7c40126b95a769c4b79621
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309239"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868333"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Plataforma de identidad de Microsoft y protocolo OpenID Connect
 
 OpenID Connect es un protocolo de autenticación basado en OAuth 2.0 que se puede usar para que un usuario inicie sesión de forma segura en una aplicación web. Cuando se usa la implementación del punto de conexión de la plataforma de identidad de Microsoft de OpenID Connect, puede agregar acceso de inicio de sesión y API a las aplicaciones basadas en web. En este artículo se muestra cómo hacer esto de forma independiente del lenguaje y se describe cómo enviar y recibir mensajes HTTP sin usar ninguna biblioteca de código abierto de Microsoft.
 
-> [!NOTE]
-> No todas las características y escenarios de Azure Active Directory (Azure AD) son compatibles con el punto de conexión de la plataforma de identidad de Microsoft. Para determinar si debe usar el punto de conexión de la Plataforma de identidad de Microsoft, conozca las [limitaciones de esta plataforma](active-directory-v2-limitations.md).
-
-[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) amplía el protocolo de *autorización* de OAuth 2.0 para usarlo como un protocolo de *autenticación*, lo que le permite realizar inicios de sesión únicos mediante OAuth. OpenID Connect presenta el concepto de un *token de identificador*, que es un token de seguridad que permite al cliente comprobar la identidad del usuario. El token de identificador también obtiene información de perfil básica sobre el usuario. Como OpenID Connect amplía OAuth 2.0, las aplicaciones pueden adquirir de forma segura *tokens de acceso*, que se pueden usar para obtener acceso a los recursos protegidos mediante un [servidor de autorización](active-directory-v2-protocols.md#the-basics). El punto de conexión de la plataforma de identidad de Microsoft también permite que las aplicaciones de terceros registradas con Azure AD emitan tokens de acceso para los recursos protegidos, como las API web. Para más información sobre cómo configurar una aplicación para emitir tokens de acceso, consulte [Registro de una aplicación en el punto de conexión de la plataforma de identidad de Microsoft](quickstart-register-app.md). Se recomienda usar OpenID Connect si compila una [aplicación web](v2-app-types.md#web-apps) hospedada en un servidor y a la que se obtiene acceso a través de un explorador.
+[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) amplía el protocolo de *autorización* de OAuth 2.0 para usarlo como un protocolo de *autenticación*, lo que le permite realizar inicios de sesión únicos mediante OAuth. OpenID Connect presenta el concepto de un *token de identificador*, que es un token de seguridad que permite al cliente comprobar la identidad del usuario. El token de identificador también obtiene información de perfil básica sobre el usuario. Como OpenID Connect amplía OAuth 2.0, las aplicaciones pueden adquirir de forma segura *tokens de acceso*, que se pueden usar para obtener acceso a los recursos protegidos mediante un [servidor de autorización](active-directory-v2-protocols.md#the-basics). El punto de conexión de la plataforma de identidad de Microsoft también permite que las aplicaciones de terceros registradas con Azure AD emitan tokens de acceso para los recursos protegidos, como las API web. Para más información sobre cómo configurar una aplicación para emitir tokens de acceso, consulte [Registro de una aplicación en el punto de conexión de la plataforma de identidad de Microsoft](quickstart-register-app.md). Se recomienda usar OpenID Connect si compila una [aplicación web](v2-app-types.md#web-apps) hospedada en un servidor y a la que se obtiene acceso a través de un explorador.
 
 ## <a name="protocol-diagram-sign-in"></a>Diagrama de protocolo: Inicio de sesión
 
@@ -41,6 +38,7 @@ OpenID Connect describe un documento de metadatos que contiene la mayor parte de
 ```
 https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 ```
+
 > [!TIP]
 > ¡Pruébelo! Haga clic en [https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration) para ver la configuración de inquilinos `common`.
 
@@ -55,7 +53,7 @@ https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 
 Los metadatos son un documento de notación de objetos JavaScript (JSON) simple. Consulte el fragmento de código siguiente para ver un ejemplo. El contenido del fragmento de código se describe detalladamente en la [especificación de OpenID Connect](https://openid.net/specs/openid-connect-discovery-1_0.html#rfc.section.4.2).
 
-```
+```json
 {
   "authorization_endpoint": "https:\/\/login.microsoftonline.com\/{tenant}\/oauth2\/v2.0\/authorize",
   "token_endpoint": "https:\/\/login.microsoftonline.com\/{tenant}\/oauth2\/v2.0\/token",
@@ -87,7 +85,7 @@ Cuando su aplicación web deba autenticar al usuario, puede dirigirlo al punto d
 
 Por ejemplo:
 
-```
+```HTTP
 // Line breaks are for legibility only.
 
 GET https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
@@ -126,7 +124,7 @@ Una vez que el usuario se autentica y da su consentimiento, el punto de conexió
 
 Una respuesta correcta cuando usa `response_mode=form_post` tiene el aspecto siguiente:
 
-```
+```HTTP
 POST /myapp/ HTTP/1.1
 Host: localhost
 Content-Type: application/x-www-form-urlencoded
@@ -143,7 +141,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 
 Las respuestas de error también se pueden enviar al URI de redireccionamiento para que la aplicación pueda controlarlas. Una respuesta de error tiene el aspecto siguiente:
 
-```
+```HTTP
 POST /myapp/ HTTP/1.1
 Host: localhost
 Content-Type: application/x-www-form-urlencoded
@@ -190,7 +188,7 @@ Si desea cerrar la sesión del usuario en la aplicación, no basta con borrar la
 
 Puede redirigir al usuario al objeto `end_session_endpoint` que aparece en el documento de metadatos OpenID Connect:
 
-```
+```HTTP
 GET https://login.microsoftonline.com/common/oauth2/v2.0/logout?
 post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 ```
@@ -214,7 +212,7 @@ El flujo completo de adquisición de tokens e inicio de sesión de OpenID Connec
 ## <a name="get-access-tokens"></a>Obtención de tokens de acceso
 Para obtener tokens de acceso, modifique la solicitud de inicio de sesión:
 
-```
+```HTTP
 // Line breaks are for legibility only.
 
 GET https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
@@ -222,8 +220,8 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e        // Your registered Applica
 &response_type=id_token%20code
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F       // Your registered redirect URI, URL encoded
 &response_mode=form_post                              // 'form_post' or 'fragment'
-&scope=openid%20                                      // Include both 'openid' and scopes that your app needs  
-offline_access%20                                         
+&scope=openid%20                                      // Include both 'openid' and scopes that your app needs
+offline_access%20
 https%3A%2F%2Fgraph.microsoft.com%2Fuser.read
 &state=12345                                          // Any value, provided by your app
 &nonce=678910                                         // Any value, provided by your app
@@ -239,7 +237,7 @@ Con la inclusión de los ámbitos de permiso en la solicitud y el uso de `respon
 
 Una respuesta correcta al usar `response_mode=form_post` tiene el siguiente aspecto:
 
-```
+```HTTP
 POST /myapp/ HTTP/1.1
 Host: localhost
 Content-Type: application/x-www-form-urlencoded
@@ -257,7 +255,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAA
 
 Las respuestas de error también se pueden enviar al URI de redireccionamiento para que la aplicación pueda controlarlas correctamente. Una respuesta de error tiene el aspecto siguiente:
 
-```
+```HTTP
 POST /myapp/ HTTP/1.1
 Host: localhost
 Content-Type: application/x-www-form-urlencoded

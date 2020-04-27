@@ -10,20 +10,23 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/08/2019
+ms.date: 04/21/2020
 ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04bd0993873568ba7cce368ddd9277ed356b636c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a9f12b2b31da4c7fe67eef9674d96b517d4e2bfa
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79231808"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81867752"
 ---
 # <a name="azure-ad-roles-security-wizard-in-privileged-identity-management"></a>Asistente para seguridad de roles de Azure AD en Privileged Identity Management
 
 Si es la primera persona que usa Privileged Identity Management (PIM) en la organización de Azure Active Directory (Azure AD), se le presentará un asistente para comenzar. El asistente le ayuda a comprender los riesgos de seguridad de las identidades con privilegios y a usar Privileged Identity Management para reducir dichos riesgos. No tiene que realizar cambios en las asignaciones de roles existentes en el asistente; si lo prefiere, puede hacerlo más adelante.
+
+> [!Important]
+> El asistente de seguridad no está disponible temporalmente. Gracias por su paciencia.
 
 ## <a name="wizard-overview"></a>Información general sobre el asistente
 
@@ -32,7 +35,7 @@ Antes de que la organización comience a usar Privileged Identity Management, to
 El segundo paso del asistente le ofrece la oportunidad de cambiar las asignaciones de roles del administrador.  
 
 > [!WARNING]
-> Es importante que tenga al menos un administrador global y más de un administrador de roles con privilegios con una cuenta de la organización (no una cuenta de Microsoft). Si solo hay un administrador de roles con privilegios, la organización no podrá administrar Privileged Identity Management si esa cuenta se elimina.
+> Es importante que tenga al menos un administrador global y más de un administrador de roles con privilegios con una cuenta profesional o educativa (no una cuenta de Microsoft). Si solo hay un administrador de roles con privilegios, la organización no podrá administrar Privileged Identity Management si esa cuenta se elimina.
 > Además, mantenga las asignaciones de roles permanentes si un usuario tiene una cuenta de Microsoft (es decir, una cuenta que usan para iniciar sesión en servicios de Microsoft como Skype y Outlook.com). Si tiene pensado exigir la autenticación multifactor para la activación de ese rol, ese usuario se bloqueará.
 
 ## <a name="run-the-wizard"></a>Ejecutar el asistente

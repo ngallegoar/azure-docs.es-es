@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 6102b1e1d6ddbac01033b9cecfeba96a7eb33777
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 41f9f267880d199d2e221453eea5c3584ce96881
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79473547"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868389"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autorización de las cuentas de desarrollador mediante Azure Active Directory en Azure API Management
 
@@ -38,7 +38,7 @@ En este artículo se muestra cómo habilitar el acceso al portal para desarrolla
 3. En el cuadro de búsqueda, escriba **api**.
 4. Seleccione **Servicios API Management**.
 5. Seleccione su instancia de servicio API Management.
-6. En **Seguridad**, seleccione **Identidades**.
+6. En **Portal para desarrolladores**, seleccione **Identidades**.
 7. Haga clic en **+ Agregar** en la parte superior.
 
     Aparece el panel **Agregar proveedor de identidades** a la derecha.

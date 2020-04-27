@@ -1,5 +1,5 @@
 ---
-title: Creación de una oferta de aplicaciones de Azure en Marketplace comercial
+title: Creación de una oferta de aplicaciones de Azure en marketplace comercial
 description: Cómo crear una nueva oferta de aplicaciones de Azure para mostrarla o venderla en Azure Marketplace, AppSource, o bien a través del programa Proveedor de soluciones en la nube (CSP) mediante el portal de Marketplace comercial del Centro de partners de Microsoft.
 author: dsindona
 ms.author: dsindona
@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: 0ff1bbd976273a7d0cbfb22effebdf45c84d2f41
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 516ebce176f53a0495ea493f5327658162e7ea9e
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80277248"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81867282"
 ---
 # <a name="create-an-azure-application-offer"></a>Creación de una oferta de aplicación de Azure
 
@@ -58,7 +58,7 @@ Revise la documentación de la aplicación de Azure siguiente, que proporciona a
 
     * [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/)
     * [Plantillas de inicio rápido de Azure en GitHub](https://github.com/azure/azure-quickstart-templates)
-    * [Publicación de definición de aplicación](https://docs.microsoft.com/azure/managed-applications/publish-managed-app-definition-quickstart)
+    * [Publicación de definición de aplicación](https://docs.microsoft.com/azure/managed-applications/publish-service-catalog-app)
     * [Implementación de la aplicación de catálogo de servicios](https://docs.microsoft.com/azure/managed-applications/deploy-service-catalog-quickstart)
 
 * Tutoriales:
@@ -103,7 +103,7 @@ Puede revisar las herramientas disponibles en la página [Herramientas de desarr
 
 ## <a name="create-an-azure-application-offer"></a>Creación de una oferta de aplicación de Azure
 
-Para poder crear una oferta de la aplicación de Azure, primero debe [crear una cuenta del Centro de partners](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) y después abrir el [panel de Marketplace comercial](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), con la pestaña **Información general** seleccionada.
+Para poder crear una oferta de la aplicación de Azure, primero debe [crear una cuenta de Centro de partners](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) y después abrir el [panel de marketplace comercial](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), con la pestaña **Información general** seleccionada.
 
 >[!Note]
 >Una vez publicada una oferta, las modificaciones de esta realizadas en el Centro de partners solo se actualizarán en el sistema y en los escaparates después de volver a publicarla.  Asegúrese de enviar la oferta para su publicación después de realizar los cambios.
@@ -221,6 +221,9 @@ En la sección **Contacto de soporte técnico**, también debe proporcionar la *
 
 En esta sección, puede proporcionar logotipos e imágenes que se usarán al mostrar la oferta al cliente. Todas las imágenes deben estar en formato .PNG.
 
+>[!Note]
+>Si tiene un problema al cargar archivos, asegúrese de que la red local no bloquee el servicio https://upload.xboxlive.com que usa el Centro de partners.
+
 #### <a name="store-logos"></a>Logotipos de Store
 
 Proporcione el logotipo de la oferta en tres tamaños: **Pequeño (48 x 48)** , **Mediano (90 x 90)** y **Grande (216 x 216)** .
@@ -293,7 +296,7 @@ Este plan debe estar disponible al menos en una nube.
 
 Seleccione la opción **Azure público** para que su solución se pueda implementar en los clientes de todas las regiones públicas de Azure que tengan la integración de Marketplace.  Obtenga más información sobre la [disponibilidad geográfica](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
 
-Seleccione la opción **Nube de Azure Government** para que su solución se pueda implementar en la [nube de Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome), una nube de la comunidad gubernamental con acceso controlado para los clientes de asociados tribales, locales, estatales y federales de Estados Unidos y asociados aptos para abastecer a tales entidades.  Como publicador, es responsable de los controles de cumplimiento, las medidas de seguridad y los procedimientos recomendados para atender a esta comunidad en la nube.  Azure Government usa redes y centros de datos aislados físicamente (ubicados solo en Estados Unidos).  Antes de publicar en [Azure Government](https://aka.ms/azuregovpublish), Microsoft recomienda probar y validar la solución en el entorno, ya que algunos puntos de conexión pueden ser diferentes. Para almacenar y probar la solución, solicite una cuenta de prueba en este [vínculo](https://azure.microsoft.com/global-infrastructure/government/request/).
+Seleccione la opción **Nube de Azure Government** para que su solución se pueda implementar en la [nube de Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome), una nube de la comunidad gubernamental con acceso controlado para los clientes de asociados tribales, locales, estatales y federales de Estados Unidos y asociados aptos para abastecer a tales entidades.  Como publicador, es responsable de los controles de cumplimiento, las medidas de seguridad y los procedimientos recomendados para atender a esta comunidad en la nube.  Azure Government usa redes y centros de datos aislados físicamente (ubicados solo en Estados Unidos).  Antes de publicar en [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners), Microsoft recomienda probar y validar la solución en el entorno, ya que algunos puntos de conexión pueden ser diferentes. Para almacenar y probar la solución, solicite una cuenta de prueba en este [vínculo](https://azure.microsoft.com/global-infrastructure/government/request/).
 
 >[!Note]
 >Una vez que se publica un plan como disponible en una nube específica, no se puede quitar esa nube.
@@ -355,7 +358,7 @@ Si ya se ha establecido los precios del plan en dólares de Estados Unidos (USD)
 
 Proporcione el precio mensual de este plan.  El precio se suma a cualquier infraestructura de Azure o costos de software de pago por uso en los que incurren los recursos implementados por esta solución.
 
-Los precios establecidos en la moneda local (USD = dólares de Estados Unidos) se convierten en la moneda local de todos los mercados seleccionados con los tipos de cambio actuales disponibles durante la instalación. Valide estos precios antes de realizar la publicación. Para ello, debe exportar la hoja de cálculo de precios y examinar el precio de cada mercado. Si desea establecer precios personalizados en un mercado individual, modifique e importe la hoja de cálculo de precios. 
+Los precios establecidos en USD (USD = dólares de Estados Unidos) se convierten en la moneda local de todos los mercados seleccionados con los tipos de cambio actuales en el momento de guardarlos. Valide estos precios antes de realizar la publicación. Para ello, debe exportar la hoja de cálculo de precios y examinar el precio de cada mercado. Si desea establecer precios personalizados en un mercado individual, modifique e importe la hoja de cálculo de precios. 
 
 >[!Note]
 >Primero debe guardar los cambios de precios para habilitar la exportación de los datos de precios.
@@ -397,7 +400,16 @@ Todos los paquetes del plan de la aplicación de Azure deben incluir estos dos a
 
 * Una definición de interfaz de usuario para la experiencia de creación de aplicaciones de Azure llamada [createUiDefinition.json](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview).
 
+Los tamaños de archivo máximos admitidos son:
+
+* Hasta 1 GB en el tamaño del archivo `.zip` comprimido total.
+
+* Hasta 1 GB para cada archivo individual descomprimido dentro del archivo `.zip`.  
+
 Todas las nuevas ofertas de la aplicación de Azure deben incluir un GUID de [atribución de uso del cliente para asociados de Azure](https://docs.microsoft.com/azure/marketplace/azure-partner-customer-usage-attribution).
+
+>[!Note]
+>Si tiene un problema al cargar archivos, asegúrese de que la red local no bloquee el servicio https://upload.xboxlive.com que usa el Centro de partners.
 
 ### <a name="previously-published-packages"></a>Paquetes publicados anteriormente 
 
@@ -429,7 +441,7 @@ Especifique un punto de conexión de webhook de HTTPS para recibir notificacione
 
 ### <a name="customize-allowed-customer-actions"></a>Personalizar acciones de cliente permitidas
 
-Seleccione esta opción para especificar qué acciones pueden realizar los clientes en los recursos administrados además de las acciones “`*/read`” que están disponibles de forma predeterminada. 
+Seleccione esta opción para especificar qué acciones pueden realizar los clientes en los recursos administrados, además de las acciones "`*/read`" que están disponibles de forma predeterminada. 
 
 Enumere las acciones adicionales que desea permitir a su cliente realizar aquí, separadas por signos de punto y coma.  Para más información, consulte [Descripción de las asignaciones de denegación para recursos de Azure](https://docs.microsoft.com/azure/role-based-access-control/deny-assignments).  Puede consultar las acciones disponibles en [Operaciones del proveedor de recursos de Azure Resource Manager](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations). Por ejemplo, para permitir que los consumidores reinicien las máquinas virtuales, agregue `Microsoft.Compute/virtualMachines/restart/action` a las acciones permitidas.
 
@@ -444,7 +456,7 @@ Indique quién debe tener acceso de administración a esta aplicación administr
 Para cada entidad de seguridad, seleccione uno de los roles integrados de Azure AD de la lista (Propietario o Colaborador). El rol que seleccione describirá los permisos que tendrá la entidad de seguridad en los recursos de la suscripción del cliente. Para más información, consulte [Roles integrados en los recursos de Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).  Para obtener más información sobre el control de acceso basado en rol (RBAC), consulte [Introducción al control de acceso basado en rol en Azure Portal](https://docs.microsoft.com/azure/role-based-access-control/overview).
 
 >[!Note]
->Aunque puede agregar hasta 100 autorizaciones por nube, suele ser más fácil crear un grupo de usuarios de Active Directory y especificar su identificador en el "Identificador de entidad de seguridad".  Esto le permitirá agregar más usuarios al grupo de administración una vez implementado el plan y reducir la necesidad de actualizar el plan solo para agregar más autorizaciones.
+>Aunque puede agregar hasta 100 autorizaciones por nube, suele ser más fácil crear un grupo de usuarios de Active Directory y especificar su id. en "ID de la entidad de seguridad".  Esto le permitirá agregar más usuarios al grupo de administración una vez implementado el plan y reducir la necesidad de actualizar el plan solo para agregar más autorizaciones.
 
 ### <a name="policy-settings"></a>Configuración de directiva
 

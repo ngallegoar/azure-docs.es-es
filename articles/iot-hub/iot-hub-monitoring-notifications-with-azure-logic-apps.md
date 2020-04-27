@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 07/18/2019
 ms.author: robinsh
-ms.openlocfilehash: ad1fcb67704e79f5aef62a59604e47f477804405
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2720f9acfa308294b30f9203ba80e3f9b426e1e9
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68385718"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81680716"
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Supervisión remota y notificaciones de IoT con Azure Logic Apps conectando IoT Hub y el buzón de correo
 
@@ -212,7 +212,7 @@ En la sección anterior, configuró el centro de IoT para enrutar los mensajes q
       Obtenga la información SMTP de [Hotmail/Outlook.com](https://support.office.com/article/Add-your-Outlook-com-account-to-another-mail-app-73f3b178-0009-41ae-aab1-87b80fa94970), [Gmail](https://support.google.com/a/answer/176600?hl=en) y [Yahoo Mail](https://help.yahoo.com/kb/SLN4075.html).
 
       > [!NOTE]
-      > Es posible que sea necesario deshabilitar SSL para establecer la conexión. De ser así y desea volver a habilitar SSL una vez establecida la conexión, consulte el paso opcional al final de esta sección.
+      > Es posible que sea necesario deshabilitar TLS/SSL para establecer la conexión. Si es así y desea volver a habilitar TLS una vez establecida la conexión, consulte el paso opcional al final de esta sección.
 
    1. En el elemento desplegable **Agregar nuevo parámetro** del paso **Enviar correo electrónico**, seleccione **De**, **Para**, **Asunto** y **Cuerpo**. Haga clic o pulse en cualquier parte en la pantalla para cerrar el cuadro de selección.
 
@@ -224,7 +224,7 @@ En la sección anterior, configuró el centro de IoT para enrutar los mensajes q
 
    1. Seleccione **Guardar** para guardar la conexión SMTP.
 
-1. (Opcional) Si tuviera que deshabilitar SSL para establecer una conexión con el proveedor de correo electrónico y desea volver a habilitarla, siga estos pasos:
+1. (Opcional) Si tuviera que deshabilitar TLS para establecer una conexión con el proveedor de correo electrónico y desea volver a habilitarla, siga estos pasos:
 
    1. En el panel **Aplicación lógica**, en **Herramientas de desarrollo**, seleccione **Conexiones de API**.
 

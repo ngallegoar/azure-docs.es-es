@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 2cdf3ff45a400d4b8d0b2605bf7ddc364aff1fe6
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 214d379525f2ee534415d713aa298ec858a84c92
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80882393"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868840"
 ---
 # <a name="protected-web-api-app-registration"></a>API web protegida: Registro de aplicación
 
@@ -83,7 +83,7 @@ También aparecen ámbitos en la ventana de consentimiento que se presenta a los
     - Seleccione **¿Quién puede dar el consentimiento?** y asegúrese de que esté seleccionado **Administradores y usuarios**.
     - En **Nombre para mostrar del consentimiento del administrador**, escriba **Access TodoListService as a user** (Acceder a TodoListService como usuario).
     - Seleccione **Descripción del consentimiento del administrador** y escriba **Accesses the TodoListService Web API as a user** (Accede a la API web de TodoListService como usuario).
-    - Seleccione **Nombre para mostrar del consentimiento del usuario**  y escriba **Access TodoListService as a user** (Accede a TodoListService como usuario).
+    - Seleccione **Nombre para mostrar del consentimiento del usuario**  y escriba **Access TodoListService as a user** (Acceder a TodoListService como usuario).
     - En **Descripción del consentimiento del usuario**, escriba **Accesses the TodoListService Web API as a user** (Accede a la API web de TodoListService como usuario).
     - Mantenga el valor de **Estado** establecido en **Habilitado**.
  1. Seleccione la opción **Agregar un ámbito**.
@@ -108,7 +108,7 @@ Para exponer permisos de aplicación, debe editar el manifiesto.
 
 En el ejemplo siguiente se muestra el contenido de `appRoles`, donde el valor de `id` puede ser cualquier GUID único.
 
-```JSon
+```json
 "appRoles": [
     {
     "allowedMemberTypes": [ "Application" ],

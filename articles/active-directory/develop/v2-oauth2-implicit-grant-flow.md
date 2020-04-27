@@ -12,12 +12,12 @@ ms.date: 11/19/2019
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 0a884850d57418e9daafba980d0a08dc86fc0974
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 89ae088b9cbb3bb3c593cfcbbfb4ce619baccfa8
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309394"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868407"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Plataforma de identidad de Microsoft y concesión implícita de flujo
 
@@ -33,14 +33,11 @@ En este artículo se describe cómo programar directamente con el protocolo de l
 
 Pero si prefiere no usar una biblioteca en la aplicación de página única y enviar mensajes de protocolo usted mismo, siga estos pasos generales.
 
-> [!NOTE]
-> No todas las características y escenarios de Azure Active Directory (Azure AD) son compatibles con el punto de conexión de la plataforma de identidad de Microsoft. Para determinar si debe usar el punto de conexión de la plataforma de identidad de Microsoft, conozca las [limitaciones de dicha plataforma](active-directory-v2-limitations.md).
-
 ## <a name="suitable-scenarios-for-the-oauth2-implicit-grant"></a>Escenarios adecuados para la concesión implícita de OAuth2
 
 La especificación de OAuth2 declara que la concesión implícita se ha diseñado para habilitar aplicaciones de agente de usuario, es decir, aplicaciones JavaScript que se ejecutan en un explorador. La característica definitoria de esas aplicaciones es que el código JavaScript se utiliza para acceder a los recursos del servidor (normalmente, una API web) y actualizar en consecuencia la experiencia de usuario de la aplicación. Piense en aplicaciones como Gmail o Outlook Web Access: al seleccionar un mensaje de la bandeja de entrada, solo cambia el panel de visualización de mensajes para mostrar la nueva selección, mientras que el resto de la página permanece sin modificar. A diferencia de las aplicaciones web basadas en redireccionamientos tradicionales, donde cada interacción del usuario produce un postback de página completa y una representación de página completa de la nueva respuesta del servidor.
 
-Las aplicaciones que llevan el enfoque basado en JavaScript hasta su extremo se denominan aplicaciones de página única o SPA. La idea es que estas aplicaciones solo publican una página HTML inicial y el código JavaScript asociado, y todas las interacciones subsiguientes se controlan mediante llamadas a la API Web realizadas a través de JavaScript. Sin embargo, los enfoques híbridos, donde la aplicación se basa fundamentalmente en eventos postback, pero realiza llamadas de JavaScript ocasionales, no son habituales. El debate sobre el uso del flujo implícito es pertinente para este tipo de enfoques.
+Las aplicaciones que llevan el enfoque basado en JavaScript hasta su extremo se denominan aplicaciones de página única o SPA. La idea es que estas aplicaciones solo publican una página HTML inicial y el código JavaScript asociado, y todas las interacciones subsiguientes se controlan mediante llamadas a la API web realizadas a través de JavaScript. Sin embargo, los enfoques híbridos, donde la aplicación se basa fundamentalmente en eventos postback, pero realiza llamadas de JavaScript ocasionales, no son habituales. El debate sobre el uso del flujo implícito es pertinente para este tipo de enfoques.
 
 Por lo general, las aplicaciones basadas en redirecciones protegen sus solicitudes a través de las cookies; sin embargo, este enfoque no funciona tan bien para aplicaciones JavaScript. Las cookies solo funcionan con el dominio para el que se han generado, aunque las llamadas de JavaScript pueden ser dirigidas a otros dominios. De hecho, esto pasará con frecuencia. Piense en las aplicaciones que invocan Microsoft Graph API, la API de Office o la API de Azure: todas residen fuera del dominio desde donde se publica la aplicación. Una tendencia que se está volviendo más popular en las aplicaciones JavaScript es no tener ningún back-end y depender exclusivamente de API web de terceros para implementar su función empresarial.
 
@@ -120,7 +117,7 @@ Una vez que el usuario se autentica y otorga su consentimiento, el punto de cone
 
 Una respuesta correcta que usa `response_mode=fragment` y `response_type=id_token+token` es como la siguiente (con saltos de línea para mejorar la legibilidad):
 
-```
+```HTTP
 GET https://localhost/myapp/#
 &token_type=Bearer
 &expires_in=3599
@@ -141,7 +138,7 @@ GET https://localhost/myapp/#
 
 Las respuestas de error también pueden enviarse al `redirect_uri` para que la aplicación pueda controlarlas adecuadamente:
 
-```
+```HTTP
 GET https://localhost/myapp/#
 error=access_denied
 &error_description=the+user+canceled+the+authentication
@@ -187,7 +184,7 @@ Gracias al parámetro `prompt=none` , esta solicitud tendrá éxito o dará erro
 
 Una respuesta correcta al usar `response_mode=fragment` tiene el siguiente aspecto:
 
-```
+```HTTP
 GET https://localhost/myapp/#
 access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 &state=12345
@@ -209,7 +206,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 
 Las respuestas de error también pueden enviarse al `redirect_uri` para que la aplicación pueda controlarlas adecuadamente. En el caso de `prompt=none`, un error esperado será:
 
-```
+```HTTP
 GET https://localhost/myapp/#
 error=user_authentication_required
 &error_description=the+request+could+not+be+completed+silently

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 7ee219ae5ace0f0da398cc542f410d3c895c8bd4
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: b86af2ff8fad3793fc47cec9399fd499c1cabba7
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80678830"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81681855"
 ---
 # <a name="troubleshoot"></a>Solución de problemas
 
@@ -77,6 +77,14 @@ La calidad de vídeo puede verse afectada por la calidad de la red o la falta de
 * Consulte los pasos para [identificar problemas de red](#unstable-holograms).
 * Consulte los [requisitos del sistema](../overview/system-requirements.md#development-pc) para instalar el controlador de gráficos más reciente.
 
+## <a name="video-recorded-with-mrc-does-not-reflect-the-quality-of-the-live-experience"></a>El vídeo grabado con MRC no refleja la calidad de la experiencia en directo
+
+Se puede grabar un vídeo en Hololens a través de [Captura de realidad mixta (MRC)](https://docs.microsoft.com/windows/mixed-reality/mixed-reality-capture-for-developers). Sin embargo, el vídeo resultante tiene una calidad peor que la experiencia en directo por dos motivos:
+* La velocidad de fotogramas de vídeo se limita a 30 Hz en lugar de 60 Hz.
+* Las imágenes de vídeo no se someten al paso de procesamiento de [reproyección de la fase final](../overview/features/late-stage-reprojection.md), por lo que el vídeo parece más entrecortado.
+
+Ambas limitaciones son inherentes de la técnica de grabación.
+
 ## <a name="black-screen-after-successful-model-loading"></a>Pantalla negra tras cargar el modelo correctamente
 
 Si está conectado al entorno de ejecución de representación y ha cargado un modelo correctamente, pero después solo ve una pantalla negra después, puede deberse a distintas causas.
@@ -93,6 +101,35 @@ Si estos dos pasos no ayudan, debe averiguar si el cliente recibe fotogramas de 
 **El modelo no está dentro del tronco de la vista:**
 
 En muchos casos, el modelo se muestra correctamente pero se encuentra fuera del tronco de la cámara. Un motivo habitual es que el modelo se ha exportado con una dinamización muy descentrada y el plano de recorte lejano de la cámara lo ha recortado. Ayuda a consultar el cuadro de límite del modelo mediante programación y a visualizar el cuadro con Unity como un cuadro de línea o imprimir sus valores en el registro de depuración.
+
+Además, el proceso de conversión genera un [archivo JSON de salida](../how-tos/conversion/get-information.md) junto con el modelo convertido. Para depurar los problemas de posicionamiento de modelos, vale la pena examinar la entrada `boundingBox` de la sección [outputStatistics](../how-tos/conversion/get-information.md#the-outputstatistics-section):
+
+```JSON
+{
+    ...
+    "outputStatistics": {
+        ...
+        "boundingBox": {
+            "min": [
+                -43.52,
+                -61.775,
+                -79.6416
+            ],
+            "max": [
+                43.52,
+                61.775,
+                79.6416
+            ]
+        }
+    }
+}
+```
+
+El cuadro de límite se describe como una posición `min` y `max` en el espacio 3D, en metros. Por lo tanto, una coordenada de 1000,0 significa que está a 1 kilómetro del origen.
+
+Puede haber dos problemas con este cuadro de límite que den lugar a una geometría invisible:
+* **El cuadro puede estar muy alejado del centro**, de modo que el objeto se recorte por completo debido al recorte del plano lejano. En este caso, los valores `boundingBox` tendrían el siguiente aspecto: `min = [-2000, -5,-5], max = [-1990, 5,5]`, con un gran desplazamiento en el eje x como ejemplo aquí. Para resolver este tipo de problema, habilite la opción `recenterToOrigin` en [Configuración de la conversión de modelos](../how-tos/conversion/configure-model-conversion.md).
+* **El cuadro puede centrarse, pero los órdenes de magnitud ser demasiado grandes**. Esto significa que, aunque la cámara se inicie en el centro del modelo, su geometría se recorta en todas las direcciones. En este caso, los valores de `boundingBox` típicos tendrían el siguiente aspecto: `min = [-1000,-1000,-1000], max = [1000,1000,1000]`. El motivo de este tipo de problema suele ser una discrepancia en la escala de unidades. Para compensarla, especifique un [valor de escalado durante la conversión](../how-tos/conversion/configure-model-conversion.md#geometry-parameters) o marque el modelo de origen con las unidades correctas. El escalado también se puede aplicar al nodo raíz al cargar el modelo en tiempo de ejecución.
 
 **La canalización de representación de Unity no incluye los enlaces de representación:**
 

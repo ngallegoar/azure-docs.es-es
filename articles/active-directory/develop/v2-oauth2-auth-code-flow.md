@@ -12,21 +12,18 @@ ms.date: 01/31/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 5241089ff3cc7826216fcadd6fd94116ee4a2c89
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: fcd80c052edf659f93f97800da3112c1f11309cc
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309448"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868505"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Plataforma de identidad y flujo de código de autorización de OAuth 2.0
 
 La concesión de un código de autorización de OAuth 2.0 se puede usar en aplicaciones que se instalan en un dispositivo para obtener acceso a recursos protegidos, como las API web. Mediante la implementación de la Plataforma de identidad de Microsoft de OAuth 2.0, puede agregar el inicio de sesión y acceso a API a las aplicaciones móviles y de escritorio. En esta guía, que es independiente del lenguaje, se describe cómo enviar y recibir mensajes HTTP sin usar ninguna de las [bibliotecas de autenticación de código abierto de Azure](reference-v2-libraries.md).
 
 En este artículo se describe cómo programar directamente con el protocolo de la aplicación.  Cuando sea posible, se recomienda usar las bibliotecas de autenticación de Microsoft (MSAL) admitidas, en lugar de [adquirir tokens y API web protegidas por llamadas](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Además, eche un vistazo a las [aplicaciones de ejemplo que usan MSAL](sample-v2-code.md).
-
-> [!NOTE]
-> No todos los escenarios y las características de Azure Active Directory son compatibles con el punto de conexión de la Plataforma de identidad de Microsoft. Para determinar si debe usar el punto de conexión de la plataforma de identidad de Microsoft, conozca las [limitaciones de dicha plataforma](active-directory-v2-limitations.md).
 
 El flujo de código de autorización de OAuth 2.0 se describe en la [sección 4.1 de la especificación de OAuth 2.0](https://tools.ietf.org/html/rfc6749). Se usa para realizar la autenticación y autorización en la mayoría de los tipos de aplicación, incluidas las [aplicaciones web](v2-app-types.md#web-apps) y las [aplicaciones instaladas de forma nativa](v2-app-types.md#mobile-and-native-apps). El flujo permite que las aplicaciones adquieran de forma segura access_tokens que se puedan usar para obtener acceso a los recursos protegidos mediante el punto de conexión de la Plataforma de identidad de Microsoft.
 
@@ -79,7 +76,7 @@ Una vez que el usuario se autentica y otorga su consentimiento, el punto de cone
 
 Una respuesta correcta al usar `response_mode=query` tiene el siguiente aspecto:
 
-```
+```HTTP
 GET https://login.microsoftonline.com/common/oauth2/nativeclient?
 code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
 &state=12345
@@ -94,7 +91,7 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
 
 Las respuestas de error también pueden enviarse al `redirect_uri` para que la aplicación pueda controlarlas adecuadamente:
 
-```
+```HTTP
 GET https://login.microsoftonline.com/common/oauth2/nativeclient?
 error=access_denied
 &error_description=the+user+canceled+the+authentication
@@ -125,7 +122,7 @@ En la tabla siguiente se describen los distintos códigos de error que pueden de
 
 Ahora que ha adquirido un código de autorización y el usuario le ha concedido permiso, puede canjear el `code` por un `access_token` al recurso deseado. Puede hacer esto mediante el envío de una solicitud `POST` al punto de conexión `/token`:
 
-```
+```HTTP
 // Line breaks for legibility only
 
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1
@@ -224,7 +221,7 @@ Ahora que ha adquirido correctamente un `access_token`, puede usar el token en s
 > [!TIP]
 > Ejecute esta solicitud en Postman (Reemplace primero el encabezado `Authorization`) [![Pruebe a ejecutar esta solicitud en Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
-```
+```HTTP
 GET /v1.0/me/messages
 Host: https://graph.microsoft.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
@@ -232,13 +229,13 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 
 ## <a name="refresh-the-access-token"></a>Actualización del token de acceso
 
-Los Access_tokens tienen una duración breve y debe actualizarlos una vez expiren para seguir teniendo acceso a los recursos. Puede hacerlo mediante el envío de otra solicitud `POST` al punto de conexión `/token`, esta vez proporcionando el elemento `refresh_token` en lugar del elemento `code`.  Los tokens de actualización son válidos para todos los permisos para los que el cliente ya haya obtenido consentimiento; por tanto, un token de actualización emitido en una solicitud de `scope=mail.read` se puede usar para solicitar un nuevo token de acceso para `scope=api://contoso.com/api/UseResource`.  
+Los Access_tokens tienen una duración breve y debe actualizarlos una vez expiren para seguir teniendo acceso a los recursos. Puede hacerlo mediante el envío de otra solicitud `POST` al punto de conexión `/token`, esta vez proporcionando el elemento `refresh_token` en lugar del elemento `code`.  Los tokens de actualización son válidos para todos los permisos para los que el cliente ya haya obtenido consentimiento; por tanto, un token de actualización emitido en una solicitud de `scope=mail.read` se puede usar para solicitar un nuevo token de acceso para `scope=api://contoso.com/api/UseResource`.
 
-Los tokens de actualización no tienen una duración especificada. Normalmente, las duraciones de este tipo de tokens son relativamente largas. Sin embargo, en algunos casos, los tokens de actualización expiran, se revocan o carecen de privilegios suficientes para realizar la acción deseada. La aplicación debe esperar y controlar los [errores que devuelve el punto de conexión de emisión de tokens](#error-codes-for-token-endpoint-errors) correctamente. 
+Los tokens de actualización no tienen una duración especificada. Normalmente, las duraciones de este tipo de tokens son relativamente largas. Sin embargo, en algunos casos, los tokens de actualización expiran, se revocan o carecen de privilegios suficientes para realizar la acción deseada. La aplicación debe esperar y controlar los [errores que devuelve el punto de conexión de emisión de tokens](#error-codes-for-token-endpoint-errors) correctamente.
 
-Si bien los tokens de actualización no se revocan cuando se usan para adquirir nuevos tokens de acceso, se espera que los descarte. La [especificación de OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-6) indica: "El servidor de autorización PODRÍA emitir un token de actualización nuevo, en cuyo caso el cliente DEBE descartar el token de actualización anterior y reemplazarlo por el token de actualización nuevo. El servidor de autorización PODRÍA revocar el token de actualización anterior después de la emisión de un token de actualización nuevo al cliente".  
+Si bien los tokens de actualización no se revocan cuando se usan para adquirir nuevos tokens de acceso, se espera que los descarte. La [especificación de OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-6) indica: "El servidor de autorización PODRÍA emitir un token de actualización nuevo, en cuyo caso el cliente DEBE descartar el token de actualización anterior y reemplazarlo por el token de actualización nuevo. El servidor de autorización PODRÍA revocar el token de actualización anterior después de la emisión de un token de actualización nuevo al cliente".
 
-```
+```HTTP
 // Line breaks for legibility only
 
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1
@@ -254,7 +251,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 > [!TIP]
 > Pruebe a ejecutar esta solicitud en Postman (No olvide reemplazar `refresh_token`) [![Pruebe a ejecutar esta solicitud en Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
-> 
+>
 
 | Parámetro     |                | Descripción        |
 |---------------|----------------|--------------------|
@@ -279,6 +276,7 @@ Una respuesta de token correcta tendrá un aspecto similar al siguiente:
     "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctOD...",
 }
 ```
+
 | Parámetro     | Descripción         |
 |---------------|-------------------------------------------------------------|
 | `access_token`  | El token de acceso solicitado. La aplicación puede utilizar este token para autenticarse en el recursos protegido, como una API web. |

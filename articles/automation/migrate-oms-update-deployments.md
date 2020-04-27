@@ -5,16 +5,16 @@ services: automation
 ms.subservice: update-management
 ms.date: 07/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 2660e4a348d2ffd71f912ff80c36a5a9a3c9fe88
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 910f284eedbf50be5b58b6c18f02e50adda35e9a
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75417780"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81680000"
 ---
 # <a name="migrate-your-oms-update-deployments-to-azure"></a>Migración de las implementaciones de actualizaciones de OMS a Azure
 
-El portal de Operations Management Suite (OMS) está quedando [en desuso](../azure-monitor/platform/oms-portal-transition.md). Toda la funcionalidad que estaba disponible en el portal de OMS para Update Management está disponible en Azure Portal. En este artículo se proporciona la información necesaria para migrar a Azure Portal.
+El portal de Operations Management Suite (OMS) está quedando [en desuso](../azure-monitor/platform/oms-portal-transition.md). Toda la funcionalidad que estaba disponible en el portal de OMS para Update Management está disponible en Azure Portal, a través de los registros de Azure Monitor. En este artículo se proporciona la información necesaria para la migración a Azure Portal.
 
 ## <a name="key-information"></a>Información importante
 
@@ -23,7 +23,7 @@ El portal de Operations Management Suite (OMS) está quedando [en desuso](../azu
 
 ## <a name="access-the-azure-portal"></a>Acceso a Azure Portal
 
-En el área de trabajo de OMS, haga clic en **Abrir en Azure**. Así navega al área de trabajo de Log Analytics que OMS usaba.
+En el área de trabajo de OMS, haga clic en **Abrir en Azure**. Esta selección permite navegar al área de trabajo de Log Analytics usada en OMS.
 
 ![Abrir en Azure: portal de OMS](media/migrate-oms-update-deployments/link-to-azure-portal.png)
 
@@ -31,11 +31,13 @@ En Azure Portal, haga clic en **Cuenta de Automation**
 
 ![Registros de Azure Monitor](media/migrate-oms-update-deployments/log-analytics.png)
 
-En la cuenta de Automation, haga clic en **Update Management** para abrir Update Management.
+En su cuenta de Azure Automation, haga clic en **Update Management**.
 
 ![Administración de actualizaciones](media/migrate-oms-update-deployments/azure-automation.png)
 
-En el futuro puede ir directamente a Azure Portal, en **Todos los servicios**, seleccione **Cuentas de Automation**, en **Herramientas de administración**, seleccione la cuenta de Automation correspondiente y haga clic en **Update Management**.
+En Azure Portal, seleccione **Cuentas de Automation** en **Todos los servicios**. 
+
+En **Herramientas de administración**, seleccione la cuenta de Automation adecuada y haga clic en **Update Management**.
 
 ## <a name="recreate-existing-deployments"></a>Nueva creación de las implementaciones existentes
 
@@ -49,9 +51,9 @@ Para crear una implementación de actualizaciones, vaya a Azure Portal, seleccio
 
 ![Programación de la implementación de actualizaciones](media/migrate-oms-update-deployments/schedule-update-deployment.png)
 
-Se abre el panel **Nueva implementación de actualización**. Escriba valores para las propiedades descritas en la tabla siguiente y haga clic en **Crear**:
+Se abre el panel Nueva implementación de actualización. Escriba valores para las propiedades descritas en la tabla siguiente y haga clic en **Crear**:
 
-Para actualizar las máquinas, seleccione la búsqueda guardada usada por la implementación de OMS existente.
+En **Máquinas para actualizar**, seleccione la búsqueda guardada que se usó en la implementación de OMS existente.
 
 | Propiedad | Descripción |
 | --- | --- |
@@ -72,4 +74,4 @@ Como se mencionó anteriormente, una vez configuradas las implementaciones nueva
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre Update Management en Azure, consulte [Update Management](automation-update-management.md)
+Para más información sobre Update Management en Azure, consulte [Update Management](automation-update-management.md).

@@ -7,18 +7,18 @@ ms.service: dns
 ms.topic: article
 ms.date: 7/13/2019
 ms.author: rohink
-ms.openlocfilehash: d84a7a908bd3bb5cfb2958a617be437f3b6b154e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 56a7680de3127da06341ac03252a9ab0cff9da7c
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79231704"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024955"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Usar Azure DNS para proporcionar la configuración de un dominio personalizado para un servicio de Azure
 
 Azure DNS proporciona DNS para un dominio personalizado de cualquiera de los recursos de Azure que admiten dominios personalizados o que tienen un nombre de dominio completo (FQDN). Por ejemplo, tiene una aplicación web de Azure y quiere que los usuarios puedan acceder a estas a través de contoso.com o www\.contoso.com como un FQDN. Este artículo le guiará a través de la configuración del servicio de Azure con Azure DNS para usar dominios personalizados.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para poder usar Azure DNS con su dominio personalizado, primero debe delegarlo a Azure DNS. Visite [Delegación de un dominio en Azure DNS](./dns-delegate-domain-azure-dns.md) para obtener instrucciones sobre cómo configurar los servidores de nombres para su delegación. Una vez que el dominio se ha delegado a la zona de Azure DNS, es posible configurar los registros DNS necesarios.
 
@@ -115,7 +115,7 @@ Para información sobre cómo migrar un nombre de DNS activo, consulte [Migraci�
 
 Si necesita adquirir un dominio personalizado, visite [Comprar un nombre de dominio personalizado para Azure Web Apps](../app-service/manage-custom-dns-buy-domain.md) para más información sobre dominios de App Service.
 
-## <a name="blob-storage"></a>Almacenamiento de blobs
+## <a name="blob-storage"></a>Blob Storage
 
 Los siguientes pasos le guiarán en el proceso de configuración de un registro CNAME para una cuenta de Blob Storage mediante el método asverify. Este método garantiza que no hay ningún tiempo de inactividad.
 
@@ -134,7 +134,7 @@ Vaya a la zona DNS y haga clic en **+ Conjunto de registros**. Rellene la inform
 |Unidad de TTL     | Horas        | Las horas se utilizan como medida de tiempo         |
 |Alias     | asverify.adatumfunctiona9ed.blob.core.windows.net        | El nombre DNS para el que va a crear el alias. En este ejemplo es el nombre DNS asverify.adatumfunctiona9ed.blob.core.windows.net proporcionado de forma predeterminada para la cuenta de almacenamiento.        |
 
-Vuelva a la cuenta de almacenamiento haciendo clic en **Storage** > **Cuentas de almacenamiento**. Una vez allí, seleccione la cuenta de almacenamiento y haga clic en **Dominio personalizado**. Escriba el alias que ha creado sin el prefijo asverify en el cuadro de texto, active la casilla **Usar validación CNAME indirecta y haga clic en **Guardar**. Una vez completado este paso, vuelva a la zona DNS y cree un registro CNAME sin el prefijo asverify.  Después de ese momento, ya es seguro eliminar el registro CNAME con el prefijo cdnverify.
+Vuelva a la cuenta de almacenamiento haciendo clic en **Storage** > **Cuentas de almacenamiento**. Una vez allí, seleccione la cuenta de almacenamiento y haga clic en **Dominio personalizado**. Escriba el alias que ha creado sin el prefijo asverify en el cuadro de texto, active la casilla **Usar validación CNAME indirecta** y haga clic en **Guardar**. Una vez completado este paso, vuelva a la zona DNS y cree un registro CNAME sin el prefijo asverify.  Después de ese momento, ya es seguro eliminar el registro CNAME con el prefijo cdnverify.
 
 ![dominio personalizado de blob storage](./media/dns-custom-domain/indirectvalidate.png)
 

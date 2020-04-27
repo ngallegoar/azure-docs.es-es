@@ -12,12 +12,12 @@ ms.date: 12/17/2019
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: c6113490cf7d754a9e45638e4a0bfa588f1942ca
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 36a5fdf990432e3a41cf8fc578fa20b4910250b2
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309428"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868451"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>La Plataforma de identidad de Microsoft y el flujo de credenciales de cliente de OAuth 2.0
 
@@ -26,9 +26,6 @@ Puede usar la [concesión de credenciales de cliente de OAuth 2.0](https://tools
 En este artículo se describe cómo programar directamente con el protocolo de la aplicación. Cuando sea posible, se recomienda usar las bibliotecas de autenticación de Microsoft (MSAL) admitidas, en lugar de [adquirir tokens y API web protegidas por llamadas](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Además, eche un vistazo a las [aplicaciones de ejemplo que usan MSAL](sample-v2-code.md).
 
 El flujo de concesión de credenciales de cliente de OAuth 2.0 permite que un servicio web (cliente confidencial) use sus propias credenciales para autenticarse al llamar a otro servicio web, en lugar de suplantar a un usuario. En este escenario, el cliente es normalmente un servicio web de nivel intermedio, un servicio demonio o un sitio web. Para conseguir un mayor nivel de control, la plataforma de identidad de Microsoft también permite que el servicio que realiza la llamada use un certificado (en lugar de un secreto compartido) como credencial.
-
-> [!NOTE]
-> No todas las características y escenarios de Azure AD son compatibles con el punto de conexión de la Plataforma de identidad de Microsoft. Para determinar si debe usar el punto de conexión de la Plataforma de identidad de Microsoft, conozca las [limitaciones de esta plataforma](active-directory-v2-limitations.md).
 
 En el escenario más típico de *OAuth de tres vías*, una aplicación cliente tiene permiso para obtener acceso a un recurso en nombre de un usuario específico. El permiso se delega desde el usuario a la aplicación, habitualmente durante el proceso de [consentimiento](v2-permissions-and-consent.md). Sin embargo, en el flujo de credenciales de cliente (*OAuth con dos patas*), los permisos se conceden directamente en la propia aplicación. Cuando la aplicación presenta un token a un recurso, este exige que sea la propia aplicación la que tenga autorización para realizar una acción, no el usuario.
 
@@ -70,7 +67,7 @@ Para usar permisos de aplicación en la aplicación, siga los pasos que se descr
 
 
 > [!NOTE]
-> Al realizar la autenticación como una aplicación, en lugar de hacerlo con un usuario, no se pueden usar "permisos delegados" (ámbitos concedidos por un usuario).  Debe usar "permisos de aplicación", también conocidos como "roles", que un administrador (o la API web mediante autorización previa) concede para la aplicación.    
+> Al realizar la autenticación como una aplicación, en lugar de hacerlo con un usuario, no se pueden usar "permisos delegados" (ámbitos concedidos por un usuario).  Debe usar "permisos de aplicación", también conocidos como "roles", que un administrador (o la API web mediante autorización previa) concede para la aplicación.
 
 
 #### <a name="request-the-permissions-in-the-app-registration-portal"></a>Solicitud de los permisos en el portal de registro de aplicaciones
@@ -93,7 +90,7 @@ Cuando esté listo para solicitar permisos al administrador de la organización,
 > [!TIP]
 > Pruebe a ejecutar esta solicitud en Postman (Use su propio identificador de aplicación para obtener mejores resultados; la aplicación del tutorial no solicitará permisos útiles). [![Pruebe a ejecutar esta solicitud en Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
-```
+```HTTP
 // Line breaks are for legibility only.
 
 GET https://login.microsoftonline.com/{tenant}/adminconsent?
@@ -102,9 +99,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &redirect_uri=http://localhost/myapp/permissions
 ```
 
-```
-// Pro tip: Try pasting the following request in a browser.
-```
+Sugerencia profesional: Intente pegar la siguiente solicitud en un explorador.
 
 ```
 https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&state=12345&redirect_uri=http://localhost/myapp/permissions
@@ -123,7 +118,7 @@ En este momento, Azure AD exige que solo un administrador de inquilino pueda in
 
 Si el administrador aprueba los permisos para la aplicación, la respuesta correcta tendrá un aspecto similar al siguiente:
 
-```
+```HTTP
 GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=state=12345&admin_consent=True
 ```
 
@@ -137,7 +132,7 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 
 Si el administrador no aprueba los permisos de la aplicación, la respuesta de error tendrá el aspecto siguiente:
 
-```
+```HTTP
 GET http://localhost/myapp/permissions?error=permission_denied&error_description=The+admin+canceled+the+request
 ```
 
@@ -157,7 +152,7 @@ Una vez que obtenga la autorización necesaria para la aplicación, siga con el 
 
 ### <a name="first-case-access-token-request-with-a-shared-secret"></a>Primer caso: solicitud de token de acceso con un secreto compartido
 
-```
+```HTTP
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1           //Line breaks for clarity
 Host: login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
@@ -168,8 +163,8 @@ client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 &grant_type=client_credentials
 ```
 
-```
-// Replace {tenant} with your tenant! 
+```Bash
+# Replace {tenant} with your tenant!
 curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=535fb089-9ff3-47b6-9bfb-4f1264799865&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_secret=qWgdYAmab0YSkuL1qKv5bPX&grant_type=client_credentials' 'https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token'
 ```
 
@@ -183,7 +178,7 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 
 ### <a name="second-case-access-token-request-with-a-certificate"></a>Segundo caso: solicitud de token de acceso con un certificado
 
-```
+```HTTP
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1               // Line breaks for clarity
 Host: login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
@@ -210,7 +205,7 @@ Tenga en cuenta que los parámetros son casi iguales que en el caso de solicitud
 
 Una respuesta correcta tiene el siguiente aspecto:
 
-```
+```json
 {
   "token_type": "Bearer",
   "expires_in": 3599,
@@ -228,7 +223,7 @@ Una respuesta correcta tiene el siguiente aspecto:
 
 Una respuesta de error tiene el aspecto siguiente:
 
-```
+```json
 {
   "error": "invalid_scope",
   "error_description": "AADSTS70011: The provided value for the input parameter 'scope' is not valid. The scope https://foo.microsoft.com/.default is not valid.\r\nTrace ID: 255d1aef-8c98-452f-ac51-23d051240864\r\nCorrelation ID: fb3d2015-bc17-4bb9-bb85-30c5cf1aaaa7\r\nTimestamp: 2016-01-09 02:02:12Z",
@@ -254,17 +249,15 @@ Una respuesta de error tiene el aspecto siguiente:
 
 Ahora que adquirió un token, úselo para hacer solicitudes al recurso. Cuando expire el token, repita la solicitud al punto de conexión `/token` para adquirir un token de acceso nuevo.
 
-```
+```HTTP
 GET /v1.0/me/messages
 Host: https://graph.microsoft.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 ```
 
-```
-// Pro tip: Try the following command! (Replace the token with your own.)
-```
+```bash
+# Pro tip: Try the following command! (Replace the token with your own.)
 
-```
 curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbG...." 'https://graph.microsoft.com/v1.0/me/messages'
 ```
 

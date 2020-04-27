@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 45a2829411ea4713df898c90be73792718160cd2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 71d28a19316bf1b618ec9008a5e96a503687b202
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78255107"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81681956"
 ---
 # <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>Uso del complemento Smooth Streaming de Microsoft para Open Source Media Framework de Adobe  
 ## <a name="overview"></a>Información general
@@ -331,7 +331,7 @@ paquete {
 El complemento dinámico Smooth Streaming para OSMF es compatible con [Strobe Media Playback (SMP)](http://osmf.org/strobe_mediaplayback.html). Puede usar el complemento SS para OSMF para agregar la reproducción de contenido Smooth Streaming a SMP. Para ello, copie "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf" en un servidor web para cargas HTTP mediante estos pasos:
 
 1. Examine la [página de configuración de Strobe Media Playback (en inglés)](http://osmf.org/dev/2.0gm/setup.html). 
-2. Establezca src en un origen de Smooth Streaming, (por ejemplo, http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest) 
+2. Defina src como un origen de Smooth Streaming (por ejemplo, http:\//devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest). 
 3. Realice los cambios de configuración deseados y haga clic en Preview y Update.
    
    **Nota** : el servidor web de contenido necesita un archivo crossdomain.xml válido. 
