@@ -1,6 +1,6 @@
 ---
 title: Cómo actualizar a la supervisión de cumplimiento normativo dinámico en el panel de cumplimiento normativo de Azure Security Center | Microsoft Docs
-description: Actualización de los paquetes de cumplimiento normativo (versión preliminar)
+description: Actualización de los paquetes de cumplimiento normativo
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 4080825bbb1f6c274f5b5aafd28e8c672148b98f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fa5027ed285456247891c84e559b74a14237f553
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80159292"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537787"
 ---
-# <a name="update-to-dynamic-compliance-packages-in-your-regulatory-compliance-dashboard-preview"></a>Actualización a los paquetes de cumplimiento dinámicos en el panel de cumplimiento normativo (versión preliminar)
+# <a name="update-to-dynamic-compliance-packages-in-your-regulatory-compliance-dashboard"></a>Actualización a los paquetes de cumplimiento dinámicos en el panel de cumplimiento normativo
 
 Azure Security Center compara continuamente la configuración de los recursos con los requisitos de los estándares del sector, las regulaciones y los bancos de pruebas. En el **panel de cumplimiento normativo** se proporciona información sobre su postura de cumplimiento en función de cómo cumple los requisitos y controles de cumplimiento específicos.
 
@@ -28,7 +28,7 @@ Un estándar del que pueda realizar un seguimiento de su postura de cumplimiento
 
 La representación de Azure CIS que aparece inicialmente en el panel de cumplimiento depende de un conjunto estático de reglas que se incluye con Security Center.
 
-Gracias a la característica de **paquetes de cumplimiento dinámicos (versión preliminar)** , Security Center mejora automáticamente su cobertura de los estándares del sector a lo largo del tiempo. Los paquetes de cumplimiento son esencialmente iniciativas definidas en Azure Policy. Se pueden asignar al ámbito seleccionado (suscripción, grupo de administración, etc.). Para ver los datos de cumplimiento asignados como evaluaciones en el panel, agregue un paquete de cumplimiento a la suscripción o el grupo de administración desde la directiva de seguridad. Al agregar un paquete de cumplimiento, se asigna de forma eficaz la iniciativa de cumplimiento normativo al ámbito seleccionado. De esta manera, puede realizar un seguimiento en el panel de las iniciativas normativas recién publicadas como estándares de cumplimiento. Cuando Microsoft publica contenido nuevo para la iniciativa (nuevas directivas que se asignan a más controles en el estándar), el contenido adicional aparece automáticamente en el panel.
+Gracias a la característica de **paquetes de cumplimiento dinámicos**, Security Center mejora automáticamente su cobertura de los estándares del sector a lo largo del tiempo. Los paquetes de cumplimiento son esencialmente iniciativas definidas en Azure Policy. Se pueden asignar al ámbito seleccionado (suscripción, grupo de administración, etc.). Para ver los datos de cumplimiento asignados como evaluaciones en el panel, agregue un paquete de cumplimiento a la suscripción o el grupo de administración desde la directiva de seguridad. Al agregar un paquete de cumplimiento, se asigna de forma eficaz la iniciativa de cumplimiento normativo al ámbito seleccionado. De esta manera, puede realizar un seguimiento en el panel de las iniciativas normativas recién publicadas como estándares de cumplimiento. Cuando Microsoft publica contenido nuevo para la iniciativa (nuevas directivas que se asignan a más controles en el estándar), el contenido adicional aparece automáticamente en el panel.
 
 El paquete de cumplimiento dinámico del banco de pruebas de Azure CIS, **Azure CIS 1.1.0 (nuevo)** , mejora la versión *estática* de la original de la siguiente manera:
 
@@ -47,7 +47,7 @@ En los pasos siguientes se explica cómo agregar el paquete dinámico para super
 
 1. Seleccione la suscripción o el grupo de administración para el que desea administrar la postura de cumplimiento normativo. Se recomienda seleccionar el ámbito más alto para el que se aplica el estándar y así poder agregar y realizar un seguimiento de los datos de cumplimiento para todos los recursos anidados. 
 
-1. En la sección de estándares del sector y normativos (versión preliminar), verá que Azure CIS 1.1.0 se puede actualizar para obtener el nuevo contenido. Haga clic en **Actualizar**. 
+1. En la sección de estándares del sector y normativos, verá que Azure CIS 1.1.0 se puede actualizar para obtener el nuevo contenido. Haga clic en **Actualizar**. 
 
 1. Opcionalmente, haga clic en **Agregar más estándares** para abrir la página **Adición de estándares de cumplimiento normativo**. En ella puede buscar de forma manual **Azure CIS 1.1.0 (Nuevo)** y los paquetes dinámicos de otros estándares de cumplimiento, como **NIST SP 800-53 R4**, **SWIFT CSP CSCF-v2020**, **UKO y UK NHS** y **Canada PBMM**.
     

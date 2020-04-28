@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab, vanto
 ms.date: 11/09/2018
-ms.openlocfilehash: 9f592c345b7cfcf5f21d816fde1fae6b8e6b98c7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8d920fb7815e5a9fe30d8f3b4e40f36133d83222
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73823396"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81538093"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Conexión de la aplicación a una instancia administrada de Azure SQL Database
 
@@ -132,6 +132,8 @@ Para solucionar problemas de conectividad, consulte la siguiente información:
    ```
 
 - Si usa el emparejamiento de redes virtuales, asegúrese de que ha seguido las instrucciones de configuración [Permitir tránsito de puerta de enlace y Usar puertas de enlace remotas](#connect-from-on-premises-with-vnet-peering).
+
+- Si usa el emparejamiento de redes virtuales para conectar una aplicación hospedada de Azure App Service, y la red virtual de Instancia administrada tiene un intervalo de direcciones IP públicas, asegúrese de que la configuración de la aplicación hospedada permita que el tráfico saliente se enrute a redes con direcciones IP públicas. Siga las instrucciones de [Integración con red virtual regional](../app-service/web-sites-integrate-with-vnet.md#regional-vnet-integration).
 
 ## <a name="required-versions-of-drivers-and-tools"></a>Versiones necesarias de los controladores y las herramientas
 

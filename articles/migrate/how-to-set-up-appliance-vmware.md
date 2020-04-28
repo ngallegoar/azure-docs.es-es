@@ -2,21 +2,26 @@
 title: Configurar un dispositivo de Azure Migrate para VMware
 description: Obtenga información sobre cómo configurar un dispositivo de Azure Migrate para evaluar y migrar VM de VMware.
 ms.topic: article
-ms.date: 03/23/2020
-ms.openlocfilehash: 7a7d0007d2824abc781411f9529f9fa4ac89e55c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/16/2020
+ms.openlocfilehash: b32c6a9b703e4d341fe353d6b472ea7a18adadf3
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336791"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81538263"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>Configuración de un dispositivo para máquinas virtuales de VMware
 
-En este artículo se describe cómo configurar el dispositivo de Azure Migrate para su evaluación con la herramienta [Azure Migrate:Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) y para la migración sin agente mediante la herramienta [Azure Migrate:Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool).
+Siga este artículo para configurar el dispositivo de Azure Migrate para su evaluación con la herramienta [Azure Migrate:Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) y para la migración sin agente mediante la herramienta [Azure Migrate:Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool).
 
 El [dispositivo de Azure Migrate](migrate-appliance.md) es un dispositivo ligero que usa Azure Migrate:Server Assessment y Server Migration para detectar máquinas virtuales de VMware locales, enviar datos de rendimiento y metadatos de máquinas virtuales a Azure y para la replicación de máquinas virtuales de VMware durante la migración sin agente.
 
-Puede configurar el dispositivo de Azure Migrate para la valoración de máquinas virtuales de VMware mediante una plantilla de OVA que se descargue o mediante un script de instalación de PowerShell. En este artículo se describe cómo configurar el dispositivo mediante la plantilla de OVA. Si se quiere configurar el dispositivo mediante el script, siga las instrucciones de [este artículo](deploy-appliance-script.md).
+Puede implementar el dispositivo mediante un par de métodos:
+
+- Configúrelo en una VM de VMware mediante una plantilla de OVA descargada. Este es el método que se describe en este artículo.
+- Configúrelo en una VM de VMware o en una máquina física con un script del instalador de PowerShell. Debe usarse [este método](deploy-appliance-script.md) si no se puede configurar una VM mediante una plantilla de OVA, o si se encuentra en Azure Government.
+
+Una vez creada la aplicación, compruebe que se puede conectar a Azure Migrate:Server Assessment, configúrela por primera vez y regístrela en el proyecto de Azure Migrate.
 
 
 ## <a name="appliance-deployment-ova"></a>Implementación del dispositivo (OVA)
@@ -62,9 +67,9 @@ Importe el archivo descargado y cree una máquina virtual.
 9. Revise y confirme la configuración y haga clic en **Finish** (Finalizar).
 
 
-### <a name="verify-appliance-access-to-azure"></a>Comprobación de que el dispositivo puede acceder a Azure
+## <a name="verify-appliance-access-to-azure"></a>Comprobación de que el dispositivo puede acceder a Azure
 
-Asegúrese de que la máquina virtual del dispositivo se puede conectar a las [direcciones URL de Azure](migrate-appliance.md#url-access).
+Asegúrese de que la VM del dispositivo pueda conectarse a las direcciones URL de Azure para las nubes [públicas](migrate-appliance.md#public-cloud-urls) y [gubernamentales](migrate-appliance.md#government-cloud-urls).
 
 
 ## <a name="configure-the-appliance"></a>Configuración del dispositivo

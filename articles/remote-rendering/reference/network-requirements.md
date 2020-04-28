@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/13/2020
 ms.topic: reference
-ms.openlocfilehash: 73bbfad4c0535fa00b1aa53764eb52acb83124f8
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 9bb8818d2bb91c14eafc272774e0b633c51e58e1
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80678950"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617877"
 ---
 # <a name="network-requirements"></a>Requisitos de red
 
@@ -27,6 +27,9 @@ Los requisitos exactos de la red dependen de su caso de uso específico, por eje
 * **Evite la competencia de tráfico con mucho uso de ancho de banda**, como el streaming de vídeo o juegos, en la misma red Wi-Fi.
 * Disponer de una **buena intensidad de señal Wi-Fi** es fundamental. Si es posible, manténgase cerca de su punto de acceso Wi-Fi y evite obstáculos entre el dispositivo cliente y los puntos de acceso.
 * Asegúrese de conectarse siempre al **centro de datos de Azure más cercano** para su [región](regions.md). Cuanto más se acerque al centro de datos, menor será la latencia de la red, lo que afecta enormemente a la estabilidad de los hologramas.
+
+> [!NOTE]
+> El ancho de banda de bajada se usa principalmente en la secuencia de vídeo, que a su vez se divide entre la información de color y profundidad (ambos a 60 Hz, estéreo).
 
 ## <a name="network-performance-tests"></a>Pruebas sobre el rendimiento de red
 

@@ -1,43 +1,44 @@
 ---
 title: Ejemplo de aprendizaje automático con Spark MLlib en HDInsight - Azure
 description: Aprenda a usar Spark MLlib para crear una aplicación de aprendizaje automático que analice un conjunto de datos usando la clasificación mediante una regresión logística.
-keywords: aprendizaje automático con spark, ejemplo de aprendizaje automático con spark
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 06/17/2019
-ms.author: hrasheed
-ms.openlocfilehash: c8ead7abc454df387db31b2ce65d2ba714b0067d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.date: 04/16/2020
+ms.openlocfilehash: 26695df299ba5d0f50c8f271b5da99284a8d6764
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73494089"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81531140"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Uso de Apache Spark MLlib para compilar una aplicación de aprendizaje automático y analizar un conjunto de datos
 
-Aprenda a usar Apache Spark [MLlib](https://spark.apache.org/mllib/) para crear una aplicación de aprendizaje automático para efectuar análisis predictivos simples en un conjunto de datos abierto. De las bibliotecas de aprendizaje automático integradas de Spark, en este ejemplo se usa una *clasificación* mediante una regresión logística. 
+Obtenga información sobre el uso de Apache Spark [MLlib](https://spark.apache.org/mllib/) para crear una aplicación de aprendizaje automático. La aplicación realizará análisis predictivo en un conjunto de datos abierto. De las bibliotecas de aprendizaje automático integradas de Spark, en este ejemplo se usa una *clasificación* mediante una regresión logística.
 
-MLlib es una biblioteca básica de Spark que proporciona numerosas utilidades que resultan prácticas para las tareas de aprendizaje automático, como utilidades adecuadas para:
+MLlib es una biblioteca básica de Spark que proporciona numerosas utilidades para las tareas de aprendizaje automático, por ejemplo:
 
 * clasificación
 * Regresión
 * Agrupación en clústeres
-* Modelado de tema
+* Modelado
 * Descomposición en valores singulares (SVD) y Análisis de los componentes principales (PCA)
 * Comprobación de hipótesis y cálculo de estadísticas de ejemplo
 
 ## <a name="understand-classification-and-logistic-regression"></a>Comprensión de la clasificación y la regresión logística
-*Clasificación*, una tarea habitual en el aprendizaje automático, es el proceso de ordenación de datos de entrada en categorías. El trabajo de averiguar cómo asignar "etiquetas" a las entradas de datos que se proporcionen lo realiza un algoritmo de clasificación. Por ejemplo, imagínese un algoritmo de aprendizaje automático que acepta información bursátil como entrada y divide las existencias en dos categorías: acciones que se deberían vender y acciones que se deberían conservar.
+
+*Clasificación*, una tarea habitual en el aprendizaje automático, es el proceso de ordenación de datos de entrada en categorías. Es trabajo de un algoritmo de clasificación averiguar cómo asignar "etiquetas" a los datos de entrada que usted proporciona. Por ejemplo, podría pensar en un algoritmo de aprendizaje automático que acepte información bursátil como entrada. A continuación, divide las acciones en dos categorías: las acciones que se deben vender y las acciones que se deben mantener.
 
 La regresión logística es el algoritmo que se usa para la clasificación. La API de regresión logística de Spark es útil para la *clasificación binaria*, o para la clasificación de datos de entrada en uno de los dos grupos. Para obtener más información acerca de la regresión logística, consulte [Wikipedia](https://en.wikipedia.org/wiki/Logistic_regression).
 
-En resumen, el proceso de regresión logística genera una *función logística* que se puede usar para predecir la probabilidad de que un vector de entrada pertenezca a un grupo o al otro.  
+En resumen, el proceso de regresión logística produce una *función logística*. Utilice la función para predecir la probabilidad de que un vector de entrada pertenezca a un grupo u otro.  
 
 ## <a name="predictive-analysis-example-on-food-inspection-data"></a>Ejemplo de análisis predictivo en datos de inspección alimentaria
-En este ejemplo usará Spark para llevar a cabo un análisis predictivo sobre unos datos de inspección alimentaria (**Food_Inspections1.csv**) que se han adquirido a través del [portal de datos de la ciudad de Chicago](https://data.cityofchicago.org/). Este conjunto de datos contiene información sobre las inspecciones alimentarias que se llevaron a cabo en establecimientos de Chicago (información sobre cada establecimiento, las infracciones que se detectaron (en caso de detectarse alguna) y los resultados de la inspección). El archivo de datos CSV ya está disponible en la cuenta de almacenamiento asociada al clúster, en **/HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv**.
+
+En este ejemplo, se usa Spark para realizar un análisis predictivo de los datos de inspección de alimentos (**Food_Inspections1.csv**). Los datos adquiridos a través de [City of Chicago Data Portal](https://data.cityofchicago.org/). Este conjunto de datos contiene información sobre las inspecciones a los establecimientos alimenticios que se llevaron a cabo en Chicago. Incluye información sobre cada establecimiento, las infracciones detectadas (de haber) y los resultados de la inspección. El archivo de datos CSV ya está disponible en la cuenta de almacenamiento asociada al clúster, en **/HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv**.
 
 En los pasos siguientes, va a desarrollar un modelo para ver lo que es necesario para superar o no una inspección de alimentos.
 
@@ -55,11 +56,12 @@ En los pasos siguientes, va a desarrollar un modelo para ver lo que es necesario
     from pyspark.sql.functions import UserDefinedFunction
     from pyspark.sql.types import *
     ```
-    Por la existencia del kernel PySpark, no necesitará crear ningún contexto explícitamente. Los contextos de Spark y Hive se crean automáticamente al ejecutar la primera celda de código. 
+
+    Debido a la existencia del kernel PySpark, no necesitará crear ningún contexto explícitamente. Los contextos de Spark y Hive se crean automáticamente al ejecutar la primera celda de código.
 
 ## <a name="construct-the-input-dataframe"></a>Construcción de una trama de datos de entrada
 
-Dado que los datos sin procesar están en formato CSV, puede usar el contexto de Spark para extraer el archivo en memoria como texto no estructurado y después usar la biblioteca CSV de Python para analizar cada línea de datos.
+Use el contexto de Spark para extraer los datos CSV sin procesar e incorporarlos en la memoria como texto no estructurado. A continuación, use la biblioteca CSV de Python para analizar cada línea de los datos.
 
 1. Ejecute las líneas siguientes para crear un conjunto de datos distribuido resistente (RDD) mediante la importación y el análisis de los datos de entrada.
 
@@ -71,7 +73,7 @@ Dado que los datos sin procesar están en formato CSV, puede usar el contexto de
         value = csv.reader(sio).next()
         sio.close()
         return value
-    
+
     inspections = sc.textFile('/HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv')\
                     .map(csvParse)
     ```
@@ -104,9 +106,9 @@ Dado que los datos sin procesar están en formato CSV, puede usar el contexto de
         '(41.97583445690982, -87.7107455232781)']]
     ```
 
-    La salida nos da una idea del esquema del archivo de entrada. Incluye el nombre de cada establecimiento, el tipo de establecimiento, la dirección, los datos de las inspecciones y la ubicación, entre otras cosas. 
+    La salida nos da una idea del esquema del archivo de entrada. Incluye el nombre de cada establecimiento y el tipo de establecimiento. Además, la dirección, los datos de las inspecciones y la ubicación, entre otras cosas.
 
-3. Ejecute el siguiente código para crear una trama de datos (*df*) y una tabla temporal (*CountResults*) con unas pocas columnas que son útiles para el análisis predictivo. `sqlContext` se usa para realizar las transformaciones de datos estructurados. 
+3. Ejecute el siguiente código para crear una trama de datos (*df*) y una tabla temporal (*CountResults*) con unas pocas columnas que son útiles para el análisis predictivo. `sqlContext` se usa para realizar las transformaciones con datos estructurados.
 
     ```PySpark
     schema = StructType([
@@ -114,12 +116,12 @@ Dado que los datos sin procesar están en formato CSV, puede usar el contexto de
     StructField("name", StringType(), False),
     StructField("results", StringType(), False),
     StructField("violations", StringType(), True)])
-    
+
     df = spark.createDataFrame(inspections.map(lambda l: (int(l[0]), l[1], l[12], l[13])) , schema)
     df.registerTempTable('CountResults')
     ```
 
-    Las cuatro columnas de interés de la trama de datos son **id** (identificador), **name** (nombre), **results** (resultados) y **violations** (infracciones).
+    Las cuatro columnas de interés de el dataframe son **ID** (identificador), **name** (nombre), **results** (resultados) y **violations** (infracciones).
 
 4. Ejecute el código siguiente para obtener una pequeña muestra de los datos:
 
@@ -178,8 +180,7 @@ Vamos a empezar a hacernos una idea de lo que contiene el conjunto de datos.
 
     ![Resultado de la consulta SQL](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-query-output.png "Resultado de la consulta SQL")
 
-
-3. También puede utilizar [Matplotlib](https://en.wikipedia.org/wiki/Matplotlib), una biblioteca que se usa para construir la visualización de datos, para crear un trazado. Dado que el gráfico debe crearse a partir de la trama de datos localmente persistente **countResultsdf**, el fragmento de código debe comenzar con la instrucción mágica `%%local`. Esto garantiza que el código se ejecuta localmente en el servidor de Jupyter.
+3. También puede utilizar [Matplotlib](https://en.wikipedia.org/wiki/Matplotlib), una biblioteca que se usa para construir la visualización de datos, para crear un trazado. Dado que el gráfico debe crearse a partir de la trama de datos localmente persistente **countResultsdf**, el fragmento de código debe comenzar con la instrucción mágica `%%local`. Esta acción garantiza que el código se ejecuta localmente en el servidor de Jupyter.
 
     ```PySpark
     %%local
@@ -193,10 +194,6 @@ Vamos a empezar a hacernos una idea de lo que contiene el conjunto de datos.
     plt.axis('equal')
     ```
 
-    La salida es la siguiente:
-
-    ![Salida de la aplicación de aprendizaje automático de Spark: gráfico circular con cinco resultados de inspección distintos](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-1.png "Salida de resultados de aprendizaje automático de Spark")
-
     Para predecir un resultado de inspección de alimentos, debe desarrollar un modelo basado en las infracciones. Puesto que la regresión logística es un método de clasificación binaria, tiene sentido agrupar los datos de los resultados en dos categorías: **Fail** y **Pass**:
 
    - Pass (pasado)
@@ -208,9 +205,9 @@ Vamos a empezar a hacernos una idea de lo que contiene el conjunto de datos.
        - Business not located (no se encontró el negocio)
        - Out of Business (negocio cerrado)
 
-     Los datos con los demás resultados, como "Business Not Located" (No se encontró el negocio) o "Out of Business" (Negocio cerrado), no son útiles y constituyen un porcentaje muy bajo de los resultados.
+     Los datos con los demás resultados, como "Business Not Located" (No se encontró el negocio) o "Out of Business" (Negocio cerrado), no son útiles y constituyen un pequeño porcentaje de los resultados.
 
-4. Ejecute el siguiente código para convertir la trama de datos existente (`df`) en una trama de datos nueva, donde cada inspección se representa como un par de etiquetas de infracción. En este caso, una etiqueta de `0.0` representa un resultado de "no superado", una etiqueta de `1.0` representa un resultado de "pasado" y una etiqueta de `-1.0` representa resultados que no sean los dos anteriores. 
+4. Ejecute el siguiente código para convertir la trama de datos existente (`df`) en una trama de datos nueva, donde cada inspección se representa como un par de etiquetas de infracción. En este caso, una etiqueta de `0.0` representa un resultado de "no superado", una etiqueta de `1.0` representa un resultado de "pasado", y una etiqueta de `-1.0` representa resultados distintos de esos dos resultados.
 
     ```PySpark
     def labelForResults(s):
@@ -238,11 +235,11 @@ Vamos a empezar a hacernos una idea de lo que contiene el conjunto de datos.
 
 ## <a name="create-a-logistic-regression-model-from-the-input-dataframe"></a>Creación de un modelo de regresión logística a partir de la trama de datos de entrada
 
-La última tarea consiste en convertir los datos etiquetados a un formato que se pueda analizar con la regresión logística. La entrada a un algoritmo de regresión logística debe ser un conjunto de *pares de vector de característica de etiqueta*, donde el "vector de característica" es un vector de números que representa el punto de entrada. Por lo tanto, debemos convertir la columna "violations", que está semiestructurada y contiene numerosos comentarios de texto sin formato, en una matriz de números reales que una máquina pueda comprender.
+La tarea final consiste en convertir los datos etiquetados. Convierta los datos a un formato que se pueda analizar con la regresión logística. La entrada a un algoritmo de regresión logística necesita un conjunto de *pares de etiqueta-vector de característica*. Donde el "vector de característica" es un vector de números que representa el punto de entrada. Por lo tanto, debemos convertir la columna "violations", que está semiestructurada y contiene muchos comentarios de texto sin formato. Convierta la columna en una matriz de números reales que una máquina pueda entender fácilmente.
 
-Un enfoque estándar en el aprendizaje automático para procesar el lenguaje natural consiste en asignar a cada palabra diferente un "índice" y, a continuación, pasar un vector al algoritmo de aprendizaje automático, de forma que el valor de cada índice contenga la frecuencia relativa de esa palabra en la cadena de texto.
+Un enfoque estándar de aprendizaje automático para procesar lenguaje natural consiste en asignar un "índice" a cada palabra individual. Después, se pasa un vector al algoritmo de aprendizaje automático. De este modo, el valor de cada índice contiene la frecuencia relativa de esa palabra en la cadena de texto.
 
-MLlib proporciona una forma sencilla de efectuar esta operación. En primer lugar, vamos a tratar como tokens todas las cadenas de infracciones para obtener las palabras de cada cadena. Luego, use un `HashingTF` para convertir cada conjunto de tokens en un vector de característica que se pueda pasar al algoritmo de regresión logística para construir un modelo. Llevaremos a cabo todos estos pasos en secuencia mediante una canalización.
+MLlib proporciona una forma sencilla de realizar esta operación. En primer lugar, vamos a tratar como tokens todas las cadenas de infracciones para obtener las palabras de cada cadena. Luego, use un `HashingTF` para convertir cada conjunto de tokens en un vector de característica que se pueda pasar al algoritmo de regresión logística para construir un modelo. Llevaremos a cabo todos estos pasos en secuencia mediante una canalización.
 
 ```PySpark
 tokenizer = Tokenizer(inputCol="violations", outputCol="words")
@@ -255,7 +252,7 @@ model = pipeline.fit(labeledData)
 
 ## <a name="evaluate-the-model-using-another-dataset"></a>Evaluación del modelo con otro conjunto de datos
 
-Se puede usar el modelo creado anteriormente para *predecir* cuáles serán los resultados de las nuevas inspecciones, en función de las infracciones que se han observado. Este modelo se ha probado en el conjunto de datos **Food_Inspections1.csv**. Puede usar un segundo conjunto de datos, **Food_Inspections2.csv**, para *evaluar* la solidez de este modelo con nuevos datos. Este segundo conjunto de datos (**Food_Inspections2.csv**) está en el contenedor de almacenamiento predeterminado asociado al clúster.
+Puede usar el modelo que creó anteriormente para *predecir* cuáles serán los resultados de las nuevas inspecciones. Las predicciones se basan en las infracciones observadas. Este modelo se ha probado en el conjunto de datos **Food_Inspections1.csv**. Puede usar un segundo conjunto de datos, **Food_Inspections2.csv**, para *evaluar* la solidez de este modelo con nuevos datos. Este segundo conjunto de datos (**Food_Inspections2.csv**) está en el contenedor de almacenamiento predeterminado asociado al clúster.
 
 1. Ejecute el siguiente fragmento de código para crear una trama de datos, **predictionsDf**, que contiene la predicción generada por el modelo. El fragmento de código también crea una tabla temporal, llamada **Predictions**, basada en la trama de datos.
 
@@ -269,7 +266,7 @@ Se puede usar el modelo creado anteriormente para *predecir* cuáles serán los 
     predictionsDf.columns
     ```
 
-    Debe ver algo parecido a lo siguiente:
+    La salida debe ser parecida al siguiente texto:
 
     ```
     ['id',
@@ -290,7 +287,8 @@ Se puede usar el modelo creado anteriormente para *predecir* cuáles serán los 
     ```
 
    Hay una predicción para la primera entrada en el conjunto de datos de prueba.
-1. El método `model.transform()` aplica la misma transformación a todos los datos nuevos que tengan el mismo esquema y llega a una predicción sobre cómo clasificar los datos. Haremos algunas estadísticas muy sencillas para tener una idea del grado de precisión de las predicciones:
+
+1. El método `model.transform()` aplica la misma transformación a todos los datos nuevos que tengan el mismo esquema y llega a una predicción sobre cómo clasificar los datos. Puede hacer algunas estadísticas para tener una idea del acierto de las predicciones:
 
     ```PySpark
     numSuccesses = predictionsDf.where("""(prediction = 0 AND results = 'Fail') OR
@@ -302,16 +300,17 @@ Se puede usar el modelo creado anteriormente para *predecir* cuáles serán los 
     print "This is a", str((float(numSuccesses) / float(numInspections)) * 100) + "%", "success rate"
     ```
 
-    El resultado tendrá un aspecto similar al siguiente:
+    La salida tendrá un aspecto similar al siguiente:
 
     ```
     There were 9315 inspections and there were 8087 successful predictions
     This is a 86.8169618894% success rate
     ```
 
-    El uso de la regresión logística con Spark ofrece un modelo preciso de la relación entre las descripciones de las infracciones en inglés y el hecho de si un negocio determinado superará o no una inspección de alimentos.
+    El uso de la regresión logística con Spark proporciona un modelo de la relación entre las descripciones de las infracciones en inglés, además de si un negocio determinado superaría o no una inspección alimentaria.
 
 ## <a name="create-a-visual-representation-of-the-prediction"></a>Creación de una representación visual de la predicción
+
 Ahora se puede crear una visualización final para facilitar el análisis de los resultados de esta prueba.
 
 1. Primero se extraen los distintos resultados y predicciones de la tabla temporal **Predictions** que se creó anteriormente. Las siguientes consultas separan la salida en distintos grupos: *true_positive*, *false_positive*, *true_negative* y *false_negative*. En las consultas siguientes, se desactiva la visualización mediante `-q` y se guarda también la salida (con `-o`) como tramas de datos que se usen con la instrucción mágica `%%local`.
@@ -357,21 +356,26 @@ Ahora se puede crear una visualización final para facilitar el análisis de los
     En este gráfico, un resultado "positivo" hace referencia a la inspección de alimentos no superada, mientras que un resultado negativo hace referencia a una inspección pasada.
 
 ## <a name="shut-down-the-notebook"></a>Cierre del cuaderno
+
 Cuando haya terminado de ejecutar la aplicación, deberá cerrar el cuaderno para liberar los recursos. Para ello, en el menú **File** (Archivo) del cuaderno y seleccione **Close and Halt** (Cerrar y detener). Con esta acción se cerrará el cuaderno.
 
-## <a name="see-also"></a><a name="seealso"></a>Otras referencias
-* [Introducción a Apache Spark en HDInsight de Azure](apache-spark-overview.md)
+## <a name="next-steps"></a>Pasos siguientes
+
+* [Información general: Apache Spark en Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Escenarios
-* [Apache Spark con BI: Realización de análisis de datos interactivos con Spark en HDInsight con las herramientas de BI](apache-spark-use-bi-tools.md)
-* [Apache Spark con Machine Learning: Uso de Spark en HDInsight para analizar la temperatura de un edificio mediante datos de HVAC](apache-spark-ipython-notebook-machine-learning.md)
+
+* [Apache Spark con BI: Análisis de datos interactivos con Spark en HDInsight con las herramientas de BI](apache-spark-use-bi-tools.md)
+* [Apache Spark con Machine Learning: uso de Apache Spark en HDInsight para analizar la temperatura de edificios con los datos del sistema de acondicionamiento de aire](apache-spark-ipython-notebook-machine-learning.md)
 * [Análisis de registros de un sitio web mediante Apache Spark en HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Creación y ejecución de aplicaciones
+
 * [Crear una aplicación independiente con Scala](apache-spark-create-standalone-application.md)
 * [Ejecución de trabajos de forma remota en un clúster de Apache Spark mediante Apache Livy](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Herramientas y extensiones
+
 * [Uso del complemento de herramientas de HDInsight para IntelliJ IDEA para crear y enviar aplicaciones de Spark Scala](apache-spark-intellij-tool-plugin.md)
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Apache Spark applications remotely](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md) (Uso del complemento de herramientas de HDInsight para IntelliJ IDEA para depurar aplicaciones de Apache Spark de forma remota)
 * [Uso de cuadernos de Apache Zeppelin con un clúster de Apache Spark en HDInsight](apache-spark-zeppelin-notebook.md)
@@ -380,5 +384,6 @@ Cuando haya terminado de ejecutar la aplicación, deberá cerrar el cuaderno par
 * [Instalación de un cuaderno de Jupyter Notebook en el equipo y conexión al clúster de Apache Spark en HDInsight de Azure](apache-spark-jupyter-notebook-install-locally.md)
 
 ### <a name="manage-resources"></a>Administrar recursos
+
 * [Administración de recursos para el clúster Apache Spark en HDInsight de Azure](apache-spark-resource-manager.md)
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight (Seguimiento y depuración de trabajos que se ejecutan en un clúster de Apache Spark en HDInsight)](apache-spark-job-debugging.md)

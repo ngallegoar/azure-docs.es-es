@@ -13,12 +13,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
-ms.openlocfilehash: e8c890a6daf2411b09162ab0072aed594820b936
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: aae1b8aa27363e8f1d3c72d3934146c47b0cf2c9
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886354"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535900"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Instrucciones para desarrolladores para el acceso condicional de Azure Active Directory
 
@@ -59,12 +59,12 @@ Según el escenario, un cliente empresarial puede aplicar y quitar directivas de
 
 En algunos escenarios se requieren cambios en el código para controlar el acceso condicional, mientras que en otros se trabaja tal cual. Estos son algunos escenarios que usan el acceso condicional para realizar la autenticación multifactor que proporciona información sobre la diferencia.
 
-* Se crea una aplicación iOS de inquilino único y se aplica una directiva de acceso condicional. La aplicación inicia la sesión de un usuario y no solicita acceso a una API. Cuando el usuario inicia sesión, la directiva se invoca automáticamente y el usuario debe realizar la autenticación multifactor (MFA). 
+* Se crea una aplicación iOS de inquilino único y se aplica una directiva de acceso condicional. La aplicación inicia la sesión de un usuario y no solicita acceso a una API. Cuando el usuario inicia sesión, la directiva se invoca automáticamente y el usuario debe realizar la autenticación multifactor (MFA).
 * Está creando una aplicación nativa que utiliza un servicio de nivel intermedio para tener acceso a una API de nivel inferior. Un cliente empresarial de la empresa que usa esta aplicación aplica una directiva a la API de nivel inferior. Cuando un usuario final inicia sesión, la aplicación nativa solicita acceso al nivel intermedio y envía el token. El nivel intermedio realiza el flujo "en nombre de" para solicitar acceso a la API de nivel inferior. En este punto, se presenta un "desafío" de notificaciones al nivel intermedio. El nivel intermedio envía el desafío de vuelta a la aplicación nativa, la que necesita cumplir con la directiva de acceso condicional.
 
 #### <a name="microsoft-graph"></a>Microsoft Graph
 
-Microsoft Graph tiene consideraciones especiales a la hora de crear aplicaciones en entornos de acceso condicional. Generalmente, la mecánica del acceso condicional se comporta de la misma manera, pero las directivas que los usuarios ven se basarán en los datos subyacentes que la aplicación está solicitando del gráfico. 
+Microsoft Graph tiene consideraciones especiales a la hora de crear aplicaciones en entornos de acceso condicional. Generalmente, la mecánica del acceso condicional se comporta de la misma manera, pero las directivas que los usuarios ven se basarán en los datos subyacentes que la aplicación está solicitando del gráfico.
 
 Específicamente, todos los ámbitos de Microsoft Graph representan un conjunto de datos que puede tener directivas aplicadas individualmente. Dado que a las directivas de acceso condicional se les asignan conjuntos de datos específicos, Azure AD aplicará las directivas de acceso Condicional basadas en los datos detrás de Graph, en lugar de Graph mismo.
 
@@ -74,13 +74,13 @@ Por ejemplo, si una aplicación solicita los siguientes ámbitos de Microsoft Gr
 scopes="Bookings.Read.All Mail.Read"
 ```
 
-Una aplicación puede esperar que sus usuarios cumplan con todas las directivas establecidas en Bookings y Exchange. Algunos ámbitos pueden asignarse a varios conjuntos de datos si se concede acceso. 
+Una aplicación puede esperar que sus usuarios cumplan con todas las directivas establecidas en Bookings y Exchange. Algunos ámbitos pueden asignarse a varios conjuntos de datos si se concede acceso.
 
 ### <a name="complying-with-a-conditional-access-policy"></a>Cumplimiento con una directiva de acceso condicional
 
 En el caso de varias topologías de aplicaciones distintas, se evalúa una directiva de acceso condicional cuando se establece la sesión. Si bien una directiva de acceso condicional opera en la granularidad de aplicaciones y servicios, el punto en que se invoca depende en gran medida del escenario que intenta lograr.
 
-Cuando la aplicación intenta acceder a un servicio con una directiva de acceso condicional, podría encontrar un desafío de acceso condicional. Este desafío se codifica en el parámetro `claims`, que se incluye en una respuesta de Azure AD. Este es un ejemplo de este parámetro de desafío: 
+Cuando la aplicación intenta acceder a un servicio con una directiva de acceso condicional, podría encontrar un desafío de acceso condicional. Este desafío se codifica en el parámetro `claims`, que se incluye en una respuesta de Azure AD. Este es un ejemplo de este parámetro de desafío:
 
 ```
 claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
@@ -106,7 +106,7 @@ Las siguientes secciones describen escenarios comunes que son más complejos. El
 
 ## <a name="scenario-app-performing-the-on-behalf-of-flow"></a>Escenario: Aplicación que realiza el flujo "en nombre de"
 
-En este escenario, analizaremos un caso en el que una aplicación nativa llama a una API o servicio web. A su vez, este servicio realiza el flujo "en nombre de" para llamar a un servicio de bajada. En este caso, se aplica la directiva de acceso condicional al servicio de bajada (API web 2) y se usa una aplicación nativa en lugar de una aplicación demonio/servidor. 
+En este escenario, analizaremos un caso en el que una aplicación nativa llama a una API o servicio web. A su vez, este servicio realiza el flujo "en nombre de" para llamar a un servicio de bajada. En este caso, se aplica la directiva de acceso condicional al servicio de bajada (API web 2) y se usa una aplicación nativa en lugar de una aplicación demonio/servidor.
 
 ![Aplicación que realiza el flujo "en nombre de"](./media/v2-conditional-access-dev-guide/app-performing-on-behalf-of-scenario.png)
 

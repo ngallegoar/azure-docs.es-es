@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/18/2019
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 7bc637b5719da3c5f5e5607436aa7da0721f5a9e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fcc7c5b8fa182cace6e3dae0b1cae4cd41c5dcb9
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79231636"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81532602"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Implementación de la aplicación en Azure App Service mediante FTP/S
 
@@ -67,7 +67,7 @@ Se recomienda usar las **Credenciales de la aplicación** para implementar en su
 
 ## <a name="enforce-ftps"></a>Aplicación de FTPS
 
-Para mejorar la seguridad, permita solo FTP a través de SSL. También puede deshabilitar FTP y FTPS si no utiliza la implementación de FTP.
+Para mejorar la seguridad, permita FTP a través de TLS/SSL únicamente. También puede deshabilitar FTP y FTPS si no utiliza la implementación de FTP.
 
 En la página de recursos de la aplicación de [Azure Portal](https://portal.azure.com), seleccione **Configuración** > **Configuración general** en el panel de navegación izquierdo.
 

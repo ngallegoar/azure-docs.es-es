@@ -5,12 +5,12 @@ services: automation
 ms.date: 04/11/2019
 ms.topic: article
 ms.custom: mvc
-ms.openlocfilehash: 385806dca7dcac9fd0aac4c1bf9e1072e7fe5ecb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f5f18e9365b09f06c1bd4f25a8efe909cc308dad
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75979474"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537022"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Habilitación de las soluciones Update Management, Change Tracking e Inventory en varias máquinas virtuales
 
@@ -33,7 +33,7 @@ Mediante las casillas, seleccione las máquinas virtuales que desee incorporar c
 En la barra de comandos, haga clic en **Servicios** y seleccione **Change tracking**, **Inventory** o **Update Management**.
 
 > [!NOTE]
-> **Change tracking** e **Inventory** utilizan la misma solución; cuando una está habilitada, la otra también lo está.
+> Change Tracking e Inventory usan la misma solución. Cuando una está habilitada, la otra también está habilitada.
 
 La siguiente imagen es de Update Management. Change Tracking e Inventory tienen el mismo diseño y comportamiento.
 
@@ -107,13 +107,13 @@ También puede desvincular el área de trabajo de la cuenta de Automation desde 
 
 ## <a name="troubleshooting"></a>Solución de problemas
 
-Al incorporar varias máquinas, puede haber algunas en las que aparezca **No se puede habilitar**. Hay diferentes motivos por los que algunas máquinas no se pueden habilitar. Las secciones siguientes muestran las posibles razones para que aparezca el estado **No se puede habilitar** en una máquina virtual al intentar incorporarla.
+Al incorporar varias máquinas, puede haber algunas que se muestren como `Cannot enable`. Hay diferentes motivos por los que algunas máquinas no se pueden habilitar. En las secciones siguientes se muestran las posibles razones para que aparezca el estado `Cannot enable` en una VM al intentar incorporarla.
 
 ### <a name="vm-reports-to-a-different-workspace-workspacename--change-configuration-to-use-it-for-enabling"></a>La máquina virtual depende de otra área de trabajo: '\<NombreDeAreaDeTrabajo\>'.  Cambie la configuración para usarla para habilitar
 
 **Causa**: este error muestra que la máquina virtual que intenta incorporar depende de otra área de trabajo.
 
-**Solución**: Haga clic en **Use as configuration** (Usar como configuración) para cambiar la cuenta de Automation y el área de trabajo de Log Analytics de destino.
+**Solución**: Haga clic en **Usar como configuración** para cambiar la cuenta de Automation y el área de trabajo de Log Analytics de destino.
 
 ### <a name="vm-reports-to-a-workspace-that-is-not-available-in-this-subscription"></a>La máquina virtual depende de un área de trabajo que no está disponible en esta suscripción
 
@@ -148,7 +148,7 @@ Al incorporar varias máquinas, puede haber algunas en las que aparezca **No se 
 Para quitar una VM de Update Management:
 
 * En el área de trabajo de Log Analytics, quite la VM de la búsqueda guardada con la configuración de ámbito `MicrosoftDefaultScopeConfig-Updates`. Las búsquedas guardadas se pueden encontrar en la sección **General** del área de trabajo.
-* Quite [Microsoft Monitoring Agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) o el [agente de Log Analytics para Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
+* Quite el [agente de Log Analytics para Windows](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) o el [agente de Log Analytics para Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/23/2020
+ms.date: 04/07/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 42b83963dc4996a7347d57be712451086fa79b26
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 1e08e758fbba911d3391794f5bab31aaf6a5fc73
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548624"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81454686"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Cifrado en reposo de datos de Azure
 
-Microsoft Azure incluye herramientas para proteger los datos de acuerdo con las necesidades de seguridad y cumplimiento de su empresa. Este documento se centra en:
+Microsoft Azure incluye herramientas para proteger los datos de acuerdo con las necesidades de seguridad y cumplimiento de su empresa. Este documento se centra en:
 
 - Cómo se protegen los datos en reposo en Microsoft Azure.
 - Describir los distintos componentes que forman parte de la implementación de protección de datos.
@@ -49,7 +49,7 @@ El cifrado en reposo proporciona protección de datos para los datos almacenados
 
 El cifrado en reposo está diseñado para evitar que el atacante obtenga acceso a los datos sin cifrar asegurándose de que los datos se cifran en el disco. Si un atacante obtiene una unidad de disco duro con datos cifrados pero no las claves de cifrado, el atacante debe anular el cifrado para leer los datos. Este ataque es mucho más complejo y consume más recursos que el acceso a datos no cifrados en una unidad de disco duro. Por este motivo, el cifrado en reposo es muy recomendable y es un requisito de alta prioridad para muchas organizaciones.
 
-También se requiere el cifrado en reposo por necesidad de la organización de los esfuerzos de cumplimiento y gobernanza de datos. Las normas gubernamentales y del sector, como HIPAA, PCI y FedRAMP, diseñan las medidas de seguridad específicas a través de los requisitos de cifrado y la protección de datos. El cifrado en reposo es una medida obligatoria necesaria para el cumplimiento de algunas de esas regulaciones. Para más información sobre el enfoque de Microsoft en relación con la validación de FIPS 140-2, consulte [Publicación del estándar federal de procesamiento de información (FIPS) 140-2](https://docs.microsoft.com/microsoft-365/compliance/offering-fips-140-2). 
+También se requiere el cifrado en reposo por necesidad de la organización de los esfuerzos de cumplimiento y gobierno de datos. Las normas gubernamentales y del sector, como HIPAA, PCI y FedRAMP, diseñan las medidas de seguridad específicas a través de los requisitos de cifrado y la protección de datos. El cifrado en reposo es una medida obligatoria necesaria para el cumplimiento de algunas de esas regulaciones. Para más información sobre el enfoque de Microsoft en relación con la validación de FIPS 140-2, consulte [Publicación del estándar federal de procesamiento de información (FIPS) 140-2](https://docs.microsoft.com/microsoft-365/compliance/offering-fips-140-2). 
 
 Además de satisfacer los requisitos de cumplimiento y regulatorios, el cifrado en reposo proporciona protección de defensa en profundidad. Microsoft Azure proporciona una plataforma compatible para servicios, aplicaciones y datos. También proporciona servicios completos y seguridad física, control de acceso a los datos y auditoría. Sin embargo, es importante proporcionar medidas de seguridad "superpuestas" adicionales en caso de que se produzca un error en una de las otras medidas de seguridad y el cifrado en reposo proporciona dicha medida de seguridad.
 
@@ -131,7 +131,7 @@ Para muchos clientes, el requisito esencial es asegurarse de que los datos se ci
 
 Por lo tanto, el cifrado del lado servidor mediante las claves administradas del servicio satisface rápidamente la necesidad de que tengan el cifrado en reposo con poca sobrecarga al cliente. Cuando esté disponible, un cliente abrirá con normalidad Azure Portal para la suscripción de destino y el proveedor de recursos y comprobará un cuadro que indica si desearía que los datos se cifraran. El cifrado del lado servidor de algunas instancias de Resource Manager con las claves administradas del servicio se encuentra activado de forma predeterminada.
 
-El cifrado del lado servidor con las claves de Microsoft administradas implica que el servicio tiene acceso completo para almacenar y administrar las claves. Aunque algunos clientes podrían desear administrar las claves porque creen que pueden conseguir mayor seguridad, se deben tener en cuenta los costos y riesgos asociados a una solución de almacenamiento de claves personalizadas al evaluar este modelo. En muchos casos, una organización podría determinar que los riesgos o restricciones de recursos de una solución local pueden ser mayores que el riesgo de administración en la nube de las claves de cifrado en reposo.  Sin embargo, este modelo podría no ser suficiente para las organizaciones que tienen requisitos para controlar la creación o el ciclo de vida de las claves de cifrado o tener personal diferente para administrar las claves de cifrado de un servicio al que administra el servicio (es decir, la segregación de administración de claves de todo el modelo de administración para el servicio).
+El cifrado del lado servidor con las claves de Microsoft administradas implica que el servicio tiene acceso completo para almacenar y administrar las claves. Aunque algunos clientes podrían desear administrar las claves porque creen que pueden conseguir mayor seguridad, se deben tener en cuenta los costos y riesgos asociados a una solución de almacenamiento de claves personalizadas al evaluar este modelo. En muchos casos, una organización podría determinar que los riesgos o restricciones de recursos de una solución local pueden ser mayores que el riesgo de administración en la nube de las claves de cifrado en reposo.  Sin embargo, este modelo podría no ser suficiente para las organizaciones que tienen requisitos para controlar la creación o el ciclo de vida de las claves de cifrado o tener personal diferente para administrar las claves de cifrado de un servicio al que administra el servicio (es decir, la segregación de la administración de claves de todo el modelo de administración para el servicio).
 
 ##### <a name="key-access"></a>Acceso a la clave
 
@@ -163,11 +163,11 @@ Para las operaciones con claves de cifrado, una identidad de servicio puede tene
 Para obtener una clave para usar al cifrar o descifrar datos en reposo, la identidad de servicio con la que se ejecutará la instancia de Resource Manager debe tener UnwrapKey (para obtener la clave de descifrado) y WrapKey (para insertar una clave en el almacén de claves al crear una nueva clave).
 
 >[!NOTE]
->Para obtener más detalles sobre la autorización del Key Vault, vea la protección de la página del almacén de claves en la [documentación de Azure Key Vault](../../key-vault/key-vault-secure-your-key-vault.md).
+>Para obtener más detalles sobre la autorización del Key Vault, vea la protección de la página del almacén de claves en la [documentación de Azure Key Vault](../../key-vault/general/secure-your-key-vault.md).
 
 **Ventajas**
 
-- Control total sobre las claves usadas: Las claves de cifrado se administran en Key Vault del cliente bajo el control del cliente.
+- Control total sobre las claves usadas: las claves de cifrado se administran en la instancia de Key Vault del cliente bajo el control del cliente.
 - Capacidad de cifrar varios servicios en un patrón
 - Puede separar la administración de la clave del modelo de administración global para el servicio
 - Puede definir el servicio y la ubicación de la clave en regiones
@@ -254,7 +254,7 @@ Azure SQL Database admite actualmente el cifrado en reposo para escenarios de ci
 
 Actualmente, la compatibilidad con el cifrado del servidor se proporciona a través de una característica de SQL denominada Cifrado de datos transparente. Una vez que un cliente de Azure SQL Database habilita la clave TDE, se crea y administra automáticamente para él. El cifrado en reposo puede habilitarse en los niveles de base de datos y servidor. Desde junio de 2017, el [cifrado de datos transparente (TDE)](https://msdn.microsoft.com/library/bb934049.aspx) se habilita de forma predeterminada en las bases de datos recién creadas. Azure SQL Database admite claves RSA de 2048 bits administradas por el cliente en Azure Key Vault. Para más información, consulte [Cifrado de datos transparente con BYOK (Bring Your Own Key) para Azure SQL Database y Azure SQL Data Warehouse](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-byok-azure-sql?view=azuresqldb-current).
 
-Se admite el cifrado del lado cliente de los datos de Azure SQL Database a través de la característica [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx). Always Encrypted utiliza una clave que el cliente crea y almacena. Los clientes pueden almacenar la clave maestra en el almacén de certificados de Windows, Azure Key Vault, o un módulo de seguridad de hardware. Al usar SQL Server Management Studio, los usuarios de SQL eligen qué clave que les gustaría usar para cifrar cada columna.
+Se admite el cifrado del lado cliente de los datos de Azure SQL Database a través de la característica [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx). Always Encrypted utiliza una clave que el cliente crea y almacena. Los clientes pueden almacenar la clave maestra en el almacén de certificados de Windows, Azure Key Vault, o un módulo de seguridad de hardware. Al usar SQL Server Management Studio, los usuarios de SQL eligen qué clave les gustaría usar para cifrar cada columna.
 
 #### <a name="encryption-model-and-key-management-table"></a>Tabla de modelo de cifrado y administración de claves
 
@@ -263,18 +263,26 @@ Se admite el cifrado del lado cliente de los datos de Azure SQL Database a trav�
 |                                  | **Cifrado del lado servidor mediante claves administradas del servicio**     | **Lado servidor mediante claves administradas por el cliente**             | **Lado cliente mediante clave administrada por el cliente**      |
 | **Inteligencia artificial y aprendizaje automático**      |                    |                    |                    |
 | Azure Cognitive Search           | Sí                | Sí                | -                  |
+| Azure Cognitive Services         | Sí                | Sí                | -                  |
 | Azure Machine Learning           | Sí                | Sí                | -                  |
 | Azure Machine Learning Studio    | Sí                | Versión preliminar, RSA de 2048 bits | -               |
+| Content Moderator                | Sí                | Sí                | -                  |
+| Caras                             | Sí                | Sí                | -                  |
+| Language Understanding           | Sí                | Sí                | -                  |
+| Personalizer                     | Sí                | Sí                | -                  |
+| QnA Maker                        | Sí                | Sí                | -                  |
+| Speech Services                  | Sí                | Sí                | -                  |
+| Translator Text                  | Sí                | Sí                | -                  |
 | Power BI                         | Sí                | Versión preliminar, RSA de 2048 bits | -                  |
 | **Analytics**                    |                    |                    |                    |
-| Azure Stream Analytics           | Sí                | -                  | -                  |
+| Azure Stream Analytics           | Sí                | N/D\*            | -                  |
 | Event Hubs                       | Sí                | Sí, todas las longitudes de RSA. | -                  |
 | Functions                        | Sí                | Sí, todas las longitudes de RSA. | -                  |
 | Azure Analysis Services          | Sí                | -                  | -                  |
 | Azure Data Catalog               | Sí                | -                  | -                  |
-| Apache Kafka en Azure HDInsight  | Sí                | Todas las longitudes de RSA.   | -                  |
+| HDInsight de Azure                  | Sí                | All                | -                  |
 | Azure Monitor Application Insights | Sí                | Sí                | -                  |
-| Azure Monitor Log Analytics | Sí                | Sí                | -                  |
+| Azure Monitor Log Analytics      | Sí                | Sí                | -                  |
 | Explorador de datos de Azure              | Sí                | Sí                | -                  |
 | Azure Data Factory               | Sí                | Sí                | -                  |
 | Azure Data Lake Store            | Sí                | Sí, RSA de 2048 bits  | -                  |
@@ -286,11 +294,12 @@ Se admite el cifrado del lado cliente de los datos de Azure SQL Database a trav�
 | Virtual Machines                 | Sí                | Sí, RSA de 2048 bits  | -                  |
 | Conjunto de escalado de máquinas virtuales        | Sí                | Sí, RSA de 2048 bits  | -                  |
 | SAP HANA                         | Sí                | Sí, RSA de 2048 bits  | -                  |
-| App Service                      | Sí                | Sí                | -                  |
-| Automation                       | Sí                | Sí                | -                  |
-| Azure Portal                     | Sí                | Sí                | -                  |
+| App Service                      | Sí                | Sí\*\*            | -                  |
+| Automation                       | Sí                | Sí\*\*            | -                  |
+| Azure Functions                  | Sí                | Sí\*\*            | -                  |
+| Azure Portal                     | Sí                | Sí\*\*            | -                  |
 | Logic Apps                       | Sí                | Sí                | -                  |
-| Azure Managed Applications       | Sí                | Sí                | -                  |
+| Azure Managed Applications       | Sí                | Sí\*\*            | -                  |
 | Azure Service Bus                      | Sí                | Sí                | -                  |
 | Site Recovery                    | Sí                | Sí                | -                  |
 | **Bases de datos**                    |                    |                    |                    |
@@ -304,8 +313,9 @@ Se admite el cifrado del lado cliente de los datos de Azure SQL Database a trav�
 | Table Storage                    | Sí                | Sí                | Sí                |
 | Azure Cosmos DB                  | Sí                | Sí                | -                  |
 | Azure Databricks                 | Sí                | Sí                | -                  |
+| Azure Database Migration Service | Sí                | N/D\*              | -                  |
 | **DevOps**                       |                    |                    |                    |
-| Azure DevOps                     | Sí                | -                  | Sí                |
+| Azure DevOps Services            | Sí                | -                  | Sí                |
 | Azure Repos                      | Sí                | -                  | Sí                |
 | **Identidad**                     |                    |                    |                    |
 | Azure Active Directory           | Sí                | -                  | -                  |
@@ -316,24 +326,38 @@ Se admite el cifrado del lado cliente de los datos de Azure SQL Database a trav�
 | API Management                   | Sí                | -                  | -                  |
 | **Servicios IoT**                 |                    |                    |                    |
 | IoT Hub                          | Sí                | Sí                | Sí                |
+| IoT Hub Device Provisioning      | Sí                | Sí                | -                  |
 | **Administración y gobernanza**    |                    |                    |                    |
 | Azure Site Recovery              | Sí                | -                  | -                  |
+| Azure Migrate                    | Sí                | Sí                | -                  |
 | **Elementos multimedia**                        |                    |                    |                    |
 | Media Services                   | Sí                | -                  | Sí                |
+| **Seguridad**                     |                    |                    |                    |
+| Preguntas más frecuentes de Azure Security Center for IoT    | Sí                | Sí                | -                  |
+| Azure Sentinel                   | Sí                | Sí                | -                  |
 | **Storage**                      |                    |                    |                    |
 | Blob Storage                     | Sí                | Sí, RSA de 2048 bits  | Sí                |
+| Premium Blob Storage             | Sí                | Sí, RSA de 2048 bits  | Sí                |
 | Disk Storage                     | Sí                | Sí                | -                  |
+| Almacenamiento en disco Ultra               | Sí                | Sí                | -                  |
 | Disk Storage administrado             | Sí                | Sí                | -                  |
 | File Storage                     | Sí                | Sí, RSA de 2048 bits  | -                  |
+| Premium Storage de archivos             | Sí                | Sí, RSA de 2048 bits  | -                  |
+| File Sync                        | Sí                | Sí, RSA de 2048 bits  | -                  |
 | Queue Storage                    | Sí                | Sí                | Sí                |
 | Avere vFXT                       | Sí                | -                  | -                  |
-| Azure NetApp Files               | Sí                | -                  | -                  |
+| Azure Cache for Redis            | Sí                | N/D\*              | -                  |
+| Azure NetApp Files               | Sí                | Sí                | -                  |
 | Archive Storage                  | Sí                | Sí, RSA de 2048 bits  | -                  |
 | StorSimple                       | Sí                | Sí, RSA de 2048 bits  | Sí                |
 | Azure Backup                     | Sí                | Sí                | Sí                |
 | Data Box                         | Sí                | -                  | Sí                |
 | Data Box Edge                    | Sí                | Sí                | -                  |
 
+\* Este servicio no conserva los datos. Las memorias caché transitorias, si las hay, se cifran con una clave de Microsoft.
+
+\*\* Este servicio admite el almacenamiento de datos en su propio Key Vault, cuenta de almacenamiento u otro servicio de persistencia de datos que ya admita el cifrado del lado servidor con una clave administrada por el cliente.
+
 ## <a name="conclusion"></a>Conclusión
 
-La protección de datos del cliente almacenados dentro de los servicios de Azure es de gran importancia para Microsoft. Todos los servicios hospedados en Azure se comprometen a proporcionar opciones de cifrado en reposo. Los servicios fundamentales como Azure Storage, Azure SQL Database y análisis e inteligencia de las claves proporcionan ya opciones de cifrado en reposo. Algunos de estos servicios admiten claves controladas por el cliente y cifrado del lado cliente, así como cifrado y claves administradas del servicio. Los servicios de Microsoft Azure están mejorando ampliamente la disponibilidad del cifrado en reposo y se planean nuevas opciones para la versión preliminar y la versión de disponibilidad general en los próximos meses.
+La protección de datos del cliente almacenados dentro de los servicios de Azure es de gran importancia para Microsoft. Todos los servicios hospedados en Azure se comprometen a proporcionar opciones de cifrado en reposo. Los servicios de Azure admiten claves administradas por el servicio, claves administradas por el cliente o cifrado del lado cliente. Los servicios de Azure están mejorando ampliamente la disponibilidad del cifrado en reposo y se planean nuevas opciones para la versión preliminar y la versión de disponibilidad general en los próximos meses.

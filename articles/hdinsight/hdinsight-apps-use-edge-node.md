@@ -1,56 +1,58 @@
 ---
 title: Uso de nodos perimetrales vacíos en clústeres de Apache Hadoop en Azure HDInsight
-description: Procedimientos para agregar un nodo perimetral vacío a un clúster de HDInsight que se puede usar como cliente, y para probar u hospedar las aplicaciones de HDInsight.
+description: Obtenga información sobre cómo agregar un nodo perimetral vacío a un clúster de HDInsight, y cómo usarlo como cliente y, a continuación, probar u hospedar las aplicaciones de HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 01/27/2020
-ms.openlocfilehash: d7723ea63cbb9bab6adf42d7e92f84a6b8b2ab9b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/16/2020
+ms.openlocfilehash: f6dea00bf3b3e8a58f42da8fd8ad59ccec2dea72
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79233664"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537804"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>Uso de nodos perimetrales vacíos en clústeres de Apache Hadoop en HDInsight
 
-Aprenda a agregar un nodo perimetral vacío a un clúster de HDInsight. Un nodo perimetral vacío es una máquina virtual Linux con las mismas herramientas de cliente instaladas y configuradas que en los nodos principales, pero sin que se ejecuten servicios de [Apache Hadoop](https://hadoop.apache.org/). Se puede usar el nodo perimetral para acceder al clúster y para probar y hospedar las aplicaciones cliente.
+Aprenda a agregar un nodo perimetral vacío a un clúster de HDInsight. Un nodo perimetral vacío es una máquina virtual Linux con las mismas herramientas cliente instaladas y configuradas que en los nodos principales. Pero sin servicios de [Apache Hadoop](./hadoop/apache-hadoop-introduction.md) en ejecución. Se puede usar el nodo perimetral para acceder al clúster y para probar y hospedar las aplicaciones cliente.
 
 Un nodo perimetral vacío se puede agregar a un clúster de HDInsight existente o a uno nuevo al crear el clúster. La adición de un nodo perimetral vacío se realiza mediante una plantilla de Azure Resource Manager.  En el ejemplo siguiente se muestra cómo se hace con una plantilla:
 
-    "resources": [
-        {
-            "name": "[concat(parameters('clusterName'),'/', variables('applicationName'))]",
-            "type": "Microsoft.HDInsight/clusters/applications",
-            "apiVersion": "2015-03-01-preview",
-            "dependsOn": [ "[concat('Microsoft.HDInsight/clusters/',parameters('clusterName'))]" ],
-            "properties": {
-                "marketPlaceIdentifier": "EmptyNode",
-                "computeProfile": {
-                    "roles": [{
-                        "name": "edgenode",
-                        "targetInstanceCount": 1,
-                        "hardwareProfile": {
-                            "vmSize": "{}"
-                        }
-                    }]
-                },
-                "installScriptActions": [{
-                    "name": "[concat('emptynode','-' ,uniquestring(variables('applicationName')))]",
-                    "uri": "[parameters('installScriptAction')]",
-                    "roles": ["edgenode"]
-                }],
-                "uninstallScriptActions": [],
-                "httpsEndpoints": [],
-                "applicationType": "CustomApplication"
-            }
+```json
+"resources": [
+    {
+        "name": "[concat(parameters('clusterName'),'/', variables('applicationName'))]",
+        "type": "Microsoft.HDInsight/clusters/applications",
+        "apiVersion": "2015-03-01-preview",
+        "dependsOn": [ "[concat('Microsoft.HDInsight/clusters/',parameters('clusterName'))]" ],
+        "properties": {
+            "marketPlaceIdentifier": "EmptyNode",
+            "computeProfile": {
+                "roles": [{
+                    "name": "edgenode",
+                    "targetInstanceCount": 1,
+                    "hardwareProfile": {
+                        "vmSize": "{}"
+                    }
+                }]
+            },
+            "installScriptActions": [{
+                "name": "[concat('emptynode','-' ,uniquestring(variables('applicationName')))]",
+                "uri": "[parameters('installScriptAction')]",
+                "roles": ["edgenode"]
+            }],
+            "uninstallScriptActions": [],
+            "httpsEndpoints": [],
+            "applicationType": "CustomApplication"
         }
-    ],
+    }
+],
+```
 
-Como se muestra en el ejemplo, opcionalmente puede llamar a una [acción de script](hdinsight-hadoop-customize-cluster-linux.md) para realizar configuraciones adicionales, como instalar [Apache Hue](hdinsight-hadoop-hue-linux.md) en el nodo perimetral. El script de acción de script debe estar accesible públicamente en la web.  Por ejemplo, si el script está almacenado en Azure Storage, use contenedores o blobs públicos.
+Como se muestra en el ejemplo, opcionalmente, puede llamar a una [acción de script](hdinsight-hadoop-customize-cluster-linux.md) para realizar una configuración adicional, por ejemplo, la instalación de [Apache Hue](hdinsight-hadoop-hue-linux.md) en el nodo perimetral. El script de acción de script debe estar accesible públicamente en la web.  Por ejemplo, si el script está almacenado en Azure Storage, use contenedores o blobs públicos.
 
 El tamaño de la máquina virtual del nodo perimetral debe cumplir con los requisitos de tamaño para las máquinas virtuales de nodos de trabajador de clústeres de HDInsight. Para conocer los tamaños recomendados para máquinas virtuales de nodos de trabajador, consulte [Creación de clústeres de Apache Hadoop en HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-type).
 
@@ -119,7 +121,7 @@ En esta sección, usará una plantilla de Resource Manager para crear un clúste
 
 ## <a name="add-multiple-edge-nodes"></a>Agregar varios nodos perimetrales
 
-Puede agregar varios nodos perimetrales a un clúster de HDInsight.  La configuración de varios nodos perimetrales solo se puede realizar mediante plantillas de Azure Resource Manager.  Vea la plantilla de ejemplo al principio de este artículo.  Debe actualizar **targetInstanceCount** para reflejar el número de nodos perimetrales que quiere crear.
+Puede agregar varios nodos perimetrales a un clúster de HDInsight.  La configuración de varios nodos perimetrales solo se puede realizar mediante plantillas de Azure Resource Manager.  Vea la plantilla de ejemplo al principio de este artículo.  Actualice **targetInstanceCount** para reflejar el número de nodos perimetrales que desea crear.
 
 ## <a name="access-an-edge-node"></a>Acceso a un nodo perimetral
 

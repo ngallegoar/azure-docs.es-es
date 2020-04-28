@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/3/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 76a96d36387f55889b65f16ea1ca6ec07359c377
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d5bf3a6df9d7292c18a93737fb7dea5d8c91f984
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79502438"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536508"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planeamiento de una implementación de Azure Files
 [Azure Files](storage-files-introduction.md) se puede implementar de dos formas principales: montando directamente los recursos compartidos de archivos de Azure sin servidor o almacenando en caché recursos compartidos de archivos de Azure localmente mediante Azure File Sync. La opción de implementación que elija cambiará todo aquello que debe tener en cuenta a la hora de planear la implementación. 
@@ -36,8 +36,8 @@ Al implementar recursos compartidos de archivos de Azure en cuentas de almacenam
 
 ## <a name="identity"></a>Identidad
 Para acceder a un recurso compartido de archivos de Azure, el usuario debe estar autenticado y tener la debida autorización. Esto se hace en función de la identidad del usuario que accede al recurso compartido de archivos. Azure Files se integra con tres proveedores de identidades principales:
-- **Active Directory propiedad del cliente** (versión preliminar) Las cuentas de almacenamiento de Azure pueden estar unidas a un dominio de Windows Server Active Directory propiedad del cliente, al igual que un servidor de archivos de Windows Server o un dispositivo NAS. El controlador de dominio de Active Directory se puede implementar de forma local, en una VM de Azure o incluso como una VM en otro proveedor de nube. Azure Files es independiente de la ubicación donde se hospeda el controlador de dominio. Una vez que una cuenta de almacenamiento está unida a un dominio, el usuario final puede montar un recurso compartido de archivos con la cuenta de usuario con la que inició sesión en su equipo. La autenticación basada en AD usa el protocolo de autenticación Kerberos.
-- **Azure Active Directory Domain Services (Azure AD DS)** : Azure AD DS proporciona un controlador de dominio de Active Directory administrado por Microsoft que se puede usar para los recursos de Azure. La unión a un dominio de la cuenta de almacenamiento a Azure AD DS proporciona ventajas similares a la unión a un dominio de dicha cuenta a una instancia de Active Directory propiedad del cliente. Esta opción de implementación es especialmente útil para escenarios de migración mediante lift-and-shift de aplicaciones que requieren permisos basados en AD. Dado que Azure AD DS proporciona autenticación basada en AD, esta opción también usa el protocolo de autenticación Kerberos.
+- **Active Directory Domain Services (AD DS) local (AD DS local)** (versión preliminar): Las cuentas de almacenamiento de Azure pueden estar unidas a un dominio de Active Directory Domain Services propiedad del cliente, al igual que un servidor de archivos de Windows Server o un dispositivo NAS. Puede implementar un controlador de dominio en el entorno local, en una VM de Azure o, incluso, como VM en otro proveedor de nube. Azure Files es independiente de la ubicación donde se hospeda el controlador de dominio. Una vez que una cuenta de almacenamiento está unida a un dominio, el usuario final puede montar un recurso compartido de archivos con la cuenta de usuario con la que inició sesión en su equipo. La autenticación basada en AD usa el protocolo de autenticación Kerberos.
+- **Azure Active Directory Domain Services (Azure AD DS)** : Azure AD DS proporciona un controlador de dominio administrado por Microsoft que se puede usar para los recursos de Azure. La unión a un dominio de la cuenta de almacenamiento a Azure AD DS proporciona ventajas similares a la unión a un dominio de dicha cuenta a una instancia de Active Directory propiedad del cliente. Esta opción de implementación es especialmente útil para escenarios de migración mediante lift-and-shift de aplicaciones que requieren permisos basados en AD. Dado que Azure AD DS proporciona autenticación basada en AD, esta opción también usa el protocolo de autenticación Kerberos.
 - **Clave de la cuenta de Azure Storage**: los recursos compartidos de archivos de Azure también se pueden montar con una clave de cuenta de almacenamiento de Azure. Para montar un recurso compartido de archivos de esta forma, el nombre de la cuenta de almacenamiento se usa como nombre de usuario y la clave de la cuenta de almacenamiento se usa como contraseña. El uso de la clave de la cuenta de almacenamiento para montar el recurso compartido de archivos de Azure es realmente una operación de administrador, ya que el recurso compartido de archivos montado tendrá permisos completos para todos los archivos y todas las carpetas del recurso compartido, aunque tengan ACL. Cuando se usa la clave de la cuenta de almacenamiento para el montaje a través de SMB, se usa el protocolo de autenticación NTLMv2.
 
 En el caso de los clientes que realizan la migración desde servidores de archivos locales o que crean nuevos recursos compartidos de archivos en Azure Files destinados a comportarse como servidores de archivos de Windows o dispositivos NAS, la unión a un dominio de la cuenta de almacenamiento a **Active Directory propiedad del cliente** es la opción recomendada. Para más información acerca de la unión a un dominio de la cuenta de almacenamiento a una instancia de Active Directory propiedad del cliente, consulte la [introducción a Active Directory de Azure Files](storage-files-active-directory-overview.md).
@@ -153,7 +153,7 @@ Los nuevos recursos compartidos de archivo empiezan con la cantidad total de cr�
 ### <a name="enable-standard-file-shares-to-span-up-to-100-tib"></a>Habilitación de recursos compartidos de archivos estándar para incluir hasta 100 TiB
 [!INCLUDE [storage-files-tiers-enable-large-shares](../../../includes/storage-files-tiers-enable-large-shares.md)]
 
-#### <a name="regional-availability"></a>Disponibilidad regional
+#### <a name="limitations"></a>Limitaciones
 [!INCLUDE [storage-files-tiers-large-file-share-availability](../../../includes/storage-files-tiers-large-file-share-availability.md)]
 
 ## <a name="redundancy"></a>Redundancia

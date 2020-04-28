@@ -3,22 +3,21 @@ title: Filtros de tema de Azure Service Bus | Microsoft Docs
 description: En este artículo se explica cómo los suscriptores pueden especificar filtros para definir qué mensajes desean recibir de un tema.
 services: service-bus-messaging
 documentationcenter: ''
-author: clemensv
-manager: timlt
+author: spelluru
 editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/27/2020
+ms.topic: conceptual
+ms.date: 04/16/2020
 ms.author: spelluru
-ms.openlocfilehash: b8ffbb16763bfe6485ebf2ab770f4537ddbc8569
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fb6092b7ccb3d1a4214f8d26119d9dc50b0ed317
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76774493"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81482065"
 ---
 # <a name="topic-filters-and-actions"></a>Filtros y acciones de temas
 
@@ -30,13 +29,24 @@ Service Bus admite tres condiciones de filtro:
 
 -   *Filtros booleanos*: el filtro **TrueFilter** y **FalseFilter** hace que se seleccionen todos los mensajes entrantes (**true**) o ninguno de los mensajes entrantes (**false**) de la suscripción.
 
--   *Filtros SQL*: una propiedad **SqlFilter** contiene una expresión condicional de tipo SQL que se evalúa en el agente contra las propiedades del sistema y las propiedades definidas por el usuario de los mensajes entrantes. Todas las propiedades del sistema deben ir precedidas de `sys.` en la expresión condicional. El [subconjunto de lenguaje SQL para las condiciones de filtro](service-bus-messaging-sql-filter.md) comprueba la existencia de propiedades (`EXISTS`), así como de valores nulos (`IS NULL`), operadores relacionales NOT/AND/OR, lógicos, aritmética numérica simple y coincidencia de patrones de texto simple con `LIKE`.
+-   *Filtros SQL*: una propiedad **SqlFilter** contiene una expresión condicional de tipo SQL que se evalúa en el agente contra las propiedades del sistema y las propiedades definidas por el usuario de los mensajes entrantes. Todas las propiedades del sistema deben ir precedidas de `sys.` en la expresión condicional. El [subconjunto de lenguaje SQL para las condiciones de filtro](service-bus-messaging-sql-filter.md) comprueba la existencia de propiedades (`EXISTS`), valores nulos (`IS NULL`), operadores lógicos, relacionales NOT/AND/OR, aritmética numérica simple y coincidencia de patrones de texto simple con `LIKE`.
 
--   *Filtros de correlación*: una propiedad **CorrelationFilter** contiene un conjunto de condiciones para las que se busca la coincidencia con una o varias de las propiedades del usuario y del sistema de un mensaje entrante. Un uso común es buscar la coincidencia con la propiedad **CorrelationId**, pero la aplicación puede elegir también buscarla con **ContentType**, **Label**, **MessageId**, **ReplyTo**, **ReplyToSessionId**, **SessionId**, **To** y cualquier propiedad definida por el usuario. Existe una coincidencia cuando el valor de un mensaje entrante de una propiedad es igual al valor especificado en el filtro de correlación. En las expresiones de cadena, la comparación distingue mayúsculas de minúsculas. Al especificar varias propiedades de coincidencia, el filtro las combina como una condición AND lógica, lo que significa que para que el filtro realice la coincidencia, todas las condiciones deben coincidir.
+-   *Filtros de correlación*: una propiedad **CorrelationFilter** contiene un conjunto de condiciones para las que se busca la coincidencia con una o varias de las propiedades del usuario y del sistema de un mensaje entrante. Un uso común es comparar con la propiedad **CorrelationId**, pero la aplicación también puede elegir comparar con las siguientes propiedades:
+
+    - **ContentType**
+     - **Label**
+     - **MessageId**
+     - **ReplyTo**
+     - **ReplyToSessionId**
+     - **SessionId** 
+     - **To**
+     - cualquier propiedad definida por el usuario. 
+     
+     Existe una coincidencia cuando el valor de un mensaje entrante de una propiedad es igual al valor especificado en el filtro de correlación. En las expresiones de cadena, la comparación distingue mayúsculas de minúsculas. Al especificar varias propiedades de coincidencia, el filtro las combina como una condición AND lógica, lo que significa que para que el filtro realice la coincidencia, todas las condiciones deben coincidir.
 
 Todos los filtros evalúan propiedades del mensaje. Los filtros no pueden evaluar el cuerpo del mensaje.
 
-Las reglas de filtro complejas requieren capacidad de procesamiento. En concreto, el uso de reglas de filtro SQL da como resultado un menor rendimiento general del mensaje en el nivel de suscripción, tema y espacio de nombres. Siempre que sea posible, las aplicaciones deben elegir filtros de correlación por encima de filtros de tipo SQL, ya que son mucho más eficaces en el procesamiento y, por tanto, tienen un impacto menor en el rendimiento.
+Las reglas de filtro complejas requieren capacidad de procesamiento. En concreto, el uso de reglas de filtro SQL provoca un menor rendimiento general del mensaje en el nivel de suscripción, tema y espacio de nombres. Siempre que sea posible, las aplicaciones deben elegir filtros de correlación por encima de filtros de tipo SQL, ya que son mucho más eficaces en el procesamiento y tienen un impacto menor en el rendimiento.
 
 ## <a name="actions"></a>Acciones
 
@@ -52,10 +62,17 @@ En la creación de particiones se usan filtros para distribuir los mensajes entr
 
 En el enrutamiento se usan filtros para distribuir los mensajes entre las suscripciones a temas de un modo predecible, pero no necesariamente exclusivo. Junto con la característica de [reenvío automático](service-bus-auto-forwarding.md), pueden usarse filtros de tema para crear gráficos complejos de enrutamiento dentro de un espacio de nombres de Service Bus para la distribución de mensajes dentro de una región de Azure. Si Azure Functions o Azure Logic Apps actúan como un puente entre los espacios de nombres de Azure Service Bus, puede crear topologías globales complejas con integración directa en las aplicaciones de línea de negocio.
 
+
+> [!NOTE]
+> Actualmente Azure Portal no permite especificar reglas de filtro para las suscripciones. Puede usar cualquiera de los SDK o las plantillas de Azure Resource Manager admitidos para definir las reglas de suscripción. 
+
 ## <a name="next-steps"></a>Pasos siguientes
+Consulte los ejemplos siguientes: 
 
-Para más información sobre la mensajería de Service Bus, consulte los siguientes temas:
+- [.NET: Tutorial básico de envío y recepción con filtros](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/BasicSendReceiveTutorialwithFilters/BasicSendReceiveTutorialWithFilters)
+- [.NET: Filtros de tema](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TopicFilters)
+- [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/samples/javascript/advanced/topicFilters.js)
+- [Escribir script](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/samples/typescript/src/advanced/topicFilters.ts)
+- [Plantilla de Azure Resource Manager](https://docs.microsoft.com/azure/templates/microsoft.servicebus/2017-04-01/namespaces/topics/subscriptions/rules)
 
-* [Colas, temas y suscripciones de Service Bus](service-bus-queues-topics-subscriptions.md)
-* [Sintaxis de SQLFilter](service-bus-messaging-sql-filter.md)
-* [Uso de temas y suscripciones de Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+

@@ -13,12 +13,12 @@ ms.date: 10/29/2019
 ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 697b4bc8e3a25085ac6f7d600ea2227dd30a6624
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d31cf3a4e024dc59b865d096cbd0829d50f61a1a
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79230652"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81533962"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Use MSAL.NET para que los usuarios inicien sesión con identidades de redes sociales
 
@@ -34,7 +34,7 @@ Esta página es para MSAL 3.x. Si le interesa MSAL 2.x, consulte [AAD B2C Spec
 La autoridad que se utilizará será `https://{azureADB2CHostname}/tfp/{tenant}/{policyName}`, donde:
 
 - `azureADB2CHostname` es el nombre del inquilino de Azure AD B2C más el host (por ejemplo `{your-tenant-name}.b2clogin.com`).
-- `tenant` es el nombre completo del inquilino de Azure AD B2C (por ejemplo, `{your-tenant-name}.onmicrosoft.com`) o el GUID del inquilino. 
+- `tenant` es el nombre completo del inquilino de Azure AD B2C (por ejemplo, `{your-tenant-name}.onmicrosoft.com`) o el GUID del inquilino.
 - `policyName` es el nombre de la directiva que se aplicará (por ejemplo, "b2c_1_susi", para el registro y el inicio de sesión).
 
 Para obtener más información sobre las autoridades de Azure AD B2C, consulte esta [documentación](/azure/active-directory-b2c/b2clogin).
@@ -121,7 +121,7 @@ private async void EditProfileButton_Click(object sender, RoutedEventArgs e)
 ## <a name="resource-owner-password-credentials-ropc-with-azure-ad-b2c"></a>Credenciales de contraseña de propietario del recurso (ROPC) con Azure AD B2C
 Para más detalles sobre el flujo ROPC, consulte esta [documentación](v2-oauth-ropc.md).
 
-Este flujo **no se recomienda** porque no es seguro que la aplicación le pida al usuario la contraseña. Para más información sobre este problema, consulte [este artículo](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/). 
+Este flujo **no se recomienda** porque no es seguro que la aplicación le pida al usuario la contraseña. Para más información sobre este problema, consulte [este artículo](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/).
 
 Al usar el nombre de usuario y contraseña, se está descuidando una serie de cosas:
 - Principios de identidad moderna: la contraseña se busca y se reproduce. Dado que tenemos este concepto de secreto compartido que se puede interceptar, es incompatible con el inicio de sesión sin contraseña.
@@ -155,15 +155,15 @@ Si es un desarrollador de Azure AD B2C que usa Google como proveedor de identi
 
 Si las cosas cambian, proporcionamos una actualización de la wiki y esta [incidencia](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/688).
 
-## <a name="caching-with-azure-ad-b2c-in-msalnet"></a>Almacenamiento en caché con Azure AD B2C en MSAL.Net 
+## <a name="caching-with-azure-ad-b2c-in-msalnet"></a>Almacenamiento en caché con Azure AD B2C en MSAL.Net
 
 ### <a name="known-issue-with-azure-ad-b2c"></a>Problema conocido con Azure AD B2C
 
-MSAL.Net admite una [memoria caché de tokens](/dotnet/api/microsoft.identity.client.tokencache?view=azure-dotnet). La clave de la caché de tokens se basa en las notificaciones devueltas por el proveedor de identidades. Actualmente MSAL.Net necesita dos notificaciones para generar una clave de caché de tokens:  
-- `tid`, que es el identificador del inquilino de Azure AD, y 
-- `preferred_username` 
+MSAL.Net admite una [memoria caché de tokens](/dotnet/api/microsoft.identity.client.tokencache?view=azure-dotnet). La clave de la caché de tokens se basa en las notificaciones devueltas por el proveedor de identidades. Actualmente MSAL.Net necesita dos notificaciones para generar una clave de caché de tokens:
+- `tid`, que es el identificador del inquilino de Azure AD, y
+- `preferred_username`
 
-Ambas notificaciones faltan en muchos de los escenarios de Azure AD B2C. 
+Ambas notificaciones faltan en muchos de los escenarios de Azure AD B2C.
 
 ¿Es el impacto para el cliente que al intentar mostrar el campo de nombre de usuario obtiene "Missing from the token response" (Falta en la respuesta del token) como valor? Si es así, esto se debe a que Azure AD B2C no devuelve un valor en IdToken para preferred_username debido a limitaciones con las cuentas de redes sociales y los proveedores de identidades externos (IDP). Azure AD devuelve un valor para preferred_username porque sabe quién es el usuario, pero para Azure AD B2C, como el usuario puede iniciar sesión con una cuenta local, Facebook, Google, GitHub, etc., no hay un valor coherente que Azure AD B2C pueda usar para preferred_username. Para desbloquear MSAL de la implementación de compatibilidad de la memoria caché con ADAL, decidimos usar "Missing from token response" (Falta en la respuesta del token) al trabajar con las cuentas de Azure AD B2C cuando IdToken devuelve "nothing" para preferred_username. MSAL debe devolver un valor para preferred_username para mantener la compatibilidad de la memoria caché en las bibliotecas.
 
@@ -178,7 +178,7 @@ Como alternativa, puede usar la notificación `tid` si usa las [directivas perso
 #### <a name="mitigation-for-missing-from-the-token-response"></a>Mitigación de "Missing from token response" (Falta en la respuesta del token)
 Una opción es usar la notificación "name" como nombre de usuario preferido. El proceso se menciona este [documento de B2C](../../active-directory-b2c/user-flow-overview.md) -> "En la columna Notificación de devolución, elija las notificaciones que quiere que se devuelvan en los tokens de autorización enviados de vuelta a su aplicación después de una experiencia de edición de perfiles correcta. Por ejemplo, seleccione Nombre para mostrar y Código postal".
 
-## <a name="next-steps"></a>Pasos siguientes 
+## <a name="next-steps"></a>Pasos siguientes
 
 En el siguiente ejemplo se ofrecen más detalles sobre la adquisición de tokens de forma interactiva con MSAL.NET para aplicaciones de Azure AD B2C.
 

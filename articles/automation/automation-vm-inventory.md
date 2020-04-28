@@ -6,12 +6,12 @@ ms.subservice: change-inventory-management
 keywords: inventario, automatización, cambio, seguimiento
 ms.date: 01/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: d0324038b8a38d7eba84e5472b8f90439b0322c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0627d2daa70c276535dc43b722e22e1d73b0c8d2
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76844826"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617376"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Administración de una máquina virtual de Azure con la recopilación de inventario
 
@@ -53,9 +53,9 @@ Una vez completada la implementación, la barra de estado desaparece. El sistema
 
 De forma predeterminada, el software, los servicios de Windows y los demonios de Linux están configurados para la recopilación. Para recopilar el registro de Windows y el inventario de archivos, configure las opciones de recopilación de inventario.
 
-1. En la vista **Inventario**, seleccione el botón **Editar configuración** de la parte superior de la ventana.
-2. Para agregar una nueva configuración de recopilación, vaya a la categoría de configuración que desee agregar seleccionando las pestañas **Registro de Windows**, **Archivos de Windows** y **Archivos de Linux**.
-3. Seleccione la categoría correspondiente y haga clic en **Agregar** en la parte superior de la ventana.
+1. En la página Inventario, haga clic en **Editar configuración** en la parte superior de la página.
+2. Para agregar una nueva configuración de recopilación, vaya a la categoría de configuración que desee agregar seleccionando la pestaña **Registro de Windows**, **Archivos de Windows** o **Archivos de Linux**.
+3. Seleccione la categoría correspondiente y haga clic en **Agregar** en la parte superior de la página.
 
 Las tablas siguientes proporcionan información sobre cada propiedad que se puede configurar para las distintas categorías.
 
@@ -72,23 +72,23 @@ Las tablas siguientes proporcionan información sobre cada propiedad que se pued
 
 |Propiedad  |Descripción  |
 |---------|---------|
-|habilitado     | Determina si se aplica la configuración        |
-|Nombre del elemento     | Nombre descriptivo del archivo cuyo seguimiento se va a realizar        |
-|Grupo     | Un nombre de grupo para agrupar lógicamente los archivos        |
-|Escriba la ruta de acceso     | La ruta de acceso para buscar el archivo, por ejemplo: "c:\temp\myfile.txt"
+|habilitado     | True si se aplica la configuración y False en caso contrario.        |
+|Nombre del elemento     | Nombre descriptivo del archivo cuyo seguimiento se va a realizar.        |
+|Grupo     | Un nombre de grupo para agrupar lógicamente los archivos.       |
+|Escriba la ruta de acceso     | La ruta de acceso para buscar el archivo, por ejemplo: **c:\temp\miarchivo.txt**.
 
 ### <a name="linux-files"></a>Archivos de Linux
 
 |Propiedad  |Descripción  |
 |---------|---------|
-|habilitado     | Determina si se aplica la configuración        |
-|Nombre del elemento     | Nombre descriptivo del archivo cuyo seguimiento se va a realizar        |
-|Grupo     | Un nombre de grupo para agrupar lógicamente los archivos        |
-|Escriba la ruta de acceso     | La ruta de acceso para buscar el archivo, por ejemplo: "/etc/*.conf"       |
-|Tipo de ruta de acceso     | Tipo de elemento cuyo seguimiento se va a realizar; posibles valores son Archivo y Directorio        |
-|Recursividad     | Determina si se usa recursividad al buscar el elemento cuyo seguimiento se va a realizar.        |
-|Usar sudo     | Esta configuración determina si se va a utilizar sudo al buscar el elemento.         |
-|Vínculos     | Esta configuración determina cómo se tratan los vínculos simbólicos cuando se recorren directorios.<br> **Omitir**: ignora los vínculos simbólicos y no incluye los archivos y directorios de referencia.<br>**Seguir**: sigue los vínculos simbólicos durante la recursión y también incluye los archivos y directorios de referencia.<br>**Administrar**: sigue los vínculos simbólicos y permite modificar el tratamiento del contenido devuelto.      |
+|habilitado     | True si se aplica la configuración y False en caso contrario.        |
+|Nombre del elemento     | Nombre descriptivo del archivo cuyo seguimiento se va a realizar.        |
+|Grupo     | Un nombre de grupo para agrupar lógicamente los archivos.        |
+|Escriba la ruta de acceso     | La ruta de acceso para buscar el archivo, por ejemplo: **/etc/*.conf**.       |
+|Tipo de ruta de acceso     | Tipo de elemento cuyo seguimiento se va a realizar. Los valores son Archivo y Directorio.        |
+|Recursividad     | True si se usa recursividad al buscar el elemento cuyo seguimiento se va a realizar y False en caso contrario.        |
+|Usar sudo     | True si se usa sudo al buscar el elemento y False en caso contrario.         |
+|Vínculos     | Valor que indica cómo se tratan los vínculos simbólicos cuando se recorren directorios. Los valores posibles son: <br> Omitir: Ignora los vínculos simbólicos y no incluye los archivos y directorios de referencia.<br>Seguir: Sigue los vínculos simbólicos durante la recursión y también incluye los archivos y directorios de referencia.<br>Administrar: Sigue los vínculos simbólicos y permite modificar el tratamiento del contenido devuelto.      |
 
 ## <a name="manage-machine-groups"></a>Administración de grupos de máquinas
 
@@ -104,9 +104,9 @@ Si selecciona un grupo de máquinas de la lista se abrirá la página Grupos de 
 
 ![Ver página Grupo de máquinas](./media/automation-vm-inventory/machine-group-page.png)
 
-Haga clic en el botón **+ Clonar** para clonar el grupo de máquinas. Aquí debe asignar al grupo un nuevo nombre y un alias. La definición se puede modificar en este momento. Después de cambiar la consulta, presione **Validar consulta** para obtener una vista previa de las máquinas que se pueden seleccionar. Cuando esté satisfecho con el grupo, haga clic en **Crear** para crear el grupo de máquinas
+Haga clic en **+ Clonar** para clonar el grupo de máquinas. Debe asignar al grupo un nuevo nombre y un alias. La definición se puede modificar en este momento. Después de cambiar la consulta, haga clic en **Validar consulta** para obtener una vista previa de las máquinas que se pueden seleccionar. Cuando esté satisfecho con el grupo, haga clic en **Crear** para crear el grupo de máquinas.
 
-Si quiere crear un nuevo grupo de máquinas, seleccione **+ Create a machine group** (+ Crear un grupo de máquinas). Este botón abre la **página Crear un nuevo grupo de máquinas** en la que puede definir el nuevo grupo. Haga clic en **Crear** para crear el grupo.
+Si quiere crear un nuevo grupo de máquinas, haga clic en **+ Crear un grupo de máquinas**. Este botón abre la página **Crear un grupo de máquinas** en la que puede definir el nuevo grupo. Haga clic en **Crear** para crear el grupo.
 
 ![Crear grupo de máquinas](./media/automation-vm-inventory/create-new-group.png)
 
@@ -115,18 +115,17 @@ Si quiere crear un nuevo grupo de máquinas, seleccione **+ Create a machine gro
 Para dejar de administrar el inventario de la máquina virtual:
 
 1. En el panel izquierdo de Azure Portal, seleccione **Log Analytics** y, a continuación, el área de trabajo que usó durante la incorporación a la máquina virtual.
-2. En la ventana **Log Analytics**, en la categoría **Orígenes de datos del área de trabajo** del menú **Recurso**, seleccione **Máquinas virtuales**.
-3. En la lista, seleccione la máquina virtual que desee desconectar. La máquina virtual tiene una marca de verificación verde junto a **Esta área de trabajo** en la columna **Conexión a OMS**.
+2. En la página Log Analytics, abra el menú **Recurso**.
+3. Seleccione **Máquinas virtuales** en **Orígenes de datos del área de trabajo**.
+4. En la lista, seleccione la máquina virtual que desee desconectar. La máquina virtual tiene una marca de verificación verde junto a **Esta área de trabajo** en la columna **Conexión a OMS**.
 
    >[!NOTE]
-   >OMS ahora se conoce como registros de Azure Monitor.
+   >Operations Management Suite (OMS) ahora se conoce como registros de Azure Monitor.
    
-4. En la parte superior de la página siguiente, seleccione **Desconectar**.
-5. En la ventana de confirmación, seleccione **Sí**.
-    Esta acción interrumpe la administración de la máquina.
+5. En la parte superior de la página siguiente, haga clic en **Desconectar**.
+6. En la ventana de confirmación, haga clic en **Sí** para desconectar la máquina de la administración.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para más información acerca de cómo administrar los cambios de configuración en los archivos y el registro de las máquinas virtuales, consulte [Seguimiento de cambios de software en su entorno con la solución de seguimiento de cambios](../log-analytics/log-analytics-change-tracking.md).
 * Para más información sobre cómo administrar Windows y actualizaciones de paquetes en las máquinas virtuales, consulte [Solución Update Management en Azure](../operations-management-suite/oms-solution-update-management.md).
-

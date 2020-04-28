@@ -5,14 +5,14 @@ services: web-application-firewall
 ms.topic: conceptual
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 11/19/2019
+ms.date: 04/16/2020
 ms.author: ant
-ms.openlocfilehash: 1fac524af4b69f8e35934840643c6d3ad99fe1cd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fb3b922b753b9696aa26ea189597589ecc5772db
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74174245"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536631"
 ---
 # <a name="migrate-web-application-firewall-policies-using-azure-powershell"></a>Migración de directivas de firewall de aplicaciones web con Azure PowerShell
 
@@ -28,6 +28,13 @@ Siga estos pasos para ejecutar el script de migración:
 2. Copie el script en la ventana de Cloud Shell y ejecútelo.
 3. El script solicita el identificador de la suscripción, el nombre del grupo de recursos, el nombre de la instancia de Application Gateway a la que está asociada la configuración de WAF y el nombre de la nueva directiva de WAF que se va a crear. Cuando escriba esta información, el script se ejecutará y creará la nueva directiva de WAF
 4. Asocie la nueva directiva de WAF con la puerta de enlace de aplicaciones. Vaya a la directiva de WAF en el portal y seleccione la pestaña **Puertas de enlace de aplicaciones asociadas**. Seleccione **Asociar una puerta de enlaces de aplicaciones** y, a continuación, seleccione la instancia de Application Gateway a la que asociar la directiva de WAF.
+
+> [!NOTE]
+> El script no completa una migración si se cumplen las condiciones siguientes:
+> - Una regla completa está deshabilitada. Para completar una migración, asegúrese de que no se haya deshabilitado un grupo de reglas completo.
+> - Una entrada de exclusión con el operador *Es igual a ninguno*. Para completar una migración, asegúrese de que no haya entradas de exclusión con el operador *Es igual a ninguno*.
+>
+> Para obtener más información, consulte la función *ValidateInput* en el script.
 
 ```azurepowershell-interactive
 <#PSScriptInfo

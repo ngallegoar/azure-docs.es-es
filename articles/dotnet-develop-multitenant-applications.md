@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/05/2015
 ms.author: wpickett
-ms.openlocfilehash: d3e267eab056589ed38c436620dd0db185291da1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d1441ede9f448b3e6ffb0726c2ee92f192369e9a
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77425908"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81481831"
 ---
 # <a name="multitenant-applications-in-azure"></a>Aplicaciones multiempresa en Azure
 Una aplicación multiinquilino es un recurso compartido que permite a los "usuarios en inquilinos independientes" ver la aplicación como si fuera propia. Un escenario típico de una aplicación multiinquilino es aquel en el que todos los usuarios de la aplicación de inquilinos diferentes pueden querer personalizar la experiencia de usuario pero, por otra parte, tienen los mismos requisitos empresariales básicos. Office 365, Outlook.com y visualstudio.com son ejemplos de grandes aplicaciones multiempresa.
@@ -48,7 +48,7 @@ Azure ofrece muchas características que le permiten solucionar los principales 
 
 **Aislamiento**
 
-* Segmentación de inquilinos de sitios web mediante encabezados host con o sin comunicación de SSL
+* Segmentación de inquilinos de sitios web mediante encabezados host con o sin comunicación de TLS
 * Segmentar inquilinos de sitio web según parámetros de consulta
 * Servicios web en roles de trabajo
   * Los roles de trabajo que suelen procesar datos en el back-end de una aplicación.
