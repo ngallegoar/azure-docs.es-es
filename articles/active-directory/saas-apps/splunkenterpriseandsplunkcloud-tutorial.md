@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb0941a6cdde5b60b71da6f58ea6b0fd2ccbb262
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d64307c4f91839c466b5f3f495cad8d7410ed364
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73160965"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81867308"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-splunk-enterprise-and-splunk-cloud"></a>Tutorial: Integración de Azure Active Directory con Splunk Enterprise y Splunk Cloud
 
@@ -113,7 +113,7 @@ Para configurar el inicio de sesión único en Azure AD con Splunk Enterprise y 
     c. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<splunkserver>/saml/acs`
 
     > [!NOTE]
-    > Estos valores no son reales. Actualícelos con la dirección URL de inicio de sesión, el identificador y la dirección URL de respuesta reales. Póngase en contacto con el [equipo de soporte de cliente de Splunk Enterprise y Splunk Cloud](https://www.splunk.com/about-us/contact.html#tabs/customer-support) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Estos valores no son reales. Actualícelos con la dirección URL de inicio de sesión, el identificador y la dirección URL de respuesta reales. Póngase en contacto con el [equipo de soporte de cliente de Splunk Enterprise y Splunk Cloud](https://www.splunk.com/en_us/about-splunk/contact-us.html) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **XML de metadatos de federación** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
@@ -121,7 +121,7 @@ Para configurar el inicio de sesión único en Azure AD con Splunk Enterprise y 
 
 ### <a name="configure-splunk-enterprise-and-splunk-cloud-single-sign-on"></a>Configuración del inicio de sesión único de Splunk Enterprise y Splunk Cloud
 
-Para configurar el inicio de sesión único en **Splunk Enterprise y Splunk Cloud**, tiene que enviar el archivo **XML de metadatos** descargado y las correspondientes direcciones URL copiadas de Azure Portal al [equipo de soporte técnico de Splunk Enterprise y Splunk Cloud](https://www.splunk.com/about-us/contact.html#tabs/customer-support). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **Splunk Enterprise y Splunk Cloud**, tiene que enviar el archivo **XML de metadatos** descargado y las correspondientes direcciones URL copiadas de Azure Portal al [equipo de soporte técnico de Splunk Enterprise y Splunk Cloud](https://www.splunk.com/en_us/about-splunk/contact-us.html). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 
@@ -176,7 +176,7 @@ En esta sección, permitirá que Britta Simon use el inicio de sesión único de
 
 ### <a name="create-splunk-enterprise-and-splunk-cloud-test-user"></a>Creación de un usuario de prueba de Splunk Enterprise y Splunk Cloud
 
-En esta sección, creará un usuario llamado Britta Simon en Splunk Enterprise y Splunk Cloud. Trabaje con el  [equipo de soporte técnico de Splunk Enterprise y Splunk Cloud](https://www.splunk.com/about-us/contact.html#tabs/customer-support) para agregar los usuarios a la plataforma de Splunk Enterprise y Splunk Cloud. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en Splunk Enterprise y Splunk Cloud. Trabaje con el  [equipo de soporte técnico de Splunk Enterprise y Splunk Cloud](https://www.splunk.com/en_us/about-splunk/contact-us.html) para agregar los usuarios a la plataforma de Splunk Enterprise y Splunk Cloud. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
 

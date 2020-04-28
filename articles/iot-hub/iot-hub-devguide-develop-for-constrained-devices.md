@@ -7,12 +7,15 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: robinsh
-ms.openlocfilehash: a1918a99efcdcc5764140093ad422f7887ca3c88
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: 9010ff582f05e81e17e280e20f180ceccf0e746f
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73954697"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81733200"
 ---
 # <a name="develop-for-constrained-devices-using-azure-iot-c-sdk"></a>Desarrollo para dispositivos restringidos con los SDK para C de Azure IoT
 
@@ -82,5 +85,5 @@ Otro conjunto de API sin el índice _LL_ se denomina capa de comodidad, en las q
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información acerca de la arquitectura del SDK de Azure IoT para C:
--   [Código fuente del SDK de Azure IoT para C](https://github.com/Azure/azure-iot-sdk-c/)
--   [Introducción al SDK de dispositivo IoT de Azure para C](iot-hub-device-sdk-c-intro.md)
+-    [Código fuente del SDK de Azure IoT para C](https://github.com/Azure/azure-iot-sdk-c/)
+-    [Introducción al SDK de dispositivo IoT de Azure para C](iot-hub-device-sdk-c-intro.md)

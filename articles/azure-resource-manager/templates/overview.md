@@ -3,12 +3,12 @@ title: Introducción a las plantillas
 description: Describe las ventajas del uso de plantillas de Azure Resource Manager para la implementación de recursos.
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: 02602b4d12ae4333c88b352e4c13923d67f2c591
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: b3b5fb383ac89d0968a437f35aab656afa1913f0
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80885742"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086341"
 ---
 # <a name="what-are-arm-templates"></a>¿Qué son las plantillas de Resource Manager?
 
@@ -50,7 +50,7 @@ Si intenta decidir entre usar plantillas de Resource Manager o una de las demás
 
 * **Planos técnicos de implementación**: Puede aprovechar las ventajas de los [Planos técnicos](../../governance/blueprints/overview.md) proporcionados por Microsoft para cumplir los estándares de cumplimiento normativo. Estos planos técnicos incluyen plantillas precompiladas para distintas arquitecturas.
 
-* **Integración de CI/CD**: Puede integrar plantillas en sus herramientas de integración e implementación continuas (CI/CD), que pueden automatizar las canalizaciones de versión para llevar a cabo actualizaciones de infraestructura y aplicaciones rápidas y confiables. Mediante la tarea de plantilla de Resource Manager y Azure DevOps puede usar Azure Pipelines para compilar e implementar proyectos de plantillas de Resource Manager de manera continua. Para obtener más información, consulte [Proyecto de VS con canalizaciones](add-template-to-azure-pipelines.md) e [Integración continua con Azure Pipelines](template-tutorial-use-azure-pipelines.md).
+* **Integración de CI/CD**: Puede integrar plantillas en sus herramientas de integración e implementación continuas (CI/CD), que pueden automatizar las canalizaciones de versión para llevar a cabo actualizaciones de infraestructura y aplicaciones rápidas y confiables. Mediante la tarea de plantilla de Resource Manager y Azure DevOps puede usar Azure Pipelines para compilar e implementar proyectos de plantillas de Resource Manager de manera continua. Para más información, consulte [Proyecto de VS con canalizaciones](add-template-to-azure-pipelines.md) y el [Tutorial: Integración continua de plantillas de Azure Resource Manager en Azure Pipelines](./deployment-tutorial-pipeline.md).
 
 * **Código exportable**: Puede recuperar una plantilla de un grupo de recursos existente mediante la exportación del estado actual del grupo de recursos o la visualización de la plantilla de una implementación determinada. Una buena estrategia para aprender sobre la sintaxis de una plantilla es consultar la [plantilla exportada](export-template-portal.md).
 

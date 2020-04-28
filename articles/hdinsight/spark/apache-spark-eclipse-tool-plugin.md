@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/13/2019
-ms.openlocfilehash: 07ed22879180d8126711eba9af0a2cac5b7b2953
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5ae9190213f753f8b9440ced52e4d04626af13f9
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79233512"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732998"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Uso de Azure Toolkit for Eclipse para crear aplicaciones de Apache Spark para un clúster de HDInsight
 
@@ -35,7 +35,7 @@ Use las herramientas de HDInsight de Azure Toolkit for [Eclipse](https://www.ecl
 
 ### <a name="install-azure-toolkit-for-eclipse"></a>Instalación del kit de herramientas de Azure para Eclipse
 
-Para obtener instrucciones de instalación, consulte [Instalación del Kit de herramientas de Azure para Eclipse](https://docs.microsoft.com/azure/java/eclipse/azure-toolkit-for-eclipse-installation).
+Para obtener instrucciones de instalación, consulte [Instalación del Kit de herramientas de Azure para Eclipse](https://docs.microsoft.com/azure/developer/java/toolkit-for-eclipse/installation).
 
 ### <a name="install-the-scala-plug-in"></a>Instalación del complemento Scala
 

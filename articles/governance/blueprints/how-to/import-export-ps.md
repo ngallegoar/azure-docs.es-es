@@ -3,12 +3,12 @@ title: Importación y exportación de planos técnicos con PowerShell
 description: Obtenga información sobre cómo trabajar con sus definiciones de planos técnicos como código. Compártalas, controle su código fuente y adminístrelas mediante los comandos de exportación e importación.
 ms.date: 09/03/2019
 ms.topic: how-to
-ms.openlocfilehash: 98bd21aad944346a17d8bdce7fb74c0eb8be2ed7
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: dcdf48f8941198591b39d6cf89ec5e6dac7ba94c
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80677139"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686839"
 ---
 # <a name="import-and-export-blueprint-definitions-with-powershell"></a>Importación y exportación de definiciones de planos técnicos con PowerShell
 
@@ -88,7 +88,7 @@ Los pasos para exportar su definición de plano técnico son sencillos. La expor
 
 Una vez que tenga una [definición de plano técnico exportada](#export-your-blueprint-definition) o tenga una definición de plano técnico creada manualmente en la [estructura de carpetas necesaria](#folder-structure-of-a-blueprint-definition), puede importar esa definición de plano técnico a una suscripción o grupo de administración diferentes.
 
-Para obtener ejemplos de definiciones de planos técnicos integradas, consulte el [repositorio de GitHub de Azure Blueprints](https://github.com/Azure/azure-blueprints/tree/master/samples/builtins).
+Para obtener ejemplos de definiciones de planos técnicos integradas, consulte el [repositorio de GitHub de Azure Blueprints](https://github.com/Azure/azure-blueprints/tree/master/samples/001-builtins).
 
 - **Name** [obligatorio]
   - Especifica el nombre para la nueva definición de plano técnico.

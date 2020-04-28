@@ -3,12 +3,12 @@ title: Referencia de host.json para Azure Functions 2.x
 description: Documentación de referencia para el archivo host.json de Azure Functions con el entorno en tiempo de ejecución de la versión 2.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 1a861d500f0b8cc31b8312d6c955916ab741b649
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 7967cdc7f5f7cbb92c12de15d31471fda8aa6569
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878260"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758838"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Referencia de host.json para Azure Functions 2.x y versiones posteriores 
 
@@ -141,7 +141,7 @@ Controla las opciones de Application Insights, incluidas las [opciones de muestr
 Para obtener la estructura JSON completa, consulte el [archivo host.json de ejemplo](#sample-hostjson-file) anterior.
 
 > [!NOTE]
-> Los muestreos de registros pueden provocar que algunas ejecuciones no aparezcan en la hoja de supervisión de Application Insights. Para evitar el muestreo de registros, agregue `samplingExcludedTypes: "Request"` al valor `applicationInsights`.
+> Los muestreos de registros pueden provocar que algunas ejecuciones no aparezcan en la hoja de supervisión de Application Insights. Para evitar el muestreo de registros, agregue `excludedTypes: "Request"` al valor `samplingSettings`.
 
 | Propiedad | Valor predeterminado | Descripción |
 | --------- | --------- | --------- | 
@@ -166,8 +166,8 @@ Para obtener la estructura JSON completa, consulte el [archivo host.json de ejem
 | minSamplingPercentage | 0,1 | A medida que el porcentaje de muestreo va variando, esta propiedad determina el porcentaje de muestreo mínimo permitido. |
 | maxSamplingPercentage | 0,1 | A medida que el porcentaje de muestreo va variando, esta propiedad determina el porcentaje de muestreo máximo permitido. |
 | movingAverageRatio | 1.0 | En el cálculo de la media móvil, peso asignado al valor más reciente. Use un valor igual o menor que 1. Los valores menores hacen que el algoritmo reaccione con menor agilidad a los cambios repentinos. |
-| excludedTypes | null | Una lista delimitada por puntos y coma de tipos que no desea que se muestreen. Los tipos reconocidos son: Dependency, Event, Exception, PageView, Request y Trace. Todas las instancias de los tipos especificados se transmiten; los tipos no especificados se muestrean. |
-| includedTypes | null | Una lista delimitada por puntos y coma de tipos que desea que se muestreen (con listas vacías se muestrean todos los tipos). El tipo que figura en `excludedTypes` invalida los tipos que se enumeran aquí. Los tipos reconocidos son: Dependency, Event, Exception, PageView, Request y Trace. Todas las instancias de los tipos especificados se transmiten; los tipos no especificados se muestrean. |
+| excludedTypes | null | Una lista delimitada por puntos y coma de tipos que no desea que se muestreen. Los tipos reconocidos son: `Dependency`, `Event`, `Exception`, `PageView`, `Request` y `Trace`. Todas las instancias de los tipos especificados se transmiten; los tipos no especificados se muestrean. |
+| includedTypes | null | Una lista delimitada por puntos y coma de tipos que desea que se muestreen (con listas vacías se muestrean todos los tipos). El tipo que figura en `excludedTypes` invalida los tipos que se enumeran aquí. Los tipos reconocidos son: `Dependency`, `Event`, `Exception`, `PageView`, `Request` y `Trace`. Las instancias de los tipos especificados se muestrean; los tipos no especificados ni implícitos se transmiten sin muestrear. |
 
 ### <a name="applicationinsightshttpautocollectionoptions"></a>applicationInsights.httpAutoCollectionOptions
 
@@ -216,7 +216,7 @@ Las opciones de configuración se puede encontrar en los [enlaces para Durable F
 
 ## <a name="eventhub"></a>eventHub
 
-Las opciones de configuración se pueden encontrar en [desencadenadores y enlaces del centro de eventos](functions-bindings-event-hubs-output.md#host-json). 
+Las opciones de configuración se pueden encontrar en [desencadenadores y enlaces del centro de eventos](functions-bindings-event-hubs-trigger.md#host-json). 
 
 ## <a name="extensions"></a>extensions
 

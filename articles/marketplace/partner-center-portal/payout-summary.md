@@ -6,12 +6,12 @@ ms.author: dsindona
 ms.service: marketplace
 ms.topic: guide
 ms.date: 12/10/2019
-ms.openlocfilehash: 678dc8b058d0ae0694dafeb4222b2fc9f10ecda7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5a930dfb38007349155581424d03ee7b3e7a6b46
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288706"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81730205"
 ---
 # <a name="payout-reporting"></a>Informes de pago
 
@@ -175,4 +175,4 @@ Esta opción proporciona la descarga de cada artículo de línea de ganancia que
 
 ## <a name="billing-questions-and-support"></a>Soporte técnico y preguntas sobre facturación
 
-Para obtener ayuda si tiene preguntas sobre facturación, póngase en contacto con el [equipo de soporte técnico para publicadores de Marketplace comercial](https://aka.ms/marketplacepublishersupport).
+Para obtener ayuda si tiene preguntas sobre facturación, póngase en contacto con el [equipo de soporte técnico para publicadores de Marketplace comercial](https://partner.microsoft.com/support/v2/?stage=1).

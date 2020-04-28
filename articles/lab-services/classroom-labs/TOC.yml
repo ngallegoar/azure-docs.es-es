@@ -108,6 +108,8 @@
           href: how-to-windows-shutdown.md
         - name: Visualización de información de soporte técnico (instructor)
           href: lab-creator-support-information.md
+        - name: Acceso a las máquinas virtuales de los alumnos desde la vista del instructor
+          href: instructor-access-virtual-machines.md
     - name: Conexión a máquinas virtuales de laboratorios educativos (alumno)
       items:
         - name: Acceso a laboratorios educativos

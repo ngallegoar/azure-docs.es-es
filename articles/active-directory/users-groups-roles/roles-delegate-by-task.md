@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ac44661dd5a52ba19a3b2dd461aabec1ec250bf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fd24650c9bf0c4de155b5bfc8723cfa1fef01548
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80284881"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81755416"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Roles de administrador por tarea de administrador en Azure Active Directory
 
@@ -76,9 +76,9 @@ Configurar propiedades de la empresa | Administrador global |
 
 Tarea | Rol con privilegios mínimos | Roles adicionales
 ---- | --------------------- | ----------------
-Autenticación de paso a través | Administrador global | 
-Leer toda la configuración | Lector global | 
-Inicio de sesión único de conexión directa | Administrador global | 
+Autenticación de paso a través | Administrador de identidades híbridas | 
+Leer toda la configuración | Lector global | Administrador de identidades híbridas |
+Inicio de sesión único de conexión directa | Administrador de identidades híbridas | 
 
 ## <a name="connect-health"></a>Connect Health
 

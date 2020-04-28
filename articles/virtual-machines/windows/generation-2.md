@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: 239e339d1870060d95d6c7e7b602be7d61af5f77
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: 53806a1a627c7ae6bc3470aa387be0982df914fa
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81869638"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82082265"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Compatibilidad para máquinas virtuales de generación 2 en Azure
 
@@ -28,7 +28,7 @@ Las VM de generación 2 usan la nueva arquitectura de arranque basado en UEFI en
 Las máquinas virtuales de primera generación son compatibles con todos los tamaños de máquina virtual de Azure (salvo con las de la serie Mv2). Azure ahora ofrece compatibilidad de generación 2 para las siguientes series de VM seleccionadas:
 
 * [Serie B](https://docs.microsoft.com/azure/virtual-machines/windows/b-series-burstable)
-* [Serie DC](../dcv2-series.md)
+* [Serie DCsv2](../dcv2-series.md)
 * [Serie Dsv2](../dv2-dsv2-series.md) y [serie Dsv3](../dv3-dsv3-series.md)
 * [Serie Dasv4](https://docs.microsoft.com/azure/virtual-machines/dav4-dasv4-series)
 * [Serie Esv3](../ev3-esv3-series.md)

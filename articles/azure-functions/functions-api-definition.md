@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alkarche
-ms.openlocfilehash: a80079574dc29c54de89f5275c65637b205742d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cbfd0e36307210851070c22e74acb0a858446ce1
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74227412"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81866715"
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Compatibilidad con metadatos de OpenAPI 2.0 en Azure Functions (versión preliminar)
 La compatibilidad con metadatos de OpenAPI 2.0 (anteriormente Swagger) en Azure Functions es una característica en versión preliminar que puede usar para escribir una definición de OpenAPI 2.0 dentro de una aplicación de función. A continuación, puede hospedar ese archivo mediante la aplicación de función.
@@ -60,7 +60,7 @@ En la tabla siguiente se representa la configuración de Azure Portal y los dato
 > [!NOTE]
 > La extensión x-ms-summary proporciona un nombre para mostrar en Logic Apps, PowerApps y Flow.
 >
-> Para más información, consulte [Personalizar la definición de Swagger para PowerApps](https://powerapps.microsoft.com/tutorials/customapi-how-to-swagger/).
+> Para más información, consulte [Personalizar la definición de Swagger para PowerApps](https://docs.microsoft.com/connectors/custom-connectors/openapi-extensions).
 
 ## <a name="use-cicd-to-set-an-api-definition"></a><a name="CICD"></a>Uso de CI/CD para establecer una definición de API
 

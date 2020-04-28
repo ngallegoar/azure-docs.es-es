@@ -8,12 +8,13 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/14/2020
-ms.openlocfilehash: 419a71acbca59c00bd0ffecf39d5d1ff38833b08
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: mqtt
+ms.openlocfilehash: 68186e777051e77deca7b6e5891eb392cac23260
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79237352"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81729030"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Información y uso de los SDK de Azure IoT Hub
 
@@ -157,7 +158,7 @@ SDK de aprovisionamiento de dispositivos y servicios de Azure para Node.js:
 
 SDK de aprovisionamiento de dispositivos y servicios de Azure para Python:
 
-* [Código fuente](https://github.com/Azure/azure-iot-device)
+* [Código fuente](https://github.com/Azure/azure-iot-sdk-python)
 * Descargue el [SDK de dispositivo](https://pypi.org/project/azure-iot-device/) y el [SDK del servicio](https://pypi.org/project/azure-iothub-provisioningserviceclient/) de pip
 
 ## <a name="next-steps"></a>Pasos siguientes

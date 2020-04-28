@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 3/18/2020
-ms.openlocfilehash: 9b6b4143ea2eeefcf0d0afbe281f7e27ca7794a1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 95a3c9e81bfc1d3b010027e628204666c472d1da
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80067856"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81731872"
 ---
 # <a name="azure-database-for-mysql-use-mysql-workbench-to-connect-and-query-data"></a>Azure Database for MySQL: uso de MySQL Workbench para conectarse y consultar datos
 En esta guía de inicio rápido se muestra cómo conectarse a Azure Database for MySQL mediante la aplicación MySQL Workbench. 
@@ -45,15 +45,15 @@ Para conectarse al servidor Azure MySQL mediante la herramienta MySQL Workbench 
 2.    En el cuadro de diálogo **Setup New Connection** (Establecer nueva conexión), escriba la siguiente información en la pestaña **Parámetros**:
 
     ![Configuración de una conexión nueva](./media/connect-workbench/2-setup-new-connection.png)
-
-    | **Configuración** | **Valor sugerido** | **Descripción del campo** |
-    |---|---|---|
-    |    Nombre de la conexión | Conexión de demostración | Especifique una etiqueta para esta conexión. |
-    | Método de conexión | Estándar (TCP/IP) | Estándar (TCP/IP) es suficiente. |
-    | Hostname | *nombre del servidor* | Especifique el valor de nombre de servidor que se usó cuando creó el servidor de Azure Database for MySQL. Nuestro servidor de ejemplo es mydemoserver.mysql.database.azure.com. Use el nombre de dominio completo (\*.mysql.database.azure.com) tal como se muestra en el ejemplo. Siga los pasos de la sección anterior para obtener la información de conexión si no recuerda el nombre del servidor.  |
-    | Port | 3306 | Utilice siempre el puerto 3306 para conectarse a Azure Database for MySQL. |
-    | Nombre de usuario |  *nombre de inicio de sesión del administrador del servidor* | Escriba el valor de nombre de inicio de sesión del administrador del servidor que se usó al crear el servidor de Azure Database for MySQL. El nombre de usuario de nuestro ejemplo es myadmin@mydemoserver. Siga los pasos de la sección anterior para obtener la información de conexión si no recuerda el nombre de usuario. El formato es *nombre de usuario\@nombre de servidor*.
-    | Contraseña | la contraseña | Haga clic en el botón **Store in Vault...** (Almacenar en el almacén) para guardar la contraseña. |
+    
+   | **Configuración** | **Valor sugerido** | **Descripción del campo** |
+   |---|---|---|
+   |    Nombre de la conexión | Conexión de demostración | Especifique una etiqueta para esta conexión. |
+   | Método de conexión | Estándar (TCP/IP) | Estándar (TCP/IP) es suficiente. |
+   | Hostname | *nombre del servidor* | Especifique el valor de nombre de servidor que se usó cuando creó el servidor de Azure Database for MySQL. Nuestro servidor de ejemplo es mydemoserver.mysql.database.azure.com. Use el nombre de dominio completo (\*.mysql.database.azure.com) tal como se muestra en el ejemplo. Siga los pasos de la sección anterior para obtener la información de conexión si no recuerda el nombre del servidor.  |
+   | Port | 3306 | Utilice siempre el puerto 3306 para conectarse a Azure Database for MySQL. |
+   | Nombre de usuario |  *nombre de inicio de sesión del administrador del servidor* | Escriba el valor de nombre de inicio de sesión del administrador del servidor que se usó al crear el servidor de Azure Database for MySQL. El nombre de usuario de nuestro ejemplo es myadmin@mydemoserver. Siga los pasos de la sección anterior para obtener la información de conexión si no recuerda el nombre de usuario. El formato es *nombre de usuario\@nombre de servidor*.
+   | Contraseña | la contraseña | Haga clic en el botón **Store in Vault...** (Almacenar en el almacén) para guardar la contraseña. |
 
 3.   Haga clic en **Probar conexión** para probar si todos los parámetros están configurados correctamente. 
 
