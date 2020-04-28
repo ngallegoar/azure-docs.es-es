@@ -92,7 +92,7 @@ En Azure Portal, también puede optimizar y reducir los costos de Azure con el a
 
 ### <a name="consider-cost-cutting-features-like-auto-shutdown-for-vms"></a>Posibilidad de usar características de reducción de costos como el apagado automático de las máquinas virtuales
 
-Según el escenario, puede configurar el apagado automático de las VM en Azure Portal. Para más información, consulte [Auto-shutdown for VMs using Azure Resource Manager](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/) (Apagado automático de VM mediante Azure Resource Manager).
+Según el escenario, puede configurar el apagado automático de las VM en Azure Portal. Para más información, consulte [Apagado automático de VM mediante Azure Resource Manager](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/).
 
 ![Captura de pantalla de la opción de apagado automático en el portal](./media/getting-started/auto-shutdown.png)
 

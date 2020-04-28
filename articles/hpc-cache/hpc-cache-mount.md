@@ -4,14 +4,14 @@ description: Conexión de clientes a un servicio de Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 04/03/2020
-ms.author: rohogue
-ms.openlocfilehash: f176e30cfaf9a52e4f58091b7fc76098a4c88a48
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.date: 04/15/2020
+ms.author: v-erkel
+ms.openlocfilehash: a44232f06b455e20530271723e816c2117b339a0
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80657349"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458411"
 ---
 # <a name="mount-the-azure-hpc-cache"></a>Montaje de la instancia de Azure HPC Cache
 
@@ -45,51 +45,65 @@ Instale el software de utilidad de Linux adecuado para admitir el comando de mon
 
 ### <a name="create-a-local-path"></a>Creación de una ruta de acceso local
 
-Cree una ruta de acceso al directorio local en cada cliente para conectarse a la memoria caché. Cree una ruta de acceso para cada destino de almacenamiento que desee montar.
+Cree una ruta de acceso al directorio local en cada cliente para conectarse a la memoria caché. Cree una ruta de acceso para cada ruta de acceso del espacio de nombres que desee montar.
 
 Ejemplo: `sudo mkdir -p /mnt/hpc-cache-1/target3`
 
+La página [Instrucciones de montaje](#use-the-mount-instructions-utility) de Azure Portal incluye un comando de prototipo que puede copiar.
+
+Cuando conecte la máquina cliente a la memoria caché, asociará esta ruta de acceso a una ruta de acceso del espacio de nombres virtual, que representa una exportación del destino de almacenamiento. Cree directorios para cada una de las rutas de acceso del espacio de nombres virtual que usará el cliente.
+
 ## <a name="use-the-mount-instructions-utility"></a>Uso de la utilidad de instrucciones de montaje
 
-Abra la página **Instrucciones de montaje** de la sección **Configurar** de la vista de memoria caché de Azure Portal.
+Puede usar la página **Instrucciones de montaje** de Azure Portal para crear un comando de montaje que se pueda copiar. Abra la página de la sección **Configurar** de la vista de memoria caché del portal.
+
+Antes de usar el comando en un cliente, asegúrese de que el cliente cumpla los requisitos previos y de que tenga el software necesario para usar el comando `mount` de NFS, tal y como se ha descrito anteriormente en [Preparación de los clientes](#prepare-clients).
 
 ![captura de pantalla de una instancia de Azure HPC Cache en el portal, con la página Configurar > Instrucciones de montaje cargada](media/mount-instructions.png)
 
-La página del comando de montaje incluye información sobre el proceso de montaje del cliente y los requisitos previos, además de los campos que puede usar para crear un comando de montaje que se pueda copiar.
+Siga este procedimiento para crear el comando de montaje.
 
-Para usar esta página, siga este procedimiento:
+1. Personalice el campo **Ruta de acceso del cliente**. En este campo se proporciona un comando de ejemplo que puede usar para crear una ruta de acceso local en el cliente. El cliente tiene acceso al contenido de Azure HPC Cache localmente en este directorio.
 
-<!--1.  In step one of **Mounting your file system**, enter the path that the client will use to access the Azure HPC Cache storage target.
+   Haga clic en el campo y edite el comando para que contenga el nombre del directorio que desee. El nombre aparece al final de la cadena, después de `sudo mkdir -p`.
 
-   * This path is local to the client.
-   * After you provide the directory name, the field populates with a command you can copy. Use this command on the client directly or in a setup script to create the directory path on the client VM. -->
+   ![Captura de pantalla del campo Ruta de acceso del cliente con cursor colocado al final](media/mount-edit-client.png)
 
-1. Revise los requisitos previos de cliente e instale las utilidades necesarias para usar el comando `mount` de NFS como se describió anteriormente en [Preparación de los clientes](#prepare-clients).
+   Después de que termine de editar el campo, el comando de montaje al final de la página se actualiza con la nueva ruta de acceso del cliente.
 
-1. El paso uno de **Montaje del sistema de archivos**<!-- label will change --> proporciona un comando de ejemplo para crear la ruta de acceso local en el cliente. Esta es la ruta de acceso que el cliente usará para acceder al contenido de la instancia de Azure HPC Cache.
+1. Elija la **Dirección de montaje de caché** en la lista. En este menú se enumeran todos los [puntos de montaje de cliente](#find-mount-command-components) de la memoria caché.
 
-   Tome nota del nombre de la ruta de acceso para que pueda modificarla en el comando, si es necesario.
+   Equilibre la carga del cliente entre todas las direcciones de montaje disponibles con el fin de mejorar el rendimiento de la memoria caché.
 
-1. En el paso dos, seleccione una de las direcciones IP disponibles. Aquí se enumeran todos los [puntos de montaje de cliente](#find-mount-command-components) de la memoria caché. Asegúrese de que tiene un sistema para equilibrar la carga entre todas las direcciones IP.
+   ![Captura de pantalla del campo Dirección de montaje de caché con el selector que muestra tres direcciones IP entre las cuales elegir](media/mount-select-ip.png)
 
-1. El campo del paso tres se rellena automáticamente con un prototipo de comando de montaje. Haga clic en el símbolo de copia en el lado derecho del campo para copiarlo automáticamente en el Portapapeles.
+1. Elija la **Ruta de acceso del espacio de nombres virtual** que se va a usar para el cliente. Estas rutas de acceso se vinculan a las exportaciones del sistema de almacenamiento de back-end.
 
-   > [!NOTE]
-   > Compruebe el comando copiado antes de usarlo. Es posible que tenga que personalizar la ruta de acceso de montaje de cliente y la ruta de acceso del espacio de nombres virtual del destino de almacenamiento, que todavía no se pueden seleccionar en esta interfaz. También debe actualizar las opciones del comando de montaje para reflejar las [opciones recomendadas](#mount-command-options) siguientes. Consulte [Descripción de la sintaxis del comando mount](#understand-mount-command-syntax) para obtener ayuda.
+   ![Captura de pantalla del campo Rutas de acceso del espacio de nombres con el selector abierto](media/mount-select-target.png)
 
-1. Use el comando mount copiado (con las ediciones necesarias) en el equipo cliente para conectarlo al destino de almacenamiento en la instancia de Azure HPC Cache. Puede emitir el comando directamente desde la línea de comandos del cliente o incluir el comando mount en un script o una plantilla de instalación del cliente.
+   Puede ver y cambiar las rutas de acceso del espacio de nombres virtual en la página Destinos de almacenamiento del portal. Lea [Incorporación de destinos de almacenamiento](hpc-cache-add-storage.md) para ver cómo hacerlo.
+
+   Para obtener más información sobre la característica de espacio de nombres agregado de Azure HPC Cache, lea [Planeamiento del espacio de nombres agregado](hpc-cache-namespace.md).
+
+1. El campo **Comando de montaje** en el paso tres se rellena automáticamente con un comando de montaje personalizado que utiliza la dirección de montaje, la ruta de acceso del espacio de nombres virtual y la ruta de acceso del cliente que ha establecido en los campos anteriores.
+
+   Haga clic en el símbolo de copia en el lado derecho del campo para copiarlo automáticamente en el Portapapeles.
+
+   ![Captura de pantalla del campo Rutas de acceso del espacio de nombres con el selector abierto](media/mount-command-copy.png)
+
+1. Use el comando mount copiado en la máquina cliente para conectarla a Azure HPC Cache. Puede emitir el comando directamente desde la línea de comandos del cliente o incluir el comando mount en un script o una plantilla de instalación del cliente.
 
 ## <a name="understand-mount-command-syntax"></a>Descripción de la sintaxis del comando mount
 
 El comando mount tiene el siguiente formato:
 
-> sudo mount *cache_mount_address*:/*namespace_path* *local_path* {*options*}
+> sudo mount {*opciones*} *dirección_de_montaje_de_caché*:/*ruta_de_acceso_del_espacio_de_nombres* *ruta_de_acceso_local*
 
 Ejemplo:
 
 ```bash
 root@test-client:/tmp# mkdir hpccache
-root@test-client:/tmp# sudo mount 10.0.0.28:/blob-demo-0722 ./hpccache/ -o hard,proto=tcp,mountproto=tcp,retry=30
+root@test-client:/tmp# sudo mount -o hard,proto=tcp,mountproto=tcp,retry=30 10.0.0.28:/blob-demo-0722 hpccache
 root@test-client:/tmp#
 ```
 
@@ -110,16 +124,16 @@ Para garantizar un montaje sólido del cliente, pase esta configuración y argum
 
 ### <a name="find-mount-command-components"></a>Búsqueda de componentes del comando mount
 
-Si desea crear un comando de montaje sin usar la página **Instrucciones de montaje**, puede encontrar las direcciones de montaje en la página **Información general** de la memoria caché y las rutas de acceso del espacio de nombres virtual en la página **Destinos de almacenamiento**.
+Si desea crear un comando de montaje sin usar la página **Instrucciones de montaje**, puede encontrar las direcciones de montaje en la página **Información general** de la memoria caché y las rutas de acceso del espacio de nombres virtual en la página **Destino de almacenamiento**.
 
 ![captura de pantalla de la página de información general de la instancia de Azure HPC Cache, con un cuadro de resaltado alrededor de la lista de direcciones de montaje en la parte inferior derecha](media/hpc-cache-mount-addresses.png)
 
 > [!NOTE]
 > Las direcciones de montaje de la caché corresponden a las interfaces de red dentro de la subred de la caché. En un grupo de recursos, estas NIC aparecen con nombres que terminan en `-cluster-nic-` y en un número. No las modifique ni elimine o la caché dejará de estar disponible.
 
-Las rutas de acceso del espacio de nombres virtual se muestran en la página **Destinos de almacenamiento**. Haga clic en un nombre de destino de almacenamiento para ver sus detalles, incluidas las rutas de acceso del espacio de nombres agregadas asociadas a él.
+Las rutas de acceso del espacio de nombres virtual se muestran en la página de detalles de cada destino de almacenamiento. Haga clic en un nombre de destino de almacenamiento para ver sus detalles, incluidas las rutas de acceso del espacio de nombres agregadas asociadas a él.
 
-![captura de pantalla del panel de destino de almacenamiento de la caché, con un cuadro de resaltado alrededor de una entrada en la columna Ruta de acceso de la tabla](media/hpc-cache-view-namespace-paths.png)
+![Captura de pantalla de la página de detalles de un destino de almacenamiento (encabezado "Actualizar destino de almacenamiento"). Hay un cuadro resaltado alrededor de una entrada en la columna Ruta de acceso del espacio de nombres virtual de la tabla.](media/hpc-cache-view-namespace-paths.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

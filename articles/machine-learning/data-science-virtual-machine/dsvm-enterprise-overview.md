@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: overview
 ms.date: 05/08/2018
-ms.openlocfilehash: 06d05d6d410af13bfbe85f3cb66523c1d48cb77c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1f3a24afb2238c2448cb19b3889467a1b1819724
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "70195651"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460552"
 ---
 # <a name="data-science-virtual-machine-based-team-analytics-and-ai-environment"></a>Entorno de análisis de equipo e IA basado en Data Science Virtual Machine 
 [Data Science Virtual Machine](overview.md) (DSVM) ofrece un completo entorno en la plataforma Azure con software pregenerado de inteligencia artificial (IA) y análisis de datos.
@@ -43,7 +43,7 @@ En esta serie se proporcionan instrucciones y referencias para cada uno de los e
 * [Control de acceso basado en rol](https://docs.microsoft.com/azure/role-based-access-control/overview)
 * [Cumplimiento y configuración de directivas](../../governance/policy/overview.md)
 * [Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
-* [Cifrado](https://docs.microsoft.com/azure/virtual-machines/windows/encrypt-disks)
+* [Cifrado](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption-overview.md)
 * [Gobernanza y detección de datos](https://docs.microsoft.com/azure/data-catalog/)
 
 El [Centro de arquitectura de Azure](https://docs.microsoft.com/azure/architecture/) proporciona una arquitectura detallada de un extremo a otro y modelos para compilar y administrar la infraestructura de análisis basada en la nube.
