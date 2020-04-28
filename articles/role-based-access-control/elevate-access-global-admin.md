@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/03/2019
+ms.date: 04/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 1731c630cb98ac542ebcdc7aedf07f7bb63eaec0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 18490ec7c3cfde33cef186b753e2adc809f854c6
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77137460"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641367"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Elevación de los privilegios de acceso para administrar todas las suscripciones y los grupos de administración de Azure
 
@@ -30,7 +30,7 @@ En tanto que administrador global de Azure Active Directory (Azure AD), es posib
 
 ## <a name="why-would-you-need-to-elevate-your-access"></a>¿Por qué necesita elevar los derechos de acceso?
 
-Si es un administrador global, es posible que haya momentos en los que quiera hacer lo siguiente:
+Si es un administrador global, es posible que haya momentos en los que quiera realizar las siguientes acciones:
 
 - Recuperar el acceso a una suscripción o grupo de administración de Azure cuando un usuario ha perdido el acceso
 - Conceder acceso a otro usuario o usted mismo a una suscripción o grupo de administración de Azure
@@ -55,9 +55,7 @@ Siga estos pasos para elevar los privilegios de acceso de un administrador globa
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com) o en el [Centro de administración de Azure Active Directory](https://aad.portal.azure.com) como administrador global.
 
-1. Busque y seleccione **Azure Active Directory**.
-
-   ![Seleccionar Azure Active Directory: captura de pantalla](./media/elevate-access-global-admin/search-for-azure-active-directory.png)
+1. Abra **Azure Active Directory**.
 
 1. En **Administrar**, seleccione **Propiedades**.
 
@@ -98,7 +96,7 @@ Para quitar la asignación del rol de administrador de accesos de usuario en el 
 
 1. Establezca el botón de alternancia **Administración del acceso para los recursos de Azure** de nuevo en **No**. Puesto que se trata de una configuración que se realiza a nivel de usuario, debe haber iniciado sesión con el mismo usuario que el utilizado para elevar los privilegios de acceso.
 
-    Si intenta quitar la asignación de rol de administración de identidad y acceso en el panel de control de acceso (IAM), verá el siguiente mensaje. Para quitar la asignación de roles, debe establecer el valor de alternancia en **No** o usar Azure PowerShell, CLI de Azure o la API de REST.
+    Si intenta quitar la asignación de rol de administración de identidad y acceso en el panel de control de acceso (IAM), verá el siguiente mensaje. Para quitar la asignación de roles, debe establecer el botón de alternancia en **No** o usar Azure PowerShell, la CLI de Azure o la API REST.
 
     ![Quitar las asignaciones de roles en el ámbito raíz](./media/elevate-access-global-admin/iam-root-remove.png)
 
@@ -233,7 +231,7 @@ Puede enumerar todas las asignaciones de denegación de un usuario en el ámbito
 
 ### <a name="remove-elevated-access"></a>Eliminación de privilegios de acceso elevados
 
-Cuando llama a `elevateAccess`, crea una asignación de roles para usted, por lo que, para revocar esos privilegios, debe quitarse la asignación de rol de administrador de accesos de usuario en el ámbito raíz (`/`)
+Cuando llama a `elevateAccess`, se crea una asignación de roles para usted, por lo que, para revocar esos privilegios, debe quitarse la asignación de rol de administrador de accesos de usuario en el ámbito raíz (`/`).
 
 1. Llame al comando [GET-roleDefinitions](/rest/api/authorization/roledefinitions/get), donde `roleName` es el administrador de accesos de usuario, para determinar el id. del nombre del rol de administrador de accesos de usuario.
 

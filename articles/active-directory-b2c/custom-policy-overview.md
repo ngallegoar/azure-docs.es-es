@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f72aedb010301f9c7b12778432c4f10feb10f7a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f18f44208b97ab5bc8d9cd9ff01d604c62deb963
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79225492"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678160"
 ---
 # <a name="custom-policies-in-azure-active-directory-b2c"></a>Directivas personalizadas de Azure Active Directory B2C
 
@@ -43,7 +43,9 @@ Se usan estos tres tipos de archivos de directivas:
 - **Archivo de extensiones**: contiene los cambios de configuración únicos para el inquilino.
 - **Un archivo de usuario de confianza (RP)** : el archivo centrado en una tarea única que la aplicación o el servicio (también conocido como usuario de confianza) invoca directamente. Cada tarea única requiere su propio usuario de confianza y, en función de los requisitos de marca, el número podría ser "total de aplicaciones x número total de casos de uso".
 
-Los flujos de usuario de Azure AD B2C siguen el patrón de tres archivos mencionado, pero el desarrollador solo ve el archivo de usuario de confianza mientras que Azure Portal hace cambios en el archivo de extensiones en segundo plano.
+Los flujos de usuario de Azure AD B2C siguen el patrón de archivos mencionado, pero el desarrollador solo ve el archivo de usuario de confianza, mientras que Azure Portal hace cambios en el archivo de extensiones en segundo plano.
+
+Aunque hay tres tipos de archivos de directiva, no está restringido a usar solo tres archivos. Puede tener varios archivos de cada tipo. Por ejemplo, si no quiere realizar cambios en el archivo Extensions, puede crear un archivo Extensions2 para ampliar aún más el archivo Extensions.
 
 ## <a name="custom-policy-core-concepts"></a>Conceptos básicos de directivas personalizadas
 

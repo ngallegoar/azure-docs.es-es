@@ -1,40 +1,40 @@
 ---
-title: Conversión de un emparejamiento directo heredado en un recurso de Azure mediante el portal
+title: Conversión de un emparejamiento directo heredado en un recurso de Azure mediante Azure Portal
 titleSuffix: Azure
-description: Conversión de un emparejamiento directo heredado en un recurso de Azure mediante el portal
+description: Conversión de un emparejamiento directo heredado en un recurso de Azure mediante Azure Portal
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
 ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 9900414d38bd597d08a80d15e908228c06ce06ea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e49e4d5debe63b99039bbafbc14f7788367314f3
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75773899"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678848"
 ---
-# <a name="convert-a-legacy-direct-peering-to-azure-resource-using-the-portal"></a>Conversión de un emparejamiento directo heredado en un recurso de Azure mediante el portal
+# <a name="convert-a-legacy-direct-peering-to-an-azure-resource-by-using-the-azure-portal"></a>Conversión de un emparejamiento directo heredado en un recurso de Azure mediante Azure Portal
 
-En este artículo se describe cómo convertir un emparejamiento directo heredado existente en un recurso de Azure mediante el portal.
+En este artículo se describe cómo convertir un emparejamiento directo heredado existente en un recurso de Azure mediante Azure Portal.
 
-Si lo prefiere, puede completar esta guía con [PowerShell](howto-legacy-direct-powershell.md).
+Si lo prefiere, puede completar esta guía mediante [PowerShell](howto-legacy-direct-powershell.md).
 
 ## <a name="before-you-begin"></a>Antes de empezar
-* Revise la sección [Requisitos previos](prerequisites.md) y el [Tutorial del emparejamiento directo](walkthrough-direct-all.md) antes de comenzar la configuración.
+* Revise los [requisitos previos](prerequisites.md) y el [Tutorial del emparejamiento directo](walkthrough-direct-all.md) antes de comenzar la configuración.
 
 
-## <a name="convert-legacy-direct-peering-to-azure-resource"></a>Conversión de un emparejamiento directo heredado en un recurso de Azure
+## <a name="convert-a-legacy-direct-peering-to-an-azure-resource"></a>Conversión de un emparejamiento directo heredado en un recurso de Azure
 
-### <a name="sign-in-to-portal-and-select-your-subscription"></a>Inicio de sesión en el portal y selección de su suscripción
+### <a name="sign-in-to-the-portal-and-select-your-subscription"></a>Inicio de sesión en el portal y selección de su suscripción
 [!INCLUDE [Account](./includes/account-portal.md)]
 
-### <a name="convert-legacy-direct-peering"></a><a name=create></a>Conversión de un emparejamiento directo heredado
+### <a name="convert-a-legacy-direct-peering"></a><a name=create></a>Conversión de un emparejamiento directo heredado
 
 Puede convertir conexiones de emparejamiento heredadas mediante un recurso de **emparejamiento**.
 
-#### <a name="launch-resource-and-configure-basic-settings"></a>Inicio de un recurso y configuración de las opciones básicas
+#### <a name="launch-the-resource-and-configure-basic-settings"></a>Inicio de un recurso y configuración de las opciones básicas
 [!INCLUDE [direct-peering-basic](./includes/direct-portal-basic.md)]
 
 #### <a name="configure-connections-and-submit"></a>Configuración de conexiones y envío

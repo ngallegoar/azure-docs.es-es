@@ -8,32 +8,32 @@ ms.service: internet-peering
 ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: ba41f4ad8014ba3e85174b7c32e11394f0068643
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5d2a8c910c9e384e137785bc1cd491bc85c7e7a8
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75773887"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678489"
 ---
-# <a name="convert-a-legacy-direct-peering-to-azure-resource-using-powershell"></a>Conversión de un emparejamiento directo heredado en un recurso de Azure mediante PowerShell
+# <a name="convert-a-legacy-direct-peering-to-an-azure-resource-by-using-powershell"></a>Conversión de un emparejamiento directo heredado en un recurso de Azure mediante PowerShell
 
 En este artículo se describe cómo convertir un emparejamiento directo heredado existente en un recurso de Azure mediante cmdlets de PowerShell.
 
-Si lo prefiere, puede completar esta guía mediante el [portal](howto-legacy-direct-portal.md).
+Si lo prefiere, puede realizar los pasos de esta guía mediante [Azure Portal](howto-legacy-direct-portal.md).
 
 ## <a name="before-you-begin"></a>Antes de empezar
-* Revise la sección [Requisitos previos](prerequisites.md) y el [Tutorial del emparejamiento directo](walkthrough-direct-all.md) antes de comenzar la configuración.
+* Revise los [requisitos previos](prerequisites.md) y el [Tutorial del emparejamiento directo](walkthrough-direct-all.md) antes de comenzar la configuración.
 
-### <a name="working-with-azure-powershell"></a>Trabajo con Azure PowerShell
+### <a name="work-with-azure-powershell"></a>Funcionamiento con Azure PowerShell
 [!INCLUDE [CloudShell](./includes/cloudshell-powershell-about.md)]
 
-## <a name="convert-legacy-direct-peering-to-azure-resource"></a>Conversión de un emparejamiento directo heredado en un recurso de Azure
+## <a name="convert-a-legacy-direct-peering-to-an-azure-resource"></a>Conversión de un emparejamiento directo heredado en un recurso de Azure
 
 ### <a name="sign-in-to-your-azure-account-and-select-your-subscription"></a>Iniciar sesión en la cuenta de Azure y seleccione la suscripción
 [!INCLUDE [Account](./includes/account-powershell.md)]
 
-### <a name="get-legacy-direct-peering-for-conversion"></a><a name= get></a>Obtener el emparejamiento directo heredado para la conversión
-A continuación se muestra un ejemplo para obtener el emparejamiento directo heredado en la ubicación de emparejamiento de Seattle.
+### <a name="get-a-legacy-direct-peering-for-conversion"></a><a name= get></a>Obtención del emparejamiento directo heredado para la conversión
+En este ejemplo se muestra cómo obtener el emparejamiento directo heredado en la ubicación de emparejamiento de Seattle.
 
 ```powershell
 $legacyPeering = Get-AzLegacyPeering `
@@ -79,13 +79,13 @@ ProvisionedBandwidthInMbps : 20000
 ProvisioningState          : Succeeded
 ```
 
-### <a name="convert-legacy-direct-peering"></a>Convertir el emparejamiento directo heredado
+### <a name="convert-a-legacy-direct-peering"></a>Conversión de un emparejamiento directo heredado
 
 &nbsp;
 > [!IMPORTANT]
-> Tenga en cuenta que, al convertir el emparejamiento heredado en un recurso de Azure, no se admiten modificaciones. &nbsp;
+> Cuando convierte el emparejamiento heredado en un recurso de Azure, no se admiten las modificaciones. &nbsp;
 
-Use el comando siguiente para convertir el emparejamiento directo heredado en un recurso de Azure:
+Use este comando para convertir el emparejamiento directo heredado en un recurso de Azure:
 
 ```powershell
 $legacyPeering[0] | New-AzPeering `
@@ -112,7 +112,7 @@ Tags                 : {}
 ```
 
 ## <a name="additional-resources"></a>Recursos adicionales
-Puede obtener una descripción detallada de todos los parámetros ejecutando el siguiente comando:
+Puede obtener una descripción detallada de todos los parámetros ejecutando este comando:
 
 ```powershell
 Get-Help Get-AzPeering -detailed
@@ -122,4 +122,4 @@ Para obtener más información, consulte las [preguntas más frecuentes sobre el
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Creación o modificación de un emparejamiento directo mediante PowerShell](howto-direct-powershell.md).
+* [Creación o modificación de un emparejamiento directo mediante PowerShell](howto-direct-powershell.md)

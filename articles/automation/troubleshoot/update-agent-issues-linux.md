@@ -1,6 +1,6 @@
 ---
-title: Diagnóstico de Linux Hybrid Runbook Worker - Azure Update Management
-description: Aprenda a solucionar problemas con Azure Automation Hybrid Runbook Worker en Linux que admite Update Management.
+title: Solución de problemas del agente de actualización de Linux en Update Management de Azure Automation
+description: Obtenga información acerca de la solución de problemas del agente de actualización de Linux con la solución Update Management.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -9,36 +9,36 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: e60ba71607b99f0ea97e0725ffdd0740f3e9c579
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bba1c7e89a9c3bb1c9aa1567e36dd71a40f14636
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79235416"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81679072"
 ---
-# <a name="understand-and-resolve-linux-hybrid-runbook-worker-health-for-update-management"></a>Explicación y corrección del estado de Linux Hybrid Runbook Worker para Update Management
+# <a name="troubleshoot-linux-update-agent-issues"></a>Solución de problemas del agente de actualización de Linux
 
-Puede haber muchas razones por las que el equipo no muestre el estado **Listo** en Update Management. En Update Management, puede comprobar el estado de un agente de Hybrid Runbook Worker para determinar el problema subyacente. En este artículo se explica cómo ejecutar el solucionador de problemas para máquinas de Azure desde Azure Portal y para máquinas que no son de Azure en el [escenario sin conexión](#troubleshoot-offline).
+Puede haber muchas razones por las que el equipo no se muestra como Listo (correcto) en Update Management. En Update Management, puede comprobar el estado de un agente de Hybrid Runbook Worker para determinar el problema subyacente. En este artículo se explica cómo ejecutar el solucionador de problemas para máquinas de Azure desde Azure Portal y para máquinas que no son de Azure en el [escenario sin conexión](#troubleshoot-offline). 
 
 La siguiente lista enumera los tres estados de preparación en los que puede estar una máquina:
 
-* **Listo**: Hybrid Runbook Worker está implementado y se vio por última vez hace menos de 1 hora.
-* **Desconectado**: Hybrid Runbook Worker está implementado y se vio por última vez hace más de 1 hora.
-* **No configurado**: Hybrid Runbook Worker no se encuentra o no ha finalizado la incorporación.
+* Listo: Hybrid Runbook Worker está implementado y se vio por última vez hace menos de 1 hora.
+* Desconectado: Hybrid Runbook Worker está implementado y se vio por última vez hace más de 1 hora.
+* No configurado: Hybrid Runbook Worker no se encuentra o no ha finalizado su incorporación.
 
 > [!NOTE]
-> Puede haber un ligero retraso entre lo que Azure Portal muestra y el estado actual de la máquina.
+> Puede haber un ligero retraso entre lo que Azure Portal muestra y el estado actual de una máquina.
 
 ## <a name="start-the-troubleshooter"></a>Iniciar el solucionador de problemas
 
-Para las máquinas de Azure, al hacer clic en el vínculo **Solucionar problemas** en la columna **Preparación de actualizaciones del agente** del portal, se abre la página **Solucionar problemas del Agente de actualización**. Para las máquinas que no son de Azure, el vínculo le lleva a este artículo. Consulte las instrucciones sin conexión para solucionar los problemas de una máquina que no es de Azure.
+Para las máquinas de Azure, al hacer clic en el vínculo **Solucionar problemas** en la columna **Preparación de actualizaciones del agente** del portal, se abre la página Solucionar problemas del Agente de actualización. Para las máquinas que no son de Azure, el vínculo le lleva a este artículo. Consulte las instrucciones sin conexión para solucionar los problemas de una máquina que no es de Azure.
 
 ![Página de Lista de VM](../media/update-agent-issues-linux/vm-list.png)
 
 > [!NOTE]
-> Las comprobaciones requieren que la máquina esté en ejecución. Si la máquina virtual no se encuentra en ejecución, aparece un botón para **Iniciar la máquina virtual**.
+> Las comprobaciones requieren que la máquina esté en ejecución. Si la máquina virtual no se encuentra en ejecución, se muestra el botón **Iniciar la máquina virtual**.
 
-En la página **Solucionar problemas del Agente de actualización**, haga clic en **Ejecutar comprobaciones** para iniciar el solucionador de problemas. El solucionador de problemas usa [Ejecutar comando](../../virtual-machines/linux/run-command.md) para ejecutar un script en la máquina a fin de verificar las dependencias que el agente tiene. Una vez completado el solucionador de problemas, devuelve el resultado de las comprobaciones.
+En la página Solucionar problemas del Agente de actualización, haga clic en **Ejecutar comprobaciones** para iniciar el solucionador de problemas. El solucionador de problemas usa [Ejecutar comando](../../virtual-machines/linux/run-command.md) para ejecutar un script en la máquina a fin de verificar las dependencias que el agente tiene. Una vez completado el solucionador de problemas, devuelve el resultado de las comprobaciones.
 
 ![Página de solución de problemas](../media/update-agent-issues-linux/troubleshoot-page.png)
 
