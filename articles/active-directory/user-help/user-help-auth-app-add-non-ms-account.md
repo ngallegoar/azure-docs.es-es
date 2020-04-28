@@ -36,7 +36,7 @@ Por lo general, para todas las cuentas personales, debe realizar los siguientes 
     >[!Note]
     >Si es la primera vez que configura la aplicación Microsoft Authenticator, es posible que reciba un mensaje en el que se le pregunta si quiere permitir que la aplicación acceda a la cámara (iOS) o permitir que la aplicación tome fotografías y grabe vídeo (Android). Debe seleccionar **Permitir** para que la aplicación de autenticación pueda acceder a la cámara y tomar una fotografía del código QR en el paso siguiente. Aunque no otorgue permiso a la cámara, podrá configurar la aplicación de autenticación, pero tendrá que agregar la información de código manualmente. Para más información sobre cómo agregar manualmente código, consulte [Agregar manualmente una cuenta a la aplicación](user-help-auth-app-add-account-manual.md).
 
-Ofrecemos aquí el proceso para las cuentas de Facebook, Google, GitHub y Amazon, pero dicho proceso es el mismo para cualquier otra aplicación, como Adobe, Netflix o Instagram.
+En este artículo, ofrecemos el proceso para las cuentas de Facebook, Google, GitHub y Amazon, pero dicho proceso es el mismo para cualquier otra aplicación, como Adobe, Netflix o Instagram.
 
 ## <a name="add-your-google-account"></a>Adición de la cuenta de Google
 
@@ -54,7 +54,7 @@ Puede agregar su cuenta de Google activando primero la verificación en dos fase
 
 2. En la página **Get codes from the Authenticator app** (Obtener códigos de la aplicación autenticadora), seleccione **Android** o **iPhone** según su tipo de teléfono y, a continuación, seleccione **Siguiente**.
 
-    Se le asigna un código QR que puede usar para asociar automáticamente la cuenta con la aplicación Microsoft Authenticator. No cierre esta ventana.
+    Se le asignará un código QR que puede usar para asociar automáticamente la cuenta con la aplicación Microsoft Authenticator. No cierre esta ventana.
 
 3. Abra la aplicación Microsoft Authenticator, seleccione **Agregar cuenta** en el icono **Personalizar y controlar** en la esquina superior derecha y, a continuación, seleccione **Otra cuenta (Google, Facebook, etc.)** .
 
@@ -94,7 +94,7 @@ Puede agregar su cuenta de Facebook activando primero la verificación en dos fa
 
 1. En la página de Facebook del equipo, vaya a la sección **Add a backup** (Agregar una copia de seguridad) y, a continuación, elija **Configurar** en el área **Aplicación de autenticación**.
 
-    Se le asigna un código QR que puede usar para asociar automáticamente la cuenta con la aplicación Microsoft Authenticator. No cierre esta ventana.
+    Se le asignará un código QR que puede usar para asociar automáticamente la cuenta con la aplicación Microsoft Authenticator. No cierre esta ventana.
 
 2. Abra la aplicación Microsoft Authenticator, seleccione **Agregar cuenta** en el icono **Personalizar y controlar** en la esquina superior derecha y, a continuación, seleccione **Otra cuenta (Google, Facebook, etc.)** .
 
@@ -109,7 +109,7 @@ Puede agregar su cuenta de Facebook activando primero la verificación en dos fa
 
 5. Seleccione **Siguiente** en la página **Autenticación en dos fases** del equipo y, a continuación, escriba el código de verificación de seis dígitos que se proporciona en la aplicación de su cuenta de Facebook.
 
-    Se ha comprobado la cuenta y ya puede usar la aplicación para comprobar su cuenta.
+    Se verifica la cuenta y, a continuación, ya puede usar la aplicación para verificar su cuenta.
 
     >[!NOTE]
     >Para obtener más información acerca de la verificación en dos fases y su cuenta de Facebook, consulte [¿Qué es la autenticación en dos pasos y cómo funciona?](https://www.facebook.com/help/148233965247823).

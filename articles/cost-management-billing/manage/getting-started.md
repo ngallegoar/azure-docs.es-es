@@ -23,7 +23,7 @@ Al suscribirse a Azure, hay varias cosas que puede hacer para obtener una idea m
 - Supervise los costos con [presupuestos](../costs/tutorial-acm-create-budgets.md), [alertas ](../costs/cost-mgt-alerts-monitor-usage-spending.md) y [análisis de costos](../costs/quick-acm-cost-analysis.md).
 - Revise los cargos de la factura comparándolos con [archivos de uso detallados](download-azure-invoice-daily-usage-date.md).
 - Integre los datos de facturación y de costos en su propio sistema de generación de informes mediante las API de [facturación](https://docs.microsoft.com/rest/api/billing/) y [consumo](https://docs.microsoft.com/rest/api/consumption/).
-- Use recursos y herramientas adicionales para los clientes de Contrato Enterprise (EA), Proveedor de soluciones en la nube (CSP) y Patrocinio de Azure.
+- Use recursos y herramientas adicionales para los clientes del Contrato Enterprise (EA), el Proveedor de soluciones en la nube (CSP) y el Patrocinio de Azure.
 - Utilice [algunos de los servicios más populares de Azure de forma gratuita durante 12 meses](create-free-services.md) disponibles con la [cuenta gratuita de Azure](https://azure.microsoft.com/free/). Junto con las recomendaciones que se enumeran a continuación, consulte [Evitar cargos en su cuenta gratuita de Azure](avoid-charges-free-account.md).
 
 Si necesita cancelar su suscripción a Azure, consulte [Cancelación de la suscripción a Azure](cancel-azure-subscription.md).
@@ -33,7 +33,7 @@ Si necesita cancelar su suscripción a Azure, consulte [Cancelación de la suscr
 Use una de las siguientes herramientas para calcular el costo de usar un servicio de Azure:
 - Calculadora de precios de Azure
 - Hoja de precios de Azure
-- Portal de Azure
+- Azure Portal
 
 Las imágenes de las secciones siguientes muestran ejemplos de precios en dólares estadounidenses.
 
@@ -43,7 +43,7 @@ Consulte la [calculadora de precios](https://azure.microsoft.com/pricing/calcula
 
 ![Captura de pantalla del menú de la calculadora de precios](./media/getting-started/pricing-calc.png)
 
-Puede ver el costo estimado de cualquier servicio de Azure de primera entidad. Por ejemplo, en la captura de pantalla siguiente, se estima que una máquina virtual (VM) Windows A1 cuesta 66,96 dólares al mes en horas de proceso si la deja ejecutándose todo el tiempo:
+Puede ver el costo estimado de cualquier servicio de Azure propio. Por ejemplo, en la captura de pantalla siguiente, se estima que una máquina virtual (VM) Windows A1 cuesta 66,96 dólares al mes en horas de proceso si la deja ejecutándose todo el tiempo:
 
 ![Captura de pantalla de la calculadora de precios en la que se muestra un costo estimado de la máquina virtual Windows A1 al mes](./media/getting-started/pricing-calcvm.png)
 
@@ -120,7 +120,7 @@ Use las API de [facturación](https://docs.microsoft.com/rest/api/billing/) y [c
 ## <a name="additional-resources-and-special-cases"></a><a name="other-offers"></a> Recursos adicionales y casos especiales
 
 ### <a name="ea-csp-and-sponsorship-customers"></a>Clientes patrocinadores, CSP y EA
-Hable con el administrador de la cuenta o el asociado de Azure para conocer más información.
+Hable con el administrador de la cuenta o el asociado de Azure para empezar.
 
 | Oferta | Recursos |
 |-------------------------------|-----------------------------------------------------------------------------------|
@@ -132,13 +132,13 @@ Si es el administrador de una infraestructura de TI para una organización grand
 
 ### <a name="enterprise-agreement-cost-views-in-the-azure-portal"></a><a name="EA"></a> Vistas de los costos de Contrato Enterprise en Azure Portal
 
-Las vistas de los costos de Enterprise están actualmente en la versión preliminar pública. Elementos que tener en cuenta:
+Actualmente, las vistas de los costos de Enterprise se encuentran en versión preliminar pública. Aspectos a tener en cuenta:
 
 - Los costos de suscripción se basan en el uso y no incluyen los importes de prepago, uso por encima del límite, cantidades incluidas, ajustes ni impuestos. Los cargos reales se calculan en el nivel de inscripción.
-- Los importes que se muestran en Azure Portal podrían ser diferentes de lo que está en Enterprise Portal. Las actualizaciones de Enterprise Portal pueden tardar unos minutos antes de que se muestren los cambios en Azure Portal.
+- Los importes que se muestran en Azure Portal podrían ser diferentes de lo que está en Enterprise Portal. Las actualizaciones de Enterprise Portal pueden tardar unos minutos antes de mostrarse en Azure Portal.
 - Si no ve los costos, puede deberse a uno de los siguientes motivos:
     - No tiene permisos en el nivel de suscripción. Para ver las vistas de costos de la empresa, debe ser un lector de facturación, un lector, un colaborador o un propietario en el nivel de suscripción.
-    - Es el propietario de la cuenta y su administrador de inscripción ha deshabilitado la opción para que el propietario de la cuenta vea los cargos.  Póngase en contacto con el administrador de inscripción para obtener acceso a los costos.
+    - Es el propietario de la cuenta y su administrador de inscripción ha deshabilitado la configuración "AO view charges" ("Cambios en la vista del propietario de la cuenta").  Póngase en contacto con el administrador de inscripción para obtener acceso a los costos.
     - Es el administrador del departamento y su administrador de inscripción ha deshabilitado la opción para que el **administrador del departamento vea los cargos**.  Póngase en contacto con el administrador de inscripciones para acceder.
     - Compró Azure a través de un asociado de canal y el asociado no publicó la información sobre precios.  
 - Si actualiza la configuración relacionada con el costo en Enterprise Portal, los cambios tardan unos minutos en mostrarse en Azure Portal.
