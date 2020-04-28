@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 69ef68dafc2385eb5614179c3d04265250383104
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b7dd00d28ecfe844094677e0ae19f4fd359d97d0
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79471547"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687802"
 ---
 # <a name="front-door-routing-methods"></a>Métodos de enrutamiento de Front Door
 
@@ -27,7 +27,7 @@ Hay cuatro conceptos básicos para el enrutamiento del tráfico disponible a Fro
 * **[Latencia](#latency):** el enrutamiento basado en la latencia garantiza que las solicitudes se envían a los back-ends con menor latencia aceptables dentro de un intervalo de confidencialidad. Básicamente, las solicitudes de usuario se envían al conjunto de servidores back-end "más cercanos" con respecto a la latencia de red.
 * **[Prioridad](#priority):** puede asignar prioridades a los diferentes back-end cuando quiera usar un back-end del servicio principal para todo el tráfico y proporcionar copias de seguridad en caso de que el back-end principal o de copia de seguridad no estén disponibles.
 * **[Ponderado](#weighted):** puede asignar pesos a sus diferentes back-end cuando desee distribuir el tráfico entre un conjunto de back-end, ya sea de manera uniforme o según los coeficientes de peso.
-* **Afinidad de sesión:** puede configurar la afinidad de sesión para los hosts de front-end o dominios cuando desee que las solicitudes posteriores de un usuario se envíen al mismo back-end siempre y cuando la sesión del usuario esté todavía activa y la instancia de back-end aparezca como correcta en los sondeos de estado de mantenimiento. 
+* **[Afinidad de sesión](#affinity)**: puede configurar la afinidad de sesión para los hosts de front-end o dominios cuando desee que las solicitudes posteriores de un usuario se envíen al mismo back-end siempre y cuando la sesión del usuario esté todavía activa y la instancia de back-end aparezca como correcta en los sondeos de estado de mantenimiento. 
 
 Todas las configuraciones de Front Door incluyen la supervisión del estado de mantenimiento de los servidores back-end y la conmutación por error global instantánea automatizada. Para más información, consulte [Front Door Backend Monitoring](front-door-health-probes.md) (Supervisión de servidores back-end en Front Door). Front Door se puede configurar para trabajar en función de un método de enrutamiento único y, dependiendo de las necesidades de su aplicación, puede usar varios o todos estos métodos de enrutamientos combinados para crear una topología de enrutamiento óptima.
 
