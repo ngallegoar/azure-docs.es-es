@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
-ms.openlocfilehash: 39e3521339947263161979033406fb39e397373f
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 61fbaf37577efdab0b147d437ae78fc4df0764cb
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80348971"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084964"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Desencadenador de Azure Blob Storage para Azure Functions
 
@@ -391,7 +391,7 @@ Azure Functions almacena confirmaciones de blobs en un contenedor llamado *azure
 * El nombre del blob
 * ETag (un identificador de la versión del blob, por ejemplo: "0x8D1DC6E70A277EF")
 
-Si desea forzar el reprocesamiento de un blob, puede eliminar manualmente la recepción de ese blob desde el contenedor *azure-webjobs-hosts* . Al volver a procesar podría no producirse inmediatamente, pero se garantiza que se producirá más adelante en un momento dado.
+Si desea forzar el reprocesamiento de un blob, puede eliminar manualmente la recepción de ese blob desde el contenedor *azure-webjobs-hosts* . Al volver a procesar podría no producirse inmediatamente, pero se garantiza que se producirá más adelante en un momento dado. Para volver a procesarlo de inmediato, se puede actualizar el blob *scaninfo* en *azure-webjobs-hosts/blobscaninfo*. Cualquier blob con una marca de tiempo de última modificación después de la propiedad `LatestScan` se volverá a examinar.
 
 ## <a name="poison-blobs"></a>Blobs dudosos
 

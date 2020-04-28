@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 1bff46c8584934ab8bcffce74763edc8363533d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d855019be7f357a35a26d14e68ba3d427d984e17
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76988250"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086035"
 ---
 # <a name="azcopy-sync"></a>azcopy sync
 
@@ -65,6 +65,9 @@ Sincronización de un solo archivo:
 ```azcopy
 azcopy sync "/path/to/file.txt" "https://[account].blob.core.windows.net/[container]/[path/to/blob]"
 ```
+
+> [!NOTE]
+> *Debe* existir el blob de destino. Use `azcopy copy` para copiar un solo archivo que todavía no exista en el destino. De lo contrario, se produce el siguiente error: `Cannot perform sync due to error: sync must happen between source and destination of the same type, e.g. either file <-> file, or directory/container <-> directory/container`.
 
 Igual que antes, pero en esta ocasión también procesa el hash MD5 del contenido del archivo y lo guarda como la propiedad Content-MD5 del blob:
 

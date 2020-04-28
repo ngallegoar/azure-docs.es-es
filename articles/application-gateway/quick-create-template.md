@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 03/23/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 0612371605f6b216eadeef49d9adb1497ba31591
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: cce3ef20a93c6d7a24bfa312501d2f8cc8ed9273
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80148234"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604892"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---resource-manager-template"></a>Inicio rápido: Dirección del tráfico web con Azure Application Gateway en una plantilla de Resource Manager
 
@@ -57,7 +57,7 @@ Implementación de la plantilla de Resource Manager en Azure:
 
 1. Seleccione **Implementar en Azure** para iniciar sesión en Azure y abrir la plantilla. La plantilla crea una puerta de enlace de aplicaciones, la infraestructura de red y dos máquinas virtuales en el grupo de back-end que ejecuta IIS.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fag-docs-qs%2Fazuredeploy.json"><img src="./media/quick-create-template/deploy-to-azure.png" alt="deploy to azure"/></a>
+   [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fag-docs-qs%2Fazuredeploy.json)
 
 2. Seleccione o cree el grupo de recursos, y escriba el nombre de usuario y la contraseña del administrador de la máquina virtual.
 3. Seleccione **Acepto los términos y condiciones indicadas anteriormente** y, después, seleccione **Comprar**. La implementación puede tardar 20 minutos o más en completarse.

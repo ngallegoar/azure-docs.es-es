@@ -7,14 +7,14 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/20/2020
 ms.author: lahugh
-ms.openlocfilehash: 7834c8a32d4d85fc354bac209e13f19f3b8315fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d35e37e53b84d317446a93a2301fc3b703b426b7
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80256936"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085729"
 ---
-# <a name="preview-dcsv2-series"></a>Vista previa: Serie DCsv2
+# <a name="dcsv2-series"></a>Serie DCsv2
 
 
 La serie DCsv2 puede ayudar a proteger la confidencialidad y la integridad de los datos y del código mientras se están procesando en la nube pública. Estas máquinas están respaldadas por la última generación del procesador Intel XEON E-2288G con la tecnología SGX. Con la tecnología Intel Turbo Boost, estas máquinas pueden llegar hasta 5,0 GHz. Las instancias de la serie DCsv2 permiten a los clientes compilar aplicaciones seguras basadas en enclave para proteger su código y sus datos mientras se usan.
@@ -41,9 +41,9 @@ Actualizaciones con conservación de memoria: No compatible
 | Standard_DC8_v2  | 8   | 32          | 400                    | 8              | 16000/128 (172)                                                         | 12800/192                                 | 2                                            |
 
 - Las VM de la serie DCsv2 son [VM de 2.ª generación](./linux/generation-2.md#creating-a-generation-2-vm) y solo admiten imágenes de `Gen2`.
-- Actualmente solo están disponibles en Sur de Reino Unido y Centro de Canadá.
-- Generación anterior de máquinas virtuales de proceso confidencial: [Serie DC](sizes-previous-gen.md)
-- Creación de VM DCsv2 con Azure Portal [Creación de una VM: Portal](./linux/quick-create-portal.md)
+- Actualmente solo está disponible en Sur de Reino Unido, Centro de Canadá y Este de EE. UU.
+- Generación anterior de máquinas virtuales de proceso confidencial: [Serie DC](sizes-previous-gen.md#preview-dc-series)
+- Creación de máquinas virtuales DCsv2 mediante [Azure Portal](./linux/quick-create-portal.md) o [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.acc-virtual-machine-v2?tab=overview)
 
 
 

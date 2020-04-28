@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: 8674438032ebd925296c95e9ffa0a2a0b95322f1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3659070d4ffd4346a8827d2748e67db436fc15b3
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79369784"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085746"
 ---
 #     <a name="custom-entity-lookup-cognitive-skill-preview"></a>Aptitud cognitiva de búsqueda de entidades personalizadas (versión preliminar)
 
@@ -63,13 +63,13 @@ Los parámetros distinguen mayúsculas de minúsculas.
 
 Hay tres formas diferentes de proporcionar la lista de entidades personalizadas a la aptitud de búsqueda de entidades personalizadas. Puede proporcionar la lista en un archivo .CSV, un archivo .JSON o como una definición insertada como parte de la definición de la aptitud.  
 
-Si el archivo de definición es un archivo .CSV o .JSON, la ruta de acceso del archivo se debe proporcionar como parte del parámetro *entitiesDefitionUri*. En este caso, el archivo se descarga una vez al principio de cada ejecución del indexador. El archivo debe ser accesible siempre que se pretenda ejecutar el indexador. Además, el archivo debe estar codificado como UTF-8.
+Si el archivo de definición es un archivo CSV o JSON, la ruta de acceso del archivo se debe proporcionar como parte del parámetro *entitiesDefitionUri*. En este caso, el archivo se descarga una vez al principio de cada ejecución del indexador. El archivo debe ser accesible siempre que se pretenda ejecutar el indexador. Además, el archivo debe estar codificado como UTF-8.
 
 Si la definición se proporciona insertada, debe proporcionarse como insertada como contenido del parámetro *inlineEntitiesDefinition* de la aptitud. 
 
 ### <a name="csv-format"></a>Formato CSV
 
-Puede proporcionar la definición de las entidades personalizadas que se van a buscar en un archivo de valores separados por comas (CSV) proporcionando la ruta de acceso al archivo y configurándolo mediante el parámetro *entitiesDefitionUri* de la aptitud. La ruta de acceso debe estar en una ubicación https. El archivo de definición puede tener un tamaño máximo de 10 MB.
+Puede proporcionar la definición de las entidades personalizadas que se van a buscar en un archivo de valores separados por comas (CSV); para ello, especifique la ruta de acceso al archivo y configúrelo en el parámetro *entitiesDefinitionUri* de la aptitud. La ruta de acceso debe estar en una ubicación https. El archivo de definición puede tener un tamaño máximo de 10 MB.
 
 El formato CSV es sencillo. Cada línea representa una entidad única, como se muestra a continuación:
 

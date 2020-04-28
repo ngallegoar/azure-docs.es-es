@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc41a18063202bfefb9ddf7238de17fc691984af
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 28e591234e28770a90bed827e4d36c6342661dd1
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77612146"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81866600"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Escritura de expresiones para la asignación de atributos en Azure Active Directory
 Al configurar el aprovisionamiento para una aplicación SaaS, uno de los tipos de asignaciones de atributos que puede especificar es una asignación de expresiones. En estos casos, debe escribir una expresión similar a un script que permite transformar los datos de los usuarios en formatos más aceptables para la aplicación SaaS.
@@ -469,11 +469,11 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
 
 **Descripción:**<br> Requiere dos argumentos como mínimo, que son las reglas de generación de valor único definidas con expresiones. La función evalúa cada regla y, a continuación, comprueba la unicidad del valor generado en el directorio o la aplicación de destino. Se devolverá el primer valor único encontrado. Si todos los valores ya existen en el destino, la entrada se depositará y el motivo se anota en los registros de auditoría. No hay ningún límite superior para el número de argumentos que se pueden proporcionar.
 
-> [!NOTE]
-> - Esta es una función de nivel superior, no se puede anidar.
-> - Esta función no se puede aplicar a los atributos que tienen una precedencia de coincidencia.  
-> - Esta función solo está destinada a usarse para creaciones de entradas. Al usarla con un atributo, establezca la propiedad **Apply Mapping** (Aplicar asignación) en **Solo durante la creación del objeto**.
-> - Esta función solo se admite actualmente para "WorkDay para el aprovisionamiento de usuarios de Active Directory". No se puede usar con otras aplicaciones de aprovisionamiento. 
+
+ - Esta es una función de nivel superior, no se puede anidar.
+ - Esta función no se puede aplicar a los atributos que tienen una precedencia de coincidencia.   
+ - Esta función solo está destinada a usarse para creaciones de entradas. Al usarla con un atributo, establezca la propiedad **Apply Mapping** (Aplicar asignación) en **Solo durante la creación del objeto**.
+ - Esta función solo se admite actualmente para "WorkDay para el aprovisionamiento de usuarios de Active Directory". No se puede usar con otras aplicaciones de aprovisionamiento. 
 
 
 **Parámetros:**<br> 

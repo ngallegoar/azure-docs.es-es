@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 72bf08dce36d857c1fe91bbe9806336dfa185f7e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ed10e998ea05b6687190b1f87095f8bc28265905
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78671973"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086622"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Solución de errores y advertencias comunes con el indexador en Azure Cognitive Search
 
@@ -91,6 +91,8 @@ El indexador no pudo ejecutar una aptitud del conjunto de aptitudes.
 
 ## <a name="error-could-not-execute-skill-because-the-web-api-request-failed"></a>Error: No se pudo ejecutar la aptitud debido a un error en la solicitud a la API web
 Error al ejecutar la aptitud porque no se pudo realizar la llamada a la API web. Por lo general, esta clase de error se produce cuando se usan aptitudes personalizadas, en cuyo caso necesitará depurar el código personalizado para resolver el problema. Por el contrario, si el error proviene de una aptitud integrada, consulte el mensaje de error para saber cómo corregir el problema.
+
+Durante la depuración de este problema, asegúrese de prestar atención a las [advertencias de entrada de aptitudes](#warning-skill-input-was-invalid) de esta aptitud. Puede que el punto de conexión de la API web no funcione porque el indexador está pasándole una entrada inesperada.
 
 <a name="could-not-execute-skill-because-web-api-skill-response-is-invalid"/>
 

@@ -1,20 +1,20 @@
 ---
 title: Implementación de la detección de modelo de IoT Plug and Play (versión preliminar) | Microsoft Docs
 description: Los desarrolladores de soluciones deben aprender a implementar la detección de modelo de IoT Plug and Play en las soluciones.
-author: ChrisGMsft
-ms.author: chrisgre
+author: Philmea
+ms.author: philmea
 ms.date: 12/26/2019
 ms.topic: conceptual
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 94e5e6fb826528aab1a358d44cb51bfcd6219032
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: 74eb38269a3c7fbdc6d95554a8a8cef14eb0b787
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80673589"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770470"
 ---
 # <a name="implement-iot-plug-and-play-preview-model-discovery-in-an-iot-solution"></a>Implementación de la detección de modelo de IoT Plug and Play (versión preliminar) en una solución de IoT
 

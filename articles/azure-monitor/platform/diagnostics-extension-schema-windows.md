@@ -6,12 +6,12 @@ ms.topic: reference
 author: bwren
 ms.author: bwren
 ms.date: 01/20/2020
-ms.openlocfilehash: 4c711e1b0a63fbcf978c0e4467eadaed8d91f3de
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c04fc82b8b04e474a656a0849177f7aa5d27b427
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79234312"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81676427"
 ---
 # <a name="windows-diagnostics-extension-schema"></a>Esquema de Windows Diagnostics Extension
 Azure Diagnostics Extension es un agente de Azure Monitor que recopila datos de supervisión del sistema operativo invitado y de las cargas de trabajo de los recursos de proceso. En este artículo, se describe el esquema que se usa para configurar Diagnostics Extension en máquinas virtuales Windows y otros recursos de proceso.
@@ -223,9 +223,8 @@ Elemento de nivel superior del archivo de configuración de diagnóstico.
 
 |Elemento secundario|Descripción|  
 |-------------------|-----------------|  
-|**DataSource**|Los registros de eventos de Windows que se van a recopilar. Atributo necesario:<br /><br /> **name**: la consulta de XPath que describe los eventos de Windows que se van a recopilar. Por ejemplo:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Para recopilar todos los eventos, especifique "*".|  
-
-
+|**DataSource**|Los registros de eventos de Windows que se van a recopilar. Atributo necesario:<br /><br /> **name**: la consulta de XPath que describe los eventos de Windows que se van a recopilar. Por ejemplo:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Para recopilar todos los eventos, especifique "*". |
+|**sinks** | Agregado en 1.5. Opcional. Apunta a una ubicación de receptor para enviar datos de diagnóstico de todos los elementos secundarios que admiten receptores. Ejemplo de receptor es Application Insights o Event Hubs.|  
 
 
 ## <a name="logs-element"></a>Elemento Logs  

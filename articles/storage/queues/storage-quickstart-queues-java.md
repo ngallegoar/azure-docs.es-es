@@ -7,12 +7,12 @@ ms.date: 12/4/2019
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.openlocfilehash: 9cfedd322db721156584844e949724ab2d104968
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 013281db2821c99f6942edd1322f4978e100c144
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78199808"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81729850"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-java"></a>Inicio rápido: Biblioteca cliente de Azure Queue Storage v12 para Java
 
@@ -366,6 +366,6 @@ En este inicio rápido, ha aprendido a crear una cola y a agregarle mensajes med
 Para ver tutoriales, ejemplos, artículos de inicio rápido y otra documentación, visite:
 
 > [!div class="nextstepaction"]
-> [Azure para desarrolladores de Java Cloud](https://docs.microsoft.com/azure/java/)
+> [Azure para desarrolladores de Java Cloud](https://docs.microsoft.com/azure/developer/java/)
 
 * Para ver las aplicaciones de ejemplo de Azure Queue Storage, continúe con los [ejemplos de la biblioteca cliente del SDK de Azure Queue Storage para Java v12](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue).

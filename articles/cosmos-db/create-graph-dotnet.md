@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 02/21/2020
 ms.author: lbosq
-ms.openlocfilehash: f700b06e6ade0d72178777b67cb734f3120b36dc
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: bf453587b354b5db3f3ef1a80f974bcb8f8f4e14
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79214963"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81730017"
 ---
 # <a name="quickstart-build-a-net-framework-or-core-application-using-the-azure-cosmos-db-gremlin-api-account"></a>Inicio rápido: Compilación de una aplicación .NET Framework o Core mediante la cuenta de Gremlin API de Azure Cosmos DB
 
@@ -118,7 +118,7 @@ Ahora vuelva a Azure Portal para obtener la información de la cadena de conexi�
 1. Una vez copiados el URI y la CLAVE PRINCIPAL de la cuenta, guárdelos en una variable de entorno nueva en la máquina local que ejecuta la aplicación. Para establecer la variable de entorno, abra una ventana del símbolo del sistema y ejecute el siguiente comando. Asegúrese de reemplazar los valores de <URI_de_la_cuenta_de_Azure_Cosmos> y <CLAVE_PRINCIPAL_de_la_cuenta_de_Azure_Cosmos>.
 
    ```console
-   setx EndpointUrl "https://<your cosmos db account name>.gremlin.cosmosdb.azure.com"
+   setx EndpointUrl "<your Azure Cosmos account name>.gremlin.cosmosdb.azure.com"
    setx PrimaryKey "<Your_Azure_Cosmos_account_PRIMARY_KEY>"
    ```
 

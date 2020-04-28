@@ -13,12 +13,13 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
-ms.openlocfilehash: 5b2f8231952d25f5858f8e06a957f1056ecc3651
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ROBOTS: NOINDEX
+ms.openlocfilehash: bb6cb6d86933166d2427788d697d9cd38cf04bf0
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76768487"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460178"
 ---
 # <a name="quickstart-create-and-run-simple-r-scripts-in-azure-sql-database-machine-learning-services-preview"></a>Inicio rápido: Crear y ejecutar scripts de R sencillos en Azure SQL Database Machine Learning Services (versión preliminar)
 
@@ -30,11 +31,8 @@ En este inicio rápido, va a crear y ejecutar un conjunto de scripts de R median
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Una [base de datos de Azure SQL](sql-database-single-database-get-started.md) con una [regla de firewall de nivel de servidor](sql-database-server-level-firewall-rule.md)
-- [Machine Learning Services](sql-database-machine-learning-services-overview.md) con R habilitado. [Suscríbase a la versión preliminar](sql-database-machine-learning-services-overview.md#signup).
+- [Machine Learning Services](sql-database-machine-learning-services-overview.md) con R habilitado.
 - [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) (SSMS)
-
-> [!NOTE]
-> Durante la versión preliminar pública, Microsoft le incorporará y habilitará el aprendizaje automático para la base de datos nueva o existente.
 
 En este ejemplo, se usa el procedimiento almacenado [sp_execute_external_script](/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) para encapsular un script de R bien formado.
 

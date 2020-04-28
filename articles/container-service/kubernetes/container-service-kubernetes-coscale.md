@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/22/2017
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: f1d0ca1ffc2e7a3d645ac5acbaafdf45f85550be
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f195a5c05c6c95dac898b2d471747952a3446d52
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76271108"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81681727"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-kubernetes-cluster-with-coscale"></a>(EN DESUSO) Supervisión de un clúster de Kubernetes de Azure Container Service con CoScale
 
@@ -62,7 +62,7 @@ az acs kubernetes install-cli
 Kubernetes utiliza los [DaemonSets](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) para ejecutar una única instancia de un contenedor en cada host del clúster.
 Son perfectos para ejecutar agentes de supervisión como el agente de CoScale.
 
-Después de iniciar sesión en CoScale, vaya a la [página de los agentes](https://app.coscale.com/) para instalar agentes de CoScale en su clúster mediante un DaemonSet. La interfaz de usuario de CoScale proporciona pasos de configuración guiada para crear a un agente y comenzar a supervisar todo el clúster de Kubernetes.
+Después de iniciar sesión en CoScale, vaya a la [página de los agentes](https://developer.newrelic.com/) para instalar agentes de CoScale en su clúster mediante un DaemonSet. La interfaz de usuario de CoScale proporciona pasos de configuración guiada para crear a un agente y comenzar a supervisar todo el clúster de Kubernetes.
 
 ![Configuración del agente de CoScale](./media/container-service-kubernetes-coscale/installation.png)
 
@@ -70,7 +70,7 @@ Para iniciar al agente en el clúster, ejecute el comando suministrado para tal 
 
 ![Inicie al agente de CoScale](./media/container-service-kubernetes-coscale/agent_script.png)
 
-Eso es todo. Una vez que los agentes están en funcionamiento debería ver datos en la consola durante unos minutos. Visite la [página de los agentes](https://app.coscale.com/) para ver un resumen del clúster, realizar los pasos de configuración adicionales y ver los paneles, como la **información general del clúster de Kubernetes**.
+Eso es todo. Una vez que los agentes están en funcionamiento debería ver datos en la consola durante unos minutos. Visite la [página de los agentes](https://developer.newrelic.com/) para ver un resumen del clúster, realizar los pasos de configuración adicionales y ver los paneles, como la **información general del clúster de Kubernetes**.
 
 ![Información general del clúster de Kubernetes](./media/container-service-kubernetes-coscale/dashboard_clusteroverview.png)
 

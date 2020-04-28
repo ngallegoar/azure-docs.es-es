@@ -18,7 +18,7 @@
       href: groups-quickstart-naming-policy.md
 - name: Tutoriales
   items:
-    - name: Creación de un grupo rellenado dinámicamente
+    - name: Creación de un grupo dinámico
       href: groups-dynamic-tutorial.md
 - name: Conceptos
   expanded: true
@@ -40,21 +40,23 @@
       items:
         - name: Creación de usuarios
           href: /azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
-        - name: Creación masiva de usuarios (versión preliminar)
+        - name: Creación masiva de usuarios
           href: users-bulk-add.md
         - name: Administración de perfiles de usuario
           href: /azure/active-directory/fundamentals/active-directory-users-profile-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-        - name: Descarga de información de usuario (versión preliminar)
+        - name: Delegación de Mi personal
+          href: my-staff-configure.md
+        - name: Descarga de información de usuario
           href: users-bulk-download.md
         - name: Uso compartido de cuentas de usuario
           href: users-sharing-accounts.md
         - name: Asignación de usuarios a roles de administración
           href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-        - name: Eliminación en bloque de usuarios (versión preliminar)
+        - name: Eliminación masiva de usuarios
           href: users-bulk-delete.md
         - name: Restaurar un usuario eliminado
           href: /azure/active-directory/fundamentals/active-directory-users-restore?context=azure/active-directory/users-groups-roles/context/ugr-context
-        - name: Restauración en bloque de usuarios (versión preliminar)
+        - name: Restauración masiva de usuarios
           href: users-bulk-restore.md
         - name: Cierre de una cuenta en un directorio no administrado
           href: users-close-account.md
@@ -82,42 +84,18 @@
           href: /azure/active-directory/connect/active-directory-aadconnect?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: Administrar grupos
       items:
-        - name: Búsqueda de listas de grupos y miembros (versión preliminar)
-          href: groups-members-owners-search.md
+        - name: "Administración del acceso con grupos de Azure\_AD"
+          href: /azure/active-directory/fundamentals/active-directory-manage-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
         - name: Creación de un grupo (Azure Portal)
           href: /azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-        - name: Asignación de etiquetas de confidencialidad (versión preliminar)
-          href: groups-assign-sensitivity-labels.md
         - name: Administración de grupos en PowerShell for Graph (v2)
           href: groups-settings-v2-cmdlets.md
-        - name: Administración de grupos en PowerShell MSOnline
+        - name: Administración de grupos con PowerShell MSOnline
           href: groups-settings-cmdlets.md
+        - name: Búsqueda de listas de grupos y miembros
+          href: groups-members-owners-search.md
         - name: Incorporación o eliminación de miembros del grupo
           href: /azure/active-directory/fundamentals/active-directory-groups-members-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-        - name: Incorporación masiva de miembros (versión preliminar)
-          href: groups-bulk-import-members.md
-        - name: Eliminación en bloque de miembros (versión preliminar)
-          href: groups-bulk-remove-members.md
-        - name: Descarga masiva de la lista de miembros (versión preliminar)
-          href: groups-bulk-download-members.md
-        - name: Administración de propietarios de grupo
-          href: /azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners?context=azure/active-directory/users-groups-roles/context/ugr-context
-        - name: Descarga masiva de la lista de grupos (versión preliminar)
-          href: groups-bulk-download.md
-        - name: Administración de grupos en grupos
-          href: /azure/active-directory/fundamentals/active-directory-groups-membership-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-        - name: Incorporación del acceso de grupo a aplicaciones SaaS
-          href: groups-saasapps.md
-        - name: Referencia sobre nomenclatura de grupos
-          href: groups-naming-policy.md
-        - name: Referencia sobre expiración de grupos
-          href: groups-lifecycle.md
-        - name: Restauración de los grupos eliminados
-          href: groups-restore-deleted.md
-        - name: Administración de la configuración de grupo
-          href: /azure/active-directory/fundamentals/active-directory-groups-settings-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-        - name: Configuración del grupo de autoservicio
-          href: groups-self-service-management.md
         - name: Grupos dinámicos
           items:
             - name: Creación de un grupo dinámico
@@ -128,6 +106,32 @@
               href: groups-dynamic-rule-validation.md
             - name: Cambio del tipo de pertenencia al grupo
               href: groups-change-type.md
+        - name: Incorporación masiva de miembros
+          href: groups-bulk-import-members.md
+        - name: Eliminación masiva de miembros
+          href: groups-bulk-remove-members.md
+        - name: Descarga masiva de la lista de miembros
+          href: groups-bulk-download-members.md
+        - name: Descarga masiva de la lista de grupos
+          href: groups-bulk-download.md
+        - name: Restauración de los grupos eliminados
+          href: groups-restore-deleted.md
+        - name: Administración de la configuración de grupo
+          href: /azure/active-directory/fundamentals/active-directory-groups-settings-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Administración de propietarios de grupo
+          href: /azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Administración de grupos en grupos
+          href: /azure/active-directory/fundamentals/active-directory-groups-membership-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Incorporación del acceso de grupo a aplicaciones SaaS
+          href: groups-saasapps.md
+        - name: Establecimiento de la directiva de nomenclatura de grupos
+          href: groups-naming-policy.md
+        - name: Establecimiento de expiración de grupos
+          href: groups-lifecycle.md
+        - name: Configuración del grupo de autoservicio
+          href: groups-self-service-management.md
+        - name: Asignación de etiquetas de confidencialidad
+          href: groups-assign-sensitivity-labels.md
     - name: Asignación de licencias
       items:
         - name: Asignación de licencias a un grupo
@@ -145,14 +149,15 @@
         - name: Identificadores de planes de servicio para licencias
           href: licensing-service-plan-reference.md
     - name: Roles de administrador de Azure AD
+      expanded: true
       items:
         - name: Roles y permisos
           href: directory-assign-admin-roles.md
         - name: Visualización y asignación de roles
           href: directory-manage-roles-portal.md
-        - name: Versión preliminar de roles personalizados
+        - name: Rol personalizado
           items:
-            - name: Versión preliminar de roles personalizados
+            - name: Rol personalizado
               href: roles-custom-overview.md
             - name: Creación de un rol personalizado
               href: roles-create-custom.md
@@ -162,7 +167,7 @@
               href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
             - name: Asignación de roles personalizados en PowerShell
               href: roles-assign-powershell.md
-            - name: Permisos sobre la versión preliminar de roles personalizados
+            - name: Permisos de rol personalizado
               href: roles-custom-available-permissions.md
             - name: Delegación de permisos de administración de aplicaciones
               href: roles-delegate-app-roles.md
@@ -176,8 +181,20 @@
               href: directory-admin-roles-secure.md
             - name: Creación de cuentas de emergencia
               href: directory-emergency-access.md
-        - name: Unidades administrativas
-          href: directory-administrative-units.md
+        - name: Unidad administrativa
+          items:
+            - name: Introducción a las unidades administrativas
+              href: directory-administrative-units.md
+            - name: Incorporación y administración de unidades administrativas
+              href: roles-admin-units-manage.md
+            - name: Incorporación y administración de usuarios en unidades administrativas
+              href: roles-admin-units-add-manage-users.md
+            - name: Incorporación y administración de grupos en unidades administrativas
+              href: roles-admin-units-add-manage-groups.md
+            - name: Asignación de un rol con el ámbito de unidad administrativa
+              href: roles-admin-units-assign-roles.md
+            - name: Preguntas más frecuentes y solución de problemas
+              href: roles-admin-units-faq-troubleshoot.md
     - name: Administración del inicio de sesión
       items:
         - name: Personalización de marca de la compañía

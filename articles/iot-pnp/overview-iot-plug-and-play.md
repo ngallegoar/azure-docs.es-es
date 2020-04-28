@@ -1,20 +1,20 @@
 ---
 title: Introducción a IoT Plug and Play (versión preliminar) | Microsoft Docs
 description: Más información acerca de IoT Plug and Play (versión preliminar). IoT Plug and Play se basa en un lenguaje de modelado abierto que permite a los dispositivos IoT declarar sus funcionalidades. Los dispositivos IoT presentan esa declaración, denominada modelo de funcionalidad del dispositivo, al conectarse a soluciones en la nube como Azure IoT Central o aplicaciones de asociados. Luego, la solución en la nube puede comprender automáticamente el dispositivo y empezar a interactuar con él (y todo ello sin necesidad de escribir código).
-author: ChrisGMsft
-ms.author: chrisgre
+author: Philmea
+ms.author: philmea
 ms.date: 12/23/2019
 ms.topic: overview
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 0399e1659fb7cc6a650c6b3c1d0189c8802d4904
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 12f3febac2c5c8ed01b9b156a64dc77f6ed0704f
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80064308"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770433"
 ---
 # <a name="what-is-iot-plug-and-play-preview"></a>¿Qué es IoT Plug and Play (versión preliminar)?
 

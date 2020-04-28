@@ -7,12 +7,15 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: robinsh
-ms.openlocfilehash: 2b200692610302bb135982e5419dcda36d5cfe60
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: 86fc5d4845e746604c1ba69f661d1b9ea9d8dca4
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79233220"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732316"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunicación con la instancia de IoT Hub mediante el protocolo MQTT
 
@@ -118,7 +121,7 @@ Si un dispositivo no puede usar los SDK de dispositivo, tendrá la posibilidad d
 
   Para obtener más información sobre cómo generar tokens de SAS, consulte la sección del dispositivo sobre el [uso de tokens de seguridad de IoT Hub](iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app).
 
-  Al realizar la prueba, también puede utilizar la multiplataforma [Azure IoT Tools para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) o la herramienta [Explorador de dispositivos](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) para generar rápidamente un token de SAS que puede copiar y pegar en su propio código:
+  Al realizar la prueba, también puede utilizar la multiplataforma [Azure IoT Tools para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) o el comando de la extensión CLI [az iot hub generate-sas-token](/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token) para generar rápidamente un token de SAS que puede copiar y pegar en su propio código:
 
 ### <a name="for-azure-iot-tools"></a>Para Azure IoT Tools
 
@@ -129,16 +132,6 @@ Si un dispositivo no puede usar los SDK de dispositivo, tendrá la posibilidad d
 3. Establezca la **hora de expiración** y presione "Entrar".
   
 4. El token de SAS se crea y se copia en el Portapapeles.
-
-### <a name="for-device-explorer"></a>Para Device Explorer
-
-1. Vaya a la pestaña **Administración** del **Explorador de dispositivos**.
-
-2. Haga clic en **Token de SAS** (parte superior derecha).
-
-3. En **SASTokenForm**, seleccione el dispositivo en el menú desplegable **DeviceID**. Establezca el valor para **TTL**.
-
-4. Haga clic en **Generar** para crear el token.
 
    El token de SAS que ha generado tiene la siguiente estructura:
 

@@ -16,12 +16,12 @@ ms.date: 04/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b84e972584562be741919c7dccb6bdfe1bdea628
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 18ffb48b2e7978831155afaf2e675bb720e57544
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312852"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82082210"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quickstart"></a>Autenticación de paso a través de Azure Active Directory: Guía de inicio rápido
 
@@ -37,6 +37,9 @@ Siga estas instrucciones para implementar la autenticación de paso a través en
 ## <a name="step-1-check-the-prerequisites"></a>Paso 1: Comprobar los requisitos previos
 
 Asegúrese de que se cumplen los siguientes requisitos previos.
+
+>[!IMPORTANT]
+>Desde el punto de vista de la seguridad, los administradores deben tratar el servidor que ejecuta el agente de PTA como si fuera un controlador de dominio.  Los servidores del agente de PTA deben protegerse a lo largo de las mismas líneas que se describen en [Protección de los controladores de dominio frente a ataques](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/securing-domain-controllers-against-attack).
 
 ### <a name="in-the-azure-active-directory-admin-center"></a>En el Centro de administración de Azure Active Directory
 

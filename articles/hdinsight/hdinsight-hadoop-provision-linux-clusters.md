@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.date: 02/12/2020
-ms.openlocfilehash: 246ec08e9b4edb33fa49318b68cc4364534282b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6bba71ab35920027cc7296e774936c3d1deb8f92
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064660"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770312"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Configuración de clústeres en HDInsight con Apache Hadoop, Apache Spark, Apache Kafka, etc.
 
@@ -169,7 +169,7 @@ Para más información sobre la creación de un clúster de HDInsight unido a un
 
 ### <a name="tls"></a>TLS
 
-Para más información, consulte [Seguridad de la capa de transporte](./hdinsight-plan-virtual-network-deployment.md#transport-layer-security).
+Para más información, consulte [Seguridad de la capa de transporte](./transport-layer-security.md).
 
 ### <a name="virtual-network"></a>Virtual network
 

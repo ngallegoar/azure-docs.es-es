@@ -4,12 +4,12 @@ description: Application Performance Management y seguimiento del uso de la apli
 ms.topic: overview
 ms.date: 06/03/2019
 ms.custom: mvc
-ms.openlocfilehash: e7cde3ca47afd4db072b734c797a42ecd5a053aa
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 2dbebf13b8674ba4aa0c578e1138a5e279b54355
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79136806"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536937"
 ---
 # <a name="what-is-application-insights"></a>¿Qué es Application Insights?
 Application Insights es una característica de [Azure Monitor](../overview.md) que es un servicio de Application Performance Management (APM) extensible para desarrolladores y profesionales de DevOps. Úselo para supervisar las aplicaciones en directo. Detectará automáticamente anomalías en el rendimiento e incluye eficaces herramientas de análisis que le ayudan a diagnosticar problemas y a saber lo que hacen realmente los usuarios con la aplicación.  Está diseñado para ayudarle a mejorar continuamente el rendimiento y la facilidad de uso. Funciona con diversas aplicaciones y en una amplia variedad de plataformas, como .NET, Node.js o Java EE, hospedadas en el entorno local, de forma híbrida o en cualquier nube pública. Se integra con el proceso de DevOps y tiene puntos de conexión a numerosas herramientas de desarrollo. Puede supervisar y analizar la telemetría de aplicaciones móviles mediante la integración con Visual Studio App Center.
@@ -54,7 +54,7 @@ Hay muchas formas de explorar los datos. Consulte estos artículos:
 | [**Generador de perfiles**](../../azure-monitor/app/profiler.md)<br/>Inspeccione los perfiles de ejecución de solicitudes muestreadas. |![Generador de perfiles](./media/app-insights-overview/profiler.png) |
 | [**Análisis de uso**](../../azure-monitor/app/usage-overview.md)<br/>Analice la segmentación y la retención de usuarios.|![Herramienta Retención](./media/app-insights-overview/retention.png) |
 | [**Búsqueda de diagnóstico para datos de instancia**](../../azure-monitor/app/diagnostic-search.md)<br/>Busque y filtre eventos como solicitudes, excepciones, llamadas de dependencia, seguimientos de registro y vistas de páginas.  |![Buscar telemetría](./media/app-insights-overview/search-tn.png) |
-| [**Explorador de métricas para datos agregados**](../../azure-monitor/app/metrics-explorer.md)<br/>Explore, filtre y segmente datos agregados, como los índices de solicitudes, errores y excepciones; los tiempos de respuesta y los tiempos de carga de página. |![Métricas](./media/app-insights-overview/metrics-tn.png) |
+| [**Explorador de métricas para datos agregados**](../../azure-monitor/platform/metrics-charts.md)<br/>Explore, filtre y segmente datos agregados, como los índices de solicitudes, errores y excepciones; los tiempos de respuesta y los tiempos de carga de página. |![Métricas](./media/app-insights-overview/metrics-tn.png) |
 | [**Paneles**](../../azure-monitor/app/overview-dashboard.md)<br/>Combine datos de varios recursos y compártalos con otros. Ideal para aplicaciones de varios componentes y para la presentación continua en la sala de reuniones. |![Ejemplo de paneles](./media/app-insights-overview/dashboard-tn.png) |
 | [**Secuencia de métricas en directo**](../../azure-monitor/app/live-stream.md)<br/>Al implementar una nueva compilación, fíjese en estos indicadores de rendimiento casi en tiempo real para asegurarse de que todo funciona según lo esperado. |![Ejemplo de métricas en directo](./media/app-insights-overview/live-metrics-tn.png) |
 | [**Análisis**](../../azure-monitor/app/analytics.md)<br/>Responda preguntas complejas acerca del uso y el rendimiento de su aplicación mediante este eficaz lenguaje de consulta. |![Ejemplo de análisis](./media/app-insights-overview/analytics-tn.png) |

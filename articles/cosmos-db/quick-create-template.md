@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.topic: quickstart
 ms.date: 02/27/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: 7c02cdf772b06f7070071aa7ba35c59b019187cc
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: f524a1e1db426b9b9dafb2fb95d77538a34b04ec
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78301733"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605461"
 ---
 # <a name="quickstart-create-an-azure-cosmos-db-and-a-container-by-using-azure-resource-manager-template"></a>Inicio rápido: Creación de una instancia de Azure Cosmos DB y un contenedor mediante una plantilla de Resource Manager
 
@@ -53,7 +53,7 @@ Encontrará más ejemplos de plantillas de Azure Cosmos DB en la [galería de p
 
 1. Seleccione la imagen siguiente para iniciar sesión en Azure y abrir una plantilla. La plantilla crea una cuenta, una base de datos y un contenedor de Azure Cosmos.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-create%2Fazuredeploy.json"><img src="./media/quick-create-template/deploy-to-azure.png" alt="deploy to azure"/></a>
+   [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-create%2Fazuredeploy.json)
 
 2. Seleccione o escriba los siguientes valores.
 

@@ -12,19 +12,16 @@ ms.date: 04/13/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: bc635addc2a5cd7d3c698f6885bec0399e28743a
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: e94bdd6e79ff13d8ba736e140538bae74091f727
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309667"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81680086"
 ---
 # <a name="oauth-20-and-openid-connect-protocols-on-the-microsoft-identity-platform"></a>Protocolos OAuth 2.0 y OpenID Connect en la Plataforma de identidad de Microsoft
 
 El punto de conexión de la Plataforma de identidad de Microsoft para identidad como servicio con los protocolos estándar del sector, OpenID Connect y OAuth 2.0. Aunque el servicio sea compatible con el estándar, puede haber diferencias sutiles entre dos implementaciones cualquiera de estos protocolos. La información que aquí se describe será útil si decide escribir su código mediante el envío y la administración directos de solicitudes HTTP o mediante el uso de una biblioteca de código abierto de terceros, en lugar de usar una de nuestras [bibliotecas de código abierto](reference-v2-libraries.md).
-
-> [!NOTE]
-> No todas las características y escenarios de Azure AD son compatibles con el punto de conexión de la plataforma de identidad de Microsoft. Para determinar si debe usar el punto de conexión de la plataforma de identidad de Microsoft, conozca las [limitaciones de dicha plataforma](active-directory-v2-limitations.md).
 
 ## <a name="the-basics"></a>Conceptos básicos
 
@@ -68,7 +65,7 @@ Donde `{tenant}` puede adoptar uno de cuatro valores:
 Para obtener información sobre cómo interactuar con estos puntos de conexión, elija un tipo de aplicación en particular en la sección [Protocolos](#protocols) y siga los vínculos para obtener más información.
 
 > [!TIP]
-> Cualquier aplicación registrada en Azure AD puede usar el punto de conexión de la Plataforma de identidad de Microsoft, incluso si no inician sesión en cuentas personales.  De este modo, puede migrar las aplicaciones existentes a la Plataforma de identidad de Microsoft y [MSAL](reference-v2-libraries.md) sin volver a crear la aplicación.  
+> Cualquier aplicación registrada en Azure AD puede usar el punto de conexión de la Plataforma de identidad de Microsoft, incluso si no inician sesión en cuentas personales.  De este modo, puede migrar las aplicaciones existentes a la Plataforma de identidad de Microsoft y [MSAL](reference-v2-libraries.md) sin volver a crear la aplicación.
 
 ## <a name="tokens"></a>Tokens
 

@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d723af5d994006c4ae4f90905ede73fa87326bf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2808c8431a6b98b162920fb58a6e2ac0498d2055
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74014265"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82081717"
 ---
 # <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Tutorial: Obtención de datos mediante Reporting API de Azure Active Directory con certificados
 
@@ -44,7 +44,7 @@ En este tutorial, aprenderá a crear un certificado de prueba para acceder a Mic
     - Los tokens de acceso de usuario, las claves de aplicación y los certificados mediante ADAL
     - Graph API con control de resultados paginados
 
-6. Si es la primera vez que usa el módulo, ejecute **Install-MSCloudIdUtilsModule**; en caso contrario, puede importarlo mediante el comando de PowerShell **Import-Module**. La sesión debe tener un aspecto similar a esta pantalla: ![Windows Powershell](./media/tutorial-access-api-with-certificates/module-install.png)
+6. Si es la primera vez que usa el módulo, ejecute **Install-MSCloudIdUtilsModule**; en caso contrario, puede importarlo mediante el comando de PowerShell **Import-Module**. La sesión debe tener un aspecto similar a esta pantalla: ![Windows PowerShell](./media/tutorial-access-api-with-certificates/module-install.png)
   
 7. Use el commandlet **New-SelfSignedCertificate** de PowerShell para crear un certificado de prueba.
 
@@ -63,13 +63,13 @@ En este tutorial, aprenderá a crear un certificado de prueba para acceder a Mic
 
 1. Vaya a [Azure Portal](https://portal.azure.com), seleccione **Azure Active Directory**, luego, seleccione **Registros de aplicaciones** y elija la aplicación de la lista. 
 
-2. Seleccione **Configuración** > **Claves** y, después, seleccione **Cargar clave pública**.
+2. Seleccione **Certificates & secrets** (Certificados y secretos) en la sección **Administrar** de la hoja de registro de aplicaciones y elija **Cargar certificado**.
 
-3. Seleccione el archivo de certificado del paso anterior y seleccione **Guardar**. 
+3. Seleccione el archivo de certificado del paso anterior y elija **Agregar**. 
 
-4. Anote el identificador de la aplicación y la huella digital del certificado que acaba de registrar con la aplicación. Para buscar la huella digital, desde la página de aplicación en el portal, vaya a **Configuración** y haga clic en **Claves**. La huella digital se encontrará en la lista **Claves públicas**.
+4. Anote el identificador de la aplicación y la huella digital del certificado que acaba de registrar con la aplicación. Para encontrar la huella digital, en la página de la aplicación en el portal, vaya a **Certificates & secrets** (Certificados y secretos) en la sección **Administrar**. La huella digital estará en la lista **Certificados**.
 
-5. Abra el manifiesto de aplicación en el editor de manifiesto insertado y reemplace la propiedad *keyCredentials* por la información del nuevo certificado con el siguiente esquema. 
+5. Abra el manifiesto de aplicación en el editor de manifiesto insertado y compruebe que la propiedad *keyCredentials* está actualizada con la nueva información del certificado, como se muestra a continuación. 
 
    ```
    "keyCredentials": [
@@ -81,23 +81,20 @@ En este tutorial, aprenderá a crear un certificado de prueba para acceder a Mic
             "value":  "$base64Value" //base64 encoding of the certificate raw data
         }
     ]
-   ```
-
-6. Guarde el manifiesto. 
-  
-7. Ahora, puede obtener un token de acceso para MS Graph API con este certificado. Use el cmdlet **Get-MSCloudIdMSGraphAccessTokenFromCert** del módulo MSCloudIdUtils de PowerShell pasando el identificador de la aplicación y la huella digital que obtuvo en el paso anterior. 
+   ``` 
+6. Ahora, puede obtener un token de acceso para MS Graph API con este certificado. Use el cmdlet **Get-MSCloudIdMSGraphAccessTokenFromCert** del módulo MSCloudIdUtils de PowerShell pasando el identificador de la aplicación y la huella digital que obtuvo en el paso anterior. 
 
    ![Portal de Azure](./media/tutorial-access-api-with-certificates/getaccesstoken.png)
 
-8. Use el token de acceso en el script de Powershell para consultar Graph API. Use el cmdlet **Invoke-MSCloudIdMSGraphQuery** desde MSCloudIDUtils para enumerar el punto de conexión de SignIns y DirectoryAudits. Este cmdlet controla los resultados de paginado múltiple y los envía a la canalización de PowerShell.
+7. Use el token de acceso del script de Powershell para consultar Graph API. Use el cmdlet **Invoke-MSCloudIdMSGraphQuery** desde MSCloudIDUtils para enumerar el punto de conexión de SignIns y DirectoryAudits. Este cmdlet controla los resultados de paginado múltiple y los envía a la canalización de PowerShell.
 
-9. Consulte el punto de conexión DirectoryAudits para recuperar los registros de auditoría. 
+8. Consulte el punto de conexión DirectoryAudits para recuperar los registros de auditoría. 
    ![Azure Portal](./media/tutorial-access-api-with-certificates/query-directoryAudits.png)
 
-10. Consulte el punto de conexión de SignIns para recuperar los registros de inicio de sesión.
+9. Consulte el punto de conexión de SignIns para recuperar los registros de inicio de sesión.
     ![Azure Portal](./media/tutorial-access-api-with-certificates/query-signins.png)
 
-11. Ahora puede exportar estos datos en un archivo CSV y guardarlos en un sistema SIEM. También puede encapsular el script en una tarea programada para obtener datos de Azure AD de su inquilino periódicamente sin tener que almacenar las claves de aplicación en el código fuente. 
+10. Ahora puede exportar estos datos en un archivo CSV y guardarlos en un sistema SIEM. También puede encapsular el script en una tarea programada para obtener datos de Azure AD de su inquilino periódicamente sin tener que almacenar las claves de aplicación en el código fuente. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

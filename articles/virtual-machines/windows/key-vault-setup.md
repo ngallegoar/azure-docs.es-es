@@ -1,31 +1,26 @@
 ---
-title: Configuración de Key Vault para máquinas virtuales Windows en Azure Resource Manager
-description: Cómo configurar Key Vault para usarlo con una máquina virtual de Azure Resource Manager.
-services: virtual-machines-windows
-documentationcenter: ''
+title: Configuración de Key Vault
+description: Cómo configurar Key Vault para usarlo con una máquina virtual.
 author: mimckitt
 manager: vashan
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 33a483e2-cfbc-4c62-a588-5d9fd52491e2
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: security
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/24/2017
 ms.author: mimckitt
-ms.openlocfilehash: 3dcf82a8d4bc698c1900903649a2dd5a383f64b4
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: e4bff4d1826d9586495207095eccf8f6c66164a0
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878415"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870006"
 ---
 # <a name="set-up-key-vault-for-virtual-machines-in-azure-resource-manager"></a>Configuración de Key Vault para máquinas virtuales en Azure Resource Manager
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-rm-include.md)]
 
-En la pila de Azure Resource Manager, los certificados o secretos se modelan como recursos que se proporcionan mediante el proveedor de recursos de Key Vault. Para más información sobre Key Vault, consulte [¿Qué es Azure Key Vault?](../../key-vault/key-vault-overview.md)
+En la pila de Azure Resource Manager, los certificados o secretos se modelan como recursos que se proporcionan mediante el proveedor de recursos de Key Vault. Para más información sobre Key Vault, consulte [¿Qué es Azure Key Vault?](../../key-vault/general/overview.md)
 
 > [!NOTE]
 > 1. Para poder usar Key Vault con máquinas virtuales de Azure Resource Manager, la propiedad **EnabledForDeployment** de Key Vault se debe establecer en true. Puede hacer esto en varios clientes.
@@ -34,7 +29,7 @@ En la pila de Azure Resource Manager, los certificados o secretos se modelan com
 >
 
 ## <a name="use-powershell-to-set-up-key-vault"></a>Uso de PowerShell para configurar Key Vault
-Para crear un almacén de claves con PowerShell, vea [Establecimiento y recuperación de un secreto de Azure Key Vault mediante PowerShell](../../key-vault/quick-create-powershell.md).
+Para crear un almacén de claves con PowerShell, vea [Establecimiento y recuperación de un secreto de Azure Key Vault mediante PowerShell](../../key-vault/secrets/quick-create-powershell.md).
 
 Para almacenes de claves nuevos, puede usar este cmdlet de PowerShell:
 
@@ -45,7 +40,7 @@ Para almacenes de claves existentes, puede usar este cmdlet de PowerShell:
     Set-AzKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -EnabledForDeployment
 
 ## <a name="use-cli-to-set-up-key-vault"></a>Uso de la CLI para configurar Key Vault
-Para crear un almacén de claves mediante la interfaz de la línea de comandos (CLI), consulte [Administración de Key Vault mediante la CLI](../../key-vault/key-vault-manage-with-cli2.md#create-a-key-vault).
+Para crear un almacén de claves mediante la interfaz de la línea de comandos (CLI), consulte [Administración de Key Vault mediante la CLI](../../key-vault/general/manage-with-cli2.md#create-a-key-vault).
 
 Para la CLI, primero debe crear el almacén de claves y luego asignar la directiva de implementación. Para ello, puede usar el siguiente comando:
 

@@ -13,19 +13,19 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/13/2020
+ms.date: 04/21/2020
 ms.author: juergent
 ms.custom: ''
-ms.openlocfilehash: 43fc2e9369b9d11b1ac0205beddea01b633fb633
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: df80113b85153f4e52bcbefa7b33dab9da296173
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77598381"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084828"
 ---
 # <a name="sap-certifications-and-configurations-running-on-microsoft-azure"></a>Configuraciones y certificaciones de SAP que se ejecutan en Microsoft Azure
 
-SAP y Microsoft tienen una larga historia de trabajo conjunto en una asociación segura que tiene ventajas mutuas para sus clientes. Microsoft actualiza constantemente su plataforma y envía nuevos detalles de certificación a SAP, con el fin de asegurarse de que Microsoft Azure es la mejor plataforma para ejecutar las cargas de trabajo de SAP. Las tablas siguientes describen nuestras configuraciones admitidas de Azure y una lista de certificaciones SAP en crecimiento. 
+SAP y Microsoft tienen una larga historia de trabajo conjunto en una asociación segura que tiene ventajas mutuas para sus clientes. Microsoft actualiza constantemente su plataforma y envía nuevos detalles de certificación a SAP, con el fin de asegurarse de que Microsoft Azure es la mejor plataforma para ejecutar las cargas de trabajo de SAP. Las tablas siguientes describen nuestras configuraciones admitidas de Azure y una lista de certificaciones SAP en crecimiento. Esta lista es una lista de información general que puede desviarse aquí y allá de las listas de SAP oficiales. En el artículo [Qué software de SAP es compatible para su implementación en Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure) se documenta cómo llegar a los datos detallados.
 
 ## <a name="sap-hana-certifications"></a>Certificaciones SAP HANA
 Referencias:
@@ -65,4 +65,7 @@ Referencias:
 | SAP BPC 10.01 MS SP08 | Windows y Linux | | Todos los tipos de máquina virtual con certificado NetWeaver<br /> Nota de SAP 2451795 |
 | SAP Business Objects BI platform | Windows y Linux | | Nota de SAP 2145537 |
 | SAP Data Services 4.2 | | | Nota de SAP 2288344 |
-| Plataforma de comercio de Hybris SAP 5.x y 6.x | Windows | SQL Server, Oracle | Todos los tipos de máquina virtual con certificado NetWeaver<br /> [Wiki de Hybris](https://wiki.hybris.com/display/SUP/Using+the+hybris+Platform+with+the+Cloud) |
+| Plataforma de comercio SAP Hybris  | Windows | SQL Server, Oracle | Todos los tipos de máquina virtual con certificado NetWeaver <br /> [Documentación de Hybris](https://help.sap.com/viewer/a74589c3a81a4a95bf51d87258c0ab15/6.7.0.0/en-US/8c71300f866910149b40c88dfc0de431.html) |
+| Plataforma de comercio SAP Hybris  | SLES 12 o más reciente | SAP HANA | Todos los tipos de máquina virtual con certificado NetWeaver <br /> [Documentación de Hybris](https://help.sap.com/viewer/a74589c3a81a4a95bf51d87258c0ab15/6.7.0.0/en-US/8c71300f866910149b40c88dfc0de431.html) |
+| Plataforma de comercio SAP Hybris  | RHEL 7 o posterior | SAP HANA | Todos los tipos de máquina virtual con certificado NetWeaver <br /> [Documentación de Hybris]https://help.sap.com/viewer/a74589c3a81a4a95bf51d87258c0ab15/6.7.0.0/en-US/8c71300f866910149b40c88dfc0de431.html) |
+| Plataforma de comercio SAP Hybris 1811 y posterior  | Windows, SLES o RHEL | Base de datos de SQL Azure | Todos los tipos de máquina virtual con certificado NetWeaver <br /> [Documentación de Hybris](https://help.sap.com/viewer/a74589c3a81a4a95bf51d87258c0ab15/1811/en-US/8c71300f866910149b40c88dfc0de431.html) |

@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: 9f14521c15c3497bed4ffbeba44cb5d78ee4df7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: aa3617b30fe1ef9b4d4a6c5fe5aac51bff95bb92
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74047985"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81866687"
 ---
 # <a name="troubleshoot-azure-application-gateway-session-affinity-issues"></a>Solución de problemas de afinidad de sesión en Azure Application Gateway
 
@@ -97,7 +97,7 @@ Este problema se produce porque Internet Explorer y otros exploradores no pueden
 
 #### <a name="resolution"></a>Solución
 
-Para corregir esta incidencia, debe acceder a Application Gateway con un nombre de dominio completo. Por ejemplo, use [http://website.com](https://website.com/) o [http://appgw.website.com](http://appgw.website.com/).
+Para corregir esta incidencia, debe acceder a Application Gateway con un nombre de dominio completo. Por ejemplo, use [http://website.com](https://website.com/) o [http://appgw.website.com](http://website.com/).
 
 ## <a name="additional-logs-to-troubleshoot"></a>Registros adicionales para solucionar problemas
 

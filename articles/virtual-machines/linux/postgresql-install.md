@@ -1,25 +1,20 @@
 ---
 title: Configuración de PostgreSQL en una máquina virtual Linux
 description: Obtenga información acerca de cómo instalar y configurar PostgreSQL en una máquina virtual de Linux en Azure
-services: virtual-machines-linux
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: 1a747363-0cc5-4ba3-9be7-084dfeb04651
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: cynthn
-ms.openlocfilehash: bbfad994de663881e3aa03292fc0d0611a0d0933
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d86e42dcc16d108cc82c9d245c7919145cef365f
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75747804"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759339"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>Instalación y configuración de PostgreSQL en Azure
 PostgreSQL es una base de datos de código abierto avanzada similar a DB2 y Oracle. Incluye características preparadas para el ámbito empresarial, como el cumplimiento de ACID completo, un procesamiento transaccional confiable y un control de simultaneidad de múltiples versiones. También admite estándares como ANSI SQL y SQL/MED (incluidos los contenedores de datos externos para Oracle, MySQL, MongoDB y muchas otras). Es altamente extensible al admitir más de 12 lenguajes procedimentales, índices GIN y GiST, datos espaciales y múltiples características NoSQL para JSON o aplicaciones basadas en clave-valor.

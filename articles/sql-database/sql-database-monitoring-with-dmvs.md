@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
-ms.date: 03/10/2020
-ms.openlocfilehash: 958dcd441d35b5c28746ff79a0b341e5aa7383a6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/19/2020
+ms.openlocfilehash: 6f33f49be74419a8f0cd31d973d64798f5d76a2c
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79214029"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683014"
 ---
 # <a name="monitoring-performance-azure-sql-database-using-dynamic-management-views"></a>Supervisión del rendimiento en Azure SQL Database con vistas de administración dinámica
 
@@ -604,7 +604,7 @@ En el siguiente ejemplo se muestran distintas maneras en que puede usar la vista
 
 3. Con la información anterior sobre los valores promedio y máximo de cada métrica de recursos, puede evaluar si la carga de trabajo se ajusta bien al tamaño de proceso que eligió. Por lo general, los valores medios de **sys.resource_stats** son una buena referencia para el tamaño de destino. Debería ser su vara de medida principal. Por ejemplo, podría estar usando el nivel de servicio Estándar con el tamaño de proceso S2. Los porcentajes de uso medio de CPU y de lecturas y escrituras de E/S están por debajo del 40 por ciento, el número medio de trabajadores está por debajo de 50 y el número medio de sesiones está por debajo de 200. La carga de trabajo podría ajustarse al tamaño de proceso S1. Es fácil ver si la base de datos se ajusta a los límites de trabajadores y de sesión. Para ver si una base de datos se ajusta a un tamaño de proceso inferior con respecto a CPU, lecturas y escrituras, divida el número de DTU del tamaño de proceso inferior por el número de DTU de su tamaño de proceso actual y multiplique el resultado por 100:
 
-    ```S1 DTU / S2 DTU * 100 = 20 / 50 * 100 = 40```
+    `S1 DTU / S2 DTU * 100 = 20 / 50 * 100 = 40`
 
     El resultado es la diferencia porcentual de rendimiento relativa entre los dos tamaños de proceso. Si el uso de recursos no supera esta cantidad, la carga de trabajo podría ajustarse al tamaño de proceso inferior. Sin embargo, debe examinar todos los intervalos de valores de uso de recursos y determinar, según el porcentaje, con qué frecuencia se ajustaría la carga de trabajo de la base de datos al tamaño de proceso inferior. La siguiente consulta proporciona el porcentaje de ajuste por dimensión de recursos según el umbral del 40 % que hemos calculado en este ejemplo.
 

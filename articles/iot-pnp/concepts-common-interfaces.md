@@ -1,18 +1,18 @@
 ---
 title: 'Interfaces comunes: IoT Plug and Play (versión preliminar) | Microsoft Docs'
 description: Descripción de las interfaces comunes para desarrolladores de Plug and Play de IoT
-author: ChrisGMsft
-ms.author: chrisgre
+author: Philmea
+ms.author: philmea
 ms.date: 12/26/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: c6ac90f917b9afc37b3a39d8da679fbcad091778
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5773ec2b3ea88fa9a507b7c1b0b84bb7ea305a94
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80234697"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770485"
 ---
 # <a name="iot-plug-and-play-preview-common-interfaces"></a>Interfaces comunes de IoT Plug and Play (versión preliminar)
 

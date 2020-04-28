@@ -7,15 +7,15 @@ author: tamram
 ms.service: storage
 ms.subservice: queues
 ms.topic: conceptual
-ms.date: 12/12/2019
+ms.date: 03/11/2020
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: 8bb56db9eed962ac8f8202c61a7446527c15dfc6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 11e16453cc2a6044c4b153bd1556d85545ff9625
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80060893"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086630"
 ---
 # <a name="security-recommendations-for-queue-storage"></a>Recomendaciones de seguridad para Queue Storage
 
@@ -42,7 +42,7 @@ Azure Security Center analiza periódicamente el estado de seguridad de los recu
 | Tener en cuenta la entidad de seguridad de menor privilegio al asignar permisos a una entidad de seguridad de Azure AD a través de RBAC | Al asignar un rol a un usuario, grupo o aplicación, conceda a esa entidad de seguridad exclusivamente los permisos necesarios para que pueda realizar sus tareas. Limitar el acceso a los recursos ayuda a prevenir el mal uso involuntario y malintencionado de los datos. | - |
 | Proteger las claves de acceso de su cuenta con Azure Key Vault | Microsoft recomienda usar Azure AD para autorizar las solicitudes que se realicen a Azure Storage. Sin embargo, si debe usar la autorización de clave compartida, proteja sus claves de cuenta con Azure Key Vault. Puede recuperar las claves del almacén de claves en tiempo de ejecución, en lugar de guardarlas con la aplicación. | - |
 | Regenerar la claves de cuenta periódicamente | El cambio periódico de las claves de una cuenta reduce el riesgo de exponer los datos a actores malintencionados. | - |
-| Tener en cuenta la entidad de seguridad de menor privilegio al asignar permisos a una SAS | Al crear una SAS, especifique solo aquellos permisos que el cliente requiera para realizar su función. Limitar el acceso a los recursos ayuda a prevenir el mal uso involuntario y malintencionado de los datos. | - |
+| Tener en cuenta la entidad de seguridad de menor privilegio al asignar permisos a una SAS | Al crear una SAS, especifique solo aquellos permisos que el cliente requiera para realizar su función. La limitación del acceso a los recursos ayuda a prevenir el mal uso involuntario y malintencionado de los datos. | - |
 | Tener en vigor un plan de revocación para cualquier SAS que emita a los clientes | Si alguna SAS corre peligro, seguro que deseará poder revocarla lo antes posible. Para revocar una SAS de delegación de usuario, revoque la clave de delegación de usuario para invalidar rápidamente todas las firmas asociadas con ella. Para revocar una SAS de servicio asociada a una directiva de acceso almacenado, puede eliminar esta, cambiar el nombre de la directiva, o bien cambiar su tiempo de vencimiento a un tiempo pasado. Para obtener más información, consulte [Otorgar acceso limitado a recursos de Azure Storage con firmas de acceso compartido (SAS)](../common/storage-sas-overview.md).  | - |
 | Si una SAS de servicio no está asociada a una directiva de acceso almacenado, establezca el tiempo de vencimiento en una hora, o menos | Las SAS de servicio que no estén asociadas con alguna directiva de acceso almacenada no se pueden revocar. Por esta razón, se recomienda limitar el tiempo de expiración para que la SAS sea válida durante una hora o menos. | - |
 
@@ -53,6 +53,7 @@ Azure Security Center analiza periódicamente el estado de seguridad de los recu
 | Habilitar reglas de firewall | Configure las reglas de firewall para limitar el acceso a su cuenta de almacenamiento a las solicitudes que partan de direcciones IP o intervalos especificados, o de una lista de subredes de una red virtual de Azure (VNet). Para más información sobre cómo configurar reglas de firewall, consulte [Configuración del proxy y el firewall de Azure File Sync](../files/storage-sync-files-firewall-and-proxy.md). | - |
 | Permitir que los servicios de Microsoft de confianza accedan a la cuenta de almacenamiento | La activación de las reglas de firewall para la cuenta de almacenamiento bloquea las solicitudes entrantes para los datos de forma predeterminada, a menos que las solicitudes procedan de un servicio que funcione en una instancia de Azure Virtual Network (VNet) o desde direcciones IP públicas permitidas. Las solicitudes que bloquean incluyen aquellas de otros servicios de Azure, desde Azure Portal, desde los servicios de registro y de métricas, etc. Para permitir solicitudes de otros servicios de Azure, agregue una excepción que permita que los servicios de Microsoft de confianza accedan a la cuenta de almacenamiento. Para más información sobre cómo agregar una excepción para servicios confiables de Microsoft, consulte [Configuración del proxy y el firewall de Azure File Sync](../files/storage-sync-files-firewall-and-proxy.md).| - |
 | Usar puntos de conexión privados | Un punto de conexión privado asigna una dirección IP privada de Azure Virtual Network (red virtual) a la cuenta de almacenamiento. Protege todo el tráfico que circule entre su red virtual y la cuenta de almacenamiento mediante un enlace privado. Para más información sobre los puntos de conexión privados, consulte [Conexión privada a una cuenta de almacenamiento mediante el punto de conexión privado de Azure](../../private-link/create-private-endpoint-storage-portal.md). | - |
+| Uso de etiquetas de servicio de red virtual | Una etiqueta de servicio representa un grupo de prefijos de direcciones IP de un servicio de Azure determinado. Microsoft administra los prefijos de direcciones que la etiqueta de servicio incluye y actualiza automáticamente dicha etiqueta a medida que las direcciones cambian. Para más información sobre las etiquetas de servicio compatibles con Azure Storage, consulte [Introducción a las etiquetas de servicio de Azure](../../virtual-network/service-tags-overview.md). Para ver un tutorial que muestra cómo usar las etiquetas de servicio para crear reglas de red de salida, consulte [Restricción del acceso a los recursos de PaaS](../../virtual-network/tutorial-restrict-network-access-to-resources.md). | - |
 | Limitar el acceso a la red a determinadas redes | La limitación del acceso a la red a redes que hospeden clientes que requieran acceso reduce la exposición de sus recursos a ataques en la red. | [Sí](../../security-center/security-center-sql-service-recommendations.md) |
 
 ## <a name="loggingmonitoring"></a>Registro y supervisión

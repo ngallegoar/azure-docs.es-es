@@ -8,24 +8,24 @@ ms.service: internet-peering
 ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 4fd7d345e5efbe6e4e86e5bb410e2df4dd917047
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 23c905f148da614c7785b61b76abed191206cd90
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75773699"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678681"
 ---
-# <a name="create-or-modify-an-exchange-peering-using-powershell"></a>Creación o modificación de un emparejamiento de Exchange mediante PowerShell
+# <a name="create-or-modify-an-exchange-peering-by-using-powershell"></a>Creación o modificación de un emparejamiento de Exchange mediante PowerShell
 
 En este artículo se describe cómo crear un emparejamiento de Microsoft Exchange con cmdlets de PowerShell y el modelo de implementación de Resource Manager. También se muestra cómo comprobar el estado del recurso, así como la forma de actualizarlo o eliminarlo y desaprovisionarlo.
 
-Si lo prefiere, puede completar esta guía mediante el [portal](howto-exchange-portal.md).
+Si lo prefiere, puede realizar los pasos de esta guía mediante [Azure Portal](howto-exchange-portal.md).
 
 ## <a name="before-you-begin"></a>Antes de empezar
-* Revise la sección [Requisitos previos](prerequisites.md) y el [Tutorial del emparejamiento de Exchange](walkthrough-exchange-all.md) antes de comenzar la configuración.
-* Si ya dispone de un emparejamiento de Exchange con Microsoft, que no se convierte en un recurso de Azure, consulte el artículo [Conversión de un emparejamiento de Exchange heredado en un recurso de Azure mediante PowerShell](howto-legacy-exchange-powershell.md).
+* Revise los [Requisitos previos](prerequisites.md) y el [Tutorial del emparejamiento de Exchange](walkthrough-exchange-all.md) antes de comenzar la configuración.
+* Si ya dispone de emparejamientos de Exchange con Microsoft que no se convertirán en recursos de Azure, consulte el artículo [Conversión de un emparejamiento de Exchange heredado en un recurso de Azure mediante PowerShell](howto-legacy-exchange-powershell.md).
 
-### <a name="working-with-azure-powershell"></a>Trabajo con Azure PowerShell
+### <a name="work-with-azure-powershell"></a>Funcionamiento con Azure PowerShell
 [!INCLUDE [CloudShell](./includes/cloudshell-powershell-about.md)]
 
 ## <a name="create-and-provision-an-exchange-peering"></a>Creación y aprovisionamiento de un emparejamiento de Exchange

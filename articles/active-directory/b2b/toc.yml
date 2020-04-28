@@ -17,7 +17,7 @@
       items:
         - name: Invitación en bloque a través de PowerShell
           href: bulk-invite-powershell.md
-        - name: Invitación en bloque a través del portal (versión preliminar)
+        - name: Invitación masiva a través del portal
           href: tutorial-bulk-invite.md
         - name: Aplicación de Multi-Factor Authentication
           href: b2b-tutorial-require-mfa.md

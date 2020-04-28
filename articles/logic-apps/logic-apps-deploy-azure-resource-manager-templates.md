@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/01/2019
-ms.openlocfilehash: 95bfa7b1918da09e4f5913eeb2b57c290b093efe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 432e22879ce0eba89f04a1084e2d4a93a487dd45
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79233000"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086443"
 ---
 # <a name="deploy-azure-resource-manager-templates-for-azure-logic-apps"></a>Implementación de plantillas de Azure Resource Manager para Azure Logic Apps
 
@@ -79,7 +79,7 @@ az group deployment create -g <Azure-resource-group-name> --template-uri https:/
 
 Para más información, consulte los temas siguientes:
 
-* [Implementación de recursos con plantillas de Resource Manager y la CLI de Azure](../azure-resource-manager/templates/deploy-cli.md) 
+* [Implementación de recursos con plantillas de Resource Manager y la CLI de Azure](../azure-resource-manager/templates/deploy-cli.md)
 * [`az group deployment create`](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create)
 
 <a name="azure-pipelines"></a>
@@ -91,7 +91,7 @@ Para implementar las plantillas de aplicación lógica y administrar entornos, l
 Para más información acerca de la integración continua e implementación continua (CI/CD) para plantillas de Azure Resource Manager con Azure Pipelines, consulte estos temas y ejemplos:
 
 * [Integración de plantillas de Resource Manager con Azure Pipelines](../azure-resource-manager/templates/add-template-to-azure-pipelines.md)
-* [Tutorial: Integración continua de plantillas de Azure Resource Manager en Azure Pipelines](../azure-resource-manager/templates/template-tutorial-use-azure-pipelines.md).
+* [Tutorial: Integración continua de plantillas de Azure Resource Manager en Azure Pipelines](../azure-resource-manager/templates/deployment-tutorial-pipeline.md)
 * [Ejemplo: Conexión a colas de Azure Service Bus desde Azure Logic Apps e implementación con Azure Pipelines en Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
 * [Ejemplo: Conexión a cuentas de Azure Storage desde Azure Logic Apps e implementación con Azure Pipelines en Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
 * [Ejemplo: Conexión a una función de aplicación de funciones para Azure Logic Apps e implementación con Azure Pipelines en Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/set-up-an-azure-function-app-action-for-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)

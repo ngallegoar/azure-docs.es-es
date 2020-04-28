@@ -12,18 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 04/24/2019
+ms.date: 04/15/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a82766be01476890bbf18b518ce21febe0d07f1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ab51030ad39e1360cabc7d63390af7c1654d2891
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79227820"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82082125"
 ---
-# <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect Sync: atributos sincronizados con Azure Active Directory
+# <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Sincronización de Azure AD Connect: Atributos sincronizados con Azure Active Directory
 En este tema se enumeran los atributos que se sincronizan mediante la sincronización de Azure AD Connect.  
 Los atributos se agrupan por la aplicación de Azure AD relacionada.
 
@@ -375,7 +375,7 @@ Este grupo es un conjunto de atributos que se usan como atributos mínimos neces
 * Yammer (solo se consume User)
 * [Escenarios híbridos de colaboración entre organizaciones negocio a negocio (B2B) ofrecidos por recursos como SharePoint](https://go.microsoft.com/fwlink/?LinkId=747036)
 
-Este grupo es un conjunto de atributos que se pueden usar si no se emplea el directorio de Azure AD para admitir Office 365, Dynamics o Intune. Tiene un pequeño conjunto de atributos principales.
+Este grupo es un conjunto de atributos que se pueden usar si no se emplea el directorio de Azure AD para admitir Office 365, Dynamics o Intune. Tiene un pequeño conjunto de atributos principales. Tenga en cuenta que, en algunas aplicaciones de terceros, el inicio de sesión único o el aprovisionamiento requieren la configuración de la sincronización de atributos además de los atributos que se describen aquí. Los requisitos de la aplicación se describen en el [tutorial de aplicaciones SaaS](../saas-apps/tutorial-list.md) para cada aplicación.
 
 | Nombre del atributo | Usuario | Contacto | Grupo | Comentario |
 | --- |:---:|:---:|:---:| --- |

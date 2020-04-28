@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/02/2019
 ms.author: shvija
-ms.openlocfilehash: d2d74a90d6712089cff681381e11b1caec9d469d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7f6e1896c97c96cd484d15fb9e6a3056e5c5d6b2
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80283674"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086375"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Preguntas frecuentes sobre Event Hubs
 
@@ -182,7 +182,7 @@ En las pruebas, se usaron los siguientes criterios:
 Los resultados ofrecen una idea de lo que puede lograrse con un clúster de Event Hubs dedicado. Además, un clúster dedicado incluye Event Hubs Capture habilitado para los escenarios de retención a largo plazo y de microlotes.
 
 ### <a name="how-do-i-create-an-event-hubs-dedicated-cluster"></a>¿Cómo puedo crear un clúster de Event Hubs dedicado?
-Un clúster de Event Hubs dedicado se crea mediante el envío de una [solicitud de soporte técnico de aumento de cuota](https://portal.azure.com/#create/Microsoft.Support) o poniéndose en contacto con el [equipo de Event Hubs](mailto:askeventhubs@microsoft.com). Normalmente, se necesitan unas dos semanas para que el clúster esté implementado y entregado, y pueda usarlo. Este proceso es temporal hasta que un autoservicio completo esté disponible a través de Azure Portal o de plantillas de Azure Resource Manager, las cuales tardan unas dos horas en implementar el clúster.
+Un clúster de Event Hubs dedicado se crea mediante el envío de una [solicitud de soporte técnico de aumento de cuota](https://portal.azure.com/#create/Microsoft.Support) o poniéndose en contacto con el [equipo de Event Hubs](mailto:askeventhubs@microsoft.com). Normalmente, se necesitan unas dos semanas para que el clúster esté implementado y entregado, y pueda usarlo. Este proceso es temporal hasta que haya un autoservicio completo disponible a través de Azure Portal.
 
 ## <a name="best-practices"></a>Procedimientos recomendados
 

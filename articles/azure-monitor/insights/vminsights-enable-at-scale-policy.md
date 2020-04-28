@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: 7069f2cc96b8876f5514acfa4ba49274b61be46f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 73c18d45136eea90ad29dc1bd40c4539dddc0ee6
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80282943"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767258"
 ---
 # <a name="enable-azure-monitor-for-vms-by-using-azure-policy"></a>Habilitación de Azure Monitor para VM mediante Azure Policy
 
@@ -79,7 +79,7 @@ Para habilitar Azure Monitor para VM mediante Azure Policy en su inquilino:
 - Asigne la iniciativa a un ámbito: grupo de administración, suscripción o grupo de recursos.
 - Revise y corrección corrija resultados del cumplimiento.
 
-Para más información acerca de la asignación de Azure Policy, consulte [Información general de Azure Policy](../../governance/policy/overview.md#policy-assignment) y consulte la [introducción a los grupos de administración](../../governance/management-groups/overview.md) antes de continuar.
+Para más información acerca de la asignación de Azure Policy, consulte [Información general de Azure Policy](../../governance/policy/overview.md#assignments) y consulte la [introducción a los grupos de administración](../../governance/management-groups/overview.md) antes de continuar.
 
 ### <a name="policies-for-azure-vms"></a>Directivas para las máquinas virtuales de Azure
 

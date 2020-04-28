@@ -3,12 +3,12 @@ title: 'Tutorial: Copia de seguridad de bases de datos de SQL Server en Azure'
 description: En este tutorial, aprenderá a hacer una copia de seguridad de una base de datos de SQL Server que se ejecuta en una VM de Azure en un almacén de Azure Backup Recovery Services.
 ms.topic: tutorial
 ms.date: 06/18/2019
-ms.openlocfilehash: 3216404b04647e2fb5f15beb09b9a4ccd6648bba
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f1d76fe0dfa428688714b8383c3974ac63195681
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74171880"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81680729"
 ---
 # <a name="back-up-a-sql-server-database-in-an-azure-vm"></a>Copia de seguridad de una base de datos de SQL Server en una máquina virtual de Azure
 
@@ -64,7 +64,7 @@ Evite lo siguiente en los nombres de bases de datos:
 * Corchete de cierre ‘]’
 * Nombres de bases de datos que empiezan por "F:\"
 
-Aunque se dispone de alias para los caracteres no admitidos de la tabla Azure, se recomienda evitarlos. [Más información](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN).
+Aunque se dispone de alias para los caracteres no admitidos de la tabla Azure, se recomienda evitarlos. [Más información](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model).
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 

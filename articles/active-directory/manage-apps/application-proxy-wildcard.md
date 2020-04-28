@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e17cc4bf6f70901e3bb5d250f0a55f073ad8d99e
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 1e5861e802f39adecb5661bc17c22b432f137d59
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81406726"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770298"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Aplicaciones con comodín en Azure Active Directory Application Proxy
 
@@ -48,8 +48,6 @@ Puede publicar aplicaciones con caracteres comodín si tanto las direcciones URL
 Por ejemplo: `http(s)://*.adventure-works.com`.
 
 Aunque las direcciones URL internas y externas pueden usar dominios diferentes, como procedimiento recomendado, deben ser iguales. Al publicar la aplicación, verá un error si una de las direcciones URL no tiene un carácter comodín.
-
-Si tiene otras aplicaciones con distintos valores de configuración, debe publicar estas excepciones como aplicaciones independientes para sobrescribir los valores predeterminados establecidos para el comodín. Las aplicaciones sin caracteres comodín siempre tienen prioridad sobre las que los tienen. Desde la perspectiva de la configuración, se trata "simplemente" de aplicaciones normales.
 
 La creación de una aplicación comodín se basa en el mismo [flujo de publicación de aplicaciones](application-proxy-add-on-premises-application.md) que está disponible para las demás aplicaciones. La única diferencia es que se incluye un carácter comodín en las direcciones URL y, quizá, la configuración del inicio de sesión único.
 

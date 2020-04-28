@@ -15,12 +15,12 @@ ms.date: 02/27/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: e8d82011fe4fdd40bb07c77411ad0e948ddad049
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: f2229d57b249bab734b1ef91c10d5ec42ab95a17
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79214833"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641425"
 ---
 # <a name="classic-subscription-administrator-roles-azure-rbac-roles-and-azure-ad-administrator-roles"></a>Roles de administrador de suscripciones clásico de RBAC de Azure y de administrador de Azure AD
 
@@ -131,3 +131,4 @@ Varios roles de administrador de Azure AD abarcan Azure AD y Microsoft Office 36
 - [¿Qué es el control de acceso basado en rol (RBAC) para los recursos de Azure?](overview.md)
 - [Permisos de roles de administrador en Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md)
 - [Azure classic subscription administrators](classic-administrators.md) (Administradores clásicos de la suscripción de Azure)
+- [Plataforma de adopción de la nube: Administración del acceso a recursos de Azure](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)
