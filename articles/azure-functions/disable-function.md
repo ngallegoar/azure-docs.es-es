@@ -3,12 +3,12 @@ title: Deshabilitamiento de funciones en Azure Functions
 description: Aprenda a deshabilitar y a habilitar las funciones de Azure Functions.
 ms.topic: conceptual
 ms.date: 12/05/2019
-ms.openlocfilehash: fb8edf635856078655b8640ba0e1723fdd5e8a5a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 11585e92e7d239731b02d06c5093f979cd65cfba
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77116150"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686881"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>Deshabilitamiento de funciones en Azure Functions
 
@@ -42,6 +42,9 @@ az functionapp config appsettings set --name <myFunctionApp> \
 También puede usar el conmutador **Estado de la función** en la pestaña **Administrar** de la función. El conmutador funciona mediante la creación y eliminación de la configuración de la aplicación `AzureWebJobs.<FUNCTION_NAME>.Disabled`.
 
 ![Conmutador Estado de la función](media/disable-function/function-state-switch.png)
+
+> [!NOTE]  
+> La funcionalidad de pruebas integrada en el portal omite el valor `Disabled`. Esto significa que una función deshabilitada todavía se ejecuta cuando se inicia desde la ventana **Prueba** en el portal. 
 
 ## <a name="other-methods"></a>Otros métodos
 

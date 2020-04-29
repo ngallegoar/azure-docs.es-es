@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/01/2019
-ms.openlocfilehash: 68975f21ab810398da969384db4d3bddd22f1bd9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 29713622be90ea280bff3c002be746bf1615718f
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79237208"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605909"
 ---
 # <a name="call-azure-functions-from-azure-logic-apps"></a>Llamada a funciones de Azure desde Azure Logic Apps
 
@@ -101,7 +101,9 @@ Ahora que ha creado la función de Azure, siga los pasos para saber cómo [agreg
 
 ## <a name="create-functions-inside-logic-apps"></a>Creación de funciones en aplicaciones lógicas
 
-Para poder crear una función de Azure desde la aplicación lógica en el Diseñador de aplicación lógica primero debe tener una aplicación de función de Azure, que es un contenedor para las funciones. Si no tiene una aplicación de función, cree primero la aplicación de función. Consulte [Creación de su primera función en Azure Portal](../azure-functions/functions-create-first-azure-function.md).
+Puede crear funciones de Azure directamente desde el flujo de trabajo de la aplicación lógica mediante la acción integrada de Azure Functions en el diseñador de aplicaciones lógicas, pero solo puede usar este método para funciones de Azure escritas en JavaScript. En el caso de otros idiomas, puede crear funciones de Azure mediante la experiencia de Azure Functions en Azure Portal. Para más información, consulte [Creación de su primera función en Azure Portal](../azure-functions/functions-create-first-azure-function.md).
+
+Sin embargo, antes de poder crear cualquier función de Azure, debe tener una aplicación de funciones de Azure que actúe como contenedor de las funciones. Si no tiene una aplicación de función, cree primero la aplicación de función. Consulte [Creación de su primera función en Azure Portal](../azure-functions/functions-create-first-azure-function.md).
 
 1. En [Azure Portal](https://portal.azure.com), abra la aplicación lógica en Diseñador de aplicación lógica.
 

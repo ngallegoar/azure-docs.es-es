@@ -1,14 +1,14 @@
 ---
 title: Detalles de la estructura de asignaciones de directivas
 description: Describe la definición de asignación de directiva utilizada por Azure Policy para relacionar las definiciones de directiva y los parámetros con los recursos para su evaluación.
-ms.date: 09/23/2019
+ms.date: 04/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: f03c654dfc4c8dfdf2bdc5103a5961b4d8ce1e64
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cdb2fc0c6f057ece44383f68bc79fca54507db9b
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79231416"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683216"
 ---
 # <a name="azure-policy-assignment-structure"></a>Estructura de asignaciones de Azure Policy
 
@@ -20,6 +20,7 @@ Utilice JSON para crear una definición de directiva. La asignación de directiv
 - description
 - metadata
 - modo de cumplimiento
+- ámbitos excluidos
 - definición de directiva
 - parámetros
 
@@ -34,6 +35,7 @@ Por ejemplo, el siguiente archivo JSON muestra una asignación de directiva en e
             "assignedBy": "Cloud Center of Excellence"
         },
         "enforcementMode": "DoNotEnforce",
+        "notScopes": [],
         "policyDefinitionId": "/subscriptions/{mySubscriptionID}/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
         "parameters": {
             "prefix": {
@@ -65,6 +67,10 @@ Esta propiedad tiene los siguientes valores:
 |Disabled |DoNotEnforce |string |Sí |No | El efecto de la directiva no se aplica durante la creación o actualización de recursos. |
 
 Si **enforcementMode** no se especifica en una definición de directiva o iniciativa, se usa el valor _Default_. [Las tareas de corrección](../how-to/remediate-resources.md) se pueden iniciar para las directivas [deployIfNotExists](./effects.md#deployifnotexists), incluso cuando **enforcementMode** está establecido en _DoNotEnforce_.
+
+## <a name="excluded-scopes"></a>Ámbitos excluidos
+
+El **ámbito** de la asignación incluye todos los contenedores de recursos secundarios y los recursos secundarios. Si la definición no debe aplicarse a un contenedor de recursos secundario o un recurso secundario, se puede excluir cada uno de ellos de la evaluación estableciendo **notScopes**. Esta propiedad es una matriz que permite excluir de la evaluación a uno o varios contenedores de recursos o recursos. **notScopes** se puede agregar o actualizar después de la creación de la asignación inicial.
 
 ## <a name="policy-definition-id"></a>Identificador de la definición de directiva
 

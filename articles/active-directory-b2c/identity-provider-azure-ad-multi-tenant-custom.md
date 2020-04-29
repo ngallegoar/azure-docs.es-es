@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9ad51e113a752e0692cb377a83d4819b4e284bb7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 320723744e1366fdc73cd0593fb0ebece03367f8
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78188450"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678105"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Configuración del inicio de sesión para Azure Active Directory multiinquilino mediante directivas personalizadas en Azure Active Directory B2C
 
@@ -44,7 +44,7 @@ Para habilitar el inicio de sesión para los usuarios de una organización espec
     https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
     ```
 
-    Por ejemplo, `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
+    Por ejemplo, `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`.
 
 1. Seleccione **Registrar**. Anote el **Id. de aplicación (cliente)** para usarlo en un paso posterior.
 1. Seleccione **Certificados y secretos** y luego seleccione **Nuevo secreto de cliente**.
@@ -57,10 +57,10 @@ Si quiere obtener las notificaciones `family_name` y `given_name` de Azure AD, 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com). Busque y seleccione **Azure Active Directory**.
 1. En la sección **Administrar**, seleccione **Registros de aplicaciones**.
 1. Seleccione en la lista la aplicación para la que desea configurar notificaciones opcionales.
-1. En la sección **Administrar**, seleccione **Configuración del token (versión preliminar)** .
+1. En la sección **Administrar**, seleccione **Configuración del token**.
 1. Seleccione **Agregar notificación opcional**.
-1. Seleccione el tipo de token que desea configurar.
-1. Seleccione las notificaciones opcionales que va a agregar.
+1. En **Tipo de token**, seleccione **ID**.
+1. Seleccione las notificaciones opcionales que va a agregar, `family_name` y `given_name`.
 1. Haga clic en **Agregar**.
 
 ## <a name="create-a-policy-key"></a>Creación de una clave de directiva

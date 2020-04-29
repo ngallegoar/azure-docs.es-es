@@ -11,15 +11,17 @@ ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 03/27/2020
-ms.openlocfilehash: d6252b7a0ecce553bc3a1519055375fd4cd034f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/15/2020
+ms.openlocfilehash: ab2ba31d6b712bd3399bc8bf5b491337d462dac9
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336209"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606216"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>Personalización de la instalación en una instancia de Azure-SSIS Integration Runtime
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 La instalación personalizada en una instancia del entorno de ejecución de integración de Azure SQL Server Integration Services (Azure-SSIS-R) ofrece una interfaz para que agregue sus propios pasos durante la instalación o la reconfiguración de dicha instancia. 
 
@@ -32,7 +34,7 @@ Puede realizar instalaciones personalizadas en la instancia de Azure-SSIS IR de 
 Puede instalar componentes gratuitos sin licencia y componentes de pago con licencia con instalaciones personalizadas rápidas y estándar. Si es fabricante de software independiente (ISV), consulte [Desarrollo de componentes con licencia o de pago para Azure-SSIS IR](how-to-develop-azure-ssis-ir-licensed-components.md).
 
 > [!IMPORTANT]
-> Como los nodos de la serie v2 de una instancia de Azure-SSIS IR no son adecuados para la instalación personalizada, use en su lugar nodos de la serie v3. Si ya usa nodos de la serie v2, pase a los de la serie v3 tan pronto como sea posible.
+> Para beneficiarse de las mejoras futuras, se recomienda usar la versión v3 o posterior de la serie de nodos para Azure-SSIS IR con la configuración personalizada.
 
 ## <a name="current-limitations"></a>Limitaciones actuales
 

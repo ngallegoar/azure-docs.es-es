@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 01/22/2020
 ms.author: iainfou
-ms.openlocfilehash: 95373ab8ff78c5bcb856e6d7e6d67d8525cd3f7e
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 74af841b777494744c72ed219bacd3b3835d41ac
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80655133"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617562"
 ---
 # <a name="join-an-ubuntu-linux-virtual-machine-to-an-azure-ad-domain-services-managed-domain"></a>Unión de una máquina virtual Ubuntu Linux a un dominio administrado de Azure AD Domain Services
 
@@ -154,6 +154,12 @@ Successfully enrolled machine in realm
 ```
 
 Si la máquina virtual no puede finalizar correctamente el proceso de unión al dominio, asegúrese de que el grupo de seguridad de red de la máquina virtual permita el tráfico Kerberos saliente en el puerto TCP + UDP 464 a la subred de la red virtual para el dominio administrado de Azure AD DS.
+
+Si ha recibido el error *Error de GSS no especificado.  Es posible que el código secundario proporcione más información (servidor no encontrado en la base de datos de Kerberos)* , abra el archivo */etc/krb5.conf*, agregue el código siguiente en la sección `[libdefaults]` e inténtelo de nuevo:
+
+```console
+rdns=false
+```
 
 ## <a name="update-the-sssd-configuration"></a>Actualización de la configuración de SSSD
 

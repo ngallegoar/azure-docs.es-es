@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 093f4b11d10396199e9fac1e22fd82197f3a5e79
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 01b5f87c2557e2195573b90766ee45e001798cca
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79232304"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537702"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Preguntas más frecuentes (P+F) sobre Azure Files
 [Azure Files](storage-files-introduction.md) ofrece recursos compartidos de archivos en la nube totalmente administrados, a los que se puede acceder mediante el [protocolo de bloque de mensajes del servidor (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) estándar. Los recursos compartidos de archivos de Azure se pueden montar simultáneamente en implementaciones de Windows, Linux y macOS en la nube o locales. También puede almacenar en caché recursos compartidos de archivos de Azure en máquinas con Windows Server mediante Azure File Sync para tener un acceso rápido cerca de donde se usan los datos.
@@ -45,7 +45,7 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
 
     Azure Files es específicamente un sistema de archivos. Azure Files tiene todos los resúmenes de archivo con los que está familiarizado después de trabajar durante años con sistemas operativos locales. Al igual que Azure Blob Storage, Azure Files ofrece una interfaz de REST y bibliotecas de cliente basadas en REST. A diferencia de Azure Blob Storage, Azure Files ofrece a SMB acceso a recursos compartidos de archivos de Azure. Mediante el uso de SMB, puede montar directamente un recurso compartido de archivos de Azure en Windows, Linux o macOS, ya sea en máquinas virtuales locales como en la nube, sin tener que escribir ningún código ni adjuntar controladores especiales al sistema de archivos. También puede almacenar en caché recursos compartidos de archivos de Azure en servidores de archivos locales mediante el uso de Azure File Sync para tener un acceso rápido cerca de donde se usan los datos. 
    
-    Para obtener una explicación más detallada sobre las diferencias entre Azure Files y Azure Blob Storage, vea [Decisión sobre cuándo usar Azure Blobs, Azure Files o Azure Disks](../common/storage-decide-blobs-files-disks.md). Para saber más de Azure Blob Storage, consulte [Introducción a Blob Storage](../blobs/storage-blobs-introduction.md).
+    Para obtener una explicación más detallada sobre las diferencias entre Azure Files y Azure Blob Storage, vea [Introducción a los servicios principales de Azure Storage](../common/storage-introduction.md). Para saber más de Azure Blob Storage, consulte [Introducción a Blob Storage](../blobs/storage-blobs-introduction.md).
 
 * <a id="files-versus-disks"></a> **¿Por qué debo usar un recurso compartido de archivos de Azure en vez de Azure Disks?**  
     Un disco en Azure Disks no es más que un disco. Para sacar provecho de Azure Disks, tendrá que conectarlo a una máquina virtual que se ejecute en Azure. Azure Disks puede usarse para todo aquello para lo que quiera usar un disco en un servidor local. Puede usarlo como disco del sistema operativo, como espacio de intercambio para un sistema operativo, o como almacenamiento dedicado para una aplicación. Un uso interesante de Azure Disks consiste en crear un servidor de archivos en la nube para usarlo en los mismos lugares en los que usaría un recurso compartido de archivos de Azure. Implementar un servidor de archivos en las máquinas virtuales de Azure es una manera de alto rendimiento de obtener almacenamiento de archivos en Azure cuando necesite opciones de implementación no compatibles actualmente con Azure Files (por ejemplo, la compatibilidad con el protocolo NFS o almacenamiento premium). 
@@ -54,7 +54,7 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
 
     Un enfoque para obtener lo mejor tanto de Azure Files como de un servidor de archivos hospedado en máquinas virtuales de Azure (además de usar Azure Disks como almacenamiento de back-end) consiste en instalar Azure File Sync en un servidor de archivos hospedado en máquina virtual en la nube. Si el recurso compartido de archivos de Azure se encuentra en la misma región que el servidor de archivos, puede habilitar los niveles en la nube y establecer un porcentaje de espacio libre en el volumen al máximo (99 %). Esto garantiza la duplicación mínima de datos. También puede usar todas las aplicaciones que quiera con los servidores de archivos, como aplicaciones que requieren compatibilidad con el protocolo NFS.
 
-    Para obtener más información sobre una opción para configurar un elevado rendimiento y un servidor de archivos que tenga una alta disponibilidad en Azure, vea [Deploying IaaS VM guest clusters in Microsoft Azure](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure/) (Implementación de clústeres invitados de máquinas virtuales de IaaS en Microsoft Azure). Para obtener una descripción más detallada sobre las diferencias entre Azure Files y Azure Disks, vea [Decisión sobre cuándo usar Azure Blobs, Azure Files o Azure Disks](../common/storage-decide-blobs-files-disks.md). Para obtener más información sobre Azure Disks, vea [Introducción a Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md).
+    Para obtener más información sobre una opción para configurar un elevado rendimiento y un servidor de archivos que tenga una alta disponibilidad en Azure, vea [Deploying IaaS VM guest clusters in Microsoft Azure](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure/) (Implementación de clústeres invitados de máquinas virtuales de IaaS en Microsoft Azure). Para obtener una explicación más detallada sobre las diferencias entre Azure Files y Azure Disks, vea [Introducción a los servicios principales de Azure Storage](../common/storage-introduction.md). Para obtener más información sobre Azure Disks, vea [Introducción a Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md).
 
 * <a id="get-started"></a>
    **¿Cómo puedo empezar a usar Azure Files?**  
@@ -164,7 +164,7 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
 * <a id="ad-support"></a>
  **¿Admite Azure Files la autenticación y el control de acceso basados en identidades?**  
     
-    Sí, Azure Files admite la autenticación y el control de acceso basados en identidades. Puede elegir cualquiera de estás dos formas de usar el control de acceso basado en identidades: Active Directory (AD) (versión preliminar) o Azure Active Directory Domain Services (Azure AD DS) (GA). AD admite la autenticación mediante máquinas unidas a un dominio de AD, local o en Azure, para acceder a recursos compartidos de archivos de Azure a través de SMB. La autenticación de Azure AD DS a través de SMB para Azure Files permite que las máquinas virtuales Windows unidas a un dominio de Azure AD DS tengan acceso a recursos compartidos, directorios y archivos mediante las credenciales de Azure AD. Para más información, consulte [Introducción a la compatibilidad de la autenticación basada en identidades de Azure Files con el acceso SMB](storage-files-active-directory-overview.md). 
+    Sí, Azure Files admite la autenticación y el control de acceso basados en identidades. Puede elegir una de las dos formas de usar el control de acceso basado en identidades: Active Directory Domain Services local (versión preliminar) o Azure Active Directory Domain Services (Azure AD DS). Active Directory Domain Services (AD DS) local admite la autenticación mediante máquinas unidas a un dominio de AD DS, local o en Azure, para acceder a recursos compartidos de archivos de Azure a través de SMB. La autenticación de Azure AD DS a través de SMB para Azure Files permite que las máquinas virtuales Windows unidas a un dominio de Azure AD DS tengan acceso a recursos compartidos, directorios y archivos mediante las credenciales de Azure AD. Para más información, consulte [Introducción a la compatibilidad de la autenticación basada en identidades de Azure Files con el acceso SMB](storage-files-active-directory-overview.md). 
 
     Azure Files ofrece dos formas adicionales de administrar el control de acceso:
 
@@ -185,39 +185,29 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
     Sí, se admiten las API REST que obtengan, establezcan o copien las listas de control de acceso con formato NTFS para directorios o archivos al usar la API REST de [2019-07-07](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#version-2019-07-07) (o posterior).
 
 * <a id="ad-vm-subscription"></a>
- **¿Puedo obtener acceso a Azure Files con las credenciales de Azure AD desde una máquina virtual que esté en una suscripción diferente?**
+ **¿Puedo obtener acceso a recursos compartidos de archivos de Azure con las credenciales de Azure AD desde una VM que esté en una suscripción diferente?**
 
-    Si la suscripción con la que se implementa el recurso compartido de archivos está asociada al mismo inquilino de Azure AD como, por ejemplo, la función de implementación de Azure AD Domain Services a la que está unida la máquina virtual mediante el dominio, puede obtener acceso a Azure Files con las mismas credenciales de Azure AD. La limitación no se impone en la suscripción, sino en el inquilino de Azure AD asociado.
+    Si la suscripción con la que se implementa el recurso compartido de archivos está asociada al mismo inquilino de Azure AD al que está unida a un dominio la VM, puede obtener acceso a los recursos compartidos de archivos de Azure con las mismas credenciales de Azure AD. La limitación no se impone en la suscripción, sino en el inquilino de Azure AD asociado.
     
 * <a id="ad-support-subscription"></a>
- **¿Puedo habilitar la autenticación de Azure AD DS para Azure Files o de AD con un inquilino de Azure AD distinto del inquilino principal con el que está asociado el recurso compartido de archivos?**
+ **¿Puedo habilitar la autenticación con Azure AD DS o AD DS local para recursos compartidos de archivos de Azure con un inquilino de Azure AD distinto del inquilino principal del recurso compartido de archivos de Azure?**
 
-    No, Azure Files solo admite la integración de Azure AD DS con un inquilino de Azure AD que se encuentre en la misma suscripción que el recurso compartido de archivos. Cada suscripción está asociada a un inquilino de Azure AD. Esta limitación se aplica a los métodos de autenticación tanto con Azure AD DS como con AD. Si se usa AD para la autenticación, la credencial de AD se debe sincronizar con la instancia de Azure AD a la que está asociada la cuenta de almacenamiento.
+    No, Azure Files solo es compatible con la integración de Azure AD DS o AD DS local con un inquilino de Azure AD que reside en la misma suscripción que el recurso compartido de archivos. Cada suscripción está asociada a un inquilino de Azure AD. Esta limitación se aplica a los métodos de autenticación tanto con Azure AD DS como con AD DS local. Si se usa AD DS local para la autenticación, [la credencial de AD DS se debe sincronizar con la instancia de Azure AD](../../active-directory/hybrid/how-to-connect-install-roadmap.md) a la que está asociada la cuenta de almacenamiento.
 
 * <a id="ad-linux-vms"></a>
- **¿Admite la autenticación con Azure AD DS o con AD para Azure Files máquinas virtuales Linux?**
+ **¿La autenticación con Azure AD DS o AD DS local para recursos compartidos de archivos de Azure admiten VM Linux?**
 
     No, no se admite la autenticación desde máquinas virtuales Linux.
 
-* <a id="ad-multiple-forest"></a>
- **¿Admite La autenticación con AD para Azure Files admite la integración con un entorno de AD mediante varios bosques?**    
-
-    La autenticación con AD para Azure Files solo se integra con el bosque del servicio de dominio de AD en el que está registrada la cuenta de almacenamiento. Para admitir la autenticación desde otro bosque de AD, la confianza de bosque del entorno debe estar configurada correctamente. La forma en que Azure Files se registra en un servicio de dominio de AD es prácticamente la misma que la de un servidor de archivos normal, donde se crea una identidad (cuenta de inicio de sesión de equipo o servicio) en AD para la autenticación. La única diferencia es que el nombre de entidad de seguridad de servicio registrado de la cuenta de almacenamiento finaliza en "file.core.windows.net", que no coincide con el sufijo del dominio. Póngase en contacto con el administrador del dominio para saber si es preciso realizar una actualización de la directiva de enrutamiento DNS para habilitar la autenticación de varios bosques debido al sufijo de dominio diferente.
-
-* <a id=""></a>
- **¿Qué regiones están disponibles para la autenticación con AD (versión preliminar) para Azure Files?**
-
-    Para más información, consulte la [disponibilidad de AD por regiones](storage-files-identity-auth-active-directory-enable.md#regional-availability).
-
 * <a id="ad-aad-smb-afs"></a>
- **¿Puedo aprovechar la autenticación con Azure AD DS o con Active Directory (AD) (versión preliminar) para Azure Files en los recursos compartidos de archivos que administra Azure File Sync?**
+ **¿Los recursos compartidos de archivos administrados por Azure File Sync admiten la autenticación con Azure AD DS o AD DS local (versión preliminar)?**
 
-    Sí, la autenticación con Azure AD DS o con AD se puede habilitar en un recurso compartido de archivos administrado por Azure File Sync. Los cambios en las listas de control de acceso con formato NTFS de directorio/archivo en los servidores de archivos locales se organizarán en capas en Azure Files, y viceversa.
+    Sí, la autenticación con Azure AD DS o AD DS local se puede habilitar en un recurso compartido de archivos administrado por Azure File Sync. Los cambios en las listas de control de acceso con formato NTFS de directorio/archivo en los servidores de archivos locales se organizarán en capas en Azure Files, y viceversa.
 
 * <a id="ad-aad-smb-files"></a>
- **¿Cómo puedo comprobar si he habilitado la autenticación de AD en mi cuenta de almacenamiento y la información de dominio de AD?**
+ **¿Cómo puedo comprobar si he habilitado la autenticación con AD DS en mi cuenta de almacenamiento y recuperar la información del dominio?**
 
-    Puede consultar las instrucciones proporcionadas [aquí](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#enable-ad-authentication-for-your-account) para validar si la autenticación de AD de Azure Files está habilitada en la cuenta de almacenamiento y recuperar la información de dominio de AD.
+    Para obtener instrucciones, consulte [aquí](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#1-enable-ad-authentication-for-your-account).
     
 * <a id="encryption-at-rest"></a>
  **¿Cómo se puede garantizar que el recurso compartido de archivos de Azure está cifrado en reposo?**  
@@ -243,6 +233,37 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
  **¿Qué directivas de cumplimiento de datos admite Azure Files?**  
 
    Azure Files se ejecuta sobre la misma arquitectura de almacenamiento que se usa en otros servicios de almacenamiento de Azure Storage. Azure Files aplica las mismas directivas de cumplimiento de datos que se usan en otros servicios de Azure Storage. Para obtener más información sobre el cumplimiento de datos de Azure Storage, puede consultar [Ofertas de cumplimiento de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-compliance-offerings) e ir al [Centro de confianza de Microsoft](https://microsoft.com/trustcenter/default.aspx).
+   
+### <a name="ad-authentication"></a>Autenticación de AD
+* <a id=""></a>
+ **¿Es compatible la autenticación de Azure AD para Azure Files con las máquinas virtuales Linux?**
+
+    No, no se admite la autenticación desde máquinas virtuales Linux.
+
+* <a id="ad-multiple-forest"></a>
+ **¿La autenticación con AD DS local para recursos compartidos de archivos de Azure admite la integración en un entorno de AD DS mediante varios bosques?**    
+
+    La autenticación con AD DS local para Azure Files solo se integra con el bosque del servicio de dominio en el que está registrada la cuenta de almacenamiento. Para admitir la autenticación desde otro bosque, la confianza de bosque del entorno debe estar configurada correctamente. La forma en que Azure Files se registra en AD DS es prácticamente la misma que la de un servidor de archivos normal, donde se crea una identidad (cuenta de inicio de sesión de equipo o servicio) en AD DS para la autenticación. La única diferencia es que el nombre de entidad de seguridad de servicio registrado de la cuenta de almacenamiento finaliza en "file.core.windows.net", que no coincide con el sufijo del dominio. Póngase en contacto con el administrador del dominio para saber si es preciso realizar una actualización de la directiva de enrutamiento DNS para habilitar la autenticación de varios bosques debido al sufijo de dominio diferente.
+
+* <a id=""></a>
+ **¿Qué regiones están disponibles para la autenticación con AD DS (versión preliminar) para Azure Files?**
+
+    Para más información, consulte la [disponibilidad de AD DS por regiones](storage-files-identity-auth-active-directory-enable.md#regional-availability).
+    
+* <a id="ad-aad-smb-afs"></a>
+ **¿Puedo aprovechar la autenticación de Azure Files Active Directory (AD) (versión preliminar) en los recursos compartidos de archivos que administra Azure File Sync?**
+
+    Sí, la autenticación de Azure AD se puede habilitar en un recurso compartido de archivos administrado por Azure File Sync. Los cambios en las listas de control de acceso con formato NTFS de directorio/archivo en los servidores de archivos locales se organizarán en capas en Azure Files, y viceversa.
+
+* <a id="ad-aad-smb-files"></a>
+ **¿Cómo puedo comprobar si he habilitado la autenticación de AD en mi cuenta de almacenamiento y la información de dominio de AD?**
+
+    Puede consultar las instrucciones proporcionadas [aquí](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#enable-ad-authentication-for-your-account) para validar si la autenticación de AD de Azure Files está habilitada en la cuenta de almacenamiento y recuperar la información de dominio de AD.
+
+* <a id="ad-aad-smb-files"></a>
+ **¿Hay alguna diferencia entre la creación de una cuenta de equipo y una cuenta de inicio de sesión de servicio para representar mi cuenta de almacenamiento en AD?**
+
+    La creación de una [cuenta de equipo](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (valor predeterminado) o de una [cuenta de inicio de sesión de servicio](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts) no representa ninguna diferencia en el modo en que la autenticación funciona con Azure Files. Puede elegir cómo representar una cuenta de almacenamiento como una identidad en el entorno de AD. El valor predeterminado de DomainAccountType establecido en el cmdlet join-AzStorageAccountForAuth es la cuenta de equipo. Sin embargo, el tiempo de expiración de la contraseña configurado en el entorno de AD puede ser diferente para las cuentas de inicio de sesión de servicio y de equipo, por lo que se debe tener en cuenta para la [Actualización de la contraseña de la identidad de cuenta de almacenamiento en AD](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#5-update-ad-account-password).
 
 ## <a name="on-premises-access"></a>Acceso local
 
