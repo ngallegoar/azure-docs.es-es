@@ -4,20 +4,21 @@ titlesuffix: Azure Virtual Network
 description: Aprenda a desasociar direcciones IP públicas de una máquina virtual
 services: virtual-network
 documentationcenter: ''
-author: KumudD
+author: asudbring
 ms.service: virtual-network
+ms.subservice: ip-services
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2019
-ms.author: kumud
-ms.openlocfilehash: 1c27af30f97ea967d170b2cccaefb2e95f8fedaf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: f29e29f809faeeb486e5b6b9bacc84a61380a012
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74900741"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82144469"
 ---
 # <a name="dissociate-a-public-ip-address-from-an-azure-vm"></a>Desasociación de una dirección IP pública de una máquina virtual de Azure 
 

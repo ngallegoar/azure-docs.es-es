@@ -8,18 +8,18 @@ ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: e1cb1bec6273fa79315b9439bec1412622ebfe28
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 610bac5c08d7f3aa3c93e273bc6573a08ca1239f
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75773667"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81680822"
 ---
 En el ejemplo siguiente se muestra cómo crear un emparejamiento directo de 10 Gbps en Seattle.
 
-Use el cmdlet de PowerShell **New-AzPeeringDirectConnectionObject** para crear objetos DirectConnection para usarlos en la nueva solicitud de emparejamiento.
+Use el cmdlet **New-AzPeeringDirectConnectionObject** de PowerShell para crear objetos DirectConnection para usarlos en la nueva solicitud de emparejamiento.
 
-A continuación se muestra un ejemplo para crear un objeto DirectConnection:
+En este ejemplo se muestra cómo crear un objeto DirectConnection.
 
 ```powershell
 $connection1 = New-AzPeeringDirectConnectionObject `
@@ -32,9 +32,9 @@ $connection1 = New-AzPeeringDirectConnectionObject `
 ```
 
 > [!NOTE]
-> El elemento <index> $peeringLocation[<index>] del ejemplo anterior debe corresponderse con la ubicación de emparejamiento de su elección.
+> El valor de <index> **$peeringLocation[]** <index> del ejemplo anterior debe corresponder a la ubicación de emparejamiento de su elección.
 
-Cree otra conexión si necesita redundancia en la ubicación de emparejamiento determinada:
+Cree otra conexión si necesita redundancia en la ubicación de emparejamiento dada.
 
 ```powershell
 $connection2 = New-AzPeeringDirectConnectionObject `
@@ -46,7 +46,7 @@ $connection2 = New-AzPeeringDirectConnectionObject `
     -BandwidthInMbps 10000
 ```
 
-Use el cmdlet de PowerShell **New-AzPeering** para crear un nuevo emparejamiento directo. Este comando requiere un identificador de recurso de ASN que se puede recuperar como se muestra a continuación.
+Use el cmdlet **New-AzPeering** de PowerShell para crear un emparejamiento directo. Este comando requiere un identificador de recurso de ASN que se puede recuperar, como se muestra aquí.
 
 
 ```powershell
@@ -60,7 +60,7 @@ New-AzPeering `
 ```
 &nbsp;
 
-A continuación se muestra una respuesta de ejemplo en que la solicitud se procesó correctamente:
+En este ejemplo se muestra la respuesta cuando la solicitud se ha procesado correctamente:
 
 ```powershell
 
@@ -78,4 +78,4 @@ A continuación se muestra una respuesta de ejemplo en que la solicitud se proce
     Tags                 : {}
 
 ```
-Tenga en cuenta que, en lugar de **{subscriptionId}** en la salida anterior, se mostrará el identificador de la suscripción actual.
+Observe que, en esta salida, se muestra el identificador de suscripción real en lugar de **{subscriptionId}** .

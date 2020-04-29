@@ -7,19 +7,19 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: dsindona
-ms.openlocfilehash: 6f2652a98aa081b62ba80951212ef3a3de513593
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 4aea624c2127c9b0a61d72b8d14929ce6f47df24
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81272668"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82142486"
 ---
 # <a name="connect-to-your-azure-based-virtual-machine"></a>Conectarse a la máquina virtual basada en Azure
 
 > [!IMPORTANT]
-> A partir del 13 de abril de 2020, comenzaremos a trasladar la administración de las ofertas de máquinas virtuales de Azure al Centro de partners. Después de la migración, las ofertas se crearán y administrarán en el Centro de partners. Siga las instrucciones que se indican en [Creación de recursos técnicos de Azure Virtual Machine](https://aka.ms/AzureVMTechAsset) para administrar las ofertas migradas.
+> A partir del 13 de abril de 2020, comenzaremos a trasladar la administración de las ofertas de máquinas virtuales de Azure al Centro de partners. Después de la migración, las ofertas se crearán y administrarán en el Centro de partners. Siga las instrucciones que se indican en [Creación de recursos técnicos de Azure Virtual Machine](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-create-offer) para administrar las ofertas migradas.
 
-En este artículo se explica cómo conectarse a las máquinas virtuales (VM) creadas en Azure y cómo iniciar sesión en ellas.  Cuando se haya conectado correctamente, puede trabajar con la máquina virtual como si hubiera iniciado sesión localmente en su servidor host. 
+En este artículo se explica cómo conectarse a las máquinas virtuales (VM) creadas en Azure y cómo iniciar sesión en ellas.  Cuando se haya conectado correctamente, puede trabajar con la máquina virtual como si hubiera iniciado sesión localmente en su servidor host.
 
 ## <a name="connect-to-a-windows-based-vm"></a>Conectarse a una máquina virtual basada en Windows
 

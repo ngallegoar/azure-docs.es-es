@@ -10,12 +10,12 @@ ms.date: 01/23/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: f7a8f6d0d3ab3b456c41128da9b689f6b7eda0f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7340f419912324e488dc38e5aa0d884b150a44b7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79365377"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82176386"
 ---
 # <a name="disaster-recovery-and-account-failover-preview"></a>Recuperación ante desastres y conmutación por error de la cuenta (versión preliminar)
 
@@ -54,8 +54,8 @@ Es importante diseñar la aplicación para lograr alta disponibilidad desde el p
 Además, tenga en cuenta estos procedimientos recomendados para mantener la alta disponibilidad de los datos de Azure Storage:
 
 - **Discos:** use [Azure Backup](https://azure.microsoft.com/services/backup/) para crear copias de seguridad de los discos de VM que usan las máquinas virtuales de Azure. Considere también la posibilidad de usar [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) para proteger las máquinas virtuales en caso de un desastre regional.
-- **Blobs en bloques:** active la [eliminación temporal](../blobs/storage-blob-soft-delete.md) para proteger contra eliminaciones o sobrescrituras de nivel de objeto o copie los blobs en bloques en otra cuenta de almacenamiento de otra región mediante[AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md) o la [biblioteca de movimiento de datos de Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/).
-- **Archivos:** use [AzCopy](storage-use-azcopy.md) o [Azure PowerShell](storage-powershell-guide-full.md) para copiar los archivos en otra cuenta de almacenamiento en una región distinta.
+- **Blobs en bloques:** active la [eliminación temporal](../blobs/storage-blob-soft-delete.md) para proteger contra eliminaciones o sobrescrituras de nivel de objeto o copie los blobs en bloques en otra cuenta de almacenamiento de otra región mediante[AzCopy](storage-use-azcopy.md), [Azure PowerShell](/powershell/module/az.storage/) o la [biblioteca de movimiento de datos de Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/).
+- **Archivos:** use [AzCopy](storage-use-azcopy.md) o [Azure PowerShell](/powershell/module/az.storage/) para copiar los archivos en otra cuenta de almacenamiento en una región distinta.
 - **Tablas:** use [AzCopy](storage-use-azcopy.md) para exportar datos de tabla a otra cuenta de almacenamiento en una región distinta.
 
 ## <a name="track-outages"></a>Seguimiento de las interrupciones
@@ -167,7 +167,7 @@ Las siguientes características y servicios no son compatibles con la conmutaci�
 
 ## <a name="copying-data-as-an-alternative-to-failover"></a>Copia de datos como alternativa a la conmutación por error
 
-Si la cuenta de almacenamiento está configurada para RA-GRS es porque tiene acceso de lectura a los datos con el punto de conexión secundario. Si prefiere no realizar la conmutación por error en caso de que se produzca una interrupción en la región primaria, puede usar herramientas como [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md) o la [biblioteca de movimiento de datos de Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/) para copiar datos de la cuenta de almacenamiento que se encuentra en la región secundaria a otra cuenta de almacenamiento en una región no afectada. Luego puede apuntar sus aplicaciones a esa cuenta de almacenamiento para obtener disponibilidad de lectura y escritura.
+Si la cuenta de almacenamiento está configurada para RA-GRS es porque tiene acceso de lectura a los datos con el punto de conexión secundario. Si prefiere no realizar la conmutación por error en caso de que se produzca una interrupción en la región primaria, puede usar herramientas como [AzCopy](storage-use-azcopy.md), [Azure PowerShell](/powershell/module/az.storage/) o la [biblioteca de movimiento de datos de Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/) para copiar datos de la cuenta de almacenamiento que se encuentra en la región secundaria a otra cuenta de almacenamiento en una región no afectada. Luego puede apuntar sus aplicaciones a esa cuenta de almacenamiento para obtener disponibilidad de lectura y escritura.
 
 > [!CAUTION]
 > Una conmutación por error de cuenta no debe usarse como parte de la estrategia de migración de datos.

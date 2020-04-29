@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 04/03/2020
+ms.date: 04/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a6ab13dea1a1db96cbb2f2ac70b9779eca60591
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 51be98654950ba290fa83f77eccdae4d6f549891
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80885388"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81603821"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws-legacy-tutorial"></a>Tutorial: Integración de Azure Active Directory con Amazon Web Services (AWS) (tutorial heredado)
 
@@ -37,7 +37,7 @@ Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, con
 ![Amazon Web Services (AWS) en la lista de resultados](./media/aws-multi-accounts-tutorial/amazonwebservice.png)
 
 > [!NOTE]
-> Tenga en cuenta que conectar una aplicación de AWS a todas las cuentas de AWS no es nuestro enfoque recomendado. En su lugar, se recomienda usar [este](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) enfoque para configurar varias instancias de la cuenta de AWS en varias instancias de aplicaciones de AWS en Azure AD. Solo debe usar [este](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) enfoque si tiene un número muy inferior de roles y cuentas de AWS en él. [Este](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) modelo no se puede escalar a medida que incrementan las cuentas y los roles de AWS dentro de estas cuentas. Además, [este](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) enfoque no usa la funcionalidad de importación de roles de AWS con el Aprovisionamiento de usuarios de Azure AD, por lo que tiene que agregar, actualizar o eliminar los roles manualmente. Para conocer las otras limitaciones de [este](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) enfoque, consulte los detalles siguientes.
+> Tenga en cuenta que conectar una aplicación de AWS a todas las cuentas de AWS no es nuestro enfoque recomendado. En su lugar, se recomienda usar [este](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) enfoque para configurar varias instancias de la cuenta de AWS en varias instancias de aplicaciones de AWS en Azure AD. Solo debe usar este enfoque si tiene pocas cuentas y roles de AWS, ya que este modelo no es escalable a medida que crecen las cuentas y los roles de AWS dentro de ellas. Este enfoque no usa la funcionalidad de importación de roles de AWS con el Aprovisionamiento de usuarios de Azure AD, por lo que tiene que agregar, actualizar y eliminar los roles manualmente. Para conocer otras limitaciones de este enfoque, consulte los detalles siguientes.
 
 **Tenga en cuenta que no se recomienda usar este enfoque por los siguientes motivos:**
 

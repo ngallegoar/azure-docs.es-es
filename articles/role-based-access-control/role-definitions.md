@@ -11,24 +11,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/19/2020
+ms.date: 04/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: e4e4ac1b0a867130dd7b9e276db52e1ca1e72976
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 777ea7cc29679a3819e94d39913f167ea1cb3453
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80062143"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641372"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Descripción de definiciones de roles para los recursos de Azure
 
 Si quiere comprender el funcionamiento de un rol o si va a crear su propio [rol personalizado](custom-roles.md) para recursos de Azure, resulta útil entender cómo se definen los roles. En este artículo se describen los detalles de las definiciones de roles y se proporcionan algunos ejemplos.
 
-## <a name="role-definition-structure"></a>Estructura de definición de roles
+## <a name="role-definition"></a>Definición de roles
 
-Una *definición de roles* es una recopilación de permisos. A veces, se denomina *rol* simplemente. Una definición de roles enumera las operaciones que se pueden realizar, por ejemplo, de lectura, escritura y eliminación. También puede enumerar las operaciones que no se pueden realizar u operaciones relacionadas con datos subyacentes. Tiene la siguiente estructura:
+Una *definición de roles* es una recopilación de permisos. A veces, se denomina *rol* simplemente. Una definición de roles enumera las operaciones que se pueden realizar, por ejemplo, de lectura, escritura y eliminación. También puede enumerar las operaciones que no se pueden realizar u operaciones relacionadas con datos subyacentes. Una definición de roles tiene las siguientes propiedades:
 
 ```
 Name
@@ -41,6 +41,20 @@ DataActions []
 NotDataActions []
 AssignableScopes []
 ```
+
+| Propiedad | Descripción |
+| --- | --- |
+| `Name` | Nombre para mostrar del rol. |
+| `Id` | Identificador único del rol. |
+| `IsCustom` | Indica si es un rol personalizado. Establecido en `true` para los roles personalizados. |
+| `Description` | Descripción del rol. |
+| `Actions` | Matriz de cadenas que especifica las operaciones de administración que el rol permite realizar. |
+| `NotActions` | Matriz de cadenas que especifica las operaciones de administración que se excluyen de las `Actions` permitidas. |
+| `DataActions` | Matriz de cadenas que especifica las operaciones de datos que el rol permite realizar en los datos dentro de ese objeto. |
+| `NotDataActions` | Matriz de cadenas que especifica las operaciones de datos que se excluyen de las `DataActions` permitidas. |
+| `AssignableScopes` | Matriz de cadenas que especifica los ámbitos en los que el rol está disponible para la asignación. |
+
+### <a name="operations-format"></a>Formato de las operaciones
 
 Se especifican las operaciones con cadenas que tienen el formato siguiente:
 
@@ -55,6 +69,8 @@ La parte `{action}` de una cadena de la operación especifica el tipo de operaci
 | `write` | Permite operaciones de escritura (PUT o PATCH). |
 | `action` | Permite operaciones personalizadas, como reiniciar máquinas virtuales (POST). |
 | `delete` | Permite operaciones de eliminación (DELETE). |
+
+### <a name="role-definition-example"></a>Ejemplo de definición de roles
 
 Esta es la definición de roles [Colaborador](built-in-roles.md#contributor) en formato JSON. La operación de carácter comodín (`*`) en `Actions` indica que la entidad de seguridad asignada a este rol puede realizar todas las acciones o, en otras palabras, administrar todo el contenido. Esto incluye las acciones definidas en el futuro, a medida que Azure agregue nuevos tipos de recursos. Las operaciones en `NotActions` se restan de `Actions`. En el caso del rol [Colaborador](built-in-roles.md#contributor), `NotActions` le quita la capacidad para administrar y asignar el acceso a los recursos.
 
@@ -92,7 +108,7 @@ El acceso de administración no se hereda a los datos, dado que el método de au
 
 Anteriormente, el control de acceso basado en rol no se usaba para operaciones de datos. La autorización para las operaciones de datos variaba entre proveedores de recursos. El mismo modelo de autorización de control de acceso basado en rol que se usa para las operaciones de administración se ha ampliado a las operaciones de datos.
 
-Para admitir las operaciones de datos, se agregaron nuevas propiedades de datos a la estructura de la definición de roles. Las operaciones de datos se especifican en las propiedades `DataActions` y `NotDataActions`. Al agregar estas propiedades de datos, se mantiene la separación entre la administración y los datos. Esto impide que las asignaciones de roles actuales con caracteres comodín (`*`) de repente tengan acceso a los datos. Estas son algunas operaciones de datos que se pueden especificar en `DataActions` y `NotDataActions`:
+Para admitir las operaciones de datos, se agregaron nuevas propiedades de datos a la definición de roles. Las operaciones de datos se especifican en las propiedades `DataActions` y `NotDataActions`. Al agregar estas propiedades de datos, se mantiene la separación entre la administración y los datos. Esto impide que las asignaciones de roles actuales con caracteres comodín (`*`) de repente tengan acceso a los datos. Estas son algunas operaciones de datos que se pueden especificar en `DataActions` y `NotDataActions`:
 
 - Leer una lista de blobs en un contenedor
 - Escribir un blob de almacenamiento en un contenedor

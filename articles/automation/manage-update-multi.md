@@ -5,31 +5,28 @@ services: automation
 ms.subservice: update-management
 ms.date: 03/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: c9a3c88ea0c3e656adf0f8c514b418cfc07c9590
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5376562d9df35539a33f6746b387a1ff7083b8f1
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80335766"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81676440"
 ---
-# <a name="manage-updates-for-multiple-machines"></a>Administración de actualizaciones para varias máquinas
+# <a name="manage-updates-for-multiple-azure-virtual-machines"></a>Administración de actualizaciones para varias máquinas virtuales de Azure
 
-Puede usar la solución Update Management para administrar las actualizaciones y las revisiones de las máquinas Windows y Linux. Desde la cuenta de [Azure Automation](automation-offering-get-started.md), puede:
+Puede usar Update Management de Azure Automation para administrar las actualizaciones y las revisiones de las máquinas virtuales Windows y Linux. Desde la cuenta de [Azure Automation](automation-offering-get-started.md), puede:
 
-- Incorporar máquinas virtuales
-- Evaluar el estado de las actualizaciones disponibles
-- Programar la instalación de las actualizaciones necesarias
-- Revisar los resultados de la implementación para comprobar que se han aplicado correctamente actualizaciones a todas las máquinas virtuales para las cuales se ha habilitado Update Management
+- Incorporar máquinas virtuales.
+- Evaluar el estado de las actualizaciones disponibles.
+- Programar la instalación de las actualizaciones necesarias.
+- Revisar los resultados de la implementación para comprobar que se han aplicado correctamente las actualizaciones a todas las máquinas virtuales para las cuales se ha habilitado Update Management.
+
+Para más información sobre los requisitos del sistema de Update Management, vea [Requisitos del cliente de Update Management](automation-update-management.md#clients).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-Para usar Update Management, necesita lo siguiente:
-
-- Una máquina virtual o un equipo con uno de los sistemas operativos admitidos instalado.
-
-- Acceso a un repositorio de actualizaciones para máquinas virtuales Linux incorporadas a la solución.
-
-Para más información sobre los requisitos del sistema de Update Management, vea [Requisitos del cliente de Update Management](automation-update-management.md#clients).
+* Una máquina virtual o un equipo con uno de los sistemas operativos admitidos instalado.
+* Acceso a un repositorio de actualizaciones para máquinas virtuales Linux incorporadas a Update Management.
 
 ## <a name="enable-update-management-for-azure-virtual-machines"></a>Habilitación de Update Management en máquinas virtuales de Azure
 
@@ -53,25 +50,23 @@ El agente de Log Analytics para Windows y Linux debe instalarse en las máquina
 
 ## <a name="view-computers-attached-to-your-automation-account"></a>Visualización de equipos conectados a la cuenta de Automation
 
-Después de habilitar Update Management en las máquinas, puede ver información sobre ellas si selecciona **Equipos**. Encontrará información sobre el *nombre de la máquina*, el *estado de cumplimiento*, el *entorno*, el *tipo de sistema operativo*, las *actualizaciones críticas y de seguridad instaladas*, *otras actualizaciones instaladas* y la *preparación del agente de actualización* de los equipos.
+Después de habilitar Update Management en las máquinas, puede ver información sobre ellas si selecciona **Equipos**. Encontrará información sobre el nombre de la máquina, el estado de cumplimiento, el entorno, el tipo de sistema operativo, las actualizaciones críticas y de seguridad instaladas, otras actualizaciones instaladas y la preparación del agente de actualización de los equipos.
 
   ![Pestaña en la que se ven los equipos](./media/manage-update-multi/update-computers-tab.png)
 
-Es posible que los equipos que no se hayan habilitado recientemente para Update Management no se hayan evaluado aún. En este caso, el estado de cumplimiento de esos equipos es **No evaluado**. Esta es una lista de valores posibles de estado de cumplimiento:
+Es posible que los equipos que no se hayan habilitado recientemente para Update Management no se hayan evaluado aún. El estado de cumplimiento de esos equipos es `Not assessed`. Esta es una lista de valores posibles de estado de cumplimiento:
 
-- **Compatible**: equipos que no tienen actualizaciones críticas o de seguridad pendientes.
+- `Compliant`: equipos que no tienen actualizaciones críticas o de seguridad pendientes.
+- `Non-compliant`: equipos que no tienen al menos una actualización crítica o de seguridad pendiente.
+- `Not assessed`: los datos de valoración de las actualizaciones no se han recibido del equipo en el período esperado. En equipos Linux, el período de tiempo esperado es la última hora. En equipos Windows, el período de tiempo esperado son las 12 últimas horas.
 
-- **No compatible**: equipos que no tienen al menos una actualización crítica o de seguridad pendiente.
-
-- **No evaluado**: los datos de valoración de las actualizaciones no se han recibido del equipo en el período esperado. En equipos Linux, el período de tiempo esperado está en la última hora. En equipos Windows, el período de tiempo esperado está en las 12 últimas horas.
-
-Para ver el estado del agente, seleccione el vínculo de la columna **Preparación de actualizaciones del agente**. Al seleccionar esta opción se abre el panel **Hybrid Worker**, que muestra el estado de Hybrid Worker. En la siguiente imagen se muestra un ejemplo de un agente que no se ha conectado a Update Management durante un período de tiempo prolongado:
+Para ver el estado del agente, seleccione el vínculo de la columna **Preparación de actualizaciones del agente**. Al seleccionar esta opción se abre el panel Hybrid Worker, que muestra el estado de la instancia de Hybrid Worker. En la siguiente imagen se muestra un ejemplo de un agente que no se ha conectado a Update Management durante un período de tiempo prolongado:
 
 ![Pestaña en la que se ven los equipos](./media/manage-update-multi/update-agent-broken.png)
 
 ## <a name="view-an-update-assessment"></a>Visualización de la evaluación de la actualización
 
-Una vez habilitado Update Management, se abre el panel **Update Management**. Puede ver una lista de las actualizaciones que faltan en la pestaña **Actualizaciones que faltan**.
+Una vez habilitado Update Management, se abre el panel Update Management. Puede ver una lista de las actualizaciones que faltan en la pestaña **Actualizaciones que faltan**.
 
 ## <a name="collect-data"></a>Recopilación de datos
 
@@ -132,7 +127,7 @@ En el panel **Nueva implementación de actualización**, especifique la siguient
   - Herramientas
   - Actualizaciones
 
-- **Actualizaciones para incluir/excluir**: abre la página para **incluir/excluir**. Las actualizaciones que se incluirán o excluirán están en pestañas independientes. Para más información sobre cómo se controla la inclusión, consulte [Programación de una implementación de actualizaciones](automation-tutorial-update-management.md#schedule-an-update-deployment).
+- **Actualizaciones para incluir/excluir**: se abre la página Incluir/Excluir. Las actualizaciones que se incluirán o excluirán están en pestañas independientes. Para más información sobre cómo se controla la inclusión, consulte [Programación de una implementación de actualizaciones](automation-tutorial-update-management.md#schedule-an-update-deployment).
 
 > [!NOTE]
 > Es importante saber que las exclusiones invalidan las inclusiones. Por ejemplo, si define una regla de exclusión de `*`, no se instalan revisiones ni paquetes, ya que se excluyen todas. Las revisiones excluidas aparecen todavía como que faltan en la máquina. Para las máquinas Linux, si se incluye un paquete, pero tiene un paquete dependiente que se ha excluido, el paquete no se instala.
@@ -176,11 +171,11 @@ Si se produce un error en una o varias actualizaciones de la implementación, el
 
 Para establecer el panel para una implementación de actualizaciones, seleccione la implementación completada.
 
-En el panel **Resultados de actualización** se muestra el número total de actualizaciones y los resultados de la implementación de la máquina virtual. En la tabla de la derecha se muestra un análisis detallado de cada actualización y los resultados de la instalación. Los resultados de la instalación puede ser uno de los siguientes valores:
+En el panel Resultados de la actualización se muestra el número total de actualizaciones y los resultados de la implementación de la máquina virtual. En la tabla de la derecha se muestra un análisis detallado de cada actualización y los resultados de la instalación. Los resultados de la instalación puede ser uno de los siguientes valores:
 
-- **No intentado**: la actualización no se instaló porque no había tiempo disponible suficiente de acuerdo con la ventana de mantenimiento definida.
-- **Correcto**: actualización realizada correctamente.
-- **Error**: error en la actualización.
+- `Not attempted`: la actualización no se instaló porque no había tiempo disponible suficiente de acuerdo con la ventana de mantenimiento definida.
+- `Succeeded`: actualización realizada correctamente.
+- `Failed`: error en la actualización.
 
 Seleccione **Todos los registros** para ver todas las entradas de registro que creó la implementación.
 

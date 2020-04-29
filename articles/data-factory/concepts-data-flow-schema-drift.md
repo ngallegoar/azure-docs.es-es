@@ -7,17 +7,17 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/12/2019
-ms.openlocfilehash: a6b3b1d11242434088c138460d968f39d5273e4f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.date: 04/15/2020
+ms.openlocfilehash: 6e361d23860ce8f40abba5c246242cf345bb974c
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81418430"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606114"
 ---
 # <a name="schema-drift-in-mapping-data-flow"></a>Desfase de esquema en el flujo de datos de asignación
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 El desfase de esquema es el caso en que los orígenes suelen cambiar los metadatos. Los campos, columnas y tipos pueden agregarse, quitarse o cambiarse sobre la marcha. Si no se controla el desfase de esquema, el flujo de datos se vuelve vulnerable a los cambios del origen de datos de nivel superior. Cuando se cambian los campos y las columnas de entrada, los patrones ETL típicos generan un error porque tienden a estar vinculados a los nombres de esos orígenes.
 
@@ -30,6 +30,10 @@ Con el fin de protegerse contra el desfase de esquema, es importante disponer de
 Azure Data Factory admite de forma nativa esquemas flexibles que cambian de una ejecución a otra, lo que le permite compilar lógica de transformación de datos genéricos sin necesidad de volver a compilar los flujos de datos.
 
 Deberá tomar una decisión de arquitectura en el flujo de datos para aceptar el desfase de esquema en todo el flujo. Al hacerlo, puede protegerse de los cambios de esquema en los orígenes. Sin embargo, se perderá el enlace temprano de las columnas y los tipos a lo largo del flujo de datos. Azure Data Factory trata los flujos de desfase de esquema como flujos de enlace tardío, por lo que, al compilar las transformaciones, los nombres de columnas desfasadas no estarán disponibles en las vistas de esquema en todo el flujo.
+
+En este vídeo se proporciona una introducción a algunas de las soluciones complejas que puede compilar con facilidad en ADF con la característica de desfase de esquema del flujo de datos. En este ejemplo, se compilan patrones reutilizables basados en esquemas de base de datos flexibles:
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4tyx7]
 
 ## <a name="schema-drift-in-source"></a>Desfase de esquema en origen
 

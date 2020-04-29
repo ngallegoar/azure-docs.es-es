@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/01/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 9e6eafc4e2f6ae4a0cf1d99cb63bfed53db77f69
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4559a49a64688545e519f6172798997c2d695672
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77029101"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461782"
 ---
 Cuando se crea una máquina virtual (VM) de Azure, es preciso crear una [red virtual](../articles/virtual-network/virtual-networks-overview.md) (VNet) o usar una red virtual existente. También es preciso decidir la forma en que pretende que se acceda a las máquinas virtuales en la red virtual. Es importante [planear antes de crear recursos](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) y asegurarse de que se conocen los [límites de los recursos de red](../articles/azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
 
@@ -79,11 +79,11 @@ Una subred es un intervalo de direcciones IP en la red virtual. Una red virtual 
 
 Al configurar una red virtual, especifique la topología, incluidos los espacios de direcciones y las subredes disponibles. Si la red virtual se va a conectar a otras redes virtuales o a redes locales, es preciso seleccionar intervalos de direcciones que no se superpongan. Las direcciones IP son privadas y no se puede acceder a ellas desde Internet, lo cual sucedía solo en el caso de las direcciones IP no enrutables como 10.0.0.0/8, 172.16.0.0/12 o 192.168.0.0/16. Ahora, Azure trata todos los intervalos de direcciones como parte del espacio de direcciones IP de redes virtuales privadas al que solo se puede acceder dentro de la red virtual, de redes virtuales interconectadas y desde su ubicación local. 
 
-Si trabaja en una organización en la que otra persona es responsable de las redes internas, póngase en contacto con ella antes de seleccionar el espacio de direcciones. Asegúrese de que no se superpone a otro e infórmele acerca del espacio que desea usar, con el fin de que no intente usar el mismo intervalo de direcciones IP. 
+Si trabaja en una organización en la que otra persona es responsable de las redes internas, póngase en contacto con ella antes de seleccionar el espacio de direcciones. Asegúrese de que no haya superposición e infórmele acerca del espacio que desea usar, con el fin de que no intente usar el mismo intervalo de direcciones IP. 
 
 De forma predeterminada, no hay ningún límite de seguridad entre subredes, por lo que las máquinas virtuales de cada una de estas subredes pueden comunicarse entre sí. Sin embargo, se pueden configurar grupos de seguridad de red (NSG), que permiten controlar el flujo de tráfico que llega y sale tanto de las subredes como de las máquinas virtuales. 
 
-En esta tabla se enumeran los métodos que se pueden usar para crear una red virtual y subredes. 
+En esta tabla se enumeran los métodos que se pueden usar para crear una red virtual y subredes.    
 
 | Método | Descripción |
 | ------ | ----------- |
@@ -121,11 +121,12 @@ El equilibrador de carga asigna el tráfico entrante y saliente entre la direcci
 
 Al crear un equilibrador de carga, también es preciso tener en cuenta estos elementos de configuración:
 
-- **Configuración de IP de front-end**: un equilibrador de carga puede incluir una o varias direcciones IP de front-end, conocidas también como IP virtuales (VIP). Estas direcciones IP sirven como entrada para el tráfico.
+- **Configuración de IP de front-end**: un equilibrador de carga puede incluir una o varias direcciones IP de front-end. Estas direcciones IP sirven como entrada para el tráfico.
 - **Grupo de direcciones de back-end**: direcciones IP que están asociadas a la NIC a la que se distribuye la carga.
-- **Reglas NAT**: define el flujo del tráfico entrante a través de la IP de front-end y su distribución a la IP de back-end.
+- **[Enrutamiento de puerto](../articles/load-balancer/tutorial-load-balancer-port-forwarding-portal.md)** : define el flujo de tráfico entrante a través de la dirección IP de front-end y su distribución a la IP de back-end mediante el uso de reglas NAT de entrada.
 - **Reglas del equlibrador de carga**: asigna una combinación dada de IP de front-end y puerto a una combinación de un conjunto de direcciones IP de back-end y puerto. Un solo equilibrador de carga puede tener varias reglas de equilibrio de carga. Cada regla tiene una combinación de una IP de front-end y un puerto y una IP de back-end asociados a las máquinas virtuales.
 - **[Sondeos](../articles/load-balancer/load-balancer-custom-probe-overview.md)** : supervisa el estado de las máquinas virtuales. Si un sondeo no responde, el equilibrador de carga deja de enviar nuevas conexiones a la máquina virtual que no funciona correctamente. Las conexiones existentes no resultan afectadas y las nuevas conexiones se envían a las máquinas virtuales que están en buen estado.
+- **[Reglas de salida](../articles/load-balancer/load-balancer-outbound-rules-overview.md)** : una regla de salida configura una traducción de direcciones de red (NAT) de salida para todas las máquinas virtuales o instancias identificadas por el grupo de back-end de la instancia de Standard Load Balancer que se van a traducir para el front-end.
 
 En esta tabla se enumeran los métodos que se pueden usar para crear un equilibrador de carga con acceso a Internet.
 
@@ -140,10 +141,14 @@ En esta tabla se enumeran los métodos que se pueden usar para crear un equilibr
 
 | Método | Descripción |
 | ------ | ----------- |
-| Portal de Azure | Puede [equilibrar la carga de tráfico interno con un equilibrador de carga básico en Azure Portal](../articles/load-balancer/tutorial-load-balancer-basic-internal-portal.md). |
+| Portal de Azure | Puede [equilibrar la carga de tráfico interno con un equilibrador de carga en Azure Portal](../articles/load-balancer/tutorial-load-balancer-standard-internal-portal.md). |
 | [Azure PowerShell](../articles/load-balancer/load-balancer-get-started-ilb-arm-ps.md) | Para proporcionar una dirección IP privada en la subred de la red, utilice [New-AzLoadBalancerFrontendIpConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerfrontendipconfig) con el parámetro **-PrivateIpAddress**. Use [New-AzLoadBalancerBackendAddressPoolConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) para crear la configuración del grupo de direcciones de back-end. Use [New-AzLoadBalancerInboundNatRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig) para crear reglas NAT de entrada asociadas a la configuración de la IP de front-end que ha creado. Use [New-AzLoadBalancerProbeConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerprobeconfig) para crear los sondeos que necesite. Use [New-AzLoadBalancerRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerruleconfig) para crear la configuración del equilibrador de carga. Use [New-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancer) para crear el equilibrador de carga.|
 | [CLI de Azure](../articles/load-balancer/load-balancer-get-started-ilb-arm-cli.md) | Use el comando [az network lb create](https://docs.microsoft.com/cli/azure/network/lb) para crear la configuración inicial del equilibrador de carga. Para definir la dirección IP privada, utilice [az network lb frontend-ip create](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip) con el parámetro **--private-ip-address**. Use [az network lb address-pool create](https://docs.microsoft.com/cli/azure/network/lb/address-pool) para agregar la configuración del grupo de direcciones de back-end. Use [az network lb inbound-nat-rule create](https://docs.microsoft.com/cli/azure/network/lb/inbound-nat-rule) para agregar reglas NAT. Use [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule) para agregar las reglas del equilibrador de carga. Use [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe) para agregar los sondeos.|
 | [Plantilla](../articles/load-balancer/load-balancer-get-started-ilb-arm-template.md) | Use [2 VMs in a Load Balancer and configure NAT rules on the LB](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-internal-load-balancer) (Dos máquinas virtuales en un equilibrador de carga y configurar relas NAT en el equilibrador de carga) como guía para implementar un equilibrador de carga mediante una plantilla. |
+
+### <a name="virtual-machine-scale-sets"></a>Conjuntos de escalado de máquinas virtuales
+
+Para más información sobre el equilibrador de carga y los conjuntos de escalado de máquinas virtuales, consulte [Redes para conjuntos de escalado de máquinas virtuales de Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-networking).
 
 ## <a name="vms"></a>Máquinas virtuales
 

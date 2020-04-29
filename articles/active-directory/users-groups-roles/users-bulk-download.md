@@ -1,11 +1,11 @@
 ---
-title: Descarga de una lista de usuarios (versión preliminar) en el portal de Azure Active Directory | Microsoft Docs
+title: Descargar una lista de usuarios en el portal de Azure Active Directory | Microsoft Docs
 description: Descargue los registros de usuarios de forma masiva en el Centro de administración de Azure en Azure Active Directory.
 services: active-directory
 author: curtand
 ms.author: curtand
 manager: daveba
-ms.date: 02/06/2020
+ms.date: 04/16/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,20 +13,20 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4716ff9547f64dc6551b4d4adb0a8578da9fa83e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4b35163387ed4ce71f7a2019835a1d9fdbff3051
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77063839"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81532664"
 ---
-# <a name="download-a-list-of-users-preview-in-azure-active-directory-portal"></a>Descarga de una lista de usuarios (versión preliminar) en el portal de Azure Active Directory
+# <a name="download-a-list-of-users-in-azure-active-directory-portal"></a>Descarga de una lista de usuarios en el portal de Azure Active Directory
 
 Azure Active Directory (Azure AD) admite operaciones (creación) de importación masiva de usuarios.
 
 ## <a name="required-permissions"></a>Permisos necesarios
 
-Para descargar la lista de usuarios del Centro de administración de Azure AD, debe haber iniciado sesión con un usuario asignado a uno o más roles de administrador de nivel de organización en Azure AD. Los invitadores de usuarios invitados y los desarrolladores de aplicaciones no se consideran roles de administrador.
+Para descargar la lista de usuarios del Centro de administración de Azure AD, debe haber iniciado sesión con un usuario asignado a uno o más roles de administrador de nivel de organización en Azure AD (el administrador de usuario es el rol mínimo necesario). Los invitadores de usuarios invitados y los desarrolladores de aplicaciones no se consideran roles de administrador.
 
 ## <a name="to-download-a-list-of-users"></a>Para descargar una lista de usuarios
 
@@ -70,9 +70,9 @@ Para descargar la lista de usuarios del Centro de administración de Azure AD, d
 
 ## <a name="check-status"></a>Comprobar estado
 
-Puede ver el estado de las solicitudes masivas pendientes en la página de **resultados de la operación masiva (versión preliminar)** .
+Puede ver el estado de las solicitudes masivas pendientes en la página **Resultados de la operación masiva**.
 
-   ![Comprobación del estado de carga en la página de resultados de la operación masiva](./media/users-bulk-download/bulk-center.png)
+[![](media/users-bulk-download/bulk-center.png "Check status in the Bulk Operations Results page")](media/users-bulk-download/bulk-center.png#lightbox)
 
 ## <a name="bulk-download-service-limits"></a>Límites del servicio de descarga de forma masiva
 

@@ -2,13 +2,13 @@
 title: Compatibilidad con la evaluación de Hyper-V en Azure Migrate
 description: Obtenga información sobre la compatibilidad con la evaluación de Hyper-V con la herramienta Server Assessment de Azure Migrate.
 ms.topic: conceptual
-ms.date: 03/23/2020
-ms.openlocfilehash: e8a698b110f19dff593a93a41e9d6f20eb80cdb0
-ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
+ms.date: 04/15/2020
+ms.openlocfilehash: 990d5026d9621c144c31635fabac4416eb9d20e6
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80389008"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81538178"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Matriz de compatibilidad para la evaluación de Hyper-V
 
@@ -53,7 +53,8 @@ Para configurar la evaluación de máquinas virtuales de Hyper-V, cree un proyec
 Azure Migrate usa el [dispositivo de Azure Migrate](migrate-appliance.md) para la detección y la evaluación. Puede implementar el dispositivo mediante un disco duro virtual de Hyper-V comprimido que se descarga en el portal o mediante un [script de PowerShell](deploy-appliance-script.md).
 
 - Obtenga información sobre los [requisitos del dispositivo](migrate-appliance.md#appliance---hyper-v) para Hyper-V.
-- Obtenga información sobre las [direcciones URL](migrate-appliance.md#url-access) a las que tiene que acceder el dispositivo.
+- Obtenga información sobre las direcciones URL a las que el dispositivo necesita acceder en nubes [públicas](migrate-appliance.md#public-cloud-urls) y [gubernamentales](migrate-appliance.md#government-cloud-urls).
+- En Azure Government, debe implementar el dispositivo mediante el script.
 
 ## <a name="port-access"></a>Acceso a puertos
 
@@ -78,6 +79,7 @@ El [análisis de dependencias](concepts-dependency-visualization.md) le ayuda a 
 **Costos** | La solución Service Map no supone ningún gasto durante los primeros 180 días (a partir del día que asocie el área de trabajo de Log Analytics con el proyecto de Azure Migrate).<br/><br/> Transcurridos los 180 días, se aplicarán las tarifas normales de Log Analytics.<br/><br/> Si se usa una solución que no sea Service Map en el área de trabajo de Log Analytics asociada generará los [gastos estándar](https://azure.microsoft.com/pricing/details/log-analytics/) de Log Analytics.<br/><br/> Al eliminar el proyecto de Azure Migrate, el área de trabajo no se elimina con él. Tras la eliminación del proyecto, el uso de Service Map no será gratuito y cada nodo se facturará conforme al nivel de pago del área de trabajo de Log Analytics.<br/><br/>Si tiene proyectos creados antes de que Azure Migrate estuviera disponible con carácter general (el 28 de febrero de 2018), puede que haya incurrido en cargos de Service Map adicionales. Para garantizar el pago solo después de 180 días, es recomendable que cree un nuevo proyecto, ya que las áreas de trabajo existentes antes de la disponibilidad general siguen siendo facturables.
 **Administración** | Al registrar agentes en el área de trabajo, se usa el identificador y la clave proporcionados por el proyecto de Azure Migrate.<br/><br/> Puede usar el área de trabajo de Log Analytics fuera de Azure Migrate.<br/><br/> Si elimina el proyecto de Azure Migrate asociado, el área de trabajo no se elimina automáticamente. [Elimínela manualmente](../azure-monitor/platform/manage-access.md).<br/><br/> No elimine el área de trabajo creado por Azure Migrate, a menos que elimine el proyecto de Azure Migrate. Si lo hace, la característica de visualización de dependencias no funcionará según lo previsto.
 **Conectividad de Internet** | Si las máquinas no están conectadas a Internet, necesita instalar la puerta de enlace de Log Analytics en ellas.
+**Azure Government** | El análisis de dependencias basado en agente no se admite.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

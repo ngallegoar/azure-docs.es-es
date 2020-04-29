@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 457b2d2211ea1ba5fa36cec4b7e9a214f5bcad77
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 92b6378b00e12f618d07798b5ce789cbd9971544
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79367098"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535543"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Salidas de runbook y mensajes en Azure Automation
 
@@ -240,7 +240,7 @@ Sin embargo, a menos que necesite esta información para realizar un seguimiento
 **Para habilitar el seguimiento en el nivel de actividad:**
 
 1. En Azure Portal, abra su cuenta de Automation.
-2. En la sección **Automatización de procesos**, seleccione **Runbooks** para abrir la lista de runbooks.
+2. En **Automatización de procesos**, haga clic en **Runbooks** para abrir la lista de runbooks.
 3. En la página Runbooks, seleccione un runbook gráfico de la lista.
 4. En **Configuración**, haga clic en **registro y seguimiento**.
 5. En la página Registro y seguimiento, en **Registrar registros detallados**, haga clic en **Activar** para habilitar el registro detallado.
@@ -253,7 +253,7 @@ Sin embargo, a menos que necesite esta información para realizar un seguimiento
 Azure Automation puede enviar el estado de un trabajo del runbook y de flujos de trabajos al área de trabajo de Log Analytics. Azure Monitor admite registros que permiten realizar las siguientes actividades:
 
 * Obtener información sobre los trabajos de Automation.
-* Desencadenar un correo electrónico o una alerta en función del estado del trabajo del runbook (por ejemplo, error o suspensión).
+* Desencadenar un correo electrónico o una alerta en función del estado del trabajo del runbook (por ejemplo, Error o Suspendido).
 * Escribir consultas avanzadas en los flujos de trabajo.
 * Correlacionar trabajos en cuentas de Automation.
 * Visualizar el historial de trabajos.

@@ -6,20 +6,20 @@ services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-ms.date: 01/30/2020
+ms.date: 04/16/2020
 ms.author: victorh
-ms.openlocfilehash: f56929e14aef34f675139782328ed5c559df12c7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: df21a2c40dd532ac1ff321638099ceee8a2b3e53
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77198639"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535611"
 ---
 # <a name="configure-an-application-gateway-with-an-internal-load-balancer-ilb-endpoint"></a>Configuración de una puerta de enlace de aplicaciones con un punto de conexión de equilibrador de carga interno (ILB)
 
 Azure Application Gateway se puede configurar con una dirección VIP accesible desde Internet o con un punto de conexión interno que no está expuesto a Internet. Un punto de conexión interno usa una dirección IP privada para el front-end, que también se conoce como *punto de conexión de equilibrio de carga interno (ILB)* .
 
-La configuración de la puerta de enlace con una dirección IP privada de front-end es útil para aplicaciones de línea de negocio internas que no están expuestas a Internet. También lo es para servicios y niveles de una aplicación de niveles múltiples que se encuentran en un límite de seguridad no expuesto a Internet, pero que aun así necesitan distribución de carga round robin, permanencia de sesión o terminación SSL (Capa de sockets seguros).
+La configuración de la puerta de enlace con una dirección IP privada de front-end es útil para aplicaciones de línea de negocio internas que no están expuestas a Internet. También es útil para los distintos servicios y niveles de una aplicación de niveles múltiples que se encuentran dentro de un límite de seguridad no expuesto a Internet, pero que aún así siguen necesitando distribución de carga round robin, permanencia de sesión o terminación de Seguridad de la capa de transporte (TLS), conocida previamente como Capa de sockets seguros (SSL).
 
 Este artículo le guía por los pasos necesarios para configurar una puerta de enlace de aplicaciones con una dirección IP privada de front-end mediante Azure Portal.
 
@@ -95,8 +95,8 @@ Para ello, puede:
    - En **Grupo de recursos**, seleccione *myResourceGroupAG*.
    - En **Nombre de máquina virtual**, escriba *myVM*.
    - En **Imagen**, seleccione **Windows Server 2019 Datacenter**.
-   - En **Nombre de usuario**, escriba *azureadmin*.
-   - *Azure123456!* en **Contraseña**.
+   - Escriba un **Nombre de usuario** válido.
+   - Escriba una **Contraseña** válida.
 5. Acepte el resto de valores predeterminados y seleccione **Siguiente: Discos**.
 6. Acepte los valores predeterminados y seleccione **Siguiente: Redes**.
 7. Asegúrese de que **myVNet** está seleccionada como red virtual y que la subred es **myBackendSubnet**.

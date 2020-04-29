@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 9fbf55fbe16d958bf10541894159dade26668bef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6cb83a87f2e96eb62696e5d92095ef2b8d7c7def
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336724"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677321"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Solución de problemas del dispositivo de Azure Migrate y la detección
 
@@ -41,6 +41,15 @@ Esto puede ocurrir si la máquina del dispositivo está detrás de un proxy.
 - Asegúrese de proporcionar las credenciales de autorización en caso de que el servidor proxy las necesite.
 - Si usa un proxy de firewall basado en dirección URL para controlar la conectividad de salida, agregue [estas direcciones URL](migrate-appliance.md#url-access) a una lista de permitidos.
 - Si usa un servidor proxy de interceptación para conectarse a Internet, importe el certificado del servidor proxy en la máquina virtual del dispositivo mediante [estos pasos](https://docs.microsoft.com/azure/migrate/concepts-collector).
+
+## <a name="cant-sign-into-azure-from-the-appliance-web-app"></a>No puede iniciar sesión en Azure desde la aplicación web del dispositivo
+
+El error "Lo sentimos, pero tenemos problemas para iniciar su sesión" aparece si se usa una cuenta de Azure incorrecta para iniciar sesión en Azure. Este error se produce por dos posibles motivos:
+
+- Si inicia sesión en la aplicación web del dispositivo para la nube pública con las credenciales de la cuenta de usuario para el portal de la nube de Government.
+- Si inicia sesión en la aplicación web del dispositivo para la nube del gobierno con las credenciales de la cuenta de usuario para el portal de la nube privada.
+
+Asegúrese de que usa las credenciales correctas.
 
 ##  <a name="datetime-synchronization-error"></a>Error de sincronización de fecha y hora
 

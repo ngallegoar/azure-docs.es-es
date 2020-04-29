@@ -3,18 +3,18 @@ title: Dónde y cómo utiliza Personalizer
 description: Personalizer se puede aplicar en cualquier situación en la que su aplicación pueda seleccionar el artículo, acción o producto correcto que se quiere mostrar, con el fin de mejorar la experiencia, lograr mejores resultados comerciales o mejorar la productividad.
 ms.topic: conceptual
 ms.date: 02/18/2020
-ms.openlocfilehash: 63e66315898242beb5da59927e8d506e6f2cff78
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c562d7a1853736204a7a03262547e083bd85fb75
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79218562"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617682"
 ---
 # <a name="where-and-how-to-use-personalizer"></a>Dónde y cómo utiliza Personalizer
 
 Utilice Personalizer en cualquier situación en la que su aplicación necesite seleccionar la acción correcta (contenido) que se quiere mostrar, con el fin de mejorar la experiencia, lograr mejores resultados comerciales o mejorar la productividad.
 
-Personalizer utiliza el aprendizaje automático para seleccionar qué acción (contenido) mostrar al usuario. La selección puede variar drásticamente según la cantidad, calidad y distribución de los datos enviados al servicio.
+Personalizer utiliza el aprendizaje de refuerzo para seleccionar qué acción (contenido) mostrar al usuario. La selección puede variar drásticamente según la cantidad, calidad y distribución de los datos enviados al servicio.
 
 ## <a name="example-use-cases-for-personalizer"></a>Ejemplos de casos de uso para Personalizer
 

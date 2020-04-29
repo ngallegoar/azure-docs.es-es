@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 005d4fe1b6ec59e7f05be3dd2ab3e72d0e7aa8e0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bf69786f56f52874bd9358ae44a6b88b466e77f4
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79236992"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677455"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Proceso de ciencia de datos en equipos en acción: Uso de clústeres de Azure HDInsight Hadoop
 En este tutorial, empleamos el [proceso de ciencia de datos en equipo](overview.md) en un escenario completo. Utilizamos un [clúster de Hadoop para Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) para almacenar, explorar y diseñar características de los datos del conjunto de datos de [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) disponible públicamente, así como para reducir el muestreo de los datos. Para controlar las tareas predictivas de clasificación binaria y de clases múltiples, así como las de regresión, se generan modelos de datos con Azure Machine Learning. 
@@ -721,7 +721,7 @@ Para la emisión de consultas de Hive en el módulo [Importar datos][import-data
 
 Aquí se indican algunos detalles sobre el módulo [Importar datos][import-data] y los parámetros de entrada:
 
-**URI del servidor de HCatalog** : si el nombre del clúster es **abc123**, use: https://abc123.azurehdinsight.net.
+**URI del servidor de HCatalog** : Si el nombre del clúster es **abc123**, sería: https:\//abc123.azurehdinsight.net.
 
 **Nombre de la cuenta de usuario de Hadoop**: nombre de usuario elegido para el clúster (no es el nombre de usuario de acceso remoto).
 

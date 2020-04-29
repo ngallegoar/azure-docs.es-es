@@ -3,12 +3,12 @@ title: Detección inteligente en Azure Application Insights | Microsoft Docs
 description: Application Insights realiza un análisis profundo automático de la telemetría de la aplicación y le advierte de los posibles problemas.
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.openlocfilehash: e232295f9da2a2ae8f3c6fafdd1dc33a42e92e69
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ff9f88e1d2e643d04c4417283420217e7d496caf
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671807"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536801"
 ---
 # <a name="smart-detection-in-application-insights"></a>Detección inteligente en Application Insights
  La detección inteligente avisa automáticamente de posibles problemas de rendimiento y anomalías en los errores en su aplicación web. Realiza un análisis proactivo de la telemetría que su aplicación envía a [Application Insights](../../azure-monitor/app/app-insights-overview.md). Si hay un aumento repentino de las tasas de error o patrones de rendimiento anormales en el cliente o el servidor, recibirá una alerta. Esta característica no necesita ninguna configuración. Funciona si la aplicación envía suficiente telemetría.
@@ -53,7 +53,7 @@ Como alternativa, puede cambiar la configuración mediante plantillas de Azure R
 ## <a name="next-steps"></a>Pasos siguientes
 Estas herramientas de diagnóstico lo ayudarán a inspeccionar los datos de telemetría de su aplicación:
 
-* [Explorador de métricas](../../azure-monitor/app/metrics-explorer.md)
+* [Explorador de métricas](../../azure-monitor/platform/metrics-charts.md)
 * [Explorador de búsqueda](../../azure-monitor/app/diagnostic-search.md)
 * [Analytics: Lenguaje de consulta eficaz](../../azure-monitor/log-query/get-started-portal.md)
 

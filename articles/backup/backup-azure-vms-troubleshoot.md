@@ -4,12 +4,12 @@ description: En este artículo, aprenderá a solucionar los errores detectados a
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 15e4b4c8850798fd2386cd2874b6ab58a18d5406
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 019c27b1f7e8560c86252aaf2ed1fb79df2439fa
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79297397"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677341"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Solución de errores de copia de seguridad en las máquinas virtuales de Azure
 
@@ -191,6 +191,7 @@ Esto garantizará que las instantáneas se realizan con permisos de host en luga
 | **Código de error**: ExtensionSnapshotFailedNoSecureNetwork <br/> **Mensaje de error**: Error en la operación de instantánea debido a un error en la creación de un canal de comunicación de red segura. | <ol><li> Abra el Editor del Registro; para ello, ejecute **regedit.exe** en modo elevado. <li> Identifique todas las versiones de .NET Framework presentes en el sistema. Se encuentran en la jerarquía de la clave del Registro **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft**. <li> Para cada versión de .NET Framework presente en la clave del Registro, agregue la siguiente clave: <br> **SchUseStrongCrypto"=dword:00000001**. </ol>|
 | **Código de error**: ExtensionVCRedistInstallationFailure <br/> **Mensaje de error**: Error en la operación de instantánea debido a un error en la instalación de Visual C++ Redistributable para Visual Studio 2012. | Vaya a C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion e instale vcredist2013_x64.<br/>Asegúrese de que el valor de la clave del Registro que permite la instalación del servicio se establezca correctamente. Es decir, establezca el valor **Start** de **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** en **3** y no en **4**. <br><br>Si todavía experimenta problemas con la instalación, reinicie el servicio de instalación; para ello, ejecute **MSIEXEC /UNREGISTER** seguido de **MSIEXEC /REGISTER** desde un símbolo del sistema con privilegios elevados.  |
 | **Código de error**:  UserErrorRequestDisallowedByPolicy <BR> **Mensaje de error**: Se ha configurado una directiva no válida en la máquina virtual que impide la operación de instantánea. | Si tiene una instancia de Azure Policy que [rige las etiquetas dentro de su entorno](https://docs.microsoft.com/azure/governance/policy/tutorials/govern-tags), considere la posibilidad de cambiar la directiva de un [efecto Deny](https://docs.microsoft.com/azure/governance/policy/concepts/effects#deny) (Denegar) a un [efecto Modify](https://docs.microsoft.com/azure/governance/policy/concepts/effects#modify) (Modificar), o bien cree el grupo de recursos manualmente según el [esquema de nomenclatura requerido por Azure Backup](https://docs.microsoft.com/azure/backup/backup-during-vm-creation#azure-backup-resource-group-for-virtual-machines).
+
 ## <a name="jobs"></a>Trabajos
 
 | Detalles del error | Solución alternativa |
@@ -229,12 +230,12 @@ Normalmente, el agente de la máquina virtual ya está presente en las máquinas
 #### <a name="windows-vms"></a>Máquinas virtuales Windows
 
 * Descargue e instale el [MSI del agente](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Para completar la instalación, necesita privilegios de administrador.
-* En el caso de las máquinas virtuales creadas con el modelo de implementación clásica, [actualice la propiedad de la máquina virtual](https://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) para indicar que el agente está instalado. Este paso no es necesario para las máquinas virtuales de Azure Resource Manager.
+* En el caso de las máquinas virtuales creadas con el modelo de implementación clásica, [actualice la propiedad de la máquina virtual](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/install-vm-agent-offline#use-the-provisionguestagent-property-for-classic-vms) para indicar que el agente está instalado. Este paso no es necesario para las máquinas virtuales de Azure Resource Manager.
 
 #### <a name="linux-vms"></a>Máquinas virtuales con Linux
 
 * Instale la versión más reciente del agente desde el repositorio de distribución. Para obtener más información sobre el nombre del paquete, consulte el [repositorio del agente de Linux](https://github.com/Azure/WALinuxAgent).
-* En el caso de las máquinas virtuales creadas con el modelo de implementación clásica, [use este blog](https://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) para actualizar la propiedad de la máquina virtual y comprobar que el agente está instalado. Este paso no es necesario para las máquinas virtuales de Resource Manager.
+* En el caso de las máquinas virtuales creadas con el modelo de implementación clásica, [actualice la propiedad de la máquina virtual](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/install-vm-agent-offline#use-the-provisionguestagent-property-for-classic-vms) y asegúrese de que el agente está instalado. Este paso no es necesario para las máquinas virtuales de Resource Manager.
 
 ### <a name="update-the-vm-agent"></a>Actualización del agente de máquina virtual
 
@@ -280,4 +281,3 @@ Obtenga más información sobre cómo configurar una dirección IP estática con
 
 * [Incorporación de una dirección IP interna estática a una máquina virtual existente](https://docs.microsoft.com/powershell/module/az.network/set-aznetworkinterfaceipconfig?view=azps-3.5.0#description)
 * [Cambio del método de asignación para una dirección IP privada asignada a una interfaz de red](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)
-

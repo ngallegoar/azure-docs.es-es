@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: dsindona
-ms.openlocfilehash: 09e82b9905104df9b1902b0f64f6cfdf812aabb8
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 9981f8eda174bbe04b54933528d20d270d360824
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81274028"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82148255"
 ---
 # <a name="create-certificates-for-azure-key-vault"></a>Creación de certificados para Azure Key Vault
 
 > [!IMPORTANT]
-> A partir del 13 de abril de 2020, comenzaremos el traslado de la administración de las ofertas de máquinas virtuales de Azure al Centro de partners. Después de la migración, las ofertas se crearán y administrarán en el Centro de partners. Siga las instrucciones que se indican en [Certificación de imágenes de máquina virtual de Azure](https://aks.ms/CertifyVMimage) para administrar las ofertas migradas.
+> A partir del 13 de abril de 2020, comenzaremos el traslado de la administración de las ofertas de máquinas virtuales de Azure al Centro de partners. Después de la migración, las ofertas se crearán y administrarán en el Centro de partners. Siga las instrucciones que se indican en [Certificación de imágenes de máquina virtual de Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-image-certification) para administrar las ofertas migradas.
 
 En este artículo se explica cómo aprovisionar los certificados autofirmados requeridos para establecer una conectividad con Administración remota de Windows (WinRM) a una máquina virtual (VM) hospedada en Azure. Este proceso consta de tres pasos:
 

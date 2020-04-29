@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/18/2019
-ms.openlocfilehash: af88fdf3378a6290c773c658ea6dd3469d7c92cc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 12280e8a5b90c6712703fefc60ec1bfb12ba8573
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79531284"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606087"
 ---
 # <a name="azure-sql-database-and-azure-sql-data-warehouse-ip-firewall-rules"></a>Reglas de firewall de IP para Azure SQL Database y Azure SQL Data Warehouse
 
@@ -101,7 +101,7 @@ Cuando un equipo intenta conectarse al servidor de bases de datos desde Internet
 
 ### <a name="connections-from-inside-azure"></a>Conexiones desde dentro de Azure
 
-Para permitir que las aplicaciones hospedadas en Azure se conecten al servidor SQL, deben habilitarse las conexiones de Azure. Cuando una aplicación intenta conectarse desde Azure al servidor de bases de datos, el firewall comprueba que se permiten las conexiones de Azure. Una configuración de firewall con las direcciones IP inicial y final iguales a *0.0.0.0* indica que se permiten las conexiones de Azure. Puede activarse directamente desde la hoja de Azure Portal mediante el establecimiento de reglas de firewall, así como si se cambia la opción **Permitir que los servicios y recursos de Azure accedan a este servidor** a **Activada** en la configuración **Firewalls y redes virtuales**. Si no se permite la conexión, la solicitud no alcanza al servidor de SQL Database.
+Para permitir que las aplicaciones hospedadas en Azure se conecten al servidor SQL, deben habilitarse las conexiones de Azure. Cuando una aplicación intenta conectarse desde Azure al servidor de bases de datos, el firewall comprueba que se permiten las conexiones de Azure. Puede activarse directamente desde la hoja de Azure Portal mediante el establecimiento de reglas de firewall, así como si se cambia la opción **Permitir que los servicios y recursos de Azure accedan a este servidor** a **Activada** en la configuración **Firewalls y redes virtuales**. Si no se permite la conexión, la solicitud no alcanza al servidor de SQL Database.
 
 > [!IMPORTANT]
 > Esta opción configura el firewall para permitir todas las conexiones desde Azure, incluidas las procedentes de las suscripciones de otros clientes. Si selecciona esta opción, asegúrese de que los permisos de usuario y el inicio de sesión solo dejan acceder a los usuarios autorizados.

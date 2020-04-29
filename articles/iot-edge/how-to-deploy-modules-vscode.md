@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.reviewer: ''
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: e1b2e2a80670cf0409f8f8477563b9a209cc8706
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e4ac1a6e56cdbf47fd174d5244fc6ab51c63fb07
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77209212"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82133895"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-visual-studio-code"></a>Implementación de módulos de Azure IoT Edge desde Visual Studio Code
 
 Una vez que ha creado módulos de IoT Edge con su lógica empresarial, querrá implementarlos en sus dispositivos para usarlos en el perímetro. Si tiene varios módulos que funcionan conjuntamente para recopilar y procesar datos, puede implementarlos todos a la vez y declarar las reglas de enrutamiento que los conectan.
 
-En este artículo se muestra cómo crear un manifiesto de implementación de JSON y, luego, usar ese archivo para insertar la implementación en un dispositivo IoT Edge. Para obtener información sobre la creación de una implementación dirigida a varios dispositivos en función de sus etiquetas compartidas, vea [Implementación de módulos de IoT Edge a escala con Visual Studio Code](how-to-deploy-monitor-vscode.md).
+En este artículo se muestra cómo crear un manifiesto de implementación de JSON y, luego, usar ese archivo para insertar la implementación en un dispositivo IoT Edge. Para obtener información sobre la creación de una implementación dirigida a varios dispositivos en función de sus etiquetas compartidas, vea [Implementación de módulos de IoT Edge a escala con Visual Studio Code](how-to-deploy-vscode-at-scale.md).
 
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -150,4 +150,4 @@ Haga clic con el botón derecho en el nombre del módulo para ver y editar el m�
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Aprenda a [implementar y supervisar módulos de IoT Edge a escala mediante Visual Studio Code](how-to-deploy-monitor.md)
+Aprenda a [implementar y supervisar módulos de IoT Edge a escala mediante Visual Studio Code](how-to-deploy-at-scale.md)

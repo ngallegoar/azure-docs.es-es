@@ -2,13 +2,13 @@
 title: Preguntas más frecuentes sobre el dispositivo de Azure Migrate
 description: Respuestas a preguntas comunes sobre el dispositivo de Azure Migrate.
 ms.topic: conceptual
-ms.date: 03/09/2020
-ms.openlocfilehash: a08423637f255b973f52616f53172ef6e48d0804
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.date: 04/15/2020
+ms.openlocfilehash: 529ead1baa769ee3e71f6fcf77ef7e020ed196a6
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437613"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81529695"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Dispositivo de Azure Migrate: Preguntas frecuentes
 
@@ -31,6 +31,15 @@ Aquí encontrará más información sobre el dispositivo Azure Migrate:
 
 [Obtenga más información](migrate-appliance.md) sobre el dispositivo.
 
+## <a name="how-can-i-deploy-the-appliance"></a>¿Cómo se puede implementar el dispositivo?
+
+El dispositivo se puede implementar así:
+
+- Mediante una plantilla para máquinas virtuales de VMware y máquinas virtuales de Hyper-V (plantilla OVA en el caso de VMware o VHD en el de Hyper-V).
+- Si no desea usar una plantilla o está en Azure Government, puede implementar el dispositivo para VMware o Hyper-V mediante un script de PowerShell.
+- En el caso de los servidores físicos, el dispositivo siempre se implementa mediante un script.
+
+
 ## <a name="how-does-the-appliance-connect-to-azure"></a>¿Cómo se conecta el dispositivo a Azure?
 
 El dispositivo puede conectarse a través de Internet, o mediante Azure ExpressRoute con emparejamiento público o de Microsoft.
@@ -45,11 +54,8 @@ Cuando usa la plantilla descargada para crear la máquina virtual del dispositiv
 
 ## <a name="what-network-connectivity-is-required"></a>¿Qué conectividad de red se necesita?
 
-Consulte los artículos siguientes para obtener información acerca de los requisitos de conectividad de red para el dispositivo Azure Migrate:
 
-- **Evaluación en VMware**: [Acceso URL](migrate-appliance.md#url-access) y [acceso al puerto](migrate-support-matrix-vmware.md#port-access)
-- **Migración sin agentes de VMware**: [Acceso URL](migrate-appliance.md#url-access) y [acceso al puerto](migrate-support-matrix-vmware-migration.md#agentless-ports)
-- **Evaluación de Hyper-V**: [Acceso URL](migrate-appliance.md#url-access) y [acceso al puerto](migrate-support-matrix-hyper-v.md#port-access)
+El dispositivo necesita acceso a las direcciones URL de Azure. [Examine](migrate-appliance.md#url-access) la lista de direcciones URL.
 
 ## <a name="what-data-does-the-appliance-collect"></a>¿Qué datos recopila el dispositivo?
 

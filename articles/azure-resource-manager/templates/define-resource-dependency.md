@@ -3,12 +3,12 @@ title: Establecimiento del orden de implementación para recursos
 description: Describe cómo establecer un recurso como dependiente de otro recurso durante la implementación para garantizar el orden de implementación correcto de los recursos.
 ms.topic: conceptual
 ms.date: 12/03/2019
-ms.openlocfilehash: f11f79df875492a568a76f494dfffb4a163f64cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 764b718416e1185f56c7eb6b8335792a5822f212
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80153291"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535475"
 ---
 # <a name="define-the-order-for-deploying-resources-in-arm-templates"></a>Definición del orden de implementación de recursos en las plantillas de ARM
 
@@ -18,7 +18,7 @@ Administrador de recursos evalúa las dependencias entre recursos y los implemen
 
 ## <a name="dependson"></a>dependsOn
 
-Dentro de la plantilla, el elemento dependsOn permite definir un recurso como dependiente de uno o varios recursos. Su valor es una lista de nombres de recursos separados por coma. La lista puede incluir recursos [implementados condicionalmente](conditional-resource-deployment.md). Cuando un recurso condicional no está implementado, Azure Resource Manager lo quita automáticamente de las dependencias necesarias.
+Dentro de la plantilla, el elemento dependsOn permite definir un recurso como dependiente de uno o varios recursos. Su valor es una matriz JSON de cadenas, cada una de las cuales es un nombre de recurso. La lista puede incluir recursos que [se implementan condicionalmente](conditional-resource-deployment.md). Cuando un recurso condicional no está implementado, Azure Resource Manager lo quita automáticamente de las dependencias necesarias.
 
 En el ejemplo siguiente se muestra un conjunto de escalado de máquinas virtuales que depende de un equilibrador de carga, una red virtual y un bucle que crea varias cuentas de almacenamiento. Esos otros recursos no se muestran en el ejemplo siguiente, pero tendrían que existir en alguna otra parte de la plantilla.
 

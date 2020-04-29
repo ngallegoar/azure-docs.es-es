@@ -5,12 +5,12 @@ description: Conozca las prácticas recomendadas de operador de clúster para us
 services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: 47b2d78f7dc831c4314c4215f5e0a9e17f75f0dc
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: d0d13a699d2559c6b4360c807721e0b748959382
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668357"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617517"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para características avanzadas del programador en Azure Kubernetes Service (AKS)
 
@@ -134,7 +134,7 @@ Para obtener más información sobre el uso de selectores de nodo, vea [Assignin
 
 Un selector de nodo es una forma básica de asignar pods a un nodo determinado. Hay más flexibilidad disponible al utilizar la *afinidad de nodo*. Con la afinidad de nodo, se define lo que sucede si no se puede asociar el pod con un nodo. Puede *exigir* que el programador de Kubernetes coincida con un pod con un host etiquetado. O bien, puede *preferir* una coincidencia, pero permitir que el pod se programe en un host diferente si no hay coincidencias disponibles.
 
-En el ejemplo siguiente se establece la afinidad de nodo en *requiredDuringSchedulingIgnoredDuringExecution*. Esta afinidad requiere que la programación de Kubernetes utilice un nodo con una etiqueta coincidente. Si ningún nodo está disponible, el pod tiene que esperar una programación para continuar. Para permitir que el pod se programe en un nodo diferente, puede establecer el valor en *preferredDuringScheduledIgnoreDuringExecution*:
+En el ejemplo siguiente se establece la afinidad de nodo en *requiredDuringSchedulingIgnoredDuringExecution*. Esta afinidad requiere que la programación de Kubernetes utilice un nodo con una etiqueta coincidente. Si ningún nodo está disponible, el pod tiene que esperar una programación para continuar. Para permitir que el pod se programe en un nodo diferente, puede establecer el valor en *preferredDuringSchedulingIgnoreDuringExecution*:
 
 ```yaml
 kind: Pod

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/19/2020
-ms.openlocfilehash: 354b0eae1620c49006b350371aae38f8867c18b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 07fa72f086b676723279ee4b8efd927beb2692f0
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80124670"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81481983"
 ---
 # <a name="integrate-azure-stream-analytics-with-azure-machine-learning-preview"></a>Integración de Azure Stream Analytics con Azure Machine Learning (versión preliminar)
 
@@ -31,7 +31,7 @@ Siga los pasos que se indican a continuación antes de agregar un modelo de Mach
 
 3. Asegúrese de que el servicio web acepta y devuelve datos serializados de JSON.
 
-4. Implemente el modelo en [Azure Kubernetes Service](../machine-learning/how-to-deploy-and-where.md#choose-a-compute-target) para implementaciones de producción a gran escala. Si el servicio web no es capaz de controlar el número de solicitudes procedentes del trabajo, se reducirá el rendimiento del trabajo de Stream Analytics, lo que afectará a la latencia.
+4. Implemente el modelo en [Azure Kubernetes Service](../machine-learning/how-to-deploy-and-where.md#choose-a-compute-target) para implementaciones de producción a gran escala. Si el servicio web no es capaz de controlar el número de solicitudes procedentes del trabajo, se reducirá el rendimiento del trabajo de Stream Analytics, lo que afectará a la latencia. Los modelos implementados en Azure Container Instances no se admiten hoy en día, pero estarán disponibles en los próximos meses.
 
 ## <a name="add-a-machine-learning-model-to-your-job"></a>Incorporación de un modelo de Machine Learning en el trabajo
 

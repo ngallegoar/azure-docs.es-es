@@ -8,20 +8,20 @@ ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 03c67ccf88a8c73fe04f062c6af9520115c185a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b2609a069872ec55ac9068fadcbb3f312d68a630
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75773655"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81680753"
 ---
 En esta sección se describe cómo realizar las siguientes operaciones de modificación para el emparejamiento directo:
 
 * Adición de conexiones de emparejamiento directo
 * Eliminación de conexiones de emparejamiento directo
 * Actualización o cambio a una versión anterior del ancho de banda en las conexiones activas
-* Adición de sesión IPv4/IPv6 en conexiones activas
-* Eliminación de la sesión IPv4/IPv6 en conexiones activas
+* Adición de sesiones IPv4 o IPv6 en conexiones activas
+* Eliminación de sesiones IPv4 o IPv6 en conexiones activas
 
 ### <a name="add-direct-peering-connections"></a>Adición de conexiones de emparejamiento directo
 
@@ -46,7 +46,7 @@ $directPeering | Update-AzPeering
 
 ### <a name="remove-direct-peering-connections"></a>Eliminación de conexiones de emparejamiento directo
 
-La eliminación de una conexión no se admite actualmente en PowerShell. Póngase en contacto con el equipo de [emparejamiento de Microsoft](mailto:peeringexperience@microsoft.com).
+La eliminación de una conexión no se admite actualmente en PowerShell. Para más información, póngase en contacto con el [servicio de emparejamiento de Microsoft](mailto:peeringexperience@microsoft.com).
 
 <!--
 ```powershell
@@ -58,7 +58,7 @@ $directPeering | Update-AzPeering
 
 ### <a name="upgrade-or-downgrade-bandwidth-on-active-connections"></a>Actualización o cambio a una versión anterior del ancho de banda en las conexiones activas
 
-En el ejemplo siguiente se describe cómo agregar 10 Gbps a una conexión directa existente.
+En este ejemplo se describe cómo agregar 10 Gbps a una conexión directa existente.
 
 ```powershell
 
@@ -68,9 +68,9 @@ $directPeering | Update-AzPeering
 
 ```
 
-### <a name="add-ipv4ipv6-session-on-active-connections"></a>Adición de sesión IPv4/IPv6 en conexiones activas
+### <a name="add-ipv4-or-ipv6-sessions-on-active-connections"></a>Adición de sesiones IPv4 o IPv6 en conexiones activas
 
-En el ejemplo siguiente se describe cómo agregar una sesión IPv6 en una conexión directa existente solo con una sesión IPv4. 
+En este ejemplo se describe cómo agregar una sesión IPv6 en una conexión directa existente solo con una sesión IPv4. 
 
 ```powershell
 
@@ -80,6 +80,6 @@ $directPeering | Update-AzPeering
 
 ```
 
-### <a name="remove-ipv4ipv6-session-on-active-connections"></a>Eliminación de la sesión IPv4/IPv6 en conexiones activas
+### <a name="remove-ipv4-or-ipv6-sessions-on-active-connections"></a>Eliminación de sesiones IPv4 o IPv6 en conexiones activas
 
-La eliminación de una sesión IPv4/IPv6 desde una conexión existente no se admite actualmente en PowerShell. Póngase en contacto con el equipo de [emparejamiento de Microsoft](mailto:peeringexperience@microsoft.com).
+Eliminar una sesión IPv4 o IPv6 de una conexión existente no se admite actualmente en PowerShell. Para más información, póngase en contacto con el [servicio de emparejamiento de Microsoft](mailto:peeringexperience@microsoft.com).
