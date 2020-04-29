@@ -1,31 +1,26 @@
 ---
 title: 'Solución de problemas de registro combinado: Azure Active Directory'
-description: Solución de problemas de Azure AD Multi-Factor Authentication y registro combinado del autoservicio de restablecimiento de contraseña (vista preliminar)
+description: Solución de problemas del registro combinado de Multi-Factor Authentication y el autoservicio de restablecimiento de contraseña de Azure AD
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
-ms.date: 11/21/2019
+ms.date: 04/15/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab7c38d23cb1f05e07488810640aeb791ded3d4a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7c840df2c53554519f62a3d1d7a7d8b305187ffb
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74847395"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81450945"
 ---
-# <a name="troubleshooting-combined-security-information-registration-preview"></a>Solución de problemas de registro de información de seguridad combinado (vista preliminar)
+# <a name="troubleshooting-combined-security-information-registration"></a>Solución de problemas de registro de información de seguridad combinado
 
 La información de este artículo está pensada como guía para los administradores que solucionan problemas notificados por los usuarios de la experiencia de registro combinado.
-
-|     |
-| --- |
-| El registro de información de seguridad combinado para el autoservicio de restablecimiento de contraseña de Azure Active Directory (Azure AD) y Azure Multi-Factor Authentication es una característica en vista previa pública de Azure AD. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
 
 ## <a name="audit-logs"></a>Registros de auditoría
 
@@ -57,7 +52,7 @@ En la siguiente tabla se muestran todos los eventos de auditoría generados por 
 
 | Síntoma | Pasos para solucionar problemas |
 | --- | --- |
-| No tengo la opción de agregar un método determinado. | 1. Determine si el método está habilitado para la autenticación multifactor o para el autoservicio de restablecimiento de contraseña. <br> 2. Si el método está habilitado, vuelva a guardar las directivas y espere entre 1 y 2 horas antes de volver a probar. <br> 3. Si el método está habilitado, asegúrese de que el usuario no haya configurado el método el número máximo de veces que puede hacerlo.|
+| No tengo la opción de agregar un método determinado. | 1. Determine si el método está habilitado para la autenticación multifactor o para el autoservicio de restablecimiento de contraseña. <br> 2. Si el método está habilitado, vuelva a guardar las directivas y espere entre 1 y 2 horas antes de volver a probar. <br> 3. Si el método está habilitado, asegúrese de que el usuario no lo haya configurado el número máximo de veces que puede hacerlo.|
 
 ## <a name="disable-combined-registration"></a>Habilitación del registro combinado
 
@@ -69,7 +64,7 @@ Si un usuario que ha completado el registro combinado llega a la página de regi
 
 ### <a name="how-to-roll-back-users"></a>Cómo revertir a los usuarios
 
-Si usted, como un administrador, desea restablecer la configuración de autenticación multifactor de un usuario, puede usar el script de PowerShell proporcionado en la siguiente sección. El script borrará la propiedad StrongAuthenticationMethods para la aplicación móvil de un usuario o el número de teléfono. Si ejecuta este script para los usuarios, se tendrán que volver a registrar para la autenticación multifactor cuando la necesiten. Se recomienda probar la reversión con uno o dos usuarios antes de revertir a todos los usuarios afectados.
+Si usted, como un administrador, desea restablecer la configuración de autenticación multifactor de un usuario, puede usar el script de PowerShell proporcionado en la siguiente sección. El script borrará la propiedad StrongAuthenticationMethods de la aplicación móvil o el número de teléfono de un usuario. Si ejecuta este script para los usuarios, se tendrán que volver a registrar para la autenticación multifactor cuando la necesiten. Se recomienda probar la reversión con uno o dos usuarios antes de revertir a todos los usuarios afectados.
 
 Los pasos siguientes le ayudarán a revertir a un usuario o grupo de usuarios.
 
@@ -150,16 +145,16 @@ En una ventana de PowerShell, ejecute el comando siguiente y proporcione el scri
 
 `<script location> -path <user file location>`
 
-### <a name="disable-the-preview-experience"></a>Deshabilitación de la experiencia de versión preliminar
+### <a name="disable-the-updated-experience"></a>Deshabilitación de la experiencia actualizada
 
-Para deshabilitar la experiencia de versión preliminar para los usuarios, complete estos pasos:
+Para deshabilitar la experiencia actualizada para los usuarios, complete estos pasos:
 
 1. Inicie sesión en Azure Portal como administrador de usuarios.
 2. Vaya a **Azure Active Directory** > **Configuración de usuario** > **Administrar la configuración de las características en vista previa del panel de acceso**.
 3. En **Los usuarios pueden utilizar las características en vista previa para registrar y administrar la información de seguridad**, establezca el selector en **Ninguno** y, a continuación, haga clic en **Guardar**.
 
-Ya no se pedirá a los usuarios que se registren mediante la experiencia de versión preliminar.
+Ya no se pedirá a los usuarios que se registren mediante la experiencia actualizada.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Más información sobre la versión preliminar pública del registro combinado para el restablecimiento de contraseña de autoservicio y Azure Multi-Factor Authentication](concept-registration-mfa-sspr-combined.md).
+* [Más información sobre el registro combinado para el autoservicio de restablecimiento de contraseña y Azure Multi-Factor Authentication](concept-registration-mfa-sspr-combined.md)

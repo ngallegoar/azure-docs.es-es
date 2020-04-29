@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 853e7143834a340b870b71ef1a287dab136e2783
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 3412938cfc2ad3fbec293fd33f64e114e14e6f7e
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80654050"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81450979"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Habilitar el inicio de sesión sin contraseña en Azure AD con la aplicación Microsoft Authenticator (versión preliminar)
 
@@ -41,7 +41,7 @@ En lugar de ver la petición de una contraseña después de escribir un nombre d
 
 ### <a name="enable-the-combined-registration-experience"></a>Habilitar la experiencia de registro combinado
 
-Las características de registro de los métodos de autenticación sin contraseña se basan en la versión preliminar de registro combinado. Siga los pasos del artículo [Habilitar el registro de información de seguridad combinado (vista preliminar)](howto-registration-mfa-sspr-combined.md) para habilitar la versión preliminar del registro combinado.
+Las características de registro de los métodos de autenticación sin contraseña se basan en la característica de registro combinado. Siga los pasos del artículo [Habilitar el registro de información de seguridad combinado](howto-registration-mfa-sspr-combined.md) para habilitar el registro combinado.
 
 ### <a name="enable-passwordless-phone-sign-in-authentication-methods"></a>Habilitar métodos de autenticación de inicio de sesión en el teléfono sin contraseña
 

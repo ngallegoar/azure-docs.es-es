@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a70c6ae3ebc7f5b39550508594bd4d4907e68a67
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 845a202faccbbe0a604560ac57ae30f87344b95a
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80667340"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81451132"
 ---
 # <a name="plan-an-azure-multi-factor-authentication-deployment"></a>Planificación de una implementación de Azure Multi-Factor Authentication
 
@@ -144,7 +144,7 @@ Se envía al usuario un mensaje de texto que contiene un código de verificació
 
 ## <a name="plan-registration-policy"></a>Planificación de la directiva de registro
 
-Los administradores deben determinar la forma en que los usuarios registrarán sus métodos. Las organizaciones deben [habilitar la nueva experiencia de registro combinado](howto-registration-mfa-sspr-combined.md) para Azure MFA y el autoservicio de restablecimiento de contraseña (SSPR). Dicho servicio permite que los usuarios restablezcan su contraseña de forma segura con los mismos métodos que se usan para la autenticación multifactor. Se recomienda usar este registro combinado, que actualmente está en versión preliminar pública, porque es una excelente experiencia para los usuarios, con la capacidad de registrarse una vez en ambos servicios. Si habilita los mismos métodos para SSPR y Azure MFA, permitirá a los usuarios a registrarse para utilizar ambas características.
+Los administradores deben determinar la forma en que los usuarios registrarán sus métodos. Las organizaciones deben [habilitar la nueva experiencia de registro combinado](howto-registration-mfa-sspr-combined.md) para Azure MFA y el autoservicio de restablecimiento de contraseña (SSPR). Dicho servicio permite que los usuarios restablezcan su contraseña de forma segura con los mismos métodos que se usan para la autenticación multifactor. Se recomienda usar este registro combinado, porque es una excelente experiencia para los usuarios, con la capacidad de registrarse una vez en ambos servicios. Si habilita los mismos métodos para SSPR y Azure MFA, permitirá a los usuarios a registrarse para utilizar ambas características.
 
 ### <a name="registration-with-identity-protection"></a>Registro con Identity Protection
 
