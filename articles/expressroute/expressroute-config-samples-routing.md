@@ -7,33 +7,34 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 03/26/2020
 ms.author: osamaz
-ms.openlocfilehash: 5304aefaf3ad70bb552b4b0d1b26fcce9867c9c0
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: 3603bc45b920dc62eb8bf6f2eb8557f98e21638e
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80397745"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024819"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-routing"></a>Ejemplos de configuración de enrutadores para configurar y administrar enrutamiento
-Esta página ofrece ejemplos de configuración de enrutamiento e interfaces para enrutadores Cisco serie IOS-XE y Juniper serie MX al trabajar con ExpressRoute. Solo pretenden ser ejemplos de carácter informativo y no se deben usar tal cual. Puede trabajar con el proveedor para elaborar las configuraciones adecuadas para la red. 
+Esta página ofrece ejemplos de configuración de enrutamiento e interfaces para enrutadores Cisco serie IOS-XE y Juniper serie MX para trabajar con Azure ExpressRoute.
 
 > [!IMPORTANT]
-> Los ejemplos de esta página pretenden tener un carácter meramente informativo. Debe trabajar con los equipos técnico y de ventas del proveedor y su equipo de red para elaborar las configuraciones adecuadas que satisfagan sus necesidades. Microsoft no dará soporte técnico en problemas relacionados con las configuraciones que aparecen en esta página. Debe ponerse en contacto con el fabricante del dispositivo para problemas de soporte técnico.
+> Los ejemplos de esta página sirven meramente de guía. Para elaborar las configuraciones adecuadas que satisfagan sus necesidades tiene que trabajar con los equipos técnico y de ventas de su proveedor y con su equipo de red. Microsoft no dará soporte técnico para problemas relacionados con las configuraciones que aparecen en esta página. Debe ponerse en contacto con el fabricante del dispositivo si tiene problemas de soporte técnico.
 > 
 > 
 
 ## <a name="mtu-and-tcp-mss-settings-on-router-interfaces"></a>Configuración de MSS de MTU y TCP en las interfaces de enrutador
-* La MTU de la interfaz de ExpressRoute es 1500, que es la MTU predeterminada típica de una interfaz Ethernet en un enrutador. A menos que el enrutador tenga una MTU diferente de forma predeterminada, no es necesario especificar un valor en la interfaz del enrutador.
-* A diferencia de Azure VPN Gateway, no es necesario especificar el MSS de TCP para un circuito de ExpressRoute.
+La unidad de transmisión máxima (MTU) de la interfaz de ExpressRoute es 1500, que es la MTU predeterminada típica de una interfaz Ethernet en un enrutador. A menos que el enrutador tenga una MTU diferente de forma predeterminada, no es necesario especificar un valor en la interfaz del enrutador.
 
-Los ejemplos de configuración de enrutadores siguientes se aplican a todos los emparejamientos. Si desea más información, vea [Emparejamientos de ExpressRoute](expressroute-circuit-peerings.md) y [Requisitos de NAT de ExpressRoute](expressroute-routing.md).
+A diferencia de una puerta de enlace de red privada virtual de Azure, no es necesario especificar el tamaño de segmento máximo (MSS) de TCP para un circuito de ExpressRoute.
+
+Los ejemplos de configuración del enrutador de este artículo son aplicables a todos los emparejamientos. Si desea más información, vea [Emparejamientos de ExpressRoute](expressroute-circuit-peerings.md) y [Requisitos de NAT de ExpressRoute](expressroute-routing.md).
 
 
 ## <a name="cisco-ios-xe-based-routers"></a>Enrutadores basados en Cisco IOS-XE
-Los ejemplos en esta sección se aplican a cualquier enrutador que ejecute la familia del SO IOS-XE.
+Los ejemplos en esta sección son aplicables a cualquier enrutador que ejecute la familia del sistema operativo IOS-XE.
 
-### <a name="1-configuring-interfaces-and-sub-interfaces"></a>1. Configuración de interfaces y subinterfaces
-Necesitará una subinterfaz por emparejamiento en cada enrutador que conecte a Microsoft. Una subinterfaz puede identificarse con un identificador de VLAN o un par apilado de identificadores de VLAN y una dirección IP.
+### <a name="configure-interfaces-and-subinterfaces"></a>Configuración de interfaces y subinterfaces
+En cada enrutador que se conecte a Microsoft necesitará una subinterfaz por cada emparejamiento. Una subinterfaz puede identificarse con un identificador de VLAN o un par apilado de identificadores de VLAN y una dirección IP.
 
 **Definición de interfaz Dot1Q**
 
@@ -51,8 +52,8 @@ Este ejemplo ofrece la definición de subinterfaz de una subinterfaz con dos ide
      encapsulation dot1Q <s-tag> seconddot1Q <c-tag>
      ip address <IPv4_Address><Subnet_Mask>
 
-### <a name="2-setting-up-ebgp-sessions"></a>2. Configuración de sesiones eBGP
-Debe configurar una sesión BGP con Microsoft para cada emparejamiento. En el siguiente ejemplo permite configurar una sesión BGP con Microsoft. Si la dirección IPv4 usada para la subinterfaz fue a.b.c.d, la dirección IP del vecino BGP (Microsoft) será a.b.c.d+1. El último octeto de la dirección IPv4 del vecino BGP siempre será un número par.
+### <a name="set-up-ebgp-sessions"></a>Configuración de sesiones eBGP
+Tiene que configurar una sesión BGP con Microsoft para cada emparejamiento. Configure una sesión de BGP utilizando el ejemplo a continuación. Si la dirección IPv4 que ha usado para la subinterfaz era a.b.c.d, entonces la dirección IP del vecino BGP (Microsoft) será a.b.c.d+1. El último octeto de la dirección IPv4 del vecino BGP siempre será un número par.
 
     router bgp <Customer_ASN>
      bgp log-neighbor-changes
@@ -63,8 +64,8 @@ Debe configurar una sesión BGP con Microsoft para cada emparejamiento. En el si
      exit-address-family
     !
 
-### <a name="3-setting-up-prefixes-to-be-advertised-over-the-bgp-session"></a>3. Configuración de prefijos para anunciarse a través de la sesión BGP
-Puede configurar el enrutador para anunciar prefijos seleccionados a Microsoft. Puede hacerlo usando el ejemplo siguiente.
+### <a name="set-up-prefixes-to-be-advertised-over-the-bgp-session"></a>Configuración de prefijos para anunciarse mediante la sesión BGP
+Configure el enrutador para anunciar los prefijos seleccionados a Microsoft mediante el ejemplo siguiente.
 
     router bgp <Customer_ASN>
      bgp log-neighbor-changes
@@ -76,8 +77,8 @@ Puede configurar el enrutador para anunciar prefijos seleccionados a Microsoft. 
      exit-address-family
     !
 
-### <a name="4-route-maps"></a>4. Asignaciones de ruta
-Puede usar asignaciones de ruta y listas de prefijo para filtrar prefijos propagados en la red. Puede usar el ejemplo siguiente para realizar la tarea. Asegúrese de que tiene el programa de instalación de listas de prefijos adecuado.
+### <a name="route-maps"></a>Asignaciones de ruta
+Puede usar asignaciones de ruta y listas de prefijos para filtrar los prefijos propagados en la red. Consulte el ejemplo siguiente y asegúrese de que tiene configuradas las listas de prefijos adecuadas.
 
     router bgp <Customer_ASN>
      bgp log-neighbor-changes
@@ -93,9 +94,9 @@ Puede usar asignaciones de ruta y listas de prefijo para filtrar prefijos propag
      match ip address prefix-list <MS_Prefixes>
     !
 
-### <a name="5-configuring-bfd"></a>5. Configuración de BFD
+### <a name="configure-bfd"></a>Configuración de BFD
 
-Configurará BFD en dos lugares: en el nivel de interfaz y en el nivel de BGP. El siguiente ejemplo corresponde a la interfaz de QinQ. 
+Tendrá que configurar BFD en dos lugares: uno en el nivel de interfaz y otro en el nivel de BGP. El ejemplo siguiente es para la interfaz de QinQ. 
 
     interface GigabitEthernet<Interface_Number>.<Number>
      bfd interval 300 min_rx 300 multiplier 3
@@ -116,7 +117,7 @@ Configurará BFD en dos lugares: en el nivel de interfaz y en el nivel de BGP. E
 ## <a name="juniper-mx-series-routers"></a>Enrutadores Juniper serie MX
 Los ejemplos en esta sección se aplican a los enrutadores Juniper serie MX.
 
-### <a name="1-configuring-interfaces-and-sub-interfaces"></a>1. Configuración de interfaces y subinterfaces
+### <a name="configure-interfaces-and-subinterfaces"></a>Configuración de interfaces y subinterfaces
 
 **Definición de interfaz Dot1Q**
 
@@ -151,8 +152,8 @@ Este ejemplo ofrece la definición de subinterfaz de una subinterfaz con dos ide
         }                                   
     }                           
 
-### <a name="2-setting-up-ebgp-sessions"></a>2. Configuración de sesiones eBGP
-Debe configurar una sesión BGP con Microsoft para cada emparejamiento. En el siguiente ejemplo permite configurar una sesión BGP con Microsoft. Si la dirección IPv4 usada para la subinterfaz fue a.b.c.d, la dirección IP del vecino BGP (Microsoft) será a.b.c.d+1. El último octeto de la dirección IPv4 del vecino BGP siempre será un número par.
+### <a name="set-up-ebgp-sessions"></a>Configuración de sesiones eBGP
+Tiene que configurar una sesión BGP con Microsoft para cada emparejamiento. Configure una sesión de BGP utilizando el ejemplo a continuación. Si la dirección IPv4 que ha usado para la subinterfaz era a.b.c.d, entonces la dirección IP del vecino BGP (Microsoft) será a.b.c.d+1. El último octeto de la dirección IPv4 del vecino BGP siempre será un número par.
 
     routing-options {
         autonomous-system <Customer_ASN>;
@@ -167,14 +168,15 @@ Debe configurar una sesión BGP con Microsoft para cada emparejamiento. En el si
         }                                   
     }
 
-### <a name="3-setting-up-prefixes-to-be-advertised-over-the-bgp-session"></a>3. Configuración de prefijos para anunciarse a través de la sesión BGP
-Puede configurar el enrutador para anunciar prefijos seleccionados a Microsoft. Puede hacerlo usando el ejemplo siguiente.
+### <a name="set-up-prefixes-to-be-advertised-over-the-bgp-session"></a>Configuración de prefijos para anunciarse mediante la sesión BGP
+Configure el enrutador para anunciar los prefijos seleccionados a Microsoft mediante el ejemplo siguiente.
 
     policy-options {
         policy-statement <Policy_Name> {
             term 1 {
                 from protocol OSPF;
-        route-filter <Prefix_to_be_advertised/Subnet_Mask> exact;
+        route-filter 
+    <Prefix_to_be_advertised/Subnet_Mask> exact;
                 then {
                     accept;
                 }
@@ -192,8 +194,8 @@ Puede configurar el enrutador para anunciar prefijos seleccionados a Microsoft. 
     }
 
 
-### <a name="4-route-policies"></a>4. Directivas de rutas
-Puede usar asignaciones de ruta y listas de prefijo para filtrar prefijos propagados en la red. Puede usar el ejemplo siguiente para realizar la tarea. Asegúrese de que tiene el programa de instalación de listas de prefijos adecuado.
+### <a name="route-policies"></a>Directivas de ruta
+Puede usar asignaciones de ruta y listas de prefijos para filtrar los prefijos propagados en la red. Consulte el ejemplo siguiente y asegúrese de que tiene configuradas las listas de prefijos adecuadas.
 
     policy-options {
         prefix-list MS_Prefixes {
@@ -203,7 +205,7 @@ Puede usar asignaciones de ruta y listas de prefijo para filtrar prefijos propag
         policy-statement <MS_Prefixes_Inbound> {
             term 1 {
                 from {
-        prefix-list MS_Prefixes;
+                prefix-list MS_Prefixes;
                 }
                 then {
                     accept;
@@ -222,8 +224,8 @@ Puede usar asignaciones de ruta y listas de prefijo para filtrar prefijos propag
         }                                   
     }
 
-### <a name="4-configuring-bfd"></a>4. Configuración de BFD
-Configurará BFD únicamente en la sección del protocolo BGP.
+### <a name="configure-bfd"></a>Configuración de BFD
+Configure BFD únicamente en la sección del protocolo BGP.
 
     protocols {
         bgp { 
@@ -237,6 +239,7 @@ Configurará BFD únicamente en la sección del protocolo BGP.
             }                               
         }                                   
     }
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte [P+F de ExpressRoute](expressroute-faqs.md) para obtener más detalles.

@@ -3,12 +3,12 @@ title: Creación de directivas de Configuración de invitado para Linux
 description: Aprenda a crear una directiva de Configuración de invitado de Azure Policy para Linux.
 ms.date: 03/20/2020
 ms.topic: how-to
-ms.openlocfilehash: f93aafc8f2c016218b1b7fea82558ea6ba4b4ff8
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: 219b38bd81cae8d16241d1ee16cfdd2f400ae91e
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80365407"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024989"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Creación de directivas de Configuración de invitado para Linux
 
@@ -24,6 +24,10 @@ Use las siguientes acciones para crear su propia configuración para validar el 
 
 > [!IMPORTANT]
 > Las directivas personalizadas con la configuración de invitados son una característica en vista previa (GB).
+>
+> La extensión de configuración de invitado es necesaria para realizar auditorías en las máquinas virtuales de Azure.
+> Para implementar la extensión a gran escala, en todas las máquinas Linux asigne las siguientes definiciones de directiva:
+>   - [Implemente los requisitos previos para habilitar la directiva de configuración de invitado en VM de Linux.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb27e9e0-526e-4ae1-89f2-a2a0bf0f8a50)
 
 ## <a name="install-the-powershell-module"></a>Instalación del módulo de PowerShell
 
@@ -89,7 +93,7 @@ supports:
     - os-family: unix
 ```
 
-Guarde este archivo en una carpeta denominada `linux-path` en el directorio del proyecto.
+Guarde este archivo con el nombre `inspec.yml` en una carpeta denominada `linux-path` en el directorio del proyecto.
 
 A continuación, cree el archivo de Ruby con la abstracción de lenguaje de InSpec usada para auditar la máquina.
 
@@ -99,9 +103,9 @@ describe file('/tmp') do
 end
 ```
 
-Guarde este archivo en una nueva carpeta denominada `controls` dentro del directorio `linux-path`.
+Guarde este archivo con el nombre `linux-path.rb` en una nueva carpeta denominada `controls` dentro del directorio `linux-path`.
 
-Por último, cree una configuración, importe el módulo de recursos **GuestConfiguration** y use el recurso `ChefInSpecResource` para establecer el nombre del perfil de InSpec.
+Por último, cree una configuración, importe el módulo de recursos **PSDesiredStateConfiguration** y compile la configuración.
 
 ```powershell
 # Define the configuration and import GuestConfiguration
@@ -119,10 +123,15 @@ Configuration AuditFilePathExists
 }
 
 # Compile the configuration to create the MOF files
+import-module PSDesiredStateConfiguration
 AuditFilePathExists -out ./Config
 ```
 
+Guarde este archivo con el nombre `config.ps1` en la carpeta del proyecto. Ejecútelo en PowerShell mediante la ejecución de `./config.ps1` en el terminal. Se creará un nuevo archivo MOF.
+
 El comando `Node AuditFilePathExists` no es técnicamente necesario, pero genera un archivo denominado `AuditFilePathExists.mof`, en lugar del valor predeterminado, `localhost.mof`. El hecho de que el nombre de archivo. mof siga la configuración facilita la organización de muchos archivos cuando se trabaja a escala.
+
+
 
 Ahora debería tener una estructura de proyecto como la siguiente:
 
@@ -150,8 +159,8 @@ Ejecute el siguiente comando para crear un paquete con la configuración proporc
 ```azurepowershell-interactive
 New-GuestConfigurationPackage `
   -Name 'AuditFilePathExists' `
-  -Configuration './Config/AuditFilePathExists.mof'
-  -ChefProfilePath './'
+  -Configuration './Config/AuditFilePathExists.mof' `
+  -ChefInSpecProfilePath './'
 ```
 
 Después de crear el paquete de configuración, pero antes de publicarlo en Azure, puede probar el paquete desde la estación de trabajo o el entorno de CI/CD. El cmdlet `Test-GuestConfigurationPackage` de GuestConfiguration incluye el mismo agente en el entorno de desarrollo que se usa en las máquinas de Azure. Con esta solución, puede realizar pruebas de integración localmente antes de la publicación en entornos de nube con facturación.
@@ -168,7 +177,7 @@ Ejecute el siguiente comando para probar el paquete creado en el paso anterior:
 
 ```azurepowershell-interactive
 Test-GuestConfigurationPackage `
-  -Path ./AuditFilePathExists.zip
+  -Path ./AuditFilePathExists/AuditFilePathExists.zip
 ```
 
 El cmdlet también admite la entrada de la canalización de PowerShell. Canaliza la salida del cmdlet `New-GuestConfigurationPackage` al cmdlet `Test-GuestConfigurationPackage`.

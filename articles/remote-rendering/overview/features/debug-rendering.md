@@ -5,12 +5,12 @@ author: jumeder
 ms.author: jumeder
 ms.date: 04/09/2020
 ms.topic: article
-ms.openlocfilehash: 675f8d988e64ed7b556f154f681ccb53ed1000c6
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: f10c736cad9322752d5d552d29ef0c63635628a5
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393930"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868155"
 ---
 # <a name="debug-rendering"></a>Representación de la depuración
 
@@ -22,7 +22,7 @@ La API de representación de la depuración proporciona una variedad de opciones
 |---------------------------------|:-------------------------------------|
 |Contador de fotogramas                    | Representa una superposición de texto en la esquina superior izquierda del fotograma. El texto muestra el identificador de fotograma actual en el lado del servidor, identificador que aumenta continuamente a medida que continúa la representación. |
 |Número de polígonos                    | Representa una superposición de texto en la esquina superior izquierda del fotograma. En el texto se muestra la cantidad de polígonos representados actualmente, el mismo valor que consultan las [consultas de rendimiento del servidor](performance-queries.md).| 
-|Tramas de alambres                        | Si está habilitado, toda la geometría de objetos cargada en el servidor se representará en modo de trama de alambres. Solo los bordes de los polígonos se rasterizarán en este modo. |
+|Tramas de alambres                        | Si está habilitado, toda la geometría de objetos cargada en el servidor se representará en modo de trama de alambres. En este modo solo se rasterizarán los bordes de los polígonos. |
 
 El código siguiente habilita estos efectos de depuración:
 
@@ -56,7 +56,7 @@ Sin embargo, los efectos proporcionados no proporcionan ninguna introspección d
 ## <a name="performance-considerations"></a>Consideraciones de rendimiento
 
 * La habilitación de las superposiciones de texto no ocasiona apenas sobrecarga del rendimiento.
-* Además, la habilitación de la superposición conlleva una sobrecarga de rendimiento considerable, aunque puede variar en función de la escena. En el caso de escenas complejas, este modo puede hacer que la velocidad de fotogramas caiga por debajo del objetivo de 60-Hz.
+* La habilitación del modo Wireframe conlleva una sobrecarga de rendimiento considerable, aunque puede variar en función de la escena. En el caso de escenas complejas, este modo puede hacer que la velocidad de fotogramas caiga por debajo del objetivo de 60 Hz.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 02/11/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: e0ac09a68bda539fe7abd05fce1739d1a58a3c99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fc6cbbd0aa9cb0750e497c7cc7edbd42f21bda55
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "62127351"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82025006"
 ---
 # <a name="orchestrate-the-implementation-of-azure-devtest-labs"></a>Orquestación de la implementación de Azure DevTest Labs
 En este artículo se proporciona un enfoque recomendado para una rápida implementación de Azure DevTest Labs. La siguiente imagen resalta el proceso general como orientación prescriptiva observando la flexibilidad para admitir diversos escenarios y requisitos del sector.
@@ -43,7 +43,7 @@ Lo primero a lo que hay que prestar atención al implementar una solución de Az
 ## <a name="milestone-2-deploy-the-pilot-lab"></a>Hito 2: Implementar el laboratorio piloto
 Cuando ya exista la topología de red, se puede crear el primer laboratorio o un laboratorio piloto mediante los siguientes pasos:
 
-1. Cree un entorno de DevTest Labs inicial (encontrará instrucciones detalladas [aquí](https://github.com/Azure/fta-devops/blob/master/devtest-labs/articles/devtest-labs-walkthrough-it.md)).
+1. Cree un entorno inicial de DevTest Labs.
 2. Determine los tamaños y las imágenes de máquina virtual permitidos para su uso con el laboratorio. Decida si se pueden cargar imágenes personalizadas en Azure para su uso con DevTest Labs.
 3. Proteja el acceso al laboratorio mediante la creación de controles de acceso basado en rol (RBAC) iniciales para el laboratorio (propietarios del laboratorio y usuarios del laboratorio). Se recomienda utilizar cuentas de Active Directory sincronizadas con Azure Active Directory para la identidad con DevTest Labs.
 4. Configure DevTest Labs para usar directivas, como programaciones, administración de costos, máquinas virtuales reclamables, imágenes personalizadas o fórmulas.
@@ -61,4 +61,4 @@ Los equipos pilotos iniciales pueden requerir asistencia exhaustiva para empezar
 5. Asegúrese de que se han llevado a cabo las revisiones de cumplimiento y seguridad apropiadas.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte el siguiente artículo de esta serie: [Gobernanza de la infraestructura de Azure DevTest Labs](devtest-lab-guidance-governance-resources.md).
+Lea el siguiente artículo de esta serie: [Gobernanza de la infraestructura de Azure DevTest Labs](devtest-lab-guidance-governance-resources.md)

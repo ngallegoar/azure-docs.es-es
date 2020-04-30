@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: f1354ce824bc4e57ab55846c714d4a0a73a46966
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: eff37750f0580a28c9644ee1ffb7fe4e95038709
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80873827"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869790"
 ---
 # <a name="create-a-consulting-service-offer"></a>Creación de una oferta de servicios de consultoría
 
@@ -131,7 +131,7 @@ Proporcione una breve descripción de la oferta. Puede tener una longitud de has
 
 ### <a name="description"></a>Descripción
 
-Proporcione una descripción más larga de la oferta (hasta 3 000 caracteres). Se muestra a los clientes en la información general de la lista de Marketplace.
+Proporcione una descripción más larga de la oferta (hasta 3000 caracteres). Se muestra a los clientes en la información general de la lista de Marketplace.
 
 Incluya uno o varios de los siguientes elementos en la descripción:
 
@@ -145,7 +145,7 @@ Estas son algunas sugerencias para escribir la descripción:
 - Describa claramente la propuesta de valor de la oferta en las primeras frases de la descripción. Incluya los siguientes elementos:
   - Descripción de la oferta.
   - Tipo de usuario que se beneficia de la oferta.
-  - Necesidades o problemas del cliente que soluciona la oferta.
+  - Necesidades o problemas del cliente que aborda la oferta.
 - Recuerde que estas primeras frases podrían mostrarse en los resultados de la búsqueda.
 - No se base exclusivamente en las características y funcionalidades para vender su producto. En su lugar, céntrese en el valor que proporciona la oferta.
 - Intente usar un vocabulario específico del sector o palabras relacionadas con las ventajas.
@@ -174,6 +174,9 @@ Agregue hasta tres (pero al menos uno) documentos PDF para la oferta.
 
 Proporcione logotipos e imágenes para usarlos con la oferta. Todas las imágenes deben estar en formato .PNG. Las imágenes borrosas se rechazarán.
 
+>[!Note]
+>Si tiene un problema al cargar archivos, asegúrese de que la red local no bloquee el servicio https://upload.xboxlive.com que usa el Centro de partners.
+
 #### <a name="store-logos"></a>Logotipos de Store
 
 Proporcione archivos .png del logotipo de la oferta en cada uno de los siguientes tamaños de píxel:
@@ -185,7 +188,7 @@ Todos los logotipos son necesarios y se usan en lugares diferentes de la lista d
 
 #### <a name="screenshots-optional"></a>Capturas de pantalla (opcional)
 
-Agregue hasta cinco capturas de pantalla que muestren el funcionamiento de la oferta. Cada una debe tener un tamaño de 1280 x 720 píxeles y en formato .png.
+Agregue hasta cinco capturas de pantalla que muestren el funcionamiento de la oferta. Cada una debe tener un tamaño de 1280 x 720 píxeles y el formato .png.
 
 #### <a name="videos-optional"></a>Vídeos (opcional)
 

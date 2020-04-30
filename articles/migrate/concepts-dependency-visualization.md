@@ -2,13 +2,13 @@
 title: Análisis de dependencias en Azure Migrate Server Assessment
 description: Se describe cómo usar el análisis de dependencias para realizar evaluaciones mediante Azure Migrate Server Assessment.
 ms.topic: conceptual
-ms.date: 03/11/2020
-ms.openlocfilehash: f96496b66d6bcfd397fb0a7303d3dbfb4fd6f6b6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/15/2020
+ms.openlocfilehash: f0b956620895ae2264b53916015d440f5e586eb2
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79455645"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024768"
 ---
 # <a name="dependency-analysis"></a>Análisis de dependencias
 
@@ -30,7 +30,7 @@ Hay dos opciones para implementar el análisis de dependencias:
 - **Sin agentes**: con el análisis sin agente, no es necesario instalar agentes en las máquinas que quiera comprobar. Esta opción se encuentra actualmente en versión preliminar y solo está disponible para máquinas virtuales de VMware.
 
 > [!NOTE]
-> El análisis de dependencias no está disponible en Azure Government.
+> El análisis de dependencias basado en agente no está disponible en Azure Government. Puede usar el análisis de dependencias sin agente.
 
 ## <a name="agentless-analysis"></a>Análisis sin agente
 
@@ -51,7 +51,7 @@ En el análisis basado en agente, Server Assessment emplea la [solución Service
 
 ### <a name="collected-data"></a>Datos recopilados
 
-En la visualización basada en agente, se recopilan los datos siguientes:
+En el análisis basado en agente, se recopilan los datos siguientes:
 
 - Nombre de aplicación, proceso y nombre del servidor de la máquina de origen.
 - Puerto, nombre de aplicación, proceso y nombre del servidor de la máquina de destino.

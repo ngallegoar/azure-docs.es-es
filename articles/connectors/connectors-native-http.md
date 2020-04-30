@@ -3,16 +3,16 @@ title: Llamada a puntos de conexión de servicio mediante HTTP o HTTPS
 description: Envío de solicitudes HTTP o HTTPS salientes a puntos de conexión de servicio desde Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 03/12/2020
 tags: connectors
-ms.openlocfilehash: 8aefe851708c0b8d8780d03e4364e034e783bf4a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9ed3d960b3f5653ea8706b39559c9d5a71c45a6c
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79297221"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81867634"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Llamada a puntos de conexión de servicio mediante HTTP o HTTPS desde Azure Logic Apps
 
@@ -20,6 +20,8 @@ Con [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y el desencadenador
 
 > [!NOTE]
 > En función de la capacidad del punto de conexión de destino, el conector HTTP admite las versiones de Seguridad de la capa de transporte (TLS) 1.0, 1.1 y 1.2. Logic Apps negocia con el punto de conexión usando la versión compatible más alta posible. Por ejemplo, si el punto de conexión admite la versión 1.2, el conector usa esta versión primero. De lo contrario, el conector utiliza la siguiente versión compatible más alta.
+>
+> El conector HTTP no admite certificados TLS/SSL intermedios para la autenticación.
 
 [Agregue el desencadenador HTTP](#http-trigger) como primer paso del flujo de trabajo para comprobar o *sondear* un punto de conexión según una programación recurrente. Cada vez que el desencadenador comprueba el punto de conexión, el desencadenador llama a o envía una *solicitud* al punto de conexión. La respuesta del punto de conexión determina si el flujo de trabajo de la aplicación lógica se ejecuta. El desencadenador pasa todo el contenido de la respuesta del punto de conexión a las acciones en la aplicación lógica.
 
@@ -140,8 +142,8 @@ Por ejemplo, supongamos que tiene una aplicación lógica que envía una solicit
 Este es el mismo ejemplo que muestra la definición de JSON de la acción HTTP en la definición de flujo de trabajo subyacente:
 
 ```json
-{
-   "HTTP_action": {
+"HTTP_action": {
+   "inputs": {
       "body": {
          "$content-type": "multipart/form-data",
          "$multipart": [

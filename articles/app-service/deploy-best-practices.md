@@ -7,12 +7,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
-ms.openlocfilehash: 14946a05f021a9b155fd9a9621f73bde980970fa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4dd959d75fd582d787e68db4a415a4a694b9cda8
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75750469"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770679"
 ---
 # <a name="deployment-best-practices"></a>Procedimientos recomendados de implementación
 
@@ -37,6 +37,92 @@ El mecanismo de implementación es la acción que se usa para colocar la aplicac
 
 Las herramientas de implementación como Azure Pipelines, Jenkins y los complementos de editor usan uno de estos mecanismos de implementación.
 
+## <a name="use-deployment-slots"></a>Uso de ranuras de implementación
+
+Siempre que sea posible, use [ranuras de implementación](deploy-staging-slots.md) al implementar una nueva compilación de producción. Al usar un nivel de Plan de App Service estándar o superior, puede implementar la aplicación en un entorno de ensayo, validar los cambios y realizar pruebas de humo. Cuando esté preparado, puede intercambiar las ranuras de ensayo y de producción. La operación de intercambio prepara las instancias de trabajo necesarias para que coincidan con la escala de producción, lo que elimina el tiempo de inactividad.
+
+### <a name="continuously-deploy-code"></a>Código de implementación continua
+
+Si el proyecto tiene ramas designadas para pruebas, control de calidad y ensayo, cada una de esas ramas debe implementarse continuamente en un espacio de ensayo. (Esto se conoce como [diseño Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)). De esta manera, las partes interesadas pueden evaluar y probar fácilmente la rama implementada. 
+
+La implementación continua nunca debe estar habilitada para el espacio de producción. Al contrario, la rama de producción (a menudo la maestra) debe implementarse en un espacio que no sea de producción. Cuando esté listo para liberar la rama base, cámbiela al espacio de producción. El cambio a producción, en lugar de la implementación en producción, evita tiempos de inactividad y permite revertir los cambios intercambiando de nuevo. 
+
+![Objeto visual de uso de espacio](media/app-service-deploy-best-practices/slot_flow_code_diagam.png)
+
+### <a name="continuously-deploy-containers"></a>Contenedores de implementación continua
+
+Para contenedores personalizados de Docker u otros registros de contenedor, implemente la imagen en un espacio de ensayo y cámbielo a producción para evitar tiempos de inactividad. La automatización es más compleja que la implementación de código porque debe introducir la imagen en un registro de contenedor y actualizar la etiqueta de imagen en la aplicación web.
+
+Para cada rama que quiera implementar en un espacio, configure la automatización para que haga lo siguiente en cada confirmación en la rama.
+
+1. **Compilar y etiquetar la imagen**. Como parte de la canalización de compilación, etiquete la imagen con el identificador de confirmación de Git, la marca de tiempo u otra información de identificación. Es mejor no usar la etiqueta predeterminada "latest". De lo contrario, es difícil realizar un seguimiento del código que se implementa actualmente, lo que dificulta mucho más la depuración.
+1. **Insertar la imagen etiquetada**. Una vez que la imagen se compila y etiqueta, la canalización la envía a nuestro registro de contenedor. En el paso siguiente, el espacio de implementación extraerá la imagen etiquetada del registro de contenedor.
+1. **Actualizar el espacio de implementación con la nueva etiqueta de imagen**. Cuando se actualice esta propiedad, el sitio se reiniciará automáticamente y se extraerá la nueva imagen de contenedor.
+
+![Objeto visual de uso de espacio](media/app-service-deploy-best-practices/slot_flow_container_diagram.png)
+
+A continuación se muestran ejemplos de marcos de automatización comunes.
+
+### <a name="use-azure-devops"></a>Uso de Azure DevOps
+
+App Service dispone de [entrega continua integrada](deploy-continuous-deployment.md) para los contenedores mediante el Centro de implementación. Vaya a la aplicación en [Azure Portal](https://portal.azure.com/) y seleccione **Deployment Center** (Centro de implementación) en **Implementación**. Siga las instrucciones para seleccionar el repositorio y la rama. De esta manera se configurará una canalización de versión y compilación de DevOps para compilar, etiquetar e implementar automáticamente el contenedor cuando se inserten nuevas confirmaciones en la rama seleccionada.
+
+### <a name="use-github-actions"></a>Uso de acciones de GitHub
+
+También puede automatizar la implementación del contenedor [con acciones de GitHub](containers/deploy-container-github-action.md).  El archivo de flujo de trabajo siguiente compilará y etiquetará el contenedor con el identificador de confirmación, lo insertará en un registro de contenedor y actualizará el espacio del sitio con la nueva etiqueta de imagen.
+
+```yaml
+name: Build and deploy a container image to Azure Web Apps
+
+on:
+  push:
+    branches:
+    - <your-branch-name>
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@master
+
+    -name: Authenticate using a Service Principal
+      uses: azure/actions/login@v1
+      with:
+        creds: ${{ secrets.AZURE_SP }}
+
+    - uses: azure/container-actions/docker-login@v1
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+
+    - name: Build and push the image tagged with the git commit hash
+      run: |
+        docker build . -t contoso/demo:${{ github.sha }}
+        docker push contoso/demo:${{ github.sha }}
+
+    - name: Update image tag on the Azure Web App
+      uses: azure/webapps-container-deploy@v1
+      with:
+        app-name: '<your-webapp-name>'
+        slot-name: '<your-slot-name>'
+        images: 'contoso/demo:${{ github.sha }}'
+```
+
+### <a name="use-other-automation-providers"></a>Uso de otros proveedores de automatización
+
+Los pasos enumerados anteriormente se aplican a otras utilidades de automatización como CircleCI o Travis CI. Sin embargo, debe usar la CLI de Azure para actualizar los espacios de implementación con nuevas etiquetas de imagen en el paso final. Para usar la CLI de Azure en el script de automatización, genere una entidad de servicio con el siguiente comando.
+
+```shell
+az ad sp create-for-rbac --name "myServicePrincipal" --role contributor \
+   --scopes /subscriptions/{subscription}/resourceGroups/{resource-group} \
+   --sdk-auth
+```
+
+En el script, inicie sesión con `az login --service-principal` y proporcione la información de la entidad de seguridad. Después, puede usar `az webapp config container set` para establecer el nombre del contenedor, la etiqueta, la dirección URL del registro y la contraseña del registro. A continuación se muestran algunos vínculos útiles para crear el proceso de CI del contenedor.
+
+- [Inicio de sesión en la CLI de Azure en Circle CI](https://circleci.com/orbs/registry/orb/circleci/azure-cli) 
+
 ## <a name="language-specific-considerations"></a>Consideraciones específicas del idioma
 
 ### <a name="java"></a>Java
@@ -49,13 +135,9 @@ De forma predeterminada, Kudu ejecuta los pasos de compilación para la aplicaci
 
 ### <a name="net"></a>.NET 
 
-De forma predeterminada, Kudu ejecuta los pasos de compilación para la aplicación .Net (`dotnet build`). Si usa un servicio de compilación como Azure DevOps, la compilación de Kudu es innecesaria. Para deshabilitarla, cree una opción de aplicación, `SCM_DO_BUILD_DURING_DEPLOYMENT`, con el valor `false`.
+De forma predeterminada, Kudu ejecuta los pasos de compilación para la aplicación .NET (`dotnet build`). Si usa un servicio de compilación como Azure DevOps, la compilación de Kudu es innecesaria. Para deshabilitarla, cree una opción de aplicación, `SCM_DO_BUILD_DURING_DEPLOYMENT`, con el valor `false`.
 
 ## <a name="other-deployment-considerations"></a>Otras consideraciones de implementación
-
-### <a name="use-deployment-slots"></a>Uso de ranuras de implementación
-
-Siempre que sea posible, use [ranuras de implementación](deploy-staging-slots.md) al implementar una nueva compilación de producción. Al usar un nivel de Plan de App Service estándar o superior, puede implementar la aplicación en un entorno de ensayo, validar los cambios y realizar pruebas de humo. Cuando esté preparado, puede intercambiar las ranuras de ensayo y de producción. La operación de intercambio prepara las instancias de trabajo necesarias para que coincidan con la escala de producción, lo que elimina el tiempo de inactividad. 
 
 ### <a name="local-cache"></a>caché local
 
