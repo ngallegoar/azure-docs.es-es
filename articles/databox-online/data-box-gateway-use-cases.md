@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 03/02/2019
 ms.author: alkohli
-ms.openlocfilehash: e72113313e27949819db567c550401b1f051473f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dde84f0973cc7e21e57574bbabe398b38581358f
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77022688"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562424"
 ---
 # <a name="use-cases-for-azure-data-box-gateway"></a>Casos de uso de Azure Data Box Gateway
 
@@ -77,7 +77,7 @@ Esta transferencia masiva completa la fase de inicialización.
 
 ### <a name="ongoing-feed-with-data-box-gateway"></a>Fuente continua con Data Box Gateway
 
-Siga estos pasos para la ingesta continua con Data Box Gateway.
+Siga estos pasos para la ingesta continua con Data Box Gateway. 
 
 1. Cree un recurso compartido en la nube en Data Box Gateway. Este recurso compartido carga automáticamente los datos a la cuenta de Azure Storage. Vaya a **Recursos compartidos** en el recurso de Data Box Gateway y haga clic en **+ Agregar recurso compartido**.
 

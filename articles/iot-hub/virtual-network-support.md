@@ -2,17 +2,17 @@
 title: Compatibilidad de Azure IoT Hub con redes virtuales
 description: Cómo usar el patrón de conectividad de redes virtuales con IoT Hub
 services: iot-hub
-author: rezasherafat
+author: jlian
 ms.service: iot-fundamentals
 ms.topic: conceptual
-ms.date: 03/13/2020
-ms.author: rezas
-ms.openlocfilehash: 34f66c13b0e7eb7092332a48744f9abfd8f0db80
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/28/2020
+ms.author: jlian
+ms.openlocfilehash: c0d01ae6507864373a79282476846d6f96adf83b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79501440"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82231448"
 ---
 # <a name="iot-hub-support-for-virtual-networks"></a>Compatibilidad de IoT Hub con redes virtuales
 
@@ -199,7 +199,7 @@ Se puede asignar una instancia de Managed Service Identity a su concentrador en 
 Después de sustituir los valores del recurso `name`, `location`, `SKU.name` y `SKU.tier`, puede usar la CLI de Azure para implementar el recurso en un grupo de recursos existente mediante:
 
 ```azurecli-interactive
-az group deployment create --name <deployment-name> --resource-group <resource-group-name> --template-file <template-file.json>
+az deployment group create --name <deployment-name> --resource-group <resource-group-name> --template-file <template-file.json>
 ```
 
 Una vez creado el recurso, puede recuperar la instancia de Managed Service Identity asignada al concentrador mediante la CLI de Azure:

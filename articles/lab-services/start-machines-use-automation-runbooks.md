@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 9bb97a73b7ca570ca122323e8e9c5a70c9348b15
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: df6d7943a5344b4288dfe369dcce9087b894984f
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76166306"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82580579"
 ---
 # <a name="start-virtual-machines-in-a-lab-in-order-by-using-azure-automation-runbooks"></a>Iniciar máquinas virtuales en un laboratorio en orden mediante runbooks de Azure Automation
 La característica de [inicio automático](devtest-lab-set-lab-policy.md#set-autostart) de DevTest Labs le permite configurar las VM para que se inicien automáticamente a una hora determinada. Sin embargo, esta característica no es compatible con máquinas que se inician en un orden específico. Existen varios escenarios donde sería útil este tipo de automatización.  Un escenario es donde una VM de Jumpbox en un laboratorio debe iniciarse en primer lugar, antes que las otras VM, ya que Jumpbox se utiliza como punto de acceso a las otras VM.  En este artículo se muestra cómo configurar una cuenta de Azure Automation con un runbook de PowerShell que ejecuta un script. El script utiliza etiquetas en las VM del laboratorio para permitirle controlar el orden de inicio sin tener que cambiar el script.
@@ -133,7 +133,7 @@ While ($current -le 10) {
 ```
 
 ## <a name="create-a-schedule"></a>Crear una programación
-Para que este script se ejecute diariamente, [cree una programación](../automation/shared-resources/schedules.md#creating-a-schedule) en la cuenta de automation. Una vez creada la programación, [vincúlela al runbook](../automation/shared-resources/schedules.md#linking-a-schedule-to-a-runbook). 
+Para que este script se ejecute diariamente, [cree una programación](../automation/shared-resources/schedules.md#create-a-schedule) en la cuenta de automation. Una vez creada la programación, [vincúlela al runbook](../automation/shared-resources/schedules.md#link-a-schedule-to-a-runbook). 
 
 En una situación a gran escala donde hay varias suscripciones con varios laboratorios, almacene la información de parámetros en un archivo para distintos laboratorios y pase el archivo al script en lugar de parámetros individuales. El script deberá modificarse, pero la ejecución principal será la misma. Aunque este ejemplo Azure Automation para ejecutar el script de PowerShell, existen otras opciones, como usar una tarea en una canalización de compilación o versión.
 

@@ -1,23 +1,15 @@
 ---
 title: 'Almacenamiento de datos de salida en Azure Storage con la API del servicio Batch: Azure Batch'
 description: Aprenda a usar la API del servicio Batch para guardar datos de salida de trabajos y tareas de Batch en Azure Storage.
-services: batch
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
 ms.date: 03/05/2019
-ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 11bd8bc427dd3da35ec5aa0f728f6b04b7d4527d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d9c6465a553e5652ecab5dcd167bb4058ff5cc08
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77022858"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82234288"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Almacenamiento de datos de tareas en Azure Storage con la API del servicio Batch
 
@@ -34,7 +26,7 @@ Azure Batch proporciona más de una manera de guardar las salidas de tareas. El 
 - Desea escribir código para guardar la salida de las tareas desde dentro de la aplicación cliente, sin modificar la aplicación que la tarea ejecuta.
 - Quiere guardar las salidas de las tareas y trabajos del administrador de Batch en grupos creados con la configuración de máquina virtual.
 - Quiere guardar salidas en un contenedor de Azure Storage con un nombre arbitrario.
-- Quiere almacenar salidas en un contenedor de Azure Storage denominado según el [estándar de convenciones de archivo de Batch](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). 
+- Quiere almacenar salidas en un contenedor de Azure Storage denominado según el [estándar de convenciones de archivo de Batch](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files). 
 
 Si su escenario es diferente de los mencionados anteriormente, considere la adopción de un enfoque diferente. Por ejemplo, la API del servicio Batch no admite actualmente la transmisión de la salida a Azure Storage mientras se ejecuta la tarea. Para transmitir salidas, considere el uso de la biblioteca de convenciones de archivo de Batch, disponible para. NET. Para otros lenguajes, debe implementar su propia solución. Para más información sobre otras opciones para guardar la salida de tareas, consulte [Guardar salidas de trabajos y tareas en Azure Storage](batch-task-output.md).
 
@@ -163,7 +155,7 @@ El archivo `fileuploadout.txt` registra el progreso de la carga. Puede examinar 
 
 ## <a name="use-the-batch-service-api-with-the-batch-file-conventions-standard"></a>Uso de la API del servicio Batch con el estándar de convenciones de archivo de Batch
 
-Cuando guarda la salida de la tarea con la API del servicio Batch, puede asignar el nombre que desee al contenedor y a los blobs de destino. También puede decidir asignarles un nombre conforme al [estándar de convenciones de archivo de Batch](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). El estándar de convenciones de archivos determina los nombres del contenedor de destino y el blob en Azure Storage para un archivo de salida dado según los nombres del trabajo y de la tarea. Si usa el estándar de convenciones de archivos para la denominación de archivos de salida, estos se podrán ver en [Azure Portal](https://portal.azure.com).
+Cuando guarda la salida de la tarea con la API del servicio Batch, puede asignar el nombre que desee al contenedor y a los blobs de destino. También puede decidir asignarles un nombre conforme al [estándar de convenciones de archivo de Batch](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files). El estándar de convenciones de archivos determina los nombres del contenedor de destino y el blob en Azure Storage para un archivo de salida dado según los nombres del trabajo y de la tarea. Si usa el estándar de convenciones de archivos para la denominación de archivos de salida, estos se podrán ver en [Azure Portal](https://portal.azure.com).
 
 Si va a desarrollar con C#, puede usar los métodos integrados en la [biblioteca de convenciones de archivo para .NET de Batch](https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files). Esta biblioteca crea los contenedores y las rutas de acceso de blobs con los nombres correctos. Por ejemplo, puede llamar a la API para obtener el nombre correcto del contenedor, basándose en el nombre del trabajo:
 

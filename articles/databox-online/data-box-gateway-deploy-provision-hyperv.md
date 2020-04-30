@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 63d88f1b9903eaad7ed4f57f59ca2a49445e3d40
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b3616a338666dbb10fe7500bad8c1e8239fd2c92
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77365309"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561618"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v"></a>Tutorial: Aprovisionamiento de Azure Data Box Gateway en Hyper-V
 
@@ -21,7 +21,7 @@ ms.locfileid: "77365309"
 
 En este tutorial se describe cómo aprovisionar un dispositivo Data Box Gateway en un sistema host que ejecuta Hyper-V en Windows Server 2016 R2, Windows Server 2012 R2 o Windows Server 2012.
 
-Para aprovisionar y configurar un dispositivo virtual se necesitan privilegios de administrador. El aprovisionamiento y la instalación inicial pueden tardar unos 10 minutos en completarse.
+Para aprovisionar y configurar un dispositivo virtual se necesitan privilegios de administrador. El aprovisionamiento y la instalación inicial pueden tardar unos 10 minutos en completarse. 
 
 En este tutorial, aprenderá a:
 

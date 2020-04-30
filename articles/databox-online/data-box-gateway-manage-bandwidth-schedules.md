@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 63f3572dcb5affb9fcf89d86a665bef9414cb011
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: feae75b1fbb832f833a01fa20ce07962ab5c484f
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60755378"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561419"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-data-box-gateway"></a>Uso de Azure Portal para administrar las programaciones del ancho de banda en Azure Data Box Gateway  
 
@@ -84,4 +84,4 @@ Siga estos pasos para eliminar una programación de ancho de banda asociada a un
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Aprenda a [administrar el ancho de banda](data-box-gateway-manage-bandwidth-schedules.md).
+- Aprenda a [administrar el ancho de banda](data-box-gateway-manage-bandwidth-schedules.md). 

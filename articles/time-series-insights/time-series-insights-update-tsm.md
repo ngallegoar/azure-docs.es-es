@@ -8,21 +8,22 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 03/16/2020
+ms.date: 04/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 648578563a0e53d3ed5bda6ab47f85c3c6a2a24e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1487cbb7885711beca969604316fd151defb114a
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79476661"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82580603"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-preview"></a>Versión preliminar del modelo de serie temporal en Azure Time Series Insights
 
 En este artículo se describen el modelo de serie temporal, las funciones y cómo empezar a crear y actualizar modelos propios en el entorno de la versión preliminar de Azure Time Series Insights.
 
 > [!TIP]
->  * Vaya al entorno de la  [demostración Contoso Wind Farm](https://insights.timeseries.azure.com/preview/samples) para obtener un ejemplo activo de modelo de serie temporal.
+>
+> * Vaya al entorno de la  [demostración Contoso Wind Farm](https://insights.timeseries.azure.com/preview/samples) para obtener un ejemplo activo de modelo de serie temporal.
 > * Lea sobre el [explorador de la versión preliminar de Azure Time Series Insights](time-series-insights-update-explorer.md) para obtener información sobre cómo desplazarse por la interfaz de usuario del modelo de serie temporal.
 > * Aprenda a [trabajar con el modelo de serie temporal](time-series-insights-update-how-to-tsm.md) mediante el explorador web de Time Series Insights.
 
@@ -51,9 +52,9 @@ Estas limitaciones revelaron la importancia de las herramientas de visualizació
 
 [![Ejemplo de gráfico de hornos inteligentes del modelo de serie temporal](media/v2-update-tsm/time-series-model-smart-oven.png)](media/v2-update-tsm/time-series-model-smart-oven.png#lightbox)
 
-* El modelo de serie temporal desempeña un papel fundamental en las consultas y en la navegación porque contextualiza datos al permitir comparaciones entre intervalos de tiempo y entre tipos de sensor y dispositivo. (**A**) 
+* El modelo de serie temporal desempeña un papel fundamental en las consultas y en la navegación porque contextualiza datos al permitir comparaciones entre intervalos de tiempo y entre tipos de sensor y dispositivo. (**A**)
 * Los datos se contextualizan aún más, ya que los datos guardados en el modelo de serie temporal conservan los cálculos de consulta de serie temporal como variables y los reutilizan en el momento de la consulta.
-* El modelo de serie temporal organiza y agrega datos para mejorar las funciones de visualización y administración. (**B**) 
+* El modelo de serie temporal organiza y agrega datos para mejorar las funciones de visualización y administración. (**B**)
 
 ### <a name="key-capabilities"></a>Principales capacidades
 
@@ -290,7 +291,7 @@ Los tipos de Time Series Insights pueden tener muchas variables que especifican 
 
 Cada variable puede ser de tres *tipos*: *numérico*, *de categoría* y *de agregado*.
 
-* Los tipos **numéricos** funcionan con valores continuos. 
+* Los tipos **numéricos** funcionan con valores continuos.
 * Los tipos de **categoría** funcionan con un conjunto definido de valores discretos.
 * Los valores de **agregado** combinan varias variables de un único tipo (todos numéricos o todos de categoría).
 

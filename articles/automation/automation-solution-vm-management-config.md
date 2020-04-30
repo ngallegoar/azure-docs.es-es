@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9842a736cf922e0490f2b0c8acb1d2e5833f3d6c
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 241866129aa36d67af18fab86a26d9cbf7ce42d6
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81604756"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582458"
 ---
 # <a name="how-to-configure-startstop-vms-during-off-hours-solution"></a>Configuración de la solución Start/Stop VMs during off-hours
 
@@ -125,7 +125,7 @@ Cuando se ejecuta el runbook **AutoStop_CreateAlert_Parent**, este comprueba que
 
 ### <a name="to-target-the-autostop-action-to-a-list-of-vms"></a>Para que el destino de la acción de detención automática sea una lista de VM
 
-1. Cree una nueva [programación](shared-resources/schedules.md#creating-a-schedule) y vincúlela al runbook **AutoStop_CreateAlert_Parent**. Para ello, agregue una lista separada por comas con los nombres de las VM al parámetro `VMList`.
+1. Cree una nueva [programación](shared-resources/schedules.md#create-a-schedule) y vincúlela al runbook **AutoStop_CreateAlert_Parent**. Para ello, agregue una lista separada por comas con los nombres de las VM al parámetro `VMList`.
 
 2. De manera opcional, si desea excluir algunas VM del apagado automático, puede agregar una lista separada por comas de nombres de VM a la variable `External_ExcludeVMNames`.
 

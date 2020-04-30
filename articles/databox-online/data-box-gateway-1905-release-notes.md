@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 06/12/2019
 ms.author: alkohli
-ms.openlocfilehash: 345666b53336cc6959a65eefd4b0f2475bea8c80
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f2843623061e39e8c9c0ebc35b4916bf9bd3b186
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67068111"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561866"
 ---
 # <a name="azure-data-box-edge-and-azure-data-box-gateway-1905-release-notes"></a>Notas de la versión 1905 de Azure Data Box Edge y Azure Data Box Gateway
 
@@ -21,7 +21,7 @@ ms.locfileid: "67068111"
 
 En las notas de la versión siguientes se identifican los problemas críticos pendientes y los problemas resueltos de la versión 1905 para Azure Data Box Edge y Azure Data Box Gateway.
 
-Las notas de la versión se actualizan continuamente y se van agregando a medida que se descubren problemas críticos que requieren una solución alternativa. Antes de implementar la instancia de Data Box Edge o Data Box Gateway, revise detenidamente la información que encontrará en las notas de la versión.
+Las notas de la versión se actualizan continuamente y se van agregando a medida que se descubren problemas críticos que requieren una solución alternativa. Antes de implementar la instancia de Data Box Edge o Data Box Gateway, revise detenidamente la información que encontrará en las notas de la versión. 
 
 Esta versión se corresponde con las versiones de software siguientes:
 
@@ -33,7 +33,7 @@ Esta versión se corresponde con las versiones de software siguientes:
 
 ## <a name="whats-new"></a>Novedades
 
-- **Mejoras del registro de la matriz de puertas programables (FPGA)** : en esta versión, se han realizado mejoras en el registro y las alertas relacionadas con FPGA. Es una actualización necesaria para Data Box Edge si usa la característica de proceso perimetral con FPGA. Para más información, vea cómo [transformar datos con el proceso perimetral en Data Box Edge](data-box-edge-deploy-configure-compute-advanced.md).
+- **Mejoras del registro de la matriz de puertas programables (FPGA)** : en esta versión, se han realizado mejoras en el registro y las alertas relacionadas con FPGA. Es una actualización necesaria para Data Box Edge si usa la característica de proceso perimetral con FPGA. Para más información, vea cómo [transformar datos con el proceso perimetral en Data Box Edge](azure-stack-edge-deploy-configure-compute-advanced.md).
 
 ## <a name="known-issues-in-ga-release"></a>Problemas conocidos en la versión de disponibilidad general
 
@@ -43,4 +43,4 @@ No se ha notificado ningún problema nuevo para esta versión. Todos los problem
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Preparación para implementar Azure Data Box Gateway](data-box-gateway-deploy-prep.md)
-- [Preparación de la implementación de Azure Data Box Edge](data-box-edge-deploy-prep.md)
+- [Preparación de la implementación de Azure Data Box Edge](azure-stack-edge-deploy-prep.md)

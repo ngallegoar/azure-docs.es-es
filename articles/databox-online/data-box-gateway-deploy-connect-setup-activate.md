@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: alkohli
-ms.openlocfilehash: b3cf4fd958202c28586b7c15932dc88a21d7c60f
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 78c06cc7f08fe94a25ea63d9bf76cc1352d9f2b7
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81686874"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561682"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway"></a>Tutorial: Conexión, configuración y activación de Azure Data Box Gateway
 
@@ -65,7 +65,7 @@ El panel muestra los distintos valores necesarios para configurar y registrar el
    
 ![Página "Panel" de la interfaz de usuario web local](./media/data-box-gateway-deploy-connect-setup-activate/image5.png)
 
-1. En el panel izquierdo, seleccione **Nombre de dispositivo** y escriba un nombre descriptivo para el dispositivo. Dicho nombre debe contener entre 1 y 15 caracteres, así como letras, números y guiones.
+1. En el panel izquierdo, seleccione **Nombre de dispositivo** y escriba un nombre descriptivo para el dispositivo. Dicho nombre debe contener entre 1 y 15 caracteres, así como letras, números y guiones. 
 
     ![Página de "Nombre de dispositivo" de la interfaz de usuario web local](./media/data-box-gateway-deploy-connect-setup-activate/image6.png)
 

@@ -4,12 +4,12 @@ description: Aprenda a ejecutar una migración de máquinas virtuales de VMware 
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 4612c9b0ea2ef8d53b0c04f47628f3789705d833
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 86f24b7fdfee30c182419023e4ed33f6228b3711
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535322"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509319"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>Migración de máquinas virtuales de VMware a Azure (sin agente)
 
@@ -57,7 +57,7 @@ Antes de comenzar este tutorial, debe:
 
 Agregue la herramienta Azure Migrate:Server Migration.
 
-- Si siguió el segundo tutorial para [evaluar las máquinas virtuales de VMware](/tutorial-assess-vmware.md), puede continuar y agregar la herramienta.
+- Si siguió el segundo tutorial para [evaluar las máquinas virtuales de VMware](tutorial-assess-vmware.md), puede continuar y agregar la herramienta.
 - Si no ha seguido el segundo tutorial, [siga estas instrucciones](how-to-add-tool-first-time.md) para configurar un proyecto de Azure Migrate.  Al crear el proyecto, se agrega la herramienta Azure Migrate:Server Migration.
 
 Si tiene un proyecto configurado, agregue la herramienta de la siguiente manera:
