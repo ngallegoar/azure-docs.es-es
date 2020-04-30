@@ -3,12 +3,12 @@ title: Azure Application Insights para aplicaciones de ASP.NET Core | Microsoft 
 description: Supervise la disponibilidad, el rendimiento y el uso de las aplicaciones web de ASP.NET Core.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: d6a0e507022452f1491e71651ba3bc8db3d1c090
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e8ace92c39ed6b7bdcca0bae14cc0ae95aced2c2
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80284796"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82145253"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights para aplicaciones de ASP.NET Core
 
@@ -162,11 +162,11 @@ Los pasos anteriores son suficientes para ayudarle a empezar a recopilar datos d
     
 Como alternativa al uso de `FullScript`, `ScriptBody` está disponible a partir del SDK de la versión 2.14. Úselo si necesita controlar la etiqueta `<script>` para establecer una directiva de seguridad de contenido:
 
-    ```cshtml
-        <script> // apply custom changes to this script tag.
-            @Html.Raw(JavaScriptSnippet.ScriptBody)
-        </script>
-    ```
+```cshtml
+ <script> // apply custom changes to this script tag.
+     @Html.Raw(JavaScriptSnippet.ScriptBody)
+ </script>
+```
 
 Los nombres del archivo `.cshtml` mencionados anteriormente son de una plantilla de la aplicación de MVC predeterminada. En última instancia, si desea habilitar correctamente la supervisión del lado cliente para la aplicación, el fragmento de código de JavaScript debe aparecer en la sección `<head>` de cada página de la aplicación que quiere supervisar. Puede lograr este objetivo para esta plantilla de la aplicación al agregar el fragmento de código de JavaScript a `_Layout.cshtml`. 
 
@@ -454,11 +454,6 @@ Este SDK requiere `HttpContext` y, por lo tanto, no funciona en ninguna aplicaci
 ## <a name="open-source-sdk"></a>SDK de código abierto
 
 [Lectura y contribución al código](https://github.com/microsoft/ApplicationInsights-dotnet#recent-updates).
-
-## <a name="video"></a>Vídeo
-
-- Consulte este vídeo externo detallado sobre cómo [configurar Application Insights con .NET Core y Visual Studio](https://www.youtube.com/watch?v=NoS9UhcR4gA&t) desde cero.
-- Consulte este vídeo externo detallado sobre cómo [configurar Application Insights con .NET Core y Visual Studio Code](https://youtu.be/ygGt84GDync) desde cero.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 01/30/2020
 ms.author: spelluru
-ms.openlocfilehash: 34583ef49b2f919391af3fe5700a558b2dc40700
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 191a2246afdc60953d8c353f9ccdc2339130f910
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77187234"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82159342"
 ---
 # <a name="capture-event-hubs-data-in-azure-storage-and-read-it-by-using-python-azure-eventhub-version-5"></a>Capture datos de Event Hubs en Azure Storage y léalos mediante Python (azure-eventhub versión 5)
 
@@ -46,7 +46,7 @@ En esta guía de inicio rápido:
 - Una cuenta de Azure Storage, un contenedor de blobs en la cuenta de almacenamiento y una cadena de conexión de la cuenta de almacenamiento. Si no tiene estos elementos, realice estas operaciones:  
     1. [Creación de una cuenta de Azure Storage](../storage/common/storage-quickstart-create-account.md?tabs=azure-portal)  
     1. [Creación de un contenedor de blobs en la cuenta de almacenamiento](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)  
-    1. [Obtención de la cadena de conexión para una cuenta de almacenamiento](../storage/common/storage-configure-connection-string.md#view-and-copy-a-connection-string)
+    1. [Obtención de la cadena de conexión para una cuenta de almacenamiento](../storage/common/storage-configure-connection-string.md)
 
     Asegúrese de registrar la cadena de conexión y el nombre del contenedor para usarlo posteriormente en este inicio rápido.  
 - Habilite la característica de captura para el centro de eventos. Para ello, siga las instrucciones de [Habilitación de la característica de captura de Event Hubs desde Azure Portal](event-hubs-capture-enable-through-portal.md). Seleccione la cuenta de almacenamiento y el contenedor de blobs que creó en el paso anterior. También puede habilitar la característica al crear un centro de eventos.  

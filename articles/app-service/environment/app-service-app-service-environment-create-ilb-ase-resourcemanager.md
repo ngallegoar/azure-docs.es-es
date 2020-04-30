@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: f05780610a2a6033b069721b143aca5e5efa6c35
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.openlocfilehash: e24e78d5661c2fbb60a96c2fb6d6192ffade9579
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80804527"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82159701"
 ---
 # <a name="how-to-create-an-ilb-ase-using-azure-resource-manager-templates"></a>Creación de un ASE de un ILB mediante las plantillas de Azure Resource Manager
 
@@ -50,7 +50,7 @@ Una vez que se haya rellenado el archivo *azuredeploy.parameters.json* de un ASE
 Después que se envíe la plantilla de Azure Resource Manager el ASE de ILB tardará unas horas en crearse.  Una vez completada la creación, el ASE de ILB se mostrará en el portal, en la lista de entornos de App Service de la suscripción que desencadenó la implementación.
 
 ## <a name="uploading-and-configuring-the-default-tlsssl-certificate"></a>Carga y configuración del certificado TLS/SSL "predeterminado"
-Una vez que se crea el ASE de ILB, es preciso asociarle un certificado TLS/SSL "predeterminado" que se use para establecer conexiones TLS/SSL con las aplicaciones.  Continuando con el ejemplo hipotético de Contoso Corporation, si el sufijo DNS predeterminado del ASE es *internal-contoso.com*, una conexión a *https://some-random-app.internal-contoso.com* requiere un certificado TLS/SSL que sea válido para * *.internal-contoso.com*. 
+Una vez que se crea el ASE de ILB, es preciso asociarle un certificado TLS/SSL "predeterminado" que se use para establecer conexiones TLS/SSL con las aplicaciones.  Continuando con el ejemplo hipotético de Contoso Corporation, si el sufijo DNS predeterminado del ASE es *internal-contoso.com*, una conexión a *`https://some-random-app.internal-contoso.com`* requiere un certificado TLS/SSL que sea válido para * *.internal-contoso.com*. 
 
 Hay varias maneras de obtener un certificado TLS/SSL válido, entre las que se incluyen las CA internas, la adquisición de un certificado de un emisor externo y el uso de un certificado autofirmado.  Independientemente del origen del certificado TLS/SSL, es preciso configurar correctamente los siguientes atributos del certificado:
 
@@ -122,7 +122,7 @@ Una vez rellenado el archivo *azuredeploy.parameters.json*, se puede configurar 
 
 Una vez que se envía la plantilla de Azure Resource Manager, se tarda unos 40 minutos en aplicar el cambio por cada front-end de ASE.  Por ejemplo, con un ASE de un tamaño predeterminado que usa dos front-ends, la plantilla tardará aproximadamente una hora y veinte minutos en completarse.  Mientras la plantilla ejecute el ASE no se podrá escalar.  
 
-Una vez que se completa la plantilla, se puede acceder a las aplicaciones del ASE de ILB a través de HTTPS y las conexiones se protegerán mediante el certificado TLS/SSL predeterminado.  El certificado TLS/SSL predeterminado se usará cuando las direcciones de las aplicaciones del ASE de ILB sean una combinación del nombre de la aplicación y el nombre de host predeterminado.  Por ejemplo, *https://mycustomapp.internal-contoso.com* usaría el certificado TLS/SSL predeterminado para * *.internal-contoso.com*.
+Una vez que se completa la plantilla, se puede acceder a las aplicaciones del ASE de ILB a través de HTTPS y las conexiones se protegerán mediante el certificado TLS/SSL predeterminado.  El certificado TLS/SSL predeterminado se usará cuando las direcciones de las aplicaciones del ASE de ILB sean una combinación del nombre de la aplicación y el nombre de host predeterminado.  Por ejemplo, *`https://mycustomapp.internal-contoso.com`* usaría el certificado TLS/SSL predeterminado para * *.internal-contoso.com*.
 
 Sin embargo, al igual que las aplicaciones que se ejecutan en el servicio multiinquilino público, los desarrolladores también pueden configurar nombres de host personalizados para las aplicaciones individuales y luego configurar enlaces de certificados TLS/SSL SNI únicos para aplicaciones individuales.  
 

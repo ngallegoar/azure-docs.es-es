@@ -7,19 +7,19 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: dsindona
-ms.openlocfilehash: 506412c23288d58c2f59b91a300265ddd79428bf
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: f3e3dc6e0d73627f49ba04a8b861253bafcddfa9
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273926"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82148046"
 ---
 # <a name="virtual-hard-disk-deployment-template"></a>Plantilla de implementación de disco duro virtual
 
 > [!IMPORTANT]
-> A partir del 13 de abril de 2020, comenzaremos el traslado de la administración de las ofertas de máquinas virtuales de Azure al Centro de partners. Después de la migración, las ofertas se crearán y administrarán en el Centro de partners. Siga las instrucciones que se indican en [Certificación de imágenes de máquina virtual de Azure](https://aks.ms/CertifyVMimage) para administrar las ofertas migradas.
+> A partir del 13 de abril de 2020, comenzaremos el traslado de la administración de las ofertas de máquinas virtuales de Azure al Centro de partners. Después de la migración, las ofertas se crearán y administrarán en el Centro de partners. Siga las instrucciones que se indican en [Certificación de imágenes de máquina virtual de Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-image-certification) para administrar las ofertas migradas.
 
-La siguiente plantilla de Azure Resource Manager define una nueva instancia de máquina virtual (VM) de Azure, creada a partir del disco duro virtual (VHD) local.  Esta plantilla se usa en el artículo [Deploy an Azure VM from a user VHD](./cpp-deploy-vm-user-image.md) (Implementación de una máquina virtual de Azure desde un disco duro virtual de usuario). 
+La siguiente plantilla de Azure Resource Manager define una nueva instancia de máquina virtual (VM) de Azure, creada a partir del disco duro virtual (VHD) local.  Esta plantilla se usa en el artículo [Deploy an Azure VM from a user VHD](./cpp-deploy-vm-user-image.md) (Implementación de una máquina virtual de Azure desde un disco duro virtual de usuario).
 
 ```json
 {

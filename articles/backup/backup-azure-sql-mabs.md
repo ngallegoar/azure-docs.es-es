@@ -3,12 +3,12 @@ title: Copia de seguridad de SQL Server con Azure Backup Server
 description: En este artículo aprenderá la configuración de la copia de seguridad de bases de datos de SQL Server mediante Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.openlocfilehash: 4a4d4b7e70e2df0e014ea4b4d23027aa7c48f2fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9cd6a8b76e4618031f4d21dc04a82a78fad0076d
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77505950"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82159257"
 ---
 # <a name="back-up-sql-server-to-azure-by-using-azure-backup-server"></a>Copia de seguridad de SQL Server en Azure con Azure Backup Server
 
@@ -24,7 +24,7 @@ Para realizar una copia de seguridad de una base de datos de SQL Server y recup
 
 Antes de comenzar, asegúrese de que ha [instalado y preparado Azure Backup Server](backup-azure-microsoft-azure-backup.md).
 
-## <a name="create-a-backup-policy"></a>Crear una directiva de copia de seguridad 
+## <a name="create-a-backup-policy"></a>Crear una directiva de copia de seguridad
 
 Para proteger las bases de datos de SQL Server en Azure, debe crear primero una directiva de copia de seguridad:
 
@@ -87,7 +87,6 @@ Para proteger las bases de datos de SQL Server en Azure, debe crear primero una
     > Use Data Protection Manager (DPM) para programar copias de seguridad de Azure una vez finalizadas las copias de seguridad del disco local. Al seguir este procedimiento, la última copia de seguridad del disco se copia en Azure.
     >
 
-
 1. Seleccione la programación de la directiva de retención. Para más información sobre el funcionamiento de la directiva de retención, consulte [Uso de Azure Backup para reemplazar la infraestructura de cintas](backup-azure-backup-cloud-as-tape.md).
 
     ![Elección de una directiva de retención en MABS](./media/backup-azure-backup-sql/pg-retentionschedule.png)
@@ -123,7 +122,7 @@ Cuando se realiza la primera copia de seguridad, se crea un punto de recuperaci�
 1. En el menú desplegable, seleccione **Protección en línea**. A continuación, seleccione **Aceptar** para iniciar la creación de un punto de recuperación en Azure.
 
     ![Inicio de la creación de un punto de recuperación en Azure](./media/backup-azure-backup-sql/sqlbackup-azure.png)
-1. Puede ver el progreso del trabajo en el área de trabajo **Supervisión**. 
+1. Puede ver el progreso del trabajo en el área de trabajo **Supervisión**.
 
     ![Visualización del progreso del trabajo en la consola Supervisión](./media/backup-azure-backup-sql/sqlbackup-monitoring.png)
 

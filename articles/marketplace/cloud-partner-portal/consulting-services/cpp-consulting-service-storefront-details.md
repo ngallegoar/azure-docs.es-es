@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 65713eaf1651a6c02084751471504b5d022dfe14
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 9fd1330e0ca0a49556e79044570173adaf458e13
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985055"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82148156"
 ---
 # <a name="storefront-details-tab"></a>Pestaña Detalles del escaparate electrónico
 
 >[!Important]
->A partir del 13 de abril de 2020, se comenzará a trasladar la administración de las ofertas de servicios de consultoría al Centro de partners. Después de la migración, creará y administrará sus ofertas en el Centro de partners. Siga las instrucciones que se indican en [Información general sobre la creación de servicios de consultoría](https://aka.ms/AzureCreateConsultingService) para administrar las ofertas migradas.
+>A partir del 13 de abril de 2020, se comenzará a trasladar la administración de las ofertas de servicios de consultoría al Centro de partners. Después de la migración, creará y administrará sus ofertas en el Centro de partners. Siga las instrucciones que se indican en [Información general sobre la creación de servicios de consultoría](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-consulting-service-offer) para administrar las ofertas migradas.
 
 En este artículo se explica cómo especificar los detalles del escaparate electrónico. La pestaña **Detalles del escaparate electrónico** consta de las siguientes secciones:
 

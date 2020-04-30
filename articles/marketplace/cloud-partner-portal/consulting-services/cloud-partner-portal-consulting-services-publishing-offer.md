@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: dace05715828395aed3953b42bf7926df292bbdb
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: bdc2537d21fd88c677d07ebdb5170cdf14c7489d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80981348"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82146710"
 ---
 # <a name="azure-and-dynamics-365-consulting-service-offer"></a>Oferta de servicios de consultoría de Azure y Dynamics 365
 
 >[!Important]
->A partir del 13 de abril de 2020, se comenzará a trasladar la administración de las ofertas de servicios de consultoría al Centro de partners. Después de la migración, las ofertas se crearán y administrarán en el Centro de partners. Siga las instrucciones que se indican en [Información general sobre la creación de servicios de consultoría](https://aka.ms/AzureCreateConsultingService) para administrar las ofertas migradas.
+>A partir del 13 de abril de 2020, se comenzará a trasladar la administración de las ofertas de servicios de consultoría al Centro de partners. Después de la migración, las ofertas se crearán y administrarán en el Centro de partners. Siga las instrucciones que se indican en [Información general sobre la creación de servicios de consultoría](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-consulting-service-offer) para administrar las ofertas migradas.
 
 En este artículo se explica cómo publicar una oferta de servicios de consultoría en Microsoft <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a> o en <a href="https://appsource.microsoft.com">AppSource</a>. Las soluciones basadas en Microsoft <a href="https://dynamics.microsoft.com">Dynamics 365</a>, <a href="https://powerbi.microsoft.com">Power BI</a> y <a href="https://powerapps.microsoft.com">Power Apps</a> pueden anunciarse en AppSource. Otras ofertas basadas en otros <a href="https://azure.microsoft.com/services">servicios de Microsoft Azure</a> pueden anunciarse en Azure Marketplace.
 

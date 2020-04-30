@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/02/2018
 ms.author: dsindona
-ms.openlocfilehash: 988121effb35949cce442ba9458789105e88feec
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: df219ad7428eed5283c7a30a232308dca84fd25f
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273450"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82146985"
 ---
 # <a name="common-issues-during-vhd-creation-faq"></a>Problemas comunes durante la creación de discos duros virtuales (P+F)
 
 > [!IMPORTANT]
-> A partir del 13 de abril de 2020, comenzaremos el traslado de la administración de las ofertas de máquinas virtuales de Azure al Centro de partners. Después de la migración, las ofertas se crearán y administrarán en el Centro de partners. Siga las instrucciones que se indican en [Preguntas recuentes sobre la creación de discos duros virtuales](https://aka.ms/VHDcreationIssues) para administrar las ofertas migradas.
+> A partir del 13 de abril de 2020, comenzaremos el traslado de la administración de las ofertas de máquinas virtuales de Azure al Centro de partners. Después de la migración, las ofertas se crearán y administrarán en el Centro de partners. Siga las instrucciones que se indican en [Preguntas recuentes sobre la creación de discos duros virtuales](https://docs.microsoft.com/azure/marketplace/partner-center-portal/common-issues-during-vhd-creation) para administrar las ofertas migradas.
 
 Las preguntas más frecuentes (P+F) siguientes abarcan problemas comunes detectados durante la creación del disco duro virtual (VHD) y la máquina virtual (VM) para las ofertas de máquina virtual. 
 
