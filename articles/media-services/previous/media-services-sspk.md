@@ -1,6 +1,6 @@
 ---
-title: Licencias de Microsoft® Smooth Streaming Client Porting Kit
-description: Más información sobre cómo obtener licencias de Microsoft® Smooth Streaming Client Porting Kit.
+title: Licencias del kit de portabilidad de cliente de Microsoft&reg; Smooth Streaming
+description: Obtenga más información sobre cómo obtener licencias del kit de portabilidad de cliente de Microsoft&reg; Smooth Streaming.
 services: media-services
 documentationcenter: ''
 author: xpouyat
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/21/2019
 ms.author: xpouyat
-ms.openlocfilehash: 59ac3ab2e70bfa00f19bae7e551780f2b2bb8ccb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bd77c53a195a9549f6aaad9ee2928206f5324b0c
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79096718"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686910"
 ---
-# <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Licencias de Microsoft® Smooth Streaming Client Porting Kit 
+# <a name="licensing-microsoftreg-smooth-streaming-client-porting-kit"></a>Licencias del kit de portabilidad de cliente de Microsoft&reg; Smooth Streaming 
 ## <a name="overview"></a>Información general
 Microsoft Smooth Streaming Client Porting Kit (**SSPK** para abreviar) es una implementación del cliente de Smooth Streaming que está optimizada para ayudar a los fabricantes de dispositivos insertados, los operadores de cable y dispositivos móviles, los proveedores de servicios de contenido, los fabricantes de auriculares, los fabricantes de software independientes (ISV) y los proveedores de soluciones a crear productos y servicios para hacer streaming de contenido adaptable en formato de Smooth Streaming. SSPK es una implementación independiente del dispositivo y la plataforma del cliente de Smooth Streaming que el licenciatario puede portar a cualquier dispositivo y plataforma. 
 
@@ -73,7 +73,7 @@ La licencia Smooth Streaming Client Final Product se ofrece en un modelo de rega
 ## <a name="licensing-procedure-and-sspk-access"></a>Procedimiento de licencias y acceso al SSPK
 Envíe un mensaje de correo electrónico [sspkinfo@microsoft.com](mailto:sspkinfo@microsoft.com) para cualquier consulta sobre todas las licencias.
 
-Los licenciatarios de productos provisionales pueden acceder al [portal de distribución del SSPK](https://microsoft.sharepoint.com/teams/SSPKDOWNLOAD/) .
+Los licenciatarios de productos provisionales registrados pueden acceder al portal de distribución de SSPK.
 
 Los licenciatarios de productos provisionales y finales del SSPK pueden enviar preguntas técnicas a [smoothpk@microsoft.com](mailto:smoothpk@microsoft.com).
 

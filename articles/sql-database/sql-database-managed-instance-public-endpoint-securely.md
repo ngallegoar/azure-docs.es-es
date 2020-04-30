@@ -10,12 +10,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, carlrab
 ms.date: 05/08/2019
-ms.openlocfilehash: 6dfeab3530445f8f9a102f47039d15b04fdf134a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f11c19ba33ee2fbae0fef265371bedad2fe29cb7
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73821738"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684949"
 ---
 # <a name="use-an-azure-sql-database-managed-instance-securely-with-public-endpoints"></a>Utilice una instancia administrada de Azure SQL Database de forma segura con puntos de conexión públicos
 
@@ -35,7 +35,7 @@ Aunque no es obligatorio, el modelo de implementación habitual para una instanc
 
 ## <a name="secure-data-in-motion"></a>Protección de los datos en movimiento
 
-Si el controlador cliente admite el cifrado, siempre se cifra el tráfico de datos de la instancia administrada. Los datos enviados entre la instancia administrada y otras máquinas virtuales o servicios de Azure nunca abandonan la red troncal de Azure. Si hay una conexión entre la instancia administrada y una red local, se recomienda usar Azure ExpressRoute con emparejamiento de Microsoft. ExpressRoute lo ayuda a evitar mover datos a través de la red pública de Internet. Para la conectividad privada de la instancia administrada, solo se puede usar el emparejamiento privado.
+Si el controlador cliente admite el cifrado, siempre se cifra el tráfico de datos de la instancia administrada. Los datos enviados entre la instancia administrada y otras máquinas virtuales o servicios de Azure nunca abandonan la red troncal de Azure. Si hay una conexión entre la instancia administrada y una red local, le recomendamos que use Azure ExpressRoute. ExpressRoute lo ayuda a evitar mover datos a través de la red pública de Internet. Para la conectividad privada de la instancia administrada, solo se puede usar el emparejamiento privado.
 
 ## <a name="lock-down-inbound-and-outbound-connectivity"></a>Bloquee la conectividad entrante y saliente
 

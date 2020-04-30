@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 02/23/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 9c98cd5d3d4d76f9455e4c036aa32a4ead20cfff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d845e245a242a88d16a2597f0144a0ae4a727cb0
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671722"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81640972"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Generación de perfiles de aplicaciones web de Azure en Linux de ASP.NET Core con Application Insights Profiler
 
@@ -23,7 +23,7 @@ Después de completar este tutorial, la aplicación puede recopilar los seguimie
 
 ![Seguimientos del generador de perfiles](./media/profiler-aspnetcore-linux/profiler-traces.png)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 Las instrucciones siguientes se aplican a todos los entornos de desarrollo Windows, Linux y Mac:
 
 * Instale [SDK 2.1.2 de .NET Core o posterior](https://dotnet.microsoft.com/download/archives).
@@ -168,10 +168,6 @@ Debería ver una salida similar al ejemplo siguiente:
 
     ![Visualización de los seguimientos de Profiler](./media/profiler-aspnetcore-linux/view-traces.png)
 
-## <a name="known-issues"></a>Problemas conocidos
-
-### <a name="profile-now-button-doesnt-work-for-linux-profiler"></a>El botón Generar perfiles ahora no funciona para Linux Profiler
-La versión de Linux del generador de perfiles de App Insights aún no admite la generación de perfiles a petición mediante el botón Generar perfiles ahora.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

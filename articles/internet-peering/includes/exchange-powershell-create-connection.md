@@ -8,18 +8,18 @@ ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 0014b67443797f45de51ec1bc459f71bde55cdc9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f8e93cf34ac56344ff7e3d145ce8c7c3529767b7
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75773707"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678596"
 ---
 En el ejemplo siguiente se muestra cómo crear una conexión de Exchange en Equinix Internet Exchange en Seattle. Si usa otro proveedor y otra configuración, sustituya esa información al realizar la solicitud.
 
-Use el cmdlet de PowerShell **New-AzPeeringExchangeConnectionObject** para crear objetos de conexión de PowerShell que se usarán para generar la nueva solicitud de emparejamiento:
+Use el cmdlet de PowerShell **New-AzPeeringExchangeConnectionObject** para crear objetos de conexión de PowerShell, que se usarán para generar la nueva solicitud de emparejamiento:
 
-A continuación se muestra un ejemplo para crear una conexión de Exchange:
+En este ejemplo se muestra cómo crear una conexión de Exchange.
 
 ```powershell
 $connection1 = New-AzPeeringExchangeConnectionObject `
@@ -30,7 +30,7 @@ $connection1 = New-AzPeeringExchangeConnectionObject `
     -MaxPrefixesAdvertisedIPv6 2000 `
 ```
 
-Cree otra conexión si necesita redundancia en la ubicación de emparejamiento determinada:
+Cree otra conexión si necesita redundancia en la ubicación de emparejamiento dada.
 
 ```powershell
 $connection2 = New-AzPeeringExchangeConnectionObject `
@@ -41,7 +41,7 @@ $connection2 = New-AzPeeringExchangeConnectionObject `
     -MaxPrefixesAdvertisedIPv6 2000 `
 ```
 
-Use el cmdlet de PowerShell **New-AzPeering** para crear un nuevo emparejamiento de Exchange.
+El cmdlet de PowerShell **New-AzPeering** se puede usar para crear un emparejamiento de Exchange.
 
 ```powershell
 $asn = Get-AzPeerAsn
@@ -54,7 +54,7 @@ New-AzPeering `
 ```
 &nbsp;
 
-A continuación se muestra una respuesta de ejemplo en que la solicitud se ejecutó con una conexión:
+En esta respuesta de ejemplo se muestra cuándo se ejecutó la solicitud mediante una conexión.
 
 ```powershell
 
@@ -73,10 +73,10 @@ Tags              : {}
 ```
 
 > [!IMPORTANT]
-> Microsoft comenzará a aprovisionar el emparejamiento solicitado y `ConnectionState` reflejará el progreso.
-> Consulte el [tutorial de emparejamiento de Exchange](../walkthrough-exchange-all.md) para conocer los pasos relacionados con el aprovisionamiento.
+> Microsoft inicia el aprovisionamiento del emparejamiento solicitado y `ConnectionState` refleja el progreso.
+> Para más información sobre los pasos relacionados con el aprovisionamiento, consulte el [tutorial de emparejamiento de Exchange](../walkthrough-exchange-all.md).
 
-Puede comprobar el valor de ConnectionState como se muestra a continuación:
+Puede comprobar el estado de la conexión como se muestra a continuación:
 
 ```powershell
 

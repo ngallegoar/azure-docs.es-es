@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: f30ccd498b79c36c8892ae38a3e26d169249621a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e4d6098b7b4de76461e924fc7d42d039046d7ce5
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481106"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677166"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Arquitectura de conectividad para una instancia administrada en Azure SQL Database
 
@@ -306,6 +306,7 @@ Las siguientes características de red virtual no se admiten actualmente con Ins
 - **Emparejamiento de Microsoft**: habilitar el [emparejamiento de Microsoft](../expressroute/expressroute-faqs.md#microsoft-peering) en circuitos de Express Route emparejados directamente o de manera transitiva con la red virtual en la que reside Instancia administrada afectará al flujo de tráfico entre los componentes de Instancia administrada dentro de la red virtual y los servicios de los que depende, y causará problemas de disponibilidad. Se prevé que se produzcan errores en las implementaciones de Instancia administrada en la red virtual con el emparejamiento de Microsoft habilitado.
 - **Emparejamiento global de redes virtuales**: la conectividad de [emparejamiento de redes virtuales](../virtual-network/virtual-network-peering-overview.md) entre regiones de Azure no funciona con Instancia administrada debido a las [restricciones del equilibrador de carga documentadas](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
 - **AzurePlatformDNS**: el uso de la [etiqueta de servicio](../virtual-network/service-tags-overview.md) de AzurePlatformDNS para bloquear la resolución de DNS de la plataforma hará que Instancia administrada no esté disponible. Aunque Instancia administrada admite la instancia de DNS definida por el cliente y la resolución de DNS en el motor, existe una dependencia en la instancia de DNS de la plataforma para las operaciones de plataforma.
+- **NAT Gateway**: El uso de [Virtual Network NAT](../virtual-network/nat-overview.md) para controlar la conectividad saliente con una dirección IP pública específica mostraría que Instancia administrada no está disponible. Actualmente, el servicio Instancia administrada está limitado al uso de un equilibrador de carga básico que no proporciona la coexistencia de flujos entrantes y salientes con Virtual Network NAT.
 
 ### <a name="deprecated-network-requirements-without-service-aided-subnet-configuration"></a>[En desuso] Requisitos de red sin configuración de subred asistida por servicio
 

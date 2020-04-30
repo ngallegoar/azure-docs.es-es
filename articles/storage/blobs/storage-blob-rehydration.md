@@ -4,17 +4,17 @@ description: Rehidrate los blobs de Archive Storage para poder acceder a los dat
 services: storage
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 11/14/2019
+ms.date: 04/08/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: 0a7012d9daa808933a51ac05862a8a9aa4cfcf77
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 82ea4ad23e3207f5641ade196f69595cd1e7b323
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77614800"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684099"
 ---
 # <a name="rehydrate-blob-data-from-the-archive-tier"></a>Rehidratación de los datos de blob desde el nivel de archivo
 
@@ -31,15 +31,21 @@ Mientras un blob se encuentra en el nivel de acceso de archivo, se considera sin
 
 ## <a name="copy-an-archived-blob-to-an-online-tier"></a>Copia de un blob archivado en un nivel en línea
 
-Si no quiere rehidratar un archivo blob, puede elegir realizar una operación [Copiar blob](https://docs.microsoft.com/rest/api/storageservices/copy-blob). Su blob original permanecerá sin modificaciones en el archivo, mientras se crea un nuevo blob en el nivel frecuente o esporádico en línea para que pueda trabajar. En la operación Copiar blob, también puede establecer la propiedad opcional *​​x-ms-rehydrate-priority* en Estándar o Alta (versión preliminar) para especificar la prioridad con la que desea que se cree su copia de blob.
-
-Los blobs de archivo solo se pueden copiar en los niveles de destino en línea dentro de la misma cuenta de almacenamiento. No se admite la copia de un blob de archivo en otro blob de archivo.
+Si no quiere rehidratar un archivo blob, puede elegir realizar una operación [Copiar blob](https://docs.microsoft.com/rest/api/storageservices/copy-blob). Su blob original permanecerá sin modificaciones en el archivo, mientras se crea un nuevo blob en el nivel frecuente o esporádico en línea para que pueda trabajar. En la operación Copiar blob, también puede establecer la propiedad opcional *​​x-ms-rehydrate-priority* en Estándar o Alta para especificar la prioridad con la que desea que se cree su copia de blob.
 
 La copia de un BLOB desde el archivo puede tardar horas en completarse, en función de la prioridad de rehidratación seleccionada. En segundo plano, la operación **Copiar blob** lee el blob de origen de archivo para crear un nuevo blob en línea en el nivel de destino seleccionado. El nuevo blob puede ser visible cuando enumera los blobs, pero los datos no estarán disponibles hasta que la lectura del blob de archivo de origen esté completa y los datos se escriban en el nuevo blob de destino en línea. El nuevo BLOB es una copia independiente y cualquier modificación o eliminación en él no afecta al BLOB de archivo de origen.
 
+Los blobs de archivo solo se pueden copiar en los niveles de destino en línea dentro de la misma cuenta de almacenamiento. No se admite la copia de un blob de archivo en otro blob de archivo. En la tabla siguiente se indican las funcionalidades de CopyBlob.
+
+|                                           | **Origen de nivel de acceso frecuente**   | **Origen de nivel de acceso esporádico** | **Origen de nivel de archivo**    |
+| ----------------------------------------- | --------------------- | -------------------- | ------------------- |
+| **Destino de nivel de acceso frecuente**                  | Compatible             | Compatible            | Se admite dentro de la misma cuenta; rehidratación pendiente               |
+| **Destino de nivel de acceso esporádico**                 | Compatible             | Compatible            | Se admite dentro de la misma cuenta; rehidratación pendiente               |
+| **Destino de nivel de archivo**              | Compatible             | Compatible            | No compatible         |
+
 ## <a name="pricing-and-billing"></a>Precios y facturación
 
-La rehidratación de blobs del archivo en los niveles de acceso frecuente o esporádico se cobran como operaciones de lectura y recuperación de datos. El uso de la prioridad alta (versión preliminar) tiene costos de operación y recuperación de datos más altos en comparación con la prioridad estándar. La rehidratación de alta prioridad aparece como una partida independiente en la factura. Si una solicitud de prioridad alta para devolver un blob de archivo de varios gigabytes tarda más de 5 horas, no se le cobrará la tarifa de recuperación de prioridad alta. Sin embargo, se siguen aplicando las tarifas de recuperación estándar, ya que la rehidratación se prioriza en otras solicitudes.
+La rehidratación de blobs del archivo en los niveles de acceso frecuente o esporádico se cobran como operaciones de lectura y recuperación de datos. El uso de la prioridad alta tiene mayores costos de operación y recuperación de datos que los de la prioridad estándar. La rehidratación de alta prioridad aparece como una partida independiente en la factura. Si una solicitud de prioridad alta para devolver un blob de archivo de varios gigabytes tarda más de 5 horas, no se le cobrará la tarifa de recuperación de prioridad alta. Sin embargo, se siguen aplicando las tarifas de recuperación estándar, ya que la rehidratación se prioriza en otras solicitudes.
 
 La copia de blobs del archivo en los niveles de acceso frecuente o esporádico se cobran como operaciones de lectura y recuperación de datos. Una operación de escritura se cobra por la creación de la nueva copia de BLOB. Las tarifas de eliminación anticipada no se aplican al realizar la copia en un blob en línea porque el blob de origen permanece sin modificar en el nivel de archivo. Si se selecciona, se aplican cargos por recuperación de alta prioridad.
 
@@ -68,7 +74,8 @@ Los blobs de nivel de archivo deben estar almacenados durante un mínimo de 180�
 
 1. En la parte inferior, seleccione **Guardar**.
 
-![Cambio del nivel de cuenta de almacenamiento](media/storage-tiers/blob-access-tier.png)
+![Cambiar el nivel de la cuenta de almacenamiento](media/storage-tiers/blob-access-tier.png)
+![Comprobar el estado de rehidratación](media/storage-tiers/rehydrate-status.png)
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 El siguiente script de PowerShell se puede usar para cambiar el nivel de blob de un blob de archivo. La variable `$rgName` se debe inicializar con el nombre del grupo de recursos. La variable `$accountName` se debe inicializar con el nombre de la cuenta de almacenamiento. La variable `$containerName` se debe inicializar con el nombre del contenedor. La variable `$blobName` se debe inicializar con el nombre del blob. 

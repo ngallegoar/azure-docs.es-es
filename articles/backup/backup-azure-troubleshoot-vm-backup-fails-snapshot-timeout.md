@@ -5,12 +5,12 @@ ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 4583c02b52ab6b3a4e5056a47db096d4e34399ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a3eedb5440711c7a45a13dcd53dd489c490588fc
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79226100"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677404"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solución de problemas de Azure Backup: Problemas con el agente o la extensión
 
@@ -141,6 +141,13 @@ Si la operación de copia de seguridad programada tarda más, generando un confl
 **Mensaje de error**: Se ha producido un error en la copia de seguridad. Para más información, consulte los detalles del mensaje de error del trabajo.
 
 Este error se envía desde la máquina virtual de IaaS. Para identificar la causa principal del problema, vaya a la configuración del almacén de Recovery Services. En la sección **Supervisión**, seleccione **Trabajos de copia de seguridad** para filtrar y ver el estado. Haga clic en **Errores** para revisar los detalles del mensaje de error subyacente. Realice otras acciones según las recomendaciones de la página de detalles del error.
+
+## <a name="usererrorbcmdatasourcenotpresent---backup-failed-this-virtual-machine-is-not-actively-protected-by-azure-backup"></a>UserErrorBcmDatasourceNotPresent - Error de copia de seguridad: esta máquina virtual no está protegida (activamente) con Azure Backup.
+
+**Código de error**: UserErrorBcmDatasourceNotPresent <br>
+**Mensaje de error**: Error de copia de seguridad: esta máquina virtual no está protegida (activamente) con Azure Backup.
+
+Compruebe si la máquina virtual especificada está protegida de forma activa (que no esté en estado de pausa) con Azure Backup. Para resolver este problema, asegúrese de que la máquina virtual está activa e intente de nuevo la operación.
 
 ## <a name="causes-and-solutions"></a>Causas y soluciones
 

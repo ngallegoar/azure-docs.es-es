@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 9d98660230e0ab9f4edcd9a7af8a3797106dd17a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 03f5b0124f95465c4a5da5043364a2f5816dae62
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78255659"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685746"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Desarrollo de aplicaciones seguras en Azure
 En este artículo se presentan las actividades de seguridad y los controles que debe tener en cuenta al desarrollar aplicaciones para la nube. Se abarcan los conceptos y preguntas de seguridad que se deben tener en cuenta durante las fases de implementación y comprobación del [ciclo de vida de desarrollo de seguridad (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) de Microsoft. El objetivo es ayudarle a definir las actividades y los servicios de Azure que puede usar para desarrollar una aplicación más segura.
@@ -44,19 +44,19 @@ Azure Marketplace ofrece [herramientas de desarrollo](https://azuremarketplace.m
 
 ### <a name="validate-and-sanitize-every-input-for-your-application"></a>Validación y saneamiento de todas las entradas de la aplicación
 
-Trate todas las entradas como no confiable para proteger la aplicación de las vulnerabilidades más comunes en las aplicaciones web. Los datos que no son de confianza son un vehículo para los ataques por inyección. Las entradas para su aplicación incluyen parámetros en la dirección URL, entradas del usuario, datos de la base de datos o de una API, y todos los valores que se pasan a la aplicación que un usuario tiene la capacidad de manipular. Una aplicación debe [validar](https://www.owasp.org/index.php/OWASP_Proactive_Controls_2016#4:_Validate_All_Inputs) que los datos son sintáctica y semánticamente válidos antes de que la aplicación use los datos de alguna forma (como mostrarlos de vuelta al usuario).
+Trate todas las entradas como no confiable para proteger la aplicación de las vulnerabilidades más comunes en las aplicaciones web. Los datos que no son de confianza son un vehículo para los ataques por inyección. Las entradas para su aplicación incluyen parámetros en la dirección URL, entradas del usuario, datos de la base de datos o de una API, y todos los valores que se pasan a la aplicación que un usuario tiene la capacidad de manipular. Una aplicación debe [validar](https://owasp.org/www-project-proactive-controls/v3/en/c5-validate-inputs) que los datos son sintáctica y semánticamente válidos antes de que la aplicación use los datos de alguna forma (como mostrarlos de vuelta al usuario).
 
 Valide las entradas al principio del flujo de datos para asegurarse de que solo los datos con un formato correcto entren en el flujo de trabajo. No querrá que los datos con formato incorrecto se conserven en la base de datos o desencadenen un error de funcionamiento en un componente de nivel inferior.
 
 La incorporación de listas negras y blancas son dos enfoques generales validar la sintaxis de las entradas:
 
-  - La creación de listas negras intenta comprobar que una entrada de usuario concreta no incluye contenido "malintencionado conocido".
+  - Con las listas negras se intenta comprobar que una entrada de usuario concreta no incluya contenido "malintencionado conocido".
 
-  - La creación de listas blancas intenta comprobar que una entrada de usuario concreta coincide con un conjunto de entradas "válidas conocidas". La creación de listas blancas basada en caracteres es una forma de listas blancas en la que una aplicación comprueba si la entrada del usuario solo contiene caracteres "válidos conocidos" o si la entrada coincide con un formato conocido.
+  - Con las listas blancas se intenta comprobar que una entrada de usuario concreta coincida con un conjunto de entradas "válidas conocidas". La creación de listas blancas basada en caracteres es un tipo de lista blanca en que una aplicación comprueba si la entrada del usuario solo contiene caracteres "válidos conocidos" o si la entrada coincide con un formato conocido.
     Por ejemplo, esto puede implicar la comprobación de si un nombre de usuario contiene solo caracteres alfanuméricos o si contiene exactamente dos números.
 
 La creación de listas blancas es el método preferido para la creación de software seguro.
-La creación de listas negras es propensa a errores, ya que es imposible pensar en una lista completa de entradas potencialmente erróneas.
+Las listas negras son propensas a errores, ya que es imposible pensar en una lista completa de entradas potencialmente erróneas.
 
 Estas tareas deben realizarse en el servidor, no en el lado cliente (o en el servidor y en el lado cliente).
 
@@ -81,7 +81,7 @@ Consulte [Removing standard server headers on Azure websites](https://azure.micr
 
 ### <a name="segregate-your-production-data"></a>Separación de los datos de producción
 
-Los datos de producción o datos "reales" no se deben usar para el desarrollo, pruebas o cualquier otro fin distinto al establecido por la empresa. Se debe usar un conjunto de datos enmascarado ([anonimizado](https://en.wikipedia.org/wiki/Data_anonymization)) para todo el proceso de desarrollo y pruebas.
+Los datos de producción o datos "reales" no se deben usar para el desarrollo, las pruebas o cualquier otro fin distinto al establecido por la empresa. Se debe usar un conjunto de datos enmascarado ([anonimizado](https://en.wikipedia.org/wiki/Data_anonymization)) para todo el proceso de desarrollo y pruebas.
 
 Esto significa que menos personas tienen acceso a los datos reales, lo que reduce la superficie expuesta a ataques. También significa que menos empleados ven datos personales, lo que elimina posibles vulneraciones de seguridad en la confidencialidad.
 
@@ -99,13 +99,13 @@ Si la aplicación debe generar contraseñas automáticamente, asegúrese de que 
 
 Si la aplicación permite [cargar archivos](https://www.owasp.org/index.php/Unrestricted_File_Upload), considere la posibilidad de tomar medidas para esta actividad de riesgo. El primer paso en muchos ataques es insertar código malintencionado en un sistema que está sufriendo un ataque. El uso de la carga de archivos ayuda al atacante a llevarlo a cabo. OWASP ofrece soluciones para validar un archivo a fin de garantizar que el archivo que va a cargar es seguro.
 
-La protección antimalware ayuda a identificar y eliminar virus, spyware y otro software malintencionado. Puede instalar [Microsoft Antimalware](../fundamentals/antimalware.md) o una solución de protección de puntos de conexión de un asociado de Microsoft ([Trend Micro](https://www.trendmicro.com/azure/), [Broadcom](https://www.broadcom.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10) y [Endpoint Protection](https://docs.microsoft.com/configmgr/protect/deploy-use/endpoint-protection)).
+La protección antimalware ayuda a identificar y eliminar virus, spyware y otro software malintencionado. Puede instalar [Microsoft Antimalware](../fundamentals/antimalware.md) o una solución de protección de puntos de conexión de un asociado de Microsoft ([Trend Micro](https://www.trendmicro.com/azure/), [Broadcom](https://www.broadcom.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10) y [Endpoint Protection](https://docs.microsoft.com/configmgr/protect/deploy-use/endpoint-protection)).
 
 [Microsoft Antimalware](../fundamentals/antimalware.md) incluye características como la protección en tiempo real, los análisis programados, la corrección de malware, las actualizaciones de firmas, las actualizaciones del motor, los ejemplos de informes y la colección de eventos de exclusión. Puede integrar soluciones de asociados y Microsoft Antimalware con [Azure Security Center](../../security-center/security-center-partner-integration.md) para facilitar la implementación y la integración de detecciones (alertas e incidentes).
 
 ### <a name="dont-cache-sensitive-content"></a>No almacenar en caché el contenido confidencial
 
-No almacene en la caché del explorador el contenido confidencial. Los exploradores pueden almacenar información para la memoria caché y el historial. Los archivos almacenados en caché se guardan en una carpeta, como la carpeta Archivos temporales de Internet en el caso de Internet Explorer. Si se vuelve a hacer referencia a estas páginas, el explorador las muestra desde su memoria caché. Si se muestra información confidencial al usuario (como su dirección, datos de la tarjeta de crédito, número del seguro social o nombre de usuario), puede quedar almacenada en la memoria caché del explorador y volverse recuperable mediante un examen de la memoria caché del explorador o simplemente al presionar el botón **Atrás** del explorador.
+No almacene en la caché del explorador el contenido confidencial. Los exploradores pueden almacenar información para la memoria caché y el historial. Los archivos almacenados en caché se guardan en una carpeta, como la carpeta Archivos temporales de Internet en el caso de Internet Explorer. Si se vuelve a hacer referencia a estas páginas, el explorador las muestra desde su memoria caché. Si se muestra información confidencial al usuario (como su dirección, datos de la tarjeta de crédito, número del seguro social o nombre de usuario), es posible que quede almacenada en la memoria caché del explorador y se pueda volver a recuperar mediante un examen de la memoria caché del explorador o simplemente al presionar el botón **Atrás** del explorador.
 
 ## <a name="verification"></a>Comprobación
 La fase de comprobación supone un esfuerzo integral para asegurarse de que el código cumple los principios de seguridad y privacidad que se establecieron en las fases anteriores.

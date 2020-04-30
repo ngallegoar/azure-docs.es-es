@@ -11,14 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 9/3/2019
-ms.openlocfilehash: 52629b8e2e190cc041116e6f65488480712baf01
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2b23ffec76de3fa644abe3b65876a60c65c05eb8
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74929803"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686005"
 ---
 # <a name="migrate-on-premises-ssis-workloads-to-ssis-in-adf"></a>Migración de cargas de trabajo de SSIS locales a SSIS en ADF
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 ## <a name="overview"></a>Información general
 
@@ -63,7 +65,7 @@ En función de los [tipos de almacenamiento](#four-storage-types-for-ssis-packag
 | **Tipo de almacenamiento de los paquetes** |Procedimiento de migración por lotes de paquetes de SSIS|Procedimiento de migración por lotes de trabajos de SSIS|
 |-|-|-|
 |SSISDB|[Migración de **SSISDB**](scenario-ssis-migration-ssisdb-mi.md)|[Migración de trabajos de SSIS al agente de Instancia administrada de Azure SQL Database](scenario-ssis-migration-ssisdb-mi.md#ssis-jobs-to-azure-sql-database-managed-instance-agent)|
-|Sistema de archivos|Vuelva a implementarlos en recursos compartidos de archivos o Azure Files mediante dtinstall, dtutil o copia manual o manténgalos en los sistemas de archivos para su acceso mediante red virtual o IR autohospedado. Para más información, consulte [Utilidad dtutil](https://docs.microsoft.com/sql/integration-services/dtutil-utility).|Conviértalos en canalizaciones, actividades o desencadenadores de ADF mediante scripts, SSMS o el portal de ADF. Para más información, consulte [Característica de programación de SSMS](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms).|
+|Sistema de archivos|Vuelva a implementarlos en recursos compartidos de archivos o Azure Files mediante dtinstall, dtutil o copia manual o manténgalos en los sistemas de archivos para su acceso mediante red virtual o IR autohospedado. Para más información, consulte [Utilidad dtutil](https://docs.microsoft.com/sql/integration-services/dtutil-utility).|<li> Migración con [Asistente para migración de trabajos de SSIS en SSMS](how-to-migrate-ssis-job-ssms.md) <li>Conviértalos en canalizaciones, actividades o desencadenadores de ADF mediante scripts, SSMS o el portal de ADF. Para más información, consulte [Característica de programación de SSMS](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms).|
 |SQL Server (MSDB)|Expórtelos a sistemas de archivos, recursos compartidos de archivos o Azure Files mediante SSMS o dtutil. Para más información, consulte [Exportación de paquetes de SSIS](https://docs.microsoft.com/sql/integration-services/import-and-export-packages-ssis-service).|Conviértalos en canalizaciones, actividades o desencadenadores de ADF mediante scripts, SSMS o el portal de ADF. Para más información, consulte [Característica de programación de SSMS](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms).|
 |Almacén de paquetes|Expórtelos a sistemas de archivos, recursos compartidos de archivos o Azure Files mediante SSMS o dtutil o vuelva a implementarlos en recursos compartidos de archivos o Azure Files mediante dtinstall, dtutil o copia manual o manténgalos en los sistemas de archivos para su acceso mediante red virtual o IR autohospedado. Para más información, consulte Utilidad dtutil. Para más información, consulte [Utilidad dtutil](https://docs.microsoft.com/sql/integration-services/dtutil-utility).|Conviértalos en canalizaciones, actividades o desencadenadores de ADF mediante scripts, SSMS o el portal de ADF. Para más información, consulte [Característica de programación de SSMS](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms).|
 
@@ -72,7 +74,7 @@ En función de los [tipos de almacenamiento](#four-storage-types-for-ssis-packag
 | **Tipo de almacenamiento de los paquetes** |Procedimiento de migración por lotes de paquetes de SSIS|Procedimiento de migración por lotes de trabajos|
 |-|-|-|
 |SSISDB|Vuelva a implementar en Azure-SSISDB mediante SSDT o SSMS. Para más información, consulte [Implementación de paquetes de SSIS en Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-deploy-run-monitor-tutorial).|Conviértalos en canalizaciones, actividades o desencadenadores de ADF mediante scripts, SSMS o el portal de ADF. Para más información, consulte [Característica de programación de SSMS](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms).|
-|Sistema de archivos|Vuelva a implementarlos en recursos compartidos de archivos o Azure Files mediante dtinstall, dtutil o copia manual o manténgalos en los sistemas de archivos para su acceso mediante red virtual o IR autohospedado. Para más información, consulte [Utilidad dtutil](https://docs.microsoft.com/sql/integration-services/dtutil-utility).|Conviértalos en canalizaciones, actividades o desencadenadores de ADF mediante scripts, SSMS o el portal de ADF. Para más información, consulte [Característica de programación de SSMS](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms).|
+|Sistema de archivos|Vuelva a implementarlos en recursos compartidos de archivos o Azure Files mediante dtinstall, dtutil o copia manual o manténgalos en los sistemas de archivos para su acceso mediante red virtual o IR autohospedado. Para más información, consulte [Utilidad dtutil](https://docs.microsoft.com/sql/integration-services/dtutil-utility).|<li> Migración con [Asistente para migración de trabajos de SSIS en SSMS](how-to-migrate-ssis-job-ssms.md) <li> Conviértalos en canalizaciones, actividades o desencadenadores de ADF mediante scripts, SSMS o el portal de ADF. Para más información, consulte [Característica de programación de SSMS](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms).|
 |SQL Server (MSDB)|Expórtelos a sistemas de archivos, recursos compartidos de archivos o Azure Files mediante SSMS o dtutil. Para más información, consulte [Exportación de paquetes de SSIS](https://docs.microsoft.com/sql/integration-services/import-and-export-packages-ssis-service).|Conviértalos en canalizaciones, actividades o desencadenadores de ADF mediante scripts, SSMS o el portal de ADF. Para más información, consulte [Característica de programación de SSMS](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms).|
 |Almacén de paquetes|Expórtelos a sistemas de archivos, recursos compartidos de archivos o Azure Files mediante SSMS o dtutil o vuelva a implementarlos en recursos compartidos de archivos o Azure Files mediante dtinstall, dtutil o copia manual o manténgalos en los sistemas de archivos para su acceso mediante red virtual o IR autohospedado. Para más información, consulte Utilidad dtutil. Para más información, consulte [Utilidad dtutil](https://docs.microsoft.com/sql/integration-services/dtutil-utility).|Conviértalos en canalizaciones, actividades o desencadenadores de ADF mediante scripts, SSMS o el portal de ADF. Para más información, consulte [Característica de programación de SSMS](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms).|
 

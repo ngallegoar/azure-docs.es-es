@@ -8,20 +8,20 @@ ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: e375c42ee91061c9f558daa9affba875664f777f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c84cd8b1d7850576eb608d88ba91c3079edb0d68
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75773611"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81680793"
 ---
-Para obtener la lista de emparejamientos, ejecute el comando `Get-AzPeering`:
+Para obtener la lista de emparejamientos, ejecute el comando **Get-AzPeering**.
 
 ```powershell
 $directPeering = Get-AzPeering -ResourceGroupName "PeeringResourceGroup" -Name "SeattleDirectPeering"
 ```
 
-A continuación se muestra una respuesta de ejemplo en que el aprovisionamiento de un extremo a otro se completó correctamente:
+En el ejemplo siguiente se muestra la respuesta cuando el aprovisionamiento de un extremo a otro se ha completado correctamente.
 
 ```powershell
     Name                 : SeattleDirectPeering

@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 03/05/2020
 ms.custom: seoapril2019
-ms.openlocfilehash: 9403cc05ed5b31f3b76c16c4232506e2ddc5da2d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b802a9c9df7e7f0c44ea66ee0061efb517b80050
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78402918"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682754"
 ---
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 <br>
@@ -81,7 +81,9 @@ En la plantilla de ejemplo siguiente se muestra cómo crear un área de trabajo 
 
 * Habilitar la configuración de alta confidencialidad para el área de trabajo
 * Habilitar el cifrado para el área de trabajo
-* Usar una instancia existente de Azure Key Vault
+* Usar una instancia de Azure Key Vault existente para recuperar las claves administradas por el cliente
+
+Para obtener más información, consulte [Cifrado en reposo](concept-enterprise-security.md#encryption-at-rest).
 
 ```json
 {
@@ -121,7 +123,7 @@ En la plantilla de ejemplo siguiente se muestra cómo crear un área de trabajo 
         "description": "Specifies the sku, also referred to as 'edition' of the Azure Machine Learning workspace."
       }
     },
-    "hbi_workspace":{
+    "high_confidentiality":{
       "type": "string",
       "defaultValue": "false",
       "allowedValues": [
@@ -256,27 +258,31 @@ En la plantilla de ejemplo siguiente se muestra cómo crear un área de trabajo 
                     "keyIdentifier": "[parameters('resource_cmk_uri')]"
                   }
             },
-        "hbi_workspace": "[parameters('hbi_workspace')]"
+        "hbiWorkspace": "[parameters('high_confidentiality')]"
       }
     }
   ]
 }
 ```
 
-Para obtener el identificador del almacén de claves y el URI de clave que necesita esta plantilla, puede usar la CLI de Azure. El siguiente comando es un ejemplo de uso de la CLI de Azure para obtener el identificador de recurso y el URI de Key Vault:
+Para obtener el identificador del almacén de claves y el URI de clave que necesita esta plantilla, puede usar la CLI de Azure. El siguiente comando obtiene el identificador de Key Vault:
 
 ```azurecli-interactive
-az keyvault show --name mykeyvault --resource-group myresourcegroup --query "[id, properties.vaultUri]"
+az keyvault show --name mykeyvault --resource-group myresourcegroup --query "id"
 ```
 
-Este comando devuelve un valor similar al siguiente texto: El primer valor es el identificador y el segundo es el URI:
+Este comando devuelve un valor similar a `"/subscriptions/{subscription-guid}/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault"`.
 
-```text
-[
-  "/subscriptions/{subscription-guid}/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault",
-  "https://mykeyvault.vault.azure.net/"
-]
+Para obtener el URI de la clave administrada por el cliente, use el siguiente comando:
+
+```azurecli-interactive
+az keyvault key show --vault-name mykeyvault --name mykey --query "key.kid"
 ```
+
+Este comando devuelve un valor similar a `"https://mykeyvault.vault.azure.net/keys/mykey/{guid}"`.
+
+> [!IMPORTANT]
+> Una vez que se ha creado un área de trabajo, no se puede cambiar la configuración de datos confidenciales, cifrado, identificador de almacén de claves o identificadores de claves. Para cambiar estos valores, debe crear una nueva área de trabajo con los nuevos valores.
 
 ## <a name="use-the-azure-portal"></a>Uso de Azure Portal
 

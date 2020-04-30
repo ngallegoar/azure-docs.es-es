@@ -8,32 +8,32 @@ ms.service: internet-peering
 ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: aa11f329cf0a0cb27d58b940b42731a2ec41c272
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: eedf87548d62e05d4940911ed3dcd821077acb27
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75774003"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686791"
 ---
-# <a name="convert-a-legacy-exchange-peering-to-azure-resource-using-powershell"></a>Conversión de un emparejamiento de Exchange heredado en un recurso de Azure mediante PowerShell
+# <a name="convert-a-legacy-exchange-peering-to-an-azure-resource-by-using-powershell"></a>Conversión de un emparejamiento de Exchange heredado en un recurso de Azure mediante PowerShell
 
 En este artículo se describe cómo convertir un emparejamiento de Exchange heredado existente en un recurso de Azure mediante cmdlets de PowerShell.
 
-Si lo prefiere, puede completar esta guía mediante el [portal](howto-legacy-exchange-portal.md).
+Si lo prefiere, puede realizar los pasos de esta guía mediante Azure [Portal](howto-legacy-exchange-portal.md).
 
 ## <a name="before-you-begin"></a>Antes de empezar
-* Revise la sección [Requisitos previos](prerequisites.md) y el [Tutorial del emparejamiento de Exchange](walkthrough-exchange-all.md) antes de comenzar la configuración.
+* Revise los [requisitos previos](prerequisites.md) y el [Tutorial del emparejamiento de Exchange](walkthrough-exchange-all.md) antes de comenzar la configuración.
 
-### <a name="working-with-azure-powershell"></a>Trabajo con Azure PowerShell
+### <a name="work-with-azure-powershell"></a>Uso con Azure PowerShell
 [!INCLUDE [CloudShell](./includes/cloudshell-powershell-about.md)]
 
-## <a name="convert-a-legacy-exchange-peering-to-azure-resource"></a>Conversión de un emparejamiento de Exchange heredado en un recurso de Azure
+## <a name="convert-a-legacy-exchange-peering-to-an-azure-resource"></a>Conversión de un emparejamiento de Exchange heredado en un recurso de Azure
 
 ### <a name="sign-in-to-your-azure-account-and-select-your-subscription"></a>Iniciar sesión en la cuenta de Azure y seleccione la suscripción
 [!INCLUDE [Account](./includes/account-powershell.md)]
 
-### <a name="get-legacy-exchange-peering-for-conversion"></a><a name= get></a>Obtener el emparejamiento de Exchange heredado para la conversión
-A continuación se muestra un ejemplo para obtener el emparejamiento de Exchange heredado en la ubicación de emparejamiento de Seattle:
+### <a name="get-legacy-exchange-peering-for-conversion"></a><a name= get></a>Obtención del emparejamiento de Exchange heredado para la conversión
+En este ejemplo se muestra cómo obtener el emparejamiento de Exchange heredado en la ubicación de emparejamiento de Seattle:
 
 ```powershell
 $legacyPeering = Get-AzLegacyPeering -Kind Exchange -PeeringLocation "Seattle"
@@ -58,7 +58,7 @@ La respuesta será similar al siguiente ejemplo:
 ```
 
 ### <a name="convert-legacy-peering"></a>Conversión del emparejamiento heredado
-El comando siguiente se puede usar para convertir el emparejamiento de Exchange heredado en un recurso de Azure:
+Este comando se puede usar para convertir el emparejamiento de Exchange heredado en un recurso de Azure:
 
 ```powershell
 $legacyPeering[0] | New-AzPeering `
@@ -69,9 +69,10 @@ $legacyPeering[0] | New-AzPeering `
 
 &nbsp;
 > [!IMPORTANT] 
-> Tenga en cuenta que, al convertir el emparejamiento heredado en un recurso de Azure, no se admiten modificaciones.&nbsp;
+> Cuando convierte el emparejamiento heredado en un recurso de Azure, no se admiten las modificaciones.
+&nbsp;
 
-A continuación se muestra una respuesta de ejemplo en que el aprovisionamiento de un extremo a otro se completó correctamente:
+En esta respuesta de ejemplo se muestra el momento en que el aprovisionamiento de un extremo a otro se ha completado correctamente:
 
 ```powershell
     Name                     : SeattleExchangePeering
@@ -96,7 +97,7 @@ Puede obtener una descripción detallada de todos los parámetros ejecutando el 
 ```powershell
 Get-Help Get-AzPeering -detailed
 ```
-Para obtener más información, consulte las [preguntas más frecuentes sobre el emparejamiento de Internet](faqs.md).
+Para obtener más información, consulte las [Preguntas más frecuentes sobre el emparejamiento de Internet](faqs.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

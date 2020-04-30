@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: f14cbef2ab568962601b3a407fa979e8f982598d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1e7eaf49fb8b62259b8c619c89edffd629dfde7f
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75475918"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685507"
 ---
 # <a name="use-id-broker-preview-for-credential-management"></a>Uso del Agente de identidad (versión preliminar) para la administración de credenciales
 
@@ -46,6 +46,46 @@ La característica Agente de identidad agregará una máquina virtual adicional 
 
 ![Opción para habilitar el Agente de identidad](./media/identity-broker/identity-broker-enable.png)
 
+### <a name="using-azure-resource-manager-templates"></a>Uso de plantillas del Administrador de recursos de Azure
+Si agrega un nuevo rol denominado `idbrokernode` con los siguientes atributos al perfil de proceso de la plantilla, el clúster se creará con el nodo de agente de identidad habilitado:
+
+```json
+.
+.
+.
+"computeProfile": {
+    "roles": [
+        {
+            "autoscale": null,
+            "name": "headnode",
+           ....
+        },
+        {
+            "autoscale": null,
+            "name": "workernode",
+            ....
+        },
+        {
+            "autoscale": null,
+            "name": "idbrokernode",
+            "targetInstanceCount": 1,
+            "hardwareProfile": {
+                "vmSize": "Standard_A2_V2"
+            },
+            "virtualNetworkProfile": {
+                "id": "string",
+                "subnet": "string"
+            },
+            "scriptActions": [],
+            "dataDisksGroups": null
+        }
+    ]
+}
+.
+.
+.
+```
+
 ## <a name="tool-integration"></a>Integración de herramientas
 
 El [complemento IntelliJ](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-intellij-tool-plugin#integrate-with-hdinsight-identity-broker-hib) de HDInsight se ha actualizado para admitir OAuth. Puede usar este complemento para conectarse al clúster y enviar trabajos.
@@ -55,6 +95,14 @@ El [complemento IntelliJ](https://docs.microsoft.com/azure/hdinsight/spark/apach
 Una vez habilitado el Agente de identidad, todavía necesitará un hash de contraseña almacenado en Azure AD DS para escenarios de SSH con cuentas de dominio. Para acceder mediante SSH a una máquina virtual unida a un dominio o para ejecutar el comando `kinit`, debe proporcionar una contraseña. 
 
 La autenticación de SSH requiere que el hash esté disponible en Azure AD DS. Si desea usar SSH solo para escenarios administrativos, puede crear una cuenta solo en la nube y usarla para acceder mediante SSH al clúster. Otros usuarios pueden usar las herramientas de Ambari o HDInsight (por ejemplo, el complemento IntelliJ) sin tener el hash de contraseña disponible en Azure AD DS.
+
+## <a name="clients-using-oauth-to-connect-to-hdinsight-gateway-with-id-broker-setup"></a>Clientes que usan OAuth para conectarse a la puerta de enlace de HDInsight con la configuración del agente de identidad
+
+En la configuración del agente de identidad, las aplicaciones personalizadas y los clientes que se conectan a la puerta de enlace se pueden actualizar para adquirir primero el token de OAuth que necesitan. Puede seguir los pasos que aparecen en este [documento](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app) para adquirir el token con la información siguiente:
+
+*   URI del recurso de OAuth: https://hib.azurehdinsight.net 
+* AppId: 7865c1d2-f040-46cc-875f-831a1ef6a28a
+*   Permiso: (nombre: Cluster.ReadWrite; id.: 8f89faa0-ffef-4007-974d-4989b39ad77d)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

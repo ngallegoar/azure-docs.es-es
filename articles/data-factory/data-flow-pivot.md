@@ -1,5 +1,5 @@
 ---
-title: Transformación Dinamización del flujo de datos de asignación
+title: Transformación Dinamizar en el flujo de datos de asignación
 description: Dinamice los datos de filas a columnas mediante la transformación Dinamizar del flujo de datos de asignación de Azure Data Factory
 author: kromerm
 ms.author: makromer
@@ -7,73 +7,103 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/30/2019
-ms.openlocfilehash: a2276f5714db427586dbd56027e51c167b8c604f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: a58444f81f60b48f9c2c76f13257a6a2431158a8
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81413587"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686408"
 ---
-# <a name="azure-data-factory-pivot-transformation"></a>Transformación Dinamizar de Azure Data Factory
+# <a name="pivot-transformation-in-mapping-data-flow"></a>Transformación Dinamizar en el flujo de datos de asignación
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Utiliza Dinamizar en ADF Data Flow como una agregación en la que los valores distintivos de una o más columnas de agrupación se transforman en columnas individuales. Básicamente, puede dinamizar valores de fila en nuevas columnas (convertir datos en metadatos).
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-![Opciones de dinamización](media/data-flow/pivot1.png "dinamizar 1")
+Use la transformación Dinamizar para crear varias columnas a partir de los valores únicos de fila de una sola columna. "Dinamizar" es una transformación de agregación en la que debe seleccionar las columnas Agrupar por y generar columnas dinámicas mediante [funciones de agregado](data-flow-expression-functions.md#aggregate-functions).
 
-## <a name="group-by"></a>Agrupar por
+## <a name="configuration"></a>Configuración
 
-![Opciones de dinamización](media/data-flow/pivot2.png "dinamizar 2")
+La transformación Dinamizar requiere tres entradas diferentes: las columnas Agrupar por, la clave dinámica y cómo generar las columnas dinamizadas.
 
-En primer lugar, establezca las columnas que desea agrupar para la agregación dinámica. Puede establecer más de una columna con el signo + que aparece junto a la lista de columnas.
+### <a name="group-by"></a>Agrupar por
 
-## <a name="pivot-key"></a>Clave dinámica
+![Opciones de Agrupar por](media/data-flow/pivot2.png "[Opciones Agrupar por")
 
-![Opciones de dinamización](media/data-flow/pivot3.png "dinamizar 3")
+Seleccione las columnas sobre las que se deben agregar las columnas dinamizadas. Los datos de salida agruparán todas las filas con los mismos valores Agrupar por en una fila. La agregación realizada en la columna dinamizada se realizará en cada grupo.
 
-La clave dinámica es la columna que ADF dinamizará de fila a columna. De forma predeterminada, cada valor único del conjunto de datos de este campo se dinamizará en una columna. Sin embargo, también puede escribir los valores del conjunto de datos que desea dinamizar en valores de columna. Se trata de la columna que determinará las nuevas columnas que se crearán.
+Esta sección es opcional. Si no se selecciona ninguna columna Agrupar por, se agregará todo el flujo de datos y solo se generará una fila.
 
-## <a name="pivoted-columns"></a>Columnas dinamizadas
+### <a name="pivot-key"></a>Clave dinámica
 
-![Opciones de dinamización](media/data-flow/pivot4.png "dinamizar 4")
+![Clave dinámica](media/data-flow/pivot3.png "Clave dinámica")
 
-Por último, elegirá la agregación que se va a usar para los valores dinamizados y cómo desea que las columnas se muestren en la nueva proyección de salida de la transformación.
+La clave dinámica es la columna cuyos valores de fila se dinamizan en nuevas columnas. De forma predeterminada, la transformación dinámica creará una nueva columna para cada valor de fila único.
 
-(Opcional) Puede establecer un patrón de nomenclatura con un prefijo, un término intermedio y el sufijo que se agregará a los nuevos nombres de columna creados a partir de los valores de fila.
+En la sección con la etiqueta **Valor**, puede especificar valores de fila específicos para dinamizarlos. Solo se dinamizarán los valores de fila especificados en esta sección. Al habilitar la opción **Valor nulo**, se creará una columna dinamizada para los valores nulos de la columna.
 
-Por ejemplo, dinamizar "Ventas" por "Región" daría lugar a nuevos valores de columna a partir de cada valor de ventas; es decir: "25", "50", "1000", etc. Sin embargo, si establece un valor de prefijo de "Sales-", cada valor de columna agregará "Sales-" al principio del valor.
+### <a name="pivoted-columns"></a>Columnas dinamizadas
 
-![Opciones de dinamización](media/data-flow/pivot5.png "dinamizar 5")
+![Columnas dinamizadas](media/data-flow/pivot4.png "Columnas dinamizadas")
 
-Al establecer la organización de la columna en "Normal", se agruparán todas las columnas dinámicas con sus valores agregados. Al establecer la organización de las columnas en "Lateral", se alternará entre columna y valor.
+Para cada valor de clave dinámica único que se convierta en una columna, genere un valor de fila agregado para cada grupo. Puede crear varias columnas por cada clave dinámica. Cada columna dinámica debe contener al menos una [función de agregado](data-flow-expression-functions.md#aggregate-functions).
 
-### <a name="aggregation"></a>Agregación
+**Patrón de nombre de columna:** seleccione cómo dar formato al nombre de la columna de cada columna dinámica. El nombre de la columna de salida será una combinación del valor de la clave dinámica, el prefijo de la columna y los caracteres opcionales de prefijo, de sufijo e intermedios. 
 
-Para establecer la agregación que se va a usar para los valores dinámicos, haga clic en el campo situado en la parte inferior del panel Columnas dinamizadas. Se abrirá el Generador de expresiones de ADF Data Flow, donde puede crear una expresión de agregación y proporcionar un nombre de alias descriptivo para los nuevos valores agregados.
+**Organización de columnas:** si genera más de una columna dinámica por cada clave dinámica, elija cómo quiere que se ordenen las columnas. 
 
-Use el lenguaje de expresiones de ADF Data Flow para describir las transformaciones de columna dinamizada en el Generador de expresiones: https://aka.ms/dataflowexpressions.
+**Prefijo de columna:** si genera más de una columna dinámica por cada clave dinámica, escriba un prefijo de columna para cada columna. Esta configuración es opcional si solo tiene una columna dinamizada.
+
+## <a name="help-graphic"></a>Gráfico de ayuda
+
+En el gráfico de ayuda siguiente se muestra cómo interactúan entre sí los distintos componentes dinámicos.
+
+![Gráficos de ayuda de los componentes dinámicos](media/data-flow/pivot5.png "Gráficos de ayuda de los componentes dinámicos")
 
 ## <a name="pivot-metadata"></a>Metadatos dinámicos
 
-La transformación Dinamizar generará nuevos nombres de columna que serán dinámicos en función de los datos entrantes. La clave dinámica genera los valores de cada nombre de columna nuevo. Si no especifica valores individuales y quiere crear nombres de columna dinámicos para cada valor único en la clave dinámica, la interfaz de usuario no mostrará los metadatos en Inspeccionar y no se producirá ninguna propagación de columna para la transformación Receptor. Si establece los valores de clave dinámica, ADF puede determinar los nombres de columna nuevos, que estarán disponibles en las asignaciones de Inspeccionar y Receptor.
+Si no se especifica ningún valor en la configuración de la clave dinámica, las columnas dinamizadas se generarán dinámicamente en tiempo de ejecución. El número de columnas dinamizadas será igual al número de valores de clave dinámica únicos multiplicado por el número de columnas dinámicas. Dado que este número puede ser cambiante, la experiencia de usuario no mostrará los metadatos de columna en la pestaña **Inspeccionar** y no habrá ninguna propagación de columna. Para transformar estas columnas, use las funcionalidades de los [patrones de columna](concepts-data-flow-column-pattern.md) del flujo de datos de asignación. 
 
-### <a name="generate-a-new-model-from-dynamic-columns"></a>Generación de un nuevo modelo a partir de columnas dinámicas
+Si se establecen valores específicos de clave dinámica, las columnas dinamizadas aparecerán en los metadatos. Los nombres de columna estarán a su disposición en la asignación de la inspección y el receptor.
 
-Dinamizar genera nuevos nombres de columna de forma dinámica en función de los valores de fila. Estas nuevas columnas se pueden convertir en metadatos a los que se puede hacer referencia posteriormente en el flujo de datos. Para ello, haga clic en la pestaña Vista previa de datos. Las nuevas columnas generadas por la transformación Dinamizar aparecen con un icono de desviación en el encabezado de la tabla. Haga clic en el botón "Map drifted" (Asignar desviadas) para convertir esas nuevas columnas en metadatos, haciendo así que pasen a formar parte del modelo de flujo de datos.
+### <a name="generate-metadata-from-drifted-columns"></a>Generación de metadatos a partir de columnas desfasadas
+
+Dinamizar genera nuevos nombres de columna de forma dinámica en función de los valores de fila. Puedes agregar estas nuevas columnas en los metadatos a los que se puede hacer referencia posteriormente en el flujo de datos. Para ello, use la acción rápida [Map drifted](concepts-data-flow-schema-drift.md#map-drifted-columns-quick-action) (Asignar desfasadas) de la vista previa de los datos. 
 
 ![Columnas dinámicas](media/data-flow/newpivot1.png "Asignar columnas dinámicas desplazadas")
 
-### <a name="landing-new-columns-in-sink"></a>Aterrizaje de nuevas columnas e Receptor
+### <a name="sinking-pivoted-columns"></a>Recepción de columnas dinamizadas
 
-Incluso con los nombres de columna dinámicos de Dinamizar, puede recibir nuevos valores y nombres de columna en el almacén de destino. Solo tiene que establecer "Allow Schema Drift" (Permitir desviación del esquema) en la configuración de Receptor. No verá los nombres dinámicos nuevos en los metadatos de la columna, pero la opción de desviación del esquema le permitirá el aterrizaje de los datos.
+Aunque las columnas dinamizadas son dinámicas, también se pueden escribir en el almacén de datos de destino. Habilite **Permitir el desfase de esquema** en la configuración del receptor. De este modo, podrá escribir columnas que no estén incluidas en los metadatos. No verá los nombres dinámicos nuevos en los metadatos de la columna, pero la opción de desfase del esquema le permitirá el desplazamiento de los datos.
 
-### <a name="view-metadata-in-design-mode"></a>Ver metadatos en el modo de diseño
+### <a name="rejoin-original-fields"></a>Recombinación de los campos originales
 
-Si desea ver los nuevos nombres de columna como metadatos en Inspeccionar y quiere ver la propagación explícita de las columnas a la transformación Receptor, establezca valores explícitos en la pestaña Clave dinámica.
+La transformación dinámica solo proyectará las columnas Agrupar por y las dinamizadas. Si quiere que los datos de salida incluyan otras columnas de entrada, use un patrón de [autocombinación](data-flow-join.md#self-join).
 
-### <a name="how-to-rejoin-original-fields"></a>Cómo volver a combinar los campos originales
-La transformación dinámica solo proyectará las columnas utilizadas en la acción de agregación, agrupación y dinamización. Si desea incluir las demás columnas del paso anterior en el flujo, utilice una rama nueva del paso anterior y el patrón de autocombinación para conectar el flujo con los metadatos originales.
+## <a name="data-flow-script"></a>Script de flujo de datos
+
+### <a name="syntax"></a>Sintaxis
+
+```
+<incomingStreamName>
+    pivot(groupBy(Tm),
+        pivotBy(<pivotKeyColumn, [<specifiedColumnName1>,...,<specifiedColumnNameN>]),
+        <pivotColumnPrefix> = <pivotedColumnValue>,
+        columnNaming: '< prefix >< $N | $V ><middle >< $N | $V >< suffix >',
+        lateral: { 'true' | 'false'}
+    ) ~> <pivotTransformationName
+```
+### <a name="example"></a>Ejemplo
+
+Las pantallas que aparecen en la sección de configuración tienen el siguiente script de flujo de datos:
+
+```
+BasketballPlayerStats pivot(groupBy(Tm),
+    pivotBy(Pos),
+    {} = count(),
+    columnNaming: '$V$N count',
+    lateral: true) ~> PivotExample
+
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

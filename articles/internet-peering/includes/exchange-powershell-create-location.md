@@ -8,14 +8,14 @@ ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 6f5d2dc30ac0f6316587fa0836b87cbd4efc0a8b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2ebf5d574b4d185953ab0f7984648c440d6f107e
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75773695"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678608"
 ---
-El cmdlet de PowerShell **Get-AzPeeringLocation** devuelve una lista de ubicaciones de emparejamiento con el parámetro obligatorio `Kind`, que usará en pasos posteriores:
+El cmdlet **Get-AzPeeringLocation** de PowerShell devuelve una lista de ubicaciones de emparejamiento con el parámetro obligatorio `Kind`, que se usará en pasos posteriores:
 
 ```powershell
 Get-AzPeeringLocation -Kind "Exchange"
@@ -32,7 +32,7 @@ Las ubicaciones de emparejamiento de Exchange contienen los siguientes campos:
 
 Para comprobar que está presente en la instalación de emparejamiento deseada consulte [PeeringDB](https://wwww.peeringdb.com).
 
-A continuación se incluye un ejemplo en el que se muestra cómo usar Seattle como ubicación de emparejamiento para crear un emparejamiento de Exchange:
+En este ejemplo se muestra cómo usar Seattle como ubicación de emparejamiento para crear un emparejamiento.
 
 ```powershell
 $exchangeLocations = Get-AzPeeringLocation -Kind Exchange

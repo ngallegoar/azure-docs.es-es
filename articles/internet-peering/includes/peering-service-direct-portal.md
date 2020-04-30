@@ -8,33 +8,33 @@ ms.service: internet-peering
 ms.topic: include
 ms.date: 3/18/2020
 ms.author: derekol
-ms.openlocfilehash: 60752cf1b3c05ab7817083e70310ba7b40227dec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e5804aa1b005e670d8b430b1c0a3bd62efd0bb06
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80129925"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687047"
 ---
-1. Haga clic en una conexión de emparejamiento que desee habilitar para Peering Service y, a continuación, haga clic en el botón **...**  > **Editar conexión**.
+1. Seleccione una conexión de emparejamiento que quiera habilitar para Azure Peering Service. Luego, seleccione **...**  > **Edit connection** (Editar conexión).
     > [!div class="mx-imgBorder"]
-    > ![Edición de la conexión de emparejamiento](../media/setup-direct-modify-editconnection.png)
-1. En la sección ***Use for Peering Service*** (Uso para Peering Service), haga clic en **Habilitado** y en **Guardar**.
+    > ![Conexión de emparejamiento: Edit connection (Editar conexión)](../media/setup-direct-modify-editconnection.png)
+1. En **Use for Peering Service** (Uso para Peering Service), seleccione **Enabled** (Habilitado) y, luego, elija **Save** (Guardar).
     > [!div class="mx-imgBorder"]
-    > ![Peering Service para la habilitación de la conexión de emparejamiento](../media/setup-direct-modify-editconnectionsettings-peering-service.png)
-1. En la pantalla de información general, verá los detalles de la implementación. Una vez completada la implementación, haga clic en **Ir al recurso**.
+    > ![Conexión de emparejamiento: Habilitar Peering Service](../media/setup-direct-modify-editconnectionsettings-peering-service.png)
+1. En la pantalla **Overview** (Información general), verá los detalles de la implementación. Cuando la implementación finalice, seleccione **Ir al recurso**.
     > [!div class="mx-imgBorder"]
     > ![Se completó la implementación](../media/setup-direct-modify-overview-deployment-complete.png)
 
-1. Después, verá en Configuración **Prefijos registrados**. Haga clic en **Agregar un prefijo registrado**.
+1. En el panel **Registered Prefixes** (Prefijos registrados), seleccione **Add registered prefix** (Agregar prefijo registrado).
     > [!div class="mx-imgBorder"]
-    > ![Prefijos y conexiones registrados](../media/setup-direct-modify-add-registered-prefix.png)
-1. Para registrar un prefijo, seleccione un **Nombre** y un **Prefijo** y haga clic en **Guardar**
+    > ![Adición del prefijo registrado](../media/setup-direct-modify-add-registered-prefix.png)
+1. Para registrar un prefijo, seleccione un valor en **Nombre** y **Prefijo** y elija **Guardar**.
     > [!div class="mx-imgBorder"]
-    >  ![Registrar un prefijo](../media/setup-direct-modify-register-a-prefix.png) 
+    >  ![Registro de un prefijo](../media/setup-direct-modify-register-a-prefix.png) 
 
-1. Una vez creado el prefijo, lo verá en la lista de prefijos registrados. Haga clic en el **Nombre** del prefijo para ver más detalles.
+1. Una vez creado el prefijo, lo verá en la lista **Registered Prefixes** (Prefijos registrados). En **Nombre**, seleccione el nombre del prefijo para ver más detalles.
     > [!div class="mx-imgBorder"]
-    > ![Prefijos y conexiones registrados](../media/setup-direct-modify-registered-prefixes.png)
-1. En la página del prefijo registrado, verá los detalles completos para incluir la **clave de prefijo** para cada prefijo. Esta clave se debe proporcionar al cliente asignado al prefijo desde su proveedor ISP. A continuación, el cliente puede registrar su prefijo dentro de su suscripción con esta clave.
+    > ![Conexiones y prefijos registrados](../media/setup-direct-modify-registered-prefixes.png)
+1. En la página de prefijos registrados, verá los detalles completos, junto con la **clave de prefijo** de cada prefijo. Esta clave se debe proporcionar al cliente al que el proveedor ISP asignó este prefijo. Luego, el cliente puede registrar su prefijo dentro de su suscripción con esta clave.
     > [!div class="mx-imgBorder"]
     > ![Prefijo con clave de prefijo](../media/setup-direct-modify-registered-prefix-detail.png)

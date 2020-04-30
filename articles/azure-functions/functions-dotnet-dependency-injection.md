@@ -6,18 +6,18 @@ ms.topic: reference
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: f8f1eb353087c5121eaafb4c8789e7a2f7638b99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a1ff8e0aedce5d3a6acc9a39084cf0839efdd88e
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79475128"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678452"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Uso de la inserción de dependencias en Azure Functions con .NET
 
 Azure Functions admite el modelo de diseño de software de inserción de dependencias (DI), que es una técnica para lograr la [inversión de control (IoC)](https://docs.microsoft.com/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion) entre las clases y sus dependencias.
 
-- La inserción de dependencias en Azure Functions se basa en las características de inserción de dependencias de .NET Core. Se recomienda estar familiarizado con la [inserción de dependencias de .NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection). Sin embargo, existen diferencias en el modo en que se invalidan las dependencias y cómo se leen los valores de configuración con Azure Functions en el plan de consumo.
+- La inserción de dependencias en Azure Functions se basa en las características de inserción de dependencias de .NET Core. Se recomienda estar familiarizado con la [inserción de dependencias de .NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection). Hay diferencias en el modo en que se invalidan las dependencias y cómo se leen los valores de configuración con Azure Functions en el plan de consumo.
 
 - La compatibilidad con la inserción de dependencias comienza con Azure Functions 2.x.
 

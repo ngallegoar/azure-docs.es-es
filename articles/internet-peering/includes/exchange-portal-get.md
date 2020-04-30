@@ -8,43 +8,43 @@ ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: b967c844ab145074490e931122cbe092d67de0c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 000971878e24c46892aaef1fa0c65237a4219883
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75773743"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678528"
 ---
-Una vez que el recurso de **emparejamiento** se implementa correctamente, puede verlo siguiendo los pasos que se indican a continuación.
+Una vez que el recurso **Peering** se implementa correctamente, puede verlo siguiendo estos pasos.
 
-1. Vaya a **Grupos de recursos** y haga clic en el grupo de recursos que seleccionó al crear el recurso de **emparejamiento**. Puede usar el campo *Filtro* si se muestran demasiados grupos de recursos.
-
-    > [!div class="mx-imgBorder"]
-    > ![Grupo de recursos de emparejamiento](../media/setup-direct-get-resourcegroup.png)
-
-1. Haga clic en el recurso de **emparejamiento** que creó.
+1. Vaya a **Grupos de recursos** y seleccione el grupo de recursos que eligió al crear el recurso **Peering**. Si tiene demasiados grupos de recursos, use el cuadro **Filtrar**.
 
     > [!div class="mx-imgBorder"]
-    > ![Vista de recurso de emparejamiento](../media/setup-direct-get-open.png)
+    > ![Grupos de recursos](../media/setup-direct-get-resourcegroup.png)
 
-1. En la página de **información general** se muestra información de alto nivel. Observe la información resaltada a continuación.
-
-    > [!div class="mx-imgBorder"]
-    > ![Vista de recurso de emparejamiento](../media/setup-exchange-get-overview.png)
-
-1. A la izquierda, haga clic en **ASN Information** (Información de ASN) para ver la información enviada durante la creación de PeerAsn.
+1. Seleccione el recurso **Peering** que creó.
 
     > [!div class="mx-imgBorder"]
-    > ![Vista de recurso de emparejamiento](../media/setup-direct-get-asninfo.png)
+    > ![Vista de recursos de emparejamiento](../media/setup-direct-get-open.png)
 
-1. A la izquierda, haga clic en **Conexiones**. Observe en la parte superior un resumen de las conexiones de emparejamiento entre ASN y Microsoft, en diferentes instalaciones del metro. También puede llegar al resumen de conexiones desde la página de **información general**; para ello, haga clic en **Conexiones** en el panel central, tal y como se resalta.
+1. En la página **Overview** (Información general) se muestra información de alto nivel, como se ilustra aquí.
 
     > [!div class="mx-imgBorder"]
-    > ![Vista de recurso de emparejamiento](../media/setup-exchange-get-connectionssummary.png)
+    > ![Panel de información general del recurso de emparejamiento](../media/setup-exchange-get-overview.png)
 
-    * El **estado de la conexión** corresponde al estado de la configuración de la conexión de emparejamiento. Los estados mostrados en este campo siguen el diagrama de estado que se muestra en el [tutorial de emparejamiento de Exchange](../walkthrough-exchange-all.md)
+1. A la izquierda, seleccione **ASN information** (Información de ASN) para ver la información que se envía al crear PeerAsn.
+
+    > [!div class="mx-imgBorder"]
+    > ![Información de ASN del recurso de emparejamiento](../media/setup-direct-get-asninfo.png)
+
+1. A la izquierda, seleccione **Connections** (Conexiones). En la parte superior de la pantalla, verá un resumen de las conexiones de emparejamiento entre ASN y Microsoft, en diferentes instalaciones del área metropolitana. También puede acceder al resumen de conexiones desde la página **Overview** (Información general) si selecciona **Connections** (Conexiones) en panel central, como se muestra.
+
+    > [!div class="mx-imgBorder"]
+    > ![Conexiones del recurso de emparejamiento](../media/setup-exchange-get-connectionssummary.png)
+
+    * El **estado de la conexión** corresponde al estado de la configuración de la conexión de emparejamiento. Los estados mostrados en este campo siguen el diagrama de estado que se muestra en el [tutorial de emparejamiento de Exchange](../walkthrough-exchange-all.md).
     * El **estado de sesión IPv4** y el **estado de sesión IPv6** corresponden a los estados de sesión BGP de IPv4 e IPv6, respectivamente.  
-    * Al seleccionar una fila en la parte superior, en la sección ***Conexión*** de la parte inferior se muestran los detalles de cada conexión. Puede hacer clic en las marcas de flecha para expandir las subsecciones ***Configuración***, ***Dirección IPv4*** y ***Dirección IPv6***.
+    * Al seleccionar una fila en la parte superior de la pantalla, la sección **Connection** (Conexión) de la parte inferior muestra los detalles de cada conexión. Seleccione las flechas para expandir las opciones **Configuration** (Configuración), **IPv4 address** (Dirección IPv4) y **IPv6 address** (Dirección IPv6).
 
     > [!div class="mx-imgBorder"]
-    > ![Vista de recurso de emparejamiento](../media/setup-exchange-get-connectionsipv4.png)
+    > ![Vista de recursos de emparejamiento](../media/setup-exchange-get-connectionsipv4.png)

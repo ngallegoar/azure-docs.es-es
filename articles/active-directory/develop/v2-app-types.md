@@ -12,19 +12,16 @@ ms.date: 04/13/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 143a2ec0bfbcc6997eb6d8b2599b848a509ee773
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: def92071496716f90b24158a50e4a5233e93c994
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309492"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677982"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Tipos de aplicaciones para la Plataforma de identidad de Microsoft
 
 El punto de conexión de la Plataforma de identidad de Microsoft (versión 2.0) admite la autenticación de una variedad de arquitecturas de aplicaciones modernas, todas ellas basadas en los protocolos estándar del sector [OAuth 2.0 u OpenID Connect](active-directory-v2-protocols.md). En este artículo se describen los tipos de aplicaciones que puede compilar mediante la Plataforma de identidad de Microsoft, independientemente de su plataforma o idioma preferidos. La información está diseñada para ayudarlo a entender los escenarios de alto nivel antes de [empezar a trabajar con el código](v2-overview.md#getting-started).
-
-> [!NOTE]
-> No todas las características y escenarios de Azure Active Directory (Azure AD) son compatibles con el punto de conexión de la Plataforma de identidad de Microsoft. Para determinar si debe usar el punto de conexión de la Plataforma de identidad de Microsoft, conozca las [limitaciones de esta plataforma](active-directory-v2-limitations.md).
 
 ## <a name="the-basics"></a>Conceptos básicos
 
@@ -84,7 +81,7 @@ Además del inicio de sesión sencillo, una aplicación web de servidor podría 
 
 ## <a name="web-apis"></a>API web
 
-Puede usar el punto de conexión de la Plataforma de identidad de Microsoft para proteger los servicios web, como la API web RESTful de la aplicación. Las API web se pueden implementar en numerosas plataformas y lenguajes. También se pueden implementar mediante desencadenadores HTTP en Azure Functions. En lugar de tokens de id. y cookies de sesión, una API web usa un token de acceso de OAuth 2.0 para proteger sus datos y para autenticar las solicitudes entrantes. El llamador de una API web anexa un token de acceso en el encabezado de autorización de una solicitud HTTP, como esta:
+Puede usar el punto de conexión de la Plataforma de identidad de Microsoft para proteger los servicios web, como la API web RESTful de la aplicación. Las API web se pueden implementar en numerosas plataformas y lenguajes. También se pueden implementar mediante desencadenadores HTTP en Azure Functions. En lugar de tokens de identificador y cookies de sesión, una API web usa un token de acceso de OAuth 2.0 para proteger sus datos y para autenticar las solicitudes entrantes. El autor de la llamada de una API web anexa un token de acceso en el encabezado de autorización de una solicitud HTTP, como esta:
 
 ```HTTP
 GET /api/items HTTP/1.1
@@ -94,21 +91,21 @@ Accept: application/json
 ...
 ```
 
-La API web usa el token de acceso para comprobar la identidad del llamador de API y extraer información sobre el llamador de notificaciones que se codifican en dicho token. Hay más detalles sobre los diferentes tipos de token que se usan en el punto de conexión de la Plataforma de identidad de Microsoft en la referencia [Token de acceso](access-tokens.md) y en la referencia [id_token](id-tokens.md).
+La API web usa el token de acceso para comprobar la identidad del autor de la llamada de API y extraer información sobre este de las notificaciones que se codifican en dicho token. Hay más detalles sobre los diferentes tipos de token que se usan en el punto de conexión de la Plataforma de identidad de Microsoft en la referencia [Token de acceso](access-tokens.md) y en la referencia [id_token](id-tokens.md).
 
-Una API web puede ofrecer a los usuarios la capacidad para administrar la participación/no participación de ciertas funcionalidades o datos mediante la exposición de permisos, conocidos también como [ámbitos](v2-permissions-and-consent.md). Para que una aplicación de llamada adquiera permiso para un ámbito, el usuario debe consentir el ámbito durante un flujo. El punto de conexión de la Plataforma de identidad de Microsoft solicita al usuario permiso y luego registra los permisos en todos los tokens de acceso que recibe la API web. La API web valida los tokens de acceso que recibe en cada llamada y realiza comprobaciones de autorización.
+Una API web puede ofrecer a los usuarios la capacidad para administrar la participación o no participación en ciertas funcionalidades o datos mediante la exposición de permisos, conocidos también como [ámbitos](v2-permissions-and-consent.md). Para que una aplicación de llamada adquiera permiso para un ámbito, el usuario debe consentir el ámbito durante un flujo. El punto de conexión de la Plataforma de identidad de Microsoft solicita al usuario permiso y luego registra los permisos en todos los tokens de acceso que recibe la API web. La API web valida los tokens de acceso que recibe en cada llamada y realiza comprobaciones de autorización.
 
-Una API web puede recibir tokens de acceso de todos los tipos de aplicaciones, incluidas las aplicaciones de servidor web, aplicaciones móviles y de escritorio, aplicaciones de una página, demonios del lado del servidor e incluso otras API web. El flujo de alto nivel de una API web se parece a este:
+Una API web puede recibir tokens de acceso de todos los tipos de aplicaciones, incluidas las aplicaciones de servidor web, aplicaciones móviles y de escritorio, aplicaciones de página única, demonios del lado servidor e incluso otras API web. El flujo general de una API web se parece a este:
 
 ![Muestra el flujo de autenticación de API web](./media/v2-app-types/convergence-scenarios-webapi.svg)
 
-Para aprender a proteger una API web con tokens de acceso de OAuth2, consulte los ejemplos de código de API web en nuestra sección de [introducción a la Plataforma de identidad de Microsoft](v2-overview.md#getting-started).
+Para aprender a proteger una API web con tokens de acceso de OAuth2, consulte los ejemplos de código de API web en la sección de [introducción a la Plataforma de identidad de Microsoft](v2-overview.md#getting-started).
 
 En muchos casos, las API web también tienen que realizar solicitudes salientes a otras API web de bajada protegidas por la Plataforma de identidad de Microsoft. Para ello, las API web pueden aprovechar las ventajas del flujo **con derechos delegados**, que permite a la API web intercambiar un token de acceso entrante por otro token de acceso que se usará en las solicitudes salientes. Para más información, consulte [Plataforma de identidad de Microsoft y flujo con derechos delegados de OAuth 2.0](v2-oauth2-on-behalf-of-flow.md).
 
 ## <a name="mobile-and-native-apps"></a>Aplicaciones móviles y nativas
 
-Las aplicaciones instaladas en un dispositivo, como las aplicaciones móviles y de escritorio, suelen necesitar el acceso a servicios back-end o a las API web que almacenan datos y realizan varias funciones en nombre del usuario. Estas aplicaciones pueden agregar el inicio de sesión y la autorización a los servicios back-end mediante el [flujo de código de autorización de OAuth 2.0](v2-oauth2-auth-code-flow.md).
+Las aplicaciones instaladas en un dispositivo, como las aplicaciones móviles y de escritorio, suelen necesitar el acceso a servicios back-end o a las API web que almacenan datos y realizan funciones en nombre del usuario. Estas aplicaciones pueden agregar el inicio de sesión y la autorización a los servicios back-end mediante el [flujo de código de autorización de OAuth 2.0](v2-oauth2-auth-code-flow.md).
 
 En este flujo, la aplicación recibe un código de autorización del punto de conexión de la Plataforma de identidad de Microsoft cuando el usuario inicia sesión. El código de autorización representa el permiso de la aplicación para llamar a servicios de back-end en nombre del usuario que inició la sesión. La aplicación podrá intercambiar el código de autorización en segundo plano para un token de acceso de OAuth 2.0 y un token de actualización. La aplicación puede usar el token de acceso para autenticar las API web en las solicitudes HTTP y utilizar el token de actualización para obtener nuevos tokens de acceso cuando expiren los antiguos.
 

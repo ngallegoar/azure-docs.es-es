@@ -2,13 +2,13 @@
 title: Implementación de recursos con una plantilla y la CLI de Azure
 description: Use Azure Resource Manager y la CLI de Azure para implementar recursos en Azure. Los recursos se definen en una plantilla de Resource Manager.
 ms.topic: conceptual
-ms.date: 03/25/2020
-ms.openlocfilehash: 241b84bc7b8c0b213e74cd7ee5f3d7668fe0d808
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/20/2020
+ms.openlocfilehash: 8ee15699a085178add05137be895fe6b660b715b
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80282654"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685699"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>Implementación de recursos con plantillas de ARM y la CLI de Azure
 
@@ -168,7 +168,7 @@ az deployment group create \
 
 ## <a name="handle-extended-json-format"></a>Control del formato JSON extendido
 
-Para implementar una plantilla con cadenas multilínea o comentarios, debe usar el conmutador `--handle-extended-json-format`.  Por ejemplo:
+Para poder implementar una plantilla con cadenas o comentarios multilínea utilizando la versión 2.3.0 u otra anterior de la CLI de Azure, debe usar el conmutador `--handle-extended-json-format`.  Por ejemplo:
 
 ```json
 {

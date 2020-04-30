@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c8606f0b7ab47d624ec66c8cda539e571cec6ce
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: cc1be4637d56d7205d50ebfc6f7d1d5d22e62edf
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393054"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617666"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integración de la infraestructura existente de NPS con Azure Multi-Factor Authentication
 
@@ -142,6 +142,14 @@ Para iniciar una cuenta de prueba, use estos pasos:
 1. Inicie sesión en [https://aka.ms/mfasetup](https://aka.ms/mfasetup) con una cuenta de prueba.
 2. Siga las indicaciones para configurar un método de verificación.
 3. [Cree una directiva de acceso condicional](howto-mfa-getstarted.md#create-conditional-access-policy) para requerir la autenticación multifactor para la cuenta de pruebas.
+
+> [!IMPORTANT]
+>
+> Asegúrese de que los usuarios se han registrado correctamente para Azure Multi-Factor Authentication. Si los usuarios solo se han registrado previamente para el autoservicio de restablecimiento de contraseña (SSPR), *StrongAuthenticationMethods* está habilitado para su cuenta. Azure Multi-Factor Authentication se aplica cuando se configura *StrongAuthenticationMethods*, aunque el usuario solo esté registrado para SSPR.
+>
+> Se puede habilitar el registro de seguridad combinado que configura SSPR y Azure Multi-Factor Authentication al mismo tiempo. Para obtener más información, consulte [Habilitación del registro de información de seguridad combinado en Azure Active Directory](howto-registration-mfa-sspr-combined.md).
+>
+> También puede [obligar a los usuarios a volver a registrar los métodos de autenticación](howto-mfa-userdevicesettings.md#manage-user-authentication-options) si previamente solo habilitaron SSPR.
 
 ## <a name="install-the-nps-extension"></a>Instalación de la extensión de NPS
 

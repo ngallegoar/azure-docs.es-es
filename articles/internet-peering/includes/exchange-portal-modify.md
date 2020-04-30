@@ -8,42 +8,42 @@ ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: e3e87e59f5b3c95051d9ee53e4b8d87afe9d9ba8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e06b5261ca6923e158c818d236a30cf6ebff189b
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75773747"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81680920"
 ---
-En esta sección se describe cómo realizar las siguientes operaciones de modificación para el emparejamiento directo:
+En esta sección se describe cómo realizar las siguientes operaciones de modificación para el emparejamiento directo.
 
 ### <a name="add-exchange-peering-connections"></a>Adición de conexiones de emparejamiento de Exchange
 
-1. Haga clic en el botón **+ Agregar conexiones** en la parte superior y configure una nueva conexión de emparejamiento.
+1. Seleccione el botón **+ Add connections** (+ Agregar conexiones) y configure una nueva conexión de emparejamiento.
     > [!div class="mx-imgBorder"]
-    > ![Vista de recurso de emparejamiento](../media/setup-exchange-modify-addconnection.png)
-1. Rellene el formulario de **conexión de emparejamiento de Exchange** y haga clic en **Guardar**. Para obtener ayuda con la configuración de una conexión de emparejamiento, revise los pasos descritos en la sección anterior "Creación y aprovisionamiento de un emparejamiento directo" anteriormente.
+    > ![Vista de recursos de emparejamiento](../media/setup-exchange-modify-addconnection.png)
+1. Rellene el formulario de **conexión de emparejamiento de Exchange** y seleccione **Guardar**. Para obtener ayuda con la configuración de una conexión de emparejamiento, revise los pasos descritos en la sección anterior "Creación y aprovisionamiento de un emparejamiento directo".
     > [!div class="mx-imgBorder"]
-    > ![Vista de recurso de emparejamiento](../media/setup-exchange-modify-savenewconnection.png)
+    > ![Formulario de conexiones de emparejamiento de Exchange](../media/setup-exchange-modify-savenewconnection.png)
 
 ### <a name="remove-exchange-peering-connections"></a>Eliminación de conexiones de emparejamiento de Exchange
 
-1. Haga clic en una conexión de emparejamiento que desee eliminar y, a continuación, haga clic en el botón **...**  > **Eliminar conexión**.
+1. Seleccione una conexión de emparejamiento que quiera eliminar y, luego, elija **...**  > **Delete connection** (Eliminar conexión).
     > [!div class="mx-imgBorder"]
-    > ![Eliminación de la conexión de emparejamiento](../media/setup-exchange-modify-deleteconnection.png)
-1. Escriba el identificador de recurso en el cuadro **Confirmar eliminación** como se muestra en los cuadros resaltados y haga clic en **Eliminar**.
+    > ![Botón Delete connection (Eliminar conexión)](../media/setup-exchange-modify-deleteconnection.png)
+1. Escriba el identificador de recurso en el cuadro **Confirm Delete** (Confirmar eliminación) y seleccione **Delete** (Eliminar).
     > [!div class="mx-imgBorder"]
-    > ![Confirmación de la eliminación de la conexión de emparejamiento](../media/setup-exchange-modify-deleteconnectionconfirm.png)
+    > ![Confirmación de eliminación](../media/setup-exchange-modify-deleteconnectionconfirm.png)
 
-### <a name="add-ipv4ipv6-session-on-active-connections"></a>Adición de sesión IPv4/IPv6 en conexiones activas
+### <a name="add-an-ipv4-or-ipv6-session-on-active-connections"></a>Adición de una sesión IPv4 o IPv6 en conexiones activas
 
-1. Haga clic en una conexión de emparejamiento que desee modificar y, a continuación, haga clic en el botón **...**  > **Editar conexión**.
+1. Seleccione una conexión de emparejamiento que quiera modificar y, luego, elija **...**  > **Edit connection** (Editar conexión).
     > [!div class="mx-imgBorder"]
-    > ![Edición de la conexión de emparejamiento](../media/setup-exchange-modify-editconnection.png)
-1. Agregue la información de la **dirección IPv4** o la **dirección IPv6** y haga clic en **Guardar**.
+    > ![Botón Edit connection (Editar conexión)](../media/setup-exchange-modify-editconnection.png)
+1. Agregue la información de **IPv4 address** (Dirección IPv4) o **IPv6 address** (Dirección IPv6) y seleccione **Save** (Guardar).
     > [!div class="mx-imgBorder"]
     > ![Modificación de la conexión de emparejamiento](../media/setup-exchange-modify-editconnectionsettings.png)
 
-### <a name="remove-ipv4ipv6-session-on-active-connections"></a>Eliminación de la sesión IPv4/IPv6 en conexiones activas
+### <a name="remove-an-ipv4-or-ipv6-session-on-active-connections"></a>Eliminación de una sesión IPv4 o IPv6 en conexiones activas
 
-La eliminación de una sesión IPv4/IPv6 desde una conexión existente no se admite actualmente en el portal. Póngase en contacto con el equipo de [emparejamiento de Microsoft](mailto:peeringexperience@microsoft.com).
+La eliminación de una sesión IPv4 o IPv6 de una conexión existente no se admite actualmente en el portal. Para más información, póngase en contacto con el servicio de [emparejamiento de Microsoft](mailto:peeringexperience@microsoft.com).

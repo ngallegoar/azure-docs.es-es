@@ -1,18 +1,18 @@
 ---
-title: 'Servicios de comercialización: cómo aparecer como destacado en Marketplace | Azure'
+title: 'Servicios de comercialización: cómo aparecer como destacado en Marketplace | Azure Marketplace'
 description: 'Servicios de comercialización: en esta sección se describe cómo lograr que una descripción se muestre como destacada en Azure Marketplace'
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 12/21/2018
+ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: 266070a6292e41af6ce1b4258774d20a9bd90312
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fe18ca41942ff58b8d9eefef3122c90980029766
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286292"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684616"
 ---
 # <a name="how-to-get-featured-in-appsource-and-azure-marketplace"></a>Cómo aparecer como destacado en Azure Marketplace y AppSource
 
@@ -38,7 +38,7 @@ Para mejorar su puntuación, puede tomar las siguientes medidas:
 Las promociones de aplicaciones destacadas funcionan de forma independiente al algoritmo de búsqueda.
 
 >[!Note]
->Si la solución no aparece correctamente en los resultados de búsqueda, envíe una incidencia de soporte técnico a través del menú de ayuda en [Cloud Partner Portal](https://cloudpartner.azure.com/).
+>Si la solución no aparece correctamente en los resultados de la búsqueda, envíe una incidencia de soporte técnico a través del menú Ayuda en el [Centro de partners](https://partner.microsoft.com/).
 
 El soporte técnico de GTM también incluye una biblioteca completa de plantillas, contenido web, entrenamiento y herramientas de autoayuda que le asistirán a promocionar más su negocio y sus descripciones.
 
@@ -46,6 +46,6 @@ El soporte técnico de GTM también incluye una biblioteca completa de plantilla
 
 Más información acerca de las [ventajas de Marketplace comercial](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits).
 
-Inicie sesión en [Cloud Partner Portal](https://cloudpartner.azure.com) para crear y configurar la oferta
+Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) para crear y configurar la oferta.
 
 ---

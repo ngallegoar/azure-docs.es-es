@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 07/03/2018
 ms.topic: conceptual
-ms.openlocfilehash: 23c4f24e430d58895eb551c3e2cb62b5f0003ac0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 57c3c2c7a0c923921c727ccea7839940457bc1ee
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75418821"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682994"
 ---
 # <a name="view-contents-of-a-file-that-is-being-tracked-with-change-tracking"></a>Visualización del contenido de un archivo del que se está realizando un seguimiento con Change Tracking
 
@@ -22,7 +22,7 @@ El seguimiento del contenido de archivos le permite ver el contenido de un archi
 
 * La cuenta de almacenamiento usada solo puede tener una cuenta de Automation conectada.
 
-* [Change Tracking](automation-change-tracking.md) se habilita en su cuenta de Automation.
+* [Change Tracking](automation-change-tracking.md) se habilita en la cuenta de Automation.
 
 ## <a name="enable-file-content-tracking"></a>Habilitación del seguimiento del contenido de los archivos
 
@@ -44,19 +44,19 @@ El seguimiento del contenido de archivos le permite ver el contenido de un archi
 
 Los siguientes pasos le guiarán por la activación del seguimiento de cambios para un archivo:
 
-1. En la página **Editar configuración** de **Change Tracking**, seleccione la pestaña **Archivos de Windows** o **Archivos de Linux**, y haga clic en  **Agregar**.
+1. En la página Editar configuración de **Change Tracking**, seleccione la pestaña **Archivos de Windows** o **Archivos de Linux** y haga clic en **Agregar**.
 
-1. Rellene la información de la ruta de acceso de archivo y seleccione **True** en **Cargar contenido de archivo para todas las configuraciones**. Esta opción habilita el seguimiento del contenido del archivo solo para esa ruta de acceso de archivo.
+1. Rellene la información de la ruta de acceso de archivos y seleccione True en **Cargar contenido de archivo para todas las configuraciones**. Esta opción habilita el seguimiento del contenido del archivo solo para esa ruta de acceso de archivo.
 
    ![agregar un archivo de Linux](./media/change-tracking-file-contents/add-linux-file.png)
 
 ## <a name="viewing-the-contents-of-a-tracked-file"></a>Visualizar el contenido de un archivo que se sigue
 
-1. Una vez que detectado un cambio en el archivo o un archivo en la ruta de acceso, se muestra en el portal. Seleccione el cambio de archivo en la lista de cambios. Se muestra el panel **Detalles del cambio**.
+1. Una vez que detectado un cambio en el archivo o un archivo en la ruta de acceso, se muestra en el portal. Seleccione el cambio de archivo en la lista de cambios. Se muestra el panel Cambiar detalles.
 
    ![enumerar cambios](./media/change-tracking-file-contents/change-list.png)
 
-1. En la página **Detalles del cambio**, consulte el estándar antes y después de la información de archivo, en la esquina superior izquierda, haga clic en **Ver cambios de contenido del archivo** para ver el contenido del archivo.
+1. En el panel Cambiar detalles, verá la información estándar del archivo antes y después. Seleccione **Ver cambios de contenido del archivo** para ver el contenido del archivo.
 
    ![detalles del cambio](./media/change-tracking-file-contents/change-details.png)
 

@@ -8,23 +8,25 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 12/03/2019
-ms.openlocfilehash: cda499b81a61a5b78ca86a96372640e368f90357
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.date: 04/16/2020
+ms.openlocfilehash: 38e728de22d49de760e998ddc97c5067beb3ecd1
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80364190"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684694"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer-preview"></a>Excepciones y códigos de error para el diseñador (versión preliminar)
 
 En este artículo se describen los mensajes de error y los códigos de excepción en el diseñador de Azure Machine Learning (versión preliminar) para ayudarle a solucionar problemas de las canalizaciones de aprendizaje automático.
 
-Hay dos maneras de obtener el texto completo de un mensaje de error en el diseñador:  
+Puede encontrar el mensaje de error en el diseñador si sigue estos pasos:  
 
-- Haga clic en el vínculo **View Output Log** (Ver el registro de salida) en el panel derecho y desplácese hasta el final. El mensaje de error detallado se muestra en las dos últimas líneas de la ventana.  
-  
-- Seleccione el módulo que tiene el error y haga clic en la X roja. Se muestra únicamente el texto de error pertinente.
+- Seleccione el módulo con errores y vaya a la pestaña **Outputs + logs** (Resultados y registros). Puede encontrar el registro detallado en el archivo **70_driver_log.txt** de la categoría **azureml-logs**.
+
+- Para obtener un error de módulo detallado, puede comprobarlo en el archivo error_info.json de la categoría **module_statistics**.
+
+A continuación, se muestran los códigos de error de los módulos en el diseñador.
 
 ## <a name="error-0001"></a>Error 0001  
  Se produce una excepción si no se encontraron una o más columnas especificadas del conjunto de datos.  
@@ -143,6 +145,7 @@ Hay dos maneras de obtener el texto completo de un mensaje de error en el diseñ
 |El valor del parámetro "{arg_name}" debe ser menor o igual que el valor del parámetro "{upper_boundary_parameter_name}".|
 |El parámetro "{arg_name}" tiene el valor "{actual_value}" que debe ser menor o igual que {upper_boundary}.|
 |El valor {actual_value} del parámetro "{arg_name}" debe ser menor o igual que el valor {upper_boundary} del parámetro "{upper_boundary_parameter_name}".|
+|El valor {actual_value} del parámetro "{arg_name}" debe ser menor o igual que el valor {upper_boundary} del parámetro {upper_boundary_meaning}.|
 
 
 ## <a name="error-0008"></a>Error 0008  
@@ -269,6 +272,7 @@ Si el modelo se entrenó con cualquiera de los módulos de entrenamiento especia
 |Se pasó un aprendiz de tipo no válido.|
 |El aprendiz "{arg_name}" tiene un tipo no válido.|
 |El aprendiz "{arg_name}" tiene un tipo "{learner_type}" no válido.|
+|Se pasó un aprendiz de tipo no válido. Mensaje de excepción: {exception_message}|
 
 
 ## <a name="error-0014"></a>Error 0014  
@@ -391,6 +395,7 @@ En el caso de las columnas que va a utilizar para agrupación o clasificación, 
 |Los valores en la columna no están ordenados.|
 |Los valores en la columna "{col_index}" no están ordenados.|
 |Los valores en la columna "{col_index}" del conjunto de datos "{dataset}" no están ordenados.|
+|Los valores del argumento "{arg_name}" no están ordenados en el orden "{sorting_order}".|
 
 
 ## <a name="error-0020"></a>Error 0020  
@@ -631,6 +636,7 @@ También puede ocurrir que una columna de etiqueta esté presente en el conjunto
 |------------------------|
 |El argumento debe ser finito.|
 |"{arg_name}" no es finito.|
+|La columna "{column_name}" contiene valores infinitos.|
 
 
 ## <a name="error-0034"></a>Error 0034  
@@ -1490,6 +1496,18 @@ Resolución:
 |------------------------------------------------------------|
 |El TransformationDirectory concreto no es válido.|
 |TransformationDirectory "{arg_name}" no es válido. Motivo: {reason}. Vuelva a ejecutar el experimento de entrenamiento que genera el archivo de transformación. Si se ha eliminado el experimento de entrenamiento, vuelva a crear y guarde el archivo de transformación.|
+|TransformationDirectory "{arg_name}" no es válido. Motivo: {reason}. {troubleshoot_hint}|
+
+
+## <a name="error-0159"></a>Error 0159
+ Se produce una excepción si el directorio del modelo de módulo pasado no es válido. 
+
+|Mensajes de excepción|
+|------------------------------------------------------------|
+|El elemento ModelDirectory especificado no es válido.|
+|ModelDirectory "{arg_name}" no es válido.|
+|ModelDirectory "{arg_name}" no es válido. Motivo: {reason}.|
+|ModelDirectory "{arg_name}" no es válido. Motivo: {reason}. {troubleshoot_hint}|
 
 
 ## <a name="error-1000"></a>Error 1000  

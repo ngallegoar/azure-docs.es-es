@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/12/2019
 ms.author: dsindona
-ms.openlocfilehash: 8e5165d000ee98212b3fd76091ffbd030b6b787f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fde249f22342ed2a0c50f5fdda3bde9dc2cde183
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281551"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685740"
 ---
 # <a name="promote-your-business-with-microsoft"></a>Haga crecer su negocio con Microsoft
 
@@ -36,6 +36,6 @@ Para promover la oferta o la aplicación y así acceder a más ventajas y recurs
 
 Para más información sobre los servicios GTM de Marketplace, visite [Servicios de comercialización](https://partner.microsoft.com/reach-customers/gtm).
 
-Inicie sesión en [Cloud Partner Portal](https://cloudpartner.azure.com) para crear y configurar la oferta
+[Inicie sesión en el Centro de partners](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) para crear o completar la oferta.
 
 ---

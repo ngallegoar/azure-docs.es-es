@@ -8,12 +8,12 @@ ms.topic: conceptual
 manager: gwallace
 description: Aprenda a configurar la integración y la implementación continuas mediante Azure DevOps con Azure Dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, contenedores
-ms.openlocfilehash: 66ff2080ad44098757a5d9360fd3307e65f7431a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f2eb9449518b32ab74f2dbbca6b5489aed325db7
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75438444"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685629"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Uso de CI/CD con Azure Dev Spaces
 
@@ -131,7 +131,7 @@ Ahora se iniciará un proceso de versiones automatizado, que implementa los grá
 La versión estará lista cuando se hayan completado todas las tareas.
 
 > [!TIP]
-> Si se produce un error en la versión con un mensaje de error como *UPGRADE FAILED: timed out waiting for the condition* (ERROR EN LA ACTUALIZACIÓN: se agotó el tiempo de espera para la condición), intente inspeccionar los pods del clúster [mediante el panel de Kubernetes](../../aks/kubernetes-dashboard.md). Si ve que se producen errores al iniciar los pods, con mensajes de error como *Failed to pull image "azdsexample.azurecr.io/mywebapi:122": rpc error: code = Unknown desc = Error response from daemon: Obtener https://azdsexample.azurecr.io/v2/mywebapi/manifests/122: no autorizado:se requiere autenticación*), es posible que el clúster no tenga autorización para extraer de Azure Container Registry. Asegúrese de que ha completado el requisito previo [Autorización al clúster de AKS para extraer de Azure Container Registry](../../aks/cluster-container-registry-integration.md).
+> Si se produce un error en la versión con un mensaje de error como *UPGRADE FAILED: timed out waiting for the condition* (ERROR EN LA ACTUALIZACIÓN: se agotó el tiempo de espera para la condición), intente inspeccionar los pods del clúster [mediante el panel de Kubernetes](../../aks/kubernetes-dashboard.md). Si ve que se producen errores al iniciar los pods, con mensajes de error como *Failed to pull image "azdsexample.azurecr.io/mywebapi:122": rpc error: code = Unknown desc = Error response from daemon: Get https:\//azdsexample.azurecr.io/v2/mywebapi/manifests/122: unauthorized: authentication required*, significa que es posible que el clúster no tenga autorización para realizar la extracción de Azure Container Registry. Asegúrese de que ha completado el requisito previo [Autorización al clúster de AKS para extraer de Azure Container Registry](../../aks/cluster-container-registry-integration.md).
 
 Ahora dispone de una canalización de CI/CD completamente automatizada para su bifurcación de GitHub de las aplicaciones de ejemplo de Dev Spaces. Cada vez que confirme e inserte el código, la canalización de compilación compilará e insertará las imágenes *mywebapi* y *webfrontend* en la instancia de ACR personalizada. A continuación, la canalización de versión implementará el gráfico de Helm para cada aplicación en el espacio _dev_ en el clúster habilitado para Dev Spaces.
 

@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 04/06/2020
-ms.openlocfilehash: 9c9f069ad38c65aa0bbfdcde9eef3fed32585d9e
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 288d4e4d0c5faa6bb2b51451fb36bbb6d666c9eb
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80756422"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683179"
 ---
 # <a name="configure-streaming-export-of-azure-sql-database-diagnostic-telemetry"></a>Configuración de la exportación de streaming de los datos de telemetría de diagnóstico de Azure SQL Database
 
@@ -363,7 +363,7 @@ SQL Analytics se puede usar como panel jerárquico para ver los recursos de SQL 
 
 ## <a name="stream-into-event-hubs"></a>Transmisión a Event Hubs
 
-Puede transmitir las métricas y los registros de recursos de SQL Database a Event Hubs mediante el uso de la opción **Transmitir a un centro de eventos** integrada en Azure Portal. También puede habilitar el identificador de regla de Service Bus mediante una configuración de diagnóstico a través de los cmdlets de PowerShell, la CLI de Azure o la API REST de Azure Monitor.
+Puede transmitir las métricas y los registros de recursos de SQL Database a Event Hubs mediante el uso de la opción **Transmitir a un centro de eventos** integrada en Azure Portal. También puede habilitar el identificador de regla de Service Bus mediante una configuración de diagnóstico a través de los cmdlets de PowerShell, la CLI de Azure o la API REST de Azure Monitor. Asegúrese de que el centro de eventos esté en la misma región que la base de datos y el servidor.
 
 ### <a name="what-to-do-with-metrics-and-resource-logs-in-event-hubs"></a>Utilidad de las métricas y los registros de recursos en Event Hubs
 

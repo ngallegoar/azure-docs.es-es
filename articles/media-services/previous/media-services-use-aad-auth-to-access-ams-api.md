@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 8b38b38789edfd5a0a30fdd589849bfa345eaac9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8e1aeaf105ce371e965b433ac78e2b257f4bc18b
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77157863"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682038"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Acceso a Azure Media Services API con la autenticación de Azure AD  
 
@@ -79,7 +79,7 @@ En el diagrama anterior, los números representan el flujo de las solicitudes en
        La información del inquilino se puede recuperar desde Azure Portal. Coloque el cursor sobre el nombre del usuario con sesión iniciada en la esquina superior derecha.
    * URI del recurso de Media Services. 
 
-       Este URI es el mismo para las cuentas de Media Services que se encuentran en el mismo entorno de Azure (por ejemplo, https://rest.media.azure.net).
+       Este URI es el mismo para las cuentas de Media Services que se encuentran en el mismo entorno de Azure (por ejemplo, https:\//rest.media.azure.net).
 
    * Id. de cliente de aplicación de Media Services (nativo).
    * URI de redireccionamiento de aplicación de Media Services (nativo).
@@ -121,7 +121,7 @@ En la ilustración anterior, los números representan el flujo de las solicitude
        La información del inquilino se puede recuperar desde Azure Portal. Coloque el cursor sobre el nombre del usuario con sesión iniciada en la esquina superior derecha.
    * URI del recurso de Media Services. 
 
-       Este URI es el mismo para las cuentas de Media Services que se encuentran en el mismo entorno de Azure (por ejemplo, https://rest.media.azure.net).
+       Este URI es el mismo para las cuentas de Media Services que se encuentran en el mismo entorno de Azure (por ejemplo, https:\//rest.media.azure.net).
 
    * URI del recurso de Media Services de REST.
 

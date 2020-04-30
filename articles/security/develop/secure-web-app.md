@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: terrylan
-ms.openlocfilehash: 55c6d374c8a3c308323c0d003726492477e33ff8
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: 730e478622da8cd90af1c559e4d0c6fd04151cca
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811245"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686804"
 ---
 # <a name="develop-a-secure-web-app"></a>Desarrollar una aplicación web segura
 
@@ -803,7 +803,7 @@ En Azure Portal, configure la aplicación para que use las credenciales necesari
 Después de agregar la configuración de Azure AD y los secretos a Key Vault, los usuarios se pueden autenticar en la aplicación mediante la autenticación de OAuth de Azure.
 En el código de la aplicación, se controla mediante la biblioteca de autenticación de Azure Active Directory (ADAL).
 
-Una vez que los secretos están en Key Vault y la aplicación tiene acceso a los secretos y a la base de datos, se puede acceder al servicio de aplicación a través de la URL de la aplicación de la puerta de enlace https://GATEWAY_HASH.cloudapp.net), que se puede obtener de su hoja.
+Una vez que los secretos están en Key Vault y la aplicación tiene acceso a estos y a la base de datos, se puede acceder al servicio de aplicación a través de la URL de la aplicación de la puerta de enlace (https:\//GATEWAY_HASH.cloudapp.net), que se puede obtener de su hoja.
 
 Si, al iniciar sesión en Azure AD, recibe un error que indica que "El usuario no está registrado en el directorio en el que intenta iniciar sesión", debe agregar al usuario. Para agregar al usuario, vaya a la pestaña **Usuarios** de Azure AD y agregue el usuario manualmente. Para ello, escriba sus detalles o invite al usuario escribiendo su dirección de correo electrónico como usuario invitado en Azure AD en la hoja **Invitar a un invitado**.
 
@@ -978,7 +978,7 @@ Después de corregir algunos de los errores de código encontrados por las herra
 
 ### <a name="find-and-fix-vulnerabilities-in-app-dependencies"></a>Búsqueda y corrección de vulnerabilidades en las dependencias de la aplicación
 
-Para buscar y corregir las dependencias de la aplicación, puede usar la [comprobación de dependencias de OWASP](https://www.owasp.org/index.php/OWASP_Dependency_Check).
+Para buscar y corregir las dependencias de la aplicación, puede usar la [comprobación de dependencias de OWASP](https://owasp.org/www-project-dependency-check/).
 
 La seguridad es una aplicación similar que comprueba las dependencias. Puede encontrarla en [GitHub](https://github.com/pyupio/safety). Los exámenes de seguridad para detectar vulnerabilidades en bases de datos de vulnerabilidades conocidas.
 
