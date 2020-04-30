@@ -2,17 +2,17 @@
 title: Errores de conectividad transitorios en Azure Database for MySQL
 description: Obtenga información sobre cómo controlar los errores de conectividad transitorios y conectarse de forma eficiente a Azure Database for MySQL.
 keywords: mysql connection,connection string,connectivity issues,transient error,connection error,connect efficiently
-author: jasonwhowell
-ms.author: jasonh
+author: ajlam
+ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 4f9101b4108f5512ee9779f4633845b34fdfad5a
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: cb5adb3787176e3bdbfb7897aa7d7deb9cc2dae7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81767862"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82100148"
 ---
 # <a name="handle-transient-errors-and-connect-efficiently-to-azure-database-for-mysql"></a>Controlar los errores transitorios y conectarse de forma eficaz a Azure Database for MySQL
 

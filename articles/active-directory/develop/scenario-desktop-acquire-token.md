@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: a5942a9d614bbb06fadb1d4b16d4c68c007434c7
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 24567461ee8a87fc9dbd1c5fb4eba5e34d458f7b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80885325"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82097768"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Aplicación de escritorio que llama a API web: Adquisición de un token
 
@@ -175,7 +175,7 @@ catch(MsalUiRequiredException)
 
 ### <a name="mandatory-parameters"></a>Parámetros obligatorios
 
-`AcquireTokenInteractive` solo tiene un parámetro obligatorio, ``scopes``, que contiene una enumeración de cadenas que definen los ámbitos en los que se necesita un token. Si el token es para Microsoft Graph, los ámbitos necesarios se pueden encontrar en la sección denominada "Permisos" de la referencia de API de cada instancia de Microsoft Graph API. Por ejemplo, para [enumerar los contactos del usuario](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_list_contacts), se debe usar el ámbito "User.Read", "Contacts.Read". Para más información, consulte [Referencia de permisos de Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
+`AcquireTokenInteractive` solo tiene un parámetro obligatorio, ``scopes``, que contiene una enumeración de cadenas que definen los ámbitos en los que se necesita un token. Si el token es para Microsoft Graph, los ámbitos necesarios se pueden encontrar en la sección denominada "Permisos" de la referencia de API de cada instancia de Microsoft Graph API. Por ejemplo, para [enumerar los contactos del usuario](https://docs.microsoft.com/graph/api/user-list-contacts), se debe usar el ámbito "User.Read", "Contacts.Read". Para más información, consulte [Referencia de permisos de Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
 
 En Android, también debe especificar la actividad principal mediante `.WithParentActivityOrWindow`, como se muestra, para que el token vuelva a esa actividad principal tras la interacción. Si no se especifica, se produce una excepción al llamar a `.ExecuteAsync()`.
 

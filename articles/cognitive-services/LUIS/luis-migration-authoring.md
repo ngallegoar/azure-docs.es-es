@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: diberry
-ms.openlocfilehash: ec6f9592a4c149be382fab66cca27d929644d988
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 679073715588a4a81e69e3e7ba2d18341b1bab4b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78194516"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82096629"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Migración a una clave de creación de recursos de Azure
 
@@ -66,7 +66,7 @@ Puede retrasar el proceso de migración si cancela fuera de la ventana. Se le pe
 * **Opcionalmente**, guarde la lista del colaborador de cada aplicación. Esta lista de correo electrónico se proporciona como parte del proceso de migración.
 
 
-**La creación de la aplicación de LUIS es gratuita**, lo que viene indicado por el nivel `F0`. [Más información sobre planes de tarifa](luis-boundaries.md#key-limits).
+**La creación de la aplicación de LUIS es gratuita**, lo que viene indicado por el nivel `F0`. [Más información sobre planes de tarifa](luis-limits.md#key-limits).
 
 Si no tiene una suscripción a Azure, [suscríbase](https://azure.microsoft.com/free/).
 

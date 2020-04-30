@@ -1,22 +1,15 @@
 ---
 title: Evento de inicio de cambio de tamaño de un grupo de Azure Batch
 description: Referencia del evento de inicio de cambio de tamaño de grupo de Batch. En el ejemplo se muestra el cuerpo de un evento de inicio de cambio de tamaño (manual) de un grupo de 0 a 2 nodos.
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.assetid: ''
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: labrenne
-ms.openlocfilehash: 1866e51da30fe5ed148d019c8720755e99757df7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b4aa503c5dfbe00a77216277bdaf7e4c0dc3b1bd
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77023589"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82115880"
 ---
 # <a name="pool-resize-start-event"></a>Evento de inicio de cambio de tamaño de grupo
 

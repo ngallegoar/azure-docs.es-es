@@ -15,12 +15,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30d02c5484ea4cce2953eac6b1b7b26a17c142bc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ea1360499c4f4f9b2f6cfa07e81d8f692d0353d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68989695"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82100794"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Remedie los usuarios marcados como en riesgo en el portal de Azure Active Directory
 
@@ -87,7 +87,6 @@ Además, debe:
 
 - Leer e implementar esta [guía para afrontar actividades inusuales](https://aka.ms/fixaccount). 
 - [Habilitar la canalización de la auditoría](https://aka.ms/improvesecurity) para que le ayude a analizar la actividad de su empresa. Una vez completado, el almacén de auditoría empieza a rellenarse con los registros de actividad. En este momento, también puede aprovechar el [recurso de búsqueda e investigación del Centro de seguridad y cumplimiento](https://aka.ms/sccsearch). 
-- Utilice este [script para habilitar la auditoría de los buzones](https://aka.ms/mailboxaudit1) de todas sus cuentas. 
 - Revise los permisos de delegado y las reglas de reenvío de correo de todos los buzones. Este [script de PowerShell](https://aka.ms/delegateforwardrules) se puede usar para realizar esta tarea. 
 
 ## <a name="next-steps"></a>Pasos siguientes

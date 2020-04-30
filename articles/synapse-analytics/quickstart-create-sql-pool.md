@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: josels
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: b3cd4ed280529efbde32fb89e6bac20640940fff
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: a50f203b8057dd4ea51eff1cf09fc97fb598cb3e
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81419879"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82096442"
 ---
 # <a name="quickstart-create-a-synapse-sql-pool"></a>Inicio rápido: Creación de grupo de Synapse SQL
 
@@ -81,5 +81,5 @@ Una vez creado el grupo de SQL, estará disponible en el área de trabajo para l
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Consulte [Quickstart: Creación de un grupo de Apache Spark (versión preliminar) en Synapse Analytics mediante herramientas web](spark/apache-spark-notebook-create-spark-use-sql.md).
+- Consulte [Quickstart: Creación de un grupo de Apache Spark (versión preliminar) en Synapse Analytics mediante herramientas web](quickstart-apache-spark-notebook.md).
 - Consulte [Quickstart: Creación de un grupo de Apache Spark (versión preliminar)](quickstart-create-apache-spark-pool.md).

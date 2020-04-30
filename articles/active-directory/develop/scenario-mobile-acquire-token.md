@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: a77e6c9086a745804c23f431f633d530e2655f16
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: 2be074c457eaadd1fb6467cbcfdd45a2e7745613
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81868895"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82098907"
 ---
 # <a name="get-a-token-for-a-mobile-app-that-calls-web-apis"></a>Obtenga un token para una aplicación móvil que llama a las API web
 
@@ -209,7 +209,7 @@ catch(MsalUiRequiredException)
 
 `AcquireTokenInteractive` solo tiene un parámetro obligatorio: `scopes`. El parámetro `scopes` enumera las cadenas que definen los ámbitos para los que se requiere un token. Si el token es para Microsoft Graph, los ámbitos necesarios se pueden encontrar en la referencia de API de cada instancia de Microsoft Graph API. En la referencia, vaya a la sección "Permisos".
 
-Por ejemplo, para [enumerar los contactos del usuario](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_list_contacts), se debe usar el ámbito "User.Read", "Contacts.Read". Para más información, consulte [Referencia de permisos de Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
+Por ejemplo, para [enumerar los contactos del usuario](https://docs.microsoft.com/graph/api/user-list-contacts), se debe usar el ámbito "User.Read", "Contacts.Read". Para más información, consulte [Referencia de permisos de Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
 
 En Android, puede especificar la actividad primaria al crear la aplicación mediante `PublicClientApplicationBuilder`. Si no especifica la actividad primaria en ese momento, puede especificarla más adelante mediante `.WithParentActivityOrWindow` como se indica en la sección siguiente. Si especifica la actividad primaria, el token vuelve a la actividad primaria después de la interacción. Si no se especifica, la llamada a `.ExecuteAsync()` inicia una excepción.
 

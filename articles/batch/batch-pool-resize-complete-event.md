@@ -1,22 +1,15 @@
 ---
 title: Evento completo de cambio de tamaño de grupo de Azure Batch
 description: Referencia del evento completo de cambio de tamaño de grupo de Batch. Vea un ejemplo de un grupo que aumentó de tamaño y se completó correctamente.
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.assetid: ''
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: labrenne
-ms.openlocfilehash: e2c66471ad9fe8d917d1ffddceb6e01c339d62dd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4268c9d840aa9dfadd785d74811e9d12ac32ec31
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77022229"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82115897"
 ---
 # <a name="pool-resize-complete-event"></a>Evento de finalización de cambio de tamaño del grupo
 

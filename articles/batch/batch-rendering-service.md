@@ -1,18 +1,16 @@
 ---
 title: 'Introducción a la representación: Azure Batch'
 description: Introducción al uso de Azure para la representación e información general de las funcionalidades de representación con Azure Batch
-services: batch
-ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: d4423b22c4c8afea5afa9c7040e081665b17ba87
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 515fc92aa14c0a86746d0a97d2bc601fab553aa3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60774036"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82115710"
 ---
 # <a name="rendering-using-azure"></a>Representación mediante Azure
 

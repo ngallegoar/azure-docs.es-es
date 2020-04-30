@@ -2,17 +2,17 @@
 title: 'Solución de problemas de conexión a Azure Database for PostgreSQL: servidor único'
 description: Obtenga información sobre la solución de problemas de conexión a Azure Database for PostgreSQL.
 keywords: postgresql connection,connection string,connectivity issues,transient error,connection error
-author: jasonwhowell
-ms.author: jasonh
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 593dc060ff92c7f4bc338e235dd1a0dd9f303ab3
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 771d7f5b037fde1144b18dc4ed0dee7aecac6744
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81767618"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82100216"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---single-server"></a>Solución de problemas de conexión a Azure Database for PostgreSQL (único servidor)
 

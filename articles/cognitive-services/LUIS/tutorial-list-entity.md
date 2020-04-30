@@ -3,12 +3,12 @@ title: 'Tutorial: Entidad de lista: LUIS'
 description: Obtenga datos que coincidan con una lista de elementos predefinida. Cada elemento de la lista puede tener sinónimos que también coincidan exactamente.
 ms.topic: tutorial
 ms.date: 03/12/2020
-ms.openlocfilehash: 1cfeccbd54e8ef8ec315d53fc7a766760c92a0d1
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 9530719c43260751d64d7ccf446bc7941078d6e9
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "79297414"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82101134"
 ---
 # <a name="tutorial-get-exact-text-matched-data-from-an-utterance-with-list-entity"></a>Tutorial: Obtención de los datos coincidentes con el texto exacto de una expresión con una entidad de lista
 
@@ -33,7 +33,7 @@ Para esta aplicación de pizzas importada, cree una entidad de lista para los di
 Una entidad de lista es una buena opción para este tipo de datos cuando:
 
 * Los valores de los datos son un conjunto conocido.
-* El conjunto no excede los [límites](luis-boundaries.md) máximos de LUIS para este tipo de entidad.
+* El conjunto no excede los [límites](luis-limits.md) máximos de LUIS para este tipo de entidad.
 * El texto de la expresión es una coincidencia, sin distinción entre mayúsculas y minúsculas, con un sinónimo o el nombre canónico. LUIS no usa la lista más allá de la coincidencia. La lematización, los plurales y otras variaciones no se resuelven solo con una entidad de lista. Para administrar las variaciones, considere el uso de un [patrón](reference-pattern-syntax.md#syntax-to-mark-optional-text-in-a-template-utterance) con la sintaxis de texto opcional.
 
 > [!CAUTION]

@@ -3,12 +3,12 @@ title: 'Tipo de entidad de lista: LUIS'
 description: Las entidades de lista representan un conjunto fijo y cerrado de palabras relacionadas y sus sinónimos. LUIS no detecta valores adicionales para las entidades de lista. Use la característica Recommend (Recomendar) para ver sugerencias de palabras nuevas en función de la lista actual.
 ms.topic: reference
 ms.date: 03/12/2020
-ms.openlocfilehash: 795d16bc2e0c4223ff3ac283a72493923d3ab355
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 273fabae38f6682cfaaffcdcc19e62adc41b7a47
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79297244"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82097581"
 ---
 # <a name="list-entity"></a>Entidad de lista
 
@@ -20,7 +20,7 @@ Una entidad de lista no está relacionada con el aprendizaje automático. Es una
 
 * Son un conjunto conocido.
 * No cambian a menudo. Si necesita cambiar la lista a menudo o desea que la lista se expanda automáticamente, es mejor una entidad sencilla potenciada con una lista de frases.
-* El conjunto no excede los [límites](luis-boundaries.md) máximos de LUIS para este tipo de entidad.
+* El conjunto no excede los [límites](luis-limits.md) máximos de LUIS para este tipo de entidad.
 * El texto de la expresión es una coincidencia, sin distinción entre mayúsculas y minúsculas, con un sinónimo o el nombre canónico. LUIS no usa la lista más allá de la coincidencia. La coincidencia aproximada, la lematización, los plurales y otras variaciones no se resuelven con una entidad de lista. Para administrar las variaciones, considere el uso de un [patrón](reference-pattern-syntax.md#syntax-to-mark-optional-text-in-a-template-utterance) con la sintaxis de texto opcional.
 
 ![entidad de lista](./media/luis-concept-entities/list-entity.png)

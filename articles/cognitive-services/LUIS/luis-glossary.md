@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 4f78b4c50f4cd65f3dc32c48cea81b705dc44de1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f764b0d42e08e68b45d49a5aae8542f05707ccde
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79219154"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82099366"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glosario de Language Understanding de conceptos y vocabulario común
 En el glosario de Language Understanding (LUIS) se explican los términos que pueden aparecer cuando se trabaja con el servicio de API de LUIS.
@@ -30,7 +30,7 @@ La creación es la capacidad de crear, administrar e implementar una [aplicació
 
 ## <a name="authoring-key"></a><a name="authoring-key"></a>Clave de creación
 
-Antes se denominaba clave "de programación". Se usa para crear la aplicación. No se usa para enviar consultas de punto de conexión de nivel de producción. Para obtener más información, vea [Key limits](luis-boundaries.md#key-limits) (Límites de la clave).
+Antes se denominaba clave "de programación". Se usa para crear la aplicación. No se usa para enviar consultas de punto de conexión de nivel de producción. Para obtener más información, vea [Key limits](luis-limits.md#key-limits) (Límites de la clave).
 
 ## <a name="batch-test-json-file"></a><a name="batch-test-json-file"></a>Archivo JSON de la prueba en lote
 
@@ -51,7 +51,7 @@ Un colaborador de este tipo funciona de la misma forma que un [colaborador](#col
 
 ## <a name="descriptor"></a><a name="descriptor"></a>Descriptor
 
-Un descriptor es una [característica](#features) aplicada a un modelo al momento de entrenarlo, incluidas las [listas de frases](#phrase-list) y las [entidades](#entity). 
+Un descriptor es una [característica](#features) aplicada a un modelo al momento de entrenarlo, incluidas las [listas de frases](#phrase-list) y las [entidades](#entity).
 
 ## <a name="domain"></a><a name="domain"></a>Dominio
 
@@ -121,7 +121,7 @@ Ha cambiado de nombre, ahora es la [clave de creación](#authoring-key).
 
 ## <a name="publish"></a><a name="publish"></a>Publicar
 
-Publicar significa poner una versión activa de LUIS a disposición del [punto de conexión](#endpoint) del almacenamiento provisional o de producción.  
+Publicar significa poner una versión activa de LUIS a disposición del [punto de conexión](#endpoint) del almacenamiento provisional o de producción.
 
 ## <a name="quota"></a><a name="quota"></a>Cuota
 

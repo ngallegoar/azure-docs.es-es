@@ -4,12 +4,12 @@ description: La primera vez que use Language Understanding (LUIS), no es necesar
 services: cognitive-services
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: ea2799e7b8bb18ad4a729a70ae1477cde9f97e95
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: d9235b6ef1c7cddbfbbd36f8382439d781af6d5f
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80754350"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82101032"
 ---
 # <a name="create-luis-resources"></a>Creación de recursos de LUIS
 
@@ -70,7 +70,7 @@ Recurso: `kind`:
     az cognitiveservices account create -n my-luis-authoring-resource -g my-resource-group --kind LUIS.Authoring --sku F0 -l westus --yes
     ```
 
-1. Cree un **recurso de punto de conexión de predicción de LUIS**, de tipo `LUIS`, llamado `my-luis-prediction-resource` en el grupo de recursos _existente_ denominado `my-resource-group` en la región `westus`. Si quiere un rendimiento superior al del nivel gratuito, cambie `F0` por `S0`. Más información sobre [planes de tarifa y rendimiento](luis-boundaries.md#key-limits).
+1. Cree un **recurso de punto de conexión de predicción de LUIS**, de tipo `LUIS`, llamado `my-luis-prediction-resource` en el grupo de recursos _existente_ denominado `my-resource-group` en la región `westus`. Si quiere un rendimiento superior al del nivel gratuito, cambie `F0` por `S0`. Más información sobre [planes de tarifa y rendimiento](luis-limits.md#key-limits).
 
     ```azurecli
     az cognitiveservices account create -n my-luis-prediction-resource -g my-resource-group --kind LUIS --sku F0 -l westus --yes
