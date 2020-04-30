@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2019
-ms.openlocfilehash: 75d5203e7c475a44b6a00dbf9286f43114b7b54f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 77fe4b4ffbf7c189a5bf64e662f395fc78e53944
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79480851"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82581505"
 ---
 # <a name="enable-azure-monitor-for-vms-using-azure-powershell-or-resource-manager-templates"></a>Habilitación de Azure Monitor para VM mediante plantillas de Resource Manager o Azure PowerShell
 
@@ -170,7 +170,7 @@ provisioningState       : Succeeded
 
 ## <a name="enable-with-powershell"></a>Habilitar con PowerShell
 
-Para habilitar Azure Monitor para VM en varias máquinas virtuales o conjuntos de escalado de máquinas virtuales, use el script de PowerShell [Install-VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights/1.0). Está disponible en la Galería de Azure PowerShell. Este script procesa una iteración en:
+Para habilitar Azure Monitor para VM en varias máquinas virtuales o conjuntos de escalado de máquinas virtuales, use el script de PowerShell [Install-VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights). Está disponible en la Galería de Azure PowerShell. Este script procesa una iteración en:
 
 - Cada máquina virtual y conjunto de escalado de máquinas virtuales de su suscripción.
 - El grupo de recursos con ámbito especificado por *ResourceGroup*.

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/03/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: bf47a352542be0ad4467ed420cc38f62da0d47dc
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 66c34206b96acf0414f2f2285ca267fa5c9c2e03
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81534904"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583170"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>Flujos de autenticación y escenarios de aplicaciones
 
@@ -44,7 +44,7 @@ Las aplicaciones se pueden clasificar como en la lista siguiente:
 - [Recursos protegidos frente a aplicaciones cliente](#protected-resources-vs-client-applications): algunos escenarios están relacionados con la protección de recursos, como las aplicaciones web o las API web. En cambio, otros, con la adquisición de un token de seguridad para llamar a una API web protegida.
 - [Con usuarios o sin usuarios](#with-users-or-without-users): algunos escenarios implican un usuario que ha iniciado sesión, mientras que otros (como los escenarios de demonio) no implican ninguno.
 - [Aplicaciones cliente públicas y confidenciales, de página única](#single-page-public-client-and-confidential-client-applications): estos tipos son tres grandes categorías de aplicaciones. Cada se usa con diferentes bibliotecas y objetos.
-- [Públicos de inicio de sesión](v2-supported-account-types.md#certain-authentication-flows-dont-support-all-the-account-types): los flujos de autenticación disponibles difieren en función de la audiencia de inicio de sesión. Algunos flujos solo están disponibles para las cuentas profesionales o educativas. Y otros, para las cuentas tanto profesionales como educativas, así como para las cuentas Microsoft personales. El público permitido depende de los flujos de autenticación.
+- [Públicos de inicio de sesión](v2-supported-account-types.md): los flujos de autenticación disponibles difieren en función de la audiencia de inicio de sesión. Algunos flujos solo están disponibles para las cuentas profesionales o educativas. Y otros, para las cuentas tanto profesionales como educativas, así como para las cuentas Microsoft personales. El público permitido depende de los flujos de autenticación.
 - [Flujos de OAuth 2.0 admitidos](#scenarios-and-supported-authentication-flows):  los flujos de autenticación se usan para implementar los escenarios de aplicaciones que solicitan tokens. No hay ninguna asignación individual entre los escenarios de aplicaciones y los flujos de autenticación.
 - [Plataformas compatibles](#scenarios-and-supported-platforms-and-languages): No todos los escenarios de aplicaciones están disponibles para todas las plataformas.
 

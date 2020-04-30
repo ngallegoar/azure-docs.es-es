@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/18/2020
-ms.openlocfilehash: 5e5034e99d37d3681192c2ad066f28acd1c4aeeb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 979535b1f9a237f6975908178fb1e5ed819181b0
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77672538"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82233472"
 ---
 # <a name="send-data-from-windows-azure-diagnostics-extension-to-azure-event-hubs"></a>Envío de datos de Windows Azure Diagnostics Extension a Azure Event Hubs
 Azure Diagnostics Extension es un agente de Azure Monitor que recopila datos de supervisión del sistema operativo invitado y de las cargas de trabajo de las máquinas virtuales de Azure y de otros recursos de proceso. En este artículo, se explica cómo puede enviar datos desde Windows Azure Diagnostic Extension (WAD) a [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) para reenviarlos después fuera de Azure.
@@ -51,26 +51,26 @@ A continuación, se incluyen ejemplos de la configuración pública y privada. S
 {
     "WadCfg": {
         "DiagnosticMonitorConfiguration": {
-            "overallQuotaInMB": 5120
-        },
-        "PerformanceCounters": {
-            "scheduledTransferPeriod": "PT1M",
-            "sinks": "myEventHub",
-            "PerformanceCounterConfiguration": [
-                {
-                    "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
-                    "sampleRate": "PT3M"
-                }
-            ]
-        },
-        "WindowsEventLog": {
-            "scheduledTransferPeriod": "PT1M",
-            "sinks": "myEventHub",
-                "DataSource": [
-                {
-                    "name": "Application!*[System[(Level=1 or Level=2 or Level=3)]]"
-                }
-            ]
+            "overallQuotaInMB": 5120,
+            "PerformanceCounters": {
+                "scheduledTransferPeriod": "PT1M",
+                "sinks": "myEventHub",
+                "PerformanceCounterConfiguration": [
+                    {
+                        "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
+                        "sampleRate": "PT3M"
+                    }
+                ]
+            },
+            "WindowsEventLog": {
+                "scheduledTransferPeriod": "PT1M",
+                "sinks": "myEventHub",
+                    "DataSource": [
+                    {
+                        "name": "Application!*[System[(Level=1 or Level=2 or Level=3)]]"
+                    }
+                ]
+            }
         },
         "SinksConfig": {
             "Sink": [
