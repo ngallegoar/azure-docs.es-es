@@ -8,12 +8,13 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 09/06/2016
 ms.author: robinsh
-ms.openlocfilehash: dfea53e62383409411925f2fe2f18d61a6855ec1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: amqp
+ms.openlocfilehash: d4916d651638f0d1dbb4f10e0e0732f5c330d300
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75429382"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767010"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>SDK de dispositivo IoT de Azure para C: más información sobre el serializador
 
@@ -251,7 +252,7 @@ if (SERIALIZE(&destination, &destinationSize, thermostat->Temperature) == IOT_AG
 }
 ```
 
-Usaremos valores codificados de forma rígida para temperatura y humedad en el código de ejemplo; pero imagine que en realidad vamos a recuperar estos valores mediante el muestreo de los sensores correspondientes en el termostato.
+Usaremos valores codificados de forma rígida para la temperatura y la humedad en el código de ejemplo; pero imagine que en realidad vamos a recuperar estos valores mediante el muestreo de los sensores correspondientes en el termostato.
 
 El código anterior usa el asistente **GetDateTimeOffset** que se especificó anteriormente. Por motivos que más tarde aclararemos, este código separa explícitamente la tarea de serializar y enviar el evento. El código anterior serializa el evento de temperatura en un búfer. Entonces, **sendMessage** es una función auxiliar (incluida en **simplesample\_amqp**) que envía el evento a IoT Hub:
 
@@ -270,7 +271,7 @@ static void sendMessage(IOTHUB_CLIENT_HANDLE iotHubClientHandle, const unsigned 
 }
 ```
 
-Este código es un subconjunto del asistente **SendAsync** descrita en la sección anterior, por lo que no volveremos aquí sobre ella de nuevo.
+Este código es un subconjunto del asistente **SendAsync** descrito en la sección anterior, por lo que no volveremos aquí sobre ello.
 
 Al ejecutar el código anterior para enviar el evento de temperatura, esta forma serializada del evento se envía a IoT Hub:
 
@@ -301,7 +302,7 @@ Nuevamente, es lo que se esperaba.
 
 Con este modelo, puede imaginar lo fácil que se podrían agregar eventos adicionales. Define más estructuras mediante **DECLARE\_STRUCT** e incluye el evento correspondiente en el modelo mediante **WITH\_DATA**.
 
-Ahora vamos a modificar el modelo para que incluya los mismos datos pero con una estructura diferente.
+Ahora vamos a modificar el modelo para que incluya los mismos datos, pero con una estructura diferente.
 
 ### <a name="model-2"></a>Modelo 2
 
@@ -317,7 +318,7 @@ WITH_DATA(EDM_DATE_TIME_OFFSET, Time)
 
 En este caso hemos eliminado las macros **DECLARE\_STRUCT** y simplemente definimos los elementos de datos de nuestro escenario con tipos simples del lenguaje de modelado.
 
-Solo por el momento, omitiremos el evento **Time**. Dejando este a un lado, este es el código para especificar **Temperature**:
+Solo por el momento, omitiremos el evento **Time**. Dejándolo a un lado, este es el código para especificar **Temperature**:
 
 ```C
 time_t now;
@@ -437,7 +438,7 @@ Lo importante aquí es que si se pasan varios eventos de datos a **SERIALIZE,** 
 
 El mejor enfoque dependerá de usted y de su forma de pensar sobre el modelo. Si envía "eventos" a la nube y cada evento contiene un conjunto definido de propiedades, entonces el primer enfoque cobra mucho sentido. En ese caso, usaría **DECLARE\_STRUCT** para definir la estructura de cada evento y luego incluirlos en el modelo con la macro **WITH\_DATA**. A continuación, enviaría cada evento como hicimos en el primer ejemplo anterior. En este enfoque, solo pasaría un único evento de datos a **SERIALIZER**.
 
-Si piensa en su modelo como orientado a objetos, entonces el segundo enfoque puede ser adecuado para usted. En este caso, los elementos definidos mediante **WITH\_DATA** son las "propiedades" del objeto. Pasaría cualquier subconjunto de eventos de su elección a **SERIALIZE** , según la cantidad de estado del "objeto" que quiera enviar a la nube.
+Si piensa en su modelo como orientado a objetos, entonces el segundo enfoque puede ser adecuado para usted. En este caso, los elementos definidos mediante **WITH\_DATA** son las "propiedades" del objeto. Pasaría cualquier subconjunto de eventos de su elección a **SERIALIZE**, según la cantidad de estado del "objeto" que quiera enviar a la nube.
 
 Ningún enfoque es bueno ni malo. Lo importante es saber cómo funciona la biblioteca de **serializador** y seleccionar el enfoque de modelado que mejor se ajuste a sus necesidades.
 

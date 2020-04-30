@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/16/2020
+ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: acacba591c9b895f1bd6abfbab5d3d4a4c858d12
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f08107874598a68fb5ce2a1a8a98b6a81d7b94d4
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79472782"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81756780"
 ---
 # <a name="string-claims-transformations"></a>Transformaciones de notificaciones de cadena
 
@@ -615,13 +615,17 @@ Comprueba que una notificación de cadena `claimToMatch` y el parámetro de entr
 | inputClaim | claimToMatch | string | Tipo de la notificación que se va a comparar. |
 | InputParameter | matchTo | string | La expresión regular con la que debe coincidir. |
 | InputParameter | outputClaimIfMatched | string | Valor que debe establecerse si las cadenas son iguales. |
+| InputParameter | extractGroups | boolean | [Opcional] Especifica si la coincidencia de Regex debe extraer los valores de los grupos. Valores posibles: `true` o `false` (valor predeterminado). | 
 | OutputClaim | outputClaim | string | Si la expresión regular coincide, esta notificación de salida contiene el valor del parámetro de entrada `outputClaimIfMatched`. Si no hay coincidencia, el valor es NULL. |
 | OutputClaim | regexCompareResultClaim | boolean | Tipo de la notificación de salida del resultado de la coincidencia de la expresión regular, que debe establecerse en `true` o `false` en función del resultado de la coincidencia. |
+| OutputClaim| El nombre de la notificación| string | Si el parámetro de entrada extractGroups se establece en true, la lista de tipos de notificación que se produce después de que se haya invocado esta transformación de notificaciones. El nombre del tipo de reclamación debe coincidir con el nombre del grupo Regex. | 
 
-Por ejemplo, comprueba si el número de teléfono indicado es válido, en función del patrón de expresión regular de número de teléfono.
+### <a name="example-1"></a>Ejemplo 1
+
+Comprueba si el número de teléfono indicado es válido, en función del patrón de expresión regular de número de teléfono.
 
 ```XML
-<ClaimsTransformation Id="SetIsPhoneRegex" TransformationMethod="setClaimsIfRegexMatch">
+<ClaimsTransformation Id="SetIsPhoneRegex" TransformationMethod="SetClaimsIfRegexMatch">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="phone" TransformationClaimType="claimToMatch" />
   </InputClaims>
@@ -636,8 +640,6 @@ Por ejemplo, comprueba si el número de teléfono indicado es válido, en funci�
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Ejemplo
-
 - Notificaciones de entrada:
     - **claimToMatch**: "64854114520"
 - Parámetros de entrada:
@@ -647,6 +649,39 @@ Por ejemplo, comprueba si el número de teléfono indicado es válido, en funci�
     - **outputClaim**: "isPhone"
     - **regexCompareResultClaim**: true
 
+### <a name="example-2"></a>Ejemplo 2
+
+Comprueba si la dirección de correo electrónico proporcionada es válida y devuelve el alias de correo electrónico.
+
+```XML
+<ClaimsTransformation Id="GetAliasFromEmail" TransformationMethod="SetClaimsIfRegexMatch">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="claimToMatch" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="matchTo" DataType="string" Value="(?&lt;mailAlias&gt;.*)@(.*)$" />
+    <InputParameter Id="outputClaimIfMatched" DataType="string" Value="isEmail" />
+    <InputParameter Id="extractGroups" DataType="boolean" Value="true" />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="validationResult" TransformationClaimType="outputClaim" />
+    <OutputClaim ClaimTypeReferenceId="isEmailString" TransformationClaimType="regexCompareResultClaim" />
+    <OutputClaim ClaimTypeReferenceId="mailAlias" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+- Notificaciones de entrada:
+    - **claimToMatch**: "emily@contoso.com"
+- Parámetros de entrada:
+    - **matchTo**: `(?&lt;mailAlias&gt;.*)@(.*)$`
+    - **outputClaimIfMatched**:  "isEmail"
+    - **extractGroups**: true
+- Notificaciones de salida:
+    - **outputClaim**: "isEmail"
+    - **regexCompareResultClaim**: true
+    - **mailAlias**: emily
+    
 ## <a name="setclaimsifstringsareequal"></a>SetClaimsIfStringsAreEqual
 
 Comprueba que una notificación de cadena y el parámetro de entrada `matchTo` son iguales, y establece las notificaciones de salida con el valor presente en los parámetros de entrada `stringMatchMsg` y `stringMatchMsgCode`, junto con la notificación de salida del resultado de la comparación, que debe establecerse en `true` o `false` según el resultado de la comparación.

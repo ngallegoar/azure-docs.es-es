@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: how-to
-ms.openlocfilehash: 001a77734a8cedf08c5523380c1cbd00dce89f40
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: fd510f90887353d7486908ee076d5308db72c59d
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80679202"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687081"
 ---
 # <a name="get-service-access-tokens"></a>Obtención de tokens de acceso de servicio
 
@@ -24,7 +24,7 @@ En este artículo se describe cómo crear dicho token de acceso.
 
 ## <a name="token-service-rest-api"></a>API REST del servicio Table
 
-Para crear tokens de acceso, el *Servicio de token seguro* proporciona una única API REST. La dirección URL del servicio STS de ARR es [https://sts.mixedreality.azure.com](https://sts.mixedreality.azure.com).
+Para crear tokens de acceso, el *Servicio de token seguro* proporciona una única API REST. La dirección URL del servicio STS de ARR es https:\//sts.mixedreality.azure.com.
 
 ### <a name="get-token-request"></a>Solicitud "Get token"
 

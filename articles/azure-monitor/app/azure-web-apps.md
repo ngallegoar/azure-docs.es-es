@@ -3,12 +3,13 @@ title: Supervisar el rendimiento de Azure App Services | Microsoft Docs
 description: Supervisión del rendimiento de aplicaciones de Azure App Services. Carga y tiempo de respuesta de gráfico, información de dependencia y establecer alertas en el rendimiento.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: d2134e059a446c18108e8dd16bcc74504b42b15a
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.custom: fasttrack-edit
+ms.openlocfilehash: dd0d3be6ed7e5185183618cc2bdeff5ee8d749f3
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437192"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81729804"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Supervisar el rendimiento de Azure App Service
 
@@ -55,15 +56,16 @@ Hay dos maneras de habilitar la supervisión de aplicaciones para las aplicacion
 2. Después de especificar qué recurso se debe usar, puede elegir cómo quiere que Application Insights recopile los datos de cada plataforma para la aplicación. La supervisión de aplicaciones ASP.NET está activada de manera predeterminada con dos niveles diferentes de la colección.
 
     ![Opciones de elección para cada plataforma](./media/azure-web-apps/choose-options-new.png)
-
-   * El nivel de recopilación **Básico** de .NET ofrece funcionalidades esenciales de APM de instancia única.
-
-   * El nivel de recopilación **Recomendado** de .NET:
-       * Agrega las tendencias de uso de CPU, memoria y E/S.
-       * Correlaciona los microservicios entre los límites de solicitud y dependencia.
-       * Recopila las tendencias de uso y habilita la correlación entre los resultados de disponibilidad y las transacciones.
-       * Recopila las excepciones no controladas por el proceso de host.
-       * Mejora la precisión de las métricas de APM con carga, cuando se usa el muestreo.
+ 
+ A continuación se muestra un resumen de los datos recopilados para cada ruta:
+        
+|  | Recopilación básica de .NET | Recopilación recomendada de .NET |
+| --- | --- | --- |
+| Agrega las tendencias de uso de CPU, memoria y E/S. |Sí |Sí |
+| Recopila las tendencias de uso y habilita la correlación entre los resultados de disponibilidad y las transacciones. | Sí |Sí |
+| Recopila las excepciones no controladas por el proceso de host. | Sí |Sí |
+| Mejora la precisión de las métricas de APM con carga, cuando se usa el muestreo. | Sí |Sí |
+| Correlaciona los microservicios entre los límites de solicitud y dependencia. | No (solo funcionalidades de APM de instancia única) |Sí |
 
 3. Para configurar valores como el muestreo, que anteriormente se podía controlar mediante el archivo applicationinsights.config, ahora puede interactuar con esos mismos valores a través de la configuración de la aplicación con un prefijo correspondiente. 
 

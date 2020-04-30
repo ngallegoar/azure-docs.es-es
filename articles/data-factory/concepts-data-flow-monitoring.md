@@ -7,17 +7,17 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/07/2019
-ms.openlocfilehash: b06000d6b3cd7a429b7ad0fc9c453595f21bd893
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.date: 04/17/2020
+ms.openlocfilehash: 18099e853aa44e4434a14d7ea913f968593021ec
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81418480"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687915"
 ---
 # <a name="monitor-data-flows"></a>Supervisión de flujos de datos
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Después de haber completado la compilación y depuración del flujo de datos, desea programarlo para ejecutarse según una programación en el contexto de una canalización. Puede programar la canalización de Azure Data Factory mediante desencadenadores. También puede usar la opción Desencadenar ahora desde el generador de canalización de Azure Data Factory para ejecutar una sola ejecución con el fin de probar el flujo de datos dentro del contexto de canalización.
 
@@ -32,6 +32,10 @@ Verá estadísticas en este nivel, así como los tiempos de ejecución y estado.
 En la vista de supervisión del nodo gráfico, verá una versión simplificada de solo lectura del gráfico de flujo de datos.
 
 ![Supervisión de Data Flow](media/data-flow/mon003.png "Supervisión de Data Flow")
+
+Este es un vídeo de información general sobre la supervisión del rendimiento de los flujos de datos desde la pantalla de supervisión de ADF:
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4u4mH]
 
 ## <a name="view-data-flow-execution-plans"></a>Visualización de planes de ejecución de Data Flow
 

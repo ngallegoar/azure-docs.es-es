@@ -3,12 +3,12 @@ title: 'Supervisión de aplicaciones Java en cualquier entorno: Application Insi
 description: Supervisión del rendimiento de aplicaciones para aplicaciones Java que se ejecutan en cualquier entorno sin instrumentar la aplicación. Seguimiento distribuido y mapa de aplicación.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 5a62be45320523ee0577d56eb557a4f87a58a1cc
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: b9c1a52051e63beee9a784714a7bb1a6a79e8759
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886864"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687727"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights---public-preview"></a>Supervisión de aplicaciones sin código de Java con Azure Monitor Application Insights: versión preliminar pública
 
@@ -24,20 +24,27 @@ Así mismo, puede enviar telemetría personalizada desde la aplicación. El agen
 
 **1. Descargue el agente.**
 
-Descargue [applicationinsights-agent-3.0.0-PREVIEW.2.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.2/applicationinsights-agent-3.0.0-PREVIEW.2.jar).
+Descargue [applicationinsights-agent-3.0.0-PREVIEW.3.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.3/applicationinsights-agent-3.0.0-PREVIEW.3.jar)
 
 **2. Apunte JVM al agente.**
 
-Agregue `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.2.jar` a los argumentos de JVM de la aplicación.
+Agregue `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.3.jar` a los argumentos de JVM de la aplicación.
 
 Los argumentos típicos de JVM son `-Xmx512m` y `-XX:+UseG1GC`. Por lo tanto, si sabe dónde debe agregarlos, lo mismo se aplica para este.
 
-Para obtener ayuda adicional con la configuración de los argumentos de JVM de la aplicación, consulte [Versión preliminar 3.0: sugerencias para actualizar los argumentos de JVM](https://github.com/microsoft/ApplicationInsights-Java/wiki/3.0-Preview:-Tips-for-updating-your-JVM-args).
+Para obtener ayuda adicional con la configuración de los argumentos de JVM de la aplicación, consulte [Versión preliminar 3.0: sugerencias para actualizar los argumentos de JVM](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-arguments).
 
 **3. Apunte el agente al recurso de Application Insights.**
 
 Si aún no tiene ningún recurso de Application Insights, puede crear uno nuevo siguiendo los pasos descritos en la [guía de creación de recursos](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource).
-Cree un archivo de configuración denominado `ApplicationInsights.json` y colóquelo en el mismo directorio que `applicationinsights-agent-3.0.0-PREVIEW.2.jar`, con el siguiente contenido:
+
+Apunte el agente hacia el recurso de Application Insights, ya sea estableciendo una variable de entorno:
+
+```
+APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=00000000-0000-0000-0000-000000000000
+```
+
+O creando un archivo de configuración denominado `ApplicationInsights.json` y colocándolo en el mismo directorio que `applicationinsights-agent-3.0.0-PREVIEW.3.jar`, con el siguiente contenido:
 
 ```json
 {
@@ -73,7 +80,7 @@ En el archivo `ApplicationInsights.json`, también puede configurar lo siguiente
 * Proxy HTTP
 * Diagnóstico automático
 
-Consulte los detalles en [Versión preliminar pública 3.0: opciones de configuración](https://github.com/microsoft/ApplicationInsights-Java/wiki/3.0-Preview:-Configuration-Options).
+Consulte los detalles en [Versión preliminar pública 3.0: opciones de configuración](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-config).
 
 ## <a name="autocollected-requests-dependencies-logs-and-metrics"></a>Solicitudes, dependencias, registros y métricas recopilados automáticamente
 

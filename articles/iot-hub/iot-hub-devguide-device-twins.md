@@ -8,12 +8,13 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 02/01/2020
-ms.openlocfilehash: 51e58de92f111c8854add613a299f2b8ccec0503
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: mqtt
+ms.openlocfilehash: 3bec3d19ed68b7eb8bb50baa8f6c11135ef778cc
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79237552"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81731459"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Dispositivos gemelos en IoT Hub
 
@@ -58,7 +59,7 @@ Un dispositivo gemelo es un documento JSON que incluye:
 
 * **Propiedades notificadas**. Se usan en conjunción con las propiedades deseadas para sincronizar la configuración o la condición del dispositivo. La aplicación de dispositivo puede establecer propiedades notificadas, y el back-end de solución puede leerlas y consultarlas.
 
-* **Propiedades de identidad del dispositivo**. La raíz del documento JSON del dispositivo gemelo contiene las propiedades de solo lectura de la identidad de dispositivo correspondiente, almacenadas en el [registro de identidad de dispositivo](iot-hub-devguide-identity-registry.md).
+* **Propiedades de identidad del dispositivo**. La raíz del documento JSON del dispositivo gemelo contiene las propiedades de solo lectura de la identidad de dispositivo correspondiente, almacenadas en el [registro de identidad de dispositivo](iot-hub-devguide-identity-registry.md). No se incluirán las propiedades `connectionStateUpdatedTime` y `generationId`.
 
 ![Captura de pantalla de las propiedades de dispositivos gemelos](./media/iot-hub-devguide-device-twins/twin.png)
 

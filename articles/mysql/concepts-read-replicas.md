@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/16/2020
-ms.openlocfilehash: 98461928e465a103f73761afce5270234224fbae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/21/2020
+ms.openlocfilehash: 47f686f810f62fe03a9b0217677c436f3b91782b
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76167342"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767893"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Réplicas de lectura en Azure Database for MySQL
 
@@ -45,7 +45,6 @@ Este de Australia, Sudeste de Australia, Centro de EE. UU., Este de Asia, Este 
 
 *Oeste de EE  UU. 2 no está disponible temporalmente como ubicación de réplica entre regiones.
 
-
 ### <a name="paired-regions"></a>Regiones emparejadas
 Además de las regiones de réplica universal, puede crear una réplica de lectura en la región emparejada de Azure del servidor maestro. Si no conoce el par de la región, puede obtener más información en el [artículo sobre regiones emparejadas de Azure](../best-practices-availability-paired-regions.md).
 
@@ -71,7 +70,7 @@ Aprenda a [crear una réplica de lectura en Azure Portal](howto-read-replicas-po
 
 ## <a name="connect-to-a-replica"></a>Conexión a una réplica
 
-Durante la creación, una réplica hereda las reglas de firewall o el punto de conexión de servicio de red virtual del servidor maestro. Posteriormente, estas reglas son independientes de las del servidor maestro.
+Durante la creación, una réplica hereda las reglas de firewall del servidor maestro. Posteriormente, estas reglas son independientes de las del servidor maestro.
 
 La réplica hereda su cuenta de administrador del servidor maestro. Todas las cuentas de usuario existentes en el servidor se replican en las réplicas de lectura. Solo se puede conectar a una réplica de lectura utilizando las cuentas de usuario disponibles en el servidor maestro.
 
@@ -124,7 +123,7 @@ Las réplicas se crean con la misma configuración de servidor que el servidor m
 > [!IMPORTANT]
 > Antes de actualizar la configuración de un servidor maestro con nuevos valores, actualice la configuración de las réplicas a valores iguales o mayores. Esta acción garantiza que la réplica puede hacer frente a los cambios realizados en el servidor maestro.
 
-Las reglas de firewall, las reglas de red virtual y la configuración de parámetros se heredan del servidor maestro a la réplica cuando se crea la réplica. Después, las reglas de la réplica son independientes.
+Las reglas de firewall y la configuración de parámetros se heredan del servidor maestro a la réplica cuando se crea la réplica. Después, las reglas de la réplica son independientes.
 
 ### <a name="stopped-replicas"></a>Réplicas detenidas
 

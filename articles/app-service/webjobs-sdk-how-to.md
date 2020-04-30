@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: c606f6e60b1c906a0d5c29992287d126aaa37b7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5a8d5f96449cfecd4628c38fa2788a1e06e96b07
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77602942"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758895"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Uso del SDK de Azure WebJobs para el procesamiento en segundo plano basado en eventos
 
@@ -155,14 +155,14 @@ Los desencadenadores automáticos llaman a una función en respuesta a un evento
 ```cs
 public static void Run(
     [QueueTrigger("myqueue-items")] string myQueueItem,
-    [Blob("samples-workitems/{myQueueItem}", FileAccess.Read)] Stream myBlob,
+    [Blob("samples-workitems/{queueTrigger}", FileAccess.Read)] Stream myBlob,
     ILogger log)
 {
     log.LogInformation($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
 }
 ```
 
-El atributo `QueueTrigger` indica al entorno de ejecución que llame a la función cada vez que aparece un mensaje de la cola en la cola `myqueue-items`. El atributo `Blob` indica al tiempo de ejecución que use el mensaje de la cola para leer un blob en el contenedor *sample-workitems*. El contenido del mensaje de la cola, pasado a la función en el parámetro `myQueueItem`, es el nombre del blob.
+El atributo `QueueTrigger` indica al entorno de ejecución que llame a la función cada vez que aparece un mensaje de la cola en la cola `myqueue-items`. El atributo `Blob` indica al tiempo de ejecución que use el mensaje de la cola para leer un blob en el contenedor *sample-workitems*. El nombre del elemento de blob en el contenedor `samples-workitems` se obtiene directamente del desencadenador de cola como una expresión de enlace (`{queueTrigger}`).
 
 [!INCLUDE [webjobs-always-on-note](../../includes/webjobs-always-on-note.md)]
 
@@ -277,7 +277,7 @@ Para usar el desencadenador Timer o el enlace Files, que forman parte de los ser
 
 En la versión 2.*x* del paquete `Microsoft.Azure.WebJobs` se incluyen estos tipos de desencadenadores y enlaces:
 
-* Almacenamiento de blobs
+* Blob Storage
 * Queue Storage
 * Almacenamiento de tablas
 
@@ -423,7 +423,7 @@ static async Task Main()
 }
 ```
 
-Para más información, consulte el artículo [Enlace de Event Hubs](../azure-functions/functions-bindings-event-hubs-output.md#hostjson-settings).
+Para más información, consulte el artículo [Enlace de Event Hubs](../azure-functions/functions-bindings-event-hubs-trigger.md#host-json).
 
 ### <a name="queue-storage-trigger-configuration"></a>Configuración del desencadenador de Queue Storage
 

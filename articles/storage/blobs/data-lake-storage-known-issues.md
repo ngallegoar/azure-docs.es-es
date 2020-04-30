@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/20/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 4f8fae6580272ed53b8d440ba3e74c6a1ed1e61a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dfa4d65464192b90d4a6f74255faaf8b664ce118
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80061505"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767962"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemas conocidos con Azure Data Lake Storage Gen2
 
@@ -25,7 +25,7 @@ Ahora, un número creciente de características de Blob Storage funciona con cue
 
 ## <a name="supported-azure-service-integrations"></a>Integraciones de servicios de Azure admitidos
 
-Data Lake Storage Gen2 admite varios servicios de Azure que se pueden usar para ingerir datos, realizar análisis y crear representaciones visuales. Para ver una lista de los servicios de Azure admitidos, consulte el documento en que se indica cuáles son los [servicios de Azure que admiten Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md).
+Azure Data Lake Storage Gen2 admite varios servicios de Azure que se pueden usar para ingerir datos, realizar análisis y crear representaciones visuales. Para ver una lista de los servicios de Azure admitidos, consulte el documento en que se indica cuáles son los [servicios de Azure que admiten Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md).
 
 Consulte [Servicios de Azure que admiten Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md).
 
@@ -62,14 +62,11 @@ No se admiten discos de máquina virtual no administrados en cuentas que tengan 
 
 <a id="api-scope-data-lake-client-library" />
 
-## <a name="file-system-support-in-sdks"></a>Compatibilidad del sistema de archivos en SDK
+## <a name="file-system-support-in-sdks-powershell-and-azure-cli"></a>Compatibilidad del sistema de archivos en los SDK, PowerShell y la CLI de Azure
 
-Las operaciones de ACL Get y Set no son recursivas actualmente.
-
-## <a name="file-system-support-in-powershell-and-azure-cli"></a>Compatibilidad del sistema de archivos en PowerShell y la CLI de Azure
-
-- La compatibilidad con [PowerShell](data-lake-storage-directory-file-acl-powershell.md) y la [CLI de Azure](data-lake-storage-directory-file-acl-cli.md) se encuentra en versión preliminar pública.
 - Las operaciones de ACL Get y Set no son recursivas actualmente.
+- La compatibilidad de la [CLI de Azure](data-lake-storage-directory-file-acl-cli.md) está en versión preliminar pública.
+
 
 ## <a name="lifecycle-management-policies"></a>Directivas de administración del ciclo de vida
 
@@ -112,11 +109,8 @@ Las aplicaciones de terceros que usan las API REST para funcionar seguirán func
 
 Si se ha concedido [acceso de lectura anónimo](storage-manage-access-to-resources.md) a un contenedor, las ACL no tendrán ningún efecto en ese contenedor o los archivos de ese contenedor.
 
-## <a name="windows-azure-storage-blob-wasb-driver"></a>Controlador Azure Storage Blob para Windows (WASB)
+## <a name="windows-azure-storage-blob-wasb-driver-unsupported-with-data-lake-storage-gen2"></a>Controlador Windows Azure Storage Blob (WASB) (no compatible con Data Lake Storage Gen2)
 
-Actualmente, hay varios problemas asociados al uso del controlador de WASB junto con cuentas que tienen un espacio de nombres jerárquico. Se recomienda el uso del controlador de [Azure Blob File System (ABFS)](data-lake-storage-abfs-driver.md) en las cargas de trabajo. 
+Actualmente, el controlador WASB, que se diseñó para funcionar solo con la API Blob, experimenta problemas en algunos escenarios comunes. En concreto, cuando es un cliente en una cuenta de almacenamiento habilitada para espacios de nombres jerárquicos. El acceso multiprotocolo en Data Lake Storage no mitigará estos problemas. 
 
-
-
-
-
+Por el momento (y probablemente en un futuro inmediato), no se ofrecerá compatibilidad para el controlador WASB como cliente en una cuenta de almacenamiento habilitada para espacios de nombres jerárquicos. En su lugar, se recomienda que utilice el controlador de [Azure Blob File System (ABFS)](data-lake-storage-abfs-driver.md) en su entorno de Hadoop. Si está intentando migrar de un entorno de Hadoop local con una versión anterior a la rama de Hadoop 3, abra una incidencia de soporte técnico de Azure para que podamos ponernos en contacto con usted para indicarle el camino correcto para usted y su organización.

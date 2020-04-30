@@ -3,12 +3,12 @@ title: Plantilla para crear alertas de Resource Health
 description: Creación de alertas mediante programación que notifiquen cuándo dejan de estar disponibles los recursos de Azure.
 ms.topic: conceptual
 ms.date: 9/4/2018
-ms.openlocfilehash: c01934cc88dc29d0503abfafc203ab0f04bf1761
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 60ff5bdf2f4f0dab94c18fd7c751869c1893ad65
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80062907"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759022"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Configuración de alertas de estado de los recursos con plantillas de Resource Manager
 
@@ -228,6 +228,9 @@ Quizá solo desee recibir notificaciones en caso de que el estado del recurso se
 ```
 
 Si desea recibir una notificación para las cuatro fases de los eventos de estado, elimine esta condición y la alerta le notificará independientemente de la propiedad `status`.
+
+> [!NOTE]
+> Cada sección "anyOf" debe contener solo un valor de tipo de campo.
 
 ### <a name="adjusting-the-resource-health-alerts-to-avoid-unknown-events"></a>Ajuste de las alertas de Resource Health para evitar eventos desconocidos
 

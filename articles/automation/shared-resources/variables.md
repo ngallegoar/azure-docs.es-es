@@ -1,5 +1,5 @@
 ---
-title: Recursos de variables en Azure Automation
+title: Administración de variables en Azure Automation
 description: Los activos de variables son valores que están disponibles para todos los runbooks y configuraciones de DSC en Azure Automation.  En este artículo se explican los detalles de las variables y cómo trabajar con ellas en la creación de texto y gráficos.
 services: automation
 ms.service: automation
@@ -9,14 +9,14 @@ ms.author: magoedte
 ms.date: 05/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d4a4a92feb3e1b400c0f40076148f7898c4bdef1
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: 4778e9b2c0d3b442b214966ab69810d2f42b70b8
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80365830"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732759"
 ---
-# <a name="variable-assets-in-azure-automation"></a>Recursos de variables en Azure Automation
+# <a name="manage-variables-in-azure-automation"></a>Administración de variables en Azure Automation
 
 Los recursos de variables son valores que están disponibles para todos los runbooks y configuraciones de DSC en su cuenta de Automation. Puede administrarlos desde Azure Portal, PowerShell, un runbook o en una configuración de DSC.
 
@@ -45,11 +45,14 @@ Cuando se crea una variable con Azure Portal, debe especificar un tipo de datos 
 * Boolean
 * Null
 
-La variable no se limita al tipo de datos designado. Debe establecer la variable mediante Windows PowerShell si se desea especificar un valor de un tipo diferente. Si se indica `Not defined`, el valor de la variable se establecerá en NULL, y deberá establecer el valor con el cmdlet [Set-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/set-azautomationvariable?view=azps-3.5.0) o con la actividad `Set-AutomationVariable`.
+La variable no se limita al tipo de datos designado. Debe establecer la variable mediante Windows PowerShell si se desea especificar un valor de un tipo diferente. Si indica `Not defined`, el valor de la variable se establece en NULL. Debe establecer el valor con el cmdlet [Set-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/set-azautomationvariable?view=azps-3.5.0) o la actividad `Set-AutomationVariable`.
 
 Azure Portal no se puede usar para crear o cambiar el valor de un tipo de variable complejo. Sin embargo, puede proporcionar un valor de cualquier tipo mediante Windows PowerShell. Los tipos complejos se recuperan como un objeto [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject).
 
 Puede almacenar varios valores en una única variable mediante la creación de una matriz o tabla hash y guardarlos en la variable.
+
+>[!NOTE]
+>Las variables de nombre de máquina virtual pueden tener un máximo de 80 caracteres. Las variables de grupo de recursos pueden tener un máximo de 90 caracteres. Consulte [Reglas y restricciones de nomenclatura para los recursos de Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules).
 
 ## <a name="powershell-cmdlets-that-create-and-manage-variable-assets"></a>Cmdlets de PowerShell que crean y administran recursos de variable
 
@@ -140,7 +143,7 @@ $vmIpAddress = $vmValue.IpAddress
 
 ### <a name="create-and-use-a-variable-in-a-runbook-or-dsc-configuration"></a>Creación y uso de una variable en un runbook o una configuración de DSC
 
-La única forma de crear una variable en un runbook o una configuración de DSC es usando el cmdlet `New-AzAutomationVariable` o su módulo de AzureRM equivalente. El script usa este cmdlet para establecer el valor inicial de la variable. Luego, el script puede recuperar el valor usando `Get-AzAutomationVariable`. Si el valor es de un tipo simple, se recupera ese mismo tipo. Si es un tipo complejo, se recupera un tipo `PSCustomObject`.
+La única forma de crear una variable nueva desde un runbook o una configuración de DSC es usando el cmdlet `New-AzAutomationVariable` o su módulo de AzureRM equivalente. El script usa este cmdlet para establecer el valor inicial de la variable. Luego, el script puede recuperar el valor usando `Get-AzAutomationVariable`. Si el valor es de un tipo simple, se recupera ese mismo tipo. Si es un tipo complejo, se recupera un tipo `PSCustomObject`.
 
 >[!NOTE]
 >La única forma de recuperar una variable en un runbook o una configuración de DSC es usando la actividad `Get-AutomationVariable`. 

@@ -2,13 +2,13 @@
 title: Estructura y sintaxis de plantillas
 description: Describe la estructura y las propiedades de plantillas de Azure Resource Manager mediante la sintaxis declarativa de JSON.
 ms.topic: conceptual
-ms.date: 03/16/2020
-ms.openlocfilehash: 4e8334e4ddfaee52c5d1aa68fb8689fcde0a6cbf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/20/2020
+ms.openlocfilehash: 60d800eb5251fb3454ba60a67bd109261c6ff9d4
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79459997"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687879"
 ---
 # <a name="understand-the-structure-and-syntax-of-arm-templates"></a>Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager
 
@@ -293,7 +293,7 @@ Tiene unas cuantas opciones para agregar comentarios y metadatos a la plantilla.
 Para los comentarios en línea, puede usar `//` o `/* ... */`, pero esta sintaxis no funciona con todas las herramientas. No puede usar el editor de plantillas del portal para trabajar en plantillas con comentarios insertados. Si agrega este estilo de comentarios, asegúrese de que las herramientas que use admitan los comentarios JSON insertados.
 
 > [!NOTE]
-> Para implementar plantillas con comentarios mediante la CLI de Azure, debe usar el modificador `--handle-extended-json-format`.
+> Para implementar plantillas con comentarios mediante la CLI de Azure con la versión 2.3.0 o posterior, debe usar el modificador `--handle-extended-json-format`.
 
 ```json
 {
@@ -404,7 +404,7 @@ Una cadena se puede dividir en varias líneas. Por ejemplo, consulte la propieda
   ],
 ```
 
-Para implementar plantillas con cadenas de varias líneas mediante la CLI de Azure, debe usar el modificador `--handle-extended-json-format`.
+Para implementar plantillas con cadenas de varias líneas mediante la CLI de Azure con la versión 2.3.0 o posterior, debe usar el modificador `--handle-extended-json-format`.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

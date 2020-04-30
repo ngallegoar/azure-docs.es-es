@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
-ms.openlocfilehash: 8fe9e551a4ca7dea8f53e0f8c2975ca3d88c48f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b25e9d860f118c1b044b13e01a80aaf7a24963cf
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79366264"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81768237"
 ---
 # <a name="install-custom-apache-hadoop-applications-on-azure-hdinsight"></a>Instalación de aplicaciones de Apache Hadoop propias en Azure HDInsight
 
@@ -119,7 +119,7 @@ Si se produce algún error al instalar la aplicación, puede consultar los mensa
 
 * Interfaz de usuario web de Apache Ambari: si el script de instalación fue la causa del error, utilice la interfaz de usuario web de Ambari para consultar los registros completos de los scripts de instalación.
 
-    Para más información, consulte [Solución de problemas](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting).
+    Para más información, consulte [Solución de problemas de acciones de script](./troubleshoot-script-action.md).
 
 ## <a name="remove-hdinsight-applications"></a>Eliminación de aplicaciones de HDInsight
 

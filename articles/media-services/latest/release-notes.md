@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 02/03/2020
+ms.date: 04/20/2020
 ms.author: juliako
-ms.openlocfilehash: 76ef9f92b6b6633982242ccafab1950e0ef5f410
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: b4849b4fbfdbaece46f5669f4c242e864b1ca533
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80582795"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81769749"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de la versión de Azure Media Services v3
 
@@ -35,7 +35,13 @@ Para mantenerse al día con los avances más recientes, este artículo proporcio
 > Puede usar [Azure Portal](https://portal.azure.com/) para administrar los [eventos en directo](live-events-outputs-concept.md) de la versión 3, ver los [recursos](assets-concept.md) de la versión 3, obtener información sobre el acceso a las API. Para las restantes tareas de administración (por ejemplo, Transformaciones y trabajos y Protección de contenido), use la [API REST](https://aka.ms/ams-v3-rest-ref), la [CLI](https://aka.ms/ams-v3-cli-ref), o uno de los [SDK](media-services-apis-overview.md#sdks) compatibles.
 
 Para más información, consulte [Guía de migración para mover de Media Services v2 a v3](migrate-from-v2-to-v3.md#known-issues).
- 
+
+## <a name="april-2020"></a>Abril de 2020
+
+### <a name="improvements-in-documentation"></a>Mejoras en la documentación
+
+La documentación de Azure Media Player se migró a la [documentación de Azure](../azure-media-player/azure-media-player-overview.md).
+
 ## <a name="january-2020"></a>Enero de 2020
 
 ### <a name="improvements-in-media-processors"></a>Mejoras en los procesadores de multimedia
@@ -361,4 +367,5 @@ Consulte el artículo [Comunidad de Azure Media Services](media-services-communi
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Información general](media-services-overview.md)
+- [Actualizaciones de la documentación de Media Services v3](docs-release-notes.md)
 - [Notas de la versión de Media Services v2](../previous/media-services-release-notes.md)

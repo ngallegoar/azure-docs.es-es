@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: c5fb585d0eb6aeb7866c2ab04b324ee31fe903ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c804cc8942a40e2f30c980636194daa82e0fb0e8
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77658056"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687322"
 ---
 # <a name="workbook-text-parameters"></a>Parámetros de texto de libros
 
@@ -59,6 +59,8 @@ Este es el aspecto que tendrá el libro en modo de lectura.
 
     ![Imagen que muestra un parámetro de texto al que se hace referencia en KQL](./media/workbooks-text/text-reference.png)
 
+> [!NOTE]
+> En el ejemplo anterior, `{SlowRequestThreshold}` representa un valor entero. Si estaba consultando una cadena como `{ComputerName}`, tendría que modificar la consulta de Kusto y agregar comillas, `"{ComputerName}"`, para que el campo del parámetro aceptara una entrada sin comillas.
 
 ## <a name="setting-default-values"></a>Configuración de los valores predeterminados
 1. Comience con un libro vacío en modo de edición.

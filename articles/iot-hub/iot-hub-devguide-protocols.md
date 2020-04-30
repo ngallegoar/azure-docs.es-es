@@ -8,12 +8,15 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.openlocfilehash: 6d1ab50e471c9c603c7886130375dc74e9b2a755
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: 3e7f31371a0582a6f4941efbfa0087119278d2d1
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79237364"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81729128"
 ---
 # <a name="reference---choose-a-communication-protocol"></a>Referencia: elección de un protocolo de comunicación
 
@@ -39,7 +42,7 @@ Considere los siguientes aspectos a la hora de elegir el protocolo para las comu
 
 * **Patrón de nube a dispositivo**. HTTPS no cuenta con una forma eficaz de implementar la inserción de servidor. Por lo tanto, cuando se usa HTTPS, los dispositivos sondean los mensajes de nube a dispositivo en IoT Hub. Este enfoque es ineficaz tanto para el dispositivo como para IoT Hub. Según las directrices actuales de HTTPS, cada dispositivo sondeará si hay mensajes cada 25 minutos o más. AMQP y MQTT admiten la inserción de servidor cuando se reciben mensajes de la nube a dispositivo. Permiten inserciones inmediatas de mensajes desde IoT Hub en el dispositivo. Si le preocupa la latencia de entrega, es mucho mejor usar los protocolos MQTT o AMQP. Para dispositivos conectados en raras ocasiones, HTTPS funciona bien.
 
-* **Puertas de enlace de campo**. Cuando se usan MQTT y HTTPS, no puede conectar varios dispositivos (cada uno con sus propias credenciales por dispositivo) con la misma conexión TLS. En [escenarios de puerta de enlace de campo](iot-hub-devguide-endpoints.md#field-gateways) que requieren una conexión TLS entre la puerta de enlace de campo e IoT Hub para cada dispositivo conectado, estos protocolos no son óptimos.
+* **Puertas de enlace de campo**. MQTT y HTTPS solo admiten una única identidad de dispositivo (id. de dispositivo más credenciales) por conexión TLS. Por este motivo, estos protocolos no se admiten en [escenarios de puerta de enlace de campo](iot-hub-devguide-endpoints.md#field-gateways) que requieran la multiplexación de mensajes con varias identidades de dispositivo en una única conexión ascendente a IoT Hub o un grupo de ellas. Estas puertas de enlace pueden usar un protocolo que admita varias identidades de dispositivo por conexión, como AMQP, para su tráfico ascendente.
 
 * **Dispositivos con bajos recursos**. Las bibliotecas de MQTT y HTTPS tienen una huella menor que las bibliotecas de AMQP. Por ello, si el dispositivo tiene recursos limitados (por ejemplo, menos de 1 MB de RAM), estos protocolos pueden ser la única implementación de protocolo disponible.
 

@@ -7,17 +7,17 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/08/2020
-ms.openlocfilehash: 2923e087426ee04c74da629f4e2d2d49a06eb1ef
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.date: 04/20/2020
+ms.openlocfilehash: 6b353967c9b9c7517f1a42581717c6394c0e6374
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81416530"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81729137"
 ---
 # <a name="alter-row-transformation-in-mapping-data-flow"></a>Transformación Alterar fila en el flujo de datos de asignación
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Use la transformación Alterar fila para establecer directivas de inserción, eliminación, actualización y upsert en las filas. Puede agregar las condiciones de uno a varios como expresiones. Estas condiciones se deben especificar en orden de prioridad, ya que cada fila se marcará con la directiva correspondiente a la primera expresión coincidente. Cada una de esas condiciones puede dar lugar a la inserción, actualización, eliminación o upsert de una fila (o filas). La transformación Alterar fila puede generar tanto acciones DDL como DML en la base de datos.
 
@@ -48,10 +48,12 @@ Para que las directivas de Alterar fila funcionen, el flujo de datos debe escrib
 
 ![Receptor de alteración de fila](media/data-flow/alter-row2.png "Receptor de alteración de fila")
 
- El comportamiento predeterminado es permitir solamente las inserciones. Para permitir actualizaciones, upserts o eliminaciones, marque la casilla en el receptor correspondiente a esa condición. Si están habilitadas las actualizaciones, upserts o eliminaciones, debe especificar con qué columnas de clave del receptor deben coincidir.
+El comportamiento predeterminado es permitir solamente las inserciones. Para permitir actualizaciones, upserts o eliminaciones, marque la casilla en el receptor correspondiente a esa condición. Si están habilitadas las actualizaciones, upserts o eliminaciones, debe especificar con qué columnas de clave del receptor deben coincidir.
 
 > [!NOTE]
 > Si las inserciones, actualizaciones u operaciones upsert modifican el esquema de la tabla de destino en el receptor, se producirá un error en el flujo de datos. Para modificar el esquema de destino en la base de datos, seleccione **Recreate table** (Volver a crear la tabla) como acción de la tabla. De esta forma se quita la tabla y se vuelve a crear con la nueva definición de esquema.
+
+La transformación de receptor requiere una única clave o una serie de claves para la identificación de filas exclusiva en la base de datos de destino. En el caso de los receptores de SQL, establezca las claves en la pestaña de configuración del receptor. En el caso de CosmosDB, establezca la clave de partición en la configuración y establezca también el campo de sistema de CosmosDB "id" en la asignación del receptor. En el caso de CosmosDB, es obligatorio incluir la columna del sistema "id" para las actualizaciones, upserts y eliminaciones.
 
 ## <a name="data-flow-script"></a>Script de flujo de datos
 

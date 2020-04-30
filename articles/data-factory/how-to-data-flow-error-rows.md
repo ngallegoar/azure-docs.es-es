@@ -6,14 +6,14 @@ author: kromerm
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/28/2019
+ms.date: 04/20/2020
 ms.author: makromer
-ms.openlocfilehash: 4f65421a6457d4bf4d438ce9d035d46476829da2
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 8225143bb75118620b45c2520bb62ea30501a617
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81414352"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732685"
 ---
 # <a name="handle-sql-truncation-error-rows-in-data-factory-mapping-data-flows"></a>Controlar las filas de errores de truncamiento de SQL en Data Factory con asignación de flujos de datos
 
@@ -30,6 +30,9 @@ Un escenario común en Data Factory cuando se usa la asignación de flujos de da
     ![Flujo de datos de película 1](media/data-flow/error4.png)
     
 3. El problema es que el título de la película no cabe en una columna de receptor que solo pueda contener 5 caracteres. Al ejecutar este flujo de datos, recibirá un error similar al siguiente: ```"Job failed due to reason: DF-SYS-01 at Sink 'WriteToDatabase': java.sql.BatchUpdateException: String or binary data would be truncated. java.sql.BatchUpdateException: String or binary data would be truncated."```
+
+Este vídeo le guía a través de un ejemplo de configuración de la lógica de control de filas de errores en el flujo de datos:
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4uOHj]
 
 ## <a name="how-to-design-around-this-condition"></a>Cómo diseñar en torno a esta condición
 

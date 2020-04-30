@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/27/2020
+ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6aea537ebff4ae61e00861e6cafe742a7feb165e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cac7e6feb632456b63b97ead057f9ecaf49322ea
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78186784"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81729715"
 ---
 # <a name="stringcollection-claims-transformations"></a>Transformaciones de notificaciones StringCollection
 
@@ -159,4 +159,38 @@ En el siguiente ejemplo se comprueba si el tipo de notificación stringCollectio
 - Notificaciones de salida:
     - **outputClaim**: "true"
 
+## <a name="stringcollectioncontainsclaim"></a>StringCollectionContainsClaim
 
+Comprueba si un tipo de notificación StringCollection contiene un valor de notificación.
+
+| Elemento | TransformationClaimType | Tipo de datos | Notas |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | collection | stringCollection | Tipo de la notificación que se va a buscar. |
+| InputClaim | item|string| Tipo de notificación que contiene el valor que se va a buscar.|
+|InputParameter|ignoreCase|string|Especifica si la comparación distingue entre mayúsculas y minúsculas en las cadenas que se están comparando.|
+| OutputClaim | outputClaim | boolean | El valor ClaimType que se genera después de que se haya invocado esta ClaimsTransformation. Indicador booleano si la colección contiene una cadena de este tipo. |
+
+En el siguiente ejemplo se comprueba si el tipo de notificación del elemento stringCollection `roles` contiene el valor del tipo de notificación `role`.
+
+```XML
+<ClaimsTransformation Id="HasRequiredRole" TransformationMethod="StringCollectionContainsClaim">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="roles" TransformationClaimType="collection" />
+    <InputClaim ClaimTypeReferenceId="role" TransformationClaimType="item" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="ignoreCase" DataType="string" Value="true" />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="hasAccess" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation> 
+```
+
+- Notificaciones de entrada:
+    - **collection**: ["reader", "author", "admin"]
+    - **item**: "Admin"
+- Parámetros de entrada:
+    - **ignoreCase**: "true"
+- Notificaciones de salida:
+    - **outputClaim**: "true"

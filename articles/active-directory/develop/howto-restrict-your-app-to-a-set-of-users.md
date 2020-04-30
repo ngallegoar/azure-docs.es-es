@@ -13,14 +13,14 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: cccd2df334828c0b8103e4da2ffcd8549673b69c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8bdc7e6e3795719128a8ecfb1e8bc97c1a9a08c7
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76697003"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759033"
 ---
-# <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users"></a>Procedimientos: Restricción de la aplicación de Azure AD a un conjunto de usuarios
+# <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users-in-an-azure-ad-tenant"></a>Procedimientos: Restricción de la aplicación de Azure AD a un conjunto de usuarios de un inquilino de Azure AD
 
 Las aplicaciones registradas en un inquilino de Azure Active Directory (Azure AD) están disponibles de forma predeterminada para todos los usuarios del inquilino que se autentica correctamente.
 
@@ -28,7 +28,7 @@ Igualmente, en el caso de una aplicación [multiinquilino](howto-convert-app-to-
 
 Los desarrolladores y administradores de inquilinos tienen con frecuencia el requisito de restringir una aplicación a un determinado conjunto de usuarios. Los desarrolladores pueden conseguir lo mismo mediante patrones de autorización conocidos, como el control de acceso basado en rol (RBAC), pero este enfoque exige una importante cantidad de trabajo por parte del desarrollador.
 
-Azure AD permite a los administradores y desarrolladores de inquilinos restringir una aplicación a un conjunto específico de usuarios o a los grupos de seguridad del inquilino.
+Los administradores y desarrolladores de inquilinos pueden restringir una aplicación a un conjunto específico de usuarios o a grupos de seguridad del inquilino mediante esta característica integrada de Azure AD también.
 
 ## <a name="supported-app-configurations"></a>Configuraciones de aplicación admitidas
 
@@ -62,7 +62,7 @@ Hay dos maneras de crear una aplicación con la asignación de usuarios habilita
 
 1. Seleccione la aplicación que desea asignar a un usuario o a un grupo de seguridad.
 1. En la página **Información general** de la aplicación, seleccione **Propiedades** en el menú de navegación izquierdo de la aplicación.
-1. Busque el valor **¿Asignación de usuarios?** y establézcalo en **Sí**. Cuando esta opción se establece en **Sí**, los usuarios primero se deben asignar a esta aplicación antes de poder acceder a ella.
+1. Busque el valor **¿Asignación de usuarios?** y establézcalo en **Sí**. Cuando esta opción se establece en **Sí**, los usuarios del inquilino se deben asignar primero a esta aplicación o no podrán iniciar sesión en esta aplicación.
 1. Para guardar este cambio de configuración, seleccione **Guardar**.
 
 ### <a name="app-registration"></a>Registro de aplicación
@@ -75,7 +75,7 @@ Hay dos maneras de crear una aplicación con la asignación de usuarios habilita
 1. Cree o seleccione la aplicación que quiere administrar. Debe ser **Propietario** de este registro de aplicación.
 1. En la página **Información general** de la aplicación, siga el vínculo **Aplicación administrada en el directorio local** en los elementos fundamentales que aparecen en la parte superior de la página. Esto lo llevará a la _aplicación empresarial administrada_ de su registro de aplicación.
 1. En la hoja de navegación de la izquierda, seleccione **Propiedades**.
-1. Busque el valor **¿Asignación de usuarios?** y establézcalo en **Sí**. Cuando esta opción se establece en **Sí**, los usuarios primero se deben asignar a esta aplicación antes de poder acceder a ella.
+1. Busque el valor **¿Asignación de usuarios?** y establézcalo en **Sí**. Cuando esta opción se establece en **Sí**, los usuarios del inquilino se deben asignar primero a esta aplicación o no podrán iniciar sesión en esta aplicación.
 1. Para guardar este cambio de configuración, seleccione **Guardar**.
 
 ## <a name="assign-users-and-groups-to-the-app"></a>Asignación de usuarios y grupos a la aplicación
@@ -89,6 +89,14 @@ Una vez que ha configurado la aplicación para permitir la asignación de usuari
      Se mostrará una lista de usuarios y grupos de seguridad junto con un cuadro de texto para buscar un usuario o grupo determinado. Esta pantalla permite seleccionar varios usuarios y grupos en una sola operación.
 
 1. Cuando haya terminado la selección de los usuarios y grupos, presione el botón **Seleccionar** en la parte inferior para desplazarse al apartado siguiente.
+1. (Opcional) Si ha definido roles de aplicación en su aplicación, puede usar la opción **Seleccionar rol** para asignar los usuarios y los grupos seleccionados a uno de los roles de la aplicación. 
 1. Presione el botón **Asignar** en la parte inferior para finalizar las asignaciones de usuarios y grupos a la aplicación. 
 1. Confirme que los usuarios y grupos que agregó se muestran en la lista **Usuarios y grupos** actualizada.
 
+## <a name="more-information"></a>Más información
+
+- [Cómo: Adición de roles de aplicación a la aplicación](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps)
+- [Incorporación de autorización mediante roles de aplicación y notificaciones de roles a una aplicación web de ASP.NET Core](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-1-Roles)
+- [Uso de grupos de seguridad y roles de aplicación en las aplicaciones (vídeo)](https://www.youtube.com/watch?v=V8VUPixLSiM)
+- [Azure Active Directory, ahora con notificaciones de grupo y roles de aplicación](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-now-with-Group-Claims-and-Application/ba-p/243862)
+- [Manifiesto de la aplicación de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)

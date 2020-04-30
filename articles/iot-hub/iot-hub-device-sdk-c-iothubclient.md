@@ -8,12 +8,13 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: robinsh
-ms.openlocfilehash: fd3e02101f206ebdb183da87089eadcbc9619b33
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: amqp
+ms.openlocfilehash: 91527b5f2159a336e8339c6a128e8d61965292a6
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68883172"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732599"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>SDK de dispositivo IoT de Microsoft Azure para C: más información sobre IoTHubClient
 
@@ -102,7 +103,7 @@ Este código (de la aplicación **iothub\_client\_sample\_http**) llama repetida
 IoTHubClient_LL_SetMessageCallback(iotHubClientHandle, ReceiveMessageCallback, &receiveContext)
 ```
 
-La razón por la que se llama a **IoTHubClient\_LL\_DoWork** a menudo en un bucle es porque cada vez que se llama, envía *algunos* eventos almacenados en el búfer al IoT Hub y recupera *el siguiente* mensaje en cola para el dispositivo. No está garantizado que cada llamada envíe todos los eventos almacenados en búfer o recupere todos los mensajes en cola. Si desea enviar todos los eventos en el búfer y luego continuar con otro procesamiento, puede reemplazar este bucle con un código como el siguiente:
+El motivo por el que se llama a menudo a **IoTHubClient\_LL\_DoWork** en un bucle es que cada vez que se llama, envía *algunos* eventos almacenados en búfer a IoT Hub y recupera *el siguiente* mensaje en cola para el dispositivo. No está garantizado que cada llamada envíe todos los eventos almacenados en búfer o recupere todos los mensajes en cola. Si desea enviar todos los eventos en el búfer y luego continuar con otro procesamiento, puede reemplazar este bucle con un código como el siguiente:
 
 ```C
 IOTHUB_CLIENT_STATUS status;
@@ -116,7 +117,7 @@ while ((IoTHubClient_LL_GetSendStatus(iotHubClientHandle, &status) == IOTHUB_CLI
 
 Este código llama a **IoTHubClient\_LL\_DoWork** hasta que todos los eventos del búfer se envíen al IoT Hub. Tenga en cuenta que esto no significa que se recibieran todos los mensajes en cola. El motivo en parte es que comprobar "todos" los mensajes no es una acción determinista. ¿Qué sucede si recupera "todos" los mensajes pero se envía otro al dispositivo inmediatamente después? Una mejor manera de afrontar esto es con un tiempo de espera programado. Por ejemplo, la función de devolución de llamada de mensaje puede restablecer un temporizador cada vez que se invoca. Después puede escribir lógica para continuar el procesamiento si, por ejemplo, no se recibió ningún mensaje en los últimos *X* segundos.
 
-Cuando termine de incorporar eventos y de recibir mensajes, asegúrese de llamar a la función correspondiente para limpiar los recursos.
+Cuando termine de entrar eventos y de recibir mensajes, asegúrese de llamar a la función correspondiente para limpiar los recursos.
 
 ```C
 IoTHubClient_LL_Destroy(iotHubClientHandle);
@@ -268,7 +269,7 @@ Hay un par de opciones que se usan con frecuencia:
 
 * **Tiempo de espera** (entero sin sino): este valor se representa en milisegundos. Si el envío de una solicitud HTTPS o la recepción de una respuesta supera este tiempo, la conexión agota el tiempo.
 
-La opción de procesamiento por lotes es importante. De forma predeterminada, la biblioteca incorpora los eventos individualmente (un evento único es lo que se pasa a **IoTHubClient\_LL\_SendEventAsync**). Si la opción de procesamiento por lotes es **true**, la biblioteca recopilará tantos eventos como sea posible del búfer (hasta el tamaño máximo de mensaje que aceptará ese IoT Hub).  El lote de eventos se envía a IoT Hub en una sola llamada HTTPS (los eventos individuales están agrupados en una matriz JSON). Habilitar el procesamiento por lotes normalmente da como resultado un gran aumento del rendimiento ya que se reducen los recorridos de ida y vuelta de red. Además, reduce considerablemente el ancho de banda porque se envía un conjunto de encabezados HTTPS con un lote de eventos en lugar de un conjunto de encabezados para cada evento individual. A menos que tenga una razón concreta para no hacerlo, normalmente es mejor habilitar el procesamiento por lotes.
+La opción de procesamiento por lotes es importante. De forma predeterminada, la biblioteca incorpora los eventos individualmente (un evento único es lo que se pasa a **IoTHubClient\_LL\_SendEventAsync**). Si la opción de procesamiento por lotes es **true**, la biblioteca recopilará tantos eventos como sea posible del búfer (hasta el tamaño máximo de mensaje que aceptará ese IoT Hub).  El lote de eventos se envía a IoT Hub en una sola llamada HTTPS (los eventos individuales están agrupados en una matriz JSON). Habilitar el procesamiento por lotes normalmente da como resultado un gran aumento del rendimiento ya que se reducen los recorridos de ida y vuelta de red. Además, reduce considerablemente el ancho de banda porque se envía un conjunto de encabezados HTTPS con un lote de eventos en lugar de un conjunto de encabezados para cada evento individual. A menos que tenga un motivo concreto para no hacerlo, normalmente es mejor habilitar el procesamiento por lotes.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

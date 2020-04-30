@@ -8,14 +8,16 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: jeffya
-ms.openlocfilehash: 0a393ae8629f1742002344ee717a6719269a6722
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bcf1dd2f89cf049d7da5b56170b2c13874c83ba4
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80158662"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81756797"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Conexión de un dispositivo MXChip IoT DevKit a una aplicación de Microsoft IoT Central
+
+*Este artículo se aplica a los desarrolladores de dispositivos.*
 
 En este artículo se muestra cómo conectar un dispositivo MXChip IoT DevKit (DevKit) a una aplicación de Azure IoT Central. El dispositivo usa el modelo de IoT Plug and Play (versión preliminar) certificado para que el dispositivo DevKit configure su conexión a IoT Central.
 
@@ -104,4 +106,7 @@ Para revisar el código, modificarlo y compilarlo, vaya a [Ejemplos de código](
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha aprendido a conectar un dispositivo DevKit a la aplicación Azure IoT Central, le sugerimos como siguiente paso aprender a [configurar una plantilla de dispositivo personalizada](./howto-set-up-template.md) para su dispositivo IoT.
+Si es un desarrollador de dispositivos, algunos de los pasos sugeridos son los siguientes:
+
+- Consultar sobre la [Conectividad de dispositivos en Azure IoT Central](./concepts-get-connected.md)
+- Obtener información sobre la [Supervisión de la conectividad de dispositivos mediante la CLI de Azure](./howto-monitor-devices-azure-cli.md)

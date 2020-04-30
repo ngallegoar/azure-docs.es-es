@@ -3,20 +3,25 @@ title: Reemplazo de los puntos de conexión de SDK predeterminados con Azure App
 description: Modifique los puntos de conexión de SDK predeterminados de Azure Monitor Application Insights para regiones como Azure Government.
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: b4ab05c7ee815b385ffb2d1ff9e621063d744dd7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b43bd13c73f77c6292e2062db88d68a20e5bf480
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80298318"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81729525"
 ---
 # <a name="application-insights-overriding-default-endpoints"></a>Reemplazo de puntos de conexión predeterminados de Application Insights
 
 Para enviar datos de Application Insights en determinadas regiones, deberá reemplazar las direcciones de los puntos de conexión predeterminados. Cada SDK requiere modificaciones ligeramente distintas, las cuales se describen en este artículo. Dichos cambios requieren ajustar el código de ejemplo y reemplazar los valores de marcador de posición de `QuickPulse_Endpoint_Address`, `TelemetryChannel_Endpoint_Address` y `Profile_Query_Endpoint_address` con las direcciones de punto de conexión reales para la región específica. Al final de este artículo se incluyen vínculos a las direcciones de punto de conexión para las regiones en las que se requiere esta configuración.
 
+> [!NOTE]
+> Las [cadenas de conexión](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net) son el nuevo método preferido de configuración de los puntos de conexión personalizados en Application Insights.
+
+---
+
 ## <a name="sdk-code-changes"></a>Cambios de código del SDK
 
-### <a name="net-with-applicationinsightsconfig"></a>.NET con applicationinsights.config
+# <a name="net"></a>[.NET](#tab/net)
 
 > [!NOTE]
 > El archivo applicationinsights.config se sobrescribe automáticamente cada vez que se realiza una actualización de SDK. Después de realizar una actualización de SDK asegúrese de volver a escribir los valores de punto de conexión específicos para su región.
@@ -41,7 +46,7 @@ Para enviar datos de Application Insights en determinadas regiones, deberá reem
 </ApplicationInsights>
 ```
 
-### <a name="aspnet-core"></a>ASP.NET Core
+# <a name="net-core"></a>[.NET Core](#tab/netcore)
 
 Modifique el archivo appsettings.json en el proyecto como se indica a continuación para modificar el punto de conexión principal:
 
@@ -68,6 +73,8 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPuls
 
     //Place in the ConfigureServices method. Place this before services.AddApplicationInsightsTelemetry("instrumentation key"); if it's present
 ```
+
+# <a name="azure-functions"></a>[Funciones de Azure](#tab/functions)
 
 ### <a name="azure-functions-v2x"></a>Azure Functions v2.x
 
@@ -120,7 +127,7 @@ namespace Example
 }
 ```
 
-### <a name="java"></a>Java
+# <a name="java"></a>[Java](#tab/java)
 
 Modifique el archivo applicationinsights.xml para cambiar la dirección predeterminada del punto de conexión.
 
@@ -155,7 +162,7 @@ Modifique el archivo `application.properties` y agregue lo siguiente:
 azure.application-insights.channel.in-process.endpoint-address= TelemetryChannel_Endpoint_Address
 ```
 
-### <a name="nodejs"></a>Node.js
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 ```javascript
 var appInsights = require("applicationinsights");
@@ -174,7 +181,7 @@ Profile Endpoint: "Profile_Query_Endpoint_address"
 Live Metrics Endpoint: "QuickPulse_Endpoint_Address"
 ```
 
-### <a name="javascript"></a>JavaScript
+# <a name="javascript"></a>[JavaScript](#tab/js)
 
 ```javascript
 <script type="text/javascript">
@@ -187,9 +194,11 @@ Live Metrics Endpoint: "QuickPulse_Endpoint_Address"
 </script>
 ```
 
-### <a name="python"></a>Python
+# <a name="python"></a>[Python](#tab/python)
 
 Para obtener instrucciones sobre cómo modificar el punto de conexión de ingesta para el SDK de opencensus-python, consulte el [repositorio de opencensus-python.](https://github.com/census-instrumentation/opencensus-python/blob/af284a92b80bcbaf5db53e7e0813f96691b4c696/contrib/opencensus-ext-azure/opencensus/ext/azure/common/__init__.py)
+
+---
 
 ## <a name="regions-that-require-endpoint-modification"></a>Regiones que requieren la modificación del punto de conexión
 
