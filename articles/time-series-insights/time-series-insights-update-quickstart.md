@@ -9,13 +9,13 @@ manager: cshankar
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 02/07/2020
-ms.openlocfilehash: dc4a8da69b0398c6487008c106a9f5bcdb8a885e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 04/27/2020
+ms.openlocfilehash: c6cfec1d00fbd5b18e01afb0b51598e615cb0946
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77110236"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82189205"
 ---
 # <a name="quickstart-explore-the-azure-time-series-insights-preview-demo-environment"></a>Inicio rápido: Exploración del entorno de demostración de la versión preliminar de Azure Time Series Insights
 

@@ -10,12 +10,12 @@ ms.date: 04/02/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 796e3b3f46bc83b776826baf6e078c696eda543b
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 893c953562e0d150bd5e8110e5473fd24a2aff83
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81456779"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82176352"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-azure-cli"></a>Configuración de claves administradas por el cliente con Azure Key Vault mediante la CLI de Azure
 
@@ -81,7 +81,7 @@ az keyvault set-policy \
 A continuación, cree una clave en el almacén de claves. Para crear una clave, llame a [az keyvault key create](/cli/azure/keyvault/key#az-keyvault-key-create). No olvide reemplazar los valores del marcador de posición entre corchetes con sus propios valores.
 
 ```azurecli-interactive
-az keyvault key create
+az keyvault key create \
     --name <key> \
     --vault-name <key-vault>
 ```

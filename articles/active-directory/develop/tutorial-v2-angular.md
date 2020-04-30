@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: c3c12f78118734c31641b90e6fcb8469ddda30b0
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: c645ab45711698e4a6f582678e2a850e15dea62a
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81678002"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82181603"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application"></a>Tutorial: Inicio de sesión de usuarios y llamada a Microsoft Graph API desde una aplicación de página única de Angular
 
@@ -36,16 +36,12 @@ En este tutorial se muestra cómo una aplicación de página única (SPA) de Ang
 
 ![Diagrama que muestra cómo funciona la aplicación de ejemplo generada en este tutorial](media/active-directory-develop-guidedsetup-javascriptspa-introduction/javascriptspa-intro.svg)
 
-<!--start-collapse-->
 ### <a name="more-information"></a>Más información
 
 La aplicación de ejemplo que se crea con este tutorial permite que una aplicación de página única de Angular haga consultas a Microsoft Graph API o a una API web que acepte tokens de un punto de conexión de la Plataforma de identidad de Microsoft. La biblioteca de MSAL para Angular es un contenedor de la biblioteca principal MSAL.js. Permite que las aplicaciones de Angular (6 +) autentiquen a usuarios empresariales mediante Microsoft Azure Active Directory, a usuarios de cuenta de Microsoft y a usuarios de identidades sociales (como Facebook, Google y LinkedIn). La biblioteca también permite que las aplicaciones obtengan acceso a los servicios en la nube de Microsoft o a Microsoft Graph.
 
 En este escenario, después de que un usuario inicia sesión, se solicita un token de acceso y se agrega a las solicitudes HTTP mediante el encabezado de autorización. MSAL controla la adquisición y la renovación de tokens.
 
-<!--end-collapse-->
-
-<!--start-collapse-->
 ### <a name="libraries"></a>Bibliotecas
 
 En este tutorial se usa la siguiente biblioteca:
@@ -55,9 +51,6 @@ En este tutorial se usa la siguiente biblioteca:
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Biblioteca de autenticación de Microsoft para el contenedor de Angular de JavaScript|
 
 Puede encontrar el código fuente de la biblioteca MSAL.js en el repositorio [AzureAD/microsoft-authentication-library-for-js](https://github.com/AzureAD/microsoft-authentication-library-for-js) de GitHub.
-
-<!--end-collapse-->
-
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -335,10 +328,7 @@ La primera vez que inicie sesión en la aplicación, se le pedirá que le conced
 
 ![La ventana "Permisos solicitados"](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspaconsent.png)
 
-
-
-<!--start-collapse-->
-### <a name="add-scopes-and-delegated-permissions"></a>Incorporación de ámbitos y permisos delegados
+## <a name="add-scopes-and-delegated-permissions"></a>Incorporación de ámbitos y permisos delegados
 
 Microsoft Graph API requiere el ámbito *user.read* para leer el perfil del usuario. De forma predeterminada, este ámbito se agrega automáticamente en todas las aplicaciones que se registran en el portal de registro. Otras API de Microsoft Graph, así como las API personalizadas para el servidor back-end, pueden requerir ámbitos adicionales. Por ejemplo, Microsoft Graph API requiere el ámbito *Calendars.Read* para mostrar los calendarios del usuario.
 
@@ -348,8 +338,6 @@ Para acceder a los calendarios del usuario en el contexto de una aplicación, ag
 >Es posible que se pida al usuario algún consentimiento adicional a medida que aumente el número de ámbitos.
 
 Si una API de back-end no requiere un ámbito (no se recomienda), puede usar *clientId* como ámbito en las llamadas de adquisición de tokens.
-
-<!--end-collapse-->
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 

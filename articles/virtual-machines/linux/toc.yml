@@ -564,14 +564,14 @@
             - name: Preparación de la máquina virtual existente para cloud-init
               href: cloudinit-prepare-custom-image.md
         - name: Jenkins
-          href: ../../jenkins/overview.md
+          href: /azure/developer/jenkins/overview.md
           items:
             - name: Creación de un servidor de Jenkins
-              href: ../../jenkins/install-jenkins-solution-template.md
+              href: /azure/developer/jenkins/configure-on-linux-vm.md
             - name: Escalado con agentes de máquina virtual
-              href: ../../jenkins/jenkins-azure-vm-agents.md
+              href: /azure/developer/jenkins/scale-deployments-using-vm-agents.md
             - name: Publicación de artefactos en Storage
-              href: ../../jenkins/storage-java-jenkins-continuous-integration-solution.md
+              href: /azure/developer/jenkins/azure-storage-blobs-as-build-artifact-repository.md
             - name: Seguridad de Jenkins
               href: 'https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/'
     - name: Ejecución de contenedores
@@ -642,7 +642,7 @@
           items:
             - name: Azure CLI
               href: add-disk.md
-            - name: Portal de Azure
+            - name: Azure Portal
               href: attach-disk-portal.md
         - name: Desconexión de un disco
           href: detach-disk.md

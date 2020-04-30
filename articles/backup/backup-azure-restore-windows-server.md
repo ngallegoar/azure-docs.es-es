@@ -4,12 +4,12 @@ description: En este artículo, aprenderá a restaurar datos almacenados en Azur
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: 25ca8eecaeb615f071340188a23fae7978ddb75c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0494ce8016ff8b09265dd7ced8dc0926fd0c1a43
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79409820"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186811"
 ---
 # <a name="restore-files-to-windows-by-using-the-azure-resource-manager-deployment-model"></a>Restauración de archivos en Windows con el modelo de implementación de Azure Resource Manager
 
@@ -49,7 +49,7 @@ Si ha eliminado accidentalmente un archivo y desea restaurarlo en la misma máqu
     ![Captura de pantalla de la página Seleccionar modo de recuperación del Asistente de recuperación de datos](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
    > [!IMPORTANT]
    > La opción de restauración Archivos y carpetas individuales requiere .NET Framework 4.5.2 o posterior. Si no ve la opción **Archivos y carpetas individuales**, debe actualizar .NET Framework a la versión 4.5.2 o posterior e intentarlo de nuevo.
- 
+
    > [!TIP]
    > La opción **Archivos y carpetas individuales** permite el acceso rápido a los datos de punto de recuperación. Es adecuada para recuperar archivos individuales, con tamaños que no superen los 80 GB en total, y ofrece velocidades de transferencia o copia de hasta 6 MBps durante la recuperación. La opción **Volumen** recupera todos los datos de los que se ha realizado una copia de seguridad en un volumen especificado. Esta opción ofrece mayores velocidades de transferencia (hasta 60 MBps), lo que resulta ideal para la recuperación de volúmenes completos o de datos de gran tamaño.
 

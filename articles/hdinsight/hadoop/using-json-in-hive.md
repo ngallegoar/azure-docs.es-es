@@ -6,13 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/06/2020
-ms.openlocfilehash: db7c7ae9889d26479f51a7714e7e9fb04b444628
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.custom: seoapr2020
+ms.date: 04/20/2020
+ms.openlocfilehash: 5abc3395152e03520eaff14b02d150892abf0e22
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80757113"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82184221"
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Procesamiento y análisis de documentos JSON mediante Apache Hive en Azure HDInsight
 
@@ -161,4 +162,3 @@ Para artículos relacionados, consulte:
 
 * [Uso de Apache Hive y HiveQL con Apache Hadoop en HDInsight para analizar un archivo de Apache Log4j de muestra](../hdinsight-use-hive.md)
 * [Análisis de datos de retraso de vuelos con Interactive Query en HDInsight](../interactive-query/interactive-query-tutorial-analyze-flight-data.md)
-* [Análisis de datos de Twitter con Apache Hive en HDInsight](../hdinsight-analyze-twitter-data-linux.md)

@@ -16,12 +16,12 @@ ms.date: 05/21/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d773e6302edf0b799e6dfccc702750a9cc74f60
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 1f73d46b612c1dcf94554e10b4820c3f2442248f
+ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81406698"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82172413"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problema al instalar el conector de agente del proxy de aplicación
 
@@ -97,7 +97,7 @@ Siga los pasos para comprobar el certificado:
 2. Extraiga [PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec) del paquete y ejecute **psexec -i -u "nt authority\network service" cmd.exe** desde un símbolo del sistema con privilegios elevados.
 3. Ejecute **certmgr.msc** en el símbolo del sistema recién aparecido.
 2. En la consola de administración, expanda el contenedor personal y haga clic en Certificados.
-3. Busque el certificado emitido por **connectorregistrationca.msappproxy.net.
+3. Busque el certificado emitido por **connectorregistrationca.msappproxy.net**.
 
 **Para renovar el certificado de cliente:**
 

@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/30/2020
-ms.openlocfilehash: 37f6f0dc9c1221207273110252bff445d2e1245b
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 3c33fdb114356af7707c1aae2eddefd81bf10b9f
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81459107"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82185836"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-cli"></a>Cifrado de datos para Azure Database for MySQL mediante la CLI de Azure
 
@@ -80,7 +80,7 @@ Aprenda a usar la CLI de Azure para configurar y administrar el cifrado de datos
     az mysql server key create –name  <server name>  -g <resource_group> --kid <key url>
     ```
 
-    URL de clave: https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>
+    URL de clave: `https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>`
 
 ## <a name="using-data-encryption-for-restore-or-replica-servers"></a>Uso del cifrado de datos con servidores de restauración o réplica
 
@@ -105,7 +105,7 @@ Después de cifrar Azure Database for MySQL con la clave administrada de un clie
     az mysql server key show --name  <server name>  -g <resource_group> --kid <key url>
     ```
 
-    Key url:  https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>
+    Key url:  `https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>`
 
 ### <a name="list-the-key-used"></a>Enumeración de la clave usada
 

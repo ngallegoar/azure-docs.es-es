@@ -10,14 +10,8 @@
   items:
     - name: Cómo familiarizarse con Content Moderator en la web
       href: quick-start.md
-    - name: Uso del SDK de cliente
-      items:
-        - name: Uso del SDK de .NET
-          href: dotnet-sdk-quickstart.md
-        - name: Uso del SDK de Python
-          href: python-sdk-quickstart.md
-        - name: Uso del SDK de Java
-          href: java-sdk-quickstart.md
+    - name: Uso de la biblioteca cliente
+      href: client-libraries.md
 - name: Tutoriales
   items:
     - name: Moderación de imágenes de comercio electrónico

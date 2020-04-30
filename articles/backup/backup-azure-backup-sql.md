@@ -3,12 +3,12 @@ title: Realización de una copia de seguridad de SQL Server en Azure como una ca
 description: Introducción a la copia de seguridad de bases de datos de SQL Server mediante el servicio Azure Backup
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 8cbb8c833bc2933afac300bcc848fd50861011d0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 01504fcfd81040d75e57ce62a9f77a5bb248d59b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77505937"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82183796"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>Realización de una copia de seguridad de SQL Server en Azure como una carga de trabajo DPM
 
@@ -24,13 +24,14 @@ Para realizar una copia de seguridad de una base de datos de SQL Server en Azur
 
 ## <a name="before-you-start"></a>Antes de comenzar
 
-Antes de comenzar, asegúrese de que se cumplen todos los [requisitos previos](backup-azure-dpm-introduction.md#prerequisites-and-limitations) para usar Azure Backup para proteger las cargas de trabajo. Estas son algunas de las tareas de requisitos previos: 
+Antes de comenzar, asegúrese de que se cumplen todos los [requisitos previos](backup-azure-dpm-introduction.md#prerequisites-and-limitations) para usar Azure Backup para proteger las cargas de trabajo. Estas son algunas de las tareas de requisitos previos:
+
 * Crear un almacén de copia de seguridad.
-* Descargar las credenciales de almacén. 
+* Descargar las credenciales de almacén.
 * Instalar el agente de Azure Backup.
 * Registrar el servidor en el almacén.
 
-## <a name="create-a-backup-policy"></a>Crear una directiva de copia de seguridad 
+## <a name="create-a-backup-policy"></a>Crear una directiva de copia de seguridad
 
 Para proteger las bases de datos de SQL Server en Azure, debe crear primero una directiva de copia de seguridad:
 
@@ -74,7 +75,7 @@ Para proteger las bases de datos de SQL Server en Azure, debe crear primero una
     La copia de seguridad inicial requiere la transferencia de todo el origen de datos (base de datos de SQL Server). Los datos de copia de seguridad se mueven desde el servidor de producción (máquina de SQL Server) al servidor de DPM. Si esta copia de seguridad es grande, la transferencia de los datos por la red podría provocar la congestión del ancho de banda. Por esta razón, los administradores pueden optar por usar medios extraíbles para transferir la copia de seguridad inicial **manualmente**. O bien, pueden transferir los datos **Automáticamente a través de la red** a una hora especificada.
 
     Una vez finalizada la copia de seguridad inicial, las copias de seguridad continuarán de forma incremental sobre la copia de seguridad inicial. Las copias de seguridad incrementales tienden a ser pequeñas y se transfieren fácilmente a través de la red.
-    
+
 1. Elija cuándo desea ejecutar una comprobación de coherencia. Luego, seleccione **Siguiente**.
 
     ![Elección de cuándo ejecutar una comprobación de coherencia](./media/backup-azure-backup-sql/pg-consistent.png)
@@ -106,7 +107,7 @@ Para proteger las bases de datos de SQL Server en Azure, debe crear primero una
     * La copia de seguridad del sábado a las 12:00 P.M. se mantiene durante 104 semanas.
     * La copia de seguridad del último sábado del mes a las 12:00 P.M. se conserva durante 60 meses.
     * La copia de seguridad del último sábado de marzo a las 12:00 P.M. se conserva durante 10 años.
-    
+
     Después de elegir una directiva de retención, seleccione **Siguiente**.
 
 1. Elija cómo transferir la copia de seguridad inicial a Azure.

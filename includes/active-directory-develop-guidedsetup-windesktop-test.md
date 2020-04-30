@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: f121be4ec8c3d3ab618e2955d9dbd8ab5eea461d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2325509f68ced7c66d9f733b07247ae01301b565
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79129129"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82181549"
 ---
 ## <a name="test-your-code"></a>Prueba del código
 
@@ -46,8 +46,6 @@ Después de iniciar sesión, verá la información del perfil de usuario que dev
 |**Nombre de usuario** |<span>user@domain.com</span> |Nombre de usuario que se usa para identificar al usuario.|
 |**Expiración del token** |DateTime |Hora a la que expira el token. MSAL amplía la fecha de expiración al renovar el token según sea necesario.|
 
-
-<!--start-collapse-->
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>Más información sobre los ámbitos y permisos delegados
 
 Microsoft Graph API requiere el ámbito *user.read* para leer el perfil del usuario. Este ámbito se agrega automáticamente de forma predeterminada en todas las aplicaciones que se van a registrar en el Portal de registro de aplicaciones. Otras API de Microsoft Graph, así como las API personalizadas para el servidor back-end, pueden requerir ámbitos adicionales. Microsoft Graph API requiere el ámbito *Calendars.Read* para mostrar los calendarios del usuario.
@@ -56,7 +54,5 @@ Para acceder a los calendarios del usuario en el contexto de una aplicación, ag
 
 >[!NOTE]
 >Es posible que se pida al usuario algún consentimiento adicional a medida que aumente el número de ámbitos.
-
-<!--end-collapse-->
 
 [!INCLUDE [Help and support](./active-directory-develop-help-support-include.md)]

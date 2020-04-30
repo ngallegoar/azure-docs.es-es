@@ -3,12 +3,12 @@ title: Introducción a la copia de seguridad sin conexión
 description: Conozca los componentes de la copia de seguridad sin conexión. Por ejemplo, la copia de seguridad sin conexión basada en Azure Data Box y la copia de seguridad sin conexión basada en el servicio Azure Import/Export.
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: 4dae68c46e0072a726bba13139e405b44be0f008
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a33810c633d8c7ca79c559355935d3c11853bc0a
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78196181"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160928"
 ---
 # <a name="overview-of-offline-backup"></a>Introducción a la copia de seguridad sin conexión
 
@@ -27,7 +27,7 @@ La copia de seguridad sin conexión se ofrece en dos modos en función de la pro
 
 ## <a name="offline-backup-based-on-azure-data-box-preview"></a>Copia de seguridad sin conexión basada en Azure Data Box (versión preliminar)
 
-Este modo es compatible actualmente con el agente de Microsoft Azure Recovery Services (MARS), en su versión preliminar. Esta opción aprovecha las ventajas de [Azure Data Box](https://azure.microsoft.com/services/databox/) para enviar dispositivos de transferencia seguros y resistentes a la manipulación propiedad de Microsoft con conectores USB a su centro de seguridad u oficina remota. Los datos de copia de seguridad se escriben directamente en estos dispositivos. Esta opción ahorra el esfuerzo necesario para obtener sus propios discos y conectores compatibles con Azure o aprovisionar almacenamiento temporal como ubicación de almacenamiento provisional. Además, Microsoft controla la logística de transferencia de un extremo a otro, que puede seguir a través de Azure Portal. 
+Este modo es compatible actualmente con el agente de Microsoft Azure Recovery Services (MARS), en su versión preliminar. Esta opción aprovecha las ventajas de [Azure Data Box](https://azure.microsoft.com/services/databox/) para enviar dispositivos de transferencia seguros y resistentes a la manipulación propiedad de Microsoft con conectores USB a su centro de seguridad u oficina remota. Los datos de copia de seguridad se escriben directamente en estos dispositivos. Esta opción ahorra el esfuerzo necesario para obtener sus propios discos y conectores compatibles con Azure o aprovisionar almacenamiento temporal como ubicación de almacenamiento provisional. Además, Microsoft controla la logística de transferencia de un extremo a otro, que puede seguir a través de Azure Portal.
 
 A continuación se muestra una arquitectura que describe el movimiento de los datos de copia de seguridad con esta opción.
 
@@ -44,7 +44,7 @@ Para usar copia de seguridad sin conexión basada en Azure Data Box, consulte [C
 
 ## <a name="offline-backup-based-on-the-azure-importexport-service"></a>Copia de seguridad sin conexión basada en el servicio Azure Import/Export
 
-Esta opción es compatible con Microsoft Azure Backup Server (MABS), System Center Data Protection Manager (DPM) DPM-A y el agente de MARS. Además, usa el [servicio Azure Import/Export](https://docs.microsoft.com/azure/storage/common/storage-import-export-service). Puede transferir los datos de la copia de seguridad inicial a Azure mediante sus propios discos y conectores compatibles con Azure. Este enfoque requiere el aprovisionamiento de un almacenamiento temporal conocido como ubicación de almacenamiento provisional y el uso de utilidades pregeneradas para dar formato y copiar los datos de copia de seguridad en discos propiedad del cliente. 
+Esta opción es compatible con Microsoft Azure Backup Server (MABS), System Center Data Protection Manager (DPM) DPM-A y el agente de MARS. Además, usa el [servicio Azure Import/Export](https://docs.microsoft.com/azure/storage/common/storage-import-export-service). Puede transferir los datos de la copia de seguridad inicial a Azure mediante sus propios discos y conectores compatibles con Azure. Este enfoque requiere el aprovisionamiento de un almacenamiento temporal conocido como ubicación de almacenamiento provisional y el uso de utilidades pregeneradas para dar formato y copiar los datos de copia de seguridad en discos propiedad del cliente.
 
 A continuación se muestra una arquitectura que describe el movimiento de los datos de copia de seguridad con esta opción.
 
@@ -81,6 +81,6 @@ En la tabla siguiente se comparan las dos opciones disponibles, de modo que pued
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Copia de seguridad sin conexión de Azure Backup con Azure Data Box](offline-backup-azure-data-box.md#backup-data-size-and-supported-data-box-skus)
-* [Flujo de trabajo de copia de seguridad sin conexión en Azure Backup](backup-azure-backup-import-export.md) 
-* [Flujo de copia de seguridad sin conexión para DPM y Azure Backup Server](backup-azure-backup-server-import-export-.md)
+- [Copia de seguridad sin conexión de Azure Backup con Azure Data Box](offline-backup-azure-data-box.md#backup-data-size-and-supported-data-box-skus)
+- [Flujo de trabajo de copia de seguridad sin conexión en Azure Backup](backup-azure-backup-import-export.md)
+- [Flujo de copia de seguridad sin conexión para DPM y Azure Backup Server](backup-azure-backup-server-import-export-.md)

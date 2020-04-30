@@ -6,13 +6,14 @@ ms.author: ashish
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/06/2020
-ms.openlocfilehash: 0fc067f0be4ac5d2b8fa7db9ad7999efe06625a0
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.custom: seoapr2020
+ms.date: 04/23/2020
+ms.openlocfilehash: 64fe56ff506cf256dd7e317984551949f9ffad06
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80804510"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82189371"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Escala de clústeres de Azure HDInsight
 
@@ -107,7 +108,7 @@ Para evitar que se produzcan errores en los trabajos en ejecución durante una o
 
 Para ver una lista de los trabajos pendientes y en ejecución, puede usar la **interfaz de usuario de Resource Manager** de YARN; para ello, siga estos pasos:
 
-1. En [Azure Portal](https://portal.azure.com/), seleccione su clúster.  Consulte [Enumeración y visualización de clústeres](./hdinsight-administer-use-portal-linux.md#showClusters) para obtener instrucciones. El clúster se abre en una nueva página del portal.
+1. En [Azure Portal](https://portal.azure.com/), seleccione su clúster.  El clúster se abre en una nueva página del portal.
 2. En la vista principal, vaya a **Paneles de clúster** > **Inicio de Ambari**. Escriba las credenciales del clúster.
 3. En la interfaz de usuario de Ambari, seleccione **YARN** en la lista de servicios del menú de la izquierda.  
 4. En la página de YARN, seleccione **Vínculos rápidos**, mantenga el puntero sobre el nodo principal activo y, después, seleccione **ResourceManager UI** (UI de Resource Manager).
@@ -251,4 +252,3 @@ Los servidores regionales se equilibran automáticamente en pocos minutos tras c
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Escalado automático de clústeres de Azure HDInsight](hdinsight-autoscale-clusters.md)
-* [Introducción a Azure HDInsight](hadoop/apache-hadoop-introduction.md)

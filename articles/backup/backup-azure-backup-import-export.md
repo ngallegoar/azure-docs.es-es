@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo puede usar Azure Backup para envia
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.openlocfilehash: 1359616e074f36a1324a418d5b2c889076ced52d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 642787e17f347bf8233e50c65d26a1661b08fcfb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78206765"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82183898"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Flujo de trabajo de copia de seguridad sin conexión en Azure Backup
 
@@ -36,7 +36,7 @@ Las características o cargas de trabajo de Azure Backup siguientes admiten el u
 > * Copia de seguridad de archivos y carpetas con el agente de Microsoft Azure Recovery Services (MARS), también conocido como el agente de Azure Backup.
 > * Copia de seguridad de todas las cargas de trabajo y archivos con System Center Data Protection Manager (DPM).
 > * Copia de seguridad de todas las cargas de trabajo y archivos con Microsoft Azure Backup Server.
- 
+
    > [!NOTE]
    > No se admite la copia de seguridad sin conexión para copias de seguridad de estado del sistema realizadas mediante el agente de Azure Backup.
 

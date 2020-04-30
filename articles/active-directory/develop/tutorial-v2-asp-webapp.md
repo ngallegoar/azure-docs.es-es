@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 29f5a48feaaafee64a20745b3cdf09726a6372ac
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 4b9dac92f0cff213622f0087b281814251f06ffd
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81533844"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82181620"
 ---
 # <a name="add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Adición del inicio de sesión en Microsoft a una aplicación web ASP.NET
 
@@ -70,10 +70,8 @@ En esta sección se describe cómo instalar y configurar la canalización de aut
     Install-Package Microsoft.Owin.Host.SystemWeb
     ```
 
-<!--start-collapse-->
-> ### <a name="about-these-libraries"></a>Acerca de estas bibliotecas
-> Estas bibliotecas habilitan el inicio de sesión único (SSO) mediante OpenID Connect a través de la autenticación basada en cookies. Una vez que se completa la autenticación y se envía el token que representa al usuario a la aplicación, el middleware de OWIN crea una cookie de sesión. El explorador utiliza esta cookie en las solicitudes posteriores, con el fin de que el usuario no tenga que volver a escribir la contraseña; además, no es necesaria ninguna comprobación adicional.
-<!--end-collapse-->
+### <a name="about-these-libraries"></a>Acerca de estas bibliotecas
+Estas bibliotecas habilitan el inicio de sesión único (SSO) mediante OpenID Connect a través de la autenticación basada en cookies. Una vez que se completa la autenticación y se envía el token que representa al usuario a la aplicación, el middleware de OWIN crea una cookie de sesión. El explorador utiliza esta cookie en las solicitudes posteriores, con el fin de que el usuario no tenga que volver a escribir la contraseña; además, no es necesaria ninguna comprobación adicional.
 
 ## <a name="configure-the-authentication-pipeline"></a>Configuración de la canalización de autenticación
 
@@ -171,10 +169,9 @@ Los pasos siguientes se usan para crear una clase de inicio del middleware de OW
 > Establecer `ValidateIssuer = false` es una simplificación para este inicio rápido. En las aplicaciones reales debe validar el emisor.
 > Para aprender a hacerlo, vea los ejemplos.
 
-<!--start-collapse-->
-> ### <a name="more-information"></a>Más información
-> Los parámetros que se proporcionan en *OpenIDConnectAuthenticationOptions* sirven de coordenadas para que la aplicación se comunique con la Plataforma de identidad de Microsoft. Dado que el middleware de OpenID Connect usa cookies en segundo plano, también debe configurar la autenticación con cookies como muestra el código anterior. El valor *ValidateIssuer* indica a OpenIdConnect que no restrinja el acceso a una organización específica.
-<!--end-collapse-->
+### <a name="more-information"></a>Más información
+
+Los parámetros que se proporcionan en *OpenIDConnectAuthenticationOptions* sirven de coordenadas para que la aplicación se comunique con la Plataforma de identidad de Microsoft. Dado que el middleware de OpenID Connect usa cookies en segundo plano, también debe configurar la autenticación con cookies como muestra el código anterior. El valor *ValidateIssuer* indica a OpenIdConnect que no restrinja el acceso a una organización específica.
 
 ## <a name="add-a-controller-to-handle-sign-in-and-sign-out-requests"></a>Agregar un controlador para controlar las solicitudes de inicio de sesión y cierre de sesión
 
@@ -266,10 +263,8 @@ En Visual Studio, cree otra vista para agregar el botón de inicio de sesión y
     </html>
     ```
 
-<!--start-collapse-->
-> ### <a name="more-information"></a>Más información
-> Esta página agrega un botón de inicio de sesión en formato SVG con un fondo negro:<br/>![Iniciar sesión con Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> Para más botones de inicio de sesión, vaya a [Directrices de personalización de marca](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "Directrices de marca").
-<!--end-collapse-->
+### <a name="more-information"></a>Más información
+Esta página agrega un botón de inicio de sesión en formato SVG con un fondo negro:<br/>![Iniciar sesión con Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> Para más botones de inicio de sesión, vaya a [Directrices de personalización de marca](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "Directrices de marca").
 
 ## <a name="add-a-controller-to-display-users-claims"></a>Agregar un controlador para mostrar las notificaciones del usuario
 Este controlador muestra los usos del atributo `[Authorize]` para proteger un controlador. Este atributo restringe el acceso al controlador, ya que solo permite usuarios autenticados. El código siguiente usa el atributo para mostrar las notificaciones de usuario que se recuperaron como parte del inicio de sesión:
@@ -309,10 +304,8 @@ Este controlador muestra los usos del atributo `[Authorize]` para proteger un co
     }
     ```
 
-<!--start-collapse-->
-> ### <a name="more-information"></a>Más información
-> Debido al uso del atributo `[Authorize]`, todos los métodos de este controlador solo pueden ejecutarse si el usuario está autenticado. Si no lo está e intenta acceder al controlador, OWIN inicia un desafío de autenticación y le obliga al usuario a autenticarse. El código anterior busca en la lista de notificaciones atributos de usuario específicos que se hayan incluido en el token del usuario. Estos atributos incluyen el nombre completo del usuario y el nombre de usuario, así como el firmante del identificador de usuario global. También contienen el *Id. del inquilino*, que representa el identificador de la organización del usuario.
-<!--end-collapse-->
+### <a name="more-information"></a>Más información
+Debido al uso del atributo `[Authorize]`, todos los métodos de este controlador solo pueden ejecutarse si el usuario está autenticado. Si no lo está e intenta acceder al controlador, OWIN inicia un desafío de autenticación y le obliga al usuario a autenticarse. El código anterior busca en la lista de notificaciones atributos de usuario específicos que se hayan incluido en el token del usuario. Estos atributos incluyen el nombre completo del usuario y el nombre de usuario, así como el firmante del identificador de usuario global. También contienen el *Id. del inquilino*, que representa el identificador de la organización del usuario.
 
 ## <a name="create-a-view-to-display-the-users-claims"></a>Creación de una vista que muestre las notificaciones del usuario
 
@@ -403,16 +396,16 @@ Cuando esté listo para realizar la prueba, use una cuenta de Azure AD (profesi
 <br/><br/>
 ![Iniciar sesión en la cuenta de Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin2.png)
 
-<!--start-collapse-->
-> ###  <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Permisos y consentimiento en el punto de conexión de la Plataforma de identidad de Microsoft
->  Las aplicaciones que se integran con la plataforma de identidad de Microsoft siguen un modelo de autorización que permite a los usuarios y los administradores controlar el modo en que se puede acceder a los datos. Después de que un usuario se autentique con la Plataforma de identidad de Microsoft para acceder a esta aplicación, se le pedirá que dé su consentimiento a los permisos solicitados por la aplicación ("Ver su perfil básico" y "Mantener el acceso a los datos a los que ha dado acceso"). Después de aceptar estos permisos, el usuario continuará con los resultados de la aplicación. Sin embargo, en su lugar, el usuario puede ver la página **Need admin consent** (Se necesita el consentimiento del administrador) si se produce alguna de las siguientes situaciones:
->  > - El desarrollador de aplicaciones agrega todos los permisos adicionales que requieran **consentimiento del administrador**.
->  > - O bien se configura el inquilino (en **Aplicaciones empresariales -> Configuración de usuario**), donde los usuarios no pueden dar el consentimiento a las aplicaciones que accedan a los datos de la empresa en su nombre.
->
-> Para más información, consulte [Permisos y consentimiento en el punto de conexión de la Plataforma de identidad de Microsoft](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent).
-<!--end-collapse-->
+#### <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Permisos y consentimiento en el punto de conexión de la Plataforma de identidad de Microsoft
 
-#### <a name="view-application-results"></a>Visualización de los resultados de la aplicación
+Las aplicaciones que se integran con la plataforma de identidad de Microsoft siguen un modelo de autorización que permite a los usuarios y los administradores controlar el modo en que se puede acceder a los datos. Después de que un usuario se autentique con la Plataforma de identidad de Microsoft para acceder a esta aplicación, se le pedirá que dé su consentimiento a los permisos solicitados por la aplicación ("Ver su perfil básico" y "Mantener el acceso a los datos a los que ha dado acceso"). Después de aceptar estos permisos, el usuario continuará con los resultados de la aplicación. Sin embargo, en su lugar, el usuario puede ver la página **Need admin consent** (Se necesita el consentimiento del administrador) si se produce alguna de las siguientes situaciones:
+
+- El desarrollador de aplicaciones agrega todos los permisos adicionales que requieran **consentimiento del administrador**.
+- O bien se configura el inquilino (en **Aplicaciones empresariales -> Configuración de usuario**), donde los usuarios no pueden dar el consentimiento a las aplicaciones que accedan a los datos de la empresa en su nombre.
+
+Para más información, consulte [Permisos y consentimiento en el punto de conexión de la Plataforma de identidad de Microsoft](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent).
+
+### <a name="view-application-results"></a>Visualización de los resultados de la aplicación
 
 Después de iniciar sesión, se redirige al usuario a la página principal del sitio web. Esta página principal es la dirección URL HTTPS especificada en la información de registro de la aplicación en el Portal de registro de aplicaciones de Microsoft. La página principal incluye un mensaje de bienvenida, *"Hola, \<usuario>"* , un vínculo para cerrar la sesión y otro para ver las notificaciones del usuario. El vínculo de las notificaciones del usuario se conecta al controlador de notificaciones que creó anteriormente.
 
@@ -446,14 +439,13 @@ Se le pedirá que se autentique para poder usar la vista del controlador protegi
 
 ## <a name="advanced-options"></a>Opciones avanzadas
 
-<!--start-collapse-->
 ### <a name="protect-your-entire-website"></a>Proteger todo el sitio web
+
 Para proteger todo el sitio web, vaya al archivo **Global.asax** y agregue el atributo `AuthorizeAttribute` al filtro `GlobalFilters` que se encuentra en el método `Application_Start`:
 
 ```csharp
 GlobalFilters.Filters.Add(new AuthorizeAttribute());
 ```
-<!--end-collapse-->
 
 ### <a name="restrict-who-can-sign-in-to-your-application"></a>Restringir quién puede iniciar sesión a la aplicación
 

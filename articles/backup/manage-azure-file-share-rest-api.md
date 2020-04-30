@@ -3,12 +3,12 @@ title: Administración de copias de seguridad de recursos compartidos de archivo
 description: Aprenda a usar API REST para administrar y supervisar los recursos compartidos de archivos de Azure de los que se ha creado una copia de seguridad con Azure Backup.
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 9d29b226aff568c91de8e1f19ddc0c64f8169e4d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1e1d3463aa5d6ee10782e2ee17a7c17ffd64cb61
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77444917"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82184918"
 ---
 # <a name="manage-azure-file-share-backup-with-rest-api"></a>Administración de copias de seguridad de recursos compartidos de archivos de Azure con API REST
 

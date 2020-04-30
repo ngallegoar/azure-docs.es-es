@@ -4,12 +4,12 @@ description: Con Azure Backup, puede enviar datos fuera de la red mediante el se
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: 080b0bc53b2058bd186e90f354b8f5bcda510414
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d45716fea92a25b0deea6ee5c1972820341d64a1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78197095"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82183864"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>Flujo de trabajo de copia de seguridad sin conexión para DPM y Azure Backup Server
 
@@ -137,7 +137,7 @@ La información de esta sección lo ayuda a completar el flujo de trabajo de cop
     ![Página Importar](./media/backup-azure-backup-import-export/offlineBackupscreenInputs.png)
 
     Esta es la página correspondiente en DPM. <br/>
-    
+
     ![Página de importación de servidor de DPM y Azure Backup Server](./media/backup-azure-backup-import-export/dpmoffline.png)
 
     Las casillas que rellenará son las siguientes:
@@ -242,7 +242,7 @@ La utilidad *AzureOfflineBackupDiskPrep* se usa para preparar las unidades SATA 
     ![Almacenamiento de la información de envío](./media/backup-azure-backup-import-export/storingshippinginformation.png)<br/>
 
    > [!IMPORTANT]
-   > Asegúrese de que las unidades lleguen el centro de datos de Azure en el plazo de dos semanas tras proporcionar la información de envío mediante la utilidad *AzureOfflineBackupDiskPrep*. De lo contrario, es posible que las unidades no se procesen. 
+   > Asegúrese de que las unidades lleguen el centro de datos de Azure en el plazo de dos semanas tras proporcionar la información de envío mediante la utilidad *AzureOfflineBackupDiskPrep*. De lo contrario, es posible que las unidades no se procesen.
 
 Cuando haya completado los pasos anteriores, el centro de datos de Azure estará listo para recibir las unidades y procesarlas para transferir los datos de copia de seguridad de las unidades a la cuenta de almacenamiento de Azure clásica que ha creado.
 
