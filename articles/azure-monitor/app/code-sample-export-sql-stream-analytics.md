@@ -3,12 +3,12 @@ title: Exportación a SQL desde Azure Application Insights | Microsoft Docs
 description: Exportación continua de datos de Application Insights a mediante el Stream Analytics
 ms.topic: conceptual
 ms.date: 09/11/2017
-ms.openlocfilehash: 3ef0420cdab64f11b699fd4031ed2b0134f18609
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e67365038b9a481bc0cacf079e5d197cc3139a5f
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77663698"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536920"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Tutorial: exportación a SQL desde Application Insights mediante Stream Analytics
 En este artículo se muestra cómo trasladar los datos de telemetría desde [Azure Application Insights][start] a una base de datos de Azure SQL mediante la [Exportación continua][export] y [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
@@ -61,10 +61,10 @@ La exportación continua siempre envía los datos a una cuenta de Azure Storage,
     ![Elija los tipos de evento.](./media/code-sample-export-sql-stream-analytics/085-types.png)
 
 
-1. Permita que se acumulen algunos datos. Póngase cómo y deje que los usuarios usen su aplicación durante un tiempo. Así, aparecerá la telemetría y verá gráficos estadísticos en el [explorador de métricas](../../azure-monitor/app/metrics-explorer.md) y eventos individuales en la [búsqueda de diagnóstico](../../azure-monitor/app/diagnostic-search.md). 
+1. Permita que se acumulen algunos datos. Póngase cómo y deje que los usuarios usen su aplicación durante un tiempo. Así, aparecerá la telemetría y verá gráficos estadísticos en el [explorador de métricas](../../azure-monitor/platform/metrics-charts.md) y eventos individuales en la [búsqueda de diagnóstico](../../azure-monitor/app/diagnostic-search.md). 
    
     Y, además, exportará los datos en el almacenamiento. 
-2. Inspeccione los datos exportados, ya sea en el portal (seleccione **Examinar**, seleccione la cuenta de almacenamiento y, después, **Contenedores**) o bien en Visual Studio. En Visual Studio, elija **Ver/Cloud Explorer** y abra Azure/Almacenamiento. (Si no dispone de esta opción de menú, deberá instalar el SDK de Azure: abra el cuadro de diálogo Nuevo proyecto y Visual C#/Nube/Obtener el SDK de Microsoft Azure para. NET.)
+2. Inspeccione los datos exportados, ya sea en el portal (seleccione **Examinar**, seleccione la cuenta de almacenamiento y, después, **Contenedores**) o bien en Visual Studio. En Visual Studio, elija **Ver/Cloud Explorer** y abra Azure/Almacenamiento. (Si no tiene esta opción de menú, deberá instalar Azure SDK: abra el cuadro de diálogo Nuevo proyecto y Visual C#/Nube/Obtener Microsoft Azure SDK para. NET).
    
     ![En Visual Studio, abra Explorador de servidores, Azure, Almacenamiento.](./media/code-sample-export-sql-stream-analytics/087-explorer.png)
    
@@ -249,7 +249,7 @@ Después de unos minutos, vuelva a las herramientas de administración de SQL Se
 
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [export]: ../../azure-monitor/app/export-telemetry.md
-[metrics]: ../../azure-monitor/app/metrics-explorer.md
+[metrics]: ../../azure-monitor/platform/metrics-charts.md
 [portal]: https://portal.azure.com/
 [start]: ../../azure-monitor/app/app-insights-overview.md
 

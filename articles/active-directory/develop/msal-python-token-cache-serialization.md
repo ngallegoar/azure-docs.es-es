@@ -13,12 +13,12 @@ ms.date: 11/13/2019
 ms.author: rayluo
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 2593cc856afb98cf5186c4e33032c5e9151614f0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9c6edd0b3cfd6620f04553f9f6dfe89f1c7b7024
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76704398"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536206"
 ---
 # <a name="custom-token-cache-serialization-in-msal-for-python"></a>Serialización de la memoria caché de tokens personalizados en MSAL para Python
 
@@ -26,7 +26,7 @@ En MSAL para Python, se proporciona de forma predeterminada una memoria caché d
 
 La serialización de la memoria caché de tokens, de modo que las distintas sesiones de la aplicación puedan acceder a ella, no se proporcionan "preestablecidas". Esto se debe a que MSAL para Python se puede usar en tipos de aplicaciones que no tienen acceso al sistema de archivos, como aplicaciones web. Para tener una memoria caché de tokens persistente en una aplicación MSAL para Python, debe proporcionar la serialización de la memoria caché de tokens personalizados.
 
-Las estrategias para serializar la memoria caché de tokens difiere en función de si va a escribir una aplicación cliente pública (escritorio) o una aplicación cliente confidencial, (aplicación web/API web o aplicación de demonio).
+Las estrategias para serializar la memoria caché de tokens difiere en función de si va a escribir una aplicación cliente pública (escritorio) o una aplicación cliente confidencial (aplicación web, API web o aplicación de demonio).
 
 ## <a name="token-cache-for-a-public-client-application"></a>Caché de tokens para una aplicación cliente pública
 
@@ -34,8 +34,8 @@ Las aplicaciones cliente públicas se ejecutan en el dispositivo de un usuario y
 
 ## <a name="token-cache-for-a-web-app-confidential-client-application"></a>Caché de tokens para una aplicación web (aplicación cliente confidencial)
 
-En el caso de aplicaciones web o de API web, puede usar la sesión, una caché en Redis o una base de datos para almacenar la memoria caché de tokens. Debe haber una caché de tokens por usuario (por cuenta), por lo que debe asegurarse de que serialice la memoria caché de tokens por cuenta.
+En el caso de aplicaciones web o de API web, puede usar la sesión, una caché en Redis o una base de datos para almacenar la caché de tokens. Debe haber una caché de tokens por usuario (por cuenta), por lo que debe asegurarse de que serialice la memoria caché de tokens por cuenta.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte [ms-identity-python-webapp](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/master/app.py#L64-L72) para ver un ejemplo de cómo usar la memoria caché de tokens para una aplicación web o una API web de Windows o Linux. El ejemplo es para una aplicación web que llama a Microsoft Graph API.
+Consulte [ms-identity-python-webapp](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/master/app.py#L64-L72) para ver un ejemplo de cómo usar la caché de tokens para una aplicación web o una API web de Windows o Linux. El ejemplo es para una aplicación web que llama a Microsoft Graph API.

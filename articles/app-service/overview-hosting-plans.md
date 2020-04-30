@@ -6,12 +6,12 @@ ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
 ms.date: 11/09/2017
 ms.custom: seodec18
-ms.openlocfilehash: f1012f8c00de4b19bbf6206408ec1a806e09e54f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b1c44fb9f44eb75e6d2a766213c5db094ebe79b1
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77482350"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537651"
 ---
 # <a name="azure-app-service-plan-overview"></a>Introducción a los planes de Azure App Service
 
@@ -32,7 +32,7 @@ El _plan de tarifa_ de un plan de App Service determina qué características de
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
-Además, cada plan proporciona un subconjunto específico de características de App Service. Estas características incluyen dominios personalizados y certificados SSL, escalado automático, ranuras de implementación, copias de seguridad, integración de Traffic Manager y mucho más. Cuanto mayor sea el plan, más características estarán disponibles. Para averiguar qué características se admiten en cada plan de tarifa, consulte los [detalles del plan de App Service](https://azure.microsoft.com/pricing/details/app-service/plans/).
+Además, cada plan proporciona un subconjunto específico de características de App Service. Estas características incluyen dominios personalizados y certificados TLS/SSL, escalado automático, ranuras de implementación, copias de seguridad, integración de Traffic Manager y mucho más. Cuanto mayor sea el plan, más características estarán disponibles. Para averiguar qué características se admiten en cada plan de tarifa, consulte los [detalles del plan de App Service](https://azure.microsoft.com/pricing/details/app-service/plans/).
 
 <a name="new-pricing-tier-premiumv2"></a>
 
@@ -71,11 +71,11 @@ Excepto para el plan **Gratis**, un plan de App Service conlleva un cargo por ho
 - En los niveles de proceso dedicados (**Básico**, **Estándar**, **Premium** y **PremiumV2**), el plan de App Service define el número de instancias de VM al que se escalan las aplicaciones, por lo que _cada instancia de VM_ del plan de App Service tiene un cargo por hora. Estas instancias de VM se cobran igual, independientemente de cuántas aplicaciones se ejecuten en ellas. Para evitar cargos inesperados, consulte [Clean up an App Service plan](app-service-plan-manage.md#delete) (Eliminar un plan de App Service).
 - En el plan **Aislado**, el entorno de App Service define el número de trabajos aislados que ejecutan las aplicaciones, y _cada trabajo_ se cobra por hora. Además, hay una cuota de base por hora para ejecutar el propio entorno de App Service.
 
-No se le cobra por usar las características de App Service que tiene a su disposición (configurar dominios personalizados, certificados SSL, ranuras de implementación, copias de seguridad, etc.). Las excepciones son estas:
+No se le cobra por usar las características de App Service que tiene a su disposición (configurar dominios personalizados, certificados TLS/SSL, ranuras de implementación, copias de seguridad, etc.). Las excepciones son estas:
 
 - Dominios de App Service: paga al adquirir uno en Azure y cuando lo renueva cada año.
 - App Service Certificate: paga al adquirir uno en Azure y cuando lo renueva cada año.
-- Conexiones SSL basadas en IP: existe un cargo por hora para cada conexión SSL basada en IP, pero algunos planes**Estándar** o superiores ofrecen una conexión SSL basada en IP de forma gratuita. Las conexiones SSL basadas en SNI son gratuitas.
+- Conexiones TLS basadas en IP: existe un cargo por hora para cada conexión TLS basada en IP, pero algunos planes**Estándar** o superiores ofrecen una conexión TLS basada en IP de forma gratuita. Las conexiones TLS basadas en SNI son gratuitas.
 
 > [!NOTE]
 > Si integra App Service con otro servicio de Azure, debe tener en cuenta los cargos de estos otros servicios. Por ejemplo, si utiliza Azure Traffic Manager para escalar la aplicación geográficamente, Azure Traffic Manager también le cobra en función del uso. Para calcular el costo entre servicios de Azure, consulte [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/). 
@@ -86,7 +86,7 @@ No se le cobra por usar las características de App Service que tiene a su dispo
 
 El plan de App Service se puede escalar o reducir verticalmente en cualquier momento. Basta con cambiar el plan de tarifa del plan. Puede elegir un plan de tarifa inferior al principio y escalar verticalmente más adelante cuando necesite más características de App Service.
 
-Por ejemplo, puede comenzar a probar una aplicación web en un plan de App Service **Gratis** y no pagar nada. Cuando quiera agregar su [nombre DNS personalizado](app-service-web-tutorial-custom-domain.md) a la aplicación web, simplemente, escale el plan verticalmente hasta un plan **Compartido**. Más adelante, cuando desee [crear un enlace SSL](configure-ssl-bindings.md), escale el plan hasta el nivel **Básico**. Si desea tener [entornos de ensayo](deploy-staging-slots.md), escale verticalmente hasta el plan **Estándar**. Cuando necesite más núcleos, memoria o almacenamiento, escale verticalmente a un tamaño superior de VM del mismo nivel.
+Por ejemplo, puede comenzar a probar una aplicación web en un plan de App Service **Gratis** y no pagar nada. Cuando quiera agregar su [nombre DNS personalizado](app-service-web-tutorial-custom-domain.md) a la aplicación web, simplemente, escale el plan verticalmente hasta un plan **Compartido**. Más adelante, cuando desee [crear un enlace TLS](configure-ssl-bindings.md), escale el plan hasta el nivel **Básico**. Si desea tener [entornos de ensayo](deploy-staging-slots.md), escale verticalmente hasta el plan **Estándar**. Cuando necesite más núcleos, memoria o almacenamiento, escale verticalmente a un tamaño superior de VM del mismo nivel.
 
 Funciona igual a la inversa. Cuando crea que ya no necesita las funcionalidades o características de un plan superior, puede reducir verticalmente a un plan inferior, lo que permite ahorrar dinero.
 

@@ -9,12 +9,12 @@ ms.author: snmuvva
 ms.date: 01/11/2020
 ms.topic: conceptual
 manager: kmadnani
-ms.openlocfilehash: 0b1d194209122fa71272243c80a2d4c57f6834a1
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 594bac257c2b9739f1ece276c881348b35d2f704
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80547754"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604814"
 ---
 # <a name="encrypt-secure-assets-in-azure-automation"></a>Cifrado de recursos protegidos en Azure Automation
 
@@ -32,7 +32,7 @@ Cada recurso seguro se cifra y se almacena en Azure Automation con una clave ún
 
 Puede administrar el cifrado de recursos seguros para su cuenta de Automation con sus propias claves. Cuando especifica una clave administrada por el cliente en el nivel de la cuenta de Automation, esa clave se usa para proteger y controlar el acceso a la clave de cifrado de cuenta para la cuenta de Automation. Esta, a su vez, se usa para cifrar y descifrar todos los recursos seguros. Las claves administradas por el cliente ofrecen más flexibilidad para crear, rotar, deshabilitar y revocar controles de acceso. También puede auditar las claves de cifrado que se usan para proteger los recursos seguros.
 
-Use Azure Key Vault para almacenar las claves administradas por el cliente. Puede crear sus propias claves y almacenarlas en un almacén de claves, o puede usar las API de Azure Key Vault para generarlas.  Para obtener más información sobre Azure Key Vault, consulte [¿Qué es Azure Key Vault?](../key-vault/key-vault-overview.md)
+Use Azure Key Vault para almacenar las claves administradas por el cliente. Puede crear sus propias claves y almacenarlas en un almacén de claves, o puede usar las API de Azure Key Vault para generarlas.  Para obtener más información sobre Azure Key Vault, consulte [¿Qué es Azure Key Vault?](../key-vault/general/overview.md)
 
 ## <a name="enable-customer-managed-keys-for-an-automation-account"></a>Habilitación de las claves administradas por el cliente para una cuenta de Automation
 
@@ -58,9 +58,9 @@ Antes de habilitar las claves administradas por el cliente para una cuenta de Au
 
 ### <a name="assign-an-identity-to-the-automation-account"></a>Asignación de una identidad a la cuenta de Automation
 
-Para usar las claves administradas por el cliente con una cuenta de Automation, la cuenta de Automation debe autenticarse en el almacén de claves que contiene las claves administradas por el cliente. Azure Automation usa identidades administradas asignadas por el sistema para autenticar la cuenta con Azure Key Vault. Para obtener más información sobre las identidades administradas, consulte [¿Qué es Managed Identities for Azure Resources?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+Para usar las claves administradas por el cliente con una cuenta de Automation, la cuenta de Automation debe autenticarse en el almacén de claves que contiene las claves administradas por el cliente. Azure Automation usa identidades administradas asignadas por el sistema para autenticar la cuenta con Azure Key Vault. Para más información sobre las identidades administradas, consulte el artículo sobre [Qué son las identidades administradas para recursos de Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 
-Configure una identidad administrada asignada por el sistema a la cuenta de Automation mediante la siguiente llamada a la API REST.
+Configure una identidad administrada asignada por el sistema a la cuenta de Automation mediante la siguiente llamada a la API REST:
 
 ```http
 PATCH https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.Automation/automationAccounts/automation-account-name?api-version=2020-01-13-preview
@@ -192,10 +192,7 @@ Para revocar el acceso a las claves administradas por el cliente, use PowerShell
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [¿Qué es Azure Key Vault?](../key-vault/key-vault-overview.md)
-
+- [¿Qué es Azure Key Vault?](../key-vault/general/overview.md)
 - [Recursos de certificados en Azure Automation](shared-resources/certificates.md)
-
 - [Recursos de credenciales en Azure Automation](shared-resources/credentials.md)
-
 - [Recursos de variables en Azure Automation](shared-resources/variables.md)

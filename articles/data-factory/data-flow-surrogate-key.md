@@ -1,55 +1,85 @@
 ---
-title: Transformación Clave suplente de flujo de datos de asignación
+title: Transformación Clave suplente en el flujo de datos de asignación
 description: Uso de la transformación Clave suplente de flujo de datos de asignación de Azure Data Factory para generar valores de claves secuenciales
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/12/2019
-ms.openlocfilehash: bab48aa9079c1b8020bb828a6bb91bd244a78cf1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/08/2020
+ms.openlocfilehash: ade2fd6011bbcdaed4ce31ce70bfb4235429bb0d
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74930198"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606293"
 ---
-# <a name="mapping-data-flow-surrogate-key-transformation"></a>Transformación Clave suplente de flujo de datos de asignación
+# <a name="surrogate-key-transformation-in-mapping-data-flow"></a>Transformación Clave suplente en el flujo de datos de asignación 
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+Use la transformación Clave suplente para agregar un valor de clave incremental a cada fila de datos. Esto resulta útil al diseñar tablas de dimensiones en un modelo de datos analíticos de esquema de estrella. En un esquema de estrella, cada miembro de las tablas de dimensiones requiere una clave única que no sea una clave empresarial.
 
-Para agregar un valor de clave incremental arbitrario no empresarial al conjunto de filas de su flujo de datos, utilice la transformación Clave suplente. Resulta útil para diseñar tablas de dimensiones en un modelo de datos analíticos con un esquema de estrella, donde cada miembro de las tablas de dimensión debe tener una clave única que no sea empresarial, como parte de la metodología Kimball DW.
+## <a name="configuration"></a>Configuración
 
 ![Transformación Clave suplente](media/data-flow/surrogate.png "Transformación Clave suplente")
 
-"Columna de clave" es el nombre que dará a la nueva columna de clave suplente.
+**Columna de clave:** nombre de la columna de clave suplente generada.
 
-"Valor inicial" es el punto de partida del valor incremental.
+**Valor inicial:** valor de clave más bajo que se generará.
 
 ## <a name="increment-keys-from-existing-sources"></a>Incrementar claves a partir de orígenes existentes
 
-Si quiere iniciar la secuencia desde un valor que existe en un origen, puede utilizar una transformación Columna derivada inmediatamente después de la transformación Clave suplente y agregar los dos valores juntos:
+Para iniciar la secuencia desde un valor que existe en un origen, utilice una transformación Columna derivada inmediatamente después de la transformación Clave suplente para agregar los dos valores juntos:
 
 ![Agregar máximo de Clave suplente](media/data-flow/sk006.png "Agregar máximo de transformación Clave suplente")
 
-Para inicializar el valor de clave con el máximo anterior, puede usar dos técnicas:
+### <a name="increment-from-existing-maximum-value"></a>Incremento del valor máximo existente
 
-### <a name="database-sources"></a>Orígenes de base de datos
+Para inicializar el valor de clave con el máximo anterior, puede usar dos técnicas en función de la ubicación de los datos de origen.
 
-Use la opción "Consulta" para seleccionar MAX() desde el origen mediante la transformación Origen:
+#### <a name="database-sources"></a>Orígenes de base de datos
+
+Use una opción de consulta SQL para seleccionar MAX() desde el origen. Por ejemplo, `Select MAX(<surrogateKeyName>) as maxval from <sourceTable>`/
 
 ![Consulta de clave suplente](media/data-flow/sk002.png "Consulta de transformación Clave suplente")
 
-### <a name="file-sources"></a>Orígenes de archivo
+#### <a name="file-sources"></a>Orígenes de archivo
 
-Si el valor máximo anterior está en un archivo, puede usar la transformación Origen junto con una transformación Agregar y usar la función de expresión MAX() para obtener el valor máximo anterior:
+Si el valor máximo anterior se encuentra en un archivo, use la función `max()` en la transformación Agregado para obtener el valor máximo anterior:
 
 ![Archivo de clave suplente](media/data-flow/sk008.png "Archivo de clave suplente")
 
-En ambos casos, debe unir los nuevos datos entrantes junto con el origen que contiene el valor máximo anterior:
+En ambos casos, debe unir los nuevos datos entrantes junto con el origen que contiene el valor máximo anterior.
 
 ![Unión de clave suplente](media/data-flow/sk004.png "Unión de clave suplente")
+
+## <a name="data-flow-script"></a>Script de flujo de datos
+
+### <a name="syntax"></a>Sintaxis
+
+```
+<incomingStream> 
+    keyGenerate(
+        output(<surrogateColumnName> as long),
+        startAt: <number>L
+    ) ~> <surrogateKeyTransformationName>
+```
+
+### <a name="example"></a>Ejemplo
+
+![Transformación Clave suplente](media/data-flow/surrogate.png "Transformación Clave suplente")
+
+El script de flujo de datos para la configuración de clave suplente anterior se encuentra en el siguiente fragmento de código.
+
+```
+AggregateDayStats
+    keyGenerate(
+        output(key as long),
+        startAt: 1L
+    ) ~> SurrogateKey1
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 
