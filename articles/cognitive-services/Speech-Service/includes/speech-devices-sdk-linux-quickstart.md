@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
 ms.openlocfilehash: d45986dcd8b846015abfef9cb3719d0107c6b8d6
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81400107"
 ---
 En este inicio rápido, aprenderá a usar Speech Devices SDK para Linux para crear un producto habilitado para voz o para utilizarlo como un dispositivo de [transcripción de conversaciones](../conversation-transcription-service.md). Actualmente, solo se admite [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/).

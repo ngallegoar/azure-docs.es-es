@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/02/2020
 ms.author: trbye
 ms.openlocfilehash: 36243fd5db76a4706318f41b3e2cb3f557c17189
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81400760"
 ---
 En este inicio rápido usará el [SDK de voz](~/articles/cognitive-services/speech-service/speech-sdk.md) para reconocer de forma interactiva la voz de la entrada de micrófono y obtener la transcripción del texto del audio capturado. Es fácil integrar esta característica en las aplicaciones o dispositivos para tareas de reconocimiento comunes, como transcribir conversaciones. También se puede usar para integraciones más complejas, como el uso de Bot Framework con el SDK de Voz para crear asistentes de voz.

@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 02/27/2020
 ms.author: aahi
 ms.openlocfilehash: 32e02d3a7c1af6d15e7f381807d80f19b94da38f
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80587145"
 ---
 Introducción a la biblioteca de cliente de Bing Custom Search para Java. Siga estos pasos para instalar el paquete y probar el código de ejemplo para realizar tareas básicas. Bing Custom Search API le permite crear experiencias de búsqueda a medida y sin anuncios para los temas que le interesan. El código fuente correspondiente a este ejemplo se encuentra disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingCustomSearch).

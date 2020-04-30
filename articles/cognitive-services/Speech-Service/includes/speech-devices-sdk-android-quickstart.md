@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
 ms.openlocfilehash: 4a2d9f382045db2aeab80d9ecf5a05b031bcbc9e
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81400115"
 ---
 En este inicio rápido, aprenderá a usar Speech Devices SDK para Android para crear un producto habilitado para voz o para utilizarlo como un dispositivo de [transcripción de conversaciones](../conversation-transcription-service.md).

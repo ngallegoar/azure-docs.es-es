@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
 ms.openlocfilehash: df29ecf0a4ddb30aea1c1ab9ceed44a93fc61eb8
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81400131"
 ---
 En este inicio rápido, aprenderá a usar Speech Devices SDK para Windows para crear un producto habilitado para voz o para utilizarlo como un dispositivo de [transcripción de conversaciones](../conversation-transcription-service.md). Para la transcripción de conversaciones, solo se admite el [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/). En el caso de otros tipos de voz, se admiten matrices de micrófonos lineales que proporcionen una geometría de matriz de micrófonos.
