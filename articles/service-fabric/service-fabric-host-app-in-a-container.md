@@ -3,12 +3,12 @@ title: Implementación de una aplicación .NET de un contenedor en Azure Service
 description: Aprenda a incluir una aplicación .NET existente en un contenedor mediante Visual Studio y a depurar contenedores en Service Fabric localmente. La aplicación incluida en el contenedor se inserta en un registro de contenedor de Azure y se implementa en un clúster de Service Fabric. Cuando se implementa en Azure, la aplicación utiliza Azure SQL DB para conservar los datos.
 ms.topic: tutorial
 ms.date: 07/08/2019
-ms.openlocfilehash: d1602d292af24d8c0bc9139debb3967aa7183a06
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 08bbab2d92e9631f75c46be2e3f822532b62718a
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75463048"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82136665"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Tutorial: Implementación de una aplicación .NET de un contenedor de Windows en Azure Service Fabric
 
@@ -93,7 +93,7 @@ New-AzSqlServerFirewallRule -ResourceGroupName $dbresourcegroupname `
     -ServerName $servername `
     -FirewallRuleName "AllowClient" -StartIpAddress $clientIP -EndIpAddress $clientIP
 
-# Creeate the database in the server.
+# Create the database in the server.
 New-AzSqlDatabase  -ResourceGroupName $dbresourcegroupname `
     -ServerName $servername `
     -DatabaseName $databasename `

@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: dsindona
-ms.openlocfilehash: 2734bc0868584f9d02147abb953458bbcdec205e
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 15bbd7776f2ac8fef78cde43a22e59b0e60a6f50
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273110"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82142998"
 ---
 # <a name="virtual-machine-support-tab"></a>Pestaña Soporte técnico de máquina virtual
 
 > [!IMPORTANT]
-> A partir del 13 de abril de 2020, comenzaremos el traslado de la administración de las ofertas de máquinas virtuales de Azure al Centro de partners. Después de la migración, las ofertas se crearán y administrarán en el Centro de partners. Siga las instrucciones que se indican en [Creación de una oferta de máquina virtual de Azure](https://aka.ms/CreateAzureVMoffer) para administrar las ofertas migradas.
+> A partir del 13 de abril de 2020, comenzaremos el traslado de la administración de las ofertas de máquinas virtuales de Azure al Centro de partners. Después de la migración, las ofertas se crearán y administrarán en el Centro de partners. Siga las instrucciones que se indican en [Creación de una oferta de máquina virtual de Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-create-offer) para administrar las ofertas migradas.
 
 La pestaña **Soporte técnico** de la página **Nueva oferta** permite proporcionar recursos técnicos y de soporte de usuario para la oferta.  Esta pestaña se divide en tres áreas: **Ingeniería**, **Asistencia al cliente** y **Direcciones URL de soporte técnico**.
 

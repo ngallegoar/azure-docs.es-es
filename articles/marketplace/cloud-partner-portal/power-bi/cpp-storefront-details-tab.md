@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: f4fb5fba78cdea7996d006d34b2f07f3ac5e58fa
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 9db01941c21dbd26d149f3623319557e4c625350
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80981297"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82141790"
 ---
 # <a name="power-bi-app-storefront-details-tab"></a>Pestaña Detalles del escaparate electrónico de aplicación de Power BI
 
 >[!Important]
->A partir del 13 de abril de 2020, se comenzará a trasladar la administración de las ofertas de aplicaciones de Power BI al Centro de partners. Después de la migración, creará y administrará sus ofertas en el Centro de partners. Siga las instrucciones que se indican en [Información general sobre la creación de aplicaciones de Power BI](https://aka.ms/AzureCreatePBIServiceApp) para administrar las ofertas migradas.
+>A partir del 13 de abril de 2020, se comenzará a trasladar la administración de las ofertas de aplicaciones de Power BI al Centro de partners. Después de la migración, creará y administrará sus ofertas en el Centro de partners. Siga las instrucciones que se indican en [Información general sobre la creación de aplicaciones de Power BI](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-power-bi-app-offer) para administrar las ofertas migradas.
 
 En la página **Nueva oferta**, use la pestaña **Detalles del escaparate electrónico** para proporcionar información de ventas, marketing y legal a sus clientes potenciales. En esta pestaña también puede configurar la administración de clientes potenciales que genera Azure Marketplace. Este largo formulario se divide en seis secciones: **Detalles de la oferta**, **Detalles del anuncio**, **Artefactos de marketing**, **Legal**, **Asistencia al cliente** y **Administración de clientes potenciales**.  Un asterisco (*) al final de la etiqueta de un campo indica que el campo es obligatorio.
 

@@ -4,16 +4,16 @@ description: Cree certificados de prueba y obtenga información sobre cómo inst
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 04/14/2020
+ms.date: 04/23/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 364846f6cef196f6cefa7872af48f262b387db4f
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 9540913cd86b74fd51e96aa9d1d1dd34c5d60631
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393816"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82129788"
 ---
 # <a name="create-demo-certificates-to-test-iot-edge-device-features"></a>Creación de certificados de demostración para probar las características de dispositivo IoT Edge
 
@@ -313,7 +313,7 @@ El dispositivo IoT también necesita una copia de sus certificados de dispositiv
 3. Recupere la huella digital SHA1 (llamada huella digital en contextos de IoT Hub) de cada certificado. La huella digital es una cadena de caracteres hexadecimales de 40. Use el comando de openssl siguiente para ver el certificado y localizar la huella digital:
 
    ```PowerShell
-   openssl x509 -in <WRKDIR>\certs\iot-device-<device name>-primary.cert.pem -text -fingerprint | sed 's/[:]//g'
+   openssl x509 -in <WRKDIR>\certs\iot-device-<device name>-primary.cert.pem -text -fingerprint
    ```
 
    Ejecute este comando dos veces, una vez para el certificado principal y otra para el certificado secundario. Proporcione huellas digitales para ambos certificados cuando registre un nuevo dispositivo IoT mediante certificados X.509 autofirmados.

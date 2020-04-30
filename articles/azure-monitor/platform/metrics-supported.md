@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 04/06/2020
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 80e38893d764f35511793d8b31f596dcbf16dd42
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: f2e3c03ba599128cc4552f64637ebd63efcb4578
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991899"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82128446"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas compatibles con Azure Monitor
 
@@ -2407,7 +2407,7 @@ Las métricas se organizan por espacio de nombres. Para obtener una lista de los
 |Http5xx|Errores de servidor HTTP|Count|Total|Errores de servidor HTTP|Instancia|
 |MemoryWorkingSet|Espacio de trabajo de memoria|Bytes|Average|Espacio de trabajo de memoria|Instancia|
 |AverageMemoryWorkingSet|Espacio de trabajo de memoria promedio|Bytes|Average|Espacio de trabajo de memoria promedio|Instancia|
-|ResponseTime|Tiempo de respuesta|Segundos|Total|Tiempo de respuesta|Instancia|
+|HttpResponseTime|Tiempo de respuesta|Segundos|Total|Tiempo de respuesta|Instancia|
 |AverageResponseTime|Tiempo medio de respuesta (en desuso)|Segundos|Average|Tiempo de respuesta promedio|Instancia|
 |AppConnections|Conexiones|Count|Average|Conexiones|Instancia|
 |Asas|Recuento de identificadores|Count|Average|Recuento de identificadores|Instancia|

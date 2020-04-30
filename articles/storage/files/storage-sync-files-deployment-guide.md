@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f2c4e762ebf10a5ca2120c13a52750a7781d60b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4d179697707b8190515e8c0e6dee2defa8881c03
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79232268"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82137729"
 ---
 # <a name="deploy-azure-file-sync"></a>Implementación de Azure File Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -410,7 +410,7 @@ Esto permite un escenario eficaz, comúnmente denominado autoservicio de restaur
 Las instantáneas de VSS y Versiones anteriores funcionan independientemente de Azure File Sync. Sin embargo, la nube por niveles debe establecerse en un modo compatible. Muchos puntos de conexión de Azure File Sync Server pueden existir en el mismo volumen. Debe realizar la siguiente llamada de PowerShell por volumen que tenga incluso un punto de conexión de servidor en el que esté usando o vaya a usar la nube por niveles.
 
 ```powershell
-Import-Module ‘<SyncAgentInstallPath>\StorageSync.Management.ServerCmdlets.dll’
+Import-Module '<SyncAgentInstallPath>\StorageSync.Management.ServerCmdlets.dll'
 Enable-StorageSyncSelfServiceRestore [-DriveLetter] <string> [[-Force]] 
 ```
 
@@ -426,7 +426,7 @@ Las instantáneas de VSS se obtienen de un volumen completo. De manera predeterm
 Para ver si la compatibilidad con el autoservicio de restauración está habilitada, puede ejecutar el siguiente cmdlet.
 
 ```powershell
-    Get-StorageSyncSelfServiceRestore [[-Driveletter] <string>]
+Get-StorageSyncSelfServiceRestore [[-Driveletter] <string>]
 ```
 
 Enumerará todos los volúmenes del servidor, así como el número de días compatibles con la nube por niveles para cada uno. Este número se calcula automáticamente en función de las instantáneas máximas posibles por volumen y la programación de instantáneas predeterminada. De manera predeterminada, todas las versiones anteriores presentadas a un trabajador de la información se pueden usar para restaurar a partir de ellas. Se aplica lo mismo si cambia la programación predeterminada para tomar más instantáneas.

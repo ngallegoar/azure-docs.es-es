@@ -4,12 +4,12 @@ description: Conozca el esquema de los eventos y servicios admitidos para los re
 ms.subservice: logs
 ms.topic: reference
 ms.date: 10/22/2019
-ms.openlocfilehash: de102c5dc4104aafc44b87b14aeea0b30cb7c083
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7183c0b268342d08fe7c0ed79c7fa589e3e28afe
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79226344"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82128465"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-resource-logs"></a>Servicios, esquemas y categorías admitidos en los registros de recursos de Azure
 
@@ -48,13 +48,13 @@ El esquema para los registros de diagnóstico de recursos varía según la categ
 | --- | --- |
 | Azure Active Directory | [Información general](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), [Esquema de registros de auditoría](../../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) y [Esquema de inicios de sesión](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
 | Analysis Services | https://azure.microsoft.com/blog/azure-analysis-services-integration-with-azure-diagnostic-logs/ |
-| API Management | [Registros de recursos de API Management](../../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
+| API Management | [Registros de recursos de API Management](../../api-management/api-management-howto-use-azure-monitor.md#resource-logs) |
 | Puertas de enlace de aplicaciones |[Registro para Application Gateway](../../application-gateway/application-gateway-diagnostics.md) |
 | Azure Automation |[Log Analytics para Azure Automation](../../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Registro de Azure Batch](../../batch/batch-diagnostics.md) |
 | Azure Database for MySQL | [Registros de diagnóstico de Azure Database for MySQL](../../mysql/concepts-server-logs.md#diagnostic-logs) |
-| Azure Database for PostgreSQL | [Registros de Azure Database for PostgreSQL](../../postgresql/concepts-server-logs.md#diagnostic-logs) |
-| Explorador de datos de Azure | [Registros de Azure Data Explorer](../../data-explorer/using-diagnostic-logs.md) |
+| Azure Database for PostgreSQL | [Registros de Azure Database for PostgreSQL](../../postgresql/concepts-server-logs.md#resource-logs) |
+| Explorador de datos de Azure | [Registros de Azure Data Explorer](/azure/data-explorer/using-diagnostic-logs) |
 | Cognitive Services | [Registro para Azure Cognitive Services](../../cognitive-services/diagnostic-logging.md) |
 | Container Registry | [Registro para Azure Container Registry](../../container-registry/container-registry-diagnostics-audit-logs.md) |
 | Content Delivery Network | [Registros de Azure para CDN](../../cdn/cdn-azure-diagnostic-logs.md) |
@@ -66,7 +66,7 @@ El esquema para los registros de diagnóstico de recursos varía según la categ
 | ExpressRoute | Esquema no disponible. |
 | Azure Firewall | Esquema no disponible. |
 | IoT Hub | [Operaciones de IoT Hub](../../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
-| Key Vault |[Registro de Azure Key Vault](../../key-vault/key-vault-logging.md) |
+| Key Vault |[Registro de Azure Key Vault](../../key-vault/general/logging.md) |
 | Kubernetes Service |[Registro de Kubernetes de Azure](../../aks/view-master-logs.md#log-event-schema) |
 | Load Balancer |[Log Analytics para Azure Load Balancer](../../load-balancer/load-balancer-monitor-log.md) |
 | Logic Apps |[Esquema de seguimiento personalizado de Logic Apps B2B](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |

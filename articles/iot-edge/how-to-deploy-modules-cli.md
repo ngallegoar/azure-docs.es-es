@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 619ba7cb2d99e0137fd1834096dd5b66ffcd6ec9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fbd0d65624852737c424128e9125b8370b870d4d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80240383"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82133939"
 ---
 # <a name="deploy-azure-iot-edge-modules-with-azure-cli"></a>Implementación de módulos de Azure IoT Edge con la CLI de Azure
 
@@ -22,7 +22,7 @@ Una vez que ha creado módulos de IoT Edge con su lógica empresarial, querrá i
 
 La [CLI de Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) es una herramienta de la línea de comandos multiplataforma y de código abierto para la administración de recursos de Azure, como IoT Edge. Esta permite administrar recursos de Azure IoT Hub, instancias de servicio de aprovisionamiento de dispositivos y centros vinculados listos para usar. La extensión de IoT enriquece la CLI de Azure con características como administración de dispositivos y funcionalidad completa de IoT Edge.
 
-En este artículo se muestra cómo crear un manifiesto de implementación de JSON y, luego, usar ese archivo para insertar la implementación en un dispositivo IoT Edge. Para información sobre la creación de una implementación dirigida a varios dispositivos en función de sus etiquetas compartidas, consulte [Implementación y supervisión de módulos de IoT Edge a escala](how-to-deploy-monitor-cli.md).
+En este artículo se muestra cómo crear un manifiesto de implementación de JSON y, luego, usar ese archivo para insertar la implementación en un dispositivo IoT Edge. Para información sobre la creación de una implementación dirigida a varios dispositivos en función de sus etiquetas compartidas, consulte [Implementación y supervisión de módulos de IoT Edge a escala](how-to-deploy-cli-at-scale.md).
 
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -140,4 +140,4 @@ El parámetro del id. de dispositivo distingue mayúsculas y minúsculas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Aprenda a [implementar y supervisar módulos de IoT Edge a escala](how-to-deploy-monitor.md)
+Aprenda a [implementar y supervisar módulos de IoT Edge a escala](how-to-deploy-at-scale.md)

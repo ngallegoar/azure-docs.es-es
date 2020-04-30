@@ -1,23 +1,16 @@
 ---
 title: Programación de los trabajos
 description: Utilice la programación de trabajos para administrar las tareas.
-services: batch
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: 63d9d4f1-8521-4bbb-b95a-c4cad73692d3
-ms.service: batch
 ms.topic: article
-ms.workload: big-compute
 ms.date: 02/20/2020
 ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 55ea8fb4cc0e65deaa89d718c4a46513716dcf54
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 49b2064d38f9f646c6189d859479d2414569ff60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78672178"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82116883"
 ---
 # <a name="schedule-jobs-for-efficiency"></a>Programación de trabajos para mejorar la eficacia
 

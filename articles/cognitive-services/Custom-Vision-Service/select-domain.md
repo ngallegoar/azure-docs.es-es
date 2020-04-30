@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: shono
-ms.openlocfilehash: 1569b6081adad4cae0855f9adfb4e14e910bf819
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1fb30cc0634224213dc9a188a16902e07d379904
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78899422"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82127775"
 ---
 # <a name="select-a-domain-for-a-custom-vision-project"></a>Selección de un dominio para un proyecto de Custom Vision
 
@@ -68,6 +68,6 @@ Si se selecciona _Vision AI Dev Kit_ (Kit de desarrollo de IA de Vision), los do
 >El dominio __General (compact)__ de Object Detection (Detección de objetos) requiere una lógica de posprocesamiento especial. Para más información, vea cualquier script de ejemplo del paquete comprimido exortado. Si necesita un modelo sin lógica de posprocesamiento, use __General (compacto) [S1]__ .
 
 >[!IMPORTANT]
->No se garantiza que los modelos exportados proporcionen exactamente el mismo resultado que la API de predicción en la nube. Una leve diferencia en la plataforma de ejecución o en la implementación del preprocesamiento puede provocar una diferencia mayor en las salidas de los modelos. Para más información sobre la lógica de preprocesamiento, consulte [este documento](python-tutorial.md).
+>No se garantiza que los modelos exportados proporcionen exactamente el mismo resultado que la API de predicción en la nube. Una leve diferencia en la plataforma de ejecución o en la implementación del preprocesamiento puede provocar una diferencia mayor en las salidas de los modelos. Para más información sobre la lógica de preprocesamiento, consulte [este documento](quickstarts/image-classification.md).
 
 \[1\] CPU Intel Xeon E5-2690 CPU y NVIDIA Tesla M60

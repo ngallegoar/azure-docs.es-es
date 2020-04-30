@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: ba1d06ce83d50b6f0db84d1e423e66eae98f665d
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: dffa9571706c067834e47a656ec1d47cb884fb48
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80477501"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82128705"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>Certificados y App Service aislado 
 
@@ -84,7 +84,7 @@ El certificado estará disponible para todas las aplicaciones del mismo plan de 
 
 Para realizar pruebas, puede crear un certificado autofirmado y generar un archivo *.cer* con el siguiente comando de PowerShell: 
 
-    $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com
+    $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
 
     $certThumbprint = "cert:\localMachine\my\" + $certificate.Thumbprint
     $password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText

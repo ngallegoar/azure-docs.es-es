@@ -1,25 +1,15 @@
 ---
 title: Ejecución de Linux en nodos de proceso de máquinas virtuales - Azure Batch | Microsoft Docs
 description: Obtenga información acerca de cómo procesar las cargas de trabajo de proceso paralelas en grupos de máquinas virtuales de Linux en el servicio Azure Batch.
-services: batch
-documentationcenter: python
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: dc6ba151-1718-468a-b455-2da549225ab2
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: na
 ms.date: 06/01/2018
-ms.author: labrenne
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 977504f41e93e37ae2c5ce9bdb1182a1cfe0a3fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7abdab248a6f19ec4d57018d65f883fdc838da21
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79227412"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82116798"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Aprovisionamiento de nodos de proceso de Linux en grupos de Batch
 

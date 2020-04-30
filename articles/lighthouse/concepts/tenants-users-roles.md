@@ -3,12 +3,12 @@ title: Inquilinos, roles y usuarios en escenarios de Azure Lighthouse
 description: Comprenda los conceptos de los inquilinos, los usuarios y los roles de Azure Active Directory, así como la forma en que se pueden usar en escenarios de Azure Lighthouse.
 ms.date: 04/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 32d9214e4d0d204db39b6e6decab4665e9b55069
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 7ed5af18efbb0f5b97dcab20093cc45e8bed1d03
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80754085"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82144914"
 ---
 # <a name="tenants-roles-and-users-in-azure-lighthouse-scenarios"></a>Inquilinos, roles y usuarios en escenarios de Azure Lighthouse
 
@@ -39,7 +39,7 @@ Para crear las autorizaciones, se recomiendan las siguientes prácticas recomend
 
 - En la mayoría de los casos, querrá asignar permisos a una entidad de servicio o un grupo de usuarios de Azure AD, en lugar de a una serie de cuentas de usuario individuales. Esto le permite agregar o quitar el acceso de usuarios individuales sin tener que actualizar y volver a publicar el plan cuando cambien los requisitos de acceso.
 - Asegúrese de seguir el principio de privilegios mínimos para que los usuarios solo tengan los permisos necesarios para completar su trabajo, lo que ayuda a reducir la posibilidad de errores involuntarios. Para obtener más información, consulte [Recommended security practices](../concepts/recommended-security-practices.md) (Prácticas de seguridad recomendadas).
-- Incluya un usuario con el [rol de eliminación de asignaciones de registro de los servicios administrados](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) para que pueda [quitar el acceso a la delegación](../how-to/onboard-customer.md#remove-access-to-a-delegation) posteriormente si es necesario. Si este rol no está asignado, solo un usuario puede quitar los recursos delegados del inquilino del cliente.
+- Incluya un usuario con el [rol de eliminación de asignaciones de registro de los servicios administrados](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) para que pueda [quitar el acceso a la delegación](../how-to/remove-delegation.md) posteriormente si es necesario. Si este rol no está asignado, solo un usuario puede quitar los recursos delegados del inquilino del cliente.
 - Asegúrese de que todos los usuarios que necesiten [ver la página Mis clientes en Azure Portal](../how-to/view-manage-customers.md) tengan el rol de [Lector](../../role-based-access-control/built-in-roles.md#reader) (u otro rol integrado que incluya acceso de lectura).
 
 > [!IMPORTANT]
