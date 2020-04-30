@@ -13,12 +13,12 @@ ms.date: 09/27/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 0262d22ae00456ce06cb8efbf995f1a093b20043
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b4595a63613afa3c6fef2fa2a85647d8b70b1388
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79230676"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81534472"
 ---
 # <a name="application-configuration-options"></a>Opciones de configuración de aplicaciones
 
@@ -106,11 +106,11 @@ El URI de redirección es el URI al que el proveedor de identidades enviará los
 ### <a name="redirect-uri-for-public-client-apps"></a>URI de redirección para aplicaciones cliente públicas
 
 Si es desarrollador de aplicaciones cliente públicas que usa MSAL:
-- Puede usar `.WithDefaultRedirectUri()` en aplicaciones de escritorio o UWP (MSAL.net 4.1+). Este método establecerá la propiedad de URI de redireccionamiento de la aplicación cliente pública en el URI de redireccionamiento predeterminado recomendado para las aplicaciones cliente públicas. 
+- Puede usar `.WithDefaultRedirectUri()` en aplicaciones de escritorio o UWP (MSAL.net 4.1+). Este método establecerá la propiedad de URI de redireccionamiento de la aplicación cliente pública en el URI de redireccionamiento predeterminado recomendado para las aplicaciones cliente públicas.
 
-  Plataforma  | URI de redireccionamiento  
+  Plataforma  | URI de redireccionamiento
   ---------  | --------------
-  Aplicación de escritorio (.NET FW) | `https://login.microsoftonline.com/common/oauth2/nativeclient` 
+  Aplicación de escritorio (.NET FW) | `https://login.microsoftonline.com/common/oauth2/nativeclient`
   UWP | Valor de `WebAuthenticationBroker.GetCurrentApplicationCallbackUri()`. Esto permite realizar el inicio de sesión único con el explorador, al establecer el valor en el resultado de WebAuthenticationBroker.GetCurrentApplicationCallbackUri(), que debe registrar.
   .NET Core | `https://localhost`. Esto permite que el usuario use el explorador del sistema para la autenticación interactiva, ya que .NET Core no tiene una interfaz de usuario para la vista web insertada en este momento.
 

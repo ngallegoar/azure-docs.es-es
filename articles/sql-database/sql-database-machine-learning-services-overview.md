@@ -12,23 +12,19 @@ ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
 ms.date: 11/20/2019
-ms.openlocfilehash: 2a2cd4bfc3d393543b41eea776f02723d94054b1
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ROBOTS: NOINDEX
+ms.openlocfilehash: 46ca4661d06b52c861431a680a69297575ac99b0
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80345824"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461419"
 ---
 # <a name="azure-sql-database-machine-learning-services-with-r-preview"></a>Machine Learning Services con R de Azure SQL Database (versión preliminar)
 
 Machine Learning Services es una característica de Azure SQL Database que se usa para ejecutar scripts de R en bases de datos. Incluye paquetes de R de Microsoft para el análisis predictivos de alto rendimiento y el aprendizaje automático. Los datos relacionales pueden usarse en scripts de R mediante procedimientos almacenados, scripts de T-SQL que contienen instrucciones en R o código R que contiene T-SQL.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
-
-> [!NOTE]
-> La versión preliminar está disponible para bases de datos únicas y grupos elásticos mediante el modelo de compra basado en núcleo virtual en los niveles de servicio **de uso general** y **crítico para la empresa**. En esta versión preliminar inicial, no se admiten ni el nivel de servicio **hiperescala** ni la opción de implementación de **instancia administrada**. Actualmente, R es el único lenguaje que se admite. En este momento no hay ninguna compatibilidad con Python.
->
-> La versión preliminar está disponible actualmente en las siguientes regiones: Oeste de Europa, Norte de Europa, Oeste de EE. UU. 2, Este de EE. UU., Centro-sur de EE. UU., Centro-norte de EE. UU., Centro de Canadá, Sudeste de Asia, Sur de India y Sudeste de Australia.
 
 ## <a name="what-you-can-do-with-r"></a>Qué puede hacer con R
 

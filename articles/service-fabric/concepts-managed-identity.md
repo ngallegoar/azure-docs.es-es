@@ -4,14 +4,14 @@ description: Obtenga información sobre el uso de identidades administradas para
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.custom: sfrev
-ms.openlocfilehash: 06ebcfdf3d6a3815908752153acb09437d745d15
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a26f188ed2f5e18bdf775cd1fb21001495ffdc89
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76986757"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461453"
 ---
-# <a name="using-managed-identities-for-azure-with-service-fabric-preview"></a>Uso de identidades administradas para Azure con Service Fabric (versión preliminar)
+# <a name="using-managed-identities-for-azure-with-service-fabric"></a>Uso de identidades administradas para Azure con Service Fabric
 
 Un desafío común al compilar aplicaciones en la nube es cómo administrar de forma segura las credenciales en el código para autenticarse en varios servicios sin guardarlos localmente en una estación de trabajo de desarrollador ni en el control de código fuente. Las *identidades administradas para Azure* resuelven este problema para todos los recursos de Azure Active Directory (Azure AD) proporcionándoles identidades administradas automáticamente dentro de Azure AD. Puede usar la identidad de un servicio para autenticarse en cualquier servicio que admita la autenticación de Azure AD, incluido Key Vault, sin necesidad de almacenar ninguna credencial en el código.
 
@@ -47,7 +47,7 @@ Las identidades administradas para Service Fabric solo se admiten en los clúst
 
 La identidad asignada por el sistema de una aplicación es única de esa aplicación, mientras que una identidad asignada por el usuario es un recurso independiente, que se puede asignar a varias aplicaciones. Dentro de una aplicación, se puede asignar una identidad (ya sea asignada por el sistema o asignada por el usuario) a varios servicios de la aplicación, pero cada servicio individual solo puede tener asignada una identidad. Por último, se debe asignar una identidad explícitamente a un servicio para que tenga acceso a esta característica. De hecho, la asignación de las identidades de una aplicación a los servicios que la componen permite el aislamiento en la aplicación. Un servicio solo puede usar la identidad que se le ha asignado.  
 
-Actualmente, se admiten los escenarios siguientes para esta característica en vista previa (GB):
+Actualmente, se admiten los escenarios siguientes para esta característica:
 
 - Implementación de una nueva aplicación con uno o más servicios, y con una o varias identidades asignadas.
 
@@ -57,12 +57,7 @@ Los escenarios siguientes no se admiten o no se recomiendan. Tenga en cuenta que
 
 - Eliminación o cambio de las identidades asignadas a una aplicación. Si debe realizar cambios, envíe implementaciones independientes para agregar primero una nueva asignación de identidad y, después, quitar una ya asignada. La eliminación de una identidad de una aplicación existente puede tener efectos no deseados, como dejar la aplicación en un estado que no se puede actualizar. Es seguro eliminar la aplicación por completo si es necesario quitar una identidad. Tenga en cuenta que de este modo se eliminará la identidad asignada por el sistema (si se ha definido) asociada a la aplicación y se quitarán todas las asociaciones con las identidades asignadas por el usuario que se han asignado a la aplicación.
 
-- En este momento, la compatibilidad de Service Fabric con las identidades administradas no se integra en [AzureServiceTokenProvider](../key-vault/service-to-service-authentication.md); la integración se logrará al final del período de versión preliminar de la característica de identidad administrada.
-
->
-> [!NOTE]
->
-> Esta característica se encuentra en su versión preliminar. Puede estar sujeta a cambios frecuentes y no es adecuada para las implementaciones de producción.
+- En este momento, la compatibilidad de Service Fabric con identidades administradas no está integrada en [AzureServiceTokenProvider](../key-vault/general/service-to-service-authentication.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

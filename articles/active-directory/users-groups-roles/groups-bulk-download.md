@@ -5,7 +5,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 09/11/2019
+ms.date: 04/16/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b08e807e179270b63ca81d3777c230c3e129c3a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 59983678c1b14d6aa87a7b500605e3abeb6a9b85
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72517137"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81533552"
 ---
-# <a name="bulk-download-a-list-of-groups-preview-in-azure-active-directory"></a>Descarga masiva de una lista de grupos (versión preliminar) en Azure Active Directory
+# <a name="bulk-download-a-list-of-groups-in-azure-active-directory"></a>Descarga masiva de una lista de grupos en Azure Active Directory
 
 Mediante el portal de Azure Active Directory (Azure AD), puede descargar de forma masiva la lista de todos los grupos de su organización en un archivo de valores separados por comas (CSV).
 
@@ -34,9 +34,9 @@ Mediante el portal de Azure Active Directory (Azure AD), puede descargar de f
 
 ## <a name="check-download-status"></a>Comprobar el estado de la descarga
 
-Puede ver el estado de todas las solicitudes masivas pendientes en la página de **resultados de la operación masiva (versión preliminar)** .
+Puede ver el estado de todas las solicitudes masivas pendientes en la página **Resultados de la operación masiva**.
 
-   ![La página de resultados de la operación masiva muestra el estado de la solicitud masiva](./media/groups-bulk-download/bulk-center.png)
+[![](media/groups-bulk-download/bulk-center.png "Check status in the Bulk Operations Results page")](media/groups-bulk-download/bulk-center.png#lightbox)
 
 ## <a name="bulk-download-service-limits"></a>Límites del servicio de descarga de forma masiva
 

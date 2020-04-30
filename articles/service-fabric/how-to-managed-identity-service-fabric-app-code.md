@@ -1,16 +1,16 @@
 ---
 title: Uso de una identidad administrada con una aplicación
-description: Cómo usar identidades administradas en el código de una aplicación de Azure Service Fabric para acceder a los servicios de Azure. Esta característica está en versión preliminar pública.
+description: Cómo usar identidades administradas en el código de una aplicación de Azure Service Fabric para acceder a los servicios de Azure.
 ms.topic: article
 ms.date: 10/09/2019
-ms.openlocfilehash: 59680ec7911f55c3dc49d8834b410a039aa435dc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8f1f355d6add16f3b3ec25bc569f9b198a8d6778
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75610325"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461572"
 ---
-# <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services-preview"></a>Cómo usar la identidad administrada de una aplicación de Service Fabric para acceder a los servicios de Azure (versión preliminar)
+# <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services"></a>Cómo usar la identidad administrada de una aplicación de Service Fabric para acceder a los servicios de Azure
 
 Las aplicaciones de Service Fabric pueden sacar partido de las identidades administradas para acceder a otros recursos de Azure que admiten la autenticación basada en Azure Active Directory. Una aplicación puede obtener un [token de acceso](../active-directory/develop/developer-glossary.md#access-token) que represente su identidad (y que puede estar asignada por el sistema o por el usuario) y usarlo como token "portador" para autenticarse en otro servicio, también conocido como [servidor de recursos protegido](../active-directory/develop/developer-glossary.md#resource-server). El token representa la identidad asignada a la aplicación de Service Fabric, y solo se emitirá para recursos de Azure (aplicaciones de Service Fabric incluidas) que compartan esa identidad. Vea la documentación de [información general sobre las identidades administradas](../active-directory/managed-identities-azure-resources/overview.md) para obtener una descripción detallada de las identidades administradas, así como saber distinguir las identidades asignadas por el sistema y las asignadas por el usuario. A lo largo de este artículo, haremos referencia a una aplicación de Service Fabric habilitada para identidades administradas como la [aplicación cliente](../active-directory/develop/developer-glossary.md#client-application).
 
@@ -24,39 +24,37 @@ Las aplicaciones de Service Fabric pueden sacar partido de las identidades admin
 En los clústeres habilitados para identidades administradas, el tiempo de ejecución de Service Fabric expone un punto de conexión de host local que las aplicaciones pueden usar para obtener tokens de acceso. El punto de conexión está disponible en todos los nodos del clúster y está accesible para todas las entidades de ese nodo. Los autores de llamadas autorizados pueden obtener tokens de acceso llamando a ese punto de conexión y presentando un código de autenticación. Este código lo genera el tiempo de ejecución de Service Fabric por cada activación de paquete de código de servicio distinta, y durará lo que dure el proceso que hospeda ese paquete de código de servicio.
 
 En concreto, el entorno de un servicio de Service Fabric habilitado para identidades administradas se inicializará con las siguientes variables:
-- "MSI_ENDPOINT": punto de conexión de host local, completado con una ruta de acceso, una versión de API y los parámetros correspondientes a la identidad administrada de ese servicio.
-- "MSI_SECRET": un código de autenticación, que es una cadena opaca y que representa de forma única el servicio en el nodo actual.
-
-> [!NOTE]
-> Los nombres "MSI_ENDPOINT" y "MSI_SECRET" remiten a la designación anterior de las identidades administradas (MSI, del inglés "Managed Service Identity"), que ahora está en desuso. Los nombres también son coherentes con los nombres de variables de entorno equivalentes usados por otros servicios de Azure que admiten identidades administradas.
+- "IDENTITY_ENDPOINT": el punto de conexión de localhost correspondiente a la identidad administrada del servicio
+- "IDENTITY_HEADER": un código de autenticación único que representa el servicio en el nodo actual
+- "IDENTITY_SERVER_THUMBPRINT": Huella digital del servidor de identidad administrada de Service Fabric
 
 > [!IMPORTANT]
-> El código de aplicación debe considerar el valor de la variable de entorno "MSI_SECRET" como un dato confidencial; no se debe registrar ni difundir en modo alguno. El código de autenticación no tiene ningún valor fuera del nodo local ni una vez finalizado el proceso que hospeda el servicio, pero representa la identidad del servicio de Service Fabric, por lo que se debe tratar con las mismas precauciones que el token de acceso en sí.
+> El código de aplicación debe considerar el valor de la variable de entorno "IDENTITY_HEADER" como un dato confidencial; no se debe registrar ni difundir en modo alguno. El código de autenticación no tiene ningún valor fuera del nodo local ni una vez finalizado el proceso que hospeda el servicio, pero representa la identidad del servicio de Service Fabric, por lo que se debe tratar con las mismas precauciones que el token de acceso en sí.
 
 Para obtener un token, el cliente realiza los siguientes pasos:
-- Forma un URI concatenando el punto de conexión de la identidad administrada (valor de "MSI_ENDPOINT") con la versión de la API y el recurso (audiencia) necesario para el token.
-- Crea una solicitud HTTP GET para el URI especificado.
-- Agrega el código de autenticación (valor de "MSI_SECRET") como un encabezado a la solicitud.
+- Forma un URI concatenando el punto de conexión de la identidad administrada (valor de "IDENTITY_ENDPOINT") con la versión de la API y el recurso (audiencia) necesario para el token.
+- Crea una solicitud HTTPS GET para el URI especificado.
+- Agrega la lógica de validación del certificado de servidor adecuada
+- Agrega el código de autenticación (valor de "IDENTITY_HEADER") como un encabezado a la solicitud.
 - Envía la solicitud.
 
 Una respuesta correcta contendrá una carga de JSON que representa el token de acceso resultante, así como los metadatos que la describen. Una respuesta incorrecta también incluirá una explicación del error. Consulte a continuación más detalles sobre el tratamiento de errores.
 
 Service Fabric almacena en caché los tokens de acceso en varios niveles (nodo, clúster, servicio del proveedor de recursos), por lo que una respuesta correcta no implica necesariamente que el token se emitió directamente como respuesta a la solicitud de la aplicación de usuario. Los tokens se almacenarán en caché menos tiempo de lo que dura su vigencia, por lo que se garantiza que una aplicación reciba un token válido. Se recomienda que el propio código de la aplicación almacene en caché los tokens de acceso que adquiera; la clave de almacenamiento en caché debe incluir una (derivación de) audiencia. 
 
-
 Solicitud de ejemplo:
 ```http
-GET 'http://localhost:2377/metadata/identity/oauth2/token?api-version=2019-07-01-preview&resource=https://keyvault.azure.com/' HTTP/1.1 Secret: 912e4af7-77ba-4fa5-a737-56c8e3ace132
+GET 'https://localhost:2377/metadata/identity/oauth2/token?api-version=2019-07-01-preview&resource=https://vault.azure.net/' HTTP/1.1 Secret: 912e4af7-77ba-4fa5-a737-56c8e3ace132
 ```
 donde:
 
 | Elemento | Descripción |
 | ------- | ----------- |
 | `GET` | El verbo HTTP, indicando que se van a recuperar datos desde el punto de conexión. En este caso, el token de acceso de OAuth. | 
-| `http://localhost:2377/metadata/identity/oauth2/token` | Punto de conexión de identidad administrada de las aplicaciones de Service Fabric, facilitado a través de la variable de entorno MSI_ENDPOINT. |
+| `https://localhost:2377/metadata/identity/oauth2/token` | Punto de conexión de identidad administrada de las aplicaciones de Service Fabric, facilitado a través de la variable de entorno IDENTITY_ENDPOINT. |
 | `api-version` | Parámetro de cadena de consulta que especifica la versión de la API del servicio de token de identidad administrado; actualmente, el único valor aceptado es `2019-07-01-preview` y está sujeto a cambios. |
-| `resource` | Un parámetro de cadena de consulta, que indica el URI del identificador de aplicación del recurso de destino. Esto se reflejará como la notificación `aud` (audiencia) del token emitido. En este ejemplo se solicita un token para acceder a Azure Key Vault, cuyo URI de identificador de aplicación es https:\//keyvault.azure.com/. |
-| `Secret` | Campo de encabezado de la solicitud HTTP, que el servicio de token de identidad administrada de Service Fabric necesita para que los servicios de Service Fabric puedan autenticar al autor de la llamada. Este valor lo facilita el tiempo de ejecución de Service Fabric a través de la variable de entorno MSI_SECRET. |
+| `resource` | Un parámetro de cadena de consulta, que indica el URI del identificador de aplicación del recurso de destino. Esto se reflejará como la notificación `aud` (audiencia) del token emitido. En este ejemplo se solicita un token para acceder a Azure Key Vault, cuyo URI de identificador de aplicación es https:\//vault.azure.net/. |
+| `Secret` | Campo de encabezado de la solicitud HTTP, que el servicio de token de identidad administrada de Service Fabric necesita para que los servicios de Service Fabric puedan autenticar al autor de la llamada. Este valor lo facilita el tiempo de ejecución de Service Fabric a través de la variable de entorno IDENTITY_HEADER. |
 
 
 Respuesta de ejemplo:
@@ -67,7 +65,7 @@ Content-Type: application/json
     "token_type":  "Bearer",
     "access_token":  "eyJ0eXAiO...",
     "expires_on":  1565244611,
-    "resource":  "https://keyvault.azure.com/"
+    "resource":  "https://vault.azure.net/"
 }
 ```
 donde:
@@ -124,20 +122,33 @@ namespace Azure.ServiceFabric.ManagedIdentity.Samples
         /// <returns>Access token</returns>
         public static async Task<string> AcquireAccessTokenAsync()
         {
-            var managedIdentityEndpoint = Environment.GetEnvironmentVariable("MSI_ENDPOINT");
-            var managedIdentityAuthenticationCode = Environment.GetEnvironmentVariable("MSI_SECRET");
+            var managedIdentityEndpoint = Environment.GetEnvironmentVariable("IDENTITY_ENDPOINT");
+            var managedIdentityAuthenticationCode = Environment.GetEnvironmentVariable("IDENTITY_HEADER");
+            var managedIdentityServerThumbprint = Environment.GetEnvironmentVariable("IDENTITY_SERVER_THUMBPRINT");
+            // Latest api version, 2019-07-01-preview is still supported.
+            var managedIdentityApiVersion = Environment.GetEnvironmentVariable("IDENTITY_API_VERSION");
             var managedIdentityAuthenticationHeader = "secret";
-            var managedIdentityApiVersion = "2019-07-01-preview";
             var resource = "https://management.azure.com/";
 
             var requestUri = $"{managedIdentityEndpoint}?api-version={managedIdentityApiVersion}&resource={HttpUtility.UrlEncode(resource)}";
 
             var requestMessage = new HttpRequestMessage(HttpMethod.Get, requestUri);
             requestMessage.Headers.Add(managedIdentityAuthenticationHeader, managedIdentityAuthenticationCode);
+            
+            var handler = new HttpClientHandler();
+            handler.ServerCertificateCustomValidationCallback = (httpRequestMessage, cert, certChain, policyErrors) =>
+            {
+                // Do any additional validation here
+                if (policyErrors == SslPolicyErrors.None)
+                {
+                    return true;
+                }
+                return 0 == string.Compare(cert.GetCertHashString(), managedIdentityServerThumbprint, StringComparison.OrdinalIgnoreCase);
+            };
 
             try
             {
-                var response = await new HttpClient().SendAsync(requestMessage)
+                var response = await new HttpClient(handler).SendAsync(requestMessage)
                     .ConfigureAwait(false);
 
                 response.EnsureSuccessStatusCode();

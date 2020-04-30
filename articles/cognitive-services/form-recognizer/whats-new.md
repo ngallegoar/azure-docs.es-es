@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 03/20/2020
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 7f20244906581dd2869bbc7fcd997d5245540eda
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5f8c66db491b93278fedf1378d3df86e7ce5fdbf
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80155178"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81531089"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Novedades en Form Recognizer
 
@@ -25,48 +25,46 @@ El servicio Form Recognizer se actualiza de forma continuada. Use este artículo
 
 ## <a name="march-2020"></a>Marzo de 2020 
 
+### <a name="new-features"></a>Nuevas características
+
+* **Tipos de valor para etiquetar**: ahora puede especificar los tipos de valores que va a etiquetar con la herramienta de etiquetado de ejemplo de Form Recognizer. Actualmente se admiten los siguientes tipos de valor y variaciones:
+  * `string`
+    * predeterminado, `no-whitespaces`, `alphanumeric`
+  * `number`
+    * predeterminado, `currency`
+  * `date` 
+    * predeterminado, `dmy`, `mdy`, `ymd`
+  * `time`
+  * `integer`
+
+  Para aprender a usar esta característica, consulte la [herramienta de etiquetado de ejemplo](./quickstarts/label-tool.md#specify-tag-value-types).
+
+
+* **Visualización de tablas**: la herramienta de etiquetado de ejemplo ahora muestra las tablas que se reconocieron en el documento. Esto le permite ver las tablas que se han reconocido y extraído del documento antes de etiquetarlas y analizarlas. Esta característica se puede activar o desactivar mediante la opción de capas.
+
+  Este es un ejemplo de cómo se reconocen y extraen las tablas:
+
+  > [!div class="mx-imgBorder"]
+  > ![Visualización de tablas mediante la herramienta de etiquetado de ejemplo](./media/whats-new/formre-table-viz.png)
+
+    Las tablas extraídas están disponible en la salida JSON en `"pageResults"`.
+
+  > [!IMPORTANT]
+  > No se admite el etiquetado de tablas. Si las tablas no se reconocen ni se extraen automáticamente, solo se pueden etiquetar como pares clave-valor. Al etiquetar tablas como pares clave-valor, etiquete cada celda como un valor único.
+
 ### <a name="extraction-enhancements"></a>Mejoras de extracción
 
 Esta versión incluye mejoras de extracción y mejoras de precisión, en concreto, la capacidad de etiquetar y extraer varios pares clave-valor en la misma línea de texto. 
  
-### <a name="form-recognizer-sample-labeling-tool-is-now-open-source"></a>La herramienta de etiquetado de ejemplo de Form Recognizer ahora es de código abierto
+### <a name="sample-labeling-tool-is-now-open-source"></a>La herramienta de etiquetado de ejemplo ahora es de código abierto
 
 La herramienta de etiquetado de ejemplo de Form Recognizer ahora está disponible como proyecto de código abierto. Puede integrarla en sus soluciones y realizar cambios específicos del cliente para satisfacer sus necesidades.
 
 Para más información sobre la herramienta de etiquetado de ejemplo de Form Recognizer, revise la documentación disponible en [GitHub](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md).
 
-### <a name="labeling-value-types"></a>Etiquetado de tipos de valor
-
-Los tipos de valor ahora están disponibles para su uso con la herramienta de etiquetado de ejemplo de Form Recognizer. Actualmente se admiten estos tipos de valor: 
-
-* String
-* Number 
-* Entero
-* Date 
-* Time
-
-En esta imagen se muestra qué apariencia tiene la selección del tipo de valor en la herramienta de etiquetado de ejemplo de Form Recognizer:
-
-> [!div class="mx-imgBorder"]
-> ![Selección del tipo de valor con la herramienta de etiquetado de ejemplo](./media/whats-new/formre-value-type.png)
-
-La tabla extraída está disponible en la salida JSON en `pageResults`.
-
-### <a name="table-visualization"></a>Visualización de tablas 
-
-La herramienta de etiquetado de Form Recognizer muestra ahora las tablas que se reconocieron en el documento. Esto le permite ver las tablas que se han reconocido y extraído del documento antes de etiquetarlas y analizarlas con la herramienta de etiquetado de ejemplo de Form Recognizer. Esta característica se puede activar o desactivar mediante la opción de capas. 
-
-Este es un ejemplo de cómo se reconocen y extraen las tablas:
-
-> [!div class="mx-imgBorder"]
-> ![Visualización de tablas mediante la herramienta de etiquetado de ejemplo](./media/whats-new/formre-table-viz.png)
-
-> [!IMPORTANT]
-> No se admite el etiquetado de tablas. Si las tablas no se reconocen ni se extraen automáticamente, solo se pueden etiquetar como pares clave-valor. Al etiquetar tablas como pares clave-valor, etiquete cada celda como un valor.
-
 ### <a name="tls-12-enforcement"></a>Cumplimiento de TLS 1.2
 
-* TLS 1.2 ya se exige en todas las solicitudes HTTP para este servicio. Para más información, consulte [Seguridad de Azure Cognitive Services](../cognitive-services-security.md).
+TLS 1.2 ya se exige en todas las solicitudes HTTP para este servicio. Para más información, consulte [Seguridad de Azure Cognitive Services](../cognitive-services-security.md).
 
 ## <a name="january-2020"></a>Enero de 2020
 

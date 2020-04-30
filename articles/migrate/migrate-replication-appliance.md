@@ -3,12 +3,12 @@ title: Dispositivo de replicación con Azure Migrate
 description: Obtenga más información sobre el dispositivo de replicación de Azure Migrate para la migración de VMware basada en agente.
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: 4521fce6310b319d155a2f0c418cd934be7e2cb8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 85641f514fc4367f02901eb1dd394cfa204c3ec4
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79225436"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535220"
 ---
 # <a name="replication-appliance"></a>Dispositivo de replicación
 
@@ -28,8 +28,11 @@ El dispositivo de replicación se implementa cuando se configura la migración b
 
 **Se usa para** | **Detalles**
 --- |  ---
-Migración basada en agente de VM de VMware | Descargue la plantilla OVA del centro de Azure Migrate e impórtela en vCenter Server para crear la máquina virtual del dispositivo.
-Migración basada en agente de máquinas físicas | Si no tiene una infraestructura de VMware o si no puede crear una VM de VMware mediante una plantilla OVA, descargue un instalador de software desde el Centro de Azure Migrate y ejecútelo para configurar la máquina de la aplicación.
+**Migración basada en agente de máquinas virtuales de VMware** | Descargue la plantilla OVA del centro de Azure Migrate e impórtela en vCenter Server para crear la máquina virtual del dispositivo.
+**Migración basada en agente de máquinas físicas** | Si no tiene una infraestructura de VMware o si no puede crear una VM de VMware mediante una plantilla OVA, descargue un instalador de software desde el Centro de Azure Migrate y ejecútelo para configurar la máquina de la aplicación.
+
+> [!NOTE]
+> Si va a realizar la implementación en Azure Government, use el archivo de instalación para implementar el dispositivo de replicación.
 
 ## <a name="appliance-requirements"></a>Requisitos de los dispositivos
 
@@ -74,7 +77,7 @@ Descargar e instalar en Azure Migrate | Cuando instale el dispositivo y se le so
 
 ## <a name="url-access"></a>acceso URL
 
-El dispositivo de replicación necesita acceso a estas direcciones URL.
+El dispositivo de replicación necesita acceso a estas direcciones URL de la nube pública de Azure.
 
 **URL** | **Detalles**
 --- | ---
@@ -84,10 +87,26 @@ El dispositivo de replicación necesita acceso a estas direcciones URL.
 \*.hypervrecoverymanager.windowsazure.com | Se usa para las operaciones de administración de replicación y coordinación
 https:\//management.azure.com | Se usa para las operaciones de administración de replicación y coordinación
 *.services.visualstudio.com | Se usa con fines de telemetría (es opcional)
-time.nist.gov | Se usan para comprobar la sincronización de la hora entre el sistema y la hora global.
 time.windows.com | Se usan para comprobar la sincronización de la hora entre el sistema y la hora global.
-https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.live.com <br/> https:\//graph.windows.net <br/> https:\//login.windows.net <br/> https:\//www.live.com <br/> https:\//www.microsoft.com  | La configuración de OVF necesita acceder a estas direcciones URL. Azure Active Directory las usa para la administración de identidades y control de acceso
-https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | Para completar la descarga de MySQL
+https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.live.com <br/> https:\//graph.windows.net <br/> https:\//login.windows.net <br/> https:\//www.live.com <br/> https:\//www.microsoft.com  | La configuración del dispositivo necesita acceso a estas direcciones URL. Azure Active Directory las usa para la administración de identidades y control de acceso
+https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | Para completar la descarga de MySQL. En algunas regiones, la descarga podría redirigirse a la dirección URL de la red CDN. Si fuera necesario, asegúrese de que la dirección URL de CDN también esté permitida.
+
+
+## <a name="azure-government-url-access"></a>Acceso a la dirección URL de Azure Government
+
+El dispositivo de replicación necesita acceso a estas direcciones URL de Azure Government.
+
+**URL** | **Detalles**
+--- | ---
+\*.backup.windowsazure.us | Se usa para la transferencia y coordinación de datos replicados
+\*.store.core.windows.net | Se usa para la transferencia y coordinación de datos replicados
+\*blob.core.windows.net | Se usa para tener acceso a la cuenta de almacenamiento que almacena los datos replicados
+\*.hypervrecoverymanager.windowsazure.us | Se usa para las operaciones de administración de replicación y coordinación
+https:\//management.usgovcloudapi.net | Se usa para las operaciones de administración de replicación y coordinación
+*.services.visualstudio.com | Se usa con fines de telemetría (es opcional)
+time.nist.gov | Se usan para comprobar la sincronización de la hora entre el sistema y la hora global.
+https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.live.com <br/> https:\//graph.windows.net <br/> https:\//login.windows.net <br/> https:\//www.live.com <br/> https:\//www.microsoft.com  | La configuración del dispositivo con OVA necesita acceso a estas direcciones URL. Azure Active Directory las usa para la administración de identidades y control de acceso.
+https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | Para completar la descarga de MySQL. En algunas regiones, la descarga podría redirigirse a la dirección URL de la red CDN. Si fuera necesario, asegúrese de que la dirección URL de CDN también esté permitida.
 
 ## <a name="port-access"></a>Acceso a puertos
 
@@ -107,7 +126,7 @@ Servidor de proceso | El servidor de procesos recibe los datos de la replicació
     - Las máquinas virtuales se comunican con el dispositivo de replicación en el puerto HTTPS 443 entrante para la administración de la replicación.
     - El dispositivo de replicación organiza la replicación con Azure a través del puerto HTTPS 443 saliente.
     - Las máquinas virtuales envían los datos de replicación al servidor de procesos (que se ejecuta en el dispositivo de replicación) en el puerto HTTPS 9443 entrante. Este puerto se puede modificar.
-    - El servidor de procesos recibe datos de replicación, los optimiza y los cifra para enviarlos después a Azure Storage a través del puerto 443 de salida.
+    - El servidor de procesos recibe los datos de la replicación, los optimiza, los cifra y los envía a Azure Storage a través del puerto 443 de salida.
 5. Los datos de replicación registran el primer aterrizaje en una cuenta de almacenamiento en caché de Azure. Estos registros se procesan y los datos se almacenan en un disco administrado de Azure.
 
 ![Architecture](./media/migrate-replication-appliance/architecture.png)
