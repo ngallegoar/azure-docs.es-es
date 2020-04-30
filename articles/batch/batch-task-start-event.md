@@ -1,22 +1,14 @@
 ---
 title: Evento de inicio de tarea de Azure Batch
 description: Información de referencia del evento de inicio de tarea de Batch. Este evento se emite una vez que el programador programa que una tarea se inicie en un nodo de ejecución.
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.assetid: ''
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: labrenne
-ms.openlocfilehash: bed3749e29867298f3e8258a08448b7b094055ec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6e897cb02163d11657c915d31ee5564e5bbd7407
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77022824"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82116407"
 ---
 # <a name="task-start-event"></a>Evento de inicio de tarea
 
