@@ -4,15 +4,15 @@ description: Obtenga información sobre cómo administrar usuarios y roles de ba
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/30/2020
+ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 51c01869e6152d8e9357644457df11f4fcf5ec5f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b7e3cc2b9d35eafcb875efa167821a8e9ad80146
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78273698"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81454210"
 ---
 # <a name="manage-database-roles-and-users"></a>Administración de usuarios y roles de base de datos
 
@@ -25,10 +25,9 @@ Los permisos de los roles incluyen:
 *  **Proceso**: usuarios que se pueden conectar a la base de datos y realizan operaciones de proceso en ella, además de analizar los datos de base de datos modelo.
 *  **Lectura**: usuarios que pueden usar una aplicación cliente para conectarse a los datos de una base de datos modelo y analizarlo.
 
-Cuando crea un proyecto de modelo tabular, crea roles y agrega usuarios o grupos a esos roles mediante el Administrador de roles de Visual Studio con los proyectos de Analysis Services. Cuando se implementa en un servidor, se usa SQL Server Management Studio (SSMS), [cmdlets de PowerShell para Analysis Services](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference) o [Tabular Model Scripting Language](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) (TMSL) para agregar o quitar roles de miembros de usuario.
+Cuando crea un proyecto de modelo tabular, crea roles y agrega usuarios o grupos a esos roles mediante el Administrador de roles de Visual Studio con los proyectos de Analysis Services. Cuando se implementa en un servidor, utilice SQL Server Management Studio (SSMS), [cmdlets de PowerShell para Analysis Services](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference) o [Tabular Model Scripting Language](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) (TMSL) para agregar o quitar roles y miembros usuarios.
 
-Los **Grupos de seguridad** deben estar [habilitados para correo](https://docs.microsoft.com/exchange/recipients-in-exchange-online/manage-mail-enabled-security-groups) con la propiedad `MailEnabled` establecida en `True`. Al especificar un grupo por dirección de correo electrónico, use `obj:groupid@tenantid`.
-
+Al agregar un **grupo de seguridad**, use `obj:groupid@tenantid`.
 
 ## <a name="to-add-or-manage-roles-and-users-in-visual-studio"></a>Para agregar o administrar roles y usuarios en Visual Studio  
   
@@ -133,7 +132,7 @@ Los filtros de fila definen las filas de una tabla que los miembros de un rol de
   
 Los filtros de fila solo se pueden definir para los roles con permisos de lectura y lectura y proceso. De manera predeterminada, si no hay definido un filtro de fila para una tabla determinada, los miembros pueden consultar todas las filas de la tabla a menos que el filtrado cruzado se aplique desde otra tabla.
   
- Los filtros de fila requieren una fórmula DAX, que se debe evaluar con un valor TRUE o FALSE, para definir las filas a las que pueden consultar los miembros de ese rol determinado. No es posible consultar filas que no están incluidas en la fórmula DAX. Por ejemplo, en la tabla Cliente con la siguiente expresión de filtros de fila siguiente, *=Customers [Country] = "USA"* , los miembros del rol Ventas solo pueden ver los clientes en los Estados Unidos.  
+ Los filtros de fila requieren una fórmula DAX, que se debe evaluar con un valor TRUE o FALSE, para definir las filas a las que pueden consultar los miembros de ese rol determinado. No es posible consultar filas que no están incluidas en la fórmula DAX. Por ejemplo, en la tabla Customers, con la siguiente expresión de filtros de fila, *=Customers [Country] = "USA"* , los miembros del rol Ventas solo pueden ver los clientes en los Estados Unidos.  
   
 Los filtros de fila se aplican a las rilas especificadas y a las filas relacionadas. Cuando una tabla tiene varias relaciones, los filtros aplican seguridad para la relación activa. Los filtros de fila forman una intersección con otros filtros de fila definidos para las tablas relacionadas, por ejemplo:  
   

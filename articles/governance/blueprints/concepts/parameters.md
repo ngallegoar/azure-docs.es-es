@@ -1,14 +1,14 @@
 ---
 title: Uso de parámetros para crear planos técnicos dinámicos
 description: Obtenga información sobre los parámetros estáticos y dinámicos y cómo usarlos para crear planos técnicos seguros y dinámicos.
-ms.date: 03/12/2019
+ms.date: 04/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 68987b3e0f418721986003dc796f00ac1dd6dda1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e5953617d5fa27098380f3f0e95843c69800f823
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79231236"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458495"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Creación de planos técnicos mediante parámetros
 
@@ -20,7 +20,7 @@ Un ejemplo sencillo es el artefacto de grupo de recursos. Cuando se crea un grup
 > No hay ningún problema en que dos planos técnicos distintos incluyan un grupo de recursos con el mismo nombre.
 > Si un grupo de recursos incluido en un plano técnico ya existe, este sigue creando los artefactos correspondientes en ese grupo de recursos. Esto podría producir un conflicto ya que dos recursos con el mismo nombre y tipo de recurso no pueden existir dentro de una suscripción.
 
-La solución a este problema son los parámetros. Los planos técnicos le permiten definir el valor para cada propiedad del artefacto durante la asignación a una suscripción. El parámetro permite reutilizar un plano técnico que crea un grupo de recursos y otros recursos en una suscripción única sin tener conflictos.
+La solución a este problema son los parámetros. Azure Blueprints le permite definir el valor para cada propiedad del artefacto durante la asignación a una suscripción. El parámetro permite reutilizar un plano técnico que crea un grupo de recursos y otros recursos en una suscripción única sin tener conflictos.
 
 ## <a name="blueprint-parameters"></a>Parámetros de plano técnico
 
@@ -28,8 +28,7 @@ Con la API REST, los parámetros se pueden crear en el propio plano técnico. Es
 
 ### <a name="using-securestring-and-secureobject-parameters"></a>Uso de los parámetros secureString y secureObject
 
-Aunque un _artefacto_ de plantilla de Resource Manager admite parámetros de los tipos **secureString** y **secureObject**, Azure Blueprint requiere que cada uno esté conectado con una instancia de Azure Key Vault.
-Esta medida de seguridad impide el procedimiento no seguro de almacenar secretos junto con el plano técnico y anima a la implementación de patrones seguros. Azure Blueprints admite esta medida de seguridad y detecta la inclusión de un parámetro seguro en un _artefacto_ de una plantilla de Resource Manager. El servicio entonces solicita durante la asignación las siguientes propiedades de Key Vault por cada parámetro seguro detectado:
+Aunque un _artefacto_ de plantilla de Resource Manager admite parámetros de los tipos **secureString** y **secureObject**, Azure Blueprint requiere que cada uno esté conectado con una instancia de Azure Key Vault. Esta medida de seguridad impide el procedimiento no seguro de almacenar secretos junto con el plano técnico y anima a la implementación de patrones seguros. Azure Blueprints admite esta medida de seguridad y detecta la inclusión de un parámetro seguro en un _artefacto_ de una plantilla de Resource Manager. El servicio entonces solicita durante la asignación las siguientes propiedades de Key Vault por cada parámetro seguro detectado:
 
 - Identificador de recurso de Key Vault
 - Nombre del secreto de Key Vault
@@ -42,7 +41,7 @@ Si usa la asignación del plano técnico un **asignada por el usuario de la iden
 > [!IMPORTANT]
 > En ambos casos, Key Vault debe tener configurada la opción **Habilitar el acceso a Azure Resource Manager para la implementación de plantillas** en la página **Directivas de acceso**. Para obtener instrucciones sobre cómo habilitar esta característica, consulte [Key Vault: Habilitar la implementación de plantillas](../../../azure-resource-manager/managed-applications/key-vault-access.md#enable-template-deployment).
 
-Para más información sobre Azure Key Vault, consulte [Introducción a Key Vault](../../../key-vault/key-vault-overview.md).
+Para más información sobre Azure Key Vault, consulte [Introducción a Key Vault](../../../key-vault/general/overview.md).
 
 ## <a name="parameter-types"></a>Tipos de parámetro
 
@@ -58,15 +57,15 @@ Un valor de parámetro definido en la definición de un plano técnico se denomi
 
 1. Haga clic en un plano técnico ya existente y, a continuación, haga clic en **Editar plano técnico** o en **+ Crear plano técnico** y rellene la información de la pestaña **Aspectos básicos**.
 
-1. Haga clic en **Siguiente: artefactos** o haga clic en la pestaña **Artefactos**.
+1. Haga clic en **Siguiente: Artefactos** o haga clic en la pestaña **Artefactos**.
 
 1. En los artefactos que se agregaron al plano técnico que tienen opciones de parámetro aparece **X of Y parameters populated** (X de Y parámetros rellenos) en la columna **Parámetros**. Haga clic en la fila del artefacto para editar los parámetros de este.
 
-   ![Parámetros de plano técnico en una definición de plano técnico](../media/parameters/parameter-column.png)
+   :::image type="content" source="../media/parameters/parameter-column.png" alt-text="Parámetros de plano técnico en una definición de plano técnico" border="false":::
 
 1. En la página **Editar artefacto** aparecen las opciones de valor adecuadas para el artefacto en el que se hace clic. Cada parámetro del artefacto tiene un título, un cuadro de valor y una casilla. Desactive la casilla para hacer que sea un **parámetro estático**. En el ejemplo siguiente, solo la _ubicación_ es un **parámetro estático** ya que está desactivada y la opción _Nombre del grupo de recursos_ está activada.
 
-   ![Parámetros estáticos de plano técnico en un artefacto de plano técnico](../media/parameters/static-parameter.png)
+   :::image type="content" source="../media/parameters/static-parameter.png" alt-text="Parámetros estáticos de plano técnico en un artefacto de plano técnico" border="false":::
 
 #### <a name="setting-static-parameters-from-rest-api"></a>Establecimiento de parámetros estáticos desde la API REST
 
@@ -177,7 +176,7 @@ Lo contrario de un parámetro estático es un **parámetro dinámico**. Este par
 
 1. En la página **Asignar plano técnico**, busque la sección **Parámetros del artefacto**. Cada artefacto que tiene al menos un **parámetro dinámico** muestra el artefacto y las opciones de configuración. Proporcione los valores necesarios para los parámetros antes de asignar el plano técnico. En el ejemplo siguiente, _Name_ es un **parámetro dinámico** que se debe definir para completar la asignación del plano técnico.
 
-   ![Parámetro dinámico del plano técnico durante la asignación del plano técnico](../media/parameters/dynamic-parameter.png)
+   :::image type="content" source="../media/parameters/dynamic-parameter.png" alt-text="Parámetro dinámico del plano técnico durante la asignación del plano técnico" border="false":::
 
 #### <a name="setting-dynamic-parameters-from-rest-api"></a>Establecimiento de parámetros dinámicos desde la API REST
 

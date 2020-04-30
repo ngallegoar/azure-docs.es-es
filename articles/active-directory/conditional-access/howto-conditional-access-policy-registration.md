@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f69a94e17155ff93510d09f666bce12f628274f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9c8081bb8145a6654c168fb2d664e1666b32dc18
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80295174"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457916"
 ---
 # <a name="conditional-access-securing-security-info-registration"></a>Acceso condicional: Protección del registro de información de seguridad
 
@@ -32,9 +32,9 @@ La siguiente directiva se aplica a todos los usuarios seleccionados, que intenta
 1. En **Asignaciones**, seleccione **Usuarios y grupos** y seleccione los usuarios y grupos a los que quiera aplicar esta directiva.
 
    > [!WARNING]
-   > Los usuarios deben estar habilitados para la [versión preliminar del registro combinado](../authentication/howto-registration-mfa-sspr-combined.md).
+   > Los usuarios deben estar habilitados para el [registro combinado](../authentication/howto-registration-mfa-sspr-combined.md).
 
-1. En **Aplicaciones en la nube o acciones**, seleccione **Acciones del usuario** y active la casilla **Registrar la información de seguridad (versión preliminar)** .
+1. En **Aplicaciones en la nube o acciones**, seleccione **Acciones del usuario** y active la casilla **Registro de la información de seguridad**.
 1. En **Condiciones** > **Ubicaciones**.
    1. Configure **Sí**.
    1. Incluya **Cualquier ubicación**.

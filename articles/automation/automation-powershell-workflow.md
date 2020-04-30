@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/14/2018
 ms.topic: conceptual
-ms.openlocfilehash: 6e4c8057322b6208ea3b447b264e2bde1344540c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1b275239c19584bc11472711a32972aa3ebea1ab
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79235536"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457542"
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Aprendizaje de los conceptos básicos del flujo de trabajo de Windows PowerShell para los runbooks de Automation
 
@@ -20,9 +20,12 @@ Un flujo de trabajo es una secuencia de pasos conectados y programados que reali
 
 Para obtener información detallada sobre los temas de este artículo, vea [Introducción al flujo de trabajo de Windows PowerShell](https://technet.microsoft.com/library/jj134242.aspx).
 
+>[!NOTE]
+>Este artículo se ha actualizado para usar el nuevo módulo Az de Azure PowerShell. Aún puede usar el módulo de AzureRM que continuará recibiendo correcciones de errores hasta diciembre de 2020 como mínimo. Para más información acerca del nuevo módulo Az y la compatibilidad con AzureRM, consulte [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0) (Presentación del nuevo módulo Az de Azure PowerShell). Para obtener instrucciones sobre la instalación del módulo Az en Hybrid Runbook Worker, consulte [Instalación del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Puede actualizar los módulos de su cuenta de Automation a la versión más reciente mediante [Actualización de módulos de Azure PowerShell en Azure Automation](automation-update-azure-modules.md).
+
 ## <a name="basic-structure-of-a-workflow"></a>Estructura básica de un flujo de trabajo
 
-El primer paso para convertir un script de PowerShell en un flujo de trabajo de PowerShell es delimitarlo con la palabra clave **Workflow** .  Un flujo de trabajo comienza con la palabra clave **Workflow** , seguida del cuerpo del script entre llaves. El nombre del flujo de trabajo sigue a la palabra clave **Workflow**, tal como se muestra en la sintaxis siguiente:
+El primer paso para convertir un script de PowerShell en un flujo de trabajo de PowerShell es delimitarlo con la palabra clave `Workflow`.  Un flujo de trabajo comienza con la palabra clave `Workflow`, seguida del cuerpo del script entre llaves. El nombre del flujo de trabajo sigue a la palabra clave `Workflow`, tal y como se muestra en la sintaxis siguiente:
 
 ```powershell
 Workflow Test-Workflow
@@ -33,7 +36,7 @@ Workflow Test-Workflow
 
 El nombre del flujo de trabajo debe coincidir con el nombre del runbook de Automation. Si se va a importar el runbook, el nombre de archivo debe coincidir con el nombre del flujo de trabajo y debe terminar en *.ps1*.
 
-Para agregar parámetros al flujo de trabajo, use la palabra clave **Param** palabra clave igual que lo haría para un script.
+Para agregar parámetros al flujo de trabajo, use la palabra clave `Param` igual que lo haría en un script.
 
 ## <a name="code-changes"></a>Cambios de código
 
@@ -99,7 +102,7 @@ Workflow Stop-MyService
 
 ## <a name="inlinescript"></a>InlineScript
 
-La actividad **InlineScript** es útil cuando necesita ejecutar uno o más comandos tradicional como script tradicional de PowerShell en lugar de como flujo de trabajo de PowerShell.  Mientras que los comandos de un flujo de trabajo se envían a Windows Workflow Foundation para su procesamiento, los comandos de un bloque de InlineScript se procesan mediante Windows PowerShell.
+La actividad `InlineScript` es útil cuando necesita ejecutar uno o más comandos como un script tradicional de PowerShell en lugar de como un flujo de trabajo de PowerShell.  Mientras que los comandos de un flujo de trabajo se envían a Windows Workflow Foundation para su procesamiento, los comandos de un bloque de InlineScript se procesan mediante Windows PowerShell.
 
 InlineScript usa la sintaxis que se muestra a continuación.
 
@@ -154,7 +157,7 @@ Para más información sobre el uso de InlineScript, vea [Ejecutar comandos de W
 
 Una ventaja de los flujos de trabajo de Windows PowerShell es la capacidad para realizar un conjunto de comandos en paralelo en lugar de hacerlo secuencialmente como con un script típico.
 
-Puede usar la palabra clave **Parallel** para crear un bloque de scripts con varios comandos que se ejecuten simultáneamente. Esto usa la siguiente sintaxis que se muestra a continuación. En este caso, Activity1 y Activity2 se inician al mismo tiempo. Activity3 se inicia después de que se hayan completado Activity1 y Activity2.
+Puede usar la palabra clave `Parallel` para crear un bloque de scripts con varios comandos que se ejecutan simultáneamente. Esto usa la siguiente sintaxis que se muestra a continuación. En este caso, Activity1 y Activity2 se inician al mismo tiempo. Activity3 se inicia después de que se hayan completado Activity1 y Activity2.
 
 ```powershell
 Parallel
@@ -189,7 +192,7 @@ Workflow Copy-Files
 }
 ```
 
-Puede utilizar la construcción **ForEach-Parallel** para procesar comandos para cada elemento de una colección simultáneamente. Los elementos de la colección se procesan en paralelo mientras que los comandos del bloque de scripts se ejecutan secuencialmente. Esto usa la siguiente sintaxis que se muestra a continuación. En este caso, Activity1 se inicia al mismo tiempo para todos los elementos de la colección. Para cada elemento, Activity2 se inicia una vez completado Activity1. Activity3 se inicia únicamente después de que se hayan completado Activity1 y Activity2 para todos los elementos. Se usa el parámetro `ThrottleLimit` para limitar el paralelismo. Un valor `ThrottleLimit` demasiado alto puede causar problemas. El valor ideal para el parámetro `ThrottleLimit` depende de muchos factores del entorno. Debe intentar empezar con un valor bajo y probar distintos valores crecientes hasta que encuentre uno que funcione para su caso concreto.
+Puede utilizar la construcción `ForEach -Parallel` para procesar comandos para cada elemento de una colección simultáneamente. Los elementos de la colección se procesan en paralelo mientras que los comandos del bloque de scripts se ejecutan secuencialmente. Esto usa la siguiente sintaxis que se muestra a continuación. En este caso, Activity1 se inicia al mismo tiempo para todos los elementos de la colección. Para cada elemento, Activity2 se inicia una vez completado Activity1. Activity3 se inicia únicamente después de que se hayan completado Activity1 y Activity2 para todos los elementos. Se usa el parámetro `ThrottleLimit` para limitar el paralelismo. Un valor `ThrottleLimit` demasiado alto puede causar problemas. El valor ideal para el parámetro `ThrottleLimit` depende de muchos factores del entorno. Debe intentar empezar con un valor bajo y probar distintos valores crecientes hasta que encuentre uno que funcione para su caso concreto.
 
 ```powershell
 ForEach -Parallel -ThrottleLimit 10 ($<item> in $<collection>)
@@ -222,7 +225,7 @@ Workflow Copy-Files
 
 ## <a name="checkpoints"></a>Puntos de control
 
-Un *punto de control* es una instantánea del estado actual del flujo de trabajo que incluye el valor actual de las variables y cualquier salida generada en ese punto. Si un flujo de trabajo termina en error o se suspende, la próxima vez que se ejecute comenzará desde su último punto de comprobación, en lugar de desde el inicio del flujo de trabajo.  Puede establecer un punto de control en un flujo de trabajo con la actividad **Checkpoint-Workflow** . Azure Automation tiene una característica denominada [distribución equilibrada](automation-runbook-execution.md#fair-share), donde se descarga cualquier runbook que se ejecute durante 3 horas para permitir la ejecución de otros runbooks. Finalmente, el runbook descargado se volverá a cargar, y cuando esté cargado, se reanudará la ejecución desde el último punto de control tomado en el runbook. Con el fin de garantizar que el runbook finalmente se complete, debe agregar puntos de control en intervalos que se ejecuten durante menos de 3 horas. Si durante cada ejecución se agrega un nuevo punto de control, y si el runbook se expulsa después de 3 horas debido a un error, el runbook se reanudará indefinidamente.
+Un *punto de control* es una instantánea del estado actual del flujo de trabajo que incluye el valor actual de las variables y cualquier salida generada en ese punto. Si un flujo de trabajo termina en error o se suspende, la próxima vez que se ejecute comenzará desde su último punto de comprobación, en lugar de desde el inicio del flujo de trabajo.  Puede establecer un punto de control en un flujo de trabajo con la actividad `Checkpoint-Workflow`. Azure Automation tiene una característica denominada [distribución equilibrada](automation-runbook-execution.md#fair-share), donde se descarga cualquier runbook que se ejecute durante 3 horas para permitir la ejecución de otros runbooks. Finalmente, el runbook descargado se volverá a cargar, y cuando esté cargado, se reanudará la ejecución desde el último punto de control tomado en el runbook. Con el fin de garantizar que el runbook finalmente se complete, debe agregar puntos de control en intervalos que se ejecuten durante menos de 3 horas. Si durante cada ejecución se agrega un nuevo punto de control, y si el runbook se expulsa después de 3 horas debido a un error, el runbook se reanudará indefinidamente.
 
 En el código de ejemplo siguiente, se produce una excepción después de Activity2 que provoca la finalización del flujo de trabajo. Cuando se vuelve a ejecutar el flujo de trabajo, se inicia ejecutando Activity2, ya que estaba justo después del último punto de comprobación establecido.
 
@@ -254,36 +257,37 @@ Workflow Copy-Files
 }
 ```
 
-Como las credenciales de nombre de usuario no se conservan después de llamar a la actividad [Suspend-Workflow](https://technet.microsoft.com/library/jj733586.aspx) o del último punto de control, necesita establecer las credenciales en NULL y, después, recuperarlas de nuevo desde el almacén de recursos tras llamar a **Suspend-Workflow** o al punto de control.  En caso contrario, es posible que reciba el mensaje de error siguiente: *No puede reanudarse el trabajo de flujo de trabajo dado que no se pudieron guardar los datos de persistencia completamente o dichos datos estaban dañados. Debe reiniciar el flujo de trabajo.*
+Como las credenciales de nombre de usuario no se conservan después de llamar a la actividad [Suspend-Workflow](https://technet.microsoft.com/library/jj733586.aspx) o después del último punto de control, necesita establecer las credenciales en NULL y, después, recuperarlas de nuevo desde el almacén de recursos tras llamar a `Suspend-Workflow` o al punto de control.  En caso contrario, es posible que reciba el siguiente mensaje de error: `The workflow job cannot be resumed, either because persistence data could not be saved completely, or saved persistence data has been corrupted. You must restart the workflow.`
 
 El mismo código de abajo muestra cómo controlar esta operación en los Runbooks del flujo de trabajo de PowerShell.
 
 ```powershell
 workflow CreateTestVms
 {
-    $Cred = Get-AzureAutomationCredential -Name "MyCredential"
-    $null = Connect-AzureRmAccount -Credential $Cred
+    $Cred = Get-AzAutomationCredential -Name "MyCredential"
+    $null = Connect-AzAccount -Credential $Cred
 
-    $VmsToCreate = Get-AzureAutomationVariable -Name "VmsToCreate"
+    $VmsToCreate = Get-AzAutomationVariable -Name "VmsToCreate"
 
     foreach ($VmName in $VmsToCreate)
         {
         # Do work first to create the VM (code not shown)
 
         # Now add the VM
-        New-AzureRmVm -VM $Vm -Location "WestUs" -ResourceGroupName "ResourceGroup01"
+        New-AzVM -VM $Vm -Location "WestUs" -ResourceGroupName "ResourceGroup01"
 
         # Checkpoint so that VM creation is not repeated if workflow suspends
         $Cred = $null
         Checkpoint-Workflow
-        $Cred = Get-AzureAutomationCredential -Name "MyCredential"
-        $null = Connect-AzureRmAccount -Credential $Cred
+        $Cred = Get-AzAutomationCredential -Name "MyCredential"
+        $null = Connect-AzAccount -Credential $Cred
         }
 }
 ```
 
-> [!IMPORTANT]
-> **Add-AzureRmAccount** es ahora un alias de **Connect-AzureRMAccount**. Al buscar elementos de biblioteca, si no ve **Connect-AzureRMAccount**, puede usar **Add-AzureRmAccount** o actualizar los módulos en su cuenta de Automation.
+> [!NOTE]
+> En el caso de los runbooks de PowerShell no gráficos, `Add-AzAccount` y `Add-AzureRMAccount` son alias de [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). Puede usar estos cmdlets o bien [actualizar los módulos](automation-update-azure-modules.md) de la cuenta de Automation a las versiones más recientes. Es posible que deba actualizar los módulos incluso si acaba de crear una nueva cuenta de Automation.
+
 
 Este paso no es necesario si se autentica utilizando una cuenta de ejecución configurada con una entidad de servicio.
 

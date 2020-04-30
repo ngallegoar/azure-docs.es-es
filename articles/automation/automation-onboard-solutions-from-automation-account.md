@@ -5,12 +5,12 @@ services: automation
 ms.date: 4/11/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: cf82dddf281e8e6f1348884702e32330dee4781b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 57378005bd668fa9c0f2aea70c411bbf911130db
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79235532"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457661"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Incorporación de las soluciones Update Management, Change Tracking e Inventory
 
@@ -18,7 +18,7 @@ Azure Automation proporciona soluciones para administrar las actualizaciones de 
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
-Inicie sesión en Azure en https://portal.azure.com
+Inicie sesión en Azure en https://portal.azure.com.
 
 ## <a name="enable-solutions"></a>Habilitar soluciones
 
@@ -82,7 +82,7 @@ Haga clic en **+ Agregar máquinas virtuales de Azure** y seleccione una o varia
 
 Las máquinas que no estén en Azure se deben agregar manualmente. Desde la cuenta de Automation, seleccione **Inventory** o **Change Tracking** en **Administración de configuración**, o bien **Update Management** debajo de **Update Management**.
 
-Haga clic en **Agregar un equipo que no es de Azure**. Esta operación abre una nueva ventana del explorador con las [instrucciones acerca de cómo instalar y configurar Microsoft Monitoring Agent en la máquina](../azure-monitor/platform/log-analytics-agent.md) para que esta pueda empezar a enviar notificaciones a la solución. Si está incorporando una máquina administrada actualmente por System Center Operations Manager, no se necesita un nuevo agente, ya que la información del área de trabajo se agrega al agente existente.
+Haga clic en **Agregar un equipo que no es de Azure**. Esta acción abre una nueva ventana del explorador con las [instrucciones para instalar y configurar el agente de Log Analytics para Windows](../azure-monitor/platform/log-analytics-agent.md) para que la máquina pueda empezar a enviar notificaciones a la solución. Si va a incorporar una máquina administrada actualmente por System Center Operations Manager, no se necesita un nuevo agente y se proporciona la información del área de trabajo al agente existente.
 
 ## <a name="onboard-machines-in-the-workspace"></a>Incorporación de máquinas en el área de trabajo
 
@@ -150,7 +150,7 @@ También puede desvincular el área de trabajo de la cuenta de Automation desde 
 Para quitar una VM de Update Management:
 
 * En el área de trabajo de Log Analytics, quite la VM de la búsqueda guardada con la configuración de ámbito `MicrosoftDefaultScopeConfig-Updates`. Las búsquedas guardadas se pueden encontrar en la sección **General** del área de trabajo.
-* Quite [Microsoft Monitoring Agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) o el [agente de Log Analytics para Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
+* Quite el [agente de Log Analytics para Windows](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) o el [agente de Log Analytics para Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

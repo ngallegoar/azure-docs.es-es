@@ -7,12 +7,12 @@ ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mimckitt
-ms.openlocfilehash: ee6a25ac5a4cc7de8b8340afb186d170cc147a38
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 70810b21def1672758683abd49f92b86776c9d7b
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393788"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458988"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Actualización automática de imágenes del sistema operativo en un conjunto de escalado de máquinas virtuales de Azure
 
@@ -158,7 +158,7 @@ az provider register --namespace Microsoft.Compute
 - La nueva versión de la imagen no se debe excluir de la versión más reciente de esa imagen de la galería. Las versiones de las imágenes excluidas de la versión más reciente de la imagen de la galería no se implementan en el conjunto de escalado mediante la actualización automática de la imagen del sistema operativo.
 
 > [!NOTE]
->Un conjunto de escalado puede tardar hasta 2 horas en obtener el lanzamiento de la primera imagen una vez configurado el conjunto de escalado para las actualizaciones automáticas del sistema operativo. Se trata de un retraso puntual por conjunto de escalado. Las implementaciones de imágenes posteriores se aplican al conjunto de escalado sin este retraso.
+>Un conjunto de escalado puede tardar hasta 3 horas en desencadenar el lanzamiento de la primera actualización de la imagen una vez configurado el conjunto de escalado para las actualizaciones automáticas del sistema operativo. Se trata de un retraso puntual por conjunto de escalado. Los lanzamientos de imágenes posteriores se desencadenan en el conjunto de escalas en un plazo de 30 minutos.
 
 
 ## <a name="configure-automatic-os-image-upgrade"></a>Configuración de la actualización automática de imágenes del sistema operativo

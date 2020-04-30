@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.topic: conceptual
 ms.date: 12/10/2019
 manager: carmonm
-ms.openlocfilehash: 554a4c64700bb189b4b9f085bd7c259312a36b4b
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: d4e008a0bd43f10b01d78a1c388f1ca6fee983ab
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80410930"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457746"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Incorporación de máquinas para su administración mediante Azure Automation State Configuration
 
@@ -39,6 +39,9 @@ Si no está preparado para administrar la configuración de las máquinas desde 
 > La administración de máquinas virtuales de Azure con State Configuration de Azure Automation se incluye sin cargo extra alguno si la versión de la extensión Desired State Configuration de máquina virtual de Azure instalada es superior a 2.70. Consulte la [**página de precios de Automation**](https://azure.microsoft.com/pricing/details/automation/) para más información.
 
 En las secciones siguientes de este artículo se describe cómo incorporar las máquinas a State Configuration de Azure Automation.
+
+>[!NOTE]
+>Este artículo se ha actualizado para usar el nuevo módulo Az de Azure PowerShell. Aún puede usar el módulo de AzureRM que continuará recibiendo correcciones de errores hasta diciembre de 2020 como mínimo. Para más información acerca del nuevo módulo Az y la compatibilidad con AzureRM, consulte [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0) (Presentación del nuevo módulo Az de Azure PowerShell). Para obtener instrucciones sobre la instalación del módulo Az en Hybrid Runbook Worker, consulte [Instalación del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Puede actualizar los módulos de su cuenta de Automation a la versión más reciente mediante [Actualización de módulos de Azure PowerShell en Azure Automation](automation-update-azure-modules.md).
 
 ## <a name="onboarding-azure-vms"></a>Incorporación de máquinas virtuales de Azure
 
@@ -66,7 +69,7 @@ Para incorporar una máquina virtual de Azure a State Configuration de Azure Aut
 
 ### <a name="onboard-a-vm-using-azure-resource-manager-templates"></a>Incorporación de una máquina virtual con plantillas de Azure Resource Manager
 
-Una máquina virtual se puede implementar e incorporar a State Configuration de Azure Automation con plantillas de Azure Resource Manager. Vea [Server managed by Desired State Configuration service](https://azure.microsoft.com/resources/templates/101-automation-configuration/) (Servidor administrado por el servicio Desired State Configuration) para obtener una plantilla de ejemplo que incorpora una máquina virtual existente a Azure Automation State Configuration. Si administra un conjunto de escalado de máquinas virtuales, vea la plantilla de ejemplo [Configuración de conjunto de escalado de máquinas virtuales administrada por Azure Automation](https://azure.microsoft.com/resources/templates/201-vmss-automation-dsc/).
+Una máquina virtual se puede implementar e incorporar a State Configuration de Azure Automation con plantillas de Azure Resource Manager. Vea [Server managed by Desired State Configuration service](https://azure.microsoft.com/resources/templates/101-automation-configuration/) (Servidor administrado por el servicio Desired State Configuration) para obtener una plantilla de ejemplo que incorpora una máquina virtual existente a Azure Automation State Configuration. Si administra un conjunto de escalado de máquinas virtuales, consulte la plantilla de ejemplo de [Configuración de un conjunto de escalado de máquinas virtuales administrado por Azure Automation](https://azure.microsoft.com/resources/templates/201-vmss-automation-dsc/).
 
 ### <a name="onboard-machines-using-powershell"></a>Incorporación de máquinas con PowerShell
 
@@ -81,9 +84,9 @@ La mejor manera de registrar máquinas virtuales desde otras suscripciones de Az
 
 Para buscar la clave y la dirección URL de registro que se van a usar como parámetros en esta plantilla, vea la sección [Incorporación segura con un protocolo de registro](#onboarding-securely-using-registration) de este artículo.
 
-## <a name="onboarding-physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances"></a>Incorporación de máquinas físicas y virtuales Windows locales o en una nube distinta de Azure (incluidas instancias de AWS EC2)
+## <a name="onboarding-physicalvirtual-windows-machines"></a>Incorporación de máquinas físicas o virtuales con Windows
 
-Los servidores de Windows que se ejecutan de forma local o en otros entornos de nube se pueden incorporar a State Configuration de Azure Automation. Los servidores deben tener [acceso de salida a Azure](automation-dsc-overview.md#network-planning).
+Los servidores de Windows que se ejecutan en el entorno local o en otros entornos de nube (incluidas las instancias de AWS EC2) se pueden incorporar a State Configuration de Azure Automation. Los servidores deben tener [acceso de salida a Azure](automation-dsc-overview.md#network-planning).
 
 1. Asegúrese de que tiene instalada la versión más reciente de [WMF 5](https://aka.ms/wmf5latest) en las máquinas que vaya a incorporar a State Configuration de Azure Automation. Además, WMF 5 debe estar instalado en el equipo que esté usando para realizar la operación de incorporación.
 1. Siga las indicaciones de la sección [Generación de metaconfiguraciones de DSC](#generating-dsc-metaconfigurations) para crear una carpeta que contenga las metaconfiguraciones de DSC necesarias. 
@@ -93,10 +96,10 @@ Los servidores de Windows que se ejecutan de forma local o en otros entornos de 
    Set-DscLocalConfigurationManager -Path C:\Users\joe\Desktop\DscMetaConfigs -ComputerName MyServer1, MyServer2
    ```
 
-1. Si no puede aplicar las metaconfiguraciones de DSC de PowerShell de forma remota, copie la carpeta de **metaconfiguraciones** del paso 2 en las máquinas que vaya a incorporar. Después, agregue código para llamar a `Set-DscLocalConfigurationManager` localmente en las máquinas.
-1. Usando Azure Portal o cmdlets, compruebe que las máquinas que se van a incorporar aparecen ahora como nodos de State Configuration registrados en su cuenta de Azure Automation.
+1. Si no puede aplicar las metaconfiguraciones de DSC de PowerShell de forma remota, copie la carpeta de **metaconfiguraciones** del paso 2 en las máquinas que vaya a incorporar. A continuación, agregue código para llamar a [Set-DscLocalConfigurationManager](https://docs.microsoft.com/powershell/module/psdesiredstateconfiguration/set-dsclocalconfigurationmanager?view=powershell-5.1) localmente en las máquinas.
+1. Mediante Azure Portal o con cmdlets, compruebe que las máquinas que se van a incorporar aparecen ahora como nodos de State Configuration registrados en la cuenta de Azure Automation.
 
-## <a name="onboarding-physicalvirtual-linux-machines-on-premises-or-in-a-cloud-other-than-azure"></a>Incorporación de máquinas físicas y virtuales Linux locales o en una nube distinta de Azure
+## <a name="onboarding-physicalvirtual-linux-machines"></a>Incorporación de máquinas físicas o virtuales con Linux
 
 Los servidores de Linux que se ejecutan de forma local o en otros entornos de nube se pueden incorporar a State Configuration de Azure Automation. Los servidores deben tener [acceso de salida a Azure](automation-dsc-overview.md#network-planning).
 
@@ -280,15 +283,15 @@ La compatibilidad de proxy de las metaconfiguraciones se controla a través de L
 Si los valores predeterminados de LCM de DSC de PowerShell coinciden con su caso de uso, y quiere incorporar máquinas de modo que extraigan de State Configuration Azure Automation y también notifiquen allí, puede usar cmdlets de Azure Automation para generar las metaconfiguraciones de DSC necesarias de forma más sencilla.
 
 1. Abra la consola de PowerShell o VSCode como administrador en una máquina de su entorno local.
-2. Conéctese a Azure Resource Manager con `Connect-AzAccount`
+2. Conéctese a Azure Resource Manager mediante [Connect-AzAccount](https://docs.microsoft.com/powershell/module/Az.Accounts/Connect-AzAccount?view=azps-3.7.0).
 3. Descargue las metaconfiguraciones de DSC de PowerShell de las máquinas que quiera incorporar desde la cuenta de Automation en la que esté configurando los nodos.
 
    ```powershell
    # Define the parameters for Get-AzAutomationDscOnboardingMetaconfig using PowerShell Splatting
    $Params = @{
-       ResourceGroupName = 'ContosoResources'; # The name of the Resource Group that contains your Azure Automation Account
-       AutomationAccountName = 'ContosoAutomation'; # The name of the Azure Automation Account where you want a node on-boarded to
-       ComputerName = @('web01', 'web02', 'sql01'); # The names of the computers that the meta configuration will be generated for
+       ResourceGroupName = 'ContosoResources'; # The name of the Resource Group that contains your Azure Automation account
+       AutomationAccountName = 'ContosoAutomation'; # The name of the Azure Automation account where you want a node on-boarded to
+       ComputerName = @('web01', 'web02', 'sql01'); # The names of the computers that the metaconfiguration will be generated for
        OutputFolder = "$env:UserProfile\Desktop\";
    }
    # Use PowerShell splatting to pass parameters to the Azure Automation cmdlet being invoked
@@ -296,7 +299,7 @@ Si los valores predeterminados de LCM de DSC de PowerShell coinciden con su caso
    Get-AzAutomationDscOnboardingMetaconfig @Params
    ```
 
-1. Ahora, debería tener una carpeta llamada **DscMetaConfigs** que contenga las metaconfiguraciones de DSC de PowerShell de las máquinas que quiera incorporar (como administrador).
+1. Ahora, debería tener la carpeta **DscMetaConfigs** que contiene las metaconfiguraciones de DSC de PowerShell de las máquinas que quiera incorporar (como administrador).
 
     ```powershell
     Set-DscLocalConfigurationManager -Path $env:UserProfile\Desktop\DscMetaConfigs
@@ -325,7 +328,7 @@ Después de registrar un equipo como un nodo de DSC en State Configuration de Az
 
 - **Cambios en los valores de LCM de DSC.** Puede que haya que cambiar los [valores de LCM de DSC de PowerShell](/powershell/scripting/dsc/managing-nodes/metaConfig4) establecidos durante el registro inicial del nodo, por ejemplo, `ConfigurationMode`. Actualmente, estos valores de agente DSC solo se pueden cambiar realizando un nuevo registro. La única excepción es el valor Configuración del nodo que el nodo tiene asignado. Esto se puede cambiar directamente en DSC de Azure Automation.
 
-Un nodo se puede volver a registrar del mismo modo en que se registró inicialmente, con cualquiera de los métodos incorporados descritos en este documento. No es necesario anular el registro de un nodo desde Azure Automation State Configuration antes de volver a registrarlo.
+Un nodo se puede volver a registrar del mismo modo en que se registró inicialmente, con cualquiera de los métodos de incorporación descritos en este documento. No es necesario anular el registro de un nodo desde Azure Automation State Configuration antes de volver a registrarlo.
 
 ## <a name="troubleshooting-azure-virtual-machine-onboarding"></a>Solución de problemas de incorporación de máquinas virtuales de Azure
 
@@ -347,6 +350,7 @@ Para más información sobre la solución de problemas, consulte [Solución de p
 
 - Para empezar a trabajar, consulte [Introducción a State Configuration de Azure Automation](automation-dsc-getting-started.md).
 - Para obtener información acerca de la compilación de configuraciones de DSC para poder asignarlas a los nodos de destino, consulte [Compilación de configuraciones en State Configuration de Azure Automation](automation-dsc-compile.md).
-- Para la referencia de cmdlets de PowerShell, consulte [Cmdlets de State Configuration de Azure Automation](/powershell/module/az.automation#automation).
+- Para obtener una referencia de los cmdlets de PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).
 - Para obtener información de precios, consulte [Precios de State Configuration de Azure Automation](https://azure.microsoft.com/pricing/details/automation/).
 - Para obtener un ejemplo del uso de State Configuration de Azure Automation en una canalización de implementación continua, vea [Ejemplo de uso: implementación continua en máquinas virtuales con Azure Automation State Configuration y Chocolatey](automation-dsc-cd-chocolatey.md).

@@ -1,5 +1,5 @@
 ---
-title: 'Configuración de la terminación SSL con certificados de Key Vault: PowerShell'
+title: 'Configuración de la terminación TLS con certificados de Key Vault: PowerShell'
 titleSuffix: Azure Application Gateway
 description: Obtenga información sobre cómo puede integrar Azure Application Gateway con Key Vault para certificados de servidor que se adjuntan a los clientes de escucha con HTTPS habilitado.
 services: application-gateway
@@ -8,20 +8,20 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/27/2020
 ms.author: victorh
-ms.openlocfilehash: 15e10d34120ab5475f241235bbebeb0c7689ca14
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ffda4b41497a9fd84db5fcee36202eb1c1dca2c0
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371228"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457848"
 ---
-# <a name="configure-ssl-termination-with-key-vault-certificates-by-using-azure-powershell"></a>Configuración de la terminación SSL con certificados de Key Vault mediante Azure PowerShell
+# <a name="configure-tls-termination-with-key-vault-certificates-by-using-azure-powershell"></a>Configuración de la terminación TLS con certificados de Key Vault mediante Azure PowerShell
 
-[Azure Key Vault](../key-vault/key-vault-overview.md) es un almacén de secretos administrado por la plataforma que puede usar para proteger los secretos, las claves y los certificados SSL. Azure Application Gateway admite la integración con Key Vault para certificados de servidor adjuntos a clientes de escucha con HTTPS habilitado. Esta compatibilidad solo es aplicable a la versión 2 de la SKU de Application Gateway.
+[Azure Key Vault](../key-vault/general/overview.md) es un almacén de secretos administrado por la plataforma que puede usar para proteger los secretos, las claves y los certificados TLS/SSL. Azure Application Gateway admite la integración con Key Vault para certificados de servidor adjuntos a clientes de escucha con HTTPS habilitado. Esta compatibilidad solo es aplicable a la versión 2 de la SKU de Application Gateway.
 
-Para obtener más información, consulte [Terminación SSL con certificados de Key Vault](key-vault-certs.md).
+Para obtener más información, consulte [Terminación TLS con certificados de Key Vault](key-vault-certs.md).
 
-Este artículo muestra cómo usar un script de Azure PowerShell para integrar el almacén de claves con la puerta de enlace de aplicaciones para los certificados de terminación SSL.
+Este artículo muestra cómo usar un script de Azure PowerShell para integrar el almacén de claves con la puerta de enlace de aplicaciones para los certificados de terminación TLS/SSL.
 
 En este artículo se requiere la versión 1.0.0 del módulo de Azure PowerShell u otra de versión posterior. Para encontrar la versión, ejecute `Get-Module -ListAvailable Az`. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps). Para ejecutar los comandos de este tutorial, también debe crear una conexión con Azure ejecutando `Connect-AzAccount`.
 
@@ -71,7 +71,7 @@ $certificate = Get-AzKeyVaultCertificate -VaultName $kv -Name "cert1"
 $secretId = $certificate.SecretId.Replace($certificate.Version, "")
 ```
 > [!NOTE]
-> La marca -EnableSoftDelete debe usarse para que la terminación SSL funcione correctamente. Si está configurando [la eliminación temporal de Key Vault mediante el portal](../key-vault/key-vault-ovw-soft-delete.md#soft-delete-behavior), el período de retención debe mantenerse en 90 días, el valor predeterminado. Application Gateway aún no es compatible con otro período de retención. 
+> La marca -EnableSoftDelete debe usarse para que la terminación TLS funcione correctamente. Si está configurando [la eliminación temporal de Key Vault mediante el portal](../key-vault/general/overview-soft-delete.md#soft-delete-behavior), el período de retención debe mantenerse en 90 días, el valor predeterminado. Application Gateway aún no es compatible con otro período de retención. 
 
 ### <a name="create-a-virtual-network"></a>Creación de una red virtual
 
@@ -102,7 +102,7 @@ $fp01 = New-AzApplicationGatewayFrontendPort -Name "port1" -Port 443
 $fp02 = New-AzApplicationGatewayFrontendPort -Name "port2" -Port 80
 ```
 
-### <a name="point-the-ssl-certificate-to-your-key-vault"></a>Seleccionar el certificado SSL en el almacén de claves
+### <a name="point-the-tlsssl-certificate-to-your-key-vault"></a>Seleccionar el certificado TLS/SSL en el almacén de claves
 
 ```azurepowershell
 $sslCert01 = New-AzApplicationGatewaySslCertificate -Name "SSLCert1" -KeyVaultSecretId $secretId
@@ -144,4 +144,4 @@ $appgw = New-AzApplicationGateway -Name $appgwName -Identity $appgwIdentity -Res
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Más información sobre la terminación SSL](ssl-overview.md)
+[Más información sobre la terminación TLS](ssl-overview.md)

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 2/5/2019
 ms.author: absha
-ms.openlocfilehash: abff2f16d9559f015417711820a993badd636f7c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ebbdda39f019f374f8e5abe951d0180c0dd453f6
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80133073"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457882"
 ---
 # <a name="metrics-for-application-gateway"></a>Métricas para Application Gateway
 
@@ -102,7 +102,7 @@ Para Application Gateway, están disponibles las métricas siguientes:
 
 - **Solicitudes con error**
 
-  Recuento de solicitudes con error que ha servido Application Gateway. El recuento de solicitudes puede filtrarse aún más para mostrar el recuento por cada combinación de configuración de grupo de back-end o http específica.
+  Número de solicitudes que ha servido Application Gateway con códigos de error del servidor 5xx. Esto incluye los códigos 5xx generados desde Application Gateway, así como los códigos 5xx que se generan desde el back-end. El recuento de solicitudes puede filtrarse aún más para mostrar el recuento por cada combinación de configuración de grupo de back-end o http específica.
    
 - **Unidades de capacidad facturables fijas**
 
@@ -162,7 +162,7 @@ Para Application Gateway, están disponibles las métricas siguientes:
 
 - **Solicitudes con error**
 
-  Recuento de solicitudes con error que ha servido Application Gateway. El recuento de solicitudes puede filtrarse aún más para mostrar el recuento por cada combinación de configuración de grupo de back-end o http específica.
+  Número de solicitudes que ha servido Application Gateway con códigos de error del servidor 5xx. Esto incluye los códigos 5xx generados desde Application Gateway, así como los códigos 5xx que se generan desde el back-end. El recuento de solicitudes puede filtrarse aún más para mostrar el recuento por cada combinación de configuración de grupo de back-end o http específica.
 
 - **Estado de respuesta**
 

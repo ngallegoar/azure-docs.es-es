@@ -5,24 +5,27 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 54f77f55a127cd712d43419eb6a85fd5d93a478c
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: a9f4e641e60d6cf1c481c445767422e8b4df683b
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80652172"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457695"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>Reenvío del estado de un trabajo y de transmisiones de trabajos de Automation a registros de Azure Monitor
 
 Automation puede enviar el estado de un trabajo del runbook y de transmisiones de trabajos al área de trabajo de Log Analytics. Este proceso no implica vincular el área de trabajo y es completamente independiente. Los registros de trabajo y flujos de trabajo están visibles en Azure Portal, o con PowerShell, para los trabajos individuales y esto permite llevar a cabo investigaciones simples. Ahora con los registros de Azure Monitor, puede:
 
-* Obtener información sobre los trabajos de Automation.
+* Obtener información sobre el estado de los trabajos de Automation.
 * Desencadenar un correo electrónico o una alerta en función del estado de trabajo del runbook (por ejemplo, error o en suspensión).
 * Escribir consultas avanzadas en las transmisiones de trabajos.
 * Correlacionar trabajos en cuentas de Automation.
-* Visualizar el historial de trabajos a lo largo del tiempo.
+* Usar vistas personalizadas y consultas de búsqueda para visualizar los resultados de runbook, el estado del trabajo de runbook y otras métricas o indicadores clave relacionados.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+>[!NOTE]
+>Este artículo se ha actualizado para usar el nuevo módulo Az de Azure PowerShell. Aún puede usar el módulo de AzureRM que continuará recibiendo correcciones de errores hasta diciembre de 2020 como mínimo. Para más información acerca del nuevo módulo Az y la compatibilidad con AzureRM, consulte [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0) (Presentación del nuevo módulo Az de Azure PowerShell). Para obtener instrucciones sobre la instalación del módulo Az en Hybrid Runbook Worker, consulte [Instalación del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Puede actualizar los módulos de su cuenta de Automation a la versión más reciente mediante [Actualización de módulos de Azure PowerShell en Azure Automation](automation-update-azure-modules.md).
 
 ## <a name="prerequisites-and-deployment-considerations"></a>Requisitos previos y consideraciones de implementación
 
@@ -35,7 +38,7 @@ Para empezar a enviar los registros de Automation a registros de Azure Monitor, 
 Use el siguiente comando para conocer el identificador de recurso de su cuenta de Azure Automation:
 
 ```powershell-interactive
-# Find the ResourceId for the Automation Account
+# Find the ResourceId for the Automation account
 Get-AzResource -ResourceType "Microsoft.Automation/automationAccounts"
 ```
 
@@ -50,8 +53,9 @@ Si tiene varias cuentas de Automation o áreas de trabajo busque, en la salida d
 
 1. En Azure Portal, seleccione su cuenta de Automation en la hoja **Cuenta de Automation** y después **Toda la configuración**. 
 2. En la hoja **Toda la configuración**, en **Configuración de la cuenta**, seleccione **Propiedades**.  
-3. En la hoja **Propiedades**, anote los siguientes valores.<br> ![Propiedades de una cuenta de Automation](media/automation-manage-send-joblogs-log-analytics/automation-account-properties.png)
+3. En la hoja **Propiedades**, anote las propiedades que se muestran a continuación.
 
+    ![Propiedades de la cuenta de Automation](media/automation-manage-send-joblogs-log-analytics/automation-account-properties.png).
 
 ## <a name="azure-monitor-log-records"></a>Registros de Azure Monitor
 
@@ -146,7 +150,7 @@ Para crear una regla de alerta, lo primero es crear una búsqueda de los registr
 2. Cree una consulta de búsqueda de registros para la alerta; para ello, escriba la siguiente búsqueda en el campo de la consulta: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")`<br><br>También puede agrupar por el nombre del runbook, para lo que debe usar: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
 
    Si configura registros de más de una cuenta de Automation o suscripción a su área de trabajo, puede agrupar las alertas por suscripción o cuenta de Automation. El nombre de la cuenta de Automation puede encontrarse en el campo `Resource` de la búsqueda de `JobLogs`.
-3. Para abrir la pantalla **Crear regla**, haga clic en **+ Nueva regla de alertas** en la parte superior de la página. Para más información sobre las opciones para configurar la alerta, consulte [Alertas de registro en Azure](../azure-monitor/platform/alerts-unified-log.md).
+3. Para abrir la pantalla **Crear regla**, haga clic en **Nueva regla de alertas** en la parte superior de la página. Para más información sobre las opciones para configurar la alerta, consulte [Alertas de registro en Azure](../azure-monitor/platform/alerts-unified-log.md).
 
 ### <a name="find-all-jobs-that-have-completed-with-errors"></a>Búsqueda de todos los trabajos que se han completado con errores
 
@@ -178,15 +182,6 @@ $automationAccountId = "[resource ID of your Automation account]"
 
 Remove-AzDiagnosticSetting -ResourceId $automationAccountId
 ```
-
-## <a name="summary"></a>Resumen
-
-Al enviar el estado de trabajo y los datos de flujo de Automation a los registros de Azure Monitor, puede obtener más información del estado de los trabajos de Automation mediante lo siguiente:
-+ Establecimiento de alertas que le notificarán cuando haya un problema.
-+ Uso de vistas personalizadas y de consultas de búsqueda para visualizar los resultados de runbook, el estado del trabajo de runbook y otras métricas o indicadores clave relacionados.
-
-Los registros de Azure Monitor proporcionan mayor visibilidad operativa para los trabajos de Automation y pueden ayudar a resolver incidentes con más rapidez.
-
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Si necesita ayuda con la solución de problemas de análisis de registros, consulte el artículo sobre [por qué el análisis de registros ya no recopila datos](../azure-monitor/platform/manage-cost-storage.md#troubleshooting-why-log-analytics-is-no-longer-collecting-data).
@@ -194,4 +189,3 @@ Los registros de Azure Monitor proporcionan mayor visibilidad operativa para los
 * Para aprender a crear y recuperar los mensajes de salida y de error de los runbooks, consulte [Salidas de runbook y mensajes](automation-runbook-output-and-messages.md).
 * Para más información acerca de la ejecución de un runbook, cómo supervisar trabajos del runbook y otros detalles técnicos, consulte [Ejecución de un runbook en Automatización de Azure](automation-runbook-execution.md).
 * Para obtener más información sobre los registros de Azure Monitor y los orígenes de recopilación de datos, consulte [Introducción a la recopilación de datos de almacenamiento en los registros de Azure Monitor](../azure-monitor/platform/collect-azure-metrics-logs.md).
-
