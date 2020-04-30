@@ -3,15 +3,16 @@ title: Movimiento de una dirección IP pública de Azure a otra región de Azure
 description: Use una plantilla de Azure Resource Manager para mover una dirección IP pública de Azure de una región de Azure a otra mediante Azure Portal.
 author: asudbring
 ms.service: virtual-network
+ms.subservice: ip-services
 ms.topic: article
 ms.date: 08/29/2019
 ms.author: allensu
-ms.openlocfilehash: 6d10265e8383b68ebe13c95d8b2a9632668e85da
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6dd4b3279fc0110fff2ee0397a785c87b63644d6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75641408"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82147824"
 ---
 # <a name="move-azure-public-ip-to-another-region-using-the-azure-portal"></a>Movimiento de una dirección IP pública de Azure a otra región mediante Azure Portal
 

@@ -1,24 +1,14 @@
 ---
 title: 'Alta disponibilidad y recuperación ante desastres: Azure Batch'
 description: Aprenda a diseñar la aplicación de Batch para una interrupción regional. Las cargas de trabajo deben conmutar por error a otra región o dividirse entre dos regiones o más.
-services: batch
-documentationcenter: ''
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: ''
-ms.service: batch
-ms.workload: ''
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/29/2019
-ms.author: labrenne
-ms.openlocfilehash: 84b0cce9557b4ae05586579f175cd0f5db14fdfc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: da46753906e27a94e3c76fcaf9c4a26861bba6c8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77026088"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82117444"
 ---
 # <a name="design-your-application-for-high-availability"></a>Diseño de la aplicación para una alta disponibilidad
 

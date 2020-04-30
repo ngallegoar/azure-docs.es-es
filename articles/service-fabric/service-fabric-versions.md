@@ -2,13 +2,13 @@
 title: Versiones de clúster compatibles en Azure Service Fabric
 description: Obtenga información sobre las versiones de clúster en Azure Service Fabric, incluido un vínculo a las versiones más recientes del blog del equipo de Service Fabric.
 ms.topic: troubleshooting
-ms.date: 03/02/2020
-ms.openlocfilehash: 1158266857f0864ed2f442edb100032c70063719
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.date: 04/20/2020
+ms.openlocfilehash: b68314a116b0d9da8baf5f61eeffeef2b30835c4
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80385051"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732875"
 ---
 # <a name="supported-service-fabric-versions"></a>Versiones admitidas de Service Fabric
 
@@ -37,9 +37,10 @@ En la tabla siguiente se indican las versiones de Service Fabric y sus fechas de
 | 6.3.* | 6.1.480.* |Versión 3.2 o anterior |31 de marzo de 2019  |
 | 6.4.* | 6.2.301.* |Versión 3.3 o anterior |15 de septiembre de 2019 |
 | 6.5.* | 6.4.617.* |Versión 3.4 o anterior |1 de agosto de 2020 |
-| 7.0.466.* | 6.4.664.* |Versión 4.0 o anterior|Versión actual; por lo tanto, sin fecha de finalización |
-| 7.0.466.* | 6.5.* |Versión 4.0 o anterior|Versión actual; por lo tanto, sin fecha de finalización |
-| 7.0.470.* | 7.0.466.* |Versión 4.0 o anterior |Versión actual; por lo tanto, sin fecha de finalización |
+| 7.0.466.* | 6.4.664.* |Versión 4.0 o anterior|1 de agosto de 2020  |
+| 7.0.466.* | 6.5.* |Versión 4.0 o anterior|1 de agosto de 2020 |
+| 7.0.470.* | 7.0.466.* |Versión 4.0 o anterior |1 de agosto de 2020  |
+| 7.1.409.* | 7.0.466.* |Versión 4.0 o anterior |Versión actual; por lo tanto, sin fecha de finalización |
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos admitidos
 
@@ -106,3 +107,4 @@ En la tabla siguiente se indican los nombres de versión de Service Fabric y sus
 | 7.0 CU2 | 7.0.464.9590 | 7.0.464.1 |
 | 7.0 CU3 | 7.0.466.9590 | 7.0.465.1 |
 | 7.0 CU4 | 7.0.470.9590 | 7.0.469.1 |
+| 7.1 RTO | 7.1.409.9590 | 7.1.410.1 |

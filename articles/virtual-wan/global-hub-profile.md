@@ -5,18 +5,21 @@ services: virtual-wan
 author: anzaman
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 1/31/2020
+ms.date: 4/20/2020
 ms.author: alzam
-ms.openlocfilehash: 3b7e765dbd024d46939e8989993f0c882b2a8f4b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b63bb861f4df087f852bb1bf599d32100d063f7e
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76965349"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81733183"
 ---
 # <a name="download-a-global-or-hub-based-profile-for-user-vpn-clients"></a>Descarga de un perfil global o basado en centros de conectividad para clientes VPN de usuario
 
-Azure Virtual WAN ofrece dos tipos de conectividad para los usuarios remotos: global y basada en centros de conectividad. Use las secciones siguientes para obtener información sobre un perfil y descargarlo.
+Azure Virtual WAN ofrece dos tipos de conectividad para los usuarios remotos: global y basada en centros de conectividad. Use las secciones siguientes para obtener información sobre un perfil y descargarlo. 
+
+> [!IMPORTANT]
+> La autenticación RADIUS solo admite el perfil basado en centro de conectividad.
 
 ## <a name="global-profile"></a>Perfil global
 

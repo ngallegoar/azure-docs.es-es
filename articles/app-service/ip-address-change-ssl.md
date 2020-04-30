@@ -4,12 +4,12 @@ description: Si la dirección IP de SSL se va a cambiar, conozca qué debe hacer
 ms.topic: article
 ms.date: 06/28/2018
 ms.custom: seodec18
-ms.openlocfilehash: 34f35eb67cada6066e35227fcd6a0eaf425ac007
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dcfe11bcab25f6267a557de5faf7befab467bc29
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74672406"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535730"
 ---
 # <a name="how-to-prepare-for-an-ssl-ip-address-change"></a>Preparación de un cambio de dirección IP de SSL
 
@@ -25,7 +25,7 @@ Si recibe una notificación indicándole que se van a cambiar las direcciones IP
 
 4.  En el encabezado **Configuración**, haga clic en **Configuración de SSL** en el menú de navegación izquierdo.
 
-1. En la sección de enlaces de SSL, seleccione el registro de nombre de host. En el editor que se abre, elija **SNI SSL** en el menú desplegable **Tipo de SSL** y haga clic en **Agregar enlace**. Cuando aparezca un mensaje de finalización correcta de la operación, se habrá liberado la dirección IP existente.
+1. En la sección de enlaces de TLS/SSL, seleccione el registro de nombre de host. En el editor que se abre, elija **SNI SSL** en el menú desplegable **Tipo de SSL** y haga clic en **Agregar enlace**. Cuando aparezca un mensaje de finalización correcta de la operación, se habrá liberado la dirección IP existente.
 
 6.  En la sección **Enlaces SSL**, seleccione de nuevo el mismo registro de nombre de host con el certificado. En el editor que se abre, elija **SSL basada en IP** en el menú desplegable **Tipo de SSL** y haga clic en **Agregar enlace**. Cuando aparezca un mensaje de finalización correcta de la operación, habrá adquirido una nueva dirección IP existente.
 
@@ -45,4 +45,4 @@ Si recibe una notificación indicándole que se van a cambiar las direcciones IP
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo se explica cómo preparar un cambio de dirección IP que Azure inició. Para más información sobre las direcciones IP en Azure App Service, consulte [direcciones IP de SSL en Azure App Service](overview-inbound-outbound-ips.md).
+En este artículo se explica cómo preparar un cambio de dirección IP que Azure inició. Para más información sobre las direcciones IP en Azure App Service, consulte [direcciones IP de entrada y salida en Azure App Service](overview-inbound-outbound-ips.md).

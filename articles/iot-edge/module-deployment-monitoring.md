@@ -8,18 +8,18 @@ ms.date: 01/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 8aaac6100ba980301ff3e85a3ac3959bfee89b49
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7540c5a82220eef61b8f1cf470697315496cd6bf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76895971"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82127597"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>Descripción de las implementaciones automáticas de IoT Edge en un único dispositivo o a escala
 
 Las implementaciones automáticas y la implementación superpuesta le ayudan a administrar y configurar módulos en un gran número de dispositivos IoT Edge.
 
-Azure IoT Edge proporciona dos maneras de configurar los módulos para que se ejecuten en dispositivos IoT Edge. El primer método consiste en implementar módulos en cada dispositivo. Cree un manifiesto de implementación y aplíquelo a un dispositivo determinado por nombre. El segundo método consiste en implementar módulos automáticamente en cualquier dispositivo registrado que cumpla un conjunto de condiciones definidas. Cree un manifiesto de implementación y defina a qué dispositivos se aplica en función de las [etiquetas](../iot-edge/how-to-deploy-monitor.md#identify-devices-using-tags) en el dispositivo gemelo.
+Azure IoT Edge proporciona dos maneras de configurar los módulos para que se ejecuten en dispositivos IoT Edge. El primer método consiste en implementar módulos en cada dispositivo. Cree un manifiesto de implementación y aplíquelo a un dispositivo determinado por nombre. El segundo método consiste en implementar módulos automáticamente en cualquier dispositivo registrado que cumpla un conjunto de condiciones definidas. Cree un manifiesto de implementación y defina a qué dispositivos se aplica en función de las [etiquetas](../iot-edge/how-to-deploy-at-scale.md#identify-devices-using-tags) en el dispositivo gemelo.
 
 Este artículo se centra en la configuración y la supervisión de flotas de dispositivos, lo que se conoce en conjunto como *implementaciones automáticas de IoT Edge*. Los pasos de implementación básicos son los siguientes:
 
@@ -28,7 +28,7 @@ Este artículo se centra en la configuración y la supervisión de flotas de dis
 3. El servicio IoT Hub recupera el estado de los dispositivos IoT Edge y hace que estén disponibles para el operador.  Por ejemplo, un operador puede ver cuándo un dispositivo Edge no está configurado correctamente o si se produce un error en un módulo en tiempo de ejecución.
 4. En cualquier momento, los nuevos dispositivos IoT Edge que satisfacen las condiciones de destino se configuran para la implementación.
 
-Este artículo describe cada uno de los componentes que intervienen en la configuración y la supervisión de una implementación. Para ver un tutorial sobre la creación y la actualización de una implementación, consulte [Deploy and monitor IoT Edge modules at scale](how-to-deploy-monitor.md) (Implementación y supervisión de módulos de IoT Edge a escala).
+Este artículo describe cada uno de los componentes que intervienen en la configuración y la supervisión de una implementación. Para ver un tutorial sobre la creación y la actualización de una implementación, consulte [Deploy and monitor IoT Edge modules at scale](how-to-deploy-at-scale.md) (Implementación y supervisión de módulos de IoT Edge a escala).
 
 ## <a name="deployment"></a>Implementación
 
@@ -197,5 +197,5 @@ Realice las reversiones siguiendo esta secuencia:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Siga los pasos para crear, actualizar o eliminar una implementación en [Implementación y supervisión de módulos de IoT Edge a escala](how-to-deploy-monitor.md).
+* Siga los pasos para crear, actualizar o eliminar una implementación en [Implementación y supervisión de módulos de IoT Edge a escala](how-to-deploy-at-scale.md).
 * Aprenda más sobre otros conceptos de IoT Edge como el [entorno de tiempo de ejecución de IoT Edge](iot-edge-runtime.md) y los [módulos de IoT Edge](iot-edge-modules.md).

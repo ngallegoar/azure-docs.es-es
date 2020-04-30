@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: spelluru
-ms.openlocfilehash: f9fca0a9fefb5959747a4492139ae422a118db02
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ce1bb3760ae73a9eaeee3cde957cc94841ebdf29
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70390176"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81731936"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Descripción del filtrado de eventos para suscripciones de Event Grid
 
@@ -59,7 +59,7 @@ Para filtrar por valores en los campos de datos y especificar el operador de com
 
 * tipo de operador: el tipo de comparación.
 * clave: el campo de datos de evento que se usa para filtrar. Puede ser un número, un booleano o una cadena.
-* valor o valores: el valor o los valores que se compararán con la clave.
+* valores: el valor o los valores que se compararán con la clave.
 
 Si especifica un único filtro con varios valores, se realiza una operación **OR**, por lo que el valor del campo de clave debe ser uno de estos valores. Este es un ejemplo:
 

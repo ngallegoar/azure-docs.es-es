@@ -5,12 +5,12 @@ description: Aprenda a usar la CLI de Azure para crear un clúster de Azure Kube
 services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: b3dec8a7d46226b9d6f4416c98332f0023c0c294
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 826c7f98b9540d84ac151e05cd81f2cc6042776c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81392600"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82128912"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Creación y configuración de un clúster de Azure Kubernetes Service (AKS) para usar nodos virtuales mediante la CLI de Azure
 
@@ -61,7 +61,7 @@ Se admiten las siguientes regiones para las implementaciones de nodos virtuales:
 ## <a name="known-limitations"></a>Restricciones conocidas
 La funcionalidad de nodos virtuales es muy dependiente del conjunto de características de ACI. Los escenarios siguientes no se admiten aún con los nodos virtuales
 
-* Uso de entidad de servicio para extraer imágenes de ACR. La [solución alternativa](https://github.com/virtual-kubelet/virtual-kubelet/blob/master/providers/azure/README.md#Private-registry) consiste en usar [secretos de Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line)
+* Uso de entidad de servicio para extraer imágenes de ACR. La [solución alternativa](https://github.com/virtual-kubelet/azure-aci/blob/master/README.md#private-registry) consiste en usar [secretos de Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line)
 * [Limitaciones de la red virtual](../container-instances/container-instances-vnet.md) entre las que se incluyen el emparejamiento de redes virtuales, las directivas de red de Kubernetes y el tráfico saliente a Internet con grupos de seguridad de red.
 * Iniciar contenedores
 * [Hospedaje de alias](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)

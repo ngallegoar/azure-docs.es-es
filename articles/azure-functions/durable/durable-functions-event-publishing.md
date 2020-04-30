@@ -3,12 +3,12 @@ title: Publicación de Durable Functions en Azure Event Grid (versión prelimina
 description: Aprenda a configurar la publicación automática en Azure Event Grid de Durable Functions.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: 52ffcd4eb81936ffcfa61580288c60bd59ffb744
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 671f7bd5221a936ea9dad0f0cece895bdbe9512f
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78249763"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535492"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Publicación de Durable Functions en Azure Event Grid (versión preliminar)
 
@@ -68,14 +68,36 @@ Ahora puede enviar eventos al tema.
 
 En su proyecto de Durable Functions, busque el archivo `host.json`.
 
+### <a name="durable-functions-1x"></a>Durable Functions 1.x
+
 Agregue `eventGridTopicEndpoint` y `eventGridKeySettingName` en una propiedad `durableTask`.
 
 ```json
 {
+  "durableTask": {
+    "eventGridTopicEndpoint": "https://<topic_name>.westus2-1.eventgrid.azure.net/api/events",
+    "eventGridKeySettingName": "EventGridKey"
+  }
+}
+```
+
+### <a name="durable-functions-2x"></a>Durable Functions 2.x
+
+Agregue una sección `notifications` a la propiedad `durableTask` del archivo, reemplazando `<topic_name>` por el nombre que eligió. Si las propiedades `durableTask` o `extensions` no existen, créelas como en este ejemplo:
+
+```json
+{
+  "version": "2.0",
+  "extensions": {
     "durableTask": {
-        "eventGridTopicEndpoint": "https://<topic_name>.westus2-1.eventgrid.azure.net/api/events",
-        "eventGridKeySettingName": "EventGridKey"
+      "notifications": {
+        "eventGrid": {
+          "topicEndpoint": "https://<topic_name>.westus2-1.eventgrid.azure.net/api/events",
+          "keySettingName": "EventGridKey"
+        }
+      }
     }
+  }
 }
 ```
 

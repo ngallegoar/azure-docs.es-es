@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 5c59ddf046e7ffe936b097878d5d049b43ea8aec
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: 73981cb0f124e1577690f893ead60e6375f16298
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81729024"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82133147"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glosario de términos de IoT Hub
 
@@ -28,7 +28,7 @@ En este artículo se enumeran algunos de los términos comunes que se utilizan e
 
 ## <a name="automatic-device-management"></a>Administración automática de dispositivos
 
-La administración automática de dispositivos de Azure IoT Hub automatiza muchas de las tareas repetitivas y complejas de administración de grandes flotas de dispositivos durante su ciclo de vida completo. Con la administración automática de dispositivos, puede tener como destino un conjunto de dispositivos según sus propiedades, definir una configuración deseada y permitir que IoT Hub actualice los dispositivos en cuanto estén dentro del alcance.  Consta de [configuraciones automáticas de dispositivos](iot-hub-auto-device-config.md) e [implementaciones automáticas de IoT Edge](../iot-edge/how-to-deploy-monitor.md).
+La administración automática de dispositivos de Azure IoT Hub automatiza muchas de las tareas repetitivas y complejas de administración de grandes flotas de dispositivos durante su ciclo de vida completo. Con la administración automática de dispositivos, puede tener como destino un conjunto de dispositivos según sus propiedades, definir una configuración deseada y permitir que IoT Hub actualice los dispositivos en cuanto estén dentro del alcance.  Consta de [configuraciones automáticas de dispositivos](iot-hub-auto-device-config.md) e [implementaciones automáticas de IoT Edge](../iot-edge/how-to-deploy-at-scale.md).
 
 ## <a name="automatic-device-configuration"></a>Configuración automática de dispositivos
 

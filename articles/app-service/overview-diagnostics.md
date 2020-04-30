@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/18/2019
 ms.author: jennile
 ms.custom: seodec18
-ms.openlocfilehash: e06e71d4436ac6c64ff2edc876d7849d084482f8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: df8f68e47776f46ae2d1331f85bd76d6cfe17b80
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74671631"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869942"
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Introducción a los diagnósticos de Azure App Service
 
@@ -31,6 +31,10 @@ Para Azure Functions, vaya a la aplicación de la función y, en el panel de nav
 En la página principal de diagnóstico de App Service, puede elegir la categoría que mejor describa el problema con la aplicación. Para ello, use las palabras clave de cada icono de la página principal. Además, en esta página encontrará las **Herramientas de diagnóstico** para aplicaciones de Windows. Consulte [Herramientas de diagnóstico (solo para la aplicación de Windows)](#diagnostic-tools-only-for-windows-app).
 
 ![Página principal](./media/app-service-diagnostics/app-service-diagnostics-homepage-1.png)
+
+> [!NOTE]
+> Si la aplicación está inactiva o funciona lento, puede [recopilar un seguimiento de generación de perfiles](https://azure.github.io/AppService/2018/06/06/App-Service-Diagnostics-Profiling-an-ASP.NET-Web-App-on-Azure-App-Service.html) para identificar la causa principal del problema. La generación de perfiles es ligera y está diseñada para escenarios de producción.
+>
 
 ## <a name="interactive-interface"></a>Interfaz interactiva
 

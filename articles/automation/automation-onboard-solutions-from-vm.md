@@ -5,12 +5,12 @@ services: automation
 ms.date: 03/04/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 621b429f5dc3a6b6620e4d41ad46763e1d4fa226
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f33f829b6cb86cb01c848e5fc48e1618a3e00a2c
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78299540"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537039"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Incorporación de las soluciones Update Management, Change Tracking e Inventory desde una máquina virtual de Azure
 
@@ -24,38 +24,38 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
 
 En primer lugar, habilite una o las tres soluciones en la máquina virtual:
 
-1. En [Azure Portal](https://portal.azure.com), en el panel izquierdo, seleccione **Máquinas virtuales** o busque y seleccione **Máquinas virtuales** en la **Página principal**.
+1. En [Azure Portal](https://portal.azure.com), seleccione **Máquinas virtuales** o busque y seleccione **Máquinas virtuales** en la página principal.
 2. Seleccione la máquina virtual para la que quiere habilitar una solución.
-3. En la página de la máquina virtual, en **Operaciones**, seleccione **Update Management**, **Inventory** o **Change Tracking**. La máquina virtual puede existir en cualquier región independientemente de la ubicación de la cuenta de Automation. Al incorporar una solución de una máquina virtual, debe tener el permiso `Microsoft.OperationalInsights/workspaces/read` para determinar si la VM está incorporada a un área de trabajo. Para obtener información acerca de los permisos adicionales que se requieren, consulte los [permisos necesarios para incorporar máquinas](automation-role-based-access-control.md#onboarding).
+3. En la página de la máquina virtual, en **Operaciones**, seleccione **Update Management**, **Inventory** o **Change Tracking**. La máquina virtual puede existir en cualquier región independientemente de la ubicación de la cuenta de Automation. Al incorporar una solución de una máquina virtual, debe tener el permiso `Microsoft.OperationalInsights/workspaces/read` para determinar si la VM está incorporada a un área de trabajo. Para obtener información acerca de los permisos adicionales que se requieren, consulte los [permisos necesarios para incorporar máquinas](automation-role-based-access-control.md#onboarding-permissions). Para más información sobre la incorporación en varias máquinas a la vez, consulte [Incorporación de las soluciones Update Management, Change Tracking e Inventory](automation-onboard-solutions-from-automation-account.md).
 
-Para más información sobre la incorporación en varias máquinas a la vez, consulte [Incorporación de las soluciones Update Management, Change Tracking e Inventory](automation-onboard-solutions-from-automation-account.md).
-
-Para habilitar la solución, elija el área de trabajo de Azure Log Analytics y la cuenta de Automation, y seleccione **Habilitar**. La solución tarda hasta 15 minutos en habilitarse.
+4. Para habilitar la solución, seleccione el área de trabajo de Azure Log Analytics y la cuenta de Automation y, a continuación, haga clic en **Habilitar**. La solución tarda hasta 15 minutos en habilitarse.
 
 ![Incorporación de la solución Update Management](media/automation-tutorial-update-management/manageupdates-update-enable.png)
 
-Vaya a las otras soluciones y, a continuación, seleccione **Habilitar**. Las listas desplegables de cuentas de Automation y área de trabajo de Log Analytics están deshabilitadas porque estas soluciones usan la misma área de trabajo y cuenta de Automation que la solución anteriormente habilitada.
+5. Vaya a las otras soluciones y, a continuación, seleccione **Habilitar**. Las listas desplegables de cuentas de Automation y área de trabajo de Log Analytics están deshabilitadas porque estas soluciones usan la misma área de trabajo y cuenta de Automation que la solución anteriormente habilitada.
 
 > [!NOTE]
-> **Change tracking** y **Inventory** usan la misma solución. Cuando una de estas soluciones está habilitada, también se habilita la otra.
+> Change Tracking e Inventory usan la misma solución. Cuando una de estas soluciones está habilitada, también se habilita la otra.
 
 ## <a name="scope-configuration"></a>Configuración de ámbito
 
-Cada solución emplea una configuración de ámbito en el área de trabajo para definir los equipos de destino que obtendrán la solución. La configuración de ámbito es un grupo de una o más búsquedas guardadas que se usa para limitar el ámbito de la solución a equipos específicos. Para acceder a las configuraciones de ámbito, en la cuenta de Automation, en **Recursos relacionados**, seleccione **Área de trabajo**. En el área de trabajo, en **Orígenes de datos del área de trabajo**, seleccione **Configuraciones de ámbito**.
+Cada solución emplea una configuración de ámbito en el área de trabajo para definir los equipos de destino que obtendrán la solución. La configuración de ámbito es un grupo de una o más búsquedas guardadas que se usa para limitar el ámbito de la solución a equipos específicos. Para acceder a las configuraciones de ámbito:
 
-Si el área de trabajo seleccionada no dispone aún de las soluciones Update Management ni Change Tracking, se crean las siguientes configuraciones de ámbito:
+1. En la cuenta de Automation, en **Recursos relacionados**, seleccione **Área de trabajo**. 
+2. En el área de trabajo, en **Orígenes de datos del área de trabajo**, seleccione **Configuraciones de ámbito**.
+3. Si el área de trabajo seleccionada no dispone aún de las soluciones Update Management ni Change Tracking, se crean las siguientes configuraciones de ámbito:
 
-* **MicrosoftDefaultScopeConfig-ChangeTracking**
+    * `MicrosoftDefaultScopeConfig-ChangeTracking`
+    * `MicrosoftDefaultScopeConfig-Updates`
 
-* **MicrosoftDefaultScopeConfig-Updates**
+    Si el área de trabajo seleccionada ya tiene la solución, esta no se vuelve a implementar y no se agrega la configuración de ámbito.
 
-Si el área de trabajo seleccionada ya tiene la solución, esta no se vuelve a implementar y no se agrega la configuración de ámbito.
-
-Seleccione los puntos suspensivos ( **...** ) en cualquiera de las configuraciones y, luego, seleccione **Editar**. En el panel **Editar configuración de ámbito**, seleccione **Seleccionar grupos de equipos**. En el panel **Grupos de equipos** se muestran las búsquedas guardadas que se usan para crear la configuración de ámbito.
+4. Seleccione los puntos suspensivos ( **...** ) en cualquiera de las configuraciones y, a continuación, haga clic en **Editar**. 
+5. En el panel **Editar configuración de ámbito**, seleccione **Seleccionar grupos de equipos**. En el panel **Grupos de equipos** se muestran las búsquedas guardadas que se usan para crear la configuración de ámbito.
 
 ## <a name="saved-searches"></a>Búsquedas guardadas
 
-Cuando un equipo se agrega a las soluciones Update Management, Change Tracking o Inventory, se agrega a una de las dos búsquedas guardadas del área de trabajo. Las búsquedas guardadas son consultas que contienen los equipos que son el destino de estas soluciones.
+Cuando un equipo se agrega a las soluciones Update Management, Change Tracking o Inventory, el equipo se agrega a una de las dos búsquedas guardadas del área de trabajo. Las búsquedas guardadas son consultas que contienen los equipos que son el destino de estas soluciones.
 
 Vaya a su área de trabajo. En **General**, seleccione **Búsquedas guardadas**. Las dos búsquedas guardadas que usan estas soluciones se muestran en la tabla siguiente:
 
@@ -83,7 +83,7 @@ Después de quitar estas soluciones, puede realizar los pasos siguientes para de
 > [!NOTE]
 > Algunas soluciones que incluyen versiones anteriores de la solución de supervisión de SQL Azure pueden haber creado recursos de automatización y también puede que tengan que quitarse antes de desvincularse del área de trabajo.
 
-1. En Azure Portal, abra su cuenta de Automation y, en la página de la cuenta de Automation, seleccione **Área de trabajo vinculada** en la sección **Recursos relacionados** de la izquierda.
+1. En Azure Portal, abra la cuenta de Automation y seleccione **Área de trabajo vinculada** en la sección **Recursos relacionados** de la izquierda.
 
 2. En la página Desvincular área de trabajo, haga clic en **Desvincular área de trabajo**.
 
@@ -112,7 +112,7 @@ También puede desvincular el área de trabajo de la cuenta de Automation desde 
 Para quitar una VM de Update Management:
 
 * En el área de trabajo de Log Analytics, quite la VM de la búsqueda guardada con la configuración de ámbito `MicrosoftDefaultScopeConfig-Updates`. Las búsquedas guardadas se pueden encontrar en la sección **General** del área de trabajo.
-* Quite [Microsoft Monitoring Agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) o el [agente de Log Analytics para Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
+* Quite el [agente de Log Analytics para Windows](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) o el [agente de Log Analytics para Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

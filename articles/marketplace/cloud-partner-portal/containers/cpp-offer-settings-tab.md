@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: dsindona
-ms.openlocfilehash: dfdc588ffe3ca8c0f21e4111b6f4c66de162299d
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 61d9fa535d2bec0a52351ba6199183ea899a0e1c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81270186"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82146259"
 ---
 # <a name="container-offer-settings-tab"></a>Pestaña de configuración de ofertas de contenedor
 
 > [!IMPORTANT]
-> A partir del 13 de abril de 2020, se comenzará a trasladar la administración de las ofertas de contenedores de Azure al Centro de partners. Después de la migración, las ofertas se crearán y administrarán en el Centro de partners. Siga las instrucciones que se indican en [Creación de una oferta de contenedor de Azure](https://aka.ms/CreateContainerOffer) para administrar las ofertas migradas.
+> A partir del 13 de abril de 2020, se comenzará a trasladar la administración de las ofertas de contenedores de Azure al Centro de partners. Después de la migración, las ofertas se crearán y administrarán en el Centro de partners. Siga las instrucciones que se indican en [Creación de una oferta de contenedor de Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-offer) para administrar las ofertas migradas.
 
 La página **Contenedores > Nueva oferta** se abre con el foco sobre la pestaña **Configuración de la oferta**. 
 

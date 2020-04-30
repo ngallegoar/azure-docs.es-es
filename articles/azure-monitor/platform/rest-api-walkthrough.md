@@ -4,12 +4,12 @@ description: Cómo autenticar las solicitudes y usar la API de REST de Azure Mon
 ms.subservice: metrics
 ms.topic: conceptual
 ms.date: 03/19/2018
-ms.openlocfilehash: f52776fc6b5f5f530cc368a2f148a2ff63fb5b40
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6b0e321747e0f84be5a75ab96749311ff0071e8d
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294617"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687412"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Tutorial sobre la API de REST de supervisión de Azure
 
@@ -311,7 +311,7 @@ Use el nombre “value” de la métrica (no “localizedValue”) para cualquie
 
 **Método**: GET
 
-**URI de solicitud**: https://management.azure.com/subscriptions/ *{subscription-id}* /resourceGroups/ *{resource-group-name}* /providers/ *{resource-provider-namespace}* / *{resource-type}* / *{resource-name}* /providers/microsoft.insights/metrics?metricnames= *{metric}* &timespan= *{starttime/endtime}* &$filter= *{filter}* &interval= *{timeGrain}* &aggregation= *{aggreation}* &api-version= *{apiVersion}*
+**Identificador URI de la solicitud**: https:\//management.azure.com/subscriptions/ *{subscription-id}* /resourceGroups/ *{resource-group-name}* /providers/ *{resource-provider-namespace}* / *{resource-type}* / *{resource-name}* /providers/microsoft.insights/metrics?metricnames= *{metric}* &timespan= *{starttime/endtime}* &$filter= *{filter}* &interval= *{timeGrain}* &aggregation= *{aggreation}* &api-version= *{apiVersion}*
 
 Por ejemplo, para recuperar las tres API superiores, en orden descendente de valor, por el número de "Transacciones" durante un intervalo de 5 minutos, donde el valor de GeotType era "Primary", la solicitud sería la siguiente:
 
@@ -463,7 +463,7 @@ Una vez que se conocen las definiciones de métricas disponibles, es posible rec
 
 **Método**: GET
 
-**URI de solicitud**: `https://management.azure.com/subscriptions/\*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?$filter=*{filter}*&api-version=*{apiVersion}*`
+**URI de solicitud**: `https:\//management.azure.com/subscriptions/\*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?$filter=*{filter}*&api-version=*{apiVersion}*`
 
 Por ejemplo, para recuperar los puntos de datos de métricas RunsSucceeded para el intervalo de tiempo determinado y para un intervalo de agregación de 1 hora, la solicitud sería como sigue:
 

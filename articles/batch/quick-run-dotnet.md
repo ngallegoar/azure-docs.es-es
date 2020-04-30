@@ -1,21 +1,15 @@
 ---
 title: Inicio rápido de Azure - Ejecución de un trabajo de Batch - .NET
 description: Ejecute rápidamente las tareas y un trabajo de ejemplo de Azure Batch desde una aplicación en c# con la biblioteca cliente .NET de Batch.
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.service: batch
-ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 11/29/2018
-ms.author: labrenne
 ms.custom: mvc
-ms.openlocfilehash: 809ca9d9aafa813e05dea81eb05616eefcc65472
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1163d63f8cbd6afedfb6e5323fa469059fa8021c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77017214"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82117223"
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Inicio rápido: ejecute su primer trabajo de Azure Batch con la API de .NET
 
