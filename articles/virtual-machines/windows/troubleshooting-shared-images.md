@@ -1,26 +1,20 @@
 ---
 title: Solución de problemas de imágenes compartidas en Azure
 description: Obtenga información sobre cómo solucionar problemas relacionados con Shared Image Galleries.
-services: virtual-machine-windows
-documentationcenter: virtual-machine-scale-sets
 author: axayjo
-manager: gwallace
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.topic: article
-ms.tgt_pltfrm: ''
+ms.topic: troubleshooting
 ms.workload: infrastructure
 ms.date: 04/25/2019
 ms.author: akjosh
 ms.reviewer: cynthn
 ms.custom: ''
-ms.openlocfilehash: 80416dd66ec23bcf8bbabeb3549b7342680aa362
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: ef4cdb8c5cd8956f85dadba80d3dffec8d0e4730
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81458018"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82100522"
 ---
 # <a name="troubleshooting-shared-image-galleries"></a>Solución de problemas de galerías de imágenes compartidas
 

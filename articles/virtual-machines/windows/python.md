@@ -1,24 +1,18 @@
 ---
 title: Creación y administración de una máquina virtual Windows en Azure con Python
 description: Aprenda a usar Python para crear y administrar máquinas virtuales Windows en Azure.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.workload: na
-ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: cynthn
-ms.openlocfilehash: 670c369e25639c859f6a8d8b3c65e329b5cf7f04
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: b2172d44b4136b51c0ea459868ebd5b0572bb004
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81458188"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82098075"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Creación y administración de máquinas virtuales Windows en Azure con Python
 
