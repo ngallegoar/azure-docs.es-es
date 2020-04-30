@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: d3cd330001bcf53e7bd4fb9e6955c76a9ef20511
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dcdc942999e45eb779e54cd5f92432c54d65fc6a
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78331083"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561988"
 ---
 # <a name="quickstart-asynchronous-synthesis-for-long-form-audio-in-python-preview"></a>Inicio rápido: síntesis asincrónica para audio de formato largo en Python (versión preliminar)
 
@@ -59,12 +59,12 @@ Estos módulos se usan para analizar argumentos, construir la solicitud HTTP y l
 Este código obtiene una lista de las voces disponibles que puede usar para convertir texto a voz. Agregue el código a `voice_synthesis_client.py`:
 
 ```python
-parser = argparse.ArgumentParser(description='Cris client tool to submit voice synthesis requests.')
+parser = argparse.ArgumentParser(description='Text-to-speech client tool to submit voice synthesis requests.')
 parser.add_argument('--voices', action="store_true", default=False, help='print voice list')
-parser.add_argument('-key', action="store", dest="key", required=True, help='the cris subscription key, like ff1eb62d06d34767bda0207acb1da7d7 ')
+parser.add_argument('-key', action="store", dest="key", required=True, help='the speech subscription key, like fg1f763i01d94768bda32u7a******** ')
 parser.add_argument('-region', action="store", dest="region", required=True, help='the region information, could be centralindia, canadacentral or uksouth')
 args = parser.parse_args()
-baseAddress = 'https://%s.cris.ai/api/texttospeech/v3.0-beta1/' % args.region
+baseAddress = 'https://%s.customvoice.api.speech.microsoft.com/api/texttospeech/v3.0-beta1/' % args.region
 
 def getVoices():
     response=requests.get(baseAddress+"voicesynthesis/voices", headers={"Ocp-Apim-Subscription-Key":args.key}, verify=False)
