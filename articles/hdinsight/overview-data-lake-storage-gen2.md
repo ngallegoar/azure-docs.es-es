@@ -6,13 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
+ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: 677d8348cc230e4f64915ac5fc1e86b9b50ab5c3
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: a7ae1a0f77d0d19fc48695ddc5cc3d3a14d65ab9
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81873264"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195135"
 ---
 # <a name="azure-data-lake-storage-gen2-overview-in-hdinsight"></a>Introducción a Azure Data Lake Storage Gen2 en HDInsight
 

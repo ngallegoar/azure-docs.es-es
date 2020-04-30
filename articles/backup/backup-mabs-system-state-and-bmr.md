@@ -3,12 +3,12 @@ title: Protección del estado del sistema y reconstrucción completa
 description: Use Azure Backup Server para realizar una copia de seguridad del estado del sistema y proporcionar protección de reconstrucción completa (BMR).
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.openlocfilehash: 358a1c96d598788170993fc48e60daae2b6b036c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bab55ca607e0641ea0cc597de686f3abbb387598
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77505883"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192372"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-by-using-azure-backup-server"></a>Realizar una copia de seguridad del estado del sistema y restaurar a una reconstrucción completa con Azure Backup Server
 
@@ -43,14 +43,14 @@ En la tabla siguiente se resumen los elementos de los que se pueden realizar cop
 
 ## <a name="how-system-state-backup-works"></a>Cómo funciona la copia de seguridad del estado del sistema
 
-Cuando se ejecuta una copia de seguridad del estado del sistema, Backup Server se comunica con Copias de seguridad de Windows Server para solicitar una copia de seguridad del estado del sistema del servidor. De forma predeterminada, Backup Server y Copias de seguridad de Windows Server usan la unidad que tiene más espacio libre disponible. La información sobre esta unidad se guarda en el archivo *PSDataSourceConfig.xml*. 
+Cuando se ejecuta una copia de seguridad del estado del sistema, Backup Server se comunica con Copias de seguridad de Windows Server para solicitar una copia de seguridad del estado del sistema del servidor. De forma predeterminada, Backup Server y Copias de seguridad de Windows Server usan la unidad que tiene más espacio libre disponible. La información sobre esta unidad se guarda en el archivo *PSDataSourceConfig.xml*.
 
-Puede personalizar la unidad que usa Backup Server para la copia de seguridad del estado del sistema: 
+Puede personalizar la unidad que usa Backup Server para la copia de seguridad del estado del sistema:
 
-1. En el servidor protegido, vaya a *C:\Program Files\Microsoft Data Protection Manager\MABS\Datasources*. 
-1. Abra el archivo *PSDataSourceConfig.xml* para editarlo. 
-1. Cambie el valor de \<FilesToProtect\> de la letra de unidad. 
-1. Guarde y cierre el archivo. 
+1. En el servidor protegido, vaya a *C:\Program Files\Microsoft Data Protection Manager\MABS\Datasources*.
+1. Abra el archivo *PSDataSourceConfig.xml* para editarlo.
+1. Cambie el valor de \<FilesToProtect\> de la letra de unidad.
+1. Guarde y cierre el archivo.
 
 Si se ha establecido un grupo de protección para proteger el estado del sistema del equipo, ejecute una comprobación de coherencia. Si se genera una alerta, seleccione **Modificar grupo de protección** en la alerta y complete las páginas del asistente. Después, ejecute otra comprobación de coherencia.
 
@@ -117,7 +117,7 @@ Para realizar la copia de seguridad del estado del sistema y la reconstrucción 
 
     Recuerde en cuenta que no se puede proteger BMR y el estado del sistema para el mismo equipo en grupos diferentes. Además, cuando se selecciona BMR, el estado del sistema se habilita automáticamente. Para obtener más información, vea [Deploy protection groups](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups) (Implementar grupos de protección).
 
-1. En la página **Seleccionar método de protección de datos**, elija cómo quiere controlar la copia de seguridad a corto y largo plazo. 
+1. En la página **Seleccionar método de protección de datos**, elija cómo quiere controlar la copia de seguridad a corto y largo plazo.
 
     La copia de seguridad a corto plazo siempre se realiza primero en disco, con la opción de realizar una copia de seguridad desde el disco a Azure mediante Azure Backup (a corto o largo plazo). Como alternativa a la copia de seguridad a largo plazo en la nube, puede configurar la copia de seguridad a largo plazo en un dispositivo de cinta o biblioteca de cintas independiente conectados a Backup Server.
 
@@ -139,23 +139,23 @@ Para realizar la copia de seguridad del estado del sistema y la reconstrucción 
     * **Disk space to be provisioned on Azure Backup Server** (Espacio en disco que se aprovisionará en Azure Backup Server) es el espacio que Backup Server recomienda para el grupo de protección. Backup Server usa esta configuración para elegir el volumen de copia de seguridad ideal. Puede editar las opciones del volumen de copia de seguridad en **Detalles de asignación de disco**.
     * En el caso de las cargas de trabajo, seleccione el almacenamiento preferido en el menú desplegable. Las modificaciones cambiarán los valores de **Almacenamiento total** y **Free Storage** (Almacenamiento libre) en el panel **Almacenamiento en disco disponible**. El espacio infra-aprovisionado es la cantidad de almacenamiento que Backup Server sugiere agregar al volumen para garantizar la realización de las copias de seguridad sin problemas.
 
-1. En la página **Seleccionar método de creación de réplicas**, seleccione cómo controlar la replicación inicial completa de los datos. 
+1. En la página **Seleccionar método de creación de réplicas**, seleccione cómo controlar la replicación inicial completa de los datos.
 
     Si quiere replicar por la red, se recomienda que elija una hora de poco tráfico. En el caso de grandes cantidades de datos o condiciones de red no del todo óptimas, considere la posibilidad de replicar los datos sin conexión mediante medios extraíbles.
 
-1. En la página **Elegir las opciones de la comprobación de coherencia**, seleccione cómo automatizar las comprobaciones de coherencia. 
+1. En la página **Elegir las opciones de la comprobación de coherencia**, seleccione cómo automatizar las comprobaciones de coherencia.
 
     Puede ejecutar una comprobación únicamente cuando los datos de réplica sean incoherentes, o bien según una programación. Si no quiere configurar la comprobación de coherencia automática, puede ejecutar una comprobación manual en cualquier momento. Para ejecutar una comprobación manual, en el área **Protección** de la consola de administrador de Backup Server, haga clic con el botón derecho en el grupo de protección y seleccione **Realizar comprobación de coherencia**.
 
 1. Si ha elegido realizar una copia de seguridad en la nube mediante Azure Backup, en la página **Especificar datos de la protección en línea**, seleccione las cargas de trabajo de las que quiere realizar una copia de seguridad en Azure.
 
-1. En la página **Especificar la programación de copia de seguridad en línea**, seleccione con qué frecuencia se producirán las copias de seguridad incrementales en Azure. 
+1. En la página **Especificar la programación de copia de seguridad en línea**, seleccione con qué frecuencia se producirán las copias de seguridad incrementales en Azure.
 
     Puede programar copias de seguridad para que se ejecuten cada día, semana, mes y año. También puede seleccionar la fecha y la hora en las que se deben ejecutar las copias de seguridad. Pueden realizarse copias de seguridad hasta dos veces al día. Cada vez que se ejecuta una copia de seguridad, se crea un punto de recuperación de datos en Azure a partir de la copia de los datos de copia de seguridad almacenados en el disco del servidor de copia de seguridad.
 
 1. En la página **Especificar directiva de retención en línea**, seleccione cómo se guardan en Azure los puntos de recuperación que se crean a partir de las copias de seguridad diarias, semanales, mensuales y anuales.
 
-1. En la página **Elegir replicación en línea**, seleccione cómo se realiza la replicación inicial completa de los datos. 
+1. En la página **Elegir replicación en línea**, seleccione cómo se realiza la replicación inicial completa de los datos.
 
     Puede replicar mediante la red o realizar una copia de seguridad sin conexión (propagación sin conexión). Las copias de seguridad sin conexión usan la característica Azure Import. Para obtener más información, vea [Flujo de trabajo de copia de seguridad sin conexión en Azure Backup](offline-backup-azure-data-box.md).
 
@@ -175,23 +175,23 @@ Para ejecutar la recuperación en el equipo con Backup Server:
 
 1. En la página **Seleccionar tipo de recuperación**, elija **Copiar en una carpeta de red**.
 
-1. En la página **Especificar destino**, seleccione el destino de los datos copiados. 
+1. En la página **Especificar destino**, seleccione el destino de los datos copiados.
 
     Recuerde que el destino debe tener espacio suficiente para los datos. Se recomienda crear una nueva carpeta para el destino.
 
 1. En la página **Especificar opciones de recuperación**, seleccione la configuración de seguridad. Después, seleccione si quiere usar instantáneas de hardware basadas en la red de área de almacenamiento (SAN) para una recuperación más rápida. Esta opción solo está disponible si:
-    * Tiene una SAN que proporciona esta funcionalidad. 
+    * Tiene una SAN que proporciona esta funcionalidad.
     * Puede crear y dividir un clon para que se pueda escribir en él.
     * El equipo protegido y el equipo con Backup Server están conectados a la misma red.
 
-1. Configure las opciones de notificación. 
+1. Configure las opciones de notificación.
 1. En la página **Confirmación**, seleccione **Recuperar**.
 
 Para configurar la ubicación del recurso compartido:
 
 1. En la ubicación de restauración, vaya a la carpeta que contenga la copia de seguridad.
 
-1. Comparta la carpeta que está un nivel por encima de *WindowsImageBackup*, para que la raíz de la carpeta compartida sea la carpeta *WindowsImageBackup*. 
+1. Comparta la carpeta que está un nivel por encima de *WindowsImageBackup*, para que la raíz de la carpeta compartida sea la carpeta *WindowsImageBackup*.
 
     Si no comparte esta carpeta, la restauración no encontrará la copia de seguridad. Para conectarse con WinRE, necesita un recurso compartido al que pueda tener acceso en WinRE con la dirección IP y las credenciales correctas.
 
@@ -219,16 +219,16 @@ Para ejecutar la recuperación en Backup Server:
 
 1. En la página **Seleccionar tipo de recuperación**, elija **Copiar en una carpeta de red**.
 
-1. En la página **Especificar destino**, seleccione dónde copiar los datos. 
+1. En la página **Especificar destino**, seleccione dónde copiar los datos.
 
     Recuerde que el destino que seleccione debe tener espacio suficiente para los datos. Se recomienda crear una nueva carpeta para el destino.
 
-1. En la página **Especificar opciones de recuperación**, seleccione la configuración de seguridad. Después, seleccione si quiere usar instantáneas de hardware basadas en SAN para una recuperación más rápida. Esta opción solo está disponible si: 
+1. En la página **Especificar opciones de recuperación**, seleccione la configuración de seguridad. Después, seleccione si quiere usar instantáneas de hardware basadas en SAN para una recuperación más rápida. Esta opción solo está disponible si:
     * Tiene una SAN que proporciona esta funcionalidad.
-    * Puede crear y dividir un clon para que se pueda escribir en él. 
+    * Puede crear y dividir un clon para que se pueda escribir en él.
     * El equipo protegido y el servidor con Backup Server están conectados a la misma red.
 
-1. Configure las opciones de notificación. 
+1. Configure las opciones de notificación.
 1. En la página **Confirmación**, seleccione **Recuperar**.
 
 Para ejecutar Copias de seguridad de Windows Server:
@@ -241,22 +241,22 @@ Para ejecutar Copias de seguridad de Windows Server:
 
 1. En la página **Seleccione la ubicación de la recuperación de estado del sistema**, seleccione **Ubicación original**.
 
-1. En la página **Confirmación**, seleccione **Recuperar**. 
+1. En la página **Confirmación**, seleccione **Recuperar**.
 
 1. Después de la restauración, reinicie el servidor.
 
-También puede ejecutar la restauración del estado del sistema en un símbolo del sistema: 
+También puede ejecutar la restauración del estado del sistema en un símbolo del sistema:
 
-1. Inicie Copias de seguridad de Windows Server en el equipo que quiere recuperar. 
+1. Inicie Copias de seguridad de Windows Server en el equipo que quiere recuperar.
 
 1. Para obtener el identificador de versión, en un símbolo del sistema, escriba:
 
    ```wbadmin get versions -backuptarget \<servername\sharename\>```
 
-1. Use el identificador de versión para iniciar la restauración del estado del sistema. En el símbolo del sistema, escriba: 
+1. Use el identificador de versión para iniciar la restauración del estado del sistema. En el símbolo del sistema, escriba:
 
     ```wbadmin start systemstaterecovery -version:<versionidentified> -backuptarget:<servername\sharename>```
 
-1. Confirme que quiere iniciar la recuperación. Puede ver el proceso en la ventana del símbolo del sistema. Se crea un registro de restauración. 
+1. Confirme que quiere iniciar la recuperación. Puede ver el proceso en la ventana del símbolo del sistema. Se crea un registro de restauración.
 
 1. Después de la restauración, reinicie el servidor.

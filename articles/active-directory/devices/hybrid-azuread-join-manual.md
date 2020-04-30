@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 878960738830dbe2f94b977e98215a681c4a79d2
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.openlocfilehash: f23520bd724d2f7ed5a9422a0541e717c800dee2
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80802559"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82201030"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Tutorial: Configuración manual de dispositivos unidos a Azure Active Directory híbrido
 
@@ -140,7 +140,7 @@ El siguiente script muestra un ejemplo de uso del cmdlet. En este script, `$aadA
 El cmdlet `Initialize-ADSyncDomainJoinedComputerSync`:
 
 * Usa el módulo de PowerShell de Active Directory y las herramientas de Azure Active Directory Domain Services (Azure AD DS). Estas herramientas se basan en los servicios web de Active Directory que se ejecutan en un controlador de dominio. Active Directory Web Services es compatible con los controladores de dominio en los que se ejecuta Windows Server 2008 R2, y las versiones posteriores.
-* Solo es compatible con la versión 1.1.166.0 del módulo de MSOnline PowerShell. Para descargar este módulo, use [este vínculo](https://msconfiggallery.cloudapp.net/packages/MSOnline/1.1.166.0/).
+* Solo es compatible con la versión 1.1.166.0 del módulo de MSOnline PowerShell. Para descargar este módulo, use [este vínculo](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0).
 * Si no se instalan las herramientas de AD DS, `Initialize-ADSyncDomainJoinedComputerSync` producirá un error. Las herramientas de AD DS se pueden instalar mediante el Administrador del servidor en **Características** > **Herramientas de administración de servidor remoto** > **Herramientas de administración de roles**.
 
 En los casos de los controladores de dominio en los que se ejecuta Windows Server 2008, o alguna versión anterior, use el siguiente script para crear el punto de conexión de servicio. En una configuración con varios bosques, debe usar el script siguiente para crear el punto de conexión de servicio en cada bosque en el que existan equipos.
@@ -185,7 +185,7 @@ Cuando use AD FS, debe habilitar los siguientes puntos de conexión de WS-Trust
 - `/adfs/services/trust/13/certificatemixed`
 
 > [!WARNING]
-> Tanto **adfs/services/trust/2005/windowstransport** como **adfs/services/trust/13/windowstransport** se deben habilitar como puntos de conexión accesibles desde la intranet y NO deben exponerse como accesible desde Proxy de aplicación web. Para más información sobre cómo deshabilitar los puntos de conexión de Windows de WS-Trust, consulte [Deshabilitar los puntos de conexión de Windows de WS-Trust en el proxy](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Para ver qué puntos de conexión están habilitados, vaya a **Servicio** > **Puntos de conexión** en la consola de administración de AD FS.
+> Tanto **adfs/services/trust/2005/windowstransport** como **adfs/services/trust/13/windowstransport** se deben habilitar como puntos de conexión accesibles desde la intranet y NO deben exponerse como accesible desde la extranet mediante el Proxy de aplicación web. Para más información sobre cómo deshabilitar los puntos de conexión de Windows de WS-Trust, consulte [Deshabilitar los puntos de conexión de Windows de WS-Trust en el proxy](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Para ver qué puntos de conexión están habilitados, vaya a **Servicio** > **Puntos de conexión** en la consola de administración de AD FS.
 
 > [!NOTE]
 >Si AD FS no es el servicio de federación local, siga las instrucciones de su proveedor para asegurarse de que admite puntos de conexión de WS-Trust 1.3 o 2005 y que estos se publican a través del archivo de intercambio de metadatos (MEX).

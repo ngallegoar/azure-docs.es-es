@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: lobrien
 ms.author: laobri
-ms.date: 03/06/2020
+ms.date: 04/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: 4abef0146b4bf0cfaa254d196b0ca68f0d8ac883
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 50234eb356314039b8023f0442207ae0b762676e
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79218286"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82191641"
 ---
 # <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>Exportación o eliminación de los datos del área de trabajo de Machine Learning Service
 
@@ -252,12 +252,3 @@ En el diseñador donde se ha creado el experimento, elimine los recursos individ
 
 Para eliminar conjuntos de datos en el diseñador, use Azure Portal o el Explorador de Storage para desplazarse a las cuentas de almacenamiento conectadas y eliminar los conjuntos de ellas. La anulación del registro de los conjuntos de registros en el diseñador solo quita el punto de referencia en el almacenamiento.
 
-## <a name="export-data-in-the-designer"></a>Exportación de datos en el diseñador
-
-En el diseñador donde se ha creado el experimento, exporte los datos que ha agregado:
-
-1. En el lado izquierdo, seleccione **Conjuntos de datos**.
-
-1. En la lista, seleccione el conjunto de datos que se va a exportar.
-
-    ![Descarga de datos](./media/how-to-export-delete-data/unregister-dataset.png)

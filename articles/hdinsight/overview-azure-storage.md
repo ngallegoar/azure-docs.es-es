@@ -6,13 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
+ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: 43d948a2a98407bacc212ddc6e065c67a105f332
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: fc0af331dc6cb604847be9173c836e0b46ca40ef
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81873276"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195186"
 ---
 # <a name="azure-storage-overview-in-hdinsight"></a>Introducción a Azure Storage en HDInsight
 

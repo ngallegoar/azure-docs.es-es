@@ -3,12 +3,12 @@ title: Matriz de compatibilidad de MABS y System Center DPM
 description: En este artículo se resume la compatibilidad de Azure Backup al usar Microsoft Azure Backup Server (MABS) o System Center DPM para realizar copias de seguridad de recursos locales y de VM de Azure.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 6664f7b226b75b364fd1c83f2abc56b5a275eff9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2d3b9dbf0440809578fca113ee6674b79a5d7fb1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77582660"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82193282"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Matriz de compatibilidad para copia de seguridad con Microsoft Azure Backup Server o System Center DPM
 
@@ -125,17 +125,17 @@ Puede realizar una copia de seguridad de los datos mediante Azure ExpressRoute c
 
 Con el emparejamiento público: asegúrese de tener acceso a los siguientes dominios y direcciones:
 
-* `http://www.msftncsi.com/ncsi.txt`
-* `microsoft.com`
-* `.WindowsAzure.com`
-* `.microsoftonline.com`
-* `.windows.net`
+- `http://www.msftncsi.com/ncsi.txt`
+- `microsoft.com`
+- `.WindowsAzure.com`
+- `.microsoftonline.com`
+- `.windows.net`
 
 Con el emparejamiento de Microsoft, seleccione los siguientes servicios o regiones y los valores de comunidad correspondientes:
 
-* Azure Active Directory (12076:5060)
-* Región de Microsoft Azure (según la ubicación del almacén de Recovery Services)
-* Azure Storage (según la ubicación del almacén de Recovery Services)
+- Azure Active Directory (12076:5060)
+- Región de Microsoft Azure (según la ubicación del almacén de Recovery Services)
+- Azure Storage (según la ubicación del almacén de Recovery Services)
 
 Para obtener más información, consulte los [requisitos de enrutamiento de ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
 

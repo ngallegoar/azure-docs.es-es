@@ -10,7 +10,7 @@
     - name: Recursos de Cosmos DB
       expanded: true
       items:
-        - name: Portal de Azure
+        - name: Azure Portal
           href: create-cosmosdb-resources-portal.md
         - name: Plantilla ARM
           displayName: Resource Manager
@@ -136,10 +136,10 @@
         - name: Aprovisionar rendimiento en contenedores y bases de datos
           displayName: 'request units, RUs, RU, limits, database throughput, shared throughput, container throughput'
           href: set-throughput.md
-        - name: 'Aprovisionamiento del rendimiento: modo AutoPilot'
-          href: provision-throughput-autopilot.md
-        - name: Preguntas frecuentes de AutoPilot
-          href: autopilot-faq.md
+        - name: 'Aprovisionamiento del rendimiento: modo de escalabilidad automática'
+          href: provision-throughput-autoscale.md
+        - name: Preguntas frecuentes sobre la escalabilidad automática
+          href: autoscale-faq.md
     - name: Consulta SQL
       items:
         - name: Introducción
@@ -518,6 +518,7 @@
         - name: Costo total de propiedad (TCO)
           href: total-cost-ownership.md
         - name: Descripción de la factura
+          displayName: free tier
           href: understand-your-bill.md
         - name: Optimización del costo del rendimiento aprovisionado
           displayName: 'request units, RUs, RU'
@@ -531,6 +532,7 @@
         - name: Optimización del costo de varias regiones
           href: optimize-cost-regions.md
         - name: Optimización de los costos de desarrollo y pruebas
+          displayName: free tier
           href: optimize-dev-test.md
         - name: Optimización del costo con capacidad reservada
           href: cosmos-db-reserved-capacity.md

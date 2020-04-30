@@ -16,12 +16,12 @@ ms.date: 10/20/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d98a1aabef2de505e66b2127226b9e89cd791e20
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 89de1495dc6bb411d5d43986177f11abb016cf15
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60244822"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82200894"
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Renovación de certificados de federación para Office 365 y Azure Active Directory
 ## <a name="overview"></a>Información general
@@ -120,7 +120,7 @@ https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
 donde `(your_FS_name)` se reemplaza por el nombre de host de servicio de federación que usa su organización, por ejemplo, fs.contoso.com.  Si es capaz de comprobar ambos de estos valores correctamente, no tiene que hacer nada más.  
 
-Ejemplo: https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml
+Ejemplo: `https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml`
 ## <a name="renew-the-token-signing-certificate-manually"></a>Renovación manual de certificados de firma de tokens <a name="manualrenew"></a>
 Puede optar por renovar manualmente los certificados de firma de tokens. Por ejemplo, los siguientes escenarios podrían funcionar mejor para la renovación manual:
 

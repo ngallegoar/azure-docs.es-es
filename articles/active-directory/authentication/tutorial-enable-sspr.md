@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71b9052f364dfbae205dd324ba69de9578ccc225
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c84aa99608a4fc2ac1842c617cca54e2afc3cdbe
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77026318"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82201999"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Tutorial: Habilitación del autoservicio de restablecimiento de contraseña de Azure Active Directory para que los usuarios puedan desbloquear su cuenta o restablecer contraseñas
 
@@ -104,7 +104,7 @@ Para mantener informados a los usuarios sobre la actividad de la cuenta, puede c
 Si los usuarios necesitan ayuda adicional con el proceso de autoservicio de restablecimiento de contraseña, puede personalizar el vínculo de "Póngase en contacto con el administrador". Este vínculo se usa en el proceso de registro de SSPR y cuando un usuario desbloquea su cuenta o restablece su contraseña. Para asegurarse de que los usuarios obtengan el soporte técnico necesario, se recomienda encarecidamente que se indique una dirección URL o un correo electrónico de soporte técnico personalizados.
 
 1. En la página**Personalización** del menú del lado izquierdo, establezca *Personalizar el vínculo del departamento de soporte técnico* en **Sí**.
-1. En el campo **Dirección URL o correo electrónico del departamento de soporte técnico personalizados**, indique una dirección de correo electrónico o una dirección URL de la página web donde los usuarios puedan obtener ayuda adicional de su organización, como *https://support.contoso.com/* .
+1. En el campo **Dirección URL o correo electrónico del departamento de soporte técnico personalizados**, indique una dirección de correo electrónico o una dirección URL de la página web donde los usuarios puedan obtener ayuda adicional de su organización, como *`https://support.contoso.com/`* .
 1. Para aplicar el vínculo personalizado, seleccione **Guardar**.
 
 ## <a name="test-self-service-password-reset"></a>Autoservicio de restablecimiento de contraseña de prueba

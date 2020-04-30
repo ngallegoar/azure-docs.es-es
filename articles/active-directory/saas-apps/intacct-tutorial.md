@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b28390dba009226d493f5bfc6a5270b067f5bba0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 731ed4664d10d3957be160bf9e8001d5470a6f38
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73570580"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82201404"
 ---
 # <a name="tutorial-integrate-sage-intacct-with-azure-active-directory"></a>Tutorial: Integración de Sage Intacct con Azure Active Directory
 
@@ -94,7 +94,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     | ---------------| --------------- |
     | Nombre de la empresa | **Id. de la empresa de Sage Intacct** |
     | name | El valor debe ser el mismo que el **id. de usuario** de Sage Intacct, que debe especificar en la **sección Creación de un usuario de prueba de Sage Intacct** incluida más adelante en este tutorial. |
-    | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier | El valor debe ser el mismo que **Federated SSO User ID** (id. de usuario de SSO federado) de Sage Intacct, que debe especificar en la **sección Creación de un usuario de prueba de Sage Intacct** incluida más adelante en este tutorial. |
+    | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` | El valor debe ser el mismo que **Federated SSO User ID** (id. de usuario de SSO federado) de Sage Intacct, que debe especificar en la **sección Creación de un usuario de prueba de Sage Intacct** incluida más adelante en este tutorial. |
 
     a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
 
