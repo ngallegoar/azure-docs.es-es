@@ -13,10 +13,10 @@ ms.date: 02/22/2019
 tags: ''
 keywords: ''
 ms.openlocfilehash: 66f80c79219090c27da37dfc1d9149df5604961f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68841392"
 ---
 # <a name="set-up-an-application-developers-controlled-distribution-adcd-in-ibm-zdt-v1"></a>Configuración de una instancia de Application Developers Controlled Distribution (ADCD) en IBM zD&T v1
@@ -27,7 +27,7 @@ En este artículo se muestra cómo configurar una instancia de ADCD en un entorn
 
 Al igual que zD&T, los ADCD solo están disponibles para los socios y clientes de IBM, y son exclusivamente para fines de desarrollo y prueba. No deben usarse para entornos de producción. Hay disponibles varios paquetes de instalación de IBM para su descarga a través de [Passport Advantage](https://www.ibm.com/support/knowledgecenter/en/SSTQBD_12.0.0/com.ibm.zsys.rdt.guide.adcd.doc/topics/installation_ps.html) o [IBM PartnerWorld](https://www.ibm.com/partnerworld/public).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Suscripción a Azure. Si no tiene una, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
