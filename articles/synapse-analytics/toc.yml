@@ -786,22 +786,6 @@
               href: ../data-factory/how-to-create-tumbling-window-trigger.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Creación de una dependencia de un desencadenador de ventana de saltos de tamaño constante
               href: ../data-factory/tumbling-window-trigger-dependency.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Plantillas
-          items:
-            - name: Introducción a las plantillas
-              href: ../data-factory/solution-templates-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Copia de archivos de varios contenedores
-              href: ../data-factory/solution-template-copy-files-multiple-containers.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Copia de archivos nuevos por LastModifiedDate
-              href: ../data-factory/solution-template-copy-new-files-lastmodifieddate.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Copia masiva desde base de datos
-              href: ../data-factory/solution-template-bulk-copy-with-control-table.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Copia diferencial desde base de datos
-              href: ../data-factory/solution-template-delta-copy-with-control-table.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Traslado de archivos
-              href: ../data-factory/solution-template-move-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Transformación de datos con Databricks
-              href: ../data-factory/solution-template-databricks-notebook.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Guía de solución de problemas
           items:
             - name: Solución de problemas de actividad

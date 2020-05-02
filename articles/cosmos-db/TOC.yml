@@ -697,6 +697,8 @@
               href: mongodb-feature-support-36.md
             - name: Compatibilidad con protocolo de transferencia (3.2)
               href: mongodb-feature-support.md
+            - name: Preguntas más frecuentes
+              href: mongodb-api-faq.md
         - name: Guías paso a paso
           items:
             - name: Guía previa a la migración
@@ -763,6 +765,10 @@
           items:
             - name: 1 - Consultar datos
               href: tutorial-query-graph.md
+        - name: Conceptos
+          items:
+            - name: Preguntas más frecuentes
+              href: gremlin-api-faq.md
         - name: Guías paso a paso
           items:
             - name: Modelado de datos de Graph
@@ -844,6 +850,10 @@
             - name: 'F#'
               href: /dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
               maintainContext: true
+        - name: Conceptos
+          items:
+            - name: Preguntas más frecuentes
+              href: table-api-faq.md
         - name: Guías paso a paso
           items:
             - name: Compilación de aplicaciones con Table API

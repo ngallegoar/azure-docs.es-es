@@ -154,7 +154,7 @@
               href: ../nvv3-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Serie NVv4
               href: ../nvv4-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-            - name: Configuración de los controladores de GPU
+            - name: Configuración de controladores de GPU de NVIDIA
               href: n-series-driver-setup.md
         - name: Informática de alto rendimiento
           displayName: H-series

@@ -36,8 +36,12 @@
       href: powershell-samples.md
 - name: Conceptos
   items:
-    - name: Componentes y limitaciones
-      href: concepts-limitations.md
+    - name: Componentes
+      href: components.md
+    - name: Conceptos
+      href: concepts.md
+    - name: Tipos
+      href: types.md
     - name: Supervisión del estado
       items:
         - name: Sondeos de estado
@@ -82,7 +86,7 @@
           href: upgrade-InternalBasic-To-PublicStandard.md
     - name: Configuración de reglas de salida
       items:
-        - name: Portal de Azure
+        - name: Azure Portal
           href: configure-load-balancer-outbound-portal.md
         - name: Azure CLI
           href: configure-load-balancer-outbound-cli.md
@@ -133,6 +137,8 @@
       items:
         - name: Solución de problemas de Azure Load Balancer
           href: load-balancer-troubleshoot.md
+        - name: Solución de errores de implementación comunes
+          href: load-balancer-common-deployment-errors.md
 - name: Referencia
   items:
     - name: Ejemplos de código
