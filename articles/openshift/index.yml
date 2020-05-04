@@ -10,12 +10,12 @@ metadata:
   author: jimzim
   ms.author: jzim
   ms.date: 03/06/2020
-  ms.openlocfilehash: f35419d63375ae8fca5f9458505b96b6ddfd3890
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 178faad2aab2f2ef7658a32822899f1e5ca51bd9
+  ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "80062287"
+  ms.lasthandoff: 05/01/2020
+  ms.locfileid: "82628136"
 landingContent:
 - title: Acerca de Red Hat OpenShift en Azure
   linkLists:
@@ -27,29 +27,25 @@ landingContent:
   linkLists:
   - linkListType: tutorial
     links:
-    - text: Creación de un clúster de Red Hat OpenShift en Azure
+    - text: Creación de un clúster de Red Hat OpenShift en Azure 4
       url: tutorial-create-cluster.md
-    - text: Escalado de un clúster de Red Hat OpenShift en Azure
-      url: tutorial-scale-cluster.md
-    - text: Eliminación de un clúster de Red Hat OpenShift en Azure
+    - text: Conexión a un clúster de Red Hat OpenShift en Azure 4
+      url: tutorial-connect-cluster.md
+    - text: Eliminación de un clúster de Red Hat OpenShift en Azure 4
       url: tutorial-delete-cluster.md
 - title: Configurar
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Configuración del entorno de desarrollo de Red Hat OpenShift en Azure
-      url: howto-setup-environment.md
-    - text: Creación de un inquilino de Azure AD
-      url: howto-create-tenant.md
-    - text: Creación de un objeto y un usuario de aplicación de Azure AD
-      url: howto-aad-app-configuration.md
+    - text: Creación de un clúster de Red Hat OpenShift en Azure 4 privado
+      url: howto-create-private-cluster.md
+    - text: Configuración del reenvío de DNS para un clúster de Red Hat OpenShift en Azure 4
+      url: dns-forwarding.md
 - title: Referencia
   linkLists:
   - linkListType: reference
     links:
     - text: Azure CLI
-      url: /cli/azure/openshift
-    - text: API DE REST
-      url: /rest/api/openshift
+      url: /cli/azure/aro
     - text: Documentación de Red Hat OpenShift
-      url: https://docs.openshift.com/aro/welcome/index.html
+      url: https://docs.openshift.com/aro/4/welcome/index.html
