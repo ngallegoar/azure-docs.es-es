@@ -48,6 +48,8 @@
       href: authentication-requests-and-responses.md
     - name: Guía de las limitaciones de Azure Key Vault
       href: overview-throttling.md
+    - name: Redundancia y disponibilidad de Azure Key Vault
+      href: disaster-recovery-guidance.md
     - name: Puntos de conexión de servicio de red virtual para Azure Key Vault
       href: overview-vnet-service-endpoints.md
 - name: Guías paso a paso
@@ -92,6 +94,10 @@
           href: soft-delete-cli.md
         - name: Uso de la eliminación temporal con PowerShell
           href: soft-delete-powershell.md
+    - name: Traslado de Key Vault
+      items:
+        - name: Traslado de Key Vault a otra región
+          href: keyvault-moveregion.md
     - name: Solución de problemas
       items:
         - name: Cambio del identificador del inquilino de Key Vault después de mover una suscripción

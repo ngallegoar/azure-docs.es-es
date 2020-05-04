@@ -76,6 +76,8 @@
       href: user-overview.md
     - name: Atributos de perfil de usuario
       href: user-profile-attributes.md
+    - name: Sesiones de inicio de sesión único
+      href: session-overview.md
 - name: Guías paso a paso
   items:
     - name: Integración de la aplicación
@@ -335,8 +337,8 @@
                       href: phone-factor-technical-profile.md
                     - name: REST
                       href: restful-technical-profile.md
-                    - name: SAML
-                      href: saml-technical-profile.md
+                    - name: Proveedor de identidades de SAML
+                      href: saml-identity-provider-technical-profile.md
                     - name: Emisor de tokens SAML
                       href: saml-issuer-technical-profile.md
                     - name: Autoafirmado

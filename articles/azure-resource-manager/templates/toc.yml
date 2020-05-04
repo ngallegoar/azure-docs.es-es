@@ -291,7 +291,7 @@
       items:
         - name: Todas las funciones
           href: template-functions.md
-        - name: Funciones de matriz y objeto
+        - name: Funciones de matriz
           href: template-functions-array.md
         - name: Funciones de comparación
           href: template-functions-comparison.md
@@ -303,6 +303,8 @@
           href: template-functions-logical.md
         - name: Funciones numéricas
           href: template-functions-numeric.md
+        - name: Funciones de objeto
+          href: template-functions-object.md
         - name: Funciones de recursos
           href: template-functions-resource.md
         - name: Funciones de cadena

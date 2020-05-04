@@ -6,57 +6,67 @@
       href: intro-openshift.md
 - name: Tutoriales
   items:
-    - name: Creación y administración de un clúster de Red Hat OpenShift en Azure
-      items:
-        - name: 1 - Creación de un clúster de Red Hat OpenShift en Azure
-          href: tutorial-create-cluster.md
-        - name: 2 - Escalado de un clúster de Red Hat OpenShift en Azure
-          href: tutorial-scale-cluster.md
-        - name: 3 - Eliminación de un clúster de Red Hat OpenShift en Azure
-          href: tutorial-delete-cluster.md
-- name: Administración de clúster
-  items:
-    - name: Administración de un clúster de Red Hat OpenShift en Azure
-      items:
-        - name: '1: rol de Administrador de clúster de Red Hat OpenShift en Azure'
-          href: cluster-administration-cluster-admin-role.md
-        - name: '2: administración de restricciones del contexto de seguridad'
-          href: cluster-administration-security-context-constraints.md
+    - name: "1: Creación de un clúster de Red Hat OpenShift en Azure\_4"
+      href: tutorial-create-cluster.md
+    - name: "2: Conexión a un clúster de Red Hat OpenShift en Azure\_4"
+      href: tutorial-connect-cluster.md
+    - name: "3: Eliminación de un clúster de Red Hat OpenShift en Azure\_4"
+      href: tutorial-delete-cluster.md
 - name: Guías paso a paso
   expanded: true
   items:
-    - name: Configuración del entorno de desarrollo de Red Hat OpenShift en Azure
-      href: howto-setup-environment.md
-      expanded: true
+    - name: "Creación de un clúster de Red Hat OpenShift en Azure\_4 privado"
+      href: create-private-cluster.md
+    - name: "Configuración del reenvío de DNS para un clúster de Red Hat OpenShift en Azure\_4"
+      href: dns-forwarding.md
+    - name: "Configuración de la autenticación de Azure\_Active\_Directory para un clúster de Red Hat OpenShift en Azure\_4"
       items:
-        - name: Creación de un inquilino de Azure AD
-          href: howto-create-tenant.md
-        - name: Creación de un objeto y un usuario de aplicación de Azure AD
-          href: howto-aad-app-configuration.md
-    - name: "Red Hat OpenShift\_4.3 en Azure (versión preliminar)"
+        - name: "Configuración de la autenticación de Azure\_Active\_Directory (CLI)"
+          href: configure-azure-ad-cli.md
+        - name: "Configuración de la autenticación de Azure\_Active\_Directory (Azure Portal)"
+          href: configure-azure-ad-ui.md
+    - name: "Supervisión y registro de Red Hat OpenShift en Azure\_4"
       items:
-        - name: "Creación de un clúster de Red Hat OpenShift\_4.3 en Azure"
-          href: howto-using-azure-redhat-openshift.md
-        - name: "Configuración de Azure Monitor para Red Hat OpenShift\_4.3 en Azure"
-          href: howto-azure-monitor-v4.md
-    - name: Implementación de un sistema Prometheus independiente en un clúster de Red Hat OpenShift en Azure
-      href: howto-deploy-prometheus.md
-    - name: Administración de proyectos en un clúster de Red Hat OpenShift en Azure
-      href: howto-manage-projects.md
-    - name: Creación de un clúster de Red Hat OpenShift en Azure privado
-      href: howto-create-private-cluster.md
-    - name: Supervisión y registro
-      items:
-        - name: Azure Monitor para contenedores (versión preliminar)
+        - name: "Azure Monitor para contenedores en Red Hat OpenShift en Azure\_4 (versión preliminar)"
           items:
-            - name: Configuración de Azure Monitor para contenedores
-              href: ../azure-monitor/insights/container-insights-azure-redhat-setup.md
-              maintainContext: true
-            - name: Deshabilitación de Azure Monitor para contenedores
-              href: ../azure-monitor/insights/container-insights-optout-openshift.md
-              maintainContext: true
-    - name: Ejecución de contenedores con privilegios en un clúster de Red Hat OpenShift en Azure
-      href: howto-run-privileged-containers.md
+            - name: "Configuración de Azure Monitor para contenedores en Red Hat OpenShift en Azure\_4 (versión preliminar)"
+              href: ../azure-monitor/insights/container-insights-azure-redhat4-setup.md
+            - name: "Deshabilitación de Azure Monitor para contenedores en Red Hat OpenShift en Azure\_3.11 (versión preliminar)"
+              href: ../azure-monitor/insights/container-insights-optout-openshift-v4.md
+    - name: "Red Hat OpenShift en Azure\_3.11"
+      items:
+        - name: "Configuración del entorno de desarrollo de Red Hat OpenShift en Azure para Red Hat OpenShift en Azure\_3.11"
+          href: howto-setup-environment.md
+          expanded: true
+          items:
+            - name: Creación de un inquilino de Azure AD
+              href: howto-create-tenant.md
+            - name: Creación de un objeto y un usuario de aplicación de Azure AD
+              href: howto-aad-app-configuration.md
+        - name: "Implementación de un sistema Prometheus independiente en un clúster de Red Hat OpenShift en Azure\_3.11"
+          href: howto-deploy-prometheus.md
+        - name: "Administración de proyectos en un clúster de Red Hat OpenShift en Azure\_3.11"
+          href: howto-manage-projects.md
+        - name: "Creación de un clúster de Red Hat OpenShift en Azure\_3.11 privado"
+          href: howto-create-private-cluster.md
+        - name: "Supervisión y registro de Red Hat OpenShift en Azure\_3.11"
+          items:
+            - name: "Azure Monitor para contenedores en Red Hat OpenShift en Azure\_3.11 (versión preliminar)"
+              items:
+                - name: "Configuración de Azure Monitor para contenedores en Red Hat OpenShift en Azure\_3.11"
+                  href: ../azure-monitor/insights/container-insights-azure-redhat-setup.md
+                  maintainContext: true
+                - name: "Deshabilitación de Azure Monitor para contenedores en Red Hat OpenShift en Azure\_3.11"
+                  href: ../azure-monitor/insights/container-insights-optout-openshift.md
+                  maintainContext: true
+        - name: "Ejecución de contenedores con privilegios en Red Hat OpenShift en Azure\_3.11"
+          href: howto-run-privileged-containers.md
+        - name: "Administración de clústeres en Red Hat OpenShift en Azure\_3.11"
+          items:
+            - name: "1: Rol Administrador de clústeres de Red Hat OpenShift en Azure\_3.11"
+              href: cluster-administration-cluster-admin-role.md
+            - name: "2: Administración de restricciones del contexto de seguridad en Red Hat OpenShift en Azure\_3.11"
+              href: cluster-administration-security-context-constraints.md
 - name: Referencia
   items:
     - name: CLI de Red Hat OpenShift en Azure
@@ -69,8 +79,10 @@
       href: openshift-faq.md
     - name: Solución de problemas
       href: troubleshoot.md
-    - name: Recursos compatibles
+    - name: "Recursos compatibles con Red Hat OpenShift en Azure\_3.11"
       href: supported-resources.md
+    - name: "Recursos compatibles con Red Hat OpenShift en Azure\_4.3"
+      href: support-policies-v4.md
     - name: Disponibilidad regional
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Documentación de Red Hat OpenShift

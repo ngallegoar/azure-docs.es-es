@@ -1,30 +1,30 @@
 ### YamlMime:Landing
-title: Documentación de Azure DevOps Projects
-summary: Azure DevOps Projects ofrece una experiencia simplificada en la que puede utilizar su código existente y el repositorio de Git, o elegir una de las aplicaciones de ejemplo para crear una canalización de integración continua (CI) y entrega continua (CD) en Azure.
+title: Documentación de Azure DevOps Starter
+summary: Azure DevOps Starter ofrece una experiencia simplificada en la que puede utilizar su código existente y el repositorio de Git, o bien elegir una de las aplicaciones de ejemplo para crear una canalización de integración continua (CI) y entrega continua (CD) en Azure.
 metadata:
-  title: Documentación de Azure DevOps Projects
+  title: Documentación de Azure DevOps Starter
   description: Utilice su código existente y el repositorio de Git, o elija una aplicación de ejemplo para crear una canalización de integración continua (CI) y entrega continua (CD) en Azure.
   ms.service: devops-project
   ms.topic: landing-page
   author: 
   ms.author: 
-  ms.date: 03/05/2020
-  ms.openlocfilehash: f03a03b353ffa0d0562169a51a2552c2f2ab143b
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.date: 03/24/2020
+  ms.openlocfilehash: 461d088f85f6845dfb9204381209b477b384a0be
+  ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "78942471"
+  ms.lasthandoff: 04/28/2020
+  ms.locfileid: "82231480"
 landingContent:
-- title: Acerca de Azure DevOps Projects
+- title: Acerca de Azure DevOps Starter
   linkLists:
   - linkListType: overview
     links:
-    - text: ¿Qué es Azure DevOps Projects?
+    - text: ¿Qué es Azure DevOps Starter?
       url: overview.md
   - linkListType: video
     links:
-    - text: Creación de integración continua y entrega continua con DevOps Project (vídeo, 8:53)
+    - text: Creación de integración continua y entrega continua con DevOps Project (8:53)
       url: https://channel9.msdn.com/Events/Connect/2017/T174/player/
 - title: Creación de una canalización de CI/CD
   linkLists:

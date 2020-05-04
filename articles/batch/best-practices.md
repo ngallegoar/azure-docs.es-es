@@ -1,18 +1,14 @@
 ---
-title: 'Procedimientos recomendados: Azure Batch'
+title: Procedimientos recomendados
 description: Obtenga información sobre los procedimientos recomendados y sugerencias útiles para desarrollar su solución de Azure Batch.
-author: LauraBrenner
-ms.author: labrenne
 ms.date: 04/03/2020
-ms.service: batch
 ms.topic: article
-manager: evansma
-ms.openlocfilehash: 94483f8e15b0cd90f76e369034e987bec6da127c
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 43a0020953ea44593cf38298a78547194751fc72
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80655847"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82117512"
 ---
 # <a name="azure-batch-best-practices"></a>Procedimientos recomendados de Azure Batch
 

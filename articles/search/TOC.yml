@@ -262,9 +262,11 @@
       items:
         - name: Trabajo con resultados
           href: search-pagination-page-layout.md
-        - name: Ajuste de la relevancia (perfiles de puntuación)
+        - name: Puntuación de relevancia
+          href: index-similarity-and-scoring.md
+        - name: Perfiles de puntuación
           href: index-add-scoring-profiles.md
-        - name: Ajuste de la relevancia (algoritmo de similitud)
+        - name: Algoritmo de similitud
           href: index-ranking-similarity.md
     - name: Plan
       items:

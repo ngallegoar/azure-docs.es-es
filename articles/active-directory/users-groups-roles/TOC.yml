@@ -155,11 +155,11 @@
           href: directory-assign-admin-roles.md
         - name: Visualización y asignación de roles
           href: directory-manage-roles-portal.md
-        - name: Rol personalizado
+        - name: Roles personalizados
           items:
-            - name: Rol personalizado
+            - name: Roles personalizados
               href: roles-custom-overview.md
-            - name: Creación de un rol personalizado
+            - name: Crear un rol personalizado
               href: roles-create-custom.md
             - name: Visualización de las asignaciones de roles personalizados
               href: roles-view-assignments.md
@@ -167,7 +167,7 @@
               href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
             - name: Asignación de roles personalizados en PowerShell
               href: roles-assign-powershell.md
-            - name: Permisos de rol personalizado
+            - name: Permisos de roles personalizados
               href: roles-custom-available-permissions.md
             - name: Delegación de permisos de administración de aplicaciones
               href: roles-delegate-app-roles.md
