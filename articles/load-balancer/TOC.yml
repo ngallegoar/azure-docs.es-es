@@ -40,8 +40,6 @@
       href: components.md
     - name: Conceptos
       href: concepts.md
-    - name: Tipos
-      href: types.md
     - name: Supervisión del estado
       items:
         - name: Sondeos de estado
