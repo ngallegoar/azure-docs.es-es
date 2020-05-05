@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: kexia
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8b6a65a964016f702fcf75aa4cbdab33a952e3b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c1f27c7b91a78da8944c23fd353d3b6791b3e015
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74024248"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582560"
 ---
 # <a name="home-realm-discovery-for-azure-active-directory-sign-in-pages"></a>Detección del dominio de inicio para las páginas de inicio de sesión de Azure Active Directory
 
@@ -28,7 +28,7 @@ Vamos a cambiar el comportamiento de inicio de sesión en Azure Active Directory
 
 Históricamente, la detección del dominio de inicio la controlaba el dominio que se proporciona en el inicio de sesión o mediante una directiva de detección del dominio de inicio para algunas aplicaciones heredadas. Por ejemplo, en nuestro comportamiento de detección, un usuario de Azure Active Directory podría escribir incorrectamente su nombre de usuario pero, aún así, conseguiría acceder a la pantalla de recopilación de credenciales de la organización. Eso sucede cuando el usuario facilita correctamente el nombre de dominio de la organización “contoso.com”. Este comportamiento no permite la granularidad para personalizar las experiencias de un usuario individual.
 
-Para admitir una serie más amplia de credenciales y aumentar la facilidad de uso, se ha actualizado el comportamiento de la búsqueda de nombre de usuario de Azure Active Directory durante el proceso de inicio de sesión. El nuevo comportamiento toma decisiones inteligentes según la lectura de la configuración del nivel de inquilino y usuario en función del nombre de usuario escrito en la página de inicio de sesión. Para hacerlo posible, Azure Active Directory comprobará si el nombre de usuario escrito en la página de inicio de sesión existe en el dominio especificado o redirecciona al usuario para que proporcione las credenciales.
+Para admitir una serie más amplia de credenciales y aumentar la facilidad de uso, se ha actualizado el comportamiento de la búsqueda de nombre de usuario de Azure Active Directory durante el proceso de inicio de sesión. El nuevo comportamiento toma decisiones inteligentes según la lectura de la configuración del nivel de organización y usuario en función del nombre de usuario escrito en la página de inicio de sesión. Para hacerlo posible, Azure Active Directory comprobará si el nombre de usuario escrito en la página de inicio de sesión existe en el dominio especificado o redirecciona al usuario para que proporcione las credenciales.
 
 Una ventaja adicional de este trabajo es la mejora de los mensajes de error. Estos son algunos ejemplos de mejora de los mensajes de error al iniciar sesión en una aplicación que solo admite usurarios de Azure Active Directory.
 

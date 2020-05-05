@@ -4,12 +4,12 @@ description: Aprenda a usar el escalado automático de clústeres para escalar a
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: 0b94865d81afc56c24d470012c668662f003a1b8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3ebbeab82031ddc037c7885e7453e603a8f440a1
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77596256"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509251"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Escalar automáticamente un clúster para satisfacer las necesidades de la aplicación en Azure Kubernetes Service (AKS)
 
@@ -44,7 +44,7 @@ Tanto Horizontal Pod Autoscaler como Cluster Autoscaler pueden reducir el númer
 
 Para obtener más información acerca de cómo el escalado automático de clústeres no puede realizar reducciones verticales, consulte [What types of pods can prevent the cluster autoscaler from removing a node?][autoscaler-scaledown] (¿Qué tipos de pods pueden evitar que el escalado automático de clústeres elimine un nodo?)
 
-El escalado automático de clústeres usa parámetros de inicio para cosas como intervalos de tiempo entre eventos de escalado y umbrales de recursos. Estos parámetros se definen mediante la plataforma de Azure y actualmente no se pueden ajustar. Para obtener más información sobre los parámetros que usa el escalado automático de clústeres, consulte [What are the cluster autoscaler parameters?][autoscaler-parameters] (¿Cuáles son los parámetros de clúster del escalado automático de clústeres?).
+El escalado automático de clústeres usa parámetros de inicio para cosas como intervalos de tiempo entre eventos de escalado y umbrales de recursos. Para obtener más información sobre los parámetros que usa el escalado automático de clústeres, consulte [What are the cluster autoscaler parameters?][autoscaler-parameters] (¿Cuáles son los parámetros de clúster del escalado automático de clústeres?).
 
 Horizontal Pod Autoscaler y Cluster Autoscaler pueden funcionar juntos y a menudo se implementan en un clúster. Cuando se combinan, el escalado automático horizontal de pods se centra en ejecutar el número de pods necesario para satisfacer las exigencias de la aplicación. El escalado automático de clústeres se centra en ejecutar el número de nodos necesario para admitir los pods programados.
 
@@ -117,6 +117,7 @@ También puede configurar detalles más pormenorizados del escalador automático
 | scale-down-unready-time          | Cuánto tiempo debe ser innecesario un nodo no listo antes de que sea válido para la reducción vertical         | 20 minutos    |
 | scale-down-utilization-threshold | Nivel de uso del nodo, definido como la suma de los recursos solicitados dividida por la capacidad, por debajo del cual se puede considerar un nodo para la reducción vertical | 0.5 |
 | max-graceful-termination-sec     | Número máximo de segundos que el escalador automático del clúster espera la terminación del pod al intentar reducir verticalmente un nodo. | 600 segundos   |
+| balance-similar-node-groups | Detecta grupos de nodos similares y equilibra el número de nodos entre aquellos. | false |
 
 > [!IMPORTANT]
 > El perfil del escalador automático del clúster afecta a todos los grupos de nodos que usan el escalador automático del clúster. No se puede establecer un perfil del escalador automático por grupo de nodos.
@@ -212,7 +213,7 @@ AKS administra el escalador automático del clúster en su nombre y lo ejecuta e
 
 Para configurar los registros que se van a insertar desde el escalador automático del clúster en Log Analytics, siga estos pasos.
 
-1. Configure una regla para que los registros de diagnóstico inserten registros del escalador automático del clúster en Log Analytics. [Las instrucciones se detallan aquí](https://docs.microsoft.com/azure/aks/view-master-logs#enable-diagnostics-logs), asegúrese de activar la casilla correspondiente a `cluster-autoscaler` al seleccionar las opciones para "Registros".
+1. Configure una regla para que los registros de recursos inserten registros del escalador automático del clúster en Log Analytics. [Las instrucciones se detallan aquí](https://docs.microsoft.com/azure/aks/view-master-logs#enable-resource-logs), asegúrese de activar la casilla correspondiente a `cluster-autoscaler` al seleccionar las opciones para "Registros".
 1. Haga clic en la sección "Registros" en el clúster mediante Azure Portal.
 1. Escriba la consulta de ejemplo siguiente en Log Analytics:
 

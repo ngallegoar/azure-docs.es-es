@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 08/08/2019
+ms.date: 04/27/2020
 ms.author: absha
-ms.openlocfilehash: d0b28770940f0e1adeec16aa89cd087299bd4abc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 421c1f4d1abe9be5f5081235e78ebe77b1813e6e
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80132989"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562243"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>Reescritura de encabezados HTTP con Azure Application Gateway
 
@@ -56,7 +56,7 @@ Las acciones de reescritura se usan para especificar los encabezados de solicitu
 
 ## <a name="server-variables"></a>Variables de servidor
 
-App Gateway usa variables de servidor para almacenar información útil sobre el servidor, la conexión con el cliente y la solicitud actual en la conexión. La dirección IP del cliente y el tipo de explorador web son ejemplos de la información almacenada. Las variables de servidor cambian dinámicamente, por ejemplo, cuando se carga una página nueva o cuando se publica un formulario. Puede usar estas variables para evaluar las condiciones de reescritura y volver a escribir los encabezados.
+App Gateway usa variables de servidor para almacenar información útil sobre el servidor, la conexión con el cliente y la solicitud actual en la conexión. La dirección IP del cliente y el tipo de explorador web son ejemplos de la información almacenada. Las variables de servidor cambian dinámicamente, por ejemplo, cuando se carga una página nueva o cuando se publica un formulario. Puede usar estas variables para evaluar las condiciones de reescritura y volver a escribir los encabezados. Para usar el valor de las variables del servidor para volver a escribir los encabezados, deberá especificar estas variables en la sintaxis {var_*serverVariable*}.
 
 Application Gateway admite estas variables de servidor:
 
@@ -69,20 +69,21 @@ Application Gateway admite estas variables de servidor:
 | client_port                | Puerto del cliente.                                                  |
 | client_tcp_rtt             | Información sobre la conexión TCP de cliente. Está disponible en los sistemas que admiten la opción de socket TCP_INFO. |
 | client_user                | Al usar la autenticación HTTP, el nombre de usuario proporcionado para la autenticación. |
-| host                       | En este orden de prioridad: nombre de host de la línea de la solicitud, nombre de host del campo de encabezado de la solicitud del “Host”, o bien el nombre del servidor que coincida con una solicitud. |
+| host                       | En este orden de prioridad: nombre de host de la línea de la solicitud, nombre de host del campo de encabezado de la solicitud del “Host”, o bien el nombre del servidor que coincida con una solicitud. Ejemplo: en la solicitud *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* , el valor del host será *contoso.com*. |
 | cookie_*name*              | El cookie de *nombre*.                                            |
 | http_method                | Método usado para realizar la solicitud de URL. Por ejemplo, GET, POST, etc. |
 | http_status                | Estado de la sesión. Por ejemplo, 200, 400 o 403.                       |
 | http_version               | Protocolo de solicitud. Normalmente, HTTP/1.0, HTTP/1.1 o HTTP/2.0. |
-| query_string               | La lista de pares de variable-valor que aparecen después de “?” en la dirección URL solicitada. |
+| query_string               | La lista de pares de variable-valor que aparecen después de “?” en la dirección URL solicitada. Ejemplo: en la solicitud *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* , el valor de query_string será *id=123&title=fabrikam*. |
 | received_bytes             | La longitud de la solicitud (incluida la línea de la solicitud, el encabezado y el cuerpo de la solicitud). |
 | request_query              | Los argumentos en la línea de la solicitud.                                |
 | request_scheme             | El esquema de la solicitud: HTTP o HTTPS.                            |
-| request_uri                | El URI original completo de la solicitud (con argumentos).                   |
+| request_uri                | El URI original completo de la solicitud (con argumentos). Ejemplo: en la solicitud *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* , el valor de request_uri será */article.aspx?id=123&title=fabrikam*.   |
 | sent_bytes                 | El número de bytes enviados a un cliente.                             |
 | server_port                | El puerto del servidor que ha aceptado una solicitud.                 |
 | ssl_connection_protocol    | El protocolo de una conexión TLS establecida.        |
 | ssl_enabled                | "On" si la conexión funciona en modo TLS. No puede ser una cadena vacía. |
+| uri_path                   | Identifica el recurso específico en el host al que el cliente web quiere acceder. Esta es la parte del URI de solicitud sin los argumentos. Ejemplo: en la solicitud *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* , el valor de uri_path será */article.aspx*.  |
 
 ## <a name="rewrite-configuration"></a>Configuración de la reescritura
 
@@ -156,6 +157,8 @@ Puede evaluar un encabezado de respuesta o de solicitud HTTP para comprobar la p
 ## <a name="limitations"></a>Limitaciones
 
 - Si una respuesta tiene más de un encabezado con el mismo nombre, volver a escribir el valor de uno de esos encabezados dará como resultado la eliminación de los demás en la respuesta. Normalmente, esto puede suceder con el encabezado Set-Cookie, ya que puede tener más de uno en una respuesta. Uno de estos escenarios es cuando se usa un servicio de aplicaciones con una puerta de enlace de aplicaciones y ha configurado la afinidad de sesión basada en cookies en la puerta de enlace de aplicaciones. En este caso, la respuesta contendrá dos encabezados Set-Cookie: uno utilizado por el servicio de aplicaciones, por ejemplo, `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net`, y otro para la afinidad de la puerta de enlace de aplicaciones, es decir, `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/`. Si se vuelve a escribir uno de los encabezados Set-Cookie en este escenario, podría quitar el otro encabezado Set-Cookie de la respuesta.
+
+- No se admiten las reescrituras cuando la puerta de enlace de aplicaciones está configurada para redirigir las solicitudes o para mostrar una página de error personalizada.
 
 - Aún no se admite la reescritura de los encabezados de conexión, actualización y hospedaje.
 

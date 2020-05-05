@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 08/21/2019
 ms.author: alkohli
-ms.openlocfilehash: 89f981fcda8f40daff49ebdf796b896d90ce1754
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2476cf360909374f711564fb5fad5c9e0706083d
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "69900622"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562481"
 ---
 # <a name="azure-data-box-gateway-security-and-data-protection"></a>Protección de datos y seguridad de Azure Data Box Gateway
 
@@ -39,7 +39,7 @@ Data Box Gateway es un servicio de administración que se hospeda en Azure. El s
 
 El dispositivo Data Box Gateway es un dispositivo virtual que se aprovisiona en el hipervisor de un sistema local que proporciona el usuario. El dispositivo ayuda a enviar datos a Azure. El dispositivo:
 
-- Necesita una clave de activación para acceder al servicio Data Box Edge/Data Box Gateway.
+- Necesita una clave de activación para acceder al servicio Azure Stack Edge/Data Box Gateway.
 - Está protegido en todo momento mediante una contraseña de dispositivo.
 <!---  secure boot enabled.
 - Runs Windows Defender Device Guard. Device Guard allows you to run only trusted applications that you define in your code integrity policies.-->

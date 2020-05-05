@@ -7,12 +7,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 771d7f5b037fde1144b18dc4ed0dee7aecac6744
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cf051da4e2976ca54c95b54cd6ac89cb6f6cc1b1
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82100216"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562226"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---single-server"></a>Solución de problemas de conexión a Azure Database for PostgreSQL (único servidor)
 
@@ -49,6 +49,7 @@ Si la aplicación no se puede conectar a Azure Database for PostgreSQL de forma 
 * Configuración del firewall de servidor: Asegúrese de que el firewall del servidor de Azure Database for PostgreSQL esté configurado para permitir conexiones desde el cliente, incluidas puertas de enlace y servidores proxy.
 * Configuración del firewall del cliente: El firewall en el cliente debe permitir las conexiones con el servidor de bases de datos. Las direcciones IP y los puertos del servidor se deben permitir, así como los nombres de aplicación como PostgreSQL en algunos firewalls.
 * Error del usuario: Es posible que haya escrito incorrectamente los parámetros de conexión, como el nombre del servidor en la cadena de conexión o un sufijo *\@nombreServidor*que falte en el nombre de usuario.
+* Si ve el error _El servidor no está configurado para permitir las conexiones IPv6_, tenga en cuenta que el nivel Básico no admite los puntos de conexión de servicio de red virtual. Tiene que quitar el punto de conexión Microsoft.Sql de la subred que intenta conectarse al servidor básico.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Pasos para resolver los problemas de conectividad persistentes
 

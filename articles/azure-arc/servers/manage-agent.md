@@ -6,14 +6,14 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 04/14/2020
+ms.date: 04/29/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5ad2127b4cb9da3ca83aa04bd1885908a88dba62
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 685c56c7ef270acb416d4b76c6aceb8553e9a07f
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81308974"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82581712"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Administración y mantenimiento del agente de Connected Machine
 
@@ -261,3 +261,49 @@ Si tiene previsto dejar de administrar la máquina con los servicios de soporte 
 1. Abra Azure Arc para servidores (versión preliminar). Para ello, vaya a [Azure Portal](https://aka.ms/hybridmachineportal).
 
 2. Seleccione la máquina en la lista, seleccione los puntos suspensivos ( **...** ) y, a continuación, seleccione **Eliminar**.
+
+## <a name="update-or-remove-proxy-settings"></a>Actualización o eliminación de la configuración de proxy
+
+Si quiere configurar el agente para comunicarse con el servicio a través de un servidor proxy o quitar esta configuración después de la implementación, use uno de los métodos siguientes para completar esta tarea.
+
+### <a name="windows"></a>Windows
+
+Para establecer la variable de entorno del servidor proxy, ejecute el siguiente comando:
+
+```powershell
+# If a proxy server is needed, execute these commands with the proxy URL and port.
+[Environment]::SetEnvironmentVariable("https_proxy","http://{proxy-url}:{proxy-port}","Machine")
+$env:https_proxy = [System.Environment]::GetEnvironmentVariable("https_proxy","Machine")
+# For the changes to take effect, the agent service needs to be restarted after the proxy environment variable is set.
+Restart-Service -Name himds
+```
+
+Para configurar el agente para que detenga la comunicación a través de un servidor proxy, ejecute el siguiente comando para quitar la variable de entorno del servidor proxy y reiniciar el servicio del agente:
+
+```powershell
+[Environment]::SetEnvironmentVariable("https_proxy",$null,"Machine")
+$env:https_proxy = [System.Environment]::GetEnvironmentVariable("https_proxy","Machine")
+# For the changes to take effect, the agent service needs to be restarted after the proxy environment variable removed.
+Restart-Service -Name himds
+```
+
+### <a name="linux"></a>Linux
+
+Para establecer el servidor proxy, ejecute el siguiente comando desde el directorio en el que descargó el paquete de instalación del agente:
+
+```bash
+# Reconfigure the connected machine agent and set the proxy server.
+bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
+```
+
+Para configurar el agente para que detenga la comunicación a través de un servidor proxy, ejecute el siguiente comando para quitar la configuración de proxy:
+
+```bash
+sudo azcmagent_proxy remove
+```
+
+## <a name="next-steps"></a>Pasos siguientes
+
+- Obtenga información sobre cómo administrar la máquina con [Azure Policy](../../governance/policy/overview.md) para, por ejemplo, la [configuración de invitado](../../governance/policy/concepts/guest-configuration.md) de VM, la comprobación de que la máquina informa al área de trabajo de Log Analytics esperada, la habilitación de la supervisión con [Azure Monitor con máquinas virtuales](../../azure-monitor/insights/vminsights-enable-at-scale-policy.md) y mucho más.
+
+- Más información sobre el [agente de Log Analytics](../../azure-monitor/platform/log-analytics-agent.md). El agente de Log Analytics para Windows y Linux es necesario si desea supervisar de forma proactiva el sistema operativo y las cargas de trabajo que se ejecutan en la máquina, administrarlos mediante runbooks de Automation o características como Update Management, o bien usar otros servicios de Azure como [Azure Security Center](../../security-center/security-center-intro.md).

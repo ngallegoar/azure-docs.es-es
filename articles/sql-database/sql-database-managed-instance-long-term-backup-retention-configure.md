@@ -11,21 +11,20 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 04/19/2020
-ms.openlocfilehash: 24eacb555704593fe44bc2d949de44de163345bc
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.date: 04/29/2020
+ms.openlocfilehash: fba1dcdb8c4e5cfaa8071ae58ad75432b526c887
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81677099"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509710"
 ---
 # <a name="manage-azure-sql-database-managed-instance-long-term-backup-retention-powershell"></a>Administración de la retención de copias de seguridad a largo plazo de la instancia administrada de Azure SQL Database (PowerShell)
 
 En la instancia administrada de Azure SQL Database, puede configurar una directiva de [retención de copias de seguridad a largo plazo](sql-database-long-term-retention.md#managed-instance-support) (LTR) como característica en vista previa (GB) pública limitada. Esto permite conservar automáticamente copias de seguridad de bases de datos en contenedores de Azure Blob Storage independientes durante un máximo de 10 años. Posteriormente, puede recuperar una base de datos mediante estas copias de seguridad con PowerShell.
 
    > [!IMPORTANT]
-   > LTR para instancias administradas se encuentra actualmente en versión preliminar limitada y está disponible para las suscripciones de EA y CSP en cada caso. Para solicitar la inscripción, cree una [incidencia de soporte técnico de Azure](https://azure.microsoft.com/support/create-ticket/) en el tema de soporte técnico **Copia de seguridad, restauración y continuidad empresarial: retención de copias de seguridad a largo plazo**. 
-
+   > LTR para instancias administradas se encuentra actualmente en versión preliminar limitada y está disponible para las suscripciones de EA y CSP en cada caso. Para solicitar la inscripción, cree un [vale de soporte de Azure](https://azure.microsoft.com/support/create-ticket/). En Tipo de problema, seleccione Problema técnico, en Servicio elija Instancia administrada de SQL Database y, en Tipo de problema, seleccione **Copia de seguridad, restauración y continuidad empresarial/Retención de copias de seguridad a largo plazo**. En la solicitud, indique que le gustaría inscribirse en la versión preliminar pública limitada de LTR para la instancia administrada.
 
 En las siguientes secciones se explica cómo usar PowerShell para configurar la retención de copias de seguridad a largo plazo, ver las copias de seguridad en el almacén de Azure SQL y realizar una restauración a partir de una copia de seguridad del almacén de Azure SQL.
 

@@ -3,12 +3,12 @@ title: Creación de directivas de Configuración de invitado para Windows
 description: Aprenda a crear una directiva de Configuración de invitado de Azure Policy para Windows.
 ms.date: 03/20/2020
 ms.topic: how-to
-ms.openlocfilehash: f09bb543f73e37bd211a55e2238808f57585bb18
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.openlocfilehash: a75525b25945dd9548d7c293d5965cc67eb463dc
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "82024904"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509625"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Creación de directivas de Configuración de invitado para Windows
 
@@ -16,7 +16,7 @@ Antes de crear directivas personalizadas, es conveniente leer la información co
  
 Para obtener información sobre cómo crear directivas de Configuración de invitado para Linux, consulte la página [Cómo crear una directiva de configuración de invitados para Linux](./guest-configuration-create-linux.md).
 
-Durante la auditoría en Windows, Configuración de invitado usa un módulo de recursos [Desired State Configuration](/powershell/scripting/dsc/overview/overview) (DSC) y un archivo de configuración. La configuración de DSC define la condición en la que debe estar la máquina.
+Durante la auditoría en Windows, Configuración de invitado usa un módulo de recursos [Desired State Configuration](/powershell/scripting/dsc/overview/overview) (DSC) para crear el archivo de configuración. La configuración de DSC define la condición en la que debe estar la máquina.
 Si se produce un error en la evaluación de la configuración, se desencadena el efecto **auditIfNotExists** de la directiva y se considera que la máquina **no es compatible**.
 
 Solo se puede usar la [configuración de invitados de Azure Policy](../concepts/guest-configuration.md) para auditar la configuración dentro de las máquinas. Todavía no está disponible la opción para corregir la configuración dentro de las máquinas.
