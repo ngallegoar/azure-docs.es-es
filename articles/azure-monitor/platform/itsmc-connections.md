@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: eb3b09c6f349024d30d68a6c970770e2a78924ed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0773492c3042a6f8c906aa6ba1bc3c76ea8c0d8f
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80132313"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81870587"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Conectar productos o servicios de ITSM con el Conector de Administración de servicios de TI
 En este artículo se proporciona información sobre cómo configurar la conexión entre los productos y servicios de ITSM y el Conector de Administración de servicios de TI (ITSMC) en Log Analytics para administrar de forma centralizada los elementos de trabajo. Para obtener más información sobre ITSMC, vea [Información general](../../azure-monitor/platform/itsmc-overview.md).
@@ -194,7 +194,15 @@ Asegúrese de que se cumplen los siguientes requisitos previos:
     - [Configuración de OAuth para Estambul](https://docs.servicenow.com/bundle/istanbul-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Configuración de OAuth para Helsinki](https://docs.servicenow.com/bundle/helsinki-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Configuración de OAuth para Ginebra](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
-
+> [!NOTE]
+> Como parte de la definición de "Configuración de OAuth", se recomienda:
+>
+> 1) **Actualizar la duración del token de actualización a 90 días (7 776 000 segundos).** Como parte de la [Configuración de OAuth](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.servicenow.com%2Fbundle%2Fnewyork-platform-administration%2Fpage%2Fadminister%2Fsecurity%2Ftask%2Ft_SettingUpOAuth.html&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C2c6812e429a549e71cdd08d7d1b148d8%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637208431696739125&sdata=Q7mF6Ej8MCupKaEJpabTM56EDZ1T8vFVyihhoM594aA%3D&reserved=0) en la fase 2: [Crear un punto de conexión para que los clientes accedan a la instancia](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.servicenow.com%2Fbundle%2Fnewyork-platform-administration%2Fpage%2Fadminister%2Fsecurity%2Ftask%2Ft_CreateEndpointforExternalClients.html&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C2c6812e429a549e71cdd08d7d1b148d8%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637208431696749123&sdata=hoAJHJAFgUeszYCX1Q%2FXr4N%2FAKiFcm5WV7mwR2UqeWA%3D&reserved=0) Después de la definición del punto de conexión, en la hoja ServiceNow, busque OAuth del sistema y, a continuación, seleccione Registro de aplicaciones. Seleccione el nombre de OAuth que se definió y actualice el campo de duración del token de actualización a 7 776 000 (90 días expresados en segundos).
+> Finalmente, haga clic en Actualizar.
+> 2) **Se recomienda establecer un procedimiento interno para asegurarse de que la conexión permanezca activa** según la duración del token de actualización para actualizar el token. Asegúrese de realizar las siguientes operaciones antes de la fecha de expiración esperada del token de actualización (se recomienda un par de días antes de que expire la duración del token de actualización):
+>
+>>  1) [Completar un proceso de sincronización manual para la configuración del conector de ITSM](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-resync-servicenow)
+ >> 2) Revocar el token de actualización anterior, ya que no se recomienda mantener las claves antiguas por motivos de seguridad. En la hoja ServiceNow, busque System OAuth (OAuth del sistema) y seleccione Manage Tokens (Administrar tokens). Elija el token antiguo de la lista según el nombre de OAuth y la fecha de expiración. Haga clic en Revoke Access (Revocar acceso) y, a continuación, en Revoke (Revocar).
 
 - Instalar la aplicación de usuario para la integración de Microsoft Log Analytics (aplicación de ServiceNow). [Más información](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 ).
 - Crear el rol de usuario de integración para la aplicación de usuario instalada. [Aquí](#create-integration-user-role-in-servicenow-app) puede encontrar más información sobre cómo crear el rol de usuario de integración.

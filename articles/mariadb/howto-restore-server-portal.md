@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/27/2020
 ms.openlocfilehash: fa8ead8daa202f5747c134a62fbd43bcdf2af0d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80369259"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-portal"></a>Copia de seguridad y restauración de un servidor en Azure Database for MariaDB mediante Azure Portal
@@ -18,7 +18,7 @@ ms.locfileid: "80369259"
 ## <a name="backup-happens-automatically"></a>Las copias de seguridad se realizan automáticamente
 Periódicamente, se realizan copias de seguridad de los servidores de Azure Database for MariaDB para habilitar las características de restauración. Con esta característica, puede restaurar el servidor y todas sus bases de datos en un servidor nuevo a un momento dado anterior.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 Para completar esta guía, necesita:
 - Un [servidor y base de datos de Azure Database for MariaDB](quickstart-create-mariadb-server-database-using-azure-portal.md)
 
@@ -64,8 +64,8 @@ Los siguientes pasos restauran el servidor de ejemplo a un momento dado:
 3. Rellene el formulario Restaurar con la información necesaria:
 
    ![Azure Database for MariaDB - Información sobre restauración](./media/howto-restore-server-portal/3-restore.png)
-   - **Punto de restauración**: seleccione el momento al que desea restaurar.
-   - **Servidor de destino:** : proporcione un nombre para el nuevo servidor.
+   - **Punto de restauración**: seleccione el momento que desea restaurar.
+   - **Servidor de destino**: especifique el nombre del nuevo servidor.
    - **Ubicación**: no se puede seleccionar la región. De manera predeterminada, es el mismo que el del servidor de origen.
    - **Plan de tarifa**: estos parámetros no se pueden cambiar al realizar una restauración a un momento dado. Es el mismo que el del servidor de origen. 
 
@@ -76,7 +76,7 @@ Los siguientes pasos restauran el servidor de ejemplo a un momento dado:
 
 El nuevo servidor creado mediante restauración a un momento dado tiene el mismo nombre de inicio de sesión y contraseña de administrador del servidor que el servidor existente tenía en ese momento dado. Puede cambiar la contraseña en la página **Información general** del nuevo servidor.
 
-El servidor creado durante una restauración no tiene los puntos de conexión de servicio VNet que existían en el servidor original. Estas reglas deben configurarse por separado para este nuevo servidor. Se restauran las reglas de firewall del servidor original.
+El servidor creado durante una restauración no tiene los puntos de conexión de servicio de red virtual que existían en el servidor original. Estas reglas deben configurarse por separado para este nuevo servidor. Se restauran las reglas de firewall del servidor original.
 
 ## <a name="geo-restore"></a>Restauración geográfica
 
@@ -87,7 +87,7 @@ Si ha configurado el servidor para copias de seguridad con redundancia geográfi
    ![La opción Azure Database for MariaDB](./media/howto-restore-server-portal/2_navigate-to-mariadb.png)
 
 2. En el menú desplegable **Seleccionar origen** del formulario, elija **Copia de seguridad**. Esta acción carga una lista de servidores que tienen habilitadas copias de seguridad con redundancia geográfica. Seleccione una de las copias de seguridad como origen del nuevo servidor.
-   ![Seleccionar origen: Azure Backup y lista de copias de seguridad con redundancia geográfica](./media/howto-restore-server-portal/2-georestore.png)
+   ![Seleccionar origen: Copia de seguridad y lista de copias de seguridad con redundancia geográfica](./media/howto-restore-server-portal/2-georestore.png)
 
    > [!NOTE]
    > Al crear por primera vez un servidor, puede que no esté disponible para la restauración geográfica inmediatamente. Los metadatos pueden tardar unas horas en rellenarse.
@@ -97,7 +97,7 @@ Si ha configurado el servidor para copias de seguridad con redundancia geográfi
 
 El nuevo servidor creado mediante restauración geográfica tiene el mismo nombre de inicio de sesión y contraseña de administrador del servidor que el servidor existente tenía cuando se inició la restauración. La contraseña se puede cambiar en la página **Información general** del nuevo servidor.
 
-El servidor creado durante una restauración no tiene los puntos de conexión de servicio VNet que existían en el servidor original. Estas reglas deben configurarse por separado para este nuevo servidor. Se restauran las reglas de firewall del servidor original.
+El servidor creado durante una restauración no tiene los puntos de conexión de servicio de red virtual que existían en el servidor original. Estas reglas deben configurarse por separado para este nuevo servidor. Se restauran las reglas de firewall del servidor original.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Más información sobre las [copias de seguridad](concepts-backup.md) del servicio.

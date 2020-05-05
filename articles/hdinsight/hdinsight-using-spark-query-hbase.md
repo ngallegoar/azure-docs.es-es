@@ -6,26 +6,24 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
-ms.date: 02/24/2020
-ms.openlocfilehash: 888f24e13ce67c878592068927383dd8cbfefa60
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: hdinsightactive,seoapr2020
+ms.date: 04/20/2020
+ms.openlocfilehash: e5d9d4f215752d95ee1d676e8a5b126b6d0d3ab2
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77623107"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82190629"
 ---
 # <a name="use-apache-spark-to-read-and-write-apache-hbase-data"></a>Uso de Apache Spark para leer y escribir datos de Apache HBase
 
-Apache HBase se consulta, normalmente, con su API de bajo nivel (instrucciones scan, get y put) o con una sintaxis SQL que utiliza Apache Phoenix. Apache también proporciona el conector HBase de Apache Spark, que es una alternativa práctica y eficaz para consultar y modificar los datos almacenados por HBase.
+Apache HBase se consulta, normalmente, con su API de bajo nivel (instrucciones scan, get y put) o con una sintaxis SQL que utiliza Apache Phoenix. Apache también proporciona el conector HBase de Apache Spark. Este es una alternativa práctica y eficaz para consultar y modificar los datos que almacena HBase.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Dos clústeres de HDInsight independientes implementados en la misma [red virtual](./hdinsight-plan-virtual-network-deployment.md). HBase y Spark con al menos Spark 2.1 (HDInsight 3.6) instalado. Para obtener más información, consulte [Crear clústeres basados en Linux en HDInsight con Azure Portal](hdinsight-hadoop-create-linux-clusters-portal.md).
 
-* Un cliente SSH. Para más información, consulte [Conexión a través de SSH con HDInsight (Apache Hadoop)](hdinsight-hadoop-linux-use-ssh-unix.md).
-
-* El [esquema de URI](hdinsight-hadoop-linux-information.md#URI-and-scheme) para el almacenamiento principal de clústeres. Este esquema sería wasb:// para Azure Blob Storage, abfs:// para Azure Data Lake Storage Gen2 o adl:// para Azure Data Lake Storage Gen1. Si se habilita la transferencia segura para Blob Storage, el identificador URI sería `wasbs://`.  Consulte también el artículo acerca de la [transferencia segura](../storage/common/storage-require-secure-transfer.md).
+* El esquema de URI para el almacenamiento principal de clústeres. Este esquema sería wasb:// para Azure Blob Storage, `abfs://` para Azure Data Lake Storage Gen2 o adl:// para Azure Data Lake Storage Gen1. Si se habilita la transferencia segura para Blob Storage, el identificador URI sería `wasbs://`.  Consulte también el artículo acerca de la [transferencia segura](../storage/common/storage-require-secure-transfer.md).
 
 ## <a name="overall-process"></a>Proceso general
 

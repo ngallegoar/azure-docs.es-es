@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 99efe375fad142963214b09df24be70bc3bc9d99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f875b4a5c4f1322f4a992dc3738ab1ce6431149d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77131612"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81641124"
 ---
 # <a name="overview-of-live-streaming-using-media-services"></a>Información general de streaming en vivo con Media Services
 
@@ -55,7 +55,7 @@ En Azure Media Services, los **canales**, **programas** y **extremos de streamin
 
 Un **canal** representa una canalización para procesar contenido de streaming en vivo. Un canal puede recibir transmisiones de entrada en directo de la siguiente manera:
 
-* Un codificador local en directo envía contenido **RTMP** o **Smooth Streaming** (MP4 fragmentado) con velocidades de bits múltiples al canal que está configurado por la entrega de **paso a través**. La entrega de **paso a través** significa que las transmisiones ingeridas pasan a través de **canales** sin más procesamiento. Puede usar los siguientes codificadores en directo que generan Smooth Streaming de velocidad de bits múltiple: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco y Elemental. Los siguientes codificadores en directo generan RTMP: Transcodificadores Telestream Wirecast, Haivision, Teradek y Tricaster.  El codificador en directo también puede enviar una secuencia de una sola velocidad de bits a un canal que no está habilitado para la codificación en directo, pero esto no es recomendable. Cuando se solicita, Media Services entrega la secuencia a los clientes.
+* Un codificador local en directo envía contenido **RTMP** o **Smooth Streaming** (MP4 fragmentado) con velocidades de bits múltiples al canal que está configurado por la entrega de **paso a través**. La entrega de **paso a través** significa que las transmisiones ingeridas pasan a través de **canales** sin más procesamiento. Puede usar los siguientes codificadores en directo que generan Smooth Streaming de velocidad de bits múltiple: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco y Elemental. Los siguientes codificadores en directo generan RTMP: Transcodificadores Telestream Wirecast, Haivision y Teradek.  El codificador en directo también puede enviar una secuencia de una sola velocidad de bits a un canal que no está habilitado para la codificación en directo, pero esto no es recomendable. Cuando se solicita, Media Services entrega la secuencia a los clientes.
 
   > [!NOTE]
   > El uso de un método de paso a través es la forma más económica de streaming en vivo cuando está realizando varios eventos en un largo período y ya ha invertido en codificadores locales. Consulte los detalles en [Precios de Servicios multimedia](https://azure.microsoft.com/pricing/details/media-services/) .

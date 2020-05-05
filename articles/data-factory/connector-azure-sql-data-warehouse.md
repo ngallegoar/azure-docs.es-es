@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/25/2020
-ms.openlocfilehash: 7fb1560fb9be809d816dde7dd69f1ec8afe5649f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: e469a38f4730eb0f9d8debe71bde9a56dd152028
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81417574"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82146396"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-formerly-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copia y transformación de datos en Azure Synapse Analytics (antes Azure SQL Data Warehouse) mediante Azure Data Factory 
 
@@ -25,13 +25,6 @@ ms.locfileid: "81417574"
 > * [Versión actual](connector-azure-sql-data-warehouse.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
-
-En este artículo, se explica cómo usar la actividad de copia en Azure Data Factory para copiar datos desde y hacia Azure Synapse Analytics, y usar Data Flow para transformar datos en Azure Data Lake Storage Gen2. Para información sobre Azure Data Factory, lea el [artículo de introducción](introduction.md).
-
-
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
-
-En este artículo, se explica el uso de la actividad de copia en Azure Data Factory para copiar datos utilizando Azure SQL Data Warehouse como origen o destino y el uso de Data Flow para transformar datos en Azure Data Lake Storage Gen2. Para información sobre Azure Data Factory, lea el [artículo de introducción](introduction.md).
 
 En este artículo, se explica cómo usar la actividad de copia en Azure Data Factory para copiar datos desde y hacia Azure Synapse Analytics, y usar Data Flow para transformar datos en Azure Data Lake Storage Gen2. Para información sobre Azure Data Factory, lea el [artículo de introducción](introduction.md).
 

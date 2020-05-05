@@ -3,12 +3,12 @@ title: Configuración de su entorno de desarrollo en Linux
 description: Instale el SDK y el motor en tiempo de ejecución, y cree un clúster de desarrollo local en Linux. Después de completar esta instalación, estará listo para compilar aplicaciones.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: 1048e1ccf6b9bc921daa3014ab8003fd53473461
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 000d615d779ed14eb1698cf297075480a07c71ef
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309115"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82193418"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparación del entorno de desarrollo en Linux
 > [!div class="op_single_selector"]
@@ -179,7 +179,7 @@ Inicie un clúster local una vez finalizada la instalación.
     sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
     ```
 
-2. Abra un explorador web y vaya a [Service Fabric Explorer](http://localhost:19080/Explorer) (`http://localhost:19080/Explorer`). Al iniciarse el clúster, debería ver el panel de Service Fabric Explorer. El clúster puede tardar varios minutos en configurarse totalmente. Si el explorador no abre la dirección URL o si Service Fabric Explorer no muestra que el sistema está listo, espere unos minutos y vuelva a intentarlo.
+2. Abra un explorador web y vaya a **Service Fabric Explorer** (`http://localhost:19080/Explorer`). Al iniciarse el clúster, debería ver el panel de Service Fabric Explorer. El clúster puede tardar varios minutos en configurarse totalmente. Si el explorador no abre la dirección URL o si Service Fabric Explorer no muestra que el sistema está listo, espere unos minutos y vuelva a intentarlo.
 
     ![Service Fabric Explorer en Linux][sfx-linux]
 
@@ -265,7 +265,7 @@ El complemento de Eclipse para Service Fabric se puede instalar desde el IDE de 
 
 2. Para instalar el complemento de Service Fabric, seleccione **Help** > **Install New Software** (Ayuda > Instalar nuevo software).
 
-3. En el cuadro **Work with** (Trabajar con), escriba **https://dl.microsoft.com/eclipse** .
+3. En el cuadro **Trabajar con**, escriba **https:\//dl.microsoft.com/eclipse**.
 
 4. Seleccione **Agregar**.
 

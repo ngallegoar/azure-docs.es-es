@@ -14,19 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: damendo
-ms.openlocfilehash: c48d5a02cdb8ef63904642c6c2c76cb5d61e1f9d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f038412079ad0620a445b85e4bbc3c325e1aa211
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76840917"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82100114"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-using-network-watcher-and-grafana"></a>Administración y análisis de registros de flujo de grupo de seguridad de red con Network Watcher y Grafana
 
 Los [registros de flujo de grupo de seguridad de red (NSG)](network-watcher-nsg-flow-logging-overview.md) proporcionan información que se puede usar para comprender el tráfico IP de entrada y salida en interfaces de red. Estos registros de flujo muestran los flujos de entrada y salida en función de cada regla de NSG, la NIC a la que se aplica el flujo, información de 5-tupla sobre el flujo (IP de origen y de destino, puerto de origen y de destino, protocolo) y si se permitió o denegó el tráfico.
-
-> [!Warning]  
-> En los pasos siguientes se trabajará con la versión 1 de los registros de flujo. Para obtener más detalles, vea [Introducción al registro de flujo de grupos de seguridad de red](network-watcher-nsg-flow-logging-overview.md). Las siguientes instrucciones no funcionarán con la versión 2 de los archivos de registro, sin ninguna modificación.
 
 Puede tener varios grupos de seguridad de red en la red con el registro de flujo habilitado. Con esta cantidad de datos de registro resulta complicado analizar y obtener información de los registros. En este artículo se proporciona una solución para administrar de forma centralizada estos registros de flujo de grupos de seguridad de red mediante Grafana, una herramienta de creación de gráficos de código abierto, Elasticsearch, un motor de análisis y búsqueda distribuida, y Logstash, que es una canalización de procesamiento de datos en el servidor de código abierto.  
 
@@ -107,6 +104,11 @@ Se puede utilizar Logstash para aplanar los registros de flujo con formato JSON 
           "protocol" => "%{[records][properties][flows][flows][flowTuples][5]}"
           "trafficflow" => "%{[records][properties][flows][flows][flowTuples][6]}"
           "traffic" => "%{[records][properties][flows][flows][flowTuples][7]}"
+      "flowstate" => "%{[records][properties][flows][flows][flowTuples][8]}"
+      "packetsSourceToDest" => "%{[records][properties][flows][flows][flowTuples][9]}"
+      "bytesSentSourceToDest" => "%{[records][properties][flows][flows][flowTuples][10]}"
+      "packetsDestToSource" => "%{[records][properties][flows][flows][flowTuples][11]}"
+      "bytesSentDestToSource" => "%{[records][properties][flows][flows][flowTuples][12]}"
         }
         add_field => {
           "time" => "%{[records][time]}"

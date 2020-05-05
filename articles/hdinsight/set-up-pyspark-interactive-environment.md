@@ -7,13 +7,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/14/2020
-ms.openlocfilehash: 2a725f3c5c9e1428079807b5b76dbe72d416a9c7
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.custom: seoapr2020
+ms.date: 04/23/2020
+ms.openlocfilehash: 47f774f7b848e34aa7dc219ee4b08fb083cbd813
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393673"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188215"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>Configuración del entorno interactivo de PySpark para Visual Studio Code
 
@@ -23,9 +24,9 @@ Usamos el comando **python/pip** para crear un entorno virtual en la ruta de acc
 
 1. Instale [Python](https://www.python.org/downloads/) y [pip](https://pip.pypa.io/en/stable/installing/).
 
-   + Instale Python desde [https://www.python.org/downloads/](https://www.python.org/downloads/).
-   + Instale pip desde [https://pip.pypa.io/en/stable/installing](https://pip.pypa.io/en/stable/installing/) (si no se instaló desde la instalación de Python).
-   + Compruebe que Python y pip se han instalado correctamente mediante los siguientes comandos. (Opcional)
+   * Instale Python desde [https://www.python.org/downloads/](https://www.python.org/downloads/).
+   * Instale pip desde [https://pip.pypa.io/en/stable/installing](https://pip.pypa.io/en/stable/installing/) (si no se instaló desde la instalación de Python).
+   * Compruebe que Python y pip se han instalado correctamente mediante los siguientes comandos. (Opcional)
 
         ![Comando para comprobar la versión de pip para Python](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
 
@@ -52,24 +53,16 @@ sudo apt-get install libkrb5-dev
 sudo apt-get install python-dev
 ```
 
-Reinicie Visual Studio Code y vuelva al editor de scripts que ejecuta **HDInsight: PySpark interactivo**.
+Reinicie Visual Studio Code y vuelva al editor de scripts que ejecuta el **entorno interactivo de PySpark en HDInsight**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 ### <a name="demo"></a>Demostración
 
-* HDInsight para VS Code: [Vídeo](https://go.microsoft.com/fwlink/?linkid=858706)
+* HDInsight para VS Code: [vídeo](https://go.microsoft.com/fwlink/?linkid=858706)
 
 ### <a name="tools-and-extensions"></a>Herramientas y extensiones
 
 * [Uso de Herramientas de Azure HDInsight para Visual Studio Code](hdinsight-for-vscode.md)
 * [Uso de Azure Toolkit for IntelliJ para crear y enviar aplicaciones de Scala para Apache Spark](spark/apache-spark-intellij-tool-plugin.md)
-* [Uso de Azure Toolkit for IntelliJ para depurar de forma remota aplicaciones de Apache Spark mediante SSH](spark/apache-spark-intellij-tool-debug-remotely-through-ssh.md)
-* [Uso de Azure Toolkit for IntelliJ para depurar de forma remota aplicaciones de Apache Spark mediante VPN](spark/apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Uso de las herramientas de HDInsight de Azure Toolkit for Eclipse con el fin de crear aplicaciones Apache Spark](spark/apache-spark-eclipse-tool-plugin.md)
-* [Uso de cuadernos de Apache Zeppelin con un clúster de Apache Spark en HDInsight](spark/apache-spark-zeppelin-notebook.md)
-* [Kernels disponibles para Jupyter Notebook en un clúster de Apache Spark para HDInsight](spark/apache-spark-jupyter-notebook-kernels.md)
-* [Uso de paquetes externos con cuadernos de Jupyter Notebook](spark/apache-spark-jupyter-notebook-use-external-packages.md)
 * [Instalación de un cuaderno de Jupyter Notebook en el equipo y conexión al clúster de Apache Spark en HDInsight de Azure](spark/apache-spark-jupyter-notebook-install-locally.md)
-* [Visualización de datos de Apache Hive con Microsoft Power BI en Azure HDInsight](hadoop/apache-hadoop-connect-hive-power-bi.md)
-* [Uso de Apache Zeppelin para ejecutar consultas de Apache Hive en Azure HDInsight](./interactive-query/hdinsight-connect-hive-zeppelin.md)

@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e52c37e293941a767621cf56ef75f8cc83b1925
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 541deb5cf44ad5440e31641b673ed5da5b5d2b26
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79298010"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81768547"
 ---
 # <a name="set-up-self-service-group-management-in-azure-active-directory"></a>Configuración de la administración de grupos de autoservicio en Azure Active Directory 
 
@@ -55,6 +55,9 @@ Grupos creados en | Comportamiento predeterminado del grupo de seguridad | Compo
 También puede usar **Propietarios que pueden asignar miembros como propietarios de grupos en los portales de Azure** y **Propietarios que pueden asignar miembros como propietarios de grupos en los portales de Azure** para lograr un control de acceso más pormenorizado sobre la administración de grupos de autoservicio para los usuarios.
 
 Cuando los usuarios puedan crear grupos, todos los usuarios de su organización podrán crear nuevos grupos y, a continuación, podrán, como propietarios predeterminados, agregarles miembros. No puede especificar a personas que puedan crear sus propios grupos. Solo puede especificar a personas para convertir a otro miembro del grupo en propietario del grupo.
+
+> [!NOTE]
+> Se requiere una licencia de Azure Active Directory Premium (P1 o P2) para que los usuarios puedan solicitar unirse a un grupo de seguridad o a un grupo de Office 365 y para que los propietarios puedan aprobar o denegar las solicitudes de pertenencia. Sin una licencia de Azure Active Directory Premium, los usuarios todavía pueden administrar sus grupos en el Panel de acceso, pero no pueden crear un grupo que requiera la aprobación del propietario en el Panel de acceso y no podrán solicitar unirse a un grupo. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

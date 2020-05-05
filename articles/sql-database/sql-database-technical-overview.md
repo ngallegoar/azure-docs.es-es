@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/08/2019
-ms.openlocfilehash: 0d50ddbbeeaed48c14d07c42588efcbb20bb7d79
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 4cb2159b02635e659a8ca7236523e899bf01550c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80411155"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82133240"
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>¿Qué es el servicio Azure SQL Database?
 
@@ -99,7 +99,7 @@ Azure SQL Database proporciona características avanzadas de supervisión y solu
 
 El [Almacén de consultas](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store), una característica de supervisión integrada de SQL Server, registra el rendimiento de las consultas en tiempo real y permite identificar los posibles problemas de rendimiento y los principales consumidores de recursos. El ajuste automático y las recomendaciones le proporcionan consejos relativos a las consultas con respecto al rendimiento limitado y los índices que faltan o que están duplicados. El ajuste automático en SQL Database le permite aplicar manualmente los scripts que pueden corregir los problemas, o puede dejar que SQL Database aplique la corrección. SQL Database también puede probar y comprobar que la corrección proporciona algunas ventajas, y conservar o revertir el cambio en función del resultado. Además de las funcionalidades de Almacén de consultas y ajuste automático, también puede usar los elementos [DMV y XEvent](sql-database-monitoring-with-dmvs.md) estándar para supervisar el rendimiento de la carga de trabajo.
 
-Azure proporciona herramientas integradas de [supervisión del rendimiento](sql-database-performance-guidance.md) y [alertas](sql-database-insights-alerts-portal.md), junto con clasificaciones de rendimiento, que le permiten supervisar fácilmente el estado de miles de bases de datos. Con estas herramientas, puede evaluar rápidamente la repercusión que tiene escalar o reducir verticalmente en función de sus necesidades de rendimiento actuales o proyectadas. Además, SQL Database puede [emitir métricas y registros de diagnóstico](sql-database-metrics-diag-logging.md) para facilitar la supervisión. SQL Database se puede configurar para que almacene el uso de recursos, los trabajadores y sesiones, y la conectividad en uno de estos recursos de Azure:
+Azure proporciona herramientas integradas de [supervisión del rendimiento](sql-database-performance-guidance.md) y [alertas](sql-database-insights-alerts-portal.md), junto con clasificaciones de rendimiento, que le permiten supervisar fácilmente el estado de miles de bases de datos. Con estas herramientas, puede evaluar rápidamente la repercusión que tiene escalar o reducir verticalmente en función de sus necesidades de rendimiento actuales o proyectadas. Además, SQL Database puede [emitir métricas y registros de recurso](sql-database-metrics-diag-logging.md) para facilitar la supervisión. SQL Database se puede configurar para que almacene el uso de recursos, los trabajadores y sesiones, y la conectividad en uno de estos recursos de Azure:
 
 - **Azure Storage**: para archivar grandes cantidades de datos de telemetría a un pequeño precio.
 - **Azure Event Hubs**: para integrar la telemetría de SQL Database con una solución de supervisión personalizada o canalizaciones activas.

@@ -6,14 +6,14 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/09/2018
+ms.date: 04/15/2020
 ms.author: dsindona
-ms.openlocfilehash: 34de5f59e96a37282063741a1664f512697c167b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2fa67d81546db86535c179a9c59d0602c1175cba
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288723"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81687496"
 ---
 # <a name="virtual-machine-offer-publishing-guide"></a>Guía de publicación de ofertas de máquinas virtuales
 
@@ -53,7 +53,7 @@ Use el tipo de oferta de máquina virtual cuando implemente un dispositivo virtu
 | Requisito | Detalles |  
 |:--- |:--- | 
 | Facturación y medición | Su máquina virtual debe admitir las opciones de facturación mensual BYOL o de pago por uso. |  
-| Disco duro virtual (VHD) compatible con Azure | Las máquinas virtuales deben estar basadas en Windows o Linux. <ul> <li>Para obtener más información acerca de cómo crear un VHD de Linux, consulte [Distribuciones de Linux aprobadas en Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).</li> <li>Para más información acerca de la creación de un VHD de Windows, consulte [Creación de un disco duro virtual compatible con Azure](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md).</li> </ul> |  
+| Disco duro virtual (VHD) compatible con Azure | Las máquinas virtuales deben estar basadas en Windows o Linux. <ul> <li>Para obtener más información acerca de cómo crear un VHD de Linux, consulte [Distribuciones de Linux aprobadas en Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).</li> <li>Para más información acerca de la creación de un VHD de Windows, consulte [Creación de un disco duro virtual compatible con Azure](./partner-center-portal/azure-vm-create-offer.md).</li> </ul> |  
 
 >[!Note]
 >La participación en el canal de asociados de Proveedores de soluciones en la nube (CSP) ya está disponible.  Consulte [Proveedores de soluciones en la nube](./cloud-solution-providers.md) para obtener más información sobre el marketing que ofrece a través de los canales de asociados de CSP de Microsoft.
@@ -62,9 +62,9 @@ Use el tipo de oferta de máquina virtual cuando implemente un dispositivo virtu
 
 Si aún no lo ha hecho, 
 
-- [Regístrese](https://azuremarketplace.microsoft.com/sell) en Marketplace.
+- [Obtenga información](https://azuremarketplace.microsoft.com/sell) sobre Marketplace.
 
 Si está registrado y está creando una oferta nueva o trabajando en una existente,
 
-- [Inicie sesión en Cloud Partner Portal](https://cloudpartner.azure.com) para crear o completar la oferta
-- Consulte [Oferta de máquina virtual](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer) para obtener más información.
+- [Inicie sesión en el Centro de partners](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) para crear o completar la oferta.
+- Para más información, consulte [Creación de una oferta de máquina virtual](./partner-center-portal/azure-vm-create-offer.md).

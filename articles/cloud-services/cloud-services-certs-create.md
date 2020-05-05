@@ -8,19 +8,19 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: tagore
-ms.openlocfilehash: 173f5c698ab44ea269995665bcbc33c726d4f03a
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: cf2106302064df5ede02d18f253436047a5d33d8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811465"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82024615"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Introducción a los certificados para Azure Cloud Services
 Los certificados se usan en Azure para los servicios en la nube ([certificados de servicio](#what-are-service-certificates)) y para realizar la autenticación con la API de administración ([certificados de administración](#what-are-management-certificates)). En este tema se proporciona información general de ambos tipos de certificado y se explica cómo [crearlos](#create) y cómo implementarlos en Azure.
 
 Los certificados usados en Azure son certificados x.509 v3 y pueden estar firmados por otro certificado de confianza o estar autofirmados. Un certificado autofirmado está firmado por su propio creador; por lo tanto, no es de confianza de forma predeterminada. La mayoría de los exploradores pueden pasar por alto este problema. Solo debe usar certificados autofirmados cuando desarrolle y pruebe sus servicios en la nube. 
 
-Los certificados utilizados por Azure pueden contener una clave privada o pública. Los certificados tienen una huella digital que proporciona un medio para identificarlos de forma inequívoca. Esta huella digital se utiliza en el [archivo de configuración](cloud-services-configure-ssl-certificate-portal.md) de Azure para identificar qué certificado debe usar un servicio en la nube. 
+Los certificados utilizados por Azure pueden contener una clave pública. Los certificados tienen una huella digital que proporciona un medio para identificarlos de forma inequívoca. Esta huella digital se utiliza en el [archivo de configuración](cloud-services-configure-ssl-certificate-portal.md) de Azure para identificar qué certificado debe usar un servicio en la nube. 
 
 >[!Note]
 >Azure Cloud Services no acepta el certificado cifrado AES256-SHA256.
@@ -51,7 +51,7 @@ Hay un límite de 100 certificados de administración por suscripción. También
 Puede utilizar cualquier herramienta disponible para crear un certificado autofirmado, siempre que cumpla esta configuración:
 
 * Un certificado X.509.
-* Contiene una clave privada.
+* Contiene una clave pública.
 * Creado para intercambio de claves (archivo .pfx).
 * El nombre de sujeto debe coincidir con el dominio usado para tener acceso al servicio en la nube.
 

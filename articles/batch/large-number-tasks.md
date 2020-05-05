@@ -1,25 +1,14 @@
 ---
-title: 'Envío de un gran número de tareas: Azure Batch | Microsoft Docs'
+title: Envío de un gran número de tareas
 description: Envío eficaz de un gran número de tareas en un único trabajo de Azure Batch
-services: batch
-documentationcenter: ''
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: ''
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
 ms.date: 08/24/2018
-ms.author: labrenne
-ms.custom: ''
-ms.openlocfilehash: c3857e512da5fe4fceefa5f735ddc65f73e11623
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0be30e1a413a224d566db535d369a0b285b1f668
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77026054"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82117410"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>Envío de un gran número de tareas a un trabajo de Batch
 

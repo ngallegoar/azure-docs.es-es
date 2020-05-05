@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2019
+ms.date: 04/21/2019
 ms.author: spelluru
-ms.openlocfilehash: a0dbd92533703a56f1ec2478fab8944656129247
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2bb871119bece71c705ad9621a7c76c4b5ed0bc7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80295502"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81770256"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Agregar un repositorio de artefactos a un laboratorio en Azure DevTest Labs
 DevTest Labs permite especificar que se agregue un artefacto a una máquina virtual en el mismo momento de crear la máquina virtual o después de que se haya creado. Este artefacto puede ser una herramienta o una aplicación que desee instalar en la máquina virtual. Los artefactos se definen en un archivo JSON que se carga desde un repositorio GitHub o un repositorio GIT de Azure DevOps.
@@ -52,13 +52,13 @@ Para agregar un repositorio al laboratorio, obtenga cierta información clave de
 4. Guarde la dirección URL. Usará la dirección URL más adelante.
 5. Para crear un token de acceso personal, en el menú desplegable de la cuenta de usuario, seleccione **Mi perfil**.
 6. En la página de información de perfil, seleccione **Seguridad**.
-7. En la pestaña **Seguridad**, seleccione **Agregar**.
+7. En la pestaña **Seguridad > Tokens de acceso personal**, seleccione **+ Nuevo Token**.
 8. En la página **Crear un token de acceso personal**:
-   1. Escriba la información que desee en **Descripción** para el token.
-   2. En la lista **Expira en**, seleccione **180 días**.
-   3. En la lista **Cuentas accesibles**, seleccione **Todas las cuentas accesibles**.
-   4. Seleccione la opción **Todos los ámbitos**.
-   5. Seleccione **Crear token**.
+   1. Rellene el campo **Nombre** con un nombre para el token.
+   2. En la lista **Organización**, seleccione **Todas las organizaciones accesibles**.
+   3. En la lista **Expiración (UTC)** , seleccione **90 días** o un período de expiración definido personalizado.
+   4. Seleccione la opción **Acceso Completo** para los ámbitos.
+   5. Seleccione **Crear**.
 9. El nuevo token aparece en la lista **Tokens de acceso personal** . Seleccione **token**y luego guarde el valor del token para usarlo más adelante.
 10. Vaya a la sección Conexión de un laboratorio con el repositorio.
 

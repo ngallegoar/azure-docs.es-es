@@ -10,10 +10,10 @@ ms.date: 08/07/2019
 ms.author: menchi
 ms.custom: amqp
 ms.openlocfilehash: 919d1e37e6066c78e83d58be4fe4667ec67e45ad
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81733388"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-net"></a>Introducción a la identidad de módulo y a los módulos gemelos de IoT Hub (.NET)

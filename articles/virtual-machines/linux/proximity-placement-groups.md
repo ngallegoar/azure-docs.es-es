@@ -1,21 +1,18 @@
 ---
-title: Uso de los grupos de selección de ubicación de proximidad para máquinas virtuales Linux
-description: Obtenga información sobre la creación y el uso de los grupos de selección de ubicación de proximidad para máquinas virtuales Linux en Azure.
-services: virtual-machines-linux
+title: Uso de grupos de selección de ubicación de proximidad
+description: Obtenga información sobre la creación y el uso de los grupos de selección de ubicación de proximidad para máquinas virtuales en Azure.
 author: cynthn
-manager: gwallace
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/30/2019
 ms.author: cynthn
-ms.openlocfilehash: 353a266b647c299515c15889c302ba4409aa511b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f89b28e7a3c29e45efa2796788e27325c01d7098
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73171052"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81759255"
 ---
 # <a name="deploy-vms-to-proximity-placement-groups-using-azure-cli"></a>Implementación de máquinas virtuales en grupos de selección de ubicación de proximidad con la CLI de Azure
 

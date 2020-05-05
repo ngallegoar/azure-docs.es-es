@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 92c3e0d77a26db406e24d6d2fa07e96349613634
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80050817"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Preguntas más frecuentes acerca de la colaboración B2B de Azure Active Directory
@@ -24,7 +24,7 @@ ms.locfileid: "80050817"
 Las preguntas más frecuentes (P+F) acerca de la colaboración negocio a negocio (B2B) de Azure Active Directory (Azure AD) se actualizan periódicamente para incluir nuevos temas.
 
    > [!IMPORTANT]
-   > **A partir del 31 de marzo de 2021**, Microsoft dejará de admitir el canje de invitaciones mediante la creación de cuentas de Azure AD no administradas e inquilinos para escenarios de colaboración B2B. Como preparación, se recomienda a los clientes que opten por la [autenticación de código de acceso de un solo uso por correo electrónico](one-time-passcode.md). Agradecemos sus comentarios sobre esta característica en vista previa pública. Nos alegra poder crear más formas de colaborar.
+   > **A partir del 31 de marzo de 2021**, Microsoft dejará de admitir el canje de invitaciones mediante la creación de cuentas e inquilinos de Azure AD no administrados para escenarios de colaboración B2B. Como preparación, se recomienda a los clientes que opten por la [autenticación de código de acceso de un solo uso por correo electrónico](one-time-passcode.md). Agradecemos sus comentarios sobre esta característica en vista previa pública. Nos alegra poder crear más formas de colaborar.
 
 ### <a name="can-we-customize-our-sign-in-page-so-its-more-intuitive-for-our-b2b-collaboration-guest-users"></a>¿Se puede personalizar la página de inicio de sesión de forma que resulte más intuitiva para los usuarios invitados a la colaboración B2B?
 Por supuesto. Consulte nuestra [entrada del blog relativa a esta característica](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/). Para más información acerca de cómo personalizar la página de inicio de sesión de una organización, consulte [Incorporación de la personalización de marca de empresa a sus páginas de inicio de sesión y panel de acceso](../fundamentals/customize-branding.md).

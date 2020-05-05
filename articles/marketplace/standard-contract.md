@@ -1,24 +1,24 @@
 ---
-title: Contrato estándar | Azure
+title: Contrato estándar | Azure Marketplace
 description: Contrato estándar para Azure Marketplace y AppSource
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: 00a83a1b3005043f317ed49cafa735540cd21793
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: facb500299f7196e0e1387c3a7267a917d13a3a6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80284966"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81681448"
 ---
 # <a name="standard-contract-for-the-microsoft-commercial-marketplace"></a>Contrato estándar para el Marketplace comercial de Microsoft
 
 Para simplificar el proceso de adquisición para los clientes y reducir la complejidad legal para los proveedores de software, Microsoft ofrece un Contrato estándar para el Marketplace comercial de Microsoft con el fin de ayudar a facilitar una transacción en Marketplace. En lugar de crear términos y condiciones personalizados, los anunciantes del Marketplace comercial pueden ofrecer su software en virtud del Contrato estándar, que los clientes solo tienen que revisar y aceptar una vez. El Contrato estándar puede encontrarse aquí: [https://go.microsoft.com/fwlink/?linkid=2041178](https://go.microsoft.com/fwlink/?linkid=2041178).
 
-Los términos y condiciones de una oferta se definen al crearla en el Centro de partners o en Cloud Partner Portal. Puede optar por usar el Contrato estándar para el Marketplace comercial de Microsoft en lugar de proporcionar sus propios términos y condiciones personalizados.
+Los términos y condiciones de una oferta se definen al crearla en el Centro de partners. Puede optar por usar el Contrato estándar para el Marketplace comercial de Microsoft en lugar de proporcionar sus propios términos y condiciones personalizados.
 
 >[!Note]
 >Después de publicar una oferta con el Contrato estándar para el Marketplace comercial de Microsoft, no puede usar sus propios términos y condiciones personalizados. Solo puede elegir una de las dos opciones. Puede ofrecer su solución con el Contrato estándar *o* con sus propios términos y condiciones. Si quiere modificar los términos del Contrato estándar, puede hacerlo a través de las modificaciones del Contrato estándar.

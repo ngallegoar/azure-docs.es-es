@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 2a876349af2bd53a46737dda82961afe442bae05
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 0b6fea381bd6b4aa8ad3e7061e6f632176c41033
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81401078"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82113840"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Compatibilidad con idiomas y voces en el servicio de voz
 
@@ -241,6 +241,7 @@ La personalización de la voz está disponible para `de-DE`, `en-GB`, `en-IN`, `
 | Francés                  | `fr`          |
 | Alemán                  | `de`          |
 | Griego                   | `el`          |
+| Gujarati                | `gu`          |
 | Criollo haitiano          | `ht`          |
 | Hebreo                  | `he`          |
 | Hindi                   | `hi`          |
@@ -261,6 +262,8 @@ La personalización de la voz está disponible para `de-DE`, `en-GB`, `en-IN`, `
 | Malayo                   | `ms`          |
 | Malayalam               | `ml`          |
 | Maltés                 | `mt`          |
+| Maori                   | `mi`          |
+| Maratí                 | `mr`          |
 | Noruego               | `nb`          |
 | Persa                 | `fa`          |
 | Polaco                  | `pl`          |

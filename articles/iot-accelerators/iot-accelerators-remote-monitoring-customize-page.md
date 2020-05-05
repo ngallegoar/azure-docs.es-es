@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0228f317e2d3380f2387dd557a27203eb3abc4ad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c90f4166bf88a8df18a93e84903c93461b904d2c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80240256"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187269"
 ---
 # <a name="add-a-custom-page-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Adición de una página personalizada a la interfaz de usuario web del acelerador de soluciones de supervisión remota
 
@@ -24,7 +24,7 @@ En este artículo se muestra cómo agregar una nueva página a la interfaz de us
 
 Otras guías paso a paso amplían este escenario para añadir más características a la página que se agrega.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar los pasos de esta guía, necesita que el software siguiente esté instalado en la máquina de desarrollo local:
 
@@ -142,7 +142,7 @@ npm install
 npm start
 ```
 
-El comando anterior ejecuta la interfaz de usuario localmente en [http://localhost:3000/dashboard](http://localhost:3000/dashboard).
+El comando anterior ejecuta la interfaz de usuario localmente en `http://localhost:3000/dashboard`.
 
 Sin conectar su instancia local de la interfaz de usuario web a una instancia implementada del acelerador de soluciones, verá errores en el panel. Estos errores no afectan a su capacidad para probar la nueva página.
 

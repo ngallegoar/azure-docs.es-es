@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 04/13/2020
 ms.author: v-umha
 ms.openlocfilehash: 1665c535d4b1fb6190ee5736b688b402f8b4a541
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81683893"
 ---
 # <a name="disaster-recovery-for-farmbeats"></a>Recuperación ante desastres de FarmBeats

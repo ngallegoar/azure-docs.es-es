@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.custom: amqp
 ms.openlocfilehash: ac45cf42ed174d3e9423b4ea39cadf16b84897ef
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81759635"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Configuración de la seguridad de X.509 en Azure IoT Hub

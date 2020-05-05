@@ -1,22 +1,22 @@
 ---
-title: Disponibilidad geográfica y soporte técnico de moneda | Azure
-description: Disponibilidad geográfica en Azure Marketplace y AppSource
+title: Disponibilidad geográfica y compatibilidad con monedas para Marketplace comercial | Azure Marketplace
+description: Disponibilidad geográfica en el marketplace comercial
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/29/2020
 ms.author: dsindona
-ms.openlocfilehash: 79965180d897b91afc1fb1a27e777e385108d2c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 83906e6270ed41c2ea8f489c5a5312d32a565a29
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288434"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81687582"
 ---
-# <a name="geographic-availability-and-currency-support"></a>Disponibilidad geográfica y soporte técnico de moneda
+# <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>Disponibilidad geográfica y compatibilidad con monedas para Marketplace comercial
 
-Se pueden comprar ofertas de Azure Marketplace y AppSource en 141 ubicaciones geográficas según la dirección de facturación del cliente y las transacciones se pueden realizar en 17 monedas. En la tabla siguiente se enumeran las ubicaciones geográficas admitidas, su [código alfa ISO 3166 de dos dígitos](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes) y la moneda asignada.
+Se pueden adquirir ofertas de marketplace comercial en 141 zonas geográficas, tal como se define mediante la dirección de facturación del cliente y las transacciones se pueden completar en 17 divisas. En la tabla siguiente se enumeran las ubicaciones geográficas admitidas, su [código alfa ISO 3166 de dos dígitos](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes) y la moneda asignada.
 
 |   Nombre del país o región               |   ISO-2   |   Moneda   |
 |-------------------------------------|-----------|--------------|

@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: 346fc3d5a4e7b165caafd9847b9797abae0c9113
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e3eca498e5716ae7c0a03e5e624d618899da8dc8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77659992"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81770397"
 ---
 # <a name="upgrade-azure-internal-load-balancer---outbound-connection-required"></a>Actualización de Azure Load Balancer interno con necesidad de conexión de salida
 [Azure Standard Load Balancer](load-balancer-overview.md) ofrece un amplio conjunto de funcionalidades y alta disponibilidad gracias a la redundancia de zona. Para más información acerca de la SKU de Load Balancer, consulte la [tabla de comparación](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus). Dado que Standard Load Balancer interno no proporciona conexión de salida, se ofrece una solución para crear una instancia de Standard Public Load Balancer en su lugar.
@@ -21,8 +21,7 @@ Hay cuatro fases en una actualización:
 
 1. Migrar la configuración a Standard Public Load Balancer
 2. Agregar máquinas virtuales a los grupos de back-end de Standard Public Load Balancer
-3. Crear una regla de salida en Load Balancer para la conexión de salida
-4. Configurar reglas de NSG para la subred o las máquinas virtuales que deben evitar Internet
+3. Configurar reglas de NSG para la subred o las máquinas virtuales que deben evitar Internet
 
 Este artículo trata sobre la migración de la configuración. La incorporación de máquinas virtuales a los grupos de back-end puede variar en función de su entorno específico. pero [se proporcionan](#add-vms-to-backend-pools-of-standard-load-balancer) algunas recomendaciones generales de alto nivel.
 
@@ -32,6 +31,7 @@ Existe un script de Azure PowerShell que hace lo siguiente:
 
 * Crea una instancia de Public Load Balancer de SKU estándar en el grupo de recursos y la ubicación que se especifique.
 * Copia perfectamente las configuraciones de la instancia de Load Balancer interno de SKU básica en la instancia de Standard Public Load Balancer recién creada.
+* Crea una regla de salida que permite la conectividad de salida.
 
 ### <a name="caveatslimitations"></a>Advertencias y limitaciones
 
@@ -42,7 +42,7 @@ Existe un script de Azure PowerShell que hace lo siguiente:
 
 ## <a name="download-the-script"></a>Descarga del script
 
-Descargue el script de migración de la [Galería de PowerShell](https://www.powershellgallery.com/packages/AzurePublicLBUpgrade/1.0).
+Descargue el script de migración de la [Galería de PowerShell](https://www.powershellgallery.com/packages/AzureLBUpgrade/2.0).
 ## <a name="use-the-script"></a>Uso del script
 
 Dispone de dos opciones en función de sus preferencias y de la configuración del entorno de PowerShell local:

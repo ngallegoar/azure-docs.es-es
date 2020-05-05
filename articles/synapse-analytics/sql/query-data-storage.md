@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: cdad95b1a910a45629e85bcc716218b272afd9de
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: e18fc765385e6d703e735a1ca15c539c32f36e93
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81421299"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82116254"
 ---
 # <a name="overview-query-data-in-storage"></a>Introducción: consulta de los datos en el almacenamiento
 
@@ -72,9 +72,6 @@ Debe crear credenciales para poder ejecutar consultas. El servicio de SQL a peti
 > De manera predeterminada SQL a petición siempre usa el paso a través de AAD.
 
 Para más información sobre cómo administrar el control de acceso de almacenamiento, consulte este [vínculo](develop-storage-files-storage-access-control.md).
-
-> [!WARNING]
-> Necesita crear credenciales para una cuenta de almacenamiento que se encuentre en la región del punto de conexión. Aunque SQL a petición puede acceder a los almacenamientos desde distintas regiones, tener el almacenamiento y el punto de conexión en la misma región proporcionará una mejor experiencia de rendimiento.
 
 Para crear credenciales para contenedores CSV, JSON y Parquet, ejecute el siguiente código:
 
@@ -179,9 +176,9 @@ Ya está preparado para continuar con los siguientes artículos de procedimiento
 
 - [Consulta de archivos específicos](query-specific-files.md)
 
-- [Consulta de archivos con formato Parquet](query-parquet-files.md)
+- [Consulta de archivos Parquet](query-parquet-files.md)
 
-- [Consulta de tipos anidados con formato Parquet ](query-parquet-nested-types.md)
+- [Consulta de tipos anidados de Parquet](query-parquet-nested-types.md)
 
 - [Consulta de archivos JSON](query-json-files.md)
 

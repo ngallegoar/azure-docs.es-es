@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/11/2020
 ms.author: trbye
-ms.openlocfilehash: 2de836a63eed79b7d166db220218e0c11ef11e70
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: d59f2ef564da710d084dc027950bc983a88143de
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81399768"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82204576"
 ---
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -83,7 +83,7 @@ SpeechRecognizer recognizer = new SpeechRecognizer(config, audioConfig);
 La [clase Recognizer](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer?view=azure-java-stable) de Speech SDK para Java expone algunos métodos que puede usar para el reconocimiento de voz.
 
 * Reconocimiento de una sola captura (asincrónico): realiza el reconocimiento en modo sin bloqueo (asincrónico). Esto reconocerá una expresión única. El final de una expresión única se determina mediante la escucha de un silencio al final o hasta que se procesa un máximo de 15 segundos de audio.
-* Reconocimiento continuo (asincrónico): inicia de forma asincrónica la operación de reconocimiento continuo. Si desea proporcionar un archivo de audio en lugar de usar un micrófono, deberá proporcionar un elemento . Para detener el reconocimiento continuo asincrónico, llame a [stopContinuousRecognitionAsync](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer.stopcontinuousrecognitionasync).
+* Reconocimiento continuo (asincrónico): inicia de forma asincrónica la operación de reconocimiento continuo. Si desea proporcionar un archivo de audio en lugar de usar un micrófono, deberá proporcionar un elemento `audioConfig`. Para detener el reconocimiento continuo asincrónico, llame a [stopContinuousRecognitionAsync](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer.stopcontinuousrecognitionasync).
 
 > [!NOTE]
 > Obtenga información adicional sobre cómo [elegir el modo de reconocimiento de voz](../../../how-to-choose-recognition-mode.md).

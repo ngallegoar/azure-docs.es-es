@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: a24cb7f39ccb8ea07d4dde2869dc7c924b91983a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e27c1c4303129467c0bd05152570e26f129585a1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "61447104"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186295"
 ---
 # <a name="add-a-custom-grid-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Adición de una cuadrícula personalizada a la interfaz de usuario web del acelerador de soluciones de supervisión remota
 
@@ -182,7 +182,7 @@ Si la interfaz de usuario web no se está ejecutando localmente, ejecute el sigu
 npm start
 ```
 
-El comando anterior ejecuta la interfaz de usuario localmente en [http://localhost:3000/dashboard](http://localhost:3000/dashboard). Vaya a la pagina de **Ejemplo** para ver que la cuadrícula muestra los datos del servicio.
+El comando anterior ejecuta la interfaz de usuario localmente en `http://localhost:3000/dashboard`. Vaya a la pagina de **Ejemplo** para ver que la cuadrícula muestra los datos del servicio.
 
 ## <a name="select-rows"></a>Selección de filas
 

@@ -8,24 +8,24 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 03/01/2019
 ms.author: diberry
-ms.openlocfilehash: 450328fecde3be0ee0cead174c9d172bf3ac1000
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 21e1be094716ac1d43e1f4458b41e855315d1779
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80155977"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82192993"
 ---
 # <a name="whats-new-in-personalizer"></a>Novedades en Personalizer
 
-Conozca las novedades del servicio. Estos elementos pueden incluir notas de la versión, vídeos, entradas de blogs y otros tipos de información. Marque esta página para mantenerse actualizado con el servicio.  
+Conozca las novedades del servicio. Estos elementos pueden incluir notas de la versión, vídeos, entradas de blogs y otros tipos de información. Marque esta página para mantenerse actualizado con el servicio.
 
-## <a name="release-notes"></a>Notas de la versión 
+## <a name="release-notes"></a>Notas de la versión
 
 ### <a name="march-2020"></a>Marzo de 2020
 
-* TLS 1.2 ya se exige en todas las solicitudes HTTP para este servicio. Para más información, consulte [Seguridad de Azure Cognitive Services](../cognitive-services-security.md).
+* TLS 1.2 ya se exige en todas las solicitudes HTTP para este servicio. Para más información, consulte [Seguridad de Azure Cognitive Services](../cognitive-services-security.md).
 
 ### <a name="november-2019---ignite-conference"></a>Noviembre de 2019: Conferencia Ignite
 

@@ -52,8 +52,6 @@
           href: create-workspace.md
         - name: Administrar
           href: manage-workspace.md
-        - name: Solución de problemas
-          href: troubleshooting-creating-ml-workspace.md
         - name: Implementación con ARM
           href: deploy-with-resource-manager-template.md
     - name: Importación de datos de aprendizaje
@@ -84,8 +82,6 @@
               href: algorithm-parameters-optimize.md
             - name: Interpretación de los resultados
               href: interpret-model-results.md
-            - name: Depurar
-              href: debug-models.md
         - name: Reciclaje de modelos
           items:
             - name: '"Nuevos" servicios web'
@@ -96,19 +92,12 @@
           items:
             - name: Introducción a R
               href: r-get-started.md
-            - name: Ejecución de scripts de R
-              href: extend-your-experiment-with-r.md
             - name: Creación de módulos R personalizados
               href: custom-r-modules.md
             - name: Ejecución de scripts de Python
               href: execute-python-scripts.md
     - name: Selección de un algoritmo
-      items:
-        - name: Elección de algoritmos
-          href: algorithm-choice.md
-        - name: Ejemplos de algoritmos
-          displayName: 'infographic, studio basics'
-          href: basics-infographic-with-algorithm-examples.md
+      href: algorithm-choice.md
     - name: Implementación de modelos
       items:
         - name: Implementación de un servicio web
@@ -143,14 +132,6 @@
           href: consuming-from-excel.md
         - name: Uso del complemento de Excel
           href: excel-add-in-for-web-services.md
-    - name: Casos de uso
-      items:
-        - name: Abandono de clientes
-          href: azure-ml-customer-churn-scenario.md
-        - name: análisis de opiniones
-          href: text-analytics-module-tutorial.md
-        - name: Migración de análisis de Excel a Studio (clásico)
-          href: use-case-excel-studio.md
     - name: Eliminación y exportación de los datos del cliente
       items:
         - name: Datos de Studio (clásico)

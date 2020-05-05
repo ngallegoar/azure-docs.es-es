@@ -8,23 +8,23 @@ ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 7316dba7559c4a50e94771d69ce03bac51c0f3c2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9e9a9a0415a85c8b8c5fb27d911124c43a2447d0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75773739"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81678561"
 ---
-Desde un explorador, vaya al [portal](https://portal.azure.com/) e inicie sesión con su cuenta de Azure.
+Desde un explorador, vaya a [Azure Portal](https://portal.azure.com/) e inicie sesión con su cuenta de Azure.
 
 Si tiene varias suscripciones y quiere intercambiarlas:
 
-1. Haga clic en el botón de perfil y, a continuación, elija **Cambiar directorio**.
+1. Seleccione el botón de perfil y, luego, elija **Cambiar directorio**.
 
     > [!div class="mx-imgBorder"]
     > ![Selección de Cambiar directorio](../media/choose-subscription-2.png)
 
-1. Elija una suscripción que quiera usar para el configurar el emparejamiento.
+1. Elija una suscripción que quiera usar para configurar el emparejamiento.
 
     > [!div class="mx-imgBorder"]
     > ![Elección de la suscripción](../media/choose-subscription-3.png)

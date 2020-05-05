@@ -9,19 +9,20 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 289c269100eb6ab672bb8d60562c1fa77d8d091a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: amqp
+ms.openlocfilehash: a3258de2ed7269ab50e6feca3c421d55de5a9d91
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73954620"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81759783"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>Introducción a la identidad de módulo y los módulos gemelos de IoT Hub con el portal y un dispositivo .NET
 
 [!INCLUDE [iot-hub-selector-module-twin-getstarted](../../includes/iot-hub-selector-module-twin-getstarted.md)]
 
 > [!NOTE]
-> [Las identidades de módulo y los módulos gemelos](iot-hub-devguide-module-twins.md) son similares a la identidad de dispositivo y el dispositivo gemelo de Azure IoT Hub, pero ofrecen granularidad más fina. Aunque la identidad del dispositivo y los dispositivos gemelos de Azure IoT Hub permiten que la aplicación back-end configure un dispositivo y proporcionan visibilidad para las condiciones del dispositivo, la identidad de módulo y los módulos gemelos proporcionan estas funcionalidades para los componentes individuales del dispositivo. En los dispositivos compatibles con varios componentes, como dispositivos con sistema operativo o firmware, identidades de módulo y módulos gemelos permiten la configuración individual y condiciones específicas por componente.
+> [Las identidades de módulo y los módulos gemelos](iot-hub-devguide-module-twins.md) son similares a la identidad de dispositivo y el dispositivo gemelo de Azure IoT Hub, pero ofrecen granularidad más fina. Aunque la identidad del dispositivo y los dispositivos gemelos de Azure IoT Hub permiten que la aplicación back-end configure un dispositivo y proporcionan visibilidad sobre las condiciones de este, la identidad del módulo y los módulos gemelos proporcionan estas funcionalidades para los componentes individuales de un dispositivo. En los dispositivos compatibles con varios componentes, como dispositivos con sistema operativo o firmware, identidades de módulo y módulos gemelos permiten la configuración individual y condiciones específicas por componente.
 >
 
 En este tutorial, aprenderá a:
@@ -34,7 +35,7 @@ En este tutorial, aprenderá a:
 > Para más información acerca de los diversos SDK que puede usar para crear ambas aplicaciones para que se ejecuten en dispositivos y en el back-end de la solución, consulte el artículo de los [SDK de Azure IoT](iot-hub-devguide-sdks.md).
 >
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Visual Studio.
 

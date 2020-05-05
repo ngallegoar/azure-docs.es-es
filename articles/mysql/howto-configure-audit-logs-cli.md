@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 4/13/2020
 ms.openlocfilehash: d532e1990586d80d675a8ccb247c0c9f7908bb6f
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81384121"
 ---
 # <a name="configure-and-access-audit-logs-in-the-azure-cli"></a>Configuración y acceso a los registros de auditoría en la CLI de Azure
@@ -20,7 +20,7 @@ Puede configurar los [registros de auditoría de Azure Database for MySQL](conce
 > [!IMPORTANT]
 > La funcionalidad del registro de auditoría se encuentra actualmente en versión preliminar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para seguir esta guía, necesitará:
 

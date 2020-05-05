@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
-ms.date: 02/12/2020
-ms.openlocfilehash: 6bba71ab35920027cc7296e774936c3d1deb8f92
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.date: 04/10/2020
+ms.openlocfilehash: ed2fe1736c887fd8aa866c8d0c71a5df0aa4fb31
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81770312"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82232843"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Configuración de clústeres en HDInsight con Apache Hadoop, Apache Spark, Apache Kafka, etc.
 
@@ -128,6 +128,9 @@ Para más información sobre las opciones de almacenamiento con HDInsight, consu
 Durante la configuración se especifica un contenedor de blobs de una cuenta de Azure Storage o de Data Lake Storage para el punto de conexión de almacenamiento predeterminado. El almacenamiento predeterminado contiene los registros del sistema y de la aplicación. De manera opcional, puede especificar más cuentas vinculadas de Azure Storage y cuentas de Data Lake Storage a las que el clúster pueda acceder. El clúster de HDInsight y las cuentas de almacenamiento dependientes deben estar en la misma ubicación de Azure.
 
 [!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
+
+> [!IMPORTANT]
+> Habilitar la transferencia segura del almacenamiento después de crear un clúster puede producir errores al usar la cuenta de almacenamiento, por lo que no se recomienda. Es mejor crear un clúster mediante una cuenta de almacenamiento que ya tenga habilitada la transferencia segura.
 
 ### <a name="metastore-settings"></a>Configuración de metastores
 

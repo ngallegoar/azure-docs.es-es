@@ -5,14 +5,14 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 09/12/2018
+ms.date: 04/15/2020
 ms.author: dsindona
-ms.openlocfilehash: 45855038e60dcdc3be4f98cfdceed69df5e8c946
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 324f8def5ddafb15156a31fe5addabadcee6f115
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286326"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160620"
 ---
 # <a name="enable-an-appsource-and-marketplace-listing-by-using-azure-active-directory"></a>Habilitar una descripción de AppSource y Marketplace mediante Azure Active Directory
 
@@ -45,7 +45,7 @@ Para obtener más información acerca de los requisitos técnicos de SaaS, consu
 
 ## <a name="azure-ad-integration"></a>Integración de Azure AD
 
-- Para obtener información sobre cómo habilitar el inicio de sesión único mediante la integración de Azure AD en su descripción, consulte [Azure Active Directory para desarrolladores]( https://aka.ms/aaddev).
+- Para obtener información sobre cómo habilitar el inicio de sesión único mediante la integración de Azure AD en su descripción, consulte [Azure Active Directory para desarrolladores]( https://docs.microsoft.com/azure/active-directory/develop/).
 - Para conocer más detalles sobre el inicio de sesión único de Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="enable-a-trial-listing"></a>Habilitar una descripción de prueba
@@ -87,5 +87,10 @@ Use Azure AD para admitir alguna de las acciones siguientes:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Asegúrese de haberse [registrado en Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
-- Consulte [Creación de una cuenta del Centro de partners](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) para obtener más información sobre cómo crear o completar su oferta.
+Si aún no lo ha hecho, 
+
+- [Obtenga información](https://azuremarketplace.microsoft.com/sell) sobre Marketplace.
+
+Para registrarse en el Centro de partner y empezar a crear una nueva oferta o trabajar en una existente, haga lo siguiente:
+
+- [Inicie sesión en el Centro de Partners](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) para crear o completar la oferta.

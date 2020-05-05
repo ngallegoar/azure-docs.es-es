@@ -8,24 +8,24 @@ ms.service: internet-peering
 ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 69031550bdab1535213c78f81426fa76e8ea62ad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7639499aaef8d479c2552849b2124e709c46fd36
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75773647"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81680788"
 ---
-# <a name="create-or-modify-a-direct-peering-using-powershell"></a>Creación o modificación de un emparejamiento directo mediante PowerShell
+# <a name="create-or-modify-a-direct-peering-by-using-powershell"></a>Creación o modificación de un emparejamiento directo mediante PowerShell
 
-En este artículo se describe cómo crear un emparejamiento directo de Microsoft con cmdlets de PowerShell y el modelo de implementación de Resource Manager. También se muestra cómo comprobar el estado del recurso, así como la forma de actualizarlo o eliminarlo y desaprovisionarlo.
+En este artículo se describe cómo crear un emparejamiento directo de Microsoft mediante cmdlets de PowerShell y el modelo de implementación de Azure Resource Manager. También se muestra cómo comprobar el estado del recurso, así como la forma de actualizarlo o eliminarlo y desaprovisionarlo.
 
-Si lo prefiere, puede completar esta guía mediante el [portal](howto-direct-portal.md).
+Si lo prefiere, puede realizar los pasos de esta guía mediante [Azure Portal](howto-direct-portal.md).
 
 ## <a name="before-you-begin"></a>Antes de empezar
-* Revise la sección [Requisitos previos](prerequisites.md) y el [Tutorial del emparejamiento directo](walkthrough-direct-all.md) antes de comenzar la configuración.
-* Si ya dispone de un emparejamiento directo con Microsoft, que no se convierte en un recurso de Azure, consulte el artículo [Conversión de un emparejamiento directo heredado en un recurso de Azure mediante PowerShell](howto-legacy-direct-powershell.md).
+* Antes de comenzar la configuración, revise los [requisitos previos](prerequisites.md) y el [tutorial del emparejamiento directo](walkthrough-direct-all.md).
+* Si ya dispone de conexiones de emparejamiento directo con Microsoft que no convierten en recursos de Azure, consulte [Conversión de un emparejamiento directo heredado en un recurso de Azure mediante PowerShell](howto-legacy-direct-powershell.md).
 
-### <a name="working-with-azure-powershell"></a>Trabajo con Azure PowerShell
+### <a name="work-with-azure-powershell"></a>Funcionamiento con Azure PowerShell
 [!INCLUDE [CloudShell](./includes/cloudshell-powershell-about.md)]
 
 ## <a name="create-and-provision-a-direct-peering"></a>Creación y aprovisionamiento de un emparejamiento directo
@@ -60,4 +60,4 @@ Puede obtener una descripción detallada de todos los parámetros ejecutando el 
 Get-Help Get-AzPeering -detailed
 ```
 
-Para obtener más información, consulte las [preguntas más frecuentes sobre el emparejamiento de Internet](faqs.md).
+Para más información, consulte las [preguntas frecuentes sobre el emparejamiento de Internet](faqs.md).

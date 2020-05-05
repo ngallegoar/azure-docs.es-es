@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: scottwhi
 ms.openlocfilehash: 07ecac46ab13058d308c17c5747701ee5ed577fc
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75446683"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-c"></a>Inicio rápido: Obtención de conclusiones de imágenes mediante la API de REST Bing Visual Search y C#

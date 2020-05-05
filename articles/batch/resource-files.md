@@ -1,19 +1,14 @@
 ---
-title: 'Creación y uso de archivos de recursos: Azure Batch'
+title: Crear y usar archivos de recursos
 description: Aprenda a crear archivos de recursos de Azure Batch desde diversos orígenes de entrada. En este artículo se abordan algunos métodos comunes para crear archivos de recursos y colocarlos en una máquina virtual.
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.service: batch
-ms.topic: article
 ms.date: 03/18/2020
-ms.author: labrenne
-ms.openlocfilehash: 0fe859ac30e7b8050d1f4688d7cf106a465e7566
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.topic: article
+ms.openlocfilehash: c9a2e581d0cada467e89e3da731fac7f78b22992
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79531148"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82117189"
 ---
 # <a name="creating-and-using-resource-files"></a>Crear y usar archivos de recursos
 

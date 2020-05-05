@@ -4,10 +4,10 @@ description: Supervise el rendimiento y diagnostique problemas en servicios de N
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.openlocfilehash: 38336e3faf3764233dd94bffbfb24421e054496a
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80411578"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Supervisión de servicios y aplicaciones de Node.js con Application Insights
@@ -24,7 +24,7 @@ Puede usar TelemetryClient API para instrumentar y supervisar manualmente aspect
 
 Realice las tareas siguientes para configurar la supervisión para una aplicación o servicio.
 
-### <a name="prerequisites"></a>Prerrequisitos
+### <a name="prerequisites"></a>Prerequisites
 
 Antes de empezar, asegúrese de que tiene una suscripción de Azure o bien [obtenga una nueva de forma gratuita][azure-free-offer]. Si su organización ya tiene una suscripción de Azure, un administrador puede seguir [estas instrucciones][add-aad-user] y agregarle a ella.
 

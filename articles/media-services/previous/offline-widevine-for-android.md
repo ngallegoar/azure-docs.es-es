@@ -16,10 +16,10 @@ ms.date: 04/16/2019
 ms.author: willzhan
 ms.reviewer: dwgeo
 ms.openlocfilehash: f3bd7bc78eeb62cc33a01ed31bb04d94078cae4b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80294330"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Streaming de Widevine sin conexión para Android  
