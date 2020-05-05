@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: b20a3e6dd3b32b183bbf34dbefd76f0e4cd56b99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cb88fb24ceed943d4104da6914959e4b79c35571
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76156410"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82231924"
 ---
 # <a name="immersive-reader-sdk-reference-guide"></a>Guía de referencia del SDK del Lector inmersivo
 
@@ -144,7 +144,6 @@ enum CookiePolicy { Disable, Enable }
 | Estilos de fuente | Negrita, cursiva, subrayado, código, tachado, superíndice, subíndice |
 | Listas sin ordenar | Disco, círculo, cuadrado |
 | Listas ordenadas | Decimal, alfabético en mayúsculas, alfabético en minúsculas, romano superior, romano inferior |
-| Hipervínculos | Próximamente |
 
 Las etiquetas no admitidas se representarán de la misma forma. Las imágenes y las tablas actualmente no se admiten.
 

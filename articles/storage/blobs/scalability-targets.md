@@ -10,10 +10,10 @@ ms.date: 12/18/2019
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 3d0dd4683c990e2bd5b2f6f1990f1b379f76fc75
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75748819"
 ---
 # <a name="scalability-and-performance-targets-for-blob-storage"></a>Objetivos de escalabilidad y rendimiento de Blob Storage
@@ -28,6 +28,6 @@ ms.locfileid: "75748819"
 
 - [Lista de comprobación de escalabilidad y rendimiento para Blob Storage](storage-performance-checklist.md)
 - [Objetivos de escalabilidad para cuentas de almacenamiento estándar](../common/scalability-targets-standard-account.md)
-- [Objetivos de escalabilidad de las cuentas de almacenamiento de blob en bloques Premium](scalability-targets-premium-block-blobs.md)
+- [Objetivos de escalabilidad de las cuentas de almacenamiento de blob en bloques prémium](scalability-targets-premium-block-blobs.md)
 - [Objetivos de escalabilidad para el proveedor de recursos de Azure Storage](../common/scalability-targets-resource-provider.md)
 - [Límites y cuotas de suscripción de Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md)

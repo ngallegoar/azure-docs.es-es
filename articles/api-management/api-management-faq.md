@@ -13,20 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: c32fdc67c74e100e0e31dad3afde128c05c356d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 219681351159de6ac6bb48ff979cc68aa4ee18d3
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80335967"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82233489"
 ---
 # <a name="azure-api-management-faqs"></a>P+F de Azure API Management
 Obtenga respuestas a preguntas comunes, patrones y procedimientos recomendados para Azure API Management.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-## <a name="contact-us"></a>Ponerse en contacto con nosotros
-* [¿Cómo se puede hacer una pregunta al equipo de Microsoft Azure API Management?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question)
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 * [¿Qué significa que una característica se encuentra en su versión preliminar?](#what-does-it-mean-when-a-feature-is-in-preview)
@@ -48,15 +45,8 @@ Obtenga respuestas a preguntas comunes, patrones y procedimientos recomendados p
 * [¿Se puede mover un servicio API Management de una suscripción a otra?](#can-i-move-an-api-management-service-from-one-subscription-to-another)
 * [¿Existen restricciones de la importación de mi API o problemas conocidos con ella?](#are-there-restrictions-on-or-known-issues-with-importing-my-api)
 
-### <a name="how-can-i-ask-the-microsoft-azure-api-management-team-a-question"></a>¿Cómo se puede hacer una pregunta al equipo de Microsoft Azure API Management?
-Puede ponerse en contacto con nosotros mediante una de estas opciones:
-
-* Publicar sus preguntas en nuestro [foro de MSDN de API Management](https://social.msdn.microsoft.com/forums/azure/home?forum=azureapimgmt).
-* Envíe un correo electrónico a <mailto:apimgmt@microsoft.com>.
-* Enviar una solicitud de característica en el [foro de comentarios de Azure](https://feedback.azure.com/forums/248703-api-management).
-
 ### <a name="what-does-it-mean-when-a-feature-is-in-preview"></a>¿Qué significa que una característica se encuentra en su versión preliminar?
-Cuando una característica está en su versión preliminar, significa que estamos buscando activamente comentarios acerca de cómo funciona la característica. Una característica en versión preliminar está funcionalmente completa, pero es posible que hagamos cambios importantes en respuesta a los comentarios de los clientes. Se recomienda no depender de una característica que está en su versión preliminar en el entorno de producción. Si tiene cualquier comentario sobre las características de la versión preliminar, háganoslo saber a través de una de las opciones de contacto que aparecen en [¿Cómo se puede hacer una pregunta al equipo de Microsoft Azure API Management?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question).
+Cuando una característica está en su versión preliminar, significa que estamos buscando activamente comentarios acerca de cómo funciona la característica. Una característica en versión preliminar está funcionalmente completa, pero es posible que hagamos cambios importantes en respuesta a los comentarios de los clientes. Se recomienda no depender de una característica que está en su versión preliminar en el entorno de producción.
 
 ### <a name="how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services"></a>¿Cómo se puede proteger la conexión entre la puerta de enlace de API Management y mis servicios back-end?
 Tiene varias opciones para proteger la conexión entre la puerta de enlace de API Management y mis servicios back-end. Puede:
