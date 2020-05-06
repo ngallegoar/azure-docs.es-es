@@ -1,7 +1,7 @@
 ---
 title: Pasar una API web protegida a producción | Azure
 titleSuffix: Microsoft identity platform
-description: Obtenga información sobre cómo compilar una API web protegida (pasar a producción).
+description: Aprenda a compilar una API web protegida (pasar a producción).
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 10796e3ebef0268349eabc7fe0a44450641b7ed4
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 86e897547869c917313deeb8d71b361c9e16798b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80882359"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81537192"
 ---
 # <a name="protected-web-api---move-to-production"></a>API web protegida: pasar a producción
 

@@ -5,12 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 2/21/2019
 ms.author: dekapur
-ms.openlocfilehash: 461d6021a201ca1fa5722bb44c427baca2a7728e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9133a7087285aa6e01a2431bf1a65dfa3c6f8857
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79229424"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82189103"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Creación de un clúster independiente con Windows Server
 Puede usar Azure Service Fabric para crear clústeres de Service Fabric en las máquinas virtuales o los equipos que ejecutan Windows Server. Es decir, podrá implementar y ejecutar aplicaciones de Service Fabric en cualquier entorno donde haya un conjunto de equipos con Windows Server que estén conectados entre sí, ya sea de manera local o con algún proveedor de servicios en la nube. Service Fabric proporciona un paquete de instalación para crear clústeres de Service Fabric, llamado paquete independiente de Windows Server. Los clústeres tradicionales de Service Fabric en Azure están disponibles como un servicio administrado, mientras que los clústeres independientes son de autoservicio. Para más información sobre las diferencias, consulte [Comparación de clústeres de Service Fabric de Azure e independientes](./service-fabric-deploy-anywhere.md).
@@ -144,7 +144,7 @@ NodeDeactivationInfo NodeName IpAddressOrFQDN NodeType  CodeVersion  ConfigVersi
 ```
 
 ### <a name="step-3-visualize-the-cluster-using-service-fabric-explorer"></a>Paso 3: Visualización del clúster mediante Service Fabric Explorer
-[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) es una buena herramienta para visualizar el clúster y administrar aplicaciones.  Service Fabric Explorer es un servicio que se ejecuta en el clúster al que puede acceder navegando a [http://localhost:19080/Explorer](http://localhost:19080/Explorer) con un explorador.
+[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) es una buena herramienta para visualizar el clúster y administrar aplicaciones.  Service Fabric Explorer es un servicio que se ejecuta en el clúster al que puede acceder navegando a `http://localhost:19080/Explorer` con un explorador.
 
 El panel del clúster proporciona información general del clúster, incluido un resumen de la aplicación y del estado del nodo. En la vista de nodos se muestra el diseño físico del clúster. Para un nodo determinado, puede comprobar qué aplicaciones tienen el código implementado en ese nodo.
 

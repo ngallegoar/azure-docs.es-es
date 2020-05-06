@@ -7,38 +7,15 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: dsindona
-ms.openlocfilehash: 93dd8636f60ceca0f43d806d4f5b1a037ed21ee4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 83ec57290f56a903a7c4456ba760fbbb3b54f885
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80289029"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81869364"
 ---
 # <a name="azure-application-support-tab"></a>Pestaña de soporte técnico de una aplicación de Azure
 
-Use la pestaña Soporte técnico para escribir la información de soporte técnico de ingeniería y para el cliente.
- 
-## <a name="identify-contacts-and-websites"></a>Identifique contactos y sitios web
+[Cloud Partner Portal](https://cloudpartner.azure.com/) ya no admite la creación y la administración de ofertas de aplicaciones de Azure. En su lugar, esta funcionalidad se ha movido al [portal del Centro de partners](https://partner.microsoft.com/) de Microsoft. Para más información, vea [Crear una oferta de una aplicación de Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-azure-apps-offer).
 
-Use la siguiente captura de pantalla como guía para proporcionar la información necesaria. Se deben completar todos los nombres de campo a los que se anexa un asterisco rojo (*).
-
-  ![Formulario de soporte técnico para la oferta](./media/azureapp-support-tab.png)
-
-1. En **Contacto de ingeniería**, proporcione información para los campos siguientes:
-
-   - **Nombre\*** : Escriba el nombre del contacto de ingeniería de la aplicación. Este contacto recibirá comunicaciones técnicas de Microsoft.
-   - **Correo electrónico\*** : Escriba la dirección de correo electrónico del contacto de ingeniería.
-   - **Teléfono\*** : Escriba el número de teléfono del contacto de ingeniería.
-  
-2. En **Contacto de soporte técnico**, proporcione información para los campos siguientes:
-
-   - **Nombre\*** : Escriba el nombre del contacto de soporte técnico de la aplicación. Este contacto recibirá comunicaciones relacionadas con el soporte técnico de Microsoft.
-   - **Correo electrónico\*** : Escriba la dirección de correo electrónico del contacto de soporte técnico de la aplicación.
-   - **Teléfono\*** : Escriba el número de teléfono del contacto de soporte técnico.
- 
-3. En **Direcciones URL de soporte técnico**, proporcione las direcciones URL de soporte técnico adecuadas que Microsoft va a usar cuando los clientes abran incidencias de soporte técnico. Estas direcciones URL serán para la nube de Azure público o la nube de Azure Government.
-4. Cuando termine, seleccione **Guardar**.
-
-## <a name="next-steps"></a>Pasos siguientes
-
-[Oferta de publicación de aplicaciones de Azure](./cpp-publish-offer.md)
+Antes de crear una oferta de aplicación de Azure, debe leer [Creación de una cuenta del Centro de partners](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) y, luego, abrir el [panel de Marketplace comercial](https://partner.microsoft.com/dashboard/directory) con la página **Información general** seleccionada. Siga las instrucciones que se indican en [Creación de una oferta de aplicación de Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-azure-apps-offer) para crear la oferta.

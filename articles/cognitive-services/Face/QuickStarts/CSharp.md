@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Detección de caras en una imagen con la API REST de Azure y C#'
+title: 'Guía de inicio rápido: Detección de caras en una imagen con la API REST de Azure y C#'
 titleSuffix: Azure Cognitive Services
 description: En esta guía de inicio rápido, usará la API REST de Azure Face con C# para detectar caras en una imagen.
 services: cognitive-services
@@ -11,19 +11,19 @@ ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.openlocfilehash: 69d3f1a7f0c455275a212401110459abb1b8d8d0
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81403406"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-c"></a>Inicio rápido: Detección de caras en una imagen mediante Face REST API y C#
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-c"></a>Guía de inicio rápido: Detección de caras en una imagen mediante la API REST de Face y C#
 
 En este inicio rápido, usará la API REST de Azure Face con C# para detectar caras humanas en una imagen.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Una clave de suscripción de Face. Puede obtener una clave de la suscripción de evaluación gratuita en la página [Pruebe Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). O bien, siga las instrucciones para la [creación de una cuenta de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para poder suscribirse al servicio Face y obtener la clave.
 - Cualquier edición de [Visual Studio 2015 o 2017](https://www.visualstudio.com/downloads/).

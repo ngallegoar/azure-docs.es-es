@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5d89d123fe757b0502f4c6b3a0d33c185b25224b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 125d89301e9d2cc3fc863bffb9b9e6c41e0c129e
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80057309"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82229942"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Acerca de los perfiles técnicos en las directivas personalizadas de Azure Active Directory B2C
 
@@ -39,7 +39,7 @@ Un perfil técnico posibilita estos tipos de escenarios:
 - [OpenID Connect](openid-connect-technical-profile.md): federación con cualquier proveedor de identidades del protocolo OpenID Connect.
 - [Factor de teléfono](phone-factor-technical-profile.md): es compatible con la inscripción y comprobación de números de teléfono.
 - [Proveedor de RESTful](restful-technical-profile.md): llamada a los servicios de la API de REST, como validar entrada de usuario, enriquecer los datos de usuario o integrar con aplicaciones de línea de negocio.
-- [SAML2](saml-technical-profile.md) : federación con cualquier proveedor de identidades del protocolo SAML.
+- [Proveedor de identidades SAML](saml-identity-provider-technical-profile.md) : federación con cualquier proveedor de identidades del protocolo SAML.
 - [Emisor de tokens de SAML](saml-issuer-technical-profile.md): emite un token de SAML que se devuelve a la aplicación de usuario de confianza.
 - [Autoaserción](self-asserted-technical-profile.md): interacción con el usuario. Por ejemplo, recopilar las credenciales del usuario para iniciar sesión, representar la página de registro o restablecer la contraseña.
 - [Administración de sesiones](custom-policy-reference-sso.md): administración de distintos tipos de sesiones.

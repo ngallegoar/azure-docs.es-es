@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/10/2019
+ms.date: 04/28/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22576be8dec021f0f18a6e2dda16891ce70d4f13
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 99103c9994b240e2f45b66acf269b320c90e5135
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77603210"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82231737"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Tutorial: Configuración de Workplace by Facebook para el aprovisionamiento automático de usuarios
 
@@ -33,25 +33,16 @@ Si tiene una integración existente con Workplace by Facebook, consulte la secci
 * Cambios en Azure AD: el método de autorización para aprovisionar a los usuarios en el área de trabajo ha sido históricamente un token de secreto de larga duración. Pronto verá que el método de autorización cambia a la concesión de autorización de OAuth. 
 * Cambios en Workplace: anteriormente, la aplicación Azure AD era una integración personalizada en Workplace by Facebook. Ahora verá Azure AD en el directorio de integraciones de Workplace como una aplicación de terceros. 
 
- 
-
 #### <a name="what-do-i-need-to-do-to-migrate-my-existing-custom-integration-to-the-new-application"></a>¿Qué tengo que hacer para migrar mi integración personalizada existente a la nueva aplicación?
-Si tiene una integración de Workplace existente con un token válido, **no es necesario realizar ninguna acción**. Los clientes se migran automáticamente cada semana a la nueva aplicación. Esto se realiza por completo en segundo plano. Si no puede esperar y desea pasar a la nueva aplicación manualmente, puede agregar una nueva instancia de Workplace desde la galería y configurar el aprovisionamiento de nuevo. Todas las instancias nuevas de Workplace usarán automáticamente la nueva versión de la aplicación. 
-
+Si tiene una integración de Workplace existente con un token válido, no es necesario realizar ninguna acción. **A partir del 28 de abril de 2020, se han migrado automáticamente todas las aplicaciones que no están en cuarentena debido a credenciales no válidas.**
  
-Si la integración de Workplace está en cuarentena, deberá proporcionar un token válido de nuevo para que podamos realizar la migración. La sección de credenciales de administrador estará atenuada, pero puede anexar lo siguiente ( **?Microsoft_AAD_IAM_userProvisioningEnableCredentialsOverride=true**) a la dirección URL para volver a guardar las credenciales. 
-
-https://portal.azure.com/?Microsoft_AAD_IAM_userProvisioningEnableCredentialsOverride=true
-
 #### <a name="how-can-i-tell-if-my-application-has-been-migrated"></a>¿Cómo puedo saber si se ha migrado mi aplicación? 
-Una vez migrada la aplicación, se quitará el banner de la sección de autorización sobre los futuros cambios y se reemplazará el campo de token secreto por un botón de autorización azul. 
+* En Azure Portal: Una vez migrada la aplicación, se quitará el banner de la sección de autorización sobre los futuros cambios y se reemplazará el campo de token secreto por un botón de autorización azul. 
+* En el portal Workplace by Facebook: Revise la aplicación Azure AD para asegurarse de que está aprobada.  
 
 #### <a name="the-admin-credentials-section-is-greyed-out-on-my-application-and-i-cant-save-why"></a>La sección de credenciales de administrador aparece atenuada en mi aplicación y no puedo guardar los cambios. ¿Por qué?
-Hemos bloqueado la sección de credenciales de administrador para los clientes de Workplace existentes. Cuando el inquilino se haya migrado a la nueva aplicación Workplace, podrá volver a actualizar la sección credenciales de administrador. Si no puede esperar, puede usar la dirección URL anterior para editar la aplicación. 
+Hemos bloqueado la sección de credenciales de administrador para los clientes de Workplace que no han migrado. Use la siguiente dirección URL si la sección Credenciales de administrador está atenuada y necesita volver a autorizar el acceso. **?Microsoft_AAD_IAM_userProvisioningEnableCredentialsOverride=true** (https://portal.azure.com/?Microsoft_AAD_IAM_userProvisioningEnableCredentialsOverride=true)
 
- 
-#### <a name="when-will-these-changes-happen"></a>¿Cuándo se producirán estos cambios?
-Todas las instancias nuevas de Workplace ya utilizarán el nuevo método de integración o autorización. Las integraciones existentes se migrarán gradualmente en mayo. El equipo de Workplace ha ampliado la fecha límite del 28 de febrero al 1 de mayo. 
 
 ## <a name="capabilities-supported"></a>Funcionalidades admitidas
 > [!div class="checklist"]

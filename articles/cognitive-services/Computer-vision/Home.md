@@ -12,10 +12,10 @@ ms.date: 01/27/2020
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: af49e80766d7ac4bd2d9ed677a2571fb0a5a3189
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80131748"
 ---
 # <a name="what-is-computer-vision"></a>¿Qué es Computer Vision?
@@ -38,7 +38,7 @@ Puede analizar imágenes para detectar y proporcionar información detallada ace
 | ------ | ----------- |
 |**[Etiquetar características visuales](concept-tagging-images.md)**|Identifique y etiquete las características visuales de una imagen a partir de un conjunto de miles de objetos, seres vivos, paisajes y acciones reconocibles. Cuando las etiquetas son ambiguas o no muy comunes, la respuesta de la API contiene “indicaciones” para aclarar el contexto de la etiqueta. El etiquetado no se limita al sujeto principal, como una persona en primer plano, sino que también incluye el entorno (interior o exterior), muebles, herramientas, plantas, animales, accesorios, gadgets, etc.|
 |**[Detectar objetos](concept-object-detection.md)**| La detección de objetos es similar al etiquetado, pero la API devuelve las coordenadas del rectángulo delimitador para cada etiqueta aplicada. Por ejemplo, si una imagen contiene un perro, un gato y una persona, la operación de detección mostrará estos objetos junto con sus coordenadas en la imagen. Puede usar esta funcionalidad para procesar más las relaciones entre los objetos de una imagen. También permite saber cuando hay varias instancias de la misma etiqueta en una imagen.|
-|**[Detección de las marcas](concept-brand-detection.md)**|Identifique las marcas comerciales en imágenes o vídeos desde una base de datos de miles de logotipos globales. Puede usar esta característica, por ejemplo, para detectar qué marcas son más populares en medios sociales o más frecuentes en la ubicación de los productos multimedia.|
+|**[Detección de las marcas](concept-brand-detection.md)**|Identifique las marcas comerciales en imágenes o vídeos desde una base de datos de miles de logotipos globales.  Puede usar esta característica, por ejemplo, para detectar qué marcas son más populares en medios sociales o más frecuentes en la ubicación de los productos multimedia.|
 |**[Clasificar una imagen](concept-categorizing-images.md)**|Identifique y clasifique toda una imagen mediante una [taxonomía de categoría](Category-Taxonomy.md) con jerarquías hereditarias de elementos primarios y secundarios. Las categorías se pueden usar solas o con nuestros nuevos modelos de etiquetado.<br/>Actualmente, el inglés es el único idioma que se admite para etiquetar y clasificar imágenes.|
 |**[Describir una imagen](concept-describing-images.md)**|Genere una descripción de toda una imagen en lenguaje natural, con frases completas. Los algoritmos de Computer Vision generan varias descripciones en función de los objetos identificados en la imagen. Cada una de estas descripciones se evalúa y se genera una puntuación de confianza. Después, se devuelve una lista de puntuaciones de confianza ordenadas de más alta a más baja.|
 |**[Detectar caras](concept-detecting-faces.md)** |Detecte caras en una imagen y proporcione información acerca de ellas. Computer Vision devuelve las coordenadas, el rectángulo, el género y la edad de los rostros que detecta.<br/>Computer Vision proporciona un subconjunto de la funcionalidad del servicio [Face](/azure/cognitive-services/face/). Puede usar el servicio Face para realizar un análisis más detallado, como la identificación facial y la detección de poses.|

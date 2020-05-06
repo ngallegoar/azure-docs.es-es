@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 1/10/2020
-ms.openlocfilehash: 7470af23059ccd07e48050e6dc34521e299a986f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 3dd2be9a9f618f19ae71de8b19115013896b10cf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81418616"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195560"
 ---
 # <a name="configure-an-azure-sql-server-integration-services-ssis-integration-runtime-ir-to-join-a-virtual-network"></a>Configuración de Azure-SQL Server Integration Services (SSIS) Integration Runtime (IR) para conectarlo a una red virtual
 
@@ -53,7 +53,7 @@ Entre los pasos se incluyen:
 
     - Asegúrese de que no tiene ningún [bloqueo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources) en el grupo de recursos ni en la suscripción a la que pertenece la red virtual. Si configura un bloqueo de solo lectura o de eliminación, se producirá un error al iniciar o detener la instancia de Azure-SSIS IR, o esta dejará de responder.
 
-    - Asegúrese de que no tiene ninguna directiva de Azure que impida que se creen los siguientes recursos en el grupo de recursos o en la suscripción a la que pertenece la red virtual:
+    - Asegúrese de no tener ninguna asignación de Azure Policy que impida que se creen los siguientes recursos en el grupo de recursos o en la suscripción a la que pertenece la red virtual:
         - Microsoft.Network/LoadBalancers
         - Microsoft.Network/NetworkSecurityGroups
 

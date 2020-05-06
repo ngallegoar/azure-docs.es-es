@@ -4,10 +4,10 @@ description: Aprenda a crear grupos de administración de Azure para administrar
 ms.date: 04/15/2020
 ms.topic: conceptual
 ms.openlocfilehash: 34815089367512c4aa54f148c118a669625d0ea3
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81381582"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Creación de grupos de administración para la organización y la administración de recursos

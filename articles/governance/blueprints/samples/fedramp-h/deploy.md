@@ -4,10 +4,10 @@ description: Pasos de implementación para el ejemplo de plano técnico de nivel
 ms.date: 01/31/2020
 ms.topic: sample
 ms.openlocfilehash: 91f208105a07770c557b1f273f3420c03b3d6dcb
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77087300"
 ---
 # <a name="deploy-the-fedramp-high-blueprint-sample"></a>Implementación del ejemplo de plano técnico con un nivel de impacto alto de FedRAMP

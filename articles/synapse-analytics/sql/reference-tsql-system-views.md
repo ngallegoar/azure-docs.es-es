@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 96a2cce5d0e8abfd1f22b5fc64633eebc41aca39
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: f58c34a46f4eb1bffe4516f2a6f9f17a799fbfb3
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81427552"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82786604"
 ---
 # <a name="system-views-supported-in-synapse-sql"></a>Vistas del sistema admitidas en SQL de Synapse
 Vínculos a la documentación de las instrucciones T-SQL admitidas en SQL de Synapse.
@@ -249,6 +249,6 @@ Las siguientes DMV son aplicables al grupo de SQL, pero, para ejecutarlas, es ne
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información de referencia, consulte [Instrucciones T-SQL en SQL de Synapse](/sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements) y [Elementos del lenguaje T-SQL en SQL de Synapse](/sql-data-warehouse/sql-data-warehouse-reference-tsql-statements).
+Para obtener más información de referencia, consulte [Instrucciones T-SQL en SQL de Synapse](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements) y [Elementos del lenguaje T-SQL en SQL de Synapse](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-reference-tsql-statements).
 
  

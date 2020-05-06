@@ -8,16 +8,16 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 3/18/2020
 ms.openlocfilehash: 95a3c9e81bfc1d3b010027e628204666c472d1da
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 04/30/2020
 ms.locfileid: "81731872"
 ---
-# <a name="azure-database-for-mysql-use-mysql-workbench-to-connect-and-query-data"></a>Azure Database for MySQL: uso de MySQL Workbench para conectarse y consultar datos
+# <a name="azure-database-for-mysql-use-mysql-workbench-to-connect-and-query-data"></a>Azure Database for MySQL: Uso de MySQL Workbench para conectarse a los datos y consultarlos
 En esta guía de inicio rápido se muestra cómo conectarse a Azure Database for MySQL mediante la aplicación MySQL Workbench. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 En este tutorial rápido se usan como punto de partida los recursos creados en una de estas guías:
 - [Create an Azure Database for MySQL server using Azure Portal](./quickstart-create-mysql-server-database-using-azure-portal.md) (Creación de un servidor de Azure Database for MySQL mediante Azure Portal)
 - [Create an Azure Database for MySQL server using Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md) (Creación de un servidor de Azure Database for MySQL mediante la CLI de Azure)
