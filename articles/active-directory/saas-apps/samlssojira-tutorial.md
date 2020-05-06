@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/03/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 957fee48397bc0b23737157dec0e74cf6505fab5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d6f6cb87cf7628c48ce6adf12336c4b712dc0ff9
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73160134"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82202679"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-jira-by-resolution-gmbh"></a>Tutorial: Integración de Azure Active Directory con SAML SSO for Jira by resolution GmbH
 
@@ -291,7 +291,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 Al hacer clic en el icono de SAML SSO for Jira by resolution GmbH en el Panel de acceso, debería iniciar sesión automáticamente en la solución SAML SSO for Jira by resolution GmbH para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-También puede probar de sesión único, si navega a [https://\<base-server-url>/plugins/servlet/samlsso](https://\<server-base-url>/plugins/servlet/samlsso). Sustituya **\<server-base-url>** por la dirección URL base de la instancia de Jira.
+También puede probar el inicio de sesión único si va a `https://<server-base-url>/plugins/servlet/samlsso`. Sustituya **\<server-base-url>** por la dirección URL base de la instancia de Jira.
 
 
 ## <a name="enable-single-sign-on-redirection-for-jira"></a>Habilitación de la redirección de inicio de sesión única para Jira
@@ -311,7 +311,7 @@ Para activar el redireccionamiento de inicio de sesión único, realice lo sigui
 
 1. Presione el botón **Save Settings** (Guardar configuración) en la esquina superior derecha.
 
-Después de activar la opción, todavía puede llegar a la solicitud de nombre de usuario y contraseña si la opción **Enable nosso** (Habilitar nosso) está activada al navegar a [https://\<server-base-url>/login.jsp?nosso](https://\<server-base-url>/login.jsp?nosso). Como siempre, sustituya **\<server-base-url>** por la dirección URL base.
+Después de activar la opción, todavía puede llegar a la solicitud de nombre de usuario y contraseña si la opción **Enable nosso** (Habilitar nosso) está activada cuando se navega a `https://\<server-base-url>/login.jsp?nosso`. Como siempre, sustituya **\<server-base-url>** por la dirección URL base.
 
 
 ## <a name="additional-resources"></a>Recursos adicionales

@@ -4,14 +4,14 @@ description: Aprenda a migrar la aplicación del uso de la biblioteca Bulk Execu
 author: ealsur
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 04/24/2020
 ms.author: maquaran
-ms.openlocfilehash: 820a5398d84122659b1676b7d5722bce08b1837d
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: d63b34c118cd719f73abbd6711dcb3ef02a6fb28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80755979"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82146306"
 ---
 # <a name="migrate-from-the-bulk-executor-library-to-the-bulk-support-in-azure-cosmos-db-net-v3-sdk"></a>Migración de la biblioteca Bulk Executor a la compatibilidad con la ejecución en bloque del SDK para .NET v3 de Azure Cosmos DB
 
@@ -27,13 +27,13 @@ Habilite la compatibilidad con la ejecución en bloque en la instancia de `Cosmo
 
 La compatibilidad con la ejecución en bloque del SDK para .NET funciona mediante el uso de la [biblioteca TPL](https://docs.microsoft.com/dotnet/standard/parallel-programming/task-parallel-library-tpl) y las operaciones de agrupación que se producen simultáneamente. 
 
-No hay ningún método único que use su lista de documentos u operaciones como parámetro de entrada, sino que deberá crear una tarea para cada operación que quiera ejecutar de forma masiva.
+No hay ningún método único en el SDK que use su lista de documentos u operaciones como parámetro de entrada, sino que deberá crear una tarea para cada operación que quiera ejecutar de forma masiva. A continuación, simplemente, espere a que se completen.
 
 Por ejemplo, si la entrada inicial es una lista de elementos en que cada elemento tiene el siguiente esquema:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="Model":::
 
-Si quiere realizar una importación masiva (una opción similar a usar BulkExecutor.BulkImportAsync), debe tener llamadas simultáneas a `CreateItemAsync` con el valor de cada elemento. Por ejemplo:
+Si quiere realizar una importación masiva (una opción similar a usar BulkExecutor.BulkImportAsync), debe tener llamadas simultáneas a `CreateItemAsync`. Por ejemplo:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="BulkImport":::
 
@@ -47,7 +47,7 @@ Y, si quiere realizar una *eliminación* en bloque (una opción similar a usar [
 
 ## <a name="capture-task-result-state"></a>Captura del estado del resultado de la tarea
 
-En los ejemplos de código anteriores, ha creado una lista de tareas simultáneas y ha llamado al método `CaptureOperationResponse` en cada una de esas tareas. Este método es una extensión que nos permite mantener un *esquema de respuesta similar* como BulkExecutor mediante la captura de los errores y el seguimiento del [uso de las unidades de solicitud](request-units.md).
+En los ejemplos de código anteriores, hemos creado una lista de tareas simultáneas y ha llamado al método `CaptureOperationResponse` en cada una de esas tareas. Este método es una extensión que nos permite mantener un *esquema de respuesta similar* como BulkExecutor mediante la captura de los errores y el seguimiento del [uso de las unidades de solicitud](request-units.md).
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="CaptureOperationResult":::
 
@@ -57,7 +57,11 @@ Donde `OperationResponse` se declara como:
 
 ## <a name="execute-operations-concurrently"></a>Ejecución de operaciones simultáneas
 
-Una vez definida la lista de tareas, espere hasta que todas se hayan completado. Puede realizar un seguimiento de la finalización de las tareas definiendo el ámbito de la operación masiva, tal como se muestra en el siguiente fragmento de código:
+Para realizar el seguimiento del ámbito de toda la lista de tareas, usamos esta clase auxiliar:
+
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="BulkOperationsHelper":::
+
+El método `ExecuteAsync` esperará hasta que se completen todas las operaciones y se pueda usar de la siguiente manera:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="WhenAll":::
 

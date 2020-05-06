@@ -1,25 +1,19 @@
 ---
 title: Cuotas de vCPU de Azure
-description: Obtenga información acerca de las cuotas de vCPU de Azure.
-keywords: ''
-services: virtual-machines-windows
-documentationcenter: ''
+description: Obtenga información acerca de las cuotas de vCPU para Azure Virtual Machines.
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: sizes
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: cynthn
-ms.openlocfilehash: 20017f42031e126bbdae40f66bf4c36efd12f17c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 13d9153d1bf6776b7d3d71c4a85c18d8529188b3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75893458"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82097887"
 ---
 # <a name="virtual-machine-vcpu-quotas"></a>Cuotas de vCPU de máquinas virtuales
 

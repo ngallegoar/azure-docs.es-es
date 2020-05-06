@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ac9b76dd8d3c950b14f6d7b331f15647427ac89
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 7870b62dea01f680126f5b4aac3dc2328407cd61
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80652737"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82143217"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Planeación e implementación de la protección con contraseña de Azure Active Directory local
 
@@ -134,7 +134,7 @@ El servicio de actualización de Agent Updater de Microsoft Azure AD Connect se 
 * El servicio Agent Updater de Microsoft Azure AD Connect también requiere los pasos de TLS 1.2 especificados en [Requisitos de TLS](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#tls-requirements).
 
 > [!WARNING]
-> El proxy de protección con contraseña de Azure AD y Azure AD Application Proxy instalan diferentes versiones del servicio de Agent Updater de Microsoft Azure AD Connect, por lo que las instrucciones se refieren al contenido de Application Proxy. Estas versiones diferentes son incompatibles cuando se instalan una al lado de la otra, por lo que no se recomienda instalar el proxy de protección con contraseña de Azure AD y Application Proxy en la misma máquina.
+> El proxy de protección con contraseña de Azure AD y Azure AD Application Proxy instalan diferentes versiones del servicio de Agent Updater de Microsoft Azure AD Connect, por lo que las instrucciones se refieren al contenido de Application Proxy. Estas versiones diferentes son incompatibles cuando se instalan en paralelo y, si lo hace, impedirá que el servicio de actualización del agente se ponga en contacto con Azure para las actualizaciones de software, por lo que nunca debe instalar el servicio proxy de protección de contraseña de Azure AD y Application Proxy en el mismo equipo.
 
 ## <a name="download-required-software"></a>Descarga del software necesario
 

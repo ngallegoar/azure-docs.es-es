@@ -6,14 +6,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 04/27/2020
 ms.author: memildin
-ms.openlocfilehash: 61d0a57c541837ab3aebf65e47d757f7ecbe7e40
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 056b9bdd46520790f3ffbd9aca56ad8555e23a3d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80435996"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82189827"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Recolección de datos en Azure Security Center
 Security Center recopila datos de las máquinas virtuales de Azure, los conjuntos de escalado de máquinas virtuales, los contenedores de IaaS y de los equipos que no son de Azure (incluidos los equipos locales) para supervisar las amenazas y vulnerabilidades de seguridad. Los datos se recopilan con el agente de Log Analytics, que lee distintas configuraciones relacionadas con la seguridad y distintos registros de eventos de la máquina y copia los datos en el área de trabajo para analizarlos. Estos son algunos ejemplos de dichos datos: tipo y versión del sistema operativo, registros del sistema operativo (registros de eventos de Windows), procesos en ejecución, nombre de la máquina, direcciones IP y usuario conectado. El agente de Log Analytics también copia los archivos de volcado de memoria en el área de trabajo.
@@ -29,25 +29,23 @@ En este artículo se describe cómo instalar un agente de Log Analytics y establ
 
 ## <a name="enable-automatic-provisioning-of-the-log-analytics-agent"></a>Habilitación del aprovisionamiento automático del agente de Log Analytics <a name="auto-provision-mma"></a>
 
-Para recopilar los datos de las máquinas, debe tener instalado el agente de Log Analytics. La instalación del agente puede ser automática (recomendado) o manual.  
+Para recopilar los datos de las máquinas, debe tener instalado el agente de Log Analytics. La instalación del agente puede ser automática (recomendado) o manual. El aprovisionamiento automático está desactivado de manera predeterminada.
 
->[!NOTE]
-> El aprovisionamiento automático está desactivado de manera predeterminada. Para establecer Security Center para que instale el aprovisionamiento automático de forma predeterminada, establézcalo en **Activado**.
->
-
-Si el aprovisionamiento automático está activado, Security Center aprovisiona el agente de Log Analytics en todas las máquinas virtuales de Azure compatibles y en las nuevas que se creen. El aprovisionamiento automático está muy recomendado, pero la instalación manual del agente también está disponible. [Obtenga información acerca de cómo instalar la extensión del agente de Log Analytics](#manual-agent).
-
+Si el aprovisionamiento automático está activado, Security Center implementa el agente de Log Analytics en todas las máquinas virtuales de Azure compatibles y en las nuevas que se creen. Se recomienda el aprovisionamiento automático, pero puede instalar el agente manualmente si es necesario (consulte [Instalación manual del agente de Log Analytics](#manual-agent)).
 
 
 Para habilitar el aprovisionamiento automático del agente de Log Analytics:
-1. En el menú principal de Security Center, seleccione **Precios y configuración**.
-2. Haga clic en la suscripción aplicable.
+1. En el menú de Security Center del portal, seleccione **Precios y configuración**.
+2. Seleccione la suscripción correspondiente.
 
    ![Seleccionar suscripción][7]
 
 3. Seleccione **Recopilación de datos**.
 4. En **Aprovisionamiento automático**, seleccione **Activado** para habilitarlo.
-5. Seleccione **Guardar**.
+5. Seleccione **Guardar**. El agente se implementará en todas las máquinas virtuales en un plazo de 15 minutos. 
+
+>[!TIP]
+> Si es necesario aprovisionar un área de trabajo, la instalación del agente puede tardar hasta 25 minutos.
 
    ![Habilitar el aprovisionamiento automático][1]
 
@@ -59,7 +57,7 @@ Para habilitar el aprovisionamiento automático del agente de Log Analytics:
 >
 
 ## <a name="workspace-configuration"></a>Configuración del área de trabajo
-Los datos recopilados por Security Center se almacenan en áreas de trabajo de Log Analytics. Puede optar por que los datos se recopilen de las máquinas virtuales de Azure almacenadas en áreas de trabajo creadas por Security Center o en un área de trabajo que haya creado. 
+Los datos recopilados por Security Center se almacenan en áreas de trabajo de Log Analytics. Los datos se pueden recopilar de las máquinas virtuales de Azure almacenadas en áreas de trabajo creadas por Security Center o en un área de trabajo que haya creado. 
 
 La configuración de área de trabajo se establece por suscripción, y muchas suscripciones pueden usar la misma área de trabajo.
 
@@ -195,7 +193,7 @@ Para elegir la directiva de filtrado:
 Los siguientes casos de uso especifican cómo funciona el aprovisionamiento automático en los casos en los que ya hay un agente o una extensión instalados. 
 
 - El agente de Log Analytics está instalado en la máquina, pero no como una extensión (agente directo).<br>
-Si el agente de Log Analytics se instala directamente en la máquina virtual (no como una extensión de Azure), Security Center instalará la extensión del agente de Log Analytics y puede que la actualice a la versión más reciente.
+Si el agente de Log Analytics está instalado directamente en la máquina virtual (no como una extensión de Azure), Security Center instalará la extensión del agente de Log Analytics y puede que la actualice a la versión más reciente.
 El agente instalado continuará informando a las áreas de trabajo ya configuradas y además informará al área de trabajo configurada en Security Center (el hospedaje múltiple es compatible en máquinas Windows).
 Si el área de trabajo configurada es un área de trabajo de usuario (no el área de trabajo predeterminada de Security Center), deberá instalar la solución "security" o "securityFree" para que Security Center empiece a procesar eventos desde máquinas virtuales y equipos que generan informes a esa área de trabajo.<br>
 <br>
@@ -205,8 +203,7 @@ Para las máquinas existentes en suscripciones incorporadas a Security Center an
 
   
 - El agente de System Center Operations Manager está instalado en la máquina<br>
-Security Center instalará la extensión del agente de Log Analytics en paralelo a la versión de Operations Manager existente. El agente de Operations Manager existente continuará enviando informes con normalidad al servidor de Operations Manager. Tenga en cuenta que el agente de Operations Manager y el agente de Log Analytics comparten bibliotecas en tiempo de ejecución, las cuales se actualizarán a la versión más reciente durante este proceso.
-Nota: si está instalada la versión 2012 del agente de Operations Manager, **no** active el aprovisionamiento automático.<br>
+Security Center instalará la extensión del agente de Log Analytics en paralelo a la versión de Operations Manager existente. El agente de Operations Manager existente continuará enviando informes con normalidad al servidor de Operations Manager. El agente de Operations Manager y el agente de Log Analytics comparten bibliotecas en tiempo de ejecución, las cuales se actualizarán a la versión más reciente durante este proceso. Nota: si está instalada la versión 2012 del agente de Operations Manager, **no** habilite el aprovisionamiento automático.<br>
 
 - Está presente una extensión de máquina virtual existente<br>
     - Cuando se instala Monitoring Agent como una extensión, la configuración de extensión permite enviar informes a una sola área de trabajo. Security Center no invalida las conexiones existentes con áreas de trabajo de usuario. Security Center almacenará datos de seguridad de la máquina virtual en el área de trabajo que ya está conectada, siempre que se haya instalado la solución "security" o "securityFree". Durante este proceso, Security Center puede actualizar la versión de extensión a la versión más reciente.  
@@ -219,7 +216,7 @@ Puede desactivar en cualquier momento el aprovisionamiento automático de los re
 
 1. Vuelva al menú principal de Security Center y seleccione la directiva de seguridad.
 2. Haga clic en **Editar configuración** en la fila de la suscripción en la que quiera deshabilitar el aprovisionamiento automático.
-3. En la hoja **Directiva de seguridad: recopilación de datos**, en **Aprovisionamiento automático**, seleccione **Desactivado**.
+3. En la página **Directiva de seguridad: recopilación de datos**, en **Aprovisionamiento automático**, seleccione **Desactivado**.
 4. Seleccione **Guardar**.
 
    ![Deshabilitación del aprovisionamiento automático][6]
@@ -312,7 +309,7 @@ Puede instalar el agente de Log Analytics manualmente para que Security Center p
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este artículo le hemos mostrado cómo efectuar un aprovisionamiento automático y una recopilación de datos en Security Center. Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
+En este artículo le hemos mostrado cómo efectuar un aprovisionamiento automático y una recopilación de datos en Security Center. Para obtener más información sobre Security Center, vea las páginas siguientes:
 
 * [Preguntas más frecuentes sobre Azure Security Center](faq-general.md): encuentre las preguntas más frecuentes sobre el uso del servicio.
 * [Supervisión del estado de seguridad en Azure Security Center](security-center-monitoring.md): aprenda a supervisar el estado de los recursos de Azure.

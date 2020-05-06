@@ -4,12 +4,12 @@ description: Obtenga más información sobre las redes en Azure Kubernetes Servi
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 5800254ab44b5b0f1048ce2200f90c06a8d1666a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 51773a46b77cb1e9a89b9c85a5f62c4a6b7af3be
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79227920"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82146055"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Conceptos de redes de aplicaciones en Azure Kubernetes Service (AKS)
 
@@ -131,7 +131,7 @@ En AKS, puede crear un recurso de entrada con algo parecido a NGINX, o usar la c
 
 Otra característica común de los controladores de entrada es la terminación SSL/TLS. En aplicaciones web de gran tamaño, a las que se accede a través de HTTPS, la terminación TLS puede controlarse mediante el recurso de entrada en lugar de en la propia aplicación. Para proporcionar una configuración y generación automática de certificados TLS, puede configurar el recurso de entrada para que use proveedores como Let's Encrypt. Para más información sobre cómo configurar un controlador de entrada de NGINX con Let's Encrypt, consulte el artículo de [Entrada y TLS][aks-ingress-tls].
 
-También puede configurar el controlador de entrada para conservar la dirección IP de origen de cliente en las solicitudes a los contenedores en el clúster de AKS. Si la solicitud de un cliente se enruta a un contenedor del clúster de AKS mediante el controlador de entrada, la dirección IP de origen de la solicitud no estará disponible para el contenedor de destino. Al habilitar la *conservación de la dirección IP de origen de cliente*, la dirección IP de origen para el cliente está disponible en el encabezado de solicitud en *X-Forwarded-For*. Si usa la conservación de la dirección IP de origen de cliente en el controlador de entrada, no puede usar SSL de paso a través. La conservación de la dirección IP de origen de cliente y SSL de paso a través pueden usarse con otros servicios, como de tipo *LoadBalancer*.
+También puede configurar el controlador de entrada para conservar la dirección IP de origen de cliente en las solicitudes a los contenedores en el clúster de AKS. Si la solicitud de un cliente se enruta a un contenedor del clúster de AKS mediante el controlador de entrada, la dirección IP de origen de la solicitud no estará disponible para el contenedor de destino. Al habilitar la *conservación de la dirección IP de origen de cliente*, la dirección IP de origen para el cliente está disponible en el encabezado de solicitud en *X-Forwarded-For*. Si usa la conservación de la dirección IP de origen de cliente en el controlador de entrada, no puede usar TLS de paso a través. La conservación de la dirección IP de origen de cliente y TLS de paso a través pueden usarse con otros servicios, como de tipo *LoadBalancer*.
 
 ## <a name="network-security-groups"></a>Grupos de seguridad de red
 

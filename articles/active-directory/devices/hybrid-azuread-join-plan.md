@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 152ff52ce52b573d7f24cbb2fafc944b1794f6d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 22ab3e7403069ed1b579631b88c2ac2c41191ecd
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80129259"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82181331"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Instrucciones: Planeamiento de la implementación de la unión a Azure Active Directory híbrido
 
@@ -94,7 +94,7 @@ Como primer paso del planeamiento, debe revisar el entorno y determinar si neces
 Si los dispositivos unidos a un dominio de Windows 10 están [registrados en Azure AD](overview.md#getting-devices-in-azure-ad) con su inquilino, podría provocar un doble estado de dispositivos registrados en Azure AD y unidos a Azure AD híbrido. Se recomienda actualizar a Windows 10 1803 (con KB4489894 aplicado) o una versión superior para solucionar automáticamente esta situación. En las versiones anteriores a 1803, deberá quitar manualmente el estado registrado en Azure AD antes de habilitar la unión a Azure AD híbrido. A partir de la versión 1803, se han realizado los siguientes cambios para evitar este doble estado:
 
 - Cualquier estado registrado de Azure AD existente de un usuario se eliminaría automáticamente <i>en el momento en que el dispositivo se una a Azure AD híbrido y el usuario en cuestión inicie sesión</i>. Por ejemplo, si un usuario A tuviera un estado registrado de Azure AD en el dispositivo, el doble estado de ese usuario A se limpiará únicamente cuando este inicie sesión en el dispositivo. Si hay varios usuarios en el mismo dispositivo, el doble estado se limpiará individualmente cuando cada uno de esos usuarios inicien sesión.
-- Puede impedir que el dispositivo unido al dominio se registre en Azure AD mediante la incorporación de esta clave del registro: HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001.
+- Puede impedir que el dispositivo unido al dominio se registre en Azure AD mediante la incorporación de esta clave del Registro a HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin: "BlockAADWorkplaceJoin"=dword:00000001.
 - En Windows 10 1803, si tiene configurado Windows Hello para empresas, el usuario tendrá que volver a configurarlo tras la limpieza del doble estado. Este problema se ha resuelto con KB4512509.
 
 > [!NOTE]

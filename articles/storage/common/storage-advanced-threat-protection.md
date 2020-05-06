@@ -7,15 +7,15 @@ author: tamram
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 03/31/2020
+ms.date: 04/16/2020
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: 195f4b5057c0e2d644ab44cc4c32e97c8662d36d
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 724c250b56107cb68da387bdd531602e8d239e1c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80422794"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82127539"
 ---
 # <a name="configure-advanced-threat-protection-for-azure-storage"></a>Configuración de Advanced Threat Protection para Azure Storage
 
@@ -23,10 +23,14 @@ Advanced Threat Protection para Azure Storage proporciona un nivel adicional de 
 
 Las alertas de seguridad se desencadenan cuando se producen anomalías en una actividad. Estas alertas de seguridad se integran en [Azure Security Center](https://azure.microsoft.com/services/security-center/) y también se envían por correo electrónico a los administradores de las suscripciones, con detalles de la actividad sospechosa y recomendaciones sobre cómo investigar y solucionar las amenazas.
 
-> [!NOTE]
-> Advanced Threat Protection para Azure Storage está actualmente disponible solo para Blob Storage. Este servicio está disponible en las nubes de la administración pública de EE. UU., pero no en otras regiones de nubes soberanas o de Azure Government. Para obtener más información, incluida una evaluación gratuita de 30 días, consulte la [página de precios de Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/).
+El servicio ingiere los registros de recursos de las solicitudes de lectura, escritura y eliminación en Blob Storage para la detección de amenazas. Para investigar las alertas de Advanced Threat Protection, puede ver la actividad de almacenamiento relacionada mediante el registro de Storage Analytics. Para más información, consulte **Configuración del registro** en [Supervisión de una cuenta de almacenamiento en Azure Portal](storage-monitor-storage-account.md#configure-logging).
 
-Advanced Threat Protection de Azure Storage ingiere los registros de diagnóstico de las solicitudes de lectura, escritura y eliminación en Blob Storage para la detección de amenazas. Para investigar las alertas de Advanced Threat Protection, puede ver la actividad de almacenamiento relacionada mediante el registro de Storage Analytics. Para más información, consulte **Configuración del registro** en [Supervisión de una cuenta de almacenamiento en Azure Portal](storage-monitor-storage-account.md#configure-logging).
+## <a name="availability"></a>Disponibilidad
+
+Advanced Threat Protection para Azure Storage está actualmente disponible solo para [Blob Storage](https://azure.microsoft.com/services/storage/blobs/). Los tipos de cuenta que admiten la protección contra amenazas avanzada incluyen cuentas de uso general v2, de blob en bloques y de almacenamiento de blobs. La protección contra amenazas avanzada está disponible en todas las nubes públicas y nubes de administración pública de EE. UU., pero no en otras regiones de nubes soberanas o de Azure Government.
+
+Para obtener más información, incluida una evaluación gratuita de 30 días, consulte la [página de precios de Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/).
+
 
 ## <a name="set-up-advanced-threat-protection"></a>Configuración de Advanced Threat Protection
 

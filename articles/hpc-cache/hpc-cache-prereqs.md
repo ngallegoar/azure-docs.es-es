@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: rohogue
-ms.openlocfilehash: 6da35cb60dc5f22be01ae25393bd62327db64867
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 4508ef7583760a7ef7503f8a6f37202af2684d81
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80655654"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82106515"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Requisitos previos para Azure HPC Cache
 
@@ -22,7 +22,7 @@ Antes de usar Azure Portal para crear una instancia de Azure HPC Cache, asegúre
 Se recomienda una suscripción de pago.
 
 > [!NOTE]
-> Durante los primeros meses de la versión de disponibilidad general, el equipo de Azure HPC Cache debe agregar su suscripción a la lista de acceso antes de poder usarla para crear una instancia de caché. Este procedimiento ayuda a garantizar que cada cliente obtiene una capacidad de respuesta de alta calidad de sus cachés. Rellene [este formulario](https://aka.ms/onboard-hpc-cache) para solicitar acceso.
+> El equipo de Azure HPC Cache debe agregar su suscripción a la lista de acceso antes de poder usarla para crear una instancia de caché. Este procedimiento ayuda a garantizar que cada cliente obtiene una capacidad de respuesta de alta calidad de sus cachés. Rellene [este formulario](https://aka.ms/onboard-hpc-cache) para solicitar acceso.
 
 ## <a name="network-infrastructure"></a>Infraestructura de red
 
@@ -84,11 +84,11 @@ Para crear una cuenta de almacenamiento compatible, use esta configuración:
 * Nivel de acceso (predeterminado): **Acceso frecuente**
 
 Se recomienda usar una cuenta de almacenamiento que esté en la misma ubicación que la caché.
-<!-- clarify location - same region or same resource group or same virtual network? -->
 
 También debe proporcionar a la aplicación de caché acceso a su cuenta de almacenamiento de Azure, como se mencionó en [Permisos](#permissions) anteriormente. Siga el procedimiento descrito en [Incorporación de destinos de almacenamiento](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) para proporcionar a la caché los roles de acceso necesarios. Si no es el propietario de la cuenta de almacenamiento, pida a este que realice este paso.
 
 ### <a name="nfs-storage-requirements"></a>Requisitos de almacenamiento de NFS
+<!-- linked from configuration.md -->
 
 Si usa un sistema de almacenamiento NFS (por ejemplo, un sistema NAS de hardware local), asegúrese de que cumpla estos requisitos. Es posible que deba trabajar con los administradores de red o los administradores de firewall para su sistema de almacenamiento (o centro de datos) para verificar esta configuración.
 

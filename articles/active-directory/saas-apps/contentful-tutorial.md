@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/22/2019
+ms.date: 04/20/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd218c61114c1e15009ace5a9a9bd7a536996e86
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b58abede48c0e096f3f54989d783b1e455f8e4d4
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "72968669"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82169649"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-contentful"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Contentful
 
@@ -46,6 +46,7 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 
 * Contentful admite el inicio de sesión único iniciado por **SP e IDP**
 * Contentful admite el aprovisionamiento de usuarios **Just-In-Time**
+* Una vez configurado Contentful, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 > [!NOTE]
 > El identificador de esta aplicación es un valor de cadena fijo. Solo se puede configurar una instancia en un inquilino.
@@ -94,6 +95,16 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con la dirección URL de respuesta real y la dirección URL de inicio de sesión; para ello, copie la dirección URL de ACS (servicio de consumidor de aserciones) de la página de configuración del inicio de sesión único en Contentful.
+
+1. La aplicación Contentful espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados.
+
+    ![imagen](common/default-attributes.png)
+
+1. Además de lo anterior, la aplicación Contentful espera que se devuelvan algunos atributos más, que se muestran a continuación, en la respuesta de SAML. Estos atributos también se rellenan previamente, pero puede revisarlos según sus requisitos.
+    
+    | Nombre |  Atributo de origen|
+    | --------------- | --------- |
+    | email | user.userprincipalname |
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
 
