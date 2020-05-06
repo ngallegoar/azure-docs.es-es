@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.openlocfilehash: 72dcf95c8ae8d8da34532fa96e3bf0371f5112fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79370923"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-portal"></a>Creación y administración de Private Link para el servidor único de Azure Database for PostgreSQL con el portal
@@ -154,7 +154,7 @@ En esta sección, creará un servidor PostgreSQL y le agregará un punto de cone
     |Recurso secundario de destino |Seleccione *postgresqlServer*|
     |||
 7. Seleccione **Siguiente: Configuration** (Siguiente: Configuración).
-8. En **Crear un punto de conexión privado - Configuración**, escriba o seleccione esta información:
+8. En **Crear un punto de conexión privado: Configuración**, escriba o seleccione esta información:
 
     | Configuración | Value |
     | ------- | ----- |

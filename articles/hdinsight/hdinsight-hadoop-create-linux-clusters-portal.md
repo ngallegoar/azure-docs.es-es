@@ -1,19 +1,19 @@
 ---
 title: 'Creación de clústeres de Apache Hadoop con un explorador web: Azure HDInsight'
-description: Aprenda a crear clústeres de Apache Hadoop, Apache HBase, Apache Storm o Apache Spark en Linux para HDInsight con un explorador web y Azure Portal.
+description: Aprenda a crear clústeres de Apache Hadoop, Apache HBase, Apache Storm o Apache Spark en HDInsight. Utilice un explorador web y Azure Portal.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
-ms.date: 02/19/2020
-ms.openlocfilehash: bcc71b7244ba3498b2fcde023d372e67f41d6117
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: hdinsightactive,seoapr2020
+ms.date: 04/27/2020
+ms.openlocfilehash: 8d4e9a1e255884b9250879ab486d7a4e2849473a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77623272"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192100"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Creación de clústeres basados en Linux en HDInsight mediante Azure Portal
 
@@ -51,7 +51,7 @@ En la pestaña **Básico**, especifique la siguiente información:
 |Resource group|En la lista desplegable, seleccione el grupo de recursos existente o seleccione **Crear**.|
 |Nombre del clúster|Escriba un nombre único global.|
 |Region|En la lista desplegable, seleccione una región donde crear el clúster.|
-|Tipo de clúster|Seleccione **Seleccionar tipo de clúster** para abrir una lista. En la lista, seleccione el tipo de clúster que desee. Los clústeres de HDInsight se presentan como distintos tipos. Estos corresponden a la carga de trabajo o la tecnología para los que el clúster está optimizado. No hay ningún método compatible para crear un clúster que combine varios tipos.|
+|Tipo de clúster|Haga clic en **Seleccionar tipo de clúster** para abrir una lista. En la lista, seleccione el tipo de clúster que desee. Los clústeres de HDInsight se presentan en distintos tipos. Estos corresponden a la carga de trabajo o la tecnología para los que el clúster está optimizado. No hay ningún método compatible para crear un clúster que combine varios tipos.|
 |Versión|En la lista desplegable, seleccione una **versión**. Use la versión predeterminada si no sabe qué opción elegir. Para obtener más información, consulte [Versiones de clústeres de HDInsight](hdinsight-component-versioning.md).|
 |Nombre de usuario de inicio de sesión del clúster|Proporcione el nombre de usuario; el valor predeterminado es **admin**.|
 |Contraseña de inicio de sesión de clúster|Proporcione la contraseña.|
@@ -94,7 +94,7 @@ En la pestaña **Seguridad y redes**, especifique la información siguiente:
 |Propiedad |Descripción |
 |---|---|
 |Paquete de seguridad de la empresa|Opcional: Active la casilla para usar **Enterprise Security Package**. Para obtener más información, consulte [Configuración de clúster de HDInsight con Enterprise Security Package mediante Azure Active Directory Domain Services](./domain-joined/apache-domain-joined-configure-using-azure-adds.md).|
-|TLS|Opcional: Seleccione una versión de TLS de la lista desplegable. Para más información, consulte [Seguridad de la capa de transporte](./hdinsight-plan-virtual-network-deployment.md#transport-layer-security).|
+|TLS|Opcional: Seleccione una versión de TLS de la lista desplegable. Para más información, consulte [Seguridad de la capa de transporte](./transport-layer-security.md).|
 |Virtual network|Opcional: Seleccione una red virtual y una subred existentes de la lista desplegable. Para obtener más información, consulte [Planeamiento de la implementación de una red virtual para clústeres de Azure HDInsight](hdinsight-plan-virtual-network-deployment.md). El artículo incluye los requisitos de configuración específicos de la red virtual.|
 |Configuración de cifrado de disco|Opcional: Active la casilla para usar el cifrado. Para obtener más información, consulte [Cifrado de disco mediante claves administradas por el cliente](./disk-encryption.md).|
 |Proxy de REST de Kafka|Esta opción solo está disponible para el tipo de clúster Kafka. Para más información, consulte [Uso de un proxy de REST](./kafka/rest-proxy.md).|
@@ -141,11 +141,6 @@ Algunos de los iconos de la ventana se explican de la siguiente manera:
 |SSH e inicio de sesión del clúster|Proporciona la información necesaria para acceder al clúster mediante SSH.|
 |Eliminar|Elimina el clúster de HDInsight.|
 
-## <a name="customize-clusters"></a>Personalización de los clústeres
-
-* [Personalización de los clústeres de HDInsight con Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md)
-* [Personalización de clústeres de HDInsight basados en Linux mediante acciones de script](hdinsight-hadoop-customize-cluster-linux.md)
-
 ## <a name="delete-the-cluster"></a>Eliminación del clúster
 
 Consulte [Eliminación de un clúster de HDInsight con el explorador, PowerShell o la CLI de Azure](./hdinsight-delete-cluster.md).
@@ -158,25 +153,6 @@ Si experimenta problemas con la creación de clústeres de HDInsight, consulte l
 
 Ha creado correctamente un clúster de HDInsight. Ahora puede aprender a trabajar con el clúster.
 
-### <a name="apache-hadoop-clusters"></a>Clústeres de Apache Hadoop
-
 * [Uso de Apache Hive con HDInsight](hadoop/hdinsight-use-hive.md)
-* [Uso de MapReduce con HDInsight](hadoop/hdinsight-use-mapreduce.md)
-
-### <a name="apache-hbase-clusters"></a>Clústeres de Apache HBase
-
 * [Introducción a Apache HBase en HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
-* [Desarrollo de aplicaciones de Java para Apache HBase en HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
-
-### <a name="apache-storm-clusters"></a>Clústeres de Apache Storm
-
-* [Desarrollo de topologías de Java para Apache Storm en HDInsight](storm/apache-storm-develop-java-topology.md)
-* [Uso de componentes de Python en Apache Storm en HDInsight](storm/apache-storm-develop-python-topology.md)
-* [Implementación y supervisión de topologías con Apache Storm en HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)
-
-### <a name="apache-spark-clusters"></a>Clústeres de Apache Spark
-
-* [Creación de una aplicación independiente con Scala](spark/apache-spark-create-standalone-application.md)
-* [Ejecución de trabajos de forma remota en un clúster de Apache Spark mediante Apache Livy](spark/apache-spark-livy-rest-interface.md)
-* [Apache Spark con BI: Análisis de datos interactivos con Spark en HDInsight con las herramientas de BI](spark/apache-spark-use-bi-tools.md)
-* [Apache Spark con Machine Learning: uso de Spark en HDInsight para predecir los resultados de la inspección de alimentos](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Personalización de clústeres de HDInsight basados en Linux mediante acciones de script](hdinsight-hadoop-customize-cluster-linux.md)

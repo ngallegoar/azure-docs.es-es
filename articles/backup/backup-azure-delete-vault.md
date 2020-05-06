@@ -1,18 +1,18 @@
 ---
 title: Eliminación de un almacén de Microsoft Azure Recovery Services
-description: En este artículo, aprenderá a quitar dependencias y, a continuación, eliminar un almacén de Microsoft Azure Backup Recovery Services (MARS).
+description: En este artículo, aprenderá a quitar dependencias y, luego, a eliminar un almacén de Azure Backup Recovery Services (MARS).
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: f33f52048729b50015ba86db71118b9a21e1a2fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5fcf8004cd5792b30ec57537d5d8ab0bc085dfb3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79500392"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82183762"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Eliminación de un almacén de Recovery Services de Azure Backup
 
-En este artículo se describe cómo eliminar un almacén de Recovery Services de [Microsoft Azure Backup](backup-overview.md) (MARS). Contiene instrucciones para quitar las dependencias y, a continuación, eliminar un almacén.
+En este artículo se describe cómo eliminar un almacén de Recovery Services de [Azure Backup](backup-overview.md). Contiene instrucciones para quitar las dependencias y, a continuación, eliminar un almacén.
 
 ## <a name="before-you-start"></a>Antes de comenzar
 
@@ -90,6 +90,7 @@ En primer lugar, lea la sección **[Antes de comenzar](#before-you-start)** para
 
      Revise el mensaje de advertencia y las instrucciones en la casilla de consentimiento.
     > [!NOTE]
+    >
     >- Si el servidor protegido está sincronizado con los servicios de Azure y existen elementos de copia de seguridad, la casilla de consentimiento mostrará el número de elementos de copia de seguridad dependientes y el vínculo para ver esos elementos.
     >- Si el servidor protegido no está sincronizado con los servicios de Azure y existen elementos de copia de seguridad, la casilla de consentimiento mostrará solo el número de elementos de copia de seguridad.
     >- Si no hay elementos de copia de seguridad, la casilla de consentimiento pedirá la eliminación.

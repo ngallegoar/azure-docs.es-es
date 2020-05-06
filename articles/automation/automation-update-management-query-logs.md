@@ -5,22 +5,22 @@ services: automation
 ms.subservice: update-management
 ms.date: 04/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 81e12e775306cc8637dedd534f50e8a14bc09a26
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: 09eacb42eff6ecf3a3fca2d7fb401f52195f5f2d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80743872"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81617417"
 ---
 # <a name="query-update-records-for-update-management-in-azure-monitor-logs"></a>Consulta de registros de actualización para Update Management en registros de Azure Monitor
 
-Además de los detalles que se proporcionan en la solución de Update Management, puede buscar en los registros almacenados en el área de trabajo de Log Analytics. Desde la página de la solución, en el panel de la izquierda, seleccione **Registros**. Se abre la página **Búsqueda de registros**.
+Además de los detalles que se proporcionan en la solución de Update Management, puede buscar en los registros almacenados en el área de trabajo de Log Analytics. Desde la página de la solución, en el panel de la izquierda, seleccione **Registros**. Se abre la página Búsqueda de registros.
 
-También puede aprender a personalizar las consultas o a usarlas desde diferentes clientes, entre otras cosas visitando:  [Documentación de Log Analytics Search API](https://dev.loganalytics.io/).
+También puede aprender a personalizar las consultas o a usarlas desde diferentes clientes. Consulte [Documentación de Log Analytics Search API](https://dev.loganalytics.io/).
 
 ## <a name="update-records"></a>Registros de actualización
 
-En los resultados de la búsqueda de registros aparecen los registros recopilados por Update Management para las máquinas virtuales Windows y Linux, y los tipos de datos. En las secciones siguientes se describen estos registros.
+Update Management recopila los registros para máquinas virtuales Linux y Windows, y los tipos de datos que aparecen en los resultados de la búsqueda de registros. En las secciones siguientes se describen estos registros.
 
 ### <a name="required-updates"></a>Actualizaciones necesarias
 
@@ -49,36 +49,36 @@ Se crea un registro con un tipo de `Update` que representa las actualizaciones d
 
 | Propiedad | Descripción | 
 |----------|-------------|
-| ApprovalSource | Solo se aplica al sistema operativo Windows. El valor es *Microsoft Update*. |
-| Aprobado | *True* o *False* |
-| clasificación | *Actualizaciones* |
+| ApprovalSource | Solo se aplica al sistema operativo Windows. Origen de la aprobación del registro. El valor es Microsoft Update. |
+| Aprobado | True si el registro está aprobado o False en caso contrario. |
+| clasificación | Clasificación de aprobación. El valor es Updates (Actualizaciones). |
 | Computer | Nombre de dominio completo del equipo que genera el informe. |
-| ComputerEnvironment | *Azure* o *Ajeno a Azure*. |
-| MSRCBulletinID | Número de id. de boletín de seguridad | 
-| MSRCSeverity | Clasificación de gravedad de la vulnerabilidad. Los valores son:<br> *Critical)* (Crítico)<br> *Importante*<br> *Moderado*<br> *Baja* |  
+| ComputerEnvironment | Entorno. Los valores posibles son Azure y Non-Azure. |
+| MSRCBulletinID | Número de identificación del boletín de seguridad. | 
+| MSRCSeverity | Clasificación de gravedad de la vulnerabilidad. Los valores son:<br> Crítico<br> Importante<br> Moderado<br> Bajo |  
 | KBID | Identificador del artículo de Knowledge base para la actualización de Windows. |
 | ManagementGroupName | Nombre del grupo de administración de Operations Manager o del área de trabajo de Log Analytics. |
 | UpdateID | Identificador único de la actualización de software. |
 | RevisionNumber | El número de revisión de una revisión específica de una actualización. |
-| Opcional | *True* o *False* | 
+| Opcional | True si se el registro es opcional o False en caso contrario. | 
 | RebootBehavior | El comportamiento de reinicio después de instalar o desinstalar una actualización. |
-| _ResourceId | Identificador único para el recurso al que está asociado el registro. |
-| Tipo | *Actualizar* |
+| _ResourceId | Identificador único del recurso asociado al registro. |
+| Tipo | Tipo de registro. El valor es Update (Actualización). |
 | VMUUID | Identificador único de la máquina virtual. |
 | MG | Identificador único del grupo de administración o del área de trabajo de Log Analytics. | 
-| TenantId | Identificador único que representa la instancia de la organización de Azure Active Directory. | 
-| SourceSystem | *OperationsManager* | 
-| TimeGenerated | Fecha y hora en que se creó el registro. | 
+| TenantId | Identificador único que representa la instancia de la organización de Azure Active Directory. | 
+| SourceSystem | Sistema de origen del registro. El valor es `OperationsManager`. | 
+| TimeGenerated | Fecha y hora de creación del registro. | 
 | SourceComputerId | Identificador único que representa el equipo de origen. | 
 | Título | Título de la actualización. |
-| PublishedDate (UTC) | La fecha en la que la actualización está lista para descargarse e instalarse desde Windows Update.  |
+| PublishedDate (UTC) | Fecha en la que la actualización está lista para descargarse e instalarse desde Windows Update.  |
 | UpdateState | Estado actual de la actualización. | 
-| Producto | Los productos para los que se aplica la actualización. |
+| Producto | Productos a los que se aplica la actualización. |
 | SubscriptionId | Identificador único de la suscripción de Azure. | 
-| ResourceGroup | Nombre del grupo de recursos del que es miembro el recurso. | 
-| ResourceProvider | Especifica el proveedor de recursos. | 
+| ResourceGroup | Nombre del grupo de recursos al que pertenece el recurso. | 
+| ResourceProvider | El proveedor de recursos. | 
 | Resource | Nombre del recurso. | 
-| ResourceType | Nombre del tipo de recurso | 
+| ResourceType | El tipo de recurso. | 
 
 ### <a name="update-agent"></a>Agente de actualización
 
@@ -94,12 +94,12 @@ Se crea un registro con un tipo de `UpdateAgent` que proporciona detalles del ag
 | OSVersion | La versión del sistema operativo. |
 | Server | |
 | SourceHealthServiceId | Identificador único que representa el identificador del agente de Windows de Log Analytics. |
-| SourceSystem | *OperationsManager* | 
-| TenantId | Identificador único que representa la instancia de la organización de Azure Active Directory. |
-| TimeGenerated | Fecha y hora en que se creó el registro. |
-| Tipo | *Actualizar* | 
+| SourceSystem | Sistema de origen del registro. El valor es `OperationsManager`. | 
+| TenantId | Identificador único que representa la instancia de la organización de Azure Active Directory. |
+| TimeGenerated | Fecha y hora de creación del registro. |
+| Tipo | Tipo de registro. El valor es Update (Actualización). | 
 | WindowsUpdateAgentVersion | Versión del Agente de Windows Update. |
-| WSUSServer | Muestra errores si el agente de Windows Update tiene un problema para ayudar en la solución de problemas. |
+| WSUSServer | Errores en el caso de que el agente de Windows Update tenga un problema, para ayudar en la solución de problemas. |
 
 ### <a name="update-deployment-status"></a>Estado de implementación de actualizaciones 
 
@@ -108,30 +108,30 @@ Se crea un registro con un tipo de `UpdateRunProgress` que proporciona el estado
 | Propiedad | Descripción | 
 |----------|-------------|
 | Computer | Nombre de dominio completo del equipo que genera el informe. |
-| ComputerEnvironment | *Azure* o *Ajeno a Azure*. | 
+| ComputerEnvironment | Entorno. Los valores posibles son Azure y Non-Azure. | 
 | CorrelationId | Identificador único del trabajo de runbook ejecutado para la actualización. |
 | EndTime | La hora a la que ha finalizado el proceso de sincronización. | 
 | ErrorResult | Código de error de Windows Update generado si no se puede instalar una actualización. | 
-| InstallationStatus | Los estados de instalación posibles de una actualización en el equipo cliente,<br> *NotStarted*: el trabajo aún no se ha desencadenado.<br> *FailedToStart*: no se puede iniciar el trabajo en la máquina.<br> *Failed*: el trabajo se inició, pero devolvió una excepción.<br> *InProgress*: el trabajo está en curso.<br> *MaintenanceWindowExceeded*: si faltaba la ejecución, pero se alcanzó el intervalo de la ventana de mantenimiento.<br> *Succeeded*: el trabajo se completó correctamente.<br> *InstallFailed*: error de instalación de la actualización.<br> *NotIncluded*<br> *Excluded* |
+| InstallationStatus | Los estados de instalación posibles de una actualización en el equipo cliente,<br> `NotStarted`: el trabajo aún no se ha desencadenado.<br> `FailedToStart`: no se puede iniciar el trabajo en la máquina.<br> `Failed`: el trabajo se inició, pero devolvió una excepción.<br> `InProgress`: trabajo en curso.<br> `MaintenanceWindowExceeded`: la ejecución seguía en curso pero se alcanzó el intervalo de la ventana de mantenimiento.<br> `Succeeded`: el trabajo finalizó correctamente.<br> `InstallFailed`: error de instalación de la actualización.<br> `NotIncluded`<br> `Excluded` |
 | KBID | Identificador del artículo de Knowledge base para la actualización de Windows. | 
 | ManagementGroupName | Nombre del grupo de administración de Operations Manager o del área de trabajo de Log Analytics. |
-| OSType | Especifica el tipo de sistema operativo, *Windows* o *Linux*. | 
-| Producto | Los productos para los que se aplica la actualización. |
+| OSType | Tipo de sistema operativo. Los valores son Windows o Linux. | 
+| Producto | Productos a los que se aplica la actualización. |
 | Resource | Nombre del recurso. | 
-| ResourceId | Identificador único para el recurso al que está asociado el registro. |
-| ResourceProvider | Especifica el proveedor de recursos. | 
-| ResourceType | Nombre del tipo de recurso | 
+| ResourceId | Identificador único del recurso asociado al registro. |
+| ResourceProvider | El proveedor de recursos. | 
+| ResourceType | Tipo de recurso. | 
 | SourceComputerId | Identificador único que representa el equipo de origen. | 
-| SourceSystem | *OperationsManager* |
+| SourceSystem | Sistema de origen del registro. El valor es `OperationsManager`. |
 | StartTime | Hora a la que se ha programado la instalación de la actualización. |
 | SubscriptionId | Identificador único de la suscripción de Azure. | 
-| SucceededOnRetry | Muestra cuándo se ha producido un error en la ejecución de la actualización en el primer intento y la operación actual es un reintento. |
-| TimeGenerated | Fecha y hora en que se creó el registro. |
+| SucceededOnRetry | Valor que indica si se ha producido un error en la ejecución de la actualización en el primer intento y la operación actual es un reintento. |
+| TimeGenerated | Fecha y hora de creación del registro. |
 | Título | Título de la actualización. |
-| Tipo | *UpdateRunProgress* |
+| Tipo | Tipo de actualización. El valor es `UpdateRunProgress`. |
 | UpdateId | Identificador único de la actualización de software. |
 | VMUUID | Identificador único de la máquina virtual. |
-| _ResourceId | Identificador único para el recurso al que está asociado el registro. |
+| ResourceId | Identificador único del recurso asociado al registro. |
 
 ### <a name="update-summary"></a>Resumen de actualización 
 
@@ -140,32 +140,32 @@ Se crea un registro con un tipo de `UpdateSummary` que proporciona el resumen de
 | Propiedad | Descripción | 
 |----------|-------------|
 | Computer | Nombre de dominio completo del equipo que genera el informe. |
-| ComputerEnvironment | *Azure* o *Ajeno a Azure*. | 
-| CriticalUpdatesMissing | Número de actualizaciones críticas pendientes que se pueden aplicar. | 
+| ComputerEnvironment | Entorno. Los valores posibles son Azure y Non-Azure. | 
+| CriticalUpdatesMissing | Número de actualizaciones críticas aplicables que faltan. | 
 | ManagementGroupName | Nombre del grupo de administración de Operations Manager o del área de trabajo de Log Analytics. |
 | NETRuntimeVersion | Versión de .NET Framework instalada en el equipo Windows. |
-| OldestMissingSecurityUpdateBucket | Los valores son:<br> *Recent* si el valor es inferior a 30 días<br> *Hace 30 días*<br> *Hace 60 días*<br> *90 days ago*<br> *120 days ago*<br> *150 days ago*<br> *180 days ago*<br> *Older* si el valor supera los 180 días | 
+| OldestMissingSecurityUpdateBucket | Especificador del depósito de seguridad que falta más antiguo. Los valores son:<br> Recent (Reciente) si el valor es inferior a 30 días<br> Hace 30 días<br> Hace 60 días<br> Hace 90 días<br> Hace 120 días<br> Hace 150 días<br> Hace 180 días<br> Older (Anterior) si el valor supera los 180 días. | 
 | OldestMissingSecurityUpdateInDays | Número total de días de la actualización más antigua detectada como aplicable que no se ha instalado. |
 | OsVersion | La versión del sistema operativo. |
 | OtherUpdatesMissing | Recuento de actualizaciones detectadas que faltan. |
-| Resource |  Nombre del recurso. | 
-| ResourceGroup | Nombre del grupo de recursos del que es miembro el recurso. |
-| ResourceId | Identificador único para el recurso al que está asociado el registro. |
-| ResourceProvider | Especifica el proveedor de recursos. |
-| ResourceType | Nombre del tipo de recurso |
-| RestartPending | *True* o *False*. |
+| Resource | Nombre del recurso del registro. | 
+| ResourceGroup | Nombre del grupo de recursos que contiene el recurso. |
+| ResourceId | Identificador único del recurso asociado al registro. |
+| ResourceProvider | El proveedor de recursos. |
+| ResourceType | Tipo de recurso. |
+| RestartPending | True si hay un reinicio pendiente o False en caso contrario. |
 | SecurityUpdatesMissing | Recuento de actualizaciones de seguridad que faltan que se pueden aplicar.| 
 | SourceComputerId | Identificador único de la máquina virtual. |
-| SourceSystem | *OpsManager* | 
+| SourceSystem | Sistema de origen del registro. El valor es `OpsManager`. | 
 | SubscriptionId | Identificador único de la suscripción de Azure. |
-| TimeGenerated | Fecha y hora en que se creó el registro. |
+| TimeGenerated | Fecha y hora de creación del registro. |
 | TotalUpdatesMissing | Número total de actualizaciones que faltan que se pueden aplicar. | 
-| Tipo | *UpdateSummary* |
+| Tipo | Tipo de registro. El valor es `UpdateSummary`. |
 | VMUUID | Identificador único de la máquina virtual. |
 | WindowsUpdateAgentVersion | Versión del Agente de Windows Update. |
-| WindowsUpdateSetting | Muestra el estado del agente de Windows Update. Los valores posibles son:<br> *Instalación programada*<br> *Notificar antes de la instalación*<br> Error devuelto por el agente de WUA incorrecto. | 
-| WSUSServer | Muestra errores si el agente de Windows Update tiene un problema para ayudar en la solución de problemas. |
-| _ResourceId | Identificador único para el recurso al que está asociado el registro. |
+| WindowsUpdateSetting | Estado del agente de Windows Update. Los valores posibles son:<br> `Scheduled installation`<br> `Notify before installation`<br> `Error returned from unhealthy WUA agent` | 
+| WSUSServer | Errores en el caso de que el agente de Windows Update tenga un problema, para ayudar en la solución de problemas. |
+| _ResourceId | Identificador único del recurso asociado al registro. |
 
 ## <a name="sample-queries"></a>Consultas de ejemplo
 
@@ -237,7 +237,7 @@ Update
 
 ### <a name="single-azure-vm-assessment-queries-linux"></a>Consultas individuales de evaluación de Azure VM (Linux)
 
-En algunas distribuciones de Linux hay una falta de concordancia de la [codificación Endiannes](https://en.wikipedia.org/wiki/Endianness) con el valor de VMUUID que proviene de Azure Resource Manager y lo que se almacena en los registros de Azure Monitor. La siguiente consulta busca una concordancia en cualquier codificación Endiannes. Reemplace los valores de VMUUID por el formato de big-endian y little-endian del GUID para devolver correctamente los resultados. Para encontrar el VMUUID que se debe usar, ejecute la siguiente consulta en los registros de Azure Monitor: `Update | where Computer == "<machine name>"
+En algunas distribuciones de Linux hay una falta de concordancia de la [codificación Endiannes](https://en.wikipedia.org/wiki/Endianness) con el valor de VMUUID que proviene de Azure Resource Manager y lo que está almacenado en los registros de Azure Monitor. La siguiente consulta busca una concordancia en cualquier codificación Endiannes. Reemplace los valores de VMUUID por el formato de big-endian y little-endian del GUID para devolver correctamente los resultados. Para encontrar el VMUUID que se debe usar, ejecute la siguiente consulta en los registros de Azure Monitor: `Update | where Computer == "<machine name>"
 | summarize by Computer, VMUUID`
 
 #### <a name="missing-updates-summary"></a>Falta resumen de actualizaciones
@@ -306,8 +306,6 @@ on SourceComputerId
 | summarize assessedComputersCount=sumif(computersBySeverity, WorstMissingUpdateSeverity>-1), notAssessedComputersCount=sumif(computersBySeverity, WorstMissingUpdateSeverity==-1), computersNeedCriticalUpdatesCount=sumif(computersBySeverity, WorstMissingUpdateSeverity==4), computersNeedSecurityUpdatesCount=sumif(computersBySeverity, WorstMissingUpdateSeverity==2), computersNeedOtherUpdatesCount=sumif(computersBySeverity, WorstMissingUpdateSeverity==1), upToDateComputersCount=sumif(computersBySeverity, WorstMissingUpdateSeverity==0)
 | summarize assessedComputersCount=sum(assessedComputersCount), computersNeedCriticalUpdatesCount=sum(computersNeedCriticalUpdatesCount),  computersNeedSecurityUpdatesCount=sum(computersNeedSecurityUpdatesCount), computersNeedOtherUpdatesCount=sum(computersNeedOtherUpdatesCount), upToDateComputersCount=sum(upToDateComputersCount), notAssessedComputersCount=sum(notAssessedComputersCount)
 | extend allComputersCount=assessedComputersCount+notAssessedComputersCount
-
-
 ```
 
 #### <a name="missing-updates-summary"></a>Falta resumen de actualizaciones

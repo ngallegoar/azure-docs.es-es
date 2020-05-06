@@ -6,22 +6,23 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 01/21/2020
-ms.openlocfilehash: 87eb04b7323186175195babf6a602fa12d25176f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: seoapr2020
+ms.date: 04/27/2020
+ms.openlocfilehash: d5dde8c45331cf8c443aba86c96ba12c8277472c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78206714"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192491"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Adición de más cuentas de almacenamiento a HDInsight
 
-Aprenda a usar acciones de script para agregar *cuentas* adicionales de Azure Storage a HDInsight. Los pasos descritos en este documento agregan una *cuenta* de almacenamiento a un clúster de HDInsight existente. Este artículo es aplicable a las *cuentas* de almacenamiento (no la cuenta de almacenamiento predeterminada del clúster) y tampoco al almacenamiento adicional, como [Data Lake Storage Gen1](hdinsight-hadoop-use-data-lake-store.md) y [Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md).
+Aprenda a usar acciones de script para agregar *cuentas* adicionales de Azure Storage a HDInsight. Los pasos descritos en este documento agregan una *cuenta* de almacenamiento a un clúster de HDInsight existente. Este artículo se aplica a las *cuentas* de almacenamiento (no la cuenta de almacenamiento predeterminada del clúster) y tampoco al almacenamiento adicional, como [`Azure Data Lake Storage Gen1`](hdinsight-hadoop-use-data-lake-store.md) y [`Azure Data Lake Storage Gen2`](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
 > [!IMPORTANT]  
 > La información de este documento trata sobre cómo agregar cuentas de almacenamiento adicionales a un clúster después de que se ha creado. Para información sobre cómo agregar cuentas de almacenamiento durante la creación de clústeres, consulte [Configuración de clústeres en HDInsight con Apache Hadoop, Apache Spark, Apache Kafka, etc](hdinsight-hadoop-provision-linux-clusters.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Un clúster de Hadoop en HDInsight. Consulte [Introducción a HDInsight en Linux](./hadoop/apache-hadoop-linux-tutorial-get-started.md).
 * Nombre y clave de la cuenta de almacenamiento. Vea [Administración de las claves de acceso de la cuenta de almacenamiento](../storage/common/storage-account-keys-manage.md).
@@ -39,7 +40,7 @@ Durante el procesamiento, el script realiza las siguientes acciones:
 
 * Agrega la cuenta de almacenamiento al archivo core-site.xml.
 
-* Detiene y reinicia los servicios [Apache Oozie](https://oozie.apache.org/), [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html), [Apache Hadoop MapReduce2](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html) y [Apache Hadoop HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsUserGuide.html). Detener e iniciar estos servicios permite que usen la nueva cuenta de almacenamiento.
+* Detiene y reinicia los servicios Apache Oozie, Apache Hadoop YARN, Apache Hadoop MapReduce2 y Apache Hadoop HDFS. Detener e iniciar estos servicios permite que usen la nueva cuenta de almacenamiento.
 
 > [!WARNING]  
 > No se admite el uso de una cuenta de almacenamiento en una ubicación diferente a la del clúster de HDInsight.
@@ -118,13 +119,13 @@ Después de quitar estas claves y guardar la configuración, debe reiniciar Oozi
 
 ### <a name="storage-firewall"></a>Firewall de almacenamiento
 
-Si decide proteger la cuenta de almacenamiento con las restricciones de **firewalls y redes virtuales** en **redes seleccionadas**, asegúrese de habilitar la excepción **Permitir servicios de Microsoft de confianza...** para que HDInsight pueda acceder a su cuenta de almacenamiento.
+Si decide proteger la cuenta de almacenamiento con las restricciones de **Firewalls y redes virtuales** en **Redes seleccionadas**, asegúrese de habilitar la excepción **Permitir servicios de Microsoft de confianza...** para que HDInsight pueda acceder a su cuenta de almacenamiento.`.`
 
 ### <a name="unable-to-access-storage-after-changing-key"></a>No se puede acceder a almacenamiento después de cambiar la clave
 
 Si cambia la clave de una cuenta de almacenamiento, HDInsight ya no podrá acceder a dicha cuenta. HDInsight usa una copia en caché de clave del archivo core-site.xml para el clúster. Esta copia en caché debe actualizarse para que coincida con la nueva.
 
-La ejecución nuevamente de la acción de script __no__ actualizará la clave, ya que el script comprueba si ya existe una entrada para la cuenta de almacenamiento. Si ya existe una entrada, no realiza ningún cambio.
+Volver a ejecutar la acción de script **no** actualizará la clave, ya que el script comprueba si ya existe una entrada para la cuenta de almacenamiento. Si ya existe una entrada, no realiza ningún cambio.
 
 Para solucionar temporalmente este problema:  
 1. Elimine la cuenta de almacenamiento.
@@ -135,7 +136,7 @@ Para solucionar temporalmente este problema:
 
 ### <a name="poor-performance"></a>Rendimiento deficiente
 
-Si la cuenta de almacenamiento está en una región distinta a la del clúster de HDInsight, puede que experimente un rendimiento deficiente. Al acceder a los datos en una región diferente, el tráfico de red se envía fuera del centro de datos regional de Azure y en la red pública de Internet, lo que puede producir latencia.
+Si la cuenta de almacenamiento está en una región distinta a la del clúster de HDInsight, puede que experimente un rendimiento deficiente. Al acceder a los datos en una región diferente, el tráfico de red se envía fuera del centro de datos regional de Azure, a través de la red pública de Internet, lo que puede producir latencia.
 
 ### <a name="additional-charges"></a>Cargos adicionales
 

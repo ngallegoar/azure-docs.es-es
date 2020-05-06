@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: fee74cb6ec5acd5fa0f171eab9769a833f04ad66
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/10/2020
+ms.openlocfilehash: 520699b81024de9491f34263f16872428ddbd487
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72792910"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81618037"
 ---
 # <a name="azure-cognitive-search---frequently-asked-questions-faq"></a>Azure Cognitive Search: preguntas más frecuentes (P+F)
 
@@ -24,16 +24,6 @@ ms.locfileid: "72792910"
 ### <a name="how-is-azure-cognitive-search-different-from-full-text-search-in-my-dbms"></a>¿En qué se diferencia Azure Cognitive Search de la búsqueda de texto completo de mi DBMS?
 
 Azure Cognitive Search admite varios orígenes de datos, el [análisis lingüístico en muchos lenguajes](https://docs.microsoft.com/rest/api/searchservice/language-support), [análisis personalizados para entradas de datos interesantes e inusuales](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search), controles del rango de búsqueda a través de [perfiles de puntuación](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) y características de la experiencia del usuario como la escritura anticipada, el resaltado de referencias y la navegación por facetas. También incluye otras características, como los sinónimos y la sintaxis de consulta completa, pero no suelen ser relevantes.
-
-### <a name="what-is-the-difference-between-azure-cognitive-search-and-elasticsearch"></a>¿Cuál es la diferencia entre Azure Cognitive Search y Elasticsearch?
-
-Cuando se comparan las tecnologías de búsqueda, los clientes a menudo preguntan información específica sobre Azure Cognitive Search y Elasticsearch. Los clientes que eligen Azure Cognitive Search en lugar de Elasticsearch para sus proyectos de aplicaciones de búsqueda suelen hacerlo porque hemos conseguido facilitar una tarea clave o porque necesitan integración incorporada con otras tecnologías de Microsoft:
-
-+ Azure Cognitive Search es un servicio en la nube completamente administrado con acuerdos de nivel de servicio (SLA) del 99,9 % cuando se aprovisiona con suficiente redundancia (dos réplicas para el acceso de lectura y tres para lectura y escritura).
-+ Los [procesadores de lenguaje Natural](https://docs.microsoft.com/rest/api/searchservice/language-support) de Microsoft ofrecen un análisis lingüístico de vanguardia.  
-+ Los [indexadores de Azure Cognitive Search](search-indexer-overview.md) pueden rastrear diversos orígenes de datos de Azure para llevar a cabo la indexación inicial e incremental.
-+ Si necesita una respuesta rápida a las fluctuaciones de volúmenes de indexación o de consultas, puede usar [controles deslizantes](search-manage.md#scale-up-or-down) en Azure Portal o ejecutar un [script de PowerShell](search-manage-powershell.md), omitiendo la administración de particiones directamente.  
-+ Las [características de optimización y puntuación](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) proporcionan medios para influir en las clasificaciones de las búsquedas más allá de lo que puede proporcionar únicamente el motor de búsqueda.
 
 ### <a name="can-i-pause-azure-cognitive-search-service-and-stop-billing"></a>¿Se puede pausar el servicio Azure Cognitive Search y dejar de facturar?
 
@@ -92,6 +82,14 @@ La mayoría de las consultas de búsqueda con comodín, como las que llevan pref
 De forma predeterminada, los resultados de la búsqueda se puntúan según las [propiedades estadísticas de los términos de búsqueda de coincidencias](search-lucene-query-architecture.md#stage-4-scoring) y se ordena de mayor a menor en el conjunto de resultados. Sin embargo, algunos tipos de consulta (comodín, prefijo y regex) siempre aportan una puntuación constante a la puntuación total del documento. Este comportamiento es así por diseño. Azure Cognitive Search impone una puntuación constante que permite la inclusión de las coincidencias encontradas a través de la expansión de consultas en los resultados, pero sin que ello afecte a la clasificación.
 
 Por ejemplo, suponga que la entrada "pase*" en una búsqueda con caracteres comodín genera coincidencias en "pasear", "paseo" y "paseante". Dada la naturaleza de estos resultados, no hay ninguna manera razonable de deducir qué términos son más valiosos que los demás. Por este motivo, se omiten las frecuencias de los términos cuando se realiza la puntuación de los resultados en consultas de los tipos caracteres comodín, prefijo y regex. Los resultados de la búsqueda en función de una entrada parcial reciben una puntuación constante para evitar un sesgo hacia coincidencias potencialmente inesperadas.
+
+## <a name="skillset-operations"></a>Operaciones del conjunto de aptitudes
+
+### <a name="are-there-any-tips-or-tricks-to-reduce-cognitive-services-charges-on-ingestion"></a>¿Existen trucos o sugerencias para reducir los cargos de Cognitive Services en la ingesta?
+
+Es comprensible que solo desee ejecutar aquellas aptitudes integradas o aptitudes personalizadas que sean absolutamente necesarias, sobre todo si tiene que procesar millones de documentos. Con eso en mente, se han agregado funcionalidades de "enriquecimiento incremental" para la ejecución del conjunto de aptitudes. Esencialmente, puede especificar una ubicación de la caché (una cadena de conexión de Blob Storage) que se usará para almacenar la salida de los pasos "intermedios" del enriquecimiento.  Eso permite no solo que la canalización del enriquecimiento sea inteligente, sino también aplicar solo los enriquecimientos necesarios al modificar el conjunto de aptitudes. De esta forma, lo natural es que se ahorre también tiempo de indexación, ya que la canalización será más eficaz.
+
+Obtenga más información sobre el [enriquecimiento incremental](cognitive-search-incremental-indexing-conceptual.md)
 
 ## <a name="design-patterns"></a>Patrones de diseño
 
