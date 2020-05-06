@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 563aa701c1403a1ef26c6073496e7e59c7c5096c
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 59409c428aba938c49fc37647db82f30d783a629
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80521841"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81730573"
 ---
 # <a name="web-application-firewall-crs-rule-groups-and-rules"></a>Reglas y grupos de reglas de CRS de Firewall de aplicaciones Web
 
@@ -218,6 +218,7 @@ Los siguientes grupos de reglas y reglas están disponibles cuando se usa el Fir
 |932120|Ejecución de comando remoto = Comando de Windows PowerShell encontrado|
 |932130|Ejecución de comando remoto = Expresión de shell de Unix encontrada|
 |932140|Ejecución de comando remoto = Comando FOR/IF de Windows encontrado|
+|932150|Ejecución de comandos remotos: Ejecución directa de comandos de Unix|
 |932160|Ejecución de comando remoto = Código de shell de Unix encontrado|
 |932170|Ejecución de comando remoto = Shellshock (CVE-2014-6271)|
 |932171|Ejecución de comando remoto = Shellshock (CVE-2014-6271)|

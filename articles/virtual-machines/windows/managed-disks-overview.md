@@ -1,18 +1,18 @@
 ---
-title: Introducción a Azure Disk Storage para máquinas virtuales Windows
-description: Información general sobre los discos administrados de Azure, que controlan las cuentas de almacenamiento automáticamente cuando se usan máquinas virtuales Windows de Azure
+title: Introducción a Azure Disk Storage
+description: Información general de Azure Managed Disks, que controla las cuentas de almacenamiento automáticamente cuando se usan máquinas virtuales de Azure
 author: roygara
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.topic: overview
-ms.date: 12/02/2019
+ms.date: 04/24/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 7b2c2c1289a40d63b2f396ee59000c3aedb14c3d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 4b3a66ce00582a3ef05e77f65acdc46fbde8ce72
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75460031"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82148084"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Introducción a los discos administrados de Azure
 

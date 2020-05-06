@@ -7,19 +7,19 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: df51a408cc47908a240ceb66bf510fe3df3ce87f
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: b4a3aa4e92fcabf354de7d550ec53ead5872596d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80983405"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82144790"
 ---
 # <a name="iot-edge-module-marketplace-tab"></a>Pestaña Marketplace de módulo IoT Edge
 
 >[!Important]
->A partir del 13 de abril de 2020, se comenzará a trasladar la administración de las ofertas de módulos de IoT Edge al Centro de partners. Después de la migración, las ofertas se crearán y administrarán en el Centro de partners. Siga las instrucciones que se indican en [Creación de una oferta de módulo de IoT Edge](https://aka.ms/AzureCreateIoT) para administrar las ofertas migradas.
+>A partir del 13 de abril de 2020, se comenzará a trasladar la administración de las ofertas de módulos de IoT Edge al Centro de partners. Después de la migración, las ofertas se crearán y administrarán en el Centro de partners. Siga las instrucciones que se indican en [Creación de una oferta de módulo de IoT Edge](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation) para administrar las ofertas migradas.
 
-La pestaña **Marketplace** de la página **Nueva oferta** permite proporcionar a los clientes potenciales información de marketing, ventas y legal, así como acuerdos, y administrar los clientes potenciales generados a partir de Marketplace. Este largo formulario se divide en cuatro secciones: **Información general**, **Artefactos de Marketing**, **Administración de clientes potenciales** e **Información legal**.
+La pestaña **Marketplace** de la página **Nueva oferta** permite proporcionar a los clientes potenciales información de marketing, ventas y legal, así como acuerdos, y administrar los clientes potenciales generados a partir de Marketplace. Este largo formulario se divide en cuatro secciones: **Información general**, **Artefactos de marketing**, **Administración de clientes potenciales** y **Legal**.
 
 
 ## <a name="overview"></a>Información general
@@ -78,7 +78,7 @@ En la tabla siguiente se describen la finalidad y el contenido de estos campos. 
 
 ## <a name="marketing-artifacts"></a>Artefactos de marketing
 
-Esta sección incluye las siguientes subsecciones: **Logotipos**, **Captura de pantalla** y **Vídeos**. 
+Esta sección contiene las siguientes subsecciones: **Logotipos**, **Capturas de pantalla** y **Vídeos**. 
 
 >[!Note]
 >Los logotipos son los únicos artefactos de marketing obligatorios, aunque todos son muy recomendables para atraer al consumidor.
@@ -111,7 +111,7 @@ Esta sección incluye las siguientes subsecciones: **Logotipos**, **Captura de p
 Todos los logotipos cargados en Cloud Partner Portal deben seguir estas instrucciones:
 
 *  El diseño de Azure tiene una paleta de colores simple. Utilice pocos colores primarios y secundarios en el logotipo.
-*  Los colores de tema de Azure Portal son el blanco y el negro. Evite emplearlos como color de fondo de los logotipos. Use un color que permita destacar los logotipos en Azure Portal. Nosotros recomendamos usar colores primarios simples. Si usa un fondo transparente, asegúrese de que el texto o los logotipos no sean de color azul, blanco o negro.
+*  Los colores del tema del Portal de Azure son el blanco y el negro. Evite emplearlos como color de fondo de los logotipos. Use un color que permita destacar los logotipos en Azure Portal. Nosotros recomendamos usar colores primarios simples. Si usa un fondo transparente, asegúrese de que el texto o los logotipos no sean de color azul, blanco o negro.
 *  No use un fondo degradado en el logotipo.
 *  Evite colocar texto, incluso el nombre de la empresa o la marca, en el logotipo. El aspecto del logotipo debe ser "plano" y evitar los degradados.
 *  No estire el logotipo.

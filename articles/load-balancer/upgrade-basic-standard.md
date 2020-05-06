@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: a4c8b029b199915cce9a417430e67675a03d327f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a2d6f41756d87e43ac7db9e6a8670c453920c834
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77659958"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81770368"
 ---
 # <a name="upgrade-azure-public-load-balancer"></a>Actualización de Azure Load Balancer público
 [Azure Standard Load Balancer](load-balancer-overview.md) ofrece un amplio conjunto de funcionalidades y alta disponibilidad gracias a la redundancia de zona. Para más información acerca de la SKU de Load Balancer, consulte la [tabla de comparación](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus).
@@ -21,7 +21,6 @@ Hay tres fases en una actualización:
 
 1. Migración de la configuración
 2. Incorporación de máquinas virtuales a los grupos de back-end de Standard Load Balancer
-3. Creación de una regla de salida en Load Balancer para la conexión de salida
 
 Este artículo trata sobre la migración de la configuración. La incorporación de máquinas virtuales a los grupos de back-end puede variar en función de su entorno específico. pero [se proporcionan](#add-vms-to-backend-pools-of-standard-load-balancer) algunas recomendaciones generales de alto nivel.
 
@@ -30,18 +29,19 @@ Este artículo trata sobre la migración de la configuración. La incorporación
 Existe un script de Azure PowerShell que hace lo siguiente:
 
 * Crea una instancia de Load Balancer con una SKU estándar en el grupo de recursos y la ubicación que especifique.
-* Copia perfectamente las configuraciones del equilibrador de carga de SKU básica en la instancia de Standard Load Balancer recién creada.
+* Copia perfectamente las configuraciones de Load Balancer de SKU básica en la instancia de Standard Load Balancer recién creada.
+* Crea una regla de salida predeterminada que permite la conectividad saliente.
 
 ### <a name="caveatslimitations"></a>Advertencias y limitaciones
 
-* El script solo admite la actualización de Public Load Balancer. En el caso de la actualización interna de Basic Load Balancer, cree una instancia interna de Standard Load Balancer si no desea disponer de conectividad de salida, y cree una instancia interna de Standard Load Balancer y una instancia pública en caso contrario.
+* El script solo admite la actualización de Public Load Balancer. En el caso de la actualización interna de la instancia básica de Load Balancer, puede encontrar instrucciones en [esta página](https://docs.microsoft.com/azure/load-balancer/upgrade-basicinternal-standard).
 * Standard Load Balancer tiene una nueva dirección pública. No es posible trasladar las direcciones IP asociadas a las instancias de Basic Load Balancer existentes sin problemas a las instancias de Standard Load Balancer, ya que tienen diferentes SKU.
 * Si se crea la instancia de Standard Load Balancer en una región diferente, no podrá asociar las máquinas virtuales existentes de la región antigua a la instancia de Standard Load Balancer recién creada. Para solucionar esta limitación, asegúrese de crear una nueva máquina virtual en la nueva región.
 * Si Load Balancer no tiene ninguna configuración de IP de front-end ni grupo de back-end, es probable que se produzca un error al ejecutar el script. Asegúrese de que no están vacíos
 
 ## <a name="download-the-script"></a>Descarga del script
 
-Descargue el script de migración de la [Galería de PowerShell](https://www.powershellgallery.com/packages/AzurePublicLBUpgrade/1.0).
+Descargue el script de migración de la [Galería de PowerShell](https://www.powershellgallery.com/packages/AzurePublicLBUpgrade/2.0).
 ## <a name="use-the-script"></a>Uso del script
 
 Dispone de dos opciones en función de sus preferencias y de la configuración del entorno de PowerShell local:

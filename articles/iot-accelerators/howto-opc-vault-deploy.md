@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: f577059e1ebf70e3a9dfe9e538a9d3d49d7c8e96
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7ee186684b702a42335c6e1a7832cc5c761a69d0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71199999"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81686935"
 ---
 # <a name="build-and-deploy-the-opc-vault-certificate-management-service"></a>Compilación e implementación del servicio de administración de certificados de OPC Vault
 
@@ -22,7 +22,7 @@ En este artículo se explica cómo implementar el servicio de administración de
 > [!NOTE]
 > Para más información, consulte el [repositorio de OPC Vault](https://github.com/Azure/azure-iiot-opc-vault-service) de GitHub.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 ### <a name="install-required-software"></a>Instalación del software necesario
 
@@ -107,7 +107,7 @@ Utilice un nombre de grupo de recursos corto y sencillo. El nombre también se u
 
 ### <a name="website-name-already-in-use"></a>El nombre del sitio web ya está en uso
 
-Es posible que el nombre del sitio web ya esté en uso. Debe usar un nombre de grupo de recursos diferente. Los nombres de host que usa el script de implementación son: https://resourcegroupname.azurewebsites.net y https://resourgroupname-service.azurewebsites.net.
+Es posible que el nombre del sitio web ya esté en uso. Debe usar un nombre de grupo de recursos diferente. Los nombres de host que usa el script de implementación son: https:\//resourcegroupname.azurewebsites.net and https:\//resourgroupname-service.azurewebsites.net.
 Otros nombres de los servicios se compilan mediante la combinación de hashes de nombre corto y no es probable que entren en conflicto con otros servicios.
 
 ### <a name="azure-ad-registration"></a>Registro de Azure AD 

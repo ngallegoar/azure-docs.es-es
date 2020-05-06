@@ -10,21 +10,18 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 10/31/2019
+ms.date: 03/31/2020
 ms.author: apimpm
-ms.openlocfilehash: d33c5f75234ad7165a9062ecc3bb2a00d502f8c3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2870a654faad4e760a9d022488cb2c4c406cbeab
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74075287"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203138"
 ---
 # <a name="provision-a-self-hosted-gateway-in-azure-api-management"></a>Aprovisionamiento de una puerta de enlace autohospedada en Azure API Management
 
 El aprovisionamiento de un recurso de puerta de enlace en su instancia de Azure API Management es un requisito previo para implementar una puerta de enlace autohospedada. En este artículo se describen los pasos necesarios para aprovisionar un recurso de puerta de enlace en API Management.
-
-> [!NOTE]
-> La característica de puerta de enlace autohospedada se encuentra en versión preliminar. Durante la versión preliminar, la puerta de enlace autohospedada solo está disponible en los niveles Desarrollador y Premium sin cargo adicional. El nivel de Desarrollador está limitado a una única implementación de puerta de enlace autohospedada.
 
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -42,9 +39,6 @@ Completar la guía de inicio rápido siguiente: [Creación de una instancia de A
 
 4. Opcionalmente, puede escribir una **Descripción** del recurso de puerta de enlace.
 5. Opcionalmente, puede seleccionar **+** en **API** para asociar una o más API a este recurso de puerta de enlace.
-> [!TIP]
-> Puede asociar y quitar una API de una puerta de enlace en la pestaña **Configuración** de la API.
-
 > [!IMPORTANT]
 > De forma predeterminada, ninguna de las API existentes se asociará con el nuevo recurso de puerta de enlace. Por lo tanto, los intentos de invocarlas a través de la nueva puerta de enlace producirán la respuesta `404 Resource Not Found`.
 
@@ -55,5 +49,5 @@ Ahora el recurso de puerta de enlace se ha aprovisionado en su instancia de API 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para obtener más información sobre la puerta de enlace autohospedada, consulte [Introducción a la puerta de enlace autohospedada de Azure API Management](self-hosted-gateway-overview.md)
-* Obtenga más información sobre el procedimiento de [Implementación de una puerta de enlace autohospedada en Kubernetes](api-management-howto-deploy-self-hosted-gateway-to-k8s.md)
-* Obtenga más información sobre el procedimiento de [Implementación de una puerta de enlace autohospedada en Docker](api-management-howto-deploy-self-hosted-gateway-to-docker.md)
+* Obtenga más información sobre el procedimiento de [Implementación de una puerta de enlace autohospedada en Kubernetes](how-to-deploy-self-hosted-gateway-kubernetes.md)
+* Obtenga más información sobre el procedimiento de [Implementación de una puerta de enlace autohospedada en Docker](how-to-deploy-self-hosted-gateway-docker.md)

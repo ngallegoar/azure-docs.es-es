@@ -7,17 +7,14 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/02/2020
 keywords: aro, openshift, private cluster, red hat
-ms.openlocfilehash: b34b5d622527742447847102526eba9ee6ca220d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f4ce6c79fa9fe6d05fdea4b877a8aa7faf404a9b
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78399269"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82204175"
 ---
 # <a name="create-a-private-cluster-with-azure-red-hat-openshift-311"></a>Creación de un clúster privado con Red Hat OpenShift 3.11 en Azure
-
-> [!IMPORTANT]
-> Los clústeres privados de Red Hat OpenShift en Azure (ARO) solo están disponibles actualmente en versión preliminar privada en la región Este de EE. UU 2. La aceptación de la versión preliminar privada es solo por invitación. Asegúrese de registrar la suscripción antes de intentar habilitar esta característica.
 
 Los clústeres privados ofrecen las ventajas siguientes:
 
@@ -25,9 +22,6 @@ Los clústeres privados ofrecen las ventajas siguientes:
 * Los clientes pueden configurar la red virtual de un clúster privado, lo que le permite configurar las redes para permitir el emparejamiento con otras redes virtuales incluso en los entornos de ExpressRoute. También puede configurar DNS personalizados en la red virtual para que se integren con los servicios internos.
 
 ## <a name="before-you-begin"></a>Antes de empezar
-
-> [!NOTE]
-> Esta característica requiere la versión 2019-10-27-preview de la API de HTTP de ARO. Todavía no se admite en la CLI de Azure.
 
 Los campos del siguiente fragmento de código de configuración son nuevos y deben incluirse en la configuración del clúster. `managementSubnetCidr` debe estar dentro de la red virtual del clúster y se usa en Azure para administrar el clúster.
 

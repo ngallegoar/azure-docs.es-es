@@ -1,30 +1,30 @@
 ---
-title: Visualización de las evaluaciones de actualizaciones de Azure Update Management
+title: Visualización de las evaluaciones de actualizaciones de Update Management de Azure Automation
 description: En este artículo se describe cómo ver las evaluaciones de actualizaciones para las implementaciones de actualizaciones.
 services: automation
 ms.subservice: update-management
 ms.date: 01/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 58d3cf6261456c09195ad6dafaeb781b55d9e5ee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 75762afc9ae69da81e89ce320f454d9764f82914
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79235452"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81617393"
 ---
-# <a name="view-azure-update-management-update-assessments"></a>Visualización de las evaluaciones de actualizaciones de Azure Update Management
+# <a name="view-azure-automation-update-management-update-assessments"></a>Visualización de las evaluaciones de actualizaciones de Update Management de Azure Automation
 
 En la cuenta de Azure Automation, seleccione **Update Management** para ver el estado de sus máquinas.
 
 Esta vista proporciona información sobre las máquinas, las actualizaciones que faltan, las implementaciones de actualizaciones y las implementaciones de actualizaciones programadas. En la columna **CUMPLIMIENTO**, puede ver la última vez que se evaluó la máquina. En la columna **PREPARACIÓN DE ACTUALIZACIONES DEL AGENTE**, puede ver el estado del agente de actualización. Si hay un problema, seleccione el vínculo para dirigirse a la documentación de solución de problemas, que le ayudará a corregirlo.
 
-Para ejecutar una búsqueda de registros que devuelva información sobre la máquina, la actualización o la implementación, seleccione el elemento correspondiente de la lista. Se abre el panel **Búsqueda de registros** con una consulta para el elemento seleccionado:
+Para ejecutar una búsqueda de registros que devuelva información sobre la máquina, la actualización o la implementación, seleccione el elemento correspondiente de la lista. Se abre el panel Búsqueda de registros con una consulta para el elemento seleccionado.
 
 ![Vista predeterminada de Update Management](media/automation-update-management/update-management-view.png)
 
 ## <a name="view-missing-updates"></a>Visualización de actualizaciones que faltan
 
-Haga clic en **Actualizaciones que faltan** para ver la lista de actualizaciones que faltan en las máquinas. Se muestran todas las actualizaciones, y se pueden seleccionar. Se muestran los datos sobre el número de máquinas que requieren la actualización, los detalles del sistema operativo y un vínculo para obtener más información. El panel **Búsqueda de registros** también muestra más información sobre las actualizaciones.
+Haga clic en **Actualizaciones que faltan** para ver la lista de actualizaciones que faltan en las máquinas. Se muestran todas las actualizaciones, y se pueden seleccionar. Se muestran los datos sobre el número de máquinas que requieren la actualización, los detalles del sistema operativo y un vínculo para obtener más información. El panel Búsqueda de registros también muestra más información sobre las actualizaciones.
 
 ![Actualizaciones que faltan](./media/automation-view-update-assessments/automation-view-update-assessments-missing-updates.png)
 
@@ -36,14 +36,14 @@ En las siguientes tablas, se muestran las clasificaciones de las actualizaciones
 
 |clasificación  |Descripción  |
 |---------|---------|
-|Actualizaciones críticas     | Actualización para un problema específico que resuelve un error crítico no relacionado con la seguridad.        |
-|Actualizaciones de seguridad     | Actualización para un problema específico del producto relacionado con la seguridad.        |
-|Paquetes acumulativos de actualizaciones     | Conjunto acumulativo de revisiones que se empaquetan para facilitar la implementación.        |
+|Actualizaciones críticas     | Actualizaciones para problemas específicos que resuelven un error crítico no relacionado con la seguridad.        |
+|Actualizaciones de seguridad     | Actualizaciones para problemas específicos del producto relacionados con la seguridad.        |
+|Paquetes acumulativos de actualizaciones     | Conjunto de revisiones que se empaquetan para facilitar la implementación.        |
 |Feature Packs     | Nuevas características del producto que se distribuyen fuera de una versión del producto.        |
-|Service Packs     | Un conjunto acumulativo de revisiones que se aplican a una aplicación.        |
-|Actualizaciones de definiciones     | Una actualización de archivos de definiciones de virus o de otra índole.        |
-|Herramientas     | Utilidad o característica que ayuda a realizar una o más tareas.        |
-|Actualizaciones     | Actualización de una aplicación o archivo que están instalados actualmente.        |
+|Service Packs     | Conjuntos de revisiones que se aplican a una aplicación.        |
+|Actualizaciones de definiciones     | Actualizaciones de archivos de definiciones de virus o de otra índole.        |
+|Herramientas     | Utilidades o características que ayudan a realizar una o más tareas.        |
+|Actualizaciones     | Actualizaciones de aplicaciones o archivos instalados actualmente.        |
 
 ### <a name="linux"></a><a name="linux-2"></a>Linux
 

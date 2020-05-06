@@ -4,10 +4,10 @@ description: Application Insights realiza un análisis profundo automático de l
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.openlocfilehash: ff9f88e1d2e643d04c4417283420217e7d496caf
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81536801"
 ---
 # <a name="smart-detection-in-application-insights"></a>Detección inteligente en Application Insights

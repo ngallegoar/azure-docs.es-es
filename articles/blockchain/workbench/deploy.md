@@ -5,10 +5,10 @@ ms.date: 01/08/2020
 ms.topic: article
 ms.reviewer: brendal
 ms.openlocfilehash: 141bb8825e47eb2309f9f551990a2976e8f4e209
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78943198"
 ---
 # <a name="deploy-azure-blockchain-workbench-preview"></a>Implementación de Azure Blockchain Workbench (versión preliminar)
@@ -40,7 +40,7 @@ La siguiente es una implementación de ejemplo creada en el grupo de recursos **
 
 El costo de Blockchain Workbench se agrega al costo de los servicios de Azure subyacentes. La información de precios de los servicios de Azure se pueden calcular mediante la [calculadora de precios](https://azure.microsoft.com/pricing/calculator/).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Azure Blockchain Workbench requiere de registros de aplicación y configuraciones de Azure AD. Puede elegir entre [configurar manualmente](#azure-ad-configuration) Azure AD antes de la implementación o ejecutar un script posterior a la implementación. Si está implementando nuevamente Blockchain Workbench, consulte la [configuración de Azure AD](#azure-ad-configuration) para verificar la configuración de Azure AD.
 
@@ -84,7 +84,7 @@ Una vez que se han completado los pasos descritos en los requisitos previos, est
     | Configuración | Descripción  |
     |---------|--------------|
     | Plan de tarifa de Azure Blockchain Service | Elija el nivel de servicio **Básico** o **Estándar** de Azure Blockchain Service que se usa para Blockchain Workbench. |
-    | Configuración de Azure Active Directory | Seleccione **Agregar más adelante**.</br>Nota: Si decide [configurar previamente Azure AD](#azure-ad-configuration) o volver a implementar, elija *Agregar ahora*. |
+    | Configuración de Azure Active Directory | Seleccione **Agregar más adelante**.</br>Nota: Si decide [configurar previamente Azure AD](#azure-ad-configuration) o volver a implementar, elija *Añadir ahora*. |
     | Selección de máquina virtual | Seleccione el rendimiento de almacenamiento y el tamaño de máquina virtual preferidos para la red de cadena de bloques. Elija un tamaño más pequeño de máquina virtual, como *Estándar DS1 v2*, si tiene una suscripción con límites de servicio bajos, como el nivel Gratis de Azure. |
 
     Para **Usar existente**:
@@ -103,7 +103,7 @@ Una vez que se han completado los pasos descritos en los requisitos previos, est
      | Configuración | Descripción  |
      |---------|--------------|
      | Punto de conexión RPC de Ethereum | Proporcione el punto de conexión RPC de una red de cadena de bloques PoA existente. El punto de conexión comienza con https:// o http:// y termina con un número de puerto. Por ejemplo: `http<s>://<network-url>:<port>` |
-     | Configuración de Azure Active Directory | Seleccione **Agregar más adelante**.</br>Nota: Si decide [configurar previamente Azure AD](#azure-ad-configuration) o volver a implementar, elija *Agregar ahora*. |
+     | Configuración de Azure Active Directory | Seleccione **Agregar más adelante**.</br>Nota: Si decide [configurar previamente Azure AD](#azure-ad-configuration) o volver a implementar, elija *Añadir ahora*. |
      | Selección de máquina virtual | Seleccione el rendimiento de almacenamiento y el tamaño de máquina virtual preferidos para la red de cadena de bloques. Elija un tamaño más pequeño de máquina virtual, como *Estándar DS1 v2*, si tiene una suscripción con límites de servicio bajos, como el nivel Gratis de Azure. |
 
 1. Seleccione **Aceptar** para finalizar la configuración avanzada.

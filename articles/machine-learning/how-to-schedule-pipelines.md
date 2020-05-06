@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 11/12/2019
-ms.openlocfilehash: fed411ea171274513308ec3efa68da80e4d25f8a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8e1e718fa4e6660d72203ac98bb6d427cdba2059
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77116763"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82024564"
 ---
 # <a name="schedule-machine-learning-pipelines-with-azure-machine-learning-sdk-for-python"></a>Programación de canalizaciones de aprendizaje automático con el SDK de Azure Machine Learning para Python
 
@@ -91,13 +91,17 @@ Si la canalización se construyó con [DataPath](https://docs.microsoft.com/pyth
 ```python
 datastore = Datastore(workspace=ws, name="workspaceblobstore")
 
-reactive_schedule = Schedule.create(ws, name="MyReactiveSchedule", description="Based on time",
+reactive_schedule = Schedule.create(ws, name="MyReactiveSchedule", description="Based on input file change.",
                             pipeline_id=pipeline_id, experiment_name=experiment_name, datastore=datastore, data_path_parameter_name="input_data")
 ```
 
 ### <a name="optional-arguments-when-creating-a-schedule"></a>Argumentos opcionales al crear una programación
 
 Además de los argumentos descritos anteriormente, puede establecer el argumento `status` en `"Disabled"` para crear una programación inactiva. Por último, `continue_on_step_failure` permite pasar un valor booleano que invalidará el comportamiento de error predeterminado de la canalización.
+
+### <a name="use-azure-logic-apps-for-more-complex-workflows"></a>Uso de Azure Logic Apps para flujos de trabajo más complejos
+
+Azure Logic Apps admite flujos de trabajo más complejos y se integra mucho más ampliamente que las canalizaciones de Azure Machine Learning. Consulte [Desencadenamiento de una ejecución de una canalización de Machine Learning desde una aplicación lógica](how-to-trigger-published-pipeline.md) para más información.
 
 ## <a name="view-your-scheduled-pipelines"></a>Visualización de las canalizaciones programadas
 

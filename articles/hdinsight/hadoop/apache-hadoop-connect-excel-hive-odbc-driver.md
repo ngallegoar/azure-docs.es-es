@@ -1,27 +1,27 @@
 ---
-title: 'Excel y Apache Hadoop con el controlador ODBC: Azure HDInsight'
+title: 'Excel y Apache Hadoop con el controlador de conectividad abierta de bases de datos (ODBC): Azure HDInsight'
 description: Aprenda a configurar y usar el controlador ODBC de Microsoft Hive para que Excel consulte datos en un clúster de HDInsight desde Microsoft Excel
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 03/02/2020
-ms.openlocfilehash: f356009197c0446efa2ea2d7f0e90040229df47b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
+ms.date: 04/22/2020
+ms.openlocfilehash: 388f59f5090be43469acfde5197a658942e817f7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78251069"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82182453"
 ---
 # <a name="connect-excel-to-apache-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Conexión de Excel a Apache Hadoop en Azure HDInsight con el controlador ODBC de Microsoft Hive
 
 [!INCLUDE [ODBC-JDBC-selector](../../../includes/hdinsight-selector-odbc-jdbc.md)]
 
-La solución de macrodatos de Microsoft integra componentes de inteligencia empresarial (BI) de Microsoft con clústeres Apache Hadoop implementados en Azure HDInsight. Un ejemplo de esta integración es la capacidad de conectar Excel al almacenamiento de datos de Hive de un clúster Hadoop en HDInsight usando Microsoft Hive Open Database Connectivity (ODBC) Driver.
+La solución de macrodatos de Microsoft integra componentes de inteligencia empresarial (BI) de Microsoft con clústeres de Apache Hadoop implementados en HDInsight. Un ejemplo es la posibilidad de conectar Excel al almacenamiento de datos de Hive de un clúster de Hadoop. Conéctese con el controlador de conectividad abierta de bases de datos (ODBC) de Microsoft Hive.
 
-También es posible conectar desde Excel los datos asociados con un clúster de HDInsight y otros orígenes de datos, incluidos otros clústeres Hadoop (que no sean de HDInsight), con la utilización del complemento Microsoft Power Query para Excel. Para obtener más información acerca de la instalación y uso de Power Query, consulte [Conexión de Excel a HDInsight con Power Query](../hdinsight-connect-excel-power-query.md).
+Puede conectar los datos asociados a un clúster de HDInsight desde Excel con el complemento Microsoft Power Query para Excel. Para más información, consulte [Conexión de Excel a HDInsight con Power Query](../hdinsight-connect-excel-power-query.md).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -32,13 +32,13 @@ Antes de empezar este artículo, debe tener los siguientes elementos:
 
 ## <a name="install-microsoft-hive-odbc-driver"></a>Instalación de Microsoft Hive ODBC Driver
 
-Descargue e instale la versión de [Microsoft Hive ODBC Driver](https://www.microsoft.com/download/details.aspx?id=40886) que coincida con la versión de la aplicación donde va a usar el controlador ODBC.  En este artículo, el controlador se usa para Office Excel.
+Descargue e instale [Microsoft Hive ODBC Driver](https://www.microsoft.com/download/details.aspx?id=40886). Elija la versión que coincida con la versión de la aplicación en la que va a usar el controlador ODBC.  En este artículo, el controlador se usa para Office Excel.
 
 ## <a name="create-apache-hive-odbc-data-source"></a>Creación de un origen de datos de Apache Hive ODBC
 
 En los siguientes pasos se explica cómo crear un origen de datos de Hive ODBC.
 
-1. En Windows, vaya a Inicio > Herramientas administrativas de Windows > Orígenes de datos ODBC (32 bits)/(64 bits).  Se abre la ventana **Administrador de orígenes de datos ODBC**.
+1. En Windows, vaya a **Inicio > Herramientas administrativas de Windows > Orígenes de datos ODBC (32 bits)/(64 bits)** .  Esta acción abre la ventana **Administrador de orígenes de datos ODBC**.
 
     ![Administrador de orígenes de datos OBDC](./media/apache-hadoop-connect-excel-hive-odbc-driver/simbahiveodbc-datasourceadmin1.png "Configuración de un DSN mediante el Administrador de orígenes de datos ODBC")
 
@@ -68,7 +68,7 @@ En los siguientes pasos se explica cómo crear un origen de datos de Hive ODBC.
 
     ![Opciones de configuración avanzada de DSN](./media/apache-hadoop-connect-excel-hive-odbc-driver/hiveodbc-datasource-advancedoptions1.png "Opciones de configuración avanzada de DSN")
 
-1. Seleccione **Probar** para probar el origen de datos. Cuando el origen de datos esté configurado correctamente, el resultado de la prueba mostrará **SUCCESS!** (Correcto).  
+1. Seleccione **Probar** para probar el origen de datos. Cuando el origen de datos esté configurado correctamente, el resultado de la prueba mostrará **SUCCESS** (Correcto).
 
 1. Seleccione **Aceptar** para cerrar la ventana Probar.  
 
@@ -100,8 +100,5 @@ En este artículo se proporciona información sobre cómo usar el controlador OD
 
 * [Visualización de datos de Apache Hive con Microsoft Power BI en Azure HDInsight](apache-hadoop-connect-hive-power-bi.md).
 * [Visualización de datos de Interactive Query Hive con Power BI en Azure HDInsight](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).
-* [Uso de Apache Zeppelin para ejecutar consultas de Apache Hive en Azure HDInsight](../interactive-query/hdinsight-connect-hive-zeppelin.md).
 * [Conexión de Excel a Apache Hadoop con Power Query](apache-hadoop-connect-excel-power-query.md).
 * [Conectarse a Azure HDInsight y ejecutar consultas de Apache Hive con Herramientas de Data Lake para Visual Studio](apache-hadoop-visual-studio-tools-get-started.md).
-* [Uso de Herramientas de Azure HDInsight para Visual Studio Code](../hdinsight-for-vscode.md).
-* [Carga de datos en HDInsight](./../hdinsight-upload-data.md).

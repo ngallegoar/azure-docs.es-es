@@ -1,21 +1,15 @@
 ---
-title: 'Cargas de trabajo de contenedor: Azure Batch'
+title: Cargas de trabajo de contenedor
 description: Aprenda a ejecutar y escalar aplicaciones desde imágenes de contenedor en Azure Batch. Cree un grupo de nodos de proceso que admita la ejecución de tareas de contenedor.
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.service: batch
 ms.topic: article
-ms.workload: na
 ms.date: 03/02/2020
-ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 81f4e753ffbaaefd5761c9396a6533bac9f212c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 27edfe67152857a89840f5cd24b06d66ae8d94c1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78254836"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82116135"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Ejecución de aplicaciones de contenedor en Azure Batch
 
@@ -27,7 +21,7 @@ Debe estar familiarizado con los conceptos de contenedor y cómo crear un trabaj
 
 El uso de contenedores proporciona una manera sencilla de ejecutar tareas de Batch sin tener que administrar un entorno ni dependencias para ejecutar las aplicaciones. Los contenedores implementan aplicaciones como unidades ligeras, portátiles y autosuficientes que se pueden ejecutar en varios entornos distintos. Por ejemplo, cree y pruebe localmente un contenedor y, después cargue la imagen de contenedor en un registro en Azure o en otro lugar. El modelo de implementación de contenedor garantiza que el entorno en tiempo de ejecución de la aplicación siempre esté correctamente instalado y configurado donde sea que se hospede la aplicación. Las tareas basadas en contenedor en Batch también pueden aprovechar las características de tareas no en contenedor, incluidos los paquetes de aplicación y la administración de archivos de recursos y archivos de salida.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * **Versiones del SDK**: los SDK de Batch admiten las imágenes de contenedor en las siguientes versiones:
     * API de REST de Batch versión 2017-09-01.6.0
@@ -38,7 +32,7 @@ El uso de contenedores proporciona una manera sencilla de ejecutar tareas de Bat
 
 * **Cuentas**: en la suscripción de Azure, debe crear una cuenta de Batch y, opcionalmente, una cuenta de Azure Storage.
 
-* **Una imagen de VM compatible**: los contenedores solo se admiten en grupos creados con la configuración de Virtual Machine a partir de imágenes que se detallan en la siguiente sección, "Imágenes de máquinas virtuales admitidas". Si proporciona una imagen personalizada, consulte las consideraciones en la siguiente sección y los requisitos en [Uso de una imagen personalizada administrada para crear un grupo de máquinas virtuales](batch-custom-images.md).
+* **Una imagen de VM admitidas**: los contenedores solo se admiten en grupos creados con la configuración de máquinas virtuales a partir de imágenes que se detallan en la siguiente sección, "Imágenes de máquinas virtuales admitidas". Si proporciona una imagen personalizada, consulte las consideraciones en la siguiente sección y los requisitos en [Uso de una imagen personalizada administrada para crear un grupo de máquinas virtuales](batch-custom-images.md).
 
 ### <a name="limitations"></a>Limitaciones
 

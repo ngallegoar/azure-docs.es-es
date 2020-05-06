@@ -1,33 +1,34 @@
 ---
-title: Compatibilidad con Azure Marketplace y AppSource | Azure
+title: Soporte técnico para el marketplace comercial | Azure Marketplace
 description: Información de soporte técnico y vínculos de Azure Marketplace y AppSource
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 3/19/2020
+ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: 6cb08e11910bc0afdd4b2f454582612395cbd50f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3871ef232d9a2315ece632f6f764f8377a8435c5
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80284932"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82159922"
 ---
-# <a name="support-for-the-marketplace"></a>Soporte técnico de Azure Marketplace  
+# <a name="support-for-the-marketplace"></a>Soporte técnico de Azure Marketplace
+
 A continuación, se muestra una lista de las opciones admitidas en Marketplace.  
 
 También puede consultar muchas de las preguntas respondidas en el [canal Marketplace del foro de la comunidad de C+AI](https://www.microsoftpartnercommunity.com/t5/Marketplace/bd-p/2222).  
 
 ## <a name="onboarding"></a>Incorporación
 
-Abra un vale con el [soporte técnico del anunciante de Marketplace](https://aka.ms/marketplacepublishersupport) de Microsoft para todos los problemas relacionados con la incorporación y la introducción.
+Abra un vale con el [soporte técnico del anunciante de Marketplace](https://partner.microsoft.com/support/v2/?stage=1) de Microsoft para todos los problemas relacionados con la incorporación y la introducción.
 
-## <a name="partner-center-or-cloud-partner-portal"></a>Centro de partners o Cloud Partner Portal  
+## <a name="partner-center"></a>Centro de partners   
 
 | Canal de soporte técnico | Descripción | Disponibilidad |  
 |:--- |:--- |:--- |  
-| Para obtener ayuda, visite la página de creación de incidentes en el [soporte técnico de Marketplace](https://aka.ms/marketplacepublishersupport).</li> </ul> | Soporte técnico para el Centro de partners o Cloud Partner Portal. | La compatibilidad se proporciona 24 horas, 5 días de la semana. |  
+| Para obtener ayuda, visite la página de creación de incidentes en el [soporte técnico de Marketplace](https://partner.microsoft.com/support/v2/?stage=1).</li> </ul> | Soporte técnico para el Centro de partners. | La compatibilidad se proporciona 24 horas, 5 días de la semana. |  
 
 ## <a name="technical"></a>Requisitos previos técnicos  
 
@@ -47,7 +48,7 @@ Abra un vale con el [soporte técnico del anunciante de Marketplace](https://aka
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Visite la página [Guía del anunciante de Azure Marketplace y AppSource](https://docs.microsoft.com/azure/marketplace/).
-* Obtenga más información acerca del [Soporte técnico para el programa Marketplace comercial en el Centro de partners](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support).
+* Consulte la [guía del publicador de marketplace comercial](https://docs.microsoft.com/azure/marketplace/).
+* Más información acerca del [Soporte técnico para el programa de marketplace comercial en el Centro de partners](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support).
 
 ---
