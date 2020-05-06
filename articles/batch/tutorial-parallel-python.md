@@ -1,23 +1,18 @@
 ---
-title: 'Ejecución de una carga de trabajo paralela: Python de Azure Batch'
+title: Ejecución de una carga de trabajo paralela
 description: 'Tutorial: Procesamiento de archivos multimedia en paralelo con ffmpeg en Azure Batch con la biblioteca cliente de Python de Batch'
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.service: batch
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 11/29/2018
-ms.author: labrenne
 ms.custom: mvc
-ms.openlocfilehash: d4277e383a5cb69ef5395cb6dc477d888abd1d0d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 32e42fe04ad8ce55bbbbb90e5aca6356fd1c6f22
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77023096"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82117122"
 ---
-# <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>Tutorial: Ejecución de una carga de trabajo paralela con Azure Batch mediante la API de Python
+# <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>Tutorial: Ejecución de una carga de trabajo paralela con Azure Batch mediante Python API
 
 Use Azure Batch para ejecutar aplicaciones de informática de alto rendimiento (HPC) en paralelo y a gran escala, de manera eficaz en Azure. Este tutorial le guía a través de un ejemplo de Python de ejecución de carga de trabajo paralela con Batch. Aprenderá lo que es un flujo de trabajo de aplicación de Batch común y a interactuar con los recursos de Batch y Storage mediante programación. Aprenderá a:
 
@@ -33,7 +28,7 @@ En este tutorial, convertiremos archivos multimedia MP4 a formato MP3 en paralel
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * [Python 2.7 o 3.3, o cualquier versión posterior](https://www.python.org/downloads/)
 

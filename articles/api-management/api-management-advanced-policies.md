@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
-ms.openlocfilehash: c8ef481fe277d6451923da828f0e7473354c24cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 388f05c2af1516a0477392f37763a0480c7ad413
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79231684"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82128830"
 ---
 # <a name="api-management-advanced-policies"></a>Directivas avanzadas de API Management
 
@@ -38,7 +38,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 -   [Establecer método de solicitud](#SetRequestMethod) : le permite cambiar el método HTTP de una solicitud.
 -   [Establecimiento de código de estado](#SetStatus): cambia el código de estado HTTP al valor especificado.
 -   [Establecimiento de variable](api-management-advanced-policies.md#set-variable): conserva un valor en una variable [context](api-management-policy-expressions.md#ContextVariables) con nombre para su posterior acceso.
--   [Trace](#Trace): agrega seguimientos personalizados a la salida de la [inspección de la API](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/), a la telemetría de Application Insights y a los registros de diagnóstico.
+-   [Trace](#Trace): agrega seguimientos personalizados a la salida de la [inspección de la API](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/), a la telemetría de Application Insights y a los registros de recursos.
 -   [Wait](#Wait) (Esperar): espera a que se completen las directivas adjuntas [Send request](api-management-advanced-policies.md#SendRequest) (Enviar solicitud), [Get value from cache](api-management-caching-policies.md#GetFromCacheByKey) (Obtener el valor de caché) o [Control flow](api-management-advanced-policies.md#choose) (Flujo de control) antes de continuar.
 
 ## <a name="control-flow"></a><a name="choose"></a> Flujo de control
@@ -69,7 +69,7 @@ La directiva de flujo de control debe contener al menos un elemento `<when/>`. E
 
 En el ejemplo siguiente se muestra una directiva [set-variable](api-management-advanced-policies.md#set-variable) y dos directivas de flujo de control.
 
-La directiva de establecimiento de variable se encuentra en la sección de entrada y crea una variable de `isMobile`contexto[ booleana ](api-management-policy-expressions.md#ContextVariables) que se establece en true si el encabezado de la solicitud `User-Agent` contiene el texto `iPad` o `iPhone`.
+La directiva de establecimiento de variable se encuentra en la sección de entrada y crea una variable de [contexto](api-management-policy-expressions.md#ContextVariables) booleana `isMobile` que se establece en true si el encabezado de la solicitud `User-Agent` contiene el texto `iPad` o `iPhone`.
 
 La primera directiva de flujo de control se encuentra también en la sección de entrada y aplica condicionalmente una de las dos directivas de [establecimiento del parámetro de cadena de consulta](api-management-transformation-policies.md#SetQueryStringParameter) dependiendo del valor de la variable de contexto `isMobile`.
 
@@ -106,7 +106,7 @@ La segunda directiva de flujo de control se encuentra en la sección de salida y
 
 #### <a name="example"></a>Ejemplo
 
-En este ejemplo se muestra cómo filtrar contenido quitando elementos de datos de la respuesta recibida del servicio back-end al usar el producto `Starter`. Para ver una demostración de la configuración y el uso de esta directiva, vea [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) (Episodio 177 de Cloud Cover: más características API Management con Vlad Vinogradsky) y avance al minuto 34:30. Empiece en el minuto 31:50 para ver una introducción a la [API de previsión de Dark Sky](https://developer.forecast.io/) empleada en esta demostración.
+En este ejemplo se muestra cómo filtrar contenido quitando elementos de datos de la respuesta recibida del servicio back-end al usar el producto `Starter`. Para ver una demostración de la configuración y el uso de esta directiva, consulte el [Episodio 177 de Cloud Cover: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) (Más características de API Management con Vlad Vinogradsky) y avance hasta el minuto 34:30. Empiece en el minuto 31:50 para ver una introducción a la [API de previsión de Dark Sky](https://developer.forecast.io/) empleada en esta demostración.
 
 ```xml
 <!-- Copy this snippet into the outbound section to remove a number of data elements from the response received from the backend service based on the name of the api product -->
@@ -850,7 +850,7 @@ La directiva `set-variable` declara una variable de [contexto](api-management-po
 
 ### <a name="example"></a><a name="set-variableExample"></a> Ejemplo
 
-En el ejemplo siguiente se muestra una directiva de establecimiento de variable en la sección de entrada. Esta directiva de establecimiento de variable crea una variable de `isMobile`contexto[ booleana de ](api-management-policy-expressions.md#ContextVariables) que se establece en true si el encabezado de la solicitud `User-Agent` contiene el texto `iPad` o `iPhone`.
+En el ejemplo siguiente se muestra una directiva de establecimiento de variable en la sección de entrada. Esta directiva de establecimiento de variable crea una variable de [contexto](api-management-policy-expressions.md#ContextVariables) booleana de `isMobile` que se establece en true si el encabezado de la solicitud `User-Agent` contiene el texto `iPad` o `iPhone`.
 
 ```xml
 <set-variable name="IsMobile" value="@(context.Request.Headers["User-Agent"].Contains("iPad") || context.Request.Headers["User-Agent"].Contains("iPhone"))" />
@@ -914,11 +914,11 @@ Las expresiones usadas en la directiva `set-variable` deben devolver uno de los 
 
 ## <a name="trace"></a><a name="Trace"></a> Seguimiento
 
-La directiva `trace` agrega un seguimiento personalizado a la salida de la inspección de la API, a los datos de telemetría de Application Insights o a los registros de diagnóstico.
+La directiva `trace` agrega un seguimiento personalizado a la salida de la inspección de la API, a los datos de telemetría de Application Insights o a los registros de recursos.
 
 -   La directiva agrega un seguimiento personalizado a la salida de la [inspección de la API](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) cuando se desencadena el seguimiento, es decir, cuando el encabezado de solicitud `Ocp-Apim-Trace` está presente y establecido en true y el encabezado de solicitud `Ocp-Apim-Subscription-Key` está presente y contiene una clave válida que permite el seguimiento.
 -   La directiva crea una telemetría [Trace](https://docs.microsoft.com/azure/azure-monitor/app/data-model-trace-telemetry) en Application Insights cuando está habilitada la integración de [Application Insights](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights) y el nivel de `severity` especificado en la directiva es mayor o igual que el nivel de `verbosity` especificado en la configuración de diagnóstico.
--   La directiva agrega una propiedad en la entrada del registro cuando se habilitan los [registros de diagnóstico](https://docs.microsoft.com/azure/api-management/api-management-howto-use-azure-monitor#diagnostic-logs) y el nivel de gravedad especificado en la directiva es o igual o mayor que el nivel de detalle especificado en la configuración de diagnóstico.
+-   La directiva agrega una propiedad en la entrada del registro cuando se habilitan los [registros de recursos](https://docs.microsoft.com/azure/api-management/api-management-howto-use-azure-monitor#diagnostic-logs) y el nivel de gravedad especificado en la directiva es igual o mayor que el nivel de detalle especificado en la configuración de diagnóstico.
 
 ### <a name="policy-statement"></a>Instrucción de la directiva
 

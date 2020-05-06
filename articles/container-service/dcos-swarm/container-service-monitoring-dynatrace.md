@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/13/2016
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: a82481c5cb3d12b11179b41999f73e67583ec43b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ab6bb116c93aad8501da21dc5688d7e39f4195fe
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76277746"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82166196"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-dynatrace-saasmanaged"></a>(EN DESUSO) Supervisión de un clúster DC/OS de Azure Container Service con Dynatrace SaaS/Managed
 
@@ -27,13 +27,13 @@ La figura siguiente muestra la interfaz de usuario de Dynatrace:
 
 ![Interfaz de usuario de Dynatrace](./media/container-service-monitoring-dynatrace/dynatrace.png)
 
-## <a name="prerequisites"></a>Prerequisites 
+## <a name="prerequisites"></a>Prerrequisitos 
 [Implemente](container-service-deployment.md) y [conecte](./../container-service-connect.md) un clúster configurado por Azure Container Service. Explore la [interfaz de usuario de Marathon](container-service-mesos-marathon-ui.md). Vaya a [https://www.dynatrace.com/trial/](https://www.dynatrace.com/trial/) para configurar una cuenta de Dynatrace SaaS.  
 
 ## <a name="configure-a-dynatrace-deployment-with-marathon"></a>Configuración de una implementación de Dynatrace con Marathon
 Estos pasos muestran cómo configurar e implementar aplicaciones de Dynatrace en su clúster con Marathon.
 
-1. Acceda a la interfaz de usuario de DC/OS mediante [http://localhost:80/](http://localhost:80/). Una vez en la interfaz de usuario de DC/OS, navegue hasta la pestaña **Universe** (Universo) y, a continuación, busque **Dynatrace**.
+1. Acceda a la interfaz de usuario de DC/OS mediante `http://localhost:80/`. Una vez en la interfaz de usuario de DC/OS, navegue hasta la pestaña **Universe** (Universo) y, a continuación, busque **Dynatrace**.
 
     ![Dynatrace en Universe (Universo) en DC/OS](./media/container-service-monitoring-dynatrace/dynatrace-universe.png)
 

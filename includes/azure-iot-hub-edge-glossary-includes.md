@@ -4,15 +4,15 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: dobett
-ms.openlocfilehash: c95bca125ea70cf32acad0d5ea67c3ad195ed704
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 30b8facfef6d90a444bd61d0ce041ed7dfef324e
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "67186434"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82132131"
 ---
 ## <a name="automatic-device-management"></a>Administración automática de dispositivos
-La administración automática de dispositivos de Azure IoT Hub automatiza muchas de las tareas repetitivas y complejas de administración de grandes flotas de dispositivos durante su ciclo de vida completo. Con la administración automática de dispositivos, puede tener como destino un conjunto de dispositivos según sus propiedades, definir una configuración deseada y permitir que IoT Hub actualice los dispositivos en cuanto estén dentro del alcance.  Consta de [configuraciones automáticas de dispositivos](../articles/iot-hub/iot-hub-auto-device-config.md) e [implementaciones automáticas de IoT Edge](../articles/iot-edge/how-to-deploy-monitor.md).
+La administración automática de dispositivos de Azure IoT Hub automatiza muchas de las tareas repetitivas y complejas de administración de grandes flotas de dispositivos durante su ciclo de vida completo. Con la administración automática de dispositivos, puede tener como destino un conjunto de dispositivos según sus propiedades, definir una configuración deseada y permitir que IoT Hub actualice los dispositivos en cuanto estén dentro del alcance.  Consta de [configuraciones automáticas de dispositivos](../articles/iot-hub/iot-hub-auto-device-config.md) e [implementaciones automáticas de IoT Edge](../articles/iot-edge/how-to-deploy-at-scale.md).
 
 ## <a name="iot-edge"></a>IoT Edge
 Azure IoT Edge permite una implementación controlada por la nube de los servicios de Azure y código específico de solución para dispositivos locales. Los dispositivos IoT Edge pueden agregar datos de otros dispositivos para realizar computación y análisis antes de que los datos se envíen a la nube. Para obtener más información, vea el artículo sobre [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/).
@@ -60,4 +60,4 @@ El sistema de tiempo de ejecución de IoT Edge incluye todo lo que Microsoft dis
 Una operación que copia el contenido de un manifiesto IoT Edge en el módulo gemelo de un dispositivo. La API subyacente es un tipo genérico "aplicar configuración", que simplemente toma un manifiesto de IoT Edge como entrada.
 
 ## <a name="iot-edge-target-condition"></a>Condición de destino de IoT Edge
-En una implementación IoT Edge, la condición de destino es cualquier condición booleana en las etiquetas de dispositivo gemelo para seleccionar los dispositivos de destino de la implementación, por ejemplo, **tag.environment = prod**. La condición de destino se evalúa continuamente para incluir todos los nuevos dispositivos que cumplen los requisitos o desconectar los dispositivos que ya no lo hacen. Obtenga más información sobre la [condición de destino](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring#target-condition)
+En una implementación de IoT Edge, la condición de destino es cualquier condición booleana en las etiquetas de los dispositivos gemelos para seleccionar los dispositivos de destino de la implementación, como por ejemplo, **tag.environment = prod**. La condición de destino se evalúa continuamente para incluir todos los nuevos dispositivos que cumplen los requisitos o desconectar los dispositivos que ya no lo hacen. Obtenga más información sobre la [condición de destino](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring#target-condition)

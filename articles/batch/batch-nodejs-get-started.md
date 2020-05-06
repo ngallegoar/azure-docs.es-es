@@ -1,28 +1,21 @@
 ---
-title: 'Tutorial: Uso de la biblioteca de clientes de Azure Batch para Node.js | Microsoft Docs'
+title: 'Tutorial: Uso de la biblioteca cliente de Azure Batch para Node.js'
 description: Aprenda los conceptos básicos de Azure Batch y cree una solución sencilla mediante Node.js.
-services: batch
-author: shwetams
-manager: evansma
 ms.assetid: ''
-ms.service: batch
-ms.devlang: nodejs
 ms.topic: conceptual
-ms.workload: big-compute
 ms.date: 05/22/2017
-ms.author: shg
-ms.openlocfilehash: c112fb0b2d0eb3b8a66731948f48c8038a2296f8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ccf0778938c873a5510f1408bf31d95c9d6ee873
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77023657"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82116866"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Introducción al SDK de Batch para Node.js
 
 Obtenga información acerca de los conceptos básicos de la creación de un cliente de Batch con Node.js en [Microsoft Azure SDK for Node.js - Batch Service](/javascript/api/overview/azure/batch) (SDK de Microsoft Azure SDK para Node.js: servicio Batch). Vamos a describir paso a paso un escenario de aplicación por lotes y, a continuación, su configuración mediante un cliente de Node.js.  
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 En este artículo se da por hecho que tiene conocimientos prácticos de Node.js y está familiarizado con Linux. También necesitará una cuenta de Azure configurada con derechos de acceso para crear servicios de Batch y Storage.
 
 Es recomendable leer [Azure Batch Technical Overview](batch-technical-overview.md) (Información general técnica de Azure Batch) antes de seguir los pasos que se describen en este artículo.
@@ -279,13 +272,13 @@ Puede cargar el script en una cuenta de Azure Storage y generar un URI de SAS pa
 
 La tarea de preparación se especifica durante el envío de un trabajo de Azure Batch. Estos son los parámetros de configuración de la tarea de preparación:
 
-* **ID**: identificador único de la tarea de preparación
-* **commandLine**: comando para ejecutar la tarea
+* **Identificador**: identificador único de la tarea de preparación.
+* **commandLine**: línea de comandos para ejecutar el ejecutable de la tarea.
 * **resourceFiles**: matriz de objetos que proporciona detalles de los archivos que se deben descargar para que la tarea se ejecute.  Las opciones son
-    - blobSource: el URI de SAS del archivo
-    - filePath: ruta de acceso local para descargar y guardar el archivo
-    - fileMode: fileMode solo es aplicable para nodos de Linux, está en formato octal con un valor predeterminado de 0770
-* **waitForSuccess**: si se establece en true, la tarea no se ejecuta si existen errores en la tarea de preparación
+    - blobSource: el URI de SAS del archivo.
+    - filePath: ruta de acceso local para descargar y guardar el archivo.
+    - fileMode: solo es aplicable para nodos de Linux; está en formato octal con un valor predeterminado de 0770.
+* **waitForSuccess**: si se establece en true, la tarea no se ejecuta si existen errores en la tarea de preparación.
 * **runElevated**: establézcalo en true si se necesitan privilegios elevados para ejecutar la tarea.
 
 El fragmento de código siguiente muestra el ejemplo de script de configuración de la tarea de preparación:
@@ -317,8 +310,8 @@ Una vez creado el trabajo para procesar archivos CSV, se crearán las tareas par
 
 Si observamos el [script de Python](https://github.com/shwetams/azure-batchclient-sample-nodejs/blob/master/processcsv.py), vemos que acepta dos parámetros:
 
-* container name: (nombre del contenedor) el contenedor de almacenamiento desde el que se van a descargar los archivos
-* pattern: (patrón) parámetro opcional de un patrón de nombre de archivo
+* container name (nombre del contenedor): el contenedor de almacenamiento del que se van a descargar los archivos.
+* pattern (patrón): parámetro opcional de un patrón de nombre de archivo
 
 Suponiendo que tenemos cuatro contenedores denominados "con1", "con2", "con3" y "con4", el siguiente código muestra el envío de tareas al trabajo de Azure Batch denominado "process csv" (procesar archivos CSV) que creamos anteriormente.
 

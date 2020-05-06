@@ -2,26 +2,35 @@
 title: Actualización de un grupo de contenedores
 description: Aprenda a actualizar contenedores en ejecución en los grupos de contenedores de Azure Container Instances.
 ms.topic: article
-ms.date: 09/03/2019
-ms.openlocfilehash: f57ebcf050b5563b45f10af57c1721338df88ff9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/17/2020
+ms.openlocfilehash: d64590c553f4ae4ef462d4468fade68861db31c3
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74533298"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160109"
 ---
 # <a name="update-containers-in-azure-container-instances"></a>Actualización de contenedores en Azure Container Instances
 
-Durante el funcionamiento normal de las instancias de contenedor, puede que sea necesario actualizar los contenedores en ejecución de un [grupo de contenedores](container-instances-container-groups.md). Por ejemplo, podría querer actualizar la versión de la imagen, cambiar un nombre DNS, actualizar las variables de entorno o el estado de un contenedor cuya aplicación se ha bloqueado.
-
-> [!NOTE]
-> No se pueden actualizar los grupos de contenedores finalizados o eliminados. Una vez que un grupo de contenedores ha finalizado (se encuentra en un estado correcto o con errores) o se ha eliminado, el grupo se debe implementar como nuevo.
-
-## <a name="update-a-container-group"></a>Actualización de un grupo de contenedores
+Durante el funcionamiento normal de las instancias de contenedor, puede que sea necesario actualizar los contenedores en ejecución de un [grupo de contenedores](container-instances-container-groups.md). Por ejemplo, podría querer actualizar una propiedad, como la versión de la imagen, un nombre DNS o una variable de entorno o actualizar una propiedad de un contenedor cuya aplicación se ha bloqueado.
 
 Para actualizar los contenedores de un grupo de contenedores en ejecución, vuelva a implementar un grupo existente con al menos una propiedad modificada. Al actualizar un grupo de contenedores, todos los contenedores en ejecución en el grupo se reinician en contexto, por lo general en el mismo host de contenedor subyacente.
 
-Para reimplementar un grupo de contenedores existente, emita el comando create (o use Azure Portal) y especifique el nombre de un grupo existente. Modifique al menos una propiedad válida del grupo cuando emita el comando CREATE para desencadenar la reimplementación y deje sin modificar las propiedades restantes (o siga usando los valores predeterminados). No todas las propiedades del grupo de contenedores son válidas para una reimplementación. Para ver una lista de propiedades no admitidas, consulte [Propiedades que requieren la eliminación del contenedor](#properties-that-require-container-delete).
+> [!NOTE]
+> No se pueden actualizar los grupos de contenedores finalizados o eliminados. Una vez que un grupo de contenedores ha finalizado (se encuentra en un estado correcto o con errores) o se ha eliminado, el grupo se debe implementar como nuevo. Consulte otras [limitaciones](#limitations).
+
+## <a name="update-a-container-group"></a>Actualización de un grupo de contenedores
+
+Para actualizar un grupo de contenedores existente:
+
+* Emita el comando create (o use Azure Portal) y especifique el nombre de un grupo existente. 
+* Modifique o agregue al menos una propiedad del grupo que admita su actualización cuando vuelva a realizar la implementación. Algunas propiedades [no admiten actualizaciones](#properties-that-require-container-delete).
+* Establezca otras propiedades con los valores que proporcionó anteriormente. Si no establece un valor para una propiedad, se revierte a su valor predeterminado.
+
+> [!TIP]
+> Un [archivo YAML](/container-instances-container-groups.md#deployment) ayuda a mantener una configuración de implementación de un grupo de contenedores y proporciona un punto inicial para implementar un grupo actualizado. Si ha utilizado un método diferente para crear el grupo, puede exportar la configuración a YAML mediante [az container export][az-container-export]. 
+
+### <a name="example"></a>Ejemplo
 
 En el siguiente ejemplo de la CLI de Azure se actualiza un grupo de contenedores con una nueva etiqueta de nombre DNS. Dado la propiedad de etiqueta del nombre DNS del grupo es una de las que se pueden actualizar, se vuelve a implementar el grupo de contenedores y se reinician sus contenedores.
 
@@ -33,7 +42,7 @@ az container create --resource-group myResourceGroup --name mycontainer \
     --image nginx:alpine --dns-name-label myapplication-staging
 ```
 
-Actualice el grupo de contenedores con una nueva etiqueta de nombre DNS, *myapplication*, y deje las propiedades restantes sin cambios:
+Actualice el grupo de contenedores con la nueva etiqueta de nombre DNS *myapplication* y establezca las demás propiedades con los valores usados previamente:
 
 ```azurecli-interactive
 # Update DNS name label (restarts container), leave other properties unchanged
@@ -49,25 +58,21 @@ Las aplicaciones basadas en imágenes de contenedor más grandes, como Windows S
 
 ## <a name="limitations"></a>Limitaciones
 
-No todas las propiedades de un grupo de contenedores admiten actualizaciones. Para cambiar algunas propiedades de un grupo de contenedores, primero debe eliminar y volver a implementar el grupo. Para más información, consulte [Propiedades que requieren la eliminación del contenedor](#properties-that-require-container-delete).
-
-Todos los contenedores de un grupo de contenedores se reinician al actualizar el grupo de contenedores. No se puede realizar una actualización o reinicio local de un contenedor específico en un grupo de varios contenedores.
-
-La dirección IP de un contenedor no cambia normalmente entre actualizaciones, pero no se garantiza que permanezca igual. Mientras el grupo de contenedores esté implementado en el mismo host subyacente, conservará su dirección IP. Aunque es poco habitual, y Azure Container Instances hace todo lo posible para volver a realizar la implementación en el mismo host, algunos eventos internos de Azure pueden provocar la reimplementación en otro host. Para mitigar este problema, use siempre una etiqueta de nombre DNS para las instancias de contenedor.
-
-No se pueden actualizar los grupos de contenedores finalizados o eliminados. Una vez que se ha detenido un grupo de contenedores (se encuentra en estado *Terminado* estado) o se ha eliminado, el grupo se implementa como nuevo.
+* No todas las propiedades de un grupo de contenedores admiten actualizaciones. Para cambiar algunas propiedades de un grupo de contenedores, primero debe eliminar y volver a implementar el grupo. Consulte [Propiedades que requieren la eliminación del contenedor](#properties-that-require-container-delete).
+* Todos los contenedores de un grupo de contenedores se reinician al actualizar el grupo de contenedores. No se puede realizar una actualización o reinicio local de un contenedor específico en un grupo de varios contenedores.
+* La dirección IP de un grupo de contenedores normalmente se mantiene entre actualizaciones, pero no se garantiza que permanezca igual. Mientras el grupo de contenedores esté implementado en el mismo host subyacente, conservará su dirección IP. Aunque no es habitual, hay algunos eventos internos de Azure que pueden provocar una nueva implementación en un host diferente. Para mitigar este problema, se recomienda utilizar una etiqueta de nombre DNS para las instancias de contenedor.
+* No se pueden actualizar los grupos de contenedores finalizados o eliminados. Una vez que se ha detenido un grupo de contenedores (se encuentra en estado *Terminado*) o se ha eliminado, el grupo se implementa como nuevo.
 
 ## <a name="properties-that-require-container-delete"></a>Propiedades que requieren la eliminación del contenedor
 
-Como se mencionó anteriormente, no todas las propiedades del grupo de contenedores se pueden actualizar. Por ejemplo, para cambiar los puertos o reiniciar la directiva de un contenedor, primero debe eliminar el grupo de contenedores y luego volver a crearlo.
+No todas las propiedades del grupo de contenedores se pueden actualizar. Por ejemplo, para cambiar la directiva de reinicio de un contenedor, primero debe eliminar el grupo de contenedores y luego volver a crearlo.
 
-Estas propiedades requieren la eliminación del grupo de contenedores antes de volver a implementarlo:
+Los cambios en estas propiedades requieren la eliminación del grupo de contenedores antes de volver a implementarlo:
 
 * Tipo de SO
-* CPU
-* Memoria
+* CPU, memoria o recursos de GPU
 * Directiva de reinicio
-* Puertos
+* Perfil de red
 
 Al eliminar un grupo de contenedores y volver a crearlo, no se reimplementa sino que se crea uno nuevo. Todas las capas de imagen se extraen actualizadas del Registro, y no de las almacenadas en caché por una implementación anterior. La dirección IP del contenedor también podría cambiar debido a que se implementa en un host subyacente diferente.
 
@@ -86,3 +91,4 @@ Se ha mencionado varias veces en este artículo el **grupo de contenedores**. Ca
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container?view=azure-cli-latest#az-container-create
 [azure-cli-install]: /cli/azure/install-azure-cli
+[az-container-export]: /cli/azure/container#az-container-export
