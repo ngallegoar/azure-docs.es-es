@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/12/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: ddcb47bfe8ba2b77efd8ff0aed52f1412107f0c5
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: d3e4535c05ef077d14ef74310459a84af0f02fd5
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81456505"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82176335"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-importexport-service"></a>Uso de claves administradas por el cliente en Azure Key Vault para el servicio Import/Export
 
@@ -101,9 +101,8 @@ Si recibe errores relacionados con la clave administrada por el cliente, use la 
 | Código de error     |Detalles     | ¿Recuperable?    |
 |----------------|------------|-----------------|
 | CmkErrorAccessRevoked | Se aplicó una clave administrada por el cliente, pero el acceso a la clave está revocado actualmente. Para obtener más información, consulte cómo [habilitar el acceso a las claves](https://docs.microsoft.com/rest/api/keyvault/vaults/updateaccesspolicy).                                                      | Sí, compruebe si: <ol><li>Key Vault todavía tiene el MSI en la directiva de acceso.</li><li>La directiva de acceso proporciona permisos para Obtener, Ajustar y Desajustar.</li><li>Si el almacén de claves está en una red virtual detrás del firewall, compruebe si la opción **Permitir servicios de Microsoft de confianza** está habilitada.</li></ol>                                                                                            |
-| CmkErrorDisabled      | Se aplicó una clave administrada por el cliente, pero está deshabilitada. Para obtener más información, consulte cómo [habilitar la clave](https://docs.microsoft.com/rest/api/keyvault/vaults/createorupdate).                                                                             | Sí, habilitando la versión de la clave.     |
-| CmkErrorNotFound      | Se aplicó una clave administrada por el cliente, pero no se encuentra la clave. <br>Si la clave se elimina y se purga después del período de retención, no puede recuperar la clave. Si realizó una copia de seguridad de la clave, puede restaurar la clave para resolver este problema. | No, la clave se eliminó y también se purgó después del período de retención. <br>Sí, solo si el cliente tiene una copia de seguridad de la clave y la restaura.  |
-| CmkErrorVaultNotFound | Se aplicó una clave administrada por el cliente, pero no se encuentra el almacén de claves asociado a la clave.<br>Si eliminó el almacén de claves, no puede recuperar la clave administrada por el cliente.  Si migró el almacén de claves a otro inquilino, consulte [Cambio del identificador de inquilino de Key Vault después de mover una suscripción](https://docs.microsoft.com/azure/key-vault/key-vault-subscription-move-fix). |   No, si el cliente eliminó el almacén de claves.<br> Sí, si se sometió el almacén de claves a una migración de inquilinos, siga uno de estos pasos: <ol><li>Devuelva el almacén de claves al inquilino anterior.</li><li>Establezca Identity = None y, a continuación, devuelva a Identity = SystemAssigned. Esto elimina la identidad y vuelve a crearla.</li></ol>|
+| CmkErrorKeyDisabled      | Se aplicó una clave administrada por el cliente, pero está deshabilitada. Para obtener más información, consulte cómo [habilitar la clave](https://docs.microsoft.com/rest/api/keyvault/vaults/createorupdate).                                                                             | Sí, habilitando la versión de la clave.     |
+| CmkErrorKeyNotFound      | Se aplicó una clave administrada por el cliente, pero no se encuentra el almacén de claves asociado a la clave.<br>Si eliminó el almacén de claves, no puede recuperar la clave administrada por el cliente.  Si migró el almacén de claves a otro inquilino, consulte [Cambio del identificador de inquilino de Key Vault después de mover una suscripción](https://docs.microsoft.com/azure/key-vault/key-vault-subscription-move-fix). |   Si eliminó el almacén de claves:<ol><li>Sí, si está dentro de la duración de la protección de purga, con los pasos descritos en [Recuperación de un almacén de claves](https://docs.microsoft.com/azure/key-vault/general/soft-delete-powershell#recovering-a-key-vault).</li><li>No, si está fuera de la duración de la protección de purga.</li></ol><br>De lo contrario, si el almacén de claves pasó por una migración de inquilinos, sí, se puede recuperar con uno de estos pasos: <ol><li>Revierta el almacén de claves de vuelta al inquilino anterior.</li><li>Establezca `Identity = None` y, luego, vuelva a establecer el valor en `Identity = SystemAssigned`. Esto elimina y vuelve a crear la identidad una vez que se crea la identidad nueva. Habilite los permisos `Get`, `Wrap` y `Unwrap` a la identidad nueva en la directiva de acceso del almacén de claves.</li></ol>|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

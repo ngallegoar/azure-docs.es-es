@@ -7,14 +7,14 @@ author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.date: 02/26/2020
+ms.date: 04/23/2020
 ms.author: tamram
-ms.openlocfilehash: 2e1b1ac2ea315759b18dc882b98837bca0a84d46
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 333d9f12ff817a5264183666cd1b858075a93077
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80061437"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82176692"
 ---
 # <a name="quickstart-create-download-and-list-blobs-with-azure-cli"></a>Inicio rápido: Creación, descarga y enumeración de blobs mediante la CLI de Azure
 
@@ -72,7 +72,7 @@ az storage account create \
     --resource-group <resource-group> \
     --location <location> \
     --sku Standard_ZRS \
-    --encryption blob
+    --encryption-services blob
 ```
 
 ## <a name="create-a-container"></a>Crear un contenedor
@@ -163,7 +163,7 @@ az group delete \
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía de inicio rápido, aprendió a transferir archivos entre un sistema de archivos local y un contenedor en Azure Blob Storage. Para más información sobre cómo trabajar con blobs en Azure Storage, continúe con el tutorial para trabajar con Azure Blob Storage.
+En esta guía de inicio rápido, aprendió a transferir archivos entre un sistema de archivos local y un contenedor en Azure Blob Storage. Para más información sobre cómo trabajar con Blob Storage mediante la CLI de Azure, explore los ejemplos de la CLI de Azure para Blob Storage.
 
 > [!div class="nextstepaction"]
-> [Cómo: Operaciones de Blob Storage con la CLI de Azure](storage-how-to-use-blobs-cli.md)
+> [Ejemplos de la CLI de Azure para Blob Storage](/azure/storage/blobs/storage-samples-blobs-cli?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

@@ -7,29 +7,15 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: dsindona
-ms.openlocfilehash: 823c9cbe8c850fbc4170a5734305f9cc5e45be83
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 405593a97571ac5be351011890d162b5c0396966
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80285289"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81865574"
 ---
 # <a name="create-an-azure-application-offer"></a>Creación de una oferta de aplicación de Azure
 
-En este artículo se explica cómo crear y publicar una entrada de oferta de aplicación de Azure para Azure Marketplace. Cada oferta aparece como una entidad propia en Azure Marketplace y se compone de los siguientes grupos de recursos y servicios de soporte técnico: detalles de la oferta, SKU, artefactos de marketing y la información de soporte técnico.
+[Cloud Partner Portal](https://cloudpartner.azure.com/) ya no admite la creación y la administración de ofertas de aplicaciones de Azure. En su lugar, esta funcionalidad se ha movido al [portal del Centro de partners](https://partner.microsoft.com/) de Microsoft. Para más información, vea [Crear una oferta de una aplicación de Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-azure-apps-offer).
 
-## <a name="new-offer-form"></a>Formulario Nueva oferta
-
-Inicie sesión en [Cloud Partner Portal](https://cloudpartner.azure.com/) y seleccione **+ New offer** (+ Nueva oferta) en la barra de menús de la izquierda. En el menú Nueva oferta, seleccione **Azure Applications** (Aplicaciones de Azure) para mostrar el formulario **Nueva oferta** e iniciar el proceso de definición de recursos para una nueva oferta.
-
-![Formulario Nueva oferta](./media/azure-new-managedapp-offer.png)
-
-## <a name="next-steps"></a>Pasos siguientes
-
-La página Nueva oferta proporciona un conjunto de pestañas y campos de formulario que se usarán para crear una oferta. En los siguientes artículos se explica cómo definir los grupos de recursos y servicios auxiliares de la nueva oferta.
-
-* [Pestaña Configuración de la oferta](./cpp-offer-settings-tab.md)
-* [Pestaña SKU](./cpp-skus-tab.md)
-* [Pestaña Versión de prueba](./cpp-testdrive-tab.md)
-* [Pestaña Marketplace](./cpp-marketplace-tab.md)
-* [Pestaña Soporte técnico](./cpp-support-tab.md)
+Antes de crear una oferta de aplicación de Azure, debe leer [Creación de una cuenta del Centro de partners](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) y, luego, abrir el [panel de Marketplace comercial](https://partner.microsoft.com/dashboard/directory) con la página **Información general** seleccionada. Siga las instrucciones que se indican en [Creación de una oferta de aplicación de Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-azure-apps-offer) para crear la oferta.

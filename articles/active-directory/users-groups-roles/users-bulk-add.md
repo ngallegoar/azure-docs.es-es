@@ -1,11 +1,11 @@
 ---
-title: Creación masiva de usuarios (versión preliminar) en el portal de Azure Active Directory | Microsoft Docs
+title: Creación masiva de usuarios en el portal de Azure Active Directory | Microsoft Docs
 description: Adición de usuarios en bloque en el Centro de administración de Azure AD de Azure Active Directory
 services: active-directory
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 08/30/2019
+ms.date: 04/27/2020
 ms.topic: article
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,20 +13,41 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a10dfffa69652ee2b75053c04b97f6492c46811e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 03f6e3d6edde51598b1d148469aceb1ff3b3d636
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72174309"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203421"
 ---
-# <a name="bulk-create-users-preview-in-azure-active-directory"></a>Creación masiva de usuarios (versión preliminar) en Azure Active Directory
+# <a name="bulk-create-users-in-azure-active-directory"></a>Creación masiva de usuarios en Azure Active Directory
 
-Azure Active Directory (Azure AD) admite operaciones de creación y eliminación de usuarios en bloque, invitar usuarios en bloque y la descarga de listas de usuarios, grupos y miembros del grupo.
+Azure Active Directory (Azure AD) admite operaciones de creación y eliminación de usuarios en bloque y la descarga de listas de usuarios. Solo tiene que rellenar la plantilla de valores separados por comas (CSV) que puede descargar en el portal de Azure AD.
 
 ## <a name="required-permissions"></a>Permisos necesarios
 
 Para crear usuarios en bloque en el portal de administración, debe iniciar sesión como administrador global o administrador de usuarios.
+
+## <a name="understand-the-csv-template"></a>Descripción de la plantilla CSV
+
+Descargue y rellene la plantilla CSV de carga masiva para facilitar la creación en bloque correcta de los usuarios de Azure AD. La plantilla CSV que descargue podría parecerse a este ejemplo:
+
+![Hoja de cálculo para la carga y notas que explican el propósito y los valores de cada fila y columna](./media/users-bulk-add/create-template-example.png)
+
+### <a name="csv-template-structure"></a>Estructura de la plantilla CSV
+
+Las filas de una plantilla CSV descargada son las siguientes:
+
+- **Número de versión**: la primera fila, que contiene el número de versión, debe estar incluida en el archivo CSV de carga.
+- **Encabezados de columna**: el formato de los encabezados de columna es &lt;*Nombre del elemento*&gt; [nombreDePropiedad] &lt;*Required (Obligatorio) o en blanco*&gt;. Por ejemplo, `Name [displayName] Required`. Algunas versiones anteriores de la plantilla podrían tener ligeras variaciones.
+- **Fila de ejemplos**: en la plantilla se incluye una fila de ejemplos de valores válidos para cada columna. Debe quitar la fila de ejemplos y reemplazarla por sus propias entradas.
+
+### <a name="additional-guidance"></a>Instrucciones adicionales
+
+- Las dos primeras filas de la plantilla de carga no se deben quitar ni modificar, o no se podrá procesar la carga.
+- Las columnas necesarias se enumeran en primer lugar.
+- No se recomienda agregar nuevas columnas a la plantilla. Cualquier columna adicional que agregue se omitirá y no se procesará.
+- Se recomienda que descargue la versión más reciente de la plantilla CSV tan a menudo como sea posible.
 
 ## <a name="to-create-users-in-bulk"></a>Para crear usuarios en bloque
 
@@ -38,9 +59,9 @@ Para crear usuarios en bloque en el portal de administración, debe iniciar sesi
 
 1. Abra el archivo CSV y agregue una línea por cada usuario que desee crear. Los únicos valores necesarios son **Nombre**, **Nombre principal del usuario**, **Contraseña inicial** y **Bloquear inicio de sesión (Sí/No)** . A continuación, guarde el archivo.
 
-   ![El archivo CSV contiene los nombres y los identificadores de los usuarios que se crearán.](./media/users-bulk-add/add-csv-file.png)
+   [![](media/users-bulk-add/add-csv-file.png "The CSV file contains names and IDs of the users to create")](media/users-bulk-add/add-csv-file.png#lightbox)
 
-1. En la página **Bulk create user (Preview)** (Creación masiva de usuarios [versión preliminar]), en Cargue el archivo csv, vaya al archivo. Al seleccionar el archivo y hacer clic en **Enviar**, comienza su validación.
+1. En la página **Creación masiva de usuarios**, en Cargue el archivo csv, vaya al archivo. Al seleccionar el archivo y hacer clic en **Enviar**, comienza su validación.
 1. Cuando finalice la validación del contenido del archivo, aparecerá el mensaje **Archivo cargado correctamente**. Si hay errores, debe corregirlos para poder enviar el trabajo.
 1. Cuando el archivo supere la validación, seleccione **Enviar** para iniciar la operación masiva de Azure que importa los nuevos usuarios.
 1. Cuando la operación de importación finalice, verá una notificación que indicará el estado del trabajo de la operación masiva.
@@ -49,9 +70,9 @@ Si hay errores, puede descargar y ver el archivo de resultados en la página **R
 
 ## <a name="check-status"></a>Comprobar estado
 
-Puede ver el estado de todas las solicitudes masivas pendientes en la página de **resultados de la operación masiva (versión preliminar)** .
+Puede ver el estado de todas las solicitudes masivas pendientes en la página **Resultados de la operación masiva**.
 
-   ![Comprobación del estado de carga en la página de resultados de la operación masiva](./media/users-bulk-add/bulk-center.png)
+   [![](media/users-bulk-add/bulk-center.png "Check create status in the Bulk Operations Results page")](media/users-bulk-add/bulk-center.png#lightbox)
 
 A continuación, puede comprobar que los usuarios creados existen en la organización de Azure AD en Azure Portal o mediante PowerShell.
 

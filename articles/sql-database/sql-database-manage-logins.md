@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/23/2020
-ms.openlocfilehash: 98c15fe11b64e8c177e60a2ea1eb7c50eaf69353
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0f1611e6d3524cc78fc20fed9d1aac6f3fd453fa
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80124802"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82106447"
 ---
 # <a name="authorizing-database-access-to-authenticated-users-to-sql-database-and-azure-synapse-analytics-using-logins-and-user-accounts"></a>Autorización del acceso a bases de datos para usuarios autenticados en SQL Database y Azure Synapse Analytics a través de inicios de sesión y cuentas de usuario
 
@@ -39,7 +39,7 @@ Cuando un usuario intenta conectarse a una base de datos, proporciona una cuenta
 
 - [Autenticación SQL](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication).
 
-  Con este método de autenticación, el usuario envía un nombre de cuenta de usuario y una contraseña asociada para establecer una conexión. Esta contraseña se almacena en la base de datos maestra de cuentas de usuario vinculadas a un inicio de sesión, o bien en la base de datos que contiene las cuentas de usuario no vinculadas a un inicio de sesión.
+  Con este método de autenticación, el usuario envía un nombre de cuenta de usuario y una contraseña asociada para establecer una conexión. Esta contraseña se almacena en la base de datos maestra de cuentas de usuario vinculadas a un inicio de sesión, o bien en la base de datos que contiene las cuentas de usuario *no* vinculadas a un inicio de sesión.
 - [Autenticación con Azure Active Directory](sql-database-aad-authentication.md)
 
   Con este método de autenticación, el usuario envía un nombre de cuenta de usuario y solicita que el servicio use la información de credenciales que hay almacenada en Azure Active Directory.

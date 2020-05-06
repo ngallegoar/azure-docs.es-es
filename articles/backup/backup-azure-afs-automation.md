@@ -3,12 +3,12 @@ title: Copia de seguridad de Azure Files con PowerShell
 description: En este artículo se aprende a realizar copias de seguridad de Azure Files mediante el servicio Azure Backup y PowerShell.
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: f85451e0da6458de34aea936836b46781f4c4a21
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 865cfc6daa7568236b0306ba591b42a9f7704dd4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79233952"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82101185"
 ---
 # <a name="back-up-azure-files-with-powershell"></a>Copia de seguridad de Azure Files con PowerShell
 
@@ -26,7 +26,6 @@ En este artículo se explica lo siguiente:
 ## <a name="before-you-start"></a>Antes de comenzar
 
 * [Más información](backup-azure-recovery-services-vault-overview.md) sobre los almacenes de Recovery Services.
-* Descubra las funcionalidades de vista previa para realizar una [copia de seguridad de recursos compartidos de archivos de Azure](backup-afs.md).
 * Revise la jerarquía de objetos de PowerShell para Recovery Services.
 
 ## <a name="recovery-services-object-hierarchy"></a>Jerarquía de objetos de Recovery Services
@@ -35,7 +34,7 @@ En el diagrama siguiente, se resume la jerarquía de objetos.
 
 ![Jerarquía de objetos de Recovery Services](./media/backup-azure-vms-arm-automation/recovery-services-object-hierarchy.png)
 
-Revise la **referencia de cmdlet** de [Az.RecoveryServices](/powershell/module/az.recoveryservices) en la biblioteca de Azure.
+Revise la [referencia de cmdlet](/powershell/module/az.recoveryservices) de **Az.RecoveryServices** en la biblioteca de Azure.
 
 ## <a name="set-up-and-install"></a>Configuración e instalación
 
@@ -45,12 +44,12 @@ Configure PowerShell como sigue:
 
 1. [Descargue la versión más reciente de Azure PowerShell](/powershell/azure/install-az-ps). La versión 1.0.0 es la versión mínima requerida.
 
-> [!WARNING]
-> La versión mínima de PS necesaria para la versión preliminar era "Az 1.0.0". Debido a los próximos cambios de disponibilidad general, la versión mínima de PS necesaria será "Az.RecoveryServices 2.6.0". Es muy importante actualizar todas las versiones de PS existentes a esta versión. De lo contrario, los scripts existentes se interrumpirán después de la disponibilidad general. Instalación de la versión mínima con los siguientes comandos de PS
+    > [!WARNING]
+    > La versión mínima de PS necesaria para la copia de seguridad de recursos compartidos de archivos de Azure es **Az.RecoveryServices 2.6.0**. Actualice su versión para evitar problemas con los scripts existentes. Instale la versión mínima con el siguiente comando de PS:
 
-```powershell
-Install-module -Name Az.RecoveryServices -RequiredVersion 2.6.0
-```
+    ```powershell
+    Install-module -Name Az.RecoveryServices -RequiredVersion 2.6.0
+    ```
 
 2. Busque los cmdlets de PowerShell de Azure Backup con este comando:
 
@@ -287,14 +286,12 @@ testAzureFS       Backup               Completed            11/12/2018 2:42:07 P
 
 Las instantáneas de recursos compartidos de archivos de Azure se usan al realizar copias de seguridad, por lo que el trabajo normalmente se completa en el momento en que el comando devuelve esta salida.
 
-### <a name="using-on-demand-backups-to-extend-retention"></a>Uso de copias de seguridad a petición para ampliar la retención
+### <a name="using-a-runbook-to-schedule-backups"></a>Uso de un runbook para programar copias de seguridad
 
-Las copias de seguridad a petición se pueden usar para conservar las instantáneas durante 10 años. Los programadores pueden usarse para ejecutar scripts de PowerShell a petición con la retención seleccionada. De este modo, se toman instantáneas a intervalos regulares cada semana, mes o año. Al tomar instantáneas periódicas, haga referencia a las [limitaciones de las copias de seguridad a petición](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#how-many-on-demand-backups-can-i-take-per-file-share) mediante Azure Backup.
+Si busca scripts de ejemplo, puede consultar el [script de ejemplo en GitHub](https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup) sobre el uso de un runbook de Azure Automation.
 
-Si busca scripts de ejemplo, puede ver el script de ejemplo en GitHub (<https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup>) con el runbook de Azure Automation que le permite programar las copias de seguridad de forma periódica y conservarlas hasta 10 años.
-
-> [!WARNING]
-> Asegúrese de que la versión de PS se actualice a la versión mínima de "Az.RecoveryServices 2.6.0" para las copias de seguridad de AFS de los runbooks de Automation. Tiene que reemplazar el antiguo módulo " AzureRM" por el módulo "Az". Con esta versión, el filtro "friendlyName" está disponible para el comando ```Get-AzRecoveryServicesBackupItem```. Pase el nombre del recurso compartido de archivos de Azure al parámetro "friendlyName". Si pasa el nombre del recurso compartido de archivos de Azure al parámetro "Name", esta versión genera la advertencia de pasar este nombre descriptivo al parámetro "friendlyName".
+>[!NOTE]
+> La directiva de copia de seguridad del recurso compartido de archivos de Azure ahora admite la configuración de la copia de seguridad con retención diaria, semanal, mensual o anual.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -2,15 +2,15 @@
 title: 'Funciones de plantilla: implementación'
 description: Describe las funciones para usar en una plantilla de Azure Resource Manager para recuperar información de implementación.
 ms.topic: conceptual
-ms.date: 11/27/2019
-ms.openlocfilehash: 86a1d3d7e05fedacd7a3c044ecab241ca9d059c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/27/2020
+ms.openlocfilehash: a52b4eae9df4ad3fdf9e481ee0a40aac48f6665b
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80156334"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203801"
 ---
-# <a name="deployment-functions-for-arm-templates"></a>Funciones de implementación para plantillas de ARM 
+# <a name="deployment-functions-for-arm-templates"></a>Funciones de implementación para plantillas de ARM
 
 Resource Manager proporciona las funciones siguientes para obtener los valores relacionados con la implementación actual de la plantilla de Azure Resource Manager:
 
@@ -29,7 +29,12 @@ Devuelve información sobre la operación de implementación actual.
 
 ### <a name="return-value"></a>Valor devuelto
 
-Esta función devuelve el objeto pasado durante la implementación. Las propiedades del objeto devuelto varían en función de si el objeto de implementación se ha pasado como un vínculo o como un objeto en línea. Cuando se pasa el objeto de implementación en línea, como cuando se usa el parámetro **-TemplateFile** en Azure PowerShell para orientarlo a un archivo local, el objeto devuelto tiene el formato siguiente:
+Esta función devuelve el objeto pasado durante la implementación. Las propiedades del objeto devuelto difieren en función de si:
+
+* se implementa una plantilla que es un archivo local o una plantilla que es un archivo remoto al que se accede a través de un identificador URI.
+* se implementa en un grupo de recursos o en uno de los otros ámbitos ([suscripción a Azure](deploy-to-subscription.md), [grupo de administración](deploy-to-management-group.md) o [inquilino](deploy-to-tenant.md)).
+
+Al implementar una plantilla local en un grupo de recursos; la función devuelve el siguiente formato:
 
 ```json
 {
@@ -44,6 +49,7 @@ Esta función devuelve el objeto pasado durante la implementación. Las propieda
             ],
             "outputs": {}
         },
+        "templateHash": "",
         "parameters": {},
         "mode": "",
         "provisioningState": ""
@@ -51,7 +57,7 @@ Esta función devuelve el objeto pasado durante la implementación. Las propieda
 }
 ```
 
-Cuando el objeto se pasa como un vínculo, como cuando se usa el parámetro **-TemplateUri** para orientarlo a un objeto remoto, se devuelve el objeto en el formato siguiente: 
+Al implementar una plantilla remota en un grupo de recursos; la función devuelve el siguiente formato:
 
 ```json
 {
@@ -68,6 +74,7 @@ Cuando el objeto se pasa como un vínculo, como cuando se usa el parámetro **-T
             "resources": [],
             "outputs": {}
         },
+        "templateHash": "",
         "parameters": {},
         "mode": "",
         "provisioningState": ""
@@ -75,7 +82,26 @@ Cuando el objeto se pasa como un vínculo, como cuando se usa el parámetro **-T
 }
 ```
 
-Al [implementar en una suscripción a Azure](deploy-to-subscription.md), en lugar de un grupo de recursos, el objeto devuelto incluye una propiedad `location`. La propiedad de ubicación se incluye al implementar una plantilla local o externa.
+Al implementar en una suscripción a Azure, en un grupo de recursos o en un inquilino, el objeto devuelto incluye una propiedad `location`. La propiedad de ubicación se incluye al implementar una plantilla local o externa. El formato es:
+
+```json
+{
+    "name": "",
+    "location": "",
+    "properties": {
+        "template": {
+            "$schema": "",
+            "contentVersion": "",
+            "resources": [],
+            "outputs": {}
+        },
+        "templateHash": "",
+        "parameters": {},
+        "mode": "",
+        "provisioningState": ""
+    }
+}
+```
 
 ### <a name="remarks"></a>Observaciones
 
@@ -99,7 +125,7 @@ La [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/
     "contentVersion": "1.0.0.0",
     "resources": [],
     "outputs": {
-        "subscriptionOutput": {
+        "deploymentOutput": {
             "value": "[deployment()]",
             "type" : "object"
         }
@@ -118,20 +144,19 @@ El ejemplo anterior devuelve el objeto siguiente:
       "contentVersion": "1.0.0.0",
       "resources": [],
       "outputs": {
-        "subscriptionOutput": {
+        "deploymentOutput": {
           "type": "Object",
           "value": "[deployment()]"
         }
       }
     },
+    "templateHash": "13135986259522608210",
     "parameters": {},
     "mode": "Incremental",
     "provisioningState": "Accepted"
   }
 }
 ```
-
-Para una plantilla de nivel de suscripción que usa la función de implementación, consulte [subscription deployment function](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deploymentsubscription.json) (función de implementación de la suscripción). Se implementa con los comandos `az deployment create` o `New-AzDeployment`.
 
 ## <a name="environment"></a>Environment
 
@@ -428,8 +453,5 @@ La salida del ejemplo anterior con el valor predeterminado es:
 Para más información sobre el uso de las variables, consulte [Variables en plantillas de Azure Resource Manager](template-variables.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Para obtener una descripción de las secciones de una plantilla de Azure Resource Manager, vea [Creación de plantillas de Azure Resource Manager](template-syntax.md).
-* Para combinar varias plantillas, vea [Uso de plantillas vinculadas con Azure Resource Manager](linked-templates.md).
-* Para iterar una cantidad de veces específica al crear un tipo de recurso, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](copy-resources.md).
-* Para saber cómo implementar la plantilla que creó, consulte [Implementación de una aplicación con una plantilla de Azure Resource Manager](deploy-powershell.md).
 
+* Para obtener una descripción de las secciones de una plantilla de Azure Resource Manager, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).

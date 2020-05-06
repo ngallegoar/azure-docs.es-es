@@ -16,12 +16,12 @@ ms.date: 05/31/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18b5f19e3e994aa05fa99caf360d0c1be69ec7a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0775e717c0610e122bb31f752beecd2c97599053
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80049787"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82201047"
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Compatibilidad con varios dominios para la federación con Azure AD
 La siguiente documentación proporciona una guía sobre cómo usar varios dominios y subdominios de nivel superior al federarse con Office 365 o con dominios de Azure AD.
@@ -137,7 +137,7 @@ Y el valor de IssuerUri en el nuevo dominio se ha establecido en `https://bmfabr
 ## <a name="support-for-subdomains"></a>Compatibilidad con subdominios
 Cuando se agrega un subdominio, debido a la manera en que Azure AD controla los dominios, heredará la configuración del elemento primario.  Esto significa que la propiedad IssuerUri debe coincidir con los elementos primarios.
 
-Supongamos que tengo bmcontoso.com y que agrego corp.bmcontoso.com.  La propiedad IssuerUri de un usuario de corp.bmcontoso.com tendrá que ser **http://bmcontoso.com/adfs/services/trust.**  A pesar de la regla estándar implementada anteriormente para Azure AD, se generará un token con un emisor como **http://corp.bmcontoso.com/adfs/services/trust.** que no coincidirá con el valor obligatorio del dominio y se producirá un error de autenticación.
+Supongamos que tengo bmcontoso.com y que agrego corp.bmcontoso.com.  La propiedad IssuerUri de un usuario de corp.bmcontoso.com tendrá que ser **`http://bmcontoso.com/adfs/services/trust`** .  Independientemente de la regla estándar implementada anteriormente para Azure AD, se generará un token con un emisor como **`http://corp.bmcontoso.com/adfs/services/trust`** . que no coincidirá con el valor obligatorio del dominio y se producirá un error de autenticación.
 
 ### <a name="how-to-enable-support-for-subdomains"></a>Habilitación de la compatibilidad con subdominios
 Para solucionar este comportamiento, es necesario actualizar la relación de confianza para usuario autenticado de AD FS para Microsoft Online.  Para ello, debe configurar una regla de notificaciones personalizada para eliminar cualquier subdominio del sufijo UPN del usuario al construir el valor de emisor personalizado.

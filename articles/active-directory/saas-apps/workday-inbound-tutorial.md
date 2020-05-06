@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/16/2019
+ms.date: 04/23/2020
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7eb01f3997ac4ab2e439c00f07990c51ec3e3d3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0fa43eae906c918cad940b8f5efafeea07020098
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80370363"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82201642"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configuración de Workday para el aprovisionamiento automático de usuarios
 
@@ -281,6 +281,7 @@ En ese paso, concederá al grupo de seguridad los permisos de directiva "segurid
     ![Directivas de seguridad de dominio](./media/workday-inbound-tutorial/wd_isu_06.png "Directivas de seguridad de dominio")  
 2. En el cuadro de texto **Dominio**, busque los siguientes dominios y agréguelos al filtro de uno en uno.  
    * *External Account Provisioning* (Aprovisionamiento de cuentas externas)
+   * *Worker Data: Workers* (Datos de empleado: empleados)
    * *Worker Data: Public Worker Reports* (Datos de empleado: informes de trabajadores públicos)
    * *Person Data: Work Contact Information* (Datos personales: información de contacto de trabajo)
    * *Worker Data: All Positions* (Datos de empleado: todos los cargos)
@@ -312,6 +313,7 @@ En ese paso, concederá al grupo de seguridad los permisos de directiva "segurid
    | ---------- | ---------- |
    | Obtener y poner | Worker Data: Public Worker Reports (Datos de empleado: informes de trabajadores públicos) |
    | Obtener y poner | Person Data: Work Contact Information (Datos personales: información de contacto de trabajo) |
+   | Obtener | Worker Data: Trabajos |
    | Obtener | Worker Data: All Positions (Datos de empleado: todos los cargos) |
    | Obtener | Worker Data: Current Staffing Information (Datos de empleado: información de plantilla actual) |
    | Obtener | Worker Data: Business Title on Worker Profile (Datos de empleado: cargo empresarial en el perfil del trabajador) |
@@ -327,17 +329,18 @@ En ese paso, concederá permisos de directiva "seguridad de proceso de negocio" 
 
     ![Directivas de seguridad de procesos empresariales](./media/workday-inbound-tutorial/wd_isu_12.png "Directivas de seguridad de procesos empresariales")  
 
-2. En el cuadro de texto **Business Process Type** (Tipo de proceso de negocio), busque *póngase en contacto con* y seleccione el proceso de negocio **Contact Change** (Cambio de contacto) y haga clic en **OK** (Aceptar).
+2. En el cuadro de texto **Business Process Type** (Tipo de proceso de negocio), busque *Contact* (Contacto) y seleccione el proceso de negocio **Work Contact Change** (Cambio de contacto de trabajo) y haga clic en **OK** (Aceptar).
 
     ![Directivas de seguridad de procesos empresariales](./media/workday-inbound-tutorial/wd_isu_13.png "Directivas de seguridad de procesos empresariales")  
 
-3. En la página **Edit Business Process Security Policy** (Editar directiva de seguridad del proceso de negocio), desplácese a la sección **Maintain Contact Information (Web Service)** [Mantener información de contacto (servicio web)].
+3. En la página **Edit Business Process Security Policy** (Editar directiva de seguridad del proceso de negocio), desplácese a la sección **Change Work Contact Information (Web Service)** [Cambiar la información de contacto de trabajo (servicio web)].
+    
 
-    ![Directivas de seguridad de procesos empresariales](./media/workday-inbound-tutorial/wd_isu_14.png "Directivas de seguridad de procesos empresariales")  
-
-4. Seleccione y agregue el nuevo grupo de seguridad del sistema de integración a la lista de grupos de seguridad que pueden iniciar la solicitud de servicios web. Haga clic en **Done** (Acabado). 
+4. Seleccione y agregue el nuevo grupo de seguridad del sistema de integración a la lista de grupos de seguridad que pueden iniciar la solicitud de servicios web. 
 
     ![Directivas de seguridad de procesos empresariales](./media/workday-inbound-tutorial/wd_isu_15.png "Directivas de seguridad de procesos empresariales")  
+
+5. Haga clic en **Done** (Acabado). 
 
 ### <a name="activating-security-policy-changes"></a>Activación de cambios en directiva de seguridad
 
@@ -451,11 +454,18 @@ En este paso, se establecerá la conectividad con WorkDay y Active Directory en
 
 1. Cumplimente la sección **Credenciales de administrador** del siguiente modo:
 
-   * **Nombre de usuario de administrador**: escriba el nombre de usuario de la cuenta del sistema de integración de Workday, anexando el nombre de dominio del inquilino. Este debe tener un aspecto similar al siguiente:**username\@tenant_name**
+   * **Nombre de usuario de Workday**: escriba el nombre de usuario de la cuenta del sistema de integración de Workday, anexando el nombre de dominio del inquilino. Este debe tener un aspecto similar al siguiente:**username\@tenant_name**
 
-   * **Contraseña de administrador**: escriba la contraseña de la cuenta del sistema de integración de Workday.
+   * **Contraseña de Workday**: escriba la contraseña de la cuenta del sistema de integración de Workday.
 
-   * **URL de inquilino**: escriba la dirección URL al punto de conexión de servicios web de Workday de su inquilino. Debería ser similar a https://wd3-impl-services1.workday.com/ccx/service/contoso4, donde *contoso4* se reemplaza por el nombre correcto del inquilino y *wd3-impl* se reemplaza por la cadena de entorno correcta.
+   * **URL de la API de Servicios web de Workday**: escriba la dirección URL al punto de conexión de los servicios web de Workday de su inquilino. Debería ser similar a `https://wd3-impl-services1.workday.com/ccx/service/contoso4`, donde *contoso4* se reemplaza por el nombre correcto del inquilino y *wd3-impl* se reemplaza por la cadena de entorno correcta.
+
+     > [!NOTE]
+     > Si no se especifica ninguna información de versión en la dirección URL, la aplicación usa de forma predeterminada la versión 21.1 de los servicios web de Workday (WWS). Para usar una versión específica de la API de WWS, use el formato de dirección URL: https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.#. <br>
+     > Ejemplo: `https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v31.0` <br>
+     
+     > [!NOTE]
+     > Si usa la versión 30.0 de API de WWS y versiones posteriores, antes de activar el trabajo de aprovisionamiento, debe actualizar las **expresiones de la API XPATH** en **Asignación de atributos -> Opciones avanzadas -> Editar lista de atributos para Workday** en la sección [Administración de la configuración](#managing-your-configuration) y [Referencia de atributos de Workday](../app-provisioning/workday-attribute-reference.md#xpath-values-for-workday-web-services-wws-api-v30).  
 
    * **Bosque de Active Directory**: el nombre de su dominio de Active Directory, según se ha registrado con el agente. Use la lista desplegable para seleccionar el dominio de destino para el aprovisionamiento. Este valor suele ser una cadena como: *contoso.com*.
 
@@ -472,7 +482,7 @@ En este paso, se establecerá la conectividad con WorkDay y Active Directory en
 
    * Haga clic en el botón **Probar conexión**. Si la prueba de conexión se lleva a cabo correctamente, haga clic en el botón **Guardar** situado en la parte superior. Si se produce un error, compruebe que las credenciales de Workday y las credenciales de AD configuradas en la instalación del agente sean válidas.
 
-     ![Portal de Azure](./media/workday-inbound-tutorial/wd_1.png)
+     ![Azure Portal](./media/workday-inbound-tutorial/wd_1.png)
 
    * Una vez que las credenciales se guardan correctamente, en la sección **Asignaciones** se mostrará la asignación predeterminada **Synchronize Workday Workers to On Premises Active Directory** (Sincronizar trabajadores de Workday con Active Directory local).
 
@@ -537,7 +547,7 @@ En esta sección configurará cómo fluyen los datos de los usuarios de Workday 
 
 1. Para guardar las asignaciones, haga clic en **Guardar** en la parte superior de la sección Asignación de atributos.
 
-   ![Portal de Azure](./media/workday-inbound-tutorial/wd_2.png)
+   ![Azure Portal](./media/workday-inbound-tutorial/wd_2.png)
 
 #### <a name="below-are-some-example-attribute-mappings-between-workday-and-active-directory-with-some-common-expressions"></a>A continuación se muestran algunos ejemplos de asignaciones de atributos entre Workday y Active Directory, con algunas expresiones comunes.
 
@@ -552,7 +562,7 @@ En esta sección configurará cómo fluyen los datos de los usuarios de Workday 
 | **WorkerID**  |  EmployeeID | **Sí** | Escrito únicamente en Crear |
 | **PreferredNameData**    |  cn    |   |   Escrito únicamente en Crear |
 | **SelectUniqueValue( Join("\@", Join(".",  \[FirstName\], \[LastName\]), "contoso.com"), Join("\@", Join(".",  Mid(\[FirstName\], 1, 1), \[LastName\]), "contoso.com"), Join("\@", Join(".",  Mid(\[FirstName\], 1, 2), \[LastName\]), "contoso.com"))**   | userPrincipalName     |     | Escrito únicamente en Crear 
-| **Replace(Mid(Replace(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )**      |    sAMAccountName            |     |         Escrito únicamente en Crear |
+| `Replace(Mid(Replace(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )`      |    sAMAccountName            |     |         Escrito únicamente en Crear |
 | **Switch(\[Active\], , "0", "True", "1", "False")** |  accountDisabled      |     | Crear y Actualizar |
 | **Nombre**   | givenName       |     |    Crear y Actualizar |
 | **Apellidos**   |   sn   |     |  Crear y Actualizar |
@@ -607,11 +617,16 @@ En las secciones siguientes se describen los pasos para configurar el aprovision
 
 8. Cumplimente la sección **Credenciales de administrador** del siguiente modo:
 
-   * **Nombre de usuario de administrador**: escriba el nombre de usuario de la cuenta del sistema de integración de Workday, anexando el nombre de dominio del inquilino. Debe tener un aspecto similar al siguiente: username@contoso4
+   * **Nombre de usuario de Workday**: escriba el nombre de usuario de la cuenta del sistema de integración de Workday, anexando el nombre de dominio del inquilino. Debe tener un aspecto similar al siguiente: username@contoso4
 
-   * **Contraseña de administrador**: escriba la contraseña de la cuenta del sistema de integración de Workday.
+   * **Contraseña de Workday**: escriba la contraseña de la cuenta del sistema de integración de Workday.
 
-   * **URL de inquilino**: escriba la dirección URL al punto de conexión de servicios web de Workday de su inquilino. Debería ser similar a https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources, donde *contoso4* se reemplaza por el nombre correcto del inquilino y *wd3-impl* se reemplaza por la cadena de entorno correcta. Si no se conoce esta dirección URL, trabaje con su asociado de integración o representante de soporte técnico de Workday para determinar la dirección URL correcta que se debe usar.
+   * **URL de la API de Servicios web de Workday**: escriba la dirección URL al punto de conexión de los servicios web de Workday de su inquilino. Debería ser similar a `https://wd3-impl-services1.workday.com/ccx/service/contoso4`, donde *contoso4* se reemplaza por el nombre correcto del inquilino y *wd3-impl* se reemplaza por la cadena de entorno correcta. Si no se conoce esta dirección URL, trabaje con su asociado de integración o representante de soporte técnico de Workday para determinar la dirección URL correcta que se debe usar.
+
+     > [!NOTE]
+     > Si no se especifica ninguna información de versión en la dirección URL, la aplicación usa de forma predeterminada la versión 21.1 de los servicios web de Workday. Para usar una versión específica de la API de servicios web de Workday, use el formato de dirección URL: https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.#. <br>
+     > Ejemplo: `https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v31.0`
+
 
    * **Correo electrónico de notificación**: escriba su dirección de correo electrónico y marque la casilla "Enviar una notificación por correo electrónico cuando se produzca un error".
 
@@ -708,7 +723,7 @@ Siga estas instrucciones para configurar la escritura diferida de direcciones de
 
    * **Contraseña de administrador**: escriba la contraseña de la cuenta del sistema de integración de Workday.
 
-   * **URL de inquilino**: escriba la dirección URL al punto de conexión de servicios web de Workday de su inquilino. Este valor debería ser similar a https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources, donde *contoso4* se reemplaza por el nombre correcto del inquilino y *wd3-impl* se reemplaza por la cadena de entorno correcta (si es necesario).
+   * **URL de inquilino**: escriba la dirección URL al punto de conexión de servicios web de Workday de su inquilino. Este valor debería ser similar a `https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources`, donde *contoso4* se reemplaza por el nombre correcto del inquilino y *wd3-impl* se reemplaza por la cadena de entorno correcta (si es necesario).
 
    * **Correo electrónico de notificación**: escriba su dirección de correo electrónico y marque la casilla "Enviar una notificación por correo electrónico cuando se produzca un error".
 
@@ -745,7 +760,7 @@ Una vez completadas las configuraciones de la aplicación de aprovisionamiento d
 
 5. Una vez completada la sincronización inicial, se escribe un informe resumido de auditoría en la pestaña **Aprovisionamiento**, tal y como se muestra a continuación.
 
-   ![Portal de Azure](./media/workday-inbound-tutorial/wd_3.png)
+   ![Azure Portal](./media/workday-inbound-tutorial/wd_3.png)
 
 ## <a name="frequently-asked-questions-faq"></a>Preguntas más frecuentes
 
@@ -807,9 +822,13 @@ Actualmente no se admite esta funcionalidad. La solución alternativa recomendad
 
 Actualmente, la solución utiliza las siguientes API de Workday:
 
-* Get_Workers (v21.1) para capturar información de trabajo.
-* Maintain_Contact_Information (v26.1) para la característica de escritura diferida de correo electrónico de trabajo.
-* Update_Workday_Account (v31.2) para la característica de escritura diferida de nombre de usuario.
+* El formato de **URL de la API de Servicios web de Workday** que se usa en la sección **Credenciales de administrador** determina la versión de API que se usa para Get_Workers.
+  * Si el formato de la dirección URL es https://\#\#\#\#\.workday\.com/ccx/service/nombreDeInquilino, se usa la versión 21.1 de la API. 
+  * Si el formato de la dirección URL es https://\#\#\#\#\.workday\.com/ccx/service/nombreDeInquilino/Human\_Resources, se usa la versión 21.1 de la API. 
+  * Si el formato de la dirección URL es: https://\#\#\#\#\.workday\.com/ccx/service/nombreDeInquilino/Human\_Resources/v\#\#\.\#, se usa la versión de API especificada (por ejemplo, si se especifica la versión 34.0, se usa esta).  
+   
+* La característica de escritura diferida de correo electrónico de Workday usa Change_Work_Contact_Information (v30.0). 
+* La característica de escritura diferida de nombre de usuario de Workday utiliza Update_Workday_Account (v31.2). 
 
 #### <a name="can-i-configure-my-workday-hcm-tenant-with-two-azure-ad-tenants"></a>¿Puede configurar mi inquilino de HCM en Workday con dos inquilinos de Azure AD?
 
@@ -848,7 +867,7 @@ Al sugerir una nueva idea, compruebe si alguien ha sugerido ya una característi
 * Vaya al menú **Panel de control** -> **Desinstalar o cambiar un programa**.
 * Busque la versión correspondiente a la entrada **Microsoft Azure AD Connect Provisioning Agent**.
 
-  ![Portal de Azure](./media/workday-inbound-tutorial/pa_version.png)
+  ![Azure Portal](./media/workday-inbound-tutorial/pa_version.png)
 
 #### <a name="does-microsoft-automatically-push-provisioning-agent-updates"></a>¿Microsoft inserta automáticamente las actualizaciones del agente de aprovisionamiento?
 
@@ -1239,7 +1258,7 @@ Para realizar este cambio, debe usar [Workday Studio](https://community.workday.
 
 1. Descargue e instale [Workday Studio](https://community.workday.com/studio-download). Necesitará una cuenta de la comunidad de Workday para acceder al instalador.
 
-2. Descargue el archivo WSDL Human_Resources de Workday desde esta dirección URL: https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Human_Resources.wsdl
+2. Descargue el archivo WSDL de Workday denominado **Human_Resources** específico para la versión de la API de WWS que va a usar desde el [directorio de servicios web de Workday](https://community.workday.com/sites/default/files/file-hosting/productionapi/index.html).
 
 3. Inicie Workday Studio.
 
@@ -1259,7 +1278,7 @@ Para realizar este cambio, debe usar [Workday Studio](https://community.workday.
 
 9. Seleccione **Aceptar**.
 
-10. En el panel **Request** (Solicitud), pegue el archivo XML debajo y establezca **Employee_ID** en el identificador de empleado de un usuario real en el inquilino de Workday. Seleccione un usuario que tenga rellenado el atributo que desea extraer.
+10. En el panel **Request** (Solicitud), pegue el código XML siguiente. Establezca como**Employee_ID** el id. de empleado de un usuario real en el inquilino de Workday. Establezca **wd:version** en la versión de WWS que va a usar. Seleccione un usuario que tenga rellenado el atributo que desea extraer.
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>

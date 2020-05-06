@@ -1,25 +1,14 @@
 ---
-title: Recurso compartido de archivos de Azure para grupos de Azure Batch | Microsoft Docs
+title: Recurso compartido de archivos de Azure para grupos de Azure Batch
 description: Cómo montar un recurso compartido de archivos de Azure a partir de nodos de proceso en un grupo de Linux o Windows en Azure Batch.
-services: batch
-documentationcenter: ''
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: ''
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: big-compute
 ms.date: 05/24/2018
-ms.author: labrenne
-ms.custom: ''
-ms.openlocfilehash: 156dad25af5abd1b4d5db32569faf09a23fadfb1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 666ee6bd0e6287545c107427dffcc9f2ccde900a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77022518"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82115455"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>Uso de un recurso compartido de archivos con un grupo de Batch
 

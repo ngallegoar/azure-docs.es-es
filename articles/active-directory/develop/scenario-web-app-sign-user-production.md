@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 9c5fd444c55a20441325088912a07eb051219b84
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 47a45b52ac10a44b6efd54c41b3fec1e61a47a35
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80881475"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82181637"
 ---
 # <a name="web-app-that-signs-in-users-move-to-production"></a>Aplicación web que inicia sesión de usuarios: Paso a producción
 
@@ -26,12 +26,23 @@ Ahora que sabe cómo obtener un token para llamar a las API web, obtenga informa
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+### <a name="troubleshooting"></a>Solución de problemas
+
+> [!NOTE]
+> Cuando los usuarios inicien sesión en la aplicación web por primera vez, deberán dar su consentimiento. Sin embargo, en algunas organizaciones, los usuarios pueden ver un mensaje similar al siguiente:
+>
+> *NombreAplicación necesita permisos para acceder a recursos de su organización que solo un administrador puede conceder. Pida a un administrador que conceda permiso a esta aplicación para poder usarla.*
+>
+> Esto se debe a que el administrador de inquilinos ha **deshabilitado** la capacidad de los usuarios de dar su consentimiento. En ese caso, debe ponerse en contacto con los administradores de inquilinos para que creen un consentimiento de administrador para los ámbitos que requiere la aplicación.
+
 ### <a name="same-site"></a>Mismo sitio
 
 Asegúrese de que comprende los posibles problemas de las nuevas versiones del explorador Chrome.
 
 > [!div class="nextstepaction"]
 > [Control de los cambios de cookies de SameSite en el explorador Chrome](howto-handle-samesite-cookie-changes-chrome-browser.md)
+
+El paquete de NuGet Microsoft.Identity.Web controla los problemas de SameSite más comunes.
 
 ### <a name="scenario-for-calling-web-apis"></a>Escenario para llamar a API web
 

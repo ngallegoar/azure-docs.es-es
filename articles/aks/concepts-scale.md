@@ -6,12 +6,12 @@ author: zr-msft
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: zarhoads
-ms.openlocfilehash: 396e5bc31723768ada334dd5043bca724af5e84f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c5c1180acec726d0863e11a3fe0825ffc7c48e3f
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77595865"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82232537"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Opciones de escalado de aplicaciones en Azure Kubernetes Service (AKS)
 
@@ -46,7 +46,7 @@ Para empezar a usar Horizontal Pod Autoscaler en AKS, consulte [Escalado automá
 
 Dado que Horizontal Pod Autoscaler comprueba cada 30 segundos la API de métricas, es posible que los eventos de escalado anteriores no se hayan completado correctamente antes de realizar otra comprobación. Este comportamiento puede provocar que Horizontal Pod Autoscaler cambie el número de réplicas antes de que el evento de escalado anterior pueda recibir la carga de trabajo de la aplicación y las demandas de recursos para ajustarlas en consecuencia.
 
-Para minimizar estos eventos de carrera, se establecen valores de recuperación o retraso. Estos valores definen cuánto tiempo debe esperar Horizontal Pod Autoscaler después de un evento de escalado antes de que se pueda desencadenar otro evento de escalado. Este comportamiento permite que el nuevo recuento de réplicas surta efecto y que Metrics API refleje la carga de trabajo distribuida. De forma predeterminada, el retraso en los eventos de escalado vertical es de 3 minutos y, en los eventos de reducción vertical, de 5 minutos.
+Para minimizar los eventos de carrera, se establece un valor de retraso. Este valor define cuánto tiempo debe esperar Horizontal Pod Autoscaler después de un evento de escalado antes de que se pueda desencadenar otro evento de escalado. Este comportamiento permite que el nuevo recuento de réplicas surta efecto y que Metrics API refleje la carga de trabajo distribuida. No hay [retraso para los eventos de escalado vertical a partir de Kubernetes 1.12](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/#support-for-cooldown-delay), pero el retraso en los eventos de reducción vertical está establecido de manera predeterminada en 5 minutos.
 
 Actualmente, estos valores de recuperación no se pueden ajustar a partir del valor predeterminado.
 

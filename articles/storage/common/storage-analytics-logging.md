@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: fryu
-ms.openlocfilehash: 5b94a97f1286e1273300014e4eef140be412436b
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.openlocfilehash: 1e41eb02f4b02078dbf4d42c46cab574cf8d0701
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80637179"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82204073"
 ---
 # <a name="azure-storage-analytics-logging"></a>Registro de Azure Storage Analytics
 
@@ -158,7 +158,11 @@ Set-AzureStorageServiceLoggingProperty -ServiceType Table -LoggingOperations non
 
  Aparte de usar Azure Portal o los cmdlets de Azure PowerShell para controlar el registro de almacenamiento, también se puede recurrir a una de las API de Azure Storage. Por ejemplo, si está utilizando un lenguaje .NET, puede usar la Biblioteca del cliente de almacenamiento.  
 
- Las clases **CloudBlobClient**, **CloudQueueClient** y **CloudTableClient** tienen métodos como **SetServiceProperties** y **SetServicePropertiesAsync** que toman un objeto **ServiceProperties** como parámetro. Este objeto **ServiceProperties** se puede usar para configurar el registro de almacenamiento. Por ejemplo, el siguiente fragmento de código de C# muestra cómo cambiar lo que se registra y el período de retención del registro de cola:  
+# <a name="net-v12-sdk"></a>[\.SDK de .NET, versión 12](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/Monitoring.cs" id="snippet_EnableDiagnosticLogs":::
+
+# <a name="net-v11-sdk"></a>[\.SDK de .NET, versión 11](#tab/dotnet11)
 
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);  
@@ -170,6 +174,9 @@ serviceProperties.Logging.RetentionDays = 2;
 
 queueClient.SetServiceProperties(serviceProperties);  
 ```  
+
+---
+
 
  Para obtener más información sobre cómo usar un lenguaje .NET para configurar el registro de almacenamiento, vea [Referencia de biblioteca de cliente de almacenamiento](https://msdn.microsoft.com/library/azure/dn261237.aspx).  
 

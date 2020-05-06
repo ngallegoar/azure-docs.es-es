@@ -3,12 +3,12 @@ title: Corrección de recursos no compatibles
 description: En esta guía se explica la corrección de los recursos que no son conformes con las directivas de Azure Policy.
 ms.date: 02/26/2020
 ms.topic: how-to
-ms.openlocfilehash: 71af5c81e0dce4d5c0a0461534f634db36bd66a7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f4846b6eb1ea03c6706a610cab16ec376d19b060
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79471394"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195237"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Corregir los recursos no conformes con Azure Policy
 
@@ -19,7 +19,7 @@ Los recursos que no son conformes con un directiva **deployIfNotExists** o **mod
 Cuando Azure Policy ejecuta la plantilla en la definición de directiva **deployIfNotExists**, lo hace mediante una [identidad administrada](../../../active-directory/managed-identities-azure-resources/overview.md).
 Azure Policy crea una identidad administrada para cada asignación, pero debe proporcionar detalles sobre los roles que se conceden a la identidad administrada. Si faltan roles en la identidad administrada, este error se muestra durante la asignación de la directiva o una iniciativa. Al usar el portal, Azure Policy concede automáticamente a la identidad administrada los roles enumerados cuando se inicia la asignación. La _ubicación_ de la identidad administrada no afecta a su funcionamiento con Azure Policy.
 
-![Identidad administrada - función ausente](../media/remediate-resources/missing-role.png)
+:::image type="content" source="../media/remediate-resources/missing-role.png" alt-text="Identidad administrada - función ausente" border="false":::
 
 > [!IMPORTANT]
 > Si un recurso modificado por **deployIfNotExists** o por **modify** está fuera del ámbito de la asignación de la directiva o si la plantilla accede a propiedades de recursos situados fuera del ámbito de la asignación de la directiva, debe [concederse manualmente acceso](#manually-configure-the-managed-identity) a la identidad administrada de la asignación o se producirá un error en la implementación de la corrección.
@@ -128,11 +128,11 @@ Para crear un **tarea de corrección**, siga estos pasos:
 
 1. Inicie el servicio Azure Policy en Azure Portal. Para ello, haga clic en **Todos los servicios** y, a continuación, busque y seleccione **Directiva**.
 
-   ![Búsqueda de la directiva en todos los servicios](../media/remediate-resources/search-policy.png)
+   :::image type="content" source="../media/remediate-resources/search-policy.png" alt-text="Búsqueda de la directiva en todos los servicios" border="false":::
 
 1. Seleccione **Corrección** en el lado izquierdo de la página Azure Policy.
 
-   ![Seleccione Corrección en la página Directiva](../media/remediate-resources/select-remediation.png)
+   :::image type="content" source="../media/remediate-resources/select-remediation.png" alt-text="Seleccione Corrección en la página Directiva" border="false":::
 
 1. Todas las asignaciones de directiva de **deployIfNotExists** y **modify** con recursos no conformes se incluyen en la pestaña y la tabla de datos **Directivas que se van a corregir**. Haga clic en una directiva con recursos que no son conformes. Se abre la página **Nueva tarea de corrección**.
 
@@ -141,17 +141,17 @@ Para crear un **tarea de corrección**, siga estos pasos:
 
 1. En la página **Nueva tarea de corrección**, filtre los recursos para corregir mediante la elipse **Ámbito** para seleccionar los recursos secundarios a partir de los cuales se asignó la directiva (incluidos los objetos de recursos individuales). Además, utilice la lista desplegable **Ubicaciones** para filtrar más los recursos. Solo los recursos enumerados en la tabla se corregirán.
 
-   ![Corrección: seleccione los recursos que quiere corregir](../media/remediate-resources/select-resources.png)
+   :::image type="content" source="../media/remediate-resources/select-resources.png" alt-text="Corrección: seleccione los recursos que quiere corregir" border="false":::
 
 1. Inicie la tarea de corrección cuando se hayan filtrado los recursos, para ello, haga clic en **Corregir**. Se abre la página de cumplimiento de directivas en la pestaña **Tareas de corrección** para mostrar el estado del progreso de las tareas. Las implementaciones que ha creado la tarea de corrección se inician inmediatamente.
 
-   ![Corrección: progreso de las tareas de corrección](../media/remediate-resources/task-progress.png)
+   :::image type="content" source="../media/remediate-resources/task-progress.png" alt-text="Corrección: progreso de las tareas de corrección" border="false":::
 
 1. Haga clic en el **tarea de corrección** en la página de cumplimiento de directiva para obtener detalles sobre el progreso. El filtro usado en la tarea se muestra junto con una lista de los recursos que se van a corregir.
 
 1. En la página **Tarea de corrección**, haga clic con el botón derecho en un recurso para ver el recurso o la implementación de la tarea de corrección. Al final de la fila, haga clic en **Eventos relacionados** para ver detalles, como un mensaje de error.
 
-   ![Corrección: menú contextual de tarea de recurso](../media/remediate-resources/resource-task-context-menu.png)
+   :::image type="content" source="../media/remediate-resources/resource-task-context-menu.png" alt-text="Corrección: menú contextual de tarea de recurso" border="false":::
 
 Los recursos implementados mediante una **tarea de corrección** se agregan a la pestaña **Recursos implementados** en la página de cumplimiento de la directiva.
 

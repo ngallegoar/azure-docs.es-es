@@ -1,26 +1,25 @@
 ---
-title: 'Tutorial: Implementación de aplicaciones de Node.js con tecnología de Azure Cosmos DB con Azure DevOps Projects'
-description: Con Azure DevOps Projects es fácil empezar a usar Azure. Con DevOps Projects, puede implementar la aplicación de Node.js con tecnología de Azure Cosmos DB en App Service en Windows en tan solo unos pocos pasos rápidos.
+title: 'Tutorial: Implementación de aplicaciones de Node.js con tecnología de Azure Cosmos DB con Azure DevOps Starter'
+description: Azure DevOps Starter facilita la introducción a Azure. Con DevOps Starter, puede implementar la aplicación de Node.js con tecnología de Azure Cosmos DB en Windows Web App en tan solo unos pocos pasos rápidos.
 ms.author: mlearned
 ms.manager: gwallace
 ms.prod: devops
 ms.technology: devops-cicd
 ms.topic: tutorial
-ms.date: 07/11/2019
+ms.date: 03/24/2020
 author: mlearned
-monikerRange: vsts
-ms.openlocfilehash: 229b4b9f53ea3866dce1169645f6d6da20827271
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 07579cf22738e195e3e4ae7a2aa18ffeb885bbe2
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73888907"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82233277"
 ---
-# <a name="deploy-nodejs-apps-powered-by-azure-cosmos-db-with-devops-projects"></a>Implementación de aplicaciones de Node.js con tecnología de Azure Cosmos DB con DevOps Projects
+# <a name="deploy-nodejs-apps-powered-by-azure-cosmos-db-with-devops-starter"></a>Implementación de aplicaciones de Node.js con tecnología de Azure Cosmos DB con DevOps Starter
 
-Azure DevOps Projects ofrece una experiencia simplificada, con la que puede crear una canalización de integración continua (CI) y de implementación continua (CD) en Azure. Para hacerlo, use el código y el repositorio Git existentes, o bien seleccione una aplicación de ejemplo.
+Azure DevOps Starter ofrece una experiencia simplificada, con la que puede crear una canalización de integración continua (CI) y de implementación continua (CD) en Azure. Para hacerlo, use el código y el repositorio Git existentes, o bien seleccione una aplicación de ejemplo.
 
-DevOps Projects también:
+DevOps Starter también:
 
 * Crea automáticamente recursos de Azure, como Azure Cosmos DB, Azure Application Insights, Azure App Service y planes de App Service.
 
@@ -29,7 +28,7 @@ DevOps Projects también:
 En este tutorial, aprenderá lo siguiente:
 
 > [!div class="checklist"]
-> * Usar DevOps Projects para la implementación de aplicaciones de Node.js con tecnología de Azure Cosmos DB
+> * Usar DevOps Starter para la implementación de aplicaciones de Node.js con tecnología de Azure Cosmos DB
 > * Configuración de Azure DevOps y una suscripción de Azure
 > * Examen de Azure Cosmos DB
 > * Examen de la canalización de CI
@@ -41,17 +40,15 @@ En este tutorial, aprenderá lo siguiente:
 
 Necesita una suscripción de Azure, que puede obtener de forma gratuita mediante [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
-## <a name="use-devops-projects-to-deploy-nodejs-app"></a>Uso de DevOps Projects para implementar una aplicación de Node.js
+## <a name="use-devops-starter-to-deploy-nodejs-app"></a>Uso de DevOps Starter para implementar la aplicación Node.js
 
-DevOps Projects crea una canalización de CI/CD en Azure Pipelines. Puede crear una organización de Azure DevOps nueva o usar una existente. DevOps Projects también crea recursos de Azure (como Azure Cosmos DB, Application Insights, App Service y planes de App Service) en la suscripción de Azure que prefiera.
+DevOps Starter crea una canalización de CI/CD en Azure Pipelines. Puede crear una organización de Azure DevOps nueva o usar una existente. DevOps Starter también crea recursos de Azure (como Azure Cosmos DB, Application Insights, App Service y planes de App Service) en la suscripción de Azure que prefiera.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
-1. En el panel izquierdo, seleccione **Crear un recurso**.
+1. En el cuadro de búsqueda, escriba **DevOps Starter** y, a continuación, seleccione. Haga clic en **Agregar** para crear un recurso.
 
-1. En el cuadro de búsqueda, escriba **DevOps Projects** y, después, seleccione **Agregar**.
-
-   ![Panel de DevOps Projects](_img/azure-devops-project-cosmos-db/devops-project.png)
+    ![Panel de DevOps Starter](_img/azure-devops-starter-aks/search-devops-starter.png)
 
 1. Seleccione **Node. js** como entorno de ejecución y, después, seleccione **Siguiente**. En **Elegir un marco de trabajo de la aplicación**, seleccione **Express.js**.
 
@@ -59,7 +56,7 @@ DevOps Projects crea una canalización de CI/CD en Azure Pipelines. Puede crear 
 
     ![Adición de una base de datos](_img/azure-devops-project-cosmos-db/add-database.png)
 
-    Azure DevOps Projects admite varios marcos de aplicaciones, como **Express.js**, **aplicaciones de ejemplo de Node.js** y **Sail.js**. En este tutorial, usaremos **Express.js**.
+    Azure DevOps Starter admite varios marcos de trabajo de las aplicaciones, como **Express.js**, **Aplicación de ejemplo Node.js** y **Sail.js**. En este tutorial, usaremos **Express.js**.
 
 1. Seleccione un servicio de Azure donde quiera implementar la aplicación y, después, haga clic en **Siguiente**. Entre sus opciones, se incluyen App Service en Windows, Azure Kubernetes Service y Azure Web App for Containers. En este tutorial, usaremos **App Service en Windows**.
 
@@ -77,17 +74,17 @@ DevOps Projects crea una canalización de CI/CD en Azure Pipelines. Puede crear 
 
 1. El proceso se completará en unos minutos. Se configurará una aplicación de ejemplo de Node.js en un repositorio Git de la organización de Azure DevOps. Después, se crearán recursos de Azure Cosmos DB, App Service, plan de App Service y Application Insights, así como la canalización de CI/CD. En el paso siguiente, la aplicación se implementará en Azure.
 
-   Cuando se completen todos estos procesos, se mostrará el panel de Azure DevOps Projects en Azure Portal. También puede ir al panel de DevOps Projects directamente desde la opción **Todos los recursos** de Azure Portal.
+   Cuando se completen todos estos procesos, se mostrará el panel de Azure DevOps Starter en Azure Portal. También puede ir al panel de DevOps Starter directamente desde la opción **Todos los recursos** de Azure Portal.
 
    Este panel permite obtener información sobre el repositorio de código de Azure DevOps, la canalización de CI/CD y la base de datos de Azure Cosmos DB. En la canalización de Azure DevOps se pueden configurar otras opciones de CI/CD. En la parte derecha del panel, seleccione **Azure Cosmos DB** para ver estas opciones.
 
 ## <a name="examine-azure-cosmos-db"></a>Examen de Azure Cosmos DB
 
-DevOps Projects configura automáticamente una instancia de Azure Cosmos DB que puede explorar y personalizar. Para familiarizarse con Azure Cosmos DB, siga este procedimiento:
+DevOps Starter configura automáticamente una instancia de Azure Cosmos DB que puede explorar y personalizar. Para familiarizarse con Azure Cosmos DB, siga este procedimiento:
 
-1. Vaya al panel de DevOps Projects.
+1. Vaya al panel de inicio de DevOps Starter.
 
-    ![Panel de DevOps Projects](_img/azure-devops-project-cosmos-db/devops-project-dashboard.png)
+    ![Panel de DevOps Projects](_img/azure-devops-project-cosmos-db/devops-starter-dashboard.png)
 
 1. En la parte derecha, seleccione Azure Cosmos DB. Se abrirá un panel de Azure Cosmos DB. En esta vista, puede realizar varias acciones, como supervisar operaciones y buscar registros.
 
@@ -95,9 +92,9 @@ DevOps Projects configura automáticamente una instancia de Azure Cosmos DB que 
 
 ## <a name="examine-the-ci-pipeline"></a>Examen de la canalización de CI
 
-DevOps Projects configura automáticamente una canalización de CI/CD de Azure completa en su organización de Azure DevOps. Puede explorar y personalizar la canalización. Para familiarizarse con ella, siga estos pasos:
+DevOps Starter configura automáticamente una canalización de CI/CD de Azure completa en su organización de Azure DevOps. Puede explorar y personalizar la canalización. Para familiarizarse con ella, siga estos pasos:
 
-1. Vaya al panel de DevOps Projects.
+1. Vaya al panel de inicio de DevOps Starter.
 
 1. Seleccione el hipervínculo debajo de **Compilar**. Una pestaña del explorador muestra la canalización de compilación del nuevo proyecto.
 
@@ -105,7 +102,7 @@ DevOps Projects configura automáticamente una canalización de CI/CD de Azure c
 
 1. Seleccione **Editar**. En este panel puede examinar las distintas tareas de la canalización de compilación. La compilación ejecuta varias tareas, como capturar códigos fuente del repositorio de Git, compilar la aplicación, ejecutar pruebas unitarias y publicar salidas que se usan para implementaciones.
 
-1. Seleccione **Desencadenadores**. DevOps Projects crea automáticamente un desencadenador de integración continua y cada confirmación al repositorio inicia una compilación. De manera opcional, también puede incluir o excluir ramas del proceso de CI.
+1. Seleccione **Desencadenadores**. DevOps Starter crea automáticamente un desencadenador de integración continua y cada confirmación al repositorio inicia una compilación. De manera opcional, también puede incluir o excluir ramas del proceso de CI.
 
 1. Seleccione **Retención**. En función del escenario, puede especificar directivas para conservar o quitar un determinado número de compilaciones.
 
@@ -117,7 +114,7 @@ DevOps Projects configura automáticamente una canalización de CI/CD de Azure c
 
 ## <a name="examine-the-cd-release-pipeline"></a>Examen de la canalización de versión de la implementación continua
 
-DevOps Projects crea y configura automáticamente los pasos necesarios para implementar desde la organización de Azure DevOps en la suscripción de Azure. Dichos pasos incluyen la configuración de una conexión de servicio de Azure para realizar la autenticación de Azure DevOps en la suscripción de Azure. La automatización también crea una canalización de versión, lo que proporciona la implementación continua en Azure. Para más información acerca de la canalización de versión, siga estos pasos:
+DevOps Starter crea y configura automáticamente los pasos necesarios para implementar desde la organización de Azure DevOps en la suscripción de Azure. Dichos pasos incluyen la configuración de una conexión de servicio de Azure para realizar la autenticación de Azure DevOps en la suscripción de Azure. La automatización también crea una canalización de versión, lo que proporciona la implementación continua en Azure. Para más información acerca de la canalización de versión, siga estos pasos:
 
 1. Vaya a **Canalizaciones** y seleccione **Versiones**.
 
@@ -150,18 +147,18 @@ Ya está preparado para colaborar con un equipo en su aplicación mediante un pr
 
 1. En la esquina superior derecha, seleccione **Confirmar** y, después, vuelva a seleccionar **Confirmar** para insertar los cambios.
 
-     Después de unos instantes, se iniciará una compilación en Azure DevOps y se ejecutará una versión para implementar los cambios. Supervise el estado de la compilación en el panel de DevOps Projects o en el explorador con la organización de Azure DevOps.
+     Después de unos instantes, se iniciará una compilación en Azure DevOps y se ejecutará una versión para implementar los cambios. Supervise el estado de la compilación en el panel de DevOps Starter o en el explorador con la organización de Azure DevOps.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando ya no necesite los recursos relacionados que haya creado, elimínelos. Use la funcionalidad de **eliminación** del panel de DevOps Projects.
+Cuando ya no necesite los recursos relacionados que haya creado, elimínelos. Use la funcionalidad **Eliminación** del panel de DevOps Starter.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Puede modificar estas canalizaciones de compilación y de versión para satisfacer las necesidades de su equipo. También puede usar este patrón de CI/CD como plantilla para las demás canalizaciones. En este tutorial, ha aprendido a:
 
 > [!div class="checklist"]
-> * Usar DevOps Projects para la implementación de aplicaciones de Node.js con tecnología de Azure Cosmos DB
+> * Usar DevOps Starter para la implementación de aplicaciones de Node.js con tecnología de Azure Cosmos DB
 > * Configuración de Azure DevOps y una suscripción de Azure 
 > * Examen de Azure Cosmos DB
 > * Examen de la canalización de CI

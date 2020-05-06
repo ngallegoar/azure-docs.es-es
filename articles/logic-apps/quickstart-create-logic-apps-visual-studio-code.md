@@ -7,12 +7,12 @@ ms.reviewer: klam, deli, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/25/2019
-ms.openlocfilehash: 819a60887743f39d3c2ffab3c955b2980cee2725
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 3dccb596be2d97dd0f38d680537913a76ce09e93
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74784840"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82147061"
 ---
 # <a name="quickstart-create-and-manage-logic-app-workflow-definitions-by-using-visual-studio-code"></a>Inicio rápido: Creación y administración de definiciones de flujo de trabajo de aplicaciones lógicas mediante Visual Studio Code
 
@@ -131,6 +131,10 @@ Antes de empezar, asegúrese de que dispone de estos elementos:
 
    > [!IMPORTANT]
    > Si quiere volver a usar esta definición de aplicación lógica de muestra, necesita una cuenta profesional de Office 365; por ejemplo, @fabrikam.com. Asegúrese de reemplazar la dirección de correo electrónico ficticia por su propia dirección de correo electrónico. Para usar un conector de correo electrónico diferente, como Outlook.com o Gmail, reemplace la acción `Send_an_email_action` por una acción similar disponible en un [conector de correo electrónico compatible con Azure Logic Apps](../connectors/apis-list.md).
+   >
+   > Si quiere usar el conector de Gmail, solo las cuentas empresariales de G-Suite pueden usar este conector sin restricciones en las aplicaciones lógicas. 
+   > Si tiene una cuenta de consumidor de Gmail, puede usar este conector solo con servicios específicos aprobados por Google o puede [crear una aplicación cliente de Google para usarla en la autenticación con el conector de Gmail](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). 
+   > Para más información, consulte [Directivas de privacidad y seguridad de datos de los conectores de Google en Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
    ```json
    {

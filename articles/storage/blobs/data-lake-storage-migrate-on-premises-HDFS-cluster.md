@@ -8,22 +8,22 @@ ms.author: normesta
 ms.topic: conceptual
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: jamesbak
-ms.openlocfilehash: c0c6a8637223727a9b0c88245d939605f6a8530e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b7f7793016d2a408d6b286f417e3e89e7a22ca91
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78302007"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82232383"
 ---
 # <a name="migrate-from-on-prem-hdfs-store-to-azure-storage-with-azure-data-box"></a>Migración de un almacén HDFS local a Azure Storage con Azure Data Box
 
-Puede migrar datos de un almacén HDFS local de su clúster de Hadoop a Azure Storage (Blob Storage o Data Lake Storage Gen2) mediante un dispositivo Data Box. Dispone de dos opciones: Data Box de 80 TB de datos o Data Box Heavy de 770 TB.
+Puede migrar datos de un almacén HDFS local de su clúster de Hadoop a Azure Storage (Blob Storage o Data Lake Storage Gen2) mediante un dispositivo Data Box. Dispone de dos opciones en Data Box Disk: Data Box de 80 TB de datos o Data Box Heavy de 770 TB.
 
 En este artículo le ayudamos a completar estas tareas:
 
 > [!div class="checklist"]
 > * Prepararse para migrar los datos.
-> * Copiar los datos en un dispositivo Data Box o Data Box Heavy.
+> * Copie los datos en un dispositivo Azure Data Box Disk, Data Box o Data Box Heavy.
 > * Devolver el dispositivo a Microsoft.
 > * Aplicar permisos de acceso a archivos y directorios (solo Data Lake Storage Gen2)
 

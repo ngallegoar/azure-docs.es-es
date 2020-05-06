@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/16/2020
-ms.openlocfilehash: bceafc5c9c238db7b73a9a3a781fa0fe26274984
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: 2c0e95b71ec21b384f17a44ebf5cfd4f33b45f0f
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81866575"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82232860"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Administración de clústeres de HDInsight con la interfaz de usuario web de Apache Ambari
 
@@ -135,7 +135,7 @@ Seleccione cualquiera de estos vínculos para abrir una pestaña nueva del explo
 
 ### <a name="ambari-users-groups-and-permissions"></a>Usuarios, grupos y permisos de Ambari
 
-Se puede trabajar con usuarios, grupos y permisos cuando se usa un clúster de HDInsight unido a un dominio. Para más información sobre el uso de la interfaz de usuario de administración de Ambari en un clúster unidos a un dominio, consulte [Manage domain-joined HDInsight clusters](./domain-joined/hdinsight-security-overview.md) (Administración de clústeres de HDInsight unidos a dominio).
+Se admite el trabajo con usuarios, grupos y permisos. Para la administración local, consulte [Autorización de usuarios para Apache Ambari Views](./hdinsight-authorize-users-to-ambari.md). Para los clústeres unidos a un dominio, consulte [Administración de clústeres de HDInsight unidos a dominio](./domain-joined/hdinsight-security-overview.md).
 
 > [!WARNING]  
 > No cambie la contraseña del guardián Ambari (hdinsightwatchdog) en el clúster de HDInsight basado en Linux. El cambio de la contraseña impide usar acciones de script o realizar operaciones de escalado con el clúster.

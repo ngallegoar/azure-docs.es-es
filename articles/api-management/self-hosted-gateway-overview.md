@@ -1,30 +1,25 @@
 ---
-title: Introducción a la puerta de enlace autohospedada de Azure API Management | Microsoft Docs
-description: Aprenda cómo la puerta de enlace autohospedada de Azure API Management ayuda a las organizaciones a administrar las API en entornos híbridos y multinube.
+title: Introducción a la puerta de enlace autohospedada | Microsoft Docs
+description: Aprenda cómo la característica de puerta de enlace autohospedada de Azure API Management ayuda a las organizaciones a administrar las API en entornos híbridos y multinube.
 services: api-management
 documentationcenter: ''
 author: vlvinogr
 manager: gwallace
 editor: ''
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 10/31/2019
+ms.date: 04/26/2020
 ms.author: apimpm
-ms.openlocfilehash: 415f0e209e607a863d715b1a66a2435603a662f0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b560b02544eeb96167e68ed305d4d9942d2b1e0f
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73510557"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82232979"
 ---
-# <a name="self-hosted-api-management-gateway-overview"></a>Introducción a la puerta de enlace autohospedada de API Management
+# <a name="self-hosted-gateway-overview"></a>Introducción a la puerta de enlace autohospedada
 
-En este artículo se explica cómo la característica de puerta de enlace autohospedada facilita la administración de API híbrida y multinube, presenta su arquitectura de alto nivel y resalta sus capacidades fundamentales.
-
-> [!NOTE]
-> La característica de puerta de enlace autohospedada se encuentra en versión preliminar. Durante la versión preliminar, la puerta de enlace autohospedada solo está disponible en los niveles Desarrollador y Premium sin cargo adicional. El nivel de Desarrollador está limitado a una única implementación de puerta de enlace autohospedada.
+En este artículo se explica cómo la característica de puerta de enlace autohospedada de Azure API Management habilita la administración de API híbrida y multinube, presenta su arquitectura de alto nivel y resalta sus capacidades.
 
 ## <a name="hybrid-and-multi-cloud-api-management"></a>Administración de API híbrida y multinube
 
@@ -42,20 +37,27 @@ De forma predeterminada, todos estos componentes se implementan en Azure, lo que
 
 ![Flujo de tráfico de API sin puertas de enlace autohospedadas](media/self-hosted-gateway-overview/without-gateways.png)
 
-La implementación de puertas de enlace autohospedadas en los mismos entornos que las implementaciones de API de back-end y su incorporación al servicio de API Management permite que el tráfico de la API fluya directamente a las API de back-end, lo que mejora la latencia, optimiza los costos de transferencia de datos y facilita el cumplimiento, a la vez que conserva las ventajas de tener un único punto de administración y detección de todas las API dentro de la organización, independientemente de dónde se hospeden sus implementaciones.
+La implementación de puertas de enlace autohospedadas en los mismos entornos en que las implementaciones de API de back-end se hospedan permiten que el tráfico de la API fluya directamente a las API de back-end, lo que mejora la latencia, optimiza los costos de transferencia de datos y facilita el cumplimiento, a la vez que conserva las ventajas de tener un único punto de administración y detección de todas las API dentro de la organización, independientemente de dónde se hospeden sus implementaciones.
 
 ![Flujo de tráfico de API con puertas de enlace autohospedadas](media/self-hosted-gateway-overview/with-gateways.png)
 
 ## <a name="packaging-and-features"></a>Empaquetado y características
 
-La puerta de enlace autohospedada es una versión en contenedor, funcionalmente equivalente, de la puerta de enlace administrada implementada en Azure como parte de cada servicio de API Management. La puerta de enlace autohospedada está disponible como un contenedor de Docker basado en Linux de Microsoft Container Registry. Se puede implementar en Docker, Kubernetes o en cualquier otra solución de orquestación de contenedores que se ejecute en un escritorio, un clúster de servidores o una infraestructura en la nube.
+La puerta de enlace autohospedada es una versión en contenedor, funcionalmente equivalente, de la puerta de enlace administrada implementada en Azure como parte de cada servicio de API Management. La puerta de enlace autohospedada está disponible como un [contenedor](https://aka.ms/apim/sputnik/dhub) de Docker basado en Linux de Microsoft Container Registry. Se puede implementar en Docker, Kubernetes o en cualquier otra solución de orquestación de contenedores que se ejecute en un clúster de servidores local, una infraestructura en la nube o, con fines de evaluación y desarrollo, en un equipo personal.
 
-> [!IMPORTANT]
-> Algunas de las funciones disponibles en la puerta de enlace administrada todavía no están disponibles en la versión preliminar. Principalmente: El registro en la directiva del centro de eventos, la integración de Service Fabric, HTTP/2 descendente. No hay ningún plan para que una caché integrada esté disponible en la puerta de enlace autohospedada.
+Las siguientes funcionalidades de las puertas de enlace administradas **no están disponibles** en las puertas de enlace autohospedadas:
+
+- Registros de Azure Monitor
+- Administración de cifrado y de la versión de TLS ascendente (back-end)
+- La validación de los certificados de servidor y cliente mediante [certificados raíz de CA](api-management-howto-ca-certificates.md) cargados en el servicio de API Management. Para agregar compatibilidad con CA personalizadas, agregue una capa a la imagen de contenedor de puerta de enlace autohospedada que instala el certificado raíz de la CA.
+- Integración con [Service Fabric](../service-fabric/service-fabric-api-management-overview.md).
+- Reanudación de la sesión TLS.
+- Renegociación del certificado de cliente. Esto significa que, para que la [autenticación de certificados de cliente](api-management-howto-mutual-certificates-for-clients.md) funcione, los consumidores de la API de trabajo deben presentar sus certificados como parte del protocolo de enlace TLS inicial. Para garantizar este escenario, habilite la configuración Negociar certificado de cliente cuando configure un nombre de host personalizado de puerta de enlace autohospedada.
+- Memoria caché integrada. Consulte este [documento](api-management-howto-cache-external.md) para aprender a usar la memoria caché externa en las puertas de enlace autohospedadas.
 
 ## <a name="connectivity-to-azure"></a>Conectividad a Azure
 
-La puerta de enlace autohospedada requiere conectividad TCP/IP saliente a Azure en el puerto 443. Cada puerta de enlace autohospedada debe estar asociada a un único servicio de API Management y se configura a través de su plano de administración. La puerta de enlace autohospedada usa la conectividad a Azure para:
+Las puertas de enlace autohospedadas requieren conectividad TCP/IP saliente a Azure en el puerto 443. Cada puerta de enlace autohospedada debe estar asociada a un único servicio de API Management y configurada a través de su plano de administración. La puerta de enlace autohospedada usa la conectividad a Azure para:
 
 -   Informar de su estado mediante el envío de latidos cada minuto
 -   Comprobar regularmente (cada 10 segundos) y aplicar actualizaciones de configuración siempre que estén disponibles
@@ -64,22 +66,22 @@ La puerta de enlace autohospedada requiere conectividad TCP/IP saliente a Azure 
 
 Cuando se pierde la conectividad con Azure, la puerta de enlace autohospedada no podrá recibir actualizaciones de configuración, notificar su estado o cargar los datos de telemetría.
 
-La puerta de enlace autohospedada está diseñada para "suspender la estática" y puede sobrevivir a la pérdida temporal de conectividad con Azure. Se puede implementar con o sin la copia de seguridad de configuración local activada. En el primer caso, las puertas de enlace autohospedadas guardarán regularmente una copia de seguridad de la configuración en un volumen persistente conectado al contenedor o pod.
+La puerta de enlace autohospedada está diseñada para "suspender la estática" y puede sobrevivir a la pérdida temporal de conectividad con Azure. Se puede implementar con o sin la copia de seguridad de configuración local. En el primer caso, las puertas de enlace autohospedadas guardarán con frecuencia una copia de seguridad de la configuración descargada más reciente en un volumen persistente conectado al contenedor o pod.
 
 Cuando se desactiva la copia de seguridad de la configuración y se interrumpe la conectividad a Azure:
 
--   Las puertas de enlace autohospedadas que se están ejecutando seguirán funcionando con una copia en memoria de la configuración
+-   Las puertas de enlace autohospedadas en ejecución seguirán funcionando con una copia en memoria de la configuración
 -   Las puertas de enlace autohospedadas detenidas no podrán iniciarse
 
 Cuando se activa la copia de seguridad de la configuración y se interrumpe la conectividad a Azure:
 
--   Las puertas de enlace autohospedadas que se están ejecutando seguirán funcionando con una copia en memoria de la configuración
--   Las puertas de enlace autohospedadas detenidas comenzarán a usar una copia de seguridad de la configuración
+-   Las puertas de enlace autohospedadas en ejecución seguirán funcionando con una copia en memoria de la configuración
+-   Las puertas de enlace autohospedadas detenidas podrán comenzar a usar una copia de seguridad de la configuración
 
 Cuando se restaura la conectividad, cada puerta de enlace autohospedada afectada por la interrupción se volverá a conectar automáticamente con su servicio de API Management asociado y descargará todas las actualizaciones de configuración que se produjeron mientras la puerta de enlace estaba "desconectada".
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 -   [Lea las notas del producto para obtener más información sobre este tema](https://aka.ms/hybrid-and-multi-cloud-api-management)
--   [Implementación de una puerta de enlace autohospedada en Docker](api-management-howto-deploy-self-hosted-gateway-to-docker.md)
--   [Implementación de una puerta de enlace autohospedada en Kubernetes](api-management-howto-deploy-self-hosted-gateway-to-k8s.md)
+-   [Implementación de una puerta de enlace autohospedada en Docker](how-to-deploy-self-hosted-gateway-docker.md)
+-   [Implementación de una puerta de enlace autohospedada en Kubernetes](how-to-deploy-self-hosted-gateway-kubernetes.md)

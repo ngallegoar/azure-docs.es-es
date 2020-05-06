@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 04/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 403ca480bcf0743d81e375c122c888db96bbf543
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 471c2d45e28e634adde78c2d96d407ec219be68c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80408719"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82229670"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Notas para desarrolladores sobre directivas personalizadas en Azure Active Directory B2C
 
@@ -80,7 +80,7 @@ Las directivas personalizadas y las funcionalidades de Identity Experience Frame
 | [OpenID Connect](openid-connect-technical-profile.md) |  |  | X | Por ejemplo, Google+.  |
 | [OAuth2](oauth2-technical-profile.md) |  |  | X | Por ejemplo, Facebook.  |
 | [OAuth1](oauth1-technical-profile.md) |  | X |  | Por ejemplo, Twitter. |
-| [SAML2](saml-technical-profile.md) |  |   | X | Por ejemplo, Salesforce, ADFS. |
+| [SAML2](saml-identity-provider-technical-profile.md) |  |   | X | Por ejemplo, Salesforce, ADFS. |
 | WSFED| X |  |  |  |
 
 
@@ -134,7 +134,8 @@ Las directivas personalizadas y las funcionalidades de Identity Experience Frame
 | [Proveedor predeterminado de sesión de SSO](custom-policy-reference-sso.md#defaultssosessionprovider) |  |  | X |  |
 | [Proveedor externo de sesión de inicio de sesión](custom-policy-reference-sso.md#externalloginssosessionprovider) |  |  | X |  |
 | [Proveedor de sesión de SSO de SAML](custom-policy-reference-sso.md#samlssosessionprovider) |  |  | X |  |
-
+| [OAuthSSOSessionProvider](custom-policy-reference-sso.md#oauthssosessionprovider)  |  | X |  |  |
+| [Cierre de sesión único](session-overview.md#sign-out)  |  | X |  |  |
 
 ### <a name="security"></a>Seguridad
 

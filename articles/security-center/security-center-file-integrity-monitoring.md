@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2019
 ms.author: memildin
-ms.openlocfilehash: 4d65ca8d97e1cca81886259d4f15cc880e45be9c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 46ff4d9c941af25fcec3a70d7a2e6da95da59f32
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77604276"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82106702"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Supervisar la integridad de los archivos en Azure Security Center
 Aprenda a configurar la supervisión de la integridad de los archivos (FIM) en Azure Security Center mediante este tutorial.
@@ -45,7 +45,39 @@ FIM emplea la solución Azure Change Tracking para realizar el seguimiento de lo
 ## <a name="which-files-should-i-monitor"></a>¿Qué archivos se deben supervisar?
 Al elegir los archivos que quiere supervisar, es conveniente que piense en los archivos que son críticos para su sistema y aplicaciones. Considere la posibilidad de elegir archivos que no espera que cambien sin haberlo planeado. Al elegir archivos que las aplicaciones o el sistema operativo cambian con frecuencia (por ejemplo, archivos de registro y archivos de texto) se genera mucho ruido que dificulta la identificación de un ataque.
 
-Security Center recomienda qué archivos se deben supervisar de forma predeterminada según los patrones de ataque conocidos que incluyen cambios en los archivos y el Registro.
+Security Center proporciona la siguiente lista de elementos cuya supervisión se recomienda según los patrones de ataque conocidos. Aquí se incluyen archivos y claves del Registro de Windows. Todas las claves están en HKEY_LOCAL_MACHINE ("HKLM" en la tabla).
+
+|**Archivos de Linux**|**Archivos de Windows**|**Claves del Registro de Windows**|
+|:----|:----|:----|
+|/bin/login|C:\autoexec.bat|HKLM\SOFTWARE\Microsoft\Cryptography\OID\EncodingType 0\CryptSIPDllRemoveSignedDataMsg\{C689AAB8-8E78-11D0-8C47-00C04FC295EE}|
+|/bin/passwd|C:\boot.ini|HKLM\SOFTWARE\Microsoft\Cryptography\OID\EncodingType 0\CryptSIPDllRemoveSignedDataMsg\{603BCC1F-4B59-4E08-B724-D2C6297EF351}|
+|/etc/*.conf|C:\config.sys|HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\IniFileMapping\SYSTEM.ini\boot|
+|/usr/bin|C:\Windows\system.ini|HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows|
+|/usr/sbin|C:\Windows\win.ini|HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon|
+|/bin|C:\Windows\regedit.exe|HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders|
+|/sbin|C:\Windows\System32\userinit.exe|HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders|
+|/boot|C:\Windows\explorer.exe|HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run|
+|/usr/local/bin|C:\Archivos de programa\Microsoft Security Client\msseces.exe|HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce|
+|/usr/local/sbin||HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnceEx|
+|/opt/bin||HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunServices|
+|/opt/sbin||HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunServicesOnce|
+|/etc/crontab||HKLM\SOFTWARE\WOW6432Node\Microsoft\Cryptography\OID\EncodingType 0\CryptSIPDllRemoveSignedDataMsg\{C689AAB8-8E78-11D0-8C47-00C04FC295EE}|
+|/etc/init.d||HKLM\SOFTWARE\WOW6432Node\Microsoft\Cryptography\OID\EncodingType 0\CryptSIPDllRemoveSignedDataMsg\{603BCC1F-4B59-4E08-B724-D2C6297EF351}|
+|/etc/cron.hourly||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows NT\CurrentVersion\IniFileMapping\system.ini\boot|
+|/etc/cron.daily||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows NT\CurrentVersion\Windows|
+|/etc/cron.weekly||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows NT\CurrentVersion\Winlogon|
+|/etc/cron.monthly||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders|
+|||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders|
+|||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Run|
+|||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\RunOnce|
+|||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\RunOnceEx|
+|||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\RunServices|
+|||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\RunServicesOnce|
+|||HKLM\SYSTEM\CurrentControlSet\Control\hivelist|
+|||HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\KnownDLLs|
+|||HKLM\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\DomainProfile|
+|||HKLM\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\PublicProfile|
+|||HKLM\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\StandardProfile|
 
 ## <a name="using-file-integrity-monitoring"></a>Uso de la supervisión de la integridad de los archivos
 1. Abra el panel **Security Center**.
@@ -85,8 +117,7 @@ Para habilitar FIM en un área de trabajo, siga estos pasos:
 
 > [!NOTE]
 > Puede cambiar la configuración en cualquier momento. Consulte a continuación Edición de las entidades supervisadas para más información.
->
->
+
 
 ## <a name="view-the-fim-dashboard"></a>Visualización del panel de FIM
 El panel **Supervisión de la integridad de los archivos** se muestra en las áreas de trabajo en las que está habilitado FIM. El panel de FIM se abre después de habilitar FIM en un área de trabajo o al seleccionar un área de trabajo en la ventana **Supervisión de la integridad de los archivos** que ya tiene FIM habilitado.
@@ -203,9 +234,6 @@ En este artículo ha obtenido información sobre cómo usar la Supervisión de l
 
 * [Establecimiento de directivas de seguridad](tutorial-security-policy.md): aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
 * [Administración de recomendaciones de seguridad](security-center-recommendations.md): conozca una serie de recomendaciones que le ayudarán a proteger los recursos de Azure.
-* [Supervisión del estado de seguridad](security-center-monitoring.md): obtenga información sobre cómo supervisar el mantenimiento de los recursos de Azure.
-* [Administración y respuesta a las alertas de seguridad](security-center-managing-and-responding-alerts.md): obtenga información sobre cómo administrar y responder a alertas de seguridad.
-* [Supervisión de las soluciones de asociados](security-center-partner-solutions.md): aprenda a supervisar el estado de mantenimiento de las soluciones de asociados.
 * [Blog de seguridad de Azure](https://blogs.msdn.com/b/azuresecurity/): obtenga las últimas noticias e información sobre la seguridad en Azure.
 
 <!--Image references-->

@@ -11,17 +11,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: pim
-ms.date: 01/05/2019
+ms.date: 04/28/2020
 ms.author: curtand
 ms.reviewer: hanki
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee5f2edbae28276f8485ae774a5b1c52e1af2fd1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 02fbfc83c16cb13376cce820f19b247a7cd7db59
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72756398"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82232315"
 ---
 # <a name="email-notifications-in-pim"></a>Notificaciones por correo electrónico en PIM
 
@@ -62,7 +62,7 @@ Este es un correo electrónico de ejemplo que se envía cuando un usuario activa
 
 ### <a name="weekly-privileged-identity-management-digest-email-for-azure-ad-roles"></a>Correo electrónico de resumen semanal de Privileged Identity Management para roles de Azure AD
 
-Se envía un correo electrónico de resumen semanal de Privileged Identity Management para los roles de Azure AD a los administradores de roles con privilegios, los administradores de seguridad y los administradores globales que han habilitado Privileged Identity Management. Este correo electrónico semanal proporciona una instantánea de las actividades de Privileged Identity Management para la semana, así como las asignaciones de roles con privilegios. Solo está disponible para los inquilinos en la nube pública. Este es un ejemplo de correo electrónico:
+Se envía un correo electrónico de resumen semanal de Privileged Identity Management para los roles de Azure AD a los administradores de roles con privilegios, los administradores de seguridad y los administradores globales que han habilitado Privileged Identity Management. Este correo electrónico semanal proporciona una instantánea de las actividades de Privileged Identity Management para la semana, así como las asignaciones de roles con privilegios. Solo está disponible para las organizaciones de Azure AD en la nube pública. Este es un ejemplo de correo electrónico:
 
 ![Correo electrónico de resumen semanal de Privileged Identity Management para roles de Azure AD](./media/pim-email-notifications/email-directory-weekly.png)
 
@@ -70,12 +70,24 @@ Este correo electrónico incluye cuatro iconos:
 
 | Icono | Descripción |
 | --- | --- |
-| **Users activated** (Activaciones de usuarios) | Número de veces que los usuarios activaron su rol apto dentro del inquilino. |
+| **Users activated** (Activaciones de usuarios) | Número de veces que los usuarios activaron su rol apto dentro de la organización. |
 | **Users made permanent** (Usuarios convertidos en permanentes) | Número de veces que los usuarios con una asignación apta se hicieron permanentes. |
 | **Asignaciones de roles en Privileged Identity Management** | Número de veces que los usuarios recibieron un rol apto dentro de Privileged Identity Management. |
 | **Role assignments outside of PIM** (Asignaciones de roles fuera de PIM) | Número de veces que a los usuarios se les asigna un rol permanente fuera de Privileged Identity Management (dentro de Azure AD). |
 
-En la sección **Overview of your top roles** (Información general de los roles principales) figuran los cinco principales roles en el inquilino según el número total de administradores permanentes y aptos para cada rol. El vínculo **Realizar acción** abre el [Asistente de PIM](pim-security-wizard.md) donde puede convertir administradores permanentes en administradores aptos en lotes.
+En la sección **Información general de los roles principales** figuran los cinco principales roles en la organización según el número total de administradores permanentes y aptos para cada rol. El vínculo **Realizar acción** abre el [Asistente de PIM](pim-security-wizard.md) donde puede convertir administradores permanentes en administradores aptos en lotes.
+
+## <a name="email-timing-for-activation-approvals"></a>Temporización del correo electrónico en las aprobaciones de activación
+
+Cuando los usuarios activan su rol y la configuración de este requiere aprobación, los aprobadores recibirán tres correos electrónicos para cada aprobación:
+
+- Solicitud para aprobar o denegar la solicitud de activación del usuario (enviada por el motor de aprobación de solicitudes)
+- Se ha aprobado la solicitud del usuario (enviada por el motor de aprobación de solicitudes)
+- Se ha activado el rol del usuario (enviado por Privileged Identity Management)
+
+Los dos primeros correos electrónicos enviados por el motor de aprobación de solicitudes pueden enviarse con retraso. Actualmente, el 90 % de los mensajes de correo electrónico tardan entre tres y diez minutos, pero en un 1 % de los clientes este tiempo puede alargarse hasta quince minutos.
+
+Si se acepta una solicitud de aprobación en Azure Portal antes de que se envíe el primer correo electrónico, este ya no se desencadenará y los demás aprobadores ya no recibirán por correo electrónico la solicitud de aprobación. Esto podría aparecer como no hubieran recibido un correo electrónico, pero es el comportamiento esperado.
 
 ## <a name="pim-emails-for-azure-resource-roles"></a>Correos electrónicos de PIM para roles de recursos de Azure
 

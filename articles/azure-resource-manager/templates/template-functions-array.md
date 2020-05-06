@@ -1,28 +1,26 @@
 ---
-title: 'Funciones de plantillas: matrices y objetos'
-description: Describe las funciones para usar en una plantilla de Azure Resource Manager para trabajar con matrices y objetos.
+title: 'Funciones de plantillas: matrices'
+description: Describe las funciones que se usan en una plantilla de Azure Resource Manager para trabajar con matrices.
 ms.topic: conceptual
-ms.date: 07/31/2019
-ms.openlocfilehash: 0b4bb80f6d7a7cc20a8b2dcc71e890f2ada7c5be
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/27/2020
+ms.openlocfilehash: f34ba74847ac394e37e6ef33f859304128daacde
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80156382"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203818"
 ---
-# <a name="array-and-object-functions-for-arm-templates"></a>Funciones de matriz y de objeto para las plantillas de Resource Manager
+# <a name="array-functions-for-arm-templates"></a>Funciones de matriz para plantillas de Resource Manager
 
-Resource Manager proporciona varias funciones para trabajar con matrices y objetos en la plantilla de Azure Resource Manager (ARM).
+Resource Manager proporciona varias funciones para trabajar con matrices en la plantilla de Azure Resource Manager (ARM).
 
 * [array](#array)
-* [coalesce](#coalesce)
 * [concat](#concat)
 * [contains](#contains)
 * [createArray](#createarray)
 * [empty](#empty)
 * [first](#first)
 * [intersection](#intersection)
-* [json](#json)
 * [last](#last)
 * [length](#length)
 * [max](#max)
@@ -99,105 +97,6 @@ La salida del ejemplo anterior con el valor predeterminado es:
 | stringOutput | Array | ["efgh"] |
 | objectOutput | Array | [{"a": "b", "c": "d"}] |
 
-Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/array.json
-```
-
-Para implementar esta plantilla de ejemplo con PowerShell, use:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/array.json
-```
-
-## <a name="coalesce"></a>coalesce
-
-`coalesce(arg1, arg2, arg3, ...)`
-
-Devuelve el primer valor no nulo de los parámetros. Las cadenas vacías, las matrices vacías y los objetos vacíos no son nulos.
-
-### <a name="parameters"></a>Parámetros
-
-| Parámetro | Obligatorio | Tipo | Descripción |
-|:--- |:--- |:--- |:--- |
-| arg1 |Sí |int, string, array u object |El primer valor para comprobar si hay valores nulos. |
-| argumentos adicionales |No |int, string, array u object |Valores adicionales para probar si hay valores nulos. |
-
-### <a name="return-value"></a>Valor devuelto
-
-El valor de los primeros parámetros que no son nulos, que puede ser una cadena, un entero, una matriz o un objeto. Es nulo si todos los parámetros son nulos.
-
-### <a name="example"></a>Ejemplo
-
-En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/coalesce.json) siguiente se muestra el resultado de los diferentes usos de coalesce.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "objectToTest": {
-            "type": "object",
-            "defaultValue": {
-                "null1": null,
-                "null2": null,
-                "string": "default",
-                "int": 1,
-                "object": {"first": "default"},
-                "array": [1]
-            }
-        }
-    },
-    "resources": [
-    ],
-    "outputs": {
-        "stringOutput": {
-            "type": "string",
-            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').string)]"
-        },
-        "intOutput": {
-            "type": "int",
-            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').int)]"
-        },
-        "objectOutput": {
-            "type": "object",
-            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').object)]"
-        },
-        "arrayOutput": {
-            "type": "array",
-            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').array)]"
-        },
-        "emptyOutput": {
-            "type": "bool",
-            "value": "[empty(coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2))]"
-        }
-    }
-}
-```
-
-La salida del ejemplo anterior con el valor predeterminado es:
-
-| Nombre | Tipo | Value |
-| ---- | ---- | ----- |
-| stringOutput | String | default |
-| intOutput | Int | 1 |
-| objectOutput | Object | {"first": "default"} |
-| arrayOutput | Array | [1] |
-| emptyOutput | Bool | True |
-
-Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/coalesce.json
-```
-
-Para implementar esta plantilla de ejemplo con PowerShell, use:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/coalesce.json
-```
-
 ## <a name="concat"></a>concat
 
 `concat(arg1, arg2, arg3, ...)`
@@ -260,18 +159,6 @@ La salida del ejemplo anterior con el valor predeterminado es:
 | ---- | ---- | ----- |
 | return | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
-Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-array.json
-```
-
-Para implementar esta plantilla de ejemplo con PowerShell, use:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-array.json
-```
-
 En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-string.json) siguiente se muestra cómo combinar dos valores de cadena y devolver una cadena concatenada.
 
 ```json
@@ -299,18 +186,6 @@ La salida del ejemplo anterior con el valor predeterminado es:
 | Nombre | Tipo | Value |
 | ---- | ---- | ----- |
 | concatOutput | String | prefix-5yj4yjf5mbg72 |
-
-Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-string.json
-```
-
-Para implementar esta plantilla de ejemplo con PowerShell, use:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-string.json
-```
 
 ## <a name="contains"></a>contains
 
@@ -393,18 +268,6 @@ La salida del ejemplo anterior con el valor predeterminado es:
 | arrayTrue | Bool | True |
 | arrayFalse | Bool | False |
 
-Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/contains.json
-```
-
-Para implementar esta plantilla de ejemplo con PowerShell, use:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/contains.json
-```
-
 ## <a name="createarray"></a>createarray
 
 `createArray (arg1, arg2, arg3, ...)`
@@ -472,18 +335,6 @@ La salida del ejemplo anterior con el valor predeterminado es:
 | objectArray | Array | [{"one": "a", "two": "b", "three": "c"}] |
 | arrayArray | Array | [["one", "two", "three"]] |
 
-Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/createarray.json
-```
-
-Para implementar esta plantilla de ejemplo con PowerShell, use:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/createarray.json
-```
-
 ## <a name="empty"></a>empty
 
 `empty(itemToTest)`
@@ -549,18 +400,6 @@ La salida del ejemplo anterior con el valor predeterminado es:
 | objectEmpty | Bool | True |
 | stringEmpty | Bool | True |
 
-Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/empty.json
-```
-
-Para implementar esta plantilla de ejemplo con PowerShell, use:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/empty.json
-```
-
 ## <a name="first"></a>first
 
 `first(arg1)`
@@ -612,18 +451,6 @@ La salida del ejemplo anterior con el valor predeterminado es:
 | ---- | ---- | ----- |
 | arrayOutput | String | one |
 | stringOutput | String | O |
-
-Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
-```
-
-Para implementar esta plantilla de ejemplo con PowerShell, use:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
-```
 
 ## <a name="intersection"></a>intersección
 
@@ -691,91 +518,6 @@ La salida del ejemplo anterior con el valor predeterminado es:
 | objectOutput | Object | {"one": "a", "three": "c"} |
 | arrayOutput | Array | ["two", "three"] |
 
-Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/intersection.json
-```
-
-Para implementar esta plantilla de ejemplo con PowerShell, use:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/intersection.json
-```
-
-## <a name="json"></a>json
-
-`json(arg1)`
-
-Devuelve un objeto JSON.
-
-### <a name="parameters"></a>Parámetros
-
-| Parámetro | Obligatorio | Tipo | Descripción |
-|:--- |:--- |:--- |:--- |
-| arg1 |Sí |string |Valor que se va a convertir en JSON. |
-
-### <a name="return-value"></a>Valor devuelto
-
-Objeto JSON de la cadena especificada o un objeto vacío si se especifica **null**.
-
-### <a name="remarks"></a>Observaciones
-
-Si necesita incluir un valor de parámetro o variable en el objeto JSON, use la función [concat](template-functions-string.md#concat) para crear la cadena que se pasa a la función.
-
-### <a name="example"></a>Ejemplo
-
-En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/json.json) siguiente se muestra cómo utilizar la función json con matrices y objetos:
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "testValue": {
-            "type": "string",
-            "defaultValue": "demo value"
-        }
-    },
-    "resources": [
-    ],
-    "outputs": {
-        "jsonOutput": {
-            "type": "object",
-            "value": "[json('{\"a\": \"b\"}')]"
-        },
-        "nullOutput": {
-            "type": "bool",
-            "value": "[empty(json('null'))]"
-        },
-        "paramOutput": {
-            "type": "object",
-            "value": "[json(concat('{\"a\": \"', parameters('testValue'), '\"}'))]"
-        }
-    }
-}
-```
-
-La salida del ejemplo anterior con el valor predeterminado es:
-
-| Nombre | Tipo | Value |
-| ---- | ---- | ----- |
-| jsonOutput | Object | {"a": "b"} |
-| nullOutput | Boolean | True |
-| paramOutput | Object | {"a": "demo value"}
-
-Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/json.json
-```
-
-Para implementar esta plantilla de ejemplo con PowerShell, use:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/json.json
-```
-
 ## <a name="last"></a>last
 
 `last (arg1)`
@@ -827,18 +569,6 @@ La salida del ejemplo anterior con el valor predeterminado es:
 | ---- | ---- | ----- |
 | arrayOutput | String | three |
 | stringOutput | String | e |
-
-Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/last.json
-```
-
-Para implementar esta plantilla de ejemplo con PowerShell, use:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/last.json
-```
 
 ## <a name="length"></a>length
 
@@ -916,18 +646,6 @@ La salida del ejemplo anterior con el valor predeterminado es:
 | stringLength | Int | 13 |
 | objectLength | Int | 4 |
 
-Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/length.json
-```
-
-Para implementar esta plantilla de ejemplo con PowerShell, use:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/length.json
-```
-
 Puede usar esta función con una matriz para especificar el número de iteraciones al crear recursos. En el ejemplo siguiente, el parámetro **siteNames** debería hacer referencia a una matriz de nombres que se usará al crear los sitios web.
 
 ```json
@@ -990,18 +708,6 @@ La salida del ejemplo anterior con el valor predeterminado es:
 | arrayOutput | Int | 5 |
 | intOutput | Int | 5 |
 
-Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/max.json
-```
-
-Para implementar esta plantilla de ejemplo con PowerShell, use:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/max.json
-```
-
 ## <a name="min"></a>Min
 
 `min(arg1)`
@@ -1053,18 +759,6 @@ La salida del ejemplo anterior con el valor predeterminado es:
 | arrayOutput | Int | 0 |
 | intOutput | Int | 0 |
 
-Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/min.json
-```
-
-Para implementar esta plantilla de ejemplo con PowerShell, use:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/min.json
-```
-
 ## <a name="range"></a>range
 
 `range(startIndex, count)`
@@ -1115,18 +809,6 @@ La salida del ejemplo anterior con el valor predeterminado es:
 | Nombre | Tipo | Value |
 | ---- | ---- | ----- |
 | rangeOutput | Array | [5, 6, 7] |
-
-Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/range.json
-```
-
-Para implementar esta plantilla de ejemplo con PowerShell, use:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/range.json
-```
 
 ## <a name="skip"></a>skip
 
@@ -1196,18 +878,6 @@ La salida del ejemplo anterior con el valor predeterminado es:
 | arrayOutput | Array | ["three"] |
 | stringOutput | String | two three |
 
-Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/skip.json
-```
-
-Para implementar esta plantilla de ejemplo con PowerShell, use:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/skip.json
-```
-
 ## <a name="take"></a>take
 
 `take(originalValue, numberToTake)`
@@ -1276,18 +946,6 @@ La salida del ejemplo anterior con el valor predeterminado es:
 | arrayOutput | Array | ["one", "two"] |
 | stringOutput | String | en |
 
-Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/take.json
-```
-
-Para implementar esta plantilla de ejemplo con PowerShell, use:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/take.json
-```
-
 ## <a name="union"></a>union
 
 `union(arg1, arg2, arg3, ...)`
@@ -1354,22 +1012,6 @@ La salida del ejemplo anterior con el valor predeterminado es:
 | objectOutput | Object | {"one": "a", "two": "b", "three": "c2", "four": "d", "five": "e"} |
 | arrayOutput | Array | ["one", "two", "three", "four"] |
 
-Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/union.json
-```
-
-Para implementar esta plantilla de ejemplo con PowerShell, use:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/union.json
-```
-
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para obtener una descripción de las secciones de una plantilla de Azure Resource Manager, vea [Creación de plantillas de Azure Resource Manager](template-syntax.md).
-* Para combinar varias plantillas, vea [Uso de plantillas vinculadas con Azure Resource Manager](linked-templates.md).
-* Para iterar una cantidad de veces específica al crear un tipo de recurso, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](copy-resources.md).
-* Para saber cómo implementar la plantilla que creó, consulte [Implementación de una aplicación con la plantilla de Azure Resource Manager](deploy-powershell.md).
-
+* Para obtener una descripción de las secciones de una plantilla de Azure Resource Manager, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).

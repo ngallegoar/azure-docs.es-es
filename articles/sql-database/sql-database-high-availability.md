@@ -11,12 +11,12 @@ author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 ms.date: 04/02/2020
-ms.openlocfilehash: 1c4ed77112e8c06db1946d756239e02cb187f3ef
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: b8958d9a035c3cc502384e2f378bf428d517a1fc
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618480"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208710"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Alta disponibilidad y Azure SQL Database
 
@@ -33,7 +33,7 @@ Azure SQL Database se ejecuta en la versión estable más reciente del Motor de 
 
 ## <a name="basic-standard-and-general-purpose-service-tier-availability"></a>Disponibilidad de los niveles de servicio Básico, Estándar y Uso general
 
-Estos niveles de servicio aprovechan la arquitectura de disponibilidad estándar. En la siguiente ilustración se muestran cuatro nodos diferentes con las capas de proceso y almacenamiento separadas.
+Los niveles de servicio Básico, Estándar y De uso general aprovechan la arquitectura de disponibilidad estándar para los procesos aprovisionados y sin servidor. En la siguiente ilustración se muestran cuatro nodos diferentes con las capas de proceso y almacenamiento separadas.
 
 ![Separación de proceso y almacenamiento](media/sql-database-high-availability/general-purpose-service-tier.png)
 
@@ -78,7 +78,7 @@ De forma predeterminada, el clúster de nodos del modelo de disponibilidad premi
 Como las bases de datos con redundancia de zona tienen réplicas en distintos centros de datos situados a cierta distancia entre ellos, la mayor latencia de red puede aumentar el tiempo de confirmación y, por lo tanto, afectar al rendimiento de algunas cargas de trabajo OLTP. Siempre puede volver a la configuración de zona única; para ello, deshabilite la configuración de redundancia de zona. Este proceso es una operación en línea similar a la actualización normal del nivel de servicio. Al final del proceso, la base de datos o el grupo se migra desde un anillo con redundancia de zona a un anillo de zona única, o viceversa.
 
 > [!IMPORTANT]
-> Los grupos elásticos y las bases de datos con redundancia de zona solo se admiten actualmente en los niveles de servicio premium y crítico para la empresa de algunas regiones. Cuando se usa el nivel crítico para la empresa, la configuración de redundancia de zona solo está disponible cuando se selecciona el hardware de proceso Gen5. Para información actualizada sobre las regiones que admiten bases de datos con redundancia de zona, consulte [Soporte técnico de servicios por región](../availability-zones/az-overview.md#services-support-by-region).  
+> Los grupos elásticos y las bases de datos con redundancia de zona solo se admiten actualmente en los niveles de servicio premium y crítico para la empresa de algunas regiones. Cuando se usa el nivel crítico para la empresa, la configuración de redundancia de zona solo está disponible cuando se selecciona el hardware de proceso Gen5. Para información actualizada sobre las regiones que admiten bases de datos con redundancia de zona, consulte [Soporte técnico de servicios por región](../availability-zones/az-region.md).  
 > Esta característica no está disponible en Instancia administrada.
 
 En el diagrama siguiente se ilustra la versión con redundancia de zona de la arquitectura de alta disponibilidad:

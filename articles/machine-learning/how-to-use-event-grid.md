@@ -10,12 +10,12 @@ ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 03/11/2020
-ms.openlocfilehash: fe6125682f669e453100488b7e0afc4c49409588
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2a1440dcda27a487c89be4ac63e624a2bb6b393a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79129731"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82111885"
 ---
 # <a name="create-event-driven-machine-learning-workflows-preview"></a>Creación de flujos de trabajo de aprendizaje automático controlados por eventos (versión preliminar)
 
@@ -34,7 +34,7 @@ Use Event Grid para habilitar escenarios comunes, como:
 > Actualmente, los eventos runStatusChanged solo se desencadenan cuando el estado de ejecución es **failed**
 >
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 * Acceso de colaborador o propietario al área de trabajo de Azure Machine Learning para la que se crearán los eventos.
 
 ### <a name="configure-eventgrid-using-the-azure-portal"></a>Configuración de EventGrid mediante Azure Portal
@@ -91,11 +91,9 @@ Al configurar eventos, puede aplicar filtros para que se desencadenen únicament
 
     :::image type="content" source="media/how-to-use-event-grid/select-event-filters.png" alt-text="filtrado de eventos":::
 
-## <a name="sample-scenarios"></a>Escenarios de ejemplo
+## <a name="sample-send-email-alerts"></a>Sample: Envío de alertas de correo electrónico
 
-### <a name="use-a-logic-app-to-send-email-alerts"></a>Uso de una aplicación lógica para enviar alertas por correo electrónico
-
-Aproveche [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) para configurar mensajes de correo electrónico para todos los eventos. Personalice con condiciones y especifique destinatarios para permitir la colaboración y el reconocimiento entre los equipos que trabajan juntos.
+Use [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) para configurar mensajes de correo electrónico para todos los eventos. Personalice con condiciones y especifique destinatarios para permitir la colaboración y el reconocimiento entre los equipos que trabajan juntos.
 
 1. En Azure Portal, vaya al área de trabajo Azure Machine Learning y seleccione la pestaña Eventos en la barra de la izquierda. Desde ahí, seleccione __Aplicaciones lógicas__. 
 
@@ -126,7 +124,7 @@ Aproveche [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) para 
     ![confirm-logic-app-create](./media/how-to-use-event-grid/confirm-logic-app-create.png)
 
 
-### <a name="use-a-logic-app-to-trigger-retraining-workflows-when-data-drift-occurs"></a>Uso de una aplicación lógica para desencadenar flujos de trabajo de nuevo entrenamiento cuando se produce el desfase de datos
+## <a name="sample-trigger-retraining-when-data-drift-occurs"></a>Sample: Desencadenamiento de reentrenamiento cuando se produce un desfase de datos
 
 Los modelos quedan obsoletos a lo largo del tiempo y conservan la utilidad en el contexto en el que se ejecutan. Una manera de saber si es el momento de volver a entrenar el modelo consiste en detectar el desfase de los datos. 
 
@@ -173,7 +171,7 @@ Ahora la canalización de Data Factory se desencadena cuando se produce el desfa
 
 ![view-in-workspace](./media/how-to-use-event-grid/view-in-workspace.png)
 
-### <a name="use-azure-functions-to-deploy-a-model-based-on-tags"></a>Uso de Azure Functions para implementar un modelo basado en etiquetas
+## <a name="sample-deploy-a-model-based-on-tags"></a>Sample: Implementación de un modelo basado en etiquetas
 
 Un objeto de modelo de Azure Machine Learning contiene parámetros sobre los que puede dinamizar las implementaciones, como el nombre del modelo, la versión, la etiqueta y la propiedad. El evento de registro del modelo puede desencadenar un punto de conexión y puede usar una función de Azure para implementar un modelo en función del valor de esos parámetros.
 

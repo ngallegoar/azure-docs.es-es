@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
-ms.date: 02/10/2020
+ms.date: 03/18/2020
 ms.custom: seodec18
-ms.openlocfilehash: 8cf46db06a4a2f8fa86f97dab5a8477cf427c999
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: bcc9e748cb5f88084b9cd3254654f9dc0fbc8aa1
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80159094"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82115574"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn"></a>Tutorial: Entrenamiento de modelos de clasificación de imágenes con los datos MNIST y scikit-learn 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -37,7 +37,7 @@ En la [segunda parte de este tutorial](tutorial-deploy-models-with-aml.md), apre
 Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 
 >[!NOTE]
-> El código de este artículo se ha probado con la versión 1.0.65 del [SDA de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
+> El código de este artículo se probó con la versión 1.0.83 del [SDK de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -188,12 +188,15 @@ Cargue los archivos comprimidos en matrices `numpy`. A continuación, use `matpl
 ```python
 # make sure utils.py is in the same directory as this code
 from utils import load_data
+import glob
+
 
 # note we also shrink the intensity values (X) from 0-255 to 0-1. This helps the model converge faster.
-X_train = load_data(os.path.join(data_folder, "train-images-idx3-ubyte.gz"), False) / 255.0
-X_test = load_data(os.path.join(data_folder, "t10k-images-idx3-ubyte.gz"), False) / 255.0
-y_train = load_data(os.path.join(data_folder, "train-labels-idx1-ubyte.gz"), True).reshape(-1)
-y_test = load_data(os.path.join(data_folder, "t10k-labels-idx1-ubyte.gz"), True).reshape(-1)
+X_train = load_data(glob.glob(os.path.join(data_folder,"**/train-images-idx3-ubyte.gz"), recursive=True)[0], False) / 255.0
+X_test = load_data(glob.glob(os.path.join(data_folder,"**/t10k-images-idx3-ubyte.gz"), recursive=True)[0], False) / 255.0
+y_train = load_data(glob.glob(os.path.join(data_folder,"**/train-labels-idx1-ubyte.gz"), recursive=True)[0], True).reshape(-1)
+y_test = load_data(glob.glob(os.path.join(data_folder,"**/t10k-labels-idx1-ubyte.gz"), recursive=True)[0], True).reshape(-1)
+
 
 # now let's show some randomly chosen images from the traininng set.
 count = 0
@@ -228,6 +231,7 @@ Para esta tarea, envíe el trabajo que se va a ejecutar al clúster de entrenami
 Cree un directorio para proporcionar el código necesario desde el equipo al recurso remoto.
 
 ```python
+import os
 script_folder = os.path.join(os.getcwd(), "sklearn-mnist")
 os.makedirs(script_folder, exist_ok=True)
 ```
@@ -245,7 +249,7 @@ import numpy as np
 import glob
 
 from sklearn.linear_model import LogisticRegression
-from sklearn.externals import joblib
+import joblib
 
 from azureml.core import Run
 from utils import load_data
@@ -265,6 +269,7 @@ X_train = load_data(glob.glob(os.path.join(data_folder, '**/train-images-idx3-ub
 X_test = load_data(glob.glob(os.path.join(data_folder, '**/t10k-images-idx3-ubyte.gz'), recursive=True)[0], False) / 255.0
 y_train = load_data(glob.glob(os.path.join(data_folder, '**/train-labels-idx1-ubyte.gz'), recursive=True)[0], True).reshape(-1)
 y_test = load_data(glob.glob(os.path.join(data_folder, '**/t10k-labels-idx1-ubyte.gz'), recursive=True)[0], True).reshape(-1)
+
 print(X_train.shape, y_train.shape, X_test.shape, y_test.shape, sep = '\n')
 
 # get hold of the current run
@@ -304,39 +309,49 @@ Tenga en cuenta cómo el script obtiene los datos y guarda los modelos:
 
 ### <a name="create-an-estimator"></a>Crear un estimador
 
-Se usa un objeto [estimador de SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) para enviar la ejecución. Para crear el estimador, ejecute el código siguiente para definir estos elementos:
+Un objeto estimador se usa para enviar la ejecución. Azure Machine Learning dispone de estimadores preconfigurados para marcos de aprendizaje automático comunes, así como de un estimador genérico. Para crear un estimador, especifique lo siguiente:
+
 
 * El nombre del objeto estimador es `est`.
 * El directorio que contiene los scripts. Todos los archivos de este directorio se cargan en los nodos del clúster para su ejecución.
 * El destino de proceso. En este caso, se usará el clúster de proceso de Azure Machine Learning que creó.
 * El nombre del script de entrenamiento es **train.py**.
+* Un entorno que contiene las bibliotecas necesarias para ejecutar el script.
 * Los parámetros necesarios del script de entrenamiento.
 
-En este tutorial, este destino es AmlCompute. Todos los archivos de la carpeta del script se cargan en los nodos del clúster para su ejecución. La carpeta de datos **data_folder** se establece para usar el conjunto de datos. En primer lugar, cree un objeto de entorno que especifique las dependencias necesarias para el entrenamiento. 
+En este tutorial, este destino es AmlCompute. Todos los archivos de la carpeta del script se cargan en los nodos del clúster para su ejecución. La carpeta de datos **data_folder** se establece para usar el conjunto de datos. "En primer lugar, cree el entorno que contenga la biblioteca scikit-learn, el paquete azureml-dataprep necesario para acceder al conjunto de datos y el paquete azureml-defaults que contiene las dependencias para el registro de las métricas. El paquete azureml-defaults también contiene las dependencias necesarias para implementar el modelo como un servicio web más adelante en la parte 2 del tutorial.
+
+Una vez definido el entorno, regístrelo en el área de trabajo para volver a usarlo en la parte 2 del tutorial.
 
 ```python
 from azureml.core.environment import Environment
 from azureml.core.conda_dependencies import CondaDependencies
 
-env = Environment('my_env')
-cd = CondaDependencies.create(pip_packages=['azureml-sdk','scikit-learn','azureml-dataprep[pandas,fuse]>=1.1.14'])
+# to install required packages
+env = Environment('tutorial-env')
+cd = CondaDependencies.create(pip_packages=['azureml-dataprep[pandas,fuse]>=1.1.14', 'azureml-defaults'], conda_packages = ['scikit-learn==0.22.1'])
+
 env.python.conda_dependencies = cd
+
+# Register environment to re-use later
+env.register(workspace = ws)
 ```
 
 Después, cree el estimador con el código siguiente.
 
 ```python
-from azureml.train.sklearn import SKLearn
+from azureml.train.estimator import Estimator
 
 script_params = {
+    # to mount files referenced by mnist dataset
     '--data-folder': mnist_file_dataset.as_named_input('mnist_opendataset').as_mount(),
     '--regularization': 0.5
 }
 
-est = SKLearn(source_directory=script_folder,
+est = Estimator(source_directory=script_folder,
               script_params=script_params,
               compute_target=compute_target,
-              environment_definition=env, 
+              environment_definition=env,
               entry_script='train.py')
 ```
 

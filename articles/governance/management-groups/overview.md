@@ -4,10 +4,10 @@ description: Más información sobre los grupos de administración, el funcionam
 ms.date: 04/15/2020
 ms.topic: overview
 ms.openlocfilehash: cc60e4555f0fb2b920b8061fb044ce5dde990d38
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81381538"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organización de los recursos con grupos de administración de Azure
@@ -50,8 +50,8 @@ Cada directorio tiene un grupo de administración de nivel superior único denom
   - Las suscripciones nuevas pertenecen de manera predeterminada y automática al grupo de administración raíz cuando se crean.
 - Todos los clientes de Azure pueden ver el grupo de administración raíz, pero no todos los clientes tienen acceso para administrar ese grupo de administración raíz.
   - Todos los usuarios con acceso a una suscripción pueden ver el contexto de dónde está esa suscripción en la jerarquía.  
-  - A ninguno se le concede acceso de forma predeterminada al grupo de administración raíz. Los administradores globales de Azure AD son los únicos usuarios que pueden elevar sus propios privilegios para obtener acceso. Cuando tienen acceso al grupo de administración raíz, los administradores globales pueden asignar cualquier rol RBAC a otros usuarios para su administración.  
-    it.
+  - A ninguno se le concede acceso de forma predeterminada al grupo de administración raíz. Los administradores globales de Azure AD son los únicos usuarios que pueden elevar sus propios privilegios para obtener acceso. Cuando tienen acceso al grupo de administración raíz, los administradores globales pueden asignar cualquier rol RBAC a otros usuarios para su administración  
+    .
 - En SDK, el grupo de administración raíz o la "raíz de inquilino" funciona como un grupo de administración.
 
 > [!IMPORTANT]

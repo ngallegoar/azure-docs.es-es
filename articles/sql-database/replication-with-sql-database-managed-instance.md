@@ -10,17 +10,20 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: ferno
 ms.reviewer: mathoma
-ms.date: 02/07/2019
-ms.openlocfilehash: 9af7b471210ca3cc69428e68aef4aafaee159344
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/28/2020
+ms.openlocfilehash: 9ac30b6d502bb0fbdb454d7a3c36cde23a57fb6b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79299080"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82231635"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Configuración de la replicación en una base de datos de instancia administrada de Azure SQL Database
 
-La replicación transaccional permite replicar datos en una base de datos de instancia administrada de Azure SQL Database desde una base de datos de SQL Server u otro tipo de bases de datos de instancias. 
+La replicación transaccional permite replicar datos en una base de datos de instancia administrada de Azure SQL Database desde una base de datos de SQL Server u otro tipo de bases de datos de instancias.
+
+> [!NOTE]
+> En este artículo se describe el uso de la [replicación transaccional](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) en la Instancia administrada de Azure SQL Database. No está relacionado con la replicación geográfica activa o [grupos de conmutación por error](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group), una característica de Instancia administrada de Azure SQL Database que permite crear réplicas completas legibles de instancias individuales.
 
 En este artículo se muestra cómo configurar la replicación entre un publicador o distribuidor de la instancia administrada y un suscriptor de la instancia administrada. 
 

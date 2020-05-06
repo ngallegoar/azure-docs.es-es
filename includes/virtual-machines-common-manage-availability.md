@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: a4140ffc0d4e97afabb1c3080951eeb75c792a8c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ba21dfc900145ceeacab6c363e5de84b830282b1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76961517"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82109756"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Información sobre los reinicios de máquinas virtuales: mantenimiento frente a tiempo de inactividad
 Hay tres escenarios que pueden afectar a la máquina virtual de Azure: mantenimiento de hardware no planeado, tiempo de inactividad inesperado y mantenimiento planeado.

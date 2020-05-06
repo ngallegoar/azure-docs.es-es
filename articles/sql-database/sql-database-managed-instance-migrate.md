@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 ms.date: 07/11/2019
-ms.openlocfilehash: 6bae9e871be2a5d56d057d2a077de53329b8c3ec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1af0161edb0f833cdd14d8157e6edd9644e21467
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79208945"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82100284"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migración de una instancia de SQL Server a Instancia administrada de Azure SQL Database
 
@@ -30,7 +30,7 @@ En un nivel alto, el proceso de migración de la base de datos es parecido a est
 ![proceso de migración](./media/sql-database-managed-instance-migration/migration-process.png)
 
 - [Evalúe la compatibilidad de la instancia administrada](#assess-managed-instance-compatibility) en la que debe asegurarse de que no haya problemas de bloqueo que puedan impedir las migraciones.
-  - Este paso también incluye la creación de la [base de referencia del rendimiento](#create-performance-baseline) para determinar el uso de los recursos en la instancia de SQL Server de origen. Este paso es necesario si desea implementar correctamente el tamaño de la Instancia administrada y comprobar que el rendimiento después de la migración no se ve afectado.
+  - Este paso también incluye la creación de la [base de referencia del rendimiento](#create-performance-baseline) para determinar el uso de los recursos en la instancia de SQL Server de origen. Este paso es necesario si quiere implementar correctamente el tamaño de la instancia administrada y comprobar que el rendimiento después de la migración no se ve afectado.
 - [Elección de las opciones de conectividad de las aplicaciones](sql-database-managed-instance-connect-app.md)
 - [Implemente en una Instancia administrada de tamaño óptimo](#deploy-to-an-optimally-sized-managed-instance), donde elegirá las características técnicas (número de núcleos virtuales, cantidad de memoria) y el nivel de rendimiento (Crítico para la empresa, De uso general) de la Instancia administrada.
 - [Seleccione el método de migración y migre](#select-migration-method-and-migrate) donde vaya a migrar las bases de datos con la migración sin conexión (copia de seguridad o restauración nativas, importación y exportación de bases de datos) o con la migración en línea (Data Migration Service, replicación transaccional).

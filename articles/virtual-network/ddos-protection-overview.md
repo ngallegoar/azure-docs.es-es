@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/22/2020
 ms.author: kumud
-ms.openlocfilehash: f1dd33425a57689974fc98a28724adf7b130ab40
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fc47e1f4fbdb48e6e0abc1f2a7e32127b0325f47
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79536350"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82130968"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Introducción a Protección contra DDoS de Azure estándar
 
@@ -33,7 +33,7 @@ Azure DDoS Protection, junto con los procedimientos recomendados de diseño de a
 |Mitigaciones de ataques automáticas                    |Sí                                   |Sí                                           |
 |Garantía de disponibilidad                          |Región de Azure                          |Application                                   |
 |Directivas de mitigación                             |Optimizado para el volumen de región de tráfico de Azure |Optimizado para el volumen de tráfico de la aplicación          |
-|Métricas y alertas                                |No                                    |Métricas de ataques y registros de diagnóstico en tiempo real a través de                                                                                            Azure Monitor                                 |
+|Métricas y alertas                                |No                                    |Métricas de ataques y registros de recursos en tiempo real a través de                                                                                            Azure Monitor                                 |
 |Informes de mitigación                              |No                                    |Informes sobre mitigación posteriores al ataque                |
 |Registros de flujo de mitigación                            |No                                    |Secuencia de registro NRT para la integración de SIEM           |
 |Personalización de la directiva de mitigación                 |No                                    |Interacción con expertos en DDos                           |

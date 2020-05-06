@@ -3,17 +3,17 @@ title: Aprovisionamiento de un dispositivo X.509 simulado en Azure IoT Hub media
 description: En esta guía de inicio rápido se utilizan inscripciones individuales. En esta guía de inicio rápido, creará y aprovisionará un dispositivo X.509 simulado mediante el SDK de dispositivos de C para Azure IoT Hub Device Provisioning Service (DPS).
 author: wesmc7777
 ms.author: wesmc
-ms.date: 11/08/2019
+ms.date: 04/26/2020
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: f0c95e495e222cc72f0a6fc432404fcbaa47df65
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 882d62c088fa51153ca496231beccd4bfd5af0cb
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79216353"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82190371"
 ---
 # <a name="quickstart-provision-an-x509-simulated-device-using-the-azure-iot-c-sdk"></a>Inicio rápido: Aprovisionamiento de un dispositivo X.509 simulado mediante el SDK para C de Azure IoT
 
@@ -172,7 +172,7 @@ En esta sección, actualizará el código de ejemplo para enviar la secuencia de
 
 7. En el portal, vaya hasta el centro de IoT vinculado a su servicio de aprovisionamiento y seleccione la pestaña **Dispositivos IoT**. Si el dispositivo X.509 simulado se ha aprovisionado correctamente en el centro, su identificador de dispositivo aparecerá en la hoja **Dispositivos IoT** y en *ESTADO* aparecerá el valor **Habilitado**. Es posible que tenga que pulsar el botón **Actualizar** en la parte superior. 
 
-    ![El dispositivo se registra con el centro de IoT](./media/quick-create-simulated-device/hub-registration.png) 
+    ![El dispositivo se registra con el centro de IoT](./media/quick-create-simulated-device-x509/hub-registration.png) 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

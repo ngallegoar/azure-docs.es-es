@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: bca9c0e4c0695b6180775051d8b018930f8b808f
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 2d78a7e0eaed27fec7f813fa3e6bffaffe5a6540
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81256474"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186176"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mariadb"></a>Línea de base de seguridad de Azure para Azure Database for MariaDB
 
@@ -151,7 +151,7 @@ Creación de un plano técnico de Azure: https://docs.microsoft.com/azure/govern
 
 **Guía**: Use etiquetas para los recursos relacionados con la seguridad de red y el flujo de tráfico de las instancias de MariaDB para proporcionar metadatos y organización lógica.
 
-Use cualquiera de las definiciones de directiva de Azure integradas relacionadas con el etiquetado, como "Requerir etiqueta y su valor" para asegurarse de que todos los recursos se crean con etiquetas y para notificarle los recursos no etiquetados existentes.
+Use cualquiera de las definiciones de Azure Policy integradas relacionadas con el etiquetado, como "Requerir etiqueta y su valor", para asegurarse de que todos los recursos se crean con etiquetas y para notificarle los recursos no etiquetados existentes.
 
 Puede usar Azure PowerShell o la CLI de Azure para buscar o realizar acciones en los recursos en función de sus etiquetas.
 
@@ -500,7 +500,7 @@ Descripción de la protección de datos de los clientes en Azure: https://docs.m
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4: Cifrado de toda la información confidencial en tránsito
 
-**Guía**: Azure Database for MariaDB permite conectar el servidor de Azure Database for MariaDB con aplicaciones cliente mediante Capa de sockets seguros (SSL). Aplicar conexiones SSL entre el servidor de base de datos y las aplicaciones cliente ayuda a proteger contra los ataques de tipo "man in the middle" mediante el cifrado del flujo de datos entre el servidor y la aplicación. En Azure Portal, asegúrese de que esté habilitada la opción "Aplicar conexión SSL" para todas las instancias de MariaDB.
+**Guía**: Azure Database for MariaDB permite conectar el servidor de Azure Database for MariaDB con aplicaciones cliente mediante Seguridad de la capa de transporte (TLS), llamado anteriormente Capa de sockets seguros (SSL). Aplicar conexiones TLS entre el servidor de bases de datos y las aplicaciones cliente ayuda a proteger contra los ataques de tipo "Man in the middle" mediante el cifrado del flujo de datos entre el servidor y la aplicación. En Azure Portal, asegúrese de que esté habilitada la opción "Aplicar conexión SSL" para todas las instancias de MariaDB.
 
 Configuración del cifrado en tránsito para MariaDB: https://docs.microsoft.com/azure/mariadb/howto-configure-ssl
 
@@ -620,7 +620,7 @@ Creación de alertas para eventos de registro de actividad de Azure: https://doc
 
 **Guía**: Use Azure Resource Graph para consultar y detectar todos los recursos (incluidos servidores de Azure Database for MariaDB) dentro de las suscripciones. Asegúrese de que tiene los permisos adecuados (lectura) en el inquilino y de que puede enumerar todas las suscripciones de Azure, así como los recursos de las suscripciones.
 
-Creación de consultas con Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Creación de consultas con Azure Resource Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 Visualización de las suscripciones de Azure: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
 
@@ -664,7 +664,7 @@ Creación y uso de etiquetas: https://docs.microsoft.com/azure/azure-resource-ma
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5: Supervisión de recursos de Azure no aprobados
 
-**Instrucciones**: use Azure Policy para establecer restricciones en el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
+**Instrucciones**: use Azure Policy para establecer restricciones sobre el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
 
 - Tipos de recursos no permitidos
 
@@ -710,7 +710,7 @@ Creación de consultas con Azure Graph: https://docs.microsoft.com/azure/governa
 
 ### <a name="69-use-only-approved-azure-services"></a>6.9: Uso exclusivo de servicios de Azure aprobados
 
-**Instrucciones**: use Azure Policy para establecer restricciones en el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
+**Guía**: use Azure Policy para establecer restricciones sobre el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
 
 - Tipos de recursos no permitidos
 
@@ -794,7 +794,7 @@ Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/go
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3: Mantenga configuraciones de recursos de Azure seguras
 
-**Instrucciones**: Use la directiva de Azure [denegar] e [implementar si no existe] para aplicar la configuración segura en los recursos de Azure.
+**Guía**: Utilice las directivas [deny] y [deploy if not exist] de Azure Policy para aplicar una configuración segura en los recursos de Azure.
 
 Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -816,7 +816,7 @@ Descripción de los efectos de Azure Policy: https://docs.microsoft.com/azure/go
 
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5: Almacene de forma segura la configuración de los recursos de Azure
 
-**Guía**: Si usa definiciones de directivas personalizadas de Azure para los servidores de Azure Database for MariaDB y los recursos relacionados, use Azure Repos para almacenar y administrar el código de forma segura.
+**Guía**: Si usa definiciones personalizadas de Azure Policy para los servidores de Azure Database for MariaDB y los recursos relacionados, use Azure Repos para almacenar y administrar el código de forma segura.
 
 Cómo almacenar código en Azure DevOps: https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
 
@@ -856,7 +856,7 @@ Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/go
 
 ### <a name="79-implement-automated-configuration-monitoring-for-azure-services"></a>7.9: Implemente la supervisión de configuración automatizada para servicios de Azure
 
-**Guía**: Use alias de Azure Policy en el espacio de nombres "Microsoft.DBforMariaDB" para crear directivas personalizadas con el fin de auditar y aplicar las configuraciones del sistema y enviar alertas sobre ellas. Use la directiva de Azure [audit], [deny] y [deployifnotexist] para aplicar automáticamente las configuraciones de las instancias de Azure Database for MariaDB y los recursos relacionados.
+**Guía**: Use alias de Azure Policy en el espacio de nombres "Microsoft.DBforMariaDB" para crear directivas personalizadas con el fin de auditar y aplicar las configuraciones del sistema y enviar alertas sobre ellas. Use [audit], [deny] y [deployifnotexist] de Azure Policy para aplicar automáticamente las configuraciones de las instancias de Azure Database for MariaDB y los recursos relacionados.
 
 Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 

@@ -1,11 +1,11 @@
 ---
-title: Eliminación masiva de usuarios (versión preliminar) en el portal de Azure Active Directory | Microsoft Docs
+title: Eliminación masiva de usuarios en el portal de Azure Active Directory | Microsoft Docs
 description: Eliminación masiva de usuarios en el Centro de administración de Azure de Azure Active Directory
 services: active-directory
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 08/15/2019
+ms.date: 04/27/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,16 +13,37 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7c47887c12c8bf9be7a0c5b11dfb3f099965cb7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ca30d5b050a34000fa7c6465356aba206aeaa8e4
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72174374"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203370"
 ---
-# <a name="bulk-delete-users-preview-in-azure-active-directory"></a>Eliminación masiva de usuarios (versión preliminar) en Azure Active Directory
+# <a name="bulk-delete-users-in-azure-active-directory"></a>Eliminación masiva de usuarios en Azure Active Directory
 
 Mediante el portal de Azure Active Directory (Azure AD), puede quitar una gran cantidad de miembros a un grupo mediante el uso de un archivo de valores separados por comas (CSV) para eliminar usuarios de forma masiva.
+
+## <a name="understand-the-csv-template"></a>Descripción de la plantilla CSV
+
+Descargue y rellene la plantilla CSV para facilitar la eliminación en bloque correcta de los usuarios de Azure AD. La plantilla CSV que descargue podría parecerse a este ejemplo:
+
+![Hoja de cálculo para la carga y notas que explican el propósito y los valores de cada fila y columna](./media/users-bulk-delete/understand-template.png)
+
+### <a name="csv-template-structure"></a>Estructura de la plantilla CSV
+
+Las filas de una plantilla CSV descargada son las siguientes:
+
+- **Número de versión**: la primera fila, que contiene el número de versión, debe estar incluida en el archivo CSV de carga.
+- **Encabezados de columna**: el formato de los encabezados de columna es &lt;*Nombre de elemento*&gt; [nombreDePropiedad] &lt;*Required (Obligatorio) o en blanco*&gt;. Por ejemplo, `User name [userPrincipalName] Required`. Algunas versiones anteriores de la plantilla podrían tener ligeras variaciones.
+- **Fila de ejemplos**: en la plantilla se incluye una fila de ejemplos de valores válidos para cada columna. Debe eliminar la fila de ejemplos y reemplazarla por sus propias entradas.
+
+### <a name="additional-guidance"></a>Instrucciones adicionales
+
+- Las dos primeras filas de la plantilla de carga no se deben eliminar ni modificar o no se podrá procesar la carga.
+- Las columnas necesarias se enumeran en primer lugar.
+- No se recomienda agregar nuevas columnas a la plantilla. Cualquier columna adicional que agregue se omitirá y no se procesará.
+- Se recomienda que descargue la última versión de la plantilla CSV tan a menudo como sea posible.
 
 ## <a name="to-bulk-delete-users"></a>Para eliminar usuarios en masa
 
@@ -36,7 +57,7 @@ Mediante el portal de Azure Active Directory (Azure AD), puede quitar una gra
 
    ![El archivo CSV contiene los nombres y los identificadores de los usuarios que se eliminarán.](./media/users-bulk-delete/delete-csv-file.png)
 
-1. En la página **Bulk delete user (Preview)** (Eliminación masiva de usuarios [versión preliminar]), en **Cargue el archivo csv**, vaya al archivo. Al seleccionar el archivo y hacer clic en Enviar, comienza su validación.
+1. En la página **Eliminación masiva de usuarios**, en **Cargar el archivo csv**, vaya al archivo. Al seleccionar el archivo y hacer clic en Enviar, comienza su validación.
 1. Cuando finalice la validación del contenido del archivo, aparecerá el mensaje **Archivo cargado correctamente**. Si hay errores, debe corregirlos para poder enviar el trabajo.
 1. Cuando el archivo supere la validación, seleccione **Enviar** para iniciar la operación masiva de Azure que elimina los usuarios.
 1. Cuando la operación de eliminación finalice, verá una notificación que indicará que la operación masiva se realizó correctamente.
@@ -45,9 +66,9 @@ Si hay errores, puede descargar y ver el archivo de resultados en la página **R
 
 ## <a name="check-status"></a>Comprobar estado
 
-Puede ver el estado de todas las solicitudes masivas pendientes en la página de **resultados de la operación masiva (versión preliminar)** .
+Puede ver el estado de todas las solicitudes masivas pendientes en la página **Resultados de la operación masiva**.
 
-   ![Comprobación del estado de carga en la página de resultados de la operación masiva](./media/users-bulk-delete/bulk-center.png)
+   [![](media/users-bulk-delete/bulk-center.png "Check delete status in the Bulk Operations Results page")](media/users-bulk-delete/bulk-center.png#lightbox)
 
 A continuación, puede comprobar si los usuarios eliminados existen en la organización de Azure AD en Azure Portal o mediante PowerShell.
 

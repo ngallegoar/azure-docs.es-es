@@ -4,12 +4,12 @@ description: Aprenda a habilitar y ver los registros del nodo maestro de Kuberne
 services: container-service
 ms.topic: article
 ms.date: 01/03/2019
-ms.openlocfilehash: f759f15cf98546cb95ba0adb5890885f85ca6aa1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 504d6a5216f3345f22a601c4ae084488aeb97c8d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79229596"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82128969"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Habilitación y revisión de los registros del nodo maestro de Kubernetes en Azure Kubernetes Service (AKS)
 
@@ -19,9 +19,9 @@ Con Azure Kubernetes Service (AKS), los componentes principales, como *kube-apis
 
 En este artículo se requiere un clúster de AKS existente que se ejecute en su cuenta de Azure. Si todavía no tiene un clúster de AKS, cree uno con la [CLI de Azure][cli-quickstart] o [Azure Portal][portal-quickstart]. Registros de Azure Monitor funciona tanto con clústeres de AKS habilitados para RBAC como no habilitados para RBAC.
 
-## <a name="enable-diagnostics-logs"></a>Habilitación del registro de diagnósticos
+## <a name="enable-resource-logs"></a>Habilitación de registros de recursos
 
-Para ayudar a recopilar y revisar los datos de varios orígenes, registros de Azure Monitor proporciona un motor de lenguaje y análisis de consultas que ofrece información detallada sobre su entorno. Un área de trabajo se usa para intercalar y analizar los datos, y se puede integrar con otros servicios de Azure como Application Insights y Security Center. Para usar una plataforma diferente para analizar los registros, puede decidir en su lugar enviar los registros de diagnóstico a una cuenta de almacenamiento o un centro de eventos de Azure. Para más información, consulte el artículo sobre los [registros de Azure Monitor][log-analytics-overview].
+Para ayudar a recopilar y revisar los datos de varios orígenes, registros de Azure Monitor proporciona un motor de lenguaje y análisis de consultas que ofrece información detallada sobre su entorno. Un área de trabajo se usa para intercalar y analizar los datos, y se puede integrar con otros servicios de Azure como Application Insights y Security Center. Si desea utilizar una plataforma diferente para analizar los registros, puede decidir en su lugar enviar los registros de recursos a una cuenta de almacenamiento o un centro de eventos de Azure. Para más información, consulte el artículo sobre los [registros de Azure Monitor][log-analytics-overview].
 
 Los registros de Azure Monitor se habilitan y administran en Azure Portal. Para habilitar la recopilación de registros para los componentes principales de Kubernetes en el clúster de AKS, abra Azure Portal en un explorador web y realice los pasos siguientes:
 

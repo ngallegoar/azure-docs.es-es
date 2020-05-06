@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: 8bc36dfdf3010b2bde485228f6ee110b0b826d31
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: a17f27831dd0a674c1d55cde6974aba5e1bfcfc3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80654750"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82105733"
 ---
 # <a name="secure-remote-access-to-virtual-machines-in-azure-active-directory-domain-services"></a>Protección del acceso remoto a máquinas virtuales en Azure AD Domain Services
 
@@ -61,6 +61,7 @@ La implementación del entorno de Escritorio remoto contiene una serie de pasos.
 
 1. Inicie sesión en las máquinas virtuales creadas para el entorno de Escritorio remoto con una cuenta que forme parte del grupo *Administradores del controlador de dominio de Azure AD*, como *contosoadmin*.
 1. Para crear y configurar RDS, use la [guía de implementación del entorno de Escritorio remoto][deploy-remote-desktop] existente. Distribuya los componentes del servidor de Escritorio remoto en las máquinas virtuales de Azure, según sea necesario.
+    * Específico de Azure AD DS: al configurar la licencia de Escritorio remoto, establézcala en **Por dispositivo**, no **Por usuario**, como se indica en la guía de implementación.
 1. Si desea proporcionar acceso mediante un explorador web, [configure el cliente web de Escritorio remoto para los usuarios][rd-web-client].
 
 Con Escritorio remoto implementado en el dominio administrado de Azure AD DS, puede administrar y usar el servicio como lo haría con un dominio de AD DS local.

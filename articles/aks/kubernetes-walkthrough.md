@@ -3,7 +3,7 @@ title: 'Inicio rápido: Implementación de un clúster de Azure Kubernetes Servi
 description: Aprenda a crear rápidamente un clúster de Kubernetes, implementar una aplicación y supervisar el rendimiento en Azure Kubernetes Service (AKS) mediante la CLI de Azure.
 services: container-service
 ms.topic: quickstart
-ms.date: 09/13/2019
+ms.date: 04/28/2020
 ms.custom:
 - H1Hack27Feb2017
 - mvc
@@ -11,18 +11,18 @@ ms.custom:
 - seo-javascript-september2019
 - seo-javascript-october2019
 - seo-python-october2019
-ms.openlocfilehash: 369e0da49064197524ee20bb8a0050c00c242260
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 2b45154a0198fe0845649167d0fa35aabfd0625e
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81392757"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82207401"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-cluster-using-the-azure-cli"></a>Inicio rápido: Implementación de un clúster de Azure Kubernetes Service mediante la CLI de Azure
 
 En este inicio rápido, implementará un clúster de Azure Kubernetes Service (AKS) mediante la CLI de Azure. AKS es un servicio de Kubernetes administrado que permite implementar y administrar clústeres rápidamente. En el clúster se ejecuta una aplicación de varios contenedores que incluye un front-end web y una instancia de Redis. A continuación, verá cómo supervisar el mantenimiento del clúster y los pods que ejecutan la aplicación.
 
-Si quiere usar contenedores de Windows Server (actualmente en versión preliminar en AKS), consulte [Creación de un clúster de AKS compatible con los contenedores de Windows Server][windows-container-cli].
+Para más información sobre cómo crear un grupo de nodos de Windows Server, consulte [Creación de un clúster de AKS que admita contenedores de Windows Server][windows-container-cli].
 
 ![Aplicación de votación implementada en Azure Kubernetes Service](./media/container-service-kubernetes-walkthrough/voting-app-deployed-in-azure-kubernetes-service.png)
 

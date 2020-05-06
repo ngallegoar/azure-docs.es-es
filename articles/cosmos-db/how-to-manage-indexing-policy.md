@@ -1,17 +1,17 @@
 ---
 title: Administración de directivas de indexación en Azure Cosmos DB
 description: Obtenga información sobre cómo administrar directivas de indexación, incluir o excluir una propiedad de la indexación y cómo definir la indexación mediante diferentes SDK de Azure Cosmos DB.
-author: ThomasWeiss
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.author: thweiss
-ms.openlocfilehash: 58a1ee13afa76b152723cb71d4037f9c31cc8d4e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/28/2020
+ms.author: tisande
+ms.openlocfilehash: bdd5d986752e9d80d2967a8f5fd32491154fa236
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79227348"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82233926"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Administración de directivas de indexación en Azure Cosmos DB
 
@@ -137,7 +137,7 @@ Esta directiva de indexación es equivalente a la siguiente, que establece manua
     }
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > Por lo general se recomienda usar una directiva de indexación de **rechazo** para permitir que Azure Cosmos DB indexe de forma proactiva todas las propiedades nuevas que se puedan agregar a un modelo.
 
 ### <a name="using-a-spatial-index-on-a-specific-property-path-only"></a>Uso de un índice espacial en una ruta de acceso de una propiedad concreta solo
@@ -173,6 +173,9 @@ Esta directiva de indexación es equivalente a la siguiente, que establece manua
 ## <a name="composite-indexing-policy-examples"></a>Ejemplos de la directiva de índice compuesto
 
 Además de incluir o excluir rutas de acceso para las propiedades individuales, también puede especificar un índice compuesto. Si quiere hacer una consulta que tiene una cláusula `ORDER BY` para varias propiedades, necesita un [índice compuesto](index-policy.md#composite-indexes) en esas propiedades. Además, los índices compuestos tendrán una ventaja de rendimiento para las consultas que tienen un filtro y tienen una cláusula ORDER BY en distintas propiedades.
+
+> [!NOTE]
+> Las rutas de acceso compuestas tienen un carácter `/?` implícito, ya que solo se indexa el valor escalar de esa ruta de acceso. El carácter comodín `/*` no se admite en las rutas de acceso compuestas. No debe especificar `/?` ni `/*` en las rutas de acceso compuestas.
 
 ### <a name="composite-index-defined-for-name-asc-age-desc"></a>Índice compuesto definido para (name asc, age desc):
 

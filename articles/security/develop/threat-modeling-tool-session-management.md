@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 5d9dc1595e3cc812ba060d958b6e981867500ae2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b5ff9ab8e2fcc1bb3b72f56348a1c86dc173bafc
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73161515"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203869"
 ---
 # <a name="security-frame-session-management"></a>Marco de seguridad: Administración de sesiones
 | Producto o servicio | Artículo |
@@ -221,7 +221,7 @@ Todas las aplicaciones basadas en HTTP que usen cookies deben especificar HttpOn
 | **Tecnologías aplicables** | Formularios Web Forms |
 | **Atributos**              | N/D  |
 | **Referencias**              | [Propiedad FormsAuthentication.RequireSSL](https://msdn.microsoft.com/library/system.web.security.formsauthentication.requiressl.aspx) |
-| **Pasos** | El valor de la propiedad RequireSSL se establece en el archivo de configuración para una aplicación ASP.NET mediante el atributo requireSSL del elemento de configuración. Puede especificar en el archivo Web.config para la aplicación ASP.NET si se requiere SSL (Capa de sockets seguros) para devolver la cookie de autenticación de formularios al servidor estableciendo el atributo requireSSL.|
+| **Pasos** | El valor de la propiedad RequireSSL se establece en el archivo de configuración para una aplicación ASP.NET mediante el atributo requireSSL del elemento de configuración. Puede especificar en el archivo Web.config de la aplicación ASP.NET si se requiere Seguridad de la capa de transporte (TLS), conocido anteriormente como SSL (Capa de sockets seguros), para devolver la cookie de autenticación de formularios al servidor estableciendo el atributo requireSSL.|
 
 ### <a name="example"></a>Ejemplo 
 En el ejemplo de código siguiente, se establece el atributo requireSSL en el archivo Web.config.

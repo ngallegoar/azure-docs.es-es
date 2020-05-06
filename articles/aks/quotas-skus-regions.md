@@ -5,12 +5,12 @@ description: Obtenga información sobre las cuotas predeterminadas, los tamaños
 services: container-service
 ms.topic: conceptual
 ms.date: 04/09/2019
-ms.openlocfilehash: 054d6ff4fc105d84192ac81feda97515f6cfae49
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: e3edbcf9603657ce0c747b01b3c59c2923bc0181
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886779"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208030"
 ---
 # <a name="quotas-virtual-machine-size-restrictions-and-region-availability-in-azure-kubernetes-service-aks"></a>Cuotas, restricciones de tamaño de máquinas virtuales y disponibilidad de regiones en Azure Kubernetes Service (AKS)
 
@@ -27,7 +27,7 @@ En este artículo se detallan los límites de recursos predeterminados para los 
 A la infraestructura aprovisionada se le aplican las demás limitaciones de red, proceso y almacenamiento. Consulte [límites de suscripción y servicios de Azure](../azure-resource-manager/management/azure-subscription-service-limits.md) para conocer los límites pertinentes.
 
 > [!IMPORTANT]
-> Cuando actualiza un clúster de AKS, los recursos adicionales se consumen temporalmente. Estos recursos incluyen las direcciones IP disponibles en una subred de red virtual o una cuota de vCPU de máquina virtual. Si usa los contenedores de Windows Server (actualmente en la versión preliminar de AKS), el único enfoque aprobado para aplicar las últimas actualizaciones a los nodos es realizar una operación de actualización. Un proceso de actualización de clúster erróneo puede indicar que no tiene el espacio de direcciones IP disponible o la cuota de vCPU necesaria para administrar estos recursos temporales. Para obtener más información sobre el proceso de actualización del nodo de Windows Server, consulte [Actualización de un grupo de nodos en AKS][nodepool-upgrade].
+> Cuando actualiza un clúster de AKS, los recursos adicionales se consumen temporalmente. Estos recursos incluyen las direcciones IP disponibles en una subred de red virtual o una cuota de vCPU de máquina virtual. Si usa los contenedores de Windows Server, el único enfoque aprobado para aplicar las últimas actualizaciones a los nodos es realizar una operación de actualización. Un proceso de actualización de clúster erróneo puede indicar que no tiene el espacio de direcciones IP disponible o la cuota de vCPU necesaria para administrar estos recursos temporales. Para obtener más información sobre el proceso de actualización del nodo de Windows Server, consulte [Actualización de un grupo de nodos en AKS][nodepool-upgrade].
 
 ## <a name="restricted-vm-sizes"></a>Tamaños de VM restringidos
 

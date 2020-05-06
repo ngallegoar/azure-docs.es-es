@@ -4,12 +4,12 @@ description: Aprenda a hacer copias de seguridad del estado del sistema de Windo
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/23/2018
-ms.openlocfilehash: 847ed8fc5a6c102284a03fa593587792767d7913
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4089815f8f76d9868f8fa56f8b2eab3de89541d9
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "76294021"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82128149"
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Copias de seguridad del estado del sistema de Windows en la implementación de Resource Manager
 
@@ -81,7 +81,7 @@ Cuando cree un almacén de Recovery Services, asegúrese de que la configuració
 
     ![opciones de configuración de almacenamiento](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
-    De forma predeterminada, el almacén tiene almacenamiento con redundancia geográfica. Si usa Azure como punto de conexión de almacenamiento de copia de seguridad principal, siga utilizando **Redundancia geográfica**. Si no utiliza Azure como punto de conexión de almacenamiento de copia de seguridad principal, elija **Redundancia local** para reducir los costes de almacenamiento de Azure. En esta página de [información general sobre la redundancia del almacenamiento](../storage/common/storage-redundancy.md) encontrará más información sobre las opciones de almacenamiento con [redundancia geográfica](../storage/common/storage-redundancy-grs.md) y [redundancia local](../storage/common/storage-redundancy-lrs.md).
+    De forma predeterminada, el almacén tiene almacenamiento con redundancia geográfica. Si usa Azure como punto de conexión de almacenamiento de copia de seguridad principal, siga utilizando **Redundancia geográfica**. Si no utiliza Azure como punto de conexión de almacenamiento de copia de seguridad principal, elija **Redundancia local** para reducir los costes de almacenamiento de Azure. En esta página de [información general sobre la redundancia del almacenamiento](../storage/common/storage-redundancy-grs.md) encontrará más información sobre las opciones de almacenamiento con [redundancia geográfica](../storage/common/storage-redundancy-lrs.md) y [redundancia local](../storage/common/storage-redundancy.md).
 
 Ahora que ha creado un almacén, configúrelo para realizar copias de seguridad del estado del sistema de Windows.
 
@@ -224,10 +224,10 @@ Una vez que finalice la copia de seguridad inicial, el estado **Trabajo completa
 
 ## <a name="questions"></a>¿Tiene preguntas?
 
-Si tiene alguna pregunta o hay alguna característica que le gustaría que se incluyera, [envíenos sus comentarios](https://aka.ms/azurebackup_feedback).
+Si tiene alguna pregunta o hay alguna característica que le gustaría que se incluyera, [envíenos sus comentarios](https://feedback.azure.com/forums/258995-azure-backup).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga más información acerca de cómo [realizar copias de seguridad de máquinas Windows](backup-configure-vault.md).
+* Obtenga más información acerca de cómo [realizar copias de seguridad de máquinas Windows](backup-windows-with-mars-agent.md).
 * Ahora que ha realizado una copia de seguridad del estado del sistema de Windows Server, puede [administrar los almacenes y servidores](backup-azure-manage-windows-server.md).
 * Si necesita restaurar una copia de seguridad, use este artículo: [Restaurar archivos en una máquina de Windows Server o del Cliente de Windows](backup-azure-restore-windows-server.md).

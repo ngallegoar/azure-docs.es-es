@@ -11,10 +11,10 @@ ms.date: 10/25/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 30ecb1e6faa29482a8d69dd1d08e4f127f515596
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78190014"
 ---
 # <a name="billing-model-for-azure-active-directory-b2c"></a>Modelo de facturación para Azure Active Directory B2C
@@ -82,7 +82,7 @@ El vínculo de la suscripción se consigue mediante la creación de un *recurso*
 
 Se puede usar una suscripción vinculada a un inquilino de Azure AD B2C para la facturación del uso de Azure AD B2C u otros recursos de Azure, incluidos recursos adicionales de Azure AD B2C. La suscripción no se puede usar para agregar otros servicios basados en licencias de Azure o licencias de Office 365 en el inquilino de Azure AD B2C.
 
-### <a name="prerequisites"></a>Prerrequisitos
+### <a name="prerequisites"></a>Prerequisites
 
 * [Suscripción de Azure](https://azure.microsoft.com/free/)
 * [Inquilino de Azure AD B2C](tutorial-create-tenant.md) que quiere vincular a una suscripción

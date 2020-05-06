@@ -5,12 +5,12 @@ author: suhuruli
 ms.topic: conceptual
 ms.date: 11/17/2017
 ms.author: suhuruli
-ms.openlocfilehash: e278bcedc48226a59f258ad7d7064fa224737496
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: c7e2d556c4fb8bebc0b75bdf9d4c209c27f86971
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81308982"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82193401"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Configuración de su entorno de desarrollo en Mac OS X
 > [!div class="op_single_selector"]
@@ -22,7 +22,7 @@ ms.locfileid: "81308982"
 
 Puede crear aplicaciones de Azure Service Fabric para que se ejecuten en clústeres de Linux con Mac OS X. En este documento se describe cómo configurar su Mac para desarrollo.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 Azure Service Fabric no se ejecuta de forma nativa en Mac OS X. Para ejecutar un clúster local de Service Fabric, se proporciona una imagen preconfigurada del contenedor de Docker. Antes de comenzar, necesita:
 
 * Al menos 4 GB de RAM.
@@ -101,7 +101,7 @@ Para configurar un contenedor local de Docker y hacer que un clúster de Service
     >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox mcr.microsoft.com/service-fabric/onebox:latest`
     >
 
-5. El clúster tardará unos instantes en iniciarse. Una vez que se inicie puede ver los registros usando el comando siguiente o pasar al panel para ver el mantenimiento de los clústeres [http://localhost:19080](http://localhost:19080):
+5. El clúster tardará unos instantes en iniciarse. Una vez que se inicie puede ver los registros usando el comando siguiente o pasar al panel para ver el mantenimiento de los clústeres `http://localhost:19080`:
 
     ```bash 
     docker logs sftestcluster
@@ -123,7 +123,7 @@ Para configurar un contenedor local de Docker y hacer que un clúster de Service
 
 ## <a name="set-up-the-service-fabric-cli-sfctl-on-your-mac"></a>Configuración de la CLI de Service Fabric (sfctl) en un Mac
 
-Para instalar la CLI de Service Fabric ([) en un Mac, siga las instrucciones que encontrará en ](service-fabric-cli.md#cli-mac)CLI de Service Fabric`sfctl`.
+Para instalar la CLI de Service Fabric (`sfctl`) en un Mac, siga las instrucciones que encontrará en [CLI de Service Fabric](service-fabric-cli.md#cli-mac).
 Los comandos de la CLI permiten interactuar con las entidades de Service Fabric, lo que incluye clústeres, aplicaciones y servicios.
 
 1. Para conectarse al clúster antes de implementar las aplicaciones, ejecute el siguiente comando. 

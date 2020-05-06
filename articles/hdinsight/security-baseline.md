@@ -2,24 +2,23 @@
 title: Línea de base de seguridad de Azure para HDInsight
 description: Línea de base de seguridad de Azure para HDInsight
 author: msmbaldwin
-manager: rkarlin
 ms.service: security
 ms.topic: conceptual
-ms.date: 02/28/2020
+ms.date: 04/09/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 61c2b914671020b822814fc283b5f2641c2e787b
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 62188aefffd05af49bb00c242b266e808b991c84
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80657455"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188181"
 ---
 # <a name="azure-security-baseline-for-hdinsight"></a>Línea de base de seguridad de Azure para HDInsight
 
 La línea de base de seguridad de Azure para HDInsight contiene recomendaciones que le ayudarán a mejorar la posición de seguridad de la implementación.
 
-La línea de base para estos servicios se extrae de la [Prueba comparativa de seguridad de Azure versión 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), que proporciona recomendaciones sobre cómo puede proteger las soluciones en la nube en Azure con nuestra guía de procedimientos recomendados.
+La base de referencia de este servicio se extrae de la [versión 1.0 de Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview), que proporciona recomendaciones sobre cómo puede proteger las soluciones en la nube en Azure con nuestra guía de procedimientos recomendados.
 
 Para obtener más información, consulte [Introducción a las líneas de base de seguridad de Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
 
@@ -31,10 +30,11 @@ Para obtener más información, consulte [Introducción a las líneas de base de
 
 **Guía**: la seguridad del perímetro en Azure HDInsight se logra mediante redes virtuales. Un administrador de empresa puede crear un clúster dentro de una red virtual y usar un grupo de seguridad de red (NSG) para restringir el acceso a la red virtual. Solo las direcciones IP permitidas en las reglas de grupo de seguridad de red de entrada podrán comunicarse con el clúster de Azure HDInsight. Esta configuración proporciona la seguridad del perímetro. Todos los clústeres implementados en una red virtual también tendrán un punto de conexión privado que se resuelve a una dirección IP privada dentro de la red virtual para el acceso HTTP privado a las puertas de enlace del clúster.
 
+Para reducir el riesgo de pérdida de datos mediante filtración, restrinja el tráfico de red saliente de los clústeres de Azure HDInsight con Azure Firewall.
 
-Implementación de Azure HDInsight en una red virtual y protegerla con un grupo de seguridad de red:
+Implementación de Azure HDInsight en una red virtual y protección con un grupo de seguridad de red: https://docs.microsoft.com/azure/hdinsight/hdinsight-create-virtual-network
 
-https://docs.microsoft.com/azure/hdinsight/hdinsight-create-virtual-network
+Restricción del tráfico saliente para clústeres de Azure HDInsight con Azure Firewall: https://docs.microsoft.com/azure/hdinsight/hdinsight-restrict-outbound-traffic
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -44,16 +44,13 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-create-virtual-network
 
 **Guía**: use Azure Security Center y siga las recomendaciones de protección para la red virtual, la subred y el grupo de seguridad de red que se van a usar para proteger el clúster de Azure HDInsight. Habilite los registros de flujo del grupo de seguridad de red (NSG) y envíelos a una cuenta de Azure Storage para auditar el tráfico. También puede enviar registros de flujo del grupo de seguridad de red a un área de trabajo de Azure Log Analytics y usar Análisis de tráfico de Azure para proporcionar información detallada sobre el flujo de tráfico en la nube de Azure. Algunas de las ventajas de Análisis de tráfico de Azure son la capacidad de visualizar la actividad de la red e identificar las zonas activas, identificar las amenazas de seguridad, comprender los patrones de flujo de tráfico y detectar configuraciones de red incorrectas.
 
-
 Cómo habilitar los registros de flujo de NSG:
 
 https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
 
-
 Habilitación y uso del Análisis de tráfico de Azure:
 
 https://docs.microsoft.com/azure/network-watcher/traffic-analytics
-
 
 Descripción de la seguridad de red proporcionada por Azure Security Center:
 
@@ -75,11 +72,9 @@ https://docs.microsoft.com/azure/security-center/security-center-network-recomme
 
 **Guía**: para protegerse de los ataques DDoS, habilite la protección estándar de DDoS de Azure en la red virtual donde está implementada su instancia de Azure HDInsight. Use la inteligencia sobre amenazas integrada de Azure Security Center para denegar las comunicaciones con direcciones IP malintencionadas conocidas o no utilizadas.
 
-
 Cómo configurar la protección contra DDoS:
 
 https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection
-
 
 Descripción del la inteligencia sobre amenazas integrada de Azure Security Center:
 
@@ -93,11 +88,9 @@ https://docs.microsoft.com/azure/security-center/security-center-alerts-service-
 
 **Guía**: habilite los registros de flujo del grupo de seguridad de red (NSG) conectado a la subred que se usa para proteger el clúster de Azure HDInsight. Anote los registros de flujo del grupo de seguridad de red en una cuenta de almacenamiento de Azure para generar registros de flujo. Si es necesario para investigar actividades anómalas, habilite la captura de paquetes de Azure Network Watcher.
 
-
 Cómo habilitar los registros de flujo de NSG:
 
 https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
-
 
 Cómo habilitar Network Watcher:
 
@@ -112,6 +105,8 @@ https://docs.microsoft.com/azure/network-watcher/network-watcher-create
 **Guía**: se puede cumplir el requisito de identificador de control de seguridad de Azure 1.1; implemente un clúster de Azure HDInsight en una red virtual y protéjalo con un grupo de seguridad de red (NSG).
 
 Hay varias dependencias de Azure HDInsight que requieren tráfico entrante. El tráfico entrante de administración no se puede enviar a través de un dispositivo de firewall. Las direcciones de origen del tráfico de administración necesario se conocen y publican. Cree reglas de grupo de seguridad de red con esta información para permitir el tráfico solo desde ubicaciones de confianza, y proteger el tráfico que entra a los clústeres.
+
+Para reducir el riesgo de pérdida de datos mediante filtración, restrinja el tráfico de red saliente de los clústeres de Azure HDInsight con Azure Firewall.
 
 Implementación de HDInsight dentro de una red virtual y protección con un grupo de seguridad de red: https://docs.microsoft.com/azure/hdinsight/hdinsight-create-virtual-network
 
@@ -135,7 +130,6 @@ Direcciones IP de administración de HDInsight: https://docs.microsoft.com/azure
 
 **Guía**: use etiquetas de servicio de red virtual para definir controles de acceso de red en los grupos de seguridad de red (NSG) que están conectados a la subred en la que está implementado el clúster de Azure HDInsight. Puede utilizar etiquetas de servicio en lugar de direcciones IP específicas al crear reglas de seguridad. Al especificar el nombre de la etiqueta de servicio (por ejemplo, ApiManagement) en el campo de origen o destino apropiado de una regla, puede permitir o denegar el tráfico para el servicio correspondiente. Microsoft administra los prefijos de direcciones que la etiqueta de servicio incluye y actualiza automáticamente dicha etiqueta a medida que las direcciones cambian.
 
-
 Descripción y uso de etiquetas de servicio para Azure HDInsight:
 
 https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags
@@ -148,19 +142,15 @@ https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags
 
 **Guía**: defina e implemente configuraciones de seguridad estándar para los recursos de red relacionados con el clúster de Azure HDInsight. Use alias de Azure Policy en los espacios de nombres "Microsoft.HDInsight" y "Microsoft.Network" para crear directivas personalizadas con el fin de auditar o aplicar la configuración de red del clúster de Azure HDInsight.
 
-
 También puede usar Azure Blueprints para simplificar las implementaciones de Azure a gran escala mediante el empaquetado de artefactos de entorno clave, como plantillas de Azure Resource Manager, controles de RBAC y directivas, en una única definición de plano técnico. Aplique fácilmente el plano técnico a nuevas suscripciones y entornos, y ajuste el control y la administración mediante el control de versiones.
-
 
 Visualización de los alias de Azure Policy disponibles:
 
 https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 
-
 Configuración y administración de Azure Policy:
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
-
 
 Cómo crear un plano técnico de Azure:
 
@@ -174,22 +164,17 @@ https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
 
 **Guía**: use etiquetas para el grupo de seguridad de red (NSG) y otros recursos relacionados con la seguridad de red y el flujo de tráfico que están asociados al clúster de Azure HDInsight. En el caso de las reglas de NSG individuales, use el campo "Descripción" para especificar las necesidades empresariales o la duración (etc.) de las reglas que permiten que entre o salga el tráfico en una red.
 
-
-Use cualquiera de las definiciones de directiva de Azure integradas relacionadas con el etiquetado, como "Requerir etiqueta y su valor" para asegurarse de que todos los recursos se crean con etiquetas y para notificarle los recursos no etiquetados existentes.
-
+Use cualquiera de las definiciones de Azure Policy integradas relacionadas con el etiquetado, como "Requerir etiqueta y su valor", para asegurarse de que todos los recursos se crean con etiquetas y para notificarle los recursos no etiquetados existentes.
 
 Puede usar Azure PowerShell o la interfaz de la línea de comandos (CLI) de Azure para buscar los recursos o realizar acciones en ellos en función de sus etiquetas.
-
 
 Cómo crear y usar etiquetas:
 
 https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
-
 Creación de una red virtual:
 
 https://docs.microsoft.com/azure/virtual-network/quick-create-portal
-
 
 Cómo crear un grupo de seguridad de red con una configuración de seguridad:
 
@@ -203,11 +188,9 @@ https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic
 
 **Guía**: use el registro de actividad de Azure para supervisar las configuraciones de los recursos de red y detectar cambios en estos relacionados con las implementaciones de Azure HDInsight. Cree alertas en Azure Monitor que se desencadenarán cuando se produzcan cambios en los recursos de red críticos.
 
-
 Visualización y recuperación de eventos del registro de actividad de Azure:
 
 https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view
-
 
 Creación de alertas en Azure Monitor: https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
@@ -223,7 +206,6 @@ Creación de alertas en Azure Monitor: https://docs.microsoft.com/azure/azure-mo
 
 **Guía**: Microsoft mantiene los orígenes de hora de los componentes de clústeres de Azure HDInsight, así que puede actualizar la sincronización de hora en las implementaciones de proceso.
 
-
 Configuración de la sincronización de hora de los recursos de proceso de Azure:
 
 https://docs.microsoft.com/azure/virtual-machines/windows/time-sync
@@ -236,11 +218,9 @@ https://docs.microsoft.com/azure/virtual-machines/windows/time-sync
 
 **Guía**: puede incorporar el clúster de Azure HDInsight a Azure Monitor para agregar datos de seguridad generados por el clúster. Aproveche las consultas personalizadas para detectar amenazas en el entorno y responder a ellas. 
 
-
 Incorporación de un clúster de Azure HDInsight a Azure Monitor:
 
 https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-tutorial
-
 
 Creación de consultas personalizadas para un clúster de Azure HDInsight:
 
@@ -254,11 +234,9 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-us
 
 **Guía**: habilite Azure Monitor para el clúster de HDInsight y diríjalo a un área de trabajo de Log Analytics. Esta acción registrará información y métricas del sistema operativo de interés para todos los nodos del clúster de Azure HDInsight.
 
-
 Habilitación del registro para clústeres de HDInsight:
 
  https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-tutorial
-
 
 Consulta de registros de HDInsight:
 
@@ -272,11 +250,9 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-us
 
 **Guía**: incorpore el clúster de Azure HDInsight a Azure Monitor. Asegúrese de que el área de trabajo de Log Analytics usada tenga el período de retención de registros establecido de acuerdo con la normativa de cumplimiento de la organización.
 
-
 Incorporación de un clúster de Azure HDInsight a Azure Monitor:
 
 https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-tutorial
-
 
 Configuración del período de retención del área de trabajo de Log Analytics:
 
@@ -290,11 +266,9 @@ https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage
 
 **Guía**: incorpore el clúster de Azure HDInsight a Azure Monitor. Asegúrese de que el área de trabajo de Log Analytics usada tenga el período de retención de registros establecido de acuerdo con la normativa de cumplimiento de la organización.
 
-
 Incorporación de un clúster de Azure HDInsight a Azure Monitor:
 
 https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-tutorial
-
 
 Configuración del período de retención del área de trabajo de Log Analytics:
 
@@ -308,7 +282,6 @@ https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage
 
 **Guía**: use las consultas del área de trabajo de Azure Log Analytics para consultar los registros de Azure HDInsight:
 
-
 Creación de consultas personalizadas para los clústeres de Azure HDInsight:
 
 https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-use-queries
@@ -321,11 +294,9 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-us
 
 **Guía**: use el área de trabajo de Azure Log Analytics para supervisar los registros de seguridad y eventos relacionados con el clúster de Azure HDInsight y generar alertas sobre actividades anómalas en ellos.
 
-
 Administración de alertas de seguridad en Azure Security Center:
 
 https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts
-
 
 Alertas sobre datos de registro de Log Analytics:
 
@@ -338,7 +309,6 @@ https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response
 ### <a name="28-centralize-anti-malware-logging"></a>2.8: Centralización del registro antimalware
 
 **Guía**: Azure HDInsight incluye Clamscan preinstalado y habilitado para las imágenes de nodo de clúster; sin embargo, debe administrar el software y agregar o supervisar manualmente los registros que produce Clamscan.
-
 
 Descripción de Clamscan:
 
@@ -372,19 +342,15 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-faq#security-and-certificat
 
 **Instrucciones**: mantenga el registro de la cuenta administrativa local que se crea durante el aprovisionamiento del clúster de Azure HDInsight, así como de cualquier otra cuenta que cree. Además, si se usa la integración de Azure AD, Azure AD tiene roles integrados que se deben asignar explícitamente y, por tanto, se pueden consultar. Use el módulo de PowerShell de Azure AD para realizar consultas ad hoc a fin de detectar cuentas que son miembros de grupos administrativos.
 
-
 Además, puede usar las recomendaciones de administración de identidades y acceso de Azure Security Center.
-
 
 Cómo obtener un rol de directorio en Azure AD con PowerShell:
 
 https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0
 
-
 Cómo obtener los miembros de un rol de directorio en Azure AD con PowerShell:
 
 https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0
-
 
 Supervisión de identidad y acceso con Azure Security Center:
 
@@ -398,7 +364,6 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 **Instrucciones**: al aprovisionar un clúster, Azure le exige que cree contraseñas para el acceso a Secure Shell (SSH) y al portal web. No hay contraseñas predeterminadas para cambiar; sin embargo, puede especificar distintas contraseñas para el acceso a SSH y al portal web.
 
-
 Establecimiento de contraseñas al aprovisionar un clúster de Azure HDInsight:
 
 https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix
@@ -411,14 +376,11 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix
 
 **Instrucciones**: integre la autenticación del clúster de Azure HDInsight con Azure Active Directory. Cree directivas y procedimientos en torno al uso de cuentas administrativas dedicadas.
 
-
 Además, puede usar las recomendaciones de administración de identidades y acceso de Azure Security Center.
-
 
 Integración de la autenticación de Azure HDInsight con Azure Active Directory:
 
 https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds
-
 
 Supervisión de identidad y acceso con Azure Security Center:
 
@@ -432,7 +394,6 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 **Instrucciones**: use el agente de identificación de Azure HDInsight para iniciar sesión en clústeres de Enterprise Security Package (ESP) mediante Multi-Factor Authentication, sin proporcionar ninguna contraseña. Si ya ha iniciado sesión en otros servicios de Azure, como Azure Portal, puede iniciar sesión en el clúster de Azure HDInsight con una experiencia de inicio de sesión único (SSO).
 
-
 Habilitación del agente de identificación de Azure HDInsight:
 
 https://docs.microsoft.com/azure/hdinsight/domain-joined/identity-broker#enable-hdinsight-id-broker
@@ -445,11 +406,9 @@ https://docs.microsoft.com/azure/hdinsight/domain-joined/identity-broker#enable-
 
 **Instrucciones**: Habilite la MFA de Azure AD y siga las recomendaciones de administración de identidades y acceso de Azure Security Center. los clústeres de Azure HDInsight que tengan configurado Enterprise Security Package se pueden conectar a un dominio para que los usuarios de este puedan usar sus credenciales de dominio para autenticarse con los clústeres y ejecutar trabajos de macrodatos. Al autenticarse con la autenticación multifactor (MFA) habilitada, a los usuarios se les presenta el desafío de proporcionar un segundo factor de autenticación.
 
-
 Cómo habilitar la MFA en Azure:
 
 https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
-
 
 Cómo supervisar la identidad y el acceso en Azure Security Center:
 
@@ -463,11 +422,9 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 **Instrucciones**: use PAW (estaciones de trabajo de acceso con privilegios) con la autenticación multifactor (MFA) configurada para iniciar sesión en los clústeres de Azure HDInsight y recursos relacionados, y configurarlos.
 
-
 Más información sobre las estaciones de trabajo con privilegios de acceso:
 
 https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations
-
 
 Cómo habilitar la MFA en Azure:
 
@@ -481,11 +438,9 @@ https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getst
 
 **Instrucciones**: los clústeres de Azure HDInsight con Enterprise Security Package configurado se pueden conectar a un dominio para que los usuarios de este puedan usar sus credenciales de dominio para autenticarse. Puede usar informes de seguridad de Azure Active Directory (AAD) para la generación de registros y alertas cuando se producen actividades sospechosas o no seguras en el entorno de AAD. Use Azure Security Center para supervisar la actividad de identidad y acceso.
 
-
 Identificación de usuarios de AAD marcados con una actividad de riesgo:
 
 https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk
-
 
 Supervisión de la actividad de identidad y acceso de los usuarios en Azure Security Center:
 
@@ -498,7 +453,6 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 ### <a name="38-manage-azure-resources-from-only-approved-locations"></a>3.8: Administre los recursos de Azure solo desde ubicaciones aprobadas
 
 **Instrucciones**: los clústeres de Azure HDInsight con Enterprise Security Package configurado se pueden conectar a un dominio para que los usuarios de este puedan usar sus credenciales de dominio para autenticarse. Use ubicaciones con nombre de acceso condicional para permitir el acceso solo desde agrupaciones lógicas específicas de intervalos de direcciones IP o países o regiones.
-
 
 Cómo configurar ubicaciones con nombre en Azure:
 
@@ -514,11 +468,9 @@ https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-
 
 los clústeres de Azure HDInsight con Enterprise Security Package (ESP) configurado pueden conectarse a un dominio para que los usuarios de este puedan usar sus credenciales de dominio para autenticarse con los clústeres.
 
-
 Cómo crear y configurar una instancia de AAD:
 
 https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant
-
 
 Configuración de Enterprise Security Package con Azure Active Directory Domain Services en Azure HDInsight:
 
@@ -532,7 +484,6 @@ https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-co
 
 **Instrucciones**: use la autenticación de Azure Active Directory (AAD) con el clúster de Azure HDInsight. AAD proporciona registros para ayudar a descubrir las cuentas obsoletas. Además, use las revisiones de acceso de identidad de Azure para administrar de forma eficiente las pertenencias a grupos, el acceso a las aplicaciones empresariales y las asignaciones de roles. El acceso de los usuarios se puede revisar de forma periódica para asegurarse de que solo las personas adecuadas tengan acceso continuado. 
 
-
 Cómo usar las revisiones de acceso de identidad de Azure:
 
 https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview
@@ -545,9 +496,7 @@ https://docs.microsoft.com/azure/active-directory/governance/access-reviews-over
 
 **Instrucciones**: use los registros de inicio de sesión y auditoría de Azure Active Directory (AAD) para supervisar los intentos de acceso a cuentas desactivadas; estos registros se pueden integrar en cualquier herramienta de SIEM o de supervisión de terceros.
 
-
 Para simplificar este proceso, cree una configuración de diagnóstico para las cuentas de usuario de AAD y envíe los registros de auditoría e inicio de sesión a un área de trabajo de Azure Log Analytics. Configure las alertas deseadas en el área de trabajo de Azure Log Analytics.
-
 
 Cómo integrar los registros de actividad de Azure en Azure Monitor:
 
@@ -561,11 +510,9 @@ https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integ
 
 **Instrucciones**: los clústeres de Azure HDInsight con Enterprise Security Package (ESP) configurado pueden conectarse a un dominio para que los usuarios de este puedan usar sus credenciales de dominio para autenticarse con los clústeres.  Use las características de protección de identidad y detección de riesgo de Azure Active Directory (AAD) para configurar respuestas automatizadas a las acciones sospechosas detectadas relacionadas con las identidades de los usuarios. Además, puede ingerir datos en Azure Sentinel para investigarlos más a fondo.
 
-
 Visualización de inicios de sesión de riesgo de AAD:
 
 https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins
-
 
 Cómo configurar y habilitar las directivas de riesgo de protección de la identidad:
 
@@ -582,6 +529,7 @@ https://docs.microsoft.com/azure/active-directory/identity-protection/howto-iden
 Lista de servicios admitidos por la Caja de seguridad del cliente: https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
 
 
+
 **Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
@@ -593,7 +541,6 @@ Lista de servicios admitidos por la Caja de seguridad del cliente: https://docs.
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: Mantenimiento de un inventario de información confidencial
 
 **Instrucciones**: use etiquetas en los recursos relacionados con las implementaciones de Azure HDInsight para ayudar a realizar un seguimiento de los recursos de Azure que almacenan o procesan información confidencial.
-
 
 Creación y uso de etiquetas:
 
@@ -607,16 +554,13 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 
 **Instrucciones**: Implemente suscripciones y/o grupos de administración independientes para los entornos de desarrollo, prueba y producción. los clústeres de Azure HDInsight y las cuentas de almacenamiento asociadas deben separarse por red virtual o subred, etiquetarse correctamente y protegerse dentro de un grupo de seguridad de red (NSG) o Azure Firewall. Los datos del clúster deben estar incluidos en una cuenta de Azure Storage protegida o en Azure Data Lake Storage (Gen1 o Gen2).
 
-
 Elija las opciones de almacenamiento para el clúster de Azure HDInsight:
 
 https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-compare-storage-options
 
-
 Protección de Azure Data Lake Storage:
 
 https://docs.microsoft.com/azure/data-lake-store/data-lake-store-security-overview
-
 
 Protección de cuentas de Azure Storage:
 
@@ -630,14 +574,11 @@ https://docs.microsoft.com/azure/storage/common/storage-security-guide
 
 **Instrucciones**: en el caso de los clústeres de Azure HDInsight que almacenan o procesan información confidencial, marque el clúster y los recursos relacionados como confidenciales mediante etiquetas. Para reducir el riesgo de pérdida de datos mediante filtración, restrinja el tráfico de red saliente de los clústeres de Azure HDInsight con Azure Firewall.
 
-
 En el caso de la plataforma subyacente administrada por Microsoft, Microsoft trata todo el contenido de los clientes como confidencial y hace grandes esfuerzos para proteger a los clientes contra la pérdida y exposición de sus datos. Para garantizar la seguridad de los datos de los clientes dentro de Azure, Microsoft ha implementado y mantiene un conjunto de controles y funcionalidades eficaces de protección de datos.
-
 
 Restricción del tráfico saliente para clústeres de Azure HDInsight con Azure Firewall:
 
 https://docs.microsoft.com/azure/hdinsight/hdinsight-restrict-outbound-traffic
-
 
 Descripción de la protección de datos de los clientes en Azure:
 
@@ -651,15 +592,13 @@ https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 **Instrucciones**: Cifre toda la información confidencial en tránsito. asegúrese de que los clientes que se conectan al clúster de Azure HDInsight o a los almacenes de datos del clúster (cuentas de Azure Storage o Azure Data Lake Storage Gen1/Gen2) pueden negociar TLS 1.2 o superior. De forma predeterminada, los recursos de Microsoft Azure negociarán TLS 1.2. 
 
-
 Descripción del cifrado en tránsito de Azure Data Lake Storage:
 
 https://docs.microsoft.com/azure/data-lake-store/data-lake-store-security-overview
 
-
 Descripción del cifrado en tránsito de la cuenta de Azure Storage:
 
-https://docs.microsoft.com/azure/storage/blobs/security-recommendations
+https://docs.microsoft.com/azure/storage/common/storage-security-guide#encryption-in-transit
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -669,11 +608,7 @@ https://docs.microsoft.com/azure/storage/blobs/security-recommendations
 
 **Instrucciones**: las características de identificación, clasificación y prevención de pérdida de datos todavía no están disponibles para Azure Storage ni los recursos de proceso. Implemente una solución de terceros, si es necesario, para fines de cumplimiento.
 
-
-
 En el caso de la plataforma subyacente administrada por Microsoft, Microsoft trata todo el contenido de los clientes como confidencial y hace grandes esfuerzos para proteger a los clientes contra la pérdida y exposición de sus datos. Para garantizar la seguridad de los datos de los clientes dentro de Azure, Microsoft ha implementado y mantiene un conjunto de controles y funcionalidades eficaces de protección de datos.
-
-
 
 Descripción de la protección de datos de los clientes en Azure:
 
@@ -689,9 +624,13 @@ https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 La configuración de las directivas RBAC con Apache Ranger permite asociar permisos a un rol de la organización. Esta capa de abstracción hace más fácil asegurar que los usuarios solo tengan los permisos necesarios para realizar sus responsabilidades laborales.
 
-Configuraciones de Enterprise Security Package con Azure Active Directory Domain Services en HDInsight: https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds
+Configuraciones de Enterprise Security Package con Azure Active Directory Domain Services en HDInsight:
 
-Introducción a la seguridad de la empresa en Azure HDInsight: https://docs.microsoft.com/azure/hdinsight/domain-joined/hdinsight-security-overview
+https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds
+
+Introducción a la seguridad de la empresa en Azure HDInsight:
+
+https://docs.microsoft.com/azure/hdinsight/domain-joined/hdinsight-security-overview
 
 
 
@@ -703,9 +642,7 @@ Introducción a la seguridad de la empresa en Azure HDInsight: https://docs.micr
 
 **Instrucciones**: en el caso de los clústeres de Azure HDInsight que almacenan o procesan información confidencial, marque el clúster y los recursos relacionados como confidenciales mediante etiquetas. Las características de identificación, clasificación y prevención de pérdida de datos todavía no están disponibles para Azure Storage ni los recursos de proceso. Implemente una solución de terceros, si es necesario, para fines de cumplimiento.
 
-
 En el caso de la plataforma subyacente administrada por Microsoft, Microsoft trata todo el contenido de los clientes como confidencial y hace grandes esfuerzos para proteger a los clientes contra la pérdida y exposición de sus datos. Para garantizar la seguridad de los datos de los clientes dentro de Azure, Microsoft ha implementado y mantiene un conjunto de controles y funcionalidades eficaces de protección de datos.
-
 
 Descripción de la protección de datos de los clientes en Azure:
 
@@ -719,25 +656,17 @@ https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 **Instrucciones**: si usa Azure SQL Database para almacenar metadatos de Apache Hive y Apache Oozie, asegúrese de que los datos SQL permanecen cifrados en todo momento. En el caso de las cuentas de Azure Storage y Data Lake Storage (Gen1 o Gen2), se recomienda permitir que Microsoft administre las claves de cifrado; sin embargo, tiene la opción de administrar sus propias claves.
 
-
-
 Administración de las claves de cifrado para cuentas de Azure Storage:
 
 https://docs.microsoft.com/azure/storage/common/storage-encryption-keys-portal
-
-
 
 Creación de Azure Data Lake Storage mediante claves de cifrado administradas por el cliente:
 
 https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal
 
-
-
 Descripción del cifrado para Azure SQL Database:
 
 https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview#data-encryption
-
-
 
 Configuración del Cifrado de datos transparente para SQL Database mediante claves administradas por el cliente:
 
@@ -751,11 +680,9 @@ https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-
 
 **Instrucciones**: configure los valores de diagnóstico para las cuentas de Azure Storage asociadas a los clústeres de Azure HDInsight a fin de supervisar y registrar todas las operaciones CRUD en los datos del clúster. Habilite la auditoría para las cuentas de almacenamiento o las instancias de Data Lake Store asociadas con el clúster de Azure HDInsight.
 
-
 Habilitación de registro o auditoría adicionales para una cuenta de Azure Storage:
 
 https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account
-
 
 Habilitación de registro o auditoría adicionales para Azure Data Lake Storage:
 
@@ -773,19 +700,15 @@ https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-diagnos
 
 **Instrucciones**: implemente una solución de administración de vulnerabilidades de terceros.
 
-
 Opcionalmente, si dispone de Rapid7, Qualys o cualquier otra suscripción a una plataforma de administración de vulnerabilidades, puede usar acciones de script para instalar agentes de evaluación de vulnerabilidades en los nodos del clúster de Azure HDInsight y administrar los nodos mediante el portal correspondiente.
-
 
 Instalación del agente de Rapid7 manualmente:
 
-https://insightvm.help.rapid7.com/docs/azure-security-center
-
+https://insightvm.help.rapid7.com/docs/install
 
 Instalación del agente de Qualys manualmente:
 
 https://www.qualys.com/docs/qualys-cloud-agent-linux-install-guide.pdf
-
 
 Uso de acciones de script:
 
@@ -799,9 +722,7 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-li
 
 **Instrucciones**: se han habilitado las actualizaciones automáticas del sistema para las imágenes de nodo de clúster; sin embargo, debe reiniciar periódicamente los nodos del clúster para asegurarse de que se aplican las actualizaciones.
 
-
 Microsoft mantiene y actualiza las imágenes de nodo base de Azure HDInsight.
-
 
 Configuración de la programación de la aplicación de revisiones del sistema operativo para clústeres de HDInsight:
 
@@ -815,11 +736,9 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-os-patching
 
 **Instrucciones**: use acciones de script u otros mecanismos para aplicar revisiones a los clústeres de Azure HDInsight. Los clústeres creados recientemente siempre tendrán las últimas actualizaciones disponibles, incluidas las revisiones de seguridad más recientes.
 
-
 Configuración de la programación de aplicación de revisiones del sistema operativo para clústeres de Azure HDInsight basados en Linux:
 
 https://docs.microsoft.com/azure/hdinsight/hdinsight-os-patching
-
 
 Uso de acciones de script:
 
@@ -853,19 +772,15 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-li
 
 **Instrucciones**: use Azure Resource Graph para consultar o detectar todos los recursos (por ejemplo, proceso, almacenamiento, red, puertos y protocolos, etc.), incluidos los clústeres de Azure HDInsight, dentro de las suscripciones.  Asegúrese de que tiene los permisos adecuados (lectura) en el inquilino y de que puede enumerar todas las suscripciones de Azure, así como los recursos de las suscripciones.
 
-
-Aunque los recursos clásicos de Azure se pueden detectar a través de Azure Resource Graph, se recomienda encarecidamente crear y usar los recursos de Azure Resource Manager que figuran a continuación.
-
+Aunque los recursos clásicos de Azure se pueden detectar a través de Resource Graph, se recomienda encarecidamente crear y usar los recursos de Azure Resource Manager que figuran a continuación.
 
 Creación de consultas con Azure Resource Graph:
 
 https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
-
 Visualización de las suscripciones de Azure:
 
 https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
-
 
 Descripción de Azure RBAC:
 
@@ -879,7 +794,6 @@ https://docs.microsoft.com/azure/role-based-access-control/overview
 
 **Instrucciones**: Aplique etiquetas a los recursos de Azure que proporcionan metadatos para organizarlos de forma lógica en una taxonomía.
 
-
 Creación y uso de etiquetas:
 
 https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
@@ -892,16 +806,13 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 
 **Instrucciones**: Use el etiquetado, los grupos de administración y las suscripciones independientes, si procede, para organizar y realizar un seguimiento de los recursos. Concilie el inventario periódicamente y asegúrese de que los recursos no autorizados se eliminan de la suscripción de manera oportuna.
 
-
 Creación de suscripciones de Azure adicionales:
 
 https://docs.microsoft.com/azure/billing/billing-create-subscription
 
-
 Cómo crear grupos de administración:
 
 https://docs.microsoft.com/azure/governance/management-groups/create
-
 
 Creación y uso de etiquetas:
 
@@ -921,16 +832,18 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5: Supervisión de recursos de Azure no aprobados
 
-**Instrucciones**: use Azure Policy para establecer restricciones en el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
+**Instrucciones**: use Azure Policy para establecer restricciones sobre el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
 
 - Tipos de recursos no permitidos
+
 - Tipos de recursos permitidos
 
 Use Azure Resource Graph para consultar o detectar recursos dentro de las suscripciones. Asegúrese de que todos los recursos de Azure presentes en el entorno estén aprobados.
 
 Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Creación de consultas con Azure Resource Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Creación de consultas con Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+
 
 
 **Supervisión de Azure Security Center**: no disponible actualmente
@@ -949,8 +862,7 @@ Creación de consultas con Azure Resource Graph: https://docs.microsoft.com/azur
 
 **Instrucciones**: use Azure Resource Graph para consultar o detectar todos los recursos (por ejemplo, proceso, almacenamiento, red, puertos y protocolos, etc.), incluidos los clústeres de Azure HDInsight, dentro de las suscripciones.  Quite los recursos de Azure no aprobados que detecte. En el caso de los nodos del clúster de Azure HDInsight, implemente una solución de terceros para quitar software no aprobado o alertas al respecto.
 
-
-Creación de consultas con Azure Resource Graph:
+Creación de consultas con Azure Graph:
 
 https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
@@ -962,22 +874,23 @@ https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 **Instrucciones**: en el caso de los nodos del clúster de Azure HDInsight, implemente una solución de terceros para impedir que se ejecute software no autorizado.
 
+
 **Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
 ### <a name="69-use-only-approved-azure-services"></a>6.9: Uso exclusivo de servicios de Azure aprobados
 
-**Instrucciones**: use Azure Policy para establecer restricciones en el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
+**Guía**: use Azure Policy para establecer restricciones sobre el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
 
 - Tipos de recursos no permitidos
-- Tipos de recursos permitidos
 
+- Tipos de recursos permitidos
 
 Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-
 Denegación de un tipo de recurso específico con Azure Policy: https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
+
 
 **Supervisión de Azure Security Center**: no disponible actualmente
 
@@ -987,6 +900,7 @@ Denegación de un tipo de recurso específico con Azure Policy: https://docs.mi
 
 **Instrucciones**: en el caso de los nodos del clúster de Azure HDInsight, implemente una solución de terceros para impedir que se ejecuten tipos de archivos no autorizados.
 
+
 **Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
@@ -995,8 +909,8 @@ Denegación de un tipo de recurso específico con Azure Policy: https://docs.mi
 
 **Instrucciones**: use el acceso condicional de Azure para limitar la capacidad de los usuarios de interactuar con Azure Resource Manager mediante la configuración de la opción "Bloquear acceso" en la aplicación "Administración de Microsoft Azure".
 
-
 Configuración del acceso condicional para bloquear el acceso a Azure Resource Manager: https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
+
 
 **Supervisión de Azure Security Center**: no disponible actualmente
 
@@ -1026,11 +940,9 @@ Configuración del acceso condicional para bloquear el acceso a Azure Resource M
 
 **Instrucciones**: use alias de Azure Policy en el espacio de nombres "Microsoft.HDInsight" para crear directivas personalizadas con el fin de auditar o aplicar la configuración de red del clúster de HDInsight.
 
-
 Visualización de los alias de Azure Policy disponibles:
 
 https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
-
 
 Configuración y administración de Azure Policy:
 
@@ -1044,19 +956,18 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Instrucciones**: Microsoft administra y mantiene las imágenes del sistema operativo de Azure HDInsight. El cliente es responsable de implementar configuraciones seguras para el sistema operativo de los nodos del clúster. 
 
+
 **Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3: Mantenga configuraciones de recursos de Azure seguras
 
-**Instrucciones**: use la directiva de Azure [denegar] e [impleméntela si no existe] para aplicar la configuración segura a los clústeres de Azure HDInsight y los recursos relacionados.
-
+**Guía**: use Azure Policy [denegar] e [impleméntela si no existe] para aplicar la configuración segura a los clústeres de Azure HDInsight y los recursos relacionados.
 
 Configuración y administración de Azure Policy:
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
-
 
 Descripción de los efectos de Azure Policy:
 
@@ -1070,21 +981,18 @@ https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
 **Instrucciones**: Microsoft administra y mantiene las imágenes del sistema operativo de Azure HDInsight. El cliente es responsable de implementar la configuración de estado en el nivel de sistema operativo.
 
+
 **Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Compartido
 
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5: Almacene de forma segura la configuración de los recursos de Azure
 
-**Instrucciones**: Si usa definiciones de directivas personalizadas de Azure, use Azure DevOps o Azure Repos para almacenar y administrar el código de forma segura.
-
-
+**Guía**: Si usa definiciones personalizadas de Azure Policy, use Azure DevOps o Azure Repos para almacenar y administrar el código de forma segura.
 
 Cómo almacenar código en Azure DevOps:
 
 https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
-
-
 
 Documentación de Azure Repos:
 
@@ -1106,8 +1014,6 @@ https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 
 **Instrucciones**: use alias de Azure Policy en el espacio de nombres "Microsoft.HDInsight" para crear directivas personalizadas con el fin de auditar y aplicar las configuraciones del sistema y enviar alertas sobre ellas. Además, desarrolle un proceso y una canalización para administrar las excepciones de las directivas.
 
-
-
 Configuración y administración de Azure Policy:
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
@@ -1128,11 +1034,9 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Instrucciones**: use alias de Azure Policy en el espacio de nombres "Microsoft.HDInsight" para crear directivas personalizadas con el fin de auditar o aplicar la configuración del clúster de HDInsight.
 
-
 Visualización de los alias de Azure Policy disponibles:
 
 https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
-
 
 Configuración y administración de Azure Policy:
 
@@ -1154,17 +1058,13 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Instrucciones**: Azure HDInsight incluye compatibilidad con Bring Your Own Key (BYOK) para Apache Kafka. Esta funcionalidad le permite ser el propietario y administrar las claves utilizadas para cifrar datos en reposo.
 
-
 todos los discos administrados de Azure HDInsight están protegidos con Azure Storage Service Encryption (SSE). De forma predeterminada, los datos en esos discos se cifran mediante claves administradas por Microsoft. Al habilitar BYOK, le proporciona a Azure HDInsight la clave de cifrado para que la use y administre con Azure Key Vault.
 
-
 Key Vault también puede usarse con implementaciones de Azure HDInsight para administrar las claves de almacenamiento del clúster (cuentas de Azure Storage y Azure Data Lake Storage).
-
 
 Traer su propia clave para Apache Kafka en Azure HDInsight:
 
 https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-byok
-
 
 Administración de las claves de cifrado para cuentas de Azure Storage:
 
@@ -1178,7 +1078,6 @@ https://docs.microsoft.com/azure/storage/common/storage-encryption-keys-portal
 
 **Instrucciones**: se pueden usar identidades administradas en Azure HDInsight para permitir que los clústeres accedan a los servicios de dominio de Azure Active Directory, a Azure Key Vault o a archivos de Azure Data Lake Storage Gen2.
 
-
 Descripción de las identidades administradas con Azure HDInsight:
 
 https://docs.microsoft.com/azure/hdinsight/hdinsight-managed-identities
@@ -1190,7 +1089,6 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-managed-identities
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7.13: Elimine la exposición de credenciales no intencionada
 
 **Instrucciones**: si usa cualquier código relacionado con la implementación de Azure HDInsight, puede implementar Credential Scanner para identificar las credenciales en el código. El escáner de credenciales también fomenta el traslado de credenciales detectadas a ubicaciones más seguras, como Azure Key Vault. 
-
 
 Cómo configurar el escáner de credenciales:
 
@@ -1208,7 +1106,6 @@ https://secdevtools.azurewebsites.net/helpcredscan.html
 
 **Instrucciones**: Azure HDInsight incluye Clamscan preinstalado y habilitado para las imágenes de nodo de clúster; sin embargo, debe administrar el software y agregar o supervisar manualmente los registros que produce Clamscan.
 
-
 Descripción de Clamscan para Azure HDInsight:
 
 https://docs.microsoft.com/azure/hdinsight/hdinsight-faq#security-and-certificates
@@ -1221,9 +1118,7 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-faq#security-and-certificat
 
 **Instrucciones**: Microsoft Antimalware está habilitado en el host subyacente que admite los servicios de Azure, pero no se ejecuta en el contenido del cliente.
 
-
 Examine previamente los archivos que se van a cargar en los recursos de Azure relacionados con la implementación del clúster de Azure HDInsight, como Data Lake Storage, Blob Storage, etc. Microsoft no tiene acceso a los datos del cliente en estas instancias.
-
 
 Descripción de Microsoft Antimalware para Azure Cloud Services y Virtual Machines:
 
@@ -1236,7 +1131,6 @@ Descripción de Microsoft Antimalware para Azure Cloud Services y Virtual Machin
 ### <a name="83-ensure-anti-malware-software-and-signatures-are-updated"></a>8.3: Asegúrese de que se han actualizado el software y las firmas antimalware
 
 **Instrucciones**: Azure HDInsight incluye Clamscan preinstalado y habilitado para las imágenes de nodo de clúster. Clamscan realizará actualizaciones del motor y de las definiciones de forma automática; no obstante, la agregación y administración de registros deberá realizarse manualmente.
-
 
 Descripción de Clamscan para Azure HDInsight:
 
@@ -1254,11 +1148,9 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-faq#security-and-certificat
 
 **Instrucciones**: al usar una cuenta de Azure Storage para el almacén de datos del clúster de Azure HDInsight, elija la opción de redundancia adecuada (LRS,ZRS, GRS, RA-GRS).  Al usar una instancia de Azure SQL Database para el almacén de datos del clúster de Azure HDInsight, configure la replicación geográfica activa.
 
-
 Configuración de la redundancia del almacenamiento para cuentas de Azure Storage:
 
 https://docs.microsoft.com/azure/storage/common/storage-redundancy
-
 
 Configuración de la redundancia para las instancias de Azure SQL Database:
 
@@ -1272,16 +1164,13 @@ https://docs.microsoft.com/azure/sql-database/sql-database-active-geo-replicatio
 
 **Instrucciones**: al usar una cuenta de Azure Storage para el almacén de datos del clúster de Azure HDInsight, elija la opción de redundancia adecuada (LRS,ZRS, GRS, RA-GRS). Si usa Azure Key Vault en alguna parte de la implementación de Azure HDInsight, asegúrese de que se realizan copias de seguridad de las claves.
 
-
 Elija las opciones de almacenamiento para el clúster de Azure HDInsight:
 
 https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-compare-storage-options
 
-
 Configuración de la redundancia del almacenamiento para cuentas de Azure Storage:
 
 https://docs.microsoft.com/azure/storage/common/storage-redundancy
-
 
 Copia de seguridad de las claves de Key Vault en Azure:
 
@@ -1295,11 +1184,9 @@ https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvau
 
 **Instrucciones**: si Azure Key Vault se usa con la implementación de Azure HDInsight, pruebe la restauración de las copias de seguridad de las claves administradas por el cliente.
 
-
 Traer su propia clave para Apache Kafka en Azure HDInsight:
 
 https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-byok
-
 
 Restauración de las claves del almacén de claves en Azure:
 
@@ -1313,10 +1200,9 @@ https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyva
 
 **Instrucciones**: si Azure Key Vault se usa con la implementación de Azure HDInsight, habilite la eliminación temporal en Key Vault para proteger las claves contra la eliminación accidental o malintencionada.
 
-
 Habilitación de la eliminación temporal en Azure Key Vault:
 
-https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete
+https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
 
 **Supervisión de Azure Security Center**: no disponible actualmente
 
@@ -1329,8 +1215,6 @@ https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete
 ### <a name="101-create-an-incident-response-guide"></a>10.1: Creación de una guía de respuesta ante incidentes
 
 **Instrucciones**: asegúrese de que haya planes de respuesta ante incidentes escritos que definan los roles del personal, así como las fases de administración y gestión de los incidentes.
-
-
 
 Configuración de las automatizaciones del flujo de trabajo en Azure Security Center:
 
@@ -1360,8 +1244,6 @@ https://docs.microsoft.com/azure/security-center/security-center-planning-and-op
 
 **Instrucciones**: la información de contacto del incidente de seguridad la utilizará Microsoft para ponerse en contacto con usted si Microsoft Security Response Center (MSRC) detecta que un tercero no autorizado o ilegal ha accedido a los datos.
 
-
-
 Establecimiento del contacto de seguridad de Azure Security Center:
 
 https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details
@@ -1374,13 +1256,9 @@ https://docs.microsoft.com/azure/security-center/security-center-provide-securit
 
 **Instrucciones**: Exporte sus alertas y recomendaciones de Azure Security Center mediante la característica de exportación continua. La exportación continua le permite exportar alertas y recomendaciones de forma manual o continua. Puede usar el conector de datos de Azure Security Center para transmitir las alertas a Sentinel.
 
-
-
 Configuración de la exportación continua:
 
 https://docs.microsoft.com/azure/security-center/continuous-export
-
-
 
 Transmisión de alertas a Azure Sentinel:
 
@@ -1393,8 +1271,6 @@ https://docs.microsoft.com/azure/sentinel/connect-azure-security-center
 ### <a name="106-automate-the-response-to-security-alerts"></a>10.6: Automatización de la respuesta a las alertas de seguridad
 
 **Instrucciones**: use la característica de automatización del flujo de trabajo de Azure Security Center para desencadenar automáticamente respuestas mediante "Logic Apps" en las alertas y recomendaciones de seguridad.
-
-
 
 Configuración de la automatización de flujo de trabajo y Logic Apps:
 
@@ -1413,8 +1289,6 @@ https://docs.microsoft.com/azure/security-center/workflow-automation
 **Instrucciones**: siga las reglas de compromiso de Microsoft para asegurarse de que las pruebas de penetración no infrinjan las directivas de Microsoft:
 
 https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1.
-
-
 
 Puede encontrar más información sobre la estrategia de Microsoft y la ejecución de las pruebas de penetración del equipo rojo y sitios activos en la infraestructura de nube, los servicios y las aplicaciones administradas por Microsoft aquí: https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 

@@ -1,23 +1,20 @@
 ---
-title: 'Uso de Azure Pipelines para compilar e implementar soluciones HPC: Azure Batch'
+title: Uso de Azure Pipelines para compilar e implementar soluciones HPC
 description: Aprenda a implementar una canalización de compilación/versión de una aplicación HPC que se ejecuta en Azure Batch.
 author: chrisreddington
 ms.author: chredd
 ms.date: 03/28/2019
 ms.topic: conceptual
-ms.custom: fasttrack-new
-services: batch
-ms.service: batch
-ms.openlocfilehash: 50cb711dfd16c2a8718d13ba9255ace1e7e3e26d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 79c4e74086acc0f74bcc43f6b4543afe12916364
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79533137"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82117393"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Usar Azure Pipelines para compilar e implementar soluciones HPC
 
-Azure DevOps Services proporciona una gama de herramientas que los equipos de desarrollo utilizan al compilar una aplicación personalizada. Las herramientas suministradas por Azure DevOps permiten la compilación y comprobación automatizadas de soluciones de proceso de alto rendimiento. En este artículo se describe cómo configurar una integración continua (CI) y una implementación continua (CD) con Azure Pipelines para una solución de proceso de alto rendimiento en Azure Batch.
+Azure DevOps Services proporciona una gama de herramientas que usan los equipos de desarrollo al compilar una aplicación personalizada. Las herramientas suministradas por Azure DevOps permiten la compilación y comprobación automatizadas de soluciones de proceso de alto rendimiento. En este artículo se describe cómo configurar una integración continua (CI) y una implementación continua (CD) con Azure Pipelines para una solución de proceso de alto rendimiento en Azure Batch.
 
 Azure Pipelines proporciona un conjunto de procesos de CI/CD modernos para compilar, implementar, probar y supervisar software. Estos procesos aceleran la entrega de software, lo que permite centrarse en el código, más que en la infraestructura de soporte y las operaciones.
 

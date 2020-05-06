@@ -13,16 +13,16 @@ ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 3c660f7e05af43c2aad6f7283e32cfc1d85571ab
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 52a08661ffa25bf2105791c1217cfc460034502a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80066825"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188576"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>Uso de Azure Policy para restringir la instalación de extensiones en VM Linux
 
-Si quiere impedir el uso o la instalación de determinadas extensiones en VM Linux, puede crear una directiva de Azure mediante la CLI para restringir las extensiones de las máquinas virtuales dentro de un grupo de recursos. 
+Si quiere impedir el uso o la instalación de determinadas extensiones en VM Linux, puede crear una definición de directiva de Azure mediante la CLI para restringir las extensiones de las máquinas virtuales dentro de un grupo de recursos. 
 
 En este tutorial se usa la CLI dentro de Azure Cloud Shell, que se actualiza constantemente a la versión más reciente. Si quiere ejecutar la CLI de Azure localmente, debe instalar la versión 2.0.26 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli). 
 

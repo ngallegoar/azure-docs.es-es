@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 03/09/2020
+ms.date: 04/27/2020
 ms.author: apimpm
-ms.openlocfilehash: 462a44f7766e0ec52ba7156d6de5ae5261e21376
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: cf65cd757655b496ceb87fa1ff8121ac6209d869
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80547359"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203223"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Usar Azure API Management con redes virtuales
 Azure Virtual Network (redes virtuales) le permiten colocar cualquier recurso de Azure en una red distinta de Internet que se pueda enrutar y a la que controle el acceso. Después, estas redes se pueden conectar a sus redes locales mediante diversas tecnologías de VPN. Para más información sobre Azure Virtual Network, vea: [Información general sobre Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
@@ -108,10 +108,10 @@ A continuación se muestra una lista de problemas de errores de configuración c
 
 <a name="required-ports"> </a> Cuando la instancia del servicio API Management se hospeda en una red virtual, se usan los puertos de la tabla siguiente.
 
-| Puertos de origen/destino | Dirección          | Protocolo de transporte |   [Etiquetas de servicio](../virtual-network/security-overview.md#service-tags) <br> Origen/destino   | Propósito (*)                                                 | Tipo de red virtual |
+| Puertos de origen/destino | Dirección          | Protocolo de transporte |   [Etiquetas de servicio](../virtual-network/security-overview.md#service-tags) <br> Origen/destino   | Propósito (\*)                                                 | Tipo de red virtual |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
 | * / [80], 443                  | Entrada            | TCP                | INTERNET/VIRTUAL_NETWORK            | Comunicación de cliente con Administración de API                      | Externo             |
-| * / 3443                     | Entrada            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Punto de conexión de administración para Azure Portal y Powershell         | Externa e interna  |
+| * / 3443                     | Entrada            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Punto de conexión de administración para Azure Portal y PowerShell         | Externa e interna  |
 | * / 443                  | Salida           | TCP                | VIRTUAL_NETWORK/Storage             | **Dependencia de Azure Storage**                             | Externa e interna  |
 | * / 443                  | Salida           | TCP                | VIRTUAL_NETWORK / AzureActiveDirectory | [Azure Active Directory](api-management-howto-aad.md) (si procede)                   | Externa e interna  |
 | * / 1433                     | Salida           | TCP                | VIRTUAL_NETWORK / SQL                 | **Acceso a los puntos de conexión de Azure SQL**                           | Externa e interna  |
@@ -132,9 +132,7 @@ A continuación se muestra una lista de problemas de errores de configuración c
 
 + **Acceso DNS**: Se requiere acceso saliente en el puerto 53 para establecer la comunicación con los servidores DNS. Si existe un servidor DNS personalizado en el otro punto de conexión de una puerta de enlace de VPN, el servidor DNS debe estar accesible desde la subred que alberga la API Management.
 
-+ **Supervisión de métricas y estado**: conexión de red saliente a puntos de conexión de supervisión de Azure, que se resuelven en los siguientes dominios:
-
-+ **Etiquetas de servicio regional**: Las reglas de NSG que permiten la conectividad saliente a las etiquetas de servicio de Storage, SQL y EventHubs pueden usar las versiones regionales correspondientes de las etiquetas de la región que contiene la instancia de API Management (por ejemplo, Storage.WestUS para una instancia de API Management en la región Oeste de EE. UU.). En las implementaciones para varias regiones, el NSG de cada región debe permitir el tráfico a las etiquetas de servicio de esa región.
++ **Supervisión de métricas y estado**: conectividad de red saliente a puntos de conexión de supervisión de Azure, que se resuelven en los siguientes dominios. Como se muestra en la tabla, estas direcciones URL se representan en la etiqueta de servicio de AzureMonitor para su uso con grupos de seguridad de red.
 
     | Entorno de Azure | Puntos de conexión                                                                                                                                                                                                                                                                                                                                                              |
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -142,8 +140,10 @@ A continuación se muestra una lista de problemas de errores de configuración c
     | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.microsoftmetrics.com (**nuevo**)</li><li>shoebox2.metrics.nsatc.net (**próximamente en desuso**)</li><li>prod3.metrics.microsoftmetrics.com (**nuevo**)</li><li>prod3.metrics.nsatc.net (**próximamente en desuso**)</li><li>prod5.prod.microsoftmetrics.com</li></ul>                                                                                                                                                                                                                                                |
     | Azure China 21Vianet     | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.microsoftmetrics.com (**nuevo**)</li><li>shoebox2.metrics.nsatc.net (**próximamente en desuso**)</li><li>prod3.metrics.microsoftmetrics.com (**nuevo**)</li><li>prod3.metrics.nsatc.net (**próximamente en desuso**)</li><li>prod5.prod.microsoftmetrics.com</li></ul>                                                                                                                                                                                                                                                |
 
->[!IMPORTANT]
-> El cambio de clústeres anterior con la zona DNS **.nsatc.net** a **.microsoftmetrics.com** es principalmente un cambio de DNS. La dirección IP del clúster no cambiará.
+  >[!IMPORTANT]
+  > El cambio de clústeres anterior con la zona DNS **.nsatc.net** a **.microsoftmetrics.com** es principalmente un cambio de DNS. La dirección IP del clúster no cambiará.
+
++ **Etiquetas de servicio regional**: Las reglas de NSG que permiten la conectividad saliente a las etiquetas de servicio de Storage, SQL y Event Hubs pueden usar las versiones regionales correspondientes de las etiquetas de la región que contiene la instancia de API Management (por ejemplo, Storage.WestUS para una instancia de API Management en la región Oeste de EE. UU.). En las implementaciones para varias regiones, el NSG de cada región debe permitir el tráfico a las etiquetas de servicio de esa región y de la región primaria.
 
 + **Retransmisión de SMTP**: conectividad de red de salida para la retransmisión de SMTP, que se resuelve en el host `smtpi-co1.msn.com`, `smtpi-ch1.msn.com`, `smtpi-db3.msn.com`, `smtpi-sin.msn.com` y `ies.global.microsoft.com`.
 
@@ -151,7 +151,9 @@ A continuación se muestra una lista de problemas de errores de configuración c
 
 + **Diagnósticos de Azure Portal**: para permitir el flujo de registros de diagnóstico desde Azure Portal al usar la extensión API Management desde dentro de una red Virtual, se requiere el acceso saliente a `dc.services.visualstudio.com` en el puerto 443. Esto ayuda a solucionar los problemas que pueden surgir al usar la extensión.
 
-+ **Forzar la tunelización del tráfico al firewall local mediante la aplicación virtual de red o de Express Route**: Una configuración común de los clientes es definir su propia ruta predeterminada (0.0.0.0.0/0) que fuerza a todo el tráfico de la subred delegada de API Management a pasar a través de un firewall local o a un dispositivo virtual de red. El flujo de tráfico interrumpe invariablemente la conectividad con Azure API Management porque el tráfico saliente está bloqueado de forma local o porque se usa NAT para convertirlo en un conjunto de direcciones irreconocibles que no funcionan con varios puntos de conexión de Azure. La solución requiere que se hagan un par de cosas:
++ **Azure Load Balancer**: Permitir la solicitud de entrada desde la etiqueta de servicio `AZURE_LOAD_BALANCER` no es un requisito para la SKU `Developer`, ya que solo implementamos una unidad de proceso detrás de ella. Pero la entrada desde [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md) se convierte en crítica al escalar a una SKU superior como `Premium`, ya que un error en el sondeo de estado de Load Balancer produce un error en una implementación.
+
++ **Forzar la tunelización del tráfico al firewall local mediante la aplicación virtual de red o de Express Route**: Una configuración común de los clientes es definir su propia ruta predeterminada (0.0.0.0/0) que fuerza a todo el tráfico de la subred delegada de API Management a pasar a través de un firewall local o a una aplicación virtual de red. El flujo de tráfico interrumpe invariablemente la conectividad con Azure API Management porque el tráfico saliente está bloqueado de forma local o porque se usa NAT para convertirlo en un conjunto de direcciones irreconocibles que no funcionan con varios puntos de conexión de Azure. La solución requiere que se hagan un par de cosas:
 
   * Habilite los puntos de conexión de servicio en la subred en la que se ha implementado el servicio API Management. [Los puntos de conexión de servicio][ServiceEndpoints] deben habilitarse para Azure SQL, Azure Storage, Azure Event Hubs y Azure ServiceBus. La habilitación de los puntos de conexión directamente desde la subred delegada de API Management a estos servicios les permite utilizar la red troncal de Microsoft Azure, que proporciona un enrutamiento óptimo para el tráfico de servicios. Si usa puntos de conexión de servicio con una API Management con túnel forzado, el tráfico de servicios de Azure anterior no se enruta a través de tunelización forzada. El resto del tráfico de dependencia del servicio API Management se enruta con tunelización forzada y no se puede perder o este servicio no funcionaría correctamente.
     

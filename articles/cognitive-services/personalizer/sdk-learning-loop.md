@@ -2,14 +2,14 @@
 title: 'Inicio rápido: Creación y uso de bucles de aprendizaje con el SDK: Personalizer'
 description: En este inicio rápido se muestra cómo crear y administrar la base de conocimiento mediante el SDK de cliente.
 ms.topic: quickstart
-ms.date: 01/15/2020
+ms.date: 04/27/2020
 zone_pivot_groups: programming-languages-set-six
-ms.openlocfilehash: 7ebe22227b4323b2e6b1c3fc9ca31e171d1d97cd
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: c65be6c68372ffe92ffd942bf71d2b635ec2fd16
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77524876"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188890"
 ---
 # <a name="quickstart-personalizer-client-library"></a>Inicio rápido: Biblioteca cliente de Personalizer
 
@@ -17,7 +17,7 @@ Muestre contenido personalizado en este inicio rápido con el servicio Personali
 
 Comience a trabajar con la biblioteca cliente de Personalizer. Siga estos pasos para instalar el paquete y probar el código de ejemplo para realizar tareas básicas.
 
- * API Rank: selecciona el mejor de todos los elementos de contenido, en función de la información en tiempo real que se proporciona sobre el contenido y el contexto.
+ * La API Rank: selecciona el mejor de todos los elementos de las acciones, en función de la información en tiempo real que se proporciona sobre el contenido y el contexto.
  * API Reward: determine la puntuación de recompensa en función de sus necesidades empresariales y, luego, envíela a Personalizer con esta API. Esa puntuación puede ser un solo valor, por ejemplo, 1 para bueno y 0 para malo, o un algoritmo que cree en función de sus necesidades empresariales.
 
 ::: zone pivot="programming-language-csharp"

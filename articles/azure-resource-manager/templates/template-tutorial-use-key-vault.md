@@ -2,16 +2,16 @@
 title: Uso de Azure Key Vault en plantillas
 description: Aprenda a usar Azure Key Vault para pasar valores de parámetros seguros durante la implementación de la plantilla de Resource Manager
 author: mumian
-ms.date: 04/16/2020
+ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: c33ad17927dae701e4201e76b7a75690c59dc374
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 7fd84fc2e98578772c806f358cb8d6c400e0d994
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536713"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82185020"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-your-arm-template-deployment"></a>Tutorial: Integración de Azure Key Vault en la implementación de la plantilla de Resource Manager
 
@@ -161,22 +161,30 @@ Al usar el método del identificador estático, no es necesario realizar ningún
 
 ## <a name="deploy-the-template"></a>Implementación de la plantilla
 
-Siga las instrucciones de [Implementación de la plantilla](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template). Cargue tanto *azuredeploy.json* como *azuredeploy.parameters.json* en Cloud Shell y luego use el siguiente script de PowerShell para implementar la plantilla:
+1. Inicio de sesión en [Azure Cloud Shell](https://shell.azure.com)
 
-```azurepowershell
-$projectName = Read-Host -Prompt "Enter the same project name that is used for creating the key vault"
-$location = Read-Host -Prompt "Enter the same location that is used for creating the key vault (i.e. centralus)"
-$resourceGroupName = "${projectName}rg"
+1. Elija el entorno que prefiera; para ello, seleccione **PowerShell** o **Bash** (para CLI) en la esquina superior izquierda.  Es necesario reiniciar el shell cuando realiza el cambio.
 
-New-AzResourceGroupDeployment `
-    -ResourceGroupName $resourceGroupName `
-    -TemplateFile "$HOME/azuredeploy.json" `
-    -TemplateParameterFile "$HOME/azuredeploy.parameters.json"
+    ![Archivo de carga de Cloud Shell de Azure Portal](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-Write-Host "Press [ENTER] to continue ..."
-```
+1. Seleccione **Cargar/descargar archivos** y, después, seleccione **Cargar**. Cargue *azuredeploy.json* y *azuredeploy.parameters.json* en Cloud Shell. Después de cargar el archivo, puede usar el comando **ls** y el comando **cat** para comprobar que la operación de carga se ha realizado correctamente.
 
-Al implementar la plantilla, use el mismo grupo de recursos que el que usó en el almacén de claves. Con este método, es más fácil limpiar los recursos, ya que solo se necesita eliminar un único grupo de recursos en lugar de dos.
+1. Ejecute el siguiente script de PowerShell para implementar la plantilla.
+
+    ```azurepowershell
+    $projectName = Read-Host -Prompt "Enter the same project name that is used for creating the key vault"
+    $location = Read-Host -Prompt "Enter the same location that is used for creating the key vault (i.e. centralus)"
+    $resourceGroupName = "${projectName}rg"
+
+    New-AzResourceGroupDeployment `
+        -ResourceGroupName $resourceGroupName `
+        -TemplateFile "$HOME/azuredeploy.json" `
+        -TemplateParameterFile "$HOME/azuredeploy.parameters.json"
+
+    Write-Host "Press [ENTER] to continue ..."
+    ```
+
+    Al implementar la plantilla, use el mismo grupo de recursos que el que usó en el almacén de claves. Con este método, es más fácil limpiar los recursos, ya que solo se necesita eliminar un único grupo de recursos en lugar de dos.
 
 ## <a name="validate-the-deployment"></a>Validación de la implementación
 

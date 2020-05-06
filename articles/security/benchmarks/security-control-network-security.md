@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: f508de35470043cc71bfc8607367f28c04440b57
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: dad01212be3589af7167082ff22c624fa776772a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81408314"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82193129"
 ---
 # <a name="security-control-network-security"></a>Control de seguridad: Seguridad de redes
 
@@ -118,7 +118,7 @@ Implemente la solución de firewall que prefiera en cada uno de los límites de 
 |--|--|--|
 | 1.7 | 12.9, 12.10 | Customer |
 
-Implemente Application Gateway de Azure para las aplicaciones web con HTTPS/SSL habilitado para los certificados de confianza.
+Implemente Application Gateway de Azure para las aplicaciones web con HTTPS/TLS habilitado para los certificados de confianza.
 
 - [Implementación de Application Gateway](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)
 
@@ -164,7 +164,7 @@ También puede usar Azure Blueprints para simplificar las implementaciones de Az
 
 Use etiquetas para NSG y otros recursos relacionados con la seguridad de red y el flujo de tráfico. En el caso de las reglas de NSG individuales, use el campo "Descripción" para especificar las necesidades empresariales o la duración (etc.) de las reglas que permiten que entre o salga el tráfico en una red.
 
-Use cualquiera de las definiciones de directiva de Azure integradas relacionadas con el etiquetado, como "Requerir etiqueta y su valor" para asegurarse de que todos los recursos se crean con etiquetas y para notificarle los recursos no etiquetados existentes.
+Use cualquiera de las definiciones de Azure Policy integradas relacionadas con el etiquetado, como "Requerir etiqueta y su valor", para asegurarse de que todos los recursos se creen con etiquetas y para notificarle los recursos no etiquetados existentes.
 
 Puede usar Azure PowerShell o la CLI de Azure para buscar o realizar acciones en los recursos en función de sus etiquetas.
 

@@ -3,24 +3,25 @@ title: Creación, modificación o eliminación de una dirección IP pública de 
 description: Obtenga información sobre cómo crear, cambiar o eliminar una dirección IP pública.
 services: virtual-network
 documentationcenter: na
-author: KumudD
-manager: twooley
+author: asudbring
+manager: KumudD
 editor: ''
 tags: azure-resource-manager
 ms.assetid: bb71abaf-b2d9-4147-b607-38067a10caf6
 ms.service: virtual-network
+ms.subservice: ip-services
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: kumud
-ms.openlocfilehash: 38ff40b537730418fe9f0f8295884dae98a2fe0d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: de680e7cb542e7606b80ad46934f4ad7256bfb92
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79225144"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186074"
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>Creación, modificación o eliminación de una dirección IP pública
 
@@ -117,4 +118,4 @@ Para realizar tareas en direcciones IP públicas, su cuenta debe estar asignada 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Crear una dirección IP pública con scripts de ejemplo de [PowerShell](powershell-samples.md) o [CLI de Azure](cli-samples.md) o con [plantillas de Azure Resource Manager](template-samples.md)
-- Crear y aplicar una [directiva de Azure](policy-samples.md) para direcciones IP públicas
+- Crear y asignar [definiciones de Azure Policy](policy-samples.md) para direcciones IP públicas

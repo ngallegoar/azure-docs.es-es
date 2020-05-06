@@ -1,14 +1,14 @@
 ---
 title: Experiencias de administración entre inquilinos
 description: La administración de recursos delegados de Azure habilita una experiencia de administración entre inquilinos.
-ms.date: 03/12/2020
+ms.date: 04/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0e55923e688d1062adc5838a88e8d3202864282a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 51cd464da417bfd1d6d4ff52e2a2595a7ce77fe6
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79218380"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82201710"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiencias de administración entre inquilinos
 
@@ -25,11 +25,7 @@ Normalmente, para administrar los recursos de Azure para un cliente, los proveed
 
 Con la administración de recursos delegados de Azure, el proceso de incorporación especifica los usuarios del inquilino del proveedor de servicios que podrán acceder a las suscripciones, los grupos de recursos y los recursos del inquilino del cliente y administrarlos. A continuación, estos usuarios pueden iniciar sesión en Azure Portal con sus propias credenciales. En Azure Portal, pueden administrar los recursos que pertenecen a todos los clientes a los que tienen acceso. Puede hacerse desde la página [Mis clientes](../how-to/view-manage-customers.md) de Azure Portal o trabajando directamente en el contexto de la suscripción de ese cliente, ya sea en Azure Portal o a través de las API.
 
-La administración de recursos delegados de Azure permite una mayor flexibilidad para administrar los recursos de varios clientes sin tener que iniciar sesión en diferentes cuentas en distintos inquilinos. Por ejemplo, un proveedor de servicios puede tener tres clientes con diferentes responsabilidades y niveles de acceso, como se muestra aquí:
-
-![Tres inquilinos de cliente que muestran las responsabilidades del proveedor de servicios](../media/azure-delegated-resource-management-customer-tenants.jpg)
-
-Con la administración de recursos delegados de Azure, los usuarios autorizados pueden iniciar sesión en el inquilino del proveedor de servicios para acceder a estos recursos, como se muestra aquí:
+La administración de recursos delegados de Azure permite una mayor flexibilidad para administrar los recursos de varios clientes sin tener que iniciar sesión en diferentes cuentas en distintos inquilinos. Por ejemplo, un proveedor de servicios puede tener dos clientes con diferentes responsabilidades y niveles de acceso. Con la administración de recursos delegados de Azure, los usuarios autorizados pueden iniciar sesión en el inquilino del proveedor de servicios para acceder a estos recursos.
 
 ![Recursos de cliente administrados a través de un inquilino de proveedor de servicios](../media/azure-delegated-resource-management-service-provider-tenant.jpg)
 
@@ -75,6 +71,14 @@ La mayoría de las tareas y servicios se pueden realizar en recursos delegados a
 - Ver los detalles del registro de actividad para las suscripciones delegadas
 - Log analytics: consulte datos de áreas de trabajo de clientes remotos en varios inquilinos
 - Cree alertas en inquilinos de cliente que desencadenen la automatización, como los runbooks de Azure Automation o Azure Functions, en el inquilino de proveedor de servicios a través de webhooks
+
+[Redes de Azure](../../networking/networking-overview.md):
+
+- Implementación y administración de [Azure Virtual Network (red virtual)](../../virtual-network/index.yml) y las tarjetas de interfaz de red virtual (VNIC) en inquilinos de cliente
+- Implementación y configuración de [Azure Firewall](../../firewall/overview.md) para proteger los recursos de Virtual Network de los clientes
+- Administración de los servicios de conectividad como [Azure Virtual WAN](../../virtual-wan/virtual-wan-about.md), [ExpressRoute](../../expressroute/expressroute-introduction.md) y [VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md) para los clientes
+- Uso de Azure Lighthouse para admitir escenarios clave para el [programa MSP de redes de Azure](../../networking/networking-partners-msp.md)
+
 
 [Azure Policy](../../governance/policy/index.yml):
 
@@ -124,11 +128,8 @@ La mayoría de las tareas y servicios se pueden realizar en recursos delegados a
 - Usar extensiones de máquina virtual para la configuración posterior a la implementación y las tareas de automatización en VM de Azure en los inquilinos del cliente
 - Uso de diagnósticos de arranque para solucionar problemas de VM de Azure en inquilinos de clientes
 - Acceso a VM con la consola serie en inquilinos de clientes
-- Tenga en cuenta que no puede usar Azure Active Directory para el inicio de sesión remoto en una VM y no puede integrar una VM con una instancia de Key Vault para contraseñas, secretos o claves criptográficas para el cifrado de discos.
-
-[Azure Virtual Network](../../virtual-network/index.yml):
-
-- Implementación y administración de redes virtuales y tarjetas de interfaz de red virtual (VNIC) en inquilinos de cliente
+- Integre máquinas virtuales con Azure Key Vault para obtener contraseñas, secretos o claves criptográficas para el cifrado de discos; para ello, use la [identidad administrada a través de directivas](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/create-keyvault-secret), lo que garantizará que los secretos se almacenan en una instancia de Key Vault en los inquilinos de los clientes.
+- Tenga en cuenta que no puede usar Azure Active Directory para el inicio de sesión remoto en las máquinas virtuales de los inquilinos del cliente.
 
 Solicitudes de soporte técnico:
 
@@ -141,6 +142,7 @@ Con todos los escenarios, tenga en cuenta las siguientes limitaciones actuales:
 - Las asignaciones de roles deben usar [roles integrados](../../role-based-access-control/built-in-roles.md) de control de acceso basado en rol (RBAC). Actualmente, todos los roles integrados se admiten con la administración de recursos delegados de Azure, excepto el rol Propietario o los roles integrados con el permiso [DataActions](../../role-based-access-control/role-definitions.md#dataactions). El rol administrador de acceso de usuario solo se admite para uso limitado en la [asignación de roles a identidades administradas](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant).  No se admiten los roles personalizados ni [los roles de administrador de suscripciones clásicas](../../role-based-access-control/classic-administrators.md).
 - Aunque puede incorporar suscripciones que usan Azure Databricks, los usuarios del inquilino de administración no pueden iniciar áreas de trabajo de Azure Databricks en una suscripción delegada en este momento.
 - Aunque puede incorporar suscripciones y grupos de recursos para la administración de recursos delegados de Azure que tengas bloqueos de recursos, dichos bloqueos no impedirán que los usuarios realicen acciones en el inquilino de administración. Las [asignaciones de denegación](../../role-based-access-control/deny-assignments.md) que protegen los recursos administrados por el sistema, como los que crean Azure Managed Applications o Azure Blueprints (asignaciones de denegación asignadas por el sistema), impiden que los usuarios del inquilino de administración actúen en esos recursos; sin embargo, actualmente, los usuarios del inquilino del cliente no pueden crear sus propias asignaciones de denegación (asignaciones de denegación asignadas por el usuario).
+- Los usuarios del inquilino administrador no tendrán acceso para ver la información de facturación de una suscripción de cliente delegada, incluso si tienen un rol integrado que normalmente permitiría el acceso. Esto se debe a que el acceso a la información de facturación requiere pasos adicionales que solo se admiten actualmente para los usuarios del mismo inquilino.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

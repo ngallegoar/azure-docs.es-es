@@ -3,12 +3,12 @@ title: Solución de problemas de copia de seguridad de bases de datos de SQL Se
 description: Información para solución de problemas para realizar copias de seguridad de bases de datos de SQL Server que se ejecutan en máquinas virtuales de Azure con Azure Backup.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: 8d49adb0ab741903ccb2989cfeb4ceaef2e8a38d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cec3f8530d8a48a870c672d418d42d12a62aa2a4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79408623"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82183337"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Solución de problemas de la copia de seguridad de base de datos de SQL Server con Azure Backup
 
@@ -171,27 +171,25 @@ La máquina virtual no es capaz de ponerse en contacto con el servicio Azure Ba
 
 Compruebe uno o varios de los siguientes síntomas antes de desencadenar la operación de repetición del registro:
 
-* Se producen errores en todas las operaciones (tales como copia de seguridad, restauración y configuración de copia de seguridad) en la máquina virtual con uno de los códigos de error siguientes: **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**.
-* Si el área **Estado de copia de seguridad** del elemento de copia de seguridad se muestra como **no accesible**, descarte todas las demás causas que podrían dar lugar al mismo estado:
+- Se producen errores en todas las operaciones (tales como copia de seguridad, restauración y configuración de copia de seguridad) en la máquina virtual con uno de los códigos de error siguientes: **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**.
+- Si el área **Estado de copia de seguridad** del elemento de copia de seguridad se muestra como **no accesible**, descarte todas las demás causas que podrían dar lugar al mismo estado:
 
-  * Falta de permiso para realizar operaciones relacionadas con la copia de seguridad en la máquina virtual.
-  * Apagado de la máquina virtual, por lo que no se pueden realizar copias de seguridad.
-  * Problemas de red.
+  - Falta de permiso para realizar operaciones relacionadas con la copia de seguridad en la máquina virtual.
+  - Apagado de la máquina virtual, por lo que no se pueden realizar copias de seguridad.
+  - Problemas de red.
 
    ![Repetición del registro de máquinas virtuales](./media/backup-azure-sql-database/re-register-vm.png)
 
-
-
-* En el caso de un grupo de disponibilidad AlwaysOn, las copias de seguridad comienzan a generar errores después de cambiar la preferencia de copia de seguridad o alterar una conmutación por error.
+- En el caso de un grupo de disponibilidad AlwaysOn, las copias de seguridad comienzan a generar errores después de cambiar la preferencia de copia de seguridad o alterar una conmutación por error.
 
 Estos síntomas pueden surgir por uno o varios de los siguientes motivos:
 
-* Se ha eliminado o desinstalado una extensión del portal.
-* Se ha desinstalado una extensión del **Panel de control** de la máquina virtual en **Desinstalar o cambiar este programa**.
-* Se ha restaurado la máquina virtual retrocediendo en el tiempo a través de la restauración del disco o discos en contexto.
-* Se ha apagado la máquina virtual durante un largo período, por lo que la configuración de la extensión en ella ha caducado.
-* Se ha eliminado la máquina virtual, y se ha creado otra con el mismo nombre y en el mismo grupo de recursos que la máquina virtual eliminada.
-* Uno de los nodos del grupo de disponibilidad no recibió la configuración de copia de seguridad completa. Esto puede ocurrir cuando el grupo de disponibilidad se registra en el almacén o cuando se agrega un nuevo nodo.
+- Se ha eliminado o desinstalado una extensión del portal.
+- Se ha desinstalado una extensión del **Panel de control** de la máquina virtual en **Desinstalar o cambiar este programa**.
+- Se ha restaurado la máquina virtual retrocediendo en el tiempo a través de la restauración del disco o discos en contexto.
+- Se ha apagado la máquina virtual durante un largo período, por lo que la configuración de la extensión en ella ha caducado.
+- Se ha eliminado la máquina virtual, y se ha creado otra con el mismo nombre y en el mismo grupo de recursos que la máquina virtual eliminada.
+- Uno de los nodos del grupo de disponibilidad no recibió la configuración de copia de seguridad completa. Esto puede ocurrir cuando el grupo de disponibilidad se registra en el almacén o cuando se agrega un nuevo nodo.
 
 En los escenarios anteriores, se recomienda desencadenar una operación de nuevo registro en la máquina virtual. [Aquí](https://docs.microsoft.com/azure/backup/backup-azure-sql-automation#enable-backup) se ofrecen instrucciones sobre cómo realizar esta tarea en PowerShell.
 
@@ -221,7 +219,7 @@ Si el tamaño de la cadena del contenido supera los 20 000 bytes, los archivos 
 
 ### <a name="override-the-default-target-restore-file-path"></a>Reemplazo de la ruta de acceso predeterminada del archivo de restauración de destino
 
-Puede reemplazar la ruta de acceso del archivo de restauración de destino durante la operación de restauración mediante la colocación de un archivo JSON que contenga la asignación del archivo de base de datos a la ruta de acceso de restauración de destino. Cree un archivo `database_name.json` y colóquelo en la ubicación *C:\Archivos de programa\Azure Workload Backup\bin\plugins\SQL*.
+Puede reemplazar la ruta de acceso del archivo de restauración de destino durante la operación de restauración mediante la colocación de un archivo JSON que contenga la asignación del archivo de base de datos a la ruta de acceso de restauración de destino. Cree un archivo `database_name.json` y colóquelo en la ubicación `C:\Program Files\Azure Workload Backup\bin\plugins\SQL*`.
 
 El contenido del archivo debe tener este formato:
 

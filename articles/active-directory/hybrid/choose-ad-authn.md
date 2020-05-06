@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: e263ecde532a8aaed420932bf355910da201723e
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: 600f19a6fc0b44fa8cb4b3ba6d37fcc601605dc5
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80365838"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82206738"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Seleccione el método de autenticación adecuado para su solución de identidad híbrida de Azure Active Directory
 
@@ -134,7 +134,7 @@ Para obtener información sobre los pasos de implementación, consulte [Implemen
 
 * **Experiencia del usuario**. La experiencia de usuario de la autenticación federada depende de la implementación de las características, la topología y la configuración de la granja de servidores de federación. Algunas organizaciones necesitan esta flexibilidad para adaptar y configurar el acceso a la granja de servidores de federación a fin de satisfacer sus requisitos de seguridad. Por ejemplo, es posible configurar usuarios y dispositivos conectados internamente para iniciar la sesión de los usuarios automáticamente, sin pedirles las credenciales. Esta configuración funciona porque ya han iniciado sesión en sus dispositivos. Por otro lado, si es necesario, algunas características de seguridad avanzadas pueden dificultar el proceso de inicio de sesión del usuario.
 
-* **Escenarios avanzados**. Generalmente, se requiere una solución de autenticación federada cuando los clientes tienen un requisito de autenticación que Azure AD no admite de forma nativa. Puede consultar información detallada que le ayudará a [elegir la opción de inicio de sesión correcta](https://blogs.msdn.microsoft.com/samueld/2017/06/13/choosing-the-right-sign-in-option-to-connect-to-azure-ad-office-365/). Considere los siguientes requisitos comunes:
+* **Escenarios avanzados**. Se requiere una solución de autenticación federada cuando los clientes tienen un requisito de autenticación que Azure AD no admite de forma nativa. Puede consultar información detallada que le ayudará a [elegir la opción de inicio de sesión correcta](https://blogs.msdn.microsoft.com/samueld/2017/06/13/choosing-the-right-sign-in-option-to-connect-to-azure-ad-office-365/). Considere los siguientes requisitos comunes:
 
   * Un método de autenticación que requiere tarjetas inteligentes o certificados.
   * Servidores MFA locales o proveedores de autenticación multifactor de terceros que requieren un proveedor de identidades federadas.
@@ -203,7 +203,7 @@ Use o habilite la sincronización de hash de contraseñas con independencia del 
 
 2. **Subsistencia a interrupciones locales**.  Las consecuencias de una interrupción local debida a un ataque cibernético o a un desastre pueden ser de gran envergadura; desde daños en la reputación de la marca hasta la paralización de organizaciones que se ven incapaces de hacer frente al ataque. Últimamente muchas organizaciones han sido víctimas de ataques de malware, como ransomware dirigido, que provocaron que sus servidores locales se desconectaran. A la hora de ayudar a los clientes a tratar con estos tipos de ataques, Microsoft observó dos categorías de organizaciones:
 
-   * Las organizaciones que activaron previamente la sincronización de hash de contraseñas, cambiaron su método de autenticación para usar la sincronización de hash de contraseñas. Gracias a esto, volvieron a estar en línea en cuestión de horas. Al usar el acceso al correo electrónico a través de Office 365, pudieron trabajar para resolver los problemas y tener acceso a otras cargas de trabajo basadas en la nube.
+   * Las organizaciones que también activaron previamente la sincronización de hash de contraseñas sobre la autenticación federada o la autenticación de paso a través, cambiaron su método de autenticación principal para usar la sincronización de hash de contraseñas. Gracias a esto, volvieron a estar en línea en cuestión de horas. Al usar el acceso al correo electrónico a través de Office 365, pudieron trabajar para resolver los problemas y tener acceso a otras cargas de trabajo basadas en la nube.
 
    * Las organizaciones que no habilitaron previamente la sincronización de hash de contraseñas, tuvieron que recurrir a sistemas de correo electrónico de consumidor externos que no son de confianza para las comunicaciones, con el fin de resolver los problemas. En esos casos, tardaron semanas en restaurar su infraestructura de identidad local, antes de que los usuarios pudieran volver a iniciar sesión en aplicaciones basadas en la nube.
 

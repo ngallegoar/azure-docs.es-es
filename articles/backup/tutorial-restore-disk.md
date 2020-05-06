@@ -4,12 +4,12 @@ description: Obtenga información acerca de cómo restaurar un disco y crear una
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: 8a66cee7e844f0049f2d2ca2f6841943aa267f3e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 56410b5302611d5de3d72f727e1a4c36bd49ca7e
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79222452"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82160945"
 ---
 # <a name="restore-a-disk-and-create-a-recovered-vm-in-azure"></a>Restauración de un disco y creación de una máquina virtual recuperada en Azure
 
@@ -27,7 +27,7 @@ Para información sobre cómo usar PowerShell para restaurar un disco y crear un
 
 Si decide instalar y usar la CLI localmente, para este tutorial es preciso que ejecute la CLI de Azure versión 2.0.18 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para este tutorial se necesita una máquina virtual Linux protegida con Azure Backup. Para simular un proceso de recuperación y eliminación de máquina virtual accidental, cree una máquina virtual desde un disco en un punto de recuperación. Si necesita una máquina virtual Linux que esté protegida con Azure Backup, consulte [Copia de seguridad de una máquina virtual en Azure con la CLI](quick-backup-vm-cli.md).
 
@@ -87,8 +87,21 @@ Si la máquina virtual con copia de seguridad tiene discos administrados y la in
         --target-resource-group targetRG
     ```
 
-> [!WARNING]
-> Si no se proporciona el grupo de recursos de destino, los discos administrados se restaurarán como discos no administrados en la cuenta de almacenamiento especificada. Esto tendrá consecuencias significativas en el tiempo de restauración, ya que el tiempo que se tarda en restaurar los discos por completo depende de la cuenta de almacenamiento especificada.
+    > [!WARNING]
+    > Si no se proporciona el grupo de recursos de destino, los discos administrados se restaurarán como discos no administrados en la cuenta de almacenamiento especificada. Esto tendrá consecuencias significativas en el tiempo de restauración, ya que el tiempo que se tarda en restaurar los discos por completo depende de la cuenta de almacenamiento especificada. Los clientes obtendrán la ventaja de la restauración instantánea solo cuando se proporcione el parámetro target-resource-group. Si la intención es restaurar los discos administrados como no administrados, no proporcione el parámetro target-resource-group y, en su lugar, use el parámetro restore-as-unmanaged-disk, como se muestra a continuación. Este parámetro está disponible desde az 3.4.0 en adelante.
+
+    ```azurecli-interactive
+    az backup restore restore-disks \
+    --resource-group myResourceGroup \
+    --vault-name myRecoveryServicesVault \
+    --container-name myVM \
+    --item-name myVM \
+    --storage-account mystorageaccount \
+    --rp-name myRecoveryPointName
+    --restore-as-unmanaged-disk
+    ```
+
+Con esto se restaurarán los discos administrados como discos no administrados en la cuenta de almacenamiento dada, y no se aprovechará la funcionalidad de restauración instantánea. En versiones futuras de la CLI, será obligatorio proporcionar el parámetro target-resource-group o el parámetro restore-as-unmanaged-disk.
 
 ### <a name="unmanaged-disks-restore"></a>Restauración de discos no administrados
 

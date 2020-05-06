@@ -1,24 +1,29 @@
 ---
 title: Visualización y administración de proveedores de servicios
 description: Los clientes pueden usar la página proveedores de servicios en Azure Portal para ver información acerca de los proveedores de servicios, ofertas de proveedores de servicios y recursos delegados.
-ms.date: 02/25/2020
+ms.date: 04/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 94103c293ffa7ccfb9d7da0a237dc1b1c6540b72
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7e0522d1cd13ab1a4be589bc0c22c4ebfcf24d3f
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79233056"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82144326"
 ---
 # <a name="view-and-manage-service-providers"></a>Visualización y administración de proveedores de servicios
 
 Los clientes pueden usar la página **Proveedores de servicios** de [Azure Portal](https://portal.azure.com) para ver información sobre proveedores de servicios y ofertas de proveedores de servicios, delegar recursos específicos mediante la [administración de recursos delegados de Azure](../concepts/azure-delegated-resource-management.md) y comprar nuevas ofertas de proveedores de servicios. Aunque aquí nos referiremos a los proveedores de servicios y clientes, las empresas que administren varios inquilinos pueden usar el mismo proceso para consolidar su experiencia de administración.
 
-Para acceder a la página **Proveedores de servicios** de Azure Portal, el cliente puede seleccionar **Todos los servicios** y, a continuación, buscar **Proveedores de servicios** y seleccionar esta opción. También pueden encontrarla escribiendo "Proveedores de servicios" en el cuadro de búsqueda situado cerca de la parte superior de Azure Portal.
+Para acceder a la página **Proveedores de servicios** de Azure Portal, el cliente puede seleccionar **Todos los servicios** y, a continuación, buscar **Proveedores de servicios** y seleccionar esta opción. También pueden encontrarla si escribe "Proveedores de servicios" o "Azure Lighthouse" en el cuadro de búsqueda situado cerca de la parte superior de Azure Portal.
+
+> [!NOTE]
+> Para ver la página **Proveedores de servicios**, un usuario del inquilino del cliente debe tener el [rol integrado Lector](../../role-based-access-control/built-in-roles.md#reader) (u otro que incluya el acceso de lectura).
+>
+> Para agregar ofertas, delegar recursos y quitar ofertas, el usuario debe tener el [rol integrado Propietario](../../role-based-access-control/built-in-roles.md#owner) para la suscripción.
 
 Tenga en cuenta que la página **Proveedores de servicios** solo muestra información sobre los proveedores de servicios que tienen acceso a las suscripciones o grupos de recursos del cliente mediante la administración de recursos delegados de Azure. Si un cliente trabaja con proveedores de servicios adicionales que no usan la administración de recursos delegados de Azure para acceder a los recursos del cliente, la información sobre esos proveedores de servicios no se muestra aquí.
 
-> [!NOTE]
+> [!TIP]
 > Para ver información sobre sus clientes, los proveedores de servicios pueden desplazarse hasta la sección **Mis clientes** de Azure Portal. Para obtener más información, consulte [View and manage customers and delegated resources](view-manage-customers.md) (Ver y administrar clientes y recursos delegados).
 
 ## <a name="view-service-provider-details"></a>Ver detalles del proveedor de servicios
@@ -29,9 +34,15 @@ Para cada oferta de proveedor de servicios, el cliente verá el nombre del prove
 
 En la columna **Delegaciones**, el cliente ve el número de suscripciones o grupos de recursos que se han delegado en el proveedor de servicios de esa oferta. El proveedor de servicios podrá tener acceso a estas suscripciones o grupos de recursos y administrarlos de acuerdo con los niveles de acceso especificados en la oferta.
 
+## <a name="add-or-remove-service-provider-offers"></a>Agregar o quitar ofertas del proveedor de servicios
+
+Un cliente puede agregar una nueva oferta del proveedor de servicios desde la página **Ofertas del proveedor de servicios**. Para ello, debe seleccionar **Agregar oferta**. El proveedor de servicios debe haber publicado una oferta para este cliente. Después, el cliente puede seleccionar esa oferta en la pantalla **Ofertas privadas** y, a continuación, seleccionar **Crear**.
+
+Si el cliente quiere quitar una oferta del proveedor de servicios, puede seleccionar el icono de la papelera en la fila de esa oferta. Después de confirmar la eliminación, ese proveedor de servicios ya no tendrá acceso a los recursos del cliente que anteriormente se delegaron para esa oferta.
+
 ## <a name="delegate-resources"></a>Recursos delegados
 
-Para que un proveedor de servicios pueda acceder a los recursos de un cliente y administrarlos, se deben delegar. Si un cliente ha aceptado una oferta pero aún no ha delegado los recursos, verá una nota en la parte superior de la sección **Ofertas de proveedor**. Esto permite al cliente saber que deben tomar medidas para que el proveedor de servicios pueda acceder a los recursos del cliente.
+Para que un proveedor de servicios pueda acceder a los recursos de un cliente y administrarlos, se deben delegar. Si un cliente ha aceptado una oferta, pero aún no ha delegado los recursos, verá una nota en la parte superior de la sección **Ofertas del proveedor de servicios**. Esto permite al cliente saber que deben tomar medidas para que el proveedor de servicios pueda acceder a los recursos del cliente.
 
 Para delegar suscripciones o grupos de recursos:
 
@@ -41,15 +52,9 @@ Para delegar suscripciones o grupos de recursos:
 1. Elija las suscripciones o los grupos de recursos que quiera delegar para esta oferta y, después, seleccione **Agregar**.
 1. Active la casilla situada en la parte inferior de la página para confirmar que quiere conceder a este proveedor de servicios acceso a los recursos que ha seleccionado y, después, seleccione **Delegar**.
 
-## <a name="add-or-remove-service-provider-offers"></a>Agregar o quitar ofertas del proveedor de servicios
-
-Un cliente puede agregar una nueva oferta del proveedor de servicios desde la página **Ofertas del proveedor**. Para ello, debe seleccionar **Agregar oferta**. El proveedor de servicios debe haber publicado una oferta para este cliente. Después, el cliente puede seleccionar esa oferta en la pantalla **Ofertas privadas** y, a continuación, seleccionar **Crear**.
-
-Si el cliente quiere quitar una oferta del proveedor de servicios, puede seleccionar el icono de la papelera en la fila de esa oferta. Después de confirmar la eliminación, ese proveedor de servicios ya no tendrá acceso a los recursos del cliente que anteriormente se delegaron para esa oferta.
-
 ## <a name="update-service-provider-offers"></a>Actualización de las ofertas de proveedores de servicios
 
-Una vez que un cliente ha agregado una oferta, un proveedor de servicios puede publicar una versión actualizada de la misma oferta en Azure Marketplace. Por ejemplo, puede querer agregar una nueva definición de roles. Si se ha publicado una nueva versión de la oferta, la página **Provider offers** (Ofertas del proveedor) mostrará un icono de "actualización" en la fila de esa oferta. El cliente puede seleccionar este icono para ver las diferencias entre la versión actual de la oferta y la nueva.
+Una vez que un cliente ha agregado una oferta, un proveedor de servicios puede publicar una versión actualizada de la misma oferta en Azure Marketplace. Por ejemplo, puede querer agregar una nueva definición de roles. Si se ha publicado una versión nueva de la oferta, la página **Ofertas del proveedor de servicios** mostrará un icono de actualización en la fila de esa oferta. El cliente puede seleccionar este icono para ver las diferencias entre la versión actual de la oferta y la nueva.
 
  ![Icono de actualización de la oferta](../media/update-offer.jpg)
 
@@ -73,6 +78,6 @@ Se proporciona una [definición de directiva integrada de Azure Policy](../../go
 Para más información sobre cómo asignar una directiva y ver los resultados del estado de cumplimiento, consulte [Inicio rápido: Creación de una asignación de directiva](../../governance/policy/assign-policy-portal.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
- 
+
 - Más información acerca de [Azure Lighthouse](../overview.md).
-- Descubra cómo los proveedores de servicios pueden [ver y administrar sus clientes](view-manage-customers.md) desde **Mis clientes** en Azure Portal.
+- Descubra cómo los proveedores de servicios pueden [ver y administrar sus clientes](view-manage-customers.md) en la página **Mis clientes** de Azure Portal.

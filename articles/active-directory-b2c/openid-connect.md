@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 04/27/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6640ab1660e6499a97a8c990a0001d5fbae4e997
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 314d7ebe9cc363b4186b81d8eda5f892710d71c8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79231136"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82229993"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Inicio de sesión web con OpenID Connect en Azure Active Directory B2C
 
@@ -149,7 +149,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 | {tenant} | Sí | Nombre de su inquilino de Azure AD B2C. |
 | {policy} | Sí | El flujo de usuario usado para adquirir el código de autorización. No puede usar un flujo de usuario diferente en esta solicitud. Agregue este parámetro a la cadena de consulta, no al cuerpo de POST. |
 | client_id | Sí | Identificador de aplicación que [Azure Portal](https://portal.azure.com/) asignó a la aplicación. |
-| client_secret | Sí, en Web Apps. | El secreto de la aplicación se generó en [Azure Portal](https://portal.azure.com/). Los secretos de cliente se usan en este flujo para escenarios de aplicaciones web, donde el cliente puede almacenar de forma segura un secreto de cliente. En escenarios de aplicación nativa (cliente público), los secretos de cliente no se pueden almacenar de forma segura, por lo tanto no se usan en este flujo. Si se usa un secreto de cliente, cámbielo periódicamente. |
+| client_secret | Sí, en Web Apps. | El secreto de la aplicación se generó en [Azure Portal](https://portal.azure.com/). Los secretos de cliente se usan en este flujo para escenarios de aplicaciones web, donde el cliente puede almacenar de forma segura un secreto de cliente. En el caso de escenarios de aplicación nativa (cliente público), los secretos de cliente no se pueden almacenar de forma segura, por lo tanto no se usan en este flujo. Si se usa un secreto de cliente, cámbielo periódicamente. |
 | código | Sí | El código de autorización que adquirió al principio del flujo de usuario. |
 | grant_type | Sí | El tipo de concesión, que debe ser `authorization_code` para el flujo de código de autorización. |
 | redirect_uri | Sí | El parámetro `redirect_uri` de la aplicación en la que recibió el código de autorización. |
@@ -262,7 +262,7 @@ Las respuestas de error tienen un aspecto similar al siguiente:
 
 ## <a name="send-a-sign-out-request"></a>Envío de una solicitud de cierre de sesión
 
-Si desea cerrar la sesión del usuario de la aplicación, no basta con borrar las cookies de la aplicación o finalizar la sesión con el usuario. Redireccione al usuario a Azure AD B2C para cerrar la sesión. Si no lo hace, el usuario podría autenticarse de nuevo en su aplicación sin volver a escribir sus credenciales.
+Si desea cerrar la sesión del usuario de la aplicación, no basta con borrar las cookies de la aplicación o finalizar la sesión con el usuario. Redireccione al usuario a Azure AD B2C para cerrar la sesión. Si no lo hace, el usuario podría autenticarse de nuevo en su aplicación sin volver a escribir sus credenciales. Para obtener más información, consulte [Sesión de Azure AD B2C](session-overview.md).
 
 Para cerrar la sesión del usuario, redirija al usuario al punto de conexión `end_session` que aparece en el documento de metadatos de OpenID Connect que se ha descrito anteriormente:
 
@@ -283,6 +283,4 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 
 Después del cierre de sesión, se redirige al usuario al URI especificado en el parámetro `post_logout_redirect_uri`, independientemente de las direcciones URL de respuesta que se hayan especificado para la aplicación. Sin embargo, si se pasa una pista `id_token_hint` válida, Azure AD B2C comprueba que el valor de `post_logout_redirect_uri` coincida con uno de los URI de redirección configurados de la aplicación antes de realizar la redirección. Si no se configuró ninguna dirección URL de respuesta coincidente para la aplicación, se muestra un mensaje de error y no se redirige al usuario.
 
-### <a name="external-identity-provider-sign-out"></a>Cierre de sesión con un proveedor de identidades externo
 
-El hecho de dirigir al usuario al punto de conexión `end_session` borrará algún estado de inicio de sesión único del usuario con Azure AD B2C, pero no se cerrará la sesión del proveedor de identidades social (IDP) del usuario. Si el usuario selecciona el mismo IDP durante un inicio de sesión posterior, se volverá a autenticar sin especificar sus credenciales. Si un usuario quiere cerrar sesión en su aplicación, eso no significa necesariamente que quiera cerrar sesión en su cuenta de Facebook. Sin embargo, si se usan cuentas locales, la sesión del usuario finalizará correctamente.

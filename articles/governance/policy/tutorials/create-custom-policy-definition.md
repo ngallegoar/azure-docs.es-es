@@ -3,12 +3,12 @@ title: 'Tutorial: Creación de una definición de directiva personalizada'
 description: En este tutorial, creará una definición de directiva personalizada para Azure Policy para aplicar reglas de negocio personalizadas a los recursos de Azure.
 ms.date: 11/25/2019
 ms.topic: tutorial
-ms.openlocfilehash: f7c303956b209b88ce3c697b5b66243e37071c83
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7a1eb8abcfbf7513b4620f66c0a7fdbd288f8705
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79222752"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82190714"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Tutorial: Creación de una definición de directiva personalizada
 
@@ -73,7 +73,7 @@ Hay varias maneras de examinar una [plantilla de Resource Manager](../../../azur
 La manera más sencilla de buscar propiedades es examinar un recurso existente del mismo tipo. Los recursos que ya haya configurado con el valor que quiere aplicar también proporcionan el valor con el que comparar.
 Examine ese recurso concreto en la página **Exportar plantilla** (en **Configuración**) de Azure Portal.
 
-![Exportación de la página de plantilla en el recurso existente](../media/create-custom-policy-definition/export-template.png)
+:::image type="content" source="../media/create-custom-policy-definition/export-template.png" alt-text="Exportación de la página de plantilla en el recurso existente" border="false":::
 
 Al hacer esto mismo con una cuenta de almacenamiento se revela una plantilla similar a la de este ejemplo:
 

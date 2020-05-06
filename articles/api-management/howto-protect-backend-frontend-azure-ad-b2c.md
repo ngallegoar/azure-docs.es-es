@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 02/20/2020
 ms.author: wieastbu
 ms.custom: fasttrack-new
-ms.openlocfilehash: 55acea360de11c5fcc699d65daf92cf24dfd691d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3c5c13b3aae33b098de79a3429a299cc33f1c4f6
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79475483"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82202883"
 ---
 # <a name="protect-spa-backend-with-oauth-20-azure-active-directory-b2c-and-azure-api-management"></a>Protección del back-end de SPA con OAuth 2.0, Azure Active Directory B2C y Azure API Management
 
@@ -148,7 +148,7 @@ Abra la hoja Azure AD B2C en el portal y realice los pasos siguientes.
 5. Vuelva a la pestaña HttpTrigger1, haga clic en "Obtener la dirección URL de la función" y copie la dirección URL que aparece.
 
    > [!NOTE]
-   > Los enlaces que acaba de crear simplemente indican a las funciones que respondan a solicitudes HTTP GET anónimas a la dirección URL que acaba de copiar. (https://yourfunctionappname.azurewebsites.net/api/hello?code=secretkey) Ahora tenemos una API HTTPS sin servidor escalable capaz de devolver una carga muy sencilla.
+   > Los enlaces que acaba de crear simplemente indican a las funciones que respondan a solicitudes HTTP GET anónimas a la dirección URL que acaba de copiar. (`https://yourfunctionappname.azurewebsites.net/api/hello?code=secretkey`) Ahora tenemos una API HTTPS sin servidor escalable capaz de devolver una carga muy sencilla.
    > Ahora puede probar la llamada a esta API desde un explorador web mediante la dirección URL anterior. Por otra parte, también puede quitar la parte del secreto ?code=secret de la dirección URL y demostrar que Azure Functions devuelve un error 401.
 
 ## <a name="configure-and-secure-the-function-api"></a>Configuración y protección de la API de función

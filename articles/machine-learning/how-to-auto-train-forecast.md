@@ -10,17 +10,23 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: d4e36c0d3838af85768453496a51ecd295c22b93
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 05d658c052c5bc12f49d957bb29ad085c269c57b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79081852"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82137383"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Entrenamiento automático de un modelo de previsión de series temporales
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-En este artículo aprenderá a entrenar un modelo de regresión de previsión de series temporales con aprendizaje automático automatizado en Azure Machine Learning. La configuración de un modelo de previsión es similar a la configuración de un modelo de regresión estándar mediante aprendizaje automático automatizado, pero existen algunas opciones de configuración y pasos previos de procesamiento para trabajar con los datos de series temporales. En los siguientes ejemplos se indica cómo:
+En este artículo aprenderá a configurar y entrenar un modelo de regresión de previsión de series temporales con aprendizaje automático automatizado en Azure Machine Learning. 
+
+La configuración de un modelo de previsión es similar a la configuración de un modelo de regresión estándar mediante aprendizaje automático automatizado, pero existen algunas opciones de configuración y pasos previos de procesamiento para trabajar con los datos de series temporales. 
+
+Por ejemplo, puede [configurar](#config) hasta qué punto del futuro se debe extender la previsión (el horizonte de previsión), así como los retrasos y mucho más. El aprendizaje automático automatizado aprende un modelo único (a menudo, internamente bifurcado) para todos los elementos en el conjunto de datos y horizontes de predicción. Por tanto, hay más datos disponibles para calcular los parámetros del modelo, y se hace posible la generalización hasta series totalmente nuevas.
+
+En los siguientes ejemplos se indica cómo:
 
 * Preparar los datos para el modelado de series temporales
 * Configurar parámetros específicos de las serie temporales en un objeto [`AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig)
@@ -28,21 +34,12 @@ En este artículo aprenderá a entrenar un modelo de regresión de previsión de
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GW]
 
-Puede usar el aprendizaje automático automatizado para combinar las técnicas y enfoques y obtener una previsión recomendada y de alta calidad de series temporales. Un experimento automatizado de series temporales se trata como un problema de regresión multivariante. Los valores de series temporales anteriores se "dinamizan" para convertirse en dimensiones adicionales para el regresor junto con otros indicadores.
+A diferencia de los métodos de series temporales clásicos, en el aprendizaje automático automatizado, los valores de series temporales anteriores se "dinamizan" para convertirse en dimensiones adicionales del regresor, junto con otros indicadores. Este enfoque incorpora varias variables contextuales y su relación entre sí durante el entrenamiento. Dado que varios factores pueden influir en una previsión, este método se adapta bien a los escenarios de previsión reales. Por ejemplo, al prever ventas, las interacciones de las tendencias históricas, la tasa de cambio y el precio son motores conjuntos del resultado de ventas. 
 
-Este enfoque, a diferencia de los métodos clásicos de series temporales, tiene la ventaja de incorporar de forma natural varias variables contextuales y su relación entre sí durante el entrenamiento. En aplicaciones de previsión del mundo real, varios factores pueden influir en un pronóstico. Por ejemplo, al prever ventas, las interacciones de las tendencias históricas, la tasa de cambio y el precio son motores conjuntos del resultado de ventas. Una ventaja adicional es que todas las innovaciones recientes hechas en los modelos de regresión se aplican inmediatamente a la previsión.
-
-También puede [configurar](#config) hasta qué punto en el futuro debe extenderse la previsión (el horizonte de previsión), así como los retrasos y mucho más. El aprendizaje automático automatizado aprende un modelo único (a menudo, internamente bifurcado) para todos los elementos en el conjunto de datos y horizontes de predicción. Por tanto, hay más datos disponibles para calcular los parámetros del modelo, y se hace posible la generalización hasta series totalmente nuevas.
-
-Las características que se extraen de los datos de entrenamiento desempeñan un papel fundamental. Y el aprendizaje automático automatizada lleva a cabo los pasos previos al procesamiento estándares y genera características adicionales de series temporales para capturar los efectos de temporada y maximizar la precisión de predicción.
+Las características que se extraen de los datos de entrenamiento desempeñan un papel fundamental. El aprendizaje automático automatizado lleva a cabo los pasos previos al procesamiento estándar y genera características adicionales de series temporales para capturar efectos estacionales y maximizar la precisión de la predicción.
 
 ## <a name="time-series-and-deep-learning-models"></a>Modelos de serie temporal y aprendizaje profundo
 
-
-ML automatizado proporciona a los usuarios modelos nativos de serie temporal y de aprendizaje profundo como parte del sistema de recomendaciones. Estos aprendizajes incluyen:
-+ Prophet
-+ Auto-ARIMA
-+ ForecastTCN
 
 El aprendizaje profundo de ML automatizado permite pronosticar datos de series temporales de variable única y de varias variables.
 
@@ -51,13 +48,18 @@ Los modelos de aprendizaje profundo tienen tres capacidades intrínsecas:
 1. Admiten varias entradas y salidas.
 1. Pueden extraer automáticamente patrones en datos de entrada que abarquen secuencias largas.
 
-En el caso de datos de mayor tamaño, los modelos de aprendizaje profundo, como ForecastTCN de Microsoft, pueden mejorar las puntuaciones del modelo resultante. 
+En el caso de datos de mayor tamaño, los modelos de aprendizaje profundo, como ForecastTCN de Microsoft, pueden mejorar las puntuaciones del modelo resultante. Obtenga información sobre cómo [configurar el experimento para el aprendizaje profundo](#configure-a-dnn-enable-forecasting-experiment).
 
-Los aprendizajes de series temporales nativos también se proporcionan como parte de ML automatizado. Prophet funciona mejor con series temporales que tienen efectos estacionales fuertes y varias estaciones de datos históricos. Prophet es preciso y rápido, sólido para valores atípicos, datos que faltan y cambios drásticos en la serie temporal. 
+ML automatizado proporciona a los usuarios modelos nativos de serie temporal y de aprendizaje profundo como parte del sistema de recomendaciones. 
 
-La media móvil integrada autorregresiva (ARIMA) es un método estadístico popular para la previsión de series temporales. Esta técnica de previsión se usa normalmente en escenarios de previsión a corto plazo en los que los datos muestran evidencia de tendencias como ciclos, que pueden ser imprevisibles y difíciles de modelar o predecir. Auto-ARIMA transforma los datos en datos estacionarios para recibir resultados coherentes y confiables.
 
-## <a name="prerequisites"></a>Prerequisites
+Modelos| Descripción | Ventajas
+----|----|---
+Prophet (versión preliminar)|Prophet funciona mejor con series temporales que tienen efectos estacionales fuertes y varias estaciones de datos históricos. | Es preciso y rápido, sólido para valores atípicos, datos que faltan y cambios drásticos de la serie temporal.
+Auto-ARIMA (versión preliminar)|La media móvil integrada autorregresiva (ARIMA) funciona mejor cuando los datos son estacionales. Esto significa que sus propiedades estadísticas, como la media y la varianza, son constantes en todo el conjunto. Por ejemplo, si lanza una moneda al aire, la probabilidad de obtener cara es del 50 %, independientemente de si la lanza hoy, mañana o el año siguiente.| Excelente para las series univariables, ya que los valores anteriores se usan para predecir los futuros.
+ForecastTCN (versión preliminar)| ForecastTCN es un modelo de red neuronal diseñado para abordar las tareas de previsión más exigentes, capturando tendencias locales y globales no lineales en los datos, así como las relaciones entre series temporales.|Capaz de aprovechar tendencias complejas en los datos y escalar fácilmente a los mayores conjuntos de datos.
+
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Un área de trabajo de Azure Machine Learning. Para crear el área de trabajo, consulte [Creación de un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
 * En este artículo se presupone una familiarización básica con la configuración de una experimento de aprendizaje de automático automatizado. Siga el [tutorial](tutorial-auto-train-models.md) o los [procedimientos](how-to-configure-auto-train.md) para ver los patrones de diseño del experimento de aprendizaje automático automatizado.
@@ -101,6 +103,25 @@ test_labels = test_data.pop(label).values
 > Al entrenar un modelo para la previsión de valores futuros, asegúrese de que todas las características del entrenamiento se pueden usar al ejecutar predicciones para su horizonte previsto. Por ejemplo, al crear una previsión de demanda, incluir una característica para el precio de cotización actual podría aumentar la precisión del entrenamiento de manera exponencial. Sin embargo, si quiere una previsión con un horizonte lejano, no es posible predecir con precisión valores de cotización futuros correspondientes a momentos futuros en la serie temporal y la precisión del modelo podría verse afectada.
 
 <a name="config"></a>
+
+## <a name="train-and-validation-data"></a>Datos de entrenamiento y validación
+Puede especificar conjuntos distintos de entrenamiento y validación directamente en el constructor `AutoMLConfig`.
+
+### <a name="rolling-origin-cross-validation"></a>Validación cruzada de origen variable
+En el caso de la previsión de series temporales, se usa la validación cruzada de origen variable (ROCV) para dividir la serie temporal de un modo coherente en el tiempo. ROCV divide la serie en datos de entrenamiento y validación con un punto temporal de origen. Al deslizar el origen en el tiempo, se generan subconjuntos de validación cruzada.  
+
+![texto alternativo](./media/how-to-auto-train-forecast/ROCV.svg)
+
+Esta estrategia conservará la integridad de los datos de la serie temporal y eliminará el riesgo de perder datos. ROCV se utiliza automáticamente para las tareas de previsión al pasar juntos los datos de entrenamiento y validación, y establecer el número de subconjuntos de validación cruzada mediante `n_cross_validations`. 
+
+```python
+automl_config = AutoMLConfig(task='forecasting',
+                             n_cross_validations=3,
+                             ...
+                             **time_series_settings)
+```
+Obtenga más información sobre [AutoMLConfig](#configure-and-run-experiment).
+
 ## <a name="configure-and-run-experiment"></a>Configuración y ejecución del experimento
 
 Para las tareas de previsión, el aprendizaje automático automatizado sigue unos pasos de cálculo y procesamiento previo específicos de los datos de la serie temporal. Se ejecutarán los siguientes pasos de procesamiento previos:
@@ -182,10 +203,32 @@ Consulte los [cuadernos de ejemplo de previsión](https://github.com/Azure/Machi
 
 Con el fin de usar las DNN para la previsión, deberá establecer el parámetro `enable_dnn` de AutoMLConfig en true. 
 
+```python
+automl_config = AutoMLConfig(task='forecasting',
+                             enable_dnn=True,
+                             ...
+                             **time_series_settings)
+```
+Obtenga más información sobre [AutoMLConfig](#configure-and-run-experiment).
+
+Como alternativa, puede seleccionar la opción `Enable deep learning` en el estudio.
+![texto alternativo](./media/how-to-auto-train-forecast/enable_dnn.png)
+
 Se recomienda usar un clúster de proceso AML con las SKU de GPU y al menos dos nodos como destino de proceso. Para dejar el tiempo suficiente para que se complete el entrenamiento de DNN, se recomienda establecer el tiempo de espera del experimento como mínimo en un par de horas.
 Para más información sobre los tamaños de proceso y máquina virtual de AML que incluyen las GPU, consulte la [documentación del proceso de AML](how-to-set-up-training-targets.md#amlcompute) y la [documentación sobre tamaños de máquinas virtuales optimizadas para GPU](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu).
 
 Consulte en el [cuaderno de previsión de producción de bebidas](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb) un ejemplo de código detallado que aprovecha las DNN.
+
+### <a name="target-rolling-window-aggregation"></a>Agregación de ventanas con desplazamiento de objetivo
+A menudo, la mejor información que puede tener una previsión es el valor reciente del objetivo. La creación de estadísticas acumulativas del objetivo puede aumentar la precisión de las predicciones. Las agregaciones de ventanas con desplazamiento de objetivo permiten agregar una agregación gradual de valores de datos como características. Para habilitar las ventanas con desplazamiento de objetivo, establezca el valor de `target_rolling_window_size` en el valor entero de tamaño de la ventana que desee. 
+
+Un ejemplo de esto puede verse al predecir la demanda energética. Puede agregar una característica de ventana con desplazamiento de tres días para tener en cuenta los cambios térmicos de los espacios calentados. En el ejemplo siguiente, hemos creado esta ventana de tamaño tres; para ello, hemos establecido `target_rolling_window_size=3` en el constructor `AutoMLConfig`. En la tabla se muestra el diseño de características que se produce cuando se aplica la agregación de ventanas. Las columnas para los valores mínimo, máximo y suma se generan en una ventana deslizante de tres según la configuración definida. Cada fila tiene una nueva característica calculada, en el caso de la marca de tiempo del 8 de septiembre de 2017 4:00 a. m., los valores máximo, mínimo y suma se calculan con los valores de la demanda del 8 de septiembre de 2017, de la 1:00 a. m. a las 3:00 a. m. Esta ventana tiene tres turnos juntos para rellenar los datos de las filas restantes.
+
+![texto alternativo](./media/how-to-auto-train-forecast/target-roll.svg)
+
+La generación y el uso de estas características adicionales como datos contextuales extra contribuye a la precisión del modelo de entrenamiento.
+
+Vea un ejemplo de código de Python que aprovecha las [características para agregar ventanas con desplazamiento de objetivo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb).
 
 ### <a name="view-feature-engineering-summary"></a>Visualización del resumen de ingeniería de las características
 
@@ -205,12 +248,7 @@ fitted_model.named_steps['timeseriestransformer'].get_featurization_summary()
 
 Use la mejor iteración del modelo para la previsión de valores para el conjunto de datos de prueba.
 
-```python
-predict_labels = fitted_model.predict(test_data)
-actual_labels = test_labels.flatten()
-```
-
-Como alternativa, puede usar la función `forecast()` en lugar de `predict()`, lo que permitirá especificar cuándo deben comenzar las predicciones. En el siguiente ejemplo, primero se reemplazan todos los valores de `y_pred` con `NaN`. El origen de la previsión estará al final de los datos de entrenamiento en este caso, como suele ser el caso cuando se usa `predict()`. Sin embargo, si reemplazó solo la segunda mitad de `y_pred` con `NaN`, la función dejó intactos los valores numéricos de la primera, pero realizó la previsión de los valores de `NaN` de la segunda mitad. La función devuelve tanto los valores previstos como las características alineadas.
+La función `forecast()` debe usarse en lugar de `predict()`, lo que permitirá especificar cuándo deben comenzar las predicciones. En el siguiente ejemplo, primero se reemplazan todos los valores de `y_pred` con `NaN`. El origen de la previsión estará al final de los datos de entrenamiento en este caso, como suele ser el caso cuando se usa `predict()`. Sin embargo, si reemplazó solo la segunda mitad de `y_pred` con `NaN`, la función dejó intactos los valores numéricos de la primera, pero realizó la previsión de los valores de `NaN` de la segunda mitad. La función devuelve tanto los valores previstos como las características alineadas.
 
 También puede usar el parámetro `forecast_destination` de la función `forecast()` para la previsión de valores hasta una fecha especificada.
 

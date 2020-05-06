@@ -1,25 +1,14 @@
 ---
-title: Azure Batch ejecuta trabajos paralelos en la nube | Microsoft Docs
+title: Azure Batch ejecuta trabajos paralelos de gran tamaño en la nube
 description: Información acerca del servicio Azure Batch para cargas de trabajo HPC y paralelas a gran escala
-services: batch
-documentationcenter: ''
-author: mscurrell
-manager: evansma
-editor: ''
-ms.assetid: ''
-ms.service: batch
-ms.workload: big-compute
-ms.tgt_pltfrm: na
 ms.topic: overview
 ms.date: 01/19/2018
-ms.author: markscu
-ms.custom: mvc
-ms.openlocfilehash: 7ca2a5e91a0ec0d765e106baca20f135996bc26e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: f2bdaeec47b50b715920b27d6adf6e078a354964
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77022807"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82116356"
 ---
 # <a name="what-is-azure-batch"></a>¿Qué es Azure Batch?
 

@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/15/2020
-ms.openlocfilehash: fe7d076fab6a70736843fc644cd56bef44a55df2
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.date: 04/25/2020
+ms.openlocfilehash: 68355ac4238aba3deaa951881bc164fe9dc08e28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415122"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82183439"
 ---
 # <a name="security-and-data-privacy-in-azure-cognitive-search"></a>Seguridad y privacidad de datos en Azure Cognitive Search
 
@@ -40,7 +40,7 @@ El cifrado se extiende a lo largo de la canalización de indexación entera: des
 
 | Nivel de seguridad | Descripción |
 |----------------|-------------|
-| Cifrado en tránsito <br>(HTTPS/SSL/TLS) | Azure Cognitive Search escucha en el puerto HTTPS 443. Las conexiones a los servicios de Azure están cifradas en toda la plataforma. <br/><br/>Todas las interacciones de Azure Cognitive Search entre el cliente y el servicio son compatibles con los protocolos SSL o TLS 1.2.  Asegúrese de usar TLSv1.2 para las conexiones SSL con el servicio.|
+| Cifrado en tránsito <br>(HTTPS/TLS) | Azure Cognitive Search escucha en el puerto HTTPS 443. Las conexiones a los servicios de Azure están cifradas en toda la plataforma. <br/><br/>Todas las interacciones de Azure Cognitive Search entre el cliente y el servicio usan el cifrado TLS 1.2. Las versiones anteriores (1.0 o 1.1) no se admiten.|
 | Cifrado en reposo <br>Claves administradas por Microsoft | El cifrado se internaliza totalmente en el proceso de indexación, sin impacto cuantificable a la hora de indexar el tiempo que tarda en completarse ni el tamaño de indexación. Se produce automáticamente en todas las indexaciones, incluidas las actualizaciones incrementales a un índice que no esté totalmente cifrado (creado antes de enero de 2018).<br><br>Internamente, el cifrado se basa en el [cifrado del servicio de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-service-encryption), que usa [cifrado AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) de 256 bits.<br><br> El cifrado es interno para Azure Cognitive Search, con certificados y claves de cifrado que Microsoft administra internamente, y se aplica universalmente. No se puede activar ni desactivar el cifrado, administrar ni sustituir sus claves, ni ver la configuración de cifrado en el portal o mediante programación.<br><br>El cifrado en reposo se anunció el 24 de enero de 2018 y se aplica a todos los niveles de servicio, incluido el nivel Gratis, en todas las regiones. Para el cifrado completo, los índices creados antes de esa fecha deben quitarse y volver a generarse para que se produzca el cifrado. En caso contrario, solo se cifrarán los datos nuevos a partir del 24 de enero.|
 | Cifrado en reposo <br>Claves administradas por el cliente | El cifrado con claves administradas por el cliente ya está disponible con carácter general para los servicios de búsqueda creados en enero de 2019 o con posterioridad. No se admite en servicios Gratis (compartidos).<br><br>Los mapas de sinónimos y los índices de Azure Cognitive Search ya se pueden cifrar en reposo con claves administradas por el cliente en Azure Key Vault. Para más información, consulte [Administración de claves de cifrado en Azure Cognitive Search](search-security-manage-encryption-keys.md).<br><br>Esta característica no reemplaza el cifrado en reposo de forma predeterminada, sino que se aplica además de este.<br><br>Si habilita esta característica, aumentará el tamaño del índice y reducirá el rendimiento de las consultas. Según las observaciones hechas hasta la fecha, puede esperar un aumento del 30 al 60% en los tiempos de consultas, aunque el rendimiento real variará según la definición del índice y los tipos de consultas. Debido a este impacto en el rendimiento, se recomienda habilitar esta característica solo en los índices que realmente la necesitan.
 

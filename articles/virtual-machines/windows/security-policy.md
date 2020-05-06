@@ -1,24 +1,19 @@
 ---
-title: Protección y uso de directivas en máquinas virtuales Windows en Azure
-description: Obtenga información acerca de la seguridad y las directivas para Windows y máquinas virtuales en Azure.
-services: virtual-machines-windows
-documentationcenter: ''
+title: Protección y uso de directivas en las máquinas virtuales de Azure
+description: Obtenga información sobre la seguridad y las directivas para máquinas virtuales en Azure.
 author: cynthn
-manager: gwallace
-tags: azure-resource-manager
-ms.assetid: ''
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: security
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
 ms.date: 11/26/2018
 ms.author: cynthn
 ms.topic: conceptual
-ms.openlocfilehash: 514e86075f7671d237536d812557d709a28b51a5
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 4910acd99abd6059de40e67a1b1629259c8215cc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81460297"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82099417"
 ---
 # <a name="secure-and-use-policies-on-virtual-machines-in-azure"></a>Protección y uso de directivas en máquinas virtuales en Azure
 

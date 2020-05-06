@@ -7,21 +7,31 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 0684f626553946619a0db2cd895df39576bd17b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a079f42f63e232c21a52bd108b34c3b022dcee5b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79228284"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82176097"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planeamiento de una implementación de Azure Files Sync
-[Azure Files](storage-files-introduction.md) se puede implementar de dos formas principales: montando directamente los recursos compartidos de archivos de Azure sin servidor o almacenando en la caché recursos compartidos de archivos de Azure locales mediante Azure File Sync. La opción de implementación que elija cambiará todo aquello que debe tener en cuenta a la hora de planear la implementación. 
+
+:::row:::
+    :::column:::
+        [![Entrevista y demostración al presentar Azure File Sync: haga clic para reproducir.](./media/storage-sync-files-planning/azure-file-sync-interview-video-snapshot.png)](https://www.youtube.com/watch?v=nfWLO7F52-s)
+    :::column-end:::
+    :::column:::
+        Azure File Sync es un servicio que permite almacenar en caché varios recursos compartidos de archivos de Azure en una VM en la nube o en una instancia local de Windows Server. 
+        
+        En este artículo se explican los conceptos y características de Azure File Sync. Una vez que esté familiarizado con Azure File Sync, considere la posibilidad de seguir la [guía de implementación de Azure File Sync](storage-sync-files-deployment-guide.md) para probar este servicio.        
+    :::column-end:::
+:::row-end:::
+
+Los archivos se almacenarán en la nube en [recursos compartidos de archivos de Azure](storage-files-introduction.md). Se pueden usar recursos compartidos de archivos de Azure de dos formas: montando directamente los recursos compartidos de archivos de Azure sin servidor (SMB) o almacenando en caché recursos compartidos de archivos de Azure localmente mediante Azure File Sync. La opción de implementación que elija cambiará los aspectos que debe tener en cuenta a la hora de planear la implementación. 
 
 - **Montaje directo de un recurso compartido de archivos de Azure**: dado que Azure Files proporciona acceso SMB, puede montar recursos compartidos de archivos de Azure locales o en la nube mediante el cliente SMB estándar disponible en Windows, macOS y Linux. Dado que los recursos compartidos de archivos de Azure no tienen servidor, la implementación en escenarios de producción no requiere la administración de un servidor de archivos o un dispositivo NAS, lo que significa que no tiene que aplicar revisiones de software ni intercambiar discos físicos. 
 
 - **Almacenamiento en caché de recursos compartidos de archivos de Azure localmente con Azure File Sync**: Azure File Sync le permite centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma una instancia de Windows Server local (o en la nube) en una caché rápida de su recurso compartido de archivos de Azure. 
-
-En este artículo se abordan principalmente las consideraciones relativas a la implementación de Azure File Sync. Para planear una implementación de recursos compartidos de archivos de Azure para que los monte directamente cliente local o en la nube, consulte [Planeamiento de una implementación de Azure Files](storage-files-planning.md).
 
 ## <a name="management-concepts"></a>Conceptos de administración
 Las implementaciones de Azure File Sync tiene tres objetos de administración fundamentales:
@@ -227,7 +237,7 @@ Si en un punto de conexión de un servidor están habilitados los niveles en la 
 No deben utilizarse otras soluciones HSM deben utilizarse con Azure File Sync.
 
 ## <a name="identity"></a>Identidad
-Azure File Sync funciona con su identidad basada en AD estándar sin ninguna configuración especial más allá de configurar la sincronización. Cuando se usa Azure File Sync, la expectativa general es que la mayor parte de los accesos atraviesen los servidores de almacenamiento en caché de Azure File Sync, en lugar del recurso compartido de archivos de Azure. Dado que puntos de conexión del servidor se encuentran en Windows Server y que Windows Server ha admitido listas de control de acceso de estilo AD y Windows durante mucho tiempo, lo único que se necesita es asegurarse de que los servidores de archivos de Windows registrados en el servicio de sincronización de almacenamiento están unidos a un dominio. Azure File Sync almacenará las listas de control de acceso en los archivos del recurso compartido de archivos de Azure y los replicará en todos los puntos de conexión del servidor.
+Azure File Sync funciona con su identidad basada en AD estándar sin ninguna configuración especial más allá de configurar la sincronización. Cuando se usa Azure File Sync, la expectativa general es que la mayor parte de los accesos atraviesen los servidores de almacenamiento en caché de Azure File Sync, en lugar del recurso compartido de archivos de Azure. Dado que los puntos de conexión del servidor se encuentran en Windows Server y que Windows Server ha admitido listas de control de acceso de estilo AD y Windows durante mucho tiempo, lo único que se necesita es asegurarse de que los servidores de archivos de Windows registrados en el servicio de sincronización de almacenamiento están unidos a un dominio. Azure File Sync almacenará las listas de control de acceso en los archivos del recurso compartido de archivos de Azure y los replicará en todos los puntos de conexión del servidor.
 
 Aunque los cambios que se realizan directamente en el recurso compartido de archivos de Azure tardarán más tiempo en sincronizarse con los puntos de conexión del servidor del grupo de sincronización, es posible que también desee asegurarse de que puede exigir sus permisos de AD en su recurso compartido de archivos directamente en la nube también. Para ello, debe unir a un dominio su cuenta de almacenamiento a su AD local de la misma forma que los servidores de archivos de Windows se unen a un dominio. Para más información acerca de la unión a un dominio de una cuenta de almacenamiento a una instancia de Active Directory propiedad de un cliente, consulte la [introducción a Active Directory de Azure Files](storage-files-active-directory-overview.md).
 
@@ -263,6 +273,10 @@ El otro método principal para cifrar datos es cifrar el flujo de datos del arch
 Azure File Sync no interopera con el Sistema de cifrado de archivos NTFS (NTFS EFS) ni con soluciones de cifrado de terceros que se encuentran por encima del sistema de archivos, pero por debajo del flujo de datos del archivo. 
 
 ### <a name="encryption-in-transit"></a>Cifrado en tránsito
+
+> [!NOTE]
+> El servicio Azure File Sync quitará la compatibilidad con TLS 1.0 y 1.1 en agosto de 2020. Todas las versiones compatibles del agente de Azure File Sync ya usan TLS 1.2 de forma predeterminada. El uso de una versión anterior de TLS podría producirse si TLS 1.2 estaba deshabilitado en el servidor o se utiliza un proxy. Si usa un proxy, se recomienda que compruebe la configuración del proxy. Las regiones del servicio Azure File Sync agregadas después del 1 de mayo de 2020 solo admitirán TLS 1.2 y la compatibilidad con TLS 1.0 y 1.1 se quitará de las regiones existentes en agosto de 2020.  Para más información, consulte la [guía para la solución de problemas](storage-sync-files-troubleshoot.md#tls-12-required-for-azure-file-sync).
+
 El agente de Azure File Sync se comunica con su servicio de sincronización del almacenamiento y el recurso compartido de archivos de Azure mediante los protocolos REST y FileREST de Azure File Sync, ambos usan siempre HTTPS sobre el puerto 443. Azure File Sync no envía solicitudes sin cifrar a través de HTTP. 
 
 Las cuentas de Azure Storage contienen un modificador para requerir el cifrado en tránsito, que está habilitado de manera predeterminada. Aunque el modificador del nivel de la cuenta de almacenamiento esté deshabilitado, lo que significa que son posibles las conexiones no cifradas con los recursos compartidos de Azure, Azure File Sync solo usará canales cifrados para acceder al recurso compartido de archivos.

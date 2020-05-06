@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 72d7a2dd112e5e7a5105ff977e3917ccdfd7b53e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 80b8adfc26cd87e0788852e98fddb0fd3f2e8cd5
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77500302"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188593"
 ---
 # <a name="azure-operational-security-best-practices"></a>Procedimientos recomendados de seguridad operativa de Azure
 En este artículo se proporciona un conjunto de procedimientos recomendados operativos para proteger los datos, aplicaciones y otros recursos en Azure.
@@ -108,7 +108,7 @@ Estos son algunos procedimientos recomendados para evitar, detectar y responder 
 **Detalles**: Investigue las características y funciones de [Azure Sentinel](/azure/sentinel/overview) y compárelas con las de lo que use actualmente en el entorno local. Considere la posibilidad de adoptar Azure Sentinel si cumple los requisitos de SIEM de la organización.
 
 **Procedimiento recomendado**: Identifique las vulnerabilidades de seguridad más graves para poder clasificar por orden de prioridad la investigación.   
-**Detalles**: Revise la [puntuación segura de Azure](../../security-center/security-center-secure-score.md) para ver las recomendaciones resultantes de las iniciativas y directivas de Azure integradas en Azure Security Center. Estas recomendaciones ayudan a abordar los riesgos más graves como actualizaciones de seguridad, protección de puntos de conexión, cifrado, configuraciones de seguridad, ausencia de WAF, máquinas virtuales conectadas a Internet y muchos más.
+**Detalles**: Revise la [puntuación segura de Azure](../../security-center/secure-score-security-controls.md) para ver las recomendaciones resultantes de las iniciativas y directivas de Azure integradas en Azure Security Center. Estas recomendaciones ayudan a abordar los riesgos más graves como actualizaciones de seguridad, protección de puntos de conexión, cifrado, configuraciones de seguridad, ausencia de WAF, máquinas virtuales conectadas a Internet y muchos más.
 
 La puntuación segura, que se basa en controles del Centro de seguridad de Internet (CIS), permite realizar pruebas comparativas de la seguridad de Azure de la organización sobre orígenes externos. La validación externa ayuda a validar y enriquecer la estrategia de seguridad del equipo.
 
@@ -116,7 +116,7 @@ La puntuación segura, que se basa en controles del Centro de seguridad de Inter
 **Detalles**: Siga las [recomendaciones de seguridad](../../security-center/security-center-recommendations.md) de Security Center, empezando con los elementos de mayor prioridad.
 
 **Procedimiento recomendado**: Integre las alertas de Security Center en la solución de administración de eventos e información de seguridad (SIEM).   
-**Detalles**: La mayoría de las organizaciones con una solución SIEM la usan como un centro de enrutamiento para las alertas de seguridad que requieren la respuesta de un analista. Los eventos procesados generados por Azure Security Center se publican en el Registro de actividad de Azure, uno de los registros disponibles a través de Azure Monitor. Azure Monitor ofrece una canalización consolidada para el enrutamiento de cualquiera de los datos supervisados en una herramienta SIEM. Vea [Integración de soluciones de seguridad en Security Center](../../security-center/security-center-partner-integration.md#exporting-data-to-a-siem) para obtener instrucciones. Si usa Azure Sentinel, vea [Conexión de Azure Security Center](../../sentinel/connect-azure-security-center.md).
+**Detalles**: La mayoría de las organizaciones con una solución SIEM la usan como un centro de enrutamiento para las alertas de seguridad que requieren la respuesta de un analista. Los eventos procesados generados por Azure Security Center se publican en el Registro de actividad de Azure, uno de los registros disponibles a través de Azure Monitor. Azure Monitor ofrece una canalización consolidada para el enrutamiento de cualquiera de los datos supervisados en una herramienta SIEM. Consulte [Exportación de alertas y recomendaciones de seguridad](../../security-center/continuous-export.md#configuring-siem-integration-via-azure-event-hubs) para obtener instrucciones. Si usa Azure Sentinel, vea [Conexión de Azure Security Center](../../sentinel/connect-azure-security-center.md).
 
 **Procedimiento recomendado**: Integre los registros de Azure con la solución SIEM.   
 **Detalles**: Use [Azure Monitor para recopilar y exportar datos](/azure/azure-monitor/overview#integrate-and-export-data). Este procedimiento es fundamental para habilitar la investigación de incidentes de seguridad, y la retención de registro en línea es limitada. Si usa Azure Sentinel, vea [Conexión de orígenes de datos](../../sentinel/connect-data-sources.md).
@@ -216,7 +216,7 @@ Para más información, vea [Creación y administración de directivas para apli
 **Detalles**: El rol asignado debe supervisar el cumplimiento normativo a través de [Azure Portal](../../governance/policy/how-to/get-compliance-data.md#portal) o la [línea de comandos](../../governance/policy/how-to/get-compliance-data.md#command-line).
 
 **Procedimiento recomendado**: Azure Policy es una representación técnica de las directivas escritas de una organización. Todas las directivas de Azure se asignan a las directivas de la organización para reducir la confusión y aumentar la coherencia.   
-**Detalles**: Para asignar documentos en la documentación de la organización o en la propia directiva de Azure, agregue una referencia a la directiva de la organización en la [descripción de la directiva](../../governance/policy/concepts/definition-structure.md#display-name-and-description) o en la de la [iniciativa](../../governance/policy/concepts/definition-structure.md#initiatives) de Azure.
+**Detalles**: Para asignar documentos en la documentación de una organización o en la propia definición de Azure Policy, agregue una referencia a la directiva de la organización en la [definición de Azure Policy](../../governance/policy/concepts/definition-structure.md#display-name-and-description) o en la [iniciativa de Azure Policy](../../governance/policy/concepts/definition-structure.md#initiatives).
 
 ## <a name="monitor-azure-ad-risk-reports"></a>Supervisión de los informes de riesgo de Azure AD
 La mayoría de las infracciones de seguridad tienen lugar cuando los atacantes obtienen acceso a un entorno mediante el robo de identidad de un usuario. Descubrir las identidades en peligro no es tarea fácil. Azure AD emplea algoritmos y heurística de aprendizaje automático adaptable para detectar acciones sospechosas que están relacionadas con las cuentas de usuario. Cada acción sospechosa detectada se almacena en un registro llamado [detección de riesgos](../../active-directory/reports-monitoring/concept-risk-events.md). Las detecciones de riesgo se registran en los informes de seguridad de Azure AD. Para más información, vea el [informe de seguridad de usuarios en riesgo](../../active-directory/reports-monitoring/concept-user-at-risk.md) y el [informe de seguridad de inicios de sesión en riesgo](../../active-directory/reports-monitoring/concept-risky-sign-ins.md).

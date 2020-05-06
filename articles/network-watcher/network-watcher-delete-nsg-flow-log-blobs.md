@@ -13,16 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2019
 ms.author: damendo
-ms.openlocfilehash: 6d535bcc2e0831baae658796f76c8087d74c6a85
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 948347f38b4b0fefe1e61cc4560eaa46e1bfd6f0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77587216"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187977"
 ---
 # <a name="delete-network-security-group-flow-log-storage-blobs-in-network-watcher"></a>Eliminación de blobs de almacenamiento de registros de flujo de grupo de seguridad de red en Network Watcher
 
-Actualmente existe un problema por el que los [registros de flujo del grupo de seguridad de red (NSG)](network-watcher-nsg-flow-logging-overview.md) en Network Watcher no se eliminan automáticamente del almacenamiento de blobs en función de la configuración de la directiva de retención. Ahora, hay que ejecutar un script de PowerShell para eliminar manualmente los registros de flujo de la cuenta de almacenamiento, tal y como se describe en este artículo.
+En caso de que alguna vez necesite eliminar manualmente los registros de flujo de la cuenta de almacenamiento, puede usar el siguiente script de PowerShell.
+Este script solo elimina los blobs de almacenamiento que son más antiguos que la directiva de retención existente especificada por el usuario.
 
 ## <a name="run-powershell-script-to-delete-nsg-flow-logs"></a>Ejecución de un script de PowerShell para eliminar registros de flujo de NSG
  

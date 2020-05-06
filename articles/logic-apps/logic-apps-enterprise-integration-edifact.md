@@ -7,13 +7,13 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 07/26/2016
-ms.openlocfilehash: 3ada12a0cde122fb78815a1d3241d8acb9da2580
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/22/2020
+ms.openlocfilehash: c9d80ccac311b02d8734663d99a37804f8280771
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77651464"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82115540"
 ---
 # <a name="exchange-edifact-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Intercambio de mensajes EDIFACT para integración empresarial B2B en Azure Logic Apps con Enterprise Integration Pack
 
@@ -36,7 +36,7 @@ Cuando haya [creado una cuenta de integración](../logic-apps/logic-apps-enterpr
 
 ## <a name="create-an-edifact-agreement"></a>Creación de un acuerdo EDIFACT 
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com "Portal de Azure"). 
+1. Inicie sesión en [Azure Portal](https://portal.azure.com "Azure Portal"). 
 
 2. En el menú principal de Azure, seleccione **Todos los servicios**. En el cuadro de búsqueda, escriba "integración" y, después, seleccione **Cuentas de integración**.
 
@@ -76,6 +76,10 @@ Cuando haya [creado una cuenta de integración](../logic-apps/logic-apps-enterpr
 ## <a name="configure-how-your-agreement-handles-received-messages"></a>Configuración de la forma en que su contrato controla los mensajes recibidos
 
 Ahora que ha establecido las propiedades del contrato, puede configurar cómo este identifica y controla los mensajes entrantes recibidos del asociado a través de este contrato.
+
+> [!IMPORTANT]
+> El conector EDIFACT solo admite caracteres UTF-8.
+> Si la salida contiene caracteres inesperados, compruebe que los mensajes EDIFACT usan el juego de caracteres UTF-8.
 
 1. En **Agregar**, seleccione **Configuración de recepción**.
 Configure estas propiedades en función del contrato con el asociado con el que intercambia mensajes. Para las descripciones de las propiedades, consulte las tablas de esta sección.
@@ -247,10 +251,10 @@ Cuando haya completado cada fila de validación, se agrega otra automáticamente
 
 ## <a name="connector-reference"></a>Referencia de conectores
 
-Si necesita más detalles técnicos sobre este conector, como las acciones y los límites que se describen en el archivo de Swagger del conector, vea la [página de referencia del conector](https://docs.microsoft.com/connectors/edifact/).
+Si necesita más detalles técnicos sobre este conector, como las acciones y los límites que se describen en el archivo de Swagger del conector, consulte la [página de referencia del conector](https://docs.microsoft.com/connectors/edifact/).
 
 > [!NOTE]
-> En el caso de las aplicaciones lógicas de un [entorno de servicio de integración (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), la versión con la etiqueta ISE de este conector usa en su lugar los [límites de mensajes de ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits).
+> En el caso de las aplicaciones lógicas de un [entorno de servicio de integración (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), la versión con la etiqueta ISE de este conector usa los [límites de mensajes B2B del ISE](../logic-apps/logic-apps-limits-and-config.md#b2b-protocol-limits).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

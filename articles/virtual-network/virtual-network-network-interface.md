@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/22/2020
 ms.author: kumud
-ms.openlocfilehash: 11e6285ef70ffde5344add951801997f8541eaad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 69dc34c3989adee3af69613617368c29072a7650
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79225152"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186108"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Creación, cambio o eliminación de una interfaz de red
 
@@ -273,4 +273,4 @@ Para realizar tareas en interfaces virtuales, su cuenta debe estar asignada al r
 - Crear una sola máquina virtual NIC con varias direcciones IPv4 mediante la [CLI de Azure](virtual-network-multiple-ip-addresses-cli.md) o [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
 - Crear una sola máquina virtual NIC con una dirección IPv6 privada (detrás de una instancia de Azure Load Balancer) mediante la [CLI de Azure](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o una [plantilla de Azure Resource Manager](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Crear una interfaz de red con scripts de ejemplo de [PowerShell](powershell-samples.md) o de la [CLI de Azure](cli-samples.md) o con una [plantilla de Azure Resource Manager](template-samples.md)
-- Crear y aplicar una [directiva de Azure](policy-samples.md) para redes virtuales
+- Crear y asignar [definiciones de Azure Policy](policy-samples.md) para redes virtuales

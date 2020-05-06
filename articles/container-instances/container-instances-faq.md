@@ -4,12 +4,12 @@ description: Respuestas a las preguntas más frecuentes relacionadas con el serv
 author: dkkapur
 ms.topic: article
 ms.date: 04/10/2020
-ms.openlocfilehash: 8730dcb24af61730d7f93ea37a53cf87435eb9f9
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 4fca198356c8db006c4190e0f16b20f78dc1d477
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261625"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82115234"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>Preguntas más frecuentes sobre Azure Container Instances
 
@@ -55,9 +55,12 @@ Use la imagen más pequeña que satisfaga sus requisitos. Para Linux, puede usar
 
 ### <a name="how-many-cores-and-memory-should-i-allocate-for-my-containers-or-the-container-group"></a>¿Cuántos núcleos y qué memoria debo asignar para mis contenedores o para el grupo de contenedores?
 
-Realmente, esto depende de su carga de trabajo. Empiece poco a poco y pruebe el rendimiento para ver cómo funcionan los contenedores. [Supervise el uso de recursos de CPU y memoria](container-instances-monitor.md) y, a continuación, agregue núcleos o memoria en función del tipo de procesos que implementa en el contenedor. 
+Realmente, esto depende de su carga de trabajo. Empiece poco a poco y pruebe el rendimiento para ver cómo funcionan los contenedores. [Supervise el uso de recursos de CPU y memoria](container-instances-monitor.md) y, a continuación, agregue núcleos o memoria en función del tipo de procesos que implementa en el contenedor.
 
 Asegúrese de comprobar también la [disponibilidad de recursos](container-instances-region-availability.md#availability---general) para la región de implementación para los límites superiores en los núcleos de CPU y memoria disponibles para cada grupo de contenedores. 
+
+> [!NOTE]
+> La infraestructura subyacente al servicio utiliza una pequeña cantidad de los recursos de un grupo de contenedores. Los contenedores podrán acceder a la mayoría de los recursos asignados al grupo, pero no a todos. Por este motivo, debe planear un pequeño búfer de recursos al solicitar los recursos para los contenedores del grupo.
 
 ### <a name="what-underlying-infrastructure-does-aci-run-on"></a>¿En qué infraestructura subyacente se ejecuta ACI?
 

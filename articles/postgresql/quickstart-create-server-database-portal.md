@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/25/2019
-ms.openlocfilehash: d93c1d81e1434ffdd41297ed54e874c6b71240d2
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 6611c394d6aff92a62a7ecd9a7656d3408fb9da6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75430480"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82146620"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>Inicio rápido: Creación de un servidor de Azure Database for PostgreSQL en Azure Portal
 
@@ -178,7 +178,7 @@ pgAdmin es una herramienta de código abierto que se usa con PostgreSQL. Puede i
     Nombre de usuario | Nombre de inicio de sesión del administrador del servidor | El nombre de usuario de inicio de sesión del administrador del servidor que suministró al crear el servidor de Azure Database for PostgreSQL. Si no recuerda el nombre de usuario, siga los pasos de la sección anterior para obtener la información de conexión. El formato es *nombre de usuario\@nombre de servidor*.
     Contraseña | Contraseña del administrador | La contraseña que eligió al crear el servidor antes en esta guía de inicio rápido.
     Role | Déjelo en blanco | No es necesario proporcionar un nombre de rol en este momento. Deje el campo en blanco.
-    SSL Mode | *Require* | Puede establecer el modo SSL en la pestaña SSL de pgAdmin. De forma predeterminada, todos los servidores de Azure Database for PostgreSQL se crean de modo que se exija SSL. Para desactivar la obligación de SSL, consulte la sección sobre la [aplicación de SSL](./concepts-ssl-connection-security.md).
+    SSL Mode | *Require* | Puede establecer el modo TLS/SSL en la pestaña SSL de pgAdmin. De forma predeterminada, todos los servidores de Azure Database for PostgreSQL se crean de modo que se exija TLS. Para desactivar la aplicación de TLS, consulte [Configuración de la aplicación de TLS](./concepts-ssl-connection-security.md#configure-enforcement-of-tls).
     
 5. Seleccione **Guardar**.
 

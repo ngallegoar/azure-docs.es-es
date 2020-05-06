@@ -5,18 +5,18 @@ description: Aprenda a actualizar los nodos de Linux y a reiniciarlos automátic
 services: container-service
 ms.topic: article
 ms.date: 02/28/2019
-ms.openlocfilehash: 8006baa3025ee1e794359bed854094cc9005dd14
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 955e5323769a7b9bf80413c045aaa3d55547eb02
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668382"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208081"
 ---
 # <a name="apply-security-and-kernel-updates-to-linux-nodes-in-azure-kubernetes-service-aks"></a>Aplicación de actualizaciones de kernel y seguridad a los nodos de Linux en Azure Kubernetes Service (AKS)
 
 Para proteger los clústeres, las actualizaciones de seguridad se aplican automáticamente a los nodos de Linux en AKS. Estas actualizaciones incluyen las revisiones de seguridad del sistema operativo o las actualizaciones del kernel. Algunas de estas actualizaciones requieren un reinicio del nodo para completar el proceso. AKS no reinicia automáticamente estos nodos de Linux para completar el proceso de actualización.
 
-El proceso para mantener actualizados los nodos de Windows Server (actualmente en versión preliminar de AKS) difiere ligeramente. Los nodos de Windows Server no reciben actualizaciones diarias. En su lugar, debe actualizar AKS para implementar nuevos nodos con la imagen base de Windows Server más reciente y las revisiones. Para los clústeres de AKS que usan los nodos de Windows Server, consulte [Actualización de un grupo de nodos de AKS][nodepool-upgrade].
+El proceso para mantener actualizados los nodos de Windows Server difiere ligeramente. Los nodos de Windows Server no reciben actualizaciones diarias. En su lugar, debe actualizar AKS para implementar nuevos nodos con la imagen base de Windows Server más reciente y las revisiones. Para los clústeres de AKS que usan los nodos de Windows Server, consulte [Actualización de un grupo de nodos de AKS][nodepool-upgrade].
 
 En este artículo se muestra cómo usar el código abierto de [Kured (demonio de reinicio de Kubernetes)][kured] para buscar nodos de Linux que requieran un reinicio y, a continuación, administrar automáticamente la reprogramación de pods en ejecución y el proceso de reinicio de los nodos.
 

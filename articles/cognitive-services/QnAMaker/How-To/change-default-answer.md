@@ -1,20 +1,20 @@
 ---
 title: 'Obtención de la respuesta predeterminada: QnA Maker'
 description: Se devuelve la respuesta predeterminada cuando no hay ninguna coincidencia con la pregunta. Puede que desee cambiar la respuesta predeterminada de la respuesta predeterminada estándar.
-ms.topic: conceptual
-ms.date: 01/10/2020
-ms.openlocfilehash: fae5c38fd64435a3fae56862bad04e000916e88b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.topic: how-to
+ms.date: 04/22/2020
+ms.openlocfilehash: db5a79ec612a73066ac37365a1815841fafb3862
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76843282"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82097105"
 ---
-# <a name="set-default-answer-for-a-knowledge-base"></a>Establecimiento de la respuesta predeterminada para una base de conocimiento
+# <a name="change-default-answer-for-a-qna-maker-resource"></a>Cambiar la respuesta predeterminada para un recurso de QnA Maker
 
 Se devuelve la respuesta predeterminada cuando no hay ninguna coincidencia con la pregunta. Puede que desee cambiar la respuesta predeterminada de la respuesta predeterminada estándar.
 
-## <a name="change-default-answer"></a>Cambio de la respuesta predeterminada
+## <a name="change-default-answer-in-the-azure-portal"></a>Cambiar la respuesta predeterminada en Azure Portal
 
 1. Vaya a [Azure Portal](https://portal.azure.com) y navegue hasta el grupo de recursos que representa el servicio QnA Maker que creó.
 
@@ -32,4 +32,4 @@ Se devuelve la respuesta predeterminada cuando no hay ninguna coincidencia con l
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Creación de un bot con QnA Maker y LUIS](../tutorials/integrate-qnamaker-luis.md)
+* [Creación de una base de conocimientos](../How-to/manage-knowledge-bases.md)

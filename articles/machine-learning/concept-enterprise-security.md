@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/13/2020
-ms.openlocfilehash: 9f3a1c3455aadfbd243cdc6ab2920849c8558841
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: d5edfab0963ec3fca24969d7a54038066ba08765
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81414640"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188402"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Seguridad de empresa para Azure Machine Learning
 
@@ -78,7 +78,7 @@ En la tabla siguiente se muestran algunas de las principales operaciones de Azur
 Si los roles integrados no satisfacen sus necesidades, puede crear roles personalizados. Solo se admiten roles personalizados para operaciones en el área de trabajo y en Proceso de Machine Learning. Los roles personalizados pueden tener permisos de lectura, escritura o eliminación en el área de trabajo y en el recurso de proceso de ese área de trabajo. Puede hacer que el rol esté disponible en un nivel de área de trabajo específico, un nivel de grupo de recursos específico o un nivel de suscripción específico. Para más información, consulte [Administración de usuarios y roles en un área de trabajo de Azure Machine Learning](how-to-assign-roles.md).
 
 > [!WARNING]
-> Azure Machine Learning no es compatible actualmente con la colaboración negocio a negocio de Azure Active Directory.
+> Azure Machine Learning es compatible con la colaboración de negocio a negocio de Azure Active Directory, pero no es compatible actualmente con la colaboración de negocio a consumidor de Azure Active Directory.
 
 ### <a name="securing-compute-targets-and-data"></a>Protección de los datos y destinos de proceso
 
@@ -183,7 +183,7 @@ Para habilitar el aprovisionamiento de una instancia de Cosmos DB en su suscripc
         > [!NOTE]
         > Esta instancia del almacén de claves puede ser diferente a la creada por Azure Machine Learning al aprovisionar el área de trabajo. Si quiere usar la misma instancia del almacén de claves para el área de trabajo, pase el mismo almacén de claves al aprovisionar el área de trabajo mediante el [parámetro key_vault](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-). 
 
-Esta instancia de Cosmos DB se crea en un grupo de recursos administrados por Microsoft en su suscripción. 
+Esta instancia de Cosmos DB se crea en un grupo de recursos administrados por Microsoft en su suscripción. El grupo de recursos administrado se denomina con el formato `<AML Workspace Resource Group Name><GUID>`.
 
 > [!IMPORTANT]
 > * Si necesita eliminarla, primero debe eliminar el área de trabajo de Azure Machine Learning que la usa. 
@@ -385,10 +385,7 @@ Estos son los detalles:
 
 * [Protección de los servicios web Azure Machine Learning con TLS](how-to-secure-web-service.md)
 * [Consumir un modelo de Machine Learning implementado como un servicio web](how-to-consume-web-service.md)
-* [Cómo ejecutar predicciones por lotes](how-to-use-parallel-run-step.md)
-* [Supervisión de los modelos de Azure Machine Learning con Application Insights](how-to-enable-app-insights.md)
-* [Recopilar datos de modelos en producción](how-to-enable-data-collection.md)
-* [SDK de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
+* [Uso de Azure Machine Learning con Azure Firewall](how-to-access-azureml-behind-firewall.md)
 * [Uso de Azure Machine Learning con Azure Virtual Network](how-to-enable-virtual-network.md)
 * [Procedimientos recomendados para compilar sistemas de recomendaciones](https://github.com/Microsoft/Recommenders)
 * [Compilación de una API de recomendaciones en tiempo real en Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/real-time-recommendation)

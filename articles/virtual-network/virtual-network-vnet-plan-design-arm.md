@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/08/2020
 ms.author: kumud
-ms.openlocfilehash: 95dd7be118e869aed02bb55918ab0cefa0d05d03
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.openlocfilehash: 4601a7f5da8d6e4eda2ee433fe52d08a6341ce6c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80998866"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186023"
 ---
 # <a name="plan-virtual-networks"></a>Planear redes virtuales
 
@@ -111,7 +111,7 @@ Azure usa el [control de acceso basado en roles](../role-based-access-control/ov
 
 Azure Policy le permite crear, asignar y administrar las definiciones de directivas. Las definiciones de directivas aplican distintas reglas en los recursos, para que estos sigan siendo compatibles con los estándares de la organización y los contratos de nivel de servicio. Azure Policy ejecuta una evaluación de los recursos, para detectar los que no son compatibles con las definiciones de directivas que tiene. Por ejemplo, puede definir y aplicar una directiva que permita la creación de redes virtuales en un solo grupo de recursos o región específicos. Otra directiva puede requerir que cada subred tenga un grupo de seguridad de red asociado a ella. Estas directivas se evalúan al crear y actualizar los recursos.
 
-Igualmente, las directivas se aplican según la jerarquía siguiente: grupo de administración, suscripción y grupo de recursos. Obtenga más información sobre la [directiva de Azure](../governance/policy/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o acerca de cómo implementar algunos ejemplos de [plantillas de directivas](policy-samples.md) de redes virtuales.
+Igualmente, las directivas se aplican según la jerarquía siguiente: grupo de administración, suscripción y grupo de recursos. Obtenga más información sobre [Azure Policy](../governance/policy/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o acerca de cómo implementar algunas [definiciones de Azure Policy](policy-samples.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

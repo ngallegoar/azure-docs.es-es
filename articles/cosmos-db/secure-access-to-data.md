@@ -6,12 +6,12 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: 448b14168e85e75b7ed19e189600186ce11c2902
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f62ad6952170f22fe0f94a792a137f991a0e5026
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79227268"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208727"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Protección del acceso a los datos de Azure Cosmos DB
 
@@ -43,7 +43,15 @@ Las claves maestras principal, secundaria, de solo lectura y de lectura y escrit
 
 ![Control de acceso (IAM) en Azure Portal: demostración de la seguridad de bases de datos NoSQL](./media/secure-access-to-data/nosql-database-security-master-key-portal.png)
 
-El proceso de rotación de la clave maestra es simple. Navegue hasta Azure Portal para recuperar la clave secundaria, reemplace la clave principal por la clave secundaria en la aplicación y, finalmente, rote la clave principal en Azure Portal.
+### <a name="key-rotation"></a>Rotación de claves<a id="key-rotation"></a>
+
+El proceso de rotación de la clave maestra es simple. 
+
+1. Vaya a Azure Portal para recuperar la clave secundaria.
+2. Reemplace la clave principal por su clave secundaria en la aplicación. Asegúrese de que todos los clientes de Cosmos DB en todas las implementaciones se hayan reiniciado rápidamente y de que comenzarán a usar la clave actualizada.
+3. Rote la clave principal en Azure Portal.
+4. Valide que la nueva clave principal funcione en todos los recursos. El proceso de rotación de claves puede tardar entre menos de un minuto y unas horas, en función del tamaño de la cuenta de Cosmos DB.
+5. Reemplace la clave secundaria por la nueva clave principal.
 
 ![Rotación de la clave maestra en Azure Portal: demostración de la seguridad de bases de datos NoSQL](./media/secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png)
 

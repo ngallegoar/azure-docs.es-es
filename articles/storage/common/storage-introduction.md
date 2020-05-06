@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 6c75b9c2feeab32c139998f617cacf540733e3bd
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 81ee07eb41df6d8d663510913572b829feffd995
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81456352"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82133795"
 ---
 # <a name="introduction-to-the-core-azure-storage-services"></a>Introducción a los servicios principales de Azure Storage
 
@@ -77,7 +77,7 @@ Los recursos compartidos de archivos se pueden utilizar para muchos escenarios c
 
 - Los archivos de configuración se pueden almacenar en un recurso compartido de archivos y se puede acceder a ellos desde varias máquinas virtuales. Las herramientas y utilidades que usen varios desarrolladores de un grupo pueden almacenarse en un recurso compartido de archivos, lo que garantiza que todos los usuarios puedan encontrarlas y que utilizan la misma versión.
 
-- Los registros de diagnóstico, las métricas y los volcados de memoria son solo tres ejemplos de datos que se pueden escribir en un recurso compartido de archivos y procesarse o analizarse posteriormente.
+- Los registros de recursos, las métricas y los volcados de memoria son solo tres ejemplos de datos que se pueden escribir en un recurso compartido de archivos y procesarse o analizarse posteriormente.
 
 Para más información sobre Azure Files, consulte [Introducción a Azure Files](../files/storage-files-introduction.md).
 

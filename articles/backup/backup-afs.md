@@ -3,12 +3,12 @@ title: Copia de seguridad de los recursos compartidos de archivos de Azure en Az
 description: Aprenda a usar Azure Portal para realizar copias de seguridad de recursos compartidos de archivos de Azure en almacenes de Recovery Services
 ms.topic: conceptual
 ms.date: 01/20/2020
-ms.openlocfilehash: c1dea6925bad96be178f875567077fafa4db9326
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: da2c7fa4cc5c3b7b948604a6f6d3999671cb3697
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76938188"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82101338"
 ---
 # <a name="back-up-azure-file-shares-in-a-recovery-services-vault"></a>Copia de seguridad de recursos compartidos de archivos de Azure en un almacén de Recovery Services
 
@@ -23,19 +23,7 @@ En este artículo, aprenderá a:
 ## <a name="prerequisites"></a>Prerrequisitos
 
 * Identifique o cree un [almacén de Recovery Services](#create-a-recovery-services-vault) en la misma región que la cuenta de almacenamiento que hospeda el recurso compartido de archivos.
-* Asegúrese de que el recurso compartido de archivos se encuentra en uno de los [tipos de cuenta de almacenamiento admitidos](#limitations-for-azure-file-share-backup-during-preview).
-
-## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Limitaciones de la copia de seguridad de recursos compartidos de archivos de Azure en la versión preliminar
-
-La copia de seguridad de los recursos compartidos de archivos de Azure está en versión preliminar. Los recursos compartidos de archivos de Azure se admiten en cuentas de almacenamiento de uso general v1 y uso general v2. Estas son las limitaciones para realizar copias de seguridad de recursos compartidos de archivos de Azure:
-
-* La compatibilidad con la copia de seguridad de recursos compartidos de archivos de Azure en cuentas de almacenamiento con replicación de [almacenamiento con redundancia de zona](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) (ZRS) está limitada actualmente a [estas regiones](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#in-which-geos-can-i-back-up-azure-file-shares).
-* Actualmente, Azure Backup admite la configuración de copias de seguridad diarias programadas de recursos compartidos de archivos de Azure.
-* El número máximo de copias de seguridad programadas al día es una.
-* El número máximo de copias de seguridad a petición al día es cuatro.
-* Use los [bloqueos de recursos](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) de la cuenta de almacenamiento para impedir la eliminación accidental de copias de seguridad del almacén de Recovery Services.
-* No elimine las instantáneas que crea Azure Backup. La eliminación de instantáneas puede provocar la pérdida de puntos de recuperación o errores de restauración.
-* No elimine los recursos compartidos de archivos que estén protegidos por Azure Backup. La solución actual elimina todas las instantáneas realizadas por Azure Backup una vez que se elimina el recurso compartido de archivos y, por tanto, se pierden todos los puntos de restauración.
+* Asegúrese de que el recurso compartido de archivos se encuentra en uno de los [tipos de cuenta de almacenamiento admitidos](azure-file-share-support-matrix.md).
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -80,19 +68,22 @@ Para modificar el tipo de replicación de almacenamiento:
 
 1. Después de seleccionar **Copia de seguridad**, se abre el panel **Copia de seguridad** y se le pide que seleccione una cuenta de almacenamiento en una lista de cuentas de almacenamiento admitidas detectadas. Estas cuentas están asociadas a este almacén o se encuentran en la misma región que el almacén, pero aún no están asociadas a ningún almacén de Recovery Services.
 
-   ![Selección de la cuenta de almacenamiento](./media/backup-afs/select-storage-account.png)
-
 1. En la lista de cuentas de almacenamiento detectadas, seleccione una cuenta y seleccione **Aceptar**. Azure busca en la cuenta de almacenamiento los recursos compartidos de archivos de los que se puede realizar una copia de seguridad. Si recientemente ha agregado recursos compartidos de archivos y no los ve en la lista, espere un poco para que aparezcan.
 
     ![Detección de recursos compartidos de archivos](./media/backup-afs/discovering-file-shares.png)
 
 1. En la lista **Recursos compartidos de archivos**, seleccione uno o varios recursos compartidos de archivos de los que quiera realizar una copia de seguridad. Seleccione **Aceptar**.
 
+   ![Selección de los recursos compartidos de archivos](./media/backup-afs/select-file-shares.png)
+
 1. Después de seleccionar los recursos compartidos de archivos, el menú **Copia de seguridad** cambia a **Directiva de copia de seguridad**. En este menú, seleccione una directiva de copia de seguridad existente o cree una. Después, seleccione **Habilitar copia de seguridad**.
 
     ![Seleccionar directiva de copia de seguridad](./media/backup-afs/select-backup-policy.png)
 
 Después de establecer una directiva de copia de seguridad, se realiza una instantánea de los recursos compartidos de archivos a la hora programada. El punto de recuperación también se conserva durante el período elegido.
+
+>[!NOTE]
+>Azure Backup admite ahora directivas con retención diaria, semanal, mensual o anual para la copia de seguridad de recursos compartidos de archivos de Azure.
 
 ## <a name="create-an-on-demand-backup"></a>Creación de una copia de seguridad a petición
 
@@ -124,8 +115,18 @@ En ocasiones querrá generar una instantánea de copia de seguridad o un punto d
 
 1. Supervise las notificaciones del portal para realizar un seguimiento de la finalización de la ejecución del trabajo de copia de seguridad. Puede supervisar el progreso del trabajo en el panel del almacén. Seleccione **Trabajos de copia de seguridad** > **En curso**.
 
+>[!NOTE]
+>Azure Backup bloquea la cuenta de almacenamiento cuando se configura la protección para cualquier recurso compartido de archivos en la cuenta correspondiente. Este proceso ofrece protección contra la eliminación accidental de una cuenta de almacenamiento con recursos compartidos de archivos de copia de seguridad.
+
+## <a name="best-practices"></a>Procedimientos recomendados
+
+* No elimine las instantáneas que crea Azure Backup. La eliminación de instantáneas puede provocar la pérdida de puntos de recuperación o errores de restauración.
+
+* No quite el bloqueo realizado en la cuenta de almacenamiento mediante Azure Backup. Si elimina el bloqueo, la cuenta de almacenamiento será propensa a la eliminación accidental y, si ocurre, perderá las instantáneas o copias de seguridad.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga información sobre cómo:
+
 * [Restauración de recursos compartidos de archivos de Azure](restore-afs.md)
 * [Administración de copias de seguridad de recursos compartidos de archivos de Azure](manage-afs-backup.md)

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: kumud
-ms.openlocfilehash: 79310ddf121d6ada10755b198b515fdc9c1114d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b30c912319104726069ae98920f0bc825d7358cb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80247068"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82182861"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Creación, modificación o eliminación de una tabla de rutas
 
@@ -25,7 +25,7 @@ Azure enruta automáticamente el tráfico entre redes locales, las redes virtual
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Si no tiene ninguna una cuenta de Azure, configure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Después, complete una de estas tareas antes de iniciar los pasos de cualquiera de las secciones de este artículo:
+Si no tiene ninguna, configure una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Después, complete una de estas tareas antes de iniciar los pasos de cualquiera de las secciones de este artículo:
 
 - **Usuarios de Portal**: Inicie sesión en [Azure Portal](https://portal.azure.com) con su cuenta de Azure.
 
@@ -348,4 +348,4 @@ Para realizar tareas en rutas y en tablas de rutas, la cuenta debe tener asignad
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Crear una tabla de rutas usando scripts de ejemplo de [PowerShell](powershell-samples.md) o de la [CLI de Azure](cli-samples.md) o [plantillas de Azure Resource Manager](template-samples.md)
-- Crear y aplicar una [directiva de Azure](policy-samples.md) para redes virtuales
+- Crear y asignar [definiciones de Azure Policy](policy-samples.md) para redes virtuales

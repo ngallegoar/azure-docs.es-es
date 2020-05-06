@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 74fa6949716119d85eac5b142ac9e3c651a0a5d0
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: a58ea58ebf6fdc7d8521d204ac42fcbadeca39a4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80398260"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82189307"
 ---
 # <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning"></a>Ajuste de los hiperparámetros de un modelo mediante Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -184,7 +184,7 @@ El script de entrenamiento calcula el valor `val_accuracy` y lo registra como "p
 
 <a name='specify-early-termination-policy'/>
 
-## <a name="specify-early-termination-policy"></a>Especificación de una directiva de terminación anticipada
+## <a name="specify-early-termination-policy"></a><a name="early-termination"></a> Especificación de una directiva de terminación anticipada
 
 Finalice de forma automática las ejecuciones con un bajo rendimiento con la ayuda de una directiva de finalización anticipada. La finalización reduce el desperdicio de recursos, los cuales se usan para explorar otras configuraciones de parámetros.
 

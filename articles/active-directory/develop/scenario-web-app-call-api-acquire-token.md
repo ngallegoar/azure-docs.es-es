@@ -11,18 +11,18 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 196d941c5c3b18b737f7a11c25ebbb9eab91be1e
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 40e788099a159e1f60c0af02deccd7e3bef82744
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80885045"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82181739"
 ---
 # <a name="a-web-app-that-calls-web-apis-acquire-a-token-for-the-app"></a>Aplicación web que llama a API web: Adquisición de un token para la aplicación
 
 Ha compilado el objeto de aplicación cliente. Ahora lo va a usar para adquirir un token para llamar a una API web. En ASP.NET o ASP.NET Core, las llamadas a las API web se hacen en el controlador:
 
-- Obtenga un token para la API web mediante la caché de tokens. Para obtener este token, se llama al método `AcquireTokenSilent`.
+- Obtenga un token para la API web mediante la caché de tokens. Para obtener este token, llame al método MSAL `AcquireTokenSilent` (o al equivalente en Microsoft.Identity.Web).
 - Llame a la API protegida; para ello, pásele el token de acceso como un parámetro.
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
@@ -54,7 +54,7 @@ public async Task<IActionResult> Profile()
 {
  // Acquire the access token.
  string[] scopes = new string[]{"user.read"};
- string accessToken = await tokenAcquisition.GetAccessTokenOnBehalfOfUserAsync(scopes);
+ string accessToken = await tokenAcquisition.GetAccessTokenForUserAsync(scopes);
 
  // Use the access token to call a protected web API.
  HttpClient client = new HttpClient();
@@ -160,6 +160,8 @@ def graphcall():
         ).json()
     return render_template('display.html', result=graph_data)
 ```
+
+---
 
 ## <a name="next-steps"></a>Pasos siguientes
 

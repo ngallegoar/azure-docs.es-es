@@ -7,13 +7,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 02/12/2019
-ms.openlocfilehash: 35f6b74f3b6cce5a0af812d4613f9da2f9fbd552
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.date: 04/27/2020
+ms.openlocfilehash: 1874e3536a3dda123c7fff9726c02e5d92d88804
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81606259"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82204345"
 ---
 # <a name="azure-data-factory-mapping-data-flow-union-transformation"></a>Transformación Unión del flujo de datos de asignación de Azure Data Factory
 
@@ -22,6 +22,10 @@ ms.locfileid: "81606259"
 Unión combina varias secuencias de datos en una, y la unión SQL de esas secuencias será la salida de la transformación Unión. Todo el esquema de cada secuencia de entrada se combinará en su flujo de datos, sin necesidad de tener una clave de combinación.
 
 Puede combinar un número n de secuencias en la tabla de configuración. Para ello, seleccione el icono "+" junto a cada fila configurada, incluidos los datos de origen y las secuencias de transformaciones existentes en el flujo de datos.
+
+A continuación se muestra un breve vídeo paso a paso sobre la transformación Unión en el flujo de datos de asignación de ADF:
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4vngz]
 
 ![Transformación Unión](media/data-flow/union.png "Union")
 

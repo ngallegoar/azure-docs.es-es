@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 08/27/2018
+ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 5440333360549c5df2da57c97b24dcc77436ba4b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 644e29c3b5e37cd95280cfd2261e644b20bbda98
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "70072700"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82203274"
 ---
 # <a name="add-an-api-manually"></a>Adición manual de una API
 
@@ -35,24 +35,14 @@ Complete el siguiente inicio rápido: [Creación de una instancia de Azure API M
 
 ## <a name="create-an-api"></a>Creación de una API
 
-1. Seleccione **API** en **API MANAGEMENT**.
+1. Vaya al servicio API Management en Azure Portal y seleccione **API** en el menú.
 2. En el menú izquierdo, seleccione **+ Agregar API**.
-3. Seleccione **API en blanco** en la lista.
-
-    ![API en blanco](media/add-api-manually/blank-api.png)
-4. Escriba la configuración de la API.
-
-    |**Nombre**|**Valor**|**Descripción**|
-    |---|---|---|
-    |**Nombre para mostrar**|*API en blanco*|El nombre se muestra en el Portal para desarrolladores.|
-    |**Nombre**|*blank-api*|Proporciona un nombre único para la API.|
-    |**Dirección URL de servicio web** (opcional)|*https://httpbin.org*| Si desea simular una API, recomendamos no escribir nada. <br/>En este caso, escribimos [https://httpbin.org](https://httpbin.org). Se trata de un servicio de prueba público. <br/>Si desea importar una API que se asigne automáticamente a un back-end, consulte uno de los temas de la sección de [temas relacionados](#related-topics).|
-    |**Esquema URL**|*HTTPS*|En este caso, aunque el back-end tenga acceso HTTP no seguro, especifique un acceso HTTPS de APIM seguro al back-end. <br/>Este tipo de escenario (HTTPS a HTTP) se denomina "terminación HTTPS". Podría hacerlo si su API se encuentra dentro de una red virtual (donde sabe que el acceso está protegido aunque no se utilice HTTPS). <br/>Puede usar la terminación HTTPS para ahorrar algunos ciclos de CPU.|
-    |**Sufijo de dirección URL**|*hbin*| El sufijo es un nombre que identifica esta API concreta en esta instancia de APIM. Debe ser exclusivo en esta instancia de APIM.|
-    |**Productos**|*Sin límite*|Publique la API asociándola a un producto. Si desea que la API se publique y esté disponible para los desarrolladores, agréguela a un producto. Puede hacerlo durante la creación de la API o configurarla más adelante.<br/><br/>Los productos son asociaciones de una o varias API. Puede incluir varias API y ofrecerlas a los desarrolladores mediante el portal para desarrolladores. <br/>En primer lugar, los desarrolladores deben suscribirse a un producto para acceder a la API. Al suscribirse, obtienen una clave de suscripción que funciona con cualquier API de ese producto. Si creó la instancia de APIM, ya es un administrador, así que, de forma predeterminada, está suscrito a todos los productos.<br/><br/> De forma predeterminada, cada instancia de API Management incluye dos productos de ejemplo: **Starter** y **Unlimited**.| 
+3. Seleccione **API en blanco** en la lista.  
+    ![API en blanco](media/add-api-manually/blank-api.png)  
+4. Escriba la configuración de la API. Los valores de configuración se explican en el tutorial [Importación y publicación de la primera API](import-and-publish.md#-import-and-publish-a-backend-api).
 5. Seleccione **Crear**.
 
-En este momento, no tiene ninguna operación en APIM que se asigne a las operaciones en la API de back-end. Si se llama a una operación que se expone a través del back-end, pero no a través de la APIM, obtendrá una respuesta **404**.
+En este momento, no tiene ninguna operación en API Management que se asigne a las operaciones en la API de back-end. Si llama a una operación que se expone a través del back-end, pero no a través de API Management, obtendrá una respuesta **404**.
 
 >[!NOTE] 
 > De forma predeterminada, cuando agrega una API, aunque esté conectado a algún servicio back-end, APIM no expondrá ninguna operación hasta que incorpore a la lista blanca. Para incluir en la lista blanca una operación del servicio de back-end, cree una operación de APIM que se asigne a la operación de back-end.

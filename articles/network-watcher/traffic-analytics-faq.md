@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: damendo
-ms.openlocfilehash: 5e31ed905f05070c8715a63ef3386b0006df0a75
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2402e72d2ef9fcda46f2f40bff48759262ee30e0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76840628"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82189052"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Preguntas frecuentes sobre Análisis de tráfico
 
@@ -134,7 +134,7 @@ Sí, la cuenta de Azure Storage puede estar en una suscripción y el área de tr
 
 ## <a name="can-i-store-raw-logs-in-a-different-subscription"></a>¿Puedo almacenar registros sin formato en una cuenta diferente?
 
-No. Puede almacenar registros sin formato en cualquier cuenta de almacenamiento en la que esté habilitado un grupo de seguridad de red para los registros de flujo. No obstante, la cuenta de almacenamiento y los registros sin formato se deben encontrar en la misma región y suscripción.
+Sí. Puede configurar los registros de flujo de NSG para enviarlos a una cuenta de almacenamiento ubicada en una suscripción diferente, siempre que tenga los privilegios adecuados y que la cuenta de almacenamiento se encuentre en la misma región que el NSG. El NSG y la cuenta de almacenamiento de destino también deben compartir el mismo inquilino de Azure Active Directory.
 
 ## <a name="what-if-i-cant-configure-an-nsg-for-traffic-analytics-due-to-a-not-found-error"></a>¿Qué sucede si no puedo configurar un grupo de seguridad de red para Análisis de tráfico debido a un error del tipo "No se encuentra"?
 

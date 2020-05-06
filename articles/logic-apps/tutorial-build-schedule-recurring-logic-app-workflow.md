@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/12/2019
-ms.openlocfilehash: 17802228c8f08e3c8f1533296e2d39080f6f8b7a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5d4990fd806aed75d9b5e5ddd3e9a615631d9d65
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75456629"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82146527"
 ---
 # <a name="tutorial-create-automated-schedule-based-recurring-workflows-by-using-azure-logic-apps"></a>Tutorial: Creación de un flujo de trabajo automatizado, periódico y basado en una programación mediante Azure Logic Apps
 
@@ -37,6 +37,9 @@ Cuando haya terminado, la aplicación lógica se parecerá a este flujo de traba
 * Suscripción a Azure. Si no tiene ninguna suscripción, [suscríbase a una cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
 
 * Una cuenta de correo electrónico con un proveedor de correo electrónico compatible con Logic Apps, como Office 365 Outlook, Outlook.com o Gmail. En el caso de otros proveedores, [consulte la lista de conectores que se muestra aquí](https://docs.microsoft.com/connectors/). Este inicio rápido utiliza una cuenta de Office 365 Outlook. Si utiliza una cuenta de correo electrónico diferente, los pasos generales siguen siendo los mismos, pero la interfaz de usuario podría ser ligeramente distinta.
+
+  > [!IMPORTANT]
+  > Si quiere usar el conector de Gmail, solo las cuentas empresariales de G-Suite pueden usar este conector sin restricciones en las aplicaciones lógicas. Si tiene una cuenta de consumidor de Gmail, puede usar este conector solo con servicios específicos aprobados por Google, o puede [crear una aplicación cliente de Google para usarla en la autenticación con el conector de Gmail](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). Para más información, consulte [Directivas de privacidad y seguridad de datos de los conectores de Google en Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
 * Para obtener el tiempo de desplazamiento para una ruta, necesita una clave de acceso para la API de Mapas de Bing. Para obtener esta clave, siga los pasos sobre [cómo obtener una clave de Mapas de Bing](https://docs.microsoft.com/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key).
 

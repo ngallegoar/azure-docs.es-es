@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 5dbf32610e54df4ff009d4cb0a0b080babb4ec73
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/22/2020
+ms.openlocfilehash: b0ebbbb64e173e1501f08f8385b14c365759a804
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74112069"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82116288"
 ---
 # <a name="how-to-filter-by-language-in-azure-cognitive-search"></a>Filtro por idioma en Azure Cognitive Search 
 
@@ -32,7 +32,7 @@ El éxito de esta técnica depende de la integridad del contenido del campo. Azu
 
 En Azure Cognitive Search, las consultas tienen como destino un índice único. Los desarrolladores que quieran proporcionar cadenas específicas del idioma en una única experiencia de búsqueda suele definen campos dedicados para almacenar los valores: un campo para las cadenas en inglés, otro para las de francés, etc. 
 
-En nuestros ejemplos, incluido el de la [inmobiliaria](search-get-started-portal.md) que se muestra a continuación, es posible que haya visto definiciones de campo similares a las de la captura de pantalla siguiente. Observe cómo este ejemplo muestra las asignaciones del analizador de idioma para los campos de este índice. Los campos que contienen cadenas funcionan mejor en la búsqueda de texto completo cuando se emparejan con un analizador diseñado para administrar las reglas lingüísticas del idioma de destino.
+El ejemplo siguiente procede del [ejemplo de una inmobiliaria](search-get-started-portal.md) que tiene varios campos de cadena que incluyen contenido en distintos idiomas. Observe las asignaciones del analizador de idioma en los campos de este índice. Los campos que contienen cadenas funcionan mejor en la búsqueda de texto completo cuando se emparejan con un analizador diseñado para administrar las reglas lingüísticas del idioma de destino.
 
   ![](./media/search-filters-language/lang-fields.png)
 

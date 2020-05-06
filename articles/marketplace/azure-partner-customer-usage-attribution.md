@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: e061baa8e7eb73bae0a78f4215f0d48610e85fcb
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 4dd42c6eabf02bc7a4eb956b9cd5ab2aec28176b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81686730"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186210"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Atribución de uso de partners y clientes de marketplace comercial
 
@@ -37,10 +37,10 @@ La atribución de uso del cliente admite tres opciones de implementación:
 
 ## <a name="create-guids"></a>Creación de los identificadores únicos globales
 
-Un GUID es un identificador de referencia único que tiene 32 dígitos hexadecimales. Para crear identificadores únicos globales para el seguimiento, debe usar un generador de GUID. El equipo de Azure Storage ha creado un [formulario de generación de GUID](https://aka.ms/StoragePartners) que enviará por correo electrónico un GUID en el formato correcto. Este GUID se puede reutilizar en los distintos sistemas de seguimiento.
+Un GUID es un identificador de referencia único que tiene 32 dígitos hexadecimales. Para crear identificadores únicos globales para el seguimiento, debe usar un generador de GUID. El equipo de Azure Storage ha creado un [formulario de generación de GUID](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR3i8TQB_XnRAsV3-7XmQFpFUMVRVVFFLTDFLS0E2QzNYSkFZR1U3WVJCTSQlQCN0PWcu) que enviará por correo electrónico un GUID en el formato correcto. Este GUID se puede reutilizar en los distintos sistemas de seguimiento.
 
 > [!NOTE]
-> Es muy recomendable usar el [formulario del generador de GUID de Azure Storage](https://aka.ms/StoragePartners) para crear el identificador único global. Para más información, consulte las [P+F](#faq).
+> Es muy recomendable usar el [formulario del generador de GUID de Azure Storage](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR3i8TQB_XnRAsV3-7XmQFpFUMVRVVFFLTDFLS0E2QzNYSkFZR1U3WVJCTSQlQCN0PWcu) para crear el identificador único global. Para más información, consulte las [P+F](#faq).
 
 Se recomienda crear un GUID único para todos los canales de distribución y oferta de cada producto. Puede optar por usar un solo GUID para los múltiples canales de distribución del producto si no quiere que los informes se dividan.
 
@@ -61,7 +61,7 @@ Después de agregar un GUID a la plantilla o en el agente de usuario, y registra
 
 1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard).
 
-1. Regístrese como [publicador comercial de Marketplace](https://aka.ms/JoinMarketplace).
+1. Regístrese como [publicador comercial de Marketplace](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv).
 
    * Los partners deben [tener un perfil en el Centro de partners](https://docs.microsoft.com/azure/marketplace/become-publisher). Le recomendamos que vea la oferta en Azure Marketplace o AppSource.
    * Los asociados pueden registrar varios identificadores únicos globales.
@@ -286,7 +286,7 @@ También puede recibir orientación técnica de un asesor técnico para asociado
 
 ### <a name="how-to-submit-a-technical-consultation-request"></a>Envío de una solicitud de consulta técnica
 
-1. Visite [https://aka.ms/TechnicalJourney](https://aka.ms/TechnicalJourney).
+1. Visite [Servicios técnicos para socios](https://partner.microsoft.com/training/partner-technical-services).
 1. Seleccione Cloud infrastructure and management (Infraestructura en la nube y administración) y una nueva página se abrirá para que pueda ver el trayecto técnico.
 1. En Deployment Services (Servicios de implementación), haga clic en el botón Submit a request (Enviar una solicitud).
 1. Inicie sesión con su cuenta de servicio administrada (cuenta de MPN) o de AAD (cuenta de panel del asociado); se abrirá un formulario de solicitud en línea en función de sus credenciales de inicio de sesión:
@@ -295,7 +295,7 @@ También puede recibir orientación técnica de un asesor técnico para asociado
     * Escriba un título y la descripción del problema (proporcione el máximo de detalle).
 1. Haga clic en Enviar.
 
-Consulte las instrucciones paso a paso con capturas de pantalla en [https://aka.ms/TechConsultInstructions](https://aka.ms/TechConsultInstructions).
+Vea instrucciones paso a paso con capturas de pantallas en [Uso de los servicios de preventas e implementación técnicos](https://support.microsoft.com/help/3121537/using-technical-presales-and-deployment-services#request%20a%20technical%20consultation).
 
 ### <a name="whats-next"></a>Pasos siguientes
 

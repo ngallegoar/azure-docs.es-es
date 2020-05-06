@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript
-ms.openlocfilehash: 1d22f66ad5f7adf5bb8196c3e72a2a343f4558b0
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: aad830ba7c7198077fe6073d6351c72ac9a8e662
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536104"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82144392"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Inicio rápido: Inicio de sesión de usuarios y obtención de un token de acceso en un SPA de JavaScript
 
@@ -25,7 +25,7 @@ En este inicio rápido se usa un código de ejemplo que muestra cómo una aplica
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Una suscripción a Azure: [cree una de forma gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Node.js](https://nodejs.org/en/download/)
 * [Visual Studio Code](https://code.visualstudio.com/download) (para editar archivos de proyecto)
 
@@ -165,7 +165,7 @@ Cuando el explorador haya cargado la aplicación, seleccione **Iniciar sesión**
 
 ### <a name="how-the-sample-works"></a>Funcionamiento del ejemplo
 
-![Funcionamiento de la aplicación de ejemplo en este inicio rápido](media/quickstart-v2-javascript/javascriptspa-intro.svg)
+![Funcionamiento del SPA de ejemplo de JavaScript: 1. El SPA realiza el inicio de sesión. 2. El SPA adquiere un token de identificador de la plataforma de identidad de Microsoft. 3. El SPA llama al token de adquisición. 4. La plataforma de identidad de Microsoft devuelve un token de acceso al SPA. 5. El SPA realiza una solicitud GET de HTTP con el token de acceso a Microsoft Graph API. 6. Graph API devuelve una respuesta HTTP al SPA.](media/quickstart-v2-javascript/javascriptspa-intro.svg)
 
 ### <a name="msaljs"></a>msal.js
 

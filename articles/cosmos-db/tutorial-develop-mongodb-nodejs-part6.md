@@ -10,12 +10,12 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: 0c39ffe40a490ee23ac65f892c46fba2578bce74
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 103545225b15a74d8c2ea0be5e88caa18f3c31cc
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75441103"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82184782"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---add-crud-functions-to-the-app"></a>Creación de una aplicación de Angular con la API de Azure Cosmos DB para MongoDB: Incorporación de funciones CRUD a la aplicación
 
@@ -27,7 +27,7 @@ En este tutorial de varias partes se muestra cómo crear una nueva aplicación e
 
 > [!VIDEO https://www.youtube.com/embed/Y5mdAlFGZjc]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de iniciar esta parte del tutorial, asegúrese de que ha completado los pasos descritos en la [parte 5](tutorial-develop-mongodb-nodejs-part5.md) del tutorial.
 
@@ -86,7 +86,7 @@ Antes de iniciar esta parte del tutorial, asegúrese de que ha completado los pa
 
 5. Ejecute la aplicación para comprobar que todo funcionó. En Visual Studio Code, guarde los cambios, seleccione el botón **Depurar**![Icono Depurar en Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/debug-button.png) en el lado izquierdo y seleccione el botón **Iniciar depuración**![Icono Iniciar depuración en Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/start-debugging-button.png).
 
-6. Ahora vuelva atrás en el explorador de Internet y abra la pestaña Red de las herramientas de desarrollador; en la mayoría de los equipos, debe presionar F12. Vaya a [http://localhost:3000](http://localhost:3000) para ver las llamadas realizadas a través de la red.
+6. Ahora vuelva atrás en el explorador de Internet y abra la pestaña Red de las herramientas de desarrollador; en la mayoría de los equipos, debe presionar F12. Vaya a `http://localhost:3000` para ver las llamadas realizadas a través de la red.
 
     ![Pestaña Funciones de red en Chrome que muestra la actividad de red](./media/tutorial-develop-mongodb-nodejs-part6/add-new-hero.png)
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2019
 ms.author: terrylan
-ms.openlocfilehash: 4fe612db65d985be2f1f1c81d03c3ee735c03889
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4ab3697824ff4a47e7b8f281b531cae610ffdc3b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "69992392"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187586"
 ---
 # <a name="develop-a-secure-infrastructure-for-a-pci-app"></a>Desarrollo de una infraestructura segura para una aplicación PCI
 
@@ -51,7 +51,7 @@ Al desarrollar e implementar esta aplicación, aprenderá a:
 - Implementar la aplicación web de Azure con App Service Environment, que es un entorno dedicado aislado con acceso de firewall de front-end
 - Cree y configure una instancia de Azure Application Gateway con un firewall que use [el conjunto de 10 reglas principales de OWASP](https://coreruleset.org/).
 - Habilite el cifrado de datos en tránsito y en reposo mediante los servicios de Azure.
-- Configurar la directiva de Azure y los planos técnicos para evaluar el cumplimiento
+- Configurar Azure Policy y Azure Blueprints para evaluar el cumplimiento.
 
 Después de desarrollar e implementar esta aplicación, habrá configurado la aplicación web de ejemplo siguiente junto con las medidas de configuración y seguridad que se describen.
 
@@ -119,7 +119,7 @@ Hay muchas maneras de implementar aplicaciones en Azure, entre las que se incluy
 - Plantillas del Administrador de recursos de Azure
 - PowerShell
 - Azure CLI
-- Portal de Azure
+- Azure Portal
 - Azure DevOps
 
 ## <a name="guidance-and-recommendations"></a>Instrucciones y recomendaciones

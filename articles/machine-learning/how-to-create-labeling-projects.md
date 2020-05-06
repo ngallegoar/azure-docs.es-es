@@ -6,13 +6,13 @@ author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
 ms.topic: tutorial
-ms.date: 03/01/2020
-ms.openlocfilehash: f6723992ac3335e6abdd78f2008130dfe136f7df
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.date: 04/09/2020
+ms.openlocfilehash: 6c553580bc3f2c9cb1aac321bea3c86b04b2ba56
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80873895"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82231227"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Creación de un proyecto de etiquetado de datos y exportación de etiquetas 
 
@@ -22,9 +22,9 @@ Etiquetar datos voluminosos en proyectos de Machine Learning suele ser una tarea
  
 [Azure Machine Learning](https://ml.azure.com/) proporciona una ubicación central para crear, administrar y supervisar proyectos de etiquetado (versión preliminar pública). Úselo para coordinar los datos, las etiquetas y los miembros del equipo para administrar de forma eficaz las tareas de etiquetado. Machine Learning permite la clasificación de imágenes (de varias etiquetas y varias clases) y la identificación de objetos mediante rectángulos de selección.
 
-Machine Learning realiza un seguimiento del progreso y el mantenimiento de la cola de tareas de etiquetado incompletas. Los etiquetadores no necesitan una cuenta de Azure para participar. Una vez que se hayan autenticado con su cuenta Microsoft (MSA) o [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis), pueden realizar todo el etiquetado que el tiempo les permita.
+Azure Machine Learning realiza un seguimiento del progreso y el mantenimiento de la cola de tareas de etiquetado incompletas.
 
-Inicie y detenga el proyecto, agregue y quite etiquetadores y equipos, y supervise el progreso de etiquetado. Puede exportar los datos etiquetados en formato COCO o como un conjunto de datos de Azure Machine Learning.
+Puede iniciar y detener el proyecto y supervisar el progreso de etiquetado. Puede exportar los datos etiquetados en formato COCO o como un conjunto de datos de Azure Machine Learning.
 
 > [!Important]
 > Actualmente solo se admiten proyectos de etiquetado de clasificación de imágenes e identificación de objetos. Además, las imágenes de datos deben estar disponibles en un almacén de datos de blobs de Azure. (Si no tiene un almacén de datos existente, puede cargar las imágenes durante la creación del proyecto).
@@ -34,7 +34,6 @@ En este artículo, aprenderá a:
 > [!div class="checklist"]
 > * Crear un proyecto
 > * Especificar los datos y la estructura del proyecto
-> * Administrar los equipos y usuarios que trabajan en el proyecto
 > * Ejecutar y supervisar el proyecto
 > * Exportar las etiquetas
 
@@ -50,7 +49,7 @@ En este artículo, aprenderá a:
 
 ## <a name="create-a-labeling-project"></a>Crear un proyecto de etiquetado
 
-Los proyectos de etiquetado se administran desde Azure Machine Learning. Use la página **Proyectos de etiquetado** para administrar sus proyectos y personas. Un proyecto tiene uno o varios equipos asignados y un equipo tiene una o más personas asignadas a él.
+Los proyectos de etiquetado se administran desde Azure Machine Learning. Use la página **Proyectos de etiquetado** para administrar sus proyectos.
 
 Si los datos ya están en el almacenamiento de blobs de Azure, debe hacer que estén disponibles como un almacén de datos antes de crear el proyecto de etiquetado. Para obtener un ejemplo del uso de un almacén de datos, consulte [Tutorial: Creación de un proyecto de etiquetado para la clasificación de imágenes](tutorial-labeling.md).
 
@@ -168,23 +167,11 @@ Una vez que se ha entrenado un modelo de Machine Learning con los datos etiqueta
 
 Una vez inicializado el proyecto de etiquetado, algunos aspectos del proyecto son inmutables. No se puede cambiar el tipo de tarea ni el conjunto de datos. Se *pueden* modificar las etiquetas y la dirección URL de la descripción de la tarea. Repase atentamente la configuración antes de crear el proyecto. Después de enviar el proyecto, volverá a la página principal **Data Labelling** (Etiquetado de datos), que muestra el proyecto como **Initializing** (Inicializando). Esta página no se actualiza automáticamente. Espere unos momentos y actualice la página manualmente para ver el estado del proyecto como **Creado**.
 
-## <a name="manage-teams-and-people"></a>Administración de equipos y personas
-
-De forma predeterminada, para cada proyecto de etiquetado se crea un nuevo equipo con usted como miembro. Sin embargo, los equipos pueden compartirse entre los proyectos. Y los proyectos pueden tener más de un equipo. Para crear un equipo, seleccione **Agregar equipo** en la página **Equipos**. 
-
-Los usuarios se administran en la página **etiquetadores**. Agregue y quite las personas por dirección de correo electrónico. Cada etiquetador tiene que autenticarse con su cuenta Microsoft o con Azure Active Directory, si lo usa.  
-
-Después de agregar a una persona, puede asignarla a uno o varios equipos: Vaya a la página **Equipos**, seleccione el equipo y, a continuación, seleccione **Asignar personas** o **Quitar personas**.
-
-Para enviar un correo electrónico al equipo, seleccione el equipo para ver la página **Detalles del equipo**. En esta página, seleccione **Correo electrónico del equipo** para abrir un borrador de correo electrónico con las direcciones de todos los miembros del equipo.
-
 ## <a name="run-and-monitor-the-project"></a>Ejecutar y supervisar el proyecto
 
 Después de inicializar el proyecto, Azure comenzará a ejecutarlo. Seleccione el proyecto en la página **Data Labeling** (Etiquetado de datos) para ir a **Project details** (Detalles del proyecto). En la pestaña **Panel** se muestra el progreso de la tarea de etiquetado.
 
 En la pestaña **Datos**, puede ver el conjunto de datos y revisar los datos etiquetados. Si ve datos etiquetados incorrectamente, selecciónelos y elija **Rechazar**; se quitarán las etiquetas y los datos se volverán a colocar en la cola sin etiquetar.
-
-Use la pestaña **Equipo** para asignar o desasignar equipos del proyecto.
 
 Para poner en pausa o reiniciar el proyecto, seleccione el botón **Pausar**/**Iniciar**. Solo se pueden etiquetar datos cuando el proyecto se está ejecutando.
 

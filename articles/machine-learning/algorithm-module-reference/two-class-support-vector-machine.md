@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/22/2020
-ms.openlocfilehash: ba788518951e72c1701d99decf46350e8665dbae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/22/2020
+ms.openlocfilehash: 912d6b80914232d1a2ed2b1fe987ebdf949a1abc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79455815"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82136505"
 ---
 # <a name="two-class-support-vector-machine-module"></a>Máquina de vectores de soporte de dos clases
 
@@ -64,9 +64,19 @@ Para este tipo de modelo, se recomienda normalizar el conjunto de datos antes de
   
 7.  En **Random number seed** (Inicialización de números aleatorios), escriba un valor entero para usarlo como valor de inicialización si quiere garantizar la reproducibilidad entre ejecuciones.  En caso contrario, se usa un valor del reloj del sistema como valor de inicialización, que puede dar lugar a resultados ligeramente diferentes entre ejecuciones.
   
-9. Conecte un conjunto de datos etiquetados y uno de los [módulos de entrenamiento](module-reference.md):
+9. Conecte un conjunto de datos etiquetado y entrene el modelo:
+
+    + Si establece **Create trainer mode** (Crear modo entrenador) en **Single Parameter** (Parámetro único), conecte un conjunto de datos etiquetado y el módulo [Entrenar modelo](train-model.md).  
   
-    -   Si establece **Create trainer mode** (Crear modo entrenador) en **Single Parameter** (Parámetro único), use el módulo [Entrenar modelo](train-model.md).
+    + Si establece **Create trainer mode** (Crear el modo de entrenador) en **Parameter Range** (Intervalo de parámetros), conecte un conjunto de datos etiquetado y entrene el modelo mediante [Tune Model Hyperparameters](tune-model-hyperparameters.md) (Optimizar los hiperparámetros del modelo).  
+  
+    > [!NOTE]
+    > 
+    > Si pasa un intervalo de parámetros a [Train Model](train-model.md) (Entrenar modelo), solo utiliza el valor predeterminado en la lista de parámetros única.  
+    > 
+    > Si pasa un único conjunto de valores de parámetro al módulo [Tune Model Hyperparameters](tune-model-hyperparameters.md) (Optimizar los hiperparámetros del modelo), cuando espera un intervalo de valores para cada parámetro, omite los valores y usa los valores predeterminados para el aprendiz.  
+    > 
+    > Si selecciona la opción **Parameter Range** (Intervalo de parámetros) y especifica un valor único para algún parámetro, ese valor único que haya especificado se utilizará en todo el barrido, incluso si otros parámetros cambian en un intervalo de valores.
   
 10. Envíe la canalización.
 

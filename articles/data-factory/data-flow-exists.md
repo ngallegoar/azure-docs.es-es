@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/16/2019
-ms.openlocfilehash: a303c8fa1e23460fb906232eedb6bfb1930b4bc9
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 9c43b141608e5a9051499fdfb2adb5d8b0b593df
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81606464"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82232484"
 ---
 # <a name="exists-transformation-in-mapping-data-flow"></a>Transformación Existe en flujo de datos de asignación
 
@@ -42,6 +42,14 @@ Para crear una expresión de forma libre que contenga operadores distintos de "y
 
 ![Configuración personalizada de Existe](media/data-flow/exists1.png "existe personalizado")
 
+## <a name="broadcast-optimization"></a>Optimización de difusión
+
+![Combinación de difusión](media/data-flow/broadcast.png "Combinación de difusión")
+
+En las combinaciones, búsquedas y transformaciones Existe, si uno o ambos flujos de datos caben en la memoria del nodo de trabajo, puede optimizar el rendimiento al habilitar la opción **Difusión**. De forma predeterminada, el motor de Spark decidirá automáticamente si difundir o no una parte. Para elegir manualmente la parte que se va a difundir, seleccione **Fijo**.
+
+No se recomienda deshabilitar la difusión a través de la opción **Desactivado** a menos que las combinaciones experimenten errores de tiempo de espera.
+
 ## <a name="data-flow-script"></a>Script de flujo de datos
 
 ### <a name="syntax"></a>Sintaxis
@@ -51,7 +59,7 @@ Para crear una expresión de forma libre que contenga operadores distintos de "y
     exists(
         <conditionalExpression>,
         negate: { true | false },
-        broadcast: {'none' | 'left' | 'right' | 'both'}
+        broadcast: { 'auto' | 'left' | 'right' | 'both' | 'off' }
     ) ~> <existsTransformationName>
 ```
 
@@ -70,7 +78,7 @@ NameNorm2, TypeConversions
     exists(
         NameNorm2@EmpID == TypeConversions@EmpID && NameNorm2@Region == DimEmployees@Region,
         negate:false,
-        broadcast: 'none'
+        broadcast: 'auto'
     ) ~> checkForChanges
 ```
 

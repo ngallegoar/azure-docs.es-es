@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: fd2706b6a6880d7c9454619e1315b2b5b5404561
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e5c57ba56ce236bcf07478e1784eec6d4c632d1c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80244280"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195254"
 ---
 # <a name="azure-security-baseline-for-cosmos-db"></a>Base de referencia de seguridad de Azure para Cosmos DB
 
@@ -638,7 +638,7 @@ Características compatibles disponibles en Azure Security Center: https://doc
 
 Aunque los recursos clásicos de Azure se pueden detectar a través de Resource Graph, se recomienda encarecidamente crear y usar los recursos de Azure Resource Manager que figuran a continuación.
 
-Creación de consultas con Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Creación de consultas con Azure Resource Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 Visualización de las suscripciones de Azure: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
 
@@ -684,7 +684,7 @@ Creación y uso de etiquetas: https://docs.microsoft.com/azure/azure-resource-ma
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5: Supervisión de recursos de Azure no aprobados
 
-**Instrucciones**: use Azure Policy para establecer restricciones en el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
+**Instrucciones**: use Azure Policy para establecer restricciones sobre el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
 
 - Tipos de recursos no permitidos
 
@@ -811,7 +811,7 @@ Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/go
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3: Mantenga configuraciones de recursos de Azure seguras
 
-**Instrucciones**: Use la directiva de Azure [denegar] e [implementar si no existe] para aplicar la configuración segura en los recursos de Azure.
+**Guía**: Utilice [deny] y [deploy if not exist] de Azure Policy para aplicar una configuración segura en los recursos de Azure.
 
 Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -868,7 +868,7 @@ Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/go
 
 ### <a name="79-implement-automated-configuration-monitoring-for-azure-services"></a>7.9: Implemente la supervisión de configuración automatizada para servicios de Azure
 
-**Guía**: Use los alias de Azure Policy en el espacio de nombres "Microsoft.DocumentDB" para crear directivas personalizadas con el fin de auditar y aplicar las configuraciones del sistema y enviar alertas sobre ellas. Use la directiva de Azure [auditar], [denegar] e [implementar si no existe] para aplicar automáticamente las configuraciones de las instancias de Azure Cosmos DB y recursos relacionados. 
+**Guía**: Use los alias de Azure Policy en el espacio de nombres "Microsoft.DocumentDB" para crear directivas personalizadas con el fin de auditar y aplicar las configuraciones del sistema y enviar alertas sobre ellas. Use [audit], [deny] y [deploy if not exist] de Azure Policy para aplicar automáticamente las configuraciones de las instancias de Azure Cosmos DB y recursos relacionados. 
 
 Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 

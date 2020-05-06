@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/24/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 2b30c176cf3c9dd31ae3efa85d308b3f89bd4dbe
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: 5d2d33dc2ef135fde0955336a40f851d6ed4e0e7
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81735291"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82204667"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>¿El usuario necesita disponer de una topología radial con los dispositivos SD-WAN/VPN para usar Azure Virtual WAN?
 
@@ -49,7 +49,7 @@ Hay dos opciones para agregar servidores DNS para los clientes de P2S.
 
 ### <a name="for-user-vpn-point-to-site--how-many-clients-are-supported"></a>En el caso de la red privada virtual de usuario (de punto a sitio), ¿cuántos clientes se admiten?
 
-Cada puerta de enlace de red privada virtual de usuario P2S tiene dos instancias, y cada instancia admite hasta un número determinado de usuarios a medida que cambia la unidad de escalado. Las unidades de escalado de 1 a 3 admiten 500 conexiones, las unidades de escalado de 4 a 6 admiten 1 000 conexiones, las unidades de escalado de 7 a 10 admiten 5 000 conexiones y las unidades de escalado mayores que 11 admiten hasta 10 000 conexiones. Como ejemplo, supongamos que el usuario elige 1 unidad de escalado. Cada unidad de escalado implica una puerta de enlace activo-activo implementada, y cada una de las instancias (2, en este caso) admitiría hasta 500 conexiones. Aunque se pueden tener 500 conexiones*2 por cada puerta de enlace, no significa que se pueda planear para 1 000 en lugar de para 500 para esta unidad de escalado, ya que las instancias podrían necesitar mantenimiento y, durante este tiempo, la conectividad de las 500 adicionales se vería interrumpida si se sobrepasa el número recomendado de conexiones.
+Cada puerta de enlace de red privada virtual de usuario P2S tiene dos instancias, y cada instancia admite hasta un número determinado de usuarios a medida que cambia la unidad de escalado. Las unidades de escalado de 1 a 3 admiten 500 conexiones, las unidades de escalado de 4 a 6 admiten 1000 conexiones, las unidades de escalado de 7 a 12 admiten 5000 conexiones y las unidades de escalado de 13 a 20 admiten hasta 10 000 conexiones. Como ejemplo, supongamos que el usuario elige 1 unidad de escalado. Cada unidad de escalado implica una puerta de enlace activo-activo implementada, y cada una de las instancias (2, en este caso) admitiría hasta 500 conexiones. Aunque se pueden tener 500 conexiones*2 por cada puerta de enlace, no significa que se pueda planear para 1 000 en lugar de para 500 para esta unidad de escalado, ya que las instancias podrían necesitar mantenimiento y, durante este tiempo, la conectividad de las 500 adicionales se vería interrumpida si se sobrepasa el número recomendado de conexiones.
 
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpn-gateway"></a>¿Cuál es la diferencia entre una puerta de enlace de Azure Virtual Network (VPN Gateway) y una instancia de VPN Gateway de Azure Virtual WAN?
 
@@ -215,6 +215,10 @@ Si un centro virtual aprende la misma ruta de varios centros remotos, el orden e
 1) Origen de la ruta: a) rutas de red (prefijos de red virtual aprendidos directamente por las puertas de enlace del centro virtual; b) RouteTable del centro (rutas configuradas estáticamente); c) BGP; d) rutas de InterHub.
 2)  Métrica de ruta: Virtual WAN prefiere ExpressRoute a VPN. El emparejamiento de ExpressRoute tiene una ponderación mayor en comparación con el emparejamiento de VPN
 3)  Longitud de la ruta de acceso del sistema autónomo
+
+### <a name="is-there-support-for-ipv6-in-virtual-wan"></a>¿Hay compatibilidad con IPv6 en un Virtual WAN?
+
+IPv6 no se admite en el concentrador de Virtual WAN y sus puertas de enlace. Si tiene una red virtual que tiene compatibilidad con IPv6 y quiere conectarla a Virtual WAN, este escenario tampoco se admite. 
 
 ### <a name="what-are-the-differences-between-the-virtual-wan-types-basic-and-standard"></a>¿Cuáles son las diferencias entre los tipos de instancias de Virtual WAN (básico y estándar)?
 

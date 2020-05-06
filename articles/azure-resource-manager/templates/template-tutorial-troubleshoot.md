@@ -5,12 +5,12 @@ author: mumian
 ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 30b66414e87f642bc72b8723ebff57f2e9009f17
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 737e8a247a232278db73de716647fc5bb890fe39
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80239248"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82185003"
 ---
 # <a name="tutorial-troubleshoot-arm-template-deployments"></a>Tutorial: Solución de problemas de las implementaciones de plantillas de Resource Manager
 
@@ -26,24 +26,22 @@ Los dos tipos de errores devuelven un código de error que utiliza para solucion
 En este tutorial se describen las tareas siguientes:
 
 > [!div class="checklist"]
-> * Creación de una plantilla problemática
-> * Solución de errores de validación
-> * Solución de errores de implementación
-> * Limpieza de recursos
+> - Creación de una plantilla problemática
+> - Solución de errores de validación
+> - Solución de errores de implementación
+> - Limpieza de recursos
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este artículo, necesitará lo siguiente:
 
-* Visual Studio Code con la extensión Resource Manager Tools. Consulte [Uso de Visual Studio Code para la creación de plantillas de Resource Manager](use-vs-code-to-create-template.md).
+- Visual Studio Code con la extensión Resource Manager Tools. Consulte [Uso de Visual Studio Code para la creación de plantillas de Resource Manager](use-vs-code-to-create-template.md).
 
 ## <a name="create-a-problematic-template"></a>Creación de una plantilla problemática
 
-Abra una plantilla llamada [Create a standard storage account](https://azure.microsoft.com/resources/templates/101-storage-account-create/) (Crear una cuenta de almacenamiento estándar) desde [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/)y Configure dos problemas de las plantillas.
+Abra una plantilla llamada [Create a standard storage account](https://azure.microsoft.com/resources/templates/101-storage-account-create/) (Crear una cuenta de almacenamiento estándar) desde [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/) y configure dos problemas de plantilla.
 
 1. En Visual Studio Code, seleccione **Archivo**>**Abrir archivo**.
 2. En **Nombre de archivo**, pegue el código URL siguiente:
@@ -51,12 +49,14 @@ Abra una plantilla llamada [Create a standard storage account](https://azure.mic
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
     ```
+
 3. Seleccione **Abrir** para abrir el archivo.
 4. Cambie la línea **apiVersion** por la siguiente:
 
     ```json
     "apiVersion1": "2018-07-02",
     ```
+
     - **apiVersion1** es un nombre de elemento no válido. Es un error de validación.
     - La versión de la API será "2018-07-01".  Es un error de implementación.
 
@@ -64,7 +64,7 @@ Abra una plantilla llamada [Create a standard storage account](https://azure.mic
 
 ## <a name="troubleshoot-the-validation-error"></a>Solución de errores de validación
 
-Consulte la sección [Implementación de la plantilla](quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) para implementar la plantilla.
+Consulte la sección [Implementación de la plantilla](template-tutorial-create-multiple-instances.md#deploy-the-template) para implementar la plantilla.
 
 Se recibe un error del shell similar al siguiente:
 
@@ -78,7 +78,7 @@ Utilice Visual Studio Code para solucionar el problema cambiando **apiVersion1**
 
 ## <a name="troubleshoot-the-deployment-error"></a>Solución de errores de implementación
 
-Consulte la sección [Implementación de la plantilla](quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) para implementar la plantilla.
+Consulte la sección [Implementación de la plantilla](template-tutorial-create-multiple-instances.md#deploy-the-template) para implementar la plantilla.
 
 Se recibe un error del shell similar al siguiente:
 

@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 02/27/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 000f63ef5f73e77eb22fb539fc6736b929ac6bcc
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 12845f09ac2eb2342cdb1ab82b703ebd3a67c706
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81451574"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82229738"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Agregar ADFS como proveedor de identidades de SAML mediante las directivas personalizadas de Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-En este artículo se muestra cómo habilitar el inicio de sesión para una cuenta de usuario de ADFS mediante [directivas personalizadas](custom-policy-overview.md) en Azure Active Directory B2C (Azure AD B2C). Habilite el inicio de sesión mediante la adición de un [perfil técnico de SAML](saml-technical-profile.md) a una directiva personalizada.
+En este artículo se muestra cómo habilitar el inicio de sesión para una cuenta de usuario de ADFS mediante [directivas personalizadas](custom-policy-overview.md) en Azure Active Directory B2C (Azure AD B2C). Habilite el inicio de sesión mediante la adición de un [perfil técnico de proveedor de identidades SAML](saml-identity-provider-technical-profile.md) a una directiva personalizada.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -48,7 +48,7 @@ Debe almacenar el certificado en el inquilino de Azure AD B2C.
 
 Si desea que los usuarios inicien sesión con una cuenta de ADFS, deberá definirla como un proveedor de notificaciones con el que Azure AD B2C pueda comunicarse mediante un punto de conexión. El punto de conexión proporciona un conjunto de notificaciones que Azure AD B2C usa para comprobar que un usuario concreto se ha autenticado.
 
-Puede definir una cuenta de ADFS como proveedor de notificaciones; para ello, agréguela al elemento **ClaimsProvider** en el archivo de extensión de la directiva. Para más información, consulte [Definición de un perfil técnico de SAML](saml-technical-profile.md).
+Puede definir una cuenta de ADFS como proveedor de notificaciones; para ello, agréguela al elemento **ClaimsProvider** en el archivo de extensión de la directiva. Para más información, vea [Definición de un perfil técnico de proveedor de identidades SAML](saml-identity-provider-technical-profile.md).
 
 1. Abra el archivo *TrustFrameworkExtensions.xml*.
 1. Busque el elemento **ClaimsProviders**. Si no existe, agréguelo debajo del elemento raíz.

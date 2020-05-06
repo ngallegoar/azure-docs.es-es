@@ -1,26 +1,15 @@
 ---
-title: Introducción a PowerShell para Azure Batch | Microsoft Docs
+title: Introducción a PowerShell
 description: Una rápida introducción a los cmdlets de Azure PowerShell que puede usar para administrar recursos de Batch.
-services: batch
-documentationcenter: ''
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: ''
-ms.service: batch
-ms.devlang: NA
 ms.topic: conceptual
-ms.tgt_pltfrm: powershell
-ms.workload: big-compute
 ms.date: 01/15/2019
-ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 26691ca6b9d078ef18ac852c67fa2ac88dff2722
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 79473c5fb63a5f5ad29194c65cd8094ea444dbd8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77023011"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82115846"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>Administración de recursos de Batch con cmdlets de PowerShell
 
@@ -30,7 +19,7 @@ Para obtener una lista completa de los cmdlets de Batch y la sintaxis detallada 
 
 En este artículo se usan los cmdlets de la versión 1.0.0 del módulo Az Batch. Se recomienda actualizar los módulos de Azure PowerShell con frecuencia para aprovechar las mejoras y actualizaciones del servicio.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * [Instale y configure el módulo de Azure PowerShell](/powershell/azure/overview). Para instalar un módulo específico de Azure Batch, como una versión preliminar, consulte [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.Batch/1.0.0).
 

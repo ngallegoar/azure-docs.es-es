@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: sanpil
 author: sanpil
 ms.date: 11/11/2019
-ms.openlocfilehash: 40e6d7f3d9c28708c5adec26ddc3c0463e75adc0
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: cee6de8fda45c429d0c74a3ecdc966b49e092567
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81529712"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208506"
 ---
 # <a name="define-machine-learning-pipelines-in-yaml"></a>Definición de canalizaciones de aprendizaje automático en YAML
 
@@ -366,7 +366,7 @@ pipeline:
 
 | Clave de YAML | Descripción |
 | ----- | ----- |
-| `steps` | Secuencia de una o más definiciones de PipelineStep. Tenga en cuenta que `destination` de `outputs` de un paso se convierten en las claves de `inputs`.| 
+| `steps` | Secuencia de una o más definiciones de PipelineStep. Tenga en cuenta que las claves de `destination` de `outputs` de un paso se convierten en las claves de `source` de `inputs` del siguiente paso.| 
 
 ```yaml
 pipeline:

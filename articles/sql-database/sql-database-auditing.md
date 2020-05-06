@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 03/27/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 9e8aa9bbbdf166ba0caf29cd0bce22b8ed321e4e
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 57c4b22dfe6ef6cf44be64a4b5c042403f64ccf2
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81685181"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82096663"
 ---
 # <a name="azure-sql-auditing"></a>Auditoría de Azure SQL
 
@@ -41,28 +41,28 @@ Puede usar la auditoría de base de datos SQL para:
 > [!IMPORTANT]
 > - La auditoría de Azure SQL Database está optimizada para el rendimiento y la disponibilidad. Cuando Azure SQL Database tiene una actividad muy elevada, permite que las operaciones continúen y es posible que no grabe algunos eventos auditados.
 
-#### <a name="auditing-limitations"></a>Limitaciones de auditoría
+### <a name="auditing-limitations"></a>Limitaciones de auditoría
 
 - **Premium Storage** actualmente **no se admite**.
 - **El espacio de nombres jerárquico** para la **cuenta de almacenamiento de Azure Data Lake Storage Gen2** actualmente **no se admite**.
 - No es posible habilitar la auditoría en una instancia de **Azure SQL Data Warehouse** en pausa. Para habilitar la auditoría, reanude Data Warehouse.
 
-## <a name="define-server-level-vs-database-level-auditing-policy"></a><a id="server-vs-database-level"></a>Definir la directiva de auditoría de nivel de servidor frente la de nivel de base de datos
+#### <a name="define-server-level-vs-database-level-auditing-policy"></a><a id="server-vs-database-level"></a>Definir la directiva de auditoría de nivel de servidor frente la de nivel de base de datos
 
 Puede definirse una directiva de auditoría para una base de datos específica o como directiva de servidor predeterminada:
 
 - Una directiva de servidor se aplica a todas las bases de datos recién creadas en el servidor.
 
-- Si la *auditoría de blobs de servidor* está habilitada, *se aplica siempre a la base de datos*. La base de datos se auditará, independientemente de la configuración de auditoría de la base de datos.
+- Si la *auditoría de servidor está habilitada*, *se aplica siempre a la base de datos*. La base de datos se auditará, independientemente de la configuración de auditoría de la base de datos.
 
-- Habilitar la auditoría de blobs en la base de datos o el almacenamiento de datos, además de en el servidor, *no* invalida ni cambia ninguna de las opciones de la auditoría del servidor de blobs. Ambas auditorías existirán en paralelo. En otras palabras, la base de datos se auditará dos veces en paralelo; una vez por la directiva de servidor y otra vez por la directiva de base de datos.
+- Habilitar la auditoría en la base de datos o el almacenamiento de datos, además de en el servidor, *no* invalida ni cambia ninguno de los valores de configuración de la auditoría de servidor. Ambas auditorías existirán en paralelo. En otras palabras, la base de datos se auditará dos veces en paralelo; una vez por la directiva de servidor y otra vez por la directiva de base de datos.
 
    > [!NOTE]
-   > Debe habilitar tanto la auditoría de blobs de servidor como la auditoría de blobs de base de datos, a menos que:
+   > Debe evitar habilitar tanto la auditoría de servidor como la auditoría de blobs de base de datos, a menos que:
     > - Quiera usar una *cuenta de almacenamiento*, un *período de retención* o un *área de trabajo de Log Analytics* diferentes para una base de datos específica.
     > - Quiera auditar tipos de eventos o categorías para una base de datos específica que difieren del resto de las bases de datos del servidor. Por ejemplo, es posible que tenga inserciones de tabla que solo tengan que deban auditarse para una base de datos concreta.
    >
-   > En caso contrario, se recomienda habilitar solo la auditoría de blobs de nivel de servidor y dejar que la auditoría de nivel de base de datos esté deshabilitada para todas las bases de datos.
+   > En caso contrario, se recomienda habilitar solo la auditoría de nivel de servidor y dejar que la auditoría de nivel de base de datos esté deshabilitada para todas las bases de datos.
 
 ## <a name="set-up-auditing-for-your-server"></a><a id="setup-auditing"></a>Configuración de la auditoría para su servidor
 
@@ -89,7 +89,7 @@ En la sección siguiente se describe la configuración de auditoría mediante Az
   
    ![opciones de almacenamiento](./media/sql-database-auditing-get-started/auditing-select-destination.png)
    
-### <a name=""></a><a id="audit-storage-destination">Auditoría para el destino de almacenamiento</a>
+### <a name="audit-to-storage-destination"></a><a id="audit-storage-destination"></a>Auditoría para el destino de almacenamiento
 
 Para configurar la escritura de registros de auditoría en una cuenta de almacenamiento, seleccione **Almacenamiento** y abra **Detalles de almacenamiento**. Seleccione la cuenta de almacenamiento de Azure donde se guardarán los registros y, después, seleccione el período de retención. A continuación, haga clic en **Aceptar**. Los registros anteriores al período de retención se eliminarán.
 
@@ -108,13 +108,13 @@ Para configurar la escritura de registros de auditoría en una cuenta de almacen
 - Cuando se usa la autenticación de Azure AD, los registros de inicios de sesión con error *no* aparecerán en el registro de auditoría SQL. Para ver los registros de auditoría de inicio de sesión con error, debe visitar el [portal de Azure Active Directory]( ../active-directory/reports-monitoring/reference-sign-ins-error-codes.md), que registra los detalles de estos eventos.
 - La auditoría en las [réplicas de solo lectura](sql-database-read-scale-out.md) se habilita automáticamente. Para obtener más información sobre la jerarquía de las carpetas de almacenamiento, las convenciones de nomenclatura y el formato del registro, consulte el artículo sobre el [formato del registro de auditoría de SQL Database](sql-database-audit-log-format.md). 
 
-### <a name=""></a><a id="audit-log-analytics-destination">Auditoría en un destino de Log Analytics</a>
+### <a name="audit-to-log-analytics-destination"></a><a id="audit-log-analytics-destination"></a>Auditoría para el destino de Log Analytics
   
 Para configurar la escritura de registros de auditoría en un área de trabajo de Log Analytics, seleccione **Log Analytics (versión preliminar)** y abra **Detalles de Log Analytics**. Seleccione o cree el área de trabajo de Log Analytics donde se escribirán los registros y, luego, haga clic en **Aceptar**.
    
    ![LogAnalyticsworkspace](./media/sql-database-auditing-get-started/auditing_select_oms.png)
 
-### <a name=""></a><a id="audit-event-hub-destination">Auditoría en un destino del centro de eventos</a>
+### <a name="audit-to-event-hub-destination"></a><a id="audit-event-hub-destination"></a>Auditoría para un destino del centro de eventos
 
 > [!WARNING]
 > La habilitación de la auditoría en un servidor que tiene un grupo de SQL en ella **da lugar a que el grupo de SQL se reanude y se vuelva a poner en pausa**, lo que puede suponer cargos de facturación.
@@ -199,7 +199,7 @@ Si eligió escribir los registros de auditoría en una cuenta de almacenamiento 
 
 <!--The description in this section refers to preceding screen captures.-->
 
-#### <a name="auditing-geo-replicated-databases"></a>Auditoría de bases de datos con replicación geográfica
+### <a name="auditing-geo-replicated-databases"></a>Auditoría de bases de datos con replicación geográfica
 
 Con bases de datos con replicación geográfica, cuando se habilita la auditoría en la base de datos principal, la base de datos secundaria tendrá una directiva de auditoría idéntica. También es posible configurar la auditoría en la base de datos secundaria habilitando la auditoría en el **servidor secundario**, independientemente de la base de datos principal.
 
@@ -211,7 +211,7 @@ Con bases de datos con replicación geográfica, cuando se habilita la auditorí
     >[!IMPORTANT]
     >Con la auditoría en el nivel de base de datos, la configuración de almacenamiento de la base de datos secundaria será idéntica a la de la base de datos principal, lo que provocará tráfico interregional. Se recomienda habilitar solo la auditoría de nivel de servidor y dejar que la auditoría de nivel de base de datos esté deshabilitada para todas las bases de datos.
 
-#### <a name="storage-key-regeneration"></a>Regeneración de clave de almacenamiento
+### <a name="storage-key-regeneration"></a>Regeneración de clave de almacenamiento
 
 En el entorno de producción, es probable que actualice periódicamente las claves de almacenamiento. Al escribir registros de auditoría en Azure Storage, debe volver a guardar la directiva de auditoría cuando se actualicen las claves. El proceso es el siguiente:
 
@@ -226,7 +226,7 @@ En el entorno de producción, es probable que actualice periódicamente las clav
 
 ## <a name="manage-azure-sql-server-and-database-auditing"></a><a id="manage-auditing"></a>Administración de auditorías de Azure SQL Server y Azure SQL Database
 
-#### <a name="using-azure-powershell"></a>Uso de Azure PowerShell
+### <a name="using-azure-powershell"></a>Uso de Azure PowerShell
 
 **Cmdlets de PowerShell (incluye compatibilidad con la cláusula WHERE para filtrado adicional)** :
 
@@ -239,7 +239,7 @@ En el entorno de producción, es probable que actualice periódicamente las clav
 
 Para ver un script de ejemplo, consulte [Configuración de la auditoría y detección de amenazas mediante PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 
-#### <a name="using-rest-api"></a>Uso de la API de REST
+### <a name="using-rest-api"></a>Uso de la API de REST
 
 **API REST**:
 
@@ -255,7 +255,7 @@ Directiva extendida compatible con la cláusula WHERE para filtrado adicional:
 - [Obtener la directiva de auditoría de base de datos *extendida*](/rest/api/sql/database%20extended%20auditing%20settings/get)
 - [Obtener la directiva de auditoría de servidor *extendida*](/rest/api/sql/server%20auditing%20settings/get)
 
-#### <a name="using-azure-resource-manager-templates"></a>Uso de plantillas del Administrador de recursos de Azure
+### <a name="using-azure-resource-manager-templates"></a>Uso de plantillas del Administrador de recursos de Azure
 
 Puede administrar auditorías de Azure SQL Database mediante plantillas de [Azure Resource Manager](../azure-resource-manager/management/overview.md), tal como se muestra en estos ejemplos:
 

@@ -2,13 +2,13 @@
 title: 'Funciones de plantillas: numérico'
 description: Describe las funciones para usar en una plantilla de Azure Resource Manager para trabajar con números.
 ms.topic: conceptual
-ms.date: 11/08/2017
-ms.openlocfilehash: 2ca5c539036d002b83b8141132a0ebf2530dc6af
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/27/2020
+ms.openlocfilehash: dc15ade453fc5ea4dc031ced0377892f4f8cf27d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80156351"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192355"
 ---
 # <a name="numeric-functions-for-arm-templates"></a>Funciones numéricas para plantillas de ARM
 
@@ -25,11 +25,8 @@ Resource Manager ofrece las siguientes funciones para trabajar con enteros en la
 * [mul](#mul)
 * [sub](#sub)
 
-<a id="add" />
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
 ## <a name="add"></a>add
+
 `add(operand1, operand2)`
 
 Devuelve la suma de los dos enteros especificados.
@@ -86,21 +83,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 | ---- | ---- | ----- |
 | addResult | Int | 8 |
 
-Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/add.json
-```
-
-Para implementar esta plantilla de ejemplo con PowerShell, use:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/add.json
-```
-
-<a id="copyindex" />
-
 ## <a name="copyindex"></a>copyIndex
+
 `copyIndex(loopName, offset)`
 
 Devuelve el índice actual de un bucle de iteración.
@@ -114,39 +98,58 @@ Devuelve el índice actual de un bucle de iteración.
 
 ### <a name="remarks"></a>Observaciones
 
-Esta función siempre se usa con un objeto **copy** . Si no se proporciona ningún valor para **offset**, se devuelve el valor de la iteración actual. El valor del iteración comienza en cero. Puede usar bucles de iteración al definir recursos o variables.
+Esta función siempre se usa con un objeto **copy** . Si no se proporciona ningún valor para **offset**, se devuelve el valor de la iteración actual. El valor del iteración comienza en cero.
 
 La propiedad **loopName** le permite especificar si copyIndex hace referencia a una iteración de recursos o una iteración de propiedades. Si no se proporciona ningún valor para **loopName**, se usa la iteración de tipo de recurso actual. Proporcione un valor para **loopName** al iterar en una propiedad.
 
-Para ver una descripción completa de cómo usar **copyIndex**, consulte [Creación de varias instancias de recursos en Azure Resource Manager](copy-resources.md).
+Para más información sobre el uso de la copia, consulte:
 
-Para obtener un ejemplo del uso de **copyIndex** al definir una variable, vea [Variables](template-syntax.md#variables).
+* [Iteración de recursos en las plantillas de ARM](copy-resources.md)
+* [Iteración de propiedades en las plantillas de ARM](copy-properties.md)
+* [Iteración de variables en las plantillas de ARM](copy-variables.md)
+* [Iteración de salida en las plantillas de ARM](copy-outputs.md)
 
 ### <a name="example"></a>Ejemplo
 
 En el ejemplo siguiente se muestra un bucle de copia y el valor de índice incluido en el nombre.
 
 ```json
-"resources": [
-  {
-    "name": "[concat('examplecopy-', copyIndex())]",
-    "type": "Microsoft.Web/sites",
-    "copy": {
-      "name": "websitescopy",
-      "count": "[parameters('count')]"
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storageCount": {
+            "type": "int",
+            "defaultValue": 2
+        }
     },
-    ...
-  }
-]
+    "resources": [
+        {
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2019-04-01",
+            "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
+            "location": "[resourceGroup().location]",
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "Storage",
+            "properties": {},
+            "copy": {
+                "name": "storagecopy",
+                "count": "[parameters('storageCount')]"
+            }
+        }
+    ],
+    "outputs": {}
+}
 ```
 
 ### <a name="return-value"></a>Valor devuelto
 
 Un entero que representa el índice actual de la iteración.
 
-<a id="div" />
-
 ## <a name="div"></a>div
+
 `div(operand1, operand2)`
 
 Devuelve la división de enteros de los dos enteros especificados.
@@ -203,21 +206,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 | ---- | ---- | ----- |
 | divResult | Int | 2 |
 
-Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/div.json
-```
-
-Para implementar esta plantilla de ejemplo con PowerShell, use:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/div.json
-```
-
-<a id="float" />
-
 ## <a name="float"></a>FLOAT
+
 `float(arg1)`
 
 Convierte el valor en un número de punto flotante. Solo use esta función al pasar parámetros personalizados a una aplicación, como una aplicación lógica.
@@ -229,6 +219,7 @@ Convierte el valor en un número de punto flotante. Solo use esta función al pa
 | arg1 |Sí |cadena o entero |El valor para convertir en número de punto flotante. |
 
 ### <a name="return-value"></a>Valor devuelto
+
 Un número de punto flotante.
 
 ### <a name="example"></a>Ejemplo
@@ -249,9 +240,8 @@ En el ejemplo siguiente se muestra cómo usar float para pasar parámetros a una
             },
 ```
 
-<a id="int" />
-
 ## <a name="int"></a>int
+
 `int(valueToConvert)`
 
 Convierte el valor especificado en un entero.
@@ -297,21 +287,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 | ---- | ---- | ----- |
 | intResult | Int | 4 |
 
-Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/int.json
-```
-
-Para implementar esta plantilla de ejemplo con PowerShell, use:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/int.json
-```
-
-<a id="max" />
-
 ## <a name="max"></a>max
+
 `max (arg1)`
 
 Devuelve el valor máximo de una matriz de enteros o una lista separada por comas de enteros.
@@ -361,21 +338,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 | arrayOutput | Int | 5 |
 | intOutput | Int | 5 |
 
-Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/max.json
-```
-
-Para implementar esta plantilla de ejemplo con PowerShell, use:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/max.json
-```
-
-<a id="min" />
-
 ## <a name="min"></a>Min
+
 `min (arg1)`
 
 Devuelve el valor mínimo de una matriz de enteros o una lista separada por comas de enteros.
@@ -425,21 +389,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 | arrayOutput | Int | 0 |
 | intOutput | Int | 0 |
 
-Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/min.json
-```
-
-Para implementar esta plantilla de ejemplo con PowerShell, use:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/min.json
-```
-
-<a id="mod" />
-
 ## <a name="mod"></a>mod
+
 `mod(operand1, operand2)`
 
 Devuelve el resto de la división de enteros de los dos enteros especificados.
@@ -452,6 +403,7 @@ Devuelve el resto de la división de enteros de los dos enteros especificados.
 | operand2 |Sí |int |Número que se usa para dividir; no puede ser 0. |
 
 ### <a name="return-value"></a>Valor devuelto
+
 Un entero que representa el resto.
 
 ### <a name="example"></a>Ejemplo
@@ -495,21 +447,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 | ---- | ---- | ----- |
 | modResult | Int | 1 |
 
-Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/mod.json
-```
-
-Para implementar esta plantilla de ejemplo con PowerShell, use:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/mod.json
-```
-
-<a id="mul" />
-
 ## <a name="mul"></a>mul
+
 `mul(operand1, operand2)`
 
 Devuelve la multiplicación de los dos enteros especificados.
@@ -566,21 +505,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 | ---- | ---- | ----- |
 | mulResult | Int | 15 |
 
-Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/mul.json
-```
-
-Para implementar esta plantilla de ejemplo con PowerShell, use:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/mul.json
-```
-
-<a id="sub" />
-
 ## <a name="sub"></a>sub
+
 `sub(operand1, operand2)`
 
 Devuelve la resta de los dos enteros especificados.
@@ -593,6 +519,7 @@ Devuelve la resta de los dos enteros especificados.
 | operand2 |Sí |int |Número que se resta. |
 
 ### <a name="return-value"></a>Valor devuelto
+
 Un entero que representa la resta.
 
 ### <a name="example"></a>Ejemplo
@@ -636,21 +563,7 @@ La salida del ejemplo anterior con el valor predeterminado es:
 | ---- | ---- | ----- |
 | subResult | Int | 4 |
 
-Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/sub.json
-```
-
-Para implementar esta plantilla de ejemplo con PowerShell, use:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/sub.json
-```
-
 ## <a name="next-steps"></a>Pasos siguientes
-* Para obtener una descripción de las secciones de una plantilla de Azure Resource Manager, vea [Creación de plantillas de Azure Resource Manager](template-syntax.md).
-* Para combinar varias plantillas, vea [Uso de plantillas vinculadas con Azure Resource Manager](linked-templates.md).
-* Para iterar una cantidad de veces específica al crear un tipo de recurso, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](copy-resources.md).
-* Para saber cómo implementar la plantilla que creó, consulte [Implementación de una aplicación con la plantilla de Azure Resource Manager](deploy-powershell.md).
 
+* Para obtener una descripción de las secciones de una plantilla de Azure Resource Manager, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).
+* Para iterar una cantidad de veces específica al crear un tipo de recurso, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](copy-resources.md).

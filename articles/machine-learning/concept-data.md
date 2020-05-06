@@ -1,7 +1,7 @@
 ---
-title: Datos en Azure Machine Learning
+title: Acceso seguro a datos en la nube
 titleSuffix: Azure Machine Learning
-description: Obtenga información acerca de cómo Azure Machine Learning se conecta de forma segura a los datos y los usa para tareas de aprendizaje automático.
+description: Obtenga información acerca de cómo conectarse de forma segura a los datos en Azure Machine Learning y cómo usar conjuntos de datos y almacenes de datos para tareas de Machine Learning. Los almacenes de datos pueden almacenar datos de blobs de Azure, Azure Data Lake Gen 1 y 2, bases de datos SQL, Databricks, etc.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
-ms.date: 03/20/2020
-ms.openlocfilehash: 982c9c9eadec4403c8116430e1e25092de99f1d9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/24/2020
+ms.openlocfilehash: 614cc866529cd4ead8a6ea798526d59aff13d4d0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80128486"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82144484"
 ---
-# <a name="data-access-in-azure-machine-learning"></a>Acceso a los datos en Azure Machine Learning
+# <a name="secure-data-access-in-azure-machine-learning"></a>Acceso seguro a datos en Azure Machine Learning
 
 Azure Machine Learning facilita la conexión con los datos en la nube.  Proporciona una capa de abstracción en el servicio de almacenamiento subyacente, por lo que puede acceder de forma segura a los datos y trabajar con ellos sin tener que escribir código específico para su tipo de almacenamiento. Azure Machine Learning también ofrece las siguientes funcionalidades de datos:
 

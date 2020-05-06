@@ -7,12 +7,12 @@ ms.author: spelluru
 ms.date: 03/13/2020
 ms.service: service-bus-messaging
 ms.topic: article
-ms.openlocfilehash: b8c4248b7275ac96acce96f890f6ff0148116f48
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 33e6ce1d5feb50080b00fcbecdeb9e512980eab6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79473821"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82141944"
 ---
 # <a name="integrate-azure-service-bus-with-azure-private-link-preview"></a>Integración de Azure Service Bus con Azure Private Link (versión preliminar)
 
@@ -22,8 +22,22 @@ Un punto de conexión privado es una interfaz de red que le conecta de forma pri
 
 Para más información, consulte [¿Qué es Azure Private Link?](../private-link/private-link-overview.md)
 
-> [!NOTE]
-> Esta característica se admite en el nivel **Premium** de Azure Service Bus. Para más información sobre el nivel Premium, consulte el artículo [Niveles de mensajería Premium y Estándar de Service Bus](service-bus-premium-messaging.md).
+>[!WARNING]
+> La implementación de puntos de conexión privados puede evitar que otros servicios de Azure interactúen con Service Bus.
+>
+> Los servicios de confianza de Microsoft no se admiten cuando se usan instancias de Virtual Network.
+>
+> Estos son los escenarios comunes de Azure que no funcionan con instancias de Virtual Network (tenga en cuenta que la lista **NO** está completa).
+> - Integración con Azure Event Grid
+> - Enrutamientos de Azure IoT Hub
+> - Azure IoT Device Explorer
+>
+> Los siguientes servicios de Microsoft deben estar en una red virtual
+> - Azure App Service
+> - Azure Functions
+
+> [!IMPORTANT]
+> Esta característica es compatible con el nivel **premium** de Azure Service Bus. Para más información sobre el nivel premium, consulte el artículo [Niveles de mensajería Premium y Estándar de Service Bus](service-bus-premium-messaging.md).
 >
 > Esta funcionalidad está actualmente en **versión preliminar**. 
 
@@ -57,7 +71,7 @@ Si ya tiene un espacio de nombres existente, puede crear un punto de conexión p
     1. Seleccione la **suscripción de Azure** donde desea crear el punto de conexión privado. 
     2. Seleccione el **grupo de recursos** para el recurso de punto de conexión privado.
     3. Escriba el **Nombre** del punto de conexión privado. 
-    5. Seleccione la **región** del punto de conexión privado. El punto de conexión privado debe estar en la misma región que la red virtual, pero puede estar en otra región distinta de la del recurso de Private Link al que se está conectando. 
+    5. Seleccione la **región** del punto de conexión privado. El punto de conexión privado debe estar en la misma región que la red virtual, que puede no ser la misma que la del recurso de Private Link al que se está conectando. 
     6. Seleccione **Siguiente: Recurso >** en la parte inferior de la página.
 
         ![Creación de un punto de conexión privado: página Conceptos básicos](./media/private-link-service/create-private-endpoint-basics-page.png)
@@ -71,7 +85,7 @@ Si ya tiene un espacio de nombres existente, puede crear un punto de conexión p
         
             ![Creación de un punto de conexión privado: página Recurso](./media/private-link-service/create-private-endpoint-resource-page.png)
     2. Si selecciona **Conéctese a un recurso de Azure por identificador de recurso o alias.** , siga estos pasos:
-        1. Escriba el **identificador de recurso** o **alias**. Puede ser el identificador de recurso o el alias que alguien haya compartido con usted.
+        1. Escriba el **identificador de recurso** o **alias**. Puede ser el identificador o alias del recurso que alguien haya compartido con usted. La forma más fácil de obtener el identificador de recurso es desplazarse hasta el espacio de nombres de Service Bus de Azure Portal y copiar la parte del identificador URI a partir de `/subscriptions/`. Vea la imagen siguiente como ejemplo. 
         2. En **Subrecurso de destino**, escriba **espacio de nombres**. Este es el tipo de subrecurso al que puede acceder el punto de conexión privado. 
         3. (Opcional) Escriba un **mensaje de solicitud**. El propietario del recurso ve este mensaje mientras administra la conexión del punto de conexión privado. 
         4. Después, seleccione **Next (Siguiente): Configuración >** situado en la parte inferior de la página. 

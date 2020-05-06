@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/22/2019
+ms.date: 04/24/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76eccb5d62b68865b7a117312be62753f203e2cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6aacf45bf33663c448aa21d63900d69d5d870e0d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73847091"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82183405"
 ---
 # <a name="review-access-to-azure-ad-roles-in-privileged-identity-management"></a>Revisión de acceso a los roles de AD Azure en Privileged Identity Management
 
@@ -31,10 +31,10 @@ Si es un administrador de roles con privilegios o un administrador global y est�
 
 ## <a name="add-a-pim-dashboard-tile"></a>Incorporación de un icono de panel de PIM
 
-Si no tiene el servicio Azure AD Privileged Identity Management anclado al panel en Azure Portal, siga estos pasos para comenzar.
+Si no tiene el servicio Privileged Identity Management anclado al panel en Azure Portal, siga estos pasos para comenzar.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-2. Seleccione su nombre de usuario en la esquina superior derecha del Portal de Azure y elija el directorio donde va a trabajar.
+2. Seleccione su nombre de usuario en la esquina superior derecha de Azure Portal y seleccione la organización de Azure AD directorio donde va a trabajar.
 3. Seleccione **Todos los servicios** y use el cuadro de texto Filtro para buscar **Azure AD Privileged Identity Management**.
 4. Active **Anclar al panel** y haga clic en **Crear**. Se abrirá la aplicación Privileged Identity Management.
 
@@ -49,7 +49,6 @@ Para buscar y completar la revisión de acceso, siga estos pasos:
 4. Elija **Aprobar** o **Denegar**. Puede que necesite incluir un motivo de su decisión en el cuadro de texto **Proporcionar una razón** .  
 5. Cierre la hoja **Revisar roles de Azure AD** .
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Realización de una revisión de acceso para los roles de recurso de Azure en PIM](pim-resource-roles-perform-access-review.md)

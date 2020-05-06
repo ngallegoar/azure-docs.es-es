@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: cshoe
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 7d121e9aeb897897322f1253c332e7a1baabdc9e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f6698bcc8125cd00dcb1cd6c86a8d69153242b35
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75768969"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82190306"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Creación de una función que se integre con Azure Logic Apps
 
@@ -36,7 +36,11 @@ En este tutorial, aprenderá a:
 
 + Una cuenta de [Twitter](https://twitter.com/) activa. 
 + Una cuenta de [Outlook.com](https://outlook.com/) (para enviar las notificaciones).
-+ Este tema usa como punto de partida los recursos creados en [Creación de la primera función desde Azure Portal](functions-create-first-azure-function.md).  
+
+> [!NOTE]
+> Si quiere usar el conector de Gmail, solo las cuentas empresariales de G-Suite pueden usar este conector sin restricciones en las aplicaciones lógicas. Si tiene una cuenta de consumidor de Gmail, puede usar el conector de Gmail solo con aplicaciones y servicios específicos aprobados por Google, o puede [crear una aplicación cliente de Google para usarla en la autenticación con el conector de Gmail](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). Para más información, consulte [Directivas de privacidad y seguridad de datos de los conectores de Google en Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
+
++ Este tema usa como punto de partida los recursos creados en [Creación de la primera función desde Azure Portal](functions-create-first-azure-function.md).
 Si aún no lo hecho, lleve a cabo estos pasos ahora para crear la aplicación de función.
 
 ## <a name="create-a-cognitive-services-resource"></a>Creación de un recurso de Cognitive Services

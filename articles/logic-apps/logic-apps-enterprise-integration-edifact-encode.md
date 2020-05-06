@@ -7,13 +7,13 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, divswa, logicappspm
 ms.topic: article
-ms.date: 01/27/2017
-ms.openlocfilehash: 257cbd0b1a68ddd2b16235e6f8dec5d5b0eb10e2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/22/2020
+ms.openlocfilehash: cee97fddc619840de821ebb70d32e0cab1bbe040
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74790645"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82106532"
 ---
 # <a name="encode-edifact-messages-for-azure-logic-apps-with-enterprise-integration-pack"></a>Codificación de mensajes EDIFACT para Azure Logic Apps con Enterprise Integration Pack
 
@@ -30,6 +30,10 @@ Esto es lo que necesita:
 * Un [contrato EDIFACT](logic-apps-enterprise-integration-edifact.md) ya definido en la cuenta de integración.
 
 ## <a name="encode-edifact-messages"></a>Codificación de mensajes EDIFACT
+
+> [!IMPORTANT]
+> El conector EDIFACT solo admite caracteres UTF-8.
+> Si la salida contiene caracteres inesperados, compruebe que los mensajes EDIFACT utilizan el juego de caracteres UTF-8.
 
 1. [Crear una aplicación lógica](quickstart-create-first-logic-app-workflow.md).
 

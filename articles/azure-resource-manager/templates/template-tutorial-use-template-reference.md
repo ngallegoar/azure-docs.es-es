@@ -2,16 +2,16 @@
 title: Uso de referencia de plantilla
 description: Use la referencia de plantilla de Azure Resource Manager para crear una plantilla.
 author: mumian
-ms.date: 03/27/2020
+ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: b713d508a5e28291778d3727c15e12972eea3a77
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 12990238455046d837b175318225bb4f3d317706
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878525"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82185054"
 ---
 # <a name="tutorial-utilize-the-resource-manager-template-reference"></a>Tutorial: Uso de la referencia de plantilla de Resource Manager
 
@@ -102,21 +102,42 @@ En Visual Studio Code, agregue los tipos de cuenta de almacenamiento adicionale
 
 ## <a name="deploy-the-template"></a>Implementación de la plantilla
 
-Consulte la sección [Implementación de la plantilla](quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) de la guía de inicio rápido de Visual Studio Code para el procedimiento de implementación. Al implementar la plantilla, especifique el parámetro **storageAccountType** con un valor recién agregado, por ejemplo, **Premium_ZRS**. La implementación no se realizaría si se usa la plantilla de inicio rápido original, ya que **Premium_ZRS** no era un valor permitido.  Para pasar el valor del parámetro, agregue el siguiente modificador al comando de implementación:
+1. Inicio de sesión en [Azure Cloud Shell](https://shell.azure.com)
 
-# <a name="cli"></a>[CLI](#tab/CLI)
+1. Elija el entorno que prefiera; para ello, seleccione **PowerShell** o **Bash** (para CLI) en la esquina superior izquierda.  Es necesario reiniciar el shell cuando realiza el cambio.
 
-```azurecli
---parameters storageAccountType='Premium_ZRS'
-```
+    ![Archivo de carga de Cloud Shell de Azure Portal](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
+1. Seleccione **Cargar/descargar archivos** y, después, seleccione **Cargar**. Consulte la captura de pantalla anterior. Seleccione el archivo que guardó en la sección anterior. Después de cargar el archivo, puede usar el comando **ls** y el comando **cat** para comprobar que la operación de carga se ha realizado correctamente.
 
-```azurepowershell
--storageAccountType "Premium_ZRS"
-```
+1. En Cloud Shell, ejecute los comandos siguientes. Seleccione la pestaña para mostrar el código de PowerShell o el código de la CLI.
 
----
+    # <a name="cli"></a>[CLI](#tab/CLI)
+
+    ```azurecli
+    echo "Enter a project name that is used to generate resource group name:" &&
+    read projectName &&
+    echo "Enter the location (i.e. centralus):" &&
+    read location &&
+    resourceGroupName="${projectName}rg" &&
+    az group create --name $resourceGroupName --location "$location" &&
+    az deployment group create --resource-group $resourceGroupName --template-file "$HOME/azuredeploy.json" --parameters storageAccountType='Standard_RAGRS'
+    ```
+
+    # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
+
+    ```azurepowershell
+    $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name"
+    $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+    $resourceGroupName = "${projectName}rg"
+
+    New-AzResourceGroup -Name $resourceGroupName -Location "$location"
+    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "$HOME/azuredeploy.json" -storageAccountType "Standard_RAGRS"
+    ```
+
+    ---
+
+ Al implementar la plantilla, especifique el parámetro **storageAccountType** con un valor recién agregado, por ejemplo, **Standard_RAGRS**. Si se usa la plantilla de inicio rápido original, la implementación no se realizaría, ya que **Standard_RAGRS** no era un valor permitido.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

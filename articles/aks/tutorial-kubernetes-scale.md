@@ -5,12 +5,12 @@ services: container-service
 ms.topic: tutorial
 ms.date: 01/14/2019
 ms.custom: mvc
-ms.openlocfilehash: 5c1cbebd671568d200321615ad34f52cb636c6c8
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: f830d42ef09a60b1f9ced43250b24a68003d1e87
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878092"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82128991"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Tutorial: Escalado de aplicaciones en Azure Kubernetes Service (AKS)
 
@@ -74,11 +74,11 @@ az aks show --resource-group myResourceGroup --name myAKSCluster --query kuberne
 ```
 
 > [!NOTE]
-> Si la versión del clúster de Azure Kubernetes Service es anterior a *1.10*, el servidor de métricas no se instala automáticamente. Para realizar la instalación, clone el repositorio de GitHub `metrics-server` e instale las definiciones de recursos de ejemplo. Para ver el contenido de estas definiciones de YAML, consulte [Servidor de métricas para Kuberenetes 1.8 +][metrics-server-github].
+> Si la versión del clúster de Azure Kubernetes Service es anterior a *1.10*, el servidor de métricas no se instala automáticamente. Los manifiestos de instalación del servidor de medición están disponibles como un recurso `components.yaml` en las versiones del servidor de medición, lo que significa que puede instalarlos a través de una dirección URL. Para más información sobre estas definiciones de YAML, consulte la sección de [implementación][metrics-server-github] del archivo Léame.
 > 
+> Instalación de ejemplo:
 > ```console
-> git clone https://github.com/kubernetes-incubator/metrics-server.git
-> kubectl create -f metrics-server/deploy/1.8+/
+> kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.3.6/components.yaml
 > ```
 
 Para usar la autoescala, todos los contenedores de los pod y los pods deben tener definidos solicitudes y límites de CPU. En la implementación de `azure-vote-front`, el contenedor del front-end ya solicita 0,25 CPU, con un límite de 0,5 CPU. Estas solicitudes de recursos y los límites se definen tal y como se muestra en el siguiente fragmento de código de ejemplo:
@@ -192,7 +192,7 @@ Vaya al siguiente tutorial para aprender a actualizar la aplicación en Kubernet
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-scale]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#scale
 [kubernetes-hpa]: https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/
-[metrics-server-github]: https://github.com/kubernetes-incubator/metrics-server/tree/master/deploy/1.8%2B
+[metrics-server-github]: https://github.com/kubernetes-sigs/metrics-server/blob/master/README.md#deployment
 [metrics-server]: https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/#metrics-server
 
 <!-- LINKS - internal -->

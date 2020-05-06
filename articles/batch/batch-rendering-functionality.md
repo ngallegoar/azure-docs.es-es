@@ -1,18 +1,16 @@
 ---
-title: 'Funcionalidades de representación: Azure Batch'
+title: Funcionalidades de representación
 description: Las funcionalidades estándar de Azure Batch se utilizan para ejecutar aplicaciones y cargas de trabajo de representación. Batch incluye características específicas para admitir cargas de trabajo de representación.
-services: batch
-ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 697e2640b7215e0bbb9202c672f936535831eb99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3efe1dfa69de5ce41aed2152baa88b313fd928f1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75449723"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82115761"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Funcionalidades de representación de Azure Batch
 

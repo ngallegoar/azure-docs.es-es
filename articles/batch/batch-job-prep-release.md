@@ -1,25 +1,15 @@
 ---
-title: Creación de tareas para preparar trabajos y completarlos en nodos de proceso - Azure Batch
+title: Creación de tareas para preparar trabajos y completarlos en nodos de proceso
 description: Utilice las tareas de preparación en el nivel de trabajo para minimizar la transferencia de datos a los nodos de proceso de Azure Batch y las tareas de liberación para la limpieza del nodo tras la finalización del trabajo.
-services: batch
-documentationcenter: .net
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: 63d9d4f1-8521-4bbb-b95a-c4cad73692d3
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
 ms.date: 02/17/2020
-ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: d9f6f015c210592d5d8053b1b34d5357bb357629
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c9c88994a65d4d2cb8c8373d2bbb4aa2877fe465
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77586791"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82116067"
 ---
 # <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>Ejecución de tareas de preparación y liberación de trabajos en nodos de proceso de Batch
 

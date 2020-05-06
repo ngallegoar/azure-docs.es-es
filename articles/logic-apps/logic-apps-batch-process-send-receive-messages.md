@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: e48d2bb2ffce0dd4f9293417534165165d426784
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d44d5a8eeba749572980f79a90bcf5893a9c1fbf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75666761"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82144336"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Envío, recepción y procesamiento por lotes de mensajes en Azure Logic Apps
 
@@ -31,13 +31,15 @@ Asegúrese de que la receptora de lotes y la remitente de lotes compartan la mis
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-Para seguir este ejemplo, necesita estos elementos:
-
-* Suscripción a Azure. Si no tiene una suscripción, puede [comenzar con una cuenta de Azure gratuita](https://azure.microsoft.com/free/). También puede [registrarse para obtener una suscripción de pago por uso](https://azure.microsoft.com/pricing/purchase-options/).
+* Suscripción a Azure. Si no tiene una suscripción, puede [comenzar con una cuenta de Azure gratuita](https://azure.microsoft.com/free/).
+También puede [registrarse para obtener una suscripción de pago por uso](https://azure.microsoft.com/pricing/purchase-options/).
 
 * Una cuenta de correo electrónico con cualquier [proveedor de correo electrónico compatible con Azure Logic Apps](../connectors/apis-list.md)
 
-* Conocimientos básicos acerca de [cómo crear aplicaciones lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
+  > [!IMPORTANT]
+  > Si quiere usar el conector de Gmail, solo las cuentas empresariales de G-Suite pueden usarlo sin restricciones en las aplicaciones lógicas. Si tiene una cuenta de consumidor de Gmail, puede usar este conector solo con servicios específicos aprobados por Google, o puede [crear una aplicación cliente de Google para usarla en la autenticación con el conector de Gmail](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). Para más información, consulte [Directivas de privacidad y seguridad de datos de los conectores de Google en Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
+
+* Conocimientos básicos acerca de [cómo crear aplicaciones lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 * Para usar Visual Studio, en lugar de Azure Portal, asegúrese de [configurar Visual Studio para trabajar con Logic Apps](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
@@ -83,9 +85,7 @@ Antes de poder enviar mensajes a un lote, ese lote debe existir como el destino 
    2. En el cuadro de búsqueda, escriba "enviar correo electrónico" como filtro.
    En función de su proveedor de correo electrónico, seleccione un conector de correo electrónico.
 
-      Por ejemplo, si tienes una cuenta personal, como @outlook.com o @hotmail.com, seleccione el conector de Outlook.com. 
-      Si tiene una cuenta de Gmail, seleccione el conector de Gmail. 
-      En este ejemplo se utiliza Office 365 Outlook. 
+      Por ejemplo, si tienes una cuenta personal, como @outlook.com o @hotmail.com, seleccione el conector de Outlook.com. En este ejemplo se utiliza el conector de Office 365 Outlook:
 
    3. Seleccione esta acción: **Enviar un correo electrónico - <*proveedor de correo electrónico*>**
 

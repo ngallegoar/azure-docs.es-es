@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: cffefb294aaeeb4d66358ceae72c98becd04cc58
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 1b9a1771ad498fa3fb9b8294adb8a6556a00863a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261965"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82190425"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mysql"></a>Línea de base de seguridad de Azure para Azure Database for MySQL
 
@@ -146,7 +146,7 @@ Creación de un plano técnico de Azure: https://docs.microsoft.com/azure/govern
 
 **Guía**: Use etiquetas para los recursos relacionados con la seguridad de red y el flujo de tráfico de las instancias de Azure Database for MySQL a fin de proporcionar metadatos y una organización lógica.
 
-Use cualquiera de las definiciones de directiva de Azure integradas relacionadas con el etiquetado, como "Requerir etiqueta y su valor", para asegurarse de que todos los recursos se crean con etiquetas y para notificarle los recursos no etiquetados existentes.
+Use cualquiera de las definiciones de Azure Policy integradas relacionadas con el etiquetado, como "Requerir etiqueta y su valor", para asegurarse de que todos los recursos se crean con etiquetas y para notificarle los recursos no etiquetados existentes.
 
 Puede usar Azure PowerShell o la CLI de Azure para buscar o realizar acciones en los recursos en función de sus etiquetas.
 
@@ -650,7 +650,7 @@ Cobertura de características para los servicios de PaaS de Azure en Azure Secur
 
 **Guía**: Use Azure Resource Graph para consultar y detectar todos los recursos (incluidas las instancias de Azure Database for MySQL) dentro de las suscripciones. Asegúrese de que tiene los permisos adecuados (lectura) en el inquilino y de que puede enumerar todas las suscripciones de Azure, así como los recursos de las suscripciones.
 
-Creación de consultas con Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Creación de consultas con Azure Resource Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 Visualización de las suscripciones de Azure: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
 
@@ -694,7 +694,7 @@ Creación y uso de etiquetas: https://docs.microsoft.com/azure/azure-resource-ma
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5: Supervisión de recursos de Azure no aprobados
 
-**Instrucciones**: use Azure Policy para establecer restricciones en el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
+**Instrucciones**: use Azure Policy para establecer restricciones sobre el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
 
 - Tipos de recursos no permitidos
 
@@ -736,7 +736,7 @@ Creación de consultas con Azure Graph: https://docs.microsoft.com/azure/governa
 
 ### <a name="69-use-only-approved-azure-services"></a>6.9: Uso exclusivo de servicios de Azure aprobados
 
-**Instrucciones**: use Azure Policy para establecer restricciones en el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
+**Guía**: use Azure Policy para establecer restricciones sobre el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
 
 - Tipos de recursos no permitidos
 
@@ -812,7 +812,7 @@ Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/go
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3: Mantenga configuraciones de recursos de Azure seguras
 
-**Instrucciones**: Use la directiva de Azure [denegar] e [implementar si no existe] para aplicar la configuración segura en los recursos de Azure.
+**Guía**: Utilice las directivas [deny] y [deploy if not exist] de Azure Policy para aplicar una configuración segura en los recursos de Azure.
 
 Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -832,7 +832,7 @@ Descripción de los efectos de Azure Policy: https://docs.microsoft.com/azure/go
 
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5: Almacene de forma segura la configuración de los recursos de Azure
 
-**Guía**: Si usa definiciones de directivas personalizadas de Azure para las instancias de Azure Database for MySQL y los recursos relacionados, use Azure Repos para almacenar y administrar el código de forma segura.
+**Guía**: Si usa definiciones personalizadas de Azure Policy para las instancias de Azure Database for MySQL y los recursos relacionados, use Azure Repos para almacenar y administrar el código de forma segura.
 
 Cómo almacenar código en Azure DevOps: https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
 
@@ -870,7 +870,7 @@ Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/go
 
 ### <a name="79-implement-automated-configuration-monitoring-for-azure-services"></a>7.9: Implemente la supervisión de configuración automatizada para servicios de Azure
 
-**Guía**: Use alias de Azure Policy en el espacio de nombres "Microsoft.DBforMySQL" para crear directivas personalizadas con el fin de auditar y aplicar las configuraciones del sistema y enviar alertas sobre ellas. Use la directiva de Azure [auditar], [denegar] e [implementar si no existe] para aplicar automáticamente las configuraciones de las instancias de Azure Database for MySQL y los recursos relacionados.
+**Guía**: Use alias de Azure Policy en el espacio de nombres "Microsoft.DBforMySQL" para crear directivas personalizadas con el fin de auditar y aplicar las configuraciones del sistema y enviar alertas sobre ellas. Use las directivas de Azure Policy [audit], [deny] e [deploy if not exist] para aplicar automáticamente las configuraciones de las instancias de Azure Database for MySQL y los recursos relacionados.
 
 Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 

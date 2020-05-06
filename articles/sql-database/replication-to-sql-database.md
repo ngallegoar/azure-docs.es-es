@@ -10,19 +10,22 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: mathoma
-ms.date: 01/25/2019
-ms.openlocfilehash: f28269b067ee98d69a97799911fd2d84a7f91e34
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.date: 04/28/2020
+ms.openlocfilehash: 49be53febc1783edfa16fd019a094a7e80e1cdf7
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81381144"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82231652"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>Replicación en bases de datos agrupadas y únicas de SQL Database
 
 La replicación de SQL Server puede configurarse para bases de datos únicas y agrupadas en un [servidor de SQL Server](sql-database-servers.md) en Azure SQL Database.  
 
-## <a name="supported-configurations"></a>**Configuraciones admitidas:**
+> [!NOTE]
+> En este artículo se describe el uso de la [replicación transaccional](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) en Azure SQL Database. No está relacionado con la [replicación geográfica activa](https://docs.microsoft.com/azure/sql-database/sql-database-active-geo-replication), una característica de Azure SQL Database que permite crear réplicas legibles completas de bases de datos individuales.
+
+## <a name="supported-configurations"></a>Configuraciones admitidas
   
 - SQL Server puede ser una instancia de SQL Server en ejecución en el entorno local o una instancia de SQL Server en ejecución en una máquina virtual de Azure en la nube. Para obtener más información, consulte [Introducción a SQL Server en máquinas virtuales de Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-infrastructure-services/).  
 - Azure SQL Database debe ser un suscriptor de inserción de un publicador de SQL Server.  

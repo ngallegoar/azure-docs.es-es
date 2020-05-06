@@ -1,31 +1,35 @@
 ---
-title: Solución problemas de registro de Azure
-description: Resolución de problemas al intentar suscribirse para una nueva cuenta en Microsoft Azure Portal o en el Centro de cuentas.
+title: Solución de problemas al registrar una cuenta nueva en Azure Portal o en el centro de cuentas de Azure
+description: Resolución de problemas al intentar registrar una nueva cuenta en el centro de cuentas de Microsoft Azure Portal.
+services: cost-management-billing
 author: v-miegge
-ms.reviewer: dcscontentpm
+manager: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: v-miegge
-ms.openlocfilehash: 540cb5b4ca8f78c734fbc7dcd16358be8eb391c0
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 7bcf3197ae218c469983200814cecf551dc42a6b
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80409453"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133182"
 ---
-# <a name="troubleshoot-azure-sign-up"></a>Solución problemas de registro de Azure
+# <a name="troubleshoot-issues-when-you-sign-up-for-a-new-account-in-azure-portal-or-azure-account-center"></a>Solución de problemas al registrar una cuenta nueva en Azure Portal o en el centro de cuentas de Azure
 
-Puede experimentar un problema al intentar suscribirse para una nueva cuenta en Microsoft Azure Portal o en el Centro de cuentas de Azure. Antes de solucionar el problema, confirme lo siguiente:
+Puede surgir algún problema al intentar registrar una nueva cuenta en Microsoft Azure Portal o en el Centro de cuentas de Azure. Antes de solucionar el problema, confirme lo siguiente:
 
 - La información de perfil de cuenta de Azure que ha facilitado (incluidos la dirección de correo electrónico de contacto, la dirección postal y el número de teléfono) es correcta.
 - La información de la tarjeta de crédito es correcta.
 - No tiene ninguna cuenta Microsoft con la misma información.
 
+> [!NOTE]
+> Si ya tiene una cuenta existente y busca instrucciones para solucionar problemas de inicio de sesión, consulte [Solución de problemas de inicio de sesión en la suscripción de Azure](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-sign-in-issue).
+
 ## <a name="resolutions"></a>Soluciones
 
-Para resolver cualquier error, seleccione el problema que esté experimentando al intentar suscribirse a Azure.
+Para resolver cualquier error, seleccione el problema que sufra al intentar suscribirse a Azure.
 
 ### <a name="error-we-cannot-proceed-with-sign-up-due-to-an-issue-with-your-account-please-contact-billing-support"></a>Error: *No se puede continuar con el registro debido a un problema con su cuenta. Póngase en contacto con el servicio de soporte técnico de facturación.*
 
@@ -37,9 +41,9 @@ Para solucionar el problema, siga estos pasos:
 
 3. Asegúrese de que todos los campos de dirección están completados y son válidos.
 
-4. Cuando se registre para obtener una suscripción de Azure, asegúrese de que la dirección de facturación del registro de la tarjeta de crédito coincide con los datos bancarios.
+4. Cuando se registre para obtener una suscripción de Azure, asegúrese de que la dirección de facturación del registro de la tarjeta de crédito coincide con la de los datos bancarios.
 
-Si sigue recibiendo el mensaje de error, intente registrarse con otro explorador.
+Si sigue recibiendo el mensaje de error, pruebe a usar otro explorador para registrarse.
 
 ### <a name="progress-bar-hangs-in-identity-verification-by-card-section"></a>La barra de progreso se bloquea en la sección *Verificación de identidad mediante tarjeta*.
 
@@ -84,7 +88,7 @@ Las tarjetas de crédito o débito virtuales o de prepago no se aceptan como opc
 
 ### <a name="i-saw-a-charge-on-my-free-trial-account"></a>Hay un cargo reflejado en la cuenta de evaluación gratuita
 
-Es posible que vea reflejado un cargo de verificación mínimo en la tarjeta de crédito después de registrarse, que desaparecerá en un plazo de entre tres y cinco días. Si le preocupan los costos de administración, lea más información en la página sobre [prevención de costos inesperados](getting-started.md).
+Es posible que vea reflejado un pequeño cargo de verificación en la tarjeta de crédito después de registrarse, que desaparecerá en un plazo de entre tres y cinco días. Si le preocupan los costos de administración, lea más información en la página sobre [prevención de costos inesperados](getting-started.md).
 
 ### <a name="cant-activate-azure-benefit-plan-like-msdn-bizspark-bizsparkplus-or-mpn"></a>No se puede activar un plan de prestaciones de Azure como MSDN, BizSpark, BizSparkPlus o MPN
 
@@ -114,9 +118,9 @@ Para resolver este problema, compruebe si se cumplen las siguientes condiciones:
 
 ### <a name="error-your-current-account-type-is-not-supported"></a>Error: *Tipo de cuenta actual no admitido*
 
-Este problema puede producirse si la cuenta está registrada en [un directorio de Azure AD no administrado](../../active-directory/users-groups-roles/directory-self-service-signup.md), y no está en el directorio de Azure AD de la organización.
+Este problema puede producirse si la cuenta está registrada en [un directorio de Azure AD no administrado](../../active-directory/users-groups-roles/directory-self-service-signup.md) y no está en el directorio de Azure AD de la organización.
 
-Para solucionar este problema, inicie sesión en la cuenta de Azure usando otra cuenta, o tome el control del directorio de AD no administrado. Para más información, vea [Adquisición de un directorio no administrado como administrador en Azure Active Directory](../../active-directory/users-groups-roles/domains-admin-takeover.md).
+Para solucionar este problema, inicie sesión en la cuenta de Azure usando otra cuenta o tome el control del directorio de AD no administrado. Para más información, vea [Adquisición de un directorio no administrado como administrador en Azure Active Directory](../../active-directory/users-groups-roles/domains-admin-takeover.md).
 
 ## <a name="additional-help-resources"></a>Más recursos de ayuda
 

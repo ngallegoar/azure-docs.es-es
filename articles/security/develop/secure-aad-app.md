@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2019
 ms.author: terrylan
-ms.openlocfilehash: 599c4a31840b47294b43c4c4d1f0200b17f04540
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: 5b04bbbbe5425e65f3ed4ff82d9700dec6dd2c39
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80810535"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188334"
 ---
 # <a name="develop-secure-app-for-an-azure-ad-app"></a>Desarrollo de una aplicación segura para una aplicación de Azure AD
 ## <a name="overview"></a>Información general
@@ -35,7 +35,7 @@ Al desarrollar e implementar esta aplicación, aprenderá a:
 - Implementar la aplicación web de Azure, que es un entorno dedicado aislado con acceso de firewall de front-end 
 - Crear y configurar una instancia de Azure Application Gateway con un firewall que use el conjunto de 10 reglas principales de OWASP 
 - Habilite el cifrado de datos en tránsito y en reposo mediante los servicios de Azure. 
-- Configurar la directiva de Azure y Security Center para evaluar el cumplimiento 
+- Configure la directiva de Azure y Security Center para evaluar el cumplimiento. 
 
 Después de desarrollar e implementar esta aplicación, habrá configurado la aplicación web de ejemplo siguiente junto con las medidas de configuración y seguridad que se describen.
 
@@ -444,14 +444,16 @@ Los servicios de Azure proporcionan un registro completo de la actividad de usua
 1.  Vuelva a Azure Portal. En el panel de navegación izquierdo, seleccione el servicio Azure Active Directory y, después, elija Registros de aplicaciones.
 2.  En la pantalla resultante, seleccione la aplicación WebApp-OpenIDConnect-DotNet-code-v2.
 3.  En la pestaña Autenticación o en la sección URI de redirección, seleccione Web en el cuadro combinado y agregue los siguientes URI de redirección.
-    https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signin-oidc O bien, en la sección Configuración avanzada, establezca la URL de cierre de sesión en https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signout-oidc.
-4.  En la pestaña Personalización de marca, actualice la dirección URL de la página principal a la dirección del servicio de aplicación, por ejemplo https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net.
+    `https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net`
+    `https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signin-oidc`
+    O bien, en la sección Configuración avanzada, establezca la URL de cierre de sesión en `https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signout-oidc`.
+4.  En la pestaña Personalización de marca, actualice la dirección URL de la página principal a la dirección del servicio de aplicación, por ejemplo `https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net`.
         Guarde la configuración.
 5.  Si la aplicación llama a una API web, asegúrese de aplicar los cambios necesarios en el archivo appsettings.json del proyecto, de forma que llame a la dirección URL de la API publicada en lugar de a localhost.
 Publicación del ejemplo
     1.  En la pestaña Información general de App Service, haga clic en el vínculo Obtener perfil de publicación para descargar el perfil de publicación y guárdelo. También se pueden usar otros mecanismos de implementación, como el control de código fuente.
     2.  Cambie a Visual Studio y vaya al proyecto WebApp-OpenIDConnect-DotNet-code-v2. Haga clic con el botón derecho en el proyecto en el Explorador de soluciones y seleccione Publicar. Haga clic en Importar perfil en la barra inferior e importe el perfil de publicación que descargó anteriormente.
-    3.  Haga clic en Configurar y, en la pestaña Conexión, actualice la dirección URL de destino para que sea HTTPS en la dirección URL de la página principal, por ejemplo https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net. Haga clic en Siguiente.
+    3.  Haga clic en Configurar y, en la pestaña Conexión, actualice la dirección URL de destino para que sea HTTPS en la dirección URL de la página principal, por ejemplo `https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net`. Haga clic en Siguiente.
     4.  En la pestaña Configuración, asegúrese de que la opción Habilitar la autenticación de organización NO está seleccionada. Haga clic en Guardar. Haga clic en Publicar en la pantalla principal.
     5.  Visual Studio publicará el proyecto y abrirá automáticamente un explorador con la dirección URL del proyecto. Si ve la página web predeterminada del proyecto, significa que la publicación se realizó correctamente.
 #### <a name="implement-multi-factor-authentication-for-azure-active-directory"></a>Implementar Multi-Factor Authentication para Azure Active Directory

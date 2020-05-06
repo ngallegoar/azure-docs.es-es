@@ -2,13 +2,13 @@
 title: 'Funciones de plantillas: lógicas'
 description: Describe las funciones que se pueden usar en una plantilla de Azure Resource Manager para determinar valores lógicos.
 ms.topic: conceptual
-ms.date: 04/15/2019
-ms.openlocfilehash: f058baa32e5f93a4177913287a5e9873fa7a9acb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/27/2020
+ms.openlocfilehash: 0072593e7d7830e75e2386bcfdd2907a873c7a87
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80156317"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192321"
 ---
 # <a name="logical-functions-for-arm-templates"></a>Funciones lógicas para plantillas de ARM
 
@@ -295,6 +295,7 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
             "value": "[not(equals(1, 2))]"
         }
     }
+}
 ```
 
 El resultado del ejemplo anterior es:
@@ -357,8 +358,5 @@ El resultado del ejemplo anterior es:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para obtener una descripción de las secciones de una plantilla de Azure Resource Manager, vea [Creación de plantillas de Azure Resource Manager](template-syntax.md).
-* Para combinar varias plantillas, vea [Uso de plantillas vinculadas con Azure Resource Manager](linked-templates.md).
-* Para iterar una cantidad de veces específica al crear un tipo de recurso, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](copy-resources.md).
-* Para saber cómo implementar la plantilla que creó, consulte [Implementación de una aplicación con una plantilla de Azure Resource Manager](deploy-powershell.md).
+* Para obtener una descripción de las secciones de una plantilla de Azure Resource Manager, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).
 

@@ -5,12 +5,12 @@ author: rapatchi
 ms.topic: conceptual
 ms.date: 04/06/2018
 ms.author: rapatchi
-ms.openlocfilehash: b779873488f1fff754d4105249b28f545738c11b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d37c7be65eb0c03065c095196a6fec39a2509a3f
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79229300"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82193435"
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Complemento de Service Fabric para el desarrollo de aplicaciones Java de Eclipse
 Eclipse es uno de los entornos de desarrollo integrado (IDE) por los desarrolladores de Java. En este artículo se describe cómo configurar un entorno de desarrollo de Eclipse para que funcione con Azure Service Fabric. Aprenderá a instalar el complemento de Service Fabric, crear una aplicación de Service Fabric e implementarla en un clúster de Service Fabric local o remoto en Eclipse. 
@@ -102,7 +102,7 @@ Después de haber creado la aplicación de Service Fabric, siga estos pasos para
 
 3.  En el menú contextual, haga clic en **Implementar aplicación**.
 4.  Puede seguir el progreso de la operación de implementación en la ventana Consola.
-5.  Para comprobar que la aplicación se está ejecutando, abra Service Fabric Explorer en el clúster local en una ventana del explorador [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Expanda el nodo **Aplicaciones** y asegúrese de que la aplicación se está ejecutando. 
+5.  Para comprobar que la aplicación se ejecuta, abra Service Fabric Explorer en el clúster local en una ventana del explorador `http://localhost:19080/Explorer`. Expanda el nodo **Aplicaciones** y asegúrese de que la aplicación se está ejecutando. 
 
 Para obtener información sobre cómo depurar la aplicación en Eclipse mediante el clúster local, consulte [Depuración de la aplicación de Service Fabric para Java con Eclipse](./service-fabric-debugging-your-application-java.md).
 

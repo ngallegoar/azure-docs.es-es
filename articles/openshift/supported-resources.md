@@ -1,21 +1,21 @@
 ---
-title: Recursos admitidos para Red Hat OpenShift en Azure
+title: Recursos compatibles con Red Hat OpenShift en Azure 3.11
 description: Descripción de las regiones de Azure y los tamaños de máquina virtual admitidos por Red Hat OpenShift en Microsoft Azure.
 author: jimzim
 ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/15/2019
-ms.openlocfilehash: 1b794852390141d31a3218a1a434c21133db914c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 38203cede755d776ba9142ad16e1bea1fd1637a6
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79224760"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203682"
 ---
 # <a name="azure-red-hat-openshift-resources"></a>Recursos de Red Hat OpenShift en Azure
 
-En este tema se enumeran las regiones de Azure y los tamaños de máquina virtual admitidos por el servicio Red Hat OpenShift en Microsoft Azure.
+En este tema se enumeran las regiones de Azure y los tamaños de máquina virtual admitidos por el servicio Red Hat OpenShift en Microsoft Azure 3.11.
 
 ## <a name="azure-regions"></a>Regiones de Azure
 

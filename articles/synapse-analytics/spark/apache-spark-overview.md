@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 4155e419bb03613abad808ca09d84bcb6583291f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: b6af42f09351df60beb2aa449f8fcd2ff6a554e8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81419509"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82116662"
 ---
 # <a name="what-is-apache-spark-in-azure-synapse-analytics"></a>Qué es Apache Spark en Azure Synapse Analytics
 
@@ -35,7 +35,7 @@ Los grupos de Spark en Azure Synapse ofrecen un servicio de Spark totalmente adm
 | Característica | Descripción |
 | --- | --- |
 | Velocidad y eficacia |Las instancias de Spark comienzan en aproximadamente 2 minutos cuando hay menos de 60 nodos y en unos 5 minutos cuando hay más de 60 nodos. De forma predeterminada, la instancia se cierra 5 minutos después del último trabajo ejecutado, a menos que se mantenga activa mediante una conexión de cuaderno. |
-| Creación fácil |Puede crear un grupo de Spark en Azure Synapse en unos minutos mediante Azure Portal, Azure PowerShell o el SDK de .NET de Synapse Analytics. Consulte [Introducción a los grupos de Spark en Synapse Analytics](apache-spark-notebook-create-spark-use-sql.md). |
+| Creación fácil |Puede crear un grupo de Spark en Azure Synapse en unos minutos mediante Azure Portal, Azure PowerShell o el SDK de .NET de Synapse Analytics. Consulte [Introducción a los grupos de Spark en Synapse Analytics](../quickstart-create-apache-spark-pool.md). |
 | Facilidad de uso |Synapse Analytics incluye un cuaderno personalizado derivado de [Nteract](https://nteract.io/). Puede usar estos notebooks para el procesamiento y la visualización de datos interactivos.|
 | API de REST |Spark en Synapse Analytics incluye [Apache Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server), un servidor de trabajos de Spark basado en una API REST para enviar y supervisar trabajos de forma remota. |
 | Compatibilidad con Azure Data Lake Storage Generation 2| Los grupos de Spark en Azure Synapse pueden usar Azure Data Lake Storage Generation 2, así como Blob Storage. Para más información sobre Data Lake Storage, consulte [Introducción a Azure Data Lake Storage](../../data-lake-store/data-lake-store-overview.md). |
@@ -78,7 +78,8 @@ Apache Spark incluye [MLlib](https://spark.apache.org/mllib/), una biblioteca de
 
 Use los siguientes artículos para aprender más sobre Apache Spark en Synapse Analytics:
 
-- [Inicio rápido: Creación de un grupo de Spark en Azure Synapse](./apache-spark-notebook-create-spark-use-sql.md)
+- [Inicio rápido: Creación de un grupo de Spark en Azure Synapse](../quickstart-create-apache-spark-pool.md)
+- [Inicio rápido: Creación de un cuaderno de Apache Spark](../quickstart-apache-spark-notebook.md)
 - [Tutorial: Aprendizaje automático con Apache Spark](./apache-spark-machine-learning-mllib-notebook.md)
 - [Documentación oficial de Apache Spark](https://spark.apache.org/docs/latest/)
 
@@ -89,4 +90,4 @@ Use los siguientes artículos para aprender más sobre Apache Spark en Synapse A
 
 En esta introducción, conocerá los conceptos básicos de Apache Spark en Azure Synapse Analytics. Avance al siguiente artículo para aprender a crear un grupo de Spark en Azure Synapse Analytics:
 
-- [Creación de un grupo de Spark en Azure Synapse](./apache-spark-notebook-create-spark-use-sql.md)
+- [Creación de un grupo de Spark en Azure Synapse](../quickstart-create-apache-spark-pool.md)

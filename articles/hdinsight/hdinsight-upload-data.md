@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdiseo17may2017
-ms.date: 04/07/2020
-ms.openlocfilehash: c862633245e75613f9e4f9956486f872b96239f8
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.custom: hdiseo17may2017,seoapr2020
+ms.date: 04/27/2020
+ms.openlocfilehash: e73a8a420c7591a45a62ba38123c6b3368e0f738
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80875017"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82190646"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>Carga de datos para trabajos de Apache Hadoop en HDInsight
 
@@ -23,7 +23,7 @@ HDInsight ofrece un sistema de archivos distribuido de Hadoop (HDFS) mediante Az
 
 Tenga en cuenta los siguientes requisitos antes de empezar:
 
-* Un clúster de HDInsight de Azure. Para obtener instrucciones, consulte [Introducción a Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md) o [Creación de clústeres de HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+* Un clúster de HDInsight de Azure. Para obtener instrucciones, consulte [Introducción a Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 * Conocimientos de los artículos siguientes:
     * [Uso de Azure Storage con HDInsight](hdinsight-hadoop-use-blob-storage.md)
     * [Uso de Data Lake Storage Gen1 con HDInsight](hdinsight-hadoop-use-data-lake-store.md)
@@ -31,7 +31,7 @@ Tenga en cuenta los siguientes requisitos antes de empezar:
 
 ## <a name="upload-data-to-azure-storage"></a>Carga de datos en Azure Storage
 
-## <a name="utilities"></a>Sectores públicos
+### <a name="utilities"></a>Sectores públicos
 
 Microsoft proporciona las utilidades siguientes para trabajar con Azure Storage:
 
@@ -46,7 +46,7 @@ Microsoft proporciona las utilidades siguientes para trabajar con Azure Storage:
 > [!NOTE]  
 > El comando de Hadoop solo está disponible en el clúster de HDInsight. El comando solo permite cargar datos desde el sistema de archivos local en Azure Storage.  
 
-## <a name="hadoop-command-line"></a>Línea de comandos de Hadoop
+### <a name="hadoop-command-line"></a>Línea de comandos de Hadoop
 
 La línea de comandos de Hadoop solo es útil para almacenar datos en Azure Storage Blob cuando los datos ya están presentes en el nodo principal del clúster.
 
@@ -71,9 +71,9 @@ or
 Para obtener una lista de otros comandos de Hadoop que funcionan con archivos, consulte [https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html)
 
 > [!WARNING]  
-> En los clústeres de Apache HBase, el tamaño de bloque predeterminado al escribir datos es de 256 KB. Aunque esto funciona bien cuando se usan API de REST o API de HBase, el uso de los comandos `hadoop` o `hdfs dfs` para escribir más de ~ 12 GB de datos genera un error. Para más información, vea la sección [Excepción de almacenamiento para escritura en blob](#storage-exception-for-write-on-blob) de este artículo.
+> En los clústeres de Apache HBase, el tamaño de bloque predeterminado al escribir datos es de 256 KB. Aunque esto funciona bien cuando se usan API de REST o API de HBase, el uso de los comandos `hadoop` o `hdfs dfs` para escribir más de ~ 12 GB de datos genera un error. Para más información, consulte la [excepción de almacenamiento para escritura en blob](hdinsight-troubleshoot-hdfs.md#storage-exception-for-write-on-blob).
 
-## <a name="graphical-clients"></a>Clientes gráficos
+### <a name="graphical-clients"></a>Clientes gráficos
 
 También hay varias aplicaciones que proporcionan una interfaz gráfica para trabajar con Azure Storage. La siguiente tabla es una lista de algunas de estas aplicaciones:
 
@@ -121,51 +121,6 @@ También se puede acceder a Azure Storage mediante un SDK de Azure desde los sig
 
 Para obtener más información acerca de cómo instalar los SDK de Azure, consulte [Descargas de Azure](https://azure.microsoft.com/downloads/)
 
-## <a name="troubleshooting"></a>Solución de problemas
-
-### <a name="storage-exception-for-write-on-blob"></a>Excepción de almacenamiento para escritura en blob
-
-**Síntomas**: al usar los comandos `hadoop` o `hdfs dfs` para escribir archivos de aproximadamente 12 GB o mayores en un clúster de HBase, puede encontrar el siguiente error:
-
-    ERROR azure.NativeAzureFileSystem: Encountered Storage Exception for write on Blob : example/test_large_file.bin._COPYING_ Exception details: null Error Code : RequestBodyTooLarge
-    copyFromLocal: java.io.IOException
-            at com.microsoft.azure.storage.core.Utility.initIOException(Utility.java:661)
-            at com.microsoft.azure.storage.blob.BlobOutputStream$1.call(BlobOutputStream.java:366)
-            at com.microsoft.azure.storage.blob.BlobOutputStream$1.call(BlobOutputStream.java:350)
-            at java.util.concurrent.FutureTask.run(FutureTask.java:262)
-            at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)
-            at java.util.concurrent.FutureTask.run(FutureTask.java:262)
-            at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
-            at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
-            at java.lang.Thread.run(Thread.java:745)
-    Caused by: com.microsoft.azure.storage.StorageException: The request body is too large and exceeds the maximum permissible limit.
-            at com.microsoft.azure.storage.StorageException.translateException(StorageException.java:89)
-            at com.microsoft.azure.storage.core.StorageRequest.materializeException(StorageRequest.java:307)
-            at com.microsoft.azure.storage.core.ExecutionEngine.executeWithRetry(ExecutionEngine.java:182)
-            at com.microsoft.azure.storage.blob.CloudBlockBlob.uploadBlockInternal(CloudBlockBlob.java:816)
-            at com.microsoft.azure.storage.blob.CloudBlockBlob.uploadBlock(CloudBlockBlob.java:788)
-            at com.microsoft.azure.storage.blob.BlobOutputStream$1.call(BlobOutputStream.java:354)
-            ... 7 more
-
-**Causa**: HBase en clústeres de HDInsight toma como valor predeterminado un tamaño de bloque de 256 KB al escribir en Azure Storage. Si bien esto funciona para API de HBase o API de REST, se produce un error al usar las utilidades de línea de comandos `hadoop` o `hdfs dfs`.
-
-**Solución:** use `fs.azure.write.request.size` para especificar un tamaño de bloque mayor. Puede realizar esta modificación en función de cada uso mediante el parámetro `-D`. El siguiente comando es un ejemplo de uso de este parámetro con el comando `hadoop`:
-
-```bash
-hadoop -fs -D fs.azure.write.request.size=4194304 -copyFromLocal test_large_file.bin /example/data
-```
-
-También puede aumentar el valor de `fs.azure.write.request.size` globalmente mediante Apache Ambari. Los siguientes pasos se pueden usar para cambiar el valor en la IU web de Ambari:
-
-1. En el explorador, vaya a la IU web de Ambari para el clúster. La dirección URL es `https://CLUSTERNAME.azurehdinsight.net`, donde `CLUSTERNAME` es el nombre del clúster. Cuando se le solicite, escriba el nombre de usuario y la contraseña de administrador para el clúster.
-2. En el lado izquierdo de la pantalla, seleccione **HDFS** y luego seleccione la pestaña **Configs** (Configuraciones).
-3. En el campo **Filter...** (Filtro...), escriba `fs.azure.write.request.size`.
-4. Cambie el valor de 262144 (256 KB) al nuevo valor. Por ejemplo, 4194304 (4 MB).
-
-    ![Imagen de cambiar el valor en la IU web de Ambari](./media/hdinsight-upload-data/hbase-change-block-write-size.png)
-
-Para más información acerca del uso de Ambari, consulte [Administración de clústeres de HDInsight con la interfaz de usuario web de Apache Ambari](hdinsight-hadoop-manage-ambari.md).
-
 ## <a name="next-steps"></a>Pasos siguientes
 
 Ahora que ya sabe cómo enviar datos a HDInsight, consulte los artículos siguientes para más información sobre el análisis:
@@ -173,4 +128,3 @@ Ahora que ya sabe cómo enviar datos a HDInsight, consulte los artículos siguie
 * [Introducción a Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Envío de trabajos de Apache Hadoop mediante programación](hadoop/submit-apache-hadoop-jobs-programmatically.md)
 * [Uso de Apache Hive con HDInsight](hadoop/hdinsight-use-hive.md)
-* [Uso de Apache Pig con HDInsight](./use-pig.md)

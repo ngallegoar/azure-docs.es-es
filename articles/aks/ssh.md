@@ -4,16 +4,16 @@ description: Aprenda a crear una conexión SSH con los nodos de clúster de Azur
 services: container-service
 ms.topic: article
 ms.date: 07/31/2019
-ms.openlocfilehash: dfdcda40a24142f85bbeb360aacf0971d72d181f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 70ebcb1f340ba28cf80ad3e24a464aad5584b3a4
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77593638"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82207163"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>Conexión con SSH a los nodos de clúster de Azure Kubernetes Service (AKS) para mantenimiento o solución de problemas
 
-Durante el ciclo de vida del clúster de Azure Kubernetes Service (AKS), es posible que necesite acceder a un nodo de AKS. Este acceso podría ser para mantenimiento, recopilación de registros u otras operaciones de solución de problemas. Puede acceder a los nodos de AKS mediante SSH, incluidos los nodos de Windows Server (actualmente en versión preliminar en AKS). También puede [conectarse a los nodos de Windows Server mediante conexiones de protocolo de escritorio remoto (RDP)][aks-windows-rdp]. Por motivos de seguridad, los nodos de AKS no están expuestos a Internet. Para conectarse mediante SSH a los nodos de AKS, use la dirección IP privada.
+Durante el ciclo de vida del clúster de Azure Kubernetes Service (AKS), es posible que necesite acceder a un nodo de AKS. Este acceso podría ser para mantenimiento, recopilación de registros u otras operaciones de solución de problemas. Puede acceder a los nodos de AKS mediante SSH, incluidos los nodos de Windows Server. También puede [conectarse a los nodos de Windows Server mediante conexiones de protocolo de escritorio remoto (RDP)][aks-windows-rdp]. Por motivos de seguridad, los nodos de AKS no están expuestos a Internet. Para conectarse mediante SSH a los nodos de AKS, use la dirección IP privada.
 
 En este artículo se muestra cómo crear una conexión SSH con un nodo de AKS mediante sus direcciones IP privadas.
 
@@ -145,7 +145,7 @@ Para crear una conexión SSH a un nodo AKS, ejecute un pod asistente en el clús
     ```
 
     > [!TIP]
-    > Si usa nodos de Windows Server (actualmente en versión preliminar en Azure Kubernetes Service), agregue un selector de nodo al comando para programar el contenedor de Debian en un nodo de Linux:
+    > Si usa nodos de Windows Server, agregue un selector de nodo al comando para programar el contenedor de Debian en un nodo de Linux:
     >
     > `kubectl run -it --rm aks-ssh --image=debian --overrides='{"apiVersion":"apps/v1","spec":{"template":{"spec":{"nodeSelector":{"beta.kubernetes.io/os":"linux"}}}}}'`
 

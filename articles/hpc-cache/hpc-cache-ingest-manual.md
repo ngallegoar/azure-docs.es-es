@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: fc397088e46f0d2b623080f3deed24c386e7d8b4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1d5f8e6b59a4ae0149f219738952b47ce399c2ff
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74168488"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82194999"
 ---
 # <a name="azure-hpc-cache-data-ingest---manual-copy-method"></a>Ingesta de datos de Azure HPC Cache: método de copia manual
 
@@ -35,9 +35,9 @@ Después de emitir este comando, el comando `jobs` mostrará que se están ejecu
 
 ## <a name="copy-data-with-predictable-file-names"></a>Copia de datos con nombres de archivo predecibles
 
-Si los nombres de archivo son predecibles, puede usar expresiones para crear subprocesos de copia paralelos. 
+Si los nombres de archivo son predecibles, puede usar expresiones para crear subprocesos de copia paralelos.
 
-Por ejemplo, si su directorio contiene 1000 archivos que están numerados secuencialmente de `0001` a `1000`, puede usar las siguientes expresiones para crear diez subprocesos paralelos para que cada uno copie 100 archivos:
+Por ejemplo, si su directorio contiene 1000 archivos que están numerados secuencialmente de `0001` a `1000`, puede usar las siguientes expresiones para crear diez subprocesos paralelos para que cada uno copie cien archivos:
 
 ```bash
 cp /mnt/source/file0* /mnt/destination1/ & \
@@ -54,7 +54,7 @@ cp /mnt/source/file9* /mnt/destination1/
 
 ## <a name="copy-data-with-unstructured-file-names"></a>Copia de datos con nombres de archivo no estructurados
 
-Si la estructura de nomenclatura de archivos no es predecible, puede agrupar los archivos en función de los nombres de directorio. 
+Si la estructura de nomenclatura de archivos no es predecible, puede agrupar los archivos en función de los nombres de directorio.
 
 En este ejemplo se recopilan los directorios completos que se enviarán a los comandos ``cp`` que se ejecutan como tareas en segundo plano:
 
@@ -72,16 +72,16 @@ Después de recopilar los archivos, puede ejecutar comandos de copia en paralelo
 
 ```bash
 cp /mnt/source/* /mnt/destination/
-mkdir -p /mnt/destination/dir1 && cp /mnt/source/dir1/* mnt/destination/dir1/ & 
-cp -R /mnt/source/dir1/dir1a /mnt/destination/dir1/ & 
-cp -R /mnt/source/dir1/dir1b /mnt/destination/dir1/ & 
+mkdir -p /mnt/destination/dir1 && cp /mnt/source/dir1/* mnt/destination/dir1/ &
+cp -R /mnt/source/dir1/dir1a /mnt/destination/dir1/ &
+cp -R /mnt/source/dir1/dir1b /mnt/destination/dir1/ &
 cp -R /mnt/source/dir1/dir1c /mnt/destination/dir1/ & # this command copies dir1c1 via recursion
 cp -R /mnt/source/dir1/dir1d /mnt/destination/dir1/ &
 ```
 
 ## <a name="when-to-add-mount-points"></a>Cuándo agregar puntos de montaje
 
-Una vez que haya suficientes subprocesos paralelos en un único punto de montaje del sistema de archivos de destino, llegará a un punto en el que el simple hecho de agregar más subprocesos no proporcionará más rendimiento. (El rendimiento se medirá en archivos/segundo o bytes/segundo, según el tipo de datos). O, lo que es peor, el exceso de subprocesos puede causar una degradación del rendimiento.  
+Una vez que haya suficientes subprocesos paralelos en un único punto de montaje del sistema de archivos de destino, llegará a un punto en el que el simple hecho de agregar más subprocesos no proporcionará más rendimiento. (El rendimiento se medirá en archivos/segundo o bytes/segundo, según el tipo de datos). O, lo que es peor, el exceso de subprocesos puede causar una degradación del rendimiento.
 
 Si le sucede esto, puede agregar puntos de montaje del lado cliente a otras direcciones de montaje de Azure HPC Cache; para ello, use la misma ruta de montaje remota del sistema de archivos:
 
@@ -92,7 +92,7 @@ Si le sucede esto, puede agregar puntos de montaje del lado cliente a otras dire
 10.1.1.103:/nfs on /mnt/destination3type nfs (rw,vers=3,proto=tcp,addr=10.1.1.103)
 ```
 
-Si decide agregar puntos de montaje del lado cliente, podrá bifurcar comandos de copia adicionales a los puntos de montaje `/mnt/destination[1-3]` adicionales; gracias a ello logrará un mayor paralelismo.  
+Si decide agregar puntos de montaje del lado cliente, podrá bifurcar comandos de copia adicionales a los puntos de montaje `/mnt/destination[1-3]` adicionales; gracias a ello logrará un mayor paralelismo.
 
 Por ejemplo, si sus archivos son muy grandes, puede definir los comandos de copia para usar distintas rutas de acceso de destino, y así poder enviar más comandos en paralelo desde el cliente que realiza la copia.
 
@@ -112,7 +112,7 @@ En el ejemplo anterior, los tres procesos de copia de archivos del cliente se en
 
 ## <a name="when-to-add-clients"></a>Cuándo agregar clientes
 
-Por último, cuando haya alcanzado las capacidades del cliente, si decide agregar más subprocesos de copia o puntos de montaje adicionales no se producirá ningún aumento adicional de archivos/segundo o bytes/segundo. En esa situación, puede implementar otro cliente con el mismo conjunto de puntos de montaje; este ejecutará su propio conjuntos de procesos de copia de archivos. 
+Por último, cuando haya alcanzado las capacidades del cliente, si decide agregar más subprocesos de copia o puntos de montaje adicionales no se producirá ningún aumento adicional de archivos/segundo o bytes/segundo. En esa situación, puede implementar otro cliente con el mismo conjunto de puntos de montaje; este ejecutará su propio conjuntos de procesos de copia de archivos.
 
 Ejemplo:
 
@@ -158,7 +158,7 @@ Redirija este resultado a un archivo `find . -mindepth 4 -maxdepth 4 -type d > /
 A continuación, puede iterar el manifiesto mediante comandos BASH para contar los archivos y determinar los tamaños de los subdirectorios:
 
 ```bash
-ben@xlcycl1:/sps/internal/atj5b5ab44b7f > for i in $(cat /tmp/foo); do echo " `find ${i} |wc -l`    `du -sh ${i}`"; done
+ben@xlcycl1:/sps/internal/atj5b5ab44b7f > for i in $(cat /tmp/foo); do echo " `find ${i} |wc -l` `du -sh ${i}`"; done
 244    3.5M    ./atj5b5ab44b7f-02/support/gsi/2018-07-18T00:07:03EDT
 9      172K    ./atj5b5ab44b7f-02/support/gsi/stats_2018-07-18T05:01:00UTC
 124    5.8M    ./atj5b5ab44b7f-02/support/gsi/stats_2018-07-19T01:01:01UTC
@@ -194,7 +194,7 @@ ben@xlcycl1:/sps/internal/atj5b5ab44b7f > for i in $(cat /tmp/foo); do echo " `f
 33     2.8G    ./atj5b5ab44b7f-03/support/trace/rolling
 ```
 
-Por último, debe crear los comandos de copia de archivos reales para los clientes.  
+Por último, debe crear los comandos de copia de archivos reales para los clientes.
 
 Si tiene cuatro clientes, use este comando:
 
@@ -214,7 +214,7 @@ Y para seis... Extrapole los datos según sea necesario.
 for i in 1 2 3 4 5 6; do sed -n ${i}~6p /tmp/foo > /tmp/client${i}; done
 ```
 
-Obtendrá *N* archivos resultantes, uno para cada uno de sus *N* clientes que tengan los nombres de ruta de acceso a los directorios de nivel cuatro y que se obtuvieron como parte de la salida del comando `find`. 
+Obtendrá *N* archivos resultantes, uno para cada uno de sus *N* clientes que tengan los nombres de ruta de acceso a los directorios de nivel cuatro y que se obtuvieron como parte de la salida del comando `find`.
 
 Use cada archivo para construir el comando de copia:
 
@@ -222,6 +222,6 @@ Use cada archivo para construir el comando de copia:
 for i in 1 2 3 4 5 6; do for j in $(cat /tmp/client${i}); do echo "cp -p -R /mnt/source/${j} /mnt/destination/${j}" >> /tmp/client${i}_copy_commands ; done; done
 ```
 
-La información anterior le proporcionará *N* archivos, cada uno con un comando de copia por línea que se puede ejecutar como un script BASH en el cliente. 
+La información anterior le proporcionará *N* archivos, cada uno con un comando de copia por línea que se puede ejecutar como un script BASH en el cliente.
 
 El objetivo es ejecutar varios subprocesos de estos scripts simultáneamente por cliente y en paralelo en varios clientes.

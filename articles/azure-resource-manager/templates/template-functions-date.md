@@ -2,13 +2,13 @@
 title: 'Funciones de plantillas: fecha'
 description: Describe las funciones que se usan en una plantilla de Azure Resource Manager para trabajar con cadenas.
 ms.topic: conceptual
-ms.date: 04/06/2020
-ms.openlocfilehash: 75234a142b9f2fbe61c337bfeb378b47534bac79
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.date: 04/27/2020
+ms.openlocfilehash: 0c31b26361a262a502b2a9e0fb068391846cab4b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80986209"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192304"
 ---
 # <a name="date-functions-for-arm-templates"></a>Funciones de cadena para plantillas de Resource Manager
 
@@ -21,7 +21,7 @@ Resource Manager ofrece las siguientes funciones para trabajar con cadenas en la
 
 `dateTimeAdd(base, duration, [format])`
 
-Agrega una duración de tiempo a un valor de fecha y hora base.
+Agrega una duración de tiempo a un valor base. Se esperaba el formato ISO 8601.
 
 ### <a name="parameters"></a>Parámetros
 
@@ -242,3 +242,7 @@ El ejemplo siguiente muestra cómo usar un valor de la función cuando se establ
     }
 }
 ```
+
+## <a name="next-steps"></a>Pasos siguientes
+
+* Para obtener una descripción de las secciones de una plantilla de Azure Resource Manager, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).

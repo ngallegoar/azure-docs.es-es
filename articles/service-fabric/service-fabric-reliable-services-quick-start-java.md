@@ -5,12 +5,12 @@ author: suhuruli
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: c3b301a7a9039f1fe8095950f0a5a4e23eb52a9b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7855b92c90a9ccd208a25080c260437e6808d1b7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75614220"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82184153"
 ---
 # <a name="get-started-with-reliable-services-in-java"></a>Introducción a Reliable Services en Java
 > [!div class="op_single_selector"]
@@ -255,7 +255,7 @@ La aplicación compilada se implementa de la misma forma que cualquier otra apli
 
 Los parámetros de estos comandos se pueden encontrar en los manifiestos generados dentro del paquete de aplicación.
 
-Una vez que se haya implementado la aplicación, abra un explorador y vaya a [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) en [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Luego, expanda el nodo **Applications** y observe que ahora hay una entrada para su tipo de aplicación y otra para la primera instancia de dicho tipo.
+Una vez que se haya implementado la aplicación, abra un explorador y vaya a [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) en `http://localhost:19080/Explorer`. Luego, expanda el nodo **Applications** y observe que ahora hay una entrada para su tipo de aplicación y otra para la primera instancia de dicho tipo.
 
 > [!IMPORTANT]
 > Para implementar la aplicación en un clúster de Linux seguro en Azure, debe configurar un certificado para validar la aplicación con el sistema de tiempo de ejecución de Service Fabric. Esto permite a los servicios de Reliable Services comunicarse con las API en tiempo de ejecución subyacentes de Service Fabric. Para obtener más información, consulte [Configure a Reliable Services app to run on Linux clusters](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters) (Configurar una aplicación de Reliable Services para ejecutarla en clústeres Linux).  

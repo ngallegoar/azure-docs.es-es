@@ -7,12 +7,12 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/24/2020
-ms.openlocfilehash: 618033e24236d26601fafaf7b0678ee83ec973e8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e01ac332e61f51909ff1617f1716cd719b67c319
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77650178"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82127882"
 ---
 # <a name="visualize-azure-cognitive-search-logs-and-metrics-with-power-bi"></a>Visualización de registros y métricas de Azure Cognitive Search con Power BI
 [Azure Cognitive Search](https://docs.microsoft.com/azure/search/search-what-is-azure-search) permite almacenar registros de operaciones y métricas de servicio sobre su servicio de búsqueda en una cuenta de Azure Storage. En esta página se proporcionan instrucciones sobre cómo puede visualizar esa información a través de una aplicación de plantilla de Power BI. La aplicación proporciona información detallada sobre su servicio de búsqueda, incluida información acerca de las métricas de búsqueda, indexación, operaciones y servicio.
@@ -20,7 +20,9 @@ ms.locfileid: "77650178"
 Puede buscar la aplicación de plantilla de Power BI **Azure Cognitive Search: Análisis de registros y métricas** en [Marketplace de aplicaciones de Power BI](https://appsource.microsoft.com/marketplace/apps).
 
 ## <a name="how-to-get-started-with-the-app"></a>Introducción a la aplicación
-1. Activación del registro de diagnóstico para el servicio de búsqueda:
+
+1. Habilite el registro de métricas y recursos en el servicio de búsqueda:
+
     1. Cree o identifique una [cuenta de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) existente donde pueda archivar los registros.
     1. Vaya al servicio Azure Cognitive Search en Azure Portal.
     1. En la sección Supervisión de la columna izquierda, seleccione **Configuración de diagnóstico**.

@@ -8,18 +8,18 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 2cbfdd358fdfd5403c677c067376142169cdc6bf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b7dce0181987b7e61b243a7eb0e13b7ed687eb08
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77015463"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82185700"
 ---
 # <a name="use-azure-application-gateway-with-vmware-virtual-machines-in-the-cloudsimple-private-cloud-environment"></a>Uso de Azure Application Gateway con máquinas virtuales de VMware en el entorno de nube privada de CloudSimple
 
 Puede usar Azure Application Gateway para administrar el tráfico web entrante de los servidores web que se ejecutan en máquinas virtuales de VMware en el entorno de nube privada de CloudSimple.
 
-Aproveche Azure Application Gateway en una implementación híbrida público-privado para administrar el tráfico web a las aplicaciones, proporcionar un front-end seguro y descargar el procesamiento SSL en los servicios que se ejecutan en el entorno de VMware. Azure Application Gateway enruta el tráfico web que entra en las instancias del grupo back-end que residen en entornos de VMware según las reglas configuradas y los sondeos de estado.
+Aproveche Azure Application Gateway en una implementación híbrida público-privado para administrar el tráfico web a las aplicaciones, proporcionar un front-end seguro y descargar el procesamiento TLS en los servicios que se ejecutan en el entorno de VMware. Azure Application Gateway enruta el tráfico web que entra en las instancias del grupo back-end que residen en entornos de VMware según las reglas configuradas y los sondeos de estado.
 
 Para usar la solución Azure Application Gateway, es necesario cumplir los siguientes requisitos:
 

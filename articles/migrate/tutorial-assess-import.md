@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 2a30222902fd8797908202562a04018209842af2
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: 484dfd7834a206dce6805dc38b0eabeae2ee352a
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81115058"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82114571"
 ---
 # <a name="assess-servers-by-using-imported-data"></a>Evaluación de servidores con datos importados
 
@@ -68,7 +68,7 @@ Para configurar un proyecto nuevo de Azure Migrate, haga lo siguiente:
 5. En **Migrar proyecto**, seleccione la suscripción a Azure y cree un grupo de recursos, en caso de que no lo tenga.
 6. En **DETALLES DEL PROYECTO**, especifique el nombre del proyecto y la región geográfica en la que quiere crearlo. Para obtener más información:
 
-    - Revise las [ubicaciones geográficas admitidas](migrate-support-matrix.md#supported-geographies). La geografía del proyecto solo se utiliza para almacenar los metadatos que se recopilan de las máquinas virtuales locales.
+    - Revise las zonas geográficas admitidas para nubes [públicas](migrate-support-matrix.md#supported-geographies-public-cloud) y [nubes gubernamentales](migrate-support-matrix.md#supported-geographies-azure-government).
     - Al realizar una migración se puede seleccionar cualquier región de destino.
 
     ![Crear un proyecto de Azure Migrate](./media/tutorial-assess-import/migrate-project.png)
@@ -248,6 +248,8 @@ Esta vista muestra el costo estimado de almacenamiento y proceso que conlleva ej
 > No se asignan clasificaciones de confianza a las evaluaciones de servidor importadas en Server Assessment mediante archivos CSV.
 
 ## <a name="supported-operating-system-names"></a>Nombres de los sistemas operativos compatibles
+
+Los nombres de sistema operativo proporcionados en el CSV deben contener los nombres de esta lista o coincidir con ellos. Esto es necesario para que los nombres especificados se reconozcan como válidos en la valoración.
 
 <!-- BEGIN A - H -->
 

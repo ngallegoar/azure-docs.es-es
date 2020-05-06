@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 10fc822f9f36512405dd4e3b5aba6270b53e163f
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: c60c1d33954b5e12038fd66787225f4d0aeba62d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80549040"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82184714"
 ---
 # <a name="azure-security-baseline-for-event-hubs"></a>Línea de base de seguridad de Azure para Event Hubs
 
@@ -335,7 +335,7 @@ Uso de Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorial
 
 ### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3.4: Use el inicio de sesión único (SSO) con Azure Active Directory
 
-**Guía**: Microsoft Azure proporciona una administración integrada del control de acceso para recursos y aplicaciones basados en Azure Active Directory (AD). Una ventaja clave de usar Azure AD con Azure Event Hubs es que ya no es necesario almacenar las credenciales en el código. En su lugar, puede solicitar un token de acceso de OAuth 2.0 desde la Plataforma de identidad de Microsoft. El nombre del recurso para solicitar un token es https://eventhubs.azure.net/. Azure AD autentica la entidad de seguridad (un usuario, grupo o entidad de servicio) ejecutando la aplicación. Si la autenticación se realiza correctamente, Azure AD devuelve un token de acceso a la aplicación y la aplicación puede entonces usar el token de acceso para autorizar una solicitud de los recursos de Azure Event Hubs.
+**Guía**: Microsoft Azure proporciona una administración integrada del control de acceso para recursos y aplicaciones basados en Azure Active Directory (AD). Una ventaja clave de usar Azure AD con Azure Event Hubs es que ya no es necesario almacenar las credenciales en el código. En su lugar, puede solicitar un token de acceso de OAuth 2.0 desde la Plataforma de identidad de Microsoft. El nombre del recurso para solicitar un token es https:\//eventhubs.azure.net/. Azure AD autentica la entidad de seguridad (un usuario, grupo o entidad de servicio) ejecutando la aplicación. Si la autenticación se realiza correctamente, Azure AD devuelve un token de acceso a la aplicación y la aplicación puede entonces usar el token de acceso para autorizar una solicitud de los recursos de Azure Event Hubs.
 
 Procedimiento para autenticar una aplicación con Azure AD para acceder a recursos de Event Hubs: https://docs.microsoft.com/azure/event-hubs/authenticate-application
 
@@ -351,7 +351,7 @@ Descripción del SSO con Azure AD: https://docs.microsoft.com/azure/active-direc
 
 Cómo habilitar la MFA en Azure: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
-Supervisión de la identidad y el acceso en Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-identity-access
+Cómo supervisar la identidad y el acceso en Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -445,7 +445,7 @@ Procedimiento para ver los inicios de sesión de riesgo de Azure AD: https://do
 
 Procedimiento para configurar y habilitar las directivas de riesgo de Identity Protection: https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies
 
-Incorporación de Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
+Cómo incorporar Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -631,7 +631,7 @@ Procedimiento para crear alertas para eventos de registro de actividad de Azure:
 
 **Guía**: Use Azure Resource Graph para consultar y detectar todos los recursos (incluidos los espacios de nombres de Azure Event Hubs) dentro de las suscripciones. Asegúrese de que tiene los permisos adecuados (lectura) en el inquilino y de que puede enumerar todas las suscripciones de Azure, así como los recursos de las suscripciones.
 
-Creación de consultas con Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Creación de consultas con Azure Resource Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 Visualización de las suscripciones de Azure: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
 
@@ -675,7 +675,7 @@ Creación y uso de etiquetas: https://docs.microsoft.com/azure/azure-resource-ma
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5: Supervisión de recursos de Azure no aprobados
 
-**Instrucciones**: use Azure Policy para establecer restricciones en el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
+**Instrucciones**: use Azure Policy para establecer restricciones sobre el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
 
 - Tipos de recursos no permitidos
 
@@ -717,7 +717,7 @@ Creación de consultas con Azure Graph: https://docs.microsoft.com/azure/governa
 
 ### <a name="69-use-only-approved-azure-services"></a>6.9: Uso exclusivo de servicios de Azure aprobados
 
-**Instrucciones**: use Azure Policy para establecer restricciones en el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
+**Guía**: use Azure Policy para establecer restricciones sobre el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
 
 - Tipos de recursos no permitidos
 
@@ -797,9 +797,9 @@ Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/go
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3: Mantenga configuraciones de recursos de Azure seguras
 
-**Guía**: Use la directiva de Azure [deny] y [deployifnotexist] para aplicar la configuración segura en los recursos habilitados para Event Hubs. 
+**Guía**: Use la directiva de Azure Policy [deny] y [deployifnotexist] para aplicar la configuración segura en los recursos habilitados para Event Hubs. 
 
-Configuración y administración de Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Configuración y administración de Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
  
 Para obtener más información, consulte los efectos de Azure Policy: https://docs.microsoft.com/azure/governance/policy/concepts/effects
@@ -856,7 +856,7 @@ Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/go
 
 ### <a name="79-implement-automated-configuration-monitoring-for-azure-services"></a>7.9: Implemente la supervisión de configuración automatizada para servicios de Azure
 
-**Guía**: Use alias de Azure Policy en el espacio de nombres "Microsoft.EventHub" para crear directivas personalizadas con el fin de auditar y aplicar las configuraciones del sistema y enviar alertas sobre ellas. Use la directiva de Azure [audit], [deny] y [deployifnotexist] para aplicar automáticamente las configuraciones en las implementaciones de Azure Event Hubs y los recursos relacionados.
+**Guía**: Use alias de Azure Policy en el espacio de nombres "Microsoft.EventHub" para crear directivas personalizadas con el fin de auditar y aplicar las configuraciones del sistema y enviar alertas sobre ellas. Use la directiva de Azure Policy [audit], [deny] y [deployifnotexist] para aplicar automáticamente las configuraciones en las implementaciones de Azure Event Hubs y los recursos relacionados.
 
 Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -1044,7 +1044,7 @@ Consulte la publicación de NIST: Guía para probar, entrenar y ejecutar program
 
 **Guía**: La información de contacto del incidente de seguridad la utilizará Microsoft para ponerse en contacto con usted si Microsoft Security Response Center (MSRC) detecta que un tercero no autorizado o ilegal ha accedido a los datos del cliente.  Revise los incidentes después del hecho para asegurarse de que se resuelven los problemas. 
 
-Procedimiento para establecer el contacto de seguridad de Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details
+Cómo establecer el contacto de seguridad de Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details
 
 **Supervisión de Azure Security Center**: Sí
 

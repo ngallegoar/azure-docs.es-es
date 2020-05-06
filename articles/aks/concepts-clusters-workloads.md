@@ -4,12 +4,12 @@ description: Obtenga información sobre el clúster básico y los componentes de
 services: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 019c886aba1c8fe34211e73e4d960b14e79303b9
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 13169628aff2fe4bff64fed36db54d18d4f830b8
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80617441"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208166"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Conceptos básicos de Kubernetes de Azure Kubernetes Service (AKS)
 
@@ -88,7 +88,7 @@ Para mantener la funcionalidad y el rendimiento de los nodos, AKS reserva los si
 
 - **CPU**: la CPU reservada depende del tipo de nodo y la configuración del clúster, lo que puede provocar que pueda asignarse menos CPU debido a la ejecución de otras características adicionales.
 
-| Núcleos de CPU en el host | 1 | 2 | 4 | 8 | 16 | 32|64|
+| Núcleos de CPU en el host | 1    | 2    | 4    | 8    | 16 | 32|64|
 |---|---|---|---|---|---|---|---|
 |Reservado para Kube (milinúcleos)|60|100|140|180|260|420|740|
 
@@ -126,7 +126,7 @@ Para obtener más información sobre cómo usar varios grupos de nodos en AKS, c
 
 ### <a name="node-selectors"></a>Selectores de nodos
 
-En un clúster de AKS que contenga varios grupos de nodos, es posible que tenga que indicar al programador de Kubernetes qué grupo de nodos utilizar para un recurso determinado. Por ejemplo, los controladores de entrada no deben ejecutarse en los nodos de Windows Server (actualmente en versión preliminar en AKS). Los selectores de nodo le permiten definir varios parámetros, por ejemplo, el nodo del sistema operativo, para controlar dónde se debe programar un pod.
+En un clúster de AKS que contenga varios grupos de nodos, es posible que tenga que indicar al programador de Kubernetes qué grupo de nodos utilizar para un recurso determinado. Por ejemplo, los controladores de entrada no deben ejecutarse en los nodos de Windows Server. Los selectores de nodo le permiten definir varios parámetros, por ejemplo, el nodo del sistema operativo, para controlar dónde se debe programar un pod.
 
 El siguiente ejemplo básico programa una instancia de NGINX en un nodo Linux mediante el selector de nodos *"beta.kubernetes.io/os": linux*:
 

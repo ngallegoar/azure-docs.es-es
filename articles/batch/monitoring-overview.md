@@ -1,21 +1,14 @@
 ---
-title: Supervisión de Azure Batch | Microsoft Docs
+title: Supervisión de Azure Batch
 description: Más información sobre los servicios de supervisión de Azure, las métricas, los registros de diagnóstico y otras características de supervisión para Azure Batch.
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.assetid: ''
-ms.service: batch
 ms.topic: article
-ms.workload: na
 ms.date: 04/05/2018
-ms.author: labrenne
-ms.openlocfilehash: d251229c522bd4d6daca894513eaae14d244d8a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c8b11d0b7187d6c4b5b3ccff1e19eb533ff3f0da
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77025867"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82113898"
 ---
 # <a name="monitor-batch-solutions"></a>Supervisión de soluciones de Batch
 

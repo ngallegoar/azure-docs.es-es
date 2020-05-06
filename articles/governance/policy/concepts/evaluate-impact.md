@@ -1,16 +1,16 @@
 ---
-title: Evaluación del impacto de una nueva directiva de Azure
+title: Evaluación del efecto de una nueva definición de Azure Policy
 description: Comprenda el proceso que debe seguir al introducir una nueva definición de directiva en el entorno de Azure.
 ms.date: 09/23/2019
 ms.topic: conceptual
-ms.openlocfilehash: 562fa2378356ddc1eac48b6ea5c160ebf655d525
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 394f87c0328bce46d4c7177a336a7861991ad0e8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74463527"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187756"
 ---
-# <a name="evaluate-the-impact-of-a-new-azure-policy"></a>Evaluación del impacto de una nueva directiva de Azure
+# <a name="evaluate-the-impact-of-a-new-azure-policy-definition"></a>Evaluación del efecto de una nueva definición de Azure Policy
 
 Azure Policy es una herramienta eficaz para administrar los recursos de Azure a los estándares empresariales y satisfacer las necesidades de cumplimiento normativo. Cuando las personas, los procesos o las canalizaciones crean o actualizan recursos, Azure Policy revisa la solicitud. Cuando el efecto de la definición de directiva es [Append](./effects.md#deny) o [DeployIfNotExists](./effects.md#deployifnotexists), la directiva modifica la solicitud o la agrega. Cuando el efecto de la definición de directiva es [Audit](./effects.md#audit) o [AuditIfNotExists](./effects.md#auditifnotexists), la directiva provoca la creación de una entrada del registro de actividad. Y cuando el efecto de la definición de directiva es [Deny](./effects.md#deny), la directiva detiene la creación o modificación de la solicitud.
 

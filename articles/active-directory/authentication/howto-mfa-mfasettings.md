@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da995afba1dc8eff295c9b724a78da95b9caac85
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 9002447df44a1f0c87ec9de03e316d7d12d8a626
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80653979"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82105665"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configuración de Azure Multi-Factor Authentication
 
@@ -98,11 +98,11 @@ Configure la característica de _alerta de fraude_ para que los usuarios puedan 
 ### <a name="view-fraud-reports"></a>Visualización de notificaciones de fraude
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-2. Seleccione **Azure Active Directory** > **Inicios de sesión**. El informe de fraude ahora forma parte del informe de inicios de sesión de Azure AD estándar.
-
+2. Seleccione **Azure Active Directory** > **Inicios de sesión** > **Detalles de autenticación**. El informe de fraude ahora forma parte del informe de inicios de sesión de Azure AD estándar y se mostrará en el **"Detalle del resultado"** con la denegación de MFA y el código de fraude especificado.
+ 
 ## <a name="notifications"></a>Notificaciones
 
-Configure aquí las direcciones de correo electrónico para los usuarios que recibirán correos electrónicos de alertas de fraude.
+Configure aquí las direcciones de correo para los usuarios que recibirán correos electrónicos de alertas de fraude en **Azure Active Directory** > **Seguridad** > **Multi-Factor Authentication** > **Notificaciones**.
 
 ![Ejemplo de correo electrónico de notificación de alerta de fraude](./media/howto-mfa-mfasettings/multi-factor-authentication-fraud-alert-email.png)
 

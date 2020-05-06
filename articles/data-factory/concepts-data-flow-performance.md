@@ -6,15 +6,17 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 03/11/2020
-ms.openlocfilehash: 4baf7974bdb0a5efe4cb556e820e9d13aeac5d8a
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.date: 04/27/2020
+ms.openlocfilehash: 8ea26fc041f3fa6194ced65b3e3b9055848ead49
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80409840"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188777"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guía de optimización y rendimiento de la asignación de instancias de Data Flow
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Mapping Data Flows de Azure Data Factory proporciona una interfaz sin código para diseñar, implementar y orquestar transformaciones de datos a escala. Si no está familiarizado con los flujos de datos de asignación, consulte [Introducción a Mapping Data Flow](concepts-data-flow-overview.md).
 
@@ -37,7 +39,7 @@ Al diseñar flujos de datos de asignación, puede hacer una prueba unitaria de c
 
 ## <a name="increasing-compute-size-in-azure-integration-runtime"></a>Aumento del tamaño de proceso en Azure Integration Runtime
 
-Un entorno Integration Runtime con más núcleos aumenta el número de nodos en los entornos de proceso de Spark y proporciona más capacidad de procesamiento para leer, escribir y transformar los datos.
+Un entorno Integration Runtime con más núcleos aumenta el número de nodos en los entornos de proceso de Spark y proporciona más capacidad de procesamiento para leer, escribir y transformar los datos. Los flujos de datos de ADF usan Spark para el motor de proceso. El entorno de Spark funciona muy bien en recursos optimizados para memoria.
 * Pruebe un clúster **optimizado para proceso** si quiere que la velocidad de procesamiento sea mayor que la velocidad de entrada.
 * Pruebe un clúster **optimizado para memoria** si desea almacenar en caché más datos en memoria. La optimización para memoria es ligeramente más cara por núcleo que la optimización para proceso, pero es probable que se produzcan velocidades de transformación más rápidas.
 
@@ -49,7 +51,11 @@ Para más información sobre cómo crear un entorno de Integration Runtime, cons
 
 De forma predeterminada, al activar la depuración se usará el entorno Azure Integration Runtime predeterminado que se crea automáticamente para cada factoría de datos. Este Azure IR predeterminado se establece para ocho núcleos, cuatro para un nodo de controlador y cuatro para un nodo de trabajo, mediante propiedades de proceso generales. A medida que pruebe con datos de mayor tamaño, puede aumentar el tamaño del clúster de depuración mediante la creación de un Azure IR con configuraciones mayores y elegir este nuevo Azure IR al activar la depuración. Esto indicará a ADF que use este Azure IR para la vista previa de los datos y la depuración de la canalización con flujos de datos.
 
-## <a name="optimizing-for-azure-sql-database-and-azure-sql-data-warehouse"></a>Optimización para Azure SQL Database y Azure SQL Data Warehouse
+### <a name="decrease-cluster-compute-start-up-time-with-ttl"></a>Reducción del tiempo de inicio de proceso de clúster con TTL
+
+Hay una propiedad en Azure IR, en las propiedades de Data Flow, que permitirá crear un grupo de recursos de proceso de clúster para la factoría. Con este grupo, puede enviar de forma secuencial actividades de flujo de datos para su ejecución. Una vez establecido el grupo, cada trabajo subsiguiente tardará de 1 a 2 minutos para que el clúster de Spark a petición lo ejecute. La configuración inicial del grupo de recursos tardará unos 6 minutos. Especifique la cantidad de tiempo que desea mantener el grupo de recursos en el valor de período de vida (TTL).
+
+## <a name="optimizing-for-azure-sql-database-and-azure-sql-data-warehouse-synapse"></a>Optimización para Azure SQL Database y Azure SQL Data Warehouse Synapse
 
 ### <a name="partitioning-on-source"></a>Creación de particiones en el origen
 
@@ -145,7 +151,13 @@ Establecer las propiedades throughput y batch en los receptores de CosmosDB solo
 
 ## <a name="join-performance"></a>Rendimiento de combinaciones
 
-La administración del rendimiento de las combinaciones en el flujo de datos es una operación muy común que realizará a lo largo del ciclo de vida de las transformaciones de datos. En ADF, los flujos de datos no requieren que los datos se ordenen antes de las combinaciones, ya que estas operaciones se realizan como combinaciones hash en Spark. Sin embargo, puede beneficiarse de un rendimiento mejorado con la optimización de combinaciones de "difusión". Esto evitará el orden aleatorio, ya que se inserta el contenido de cualquiera de los lados de la relación de combinación en el nodo de Spark. Esto funciona bien con las tablas más pequeñas que se usan para las búsquedas de referencias. Las tablas de mayor tamaño que pueden no caber en la memoria del nodo no son buenas candidatas para la optimización de difusión.
+La administración del rendimiento de las combinaciones en el flujo de datos es una operación muy común que realizará a lo largo del ciclo de vida de las transformaciones de datos. En ADF, los flujos de datos no requieren que los datos se ordenen antes de las combinaciones, ya que estas operaciones se realizan como combinaciones hash en Spark. Sin embargo, puede beneficiarse de un rendimiento mejorado con la optimización de combinaciones de "difusión"que se aplican a las transformaciones Joins, Exists y Lookup.
+
+Esto evitará el orden aleatorio sobre la marcha, ya que se inserta el contenido de cualquiera de los lados de la relación de combinación en el nodo de Spark. Esto funciona bien con las tablas más pequeñas que se usan para las búsquedas de referencias. Las tablas de mayor tamaño que pueden no caber en la memoria del nodo no son buenas candidatas para la optimización de difusión.
+
+La configuración recomendada para los flujos de datos con muchas operaciones de combinación es mantener la optimización establecida en "Auto" para "Difusión" y usar una configuración de Azure Integration Runtime optimizada para memoria. Si tiene errores de memoria insuficiente o tiempos de espera de difusión durante las ejecuciones de flujo de datos, puede desactivar la optimización de difusión. Sin embargo, esto dará lugar a flujos de datos con un rendimiento más lento. Opcionalmente, puede indicar al flujo de datos que inserte solo el lado izquierdo o derecho de la combinación, o ambos.
+
+![Configuración de difusión](media/data-flow/newbroad.png "Configuración de difusión")
 
 Otra optimización de combinaciones consiste en crear combinaciones de manera que se evite la tendencia de Spark a implementar combinaciones cruzadas. Por ejemplo, cuando se incluyen valores literales en las condiciones de combinación, Spark puede considerar esto como requisito para realizar primero un producto cartesiano completo, para luego filtrar los valores combinados. Pero si se asegura de tener valores de columna en ambos lados de la condición de combinación, puede evitar este producto cartesiano inducido por Spark y mejorar el rendimiento de las combinaciones y los flujos de datos.
 

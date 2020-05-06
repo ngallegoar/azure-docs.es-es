@@ -4,12 +4,12 @@ description: En este inicio rápido se usa una plantilla de Resource Manager par
 ms.date: 03/16/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: ae6b2d151baaa904215639276c7fb74766810c6a
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 646e2e064618e70fd9e9e747926f0886d85fde26
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81606598"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82187790"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-a-resource-manager-template"></a>Inicio rápido: Creación de una asignación de directiva para identificar recursos no compatibles mediante una plantilla de Resource Manager
 
@@ -70,7 +70,7 @@ Algunos recursos adicionales:
 
 Seleccione **Cumplimiento** en el panel izquierdo de la página. A continuación, busque la asignación de directiva **Auditoría de máquinas virtuales que no usan discos administrados** que ha creado.
 
-![Página de información general del cumplimiento de directivas](./media/assign-policy-template/policy-compliance.png)
+:::image type="content" source="./media/assign-policy-template/policy-compliance.png" alt-text="Página de información general del cumplimiento de directivas" border="false":::
 
 Si hay algún recurso existente no compatible con esta nueva asignación, aparecerá en la pestaña **Recursos no compatibles**.
 
@@ -84,7 +84,7 @@ Para quitar la asignación creada, siga estos pasos:
 
 1. Haga clic con el botón derecho en la asignación de directiva **Auditoría de máquinas virtuales que no usan discos administrados** y seleccione **Eliminar asignación**.
 
-   ![Eliminación de una asignación de la página de información general de cumplimiento](./media/assign-policy-template/delete-assignment.png)
+   :::image type="content" source="./media/assign-policy-template/delete-assignment.png" alt-text="Eliminación de una asignación de la página de información general de cumplimiento" border="false":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

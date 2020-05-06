@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/18/2020
 ms.author: wolfma
-ms.openlocfilehash: 1f88df186526c2f9903337bb3331940be0989c3d
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.openlocfilehash: 46bfabfb2ccf091fd5dc0fcf0e9b447bad7c34d1
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80892468"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82208625"
 ---
 # <a name="what-is-batch-transcription"></a>¿Qué es la transcripción por lotes?
 
@@ -288,7 +288,7 @@ La característica de opiniones calcula la opinión expresada en el audio. La op
 - Identificar lo que salió bien al convertir una llamada negativa en positiva
 - Identificar lo que les gusta a los clientes y lo que no les gusta de un producto o servicio
 
-La opinión se puntúa por segmento de audio basado en la forma léxica. Todo el texto dentro de ese segmento de audio se utiliza para calcular la opinión. No se calcula ninguna opinión agregada en toda la transcripción. Actualmente, el análisis de opinión solo está disponible para el idioma inglés.
+La opinión se puntúa por segmento de audio basado en la forma léxica. Todo el texto dentro de ese segmento de audio se utiliza para calcular la opinión. No se calcula ninguna opinión agregada en toda la transcripción. Actualmente, el análisis de opinión solo está disponible en inglés.
 
 > [!NOTE]
 > En su lugar, se recomienda usar la API Microsoft Text Analytics. Ofrece características más avanzadas, más allá del análisis de sentimiento, como la extracción de frases clave, la detección automática de idioma, etc. Puede encontrar información y ejemplos en la [documentación de Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/).

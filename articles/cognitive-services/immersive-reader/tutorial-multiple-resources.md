@@ -9,12 +9,12 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 01/14/2020
 ms.author: skamal
-ms.openlocfilehash: 3912d55b13f3977818e8d898efa651ffeb1a798a
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: f68112095bc8a8fd9bcc1bd67ff77827d6d00fd7
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76046479"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195628"
 ---
 # <a name="tutorial-integrate-multiple-immersive-reader-resources"></a>Tutorial: Integración de varios recursos del Lector inmersivo
 
@@ -258,7 +258,7 @@ El punto de conexión de la API **getimmersivereaderlaunchparams** debe estar pr
     npm start
     ```
 
-4. Abra el explorador web y vaya a [http://localhost:3000](http://localhost:3000). Debería ver el contenido anterior en la página. Haga clic en el botón del **Lector inmersivo de EastUS** o en el botón del **Lector inmersivo de WestUS** para iniciar el Lector inmersivo con uno de los respectivos recursos.
+4. Abra el explorador web y vaya a `http://localhost:3000`. Debería ver el contenido anterior en la página. Haga clic en el botón del **Lector inmersivo de EastUS** o en el botón del **Lector inmersivo de WestUS** para iniciar el Lector inmersivo con uno de los respectivos recursos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

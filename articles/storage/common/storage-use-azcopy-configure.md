@@ -8,12 +8,12 @@ ms.date: 04/10/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 87a335f44a31436de735395adbee9035493cbbd2
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: c3ee0f335741c171c3a7ee1df3eea6dea9c4b728
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81263427"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82176165"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configuración, optimización y solución de problemas de AzCopy
 
@@ -72,7 +72,7 @@ Para ver una guía de ayuda detallada para este comando, escriba `azcopy bench -
 
 ### <a name="optimize-throughput"></a>Optimización del rendimiento
 
-Puede usar la marca `cap-mbps` en los comandos para colocar un límite superior en la velocidad de datos de rendimiento. Por ejemplo, el siguiente comando reanuda un trabajo y limita el rendimiento a `10` megabits (MB) por segundo. 
+Puede usar la marca `cap-mbps` en los comandos para colocar un límite superior en la velocidad de datos de rendimiento. Por ejemplo, el siguiente comando reanuda un trabajo y limita el rendimiento a `10` megabytes (MB) por segundo. 
 
 ```azcopy
 azcopy jobs resume <job-id> --cap-mbps 10

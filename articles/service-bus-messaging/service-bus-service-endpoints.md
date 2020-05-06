@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/20/2019
 ms.author: aschhab
-ms.openlocfilehash: 9dbf65522d5c85e1054ed3f1f6ca9f86180e7f7d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d1766ffb579bb1a86da91ac73a396ce0d008f89e
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79454988"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82117631"
 ---
 # <a name="configure-virtual-network-service-endpoints-for-azure-service-bus"></a>Configuración de puntos de conexión de servicio de red virtual con Azure Service Bus
 
@@ -24,6 +24,20 @@ La integración de Service Bus con los [puntos de conexión de servicio de una r
 Una vez realizada la configuración para enlazarse con al menos un punto de conexión de servicio de subred de red virtual, el espacio de nombres respectivo de Service Bus solo aceptará ya el tráfico procedente de redes virtuales autorizadas. Desde la perspectiva de la red virtual, el enlace de un espacio de nombres de Service Bus a un punto de conexión de servicio configura un túnel de redes aislado desde la subred de la red virtual al servicio de mensajería.
 
 El resultado es una relación privada y aislada entre las cargas de trabajo enlazadas a la subred y el espacio de nombres respectivo de Service Bus, a pesar de que la dirección de red que se puede observar en el punto de conexión de servicio de mensajería esté en un intervalo IP público.
+
+>[!WARNING]
+> La implementación de la integración de instancias de redes virtuales puede evitar que otros servicios de Azure interactúen con Service Bus.
+>
+> Los servicios de confianza de Microsoft no se admiten cuando se implementan instancias de Virtual Network.
+>
+> Estos son los escenarios comunes de Azure que no funcionan con instancias de Virtual Network (tenga en cuenta que la lista **NO** está completa).
+> - Integración con Azure Event Grid
+> - Enrutamientos de Azure IoT Hub
+> - Azure IoT Device Explorer
+>
+> Los siguientes servicios de Microsoft deben estar en una red virtual
+> - Azure App Service
+> - Azure Functions
 
 > [!IMPORTANT]
 > Solo se admiten redes virtuales en espacios de nombres de Service Bus del [nivel Premium](service-bus-premium-messaging.md).
@@ -76,8 +90,8 @@ La siguiente plantilla de Resource Manager permite agregar una regla de red virt
 
 Parámetros de plantilla:
 
-* **namespaceName**: Espacio de nombres de Service Bus.
-* **virtualNetworkingSubnetId**: ruta de acceso completa de Resource Manager para la subred de la red virtual; por ejemplo, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` para la subred predeterminada de una red virtual.
+* **namespaceName**: espacio de nombres de Service Bus.
+* **virtualNetworkingSubnetId**: ruta completa de Resource Manager para la subred de la red virtual, por ejemplo, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` para la subred predeterminada de una red virtual.
 
 > [!NOTE]
 > Si bien no hay reglas de denegación posibles, la plantilla de Azure Resource Manager tiene la acción predeterminada establecida en **"Permitir"** , que no restringe las conexiones.

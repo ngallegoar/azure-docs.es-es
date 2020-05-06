@@ -9,21 +9,18 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 10/31/2019
+ms.date: 03/31/2020
 ms.author: apimpm
-ms.openlocfilehash: 1f2184c7c62887a98a76877528b167d173c3d75b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dacf1329d35117c65bcc48a82ac27a767ebd2b3b
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80335947"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203191"
 ---
 # <a name="configure-a-custom-domain-name"></a>Configurar un nombre de dominio personalizado
 
 Al aprovisionar una [puerta de enlace autohospedada de Azure API Management](self-hosted-gateway-overview.md) no se le asigna un nombre de host y se debe hacer referencia a ella mediante su dirección IP. En este artículo se muestra cómo asignar un nombre DNS personalizado existente (también conocido como nombre de host) a una puerta de enlace autohospedada.
-
-> [!NOTE]
-> La característica de puerta de enlace autohospedada se encuentra en versión preliminar. Durante la versión preliminar, la puerta de enlace autohospedada solo está disponible en los niveles Desarrollador y Premium sin cargo adicional. El nivel de Desarrollador está limitado a una única implementación de puerta de enlace autohospedada.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -45,7 +42,7 @@ Para seguir los pasos que se describen en este artículo, debe tener:
 
 1. Seleccione **Certificados** en **Seguridad**.
 2. Seleccione **+Agregar**.
-3. Escriba un nombre de recurso para el certificado en el campo de **ID**.
+3. Escriba un nombre de recurso para el certificado en el campo **ID.**
 4. Seleccione el archivo que contiene el certificado (.PFX). Para ello, seleccione el campo de **Certificado** o el icono de carpeta adyacente.
 5. Escriba la contraseña del certificado en el campo de **Contraseña**.
 6. Seleccione **Crear** para agregar el certificado a su servicio de API Management.

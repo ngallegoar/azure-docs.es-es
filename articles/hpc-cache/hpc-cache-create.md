@@ -4,14 +4,14 @@ description: Creación de una instancia de Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 11/11/2019
-ms.author: rohogue
-ms.openlocfilehash: c6090d19ce530829b79dca69636c2123e2519961
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/23/2020
+ms.author: v-erkel
+ms.openlocfilehash: 4ff31ca6a171beece1672802367f08768676efbc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80129566"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195016"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Creación de una instancia de Azure HPC Cache
 
@@ -29,7 +29,7 @@ En **Detalles del servicio**, establezca el nombre de la memoria caché y estos 
 
 * Ubicación: seleccione alguna de las [regiones admitidas](hpc-cache-overview.md#region-availability).
 * Red virtual: puede optar por crear una nueva red virtual o seleccionar una existente.
-* Subred: elija o cree una subred con al menos 64 direcciones IP (/24) que solo se usarán para la instancia de Azure HPC Cache.
+* Subred: elija o cree una subred con al menos 64 direcciones IP (/24). Esta subred solo se debe usar para esta instancia de Azure HPC Cache.
 
 ## <a name="set-cache-capacity"></a>Establecimiento de la capacidad de la memoria caché
 <!-- referenced from GUI - update aka.ms link if you change this header text -->
@@ -51,6 +51,28 @@ Azure HPC Cache administra qué archivos se almacenan en caché y se cargan prev
 
 ![captura de pantalla de la página de tamaño de caché](media/hpc-cache-create-capacity.png)
 
+## <a name="enable-azure-key-vault-encryption-optional"></a>Habilitación del cifrado de Azure Key Vault (opcional)
+
+Si su memoria caché se encuentra en una región que admite claves de cifrado administradas por el cliente, aparece la página **Claves de cifrado de disco** entre las pestañas **Caché** y **Etiquetas**. En el momento de la publicación, esta opción se admite en Este de EE. UU., Centro y Sur de EE. UU. y Oeste de EE. UU. 2.
+
+Si desea administrar las claves de cifrado usadas con el almacenamiento en caché, proporcione la información de Azure Key Vault en la página **Claves de cifrado de disco**. El almacén de claves debe estar en la misma región y en la misma suscripción que la memoria caché.
+
+Puede omitir esta sección si no necesita claves administradas por el cliente. De manera predeterminada, Azure cifra los datos con claves administradas por Microsoft. Para obtener más información, lea [Cifrado de Azure Storage](../storage/common/storage-service-encryption.md).
+
+> [!NOTE]
+>
+> * No puede cambiar entre claves administradas por Microsoft y claves administradas por el cliente después de crear la memoria caché.
+> * Una vez creada la memoria caché, debe autorizarla para que tenga acceso al almacén de claves. Haga clic en el botón **Habilitar cifrado** en la página **Información general** de la memoria caché para activar el cifrado. Complete este paso en un plazo de 90 minutos a partir de la creación de la memoria caché.
+> * Los discos de caché se crean después de esta autorización. Esto significa que el tiempo de creación de la memoria caché inicial es breve, pero la memoria caché no estará lista para usarse durante diez minutos o más después de que autorice el acceso.
+
+Para obtener una explicación completa del proceso de cifrado con claves administradas por el cliente, lea [Uso de claves de cifrado administradas por el cliente para Azure HPC Cache](customer-keys.md).
+
+![Captura de pantalla de la página Claves de cifrado con "Administrado por el cliente" y los campos del almacén de claves](media/create-encryption.png)
+
+Seleccione **Administrado por el cliente** para elegir el cifrado con claves administradas por el cliente. Aparecen los campos de especificación del almacén de claves. Seleccione la instancia de Azure Key Vault que se va a usar y, a continuación, seleccione la clave y la versión que se usarán para esta caché. Debe ser una clave RSA de 2048 bits. Puede crear un nuevo almacén de claves, clave o versión de clave desde esta página.
+
+Después de crear la memoria caché, debe autorizarla para que use el servicio de almacén de claves. Para obtener más información, lea [Autorización del cifrado de Azure Key Vault desde la memoria caché](customer-keys.md#3-authorize-azure-key-vault-encryption-from-the-cache).
+
 ## <a name="add-resource-tags-optional"></a>Incorporación de etiquetas de recursos (opcional)
 
 La página **Etiquetas** permiten agregar [etiquetas de recursos](https://go.microsoft.com/fwlink/?linkid=873112) a Azure HPC Cache.
@@ -64,12 +86,15 @@ La creación de la memoria caché tarda unos 10 minutos. Puede realizar el segu
 ![Captura de pantalla de las páginas de "implementación en curso" y "notificaciones" de creación de la memoria caché en el portal](media/hpc-cache-deploy-status.png)
 
 Cuando finaliza la creación, aparece una notificación con un vínculo a la nueva instancia de Azure HPC Cache y la memoria caché aparece en la lista **Recursos** de la suscripción.
-<!-- double check on notification -->
 
 ![captura de pantalla de la instancia de Azure HPC Cache en Azure Portal](media/hpc-cache-new-overview.png)
 
+> [!NOTE]
+> Si la memoria caché usa claves de cifrado administradas por el cliente, la memoria caché podría aparecer en la lista de recursos antes de que el estado de implementación cambie a Completo. Tan pronto como el estado de la memoria caché sea **Waiting for key** (Esperando la clave), puede [autorizarla](customer-keys.md#3-authorize-azure-key-vault-encryption-from-the-cache) para usar el almacén de claves.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que la memoria caché aparezca en la lista **Recursos**, defina los destinos de almacenamiento para dar a la memoria caché acceso a los orígenes de datos.
+Después de que la memoria caché aparezca en la lista **Recursos**, puede avanzar al paso siguiente.
 
-* [Incorporación de destinos de almacenamiento](hpc-cache-add-storage.md)
+* [Defina los destinos de almacenamiento](hpc-cache-add-storage.md) para otorgar a la memoria caché acceso a los orígenes de datos.
+* Si usa claves de cifrado administradas por el cliente, debe [autorizar el cifrado de Azure Key Vault](customer-keys.md#3-authorize-azure-key-vault-encryption-from-the-cache) en la página de información general de la memoria caché para completar la configuración de la memoria caché. Debe completar este paso para poder agregar almacenamiento. Para obtener más información, lea [Uso de claves de cifrado administradas por el cliente](customer-keys.md).

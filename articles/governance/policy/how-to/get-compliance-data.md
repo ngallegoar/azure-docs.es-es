@@ -3,12 +3,12 @@ title: Obtención de datos de cumplimiento de directiva
 description: Las evaluaciones y los efectos de Azure Policy determinan el cumplimiento. Obtenga información sobre cómo obtener los detalles de cumplimiento de los recursos de Azure.
 ms.date: 02/01/2019
 ms.topic: how-to
-ms.openlocfilehash: 891c9c72d8e83dc8f9adb930e8ebd11b70f6aad8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d4d9c530a7f9c4683f522a08a30e23437d1774cc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79236136"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82194013"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Obtención de datos de cumplimiento de los recursos de Azure
 
@@ -96,11 +96,11 @@ Los efectos requieren también que la condición de existencia sea FALSE para se
 
 Por ejemplo, suponga que tiene un grupo de recursos (ContosoRG) con varias cuentas de almacenamiento (resaltadas en rojo) expuestas a redes públicas.
 
-![Cuentas de almacenamiento expuestas a redes públicas](../media/getting-compliance-data/resource-group01.png)
+:::image type="content" source="../media/getting-compliance-data/resource-group01.png" alt-text="Cuentas de almacenamiento expuestas a redes públicas" border="false":::
 
 En este ejemplo, debe tener cuidado con los riesgos de seguridad. Ahora que ha creado una asignación de directiva, se evalúa para todas las cuentas de almacenamiento en el grupo de recursos ContosoRG. Se auditan las tres cuentas de almacenamiento no compatibles, con lo que sus estados cambian a **No compatible**.
 
-![Cuentas de almacenamiento auditadas no compatibles](../media/getting-compliance-data/resource-group03.png)
+:::image type="content" source="../media/getting-compliance-data/resource-group03.png" alt-text="Cuentas de almacenamiento auditadas no compatibles" border="false":::
 
 Además de **Compatible** y **No compatible**, las directivas y los recursos tienen otros tres estados:
 
@@ -113,17 +113,17 @@ Azure Policy usa los campos de **tipo** y **nombre** en la definición para dete
 El porcentaje de cumplimiento se determina al dividir los recursos **Conforme** por el _total de recursos_.
 El _total de recursos_ se define como la suma de los recursos **Conforme**, **No compatible** y **En conflicto**. La cifra de cumplimiento general es la suma de los distintos recursos que son **Conforme** dividida por la suma de todos los recursos distintos. En la imagen siguiente, hay 20 recursos diferentes que son aplicables y solo uno es **No compatible**. Por tanto, el cumplimiento general de los recursos es del 95 % (19 de 20).
 
-![Ejemplo de cumplimiento de directivas de la página de cumplimiento](../media/getting-compliance-data/simple-compliance.png)
+:::image type="content" source="../media/getting-compliance-data/simple-compliance.png" alt-text="Ejemplo de cumplimiento de directivas de la página de cumplimiento" border="false":::
 
 ## <a name="portal"></a>Portal
 
 Azure Portal presenta de forma gráfica la visualización y el reconocimiento del estado de cumplimiento de normas en su entorno. En la página **Directiva**, la opción **Información general** proporciona detalles sobre el cumplimiento de directivas e iniciativas por parte de los ámbitos disponibles. Junto con el recuento y el estado de cumplimiento por asignación, contiene un gráfico que muestra el cumplimiento durante los últimos siete días. La página **Cumplimiento** contiene gran parte de esta misma información (excepto el gráfico), pero ofrece más opciones de filtrado y ordenación.
 
-![Ejemplo de la página de cumplimiento de Azure Policy](../media/getting-compliance-data/compliance-page.png)
+:::image type="content" source="../media/getting-compliance-data/compliance-page.png" alt-text="Ejemplo de la página de cumplimiento de Azure Policy" border="false":::
 
 Dado que una directiva o iniciativa se puede asignar a distintos ámbitos, la tabla incluye el ámbito de cada asignación y el tipo de definición que se asignó. También se proporciona el número de directivas y recursos no compatibles para cada asignación. Al hacer clic en una directiva o iniciativa de la tabla, se proporciona más información sobre el cumplimiento de esa asignación en particular.
 
-![Ejemplo de la página de detalles de cumplimiento de Azure Policy](../media/getting-compliance-data/compliance-details.png)
+:::image type="content" source="../media/getting-compliance-data/compliance-details.png" alt-text="Ejemplo de la página de detalles de cumplimiento de Azure Policy" border="false":::
 
 La lista de recursos de la pestaña **Compatibilidad de recursos** muestra el estado de evaluación de los recursos existentes para la asignación actual. El valor predeterminado de la pestaña es **No compatible**, pero se puede filtrar.
 Los eventos (anexar, auditar, denegar, implementar) que desencadena la solicitud para crear un recurso se muestran en la pestaña **Eventos**.
@@ -131,19 +131,17 @@ Los eventos (anexar, auditar, denegar, implementar) que desencadena la solicitud
 > [!NOTE]
 > En el caso de una directiva del motor de AKS, el recurso que se muestra es el grupo de recursos.
 
-![Ejemplo de eventos de cumplimiento de Azure Policy](../media/getting-compliance-data/compliance-events.png)
+:::image type="content" source="../media/getting-compliance-data/compliance-events.png" alt-text="Ejemplo de eventos de cumplimiento de Azure Policy" border="false":::
 
 Para los recursos del [modo de proveedor de recursos](../concepts/definition-structure.md#resource-provider-modes), en la pestaña **Resource compliance** (Compatibilidad de recursos), si selecciona el recurso o hace clic con el botón derecho en la fila y selecciona **View compliance details** (Ver detalles de cumplimiento), se abren los detalles de cumplimiento de componentes. Esta página también ofrece pestañas para ver las directivas que se asignan a este recurso, eventos, eventos de componentes e historial de cambios.
 
-![Ejemplo de los detalles de cumplimiento del componente de Azure Policy](../media/getting-compliance-data/compliance-components.png)
+:::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Ejemplo de los detalles de cumplimiento del componente de Azure Policy" border="false":::
 
 De vuelta a la página de cumplimiento de recursos, haga clic con el botón derecho en la fila del evento sobre el que quiere recopilar información más detallada y seleccione **Show activity logs** (Mostrar los registros de actividad). Se abre la página de registro de actividad y se filtra previamente para mostrar detalles de la asignación y los eventos. El registro de actividad proporciona contexto e información adicionales sobre esos eventos.
 
-![Ejemplo de registro de actividad de cumplimiento de Azure Policy](../media/getting-compliance-data/compliance-activitylog.png)
+:::image type="content" source="../media/getting-compliance-data/compliance-activitylog.png" alt-text="Ejemplo de registro de actividad de cumplimiento de Azure Policy" border="false":::
 
 ### <a name="understand-non-compliance"></a>Qué significa no cumplimiento
-
-<a name="change-history-preview"></a>
 
 Cuando se determina que un recurso no es **compatible**, hay muchas razones posibles para ello. Para determinar el motivo de que un recurso **no sea compatible** o para buscar el responsable del cambio, consulte [Determinación del incumplimiento](./determine-non-compliance.md).
 
@@ -396,8 +394,7 @@ Trent Baker
 
 Si tiene un [área de trabajo de Log Analytics](../../../log-analytics/log-analytics-overview.md) con `AzureActivity` de la [solución Activity Log Analytics](../../../azure-monitor/platform/activity-log-collect.md) vinculada a su suscripción, también puede ver los resultados de no cumplimiento del ciclo de evaluación mediante consultas sencillas de Kusto y la tabla `AzureActivity`. Con los detalles de los registros de Azure Monitor, se pueden configurar alertas para comprobar la opción de no compatibilidad.
 
-
-![Cumplimiento de Azure Policy mediante registros de Azure Monitor](../media/getting-compliance-data/compliance-loganalytics.png)
+:::image type="content" source="../media/getting-compliance-data/compliance-loganalytics.png" alt-text="Cumplimiento de Azure Policy mediante registros de Azure Monitor" border="false":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

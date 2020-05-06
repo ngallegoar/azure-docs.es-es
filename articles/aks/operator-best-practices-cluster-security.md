@@ -5,12 +5,12 @@ description: Obtenga información sobre los procedimientos recomendados del oper
 services: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: 3d4e8577116ba1d78aaa881887f64e71c04af4f2
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 305d4c15aaf72a47549497902e3027064fbfd608
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668326"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208098"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para administrar la seguridad y las actualizaciones de los clústeres en Azure Kubernetes Service (AKS)
 
@@ -195,7 +195,7 @@ Para obtener más información sobre las actualizaciones de AKS, consulte [Versi
 
 ## <a name="process-linux-node-updates-and-reboots-using-kured"></a>Proceso de las actualizaciones y reinicios de nodos Linux con kured
 
-**Orientación con procedimientos recomendados**: AKS descarga e instala automáticamente correcciones de seguridad en cada uno de los nodos Linux, pero no se reinicia automáticamente si es necesario. Use `kured` para prestar atención a los reinicios pendientes, luego acordone y drene el nodo de forma segura para permitir que se reinicie, se apliquen las actualizaciones y esté lo más seguro posible con respecto al sistema operativo. Para los nodos de Windows Server (actualmente en versión preliminar de AKS), realice periódicamente una operación de actualización de AKS para acordonar y drenar los pods de forma segura, e implemente los nodos actualizados.
+**Orientación con procedimientos recomendados**: AKS descarga e instala automáticamente correcciones de seguridad en cada uno de los nodos Linux, pero no se reinicia automáticamente si es necesario. Use `kured` para prestar atención a los reinicios pendientes, luego acordone y drene el nodo de forma segura para permitir que se reinicie, se apliquen las actualizaciones y esté lo más seguro posible con respecto al sistema operativo. Para los nodos de Windows Server, realice periódicamente una operación de actualización de AKS para acordonar y drenar los pods de forma segura, e implemente los nodos actualizados.
 
 Cada noche, los nodos Linux de AKS obtienen las revisiones de seguridad disponibles en su canal de actualización de distribuciones. Este comportamiento se configura automáticamente cuando se implementan los nodos en un clúster de AKS. Para minimizar las interrupciones y el posible impacto sobre las cargas de trabajo en ejecución, los nodos no se reinician automáticamente si lo requiere una revisión de seguridad o una actualización de kernel.
 

@@ -8,12 +8,12 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 810219bca5c75e3ee7e65c6b7302531bca89788d
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: 867c011cb3086cab736d17501e72bc477d0d2889
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81869958"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160007"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Preguntas más frecuentes sobre la configuración y administración de Web Apps en Azure
 
@@ -125,7 +125,7 @@ Para más información sobre el uso de las ranuras de implementación, consulte 
 
 Para revisar los registros de WebJob:
 
-1. Inicie sesión en su [sitio web de Kudu](https://*yourwebsitename*.scm.azurewebsites.net).
+1. Inicie sesión en su **sitio web de Kudu** (`https://*yourwebsitename*.scm.azurewebsites.net`).
 2. Seleccione la instancia de WebJob.
 3. Seleccione el botón **Alternar salida**.
 4. Para descargar el archivo de salida, seleccione el vínculo **Descargar**.

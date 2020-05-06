@@ -3,18 +3,18 @@ title: Referencias de almacén de máquina virtual admitidas en Azure Policy
 description: En este artículo se describen las SKU de máquina virtual admitidas (por publicador, oferta de imagen y SKU de imagen) que se admiten para las directivas de Azure integradas que proporciona Azure Backup.
 ms.topic: conceptual
 ms.date: 11/08/2019
-ms.openlocfilehash: 1b6a94b0f57ecfea946654c6cae38ac335335e00
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4658d1beffe707682e173491edea1eac0db9c811
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74979941"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82183626"
 ---
 # <a name="supported-vm-skus-for-azure-policy"></a>Referencias de almacén de máquina virtual admitidas en Azure Policy
 
 Azure Backup proporciona una directiva integrada (mediante Azure Policy) que se puede asignar a **todas las máquinas virtuales de Azure de una ubicación especificada dentro de una suscripción o un grupo de recursos**. Cuando esta directiva se asigna a un ámbito determinado, todas las máquinas virtuales nuevas creadas en ese ámbito se configuran automáticamente para que se cree su copia de seguridad en un **almacén existente en la misma ubicación y suscripción**. En la tabla siguiente se enumeran todas las SKU de máquina virtual admitidas por esta directiva.
 
-### <a name="supported-vms"></a>**Máquinas virtuales admitidas**
+## <a name="supported-vms"></a>Máquinas virtuales admitidas*
 
 **Nombre de la directiva:** Configuración de copias de seguridad de las máquinas virtuales de una ubicación en un almacén central existente en la misma ubicación
 
@@ -46,7 +46,7 @@ Microsoft Windows Server | WindowsServerSemiAnnual | Datacenter-Core-1709-with-C
 Microsoft Windows Server | WindowsServerSemiAnnual | Datacenter-Core-1803-with-Containers-smalldisk
 MicrosoftWindowsServerHPCPack | WindowsServerHPCPack | Todas las SKU de imagen
 MicrosoftSQLServer | SQL2016SP1-WS2016 | Todas las SKU de imagen
-MicrosoftSQLServer | SQL2016-WS2016  | Todas las SKU de imagen
+MicrosoftSQLServer | SQL2016-WS2016 | Todas las SKU de imagen
 MicrosoftSQLServer | SQL2016SP1-WS2016-BYOL | Todas las SKU de imagen
 MicrosoftSQLServer | SQL2012SP3-WS2012R2 | Todas las SKU de imagen
 MicrosoftSQLServer | SQL2016-WS2012R2 | Todas las SKU de imagen
@@ -58,7 +58,7 @@ MicrosoftSQLServer | SQL2016-WS2012R2-BYOL | Todas las SKU de imagen
 MicrosoftRServer | MLServer-WS2016 | Todas las SKU de imagen
 MicrosoftVisualStudio | VisualStudio | Todas las SKU de imagen
 MicrosoftVisualStudio | Windows | Todas las SKU de imagen
-MicrosoftDynamicsAX | Dynamics  | Pre-Req-AX7-Onebox-U8
+MicrosoftDynamicsAX | Dynamics | Pre-Req-AX7-Onebox-U8
 microsoft-ads | windows-data-science-vm | Todas las SKU de imagen
 MicrosoftWindowsDesktop | Windows-10 | Todas las SKU de imagen
 RedHat | RHEL | 6.7, 6.8, 6.9, 6.10, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7

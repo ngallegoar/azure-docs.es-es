@@ -1,7 +1,7 @@
 ---
-title: Definición de módulos R personalizados
+title: Creación e implementación de módulos de R personalizados
 titleSuffix: ML Studio (classic) - Azure
-description: En este tema se describe cómo crear e implementar un módulo R Studio personalizado (clásico). Se explica qué son los módulos R personalizados y qué archivos se usan para definirlos.
+description: Aprenda a crear e implementar módulos de R personalizados en ML Studio (clásico).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,22 +10,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 5b8dab14a9416795eccef1f71988a048c8bedb48
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5fb628b1730f0811debf0ff8a6cd517b96f8ef53
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79218163"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208438"
 ---
 # <a name="define-custom-r-modules-for-azure-machine-learning-studio-classic"></a>Definición de módulos R personalizados en Azure Machine Learning Studio (clásico)
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
-
 En este tema se describe cómo crear e implementar un módulo R Studio personalizado (clásico). Se explica qué son los módulos R personalizados y qué archivos se usan para definirlos. Muestra cómo construir estos archivos y cómo registrar el módulo para implementarlo en un área de trabajo de Machine Learning. Los elementos y atributos que se utilizan en la definición del módulo personalizado se describen a continuación con más detalle. También se describe cómo utilizar la funcionalidad y los archivos auxiliares, y varias salidas. 
 
-
-
-## <a name="what-is-a-custom-r-module"></a>¿Qué es un módulo R personalizado?
 Un **módulo personalizado** es un módulo definido por el usuario que se puede cargar en el área de trabajo de un usuario y ejecutarlo como parte de un experimento de Azure Machine Learning Studio (clásico). Un **módulo de R personalizado** es un módulo personalizado que ejecuta una función de R definida por el usuario. **R** es un lenguaje de programación de computación estadística y gráficos utilizado ampliamente por científicos estadísticos y de datos para implementar algoritmos. Actualmente, R es el único lenguaje que se admite en los módulos personalizados, pero en las próximas versiones se ha programado la compatibilidad con idiomas adicionales.
 
 Los módulos personalizados tienen un **estado de primera clase** en Azure Machine Learning Studio (clásico), en el sentido de que se pueden usar como cualquier otro módulo. Pueden ejecutarse con otros módulos e incluirse en experimentos publicados o visualizaciones. Usted tiene control sobre el algoritmo implementado por el módulo, los puertos de entrada y de salida a utilizar, los parámetros de modelado y otros distintos comportamientos en tiempo de ejecución. En la Galería de Azure AI también se puede publicar un experimento con módulos personalizados para compartirlo fácilmente.

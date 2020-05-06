@@ -7,19 +7,21 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/19/2019
-ms.openlocfilehash: 210c1814325e689dd70af9caa7fad08deed933e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 01/28/2020
+ms.openlocfilehash: 9f280aafabd59878ee24a9c3fe809dd027a97284
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79224800"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187858"
 ---
 # <a name="what-are-mapping-data-flows"></a>¿Qué son los flujos de datos de asignación?
 
-La asignación de flujos de datos es una transformación de datos diseñada visualmente en Azure Data Factory. Los flujos de datos permiten a los ingenieros de datos desarrollar una lógica de transformación de datos gráfica sin necesidad de escribir código. Los flujos de datos resultantes se ejecutan como actividades en las canalizaciones de Azure Data Factory que usan clústeres de Spark de escalabilidad horizontal. Las actividades de flujo de datos pueden ponerse en marcha mediante las funcionalidades de programación, control, flujo y supervisión existentes en Data Factory.
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-La asignación de flujos de datos proporciona una experiencia completamente visual que no requiere programación. Los flujos de datos se ejecutarán en su propio clúster de ejecución durante el procesamiento de datos de escalabilidad horizontal. Asimismo, Azure Data Factory controla toda la traducción de código, la optimización de rutas de acceso y la ejecución de los trabajos de flujo de datos.
+La asignación de flujos de datos es una transformación de datos diseñada visualmente en Azure Data Factory. Los flujos de datos permiten a los ingenieros de datos desarrollar una lógica de transformación de datos gráfica sin necesidad de escribir código. Los flujos de datos resultantes se ejecutan como actividades en las canalizaciones de Azure Data Factory que usan clústeres de Apache Spark con escalabilidad horizontal. Las actividades de flujo de datos se pueden captar mediante las funcionalidades de programación, control, flujo y supervisión existentes en Data Factory.
+
+Los flujos de datos de asignación proporcionan una experiencia completamente visual que no requiere programación. Los flujos de datos se ejecutan en el clúster de ejecución durante el procesamiento de datos de escalabilidad horizontal. Asimismo, Azure Data Factory controla toda la traducción de código, la optimización de rutas de acceso y la ejecución de los trabajos de flujo de datos.
 
 ## <a name="getting-started"></a>Introducción
 
@@ -27,7 +29,7 @@ Para crear un flujo de datos, seleccione el signo más en **Factory Resources** 
 
 ![Nuevo flujo de datos](media/data-flow/newdataflow2.png "nuevo flujo de datos")
 
-De este modo, accederá al lienzo de flujo de datos, donde podrá crear la lógica de transformación. Seleccione **Agregar origen** para comenzar a configurar la transformación de origen. Para más información, consulte [Transformación de origen](data-flow-source.md).
+Con esta acción, accederá al lienzo de flujo de datos, donde podrá crear la lógica de transformación. Seleccione **Agregar origen** para comenzar a configurar la transformación de origen. Para más información, consulte [Transformación de origen](data-flow-source.md).
 
 ## <a name="data-flow-canvas"></a>Lienzo de flujo de datos
 
@@ -45,41 +47,41 @@ En el gráfico se muestra el flujo de transformación. Muestra el linaje de los 
 
 ![Botón Depurar](media/data-flow/debugbutton.png "Botón Depurar")
 
-Cuando empiece a trabajar con flujos de datos en ADF, querrá activar el modificador "Debug" para los flujos de datos en la parte superior de la interfaz de usuario del explorador. Esto pondrá a punto un clúster de Azure Databricks que se usará para la depuración interactiva, las vistas previas de datos y las ejecuciones de depuración de canalizaciones. Para establecer el tamaño del clúster que se está usando, elija una opción de [Azure Integration Runtime](concepts-integration-runtime.md) personalizada. La sesión de depuración permanecerá activa hasta 60 minutos después de la última ejecución de la canalización de depuración o la última vista previa de datos.
+Al empezar a trabajar con flujos de datos en ADF, querrá activar el modificador "Depurar" para los flujos de datos en la parte superior de la interfaz de usuario del explorador. Esto pone a punto un clúster de Spark que se usa para la depuración interactiva, las vistas previas de datos y las ejecuciones de depuración de canalizaciones. Para establecer el tamaño del clúster que se está usando, elija una opción de [Azure Integration Runtime](concepts-integration-runtime.md) personalizada. La sesión de depuración permanece activa hasta 60 minutos después de la última ejecución de la canalización de depuración o la última vista previa de datos.
 
-Al poner en marcha las canalizaciones con actividades de flujo de datos, ADF usará las instancias de Azure Integration Runtime asociadas a la [actividad ](control-flow-execute-data-flow-activity.md) de la propiedad "Run On".
+Al poner en marcha las canalizaciones con actividades de flujo de datos, ADF usa las instancias de Azure Integration Runtime asociadas a la [actividad](control-flow-execute-data-flow-activity.md) de la propiedad "Ejecutar el".
 
-La instancia predeterminada de Azure Integration Runtime es un clúster de nodo de trabajo único de 4 núcleos diseñado para permitirle obtener una vista previa de los datos y ejecutar rápidamente las canalizaciones de depuración con unos costos mínimos. Establezca una configuración de Azure IR mayor si va a realizar operaciones en conjuntos de datos de gran tamaño.
+La instancia predeterminada de Azure Integration Runtime es un único clúster de nodos de trabajo de 4 núcleos diseñado para permitirle obtener una vista previa de los datos y ejecutar rápidamente las canalizaciones de depuración con unos costos mínimos. Establezca una configuración de Azure IR mayor si va a realizar operaciones en conjuntos de datos de gran tamaño.
 
-Puede indicar a ADF que mantenga un grupo de recursos de clúster (VM). Para ello, establezca un TTL en las propiedades de flujo de datos de Azure IR. Esto dará lugar a una ejecución más rápida del trabajo en las actividades posteriores.
+Puede indicar a ADF que mantenga un grupo de recursos de clúster (VM). Para ello, establezca un TTL en las propiedades de flujo de datos de Azure IR. Esta acción dará lugar a una ejecución más rápida del trabajo en las actividades posteriores.
 
 #### <a name="azure-integration-runtime-and-data-flow-strategies"></a>Estrategias de Azure Integration Runtime y flujos de datos
 
 ##### <a name="execute-data-flows-in-parallel"></a>Ejecutar flujos de datos en paralelo
 
-Si ejecuta flujos de datos en una canalización en paralelo, ADF pondrá a punto clústeres de Azure Databricks independientes para cada ejecución de actividad en función de la configuración de la instancia de Azure Integration Runtime asociada a cada actividad. Para diseñar ejecuciones en paralelo en canalizaciones de ADF, agregue sus actividades de flujo de datos sin restricciones de precedencia en la interfaz de usuario.
+Si ejecuta flujos de datos en una canalización en paralelo, ADF pone a punto clústeres de Spark independientes para cada ejecución de actividad en función de la configuración de la instancia de Azure Integration Runtime asociada a cada actividad. Para diseñar ejecuciones en paralelo en canalizaciones de ADF, agregue sus actividades de flujo de datos sin restricciones de precedencia en la interfaz de usuario.
 
-De estas tres opciones, esta es la que probablemente se ejecutará en menos tiempo. Sin embargo, cada flujo de datos paralelo se ejecutará al mismo tiempo en clústeres diferentes, por lo que el orden de los eventos no es determinista.
+De estas tres opciones, esta es la que probablemente se ejecuta en menos tiempo. Sin embargo, cada flujo de datos paralelo se ejecuta al mismo tiempo en clústeres diferentes, por lo que el orden de los eventos no es determinista.
 
-Si está ejecutando las actividades de flujo de datos en paralelo dentro de las canalizaciones, se recomienda no utilizar TTL. Esto se debe a que las ejecuciones paralelas de flujos de datos que usan simultáneamente la misma instancia de Azure Integration Runtime darán como resultado varias instancias de grupo semiactivas para la factoría de datos.
+Si está ejecutando las actividades de flujo de datos en paralelo dentro de las canalizaciones, se recomienda no utilizar TTL. Esta acción se debe a que las ejecuciones paralelas del flujo de datos que usan simultáneamente la misma instancia de Azure Integration Runtime da como resultado varias instancias de grupo semiactivas para la factoría de datos.
 
 ##### <a name="overload-single-data-flow"></a>Sobrecargar un flujo de datos único
 
-Si coloca toda la lógica dentro de un flujo de datos único, ADF se ejecutará íntegramente en ese mismo contexto de ejecución de trabajo en una única instancia de clúster de Spark.
+Si coloca toda la lógica dentro de un flujo de datos único, ADF se ejecuta íntegramente en ese mismo contexto de ejecución de trabajo en una única instancia de clúster de Spark.
 
-Es posible que el seguimiento y la solución de problemas de esta opción sean más difíciles, ya que las reglas de negocio y la lógica de negocios se mezclarán. Esta opción tampoco proporciona mucha capacidad de reutilización.
+Es posible que el seguimiento y la solución de problemas de esta opción sean más difíciles, ya que las reglas de negocio y la lógica de negocios se pueden mezclar. Esta opción tampoco proporciona mucha capacidad de reutilización.
 
-##### <a name="execute-data-flows-serially"></a>Ejecutar flujos de datos en serie
+##### <a name="execute-data-flows-sequentially"></a>Ejecución secuencial de flujos de datos
 
-Si ejecuta las actividades de flujo de datos en serie en la canalización y ha establecido un TTL en la configuración de Azure IR, ADF volverá a usar los recursos de proceso (VM), lo que dará lugar a tiempos de ejecución posteriores más rápidos. Seguirá recibiendo un nuevo contexto de Spark para cada ejecución.
+Si ejecuta las actividades de flujo de datos en secuencia en la canalización y ha establecido un TTL en la configuración de Azure IR, ADF volverá a usar los recursos de proceso (VM), lo que dará lugar a tiempos de ejecución posteriores más rápidos. Seguirá recibiendo un nuevo contexto de Spark para cada ejecución.
 
-De estas tres opciones, esta es la que probablemente tardará más tiempo en ejecutarse de un extremo a otro. Pero proporciona una separación limpia de las operaciones lógicas en cada paso del flujo de datos.
+De estas tres opciones, esta acción es la que probablemente tarda más tiempo en ejecutarse de un extremo a otro. Pero proporciona una separación limpia de las operaciones lógicas en cada paso del flujo de datos.
 
 ### <a name="configuration-panel"></a>Panel de configuración
 
 En el panel configuración se muestra la configuración específica de la transformación seleccionada actualmente. Si no se ha seleccionado ninguna transformación, se muestra el flujo de datos. En la configuración general del flujo de datos, puede modificar el nombre y la descripción en la pestaña **General** o agregar parámetros en la pestaña **Parámetros**. Para más información, consulte [Parámetros de asignación de Data Flow](parameters-data-flow.md).
 
-Cada transformación tiene al menos cuatro pestañas de configuración.
+Cada transformación contiene al menos cuatro pestañas de configuración.
 
 #### <a name="transformation-settings"></a>Configuración de la transformación
 
@@ -99,7 +101,7 @@ Hay casos en los que es posible que quiera ajustar la creación de particiones. 
 
 Otro caso en el que es probable que desee controlar los esquemas de partición es para optimizar el rendimiento. Ajustar las particiones permite controlar la distribución de los datos entre los nodos de proceso y las optimizaciones de la localidad de los datos, lo que puede tener efectos tanto positivos como negativos en el rendimiento general de los flujos de datos. Para más información, consulte la [guía de rendimiento de Data Flow](concepts-data-flow-performance.md).
 
-Para cambiar las particiones de cualquier transformación, seleccione la pestaña **Optimizar** y elija el botón de radio **Set Partitioning** (Establecer particiones). Aparecerán una serie de opciones relacionadas con la creación de particiones. El mejor método para crear particiones dependerá de los volúmenes de datos, las claves candidatas, los valores nulos y la cardinalidad. 
+Para cambiar las particiones de cualquier transformación, seleccione la pestaña **Optimizar** y elija el botón de radio **Set Partitioning** (Establecer particiones). Aparecen una serie de opciones relacionadas con la creación de particiones. El mejor método para crear particiones depende de los volúmenes de datos, las claves candidatas, los valores nulos y la cardinalidad. 
 
 El procedimiento recomendado consiste en comenzar con el proceso de creación de particiones predeterminado y probar después diferentes opciones. Puede realizar la prueba con las ejecuciones de depuración de canalizaciones y ver el tiempo que ejecución y el uso de las particiones de cada agrupación de transformaciones en la vista de supervisión. Para más información, consulte [Supervisión de flujos de datos](concepts-data-flow-monitoring.md).
 
@@ -111,19 +113,19 @@ Round robin es una partición simple que distribuye automáticamente los datos e
 
 ##### <a name="hash"></a>Hash
 
-Azure Data Factory generará un valor hash de las columnas para generar particiones uniformes, con el fin de que las filas con valores similares estarán en la misma partición. Si usa la opción Hash, pruebe si hay una posible distorsión de las particiones. Puede establecer el número de particiones físicas.
+Azure Data Factory genera un valor hash de las columnas para generar particiones uniformes, por ejemplo, filas con valores similares en la misma partición. Si usa la opción Hash, pruebe si hay una posible distorsión de las particiones. Puede establecer el número de particiones físicas.
 
 ##### <a name="dynamic-range"></a>Intervalo dinámico
 
-Intervalo dinámico usará los intervalos dinámicos de Spark en función de las columnas o expresiones que proporcione. Puede establecer el número de particiones físicas. 
+El intervalo dinámico usa los intervalos dinámicos de Spark en función de las columnas o expresiones que proporcione. Puede establecer el número de particiones físicas. 
 
 ##### <a name="fixed-range"></a>Intervalo fijo
 
-Cree una expresión que proporcione un intervalo de valores fijo en las columnas de datos con particiones. Para evitar la distorsión de la partición, es preciso que conozca perfectamente los datos antes de usar esta opción. El valor que especifique para la expresión se usará como parte de una función de partición. Puede establecer el número de particiones físicas.
+Cree una expresión que proporcione un intervalo de valores fijo en las columnas de datos con particiones. Para evitar la distorsión de la partición, es preciso que conozca perfectamente los datos antes de usar esta opción. Los valores que especifique para la expresión se usan como parte de una función de partición. Puede establecer el número de particiones físicas.
 
 ##### <a name="key"></a>Clave
 
-Si conoce bien la cardinalidad de los datos, la creación de particiones clave puede ser una buena estrategia. La creación de particiones clave creará particiones para cada valor único de la columna. No puede establecer el número de particiones porque dicho número dependerá de valores únicos de los datos.
+Si conoce bien la cardinalidad de los datos, la creación de particiones clave puede ser una buena estrategia. La creación de particiones clave crea particiones para cada valor único de la columna. No puede establecer el número de particiones porque dicho número depende de valores únicos de los datos.
 
 #### <a name="inspect"></a>Inspeccionar
 

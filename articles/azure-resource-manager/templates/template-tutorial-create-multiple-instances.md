@@ -2,15 +2,15 @@
 title: Creación de varias instancias de recursos
 description: Obtenga información sobre cómo crear una plantilla de Azure Resource Manager para crear varias instancias de recursos de Azure.
 author: mumian
-ms.date: 04/08/2020
+ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 83afff3aa15caa1743f66eea9eaee541492b8d1c
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: b62cca48323d4e12a92c89d64ab67bf5b783c36f
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81260843"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82183845"
 ---
 # <a name="tutorial-create-multiple-resource-instances-with-arm-templates"></a>Tutorial: Creación de varias instancias de recursos con plantillas de Resource Manager
 
@@ -21,7 +21,7 @@ Obtenga información sobre cómo iterar la plantilla de Azure Resource Manager p
 En este tutorial se describen las tareas siguientes:
 
 > [!div class="checklist"]
-> * Apertura de una plantilla de inicio rápido
+> * Abra una plantilla de inicio rápido.
 > * Edición de la plantilla
 > * Implementación de la plantilla
 
@@ -112,9 +112,40 @@ Para más información sobre cómo crear varias instancias, consulte [Implementa
 
 ## <a name="deploy-the-template"></a>Implementación de la plantilla
 
-Consulte la sección [Implementación de la plantilla](quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) de la guía de inicio rápido de Visual Studio Code para el procedimiento de implementación.
+1. Inicio de sesión en [Azure Cloud Shell](https://shell.azure.com)
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+1. Elija el entorno que prefiera; para ello, seleccione **PowerShell** o **Bash** (para CLI) en la esquina superior izquierda.  Es necesario reiniciar el shell cuando realiza el cambio.
+
+    ![Archivo de carga de Cloud Shell de Azure Portal](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
+
+1. Seleccione **Cargar/descargar archivos** y, después, seleccione **Cargar**. Consulte la captura de pantalla anterior. Seleccione el archivo que guardó en la sección anterior. Después de cargar el archivo, puede usar el comando **ls** y el comando **cat** para comprobar que la operación de carga se ha realizado correctamente.
+
+1. En Cloud Shell, ejecute los comandos siguientes. Seleccione la pestaña para mostrar el código de PowerShell o el código de la CLI.
+
+    # <a name="cli"></a>[CLI](#tab/CLI)
+
+    ```azurecli
+    echo "Enter a project name that is used to generate resource group name:" &&
+    read projectName &&
+    echo "Enter the location (i.e. centralus):" &&
+    read location &&
+    resourceGroupName="${projectName}rg" &&
+    az group create --name $resourceGroupName --location "$location" &&
+    az deployment group create --resource-group $resourceGroupName --template-file "$HOME/azuredeploy.json"
+    ```
+
+    # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
+
+    ```azurepowershell
+    $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name"
+    $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+    $resourceGroupName = "${projectName}rg"
+
+    New-AzResourceGroup -Name $resourceGroupName -Location "$location"
+    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "$HOME/azuredeploy.json"
+    ```
+
+    ---
 
 Para mostrar las tres cuentas de almacenamiento, omita el parámetro --name:
 
@@ -133,6 +164,7 @@ echo "Press [ENTER] to continue ..."
 ```azurepowershell
 $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name"
 $resourceGroupName = "${projectName}rg"
+
 Get-AzStorageAccount -ResourceGroupName $resourceGroupName
 Write-Host "Press [ENTER] to continue ..."
 ```

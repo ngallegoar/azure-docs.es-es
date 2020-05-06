@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
-ms.date: 04/06/2020
-ms.openlocfilehash: fe2cb04f36026740dc54f4668d3c3188592bd8ae
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.custom: hdinsightactive,seoapr2020
+ms.date: 04/28/2020
+ms.openlocfilehash: c5f01a00d70869882d3d3398607ecfebbfd54417
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80754216"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82209084"
 ---
 # <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>Puertos utilizados por los servicios Apache Hadoop en HDInsight
 
@@ -156,7 +156,7 @@ Ejemplos:
 
 | Servicio | Nodos | Port | Protocolo | Descripción |
 | --- | --- | --- | --- | --- |
-| Agente |Nodos de trabajo |9092 |[Protocolo de conexión de Kafka](https://kafka.apache.org/protocol.html) |Se utiliza para la comunicación del cliente |
+| Agente |Nodos de trabajo |9092 |Protocolo Wire de Kafka |Se utiliza para la comunicación del cliente |
 | &nbsp; |Nodos Zookeeper |2181 |&nbsp; |El puerto que los clientes utilizan para conectarse a ZooKeeper |
 | Proxy de REST | Nodos de administración de Kafka |9400 |HTTPS |[Especificación REST de Kafka](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy/) |
 

@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: genli
-ms.openlocfilehash: 119f9c28b5413b8d2db5fa14ea839d1743f3d64a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5a273ccad0d30ede3f0ed4ee532d61161074d304
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80297622"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188300"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Solución de problemas: Problemas de conexión de punto a sitio de Azure
 
@@ -282,7 +282,7 @@ Cuando el cliente se conecta a Azure con una conexión VPN de punto a sitio, no 
 
 ### <a name="cause"></a>Causa
 
-El cliente VPN de punto a sitio usa servidores de Azure DNS configurados en la red virtual de Azure. Los servidores de Azure DNS tienen prioridad sobre los servidores DNS locales que están configurados en el cliente, por lo que todas las consultas DNS se envían a los servidores DNS de Azure. Si los servidores de Azure DNS no tienen los registros de los recursos locales, se produce un error en la consulta.
+Un cliente VPN de punto a sitio normalmente usa servidores de Azure DNS configurados en la red virtual de Azure. Los servidores de Azure DNS tienen prioridad sobre los servidores DNS locales que están configurados en el cliente (salvo que la métrica de la interfaz de Ethernet sea menor), por lo que todas las consultas DNS se envían a los servidores DNS de Azure. Si los servidores de Azure DNS no tienen los registros de los recursos locales, se produce un error en la consulta.
 
 ### <a name="solution"></a>Solución
 

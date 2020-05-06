@@ -1,11 +1,11 @@
 ---
-title: Restauración masiva de usuarios (versión preliminar) en el portal de Azure Active Directory | Microsoft Docs
+title: Restauración masiva de usuarios eliminados en el portal de Azure Active Directory | Microsoft Docs
 description: Restauración de usuarios en bloque en el Centro de administración de Azure AD de Azure Active Directory
 services: active-directory
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 08/15/2019
+ms.date: 04/27/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,16 +13,37 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d392ae97a8325dd4a56acd807ebfb2b951216eae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 11f35c7615135f5aa6c63d5d05898d139df61d0d
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72174244"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203319"
 ---
-# <a name="bulk-restore-deleted-users-preview-in-azure-active-directory"></a>Restauración masiva de usuarios (versión preliminar) en Azure Active Directory
+# <a name="bulk-restore-deleted-users-in-azure-active-directory"></a>Restauración masiva de usuarios eliminados en Azure Active Directory
 
-Azure Active Directory (Azure AD) admite operaciones de creación y eliminación de usuarios en bloque, invitar usuarios en bloque y la descarga de listas de usuarios, grupos y miembros del grupo.
+Azure Active Directory (Azure AD) admite operaciones de restauración de usuarios en masa, así como la descarga de listas de usuarios, grupos y miembros del grupo.
+
+## <a name="understand-the-csv-template"></a>Nociones sobre la plantilla CSV
+
+Descargue y rellene la plantilla CSV para restaurar en masa a los usuarios de Azure AD de forma correcta. La plantilla CSV que descargue podría parecerse a este ejemplo:
+
+![Hoja de cálculo para la carga y notas que explican el propósito y los valores de cada fila y columna](./media/users-bulk-restore/understand-template.png)
+
+### <a name="csv-template-structure"></a>Estructura de la plantilla CSV
+
+Las filas de una plantilla CSV descargada son las siguientes:
+
+- **Número de versión**: la primera fila, que contiene el número de versión, debe estar incluida en el archivo CSV de carga.
+- **Encabezados de columna**: el formato de los encabezados de columna es &lt;*Nombre del elemento*&gt; [nombreDePropiedad] &lt;*Required (Obligatorio) o en blanco*&gt;. Por ejemplo, `Object ID [objectId] Required`. Algunas versiones anteriores de la plantilla podrían tener ligeras variaciones.
+- **Fila de ejemplos**: en la plantilla se incluye una fila de ejemplos de valores válidos para cada columna. Debe eliminar la fila de ejemplos y reemplazarla por sus propias entradas.
+
+### <a name="additional-guidance"></a>Instrucciones adicionales
+
+- Las dos primeras filas de la plantilla de carga no se deben eliminar ni modificar, o no se podrá procesar la carga.
+- Las columnas necesarias se enumeran en primer lugar.
+- No se recomienda agregar nuevas columnas a la plantilla. Cualquier columna adicional que agregue se omitirá y no se procesará.
+- Se recomienda que descargue la versión más reciente de la plantilla CSV tan a menudo como sea posible.
 
 ## <a name="to-bulk-restore-users"></a>Para restaurar usuarios en masa
 
@@ -32,11 +53,11 @@ Azure Active Directory (Azure AD) admite operaciones de creación y eliminación
 
    ![Selección del comando de restauración masiva en la página Usuarios eliminados](./media/users-bulk-restore/bulk-restore.png)
 
-1. Abra el archivo CSV y agregue una línea por cada usuario que desee restaurar. El único valor necesario es **ObjectID**. A continuación, guarde el archivo.
+1. Abra la plantilla CSV y agregue una línea por cada usuario que quiera restaurar. El único valor necesario es **ObjectID**. A continuación, guarde el archivo.
 
    ![Selección de un archivo .csv local en el que se indican los usuarios que quiere agregar](./media/users-bulk-restore/upload-button.png)
 
-1. En la página **Bulk restore (Preview)** (Restauración masiva [versión preliminar]), en **Cargue el archivo csv**, vaya al archivo. Al seleccionar el archivo y hacer clic en **Enviar**, comienza su validación.
+1. En la página **Restauración masiva**, en **Cargue el archivo csv**, vaya al archivo. Al seleccionar el archivo y hacer clic en **Enviar**, comienza su validación.
 1. Cuando finalice la validación del contenido del archivo, aparecerá el mensaje **Archivo cargado correctamente**. Si hay errores, debe corregirlos para poder enviar el trabajo.
 1. Cuando el archivo supere la validación, seleccione **Enviar** para iniciar la operación masiva de Azure que restaura los usuarios.
 1. Cuando la operación de restauración finalice, verá una notificación que indicará que la operación masiva se realizó correctamente.
@@ -45,9 +66,9 @@ Si hay errores, puede descargar y ver el archivo de resultados en la página **R
 
 ## <a name="check-status"></a>Comprobar estado
 
-Puede ver el estado de todas las solicitudes masivas pendientes en la página de **resultados de la operación masiva (versión preliminar)** .
+Puede ver el estado de todas las solicitudes masivas pendientes en la página **Resultados de la operación masiva**.
 
-   ![Comprobación del estado de carga en la página de resultados de la operación masiva](./media/users-bulk-restore/bulk-center.png)
+[![](media/users-bulk-restore/bulk-center.png "Check status in the Bulk Operations Results page")](media/users-bulk-restore/bulk-center.png#lightbox)
 
 A continuación, puede comprobar si los usuarios restaurados existen en la organización de Azure AD en Azure Portal o mediante PowerShell.
 

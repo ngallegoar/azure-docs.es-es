@@ -7,20 +7,20 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 09/06/2019
 ms.author: victorh
-ms.openlocfilehash: e1bc3b58f425b374e4cae1da6e9800579e503f0d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4d6b984fd451a835afaa51482f0158e9f315f8fc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73511441"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82130910"
 ---
 # <a name="use-log-analytics-to-examine-application-gateway-web-application-firewall-logs"></a>Usar Log Analytics para examinar registros del firewall de aplicaciones web de Application Gateway
 
-Una vez que el WAF de Application Gateway está operativo, puede habilitar registros para inspeccionar lo que sucede con cada solicitud. Los registros del firewall proporcionan información sobre lo que el WAF evalúa, empareja y bloquea. Con Log Analytics, puede examinar los datos de los registros del firewall para ofrecer aún más información. Para obtener más información sobre la creación de un área de trabajo de Log Analytics, vea [Creación de un área de trabajo de Log Analytics en Azure Portal](../../azure-monitor/learn/quick-create-workspace.md). Para obtener más información sobre las consultas de registro, vea [Análisis de datos de registro en Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
+Una vez que el WAF de Application Gateway está operativo, puede habilitar registros para inspeccionar lo que sucede con cada solicitud. Los registros del firewall proporcionan información sobre lo que el WAF evalúa, empareja y bloquea. Con Log Analytics de Azure Monitor, puede examinar los datos de los registros del firewall para ofrecer incluso más información. Para obtener más información sobre la creación de un área de trabajo de Log Analytics, vea [Creación de un área de trabajo de Log Analytics en Azure Portal](../../azure-monitor/learn/quick-create-workspace.md). Para obtener más información sobre las consultas de registro, vea [Análisis de datos de registro en Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
 
 ## <a name="import-waf-logs"></a>Importar registros de WAF
 
-Para importar registros del firewall en Log Analytics, vea [Mantenimiento del back-end, Registros de diagnóstico y Métricas de Application Gateway](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging). Cuando tenga los registros del firewall en el área de trabajo de Log Analytics, puede ver datos, escribir consultas, crear visualizaciones y agregarlas al panel del portal.
+Para importar registros del firewall en Log Analytics, consulte [Mantenimiento del back-end, registros de recursos y métricas de Application Gateway](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging). Cuando tenga los registros del firewall en el área de trabajo de Log Analytics, puede ver datos, escribir consultas, crear visualizaciones y agregarlas al panel del portal.
 
 ## <a name="explore-data-with-examples"></a>Explorar datos con ejemplos
 
@@ -83,4 +83,4 @@ Una vez que se crea una consulta, se puede agregar al panel.  Seleccione **Ancla
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Mantenimiento del back-end, Registros de diagnóstico y Métricas de Application Gateway](../../application-gateway/application-gateway-diagnostics.md)
+[Mantenimiento del back-end, registros de recursos y métricas de Application Gateway](../../application-gateway/application-gateway-diagnostics.md)

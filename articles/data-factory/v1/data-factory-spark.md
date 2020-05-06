@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: ce5fb014c7d954b3e8430a86430c6a666adff204
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3ea719a26f47da98e80abd9e3fcd1785ed8efa69
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75969242"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82185598"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Invocación de programas Spark desde canalizaciones de Azure Data Factory
 
@@ -42,7 +42,7 @@ La actividad de Spark es una de las [actividades de transformación de datos](da
 > - La actividad de Spark no admite clústeres de HDInsight Spark que usan una instancia de Azure Data Lake Store como almacenamiento principal.
 > - La actividad de Spark admite solo los clústeres de HDInsight Spark existentes (los suyos propios). No admite un servicio vinculado de HDInsight a petición.
 
-## <a name="walkthrough-create-a-pipeline-with-a-spark-activity"></a>Tutorial: Creación de una canalización con actividad de Spark
+## <a name="walkthrough-create-a-pipeline-with-a-spark-activity"></a>Tutorial: Crear una canalización con la actividad de Spark
 Estos son los pasos habituales para crear una canalización de Data Factory con una actividad de Spark:
 
 * Creación de una factoría de datos.
@@ -51,7 +51,7 @@ Estos son los pasos habituales para crear una canalización de Data Factory con 
 * Creación de un conjunto de datos que haga referencia al servicio vinculado de Azure Storage. Actualmente, debe especificar un conjunto de datos de salida para una actividad incluso si no se produce ninguna salida.
 * Creación de una canalización con la actividad de Spark que haga referencia al servicio vinculado de HDInsight que ha creado. La actividad se configura con el conjunto de datos que creó en el paso anterior como un conjunto de datos de salida. El conjunto de datos de salida es lo que impulsa la programación (cada hora o cada día). Por lo tanto, debe especificar el conjunto de datos de salida aunque la actividad no produzca realmente una salida.
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Prerrequisitos
 1. Cree una cuenta de almacenamiento de uso general siguiendo las instrucciones de [Crear una cuenta de almacenamiento](../../storage/common/storage-account-create.md).
 
 1. Cree un clúster de Spark en HDInsight siguiendo las instrucciones del tutorial: [Creación de un clúster de Spark en HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Asocie la cuenta de almacenamiento creada en el paso 1 con este clúster.
@@ -70,7 +70,7 @@ Para crear una factoría de datos, siga estos pasos:
 1. En la hoja **Nueva factoría de datos**, en **Nombre**, escriba **SparkDF**.
 
    > [!IMPORTANT]
-   > El nombre de la instancia de Azure Data Factory debe ser único de forma global. Si aparece el error "El nombre SparkDF de factoría de datos no está disponible", cambie dicho nombre. Por ejemplo, use yournameSparkDFdate y vuelva a crear la factoría de datos. Para más información acerca de las reglas de nomenclatura, consulte [Data Factory: Naming rules](data-factory-naming-rules.md) (Data Factory: reglas de nomenclatura).
+   > El nombre de la instancia de Azure Data Factory debe ser único de forma global. Si aparece el error "El nombre SparkDF de factoría de datos no está disponible", cambie dicho nombre. Por ejemplo, use yournameSparkDFdate y vuelva a crear la factoría de datos. Para más información acerca de las reglas de nomenclatura, consulte [Azure Data Factory: Reglas de nomenclatura](data-factory-naming-rules.md).
 
 1. En **Suscripción**, seleccione la suscripción de Azure en la que desea que se cree la factoría de datos.
 
@@ -247,7 +247,7 @@ En este paso, crea una canalización con una actividad de HDInsightSpark. Actual
 
 ### <a name="verify-the-results"></a>Verificación de los resultados
 
-1. Inicie Jupyter Notebook para el clúster de HDInsight Spark desde [este sitio web](https://CLUSTERNAME.azurehdinsight.net/jupyter). También puede abrir un panel del clúster de HDInsight Spark y después iniciar Jupyter Notebook.
+1. Inicie Jupyter Notebook para el clúster de HDInsight Spark desde `https://CLUSTERNAME.azurehdinsight.net/jupyter`. También puede abrir un panel del clúster de HDInsight Spark y después iniciar Jupyter Notebook.
 
 1. Seleccione **Nuevo** > **PySpark** para iniciar una nueva instancia de Notebook.
 

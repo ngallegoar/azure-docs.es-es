@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2020
 ms.author: kumud
-ms.openlocfilehash: e5b78969f6b4315bb02b3f4152c6eeab94adddb8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b9ef084e530faa3bcea2cfcf1554a84f543bbf59
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80246949"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186091"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Incorporación, cambio o eliminación de una subred de red virtual
 
@@ -26,15 +26,15 @@ Obtenga información sobre la incorporación, la modificación o la eliminación
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Si no tiene ninguna una cuenta de Azure, configure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). A continuación, complete una de estas tareas antes de empezar los pasos de las secciones de este artículo: 
+Si no tiene ninguna, configure una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Después, complete una de estas tareas antes de iniciar los pasos de cualquiera de las secciones de este artículo: 
 
-- **Usuarios del portal**: Inicie sesión en [Azure Portal](https://portal.azure.com) con su cuenta de Azure.
+- **Usuarios de Portal**: Inicie sesión en [Azure Portal](https://portal.azure.com) con su cuenta de Azure.
 
-- **Usuarios de PowerShell**: Ejecute los comandos en [Azure Cloud Shell](https://shell.azure.com/powershell), o bien ejecute PowerShell en el equipo. Azure Cloud Shell es un shell interactivo gratuito que puede usar para ejecutar los pasos de este artículo. Tiene las herramientas comunes de Azure preinstaladas y configuradas para usarlas en la cuenta. En la pestaña del explorador Azure Cloud Shell, busque la lista desplegable **Seleccionar entorno** y, a continuación, elija **PowerShell** si aún no está seleccionado.
+- **Usuarios de PowerShell**: ejecute los comandos en [Azure Cloud Shell](https://shell.azure.com/powershell), o bien ejecute PowerShell en el equipo. Azure Cloud Shell es un shell interactivo gratuito que puede usar para ejecutar los pasos de este artículo. Tiene las herramientas comunes de Azure preinstaladas y configuradas para usarlas en la cuenta. En la pestaña del explorador Azure Cloud Shell, busque la lista desplegable **Seleccionar entorno** y, después, elija **PowerShell** si aún no está seleccionado.
 
-    Si ejecuta PowerShell en su entorno local, use la versión del módulo de Azure PowerShell 1.0.0 o una posterior. Ejecute `Get-Module -ListAvailable Az.Network` para buscar la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps). Así mismo, ejecute `Connect-AzAccount` para crear una conexión con Azure.
+    Si ejecuta PowerShell en el entorno local, use la versión del módulo de Azure PowerShell 1.0.0 o una posterior. Ejecute `Get-Module -ListAvailable Az.Network` para buscar la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps). Ejecute también `Connect-AzAccount` para crear una conexión con Azure.
 
-- **Usuarios de la interfaz de la línea de comandos (CLI) de Azure**: Ejecute los comandos en [Azure Cloud Shell](https://shell.azure.com/bash), o bien ejecute la CLI en el equipo. Use la versión 2.0.31 de la CLI de Azure o una posterior si ejecuta la CLI de Azure en el entorno local. Ejecute `az --version` para buscar la versión instalada. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli). Además, ejecute `az login` para crear una conexión con Azure.
+- **Usuarios de la interfaz de la línea de comandos (CLI) de Azure**: ejecute los comandos en [Azure Cloud Shell](https://shell.azure.com/bash), o bien ejecute la CLI en el equipo. Use la versión 2.0.31 de la CLI de Azure o una posterior si ejecuta la CLI de Azure en el entorno local. Ejecute `az --version` para buscar la versión instalada. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli). Además, ejecute `az login` para crear una conexión con Azure.
 
 La cuenta en la que inicia sesión o con la que se conecta a Azure, debe tener asignado el rol de [colaborador de red](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) o un [rol personalizado](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que tenga asignadas las acciones apropiadas en [Permisos](#permissions).
 
@@ -132,4 +132,4 @@ Para llevar a cabo tareas en subredes, su cuenta debe estar asignada al [rol de 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Crear una red virtual y subredes con scripts de ejemplo de [PowerShell](powershell-samples.md) o de la [CLI de Azure](cli-samples.md) o con [plantillas de Azure Resource Manager](template-samples.md)
-- Crear y aplicar una [directiva de Azure](policy-samples.md) para redes virtuales
+- Crear y asignar [definiciones de Azure Policy](policy-samples.md) para redes virtuales

@@ -8,21 +8,18 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/21/2020
 ms.author: babanisa
-ms.openlocfilehash: 35cea2e6df311d2f4071686c21c8e4c36477abc1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7c45b8f634868024a84f9f3b75bb23031c09b40c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79225120"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82114010"
 ---
 # <a name="azure-event-grid-event-schema"></a>Esquema de eventos de Azure Event Grid
 
 En este artículo se describen las propiedades y el esquema que están presentes para todos los eventos. Los eventos constan de un conjunto de cinco propiedades de cadena y un objeto de datos obligatorios. Las propiedades son comunes a todos los eventos de cualquier anunciante. El objeto de datos tiene propiedades específicas de cada publicador. Para los temas de sistema, estas propiedades son específicas del proveedor de recursos, como Azure Storage o Azure Event Hubs.
 
-Los orígenes de eventos envían eventos a Azure Event Grid en una matriz que puede tener varios objetos de evento. Al publicar eventos en un tema de Event Grid, la matriz puede tener un tamaño total de hasta 1 MB. Cada evento en la matriz se limita a 64 KB (disponibilidad general) o 1 MB (versión preliminar). Si un evento o la matriz superan los límites de tamaño, recibirá la respuesta **413 Payload Too Large** (Carga útil demasiado grande).
-
-> [!NOTE]
-> Los eventos con un tamaño de hasta 64 KB están cubiertos por el Acuerdo de Nivel de Servicio de disponibilidad general (GA). La compatibilidad de un evento con un tamaño de hasta 1 MB se encuentra actualmente en versión preliminar. Los eventos de más de 64 KB se cobran en incrementos de 64 KB. 
+Los orígenes de eventos envían eventos a Azure Event Grid en una matriz que puede tener varios objetos de evento. Al publicar eventos en un tema de Event Grid, la matriz puede tener un tamaño total de hasta 1 MB. Cada evento de la matriz tiene 1 MB, como máximo. Si un evento o la matriz superan los límites de tamaño, recibirá la respuesta **413 Payload Too Large** (Carga útil demasiado grande). No obstante, las operaciones se cobran en incrementos de 64 KB. Por lo tanto, los eventos de más de 64 KB incurrirán en cargos de operaciones como si fueran varios eventos. Por ejemplo, un evento que tenga 130 KB incurrirá en operaciones como si fueran tres eventos independientes.
 
 Event Grid envía los eventos a los suscriptores en una matriz que tiene un solo evento. Este comportamiento puede cambiar en el futuro.
 

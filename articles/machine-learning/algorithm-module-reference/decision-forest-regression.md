@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/22/2020
-ms.openlocfilehash: 63d90a5239e6bf350d8a6b66f35157e4c7d15aee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/22/2020
+ms.openlocfilehash: bb7ebee67d65ab37dc037437b7c35d8c19c53096
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79456546"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82137032"
 ---
 # <a name="decision-forest-regression-module"></a>Módulo Decision Forest Regression (Regresión de bosque de decisión)
 
@@ -78,9 +78,19 @@ Para obtener más información sobre el marco teórico de este algoritmo y su im
      Al aumentar este valor, aumenta el umbral para crear reglas nuevas. Por ejemplo, con el valor predeterminado de 1, incluso un solo caso puede provocar que se cree una regla nueva. Si aumenta el valor a 5, los datos de entrenamiento tendrían que contener cinco casos como mínimo que cumplan las mismas condiciones.
 
 
-9. Conecte un conjunto de datos etiquetado, seleccione una única columna de etiquetas que no contenga más de dos resultados y conéctela con [Modelo de entrenamiento](./train-model.md).
+9. Entrenamiento del modelo:
 
-    - Si establece la opción **Create trainer mode** (Crear modo de entrenador) en **Single Parameter** (Parámetro único), entrene el modelo usando el módulo [Entrenar modelo](./train-model.md).
+    + Si establece **Create trainer mode** (Crear modo entrenador) en **Single Parameter** (Parámetro único), conecte un conjunto de datos etiquetado y el módulo [Entrenar modelo](train-model.md).  
+  
+    + Si establece **Create trainer mode** (Crear el modo de entrenador) en **Parameter Range** (Intervalo de parámetros), conecte un conjunto de datos etiquetado y entrene el modelo mediante [Tune Model Hyperparameters](tune-model-hyperparameters.md) (Optimizar los hiperparámetros del modelo).  
+  
+    > [!NOTE]
+    > 
+    > Si pasa un intervalo de parámetros a [Train Model](train-model.md) (Entrenar modelo), solo utiliza el valor predeterminado en la lista de parámetros única.  
+    > 
+    > Si pasa un único conjunto de valores de parámetro al módulo [Tune Model Hyperparameters](tune-model-hyperparameters.md) (Optimizar los hiperparámetros del modelo), cuando espera un intervalo de valores para cada parámetro, omite los valores y usa los valores predeterminados para el aprendiz.  
+    > 
+    > Si selecciona la opción **Parameter Range** (Intervalo de parámetros) y especifica un valor único para algún parámetro, ese valor único que haya especificado se utilizará en todo el barrido, incluso si otros parámetros cambian en un intervalo de valores.
 
    
 
