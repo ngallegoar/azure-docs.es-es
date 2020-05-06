@@ -6,14 +6,14 @@ ms.topic: tutorial
 ms.date: 07/10/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: b226c37c36da033862377860be4c413229651fb6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6ce2e5a71d48942642ee01d8d2cc75a232abf259
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75614050"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82159956"
 ---
-# <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>Tutorial: Supervisión y diagnóstico de una aplicación de ASP.NET Core de Service Fabric mediante Application Insights
+# <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>Tutorial: Supervisión y diagnóstico de una aplicación de ASP.NET Core en Service Fabric mediante Application Insights
 
 Este tutorial es la parte quinta de una serie. Describe los pasos necesarios para configurar la supervisión y el diagnóstico de una aplicación ASP.NET Core que se ejecuta en un clúster de Service Fabric con Application Insights. Recopilaremos datos de telemetría de la aplicación desarrollada en la primera parte del tutorial, [Crear una aplicación de .NET Service Fabric](service-fabric-tutorial-create-dotnet-app.md).
 
@@ -32,7 +32,7 @@ En esta serie de tutoriales, se aprende a:
 > * [Configuración de CI/CD con Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * Configurar la supervisión y el diagnóstico para la aplicación
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de empezar este tutorial:
 
@@ -168,7 +168,7 @@ En este punto, ya está listo para implementar la aplicación. Haga clic en **In
 >[!NOTE]
 >Puede que reciba un error de compilación si no tiene una versión actualizada del SDK de .NET Core instalada.
 
-Cuando la aplicación finalice la implementación, diríjase a [localhost: 8080](localhost:8080), donde podrá ver la aplicación de ejemplo de una sola página Voting. Vote distintos elementos de su elección para crear datos de ejemplo y telemetría. Yo elegí el tema de los postres.
+Cuando finalice la implementación de la aplicación, vaya a `localhost:8080`, donde podrá ver la aplicación de ejemplo de una sola página Voting. Vote distintos elementos de su elección para crear datos de ejemplo y telemetría. Yo elegí el tema de los postres.
 
 ![Todos los votos de ejemplo](./media/service-fabric-tutorial-monitoring-aspnet/vote-sample.png)
 
@@ -251,7 +251,7 @@ public async Task<IActionResult> Delete(string name)
 }
 ```
 
-Cuando haya finalizado de realizar estos cambios, **inicie** la aplicación para compilar e implementar su versión más reciente. Cuando finalice la implementación de la aplicación, vaya a [localhost: 8080](localhost:8080), y agregue y elimine algunas opciones de voto. A continuación, vuelva al recurso de Application Insights para ver los seguimientos de la última ejecución (como antes, los seguimientos pueden tardar de 1 a 2 minutos en aparecer en Application Insights). Para todos los votos que agregó y eliminó, ahora debería ver "Custom event"\* junto con la telemetría de respuesta.
+Cuando haya finalizado de realizar estos cambios, **inicie** la aplicación para compilar e implementar su versión más reciente. Cuando finalice la implementación de la aplicación, vaya a `localhost:8080`, y agregue y elimine algunas opciones de voto. A continuación, vuelva al recurso de Application Insights para ver los seguimientos de la última ejecución (como antes, los seguimientos pueden tardar de 1 a 2 minutos en aparecer en Application Insights). Para todos los votos que agregó y eliminó, ahora debería ver "Custom event"\* junto con la telemetría de respuesta.
 
 ![eventos personalizados](./media/service-fabric-tutorial-monitoring-aspnet/custom-events.png)
 

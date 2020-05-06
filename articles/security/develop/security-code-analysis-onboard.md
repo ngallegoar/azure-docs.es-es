@@ -1,10 +1,10 @@
 ---
 title: Guía de incorporación de Análisis de código de seguridad de Microsoft
 description: En este artículo se describe la instalación de la extensión Análisis de código de seguridad de Microsoft
-author: vharindra
+author: sukhans
 manager: sukhans
 ms.author: terrylan
-ms.date: 07/31/2019
+ms.date: 04/24/2020
 ms.topic: article
 ms.service: security
 services: azure
@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 6132aab98cc8145cb99cf153c64f20fbac00131c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5b7e36c12dab65f4bcc6c05a1ee902301c402d5e
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78197012"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82147682"
 ---
 # <a name="onboarding-and-installing"></a>Incorporación e instalación
 
@@ -44,11 +44,12 @@ Si no tiene uno de los contratos de soporte técnico mencionados anteriormente, 
 
 **Pasos siguientes:**
 
-Póngase en contacto con un asociado de la lista siguiente y pídale que compre la extensión de análisis de código de seguridad de Microsoft.
+Si cumple las cualificaciones anteriores, póngase en contacto con un asociado de la lista siguiente para comprar la extensión de análisis de código de seguridad de Microsoft. En caso contrario, póngase en contacto con el [departamento de soporte técnico de Análisis de código de seguridad de Microsoft](mailto:mscahelp@microsoft.com?Subject=Microsoft%20Security%20Code%20Analysis%20Support%20Request).
 
 >**Asociados:**
 
 - Zonas - Información de contacto cloudsupport@zones.com
+- Wortell - Información de contacto: info@wortell.nl
 
 ### <a name="become-a-partner"></a>Convertirse en asociado
 

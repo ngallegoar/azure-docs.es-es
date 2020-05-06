@@ -6,14 +6,15 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/25/2019
-ms.openlocfilehash: 2636e9a225002148e4cd79bb2176e0883aed623a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 70520b464bcb26ff8f1ea10f87bbf30537dc58a0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79236092"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82131217"
 ---
 # <a name="logs-in-azure-database-for-postgresql---single-server"></a>Registros en Azure Database for PostgreSQL con un único servidor
+
 Azure Database for PostgreSQL permite configurar y acceder a los registros estándar de Postgres. Los registros se pueden usar para identificar, solucionar y reparar errores de configuración y casos de rendimiento no óptimo. La información de registro que puede configurar y a la que puede acceder incluye errores, información de consultas, registros de vaciado automático, conexiones y puntos de control (no está disponible el acceso a los registros de transacciones).
 
 El registro de auditoría está disponible a través de una extensión de Postgres, pgaudit. Para más información, visite el artículo sobre [conceptos de auditoría](concepts-audit.md).
@@ -46,7 +47,8 @@ Para la retención a largo plazo de registros y análisis de registros, puede de
 
 Puede detener la generación de archivos .log si establece el parámetro `logging_collector` en OFF. Se recomienda desactivar la generación de archivos .log si se usa la configuración de diagnóstico de Azure Monitor. Esta configuración reducirá el impacto en el rendimiento del registro adicional.
 
-## <a name="diagnostic-logs"></a>Registros de diagnóstico
+## <a name="resource-logs"></a>Registros del recurso
+
 Azure Database for PostgreSQL se integra con la configuración de diagnóstico de Azure Monitor. Esta configuración permite enviar los registros de Postgres en formato JSON a los registros de Azure Monitor para llevar a cabo análisis y creación de alertas, a Event Hubs para streaming y a Azure Storage para el archivado. 
 
 > [!IMPORTANT]
@@ -54,9 +56,10 @@ Azure Database for PostgreSQL se integra con la configuración de diagnóstico d
 
 
 ### <a name="configure-diagnostic-settings"></a>Configuración de valores de diagnóstico
+
 Puede habilitar la configuración de diagnóstico para el servidor de Postgres mediante Azure Portal, la CLI, API REST y PowerShell. La categoría de registro que se debe seleccionar es **PostgreSQLLogs** (hay otros registros que puede configurar si usa el [Almacén de consultas](concepts-query-store.md)).
 
-Para habilitar los registro de diagnóstico desde Azure Portal:
+Para habilitar los registros de recursos mediante Azure Portal:
 
    1. En el portal, vaya a *Configuración de diagnóstico*  en el menú de navegación del servidor de Postgres.
    2. Seleccione *Agregar configuración de diagnóstico*.
@@ -65,9 +68,9 @@ Para habilitar los registro de diagnóstico desde Azure Portal:
    5. Seleccione el tipo de registro **PostgreSQLLogs**.
    7. Guarde la configuración.
 
-Para habilitar los registros de diagnóstico mediante PowerShell, la CLI o API REST, visite el artículo sobre [configuración de diagnóstico](../azure-monitor/platform/diagnostic-settings.md).
+Para habilitar los registros de recursos mediante PowerShell, la CLI o la API REST, consulte el artículo sobre la [configuración de diagnóstico](../azure-monitor/platform/diagnostic-settings.md).
 
-### <a name="access-diagnostic-logs"></a>Acceso a los registros de diagnóstico
+### <a name="access-resource-logs"></a>Acceso a los registros de recursos
 
 La forma de acceder a los registros depende del punto de conexión que elija. Si se trata de Azure Storage, consulte el artículo sobre la [cuenta de almacenamiento de registros](../azure-monitor/platform/resource-logs-collect-storage.md). Si se trata de Event Hubs, consulte el artículo [Transmisión de los registros de Azure](../azure-monitor/platform/resource-logs-stream-event-hubs.md).
 
@@ -108,7 +111,7 @@ En la tabla siguiente se describen los campos del tipo **PostgreSQLLogs**. En fu
 | Resource | Nombre del servidor |
 | Category | `PostgreSQLLogs` |
 | OperationName | `LogEvent` |
-| errorLevel | Nivel de registro, ejemplo: LOG, ERROR, NOTICE |
+| errorLevel | Ejemplo de nivel de registro: LOG, ERROR, NOTICE |
 | Message | Mensaje de registro principal | 
 | Domain | Versión del servidor, ejemplo: postgres-10 |
 | Detail | Mensaje de registro secundario (si procede) |

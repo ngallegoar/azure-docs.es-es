@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb14369275a111476867f2263766e1bb87b7c87d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 622950c394d59d8ba504901f5bb0eea6bc04707f
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80295345"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160722"
 ---
 # <a name="conditional-access-conditions"></a>Acceso condicional: Condiciones
 
@@ -43,6 +43,9 @@ El acceso condicional de Azure AD admite las siguientes plataformas de dispositi
 - Windows Phone
 - Windows
 - macOS
+
+> [!WARNING]
+> Microsoft es consciente de un problema con las directivas de acceso condicional y los dispositivos basados en macOS 10.15.4. Para obtener más información sobre este problema, consulte la entrada de blog [Problema conocido: el acceso condicional bloquea inesperadamente el cliente de correo nativo de macOS 10.15.4 u otras aplicaciones](https://techcommunity.microsoft.com/t5/intune-customer-success/known-issue-conditional-access-unexpectedly-blocking-macos-10-15/ba-p/1322283).
 
 Si bloquea la autenticación heredada con la condición **Otros clientes**, también puede establecer la condición de la plataforma del dispositivo.
 

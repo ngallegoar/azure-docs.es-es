@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/22/2020
-ms.openlocfilehash: 602553637e21b17aa4f9bc7402753af024c697c7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/22/2020
+ms.openlocfilehash: 9d83a9ffb9dc334ef959b7a8039b9a9c4a1fced7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79477568"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82137467"
 ---
 # <a name="linear-regression-module"></a>Módulo de regresión lineal
 En este artículo se describe un módulo del diseñador de Azure Machine Learning (versión preliminar).
@@ -127,9 +127,19 @@ Una vez completado el entrenamiento:
 10. En **Random number seed** (Inicializar número aleatorio) también puede escribir un valor para inicializar el generador de números aleatorios que usa el modelo. Utilizar un valor de inicialización es útil si desea mantener los mismos resultados en distintas ejecuciones de la misma canalización.
 
 
-12. Agregue un conjunto de datos etiquetados y uno de los módulos de entrenamiento.
+12. Entrenamiento del modelo:
 
-    Si no utiliza un barrido de parámetros, use el módulo [Train Model](train-model.md) (Entrenar modelo).
+    + Si establece **Create trainer mode** (Crear modo entrenador) en **Single Parameter** (Parámetro único), conecte un conjunto de datos etiquetado y el módulo [Entrenar modelo](train-model.md).  
+  
+    + Si establece **Create trainer mode** (Crear el modo de entrenador) en **Parameter Range** (Intervalo de parámetros), conecte un conjunto de datos etiquetado y entrene el modelo mediante [Tune Model Hyperparameters](tune-model-hyperparameters.md) (Optimizar los hiperparámetros del modelo).  
+  
+    > [!NOTE]
+    > 
+    > Si pasa un intervalo de parámetros a [Train Model](train-model.md) (Entrenar modelo), solo utiliza el valor predeterminado en la lista de parámetros única.  
+    > 
+    > Si pasa un único conjunto de valores de parámetro al módulo [Tune Model Hyperparameters](tune-model-hyperparameters.md) (Optimizar los hiperparámetros del modelo), cuando espera un intervalo de valores para cada parámetro, omite los valores y usa los valores predeterminados para el aprendiz.  
+    > 
+    > Si selecciona la opción **Parameter Range** (Intervalo de parámetros) y especifica un valor único para algún parámetro, ese valor único que haya especificado se utilizará en todo el barrido, incluso si otros parámetros cambian en un intervalo de valores.
 
 13. Envíe la canalización.
 

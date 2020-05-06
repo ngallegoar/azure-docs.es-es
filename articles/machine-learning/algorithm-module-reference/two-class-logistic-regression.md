@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/22/2020
-ms.openlocfilehash: 7eb1ad00c3c947c3ed6d4ca450bddc0956a08d71
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/22/2020
+ms.openlocfilehash: d746b942f624fc83515ba29b0a092c2e592f1f25
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79455832"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82137627"
 ---
 # <a name="two-class-logistic-regression-module"></a>Módulo Regresión logística de dos clases
 
@@ -71,9 +71,19 @@ Por ejemplo, la columna de etiqueta podría ser [Votado] con los valores posible
 6.  Para **Random number seed** (Inicialización de número aleatorio), escriba un valor entero. Definir un valor de inicialización es importante si desea que los resultados se puedan reproducir en varias ejecuciones de la misma canalización.  
   
   
-8. Agregue un conjunto de datos etiquetado a la canalización y conecte uno de los [módulos de aprendizaje](module-reference.md).  
+8. Agregue un conjunto de datos etiquetado a la canalización y entrene el modelo:
+
+    + Si establece **Create trainer mode** (Crear modo entrenador) en **Single Parameter** (Parámetro único), conecte un conjunto de datos etiquetado y el módulo [Entrenar modelo](train-model.md).  
   
-    -   Si establece **Create trainer mode** (Crear modo entrenador) en **Single Parameter** (Parámetro único), use el módulo [Entrenar modelo](./train-model.md).  
+    + Si define **Create trainer mode** (Crear modo de entrenador) como **Parameter Range** (Rango de parámetros), conecte un conjunto de datos etiquetado y entrene el modelo mediante [Tune Model Hyperparameters](tune-model-hyperparameters.md) (Hiperparámetros de modelo de ajuste).  
+  
+    > [!NOTE]
+    > 
+    > Si pasa un rango de parámetros a [Entrenar modelo](train-model.md), solo se usa el valor predeterminado en la lista de parámetros única.  
+    > 
+    > Si pasa un único conjunto de valores de parámetro al módulo de [Tune Model Hyperparameters](tune-model-hyperparameters.md) (Hiperparámetros de modelo de ajuste), cuando se espera un rango de valores para cada parámetro, ignora los valores y usa los valores predeterminados para el aprendiz.  
+    > 
+    > Si selecciona la opción **Parameter Range** (Rango de parámetros) y especifica un valor único para cualquier parámetro, ese valor único que haya especificado se usará en todo el barrido, incluso si otros parámetros cambian en un rango de valores.  
   
 9. Envíe la canalización.  
   

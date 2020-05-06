@@ -5,18 +5,18 @@ services: container-service
 author: saudas
 manager: saudas
 ms.topic: article
-ms.date: 03/10/2019
+ms.date: 04/02/2020
 ms.author: saudas
-ms.openlocfilehash: 85efc6d9d203ca06c5f7566376993b4c13950788
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 00ecc077ba55ab9f91fc58f8a47fcdf7440deea6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80369966"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82112973"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Uso de identidades administradas en Azure Kubernetes Service
 
-Actualmente, un clúster de Azure Kubernetes Service (AKS) (específicamente, el proveedor de servicios en la nube de Kubernetes) requiere una *entidad de servicio* para crear recursos adicionales, como equilibradores de carga y discos administrados, en Azure. El usuario puede proporcionar una entidad de servicio o bien AKS se encargará de crearla. Las entidades de servicio suelen tener una fecha de expiración. Llega un momento en que los clústeres alcanzan un estado en el que se debe renovar la entidad de servicio para mantener el clúster en funcionamiento. La administración de las entidades de servicio es compleja.
+Actualmente, un clúster de Azure Kubernetes Service (AKS) (específicamente, el proveedor de servicios en la nube de Kubernetes) requiere una identidad para crear recursos adicionales, como equilibradores de carga y discos administrados en Azure. Esta identidad puede ser una *identidad administrada* o una *entidad de servicio*. Si usa una [entidad de servicio](kubernetes-service-principal.md), debe indicarla, o bien AKS la creará automáticamente. Si usa la identidad administrada, AKS la creará automáticamente. Llega un momento en que los clústeres que usan entidades de servicio alcanzan un estado en el que se debe renovar la entidad de servicio para mantener el clúster en funcionamiento. La administración de entidades de servicio agrega complejidad, por lo que es más fácil usar identidades administradas. Se aplican los mismos requisitos de permisos tanto en las entidades de servicio como en las identidades administradas.
 
 Las *identidades administradas* son básicamente un contenedor relacionado con las entidades de servicio y facilitan su administración. Para más información, consulte el tema sobre [identidades administradas para recursos de Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 
@@ -25,7 +25,7 @@ AKS crea dos identidades administradas:
 - **Identidad administrada asignada por el sistema**: identidad que utiliza el proveedor de servicios en la nube de Kubernetes para crear recursos de Azure en nombre del usuario. El ciclo de vida de la identidad asignada por el sistema está vinculado al del clúster. La identidad se elimina cuando se elimina el clúster.
 - **Identidad administrada asignada por el usuario**: la identidad que se usa para la autorización en el clúster. Por ejemplo, la identidad asignada por el usuario se usa para autorizar a AKS a usar instancias de Azure Container Registry (ACR) o para autorizar al kubelet a obtener metadatos de Azure.
 
-Los complementos también se autentican con una identidad administrada. Para cada complemento, AKS crea una identidad administrada, que se mantiene durante la vida del complemento. Para crear y usar su propia red virtual, una dirección IP estática o un disco de Azure conectado donde los recursos estén fuera del grupo de recursos MC_*, use el PrincipalID del clúster para realizar una asignación de roles. Para obtener más información sobre la asignación, consulte [Delegación del acceso a otros recursos de Azure](kubernetes-service-principal.md#delegate-access-to-other-azure-resources).
+Los complementos también se autentican con una identidad administrada. Para cada complemento, AKS crea una identidad administrada, que se mantiene durante la vida del complemento. 
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -58,6 +58,11 @@ La creación correcta de un clúster con identidades administradas contiene esta
     "secret": null
   }
 ```
+
+> [!NOTE]
+> Para crear y usar su propia red virtual, una dirección IP estática o un disco de Azure conectado donde los recursos estén fuera del grupo de recursos MC_*, use el valor de PrincipalID de la identidad administrada asignada por el sistema del clúster para realizar una asignación de roles. Para obtener más información sobre la asignación, consulte [Delegación del acceso a otros recursos de Azure](kubernetes-service-principal.md#delegate-access-to-other-azure-resources).
+>
+> Las concesiones de permisos a la identidad administrada de clúster que el proveedor en la nube de Azure utiliza pueden tardar hasta 60 minutos en rellenarse.
 
 Por último, obtenga credenciales para acceder al clúster:
 

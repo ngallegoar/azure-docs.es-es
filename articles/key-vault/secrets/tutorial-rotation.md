@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 01/26/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 70eb2449c5c54750831c30ff7d5c948173a38594
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 8f9c0dca29d173eb2c7893a20b2ab41dd31522e1
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81426354"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82183218"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-use-single-usersingle-password-authentication"></a>Automatización de la rotación de secretos para recursos que usan la autenticación de usuario único y contraseña única
 
@@ -263,7 +263,7 @@ Vaya a la aplicación implementada y seleccione la dirección URL:
  
 ![Selección de la dirección URL](../media/rotate10.png)
 
-Verá el valor del secreto generado con el valor de base de datos conectada establecido en True.
+Cuando la aplicación se abra en el explorador, verá el **valor de secreto generado** y un valor de **Base de datos conectada** de *true*.
 
 ## <a name="learn-more"></a>Más información
 

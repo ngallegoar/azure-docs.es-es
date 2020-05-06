@@ -7,14 +7,14 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 10/25/2019
 ms.author: victorh
-ms.openlocfilehash: cb1af86e04c0b4ba0b59398161fa111fd8065042
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 4bc2aa055c40fb33edade8f7815311e392633885
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81310046"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82133876"
 ---
-# <a name="diagnostic-logs-for-azure-web-application-firewall"></a>Supervisión de registros para el Firewall de aplicaciones Web de Azure
+# <a name="resource-logs-for-azure-web-application-firewall"></a>Registros de recursos para el firewall de aplicaciones web de Azure
 
 Puede supervisar los recursos del Firewall de aplicaciones web con los registros. Puede guardar el rendimiento, el acceso y otros datos, o bien consumirlos desde un recurso con fines de supervisión.
 
@@ -24,10 +24,10 @@ Puede supervisar los recursos del Firewall de aplicaciones web con los registros
 
 Puede usar diferentes tipos de registros en Azure para administrar y solucionar problemas de Application Gateway. Se puede acceder a algunos de estos registros mediante el portal. Se pueden extraer todos los registros de Azure Blob Storage y visualizarse en distintas herramientas, como los [registros de Azure Monitor](../../azure-monitor/insights/azure-networking-analytics.md), Excel y PowerBI. Puede obtener más información sobre los diferentes tipos de registros en la lista siguiente:
 
-* **Registro de actividades**: se puede usar el [registro de actividades de Azure](../../azure-resource-manager/management/view-activity-logs.md) (anteriormente conocido como registros operativos y registros de auditoría) para ver todas las operaciones enviadas a la suscripción de Azure, así como su estado. Las entradas del registro de actividades se recopilan de forma predeterminada y se pueden ver en Azure Portal.
-* **Registro de acceso**: Puede usar este registro para ver los patrones de acceso de Application Gateway y analizar información importante. Esto incluye la dirección IP del autor de la llamada, la dirección URL solicitada, la latencia de la respuesta, el código de devolución y los bytes de entrada y salida. El registro de acceso se recopila cada 300 segundos. Este registro contiene un registro por cada instancia de Application Gateway. La instancia de Application Gateway se identifica por la propiedad instanceId.
-* **Registro de rendimiento**: este registro se puede usar para ver el rendimiento de las instancias de Application Gateway. Este registro captura la información de rendimiento de cada instancia, incluida la cantidad total de solicitudes atendidas, el rendimiento en bytes, la cantidad de solicitudes con error y el número de instancias de back-end con un mantenimiento correcto o incorrecto. El registro de rendimiento se recopila cada 60 segundos. El registro de rendimiento solo está disponible para la SKU v1. En la SKU v2, use [Métricas](../../application-gateway/application-gateway-metrics.md) para los datos de rendimiento.
-* **Registro de firewall**: este registro se puede usar para ver las solicitudes que se registran con el modo de detección o prevención de una puerta de enlace de aplicaciones que está configurada con el firewall de aplicaciones web.
+* **Registro de actividades**: Puede usar [registros de actividad de Azure](../../azure-resource-manager/management/view-activity-logs.md) para ver todas las operaciones que se envían a la suscripción de Azure, y su estado. Las entradas del registro de actividades se recopilan de forma predeterminada y se pueden ver en Azure Portal.
+* **Registro de recursos de acceso**: Puede usar este registro para ver los patrones de acceso de Application Gateway y analizar información importante. Esto incluye la dirección IP del autor de la llamada, la dirección URL solicitada, la latencia de la respuesta, el código de devolución y los bytes de entrada y salida. El registro de acceso se recopila cada 300 segundos. Este registro contiene un registro por cada instancia de Application Gateway. La instancia de Application Gateway se identifica por la propiedad instanceId.
+* **Registro de recursos de rendimiento**: este registro se puede usar para ver el rendimiento de las instancias de Application Gateway. Este registro captura la información de rendimiento de cada instancia, incluida la cantidad total de solicitudes atendidas, el rendimiento en bytes, la cantidad de solicitudes con error y el número de instancias de back-end con un mantenimiento correcto o incorrecto. El registro de rendimiento se recopila cada 60 segundos. El registro de rendimiento solo está disponible para la SKU v1. En la SKU v2, use [Métricas](../../application-gateway/application-gateway-metrics.md) para los datos de rendimiento.
+* **Registro de recursos de firewall**: este registro se puede usar para ver las solicitudes que se registran con el modo de detección o prevención de una puerta de enlace de aplicaciones que está configurada con el firewall de aplicaciones web.
 
 > [!NOTE]
 > Los registros solo están disponibles para los recursos implementados en el modelo de implementación de Azure Resource Manager. No puede usar los registros de recursos del modelo de implementación clásica. Para entender mejor los dos modelos, consulte el artículo [Descripción de la implementación de Resource Manager y la implementación clásica](../../azure-resource-manager/management/deployment-models.md) .
@@ -50,7 +50,7 @@ El registro de actividades se habilita automáticamente para todos los recursos 
 
     ![Portal: identificador de recurso de la puerta de enlace de aplicaciones](../media/web-application-firewall-logs/diagnostics2.png)
 
-3. Habilite el registro de diagnósticos mediante el siguiente cmdlet de PowerShell:
+3. Habilite el registro de recursos mediante el siguiente cmdlet de PowerShell:
 
     ```powershell
     Set-AzDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name> -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> -Enabled $true     
@@ -73,7 +73,7 @@ El registro de actividades se habilita automáticamente para todos los recursos 
 
    ![Activación de los diagnósticos][1]
 
-3. En la página **Configuración de diagnóstico**, se encuentran las opciones de configuración de los registros de diagnóstico. En este ejemplo, se utiliza Log Analytics para almacenar los registros. Se pueden utilizar también Events Hubs y la cuenta de almacenamiento para guardar los registros de diagnóstico.
+3. En la página **Configuración de diagnóstico**, se encuentran las opciones de configuración de los registros de recursos. En este ejemplo, se utiliza Log Analytics para almacenar los registros. Se pueden usar también centros de eventos y una cuenta de almacenamiento para guardar los registros de recursos.
 
    ![Inicio del proceso de configuración][2]
 

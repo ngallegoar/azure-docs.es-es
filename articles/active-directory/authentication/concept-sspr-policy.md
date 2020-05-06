@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f5987bee82dc22d3742cb5d87040930e5d2c52d
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: e8b6d08dd2073de80ac0f7fd08f510d9cda80545
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393031"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82143235"
 ---
 # <a name="self-service-password-reset-policies-and-restrictions-in-azure-active-directory"></a>Directivas y restricciones de autoservicio de restablecimiento de contraseña en Azure Active Directory
 
@@ -102,7 +102,7 @@ Esta guía se aplica a otros proveedores (como Intune y Office 365) que también
 
 ## <a name="set-or-check-the-password-policies-by-using-powershell"></a>Establecer o comprobar directivas de contraseña mediante PowerShell
 
-Para empezar, [descargue e instale el módulo Azure AD para PowerShell](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0). Una vez instalado el módulo, siga estos pasos para configurar cada campo.
+Para empezar, [descargue e instale el módulo de Azure AD PowerShell ](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0) y [conéctelo al inquilino de Azure AD](https://docs.microsoft.com/powershell/module/azuread/connect-azuread?view=azureadps-2.0#examples). Una vez instalado el módulo, siga estos pasos para configurar cada campo.
 
 ### <a name="check-the-expiration-policy-for-a-password"></a>Comprobación de la directiva de expiración de una contraseña
 

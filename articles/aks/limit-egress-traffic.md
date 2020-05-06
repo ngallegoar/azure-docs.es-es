@@ -4,12 +4,12 @@ description: Obtenga información sobre qué puertos y direcciones son necesario
 services: container-service
 ms.topic: article
 ms.date: 03/10/2020
-ms.openlocfilehash: 2cd7aeea272d22615d3ba3d3db6acc2c84d22cca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d723f7b1e7331e65d17dca5873b891ec46d76c0e
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79080173"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82207180"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Control del tráfico de salida de los nodos de clúster en Azure Kubernetes Service (AKS)
 
@@ -162,22 +162,18 @@ Los clústeres de AKS que tienen habilitado Azure Policy necesitan las reglas de
 |-----------------------------------------|-----------|----------|
 | gov-prod-policy-data.trafficmanager.net | HTTPS:443 | Esta dirección se usa para el funcionamiento correcto de Azure Policy. (Actualmente en versión preliminar en AKS) |
 | raw.githubusercontent.com | HTTPS:443 | Esta dirección se usa para extraer las directivas integradas de GitHub para garantizar el funcionamiento correcto de Azure Policy. (Actualmente en versión preliminar en AKS) |
-| *.gk.\<location\>.azmk8s.io | HTTPS:443    | El complemento de Azure Policy que se comunica con el punto de conexión de auditoría de Gatekeeper que se ejecuta en el servidor maestro para obtener los resultados de la auditoría. |
-| dc.services.visualstudio.com | HTTPS:443 | El complemento de Azure Policy que envía datos de telemetría al punto de conexión de Application Insights. |
+| *.gk.\<location\>.azmk8s.io | HTTPS:443    | Complemento de Azure Policy que se comunica con el punto de conexión de auditoría de Gatekeeper que se ejecuta en el servidor maestro para obtener los resultados de la auditoría. |
+| dc.services.visualstudio.com | HTTPS:443 | Complemento de Azure Policy que envía datos de telemetría al punto de conexión de Application Insights. |
 
-## <a name="required-by-windows-server-based-nodes-in-public-preview-enabled"></a>Requerido por los nodos basados en Windows Server (en versión preliminar pública) habilitados
+## <a name="required-by-windows-server-based-nodes-enabled"></a>Requerido por los nodos basados en Windows Server habilitados
 
-> [!CAUTION]
-> Algunas de las características siguientes se encuentran en versión preliminar.  Las sugerencias de este artículo están sujetas a cambio a medida que la característica avanza a la versión preliminar pública y a las fases de versiones futuras.
-
-Los clústeres de AKS basados en Windows Server necesitan las reglas de aplicación / FQDN siguientes:
+Los grupos de nodos basados en Windows Server necesitan las reglas de aplicación/FQDN siguientes:
 
 | FQDN                                    | Port      | Uso      |
 |-----------------------------------------|-----------|----------|
 | onegetcdn.azureedge.net, winlayers.blob.core.windows.net, winlayers.cdn.mscr.io, go.microsoft.com | HTTPS:443 | Para instalar archivos binarios relacionados con Windows |
 | mp.microsoft.com, www<span></span>.msftconnecttest.com, ctldl.windowsupdate.com | HTTP:80 | Para instalar archivos binarios relacionados con Windows |
 | kms.core.windows.net | TCP:1688 | Para instalar archivos binarios relacionados con Windows |
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 02/27/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 67fe9ef4ad2b025d11f88976973658c9cd8ae693
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 183fe1604cc363a9121d5eef3737751c54e9bdf1
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78187957"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82229724"
 ---
 # <a name="set-up-sign-in-with-a-salesforce-saml-provider-by-using-custom-policies-in-azure-active-directory-b2c"></a>Configuración del inicio de sesión con un proveedor de Salesforce SAML mediante directivas personalizadas en Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-En este artículo se muestra cómo habilitar el inicio de sesión para los usuarios desde una cuenta de organización de Salesforce mediante [directivas personalizadas](custom-policy-overview.md) en Azure Active Directory B2C (Azure AD B2C). Habilite el inicio de sesión mediante la adición de un [perfil técnico de SAML](saml-technical-profile.md) a una directiva personalizada.
+En este artículo se muestra cómo habilitar el inicio de sesión para los usuarios desde una cuenta de organización de Salesforce mediante [directivas personalizadas](custom-policy-overview.md) en Azure Active Directory B2C (Azure AD B2C). Habilite el inicio de sesión mediante la adición de un [perfil técnico de proveedor de identidades SAML](saml-identity-provider-technical-profile.md) a una directiva personalizada.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -103,7 +103,7 @@ Debe almacenar el certificado que creó en el inquilino de Azure AD B2C.
 
 Si desea que los usuarios inicien sesión con una cuenta de Salesforce, deberá definir la cuenta como un proveedor de notificaciones con el que Azure AD B2C pueda comunicarse mediante un punto de conexión. El punto de conexión proporciona un conjunto de notificaciones que Azure AD B2C usa para comprobar que un usuario concreto se ha autenticado.
 
-Puede definir una cuenta de Salesforce como un proveedor de notificaciones; para ello, agréguela al elemento **ClaimsProvider** en el archivo de extensión de la directiva. Para más información, consulte [Definición de un perfil técnico de SAML](saml-technical-profile.md).
+Puede definir una cuenta de Salesforce como un proveedor de notificaciones; para ello, agréguela al elemento **ClaimsProvider** en el archivo de extensión de la directiva. Para obtener más información, consulte [Definición de un perfil técnico de proveedor de identidades SAML](saml-identity-provider-technical-profile.md).
 
 1. Abra el archivo *TrustFrameworkExtensions.xml*.
 1. Busque el elemento **ClaimsProviders**. Si no existe, agréguelo debajo del elemento raíz.
@@ -203,13 +203,13 @@ El elemento **ClaimsProviderSelection** es análogo a un botón de proveedor de 
 Ahora que hay un botón colocado, es preciso vincularlo a una acción. En este caso, la acción es para que Azure AD B2C se comunique con la cuenta de Salesforce para recibir un token.
 
 1. Busque el elemento **OrchestrationStep** que incluye `Order="2"` en el recorrido del usuario.
-2. Al agregar el siguiente elemento **ClaimsExchange**, asegúrese de usar el mismo valor para el elemento **Id** que el que usó en **TargetClaimsExchangeId**:
+2. Al agregar el siguiente elemento **ClaimsExchange**, asegúrese de usar el mismo valor para el **id.** que usó en **TargetClaimsExchangeId**:
 
     ```XML
     <ClaimsExchange Id="SalesforceExchange" TechnicalProfileReferenceId="salesforce" />
     ```
 
-    Actualice el valor de **TechnicalProfileReferenceId** al elemento **Id** del perfil técnico que creó anteriormente. Por ejemplo, `LinkedIn-OAUTH`.
+    Cambie el valor de **TechnicalProfileReferenceId** al del **id.** del perfil técnico que creó anteriormente. Por ejemplo, `LinkedIn-OAUTH`.
 
 3. Guarde el archivo *TrustFrameworkExtensions.xml* y cárguelo de nuevo a fin de verificarlo.
 

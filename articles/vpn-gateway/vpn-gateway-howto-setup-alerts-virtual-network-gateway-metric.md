@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: alzam
-ms.openlocfilehash: d57663f683ba4e2107ec6813a19fac7b2dcdd26a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 01704030ee3142cac9a328e1a3edc024651919a0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67605226"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82127904"
 ---
 # <a name="set-up-alerts-on-vpn-gateway-metrics"></a>Configuración de alertas en métricas de VPN Gateway
 
@@ -71,4 +71,4 @@ En los pasos del ejemplo siguiente se creará una alerta en una puerta de enlace
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para configurar alertas en los registros de diagnóstico de túnel, vea [Configuración de alertas en los registros de diagnóstico de VPN Gateway](vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md).
+Para configurar alertas en los registros de recursos de túnel, consulte [Configuración de alertas en los registros de diagnóstico de VPN Gateway](vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md).

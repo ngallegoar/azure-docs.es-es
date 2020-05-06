@@ -4,22 +4,22 @@ description: Automatizar informes personalizados diarios, semanales o mensuales 
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.reviewer: sdash
-ms.openlocfilehash: d91595a863901fcc420611ac644c7856e74320dd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cf251d63645efc70ee93e84827db47ae3055ae33
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77655130"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82161522"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatizar informes personalizados con datos de Azure Application Insights
 
 Los informes periódicos ayudan a mantener informado al equipo sobre cómo van sus servicios críticos para la empresa. Los desarrolladores, los equipos de DevOps o SRE y sus administradores pueden ser productivos con informes automatizados que proporcionan información de forma fiable sin necesidad de que todos los usuarios inicien sesión en el portal. Estos informes también pueden ayudar a identificar aumentos graduales de las latencias y las velocidades de carga o error que es posible que no desencadenen ninguna regla de alertas.
 
-Cada empresa tiene sus necesidades de informes únicas, como: 
+Cada empresa tiene sus necesidades de informes únicas, como:
 
 * Agregaciones concretas de percentil de métricas o métricas personalizadas en un informe.
 * Tener diferentes informes para los resúmenes diarios, semanales y mensuales de datos para los distintos destinatarios.
-* Segmentación por atributos personalizados como la región o el entorno. 
+* Segmentación por atributos personalizados como la región o el entorno.
 * Agrupar algunos recursos de IA en un único informe, incluso si pueden estar en distintas suscripciones o grupos de recursos, etc.
 * Informes independientes que contienen métricas confidenciales que se envían a un público selectivo.
 * Informes para las partes interesadas que es posible que no tengan acceso a los recursos del portal.
@@ -38,7 +38,7 @@ Puede [consultar mediante programación datos de Application Insights](https://d
     ![Plantilla de Azure Functions](./media/automate-custom-reports/azure-function-template.png)
 
 ## <a name="sample-query-for-a-weekly-digest-email"></a>Consulta de ejemplo para un correo electrónico de resumen semanal
-La consulta siguiente muestra la unión de varios conjuntos de datos para un correo electrónico de resumen semanal, por ejemplo, un informe. Personalícela según sea necesario y úsela con cualquiera de las opciones enumeradas anteriormente para automatizar un informe semanal.   
+La consulta siguiente muestra la unión de varios conjuntos de datos para un correo electrónico de resumen semanal, por ejemplo, un informe. Personalícela según sea necesario y úsela con cualquiera de las opciones enumeradas anteriormente para automatizar un informe semanal.
 
 ```AIQL
 let period=7d;
@@ -70,40 +70,34 @@ availabilityResults
 
 ## <a name="application-insights-scheduled-digest-report"></a>Informe de resumen programado de Application Insights
 
-1. En Azure Portal, seleccione **Crear un recurso** > **Compute** > **Function App**.
+1. Cree una aplicación de funciones de Azure. (La _activación_ de Application Insights solo es necesaria si quiere supervisar la nueva aplicación de funciones con Application Insights)
 
-   ![Captura de pantalla de la creación de una aplicación Function App de recursos de Azure](./media/automate-custom-reports/function-app-01.png)
+   Consulte la documentación de Azure Functions para más información sobre cómo [crear una aplicación de funciones](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function#create-a-function-app).
 
-2. Escriba la información correspondiente para la aplicación y seleccione _Crear_. (La _activación_ de Application Insights solo es necesaria si quiere supervisar la nueva aplicación Function App con Application Insights).
+2. Una vez que la nueva aplicación Function App haya completado la implementación, seleccione **Ir al recurso**.
 
-   ![Captura de pantalla de la configuración para crear una aplicación Function App de recursos de Azure](./media/automate-custom-reports/function-app-02.png)
+3. Seleccione **Nueva función**.
 
-3. Una vez que la nueva aplicación Function App haya completado la implementación, seleccione **Ir al recurso**.
+   ![Captura de pantalla para crear una nueva función](./media/automate-custom-reports/new-function.png)
 
-4. Seleccione **Nueva función**.
-
-   ![Captura de pantalla para crear una nueva función](./media/automate-custom-reports/function-app-03.png)
-
-5. Seleccione la **_plantilla de resumen programada de Application Insights_** .
+4. Seleccione la **_plantilla de resumen programada de Application Insights_** .
 
      > [!NOTE]
-     > De forma predeterminada, las aplicaciones de función se crean con la versión 2.x del entorno en tiempo de ejecución. Debe [dirigirse a la versión del entorno de ejecución de Azure Functions](https://docs.microsoft.com/azure/azure-functions/set-runtime-version) **1.x** para usar la plantilla de resumen de programación de Application Insights.  ![captura de pantalla del entorno de ejecución](./../../../includes/media/functions-view-update-version-portal/function-app-view-version.png)
-
-
+     > De forma predeterminada, las aplicaciones de funciones se crean con la versión 3.x del entorno en tiempo de ejecución. Debe [dirigirse a la versión del entorno de ejecución de Azure Functions](https://docs.microsoft.com/azure/azure-functions/set-runtime-version) **1.x** para usar la plantilla de resumen de programación de Application Insights. Vaya a Configuración > Configuración del tiempo de ejecución de la función para cambiar la versión del entorno de ejecución. ![captura de pantalla del entorno de ejecución](./media/automate-custom-reports/change-runtime-v.png)
 
    ![Captura de pantalla de la plantilla de Application Insights de la nueva función](./media/automate-custom-reports/function-app-04.png)
 
-6. Escriba una dirección de correo electrónico del destinatario correcta para el informe y seleccione **Crear**.
+5. Escriba una dirección de correo electrónico del destinatario correcta para el informe y seleccione **Crear**.
 
-   ![Captura de pantalla de configuración de la función](./media/automate-custom-reports/function-app-05.png)
+   ![Captura de pantalla de configuración de la función](./media/automate-custom-reports/scheduled-digest.png)
 
-7. Seleccione **Function App** > **Características de la plataforma** > **Configuración de la aplicación**.
+6. Seleccione la **Aplicación de funciones** > **Características de la plataforma** > **Configuración**.
 
-    ![Captura de pantalla de configuración de la aplicación de función de Azure](./media/automate-custom-reports/function-app-07.png)
+    ![Captura de pantalla de configuración de la aplicación de función de Azure](./media/automate-custom-reports/config.png)
 
-8. Cree tres nuevas configuraciones de la aplicación con los valores correspondientes adecuados ``AI_APP_ID``, ``AI_APP_KEY`` y ``SendGridAPI``. Seleccione **Guardar**.
+7. Cree tres nuevas configuraciones de la aplicación con los valores correspondientes adecuados ``AI_APP_ID``, ``AI_APP_KEY`` y ``SendGridAPI``. Seleccione **Guardar**.
 
-     ![Captura de pantalla de interfaz de integración de la función](./media/automate-custom-reports/function-app-08.png)
+     ![Captura de pantalla de interfaz de integración de la función](./media/automate-custom-reports/app-settings.png)
     
     (Los valores AI_ pueden encontrarse en el acceso de API para el recurso de Application Insights sobre el cual quiere informar. Si no tiene ninguna clave de API de Application Insights, existe la opción **Crear clave de API**).
     
@@ -114,19 +108,19 @@ availabilityResults
      > [!NOTE]
      > Si no tiene ninguna cuenta en SendGrid, puede crear una. Puede encontrar la documentación de SendGrid para Azure Functions [aquí](https://docs.microsoft.com/azure/azure-functions/functions-bindings-sendgrid). Si solo quiere una explicación básica sobre cómo configurar SendGrid y generar una clave de API, se proporciona una al final de este artículo. 
 
-9. Seleccione **Integrar** y, en Salidas, haga clic en **SendGrid ($return)** .
+8. Seleccione **Integrar** y, en Salidas, haga clic en **SendGrid ($return)** .
 
-     ![Captura de pantalla de salida](./media/automate-custom-reports/function-app-09.png)
+     ![Captura de pantalla de salida](./media/automate-custom-reports/integrate.png)
 
-10. En **SendGridAPI Key App Setting** (Configuración de la aplicación de clave de SendGridAPI), seleccione la configuración de la aplicación recién creada para **SendGridAPI**.
+9. En **SendGridAPI Key App Setting** (Configuración de la aplicación de clave de SendGridAPI), seleccione la configuración de la aplicación recién creada para **SendGridAPI**.
 
-     ![Captura de pantalla de la ejecución de Function App](./media/automate-custom-reports/function-app-010.png)
+     ![Captura de pantalla de la ejecución de Function App](./media/automate-custom-reports/sendgrid-output.png)
 
-11. Ejecute y pruebe la aplicación de Function App.
+10. Ejecute y pruebe la aplicación de Function App.
 
      ![Captura de pantalla de la prueba](./media/automate-custom-reports/function-app-11.png)
 
-12. Compruebe su correo electrónico para confirmar que el mensaje se ha enviado o recibido correctamente.
+11. Compruebe su correo electrónico para confirmar que el mensaje se ha enviado o recibido correctamente.
 
      ![Captura de pantalla de la línea del asunto del correo electrónico](./media/automate-custom-reports/function-app-12.png)
 
@@ -134,19 +128,19 @@ availabilityResults
 
 Estos pasos se aplican solo si aún no ha configurado ninguna cuenta de SendGrid.
 
-1. En Azure Portal, seleccione **Crear un recurso**, busque **SendGrid Email Delivery** (Entrega de correo electrónico de SendGrid) > haga clic en **Crear** > y rellene las instrucciones de creación específicas de SendGrid. 
+1. En Azure Portal, seleccione **Crear un recurso**, busque **Servicio de correo electrónico SendGrid** > haga clic en **Crear** > y rellene las instrucciones de creación específicas de SendGrid.
 
-     ![Captura de pantalla para crear recursos de SendGrid](./media/automate-custom-reports/function-app-13.png)
+     ![Captura de pantalla para crear recursos de SendGrid](./media/automate-custom-reports/sendgrid.png)
 
 2. Una vez creada, en Cuentas de SendGrid, seleccione **Administrar**.
 
-     ![Captura de pantalla de configuración de la clave de API](./media/automate-custom-reports/function-app-14.png)
+     ![Captura de pantalla de configuración de la clave de API](./media/automate-custom-reports/sendgrid-manage.png)
 
 3. Esto iniciará el sitio de SendGrid. Seleccione **Configuración** > **Claves de API**.
 
      ![Captura de pantalla de creación y visualización de la aplicación de claves de API](./media/automate-custom-reports/function-app-15.png)
 
-4. Cree una clave de API > elija **Create & View** (Crear y ver) (compruebe la documentación de SendGrid sobre el acceso restringido para determinar qué nivel de permisos es adecuado para su clave de API. A continuación, se selecciona el acceso total solo como ejemplo).
+4. Crear una clave de API > Elija **Create & View** (Crear y ver). (Consulte la documentación de SendGrid sobre el acceso restringido para determinar qué nivel de permisos es adecuado para la clave de API. A continuación, se selecciona el acceso total solo como ejemplo).
 
    ![Captura de pantalla de acceso total](./media/automate-custom-reports/function-app-16.png)
 

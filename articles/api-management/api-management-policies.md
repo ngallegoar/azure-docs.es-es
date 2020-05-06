@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 2b6e056fbfb134f0b1218b4281b9f971a0e24202
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f4a29c7cb7e35e69eb9410dd7ddc9f07757e3565
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71219474"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82128729"
 ---
 # <a name="api-management-policies"></a>Directivas de administración de API
 En esta sección se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](api-management-howto-policies.md).  
@@ -50,7 +50,7 @@ En esta sección se proporciona una referencia para las siguientes directivas de
     -   [Set variable](api-management-advanced-policies.md#set-variable) (Establecer variable): conserva un valor en una variable de contexto con nombre para el acceso posterior.  
     -   [Establecer método de solicitud](api-management-advanced-policies.md#SetRequestMethod) : le permite cambiar el método HTTP de una solicitud.  
     -   [Establecimiento de código de estado](api-management-advanced-policies.md#SetStatus): cambia el código de estado HTTP al valor especificado.  
-    -   [Trace](api-management-advanced-policies.md#Trace): agrega seguimientos personalizados a la salida de la [inspección de la API](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/), a la telemetría de Application Insights y a los registros de diagnóstico.  
+    -   [Trace](api-management-advanced-policies.md#Trace): agrega seguimientos personalizados a la salida de la [inspección de la API](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/), a la telemetría de Application Insights y a los registros de recursos.  
     -   [Wait](api-management-advanced-policies.md#Wait) (Esperar): espera a que se completen las directivas adjuntas [Send request](api-management-advanced-policies.md#SendRequest) (Enviar solicitud), [Get value from cache](api-management-caching-policies.md#GetFromCacheByKey) (Obtener el valor de caché) o [Control flow](api-management-advanced-policies.md#choose) (Flujo de control) antes de continuar.  
 -   [Directivas de autenticación](api-management-authentication-policies.md#AuthenticationPolicies)  
     -   [Autenticar con opción básica](api-management-authentication-policies.md#Basic) : autenticar con un servicio de back-end mediante la autenticación básica.  

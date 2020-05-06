@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 741d4718b5e6140f4ddd2bb22e1a2ec830763176
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 9a2bb636ba749cae50195cefeb8e7237d382fb99
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79224042"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82182351"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Configurar la recuperación ante desastres de máquinas virtuales de Hyper-V locales en Azure
 
@@ -127,7 +127,7 @@ Site Recovery comprueba que tiene una o más redes y cuentas de Azure Storage co
 2. En **Crear y asociar directiva**, especifique un nombre de directiva. Usamos **ContosoReplicationPolicy**.
 3. En este tutorial, dejaremos los valores predeterminados:
     - **Frecuencia de copia** indica la frecuencia con la que se replicarán los datos diferenciales (después de la replicación inicial). La frecuencia predeterminada es cada cinco minutos.
-    - **Retención de punto de recuperación** indica que los puntos de recuperación se conservarán durante dos horas.
+    - **Retención de punto de recuperación** indica que los puntos de recuperación se conservarán durante dos horas. El valor máximo permitido de retención al proteger las máquinas virtuales hospedadas en hosts de Hyper-V es de 24 horas.
     - **Frecuencia de instantánea coherente con la aplicación** indica que cada hora se crearán puntos de recuperación que contengan instantáneas coherentes con la aplicación.
     - **Hora de inicio de la replicación inicial** indica que la replicación inicial comenzará de inmediato.
 4. Después de que se cree la directiva, seleccione **Aceptar**. Cuando se crea una directiva, esta se asocia automáticamente con el sitio Hyper-V. En este tutorial, este sitio es **ContosoHyperVSite**.

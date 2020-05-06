@@ -1,20 +1,15 @@
 ---
-title: 'Recuento de estados de tareas y nodos: Azure Batch | Microsoft Docs'
+title: Estados de recuento de tareas y nodos
 description: Realice un recuento del estado de los nodos de ejecución y las tareas de Azure Batch para ayudar a administrar y supervisar las soluciones de Batch.
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.service: batch
-ms.topic: article
 ms.date: 09/07/2018
-ms.author: labrenne
+ms.topic: article
 ms.custom: seodec18
-ms.openlocfilehash: a7b58e96918d26851812aa96c18043121c081e94
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1abff4c1a07ba0c5375228995330646204d33cd7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77023929"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82116101"
 ---
 # <a name="monitor-batch-solutions-by-counting-tasks-and-nodes-by-state"></a>Supervisión de las soluciones de Batch realizando un recuento de las tareas y los nodos por estado
 

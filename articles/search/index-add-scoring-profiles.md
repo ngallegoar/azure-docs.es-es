@@ -19,16 +19,16 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 516637b812afece1966006ce6d894dd1e32e6293
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c702ce72492201413d6c72af9dbf37347e49afdd
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79225312"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82231108"
 ---
 # <a name="add-scoring-profiles-to-an-azure-cognitive-search-index"></a>Incorporación de perfiles de puntuación a un índice de Azure Cognitive Search
 
-  La puntuación hace referencia al cálculo de una *puntuación de búsqueda* para todos los artículos devueltos en los resultados de la búsqueda. La puntuación es un indicador de la importancia de un elemento en el contexto de la operación de búsqueda actual. Cuanto mayor sea la puntuación, mayor importancia tendrá el elemento. En los resultados de búsqueda, los artículos están ordenados de mayor a menor, según las puntuaciones de búsqueda calculadas para cada uno.  
+La *puntuación* calcula una puntuación de la búsqueda para cada elemento de un conjunto de resultados ordenado por rango. A cada elemento de un conjunto de resultados de búsqueda se le asigna una puntuación de búsqueda, a continuación, se ordena de mayor a menor.
 
  Azure Cognitive Search usa la puntuación predeterminada para calcular una puntuación inicial, pero puede personalizar el cálculo mediante un *perfil de puntuación*. Los perfiles de puntuación proporcionan un mayor control sobre la clasificación de los elementos en los resultados de búsqueda. Por ejemplo, desea aumentar los elementos según su potencial de ingresos, promover elementos más recientes o quizás aumentar los elementos que han permanecido en inventario demasiado largo.  
 
@@ -285,6 +285,7 @@ La puntuación de búsqueda se calcula en función de las propiedades estadísti
  Para ver más ejemplos, consulte el [esquema XML: Datatypes (sitio web de W3.org)](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration).  
 
 ## <a name="see-also"></a>Consulte también  
- [REST de Azure Cognitive Search](https://docs.microsoft.com/rest/api/searchservice/)   
- [Creación de un índice &#40;API REST de Azure Cognitive Search&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)   
- [SDK de .NET de Azure Cognitive Search](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  
+
++ [Referencia de API de REST](https://docs.microsoft.com/rest/api/searchservice/)   
++ [Create Index API](https://docs.microsoft.com/rest/api/searchservice/create-index)   
++ [SDK de .NET de Azure Cognitive Search](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  

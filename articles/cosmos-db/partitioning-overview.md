@@ -1,17 +1,17 @@
 ---
 title: Creación de particiones en Azure Cosmos DB
 description: Obtenga información sobre la creación de particiones en Azure Cosmos DB, los procedimientos recomendados al elegir una clave de partición y cómo administrar particiones lógicas.
-author: markjbrown
-ms.author: mjbrown
+author: deborahc
+ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 551703b5dcca082904197010366ee059998dde4b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/28/2020
+ms.openlocfilehash: 1a760b4cedad5e43a2ef9f186162675aaf6d5ea5
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79227284"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82234186"
 ---
 # <a name="partitioning-in-azure-cosmos-db"></a>Creación de particiones en Azure Cosmos DB
 
@@ -19,33 +19,62 @@ Azure Cosmos DB usa la creación de particiones con el fin de escalar contenedo
 
 Por ejemplo, un contenedor contiene elementos. Cada elemento tiene un valor único para la propiedad `UserID`. Si `UserID` actúa como la partición de clave para los elementos de un contenedor y hay 1000 valores `UserID` exclusivos, se crearán 1000 particiones lógicas del contenedor.
 
-Además de una clave de partición que determina la partición lógica del elemento, cada elemento de un contenedor tiene también un *identificador de elemento* (que es único dentro de una partición lógica). Al combinar la clave de partición y el identificador del elemento crea el *índice* del elemento, que identifica de forma única el elemento.
+Además de una clave de partición que determina la partición lógica del elemento, cada elemento de un contenedor tiene también un *id. de elemento* (que es único dentro de una partición lógica). Al combinar la clave de partición y el *id. del elemento* se crea el *índice* del elemento, que los identifica de forma única.
 
 [Elegir una clave de partición](partitioning-overview.md#choose-partitionkey) es una decisión importante que afecta al rendimiento de la aplicación.
 
 ## <a name="managing-logical-partitions"></a>Administración de particiones lógicas
 
-Azure Cosmos DB administra de forma transparente y automática la ubicación de las particiones lógicas en particiones físicas para satisfacer de manera eficaz las necesidades de escalabilidad y rendimiento del contenedor. A medida que aumentan los requisitos de rendimiento y almacenamiento de la aplicación, Azure Cosmos DB mueve las particiones lógicas para distribuir automáticamente la carga entre un número más elevado de servidores. 
+Azure Cosmos DB administra de forma transparente y automática la ubicación de las particiones lógicas en particiones físicas para satisfacer de manera eficaz las necesidades de escalabilidad y rendimiento del contenedor. A medida que aumentan los requisitos de rendimiento y almacenamiento de la aplicación, Azure Cosmos DB mueve las particiones lógicas para distribuir automáticamente la carga entre un número más elevado de particiones físicas. Puede obtener más información sobre las [particiones físicas](partition-data.md#physical-partitions).
 
 Azure Cosmos DB usa la creación de particiones por hash para distribuir las particiones lógicas entre las particiones físicas. Azure Cosmos DB aplica un algoritmo hash al valor de clave de partición de un elemento. El resultado con hash determina la partición física. A continuación, Azure Cosmos DB asigna el espacio de claves de los hash de claves de partición uniformemente entre las particiones físicas.
 
-Las consultas que tienen acceso a datos dentro de una sola partición lógica son más rentables que las consultas que tienen acceso a varias particiones. Las transacciones (en procedimientos almacenados o desencadenadores) solo se permiten con elementos dentro de una única partición lógica.
+Las transacciones (en procedimientos almacenados o desencadenadores) solo se permiten con elementos dentro de una única partición lógica.
 
-Para obtener más información sobre cómo Azure Cosmos DB administra las particiones, vea el artículo de [Particiones lógicas](partition-data.md). No es necesario conocer los detalles internos para compilar o ejecutar las aplicaciones, pero se recopilan aquí para que pueda consultarlos.
+Puede obtener más información sobre [cómo Azure Cosmos DB administra las particiones](partition-data.md). No es necesario conocer los detalles internos para compilar o ejecutar las aplicaciones, pero se recopilan aquí para que pueda consultarlos.
 
 ## <a name="choosing-a-partition-key"></a><a id="choose-partitionkey"></a>Elegir una clave de partición
 
-A continuación, encontrará una guía clara para elegir una clave de partición:
+La selección de la clave de partición es una decisión de diseño sencilla pero importante en Azure Cosmos DB. Una vez que haya seleccionado la clave de partición, no es posible cambiarla en contexto. Si necesita cambiarla, debe trasladar los datos a un nuevo contenedor con la nueva clave de partición deseada.
 
-* En una única partición lógica se admite un límite máximo de 20 GB de almacenamiento.  
+Para **todos** los contenedores, la clave de partición debe:
 
-* Los contenedores de Azure Cosmos tienen un rendimiento mínimo de 400 unidades de solicitud por segundo (RU/s). Cuando el rendimiento se aprovisiona en una base de datos, el valor mínimo de RU por contenedor es de cien unidades de solicitud por segundo (RU/s). Las solicitudes a la misma clave de partición no pueden exceder el rendimiento asignado a una partición. Si las solicitudes superan el rendimiento asignado, tendrá la velocidad limitada. Por tanto, es importante elegir una clave de partición que no dé como resultado "zonas activas" dentro de la aplicación.
+* Ser una propiedad con un valor que no cambie. Si una propiedad es la clave de partición, no se puede actualizar su valor.
+* Tener una cardinalidad alta. En otras palabras, la propiedad debe tener una amplia gama de valores posibles.
+* Distribuir el consumo de unidades de solicitud (RU) y el almacenamiento de datos uniformemente en todas las particiones lógicas. Esto garantiza una distribución uniforme del consumo de RU y el almacenamiento en las particiones físicas.
 
-* Elija una clave de partición que tenga una amplia gama de valores y patrones de acceso que se distribuyan uniformemente entre las particiones lógicas. Esto ayuda a distribuir los datos y la actividad en el contenedor entre el conjunto de particiones lógicas, para que los recursos de rendimiento y almacenamiento de datos se puedan distribuir entre las particiones lógicas.
+Si necesita [transacciones ACID de varios elementos](database-transactions-optimistic-concurrency.md#multi-item-transactions) en Azure Cosmos DB, deberá usar [procedimientos almacenados o desencadenadores](how-to-write-stored-procedures-triggers-udfs.md#stored-procedures). Todos los procedimientos almacenados y desencadenadores basados en JavaScript están limitados a una única partición lógica.
 
-* Elija una clave de partición que distribuya la carga de trabajo de manera uniforme entre todas las particiones y también a lo largo del tiempo. La elección de la clave de partición debe equilibrar la necesidad de consultas o transacciones de partición eficaces con el objetivo de distribuir los elementos entre varias particiones para conseguir escalabilidad.
+## <a name="partition-keys-for-read-heavy-containers"></a>Claves de partición para contenedores con lecturas frecuentes
 
-* Los candidatos para las claves de partición pueden incluir las propiedades que aparecen con frecuencia como un filtro en las consultas. Las consultas se pueden enrutar de manera eficaz si se incluye la clave de partición en el predicador de filtro.
+Para la mayoría de los contenedores, los criterios anteriores se deben tener en cuenta al elegir una clave de partición. No obstante, en el caso de los contenedores con lecturas frecuentes, es posible que quiera elegir una clave de partición que aparece con frecuencia como filtro en las consultas. Las consultas se pueden [enrutar de manera eficaz solo a las particiones físicas pertinentes](how-to-query-container.md#in-partition-query) si se incluye la clave de partición en el predicado de filtro.
+
+Si la mayoría de las solicitudes de la carga de trabajo son consultas, y la mayoría de las consultas tiene un filtro de igualdad en la misma propiedad, esta puede ser una buena opción de clave de partición. Por ejemplo, si ejecuta frecuentemente una consulta que filtra por `UserID`, al seleccionar `UserID` como clave de partición se reduciría el número de [consultas entre particiones](how-to-query-container.md#avoiding-cross-partition-queries).
+
+Sin embargo, si el contenedor es pequeño, probablemente no tenga suficientes particiones físicas como para que deba preocuparle el impacto de las consultas entre particiones en el rendimiento. La mayoría de los contenedores pequeños en Azure Cosmos DB requieren solo una o dos particiones físicas.
+
+Si el contenedor puede aumentar a unas cuantas particiones físicas, debe asegurarse de elegir una clave de partición que minimice las consultas entre particiones. El contenedor necesitará más de unas cuantas particiones físicas cuando se cumpla alguna de las siguientes condiciones:
+
+* El contenedor tiene aprovisionadas más de 30 000 RU.
+* El contenedor tiene almacenados más de 100 GB de datos.
+
+## <a name="using-item-id-as-the-partition-key"></a>Uso del id. de elemento como clave de partición
+
+Si el contenedor tiene una propiedad con una amplia gama de posibles valores, probablemente sea una buena elección de clave de partición. Un posible ejemplo de una propiedad de este tipo, es el *id. de elemento*. En el caso de contenedores pequeños de lectura o escritura frecuente de cualquier tamaño, el *id. de elemento* es naturalmente una excelente opción de clave de partición.
+
+Se garantiza que la propiedad del sistema *id. de elemento* existe en todos los elementos del contenedor de Cosmos. Es posible que tenga otras propiedades que representen un identificador lógico para el elemento. En muchos casos, también son excelentes claves de partición por los mismos motivos que el *id. de elemento*.
+
+El *id. de elemento* es una excelente opción de clave de partición por los siguientes motivos:
+
+* Hay una amplia gama de valores posibles (un *id. de elemento* único por elemento).
+* Dado que cada elemento tiene un *id.* único, este *id. de elemento* realiza un trabajo excelente para equilibrar de manera uniforme el consumo de RU y el almacenamiento de datos.
+* Puede realizar fácilmente lecturas puntuales, ya que siempre conocerá la clave de partición de un elemento si conoce su *identificador*.
+
+Algunos aspectos que se deben tener en cuenta al seleccionar el *id. de elemento* como clave de partición son:
+
+* Si el *id. de elemento* es la clave de partición, se convertirá en un identificador único en todo el contenedor. No podrá tener elementos con *id. de elemento* duplicados.
+* Si tiene un contenedor con lecturas frecuentes que tiene muchas [particiones físicas](partition-data.md#physical-partitions), las consultas serán más eficaces si tienen un filtro de igualdad con el *id. de elemento*.
+* No se pueden ejecutar procedimientos almacenados ni desencadenadores en varias particiones lógicas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

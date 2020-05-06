@@ -1,21 +1,19 @@
 ---
-title: Ejecución del contenedor de Windows Server en el clúster de Azure Kubernetes Service
+title: Creación de un contenedor de Windows Server en un clúster de Azure Kubernetes Service (AKS)
 description: Aprenda a crear rápidamente un clúster de Kubernetes y a implementar una aplicación en un contenedor de Windows Server en Azure Kubernetes Service (AKS) mediante la CLI de Azure.
 services: container-service
 ms.topic: article
-ms.date: 01/27/2020
-ms.openlocfilehash: 2aecebcc45cb24c9ab3a594aa4d74b1584c7ffa7
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.date: 04/14/2020
+ms.openlocfilehash: 148ba900839c6eaf031416b0884778edded5735c
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81392659"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208115"
 ---
-# <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Versión preliminar: Creación de un contenedor de Windows Server en un clúster de Azure Kubernetes Service (AKS) mediante la CLI de Azure
+# <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Creación de un contenedor de Windows Server en un clúster de Azure Kubernetes Service (AKS) mediante la CLI de Azure
 
 Azure Kubernetes Service (AKS) es un servicio de Kubernetes administrado que le permite implementar y administrar clústeres rápidamente. En este artículo, implementará un clúster de AKS mediante la CLI de Azure. También implementará una aplicación de ejemplo de ASP.NET en un contenedor de Windows Server en el clúster.
-
-Esta funcionalidad actualmente está en su versión preliminar.
 
 ![Imagen de cómo llegar a la aplicación de ejemplo de ASP.NET](media/windows-container/asp-net-sample-app.png)
 
@@ -25,17 +23,6 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI localmente, para este artículo es preciso que ejecute la versión 2.0.61 o posterior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][azure-cli-install].
-
-## <a name="before-you-begin"></a>Antes de empezar
-
-Debe agregar un grupo de nodos adicionales después de crear el clúster que puede ejecutar contenedores de Windows Server. La adición de un grupo de nodos adicionales se trata en el último paso, pero primero deberá habilitar varias características en versión preliminar.
-
-> [!IMPORTANT]
-> Las características en vista previa de AKS son de autoservicio y se tienen que habilitar. Las versiones preliminares se proporcionan "tal cual" y "como están disponibles", y están excluidas de los contratos de nivel de servicio y la garantía limitada. Las versiones preliminares de AKS reciben cobertura parcial del soporte al cliente en la medida de lo posible. Por lo tanto, estas características no están diseñadas para usarse en producción. Para obtener información adicional, consulte los siguientes artículos de soporte:
->
-> * [Directivas de soporte técnico para AKS][aks-support-policies]
-> * [Preguntas más frecuentes de soporte técnico de Azure][aks-faq]
 
 ### <a name="install-aks-preview-cli-extension"></a>Instalación de la extensión aks-preview de la CLI
 
@@ -44,32 +31,8 @@ Para usar contenedores de Windows Server, necesitará la versión 0.4.12 de la 
 ```azurecli-interactive
 # Install the aks-preview extension
 az extension add --name aks-preview
-
 # Update the extension to make sure you have the latest version installed
 az extension update --name aks-preview
-```
-
-### <a name="register-windows-preview-feature"></a>Registro de las características en versión preliminar de Windows
-
-Para crear un clúster de AKS que pueda usar varios grupos de nodos y ejecutar contenedores de Windows Server, primero hay que habilitar las marcas de la característica *WindowsPreview* en la suscripción. La característica *WindowsPreview* también usa clústeres de grupos de varios nodos y conjuntos de escalado de máquinas virtuales para administrar la implementación y configuración de los nodos de Kubernetes. Para registrar la marca de característica *WindowsPreview*, use el comando [az feature register][az-feature-register] tal como se muestra en el siguiente ejemplo:
-
-```azurecli-interactive
-az feature register --name WindowsPreview --namespace Microsoft.ContainerService
-```
-
-> [!NOTE]
-> Todos los clústeres que cree una vez que haya registrado satisfactoriamente la marca de característica *WindowsPreview* usarán la versión preliminar de esta experiencia de clúster. Para seguir creando clústeres normales, totalmente compatibles, no habilite características en versión preliminar en las suscripciones de producción. Utilice una suscripción independiente de prueba o de desarrollo de Azure para probar características en versión preliminar.
-
-El proceso de registro tarda unos minutos en completarse. Compruebe el estado del registro con el comando [az feature list][az-feature-list]:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/WindowsPreview')].{Name:name,State:properties.state}"
-```
-
-Cuando el estado de registro sea `Registered`, presione CTRL+C para detener la supervisión.  Después, actualice el registro del proveedor de recursos *Microsoft.ContainerService* con el comando [az provider register][az-provider-register]:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
 ```
 
 ### <a name="limitations"></a>Limitaciones
@@ -78,10 +41,10 @@ Se aplican las siguientes limitaciones cuando crea y administra clústeres de AK
 
 * No puede eliminar el primer grupo de nodos.
 
-Aunque esta característica está en versión preliminar, se aplican las siguientes limitaciones adicionales:
+Se aplican las siguientes limitaciones adicionales a los grupos de nodos de Windows Server:
 
-* El clúster de AKS puede tener un máximo de ocho grupos de nodos.
-* El clúster de AKS puede tener un máximo de 400 nodos distribuidos entre esos ocho grupos de nodos.
+* El clúster de AKS puede tener un máximo de 10 grupos de nodos.
+* El clúster de AKS puede tener un máximo de 100 nodos en cada grupo de nodos.
 * El nombre del grupo de nodos de Windows Server tiene un límite de 6 caracteres.
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
@@ -116,45 +79,33 @@ En la siguiente salida de ejemplo se muestra que los recursos se crearon correct
 
 ## <a name="create-an-aks-cluster"></a>Creación de un clúster de AKS
 
-Para ejecutar un clúster de AKS que admita grupos de nodos para contenedores de Windows Server, el clúster debe utilizar una directiva de red que use el complemento de red (avanzado) de [Azure CNI][azure-cni-about]. Para más información que le ayude a planear los intervalos de subred necesarios y las consideraciones de red, vea [Configuración de redes de Azure CNI][use-advanced-networking]. Use el comando [az aks create][az-aks-create] para crear un clúster de AKS denominado *myAKSCluster*. Este comando creará los recursos de red necesarios en caso de que no existan.
-  * El clúster se configura con dos nodos.
-  * Los parámetros *windows-admin-password* y *windows-admin-username* establecen las credenciales de administrador de todos los contenedores de Windows Server creados en el clúster.
+Para ejecutar un clúster de AKS que admita grupos de nodos para contenedores de Windows Server, el clúster debe utilizar una directiva de red que use el complemento de red (avanzado) de [Azure CNI][azure-cni-about]. Para más información que le ayude a planear los intervalos de subred necesarios y las consideraciones de red, vea [Configuración de redes de Azure CNI][use-advanced-networking]. Use el comando [az aks create][az-aks-create] siguiente para crear un clúster de AKS denominado *myAKSCluster*. Este comando creará los recursos de red necesarios en caso de que no existan.
 
 > [!NOTE]
 > Para asegurarse de que el clúster funcione de forma confiable, debe ejecutar al menos 2 (dos) nodos del grupo de nodos predeterminado.
 
-Proporcione su *PASSWORD_WIN* seguro propio (recuerde que los comandos de este artículo se han agregado a un shell de BASH):
-
 ```azurecli-interactive
-PASSWORD_WIN="P@ssw0rd1234"
-
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
     --node-count 2 \
     --enable-addons monitoring \
-    --kubernetes-version 1.15.7 \
+    --kubernetes-version 1.16.7 \
     --generate-ssh-keys \
-    --windows-admin-password $PASSWORD_WIN \
-    --windows-admin-username azureuser \
+    --enable-vmss \
     --vm-set-type VirtualMachineScaleSets \
     --load-balancer-sku standard \
     --network-plugin azure
 ```
 
 > [!Note]
-> Si recibe un error de validación de contraseña, intente crear el grupo de recursos en otra región.
-> A continuación, intente crear el clúster con el nuevo grupo de recursos.
-
-> [!Note]
 > Si no puede crear el clúster de AKS porque la versión no se admite en esta región, puede usar el comando[az aks get-versions --location eastus] para encontrar la lista de versiones admitidas en esta región.
 
-
-Transcurridos unos minutos, el comando se completa y devuelve información en formato JSON sobre el clúster. En ocasiones, el clúster puede tardar más de unos minutos en aprovisionarse. Espere hasta 10 minutos en estos casos. 
+Transcurridos unos minutos, el comando se completa y devuelve información en formato JSON sobre el clúster. En ocasiones, el clúster puede tardar más de unos minutos en aprovisionarse. Espere hasta 10 minutos en estos casos.
 
 ## <a name="add-a-windows-server-node-pool"></a>Adición de un grupo de nodos de Windows Server
 
-De forma predeterminada, se crea un clúster de AKS con un grupo de nodos que puede ejecutar contenedores de Linux. Use el comando `az aks nodepool add` para agregar un grupo de nodos adicionales que pueda ejecutar contenedores de Windows Server.
+De forma predeterminada, se crea un clúster de AKS con un grupo de nodos que puede ejecutar contenedores de Linux. Utilice el comando `az aks nodepool add` para agregar un grupo de nodos adicionales que pueda ejecutar contenedores de Windows Server en combinación con el grupo de nodos de Linux.
 
 ```azurecli
 az aks nodepool add \
@@ -163,7 +114,7 @@ az aks nodepool add \
     --os-type Windows \
     --name npwin \
     --node-count 1 \
-    --kubernetes-version 1.15.7
+    --kubernetes-version 1.16.7
 ```
 
 El comando anterior crea un nuevo grupo de nodos denominado *npwin* y lo agrega a *myAKSCluster*. Al crear un grupo de nodos para ejecutar contenedores de Windows Server, el valor predeterminado para *node-vm-size* es *Standard_D2s_v3*. Si decide establecer el parámetro *node-vm-size*, compruebe la lista de [tamaños de máquina virtual restringidos][restricted-vm-sizes]. El tamaño mínimo recomendado es *Standard_D2s_v3*. El comando anterior también usa la subred predeterminada en la red virtual predeterminada que se crea al ejecutar `az aks create`.
@@ -192,8 +143,8 @@ La siguiente salida de ejemplo muestra todos los nodos del clúster. Asegúrese 
 
 ```output
 NAME                                STATUS   ROLES   AGE    VERSION
-aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.15.7
-aksnpwin987654                      Ready    agent   108s   v1.15.7
+aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.16.7
+aksnpwin987654                      Ready    agent   108s   v1.16.7
 ```
 
 ## <a name="run-the-application"></a>Ejecución de la aplicación

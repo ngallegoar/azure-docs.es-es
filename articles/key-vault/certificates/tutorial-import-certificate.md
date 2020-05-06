@@ -9,14 +9,14 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/03/2020
+ms.date: 04/16/2020
 ms.author: sebansal
-ms.openlocfilehash: 754f30f7931f9fad6a95328cbf8ab34f70cb75a0
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 9496173ee006c6ca3cab557f4e63ec21647ad0fd
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81426114"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82105580"
 ---
 # <a name="tutorial-import-a-certificate-in-azure-key-vault"></a>Tutorial: Importación de un certificado en Azure Key Vault
 
@@ -45,7 +45,7 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
 3. En la lista de resultados, elija **Key Vault**.
 4. En la sección Key Vault, elija **Crear**.
 5. En la sección **Crear Key Vault**, proporcione la siguiente información:
-    - **Name**: se requiere un nombre único. En esta guía de inicio rápido se usará **Example-Vault**. 
+    - **Name**: se requiere un nombre único. En este inicio rápido se usará **Example-Vault**. 
     - **Suscripción**: Elija una suscripción.
     - En **Grupo de recursos** elija **Crear nuevo** y escriba un nombre para el grupo de recursos.
     - En el menú desplegable **Ubicación**, elija una ubicación.
@@ -72,15 +72,18 @@ Para importar un certificado en el almacén, debe tener un archivo de certificad
 
 1. En las páginas de propiedades de Key Vault, seleccione **Certificados**.
 2. Haga clic en **Generar o Importar**.
-3. En la pantalla **Crear un certificado**, elija los siguientes valores:
+3. En la pantalla **Creación de certificado**, elija los siguientes valores:
     - **Método de creación de certificados**: Importación.
     - **Nombre del certificado**: ExampleCertificate.
     - **Cargar el archivo de certificado**: seleccione el archivo de certificado del disco.
-    - Deje las restantes opciones con sus valores predeterminados. Haga clic en **Crear**.
+    - **Contraseña**: si va a cargar un archivo de certificado protegido con contraseña, proporcione esa contraseña aquí. De lo contrario, déjelo en blanco. Una vez que el archivo de certificado se haya importado correctamente, Key Vault quitará esa contraseña.
+4. Haga clic en **Crear**.
 
 ![Propiedades del certificado](../media/certificates/tutorial-import-cert/cert-import.png)
 
-Una vez recibido el mensaje de que el certificado se ha importado correctamente, puede hacer clic en él en la lista. A continuación, puede ver algunas de las propiedades. 
+Al agregar un certificado mediante el método **Import**, Azure Key Vault rellenará automáticamente los parámetros de certificado (es decir, el período de validez, el nombre del emisor, la fecha de activación, etc.).
+
+Una vez recibido el mensaje de que el certificado se ha importado correctamente, puede hacer clic en él en la lista para ver sus propiedades. 
 
 ![Propiedades del certificado](../media/certificates/tutorial-import-cert/current-version-hidden.png)
 
@@ -101,6 +104,22 @@ az keyvault certificate import --file
 ```
 Más información sobre los parámetros [aquí](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-import)
 
+Después de importar el certificado, puede verlo mediante el comando para [ver el certificado](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-show).
+
+
+```azurecli
+az keyvault certificate show [--id]
+                             [--name]
+                             [--only-show-errors]
+                             [--subscription]
+                             [--vault-name]
+                             [--version]
+```
+
+
+
+Ahora, ha creado un almacén de claves, ha importado un certificado y ha visto sus propiedades.
+
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 Otras guías de inicio rápido y tutoriales de Key Vault se basan en esta. Si tiene pensado seguir trabajando en otras guías de inicio rápido y tutoriales, considere la posibilidad de dejar estos recursos activos.
@@ -115,6 +134,6 @@ Cuando ya no lo necesite, elimine el grupo de recursos; de este modo se eliminar
 
 En este tutorial, ha creado un almacén de claves e importado un certificado en él. Para más información sobre Key Vault y cómo integrarlo con las aplicaciones, continúe con los artículos siguientes.
 
-- Más información acerca de la [Administración de certificados en Azure Key Vault](/archive/blogs/kv/manage-certificates-via-azure-key-vault).
+- Más información sobre la [administración de la creación de certificados en Azure Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate-scenarios).
 - Consulte ejemplos de [Importación de certificados mediante las API REST](/rest/api/keyvault/importcertificate/importcertificate).
 - Consulte los [procedimientos recomendados de Azure Key Vault](../general/best-practices.md).

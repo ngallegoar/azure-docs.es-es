@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.custom: seodec18
-ms.openlocfilehash: c8997f5cd1bed06fab8ca90e7b1cdfcb3e5ec6b3
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 7b268f3efa64c2f1ae78794056fdfda2b27434e8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81313775"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186936"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configuración de experimentos de ML automatizado en Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -323,7 +323,8 @@ run = experiment.submit(automl_config, show_output=True)
 >Las dependencias se instalan por primera vez en una máquina nueva.  El resultado puede tardar hasta 10 minutos en mostrarse.
 >Establecer `show_output` en `True` genera un resultado que se muestra en la consola.
 
-### <a name="exit-criteria"></a>Criterios de salida
+### <a name="exit-criteria"></a><a name="exit"></a> Criterios de salida
+
 Hay unas cuantas opciones que puede definir para finalizar el experimento.
 1. Sin criterios: si no se define ningún parámetro de salida, el experimento continuará hasta que no se realice ningún progreso adicional en la métrica principal.
 1. Salir transcurrido un tiempo determinado: el uso de `experiment_timeout_minutes` en su configuración le permite definir los minutos que debe tardar un experimento en seguir ejecutándose.

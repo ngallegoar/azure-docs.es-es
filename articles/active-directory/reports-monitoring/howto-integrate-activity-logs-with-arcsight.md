@@ -17,12 +17,12 @@ ms.date: 04/19/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05002c1b11ef31b61fb4036f09dc8edcdafca767
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f03b146331069371106c1857f2acc68b566d3c5d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75608387"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82129227"
 ---
 # <a name="integrate-azure-active-directory-logs-with-arcsight-using-azure-monitor"></a>Integración de los registros de Azure Active Directory con ArcSight mediante Azure Monitor
 
@@ -53,7 +53,7 @@ Descarga y abra la [guía de configuración de ArcSight SmartConnector para el c
     * Que la configuración de la aplicación de la implementación se conserva en la configuración de la aplicación en Azure Function App. 
     * Que se ha creado un grupo de recursos para ArcSight en Azure, con una aplicación de Azure AD para el conector de ArcSight y las cuentas de almacenamiento que contienen los archivos asignados con el formato CEF.
 
-4. Por último, complete los pasos posteriores a la implementación descritos en la sección de **configuraciones posteriores a la implementación** de la guía de configuración. En esta sección se explica cómo realizar una configuración adicional si tiene un plan de App Service para prevenir que las aplicaciones de función queden inactivas tras un período de tiempo de expiración, cómo configurar el streaming de los registros de diagnóstico desde el centro de eventos y cómo actualizar el certificado del almacén de claves de SysLog NG Daemon SmartConnector para asociarlo con la cuenta de almacenamiento recién creada.
+4. Por último, complete los pasos posteriores a la implementación descritos en la sección de **configuraciones posteriores a la implementación** de la guía de configuración. En esta sección se explica cómo realizar una configuración adicional si tiene un plan de App Service para prevenir que las aplicaciones de función queden inactivas tras un período de tiempo de expiración, cómo configurar el streaming de los registros de recursos desde el centro de eventos y cómo actualizar el certificado del almacén de claves de SysLog NG Daemon SmartConnector para asociarlo con la cuenta de almacenamiento recién creada.
 
 5. En la guía de configuración también se explica cómo personalizar las propiedades del conector en Azure y cómo actualizar y desinstalar el conector. También hay una sección dedicada a las mejoras de rendimiento, incluida la actualización a un [plan de consumo de Azure](https://azure.microsoft.com/pricing/details/functions) y la configuración de un equilibrador de carga de ArcSight si la carga de eventos es mayor de lo que puede manipular un único conector Syslog NG Daemon SmartConnector.
 

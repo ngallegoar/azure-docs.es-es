@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 03/29/2017
 tags: connectors
-ms.openlocfilehash: 99abd48bde97c2a2e085688cdfbb365e5e4cfd56
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fdbf7fd7dded2fc0026e5c819ca579eeddc5cdb6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74789433"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82147813"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Introducción al conector de una base de datos de Oracle
 
@@ -72,7 +72,7 @@ Este artículo le muestra cómo usar el conector de una base de datos de Oracle 
 
     ![](./media/connectors-create-api-oracledatabase/table-rowid.png)
 
-7. En este paso, puede usar cualquiera de los demás conectores para crear el flujo de trabajo. Si desea probar obtener los datos de Oracle, envíe a sí mismo un correo electrónico con los datos de Oracle mediante uno de los conectores de envío de correo electrónico, como Office 365 o Gmail. Use los tokens dinámicos de la tabla de Oracle para generar el `Subject` y `Body` de su correo electrónico:
+7. En este paso, puede usar cualquiera de los demás conectores para crear el flujo de trabajo. Si desea probar la obtención de datos de Oracle, envíese un correo con los datos de Oracle mediante uno de los conectores de envío de correo electrónico, como Office 365 Outlook. Use los tokens dinámicos de la tabla de Oracle para generar el `Subject` y `Body` de su correo electrónico:
 
     ![](./media/connectors-create-api-oracledatabase/oracle-send-email.png)
 

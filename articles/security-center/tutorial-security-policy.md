@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 45a27be400753b56c42310a340334feba8a420c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c98ae7c95ac3fc186786612dd3d8d8bd55fa816f
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73906859"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82024887"
 ---
 # <a name="working-with-security-policies"></a>Uso de directivas de seguridad
 
@@ -62,11 +62,11 @@ Para ver las directivas de seguridad de Security Center:
 
 1. Elija entre las opciones disponibles en esta página:
 
-    1. Para usar directivas del sector, haga clic en **Agregar más estándares**. Para obtener más información, consulte [Actualizar a los paquetes de cumplimiento dinámicos](update-regulatory-compliance-packages.md).
+    1. Para usar directivas del sector, seleccione **Agregar más estándares**. Para obtener más información, consulte [Actualizar a los paquetes de cumplimiento dinámicos](update-regulatory-compliance-packages.md).
 
-    1. Para asignar y administrar iniciativas personalizadas, haga clic en **Agregar iniciativas personalizadas**. Para obtener más información, consulte [Usar directivas de seguridad personalizadas](custom-security-policies.md).
+    1. Para asignar y administrar iniciativas personalizadas, seleccione **Agregar iniciativas personalizadas**. Para obtener más información, consulte [Usar directivas de seguridad personalizadas](custom-security-policies.md).
 
-    1. Para ver y editar la directiva predeterminada, haga clic en **Ver directivas vigentes** y continúe tal como se describe a continuación. 
+    1. Para ver y editar la directiva predeterminada, seleccione **Ver directivas vigentes** y continúe tal como se describe a continuación. 
 
        ![pantalla de la directiva](./media/security-center-policies/policy-screen.png)
        
@@ -96,20 +96,20 @@ Security Center usa el control de acceso basado en rol (RBAC), que proporciona r
 Si la directiva de seguridad predeterminada genera una recomendación que no es pertinente para su entorno, puede deshabilitar la definición de directiva que envía la recomendación para detenerla.
 Para más información sobre las recomendaciones, consulte [Administración de las recomendaciones de seguridad](security-center-recommendations.md).
 
-1. En Security Center, en **DIRECTIVA Y CUMPLIMIENTO**, seleccione **Directiva de seguridad**.
+1. En Security Center, en la sección **Directiva y cumplimiento**, seleccione **Directiva de seguridad**.
 
    ![administración de directivas](./media/tutorial-security-policy/policy-management.png)
 
-2. Haga clic en el grupo de administración o de suscripción para el que quiere deshabilitar la recomendación.
+2. Seleccione el grupo de administración o de suscripción para el que quiere deshabilitar la recomendación.
 
    > [!NOTE]
    > Recuerde que un grupo de administración aplica sus directivas a sus suscripciones. Por lo tanto, si deshabilita la directiva de una suscripción y la suscripción pertenece a un grupo de administración que usa la misma directiva, seguirá recibiendo las recomendaciones de directivas. La directiva se seguirá aplicando desde el nivel de administración y las recomendaciones se seguirán generando.
 
-1. Haga clic en **Ver directiva efectiva**.
+1. Seleccione**Ver directiva efectiva**.
 
    ![deshabilitar la directiva](./media/tutorial-security-policy/view-effective-policy.png)
 
-1. Haga clic en la directiva asignada.
+1. Seleccione la directiva asignada.
 
    ![deshabilitar la directiva](./media/tutorial-security-policy/security-policy.png)
 
@@ -117,7 +117,7 @@ Para más información sobre las recomendaciones, consulte [Administración de l
 
    ![deshabilitar la directiva](./media/tutorial-security-policy/disable-policy.png)
 
-1. Haga clic en **Save**(Guardar).
+1. Seleccione **Guardar**.
 
    > [!NOTE]
    > Los cambios de deshabilitación de directiva pueden tardar hasta 12 horas en surtir efecto.

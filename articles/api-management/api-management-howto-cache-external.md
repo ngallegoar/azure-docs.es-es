@@ -8,28 +8,27 @@ manager: erikre
 editor: ''
 ms.assetid: 740f6a27-8323-474d-ade2-828ae0c75e7a
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/15/2019
+ms.date: 04/26/2020
 ms.author: apimpm
-ms.openlocfilehash: 2e8863eed774884a99de8643c9e497378368d166
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f8ca0caedd438c4ce707a044bc7fa7dd035e8983
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70072502"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203240"
 ---
-# <a name="use-an-external-azure-cache-for-redis-in-azure-api-management"></a>Uso de una instancia externa de Azure Redis Cache en Azure API Management
+# <a name="use-an-external-redis-compatible-cache-in-azure-api-management"></a>Uso de una memoria caché compatible con Redis externa en Azure API Management
 
-Además de utilizar la memoria caché integrada, Azure API Management permite también almacenar en caché las respuestas en una instancia externa de Azure Redis Cache.
+Además de utilizar la memoria caché integrada, Azure API Management permite almacenar en caché las respuestas en una memoria caché compatible con Redis, por ejemplo, Azure Cache for Redis.
 
-El uso de una memoria caché externa permite superar algunas limitaciones de la memoria caché integrada. Resulta especialmente útil si desea:
+El uso de una memoria caché externa permite superar algunas limitaciones de la memoria caché integrada:
 
 * Evitar que la memoria caché se borre periódicamente durante las actualizaciones de API Management
 * Tener más control sobre la configuración de la memoria caché
 * Almacenar en memoria caché más datos de los que permite el plan de API Management
 * Usar el almacenamiento en caché con el nivel de consumo de API Management
+* Habilitar el almacenamiento en caché tal como se explica para las [puertas de enlace autohospedadas de API Management](self-hosted-gateway-overview.md)
 
 Para más información acerca del almacenamiento en caché, consulte [Directivas de almacenamiento en caché de API Management](api-management-caching-policies.md) y [Almacenamiento en caché personalizado en Azure API Management](api-management-sample-cache-by-key.md).
 
@@ -53,6 +52,10 @@ En esta sección se explica cómo crear una instancia de Azure Redis Cache en Az
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
+## <a name="deploy-redis-cache-to-kubernetes"></a><a name="create-cache"> </a> Implementación de Redis Cache en Kubernetes
+
+En el caso del almacenamiento en caché, las puertas de enlace autohospedadas se basan exclusivamente en memorias caché externas. Para que el almacenamiento en caché sea eficaz, las puertas de enlace autohospedadas y la caché en la que se basan, debe estar cerca unas de otras para minimizar las latencias de búsqueda y almacenamiento. La implementación de una memoria Redis Cache en el mismo clúster de Kubernetes o en un clúster independiente cercano son las mejores opciones. Siga este [vínculo](https://github.com/kubernetes/examples/tree/master/guestbook) para aprender a implementar Redis Cache en un clúster de Kubernetes.
+
 ## <a name="add-an-external-cache"></a><a name="add-external-cache"> </a>Adición de una memoria caché externa
 
 Siga estos pasos para agregar una instancia externa de Azure Redis Cache en Azure API Management.
@@ -60,7 +63,7 @@ Siga estos pasos para agregar una instancia externa de Azure Redis Cache en Azur
 ![Traiga su propia memoria caché a APIM](media/api-management-howto-cache-external/add-external-cache.png)
 
 > [!NOTE]
-> La configuración **Utilizar desde** especifica qué implementación regional de API Management se comunicará con la memoria caché configurada en el caso de una configuración regional múltiple de API Management. Las memorias caché especificadas como **Predeterminada** serán reemplazadas por las memorias caché con un valor regional.
+> La configuración **Utilizar desde** especifica una región de Azure o una ubicación de puerta de enlace autohospedada que usará la caché configurada. Las memorias caché configuradas como **Predeterminadas** se reemplazarán por memorias caché con un valor de región o ubicación coincidente específico.
 >
 > Por ejemplo, si API Management está hospedado en las regiones Este de EE. UU., Sudeste de Asia y Oeste de Europa y hay dos memorias caché configuradas, una como **Predeterminada** y otra para **Sudeste de Asia**, la instancia de API Management de  **Sudeste de Asia** usará su propia memoria caché, mientras que las otras dos regiones utilizará la entrada de caché **Predeterminada**.
 
@@ -81,6 +84,16 @@ Siga estos pasos para agregar una instancia externa de Azure Redis Cache en Azur
 4. Seleccione **Personalizada** en el campo de lista desplegable **Instancia de caché**.
 5. Seleccione **Predeterminada** o especifique la región deseada en el campo de lista desplegable **Utilizar desde**.
 6. Proporcione la cadena de conexión de Azure Redis Cache en el campo **Cadena de conexión**.
+7. Haga clic en **Save**(Guardar).
+
+### <a name="add-a-redis-cache-to-a-self-hosted-gateway"></a>Incorporación de Redis Cache a una puerta de enlace autohospedada
+
+1. Vaya a la instancia de API Management en Azure Portal.
+2. Seleccione la pestaña **Caché externa** en el menú de la izquierda.
+3. Haga clic en el botón **+ Agregar**.
+4. Seleccione **Personalizada** en el campo de lista desplegable **Instancia de caché**.
+5. Especifique la ubicación de puerta de enlace autohospedada que desee o **Predeterminada** en el campo desplegable **Utilizar desde**.
+6. Proporcione la cadena de conexión de Redis Cache en el campo **Cadena de conexión**.
 7. Haga clic en **Save**(Guardar).
 
 ## <a name="use-the-external-cache"></a>Uso de la memoria caché externa

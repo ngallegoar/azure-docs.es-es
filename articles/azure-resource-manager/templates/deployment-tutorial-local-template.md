@@ -4,12 +4,12 @@ description: Aprenda a implementar una plantilla de Azure Resource Manager desde
 ms.date: 03/13/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: c8e3eb62fa52caeaa63808b6b9ea199bdff5c4da
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7f134bb836d05d006ef2e474ea48382a671957fe
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80081824"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82188831"
 ---
 # <a name="tutorial-deploy-a-local-azure-resource-manager-template"></a>Tutorial: Implementación de una plantilla de Azure Resource Manager local
 
@@ -37,9 +37,7 @@ Las plantillas son archivos JSON. Para revisar o editar plantillas, necesita un 
 
 ## <a name="review-template"></a>Revisión de la plantilla
 
-La plantilla que se usa en este tutorial es similar a la plantilla que se usó en el [tutorial sobre las plantillas de inicio rápido](template-tutorial-quickstart-template.md). Si está interesado en crear la plantilla, puede seguir este tutorial. No obstante, no es necesario para completar este tutorial.
-
-La plantilla implementa una cuenta de almacenamiento, un plan de App Service y una aplicación web.
+La plantilla implementa una cuenta de almacenamiento, un plan de App Service y una aplicación web. Si está interesado en crear la plantilla, puede seguir el [tutorial sobre las plantillas de inicio rápido](template-tutorial-quickstart-template.md). No obstante, no es necesario para completar este tutorial.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-deployment/local-template/azuredeploy.json":::
 

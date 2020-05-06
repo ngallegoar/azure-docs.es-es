@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2020
 ms.author: rdhillon
-ms.openlocfilehash: 926da07ffaf0c61ca2a7fd02351ef3635ec4d73b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 495d0bce905a980f840527f4cc8cd9e2116e3e66
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77651308"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82133746"
 ---
 # <a name="virtual-network-service-endpoint-policies-for-azure-storage"></a>Directivas de punto de conexión de servicio de red virtual para Azure Storage
 
@@ -90,7 +90,7 @@ Vamos a echar un vistazo rápido al objeto de directiva de punto de conexión de
 - **Filtrado del tráfico a los servicios de Azure desde el entorno local**: las directivas de punto de conexión de servicio solo se aplican al tráfico de las subredes asociadas a las directivas. Para permitir el acceso a recursos de servicio específicos de Azure desde el entorno local, el tráfico debe filtrarse utilizando aplicaciones de redes virtuales o firewalls.
 
 ## <a name="logging-and-troubleshooting"></a>Registro y solución de problemas
-No se dispone de un registro centralizado para las directivas de punto de conexión de servicio. Para los registros de diagnóstico de servicio, consulte [Registro de puntos de conexión de servicio](virtual-network-service-endpoints-overview.md#logging-and-troubleshooting).
+No se dispone de un registro centralizado para las directivas de punto de conexión de servicio. Para los registros de recursos de servicio, consulte [Registro de puntos de conexión de servicio](virtual-network-service-endpoints-overview.md#logging-and-troubleshooting).
 
 ### <a name="troubleshooting-scenarios"></a>Escenarios de solución de problemas
 - Acceso denegado a las cuentas de almacenamiento que funcionaban en la versión preliminar (no en región emparejada geográficamente)

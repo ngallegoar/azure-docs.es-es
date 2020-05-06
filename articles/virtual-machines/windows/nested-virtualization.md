@@ -1,22 +1,18 @@
 ---
 title: Habilitación de la virtualización anidada en Azure Virtual Machines
 description: Habilitación de la virtualización anidada en Azure Virtual Machines
-services: virtual-machines-windows
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
 ms.author: cynthn
 ms.date: 10/09/2017
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: virtual-machines-windows
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: d127d3f9e66b7d2d40aa420e2116fee17d996514
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 2c66f88cc49028fae50d89a9a7c24233d5a926b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437306"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81865711"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Habilitación de la virtualización anidada en una máquina virtual de Azure
 
@@ -42,7 +38,7 @@ Cree una conexión a Escritorio remoto en la máquina virtual.
 
 1. Haga clic en el botón **Conectar** en las propiedades de la máquina virtual. Se crea y se descarga un archivo de Protocolo de Escritorio remoto (archivo .rdp).
 
-2. Para conectarse a la máquina virtual, abra el archivo RDP descargado. Cuando se le solicite, haga clic en **Conectar**. En un equipo Mac, necesita un cliente RDP como este [Cliente de Escritorio remoto](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12) de Mac App Store.
+2. Para conectarse a la máquina virtual, abra el archivo RDP descargado. Cuando se le solicite, haga clic en **Conectar**. En un equipo Mac, necesita un cliente RDP como este [Cliente de Escritorio remoto](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) de Mac App Store.
 
 3. Escriba el nombre de usuario y la contraseña que especificó al crear la máquina virtual y, a continuación, haga clic en **Aceptar**.
 
@@ -98,7 +94,7 @@ Cree un adaptador de red virtual nuevo para la máquina virtual invitada y confi
 4. Cree una dirección IP para la puerta de enlace NAT.
     
 Para configurar la puerta de enlace, necesita información sobre la red:    
-  * IPAddress: la dirección IP de la puerta de enlace NAT especifica la dirección IPv4 o IPv6 que se va a usar como la dirección de puerta de enlace predeterminada de la subred de la red virtual. El formato genérico es a.b.c.1 (por ejemplo, "192.168.0.1"). Si bien no es necesario que la posición final sea .1, habitualmente sí lo es (según la longitud de prefijo). Típicamente, debe usar un espacio de direcciones de red privadas RFC 1918. 
+  * IPAddress: la dirección IP de la puerta de enlace NAT especifica la dirección IPv4 o IPv6 que se va a usar como la dirección de puerta de enlace predeterminada de la subred de la red virtual. El formato genérico es a.b.c.1 (por ejemplo, "192.168.0.1"). Aunque no es obligatorio que la posición final sea .1, habitualmente lo es (según la longitud de prefijo). Típicamente, debe usar un espacio de direcciones de red privadas RFC 1918. 
   * PrefixLength: la longitud de prefijo de la subred define el tamaño de la subred local (máscara de subred). La longitud de prefijo de la subred será un valor entero entre 0 y 32. 0 asignaría todo Internet, 32 solo permitiría una dirección IP asignada. Los valores comunes van de 24 a 12 en función de cuántas direcciones IP se deben adjuntar a NAT. Un valor de PrefixLength común es 24, que es una máscara de subred de 255.255.255.0.
   * InterfaceIndex: **ifIndex** es el índice de interfaz del conmutador virtual que se creó en el paso anterior. 
 

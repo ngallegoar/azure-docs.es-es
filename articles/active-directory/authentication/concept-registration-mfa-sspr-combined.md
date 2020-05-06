@@ -1,26 +1,31 @@
 ---
 title: 'Registro combinado de SSPR y MFA: Azure Active Directory'
-description: Registro de autoservicio de restablecimiento de contraseña y Multi-Factor Authentication de Azure AD (versión preliminar)
+description: Registro de autoservicio de restablecimiento de contraseña y Multi-Factor Authentication de Azure AD
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/06/2020
+ms.date: 04/15/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26656b6dafd91d47c05c2d1f923e53f4ba790cf8
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 4d4caaf8704f2ee49f8f094ad22065ae462154be
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309916"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82143917"
 ---
-# <a name="combined-security-information-registration-preview"></a>Registro de información de seguridad combinado (vista preliminar)
+# <a name="combined-security-information-registration-overview"></a>Introducción al registro de información de seguridad combinado
 
 Antes del registro combinado, los usuarios se registraban a los métodos de autenticación para Azure Multi-factor Authentication y el autoservicio de restablecimiento de contraseña (SSPR) por separado. La gente estaba confundida por el hecho de que se usaban métodos parecidos para Multi-Factor Authentication y SSPR pero, aún así, se tenían que registrar en las dos características. Ahora, con el registro combinado, los usuarios pueden registrarse una vez y obtener las ventajas de Multi-Factor Authentication y SSPR.
+
+En este artículo se describe qué es el registro de seguridad combinado. Para empezar a trabajar con el registro de seguridad combinado, consulte el siguiente artículo:
+
+> [!div class="nextstepaction"]
+> [Habilitar el registro de seguridad combinado](howto-registration-mfa-sspr-combined.md)
 
 ![Página de mi perfil que muestra información de seguridad registrada de un usuario](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
 
@@ -28,16 +33,10 @@ Antes de habilitar la nueva experiencia, revise esta documentación centrada en 
 
 El registro de información de seguridad combinado de Azure AD no está actualmente disponible para las nubes nacionales, como Azure US Government, Azure Alemania o Azure China 21Vianet.
 
-|     |
-| --- |
-| El registro de información de seguridad combinado para el autoservicio de restablecimiento de contraseña de Azure Active Directory (Azure AD) y Multi-Factor Authentication es una Característica en versión preliminar (GB) pública de Azure AD. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
-
 > [!IMPORTANT]
 > Los usuarios que están habilitados para la versión preliminar original y la experiencia de registro combinado mejorada verán el nuevo comportamiento. Los usuarios que están habilitados para ambas experiencias verán solo la nueva experiencia de mi perfil. La nueva página de mi perfil se alinea con el aspecto del registro combinado y ofrece una experiencia perfecta para los usuarios. Los usuarios pueden ver mi perfil yendo a [https://myprofile.microsoft.com](https://myprofile.microsoft.com).
-
-> [!NOTE] 
-> Podría encontrar un mensaje de error al intentar obtener acceso a la opción de información de seguridad. Por ejemplo, "No podemos iniciar su sesión". En este caso, confirme que no tiene ningún objeto de configuración o de directiva de grupo que bloquee las cookies de terceros en el explorador web. 
+>
+> Podría encontrar un mensaje de error al intentar obtener acceso a la opción de información de seguridad. Por ejemplo, "No podemos iniciar su sesión". En este caso, confirme que no tiene ningún objeto de configuración o de directiva de grupo que bloquee las cookies de terceros en el explorador web.
 
 Las páginas de mi perfil se localizan basándose en la configuración de idioma del equipo que accede a la página. Microsoft almacena el idioma usado más recientemente en la caché del explorador, por lo que los posteriores intentos de acceder a las páginas se representarán en el último idioma utilizado. Si se borra la caché, las páginas se volverán a representar. Si quiere forzar un idioma específico, puede agregar `?lng=<language>` al final de la dirección URL, donde `<language>` es el código del idioma que quiere representar.
 
@@ -47,7 +46,7 @@ Las páginas de mi perfil se localizan basándose en la configuración de idioma
 
 El registro combinado admite los siguientes métodos y acciones de autenticación:
 
-|   | Register | Change | Eliminar |
+|   | Register  | Change | Eliminar |
 | --- | --- | --- | --- |
 | Microsoft Authenticator | Sí (máximo de 5) | No | Sí |
 | Aplicación autenticadora distinta | Sí (máximo de 5) | No | Sí |
@@ -58,7 +57,7 @@ El registro combinado admite los siguientes métodos y acciones de autenticació
 | Email | Sí | Sí | Sí |
 | Preguntas de seguridad | Sí | No | Sí |
 | Contraseñas de aplicación | Sí | No | Sí |
-| Claves de seguridad FIDO2<br />*Modo administrado solo desde la página [Información de seguridad](https://mysignins.microsoft.com/security-info)*| Sí | Sí | Sí |
+| Claves de seguridad FIDO2<br />*Modo administrado solo desde la página [Información de seguridad](https://mysignins.microsoft.com/security-info)* | Sí | Sí | Sí |
 
 > [!NOTE]
 > Las contraseñas de aplicación solo están disponibles para los usuarios a los que se les ha exigido Multi-Factor Authentication. Las contraseñas de aplicación no están disponibles para los usuarios que están habilitados para Multi-Factor Authentication través de una directiva de acceso condicional.
@@ -77,10 +76,9 @@ A medida que sigamos agregando más métodos de autenticación a Azure AD, estos
 Existen dos modos de registro combinado: interrupción y administración.
 
 - **Modo de interrupción** es una experiencia de asistente, que se presenta a los usuarios cuando se registran o actualizan su información de seguridad en el inicio de sesión.
-
 - **Modo de administración** forma parte del perfil de usuario y permite administrar la información de seguridad a los usuarios.
 
-En ambos modos, los usuarios que han registrado previamente un método que se puede usar para Multi-Factor Authentication necesitarán ejecutar Multi-Factor Authentication antes de acceder a su información de seguridad.
+En ambos modos, los usuarios que han registrado previamente un método que se puede usar para Multi-Factor Authentication necesitarán ejecutar Multi-Factor Authentication antes de acceder a su información de seguridad. Los usuarios deben confirmar su información antes de continuar usando sus métodos registrados previamente. 
 
 ### <a name="interrupt-mode"></a>Modo de interrupción
 
@@ -139,14 +137,8 @@ Un usuario que previamente ha configurado al menos un método que se puede usar 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Forzar a los usuarios a que vuelvan a registrar los métodos de autenticación](howto-mfa-userdevicesettings.md#manage-user-authentication-options)
+Para comenzar, consulte los tutoriales para [habilitar el autoservicio de restablecimiento de contraseña](tutorial-enable-sspr.md) y [habilitar Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
 
-[Habilitación del registro combinado en el inquilino](howto-registration-mfa-sspr-combined.md)
+Obtenga información sobre cómo [habilitar el registro combinado en su inquilino](howto-registration-mfa-sspr-combined.md) o cómo [obligar a los usuarios a volver a registrar los métodos de autenticación](howto-mfa-userdevicesettings.md#manage-user-authentication-options).
 
-[Uso de SSPR y MFA, y creación de informes de información](howto-authentication-methods-usage-insights.md)
-
-[Métodos disponibles para Multi-Factor Authentication y SSPR](concept-authentication-methods.md)
-
-[Configuración del autoservicio de restablecimiento de contraseña](howto-sspr-deployment.md)
-
-[Configuración de Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
+Además, puede revisar los [métodos disponibles para Multi-Factor Authentication y SSPR](concept-authentication-methods.md).

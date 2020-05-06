@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
-ms.date: 04/02/2020
-ms.openlocfilehash: fa33861d86ff8bee3e2a34fb3d93032ac6180880
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.date: 04/09/2020
+ms.openlocfilehash: d960c8225cbb22c221ecaec1b7c49b5bb20c1429
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80879627"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203648"
 ---
 # <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>Tutorial: Creación de un proyecto de etiquetado para la clasificación de imágenes con varias clases 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -75,18 +75,6 @@ Los almacenes de datos de Azure Machine Learning se usan para guardar la informa
 
 1. Seleccione **Crear** para crear el almacén de datos.
 
-### <a name="add-labelers-to-workspace"></a>Incorporación de etiquetadores al área de trabajo
-
-Configure el área de trabajo para que incluya a todas las personas que etiquetarán los datos de cualquiera de sus proyectos.  Más adelante agregará estos etiquetadores al proyecto de etiquetado específico.
-
-1. En el lado izquierdo, seleccione **Etiquetado de datos**.
-
-1. En la parte superior de la página, seleccione **Etiquetadores**.
-
-1. Seleccione **Agregar etiquetador** para incorporar la dirección de correo electrónico de un etiquetador.
-
-1. Siga agregando más etiquetadores hasta que haya terminado.
-
 ### <a name="create-a-labeling-project"></a>Crear un proyecto de etiquetado
 
 Ahora que tiene la lista de etiquetadores y el acceso a los datos que desea que se etiqueten, cree el proyecto de etiquetado.
@@ -142,51 +130,21 @@ Ahora que tiene la lista de etiquetadores y el acceso a los datos que desea que 
 
 Esta página no se actualiza automáticamente. Espere unos momentos y actualice la página manualmente hasta que el estado del proyecto cambie a **Creado**.
 
-### <a name="add-labelers-to-your-project"></a>Incorporación de etiquetas al proyecto
-
-Agregue a algunos o a todos los etiquetadores a este proyecto.
-
-1. Para abrir el proyecto, seleccione su nombre.  
-
-1. En la parte superior de la página, seleccione **Equipos**.
-
-1. Seleccione el vínculo **labeling_tutorial Default Team**.
-
-1. Ahora use **Asignar etiquetadores** para agregar a los etiquetadores que desea que participen en este proyecto. 
-
-1. Selecciónelos en la lista de etiquetadores que creó anteriormente.  Una vez que haya seleccionado a todos los etiquetadores que desea usar, seleccione **Asignar etiquetadores** para agregarlos al equipo de proyecto predeterminado.
-
 ## <a name="start-labeling"></a>Inicio del etiquetado
 
 Ahora ya ha configurado los recursos de Azure y un proyecto de etiquetado de datos. Ha llegado el momento de agregar etiquetas a los datos.
 
-### <a name="notify-labelers"></a>Notificación a los etiquetadores
+### <a name="tag-the-images"></a>Etiquetado de imágenes
 
-Si tiene una gran cantidad de imágenes para etiquetar, con suerte tendrá también muchos etiquetadores para completar la tarea.  Ahora tendrá que enviarles instrucciones para que puedan acceder a los datos e iniciar el etiquetado.
+En esta parte del tutorial, cambiará los roles de *administrador del proyecto* al de *etiquetador*.  Cualquier persona que tenga acceso de colaborador al área de trabajo puede convertirse en etiquetador.
 
 1. En [Machine Learning Studio](https://ml.azure.com), seleccione **Etiquetado de datos** en el lado izquierdo para buscar el proyecto.  
 
-1. Seleccione el vínculo con el nombre del proyecto.
+1. Seleccione el nombre del proyecto de la lista.
 
-1. En la parte superior de la página, seleccione **Detalles**.  Verá un resumen del proyecto.
+1. Debajo del nombre del proyecto, seleccione **Datos de etiquetas**.
 
-    ![Detalles del proyecto](media/tutorial-labeling/project-details.png)
-
-1. Copie el vínculo de **URL del portal de etiquetado** para enviar a sus etiquetadores.
-
-1. Ahora, seleccione **Equipo** en la parte superior para buscar el equipo de etiquetado.  
-
-1. Seleccione el vínculo del nombre del equipo.
-
-1. En la parte superior de la página, seleccione **Equipo de correo electrónico** para iniciar el correo electrónico.  Pegue la dirección URL del portal de etiquetado que acaba de copiar.  
-
-Cada vez que un etiquetador vaya a la dirección URL del portal, se le presentarán más imágenes para etiquetar, hasta que la cola esté vacía.  
-
-### <a name="tag-the-images"></a>Etiquetado de imágenes
-
-En esta parte del tutorial, cambiará los roles de *administrador del proyecto* al de *etiquetador*.  Use la dirección URL que envió al equipo.  Esta dirección URL le lleva al portal de etiquetado del proyecto.  Si ha agregado instrucciones, las verá aquí cuando llegue a la página.
-
-1. En la parte superior de la página, seleccione **Tareas** para empezar a etiquetar.
+1. Lea las instrucciones y, luego, seleccione **Tareas**.
 
 1. Seleccione una imagen en miniatura a la derecha para mostrar el número de imágenes que desea etiquetar en una sola operación. Para poder continuar tiene que etiquetar todas estas imágenes. Cambie el diseño solo cuando tenga una página nueva de datos sin etiquetar. El cambio de diseño borra el trabajo de etiquetado en curso de la página.
 

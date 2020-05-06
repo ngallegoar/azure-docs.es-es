@@ -1,26 +1,25 @@
 ---
-title: 'Tutorial: Implementación de aplicaciones de ASP.NET en Azure Functions con Azure DevOps Projects'
-description: Con Azure DevOps Projects es fácil empezar a usar Azure. Con DevOps Projects puede implementar una aplicación de ASP.NET en Azure Functions en pocos pasos.
+title: 'Tutorial: Implementación de aplicaciones de ASP.NET en Azure Functions con Azure DevOps Starter'
+description: Azure DevOps Starter facilita la introducción a Azure. Con DevOps Starter puede implementar una aplicación de ASP.NET en Azure Functions en pocos pasos.
 ms.author: mlearned
 ms.manager: gwallace
 ms.prod: devops
 ms.technology: devops-cicd
 ms.topic: tutorial
-ms.date: 06/20/2019
+ms.date: 03/24/2020
 author: mlearned
-monikerRange: vsts
-ms.openlocfilehash: 4e7e9428af86f131632650f18d45e7dd48f4b5cb
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6f68fede0257086cc3a23fe6f7a0a3cc9466ad1b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "71971570"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82233192"
 ---
-# <a name="continuously-deploy-to-azure-functions-with-devops-projects"></a>Implementación continua en Azure Functions con DevOps Projects
+# <a name="deploy-to-azure-functions-with-devops-starter"></a>Implementación en Azure Functions con DevOps Starter
 
-Azure DevOps Projects ofrece una experiencia simplificada en la que puede utilizar su código existente y el repositorio de Git, o elegir una aplicación de ejemplo para crear una canalización de integración continua (CI) y entrega continua (CD) en Azure.
+Azure DevOps Starter ofrece una experiencia simplificada en la que puede utilizar su código existente y el repositorio de Git, o elegir una aplicación de ejemplo para crear una canalización de integración continua (CI) y entrega continua (CD) en Azure.
 
-DevOps Projects también:
+DevOps Starter también:
 
 * Crea automáticamente recursos de Azure, como Azure Functions.
 
@@ -29,7 +28,7 @@ DevOps Projects también:
 En este tutorial, aprenderá lo siguiente:
 
 > [!div class="checklist"]
->* A usar DevOps Projects para implementar una aplicación de ASP.NET en Azure Functions
+>* A usar DevOps Starter para implementar una aplicación de ASP.NET en Azure Functions
 >* Configuración de Azure DevOps y una suscripción de Azure
 >* Examinar la instancia de Azure Functions
 >* Examen de la canalización de CI
@@ -43,17 +42,15 @@ Actualmente, los entornos de ejecución compatibles con Functions son **.NET** y
 
 * Suscripción a Azure. Puede obtener una de forma gratuita mediante [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/)
 
-## <a name="use-devops-projects-to-deploy-an-aspnet-app-to-azure-functions"></a>Uso de DevOps Projects para implementar una aplicación de ASP.NET en Azure Functions
+## <a name="use-devops-starter-to-deploy-an-aspnet-app-to-azure-functions"></a>Uso de DevOps Starter para implementar una aplicación de ASP.NET en Azure Functions
 
-DevOps Projects crea una canalización de CI/CD en Azure Pipelines. Puede crear una organización de Azure DevOps nueva o usar una existente. DevOps Projects también crea recursos de Azure, como una instancia de IoT Hub, en la suscripción de Azure que prefiera.
+DevOps Starter crea una canalización de CI/CD en Azure Pipelines. Puede crear una organización de Azure DevOps nueva o usar una existente. DevOps Projects también crea recursos de Azure, como una instancia de IoT Hub, en la suscripción de Azure que prefiera.
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com)
 
-1. En el panel izquierdo, seleccione **Crear un recurso**.
+1. En el cuadro de búsqueda, escriba **DevOps Starter** y, a continuación, seleccione. Haga clic en **Agregar** para crear un recurso.
 
-1. En el cuadro de búsqueda, escriba **DevOps Projects** y, después, haga clic en **Agregar**.
-
-   ![DevOps Projects](_img/azure-devops-project-functions/devops-project.png)
+    ![Panel de DevOps Starter](_img/azure-devops-starter-aks/search-devops-starter.png)
 
 1. Seleccione **.NET** y después **Siguiente**. En **Elegir un marco de trabajo de la aplicación**, seleccione **ASP.NET** y haga clic en **Siguiente**.
 
@@ -67,23 +64,23 @@ DevOps Projects crea una canalización de CI/CD en Azure Pipelines. Puede crear 
 
 1. Seleccione su suscripción a Azure.
 
-1. Para ver más opciones de configuración de Azure e identificar el plan de tarifa y la ubicación, haga clic en Configuración adicional. Este panel muestra varias opciones para configurar el plan de tarifa y la ubicación de los servicios de Azure.
+1. Para ver más opciones de configuración de Azure e identificar el plan de tarifa y la ubicación, haga clic en **Configuración adicional**. Este panel muestra varias opciones para configurar el plan de tarifa y la ubicación de los servicios de Azure.
 
-1. Salga del área de configuración de Azure y seleccione Listo.
+1. Salga del área de configuración de Azure y seleccione **Listo**.
 
-1. Pocos minutos después el proceso se ha completado. Una aplicación ASP.NET Core de ejemplo se configura en un repositorio de Git de su organización de Azure DevOps, se crea una instancia de Function App y de Application Insights, se ejecuta una canalización de CI/CD y la aplicación se implementa en Azure.
+1. Pocos minutos después, el proceso se ha completado. Una aplicación ASP.NET Core de ejemplo se configura en un repositorio de Git de su organización de Azure DevOps, se crea una instancia de Function App y de Application Insights, se ejecuta una canalización de CI/CD y la aplicación se implementa en Azure.
 
-   Cuando todo esto finaliza, se muestra el panel de Azure DevOps Projects en Azure Portal. También puede ir al panel de DevOps Projects directamente desde la opción **Todos los recursos** de Azure Portal.
+   Cuando todo esto finaliza, se muestra el panel de Azure DevOps Starter en Azure Portal. También puede ir al panel de DevOps Starter directamente desde la opción **Todos los recursos** de Azure Portal.
 
    Este panel proporciona visibilidad sobre el repositorio de código de Azure DevOps, la canalización de CI/CD y la instancia de Azure Functions. En la canalización de Azure DevOps se pueden configurar otras opciones de CI/CD. A la derecha, seleccione **Aplicación de funciones** para que se vea.
 
 ## <a name="examine-the-function-app"></a>Examen de la aplicación de funciones
 
-DevOps Projects configura automáticamente una aplicación de funciones que puede explorar y personalizar. Para familiarizarse con la aplicación de funciones, haga lo siguiente:
+DevOps Starter configura automáticamente una aplicación de función que puede explorar y personalizar. Para familiarizarse con la aplicación de funciones, haga lo siguiente:
 
-1. Vaya al panel de DevOps Projects.
+1. Vaya al panel de inicio de DevOps Starter.
 
-    ![Panel de DevOps Projects](_img/azure-devops-project-functions/devops-projects-dashboard.png)
+    ![Panel de DevOps Projects](_img/azure-devops-project-functions/fapp-dashboard.png)
 
 1. A la derecha, seleccione la aplicación de funciones. Se abre un panel para la aplicación de funciones. En esta vista puede realizar varias acciones, como la supervisión de operaciones y la búsqueda de registros.
 
@@ -91,9 +88,9 @@ DevOps Projects configura automáticamente una aplicación de funciones que pued
 
 ## <a name="examine-the-ci-pipeline"></a>Examen de la canalización de CI
 
-DevOps Projects configura automáticamente una canalización de CI/CD de Azure completa en su organización de Azure DevOps. Puede explorar y personalizar la canalización. Para familiarizarse con ella, siga estos pasos:
+DevOps Starter configura automáticamente una canalización de CI/CD de Azure completa en su organización de Azure DevOps. Puede explorar y personalizar la canalización. Para familiarizarse con ella, siga estos pasos:
 
-1. Vaya al panel de DevOps Projects.
+1. Vaya al panel de inicio de DevOps Starter.
 
 1. Haga clic en el hipervínculo en **Compilar**. Una pestaña del explorador muestra la canalización de compilación del nuevo proyecto.
 
@@ -101,7 +98,7 @@ DevOps Projects configura automáticamente una canalización de CI/CD de Azure c
 
 1. Seleccione **Editar**. En este panel puede examinar las distintas tareas de la canalización de compilación. La compilación ejecuta varias tareas, como capturar códigos fuente del repositorio de Git, compilar la aplicación, ejecutar pruebas unitarias y publicar salidas que se usan para implementaciones.
 
-1. Seleccione **Desencadenadores**. DevOps Projects crea automáticamente un desencadenador de integración continua y cada confirmación al repositorio inicia una compilación. Opcionalmente, puede elegir incluir o excluir ramas del proceso de integración continua.
+1. Seleccione **Desencadenadores**. DevOps Starter crea automáticamente un desencadenador de integración continua y cada confirmación al repositorio inicia una compilación. Opcionalmente, puede elegir incluir o excluir ramas del proceso de integración continua.
 
 1. Seleccione **Retención**. En función del escenario, puede especificar directivas para conservar o quitar un determinado número de compilaciones.
 
@@ -113,7 +110,7 @@ DevOps Projects configura automáticamente una canalización de CI/CD de Azure c
 
 ## <a name="examine-the-cd-release-pipeline"></a>Examen de la canalización de versión de la implementación continua
 
-DevOps Projects crea y configura automáticamente los pasos necesarios para implementar desde la organización de Azure DevOps en la suscripción de Azure. Dichos pasos incluyen la configuración de una conexión de servicio de Azure para realizar la autenticación de Azure DevOps en la suscripción de Azure. La automatización también crea una canalización de versión, lo que proporciona la implementación continua en Azure. Para más información acerca de la canalización de versión, siga estos pasos:
+DevOps Starter crea y configura automáticamente los pasos necesarios para implementar desde la organización de Azure DevOps en la suscripción de Azure. Dichos pasos incluyen la configuración de una conexión de servicio de Azure para realizar la autenticación de Azure DevOps en la suscripción de Azure. La automatización también crea una canalización de versión, lo que proporciona la implementación continua en Azure. Para más información acerca de la canalización de versión, siga estos pasos:
 
 1. Vaya a **Canalizaciones | Versiones**.
 
@@ -142,26 +139,26 @@ A partir de ese momento ya puede empezar a colaborar con un equipo en una aplica
 
 1. El repositorio ya incluye código denominado **SampleFunctionApp** según el idioma de la aplicación que eligió en el proceso de creación. Abra el archivo **Application/SampleFunctionApp/Function1.cs**.
 
-1. Seleccione **Editar** y, a continuación, haga un cambio en el **número de línea 31**. Por ejemplo, puede actualizarlo a **Hola. Bienvenido a Azure Functions con DevOps Projects**
+1. Seleccione **Editar** y, a continuación, haga un cambio en el **número de línea 31**. Por ejemplo, puede actualizarlo a **Hola. Bienvenido a Azure Functions con DevOps Starter**
 
 1. En la parte superior derecha, seleccione **Confirmar** y, después, seleccione **Confirmar** de nuevo para insertar el cambio.
 
 1. Abra el archivo **Application/SampleFunctionApp.Test/Function1TestRunner.cs**. 
 
-1. Seleccione **Editar** y, a continuación, haga un cambio en el **número de línea 21**. Por ejemplo, puede actualizarlo a **Hola. Bienvenido a Azure Functions con Azure DevOps Projects**.
+1. Seleccione **Editar** y, a continuación, haga un cambio en el **número de línea 21**. Por ejemplo, puede actualizarlo a **Hola. Bienvenido a Azure Functions con Azure DevOps Starter**.
 
-     Tras unos instantes, se inicia una compilación se inicia en Azure DevOps y se ejecuta una versión para implementar los cambios. Supervise el estado de la compilación en el panel de DevOps Projects o en el explorador con la organización de Azure DevOps.
+     Tras unos instantes, se inicia una compilación se inicia en Azure DevOps y se ejecuta una versión para implementar los cambios. Supervise el estado de la compilación en el panel de DevOps Starter o en el explorador con la organización de Azure DevOps.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando no necesite los recursos relacionados que haya creado puede eliminarlos. Use la funcionalidad de **eliminación** del panel de DevOps Projects.
+Cuando no necesite los recursos relacionados que haya creado puede eliminarlos. Use la funcionalidad **Eliminación** del panel de DevOps Starter.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Si lo desea, puede modificar estas canalizaciones de compilación y de versión para satisfacer las necesidades de su equipo. También puede usar este patrón de CI/CD como plantilla para las demás canalizaciones. En este tutorial, ha aprendido a:
 
 > [!div class="checklist"]
-> * A usar DevOps Projects para implementar una aplicación de ASP.NET Core en Azure Functions
+> * A usar DevOps Starter para implementar una aplicación de ASP.NET Core en Azure Functions
 > * Configuración de Azure DevOps y una suscripción de Azure 
 > * Examinar la instancia de Azure Functions
 > * Examen de la canalización de CI

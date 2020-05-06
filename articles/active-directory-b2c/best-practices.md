@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: vigunase
 ms.subservice: B2C
-ms.openlocfilehash: a76852a6e3cc5ffcdfcac62ce29fe47c97af3df1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b16c60130836cf0e3b38092b894129f503ee6e83
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79136166"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82141681"
 ---
 # <a name="recommendations-and-best-practices-for-azure-active-directory-b2c"></a>Recomendaciones y procedimientos recomendados para Azure Active Directory B2C
 
@@ -43,7 +43,7 @@ Defina la arquitectura de aplicaciones y servicios, los sistemas actuales de inv
 | Creación de un plan de migración |La planificación previa puede hacer que la migración se realice de forma más fluida. Obtenga más información acerca de la [migración de usuarios](user-migration.md).|
 | Facilidad de uso frente a seguridad | La solución debe lograr el equilibrio adecuado entre la facilidad de uso de la aplicación y el nivel de riesgo aceptable de la organización. |
 | Traslado de dependencias locales a la nube | Para ayudar a garantizar una solución resistente, considere la posibilidad de mover las dependencias de aplicaciones existentes a la nube. |
-| Migración de aplicaciones existentes a b2clogin.com | El desuso de login.microsoftonline.com entró en vigor para todos los inquilinos de Azure AD B2C del 4 de diciembre de 2020. [Más información](b2clogin.md). |
+| Migración de aplicaciones existentes a b2clogin.com | La retirada de login.microsoftonline.com se aplicará para todos los inquilinos de Azure AD B2C del 4 de diciembre de 2020. [Más información](b2clogin.md). |
 
 ## <a name="implementation"></a>Implementación
 

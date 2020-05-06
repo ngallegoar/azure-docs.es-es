@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 2ab5697ceff612e65174fdb7f9ef6137e2c8b9a5
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: df02c7d2ace6c58d86f4044607eca386f1790e1d
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81537073"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734321"
 ---
 # <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>Aplicación web que inicia sesión de usuarios: Inicio y cierre de sesión
 
@@ -33,20 +33,26 @@ El inicio de sesión consta de dos partes:
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-En ASP.NET Core, el botón de inicio de sesión se expone en `Views\Shared\_LoginPartial.cshtml`. Solo se muestra cuando no hay ninguna cuenta autenticada. Es decir, se muestra cuando el usuario todavía no ha iniciado sesión o ha cerrado la sesión.
+En ASP.NET Core, en el caso de las aplicaciones de la plataforma de identidad de Microsoft, el botón **Iniciar sesión** se expone en `Views\Shared\_LoginPartial.cshtml` (para una aplicación MVC) o `Pages\Shared\_LoginPartial.cshtm` (para una aplicación Razor). Solo se muestra cuando el usuario no está autenticado. Es decir, se muestra cuando el usuario todavía no ha iniciado sesión o ha cerrado la sesión. Por el contrario, el botón **Cerrar sesión** se muestra cuando el usuario ya ha iniciado sesión. Tenga en cuenta que el controlador de cuentas se define en el paquete NuGet **Microsoft.Identity.Web.UI**, en el área denominada **MicrosoftIdentity**.
 
 ```html
-@using Microsoft.Identity.Web
-@if (User.Identity.IsAuthenticated)
-{
- // Code omitted code for clarity
-}
-else
-{
-    <ul class="nav navbar-nav navbar-right">
-        <li><a asp-area="AzureAD" asp-controller="Account" asp-action="SignIn">Sign in</a></li>
-    </ul>
-}
+<ul class="navbar-nav">
+  @if (User.Identity.IsAuthenticated)
+  {
+    <li class="nav-item">
+        <span class="navbar-text text-dark">Hello @User.Identity.Name!</span>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignOut">Sign out</a>
+    </li>
+  }
+  else
+  {
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignIn">Sign in</a>
+    </li>
+  }
+</ul>
 ```
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
@@ -68,7 +74,7 @@ else
 
 # <a name="java"></a>[Java](#tab/java)
 
-En el inicio rápido de Java, el botón de inicio de sesión se encuentra en el archivo [main/resources/templates/index.html](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/master/src/main/resources/templates/index.html).
+En el inicio rápido de Java, el botón de inicio de sesión se encuentra en el archivo [main/resources/templates/index.html](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/master/msal-java-webapp-sample/src/main/resources/templates/index.html).
 
 ```html
 <!DOCTYPE html>
@@ -106,9 +112,9 @@ def index():
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-En ASP.NET, seleccionar el botón **Iniciar sesión** en la aplicación web desencadena la acción `SignIn` en el controlador `AccountController`. En las versiones anteriores de las plantillas de ASP.NET Core, el controlador `Account` se incrustó con la aplicación web. Ya no es así porque el controlador ahora forma parte de la arquitectura de ASP.NET Core.
+En ASP.NET, seleccionar el botón **Iniciar sesión** en la aplicación web desencadena la acción `SignIn` en el controlador `AccountController`. En las versiones anteriores de las plantillas de ASP.NET Core, el controlador `Account` se incrustó con la aplicación web. Ya no es así porque, ahora, el controlador forma parte del paquete NuGet **Microsoft.Identity.Web.UI**. Consulte [AccountController.cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Controllers/AccountController.cs) para obtener más información.
 
-El código para `AccountController` está disponible en el repositorio de ASP.NET Core en [AccountController.cs](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/Areas/AzureAD/Controllers/AccountController.cs). El control de cuentas desafía al usuario redireccionándole al punto de conexión de la Plataforma de identidad de Microsoft. Para obtener detalles, consulte el método [SignIn](https://github.com/aspnet/AspNetCore/blob/f3e6b74623d42d5164fd5f97a288792c8ad877b6/src/Azure/AzureAD/Authentication.AzureAD.UI/src/Areas/AzureAD/Controllers/AccountController.cs#L23-L31) proporcionado como parte de ASP.NET Core.
+Este controlador también controla las aplicaciones de Azure AD B2C.
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
@@ -235,23 +241,26 @@ Durante el registro de la aplicación, no es necesario registrar una dirección 
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-En ASP.NET Core, el botón de cierre de sesión se expone en `Views\Shared\_LoginPartial.cshtml`. Solo se muestra cuando hay una cuenta autenticada. Es decir, se muestra cuando el usuario ha iniciado sesión previamente.
+En ASP.NET, seleccionar el botón **Cerrar sesión** en la aplicación web desencadena la acción `SignOut` en el controlador `AccountController` (más información a continuación).
 
 ```html
-@using Microsoft.Identity.Web
-@if (User.Identity.IsAuthenticated)
-{
-    <ul class="nav navbar-nav navbar-right">
-        <li class="navbar-text">Hello @User.GetDisplayName()!</li>
-        <li><a asp-area="AzureAD" asp-controller="Account" asp-action="SignOut">Sign out</a></li>
-    </ul>
-}
-else
-{
-    <ul class="nav navbar-nav navbar-right">
-        <li><a asp-area="AzureAD" asp-controller="Account" asp-action="SignIn">Sign in</a></li>
-    </ul>
-}
+<ul class="navbar-nav">
+  @if (User.Identity.IsAuthenticated)
+  {
+    <li class="nav-item">
+        <span class="navbar-text text-dark">Hello @User.Identity.Name!</span>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignOut">Sign out</a>
+    </li>
+  }
+  else
+  {
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignIn">Sign in</a>
+    </li>
+  }
+</ul>
 ```
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
@@ -320,15 +329,13 @@ En el inicio rápido de Python, el botón de cierre de sesión se encuentra en e
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-En ASP.NET, seleccionar el botón **Cerrar sesión** en la aplicación web desencadena la acción `SignOut` en el controlador `AccountController`. En las versiones anteriores de las plantillas de ASP.NET Core, el controlador `Account` se incrustó con la aplicación web. Ya no es así porque el controlador ahora forma parte de la arquitectura de ASP.NET Core.
-
-El código para `AccountController` está disponible en el repositorio de ASP.NET Core en [AccountController.cs](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/Areas/AzureAD/Controllers/AccountController.cs). El control de cuentas:
+En las versiones anteriores de las plantillas de ASP.NET Core, el controlador `Account` se incrustó con la aplicación web. Ya no es así porque, ahora, el controlador forma parte del paquete NuGet **Microsoft.Identity.Web.UI**. Consulte [AccountController.cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Controllers/AccountController.cs) para obtener más información.
 
 - Establece un URI de redirección de OpenID a `/Account/SignedOut` para volver a llamar al controlador cuando Azure AD haya completado el cierre de sesión.
 - Llama a `Signout()`, que permite que el middleware de OpenID Connect se ponga en contacto con el punto de conexión `logout` de la Plataforma de identidad de Microsoft. A continuación, el punto de conexión:
 
   - Borra la cookie de sesión del explorador.
-  - Vuelve a llamar a la dirección URL de cierre de sesión. De forma predeterminada, la dirección URL de cierre de sesión muestra la página de vista que ha cerrado la sesión [SignedOut. html](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/Areas/AzureAD/Pages/Account/SignedOut.cshtml). Esta página también se proporciona como parte de ASP.NET Core.
+  - Vuelve a llamar a la dirección URL de cierre de sesión. De forma predeterminada, la dirección URL de cierre de sesión muestra la página de vista que ha cerrado la sesión [SignedOut. html](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/Areas/AzureAD/Pages/Account/SignedOut.cshtml). Esta página también se proporciona como parte de Microsoft.Identity.Web.
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
@@ -390,15 +397,7 @@ El URI posterior al cierre de sesión permite a las aplicaciones participar en e
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-El middleware OpenID Connect de ASP.NET Core permite a la aplicación interceptar la llamada al punto de conexión `logout` de la Plataforma de identidad de Microsoft al proporcionar un evento de OpenID Connect denominado `OnRedirectToIdentityProviderForSignOut`. Para obtener un ejemplo de cómo suscribirse a este evento (para borrar la caché de tokens), consulte [Microsoft.Identity.Web/WebAppServiceCollectionExtensions.cs#L151-L156](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/faa94fd49c2da46b22d6694c4f5c5895795af26d/Microsoft.Identity.Web/WebAppServiceCollectionExtensions.cs#L151-L156).
-
-```csharp
-    // Handling the global sign-out
-    options.Events.OnRedirectToIdentityProviderForSignOut = async context =>
-    {
-        // Forget about the signed-in user
-    };
-```
+El middleware OpenID Connect de ASP.NET Core permite a la aplicación interceptar la llamada al punto de conexión `logout` de la Plataforma de identidad de Microsoft al proporcionar un evento de OpenID Connect denominado `OnRedirectToIdentityProviderForSignOut`. Microsoft.Identity.Web lo controla automáticamente, lo que borra las cuentas en el caso de que la aplicación web llame a las API web.
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 

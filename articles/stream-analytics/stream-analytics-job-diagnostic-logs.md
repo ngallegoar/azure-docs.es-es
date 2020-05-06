@@ -1,32 +1,32 @@
 ---
-title: Solución de problemas de Azure Stream Analytics mediante registros de diagnóstico
-description: En este artículo se describe cómo analizar los registros de diagnóstico en Azure Stream Analytics.
+title: Solución de problemas de Azure Stream Analytics mediante registros de recursos
+description: En este artículo se describe cómo analizar los registros de recursos en Azure Stream Analytics.
 author: jseb225
 ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.openlocfilehash: cdb6629441becd0a8356debe3360830ff11a7a9d
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: 40b57af95f9ea4d4212756634c721ddd55f85d7b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80398418"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82127750"
 ---
-# <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>Solución de problemas de Azure Stream Analytics mediante registros de diagnóstico
+# <a name="troubleshoot-azure-stream-analytics-by-using-resource-logs"></a>Solución de problemas de Azure Stream Analytics mediante registros de recursos
 
-En ocasiones, un trabajo de Azure Stream Analytics deja de procesarse inesperadamente. Es importante poder solucionar este tipo de evento. Los errores pueden deberse a un resultado de consulta inesperado, la conectividad a los dispositivos o una interrupción inesperada del servicio. Los registros de diagnóstico de Stream Analytics pueden ayudarle a identificar la causa de los problemas cuando se producen y a reducir el tiempo de recuperación.
+En ocasiones, un trabajo de Azure Stream Analytics deja de procesarse inesperadamente. Es importante poder solucionar este tipo de evento. Los errores pueden deberse a un resultado de consulta inesperado, la conectividad a los dispositivos o una interrupción inesperada del servicio. Los registros de recursos de Stream Analytics pueden ayudarle a identificar la causa de los problemas cuando se producen y a reducir el tiempo de recuperación.
 
-Se recomienda encarecidamente habilitar los registros de diagnóstico para todos los trabajos, ya que esto contribuirá en gran medida a la depuración y la supervisión.
+Es muy recomendable habilitar los registros de recursos para todos los trabajos, ya que esto contribuirá en gran medida a la depuración y la supervisión.
 
 ## <a name="log-types"></a>Tipos de registro
 
 Stream Analytics ofrece dos tipos de registros:
 
-* [Registros de actividad](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) (siempre activados), que proporcionan información sobre las operaciones realizadas en los trabajos.
+* [Registros de actividad](../azure-monitor/platform/platform-logs-overview.md) (siempre activados), que proporcionan información sobre las operaciones realizadas en los trabajos.
 
-* [Registros de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) (configurables), que proporcionan información más completa sobre todo lo que ocurre con un trabajo. Comienzan cuando se crea el trabajo y finalizan cuando se elimina el trabajo. Abarcan los eventos de cuando se actualiza el trabajo y mientras se está ejecutando.
+* [Registros de recursos](../azure-monitor/platform/platform-logs-overview.md) (configurables), que proporcionan información más completa sobre todo lo que ocurre con un trabajo. Comienzan cuando se crea el trabajo y finalizan cuando se elimina el trabajo. Abarcan los eventos de cuando se actualiza el trabajo y mientras se está ejecutando.
 
 > [!NOTE]
 > Puede usar servicios como, por ejemplo, Azure Storage, Azure Event Hubs y registros de Azure Monitor, para analizar los datos no conformes. Se le cobra según el modelo de precios existente para esos servicios.
@@ -53,33 +53,33 @@ Los registros de actividad están activados de forma predeterminada y proporcion
 
 5. Puede tomar acciones correctivas según el mensaje de error en JSON. En este ejemplo, deben agregarse a la consulta comprobaciones para asegurar que el valor de latitud esté entre -90 grados y 90 grados.
 
-6. Si el mensaje de error en los registros de actividad no ayudan a detectar la causa principal, habilite los registros de diagnóstico y use los registros de Azure Monitor.
+6. Si el mensaje de error de los registros de actividad no ayudan a detectar la causa principal, habilite los registros de recursos y use los registros de Azure Monitor.
 
 ## <a name="send-diagnostics-to-azure-monitor-logs"></a>Envío de diagnósticos a los registros de Azure Monitor
 
-Es muy recomendable activar los registros de diagnóstico y enviarlos a los registros de Azure Monitor. Los registros de diagnóstico están **desactivados** de forma predeterminada. Para activar los registros de diagnóstico, siga estos pasos:
+Es muy recomendable activar los registros de recursos y enviarlos a los registros de Azure Monitor. De forma predeterminada están **desactivados**. Para activarlos, siga estos pasos:
 
 1.  Inicie sesión en Azure Portal y vaya al trabajo de Stream Analytics. En **Supervisión**, seleccione **Registros de diagnóstico**. Después, seleccione **Activar diagnósticos**.
 
-    ![Navegación en la hoja a los registros de diagnóstico](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
+    ![Exploración de los registros de recursos en la hoja](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
 
 2.  Cree un **Nombre** en **Configuración de diagnóstico** y active la casilla junto a **Enviar a Log Analytics**. Luego, agregue un **área de trabajo de Log Analytics** existente o cree una. Active las casillas de **Ejecución** y **Creación** en **LOG**, y **AllMetrics** en **MÉTRICA**. Haga clic en **Save**(Guardar). Para evitar costes adicionales, se recomienda usar un área de trabajo de Log Analytics en la misma región de Azure que el trabajo de Stream Analytics.
 
-    ![Configuración de registros de diagnóstico](./media/stream-analytics-job-diagnostic-logs/diagnostic-settings.png)
+    ![Configuración de registros de recursos](./media/stream-analytics-job-diagnostic-logs/diagnostic-settings.png)
 
-3. Cuando se inicia el trabajo de Stream Analytics, los registros de diagnóstico se enrutan a su área de trabajo de Log Analytics. Para ver los registros de diagnóstico del trabajo, seleccione **Registros** en la sección **Supervisión**.
+3. Cuando se inicia el trabajo de Stream Analytics, los registros de recursos se enrutan a su área de trabajo de Log Analytics. Para ver los registros de recursos del trabajo, seleccione **Registros** en la sección **Supervisión**.
 
-   ![Registros de diagnóstico en Supervisión](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs.png)
+   ![Registros de recursos en Supervisión](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs.png)
 
 4. Stream Analytics proporciona consultas predefinidas que le permiten buscar fácilmente los registros que le interesan. Las tres categorías son **General**, **Errores de los datos de entrada** y **Errores de los datos de salida**. Por ejemplo, para ver un resumen de todos los errores del trabajo de los últimos 7 días, puede seleccionar la opción **Ejecutar** de la consulta predefinida adecuada. 
 
-   ![Registros de diagnóstico en Supervisión](./media/stream-analytics-job-diagnostic-logs/logs-categories.png)
+   ![Registros de recursos en Supervisión](./media/stream-analytics-job-diagnostic-logs/logs-categories.png)
 
    ![Resultados de los registros](./media/stream-analytics-job-diagnostic-logs/logs-result.png)
 
-## <a name="diagnostics-log-categories"></a>Categorías de registro de diagnóstico
+## <a name="resource-log-categories"></a>Categorías del registro de recursos
 
-Azure Stream Analytics captura dos categorías de registros de diagnóstico:
+Azure Stream Analytics captura dos categorías de registros de recursos:
 
 * **Creación**: Captura registros de eventos relacionados con operaciones de creación de trabajos, como creación de trabajos, adición y eliminación de entradas y salidas, adición y actualización de la consulta, e inicio y detención del trabajo.
 
@@ -90,7 +90,7 @@ Azure Stream Analytics captura dos categorías de registros de diagnóstico:
         * Errores de evaluación de expresión
     * Otros eventos y errores
 
-## <a name="diagnostics-logs-schema"></a>Esquema de registros de diagnóstico
+## <a name="resource-logs-schema"></a>Esquema de registros de recurso
 
 Todos los registros se almacenan en formato JSON. Cada entrada tiene los siguientes campos de cadena comunes:
 

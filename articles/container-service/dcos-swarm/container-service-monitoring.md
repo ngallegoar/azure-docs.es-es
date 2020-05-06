@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/28/2016
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 530092dfabacb0b07f4002a82078dd3535cd7e8f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fcb005e39f89298b35bf0f3a0ad1e19601ae4d13
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76275250"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82166159"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-datadog"></a>(EN DESUSO) Supervisión de un clúster de DC/OS de Azure Container Service con Datadog
 
@@ -20,7 +20,7 @@ ms.locfileid: "76275250"
 
 En este artículo, implementaremos agentes Datadog en todos los nodos de agente del clúster del servicio de contenedores de Azure. Necesita una cuenta con Datadog para esta configuración. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 [Implemente](container-service-deployment.md) y [conecte](../container-service-connect.md) un clúster configurado por Azure Container Service. Explore la [interfaz de usuario de Marathon](container-service-mesos-marathon-ui.md). Vaya a [https://datadoghq.com](https://datadoghq.com) para configurar una cuenta de Datadog. 
 
 ## <a name="datadog"></a>Datadog
@@ -31,7 +31,7 @@ Datadog es un servicio de supervisión que recopila datos de supervisión de los
 ## <a name="configure-a-datadog-deployment-with-marathon"></a>Configuración de una implementación de Datadog con Marathon
 Estos pasos muestran cómo configurar e implementar aplicaciones de Datadog en su clúster con Marathon. 
 
-Acceda a la interfaz de usuario de DC/OS mediante [http://localhost:80/](http://localhost:80/). Una vez en la interfaz de usuario de DC/OS, vaya a "Universe" (Universo) en la parte inferior izquierda, busque "Datadog" y haga clic en "Install" (Instalar).
+Acceda a la interfaz de usuario de DC/OS mediante `http://localhost:80/`. Una vez en la interfaz de usuario de DC/OS, vaya a "Universe" (Universo) en la parte inferior izquierda, busque "Datadog" y haga clic en "Install" (Instalar).
 
 ![Paquete de Datadog dentro de Universe (Universo) de DC/OS](./media/container-service-monitoring/datadog1.png)
 

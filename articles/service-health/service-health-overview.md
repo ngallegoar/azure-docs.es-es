@@ -3,12 +3,12 @@ title: Información general de Service Health | Microsoft Docs
 description: Información personalizada sobre cómo las aplicaciones de Azure se ven afectadas por el mantenimiento y los problemas de servicios de Azure actuales y futuros.
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: a1c6a10ab48125c030c9a35864f829438404ad97
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2d98a909a45c9dd00b3174f495a15cd18ced11f9
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78898437"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82146918"
 ---
 # <a name="service-health-overview"></a>Información general de Service Health
 
@@ -20,7 +20,7 @@ Service Health realiza un seguimiento de cuatro tipos de eventos de estado que p
 
 1. **Problemas de servicios**: problemas en los servicios de Azure que le afectan ahora mismo. 
 2. **Mantenimiento planeado**: próximas acciones de mantenimiento que pueden afectar a la disponibilidad de los servicios en el futuro.  
-3. **Avisos de estado**: cambios en los servicios de Azure que requieren su atención. Por ejemplo, cuando están en desuso características de Azure o si se supera una cuota de uso.
+3. **Avisos de estado**: cambios en los servicios de Azure que requieren su atención. Algunos ejemplos son el desuso de las características de Azure o los requisitos de actualización (por ejemplo, la actualización a un marco PHP compatible).
 4. **Avisos de seguridad (versión preliminar**): notificaciones relacionadas con la seguridad que pueden afectar a la disponibilidad de los servicios de Azure.
 
 > [!NOTE]
@@ -41,6 +41,12 @@ La vista **Problemas del servicio** muestra los problemas en curso en servicios 
 Elija la pestaña **Posible impacto** para ver la lista específica de sus propios recursos a los que podría afectar el problema. Puede descargar una lista CSV de estos recursos para compartirla con su equipo.
 
 ![Administrar problemas de servicios - Impacto](./media/service-health-overview/azure-service-health-overview-4.png)
+
+## <a name="see-emerging-issues-which-may-impact-your-services"></a>Visualización de problemas emergentes que podrían afectar sus servicios
+
+Existen situaciones en las que se pueden publicar problemas de servicio generalizados en la [página de estado de Azure](https://status.azure.com) antes de que las comunicaciones de destino se puedan enviar a los clientes afectados. Para asegurarse de que Azure Service Health proporciona una vista completa de los problemas que pueden afectar al usuario, los problemas activos de la página de estado de Azure aparecen en Service Health como *problemas emergentes*. Cuando un evento está activo en la página de estado de Azure, se muestra un banner de problemas emergentes en Service Health. Haga clic en el banner para ver todos los detalles del problema.
+
+![Problema de servicio emergente](./media/service-health-overview/azure-service-health-emerging-issue.png)
 
 ## <a name="get-links-and-downloadable-explanations"></a>Obtención de vínculos y explicaciones descargables 
 

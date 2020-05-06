@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/09/2019
 ms.author: memildin
-ms.openlocfilehash: 64a9600a3014f7e85a7f924d38882bfadaf631db
-ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
+ms.openlocfilehash: 08ad761e81909e6ab23c7c07f5ce05865136bc47
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80387825"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82204107"
 ---
 # <a name="provide-security-contact-details-in-azure-security-center"></a>Proporcionar detalles de contacto de seguridad en Azure Security Center
 Azure Security Center recomendará que proporcione los detalles de contacto de seguridad para su suscripción de Azure si no lo ha hecho ya. Esta información la utilizará Microsoft para ponerse en contacto con usted si Microsoft Security Response Center (MSRC) detecta que un tercero no autorizado o ilegal ha accedido a los datos de clientes. MSRC lleva a cabo una selecta supervisión de seguridad de la red e infraestructura de Azure y recibe información sobre amenazas y quejas sobre abusos de terceros.
@@ -36,12 +36,12 @@ Se envían las notificaciones de alerta por correo electrónico:
  
 Por ejemplo, si ya se ha enviado un mensaje de correo electrónico para avisarle de un ataque de RDP, no recibirá otro mensaje de correo electrónico acerca de un ataque de RDP en el mismo día, incluso si se desencadena otra alerta. 
 
-> [!NOTE]
+> [!IMPORTANT]
 > En este documento se presenta el servicio mediante una implementación de ejemplo.  No se trata de una guía paso a paso.
 
 ## <a name="set-up-email-notifications-for-alerts"></a>Configuración de notificaciones de correo electrónico para alertas <a name="email"></a>
 
-1. Abra la página **Notificaciones de correo electrónico**:
+1. Como usuario con el rol Administrador de seguridad de rol o Propietario de la suscripción, abra la página **Notificaciones por correo electrónico**:
 
     - En el caso de las alertas, abra **Precios y configuración**, seleccione la suscripción correspondiente y **Notificaciones de correo electrónico**.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 3cb51a57baa87849e97f7b05762dc4d6eba787a6
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: b1eef510e6389b551e128877ffde723955a1084d
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81537118"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734644"
 ---
 # <a name="web-app-that-signs-in-users-code-configuration"></a>Aplicación web que inicia sesión de usuarios: Configuración del código
 
@@ -206,112 +206,63 @@ El código de inicialización será diferente según la plataforma. En el caso d
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-En las aplicaciones web de ASP.NET Core (y API web), la aplicación está protegida porque se dispone de un atributo `[Authorize]` en los controladores o en las acciones de estos. Este atributo comprueba que el usuario está autenticado. El código que inicializa la aplicación se encuentra en el archivo Startup.cs.
+En las aplicaciones web de ASP.NET Core (y API web), la aplicación está protegida porque se dispone de un atributo `[Authorize]` en los controladores o en las acciones de estos. Este atributo comprueba que el usuario está autenticado. El código que inicializa la aplicación se encuentra en el archivo *Startup.cs*.
 
 Para agregar la autenticación con la Plataforma de identidad de Microsoft (anteriormente, Azure AD v2.0), necesitará agregar el código siguiente. Los comentarios que se encuentren en el código deben ser claros.
 
 > [!NOTE]
-> Si inicia el proyecto con el proyecto web de ASP.NET Core predeterminado en Visual Studio o mediante `dotnet new mvc`, el método `AddAzureAD` está disponible de forma predeterminada. Esto se debe a que los paquetes relacionados se cargan automáticamente.
->
-> Si se compila un proyecto desde cero e intenta usar el código siguiente, le recomendamos que agregue el paquete NuGet **Microsoft.AspNetCore.Authentication.AzureAD.UI** al proyecto para hacer que el método `AddAzureAD` esté disponible.
+> Si inicia el proyecto con el proyecto web de ASP.NET Core predeterminado en Visual Studio o mediante `dotnet new mvc --auth SingleAuth` o `dotnet new webapp --auth SingleAuth`, verá código como el siguiente: `services.AddAuthentication(AzureADDefaults.AuthenticationScheme).AddAzureAD(options => Configuration.Bind("AzureAd", options));`.
+> 
+> Este código usa el paquete NuGet **Microsoft.AspNetCore.Authentication.AzureAD.UI** heredado que se usa para crear una aplicación de Azure AD v1.0. En este artículo se explica cómo crear una aplicación de la plataforma de identidad de Microsoft (Azure AD v2.0) que reemplaza ese código.
 
-El código siguiente está disponible en [Startup.cs#L33-L34](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/faa94fd49c2da46b22d6694c4f5c5895795af26d/1-WebApp-OIDC/1-1-MyOrg/Startup.cs#L33-L34).
+1. Agregue los paquetes NuGet [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web) y [Microsoft.Identity.Web.UI](https://www.nuget.org/packages/Microsoft.Identity.Web.UI) al proyecto. Quite el paquete NuGet Microsoft.AspNetCore.Authentication.AzureAD.UI NuGet si aparece.
 
-```csharp
-public class Startup
-{
- ...
+2. Actualice el código en `ConfigureServices` para que use los métodos `AddSignIn` y `AddMicrosoftIdentityUI`.
 
-  // This method is called by the runtime. Use this method to add services to the container.
-  public void ConfigureServices(IServiceCollection services)
-  {
+   ```c#
+   public class Startup
+   {
     ...
-      // Sign in users with the Microsoft identity platform
-      services.AddMicrosoftIdentityPlatformAuthentication(Configuration);
+    // This method gets called by the runtime. Use this method to add services to the container.
+    public void ConfigureServices(IServiceCollection services)
+    {
+     services.AddSignIn(Configuration, "AzureAd");
 
-      services.AddMvc(options =>
-      {
-          var policy = new AuthorizationPolicyBuilder()
-              .RequireAuthenticatedUser()
-              .Build();
-            options.Filters.Add(new AuthorizeFilter(policy));
-            })
-        .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-    }
-```
+     services.AddRazorPages().AddMvcOptions(options =>
+     {
+      var policy = new AuthorizationPolicyBuilder()
+                    .RequireAuthenticatedUser()
+                    .Build();
+      options.Filters.Add(new AuthorizeFilter(policy));
+     }).AddMicrosoftIdentityUI();
+    ```
 
-El método de extensión `AddMicrosoftIdentityPlatformAuthentication` está definido en [Microsoft.Identity.Web/WebAppServiceCollectionExtensions.cs#L23](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/faa94fd49c2da46b22d6694c4f5c5895795af26d/Microsoft.Identity.Web/WebAppServiceCollectionExtensions.cs#L23). Este:
+3. En el método `Configure` en *Startup.cs*, habilite la autenticación con una llamada a `app.UseAuthentication();`.
 
-- Agrega el servicio de autenticación.
-- Configura opciones para leer el archivo de configuración.
-- Configura las opciones de OpenID Connect para que la autoridad usada sea el punto de conexión de la Plataforma de identidad de Microsoft (anteriormente Azure AD v2.0).
-- Valida el emisor del token.
-- Garantiza que las notificaciones correspondientes al nombre se asignan a partir de la notificación `preferred_username` del token de identificador.
+   ```c#
+   // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+   public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+   {
+    // more code here
+    app.UseAuthentication();
+    app.UseAuthorization();
+    // more code here
+   }
+   ```
 
-Además de la configuración, se puede especificar el nombre de la sección de configuración mediante una llamada a `AddMicrosoftIdentityPlatformAuthentication`. De forma predeterminada, es `AzureAd`.
+En el código anterior:
+- El método de extensión `AddSignIn` se define en **Microsoft.Identity.Web**. Este:
+  - Agrega el servicio de autenticación.
+  - Configura las opciones para leer el archivo de configuración (aquí desde la sección "AzureAD").
+  - Configura las opciones de OpenID Connect para que la autoridad sea el punto de conexión de la plataforma de identidad de Microsoft.
+  - Valida el emisor del token.
+  - Garantiza que las notificaciones correspondientes al nombre se asignan a partir de la notificación `preferred_username` del token de identificador.
 
-El seguimiento de eventos de middleware de OpenID Connect puede ayudar a solucionar problemas de la aplicación web, si la autenticación no funciona. Al establecer `subscribeToOpenIdConnectMiddlewareDiagnosticsEvents` en `true`, se mostrará cómo se elabora la información mediante el conjunto de middleware de ASP.NET Core a medida que progresa de la respuesta HTTP a la identidad del usuario en `HttpContext.User`.
+- Además del objeto de configuración, se puede especificar el nombre de la sección de configuración mediante una llamada a `AddSignIn`. De forma predeterminada, es `AzureAd`.
 
-```csharp
-/// <summary>
-/// Add authentication with the Microsoft identity platform.
-/// This method expects the configuration file to have a section named "AzureAd" with the necessary settings to initialize authentication options.
-/// </summary>
-/// <param name="services">Service collection to which to add this authentication scheme</param>
-/// <param name="configuration">The Configuration object</param>
-/// <param name="subscribeToOpenIdConnectMiddlewareDiagnosticsEvents">
-/// Set to true if you want to debug, or just understand the OpenID Connect events.
-/// </param>
-/// <returns></returns>
-public static IServiceCollection AddMicrosoftIdentityPlatformAuthentication(
-  this IServiceCollection services,
-  IConfiguration configuration,
-  string configSectionName = "AzureAd",
-  bool subscribeToOpenIdConnectMiddlewareDiagnosticsEvents = false)
-{
-  services.AddAuthentication(AzureADDefaults.AuthenticationScheme)
-      .AddAzureAD(options => configuration.Bind(configSectionName, options));
-  services.Configure<AzureADOptions>(options => configuration.Bind(configSectionName, options));
+- `AddSignIn` tiene otros parámetros para escenarios avanzados. Por ejemplo, el seguimiento de eventos de middleware de OpenID Connect puede ayudar a solucionar problemas de la aplicación web, si la autenticación no funciona. Al establecer el parámetro opcional `subscribeToOpenIdConnectMiddlewareDiagnosticsEvents` en `true`, se mostrará cómo se procesa la información mediante el conjunto de middleware de ASP.NET Core a medida que progresa de la respuesta HTTP a la identidad del usuario en `HttpContext.User`.
 
-  services.Configure<OpenIdConnectOptions>(AzureADDefaults.OpenIdScheme, options =>
-  {
-      // Per the following code, this application signs in users in any work or school
-      // accounts and any Microsoft personal accounts.
-      // If you want to direct Azure AD to restrict the users who can sign in, change
-      // the tenant value of the appsettings.json file in the following way:
-      // - Only work or school accounts => 'organizations'
-      // - Only Microsoft personal accounts => 'consumers'
-      // - Work or school and personal accounts => 'common'
-      // If you want to restrict the users who can sign in to only one tenant,
-      // set the tenant value in the appsettings.json file to the tenant ID
-      // or domain of this organization.
-      options.Authority = options.Authority + "/v2.0/";
-
-      // If you want to restrict the users who can sign in to several organizations,
-      // set the tenant value in the appsettings.json file to 'organizations', and add the
-      // issuers you want to accept to the options.TokenValidationParameters.ValidIssuers collection.
-      options.TokenValidationParameters.IssuerValidator = AadIssuerValidator.GetIssuerValidator(options.Authority).Validate;
-
-      // Set nameClaimType to be preferred_username.
-      // This change is needed because certain token claims from the Azure AD v1 endpoint
-      // (on which the original .NET Core template is based) are different from the Microsoft identity platform endpoint.
-      // For more details, see [ID tokens](https://docs.microsoft.com/azure/active-directory/develop/id-tokens)
-      // and [Access tokens](https://docs.microsoft.com/azure/active-directory/develop/access-tokens).
-      options.TokenValidationParameters.NameClaimType = "preferred_username";
-
-      // ...
-
-      if (subscribeToOpenIdConnectMiddlewareDiagnosticsEvents)
-      {
-          OpenIdConnectMiddlewareDiagnostics.Subscribe(options.Events);
-      }
-  });
-  return services;
-}
-  ...
-```
-
-La clase `AadIssuerValidator` habilita que el emisor del token se valide en muchos casos. Esta clase funciona con un token de v1.0 o v2.0, una aplicación de un solo inquilino, una aplicación multiinquilino o una aplicación en la que los usuarios inician sesión con sus cuentas personales de Microsoft, en la nube pública de Azure o en nubes nacionales. Está disponible en [Microsoft.Identity.Web/Resource/AadIssuerValidator.cs](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/Microsoft.Identity.Web/Resource/AadIssuerValidator.cs).
+- El método de extensión `AddMicrosoftIdentityUI` se define en **Microsoft.Identity.Web.UI**. Proporciona un controlador predeterminado para controlar el cierre de sesión.
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
@@ -347,7 +298,7 @@ El filtro procesa el flujo de código de autorización de OAuth 2.0 y comprueba
 
 Cuando llega la respuesta, que contiene el código de autorización, adquiere el token con MSAL para Java. Cuando recibe finalmente el token del punto de conexión de token (en el URI de redirección), el usuario ha iniciado sesión.
 
-Para obtener más información, vea el método `doFilter()` en [AuthFilter.java](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/master/src/main/java/com/microsoft/azure/msalwebsample/AuthFilter.java).
+Para obtener más información, vea el método `doFilter()` en [AuthFilter.java](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/master/msal-java-webapp-sample/src/main/java/com/microsoft/azure/msalwebsample/AuthFilter.java).
 
 > [!NOTE]
 > El código de `doFilter()` se escribe en un orden ligeramente distinto, pero el flujo es el que se describe.

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: victorh
-ms.openlocfilehash: 7feb0f00c5431048d19d4ad6cb3860f6eb8ed052
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 28a909c3b4011b55fb3fb67d9d64ab57a310cb86
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312701"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82207267"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Escalabilidad automática y Application Gateway con redundancia de zona v2 
 
@@ -23,7 +23,7 @@ La nueva SKU v2 incluye las siguientes mejoras:
 - **Escalabilidad automática**: Las implementaciones de Application Gateway o WAF en la SKU de escalado automática pueden escalarse o reducirse verticalmente en función de los cambiantes patrones de la carga de tráfico. La escalabilidad automática también elimina el requisito de tener elegir un tamaño de implementación o un número de instancias durante el aprovisionamiento. Esta SKU ofrece verdadera elasticidad. En la SKU Standard_v2 y WAF_v2, Application Gateway puede funcionar con una capacidad fija (escalabilidad automática deshabilitada) y en modo de escalabilidad automática habilitada. El modo de capacidad fija es útil para escenarios con cargas de trabajo coherentes y predecibles. El modo de escalabilidad automática es útil en aplicaciones que tendrán variación en el tráfico de las aplicaciones.
 - **Redundancia de zona**: una implementación de Application Gateway o WAF puede abarcar varias zonas de disponibilidad, lo que elimina la necesidad de aprovisionar instancias de Application Gateway independientes en cada zona con una instancia de Traffic Manager. Puede elegir una o varias zonas donde se implementarán las instancias de Application Gateway, lo que mejora la resistencia ante errores de zona. El grupo de back-end de las aplicaciones se puede distribuir de manera similar entre las zonas de disponibilidad.
 
-  La redundancia de zona están disponibles solo donde estén disponibles las zonas de Azure. En otras regiones, se admiten todas las demás características. Para más información, consulte [¿Qué son las zonas de disponibilidad en Azure?](../availability-zones/az-overview.md#services-support-by-region)
+  La redundancia de zona están disponibles solo donde estén disponibles las zonas de Azure. En otras regiones, se admiten todas las demás características. Para obtener más información, consulte [Regiones y zonas de disponibilidad en Azure](../availability-zones/az-overview.md)
 - **VIP estática**: la SKU v2 de Application Gateway admite ahora exclusivamente el tipo de IP virtual estática. Con esto se garantiza que la IP virtual asociada a la puerta de enlace de aplicaciones no cambia durante la vigencia de la implementación, ni siquiera tras un reinicio.  No hay una IP virtual estática en la v1, por lo que debe usar la URL de la puerta de enlace de aplicaciones en lugar de la dirección IP para el enrutamiento del nombre de dominio a App Services a través de la puerta de enlace de aplicaciones.
 - **Reescritura de encabezados**: Application Gateway permite agregar, quitar o actualizar los encabezados de solicitud y respuesta HTTP con la SKU v2. Para más información, consulte [Rescritura de encabezados HTTP con Application Gateway](rewrite-http-headers.md).
 - **Integración de Key Vault**: Application Gateway v2 admite la integración con Key Vault para certificados de servidor adjuntos a clientes de escucha con HTTPS habilitado. Para obtener más información, consulte [Terminación TLS con certificados de Key Vault](key-vault-certs.md).
@@ -175,7 +175,7 @@ En la tabla siguiente se comparan las características disponibles con cada SKU.
 |Facturación|La facturación está programada para que comience el 1 de julio de 2019.|
 |Modo FIPS|Actualmente no se admiten.|
 |Solo modo ILB|Actualmente no se admite. Se admiten los modos público e ILB juntos.|
-|Integración de Netwatcher|No compatible.|
+|Integración de Net Watcher|No compatible.|
 |Integración en Azure Security Center|No disponible todavía.
 
 ## <a name="migrate-from-v1-to-v2"></a>Migración de v1 a v2

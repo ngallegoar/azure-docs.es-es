@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/04/2020
-ms.openlocfilehash: d52d8e6d0f6e3325b5c5cdc9a2e21654e6a2b621
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 08c80b0a37e21d53fc974bd878501b9326c9449b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80520717"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82207231"
 ---
 # <a name="log-analytics-agent-overview"></a>Introducción al agente de Log Analytics
 El agente de Log Analytics se desarrolló para administrar de forma integral máquinas virtuales de cualquier nube, máquinas del entorno local y máquinas supervisadas por [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/). Los agentes de Windows y Linux envían los datos recopilados de diferentes orígenes al área de trabajo de Log Analytics de Azure Monitor, así como cualquier registro o métrica únicos que se hayan definido en una solución de supervisión. El agente de Log Analytics también permite utilizar información detallada y otros servicios de Azure Monitor, como [Azure Monitor para VM](../insights/vminsights-enable-overview.md), [Azure Security Center](/azure/security-center/) y [Azure Automation](../../automation/automation-intro.md).
@@ -88,8 +88,12 @@ Existen diferentes métodos para instalar el agente de Log Analytics y conectar 
 Las siguientes versiones del sistema operativo Windows son compatibles oficialmente con el agente de Windows:
 
 * Windows Server 2019
-* Windows Server 2008 SP2 (x64), 2008 R2, 2012, 2012 R2, 2016, versión 1709 y 1803
-* Windows 7 SP1, Windows 8 Enterprise y Pro, y Windows 10 Enterprise y Pro
+* Windows Server 2016, versión 1709 y 1803
+* Windows Server 2012, 2012 R2
+* Windows Server 2008 SP2 (x64), 2008 R2
+* Windows 10 Enterprise y Pro
+* Windows 8 Enterprise y Pro 
+* Windows 7 SP1
 
 >[!NOTE]
 >Aunque el agente de Log Analytics para Windows se diseñó para admitir escenarios de supervisión de servidor, se puede ejecutar el cliente de Windows para admitir las cargas de trabajo configuradas y optimizadas para el sistema operativo del servidor. El agente es compatible con el cliente de Windows, pero nuestras soluciones de supervisión no se centran en escenarios de supervisión de cliente, salvo se indique explícitamente.

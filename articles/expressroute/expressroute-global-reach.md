@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 04/24/2020
 ms.author: cherylmc
-ms.openlocfilehash: f574576044b7e4ddd34289b5cc45fe5ca353f180
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4c326a556530fd778c1178f11b79d2aba613b4c1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77538511"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82136590"
 ---
 # <a name="expressroute-global-reach"></a>Global Reach de ExpressRoute
 ExpressRoute es una forma privada y resistente de conectar las redes locales a Microsoft Cloud. Puede acceder a muchos servicios en la nube de Microsoft, como Azure y Office 365, desde su centro de datos privado o la red corporativa. Por ejemplo, puede tener una sucursal en San Francisco con un circuito ExpressRoute en Silicon Valley y otra sucursal en Londres con un circuito ExpressRoute en la misma ciudad. Ambas sucursales pueden tener conectividad de alta velocidad a recursos de Azure en el sur de Reino Unido y el oeste de EE. UU. Sin embargo, las sucursales no pueden intercambiar datos directamente entre sí. En otras palabras, 10.0.1.0/24 puede enviar datos a 10.0.3.0/24 y 10.0.4.0/24, pero NO a 10.0.2.0/24.
@@ -49,9 +49,9 @@ Actualmente, Global Reach de ExpressRoute se admite en los siguientes lugares.
 Los circuitos ExpressRoute deben crearse en las [ubicaciones de emparejamiento de ExpressRoute](expressroute-locations.md) de estos países o región. Para habilitar Global Reach de ExpressRoute entre [diferentes regiones geopolíticas](expressroute-locations.md), los circuitos deben ser SKU Premium.
 
 ## <a name="next-steps"></a>Pasos siguientes
-1. [Más información acerca de Global Reach de ExpressRoute](expressroute-faqs.md)
-2. [Cómo habilitar Global Reach de ExpressRoute](expressroute-howto-set-global-reach.md)
-3. [Vinculación de un circuito ExpressRoute a una red virtual de Azure](expressroute-howto-linkvnet-arm.md)
+1. [Consulte las Preguntas más frecuentes sobre Global Reach](expressroute-faqs.md#globalreach)
+2. [Aprenda a habilitar Global Reach](expressroute-howto-set-global-reach.md)
+3. [Aprenda a vincular un circuito de ExpressRoute con una red virtual](expressroute-howto-linkvnet-arm.md)
 
 
 <!--Image References-->
