@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: 492c248b9a68b39b37984b978944b4f7ef34d756
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 91a3c71ecaa8af58e13cb96571fc7afdf618fcdd
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82190119"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780086"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Introducción a la seguridad de la empresa en Azure HDInsight
 
@@ -87,7 +87,7 @@ En la tabla siguiente se proporcionan vínculos a recursos para cada tipo de sol
 | Seguridad del sistema operativo | Crear clústeres con la imagen base segura más reciente | Customer |
 |  | Garantizar la [revisión del sistema operativo](../hdinsight-os-patching.md) en intervalos regulares | Customer |
 | Seguridad de las redes | Configurar una [red virtual](../hdinsight-plan-virtual-network-deployment.md) |
-|  | Configurar las [reglas del grupo de seguridad de red (NSG) de entrada](../hdinsight-plan-virtual-network-deployment.md#networktraffic) | Customer |
+|  | Configurar las [reglas del grupo de seguridad de red (NSG) de entrada](../control-network-traffic.md) | Customer |
 |  | Configurar la [restricción del tráfico de salida](../hdinsight-restrict-outbound-traffic.md) con el firewall | Customer |
 | Infraestructura virtualizada | N/D | HDInsight (proveedor de servicios en la nube) |
 | Seguridad de la infraestructura física | N/D | HDInsight (proveedor de servicios en la nube) |

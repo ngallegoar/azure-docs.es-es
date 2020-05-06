@@ -4,18 +4,18 @@ description: Obtenga información sobre la cláusula ORDER BY de SQL para Azure 
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 04/17/2020
 ms.author: tisande
-ms.openlocfilehash: b88184be39a41ec42f8fb304a7511073f645f1cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 70702ee4a77e8b3c46de4354f3394bca4080d837
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77188728"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81641395"
 ---
 # <a name="order-by-clause-in-azure-cosmos-db"></a>Cláusula ORDER BY en Azure Cosmos DB
 
-La cláusula opcional ORDER BY especifica el criterio de ordenación para los resultados que devuelve la consulta.
+La cláusula opcional `ORDER BY` especifica el criterio de ordenación para los resultados que devuelve la consulta.
 
 ## <a name="syntax"></a>Sintaxis
   
@@ -31,9 +31,9 @@ ORDER BY <sort_specification>
   
    Especifica una propiedad o una expresión para ordenar el conjunto de resultados de la consulta. Se puede especificar una columna de ordenación como alias de nombre o de propiedad.  
   
-   Se pueden especificar varias propiedades. Los nombres de propiedad deben ser únicos. La secuencia de las propiedades de ordenación en la cláusula ORDER BY define la organización del conjunto de resultados ordenado. Es decir, el conjunto de resultados se ordena en función de la primera propiedad, esa lista ordenada se ordena en función de la segunda propiedad y así sucesivamente.  
+   Se pueden especificar varias propiedades. Los nombres de propiedad deben ser únicos. La secuencia de las propiedades de ordenación en la cláusula `ORDER BY` define la organización del conjunto de resultados ordenado. Es decir, el conjunto de resultados se ordena en función de la primera propiedad, esa lista ordenada se ordena en función de la segunda propiedad y así sucesivamente.  
   
-   Los nombres de propiedad indicados en la cláusula ORDER BY deben corresponderse con una propiedad de la lista seleccionada o con una que se defina en la colección que se especifique en la cláusula FROM sin ambigüedades.  
+   Los nombres de propiedad indicados en la cláusula `ORDER BY` deben corresponderse con una propiedad de la lista seleccionada o con una que se defina en la colección que se especifique en la cláusula `FROM` sin ambigüedades.  
   
 - `<sort_expression>`  
   
@@ -45,7 +45,7 @@ ORDER BY <sort_specification>
   
 - `ASC | DESC`  
   
-   Indica que los valores de la columna especificada se deben ordenar en sentido ascendente o descendente. ASC ordena del valor mínimo al valor máximo. DESC ordena del valor máximo al valor mínimo. ASC es el criterio de ordenación predeterminado. Los valores NULL se tratan como los valores más bajos posibles.  
+   Indica que los valores de la columna especificada se deben ordenar en sentido ascendente o descendente. `ASC` ordena del valor mínimo al valor máximo. `DESC` ordena del valor máximo al valor mínimo. `ASC` es el criterio de ordenación predeterminado. Los valores NULL se tratan como los valores más bajos posibles.  
   
 ## <a name="remarks"></a>Observaciones  
   
@@ -152,7 +152,7 @@ Los resultados solo incluyen el documento con `lastName`definido:
     ]
 ```
 
-Si se actualiza la directiva de indexación del contenedor para incluir de forma explícita una ruta de acceso para `lastName`, se incluyen los documentos con una propiedad de ordenación sin definir en los resultados de la consulta. Debe definir explícitamente la ruta de acceso a este valor escalar (y no más allá). Debe usar el carácter `?` en la definición de la ruta de acceso de la directiva de indexación a fin de asegurarse de que la propiedad `lastName` se indexa explícitamente y de que no hay más rutas anidadas adicionales.
+Si se actualiza la directiva de indexación del contenedor para incluir de forma explícita una ruta de acceso para `lastName`, se incluyen los documentos con una propiedad de ordenación sin definir en los resultados de la consulta. Debe definir explícitamente la ruta de acceso a este valor escalar (y no más allá). Debe usar el carácter `?` en la definición de la ruta de acceso de la directiva de indexación a fin de asegurarse de que la propiedad `lastName` se indexa explícitamente y de que no hay más rutas anidadas adicionales. Si la consulta `Order By` usa un [índice compuesto](index-policy.md#composite-indexes), los resultados siempre incluirán documentos con una propiedad de ordenación sin definir en los resultados de la consulta.
 
 Esta es una directiva de indexación de ejemplo que permite que documentos con `lastName` sin definir aparezcan en los resultados de la consulta:
 

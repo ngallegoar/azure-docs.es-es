@@ -4,12 +4,12 @@ description: Aprenda a administrar y supervisar las copias de seguridad del agen
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: c11d73edd32c197aac2cec58eeb1cc20e5c6a339
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a88ec4dc9283114e06eed424172dbb958850c2e9
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78673258"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82025108"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Administración de copias de seguridad del agente de Microsoft Azure Recovery Services (MARS) con el servicio Azure Backup
 
@@ -79,8 +79,8 @@ Puede agregar reglas de exclusión para omitir archivos y carpetas que no desea 
 
     ![Selección de los elementos](./media/backup-azure-manage-mars/select-items-remove.png)
 
-> [!NOTE]
-> Proceda con precaución al quitar completamente un volumen de la directiva.  Si necesita volver a agregarlo, se tratará como un nuevo volumen. La siguiente copia de seguridad programada realizará una copia de seguridad inicial (copia de seguridad completa) en lugar de una copia de seguridad incremental. Si necesita quitar y agregar temporalmente elementos más adelante, se recomienda usar **Configuración de exclusión** en lugar de **Quitar elementos** para garantizar una copia de seguridad incremental en lugar de una copia de seguridad completa.
+    > [!NOTE]
+    > Proceda con precaución al quitar completamente un volumen de la directiva.  Si necesita volver a agregarlo, se tratará como un nuevo volumen. La siguiente copia de seguridad programada realizará una copia de seguridad inicial (copia de seguridad completa) en lugar de una copia de seguridad incremental. Si necesita quitar y agregar temporalmente elementos más adelante, se recomienda usar **Configuración de exclusión** en lugar de **Quitar elementos** para garantizar una copia de seguridad incremental en lugar de una copia de seguridad completa.
 
 2. Complete los pasos siguientes y haga clic en **Finalizar** para completar la operación.
 
@@ -90,7 +90,7 @@ Hay dos formas de detener la protección de una copia de seguridad de archivos y
 
 - **Detener la protección y conservar los datos de copia de seguridad**.
   - Esta opción detendrá la protección para todos los trabajos de copia de seguridad futuros.
-  - El servicio Azure Backup conservará los puntos de recuperación de los que se ha realizado una copia de seguridad conforme a la directiva de retención.
+  - El servicio Azure Backup seguirá conservando todos los puntos de recuperación existentes.  
   - Podrá restaurar los datos de copia de seguridad de los puntos de recuperación que no hayan expirado.
   - Si decide reanudar la protección, podrá usar la opción *Vuelva a habilitar la programación de copia de seguridad*. Después de eso, los datos se conservarán de acuerdo con la nueva directiva de retención.
 - **Detener la protección y eliminar los datos de copia de seguridad**.
@@ -167,7 +167,6 @@ Una frase de contraseña se usa para cifrar y descifrar los datos durante la cop
 
     ![Generar la frase de contraseña.](./media/backup-azure-manage-mars/passphrase2.png)
 - Asegúrese de que la frase de contraseña se guarda de forma segura en una ubicación alternativa (distinta de la máquina de origen), preferiblemente en Azure Key Vault. Realice un seguimiento de todas las frases de contraseña si tiene varias máquinas de las que se realiza una copia de seguridad con los agentes de MARS.
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

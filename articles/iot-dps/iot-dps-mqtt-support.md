@@ -7,12 +7,15 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: ravokkar
-ms.openlocfilehash: ea6ece7e34ddb9c25f9f8349239ab3a1c3405abf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: 213fc3412a2dfad77946e52a355a30774d6860c7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74973380"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81680691"
 ---
 # <a name="communicate-with-your-dps-using-the-mqtt-protocol"></a>Comunicación con su DPS mediante el protocolo MQTT
 

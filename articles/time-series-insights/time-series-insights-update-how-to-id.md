@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 02/07/2020
+ms.date: 05/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: a62c2460698408f6a2bfa51c6638bdeaf88bb31f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: faf98d4fc5bf6c7028cf7d20bdf8df89fb3d533b
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77083529"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82838729"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>Procedimientos recomendados al elegir un id. de serie temporal
 
@@ -27,6 +27,7 @@ Es fundamental seleccionar un identificador de serie temporal adecuado. Elegir u
 
 > [!IMPORTANT]
 > Los identificadores de serie temporal son los siguientes:
+>
 > * Propiedad *case-sensitive*: se hace distinción de mayúsculas y minúsculas en búsquedas, comparaciones, y actualizaciones, así como al crear particiones.
 > * Propiedad *immutable*: una vez creada, no se puede cambiar.
 
@@ -56,7 +57,7 @@ En los siguientes escenarios se describe cómo seleccionar más de una propiedad
 
 ### <a name="example-2-time-series-id-with-a-composite-key"></a>Ejemplo 2: identificador de serie temporal con una clave compuesta
 
-* Necesita que varias propiedades sean únicas dentro del mismo tipo de activos. 
+* Necesita que varias propiedades sean únicas dentro del mismo tipo de activos.
 * Es fabricante de edificios inteligentes e implementa sensores en todas las habitaciones. En cada una de ellas, lo habitual es que tenga los mismos valores para **sensorId**. Algunos ejemplos son **sensor1**, **sensor2**y **sensor3**.
 * Los números de las plantas y de las estancias del edificio se solapan en la propiedad **flrRm**. Estos números tienen valores como **1a**, **2b** y **3a**.
 * Tiene una propiedad, **location**, que contiene valores como **Redmond**, **Barcelona** y **Tokio**. Para que los valores sean únicos, designe las tres propiedades siguientes como sus claves del identificador de serie temporal: **sensorId**, **flrRm** y **location**.
@@ -72,7 +73,7 @@ Ejemplo de evento sin procesar:
 }
 ```
 
-En Azure Portal, puede especificar después la clave compuesta de la manera siguiente: 
+En Azure Portal, puede especificar después la clave compuesta de la manera siguiente:
 
 ```JSON
 [{"name":"sensorId","type":"String"},{"name":"flrRm","type":"String"},{"name":"location","type":"string"}]

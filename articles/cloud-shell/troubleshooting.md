@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: 0b1b22095c77344ed71762d3d51b12f19d9f1811
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b06deadae15a8176a49bed88a53884df2b71e473
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79458059"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82189469"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Solución de problemas y limitaciones de Azure Cloud Shell
 
@@ -46,8 +46,8 @@ Entre las resoluciones conocidas de problemas en Azure Cloud Shell se incluyen l
 
 ### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Cuadro de diálogo de almacenamiento - Error: 403 RequestDisallowedByPolicy
 
-- **Detalles**: Al crear una cuenta de almacenamiento a través de Cloud Shell, se produce un error debido a una directiva de Azure creada por el administrador. El mensaje de error incluirá: `The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
-- **Solución:** Póngase en contacto con el administrador de Azure para quitar o actualizar la directiva que deniega la creación del almacenamiento.
+- **Detalles**: Al crear una cuenta de almacenamiento a través de Cloud Shell, se produce un error debido a una asignación de Azure Policy creada por el administrador. El mensaje de error incluirá: `The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
+- **Solución:** Póngase en contacto con el administrador de Azure para quitar o actualizar la asignar de Azure Policy que deniega la creación del almacenamiento.
 
 ### <a name="storage-dialog---error-400-disallowedoperation"></a>Cuadro de diálogo de almacenamiento - Error: 400 DisallowedOperation
 

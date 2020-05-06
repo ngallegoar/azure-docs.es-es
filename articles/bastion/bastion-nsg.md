@@ -5,14 +5,14 @@ services: bastion
 author: charwen
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 02/03/2020
+ms.date: 04/20/2020
 ms.author: charwen
-ms.openlocfilehash: 15abee4688a2f6aefa2b08ad2b8eee6622d56be2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0188f9bc1c7c0e8d7fed9f590d078085b175614f
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77087276"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81732198"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>Trabajo con acceso a grupos de seguridad de red y Azure Bastion
 
@@ -32,9 +32,9 @@ En este diagrama:
 
 En esta sección se muestra el tráfico de red entre el usuario y Azure Bastion, y para dirigirse a las máquinas virtuales de la red virtual:
 
-### <a name="azurebastionsubnet"></a>AzureBastionSubnet
+### <a name="azurebastionsubnet"></a><a name="apply"></a>AzureBastionSubnet
 
-Azure Bastion se implementa en concreto en la subred AzureBastionSubnet.
+Azure Bastion se implementa específicamente en ***AzureBastionSubnet***.
 
 * **Tráfico de entrada:**
 
@@ -46,19 +46,11 @@ Azure Bastion se implementa en concreto en la subred AzureBastionSubnet.
    * **Tráfico de salida a máquinas virtuales de destino:** Azure Bastion se comunicará con las máquinas virtuales de destino a través de la dirección IP privada. Los grupos de seguridad de red tienen que permitir el tráfico de salida a otras subredes de máquinas virtuales de destino para el puerto 3389 y 22.
    * **Salida del tráfico a otros puntos de conexión públicos de Azure:** Azure Bastion debe ser capaz de conectarse a varios puntos de conexión públicos dentro de Azure (por ejemplo, para almacenar registros de diagnóstico y los registros de medición). Por esta razón, Azure Bastion necesita una salida hacia 443 para la etiqueta de servicio **AzureCloud**.
 
-* **Subred de VM de destino:** Se trata de una subred que contiene la máquina virtual de destino a la que quiere conectarse mediante RDP/SSH.
+### <a name="target-vm-subnet"></a>Subred de máquina virtual de destino
+Se trata de una subred que contiene la máquina virtual de destino a la que quiere conectarse mediante RDP/SSH.
 
    * **Tráfico de entrada procedente de Azure Bastion:** Azure Bastion se comunicará con la máquina virtual de destino a través de la dirección IP privada. Los puertos RDP/SSH (puertos 3389/22, respectivamente) tienen que abrirse en la máquina virtual de destino a través de la dirección IP privada. Como procedimiento recomendado, puede agregar el intervalo de direcciones IP de la subred de Azure Bastion en esta regla para permitir que solo Bastion pueda abrir estos puertos en las máquinas virtuales de destino de la subred de la máquina virtual de destino.
 
-## <a name="apply-nsgs-to-azurebastionsubnet"></a><a name="apply"></a>Aplicación de grupos de seguridad de red en AzureBastionSubnet
-
-Si crea y aplica un grupo de seguridad de red a ***AzureBastionSubnet***, asegúrese de que ha agregado las siguientes reglas en él. Si no agrega estas reglas, se producirá un error en la creación o actualización de los grupos de seguridad de red:
-
-* **Conectividad del plano de control:** entrante en 443 desde GatewayManager
-* **Registro de diagnóstico y otros:** saliente en 443 a AzureCloud. Todavía no se admiten etiquetas regionales dentro de esta etiqueta de servicio.
-* **Máquina virtual de destino:** saliente de 3389 y 22 a VirtualNetwork
-
-Hay un ejemplo de regla de grupo de seguridad de red disponible como referencia en esta [plantilla de inicio rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azure-bastion-nsg).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

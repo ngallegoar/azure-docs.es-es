@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/27/2020
 ms.openlocfilehash: c4d5a9ca85237bde1277904a478a0b8828fc2b08
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80369238"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mariadb"></a>Copia de seguridad y restauración en Azure Database for MariaDB
@@ -48,8 +48,8 @@ En Azure Database for MariaDB, al realizar una restauración se crea un nuevo se
 
 Hay dos tipos de restauración disponibles:
 
-- La **restauración a un momento dado** está disponible con cualquier opción de redundancia de copia de seguridad y crea un nuevo servidor en la misma región que el servidor original mediante la combinación de copias de seguridad completas y de registros.
-- La **restauración geográfica** solo está disponible si ha configurado el servidor para almacenamiento con redundancia geográfica y permite restaurar el servidor en una región diferente mediante la copia de seguridad más reciente creada.
+- La **restauración a un momento dado** está disponible con cualquier opción de redundancia de copia de seguridad y crea un nuevo servidor en la misma región que el servidor original por medio de la combinación de copias de seguridad completas y de registros.
+- La **restauración geográfica** solo está disponible si ha configurado el servidor para almacenamiento con redundancia geográfica y permite restaurar el servidor en una región diferente usando la copia de seguridad más reciente creada.
 
 El tiempo estimado de recuperación depende de varios factores, como el tamaño de la bases de datos, el tamaño del registro de transacciones, el ancho de banda de red y el número total de bases de datos que se están recuperando en la misma región al mismo tiempo. Normalmente, el tiempo de recuperación es inferior a 12 horas.
 
@@ -82,5 +82,5 @@ Cuando efectúe la restauración con cualquiera de los mecanismos de recuperaci�
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para más información acerca de la continuidad del negocio, consulte la  [introducción a la continuidad de negocio](concepts-business-continuity.md).
-- Para restaurar a un momento dado mediante Azure Portal, consulte la  [restauración de un servidor a un momento dado mediante Azure Portal](howto-restore-server-portal.md).
-- Para restaurar a un momento dado mediante la CLI de Azure, consulte la  [restauración de un servidor a un momento dado mediante la CLI de Azure](howto-restore-server-cli.md).
+- Para restaurar a un momento dado con Azure Portal, vea la  [restauración de un servidor a un momento dado con Azure Portal](howto-restore-server-portal.md).
+- Para restaurar a un momento dado con la CLI de Azure, vea la  [restauración de un servidor a un momento dado con la CLI de Azure](howto-restore-server-cli.md).

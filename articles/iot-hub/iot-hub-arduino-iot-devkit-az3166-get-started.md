@@ -8,12 +8,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 06/25/2019
 ms.author: wesmc
-ms.openlocfilehash: 5d6ba2bd52d8f4af4244e8ce1babeb7bc9d37fe4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: mqtt
+ms.openlocfilehash: 1c6af4f44cd16405d1ef12ae909085220b0d072d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80235671"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81733598"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Conexión de IoT DevKit AZ3166 a Azure IoT Hub
 
@@ -82,7 +83,13 @@ Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En esta gu�
     ```
 
    > [!NOTE]
-   > Si recibe un error al ejecutar `device-identity`, instale [Azure IOT Extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension/blob/dev/README.md) para obtener más detalles.
+   > Si recibe un error al ejecutar `device-identity`, instale la [Extensión de Azure IoT para la CLI de Azure](https://github.com/Azure/azure-iot-cli-extension/blob/dev/README.md).
+   > Ejecute el siguiente comando para agregar la extensión IoT de Microsoft Azure para la CLI de Azure a la instancia de Cloud Shell. La extensión de IoT agrega comandos específicos de IoT Hub, IoT Edge e IoT Device Provisioning Service (DPS) a la CLI de Azure.
+   > 
+   > ```azurecli-interactive
+   > az extension add --name azure-iot
+   >  ```
+   >
   
 1. Ejecute los siguientes comandos en Azure Cloud Shell para obtener la _cadena de conexión del dispositivo_ que acaba de registrar:
 
@@ -169,9 +176,7 @@ Siga estos pasos para preparar el entorno de desarrollo para DevKit:
 
     ![Instalación de Azure IoT Tools](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-azure-iot-tools.png)
 
-    O bien, use este vínculo directo:
-    > [!div class="nextstepaction"]
-    > [Instalar el paquete de extensión de Azure IoT Tools](vscode:extension/vsciot-vscode.azure-iot-tools)
+    También puede copiar y pegar esta dirección URL en una ventana del explorador: `vscode:extension/vsciot-vscode.azure-iot-tools`
 
     > [!NOTE]
     > El paquete de extensión de Azure IoT Tools contiene [Azure IoT Device Workbench](https://aka.ms/iot-workbench), que se usa para desarrollar y depurar en varios dispositivos de IoT DevKit. La [extensión de Azure IoT Hub](https://aka.ms/iot-toolkit), que también se incluye con el paquete de extensión de Azure IoT Tools, se usa para administrar centros de Azure IoT Hub e interactuar con ellos.
@@ -322,13 +327,24 @@ La aplicación de ejemplo se ejecuta correctamente si ve los siguientes resultad
 
 ![Salida del monitor serie](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/result-serial-output.png)
 
+> [!NOTE]
+> Es posible que se produzca un error durante las pruebas en las que el LED no parpadee, Azure Portal no muestre los datos de entrada del dispositivo, pero en la pantalla OLED del dispositivo se muestre **En ejecución...** . Para resolver el problema, en Azure Portal, vaya al dispositivo en el centro de IoT y envíe un mensaje al dispositivo. Si ve la siguiente respuesta en el monitor serie en VS Code, es posible que la comunicación directa desde el dispositivo esté bloqueada en el nivel del enrutador. Compruebe las reglas de firewall y de enrutador configuradas para los dispositivos que se conectan. Además, asegúrese de que el puerto de salida 1833 esté abierto.
+> 
+> ERROR: mqtt_client.c (ln 454): Error: error al abrir la conexión al punto de conexión  
+> INFO: >>>Estado de conexión: desconectado  
+> ERROR: tlsio_mbedtls.c (ln 604): No se pudo abrir la E/S subyacente  
+> ERROR: mqtt_client.c (ln 1042): Error: error de io_open  
+> ERROR: iothubtransport_mqtt_common. c (ln 2283): error al conectar con la dirección atcsliothub.azure-devices.net.  
+> INFO: >>> Vuelva a conectarse.  
+> INFO: Versión de IoThub: 1.3.6  
+
 ### <a name="view-the-telemetry-received-by-azure-iot-hub"></a>Visualización de la telemetría recibida por Azure IoT Hub
 
 Puede usar [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) para supervisar los mensajes del dispositivo a la nube (D2C) en IoT Hub.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) y busque la instancia de IoT Hub que creó.
 
-    ![Portal de Azure](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/azure-iot-hub-portal.png)
+    ![Azure Portal](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/azure-iot-hub-portal.png)
 
 1. En el panel **Directivas de acceso compartido**, haga clic en la directiva **iothubowner** y, luego, anote la cadena de conexión de su centro de IoT.
 

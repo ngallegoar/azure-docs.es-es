@@ -12,12 +12,12 @@ ms.date: 02/03/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: ab3ab25df6ce41d4045a270754830d501fe40689
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 8eb59eebd29c2cc94e20b71b467866686deec2f1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80347168"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81869720"
 ---
 # <a name="sign-in-and-start-apps-from-the-my-apps-portal"></a>Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones
 
@@ -110,7 +110,7 @@ Si tiene permiso para obtener acceso y usar aplicaciones basadas en la nube de s
 
 Vea y use las aplicaciones de su organización desde Intune Managed Browser en dispositivos iOS y Android.
 
-1. En su dispositivo móvil, descargue e instale la aplicación Intune Managed Browser desde la [Apple App Store](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) y la [Google Play Store](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser).
+1. En el dispositivo móvil, descargue e instale la aplicación Intune Managed Browser desde Apple App Store y Google Play Store.
 
 2. Abra la aplicación Intune Managed Browser, vaya a https://myapps.microsoft.com o use el vínculo que le ha proporcionado su organización si se le dirige a una página personalizada, como https://myapps.microsoft.com/contoso.com.
 
