@@ -6,19 +6,21 @@ ms.service: automation
 ms.subservice: process-automation
 author: mgoedtel
 ms.author: magoedte
-ms.date: 05/20/2019
+ms.date: 04/23/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 965d6b206bb64e90fe59798ce0c37ccf029117f5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 607cebca3e6e8ddd95900ecdbd7041e5f7bb50cc
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74849520"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82165780"
 ---
 # <a name="workspace-mappings"></a>Asignaciones de áreas de trabajo
 
-Cuando se habilitan soluciones como Update Management, Change Tracking e Inventario o la solución Start/Stop VMs during off-hours, solo ciertas regiones pueden vincular un área de trabajo de Log Analytics y una cuenta de Automation. Esta asignación solo se aplica a la cuenta de Automation y al área de trabajo de Log Analytics. Los recursos que dependen de la cuenta de Automation o del área de trabajo de Log Analytics pueden residir en otras regiones.
+Cuando se habilitan soluciones como Update Management, Change Tracking e Inventario o Start/Stop VMs during off hours, solo se admiten ciertas regiones para vincular un área de trabajo de Log Analytics y una cuenta de Automation en la suscripción. Esta asignación solo se aplica a la cuenta de Automation y al área de trabajo de Log Analytics. El área de trabajo Log Analytics y la cuenta de Automation deben estar en la misma suscripción, pero pueden estar en distintos grupos de recursos implementados en la misma región.
+
+Para obtener más información, consulte el [área de trabajo de Log Analytics y la cuenta de Automation](../../azure-monitor/insights/solutions.md#log-analytics-workspace-and-automation-account).
 
 ## <a name="supported-mappings"></a>Asignaciones admitidas
 
@@ -45,48 +47,48 @@ En la tabla siguiente se muestran las asignaciones admitidas:
 
 <sup>1</sup> La asignación EastUS de áreas de trabajo de Log Analytics a cuentas de Automation no es una asignación exacta de región a región, pero es la asignación correcta.
 
-<sup>2</sup> Debido a restricciones de capacidad, la región no está disponible cuando se crean recursos nuevos. Esto incluye cuentas de Automation y áreas de trabajo de Log Analytics. Sin embargo, los recursos vinculados preexistentes en la región deberían seguir funcionando.
+<sup>2</sup> Debido a restricciones de capacidad, la región no está disponible cuando se crean recursos nuevos. Incluye cuentas de Automation y áreas de trabajo de Log Analytics. Sin embargo, los recursos vinculados preexistentes en la región deberían seguir funcionando.
 
 ## <a name="unlink-workspace"></a>Unlink workspace (Desvincular área de trabajo)
 
-Si decide que ya no quiere integrar su cuenta de Automation con un área de trabajo de Log Analytics, puede desvincular la cuenta directamente desde Azure Portal. Antes de continuar, debe quitar las soluciones Update Management, Change Tracking e Inventario o Start/Stop VMs during off-hours si las está usando. Si no las quita, se impedirá que siga este proceso. Revise el artículo de la solución concreta que ha importado para conocer los pasos necesarios para quitarla.
+Si decide que ya no quiere integrar su cuenta de Automation con un área de trabajo de Log Analytics, puede desvincular la cuenta directamente desde Azure Portal. Antes de continuar, debe quitar las soluciones Update Management, Change Tracking e Inventario y Start/Stop VMs during off hours, si las usa. Si no las quita, no podrá completar la operación de desvinculación. Revise el artículo para cada una de las que esté habilitando a fin de comprender los pasos necesarios para quitarla.
 
-Después de quitar estas soluciones, puede realizar los pasos siguientes para desvincular la cuenta de Automation.
+Después de quitarlas, puede realizar los pasos siguientes para desvincular la cuenta de Automation.
 
 > [!NOTE]
-> Algunas soluciones que incluyen versiones anteriores de la solución de supervisión de SQL Azure pueden haber creado recursos de automatización y también puede que tengan que quitarse antes de desvincularse del área de trabajo.
+> Algunas soluciones que incluyen versiones anteriores de la solución de supervisión de SQL Azure pueden haber creado recursos de Automation y también puede que tengan que quitarse antes de desvincular el área de trabajo.
 
-1. En Azure Portal, abra su cuenta de Automation y, en la página de la cuenta de Automation, seleccione **Área de trabajo vinculada** en la sección **Recursos relacionados** de la izquierda.
+1. En Azure Portal, abra su cuenta de Automation. En la página Cuenta de Automation, seleccione **Área de trabajo vinculada** en **Recursos relacionados**.
 
-2. En la página Desvincular área de trabajo, haga clic en **Desvincular área de trabajo**. Aparecerá un aviso para comprobar que desea continuar.
+2. En la página Desvincular área de trabajo, haga clic en **Desvincular área de trabajo**. Se muestra un aviso para comprobar que desea continuar.
 
 3. Aunque Azure Automation trate de desvincular la cuenta del área de trabajo de Log Analytics, puede seguir el progreso en **Notificaciones** en el menú.
 
-Si ha usado la solución de administración de actualizaciones, también puede quitar los siguientes elementos que ya no necesite después de quitar la solución.
+4. Si ha usado Update Management, también puede quitar los siguientes elementos que ya no necesite después de quitarlo.
 
-* Programaciones de actualizaciones: cada una tendrá nombres que coinciden con las implementaciones de las actualizaciones que ha creado.
+    * Programaciones de actualizaciones: cada una tiene un nombre que coincide con una implementación de actualizaciones que ha creado.
+    * Grupos de Hybrid Worker creados para la solución: cada uno de ellos tiene un nombre similar a `machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8`.
 
-* Grupos de Hybrid Worker creados para la solución: cada uno de ellos tendrá un nombre similar a `machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8`.
+5. Si ha usado Start/Stop VMs during off hours, también puede quitar los siguientes elementos que ya no necesite después de quitarlo.
 
-Si ha usado la solución de inicio y detención de máquinas virtuales durante las horas de trabajo, también puede quitar los siguientes elementos que ya no necesite después de quitar la solución.
+    * Programaciones de runbook de inicio y detención de máquinas virtuales
+    * Runbooks de inicio y detención de máquinas virtuales
+    * variables
 
-* Programaciones de runbook de inicio y detención de máquinas virtuales
-* Runbooks de inicio y detención de máquinas virtuales
-* variables
+También puede desvincular el área de trabajo de la cuenta de Automation en el área de trabajo.
 
-También puede desvincular el área de trabajo de la cuenta de Automation del área de trabajo de Log Analytics. En el área de trabajo, seleccione **Cuenta de Automation** en **Recursos relacionados**. En la página Cuenta de Automation, seleccione **Desvincular cuenta**.
+1. En el área de trabajo, seleccione **Cuenta de Automation** en **Recursos relacionados**. 
+2. En la página Cuenta de Automation, seleccione **Desvincular cuenta**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Sepa cómo incorporar las soluciones siguientes:
+* Obtenga información sobre la incorporación de Update Management y Change Tracking e Inventario:
 
-Update Management y Change Tracking e Inventario:
+    * Desde una [máquina virtual](../automation-onboard-solutions-from-vm.md)
+    * Desde la [cuenta de Automation](../automation-onboard-solutions-from-automation-account.md)
+    * Al [examinar varias máquinas](../automation-onboard-solutions-from-browse.md)
+    * Desde un [runbook](../automation-onboard-solutions.md)
 
-* Desde una [máquina virtual](../automation-onboard-solutions-from-vm.md)
-* Desde la [cuenta de Automation](../automation-onboard-solutions-from-automation-account.md)
-* Al [examinar varias máquinas](../automation-onboard-solutions-from-browse.md)
-* Desde un [runbook](../automation-onboard-solutions.md)
+* Obtenga información sobre la incorporación de Start/Stop VMs during off hours:
 
-Inicio y detención de máquinas virtuales durante las horas de trabajo
-
-* [Implementación de Start/Stop VMs during off-hours](../automation-solution-vm-management.md)
+    * [Introducción a Start/Stop VMs during off-hours](../automation-solution-vm-management.md)

@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f1b8b9af8f90629d087246edf0cb3426bd9b66c
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 3737603360d3fce9d6e11e6c4ce9b2de58f76a6d
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81406831"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583115"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Descripción de los conectores del Proxy de aplicación de Azure AD
 
@@ -49,7 +49,7 @@ El servidor de Windows debe tener habilitado TLS 1.2 antes de instalar el conect
 
 Para más información sobre los requisitos de red del servidor del conector, vea [Get started with Application Proxy and install a connector (Información general sobre Proxy de aplicación e instalación de un conector)](application-proxy-add-on-premises-application.md).
 
-## <a name="maintenance"></a>Mantenimiento
+## <a name="maintenance"></a>Mantenimiento 
 
 Los conectores y el servicio se encargan de todas las tareas de alta disponibilidad. Se pueden agregar o quitar de forma dinámica. Cada vez que llega una solicitud nueva, esta se enruta a uno de los conectores que estén disponibles en ese momento. Si un conector no está disponible temporalmente, no responde a este tráfico.
 
@@ -136,7 +136,7 @@ Para más información sobre la optimización de la red, vea [Consideraciones so
 
 Los conectores se pueden ejecutar en un equipo que no esté unido a dominio. Sin embargo, si desea usar el inicio de sesión único (SSO) para aplicaciones que usan la autenticación integrada de Windows (IWA), necesita una máquina unida a dominio. En este caso, los equipos del conector deben estar unidos a un dominio que pueda llevar a cabo la delegación limitada de [kerberos](https://web.mit.edu/kerberos) en nombre de los usuarios para las aplicaciones publicadas.
 
-Los conectores también pueden estar unidos a dominios o bosques que tienen una relación de confianza parcial o a controladores de dominio de solo lectura.
+Los conectores también pueden estar unidos a dominios de bosques que tengan una relación de confianza parcial o a controladores de dominio de solo lectura.
 
 ## <a name="connector-deployments-on-hardened-environments"></a>Implementaciones del conector en entornos protegidos
 

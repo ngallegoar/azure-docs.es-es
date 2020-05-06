@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 04/23/2020
 ms.author: aschhab
-ms.openlocfilehash: 1e22641e9d4f9959c26cd2043ea2acd7e260e0f0
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: a4bc2dcfd1826623516a40be0aff7688d0b6168c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81314055"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82116696"
 ---
 # <a name="message-sessions"></a>Sesiones de mensajes
 Las sesiones de Microsoft Azure Service Bus permiten la administración ordenada y conjunta de secuencias sin enlace de mensajes relacionados. Se pueden usar sesiones en patrones FIFO (primero en entrar, primero en salir) y de solicitud-respuesta. En este artículo se muestra cómo usar sesiones para implementar estos patrones al utilizar Service Bus. 
@@ -64,7 +64,7 @@ Cuando varios receptores simultáneos se extraen de la cola, los mensajes que pe
 
 La ilustración anterior muestra tres receptores de sesiones simultáneas. Una sesión con `SessionId` = 4 no tiene ningún cliente activo, propietario, lo que significa que no se entregan mensajes de esta sesión concreta. Una sesión actúa de muchas maneras, como de subcola.
 
-El bloqueo de sesión mantenido por el receptor de sesión sirve de protección para los bloqueos de mensaje usados en el modo de usado en el modo de liquidación *bloqueo de inspección*. Un receptor no puede tener dos mensajes simultáneamente "en proceso", sino que los mensajes se deben procesar en orden. Solo se puede obtener un nuevo mensaje cuando el mensaje anterior ha finalizado o es fallido. Abandonar un mensaje hace que el mismo mensaje se sirva de nuevo en la siguiente operación de recepción.
+El bloqueo de sesión mantenido por el receptor de sesión sirve de protección para los bloqueos de mensaje usados en el modo de usado en el modo de liquidación *bloqueo de inspección*. No puede haber más de un receptor que tenga un bloqueo en una sesión. Un receptor puede tener muchos mensajes en curso y los recibirá en orden. Abandonar un mensaje hace que el mismo mensaje se sirva de nuevo en la siguiente operación de recepción.
 
 ### <a name="message-session-state"></a>Estado de la sesión de mensaje
 

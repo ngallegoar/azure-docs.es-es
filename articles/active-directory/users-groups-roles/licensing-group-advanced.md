@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 139d7e0cf2b57cc466dc97370b90a599257ce755
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0af897ca284b1d51867808c2c74496c73e9bdcc3
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79231720"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582786"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Escenarios, limitaciones y problemas conocidos del uso de grupos para administrar las licencias en Azure Active Directory
 
@@ -100,7 +100,7 @@ Inicialmente, el usuario hereda la licencia solo del grupo *E3: servicios básic
 
 ## <a name="managing-new-services-added-to-products"></a>Administración de servicios nuevos agregados a productos
 
-Cuando Microsoft agrega un nuevo servicio al plan de licencia de un producto, se habilita de forma predeterminada en todos los grupos a los que se haya asignado la licencia del producto. Los usuarios de su inquilino que se suscriban a las notificaciones sobre cambios en el producto recibirán con antelación mensajes de correo electrónico que les informan sobre las próximas adiciones en los servicios.
+Cuando Microsoft agrega un nuevo servicio al plan de licencia de un producto, se habilita de forma predeterminada en todos los grupos a los que se haya asignado la licencia del producto. Los usuarios de la organización que se suscriban a las notificaciones sobre cambios en el producto recibirán con antelación mensajes de correo electrónico que les informan sobre las próximas adiciones en los servicios.
 
 Como administrador, puede revisar todos los grupos afectados por el cambio y realizar acciones como deshabilitar el nuevo servicio en cada grupo. Por ejemplo, si creó grupos destinados solo a servicios específicos para la implementación, puede volver a visitar esos grupos y asegurarse de que cualquier servicio recién agregado está deshabilitado.
 
@@ -108,7 +108,7 @@ Este es un ejemplo cómo podría ser este proceso:
 
 1. Originalmente, asignó el producto *Office 365 Enterprise E5* a varios grupos. Uno de esos grupos, denominado *Office 365 E5 (solo Exchange)* , se diseñó para habilitar solamente el servicio *Exchange Online (Plan 2)* para sus miembros.
 
-2. Recibió una notificación de Microsoft sobre que se extenderá el producto E5 con un nuevo servicio: *Microsoft Stream*. Cuando el servicio esté disponible en el inquilino, puede hacer lo siguiente:
+2. Recibió una notificación de Microsoft sobre que se extenderá el producto E5 con un nuevo servicio: *Microsoft Stream*. Cuando el servicio esté disponible en la organización, puede hacer lo siguiente:
 
 3. Vaya a la hoja [**Azure Active Directory > Licencias > Todos los productos**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) y seleccione *Office 365 Enterprise E5*; a continuación, seleccione **Licensed Groups** (Grupos con licencia) para ver una lista de todos los grupos con ese producto.
 
@@ -128,9 +128,9 @@ Este es un ejemplo cómo podría ser este proceso:
 ## <a name="use-powershell-to-see-who-has-inherited-and-direct-licenses"></a>Uso de PowerShell para ver quién tiene licencias directas y heredadas
 Puede usar un script de PowerShell para comprobar si los usuarios tienen una licencia asignada directamente o se hereda de un grupo.
 
-1. Ejecute el cmdlet `connect-msolservice` para autenticarse y conectar con el inquilino.
+1. Ejecute el cmdlet `connect-msolservice` para autenticarse y conectarse a la organización.
 
-2. `Get-MsolAccountSku` se puede usar para detectar todas las licencias de producto aprovisionadas en el inquilino.
+2. `Get-MsolAccountSku` se puede usar para detectar todas las licencias de producto aprovisionadas en la organización de Azure AD.
 
    ![Captura de pantalla del cmdlet Get-Msolaccountsku](./media/licensing-group-advanced/get-msolaccountsku-cmdlet.png)
 

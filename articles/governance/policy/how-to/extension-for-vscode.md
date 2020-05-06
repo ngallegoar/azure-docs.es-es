@@ -3,12 +3,12 @@ title: Extensión de Azure Policy para Visual Studio Code
 description: Obtenga información acerca de cómo usar la extensión de Azure Policy para Visual Studio Code para buscar alias de Resource Manager.
 ms.date: 03/07/2020
 ms.topic: how-to
-ms.openlocfilehash: 0e9123f2975bda0d61e9d6e9bf894ecd359e6c5a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0c4e04cc352744fed1c7c2965f8096f0f05c2a50
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79231224"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82182572"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Use la extensión de Azure Policy para Visual Studio Code
 
@@ -52,7 +52,7 @@ Para usuarios de la nube nacional, siga estos pasos para configurar el entorno d
 
 1. Seleccione la nube nacional de la lista:
 
-   ![Establezca el inicio de sesión predeterminado de la nube de Azure para Visual Studio Code](../media/extension-for-vscode/set-default-azure-cloud-sign-in.png)
+   :::image type="content" source="../media/extension-for-vscode/set-default-azure-cloud-sign-in.png" alt-text="Establezca el inicio de sesión predeterminado de la nube de Azure para Visual Studio Code" border="false":::
 
 ## <a name="connect-to-an-azure-account"></a>Conexión a la cuenta de Azure
 
@@ -64,13 +64,13 @@ Para evaluar los recursos y los alias de búsqueda, debe conectarse a su cuenta 
 
      En la extensión de Azure Policy, seleccione **Iniciar sesión en Azure**.
 
-     ![Inicio de sesión en la nube de Azure para Visual Studio Code de la extensión de Azure Policy](../media/extension-for-vscode/azure-cloud-sign-in-policy-extension.png)
+     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-policy-extension.png" alt-text="Inicio de sesión en la nube de Azure para Visual Studio Code de la extensión de Azure Policy" border="false":::
 
    - Paleta de comandos
 
      En la barra de menús, vaya a **Vista** > **Paleta de comandos** y escriba **Azure: Sign In** (Iniciar sesión).
 
-     ![Inicio de sesión en la nube de Azure para Visual Studio Code desde la paleta de comandos](../media/extension-for-vscode/azure-cloud-sign-in-command-palette.png)
+     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-command-palette.png" alt-text="Inicio de sesión en la nube de Azure para Visual Studio Code desde la paleta de comandos" border="false":::
 
 1. Siga las instrucciones para iniciar sesión en Azure. Una vez establecida la conexión, el nombre de la cuenta de Azure se muestra en la barra de estado en la parte inferior de la ventana de Visual Studio Code.
 
@@ -121,11 +121,11 @@ Los clientes con cientos o miles de recursos en una sola suscripción pueden pre
 
 ## <a name="discover-aliases-for-resource-properties"></a>Detección de alias para propiedades de recursos
 
-Cuando se selecciona un recurso, ya sea a través de la interfaz de búsqueda o al seleccionarlo en la vista de árbol, la extensión de Azure Policy abre el archivo JSON que representa ese recurso y todos sus valores de propiedad de administrador de recursos.
+Cuando se selecciona un recurso, ya sea mediante la interfaz de búsqueda o al seleccionarlo en la vista de árbol, la extensión de Azure Policy abre el archivo JSON que representa ese recurso y todos sus valores de propiedad de Resource Manager.
 
 Una vez que se abre un recurso, al mantener el mouse sobre el nombre o valor de la propiedad del administrador de recursos, se muestra el alias de Azure Policy, si existe uno. En este ejemplo, el recurso es un tipo de recurso `Microsoft.Compute/virtualMachines` y la propiedad **properties. storageProfile.imageReference.offer** se mantiene sobre ella. Al mantener el mouse se muestran los alias que coinciden.
 
-![El desplazamiento de la extensión de Azure Policy muestra el alias de propiedad del administrador de recursos](../media/extension-for-vscode/extension-hover-shows-property-alias.png)
+:::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="El desplazamiento de la extensión de Azure Policy muestra el alias de propiedad de Resource Manager" border="false":::
 
 ## <a name="search-for-and-view-policies-and-assignments"></a>Búsqueda y visualización de directivas y asignaciones
 

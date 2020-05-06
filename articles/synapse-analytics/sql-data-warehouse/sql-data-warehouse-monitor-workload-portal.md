@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0658a775e40c1fc433c7c2e1d853493544e74ee4
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: 327174974affb3b2511eac60755aa1bf047b3b5e
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80743205"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82133464"
 ---
 # <a name="monitor-workload---azure-portal"></a>Supervisión de la carga de trabajo - Azure Portal
 
@@ -38,7 +38,7 @@ Navegar a la hoja Examinar de las áreas de trabajo de Log Analytics y crear un
 
 Para obtener más detalles sobre las áreas de trabajo, visite la siguiente [documentación](../../azure-monitor/learn/quick-create-workspace.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.jsond#create-a-workspace).
 
-## <a name="turn-on-diagnostic-logs"></a>Activación de los registros de diagnósticos
+## <a name="turn-on-resource-logs"></a>Activación de registros de recursos
 
 Configure las opciones de diagnóstico para emitir registros desde el grupo de SQL. Los registros constan de vistas de telemetría equivalentes a las DMV de solución de problemas de rendimiento más utilizadas. Actualmente se admiten las siguientes vistas:
 
@@ -48,7 +48,7 @@ Configure las opciones de diagnóstico para emitir registros desde el grupo de S
 - [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 - [sys.dm_pdw_sql_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-sql-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
-![Habilitación de registros de diagnóstico](./media/sql-data-warehouse-monitor-workload-portal/enable_diagnostic_logs.png)
+![Habilitación de registros de recursos](./media/sql-data-warehouse-monitor-workload-portal/enable_diagnostic_logs.png)
 
 Los registros se pueden emitir a Azure Storage, Stream Analytics o Log Analytics. Para este tutorial, seleccione Log Analytics.
 

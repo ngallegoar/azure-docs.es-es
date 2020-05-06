@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
-ms.date: 04/14/2020
-ms.openlocfilehash: 317d12f6d5dee92d998266d4e9b6d52e6ef9c7a5
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.custom: hdinsightactive,seoapr2020
+ms.date: 04/29/2020
+ms.openlocfilehash: 48602cb65430bcf6720b4d6f4ba05c771a7bd55b
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81381379"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82559962"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Administración de clústeres de HDInsight mediante la API REST de Apache Ambari
 
@@ -23,7 +23,7 @@ Aprenda a usar la API REST de Apache Ambari para administrar y supervisar clúst
 
 ## <a name="what-is-apache-ambari"></a>¿Qué es Apache Ambari?
 
-[Apache Ambari](https://ambari.apache.org) simplifica la administración y la supervisión de los clústeres de Apache Hadoop al brindar una interfaz de usuario web fácil de usar y respaldada por sus [API REST](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).  De manera predeterminada, Ambari viene con los clústeres de HDInsight basado en Linux.
+Apache Ambari simplifica la administración y la supervisión de los clústeres de Hadoop al proporcionar una interfaz de usuario web fácil de usar y respaldada por sus [API REST](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).  De manera predeterminada, Ambari viene con los clústeres de HDInsight basado en Linux.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -33,7 +33,7 @@ Aprenda a usar la API REST de Apache Ambari para administrar y supervisar clúst
 
 * jq, un procesador JSON de línea de comandos.  Vea [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
 
-* Windows PowerShell.  O puede utilizar [Bash](https://www.gnu.org/software/bash/).
+* Windows PowerShell.  También puede usar Bash.
 
 ## <a name="base-uniform-resource-identifier-for-ambari-rest-api"></a>Identificador uniforme de recursos base para la API REST de Ambari
 

@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/26/2019
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 119265efa7b6504f3faf2e89cb68b9e9bd70bf9f
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 09fd5326c2532e115dbab0752af31a809488f04c
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80617257"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82559694"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Uso de redes kubenet con intervalos de direcciones IP propios en Azure Kubernetes Service (AKS)
 
@@ -30,7 +30,7 @@ En este artículo se muestra cómo usar las redes *kubenet* para crear y usar la
   * `Microsoft.Network/virtualNetworks/subnets/read`
 
 > [!WARNING]
-> Para usar grupos de nodos de Windows Server (actualmente en versión preliminar de AKS), es preciso utilizar Azure CNI. El uso de kubenet como modelo de red no está disponible para contenedores de Windows Server.
+> Para usar grupos de nodos de Windows Server, es preciso utilizar Azure CNI. El uso de kubenet como modelo de red no está disponible para contenedores de Windows Server.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -199,7 +199,7 @@ Al crear un clúster de AKS, también se crean un grupo de seguridad de red y un
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Con un clúster de AKS implementado en la subred de red virtual existente, ahora puede usar el clúster de forma habitual. Empiece a [crear aplicaciones con Azure Dev Spaces][dev-spaces] o a [utilizar Draft][use-draft] o bien [implemente las aplicaciones con Helm][use-helm].
+Con un clúster de AKS implementado en la subred de red virtual existente, ahora puede usar el clúster de forma habitual. Empiece a [crear aplicaciones con Azure Dev Spaces][dev-spaces], [implementar aplicaciones existentes con Helm][use-helm] o [crear nuevas aplicaciones con Helm][develop-helm].
 
 <!-- LINKS - External -->
 [dev-spaces]: https://docs.microsoft.com/azure/dev-spaces/
@@ -217,8 +217,8 @@ Con un clúster de AKS implementado en la subred de red virtual existente, ahora
 [az-network-vnet-subnet-show]: /cli/azure/network/vnet/subnet#az-network-vnet-subnet-show
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [az-aks-create]: /cli/azure/aks#az-aks-create
+[develop-helm]: quickstart-helm.md
 [use-helm]: kubernetes-helm.md
-[use-draft]: kubernetes-draft.md
 [virtual-nodes]: virtual-nodes-cli.md
 [vnet-peering]: ../virtual-network/virtual-network-peering-overview.md
 [express-route]: ../expressroute/expressroute-introduction.md

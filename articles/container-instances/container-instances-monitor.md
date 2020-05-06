@@ -3,12 +3,12 @@ title: Supervisión de instancias de contenedor
 description: Aprenda a supervisar el consumo de los recursos de computación, como la CPU y la memoria, en los contenedores de Azure Container Instances.
 ms.topic: article
 ms.date: 04/24/2019
-ms.openlocfilehash: b4a66254c18d7e01b6d56e64e6b62721b620d499
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e8d41e419abe43530186e256ac6253e2d4783f9b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78250025"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82116374"
 ---
 # <a name="monitor-container-resources-in-azure-container-instances"></a>Supervisión de los recursos de los contenedores en Azure Container Instances
 
@@ -25,13 +25,13 @@ En este momento, las métricas de Azure Monitor solamente están disponibles par
 
 ## <a name="available-metrics"></a>Métricas disponibles
 
-Azure Monitor proporciona las siguientes [métricas para Azure Container Instances][supported-metrics]. Estas métricas están disponibles para grupos de contenedores y contenedores individuales.
+Azure Monitor proporciona las siguientes [métricas para Azure Container Instances][supported-metrics]. Estas métricas están disponibles para grupos de contenedores y contenedores individuales. De forma predeterminada, las métricas se agregan como promedios.
 
-* **Uso de CPU**: medido en **millares de núcleos**. 1 millar de núcleos corresponde a una milésima (1/1000) de un núcleo de CPU, por lo que 500 millares de núcleos (o 500 m) representan el 50 % del uso de un núcleo de CPU. Valor agregado como **promedio de uso** entre todos los núcleos.
+* **Uso de CPU**: medido en **millares de núcleos**. 1 millar de núcleos corresponde a 1/1000 de un núcleo de CPU, por lo que 500 millares de núcleos representan un uso de 0,5 de un núcleo de CPU.
 
-* **Uso de memoria**: valor agregado como **promedio de bytes**.
+* **Uso de memoria** en bytes.
 
-* **Bytes de red recibidos por segundo** y **Bytes de red transmitidos por segundo**: valores agregados como **promedio de bytes por segundo**. 
+* **Bytes de red recibidos por segundo** y **Bytes de red transmitidos por segundo**. 
 
 ## <a name="get-metrics---azure-portal"></a>Obtención de métricas mediante Azure Portal
 

@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fa3c6bf39dbef601fe64e125999f519f725f2e2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 87f5b1ec02400c5cd9d26cc324ddbafdf8d76537
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67083772"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582590"
 ---
 # <a name="delegate-administration-in-azure-active-directory"></a>Delegación de administración en Azure Active Directory
 
@@ -100,7 +100,7 @@ Para mantener el acceso a su almacén de administración de identidades cuando s
 
 ## <a name="secure-your-administrator-roles"></a>Protección de los roles de administrador
 
-Si un atacante toma el control de cuentas con privilegios puede hacer un daño enorme, por lo que en primer lugar tienen que proteger estas cuentas utilizando la [directiva de acceso de base de referencia](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/22/baseline-security-policy-for-azure-ad-admin-accounts-in-public-preview/) que está disponible de forma predeterminada para todos los inquilinos de Azure AD (en versión preliminar pública). La directiva exige la autenticación multifactor en cuentas con privilegios de Azure AD. Los siguientes roles de Azure AD están cubiertos por la directiva de base de referencia de Azure AD:
+Si un atacante toma el control de cuentas con privilegios, puede hacer un daño enorme, por lo que en primer lugar tiene que proteger estas cuentas utilizando la [directiva de acceso de base de referencia](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/22/baseline-security-policy-for-azure-ad-admin-accounts-in-public-preview/) que está disponible de forma predeterminada para todas las organizaciones de Azure AD (en versión preliminar pública). La directiva exige la autenticación multifactor en cuentas con privilegios de Azure AD. Los siguientes roles de Azure AD están cubiertos por la directiva de base de referencia de Azure AD:
 
 * Administrador global
 * Administrador de SharePoint

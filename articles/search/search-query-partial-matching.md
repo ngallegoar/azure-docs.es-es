@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.openlocfilehash: 5a05f2973ac17460250fb3e80eb7bc0da9849940
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 05ff56c904fc48a1041ad40f00110a8ff0fd01f1
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81262883"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82592050"
 ---
 # <a name="partial-term-search-and-patterns-with-special-characters-wildcard-regex-patterns"></a>Búsqueda de términos parciales y patrones con caracteres especiales (carácter comodín, expresión regular y patrones)
 
@@ -24,7 +24,7 @@ La búsqueda de términos parciales o patrones puede ser problemática si el ín
 La solución consiste en invocar un analizador que conserva una cadena completa, incluidos espacios y caracteres especiales, si es necesario, para que pueda hacer coincidir términos parciales y patrones. La creación de un campo adicional para una cadena intacta, además de usar un analizador de preservación de contenido, es la base de la solución.
 
 > [!TIP]
-> ¿Está familiarizado con las API REST y Postman? [Descargue la colección de ejemplos de consultas](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/full-syntax-examples) para consultar los términos parciales y caracteres especiales que se describen en este artículo.
+> ¿Está familiarizado con las API REST y Postman? [Descargue la colección de ejemplos de consultas](https://github.com/Azure-Samples/azure-search-postman-samples/) para consultar los términos parciales y caracteres especiales que se describen en este artículo.
 
 ## <a name="what-is-partial-search-in-azure-cognitive-search"></a>Definición de la búsqueda parcial en Azure Cognitive Search
 

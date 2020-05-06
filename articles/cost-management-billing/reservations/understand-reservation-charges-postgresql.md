@@ -1,20 +1,17 @@
 ---
-title: Aplicación de un descuento por reserva a un servidor individual Azure Database for PostgreSQL
-description: Aplicación de un descuento por reserva a un servidor individual Azure Database for PostgreSQL
+title: 'Información sobre el descuento por reserva: Servidor individual de Azure Database for PostgreSQL'
+description: Aprenda a aplicar un descuento por reserva a un servidor individual de Azure Database for PostgreSQL
 author: kummanish
 ms.author: manishku
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 02/13/2020
-ms.openlocfilehash: e0dc7780ee570ce2d731bedf9ef56be606088a1f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e01b35bc540045bc272484159380f8a11e5a6c48
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199303"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509404"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-database-for-postgresql-single-server"></a>Aplicación de un descuento por reserva a un servidor individual Azure Database for PostgreSQL
 
@@ -28,7 +25,7 @@ Al cerrar un recurso, el descuento por reserva se aplica automáticamente a otro
 
 ## <a name="discount-applied-to-azure-database-for-postgresql-single-server"></a>Descuento aplicado al servidor individual Azure Database for PostgreSQL
 
-El descuento de la capacidad reservada de un servidor individual Azure Database for PostgreSQL se aplica a la ejecución de un solo servidor PostgreSQL cada hora. La reserva que compra coincide con el uso de procesos que emite el servidor Azure Database for PostgreSQL en ejecución. Para los servidores individuales PostgreSQL que no se ejecutan durante una hora entera, la reserva se aplica automáticamente al otro servidor individual Azure Database for PostgreSQL que coincida con los atributos de reserva. El descuento se puede aplicar a servidores Azure Database for PostgreSQL que se están ejecutando simultáneamente. Si no tiene un servidor PostgreSQL que se ejecute durante toda la hora que coincida con los atributos de reserva, no obtendrá todas las ventajas del descuento por la reserva para esa hora.
+El descuento de la capacidad reservada de un servidor individual Azure Database for PostgreSQL se aplica a la ejecución de un solo servidor PostgreSQL cada hora. La reserva que compra coincide con el uso de procesos que emite el servidor Azure Database for PostgreSQL en ejecución. Para los servidores individuales PostgreSQL que no se ejecutan durante una hora entera, la reserva se aplica automáticamente al otro servidor individual Azure Database for PostgreSQL que coincida con los atributos de reserva. El descuento se puede aplicar a servidores Azure Database for PostgreSQL que se están ejecutando simultáneamente. Si no tiene un servidor de PostgreSQL que se ejecute durante toda la hora que coincida con los atributos de reserva, no obtendrá todas las ventajas del descuento por la reserva para esa hora.
 
 En los ejemplos siguientes se muestra cómo se aplica el descuento por la capacidad reservada de Azure Database for PostgreSQL en función del número de núcleos adquiridos y el momento de su ejecución.
 
@@ -44,5 +41,6 @@ En el resto de estos ejemplos, supongamos que la capacidad reservada de Azure Da
 
 Para obtener información sobre la aplicación de Azure Reservations en informes de uso de facturación, consulte el artículo [Información sobre el uso de Azure Reservations](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea).
 
-## <a name="need-help-contact-us"></a>¿Necesita ayuda? Ponerse en contacto con nosotros
+## <a name="next-steps"></a>Pasos siguientes
+
 Si tiene alguna pregunta o necesita ayuda, [cree una solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).

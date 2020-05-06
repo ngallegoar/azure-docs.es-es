@@ -2,26 +2,21 @@
 title: 'Uso de Microsoft Graph API para configurar el aprovisionamiento: Azure Active Directory | Microsoft Docs'
 description: ¿Necesita configurar el aprovisionamiento de varias instancias de una aplicación? Aprenda a ahorrar tiempo mediante el uso de Microsoft Graph API para automatizar la configuración del aprovisionamiento automático.
 services: active-directory
-documentationcenter: ''
 author: msmimart
 manager: CelesteDG
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: mimart
 ms.reviewer: arvinh
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: c72217a565071f9531281af1862ba3681e353a4d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 585cafc548b3458c6e9cc0ef91c44f163fb7fa2f
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481473"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593954"
 ---
 # <a name="configure-provisioning-using-microsoft-graph-apis"></a>Configuración del aprovisionamiento mediante las Microsoft Graph API
 

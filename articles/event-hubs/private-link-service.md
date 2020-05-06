@@ -7,12 +7,12 @@ ms.author: spelluru
 ms.date: 03/12/2020
 ms.service: event-hubs
 ms.topic: article
-ms.openlocfilehash: bcc360bbe4dd58200993b9377317ccb608b3529d
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: fb8fc93174345d0bdb09e4308a4206a65ed2270a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383643"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82148203"
 ---
 # <a name="integrate-azure-event-hubs-with-azure-private-link-preview"></a>Integración de Azure Event Hubs con Azure Private Link (versión preliminar)
 Azure Private Link le permite acceder a los servicios de Azure (por ejemplo, Azure Event Hubs, Azure Storage y Azure Cosmos DB) y a los servicios de asociados o clientes hospedados de Azure mediante un **punto de conexión privado** de la red virtual.
@@ -21,11 +21,26 @@ Un punto de conexión privado es una interfaz de red que le conecta de forma pri
 
 Para más información, consulte [¿Qué es Azure Private Link?](../private-link/private-link-overview.md)
 
-> [!NOTE]
+> [!IMPORTANT]
 > Esta característica solo se admite con el nivel **Dedicado**. Para más información acerca del nivel Dedicado, consulte [Introducción a Event Hubs dedicado](event-hubs-dedicated-overview.md). 
 >
-> Esta característica actualmente está en su **versión preliminar**. 
+> Esta funcionalidad actualmente está en su **versión preliminar**. 
 
+>[!WARNING]
+> La habilitación de los puntos de conexión privados puede evitar que otros servicios de Azure interactúen con Event Hubs.
+>
+> Los servicios de confianza de Microsoft no se admiten cuando se usan instancias de Virtual Network.
+>
+> Estos son los escenarios comunes de Azure que no funcionan con instancias de Virtual Network (tenga en cuenta que la lista **NO** está completa).
+> - Azure Monitor (configuración de diagnósticos)
+> - Azure Stream Analytics
+> - Integración con Azure Event Grid
+> - Enrutamientos de Azure IoT Hub
+> - Azure IoT Device Explorer
+>
+> Los siguientes servicios de Microsoft deben estar en una red virtual
+> - Azure Web Apps
+> - Azure Functions
 
 ## <a name="add-a-private-endpoint-using-azure-portal"></a>Incorporación de un punto de conexión privado mediante Azure Portal
 
@@ -57,7 +72,7 @@ Si ya tiene un espacio de nombres de Event Hubs, puede crear una conexión de v�
     1. Seleccione la **suscripción de Azure** donde desea crear el punto de conexión privado. 
     2. Seleccione el **grupo de recursos** para el recurso de punto de conexión privado.
     3. Escriba el **Nombre** del punto de conexión privado. 
-    5. Seleccione la **región** del punto de conexión privado. El punto de conexión privado debe estar en la misma región que la red virtual, pero puede estar en otra región distinta de la del recurso de Private Link al que se está conectando. 
+    5. Seleccione la **región** del punto de conexión privado. El punto de conexión privado debe estar en la misma región que la red virtual, que puede no ser la misma que la del recurso de Private Link al que se está conectando. 
     6. Seleccione **Siguiente: Recurso >** en la parte inferior de la página.
 
         ![Creación de un punto de conexión privado: página Conceptos básicos](./media/private-link-service/create-private-endpoint-basics-page.png)
@@ -71,7 +86,7 @@ Si ya tiene un espacio de nombres de Event Hubs, puede crear una conexión de v�
         
             ![Creación de un punto de conexión privado: página Recurso](./media/private-link-service/create-private-endpoint-resource-page.png)    
     2. Si selecciona **Conéctese a un recurso de Azure por identificador de recurso o alias.** , siga estos pasos:
-        1. Escriba el **identificador de recurso** o **alias**. Puede ser el identificador de recurso o el alias que alguien haya compartido con usted.
+        1. Escriba el **identificador de recurso** o **alias**. Puede ser el identificador de recurso o el alias que alguien haya compartido con usted. La forma más fácil de obtener el identificador de recurso es desplazarse hasta el espacio de nombres de Event Hubs de Azure Portal y copiar la parte de URI a partir de `/subscriptions/`. Vea la imagen siguiente como ejemplo. 
         2. En **Subrecurso de destino**, escriba **espacio de nombres**. Este es el tipo de subrecurso al que puede acceder el punto de conexión privado.
         3. (Opcional) Escriba un **mensaje de solicitud**. El propietario del recurso ve este mensaje mientras administra la conexión del punto de conexión privado.
         4. Después, seleccione **Next (Siguiente): Configuración >** situado en la parte inferior de la página.

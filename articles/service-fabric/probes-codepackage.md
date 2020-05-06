@@ -2,19 +2,21 @@
 title: Sondeos de Azure Service Fabric
 description: Aprenda a modelar sondeos de ejecución en Azure Service Fabric mediante archivos de manifiesto de servicio y aplicación.
 ms.topic: conceptual
+author: tugup
+ms.author: tugup
 ms.date: 3/12/2020
-ms.openlocfilehash: 38f3888a29bf505b723d40bc7cd08fb0c7e29eff
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 07a1b836ca7ea79244e303f54654dfcaa6e5fcb9
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81427444"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82137593"
 ---
 # <a name="liveness-probe"></a>Sondeo de ejecución
-A partir de la versión 7.1, Service Fabric admite el mecanismo de sondeo de ejecución para aplicaciones en [contenedores][containers-introduction-link]. El sondeo de ejecución ayuda a anunciar la vivacidad de aplicaciones en contenedores y, cuando no responden a tiempo, se producirá un reinicio.
-En este artículo se proporciona información general sobre cómo definir un sondeo de ejecución a través de archivos de manifiesto.
+A partir de la versión 7.1, Azure Service Fabric admite un mecanismo de sondeo de ejecución para aplicaciones en [contenedores][containers-introduction-link]. Un sondeo de ejecución ayuda a notificar la ejecución de una aplicación en contenedores, que se reiniciará si no responde rápidamente.
+En este artículo se proporciona información general sobre cómo definir un sondeo de ejecución mediante archivos de manifiesto.
 
-Antes de continuar con este artículo, le recomendamos que se familiarice con el [modelo de aplicación de Service Fabric][application-model-link] y el [modelo de hospedaje de Service Fabric][hosting-model-link].
+Antes de continuar con este artículo, familiarícese con el [modelo de aplicación de Service Fabric][application-model-link] y con el [modelo de hospedaje de Service Fabric][hosting-model-link].
 
 > [!NOTE]
 > El sondeo de ejecución solo se admite para contenedores en el modo de red NAT.
@@ -22,43 +24,43 @@ Antes de continuar con este artículo, le recomendamos que se familiarice con el
 ## <a name="semantics"></a>Semántica
 Solo puede especificar un sondeo de ejecución por contenedor y puede controlar su comportamiento con los campos siguientes:
 
-* `initialDelaySeconds`: Retraso inicial en segundos para comenzar la ejecución del sondeo una vez que se ha iniciado el contenedor. El valor admitido es int. El valor predeterminado es 0. El mínimo es de 0.
+* `initialDelaySeconds`: Retraso inicial en segundos para comenzar la ejecución del sondeo una vez que se ha iniciado el contenedor. El valor admitido es **int**. El valor predeterminado es 0 y el mínimo, 0.
 
-* `timeoutSeconds`: Período en segundos tras el cual se considera que el sondeo es erróneo si no se ha completado correctamente. El valor admitido es int. El valor predeterminado es 1. El valor mínimo es 1.
+* `timeoutSeconds`: Período en segundos tras el cual se considera que el sondeo es erróneo si no se ha completado correctamente. El valor admitido es **int**. El valor predeterminado es 1 y el mínimo, 1.
 
-* `periodSeconds`: Período en segundos para especificar la frecuencia de sondeo. El valor admitido es int. El valor predeterminado es 10. El valor mínimo es 1.
+* `periodSeconds`: Período en segundos para especificar la frecuencia del sondeo. El valor admitido es **int**. El valor predeterminado es 10 y el mínimo, 1.
 
-* `failureThreshold`: Una vez que se alcanza FailureThreshold, el contenedor se reiniciará. El valor admitido es int. El valor predeterminado es 3. El valor mínimo es 1.
+* `failureThreshold`: Cuando se alcance este valor, el contenedor se reiniciará. El valor admitido es **int**. El valor predeterminado es 3 y el mínimo, 1.
 
-* `successThreshold`: En caso de error, para que el sondeo se considere correcto, debe ejecutarse correctamente para SuccessThreshold. El valor admitido es int. El valor predeterminado es 1. El valor mínimo es 1.
+* `successThreshold`: En caso de error, para que el sondeo se considere correcto, debe ejecutarse correctamente para este valor. El valor admitido es **int**. El valor predeterminado es 1 y el mínimo, 1.
 
-Habrá como máximo un sondeo por contenedor en un momento dado. Si el sondeo no se completa en **timeoutSeconds**, seguimos esperando y contando hasta **failureThreshold**. 
+Puede haber, como máximo, un sondeo en un contenedor en cualquier momento. Si el sondeo no finaliza en el tiempo establecido en **timeoutSeconds**, espere y cuente el tiempo hasta **failureThreshold**. 
 
-Además, ServiceFabric generará los siguientes [informes de mantenimiento][health-introduction-link] de sondeo en DeployedServicePackage:
+Además, Service Fabric generará los siguientes [informes de mantenimiento][health-introduction-link] de sondeo en **DeployedServicePackage**:
 
-* `Ok`: Si el sondeo se completa correctamente para **successThreshold**, se notifica el estado como correcto.
+* `OK`: El sondeo se realiza correctamente para el valor establecido en **successThreshold**.
 
-* `Error`: Si failureCount del sondeo == **failureThreshold** antes de reiniciar el contenedor, se notifica un error.
+* `Error`: El sondeo **failureCount** ==  **failureThreshold** antes de que se reinicie el contenedor.
 
 * `Warning`: 
-    1. Si se produce un error en el sondeo y failureCount < **failureThreshold**, se notifica una advertencia. Este informe de mantenimiento se conserva hasta que failureCount alcanza **failureThreshold** o **successThreshold**.
-    2. Si se completa correctamente después de un error, todavía se informa de la advertencia, pero con la actualización de la finalización correcta consecutiva.
+    * Se produce un error en el sondeo y **failureCount** < **failureThreshold**. Este informe de mantenimiento se conserva hasta que **failureCount** alcanza el valor definido en **failureThreshold** o **successThreshold**.
+    * Si se ejecuta correctamente después de un error, la advertencia se conserva, pero con los éxitos consecutivos actualizados.
 
-## <a name="specifying-liveness-probe"></a>Especificación del sondeo de ejecución
+## <a name="specifying-a-liveness-probe"></a>Especificación del sondeo de ejecución
 
-Puede especificar el sondeo en ApplicationManifest.xml en ServiceManifestImport:
+Puede especificar un sondeo en el archivo ApplicationManifest.xml en **ServiceManifestImport**.
 
-El sondeo puede ser cualquiera de los siguientes:
+El sondeo se puede realizar para cualquiera de estas opciones:
 
-1. HTTP
-2. TCP
-3. Exec 
+* HTTP
+* TCP
+* Exec 
 
-## <a name="http-probe"></a>Sondeo HTTP
+### <a name="http-probe"></a>Sondeo HTTP
 
-En el caso de sondeo HTTP, Service Fabric enviará una solicitud HTTP al puerto y la ruta de acceso especificados. Un código de retorno mayor o igual que 200 y menor que 400 indica que se ha completado correctamente.
+En el caso de un sondeo HTTP, Service Fabric enviará una solicitud HTTP al puerto y la ruta de acceso que especifique. Un código de retorno mayor o igual que 200 y menor que 400 indica que se ha completado correctamente.
 
-Este es un ejemplo de cómo especificar un sondeo HttpGet:
+Este es un ejemplo de cómo especificar un sondeo HTTP:
 
 ```xml
   <ServiceManifestImport>
@@ -79,21 +81,21 @@ Este es un ejemplo de cómo especificar un sondeo HttpGet:
   </ServiceManifestImport>
 ```
 
-El sondeo HttpGet tiene propiedades adicionales que puede establecer:
+El sondeo HTTP tiene propiedades adicionales que puede establecer:
 
-* `path`: Ruta de acceso en la solicitud HTTP.
+* `path`: Ruta de acceso que se usará en la solicitud HTTP.
 
-* `port`: Puerto de acceso para los sondeos. El rango es de 1 a 65535. Mandatory.
+* `port`: Puerto que se usará para los sondeos. Esta propiedad es obligatoria. El rango es de 1 a 65535.
 
-* `scheme`: Esquema que se va a usar para conectarse al paquete de código. Si se establece en HTTPS, se omite la verificación de certificados. El valor predeterminado es HTTP.
+* `scheme`: Esquema que se usará para la conexión al paquete de código. Si esta propiedad se establece en HTTPS, se omite la verificación de certificados. El valor predeterminado es HTTP.
 
-* `httpHeader`: Encabezados que se van a establecer en la solicitud. Puede especificar varios de estos.
+* `httpHeader`: Encabezados que se definirán en la solicitud. Puede especificar varios encabezados.
 
-* `host`: Dirección IP del host al que se va a conectar.
+* `host`: Dirección IP del host al que se conectará.
 
-## <a name="tcp-probe"></a>Sondeo TCP
+### <a name="tcp-probe"></a>Sondeo TCP
 
-En el caso del sondeo TCP, Service Fabric intentará abrir un socket en el contenedor con el puerto especificado. Si puede establecer una conexión, el sondeo se considera correcto. Este es un ejemplo de cómo especificar el sondeo que usa el socket TCP:
+En el caso de un sondeo TCP, Service Fabric intentará abrir un socket en el contenedor mediante el puerto especificado. Si puede establecer una conexión, el sondeo se considera correcto. Este es un ejemplo de cómo especificar el sondeo que usa un socket TCP:
 
 ```xml
   <ServiceManifestImport>
@@ -111,13 +113,13 @@ En el caso del sondeo TCP, Service Fabric intentará abrir un socket en el conte
   </ServiceManifestImport>
 ```
 
-## <a name="exec-probe"></a>Sondeo exec
+### <a name="exec-probe"></a>Sondeo exec
 
-Este sondeo emitirá un comando exec en el contenedor y esperará a que se complete el comando.
+Este sondeo emitirá un comando **exec** en el contenedor y esperará a que finalice.
 
 > [!NOTE]
-> El comando exec toma una cadena separada por comas. El siguiente comando en el ejemplo funcionará para un contenedor de Linux.
-> Si está probando un contenedor de Windows, use <Command>cmd</Command>.
+> El comando **exec** toma una cadena separada por comas. El comando del siguiente ejemplo funcionaría para un contenedor Linux.
+> Si está intentando un sondeo en un contenedor Windows, use **cmd**.
 
 ```xml
   <ServiceManifestImport>
@@ -138,8 +140,8 @@ Este sondeo emitirá un comando exec en el contenedor y esperará a que se compl
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener información relacionada, consulte los siguientes artículos.
-* [Service Fabric y contenedores.][containers-introduction-link]
+Para obtener información relacionada, consulte el artículo siguiente:
+* [Service Fabric y contenedores][containers-introduction-link]
 
 <!-- Links -->
 [containers-introduction-link]: service-fabric-containers-overview.md

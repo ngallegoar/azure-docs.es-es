@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
-ms.date: 04/14/2020
-ms.openlocfilehash: d68f7dc6368c2b3de7f26f2946c5fb47237a820d
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.custom: hdinsightactive,seoapr2020
+ms.date: 04/28/2020
+ms.openlocfilehash: 77314514ca26997fecd6b5d7c6ba1fc7d14c2584
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81313931"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82209067"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Uso de firmas de acceso compartido de Azure Storage para restringir el acceso a datos en HDInsight
 
@@ -39,7 +39,7 @@ HDInsight tiene acceso total a los datos de las cuentas de Azure Storage asociad
 
 * Si usa C#, debe usar la versión 2013 de Visual Studio o superior.
 
-* El [esquema de URI](./hdinsight-hadoop-linux-information.md#URI-and-scheme) para la cuenta de almacenamiento. Este esquema sería `wasb://` para Azure Storage, `abfs://` para Azure Data Lake Storage Gen2 o `adl://` para Azure Data Lake Storage Gen1. Si se habilita la transferencia segura para Azure Storage, el identificador URI sería `wasbs://`. Consulte también el artículo acerca de la [transferencia segura](../storage/common/storage-require-secure-transfer.md).
+* El esquema de URI para la cuenta de almacenamiento. Este esquema sería `wasb://` para Azure Storage, `abfs://` para Azure Data Lake Storage Gen2 o `adl://` para Azure Data Lake Storage Gen1. Si se habilita la transferencia segura para Azure Storage, el identificador URI sería `wasbs://`.
 
 * Un clúster de HDInsight existente al que agregar una firma de acceso compartido. Si no es así, puede usar Azure PowerShell para crear un clúster y agregar una firma de acceso compartido durante la creación del clúster.
 
@@ -435,5 +435,5 @@ Siga los pasos siguientes para comprobar que solo puede leer y enumerar elemento
 
 Ahora que ha aprendido a agregar almacenamiento de acceso limitado al clúster de HDInsight, obtenga información acerca de otras maneras de trabajar con datos en el clúster:
 
-* [Uso de Apache Hive con HDInsight](hadoop/hdinsight-use-hive.md)
-* [Uso de MapReduce con HDInsight](hadoop/hdinsight-use-mapreduce.md)
+* [Uso de SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
+* [Autorización de usuarios para vistas de Apache Ambari](hdinsight-authorize-users-to-ambari.md)

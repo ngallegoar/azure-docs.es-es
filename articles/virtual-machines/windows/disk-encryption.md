@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: 930fcb4c023dc58fe0eeea65aa3fa5f78569e628
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: b25d35ce467786c402c56c8a7d19a305381db94f
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82085678"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82137797"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Cifrado del lado servidor de Azure Managed Disks
 
@@ -189,7 +189,7 @@ Update-AzVM -ResourceGroupName $ResourceGroupName -VM $vm
 
 ```
 
-#### <a name="encrypt-existing-unattached-managed-disks"></a>Cifrado de discos administrados no asociados existentes 
+#### <a name="encrypt-existing-managed-disks"></a>Cifrado de los discos administrados existentes 
 
 Los discos existentes no deben estar asociados a una máquina virtual en ejecución para que los cifre mediante el siguiente script:
 

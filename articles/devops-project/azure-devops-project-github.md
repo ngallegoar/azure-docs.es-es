@@ -1,36 +1,33 @@
 ---
-title: 'Tutorial: Creación de una canalización de CI/CD para el código existente mediante Azure DevOps Projects'
-description: Con Azure DevOps Projects es fácil empezar a usar Azure. DevOps Projects le ayuda, con pocos pasos rápidos, a usar su propio código y repositorio de GitHub para iniciar una aplicación en un servicio de Azure.
+title: 'Tutorial: Creación de una canalización de CI/CD para el código existente mediante Azure DevOps Starter'
+description: Azure DevOps Starter facilita la introducción a Azure. DevOps Projects le ayuda, con pocos pasos rápidos, a usar su propio código y repositorio de GitHub para iniciar una aplicación en un servicio de Azure.
 services: vsts
 documentationcenter: vs-devops-build
 ms.author: mlearned
 ms.manager: gwallace
-editor: ''
-ms.assetid: ''
 ms.workload: web
 ms.prod: devops
 ms.technology: devops-cicd
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 06/27/2019
+ms.date: 03/24/2020
 author: mlearned
 ms.custom: mvc
-monikerRange: vsts
-ms.openlocfilehash: a0496999a9a5dc3e9bfd57df0ec035e6db77d620
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 55c6cbc18e37368dd47c47227041024b13987c47
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73615124"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82233217"
 ---
-# <a name="tutorial-create-a-cicd-pipeline-for-your-existing-code-by-using-azure-devops-projects"></a>Tutorial: Creación de una canalización de CI/CD para el código existente mediante Azure DevOps Projects
+# <a name="create-a-cicd-pipeline-for-github-repo-using-azure-devops-starter"></a>Creación de una canalización de CI/CD para el repositorio de GitHub con Azure DevOps Starter
 
-Azure DevOps Projects presenta un proceso simplificado para crear una canalización de integración continua (CI) y entrega continua (CD) en Azure. Puede traer el código y el repositorio de Git existentes, o bien seleccionar una aplicación de ejemplo.
+Azure DevOps Starter presenta un proceso simplificado para crear una canalización de integración continua (CI) y entrega continua (CD) en Azure. Puede traer el código y el repositorio de Git existentes, o bien seleccionar una aplicación de ejemplo.
 
 Podrá:
 
 > [!div class="checklist"]
-> * Usar DevOps Projects para crear una canalización de CI/CD
+> * Usar DevOps Starter para crear una canalización de CI/CD
 > * Configurar el acceso a un repositorio de GitHub y elegir un marco
 > * Configuración de Azure DevOps y una suscripción de Azure 
 > * Confirmar cambios en GitHub e implementarlos automáticamente en Azure
@@ -44,18 +41,14 @@ Podrá:
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
-Azure DevOps Projects crea una canalización de CI/CD en Azure Pipelines. Puede crear una organización de Azure DevOps nueva o usar una existente. Azure DevOps Projects también crea recursos de Azure en la suscripción de Azure que prefiera.
+Azure DevOps Starter crea una canalización de CI/CD en Azure Pipelines. Puede crear una organización de Azure DevOps nueva o usar una existente. Azure DevOps Starter también crea recursos de Azure en la suscripción de Azure que prefiera.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
-2. En el menú de Azure Portal, seleccione **Crear un recurso**.
+1. En el cuadro de búsqueda, escriba **DevOps Starter** y, a continuación, seleccione. Haga clic en **Agregar** para crear un recurso.
 
-   ![Menú de Azure Portal: creación de un recurso](_img/azure-devops-project-github/createaresource.png)
-
-3. Seleccione **DevOps** > **Proyecto de DevOps**.
-
-   ![El panel de DevOps Projects](_img/azure-devops-project-github/azuredashboard.png)
-
+    ![Panel de DevOps Starter](_img/azure-devops-starter-aks/search-devops-starter.png)
+    
 1. Seleccione **Traiga su propio código** y, después, **Siguiente**.
 
 ## <a name="configure-access-to-your-github-repo-and-select-a-framework"></a>Configuración del acceso al repositorio de GitHub y selección de un marco de trabajo
@@ -78,9 +71,9 @@ Azure DevOps Projects crea una canalización de CI/CD en Azure Pipelines. Puede 
 
 1. Cree una nueva organización gratuita en **Organización de Azure DevOps** o seleccione una organización existente en el menú desplegable.
 
-1. Seleccione la suscripción en **Suscripción a Azure** y, después, escriba un nombre en **Aplicación web** o use el valor predeterminado. Seleccione un valor en **Ubicación** y, después, **Listo**. En unos minutos, se muestra en Azure Portal la información general sobre la implementación de DevOps Projects.
+1. Seleccione la suscripción en **Suscripción a Azure** y, después, escriba un nombre en **Aplicación web** o use el valor predeterminado. Seleccione un valor en **Ubicación** y, después, **Listo**. En unos minutos, se muestra la información general de la implementación de DevOps Starter en Azure Portal.
 
-1. Seleccione **Ir al recurso** para ver el panel de DevOps Projects. En la esquina superior derecha, ancle el **proyecto** al panel para un acceso rápido. Azure DevOps Projects configura automáticamente una compilación de integración continua y un desencadenador de versión. El código permanece en el repositorio de GitHub o en otro repositorio externo; además, se configura una aplicación de ejemplo en un repositorio de la organización definida en **Organización de Azure DevOps**. Azure DevOps Projects ejecuta la compilación e implementa la aplicación en Azure.
+1. Seleccione **Ir al recurso** para ver el panel de DevOps Starter. En la esquina superior derecha, ancle el **proyecto** al panel para un acceso rápido. Azure DevOps Starter configura automáticamente una compilación de integración continua y un desencadenador de versión. El código permanece en el repositorio de GitHub o en otro repositorio externo; además, se configura una aplicación de ejemplo en un repositorio de la organización definida en **Organización de Azure DevOps**. Azure DevOps Starter ejecuta la compilación e implementa la aplicación en Azure.
 
    ![Vista del panel de Azure DevOps Projects](_img/azure-devops-project-github/projectsdashboard.png)
 
@@ -90,15 +83,15 @@ Azure DevOps Projects crea una canalización de CI/CD en Azure Pipelines. Puede 
 
 Ahora está listo para colaborar en la aplicación con un equipo. El proceso de CI/CD implementa automáticamente el trabajo más reciente en el sitio web. Cada cambio que se realiza en el repositorio de GitHub inicia una compilación en Azure DevOps; además, una canalización de CD ejecuta una implementación en Azure.
 
-1. En el panel de DevOps Projects, seleccione **Repositorios**. El repositorio de GitHub se abre en una nueva pestaña del explorador. Realice un cambio en la aplicación y seleccione **Confirmar cambios**.
+1. En el panel de DevOps Starter, seleccione **Repositorios**. El repositorio de GitHub se abre en una nueva pestaña del explorador. Realice un cambio en la aplicación y seleccione **Confirmar cambios**.
 
-1. Poco después se inicia una compilación en Azure Pipelines. Puede supervisar el estado de la compilación en el panel de DevOps Projects. También puede supervisarlo desde la organización de Azure DevOps al seleccionar la pestaña **Canalizaciones de compilación** en el panel de DevOps Projects.
+1. Poco después se inicia una compilación en Azure Pipelines. Puede supervisar el estado de la compilación en el panel de DevOps Starter. También puede supervisarlo desde la organización de Azure DevOps si selecciona la pestaña **Canalizaciones de compilación** en el panel de DevOps Starter.
 
 ## <a name="examine-the-azure-pipelines-cicd-pipeline"></a>Examen de la canalización de CI/CD de Azure Pipelines
 
-Azure DevOps Projects configura automáticamente una canalización de CI/CD en Azure Pipelines. Explore y personalice la canalización según sea necesario. Para familiarizarse con las canalizaciones de compilación y de versión, siga estos pasos:
+Azure DevOps Starter configura automáticamente una canalización de CI/CD en Azure Pipelines. Explore y personalice la canalización según sea necesario. Para familiarizarse con las canalizaciones de compilación y de versión, siga estos pasos:
 
-1. En el panel de DevOps Projects, seleccione **Canalizaciones de compilación**.
+1. En el panel de DevOps Starter, seleccione **Canalizaciones de compilación**.
 
 1. Una vez abierta la página de **Azure Pipelines**, verá un historial de las compilaciones más recientes y el estado de cada una de ellas.
 

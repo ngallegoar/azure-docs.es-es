@@ -1,7 +1,7 @@
 ---
 title: 'Características de la interacción de varios inquilinos: Azure AD | Microsoft Docs'
-description: Descripción de los inquilinos de Azure Active Directory como organizaciones totalmente independientes
-services: active-tenant
+description: Descripción de la independencia de datos de las organizaciones de Azure Active Directory
+services: active-directory
 documentationcenter: ''
 author: curtand
 manager: daveba
@@ -9,21 +9,21 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 04/07/2020
+ms.date: 04/29/2020
 ms.author: curtand
 ms.custom: it-pro
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 175d9ce7db1657e0e654f46adaf8a8d8ef28c25e
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: bbe7b0211775e59504443d30fa253cfa14af13b1
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878126"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582750"
 ---
 # <a name="understand-how-multiple-azure-active-directory-organizations-interact"></a>Información de cómo interactúan varias organizaciones de Azure Active Directory
 
-En Azure Active Directory (Azure AD), cada inquilino es una organización totalmente independiente: un recurso del mismo nivel, que es lógicamente independiente de otras organizaciones de Azure AD que administre. Esta independencia entre organizaciones incluye la independencia de recursos, la independencia administrativa y la independencia de sincronización. No hay ninguna relación de elementos primarios y secundarios entre las organizaciones.
+En Azure Active Directory (Azure AD), cada organización de Azure AD es totalmente independiente: un elemento del mismo nivel, que es lógicamente independiente de otras organizaciones de Azure AD que administre. Esta independencia entre organizaciones incluye la independencia de recursos, la independencia administrativa y la independencia de sincronización. No hay ninguna relación de elementos primarios y secundarios entre las organizaciones.
 
 ## <a name="resource-independence"></a>Independencia de recursos
 

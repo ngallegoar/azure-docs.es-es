@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 04/24/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7902112c1694bacfeb45b5f20db80d5136642169
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4d2681c09030ff0f36938d7a09e1d1b2e9aa645c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77047944"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82166317"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-azure-ad-saml-toolkit"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Azure AD SAML Toolkit
 
@@ -89,6 +88,9 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     c. En el cuadro de texto **URL de respuesta**, escriba una dirección URL: `https://samltoolkit.azurewebsites.net/SAML/Consume`
 
+    > [!NOTE]
+    > Estos valores no son reales. Actualice estos valores con los valores de la dirección URL de inicio de sesión, el identificador y la dirección URL de respuesta reales, que se explican más adelante en el tutorial.
+
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (sin procesar)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
 
     ![Vínculo de descarga del certificado](common/certificateraw.png)
@@ -154,6 +156,8 @@ En esta sección, vas a permitir que B. Simon use el inicio de sesión único d
     1. Haga clic en **Choose File** (Elegir archivo) para cargar el archivo de **Certificate (Raw)** (Certificado [sin procesar]) que ha descargado desde Azure Portal.
 
     1. Haga clic en **Crear**.
+
+    1. Copie los valores de dirección URL de inicio de sesión, identificador y dirección URL de ACS de la página de configuración de inicio de sesión único del kit de herramientas de SAML y péguelo en los cuadros de texto correspondientes de la **sección Configuración básica de SAML** en Azure Portal.
 
 ### <a name="create-azure-ad-saml-toolkit-test-user"></a>Crear un usuario de prueba de Azure AD SAML Toolkit
 

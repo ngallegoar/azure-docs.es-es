@@ -3,12 +3,12 @@ title: 'Supervisión de aplicaciones Java en ejecución en cualquier entorno: Ap
 description: Supervisión de rendimiento de aplicaciones para aplicaciones Java que se ejecutan en cualquier entorno con el agente independiente de Java sin instrumentar la aplicación. Seguimiento distribuido y mapa de aplicación.
 ms.topic: conceptual
 ms.date: 04/16/2020
-ms.openlocfilehash: 08a83fbc05276808b62a0391a5c4217cc09f6d00
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.openlocfilehash: 527f1eaf04be7b5e8c89c12912a06d2f5d50321f
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2020
-ms.locfileid: "81642585"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82508044"
 ---
 # <a name="configuring-jvm-args-java-standalone-agent-for-azure-monitor-application-insights"></a>Configuración de los argumentos de JVM del agente independiente de Java para Application Insights de Azure Monitor
 
@@ -20,15 +20,25 @@ Configure [App Services](https://docs.microsoft.com/azure/app-service/configure-
 
 ## <a name="spring-boot"></a>Spring Boot
 
-Agregue el argumento de JVM `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` en alguna parte antes de `-jar <myapp.jar>`, por ejemplo:
+Agregue el argumento de JVM `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` en alguna parte antes de `-jar`, por ejemplo:
 
 ```
 java -javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar -jar <myapp.jar>
 ```
 
-> [!NOTE]
-> Los argumentos colocados después de `-jar <myapp.jar>` se pasan a la aplicación como argumentos del programa.
+## <a name="spring-boot-via-docker-entry-point"></a>Spring Boot mediante el punto de entrada de Docker
 
+Si usa el formato *exec*, agregue el parámetro `"-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar"` a la lista de parámetros en algún lugar antes del parámetro `"-jar"`, por ejemplo:
+
+```
+ENTRYPOINT ["java", "-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar", "-jar", "<myapp.jar>"]
+```
+
+Si usa el formato *shell*, agregue el argumento `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` de JVM en algún lugar antes de `-jar`, por ejemplo:
+
+```
+ENTRYPOINT java -javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar -jar <myapp.jar>
+```
 
 ## <a name="tomcat-8-linux"></a>Tomcat 8 (Linux)
 

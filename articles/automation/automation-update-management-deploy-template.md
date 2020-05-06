@@ -6,13 +6,13 @@ ms.subservice: update-management
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 03/30/2020
-ms.openlocfilehash: e69f3d7350d0da9f364983eae0935532b576bd76
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.date: 04/24/2020
+ms.openlocfilehash: 45045cb1360658d394e5469d022ac03033d11aff
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80411469"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82165797"
 ---
 # <a name="onboard-update-management-solution-using-azure-resource-manager-template"></a>Incorporación de la solución Update Management con una plantilla de Azure Resource Manager
 
@@ -20,16 +20,19 @@ Puede usar [plantillas de Azure Resource Manager](../azure-resource-manager/temp
 
 * La creación de un área de trabajo de Log Analytics en Azure Monitor.
 * El registro de una cuenta de Azure Automation.
-* El vínculo de la cuenta de Automation al área de trabajo de Log Analytics si aún no está vinculada.
-* Incorporación de la solución Update Management de Azure Automation
+* La vinculación de la cuenta de Automation al área de trabajo de Log Analytics si aún no está vinculada.
+* La incorporación de la solución Update Management de Azure Automation.
 
 La plantilla no automatiza la incorporación de una o varias máquinas virtuales de Azure o que no son de Azure.
 
-Si ya tiene un área de trabajo de Log Analytics y una cuenta de Automation implementadas en una región admitida de su suscripción, no están vinculadas y el área de trabajo aún no tiene implementada la solución Update Management, esta plantilla crea correctamente el vínculo e implementa dicha solución. 
+Si ya tiene un área de trabajo de Log Analytics y una cuenta de Automation implementada en una región admitida de la suscripción, no se vinculan. El área de trabajo aún no tiene implementada la solución Update Management. Con esta plantilla se crea correctamente el vínculo y se implementa la solución Update Management. 
+
+>[!NOTE]
+>Este artículo se ha actualizado para usar el nuevo módulo Az de Azure PowerShell. Aún puede usar el módulo de AzureRM que continuará recibiendo correcciones de errores hasta diciembre de 2020 como mínimo. Para más información acerca del nuevo módulo Az y la compatibilidad con AzureRM, consulte [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0) (Presentación del nuevo módulo Az de Azure PowerShell). Para obtener instrucciones sobre la instalación del módulo Az en Hybrid Runbook Worker, consulte [Instalación del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Puede actualizar los módulos de su cuenta de Automation a la versión más reciente mediante [Actualización de módulos de Azure PowerShell en Azure Automation](automation-update-azure-modules.md).
 
 ## <a name="api-versions"></a>Versiones de API
 
-En la tabla siguiente se muestra la versión de API de los recursos usados en este ejemplo.
+En la tabla siguiente se muestra la versión de API de los recursos usados en esta plantilla.
 
 | Resource | Tipo de recurso | Versión de API |
 |:---|:---|:---|
@@ -39,16 +42,16 @@ En la tabla siguiente se muestra la versión de API de los recursos usados en es
 
 ## <a name="before-using-the-template"></a>Antes de usar la plantilla
 
-Si decide instalar y usar PowerShell de forma local, para realizar los pasos de este artículo necesita el módulo Az de Azure PowerShell. Ejecute `Get-Module -ListAvailable Az` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzAccount` para crear una conexión con Azure. Con Azure PowerShell, la implementación usa [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment).
+Si decide instalar y usar PowerShell de forma local, para realizar los pasos de este artículo necesita el módulo Az de Azure PowerShell. Ejecute `Get-Module -ListAvailable Az` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps). Si PowerShell se ejecuta localmente, también debe ejecutar [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.7.0) para crear una conexión con Azure. Con Azure PowerShell, la implementación usa [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment).
 
 Si decide instalar y usar la CLI localmente, para este artículo es preciso que ejecute la versión 2.1.0 o posterior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Con la CLI de Azure, esta implementación usa [az group deployment create](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). 
 
 La plantilla JSON se configura para pedir al usuario:
 
 * El nombre del área de trabajo
-* La región en la que crear un área de trabajo
+* La región en la que se va a crear el área de trabajo
 * El nombre de la cuenta de Automation
-* La región en la que crear la cuenta
+* La región en la que se va a crear la cuenta
 
 La plantilla JSON especifica un valor predeterminado para el resto de parámetros que es probable que se utilice como configuración estándar en el entorno. Puede almacenar la plantilla en una cuenta de Azure Storage para el acceso compartido en la organización. Para más información sobre cómo trabajar con plantillas, consulte [Implementación de recursos con plantillas de Resource Manager y la CLI de Azure](../azure-resource-manager/templates/deploy-cli.md).
 
@@ -62,8 +65,15 @@ Los siguientes parámetros de la plantilla se configuran con un valor predetermi
 >Si se crea o configura un área de trabajo de Log Analytics en una suscripción que ha elegido el nuevo modelo de precios de abril de 2018, el único plan de tarifa válido de Log Analytics es **PerGB2018**.
 >
 
->[!NOTE]
->Antes de usar esta plantilla, revise los [detalles adicionales](../azure-monitor/platform/template-workspace-configuration.md#create-a-log-analytics-workspace) para saber totalmente las opciones de configuración del área de trabajo, como el modo de control de acceso, el plan de tarifa, la retención y el nivel de reserva de capacidad. Si no está familiarizado con los registros de Azure Monitor y aún no ha implementado un área de trabajo, debe revisar las instrucciones de [diseño del área de trabajo](../azure-monitor/platform/design-logs-deployment.md) para obtener información sobre el control de acceso y conocer las estrategias de implementación de diseño que se recomiendan en la organización.
+La plantilla JSON especifica un valor predeterminado para el resto de parámetros que es probable que se utilice como configuración estándar en el entorno. Puede almacenar la plantilla en una cuenta de Azure Storage para el acceso compartido en la organización. Para más información sobre cómo trabajar con plantillas, consulte [Implementación de recursos con plantillas de Resource Manager y la CLI de Azure](../azure-resource-manager/templates/deploy-cli.md).
+
+Es importante comprender los detalles de configuración siguientes si no está familiarizado con Azure Automation y Azure Monitor, con el fin de evitar errores al intentar crear, configurar y usar un área de trabajo de Log Analytics vinculada a la nueva cuenta de Automation.
+
+* Revise los [detalles adicionales](../azure-monitor/platform/template-workspace-configuration.md#create-a-log-analytics-workspace) para conocer totalmente las opciones de configuración del área de trabajo, como el modo de control de acceso, el plan de tarifa, la retención y el nivel de reserva de capacidad.
+
+* Como solo se admiten determinadas regiones para vincular un área de trabajo de Log Analytics y una cuenta de Automation en su suscripción, revise [Asignaciones de áreas de trabajo](how-to/region-mappings.md) para especificar las regiones admitidas en línea o en un archivo de parámetros.
+
+* Si no está familiarizado con los registros de Azure Monitor y aún no ha implementado un área de trabajo, debe revisar las instrucciones de [diseño del área de trabajo](../azure-monitor/platform/design-logs-deployment.md) para obtener información sobre el control de acceso y conocer las estrategias de implementación de diseño que se recomiendan en la organización.
 
 ## <a name="deploy-template"></a>Implementar plantilla
 
@@ -113,32 +123,6 @@ Los siguientes parámetros de la plantilla se configuran con un valor predetermi
         },
         "location": {
             "type": "string",
-            "allowedValues": [
-                "australiacentral",
-                "australiaeast",
-                "australiasoutheast",
-                "brazilsouth",
-                "canadacentral",
-                "centralindia",
-                "centralus",
-                "eastasia",
-                "eastus",
-                "eastus2",
-                "francecentral",
-                "japaneast",
-                "koreacentral",
-                "northcentralus",
-                "northeurope",
-                "southafricanorth",
-                "southcentralus",
-                "southeastasia",
-                "uksouth",
-                "ukwest",
-                "westcentralus",
-                "westeurope",
-                "westus",
-                "westus2"
-            ],
             "metadata": {
                 "description": "Specifies the location in which to create the workspace."
             }
@@ -235,7 +219,7 @@ Los siguientes parámetros de la plantilla se configuran con un valor predetermi
 
 2. Edite la plantilla para adecuarla a sus requisitos. Plantéese la posibilidad de crear un [archivo de parámetros de Resource Manager](../azure-resource-manager/templates/parameter-files.md) en lugar de pasar los parámetros como valores insertados.
 
-3. Guarde este archivo como deployUMSolutiontemplate.json en una carpeta local.
+3. Guarde este archivo como **deployUMSolutiontemplate.json** en una carpeta local.
 
 4. Está listo para implementar esta plantilla. Puede usar la CLI de Azure o PowerShell. Cuando se le pida un nombre de cuenta de Automation o un área de trabajo, proporcione un nombre que sea globalmente único en todas las suscripciones de Azure.
 
