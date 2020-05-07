@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: H1Hack27Feb2017, it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5948fba67d3f071d77192f9ad89bc696fdc0c3cc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 521982a5cf09e0da9c52bca2fe367432a1d29e57
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79227772"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583128"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Delegación restringida de Kerberos para el inicio de sesión único para las aplicaciones con Proxy de aplicación
 
@@ -100,11 +100,13 @@ La configuración de Active Directory varía, en función de si el conector de P
 
 ## <a name="sso-for-non-windows-apps"></a>SSO para las aplicaciones no son de Windows
 
-El flujo de la delegación de Kerberos del Proxy de aplicación de Azure AD se inicia cuando Azure AD autentica al usuario en la nube. Una vez que la solicitud se recibe en local, el conector de Proxy de aplicación de Azure AD emite un vale Kerberos en nombre del usuario mediante la interacción con Active Directory local. Este proceso se conoce como Delegación limitada de Kerberos (KCD). En la fase siguiente, se envía una solicitud a la aplicación back-end con este vale Kerberos. 
+El flujo de la delegación de Kerberos del Proxy de aplicación de Azure AD se inicia cuando Azure AD autentica al usuario en la nube. Una vez que la solicitud se recibe en local, el conector de Proxy de aplicación de Azure AD emite un vale Kerberos en nombre del usuario mediante la interacción con Active Directory local. Este proceso se conoce como Delegación limitada de Kerberos (KCD). 
 
-Haya varios protocolos que definen cómo enviar dichas solicitudes. La mayoría de los servidores que no son de Windows esperan negociar con SPNEGO. Este protocolo es compatible con Azure AD Application Proxy, pero está deshabilitado de manera predeterminada. Un servidor se puede configurar para SPNEGO o KCD estándar, pero no para ambos.
+En la fase siguiente, se envía una solicitud a la aplicación back-end con este vale Kerberos. 
 
-Si configura una máquina de conector para SPNEGO, asegúrese de que todos los demás conectores del grupo de conectores también estén configurados con SPNEGO. Las aplicaciones que esperan KCD estándar deben enrutarse a través de otros conectores que no estén configurados para SPNEGO.
+Hay varios mecanismos que definen cómo enviar el vale Kerberos en estas solicitudes. La mayoría de los servidores que no son de Windows esperan recibirlo en forma de token SPNEGO. Este mecanismo es compatible con Azure Active Directory Application Proxy pero está deshabilitado de forma predeterminada. Se puede configurar un conector para SPNEGO o para un token Kerberos estándar, pero no para ambos.
+
+Si configura una máquina de conector para SPNEGO, asegúrese de que todos los demás conectores del grupo de conectores también estén configurados con SPNEGO. Las aplicaciones que esperan un token Kerberos estándar deben enrutarse a través de otros conectores que no estén configurados para SPNEGO.
  
 
 Para habilitar SPNEGO:

@@ -5,16 +5,16 @@ author: mjrousos
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: mikerou
-ms.openlocfilehash: ffe07960c6d32bea8ec31b1fe8248b6abc2b63af
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bd7c57f3089115e4da861fc8fd20331ab92bc33e
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75458290"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82787148"
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Escalado mediante programación de un clúster de Service Fabric 
 
-Los clústeres de Service Fabric que se ejecutan en Azure se basan en conjuntos de escalado de máquinas virtuales.  En el artículo de [escalado de clústeres](./service-fabric-cluster-scale-up-down.md) se describe la manera de escalar los clústeres de Service Fabric, ya sea manualmente o con reglas de escalado automático. En este artículo se describe cómo administrar las credenciales y reducir o escalar horizontalmente un clúster en mediante el SDK de proceso fluido de Azure, que es un escenario más avanzado. Para una introducción, lea la sección de [métodos de programación para coordinar las operaciones de escalado de Azure](service-fabric-cluster-scaling.md#programmatic-scaling). 
+Los clústeres de Service Fabric que se ejecutan en Azure se basan en conjuntos de escalado de máquinas virtuales.  En el artículo de [escalado de clústeres](./service-fabric-cluster-scale-in-out.md) se describe la manera de escalar los clústeres de Service Fabric, ya sea manualmente o con reglas de escalado automático. En este artículo se describe cómo administrar las credenciales y reducir o escalar horizontalmente un clúster en mediante el SDK de proceso fluido de Azure, que es un escenario más avanzado. Para una introducción, lea la sección de [métodos de programación para coordinar las operaciones de escalado de Azure](service-fabric-cluster-scaling.md#programmatic-scaling). 
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -119,6 +119,6 @@ await client.ClusterManager.RemoveNodeStateAsync(mostRecentLiveNode.NodeName);
 
 Para empezar a implementar su propia lógica de escalado automático, familiarícese con los siguientes conceptos y API útiles:
 
-- [Escalado manual o con reglas de escalado automático](./service-fabric-cluster-scale-up-down.md)
+- [Escalado manual o con reglas de escalado automático](./service-fabric-cluster-scale-in-out.md)
 - [Bibliotecas fluidas de administración de Azure para .NET](https://github.com/Azure/azure-sdk-for-net/tree/Fluent) (resulta útil para interactuar con los conjuntos de escalado de máquinas virtuales subyacentes de un clúster de Service Fabric)
 - [System.Fabric.FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) (resulta útil para interactuar con un clúster de Service Fabric y sus nodos)

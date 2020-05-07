@@ -1,38 +1,35 @@
 ---
-title: Aplicación de un descuento por reserva a Azure Database for MariaDB
-description: Aplicación de un descuento por reserva a Azure Database for MariaDB
+title: 'Información sobre el descuento por reserva: Azure Database for PostgreSQL'
+description: Aprenda cómo se aplica un descuento por reserva a la instancia de Azure Database for MariaDB.
 author: kummanish
 ms.author: manishku
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/17/2019
-ms.openlocfilehash: 340d395278eb924570e07d106308e63be3c2f9af
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 02/13/2020
+ms.openlocfilehash: b7d258f88212c8c97e3b0dbb8e803d1c767c51d0
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75986744"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509455"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-database-for-mariadb"></a>Aplicación de un descuento por reserva a Azure Database for MariaDB
 
-Después de comprar capacidad reservada en Azure Database for MariaDB, el descuento por la reserva se aplica automáticamente a los servidores MariaDB que coincidan con los atributos y la cantidad de la reserva. Una reserva solo cubre los costos de proceso de Azure Database for MariaDB. Por el almacenamiento y la administración de redes se le cobra según las tarifas normales. 
+Después de comprar capacidad reservada en Azure Database for MariaDB, el descuento por la reserva se aplica automáticamente a los servidores MariaDB que coincidan con los atributos y la cantidad de la reserva. Una reserva solo cubre los costos de proceso de Azure Database for MariaDB. Por el almacenamiento y la administración de redes se le cobra según las tarifas normales.
 
 ## <a name="how-reservation-discount-is-applied"></a>Aplicación del descuento por reserva
 
-Un descuento por reserva es para ***usarlo o perderlo***. Por lo tanto, si no tiene recursos coincidentes para ninguna hora, perderá una cantidad de reserva para esa hora. No se pueden arrastrar las horas reservadas no utilizadas.</br>
+Un descuento por reserva es para ***usarlo o perderlo***. Por lo tanto, si no tiene recursos coincidentes para ninguna hora, perderá una cantidad de reserva para esa hora. No se pueden arrastrar las horas reservadas no utilizadas.
 
 Al cerrar un recurso, el descuento por reserva se aplica automáticamente a otro recurso que coincida con el ámbito especificado. Si no se encuentran recursos coincidentes en el ámbito especificado, las horas reservadas se pierden.
 
 ## <a name="discount-applied-to-azure-database-for-mariadb"></a>Descuento aplicado a Azure Database for MariaDB
 
-El descuento por la capacidad reservada de Azure Database for MariaDB se aplica a la ejecución de los servidores MariaDB cada hora. La reserva que compra coincide con el uso de procesos que emiten los servidores Azure Database for MariaDB en ejecución. Para los servidores MariaDB que no se ejecutan durante una hora entera, la reserva se aplica automáticamente a otras instancias de Azure Database for MariaDB que coincidan con los atributos de reserva. El descuento se puede aplicar a servidores Azure Database for MariaDB que se están ejecutando simultáneamente. Si no tiene un servidor MariaDB que se ejecute durante toda la hora que coincida con los atributos de reserva, no obtendrá todas las ventajas del descuento por la reserva para esa hora.
+El descuento por la capacidad reservada de Azure Database for MariaDB se aplica a la ejecución de los servidores MariaDB cada hora. La reserva que compra coincide con el uso de procesos que emiten los servidores Azure Database for MariaDB en ejecución. Para los servidores MariaDB que no se ejecutan durante una hora entera, la reserva se aplica automáticamente a otras instancias de Azure Database for MariaDB que coincidan con los atributos de reserva. El descuento se puede aplicar a servidores Azure Database for MariaDB que se están ejecutando simultáneamente. Si no tiene un servidor de MariaDB que se ejecute durante toda la hora que coincida con los atributos de reserva, no obtendrá todas las ventajas del descuento por la reserva para esa hora.
 
 En los ejemplos siguientes se muestra cómo se aplica el descuento por la capacidad reservada de Azure Database for MariaDB en función del número de núcleos adquiridos y el momento de su ejecución.
 
-* **Ejemplo 1**: compra una capacidad reservada de Azure Database for MariaDB para ocho núcleos virtuales. Si va a ejecutar un servidor Azure Database for MariaDB de 16 núcleos virtuales que coincida con el resto de los atributos de la reserva, se le cobrará el precio de pago por uso de 8 núcleos virtuales correspondiente al uso de procesos del servidor MariaDB y obtendrá el descuento por reserva durante una hora del uso de proceso del servidor MariaDB correspondiente a 8 núcleos virtuales.</br>
+* **Ejemplo 1**: compra una capacidad reservada de Azure Database for MariaDB para ocho núcleos virtuales. Si va a ejecutar un servidor Azure Database for MariaDB de 16 núcleos virtuales que coincida con el resto de los atributos de la reserva, se le cobrará el precio de pago por uso de 8 núcleos virtuales correspondiente al uso de procesos del servidor MariaDB y obtendrá el descuento por reserva durante una hora del uso de proceso del servidor MariaDB correspondiente a 8 núcleos virtuales.
 
 En el resto de estos ejemplos, supongamos que la capacidad reservada de Azure Database for MariaDB que compra es para una instancia de Azure Database for MariaDB de 16 núcleos virtuales y el resto de atributos de la reserva coinciden con los servidores MariaDB en ejecución.
 
@@ -44,5 +41,6 @@ En el resto de estos ejemplos, supongamos que la capacidad reservada de Azure Da
 
 Para obtener información sobre la aplicación de Azure Reservations en informes de uso de facturación, consulte el artículo [Información sobre el uso de Azure Reservations](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea).
 
-## <a name="need-help-contact-us"></a>¿Necesita ayuda? Ponerse en contacto con nosotros
+## <a name="next-steps"></a>Pasos siguientes
+
 Si tiene alguna pregunta o necesita ayuda, [cree una solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).

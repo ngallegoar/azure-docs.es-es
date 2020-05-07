@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d56bb7c30a8289fe7f261979dca6a4ffe2bfe99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b50118dcd4bf0fafa3e25399cf7d82558b7c776c
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80048154"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582795"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Cmdlets de Azure Active Directory para configurar las opciones de grupo
 
@@ -160,7 +160,7 @@ Esta es la configuración definida en el objeto SettingsTemplate Group.Unified. 
 |  <ul><li>AllowGuestsToBeGroupOwner<li>Escriba:  Boolean<li>Valor predeterminado: False | Valor booleano que indica si un usuario invitado puede ser o no un propietario de grupos. |
 |  <ul><li>AllowGuestsToAccessGroups<li>Escriba:  Boolean<li>Valor predeterminado: True | Valor booleano que indica si un usuario invitado puede tener o no acceso al contenido de grupos de Office 365.  Este valor no requiere una licencia Azure Active Directory Premium P1.|
 |  <ul><li>GuestUsageGuidelinesUrl<li>Escriba:  String<li>Default: "" | La dirección URL de un vínculo a las instrucciones de uso del invitado. |
-|  <ul><li>AllowToAddGuests<li>Escriba:  Boolean<li>Valor predeterminado: True | Un valor booleano que indica si está permitido o no agregar invitados a este directorio. <br>Esta configuración puede invalidarse y convertirse en solo lectura si *EnableMIPLabels* está establecida en *True* y una directiva de invitado está asociada a la etiqueta de confidencialidad asignada al grupo.<br>Si el valor de AllowToAddGuests se establece en False en el nivel de inquilino, se omite cualquier valor de AllowToAddGuests en el nivel de grupo. Si desea habilitar el acceso de invitado solo para algunos grupos, debe establecer AllowToAddGuests en true en el nivel de inquilino y, a continuación, deshabilitarlo de forma selectiva para grupos específicos. |
+|  <ul><li>AllowToAddGuests<li>Escriba:  Boolean<li>Valor predeterminado: True | Un valor booleano que indica si está permitido o no agregar invitados a este directorio. <br>Esta configuración puede invalidarse y convertirse en solo lectura si *EnableMIPLabels* está establecida en *True* y una directiva de invitado está asociada a la etiqueta de confidencialidad asignada al grupo.<br>Si el valor de AllowToAddGuests se establece en False en el nivel de inquilino, se omite cualquier valor de AllowToAddGuests en el nivel de grupo. Si quiere habilitar el acceso de invitado solo para algunos grupos, debe establecer AllowToAddGuests en true en el nivel de inquilino y, luego, deshabilitarlo de forma selectiva para grupos específicos. |
 |  <ul><li>ClassificationList<li>Escriba:  String<li>Default: "" | Lista de valores de clasificación delimitados por coma que se puede aplicar a grupos de Office 365. <br>Esta configuración no se aplica cuando EnableMIPLabels = = True.|
 |  <ul><li>EnableMIPLabels<li>Escriba:  Boolean<li>Valor predeterminado: "False" |Marca que indica si las etiquetas de confidencialidad publicadas en el Centro de cumplimiento de Microsoft 365 se pueden aplicar a los grupos de Office 365. Para más información, vea [Asignación de etiquetas de confidencialidad para los grupos de Office 365](groups-assign-sensitivity-labels.md). |
 

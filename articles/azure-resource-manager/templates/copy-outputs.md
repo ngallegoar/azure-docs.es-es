@@ -3,12 +3,12 @@ title: Definición de varias instancias de un valor de salida
 description: Utilice la operación de copia en una plantilla de Azure Resource Manager para realizar varias iteraciones al devolver un valor desde una implementación.
 ms.topic: conceptual
 ms.date: 04/17/2020
-ms.openlocfilehash: 0315af2f083285c4704b08fec608341b6f0b2231
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.openlocfilehash: 50c4b4b8f301ad88d3dfde98ace1aed4431693db
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81617830"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583428"
 ---
 # <a name="output-iteration-in-arm-templates"></a>Iteración de salida en las plantillas de ARM
 
@@ -16,7 +16,7 @@ En este artículo se muestra cómo crear más de un valor para una salida en la 
 
 También puede utilizar el elemento copy con [recursos](copy-resources.md), [propiedades de un recurso](copy-properties.md) y [variables](copy-variables.md).
 
-## <a name="outputs-iteration"></a>Iteración de salidas
+## <a name="syntax"></a>Sintaxis
 
 El elemento copy tiene el siguiente formato general:
 
@@ -30,6 +30,21 @@ El elemento copy tiene el siguiente formato general:
 La propiedad **count** especifica el número de iteraciones que desea para el valor de salida.
 
 La propiedad **input** especifica las propiedades que desea repetir. Tiene que crear una matriz de elementos construida a partir del valor de la propiedad **input**. Puede tratarse de una propiedad única (como una cadena) o de un objeto con varias propiedades.
+
+## <a name="copy-limits"></a>Límites de copia
+
+El valor de count no puede superar 800.
+
+El valor de count no puede ser un número negativo. Puede ser cero si implementa la plantilla con una versión reciente de la CLI de Azure, PowerShell o la API REST. Específicamente, se debe usar:
+
+* Azure PowerShell **2.6** o posterior
+* CLI de Azure **2.0.74** o posterior
+* API REST versión **2019-05-10** o posterior
+* Las [implementaciones vinculadas](linked-templates.md) deben usar la versión **2019-05-10** o posterior de la API para el tipo de recurso de implementación.
+
+Las versiones anteriores de PowerShell, la CLI y API REST no admiten un valor de count de cero.
+
+## <a name="outputs-iteration"></a>Iteración de salidas
 
 En el ejemplo siguiente se crea un número variable de cuentas de almacenamiento y se devuelve un punto de conexión para cada cuenta de almacenamiento:
 
@@ -157,5 +172,5 @@ El ejemplo anterior devuelve una matriz con los valores siguientes:
   * [Iteración de propiedades en las plantillas de ARM](copy-properties.md)
   * [Iteración de variables en las plantillas de ARM](copy-variables.md)
 * Para obtener información sobre las secciones de una plantilla, consulte el artículo sobre cómo [crear plantillas de ARM](template-syntax.md).
-* Para obtener información sobre cómo implementar su plantilla, consulte el artículo sobre cómo [implementar una aplicación con la plantilla de ARM](deploy-powershell.md).
+* Para más información sobre cómo implementar su plantilla, consulte el artículo [Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell](deploy-powershell.md).
 

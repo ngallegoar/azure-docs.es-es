@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/30/2020
+ms.date: 04/28/2020
 ms.author: allensu
-ms.openlocfilehash: c012a8d83761b88cc59b62d11fd3d5542ca7f7a1
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: c9b5aaefeb8ab21eed850f5bf291d38981239aab
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80396087"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82508435"
 ---
 # <a name="troubleshoot-azure-virtual-network-nat-connectivity"></a>Solución de problemas de conectividad de Azure Virtual Network NAT
 
@@ -101,6 +101,7 @@ La siguiente tabla se puede usar como punto de partida para saber qué herramien
 
 Los problemas de conectividad con [Virtual Network NAT](nat-overview.md) pueden estar causados por varios motivos:
 
+* problemas permanentes debidos a errores de configuración.
 * El [agotamiento de SNAT](#snat-exhaustion) transitorio o persistente de la puerta de enlace NAT
 * Errores transitorios en la infraestructura de Azure 
 * Errores transitorios en la ruta de acceso entre Azure y el destino público de Internet 
@@ -112,6 +113,13 @@ Use herramientas como la siguiente para la validación de la conectividad. [No s
 |---|---|---|---|
 | Linux | nc (prueba de conexión genérica) | curl (prueba de la capa de la aplicación de TCP) | específica de la aplicación |
 | Windows | [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) | [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest) de PowerShell | específica de la aplicación |
+
+#### <a name="configuration"></a>Configuración
+
+Realice las siguientes comprobaciones:
+1. ¿El recurso de puerta de enlace NAT tiene al menos un recurso de IP pública o un recurso de prefijo de dirección IP pública? Debe tener al menos una dirección IP asociada a la puerta de enlace NAT para que pueda proporcionar conectividad de salida.
+2. ¿La subred de la red virtual está configurada para usar la puerta de enlace NAT?
+3. ¿Está usando UDR (ruta definida por el usuario) y está reemplazando el destino?  Los recursos de puerta de enlace NAT se convierten en la ruta predeterminada (0/0) en subredes configuradas.
 
 #### <a name="snat-exhaustion"></a>Agotamiento de la arquitectura de redes de sistemas
 

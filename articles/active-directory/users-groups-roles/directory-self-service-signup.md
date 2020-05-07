@@ -1,6 +1,6 @@
 ---
 title: 'Registro de autoservicio para usuarios comprobados por correo electrónico: Azure AD | Microsoft Docs'
-description: Uso del registro de autoservicio en un inquilino de Azure Active Directory (Azure AD)
+description: Uso del registro de autoservicio en una organización de Azure Active Directory (Azure AD)
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 11/08/2019
+ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 953837e22cdd3ba8a54d702eac61461739db82d2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fedb9375ec7ac7e7c7ac7a3ebf91166f70b6a05b
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74027628"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582999"
 ---
 # <a name="what-is-self-service-sign-up-for-azure-active-directory"></a>¿Qué es el registro de autoservicio de Azure Active Directory?
 

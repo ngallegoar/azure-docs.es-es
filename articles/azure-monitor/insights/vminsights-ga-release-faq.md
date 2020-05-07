@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/31/2020
-ms.openlocfilehash: 3d250ef1aba979be04a44acaf31a3d685f162e37
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: df96ceb47bf33b734f2127bade50af18713a97a0
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80283895"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82581368"
 ---
 # <a name="azure-monitor-for-vms-generally-available-ga-frequently-asked-questions"></a>Preguntas frecuentes sobre Azure Monitor para VM disponible de forma general (GA): preguntas más frecuentes
 En estas Preguntas más frecuentes acerca de la disponibilidad general se describen los cambios realizados en el cuarto trimestre de 2019 y el primer trimestre de 2020, a medida que los preparábamos para disponibilidad general.
@@ -44,7 +44,7 @@ Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName <resource-grou
 
 ## <a name="what-should-i-do-about-the-performance-counters-in-my-workspace-if-i-install-the-vminsights-solution"></a>¿Qué debo hacer con los contadores de rendimiento de mi área de trabajo si instalo la solución VMInsights?
 
-El método anterior de habilitación de Azure Monitor para VM usaba contadores de rendimiento en el área de trabajo. La versión actual almacena estos datos en una tabla denominada `InsightsMetrics`. Se pueden deshabilitar estos contadores de rendimiento en el área de trabajo si ya no necesita usarlos. 
+El método anterior de habilitación de Azure Monitor para VM usaba contadores de rendimiento en el área de trabajo. La versión actual almacena estos datos en una tabla denominada `InsightsMetrics`. Puede elegir deshabilitar estos contadores de rendimiento en el área de trabajo si ya no necesita usarlos. 
 
 >[!NOTE]
 >Si tiene reglas de alertas que hagan referencia a estos contadores en la tabla `Perf`, deberá actualizarlas para que hagan referencia a los nuevos datos almacenados en la tabla `InsightsMetrics`. Consulte nuestra documentación para obtener ejemplos de consultas de registro que puede usar y que hacen referencia a esta tabla.

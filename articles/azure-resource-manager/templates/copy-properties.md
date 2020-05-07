@@ -3,12 +3,12 @@ title: Definición de varias instancias de una propiedad
 description: Utilice la operación de copia en una plantilla de Azure Resource Manager para realizar varias iteraciones cuando cree una propiedad en un recurso.
 ms.topic: conceptual
 ms.date: 04/14/2020
-ms.openlocfilehash: 831ae1af202a1cdf52bdd2bdf0d9a042a97ba52f
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 9fde2ecf14bc5b29bb31ffa78e067b780438578a
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81391333"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583412"
 ---
 # <a name="property-iteration-in-arm-templates"></a>Iteración de propiedades en las plantillas de ARM
 
@@ -16,7 +16,7 @@ En este artículo, se explica cómo se crean varias instancias de una propiedad 
 
 También puede usar el elemento copy con [recursos](copy-resources.md), [variables](copy-variables.md) y [salidas](copy-outputs.md).
 
-## <a name="property-iteration"></a>Iteración de propiedades
+## <a name="syntax"></a>Sintaxis
 
 El elemento copy tiene el siguiente formato general:
 
@@ -35,6 +35,21 @@ En **nombre**, especifique el nombre de la propiedad del recurso que desea crear
 La propiedad **count** especifica el número de iteraciones que desea realizar en la propiedad.
 
 La propiedad **input** especifica las propiedades que desea repetir. Tiene que crear una matriz de elementos construida a partir del valor de la propiedad **input**.
+
+## <a name="copy-limits"></a>Límites de copia
+
+El valor de count no puede superar 800.
+
+El valor de count no puede ser un número negativo. Puede ser cero si implementa la plantilla con una versión reciente de la CLI de Azure, PowerShell o la API REST. Específicamente, se debe usar:
+
+* Azure PowerShell **2.6** o posterior
+* CLI de Azure **2.0.74** o posterior
+* API REST versión **2019-05-10** o posterior
+* Las [implementaciones vinculadas](linked-templates.md) deben usar la versión **10-05-2019** o posterior de la API para el tipo de recurso de implementación.
+
+Las versiones anteriores de PowerShell, la CLI y API REST no admiten un valor de count de cero.
+
+## <a name="property-iteration"></a>Iteración de propiedades
 
 En el ejemplo siguiente se muestra cómo aplicar `copy` a la propiedad dataDisks en una máquina virtual:
 
@@ -232,12 +247,6 @@ Puede usar la iteración de recursos y propiedades conjuntamente. Haga referenci
   }
 }
 ```
-
-## <a name="copy-limits"></a>Límites de copia
-
-El valor de count no puede superar 800.
-
-El valor de count no puede ser un número negativo. Si implementa una plantilla con Azure PowerShell 2.6 o posterior, la CLI de Azure 2.0.74 o posterior, o bien con la API REST, versión **2019-05-10** o posterior, puede establecer el valor de count en cero. Las versiones anteriores de PowerShell, la CLI y API REST no admiten un valor de count de cero.
 
 ## <a name="example-templates"></a>Plantillas de ejemplo
 

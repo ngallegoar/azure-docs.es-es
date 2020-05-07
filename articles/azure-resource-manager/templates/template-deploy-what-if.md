@@ -3,27 +3,27 @@ title: Despliegue de plantillas hipotéticas (Vista previa)
 description: Determine los cambios que se producirán en los recursos antes de implementar una plantilla de Azure Resource Manager.
 author: mumian
 ms.topic: conceptual
-ms.date: 04/09/2020
+ms.date: 04/29/2020
 ms.author: jgao
-ms.openlocfilehash: b8e94d0b4f364e2873dfc21792a67f11c33483bf
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: 70023f4fa5d44c74c7ce14f3a2c09ff14c9d2f8c
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81010196"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82581193"
 ---
 # <a name="arm-template-deployment-what-if-operation-preview"></a>Operación hipotética de la implementación de plantilla de Resource Manager (vista previa)
 
-Antes de implementar una plantilla de Azure Resource Manager, es posible que desee obtener una vista previa de los cambios que se producirán. Azure Resource Manager proporciona la operación hipotética que le permite ver cómo cambiarán los recursos si implementa la plantilla. La operación hipotética no realiza ningún cambio en los recursos existentes. En su lugar, predice los cambios si se implementa la plantilla especificada.
+Antes de implementar una plantilla de Azure Resource Manager (ARM), puede obtener una vista previa de los cambios que se producirán. Azure Resource Manager proporciona la operación hipotética que le permite ver cómo cambiarán los recursos si implementa la plantilla. La operación hipotética no realiza ningún cambio en los recursos existentes. En su lugar, predice los cambios si se implementa la plantilla especificada.
 
 > [!NOTE]
 > La operación hipotética se encuentra actualmente en versión preliminar. Como versión preliminar, los resultados a veces pueden mostrar que un recurso cambiará cuando realmente no se produzca ningún cambio. Trabajamos para reducir estos problemas, pero necesitamos su ayuda. Informe de estos problemas en [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
 
-Puede usar la operación what-if con los comandos de PowerShell o las operaciones de la API REST.
+Puede usar la operación what-if con Azure PowerShell, la CLI de Azure o las operaciones de la API REST.
 
 ## <a name="install-powershell-module"></a>Instalación del módulo de PowerShell
 
-Para usar hipótesis en PowerShell, instale una versión preliminar del módulo Az.Resources de la galería de PowerShell.
+Para usar what-if en PowerShell, debe instalar una versión preliminar del módulo Az.Resources desde la Galería de PowerShell. Sin embargo, antes de instalar el módulo, asegúrese de que tiene PowerShell Core (6.x o 7.x). Si tiene PowerShell 5.x o anterior, debe [actualizar la versión de PowerShell](/powershell/scripting/install/installing-powershell). No se puede instalar el módulo en versión preliminar en PowerShell 5.x o versiones anteriores.
 
 ### <a name="install-preview-version"></a>Instalación de la versión preliminar
 
@@ -58,9 +58,13 @@ Si previamente ha instalado una versión alfa del módulo de hipótesis, desinst
 
 Está listo para usar hipótesis.
 
+## <a name="install-azure-cli-module"></a>Instalación del módulo de la CLI de Azure
+
+Para usar what-if en la CLI de Azure, debe tener la CLI de Azure versión 2.5.0 o posterior. Si es necesario, [instale la versión más reciente de la CLI de Azure](/cli/azure/install-azure-cli).
+
 ## <a name="see-results"></a>Ver los resultados
 
-En PowerShell, la salida incluye resultados codificados por colores que le ayudarán a apreciar los distintos tipos de cambios.
+Cuando se usa what-if en PowerShell o la CLI de Azure, la salida incluye resultados codificados por colores que le ayudarán a apreciar los distintos tipos de cambios.
 
 ![Operación hipotética de implementación de plantilla al administrador de recursos fullresourcepayload y tipos de cambio](./media/template-deploy-what-if/resource-manager-deployment-whatif-change-types.png)
 
@@ -95,8 +99,6 @@ Resource changes: 1 to modify.
 
 ## <a name="what-if-commands"></a>Comandos what-if
 
-Puede usar Azure PowerShell o la API REST de Azure para la operación what-if.
-
 ### <a name="azure-powershell"></a>Azure PowerShell
 
 Para obtener una vista previa de los cambios antes de implementar una plantilla, agregue el parámetro de modificador `-Whatif` al comando de implementación.
@@ -104,7 +106,7 @@ Para obtener una vista previa de los cambios antes de implementar una plantilla,
 * `New-AzResourceGroupDeployment -Whatif` para implementaciones de grupos de recursos
 * `New-AzSubscriptionDeployment -Whatif` y `New-AzDeployment -Whatif` para implementaciones de nivel de suscripción
 
-O bien, puede usar el parámetro de modificador `-Confirm` para obtener una vista previa de los cambios y recibir un aviso para continuar con la implementación.
+Puede usar el parámetro de modificador `-Confirm` para obtener una vista previa de los cambios y recibir un aviso para continuar con la implementación.
 
 * `New-AzResourceGroupDeployment -Confirm` para implementaciones de grupos de recursos
 * `New-AzSubscriptionDeployment -Confirm` y `New-AzDeployment -Confirm` para implementaciones de nivel de suscripción
@@ -113,6 +115,23 @@ Los comandos anteriores devuelven un resumen de texto que puede inspeccionar man
 
 * `$results = Get-AzResourceGroupDeploymentWhatIfResult` para implementaciones de grupos de recursos
 * `$results = Get-AzSubscriptionDeploymentWhatIfResult` o `$results = Get-AzDeploymentWhatIfResult` para implementaciones de nivel de suscripción
+
+### <a name="azure-cli"></a>Azure CLI
+
+Para obtener una vista previa de los cambios antes de implementar una plantilla, use `what-if` con el comando de implementación.
+
+* `az deployment group what-if` para implementaciones de grupos de recursos
+* `az deployment sub what-if` para implementaciones de nivel de suscripción
+
+Puede usar el modificador `--confirm-with-what-if` (o su forma abreviada `-c`) para obtener una vista previa de los cambios y recibir un aviso para continuar con la implementación.
+
+* `az deployment group create --confirm-with-what-if` o `-c` para implementaciones de grupos de recursos
+* `az deployment sub create --confirm-with-what-if` o `-c` para implementaciones de nivel de suscripción
+
+Los comandos anteriores devuelven un resumen de texto que puede inspeccionar manualmente. Para obtener un objeto JSON en el que pueda inspeccionar los cambios mediante programación, use:
+
+* `az deployment group what-if --no-pretty-print` para implementaciones de grupos de recursos
+* `az deployment sub what-if --no-pretty-print` para implementaciones de nivel de suscripción
 
 ### <a name="azure-rest-api"></a>API REST de Azure
 
@@ -139,10 +158,17 @@ La operación hipotética muestra seis tipos diferentes de cambios:
 
 ## <a name="result-format"></a>Formato de resultado
 
-Puede controlar el nivel de detalle que se devuelve sobre los cambios de predicción. En los comandos de implementación (`New-Az*Deployment`), use el parámetro **-WhatIfResultFormat**. En los comandos de objeto de programación (`Get-Az*DeploymentWhatIf`), use el parámetro **ResultFormat**.
+Puede controlar el nivel de detalle que se devuelve sobre la predicción de cambios. Tiene dos opciones:
 
-Establezca el parámetro de formato en **FullResourcePayloads** para obtener una lista de recursos que vayan a cambiar y detalles sobre las propiedades que cambiarán. Establezca el parámetro de formato en **ResourceIdOnly** para obtener una lista de los recursos que cambiarán. El valor predeterminado es **FullResourcePayloads**.  
+* **FullResourcePayloads**: devuelve una lista de los recursos que van a cambiar y detalles sobre las propiedades que cambiarán.
+* **ResourceIdOnly**: devuelve una lista de los recursos que cambiarán.
 
+El valor predeterminado es **FullResourcePayloads**.
+
+Para los comandos de implementación de PowerShell, use el parámetro `-WhatIfResultFormat`. En los comandos de objeto de programación, use el parámetro `ResultFormat`.
+
+Para la CLI de Azure, use el parámetro `--result-format`.
+ 
 Los resultados siguientes muestran los dos formatos de salida diferentes:
 
 - Cargas de recursos completas
@@ -195,6 +221,8 @@ Los resultados siguientes muestran los dos formatos de salida diferentes:
 
 Para ver cómo funciona, vamos a ejecutar algunas pruebas. En primer lugar, implemente una [plantilla que cree una red virtual](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/what-if/what-if-before.json). Usará esta red virtual para probar cómo se registran los cambios con what-if.
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
 ```azurepowershell
 New-AzResourceGroup `
   -Name ExampleGroup `
@@ -204,9 +232,24 @@ New-AzResourceGroupDeployment `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/what-if/what-if-before.json"
 ```
 
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+```azurecli
+az group create \
+  --name ExampleGroup \
+  --location "Central US"
+az deployment group create \
+  --resource-group ExampleGroup \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/what-if/what-if-before.json"
+```
+
+---
+
 ### <a name="test-modification"></a>Modificación de prueba
 
-Una vez finalizada la implementación, está listo para probar la operación hipotética. Esta vez, implemente una [plantilla que cambie la red virtual](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/what-if/what-if-after.json). Falta una de las etiquetas originales, se ha quitado una subred y el prefijo de dirección ha cambiado.
+Una vez finalizada la implementación, está listo para probar la operación hipotética. En esta ocasión, va a implementar una [plantilla que cambia la red virtual](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/what-if/what-if-after.json). Falta una de las etiquetas originales, se ha quitado una subred y el prefijo de dirección ha cambiado.
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -214,6 +257,16 @@ New-AzResourceGroupDeployment `
   -ResourceGroupName ExampleGroup `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/what-if/what-if-after.json"
 ```
+
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+```azurecli
+az deployment group what-if \
+  --resource-group ExampleGroup \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/what-if/what-if-after.json"
+```
+
+---
 
 La salida de what-if es similar a esta:
 
@@ -258,6 +311,8 @@ Algunas de las propiedades que se enumeran como eliminadas no cambiarán realmen
 
 Ahora, vamos a establecer el comando en una variable para evaluar mediante programación los resultados de what-if.
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
 ```azurepowershell
 $results = Get-AzResourceGroupDeploymentWhatIfResult `
   -ResourceGroupName ExampleGroup `
@@ -273,19 +328,41 @@ foreach ($change in $results.Changes)
 }
 ```
 
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+```azurecli
+results=$(az deployment group what-if --resource-group ExampleGroup --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/what-if/what-if-after.json" --no-pretty-print)
+```
+
+---
+
 ## <a name="confirm-deletion"></a>Confirmar eliminación
 
 La operación hipotética admite el uso del [modo de implementación](deployment-modes.md). Cuando se establece en el modo completo, se eliminan los recursos que no están en la plantilla. En el ejemplo siguiente se implementa una plantilla [que no tiene recursos definidos](https://github.com/Azure/azure-docs-json-samples/blob/master/empty-template/azuredeploy.json) en el modo completo.
 
-Para obtener una vista previa de los cambios antes de implementar una plantilla, use el parámetro de modificador `-Confirm` con el comando de implementación. Si los cambios son los esperados, confirme que desea que se complete la implementación.
+Para obtener una vista previa de los cambios antes de implementar una plantilla, use el parámetro de modificador confirm con el comando de implementación. Si los cambios son los esperados, confirme que desea que se complete la implementación.
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
-  -Confirm `
   -ResourceGroupName ExampleGroup `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/empty-template/azuredeploy.json" `
-  -Mode Complete
+  -Mode Complete `
+  -Confirm `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/empty-template/azuredeploy.json"
 ```
+
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+```azurecli
+az deployment group create \
+  --resource-group ExampleGroup \
+  --mode Complete \
+  --confirm-with-what-if \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/empty-template/azuredeploy.json"
+```
+
+---
 
 Dado que no hay recursos definidos en la plantilla y el modo de implementación está establecido en completo, se eliminará la red virtual.
 
@@ -324,4 +401,5 @@ Verá los cambios esperados y puede confirmar que desea que se ejecute la implem
 
 - Si observa resultados incorrectos de la versión preliminar de what-if, informe de los problemas en [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
 - Para implementar plantillas con Azure PowerShell, consulte [Implementar recursos con plantillas de Resource Manager y Azure PowerShell](deploy-powershell.md).
+- Para implementar plantillas con la CLI de Azure, consulte [Implementación de recursos con plantillas de ARM y la CLI de Azure](deploy-cli.md).
 - Para implementar plantillas con REST, consulte [Implementación de recursos con plantillas de Resource Manager y Administrador de recursos API de REST](deploy-rest.md).
