@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 8701fe6857e95334a5e1d24bfe70feb130d5512c
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 6e6bd55fbb73113dfbcd01e94753c4fb21219c14
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80756030"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780885"
 ---
 # <a name="get-started-with-azcopy"></a>Introducción a AzCopy
 
@@ -84,7 +84,7 @@ Si solo quiere descargar los archivos, compruebe que el [lector de datos de blob
 
 Si desea cargar archivos, compruebe que uno de estos roles se ha asignado a la entidad de seguridad:
 
-- [Colaborador de datos de blobs de almacenamiento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor)
+- [Colaborador de datos de blobs de almacenamiento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor)
 - [Propietario de datos de blobs de almacenamiento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
 
 Estos roles pueden asignarse a la entidad de seguridad en cualquiera de estos ámbitos:
@@ -273,8 +273,8 @@ Para obtener el vínculo, ejecute este comando:
 
 | Sistema operativo  | Get-Help |
 |--------|-----------|
-| **Linux** | `curl -v https://aka.ms/downloadazcopy-v10-linux` |
-| **Windows** | `(curl https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction silentlycontinue).RawContent` |
+| **Linux** | `curl -s -D- https://aka.ms/downloadazcopy-v10-linux | grep ^Location` |
+| **Windows** | `(curl https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction silentlycontinue).headers.location` |
 
 > [!NOTE]
 > Para Linux, `--strip-components=1` en el comando `tar` elimina la carpeta de nivel superior que contiene el nombre de la versión y, en su lugar, extrae el archivo binario directamente en la carpeta actual. Esto permite que el script se actualice con una nueva versión de `azcopy` al actualizar únicamente la dirección URL de `wget`.

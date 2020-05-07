@@ -4,12 +4,12 @@ description: En este tutorial, aprenderá a escalar y reducir horizontalmente un
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: f1b813576a94541cdc2ab0a67fea71b6f49696c5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6e8dbb5a56bf313bf35ad97ec6ea7df8ce483be9
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78251793"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82788865"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Tutorial: Escala de un clúster de Service Fabric
 
@@ -84,7 +84,7 @@ El escalado vertical u horizontal cambia el número de nodos del clúster. Al es
 
 Por ello, si actualiza el valor de *nt1InstanceCount*, se cambia el número de nodos en el segundo tipo de nodo.  Recuerde que no se puede escalar horizontalmente un tipo de nodo a más de 100 nodos.  Los tipos de nodo no principales que ejecutan cargas de trabajo de producción con estado siempre deben tener cinco o más nodos. Los tipos de nodo no principales que ejecutan cargas de trabajo de producción sin estado siempre deben tener dos o más nodos.
 
-Si va a escalar verticalmente, al quitar nodos de un tipo de nodo de [nivel de durabilidad][durability] Bronze, tiene que [quitar manualmente el estado de esos nodos](service-fabric-cluster-scale-up-down.md#manually-remove-vms-from-a-node-typevirtual-machine-scale-set).  Para el nivel de durabilidad Silver y Gold, la plataforma realiza automáticamente estos pasos.
+Si va a escalar verticalmente, al quitar nodos de un tipo de nodo de [nivel de durabilidad][durability] Bronze, tiene que [quitar manualmente el estado de esos nodos](service-fabric-cluster-scale-in-out.md#manually-remove-vms-from-a-node-typevirtual-machine-scale-set).  Para el nivel de durabilidad Silver y Gold, la plataforma realiza automáticamente estos pasos.
 
 ### <a name="deploy-the-updated-template"></a>Implementar la plantilla actualizada
 Guarde los cambios realizados en los archivos *template.json* y *parameters.json*.  Para implementar la plantilla actualizada, ejecute el comando siguiente:
