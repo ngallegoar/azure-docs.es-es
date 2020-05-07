@@ -4,6 +4,8 @@
   items:
     - name: ¿Qué es Azure Load Balancer?
       href: load-balancer-overview.md
+    - name: Preguntas más frecuentes
+      href: load-balancer-faqs.md
 - name: Guía de inicio rápido
   items:
     - name: 'Creación de un equilibrador de carga: Azure Portal'

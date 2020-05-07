@@ -8,12 +8,12 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 05/29/2019
 ms.subservice: blobs
-ms.openlocfilehash: 848fd89444281d82d6d0d1bfc4df15d499c09ee0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 57ba59288cbf65c1ef588302965d480ee357ea4d
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79370498"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82779984"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hospedaje de sitios web estáticos en Azure Storage
 
@@ -41,8 +41,8 @@ Los archivos del contenedor **$web** distinguen mayúsculas de minúsculas, se p
 Puede usar cualquiera de estas herramientas para cargar contenido en el contenedor **$web**:
 
 > [!div class="checklist"]
-> * [CLI de Azure](storage-blob-static-website-how-to.md#cli)
-> * [Módulo de Azure PowerShell](storage-blob-static-website-how-to.md#powershell)
+> * [CLI de Azure](storage-blob-static-website-how-to.md?tabs=azure-cli)
+> * [Módulo de Azure PowerShell](storage-blob-static-website-how-to.md?tabs=azure-powershell)
 > * [AzCopy](../common/storage-use-azcopy-v10.md)
 > * [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/)
 > * [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
