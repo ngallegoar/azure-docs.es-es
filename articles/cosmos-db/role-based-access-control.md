@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: mjbrown
-ms.openlocfilehash: 0c7332a42751b35b6ad8ec3f88afb7bc78cc85e3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4e028e7a5e7e7b8f747d7a1cfb36c553a8113544
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75445102"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583725"
 ---
 # <a name="role-based-access-control-in-azure-cosmos-db"></a>Control de acceso basado en rol en Azure Cosmos DB
 
@@ -61,6 +61,12 @@ El proveedor de recursos de Cosmos se puede bloquear para evitar cambios en recu
         }
     }
 }
+```
+Si exporta una plantilla de Resource Manager existente y la actualiza con esta propiedad, puede reemplazar por completo la funcionalidad de la plantilla. Por tanto, si no están incluidos todos los valores, se restablecen al valor predeterminado. Otra manera de deshabilitar el acceso de escritura de metadatos basado en claves es usar la CLI de Azure como se muestra en el siguiente comando:
+
+```cli
+az cosmosdb update  --name CosmosDBAccountName --resource-group ResourceGroupName  --disable-key-based-metadata-write-access true
+
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

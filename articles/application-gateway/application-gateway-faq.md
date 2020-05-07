@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 08/31/2019
+ms.date: 05/05/2020
 ms.author: victorh
-ms.openlocfilehash: f2f2e02cdb5698d7569e5be177d54ca4dcb0ae02
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 92011495f5f746b18a7706ed2f9583548cc51286
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77086538"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82836706"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Preguntas más frecuentes sobre Application Gateway
 
@@ -28,11 +28,11 @@ Azure Application Gateway proporciona un controlador de entrega de aplicaciones 
 
 ### <a name="what-features-does-application-gateway-support"></a>¿Qué características admite Application Gateway?
 
-Application Gateway admite escalabilidad automática, descarga de SSL, SSL de un extremo a otro, firewall de aplicaciones web (WAF), afinidad de sesión basada en cookies, enrutamiento basado en ruta de dirección URL, hospedaje de varios sitios y otras características. Para obtener una lista completa de las características admitidas, consulte [Introducción a Application Gateway](application-gateway-introduction.md).
+Application Gateway admite la escalabilidad automática, descarga de TLS, TLS de un extremo a otro, firewall de aplicaciones web (WAF), afinidad de sesión basada en cookies, enrutamiento basado en ruta de dirección URL, hospedaje de varios sitios y otras características. Para obtener una lista completa de las características admitidas, consulte [Introducción a Application Gateway](application-gateway-introduction.md).
 
 ### <a name="how-do-application-gateway-and-azure-load-balancer-differ"></a>¿En qué se diferencian Application Gateway y Azure Load Balancer?
 
-Application Gateway es un equilibrador de carga de nivel 7, lo que significa que solo funciona con tráfico web (HTTP, HTTPS, WebSocket y HTTP/2). Admite funcionalidades como la terminación SSL, la afinidad de sesión basada en cookies y la distribución round robin para el tráfico de equilibrio de carga. Load Balancer equilibra la carga de tráfico en el nivel 4 (TCP o UDP).
+Application Gateway es un equilibrador de carga de nivel 7, lo que significa que solo funciona con tráfico web (HTTP, HTTPS, WebSocket y HTTP/2). Admite funcionalidades como la terminación TLS, la afinidad de sesión basada en cookies y la distribución round robin para el tráfico de equilibrio de carga. Load Balancer equilibra la carga de tráfico en el nivel 4 (TCP o UDP).
 
 ### <a name="what-protocols-does-application-gateway-support"></a>¿Qué protocolos admite Application Gateway?
 
@@ -66,11 +66,13 @@ Consulte el [orden de procesamiento del agente de escucha](https://docs.microsof
 
 Si usa una dirección IP pública como punto de conexión, encontrará la información de la dirección IP y del DNS en el recurso de dirección IP pública. O bien la encontrará en el portal, en la página de información general de Application Gateway. Si usa direcciones IP internas, encontrará la información en la página información general.
 
+En SKU v2, abra el recurso de dirección IP pública y seleccione **Configuración**. El campo **Etiqueta de nombre DNS (opcional)** está disponible para configurar el nombre DNS.
+
 ### <a name="what-are-the-settings-for-keep-alive-timeout-and-tcp-idle-timeout"></a>¿Cuáles son los valores de tiempo de espera de conexión persistente y tiempo de espera de inactividad de TCP?
 
 El *tiempo de espera de conexión persistente* rige cuánto tiempo esperará Application Gateway para que un cliente envíe otra solicitud HTTP en una conexión persistente antes de reutilizarla o cerrarla. El *tiempo de espera de inactividad de TCP* rige cuánto tiempo se mantiene abierta una conexión TCP en caso de que no haya ninguna actividad. 
 
-El *tiempo de espera de conexión persistente* en la SKU de Application Gateway v1 es 120 segundos, mientras que en la SKU v2 es 75 segundos. El *tiempo de espera de inactividad de TCP* es el valor predeterminado de 4 minutos en la IP virtual (VIP) de front-end tanto de la SKU v1 y v2 de Application Gateway. 
+El *tiempo de espera de conexión persistente* en la SKU de Application Gateway v1 es 120 segundos, mientras que en la SKU v2 es 75 segundos. El *tiempo de espera de inactividad de TCP* es el valor predeterminado de 4 minutos en la IP virtual (VIP) de front-end tanto de la SKU v1 y v2 de Application Gateway. Estos valores no se pueden cambiar.
 
 ### <a name="does-the-ip-or-dns-name-change-over-the-lifetime-of-the-application-gateway"></a>¿Cambia la dirección IP o el nombre DNS durante la vigencia de Application Gateway?
 
@@ -94,6 +96,10 @@ Sí. Además de tener varias instancias de una determinada implementación de Ap
 
 Una sola subred no admite Application Gateway Standard_v2 y Standard conjuntamente.
 
+### <a name="does-application-gateway-v2-support-user-defined-routes-udr"></a>¿Admite Application Gateway v2 rutas definidas por el usuario?
+
+Sí, pero solo en escenarios concretos. Para más información, consulte [Introducción a la configuración de Application Gateway](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet).
+
 ### <a name="does-application-gateway-support-x-forwarded-for-headers"></a>¿Admite Application Gateway encabezados x-forwarded-for?
 
 Sí. Consulte [Modifications to a request](https://docs.microsoft.com/azure/application-gateway/how-application-gateway-works#modifications-to-the-request) (Modificaciones a una solicitud).
@@ -106,7 +112,24 @@ La mayoría de las implementaciones que usan la SKU v2 tardan aproximadamente 6 
 
 ### <a name="can-i-use-exchange-server-as-a-backend-with-application-gateway"></a>¿Puedo usar Exchange Server como un back-end con Application Gateway?
 
-No. Application Gateway no admite protocolos de correo electrónico como SMTP, IMAP y POP3. 
+No. Application Gateway no admite protocolos de correo electrónico como SMTP, IMAP y POP3.
+
+### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>¿Hay instrucciones disponibles para migrar de la SKU v1 a la SKU v2?
+
+Sí. Para más información, consulte [Migración de Azure Application Gateway y Firewall de aplicaciones web de v1 a v2](migrate-v1-v2.md).
+
+### <a name="will-the-application-gateway-v1-sku-continue-to-be-supported"></a>¿Se seguirá admitiendo la SKU de Application Gateway v1?
+
+Sí. La SKU de Application Gateway v1 se seguirá admitiendo. Sin embargo, se recomienda que cambie a la versión 2 para aprovechar las ventajas de las actualizaciones de características en esa SKU. Para obtener más información, consulte [Escalabilidad automática y Application Gateway v2 con redundancia de zona](application-gateway-autoscaling-zone-redundant.md).
+
+### <a name="does-application-gateway-v2-support-proxying-requests-with-ntlm-authentication"></a>¿Admite Application Gateway V2 solicitudes de proxy con autenticación NTLM?
+
+No. Application Gateway V2 no admite solicitudes de proxy con autenticación NTLM todavía.
+
+### <a name="does-application-gateway-affinity-cookie-support-samesite-attribute"></a>¿La cookie de afinidad de Application Gateway admite el atributo SameSite?
+Sí, la [actualización v80](https://chromiumdash.appspot.com/schedule) del [explorador Chromium](https://www.chromium.org/Home) incluye un mandato en el que las cookies HTTP sin el atributo SameSite se tratan como SameSite=Lax. Esto significa que el explorador no enviará la cookie de afinidad de Application Gateway en un contexto de terceros. 
+
+Para admitir este escenario, Application Gateway inserta otra cookie llamada *ApplicationGatewayAffinityCORS* además de la cookie *ApplicationGatewayAffinity* existente.  Estas cookies son similares, aunque la cookie *ApplicationGatewayAffinityCORS* tiene dos atributos más: *SameSite=None y Secure*. Estos atributos mantienen las sesiones permanentes incluso para las solicitudes entre orígenes. Consulte la sección [afinidad basada en cookies](configuration-overview.md#cookie-based-affinity) para obtener más información.
 
 ## <a name="performance"></a>Rendimiento
 
@@ -130,7 +153,7 @@ No. Las instancias se distribuyen entre varios dominios de actualización y domi
 
 ### <a name="does-application-gateway-support-connection-draining"></a>¿Es compatible Application Gateway con la funcionalidad de drenaje de conexiones?
 
-Sí. Puede configurar el drenaje de conexiones para cambiar los miembros de un grupo de servidores back-end sin interrupciones. Para obtener más información, consulte la [sección de purga de la conexión de Application Gateway](overview.md#connection-draining).
+Sí. Puede configurar el drenaje de conexiones para cambiar los miembros de un grupo de servidores back-end sin interrupciones. Para obtener más información, consulte la [sección de purga de la conexión de Application Gateway](features.md#connection-draining).
 
 ### <a name="can-i-change-instance-size-from-medium-to-large-without-disruption"></a>¿Puedo cambiar el tamaño de la instancia de mediano a grande sin que haya una interrupción?
 
@@ -198,15 +221,34 @@ Sí. Consulte la [restricción del acceso a determinadas direcciones IP de orige
 
 No.
 
-### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>¿Hay instrucciones disponibles para migrar de la SKU v1 a la SKU v2?
-
-Sí. Para más información, consulte [Migración de Azure Application Gateway y Firewall de aplicaciones web de v1 a v2](migrate-v1-v2.md).
-
 ### <a name="does-application-gateway-support-ipv6"></a>¿Application Gateway admite IPv6?
 
 Application Gateway V2 no es compatible actualmente con IPv6. Puede funcionar en una red virtual de pila dual solo mediante IPv4, pero la subred de puerta de enlace debe ser solo IPv4. Application Gateway v1 no admite redes virtuales de pila dual. 
 
-## <a name="configuration---ssl"></a>Configuración: SSL
+### <a name="how-do-i-use-application-gateway-v2-with-only-private-frontend-ip-address"></a>¿Cómo usar Application Gateway V2 solo con una dirección IP de front-end privada?
+
+Actualmente, Application Gateway V2 no admite solo el modo IP privada. Admite las siguientes combinaciones
+* IP privada e IP pública
+* Solo IP pública
+
+Pero si desea usar Application Gateway V2 con solo IP privada, puede seguir el siguiente proceso:
+1. Cree una Application Gateway con la dirección IP de front-end pública y privada
+2. No cree ningún cliente de escucha para la dirección IP pública de front-end. Application Gateway no escuchará ningún tráfico en la dirección IP pública si no se crea ningún cliente de escucha para él.
+3. Cree y adjunte un [Grupo de seguridad de red](https://docs.microsoft.com/azure/virtual-network/security-overview) para la subred de Application Gateway con la siguiente configuración en orden de prioridad:
+    
+    a. Permita el tráfico desde el origen como **etiqueta de servicio de GatewayManager** y el destino como **cualquier** y puerto de destino como **65200-65535**. Este intervalo de puertos es necesario para la comunicación de la infraestructura de Azure. Estos puertos están protegidos (bloqueados) por la autenticación de certificados. Las entidades externas, incluidos los administradores de usuarios de la puerta de enlace, no pueden iniciar cambios en esos puntos de conexión sin los certificados adecuados en su lugar
+    
+    b. Permita el tráfico desde el origen como **AzureLoadBalancer** etiqueta de servicio y el puerto de destino y destino como **cualquiera**
+    
+    c. Denegar todo el tráfico entrante desde el origen como **etiqueta del servicio de Internet** y el puerto de destino y destino como **cualquiera**. Asigne a esta regla la *mínima prioridad* en las reglas de entrada
+    
+    d. Mantenga las reglas predeterminadas y permita la entrada de VirtualNetwork para que el acceso en la dirección IP privada no esté bloqueado
+    
+    e. No puede bloquearse la conectividad saliente de Internet. De lo contrario, se producirán problemas con el registro, las métricas, etc.
+
+Ejemplo de configuración de NSG para acceso de IP privada solamente: ![Configuración de Application Gateway V2 NSG solo para acceso IP privado](./media/application-gateway-faq/appgw-privip-nsg.png)
+
+## <a name="configuration---tls"></a>Configuración: TLS
 
 ### <a name="what-certificates-does-application-gateway-support"></a>¿Qué certificados admite Application Gateway?
 
@@ -245,13 +287,13 @@ Application Gateway admite los siguientes conjuntos de cifrado.
 - TLS_RSA_WITH_3DES_EDE_CBC_SHA
 - TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA
 
-Para obtener información sobre cómo personalizar opciones de SSL, consulte [Configuración de versiones de directivas SSL y conjuntos de cifrado en Application Gateway](application-gateway-configure-ssl-policy-powershell.md).
+Para obtener información sobre cómo personalizar opciones de TLS, consulte [Configuración de versiones de directivas TLS y conjuntos de cifrado en Application Gateway](application-gateway-configure-ssl-policy-powershell.md).
 
 ### <a name="does-application-gateway-support-reencryption-of-traffic-to-the-backend"></a>¿Admite Application Gateway el recifrado del tráfico dirigido al back-end?
 
-Sí. Application Gateway admite la descarga de SSL y SSL de un extremo a otro, lo cual permite volver a cifrar el tráfico dirigido al back-end.
+Sí. Application Gateway admite la descarga de TLS y TLS de un extremo a otro, lo cual permite volver a cifrar el tráfico dirigido al back-end.
 
-### <a name="can-i-configure-ssl-policy-to-control-ssl-protocol-versions"></a>¿Se puede configurar la directiva SSL para controlar las versiones del protocolo SSL?
+### <a name="can-i-configure-tls-policy-to-control-tls-protocol-versions"></a>¿Puedo configurar la directiva TLS para controlar las versiones del protocolo TLS?
 
 Sí. Puede configurar Application Gateway para denegar TLS1.0, TLS1.1 y TLS1.2. De forma predeterminada, SSL 2.0 y 3.0 ya están deshabilitadas y no se pueden configurar.
 
@@ -268,9 +310,9 @@ Sí. En Application Gateway, puede [configurar conjuntos de cifrado](application
 
 Application Gateway usa SHA256 para la administración de back-end.
 
-### <a name="how-many-ssl-certificates-does-application-gateway-support"></a>Cuántos certificados SSL admite Application Gateway?
+### <a name="how-many-tlsssl-certificates-does-application-gateway-support"></a>Cuántos certificados TLS/SSL admite Application Gateway?
 
-Application Gateway admite hasta 100 certificados SSL.
+Application Gateway admite hasta 100 certificados TLS/SSL.
 
 ### <a name="how-many-authentication-certificates-for-backend-reencryption-does-application-gateway-support"></a>¿Cuántos certificados de autenticación de recifrado de back-end admite Application Gateway?
 
@@ -278,7 +320,7 @@ Application Gateway admite hasta 100 certificados de autenticación.
 
 ### <a name="does-application-gateway-natively-integrate-with-azure-key-vault"></a>¿Se integra Application Gateway con Azure Key Vault de forma nativa?
 
-Sí, la SKU v2 de Application Gateway admite Key Vault. Para obtener más información, consulte [Terminación SSL con certificados de Key Vault](key-vault-certs.md).
+Sí, la SKU v2 de Application Gateway admite Key Vault. Para obtener más información, consulte [Terminación TLS con certificados de Key Vault](key-vault-certs.md).
 
 ### <a name="how-do-i-configure-https-listeners-for-com-and-net-sites"></a>¿Cómo configuro agentes de escucha HTTPS para sitios .com y .NET? 
 
@@ -288,51 +330,11 @@ Para el enrutamiento (basado en host) basado en varios dominios, puede crear age
 
 No, use solo caracteres alfanuméricos en la contraseña del archivo .pfx.
 
-## <a name="configuration---web-application-firewall-waf"></a>Configuración: firewall de aplicaciones web (WAF)
-
-### <a name="does-the-waf-sku-offer-all-the-features-available-in-the-standard-sku"></a>¿Ofrece la SKU de WAF todas las características disponibles en la SKU estándar?
-
-Sí. WAF admite todas las características de la SKU estándar.
-
-### <a name="how-do-i-monitor-waf"></a>¿Cómo se supervisa el WAF?
-
-Supervise WAF a través del registro de diagnóstico. Para más información, consulte [Diagnostic logging and metrics for Application Gateway](application-gateway-diagnostics.md) (Registro de diagnóstico y métricas de Application Gateway).
-
-### <a name="does-detection-mode-block-traffic"></a>¿Bloquea el modo de detección el tráfico?
-
-No. El modo de detección solo registra el tráfico que desencadena una regla de WAF.
-
-### <a name="can-i-customize-waf-rules"></a>¿Se pueden personalizan las reglas de WAF?
-
-Sí. Para más información, consulte [Personalización de reglas de firewall de aplicaciones web mediante Azure Portal](application-gateway-customize-waf-rules-portal.md).
-
-### <a name="what-rules-are-currently-available-for-waf"></a>¿Qué reglas están disponibles actualmente para WAF?
-
-Actualmente, WAF admite CRS [2.2.9](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md#owasp229), [3.0](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md#owasp30) y [3.1](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md#owasp31). Estas reglas proporcionan seguridad de línea base frente a la mayoría de las 10 vulnerabilidades principales que Open Web Application Security Project (OWASP) identifica: 
-
-* Protección contra la inyección de código SQL
-* Protección contra ataques de scripts de sitios
-* Protección contra ataques web comunes, como la inyección de comandos, el contrabando de solicitudes HTTP, la división de respuestas HTTP y el ataque remoto de inclusión de archivos.
-* Protección contra infracciones del protocolo HTTP
-* Protección contra anomalías del protocolo HTTP, como la falta de agentes de usuario de host y encabezados de aceptación
-* Prevención contra bots, rastreadores y escáneres
-* Detección de errores de configuración comunes en aplicaciones (es decir, Apache, IIS, etc.).
-
-Para obtener más información, consulte las [10 vulnerabilidades principales de OWASP](https://www.owasp.org/index.php/Top10#OWASP_Top_10_for_2013).
-
-### <a name="does-waf-support-ddos-protection"></a>¿Admite WAF la protección contra DDoS?
-
-Sí. Puede habilitar la protección contra DDos en la red virtual donde se implementa Application Gateway. Esta configuración garantiza que el servicio Azure DDoS Protection también protege la IP virtual (VIP) de Application Gateway.
-
-### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>¿Hay instrucciones disponibles para migrar de la SKU v1 a la SKU v2?
-
-Sí. Para más información, consulte [Migración de Azure Application Gateway y Firewall de aplicaciones web de v1 a v2](migrate-v1-v2.md).
-
 ## <a name="configuration---ingress-controller-for-aks"></a>Configuración: controlador de entrada para AKS
 
 ### <a name="what-is-an-ingress-controller"></a>¿Qué es un controlador de entrada?
 
-Kubernetes permite la creación de los recursos `deployment` y `service` para exponer un grupo de pods internamente en el clúster. Para exponer el mismo servicio externamente, se define un recurso [`Ingress`](https://kubernetes.io/docs/concepts/services-networking/ingress/) que proporciona equilibrio de carga, terminación SSL y hospedaje virtual basado en nombres.
+Kubernetes permite la creación de los recursos `deployment` y `service` para exponer un grupo de pods internamente en el clúster. Para exponer el mismo servicio externamente, se define un recurso [`Ingress`](https://kubernetes.io/docs/concepts/services-networking/ingress/) que proporciona equilibrio de carga, terminación TLS y hospedaje virtual basado en nombres.
 Para satisfacer este recurso `Ingress`, se requiere un controlador de entrada que realice escuchas de los cambios en los recursos `Ingress` y que configure las directivas del equilibrador de carga.
 
 El controlador de entrada de Application Gateway permite que [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) se utilice como entrada para una instancia de [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) llamada "clúster de AKS".
@@ -347,11 +349,11 @@ Actualmente, una instancia del controlador de entrada solo se puede asociar a un
 
 Application Gateway proporciona tres registros: 
 
-* **ApplicationGatewayAccessLog**: el registro de acceso contiene todas las solicitudes enviadas al front-end de Application Gateway. Los datos incluyen la dirección IP del autor de la llamada, la dirección URL solicitada, la latencia de la respuesta, el código de devolución y los bytes de entrada y salida. El registro de acceso se recopila cada 300 segundos y contiene un registro por cada instancia de Application Gateway.
+* **ApplicationGatewayAccessLog**: el registro de acceso contiene todas las solicitudes enviadas al front-end de Application Gateway. Los datos incluyen la dirección IP del autor de la llamada, la dirección URL solicitada, la latencia de la respuesta, el código de devolución y los bytes de entrada y salida. y contiene un registro por cada instancia de Application Gateway.
 * **ApplicationGatewayPerformanceLog**: el registro de rendimiento captura información de rendimiento para cada instancia de Application Gateway. La información incluye el rendimiento en bytes, el número total de solicitudes atendidas, el recuento de solicitudes con error y el recuento de instancias de back-end correctas e incorrectas.
 * **ApplicationGatewayFirewallLog**: para las instancias de Application Gateway que configure con WAF, el registro del firewall contiene las solicitudes que se registran mediante el modo de detección o el modo de prevención.
 
-Para más información, consulte [Mantenimiento del back-end, registro de diagnóstico y métricas de Application Gateway](application-gateway-diagnostics.md).
+Todos los registros se recopilan cada 60 segundos. Para más información, consulte [Mantenimiento del back-end, registro de diagnóstico y métricas de Application Gateway](application-gateway-diagnostics.md).
 
 ### <a name="how-do-i-know-if-my-backend-pool-members-are-healthy"></a>¿Cómo se puede saber si mis miembros del grupo de back-end están en buenas condiciones?
 
@@ -388,7 +390,7 @@ Sí. Si la configuración coincide con el siguiente escenario, no verá el tráf
 
 ### <a name="how-do-i-use-application-gateway-v2-with-only-private-frontend-ip-address"></a>¿Cómo usar Application Gateway V2 solo con una dirección IP de front-end privada?
 
-Actualmente, Application Gateway V2 no admite solo el modo IP privada. Admite las siguientes combinaciones
+Actualmente, Application Gateway v2 no admite exclusivamente el modo de IP privada. Admite las siguientes combinaciones
 * IP privada e IP pública
 * Solo IP pública
 
@@ -399,16 +401,18 @@ Pero si desea usar Application Gateway V2 con solo IP privada, puede seguir el s
     
     a. Permita el tráfico desde el origen como **etiqueta de servicio de GatewayManager** y el destino como **cualquier** y puerto de destino como **65200-65535**. Este intervalo de puertos es necesario para la comunicación de la infraestructura de Azure. Estos puertos están protegidos (bloqueados) por la autenticación de certificados. Las entidades externas, incluidos los administradores de usuarios de la puerta de enlace, no pueden iniciar cambios en esos puntos de conexión sin los certificados adecuados en su lugar
     
-    b. Permita el tráfico desde el origen como **AzureLoadBalancer** etiqueta de servicio y el puerto de destino y destino como **cualquiera**
+    b. Permita el tráfico desde el origen como la etiqueta de servicio **AzureLoadBalancer** y el puerto de destino como **cualquiera**.
     
-    c. Denegar todo el tráfico entrante desde el origen como **etiqueta del servicio de Internet** y el puerto de destino y destino como **cualquiera**. Asigne a esta regla la *mínima prioridad* en las reglas de entrada
+    c. Deniegue todo el tráfico entrante desde el origen como la etiqueta del servicio **Internet** y el puerto de destino como **cualquiera**. Asigne a esta regla la *mínima prioridad* en las reglas de entrada
     
-    d. Mantenga las reglas predeterminadas y permita la entrada de VirtualNetwork para que el acceso en la dirección IP privada no esté bloqueado
+    d. Mantenga las reglas predeterminadas y permita la entrada de VirtualNetwork para que el acceso en la dirección IP privada no esté bloqueado.
     
     e. No puede bloquearse la conectividad saliente de Internet. De lo contrario, se producirán problemas con el registro, las métricas, etc.
 
 Ejemplo de configuración de NSG para acceso de IP privada solamente: ![Configuración de Application Gateway V2 NSG solo para acceso IP privado](./media/application-gateway-faq/appgw-privip-nsg.png)
 
+### <a name="does-application-gateway-affinity-cookie-support-samesite-attribute"></a>¿La cookie de afinidad de Application Gateway admite el atributo SameSite?
+Sí, la [actualización v80](https://chromiumdash.appspot.com/schedule) del [explorador Chromium](https://www.chromium.org/Home) incluye un mandato en el que las cookies HTTP sin el atributo SameSite se tratan como SameSite=Lax. Esto significa que el explorador no enviará la cookie de afinidad de Application Gateway en un contexto de terceros. Para admitir este escenario, Application Gateway inserta otra cookie llamada *ApplicationGatewayAffinityCORS* además de la cookie *ApplicationGatewayAffinity* existente.  Estas cookies son similares, aunque la cookie *ApplicationGatewayAffinityCORS* tiene dos atributos más: *SameSite=None y Secure*. Estos atributos mantienen las sesiones permanentes incluso para las solicitudes entre orígenes. Consulte la sección [afinidad basada en cookies](configuration-overview.md#cookie-based-affinity) para obtener más información.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

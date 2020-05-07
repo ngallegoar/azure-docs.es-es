@@ -9,10 +9,10 @@ ms.date: 10/06/2019
 ms.author: mbaldwin
 ms.custom: include file
 ms.openlocfilehash: 6f7f319d2ebb4cd39933addf04f249df02d7819f
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81314122"
 ---
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
@@ -77,7 +77,7 @@ Si no ha habilitado el almacén de claves para el cifrado de discos, la implemen
 
 Use [az keyvault update](/cli/azure/keyvault#az-keyvault-update) para habilitar el cifrado de disco para el almacén de claves. 
 
- - **Habilitar Key Vault para el cifrado de disco:** Es necesario Enabled-for-disk-encryption. 
+ - **Habilitar Key Vault para el cifrado de disco:** se requiere enabled-for-disk-encryption. 
 
      ```azurecli-interactive
      az keyvault update --name "<your-unique-keyvault-name>" --resource-group "MyResourceGroup" --enabled-for-disk-encryption "true"
