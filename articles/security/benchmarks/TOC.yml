@@ -33,8 +33,6 @@
   items:
     - name: Introducción a las bases de referencia de seguridad para Azure
       href: security-baselines-overview.md
-    - name: Base de referencia de la seguridad de API Management
-      href: ../../api-management/security-baseline.md
     - name: Base de referencia de seguridad de Azure Cache for Redis
       href: ../../azure-cache-for-redis/security-baseline.md
     - name: Base de referencia de seguridad de Backup
@@ -47,12 +45,8 @@
       href: ../../cosmos-db/security-baseline.md
     - name: Base de referencia de seguridad de Data Explorer
       href: /azure/data-explorer/security-baseline
-    - name: Base de referencia de la seguridad de Databricks
-      href: ../../azure-databricks/security-baseline.md
     - name: Base de referencia de seguridad de Event Hubs
       href: ../../event-hubs/security-baseline.md
-    - name: Base de referencia de la seguridad de Functions
-      href: ../../azure-functions/security-baseline.md
     - name: Base de referencia de seguridad de HDInsight
       href: ../../hdinsight/security-baseline.md
     - name: Base de referencia de seguridad de Key Vault

@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 10/16/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4384d29811d29f06422802abba5d3eb1ea5737e9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 091c0a8cb4c0db517ab2dbabaf16633227dba42c
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72430082"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594702"
 ---
 # <a name="backup-and-restore"></a>Copia de seguridad y restauración
 
@@ -162,7 +162,7 @@ En este paso se autoriza a la cuenta de usuario de SAP HANA que creó, de manera
 
 ### <a name="step-6-get-the-snapshot-scripts-configure-the-snapshots-and-test-the-configuration-and-connectivity"></a>Paso 6: Obtener los scripts de instantánea, configurar las instantáneas y probar la configuración y la conectividad
 
-Descargue la versión más reciente de los scripts de [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/tree/master/snapshot_tools_v4.1). Puede cambiar la manera en que se instalan los scripts con la versión 4.1 de los scripts. Para obtener más información, consulte "Enable communication with SAP HANA" (habilitación de la comunicación con SAP HANA) en [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md) (herramientas de instantáneas de Microsoft para SAP HANA en Azure).
+Descargue la versión más reciente de los scripts de [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/tree/master/snapshot_tools_v4.2). Puede cambiar la manera en que se instalan los scripts con la versión 4.1 de los scripts. Para obtener más información, consulte "Enable communication with SAP HANA" (habilitación de la comunicación con SAP HANA) en [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md) (herramientas de instantáneas de Microsoft para SAP HANA en Azure).
 
 Para ver la secuencia exacta de comandos, consulte "Easy installation of snapshot tools (default)" (instalación fácil de las herramientas de instantáneas [manera predeterminada]) en [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md) (herramientas de instantáneas de Microsoft para SAP HANA en Azure). Se recomienda usar la instalación predeterminada. 
 

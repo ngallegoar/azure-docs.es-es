@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: 9595ee87801fa4ce187a50197fc58d6c448eac24
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 09dd4ea3cd039bcb91acc877e51fee7e40168ac3
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78303229"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612765"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Configuración de una instancia de clúster de conmutación por error de SQL Server con un recurso compartido de archivos Premium en Azure Virtual Machines
 
@@ -47,7 +47,7 @@ También debe tener conocimientos generales de estas tecnologías:
 > [!IMPORTANT]
 > Actualmente, las instancias del clúster de conmutación por error de SQL Server de las máquinas virtuales de Azure solo se admiten con el [modo de administración ligera](virtual-machines-windows-sql-register-with-resource-provider.md#management-modes) de la [extensión del agente de IaaS de SQL Server](virtual-machines-windows-sql-server-agent-extension.md). Para cambiar del modo de extensión total a extensión ligera, elimine el recurso **Máquina virtual SQL** de las máquinas virtuales correspondientes y regístrelas con el proveedor de recursos de VM con SQL en el modo ligero. Al eliminar el recurso **Máquina virtual SQL** desde Azure Portal, **desactive la casilla de la máquina virtual correcta**. La extensión completa admite características como la copia de seguridad automatizada, y la aplicación de revisiones y la administración avanzada del portal. Estas características no funcionarán para las máquinas virtuales de SQL si se vuelve a instalar el agente en modo de administración lightweight.
 
-Los recursos compartidos de archivos Premium proporcionan IOPS y capacidades de rendimiento para responder a las necesidades de múltiples cargas de trabajo. Para cargas de trabajo con un uso intensivo de E/S, considere la [instancia de clúster de conmutación por error de SQL Server con Espacios de almacenamiento directo](virtual-machines-windows-portal-sql-create-failover-cluster.md) basada en discos o ultradiscos Premium administrados.  
+Los recursos compartidos de archivos Premium proporcionan funcionalidades de IOPS y rendimiento para responder a las necesidades de varias cargas de trabajo. Para cargas de trabajo con un uso intensivo de E/S, considere la [instancia de clúster de conmutación por error de SQL Server con Espacios de almacenamiento directo](virtual-machines-windows-portal-sql-create-failover-cluster.md) basada en discos o ultradiscos Premium administrados.  
 
 Compruebe la actividad de IOPS de su entorno y compruebe que los recursos compartidos de archivos Premium proporcionarán la capacidad de IOPS que necesita antes de iniciar una implementación o migración. Use los contadores de disco del Monitor de rendimiento de Windows para supervisar el total de IOPS (transferencias de disco/segundo) y el rendimiento (bytes de disco/segundo) necesarios para archivos de datos de SQL Server, registro y bases de datos temporales.
 
