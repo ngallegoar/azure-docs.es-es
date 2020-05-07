@@ -63,6 +63,8 @@
           href: ./ag/policy-overview.md
         - name: Información general sobre la protección contra bots
           href: ./ag/bot-protection-overview.md
+        - name: Preguntas más frecuentes
+          href: ./ag/application-gateway-waf-faq.md
     - name: Front Door
       items:
         - name: Reglas personalizadas
@@ -93,7 +95,7 @@
           href: ./ag/migrate-policy.md
         - name: Personalización de las reglas de WAF
           items:
-            - name: Portal de Azure
+            - name: Azure Portal
               href: ./ag/application-gateway-customize-waf-rules-portal.md
             - name: Azure PowerShell
               href: ./ag/application-gateway-customize-waf-rules-powershell.md

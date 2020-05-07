@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/22/2020
-ms.openlocfilehash: 3a5cf2b210781d43ddd1a7aa87736a53df222cf1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/22/2020
+ms.openlocfilehash: 4270e4c71cca28d43b1ecbaca1ec0f262251252b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79477398"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82137610"
 ---
 # <a name="two-class-neural-network-module"></a>Módulo Red neuronal de dos clases
 
@@ -74,9 +74,19 @@ Para calcular la salida de la red para una entrada determinada, se calcula un va
   
      Especificar un valor de inicialización es útil cuando desea asegurar la repetibilidad entre ejecuciones de la misma canalización.  En caso contrario, se utiliza un valor de reloj del sistema como la inicialización, lo que puede producir resultados ligeramente diferentes cada vez que ejecute la canalización.
   
-13. Agregue un conjunto de datos etiquetado a la canalización y conecte uno de los [módulos de aprendizaje](module-reference.md).  
+13. Agregue un conjunto de datos etiquetado a la canalización y entrene el modelo:
+
+    + Si establece **Create trainer mode** (Crear modo entrenador) en **Single Parameter** (Parámetro único), conecte un conjunto de datos etiquetado y el módulo [Entrenar modelo](train-model.md).  
   
-    -   Si establece **Create trainer mode** (Crear modo entrenador) en **Single Parameter** (Parámetro único), use el módulo [Entrenar modelo](train-model.md).  
+    + Si define **Create trainer mode** (Crear modo de entrenador) como **Parameter Range** (Rango de parámetros), conecte un conjunto de datos etiquetado y entrene el modelo mediante [Tune Model Hyperparameters](tune-model-hyperparameters.md) (Hiperparámetros de modelo de ajuste).  
+  
+    > [!NOTE]
+    > 
+    > Si pasa un rango de parámetros a [Entrenar modelo](train-model.md), solo se usa el valor predeterminado en la lista de parámetros única.  
+    > 
+    > Si pasa un único conjunto de valores de parámetro al módulo de [Tune Model Hyperparameters](tune-model-hyperparameters.md) (Hiperparámetros de modelo de ajuste), cuando se espera un rango de valores para cada parámetro, ignora los valores y usa los valores predeterminados para el aprendiz.  
+    > 
+    > Si selecciona la opción **Parameter Range** (Rango de parámetros) y especifica un valor único para cualquier parámetro, ese valor único que haya especificado se usará en todo el barrido, incluso si otros parámetros cambian en un rango de valores.  
   
 14. Envíe la canalización.
 

@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 7d3bcc32dc8f1412a5adbc175a5f8618628bce83
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: b6f665c5b0f2fbd291d20ef21d0a447d20f7c2da
+ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80547885"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82738055"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Preguntas frecuentes: Recuperación ante desastres de Azure a Azure
 
@@ -194,10 +194,10 @@ Puede replicar 16 máquinas virtuales juntas en un grupo de replicación.
 Dado que la coherencia de múltiples máquinas virtuales consume mucha CPU, su habilitación puede afectar al rendimiento. Use la coherencia de múltiples máquinas virtuales solo si las máquinas ejecutan la misma carga de trabajo y necesita coherencia entre varias máquinas virtuales. Por ejemplo, si tiene dos instancias de SQL Server y dos servidores web en una aplicación, debe tener coherencia de múltiples máquinas virtuales solo para las instancias de SQL Server.
 
 ### <a name="can-you-add-an-already-replicating-vm-to-a-replication-group"></a>¿Se puede agregar una máquina virtual que ya se esté replicando a un grupo de replicación?
-
 Puede agregar una máquina virtual a un nuevo grupo de replicación mientras permite la replicación. También puede agregar una máquina virtual a un nuevo grupo de replicación existente mientras permite la replicación. Sin embargo, no puede agregar una máquina virtual que ya se esté replicando a un nuevo grupo de replicación o a un grupo de replicación existente.
-
+ 
 ## <a name="failover"></a>Conmutación por error
+
 
 ### <a name="how-is-capacity-ensured-in-the-target-region-for-azure-vms"></a>¿Cómo se garantiza la capacidad en la región de destino de las máquinas virtuales de Azure?
 

@@ -5,13 +5,13 @@ author: kummanish
 ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/17/2019
-ms.openlocfilehash: 66d7228e78f03196da0b26249e7f1f86e79d79fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 05/02/2020
+ms.openlocfilehash: 7f671e2a77a0a00fd1cc4338e29c14f7b8fca4f2
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80159020"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734729"
 ---
 # <a name="prepay-for-azure-database-for-postgresql-compute-resources-with-reserved-capacity"></a>Pago por adelantado de recursos de proceso de Azure Database for PostgreSQL con capacidad reservada
 
@@ -22,7 +22,7 @@ No es necesario asignar la reserva a servidores concretos de Azure Database for 
 > [!IMPORTANT]
 > Los precios de la capacidad reservada solo están disponibles para la implementación [de un solo servidor](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server) de Azure Database for PostgreSQL y no para la implementación [Hyperscale Citus](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---hyperscale-citus).
 
-Puede comprar capacidad reservada de Azure Database for PostgreSQL en [Azure Portal](https://portal.azure.com/). Para comprar capacidad reservada:
+Puede comprar capacidad reservada de Azure Database for PostgreSQL en [Azure Portal](https://portal.azure.com/). Pague la reserva [por adelantado o mensualmente](../cost-management-billing/reservations/monthly-payments-reservations.md). Para comprar capacidad reservada:
 
 * Debe tener el rol de propietario al menos en una suscripción Enterprise o individual con tarifas de pago por uso.
 * En el caso de las suscripciones Enterprise, la opción **Agregar instancias reservadas** debe estar habilitada en el [portal de EA](https://ea.azure.com/). O bien, si esa opción está deshabilitada, debe ser un administrador de EA en la suscripción.

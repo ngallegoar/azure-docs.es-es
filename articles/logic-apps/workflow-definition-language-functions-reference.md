@@ -3,24 +3,24 @@ title: Guía de referencia de las funciones en las expresiones
 description: Guía de referencia de las funciones en las expresiones para Azure Logic Apps y Power Automate
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 02/03/2020
-ms.openlocfilehash: 87798c93bbc1098daea2f7258a3af3e26bb4bb93
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/30/2020
+ms.openlocfilehash: e1ebc0257082ecfacc708352ba0a68e38e10717f
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79237144"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82607799"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guía de referencia para usar las funciones en las expresiones para Azure Logic Apps y Power Automate
 
-En las definiciones de flujo de trabajo en [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y [Power Automate](https://docs.microsoft.com/flow/getting-started), algunas [expresiones](../logic-apps/logic-apps-workflow-definition-language.md#expressions) obtienen sus valores de las acciones del entorno de ejecución que puede que no existan aún cuando comienza a ejecutarse el flujo de trabajo. Para hacer referencia a estos valores o procesarlos en estas expresiones, puede usar las *funciones* que proporciona el [Lenguaje de definición de flujo de trabajo](../logic-apps/logic-apps-workflow-definition-language.md). 
+En las definiciones de flujo de trabajo en [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y [Power Automate](https://docs.microsoft.com/flow/getting-started), algunas [expresiones](../logic-apps/logic-apps-workflow-definition-language.md#expressions) obtienen sus valores de las acciones del entorno de ejecución que puede que no existan aún cuando comienza a ejecutarse el flujo de trabajo. Para hacer referencia a estos valores o procesarlos en estas expresiones, puede usar las *funciones* que proporciona el [Lenguaje de definición de flujo de trabajo](../logic-apps/logic-apps-workflow-definition-language.md).
 
 > [!NOTE]
 > Esta página de referencia se aplica a Azure Logic Apps y Power Automate, pero aparece en la documentación de Azure Logic Apps. Aunque esta página se refiere específicamente a las aplicaciones lógicas, estas funciones son válidas tanto para flujos como para aplicaciones lógicas. Para más información acerca de las funciones y las expresiones en Power Automate, consulte [Uso de expresiones en condiciones](https://docs.microsoft.com/flow/use-expressions-in-conditions).
 
-Por ejemplo, puede calcular valores con funciones matemáticas, como la función [add()](../logic-apps/workflow-definition-language-functions-reference.md#add), cuando desee obtener la suma de números enteros y float. A continuación se muestran otras tareas de ejemplo que puede realizar con funciones:
+Por ejemplo, puede calcular valores con funciones matemáticas, como la función [add()](../logic-apps/workflow-definition-language-functions-reference.md#add), cuando quiera obtener la suma de números enteros y float. A continuación se muestran otras tareas de ejemplo que puede realizar con funciones:
 
 | Tarea | Sintaxis de la función | Resultado |
 | ---- | --------------- | ------ |
@@ -31,8 +31,7 @@ Por ejemplo, puede calcular valores con funciones matemáticas, como la función
 Para buscar funciones [según su propósito general](#ordered-by-purpose), utilice las siguientes tablas. O bien, para obtener información detallada acerca de cada función, consulte la [lista alfabética](#alphabetical-list).
 
 > [!NOTE]
-> En la sintaxis de las definiciones de parámetros, el signo de interrogación (?) que aparece después de un parámetro significa que el parámetro es opcional.
-> Por ejemplo, consulte [getFutureTime()](#getFutureTime).
+> En la sintaxis de las definiciones de parámetros, el signo de interrogación (?) que aparece después de un parámetro significa que el parámetro es opcional. Por ejemplo, consulte [getFutureTime()](#getFutureTime).
 
 ## <a name="functions-in-expressions"></a>Funciones en expresiones
 
@@ -74,8 +73,7 @@ Estas son las funciones disponibles ordenadas por su uso general, o bien puede v
 
 ## <a name="string-functions"></a>Funciones de cadena
 
-Para trabajar con cadenas, puede usar estas funciones de cadena y también algunas [funciones de colección](#collection-functions).
-Las funciones de cadena solo funcionan en cadenas.
+Para trabajar con cadenas, puede usar estas funciones de cadena y también algunas [funciones de colección](#collection-functions). Las funciones de cadena solo funcionan en cadenas.
 
 | Función de cadena | Tarea |
 | --------------- | ---- |
@@ -119,8 +117,7 @@ Para trabajar con colecciones, por lo general matrices, cadenas y, en ocasiones,
 
 ## <a name="logical-comparison-functions"></a>Funciones de comparación lógica
 
-Para trabajar con condiciones, comparar valores y resultados de expresiones, o evaluar varios tipos de lógica, puede usar estas funciones de comparación lógica.
-Para obtener la referencia completa sobre cada función, consulte la [lista en orden alfabético](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+Para trabajar con condiciones, comparar valores y resultados de expresiones, o evaluar varios tipos de lógica, puede usar estas funciones de comparación lógica. Para obtener la referencia completa sobre cada función, consulte la [lista en orden alfabético](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
 
 | Función de comparación lógica | Tarea |
 | --------------------------- | ---- |
@@ -139,10 +136,10 @@ Para obtener la referencia completa sobre cada función, consulte la [lista en o
 
 ## <a name="conversion-functions"></a>Funciones de conversión
 
-Para cambiar el tipo o el formato de un valor, puede usar estas funciones de conversión.
-Por ejemplo, puede cambiar un valor de booleano a entero.
-Para más información sobre el modo en que Logic Apps administra los tipos de contenido durante la conversión, consulte [Administración de los tipos de contenido](../logic-apps/logic-apps-content-type.md).
-Para obtener la referencia completa sobre cada función, consulte la [lista en orden alfabético](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+Para cambiar el tipo o el formato de un valor, puede usar estas funciones de conversión. Por ejemplo, puede cambiar un valor de booleano a entero. Para más información sobre el modo en que Logic Apps administra los tipos de contenido durante la conversión, consulte [Administración de los tipos de contenido](../logic-apps/logic-apps-content-type.md). Para obtener la referencia completa sobre cada función, consulte la [lista en orden alfabético](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+
+> [!NOTE]
+> Azure Logic Apps convierte automáticamente los valores entre determinados tipos de datos, lo que significa que no tiene que realizar estas conversiones manualmente. Sin embargo, si lo hace, puede experimentar comportamientos de visualización inesperados, que no afectan a las conversiones reales, solo a la forma en que se muestran. Para obtener más información, consulte [Conversiones implícitas de tipos de datos](#implicit-data-conversions).
 
 | Función de conversión | Tarea |
 | ------------------- | ---- |
@@ -169,6 +166,35 @@ Para obtener la referencia completa sobre cada función, consulte la [lista en o
 | [uriComponentToString](../logic-apps/workflow-definition-language-functions-reference.md#uriComponentToString) | Devuelve la versión de cadena de una cadena codificada con el URI. |
 | [xml](../logic-apps/workflow-definition-language-functions-reference.md#xml) | Devuelve la versión XML de una cadena. |
 |||
+
+<a name="implicit-data-conversions"></a>
+
+## <a name="implicit-data-type-conversions"></a>Conversiones implícitas de tipos de datos
+
+Azure Logic Apps realiza conversiones de forma automática o implícita entre algunos tipos de datos para que no tenga que convertir estos tipos automáticamente. Por ejemplo, si usa valores que no son de cadena donde se esperan cadenas como entradas, Logic Apps convierte automáticamente los valores que no son de cadena en cadenas.
+
+Por ejemplo, supongamos que un desencadenador devuelve un valor numérico como salida:
+
+`triggerBody()?['123']`
+
+Si usa esta salida numérica donde se espera una entrada de cadena, como una dirección URL, Logic Apps convierte automáticamente el valor en una cadena mediante la notación de llaves (`{}`):
+
+`@{triggerBody()?['123']}`
+
+### <a name="base64-encoding-and-decoding"></a>Codificación y descodificación Base64
+
+Logic Apps realiza de forma automática o implícita la codificación o descodificación Base64, por lo que no tiene que realizar estas operaciones manualmente mediante las expresiones correspondientes:
+
+* `base64(<value>)`
+* `base64ToBinary(<value>)`
+* `base64ToString(<value>)`
+* `base64(decodeDataUri(<value>))`
+* `concat('data:;base64,',<value>)`
+* `concat('data:,',encodeUriComponent(<value>))`
+* `decodeDataUri(<value>)`
+
+> [!NOTE]
+> Si agrega manualmente estas expresiones a la aplicación lógica, por ejemplo, mediante el editor de expresiones, salga del diseñador de aplicaciones lógicas y vuelva a entrar para que muestre solo los valores de los parámetros. Las expresiones se conservan en la vista de código solo si no edita los valores de los parámetros. De lo contrario, Logic Apps quita las expresiones de la vista de código, y solo se dejan los valores de parámetro. Este comportamiento no afecta a la codificación ni a la descodificación, solo a si se muestran las expresiones.
 
 <a name="math-functions"></a>
 
@@ -908,6 +934,9 @@ Y devuelve este resultado: `["hello"]`
 
 Devuelve la versión de una cadena codificada en base64.
 
+> [!NOTE]
+> Azure Logic Apps realiza automáticamente la codificación y descodificación Base64, lo que significa que no tiene que realizar estas conversiones manualmente. Sin embargo, si lo hace, puede experimentar comportamientos de visualización inesperados, que no afectan a las conversiones reales, solo a la forma en que se muestran. Para obtener más información, consulte [Conversiones implícitas de tipos de datos](#implicit-data-conversions).
+
 ```
 base64('<value>')
 ```
@@ -937,6 +966,9 @@ Y devuelve este resultado: `"aGVsbG8="`
 ### <a name="base64tobinary"></a>base64ToBinary
 
 Devuelve la versión binaria de una cadena codificada en base64.
+
+> [!NOTE]
+> Azure Logic Apps realiza automáticamente la codificación y descodificación Base64, lo que significa que no tiene que realizar estas conversiones manualmente. Sin embargo, si lo hace, puede experimentar comportamientos de visualización inesperados, que no afectan a las conversiones reales, solo a la forma en que se muestran. Para obtener más información, consulte [Conversiones implícitas de tipos de datos](#implicit-data-conversions).
 
 ```
 base64ToBinary('<value>')
@@ -968,9 +1000,10 @@ Y devuelve este resultado:
 
 ### <a name="base64tostring"></a>base64ToString
 
-Devuelve la versión de cadena de una cadena codificada en base64, decodificando dicha cadena en base64.
-Use esta función en lugar de [decodeBase64()](#decodeBase64).
-Aunque ambas funciones funcionan del mismo modo, `base64ToString()` es preferible.
+Devuelve la versión de cadena de una cadena codificada en base64, decodificando dicha cadena en base64. Use esta función en lugar de [decodeBase64()](#decodeBase64), que está en desuso.
+
+> [!NOTE]
+> Azure Logic Apps realiza automáticamente la codificación y descodificación Base64, lo que significa que no tiene que realizar estas conversiones manualmente. Sin embargo, si lo hace, puede experimentar comportamientos de visualización inesperados, que no afectan a las conversiones reales, solo a la forma en que se muestran. Para obtener más información, consulte [Conversiones implícitas de tipos de datos](#implicit-data-conversions).
 
 ```
 base64ToString('<value>')
@@ -1535,7 +1568,7 @@ Este ejemplo devuelve el número del día de la semana de esta marca de tiempo:
 dayOfWeek('2018-03-15T13:27:36Z')
 ```
 
-Y devuelve este resultado: `3`
+Y devuelve este resultado: `4`
 
 <a name="dayOfYear"></a>
 
@@ -1569,43 +1602,18 @@ Y devuelve este resultado: `74`
 
 <a name="decodeBase64"></a>
 
-### <a name="decodebase64"></a>decodeBase64
+### <a name="decodebase64-deprecated"></a>decodeBase64 (en desuso)
 
-Devuelve la versión de cadena de una cadena codificada en base64, decodificando dicha cadena en base64.
-Considere el uso de [base64ToString()](#base64ToString) en lugar de `decodeBase64()`.
-Aunque ambas funciones funcionan del mismo modo, `base64ToString()` es preferible.
-
-```
-decodeBase64('<value>')
-```
-
-| Parámetro | Obligatorio | Tipo | Descripción |
-| --------- | -------- | ---- | ----------- |
-| <*value*> | Sí | String | Cadena con codificación base64 que se va a decodificar |
-|||||
-
-| Valor devuelto | Tipo | Descripción |
-| ------------ | ---- | ----------- |
-| <*cadena-base64-decodificada*> | String | Versión de cadena de una cadena codificada en base64 |
-||||
-
-*Ejemplo*
-
-Este ejemplo crea una cadena a partir de una cadena codificada en base64:
-
-```
-decodeBase64('aGVsbG8=')
-```
-
-Y devuelve este resultado: `"hello"`
+Está función está en desuso. Use [base64ToString()](#base64ToString) en su lugar.
 
 <a name="decodeDataUri"></a>
 
 ### <a name="decodedatauri"></a>decodeDataUri
 
-Devuelve la versión binaria de un identificador uniforme de recursos (URI) de datos.
-Considere el uso de [dataUriToBinary()](#dataUriToBinary) en lugar de `decodeDataUri()`.
-Aunque ambas funciones funcionan del mismo modo, `dataUriToBinary()` es preferible.
+Devuelve la versión binaria de un identificador uniforme de recursos (URI) de datos. Considere el uso de [dataUriToBinary()](#dataUriToBinary) en lugar de `decodeDataUri()`. Aunque ambas funciones funcionan del mismo modo, `dataUriToBinary()` es preferible.
+
+> [!NOTE]
+> Azure Logic Apps realiza automáticamente la codificación y descodificación Base64, lo que significa que no tiene que realizar estas conversiones manualmente. Sin embargo, si lo hace, puede experimentar comportamientos de visualización inesperados, que no afectan a las conversiones reales, solo a la forma en que se muestran. Para obtener más información, consulte [Conversiones implícitas de tipos de datos](#implicit-data-conversions).
 
 ```
 decodeDataUri('<value>')
@@ -1703,9 +1711,10 @@ Y devuelven este resultado: `2`
 
 ### <a name="encodeuricomponent"></a>encodeUriComponent
 
-Devuelve una versión codificada de un identificador uniforme de recursos (URI) de una cadena reemplazando los caracteres no seguros de la dirección URL por caracteres de escape.
-Considere el uso de [uriComponent()](#uriComponent) en lugar de `encodeUriComponent()`.
-Aunque ambas funciones funcionan del mismo modo, `uriComponent()` es preferible.
+Devuelve una versión codificada de un identificador uniforme de recursos (URI) de una cadena reemplazando los caracteres no seguros de la dirección URL por caracteres de escape. Considere el uso de [uriComponent()](#uriComponent) en lugar de `encodeUriComponent()`. Aunque ambas funciones funcionan del mismo modo, `uriComponent()` es preferible.
+
+> [!NOTE]
+> Azure Logic Apps realiza automáticamente la codificación y descodificación Base64, lo que significa que no tiene que realizar estas conversiones manualmente. Sin embargo, si lo hace, puede experimentar comportamientos de visualización inesperados, que no afectan a las conversiones reales, solo a la forma en que se muestran. Para obtener más información, consulte [Conversiones implícitas de tipos de datos](#implicit-data-conversions).
 
 ```
 encodeUriComponent('<value>')
@@ -2426,9 +2435,11 @@ iterationIndexes('<loopName>')
 
 *Ejemplo* 
 
-Este ejemplo crea una variable de contador y la incrementa en uno durante cada iteración en un bucle Until hasta que el valor del contador llega a cinco. El ejemplo también crea una variable que realiza un seguimiento del índice actual para cada iteración. En el bucle Until, durante cada iteración, el ejemplo incrementa el contador y, a continuación, asigna su valor al valor de índice actual y, a continuación, incrementa el contador. En cualquier momento, puede determinar el número de iteración actual si recupera el valor de índice actual.
+Este ejemplo crea una variable de contador y la incrementa en uno durante cada iteración en un bucle Until hasta que el valor del contador llega a cinco. El ejemplo también crea una variable que realiza un seguimiento del índice actual para cada iteración. En el bucle Until, durante cada iteración, el ejemplo incrementa el contador y, a continuación, asigna su valor al valor de índice actual y, a continuación, incrementa el contador. En el bucle, este ejemplo hace referencia al índice de iteración actual mediante la función `iterationIndexes`:
 
-```
+`iterationIndexes('Until_Max_Increment')`
+
+```json
 {
    "actions": {
       "Create_counter_variable": {
@@ -2459,7 +2470,7 @@ Este ejemplo crea una variable de contador y la incrementa en uno durante cada i
             "Create_counter_variable": [ "Succeeded" ]
          }
       },
-      "Until": {
+      "Until_Max_Increment": {
          "type": "Until",
          "actions": {
             "Assign_current_index_to_counter": {
@@ -2472,6 +2483,15 @@ Este ejemplo crea una variable de contador y la incrementa en uno durante cada i
                   "Increment_variable": [ "Succeeded" ]
                }
             },
+            "Compose": {
+               "inputs": "'Current index: ' @{iterationIndexes('Until_Max_Increment')}",
+               "runAfter": {
+                  "Assign_current_index_to_counter": [
+                     "Succeeded"
+                    ]
+                },
+                "type": "Compose"
+            },           
             "Increment_variable": {
                "type": "IncrementVariable",
                "inputs": {
@@ -2481,7 +2501,7 @@ Este ejemplo crea una variable de contador y la incrementa en uno durante cada i
                "runAfter": {}
             }
          },
-         "expression": "@equals(variables('myCounter'), 5),
+         "expression": "@equals(variables('myCounter'), 5)",
          "limit": {
             "count": 60,
             "timeout": "PT1H"

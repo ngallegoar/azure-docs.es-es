@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/31/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: ad36547b0cf9457d7ff4fdd919a0bb1362539eb5
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: e1cf3905a34fdced878526cfcc55e6dd0a1a369f
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80522701"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82595231"
 ---
 En este artículo se responden algunas de las preguntas más frecuentes acerca de Azure Managed Disks y los discos SSD Premium de Azure.
 
@@ -120,7 +120,7 @@ No. Esto no es posible actualmente, ya que la concesión está presente para evi
 No. No se puede actualizar la propiedad de nombre de equipo. La nueva máquina virtual lo hereda de la máquina virtual principal que se usó para crear el disco del sistema operativo. 
 
 **¿Dónde puedo encontrar plantillas de Azure Resource Manager de ejemplo para crear máquinas virtuales con discos administrados**
-* [Lista de plantillas mediante discos administrados](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
+* [Lista de plantillas mediante discos administrados](https://github.com/Azure/azure-quickstart-templates/)
 * https://github.com/chagarw/MDPP
 
 **Al crear un disco desde un blob, ¿hay alguna relación continuamente existente con ese blob de origen?**

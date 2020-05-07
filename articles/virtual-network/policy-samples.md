@@ -1,6 +1,6 @@
 ---
 title: Ejemplos de plantillas de directivas | Microsoft Docs
-description: Ejemplos de plantillas de directivas de Azure para Virtual Network.
+description: Ejemplos de plantillas de Azure Policy para Virtual Network.
 services: virtual-network
 documentationcenter: ''
 author: KumudD
@@ -13,28 +13,28 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: ''
-ms.date: 05/02/2018
+ms.date: 05/05/2020
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: db10520508eb0b216a59cc643394ab27fd5ffa69
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 93d0138f336ffc7055daf9988658a6284af53188
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77169913"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82839137"
 ---
-# <a name="azure-policy-sample-built-ins-for-virtual-network"></a>Ejemplos de directivas de Azure incorporados para Virtual Network
+# <a name="azure-policy-sample-built-ins-for-virtual-network"></a>Complementos de ejemplo de Azure Policy para Virtual Network
 
 En la siguiente tabla se incluyen vínculos a ejemplos de [Azure Policy](../governance/policy/overview.md). Estos ejemplos se encuentran en el [repositorio de ejemplos de Azure Policy](https://github.com/Azure/azure-policy).
 
 ## <a name="network"></a>Red
 
-[!INCLUDE [azure-policy-samples-policies-network](../../includes/azure-policy-samples-policies-network.md)]
+[!INCLUDE [azure-policy-samples-policies-network](../../includes/policy/samples/bycat/policies-network.md)]
 
 ## <a name="tags"></a>Etiquetas
 
-[!INCLUDE [azure-policy-samples-policies-tags](../../includes/azure-policy-samples-policies-tags.md)]
+[!INCLUDE [azure-policy-samples-policies-tags](../../includes/policy/samples/bycat/policies-tags.md)]
 
 ## <a name="general"></a>General
 
-[!INCLUDE [azure-policy-samples-policies-general](../../includes/azure-policy-samples-policies-general.md)]
+[!INCLUDE [azure-policy-samples-policies-general](../../includes/policy/samples/bycat/policies-general.md)]

@@ -1,9 +1,9 @@
 ### YamlMime:Landing
-title: Documentación sobre el control de acceso basado en rol para recursos de Azure
-summary: El control de acceso basado en rol (RBAC) es un sistema que permite realizar una administración avanzada del acceso a los recursos de Azure. También podrá repartir las tareas entre el equipo y conceder a los usuarios únicamente el nivel de acceso que necesitan para realizar su trabajo.
+title: Documentación de Azure RBAC
+summary: El control de acceso basado en rol de Azure (Azure RBAC) es un sistema que proporciona una administración avanzada del acceso a los recursos de Azure. Con Azure RBAC, puede repartir las tareas entre el equipo y conceder a los usuarios únicamente el nivel de acceso que necesitan para realizar su trabajo.
 metadata:
-  title: Documentación sobre el control de acceso basado en rol (RBAC) para recursos de Azure
-  description: Aprenda a usar el control de acceso basado en rol (RBAC) para administrar quién puede acceder a los recursos de Azure, qué pueden hacer con esos recursos y a qué áreas pueden acceder.
+  title: Documentación de Azure RBAC
+  description: Obtenga información acerca del control de acceso basado en rol de Azure (Azure RBAC) para administrar quién puede acceder a los recursos de Azure, qué pueden hacer con esos recursos y a qué áreas pueden acceder.
   services: role-based-access-control
   ms.service: role-based-access-control
   ms.subservice: na
@@ -11,19 +11,19 @@ metadata:
   ms.collection: na
   author: rolyon
   ms.author: rolyon
-  ms.date: 08/26/2019
-  ms.openlocfilehash: e947b1ab685bcc1da5d3895e49c07d1ff56c0937
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.date: 04/30/2020
+  ms.openlocfilehash: b2661936d82f8d167ec2ef466effcd84d0a972dd
+  ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "70968308"
+  ms.lasthandoff: 05/03/2020
+  ms.locfileid: "82733488"
 landingContent:
-- title: Acerca de RBAC para los recursos de Azure
+- title: Acerca de Azure RBAC
   linkLists:
   - linkListType: overview
     links:
-    - text: ¿Qué es RBAC?
+    - text: ¿Qué es Azure RBAC?
       url: overview.md
     - text: Descripción de los distintos roles
       url: rbac-and-directory-admin-roles.md
@@ -45,7 +45,7 @@ landingContent:
       url: tutorial-role-assignments-group-powershell.md
   - linkListType: learn
     links:
-    - text: Protección de recursos de Azure con RBAC
+    - text: Protección de recursos de Azure con Azure RBAC
       url: https://docs.microsoft.com/learn/modules/secure-azure-resources-with-rbac/
 - title: Administración del acceso
   linkLists:
@@ -63,12 +63,16 @@ landingContent:
       url: role-assignments-rest.md
     - text: Plantilla
       url: role-assignments-template.md
-- title: Creación de roles personalizados
+- title: Creación o actualización de roles personalizadas
   linkLists:
   - linkListType: overview
     links:
     - text: Roles personalizados
       url: custom-roles.md
+  - linkListType: how-to-guide
+    links:
+    - text: 'Creación de un rol personalizado: Azure Portal'
+      url: custom-roles-portal.md
   - linkListType: tutorial
     links:
     - text: 'Creación de un rol personalizado: PowerShell'

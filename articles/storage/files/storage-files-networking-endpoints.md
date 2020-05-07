@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 3/19/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: cc487e8def180735606aa010651dde40ef93908e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 8ee9ddbd8a2d0ecbe8e2f13e6421cec177c7ce69
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80069568"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594209"
 ---
 # <a name="configuring-azure-files-network-endpoints"></a>Configuración de puntos de conexión de red de Azure Files
 Azure Files proporciona dos tipos principales de puntos de conexión para el acceso a los recursos compartidos de archivos de Azure: 
@@ -218,7 +218,7 @@ New-AzPrivateDnsRecordSet `
 Si tiene una máquina virtual dentro de la red virtual o ha configurado el reenvío de DNS tal como se describe [aquí](storage-files-networking-dns.md), puede comprobar que el punto de conexión privado se ha configurado correctamente mediante los siguientes comandos:
 
 ```PowerShell
-$storageAccountHostName = [System.Uri]::new($storageAccount.PrimaryEndpoints.File) | `
+$storageAccountHostName = [System.Uri]::new($storageAccount.PrimaryEndpoints.file) | `
     Select-Object -ExpandProperty Host
 
 Resolve-DnsName -Name $storageAccountHostName
@@ -393,7 +393,7 @@ Si tiene una máquina virtual dentro de la red virtual o ha configurado el reenv
 httpEndpoint=$(az storage account show \
         --resource-group $storageAccountResourceGroupName \
         --name $storageAccountName \
-        --query "primaryEndpoints.File" | \
+        --query "primaryEndpoints.file" | \
     tr -d '"')
 
 hostName=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint) | tr -d "/")

@@ -4,12 +4,12 @@ description: Se describe cómo eliminar grupos de recursos y recursos. También 
 ms.topic: conceptual
 ms.date: 09/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: db56cf0897cd90f1e6e51199032d0d9712530f1c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7c03296f8bec24da1fc85bae14e91ca742054d02
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79234100"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82136488"
 ---
 # <a name="azure-resource-manager-resource-group-and-resource-deletion"></a>Eliminación de grupos de recursos y recursos en Azure Resource Manager
 
@@ -53,6 +53,9 @@ Si la operación GET devuelve un error, Resource Manager vuelve a intentar la op
 * Mayor que 500
 
 Con otros códigos de error, Resource Manager no puede eliminar el recurso.
+
+> [!IMPORTANT]
+> La eliminación de un grupo de recursos es irreversible.
 
 ## <a name="delete-resource-group"></a>Eliminación de un grupo de recursos
 
