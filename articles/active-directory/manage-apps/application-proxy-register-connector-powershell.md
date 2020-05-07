@@ -14,14 +14,14 @@ ms.topic: conceptual
 ms.date: 01/24/2020
 ms.author: mimart
 ms.reviewer: japere
-ms.custom: it-pro
+ms.custom: it-pro, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b43d2de0a366d7e69a025b2e4e2998dccda2038e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9ae3cd491db03fd036869a8d86aeb646e3175b59
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76756218"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82609976"
 ---
 # <a name="create-an-unattended-installation-script-for-the-azure-ad-application-proxy-connector"></a>Creación de un script de instalación desatendida para el conector del proxy de la aplicación de Azure AD
 
@@ -36,14 +36,14 @@ Esta capacidad resulta útil cuando desea hacer lo siguiente:
 
 Para que el [conector del proxy de la aplicación](application-proxy-connectors.md) funcione, debe registrarse con el directorio de Azure AD mediante un administrador de aplicaciones y una contraseña. Normalmente, esta información se especifica durante la instalación del conector en un cuadro de diálogo emergente, pero también puede usar PowerShell para automatizar este proceso.
 
-Hay dos pasos para una instalación desatendida. Primero, instale el conector. Después, registre el conector con Azure AD. 
+Hay dos pasos para una instalación desatendida. Primero, instale el conector. Después, registre el conector con Azure AD.
 
 ## <a name="install-the-connector"></a>Instalación del conector
 Siga estos pasos para instalar el conector sin registrarlo:
 
 1. Abra un símbolo del sistema.
 2. Ejecute el siguiente comando, en el que el parámetro /q significa instalación desatendida. Una instalación desatendida no le pide que acepte el contrato de licencia para el usuario final.
-   
+
         AADApplicationProxyConnectorInstaller.exe REGISTERCONNECTOR="false" /q
 
 ## <a name="register-the-connector-with-azure-ad"></a>Registro del conector con Azure AD
@@ -54,13 +54,13 @@ Hay dos métodos posibles para registrar el conector:
 
 ### <a name="register-the-connector-using-a-windows-powershell-credential-object"></a>Registro del conector mediante un objeto de credenciales de Windows PowerShell
 1. Cree un objeto de credenciales de Windows PowerShell `$cred` que contiene un nombre de usuario y una contraseña administrativos para el directorio. Ejecute el comando siguiente, reemplazando *\<username\>* y *\<password\>* por los valores correspondientes:
-   
+
         $User = "<username>"
         $PlainPassword = '<password>'
         $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
         $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $User, $SecurePassword
 2. Vaya a **C:\Archivos de programa\Microsoft AAD App Proxy Connector** y ejecute el siguiente script mediante el objeto `$cred` que creó:
-   
+
         .\RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature ApplicationProxy
 
 ### <a name="register-the-connector-using-a-token-created-offline"></a>Registro del conector mediante un token creado sin conexión
@@ -128,38 +128,38 @@ Hay dos métodos posibles para registrar el conector:
         $AADPoshPath = (Get-InstalledModule -Name AzureAD).InstalledLocation
         # Set Location for ADAL Helper Library
         $ADALPath = $(Get-ChildItem -Path $($AADPoshPath) -Filter Microsoft.IdentityModel.Clients.ActiveDirectory.dll -Recurse ).FullName | Select-Object -Last 1
-        
+
         # Add ADAL Helper Library
         Add-Type -Path $ADALPath
-        
+
         #region constants
-        
+
         # The AAD authentication endpoint uri
-        [uri]$AadAuthenticationEndpoint = "https://login.microsoftonline.com/common/oauth2/token?api-version=1.0/" 
-        
+        [uri]$AadAuthenticationEndpoint = "https://login.microsoftonline.com/common/oauth2/token?api-version=1.0/"
+
         # The application ID of the connector in AAD
         [string]$ConnectorAppId = "55747057-9b5d-4bd4-b387-abf52a8bd489"
-        
+
         # The reply address of the connector application in AAD
-        [uri]$ConnectorRedirectAddress = "urn:ietf:wg:oauth:2.0:oob" 
-        
+        [uri]$ConnectorRedirectAddress = "urn:ietf:wg:oauth:2.0:oob"
+
         # The AppIdUri of the registration service in AAD
         [uri]$RegistrationServiceAppIdUri = "https://proxy.cloudwebappproxy.net/registerapp"
-        
+
         #endregion
-        
+
         #region GetAuthenticationToken
-        
+
         # Set AuthN context
         $authContext = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext" -ArgumentList $AadAuthenticationEndpoint
-        
+
         # Build platform parameters
         $promptBehavior = [Microsoft.IdentityModel.Clients.ActiveDirectory.PromptBehavior]::Always
         $platformParam = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.PlatformParameters" -ArgumentList $promptBehavior
-        
+
         # Do AuthN and get token
         $authResult = $authContext.AcquireTokenAsync($RegistrationServiceAppIdUri.AbsoluteUri, $ConnectorAppId, $ConnectorRedirectAddress, $platformParam).Result
-        
+
         # Check AuthN result
         If (($authResult) -and ($authResult.AccessToken) -and ($authResult.TenantId) ) {
         $token = $authResult.AccessToken
@@ -168,7 +168,7 @@ Hay dos métodos posibles para registrar el conector:
         Else {
         Write-Output "Authentication result, token or tenant id returned are null"
         }
-        
+
         #endregion
 
 2. Una vez que tenga el token, cree SecureString con dicho token:
@@ -179,9 +179,7 @@ Hay dos métodos posibles para registrar el conector:
 
    `.\RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Token -Token $SecureToken -TenantId <tenant GUID> -Feature ApplicationProxy`
 
-## <a name="next-steps"></a>Pasos siguientes 
+## <a name="next-steps"></a>Pasos siguientes
 * [Publicar aplicaciones mediante su propio nombre de dominio](application-proxy-configure-custom-domain.md)
 * [Habilitar el inicio de sesión único](application-proxy-configure-single-sign-on-with-kcd.md)
 * [Solucionar los problemas que tiene con el Proxy de aplicación](application-proxy-troubleshoot.md)
-
-

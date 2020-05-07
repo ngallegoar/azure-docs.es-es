@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: routlaw
-ms.openlocfilehash: 61be6bcd957a4e81147d5ef472b8f850e5605e41
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8621dde43ff38cee15feb1d30b6ea80ab681c855
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70309269"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594787"
 ---
 # <a name="using-nodejs-modules-with-azure-applications"></a>Uso de módulos Node.js con aplicaciones de Azure
 Este documento le proporciona orientación sobre el uso de módulos Node.js con aplicaciones hospedadas en Azure. Mediante este documento podrá asegurarse de que su aplicación use una versión específica de un módulo y de que use módulos nativos con Azure.
@@ -85,7 +85,7 @@ Cuando la aplicación esté preparada para producción, puede bloquear los requi
 > 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Ahora que sabe cómo usar los módulos Node.js con Azure, obtenga información sobre cómo [especificar la versión de Node.js](https://github.com/squillace/staging/blob/master/articles/nodejs-specify-node-version-azure-apps.md), [crear e implementar una aplicación web de Node.js](app-service/app-service-web-get-started-nodejs.md) y [usar la interfaz de la línea de comandos de Azure para Mac y Linux](https://azure.microsoft.com/blog/using-windows-azure-with-the-command-line-tools-for-mac-and-linux/).
+Ahora que sabe cómo usar los módulos Node.js con Azure, obtenga información sobre cómo [especificar la versión de Node.js](https://github.com/squillace/nodejs-microservice), [crear e implementar una aplicación web de Node.js](app-service/app-service-web-get-started-nodejs.md) y [usar la interfaz de la línea de comandos de Azure para Mac y Linux](https://azure.microsoft.com/blog/using-windows-azure-with-the-command-line-tools-for-mac-and-linux/).
 
 Para más información, vea el [Centro para desarrolladores de Node.js](/azure/javascript/).
 

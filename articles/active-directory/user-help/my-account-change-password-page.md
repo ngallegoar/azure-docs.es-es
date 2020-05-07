@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: curtand
-ms.openlocfilehash: 06e5abe04ed1ec75dcbf1b216bfaab1a7458ce72
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 75564ea463198967c6ed170851058202b5ba3478
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77064060"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82625959"
 ---
 # <a name="change-your-work-or-school-account-password-from-the-change-password-page"></a>Cambio de la contraseña de la cuenta profesional o educativa desde la página Cambiar contraseña
 
@@ -27,7 +27,7 @@ La página **Cambiar contraseña** del portal **Mi cuenta** le ayuda a actualiza
 
 ## <a name="update-a-password-from-the-change-password-page"></a>Actualización de una contraseña desde la página Cambiar contraseña
 
-1. Inicie sesión en la cuenta profesional o educativa con la contraseña existente y, después, vaya a la página **Mi cuenta** (https://myprofile.microsoft.com/) ).
+1. Inicie sesión en la cuenta profesional o educativa con la contraseña existente y, después, vaya a la página **Mi cuenta** (https://myaccount.microsoft.com/) ).
 
 2. Seleccione **Contraseña** en el panel de navegación de la izquierda, o bien seleccione el vínculo **Cambiar contraseña** del bloque **Contraseña**.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1dc5d54fa24217c91e14a8f37e092888b2bb6474
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7728ff96ccc3da5a36d919e61518a3ce3d13581c
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79127884"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611983"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>Contenedores de perfiles de FSLogix y archivos de Azure
 
@@ -98,7 +98,7 @@ Para asegurarse de que su entorno de Windows Virtual Desktop sigue los procedimi
 
 Utilice las siguientes instrucciones para configurar un entorno de Windows Virtual Desktop.
 
-- Para empezar a compilar su solución de virtualización de escritorio, consulte [Creación de un inquilino en Windows Virtual Desktop](tenant-setup-azure-active-directory.md).
+- Para empezar a compilar su solución de virtualización de escritorio, consulte [Creación de un inquilino en Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).
 - Para crear un grupo host dentro de su inquilino de Windows Virtual Desktop, consulte [Creación de un grupo host con Azure Marketplace](create-host-pools-azure-marketplace.md).
 - Para configurar recursos compartidos de archivos totalmente administrados en la nube, consulte [Configuración de recurso compartido de Azure Files](/azure/storage/files/storage-files-active-directory-enable/).
 - Para configurar contenedores de perfiles de FSLogix, consulte [Creación de un contenedor de perfiles para un grupo host mediante un recurso compartido de archivos](create-host-pools-user-profile.md).

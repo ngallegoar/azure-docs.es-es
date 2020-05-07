@@ -1,24 +1,15 @@
 ---
-title: 'Uso de tareas de instancias múltiples para ejecutar aplicaciones de MPI: Azure Batch | Microsoft Docs'
+title: Uso de tareas de instancias múltiples para ejecutar aplicaciones de MPI
 description: Obtenga información sobre cómo ejecutar aplicaciones de Interfaz de paso de mensajes (MPI) con el tipo de tarea de instancias múltiples en Azure Batch.
-services: batch
-documentationcenter: ''
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: 83e34bd7-a027-4b1b-8314-759384719327
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: ''
 ms.date: 03/13/2019
-ms.author: labrenne
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1896fea3c401299b4f77235ab3c02d85708b7041
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4502fc9632c2cb05d757459d07bcfe17ae96aea2
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77023674"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735273"
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Uso de tareas de instancias múltiples para ejecutar aplicaciones de la Interfaz de paso de mensajes (MPI) en Batch
 
@@ -190,9 +181,7 @@ Las siguientes variables de entorno las crea el servicio Batch para su uso por l
 Para obtener detalles completos sobre estas y las demás variables de entorno del nodo de proceso de Batch, incluido su contenido y la visibilidad, consulte [Variables de entorno del nodo de proceso][msdn_env_var].
 
 > [!TIP]
-> El ejemplo de código de Linux MPI de Batch contiene un ejemplo de cómo se pueden usar varias de estas variables de entorno. El script de Batch [coordination-cmd][coord_cmd_example] descarga archivos de aplicación y entrada comunes desde Azure Storage, permite a un recurso compartido de Network File System (NFS) en el nodo maestro y configura los demás nodos asignados a la tarea de múltiples instancias, como clientes NFS.
->
->
+> El ejemplo de código de Linux MPI de Batch contiene un ejemplo de cómo se pueden usar varias de estas variables de entorno.
 
 ## <a name="resource-files"></a>Archivos de recursos
 Hay dos conjuntos de archivos de recursos que se deben tener en cuenta para las tareas de múltiples instancias: **archivos de recursos comunes** que descargan *todas* las tareas (tanto principales como subtareas) y **archivos de recursos** especificados para la propia tarea de múltiples instancias, que descarga *solo la tarea principal*.
@@ -338,7 +327,7 @@ Sample complete, hit ENTER to exit...
 [batch_labs]: https://azure.github.io/BatchExplorer/
 [blog_mpi_linux]: https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/
 [cmd_start]: https://technet.microsoft.com/library/cc770297.aspx
-[coord_cmd_example]: https://github.com/Azure/azure-batch-samples/blob/master/Python/Batch/article_samples/mpi/data/linux/openfoam/coordination-cmd
+[coord_cmd_example]: https://github.com/Azure/azure-batch-samples/blob/master/Python/Batch/article_samples/mpi/data/coordination-cmd
 [github_mpi]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/MultiInstanceTasks
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_samples_zip]: https://github.com/Azure/azure-batch-samples/archive/master.zip

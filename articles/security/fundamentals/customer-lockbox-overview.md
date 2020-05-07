@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: terrylan
 manager: rkarlin
 ms.date: 11/04/2019
-ms.openlocfilehash: abc16ae7f7ab8bf15173248a6e7668e689e127de
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5330c751aaa3fcbd5c7fc268e4a4de08d336d474
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77561976"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735443"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Caja de seguridad del cliente de Microsoft Azure
 
@@ -49,7 +49,7 @@ Los siguientes pasos describen un flujo de trabajo típico para una solicitud de
 
     La solicitud se encuentra ahora en un estado de **Cliente notificado**, según el cual se espera la aprobación del cliente antes de conceder el acceso.
 
-7. En la organización del cliente, el usuario que tiene el [rol de propietario](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles) de la suscripción de Azure recibe un correo electrónico de Microsoft para notificarle sobre la solicitud de acceso pendiente. Para las solicitudes de la Caja de seguridad del cliente, esta persona es el aprobador designado.
+7. En la organización del cliente, el usuario que tiene el [rol de propietario](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) de la suscripción de Azure recibe un correo electrónico de Microsoft para notificarle sobre la solicitud de acceso pendiente. Para las solicitudes de la Caja de seguridad del cliente, esta persona es el aprobador designado.
 
     Correo electrónico de ejemplo:
 
