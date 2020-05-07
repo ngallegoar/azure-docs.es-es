@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/24/2018
 ms.author: yushwang
 ms.reviewer: cherylmc
-ms.openlocfilehash: ec3697208434eb971e47136416f2c2cc541b5cea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 436428c8f4a30706ab16ddace2d491287e620646
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79225060"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82559842"
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>Configuración de conexiones VPN S2S activo-activo con Azure VPN Gateway
 
@@ -36,9 +36,7 @@ Si ya tiene una instancia de VPN Gateway, puede hacer lo siguiente:
 Puede combinar todos estos elementos para crear una red más compleja de alta disponibilidad que satisfaga sus necesidades.
 
 > [!IMPORTANT]
-> El modo activo-activo usa solo las SKU siguientes: 
->   * VpnGw1, VpnGw2, VpnGw3
->   * Alto rendimiento (para SKU heredadas anteriores)
+> El modo activo-activo está disponible para todas las SKU, excepto Basic.
 
 ## <a name="part-1---create-and-configure-active-active-vpn-gateways"></a><a name ="aagateway"></a>Parte 1: Creación y configuración de puertas de enlace VPN activo-activo
 Los pasos a continuación configurarán Azure VPN Gateway en modos activo-activo. Las diferencias clave entre las puertas de enlace activo-activo y activo-en espera:

@@ -1,24 +1,21 @@
 ---
 title: Publicación de una aplicación web en una máquina virtual de Azure desde Visual Studio
 description: Publique una aplicación web ASP.NET en una máquina virtual de Azure desde Visual Studio.
-services: virtual-machines-windows
 author: ghogen
 manager: jillfra
-tags: azure-service-management
-ms.assetid: 70267837-3629-41e0-bb58-2167ac4932b3
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/03/2017
 ms.author: ghogen
-ms.openlocfilehash: 6e5db9b4e46019aa386057d51d956ff11d90f498
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d864230ff524f6c008f9f05c16505cd9d0e9f229
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71970877"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583350"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Publicación de una aplicación web ASP.NET en una máquina virtual de Azure desde Visual Studio
 
@@ -27,7 +24,7 @@ En este documento se describe cómo publicar una aplicación web ASP.NET en una 
 ## <a name="prerequisites"></a>Prerrequisitos
 A fin de utilizar Visual Studio para publicar un proyecto de ASP.NET en una máquina virtual de Azure, la máquina virtual debe estar correctamente configurada.
 
-- La máquina debe configurarse para ejecutar una aplicación web ASP.NET y tener WebDeploy instalado.
+- La máquina debe configurarse para ejecutar una aplicación web ASP.NET y tener WebDeploy instalado. Para más información, consulte el artículo sobre la [creación de una máquina virtual de ASP.NET con WebDeploy](https://github.com/aspnet/Tooling/blob/AspNetVMs/docs/create-asp-net-vm-with-webdeploy.md).
 
 - La máquina virtual debe tener un nombre DNS configurado. Para obtener más información, consulte [Creación de un nombre de dominio completo en Azure Portal para una máquina virtual Windows](portal-create-fqdn.md).
 

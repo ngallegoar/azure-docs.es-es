@@ -1,19 +1,14 @@
 ---
-title: Aprovisionamiento de un grupo personalizado desde una imagen personalizada de Azure Batch |Microsoft Docs
+title: Aprovisionamiento de un grupo personalizado a partir de una imagen administrada
 description: Cree un grupo de Batch a partir de un recurso de imagen personalizada para aprovisionar los nodos de proceso con el software y los datos para su aplicación.
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.service: batch
 ms.topic: article
 ms.date: 09/16/2019
-ms.author: labrenne
-ms.openlocfilehash: 1ef6be2ba9364203dceba54ab51325c05dbbbe41
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 10e3932bc6006e1d91fbc7e4cf58a5d98c043520
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77020155"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82117325"
 ---
 # <a name="use-a-managed-image-to-create-a-pool-of-virtual-machines"></a>Uso de una imagen administrada para crear un grupo de máquinas virtuales
 
@@ -22,7 +17,7 @@ Para crear una imagen personalizada para las máquinas virtuales (VM) del grupo 
 > [!TIP]
 > En la mayoría de los casos, debe crear imágenes personalizadas mediante Shared Image Gallery. Con Shared Image Gallery, puede aprovisionar grupos más rápido, escalar cantidades más grandes de VM y mejorar la confiabilidad al aprovisionar las VM. Para obtener más información, consulte [Uso de Shared Image Gallery para crear un grupo personalizado](batch-sig-images.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - **Un recurso de imagen administrada**. Para crear un grupo de máquinas virtuales con una imagen personalizada, tiene que tener o crear un recurso de imagen administrada en la misma suscripción y región de Azure que la cuenta de Batch. La imagen debe crearse desde instantáneas del disco del sistema operativo de la máquina virtual y, opcionalmente, de sus discos de datos conectados. Para más información y los pasos para preparar una imagen administrada, consulte la siguiente sección.
   - Use una imagen personalizada única para cada grupo que cree.

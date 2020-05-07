@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: 75363212684bb09e84a4bc4881af26e6d2a8e7e3
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: f051d02ac06163cf1861ab6bfc6afd0dcbb0ad8a
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80585286"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82559533"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs-via-azure-monitor"></a>Supervisión de métricas y registros de diagnóstico de Media Services a través de Azure Monitor
 
@@ -63,7 +63,7 @@ Se admiten estas métricas de [Puntos de conexión de streaming](https://docs.mi
 |Nombre de métrica|Nombre para mostrar|Descripción|
 |---|---|---|
 |Requests|Requests|Proporciona el número total de solicitudes HTTP atendidas por el punto de conexión de streaming.|
-|Salida|Salida|Número total de bytes de salida. Por ejemplo, los bytes que el Punto de conexión de streaming transmite en secuencias.|
+|Salida|Salida|Bytes de salida totales por minuto por punto de conexión de streaming.|
 |SuccessE2ELatency|Latencia correcta de extremo a extremo|Tiempo que transcurre desde que el punto de conexión de streaming recibió la solicitud hasta el momento en que se envió el último byte de la respuesta.|
 
 ### <a name="why-would-i-want-to-use-metrics"></a>¿Por qué querría usar las métricas?

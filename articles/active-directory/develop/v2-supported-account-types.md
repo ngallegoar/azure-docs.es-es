@@ -12,48 +12,46 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: b3b0114bb5d545755fe59c49605d6def341d2275
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: d19381094e027bd567ffc503d32f9212ef56a948
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535781"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583106"
 ---
 # <a name="supported-account-types"></a>Tipos de cuenta admitidos
 
-En este artículo se explica qué tipos de cuentas (a veces denominados audiencias) se admiten en las aplicaciones.
+En este artículo se explica qué tipos de cuentas (a veces denominados *audiencias*) se admiten en aplicaciones de la plataforma de identidad de Microsoft.
 
 <!-- This section can be in an include for many of the scenarios (SPA, web app signing-in users, protecting a web API, Desktop (depending on the flows), Mobile -->
 
-## <a name="supported-accounts-types-in-microsoft-identity-platform-applications"></a>Tipos de cuentas admitidos en aplicaciones de la plataforma de identidad de Microsoft
+## <a name="account-types-in-the-public-cloud"></a>Tipos de cuentas en la nube pública
 
 En la nube pública de Microsoft Azure, la mayoría de los tipos de aplicaciones pueden iniciar la sesión de los usuarios con cualquier audiencia:
 
-- Si está escribiendo una aplicación de línea de negocio, puede iniciar la sesión de los usuarios en su propia organización. Este tipo de aplicación a veces se denomina **inquilino único**.
-- Si es usted un ISV, puede escribir una aplicación que inicia la sesión de los usuarios.
+- Si está escribiendo una aplicación de línea de negocio (LOB), puede iniciar la sesión de los usuarios en su propia organización. Este tipo de aplicación a veces se denomina *inquilino único*.
+- Si es un ISV, puede escribir una aplicación que inicie la sesión de los usuarios.
 
-  - En cualquier organización. Este tipo de aplicación se denomina aplicación web **multiinquilino**. A veces leerá que inicia la sesión de los usuarios con sus cuentas profesionales o educativas.
-  - Con su cuenta Microsoft personal o profesional o educativa.
-  - Con solo una cuenta personal de Microsoft.
-    > [!NOTE]
-    > Actualmente, la plataforma de identidad de Microsoft admite cuentas personales de Microsoft solo al registrar una aplicación para **cuentas personales de Microsoft o profesionales o educativas**, y luego limita el inicio de sesión en el código de la aplicación especificando una autoridad de Azure AD, al compilar la aplicación, como `https://login.microsoftonline.com/consumers`.
+  - En cualquier organización. Este tipo de aplicación se denomina aplicación web *multiinquilino*. A veces leerá que se inicia la sesión de los usuarios con sus cuentas profesionales o educativas.
+  - Con la cuenta Microsoft personal o profesional o educativa.
+  - Con solo la cuenta personal de Microsoft.
+    
+- Si está escribiendo una aplicación de empresa a consumidor, también puede iniciar la sesión de los usuarios con sus identidades sociales, por medio de Azure Active Directory B2C (Azure AD B2C).
 
-- Si está escribiendo una aplicación de empresa a consumidores, también puede iniciar la sesión de los usuarios con sus identidades sociales, por medio de Azure AD B2C.
+## <a name="account-type-support-in-authentication-flows"></a>Compatibilidad de los tipos de cuentas en los flujos de autenticación
 
-## <a name="certain-authentication-flows-dont-support-all-the-account-types"></a>Ciertos flujos de autenticación no son compatibles con todos los tipos de cuenta
+No es posible usar algunos tipos de cuenta con determinados flujos de autenticación. Por ejemplo, en aplicaciones de escritorio, UWP o de demonio:
 
-No es posible usar algunos tipos de cuenta con determinados flujos de autenticación. Por ejemplo, en aplicaciones de escritorio, UWP o demonio:
+- Las aplicaciones de demonio solo se pueden usar con organizaciones de Azure AD. No tiene sentido intentar usar aplicaciones de demonio para manipular cuentas personales de Microsoft. Nunca se concederá el consentimiento del administrador.
+- Solo puede usar el flujo de Autenticación integrada de Windows con cuentas profesionales o educativas (en su organización o en cualquier otra). La Autenticación integrada de Windows funciona con cuentas de dominio y requiere que las máquinas estén unidas a un dominio o a Azure AD. Este flujo no tiene sentido para cuentas personales de Microsoft.
+- La [concesión de credenciales de contraseña de propietario del recurso](./v2-oauth-ropc.md) (nombre de usuario/contraseña) no puede utilizarse con cuentas personales de Microsoft. Las cuentas personales de Microsoft requieren que el usuario consienta para obtener acceso a los recursos personales en cada inicio de sesión. Por este motivo, este comportamiento no es compatible con los flujos no interactivos.
+- El flujo de código de dispositivo no funciona con cuentas personales de Microsoft.
 
-- Las aplicaciones de demonio solo pueden usarse con organizaciones de Azure Active Directory. No tiene sentido intentar utilizar aplicaciones de demonio para manipular las cuentas personales de Microsoft (nunca se concederá el consentimiento del administrador).
-- Solo puede usar el flujo de autenticación integrada con cuentas profesionales o educativas (en su organización o en cualquier organización). De hecho, la autenticación integrada funciona con cuentas de dominio, y requiere que las máquinas estén unidas a dominio o a Azure AD. Este flujo no tiene sentido para cuentas personales de Microsoft.
-- La [concesión de contraseña del propietario del recursos](./v2-oauth-ropc.md) (nombre de usuario/contraseña) no puede utilizarse con cuentas personales de Microsoft. De hecho, las cuentas personales de Microsoft requieren que el usuario dé su consentimiento para obtener acceso a los recursos de personales en cada inicio de sesión. Por este motivo, este comportamiento no es compatible con los flujos no interactivos.
-- El flujo de código de dispositivo todavía no funciona con cuentas personales de Microsoft.
+## <a name="account-types-in-national-clouds"></a>Tipos de cuenta en nubes nacionales
 
-## <a name="supported-account-types-in-national-clouds"></a>Tipos de cuenta admitidos en las nubes nacionales
-
- Las aplicaciones también pueden iniciar la sesión de los usuarios en [nubes nacionales](authentication-national-cloud.md). Sin embargo, no se admiten cuentas personales de Microsoft en estas nubes (por definición de estas nubes). Es por eso que los tipos de cuenta admitidos se reducen, para estas nubes, a su organización (inquilino único) o a cualquier organización (aplicaciones multiinquilino).
+Las aplicaciones también pueden iniciar la sesión de los usuarios en [nubes nacionales](authentication-national-cloud.md). Sin embargo, las cuentas personales de Microsoft no se admiten en estas nubes. Es por eso que los tipos de cuentas admitidos se reducen, para estas nubes, a su organización (inquilino único) o a cualquier organización (aplicaciones multiinquilino).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga más información sobre el [inquilinato en Azure Active Directory](./single-and-multi-tenant-apps.md).
-- Obtenga más información sobre las [nubes nacionales](./authentication-national-cloud.md)
+- Más información sobre el [arrendamiento en Azure Active Directory](./single-and-multi-tenant-apps.md).
+- Más información sobre las [nubes nacionales](./authentication-national-cloud.md).

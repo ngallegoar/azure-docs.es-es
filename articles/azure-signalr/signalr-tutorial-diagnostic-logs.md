@@ -1,35 +1,35 @@
 ---
-title: Registros de diagnóstico para Azure SignalR Service
-description: Aprenda a configurar registros de diagnóstico para Azure SignalR Service y a utilizarlos para solucionar problemas por sí mismo.
+title: Registros de recursos para Azure SignalR Service
+description: Aprenda a configurar registros de recursos para Azure SignalR Service y a usarlos para solucionar problemas por sí mismo.
 author: wanlwanl
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: wanl
-ms.openlocfilehash: 72f57ba4bbbbde07f6d26edc88c158f301ebe2f2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 55482457058d01162116494b637661db40010a50
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79536741"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82131006"
 ---
-# <a name="diagnostic-logs-for-azure-signalr-service"></a>Registros de diagnóstico para Azure SignalR Service
+# <a name="resource-logs-for-azure-signalr-service"></a>Registros de recursos para Azure SignalR Service
 
-En este tutorial se explica qué son los registros de diagnóstico para Azure SignalR Service, cómo configurarlos y cómo solucionar problemas con ellos.
+En este tutorial se explica qué son los registros de recursos de Azure SignalR Service, cómo se configuran y cómo se solucionan sus problemas. 
 
 ## <a name="prerequisites"></a>Prerrequisitos
-Para habilitar los registros de diagnóstico, necesitará un lugar donde almacenar los datos de registro. En este tutorial se utiliza Azure Storage y Log Analytics.
+Para habilitar los registros de recursos, necesitará un lugar donde almacenar los datos de registro. En este tutorial se utiliza Azure Storage y Log Analytics.
 
-* [Azure Storage](../azure-monitor/platform/resource-logs-collect-storage.md): conserva los registros de diagnóstico para auditorías de directivas, análisis estáticos o copias de seguridad.
+* [Azure Storage](../azure-monitor/platform/resource-logs-collect-storage.md): conserva los registros de recursos para auditorías de directivas, análisis estáticos o copias de seguridad.
 * [Log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md): una herramienta flexible de búsqueda y de análisis de registros que permite el análisis de los registros sin procesar que genera un recurso de Azure.
 
-## <a name="set-up-diagnostic-logs-for-an-azure-signalr-service"></a>Configuración de registros de diagnóstico para Azure SignalR Service
+## <a name="set-up-resource-logs-for-an-azure-signalr-service"></a>Configuración de registros de recursos para Azure SignalR Service
 
-Puede ver los registros de diagnóstico para Azure SignalR Service. Estos registros proporcionan una vista más completa de la conectividad con la instancia de Azure SignalR Service. Los registros de diagnóstico proporcionan información detallada de cada conexión. Por ejemplo, información básica (identificador de usuario, identificador de conexión y tipo de transporte, etc.) e información de eventos (evento Connect, Disconnect, Abort, etc.) de la conexión. Los registros de diagnóstico se pueden usar para la identificación de problemas, el seguimiento de la conexión y el análisis.
+Puede ver registros de recursos para Azure SignalR Service. Estos registros proporcionan una vista más completa de la conectividad con la instancia de Azure SignalR Service. Los registros de recursos proporcionan información detallada de cada conexión. Por ejemplo, información básica (identificador de usuario, identificador de conexión y tipo de transporte, etc.) e información de eventos (evento Connect, Disconnect, Abort, etc.) de la conexión. Los registros de recursos se pueden usar para la identificación de problemas, el seguimiento de la conexión y el análisis.
 
-### <a name="enable-diagnostic-logs"></a>Habilitar registros de diagnóstico
+### <a name="enable-resource-logs"></a>Habilitación de registros de recursos
 
-Los registros de diagnóstico están inhabilitados de forma predeterminada. Para habilitarlos, siga estos pasos:
+Los registros de recursos están inhabilitados de forma predeterminada. Para habilitar los registros de recursos, siga estos pasos:
 
 1. En [Azure Portal](https://portal.azure.com), en **Supervisión**, haga clic en **Configuración de diagnóstico**.
 
@@ -37,7 +37,7 @@ Los registros de diagnóstico están inhabilitados de forma predeterminada. Para
 
 1. Haga clic en **Agregar configuración de diagnóstico**.
 
-    ![Agregar registros de diagnóstico](./media/signalr-tutorial-diagnostic-logs/add-diagnostic-setting.png)
+    ![Agregar registros de recursos](./media/signalr-tutorial-diagnostic-logs/add-diagnostic-setting.png)
 
 1. Establezca el destino de archivo que desee. Actualmente, se admiten **Archivar en una cuenta de almacenamiento** y **Enviar a Log Analytics**.
 
@@ -50,17 +50,17 @@ Los registros de diagnóstico están inhabilitados de forma predeterminada. Para
 
 La nueva configuración surte efecto en unos 10 minutos. Después, los registros aparecen en el destino de archivo configurado, en el panel **Registros de diagnóstico**.
 
-Para obtener más información sobre el diagnóstico de configuraciones, consulte la [información general sobre los registros de diagnóstico de Azure](../azure-monitor/platform/platform-logs-overview.md).
+Para obtener más información sobre el diagnóstico de configuración, consulte la [información general sobre los registros de recursos de Azure](../azure-monitor/platform/platform-logs-overview.md).
 
-### <a name="diagnostic-logs-categories"></a>Categorías de registros de diagnósticos
+### <a name="resource-logs-categories"></a>Categorías de registros de recursos
 
-Azure SignalR Service captura los registros de diagnóstico en una sola categoría:
+Azure SignalR Service captura los registros de recursos en una sola categoría:
 
 * **Todos los registros**: realice un seguimiento de las conexiones que se conectan a Azure SignalR Service. Los registros proporcionan información sobre conexión y desconexión, autenticación y limitación. Para obtener más información, vea la próxima sección.
 
 ### <a name="archive-to-a-storage-account"></a>Archivar en una cuenta de almacenamiento
 
-Los registros se almacenan en la cuenta de almacenamiento configurada en el panel **Registros de diagnóstico**. Se crea automáticamente un contenedor denominado `insights-logs-alllogs` para almacenar los registros de diagnóstico. Dentro del contenedor, los registros se almacenan en el archivo `resourceId=/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/XXXX/PROVIDERS/MICROSOFT.SIGNALRSERVICE/SIGNALR/XXX/y=YYYY/m=MM/d=DD/h=HH/m=00/PT1H.json`. Básicamente, la ruta de acceso se combina mediante `resource ID` y `Date Time`. Los archivos de registro se dividen por `hour`. Por lo tanto, los minutos siempre son `m=00`.
+Los registros se almacenan en la cuenta de almacenamiento configurada en el panel **Registros de diagnóstico**. Se crea automáticamente un contenedor denominado `insights-logs-alllogs` para almacenar los registros de recursos. Dentro del contenedor, los registros se almacenan en el archivo `resourceId=/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/XXXX/PROVIDERS/MICROSOFT.SIGNALRSERVICE/SIGNALR/XXX/y=YYYY/m=MM/d=DD/h=HH/m=00/PT1H.json`. Básicamente, la ruta de acceso se combina mediante `resource ID` y `Date Time`. Los archivos de registro se dividen por `hour`. Por lo tanto, los minutos siempre son `m=00`.
 
 Todos los registros se almacenan en el formato de notación de objetos JavaScript (JSON). Cada entrada tiene campos de cadena que usan el formato descrito en las secciones siguientes.
 
@@ -116,13 +116,13 @@ El código siguiente es un ejemplo de una cadena JSON de registro de archivo:
 
 ### <a name="archive-logs-schema-for-log-analytics"></a>Esquema de registros de archivo para Log Analytics
 
-Para ver los registros de diagnóstico, siga estos pasos:
+Para ver los registros de recursos, siga estos pasos:
 
 1. Haga clic en `Logs` en la instancia de Log Analytics de destino.
 
     ![Elemento de menú de Log Analytics](./media/signalr-tutorial-diagnostic-logs/log-analytics-menu-item.png)
 
-2. Escriba `SignalRServiceDiagnosticLogs` y seleccione el intervalo de tiempo para consultar los registros de diagnóstico. Para una consulta avanzada, consulte [Introducción a los análisis de registros de Azure Monitor](../azure-monitor/log-query/get-started-portal.md).
+2. Escriba `SignalRServiceDiagnosticLogs` y seleccione el intervalo de tiempo para consultar los registros de recursos. Para una consulta avanzada, consulte [Introducción a los análisis de registros de Azure Monitor](../azure-monitor/log-query/get-started-portal.md).
 
     ![Registro de consultas en Log Analytics](./media/signalr-tutorial-diagnostic-logs/query-log-in-log-analytics.png)
 
@@ -142,11 +142,11 @@ ConnectionId | Identidad de la conexión
 ConnectionType | Tipo de la conexión. Los valores permitidos son: `Server` \| `Client` `Server`: conexión desde el lado servidor; `Client`: conexión desde el lado cliente.
 TransportType | Tipo de transporte de la conexión. Los valores permitidos son: `Websockets` \| `ServerSentEvents` \| `LongPolling`
 
-### <a name="troubleshooting-with-diagnostic-logs"></a>Solución de problemas con registros de diagnóstico
+### <a name="troubleshooting-with-resource-logs"></a>Solución de problemas con registros de recursos
 
-Para solucionar problemas de Azure SignalR Service, puede habilitar los registros del lado cliente o servidor a fin de capturar errores. En la actualidad, Azure SignalR Service expone registros de diagnóstico, también puede habilitar registros para el lado servicio.
+Para solucionar problemas de Azure SignalR Service, puede habilitar los registros del lado cliente o servidor a fin de capturar errores. En la actualidad, Azure SignalR Service expone registros de recursos. También puede habilitar registros para el lado de servicio.
 
-Cuando se encuentra en una situación de crecimiento o interrupción inesperada de la conexión, puede aprovechar los registros de diagnóstico para solucionar problemas.
+Cuando se encuentra en una situación de crecimiento o interrupción inesperada de la conexión, puede aprovechar los registros de recursos para solucionar problemas.
 
 Los problemas típicos suelen ser cambios inesperados en el número de conexiones, conexiones que llegan a los límites de conexión y errores de autorización. Consulte las secciones siguientes sobre el modo de solucionar problemas.
 
@@ -156,7 +156,7 @@ Los problemas típicos suelen ser cambios inesperados en el número de conexione
 
 Si se produce una interrupción inesperada de la conexión, debe habilitar los registros en los lados servicio, servidor y cliente.
 
-Si se desconecta una conexión, los registros de diagnóstico registrarán este evento de desconexión; verá `ConnectionAborted` o `ConnectionEnded` en `operationName`.
+Si se desconecta una conexión, los registros de recursos registrarán este evento de desconexión; verá `ConnectionAborted` o `ConnectionEnded` en `operationName`.
 
 La diferencia entre `ConnectionAborted` y `ConnectionEnded` es que `ConnectionEnded` es una desconexión esperada desencadenada por el lado cliente o servidor. Aunque `ConnectionAborted` suele ser un evento de interrupción inesperada de la conexión, se proporcionará el motivo de la anulación en `message`.
 
@@ -173,20 +173,20 @@ Conexión del servidor interrumpida | Interrupciones de conexión del servidor c
 
 ##### <a name="unexpected-connection-growing"></a>Crecimiento de conexiones inesperado
 
-Para solucionar los problemas relacionados con un crecimiento de conexiones inesperado, lo primero que debe hacer es filtrar las conexiones adicionales. Puede agregar un identificador único de usuario de prueba a la conexión del cliente de prueba. A continuación, compruébelo con los registros de diagnóstico; si ve que hay más de una conexión de cliente con el mismo identificador de usuario o IP de prueba, es probable que el lado cliente cree y establezca más conexiones de las esperadas. Compruebe el lado cliente.
+Para solucionar los problemas relacionados con un crecimiento de conexiones inesperado, lo primero que debe hacer es filtrar las conexiones adicionales. Puede agregar un identificador único de usuario de prueba a la conexión del cliente de prueba. A continuación, compruébelo con los registros de recursos; si ve que hay más de una conexión de cliente con el mismo identificador de usuario o IP de prueba, es probable que el lado de cliente cree y establezca más conexiones de las esperadas. Compruebe el lado cliente.
 
 #### <a name="authorization-failure"></a>Error de autorización
 
-Si recibe de vuelta 401 No autorizado para las solicitudes de cliente, compruebe los registros de diagnóstico. Si encuentra `Failed to validate audience. Expected Audiences: <valid audience>. Actual Audiences: <actual audience>`, significa que no hay ninguna audiencia del token de acceso válida. Intente usar las audiencias válidas sugeridas en el registro.
+Si recibe un mensaje 401 No autorizado para las solicitudes de cliente, compruebe los registros de recursos. Si encuentra `Failed to validate audience. Expected Audiences: <valid audience>. Actual Audiences: <actual audience>`, significa que no hay ninguna audiencia del token de acceso válida. Intente usar las audiencias válidas sugeridas en el registro.
 
 
 #### <a name="throttling"></a>Limitaciones
 
-Si encuentra que no puede establecer conexiones de cliente de SignalR con Azure SignalR Service, compruebe los registros de diagnóstico. Si encuentra `Connection count reaches limit` en el registro de diagnóstico, establece demasiadas conexiones con SignalR Service, lo que llega al límite del número de conexiones. Considere la posibilidad de escalar SignalR Service. Si encuentra `Message count reaches limit` en el registro de diagnóstico, significa que utiliza el nivel gratuito y ha llegado al máximo de la cuota de mensajes. Si desea enviar más mensajes, considere la posibilidad de cambiar SignalR Service al nivel estándar para enviar mensajes adicionales. Para más información, consulte [Precios de Azure SignalR Service](https://azure.microsoft.com/pricing/details/signalr-service/).
+Si no puede establecer conexiones de cliente de SignalR con Azure SignalR Service, compruebe los registros de recursos. Si encuentra `Connection count reaches limit` en el registro de recursos, establece demasiadas conexiones con SignalR Service, lo que provoca que se alcance el límite del número de conexiones. Considere la posibilidad de escalar SignalR Service. Si encuentra `Message count reaches limit` en el registro de recursos, significa que utiliza el nivel gratuito y ha llegado al máximo de la cuota de mensajes. Si desea enviar más mensajes, considere la posibilidad de cambiar SignalR Service al nivel estándar para enviar mensajes adicionales. Para más información, consulte [Precios de Azure SignalR Service](https://azure.microsoft.com/pricing/details/signalr-service/).
 
 ### <a name="get-help"></a>Obtener ayuda
 
-Se recomienda que solucione primero los problemas por sí mismo. La mayoría de los problemas se deben a problemas de red o del servidor de aplicaciones. Siga la [guía de solución de problemas con el registro de diagnóstico](#troubleshooting-with-diagnostic-logs) y la [guía básica de solución de problemas](https://github.com/Azure/azure-signalr/blob/dev/docs/tsg.md) para encontrar la causa principal.
+Se recomienda que solucione primero los problemas por sí mismo. La mayoría de los problemas se deben a problemas de red o del servidor de aplicaciones. Siga la [guía de solución de problemas con el registro de recursos](#troubleshooting-with-resource-logs) y la [guía básica de solución de problemas](https://github.com/Azure/azure-signalr/blob/dev/docs/tsg.md) para detectar la causa principal.
 Si el problema sigue sin resolverse, considere la posibilidad de abrir una incidencia en GitHub o crear un vale en Azure Portal.
 Proporcione:
 1. Intervalo de tiempo de 30 minutos en el que se produce el problema

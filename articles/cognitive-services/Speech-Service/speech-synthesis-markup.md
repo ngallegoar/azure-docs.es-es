@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.openlocfilehash: dc11d26c73c52b5e6c4d8e05cc27dd6ebce0c5d8
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: eb3db23189cbfd07362b1bd5be9aaa181064a2d6
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81399829"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583225"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Mejora de la síntesis con el Lenguaje de marcado de síntesis de voz (SSML)
 
@@ -274,7 +274,7 @@ Utilice el elemento `break` para insertar las pausas entre palabras, o para evit
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
+    <voice name="en-US-AriaNeural">
         Welcome to Microsoft Cognitive Services <break time="100ms" /> Text-to-Speech API.
     </voice>
 </speak>
@@ -469,7 +469,7 @@ Dado que los valores de los atributos prosódicos pueden variar en un amplio ran
 | Atributo | Descripción | Obligatorio u opcional |
 |-----------|-------------|---------------------|
 | `pitch` | Indica el tono de la línea de referencia del texto. Puede expresar el tono como:<ul><li>Un valor absoluto, expresado como un número seguido de "Hz" (Hercios). Por ejemplo, 600 Hz.</li><li>Un valor relativo, expresado como un número precedido por "+" o "-" y seguido por "Hz" o "st", que especifica una cantidad para cambiar el tono. Por ejemplo: +80 Hz o -2st. La "st" indica que la unidad de cambio es un semitono, que es la mitad de un tono (medio paso) en la escala diatónica estándar.</li><li>Un valor constante:<ul><li>x-low</li><li>low</li><li>medio</li><li>high</li><li>x-high</li><li>default</li></ul></li></ul>. | Opcional |
-| `contour` | La curva melódica no es compatible con las voces neuronales. El contorno representa los cambios en el tono. Estos cambios se representan como una matriz de objetivos en posiciones de tiempo específicas en la salida de voz. Cada destino se define por conjuntos de pares de parámetros. Por ejemplo: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>El primer valor de cada conjunto de parámetros especifica la ubicación del cambio de tono como porcentaje de la duración del texto. El segundo valor especifica la cantidad para subir o bajar el tono, mediante un valor relativo o un valor de enumeración para el tono (consulte `pitch`). | Opcional |
+| `contour` |El contorno ahora admite voces neuronales y estándar. El contorno representa los cambios en el tono. Estos cambios se representan como una matriz de objetivos en posiciones de tiempo específicas en la salida de voz. Cada destino se define por conjuntos de pares de parámetros. Por ejemplo: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>El primer valor de cada conjunto de parámetros especifica la ubicación del cambio de tono como porcentaje de la duración del texto. El segundo valor especifica la cantidad para subir o bajar el tono, mediante un valor relativo o un valor de enumeración para el tono (consulte `pitch`). | Opcional |
 | `range` | Un valor que representa el rango del tono para el texto. Puede expresar `range` mediante los mismos valores absolutos, valores relativos o valores de enumeración usados para describir `pitch`. | Opcional |
 | `rate` | Indica la velocidad de habla del texto. Puede expresar `rate` como:<ul><li>Un valor relativo, expresado como un número que actúa como multiplicador del valor predeterminado. Por ejemplo, un valor de *1* no da como resultado ningún cambio en la velocidad. Un valor de *0,5* da como resultado la mitad de la velocidad. Un valor de *3* da como resultado el triple de la velocidad.</li><li>Un valor constante:<ul><li>x-slow</li><li>lento</li><li>medio</li><li>fast</li><li>x-fast</li><li>default</li></ul></li></ul> | Opcional |
 | `duration` | El período de tiempo que debe transcurrir mientras el servicio de síntesis de voz lee el texto, en segundos o milisegundos. Por ejemplo, *2 s* o *1800 ms*. | Opcional |
@@ -477,13 +477,13 @@ Dado que los valores de los atributos prosódicos pueden variar en un amplio ran
 
 ### <a name="change-speaking-rate"></a>Cambio de la velocidad de habla
 
-La velocidad de habla puede aplicarse a voces estándares en el nivel de palabra o frase. Sin embargo, solo puede aplicarse a voces neuronales en el nivel de oración.
+La velocidad de habla puede aplicarse tanto a voces neuronales como a voces estándar en el nivel de palabra o frase. 
 
 **Ejemplo**
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-Guy24kRUS">
+    <voice name="en-US-GuyNeural">
         <prosody rate="+30.00%">
             Welcome to Microsoft Cognitive Services Text-to-Speech API.
         </prosody>
@@ -524,15 +524,15 @@ Los cambios de tono pueden aplicarse a voces estándar en el nivel de palabra o 
 ### <a name="change-pitch-contour"></a>Cambio de curva melódica
 
 > [!IMPORTANT]
-> Los cambios de curva melódica no se admiten con voces neuronales.
+> Los cambios de curva melódica ahora son compatibles con las voces neuronales.
 
 **Ejemplo**
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
-        <prosody contour="(80%,+20%) (90%,+30%)" >
-            Good morning.
+    <voice name="en-US-AriaNeural">
+        <prosody contour="(60%,-60%) (100%,+80%)" >
+            Were you the only person in the room? 
         </prosody>
     </voice>
 </speak>

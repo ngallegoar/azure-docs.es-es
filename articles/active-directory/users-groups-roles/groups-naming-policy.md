@@ -14,16 +14,16 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 141e83e21db18f21468113fd9927c2bdd2ed176d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9018228ec685d69fb03dfbc23de530e1bb8abb4f
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79497884"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582870"
 ---
 # <a name="enforce-a-naming-policy-on-office-365-groups-in-azure-active-directory"></a>Aplicación de una directiva de nomenclatura en los grupos de Office 365 en Azure Active Directory
 
-Para aplicar convenciones de nomenclatura coherentes a los grupos de Office 365 creados o editados por los usuarios, configure una directiva de nomenclatura de grupos para sus inquilinos en Azure Active Directory (Azure AD). Por ejemplo, podría usar la directiva de nomenclatura para comunicar la función de un grupo, la pertenencia, la región geográfica o quién creó el grupo. También puede usarla para ayudar a clasificar los grupos en la libreta de direcciones. O, para impedir que palabras específicas se usen en los nombres y alias de grupo.
+Para aplicar convenciones de nomenclatura coherentes a los grupos de Office 365 creados o editados por los usuarios, configure una directiva de nomenclatura de grupos para sus organizaciones en Azure Active Directory (Azure AD). Por ejemplo, podría usar la directiva de nomenclatura para comunicar la función de un grupo, la pertenencia, la región geográfica o quién creó el grupo. También puede usarla para ayudar a clasificar los grupos en la libreta de direcciones. O, para impedir que palabras específicas se usen en los nombres y alias de grupo.
 
 > [!IMPORTANT]
 > Para usar la directiva de nomenclatura de Azure AD para los grupos de Office 365, es necesario que posea una licencia P1 de Azure Active Directory Premium o una licencia EDU de Azure AD Basic para cada usuario que sea miembro de uno o varios grupos de Office 365.
@@ -42,7 +42,7 @@ Puede aplicar la directiva de nomenclatura a grupos de dos maneras diferentes:
 
 ### <a name="prefix-suffix-naming-policy"></a>Directiva de nomenclatura de prefijo-sufijo
 
-La estructura general de la convención de nomenclatura es "Prefijo[NombreDeGrupo]Sufijo". Aunque puede definir varios prefijos y sufijos, solo puede tener una instancia del [NombreDeGrupo] en la configuración. Los prefijos o sufijos pueden ser cadenas fijas o atributos de usuario como \[Department\], que se sustituyen en función del usuario que crea el grupo. El número total de caracteres permitidos para las cadenas de prefijo y sufijo combinadas es de 53. 
+La estructura general de la convención de nomenclatura es "Prefijo[NombreDeGrupo]Sufijo". Aunque puede definir varios prefijos y sufijos, solo puede tener una instancia del [NombreDeGrupo] en la configuración. Los prefijos o sufijos pueden ser cadenas fijas o atributos de usuario como \[Department\], que se sustituyen en función del usuario que crea el grupo. El número total de caracteres permitidos para las cadenas de prefijo y sufijo, incluido el nombre del grupo, es de 53. 
 
 Los prefijos y sufijos pueden contener caracteres especiales que se admiten en el nombre y el alias del grupo. Los caracteres de prefijo o sufijo que no se admiten en el alias de grupo se siguen aplicando al nombre de grupo, pero se quitan del alias de grupo. Debido a esta restricción, los prefijos y sufijos aplicados al nombre de grupo pueden ser diferentes de los que se aplican al alias de grupo. 
 
@@ -138,7 +138,7 @@ Asegúrese de desinstalar cualquier versión anterior del módulo Azure Active D
 
    En la pantalla **Sign in to your Account** (Iniciar sesión en su cuenta) que se abre, escriba la cuenta y la contraseña de administrador para conectarse al servicio y seleccione **Sign in** (Iniciar sesión).
 
-1. Siga los pasos de [Cmdlets de Azure Active Directory para configurar las opciones de grupo](groups-settings-cmdlets.md) para crear una configuración de grupo para este inquilino.
+1. Siga los pasos de [Cmdlets de Azure Active Directory para configurar las opciones de grupo](groups-settings-cmdlets.md) si desea crear una configuración de grupo para esta organización.
 
 ### <a name="view-the-current-settings"></a>Visualización de la configuración actual
 

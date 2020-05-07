@@ -14,16 +14,16 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84e419ac5c3d292b7e630d1ebb3d3b9f59ef7b8a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 4253f5bd702abd061cf1cddd4badd68c9cd5d475
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74026929"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582821"
 ---
-# <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>Guía de inicio rápido: Directiva de nomenclatura para grupos de Azure Active Directory
+# <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>Inicio rápido: Directiva de nomenclatura para grupos de Azure Active Directory
 
-En esta guía de inicio rápido, configurará una directiva de nomenclatura en el inquilino de Azure Active Directory (Azure AD) para los grupos creados por el usuario de Office 365, para ayudarle a ordenar y buscar los grupos del inquilino. Por ejemplo, podría usar la directiva de nomenclatura para:
+En este inicio rápido, configurará una directiva de nomenclatura en la organización de Azure Active Directory (Azure AD) para los grupos de Office 365 creados por el usuario, a fin de ayudarle a ordenar y buscar los grupos de la organización. Por ejemplo, podría usar la directiva de nomenclatura para:
 
 * Comunicar la función de un grupo, la pertenencia, la región geográfica o quién creó el grupo.
 * Ayudar a clasificar los grupos en la libreta de direcciones.
@@ -31,7 +31,7 @@ En esta guía de inicio rápido, configurará una directiva de nomenclatura en e
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="configure-the-group-naming-policy-for-a-tenant-using-azure-portal"></a>Configuración de la directiva de nomenclatura de grupos para un inquilino mediante Azure Portal
+## <a name="configure-the-group-naming-policy-in-the-azure-portal"></a>Configuración de la directiva de nomenclatura de grupos en Azure Portal
 
 1. Inicie sesión en el [Centro de administración de Azure AD](https://aad.portal.azure.com) con una cuenta de administrador de usuarios.
 1. Seleccione **Grupos**, a continuación, seleccione **Directiva de nomenclatura** para abrir la página de la directiva de nomenclatura.

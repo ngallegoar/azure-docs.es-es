@@ -1,18 +1,16 @@
 ---
-title: 'Compatibilidad con el administrador de representación: Azure Batch'
+title: Compatibilidad con el administrador de representación
 description: Uso de la integración del administrador de representación de Azure Batch. Obtenga información sobre la compatibilidad integrada o los complementos para administradores de representación más populares.
-services: batch
-ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 246907b16534d1a91833cab633a1973c97429f47
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9921c68bf6ebe44d6d2a6b7b74afbe3fa98e0803
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75449679"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82115744"
 ---
 # <a name="using-azure-batch-with-render-farm-managers"></a>Uso de Azure Batch con administradores de granja de representación
 

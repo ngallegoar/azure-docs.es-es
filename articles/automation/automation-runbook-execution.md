@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: a7dd9de1f2ae41b20d94cf31de48e92fbb71ca6a
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 274e621408deaf2aafcc2600d1097efe684055fc
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81405638"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582471"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Ejecución de un runbook en Azure Automation
 
@@ -38,7 +38,7 @@ En el siguiente diagrama se muestra el ciclo de vida de un trabajo de runbook pa
 Los runbooks de Azure Automation puede ejecutarse en un espacio aislado de Azure o una instancia de [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md). Cuando los runbooks están diseñados para autenticarse y ejecutarse en recursos de Azure, se ejecutan en un espacio aislado de Azure, que es un entorno compartido que pueden usar varios trabajos. Los trabajos con el mismo espacio aislado están sujetos a las limitaciones de recursos de dicho espacio.
 
 >[!NOTE]
->El entorno de espacio aislado de Azure no admite operaciones interactivas. También requiere el uso de archivos MOF locales para runbooks que realizan llamadas a Win32.
+>El entorno de espacio aislado de Azure no admite operaciones interactivas. Impide el acceso a todos los servidores COM fuera de proceso. También requiere el uso de archivos MOF locales para runbooks que realizan llamadas a Win32.
 
 Puede usar una instancia de Hybrid Runbook Worker para ejecutar runbooks directamente en el equipo que hospeda el rol y en los recursos locales del entorno. Azure Automation almacena y administra los runbooks y después los entrega a uno o más equipos asignados.
 
@@ -60,9 +60,11 @@ En la tabla siguiente se enumeran algunas tareas de ejecución de runbooks con e
 |Ejecución de scripts que requieren elevación|Hybrid Runbook Worker|Los espacios aislados no permiten elevación. Con una instancia de Hybrid Runbook Worker, puede desactivar UAC y usar [Invoke-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7) al ejecutar el comando que requiere elevación.|
 |Ejecución de scripts que requieren acceso a Instrumental de administración de Windows (WMI)|Hybrid Runbook Worker|Los trabajos que se ejecutan en espacios aislados en la nube no pueden acceder al proveedor de WMI. |
 
-## <a name="runbook-behavior"></a>Comportamiento del runbook
+## <a name="using-modules-in-your-runbooks"></a>Uso de módulos en los runbooks
 
-### <a name="creating-resources"></a>Creación de recursos
+Azure Automation admite varios módulos predeterminados, incluidos los módulos AzureRM (AzureRM.Automation) y un módulo que contiene varios cmdlets internos. También se admiten módulos instalables, incluidos los módulos Az (Az.Automation), que actualmente se usan actualmente en lugar de los módulos AzureRM. Para más información sobre los módulos que están disponibles para sus runbooks y configuraciones de DSC, consulte [Administración de módulos en Azure Automation](shared-resources/modules.md).
+
+## <a name="creating-resources"></a>Creación de recursos
 
 Si el runbook crea un recurso, el script debe comprobar que el recurso ya exista antes de intentar crearlo. Este es un ejemplo básico.
 
@@ -83,137 +85,9 @@ else
     }
 ```
 
-### <a name="supporting-time-dependent-scripts"></a>Compatibilidad con scripts dependientes del tiempo
+## <a name="using-self-signed-certificates"></a>Uso de certificados autofirmados
 
-Los runbooks deben ser sólidos y capaces de controlar los errores transitorios que pueden provocar que se reinicien o fallen. Si se produce un error en un runbook, Azure Automation vuelve a intentarlo.
-
-Si el runbook se ejecuta normalmente dentro de una restricción de tiempo, haga que el script implemente la lógica para comprobar el tiempo de ejecución. Esta comprobación garantiza la ejecución de operaciones, como el inicio, el apagado o el escalado horizontal, solo durante horas específicas.
-
-> [!NOTE]
-> La hora local en el proceso de espacio aislado de Azure se establece en UTC. Debe tenerse en cuenta este aspecto en los cálculos de fecha y hora de los runbooks.
-
-### <a name="tracking-progress"></a>Seguimiento del progreso
-
-Se recomienda crear los runbooks para que tengan una naturaleza modular, con una lógica que se pueda reutilizar y reiniciar fácilmente. Una buena manera de garantizar que la lógica de un runbook se ejecuta correctamente si se han producido problemas es realizar el seguimiento del progreso del runbook. Es posible hacer un seguimiento del progreso del runbook mediante un origen externo, como una cuenta de almacenamiento, una base de datos o archivos compartidos. Puede crear lógica en el runbook para comprobar primero el estado de la última acción que se realizó. Luego, en función de los resultados de la comprobación, la lógica puede omitir o continuar tareas específicas del runbook.
-
-### <a name="preventing-concurrent-jobs"></a>Evitación de trabajos simultáneos
-
-Algunos runbooks se comportan de forma extraña si se ejecutan en varios trabajos al mismo tiempo. En este caso, es importante que un runbook implemente la lógica para establecer si ya hay un trabajo en ejecución. Este es un ejemplo básico.
-
-```powershell
-# Authenticate to Azure
-$connection = Get-AutomationConnection -Name AzureRunAsConnection
-Connect-AzAccount -ServicePrincipal -Tenant $connection.TenantID `
--ApplicationId $connection.ApplicationID -CertificateThumbprint $connection.CertificateThumbprint
-
-$AzContext = Select-AzSubscription -SubscriptionId $connection.SubscriptionID
-
-# Check for already running or new runbooks
-$runbookName = "<RunbookName>"
-$rgName = "<ResourceGroupName>"
-$aaName = "<AutomationAccountName>"
-$jobs = Get-AzAutomationJob -ResourceGroupName $rgName -AutomationAccountName $aaName -RunbookName $runbookName -AzContext $AzureContext
-
-# Check to see if it is already running
-$runningCount = ($jobs | ? {$_.Status -eq "Running"}).count
-
-If (($jobs.status -contains "Running" -And $runningCount -gt 1 ) -Or ($jobs.Status -eq "New")) {
-    # Exit code
-    Write-Output "Runbook is already running"
-    Exit 1
-} else {
-    # Insert Your code here
-}
-```
-
-### <a name="working-with-multiple-subscriptions"></a>Trabajo con varias suscripciones
-
-Para tratar con varias suscripciones, el runbook debe usar el cmdlet [Disable-AzContextAutosave](https://docs.microsoft.com/powershell/module/Az.Accounts/Disable-AzContextAutosave?view=azps-3.5.0). Este cmdlet garantiza que no se recupere el contexto de autenticación desde otro runbook que se ejecute en el mismo espacio aislado. El runbook también usa el parámetro `AzContext` en los cmdlets del módulo Az y le pasa el contexto adecuado.
-
-```powershell
-# Ensures that you do not inherit an AzContext in your runbook
-Disable-AzContextAutosave –Scope Process
-
-$Conn = Get-AutomationConnection -Name AzureRunAsConnection
-Connect-AzAccount -ServicePrincipal `
--Tenant $Conn.TenantID `
--ApplicationId $Conn.ApplicationID `
--CertificateThumbprint $Conn.CertificateThumbprint
-
-$context = Get-AzContext
-
-$ChildRunbookName = 'ChildRunbookDemo'
-$AutomationAccountName = 'myAutomationAccount'
-$ResourceGroupName = 'myResourceGroup'
-
-Start-AzAutomationRunbook `
-    -ResourceGroupName $ResourceGroupName `
-    -AutomationAccountName $AutomationAccountName `
-    -Name $ChildRunbookName `
-    -DefaultProfile $context
-```
-
-### <a name="handling-exceptions"></a>Control de excepciones
-
-En esta sección se describen algunas maneras de controlar excepciones o problemas intermitentes en los runbooks.
-
-#### <a name="erroractionpreference"></a>ErrorActionPreference
-
-La variable [ErrorActionPreference](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) determina la manera en que PowerShell responde a un error de no terminación. Los errores de terminación siempre terminan y no se ven afectados por `ErrorActionPreference`.
-
-Cuando el runbook usa `ErrorActionPreference`, un error normalmente de no terminación, como `PathNotFound` del cmdlet [Get-ChildItem](https://docs.microsoft.com/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-7), impide que el runbook se complete. En el siguiente ejemplo se muestra el uso de `ErrorActionPreference`. El comando final [Write-Output](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/write-output?view=powershell-7) nunca se ejecuta, a medida que se detiene el script.
-
-```powershell-interactive
-$ErrorActionPreference = 'Stop'
-Get-ChildItem -path nofile.txt
-Write-Output "This message will not show"
-```
-
-#### <a name="try-catch-finally"></a>Try Catch Finally
-
-[Try Catch Finally](/powershell/module/microsoft.powershell.core/about/about_try_catch_finally) se usa en los scripts de PowerShell para controlar los errores de terminación. El script puede usar este mecanismo para detectar excepciones específicas o excepciones generales. La instrucción `catch` se debe usar para realizar el seguimiento de los errores o para intentar controlarlos. En el ejemplo siguiente se intenta descargar un archivo que no existe. Detecta la excepción `System.Net.WebException` y devuelve el último valor para cualquier otra excepción.
-
-```powershell-interactive
-try
-{
-   $wc = new-object System.Net.WebClient
-   $wc.DownloadFile("http://www.contoso.com/MyDoc.doc")
-}
-catch [System.Net.WebException]
-{
-    "Unable to download MyDoc.doc from http://www.contoso.com."
-}
-catch
-{
-    "An error occurred that could not be resolved."
-}
-```
-
-#### <a name="throw"></a>Throw
-
-[Throw](/powershell/module/microsoft.powershell.core/about/about_throw) se puede usar para generar un error de terminación. Este mecanismo puede ser útil al definir su propia lógica en un runbook. Si el script cumple un criterio que debe detenerlo, puede usar la instrucción `throw` para la detención. En el ejemplo siguiente se utiliza esta instrucción para mostrar un parámetro de función necesario.
-
-```powershell-interactive
-function Get-ContosoFiles
-{
-  param ($path = $(throw "The Path parameter is required."))
-  Get-ChildItem -Path $path\*.txt -recurse
-}
-```
-
-### <a name="using-executables-or-calling-processes"></a>Uso de archivos ejecutables o llamada a procesos
-
-Los runbooks que se ejecutan en espacios aislados de Azure no admiten la llamada a procesos, por ejemplo, ejecutables (archivos **.exe**) ni subprocesos. El motivo es que un espacio aislado de Azure es un proceso compartido que se ejecuta en un contenedor que podría no poder acceder a todas las API subyacentes. En escenarios donde se requiere software de terceros o llamadas a subprocesos, debe ejecutar un runbook en una instancia de [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md).
-
-### <a name="accessing-device-and-application-characteristics"></a>Acceso a características de dispositivos y aplicaciones
-
-Los trabajos de runbook que se ejecutan en espacios aislados de Azure no pueden acceder a las características de ningún dispositivo o aplicación. La API más común que se usa para consultar las métricas de rendimiento en Windows es WMI, donde algunas de las métricas comunes son la memoria y el uso de CPU. Sin embargo, no importa qué API se use, ya que los trabajos que se ejecutan en la nube no pueden acceder a la implementación de Microsoft de Web-Based Enterprise Management (WBEM). Esta plataforma se basa en el Modelo de información común (CIM), que proporciona los estándares del sector para definir las características de dispositivos y aplicaciones.
-
-## <a name="handling-errors"></a>Control de errores
-
-Los runbooks deben ser capaces de controlar los errores. PowerShell tiene dos tipos de errores, de terminación y de no terminación. Los errores de terminación detienen la ejecución del runbook cuando se producen. El runbook se detiene con un estado de trabajo de Error.
-
-Los errores de no terminación permiten que un script continúe después de que sucedan. Un ejemplo de error de no terminación es aquel donde un runbook usa el cmdlet `Get-ChildItem` con una ruta de acceso que no existe. PowerShell se ve que la ruta de acceso no existe, genera un error y pasa a la carpeta siguiente. En este caso, el error no establece el estado del trabajo de runbook en Con error y el trabajo podría incluso completarse. Para forzar a un runbook a detenerse ante un error de no terminación, puede usar `ErrorAction Stop` en el cmdlet.
+Para usar certificados autofirmados en sus runbooks, consulte [Creación de un certificado nuevo](https://docs.microsoft.com/azure/automation/shared-resources/certificates#creating-a-new-certificate).
 
 ## <a name="handling-jobs"></a>Control de trabajos
 
@@ -223,7 +97,7 @@ Los trabajos que se ejecutan en el mismo proceso de espacio aislado pueden afect
 
 Es posible que los trabajos de PowerShell iniciados desde un runbook que se ejecuta en un espacio aislado de Azure no se puedan ejecutar en [modo de lenguaje de PowerShell](/powershell/module/microsoft.powershell.core/about/about_language_modes) completo. Para más información sobre cómo interactuar con los trabajos de Azure Automation, consulte [Recuperación del estado del trabajo mediante PowerShell](#retrieving-job-status-using-powershell).
 
-### <a name="job-statuses"></a>Estados del trabajo
+### <a name="job-statuses"></a> Estados del trabajo
 
 En la tabla siguiente se describen los estados posibles para un trabajo.
 
@@ -339,6 +213,142 @@ foreach ($log in $JobActivityLogs)
     }
 }
 $JobInfo.GetEnumerator() | sort key -Descending | Select-Object -First 1
+```
+
+## <a name="tracking-progress"></a>Seguimiento del progreso
+
+Se recomienda crear los runbooks para que tengan una naturaleza modular, con una lógica que se pueda reutilizar y reiniciar fácilmente. Una buena manera de garantizar que la lógica de un runbook se ejecuta correctamente si se han producido problemas es realizar el seguimiento del progreso del runbook. Es posible hacer un seguimiento del progreso del runbook mediante un origen externo, como una cuenta de almacenamiento, una base de datos o archivos compartidos. Puede crear lógica en el runbook para comprobar primero el estado de la última acción que se realizó. Luego, en función de los resultados de la comprobación, la lógica puede omitir o continuar tareas específicas del runbook.
+
+## <a name="preventing-concurrent-jobs"></a>Evitación de trabajos simultáneos
+
+Algunos runbooks se comportan de forma extraña si se ejecutan en varios trabajos al mismo tiempo. En este caso, es importante que un runbook implemente la lógica para establecer si ya hay un trabajo en ejecución. Este es un ejemplo básico.
+
+```powershell
+# Authenticate to Azure
+$connection = Get-AutomationConnection -Name AzureRunAsConnection
+Connect-AzAccount -ServicePrincipal -Tenant $connection.TenantID `
+-ApplicationId $connection.ApplicationID -CertificateThumbprint $connection.CertificateThumbprint
+
+$AzContext = Select-AzSubscription -SubscriptionId $connection.SubscriptionID
+
+# Check for already running or new runbooks
+$runbookName = "<RunbookName>"
+$rgName = "<ResourceGroupName>"
+$aaName = "<AutomationAccountName>"
+$jobs = Get-AzAutomationJob -ResourceGroupName $rgName -AutomationAccountName $aaName -RunbookName $runbookName -AzContext $AzureContext
+
+# Check to see if it is already running
+$runningCount = ($jobs | ? {$_.Status -eq "Running"}).count
+
+If (($jobs.status -contains "Running" -And $runningCount -gt 1 ) -Or ($jobs.Status -eq "New")) {
+    # Exit code
+    Write-Output "Runbook is already running"
+    Exit 1
+} else {
+    # Insert Your code here
+}
+```
+
+## <a name="handling-exceptions"></a>Control de excepciones
+
+En esta sección se describen algunas maneras de controlar excepciones o problemas intermitentes en los runbooks. Un ejemplo es una excepción de WebSocket. El control de excepciones correcto evita que los errores de red transitorios provoquen un error en los runbooks. 
+
+### <a name="erroractionpreference"></a>ErrorActionPreference
+
+La variable [ErrorActionPreference](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) determina la manera en que PowerShell responde a un error de no terminación. Los errores de terminación siempre terminan y no se ven afectados por `ErrorActionPreference`.
+
+Cuando el runbook usa `ErrorActionPreference`, un error normalmente de no terminación, como `PathNotFound` del cmdlet [Get-ChildItem](https://docs.microsoft.com/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-7), impide que el runbook se complete. En el siguiente ejemplo se muestra el uso de `ErrorActionPreference`. El comando final [Write-Output](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/write-output?view=powershell-7) nunca se ejecuta, a medida que se detiene el script.
+
+```powershell-interactive
+$ErrorActionPreference = 'Stop'
+Get-ChildItem -path nofile.txt
+Write-Output "This message will not show"
+```
+
+### <a name="try-catch-finally"></a>Try Catch Finally
+
+[Try Catch Finally](/powershell/module/microsoft.powershell.core/about/about_try_catch_finally) se usa en los scripts de PowerShell para controlar los errores de terminación. El script puede usar este mecanismo para detectar excepciones específicas o excepciones generales. La instrucción `catch` se debe usar para realizar el seguimiento de los errores o para intentar controlarlos. En el ejemplo siguiente se intenta descargar un archivo que no existe. Detecta la excepción `System.Net.WebException` y devuelve el último valor para cualquier otra excepción.
+
+```powershell-interactive
+try
+{
+   $wc = new-object System.Net.WebClient
+   $wc.DownloadFile("http://www.contoso.com/MyDoc.doc")
+}
+catch [System.Net.WebException]
+{
+    "Unable to download MyDoc.doc from http://www.contoso.com."
+}
+catch
+{
+    "An error occurred that could not be resolved."
+}
+```
+
+### <a name="throw"></a>Throw
+
+[Throw](/powershell/module/microsoft.powershell.core/about/about_throw) se puede usar para generar un error de terminación. Este mecanismo puede ser útil al definir su propia lógica en un runbook. Si el script cumple un criterio que debe detenerlo, puede usar la instrucción `throw` para la detención. En el ejemplo siguiente se utiliza esta instrucción para mostrar un parámetro de función necesario.
+
+```powershell-interactive
+function Get-ContosoFiles
+{
+  param ($path = $(throw "The Path parameter is required."))
+  Get-ChildItem -Path $path\*.txt -recurse
+}
+```
+
+## <a name="handling-errors"></a>Control de errores
+
+Los runbooks deben ser capaces de controlar los errores. PowerShell tiene dos tipos de errores, de terminación y de no terminación. Los errores de terminación detienen la ejecución del runbook cuando se producen. El runbook se detiene con un estado de trabajo de Error.
+
+Los errores de no terminación permiten que un script continúe después de que sucedan. Un ejemplo de error de no terminación es aquel donde un runbook usa el cmdlet `Get-ChildItem` con una ruta de acceso que no existe. PowerShell se ve que la ruta de acceso no existe, genera un error y pasa a la carpeta siguiente. En este caso, el error no establece el estado del trabajo de runbook en Con error y el trabajo podría incluso completarse. Para forzar a un runbook a detenerse ante un error de no terminación, puede usar `ErrorAction Stop` en el cmdlet.
+
+## <a name="using-executables-or-calling-processes"></a>Uso de archivos ejecutables o llamada a procesos
+
+Los runbooks que se ejecutan en espacios aislados de Azure no admiten la llamada a procesos, por ejemplo, ejecutables (archivos **.exe**) ni subprocesos. El motivo es que un espacio aislado de Azure es un proceso compartido que se ejecuta en un contenedor que podría no poder acceder a todas las API subyacentes. En escenarios donde se requiere software de terceros o llamadas a subprocesos, debe ejecutar un runbook en una instancia de [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md).
+
+## <a name="accessing-device-and-application-characteristics"></a>Acceso a características de dispositivos y aplicaciones
+
+Los trabajos de runbook que se ejecutan en espacios aislados de Azure no pueden acceder a las características de ningún dispositivo o aplicación. La API más común que se usa para consultar las métricas de rendimiento en Windows es WMI, donde algunas de las métricas comunes son la memoria y el uso de CPU. Sin embargo, no importa qué API se use, ya que los trabajos que se ejecutan en la nube no pueden acceder a la implementación de Microsoft de Web-Based Enterprise Management (WBEM). Esta plataforma se basa en el Modelo de información común (CIM), que proporciona los estándares del sector para definir las características de dispositivos y aplicaciones.
+
+## <a name="working-with-webhooks"></a>Uso de webhooks
+
+Los servicios externos, como Azure DevOps Services y GitHub, pueden iniciar un runbook en Azure Automation. Para realizar este tipo de inicio, el servicio usa un [webhook](automation-webhooks.md) a través de una única solicitud HTTP. El uso de un webhook permite iniciar runbooks sin necesidad de implementar una solución completa de Azure Automation. 
+
+## <a name="supporting-time-dependent-scripts"></a>Compatibilidad con scripts dependientes del tiempo
+
+Los runbooks deben ser sólidos y capaces de controlar los errores transitorios que pueden provocar que se reinicien o fallen. Si se produce un error en un runbook, Azure Automation vuelve a intentarlo.
+
+Si el runbook se ejecuta normalmente dentro de una restricción de tiempo, haga que el script implemente la lógica para comprobar el tiempo de ejecución. Esta comprobación garantiza la ejecución de operaciones, como el inicio, el apagado o el escalado horizontal, solo durante horas específicas.
+
+> [!NOTE]
+> La hora local en el proceso de espacio aislado de Azure se establece en UTC. Debe tenerse en cuenta este aspecto en los cálculos de fecha y hora de los runbooks.
+
+## <a name="working-with-multiple-subscriptions"></a>Trabajo con varias suscripciones
+
+Para tratar con varias suscripciones, el runbook debe usar el cmdlet [Disable-AzContextAutosave](https://docs.microsoft.com/powershell/module/Az.Accounts/Disable-AzContextAutosave?view=azps-3.5.0). Este cmdlet garantiza que no se recupere el contexto de autenticación desde otro runbook que se ejecute en el mismo espacio aislado. El runbook también usa el parámetro `AzContext` en los cmdlets del módulo Az y le pasa el contexto adecuado.
+
+```powershell
+# Ensures that you do not inherit an AzContext in your runbook
+Disable-AzContextAutosave –Scope Process
+
+$Conn = Get-AutomationConnection -Name AzureRunAsConnection
+Connect-AzAccount -ServicePrincipal `
+-Tenant $Conn.TenantID `
+-ApplicationId $Conn.ApplicationID `
+-CertificateThumbprint $Conn.CertificateThumbprint
+
+$context = Get-AzContext
+
+$ChildRunbookName = 'ChildRunbookDemo'
+$AutomationAccountName = 'myAutomationAccount'
+$ResourceGroupName = 'myResourceGroup'
+
+Start-AzAutomationRunbook `
+    -ResourceGroupName $ResourceGroupName `
+    -AutomationAccountName $AutomationAccountName `
+    -Name $ChildRunbookName `
+    -DefaultProfile $context
 ```
 
 ## <a name="sharing-resources-among-runbooks"></a><a name="fair-share"></a>Uso compartido de recursos entre runbooks

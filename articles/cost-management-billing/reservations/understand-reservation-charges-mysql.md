@@ -1,20 +1,17 @@
 ---
-title: Aplicación de un descuento por reserva a Azure Database for MySQL
-description: Aplicación de un descuento por reserva a Azure Database for MySQL
+title: 'Información sobre el descuento por reservas: Azure Database for MySQL'
+description: Aprenda cómo se aplica un descuento por reserva a los servidores Azure Database for MySQL.
 author: kummanish
 ms.author: manishku
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 02/13/2020
-ms.openlocfilehash: ed067e4bbde737cb08afe7c9429854e54e2ef3d9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e47153b24234480ee52847f07e723c02fabb3113
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199320"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509438"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-database-for-mysql"></a>Aplicación de un descuento por reserva a Azure Database for MySQL
 
@@ -28,7 +25,7 @@ Al cerrar un recurso, el descuento por reserva se aplica automáticamente a otro
 
 ## <a name="discount-applied-to-azure-database-for-mysql"></a>Descuento aplicado a Azure Database for MySQL
 
-El descuento por la capacidad reservada de Azure Database for MySQL se aplica a la ejecución de los servidores MySQL cada hora. La reserva que compra coincide con el uso de procesos que emiten los servidores Azure Database for MySQL en ejecución. Para los servidores MySQL que no se ejecutan durante una hora entera, la reserva se aplica automáticamente a otras instancias de Azure Database for MySQL que coincidan con los atributos de reserva. El descuento se puede aplicar a servidores Azure Database for MySQL que se están ejecutando simultáneamente. Si no tiene un servidor MySQL que se ejecute durante toda la hora que coincida con los atributos de reserva, no obtendrá todas las ventajas del descuento por la reserva para esa hora.
+El descuento por la capacidad reservada de Azure Database for MySQL se aplica a la ejecución de los servidores MySQL cada hora. La reserva que compra coincide con el uso de procesos que emiten los servidores Azure Database for MySQL en ejecución. Para los servidores MySQL que no se ejecutan durante una hora entera, la reserva se aplica automáticamente a otras instancias de Azure Database for MySQL que coincidan con los atributos de reserva. El descuento se puede aplicar a servidores Azure Database for MySQL que se están ejecutando simultáneamente. Si no tiene un servidor de MySQL que se ejecute durante toda la hora que coincida con los atributos de reserva, no obtendrá todas las ventajas del descuento por la reserva para esa hora.
 
 En los ejemplos siguientes se muestra cómo se aplica el descuento por la capacidad reservada de Azure Database for MySQL en función del número de núcleos adquiridos y el momento de su ejecución.
 
@@ -44,5 +41,6 @@ En el resto de estos ejemplos, supongamos que la capacidad reservada de Azure Da
 
 Para obtener información sobre la aplicación de Azure Reservations en informes de uso de facturación, consulte el artículo [Información sobre el uso de Azure Reservations](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea).
 
-## <a name="need-help-contact-us"></a>¿Necesita ayuda? Ponerse en contacto con nosotros
+## <a name="next-steps"></a>Pasos siguientes
+
 Si tiene alguna pregunta o necesita ayuda, [cree una solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).

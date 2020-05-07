@@ -1,22 +1,22 @@
 ---
-title: Procedimientos recomendados de Apache Spark en Azure HDInsight
-description: Aprenda los procedimientos recomendados para usar Apache Spark en Azure HDInsight.
+title: Instrucciones de Apache Spark en Azure HDInsight
+description: Obtenga instrucciones para usar Apache Spark en Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 09/18/2019
-ms.openlocfilehash: 20033e52e862f086d1491c06d38cdf4f2c57ba8d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/28/2020
+ms.openlocfilehash: 01cdc121abded954c2443599c5d69689acd69b62
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71106884"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562345"
 ---
-# <a name="apache-spark-best-practices"></a>Procedimientos recomendados de Apache Spark
+# <a name="apache-spark-guidelines"></a>Instrucciones de Apache Spark
 
-En este artículo se proporcionan los procedimientos recomendados para usar Apache Spark en Azure HDInsight.
+En este artículo se proporcionan instrucciones para usar Apache Spark en Azure HDInsight.
 
 ## <a name="how-do-i-run-or-submit-spark-jobs"></a>¿Cómo se ejecutan o envían los trabajos de Spark?
 
@@ -28,6 +28,10 @@ En este artículo se proporcionan los procedimientos recomendados para usar Apac
 | IntelliJ | [Tutorial: Creación de una aplicación de Scala Maven para Apache Spark en HDInsight mediante IntelliJ](./apache-spark-create-standalone-application.md) |
 | Zeppelin Notebooks | [Uso de cuadernos de Apache Zeppelin con un clúster Apache Spark en Azure HDInsight](./apache-spark-zeppelin-notebook.md) |
 | Envío de trabajos remotos con Livy | [Uso de la API REST de Apache Spark para enviar trabajos remotos a un clúster Spark de HDInsight](./apache-spark-livy-rest-interface.md) |
+|[Apache Oozie](../hdinsight-use-oozie-linux-mac.md)|Oozie es un sistema de coordinación y flujos de trabajo que administra trabajos de Hadoop.|
+|[Apache Livy](./apache-spark-livy-rest-interface.md)|Puede usar Livy para ejecutar shells de Spark interactivos o enviar trabajos por lotes que se ejecutarán en Spark.|
+|[Azure Data Factory para Apache Spark](../../data-factory/transform-data-using-spark.md)|La actividad de Spark en una canalización de Data Factory ejecuta un programa de Spark en su clúster de HDInsight propio o [a petición.|
+|[Azure Data Factory para Apache Hive](../../data-factory/transform-data-using-hadoop-hive.md)|La actividad de Hive de HDInsight en una canalización de Data Factory ejecuta consultas de Hive en su propio clúster de HDInsight o en uno a petición.|
 
 ## <a name="how-do-i-monitor-and-debug-spark-jobs"></a>¿Cómo se supervisan y depuran los trabajos de Spark?
 

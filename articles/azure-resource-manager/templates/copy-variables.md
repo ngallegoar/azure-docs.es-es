@@ -3,12 +3,12 @@ title: Definición de varias instancias de una variable
 description: Utilice la operación de copia en una plantilla de Azure Resource Manager para realizar varias iteraciones al crear una variable.
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: ed0c2d87c48a18b0a065f6c76e1e69142a9df048
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4fbe392e8a0fb477b6986fc9c7584291590eb4e7
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80153308"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583372"
 ---
 # <a name="variable-iteration-in-arm-templates"></a>Iteración de variables en las plantillas de ARM
 
@@ -16,7 +16,7 @@ En este artículo, se explica cómo puede crear varios valores para una variable
 
 También puede utilizar el elemento copy con [recursos](copy-resources.md), [propiedades de un recurso](copy-properties.md) y [salidas](copy-outputs.md).
 
-## <a name="variable-iteration"></a>Iteración variable
+## <a name="syntax"></a>Sintaxis
 
 El elemento copy tiene el siguiente formato general:
 
@@ -33,6 +33,21 @@ El elemento copy tiene el siguiente formato general:
 La propiedad **name** es cualquier valor que identifique el bucle. La propiedad **count** especifica el número de iteraciones que desea realizar en la variable.
 
 La propiedad **input** especifica las propiedades que desea repetir. Tiene que crear una matriz de elementos construida a partir del valor de la propiedad **input**. Puede tratarse de una propiedad única (como una cadena) o de un objeto con varias propiedades.
+
+## <a name="copy-limits"></a>Límites de copia
+
+El valor de count no puede superar 800.
+
+El valor de count no puede ser un número negativo. Puede ser cero si implementa la plantilla con una versión reciente de la CLI de Azure, PowerShell o la API REST. Específicamente, se debe usar:
+
+* Azure PowerShell **2.6** o posterior
+* CLI de Azure **2.0.74** o posterior
+* API REST versión **2019-05-10** o posterior
+* Las [implementaciones vinculadas](linked-templates.md) deben usar la versión **10-05-2019** o posterior de la API para el tipo de recurso de implementación.
+
+Las versiones anteriores de PowerShell, la CLI y API REST no admiten un valor de count de cero.
+
+## <a name="variable-iteration"></a>Iteración variable
 
 En el ejemplo siguiente, se muestra cómo se crea una matriz de valores de cadena:
 
@@ -294,12 +309,6 @@ En el ejemplo siguiente, se muestran las distintas formas en que puede usar el e
   }
 }
 ```
-
-## <a name="copy-limits"></a>Límites de copia
-
-El valor de count no puede superar 800.
-
-El valor de count no puede ser un número negativo. Si implementa una plantilla con Azure PowerShell 2.6 o posterior, la CLI de Azure 2.0.74 o posterior, o bien con la API REST, versión **2019-05-10** o posterior, puede establecer el valor de count en cero. Las versiones anteriores de PowerShell, la CLI y API REST no admiten un valor de count de cero.
 
 ## <a name="example-templates"></a>Plantillas de ejemplo
 

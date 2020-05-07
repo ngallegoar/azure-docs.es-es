@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
-ms.openlocfilehash: 70523dc12f3f20362fcf4a2c3cb456a182038e8a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 643f326952f72f952aa946079e56f1fb56373c9f
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79236012"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82182878"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Crear, cambiar o eliminar una red virtual
 
@@ -180,4 +180,4 @@ Para realizar tareas en redes virtuales, su cuenta debe estar asignada al rol de
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Crear una red virtual con scripts de ejemplo de [PowerShell](powershell-samples.md) o de la [CLI de Azure](cli-samples.md), o bien con [plantillas de Azure Resource Manager](template-samples.md)
-- Crear y aplicar una [directiva de Azure](policy-samples.md) para redes virtuales
+- Crear y asignar [definiciones de Azure Policy](policy-samples.md) para redes virtuales

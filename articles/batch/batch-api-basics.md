@@ -1,25 +1,15 @@
 ---
-title: Introducción a Azure Batch para desarrolladores | Microsoft Docs
+title: Información general para desarrolladores
 description: Conozca las características del servicio Batch y sus API desde el punto de vista del desarrollo.
-services: batch
-documentationcenter: .net
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: 416b95f8-2d7b-4111-8012-679b0f60d204
-ms.service: batch
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-compute
 ms.date: 08/29/2019
-ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 4d6c4ff06783489ea7b6c3488cf6746d579b4c6a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 590ce6d6804c25ea9a3c1104f8fea2ea00c66356
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79225996"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509200"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Desarrollo de soluciones de procesos paralelos a gran escala con Batch
 
@@ -439,7 +429,7 @@ Una fórmula de escalado puede basarse en las siguientes métricas:
 * **Métricas de recursos** : se basan en el uso de CPU, ancho de banda y memoria y en el número de nodos.
 * **Métricas de tareas**: se basan en el estado de la tarea, como *Activa* (en cola), *En ejecución* o *Completada*.
 
-Cuando el escalado automático reduce el número de nodos de proceso en un grupo, debe considerar cómo administrará las tareas que se están ejecutando en el momento en que se realiza la operación de reducción. Para ello, Batch proporciona una *opción de desasignación de nodos* que se puede incluir en las fórmulas. Por ejemplo, puede especificar que las tareas en ejecución se detengan de inmediato y se vuelvan a poner en cola para ejecutarlas en otro nodo o se dejen finalizar antes de que se quite el nodo del grupo.
+Cuando el escalado automático reduce el número de nodos de proceso en un grupo, debe considerar cómo administrará las tareas que se están ejecutando en el momento en que se realiza la operación de reducción. Para ello, Batch proporciona una [*opción de desasignación de nodos*](https://docs.microsoft.com/rest/api/batchservice/pool/removenodes#computenodedeallocationoption) que se puede incluir en las fórmulas. Por ejemplo, puede especificar que las tareas en ejecución se detengan de inmediato y se vuelvan a poner en cola para ejecutarlas en otro nodo o se dejen finalizar antes de que se quite el nodo del grupo. Tenga en cuenta que si se establece la opción de desasignación de nodos en `taskcompletion` o `retaineddata`, se evitan las operaciones de cambio de tamaño de los grupos hasta que se completen todas las tareas o hasta que expiren todos los períodos de retención de tareas, respectivamente.
 
 Para obtener más información sobre cómo escalar automáticamente una aplicación, consulte [Escalado automático de nodos de ejecución en un grupo de Azure Batch](batch-automatic-scaling.md).
 

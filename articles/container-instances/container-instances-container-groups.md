@@ -1,15 +1,15 @@
 ---
 title: Introducción a los grupos de contenedores
-description: Obtenga información sobre los grupos de contenedores de Azure Container Instances, una colección de instancias que comparten un ciclo de vida y recursos, como el almacenamiento y la red.
+description: Obtener información sobre los grupos de contenedores de Azure Container Instances, una colección de instancias que comparten un ciclo de vida y recursos como CPU, almacenamiento y red
 ms.topic: article
 ms.date: 11/01/2019
 ms.custom: mvc
-ms.openlocfilehash: 73781418321c3932bf3e0190b646dcd3bb178195
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b5f4f834d44294d846495a59af2fb65b231e4820
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79225852"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583838"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Grupos de contenedores en Azure Container Instances
 
@@ -56,7 +56,10 @@ A cada instancia de contenedor de un grupo se le asignan los recursos especifica
     
 Por ejemplo, en un grupo con dos instancias de contenedor que solicitan 1 CPU cada una, uno de los contenedores podría ejecutar una carga de trabajo que requiera mayor número de CPU en ejecución que el otro.
 
-En este escenario, podría establecer un límite de recursos de 2 CPU para la instancia de contenedor. Esta configuración permite que la instancia de contenedor use hasta 2 CPU completas si están disponibles.
+En este escenario, podría establecer un límite de recursos de hasta dos CPU para la instancia de contenedor. Esta configuración permite que la instancia de contenedor use hasta dos CPU, si estuvieran disponibles.
+
+> [!NOTE]
+> La infraestructura subyacente del servicio usa una pequeña cantidad de los recursos de un grupo de contenedores. Los contenedores pueden acceder a la mayoría de los recursos asignados al grupo, pero no a todos. Por este motivo, debe planear un pequeño búfer de recursos al solicitar los recursos para los contenedores del grupo.
 
 ### <a name="minimum-and-maximum-allocation"></a>Asignación mínima y máxima
 
@@ -66,7 +69,7 @@ En este escenario, podría establecer un límite de recursos de 2 CPU para la i
 
 ## <a name="networking"></a>Redes
 
-Los grupos de contenedores pueden compartir una dirección IP externa, uno o más puertos de esa dirección IP y una etiqueta DNS con un nombre de dominio completo (FQDN). Para permitir que los clientes externos lleguen a un contenedor dentro del grupo, debe exponer el puerto en la dirección IP y desde el contenedor. Dado que los contenedores dentro del grupo comparten un espacio de nombres de puerto, no se admite la asignación de puertos. Cuando se elimina el grupo de contenedores, se liberará su dirección IP y el FQDN. 
+Los grupos de contenedores pueden compartir una dirección IP externa, uno o más puertos de esa dirección IP y una etiqueta DNS con un nombre de dominio completo (FQDN). Para permitir que los clientes externos lleguen a un contenedor dentro del grupo, debe exponer el puerto en la dirección IP y desde el contenedor. Cuando se elimina el grupo de contenedores, se libera su dirección IP y FQDN. 
 
 Las instancias de contenedor dentro de un grupo de contenedores se pueden comunicar entre sí mediante localhost en cualquier puerto, incluso si estos puertos no se exponen externamente en la dirección IP del grupo o desde el contenedor.
 
@@ -115,7 +118,7 @@ Obtenga información acerca de cómo implementar un grupo de múltiples contened
 [resource-limits]: /rest/api/container-instances/containergroups/createorupdate#resourcelimits
 [resource-requirements]: /rest/api/container-instances/containergroups/createorupdate#resourcerequirements
 [azure-files]: container-instances-volume-azure-files.md
-[virtual-network]: container-instances-vnet.md
+[virtual-network]: container-instances-virtual-network-concepts.md
 [secret]: container-instances-volume-secret.md
 [volume-gitrepo]: container-instances-volume-gitrepo.md
 [gpus]: container-instances-gpu.md

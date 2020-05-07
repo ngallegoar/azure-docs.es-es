@@ -7,18 +7,18 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: f20d0d38a7fbd831d3e97a69373bac04b9b330aa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0b3f5963572368cb9c884984418140b4bbc0dea3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74133420"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82131189"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Supervisión de Site Recovery con registros de Azure Monitor
 
 En este artículo se describe cómo supervisar las máquinas replicadas que haya replicado Azure [Site Recovery](site-recovery-overview.md), mediante los [registros de Azure Monitor](../azure-monitor/platform/data-platform-logs.md) y [log Analytics](../azure-monitor/log-query/log-query-overview.md).
 
-Los registros de Azure Monitor proporcionan una plataforma de datos de registro que recopila registros de actividad y diagnóstico, junto con otros datos de supervisión. En los registros de Azure Monitor, debe usar Log Analytics para escribir y probar consultas de registro y para analizar interactivamente esos datos de registro. Puede visualizar y consultar los resultados del registro y configurar alertas para realizar acciones basadas en los datos supervisados.
+Los registros de Azure Monitor proporcionan una plataforma de datos de registro que recopila registros de actividad y de recursos, junto con otros datos de supervisión. En los registros de Azure Monitor, debe usar Log Analytics para escribir y probar consultas de registro y para analizar interactivamente esos datos de registro. Puede visualizar y consultar los resultados del registro y configurar alertas para realizar acciones basadas en los datos supervisados.
 
 En cuanto a Site Recovery, puede usar los registros de Azure Monitor para hacer lo siguiente:
 
@@ -44,7 +44,7 @@ Le recomendamos que revise las [preguntas de supervisión más comunes](monitori
 
 1. En el almacén, haga clic en **Diagnostic settings** > **Add diagnostic setting** (Configuración de diagnóstico > Agregar configuración de diagnóstico).
 
-    ![Seleccionar el registro de diagnóstico](./media/monitoring-log-analytics/add-diagnostic.png)
+    ![Selección de registro de recursos](./media/monitoring-log-analytics/add-diagnostic.png)
 
 2. En **Configuración de diagnóstico** especifique un nombre y marque la casilla **Enviar a Log Analytics**.
 3. Seleccione la suscripción de los registros de Azure Monitor y el área de trabajo de Log Analytics.

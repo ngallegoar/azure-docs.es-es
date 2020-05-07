@@ -1,14 +1,14 @@
 ---
 title: Incorporación de un cliente a la administración de recursos delegados de Azure
 description: Obtenga información sobre cómo incorporar un cliente a la administración de recursos delegados de Azure, lo que permite administrar sus recursos y acceder a ellos desde su propio inquilino.
-ms.date: 04/16/2020
+ms.date: 04/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 22c96d43f3d5f284c2cba995eb33f5f8cd238659
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 2b8bf3125dd97397f83a2a2cbf23090bce41ad40
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81481692"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82161115"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Incorporación de un cliente a la administración de recursos delegados de Azure
 
@@ -36,7 +36,7 @@ Para incorporar el inquilino de un cliente, este debe tener una suscripción act
 
 Si aún no tiene estos valores de identificador, puede recuperarlos de una de las siguientes maneras. Asegúrese y use estos valores exactos en su implementación.
 
-### <a name="azure-portal"></a>Portal de Azure
+### <a name="azure-portal"></a>Azure Portal
 
 Para ver el identificador del inquilino, mantenga el mouse sobre el nombre de la cuenta en la parte superior derecha de Azure Portal o seleccione **Cambiar directorio**. Para seleccionar y copiar el identificador del inquilino, busque "Azure Active Directory" desde dentro del portal y, a continuación, seleccione **Propiedades** y copie el valor que se muestra en campo **Id. de directorio**. Para buscar el identificador de una suscripción en el inquilino del cliente, busque "Suscripciones" y, a continuación, seleccione el identificador de suscripción adecuado.
 
@@ -107,7 +107,7 @@ az ad sp list --query "[?displayName == '<spDisplayName>'].objectId" --output ts
 az role definition list --name "<roleName>" | grep name
 ```
 > [!TIP]
-> Se recomienda asignar el [rol de eliminación de asignación del registro de servicios administrados](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) al incorporar un cliente, de modo que los usuarios del inquilino puedan [quitar el acceso a la delegación](#remove-access-to-a-delegation) más adelante si es necesario. Si este rol no está asignado, solo un usuario puede quitar los recursos delegados del inquilino del cliente.
+> Se recomienda asignar el [rol de eliminación de asignación del registro de servicios administrados](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) al incorporar un cliente, de modo que los usuarios del inquilino puedan [quitar el acceso a la delegación](remove-delegation.md) más adelante si es necesario. Si este rol no está asignado, solo un usuario puede quitar los recursos delegados del inquilino del cliente.
 
 ## <a name="create-an-azure-resource-manager-template"></a>Creación de una plantilla de Azure Resource Manager
 
@@ -199,6 +199,8 @@ Dado que se trata de una implementación de nivel de suscripción, no se puede i
 
 > [!IMPORTANT]
 > Esta implementación en el nivel de suscripción debe realizarse desde una cuenta que no sea de invitado en el inquilino del cliente que tenga el [rol Propietario integrado](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) para la suscripción que se va a incorporar (o que contiene los grupos de recursos que se están incorporando). Para ver todos los usuarios que puedan delegar la suscripción, cualquiera de los usuarios del inquilino del cliente puede seleccionar la suscripción en Azure Portal, abrir **Control de acceso (IAM)** y [ver todos los usuarios con el rol Propietario](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
+>
+> Si la suscripción se creó con el [programa Proveedor de soluciones en la nube (CSP)](../concepts/cloud-solution-provider.md), cualquier usuario que tenga el rol de [agente de administración](https://docs.microsoft.com/partner-center/permissions-overview#manage-commercial-transactions-in-partner-center-azure-ad-and-csp-roles) en el inquilino del proveedor de servicios puede realizar la implementación.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -244,7 +246,7 @@ az deployment create --name <deploymentName> \
 
 Cuando una suscripción de cliente se incorpora correctamente a la administración de recursos delegados de Azure, los usuarios del inquilino del proveedor de servicios pueden ver la suscripción y sus recursos (si se les ha concedido acceso a ellos mediante el proceso anterior, ya sea individualmente o como miembro de un grupo de Azure AD con los permisos adecuados). Para confirmarlo, compruebe que la suscripción aparece de una de las siguientes maneras.  
 
-### <a name="azure-portal"></a>Portal de Azure
+### <a name="azure-portal"></a>Azure Portal
 
 En el inquilino del proveedor de servicios:
 
@@ -280,77 +282,8 @@ Get-AzContext
 az account list
 ```
 
-## <a name="remove-access-to-a-delegation"></a>Quitar el acceso a una delegación
-
-De forma predeterminada, los usuarios en el inquilino del cliente que tenga los permisos adecuados puede quitar el acceso de proveedores de servicios a los recursos delegados en la [página Proveedores de servicios](view-manage-service-providers.md#add-or-remove-service-provider-offers) de Azure Portal. Al hacerlo, ningún usuario en el inquilino del proveedor de servicios podrá tener acceso a los recursos que se habían delegado previamente.
-
-Si ha incluido usuarios con el [rol de eliminación de asignaciones de registro de servicios administrados](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) al incorporar un cliente para la administración de recursos delegados de Azure, los usuarios en el inquilino también pueden quitar la delegación.
-
-En el ejemplo siguiente se muestra una asignación que concede el **rol de eliminación de asignación del registro de los servicios administrados** que se puede incluir en un archivo de parámetros:
-
-```json
-    "authorizations": [ 
-        { 
-            "principalId": "cfa7496e-a619-4a14-a740-85c5ad2063bb", 
-            "principalIdDisplayName": "MSP Operators", 
-            "roleDefinitionId": "91c1777a-f3dc-4fae-b103-61d183457e46" 
-        } 
-    ] 
-```
-
-Un usuario con este permiso puede quitar una delegación de una de las siguientes maneras.
-
-### <a name="azure-portal"></a>Portal de Azure
-
-1. Vaya a la página [Mis clientes](view-manage-customers.md).
-2. Seleccione **Delegaciones**.
-3. Busque la delegación que desea quitar y seleccione el icono de la papelera que aparece en su fila.
-
-### <a name="powershell"></a>PowerShell
-
-```azurepowershell-interactive
-# Log in first with Connect-AzAccount if you're not using Cloud Shell
-
-# Sign in as a user from the managing tenant directory 
-
-Login-AzAccount
-
-# Select the subscription that is delegated - or contains the delegated resource group(s)
-
-Select-AzSubscription -SubscriptionName "<subscriptionName>"
-
-# Get the registration assignment
-
-Get-AzManagedServicesAssignment -Scope "/subscriptions/{delegatedSubscriptionId}"
-
-# Delete the registration assignment
-
-Remove-AzManagedServicesAssignment -ResourceId "/subscriptions/{delegatedSubscriptionId}/providers/Microsoft.ManagedServices/registrationAssignments/{assignmentGuid}"
-```
-
-### <a name="azure-cli"></a>Azure CLI
-
-```azurecli-interactive
-# Log in first with az login if you're not using Cloud Shell
-
-# Sign in as a user from the managing tenant directory
-
-az login
-
-# Select the subscription that is delegated – or contains the delegated resource group(s)
-
-az account set -s <subscriptionId/name>
-
-# List registration assignments
-
-az managedservices assignment list
-
-# Delete the registration assignment
-
-az managedservices assignment delete --assignment <id or full resourceId>
-```
-
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Más información sobre las [experiencias de administración entre inquilinos](../concepts/cross-tenant-management-experience.md).
 - Puede [ver y administrar clientes](view-manage-customers.md) desde **Mis clientes**, en Azure Portal.
+- Obtenga información sobre cómo [quitar el acceso a una delegación](remove-delegation.md) que se incorporó previamente.

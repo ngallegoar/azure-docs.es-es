@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5525f2f8ab4ef83ba9c3aeeff945bc9d875600d5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6d7c9713f27643e792ea381e1a2419cbc4b67a99
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75748673"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82129198"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor"></a>Interpretación del esquema de registros de inicio de sesión de Azure AD en Azure Monitor
 
@@ -170,4 +170,4 @@ En este artículo se describe el esquema de registro de inicio de sesión de Azu
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Interpretación del esquema de registros de auditoría en Azure Monitor](reference-azure-monitor-audit-log-schema.md)
-* [Más información sobre los registros de diagnóstico de Azure](../../azure-monitor/platform/platform-logs-overview.md)
+* [Más información sobre los registros de plataforma de Azure](../../azure-monitor/platform/platform-logs-overview.md)

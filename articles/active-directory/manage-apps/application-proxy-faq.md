@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: mimart
 ms.reviewer: japere
-ms.openlocfilehash: d1929f937d86001a0f2a399b1ebd92e47bbd2c86
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: a6efe74008b2271b960f877f5f0f6b2b6b549a8d
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80990912"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583085"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Preguntas más frecuentes sobre Active Directory (Azure AD) Application Proxy
 
@@ -95,6 +95,10 @@ Si los servidores del conector y la cuenta de servicio de la aplicación web se 
 
 Si los servidores del conector y la cuenta de servicio de la aplicación web están en dominios diferentes, se usará la delegación basada en recursos. Los permisos de delegación se configuran en el servidor web de destino y la cuenta de servicio de la aplicación web. Tenga en cuenta que este método de delegación restringida es relativamente nuevo. El método se presentó en Windows Server 2012, que admite la delegación entre dominios al permitir que el propietario del recurso (servicio web) controle el equipo y las cuentas de servicio que pueden delegar contenido en él. No hay ninguna interfaz de usuario que le ayude con esta configuración, por lo que tendrá que usar PowerShell.
 Para obtener más información, consulte [Información sobre la delegación restringida de Kerberos con Application Proxy](https://aka.ms/kcdpaper).
+
+### <a name="does-ntlm-authentication-work-with-azure-ad-application-proxy"></a>¿Funciona la autenticación NTLM con Azure AD Application Proxy?
+
+No se puede usar la autenticación NTLM como método de autenticación previa o de inicio de sesión único. La autenticación NTLM solo se puede usar cuando se puede negociar directamente entre el cliente y la aplicación web publicada. El uso de la autenticación NTLM normalmente hace que aparezca un mensaje de inicio de sesión en el explorador.
 
 ## <a name="pass-through-authentication"></a>Autenticación de paso a través
 

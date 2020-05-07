@@ -2,26 +2,21 @@
 title: Estado de aprovisionamiento de aplicaciones de cuarentena | Microsoft Docs
 description: Cuando haya configurado una aplicación para el aprovisionamiento automático de usuarios, obtenga información sobre el estado de aprovisionamiento de los medios de cuarentena y cómo borrarlo.
 services: active-directory
-documentationcenter: ''
 author: msmimart
 manager: CelesteDG
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 04/28/2020
 ms.author: mimart
 ms.reviewer: arvinh
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 563c049bf3d1606e87db54e3b003dac987594610
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c1e0039133b7f9a7ae827e348640f6379b7f10ac
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80154634"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593937"
 ---
 # <a name="application-provisioning-in-quarantine-status"></a>Aprovisionamiento de aplicaciones en el estado de cuarentena
 
@@ -33,7 +28,7 @@ Mientras esté en cuarentena, la frecuencia de los ciclos incrementales se reduc
 
 Hay tres maneras de comprobar si una aplicación está en cuarentena:
   
-- En Azure Portal, vaya a **Azure Active Directory** > **Aplicaciones empresariales** > &lt;*nombre de la aplicación*&gt; > **Aprovisionamiento** y vaya a la barra de progreso en la parte inferior.  
+- En Azure Portal, vaya a **Azure Active Directory** > **Aplicaciones empresariales** > &lt;*nombre de la aplicación*&gt; > **Aprovisionamiento** y compruebe si la barra de progreso tienen algún mensaje de cuarentena.   
 
   ![Barra de estado de aprovisionamiento que muestra el estado de cuarentena](./media/application-provisioning-quarantine-status/progress-bar-quarantined.png)
 
@@ -51,7 +46,13 @@ Hay tres maneras de comprobar si una aplicación está en cuarentena:
 
 ## <a name="why-is-my-application-in-quarantine"></a>¿Por qué mi aplicación está en cuarentena?
 
-Una solicitud de Microsoft Graph para obtener el estado del trabajo de aprovisionamiento muestra la siguiente razón para la cuarentena:
+|Descripción|Acción recomendada|
+|---|---|
+|**Problema de cumplimiento de SCIM:** se devolvió una respuesta HTTP/404 No encontrado en lugar de la respuesta HTTP/200 Correcto esperada. En este caso, el servicio de aprovisionamiento de Azure AD realizó una solicitud a la aplicación de destino y recibió una respuesta inesperada.|Consulte la sección Credenciales de administrador para ver si la aplicación requiere de especificar la dirección URL del inquilino. Además, asegúrese de que la dirección URL sea correcta. Si no experimenta ningún problema, póngase en contacto con el desarrollador de la aplicación para asegurarse de que su servicio sea conforme con SCIM. https://tools.ietf.org/html/rfc7644#section-3.4.2 |
+|**Credenciales no válidas:** al intentar autorizar el acceso a la aplicación de destino, se recibió una respuesta de la aplicación de destino que indica que las credenciales proporcionadas no son válidas.|Vaya a la sección Credenciales de administrador de la interfaz de usuario de la configuración de aprovisionamiento y autorice el acceso de nuevo con credenciales válidas. Si la aplicación está en la galería, revise el tutorial de configuración correspondiente para ver los pasos adicionales necesarios.|
+|**Roles duplicados:** los roles importados de ciertas aplicaciones como Salesforce y Zendesk deben ser únicos. |Vaya al [manifiesto](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest) de la aplicación en Azure Portal y quite el rol duplicado.|
+
+ Una solicitud de Microsoft Graph para obtener el estado del trabajo de aprovisionamiento muestra la siguiente razón para la cuarentena:
 
 - `EncounteredQuarantineException` indica que se proporcionaron credenciales no válidas. El servicio de aprovisionamiento no puede establecer una conexión entre el sistema de origen y el de destino.
 

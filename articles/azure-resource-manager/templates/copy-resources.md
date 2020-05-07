@@ -2,13 +2,13 @@
 title: Implementación de varias instancias de recursos
 description: Use la operación de copia y las matrices en una plantilla de Azure Resource Manager para realizar varias iteraciones al implementar recursos.
 ms.topic: conceptual
-ms.date: 09/27/2019
-ms.openlocfilehash: e65ab93c21daffa0053e53d953fe95fa9f28e2a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/29/2020
+ms.openlocfilehash: d4f40b606ffd56019b44cc8b67e5629b935bf50c
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80153325"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583390"
 ---
 # <a name="resource-iteration-in-arm-templates"></a>Iteración de recursos en las plantillas de ARM
 
@@ -18,7 +18,7 @@ También puede usar el elemento copy con [propiedades](copy-properties.md), [var
 
 Si tiene que especificar si un recurso se implementa, consulte [Elemento condition](conditional-resource-deployment.md).
 
-## <a name="resource-iteration"></a>Iteración de recursos
+## <a name="syntax"></a>Sintaxis
 
 El elemento copy tiene el siguiente formato general:
 
@@ -34,6 +34,23 @@ El elemento copy tiene el siguiente formato general:
 La propiedad **name** es cualquier valor que identifique el bucle. La propiedad **count** especifica el número de iteraciones que desea realizar en el tipo de recurso.
 
 Utilice las propiedades **mode** y **batchSize** para especificar si los recursos van a implementarse simultáneamente o por orden. Estas propiedades se describen en el artículo [En serie o en paralelo](#serial-or-parallel).
+
+## <a name="copy-limits"></a>Límites de copia
+
+El valor de count no puede superar 800.
+
+El valor de count no puede ser un número negativo. Puede ser cero si implementa la plantilla con una versión reciente de la CLI de Azure, PowerShell o la API de REST. Concretamente, se debe usar:
+
+* Azure PowerShell **2.6** o posterior
+* CLI de Azure **2.0.74** o posterior
+* API de REST versión **2019-05-10** o posterior
+* Las [implementaciones vinculadas](linked-templates.md) deben usar la versión **10-05-2019** o posterior de la API para el tipo de recurso de implementación
+
+Las versiones anteriores de PowerShell, la CLI y API REST no admiten un valor de count de cero.
+
+Tenga cuidado al usar la [implementación de modo completo](deployment-modes.md) con copia. Si vuelve a implementar con el modo completo en un grupo de recursos, se eliminan todos los recursos que no se especifican en la plantilla después de resolver el bucle de copia.
+
+## <a name="resource-iteration"></a>Iteración de recursos
 
 En el ejemplo siguiente, se crea el número de cuentas de almacenamiento especificado en el parámetro **storageCount**.
 
@@ -258,14 +275,6 @@ En el siguiente ejemplo se muestra la implementación:
 }]
 ```
 
-## <a name="copy-limits"></a>Límites de copia
-
-El valor de count no puede superar 800.
-
-El valor de count no puede ser un número negativo. Si implementa una plantilla con Azure PowerShell 2.6 o posterior, la CLI de Azure 2.0.74 o posterior, o bien con la API REST, versión **2019-05-10** o posterior, puede establecer el valor de count en cero. Las versiones anteriores de PowerShell, la CLI y API REST no admiten un valor de count de cero.
-
-Tenga cuidado al usar la [implementación de modo completo](deployment-modes.md) con copia. Si vuelve a implementar con el modo completo en un grupo de recursos, se eliminan todos los recursos que no se especifican en la plantilla después de resolver el bucle de copia.
-
 ## <a name="example-templates"></a>Plantillas de ejemplo
 
 En los ejemplos siguientes se muestran escenarios comunes para crear más de una instancia de un recurso o propiedad.
@@ -280,12 +289,12 @@ En los ejemplos siguientes se muestran escenarios comunes para crear más de una
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para seguir los pasos de un tutorial, consulte [Tutorial: Creación de varias instancias de recursos con plantillas de Resource Manager](template-tutorial-create-multiple-instances.md).
+* Para seguir los pasos de un tutorial, consulte [Tutorial: Creación de varias instancias de recursos con plantillas de ARM](template-tutorial-create-multiple-instances.md).
 * Para otros usos del elemento copy, consulte:
   * [Iteración de propiedades en las plantillas de ARM](copy-properties.md)
   * [Iteración de variables en las plantillas de ARM](copy-variables.md)
   * [Iteración de salida en las plantillas de ARM](copy-outputs.md)
 * Para obtener información acerca del uso de copy con plantillas anidadas, consulte [Uso de copy](linked-templates.md#using-copy).
 * Para obtener información sobre las secciones de una plantilla, consulte el artículo sobre cómo [crear plantillas de ARM](template-syntax.md).
-* Para obtener información sobre cómo implementar su plantilla, consulte el artículo sobre cómo [implementar una aplicación con una plantilla de ARM](deploy-powershell.md).
+* Para más información sobre cómo implementar su plantilla, consulte el artículo [Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell](deploy-powershell.md).
 

@@ -4,18 +4,21 @@ description: Aprenda a crear un contenedor en Azure Cosmos DB mediante Azure P
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 04/24/2020
 ms.author: mjbrown
-ms.openlocfilehash: 4eaa2974817bfcd8bef83e5139d75a2d4c2ec107
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 809ebe848e38a7c99c96ef44f130da917fb35942
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74873716"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82161629"
 ---
 # <a name="create-an-azure-cosmos-container"></a>Creación de un contenedor de Azure Cosmos
 
 En este artículo se explican las distintas formas de crear un contenedor de Azure Cosmos (colección, tabla o grafo). Puede usar para ello Azure Portal, la CLI de Azure o los SDK admitidos. En este artículo se muestra cómo crear un contenedor, especificar la clave de partición y aprovisionar el rendimiento.
+
+> [!NOTE]
+> Cuando cree contenedores, tenga cuidado de no utilizar el mismo nombre en dos de ellos con distintas mayúsculas y minúsculas. Algunos componentes de la plataforma de Azure no distinguen mayúsculas de minúsculas y esto puede producir confusión o problemas con los datos de telemetría y las acciones que se realicen en los contenedores con estos nombres.
 
 ## <a name="create-a-container-using-azure-portal"></a>Creación de un contenedor mediante Azure Portal
 

@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: b36d03695c107054549fba716f4cc27ecb7bba26
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 1a523872bb15981958eeb1678caa1d911a9cbbba
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80983490"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82142405"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>Preparar los recursos técnicos del módulo IoT Edge
 
 >[!Important]
->A partir del 13 de abril de 2020, se comenzará a trasladar la administración de las ofertas de módulos de IoT Edge al Centro de partners. Después de la migración, las ofertas se crearán y administrarán en el Centro de partners. Siga las instrucciones que se indican en [Creación de una oferta de módulo de IoT Edge](https://aka.ms/AzureIoTTechAsset) para administrar las ofertas migradas.
+>A partir del 13 de abril de 2020, se comenzará a trasladar la administración de las ofertas de módulos de IoT Edge al Centro de partners. Después de la migración, las ofertas se crearán y administrarán en el Centro de partners. Siga las instrucciones que se indican en [Creación de una oferta de módulo de IoT Edge](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-iot-edge-module-asset) para administrar las ofertas migradas.
 
 En este artículo se describen los requisitos que deben cumplir los recursos técnicos del módulo IoT Edge para que se pueda publicar en Azure Marketplace.
 
@@ -41,7 +41,7 @@ El módulo IoT Edge debe admitir una de las siguientes opciones de plataforma.
 Admita todas las plataformas de nivel 1 compatibles con IoT Edge (según el registro de [Compatibilidad de Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/support)). Se recomienda esta opción porque proporciona una mejor experiencia de cliente. Se presentarán los módulos que cumplan este criterio. Un módulo que use esta opción de plataforma debe:
 
 - Proporcionar una etiqueta `latest` y una etiqueta de versión (por ejemplo, `1.0.1`) que sean etiquetas de manifiesto compiladas con la [herramienta de manifiestos](https://github.com/estesp/manifest-tool) de GitHub.
-- Usar la [pestaña Marketplace](./cpp-marketplace-tab.md) para agregar un vínculo a [dispositivos certificados IoT Edge compatibles](https://aka.ms/iot-edge-certified). Este vínculo se resuelve en `https://aka.ms/iot-edge-certified`, un sitio web donde los clientes pueden examinar o buscar dispositivos certificados. Este sitio web también se conoce como el catálogo de dispositivos [Azure IoT Edge Certified](https://catalog.azureiotsolutions.com/).
+- Use la [pestaña Marketplace](./cpp-marketplace-tab.md) para agregar un vínculo a [IoT Edge Certified](https://catalog.azureiotsolutions.com/alldevices?filters={%2218%22:[%221%22]}), un sitio web donde los clientes pueden examinar o buscar dispositivos certificados. Este sitio web también se conoce como el catálogo de dispositivos [Azure IoT Edge Certified](https://catalog.azureiotsolutions.com/).
 
 #### <a name="a-subset-of-tier-1-platforms-supported-by-iot-edge"></a>Un subconjunto de plataformas de nivel 1 compatibles con IoT Edge
   

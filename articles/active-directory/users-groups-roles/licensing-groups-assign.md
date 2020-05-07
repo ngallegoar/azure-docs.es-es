@@ -10,23 +10,23 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 03/18/2019
+ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 130ce05e332f4705feb4acd54cbeb25d25a82532
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b9c61bbc794438c34a4bda27c8048ac0b21f9fc1
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79227652"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582710"
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Asignación de licencias a usuarios según su pertenencia a un grupo en Azure Active Directory
 
 Este artículo le guiará a través del proceso de asignación de licencias de producto a un grupo de usuarios y de comprobación de que las licencias se han asignado correctamente en Azure Active Directory (Azure AD).
 
-En este ejemplo, el inquilino contiene un grupo de seguridad llamado **HR Department**. Este grupo incluye a todos los miembros del departamento de recursos humanos (en este caso, alrededor de 1000 usuarios). Desea asignar licencias de Office 365 Enterprise E3 a todo el departamento. El servicio Yammer Enterprise que se incluye en el producto se debe deshabilitar temporalmente hasta que el departamento esté listo para empezar a usarlo. También desea implementar licencias de Enterprise Mobility + Security para el mismo grupo de usuarios.
+En este ejemplo, la organización de Azure AD contiene un grupo de seguridad llamado **HR Department**. Este grupo incluye a todos los miembros del departamento de recursos humanos (en este caso, alrededor de 1000 usuarios). Desea asignar licencias de Office 365 Enterprise E3 a todo el departamento. El servicio Yammer Enterprise que se incluye en el producto se debe deshabilitar temporalmente hasta que el departamento esté listo para empezar a usarlo. También desea implementar licencias de Enterprise Mobility + Security para el mismo grupo de usuarios.
 
 > [!NOTE]
 > Algunos servicios de Microsoft no están disponibles en todas las ubicaciones. Para poder asignar una licencia a un usuario, el administrador tiene que especificar la propiedad Ubicación de uso en el usuario.
@@ -37,7 +37,7 @@ En este ejemplo, el inquilino contiene un grupo de seguridad llamado **HR Depart
 
 1. Inicie sesión en el [**Centro de administración de Azure AD**](https://aad.portal.azure.com) con una cuenta de administrador de licencias. Para administrar las licencias, la cuenta debe ser un administrador de licencias, un administrador de usuarios o un administrador global.
 
-1. Seleccione **Licencias** para abrir una página donde puede ver y administrar todos los productos con licencia del inquilino.
+1. Seleccione **Licencias** para abrir una página donde puede ver y administrar todos los productos con licencia de la organización.
 
 1. En **Todos los productos**, seleccione los nombres de producto Office 365 Enterprise E5 y Enterprise Mobility + Security E3. Para iniciar la asignación, seleccione **Asignar** en la parte superior de la página.
 
@@ -57,7 +57,7 @@ En este ejemplo, el inquilino contiene un grupo de seguridad llamado **HR Depart
 
 Al asignar licencias a un grupo, Azure AD procesa todos los miembros existentes de ese grupo. Este proceso puede tardar algún tiempo, según el tamaño del grupo. En el paso siguiente se describe cómo comprobar si el proceso se ha completado y si es necesario hacer algo más para resolver los problemas.
 
-## <a name="step-2-verify-that-the-initial-assignment-has-finished"></a>Paso 2: Comprobación de que se ha completado la asignación inicial
+## <a name="step-2-verify-that-the-initial-assignment-has-finished"></a>Paso 2: Comprobación de que ha finalizado la asignación inicial
 
 1. Vaya a **Azure Active Directory** > **Grupos**. Seleccione el grupo al que se asignaron las licencias.
 

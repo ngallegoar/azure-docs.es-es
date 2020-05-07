@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.openlocfilehash: 2d2bb5440e6d23a4cb5781244ba33ab4c5be2612
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 99c8d4e7e5263b8a7caf30833a899976d3cc829b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78252584"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82133701"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---single-server"></a>Supervisión y ajuste en Azure Database for PostgreSQL: Single Server
 La supervisión de los datos sobre los servidores le permite solucionar problemas y optimizar la carga de trabajo. Azure Database for PostgreSQL proporciona diversas opciones de supervisión para ofrecer información detallada sobre el comportamiento del servidor.
@@ -42,7 +42,7 @@ Estas métricas están disponibles para Azure Database for PostgreSQL:
 |pg_replica_log_delay_in_seconds|Retraso entre réplicas|Segundos|El tiempo transcurrido desde la última transacción reproducida. Esta métrica está disponible únicamente para los servidores de réplica.|
 
 ## <a name="server-logs"></a>Registros del servidor
-Puede habilitar el registro en el servidor. Estos registros también están disponibles mediante los registros de diagnóstico de Azure en los [registros de Azure Monitor](../azure-monitor/log-query/log-query-overview.md), Event Hubs y la cuenta de almacenamiento. Para más información sobre el registro, visite la página [Registros de servidor](concepts-server-logs.md).
+Puede habilitar el registro en el servidor. Estos registros de recursos se pueden enviar a los [registros de Azure Monitor](../azure-monitor/log-query/log-query-overview.md), Event Hubs y una cuenta de Storage. Para más información sobre el registro, visite la página [Registros de servidor](concepts-server-logs.md).
 
 ## <a name="query-store"></a>Almacén de consultas
 El [Almacén de consultas](concepts-query-store.md) realiza un seguimiento del rendimiento de las consultas a lo largo del tiempo, que incluye las estadísticas en tiempo de ejecución y los eventos de espera de consultas. La característica conserva información del rendimiento en tiempo de ejecución de las consultas en una base de datos del sistema denominada **azure_sys** bajo el esquema query_store. Puede controlar la recopilación y el almacenamiento de datos mediante diversos botones de configuración.

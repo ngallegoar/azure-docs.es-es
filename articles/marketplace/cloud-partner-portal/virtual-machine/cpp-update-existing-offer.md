@@ -7,19 +7,19 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: dsindona
-ms.openlocfilehash: a15ccb1de2a9ce0072d032e624ead3b4d730763b
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 934be24d07c01c76c8caf5e16af4b765df79c964
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273059"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82142911"
 ---
 # <a name="update-an-existing-vm-offer-on-azure-marketplace"></a>Actualización de una oferta de máquina virtual existente en Azure Marketplace
 
 > [!IMPORTANT]
-> A partir del 13 de abril de 2020, comenzaremos el traslado de la administración de las ofertas de máquinas virtuales de Azure al Centro de partners. Después de la migración, las ofertas se crearán y administrarán en el Centro de partners. Siga las instrucciones que se indican en [Creación de una oferta de máquina virtual de Azure](https://aka.ms/CreateAzureVMoffer) para administrar las ofertas migradas.
+> A partir del 13 de abril de 2020, comenzaremos el traslado de la administración de las ofertas de máquinas virtuales de Azure al Centro de partners. Después de la migración, las ofertas se crearán y administrarán en el Centro de partners. Siga las instrucciones que se indican en [Creación de una oferta de máquina virtual de Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-create-offer) para administrar las ofertas migradas.
 
-Este artículo le guía por los diferentes aspectos de la actualización de una oferta de máquina virtual (VM) en [Cloud Partner Portal](https://cloudpartner.azure.com/) y de la nueva publicación de la oferta. 
+Este artículo le guía por los diferentes aspectos de la actualización de una oferta de máquina virtual (VM) en [Cloud Partner Portal](https://cloudpartner.azure.com/) y de la nueva publicación de la oferta.
 
 Hay una serie de motivos comunes para actualizar la oferta, incluidos los siguientes:
 
