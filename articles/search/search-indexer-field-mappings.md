@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 3e09741e841897032b8146dee67b79e0c26ea5cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a5820856f7d4c51e41162f01a9687304cb223088
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80275159"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791925"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Transformaciones y asignaciones de campos mediante indexadores de Azure Cognitive Search
 
@@ -28,10 +28,7 @@ Algunas situaciones donde las asignaciones de campos son útiles:
 * Necesita codificar o descodificar sus datos con Base64. Las asignaciones de campos admiten varias **funciones de asignación**, incluidas las funciones de codificación y descodificación Base64.
 
 > [!NOTE]
-> La característica de asignación de campos de los indexadores de Azure Cognitive Search proporciona una manera sencilla de asignar campos de datos a los campos de índice, con unas cuantas opciones para la conversión de datos. Los datos más complejos pueden requerir un procesamiento previo para transformarlos en un formato que sea fácil de indexar.
->
-> Microsoft Azure Data Factory es una solución basada en la nube muy eficaz para importar y transformar datos. También puede escribir código para transformar los datos de origen antes de la indexación. Para obtener ejemplos de código, vea [Modelado de datos relacionales](search-example-adventureworks-modeling.md) y [Modelado de facetas de varios niveles](search-example-adventureworks-multilevel-faceting.md).
->
+> Las asignaciones de campos en los indexadores son una manera sencilla de asignar campos de datos a campos de índice, con cierta capacidad para la conversión de datos ligeros. Los datos más complejos pueden requerir un procesamiento previo para transformarlos en un formato que favorezca la indexación. Una opción que se puede considerar es [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/).
 
 ## <a name="set-up-field-mappings"></a>Configuración de asignaciones de campos
 
@@ -245,8 +242,6 @@ Azure SQL Database no tiene un tipo de datos integrado que se asigne de forma na
     "mappingFunction" : { "name" : "jsonArrayToStringCollection" }
   }]
 ```
-
-Para obtener un ejemplo detallado en el que los datos relacionales se transforman en campos de colección de índice, vea [Modelado de datos relacionales](search-example-adventureworks-modeling.md).
 
 <a name="urlEncodeFunction"></a>
 

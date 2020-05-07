@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 01/22/2020
 ms.author: dsindona
 ms.custom: include file
-ms.openlocfilehash: 9b99876b66826cc5a66cba686a7d6a5243b47b98
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e7692d8c90d71e76628ecb44ade529eabedfa909
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80277229"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691505"
 ---
 Microsoft proporciona una plantilla de contrato estándar para Marketplace comercial.
 
@@ -55,5 +55,4 @@ Si quiere proporcionar sus propios términos y condiciones personalizados, puede
 
 Los clientes deben aceptar estos términos para poder probar la oferta.
 
-No olvide **guardar** antes de pasar a la siguiente sección.
-No olvide **guardar** antes de pasar a la siguiente sección.
+Seleccione **Guardar borrador** antes de continuar.

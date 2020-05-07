@@ -178,7 +178,7 @@
                   href: automation-onboard-solutions-from-automation-account.md
                 - name: Desde un runbook de Automation
                   href: automation-onboard-solutions.md
-            - name: Visualización del contenido de los archivos con seguimiento
+            - name: Administración de Change Tracking e Inventario
               href: change-tracking-file-contents.md
             - name: Administración de la recopilación del inventario desde máquinas virtuales
               href: automation-vm-inventory.md

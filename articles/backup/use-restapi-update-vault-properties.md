@@ -4,12 +4,12 @@ description: En este artículo, aprenderá a actualizar la configuración del al
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
-ms.openlocfilehash: 6cecbb18e0cd6f548e1688ef978f10dcee7d9fbc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4c604fe067e73f5f9a17f4b5f810708121cff767
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79227436"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744564"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>Actualización de la configuración del almacén de Azure Recovery Services mediante la API REST
 
@@ -21,7 +21,7 @@ La eliminación de las copias de seguridad de un elemento protegido es una opera
 
 Sin embargo, hay escenarios en los que esta funcionalidad no es necesaria. No es posible eliminar un almacén de Azure Recovery Services si contiene elementos de copia de seguridad, incluso si tienen el estado de eliminación temporal. Esto puede suponer un problema si el almacén debe eliminarse inmediatamente. Por ejemplo: las operaciones de implementación a menudo limpian los recursos creados en el mismo flujo de trabajo. Una implementación puede crear un almacén, configurar copias de seguridad para un elemento, realizar una restauración de prueba y, a continuación, eliminar los elementos de copia de seguridad y el almacén. Si se produce un error en la eliminación del almacén, se puede producir un error en toda la implementación. Deshabilitar la eliminación temporal es la única manera de garantizar la eliminación inmediata.
 
-Por lo tanto, el cliente debe elegir cuidadosamente si quiere deshabilitar la eliminación temporal para un almacén determinado en función del escenario. Para obtener más información, consulte el [artículo sobre la eliminación temporal](backup-azure-security-feature-cloud.md#soft-delete).
+Por lo tanto, el cliente debe elegir cuidadosamente si quiere deshabilitar la eliminación temporal para un almacén determinado en función del escenario. Para obtener más información, consulte el [artículo sobre la eliminación temporal](backup-azure-security-feature-cloud.md).
 
 ### <a name="fetch-soft-delete-state-using-rest-api"></a>Recuperación del estado de eliminación temporal mediante la API REST
 

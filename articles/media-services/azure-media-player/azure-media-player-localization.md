@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
-ms.openlocfilehash: 34805c4eaae5d969fc2338c24f9f92404e065d15
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: ca4dc888af414ede270118eff72652f098d3306c
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81725881"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82779049"
 ---
 # <a name="localization"></a>Localización #
 
@@ -44,7 +44,7 @@ Actualmente, Azure Media Player admite los siguientes idiomas con sus códigos d
 | Francés              | fr   | Noruego (Nynorsk)     | nn     | Chino (simplificado)    | zh-hans      |
 | Gallego            | gl   | Polaco                  | pl     | Chino (tradicional)   | zh-hant      |
 | Hebreo              | he   | Portugués (Brasil)     | pt-br  |                         |              |
-| Hindi               | hu   | Portugués (Portugal)   | pt-pt  |                         |              |
+| Hindi               | hi   | Portugués (Portugal)   | pt-pt  |                         |              |
 
 
 > [!NOTE]

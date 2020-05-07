@@ -1,5 +1,5 @@
 ---
-title: ¿Qué es Video Indexer?
+title: ¿Qué es Video Indexer de Azure Media Services?
 titleSuffix: Azure Media Services
 description: En este artículo se proporciona información general sobre el servicio Video Indexer de Azure Media Services.
 services: media-services
@@ -8,16 +8,16 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/02/2020
+ms.date: 04/12/2020
 ms.author: juliako
-ms.openlocfilehash: efd8386f464bfdf2ac27d3be07e6572dc27952e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 08dcee28c234183aa2b125d82d046d31d4b50e47
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78163597"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82788860"
 ---
-# <a name="what-is-video-indexer"></a>¿Qué es Video Indexer?
+# <a name="what-is-azure-media-services-video-indexer"></a>¿Qué es Video Indexer de Azure Media Services?
 
 Video Indexer (VI) es la solución de IA de Azure Media Services y parte de la marca Azure Cognitive Services. Video Indexer proporciona la capacidad de extraer información profunda (sin necesidad de análisis de datos o conocimientos de codificación) mediante el uso de modelos de Machine Learning basados en varios canales (voz, voces y objeto visual). Los modelos se pueden personalizar y entrenar aún más. El servicio habilita la búsqueda profunda, reduce los costos operativos, permite nuevas oportunidades de monetización y crea nuevas experiencias de usuario en grandes archivos de vídeos (con barreras de entrada bajas).
 
@@ -70,9 +70,9 @@ En la siguiente lista se muestra la información que se puede recuperar de los v
 
 ### <a name="audio-insights"></a>Información de audio
 
-* **Detección de idioma automática**: identifica automáticamente el idioma hablado dominante. Los idiomas admitidos son alemán, chino (simplificado), español, francés, inglés, italiano, japonés, portugués (brasileño) y ruso. Si el idioma hablado no se puede identificar con confianza, Video Indexer supone que es inglés. Para obtener más información, vea [Modelo de identificación de idiomas](language-identification-model.md).
+* **Transcripción de audio**: convierte la voz en texto en 12 idiomas y permite extensiones. Los idiomas admitidos son: alemán, árabe, chino (mandarín), coreano, español, francés, hindi, inglés, italiano, japonés, portugués (Brasil) y ruso.
+* **Detección de idioma automática**: identifica automáticamente el idioma hablado dominante. Los idiomas admitidos son alemán, chino (mandarín), español, francés, inglés, italiano, japonés, portugués (Brasil) y ruso. Si el idioma hablado no se puede identificar con confianza, Video Indexer supone que es inglés. Para obtener más información, vea [Modelo de identificación de idiomas](language-identification-model.md).
 * **Identificación y transcripción de voz en varios idiomas** (versión preliminar): identifica automáticamente el idioma hablado en diferentes segmentos del audio. Envía cada segmento del archivo multimedia que se va a transcribir y luego combina la transcripción en una unificada. Para más información, consulte [Identificación y transcripción automáticas del contenido de varios idiomas](multi-language-identification-transcription.md).
-* **Transcripción de audio**: convierte la voz en texto en 12 idiomas y permite extensiones. Los idiomas admitidos son alemán, árabe, chino (simplificado), coreano, español, francés, hindi, inglés, italiano, japonés, portugués brasileño y ruso.
 * **Subtítulos (CC)** : crea subtítulos en tres formatos: VTT, TTML y SRT.
 * **Procesamiento de dos canales**: detecta, separa la transcripción y se combina en una única escala de tiempo de forma automática.
 * **Reducción de ruido**: borra el audio telefónico o las grabaciones ruidosas (basado en los filtros de Skype).

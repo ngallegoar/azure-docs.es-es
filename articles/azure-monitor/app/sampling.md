@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: fc9db23f7733f97ca207e834d4543fbdb1b9db5c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f4989f8dce32e2340357e30541548b3e7e9d8a44
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79234656"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82508894"
 ---
 # <a name="sampling-in-application-insights"></a>Muestreo en Application Insights.
 
@@ -22,7 +22,7 @@ Cuando los recuentos de métrica se presentan en el portal, se vuelven a normali
 
 * Hay tres tipos diferentes de muestreo: muestreo adaptable, muestreo de frecuencia fija y muestreo de ingesta.
 * El muestreo adaptable está habilitado de manera predeterminada en todas las versiones más recientes de los kits de desarrollo de software (SDK) de Application Insights para ASP.NET y ASP.NET Core. También lo usa [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview).
-* El muestreo de frecuencia fija está disponible en las versiones recientes de los SDK de Application Insights para ASP.NET, ASP.NET Core, Java y Python.
+* El muestreo de frecuencia fija está disponible en las versiones recientes de los SDK de Application Insights para ASP.NET, ASP.NET Core, Java (tanto el agente como el SDK) y Python.
 * El muestreo de ingesta funciona en el punto de conexión de servicio de Application Insights. Solo se aplica cuando no hay ningún otro muestreo en vigor. Si el SDK muestrea los datos de telemetría, el muestreo de ingesta está deshabilitado.
 * Para aplicaciones web, si registra eventos personalizados y necesita asegurarse de que un conjunto de eventos se conserva o descarta en conjunto, los eventos deben tener el mismo valor de `OperationId`.
 * Si escribe consultas de Analytics, debería [tener en cuenta el muestreo](../../azure-monitor/log-query/aggregations.md). En concreto, en lugar de simplemente contar registros, debería usar `summarize sum(itemCount)`.
@@ -306,7 +306,29 @@ En el Explorador de métricas, las tasas, como los recuentos de solicitudes y de
 
 ### <a name="configuring-fixed-rate-sampling-for-java-applications"></a>Configuración del muestreo de frecuencia fija para aplicaciones de Java
 
-De manera predeterminada, no hay ningún muestreo habilitado en el SDK de Java. Actualmente, solo admite el muestreo de frecuencia fija. No se admite el muestreo adaptable en el SDK de Java.
+De manera predeterminada, no hay ningún muestreo habilitado en el agente ni en el SDK de Java. Actualmente, solo admite el muestreo de frecuencia fija. No se admite el muestreo adaptable en Java.
+
+#### <a name="configuring-java-agent"></a>Configuración del agente de Java
+
+1. Descargue el archivo [applicationinsights-agent-3.0.0-PREVIEW.4.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.4/applicationinsights-agent-3.0.0-PREVIEW.4.jar).
+
+1. Para habilitar el muestreo, agregue lo siguiente al archivo `ApplicationInsights.json`:
+
+```json
+{
+  "instrumentationSettings": {
+    "preview": {
+      "sampling": {
+        "fixedRate": {
+          "percentage": 10 //this is just an example that shows you how to enable only only 10% of transaction 
+        }
+      }
+    }
+  }
+}
+```
+
+#### <a name="configuring-java-sdk"></a>Configuración del SDK de Java
 
 1. Descargue y configure la aplicación web con la versión más reciente del [SDK de Application Insights para Java](../../azure-monitor/app/java-get-started.md).
 
@@ -366,7 +388,7 @@ tracer = Tracer(
 Puede configurar el muestreo de frecuencia fija para `AzureLogHandler` mediante la modificación del argumento opcional `logging_sampling_rate`. Si no se proporciona ningún argumento, se usará una frecuencia de muestreo de 1.0. Una velocidad de muestreo de 1,0 representa el 100 %, lo que significa que todas las solicitudes se enviarán como datos de telemetría a Application Insights.
 
 ```python
-exporter = metrics_exporter.new_metrics_exporter(
+handler = AzureLogHandler(
     instrumentation_key='00000000-0000-0000-0000-000000000000',
     logging_sampling_rate=0.5,
 )
@@ -534,7 +556,7 @@ La precisión de la aproximación depende en gran medida del porcentaje de muest
 
 * El muestreo de ingesta puede producirse automáticamente cuando cualquier dato de telemetría se sitúa por encima de un determinado volumen, si el SDK no realiza muestreo. Esta configuración funcionaría, por ejemplo, si usa una versión antigua del SDK de ASP.NET o del SDK de Java.
 * Si usa los SDK de ASP.NET o ASP.NET Core actuales (hospedado en Azure o en su propio servidor), obtendrá de forma predeterminada el muestreo adaptable, pero puede cambiar al de frecuencia fija como se ha descrito anteriormente. Con el muestreo de frecuencia fija, el SDK del explorador se sincroniza automáticamente con los eventos relacionados con el muestreo. 
-* Si usa el SDK de Java actual, puede configurar `ApplicationInsights.xml` para activar el muestreo de frecuencia fija. De manera predeterminada, el muestreo está desactivado. Con el muestreo de frecuencia fija, el SDK del explorador y el servidor se sincronizan automáticamente para muestrear los eventos relacionados.
+* Si usa el agente de Java actual, puede configurar `ApplicationInsights.json` (para el SDK de Java, configure `ApplicationInsights.xml`) para activar el muestreo de frecuencia fija. De manera predeterminada, el muestreo está desactivado. Con el muestreo de frecuencia fija, el SDK del explorador y el servidor se sincronizan automáticamente para muestrear los eventos relacionados.
 
 *Hay ciertos eventos excepcionales que siempre quiero ver. ¿Cómo se consigue que el módulo de muestreo los reconozca?*
 

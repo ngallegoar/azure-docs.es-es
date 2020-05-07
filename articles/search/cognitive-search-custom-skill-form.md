@@ -8,12 +8,12 @@ ms.author: pafarley
 ms.service: cognitive-search
 ms.topic: article
 ms.date: 01/21/2020
-ms.openlocfilehash: 713b790c432f0e416392243262aed4b0fcda8892
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 050848b0bff65b19e2b17bd170e1d3e9ff0176f1
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81275881"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792010"
 ---
 # <a name="example-create-a-form-recognizer-custom-skill"></a>Ejemplo: Creación de una aptitud personalizada de Form Recognizer
 
@@ -164,8 +164,8 @@ Para usar esta aptitud en una canalización de Cognitive Search, necesitará agr
 
 En esta guía, creó una aptitud personalizada a partir del servicio Azure Form Recognizer. Para más información sobre aptitudes personalizadas, consulte los siguientes recursos. 
 
-* [Azure Search Power Skills: un repositorio de aptitudes personalizadas](https://github.com/*zure-Samples/azure-search-power-skills)
+* [Azure Search Power Skills: un repositorio de aptitudes personalizadas](https://github.com/Azure-Samples/azure-search-power-skills)
 * [Incorporación de una aptitud personalizada a una canalización de enriquecimiento de inteligencia artificial](cognitive-search-custom-skill-interface.md)
 * [Define a skillset](cognitive-search-defining-skillset.md) (Definición de un conjunto de aptitudes)
-* [Creación de un conjunto de aptitudes (REST)](https://docs.microsoft.com/rest/api/*earchservice/create-skillset)
+* [Creación de un conjunto de aptitudes (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 * [Asignación de campos enriquecidos](cognitive-search-output-field-mapping.md)
