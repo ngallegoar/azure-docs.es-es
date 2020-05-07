@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/29/2019
-ms.openlocfilehash: 39ea8dda0fd823d3061b2cb29e1c548f99281c82
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bbcbb19530aebe777a91cbe4c5487e1b50ace2e5
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418803"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82559774"
 ---
 # <a name="create-a-tumbling-window-trigger-dependency"></a>Creación de una dependencia de un desencadenador de ventana de saltos de tamaño constante
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -24,6 +24,10 @@ ms.locfileid: "81418803"
 En este artículo se exponen los pasos necesarios para crear una dependencia en un desencadenador de ventana de saltos de tamaño constante. Para obtener información general acerca de los desencadenadores de ventanas de saltos de tamaño constante, consulte [Cómo crear un desencadenador de ventana de saltos de tamaño constante](how-to-create-tumbling-window-trigger.md).
 
 Con el fin de generar una cadena de dependencia y de asegurarse de que un desencadenador se ejecuta solo después de la correcta ejecución de otro desencadenador en la factoría de datos, utilice esta característica avanzada para crear una dependencia de ventana de saltos de tamaño constante.
+
+Puede ver una demostración de cómo crear canalizaciones dependientes en Azure Data Factory mediante el desencadenador de ventanas de saltos de tamaño constante en el vídeo siguiente:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Create-dependent-pipelines-in-your-Azure-Data-Factory/player]
 
 ## <a name="create-a-dependency-in-the-data-factory-ui"></a>Creación de una dependencia en la interfaz de usuario de Data Factory
 
@@ -82,7 +86,7 @@ La tabla siguiente proporciona la lista de los atributos necesarios para definir
 | tamaño | Tamaño de la ventana de saltos de tamaño constante de dependencia. Proporcione un valor de intervalo de tiempo positivo. Esta propiedad es opcional. | TimeSpan<br/>(hh:mm:ss) | No  |
 
 > [!NOTE]
-> Un desencadenador de ventana de saltos de tamaño constante puede depender de un máximo de otros dos desencadenadores.
+> Un desencadenador de ventana de saltos de tamaño constante puede depender de un máximo de otros cinco desencadenadores.
 
 ## <a name="tumbling-window-self-dependency-properties"></a>Propiedades de la autodependencia de ventana de saltos de tamaño constante
 
@@ -147,10 +151,6 @@ Un trabajo de procesamiento de datos de telemetría diario que dependa de otro t
 Un trabajo diario sin interrupciones en los flujos de salida del trabajo:
 
 ![Ejemplo de autodependencia](media/tumbling-window-trigger-dependency/tumbling-window-dependency06.png "Ejemplo de autodependencia")
-
-Puede ver una demostración de cómo crear canalizaciones dependientes en Azure Data Factory mediante el desencadenador de ventanas de saltos de tamaño constante en el vídeo siguiente:
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Create-dependent-pipelines-in-your-Azure-Data-Factory/player]
 
 ## <a name="monitor-dependencies"></a>Supervisión de dependencias
 

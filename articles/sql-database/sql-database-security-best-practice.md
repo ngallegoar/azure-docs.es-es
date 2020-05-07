@@ -9,12 +9,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 02/20/2020
 ms.reviewer: ''
-ms.openlocfilehash: 7b3a223ca504bff380afad54afda73880717814f
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: 07e8d8690cb07cfde3e0def902bf6d8e7ba5b788
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81115379"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82232366"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database"></a>Cuaderno de estrategias para abordar requisitos de seguridad comunes con Azure SQL Database
 
@@ -466,7 +466,7 @@ Al usar CLE:
 
 Tenga en cuenta que Always Encrypted está diseñado principalmente para proteger los datos confidenciales en uso de los usuarios con privilegios elevados de Azure SQL Database (operadores de nube, DBA). Consulte [Protección de datos confidenciales en uso de usuarios no autorizados con privilegios elevados](#protect-sensitive-data-in-use-from-high-privileged-unauthorized-users). Tenga en cuenta los siguientes desafíos al usar Always Encrypted para proteger los datos de los usuarios de la aplicación:
 
-- De manera predeterminada, todos los controladores cliente de Microsoft que admiten Always Encrypted mantienen una caché global (una por aplicación) de claves de cifrado de columnas. Una vez que un controlador cliente adquiere una clave de cifrado de columna de texto no cifrado poniéndose en contacto con un almacén de claves que contiene una clave maestra de columna, la clave de cifrado de columna de texto no cifrado se almacena en caché. Esto dificulta el aislamiento de los datos de los usuarios de una aplicación de varios usuarios. Si la aplicación suplanta a los usuarios finales al interactuar con un almacén de claves (como Azure Key Vault), una vez que la consulta de un usuario rellena la memoria caché con una clave de cifrado de columna, una consulta posterior que requiera la misma clave, pero que la desencadene otro usuario, utilizará el clave almacenada en caché. El controlador no llamará al almacén de claves y no comprobará si el segundo usuario tiene permiso de acceso a la clave de cifrado de columna. Como resultado, el usuario podrá ver los datos cifrados aunque no tenga acceso a las claves. Para lograr el aislamiento de usuarios en una aplicación de varios usuarios, puede deshabilitar el almacenamiento en caché de claves de cifrado de columna. Al deshabilitar el almacenamiento en caché, se producirán sobrecargas de rendimiento adicionales, ya que el controlador deberá ponerse en contacto con el almacén de claves para cada operación de cifrado o descifrado de datos.
+- De manera predeterminada, todos los controladores cliente de Microsoft que admiten Always Encrypted mantienen una caché global (una por aplicación) de claves de cifrado de columnas. Una vez que un controlador cliente adquiere una clave de cifrado de columna de texto no cifrado poniéndose en contacto con un almacén de claves que contiene una clave maestra de columna, la clave de cifrado de columna de texto no cifrado se almacena en caché. Esto dificulta el aislamiento de los datos de los usuarios de una aplicación de varios usuarios. Si la aplicación suplanta a los usuarios finales al interactuar con un almacén de claves (como Azure Key Vault), una vez que la consulta de un usuario rellena la memoria caché con una clave de cifrado de columna, una consulta posterior que requiera la misma clave, pero que la desencadene otro usuario, utilizará el clave almacenada en caché. El controlador no llamará al almacén de claves y no comprobará si el segundo usuario tiene permiso de acceso a la clave de cifrado de columna. Como resultado, el usuario puede ver los datos cifrados aunque no tenga acceso a las claves. Para lograr el aislamiento de usuarios en una aplicación de varios usuarios, puede deshabilitar el almacenamiento en caché de claves de cifrado de columna. Al deshabilitar el almacenamiento en caché, se producirán sobrecargas de rendimiento adicionales, ya que el controlador deberá ponerse en contacto con el almacén de claves para cada operación de cifrado o descifrado de datos.
 
 ### <a name="protect-data-against-unauthorized-viewing-by-application-users-while-preserving-data-format"></a>Protección de datos contra la visualización no autorizada por parte de los usuarios de la aplicación al tiempo que se conserva el formato de los datos
 Otra técnica para impedir que usuarios no autorizados vean datos es ofuscar o enmascarar los datos al tiempo que se conservan los tipos de datos y los formatos para asegurarse de que las aplicaciones de usuario puedan seguir controlando y mostrando los datos.

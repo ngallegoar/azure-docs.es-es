@@ -11,6 +11,9 @@
   items:
     - name: Replicación de una máquina virtual de Azure en otra región
       href: azure-to-azure-quickstart.md
+    - name: 'Creación de un servidor: plantilla de Resource Manager'
+      displayName: Resource Manager
+      href: quickstart-create-vault-template.md
 - name: Tutoriales
   items:
     - name: Recuperación ante desastres de máquinas virtuales de Azure en Azure
@@ -165,8 +168,6 @@
               href: azure-to-azure-about-networking.md
             - name: Personalización de las configuraciones de red de la máquina virtual de Azure de destino
               href: azure-to-azure-customize-networking.md
-            - name: Configuración del proxy de Mobility Service
-              href: configure-mobility-service-proxy-settings.md
             - name: Configuración de la asignación de red y conservación de direcciones IP después de una conmutación por error
               href: azure-to-azure-network-mapping.md
             - name: Ejemplos de conservación de direcciones IP después de una conmutación por error
@@ -191,6 +192,8 @@
               href: azure-to-azure-how-to-reprotect.md
             - name: Configuración de la recuperación ante desastres de máquinas virtuales de Azure tras la migración a Azure
               href: azure-to-azure-replicate-after-migration.md
+            - name: Habilitación de la recuperación ante desastres de zona a zona
+              href: azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md
         - name: Administrar
           items:
             - name: Actualización de Mobility Service para máquinas virtuales de Azure
@@ -241,7 +244,7 @@
               href: vmware-azure-set-up-replication.md
             - name: Implementación de Mobility Service
               items:
-                - name: Acerca de la instalación de Mobility Service
+                - name: Introducción e instalación de Mobility Service
                   href: vmware-physical-mobility-service-overview.md
                 - name: Preparación de la instalación de inserción
                   href: vmware-azure-install-mobility-service.md

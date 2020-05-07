@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/22/2020
-ms.openlocfilehash: 6dd4db999cb130c9816ad023888a4333e968c224
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1fb5b78f210a9bd817a2987dcb30fa25d156d5d2
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76720391"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780443"
 ---
 # <a name="cluster-creation-fails-with-invalidnetworkconfigurationerrorcode-in-azure-hdinsight"></a>Error al crear el clúster con InvalidNetworkConfigurationErrorCode en Azure HDInsight
 
@@ -54,7 +54,7 @@ La descripción del error contiene el mensaje "Failed to connect to Azure Storag
 
 ### <a name="cause"></a>Causa
 
-Azure Storage y SQL no tienen direcciones IP fijas, por lo que es necesario permitir las conexiones salientes a todas las direcciones IP para permitir el acceso a estos servicios. Los pasos exactos de la resolución dependen de si ha configurado un grupo de seguridad de red (NSG) o reglas definidas por el usuario (UDR). Consulte la sección sobre [el control del tráfico de red con HDInsight con grupos de seguridad de red y rutas definidas por el usuario ](../hdinsight-plan-virtual-network-deployment.md#hdinsight-ip) para más información sobre estas configuraciones.
+Azure Storage y SQL no tienen direcciones IP fijas, por lo que es necesario permitir las conexiones salientes a todas las direcciones IP para permitir el acceso a estos servicios. Los pasos exactos de la resolución dependen de si ha configurado un grupo de seguridad de red (NSG) o reglas definidas por el usuario (UDR). Consulte la sección sobre [el control del tráfico de red con HDInsight con grupos de seguridad de red y rutas definidas por el usuario ](../control-network-traffic.md) para más información sobre estas configuraciones.
 
 ### <a name="resolution"></a>Solución
 

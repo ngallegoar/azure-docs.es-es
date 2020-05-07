@@ -5,15 +5,15 @@ services: logic-apps
 ms.suite: integration
 author: derek1ee
 ms.author: deli
-ms.reviewer: klam, estfan, logicappspm
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/13/2019
-ms.openlocfilehash: ab17137f162b893b54942d870b07a36f87d1b71d
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: 79c99a8ba2712fe69ec6d3b9b9d32ddf6aa081cb
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81115067"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82580635"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Conexión a sistemas de archivos locales con Azure Logic Apps
 
@@ -36,6 +36,9 @@ En este artículo se muestra cómo conectar a un sistema de archivos local como 
 * Acceda al equipo que tiene el sistema de archivos que quiere usar. Por ejemplo, si instala la puerta de enlace de datos en el mismo equipo que el sistema de archivos, necesita las credenciales de la cuenta para ese equipo.
 
 * Una cuenta de correo de un proveedor de correo compatible con Logic Apps, como Office 365 Outlook, Outlook.com o Gmail. En el caso de otros proveedores, [consulte la lista de conectores que se muestra aquí](https://docs.microsoft.com/connectors/). Esta aplicación lógica usa una cuenta de Office 365 Outlook. Si usa otra cuenta de correo electrónico, los pasos generales serán los mismos, pero su interfaz de usuario puede ser ligeramente distinta.
+
+  > [!IMPORTANT]
+  > Si quiere usar el conector de Gmail, solo las cuentas empresariales de G-Suite pueden usarlo sin restricciones en las aplicaciones lógicas. Si tiene una cuenta de consumidor de Gmail, puede usar este conector solo con servicios específicos aprobados por Google, o puede [crear una aplicación cliente de Google para usarla en la autenticación con el conector de Gmail](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). Para más información, consulte [Directivas de privacidad y seguridad de datos de los conectores de Google en Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
 * Conocimientos básicos acerca de [cómo crear aplicaciones lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md). En este ejemplo, necesita una aplicación lógica en blanco.
 
@@ -70,7 +73,7 @@ En este artículo se muestra cómo conectar a un sistema de archivos local como 
    | **Nombre de la conexión** | Sí | <*connection-name*> | El nombre que quiere para la conexión |
    | **Carpeta raíz** | Sí | <*root-folder-name*> | La carpeta raíz para el sistema de archivos, por ejemplo, si ha instalado la puerta de enlace de datos local, como una carpeta local en el equipo donde está instalada la puerta de enlace de datos local, o la carpeta para un recurso compartido de red al que el equipo puede acceder. <p>Por ejemplo: `\\PublicShare\\DropboxFiles` <p>La carpeta raíz es la carpeta primaria principal, que se usa para las rutas de acceso relativas para todas las acciones relacionadas con archivos. |
    | **Tipo de autenticación** | No | <*auth-type*> | El tipo de autenticación que usa el sistema de archivos: **Windows** |
-   | **Nombre de usuario** | Sí | <*domain*>\\<*username*> | El nombre de usuario para el equipo donde tiene el sistema de archivos |
+   | **Nombre de usuario** | Sí | <*domain*>\\<*username*> <p>O bien <p><*local-computer*>\\<*username*> | El nombre de usuario para el equipo donde tiene la carpeta del sistema de archivos <p>Si la carpeta del sistema de archivos se encuentra en el mismo equipo que la puerta de enlace de datos local, puede usar <*local-computer*>\\<*username*>. |
    | **Contraseña** | Sí | <*your-password*> | La contraseña para el equipo donde tiene el sistema de archivos |
    | **puerta de enlace** | Sí | <*installed-gateway-name*> | El nombre de la puerta de enlace instalada previamente |
    |||||

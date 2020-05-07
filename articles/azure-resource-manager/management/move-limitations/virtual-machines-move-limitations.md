@@ -3,12 +3,12 @@ title: Traslado de máquinas virtuales de Azure a una nueva suscripción o grupo
 description: Use Azure Resource Manager para trasladar máquinas virtuales a un nuevo grupo de recursos o a una nueva suscripción.
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: df34268b7741f76621c290e9979cf24d828ddc09
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: e5bd004b6619db9c9882b8e9e6005309317b8ca5
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478671"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744632"
 ---
 # <a name="move-guidance-for-virtual-machines"></a>Guía del traslado de máquinas virtuales
 
@@ -29,19 +29,22 @@ Todavía no se admiten los siguientes escenarios:
 
 Para trasladar las máquinas virtuales configuradas con Azure Backup, debe eliminar los puntos de restauración del almacén.
 
-Si la [eliminación temporal](../../../backup/backup-azure-security-feature-cloud.md) está habilitada para la máquina virtual, no podrá moverla mientras se conserven esos puntos de restauración. [Deshabilite la eliminación temporal](../../../backup/backup-azure-security-feature-cloud.md#disabling-soft-delete) o espere 14 días después de eliminar los puntos de restauración.
+Si la [eliminación temporal](../../../backup/backup-azure-security-feature-cloud.md) está habilitada para la máquina virtual, no podrá moverla mientras se conserven esos puntos de restauración. [Deshabilite la eliminación temporal](../../../backup/backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete) o espere 14 días después de eliminar los puntos de restauración.
 
 ### <a name="portal"></a>Portal
 
-1. Seleccione la máquina virtual que está configurada para la copia de seguridad.
+1. Detenga temporalmente la copia de seguridad y conserve los datos de esta.
+2. Para mover máquinas virtuales configuradas con Azure Backup, siga los pasos a continuación:
 
-1. En el panel izquierdo, seleccione **Copia de seguridad**.
+   1. Busque la ubicación de la máquina virtual.
+   2. Busque un grupo de recursos con el siguiente patrón de nomenclatura: `AzureBackupRG_<location of your VM>_1`. Por ejemplo, *AzureBackupRG_westus2_1*.
+   3. En Azure Portal, active **Mostrar tipos ocultos**.
+   4. Busque el recurso con el tipo **Microsoft.Compute/restorePointCollections** que tenga el patrón de nomenclatura `AzureBackup_<name of your VM that you're trying to move>_###########`.
+   5. Elimine este recurso. Esta operación elimina solo los puntos de recuperación instantáneos, no los datos de copia de seguridad que se encuentran en el almacén.
+   6. Una vez completada la operación de eliminación, puede mover la máquina virtual.
 
-1. Seleccione **Detener copia de seguridad**.
-
-1. Seleccione **Delete back data** (Eliminar datos de copia de seguridad).
-
-1. Después de finalizar la eliminación, puede trasladar el almacén y la máquina virtual a la suscripción de destino. Tras el traslado, puede continuar realizando las copias de seguridad.
+3. Traslade la máquina virtual al grupo de recursos de destino.
+4. Reanude la copia de seguridad.
 
 ### <a name="powershell"></a>PowerShell
 

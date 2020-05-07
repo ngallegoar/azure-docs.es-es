@@ -449,6 +449,8 @@
           items:
             - name: Creación de una oferta de aplicación de Azure
               href: ./partner-center-portal/create-new-azure-apps-offer.md
+            - name: Facturación medida de la aplicación de Azure
+              href: ./partner-center-portal/azure-app-metered-billing.md
             - name: Administración de los comentarios de revisión
               href: ./partner-center-portal/azure-apps-review-feedback.md
             - name: API para la incorporación
@@ -515,11 +517,6 @@
               href: ./partner-center-portal/create-new-saas-offer.md
             - name: Facturación según uso de SaaS
               href: ./partner-center-portal/saas-metered-billing.md
-              items:
-                - name: Preguntas más frecuentes sobre las API del servicio de medición de Marketplace
-                  href: ./partner-center-portal/marketplace-metering-service-apis-faq.md
-                - name: API del servicio de medición de Marketplace
-                  href: ./partner-center-portal/marketplace-metering-service-apis.md
             - name: API de suministro de SaaS
               href: ./partner-center-portal/pc-saas-fulfillment-apis.md
               items:
@@ -546,6 +543,14 @@
               href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-marketo.md
             - name: Salesforce
               href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md
+        - name: Servicio de medición de Marketplace
+          items:
+            - name: Estrategias de autenticación
+              href: ./partner-center-portal/marketplace-metering-service-authentication.md
+            - name: API del servicio de medición de Marketplace
+              href: ./partner-center-portal/marketplace-metering-service-apis.md
+            - name: Preguntas más frecuentes sobre las API del servicio de medición de Marketplace
+              href: ./partner-center-portal/marketplace-metering-service-apis-faq.md
         - name: Versión de prueba de la oferta
           href: ./partner-center-portal/test-drive.md
         - name: Opción de venta conjunta
@@ -589,11 +594,13 @@
           href: ./partner-center-portal/get-paid.md
         - name: Configuración de la cuenta de pago y los formularios de impuestos
           href: ./partner-center-portal/set-up-your-payout-account-tax-forms.md
-        - name: Detalles de facturación
-          href: ./partner-center-portal/billing-details.md
-        - name: 'Umbrales de pago, métodos e intervalos de tiempo'
+        - name: 'Umbrales, métodos y periodos de pago'
           href: ./partner-center-portal/payment-thresholds-methods-timeframes.md
-        - name: Resumen de pagos
+        - name: Introducción a los resúmenes de pagos
+          href: ./partner-center-portal/payout-summary-overview.md
+        - name: Resúmenes de pagos
           href: ./partner-center-portal/payout-summary.md
+        - name: Detalles de directiva de pagos
+          href: ./partner-center-portal/payout-policy-details.md
         - name: Detalles fiscales
           href: ./partner-center-portal/tax-details-paid-transactions.md

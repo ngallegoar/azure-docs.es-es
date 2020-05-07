@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/01/2019
 ms.author: apimpm
-ms.openlocfilehash: 2e84138419986ef1033ab076b3745187812e91b7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c0cabab6f867df918c4ac86d035918c483e12da9
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80335881"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203175"
 ---
 # <a name="feature-based-comparison-of-the-azure-api-management-tiers"></a>Comparación de características de los planes de tarifa de Azure API Management
 
@@ -47,4 +47,4 @@ Cada [plan de tarifa](https://aka.ms/apimpricing) de API Management ofrece un co
 
 <sup>1</sup> Habilita el uso de Azure AD (y Azure AD B2C) como proveedor de identidades para el inicio de sesión del usuario en el portal para desarrolladores.<br/>
 <sup>2</sup> Incluye funciones relacionadas, por ejemplo, plantillas y notificaciones de usuarios, grupos, problemas, aplicaciones y correo electrónico.<br/>
-<sup>3</sup> Limitado a una única implementación de puerta de enlace autohospedada con un solo nodo de puerta de enlace.<br/>
+<sup>3</sup> En el nivel de desarrollador, las puertas de enlace autohospedadas están limitadas a un solo nodo de puerta de enlace.<br/>

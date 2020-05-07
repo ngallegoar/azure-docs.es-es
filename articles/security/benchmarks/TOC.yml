@@ -1,22 +1,23 @@
-- name: Pruebas comparativas de la seguridad de Azure
+- name: Prueba comparativa de la seguridad de Azure
   href: index.yml
 - name: Introducción
   href: introduction.md
 - name: Controles de seguridad
+  expanded: true
   items:
     - name: Introducción a los controles de seguridad de Azure
       href: overview.md
-    - name: Seguridad de redes
+    - name: Seguridad de las redes
       href: security-control-network-security.md
     - name: Registro y supervisión
       href: security-control-logging-monitoring.md
-    - name: Identidad y Access Control
+    - name: Control de identidades y acceso
       href: security-control-identity-access-control.md
-    - name: Protección de datos
+    - name: Protección de los datos
       href: security-control-data-protection.md
     - name: Administración de vulnerabilidades
       href: security-control-vulnerability-management.md
-    - name: Administración de recursos y del inventario
+    - name: Inventario y administración de recursos
       href: security-control-inventory-asset-management.md
     - name: Configuración segura
       href: security-control-secure-configuration.md
@@ -28,10 +29,12 @@
       href: security-control-incident-response.md
     - name: Pruebas de penetración y ejercicios del equipo rojo
       href: security-control-penetration-tests-red-team-exercises.md
-- name: Base de referencia de seguridad
+- name: Bases de referencia de seguridad para Azure
   items:
-    - name: Introducción a la base de referencia de Azure
+    - name: Introducción a las bases de referencia de seguridad para Azure
       href: security-baselines-overview.md
+    - name: Base de referencia de la seguridad de API Management
+      href: ../../api-management/security-baseline.md
     - name: Base de referencia de seguridad de Azure Cache for Redis
       href: ../../azure-cache-for-redis/security-baseline.md
     - name: Base de referencia de seguridad de Backup
@@ -44,8 +47,12 @@
       href: ../../cosmos-db/security-baseline.md
     - name: Base de referencia de seguridad de Data Explorer
       href: /azure/data-explorer/security-baseline
+    - name: Base de referencia de la seguridad de Databricks
+      href: ../../azure-databricks/security-baseline.md
     - name: Base de referencia de seguridad de Event Hubs
       href: ../../event-hubs/security-baseline.md
+    - name: Base de referencia de la seguridad de Functions
+      href: ../../azure-functions/security-baseline.md
     - name: Base de referencia de seguridad de HDInsight
       href: ../../hdinsight/security-baseline.md
     - name: Base de referencia de seguridad de Key Vault

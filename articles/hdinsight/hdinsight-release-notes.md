@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/22/2020
-ms.openlocfilehash: f8331b64792781a89428f8c5070375c31c0da48d
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.date: 04/27/2020
+ms.openlocfilehash: e76c75e172e48866565cc292ac673f7bbddabf1f
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82084896"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82232826"
 ---
 # <a name="release-notes"></a>Notas de la versión
 
@@ -48,17 +48,26 @@ No hay cambios de comportamiento en esta versión. Para prepararse para los pró
 ## <a name="upcoming-changes"></a>Próximos cambios
 En las próximas versiones, se realizarán los siguientes cambios. 
 
+### <a name="deprecate-spark-21-and-22-for-hdinsight-36-spark-cluster"></a>Desuso de Spark 2.1 y 2.2 para el clúster de Spark de HDInsight 3.6
+A partir del 1 de julio de 2020, los clientes no podrán crear nuevos clústeres de Spark con Spark 2.1 y 2.2 en HDInsight 3.6. Los clústeres existentes se ejecutarán tal cual sin la compatibilidad de Microsoft. Considere la posibilidad de pasar a Spark 2.3 en HDInight 3.6 a partir del 30 de junio de 2020 para evitar la posible interrupción del sistema o del soporte técnico.
+
+### <a name="deprecate-spark-23-for-hdinsight-40-spark-cluster"></a>Desuso de Spark 2.3 para el clúster de Spark de HDInsight 4.0
+A partir del 1 de julio de 2020, los clientes no podrán crear nuevos clústeres de Spark con Spark 2.3 en HDInsight 4.0. Los clústeres existentes se ejecutarán tal cual sin la compatibilidad de Microsoft. Considere la posibilidad de pasar a Spark 2.4 en HDInight 4.0 a partir del 30 de junio de 2020 para evitar la posible interrupción del sistema o del soporte técnico.
+
+### <a name="deprecate-kafka-11-for-hdinsight-40-kafka-cluster"></a>Desuso de Kafka 1.1 para el clúster de Kafka en HDInsight 4.0
+A partir del 1 de julio de 2020, los clientes no podrán crear nuevos clústeres de Kafka con Kafka 1.1 en HDInsight 4.0. Los clústeres existentes se ejecutarán tal cual sin la compatibilidad de Microsoft. Considere la posibilidad de pasar a Kafka 2.1 en HDInight 4.0 a partir del 30 de junio de 2020 para evitar la posible interrupción del sistema o del soporte técnico.
+
+### <a name="hbase-20-to-21"></a>HBase 2.0 a 2.1
+En la próxima versión de HDInsight 4.0, la versión de HBase se actualizará de 2.0 a 2.1.
+
 ### <a name="a-minimum-4-core-vm-is-required-for-head-node"></a>Se requiere una máquina virtual de 4 núcleos como mínimo para el nodo principal 
-Se requiere una máquina virtual de 4 núcleos como mínimo para que el nodo principal garantice la alta disponibilidad y confiabilidad de los clústeres de HDInsight. A partir del 6 de abril de 2020, los clientes solo pueden elegir una máquina virtual de 4 núcleos o más como nodo principal para los nuevos clústeres de HDInsight. Los clústeres existentes seguirán ejecutándose según lo previsto. 
+Se requiere una máquina virtual de 4 núcleos como mínimo para que el nodo principal garantice la alta disponibilidad y confiabilidad de los clústeres de HDInsight. A partir del 6 de abril de 2020, los clientes solo pueden elegir una máquina virtual de cuatro núcleos o más como nodo principal para los nuevos clústeres de HDInsight. Los clústeres existentes seguirán ejecutándose según lo previsto. 
 
 ### <a name="esp-spark-cluster-node-size-change"></a>Cambio de tamaño del nodo del clúster de Spark de ESP 
 En la próxima versión, el tamaño de nodo mínimo permitido para un clúster de Spark de ESP se cambiará a Standard_D13_V2. Las máquinas virtuales de la serie A pueden provocar problemas en el clúster de ESP debido a su capacidad de CPU y memoria relativamente baja. Las máquinas virtuales de la serie A quedarán en desuso para crear nuevos clústeres de ESP.
 
 ### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Movimiento a conjuntos de escalado de máquinas virtuales
 Ahora HDInsight usa máquinas virtuales de Azure para aprovisionar el clúster. En la próxima versión, HDInsight usará los conjuntos de escalado de máquinas virtuales de Azure en su lugar. Consulte más información sobre los conjuntos de escalado de máquinas virtuales de Azure.
-
-### <a name="hbase-20-to-21"></a>HBase 2.0 a 2.1
-En la próxima versión de HDInsight 4.0, la versión de HBase se actualizará de 2.0 a 2.1.
 
 ## <a name="bug-fixes"></a>Corrección de errores
 HDInsight continúa realizando mejoras en la confiabilidad y el rendimiento del clúster. 

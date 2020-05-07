@@ -5,12 +5,13 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
-ms.openlocfilehash: 116f2544b23ed5f9bc0fabbb945cb5cb2b51af96
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.custom: has-adal-ref
+ms.openlocfilehash: 2b20796fdcf71ccfb60c519d081b42fba982f0b6
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81725269"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82608701"
 ---
 # <a name="tutorial-create-a-python-runbook"></a>Tutorial: Creación de un runbook de Python
 
@@ -224,7 +225,7 @@ Haga clic en **Aceptar** para iniciar el runbook. El runbook se ejecuta e inicia
 También puede usar las siguientes convenciones para recuperar varios flujos de los runbooks de Python, como los flujos WARNING, ERROR y DEBUG.
 
 ```python
-print("Hello World output") 
+print("Hello World output")
 print("ERROR: - Hello world error")
 print("WARNING: - Hello world warning")
 print("DEBUG: - Hello world debug")
