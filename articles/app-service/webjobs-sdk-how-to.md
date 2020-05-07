@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 5a8d5f96449cfecd4628c38fa2788a1e06e96b07
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: a046791b8c50577c1921764b06bac5d88780194d
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81758895"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735001"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Uso del SDK de Azure WebJobs para el procesamiento en segundo plano basado en eventos
 
@@ -956,9 +956,9 @@ En la versión 3.*x*, ya no tiene que vaciar el elemento [`TelemetryClient`] cua
 
 #### <a name="version-2x"></a>Versión 2.*x*
 
-En la versión 2.*x*, el elemento [`TelemetryClient`] creado internamente por el proveedor de Application Insights para el SDK de WebJobs usa [`ServerTelemetryChannel`](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/ServerTelemetryChannel/ServerTelemetryChannel.cs). Cuando el punto de conexión de Application Insights no está disponible o limita las solicitudes entrantes, este canal [guarda las solicitudes en el sistema de archivos de la aplicación web y vuelve a enviarlas más adelante](https://apmtips.com/blog/2015/09/03/more-telemetry-channels).
+En la versión 2.*x*, el elemento [`TelemetryClient`] creado internamente por el proveedor de Application Insights para el SDK de WebJobs usa [`ServerTelemetryChannel`](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/.publicApi/Microsoft.AI.ServerTelemetryChannel.dll). Cuando el punto de conexión de Application Insights no está disponible o limita las solicitudes entrantes, este canal [guarda las solicitudes en el sistema de archivos de la aplicación web y vuelve a enviarlas más adelante](https://apmtips.com/blog/2015/09/03/more-telemetry-channels).
 
-El elemento [`TelemetryClient`] se crea mediante una clase que implementa `ITelemetryClientFactory`. De manera predeterminada, será [`DefaultTelemetryClientFactory`](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Logging.ApplicationInsights/DefaultTelemetryClientFactory.cs).
+El elemento [`TelemetryClient`] se crea mediante una clase que implementa `ITelemetryClientFactory`. De manera predeterminada, será [`DefaultTelemetryClientFactory`](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Logging.ApplicationInsights/).
 
 Si quiere modificar alguna parte de la canalización de Application Insights, puede proporcionar su propio elemento `ITelemetryClientFactory`, y el host usará la clase para construir un elemento [`TelemetryClient`]. Por ejemplo, este código invalida `DefaultTelemetryClientFactory` para modificar una propiedad de `ServerTelemetryChannel`:
 

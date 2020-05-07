@@ -15,14 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 1bef73e6be4bdbe8828e1d20ea6e684759984627
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: has-adal-ref
+ms.openlocfilehash: 569e8d769d56acbb4c7fb4258952ec19e44b58e4
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72244631"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82607833"
 ---
-# <a name="security-frame-authentication--mitigations"></a>Marco de seguridad: autenticación | Mitigaciones 
+# <a name="security-frame-authentication--mitigations"></a>Marco de seguridad: autenticación | Mitigaciones
 
 | Producto o servicio | Artículo |
 | --------------- | ------- |
@@ -44,8 +45,8 @@ ms.locfileid: "72244631"
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
-| **Componente**               | Aplicación web | 
-| **Fase de SDL**               | Build |  
+| **Componente**               | Aplicación web |
+| **Fase de SDL**               | Build |
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | N/D  |
@@ -55,8 +56,8 @@ ms.locfileid: "72244631"
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
-| **Componente**               | Aplicación web | 
-| **Fase de SDL**               | Build |  
+| **Componente**               | Aplicación web |
+| **Fase de SDL**               | Build |
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | N/D  |
@@ -66,8 +67,8 @@ ms.locfileid: "72244631"
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
-| **Componente**               | Aplicación web | 
-| **Fase de SDL**               | Build |  
+| **Componente**               | Aplicación web |
+| **Fase de SDL**               | Build |
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | N/D  |
@@ -77,8 +78,8 @@ ms.locfileid: "72244631"
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
-| **Componente**               | Aplicación web | 
-| **Fase de SDL**               | Build |  
+| **Componente**               | Aplicación web |
+| **Fase de SDL**               | Build |
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | N/D  |
@@ -88,8 +89,8 @@ ms.locfileid: "72244631"
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
-| **Componente**               | Aplicación web | 
-| **Fase de SDL**               | Build |  
+| **Componente**               | Aplicación web |
+| **Fase de SDL**               | Build |
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | N/D  |
@@ -99,8 +100,8 @@ ms.locfileid: "72244631"
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
-| **Componente**               | Aplicación web | 
-| **Fase de SDL**               | Build |  
+| **Componente**               | Aplicación web |
+| **Fase de SDL**               | Build |
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | N/D  |
@@ -110,8 +111,8 @@ ms.locfileid: "72244631"
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
-| **Componente**               | Aplicación web | 
-| **Fase de SDL**               | Build |  
+| **Componente**               | Aplicación web |
+| **Fase de SDL**               | Build |
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | N/D  |
@@ -121,8 +122,8 @@ ms.locfileid: "72244631"
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
-| **Componente**               | Base de datos | 
-| **Fase de SDL**               | Build |  
+| **Componente**               | Base de datos |
+| **Fase de SDL**               | Build |
 | **Tecnologías aplicables** | OnPrem |
 | **Atributos**              | Versión de SQL: todas |
 | **Referencias**              | [SQL Server: elegir un modo de autenticación](https://msdn.microsoft.com/library/ms144284.aspx) |
@@ -132,8 +133,8 @@ ms.locfileid: "72244631"
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
-| **Componente**               | Base de datos | 
-| **Fase de SDL**               | Build |  
+| **Componente**               | Base de datos |
+| **Fase de SDL**               | Build |
 | **Tecnologías aplicables** | SQL Azure |
 | **Atributos**              | Versión de SQL: V12 |
 | **Referencias**              | [Conexión a SQL Database mediante autenticación de Azure Active Directory](https://azure.microsoft.com/documentation/articles/sql-database-aad-authentication/) |
@@ -143,8 +144,8 @@ ms.locfileid: "72244631"
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
-| **Componente**               | Base de datos | 
-| **Fase de SDL**               | Build |  
+| **Componente**               | Base de datos |
+| **Fase de SDL**               | Build |
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | [Directiva de contraseñas de SQL Server](https://technet.microsoft.com/library/ms161959(v=sql.110).aspx) |
@@ -154,8 +155,8 @@ ms.locfileid: "72244631"
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
-| **Componente**               | Base de datos | 
-| **Fase de SDL**               | Build |  
+| **Componente**               | Base de datos |
+| **Fase de SDL**               | Build |
 | **Tecnologías aplicables** | OnPrem, SQL Azure |
 | **Atributos**              | Versión de SQL: MSSQL2012, Versión de SQL: V12 |
 | **Referencias**              | [Prácticas recomendadas de seguridad con bases de datos independientes](https://msdn.microsoft.com/library/ff929055.aspx) |
@@ -165,8 +166,8 @@ ms.locfileid: "72244631"
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
-| **Componente**               | Centro de eventos de Azure | 
-| **Fase de SDL**               | Build |  
+| **Componente**               | Centro de eventos de Azure |
+| **Fase de SDL**               | Build |
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | [Introducción al modelo de autenticación y seguridad de Event Hubs](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
@@ -176,8 +177,8 @@ ms.locfileid: "72244631"
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
-| **Componente**               | Límites de confianza de Azure | 
-| **Fase de SDL**               | Implementación |  
+| **Componente**               | Límites de confianza de Azure |
+| **Fase de SDL**               | Implementación |
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | [¿Qué es Azure Multi-Factor Authentication?](https://azure.microsoft.com/documentation/articles/multi-factor-authentication/) |
@@ -187,8 +188,8 @@ ms.locfileid: "72244631"
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
-| **Componente**               | Límites de confianza de Service Fabric | 
-| **Fase de SDL**               | Implementación |  
+| **Componente**               | Límites de confianza de Service Fabric |
+| **Fase de SDL**               | Implementación |
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | Entorno: Azure  |
 | **Referencias**              | [Escenarios de seguridad de los clústeres de Service Fabric](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security) |
@@ -198,8 +199,8 @@ ms.locfileid: "72244631"
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
-| **Componente**               | Límites de confianza de Service Fabric | 
-| **Fase de SDL**               | Implementación |  
+| **Componente**               | Límites de confianza de Service Fabric |
+| **Fase de SDL**               | Implementación |
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | Entorno: Azure, Entorno: independiente |
 | **Referencias**              | [Seguridad de certificado de cliente a nodo de Service Fabric](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/#_client-to-node-certificate-security), [Conexión a un clúster seguro mediante certificados de cliente](https://azure.microsoft.com/documentation/articles/service-fabric-connect-to-secure-cluster/) |
@@ -209,8 +210,8 @@ ms.locfileid: "72244631"
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
-| **Componente**               | Límites de confianza de Service Fabric | 
-| **Fase de SDL**               | Implementación |  
+| **Componente**               | Límites de confianza de Service Fabric |
+| **Fase de SDL**               | Implementación |
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | Entorno: Azure |
 | **Referencias**              | [Escenarios de seguridad de los clústeres de Service Fabric](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/#security-recommendations) |
@@ -220,8 +221,8 @@ ms.locfileid: "72244631"
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
-| **Componente**               | Límites de confianza de Service Fabric | 
-| **Fase de SDL**               | Implementación |  
+| **Componente**               | Límites de confianza de Service Fabric |
+| **Fase de SDL**               | Implementación |
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | Entorno: Azure |
 | **Referencias**              | [Certificados X.509 y Service Fabric](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/#x509-certificates-and-service-fabric) |
@@ -231,8 +232,8 @@ ms.locfileid: "72244631"
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
-| **Componente**               | Identity Server | 
-| **Fase de SDL**               | Build |  
+| **Componente**               | Identity Server |
+| **Fase de SDL**               | Build |
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | [IdentityServer3: The Big Picture](https://identityserver.github.io/Documentation/docsv2/overview/bigPicture.html) (IdentityServer3: el panorama global) |
@@ -242,8 +243,8 @@ ms.locfileid: "72244631"
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
-| **Componente**               | Identity Server | 
-| **Fase de SDL**               | Implementación |  
+| **Componente**               | Identity Server |
+| **Fase de SDL**               | Implementación |
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | [Identity Server Deployment - Caching](https://identityserver.github.io/Documentation/docsv2/advanced/deployment.html) (Identity Server: implementación y almacenamiento en caché) |
@@ -253,8 +254,8 @@ ms.locfileid: "72244631"
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
-| **Componente**               | Límite de confianza de la máquina | 
-| **Fase de SDL**               | Implementación |  
+| **Componente**               | Límite de confianza de la máquina |
+| **Fase de SDL**               | Implementación |
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | N/D  |
@@ -264,8 +265,8 @@ ms.locfileid: "72244631"
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
-| **Componente**               | WCF | 
-| **Fase de SDL**               | Build |  
+| **Componente**               | WCF |
+| **Fase de SDL**               | Build |
 | **Tecnologías aplicables** | Genérico, .NET Framework 3 |
 | **Atributos**              | N/D |
 | **Referencias**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx) |
@@ -304,8 +305,8 @@ El elemento `<netMsmqBinding/>` del archivo de configuración de WCF siguiente i
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
-| **Componente**               | WCF | 
-| **Fase de SDL**               | Build |  
+| **Componente**               | WCF |
+| **Fase de SDL**               | Build |
 | **Tecnologías aplicables** | .NET Framework 3 |
 | **Atributos**              | ClientCredentialType: Ninguno |
 | **Referencias**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify](https://community.microfocus.com/t5/UFT-Discussions/UFT-API-Test-with-WCF-wsHttpBinding/m-p/600927) |
@@ -320,8 +321,8 @@ El elemento `<netMsmqBinding/>` del archivo de configuración de WCF siguiente i
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
-| **Componente**               | WCF | 
-| **Fase de SDL**               | Build |  
+| **Componente**               | WCF |
+| **Fase de SDL**               | Build |
 | **Tecnologías aplicables** | Genérico, .NET Framework 3 |
 | **Atributos**              | ClientCredentialType: Ninguno |
 | **Referencias**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify](https://community.microfocus.com/t5/UFT-Discussions/UFT-API-Test-with-WCF-wsHttpBinding/m-p/600927) |
@@ -336,8 +337,8 @@ El elemento `<netMsmqBinding/>` del archivo de configuración de WCF siguiente i
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
-| **Componente**               | API Web | 
-| **Fase de SDL**               | Build |  
+| **Componente**               | API Web |
+| **Fase de SDL**               | Build |
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | [Authentication and Authorization in ASP.NET Web API](https://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api), (Autenticación y autorización en la API web de ASP.NET) [External Authentication Services with ASP.NET Web API (C#)](https://www.asp.net/web-api/overview/security/external-authentication-services) (Servicios de autenticación externos con la API web de ASP.NET [C#]) |
@@ -347,8 +348,8 @@ El elemento `<netMsmqBinding/>` del archivo de configuración de WCF siguiente i
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
-| **Componente**               | Azure AD | 
-| **Fase de SDL**               | Build |  
+| **Componente**               | Azure AD |
+| **Fase de SDL**               | Build |
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | [Escenarios de autenticación para Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-authentication-scenarios/), [Ejemplos de código de Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-code-samples/), [Guía del desarrollador de Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-developers-guide/) |
@@ -358,8 +359,8 @@ El elemento `<netMsmqBinding/>` del archivo de configuración de WCF siguiente i
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
-| **Componente**               | Azure AD | 
-| **Fase de SDL**               | Build |  
+| **Componente**               | Azure AD |
+| **Fase de SDL**               | Build |
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | [Modern Authentication with Azure Active Directory for Web Applications](https://blogs.msdn.microsoft.com/microsoft_press/2016/01/04/new-book-modern-authentication-with-azure-active-directory-for-web-applications/) (Autenticación moderna con Azure Active Directory para aplicaciones web), [Using Redis as ADAL token cache](https://blogs.msdn.microsoft.com/mrochon/2016/09/19/using-redis-as-adal-token-cache/) (Uso de Redis como caché de tokens ADAL)  |
@@ -369,8 +370,8 @@ El elemento `<netMsmqBinding/>` del archivo de configuración de WCF siguiente i
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
-| **Componente**               | Azure AD | 
-| **Fase de SDL**               | Build |  
+| **Componente**               | Azure AD |
+| **Fase de SDL**               | Build |
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | [Modern Authentication with Azure Active Directory for Web Applications](https://blogs.msdn.microsoft.com/microsoft_press/2016/01/04/new-book-modern-authentication-with-azure-active-directory-for-web-applications/) (Autenticación moderna con Azure Active Directory para aplicaciones web) |
@@ -430,8 +431,8 @@ Tenga en cuenta que para probar la eficacia de esta configuración, debe iniciar
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
-| **Componente**               | Azure AD | 
-| **Fase de SDL**               | Build |  
+| **Componente**               | Azure AD |
+| **Fase de SDL**               | Build |
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | [ADAL](https://azure.microsoft.com/documentation/articles/active-directory-authentication-libraries/) |
@@ -441,8 +442,8 @@ Tenga en cuenta que para probar la eficacia de esta configuración, debe iniciar
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
-| **Componente**               | Puerta de enlace de campo de IoT | 
-| **Fase de SDL**               | Build |  
+| **Componente**               | Puerta de enlace de campo de IoT |
+| **Fase de SDL**               | Build |
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | N/D  |
@@ -452,11 +453,11 @@ Tenga en cuenta que para probar la eficacia de esta configuración, debe iniciar
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
-| **Componente**               | Puerta de enlace de la nube de IoT | 
-| **Fase de SDL**               | Build |  
+| **Componente**               | Puerta de enlace de la nube de IoT |
+| **Fase de SDL**               | Build |
 | **Tecnologías aplicables** | Genérico, C#, Node.JS,  |
 | **Atributos**              | N/D, opción de puerta de enlace: Azure IoT Hub |
-| **Referencias**              | N/D, [Introducción a Azure IoT Hub (.NET)](https://azure.microsoft.com/documentation/articles/iot-hub-csharp-csharp-getstarted/), [Introducción a Azure IoT Hub (Node)](https://azure.microsoft.com/documentation/articles/iot-hub-node-node-getstarted), [Protección de IoT con SAS y certificados](https://azure.microsoft.com/documentation/articles/iot-hub-sas-tokens/), [Repositorio de GIT](https://github.com/Azure/azure-iot-sdks/tree/master/node) |
+| **Referencias**              | N/D, [Introducción a Azure IoT Hub (.NET)](https://azure.microsoft.com/documentation/articles/iot-hub-csharp-csharp-getstarted/), [Introducción a Azure IoT Hub (Node)](https://azure.microsoft.com/documentation/articles/iot-hub-node-node-getstarted), [Protección de IoT con SAS y certificados](https://azure.microsoft.com/documentation/articles/iot-hub-sas-tokens/), [Repositorio de GIT](https://github.com/Azure/azure-iot-sdks/) |
 | **Pasos** | <ul><li>**Genérico:** autenticación del dispositivo mediante Seguridad de la capa de transporte (TLS) o IPSec. La infraestructura debe admitir el uso de una clave precompartida (PSK) en los dispositivos que no pueden controlar la criptografía asimétrica completa. Aprovechamiento de Azure AD, OAuth</li><li>**C#:** al crear una instancia de DeviceClient, el método Create crea de forma predeterminada una instancia de DeviceClient que usa el protocolo AMQP para comunicarse con IoT Hub. Para usar el protocolo HTTPS, utilice la invalidación del método Create que permite especificar el protocolo. Si usa el protocolo HTTPS, también debe agregar el paquete NuGet `Microsoft.AspNet.WebApi.Client` al proyecto para incluir el espacio de nombres `System.Net.Http.Formatting`.</li></ul>|
 
 ### <a name="example"></a>Ejemplo
@@ -512,9 +513,9 @@ await deviceClient.SendEventAsync(message);
     if (policyName) token += "&skn="+policyName;
     return token;
     ```
-* Conéctese mediante el token de SAS: 
+* Conéctese mediante el token de SAS:
     ```javascript
-    Client.fromSharedAccessSignature(sas, Http); 
+    Client.fromSharedAccessSignature(sas, Http);
     ```
   #### <a name="certificates"></a>Certificados
 * Genere un certificado X509 autofirmado con cualquier herramienta como OpenSSL, para generar archivos .cert y .key a fin de almacenar el certificado y la clave respectivamente.
@@ -541,7 +542,7 @@ await deviceClient.SendEventAsync(message);
     var options = {
         key: fs.readFileSync('./key.pem', 'utf8'),
         cert: fs.readFileSync('./server.crt', 'utf8')
-    }; 
+    };
     // Calling setOptions with the x509 certificate and key (and optionally, passphrase) will configure the client //transport to use x509 when connecting to IoT Hub
     client.setOptions(options);
     //call fn to execute after the connection is set up
@@ -552,8 +553,8 @@ await deviceClient.SendEventAsync(message);
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
-| **Componente**               | Puerta de enlace de la nube de IoT  | 
-| **Fase de SDL**               | Build |  
+| **Componente**               | Puerta de enlace de la nube de IoT  |
+| **Fase de SDL**               | Build |
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | Elección de puerta de enlace: Azure IoT Hub |
 | **Referencias**              | [Tokens de seguridad de Azure IoT Hub](https://azure.microsoft.com/documentation/articles/iot-hub-sas-tokens/) |
@@ -563,8 +564,8 @@ await deviceClient.SendEventAsync(message);
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
-| **Componente**               | Azure Storage | 
-| **Fase de SDL**               | Build |  
+| **Componente**               | Azure Storage |
+| **Fase de SDL**               | Build |
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | StorageType: blob |
 | **Referencias**              | [Administración del acceso de lectura anónimo a contenedores y blobs](https://azure.microsoft.com/documentation/articles/storage-manage-access-to-resources/), [Firmas de acceso compartido, Parte 1: Descripción del modelo SAS](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/) |
@@ -574,8 +575,8 @@ await deviceClient.SendEventAsync(message);
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
-| **Componente**               | Azure Storage | 
-| **Fase de SDL**               | Build |  
+| **Componente**               | Azure Storage |
+| **Fase de SDL**               | Build |
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D |
 | **Referencias**              | [Firmas de acceso compartido, Parte 1: Comprender el modelo SAS](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/), [Firmas de acceso compartido, Parte 2: Creación y uso de una SAS con Blob Storage](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-2/), [Delegación del acceso a objetos en la cuenta mediante Firmas de acceso compartido y Directivas de acceso almacenadas](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_how-to-delegate-access-to-objects-in-your-account-using-shared-access-signatures-and-stored-access-policies) |
