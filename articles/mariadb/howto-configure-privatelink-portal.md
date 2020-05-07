@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.openlocfilehash: 3f421cad64caf91b898bb1ec13dc909b93b7f72d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79370345"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-portal"></a>Creación y administración de Private Link en Azure Database for MariaDB mediante el portal
@@ -154,7 +154,7 @@ En esta sección, creará un punto de conexión privado, que agregará al servid
     |Recurso secundario de destino |Seleccione *mariadbServer*.|
     |||
 7. Seleccione **Siguiente: Configuration** (Siguiente: Configuración).
-8. En **Crear un punto de conexión privado - Configuración**, escriba o seleccione esta información:
+8. En **Crear un punto de conexión privado: Configuración**, escriba o seleccione esta información:
 
     | Configuración | Value |
     | ------- | ----- |

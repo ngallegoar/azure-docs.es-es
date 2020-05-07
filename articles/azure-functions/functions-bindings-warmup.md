@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/08/2019
 ms.author: alkarche
-ms.openlocfilehash: c3ed780bc50b690b2f5c3285024695ec6426b9b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 72a6f97f45ec1adaa42d1f17a1916af137845392
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77167327"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82559995"
 ---
 # <a name="azure-functions-warm-up-trigger"></a>Desencadenador de preparación de Azure Functions
 
@@ -240,7 +240,7 @@ No se proporciona información adicional para una función desencadenada de prep
 ## <a name="trigger---limits"></a>Desencadenador: límites
 
 * El desencadenador de preparación solo está disponible para las aplicaciones que se ejecutan en el [plan Premium](./functions-premium-plan.md).
-* Solo se llama al desencadenador de preparación durante las operaciones de escalado vertical, no durante los reinicios u otros inicios sin escala. Debe asegurarse de que la lógica pueda cargar todas las dependencias necesarias sin usar el desencadenador de preparación. La carga diferida es un buen patrón para lograrlo.
+* Solo se llama al desencadenador de preparación durante las operaciones de escalado horizontal, no durante los reinicios u otros inicios sin escala. Debe asegurarse de que la lógica pueda cargar todas las dependencias necesarias sin usar el desencadenador de preparación. La carga diferida es un buen patrón para lograrlo.
 * No se puede invocar el desencadenador de preparación cuando ya hay una instancia en ejecución.
 * Solo puede haber una función de desencadenador de preparación por cada aplicación de funciones.
 

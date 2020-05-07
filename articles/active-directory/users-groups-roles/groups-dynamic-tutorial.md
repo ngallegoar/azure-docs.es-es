@@ -14,16 +14,16 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 382f3b59142aee7ddfbec4aceb153a174874ac1a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7ee5fa52f59ea2ef3332fe66c81c24ff44c64e81
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74027107"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582881"
 ---
-# <a name="tutorial-add-or-remove-group-members-automatically"></a>Tutorial: Adición o eliminación de miembros del grupo automáticamente
+# <a name="tutorial-add-or-remove-group-members-automatically"></a>Tutorial: Adición o eliminación automáticas de miembros de grupos
 
-En Azure Active Directory (Azure AD), puede agregar o quitar usuarios de grupos de seguridad o grupos de Office 365 automáticamente, por lo que no siempre tiene que hacerlo manualmente. Cada vez que cambian las propiedades de un usuario o un dispositivo, Azure AD evalúa todas las reglas de grupos dinámicos del inquilino para ver si el cambio hace que se deban agregar o quitar miembros.
+En Azure Active Directory (Azure AD), puede agregar o quitar usuarios de grupos de seguridad o grupos de Office 365 automáticamente, por lo que no siempre tiene que hacerlo manualmente. Cada vez que cambian las propiedades de un usuario o un dispositivo, Azure AD evalúa todas las reglas de grupos dinámicos de la organización de Azure AD, para ver si el cambio hace que se deban agregar o quitar miembros.
 
 En este tutorial, aprenderá a:
 > [!div class="checklist"]
@@ -33,11 +33,11 @@ En este tutorial, aprenderá a:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
-Esta característica requiere una licencia de Azure Active Directory Premium como administrador global del inquilino. Si no dispone de una, en Azure AD, seleccione **Licencias** > **Productos** > **Probar/Comprar**.
+Esta característica requiere una licencia de Azure AD Premium como administrador global de la organización. Si no dispone de una, en Azure AD, seleccione **Licencias** > **Productos** > **Probar/Comprar**.
 
-No es necesario asignar licencias a los usuarios para que sean miembros de grupos dinámicos. Solo necesita el número mínimo de licencias Premium P1 de Azure AD disponibles en el inquilino para dar cobertura a dichos usuarios. 
+No es necesario asignar licencias a los usuarios para que sean miembros de grupos dinámicos. Solo necesita el número mínimo de licencias Premium P1 de Azure AD disponibles en la organización para dar cobertura a dichos usuarios. 
 
 ## <a name="create-a-group-of-guest-users"></a>Creación de un grupo de usuarios invitados
 
@@ -80,7 +80,7 @@ Ahora que tiene el nuevo grupo, puede aplicar las licencias que necesitan estos 
 
 ## <a name="remove-guests-from-all-users-group"></a>Eliminación de los invitados del grupo Todos los usuarios
 
-Quizás su plan administrativo final es asignar todos los usuarios invitados a sus propios grupos por empresa. Ahora también puede cambiar el grupo **Todos los usuarios** de modo que esté reservado solo para los usuarios miembros del inquilino. A continuación, puede usarlo para asignar aplicaciones y licencias que son específicas de su organización principal.
+Quizás su plan administrativo final es asignar todos los usuarios invitados a sus propios grupos por empresa. Ahora también puede cambiar el grupo **Todos los usuarios** de modo que esté reservado solo para los usuarios miembros de la organización. A continuación, puede usarlo para asignar aplicaciones y licencias que son específicas de su organización principal.
 
    ![Cambio del grupo Todos los usuarios a solo miembros](./media/groups-dynamic-tutorial/all-users-edit.png)
 
@@ -88,7 +88,7 @@ Quizás su plan administrativo final es asignar todos los usuarios invitados a s
 
 **Para eliminar el grupo de usuarios invitados**
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta que sea el administrador global del inquilino.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta que sea administrador global de su organización.
 2. Seleccione **Azure Active Directory** > **Grupos**. Seleccione el grupo **Guest users Contoso**, seleccione los puntos suspensivos (...) y, a continuación, seleccione **Eliminar**. Cuando se elimina el grupo, se eliminan las licencias asignadas.
 
 **Para restaurar el grupo Todos los usuarios**

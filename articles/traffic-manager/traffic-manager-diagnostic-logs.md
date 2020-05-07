@@ -1,6 +1,6 @@
 ---
-title: Habilitación del registro de diagnóstico en Azure Traffic Manager
-description: Aprenda a habilitar el registro de diagnóstico para su perfil de Traffic Manager y acceda a los archivos de registro que se crean como resultado.
+title: Habilitación del registro de recursos en Azure Traffic Manager
+description: Aprenda a habilitar el registro de recursos para su perfil de Traffic Manager y acceda a los archivos de registro que se crean como resultado.
 services: traffic-manager
 author: rohinkoul
 manager: twooley
@@ -11,20 +11,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: rohink
-ms.openlocfilehash: 0ed2ecef86795f62aa3fe5798dcd0d07adbaf9cc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d0ffcffd7d4a4f2072b640ace03ec819aa416d47
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76938670"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82133904"
 ---
-# <a name="enable-diagnostic-logging-in-azure-traffic-manager"></a>Habilitación del registro de diagnóstico en Azure Traffic Manager
+# <a name="enable-resource-logging-in-azure-traffic-manager"></a>Habilitación del registro de recursos en Azure Traffic Manager
 
-En este artículo se describe cómo habilitar el registro de diagnóstico y acceder a los datos de registro para un perfil de Traffic Manager.
+En este artículo se describe cómo habilitar la recopilación de registros de recursos y acceder a los datos de registro de un perfil de Traffic Manager.
 
-Los registros de diagnóstico de Azure Traffic Manager pueden proporcionar conclusiones sobre el comportamiento del recurso del perfil de Traffic Manager. Por ejemplo, puede usar los datos de registro del perfil para determinar porqué determinados sondeos han agotado el tiempo de espera en un punto de conexión.
+Los registros de recursos de Azure Traffic Manager pueden proporcionar conclusiones sobre el comportamiento del recurso de perfil de Traffic Manager. Por ejemplo, puede usar los datos de registro del perfil para determinar porqué determinados sondeos han agotado el tiempo de espera en un punto de conexión.
 
-## <a name="enable-diagnostic-logging"></a>Activación del registro de diagnóstico
+## <a name="enable-resource-logging"></a>Habilitación de registro de recurso
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -32,15 +32,15 @@ Puede ejecutar los comandos siguientes en [Azure Cloud Shell](https://shell.azur
 
 1. **Recupere el perfil de Traffic Manager:**
 
-    Para habilitar el registro de diagnóstico, necesita el identificador de un perfil de Traffic Manager. Recupere el perfil de Traffic Manager para el que quiere habilitar el registro de diagnóstico con [Get-AzTrafficManagerProfile](/powershell/module/az.TrafficManager/Get-azTrafficManagerProfile). La salida incluye la información del identificador del perfil de Traffic Manager.
+    Para habilitar el registro de recursos, necesita el identificador de un perfil de Traffic Manager. Recupere el perfil de Traffic Manager para el que quiere habilitar el registro de recursos con [Get-AzTrafficManagerProfile](/powershell/module/az.TrafficManager/Get-azTrafficManagerProfile). La salida incluye la información del identificador del perfil de Traffic Manager.
 
     ```azurepowershell-interactive
     Get-AzTrafficManagerProfile -Name <TrafficManagerprofilename> -ResourceGroupName <resourcegroupname>
     ```
 
-2. **Habilite el registro de diagnóstico para el perfil de Traffic Manager:**
+2. **Habilitación del registro de recursos para el perfil de Traffic Manager:**
 
-    Habilite el registro de diagnóstico para el perfil de Traffic Manager con el identificador obtenido en el paso anterior con [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting?view=latest). El comando siguiente almacena los registros detallados del perfil de Traffic Manager en una cuenta de Azure Storage especificada. 
+    Habilite el registro de recursos para el perfil de Traffic Manager con el identificador obtenido en el paso anterior con [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting?view=latest). El comando siguiente almacena los registros detallados del perfil de Traffic Manager en una cuenta de Azure Storage especificada. 
 
       ```azurepowershell-interactive
     Set-AzDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId> -StorageAccountId <storageAccountId> -Enabled $true
@@ -65,7 +65,7 @@ Puede ejecutar los comandos siguientes en [Azure Cloud Shell](https://shell.azur
 
 ## <a name="traffic-manager-log-schema"></a>Esquema de registro de Traffic Manager
 
-Todos los registros de diagnóstico disponibles a través de Azure Monitor comparten un esquema común de nivel superior, con flexibilidad para que cada servicio emita propiedades únicas para sus propios eventos. Para ver el esquema de registros de diagnóstico de nivel superior, consulte [Supported services, schemas, and categories for Azure Diagnostic Logs](../azure-monitor/platform/tutorial-dashboards.md) (Esquemas, categorías y servicios admitidos para registros de diagnóstico de Azure).
+Todos los registros de recursos disponibles a través de Azure Monitor comparten un esquema común de nivel superior, con flexibilidad para que cada servicio emita propiedades únicas para sus propios eventos. Para ver el esquema de registros de recursos de nivel superior, consulte [Esquemas, categorías y servicios admitidos para registros de recursos de Azure](../azure-monitor/platform/tutorial-dashboards.md).
 
 En la tabla siguiente se incluye el esquema de registros específico del recurso del perfil de Azure Traffic Manager.
 

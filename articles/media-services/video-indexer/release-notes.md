@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 01/07/2020
+ms.date: 04/20/2020
 ms.author: juliako
-ms.openlocfilehash: f1387273f9736fea70682177d5d48dc2f141bbad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8a9c1ba8e6316ea79941fbec1fbd339893afdb35
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76933858"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82131207"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Notas de la versión de Video Indexer de Azure Media Services
 
@@ -29,6 +29,45 @@ Para mantenerse al día con los avances más recientes, este artículo proporcio
 * Problemas conocidos
 * Corrección de errores
 * Funciones obsoletas
+
+## <a name="april-2020"></a>Abril de 2020
+
+### <a name="new-widget-parameters-capabilities"></a>Nuevas capacidades de parámetros de widget
+
+El widget **Insights** incluye los nuevos parámetros `language` y `control`.
+
+El widget **Player** tiene el nuevo parámetro `locale`. Los parámetros `locale` y `language` controlan el idioma del reproductor.
+
+Para más información, consulte la sección de [tipos de widgets](video-indexer-embed-widgets.md#widget-types). 
+
+### <a name="new-player-skin"></a>Nueva máscara del reproductor
+
+Nueva máscara del reproductor iniciada con el diseño actualizado.
+
+### <a name="prepare-for-upcoming-changes"></a>Preparación para los próximos cambios
+
+* En la actualidad, las siguientes API devuelven un objeto de cuenta:
+
+    * [Create-Paid-Account](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Paid-Account)
+    * [Get-Account](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Account)
+    * [Get-Accounts-Authorization](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Accounts-Authorization)
+    * [Get-Accounts-With-Token](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Accounts-With-Token)
+ 
+    El objeto de cuenta tiene un campo `Url` que apunta a la ubicación del [sitio web de Video Indexer](https://www.videoindexer.ai/).
+En el caso de las cuentas de pago, el campo `Url` apunta actualmente a una dirección URL interna en lugar de al sitio web público.
+En las próximas semanas lo cambiaremos y volverá a la dirección URL del [sitio web de Video Indexer](https://www.videoindexer.ai/) en todas las cuentas (de prueba y de pago).
+
+    No use las direcciones URL internas; debe usar las [API públicas de Video Indexer](https://api-portal.videoindexer.ai/).
+* Si va a insertar direcciones URL de Video Indexer en las aplicaciones y no apuntan al [sitio web de Video Indexer](https://www.videoindexer.ai/) ni al [punto de conexión de Video Indexer](https://api.videoindexer.ai), sino que lo hacen a un punto de conexión regional (por ejemplo, `https://wus2.videoindexer.ai`), vuelva a generar las direcciones URL.
+
+   Para ello, haga lo siguiente:
+
+    * Reemplace la dirección URL por otra que apunte a las API de widget de Video Indexer (por ejemplo, el [widget Insights](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Insights-Widget)).
+    * Use el sitio web de Video Indexer para generar una nueva dirección URL insertada:
+         
+         Presione **Reproducir** para ir a la página del vídeo, haga clic en el botón **&lt;/&gt; Embed** (Insertar) y copie la dirección URL en la aplicación:
+   
+    Las direcciones URL regionales no se admiten y se bloquearán en las próximas semanas.
 
 ## <a name="january-2020"></a>Enero de 2020
  

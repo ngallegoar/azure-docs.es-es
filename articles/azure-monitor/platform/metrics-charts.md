@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 2df1e0bb7d586edb13dc86e163f0e5728608d2a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8d15c217f2e65877ea3baa18f6ba847492bc7fa1
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371599"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509829"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Características avanzadas del Explorador de métricas de Azure
 
@@ -47,6 +47,25 @@ Haga clic en **Agregar gráfico** y cree otro gráfico con una métrica diferent
 ### <a name="order-or-delete-multiple-charts"></a>Ordenación o eliminación de varios gráficos
 
 Para ordenar o eliminar varios gráficos, haga clic en el símbolo de puntos suspensivos ( **...** ) para abrir el menú del gráfico y elija el elemento de menú adecuado de **Subir**, **Bajar** o **Eliminar**.
+
+## <a name="changing-aggregation"></a>Cambio de la agregación
+
+Al agregar una métrica a un gráfico, el Explorador de métricas preselecciona automáticamente la agregación predeterminada. El valor predeterminado tiene sentido en escenarios básicos, pero puede usar una agregación diferente para obtener información adicional sobre la métrica. Para ver diferentes agregaciones en un gráfico, es necesario comprender cómo las administra el Explorador de métricas. 
+
+Las métricas son la serie de medidas (o "valores de métricas") capturadas durante el período de tiempo. Al trazar un gráfico, los valores de la métrica seleccionada se agregan por separado en el *intervalo de agregación*. Puede seleccionar el tamaño del intervalo de agregación [mediante el panel selector de tiempo del Explorador de métricas](metrics-getting-started.md#select-a-time-range). Si no realiza una selección explícita del intervalo de agregación, la granularidad del tiempo se selecciona automáticamente en función del intervalo de tiempo seleccionado actualmente. Una vez que se determina el intervalo de agregación, los valores de métricas que se capturaron durante cada intervalo de agregación se agregan y se colocan en el gráfico: un punto de bits por cada intervalo de agregación.
+
+Por ejemplo, supongamos que el gráfico muestra la métrica **Tiempo de respuesta del servidor** con la agregación **Media** en el intervalo de tiempo **últimas 24 horas**:
+
+- Si la granularidad del tiempo se establece en 30 minutos, el gráfico se dibuja a partir de 48 puntos de datos agregados (por ejemplo, el gráfico de líneas conecta 48 puntos en el área de trazado del gráfico). Es decir, 24 horas x 2 puntos de datos cada hora. Cada punto de datos representa la *media* de todos los tiempos de respuesta capturados para las solicitudes de servidor que se produjeron durante cada uno de los períodos de tiempo de 30 minutos correspondientes.
+- Si cambia la granularidad del tiempo a 15 minutos, obtendrá 96 puntos de datos agregados.  Es decir, 24 horas x 4 puntos de datos cada hora.
+
+Hay cinco tipos de agregaciones estadísticas básicas disponibles en el Explorador de métricas: **Suma**, **Recuento**, **Min**, **Max** y **Media**. A veces, se hace referencia a la agregación **Suma** como agregación **Total**. En el caso de muchas métricas, el Explorador de métricas ocultará las agregaciones que no son pertinentes y no se pueden usar.
+
+- **Suma**: suma de todos los valores capturados en el intervalo de agregación.
+- **Recuento**: número de medidas capturadas en el intervalo de agregación. Tenga en cuenta que **Recuento** será igual a **Suma** en el caso de que la métrica siempre se capture con el valor 1. Esto es habitual cuando la métrica realiza un seguimiento del recuento de distintos eventos y cada medida representa un evento (es decir, el código activa un registro de métricas cada vez que entra una nueva solicitud).
+- **Media**: media de los valores de la métrica capturados en el intervalo de agregación.
+- **Min**: el menor valor capturado en el intervalo de agregación.
+- **Max**: el mayor valor capturado en el intervalo de agregación.
 
 ## <a name="apply-filters-to-charts"></a>Aplicación de filtros a gráficos
 

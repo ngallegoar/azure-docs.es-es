@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 04/16/2020
-ms.openlocfilehash: 5d0798c77135b15e26c9787d9844cd9525cf12c5
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: ba8f4591782a4e34fbde26d9669ef01f24450486
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81532024"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82146409"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql--hyperscale-citus"></a>Extensiones de PostgreSQL en Azure Database for PostgreSQL - Hiperescala (Citus)
 
@@ -116,7 +116,7 @@ En las tablas siguientes se enumeran las extensiones estándar de PostgreSQL que
 > | [pgrowlocks](https://www.postgresql.org/docs/current/static/pgrowlocks.html) | Proporciona un medio para mostrar información de bloqueo a nivel de fila. |
 > | [pgstattuple](https://www.postgresql.org/docs/current/static/pgstattuple.html) | Proporciona un medio para mostrar estadísticas de nivel de tupla. |
 > | [postgres\_fdw](https://www.postgresql.org/docs/current/static/postgres-fdw.html) | Se trata de un contenedor de datos externo utilizado para tener acceso a los datos almacenados en los servidores externos de PostgreSQL. Consulte la sección "dblink y postgres_fdw" para información sobre esta extensión.|
-> | [sslinfo](https://www.postgresql.org/docs/current/sslinfo.html) | Información sobre los certificados SSL. |
+> | [sslinfo](https://www.postgresql.org/docs/current/sslinfo.html) | Información sobre los certificados TLS/SSL. |
 > | [tsm\_system\_rows](https://www.postgresql.org/docs/current/tsm-system-rows.html) | Método TABLESAMPLE que acepta el número de filas como un límite. |
 > | [tsm\_system\_time](https://www.postgresql.org/docs/current/tsm-system-time.html) | Método TABLESAMPLE que acepta el tiempo en milisegundos como un límite. |
 > | [hypopg](https://hypopg.readthedocs.io/en/latest/) | Proporciona un medio de creación de índices hipotéticos que no consume CPU ni disco. |

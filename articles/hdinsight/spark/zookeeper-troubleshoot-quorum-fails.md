@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/20/2019
-ms.openlocfilehash: 4e46efaf17ae9bad5df6f1f61f401d3e6de58a85
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 41ac109e5c5379e6085dd57a3fcd8119915558fb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78250235"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82133281"
 ---
 # <a name="apache-zookeeper-server-fails-to-form-a-quorum-in-azure-hdinsight"></a>El servidor Apache ZooKeeper no puede formar un cuórum en Azure HDInsight
 
@@ -42,11 +42,11 @@ Cuando el volumen de archivos de instantáneas es grande o los archivos de insta
 
 Compruebe los directorios de datos de ZooKeeper `/hadoop/zookeeper/version-2` y `/hadoop/hdinsight-zookeeper/version-2` para averiguar si el tamaño del archivo de instantáneas es grande. Siga los pasos siguientes si existen instantáneas de gran tamaño:
 
-1. Realice copias de seguridad de las instantáneas en `/hadoop/zookeeper/version-2` y `/hadoop/hdinsight-zookeeper/version-2`.
+1. Use el comando "`echo stat | nc {zk_host_ip} 2181 (or 2182)`" para comprobar el estado de otros servidores de ZooKeeper del mismo cuórum para asegurarse de que funcionan correctamente.  
 
-1. Limpie las instantáneas en `/hadoop/zookeeper/version-2` y `/hadoop/hdinsight-zookeeper/version-2`.
+1. Inicie sesión en el host de ZooKeeper problemático, haga una copia de seguridad de las instantáneas y los registros de transacciones en `/hadoop/zookeeper/version-2` y `/hadoop/hdinsight-zookeeper/version-2` y, luego, limpie estos archivos en los dos directorios. 
 
-1. Reinicie todos los servidores de ZooKeeper desde la interfaz de usuario de Apache Ambari.
+1. Reinicie el servidor de ZooKeeper problemático en Ambari o en el host de ZooKeeper. A continuación, reinicie el servicio que tiene problemas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

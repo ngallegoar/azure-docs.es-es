@@ -5,14 +5,14 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/01/2019
+ms.date: 04/24/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 43a842c3b6d6d421eca4196c7f3facc7876318cd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b3874bbe7a5830b0a80b658ac32952fe8985c1c3
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79225720"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82161697"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>Trabajar con bases de datos, contenedores y elementos de Azure Cosmos DB
 
@@ -64,9 +64,9 @@ Un contenedor de Azure Cosmos es un contenedor de elementos sin esquemas. Los el
 
 Asimismo, puede configurar [Período de vida (TTL)](time-to-live.md) en los elementos seleccionados en un contenedor de Azure Cosmos o para que todo el contenedor elimine esos elementos del sistema sin problemas. Azure Cosmos DB elimina automáticamente los elementos cuando estos expiran. También garantiza que una consulta realizada en el contenedor no devuelva los elementos que expiraron en un límite fijado. Para más información, consulte [Configure TTL on your container](how-to-time-to-live.md) (Configuración de TTL en el contenedor).
 
-Puede usar la [fuente de cambios](change-feed.md) para suscribirse al registro de operaciones que se administra para cada partición lógica del contenedor. La fuente de cambios proporciona el registro de todas las actualizaciones realizadas en el contenedor junto con las imágenes de antes y después de los elementos. Para más información, consulte [Build reactive applications by using change feed](serverless-computing-database.md) (Compilación de aplicaciones reactivas mediante la fuente de cambios). También puede configurar la duración de la retención de la fuente de cambios usando la directiva de fuentes de cambios en el contenedor. 
+Puede usar la [fuente de cambios](change-feed.md) para suscribirse al registro de operaciones que se administra para cada partición lógica del contenedor. La fuente de cambios proporciona el registro de todas las actualizaciones realizadas en el contenedor junto con las imágenes de antes y después de los elementos. Para más información, consulte [Build reactive applications by using change feed](serverless-computing-database.md) (Compilación de aplicaciones reactivas mediante la fuente de cambios). También puede configurar la duración de la retención de la fuente de cambios usando la directiva de fuentes de cambios en el contenedor.
 
-Puede registrar [procedimientos almacenados, desencadenadores, funciones que define el usuario (UDF)](stored-procedures-triggers-udfs.md) y [procedimientos de combinación](how-to-manage-conflicts.md) con su contenedor de Azure Cosmos. 
+Puede registrar [procedimientos almacenados, desencadenadores, funciones que define el usuario (UDF)](stored-procedures-triggers-udfs.md) y [procedimientos de combinación](how-to-manage-conflicts.md) con su contenedor de Azure Cosmos.
 
 Puede especificar una [restricción de clave única](unique-keys.md) en el contenedor de Azure Cosmos. Al crear una directiva de clave única, garantiza la exclusividad de uno o varios valores por clave de partición lógica. Si crea un contenedor con una directiva de clave única, no se pueden crear elementos nuevos o actualizados con valores que dupliquen los valores que haya especificado la restricción de clave única. Para obtener más información, consulte [Unique key constraints](unique-keys.md) (Restricciones de clave única).
 
@@ -75,6 +75,9 @@ Un contenedor de Azure Cosmos está especializado en entidades específicas de A
 | Entidad de Azure Cosmos | API DE SQL | Cassandra API | Azure Cosmos DB API para MongoDB | API de Gremlin | Table API |
 | --- | --- | --- | --- | --- | --- |
 |Contenedor de Azure Cosmos | Contenedor | Tabla | Colección | Grafo | Tabla |
+
+> [!NOTE]
+> Cuando cree contenedores, asegúrese de no utilizar el mismo nombre en dos de ellos con distintas mayúsculas y minúsculas. Algunos componentes de la plataforma de Azure no distinguen mayúsculas de minúsculas y esto puede producir confusión o problemas con los datos telemetría y las acciones que se realicen en los contenedores con estos nombres.
 
 ### <a name="properties-of-an-azure-cosmos-container"></a>Propiedades de un contenedor de Azure Cosmos
 

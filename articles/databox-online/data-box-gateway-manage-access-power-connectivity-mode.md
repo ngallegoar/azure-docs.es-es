@@ -8,16 +8,16 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: e4d85bd460c39964c9f42ac946e3522f5f129c1c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c4043702bd27bb9a37fca70475ef254bbd1f7372
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79474448"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561345"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway"></a>Administración del acceso, encendido y modo de conectividad de Azure Data Box Gateway
 
-En este artículo se describe cómo administrar el acceso, encendido y modo de conectividad de Azure Data Box Gateway. Estas operaciones se realizan mediante la interfaz de usuario web local o en Azure Portal.
+En este artículo se describe cómo administrar el acceso, encendido y modo de conectividad de Azure Data Box Gateway. Estas operaciones se realizan mediante la interfaz de usuario web local o en Azure Portal. 
 
 En este artículo aprenderá a:
 
@@ -56,30 +56,30 @@ El flujo de trabajo de restablecimiento no requiere que el usuario recupere la c
 
 ## <a name="manage-resource-access"></a>Administración del acceso a recursos
 
-Para crear un recurso de Data Box Edge o Data Box Gateway, IoT Hub y Azure Storage, necesita permisos de colaborador o superiores en el nivel del grupo de recursos. También debe registrar los proveedores de recursos correspondientes. Para las operaciones que implican credenciales y claves de activación, también se necesitan permisos para la Graph API de Azure Active Directory. Estos se describen en las secciones siguientes.
+Para crear un recurso de Azure Stack Edge/Data Box Gateway, IoT Hub y Azure Storage, necesita permisos de colaborador o superiores en el nivel del grupo de recursos. También debe registrar los proveedores de recursos correspondientes. Para las operaciones que implican credenciales y claves de activación, también se necesitan permisos para la Graph API de Azure Active Directory. Estos se describen en las secciones siguientes.
 
 ### <a name="manage-microsoft-graph-api-permissions"></a>Administración de permisos para Microsoft Graph API
 
-Cuando genere la clave de activación para el dispositivo de Data Box Edge o realice cualquier operación que requiera credenciales, necesitará permisos para Microsoft Graph API. Las operaciones que podrían necesitar credenciales son:
+Cuando genere la clave de activación para el dispositivo de Azure Stack Edge o realice cualquier operación que requiera credenciales, necesitará permisos en Microsoft Graph API. Las operaciones que podrían necesitar credenciales son:
 
 -  Crear un recurso compartido con una cuenta de almacenamiento asociada.
 -  Crear un usuario que puede tener acceso a los recursos compartidos en el dispositivo.
 
-Debe tener acceso de `User` en el inquilino de Active Directory, ya que necesita la capacidad de `Read all directory objects`. No puede ser un usuario invitado, ya que estos no tienen permisos para `Read all directory objects`. Si es un invitado, se producirán errores en operaciones como la generación de una clave de activación, la creación de un recurso compartido en el dispositivo Data Box Edge o la creación de un usuario.
+Debe tener acceso de `User` en el inquilino de Active Directory, ya que necesita la capacidad de `Read all directory objects`. No puede ser un usuario invitado, ya que estos no tienen permisos para `Read all directory objects`. Si es un invitado, se producirán errores en operaciones como la generación de una clave de activación, la creación de un recurso compartido en el dispositivo de Azure Stack Edge o la creación de un usuario.
 
 Para más información sobre cómo proporcionar a los usuarios acceso a Microsoft Graph API, consulte [Referencia de permisos de Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference).
 
 ### <a name="register-resource-providers"></a>Registro de proveedores de recursos
 
-Para aprovisionar un recurso de Azure (en el modelo de Azure Resource Manager), necesita un proveedor de recursos que sea compatible con la creación de ese recurso. Por ejemplo, para aprovisionar una máquina virtual, debe tener un proveedor de recursos "Microsoft.Compute" disponible en la suscripción.
+Para aprovisionar un recurso de Azure (en el modelo de Azure Resource Manager), necesita un proveedor de recursos que sea compatible con la creación de ese recurso. Por ejemplo, para aprovisionar una máquina virtual, debe tener un proveedor de recursos de "Microsoft.Compute" disponible en la suscripción.
  
-Los proveedores de recursos se registran en el nivel de la suscripción. De forma predeterminada, cualquier nueva suscripción a Azure se registra previamente con una lista de proveedores de recursos usados con frecuencia. El proveedor de recursos para "Microsoft.DataBoxEdge" no se incluye en esta lista.
+Los proveedores de recursos se registran en el nivel de la suscripción. De forma predeterminada, cualquier nueva suscripción a Azure se registra previamente con una lista de proveedores de recursos usados con frecuencia. El proveedor de recursos de "Microsoft.DataBoxEdge" no está incluido en esta lista.
 
-No necesita conceder permisos de acceso en el nivel de suscripción para que los usuarios puedan crear recursos como "Microsoft.DataBoxEdge" dentro de los grupos de recursos para los que tienen derechos de propietario, siempre y cuando los proveedores de recursos para estos recursos ya estén registrados.
+No necesita conceder permisos de acceso en el nivel de suscripción para que los usuarios puedan crear recursos como "Microsoft.DataBoxEdge" dentro de los grupos de recursos en los que tienen derechos de propietario, siempre y cuando los proveedores de estos recursos ya estén registrados.
 
 Antes de que intente crear cualquier recurso, asegúrese de que el proveedor de recursos está registrado en la suscripción. Si el proveedor de recursos no está registrado, deberá asegurarse de que el usuario que crea el nuevo recurso tiene derechos suficientes para registrar al proveedor de recursos necesarios en el nivel de suscripción. Si aún no lo ha hecho, verá el siguiente error:
 
-*La suscripción \<nombre de suscripción> no tiene permisos para registrar el proveedor de recursos: Microsoft.DataBoxEdge.*
+*La suscripción \<nombre de la suscripción> no tiene permisos para registrar el proveedor de recursos: Microsoft.DataBoxEdge.*
 
 
 Para obtener una lista de los proveedores de recursos registrados en la suscripción actual, ejecute el siguiente comando:
@@ -88,7 +88,7 @@ Para obtener una lista de los proveedores de recursos registrados en la suscripc
 Get-AzResourceProvider -ListAvailable |where {$_.Registrationstate -eq "Registered"}
 ```
 
-Para el dispositivo de Data Box Edge, `Microsoft.DataBoxEdge` debe registrarse. Para registrar `Microsoft.DataBoxEdge`, el administrador de suscripciones debe ejecutar el siguiente comando:
+Es necesario que `Microsoft.DataBoxEdge` esté registrado en el dispositivo de Azure Stack Edge. Para registrar `Microsoft.DataBoxEdge`, el administrador de suscripciones debe ejecutar el siguiente comando:
 
 ```PowerShell
 Register-AzResourceProvider -ProviderNamespace Microsoft.DataBoxEdge

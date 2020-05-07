@@ -1,5 +1,5 @@
 ---
-title: Cierre de la cuenta profesional o educativa en un directorio no administrado de Azure AD
+title: Cierre de la cuenta profesional o educativa en una organización no administrada de Azure AD
 description: Cierre de la cuenta profesional o educativa en una instancia de Azure Active Directory no administrada.
 services: active-directory
 author: rolyon
@@ -13,18 +13,18 @@ ms.author: rolyon
 ms.reviewer: ''
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c101c0ef7932151e675c5c514ac558e6e0f94b2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 11c337f4838279771523a1f375b7349387d68f45
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73815713"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582540"
 ---
-# <a name="close-your-work-or-school-account-in-an-unmanaged-directory"></a>Cierre de la cuenta profesional o educativa en un directorio no administrado
+# <a name="close-your-work-or-school-account-in-an-unmanaged-azure-ad-organization"></a>Cierre de la cuenta profesional o educativa en una organización no administrada de Azure AD
 
-Si es un usuario en una organización de Azure Active Directory (Azure AD) no administrada y ya no necesita usar las aplicaciones de la organización ni mantener asociación alguna con ella, puede cerrar su cuenta en cualquier momento. Un directorio no administrado no tiene un administrador global. Los usuarios de un directorio no administrado pueden cerrar sus cuentas por sí mismos, sin necesidad de ponerse en contacto con el administrador.
+Si es un usuario en una organización de Azure Active Directory (Azure AD) no administrada y ya no necesita usar las aplicaciones de la organización ni mantener asociación alguna con ella, puede cerrar su cuenta en cualquier momento. Una organización no administrada no tiene un administrador global. Los usuarios de una organización no administrada pueden cerrar sus cuentas por sí mismos, sin necesidad de ponerse en contacto con un administrador.
 
-Los usuarios de un directorio no administrado se suelen crear durante el registro de autoservicio. Un ejemplo podría ser el de un trabajador de la información de una organización, que se suscribe a un servicio gratuito. Para más información acerca del registro de autoservicio, consulte [¿Qué es el registro de autoservicio de Azure Active Directory?](directory-self-service-signup.md)
+Los usuarios de una organización no administrada se suelen crear durante el registro de autoservicio. Un ejemplo podría ser el de un trabajador de la información de una organización, que se suscribe a un servicio gratuito. Para más información acerca del registro de autoservicio, consulte [¿Qué es el registro de autoservicio de Azure Active Directory?](directory-self-service-signup.md)
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
@@ -32,7 +32,7 @@ Los usuarios de un directorio no administrado se suelen crear durante el registr
 
 Antes de cerrar la cuenta, debe confirmar los siguientes elementos:
 
-* Asegúrese de que sea un usuario de un directorio de Azure AD no administrado. No puede cerrar la cuenta si pertenece a un directorio administrado. Si pertenece a un directorio administrado y desea cerrar la cuenta, debe ponerse en contacto con el administrador. Para más información acerca de cómo determinar si pertenece a un directorio no administrado, consulte [Eliminar el usuario del inquilino no administrado](https://docs.microsoft.com/flow/gdpr-dsr-delete#delete-the-user-from-unmanaged-tenant).
+* Asegúrese de que sea un usuario de una organización de Azure AD no administrada. No puede cerrar la cuenta si pertenece a una organización administrada. Si pertenece a una organización administrada y desea cerrar la cuenta, debe ponerse en contacto con el administrador. Para más información sobre cómo determinar si pertenece a una organización no administrada, vea [Eliminar el usuario del inquilino no administrado](https://docs.microsoft.com/flow/gdpr-dsr-delete#delete-the-user-from-unmanaged-tenant).
 
 * Guarde los datos que desea conservar. Para más información acerca de cómo enviar una solicitud de exportación, consulte [Acceso y exportación de registros generados por el sistema para inquilinos no administrados](https://docs.microsoft.com/power-platform/admin/powerapps-gdpr-dsr-guide-systemlogs#accessing-and-exporting-system-generated-logs-for-unmanaged-tenants)///.
 

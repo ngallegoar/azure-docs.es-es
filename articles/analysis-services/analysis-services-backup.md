@@ -4,15 +4,15 @@ description: En este artículo se describe cómo realizar copias de seguridad y 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 04/29/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 83da2024ab74b705b45a5891f6b40251020dad31
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 02ca7f268f2998d3b7d73ab9fc00bbd688b5f50c
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80408666"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582526"
 ---
 # <a name="backup-and-restore"></a>Copia de seguridad y restauración
 
@@ -22,6 +22,9 @@ Realizar una copia de seguridad de bases de datos de modelo tabular en Azure Ana
 > La creación de una cuenta de almacenamiento puede dar lugar a un nuevo servicio facturable. Para más información, consulte [Precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/blobs/).
 > 
 > 
+
+> [!NOTE]
+> Si la cuenta de almacenamiento está en una región diferente, la configuración del firewall debe estar establecida para permitir el acceso desde **todas las redes**. No se admiten opciones de firewall configuradas para redes seleccionadas con direcciones IP que estén en la lista de permitidos ni para permitir una excepción de servicios de Microsoft de confianza.
 
 Las copias de seguridad se guardan con una extensión .abf. Para los modelos tabulares en memoria, se almacenan los datos y los metadatos del modelo. Para los modelos tabulares de consulta directa, solo se almacenan los metadatos del modelo. Las copias de seguridad se pueden comprimir y cifrar, según las opciones que elija.
 
@@ -104,5 +107,5 @@ Use el cmdlet [Restore-ASDatabase](https://docs.microsoft.com/powershell/module/
 ## <a name="related-information"></a>Información relacionada
 
 [Cuentas de almacenamiento de Azure](../storage/common/storage-create-storage-account.md)  
-[Alta disponibilidad](analysis-services-bcdr.md)     
-[Administración de Azure Analysis Services](analysis-services-manage.md)
+[Alta disponibilidad](analysis-services-bcdr.md)      
+[Preguntas frecuentes acerca de la conectividad de red de Analysis Services](analysis-services-network-faq.md)

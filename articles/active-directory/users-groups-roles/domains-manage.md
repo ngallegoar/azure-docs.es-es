@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2395aa5984de2a9fe41e4778d16aba69bfef5192
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3e21d850f03fdca300085c864a12611acb968aa8
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77559240"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582970"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Administración de los nombres de dominio personalizados en Azure Active Directory
 
@@ -41,7 +41,7 @@ Cuando se crea el directorio, el nombre de dominio inicial, por ejemplo, contoso
 
 Puede cambiar el nombre de dominio principal para el directorio de modo que sea cualquier dominio personalizado verificado que no esté federado. El hecho de cambiar el dominio principal para el directorio no cambiará los nombres de usuario existentes.
 
-## <a name="add-custom-domain-names-to-your-azure-ad-tenant"></a>Adición de nombres de dominio personalizados a su inquilino de Azure AD
+## <a name="add-custom-domain-names-to-your-azure-ad-organization"></a>Adición de nombres de dominio personalizados a la organización de Azure AD
 
 Puede agregar un máximo de 900 nombres de dominio administrados. Si quiere configurar todos los dominios para la federación con una instancia local de Active Directory, puede agregar un máximo de 450 nombres de dominio en cada directorio.
 
@@ -72,7 +72,7 @@ Puede usar la operación **ForceDelete** en un nombre de dominio en el [Centro d
 Para llamar a **ForceDelete** en Azure Portal, debe asegurarse de que hay menos de 1000 referencias en el nombre de dominio, y todas las referencias en las que Exchange sea el servicio de aprovisionamiento deben actualizarse o quitarse del [Centro de administración de Exchange](https://outlook.office365.com/ecp/). Esto incluye los grupos de seguridad habilitados para el correo electrónico de Exchange y las listas distribuidas. Para obtener más información, consulte [Quitar grupos de seguridad habilitados para correo](https://technet.microsoft.com/library/bb123521(v=exchg.160).aspx#Remove%20mail-enabled%20security%20groups). Además, la operación **ForceDelete** no se realizará correctamente si se cumple alguna de las siguientes condiciones:
 
 * Adquirió un dominio a través de servicios de suscripción del dominio de Office 365.
-* Es un asociado de administración en nombre de otro inquilino del cliente.
+* Es un asociado de administración en nombre de otra organización del cliente.
 
 Las siguientes acciones se realizan como parte de la operación **ForceDelete**:
 

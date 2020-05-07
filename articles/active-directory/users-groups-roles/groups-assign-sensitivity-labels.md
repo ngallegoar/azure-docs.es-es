@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 667fb39aabfec14cff01221b82a45ba8ad1d68d4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0e4dabad5057fda39fe3753c810a85e6aeb55b3a
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78329739"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582950"
 ---
 # <a name="assign-sensitivity-labels-to-office-365-groups-in-azure-active-directory-preview"></a>Asignación de etiquetas de confidencialidad a grupos de Office 365 en Azure Active Directory (versión preliminar)
 
@@ -112,10 +112,10 @@ Después de habilitar esta característica, las clasificaciones "clásicas" para
 
 La opción de etiqueta de confidencialidad solo se muestra para los grupos cuando se cumplen todas las condiciones siguientes:
 
-1. Las etiquetas se publican en el Centro de cumplimiento de Microsoft 365 para este inquilino.
+1. Las etiquetas se publican en el Centro de cumplimiento de Microsoft 365 de esta organización de Azure AD.
 1. La característica está habilitada, EnableMIPLabels está establecido en True en PowerShell.
 1. El grupo es un grupo de Office 365.
-1. El inquilino tiene una licencia de Azure Active Directory Premium P1.
+1. La organización tiene una licencia activa de Azure Active Directory Premium P1.
 1. El usuario que inició la sesión actual tiene privilegios suficientes para asignar etiquetas. El usuario debe ser un administrador global, un administrador de grupo o el propietario del grupo.
 
 Asegúrese de que se cumplen todas las condiciones para asignar etiquetas a un grupo.

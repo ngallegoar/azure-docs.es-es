@@ -4,13 +4,13 @@ ms.service: databox
 ms.topic: include
 ms.date: 04/16/2019
 ms.author: alkohli
-ms.openlocfilehash: 248d10e8814d195a515a658653cfc38de7dd4652
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 727b2985711b51f1474fecb014906b08d18437cb
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67186960"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562139"
 ---
-- Para acceder al servicio Data Box Edge, la organización necesita tener una suscripción a Contrato Enterprise (EA) o a Proveedor de soluciones en la nube. Para más información, consulte [Registro para una suscripción a Azure](https://azure.microsoft.com/resources/videos/sign-up-for-microsoft-azure/).
+- Para acceder al servicio Azure Stack Edge, la organización necesita tener una suscripción a Contrato Enterprise (EA) o a Proveedor de soluciones en la nube. Para más información, consulte [Registro para una suscripción a Azure](https://azure.microsoft.com/resources/videos/sign-up-for-microsoft-azure/).
 - Dado que el servicio de administración está hospedado en Azure, se encuentra protegido por las características de seguridad de Azure. Para obtener más información acerca de las características de seguridad que proporciona Azure, visite el [Centro de confianza de Microsoft Azure](https://azure.microsoft.com/support/trust-center/security/).
 - Para las operaciones de administración de SDK, puede obtener la clave de cifrado para el recurso en las **propiedades del dispositivo**. Puede ver la clave de cifrado solo si tiene permisos para Resource Graph API.
